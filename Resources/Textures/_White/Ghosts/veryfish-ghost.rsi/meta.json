@@ -1,0 +1,14 @@
+{
+  "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "@skyvesto",
+  "size": {
+    "x": 150,
+    "y": 150
+  },
+  "states": [
+    {
+      "name": "animated"
+    }
+  ]
+}
