@@ -38,10 +38,6 @@
                                 <Button Name="ReconnectButton" Text="{Loc 'connecting-reconnect'}"
                                         HorizontalAlignment="Left" StyleClasses="DisplayLabel12"
                                         VerticalExpand="True" VerticalAlignment="Bottom" />
-                                <Button Name="RedialButton" Text="{Loc 'connecting-redial'}"
-                                        Disabled="True" StyleClasses="DisplayLabel12"
-                                        HorizontalAlignment="Left"
-                                        VerticalExpand="True" VerticalAlignment="Bottom" />
                             </BoxContainer>
                         </Control>
                         <BoxContainer Orientation="Horizontal">
