@@ -4,9 +4,9 @@
   description: job-description-security
   playTimeTracker: JobSecurityOfficer
   requirements:
-    # - !type:CharacterDepartmentTimeRequirement # WWDP
-    #   department: Security
-    #   min: 36000 # 10 hours
+  # - !type:CharacterDepartmentTimeRequirement # WWDP
+  #   department: Security
+  #   min: 36000 # 10 hours
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
@@ -50,13 +50,14 @@
   - SecurityOfficerPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSec
-    back: ClothingBackpackSecurityFilled # WWDP
-    shoes: ClothingShoesBootsJack # WWDP
-    # eyes: ClothingEyesGlassesSunglasses # WWDP moved everything to lockers
-    # head: ClothingHeadHelmetBasic # WWDP
-    # outerClothing: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier # WWDP
+    back: ClothingBackpackSecurity # WD EDIT: ClothingBackpackSecurity -> ClothingBackpackSecurityFilled
+    shoes: ClothingShoesBootsCombatFilled # WD EDIT: ClothingShoesBootsCombatFilled -> ClothingShoesBootsJack
+    # eyes: ClothingEyesGlassesSecurity - WD EDIT
+    # head: ClothingHeadHelmetBasic - WD EDIT
+    # outerClothing: ClothingOuterArmorPlateCarrier - WD EDIT
     id: SecurityPDA
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
+    # belt: ClothingBeltSecurityFilled - WD EDIT
   innerClothingSkirt: ClothingUniformJumpskirtSec
   satchel: ClothingBackpackSatchelSecurity
   duffelbag: ClothingBackpackDuffelSecurity

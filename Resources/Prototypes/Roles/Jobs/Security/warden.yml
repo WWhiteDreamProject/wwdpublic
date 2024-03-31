@@ -57,12 +57,13 @@
   equipment:
     head: ClothingHeadHatWarden
     jumpsuit: ClothingUniformJumpsuitWarden
-    back: ClothingBackpackSecurityFilled # WWDP
-    shoes: ClothingShoesBootsJack # WWDP
-    # eyes: ClothingEyesGlassesSunglasses # WWDP
-    # outerClothing: ClothingOuterCoatWarden # WWDP
+    back: ClothingBackpackSecurityFilled # WD EDIT: ClothingBackpackSecurity -> ClothingBackpackSecurityFilled
+    shoes: ClothingShoesBootsJack # WD EDIT: ClothingShoesBootsCombatFilled -> ClothingShoesBootsJack
+    # eyes: ClothingEyesGlassesSecurity - WD EDIT
+    # outerClothing: ClothingOuterCoatWarden - WD EDIT
     id: WardenPDA
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
+    # belt: ClothingBeltSecurityFilled - WD EDIT
   innerClothingSkirt: ClothingUniformJumpskirtWarden
   satchel: ClothingBackpackSatchelSecurity
   duffelbag: ClothingBackpackDuffelSecurity

@@ -396,7 +396,7 @@
     - BluespaceBeaker
     - SyringeBluespace
     #  - WeaponForceGun
-    - WeaponLaserSvalinn
+    - WeaponLaserSvalinn      WeaponLaserSvalinn
     # - WeaponCivilianDisabler # WWDP disabled (xd)
     - WeaponProtoKineticAccelerator
     #  - WeaponTetherGun
@@ -641,18 +641,6 @@
     - SMESAdvancedMachineCircuitboard
     - BaseComputerModularCircuitBoard # Arcadis - Modular Computer System
     - DiskBurnerMachineCircuitboard # Arcadis - Modular Computer System
-    # WD edit start - constructible AI
-    - StationAICoreCircuitboard
-    - StationAiUploadCircuitboard
-    - AsimovCircuitBoard
-    - CorporateCircuitBoard
-    - NTDefaultCircuitBoard
-    - MotherDroneCircuitBoard
-    - NutimovCircuitBoard
-    - PaladinCircuitBoard
-    - RobocopCircuitBoard
-    - QuarantineCircuitBoard
-    # WD edit end
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - ShuttleGunDusterCircuitboard
@@ -1028,7 +1016,6 @@
     # - WeaponRifleGestio
     # - MagazineMagnumLeverRifle # Goobstation
     # - MagazineMagnumLeverRifleEmpty # Goobstation
-    # - ClothingEyesGlassesSecurity # WWDP no infinite sechuds
     - TelescopicShield
     - HoloprojectorSecurity
     - BolaEnergy
@@ -1263,6 +1250,7 @@
     # .35 Caseless (Box Mag) Rifle
     # - MagazineBoxCaselessRiflePractice # EE
     # - MagazineBoxCaselessRifle # EE
+    # WD EDIT END
     - MagazineLightRifleMarkOneEmpty
     - MagazineLightRifleMarkOne
   - type: MaterialStorage
