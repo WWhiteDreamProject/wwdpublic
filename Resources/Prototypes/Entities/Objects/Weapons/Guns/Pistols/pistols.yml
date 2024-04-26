@@ -7,10 +7,10 @@
   components:
   - type: Sprite
     layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-0
-        map: ["enum.GunVisualLayers.Mag"]
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
   - type: Item
     size: Small
     shape:
@@ -38,8 +38,8 @@
     defaultDirection: 1, 0 # wwdp
     selectedMode: SemiAuto
     availableModes:
-      - SemiAuto
-      - FullAuto
+    - SemiAuto
+    - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
   - type: ChamberMagazineAmmoProvider
@@ -55,14 +55,14 @@
         priority: 2
         whitelist:
           tags:
-            - MagazinePistol
+          - MagazinePistol
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistol
         priority: 1
         whitelist:
           tags:
-            - CartridgePistol
+          - CartridgePistol
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -119,15 +119,15 @@
         priority: 2
         whitelist:
           tags:
-            - MagazinePistol
-            - MagazinePistolHighCapacity
+          - MagazinePistol
+          - MagazinePistolHighCapacity
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistol
         priority: 1
         whitelist:
           tags:
-            - CartridgePistol
+          - CartridgePistol
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -136,8 +136,8 @@
     fireRate: 6
     selectedMode: SemiAuto
     availableModes:
-      - SemiAuto
-      - FullAuto
+    - SemiAuto
+    - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
     fireOnDropChance: 0.3
@@ -158,22 +158,22 @@
         priority: 2
         whitelist:
           tags:
-            - MagazinePistol
-            - MagazinePistolHighCapacity
+          - MagazinePistol
+          - MagazinePistolHighCapacity
       gun_chamber:
         name: Chamber
         startingItem: null
         priority: 1
         whitelist:
           tags:
-            - CartridgePistol
+          - CartridgePistol
 
 - type: entity
   name: viper
   parent: WeaponPistolViper
   id: WeaponPistolViperSecurity
   description: A small, easily concealable, but somewhat underpowered gun, produced by a bulk arms manufacturer now defunct for over a century.
-               Uses .35 auto ammo. The serial number on the handguard marks this gun as belonging to an NT Security Officer.
+    Uses .35 auto ammo. The serial number on the handguard marks this gun as belonging to an NT Security Officer.
   suffix: Security Loadouts
   components:
   - type: GuideHelp
@@ -216,14 +216,14 @@
         priority: 2
         whitelist:
           tags:
-            - MagazinePistolCaselessRifle
+          - MagazinePistolCaselessRifle
       gun_chamber:
         name: Chamber
         startingItem: CartridgeCaselessRifle
         priority: 1
         whitelist:
           tags:
-            - CartridgeCaselessRifle
+          - CartridgeCaselessRifle
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -245,14 +245,14 @@
         priority: 2
         whitelist:
           tags:
-            - MagazinePistolCaselessRifle
+          - MagazinePistolCaselessRifle
       gun_chamber:
         name: Chamber
         startingItem: null
         priority: 1
         whitelist:
           tags:
-            - CartridgeCaselessRifle
+          - CartridgeCaselessRifle
 
 - type: entity
   name: mk 58
@@ -293,21 +293,21 @@
         priority: 2
         whitelist:
           tags:
-            - MagazinePistol
+          - MagazinePistol
       gun_chamber:
         name: Chamber
         startingItem: null
         priority: 1
         whitelist:
           tags:
-            - CartridgePistol
+          - CartridgePistol
 
 - type: entity
   name: mk 58
   parent: WeaponPistolMk58
   id: WeaponPistolMk58Security
   description: A cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Uses .35 auto ammo.
-               The serial number on the handguard marks this gun as belonging to an NT Security Officer.
+    The serial number on the handguard marks this gun as belonging to an NT Security Officer.
   suffix: Security Loadouts
   components:
   - type: GuideHelp
@@ -350,14 +350,14 @@
         priority: 2
         whitelist:
           tags:
-            - MagazineMagnum
+          - MagazineMagnum
       gun_chamber:
         name: Chamber
         startingItem: CartridgeMagnum
         priority: 1
         whitelist:
           tags:
-            - CartridgeMagnum
+          - CartridgeMagnum
 
 - type: entity
   name: N1984
@@ -375,21 +375,21 @@
         priority: 2
         whitelist:
           tags:
-            - MagazineMagnum
+          - MagazineMagnum
       gun_chamber:
         name: Chamber
         startingItem: null
         priority: 1
         whitelist:
           tags:
-            - CartridgeMagnum
+          - CartridgeMagnum
 
 - type: entity
   name: N1984
   parent: WeaponPistolN1984
   id: WeaponPistolN1984Security # the spaces in description are for formatting.
   description: The sidearm of any self respecting officer.     Comes in .45 magnum, the lord's caliber.
-               The serial number on the handguard marks this gun as belonging to an NT Security Officer.
+    The serial number on the handguard marks this gun as belonging to an NT Security Officer.
   suffix: Security Loadouts
   components:
   - type: GuideHelp
