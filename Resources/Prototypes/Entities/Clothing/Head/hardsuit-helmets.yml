@@ -201,7 +201,7 @@
         Heat: 0.9
   - type: FlashImmunity # WD EDIT
   - type: FlashSoundSuppression # WD EDIT
-  
+
 
 #Brigmedic Hardsuit
 - type: entity
@@ -794,10 +794,6 @@
         Radiation: 0.80
         Caustic: 0.95
   # WD EDIT START
-  - type: ClothingGrantComponent
-    component:
-    - type: ThermalVision
-    - type: NightVision
   - type: EyeProtection
   - type: FlashImmunity
   - type: FlashSoundSuppression
