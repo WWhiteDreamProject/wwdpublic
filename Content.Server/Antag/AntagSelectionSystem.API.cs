@@ -26,6 +26,11 @@ public sealed partial class AntagSelectionSystem
         if (mindCount >= totalTargetCount)
             return false;
 
+        // TODO ANTAG fix this
+        // If here are two definitions with 1/10 and 10/10 slots filled, this will always return the second definition
+        // even though it has already met its target
+        // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA I fucking hate game ticker code.
+        // It needs to track selected minds for each definition independently.
         foreach (var def in ent.Comp.Definitions)
         {
             var target = GetTargetAntagCount(ent, null, def);
@@ -63,7 +68,13 @@ public sealed partial class AntagSelectionSystem
     /// </summary>
     public int GetTargetAntagCount(Entity<AntagSelectionComponent> ent, AntagSelectionPlayerPool? pool, AntagSelectionDefinition def)
     {
-        var poolSize = pool?.Count ?? _playerManager.Sessions.Length;
+        // TODO ANTAG
+        // make pool non-nullable
+        // Review uses and ensure that people are INTENTIONALLY including players in the lobby if this is a mid-round
+        // antag selection.
+        var poolSize = pool?.Count ?? _playerManager.Sessions
+            .Count(s => s.State.Status is not SessionStatus.Disconnected and not SessionStatus.Zombie);
+
         // factor in other definitions' affect on the count.
         var countOffset = 0;
         foreach (var otherDef in ent.Comp.Definitions)
@@ -278,7 +289,7 @@ public sealed partial class AntagSelectionSystem
 
         if (!TryGetNextAvailableDefinition(rule, out var def))
             def = rule.Comp.Definitions.Last();
-        
+
         MakeAntag(rule, player, def.Value);
     }
 
