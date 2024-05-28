@@ -20,6 +20,7 @@ using Content.Shared.Power;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Content.Shared.VendingMachines;
+using Content.Shared.Wall;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -35,12 +36,13 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly AccessReaderSystem _accessReader = default!;
         [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly SharedActionsSystem _action = default!;
-        [Dependency] private readonly SharedAudioSystem _audioSystem = default!; //  WD EDIT
         [Dependency] private readonly PricingSystem _pricing = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly SpeakOnUIClosedSystem _speakOnUIClosed = default!;
+
+        private const float WallVendEjectDistanceFromWall = 1f;
 
         public override void Initialize()
         {
@@ -402,11 +404,21 @@ namespace Content.Server.VendingMachines
                 vendComponent.ThrowNextItem = false;
                 return;
             }
-            // WWDP edit start - added dispense offset
-            var offset = Transform(uid).LocalRotation.RotateVec(vendComponent.DispenseOffset);
-            var coords = Transform(uid).Coordinates.Offset(offset);
-            var ent = Spawn(vendComponent.NextItemToEject, coords);
-            // WWDP edit end
+
+            // Default spawn coordinates
+            var spawnCoordinates = Transform(uid).Coordinates;
+
+            //Make sure the wallvends spawn outside of the wall.
+
+            if (TryComp<WallMountComponent>(uid, out var wallMountComponent))
+            {
+
+                var offset = wallMountComponent.Direction.ToWorldVec() * WallVendEjectDistanceFromWall;
+                spawnCoordinates = spawnCoordinates.Offset(offset);
+            }
+
+            var ent = Spawn(vendComponent.NextItemToEject, spawnCoordinates);
+
             if (vendComponent.ThrowNextItem)
             {
                 var range = vendComponent.NonLimitedEjectRange;
