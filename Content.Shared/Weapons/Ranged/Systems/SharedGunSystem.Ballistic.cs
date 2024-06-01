@@ -20,7 +20,6 @@ public abstract partial class SharedGunSystem
     [Dependency] private readonly IPrototypeManager _proto = default!; // WWDP
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!; // WWDP
 
-
     protected virtual void InitializeBallistic()
     {
         SubscribeLocalEvent<BallisticAmmoProviderComponent, ComponentInit>(OnBallisticInit);
@@ -314,7 +313,10 @@ public abstract partial class SharedGunSystem
         if (Resolve(uid, ref gunComp, false)
             && gunComp is { FireRateModified: > 0f }
             && !Paused(uid))
+        {
             gunComp.NextFire = Timing.CurTime + TimeSpan.FromSeconds(1 / gunComp.FireRateModified);
+            Dirty(uid, gunComp);
+        }
 
 
         Dirty(uid, component);
