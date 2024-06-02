@@ -215,7 +215,6 @@
   id: ActionSpawnRift
   name: Summon Carp Rift
   description: Summons a carp rift that will periodically spawns carps.
-  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon:
@@ -229,7 +228,6 @@
   id: ActionDevour
   name: "[color=red]Devour[/color]"
   description: Attempt to break a structure with your jaws or swallow a creature.
-  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     icon: { sprite : Interface/Actions/devour.rsi, state: icon }
@@ -238,7 +236,6 @@
     priority: 1
 
 - type: entity
-  categories: [ HideSpawnMenu ]
   id: ActionDragonsBreath
   name: "[color=orange]Dragon's Breath[/color]"
   description: Spew out flames at anyone foolish enough to attack you!

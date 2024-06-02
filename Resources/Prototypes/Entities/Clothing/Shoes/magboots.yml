@@ -99,8 +99,8 @@
       volume: 0.75
       temperature: 293.15
       moles:
-        - 0.153853429 # oxygen
-        - 0.153853429 # nitrogen
+      - 0.153853429 # oxygen
+      - 0.153853429 # nitrogen
   - type: ActivatableUI
     key: enum.SharedGasTankUiKey.Key
   - type: UserInterface
@@ -121,7 +121,7 @@
     weightlessModifier: 1.2
   - type: Tag
     tags:
-      - WhitelistChameleon
+    - WhitelistChameleon
   - type: Item
     sprite: null
     size: Normal
@@ -177,10 +177,10 @@
     staminaCost: 15
   - type: ClothingSlowOnDamageModifier
     modifier: 0.8
-# WD EDIT START
-#  - type: ClothingModifyStunTime # Goobstation
-#    modifier: 0.8
-# WD EDIT END
+  # WD EDIT START
+  #  - type: ClothingModifyStunTime # Goobstation
+  #    modifier: 0.8
+  # WD EDIT END
   - type: Matchbox
   - type: ItemSlots
     slots:
@@ -202,7 +202,6 @@
   id: ActionToggleMagboots
   name: Toggle Magboots
   description: Toggles the magboots on and off.
-  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     itemIconStyle: BigItem
