@@ -4,16 +4,16 @@
   description: job-description-paramedic
   playTimeTracker: JobParamedic
   requirements:
-    # WD EDIT START
-    - !type:CharacterDepartmentTimeRequirement
-      department: Medical
-      min: 28800 # DeltaV - 8 hours
-    # WD EDIT END
-    - !type:CharacterEmployerRequirement
-      employers:
-      - Interdyne
-      - NanoTrasen
-      - ZengHuPharmaceuticals
+  # WD EDIT START
+  # - !type:CharacterDepartmentTimeRequirement
+  #   department: Medical
+  #   min: 28800
+  # WD EDIT END
+  - !type:CharacterEmployerRequirement
+    employers:
+    - Interdyne
+    - NanoTrasen
+    - ZengHuPharmaceuticals
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo
@@ -37,7 +37,7 @@
   - ParamedicPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitParamedic
-    back: ClothingBackpackParamedicFilledDV
+    back: ClothingBackpackParamedic
     shoes: ClothingShoesColorBlue
     id: ParamedicPDA
     ears: ClothingHeadsetMedical
@@ -46,12 +46,16 @@
     # pocket1: HandheldGPSBasic
     # pocket2: HandheldCrewMonitor
     # WD EDIT END
+  storage:
+    back:
+    - EmergencyRollerBedSpawnFolded
+    - BodyBagFolded
+    - Portafib
 
 - type: startingGear
   id: ParamedicPlasmamanGear
-  parent: BasePlasmamanGear
+  parent: BasePlasmamanMaskGear
   equipment:
     jumpsuit: ClothingUniformEnvirosuitParamedic
     head: ClothingHeadEnvirohelmParamedic
     gloves: ClothingHandsGlovesEnviroglovesNitrile
-    shoes: ClothingShoesColorBlue

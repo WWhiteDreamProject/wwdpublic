@@ -56,13 +56,21 @@
   - HoSPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoS
-    back: ClothingBackpackHOSFilled
+    back: ClothingBackpackHOS
     shoes: ClothingShoesBootsCombatFilled
     # eyes: ClothingEyesGlassesSecurity - WD EDIT
     id: HoSPDA
     # gloves: ClothingHandsGlovesCombat - WD EDIT
     ears: ClothingHeadsetAltSecurity
     # belt: ClothingBeltSecurityFilled - WD EDIT
+  storage:
+    back:
+    # WD EDIT START
+    # - Flash
+    # - MagazinePistol
+    - TelescopicBaton
+    - WeaponEnergyGunMultiphase
+    # WD EDIT END
 
 - type: startingGear
   id: HoSPlasmamanGear

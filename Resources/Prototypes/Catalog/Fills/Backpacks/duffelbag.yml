@@ -7,7 +7,7 @@
   - type: StorageFill
     contents:
       - id: Hemostat
-      - id: SawElectric # Shitmed Change
+      - id: Saw
       - id: Drill
       - id: Cautery
       - id: Retractor
@@ -22,7 +22,7 @@
   - type: StorageFill
     contents:
     - id: BoxSurvivalEngineering
-    - id: WeaponShotgunBulldog # WWDP
+    - id: WeaponShotgunBulldog # WD EDIT: WeaponShotgunDoubleBarreled -> WeaponShotgunBulldog
     - id: BoxShotgunIncendiary
       amount: 2
     - id: GrenadeFlashBang
@@ -30,9 +30,11 @@
     - id: PillAmbuzolPlus
     - id: PillAmbuzol
       amount: 4
-    - id: MedicatedSuture # WWDP
-    - id: RegenerativeMesh # WWDP
-    - id: CrowbarRed # WWDP
+    # WD EDIT START
+    - id: MedicatedSuture
+    - id: RegenerativeMesh
+    - id: CrowbarRed
+    # WD EDIT END
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
@@ -74,7 +76,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: WeaponSubMachineGunC20rEmpty
+    - id: WeaponSubMachineGunC20rEmpty
 #     - id: SMGSuppressor
 
 - type: entity
@@ -142,16 +144,15 @@
     contents:
       - id: MagazinePistolSubMachineGun
         amount: 4
-      - id: MagazineRifle # goobstation - m90がアップリンクに戻る
+      - id: MagazineRifle
         amount: 3
       - id: MagazineShotgun
         amount: 4
       - id: MagazineLightRifleBox
         amount: 2
-      - id: MagazineHighCaliber # Goobstation - Burner Heavy Assault Rifle
+      - id: MagazineHighCaliber
         amount: 1
-      - id: MagazineHighCaliberExplosive # Goobstation - Burner Heavy Assault Rifle
-
+      - id: MagazineHighCaliberExplosive
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateAmmo
@@ -161,12 +162,12 @@
   components:
   - type: StorageFill
     contents:
-      - id: MagazinePistolSubMachineGunIncendiary
-        amount: 4
-      - id: MagazineShotgunIncendiary
-        amount: 4
-      - id: MagazineLightRifleBoxIncendiary
-        amount: 2
+    - id: MagazinePistolSubMachineGunIncendiary
+      amount: 4
+    - id: MagazineShotgunIncendiary
+      amount: 4
+    - id: MagazineLightRifleBoxIncendiary
+      amount: 2
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateAmmo
@@ -176,12 +177,12 @@
   components:
   - type: StorageFill
     contents:
-      - id: MagazinePistolSubMachineGunShrapnel
-        amount: 4
-      - id: MagazineShotgunBirdshot
-        amount: 4
-      - id: MagazineLightRifleBoxShrapnel
-        amount: 2
+    - id: MagazinePistolSubMachineGunShrapnel
+      amount: 4
+    - id: MagazineShotgunBirdshot
+      amount: 4
+    - id: MagazineLightRifleBoxShrapnel
+      amount: 2
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -267,8 +268,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: C4
-        amount: 8
+    - id: C4
+      amount: 8
 
 - type: entity
   parent: ClothingBackpackChameleon
@@ -312,10 +313,10 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterArmorRaid
-      - id: ClothingHeadHelmetRaid
-      - id: ClothingMaskGasSyndicate
-      - id: ClothingHandsGlovesCombat
+    - id: ClothingOuterArmorRaid
+    - id: ClothingHeadHelmetRaid
+    - id: ClothingMaskGasSyndicate
+    - id: ClothingHandsGlovesCombat
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -345,7 +346,6 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
-      - id: DoubleEmergencyPlasmaTankFilled
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -377,39 +377,6 @@
         amount: 3
 
 - type: entity
-  parent: ClothingBackpackDuffelSyndicateBundle
-  id: ClothingBackpackDuffelSyndicateOperative
-  name: operative duffelbag
-  components:
-  - type: StorageFill
-    contents:
-      - id: BoxSurvivalSyndicate
-      - id: WeaponPistolViper
-      - id: PinpointerSyndicateNuclear
-      - id: DeathAcidifierImplanter
-
-
-- type: entity
-  parent: ClothingBackpackDuffelSyndicateMedicalBundle
-  id: ClothingBackpackDuffelSyndicateOperativeMedic
-  name: operative medic duffelbag
-  description: A large duffel bag for holding extra medical supplies.
-  components:
-  - type: StorageFill
-    contents:
-      - id: SyndiHypo
-      - id: BoxSurvivalSyndicate
-      - id: SawAdvanced
-      - id: Cautery
-      - id: CombatKnife
-      - id: WeaponPistolViper
-      - id: PinpointerSyndicateNuclear
-      - id: HandheldHealthAnalyzer
-      - id: CombatMedipen
-      - id: DeathAcidifierImplanter
-      - id: OmnimedToolSyndie # Shitmed Change
-
-- type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
   id: ClothingBackpackDuffelSyndicateMedicalBundleFilled
   name: medical bundle
@@ -417,19 +384,19 @@
   components:
   - type: StorageFill
     contents:
-      - id: DefibrillatorSyndicate
-      - id: MedkitCombatFilled
-        amount: 4
-      - id: Tourniquet
-        amount: 4
-      - id: CombatMedipen
-        amount: 4
-      - id: PunctAutoInjector
-        amount: 4
-      - id: PyraAutoInjector
-        amount: 4
-      - id: AirlossAutoInjector
-        amount: 4
+    - id: DefibrillatorSyndicate
+    - id: MedkitCombatFilled
+      amount: 4
+    - id: Tourniquet
+      amount: 4
+    - id: CombatMedipen
+      amount: 4
+    - id: PunctAutoInjector
+      amount: 4
+    - id: PyraAutoInjector
+      amount: 4
+    - id: AirlossAutoInjector
+      amount: 4
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -458,4 +425,4 @@
   components:
   - type: StorageFill
     contents:
-      - id: WeaponSubMachineGunFPA90Empty
+    - id: WeaponSubMachineGunFPA90Empty

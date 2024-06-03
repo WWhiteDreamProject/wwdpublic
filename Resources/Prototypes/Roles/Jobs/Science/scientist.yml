@@ -4,15 +4,15 @@
   description: job-description-scientist
   playTimeTracker: JobScientist
   requirements:
-    # WD EDIT START
-    # - !type:CharacterDepartmentTimeRequirement
-    #   department: Epistemics
-    #   min: 14400 #4 hrs
-    # WD EDIT END
-    - !type:CharacterEmployerRequirement
-      employers:
-      - NanoTrasen
-      - ZengHuPharmaceuticals
+  # WD EDIT START
+  # - !type:CharacterDepartmentTimeRequirement
+  #   department: Epistemics
+  #   min: 14400 #4 hrs
+  # WD EDIT END
+  - !type:CharacterEmployerRequirement
+    employers:
+    - NanoTrasen
+    - ZengHuPharmaceuticals
   startingGear: ScientistGear
   icon: "JobIconScientist"
   supervisors: job-supervisors-rd
@@ -26,7 +26,7 @@
   - ScientistPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitScientist
-    back: ClothingBackpackScienceFilled
+    back: ClothingBackpackScience
     shoes: ClothingShoesColorWhite
     # outerClothing: ClothingOuterCoatRnd - WD EDIT
     id: SciencePDA
@@ -35,7 +35,7 @@
 
 - type: startingGear
   id: ScientistPlasmamanGear
-  parent: BasePlasmamanGear
+  parent: BasePlasmamanMaskGear
   equipment:
     jumpsuit: ClothingUniformEnvirosuitScientist
     head: ClothingHeadEnvirohelmScientist

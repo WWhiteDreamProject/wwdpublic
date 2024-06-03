@@ -4,30 +4,30 @@
   description: job-description-security
   playTimeTracker: JobSecurityOfficer
   requirements:
-    # WD EDIT START
-    # - !type:CharacterDepartmentTimeRequirement
-    #   department: Security
-    #   min: 36000 # 10 hours
-    # WD EDIT END
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-        - Foreigner
-        - ForeignerLight
-        - Muted
-        - Blindness
-        - Pacifist
-        - BrittleBoneDisease
-    - !type:CharacterEmployerRequirement
-      employers:
-      - ZavodskoiInterstellar
-      - PMCG
-      - NanoTrasen
-      - EastOrionCompany
-    # WD EDIT START
-    - !type:CharacterOverallTimeRequirement
-      min: 3600
-    # WD EDIT END
+  # WD EDIT START
+  # - !type:CharacterDepartmentTimeRequirement
+  #   department: Security
+  #   min: 36000 # 10 hours
+  # WD EDIT END
+  - !type:CharacterTraitRequirement
+    inverted: true
+    traits:
+    - Foreigner
+    - ForeignerLight
+    - Muted
+    - Blindness
+    - Pacifist
+    - BrittleBoneDisease
+  - !type:CharacterEmployerRequirement
+    employers:
+    - ZavodskoiInterstellar
+    - PMCG
+    - NanoTrasen
+    - EastOrionCompany
+  # WD EDIT START
+  - !type:CharacterOverallTimeRequirement
+    min: 3600
+  # WD EDIT END
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
@@ -53,7 +53,7 @@
   - SecurityOfficerPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSec
-    back: ClothingBackpackSecurityFilled # WD EDIT: ClothingBackpackSecurity -> ClothingBackpackSecurityFilled
+    back: ClothingBackpackSecurity
     shoes: ClothingShoesBootsJack # WD EDIT: ClothingShoesBootsCombatFilled -> ClothingShoesBootsJack
     # eyes: ClothingEyesGlassesSecurity - WD EDIT
     # head: ClothingHeadHelmetBasic - WD EDIT
@@ -61,6 +61,9 @@
     id: SecurityPDA
     ears: ClothingHeadsetAltSecurityRegular
     # belt: ClothingBeltSecurityFilled - WD EDIT
+  storage:
+    back:
+    - WeaponEnergyGunPistolSecurity # WD EDIT
 
 - type: startingGear
   id: SecurityOfficerPlasmamanGear

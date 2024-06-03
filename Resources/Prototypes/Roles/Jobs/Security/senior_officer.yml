@@ -62,11 +62,14 @@
   - SecurityOfficerPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorOfficer
-    back: ClothingBackpackSecurityFilled # WD EDIT: ClothingBackpackSecurity -> ClothingBackpackSecurityFilled
-    shoes: ClothingShoesBootsJack # WD EDIT: ClothingBackpackSecurityFilled -> ClothingShoesBootsJack
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsJack # WD EDIT: ClothingShoesBootsJackFilled -> ClothingShoesBootsJack
     # eyes: ClothingEyesGlassesSecurity - WD EDIT
     head: ClothingHeadHatBeretSecurity
     # outerClothing: ClothingOuterArmorPlateCarrier - WD EDIT
     id: SeniorOfficerPDA
     ears: ClothingHeadsetSecurity
     # belt: ClothingBeltSecurityFilled - WD EDIT
+  storage:
+    back:
+    - WeaponEnergyGunPistolSecurity # WD EDIT

@@ -12,17 +12,17 @@
   - !type:CharacterTraitRequirement
     inverted: true
     traits:
-      - Foreigner
-      - ForeignerLight
-      - Muted
-      - Blindness
-      - Pacifist
-      - BrittleBoneDisease
+    - Foreigner
+    - ForeignerLight
+    - Muted
+    - Blindness
+    - Pacifist
+    - BrittleBoneDisease
   - !type:CharacterEmployerRequirement
-      employers:
-      - ZavodskoiInterstellar
-      - PMCG
-      - NanoTrasen
+    employers:
+    - ZavodskoiInterstellar
+    - PMCG
+    - NanoTrasen
   # WD EDIT START
   - !type:CharacterOverallTimeRequirement
     min: 3600
