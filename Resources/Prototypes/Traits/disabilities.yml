@@ -84,18 +84,27 @@
         - type: Pacified
 
 - type: trait
-  id: Paracusia
-  category: Auditory
+  id: Uncloneable
+  category: Physical
   points: 1
+  requirements:
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - Borg
+    - MedicalBorg
+  - !type:CharacterLifepathRequirement
+    inverted: true
+    lifepaths:
+    - Clone
+  - !type:CharacterSpeciesRequirement
+    inverted: true
+    species:
+    - IPC
   functions:
-    - !type:TraitAddComponent
-      components:
-        - type: Paracusia
-          minTimeBetweenIncidents: 0.1
-          maxTimeBetweenIncidents: 300
-          maxSoundDistance: 7
-          sounds:
-            collection: Paracusia
+  - !type:TraitAddComponent
+    components:
+    - type: Uncloneable
 
 - type: trait
   id: Muted
@@ -119,49 +128,43 @@
         - Sign
 
 - type: trait
-  id: Uncloneable
+  id: LightweightDrunk
   category: Physical
-  points: 1
   requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Borg
-        - MedicalBorg
-    - !type:CharacterLifepathRequirement
-      inverted: true
-      lifepaths:
-        - Clone
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - IPC
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - Borg
+    - MedicalBorg
+  - !type:CharacterTraitRequirement
+    inverted: true
+    traits:
+    - HeavyweightDrunk
+    - LiquorLifeline
+  - !type:CharacterSpeciesRequirement
+    inverted: true
+    species:
+    - Dwarf
+    - IPC
   functions:
-    - !type:TraitAddComponent
-      components:
-        - type: Uncloneable
+  - !type:TraitAddComponent
+    components:
+    - type: LightweightDrunk
+      boozeStrengthMultiplier: 2
 
 - type: trait
-  id: FrontalLisp
-  # slots: 0
-  # itemGroupSlots: 0
-  category: TraitsSpeechAccents
-  requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Borg
-        - MedicalBorg
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - IPC
-    - !type:CharacterItemGroupRequirement
-      group: TraitsAccents
+  id: Paracusia
+  category: Auditory
+  points: 1
   functions:
-    - !type:TraitAddComponent
-      components:
-        - type: FrontalLisp
+  - !type:TraitAddComponent
+    components:
+    - type: Paracusia
+      minTimeBetweenIncidents: 0.1
+      maxTimeBetweenIncidents: 300
+      maxSoundDistance: 7
+      sounds:
+        collection: Paracusia
 
 - type: trait
   id: Snoring
@@ -353,3 +356,126 @@
               Piercing: 4
             groups:
               Burn: 3
+
+- type: trait
+  id: NormalVision
+  category: Visual
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Harpy
+    - Vulpkanin
+  functions:
+  - !type:TraitRemoveComponent
+    components:
+    - type: UltraVision
+    - type: DogVision
+
+- type: trait
+  id: Saturnine
+  category: Mental
+  points: 2
+  requirements:
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - Borg
+    - MedicalBorg
+  - !type:CharacterTraitRequirement
+    inverted: true
+    traits:
+    - Sanguine
+  functions:
+  - !type:TraitAddMoodlets
+    moodEffects:
+    - TraitSaturnine
+
+- type: trait
+  id: Sanguine
+  category: Mental
+  points: -2
+  requirements:
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - Borg
+    - MedicalBorg
+  - !type:CharacterTraitRequirement
+    inverted: true
+    traits:
+    - Saturnine
+  functions:
+  - !type:TraitAddMoodlets
+    moodEffects:
+    - TraitSanguine
+
+- type: trait
+  id: AddictionNicotine
+  category: Mental
+  points: 1
+  requirements:
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - Borg
+    - MedicalBorg
+  - !type:CharacterSpeciesRequirement
+    inverted: true
+    species:
+    - IPC
+  functions:
+  - !type:TraitAddMoodlets
+    moodEffects:
+    - NicotineWithdrawal
+
+- type: trait
+  id: Manic
+  category: Mental
+  points: 0
+  requirements:
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - Borg
+    - StationAi
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: Manic
+
+- type: trait
+  id: Mercurial
+  category: Mental
+  points: 0
+  requirements:
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - Borg
+    - StationAi
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: Mercurial
+
+- type: trait
+  id: DeadEmotions
+  category: Mental
+  points: -5
+  requirements:
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - Borg
+    - StationAi
+  - !type:CharacterTraitRequirement
+    inverted: true
+    traits:
+    - Sanguine
+    - Saturnine
+    - Manic
+    - Mercurial
+  functions:
+  - !type:TraitRemoveComponent
+    components:
+    - type: Mood
