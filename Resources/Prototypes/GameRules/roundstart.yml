@@ -1,12 +1,10 @@
 - type: entity
   id: BaseGameRule
   abstract: true
-  categories: [ HideSpawnMenu ]
   components:
   - type: GameRule
 
 - type: entity
-  categories: [ HideSpawnMenu ]
   parent: BaseGameRule
   id: RespawnDeadRule
   components:
@@ -17,7 +15,6 @@
     deleteBody: false
 
 - type: entity
-  noSpawn: true
   parent: BaseGameRule
   id: SubGamemodesRule
 #WWDP edit start - Order 66
@@ -31,7 +28,6 @@
 - type: entity
   id: DeathMatch31
   parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
   components:
   - type: DeathMatchRule
     rewardSpawns:
@@ -61,7 +57,6 @@
 - type: entity
   id: InactivityTimeRestart
   parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
   components:
   - type: InactivityRule
     inactivityMaxTime: 600
@@ -70,7 +65,6 @@
 - type: entity
   id: MaxTimeRestart
   parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
   components:
   - type: MaxTimeRestartRule
     roundMaxTime: 300
@@ -91,7 +85,6 @@
   - type: AntagLoadProfileRule
 
 - type: entity
-  categories: [ HideSpawnMenu ]
   parent: BaseNukeopsRule
   id: Nukeops
   components:
@@ -168,7 +161,6 @@
     agentName: traitor-round-end-agent-name
 
 - type: entity
-  categories: [ HideSpawnMenu ]
   parent: BaseTraitorRule
   id: Traitor
   components:
@@ -206,7 +198,6 @@
 - type: entity
   id: Revolutionary
   parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
   components:
   - type: GameRule
     minPlayers: 15
@@ -214,9 +205,9 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ HeadRev ]
-      min: 2 # WWDP
-      max: 3 # WWDP
-      playerRatio: 20 # WD
+      min: 2 # WD EDIT
+      max: 3 # WD EDIT
+      playerRatio: 20
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
@@ -231,21 +222,18 @@
 - type: entity
   id: Sandbox
   parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
   components:
   - type: SandboxRule
 
 - type: entity
   id: Secret
   parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
   components:
   - type: SecretRule
 
 - type: entity
   id: Zombie
   parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
   components:
   - type: GameRule
     minPlayers: 20
@@ -278,21 +266,18 @@
 - type: entity
   id: BasicStationEventScheduler
   parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
   components:
   - type: BasicStationEventScheduler
 
 - type: entity
   id: RampingStationEventScheduler
   parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
   components:
   - type: RampingStationEventScheduler
 
 - type: entity
   id: HellshiftStationEventScheduler
   parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
   components:
   - type: RampingStationEventScheduler
     chaosModifier: 5 # By default, one event each 30-10 seconds after two hours. Changing CVars will cause this to deviate.
@@ -302,7 +287,6 @@
 - type: entity
   id: IrregularStationEventScheduler
   parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
   components:
   - type: OscillatingStationEventScheduler
     minChaos: 0.8
@@ -315,7 +299,6 @@
 - type: entity
   id: IrregularExtendedStationEventScheduler
   parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
   components:
   - type: OscillatingStationEventScheduler
     minChaos: 0.8
@@ -330,7 +313,6 @@
 - type: entity
   id: BasicRoundstartVariation
   parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
   components:
   - type: RoundstartStationVariationRule
     rules:
@@ -346,4 +328,3 @@
     #      orGroup: puddleMess
     - id: SmugglerStashVariationPass
       prob: 0.90
-
