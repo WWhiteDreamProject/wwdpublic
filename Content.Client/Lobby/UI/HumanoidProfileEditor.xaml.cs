@@ -16,6 +16,7 @@ using Content.Shared.Clothing.Loadouts.Systems;
 using Content.Shared.Customization.Systems;
 using Content.Shared.Dataset;
 using Content.Shared.GameTicking;
+using Content.Shared.Guidebook;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -97,6 +98,9 @@ namespace Content.Client.Lobby.UI
         [ValidatePrototypeId<GuideEntryPrototype>]
         private const string DefaultSpeciesGuidebook = "Species";
 
+        public event Action<List<ProtoId<GuideEntryPrototype>>>? OnOpenGuidebook;
+
+        private ISawmill _sawmill;
         [ValidatePrototypeId<LocalizedDatasetPrototype>]
         private const string StationAiNames = "NamesAI";
 
@@ -646,10 +650,11 @@ namespace Content.Client.Lobby.UI
                 {
                     Margin = new Thickness(3f, 3f, 3f, 0f),
                 };
+                selector.OnOpenGuidebook += OnOpenGuidebook;
 
                 var title = Loc.GetString(antag.Name);
                 var description = Loc.GetString(antag.Objective);
-                selector.Setup(items, title, 250, description);
+                selector.Setup(items, title, 250, description, guides: antag.Guides);
                 selector.Select(Profile?.AntagPreferences.Contains(antag.ID) == true ? 0 : 1);
 
                 if (!_characterRequirementsSystem.CheckRequirementsValid(
@@ -801,6 +806,10 @@ namespace Content.Client.Lobby.UI
 
         private void OnSpeciesInfoButtonPressed(BaseButton.ButtonEventArgs args)
         {
+            // TODO GUIDEBOOK
+            // make the species guide book a field on the species prototype.
+            // I.e., do what jobs/antags do.
+
             var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
             var species = Profile?.Species ?? SharedHumanoidAppearanceSystem.DefaultSpecies;
             var page = DefaultSpeciesGuidebook;
@@ -809,9 +818,10 @@ namespace Content.Client.Lobby.UI
 
             if (_prototypeManager.TryIndex<GuideEntryPrototype>(DefaultSpeciesGuidebook, out var guideRoot))
             {
-                var dict = new Dictionary<string, GuideEntry> { { DefaultSpeciesGuidebook, guideRoot } };
+                var dict = new Dictionary<ProtoId<GuideEntryPrototype>, GuideEntry>();
+                dict.Add(DefaultSpeciesGuidebook, guideRoot);
                 //TODO: Don't close the guidebook if its already open, just go to the correct page
-                guidebookController.ToggleGuidebook(dict, includeChildren:true, selected: page);
+                guidebookController.OpenGuidebook(dict, includeChildren:true, selected: page);
             }
         }
 
@@ -888,6 +898,16 @@ namespace Content.Client.Lobby.UI
 
                 foreach (var job in jobs)
                 {
+                    var jobContainer = new BoxContainer()
+                    {
+                        Orientation = LayoutOrientation.Horizontal,
+                    };
+
+                    var selector = new RequirementsSelector()
+                    {
+                        Margin = new Thickness(3f, 3f, 3f, 0f),
+                    };
+                    selector.OnOpenGuidebook += OnOpenGuidebook;
                     var jobContainer = new BoxContainer { Orientation = LayoutOrientation.Horizontal, };
                     var selector = new RequirementsSelector { Margin = new(3f, 3f, 3f, 0f) };
 
@@ -898,7 +918,7 @@ namespace Content.Client.Lobby.UI
                     };
                     var jobIcon = _prototypeManager.Index<JobIconPrototype>(job.Icon);
                     icon.Texture = jobIcon.Icon.Frame0();
-                    selector.Setup(items, job.LocalizedName, 200, job.LocalizedDescription, icon);
+                    selector.Setup(items, job.LocalizedName, 200, job.LocalizedDescription, icon, job.Guides);
 
                     if (!_requirements.CheckJobWhitelist(job, out var reason))
                         selector.LockRequirements(reason);
