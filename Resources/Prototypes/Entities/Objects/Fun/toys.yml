@@ -820,7 +820,7 @@
   parent: BasePlushie
   id: PlushieArachne
   name: Arachne plushie
-  description: A plushie of an Arachne, a half human, half spider creature.
+  description: A plushie of an Arachne, a half human, half spider creature. Why does it look familiar?
   components:
   - type: Sprite
     state: plushie_arachne
@@ -1687,6 +1687,7 @@
     - type: StaminaDamageOnHit
       damage: 8
     - type: MeleeWeapon
+      wideAnimationRotation: -135
       canBeBlocked: false # WD EDIT
       damage:
         types:
