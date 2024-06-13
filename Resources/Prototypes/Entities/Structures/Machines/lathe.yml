@@ -460,7 +460,7 @@
     - PowerCageHigh
     - PowerCageMedium
     - PowerCageSmall
-    - ShellTranquilizer
+    - BoxShellTranquilizer
     - SpeedLoaderMagnumIncendiary
     - SpeedLoaderMagnumUranium
     - TelescopicShield
@@ -946,7 +946,7 @@
     - ShellShotgunSlug
     - ShellShotgunLumen
     - ShellShotgunFlare
-    - ShellTranquilizer
+    - BoxShellTranquilizer
     - MagazineBoxLightRifle
     - MagazineBoxLightRiflePractice
     - MagazineBoxMagnum
@@ -1032,7 +1032,7 @@
     - BolaEnergy
     - ClothingHeadHelmetBasic
     - MagazineShotgunBeanbag
-    - ShellTranquilizer
+    - BoxShellTranquilizer
     - CartridgeEpinephrine # Goobstation
     - CartridgeBicaridine # Goobstation
     - CartridgeDermaline # Goobstation
@@ -1069,6 +1069,8 @@
     - MagazineUniversalMagnumEmpty
     - MagazineUniversalMagnum
     # - MagazineUniversalMagnumRubber # WD EDIT
+    - MagazineLightRifleMarkOneEmpty
+    - MagazineLightRifleMarkOne
     dynamicRecipes:
     # WD EDIT START - gun bloat moved to tier 1 Arsenal research
     - MagazineLightRifleLowCapacityEmpty
@@ -1283,7 +1285,7 @@
     - MagazineShotgun
     - MagazineShotgunEmpty
     - MagazineShotgunSlug
-    - ShellTranquilizer
+    - BoxShellTranquilizer
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
     - SpeedLoaderRifleHeavy
