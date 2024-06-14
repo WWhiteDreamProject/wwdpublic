@@ -414,10 +414,10 @@
     tags: []
 
 - type: entity
-  name: stimulant injector
+  name: hyperzine injector
   parent: ChemicalMedipen
   id: Stimpack
-  description: Contains enough stimulants for you to have the chemical's effect for 5 minutes. Use it when you're sure you're ready to throw down. # WD EDIT - unnerf stims
+  description: Contains enough hyperzine for you to have the chemical's effect for 5 minutes. Use it when you're sure you're ready to throw down. # WD EDIT - unnerf stims
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -446,10 +446,10 @@
     tags: []
 
 - type: entity
-  name: stimulant microinjector
+  name: hyperzine microinjector
   parent: ChemicalMedipen
   id: StimpackMini
-  description: A microinjector of stimulants that give you about one minute of the chemical's effects.
+  description: A microinjector of hyperzine that give you about one minute of the chemical's effects. # WD EDIT - unnerf stims
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
