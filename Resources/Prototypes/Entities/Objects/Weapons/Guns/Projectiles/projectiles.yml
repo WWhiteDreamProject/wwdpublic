@@ -433,7 +433,7 @@
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.170
-  - type: GatheringProjectile # WWDP
+  - type: GatheringProjectile
 
 - type: entity
   id: BulletKineticShuttle
