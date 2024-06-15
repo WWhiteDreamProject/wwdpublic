@@ -74,7 +74,7 @@
 #     - Prisoner
 #   items:
 #   - ClothingBeltSecurityWebbingFilled
-#
+
 # - type: loadout
 #   id: LoadoutClothingBeltSecurity
 #   category: JobsSecurityAUncategorized
@@ -92,7 +92,7 @@
 #     - Prisoner
 #   items:
 #   - ClothingBeltSecurityFilled
-#
+
 # - type: loadout
 #   id: LoadoutClothingBeltHolster
 #   category: JobsSecurityAUncategorized
@@ -457,8 +457,7 @@
 #     - HeadOfSecurity
 #   items:
 #   - ClothingMaskGasSwat
-#
-#
+
 # - type: loadout
 #   id: LoadoutSecurityMaskGasSwatPaid
 #   category: JobsSecurityAUncategorized
@@ -514,7 +513,7 @@
 #     - Prisoner
 #   items:
 #   - ClothingOuterArmorPlateCarrier
-#
+
 # - type: loadout
 #   id: LoadoutClothingOuterArmorDuraVest
 #   category: JobsSecurityAUncategorized
@@ -532,7 +531,7 @@
 #     - Prisoner
 #   items:
 #   - ClothingOuterArmorDuraVest
-#
+
 # - type: loadout
 #   id: LoadoutClothingOuterArmorBasic
 #   category: JobsSecurityAUncategorized
@@ -550,7 +549,7 @@
 #     - Prisoner
 #   items:
 #   - ClothingOuterArmorBasic
-#
+
 # - type: loadout
 #   id: LoadoutClothingOuterArmorSlim
 #   category: JobsSecurityAUncategorized
@@ -700,8 +699,8 @@
 #     jobs:
 #     - Prisoner
 #   items:
-#   - ClothingShoesBootsJack
-#
+#   - ClothingShoesBootsJackFilled
+
 # - type: loadout
 #   id: LoadoutClothingShoesBootsCombat
 #   category: JobsSecurityAUncategorized
