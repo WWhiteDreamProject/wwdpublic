@@ -19,8 +19,6 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
-  - type: Gun
-    defaultDirection: 1, 0 # wwdp
   - type: MeleeWeapon
     attackRate: 1.5
     damage:
@@ -35,7 +33,11 @@
       collection: MetalThud
   - type: DamageOtherOnHit
     staminaCost: 14
-  # - type: Execution # WWDP
+  # - type: Execution - WD EDIT
+  # WD EDIT START
+  - type: Gun
+    defaultDirection: 1, 0
+  # WD EDIT END
 
 - type: entity
   name: china lake
@@ -53,7 +55,7 @@
     slots:
     - Back
     - suitStorage
-  # - type: AmmoCounter # WWDP
+  # - type: AmmoCounter - WD EDIT
   - type: Gun
     fireRate: 1
     selectedMode: SemiAuto
@@ -70,9 +72,11 @@
     proto: GrenadeFrag
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-  - type: Item # WWDP guns resize
+  # WD EDIT START: Guns resize
+  - type: Item
     shape:
     - 0,0,5,1
+  # WD EDIT END
 
 - type: entity
   name: RPG-7
@@ -102,24 +106,28 @@
     capacity: 1
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-    autoCycle: true # WD EDIT # WWDP edit
+    autoCycle: true # WD EDIT
   - type: MagazineVisuals
     magState: mag
     steps: 2
     zeroVisible: false
   - type: Appearance
-  - type: EmitSoundOnPickup # WWDP sounds
+  # WD EDIT START
+  # Sounds
+  - type: EmitSoundOnPickup
     sound:
       collection: RiflesPickUp
-  - type: EmitSoundOnDrop # WWDP sounds
+  - type: EmitSoundOnDrop
     sound:
       collection: RiflesDrop
-  - type: EmitSoundOnLand # WWDP sounds
+  - type: EmitSoundOnLand
     sound:
       collection: RiflesDrop
-  - type: Item # WWDP guns resize
+  # Guns resize
+  - type: Item
     shape:
     - 0,0,7,1
+  # WD EDIT END
 
 - type: entity
   name: multiple rocket launcher
@@ -203,6 +211,7 @@
 #   description: Manipulates gravity around objects to fling them at high velocities.
 #   components:
 #     - type: Item
+#       storedRotation: -90
 #       size: Large # WWDP Guns resize
 #       shape:
 #       - 0,0,5,1
@@ -247,6 +256,7 @@
 #   description: Manipulates gravity around objects to fling them at high velocities.
 #   components:
 #     - type: Item
+#       storedRotation: -90
 #       size: Large # WWDP Guns resize
 #       shape:
 #       - 0,0,5,1
@@ -409,7 +419,7 @@
 #         enum.TetherVisualsStatus.Key:
 #           unshaded:
 #             True: { visible: true }
-#             False: { visible: false }
+#            False: { visible: false }
 #     - type: GiftIgnore # WD EDIT
 #     - type: Item # WWDP guns resize
 #       size: Large
@@ -427,7 +437,7 @@
     whitelist:
       tags:
         - CartridgeRocket
-    proto: MeteorLarge
+    proto: MeteorMedium
   - type: GiftIgnore # WD EDIT
 
 - type: entity
