@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Numerics;
 using Content.Client.DisplacementMap;
 using Content.Client.Inventory;
 using Content.Shared._White.Humanoid.Prototypes;
@@ -138,6 +139,7 @@ public sealed class ClientClothingSystem : ClothingSystem
                 i++;
             }
 
+            item.MappedLayer = key;
             args.Layers.Add((key, layer));
         }
     }
