@@ -15,6 +15,11 @@ using Content.Server.Maps;
 using Content.Server.Players.JobWhitelist;
 using Content.Server.MoMMI;
 using Content.Server.NodeContainer.NodeGroups;
+<<<<<<< HEAD
+=======
+using Content.Server.Players;
+using Content.Server.Players.JobWhitelist;
+>>>>>>> c33644532d (Rate limit ahelps (#29219))
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Preferences.Managers;
@@ -71,7 +76,10 @@ namespace Content.Server.IoC
             IoCManager.Register<ServerApi>();
             IoCManager.Register<JobWhitelistManager>();
             IoCManager.Register<PlayerRateLimitManager>();
+<<<<<<< HEAD
             IoCManager.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
+=======
+>>>>>>> c33644532d (Rate limit ahelps (#29219))
         }
     }
 }
