@@ -1,6 +1,8 @@
-namespace Content.Shared._White.UserInterface.Emotes;
+using Robust.Shared.Serialization;
 
+namespace Content.Shared._White.UserInterface;
 
+[Serializable, NetSerializable]
 public enum EmotesMenuType
 {
     /// <summary>
