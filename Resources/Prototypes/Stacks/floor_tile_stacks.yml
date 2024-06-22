@@ -58,17 +58,13 @@
   spawn: FloorTileItemGold
   maxCount: 30
 
-- type: stack
-  id: FloorTileReinforced
-  name: reinforced tile
-  spawn: FloorTileItemReinforced
-  maxCount: 30
-
-#- type: stack
-#  id: FloorTileMono # WWDP edit
-#  name: mono tile
-#  spawn: FloorTileItemMono
+# WD EDIT START
+# - type: stack
+#   id: FloorTileMono
+#   name: mono tile
+#   spawn: FloorTileItemMono
 #  maxCount: 30
+# WD EDIT END
 
 - type: stack
   id: FloorTileBrassFilled
@@ -94,11 +90,13 @@
   spawn: FloorTileItemHydro
   maxCount: 30
 
-#- type: stack
-#  id: FloorTileLime # WWDP edit
-#  name: lime tile
-#  spawn: FloorTileItemLime
-#  maxCount: 30
+# WD EDIT START
+# - type: stack
+#   id: FloorTileLime
+#   name: lime tile
+#   spawn: FloorTileItemLime
+#   maxCount: 30
+# WD EDIT END
 
 - type: stack
   id: FloorTileDirty
@@ -278,11 +276,13 @@
   spawn: FloorTileItemRockVault
   maxCount: 30
 
-#- type: stack
-#  id: FloorTileBlue # WWDP edit
-#  name: blue floor tile
-#  spawn: FloorTileItemBlue
-#  maxCount: 30
+# WD EDIT START
+# - type: stack
+#   id: FloorTileBlue
+#   name: blue floor tile
+#   spawn: FloorTileItemBlue
+#   maxCount: 30
+# WD EDIT END
 
 - type: stack
   id: FloorTileMining
