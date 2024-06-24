@@ -37,7 +37,7 @@
   - type: HeldSpeedModifier
   - type: Tag
     tags:
-      - WhitelistChameleon
+    - WhitelistChameleon
   - type: Fixtures
     fixtures:
       fix1:
@@ -146,9 +146,6 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.2 # WWDP
-  - type: FireProtection
-    reduction: 0.5 # WWDP
   - type: IgniteFromGasImmunity
     parts:
     - Torso
