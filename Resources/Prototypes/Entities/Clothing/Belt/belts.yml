@@ -83,7 +83,7 @@
       multitool:
         whitelist:
           tags:
-            - Multitool
+          - Multitool
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
 
@@ -170,7 +170,7 @@
       multitool:
         whitelist:
           tags:
-            - Multitool
+          - Multitool
       wrench:
         whitelist:
           tags:
@@ -230,24 +230,24 @@
     sprite: Clothing/Belt/janitor.rsi
   - type: Clothing
     sprite: Clothing/Belt/janitor.rsi
-  # WD EDIT START
-  # - type: Storage
-  #   whitelist:
-  #     tags:
-  #       - Wrench
-  #       - Bottle
-  #       - Spray
-  #       - Soap
-  #       - Flashlight
-  #       - CigPack
-  #       - TrashBag
-  #       - WetFloorSign
-  #       - HolosignProjector
-  #       - Plunger
-  #     components:
-  #       - LightReplacer
-  #       - SmokeOnTrigger
-  # WD EDIT END
+    # WD EDIT START
+    # - type: Storage
+    #   whitelist:
+    #     tags:
+    #       - Wrench
+    #       - Bottle
+    #       - Spray
+    #       - Soap
+    #       - Flashlight
+    #       - CigPack
+    #       - TrashBag
+    #       - WetFloorSign
+    #       - HolosignProjector
+    #       - Plunger
+    #     components:
+    #       - LightReplacer
+    #       - SmokeOnTrigger
+    # WD EDIT END
     maxItemSize: Large
   - type: ItemMapper
     mapLayers:
@@ -291,6 +291,8 @@
   #       - PillCanister
   #       - Radio
   #       - DiscreteHealthAnalyzer
+  #       - SurgeryTool
+  #       - Dropper
   #       - AutoinjectorCartridge #Goobstation - ParamedHypo
   #       - Tourniquet #Goobstation - ParamedHypo
   #     components:
@@ -385,6 +387,7 @@
   #       - Bottle
   #       - Syringe
   #       - CigPack
+  #       - Dropper
   #     components:
   #       - Seed
   #       - Smokable
@@ -508,7 +511,7 @@
     sprite: Clothing/Belt/security.rsi
   - type: Clothing
     sprite: Clothing/Belt/security.rsi
-  - type: ExplosionResistance # Goobstation
+  - type: ExplosionResistance
     damageCoefficient: 0.5
   # WD EDIT START
   # - type: Storage
@@ -613,7 +616,7 @@
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
     whitelist:
       tags:
-        - ShellShotgun
+      - ShellShotgun
     capacity: 14
 
 - type: entity
@@ -669,7 +672,7 @@
   - type: Storage
     # maxItemSize: Huge - WD EDIT
     grid:
-  # WD EDIT START
+    # WD EDIT START
     - 0,0,3,1
     - 5,0,8,1
   #   whitelist:
@@ -721,11 +724,11 @@
   components:
   - type: StorageFill
     contents:
-      - id: GrenadeFlashBang
-      - id: TearGasGrenade
-      - id: Stunbaton
-      - id: Handcuffs
-      - id: Handcuffs
+    - id: GrenadeFlashBang
+    - id: TearGasGrenade
+    - id: Stunbaton
+    - id: Handcuffs
+    - id: Handcuffs
 
 - type: entity
   parent: [ClothingBaseWebbing, ClothingBeltStorageBase] # WWDP
