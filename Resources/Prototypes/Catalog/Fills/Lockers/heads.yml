@@ -5,28 +5,28 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxFolderQmClipboard
-      - id: CargoRequestComputerCircuitboard
-      - id: CargoSaleComputerCircuitboard
-      - id: CargoShuttleComputerCircuitboard
-      - id: CargoShuttleConsoleCircuitboard
-      - id: SalvageShuttleConsoleCircuitboard
-      - id: CargoBountyComputerCircuitboard
-      - id: CigPackGreen
-        prob: 0.50
-      - id: DoorRemoteCargo
-      - id: RubberStampQm
-      - id: RubberStampDenied
-      - id: RubberStampApproved
-      - id: ClothingHeadsetAltCargo
-      - id: BoxEncryptionKeyCargo
-      - id: SpaceCashLuckyBill # DeltaV - LO steal objective, see Resources/Prototypes/DeltaV/Entities/Objects/Misc/first_bill.yml
-      # - id: BoxPDACargo - WD EDIT
-      - id: QuartermasterIDCard # Delta-V
-      - id: AstroNavCartridge
-      - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
-        prob: 0.3
-      - id: PrinterDocFlatpack  # Corvax-Printer
+    - id: BoxFolderQmClipboard
+    - id: CargoRequestComputerCircuitboard
+    - id: CargoSaleComputerCircuitboard
+    - id: CargoShuttleComputerCircuitboard
+    - id: CargoShuttleConsoleCircuitboard
+    - id: SalvageShuttleConsoleCircuitboard
+    - id: CargoBountyComputerCircuitboard
+    - id: CigPackGreen
+      prob: 0.50
+    - id: DoorRemoteCargo
+    - id: RubberStampQm
+    - id: RubberStampDenied
+    - id: RubberStampApproved
+    - id: ClothingHeadsetAltCargo
+    - id: BoxEncryptionKeyCargo
+    - id: SpaceCashLuckyBill # DeltaV - LO steal objective, see Resources/Prototypes/DeltaV/Entities/Objects/Misc/first_bill.yml
+    # - id: BoxPDACargo - WD EDIT
+    - id: QuartermasterIDCard # Delta-V
+    - id: AstroNavCartridge
+    - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
+      prob: 0.3
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 - type: entity
   id: LockerCaptainFilledHardsuit
@@ -35,22 +35,22 @@
   components:
   - type: StorageFill
     contents:
-      # - id: ClothingOuterCoatCapTrench - WD EDIT
-      - id: NukeDisk
-      - id: PinpointerNuclear
-      - id: CaptainIDCard
-      - id: ClothingOuterHardsuitCap
-      - id: CommsComputerCircuitboard
-      - id: ClothingHeadsetAltCommand
-      - id: PlushieNuke
-        prob: 0.1
-      - id: DoorRemoteCommand
-      - id: RubberStampCaptain
-      - id: JetpackCaptainFilled
-      - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
-        prob: 0.3
-      - id: PrinterDocFlatpack  # Corvax-Printer
-      - id: ClothingBeltSheathFilled # WD EDIT
+    # - id: ClothingOuterCoatCapTrench - WD EDIT
+    - id: NukeDisk
+    - id: PinpointerNuclear
+    - id: CaptainIDCard
+    - id: ClothingOuterHardsuitCap
+    - id: CommsComputerCircuitboard
+    - id: ClothingHeadsetAltCommand
+    - id: PlushieNuke
+      prob: 0.1
+    - id: DoorRemoteCommand
+    - id: RubberStampCaptain
+    - id: JetpackCaptainFilled
+    - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
+      prob: 0.3
+    - id: PrinterDocFlatpack  # Corvax-Printer
+    - id: ClothingBeltSheathFilled # WD EDIT
 
 - type: entity
   id: LockerCaptainFilled
@@ -59,22 +59,22 @@
   components:
   - type: StorageFill
     contents:
-      # - id: ClothingOuterCoatCapTrench - WD EDIT
-      - id: NukeDisk
-      - id: PinpointerNuclear
-      - id: CaptainIDCard
-      - id: CommsComputerCircuitboard
-      - id: ClothingHeadsetAltCommand
-      - id: PlushieNuke
-        prob: 0.1
-      - id: DoorRemoteCommand
-      - id: RubberStampCaptain
-      - id: JetpackCaptainFilled
-      - id: LunchboxCommandFilledRandom
-        prob: 0.3
-      - id: PrinterDocFlatpack  # Corvax-Printer
-      - id: ClothingBeltSheathFilled # WD EDIT
-      - id: WeaponAntiqueLaser # WD EDIT
+    # - id: ClothingOuterCoatCapTrench - WD EDIT
+    - id: NukeDisk
+    - id: PinpointerNuclear
+    - id: CaptainIDCard
+    - id: CommsComputerCircuitboard
+    - id: ClothingHeadsetAltCommand
+    - id: PlushieNuke
+      prob: 0.1
+    - id: DoorRemoteCommand
+    - id: RubberStampCaptain
+    - id: JetpackCaptainFilled
+    - id: LunchboxCommandFilledRandom
+      prob: 0.3
+    - id: PrinterDocFlatpack  # Corvax-Printer
+    - id: ClothingBeltSheathFilled # WD EDIT
+    - id: WeaponAntiqueLaser # WD EDIT
 
 - type: entity
   id: LockerCaptainFilledNoLaser
@@ -83,21 +83,21 @@
   components:
   - type: StorageFill
     contents:
-      # - id: ClothingOuterCoatCapTrench - WD EDIT
-      - id: NukeDisk
-      - id: PinpointerNuclear
-      - id: CaptainIDCard
-      - id: CommsComputerCircuitboard
-      - id: ClothingHeadsetAltCommand
-      - id: PlushieNuke
-        prob: 0.1
-      - id: DoorRemoteCommand
-      - id: RubberStampCaptain
-      - id: JetpackCaptainFilled
-      - id: LunchboxCommandFilledRandom
-        prob: 0.3
-      - id: PrinterDocFlatpack  # Corvax-Printer
-      - id: ClothingBeltSheathFilled # WD EDIT
+    # - id: ClothingOuterCoatCapTrench - WD EDIT
+    - id: NukeDisk
+    - id: PinpointerNuclear
+    - id: CaptainIDCard
+    - id: CommsComputerCircuitboard
+    - id: ClothingHeadsetAltCommand
+    - id: PlushieNuke
+      prob: 0.1
+    - id: DoorRemoteCommand
+    - id: RubberStampCaptain
+    - id: JetpackCaptainFilled
+    - id: LunchboxCommandFilledRandom
+      prob: 0.3
+    - id: PrinterDocFlatpack  # Corvax-Printer
+    - id: ClothingBeltSheathFilled # WD EDIT
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -106,21 +106,21 @@
   components:
   - type: StorageFill
     contents:
-      - id: HoPIDCard
-      - id: ClothingHeadsetAltService # DeltaV - HoP is now a service role, replaces their all channels headset.
-      - id: BoxPDA
-      - id: BoxID
-      - id: BoxHeadset
-      - id: IDComputerCircuitboard
-      - id: DoorRemoteService
-      - id: RubberStampHop
-      - id: RubberStampDenied
-      - id: RubberStampApproved
-      - id: BoxEncryptionKeyPassenger
-      - id: BoxEncryptionKeyService
-      - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
-        prob: 0.3
-      - id: PrinterDocFlatpack  # Corvax-Printer
+    - id: HoPIDCard
+    - id: ClothingHeadsetAltService # DeltaV - HoP is now a service role, replaces their all channels headset.
+    - id: BoxPDA
+    - id: BoxID
+    - id: BoxHeadset
+    - id: IDComputerCircuitboard
+    - id: DoorRemoteService
+    - id: RubberStampHop
+    - id: RubberStampDenied
+    - id: RubberStampApproved
+    - id: BoxEncryptionKeyPassenger
+    - id: BoxEncryptionKeyService
+    - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
+      prob: 0.3
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 - type: entity
   id: LockerChiefEngineerFilledHardsuit
@@ -129,30 +129,30 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterHardsuitEngineeringWhite
-      - id: ClothingMaskBreath
-      - id: ClothingEyesGlassesMeson
-      - id: ClothingShoesBootsMagAdv
-      - id: ClothingHandsGlovesColorYellow
-      - id: ClothingOuterJacketInsulated
-      - id: CigarCase
-        prob: 0.15
-      - id: DoorRemoteEngineering
-      - id: RubberStampCE
-      - id: JetpackVoidFilled
-      - id: ClothingHeadsetAltEngineering
-      - id: BoxEncryptionKeyEngineering
-      - id: AccessConfigurator
-      # - id: BoxPDAEngineering - WD EDIT
-      - id: RCD
-      - id: RCDAmmo
-      - id: RPD
-      - id: RCDAmmo # Extra Compressed matter for the RPD
-      - id: CEIDCard # Delta-V
-      - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
-        prob: 0.3
-      - id: PrinterDocFlatpack  # Corvax-Printer
-      - id: ClothingBeltChiefEngineerFilled # WWDP
+    - id: ClothingOuterHardsuitEngineeringWhite
+    - id: ClothingMaskBreath
+    - id: ClothingEyesGlassesMeson
+    - id: ClothingShoesBootsMagAdv
+    - id: ClothingHandsGlovesColorYellow
+    - id: ClothingOuterJacketInsulated
+    - id: CigarCase
+      prob: 0.15
+    - id: DoorRemoteEngineering
+    - id: RubberStampCE
+    - id: JetpackVoidFilled
+    - id: ClothingHeadsetAltEngineering
+    - id: BoxEncryptionKeyEngineering
+    - id: AccessConfigurator
+    # - id: BoxPDAEngineering - WD EDIT
+    - id: RCD
+    - id: RCDAmmo
+    - id: RPD
+    - id: RCDAmmo # Extra Compressed matter for the RPD
+    - id: CEIDCard # Delta-V
+    - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
+      prob: 0.3
+    - id: PrinterDocFlatpack  # Corvax-Printer
+    - id: ClothingBeltChiefEngineerFilled # WWDP
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -161,26 +161,26 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesGlassesMeson
-      - id: ClothingBeltChiefEngineerFilled
-      - id: ClothingHandsGlovesColorYellow
-      - id: ClothingOuterJacketInsulated
-      - id: CigarCase
-        prob: 0.15
-      - id: DoorRemoteEngineering
-      - id: RubberStampCE
-      - id: ClothingHeadsetAltEngineering
-      - id: BoxEncryptionKeyEngineering
-      - id: AccessConfigurator
-      # - id: BoxPDAEngineering - WD EDIT
-      - id: CEIDCard # Delta-V
-      - id: RCD
-      - id: RCDAmmo
-      - id: RPD
-      - id: RCDAmmo # Extra Compressed matter for the RPD
-      - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
-        prob: 0.3
-      - id: PrinterDocFlatpack  # Corvax-Printer
+    - id: ClothingEyesGlassesMeson
+    - id: ClothingBeltChiefEngineerFilled
+    - id: ClothingHandsGlovesColorYellow
+    - id: ClothingOuterJacketInsulated
+    - id: CigarCase
+      prob: 0.15
+    - id: DoorRemoteEngineering
+    - id: RubberStampCE
+    - id: ClothingHeadsetAltEngineering
+    - id: BoxEncryptionKeyEngineering
+    - id: AccessConfigurator
+    # - id: BoxPDAEngineering - WD EDIT
+    - id: CEIDCard # Delta-V
+    - id: RCD
+    - id: RCDAmmo
+    - id: RPD
+    - id: RCDAmmo # Extra Compressed matter for the RPD
+    - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
+      prob: 0.3
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 - type: entity
   id: LockerChiefMedicalOfficerFilledHardsuit
@@ -189,30 +189,30 @@
   components:
   - type: StorageFill
     contents:
-      - id: MedkitFilled
-      - id: ClothingHandsGlovesNitrile
-      - id: ClothingOuterJacketSurgical
-      - id: ClothingEyesHudMedical
-      - id: ClothingHeadsetAltMedical
-      - id: ClothingBackpackDuffelSurgeryFilled
-      - id: ClothingMaskSterile
-      - id: ClothingHeadHatBeretCmo
-      - id: ClothingOuterHardsuitMedical
-      - id: Hypospray
-      - id: HandheldCrewMonitor
-      - id: DoorRemoteMedical
-      - id: RubberStampCMO
-      - id: RubberStampPsychologist # DeltaV
-      - id: MedicalTechFabCircuitboard
-      - id: BoxEncryptionKeyMedical
-      # - id: BoxPDAMedical - WD EDIT
-      - id: ClothingBeltMilitaryWebbingCMO # DeltaV - add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
-      - id: CMOIDCard # Delta-V
-      - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
-        prob: 0.3
-      - id: MedicalBiofabMachineBoard # Shitmed Change
-      - id: PrinterDocFlatpack  # Corvax-Printer
-      - id: OmnimedToolLite # WD EDIT
+    - id: MedkitFilled
+    - id: ClothingHandsGlovesNitrile
+    - id: ClothingOuterJacketSurgical
+    - id: ClothingEyesHudMedical
+    - id: ClothingHeadsetAltMedical
+    - id: ClothingBackpackDuffelSurgeryFilled
+    - id: ClothingMaskSterile
+    - id: ClothingHeadHatBeretCmo
+    - id: ClothingOuterHardsuitMedical
+    - id: Hypospray
+    - id: HandheldCrewMonitor
+    - id: DoorRemoteMedical
+    - id: RubberStampCMO
+    - id: RubberStampPsychologist # DeltaV
+    - id: MedicalTechFabCircuitboard
+    - id: BoxEncryptionKeyMedical
+    # - id: BoxPDAMedical - WD EDIT
+    - id: ClothingBeltMilitaryWebbingCMO # DeltaV - add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
+    - id: CMOIDCard # Delta-V
+    - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
+      prob: 0.3
+    - id: MedicalBiofabMachineBoard # Shitmed Change
+    - id: PrinterDocFlatpack  # Corvax-Printer
+    - id: OmnimedToolLite # WD EDIT
 
 - type: entity
   id: LockerChiefMedicalOfficerFilled
@@ -221,27 +221,27 @@
   components:
   - type: StorageFill
     contents:
-      - id: MedkitFilled
-      - id: ClothingHandsGlovesNitrile
-      - id: ClothingOuterJacketSurgical
-      - id: ClothingEyesHudMedical
-      - id: ClothingHeadsetAltMedical
-      - id: ClothingBackpackDuffelSurgeryFilled
-      - id: Hypospray
-      - id: HandheldCrewMonitor
-      - id: DoorRemoteMedical
-      - id: RubberStampCMO
-      - id: MedicalTechFabCircuitboard
-      - id: BoxEncryptionKeyMedical
-      # - id: BoxPDAMedical - WD EDIT
-      - id: ClothingBeltMilitaryWebbingCMO # DeltaV - add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
-      - id: CMOIDCard # Delta-V
-      - id: MedTekCartridge # Delta-v
-      - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
-        prob: 0.3
-      - id: MedicalBiofabMachineBoard # Shitmed Change
-      - id: PrinterDocFlatpack  # Corvax-Printer
-      - id: OmnimedToolLite # WD EDIT
+    - id: MedkitFilled
+    - id: ClothingHandsGlovesNitrile
+    - id: ClothingOuterJacketSurgical
+    - id: ClothingEyesHudMedical
+    - id: ClothingHeadsetAltMedical
+    - id: ClothingBackpackDuffelSurgeryFilled
+    - id: Hypospray
+    - id: HandheldCrewMonitor
+    - id: DoorRemoteMedical
+    - id: RubberStampCMO
+    - id: MedicalTechFabCircuitboard
+    - id: BoxEncryptionKeyMedical
+    # - id: BoxPDAMedical - WD EDIT
+    - id: ClothingBeltMilitaryWebbingCMO # DeltaV - add webbing for CMO. ON THIS STATION, IT'S DRIP OR [die], CAPTAIN!
+    - id: CMOIDCard # Delta-V
+    - id: MedTekCartridge # Delta-v
+    - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
+      prob: 0.3
+    - id: MedicalBiofabMachineBoard # Shitmed Change
+    - id: PrinterDocFlatpack  # Corvax-Printer
+    - id: OmnimedToolLite # WD EDIT
 
 - type: entity
   id: LockerResearchDirectorFilledHardsuit
@@ -250,33 +250,33 @@
   components:
   - type: StorageFill
     contents:
-      - id: ResearchComputerCircuitboard
-      - id: ProtolatheMachineCircuitboard
-      - id: CircuitImprinterMachineCircuitboard
-      - id: ClothingOuterHardsuitRd
-      - id: HandTeleporter
-      - id: DoorRemoteResearch
-      - id: ClothingBeltUtilityFilled
-      - id: RubberStampRd
-      - id: BoxEncryptionKeyScience
-      # - id: BoxPDAScience - WD EDIT
-      - id: RDIDCard # Delta-V
-      - id: ClothingHeadsetAltScience
-      - id: EncryptionKeyBinary
-      - id: Intellicard
-      - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
-        prob: 0.3
-      - id: PsiWatchCartridge
-      - id: StationAiUploadCircuitboard
-      - id: AsimovCircuitBoard
-      - id: AugustineCircuitBoard
-      - id: CrewsimovCircuitBoard
-      # - id: AntimovCircuitBoard - WD EDIT
-      - id: PrinterDocFlatpack  # Corvax-Printer
-      # WD EDIT START
-      - id: ClothingEyesGlassesEpistemics
-      - id: BoxBodyBagRadiation
-      # WD EDIT END
+    - id: ResearchComputerCircuitboard
+    - id: ProtolatheMachineCircuitboard
+    - id: CircuitImprinterMachineCircuitboard
+    - id: ClothingOuterHardsuitRd
+    - id: HandTeleporter
+    - id: DoorRemoteResearch
+    - id: ClothingBeltUtilityFilled
+    - id: RubberStampRd
+    - id: BoxEncryptionKeyScience
+    # - id: BoxPDAScience - WD EDIT
+    - id: RDIDCard # Delta-V
+    - id: ClothingHeadsetAltScience
+    - id: EncryptionKeyBinary
+    - id: Intellicard
+    - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
+      prob: 0.3
+    - id: PsiWatchCartridge
+    - id: StationAiUploadCircuitboard
+    - id: AsimovCircuitBoard
+    - id: AugustineCircuitBoard
+    - id: CrewsimovCircuitBoard
+    # - id: AntimovCircuitBoard - WD EDIT
+    - id: PrinterDocFlatpack  # Corvax-Printer
+    # WD EDIT START
+    - id: ClothingEyesGlassesEpistemics
+    - id: BoxBodyBagRadiation
+    # WD EDIT END
 
 - type: entity
   id: LockerResearchDirectorFilled
@@ -285,32 +285,32 @@
   components:
   - type: StorageFill
     contents:
-      - id: ResearchComputerCircuitboard
-      - id: ProtolatheMachineCircuitboard
-      - id: CircuitImprinterMachineCircuitboard
-      - id: HandTeleporter
-      - id: DoorRemoteResearch
-      - id: ClothingBeltUtilityFilled
-      - id: RubberStampRd
-      - id: BoxEncryptionKeyScience
-      # - id: BoxPDAScience # Delta-V - WD EDIT
-      - id: RDIDCard # Delta-V
-      - id: ClothingHeadsetAltScience
-      - id: EncryptionKeyBinary
-      - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
-        prob: 0.3
-      - id: PsiWatchCartridge
-      - id: StationAiUploadCircuitboard
-      - id: AsimovCircuitBoard
-      - id: AugustineCircuitBoard
-      - id: CrewsimovCircuitBoard
-      # - id: AntimovCircuitBoard - WD EDIT
-      - id: PrinterDocFlatpack  # Corvax-Printer
-      # WD EDIT START
-      - id: Intellicard
-      - id: BoxBodyBagRadiation
-      - id: ClothingEyesGlassesEpistemics
-      # WD EDIT END
+    - id: ResearchComputerCircuitboard
+    - id: ProtolatheMachineCircuitboard
+    - id: CircuitImprinterMachineCircuitboard
+    - id: HandTeleporter
+    - id: DoorRemoteResearch
+    - id: ClothingBeltUtilityFilled
+    - id: RubberStampRd
+    - id: BoxEncryptionKeyScience
+    # - id: BoxPDAScience # Delta-V - WD EDIT
+    - id: RDIDCard # Delta-V
+    - id: ClothingHeadsetAltScience
+    - id: EncryptionKeyBinary
+    - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
+      prob: 0.3
+    - id: PsiWatchCartridge
+    - id: StationAiUploadCircuitboard
+    - id: AsimovCircuitBoard
+    - id: AugustineCircuitBoard
+    - id: CrewsimovCircuitBoard
+    # - id: AntimovCircuitBoard - WD EDIT
+    - id: PrinterDocFlatpack  # Corvax-Printer
+    # WD EDIT START
+    - id: Intellicard
+    - id: BoxBodyBagRadiation
+    - id: ClothingEyesGlassesEpistemics
+    # WD EDIT END
 
 - type: entity
   id: LockerHeadOfSecurityFilledHardsuit
@@ -319,34 +319,35 @@
   components:
   - type: StorageFill
     contents:
-      # - id: WeaponDisabler - WD EDIT
-      - id: ClothingOuterCoatHoSTrench
-      - id: ClothingMaskNeckGaiter
-      - id: ClothingOuterHardsuitSecurityRed # WD EDIT: ClothingOuterHardsuitCombatHoS -> ClothingOuterHardsuitSecurityRed
-      - id: ClothingBeltSecurityFilled
-      - id: ClothingHeadsetAltSecurity
-      - id: ClothingEyesGlassesSecurity
-      - id: ClothingShoesBootsJack
-      - id: CigarRobustCase
-        prob: 0.50
-      - id: DoorRemoteSecurity
-      - id: RubberStampHos
-      - id: SecurityTechFabCircuitboard
-      - id: JetpackSecurityFilled
-      - id: BoxEncryptionKeySecurity
-      - id: HoloprojectorSecurity
-      # - id: BoxPDASecurity - WD EDIT
-      - id: HoSIDCard # Delta-V
-      - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
-        prob: 0.3
-      - id: PrinterDocFlatpack  # Corvax-Printer
-      # WD EDIT START
-      - id: BoxBasicRegulatorLamp
-      - id: AssballBat
-      - id: ClothingHandsGlovesCombat
-      - id: ClothingMaskGasSwat
-      - id: OxygenTankFilled
-      # WD EDIT END
+    # - id: WeaponDisabler - WD EDIT
+    - id: ClothingOuterCoatHoSTrench
+    - id: ClothingMaskNeckGaiter
+    - id: ClothingOuterHardsuitSecurityRed # WD EDIT: ClothingOuterHardsuitCombatHoS -> ClothingOuterHardsuitSecurityRed
+    - id: ClothingBeltSecurityFilled
+    - id: ClothingHeadsetAltSecurity
+    - id: ClothingEyesGlassesSecurity
+    - id: ClothingShoesBootsJack
+    - id: CigarRobustCase
+      prob: 0.50
+    - id: DoorRemoteSecurity
+    - id: RubberStampHos
+    - id: SecurityTechFabCircuitboard
+    - id: JetpackSecurityFilled
+    - id: BoxEncryptionKeySecurity
+    - id: HoloprojectorSecurity
+    - id: BookSpaceLaw
+    # - id: BoxPDASecurity - WD EDIT
+    - id: HoSIDCard # Delta-V
+    - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
+      prob: 0.3
+    - id: PrinterDocFlatpack  # Corvax-Printer
+    # WD EDIT START
+    - id: BoxBasicRegulatorLamp
+    - id: AssballBat
+    - id: ClothingHandsGlovesCombat
+    - id: ClothingMaskGasSwat
+    - id: OxygenTankFilled
+    # WD EDIT END
 
 - type: entity
   id: LockerHeadOfSecurityFilled
@@ -355,31 +356,32 @@
   components:
   - type: StorageFill
     contents:
-      # - id: WeaponDisabler - WD EDIT
-      - id: ClothingOuterCoatHoSTrench
-      - id: ClothingMaskNeckGaiter
-      - id: ClothingBeltSecurityFilled
-      - id: ClothingHeadsetAltSecurity
-      - id: ClothingEyesGlassesSecurity
-      - id: ClothingShoesBootsJack
-      - id: CigarGoldCase
-        prob: 0.50
-      - id: DoorRemoteSecurity
-      - id: RubberStampHos
-      - id: SecurityTechFabCircuitboard
-      - id: BoxEncryptionKeySecurity
-      - id: HoloprojectorSecurity
-      # - id: BoxPDASecurity - WD EDIT
-      - id: HoSIDCard # Delta-V
-      - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
-        prob: 0.3
-      - id: PrinterDocFlatpack  # Corvax-Printer
-      # WD EDIT START
-      - id: ClothingMaskGasSecurity
-      - id: BoxBasicRegulatorLamp
-      - id: AssballBat
-      - id: ClothingHandsGlovesCombat
-      # WD EDIT END
+    # - id: WeaponDisabler - WD EDIT
+    - id: ClothingOuterCoatHoSTrench
+    - id: ClothingMaskNeckGaiter
+    - id: ClothingBeltSecurityFilled
+    - id: ClothingHeadsetAltSecurity
+    - id: ClothingEyesGlassesSecurity
+    - id: ClothingShoesBootsJack
+    - id: CigarGoldCase
+      prob: 0.50
+    - id: DoorRemoteSecurity
+    - id: RubberStampHos
+    - id: SecurityTechFabCircuitboard
+    - id: BoxEncryptionKeySecurity
+    - id: HoloprojectorSecurity
+    - id: BookSpaceLaw
+    # - id: BoxPDASecurity - WD EDIT
+    - id: HoSIDCard # Delta-V
+    - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
+      prob: 0.3
+    - id: PrinterDocFlatpack  # Corvax-Printer
+    # WD EDIT START
+    - id: ClothingMaskGasSecurity
+    - id: BoxBasicRegulatorLamp
+    - id: AssballBat
+    - id: ClothingHandsGlovesCombat
+    # WD EDIT END
 
 - type: entity
   id: LockerFreezerVaultFilled
