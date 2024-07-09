@@ -111,10 +111,9 @@ public abstract partial class SharedGunSystem
 
     private void OnBallisticAmmoFillDoAfter(EntityUid uid, BallisticAmmoProviderComponent component, AmmoFillDoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled) // WWDP
-            return;
-
-        if (Deleted(args.Target)
+        if (args.Handled
+            || args.Cancelled
+            || Deleted(args.Target)
             || !TryComp(args.Target, out BallisticAmmoProviderComponent? target)
             || target.Whitelist is null)
             return;
