@@ -50,6 +50,7 @@
     damage: 15
     overtime: 40
     sound: /Audio/Weapons/egloves.ogg
+  - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery
     maxCharge: 750 # WD EDIT
     startingCharge: 750 # WD EDIT

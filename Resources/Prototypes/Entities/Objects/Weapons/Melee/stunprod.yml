@@ -1,9 +1,8 @@
 - type: entity
   name: stun prod
   parent: BaseItem
-  id: StunprodBase # WD EDIT
-  abstract: true
-  noSpawn: true
+  id: StunprodBase # WD EDIT: Stunprod -> StunprodBase
+  abstract: true # WD EDIT
   components:
   - type: ItemToggle
     soundActivate:
@@ -22,6 +21,7 @@
     activatedDamage:
       types:
         Shock: 5
+  - type: ItemToggleDamageOtherOnHit
   - type: Stunbaton
     energyPerUse: 120
   - type: MeleeWeapon
@@ -34,26 +34,26 @@
         Blunt: 7.5
     bluntStaminaDamageFactor: 2.0
     canHeavyAttack: false # WD EDIT
+  - type: DamageOtherOnHit
   - type: StaminaDamageOnHit
     damage: 35 # WD EDIT
     sound: /Audio/Weapons/egloves.ogg
-  - type: ItemToggleDamageOtherOnHit
-  - type: DamageOtherOnHit
   - type: StaminaDamageOnCollide
     damage: 22
     sound: /Audio/Weapons/egloves.ogg
+  - type: LandAtCursor # it deals stamina damage when thrown
   - type: UseDelay
   - type: Item
     heldPrefix: off
     size: Normal
-    shape: # WD EDIT
-    - 0,0,1,1 # WWDP
+    # WD EDIT START
+    shape:
+    - 0,0,1,1
+    # WD EDIT END
   - type: DisarmMalus
     malus: 0.8 # WWDP
   - type: Appearance
-  - type: StaticPrice
-    price: 100
-  # WD EDIT START
+# WD EDIT START
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: ItemSlots
@@ -63,7 +63,7 @@
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot {}
-  - type: KnockdownOnHit # WD EDIT
+  - type: KnockdownOnHit
     knockdownTime: 3
 
 - type: entity
@@ -93,12 +93,13 @@
     visuals:
       enum.ToggleVisuals.Toggled:
         enum.ToggleVisuals.Layer:
-          True: {visible: true}
-          False: {visible: false}
-      enum.PowerCellSlotVisuals.Enabled:
-        enum.PowerDeviceVisualLayers.Powered:
-          True: {visible: true}
-          False: {visible: false}
+          True: {state: stunprod_on}
+          False: {state: stunprod_off}
+  - type: StaticPrice
+    price: 100
+  - type: Construction
+    graph: makeshiftstunprod
+    node: msstunprod
   - type: Construction
     deconstructionTarget: cuffs
     graph: CuffsGraph
@@ -123,3 +124,4 @@
     graph: CuffsGraph
     node: unfinished
 # WD EDIT END
+
