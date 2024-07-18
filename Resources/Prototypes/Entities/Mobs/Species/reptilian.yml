@@ -9,7 +9,7 @@
     species: Reptilian
     hideLayersOnEquip:
     - Snout
-    # - HeadTop
+    # - HeadTop - WD EDIT
     - HeadSide
   - type: Hunger
   - type: Puller
@@ -147,13 +147,13 @@
   components:
   - type: HumanoidAppearance
     species: Reptilian
-  # WD EDIT START
     hideLayersOnEquip:
     - Snout
-    # - HeadTop
+    # - HeadTop - WD EDIT
     - HeadSide
   - type: Inventory
     speciesId: reptilian
+    # WD EDIT START
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
