@@ -1,9 +1,9 @@
 - type: entity
   name: energy sword
   parent: BaseItem
-  id: EnergySwordBase
+  id: EnergySwordBase # WD EDIT: EnergySword -> EnergySwordBase
   description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
-  abstract: true
+  abstract: true # WD EDIT
   components:
   - type: EnergySword
   - type: ItemToggle
@@ -14,14 +14,14 @@
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
-  - type: ItemToggleHot
   - type: ComponentToggler
     components:
     - type: Sharp
     - type: DisarmMalus
       malus: 0.8 # WWDP
+  - type: ItemToggleHot
   - type: ItemToggleSize
-    activatedSize: Ginormous # it would just cut through the bag
+    activatedSize: Huge
   - type: ItemTogglePointLight
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
@@ -39,14 +39,11 @@
         variation: 0.125
     activatedDamage:
       types:
-        Slash: 15
-        Heat: 15
-        Structural: 20
+        Slash: 15 # WD EDIT: 12 -> 15
+        Heat: 15 # Should be significantly stronger than other variants, no clue why it's so weak rn
+        Structural: 45 # its a damn laser sword, let people star wars their way through walls
   - type: ItemToggleDamageOtherOnHit
     activatedStaminaCost: 6
-  - type: ItemToggleEmbedPassiveDamage
-  - type: ItemToggleEmbeddableProjectile
-    activatedEmbedOnThrow: true
   - type: ItemToggleThrowingAngle
     activatedAngle: 225
     deleteOnDeactivate: true
@@ -58,11 +55,11 @@
     damage:
       types:
         Blunt: 2.5
-    clickPartDamageMultiplier: 1.75 #WWDP edit
+    clickPartDamageMultiplier: 1.75 # WD EDIT: 3 -> 1.75
   - type: DamageOtherOnHit
-  - type: EmbeddableProjectile
-    embedOnThrow: false
-  - type: EmbedPassiveDamage
+  - type: Item
+    size: Small
+    sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
   - type: UseDelay
     delay: 1.0
   - type: PointLight
@@ -81,15 +78,9 @@
       right:
       - state: inhand-right-blade
         shader: unshaded
-  - type: DisarmMalus
-    malus: 0
   - type: Reflect
-  - type: Tag
-    tags:
-    - NoPaint
   - type: IgnitionSource
     temperature: 700
-  - type: Execution # WWDP
   # Shitmed Change
   - type: Scalpel
     speed: 0.75
@@ -102,7 +93,9 @@
       path: /Audio/Weapons/eblade1.ogg
       params:
         variation: 0.250
-  - type: MeleeBlock # WD EDIT
+# WD EDIT START
+  - type: Execution
+  - type: MeleeBlock
     delay: 6.1
     blockSound:
       path: /Audio/Weapons/eblade1.ogg
@@ -124,19 +117,20 @@
       map: [ "blade" ]
   - type: Item
     size: Small
-    sprite: DeltaV/Objects/Weapons/Melee/e_sword.rsi # Delta-V
-  - type: Reflect # WD EDIT
+    sprite: DeltaV/Objects/Weapons/Melee/e_sword.rsi
+  - type: Reflect
     reflectProb: .5
     spread: 75
     reflects:
-    - Energy #DeltaV:
-  - type: Construction # WD EDIT
+    - Energy
+  - type: Construction
     deconstructionTarget: null
     graph: EnergyDoubleSwordGraph
     node: esword
-  - type: Tag # WD EDIT
+  - type: Tag
     tags:
     - EnergySword
+# WD EDIT END
 
 - type: entity
   name: antique energy sword
@@ -152,12 +146,128 @@
     stealGroup: HoSAntiqueWeapon
 
 - type: entity
+  name: energy dagger
+  parent: EnergySwordBase # WD EDIT: EnergySword -> EnergySwordBase
+  id: EnergyDaggerLoud
+  description: A not as loud and dangerous dagger with a beam made of pure, concentrated plasma. This one is completely undisguised.
+  components:
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/ebladeon.ogg
+      params:
+        volume: -3
+    soundDeactivate:
+      path: /Audio/Weapons/ebladeoff.ogg
+      params:
+        volume: -3
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        volume: -3
+        variation: 0.250
+    activatedDamage:
+      types:
+        Slash: 10
+        Heat: 10
+    deactivatedSecret: true
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/ebladehum.ogg
+      params:
+        volume: -3
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+    - type: DisarmMalus
+      malus: 0.6 # WWDP
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
+    layers:
+      - state: e_sword
+      - state: e_sword_blade
+        color: "#FFFFFF"
+        visible: false
+        shader: unshaded
+        map: [ "blade" ]
+  - type: MeleeWeapon
+    animationRotation: 135 # WWDP
+    wideAnimationRotation: 135 # WWDP
+    attackRate: 1
+    hidden: true
+    damage:
+      types:
+        Blunt: 1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 3
+    staminaCost: 3.5
+  - type: EmbeddableProjectile
+    offset: 0.3,0.0
+    removalTime: 0.0
+    embedOnThrow: true
+  - type: EmbedPassiveDamage
+    damage:
+      types:
+        Blunt: 0
+  - type: Item
+    size: Tiny
+    sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
+  - type: UseDelay
+    delay: 1.0
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    energy: 1.5
+    color: white
+    netsync: false
+  - type: Appearance
+  - type: ToggleableLightVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+        shader: unshaded
+      right:
+      - state: inhand-right-blade
+        shader: unshaded
+  - type: DisarmMalus
+    malus: 0
+  - type: Tag
+    tags:
+    - NoPaint
+  # WD EDIT START
+  - type: Reflect
+    reflectProb: .25
+    spread: 75
+    reflects:
+    - Energy
+  - type: MeleeBlock
+    delay: 12.1
+  # WD EDIT END
+
+- type: entity
   name: pen
-  parent: EnergySwordBase
+  parent: EnergyDaggerLoud
   id: EnergyDagger
   suffix: E-Dagger
   description: 'A dark ink pen.'
   components:
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/ebladeon.ogg
+      params:
+        volume: -6
+    soundDeactivate:
+      path: /Audio/Weapons/ebladeoff.ogg
+      params:
+        volume: -6
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/ebladehum.ogg
+      params:
+        volume: -6
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_dagger.rsi
     layers:
@@ -170,67 +280,10 @@
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/e_dagger.rsi
-  - type: ItemToggle
-    soundActivate:
-      path: /Audio/Weapons/ebladeon.ogg
-      params:
-        volume: -6
-    soundDeactivate:
-      path: /Audio/Weapons/ebladeoff.ogg
-      params:
-        volume: -6
-  - type: ItemToggleMeleeWeapon
-    activatedSoundOnSwing:
-      path: /Audio/Weapons/eblademiss.ogg
-      params:
-        volume: -6
-        variation: 0.250
-    activatedDamage:
-      types:
-        Slash: 10 # WWDP
-        Heat: 10 # WWDP
-        Structural: 10 # WWDP
-    deactivatedSecret: true
-  - type: ItemToggleActiveSound
-    activeSound:
-      path: /Audio/Weapons/ebladehum.ogg
-      params:
-        volume: -6
-  - type: ComponentToggler
-    components:
-    - type: Sharp
-    - type: DisarmMalus
-      malus: 0.6 # WWDP
-  - type: MeleeWeapon
-    animationRotation: 135 # WWDP
-    wideAnimationRotation: 135 # WWDP
-    attackRate: 1
-    hidden: true
-    damage:
-      types:
-        Blunt: 1
-  - type: Reflect # WD EDIT
-    reflectProb: .25
-    spread: 75
-    reflects:
-    - Energy
-  - type: UseDelay
-    delay: 1.0
-  - type: PointLight
-    enabled: false
-    radius: 1.5
-    energy: 1.5
-    color: white
-    netsync: false
-  - type: Appearance
   - type: Tag
     tags:
     - Write
     - NoPaint
-  - type: DisarmMalus
-    malus: 0
-  - type: MeleeBlock # WD EDIT
-    delay: 12.1
 
 - type: entity
   parent: BaseItem
@@ -239,11 +292,11 @@
   suffix: E-Dagger
   description: A small box containing an e-dagger. Packaging disintegrates when opened, leaving no evidence behind.
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Objects/Storage/penbox.rsi
     state: e_dagger
-  - type: Item
-    size: Tiny
   - type: SpawnItemsOnUse
     items:
     - id: EnergyDagger
@@ -252,35 +305,44 @@
 
 - type: entity
   name: energy cutlass
-  parent: EnergySwordBase
+  parent: EnergySwordBase # WD EDIT:  EnergySword - EnergySwordBase
   id: EnergyCutlass
   description: An exotic energy weapon, brutal blade crackling with crudely harnessed plasma. #DeltaV - nicer description.
   components:
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+        types:
+            Slash: 10
+            Heat: 12
+    deactivatedSecret: true
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi # DeltaV
     layers:
-    - state: e_cutlass
-    - state: e_cutlass_blade
-      color: "#e95151"
-      visible: false
-      shader: unshaded
-      map: [ "blade" ]
-  - type: Item
-    size: Small
-    sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi #DeltaV
-  - type: ItemToggleMeleeWeapon
-    activatedDamage:
-      types:
-        Slash: 10
-        Heat: 12
-    deactivatedSecret: true
+      - state: e_cutlass
+      - state: e_cutlass_blade
+        color: "#e95151"
+        visible: false
+        shader: unshaded
+        map: [ "blade" ]
   - type: MeleeWeapon # DeltaV - reduced attack rate of e-cutlass; slower, more brutal swings
-    attackRate: 0.75
+    attackRate: 1.5
     soundHit:
       path: /Audio/Weapons/eblade1.ogg
     damage:
       types:
         Blunt: 6
+  - type: Item
+    size: Small
+    sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi
+  - type: ToggleableLightVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+        shader: unshaded
+      right:
+      - state: inhand-right-blade
+        shader: unshaded
 
 - type: entity
   name: energy cutlass
@@ -290,51 +352,99 @@
   suffix: Security Loadouts
   components:
   - type: MeleeWeapon
-    attackRate: 0.6666
+    attackRate: 1.25
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
-        Slash: 6
+        Slash: 5
         Heat: 12
+        Structural: 20 # "expertly contained to cut through nearly any material" yet it had no structural damage
   - type: GuideHelp
     guides: [ SecurityWeapons ]
 
 - type: entity
   name: double-bladed energy sword
-  parent: EnergySwordBase
+  parent: EnergySwordBase # WD EDIT: EnergySword -> EnergySwordBase
   id: EnergySwordDouble
   description: Syndicate Command's intern thought that having only one blade on energy swords was not cool enough. This can be stored in pockets.
   components:
+  - type: ItemToggle
+    predictable: false # WD EDIT: cringe
+    onUse: false # wielding events control it instead
+    soundActivate:
+      path: /Audio/Weapons/ebladeon.ogg
+      params:
+        volume: 3
+    soundDeactivate:
+      path: /Audio/Weapons/ebladeoff.ogg
+      params:
+        volume: 3
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        volume: 3
+        variation: 0.250
+    activatedDamage:
+        types:
+            Slash: 15 # WD EDIT: 12 -> 15
+            Heat: 15
+            Structural: 30
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/ebladehum.ogg
+      params:
+        volume: 3
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+    - type: DisarmMalus
+      malus: 0.7
+  - type: Wieldable
+    wieldSound: null # esword light sound instead
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: .6666
+    angle: 100
+    damage:
+      types:
+        Blunt: 4.5
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword_double.rsi
     layers:
-    - state: e_sword_double
-    - state: e_sword_double_blade
-      color: "#FFFFFF"
-      visible: false
-      shader: unshaded
-      map: [ "blade" ]
+      - state: e_sword_double
+      - state: e_sword_double_blade
+        color: "#FFFFFF"
+        visible: false
+        shader: unshaded
+        map: [ "blade" ]
   - type: Item
     size: Small
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
-  - type: Wieldable
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Slash: 15
-        Heat: 15
-  - type: Reflect # WD EDIT
-    reflectProb: 1
+  - type: Reflect
+    reflectProb: 1 # WD EDIT: 0.80 -> 1
     spread: 75
     reflects:
-    - Energy
-  - type: ToggleableWielded # WD EDIT
-  - type: MeleeBlock # WD EDIT
+    - Energy #DeltaV: 80% Energy Reflection but no ballistics.
+  - type: UseDelay
+    delay: 1
+  - type: ToggleableLightVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+        shader: unshaded
+      right:
+      - state: inhand-right-blade
+        shader: unshaded
+  # WD EDIT START
+  - type: ToggleableWielded
+  - type: MeleeBlock
     delay: 3.1
-  - type: FlipOnHit # WD EDIT
-  - type: Construction # WD EDIT
+  - type: FlipOnHit
+  - type: Construction
     deconstructionTarget: null
     graph: EnergyDoubleSwordGraph
     node: desword
-  - type: ItemToggle # WD EDIT
-    predictable: false
+  # WD EDIT END
+
