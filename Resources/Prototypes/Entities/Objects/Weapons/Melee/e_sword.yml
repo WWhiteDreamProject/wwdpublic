@@ -93,7 +93,7 @@
       path: /Audio/Weapons/eblade1.ogg
       params:
         variation: 0.250
-# WD EDIT START
+  # WD EDIT START
   - type: Execution
   - type: MeleeBlock
     delay: 6.1
@@ -184,12 +184,12 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
     layers:
-      - state: e_sword
-      - state: e_sword_blade
-        color: "#FFFFFF"
-        visible: false
-        shader: unshaded
-        map: [ "blade" ]
+    - state: e_sword
+    - state: e_sword_blade
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
   - type: MeleeWeapon
     animationRotation: 135 # WWDP
     wideAnimationRotation: 135 # WWDP
@@ -311,19 +311,19 @@
   components:
   - type: ItemToggleMeleeWeapon
     activatedDamage:
-        types:
-            Slash: 10
-            Heat: 12
+      types:
+        Slash: 10
+        Heat: 12
     deactivatedSecret: true
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi # DeltaV
     layers:
-      - state: e_cutlass
-      - state: e_cutlass_blade
-        color: "#e95151"
-        visible: false
-        shader: unshaded
-        map: [ "blade" ]
+    - state: e_cutlass
+    - state: e_cutlass_blade
+      color: "#e95151"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
   - type: MeleeWeapon # DeltaV - reduced attack rate of e-cutlass; slower, more brutal swings
     attackRate: 1.5
     soundHit:
@@ -386,10 +386,10 @@
         volume: 3
         variation: 0.250
     activatedDamage:
-        types:
-            Slash: 15 # WD EDIT: 12 -> 15
-            Heat: 15
-            Structural: 30
+      types:
+        Slash: 15 # WD EDIT: 12 -> 15
+        Heat: 15
+        Structural: 30
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -412,12 +412,12 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword_double.rsi
     layers:
-      - state: e_sword_double
-      - state: e_sword_double_blade
-        color: "#FFFFFF"
-        visible: false
-        shader: unshaded
-        map: [ "blade" ]
+    - state: e_sword_double
+    - state: e_sword_double_blade
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
   - type: Item
     size: Small
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
@@ -448,3 +448,11 @@
     node: desword
   # WD EDIT END
 
+- type: entity
+  suffix: One-Handed, For Borgs
+  parent: EnergySwordDouble
+  id: CyborgEnergySwordDouble # why is this invalid if ID is BorgEnergySwordDouble
+  description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. Specially designed for syndicate cyborgs.
+  components: # could add energy-draining like the L6C
+  - type: Wieldable
+    freeHandsRequired: 0 # because borg has no off-hand to wield with.  Without this, it will be unable to activate the esword
