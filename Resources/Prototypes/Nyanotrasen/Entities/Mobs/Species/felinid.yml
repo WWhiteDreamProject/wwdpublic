@@ -37,9 +37,9 @@
       types:
         Slash: 4
         Piercing: 1
-#  - type: DiseaseCarrier
-#    naturalImmunities:
-#    - OwOnavirus
+  #  - type: DiseaseCarrier
+  #    naturalImmunities:
+  #    - OwOnavirus
   - type: Speech
     speechSounds: Alto
   - type: DamageOnHighSpeedImpact # Landing on all fours!
@@ -54,9 +54,9 @@
   - type: PseudoItem
     storedOffset: 0,17
     shape:
-      - 0,0,1,4
-      - 0,2,3,4
-      - 4,0,5,4
+    - 0,0,1,4
+    - 0,2,3,4
+    - 4,0,5,4
   - type: Vocal
     wilhelm: "/Audio/Nyanotrasen/Voice/Felinid/cat_wilhelm.ogg"
     sounds:
@@ -92,9 +92,14 @@
   #       - Landmine
   #       - Mousetrap
   #       - SlipEntity
-  # WD EDIT START
   - type: Inventory
     femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+      # WD EDIT START
       jumpsuit-body-slim:
         sizeMaps:
           32:
@@ -125,7 +130,7 @@
           32:
             sprite: _White/Mobs/Species/Human/displacement.rsi
             state: suit
-  # WD EDIT END
+       # WD EDIT END
 
 - type: entity
   save: false
@@ -137,9 +142,14 @@
   components:
   - type: HumanoidAppearance
     species: Felinid
-  # WD EDIT START
   - type: Inventory
     femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+      # WD EDIT START
       jumpsuit-body-slim:
         sizeMaps:
           32:
@@ -170,4 +180,4 @@
           32:
             sprite: _White/Mobs/Species/Human/displacement.rsi
             state: suit
-  # WD EDIT END
+      # WD EDIT END

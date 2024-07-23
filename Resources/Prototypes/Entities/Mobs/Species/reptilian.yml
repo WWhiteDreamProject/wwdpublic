@@ -84,7 +84,7 @@
     - UnathiEmotes
   - type: Inventory
     speciesId: reptilian
-    # WWDP-Edit-Start
+    # WD EDIT START
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -137,7 +137,7 @@
           32:
             sprite: _White/Mobs/Species/Reptilian/displacement.rsi
             state: shoes
-    # WWDP-Edit-End
+    # WD EDIT END
 
 - type: entity
   parent: BaseSpeciesDummy

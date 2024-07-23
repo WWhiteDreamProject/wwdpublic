@@ -29,8 +29,8 @@
   - type: Butcherable
     butcheringType: Spike
     spawned:
-      - id: FoodMeatPlant
-        amount: 5
+    - id: FoodMeatPlant
+      amount: 5
   - type: Bloodstream
     bloodReagent: Sap
     bloodRegenerationHunger: 1
@@ -82,9 +82,9 @@
         density: 300 #weighs more than humans because wood
         restitution: 0.0
         mask:
-          - MobMask
+        - MobMask
         layer:
-          - MobLayer
+        - MobLayer
   - type: Speech
     speechVerb: Plant
   - type: Vocal

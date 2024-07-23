@@ -268,7 +268,6 @@ public abstract class ClothingSystem : EntitySystem
         clothing.ClothingVisuals = otherClothing.ClothingVisuals;
         clothing.EquippedPrefix = otherClothing.EquippedPrefix;
         clothing.Sprite = otherClothing.Sprite;
-        clothing.FemaleMask = otherClothing.FemaleMask;
         clothing.ClothingType = otherClothing.ClothingType; // WD EDIT
 
         _itemSys.VisualsChanged(uid);

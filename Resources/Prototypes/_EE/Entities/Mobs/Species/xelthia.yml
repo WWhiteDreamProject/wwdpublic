@@ -190,7 +190,6 @@
 #        layerKey: dummy
 #        parameterTexture: displacementMap
 #        parameterUV: displacementUV
-
   - type: Inventory
     templateId: xelthia
     speciesId: Xelthia
