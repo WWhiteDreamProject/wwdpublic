@@ -3,91 +3,91 @@
   id: BananaClownJumpsuit
   start: start
   graph:
-    - node: start
-      edges:
-        - to: jumpsuit
-          steps:
-          - tag: ClownSuit
-            name: A Clown Suit
-            icon:
-              sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
-              state: icon
-            doAfter: 1
-          - material: Bananium
-            amount: 1
-            doAfter: 1
-    - node: basesuit
-      entity: ClothingUniformJumpsuitClown
-      edges:
-      - to: jumpsuit
-        steps:
-        - material: Bananium
-          amount: 1
-          doAfter: 1
-    - node: jumpsuit
-      entity: ClothingUniformJumpsuitClownBanana
+  - node: start
+    edges:
+    - to: jumpsuit
+      steps:
+      - tag: ClownSuit
+        name: a clown suit
+        icon:
+          sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
+          state: icon
+        doAfter: 1
+      - material: Bananium
+        amount: 1
+        doAfter: 1
+  - node: basesuit
+    entity: ClothingUniformJumpsuitClown
+    edges:
+    - to: jumpsuit
+      steps:
+      - material: Bananium
+        amount: 1
+        doAfter: 1
+  - node: jumpsuit
+    entity: ClothingUniformJumpsuitClownBanana
 
 - type: constructionGraph
   id: BananaClownShoes
   start: start
   graph:
-    - node: start
-      edges:
-        - to: shoes
-          steps:
-          - tag: ClownShoes
-            name: Clown Shoes
-            icon:
-              sprite: Clothing/Shoes/Specific/clown.rsi
-              state: icon
-            doAfter: 1
-          - material: Bananium
-            amount: 1
-            doAfter: 1
-    - node: baseshoes
-      entity: ClothingShoesClown
-      edges:
-      - to: shoes
-        steps:
-        - material: Bananium
-          amount: 1
-          doAfter: 1
-    - node: shoes
-      entity: ClothingShoesClownBanana
+  - node: start
+    edges:
+    - to: shoes
+      steps:
+      - tag: ClownShoes
+        name: clown shoes
+        icon:
+          sprite: Clothing/Shoes/Specific/clown.rsi
+          state: icon
+        doAfter: 1
+      - material: Bananium
+        amount: 1
+        doAfter: 1
+  - node: baseshoes
+    entity: ClothingShoesClown
+    edges:
+    - to: shoes
+      steps:
+      - material: Bananium
+        amount: 1
+        doAfter: 1
+  - node: shoes
+    entity: ClothingShoesClownBanana
 
 - type: constructionGraph
   id: BananaClownMask
   start: start
   graph:
-    - node: start
-      edges:
-      - to: mask
-        steps:
-        - tag: ClownMask
-          name: A Clown Mask
-          icon:
-            sprite: Clothing/Mask/clown.rsi
-            state: icon
-          doAfter: 1
-        - material: Bananium
-          amount: 1
-          doAfter: 1
-    - node: basemask
-      entity: ClothingMaskClown
-      edges:
-      - to: mask
-        steps:
-        - material: Bananium
-          amount: 1
-          doAfter: 1
-    - node: sexymask
-      entity: ClothingMaskSexyClown
-      edges:
-      - to: mask
-        steps:
-        - material: Bananium
-          amount: 1
-          doAfter: 1
-    - node: mask
-      entity: ClothingMaskClownBanana
+  - node: start
+    edges:
+    - to: mask
+      steps:
+      - tag: ClownMask
+        name: a clown mask
+        icon:
+          sprite: Clothing/Mask/clown.rsi
+          state: icon
+        doAfter: 1
+      - material: Bananium
+        amount: 1
+        doAfter: 1
+  - node: basemask
+    entity: ClothingMaskClown
+    edges:
+    - to: mask
+      steps:
+      - material: Bananium
+        amount: 1
+        doAfter: 1
+  - node: sexymask
+    entity: ClothingMaskSexyClown
+    edges:
+    - to: mask
+      steps:
+      - material: Bananium
+        amount: 1
+        doAfter: 1
+  - node: mask
+    entity: ClothingMaskClownBanana
 # WWDP edit end
