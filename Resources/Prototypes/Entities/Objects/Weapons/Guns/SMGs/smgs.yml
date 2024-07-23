@@ -51,6 +51,7 @@
         whitelist:
           tags:
           - MagazinePistolSubMachineGun
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistol
@@ -194,6 +195,7 @@
         whitelist:
           tags:
           - MagazinePistolSubMachineGun
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: null
@@ -254,6 +256,7 @@
         whitelist:
           tags:
           - MagazinePistolSubMachineGun
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistol
@@ -315,9 +318,10 @@
 #        whitelist:
 #          tags:
 #            - CartridgeMagnum
+#        whitelistFailPopup: gun-magazine-whitelist-fail
 #  - type: MagazineVisuals
 #    magState: mag
-##    steps: 1
+#    steps: 1
 #    zeroVisible: true
 #  - type: Appearance
 #  # WD EDIT START: Guns resize
@@ -377,6 +381,7 @@
         whitelist:
           tags:
           - MagazinePistolSubMachineGunTopMounted
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistol

@@ -7,10 +7,10 @@
   components:
   - type: Sprite
     layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-0
-      map: ["enum.GunVisualLayers.Mag"]
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
   - type: Item
     size: Small
     shape:
@@ -27,19 +27,21 @@
     - suitStorage
     - Belt
   - type: Gun
-    bonusAngleIncreaseTurn: 0.2   # wwdp
-    bonusAngleDecay: 50           # wwdp
-    maxBonusAngle: 10             # wwdp
-    minAngle: 2 # WWDP
-    maxAngle: 10 # WWDP
-    angleIncrease: 4 # WWDP
-    angleDecay: 10 # WWDP
+    # WD EDIT START
+    bonusAngleIncreaseTurn: 0.2
+    bonusAngleDecay: 50
+    maxBonusAngle: 10
+    minAngle: 2
+    maxAngle: 10
+    angleIncrease: 4
+    angleDecay: 10
+    defaultDirection: 1, 0
+    # WD EDIT END
     fireRate: 6
-    defaultDirection: 1, 0 # wwdp
     selectedMode: SemiAuto
     availableModes:
-    - SemiAuto
-    - FullAuto
+      - SemiAuto
+      - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
   - type: ChamberMagazineAmmoProvider
@@ -55,14 +57,15 @@
         priority: 2
         whitelist:
           tags:
-          - MagazinePistol
+            - MagazinePistol
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistol
         priority: 1
         whitelist:
           tags:
-          - CartridgePistol
+            - CartridgePistol
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -75,8 +78,8 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
-  # - type: Execution # WWDP
-  # - type: AmmoCounter # WWDP
+  - type: Execution
+  - type: AmmoCounter
   - type: MeleeWeapon
     attackRate: 1.2
     damage:
@@ -90,17 +93,19 @@
       collection: MetalThud
   - type: DamageOtherOnHit
     staminaCost: 5
-  - type: EmitSoundOnPickup # WWDP sounds
+  # WD EDIT START
+  - type: EmitSoundOnPickup
     sound:
       collection: PistolsPickUp
-  - type: EmitSoundOnDrop # WWDP sounds
+  - type: EmitSoundOnDrop
     sound:
       collection: PistolsDrop
-  - type: EmitSoundOnLand # WWDP sounds
+  - type: EmitSoundOnLand
     sound:
       collection: PistolsDrop
-  - type: DisarmMalus # WWDP
+  - type: DisarmMalus
     malus: 0.3
+  # WD EDIT END
 
 - type: entity
   name: viper
@@ -120,15 +125,16 @@
         priority: 2
         whitelist:
           tags:
-          - MagazinePistol
-          - MagazinePistolHighCapacity
+            - MagazinePistol
+            - MagazinePistolHighCapacity
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistol
         priority: 1
         whitelist:
           tags:
-          - CartridgePistol
+            - CartridgePistol
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -252,14 +258,15 @@
         priority: 2
         whitelist:
           tags:
-          - MagazinePistolCaselessRifle
+            - MagazinePistolCaselessRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgeCaselessRifle
         priority: 1
         whitelist:
           tags:
-          - CartridgeCaselessRifle
+            - CartridgeCaselessRifle
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -386,14 +393,15 @@
         priority: 2
         whitelist:
           tags:
-          - MagazineMagnum
+            - MagazineMagnum
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgeMagnum
         priority: 1
         whitelist:
           tags:
-          - CartridgeMagnum
+            - CartridgeMagnum
 
 - type: entity
   name: N1984

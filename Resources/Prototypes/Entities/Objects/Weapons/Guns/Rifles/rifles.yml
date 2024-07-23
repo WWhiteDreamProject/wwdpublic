@@ -6,24 +6,28 @@
   abstract: true
   components:
   - type: Sprite
-  - type: Item # WWDP guns resize
+  - type: Item
     size: Huge
+    # WD EDIT START: guns resize
     shape:
     - 0,0,7,1
+    # WD EDIT END
   - type: Clothing
-    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/Rifles/ak.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
   - type: Wieldable
-  # - type: AmmoCounter # WWDP
+  # - type: GunRequiresWield - WD EDIT
+  # - type: AmmoCounter - WD EDIT
   - type: Gun
-    angleIncrease: 6 # WWDP
-    angleDecay: 10 # WWDP
+    # WD EDIT START
+    angleIncrease: 6
+    angleDecay: 10
+    defaultDirection: 1, 0
+    # WD EDIT END
     fireRate: 5
-    defaultDirection: 1, 0 # wwdp
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -43,6 +47,7 @@
         whitelist:
           tags:
           - MagazineLightRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgeLightRifle
@@ -56,7 +61,7 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
-  # - type: Execution # WWDP
+  # - type: Execution - WD EDIT
   - type: MeleeWeapon
     attackRate: 1.3333
     damage:
@@ -109,6 +114,7 @@
         whitelist:
           tags:
           - MagazineLightRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgeLightRifle
@@ -125,15 +131,17 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: EmitSoundOnPickup # WWDP sounds
+  # WD EDIT START: sounds
+  - type: EmitSoundOnPickup
     sound:
       collection: RiflesPickUp
-  - type: EmitSoundOnDrop # WWDP sounds
+  - type: EmitSoundOnDrop
     sound:
       collection: RiflesDrop
-  - type: EmitSoundOnLand # WWDP sounds
+  - type: EmitSoundOnLand
     sound:
       collection: RiflesDrop
+  # WD EDIT END
 
 - type: entity
   name: M-90gl
@@ -161,6 +169,7 @@
         whitelist:
           tags:
           - MagazineRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgeRifle
@@ -208,6 +217,7 @@
         whitelist:
           tags:
           - MagazineRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgeRifle
