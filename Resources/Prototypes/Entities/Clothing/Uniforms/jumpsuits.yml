@@ -289,6 +289,7 @@
   - type: Tag
     tags:
     - ClownSuit
+    - WhitelistChameleon
   - type: Construction # WWDP
     graph: BananaClownJumpsuit
     node: basesuit
@@ -778,7 +779,7 @@
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/warden.rsi # WD EDIT
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/warden.rsi
+    sprite: Clothing/Uniforms/Jumpsuit/warden.rsi # WD EDIT
 
 - type: entity
   parent: ClothingUniformBase
