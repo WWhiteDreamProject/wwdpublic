@@ -31,9 +31,9 @@
   - Maintenance
   - Chemistry
   - ChiefMedicalOfficer
-  - Paramedic # DeltaV - Add Paramedic access
-  - External # DeltaV - Paramedics need this access
-  - Psychologist # DeltaV - Add Psychologist access
+  - Paramedic
+  - External
+  - Psychologist
   - Cryogenics
   special:
   - !type:AddImplantSpecial
@@ -61,10 +61,7 @@
     back: ClothingBackpackCMOFilled
     shoes: ClothingShoesColorBrown
     id: CMOPDA
-    ears: ClothingHeadsetAltMedical # Goobstation
-  innerClothingSkirt: ClothingUniformJumpskirtCMO
-  satchel: ClothingBackpackSatchelCMOFilled
-  duffelbag: ClothingBackpackDuffelCMOFilled
+    ears: ClothingHeadsetAltMedical
 
 - type: startingGear
   id: CMOPlasmamanGear

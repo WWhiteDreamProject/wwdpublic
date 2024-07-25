@@ -4,13 +4,14 @@
   description: job-description-warden
   playTimeTracker: JobWarden
   requirements:
-    # WWDP disabled trackers
-    # - !type:CharacterPlaytimeRequirement # DeltaV - JobSecurityOfficer time requirement. Make them experienced in proper officer work.
+    # WD EDIT START
+    # - !type:CharacterPlaytimeRequirement
     #   tracker: JobSecurityOfficer
     #   min: 43200 # DeltaV - 12 hrs
-    # - !type:CharacterPlaytimeRequirement # DeltaV - JobDetective time requirement. Give them an understanding of basic forensics.
+    # - !type:CharacterPlaytimeRequirement
     #   tracker: JobDetective
     #   min: 14400 # DeltaV - 4 hours
+    # WD EDIT END
     - !type:CharacterWhitelistRequirement
     - !type:CharacterTraitRequirement
       inverted: true
@@ -26,15 +27,16 @@
       - ZavodskoiInterstellar
       - PMCG
       - NanoTrasen
-    - !type:CharacterOverallTimeRequirement # WWDP
+    # WD EDIT START
+    - !type:CharacterOverallTimeRequirement
       min: 3600
+    # WD EDIT END
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
   - Security
-  #- Brig # Delta V: Removed
   - Armory
   - Maintenance
   - Service
@@ -62,11 +64,8 @@
     # eyes: ClothingEyesGlassesSecurity - WD EDIT
     # outerClothing: ClothingOuterCoatWarden - WD EDIT
     id: WardenPDA
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
+    ears: ClothingHeadsetAltSecurityRegular
     # belt: ClothingBeltSecurityFilled - WD EDIT
-  innerClothingSkirt: ClothingUniformJumpskirtWarden
-  satchel: ClothingBackpackSatchelSecurity
-  duffelbag: ClothingBackpackDuffelSecurity
 
 - type: startingGear
   id: WardenPlasmamanGear

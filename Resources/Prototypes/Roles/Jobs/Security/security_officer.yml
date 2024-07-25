@@ -4,9 +4,11 @@
   description: job-description-security
   playTimeTracker: JobSecurityOfficer
   requirements:
-  # - !type:CharacterDepartmentTimeRequirement # WWDP
-  #   department: Security
-  #   min: 36000 # 10 hours
+    # WD EDIT START
+    # - !type:CharacterDepartmentTimeRequirement
+    #   department: Security
+    #   min: 36000 # 10 hours
+    # WD EDIT END
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
@@ -22,15 +24,16 @@
       - PMCG
       - NanoTrasen
       - EastOrionCompany
-    - !type:CharacterOverallTimeRequirement # WWDP
+    # WD EDIT START
+    - !type:CharacterOverallTimeRequirement
       min: 3600
+    # WD EDIT END
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
   - Security
-  #- Brig # Delta V: Removed
   - Maintenance
   - Service
   - External
@@ -50,17 +53,14 @@
   - SecurityOfficerPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSec
-    back: ClothingBackpackSecurity # WD EDIT: ClothingBackpackSecurity -> ClothingBackpackSecurityFilled
-    shoes: ClothingShoesBootsCombatFilled # WD EDIT: ClothingShoesBootsCombatFilled -> ClothingShoesBootsJack
+    back: ClothingBackpackSecurityFilled # WD EDIT: ClothingBackpackSecurity -> ClothingBackpackSecurityFilled
+    shoes: ClothingShoesBootsJack # WD EDIT: ClothingShoesBootsCombatFilled -> ClothingShoesBootsJack
     # eyes: ClothingEyesGlassesSecurity - WD EDIT
     # head: ClothingHeadHelmetBasic - WD EDIT
     # outerClothing: ClothingOuterArmorPlateCarrier - WD EDIT
     id: SecurityPDA
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
+    ears: ClothingHeadsetAltSecurityRegular
     # belt: ClothingBeltSecurityFilled - WD EDIT
-  innerClothingSkirt: ClothingUniformJumpskirtSec
-  satchel: ClothingBackpackSatchelSecurity
-  duffelbag: ClothingBackpackDuffelSecurity
 
 - type: startingGear
   id: SecurityOfficerPlasmamanGear

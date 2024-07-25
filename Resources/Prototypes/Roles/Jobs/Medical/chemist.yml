@@ -4,9 +4,11 @@
   description: job-description-chemist
   playTimeTracker: JobChemist
   requirements:
-    # - !type:CharacterDepartmentTimeRequirement # WWDP
+    # WD EDIT START
+    # - !type:CharacterDepartmentTimeRequirement
     #   department: Medical
-    #   min: 28800 # DeltaV - 8 hours
+    #   min: 28800
+    # WD EDIT END
     - !type:CharacterEmployerRequirement
       employers:
       - ZengHuPharmaceuticals
@@ -36,9 +38,6 @@
     shoes: ClothingShoesColorWhite
     id: ChemistryPDA
     ears: ClothingHeadsetMedical
-  innerClothingSkirt: ClothingUniformJumpskirtChemistry
-  satchel: ClothingBackpackSatchelChemistryFilled
-  duffelbag: ClothingBackpackDuffelChemistryFilled
 
 - type: startingGear
   id: ChemistPlasmamanGear

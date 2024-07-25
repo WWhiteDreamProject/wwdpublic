@@ -18,8 +18,10 @@
     - ZavodskoiInterstellar
     - PMCG
     - NanoTrasen
-  - !type:CharacterOverallTimeRequirement # WWDP
+  # WD EDIT START
+  - !type:CharacterOverallTimeRequirement
     min: 7200
+  # WD EDIT END
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
@@ -29,14 +31,12 @@
   access:
   - HeadOfSecurity
   - Command
-  #- Brig  # Delta V: Removed
   - Security
   - Armory
   - Maintenance
   - Service
   - External
   - Detective
-  - Corpsman # DeltaV - added Corpsman access
   - Cryogenics
   special:
   - !type:AddImplantSpecial
@@ -63,9 +63,6 @@
     # gloves: ClothingHandsGlovesCombat - WD EDIT
     ears: ClothingHeadsetAltSecurity
     # belt: ClothingBeltSecurityFilled - WD EDIT
-  innerClothingSkirt: ClothingUniformJumpskirtHoS
-  satchel: ClothingBackpackSatchelHOSFilled
-  duffelbag: ClothingBackpackDuffelHOSFilled
 
 - type: startingGear
   id: HoSPlasmamanGear

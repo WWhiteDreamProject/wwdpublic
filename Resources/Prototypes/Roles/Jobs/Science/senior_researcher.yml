@@ -5,9 +5,11 @@
   playTimeTracker: JobSeniorResearcher
   setPreference: false # WWDP disabled role, not mapped
   requirements:
-    # - !type:CharacterDepartmentTimeRequirement # WWDP
-    #   department: Epistemics # DeltaV - Epistemics Department replacing Science
+    # WD EDIT START
+    # - !type:CharacterDepartmentTimeRequirement
+    #   department: Epistemics
     #   min: 216000 #60 hrs
+    # WD EDIT END
     - !type:CharacterEmployerRequirement
       employers:
       - NanoTrasen
@@ -32,6 +34,3 @@
     id: SeniorResearcherPDA
     ears: ClothingHeadsetScience
     pocket1: BookPsionicsGuidebook
-  innerClothingSkirt: ClothingUniformJumpskirtSeniorResearcher
-  satchel: ClothingBackpackSatchelScienceFilled
-  duffelbag: ClothingBackpackDuffelScienceFilled

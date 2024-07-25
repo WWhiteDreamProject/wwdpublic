@@ -6,7 +6,6 @@
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
   supervisors: job-supervisors-engineering
-  canBeAntag: true # DeltaV - Can be antagonist
   access:
   - Maintenance
   - Engineering
@@ -28,9 +27,6 @@
     back: ClothingBackpackEngineeringFilled
     shoes: ClothingShoesBootsWork
     id: TechnicalAssistantPDA
-    # belt: ClothingBeltUtilityEngineering # WWDP
+    # belt: ClothingBeltUtilityEngineering - WD EDIT
     ears: ClothingHeadsetEngineering
-    pocket1: BookEngineersHandbook
-  innerClothingSkirt: ClothingUniformJumpskirtColorYellow
-  satchel: ClothingBackpackSatchelEngineeringFilled
-  duffelbag: ClothingBackpackDuffelEngineeringFilled
+    pocket2: BookEngineersHandbook

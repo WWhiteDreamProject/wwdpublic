@@ -4,9 +4,11 @@
   description: job-description-detective
   playTimeTracker: JobDetective
   requirements:
-  # - !type:CharacterDepartmentTimeRequirement # WWDP
+  # WD EDIT START
+  # - !type:CharacterDepartmentTimeRequirement
   #   department: Security
-  #   min: 36000 # DeltaV - 10 hours
+  #   min: 36000
+  # WD EDIT END
   - !type:CharacterTraitRequirement
     inverted: true
     traits:
@@ -21,15 +23,16 @@
       - ZavodskoiInterstellar
       - PMCG
       - NanoTrasen
-  - !type:CharacterOverallTimeRequirement # WWDP
+  # WD EDIT START
+  - !type:CharacterOverallTimeRequirement
     min: 3600
+  # WD EDIT END
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
   - Security
-  #- Brig # Delta V: Removed
   - Maintenance
   - Service
   - Detective
@@ -48,7 +51,6 @@
   id: DetectiveGear
   subGear:
   - DetectivePlasmamanGear
-
   equipment:
     jumpsuit: ClothingUniformJumpsuitDetective
     back: ClothingBackpackSecurity
@@ -57,11 +59,8 @@
     head: ClothingHeadHatFedoraBrown
     # outerClothing: ClothingOuterVestDetective - WD EDIT
     id: DetectivePDA
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
+    ears: ClothingHeadsetAltSecurityRegular
     belt: ClothingBeltHolsterFilled
-  innerClothingSkirt: ClothingUniformJumpskirtDetective
-  satchel: ClothingBackpackSatchelSecurity
-  duffelbag: ClothingBackpackDuffelSecurity
 
 - type: startingGear
   id: DetectivePlasmamanGear

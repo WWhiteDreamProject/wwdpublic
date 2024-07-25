@@ -10,7 +10,7 @@
   access:
   - Service
   - Maintenance
-  - Zookeeper # DeltaV - Add Zookeeper access
+  - Zookeeper
   requirements:
     - !type:CharacterEmployerRequirement
       inverted: true
@@ -28,10 +28,6 @@
     shoes: ClothingShoesColorWhite
     id: ZookeeperPDA
     ears: ClothingHeadsetService
-    pocket2: CandyBucket
-  innerClothingSkirt: ClothingUniformJumpsuitSafari
-  satchel: ClothingBackpackSatchelFilled
-  duffelbag: ClothingBackpackDuffelFilled
 
 - type: startingGear
   id: ZookeeperPlasmamanGear

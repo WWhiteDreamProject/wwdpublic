@@ -37,9 +37,6 @@
     # eyes: ClothingEyesGlassesMeson # WWDP
     # belt: ClothingBeltUtilityEngineering # WWDP
     ears: ClothingHeadsetEngineering
-  innerClothingSkirt: ClothingUniformJumpskirtEngineering
-  satchel: ClothingBackpackSatchelEngineeringFilled
-  duffelbag: ClothingBackpackDuffelEngineeringFilled
 
 - type: startingGear
   id: StationEngineerPlasmamanGear

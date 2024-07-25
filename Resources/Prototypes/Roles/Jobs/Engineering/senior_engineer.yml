@@ -44,6 +44,3 @@
     # eyes: ClothingEyesGlassesMeson # WWDP
     # belt: ClothingBeltUtilityEngineering # WWDP
     ears: ClothingHeadsetEngineering
-  innerClothingSkirt: ClothingUniformJumpskirtSeniorEngineer
-  satchel: ClothingBackpackSatchelEngineeringFilled
-  duffelbag: ClothingBackpackDuffelEngineeringFilled
