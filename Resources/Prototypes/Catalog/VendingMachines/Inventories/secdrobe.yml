@@ -24,3 +24,6 @@
     ClothingShoesBootsWinterSec: 2
     ClothingOuterStasecSweater: 2 # WWDP - moved sweaters from security lockers to SecDrobe
     ClothingOuterArmorBasic: 2 # WWDP - moved body armour back to SecDrobe from SecTech
+  contrabandInventory:
+    ClothingMaskClownSecurity: 1
+
