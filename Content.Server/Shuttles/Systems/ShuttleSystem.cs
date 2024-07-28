@@ -62,11 +62,15 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
     [Dependency] private readonly InventorySystem _inventory = default!; // WD EDIT
     [Dependency] private readonly LayingDownSystem _layingDown = default!; // WD EDIT
 
+    private EntityQuery<MapGridComponent> _gridQuery;
+
     public const float TileMassMultiplier = 0.5f;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _gridQuery = GetEntityQuery<MapGridComponent>();
 
         InitializeFTL();
         InitializeGridFills();
