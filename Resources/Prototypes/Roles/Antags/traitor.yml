@@ -30,7 +30,7 @@
     jumpsuit: ClothingUniformJumpsuitOperative
     ears: ClothingHeadsetAltSyndicate # WWDP
     back: ClothingBackpackSyndicate
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsSyndieFilled
     gloves: ClothingHandsGlovesColorBlack
 
 - type: startingGear
