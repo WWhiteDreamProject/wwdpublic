@@ -375,7 +375,7 @@ namespace Content.Shared.Examine
             var totalMessage = new FormattedMessage(Message);
             parts.Sort(Comparison);
 
-            if (_hasDescription)
+            if (_hasDescription && parts.Count > 0)
             {
                 totalMessage.PushNewline();
             }
