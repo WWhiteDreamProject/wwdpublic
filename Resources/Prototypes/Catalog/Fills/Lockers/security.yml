@@ -94,7 +94,6 @@
     - id: ClothingShoesBootsJack
     - id: WeaponMeleeNeedle
       prob: 0.1
-    # - id: ClothingEyesHudSecurity - WD EDIT
     - id: HoloprojectorSecurity
       prob: 0.6
     - id: BookSpaceLaw
@@ -191,7 +190,8 @@
   components:
   - type: StorageFill
     contents:
-    - id: ClothingEyesHudSecurity # WD EDIT: ClothingEyesHudSecurity -> ClothingEyesGlassesSecurity
+    - id: ClothingEyesGlassesSecurity
+      # prob: 0.3 - WD EDIT
     - id: ClothingHeadHatFedoraBrown
     - id: ClothingNeckTieDet
     - id: ClothingOuterVestDetective
@@ -208,6 +208,7 @@
     - id: BoxTapeRecorder
     - id: LunchboxSecurityFilledRandom
       prob: 0.3
+    - id: HandLabeler
     - id: ClothingMaskGasSecurity # WWDP
 
 - type: entity
