@@ -116,6 +116,10 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     fillBaseName: spear
+    inHandsFillBaseName: -fill-
+    inHandsMaxFillLevels: 1
+    equippedFillBaseName: -fill-
+    equippedMaxFillLevels: 1
   # WD EDIT START
   - type: DisarmMalus
     malus: 0.3
