@@ -13,6 +13,7 @@ using Content.Server.DiscordAuth;
 using Content.Server.EUI;
 using Content.Server.GhostKick;
 using Content.Server.Info;
+using Content.Server.Mapping;
 using Content.Server.Maps;
 using Content.Server.Players.JobWhitelist;
 using Content.Server.MoMMI;
@@ -76,6 +77,7 @@ namespace Content.Server.IoC
             IoCManager.Register<JobWhitelistManager>();
             IoCManager.Register<PlayerRateLimitManager>();
             IoCManager.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
+            IoCManager.Register<MappingManager>();
             IoCManager.Register<TTSManager>(); // WD EDIT
         }
     }
