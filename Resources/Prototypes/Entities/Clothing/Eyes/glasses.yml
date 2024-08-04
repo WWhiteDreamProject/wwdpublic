@@ -239,6 +239,7 @@
   - type: GuideHelp
     guides:
     - Security
+    - Antagonists
   - type: IdentityBlocker
     coverage: EYES
   - type: Construction # WWDP

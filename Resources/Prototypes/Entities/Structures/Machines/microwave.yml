@@ -116,6 +116,7 @@
   - type: GuideHelp
     guides:
     - Chef
+    - FoodRecipes
 
 - type: entity
   id: SyndicateMicrowave
