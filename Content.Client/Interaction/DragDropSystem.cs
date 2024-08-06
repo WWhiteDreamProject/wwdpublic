@@ -2,13 +2,13 @@ using System.Numerics;
 using Content.Client.CombatMode;
 using Content.Client.Gameplay;
 using Content.Client.Outline;
+using Content.Shared._White.RenderOrderSystem;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.DragDrop;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
-using Content.Shared._White.RenderOrderSystem;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -43,6 +43,7 @@ public sealed class DragDropSystem : SharedDragDropSystem
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedRenderOrderSystem _renderOrder = default!; // WWDP
 
     // how often to recheck possible targets (prevents calling expensive
@@ -553,7 +554,7 @@ public sealed class DragDropSystem : SharedDragDropSystem
         if (Exists(_dragShadow))
         {
             var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
-            Transform(_dragShadow.Value).WorldPosition = mousePos.Position;
+            _transformSystem.SetWorldPosition(_dragShadow.Value, mousePos.Position);
         }
     }
 }
