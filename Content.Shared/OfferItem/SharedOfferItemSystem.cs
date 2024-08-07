@@ -1,18 +1,23 @@
+using Content.Shared._White.Move;
 using Content.Shared.Interaction;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Hands.Components;
-using Content.Shared._White.Move;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction.Events;
+using Robust.Shared.Player;
 
 namespace Content.Shared.OfferItem;
 
 public abstract partial class SharedOfferItemSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<OfferItemComponent, InteractUsingEvent>(SetInReceiveMode);
-        SubscribeLocalEvent<OfferItemComponent, MoveEventProxy>(OnMove); // WD EDIT
+        SubscribeLocalEvent<OfferItemComponent, MoveEventProxy>(OnMove); // WD EDIT: MoveEvent -> MoveEventProxy
+        SubscribeLocalEvent<OfferItemComponent, AcceptOfferAlertEvent>(OnAcceptOfferAlert);
 
         InitializeInteractions();
     }
@@ -49,7 +54,7 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnMove(EntityUid uid, OfferItemComponent component, MoveEventProxy args) // WD EDIT
+    private void OnMove(EntityUid uid, OfferItemComponent component, MoveEventProxy args) // WD EDIT: MoveEvent -> MoveEventProxy
     {
         if (component.Target == null ||
             args.NewPosition.InRange(EntityManager, _transform,
@@ -57,6 +62,46 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
             return;
 
         UnOffer(uid, component);
+    }
+
+    private void OnAcceptOfferAlert(EntityUid uid, OfferItemComponent component, AcceptOfferAlertEvent args)
+    {
+        if (!TryComp<OfferItemComponent>(component.Target, out var offerItem)
+            || !TryComp<HandsComponent>(uid, out var hands)
+            || offerItem.Hand == null)
+            return;
+
+        if (offerItem.Item != null)
+        {
+            if (!_hands.TryPickup(uid, offerItem.Item.Value, handsComp: hands))
+            {
+                _popup.PopupClient(Loc.GetString("offer-item-full-hand"), uid, uid);
+                return;
+            }
+
+            _popup.PopupClient(
+                Loc.GetString(
+                "offer-item-give",
+                ("item", Identity.Entity(offerItem.Item.Value, EntityManager)),
+                ("target", Identity.Entity(uid, EntityManager))),
+                component.Target.Value,
+                component.Target.Value);
+
+            _popup.PopupEntity(
+                Loc.GetString(
+                    "offer-item-give-other",
+                    ("user", Identity.Entity(component.Target.Value, EntityManager)),
+                    ("item", Identity.Entity(offerItem.Item.Value, EntityManager)),
+                    ("target", Identity.Entity(uid, EntityManager))),
+                component.Target.Value,
+                Filter.PvsExcept(component.Target.Value, entityManager: EntityManager),
+                true);
+
+            RaiseLocalEvent(offerItem.Item.Value, new DroppedEvent(uid)); // WD EDIT
+        }
+
+        offerItem.Item = null;
+        UnReceive(uid, component, offerItem);
     }
 
     /// <summary>
@@ -156,12 +201,3 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
         return entity != null && Resolve(entity.Value, ref component, false) && component.IsInOfferMode;
     }
 }
-
-// WD EDIT START
-[Serializable]
-public sealed class HandedEvent(EntityUid user, EntityUid target) : EntityEventArgs
-{
-    public EntityUid User = user;
-    public EntityUid Target = target;
-}
-// WD EDIT END
