@@ -71,6 +71,7 @@ public sealed class LockSystem : EntitySystem
         {
             if (!lockComp.UnlockOnClick)
                 return;
+
             TryUnlock(uid, args.User, lockComp);
             args.Handled = true;
         }
@@ -129,8 +130,8 @@ public sealed class LockSystem : EntitySystem
                 {
                     BreakOnDamage = true,
                     BreakOnMove = true,
-                    RequireCanInteract = true,
-                    NeedHand = true
+                    NeedHand = true,
+                    BreakOnDropItem = false,
                 });
         }
 
@@ -207,8 +208,8 @@ public sealed class LockSystem : EntitySystem
                 {
                     BreakOnDamage = true,
                     BreakOnMove = true,
-                    RequireCanInteract = true,
-                    NeedHand = true
+                    NeedHand = true,
+                    BreakOnDropItem = false,
                 });
         }
 
