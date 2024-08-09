@@ -197,6 +197,11 @@
     coefficient: 0.75 # 25%
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # the average lightbulb only does around four damage!
+    slots: OUTERCLOTHING
   - type: DamageOtherOnHit
     damage:
       types:
@@ -363,6 +368,11 @@
     clothingType: hardsuit # WD EDIT
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # the average lightbulb only does around four damage!
+    slots: OUTERCLOTHING
   - type: Fixtures
     fixtures:
       fix1:
