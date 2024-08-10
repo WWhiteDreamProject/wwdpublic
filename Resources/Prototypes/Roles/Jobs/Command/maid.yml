@@ -1,0 +1,50 @@
+- type: job
+  id: Maid
+  name: job-name-maid
+  description: job-description-maid
+  playTimeTracker: JobMaid
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 72000 # 20 ch
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 72000 # 20 ch
+  - !type:AgeRequirement
+    requiredAge: 20
+  - !type:GenderRequirement
+    requiredGenders:
+    - Female
+  - !type:SexRequirement
+    requiredSex:
+    - Female
+  - !type:SpeciesRequirement
+    species:
+    - Human
+    - Felinid
+    - Harpy
+  weight: 20
+  icon: "JobIconMaid"
+  supervisors: job-supervisors-hop
+  whitelistedSpecies:
+  - Human
+  - Felinid
+  - Harpy
+  canBeAntag: false
+  accessGroups:
+  - Maintenance
+  - Command
+  - Service
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: MaidGear
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMaid
+    back: ClothingBackpackSatchelFilled
+    socks: ClothingUnderwearStockingsLightWhite
+    shoes: ClothingShoesMaid
+    ears: ClothingHeadsetCommand
+    id: MaidPDA

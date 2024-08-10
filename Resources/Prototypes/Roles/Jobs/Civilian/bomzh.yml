@@ -1,0 +1,35 @@
+- type: job
+  id: Bomzh
+  name: job-name-bomzh
+  description: job-description-bomzh
+  playTimeTracker: JobBomzh
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Civilian
+    time: 72000 # 20 ch
+  - !type:AgeRequirement
+    requiredAge: 60
+  - !type:GenderRequirement
+    requiredGenders:
+    - Male
+  - !type:SexRequirement
+    requiredSex:
+    - Male
+  - !type:SpeciesRequirement
+    species:
+    - Human
+  weight: 20
+  icon: "JobIconBomzh"
+  supervisors: job-supervisors-hop
+  whitelistedSpecies:
+  - Human
+  canBeAntag: true
+  accessGroups:
+  - Maintenance
+
+- type: startingGear
+  id: BomzhGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCaptain
+    outerClothing: ClothingOuterOverCoatBomzh
+    id: BomzhPDA

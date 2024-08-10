@@ -446,6 +446,29 @@
       - CrimeAssistCartridge
       - SecWatchCartridge
 
+#WHITE START
+- type: entity
+  parent: BasePDA
+  id: BomzhPDA
+  name: bomzh PDA
+  description: Life has passed and all that's left to do is move forward.
+  components:
+  - type: Pda
+    id: BomzhIDCard
+    state: pda-bomzh
+
+- type: entity
+  parent: BasePDA
+  id: MaidPDA
+  name: maid PDA
+  description: Shining from her own purity.
+  components:
+  - type: Pda
+    id: MaidIDCard
+    state: pda-maid
+
+#WHITE END
+
 - type: entity
   parent: BasePDA
   id: JanitorPDA

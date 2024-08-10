@@ -511,6 +511,33 @@
         color: "#CB0000"
       - state: lawyer
 
+#WHITE START
+- type: entity
+  parent: IDCardStandard
+  id: BomzhIDCard
+  name: Bomzh ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: idbomzh
+  - type: PresetIdCard
+    job: Passenger
+
+- type: entity
+  parent: IDCardStandard
+  id: MaidIDCard
+  name: Maid ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: idmaid
+  - type: PresetIdCard
+    job: Maid
+
+#WHITE END
+
 - type: entity
   parent: IDCardStandard
   id: HoPIDCard
