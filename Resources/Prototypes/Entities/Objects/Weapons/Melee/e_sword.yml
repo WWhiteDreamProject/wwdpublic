@@ -19,6 +19,8 @@
     - type: Sharp
     - type: DisarmMalus
       malus: 0.8 # WWDP
+    - type: Execution
+      doAfterDuration: 4.0
   - type: ItemToggleHot
   - type: ItemToggleSize
     activatedSize: Huge
@@ -94,7 +96,6 @@
       params:
         variation: 0.250
   # WD EDIT START
-  - type: Execution
   - type: MeleeBlock
     delay: 6.1
     blockSound:
@@ -181,6 +182,8 @@
     - type: Sharp
     - type: DisarmMalus
       malus: 0.6 # WWDP
+    - type: Execution
+      doAfterDuration: 4.0
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
     layers:
@@ -400,6 +403,8 @@
     - type: Sharp
     - type: DisarmMalus
       malus: 0.7
+    - type: Execution
+      doAfterDuration: 4.0
   - type: Wieldable
     wieldSound: null # esword light sound instead
   - type: MeleeWeapon
