@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Numerics;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Database;
@@ -40,21 +39,31 @@ public sealed class FollowerSystem : EntitySystem
         SubscribeLocalEvent<FollowerComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<FollowerComponent, EntityTerminatingEvent>(OnFollowerTerminating);
 
+        SubscribeLocalEvent<FollowedComponent, ComponentGetStateAttemptEvent>(OnFollowedAttempt);
         SubscribeLocalEvent<FollowerComponent, GotEquippedHandEvent>(OnGotEquippedHand);
         SubscribeLocalEvent<FollowedComponent, EntityTerminatingEvent>(OnFollowedTerminating);
-        SubscribeLocalEvent<BeforeSerializationEvent>(OnBeforeSave);
+        SubscribeLocalEvent<BeforeSaveEvent>(OnBeforeSave);
     }
 
-    private void OnBeforeSave(BeforeSerializationEvent ev)
+    private void OnFollowedAttempt(Entity<FollowedComponent> ent, ref ComponentGetStateAttemptEvent args)
     {
-        // Some followers will not be map savable. This ensures that maps don't get saved with some entities that have
-        // empty/invalid followers, by just stopping any following happening on the map being saved.
-        // I hate this so much.
-        // TODO WeakEntityReference
-        // We need some way to store entity references in a way that doesn't imply that the entity still exists.
-        // Then we wouldn't have to deal with this shit.
+        if (args.Cancelled)
+            return;
 
-        var maps = ev.Entities.Select(x => Transform(x).MapUid).ToHashSet();
+        // Clientside VV stay losing
+        var playerEnt = args.Player?.AttachedEntity;
+
+        if (playerEnt == null ||
+            !ent.Comp.Following.Contains(playerEnt.Value) && !HasComp<GhostComponent>(playerEnt.Value))
+        {
+            args.Cancelled = true;
+        }
+    }
+
+    private void OnBeforeSave(BeforeSaveEvent ev)
+    {
+        // Some followers will not be map savable. This ensures that maps don't get saved with empty/invalid
+        // followers, but just stopping any following on the map being saved.
 
         var query = AllEntityQuery<FollowerComponent, TransformComponent, MetaDataComponent>();
         while (query.MoveNext(out var uid, out var follower, out var xform, out var meta))
@@ -62,7 +71,7 @@ public sealed class FollowerSystem : EntitySystem
             if (meta.EntityPrototype == null || meta.EntityPrototype.MapSavable)
                 continue;
 
-            if (!maps.Contains(xform.MapUid))
+            if (xform.MapUid != ev.Map)
                 continue;
 
             StopFollowingEntity(uid, follower.Following);
@@ -193,7 +202,6 @@ public sealed class FollowerSystem : EntitySystem
         RaiseLocalEvent(follower, followerEv);
         RaiseLocalEvent(entity, entityEv);
         Dirty(entity, followedComp);
-        Dirty(follower, followerComp);
     }
 
     /// <summary>
