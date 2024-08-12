@@ -246,7 +246,7 @@
 
 - type: entity
   name: svalinn laser pistol
-  parent: BaseWeaponPowerCellSmall
+  parent: [ BaseWeaponPowerCellSmall, BaseRestrictedContraband ]
   id: WeaponLaserSvalinn
   description: A cheap and widely used laser pistol.
   components:
@@ -267,7 +267,7 @@
 
 - type: entity
   name: retro laser blaster
-  parent: BaseWeaponBatterySmall
+  parent: [ BaseWeaponBatterySmall, BaseMajorContraband ]
   id: WeaponLaserGun
   description: A weapon using light amplified by the stimulated emission of radiation. Bad design choices have lead to this model having subpar cooling capabilities. # WD EDIT
   components:
@@ -367,7 +367,7 @@
 
 - type: entity
   name: laser rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponOverheatLamp] # WD EDIT: Overheat
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseRestrictedContraband, BaseWeaponOverheatLamp] # WD EDIT: Overheat
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:
@@ -449,7 +449,7 @@
     fireCost: 100
   # WD EDIT END
   - type: Battery
-  # WD EDIT START
+    # WD EDIT START
     maxCharge: 3000
     startingCharge: 3000
   - type: GunOverheat # WWDP
@@ -557,7 +557,7 @@
 
 - type: entity
   name: laser cannon
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseRestrictedContraband]
   id: WeaponLaserCannon
   description: A heavy duty, high powered laser weapon.
   components:
@@ -1013,7 +1013,7 @@
 
 - type: entity
   name: advanced laser pistol
-  parent: [BaseWeaponBatterySmall, BaseWeaponOverheatLamp] # wwdp edit - overheat
+  parent: [BaseWeaponBatterySmall, BaseRestrictedContraband, BaseWeaponOverheatLamp] # wwdp edit - overheat
   id: WeaponAdvancedLaser
   description: An experimental high-energy laser pistol with a self-charging nuclear battery.
   components:
@@ -1193,7 +1193,7 @@
   - type: Tag
     tags:
     - HighRiskItem
-#   - type: GunRequiresWield - WD EDIT
+  #   - type: GunRequiresWield - WD EDIT
   - type: Battery
     maxCharge: 1210 # WD EDIT: 1210 -> 1820
     startingCharge: 1210 # WD EDIT: 1210 -> 1820
