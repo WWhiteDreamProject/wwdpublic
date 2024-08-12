@@ -53,7 +53,7 @@
   - type: DisarmMalus
     malus: 0.8 # WWDP
   - type: Appearance
-# WD EDIT START
+  # WD EDIT START
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: ItemSlots
@@ -68,7 +68,7 @@
 
 - type: entity
   name: stun prod
-  parent: StunprodBase
+  parent: [StunprodBase, BaseMinorContraband]
   id: Stunprod
   description: A stun prod for illegal incapacitation.
   components:

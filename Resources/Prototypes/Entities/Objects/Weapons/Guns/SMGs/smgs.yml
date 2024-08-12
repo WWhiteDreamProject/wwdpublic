@@ -9,12 +9,12 @@
   - type: Item
     size: Large
   - type: Clothing
-    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WD EDIT
   # - type: AmmoCounter - WD EDIT
   - type: Gun
     # WD EDIT START
@@ -103,7 +103,7 @@
 
 - type: entity
   name: Atreides
-  parent: [BaseWeaponSubMachineGun, BaseGunWieldable] # WD EDIT: BaseGunWieldable
+  parent: [BaseWeaponSubMachineGun, BaseMinorContraband, BaseGunWieldable] # WD EDIT: BaseGunWieldable
   id: WeaponSubMachineGunAtreides
   description: Pla-ket-ket-ket-ket! Uses .35 auto ammo.
   components:
@@ -132,7 +132,7 @@
 
 - type: entity
   name: C-20r sub machine gun
-  parent: BaseWeaponSubMachineGun
+  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
   id: WeaponSubMachineGunC20r
   description: Manufactured by Cybersun-Armaments, the C-20r is one of the most popular personal small-arms in the Coalition of Colonies. Uses .35 auto ammo.
   components:
