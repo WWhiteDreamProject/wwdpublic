@@ -1024,7 +1024,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemConcrete
   heatCapacity: 10000
-  weather: true
 
 - type: tile
   id: FloorConcreteMono
@@ -1043,7 +1042,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemConcreteMono
   heatCapacity: 10000
-  weather: true
 
 - type: tile
   id: FloorConcreteSmooth
@@ -1062,7 +1060,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemConcreteSmooth
   heatCapacity: 10000
-  weather: true
 
 - type: tile
   id: FloorGrayConcrete
@@ -1081,7 +1078,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemGrayConcrete
   heatCapacity: 10000
-  weather: true
 
 - type: tile
   id: FloorGrayConcreteMono
@@ -1100,7 +1096,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemGrayConcreteMono
   heatCapacity: 10000
-  weather: true
 
 - type: tile
   id: FloorGrayConcreteSmooth
@@ -1119,7 +1114,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemGrayConcreteSmooth
   heatCapacity: 10000
-  weather: true
 
 - type: tile
   id: FloorOldConcrete
@@ -1138,7 +1132,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemOldConcrete
   heatCapacity: 10000
-  weather: true
 
 - type: tile
   id: FloorOldConcreteMono
@@ -1157,7 +1150,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemOldConcreteMono
   heatCapacity: 10000
-  weather: true
 
 - type: tile
   id: FloorOldConcreteSmooth
@@ -1176,7 +1168,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemOldConcreteSmooth
   heatCapacity: 10000
-  weather: true
 
 # Carpets (non smoothing)
 - type: tile
