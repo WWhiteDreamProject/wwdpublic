@@ -12,6 +12,7 @@
   - Shadowling
   - SubGamemodesRule
   - BasicStationEventScheduler
-  - GameRuleMeteorScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler
