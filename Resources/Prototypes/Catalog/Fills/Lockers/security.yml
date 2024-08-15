@@ -21,7 +21,10 @@
     - id: ClothingOuterHardsuitCombatWarden # WD EDIT: ClothingOuterHardsuitCombatWarden -> ClothingOuterHardsuitWarden
     - id: HoloprojectorSecurity
     - id: BookSpaceLaw
-    # - id: ClothingEyesHudSecurity - WD EDIT
+    - id: ClothingNeckShockCollar
+      amount: 2
+    - id: RemoteSignaller
+      amount: 2
     - id: BoxPDAPrisoner
     - id: ClothingShoesBootsWinterWarden
     - id: BoxEncryptionKeyPrisoner
@@ -56,7 +59,10 @@
     - id: DoorRemoteArmory
     - id: HoloprojectorSecurity
     - id: BookSpaceLaw
-    # - id: ClothingEyesHudSecurity - WD EDIT
+    - id: ClothingNeckShockCollar
+      amount: 2
+    - id: RemoteSignaller
+      amount: 2
     - id: BoxPDAPrisoner
     - id: ClothingShoesBootsWinterWarden
     - id: BoxEncryptionKeyPrisoner
