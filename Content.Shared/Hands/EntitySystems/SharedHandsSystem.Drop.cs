@@ -4,12 +4,9 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared._White.RenderOrderSystem;
 using Content.Shared.Tag;
-using Content.Shared.Interaction.Events;
 using Robust.Shared.Containers;
-using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
-using Robust.Shared.Timing;
 
 namespace Content.Shared.Hands.EntitySystems;
 
@@ -144,7 +141,7 @@ public abstract partial class SharedHandsSystem
             TransformSystem.DropNextTo((entity, itemXform), (uid, userXform));
             return true;
         }
-        
+
         // drop the item with heavy calculations from their hands and place it at the calculated interaction range position
         // The DoDrop is handle if there's no drop target
         DoDrop(uid, hand, doDropInteraction: doDropInteraction, handsComp);
@@ -152,12 +149,12 @@ public abstract partial class SharedHandsSystem
         // if there's no drop location stop here
         if (targetDropLocation == null)
             return true;
-        
+
         // otherwise, also move dropped item and rotate it properly according to grid/map
         var (itemPos, itemRot) = TransformSystem.GetWorldPositionRotation(entity);
         var origin = new MapCoordinates(itemPos, itemXform.MapID);
         var target = TransformSystem.ToMapCoordinates(targetDropLocation.Value);
-        TransformSystem.SetWorldPositionRotation(entity, GetFinalDropCoordinates(uid, origin, target), itemRot + dropAngle);  // WWDP EDIT
+        TransformSystem.SetWorldPositionRotation(entity, GetFinalDropCoordinates(uid, origin, target, entity), itemRot);
         return true;
     }
 
@@ -186,7 +183,7 @@ public abstract partial class SharedHandsSystem
     /// <summary>
     ///     Calculates the final location a dropped item will end up at, accounting for max drop range and collision along the targeted drop path, Does a check to see if a user should bypass those checks as well.
     /// </summary>
-    public Vector2 GetFinalDropCoordinates(EntityUid user, MapCoordinates origin, MapCoordinates target) // WWDP EDIT // WHY WASN'T THIS PUBLIC
+    public Vector2 GetFinalDropCoordinates(EntityUid user, MapCoordinates origin, MapCoordinates target, EntityUid held) // WWDP EDIT // WHY WASN'T THIS PUBLIC
     {
         var dropVector = target.Position - origin.Position;
         var requestedDropDistance = dropVector.Length();
@@ -200,24 +197,13 @@ public abstract partial class SharedHandsSystem
                 target = new MapCoordinates(origin.Position + dropVector, target.MapId);
             }
 
-            dropLength = _interactionSystem.UnobstructedDistance(origin, target, predicate: e => e == user);
+            dropLength = _interactionSystem.UnobstructedDistance(origin, target, predicate: e => e == user || e == held);
         }
 
         if (dropLength < requestedDropDistance)
             return origin.Position + dropVector.Normalized() * dropLength;
         return target.Position;
     }
-	
-	// WWDP EDIT START
-    /// <summary>
-    ///     Calculates the final location a dropped item will end up at, accounting for max drop range and collision along the targeted drop path, Does a check to see if a user should bypass those checks as well.
-    /// </summary>
-    public Vector2 GetFinalDropCoordinates(EntityUid user, MapCoordinates target)
-    {
-        var origin = Transform(user).MapPosition;
-        return GetFinalDropCoordinates(user, origin, target);
-    }
-    // WWDP EDIT END
 
     private uint drawOrderCounter = 0;
 
