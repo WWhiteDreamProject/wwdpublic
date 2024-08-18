@@ -1,4 +1,4 @@
-# vocal emotes
+﻿# vocal emotes
 - type: emote
   id: Scream
   name: chat-emote-name-scream
@@ -216,15 +216,9 @@
     - Respirator
   chatMessages: ["chat-emote-msg-gasp"]
   chatTriggers:
-   - gasp
-   - gasp.
-   - gasp!
-   - gasps
-   - gasps.
-   - gasps!
-   - gasped
-   - gasped.
-   - gasped!
+  - gasp
+  - gasps
+  - gasped
 
 - type: emote
   id: DefaultDeathgasp
