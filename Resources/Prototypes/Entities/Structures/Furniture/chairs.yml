@@ -31,17 +31,16 @@
     buckleOffset: "0,-0.05"
   - type: Pullable
   - type: Damageable
-    damageContainer: StructuralInorganic # WWDP EDIT
-    damageModifierSet: StructuralMetallic # WWDP EDIT
+    damageContainer: StructuralInorganic # WD EDIT: Inorganic -> StructuralInorganic
+    damageModifierSet: StructuralMetallic # WD EDIT: Inorganic -> StructuralMetallic
   - type: Destructible
     thresholds:
-    # WWDP EDIT START
-    #    - trigger:
-    #        !type:DamageTrigger
-    #        damage: 25
-    #      behaviors:
-    #        - !type:DoActsBehavior
-    #          acts: [ "Destruction" ] # WWDP - This is broke next trigger and sound
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -51,10 +50,9 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-          volume: -3
-  # WWDP EDIT END
+          volume: -3 # WD EDIT
   - type: StaticPrice
-    price: 25
+    price: 50
   - type: RequireProjectileTarget
 
 #Starts unanchored, cannot be rotated while anchored
@@ -91,7 +89,6 @@
   - type: Rotatable
     rotateWhileAnchored: true
 
-# Goobstation - rolly chairs that actually roll!
 - type: entity
   name: chair
   id: RollingOfficeChairBase
@@ -313,9 +310,7 @@
   parent: UnanchoredChairBase
   components:
   - type: Sprite
-    sprite: Structures/Furniture/chairs.rsi
     state: wooden
-    noRot: true
   - type: Construction
     graph: Seat
     node: chairWood
@@ -350,7 +345,6 @@
   description: Looks uncomfortable.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/chairs.rsi #WWDP edit
     state: ritual
   - type: Construction
     graph: RitualSeat
@@ -375,7 +369,6 @@
   description: It's staring back.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/chairs.rsi #WWDP edit
     state: cursed
   - type: Strap
     buckleSound:
@@ -514,4 +507,4 @@
             min: 2
             max: 4
   - type: StaticPrice
-    price: 20
+    price: 50

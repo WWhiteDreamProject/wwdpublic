@@ -67,7 +67,7 @@
     lastSignals:
       DoorStatus: false
   - type: Damageable
-    damageContainer: StructuralInorganic # WWDP EDIT
+    damageContainer: StructuralInorganic # WD EDIT: Inorganic -> StructuralInorganic
     damageModifierSet: Glass
   - type: ExaminableDamage
     messages: WindowMessages
@@ -95,9 +95,11 @@
           SheetSteel1:
             min: 2
             max: 4
+      # WD EDIT START
       - !type:PlaySoundBehavior
         sound:
-          collection: WindowShatter # WWDP EDIT
+          collection: WindowShatter
+      # WD EDIT END
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: ContainerFill
@@ -153,7 +155,7 @@
     containers:
     - board
   - type: StaticPrice
-    price: 100
+    price: 150
   - type: PryUnpowered
   - type: InteractionVerbs
     allowedVerbs:
@@ -205,20 +207,24 @@
             max: 2
           SheetPlasteel1:
             min: 1
-            max: 2
+            max:
+      # WD EDIT START
       - !type:PlaySoundBehavior
         sound:
-          collection: WindowShatter # WWDP EDIT
+          collection: WindowShatter
+      # WD EDIT END
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Construction
     graph: Windoor
     node: windoorSecure
   - type: StaticPrice
-    price: 200
-  - type: Damageable # WWDP
+    price: 350
+  # WD EDIT START
+  - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
+  # WD EDIT END
 
 #Plasma Windoors
 - type: entity
@@ -265,18 +271,20 @@
           SheetSteel1:
             min: 1
             max: 2
+      # WD EDIT START
       - !type:PlaySoundBehavior
         sound:
-          collection: WindowShatter # WWDP EDIT
+          collection: WindowShatter
+      # WD EDIT END
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Construction
     graph: Windoor
     node: pwindoor
   - type: StaticPrice
-    price: 170
+    price: 500
   - type: RadiationBlocker
-    resistance: 2
+    resistance: 4
 
 - type: entity
   id: BaseSecurePlasmaWindoor
@@ -323,18 +331,20 @@
           SheetPlasteel1:
             min: 1
             max: 2
+      # WD EDIT START
       - !type:PlaySoundBehavior
         sound:
-          collection: WindowShatter # WWDP EDIT
+          collection: WindowShatter
+      # WD EDIT END
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Construction
     graph: Windoor
     node: pwindoorSecure
   - type: StaticPrice
-    price: 312
+    price: 500
   - type: RadiationBlocker
-    resistance: 4
+    resistance: 6
 
 #Uranium Windoors
 - type: entity
@@ -381,18 +391,20 @@
           SheetSteel1:
             min: 1
             max: 2
+      # WD EDIT START
       - !type:PlaySoundBehavior
         sound:
-          collection: WindowShatter # WWDP EDIT
+          collection: WindowShatter
+      # WD EDIT END
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Construction
     graph: Windoor
     node: uwindoor
   - type: StaticPrice
-    price: 180
+    price: 560
   - type: RadiationBlocker
-    resistance: 3
+    resistance: 5
 
 - type: entity
   id: BaseSecureUraniumWindoor
@@ -439,15 +451,17 @@
           SheetPlasteel1:
             min: 1
             max: 2
+      # WD EDIT START
       - !type:PlaySoundBehavior
         sound:
-          collection: WindowShatter # WWDP EDIT
+          collection: WindowShatter
+      # WD EDIT END
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Construction
     graph: Windoor
     node: uwindoorSecure
   - type: StaticPrice
-    price: 462
+    price: 750
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 8
