@@ -1,11 +1,9 @@
-using Content.Shared._White;
 using Content.Shared._White.Standing;
 using Content.Shared.Buckle;
 using Content.Shared.Rotation;
 using Content.Shared.Standing;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
-using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 
 namespace Content.Client._White.Standing;
@@ -17,7 +15,6 @@ public sealed class LayingDownSystem : SharedLayingDownSystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
-    [Dependency] private readonly INetConfigurationManager _cfg = default!;
 
     public override void Initialize()
     {
@@ -45,9 +42,9 @@ public sealed class LayingDownSystem : SharedLayingDownSystem
         if (!TryComp<TransformComponent>(uid, out var transform) || !TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        var rotation = transform.LocalRotation.Degrees + _eyeManager.CurrentEye.Rotation.Degrees;
+        var rotation = transform.LocalRotation + (_eyeManager.CurrentEye.Rotation - (transform.LocalRotation - transform.WorldRotation));
 
-        if (Angle.FromDegrees(rotation).GetDir() is Direction.SouthEast or Direction.East or Direction.NorthEast or Direction.North)
+        if (rotation.GetDir() is Direction.SouthEast or Direction.East or Direction.NorthEast or Direction.North)
         {
             sprite.Rotation = Angle.FromDegrees(270);
             return;
@@ -63,18 +60,12 @@ public sealed class LayingDownSystem : SharedLayingDownSystem
 
         var uid = GetEntity(ev.User);
 
-        if (!TryComp(uid, out LayingDownComponent? layingDown))
-            return;
-
-        layingDown.AutoGetUp = _cfg.GetClientCVar(args.SenderSession.Channel, WhiteCVars.AutoGetUp);
-        Dirty(uid, layingDown);
-
         if (!TryComp<TransformComponent>(uid, out var transform) || !TryComp<RotationVisualsComponent>(uid, out var rotationVisuals))
             return;
 
-        var rotation = transform.LocalRotation.Degrees + _eyeManager.CurrentEye.Rotation.Degrees;
+        var rotation = transform.LocalRotation + (_eyeManager.CurrentEye.Rotation - (transform.LocalRotation - transform.WorldRotation));
 
-        if (Angle.FromDegrees(rotation).GetDir() is Direction.SouthEast or Direction.East or Direction.NorthEast or Direction.North)
+        if (rotation.GetDir() is Direction.SouthEast or Direction.East or Direction.NorthEast or Direction.North)
         {
             rotationVisuals.HorizontalRotation = Angle.FromDegrees(270);
             return;

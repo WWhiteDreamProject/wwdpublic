@@ -113,23 +113,20 @@ public abstract class SharedStunSystem : EntitySystem
 
     private void OnKnockInit(EntityUid uid, KnockedDownComponent component, ComponentInit args)
     {
+        RaiseNetworkEvent(new CheckAutoGetUpEvent(GetNetEntity(uid))); // WD EDIT
         _layingDown.TryLieDown(uid, null, null, DropHeldItemsBehavior.DropIfStanding); // WD EDIT
     }
 
     private void OnKnockShutdown(EntityUid uid, KnockedDownComponent component, ComponentShutdown args)
     {
         // WD EDIT START
-        RaiseNetworkEvent(new CheckAutoGetUpEvent(GetNetEntity(uid)));
-
         if (!TryComp(uid, out StandingStateComponent? standing))
             return;
 
-        if (!TryComp(uid, out LayingDownComponent? layingDown) || !layingDown.AutoGetUp)
-            return;
-
-        if (layingDown.AutoGetUp && !_container.IsEntityInContainer(uid))
+        if (TryComp(uid, out LayingDownComponent? layingDown))
         {
-            _layingDown.TryStandUp(uid, layingDown);
+            if (layingDown.AutoGetUp && !_container.IsEntityInContainer(uid))
+                _layingDown.TryStandUp(uid, layingDown);
             return;
         }
 
