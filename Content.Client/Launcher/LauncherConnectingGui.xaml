@@ -23,7 +23,6 @@
                         <Control VerticalExpand="True" Margin="0 0 0 8">
                             <BoxContainer Orientation="Vertical" Name="ConnectingStatus">
                                 <Label Text="{Loc 'connecting-in-progress'}" Align="Left" StyleClasses="DisplayLabel12" />
-                                <!-- Who the fuck named these cont- oh wait I did -->
                                 <Label Name="ConnectStatus" StyleClasses="DisplayLabel10" Align="Left" />
                             </BoxContainer>
                             <BoxContainer Orientation="Vertical" Name="ConnectFail" Visible="False">
@@ -31,11 +30,17 @@
                                 <Button Name="RetryButton" StyleClasses="DisplayLabel12" Text="{Loc 'connecting-retry'}"
                                         HorizontalAlignment="Left"
                                         VerticalExpand="True" VerticalAlignment="Bottom" />
+                                <Button Name="CopyButton" StyleClasses="DisplayLabel12" Text="{Loc 'connecting-copy'}"
+                                        HorizontalAlignment="Left"
+                                        VerticalExpand="True" VerticalAlignment="Bottom" />
                             </BoxContainer>
                             <BoxContainer Orientation="Vertical" Name="Disconnected">
                                 <Label Text="{Loc 'connecting-disconnected'}" Align="Left" StyleClasses="DisplayLabel12" />
                                 <Label Name="DisconnectReason" Align="Left" StyleClasses="DisplayLabel12" />
                                 <Button Name="ReconnectButton" Text="{Loc 'connecting-reconnect'}"
+                                        HorizontalAlignment="Left" StyleClasses="DisplayLabel12"
+                                        VerticalExpand="True" VerticalAlignment="Bottom" />
+                                <Button Name="CopyButtonDisconnected" Text="{Loc 'connecting-copy'}"
                                         HorizontalAlignment="Left" StyleClasses="DisplayLabel12"
                                         VerticalExpand="True" VerticalAlignment="Bottom" />
                             </BoxContainer>
