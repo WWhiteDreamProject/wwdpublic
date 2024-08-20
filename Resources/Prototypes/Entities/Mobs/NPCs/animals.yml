@@ -601,6 +601,7 @@
     normalState: Mouse_burning
   - type: Strippable
   - type: SurgeryTarget
+  - type: Strippable
   - type: UserInterface
     interfaces:
       enum.StrippingUiKey.Key:
