@@ -40,6 +40,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
     public bool ShowIFF { get; set; } = true;
     public bool ShowDocks { get; set; } = true;
+    public bool RotateWithEntity { get; set; } = true;
     public float FieldOfView = MathF.Tau;
 
     /// <summary>
@@ -117,6 +118,8 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
         ActualRadarRange = Math.Clamp(ActualRadarRange, WorldMinRange, WorldMaxRange);
 
+        RotateWithEntity = state.RotateWithEntity;
+
         _docks = state.Docks;
 
         FieldOfView = state.FieldOfView; // WWDP EDIT
@@ -151,10 +154,10 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         var mapPos = _transform.ToMapCoordinates(_coordinates.Value);
         var offset = _coordinates.Value.Position;
         var posMatrix = Matrix3Helpers.CreateTransform(offset, _rotation.Value);
-        var (_, ourEntRot, ourEntMatrix) = _transform.GetWorldPositionRotationMatrix(_coordinates.Value.EntityId);
-        var ourWorldMatrix = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
-        var ourWorldPos = ourWorldMatrix.Translation; // WD EDIT
-        Matrix3x2.Invert(ourWorldMatrix, out var ourWorldMatrixInvert);
+        var ourEntRot = RotateWithEntity ? _transform.GetWorldRotation(xform) : _rotation.Value;
+        var ourEntMatrix = Matrix3Helpers.CreateTransform(_transform.GetWorldPosition(xform), ourEntRot);
+        var ourWorldPos = ourEntMatrix.Translation; // WD EDIT
+        Matrix3x2.Invert(ourEntMatrix, out var ourWorldMatrixInvert);
 
         // Draw our grid in detail
         var ourGridId = xform.GridUid;
