@@ -86,16 +86,16 @@
   - type: Item
     size: Small
     sprite: DeltaV/Objects/Weapons/Melee/e_sword.rsi # Delta-V
-  - type: Reflect
-    reflectProb: .5 # WD EDIT
+  - type: Reflect # WD EDIT
+    reflectProb: .5
     spread: 75
     reflects:
-      - Energy #DeltaV: 80% Energy Reflection but no ballistics.
-  - type: Construction
+      - Energy #DeltaV:
+  - type: Construction # WD EDIT
     deconstructionTarget: null
     graph: EnergyDoubleSwordGraph
     node: esword
-  - type: Tag
+  - type: Tag # WD EDIT
     tags:
     - EnergySword
 
@@ -152,11 +152,11 @@
     damage:
       types:
         Blunt: 1
-  - type: Reflect
-    reflectProb: .25 # WD EDIT
+  - type: Reflect # WD EDIT
+    reflectProb: .25
     spread: 75
     reflects:
-      - Energy #DeltaV: 80% Energy Reflection but no ballistics.
+      - Energy
   - type: PointLight
     enabled: false
     radius: 1.5
@@ -242,14 +242,14 @@
       types:
         Slash: 15
         Heat: 15
-  - type: Reflect
-    reflectProb: 1 # WD EDIT
+  - type: Reflect # WD EDIT
+    reflectProb: 1
     spread: 75
     reflects:
       - Energy
-  - type: ToggleableWielded
-  - type: FlipOnHit
-  - type: Construction
+  - type: ToggleableWielded # WD EDIT
+  - type: FlipOnHit # WD EDIT
+  - type: Construction # WD EDIT
     deconstructionTarget: null
     graph: EnergyDoubleSwordGraph
     node: desword
