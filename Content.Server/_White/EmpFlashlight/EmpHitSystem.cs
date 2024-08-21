@@ -1,13 +1,6 @@
-﻿using System;
-using Content.Server.Explosion.EntitySystems;
-using Content.Server.Power.Components;
-using Content.Server.Power.EntitySystems;
-using Content.Server.Radio;
+﻿using Content.Server.Power;
 using Content.Shared.Emp;
-using Content.Shared.Examine;
 using Robust.Shared.GameObjects;
-using Robust.Shared.Localization;
-using Robust.Shared.Map;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Server._White.EmpFlashlight;
 using Content.Server.Emp;
