@@ -5391,3 +5391,11 @@ Entries:
         three-tone variants.
   id: 6269
   time: '2024-08-18T05:52:22.0000000+00:00'
+- author: 6Mirage6
+  changes:
+    - type: Tweak
+      message: >-
+        Current sprites of steel, plasteel, glass (all types) and plastic. /
+        Добавляет спрайты листов стали, пластали, стекла (всех видов), пластика.
+  id: 6270
+  time: '2024-08-21T10:53:44.0000000+00:00'
