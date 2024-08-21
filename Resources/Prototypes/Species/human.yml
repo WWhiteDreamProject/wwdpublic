@@ -24,8 +24,9 @@
 - type: bodyType
   id: HumanNormal
   name: body-normal
-# WD EDIT END
+  # WD EDIT END
   sprites:
+    Special: MobHumanoidAnyMarking
     Head: MobHumanHead
     Face: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
@@ -35,6 +36,7 @@
     Undershirt: MobHumanoidAnyMarking
     Chest: MobHumanTorso
     Eyes: MobHumanoidEyes
+    HeadTop: MobHumanoidAnyMarking
     LArm: MobHumanLArm
     RArm: MobHumanRArm
     LHand: MobHumanLHand
@@ -44,12 +46,14 @@
     LFoot: MobHumanLFoot
     RFoot: MobHumanRFoot
     Tail: MobHumanoidAnyMarking # Nyanotrasen - Felinid
-    HeadTop: MobHumanoidAnyMarking # Nyanotrasen - Felinid & Oni
     HeadSide: MobHumanoidAnyMarking
 
 - type: markingPoints
   id: MobHumanMarkingLimits
   points:
+    Special: # the cat ear joke
+      points: 0
+      required: false
     Head:
       points: 2
       required: false
@@ -79,7 +83,6 @@
       required: false
     Undershirt:
       points: 1
-      required: false
     RightLeg:
       points: 6
       required: false
