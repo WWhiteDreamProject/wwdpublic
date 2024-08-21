@@ -1,0 +1,9 @@
+- files: ["accent.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "Taken from White Dream"
+  source: "https://github.com/frosty-dev/ss14-core/blob/master/Resources/Audio/White/Aspects/accent.ogg"
+
+- files: ["palevo.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "Taken from White Dream"
+  source: "https://github.com/frosty-dev/ss14-core/blob/master/Resources/Audio/White/Aspects/palevo.ogg"
