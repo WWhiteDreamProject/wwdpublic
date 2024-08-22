@@ -9,7 +9,7 @@ namespace Content.Server._White.EmpFlashlight;
 /// Upon being triggered will EMP target.
 /// </summary>
 [RegisterComponent]
-[Access(typeof(EmpHitSystem))]
+[Access(typeof(EmpOnHitSystem))]
 
 public sealed partial class EmpOnHitComponent: Component
 {

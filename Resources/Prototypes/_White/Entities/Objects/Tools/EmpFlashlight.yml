@@ -14,7 +14,7 @@
       wideAnimationRotation: -135
       damage:
         types:
-          Blunt: 0
+          Blunt: 12
       angle: 60
       animation: WeaponArcThrust
     - type: EmpOnHit
@@ -23,4 +23,4 @@
       disableDuration: 100
     - type: LimitedCharges
     - type: AutoRecharge
-      rechargeDuration: 30
+      rechargeDuration: 60

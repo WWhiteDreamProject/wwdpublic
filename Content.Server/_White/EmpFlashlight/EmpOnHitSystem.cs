@@ -1,20 +1,17 @@
-﻿using Content.Server.Power;
-using Content.Shared.Emp;
-using Robust.Shared.GameObjects;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Server._White.EmpFlashlight;
+﻿using Content.Shared.Weapons.Melee.Events;
 using Content.Server.Emp;
-using Robust.Shared.IoC;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Charges.Components;
 
 namespace Content.Server._White.EmpFlashlight;
 
-public sealed class EmpHitSystem : EntitySystem
+public sealed class EmpOnHitSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+
     [Dependency] private readonly EmpSystem _emp = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -23,14 +20,14 @@ public sealed class EmpHitSystem : EntitySystem
 
     public bool TryEmpHit(EntityUid uid, EmpOnHitComponent comp, MeleeHitEvent args)
     {
-        LimitedChargesComponent? charges;
-        if (!TryComp<LimitedChargesComponent>(uid, out charges))
+
+        if (!TryComp<LimitedChargesComponent>(uid, out LimitedChargesComponent? charges))
             return false;
 
         if (_charges.IsEmpty(uid, charges))
             return false;
 
-        if (charges != null && args.HitEntities.Count > 0)
+        if (args.HitEntities.Count > 0)
         {
             _charges.UseCharge(uid,charges);
             return true;
@@ -46,7 +43,7 @@ public sealed class EmpHitSystem : EntitySystem
 
         foreach (var affected in args.HitEntities)
         {
-            _emp.EmpPulse(Transform(affected).MapPosition, comp.Range, comp.EnergyConsumption, comp.DisableDuration);
+            _emp.EmpPulse(_transform.GetMapCoordinates(affected), comp.Range, comp.EnergyConsumption, comp.DisableDuration);
         }
 
         args.Handled = true;
