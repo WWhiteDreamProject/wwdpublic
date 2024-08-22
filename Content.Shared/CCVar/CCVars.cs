@@ -367,7 +367,7 @@ namespace Content.Shared.CCVar
         ///     How many points a character should start with.
         /// </summary>
         public static readonly CVarDef<int> GameTraitsDefaultPoints =
-            CVarDef.Create("game.traits_default_points", 5, CVar.REPLICATED);
+            CVarDef.Create("game.traits_default_points", 10, CVar.REPLICATED);
 
 
         /// <summary>
