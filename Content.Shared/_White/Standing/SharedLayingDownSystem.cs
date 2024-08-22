@@ -1,4 +1,5 @@
 using Content.Shared.DoAfter;
+using Content.Shared.Gravity;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
@@ -15,7 +16,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-
+    [Dependency] private readonly SharedGravitySystem _gravity = default!;
 
     public override void Initialize()
     {
@@ -40,8 +41,11 @@ public abstract class SharedLayingDownSystem : EntitySystem
     private void ToggleStanding(ICommonSession? session)
     {
         if (session?.AttachedEntity == null ||
-            !HasComp<LayingDownComponent>(session.AttachedEntity))
+            !HasComp<LayingDownComponent>(session.AttachedEntity) ||
+            _gravity.IsWeightless(session.AttachedEntity.Value))
+        {
             return;
+        }
 
         RaiseNetworkEvent(new ChangeLayingDownEvent());
     }
@@ -59,7 +63,9 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
         if (!TryComp(uid, out StandingStateComponent? standing) ||
             !TryComp(uid, out LayingDownComponent? layingDown))
+        {
             return;
+        }
 
         RaiseNetworkEvent(new CheckAutoGetUpEvent(GetNetEntity(uid)));
 
@@ -76,10 +82,13 @@ public abstract class SharedLayingDownSystem : EntitySystem
     {
         if (args.Handled || args.Cancelled || HasComp<KnockedDownComponent>(uid) ||
             _mobState.IsIncapacitated(uid) || !_standing.Stand(uid))
+        {
             component.CurrentState = StandingState.Lying;
+        }
 
         component.CurrentState = StandingState.Standing;
     }
+
     private void OnRefreshMovementSpeed(EntityUid uid, LayingDownComponent component, RefreshMovementSpeedModifiersEvent args)
     {
         if (_standing.IsDown(uid))
@@ -94,7 +103,9 @@ public abstract class SharedLayingDownSystem : EntitySystem
         if (!TryComp<StandingStateComponent>(uid, out var standingState)
             || standingState.CurrentState is StandingState.Standing
             || Transform(uid).GridUid != null)
+        {
             return;
+        }
 
         TryStandUp(uid, component, standingState);
     }
@@ -106,7 +117,9 @@ public abstract class SharedLayingDownSystem : EntitySystem
             standingState.CurrentState is not StandingState.Lying ||
             !_mobState.IsAlive(uid) ||
             TerminatingOrDeleted(uid))
+        {
             return false;
+        }
 
         var args = new DoAfterArgs(EntityManager, uid, layingDown.StandingUpTime, new StandingUpDoAfterEvent(), uid)
         {
