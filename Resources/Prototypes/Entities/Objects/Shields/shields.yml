@@ -59,6 +59,7 @@
                   max: 2
     - type: StaticPrice
       price: 50
+    - type: MeleeBlock # WD EDIT
 
 #Security Shields
 

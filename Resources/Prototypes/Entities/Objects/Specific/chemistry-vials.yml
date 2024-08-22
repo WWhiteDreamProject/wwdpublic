@@ -57,6 +57,7 @@
     shape:
     - 0,0,0,0
   - type: MeleeWeapon
+    canBeBlocked: false # WD EDIT
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"
     damage:

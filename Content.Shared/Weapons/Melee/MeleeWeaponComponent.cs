@@ -156,6 +156,11 @@ public sealed partial class MeleeWeaponComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public SoundSpecifier SoundNoDamage { get; set; } = new SoundCollectionSpecifier("WeakHit");
+
+    // WD EDIT START
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public bool CanBeBlocked = true;
+    // WD EDIT END
 }
 
 /// <summary>
