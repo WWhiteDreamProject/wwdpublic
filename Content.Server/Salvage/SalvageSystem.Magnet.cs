@@ -25,7 +25,6 @@ public sealed partial class SalvageSystem
 
     // WD EDIT START
     private bool _salvageMagnetEnabled;
-
     private bool _asteroidFieldEnabled;
     // WD EDIT END
 
@@ -362,7 +361,7 @@ public sealed partial class SalvageSystem
             worldAngle = _random.NextAngle();
         }
 
-        if (!TryGetSalvagePlacementLocation(mapId, attachedBounds, bounds!.Value, worldAngle, out var spawnLocation, out var spawnAngle))
+        if (!TryGetSalvagePlacementLocation(magnet, mapId, attachedBounds, bounds!.Value, worldAngle, out var spawnLocation, out var spawnAngle))
         {
             Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-spawn-no-debris-available");
             _mapManager.DeleteMap(salvMapXform.MapID);
@@ -414,22 +413,19 @@ public sealed partial class SalvageSystem
         RaiseLocalEvent(ref active);
     }
 
-    public bool TryGetSalvagePlacementLocation(MapId mapId, Box2Rotated attachedBounds, Box2 bounds, Angle worldAngle, out MapCoordinates coords, out Angle angle, int iter = 20, float step = 0.25f) // WWDP EDIT
+    public bool TryGetSalvagePlacementLocation(Entity<SalvageMagnetComponent> magnet, MapId mapId, Box2Rotated attachedBounds, Box2 bounds, Angle worldAngle, out MapCoordinates coords, out Angle angle, int iter = 20, float step = 0.50f) // WD EDIT
     {
-        // Grid intersection only does AABB atm.
         var attachedAABB = attachedBounds.CalcBoundingBox();
-
-        var minDistance = (attachedAABB.Height < attachedAABB.Width ? attachedAABB.Width : attachedAABB.Height) / 2f;
-        var minActualDistance = bounds.Height < bounds.Width ? minDistance + bounds.Width / 2f : minDistance + bounds.Height / 2f;
-
-        var attachedCenter = attachedAABB.Center;
-        var fraction = step; // WWDP EDIT
+        var magnetPos = _transform.GetWorldPosition(magnet) + worldAngle.ToVec() * bounds.MaxDimension;
+        var origin = attachedAABB.ClosestPoint(magnetPos);
+        var fraction = step;
 
         // Thanks 20kdc
         for (var i = 0; i < iter; i++) // WWDP EDIT
         {
-            var randomPos = attachedCenter +
-                            worldAngle.ToVec() * (minActualDistance * fraction);
+            var randomPos = origin +
+                worldAngle.ToVec() * (magnet.Comp.MagnetSpawnDistance * fraction) +
+                (worldAngle + Math.PI / 2).ToVec() * _random.NextFloat(-magnet.Comp.LateralOffset, magnet.Comp.LateralOffset);
             var finalCoords = new MapCoordinates(randomPos, mapId);
 
             angle = _random.NextAngle();
