@@ -107,7 +107,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
             return;
         }
 
-        TryStandUp(uid, component, standingState);
+        _standing.Stand(uid, standingState);
     }
 
     public bool TryStandUp(EntityUid uid, LayingDownComponent? layingDown = null, StandingStateComponent? standingState = null)
