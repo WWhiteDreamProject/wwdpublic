@@ -55,9 +55,13 @@ public abstract class SharedTelescopeSystem : EntitySystem
         if (TryComp<HandsComponent>(ent, out var hands) &&
             hands.ActiveHandEntity.HasValue &&
             TryComp<TelescopeComponent>(hands.ActiveHandEntity, out var handTelescope))
+        {
             telescope = handTelescope;
+        }
         else if (TryComp<TelescopeComponent>(ent, out var entityTelescope))
+        {
             telescope = entityTelescope;
+        }
 
         return telescope;
     }
@@ -90,7 +94,9 @@ public abstract class SharedTelescopeSystem : EntitySystem
             _eye.SetOffset(ent, offset + recoil.CurrentKick, ent);
         }
         else
+        {
             _eye.SetOffset(ent, offset, ent);
+        }
     }
 
     public void SetParameters(Entity<TelescopeComponent> ent, float? divisor = null, float? lerpAmount = null)
