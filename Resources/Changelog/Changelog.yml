@@ -5407,3 +5407,9 @@ Entries:
       message: Now you can aim from Hristov / Теперь можно прицеливаться из Христова
   id: 6271
   time: '2024-08-23T01:45:30.0000000+00:00'
+- author: Hell_Cat
+  changes:
+    - type: Add
+      message: Добавлен предмет аплинка - ЭМИ фонарик.
+  id: 6272
+  time: '2024-08-23T02:53:41.0000000+00:00'
