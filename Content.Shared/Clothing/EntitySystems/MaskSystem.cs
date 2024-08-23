@@ -35,7 +35,7 @@ public sealed class MaskSystem : EntitySystem
     private void OnToggleMask(Entity<MaskComponent> ent, ref ToggleMaskEvent args)
     {
         var (uid, mask) = ent;
-        if (mask.ToggleActionEntity == null || !_timing.IsFirstTimePredicted)
+        if (!_timing.IsFirstTimePredicted)
             return;
 
         if (!_inventorySystem.TryGetSlotEntity(args.Performer, "mask", out var existing) || !uid.Equals(existing))
@@ -45,7 +45,7 @@ public sealed class MaskSystem : EntitySystem
 
         var dir = mask.IsToggled ? "down" : "up";
         var msg = $"action-mask-pull-{dir}-popup-message";
-        _popupSystem.PopupEntity(Loc.GetString(msg, ("mask", uid)), args.Performer, args.Performer);
+        _popupSystem.PopupClient(Loc.GetString(msg, ("mask", uid)), args.Performer, args.Performer);
 
         ToggleMaskComponents(uid, mask, args.Performer, mask.EquippedPrefix);
     }
