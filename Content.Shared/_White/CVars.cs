@@ -12,6 +12,13 @@ public sealed class WhiteCVars
 
     public static readonly CVarDef<double> AspectChance =
         CVarDef.Create("aspects.chance", 0.1d, CVar.SERVERONLY);
+  
+    #endregion
+
+    #region Keybind
+
+    public static readonly CVarDef<bool> HoldLookUp =
+        CVarDef.Create("white.hold_look_up", false, CVar.CLIENT | CVar.ARCHIVE);
 
     #endregion
 }
