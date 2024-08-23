@@ -1,2 +1,2 @@
-store-sales-amount = [SALE] { $amount }%!
+store-sales-amount = [DISCOUNT] { $amount }%!
 store-sales-over = [The sale is over]

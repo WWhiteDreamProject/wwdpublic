@@ -41,7 +41,7 @@ public sealed partial class StorePresetPrototype : IPrototype
     public HashSet<string> CurrencyWhitelist { get; private set; } = new();
 
     // WD EDIT START
-    [DataField("sales")]
+    [DataField]
     public SalesSpecifier Sales { get; private set; } = new();
     // WD EDIT END
 }

@@ -266,9 +266,9 @@ public sealed partial class StoreSystem
         _audio.PlayEntity(component.BuySuccessSound, msg.Session, uid); //cha-ching!
 
         //WD EDIT START
-        if (listing.SaleLimit != 0 && listing.SaleAmount > 0 && listing.PurchaseAmount >= listing.SaleLimit)
+        if (listing.SaleLimit != 0 && listing.DiscountValue > 0 && listing.PurchaseAmount >= listing.SaleLimit)
         {
-            listing.SaleAmount = 0;
+            listing.DiscountValue = 0;
             listing.Cost = listing.OldCost;
         }
         //WD EDIT END

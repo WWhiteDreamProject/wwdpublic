@@ -10,7 +10,7 @@ public sealed class StoreDiscountSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    public void ApplySales(IEnumerable<ListingData> listings, StorePresetPrototype store)
+    public void ApplyDiscounts(IEnumerable<ListingData> listings, StorePresetPrototype store)
     {
         if (!store.Sales.Enabled)
             return;
@@ -24,7 +24,7 @@ public sealed class StoreDiscountSystem : EntitySystem
 
         foreach (var listing in listings)
         {
-            var sale = GetSale(store.Sales.MinMultiplier, store.Sales.MaxMultiplier);
+            var sale = GetDiscount(store.Sales.MinMultiplier, store.Sales.MaxMultiplier);
             var newCost = listing.Cost.ToDictionary(x => x.Key,
                 x => FixedPoint2.New(Math.Max(1, (int) MathF.Round(x.Value.Float() * sale))));
 
@@ -33,7 +33,7 @@ public sealed class StoreDiscountSystem : EntitySystem
 
             var key = listing.Cost.First(x => x.Value > 0).Key;
             listing.OldCost = listing.Cost;
-            listing.SaleAmount = 100 - (newCost[key] / listing.Cost[key] * 100).Int();
+            listing.DiscountValue = 100 - (newCost[key] / listing.Cost[key] * 100).Int();
             listing.Cost = newCost;
             listing.Categories = new() {store.Sales.SalesCategory};
         }
@@ -46,7 +46,7 @@ public sealed class StoreDiscountSystem : EntitySystem
         return modified;
     }
 
-    private float GetSale(float minMultiplier, float maxMultiplier)
+    private float GetDiscount(float minMultiplier, float maxMultiplier)
     {
         return _random.NextFloat() * (maxMultiplier - minMultiplier) + minMultiplier;
     }

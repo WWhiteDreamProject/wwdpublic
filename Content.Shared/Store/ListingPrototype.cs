@@ -110,13 +110,13 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     public TimeSpan RestockTime = TimeSpan.Zero;
 
     // WD START
-    [DataField("saleLimit")]
+    [DataField]
     public int SaleLimit = 3;
 
-    [DataField("saleBlacklist")]
+    [DataField]
     public bool SaleBlacklist;
 
-    public int SaleAmount;
+    public int DiscountValue;
 
     public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> OldCost = new();
 
@@ -184,7 +184,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             // WD START
             SaleLimit = SaleLimit,
             SaleBlacklist = SaleBlacklist,
-            SaleAmount = SaleAmount,
+            DiscountValue = DiscountValue,
             OldCost = OldCost,
             Components = Components,
             // WD END
