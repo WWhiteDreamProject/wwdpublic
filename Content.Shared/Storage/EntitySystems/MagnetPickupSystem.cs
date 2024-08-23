@@ -1,5 +1,8 @@
 using Content.Server.Storage.Components;
+using Content.Shared.Examine;
 using Content.Shared.Inventory;
+using Content.Shared.Item.ItemToggle;
+using Content.Shared.Item.ItemToggle.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
@@ -16,6 +19,7 @@ public sealed class MagnetPickupSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
+    [Dependency] private readonly SharedItemToggleSystem _itemToggle = default!;
 
     private static readonly TimeSpan ScanDelay = TimeSpan.FromSeconds(1);
 
@@ -25,12 +29,21 @@ public sealed class MagnetPickupSystem : EntitySystem
     {
         base.Initialize();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
+        SubscribeLocalEvent<MagnetPickupComponent, ExaminedEvent>(onExamined);
         SubscribeLocalEvent<MagnetPickupComponent, MapInitEvent>(OnMagnetMapInit);
     }
 
     private void OnMagnetMapInit(EntityUid uid, MagnetPickupComponent component, MapInitEvent args)
     {
         component.NextScan = _timing.CurTime;
+    }
+
+    private void onExamined(Entity<MagnetPickupComponent> entity, ref ExaminedEvent args)
+    {
+        var onMsg = _itemToggle.IsActivated(entity.Owner)
+            ? Loc.GetString("comp-magnet-pickup-examined-on")
+            : Loc.GetString("comp-magnet-pickup-examined-off");
+        args.PushMarkup(onMsg);
     }
 
     public override void Update(float frameTime)
@@ -41,6 +54,11 @@ public sealed class MagnetPickupSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var comp, out var storage, out var xform, out var meta))
         {
+            TryComp<ItemToggleComponent>(uid, out var toggle);
+
+            if (!_itemToggle.IsActivated(uid, toggle))
+                continue;
+
             if (comp.NextScan > currentTime)
                 continue;
 

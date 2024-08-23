@@ -26,3 +26,12 @@
         - ArtifactFragment
         - Ore
   - type: Dumpable
+  - type: ItemToggle
+    soundActivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundDeactivate:
+      collection: sparks
+      params:
+        variation: 0.250
