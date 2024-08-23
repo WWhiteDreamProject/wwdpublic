@@ -98,6 +98,12 @@ namespace Content.Client.Options.UI.Tabs
             _deferCommands.Add(_inputManager.SaveToUserData);
         }
 
+        private void HandleHoldLookUp(BaseButton.ButtonToggledEventArgs args) // WD EDIT
+        {
+            _cfg.SetCVar(WhiteCVars.HoldLookUp, args.Pressed);
+            _cfg.SaveToFile();
+        }
+
         private void HandleStaticStorageUI(BaseButton.ButtonToggledEventArgs args)
         {
             _cfg.SetCVar(CCVars.StaticStorageUI, args.Pressed);
@@ -193,7 +199,9 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.OfferItem);
             AddButton(ContentKeyFunctions.SaveItemLocation);
             AddButton(ContentKeyFunctions.ToggleStanding);
+            AddButton(ContentKeyFunctions.LookUp); // WD EDIT
             AddCheckBox("ui-options-function-auto-get-up", _cfg.GetCVar(WhiteCVars.AutoGetUp), HandleToggleAutoGetUp); // WD EDIT
+            AddCheckBox("ui-options-function-hold-look-up", _cfg.GetCVar(WhiteCVars.HoldLookUp), HandleHoldLookUp); // WD EDIT
 
             AddHeader("ui-options-header-interaction-adv");
             AddButton(ContentKeyFunctions.SmartEquipBackpack);

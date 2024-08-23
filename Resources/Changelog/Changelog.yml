@@ -5391,3 +5391,25 @@ Entries:
         three-tone variants.
   id: 6269
   time: '2024-08-18T05:52:22.0000000+00:00'
+- author: 6Mirage6
+  changes:
+    - type: Tweak
+      message: >-
+        Current sprites of steel, plasteel, glass (all types) and plastic. /
+        Добавляет спрайты листов стали, пластали, стекла (всех видов), пластика.
+  id: 6270
+  time: '2024-08-21T10:53:44.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added telescope system / Добавлена система прицеливания
+    - type: Tweak
+      message: Now you can aim from Hristov / Теперь можно прицеливаться из Христова
+  id: 6271
+  time: '2024-08-23T01:45:30.0000000+00:00'
+- author: Hell_Cat
+  changes:
+    - type: Add
+      message: Добавлен предмет аплинка - ЭМИ фонарик.
+  id: 6272
+  time: '2024-08-23T02:53:41.0000000+00:00'
