@@ -1,0 +1,13 @@
+action-name-spin-web = Раскрутить паутину
+action-desc-spin-web = Используйте свои железы, чтобы создать паутину на текущем тайле. Делает вас более голодным.
+action-name-spin-web-space = Вы не можете плести паутину в космосе!
+action-name-spin-web-blocked = Здесь нет места для плетения паутины.
+spin-web-action-hungry = Вы слишком голодны, чтобы плести паутину!
+spin-web-action-thirsty = Вам слишком сильно хочется пить, чтобы плести паутину!
+spin-web-start-second-person = Вы начинаете плести паутину.
+spin-web-start-third-person = {CAPITALIZE(THE($spider))} начинает плести паутину!
+cocoon-start-second-person = Вы начинаете окукливать {THE($target)}.
+cocoon-start-third-person = {CAPITALIZE(THE($spider))} начинает окукливать {THE($target)}.
+spun-web-second-person = Вы плетёте паутину.
+spun-web-third-person = {CAPITALIZE(THE($spider))} плетёт паутину!
+cocoon = Кокон
