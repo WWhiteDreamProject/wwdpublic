@@ -5419,3 +5419,9 @@ Entries:
       message: Added lying down system / Добавлена система лежания
   id: 6273
   time: '2024-08-23T13:30:07.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Press to walk / Нажать чтобы идти
+  id: 6274
+  time: '2024-08-23T13:30:51.0000000+00:00'
