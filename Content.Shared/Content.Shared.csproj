@@ -26,7 +26,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DeltaV\Abilities\" />
-    <Folder Include="_White\VisionLimit\" />
+    <Folder Include="_White\VisionLimiter\" />
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.CompNetworkGenerator.targets" />
