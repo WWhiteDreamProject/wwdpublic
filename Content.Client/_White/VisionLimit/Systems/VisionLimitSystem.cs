@@ -31,6 +31,7 @@ public sealed class VisionLimitSystem : EntitySystem
         SubscribeLocalEvent<ClothingLimitVisionComponent, ItemMaskToggledEvent>(OnMaskToggled);
 
         _overlay = new();
+        _overlay.ZIndex = -2;
     }
 
     // Player entity interactions
