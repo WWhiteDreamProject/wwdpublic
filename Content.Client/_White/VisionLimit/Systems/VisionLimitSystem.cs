@@ -31,7 +31,7 @@ public sealed class VisionLimitSystem : EntitySystem
         SubscribeLocalEvent<ClothingLimitVisionComponent, ItemMaskToggledEvent>(OnMaskToggled);
 
         _overlay = new();
-        _overlay.ZIndex = -2;
+        _overlay.ZIndex = -2; // Draw under damage overlay etc.
     }
 
     // Player entity interactions
@@ -84,8 +84,10 @@ public sealed class VisionLimitSystem : EntitySystem
 
     private void AddLimit(EntityUid uid, ClothingLimitVisionComponent limiter)
     {
-        EnsureComp<VisionLimitComponent>(uid, out var comp);
+        if (limiter.Radius == 0) // Radius 0 = no limit
+            return;
 
+        EnsureComp<VisionLimitComponent>(uid, out var comp);
         comp.Limiters.Add(limiter.Radius);
             UpdateOverlay(comp);
     }

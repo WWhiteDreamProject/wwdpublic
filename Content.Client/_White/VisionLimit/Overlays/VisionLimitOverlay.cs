@@ -26,7 +26,7 @@ namespace Content.Client._White.VisionLimit.Overlays
 
         protected override void Draw(in OverlayDrawArgs args)
         {
-            if (ScreenTexture == null || VisionLimitRadius == 0)
+            if (ScreenTexture == null)
                 return;
 
             var playerEntity = _playerManager.LocalSession?.AttachedEntity;
