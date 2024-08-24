@@ -1216,7 +1216,7 @@
     - type: MaterialStorageMagnetPickup # Delta V - Summary: Adds magnet pull from Frontier
       magnetEnabled: True
       range: 0.30 # Delta V - End Magnet Pull
-    - type: PlaceableSurface
+    - type: PlaceableSurface # WHITE EDIT
 
 - type: entity
   parent: OreProcessor

@@ -19,7 +19,7 @@ public sealed class MagnetPickupSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
-    [Dependency] private readonly SharedItemToggleSystem _itemToggle = default!;
+    [Dependency] private readonly SharedItemToggleSystem _itemToggle = default!; // WD EDIT
 
     private static readonly TimeSpan ScanDelay = TimeSpan.FromSeconds(1);
 
@@ -29,7 +29,7 @@ public sealed class MagnetPickupSystem : EntitySystem
     {
         base.Initialize();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
-        SubscribeLocalEvent<MagnetPickupComponent, ExaminedEvent>(onExamined);
+        SubscribeLocalEvent<MagnetPickupComponent, ExaminedEvent>(onExamined); // WD EDIT
         SubscribeLocalEvent<MagnetPickupComponent, MapInitEvent>(OnMagnetMapInit);
     }
 
@@ -38,6 +38,7 @@ public sealed class MagnetPickupSystem : EntitySystem
         component.NextScan = _timing.CurTime;
     }
 
+    //WD EDIT
     private void onExamined(Entity<MagnetPickupComponent> entity, ref ExaminedEvent args)
     {
         var onMsg = _itemToggle.IsActivated(entity.Owner)
@@ -54,11 +55,13 @@ public sealed class MagnetPickupSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var comp, out var storage, out var xform, out var meta))
         {
+            // WD EDIT START
             if (!TryComp<ItemToggleComponent>(uid, out var toggle))
                 continue;
 
             if (!_itemToggle.IsActivated(uid, toggle))
                 continue;
+            // WD EDIT END
 
             if (comp.NextScan > currentTime)
                 continue;

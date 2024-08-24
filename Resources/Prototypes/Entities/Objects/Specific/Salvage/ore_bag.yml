@@ -26,6 +26,7 @@
         - ArtifactFragment
         - Ore
   - type: Dumpable
+  # WHITE EDIT START
   - type: ItemToggle
     soundActivate:
       collection: sparks
@@ -35,3 +36,4 @@
       collection: sparks
       params:
         variation: 0.250
+  # WHITE EDIT END
