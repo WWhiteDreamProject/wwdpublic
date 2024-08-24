@@ -8,6 +8,6 @@ public sealed partial class VisionLimitComponent: Component
     /// </summary>
 
     [DataField]
-    public List<float> Limiters = [];
+    public Dictionary<ClothingLimitVisionComponent, float> VisionLimiters { get; set; } = new();
 
 }

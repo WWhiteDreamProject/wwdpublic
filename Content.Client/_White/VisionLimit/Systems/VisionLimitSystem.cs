@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Content.Client._White.VisionLimit.Overlays;
+﻿using Content.Client._White.VisionLimit.Overlays;
 using Content.Shared._White.VisionLimit.Components;
 using Content.Shared.Clothing;
 using Content.Shared.Inventory.Events;
@@ -88,18 +87,18 @@ public sealed class VisionLimitSystem : EntitySystem
             return;
 
         EnsureComp<VisionLimitComponent>(uid, out var comp);
-        comp.Limiters.Add(limiter.Radius);
-            UpdateOverlay(comp);
+        comp.VisionLimiters.Add(limiter, limiter.Radius);
+        UpdateOverlay(comp);
     }
 
     private void RemoveLimit(EntityUid uid, ClothingLimitVisionComponent limiter)
     {
-        if (TryComp<VisionLimitComponent>(uid, out var comp) && comp.Limiters.Contains(limiter.Radius))
+        if (TryComp<VisionLimitComponent>(uid, out var comp) && comp.VisionLimiters.ContainsKey(limiter))
         {
-            comp.Limiters.Remove(limiter.Radius);
+            comp.VisionLimiters.Remove(limiter);
             UpdateOverlay(comp);
 
-            if (comp.Limiters.Count == 0)
+            if (comp.VisionLimiters.Count == 0)
                 RemComp<VisionLimitComponent>(uid);
         }
 
@@ -107,10 +106,17 @@ public sealed class VisionLimitSystem : EntitySystem
 
     private void UpdateOverlay(VisionLimitComponent comp)
     {
-        if (comp.Limiters.Count > 0)
+        if (comp.VisionLimiters.Count > 0)
         {
-            // Assign the smallest radius value from the VisionLimitComponent Limiters list to the overlay
-            _overlay.VisionLimitRadius = comp.Limiters.Min();
+            // Assign the smallest radius value from the VisionLimiters to the overlay
+            var min = 1337f;
+
+            foreach (var limiter in comp.VisionLimiters)
+            {
+                if (limiter.Value < min)
+                    min = limiter.Value;
+            }
+            _overlay.VisionLimitRadius = min;
 
             _overlayMan.AddOverlay(_overlay);
         }
