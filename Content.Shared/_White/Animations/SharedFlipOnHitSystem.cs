@@ -1,4 +1,5 @@
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Standing;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
@@ -8,6 +9,7 @@ namespace Content.Shared._White.Animations;
 public abstract class SharedFlipOnHitSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly StandingStateSystem _standingState = default!;
 
     public override void Initialize()
     {
@@ -25,6 +27,9 @@ public abstract class SharedFlipOnHitSystem : EntitySystem
             return;
 
         if (TryComp(ent, out ItemToggleComponent? itemToggle) && !itemToggle.Activated)
+            return;
+
+        if (_standingState.IsDown(args.User))
             return;
 
         PlayAnimation(args.User);
