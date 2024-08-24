@@ -1,5 +1,4 @@
 ﻿using Content.Shared.Construction.Prototypes;
-using Robust.Client.Placement;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
