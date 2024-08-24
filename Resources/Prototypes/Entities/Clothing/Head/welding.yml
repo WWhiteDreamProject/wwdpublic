@@ -7,6 +7,9 @@
   - type: Item
     storedRotation: 0
   - type: IngestionBlocker
+  - type: Mask
+  - type: ClothingLimitVision
+    radius: 6
   - type: FlashImmunity
   - type: IdentityBlocker
   - type: EyeProtection
