@@ -5425,3 +5425,11 @@ Entries:
       message: Press to walk / Нажать чтобы идти
   id: 6274
   time: '2024-08-23T13:30:51.0000000+00:00'
+- author: Remuchi
+  changes:
+    - type: Fix
+      message: >-
+        Thieves and Ninjas now properly spawn with their gear / Ниндзя и воры
+        теперь корректно спавнятся со своим снаряжением.
+  id: 6275
+  time: '2024-08-24T04:45:51.0000000+00:00'
