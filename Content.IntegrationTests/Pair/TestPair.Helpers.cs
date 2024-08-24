@@ -143,7 +143,7 @@ public sealed partial class TestPair
         // what even is the point of ICharacterProfile if we always cast it to HumanoidCharacterProfile to make it usable?
         var profile = (HumanoidCharacterProfile) prefs.SelectedCharacter;
 
-        Assert.That(profile.AntagPreferences.Contains(id), Is.EqualTo(!value));
+        Assert.That(profile.AntagPreferences.Any(preference => preference == id), Is.EqualTo(!value));
         var newProfile = profile.WithAntagPreference(id, value);
 
         await Server.WaitPost(() =>
@@ -154,6 +154,6 @@ public sealed partial class TestPair
         // And why the fuck does it always create a new preference and profile object instead of just reusing them?
         var newPrefs = prefMan.GetPreferences(Client.User.Value);
         var newProf = (HumanoidCharacterProfile) newPrefs.SelectedCharacter;
-        Assert.That(newProf.AntagPreferences.Contains(id), Is.EqualTo(value));
+        Assert.That(newProf.AntagPreferences.Any(preference => preference == id), Is.EqualTo(value));
     }
 }
