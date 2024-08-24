@@ -7,6 +7,7 @@ using Content.Shared.Chat;
 using Content.Shared.Mind;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
+using Robust.Shared.Enums;
 using Robust.Shared.Player;
 
 namespace Content.Server.Antag;
