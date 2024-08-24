@@ -1,0 +1,117 @@
+﻿using System.Linq;
+using Content.Client._White.VisionLimit.Overlays;
+using Content.Shared._White.VisionLimit.Components;
+using Content.Shared.Clothing;
+using Content.Shared.Inventory.Events;
+using Robust.Client.Graphics;
+using Robust.Client.Player;
+using Robust.Shared.Player;
+
+namespace Content.Client._White.VisionLimit.Systems;
+
+public sealed class VisionLimitSystem : EntitySystem
+{
+    [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+
+    private VisionLimitOverlay _overlay = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<VisionLimitComponent, ComponentInit>(OnCompInit);
+        SubscribeLocalEvent<VisionLimitComponent, ComponentShutdown>(OnCompShutdown);
+
+        SubscribeLocalEvent<VisionLimitComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<VisionLimitComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
+
+        SubscribeLocalEvent<ClothingLimitVisionComponent, GotEquippedEvent>(OnGotEquipped);
+        SubscribeLocalEvent<ClothingLimitVisionComponent, GotUnequippedEvent>(OnGotUnequipped);
+        SubscribeLocalEvent<ClothingLimitVisionComponent, ItemMaskToggledEvent>(OnMaskToggled);
+
+        _overlay = new();
+    }
+
+    // Player entity interactions
+
+    private void OnPlayerAttached(EntityUid uid, VisionLimitComponent component, LocalPlayerAttachedEvent args)
+    {
+        UpdateOverlay(component);
+    }
+
+    private void OnPlayerDetached(EntityUid uid, VisionLimitComponent component, LocalPlayerDetachedEvent args)
+    {
+        _overlayMan.RemoveOverlay(_overlay);
+    }
+
+    private void OnCompInit(EntityUid uid, VisionLimitComponent component, ComponentInit args)
+    {
+        if (_player.LocalEntity == uid)
+            UpdateOverlay(component);
+    }
+
+    private void OnCompShutdown(EntityUid uid, VisionLimitComponent component, ComponentShutdown args)
+    {
+        if (_player.LocalEntity == uid)
+        {
+            _overlayMan.RemoveOverlay(_overlay);
+        }
+    }
+
+    // Equipment interactions
+
+    private void OnGotEquipped(EntityUid uid, ClothingLimitVisionComponent comp, GotEquippedEvent args)
+    {
+        AddLimit(args.Equipee, comp);
+    }
+
+    private void OnGotUnequipped(EntityUid uid, ClothingLimitVisionComponent comp, GotUnequippedEvent args)
+    {
+        RemoveLimit(args.Equipee, comp);
+    }
+
+    private void OnMaskToggled(EntityUid uid, ClothingLimitVisionComponent comp, ItemMaskToggledEvent args)
+    {
+        if (!args.IsToggled && !args.IsEquip)
+            AddLimit(args.Wearer, comp);
+        else
+            RemoveLimit(args.Wearer, comp);
+    }
+
+    // Overlay handling
+
+    private void AddLimit(EntityUid uid, ClothingLimitVisionComponent limiter)
+    {
+        EnsureComp<VisionLimitComponent>(uid, out var comp);
+
+        comp.Limiters.Add(limiter.Radius);
+            UpdateOverlay(comp);
+    }
+
+    private void RemoveLimit(EntityUid uid, ClothingLimitVisionComponent limiter)
+    {
+        if (TryComp<VisionLimitComponent>(uid, out var comp) && comp.Limiters.Contains(limiter.Radius))
+        {
+            comp.Limiters.Remove(limiter.Radius);
+            UpdateOverlay(comp);
+
+            if (comp.Limiters.Count == 0)
+                RemComp<VisionLimitComponent>(uid);
+        }
+
+    }
+
+    private void UpdateOverlay(VisionLimitComponent comp)
+    {
+        if (comp.Limiters.Count > 0)
+        {
+            // Assign the smallest radius value from the VisionLimitComponent Limiters list to the overlay
+            _overlay.VisionLimitRadius = comp.Limiters.Min();
+
+            _overlayMan.AddOverlay(_overlay);
+        }
+        else
+            _overlayMan.RemoveOverlay(_overlay);
+    }
+}

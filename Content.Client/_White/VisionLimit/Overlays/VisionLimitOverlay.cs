@@ -3,10 +3,10 @@ using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._White.VisionLimiter.Overlays
+namespace Content.Client._White.VisionLimit.Overlays
 
 {
-    public sealed class VisionLimiterOverlay : Overlay
+    public sealed class VisionLimitOverlay : Overlay
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -18,7 +18,7 @@ namespace Content.Client._White.VisionLimiter.Overlays
         public override OverlaySpace Space => OverlaySpace.WorldSpace;
         private readonly ShaderInstance _circleMaskShader;
 
-        public VisionLimiterOverlay()
+        public VisionLimitOverlay()
         {
             IoCManager.InjectDependencies(this);
             _circleMaskShader = _prototypeManager.Index<ShaderPrototype>("CircleMask").InstanceUnique();
