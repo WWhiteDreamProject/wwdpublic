@@ -54,7 +54,8 @@ public sealed class MagnetPickupSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var comp, out var storage, out var xform, out var meta))
         {
-            TryComp<ItemToggleComponent>(uid, out var toggle);
+            if (!TryComp<ItemToggleComponent>(uid, out var toggle))
+                continue;
 
             if (!_itemToggle.IsActivated(uid, toggle))
                 continue;
