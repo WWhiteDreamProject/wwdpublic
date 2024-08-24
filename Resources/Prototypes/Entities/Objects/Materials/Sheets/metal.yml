@@ -69,6 +69,16 @@
           Quantity: 9
         - ReagentId: Carbon
           Quantity: 1
+  - type: UserInterface # White Dream Start
+    interfaces:
+    - key: enum.InhandCraftingUiKey.Key
+      type: InhandCraftMenuBUI
+  - type: ActivatableUI
+    key: enum.InhandCraftingUiKey.Key
+  - type: InhandCrafting
+    prototypes:
+    - Girder
+    - TileDark # White Dream end
 
 - type: entity
   parent: SheetSteel
