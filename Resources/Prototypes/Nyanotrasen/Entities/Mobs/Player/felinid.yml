@@ -4,7 +4,7 @@
   parent: MobFelinidBase
   id: MobFelinid
   components:
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: MindContainer
     showExamineInfo: true
   - type: Input

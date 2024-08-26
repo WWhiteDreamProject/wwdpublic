@@ -62,7 +62,7 @@
     availableModes:
     - SemiAuto
     soundGunshot: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: InteractionPopup
     successChance: 0.3
     interactSuccessString: petting-success-slimes

@@ -25,7 +25,7 @@
   - type: GhostHearing
   - type: Hands
   - type: Puller
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: Physics
     ignorePaused: true
     bodyType: Kinematic

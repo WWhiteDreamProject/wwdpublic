@@ -1,5 +1,6 @@
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Shared._White.Intent;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -20,6 +21,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
 {
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
+    [Dependency] private readonly SharedIntentSystem _intent = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -167,7 +169,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
             {
                 actualDelay /= 2.5f;
             }
-            else if (Combat.IsInCombatMode(target))
+            else if (_intent.CanAttack(target)) // WD EDIT
             {
                 // Slightly increase the delay when the target is in combat mode. Helps prevents cheese injections in
                 // combat with fast syringes & lag.

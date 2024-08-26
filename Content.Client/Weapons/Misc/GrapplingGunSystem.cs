@@ -1,6 +1,6 @@
 using System.Net;
 using Content.Client.Hands.Systems;
-using Content.Shared.CombatMode;
+using Content.Shared._White.Intent;
 using Content.Shared.Weapons.Misc;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Client.GameObjects;
@@ -16,7 +16,7 @@ public sealed class GrapplingGunSystem : SharedGrapplingGunSystem
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly InputSystem _input = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
-
+    [Dependency] private readonly SharedIntentSystem _intent = default!; // WD EDIT
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -44,8 +44,7 @@ public sealed class GrapplingGunSystem : SharedGrapplingGunSystem
 
         var reelKey = _input.CmdStates.GetState(EngineKeyFunctions.UseSecondary) == BoundKeyState.Down;
 
-        if (!TryComp<CombatModeComponent>(local, out var combatMode) ||
-            !combatMode.IsInCombatMode)
+        if (!_intent.CanAttack(local)) // WD EDIT
         {
             reelKey = false;
         }

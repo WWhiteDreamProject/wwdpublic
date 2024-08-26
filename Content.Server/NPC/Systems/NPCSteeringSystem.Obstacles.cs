@@ -1,6 +1,7 @@
 using Content.Server.Destructible;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Pathfinding;
+using Content.Shared._White.Intent;
 using Content.Shared.Climbing;
 using Content.Shared.CombatMode;
 using Content.Shared.DoAfter;
@@ -161,9 +162,9 @@ public sealed partial class NPCSteeringSystem
             // Try smashing obstacles.
             else if ((component.Flags & PathFlags.Smashing) != 0x0)
             {
-                if (_melee.TryGetWeapon(uid, out _, out var meleeWeapon) && meleeWeapon.NextAttack <= _timing.CurTime && TryComp<CombatModeComponent>(uid, out var combatMode))
+                if (_melee.TryGetWeapon(uid, out _, out var meleeWeapon) && meleeWeapon.NextAttack <= _timing.CurTime && TryComp<IntentComponent>(uid, out var intent))
                 {
-                    _combat.SetInCombatMode(uid, true, combatMode);
+                    _intent.SetIntent(uid, Intent.Harm, intent); // WD EDIT
                     var destructibleQuery = GetEntityQuery<DestructibleComponent>();
 
                     // TODO: This is a hack around grilles and windows.
@@ -180,7 +181,7 @@ public sealed partial class NPCSteeringSystem
                         }
                     }
 
-                    _combat.SetInCombatMode(uid, false, combatMode);
+                    _intent.SetIntent(uid, Intent.Help, intent); // WD EDIT
 
                     // Blocked or the likes?
                     if (!attackResult)

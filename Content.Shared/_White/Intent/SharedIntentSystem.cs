@@ -1,8 +1,10 @@
 using Content.Shared.Actions;
+using Content.Shared.MouseRotator;
+using Content.Shared.Movement.Components;
 
 namespace Content.Shared._White.Intent;
 
-public sealed class SharedIntentsSystem : EntitySystem
+public abstract class SharedIntentSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _action = default!;
 
@@ -35,6 +37,8 @@ public sealed class SharedIntentsSystem : EntitySystem
         _action.RemoveAction(uid, component.DisarmActionEntity, comp);
         _action.RemoveAction(uid, component.GrabActionEntity, comp);
         _action.RemoveAction(uid, component.HarmActionEntity, comp);
+
+        SetMouseRotatorComponents(uid, false);
     }
 
     private void OnToggleIntent(EntityUid uid, IntentComponent component, ToggleIntentEvent args)
@@ -48,9 +52,20 @@ public sealed class SharedIntentsSystem : EntitySystem
         Dirty(uid, component);
 
         UpdateActions(uid, component);
+
+        if (!component.ToggleMouseRotator || IsNpc(uid))
+            return;
+
+        if (args.Type == Intent.Harm)
+        {
+            SetMouseRotatorComponents(uid, true);
+            return;
+        }
+
+        SetMouseRotatorComponents(uid, false);
     }
 
-    private void UpdateActions(EntityUid uid, IntentComponent? component)
+    private void UpdateActions(EntityUid uid, IntentComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
@@ -61,17 +76,77 @@ public sealed class SharedIntentsSystem : EntitySystem
         _action.SetToggled(component.HarmActionEntity, component.Intent == Intent.Harm);
     }
 
-    public bool CanAttack(EntityUid uid, IntentComponent? component)
+    private void SetMouseRotatorComponents(EntityUid uid, bool value)
     {
-        if (!Resolve(uid, ref component))
+        if (value)
+        {
+            EnsureComp<MouseRotatorComponent>(uid);
+            EnsureComp<NoRotateOnMoveComponent>(uid);
+        }
+        else
+        {
+            RemComp<MouseRotatorComponent>(uid);
+            RemComp<NoRotateOnMoveComponent>(uid);
+        }
+    }
+
+    public bool CanAttack(EntityUid? uid, IntentComponent? component = null)
+    {
+        if (uid == null || !Resolve(uid.Value, ref component))
             return false;
 
         return component.Intent is not Intent.Help;
     }
+
+    public virtual void SetIntent(EntityUid uid, Intent intent = Intent.Help, IntentComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.Intent = intent;
+
+        UpdateActions(uid, component);
+    }
+
+    public void SetCanDisarm(EntityUid uid, bool canDisarm, IntentComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.CanDisarm = canDisarm;
+    }
+
+    public Intent? GetIntent(EntityUid? uid, IntentComponent? component = null)
+    {
+        if (uid == null || !Resolve(uid.Value, ref component))
+            return null;
+
+        return component.Intent;
+    }
+
+    protected abstract bool IsNpc(EntityUid uid);
 }
 
 public sealed partial class ToggleIntentEvent : InstantActionEvent
 {
     [DataField]
-    public Intent Type;
+    public Intent Type = Intent.Harm;
+}
+
+public sealed class DisarmedEvent : HandledEntityEventArgs
+{
+    /// <summary>
+    ///     The entity being disarmed.
+    /// </summary>
+    public EntityUid Target { get; init; }
+
+    /// <summary>
+    ///     The entity performing to disarm.
+    /// </summary>
+    public EntityUid Source { get; init; }
+
+    /// <summary>
+    ///     Probability for push/knockdown.
+    /// </summary>
+    public float PushProbability { get; init; }
 }

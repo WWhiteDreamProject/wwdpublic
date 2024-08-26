@@ -3,7 +3,7 @@ using Content.Server.Popups;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Puppet;
 using Content.Server.Speech.Muting;
-using Content.Shared.CombatMode;
+using Content.Shared._White.Intent;
 using Content.Shared.Hands;
 using Content.Shared.Speech.Muting;
 
@@ -43,7 +43,7 @@ namespace Content.Server.Puppet
             }
 
             // TODO why does this need a combat component???
-            EnsureComp<CombatModeComponent>(uid);
+            EnsureComp<IntentComponent>(uid); // WD EDIT
             _popupSystem.PopupEntity(Loc.GetString("ventriloquist-puppet-insert-hand"), uid, args.User);
             _popupSystem.PopupEntity(Loc.GetString("ventriloquist-puppet-inserted-hand"), uid, uid);
 
@@ -89,7 +89,7 @@ namespace Content.Server.Puppet
         {
             _popupSystem.PopupEntity(Loc.GetString("ventriloquist-puppet-removed-hand"), uid, uid);
             EnsureComp<MutedComponent>(uid);
-            RemComp<CombatModeComponent>(uid);
+            RemComp<IntentComponent>(uid); // WD EDIT
             RemComp<GhostTakeoverAvailableComponent>(uid);
         }
     }

@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared.CombatMode;
+using Content.Shared._White.Intent;
 using Content.Shared.Weapons.Melee;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -19,18 +19,18 @@ public sealed class MeleeArcOverlay : Overlay
     private readonly IInputManager _inputManager;
     private readonly IPlayerManager _playerManager;
     private readonly MeleeWeaponSystem _melee;
-    private readonly SharedCombatModeSystem _combatMode;
+    private readonly SharedIntentSystem _intent; // WD EDIT
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
 
-    public MeleeArcOverlay(IEntityManager entManager, IEyeManager eyeManager, IInputManager inputManager, IPlayerManager playerManager, MeleeWeaponSystem melee, SharedCombatModeSystem combatMode)
+    public MeleeArcOverlay(IEntityManager entManager, IEyeManager eyeManager, IInputManager inputManager, IPlayerManager playerManager, MeleeWeaponSystem melee, SharedIntentSystem intent)
     {
         _entManager = entManager;
         _eyeManager = eyeManager;
         _inputManager = inputManager;
         _playerManager = playerManager;
         _melee = melee;
-        _combatMode = combatMode;
+        _intent = intent;
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -38,7 +38,7 @@ public sealed class MeleeArcOverlay : Overlay
         var player = _playerManager.LocalEntity;
 
         if (!_entManager.TryGetComponent<TransformComponent>(player, out var xform) ||
-            !_combatMode.IsInCombatMode(player))
+            !_intent.CanAttack(player)) // WD EDIT
         {
             return;
         }

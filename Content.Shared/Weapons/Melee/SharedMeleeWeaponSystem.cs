@@ -1,9 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._White.Intent;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
-using Content.Shared.CombatMode;
 using Content.Shared.Contests;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -36,7 +36,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 {
     [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
     [Dependency] protected readonly ActionBlockerSystem Blocker = default!;
-    [Dependency] protected readonly SharedCombatModeSystem CombatMode = default!;
     [Dependency] protected readonly DamageableSystem Damageable = default!;
     [Dependency] protected readonly SharedInteractionSystem Interaction = default!;
     [Dependency] protected readonly IMapManager MapManager = default!;
@@ -49,6 +48,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly ContestsSystem _contests = default!;
+    [Dependency] private readonly SharedIntentSystem _intent = default!; // WD EDIT
 
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
@@ -336,7 +336,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (weapon.NextAttack > curTime)
             return false;
 
-        if (!CombatMode.IsInCombatMode(user))
+        if (!_intent.CanAttack(user)) // WD EDIT
             return false;
 
         var fireRateSwingModifier = 1f;

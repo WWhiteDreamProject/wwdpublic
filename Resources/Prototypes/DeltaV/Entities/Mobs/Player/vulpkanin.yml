@@ -4,7 +4,7 @@
   parent: BaseMobVulpkanin
   id: MobVulpkanin
   components:
-    - type: CombatMode
+    - type: Intent # WD EDIT
     - type: MindContainer
       showExamineInfo: true
     - type: Input

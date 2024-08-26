@@ -72,7 +72,7 @@
     - type: MobState
       allowedStates:
         - Alive
-    - type: CombatMode
+    - type: Intent # WD EDIT
     - type: Internals
     - type: Examiner
     - type: Speech

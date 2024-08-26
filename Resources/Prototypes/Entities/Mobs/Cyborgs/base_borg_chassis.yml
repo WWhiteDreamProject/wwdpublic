@@ -15,7 +15,7 @@
         Blunt: 5
     soundHit:
       collection: MetalThud
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: NoSlip
   - type: StaticPrice
     price: 1250

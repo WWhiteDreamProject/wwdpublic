@@ -38,7 +38,7 @@
         - SimpleHostile
     - type: Speech
       speechVerb: Cluwne
-    - type: CombatMode
+    - type: Intent # WD EDIT
     - type: MobMover
     - type: InputMover
     - type: MovementSpeedModifier

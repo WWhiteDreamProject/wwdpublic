@@ -73,7 +73,7 @@
   id: MobBee
   description: Nice to have, but you can't build a civilization on a foundation of honey alone.
   components:
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: MovementSpeedModifier
     baseWalkSpeed : 7
     baseSprintSpeed : 7
@@ -149,7 +149,7 @@
   id: MobAngryBee
   description: How nice a bee. Oh no, it looks angry and wants my pizza.
   components:
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -420,7 +420,7 @@
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRifle
     capacity: 500
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: HTN
     rootTask:
       task: GlockroachCompound
@@ -511,7 +511,7 @@
     damageRecovery:
       types:
         Asphyxiation: -0.5
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: Butcherable
     spawned:
     - id: FoodMeatRat
@@ -1211,7 +1211,7 @@
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: Inventory
     templateId: monkey
     speciesId: monkey
@@ -1673,8 +1673,7 @@
       Unsexed: Mouse
     wilhelmProbability: 0.001
   # TODO: Remove CombatMode when Prototype Composition is added
-  - type: CombatMode
-    combatToggleAction: ActionCombatModeToggleOff
+  - type: Intent # WD EDIT
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: CanEscapeInventory
@@ -2234,7 +2233,7 @@
     spawned:
     - id: FoodMeatSpider
       amount: 2
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: Body
     prototype: AnimalHemocyanin
   - type: MobThresholds
@@ -3257,7 +3256,7 @@
     damage:
       types:
         Blunt: 0.1
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg

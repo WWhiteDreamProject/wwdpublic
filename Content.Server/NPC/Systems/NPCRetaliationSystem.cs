@@ -1,5 +1,5 @@
 ﻿using Content.Server.NPC.Components;
-using Content.Shared.CombatMode;
+using Content.Shared._White.Intent;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Collections;

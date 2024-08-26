@@ -162,7 +162,7 @@
     state: icon
   - type: AnimationPlayer
   - type: Buckle
-  - type: CombatMode
+  - type: Intent # WD EDIT
     canDisarm: true
   - type: MeleeWeapon
     soundHit:

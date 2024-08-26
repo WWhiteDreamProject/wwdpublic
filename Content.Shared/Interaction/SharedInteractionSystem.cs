@@ -1,10 +1,10 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._White.Intent;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Administration.Managers;
-using Content.Shared.CombatMode;
 using Content.Shared.Database;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -64,6 +64,7 @@ namespace Content.Shared.Interaction
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
+        [Dependency] private readonly SharedIntentSystem _intent = default!; // WD EDIT
 
         private const CollisionGroup InRangeUnobstructedMask = CollisionGroup.Impassable | CollisionGroup.InteractImpassable;
 
@@ -316,7 +317,7 @@ namespace Content.Shared.Interaction
             if (target != null && Deleted(target.Value))
                 return;
 
-            if (!altInteract && TryComp<CombatModeComponent>(user, out var combatMode) && combatMode.IsInCombatMode)
+            if (!altInteract && _intent.GetIntent(user) == Intent.Harm) // WD EDIT
             {
                 if (!CombatModeCanHandInteract(user, target))
                     return;

@@ -52,7 +52,7 @@
   - type: Bloodstream
     bloodReagent: DemonsBlood
     bloodMaxVolume: 100
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: Temperature
     heatDamageThreshold: 500
     coldDamageThreshold: 200
@@ -230,7 +230,7 @@
     name: ghost-role-information-cancer-mouse-name
     description: ghost-role-information-cancer-mouse-description
   - type: GhostTakeoverAvailable
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
     baseSprintSpeed : 3.5

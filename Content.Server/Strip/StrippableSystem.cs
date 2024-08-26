@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Ensnaring;
-using Content.Shared.CombatMode;
+using Content.Shared._White.Intent;
 using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
@@ -37,6 +37,8 @@ namespace Content.Server.Strip
 
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly ThievingSystem _thieving = default!;
+
+        [Dependency] private readonly SharedIntentSystem _intent = default!; // WD EDIT
 
         // TODO: ECS popups. Not all of these have ECS equivalents yet.
 
@@ -109,7 +111,7 @@ namespace Content.Server.Strip
         {
             base.StartOpeningStripper(user, strippable, openInCombat);
 
-            if (TryComp<CombatModeComponent>(user, out var mode) && mode.IsInCombatMode && !openInCombat)
+            if (_intent.CanAttack(user) && !openInCombat) // WD EDIT
                 return;
 
             if (TryComp<ActorComponent>(user, out var actor) && HasComp<StrippingComponent>(user))

@@ -32,7 +32,7 @@
         Bloodloss:
           -1
   - type: Insulated
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite

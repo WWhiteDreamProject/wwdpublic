@@ -6,7 +6,7 @@
   description: They mostly come at night. Mostly.
   components:
   - type: Insulated
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: InputMover
   - type: MobMover
   - type: HTN

@@ -57,7 +57,7 @@
       amount: 1
   - type: Bloodstream
     bloodMaxVolume: 50
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg

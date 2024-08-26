@@ -1,5 +1,5 @@
 using Content.Server.Interaction;
-using Content.Shared.CombatMode;
+using Content.Shared._White.Intent;
 using Content.Shared.Timing;
 
 namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Interactions;
@@ -25,10 +25,8 @@ public sealed partial class InteractWithOperator : HTNOperator
             return HTNOperatorStatus.Continuing;
         }
 
-        if (_entManager.TryGetComponent<CombatModeComponent>(owner, out var combatMode))
-        {
-            _entManager.System<SharedCombatModeSystem>().SetInCombatMode(owner, false, combatMode);
-        }
+        if (_entManager.TryGetComponent<IntentComponent>(owner, out var intent)) // WD EDIT
+            _entManager.System<SharedIntentSystem>().SetIntent(owner, Intent.Help, intent);
 
         _entManager.System<InteractionSystem>().UserInteraction(owner, targetXform.Coordinates, moveTarget);
         return HTNOperatorStatus.Finished;

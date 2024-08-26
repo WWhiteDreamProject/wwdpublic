@@ -1,7 +1,7 @@
 using System.Linq;
+using Content.Shared._White.Intent;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
-using Content.Shared.CombatMode;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Database;

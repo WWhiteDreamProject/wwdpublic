@@ -1,6 +1,6 @@
 using System.Linq;
+using Content.Shared._White.Intent;
 using Content.Shared.Actions;
-using Content.Shared.CombatMode;
 using Robust.Server.Player;
 using Robust.Shared.GameObjects;
 
@@ -36,15 +36,15 @@ public sealed class ActionsAddedTest
         Assert.That(cEntMan.EntityExists(clientEnt));
         Assert.That(sEntMan.HasComponent<ActionsComponent>(serverEnt));
         Assert.That(cEntMan.HasComponent<ActionsComponent>(clientEnt));
-        Assert.That(sEntMan.HasComponent<CombatModeComponent>(serverEnt));
-        Assert.That(cEntMan.HasComponent<CombatModeComponent>(clientEnt));
+        Assert.That(sEntMan.HasComponent<IntentComponent>(serverEnt)); // WD EDIT
+        Assert.That(cEntMan.HasComponent<IntentComponent>(clientEnt)); // WD EDIT
 
         var sComp = sEntMan.GetComponent<ActionsComponent>(serverEnt);
         var cComp = cEntMan.GetComponent<ActionsComponent>(clientEnt);
 
         // Mob should have a combat-mode action.
         // This action should have a non-null event both on the server & client.
-        var evType = typeof(ToggleCombatActionEvent);
+        var evType = typeof(ToggleIntentEvent); // WD EDIT
 
         var sActions = sActionSystem.GetActions(serverEnt).Where(
             x => x.Comp is InstantActionComponent act && act.Event?.GetType() == evType).ToArray();

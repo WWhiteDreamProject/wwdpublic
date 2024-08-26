@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Client.CombatMode;
+using Content.Client._White.Intent;
 using Content.Client.Gameplay;
 using Content.Client.Outline;
 using Content.Shared.ActionBlocker;
@@ -37,11 +37,11 @@ public sealed class DragDropSystem : SharedDragDropSystem
     [Dependency] private readonly IConfigurationManager _cfgMan = default!;
     [Dependency] private readonly InteractionOutlineSystem _outline = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly CombatModeSystem _combatMode = default!;
     [Dependency] private readonly InputSystem _inputSystem = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IntentSystem _intent = default!; // WD EDIT
 
     // how often to recheck possible targets (prevents calling expensive
     // check logic each update)
@@ -178,7 +178,7 @@ public sealed class DragDropSystem : SharedDragDropSystem
     private bool OnUseMouseDown(in PointerInputCmdHandler.PointerInputCmdArgs args)
     {
         if (args.Session?.AttachedEntity is not {Valid: true} dragger ||
-            _combatMode.IsInCombatMode())
+            _intent.CanAttack()) // WD EDIT
         {
             return false;
         }
@@ -262,7 +262,7 @@ public sealed class DragDropSystem : SharedDragDropSystem
 
     private bool UpdateDrag(float frameTime)
     {
-        if (!Exists(_draggedEntity) || _combatMode.IsInCombatMode())
+        if (!Exists(_draggedEntity) || _intent.CanAttack()) // WD EDIT
         {
             EndDrag();
             return false;

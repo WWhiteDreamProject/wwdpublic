@@ -689,7 +689,7 @@
   - type: Puller
     needsHands: false
   - type: Examiner
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Animals/cat_hiss.ogg

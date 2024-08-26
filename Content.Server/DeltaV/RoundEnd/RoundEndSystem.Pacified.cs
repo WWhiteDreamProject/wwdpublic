@@ -4,7 +4,7 @@ using Content.Server.GameTicking;
 using Content.Server.Popups;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
-using Content.Shared.CombatMode;
+using Content.Shared._White.Intent;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.DeltaV.CCVars;
 using Content.Shared.Explosion.Components;
@@ -37,7 +37,7 @@ public sealed class PacifiedRoundEnd : EntitySystem
         if (!_enabled)
             return;
 
-        var harmQuery = EntityQueryEnumerator<CombatModeComponent>();
+        var harmQuery = EntityQueryEnumerator<IntentComponent>(); // WD EDIT
         while (harmQuery.MoveNext(out var uid, out var _))
         {
             EnsureComp<PacifiedComponent>(uid);

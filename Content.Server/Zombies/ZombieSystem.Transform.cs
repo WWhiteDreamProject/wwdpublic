@@ -16,8 +16,8 @@ using Content.Server.NPC.Systems;
 using Content.Server.Roles;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
+using Content.Shared._White.Intent;
 using Content.Shared.Abilities.Psionics;
-using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage;
 using Content.Shared.Hands.Components;
@@ -55,11 +55,11 @@ namespace Content.Server.Zombies
         [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
         [Dependency] private readonly IdentitySystem _identity = default!;
         [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-        [Dependency] private readonly SharedCombatModeSystem _combat = default!;
         [Dependency] private readonly IChatManager _chatMan = default!;
         [Dependency] private readonly MindSystem _mind = default!;
         [Dependency] private readonly SharedRoleSystem _roles = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
+        [Dependency] private readonly SharedIntentSystem _intent = default!; // WD EDIT
 
         /// <summary>
         /// Handles an entity turning into a zombie when they die or go into crit
@@ -129,10 +129,10 @@ namespace Content.Server.Zombies
 
             //This is needed for stupid entities that fuck up combat mode component
             //in an attempt to make an entity not attack. This is the easiest way to do it.
-            var combat = EnsureComp<CombatModeComponent>(target);
+            var intent = EnsureComp<IntentComponent>(target); // WD EDIT
             RemComp<PacifiedComponent>(target);
-            _combat.SetCanDisarm(target, false, combat);
-            _combat.SetInCombatMode(target, true, combat);
+            // _intent.SetCanDisarm(target, false, combat); // WD EDIT
+            _intent.SetIntent(target, Intent.Harm, intent); // WD EDIT
 
             //This is the actual damage of the zombie. We assign the visual appearance
             //and range here because of stuff we'll find out later

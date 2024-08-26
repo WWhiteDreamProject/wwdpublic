@@ -4,7 +4,7 @@
   parent: [ SimpleMobBase, MobCombat ]
   description: He's da rat. He make da roolz.
   components:
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.00
     baseSprintSpeed : 5.00
@@ -172,7 +172,7 @@
   components:
   - type: Carriable
     freeHandsRequired: 1
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
     baseSprintSpeed : 3.5

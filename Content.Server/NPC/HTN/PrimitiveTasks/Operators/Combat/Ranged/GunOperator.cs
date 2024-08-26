@@ -1,7 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.NPC.Components;
-using Content.Shared.CombatMode;
+using Content.Shared._White.Intent;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Audio;
@@ -73,7 +73,7 @@ public sealed partial class GunOperator : HTNOperator, IHtnConditionalShutdown
     public void ConditionalShutdown(NPCBlackboard blackboard)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        _entManager.System<SharedCombatModeSystem>().SetInCombatMode(owner, false);
+        _entManager.System<SharedIntentSystem>().SetIntent(owner); // WD EDIT
         _entManager.RemoveComponent<NPCRangedCombatComponent>(owner);
         blackboard.Remove<EntityUid>(TargetKey);
     }

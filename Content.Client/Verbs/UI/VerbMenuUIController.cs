@@ -1,6 +1,6 @@
 using System.Linq;
 using System.Numerics;
-using Content.Client.CombatMode;
+using Content.Client._White.Intent;
 using Content.Client.ContextMenu.UI;
 using Content.Client.Gameplay;
 using Content.Shared.Input;
@@ -26,8 +26,8 @@ namespace Content.Client.Verbs.UI
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly ContextMenuUIController _context = default!;
 
-        [UISystemDependency] private readonly CombatModeSystem _combatMode = default!;
         [UISystemDependency] private readonly VerbSystem _verbSystem = default!;
+        [UISystemDependency] private readonly IntentSystem _intent = default!; // WD EDIT
 
         public NetEntity CurrentTarget;
         public SortedSet<Verb> CurrentVerbs = new();
@@ -82,7 +82,7 @@ namespace Content.Client.Verbs.UI
             if (_playerManager.LocalEntity is not {Valid: true} user)
                 return;
 
-            if (!force && _combatMode.IsInCombatMode(user))
+            if (!force && _intent.CanAttack(user)) // WD EDIT
                 return;
 
             Close();

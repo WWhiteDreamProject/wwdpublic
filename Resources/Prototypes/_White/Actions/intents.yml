@@ -15,7 +15,7 @@
     event:
       !type:ToggleIntentEvent
         type: Help
-    priority: 1
+    priority: -100
 
 - type: entity
   id: ActionDisarmToggle
@@ -34,7 +34,7 @@
     event:
       !type:ToggleIntentEvent
         type: Disarm
-    priority: 2
+    priority: -99
 
 - type: entity
   id: ActionGrabToggle
@@ -53,7 +53,7 @@
     event:
       !type:ToggleIntentEvent
         type: Grab
-    priority: 3
+    priority: -98
 
 - type: entity
   id: ActionHarmToggle
@@ -72,4 +72,4 @@
     event:
       !type:ToggleIntentEvent
         type: Harm
-    priority: 4
+    priority: -97

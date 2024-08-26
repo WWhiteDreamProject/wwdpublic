@@ -65,7 +65,7 @@
       interactFailureString: petting-failure-generic
       interactSuccessSound:
         path: /Audio/Effects/double_beep.ogg
-    - type: CombatMode
+    - type: Intent # WD EDIT
       toggleMouseRotator: false
     - type: Damageable
       damageContainer: Inorganic

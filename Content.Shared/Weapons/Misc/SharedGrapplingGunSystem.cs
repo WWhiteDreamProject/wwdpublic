@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared.CombatMode;
+using Content.Shared._White.Intent;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
@@ -28,6 +28,7 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
     [Dependency] private readonly SharedJointSystem _joints = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedIntentSystem _intent = default!; // WD EDIT
 
     public const string GrapplingJoint = "grappling";
 
@@ -89,9 +90,7 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
             return;
         }
 
-        if (msg.Reeling &&
-            (!TryComp<CombatModeComponent>(player, out var combatMode) ||
-             !combatMode.IsInCombatMode))
+        if (msg.Reeling && !_intent.CanAttack(player)) // WD EDIT
         {
             return;
         }

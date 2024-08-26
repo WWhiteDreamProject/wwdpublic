@@ -163,7 +163,7 @@
 #       80: 0.5
 #   - type: Appearance
 #   - type: RotationVisuals
-#   - type: CombatMode
+#   - type: Intent # WD EDIT
 #     canDisarm: true
 #   - type: Climbing
 #   - type: Cuffable

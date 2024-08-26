@@ -7,7 +7,7 @@
     tags:
     - FootstepSound
   - type: Clickable
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: InteractionOutline
   - type: InputMover
   - type: Input

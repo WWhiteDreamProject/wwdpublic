@@ -117,7 +117,7 @@
   id: MobCombat
   abstract: true
   components:
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: MeleeWeapon
     hidden: true
     soundHit:

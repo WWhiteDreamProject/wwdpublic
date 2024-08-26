@@ -30,7 +30,7 @@
     - Dragon
   - type: Speech
     speechVerb: LargeMob
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: MobMover
   - type: InputMover
   - type: MovementSpeedModifier

@@ -4,7 +4,7 @@
   parent: MobHarpyBase
   id: MobHarpy
   components:
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: MindContainer
     showExamineInfo: true
   - type: Input

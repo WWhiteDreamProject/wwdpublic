@@ -1,6 +1,6 @@
+using Content.Shared._White.Intent;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.CombatMode;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction.Events;
@@ -21,7 +21,7 @@ public abstract class SharedInjectorSystem : EntitySystem
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] protected readonly SharedSolutionContainerSystem SolutionContainers = default!;
     [Dependency] protected readonly MobStateSystem MobState = default!;
-    [Dependency] protected readonly SharedCombatModeSystem Combat = default!;
+    [Dependency] protected readonly SharedIntentSystem Intent = default!; // WD EDIT
     [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
     [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
 

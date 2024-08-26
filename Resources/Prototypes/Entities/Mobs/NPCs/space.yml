@@ -41,7 +41,7 @@
   - type: Bloodstream
     bloodMaxVolume: 300
     bloodReagent: Cryoxadone
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: Temperature
     heatDamageThreshold: 500
     coldDamageThreshold: 0

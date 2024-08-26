@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -8,6 +9,22 @@ public sealed partial class IntentComponent : Component
 {
     [DataField]
     public Intent Intent;
+
+    [DataField]
+    public bool ToggleMouseRotator = true;
+
+    #region Disarm
+
+    [DataField]
+    public bool CanDisarm = true;
+
+    [DataField]
+    public SoundSpecifier DisarmSuccessSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg");
+
+    [DataField]
+    public float BaseDisarmFailChance = 0.75f;
+
+    #endregion
 
     #region Actions
 

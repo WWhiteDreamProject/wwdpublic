@@ -24,6 +24,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._White.Intent;
 using Content.Shared.Chat;
 
 namespace Content.Server.Weapons.Melee;
@@ -90,11 +91,8 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (!base.DoDisarm(user, ev, meleeUid, component, session))
             return false;
 
-        if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
-            combatMode.CanDisarm != true)
-        {
+        if (!TryComp<IntentComponent>(user, out var intent) || !intent.CanDisarm) // WD EDIT
             return false;
-        }
 
         var target = GetEntity(ev.Target!.Value);
 
@@ -135,7 +133,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (attemptEvent.Cancelled)
             return false;
 
-        var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
+        var chance = CalculateDisarmChance(user, target, inTargetHand, intent);
 
         if (_random.Prob(chance))
         {
@@ -160,7 +158,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         PopupSystem.PopupEntity(msgOther, user, filterOther, true);
         PopupSystem.PopupEntity(msgUser, target, user);
 
-        _audio.PlayPvs(combatMode.DisarmSuccessSound, user, AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
+        _audio.PlayPvs(intent.DisarmSuccessSound, user, AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
         AdminLogger.Add(LogType.DisarmedAction, $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
 
         var eventArgs = new DisarmedEvent { Target = target, Source = user, PushProbability = 1 - chance };
@@ -169,7 +167,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (!eventArgs.Handled)
             return false;
 
-        _audio.PlayPvs(combatMode.DisarmSuccessSound, user, AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
+        _audio.PlayPvs(intent.DisarmSuccessSound, user, AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
         AdminLogger.Add(LogType.DisarmedAction, $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
 
         return true;
@@ -200,7 +198,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         _color.RaiseEffect(Color.Red, targets, filter);
     }
 
-    private float CalculateDisarmChance(EntityUid disarmer, EntityUid disarmed, EntityUid? inTargetHand, CombatModeComponent disarmerComp)
+    private float CalculateDisarmChance(EntityUid disarmer, EntityUid disarmed, EntityUid? inTargetHand, IntentComponent disarmerComp)
     {
         if (HasComp<DisarmProneComponent>(disarmer))
             return 1.0f;

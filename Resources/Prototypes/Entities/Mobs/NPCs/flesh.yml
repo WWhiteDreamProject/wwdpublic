@@ -43,7 +43,7 @@
       amount: 1
   - type: Bloodstream
     bloodMaxVolume: 100
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg

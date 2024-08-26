@@ -1,6 +1,6 @@
 using System.Numerics;
 using Content.Server.NPC.Components;
-using Content.Shared.CombatMode;
+using Content.Shared._White.Intent;
 using Content.Shared.NPC;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
@@ -20,25 +20,20 @@ public sealed partial class NPCCombatSystem
 
     private void OnMeleeShutdown(EntityUid uid, NPCMeleeCombatComponent component, ComponentShutdown args)
     {
-        if (TryComp<CombatModeComponent>(uid, out var combatMode))
-        {
-            _combat.SetInCombatMode(uid, false, combatMode);
-        }
+        if (TryComp<IntentComponent>(uid, out var intent)) // WD EDIT
+            _intent.SetIntent(uid, Intent.Help, intent);
 
         _steering.Unregister(uid);
     }
 
     private void OnMeleeStartup(EntityUid uid, NPCMeleeCombatComponent component, ComponentStartup args)
     {
-        if (TryComp<CombatModeComponent>(uid, out var combatMode))
-        {
-            _combat.SetInCombatMode(uid, true, combatMode);
-        }
+        if (TryComp<IntentComponent>(uid, out var intent)) // WD EDIT
+            _intent.SetIntent(uid, Intent.Harm, intent);
     }
 
     private void UpdateMelee(float frameTime)
     {
-        var combatQuery = GetEntityQuery<CombatModeComponent>();
         var xformQuery = GetEntityQuery<TransformComponent>();
         var physicsQuery = GetEntityQuery<PhysicsComponent>();
         var curTime = _timing.CurTime;
@@ -46,7 +41,7 @@ public sealed partial class NPCCombatSystem
 
         while (query.MoveNext(out var uid, out var comp, out _))
         {
-            if (!combatQuery.TryGetComponent(uid, out var combat) || !combat.IsInCombatMode)
+            if (!_intent.CanAttack(uid)) // WD EDIT
             {
                 RemComp<NPCMeleeCombatComponent>(uid);
                 continue;

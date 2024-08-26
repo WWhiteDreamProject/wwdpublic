@@ -4,7 +4,7 @@
   parent: MobOniBase
   id: MobOni
   components:
-  - type: CombatMode
+  - type: Intent # WD EDIT
   - type: MindContainer
     showExamineInfo: true
   - type: Input
