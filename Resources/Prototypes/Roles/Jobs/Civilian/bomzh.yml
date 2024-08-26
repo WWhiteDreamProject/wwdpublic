@@ -4,25 +4,12 @@
   description: job-description-bomzh
   playTimeTracker: JobBomzh
   requirements:
-  - !type:DepartmentTimeRequirement
+  - !type:CharacterDepartmentTimeRequirement
     department: Civilian
-    time: 72000 # 20 ch
-  - !type:AgeRequirement
-    requiredAge: 60
-  - !type:GenderRequirement
-    requiredGenders:
-    - Male
-  - !type:SexRequirement
-    requiredSex:
-    - Male
-  - !type:SpeciesRequirement
-    species:
-    - Human
+    min: 72000 # 20 ch
   weight: 20
   icon: "JobIconBomzh"
   supervisors: job-supervisors-hop
-  whitelistedSpecies:
-  - Human
   canBeAntag: true
   accessGroups:
   - Maintenance

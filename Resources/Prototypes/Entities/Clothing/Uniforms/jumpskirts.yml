@@ -772,28 +772,6 @@
 #WHITE START
 - type: entity
   parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtInspector
-  name: inspector's informal jumpskirt
-  description: Informal inspector's outfit. Relax, everyone already knows what you wear under your thin shirt and skirt...
-  components:
-    - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/inspector.rsi
-    - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/inspector.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtInspectorFormal
-  name: inspector's informal jumpskirt
-  description: Shirt, vest, short skirt and a bright red tie. This is a set of strict elegant official uniform of possibly the most terrifying person on the station - the inspector. The main thing is that you can't see the stockings under the skirt...
-  components:
-    - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/inspectorformal.rsi
-    - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/inspectorformal.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtMaid
   name: maid's jumpskirt
   description: Elegant maid's dress. Makes you feel comfortable, safe and clean around you.
@@ -815,14 +793,3 @@
     sprite: White/Clothing/Uniforms/Jumpskirt/maidmini.rsi
 
 #WHITE END
-
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtMusician
-  name: musician's skirt
-  description: A fancy skirt for the musically inclined.  Perfect for any lounge act!
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/musician.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/musician.rsi

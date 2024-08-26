@@ -4,32 +4,15 @@
   description: job-description-maid
   playTimeTracker: JobMaid
   requirements:
-  - !type:DepartmentTimeRequirement
+  - !type:CharacterDepartmentTimeRequirement
     department: Medical
-    time: 72000 # 20 ch
-  - !type:DepartmentTimeRequirement
+    min: 72000 # 20 ch
+  - !type:CharacterDepartmentTimeRequirement
     department: Command
-    time: 72000 # 20 ch
-  - !type:AgeRequirement
-    requiredAge: 20
-  - !type:GenderRequirement
-    requiredGenders:
-    - Female
-  - !type:SexRequirement
-    requiredSex:
-    - Female
-  - !type:SpeciesRequirement
-    species:
-    - Human
-    - Felinid
-    - Harpy
+    min: 72000 # 20 ch
   weight: 20
   icon: "JobIconMaid"
   supervisors: job-supervisors-hop
-  whitelistedSpecies:
-  - Human
-  - Felinid
-  - Harpy
   canBeAntag: false
   accessGroups:
   - Maintenance
