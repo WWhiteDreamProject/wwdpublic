@@ -50,7 +50,7 @@
     - 'n'
     - 'н'
   frequency: 1351
-  color: "#b05efa"
+  color: "#cd7ccd"
 
 - type: radioChannel
   id: Security
