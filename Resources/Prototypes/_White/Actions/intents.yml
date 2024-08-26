@@ -1,0 +1,75 @@
+- type: entity
+  id: ActionHelpToggle
+  name: "[color=green]Help[/color]"
+  noSpawn: true
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: 
+      sprite: _White/Actions/intents.rsi
+      state: helpOff
+    iconOn: 
+      sprite: _White/Actions/intents.rsi
+      state: help
+    event:
+      !type:ToggleIntentEvent
+        type: Help
+    priority: 1
+
+- type: entity
+  id: ActionDisarmToggle
+  name: "[color=blue]Disarm[/color]"
+  noSpawn: true
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: 
+      sprite: _White/Actions/intents.rsi
+      state: disarmOff
+    iconOn: 
+      sprite: _White/Actions/intents.rsi
+      state: disarm
+    event:
+      !type:ToggleIntentEvent
+        type: Disarm
+    priority: 2
+
+- type: entity
+  id: ActionGrabToggle
+  name: "[color=yellow]Grab[/color]"
+  noSpawn: true
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: 
+      sprite: _White/Actions/intents.rsi
+      state: grabOff
+    iconOn: 
+      sprite: _White/Actions/intents.rsi
+      state: grab
+    event:
+      !type:ToggleIntentEvent
+        type: Grab
+    priority: 3
+
+- type: entity
+  id: ActionHarmToggle
+  name: "[color=red]Harm[/color]"
+  noSpawn: true
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: 
+      sprite: _White/Actions/intents.rsi
+      state: harmOff
+    iconOn: 
+      sprite: _White/Actions/intents.rsi
+      state: harm
+    event:
+      !type:ToggleIntentEvent
+        type: Harm
+    priority: 4

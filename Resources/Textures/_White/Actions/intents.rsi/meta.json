@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "help"
+    },
+    {
+      "name": "helpOff"
+    },
+    {
+      "name": "disarm"
+    },
+    {
+      "name": "disarmOff"
+    },
+    {
+      "name": "grab"
+    },
+    {
+      "name": "grabOff"
+    },
+    {
+      "name": "harm"
+    },
+    {
+      "name": "harmOff"
+    }
+  ]
+}
