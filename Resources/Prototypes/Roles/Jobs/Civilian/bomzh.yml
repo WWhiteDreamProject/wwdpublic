@@ -11,7 +11,7 @@
   icon: "JobIconBomzh"
   supervisors: job-supervisors-hop
   canBeAntag: true
-  accessGroups:
+  access:
   - Maintenance
 
 - type: startingGear

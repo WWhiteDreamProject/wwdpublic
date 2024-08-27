@@ -15,9 +15,10 @@
   supervisors: job-supervisors-hop
   canBeAntag: false
   accessGroups:
-  - Maintenance
   - Command
   - Service
+  access:
+  - Maintenance
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -27,7 +28,6 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtMaid
     back: ClothingBackpackSatchelFilled
-    socks: ClothingUnderwearStockingsLightWhite
     shoes: ClothingShoesMaid
     ears: ClothingHeadsetCommand
     id: MaidPDA
