@@ -372,10 +372,10 @@
 #WHITE START
 - type: statusIcon
   parent: JobIcon
-  id: JobIconBomzh
+  id: JobIconHobo
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Bomzh
+    state: Hobo
 
 - type: statusIcon
   parent: JobIcon

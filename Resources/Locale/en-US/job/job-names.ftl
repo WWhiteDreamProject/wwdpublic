@@ -48,7 +48,7 @@ job-name-boxer = Boxer
 job-name-zookeeper = Zookeeper
 job-name-visitor = Visitor
 job-name-maid = Maid
-job-name-bomzh = Homeless
+job-name-hobo = Hobo
 
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = Atmospheric Technician
@@ -104,4 +104,4 @@ JobVisitor = Visitor
 JobWarden = Warden
 JobZookeeper = Zookeeper
 JobMaid = Maid
-JobBomzh = Homeless
+JobHobo = Hobo

@@ -1,0 +1,23 @@
+- type: entity
+  id: SpawnPointHobo
+  parent: SpawnPointJobBase
+  name: hobo
+  components:
+  - type: SpawnPoint
+    job_id: Hobo
+  - type: Sprite
+    layers:
+    - state: green
+    - state: hobo
+
+- type: entity
+  id: SpawnPointMaid
+  parent: SpawnPointJobBase
+  name: maid
+  components:
+  - type: SpawnPoint
+    job_id: Maid
+  - type: Sprite
+    layers:
+    - state: green
+    - state: maid

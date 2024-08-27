@@ -1,22 +1,22 @@
 - type: job
-  id: Bomzh
-  name: job-name-bomzh
-  description: job-description-bomzh
-  playTimeTracker: JobBomzh
+  id: Hobo
+  name: job-name-hobo
+  description: job-description-hobo
+  playTimeTracker: JobHobo
   requirements:
   - !type:CharacterDepartmentTimeRequirement
     department: Civilian
     min: 72000 # 20 ch
   weight: 20
-  icon: "JobIconBomzh"
+  icon: "JobIconHobo"
   supervisors: job-supervisors-hop
   canBeAntag: true
   access:
   - Maintenance
 
 - type: startingGear
-  id: BomzhGear
+  id: HoboGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCaptain
-    outerClothing: ClothingOuterOverCoatBomzh
-    id: BomzhPDA
+    outerClothing: ClothingOuterOverCoatHobo
+    id: HoboPDA

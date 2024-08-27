@@ -447,27 +447,3 @@
     sprite: Clothing/OuterClothing/Coats/expensive_coat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/expensive_coat.rsi
-
-#WHITE START
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterOverCoatBomzh
-  name: bomzh's overcoat
-  description: The jacket has been through a lot, time has not been tolerant of it and has left its scars.
-  components:
-  - type: Sprite
-    sprite: White/Clothing/OuterClothing/Coats/jacket.rsi
-  - type: Clothing
-    sprite: White/Clothing/OuterClothing/Coats/jacket.rsi
-  - type: StorageFill
-    contents:
-    - id: SmokingPipeFilledTobacco
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.90
-        Slash: 0.90
-        Piercing: 0.90
-        Heat: 0.75
-
-#WHITE END

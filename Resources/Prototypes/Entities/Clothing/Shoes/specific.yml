@@ -269,17 +269,3 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepSkates
-
-#WHITE START
-- type: entity
-  parent: ClothingShoesBaseButcherable
-  id: ClothingShoesMaid
-  name: maid shoes
-  description: The maid's shoes. Shiny.
-  components:
-  - type: Sprite
-    sprite: White/Clothing/Shoes/maidshoes.rsi
-  - type: Clothing
-    sprite: White/Clothing/Shoes/maidshoes.rsi
-
-#WHITE END

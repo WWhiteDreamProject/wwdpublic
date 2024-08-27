@@ -247,32 +247,6 @@
       - state: lawyer
 
 - type: entity
-  id: SpawnPointBomzh
-  parent: SpawnPointJobBase
-  name: bomzh
-  components:
-  - type: SpawnPoint
-    job_id: Bomzh
-  - type: Sprite
-    layers:
-    - state: green
-    - state: bomzh
-
-- type: entity
-  id: SpawnPointMaid
-  parent: SpawnPointJobBase
-  name: maid
-  components:
-  - type: SpawnPoint
-    job_id: Maid
-  - type: Sprite
-    layers:
-    - state: green
-    - state: maid
-
-#WHITE END
-
-- type: entity
   id: SpawnPointJanitor
   parent: SpawnPointJobBase
   name: janitor

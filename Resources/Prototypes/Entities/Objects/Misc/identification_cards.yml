@@ -514,13 +514,13 @@
 #WHITE START
 - type: entity
   parent: IDCardStandard
-  id: BomzhIDCard
-  name: Bomzh ID card
+  id: HoboIDCard
+  name: Hobo ID card
   components:
   - type: Sprite
     layers:
     - state: silver
-    - state: idbomzh
+    - state: idhobo
   - type: PresetIdCard
     job: Passenger
 

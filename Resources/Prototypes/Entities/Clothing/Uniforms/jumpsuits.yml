@@ -1302,18 +1302,3 @@
     sprite: Clothing/Uniforms/Jumpsuit/familiar_garbs.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/familiar_garbs.rsi
-
-#WHITE START
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitWhiteBomzh
-  name: bomzh uniform
-  description: The ragged form of a man who has been through a lot. It's not so much the holes in all the places that strike you as the smell of her.
-  components:
-  - type: Sprite
-    sprite: White/Clothing/Uniforms/Jumpsuit/bomzh.rsi
-  - type: Clothing
-    sprite: White/Clothing/Uniforms/Jumpsuit/bomzh.rsi
-
-#WHITE END
