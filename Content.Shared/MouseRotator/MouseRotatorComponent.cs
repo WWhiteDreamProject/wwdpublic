@@ -38,7 +38,7 @@ public sealed partial class MouseRotatorComponent : Component
     ///     like turrets or ship guns, which have finer range of movement.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool Simple4DirMode = true;
+    public bool Simple4DirMode; // WD EDIT
 }
 
 /// <summary>
