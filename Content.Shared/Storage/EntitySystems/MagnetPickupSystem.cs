@@ -1,6 +1,8 @@
 using Content.Server.Storage.Components;
 using Content.Shared.Examine;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
+using Content.Shared.Item;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Robust.Shared.Map;
@@ -20,6 +22,7 @@ public sealed class MagnetPickupSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedItemToggleSystem _itemToggle = default!; // WD EDIT
+    [Dependency] private readonly SharedItemSystem _item = default!;
 
     private static readonly TimeSpan ScanDelay = TimeSpan.FromSeconds(1);
 
@@ -29,6 +32,7 @@ public sealed class MagnetPickupSystem : EntitySystem
     {
         base.Initialize();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
+        SubscribeLocalEvent<MagnetPickupComponent, ItemToggledEvent>(ToggleDone);
         SubscribeLocalEvent<MagnetPickupComponent, ExaminedEvent>(onExamined); // WD EDIT
         SubscribeLocalEvent<MagnetPickupComponent, MapInitEvent>(OnMagnetMapInit);
     }
@@ -45,6 +49,11 @@ public sealed class MagnetPickupSystem : EntitySystem
             ? Loc.GetString("comp-magnet-pickup-examined-on")
             : Loc.GetString("comp-magnet-pickup-examined-off");
         args.PushMarkup(onMsg);
+    }
+
+    private void ToggleDone(Entity<MagnetPickupComponent> entity, ref ItemToggledEvent args)
+    {
+        _item.SetHeldPrefix(entity.Owner, args.Activated ? "on" : "off");
     }
 
     public override void Update(float frameTime)
