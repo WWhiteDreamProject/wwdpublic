@@ -13,6 +13,13 @@ public sealed partial class IntentComponent : Component
     [DataField]
     public bool ToggleMouseRotator = true;
 
+    #region Grab
+
+    [DataField]
+    public bool CanGrab = true;
+
+    #endregion
+
     #region Disarm
 
     [DataField]

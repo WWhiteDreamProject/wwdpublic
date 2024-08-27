@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Shared._White.Intent;
+using Content.Shared._White.Intent.Event;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Contests;
@@ -73,6 +74,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         SubscribeAllEvent<HeavyAttackEvent>(OnHeavyAttack);
         SubscribeAllEvent<LightAttackEvent>(OnLightAttack);
         SubscribeAllEvent<DisarmAttackEvent>(OnDisarmAttack);
+        SubscribeAllEvent<GrabAttackEvent>(OnGrabAttack);
         SubscribeAllEvent<StopAttackEvent>(OnStopAttack);
 
 #if DEBUG
@@ -210,6 +212,17 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         {
             return;
         }
+
+        AttemptAttack(args.SenderSession.AttachedEntity.Value, weaponUid, weapon, msg, args.SenderSession);
+    }
+
+    private void OnGrabAttack(GrabAttackEvent msg, EntitySessionEventArgs args) // WD EDIT
+    {
+        if (args.SenderSession.AttachedEntity == null)
+            return;
+
+        if (!TryGetWeapon(args.SenderSession.AttachedEntity.Value, out var weaponUid, out var weapon))
+            return;
 
         AttemptAttack(args.SenderSession.AttachedEntity.Value, weaponUid, weapon, msg, args.SenderSession);
     }
@@ -360,6 +373,12 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 if (!Blocker.CanAttack(user, disarmTarget, (weaponUid, weapon), true))
                     return false;
                 break;
+            case GrabAttackEvent grab:
+                var grabTarget = GetEntity(grab.Target);
+
+                if (!Blocker.CanAttack(user, grabTarget, (weaponUid, weapon), true))
+                    return false;
+                break;
             case HeavyAttackEvent:
                 fireRateSwingModifier *= weapon.HeavyRateModifier;
                 break;
@@ -412,6 +431,12 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     break;
                 case DisarmAttackEvent disarm:
                     if (!DoDisarm(user, disarm, weaponUid, weapon, session))
+                        return false;
+
+                    animation = weapon.Animation;
+                    break;
+                case GrabAttackEvent grab:
+                    if (!DoGrab(user, grab, weaponUid, weapon, session))
                         return false;
 
                     animation = weapon.Animation;
@@ -743,6 +768,18 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         {
             return false;
         }
+
+        // Play a sound to give instant feedback; same with playing the animations
+        _meleeSound.PlaySwingSound(user, meleeUid, component);
+        return true;
+    }
+
+    protected virtual bool DoGrab(EntityUid user, GrabAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
+    {
+        var target = GetEntity(ev.Target);
+
+        if (Deleted(target) || user == target)
+            return false;
 
         // Play a sound to give instant feedback; same with playing the animations
         _meleeSound.PlaySwingSound(user, meleeUid, component);

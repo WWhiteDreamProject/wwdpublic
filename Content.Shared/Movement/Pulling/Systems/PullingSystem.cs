@@ -69,6 +69,7 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedVirtualItemSystem _virtualSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedIntentSystem _intent = default!;
+    [Dependency] private readonly GrabThrownSystem _grabThrown = default!;
 
     public override void Initialize()
     {
@@ -230,8 +231,8 @@ public sealed class PullingSystem : EntitySystem
                 damage *= damageModifier;
 
                 TryStopPull(args.BlockingEntity, comp, uid, true);
-                _throwing.TryThrow(args.BlockingEntity, direction, 65f);
-                _throwing.TryThrow(uid, -direction * 0.5f);
+                _grabThrown.Throw(args.BlockingEntity, direction, 65f, damage * component.GrabThrowDamageModifier, damage * component.GrabThrowDamageModifier);
+                _grabThrown.Throw(uid, -direction * 0.5f);
                 _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), uid);
                 component.NextStageChange.Add(TimeSpan.FromSeconds(2f));  // To avoid grab and throw spamming
             }
@@ -253,18 +254,10 @@ public sealed class PullingSystem : EntitySystem
             Verb verb = new()
             {
                 Text = Loc.GetString("pulling-verb-get-data-text-stop-pulling"),
-                Act = () => TryStopPull(uid, component, user: args.User, true),
+                Act = () => TryStopPull(uid, component, user: args.User),
                 DoContactInteraction = false // pulling handle its own contact interaction.
             };
             args.Verbs.Add(verb);
-
-            Verb grabVerb = new()   // I'm not sure it is a good idea to add a button like this
-            {
-                Text = Loc.GetString("pulling-verb-get-data-text-grab"),
-                Act = () => TryGrab(uid, component.Puller.Value, true),
-                DoContactInteraction = false // pulling handle its own contact interaction.
-            };
-            args.Verbs.Add(grabVerb);
         }
         else if (CanPull(args.User, args.Target))
         {
@@ -762,10 +755,10 @@ public sealed class PullingSystem : EntitySystem
         puller.Comp.NextStageChange = _timing.CurTime + puller.Comp.StageChangeCooldown;
         Dirty(puller);
 
-        // Don't grab without combat mode
+        // Don't grab without grab intent
         if (!ignoreCombatMode)
         {
-            if (!TryComp<CombatModeComponent>(puller.Owner, out var combatMode) || !combatMode.IsInCombatMode)
+            if (_intent.GetIntent(puller.Owner) != Intent.Grab)
                 return false;
         }
 
@@ -957,13 +950,10 @@ public sealed class PullingSystem : EntitySystem
         pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(1f));
         Dirty(pullable);
 
-        if (!ignoreCombatMode)
+        if (!ignoreCombatMode && _intent.CanAttack(puller.Owner))
         {
-            if (!TryComp<CombatModeComponent>(puller.Owner, out var combatMode) || !combatMode.IsInCombatMode)
-            {
-                TryStopPull(pullable, pullable.Comp, ignoreGrab: true);
-                return true;
-            }
+            TryStopPull(pullable, pullable.Comp, ignoreGrab: true);
+            return true;
         }
 
         if (puller.Comp.GrabStage == GrabStage.No)

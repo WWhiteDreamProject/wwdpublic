@@ -8,11 +8,9 @@ namespace Content.Shared._White.Intent.Event;
 public sealed class GrabAttackEvent : AttackEvent
 {
     public NetEntity? Target;
-    public readonly NetEntity Weapon;
 
-    public GrabAttackEvent(NetEntity? target, NetEntity weapon, NetCoordinates coordinates) : base(coordinates)
+    public GrabAttackEvent(NetEntity? target, NetCoordinates coordinates) : base(coordinates)
     {
         Target = target;
-        Weapon = weapon;
     }
 }

@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Client.Gameplay;
 using Content.Shared._White.Intent;
+using Content.Shared._White.Intent.Event;
 using Content.Shared.CCVar;
 using Content.Shared.Effects;
 using Content.Shared.Hands.Components;
@@ -141,11 +142,19 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             if (Interaction.CombatModeCanHandInteract(entity, target))
                 return;
 
-            if (weapon.AltDisarm && weaponUid == entity && _intent.GetIntent(entity) == Intent.Disarm) // WD EDIT
+            // WD EDIT START
+            if (weapon.AltDisarm && weaponUid == entity && _intent.GetIntent(entity) == Intent.Disarm)
             {
                 RaisePredictiveEvent(new DisarmAttackEvent(GetNetEntity(target), GetNetCoordinates(coordinates)));
                 return;
             }
+
+            if (weaponUid == entity && _intent.GetIntent(entity) == Intent.Grab)
+            {
+                RaisePredictiveEvent(new GrabAttackEvent(GetNetEntity(target), GetNetCoordinates(coordinates)));
+                return;
+            }
+            // WD EDIT END
 
             RaisePredictiveEvent(new LightAttackEvent(GetNetEntity(target), GetNetEntity(weaponUid), GetNetCoordinates(coordinates)));
         }
