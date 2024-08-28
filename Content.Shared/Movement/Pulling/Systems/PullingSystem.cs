@@ -754,6 +754,8 @@ public sealed class PullingSystem : EntitySystem
         if (!HasComp<MobStateComponent>(pullable))
             return false;
 
+        _combatMode.SetInCombatMode(pullable, false);
+
         // Delay to avoid spamming
         puller.Comp.NextStageChange = _timing.CurTime + puller.Comp.StageChangeCooldown;
         Dirty(puller);
@@ -896,10 +898,9 @@ public sealed class PullingSystem : EntitySystem
     {
         if (!Resolve(pullable.Owner, ref pullable.Comp))
             return false;
+
         if (_timing.CurTime < pullable.Comp.NextEscapeAttempt)  // No autoclickers! Mwa-ha-ha
-        {
             return false;
-        }
 
         if (_random.Prob(pullable.Comp.GrabEscapeChance))
             return true;

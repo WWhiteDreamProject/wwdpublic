@@ -38,8 +38,6 @@ public sealed class GrabThrownSystem : EntitySystem
             return;
         }
 
-        Log.Error($"{args.OtherEntity}");
-
         if (component.IgnoreEntity.Contains(args.OtherEntity))
             return;
 

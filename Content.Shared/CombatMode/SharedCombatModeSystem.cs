@@ -1,6 +1,8 @@
 using Content.Shared.Actions;
 using Content.Shared.MouseRotator;
 using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
@@ -73,6 +75,9 @@ public abstract class SharedCombatModeSystem : EntitySystem
             return;
 
         if (component.IsInCombatMode == value)
+            return;
+
+        if (value && TryComp<PullableComponent>(entity, out var pullable) && pullable.GrabStage != GrabStage.No) // WD EDIT
             return;
 
         component.IsInCombatMode = value;
