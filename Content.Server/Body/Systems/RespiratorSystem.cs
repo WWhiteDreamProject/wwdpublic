@@ -52,12 +52,14 @@ public sealed class RespiratorSystem : EntitySystem
         ent.Comp.NextUpdate += args.PausedTime;
     }
 
-    public bool CanBreathe(EntityUid uid)  // WD EDIT
+    // WD EDIT START
+    public bool CanBreathe(EntityUid uid)
     {
         if (TryComp<PullableComponent>(uid, out var pullable) && pullable.GrabStage == GrabStage.Suffocate)
             return false;
         return true;
     }
+    // WD EDIT END
 
     public override void Update(float frameTime)
     {

@@ -177,7 +177,6 @@ namespace Content.Shared.Hands
             Direction = direction;
         }
     }
-    // WD EDIT END
 
     /// <summary>
     ///     Raised directed on both the blocking entity and user when
@@ -198,6 +197,7 @@ namespace Content.Shared.Hands
             Throw = thrown;
         }
     }
+    // WD EDIT END
 
     /// <summary>
     ///     Raised when putting an entity into a hand slot

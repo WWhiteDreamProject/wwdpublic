@@ -44,7 +44,7 @@ public sealed class AdminFrozenSystem : EntitySystem
     {
         if (TryComp<PullableComponent>(uid, out var pullable))
         {
-            _pulling.TryStopPull(uid, pullable, ignoreGrab: true);
+            _pulling.TryStopPull(uid, pullable, ignoreGrab: true); // WD EDIT
         }
 
         UpdateCanMove(uid, component, args);
