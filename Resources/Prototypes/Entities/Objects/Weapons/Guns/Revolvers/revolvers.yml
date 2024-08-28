@@ -50,6 +50,12 @@
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
   - type: StaticPrice
     price: 500
+  - type: MeleeWeapon # WD EDIT
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
 
 - type: entity
   name: Deckard

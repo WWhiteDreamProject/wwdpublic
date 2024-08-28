@@ -25,6 +25,7 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
 using Content.Shared.Chat;
+using Content.Shared.Weapons.Ranged.Components; // WD EDIT
 
 namespace Content.Server.Weapons.Melee;
 
@@ -58,7 +59,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         _damageExamine.AddDamageExamine(args.Message, damageSpec, Loc.GetString("damage-melee"));
 
-        if (damageSpec * component.HeavyDamageBaseModifier != damageSpec)
+        if (damageSpec * component.HeavyDamageBaseModifier != damageSpec && !TryComp<GunComponent>(uid, out var gun)) // Guns don't have a heavy attack // WD EDIT
             _damageExamine.AddDamageExamine(args.Message, damageSpec * component.HeavyDamageBaseModifier, Loc.GetString("damage-melee-heavy"));
     }
 

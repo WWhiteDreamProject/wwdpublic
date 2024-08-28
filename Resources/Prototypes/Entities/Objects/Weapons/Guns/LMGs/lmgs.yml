@@ -60,6 +60,13 @@
     price: 500
   - type: UseDelay
     delay: 1
+  - type: MeleeWeapon # WD EDIT
+    attackRate: 0.5
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: GenericHit
 
 - type: entity
   name: L6 SAW
