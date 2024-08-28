@@ -5399,3 +5399,49 @@ Entries:
         Добавляет спрайты листов стали, пластали, стекла (всех видов), пластика.
   id: 6270
   time: '2024-08-21T10:53:44.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added telescope system / Добавлена система прицеливания
+    - type: Tweak
+      message: Now you can aim from Hristov / Теперь можно прицеливаться из Христова
+  id: 6271
+  time: '2024-08-23T01:45:30.0000000+00:00'
+- author: Hell_Cat
+  changes:
+    - type: Add
+      message: Добавлен предмет аплинка - ЭМИ фонарик.
+  id: 6272
+  time: '2024-08-23T02:53:41.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added lying down system / Добавлена система лежания
+  id: 6273
+  time: '2024-08-23T13:30:07.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Press to walk / Нажать чтобы идти
+  id: 6274
+  time: '2024-08-23T13:30:51.0000000+00:00'
+- author: Remuchi
+  changes:
+    - type: Fix
+      message: >-
+        Thieves and Ninjas now properly spawn with their gear / Ниндзя и воры
+        теперь корректно спавнятся со своим снаряжением.
+  id: 6275
+  time: '2024-08-24T04:45:51.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: added BlinkSystem / Добавлена система телепортации
+  id: 6276
+  time: '2024-08-27T10:01:15.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added discounts in uplink / Добавлены скидки в аплинк
+  id: 6277
+  time: '2024-08-27T10:55:17.0000000+00:00'
