@@ -137,6 +137,7 @@ public abstract partial class SharedHandsSystem
         return false;
     }
 
+    // WD EDIT START
     public bool TryGetActiveHand(Entity<HandsComponent?> entity, [NotNullWhen(true)] out Hand? hand)
     {
         if (!Resolve(entity, ref entity.Comp, false))
@@ -173,6 +174,7 @@ public abstract partial class SharedHandsSystem
     {
         return GetActiveHand(entity)?.HeldEntity;
     }
+    // WD EDIT END
 
     /// <summary>
     ///     Enumerate over hands, starting with the currently active hand.

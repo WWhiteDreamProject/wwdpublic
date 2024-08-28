@@ -96,6 +96,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
     {
         if (TryComp(session?.AttachedEntity, out HandsComponent? hands) && hands.ActiveHand != null)
         {
+            // WD EDIT START
             if (session != null)
             {
                 var ent = session.AttachedEntity.Value;
@@ -114,6 +115,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
                 TryDrop(ent, hands.ActiveHand, coords, handsComp: hands);
             }
         }
+        // WD EDIT END
 
         // always send to server.
         return false;

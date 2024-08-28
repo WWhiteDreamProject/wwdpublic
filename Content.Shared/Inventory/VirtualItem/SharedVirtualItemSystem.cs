@@ -31,7 +31,7 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     [Dependency] private readonly SharedItemSystem _itemSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;  // WD EDIT
 
     [ValidatePrototypeId<EntityPrototype>]
     private const string VirtualItem = "VirtualItem";
@@ -79,11 +79,12 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     /// </summary>
     /// <param name="blockingEnt">The entity we will make a virtual entity copy of</param>
     /// <param name="user">The entity that we want to insert the virtual entity</param>
-    public bool TrySpawnVirtualItemInHand(EntityUid blockingEnt, EntityUid user, bool dropOthers = false)
+    public bool TrySpawnVirtualItemInHand(EntityUid blockingEnt, EntityUid user, bool dropOthers = false)  // WD EDIT
     {
-        return TrySpawnVirtualItemInHand(blockingEnt, user, out _, dropOthers);
+        return TrySpawnVirtualItemInHand(blockingEnt, user, out _, dropOthers);  // WD EDIT
     }
 
+    // WD EDIT START
     /// <inheritdoc cref="TrySpawnVirtualItemInHand(Robust.Shared.GameObjects.EntityUid,Robust.Shared.GameObjects.EntityUid)"/>
     public bool TrySpawnVirtualItemInHand(EntityUid blockingEnt, EntityUid user, [NotNullWhen(true)] out EntityUid? virtualItem, bool dropOthers = false, Hand? empty = null)
     {
@@ -124,6 +125,7 @@ public abstract class SharedVirtualItemSystem : EntitySystem
         _handsSystem.DoPickup(user, empty, virtualItem.Value);
         return true;
     }
+    // WD EDIT END
 
     /// <summary>
     /// Scan the user's hands until we find the virtual entity, if the
@@ -222,7 +224,7 @@ public abstract class SharedVirtualItemSystem : EntitySystem
 
         var pos = Transform(user).Coordinates;
         virtualItem = Spawn(VirtualItem, pos);
-        var virtualItemComp = EnsureComp<VirtualItemComponent>(virtualItem.Value);
+        var virtualItemComp = EnsureComp<VirtualItemComponent>(virtualItem.Value);  // WD EDIT
         virtualItemComp.BlockingEntity = blockingEnt;
         Dirty(virtualItem.Value, virtualItemComp);
         return true;
@@ -233,10 +235,10 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     /// </summary>
     public void DeleteVirtualItem(Entity<VirtualItemComponent> item, EntityUid user)
     {
-        var userEv = new VirtualItemDeletedEvent(item.Comp.BlockingEntity, user, item.Owner);
+        var userEv = new VirtualItemDeletedEvent(item.Comp.BlockingEntity, user, item.Owner);  // WD EDIT
         RaiseLocalEvent(user, userEv);
 
-        var targEv = new VirtualItemDeletedEvent(item.Comp.BlockingEntity, user, item.Owner);
+        var targEv = new VirtualItemDeletedEvent(item.Comp.BlockingEntity, user, item.Owner);  // WD EDIT
         RaiseLocalEvent(item.Comp.BlockingEntity, targEv);
 
         if (TerminatingOrDeleted(item))

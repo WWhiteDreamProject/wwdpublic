@@ -52,7 +52,7 @@ public sealed class RespiratorSystem : EntitySystem
         ent.Comp.NextUpdate += args.PausedTime;
     }
 
-    public bool CanBreathe(EntityUid uid)
+    public bool CanBreathe(EntityUid uid)  // WD EDIT
     {
         if (TryComp<PullableComponent>(uid, out var pullable) && pullable.GrabStage == GrabStage.Suffocate)
             return false;
@@ -91,7 +91,7 @@ public sealed class RespiratorSystem : EntitySystem
                 }
             }
 
-            if (respirator.Saturation < respirator.SuffocationThreshold || !CanBreathe(uid))
+            if (respirator.Saturation < respirator.SuffocationThreshold || !CanBreathe(uid))  // WD EDIT
             {
                 if (_gameTiming.CurTime >= respirator.LastGaspPopupTime + respirator.GaspPopupCooldown)
                 {

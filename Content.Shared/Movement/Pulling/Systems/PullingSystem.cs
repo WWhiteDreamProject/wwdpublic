@@ -59,6 +59,7 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _xformSys = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
+    // WD EDIT START
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
@@ -69,6 +70,7 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly GrabThrownSystem _grabThrown = default!;
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
+    // WD EDIT END
 
     public override void Initialize()
     {
@@ -82,15 +84,15 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullableComponent, JointRemovedEvent>(OnJointRemoved);
         SubscribeLocalEvent<PullableComponent, GetVerbsEvent<Verb>>(AddPullVerbs);
         SubscribeLocalEvent<PullableComponent, EntGotInsertedIntoContainerMessage>(OnPullableContainerInsert);
-        SubscribeLocalEvent<PullableComponent, UpdateCanMoveEvent>(OnGrabbedMoveAttempt);
-        SubscribeLocalEvent<PullableComponent, SpeakAttemptEvent>(OnGrabbedSpeakAttempt);
+        SubscribeLocalEvent<PullableComponent, UpdateCanMoveEvent>(OnGrabbedMoveAttempt);  // WD EDIT
+        SubscribeLocalEvent<PullableComponent, SpeakAttemptEvent>(OnGrabbedSpeakAttempt);  // WD EDIT
 
         SubscribeLocalEvent<PullerComponent, EntGotInsertedIntoContainerMessage>(OnPullerContainerInsert);
         SubscribeLocalEvent<PullerComponent, EntityUnpausedEvent>(OnPullerUnpaused);
         SubscribeLocalEvent<PullerComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<PullerComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
-        SubscribeLocalEvent<PullerComponent, VirtualItemThrownEvent>(OnVirtualItemThrown);
-        SubscribeLocalEvent<PullerComponent, VirtualItemDropAttemptEvent>(OnVirtualItemDropAttempt);
+        SubscribeLocalEvent<PullerComponent, VirtualItemThrownEvent>(OnVirtualItemThrown);  // WD EDIT
+        SubscribeLocalEvent<PullerComponent, VirtualItemDropAttemptEvent>(OnVirtualItemDropAttempt);  // WD EDIT
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.MovePulledObject, new PointerInputCmdHandler(OnRequestMovePulledObject))
@@ -105,17 +107,19 @@ public sealed class PullingSystem : EntitySystem
         if (!TryComp(ent.Comp.Pulling.Value, out PullableComponent? pulling))
             return;
 
+        // WD EDIT START
         foreach (var item in ent.Comp.GrabVirtualItems)
         {
             QueueDel(item);
         }
 
         TryStopPull(ent.Comp.Pulling.Value, pulling, ent.Owner, true);
+        // WD EDIT END
     }
 
     private void OnPullableContainerInsert(Entity<PullableComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
-        TryStopPull(ent.Owner, ent.Comp, ignoreGrab: true);
+        TryStopPull(ent.Owner, ent.Comp, ignoreGrab: true);  // WD EDIT
     }
 
     public override void Shutdown()
@@ -129,6 +133,7 @@ public sealed class PullingSystem : EntitySystem
         component.NextThrow += args.PausedTime;
     }
 
+    // WD EDIT START
     private void OnVirtualItemDropAttempt(EntityUid uid, PullerComponent component, VirtualItemDropAttemptEvent args)
     {
         if (component.Pulling == null)
@@ -163,6 +168,7 @@ public sealed class PullingSystem : EntitySystem
             }
         }
     }
+     // WD EDIT END
 
     private void OnVirtualItemDeleted(EntityUid uid, PullerComponent component, VirtualItemDeletedEvent args)
     {
@@ -175,10 +181,11 @@ public sealed class PullingSystem : EntitySystem
 
         if (EntityManager.TryGetComponent(args.BlockingEntity, out PullableComponent? comp))
         {
-            TryLowerGrabStage(component.Pulling.Value, uid);
+            TryLowerGrabStage(component.Pulling.Value, uid);  // WD EDIT
         }
     }
 
+    // WD EDIT START
     private void OnVirtualItemThrown(EntityUid uid, PullerComponent component, VirtualItemThrownEvent args)
     {
         if (component.Pulling == null)
@@ -237,6 +244,7 @@ public sealed class PullingSystem : EntitySystem
             }
         }
     }
+    // WD EDIT END
 
     private void AddPullVerbs(EntityUid uid, PullableComponent component, GetVerbsEvent<Verb> args)
     {
@@ -272,6 +280,7 @@ public sealed class PullingSystem : EntitySystem
 
     private void OnRefreshMovespeed(EntityUid uid, PullerComponent component, RefreshMovementSpeedModifiersEvent args)
     {
+        // WD EDIT START
         if (TryComp<HeldSpeedModifierComponent>(component.Pulling, out var heldMoveSpeed) && component.Pulling.HasValue)
         {
             var (walkMod, sprintMod) = (args.WalkSpeedModifier, args.SprintSpeedModifier);
@@ -315,6 +324,7 @@ public sealed class PullingSystem : EntitySystem
                 args.ModifySpeed(component.WalkSpeedModifier, component.SprintSpeedModifier);
                 break;
         }
+        // WD EDIT END
     }
 
     private void OnPullableMoveInput(EntityUid uid, PullableComponent component, ref MoveInputEvent args)
@@ -374,9 +384,11 @@ public sealed class PullingSystem : EntitySystem
         var oldPuller = pullableComp.Puller;
         pullableComp.PullJointId = null;
         pullableComp.Puller = null;
+        // WD EDIT START
         pullableComp.GrabStage = GrabStage.No;
         pullableComp.GrabEscapeChance = 1f;
         _blocker.UpdateCanMove(pullableUid);
+        // WD EDIT END
 
         Dirty(pullableUid, pullableComp);
 
@@ -387,6 +399,7 @@ public sealed class PullingSystem : EntitySystem
             _alertsSystem.ClearAlert(pullerUid, AlertType.Pulling);
             pullerComp.Pulling = null;
 
+            // WD EDIT START
             pullerComp.GrabStage = GrabStage.No;
             List<EntityUid> virtItems = pullerComp.GrabVirtualItems;
             foreach (var item in virtItems)
@@ -394,6 +407,7 @@ public sealed class PullingSystem : EntitySystem
                 QueueDel(item);
             }
             pullerComp.GrabVirtualItems.Clear();
+            // WD EDIT END
 
             Dirty(oldPuller.Value, pullerComp);
 
@@ -474,7 +488,7 @@ public sealed class PullingSystem : EntitySystem
             return;
         }
 
-        TryStopPull(pullerComp.Pulling.Value, pullableComp, user: player, true);
+        TryStopPull(pullerComp.Pulling.Value, pullableComp, user: player, true);  // WD EDIT
     }
 
     public bool CanPull(EntityUid puller, EntityUid pullableUid, PullerComponent? pullerComp = null)
@@ -534,6 +548,7 @@ public sealed class PullingSystem : EntitySystem
 
     public bool TogglePull(EntityUid pullableUid, EntityUid pullerUid, PullableComponent pullable)
     {
+        // WD EDIT START
         if (pullable.Puller != pullerUid)
             return TryStartPull(pullerUid, pullableUid, pullableComp: pullable);
 
@@ -544,6 +559,7 @@ public sealed class PullingSystem : EntitySystem
             return TryStopPull(pullableUid, pullable, ignoreGrab: true);
 
         return false;
+        // WD EDIT END
     }
 
     public bool TogglePull(EntityUid pullerUid, PullerComponent puller)
@@ -577,7 +593,7 @@ public sealed class PullingSystem : EntitySystem
 
         // Ensure that the puller is not currently pulling anything.
         if (TryComp<PullableComponent>(pullerComp.Pulling, out var oldPullable)
-            && !TryStopPull(pullerComp.Pulling.Value, oldPullable, pullerUid, true))
+            && !TryStopPull(pullerComp.Pulling.Value, oldPullable, pullerUid, true))  // WD EDIT
             return false;
 
         // Stop anyone else pulling the entity we want to pull
@@ -589,6 +605,7 @@ public sealed class PullingSystem : EntitySystem
 
             if (!TryStopPull(pullableUid, pullableComp, pullableComp.Puller))
             {
+                // WD EDIT START
                 // Not succeed to retake grabbed entity
                 if (_netManager.IsServer)
                 {
@@ -619,6 +636,7 @@ public sealed class PullingSystem : EntitySystem
                         pullableComp.Puller.Value, pullableComp.Puller.Value, PopupType.MediumCaution);
                 }
             }
+            // WD EDIT END
         }
 
         var pullAttempt = new PullAttemptEvent(pullerUid, pullableUid);
@@ -664,8 +682,8 @@ public sealed class PullingSystem : EntitySystem
 
         // Messaging
         var message = new PullStartedMessage(pullerUid, pullableUid);
-        _alertsSystem.ShowAlert(pullerUid, AlertType.Pulling, 0);
-        _alertsSystem.ShowAlert(pullableUid, AlertType.Pulled, 0);
+        _alertsSystem.ShowAlert(pullerUid, AlertType.Pulling, 0);  // WD EDIT
+        _alertsSystem.ShowAlert(pullableUid, AlertType.Pulled, 0);  // WD EDIT
 
         RaiseLocalEvent(pullerUid, message);
         RaiseLocalEvent(pullableUid, message);
@@ -676,13 +694,15 @@ public sealed class PullingSystem : EntitySystem
         _adminLogger.Add(LogType.Action, LogImpact.Low,
             $"{ToPrettyString(pullerUid):user} started pulling {ToPrettyString(pullableUid):target}");
 
+        // WD EDIT START
         if (_combatMode.IsInCombatMode(pullerUid))
             TryGrab(pullableUid, pullerUid);
+        // WD EDIT END
 
         return true;
     }
 
-    public bool TryStopPull(EntityUid pullableUid, PullableComponent pullable, EntityUid? user = null, bool ignoreGrab = false)
+    public bool TryStopPull(EntityUid pullableUid, PullableComponent pullable, EntityUid? user = null, bool ignoreGrab = false)  // WD EDIT
     {
         var pullerUidNull = pullable.Puller;
 
@@ -695,6 +715,7 @@ public sealed class PullingSystem : EntitySystem
         if (msg.Cancelled)
             return false;
 
+        // WD EDIT START
         // There are some events that should ignore grab stages
         if (!ignoreGrab)
         {
@@ -711,6 +732,7 @@ public sealed class PullingSystem : EntitySystem
                 _popup.PopupEntity(Loc.GetString("popup-grab-release-success-puller", ("target", Identity.Entity(pullableUid, EntityManager))), pullerUidNull.Value, pullerUidNull.Value, PopupType.MediumCaution);
             }
         }
+        // WD EDIT END
 
         // Stop pulling confirmed!
         if (!_timing.ApplyingState)
@@ -727,6 +749,7 @@ public sealed class PullingSystem : EntitySystem
         return true;
     }
 
+    // WD EDIT START
     /// <summary>
     /// Trying to grab the target
     /// </summary>
@@ -970,8 +993,10 @@ public sealed class PullingSystem : EntitySystem
         TrySetGrabStages((puller.Owner, puller.Comp), (pullable.Owner, pullable.Comp), newStage);
         return true;
     }
+    // WD EDIT END
 }
 
+// WD EDIT START
 public enum GrabStage
 {
     No = 0,
@@ -985,3 +1010,4 @@ public enum GrubStageDirection
     Increase,
     Decrease,
 }
+// WD EDIT END

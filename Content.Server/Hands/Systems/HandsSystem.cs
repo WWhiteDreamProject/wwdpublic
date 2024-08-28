@@ -89,7 +89,7 @@ namespace Content.Server.Hands.Systems
 
             // Break any pulls
             if (TryComp(uid, out PullerComponent? puller) && TryComp(puller.Pulling, out PullableComponent? pullable))
-                _pullingSystem.TryStopPull(puller.Pulling.Value, pullable, ignoreGrab: true);
+                _pullingSystem.TryStopPull(puller.Pulling.Value, pullable, ignoreGrab: true);  // WD EDIT
 
             if (!_handsSystem.TryDrop(uid, component.ActiveHand!, null, checkActionBlocker: false))
                 return;
@@ -169,6 +169,7 @@ namespace Content.Server.Hands.Systems
             if (playerSession?.AttachedEntity is not {Valid: true} player || !Exists(player))
                 return false;
 
+            // WD EDIT START
             if (TryGetActiveItem(player, out var item) && TryComp<VirtualItemComponent>(item, out var virtComp))
             {
                 var userEv = new VirtualItemDropAttemptEvent(virtComp.BlockingEntity, player, item.Value, true);
@@ -180,6 +181,7 @@ namespace Content.Server.Hands.Systems
                 if (userEv.Cancelled || targEv.Cancelled)
                     return false;
             }
+            // WD EDIT END
 
             return ThrowHeldItem(player, coordinates);
         }
@@ -224,6 +226,7 @@ namespace Content.Server.Hands.Systems
             var ev = new BeforeThrowEvent(throwEnt, direction, throwStrength, player);
             RaiseLocalEvent(player, ref ev);
 
+            // WD EDIT START
             if (TryComp<VirtualItemComponent>(throwEnt, out var virt))
             {
                 var userEv = new VirtualItemThrownEvent(virt.BlockingEntity, player, throwEnt, direction);
@@ -232,6 +235,7 @@ namespace Content.Server.Hands.Systems
                 var targEv = new VirtualItemThrownEvent(virt.BlockingEntity, player, throwEnt, direction);
                 RaiseLocalEvent(virt.BlockingEntity, targEv);
             }
+            // WD EDIT END
 
             if (ev.Cancelled)
                 return true;

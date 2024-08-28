@@ -148,16 +148,17 @@ namespace Content.Shared.Hands
     {
         public EntityUid BlockingEntity;
         public EntityUid User;
-        public EntityUid VirtualItem;
+        public EntityUid VirtualItem;  // WD EDIT
 
-        public VirtualItemDeletedEvent(EntityUid blockingEntity, EntityUid user, EntityUid virtualItem)
+        public VirtualItemDeletedEvent(EntityUid blockingEntity, EntityUid user, EntityUid virtualItem)  // WD EDIT
         {
             BlockingEntity = blockingEntity;
             User = user;
-            VirtualItem = virtualItem;
+            VirtualItem = virtualItem;  // WD EDIT
         }
     }
 
+    // WD EDIT START
     /// <summary>
     ///     Raised directed on both the blocking entity and user when
     ///     a virtual hand item is thrown (at least attempted to).
@@ -176,6 +177,7 @@ namespace Content.Shared.Hands
             Direction = direction;
         }
     }
+    // WD EDIT END
 
     /// <summary>
     ///     Raised directed on both the blocking entity and user when

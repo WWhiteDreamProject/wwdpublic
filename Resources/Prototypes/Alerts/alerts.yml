@@ -387,6 +387,7 @@
 
 - type: alert
   id: Pulled
+  # WD EDIT START
   icons:
   - sprite: /Textures/Interface/Alerts/pull.rsi
     state: pulled
@@ -396,14 +397,16 @@
     state: grabbed-hard
   - sprite: /Textures/Interface/Alerts/pull.rsi
     state: grabbed-choke
+  # WD EDIT END
   onClick: !type:StopBeingPulled  { }
   name: alerts-pulled-name
   description: alerts-pulled-desc
-  minSeverity: 0
-  maxSeverity: 3
+  minSeverity: 0 # WD EDIT
+  maxSeverity: 3 # WD EDIT
 
 - type: alert
   id: Pulling
+  # WD EDIT START
   icons:
   - sprite: /Textures/Interface/Alerts/pull.rsi
     state: pulling
@@ -413,11 +416,12 @@
     state: grab-hard
   - sprite: /Textures/Interface/Alerts/pull.rsi
     state: grab-choke
+  # WD EDIT END
   onClick: !type:StopPulling  { }
   name: alerts-pulling-name
   description: alerts-pulling-desc
-  minSeverity: 0
-  maxSeverity: 3
+  minSeverity: 0 # WD EDIT
+  maxSeverity: 3 # WD EDIT
 
 - type: alert
   id: Bleed
