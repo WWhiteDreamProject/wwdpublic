@@ -81,17 +81,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
         }
 
-        // TODO using targeted actions while combat mode is enabled should NOT trigger attacks.
-
-        // TODO: Need to make alt-fire melee its own component I guess?
-        // Melee and guns share a lot in the middle but share virtually nothing at the start and end so
-        // it's kinda tricky.
-        // I think as long as we make secondaries their own component it's probably fine
-        // as long as guncomp has an alt-use key then it shouldn't be too much of a PITA to deal with.
-        if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey)
-        {
-            return;
-        }
+        // TODO using targeted actions while combat mode is enabled should NOT trigger attacks
 
         var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
 
@@ -111,30 +101,48 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             coordinates = EntityCoordinates.FromMap(MapManager.GetMapEntityId(mousePos.MapId), mousePos, TransformSystem, EntityManager);
         }
 
-        // Heavy attack.
+        // Right click
+        // Unarmed will try to disarm
+        // Melee weapons will wideswing
+        // Ranged weapons will do a light attack.
         if (altDown == BoundKeyState.Down)
         {
+            // Get the target that was clicked on
+            EntityUid? target = null;
+
+            if (_stateManager.CurrentState is GameplayStateBase screen)
+            {
+                target = screen.GetClickedEntity(mousePos);
+            }
+
             // If it's an unarmed attack then do a disarm
             if (weapon.AltDisarm && weaponUid == entity)
             {
-                EntityUid? target = null;
-
-                if (_stateManager.CurrentState is GameplayStateBase screen)
-                {
-                    target = screen.GetClickedEntity(mousePos);
-                }
-
                 EntityManager.RaisePredictiveEvent(new DisarmAttackEvent(GetNetEntity(target), GetNetCoordinates(coordinates)));
                 return;
             }
 
+            // If it's a ranged weapon then do a light attack
+            if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey)
+            {
+                RaisePredictiveEvent(new LightAttackEvent(GetNetEntity(target), GetNetEntity(weaponUid), GetNetCoordinates(coordinates)));
+                return;
+            }
+
+            // Otherwise do a wide swing
             ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
             return;
         }
 
-        // Light attack
+        // Left click
         if (useDown == BoundKeyState.Down)
         {
+            // If it's a gun that shoots with left click do not attack
+            if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey)
+            {
+                return;
+            }
+
             var attackerPos = Transform(entity).MapPosition;
 
             if (mousePos.MapId != attackerPos.MapId ||
