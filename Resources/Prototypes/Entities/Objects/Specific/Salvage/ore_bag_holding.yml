@@ -9,7 +9,7 @@
   - type: Sprite
     sprite: Objects/Specific/Mining/ore_bag_holding.rsi
     layers:
-    - state: oregab_off
+    - state: orebag_off
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: GenericVisualizer
     visuals:
