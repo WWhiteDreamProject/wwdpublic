@@ -76,7 +76,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         SubscribeAllEvent<RequestShootEvent>(OnShootRequest);
         SubscribeAllEvent<RequestStopShootEvent>(OnStopShootRequest);
-        SubscribeLocalEvent<GunComponent, MeleeHitEvent>(OnGunMelee);
+        //SubscribeLocalEvent<GunComponent, MeleeHitEvent>(OnGunMelee);
 
         // Ammo providers
         InitializeBallistic();
@@ -110,7 +110,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         RefreshModifiers((gun, gun));
     }
 
-    private void OnGunMelee(EntityUid uid, GunComponent component, MeleeHitEvent args)
+    // Sets the gun cooldown to the melee attack cooldown on attack. Removed since it felt very unintuitive.
+    /*private void OnGunMelee(EntityUid uid, GunComponent component, MeleeHitEvent args)
     {
         if (!TryComp<MeleeWeaponComponent>(uid, out var melee))
             return;
@@ -120,7 +121,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             component.NextFire = melee.NextAttack;
             Dirty(component);
         }
-    }
+    }*/
 
     private void OnShootRequest(RequestShootEvent msg, EntitySessionEventArgs args)
     {

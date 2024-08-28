@@ -62,7 +62,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MeleeWeaponComponent, HandSelectedEvent>(OnMeleeSelected);
-        SubscribeLocalEvent<MeleeWeaponComponent, ShotAttemptedEvent>(OnMeleeShotAttempted);
+        SubscribeLocalEvent<MeleeWeaponComponent, MeleeAttemptedEvent>(OnMeleeAttempted);
         SubscribeLocalEvent<MeleeWeaponComponent, GunShotEvent>(OnMeleeShot);
         SubscribeLocalEvent<BonusMeleeDamageComponent, GetMeleeDamageEvent>(OnGetBonusMeleeDamage);
         SubscribeLocalEvent<BonusMeleeDamageComponent, GetHeavyDamageModifierEvent>(OnGetBonusHeavyDamageModifier);
@@ -86,7 +86,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 #endif
     }
 
-    private void OnMeleeShotAttempted(EntityUid uid, MeleeWeaponComponent comp, ref ShotAttemptedEvent args)
+    private void OnMeleeAttempted(EntityUid uid, MeleeWeaponComponent comp, ref MeleeAttemptedEvent args)
     {
         if (comp.NextAttack > Timing.CurTime)
             args.Cancel();
