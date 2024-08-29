@@ -51,7 +51,6 @@ using Content.Shared.SSDIndicator;
 using Content.Shared.Damage.ForceSay;
 using Content.Server.Polymorph.Components;
 using Content.Shared.Chat;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Drunk;
 using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition.Components;
@@ -85,7 +84,6 @@ namespace Content.Server.Cloning
         [Dependency] private readonly SharedJobSystem _jobs = default!;
         [Dependency] private readonly MetempsychoticMachineSystem _metem = default!; //DeltaV
         [Dependency] private readonly TagSystem _tag = default!; //DeltaV
-        [Dependency] private readonly DamageableSystem _damage = default!; //WD edit
         [Dependency] private readonly HungerSystem _hunger = default!; //WD edit
         [Dependency] private readonly ThirstSystem _thirst = default!; //WD edit
         [Dependency] private readonly SharedDrunkSystem _drunk = default!; //WD edit
