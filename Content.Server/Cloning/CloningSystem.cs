@@ -85,10 +85,10 @@ namespace Content.Server.Cloning
         [Dependency] private readonly SharedJobSystem _jobs = default!;
         [Dependency] private readonly MetempsychoticMachineSystem _metem = default!; //DeltaV
         [Dependency] private readonly TagSystem _tag = default!; //DeltaV
-        [Dependency] private readonly DamageableSystem _damage = default!;
-        [Dependency] private readonly HungerSystem _hunger = default!;
-        [Dependency] private readonly ThirstSystem _thirst = default!;
-        [Dependency] private readonly SharedDrunkSystem _drunk = default!;
+        [Dependency] private readonly DamageableSystem _damage = default!; //WD edit
+        [Dependency] private readonly HungerSystem _hunger = default!; //WD edit
+        [Dependency] private readonly ThirstSystem _thirst = default!; //WD edit
+        [Dependency] private readonly SharedDrunkSystem _drunk = default!; //WD edit
 
         public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -237,7 +237,7 @@ namespace Content.Server.Cloning
             _material.TryChangeMaterialAmount(uid, clonePod.RequiredMaterial, -cloningCost);
             clonePod.UsedBiomass = cloningCost;
             // end of biomass checks
-            FixedPoint2 cellularDmg = default!;
+            FixedPoint2 cellularDmg = default!; //wd edit
             // genetic damage checks
             if (TryComp<DamageableComponent>(bodyToClone, out var damageable) &&
                 damageable.Damage.DamageDict.TryGetValue("Cellular", out cellularDmg))
@@ -261,6 +261,7 @@ namespace Content.Server.Cloning
 
             var mob = FetchAndSpawnMob(clonePod, pref, speciesPrototype, humanoid, bodyToClone, karmaBonus); //DeltaV Replaces CloneAppearance with Metem/Clone via FetchAndSpawnMob
 
+            // WD EDIT START
             if (TryComp<DamageableComponent>(mob, out var damage))
             {
                 var damageSpec = new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Cellular"), cellularDmg);
@@ -274,7 +275,7 @@ namespace Content.Server.Cloning
                 _thirst.SetThirst(mob,thirstComponent,50);
                 _drunk.TryApplyDrunkenness(mob,300);
             }
-
+            // WD EDIT END
 
             ///Nyano - Summary: adds the potential psionic trait to the reanimated mob.
             EnsureComp<PotentialPsionicComponent>(mob);
