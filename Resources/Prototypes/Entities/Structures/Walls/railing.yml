@@ -5,7 +5,7 @@
   description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: SmallObjects
     sprite: Structures/Walls/railing.rsi
     state: side
   - type: Icon
@@ -24,7 +24,7 @@
         - TableMask
         layer:
         - TableLayer
-        - BulletImpassable # WWDP
+        - BulletImpassable # WD EDIT
   - type: InteractionOutline
   - type: Repairable
   - type: Damageable
@@ -62,7 +62,7 @@
     cost: 2
     delay: 2
     fx: EffectRCDDeconstruct2
-  - type: RequireProjectileTarget # WWDP
+  - type: RequireProjectileTarget # WD EDIT
 
 - type: entity
   parent: BaseStructure
@@ -71,7 +71,7 @@
   description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: SmallObjects
     sprite: Structures/Walls/railing.rsi
     state: corner
   - type: Icon
@@ -99,7 +99,7 @@
         - TableMask
         layer:
         - TableLayer
-        - BulletImpassable # WWDP
+        - BulletImpassable # WD EDIT
   - type: InteractionOutline
   - type: Repairable
   - type: Damageable
@@ -137,7 +137,7 @@
     cost: 2
     delay: 2
     fx: EffectRCDDeconstruct2
-  - type: RequireProjectileTarget # WWDP
+  - type: RequireProjectileTarget # WD EDIT
 
 - type: entity
   parent: BaseStructure
@@ -146,7 +146,7 @@
   description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: SmallObjects
     sprite: Structures/Walls/railing.rsi
     state: corner_small
   - type: Icon
@@ -165,7 +165,7 @@
         - TableMask
         layer:
         - TableLayer
-        - BulletImpassable # WWDP
+        - BulletImpassable # WD EDIT
   - type: InteractionOutline
   - type: Repairable
   - type: Damageable
@@ -203,7 +203,7 @@
     cost: 2
     delay: 2
     fx: EffectRCDDeconstruct2
-  - type: RequireProjectileTarget # WWDP
+  - type: RequireProjectileTarget # WD EDIT
 
 - type: entity
   parent: BaseStructure
@@ -212,7 +212,7 @@
   description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: SmallObjects
     sprite: Structures/Walls/railing.rsi
     state: round
   - type: Physics
@@ -246,7 +246,7 @@
           - TableMask
         layer:
           - TableLayer
-          - BulletImpassable # WWDP
+          - BulletImpassable # WD EDIT
   - type: InteractionOutline
   - type: Repairable
   - type: Damageable
@@ -284,4 +284,4 @@
     cost: 2
     delay: 2
     fx: EffectRCDDeconstruct2
-  - type: RequireProjectileTarget # WWDP
+  - type: RequireProjectileTarget # WD EDIT
