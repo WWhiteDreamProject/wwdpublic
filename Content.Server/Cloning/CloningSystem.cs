@@ -237,10 +237,9 @@ namespace Content.Server.Cloning
             _material.TryChangeMaterialAmount(uid, clonePod.RequiredMaterial, -cloningCost);
             clonePod.UsedBiomass = cloningCost;
             // end of biomass checks
-            FixedPoint2 cellularDmg = default!; //wd edit
             // genetic damage checks
             if (TryComp<DamageableComponent>(bodyToClone, out var damageable) &&
-                damageable.Damage.DamageDict.TryGetValue("Cellular", out cellularDmg))
+                damageable.Damage.DamageDict.TryGetValue("Cellular", out var cellularDmg))
             {
                 var chance = Math.Clamp((float) (cellularDmg / 100), 0, 1);
                 chance *= failChanceModifier;
@@ -261,13 +260,7 @@ namespace Content.Server.Cloning
 
             var mob = FetchAndSpawnMob(clonePod, pref, speciesPrototype, humanoid, bodyToClone, karmaBonus); //DeltaV Replaces CloneAppearance with Metem/Clone via FetchAndSpawnMob
 
-            // WD EDIT START
-            if (TryComp<DamageableComponent>(mob, out var damage))
-            {
-                var damageSpec = new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Cellular"), cellularDmg);
-                _damage.TryChangeDamage(mob,damageSpec,true,false);
-            }
-
+            // WD EDIT START | Adds hunger, thirst and drunkness as a debuff
             if (TryComp<HungerComponent>(mob, out var hungerComponent) &&
                 TryComp<ThirstComponent>(mob,out var thirstComponent))
             {
