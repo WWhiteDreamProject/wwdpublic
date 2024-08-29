@@ -2,6 +2,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Cloning.Components;
 using Content.Server.DeviceLinking.Systems;
+using Content.Server.Drunk;
 using Content.Server.EUI;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Humanoid;
@@ -50,6 +51,11 @@ using Content.Shared.SSDIndicator;
 using Content.Shared.Damage.ForceSay;
 using Content.Server.Polymorph.Components;
 using Content.Shared.Chat;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Drunk;
+using Content.Shared.FixedPoint;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 
 namespace Content.Server.Cloning
 {
@@ -79,6 +85,10 @@ namespace Content.Server.Cloning
         [Dependency] private readonly SharedJobSystem _jobs = default!;
         [Dependency] private readonly MetempsychoticMachineSystem _metem = default!; //DeltaV
         [Dependency] private readonly TagSystem _tag = default!; //DeltaV
+        [Dependency] private readonly DamageableSystem _damage = default!;
+        [Dependency] private readonly HungerSystem _hunger = default!;
+        [Dependency] private readonly ThirstSystem _thirst = default!;
+        [Dependency] private readonly SharedDrunkSystem _drunk = default!;
 
         public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -227,10 +237,10 @@ namespace Content.Server.Cloning
             _material.TryChangeMaterialAmount(uid, clonePod.RequiredMaterial, -cloningCost);
             clonePod.UsedBiomass = cloningCost;
             // end of biomass checks
-
+            FixedPoint2 cellularDmg = default!;
             // genetic damage checks
             if (TryComp<DamageableComponent>(bodyToClone, out var damageable) &&
-                damageable.Damage.DamageDict.TryGetValue("Cellular", out var cellularDmg))
+                damageable.Damage.DamageDict.TryGetValue("Cellular", out cellularDmg))
             {
                 var chance = Math.Clamp((float) (cellularDmg / 100), 0, 1);
                 chance *= failChanceModifier;
@@ -250,6 +260,21 @@ namespace Content.Server.Cloning
             // end of genetic damage checks
 
             var mob = FetchAndSpawnMob(clonePod, pref, speciesPrototype, humanoid, bodyToClone, karmaBonus); //DeltaV Replaces CloneAppearance with Metem/Clone via FetchAndSpawnMob
+
+            if (TryComp<DamageableComponent>(mob, out var damage))
+            {
+                var damageSpec = new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Cellular"), cellularDmg);
+                _damage.TryChangeDamage(mob,damageSpec,true,false);
+            }
+
+            if (TryComp<HungerComponent>(mob, out var hungerComponent) &&
+                TryComp<ThirstComponent>(mob,out var thirstComponent))
+            {
+                _hunger.SetHunger(mob,50,hungerComponent);
+                _thirst.SetThirst(mob,thirstComponent,50);
+                _drunk.TryApplyDrunkenness(mob,300);
+            }
+
 
             ///Nyano - Summary: adds the potential psionic trait to the reanimated mob.
             EnsureComp<PotentialPsionicComponent>(mob);
