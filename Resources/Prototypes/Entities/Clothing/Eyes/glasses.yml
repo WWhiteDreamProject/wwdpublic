@@ -172,7 +172,7 @@
     node: sunglasses
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityCommandContraband] # WD EDIT: no BallisticGlasses
+  parent: [ClothingEyesBase, ShowSecurityIcons, BaseRestrictedContraband] # WD EDIT: no BallisticGlasses
   id: ClothingEyesGlassesSecurity
   name: security glasses
   description: Upgraded sunglasses that provide flash immunity and a security HUD.
@@ -200,6 +200,27 @@
     - Antagonists
   - type: IdentityBlocker
     coverage: EYES
+
+- type: entity
+  parent: [ClothingEyesBase, BaseCommandContraband] # WD EDIT: No BallisticGlasses
+  id: ClothingEyesGlassesCommand
+  name: administration glasses
+  description: Upgraded sunglasses that provide flash immunity and show ID card status.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/commandglasses.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/commandglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: ShowJobIcons
 
 - type: entity
   parent: ClothingEyesBase # WD EDIT: No BallisticGlasses
