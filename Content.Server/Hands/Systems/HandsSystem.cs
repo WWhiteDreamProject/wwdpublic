@@ -51,7 +51,9 @@ namespace Content.Server.Hands.Systems
 
             SubscribeLocalEvent<HandsComponent, BeforeExplodeEvent>(OnExploded);
 
-            SubscribeLocalEvent<HandsComponent, HandleThrowItemEvent>(OnHandleThrowItem); // WD EDIT
+            CommandBinds.Builder
+                .Bind(ContentKeyFunctions.ThrowItemInHand, new PointerInputCmdHandler(HandleThrowItem))
+                .Register<HandsSystem>();
         }
 
         public override void Shutdown()
@@ -161,18 +163,21 @@ namespace Content.Server.Hands.Systems
 
         #region interactions
 
-        private void OnHandleThrowItem(EntityUid uid, HandsComponent component, HandleThrowItemEvent args) // WD EDIT
+        private bool HandleThrowItem(ICommonSession? playerSession, EntityCoordinates coordinates, EntityUid entity)
         {
-            ThrowHeldItem(uid, args.Coordinates, hands:component); // WD EDIT
+            if (playerSession?.AttachedEntity is not {Valid: true} player || !Exists(player))
+                return false;
+
+            return ThrowHeldItem(player, coordinates);
         }
 
         /// <summary>
         /// Throw the player's currently held item.
         /// </summary>
-        public bool ThrowHeldItem(EntityUid player, EntityCoordinates coordinates, float minDistance = 0.1f, HandsComponent? hands = null) // WD EDIT
+        public bool ThrowHeldItem(EntityUid player, EntityCoordinates coordinates, float minDistance = 0.1f)
         {
             if (ContainerSystem.IsEntityInContainer(player) ||
-                !Resolve(player, ref hands) || // WD EDIT
+                !TryComp(player, out HandsComponent? hands) ||
                 hands.ActiveHandEntity is not { } throwEnt ||
                 !_actionBlockerSystem.CanThrow(player, throwEnt))
                 return false;

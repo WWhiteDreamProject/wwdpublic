@@ -29,7 +29,6 @@ public abstract partial class SharedHandsSystem : EntitySystem
             .Bind(ContentKeyFunctions.AltUseItemInHand, InputCmdHandler.FromDelegate(HandleAltUseInHand, handle: false, outsidePrediction: false))
             .Bind(ContentKeyFunctions.SwapHands, InputCmdHandler.FromDelegate(SwapHandsPressed, handle: false, outsidePrediction: false))
             .Bind(ContentKeyFunctions.Drop, new PointerInputCmdHandler(DropPressed))
-            .Bind(ContentKeyFunctions.ThrowItemInHand, new PointerInputCmdHandler(HandleThrowItem)) // WD EDIT
             .Register<SharedHandsSystem>();
     }
 
@@ -101,19 +100,6 @@ public abstract partial class SharedHandsSystem : EntitySystem
         // always send to server.
         return false;
     }
-
-    // WD EDIT START
-    private bool HandleThrowItem(ICommonSession? session, EntityCoordinates coords, EntityUid netEntity)
-    {
-        if (session?.AttachedEntity != null && TryComp<HandsComponent>(session.AttachedEntity.Value, out var hands) && hands.ActiveHandEntity != null)
-        {
-            RaiseLocalEvent(session.AttachedEntity.Value, new HandleThrowItemEvent(coords));
-            RaiseLocalEvent(hands.ActiveHandEntity.Value, new ThrowItemEvent(session.AttachedEntity.Value, coords));
-        }
-
-        return false;
-    }
-    // WD EDIT END
     #endregion
 
     public bool TryActivateItemInHand(EntityUid uid, HandsComponent? handsComp = null, string? handName = null)
@@ -219,16 +205,3 @@ public abstract partial class SharedHandsSystem : EntitySystem
         }
     }
 }
-
-// WD EDIT START
-public struct HandleThrowItemEvent(EntityCoordinates coordinates)
-{
-    public EntityCoordinates Coordinates = coordinates;
-}
-
-public struct ThrowItemEvent(EntityUid user, EntityCoordinates coordinates)
-{
-    public EntityUid User = user;
-    public EntityCoordinates Coordinates = coordinates;
-}
-// WD EDIT END

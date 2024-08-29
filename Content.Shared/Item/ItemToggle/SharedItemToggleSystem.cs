@@ -240,6 +240,9 @@ public abstract class SharedItemToggleSystem : EntitySystem
     /// </summary>
     private void UpdateActiveSound(EntityUid uid, ItemToggleActiveSoundComponent activeSound, ref ItemToggledEvent args)
     {
+        if (_netManager.IsClient) // WD EDIT
+            return;
+
         if (args.Activated)
         {
             if (activeSound.ActiveSound != null && activeSound.PlayingStream == null)

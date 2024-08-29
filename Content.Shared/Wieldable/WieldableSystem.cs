@@ -37,7 +37,6 @@ public sealed class WieldableSystem : EntitySystem
         SubscribeLocalEvent<WieldableComponent, UseInHandEvent>(OnUseInHand, before: [typeof(SharedGunSystem)]);
         SubscribeLocalEvent<WieldableComponent, ItemUnwieldedEvent>(OnItemUnwielded);
         SubscribeLocalEvent<WieldableComponent, GotUnequippedHandEvent>(OnItemLeaveHand);
-        SubscribeLocalEvent<WieldableComponent, ThrowItemEvent>(OnThrowItem);
         SubscribeLocalEvent<WieldableComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<WieldableComponent, GetVerbsEvent<InteractionVerb>>(AddToggleWieldVerb);
 
@@ -257,14 +256,6 @@ public sealed class WieldableSystem : EntitySystem
     private void OnItemLeaveHand(EntityUid uid, WieldableComponent component, GotUnequippedHandEvent args)
     {
         if (!component.Wielded || uid != args.Unequipped)
-            return;
-
-        RaiseLocalEvent(uid, new ItemUnwieldedEvent(args.User, force: true), true);
-    }
-
-    private void OnThrowItem(EntityUid uid, WieldableComponent component, ThrowItemEvent args)
-    {
-        if (!component.Wielded)
             return;
 
         RaiseLocalEvent(uid, new ItemUnwieldedEvent(args.User, force: true), true);
