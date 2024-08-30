@@ -13,10 +13,10 @@ public sealed partial class MagnetPickupComponent : Component
     public TimeSpan NextScan = TimeSpan.Zero;
 
     /// <summary>
-    /// What container slot the magnet needs to be in to work.
+    /// If true, ignores SlotFlags and can magnet pickup on hands/ground.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("slotFlags")]
-    public SlotFlags SlotFlags = SlotFlags.BELT;
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool ForcePickup = true;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("range")]
     public float Range = 1f;

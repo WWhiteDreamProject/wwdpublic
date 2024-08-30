@@ -22,7 +22,7 @@ public sealed class MagnetPickupSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedItemToggleSystem _itemToggle = default!; // WD EDIT
-    [Dependency] private readonly SharedItemSystem _item = default!;
+    [Dependency] private readonly SharedItemSystem _item = default!; // White Dream
 
     private static readonly TimeSpan ScanDelay = TimeSpan.FromSeconds(1);
 
@@ -32,7 +32,7 @@ public sealed class MagnetPickupSystem : EntitySystem
     {
         base.Initialize();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
-        SubscribeLocalEvent<MagnetPickupComponent, ItemToggledEvent>(ToggleDone);
+        SubscribeLocalEvent<MagnetPickupComponent, ItemToggledEvent>(ToggleDone); // White Dream
         SubscribeLocalEvent<MagnetPickupComponent, ExaminedEvent>(onExamined); // WD EDIT
         SubscribeLocalEvent<MagnetPickupComponent, MapInitEvent>(OnMagnetMapInit);
     }
@@ -42,7 +42,7 @@ public sealed class MagnetPickupSystem : EntitySystem
         component.NextScan = _timing.CurTime;
     }
 
-    //WD EDIT
+    //WD EDIT start
     private void onExamined(Entity<MagnetPickupComponent> entity, ref ExaminedEvent args)
     {
         var onMsg = _itemToggle.IsActivated(entity.Owner)
@@ -55,6 +55,7 @@ public sealed class MagnetPickupSystem : EntitySystem
     {
         _item.SetHeldPrefix(entity.Owner, args.Activated ? "on" : "off");
     }
+    //WD EDIT end
 
     public override void Update(float frameTime)
     {
@@ -77,11 +78,11 @@ public sealed class MagnetPickupSystem : EntitySystem
 
             comp.NextScan += ScanDelay;
 
-            if (!_inventory.TryGetContainingSlot((uid, xform, meta), out var slotDef))
+            // WD EDIT START. Added ForcePickup.
+            if (!comp.ForcePickup &&
+                !_inventory.TryGetContainingSlot((uid, xform, meta), out var slotDef))
                 continue;
-
-            if ((slotDef.SlotFlags & comp.SlotFlags) == 0x0)
-                continue;
+            //WD EDIT END.
 
             // No space
             if (!_storage.HasSpace((uid, storage)))
