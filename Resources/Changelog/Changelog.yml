@@ -5445,3 +5445,9 @@ Entries:
       message: Added discounts in uplink / Добавлены скидки в аплинк
   id: 6277
   time: '2024-08-27T10:55:17.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added aspects / Добавлены аспекты
+  id: 6278
+  time: '2024-08-30T02:46:26.0000000+00:00'
