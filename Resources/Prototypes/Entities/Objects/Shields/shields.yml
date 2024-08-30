@@ -427,7 +427,6 @@
     - type: ItemTogglePointLight
     - type: Reflect
       reflectProb: 1 # WD EDIT: 0.95 -> 1
-      # innate: true - WD EDIT
       reflects:
         - Energy
       damageOnReflectModifier: 0.5 # WD EDIT
@@ -450,33 +449,33 @@
     - type: Appearance
     - type: Damageable
       damageContainer: Shield
-    # WD EDIT START
-    # - type: Destructible
-    #   thresholds:
-    #     - trigger:
-    #        !type:DamageTrigger
-    #         damage: 180
-    #       behaviors:
-    #         - !type:DoActsBehavior
-    #           acts: [ "Destruction" ]
-    #     - trigger:
-    #         !type:DamageTrigger
-    #         damage: 100
-    #       behaviors:
-    #         - !type:DoActsBehavior
-    #           acts: [ "Destruction" ]
-    #         - !type:PlaySoundBehavior
-    #           sound:
-    #             collection: GlassBreak
-    #         - !type:SpawnEntitiesBehavior
-    #           spawn:
-    #             BrokenEnergyShield:
-    #               min: 1
-    #               max: 1
-    # WD EDIT END
+  # WD EDIT START
+  # - type: Destructible
+  #   thresholds:
+  #     - trigger:
+  #        !type:DamageTrigger
+  #         damage: 180
+  #       behaviors:
+  #         - !type:DoActsBehavior
+  #           acts: [ "Destruction" ]
+  #     - trigger:
+  #         !type:DamageTrigger
+  #         damage: 100
+  #       behaviors:
+  #         - !type:DoActsBehavior
+  #           acts: [ "Destruction" ]
+  #         - !type:PlaySoundBehavior
+  #           sound:
+  #             collection: GlassBreak
+  #         - !type:SpawnEntitiesBehavior
+  #           spawn:
+  #             BrokenEnergyShield:
+  #               min: 1
+  #               max: 1
+  # WD EDIT END
     - type: StaticPrice
       price: 350
-    # WD EDIT START
+  # WD EDIT START
     - type: MeleeBlock
     - type: Battery
       maxCharge: 40
@@ -485,7 +484,7 @@
       autoRecharge: true
       autoRechargeRate: 1
     - type: RechargeableBlocking
-    # WD EDIT END
+  # WD EDIT END
 
 - type: entity
   name: broken energy shield
@@ -519,7 +518,7 @@
     - type: ComponentToggler
       components:
       - type: DisarmMalus
-        malus: 0.9 # WD EDIT: 0.6 -> 0.9
+        malus: 0.6
     - type: ItemToggleSize
       activatedSize: Huge
     - type: Sprite
