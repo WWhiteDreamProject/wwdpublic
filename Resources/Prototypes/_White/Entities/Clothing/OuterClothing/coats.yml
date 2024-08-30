@@ -5,9 +5,9 @@
   description: The jacket has been through a lot, time has not been tolerant of it and has left its scars.
   components:
   - type: Sprite
-    sprite: White/Clothing/OuterClothing/Coats/jacket.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/jacket.rsi
   - type: Clothing
-    sprite: White/Clothing/OuterClothing/Coats/jacket.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/jacket.rsi
   - type: StorageFill
     contents:
     - id: SmokingPipeFilledTobacco

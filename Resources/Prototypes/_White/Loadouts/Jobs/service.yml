@@ -1,0 +1,75 @@
+# Hobo
+- type: loadout
+  id: LoadoutUniformJumpsuitWhiteHobo
+  category: Jobs
+  cost: 2
+  exclusive: true
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  - !type:CharacterJobRequirement
+    jobs:
+    - Hobo
+  items:
+  - ClothingUniformJumpsuitWhiteHobo
+
+- type: loadout
+  id: LoadoutOverCoatHobo
+  category: Jobs
+  cost: 4
+  exclusive: true
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  - !type:CharacterJobRequirement
+    jobs:
+    - Hobo
+  items:
+  - ClothingOuterOverCoatHobo
+
+- type: loadout
+  id: LoadoutHeadHatHoboCap
+  category: Jobs
+  cost: 3
+  exclusive: true
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  - !type:CharacterJobRequirement
+    jobs:
+    - Hobo
+  items:
+  - ClothingHeadHatHoboCap
+
+- type: loadout
+  id: LoadoutHeadHatHoboHat
+  category: Jobs
+  cost: 3
+  exclusive: true
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  - !type:CharacterJobRequirement
+    jobs:
+    - Hobo
+  items:
+  - ClothingHeadHatHoboHat
+    
+- type: loadout
+  id: LoadoutHeadHatWatermelon
+  category: Jobs
+  cost: 3
+  exclusive: true
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  - !type:CharacterJobRequirement
+    jobs:
+    - Hobo
+  items:
+  - ClothingHeadHatWatermelon

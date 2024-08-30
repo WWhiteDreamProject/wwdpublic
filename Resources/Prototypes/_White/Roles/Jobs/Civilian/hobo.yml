@@ -7,6 +7,18 @@
   - !type:CharacterDepartmentTimeRequirement
     department: Civilian
     min: 72000 # 20 ch
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  - !type:CharacterAgeRequirement
+    min: 65
+    max: 110
+  - !type:CharacterSexRequirement
+    requiredSex:
+    - Male
+  - !type:GenderRequirement
+    requiredGender:
+    - Male
   weight: 20
   icon: "JobIconHobo"
   supervisors: job-supervisors-hop

@@ -10,6 +10,17 @@
   - !type:CharacterDepartmentTimeRequirement
     department: Command
     min: 72000 # 20 ch
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+    - Felinid
+    - Harpy
+  - !type:CharacterSexRequirement
+    requiredSex:
+    - Female
+  - !type:GenderRequirement
+    requiredGender:
+    - Female
   weight: 20
   icon: "JobIconMaid"
   supervisors: job-supervisors-hop
