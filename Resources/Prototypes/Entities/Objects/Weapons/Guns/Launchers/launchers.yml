@@ -307,6 +307,7 @@
           unshaded:
             True: { visible: true }
             False: { visible: false }
+    - type: GiftIgnore # WD EDIT
 
 - type: entity
   name: force gun
@@ -349,6 +350,7 @@
           unshaded:
             True: { visible: true }
             False: { visible: false }
+    - type: GiftIgnore # WD EDIT
 
 - type: entity
   name: meteor launcher
@@ -362,6 +364,7 @@
       tags:
         - CartridgeRocket
     proto: MeteorLarge
+  - type: GiftIgnore # WD EDIT
 
 - type: entity
   name: immovable rod launcher
@@ -375,3 +378,4 @@
       tags:
         - CartridgeRocket
     proto: ImmovableRodSlow
+  - type: GiftIgnore # WD EDIT

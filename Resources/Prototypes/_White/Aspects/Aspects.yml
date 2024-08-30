@@ -1,0 +1,90 @@
+- type: entity
+  id: LandmineAspect
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+    - type: Aspect
+      name: "Landmine"
+      description: aspect-landmine-description
+      weight: 1
+      startAudio:
+        path: /Audio/_White/Aspects/accent.ogg
+    - type: LandmineAspect
+
+- type: entity
+  id: TraitoredAspect
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+    - type: Aspect
+      name: "Traitored"
+      description: aspect-traitored-description
+      requires: "Traitors"
+      weight: 1
+      hidden: true
+    - type: TraitoredAspect
+
+- type: entity
+  id: PresentAspect
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+    - type: Aspect
+      name: "Presents"
+      description: aspect-presents-description
+      weight: 2
+      startAudio:
+        path: /Audio/_White/Aspects/accent.ogg
+    - type: PresentAspect
+
+- type: entity
+  id: ReflectAspect
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+    - type: Aspect
+      name: "Reflect"
+      description: aspect-reflect-description
+      weight: 2
+      startAudio:
+        path: /Audio/_White/Aspects/accent.ogg
+    - type: ReflectAspect
+
+- type: entity
+  id: NothingAspect
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+    - type: Aspect
+      name: "Nothing"
+      description: aspect-nothing-description
+      weight: 3
+      forbidden: true
+      hidden: true
+    - type: NothingAspect
+
+- type: entity
+  id: TraitorRichAspect
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+    - type: Aspect
+      name: "Ext"
+      description: aspect-traitor-rich-briefing
+      requires: "Traitors"
+      weight: 2
+      hidden: true
+    - type: TraitorRichAspect
+
+- type: entity
+  id: ImmersiveAspect
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: Aspect
+    name: "Immersive"
+    description: aspect-immersive-description
+    weight: 3
+    startAudio:
+      path: /Audio/_White/Aspects/accent.ogg
+  - type: ImmersiveAspect
