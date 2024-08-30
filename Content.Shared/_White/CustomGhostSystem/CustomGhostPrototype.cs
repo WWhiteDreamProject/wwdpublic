@@ -6,16 +6,15 @@ using Robust.Shared.Utility;
 namespace Content.Shared._White.CustomGhostSystem;
 
 /// <summary>
-/// This is a prototype for...
+/// Use this for custom ghost's
 /// </summary>
 [Prototype("customGhost")]
 public sealed class CustomGhostPrototype : IPrototype
 {
-    /// <inheritdoc/>
     [IdDataField]
     public string ID { get; } = default!;
 
-    [DataField("ckey", required: true)]
+    [DataField(required: true)]
     public string Ckey { get; } = default!;
 
     [DataField("sprite", required: true)]

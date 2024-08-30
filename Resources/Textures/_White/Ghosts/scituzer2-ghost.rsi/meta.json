@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": null,
-  "copyright": null,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "oniks",
   "size": {
     "x": 64,
     "y": 64
