@@ -17,6 +17,6 @@
 - type: startingGear
   id: HoboGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitCaptain
+    jumpsuit: ClothingUniformJumpsuitWhiteHobo
     outerClothing: ClothingOuterOverCoatHobo
     id: HoboPDA
