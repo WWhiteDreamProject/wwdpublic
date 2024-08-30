@@ -203,7 +203,9 @@
   parent: UnanchoredChairBase
   components:
   - type: Sprite
+    sprite: _White/Structures/Furniture/chairs.rsi #WWDP edit
     state: wooden
+    noRot: true
   - type: Construction
     graph: Seat
     node: chairWood
@@ -238,6 +240,7 @@
   description: Looks uncomfortable.
   components:
   - type: Sprite
+    sprite: Structures/Furniture/chairs.rsi #WWDP edit
     state: ritual
   - type: Construction
     graph: RitualSeat
@@ -262,6 +265,7 @@
   description: It's staring back.
   components:
   - type: Sprite
+    sprite: Structures/Furniture/chairs.rsi #WWDP edit
     state: cursed
   - type: Strap
     buckleSound:

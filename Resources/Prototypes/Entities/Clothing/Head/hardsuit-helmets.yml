@@ -753,9 +753,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/clown.rsi
+    sprite: _White/Clothing/Head/Hardsuits/clown.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/clown.rsi
+    sprite: _White/Clothing/Head/Hardsuits/clown.rsi #WWDP edit
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Effects/Emotes/parp1.ogg
 

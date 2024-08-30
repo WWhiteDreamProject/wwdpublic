@@ -720,18 +720,18 @@
   description: A hat with bells, to add some merriness to the suit.
   components:
     - type: Sprite
-      sprite: Clothing/Head/Hats/jester.rsi
+      sprite: _White/Clothing/Head/Hats/jester.rsi #WWDP edit
     - type: Clothing
-      sprite: Clothing/Head/Hats/jester.rsi
+      sprite: _White/Clothing/Head/Hats/jester.rsi #WWDP edit
 
 - type: entity
   parent: ClothingHeadHatJester
   id: ClothingHeadHatJesterAlt
   components:
     - type: Sprite
-      sprite: Clothing/Head/Hats/jester2.rsi
+      sprite: _White/Clothing/Head/Hats/jester2.rsi #WWDP edit
     - type: Clothing
-      sprite: Clothing/Head/Hats/jester2.rsi
+      sprite: _White/Clothing/Head/Hats/jester2.rsi #WWDP edit
 
 - type: entity
   parent: ClothingHeadBase

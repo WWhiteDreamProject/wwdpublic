@@ -58,7 +58,7 @@
   description: A large duffel bag for holding extra honk goods.
   components:
     - type: Sprite
-      sprite: Clothing/Back/Duffels/clown.rsi
+      sprite: _White/Clothing/Back/Duffels/clown.rsi #WWDP edit
     - type: Storage
       storageOpenSound:
         collection: BikeHorn

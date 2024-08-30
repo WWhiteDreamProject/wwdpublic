@@ -207,9 +207,9 @@
   description: HONK!
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
+    sprite: _White/Clothing/Uniforms/Jumpsuit/clown.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
+    sprite: _White/Clothing/Uniforms/Jumpsuit/clown.rsi #WWDP edit
     femaleMask: UniformTop
   - type: Tag
     tags:
@@ -221,9 +221,9 @@
   name: banana clown suit
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/clown_banana.rsi
+    sprite: _White/Clothing/Uniforms/Jumpsuit/clown_banana.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/clown_banana.rsi
+    sprite: _White/Clothing/Uniforms/Jumpsuit/clown_banana.rsi #WWDP edit
     femaleMask: UniformTop
   - type: Construction
     graph: BananaClownJumpsuit
@@ -240,18 +240,18 @@
   description: A jolly dress, well suited to entertain your master, nuncle.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/jester.rsi
+    sprite: _White/Clothing/Uniforms/Jumpsuit/jester.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/jester.rsi
+    sprite: _White/Clothing/Uniforms/Jumpsuit/jester.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformJumpsuitJester
   id: ClothingUniformJumpsuitJesterAlt
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/jester2.rsi
+    sprite: _White/Clothing/Uniforms/Jumpsuit/jester2.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/jester2.rsi
+    sprite: _White/Clothing/Uniforms/Jumpsuit/jester2.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformBase
@@ -999,9 +999,9 @@
   description: Cursed cluwne suit.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/cluwne.rsi
+    sprite: _White/Clothing/Uniforms/Jumpsuit/cluwne.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/cluwne.rsi
+    sprite: _White/Clothing/Uniforms/Jumpsuit/cluwne.rsi #WWDP edit
   - type: Unremoveable
 
 - type: entity

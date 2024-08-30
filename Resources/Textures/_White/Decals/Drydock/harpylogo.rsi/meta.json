@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by ONIKS",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "HarpyLogoPart1Bottom"
+        },
+        {
+            "name": "HarpyLogoPart1Top"
+        },
+        {
+            "name": "HarpyLogoPart2Bottom"
+        },
+        {
+            "name": "HarpyLogoPart2Top"
+        },
+        {
+            "name": "HarpyLogoPart3Bottom"
+        },
+        {
+            "name": "HarpyLogoPart3Top"
+        },
+        {
+            "name": "HarpyLogoPart4Bottom"
+        },
+        {
+            "name": "HarpyLogoPart4Top"
+        },
+        {
+            "name": "HarpyLogoPart5Bottom"
+        },
+        {
+            "name": "HarpyLogoPart5Top"
+        },
+        {
+            "name": "HarpyLogoPart6Bottom"
+        },
+        {
+            "name": "HarpyLogoPart6Top"
+        }
+    ]
+}

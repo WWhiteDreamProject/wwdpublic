@@ -12,7 +12,7 @@
   components:
   - type: InteractionOutline
   - type: Sprite
-    sprite: Structures/barricades.rsi
+    sprite: _White/Structures/barricades.rsi #WWDP edit
     state: barricade_full
     drawdepth: BlastDoors
     noRot: true
@@ -71,7 +71,7 @@
   parent: Barricade
   components:
   - type: Sprite
-    sprite: Structures/barricades.rsi
+    sprite: _White/Structures/barricades.rsi #WWDP edit
     state: barricade
 
 #Directional Barricade
@@ -83,7 +83,7 @@
 #A bunch of this is taken straight from dirwindows and there is a chance that I may have fucked something up. Probably not though
   components:
   - type: Sprite
-    sprite: Structures/barricades.rsi
+    sprite: _White/Structures/barricades.rsi #WWDP edit
     state: barricade_directional
     noRot: false #Results in smoother rotation when turning the camera, the sprite's dirs are just it rotated anyways so there's no reason to not set this.
   - type: Construction
