@@ -23,6 +23,7 @@
     - Female
   weight: 20
   icon: "JobIconMaid"
+  startingGear: MaidGear
   supervisors: job-supervisors-hop
   canBeAntag: false
   accessGroups:

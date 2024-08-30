@@ -21,6 +21,7 @@
     - Male
   weight: 20
   icon: "JobIconHobo"
+  startingGear: HoboGear
   supervisors: job-supervisors-hop
   canBeAntag: true
   access:
