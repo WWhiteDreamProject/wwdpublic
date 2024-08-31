@@ -15,7 +15,9 @@
       min: 36000 # 10 hours
     - !type:CharacterOverallTimeRequirement
       min: 90000 # DeltaV - 25 hours
-    - !type:CharacterWhitelistRequirement
+    - !type:SpeciesRequirement # WD EDIT
+      species:
+      - Human
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"

@@ -6,6 +6,9 @@
   requirements:
     - !type:CharacterOverallTimeRequirement
       min: 14400 # DeltaV - 4 hours
+    - !type:SpeciesRequirement # WD EDIT
+      species:
+      - Human
 #    - !type:DepartmentTimeRequirement # DeltaV - Removes time limit
 #      department: Security
 #      time: 54000 #15 hrs

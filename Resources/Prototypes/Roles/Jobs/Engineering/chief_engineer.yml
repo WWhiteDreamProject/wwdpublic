@@ -13,6 +13,9 @@
     - !type:CharacterDepartmentTimeRequirement
       department: Engineering
       min: 90000 # DeltaV - 25 hours
+    - !type:SpeciesRequirement # WD EDIT
+      species:
+      - Human
 #    - !type:OverallPlaytimeRequirement
 #      time: 72000 # DeltaV - 20 hours
   weight: 10

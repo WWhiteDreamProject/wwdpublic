@@ -17,6 +17,9 @@
     - !type:CharacterDepartmentTimeRequirement
       department: Security
       min: 216000 # 60 hrs
+    - !type:SpeciesRequirement # WD EDIT
+      species:
+      - Human
   startingGear: SeniorOfficerGear
   icon: "JobIconSeniorOfficer"
   supervisors: job-supervisors-hos

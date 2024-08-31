@@ -15,7 +15,9 @@
       min: 36000 # 10 hours
     - !type:CharacterOverallTimeRequirement
       min: 90000 # 25 hours
-    - !type:WhitelistRequirement # whitelist requirement because I don't want any dingus judges
+    - !type:SpeciesRequirement # WD EDIT
+      species:
+      - Human
   weight: 20
   startingGear: CJGear
   icon: "JobIconChiefJustice"
