@@ -243,13 +243,6 @@
     state: cpuboard
 
 - type: stealTargetGroup
-  id: SalvageShuttleConsoleCircuitboard
-  name: steal-target-salvage-shuttle-board
-  sprite:
-    sprite: Objects/Misc/module.rsi
-    state: cpuboard
-
-- type: stealTargetGroup
   id: ClothingEyesHudBeer
   name: steal-target-beer-goggles
   sprite:

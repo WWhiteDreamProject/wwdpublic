@@ -53,9 +53,11 @@
         - type: TradeStation
         paths:
         - /Maps/Shuttles/trading_outpost.yml
+      # WD EDIT START
       mining: !type:GridSpawnGroup
         paths:
-        - /Maps/Shuttles/mining.yml # WD EDIT: pathfinder -> mining
+        - /Maps/Shuttles/mining.yml
+      # WD EDIT END
       # Spawn last
       ruins: !type:GridSpawnGroup
         hide: true
