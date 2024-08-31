@@ -36,8 +36,6 @@
         Blunt: 7
     bluntStaminaDamageFactor: 2.0
     heavyRateModifier: 0.75
-    heavyDamageBaseModifier: 1.75
-    heavyStaminaCost: 5
     maxTargets: 3
     angle: 60
     animation: WeaponArcSlash
@@ -105,8 +103,8 @@
       collection: MetalThud
     bluntStaminaDamageFactor: 2
     heavyRateModifier: 1
-    heavyDamageBaseModifier: 1.2
-    heavyStaminaCost: 10
+    heavyDamageBaseModifier: 0.8 # WD EDIT
+    heavyStaminaCost: 15 # WD EDIT
   - type: Item
     size: Normal
   - type: Clothing

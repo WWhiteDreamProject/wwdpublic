@@ -16,7 +16,6 @@
       types:
         Slash: 8
     heavyRateModifier: 0.9
-    heavyDamageBaseModifier: 1.2
     heavyStaminaCost: 5
   - type: Item
     size: Normal
@@ -43,8 +42,6 @@
     damage:
       types:
         Slash: 12
-    heavyDamageBaseModifier: 1.2
-    heavyStaminaCost: 10
     maxTargets: 6
     angle: 90
   - type: Item

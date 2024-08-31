@@ -23,8 +23,6 @@
         Blunt: 6
         Pierce: 3
     bluntStaminaDamageFactor: 2.0
-    heavyDamageBaseModifier: 1.75
-    heavyStaminaCost: 5
     maxTargets: 2
     angle: 60
   - type: Wieldable

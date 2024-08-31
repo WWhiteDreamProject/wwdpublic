@@ -20,7 +20,7 @@
         Blunt: 3
     heavyRateModifier: 1
     heavyRangeModifier: 1
-    heavyDamageBaseModifier: 1.2
+    heavyDamageBaseModifier: 1 # WD EDIT
     heavyStaminaCost: 5
     maxTargets: 5
     angle: 100
@@ -47,8 +47,8 @@
         Pierce: 7
     heavyRateModifier: 0.9
     heavyRangeModifier: 1.25
-    heavyDamageBaseModifier: 1.2
-    heavyStaminaCost: 5
+    heavyDamageBaseModifier: 1 # WD EDIT
+    heavyStaminaCost: 15 # WD EDIT
     maxTargets: 1
     angle: 20
   - type: Item

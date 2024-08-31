@@ -15,8 +15,8 @@
     bluntStaminaDamageFactor: 3
     heavyRateModifier: 0.8
     heavyRangeModifier: 1.25
-    heavyDamageBaseModifier: 1.25
-    heavyStaminaCost: 10
+    heavyDamageBaseModifier: 1 # WD EDIT
+    heavyStaminaCost: 15 # WD EDIT
     maxTargets: 2
     angle: 180
     soundHit:
@@ -63,7 +63,7 @@
       bluntStaminaDamageFactor: 3
       heavyRateModifier: 0.8
       heavyRangeModifier: 1.25
-      heavyDamageBaseModifier: 1.25
+      heavyDamageBaseModifier: 1 # WD EDIT
       heavyStaminaCost: 10
       maxTargets: 2
       angle: 180
