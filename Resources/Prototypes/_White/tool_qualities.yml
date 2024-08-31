@@ -1,0 +1,6 @@
+- type: tool
+  id: AdvancedPrying
+  name: tool-quality-advanced-prying-tool-name
+  toolName: tool-quality-advanced-prying-tool-name
+  spawn: FireAxe
+  icon: { sprite: Objects/Weapons/Melee/fireaxe.rsi, state: icon }

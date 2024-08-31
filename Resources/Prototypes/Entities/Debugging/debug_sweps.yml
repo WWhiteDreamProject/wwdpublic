@@ -40,6 +40,7 @@
         whitelist:
           tags:
             - CartridgePistol
+  - type: GiftIgnore # WD EDIT
 
 - type: entity
   id: MagazinePistolDebug
@@ -55,6 +56,7 @@
     capacity: 1000
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi
+  - type: GiftIgnore # WD EDIT
 
 - type: entity
   id: BulletDebug
@@ -103,6 +105,7 @@
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/debug.rsi
+  - type: GiftIgnore # WD EDIT
 
 - type: entity
   name: bang stick 100dmg
@@ -116,6 +119,7 @@
     damage:
       types:
         Blunt: 100
+  - type: GiftIgnore # WD EDIT
 
 - type: entity
   name: bang stick 200dmg
@@ -129,3 +133,4 @@
     damage:
       types:
         Blunt: 200
+  - type: GiftIgnore # WD EDIT

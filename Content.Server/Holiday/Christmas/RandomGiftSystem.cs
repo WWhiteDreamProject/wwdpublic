@@ -1,11 +1,13 @@
-﻿using Content.Server.Administration.Logs;
+﻿using System.Linq;
+using Content.Server._White.Other;
+using Content.Server.Administration.Logs;
 using Content.Server.Hands.Systems;
 using Content.Shared.Database;
 using Content.Shared.Examine;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Robust.Server.Audio;
-using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
@@ -90,6 +92,8 @@ public sealed class RandomGiftSystem : EntitySystem
         var itemCompName = _componentFactory.GetComponentName(typeof(ItemComponent));
         var mapGridCompName = _componentFactory.GetComponentName(typeof(MapGridComponent));
         var physicsCompName = _componentFactory.GetComponentName(typeof(PhysicsComponent));
+        var giftIgnoreCompName = _componentFactory.GetComponentName(typeof(GiftIgnoreComponent)); // WD
+        var unremovableCompName = _componentFactory.GetComponentName(typeof(UnremoveableComponent)); // WD
 
         foreach (var proto in _prototype.EnumeratePrototypes<EntityPrototype>())
         {
@@ -98,7 +102,10 @@ public sealed class RandomGiftSystem : EntitySystem
 
             _possibleGiftsUnsafe.Add(proto.ID);
 
-            if (!proto.Components.ContainsKey(itemCompName))
+            if (!proto.Components.ContainsKey(itemCompName) || proto.Components.ContainsKey(giftIgnoreCompName) ||
+                proto.Components.ContainsKey(unremovableCompName) || proto.SetSuffix != null &&
+                new[] {"Debug, Admeme, Admin"}.Any(x =>
+                    proto.SetSuffix.Contains(x, StringComparison.OrdinalIgnoreCase))) // WD EDIT
                 continue;
 
             _possibleGiftsSafe.Add(proto.ID);
