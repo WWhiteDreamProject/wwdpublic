@@ -1,7 +1,7 @@
 - type: species
   id: Oni
   name: species-name-oni
-  roundStart: true
+  roundStart: false # WD EDIT
   prototype: MobOni
   dollPrototype: MobOniDummy
   markingLimits: MobOniMarkingLimits
