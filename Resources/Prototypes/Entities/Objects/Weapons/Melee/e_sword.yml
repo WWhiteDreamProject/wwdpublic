@@ -67,6 +67,10 @@
     malus: 0
   - type: IgnitionSource
     temperature: 700
+  - type: MeleeBlock # WD EDIT
+    delay: 6.1
+    blockSound:
+      path: /Audio/Weapons/eblade1.ogg
 
 - type: entity
   name: energy sword
@@ -167,6 +171,8 @@
   - type: Tag
     tags:
     - Write
+  - type: MeleeBlock # WD EDIT
+    delay: 12.1
 
 - type: entity
   parent: BaseItem
@@ -248,6 +254,8 @@
     reflects:
       - Energy
   - type: ToggleableWielded # WD EDIT
+  - type: MeleeBlock # WD EDIT
+    delay: 3.1
   - type: FlipOnHit # WD EDIT
   - type: Construction # WD EDIT
     deconstructionTarget: null
