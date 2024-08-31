@@ -5451,3 +5451,11 @@ Entries:
       message: Added aspects / Добавлены аспекты
   id: 6278
   time: '2024-08-30T02:46:26.0000000+00:00'
+- author: Warete
+  changes:
+    - type: Add
+      message: >-
+        The ability to remove tiles with axes / Возможность снимать плитку
+        топорами
+  id: 6279
+  time: '2024-08-31T16:22:01.0000000+00:00'
