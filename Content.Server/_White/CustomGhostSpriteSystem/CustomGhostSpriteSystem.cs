@@ -14,6 +14,7 @@ public sealed class CustomGhostSpriteSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+
     public override void Initialize()
     {
         base.Initialize();
