@@ -9,6 +9,9 @@
     - !type:DepartmentTimeRequirement
       department: Security
       min: 14400
+    - !type:SpeciesRequirement # WD EDIT
+      species:
+      - Human
   startingGear: PrisonGuardGear
   alwaysUseSpawner: true
   canBeAntag: false
