@@ -5459,3 +5459,19 @@ Entries:
         топорами
   id: 6279
   time: '2024-08-31T16:22:01.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: >-
+        Added flip when hiting with a double energy sword / Добавлено сальто при
+        ударе двойным энергетическим мечом
+    - type: Tweak
+      message: >-
+        The chance to reflect the laser with energy swords has been increased /
+        Увеличен шанс отразить лазер энергетическими мечами
+    - type: Tweak
+      message: >-
+        The double Energy Sword can no longer be activated in one hand / Двойной
+        энергетический меч больше нельзя активировать в одной руке
+  id: 6280
+  time: '2024-08-31T17:40:36.0000000+00:00'
