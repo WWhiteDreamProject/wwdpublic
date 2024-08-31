@@ -75,6 +75,7 @@
           acts: ["Breakage"]
   - type: StaticPrice
     price: 25
+  - type: GiftIgnore # WD EDIT
 
 - type: entity
   parent: DefaultStationBeacon
