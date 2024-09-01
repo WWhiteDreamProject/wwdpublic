@@ -5481,3 +5481,9 @@ Entries:
       message: Added melee block / Добавлен блок в ближнем бою
   id: 6281
   time: '2024-08-31T18:58:03.0000000+00:00'
+- author: Warete
+  changes:
+    - type: Add
+      message: Added two roles Maid and Hobo / Добавлено две роли Прислуга и Бомж
+  id: 6282
+  time: '2024-09-01T07:21:33.0000000+00:00'
