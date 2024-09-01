@@ -5487,3 +5487,9 @@ Entries:
       message: Added two roles Maid and Hobo / Добавлено две роли Прислуга и Бомж
   id: 6282
   time: '2024-09-01T07:21:33.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: Logo / Лого
+  id: 6283
+  time: '2024-09-01T10:11:53.0000000+00:00'
