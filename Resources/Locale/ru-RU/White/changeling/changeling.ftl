@@ -19,7 +19,7 @@ changeling-popup-dna-taken = Мы успешно взяли образец ДН�
 changeling-popup-cant-sting = Мы не можем ужалить это!
 
 changeling-popup-transform-no-dna = У нас нет поглощенного ДНК!
-changeling-popup-cant-transform-someone = Мы не можем превратит это!
+changeling-popup-cant-transform-someone = Мы не можем изменить их!
 changeling-popup-transform-not-effective = Вирус перевоплощения не сработал!
 changeling-popup-transform-too-far = Цель слишком далеко!
 

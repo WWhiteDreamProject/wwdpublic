@@ -11,10 +11,10 @@ language-RootSpeak-name = Песнь корней
 language-RootSpeak-description = Скрипучий субголосый язык, на котором инстинктивно говорят дионы. Из-за уникального состава средней дионы фразы песни корней могут представлять собой комбинацию от одного до двенадцати отдельных голосов и нот.
 
 language-Nekomimetic-name = Мурчащий
-language-Nekomimetic-description = Таяран и фелинидов. По большей части, для общения на нем используется хвост.
+language-Nekomimetic-description = Язык таяран и фелинидов. По большей части, для общения на нем используется хвост.
 
-language-Draconic-name = Драконий 
-language-Draconic-description = Общий язык ящеров, состоящий из щипящих звуков и трещоток.
+language-Draconic-name = Драконий
+language-Draconic-description = Общий язык ящеров, состоящий из щипящих звуков и стрекотаний.
 
 language-SolCommon-name = Общесолнечный
 language-SolCommon-description = Язык, общий для видов из Солнечной системы.
