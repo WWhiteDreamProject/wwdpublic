@@ -1,0 +1,1 @@
+﻿tricorder-item-status-label = Текущий режим: { $mode }

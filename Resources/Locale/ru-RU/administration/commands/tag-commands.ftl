@@ -1,0 +1,9 @@
+addtag-command-description = Добавляет тэг выбранному энтити
+addtag-command-help = Usage: addtag <uidЭнтити> <тэг>
+addtag-command-success = Добавлен { $tag } к { $target }.
+addtag-command-fail = Не удалось добавить { $tag } к { $target }.
+removetag-command-description = Удаляет тэг с выбранного энтити
+removetag-command-help = Использование: removetag <uidЭнтити> <тэг>
+removetag-command-success = Удалён { $tag } с { $target }.
+removetag-command-fail = Не удалось удалить { $tag } с { $target }.
+tag-command-arg-tag = Тэг

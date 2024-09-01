@@ -1,0 +1,9 @@
+messages-pda-error-header = ОШИБКА
+messages-pda-error-message = В системе сообщений произошла ошибка, вы пробовали отключить и включить ее снова?
+messages-pda-notification-header = На ваш ПДА поступило новое сообщение от {$name}
+messages-pda-connection-error = ОШИБКА СОЕДЕНЕНИЯ
+messages-pda-unknown-name = Неизвестный
+messages-pda-unknown-job = Неназначен
+messages-pda-user-missing = ОТСУТСТВУЕТ ЗАПИСЬ ИМЕНИ
+messages-pda-ui-back = Назад
+messages-pda-chat-choice = Выберите чат

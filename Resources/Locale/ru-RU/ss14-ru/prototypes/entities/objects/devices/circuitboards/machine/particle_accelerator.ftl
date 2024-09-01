@@ -1,0 +1,9 @@
+ent-MachineParticleAcceleratorEndCapCircuitboard = торцевая заглушка УЧ
+    .desc = { ent-BaseMachineCircuitboard.desc }
+    .suffix = { "" }
+ent-MachineParticleAcceleratorFuelChamberCircuitboard = топливная камера УЧ
+    .desc = { ent-BaseMachineCircuitboard.desc }
+    .suffix = { "" }
+ent-MachineParticleAcceleratorPowerBoxCircuitboard = блок питания УЧ
+    .desc = { ent-BaseMachineCircuitboard.desc }
+    .suffix = { "" }
