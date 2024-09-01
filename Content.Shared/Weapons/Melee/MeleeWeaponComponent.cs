@@ -103,7 +103,7 @@ public sealed partial class MeleeWeaponComponent : Component
     ///     Weapon damage is multiplied by this amount for heavy swings
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float HeavyDamageBaseModifier = 0.6f; // WD EDIT
+    public float HeavyDamageBaseModifier = 1f; // WD EDIT
 
     /// <summary>
     /// Total width of the angle for wide attacks.
@@ -133,7 +133,7 @@ public sealed partial class MeleeWeaponComponent : Component
     public bool SwingLeft;
 
     [DataField, AutoNetworkedField]
-    public float HeavyStaminaCost = 12f; // WD EDIT
+    public float HeavyStaminaCost = 20f; // WD EDIT
 
     [DataField, AutoNetworkedField]
     public int MaxTargets = 5;

@@ -20,8 +20,6 @@
     bluntStaminaDamageFactor: 2.5
     heavyRateModifier: 0.5
     heavyRangeModifier: 1.75
-    heavyDamageBaseModifier: 1 # WD EDIT
-    heavyStaminaCost: 20 # WD EDIT
     maxTargets: 1
     angle: 20
   - type: Wieldable

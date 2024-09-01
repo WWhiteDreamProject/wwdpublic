@@ -20,8 +20,6 @@
         Blunt: 3
     heavyRateModifier: 1
     heavyRangeModifier: 1
-    heavyDamageBaseModifier: 1 # WD EDIT
-    heavyStaminaCost: 5
     maxTargets: 5
     angle: 100
   - type: Item
@@ -47,8 +45,6 @@
         Pierce: 7
     heavyRateModifier: 0.9
     heavyRangeModifier: 1.25
-    heavyDamageBaseModifier: 1 # WD EDIT
-    heavyStaminaCost: 15 # WD EDIT
     maxTargets: 1
     angle: 20
   - type: Item
@@ -73,8 +69,6 @@
         Slash: 7
     heavyRateModifier: 0.8
     heavyRangeModifier: 1.25
-    heavyDamageBaseModifier: 1.5
-    heavyStaminaCost: 5
     maxTargets: 1
     angle: 120
   - type: Item
@@ -107,8 +101,6 @@
     damage:
       types:
         Slash: 10
-    heavyDamageBaseModifier: 1.2
-    heavyStaminaCost: 5
   - type: Item
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
 
@@ -132,8 +124,6 @@
         Slash: 2 # I guess you can stab it into them?
     heavyRateModifier: 0.8
     heavyRangeModifier: 1.25
-    heavyDamageBaseModifier: 1.2
-    heavyStaminaCost: 5
     angle: 80
     soundHit:
       collection: MetalThud

@@ -21,7 +21,6 @@
         Blunt: 4
         Slash: 6
         Structural: 10
-    heavyStaminaCost: 10
     angle: 100
     soundHit:
       collection: MetalThud

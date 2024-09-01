@@ -18,8 +18,6 @@
         Blunt: 3.5
     heavyRateModifier: 0.8
     heavyRangeModifier: 0.8
-    heavyDamageBaseModifier: 1 # WD EDIT
-    heavyStaminaCost: 15 # WD EDIT
     maxTargets: 8
   - type: Tag
     tags:

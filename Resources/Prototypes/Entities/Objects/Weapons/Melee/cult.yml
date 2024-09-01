@@ -16,7 +16,6 @@
       types:
         Slash: 8
     heavyRateModifier: 0.9
-    heavyStaminaCost: 5
   - type: Item
     size: Normal
   - type: Clothing

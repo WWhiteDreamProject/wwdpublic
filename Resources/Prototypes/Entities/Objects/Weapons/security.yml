@@ -103,8 +103,6 @@
       collection: MetalThud
     bluntStaminaDamageFactor: 2
     heavyRateModifier: 1
-    heavyDamageBaseModifier: 0.8 # WD EDIT
-    heavyStaminaCost: 15 # WD EDIT
   - type: Item
     size: Normal
   - type: Clothing
