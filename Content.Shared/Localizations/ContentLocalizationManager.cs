@@ -1,7 +1,8 @@
 ﻿using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Robust.Shared.Utility;
+using Content.Shared._White;
+using Robust.Shared.Configuration;
 
 namespace Content.Shared.Localizations
 {
@@ -10,9 +11,6 @@ namespace Content.Shared.Localizations
         [Dependency] private readonly ILocalizationManager _loc = default!;
 
         // If you want to change your codebase's language, do it here.
-
-        // WD-EDIT
-        private const string Culture = "ru-RU";
 
         // WD-EDIT
         private const string FallbackCulture = "en-US";
@@ -28,19 +26,21 @@ namespace Content.Shared.Localizations
             @"mm"
         };
 
+        // WD-EDIT
+        private string _culture = FallbackCulture;
+
         public void Initialize()
         {
-            var culture = new CultureInfo(Culture);
+            // White Dream
+            var cfgManager = IoCManager.Resolve<IConfigurationManager>();
+            _culture = cfgManager.GetCVar(WhiteCVars.ServerCulture);
 
-            // WD-EDIT
+            var culture = new CultureInfo(_culture);
             var fallbackCulture = new CultureInfo(FallbackCulture);
 
             _loc.LoadCulture(culture);
-
-            // WD-EDIT
             _loc.LoadCulture(fallbackCulture);
             _loc.SetFallbackCluture(fallbackCulture);
-            // WD-EDIT
 
             _loc.AddFunction(culture, "PRESSURE", FormatPressure);
             _loc.AddFunction(culture, "POWERWATTS", FormatPowerWatts);
@@ -69,6 +69,7 @@ namespace Content.Shared.Localizations
 
             _loc.AddFunction(cultureEn, "MAKEPLURAL", FormatMakePlural);
             _loc.AddFunction(cultureEn, "MANY", FormatMany);
+            // White Dream End
         }
 
         private ILocValue FormatMany(LocArgs args)
@@ -89,7 +90,7 @@ namespace Content.Shared.Localizations
         {
             var number = ((LocValueNumber) args.Args[0]).Value * 100;
             var maxDecimals = (int)Math.Floor(((LocValueNumber) args.Args[1]).Value);
-            var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(Culture)).Clone();
+            var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(_culture)).Clone();
             formatter.NumberDecimalDigits = maxDecimals;
             return new LocValueString(string.Format(formatter, "{0:N}", number).TrimEnd('0').TrimEnd('.') + "%");
         }
@@ -98,7 +99,7 @@ namespace Content.Shared.Localizations
         {
             var number = ((LocValueNumber) args.Args[0]).Value;
             var maxDecimals = (int)Math.Floor(((LocValueNumber) args.Args[1]).Value);
-            var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(Culture)).Clone();
+            var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(_culture)).Clone();
             formatter.NumberDecimalDigits = maxDecimals;
             return new LocValueString(string.Format(formatter, "{0:N}", number).TrimEnd('0').TrimEnd('.'));
         }

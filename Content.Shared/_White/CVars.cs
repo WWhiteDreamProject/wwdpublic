@@ -11,4 +11,11 @@ public sealed class WhiteCVars
         CVarDef.Create("white.hold_look_up", false, CVar.CLIENT | CVar.ARCHIVE);
 
     #endregion
+
+    #region Locale
+
+    public static readonly CVarDef<string>
+        ServerCulture = CVarDef.Create("white.culture", "ru-RU", CVar.REPLICATED | CVar.SERVER);
+
+    #endregion
 }
