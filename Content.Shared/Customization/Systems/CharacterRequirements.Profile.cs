@@ -1,11 +1,13 @@
 using System.Linq;
 using Content.Shared.Clothing.Loadouts.Prototypes;
+using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
 using JetBrains.Annotations;
 using Robust.Shared.Configuration;
+using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -106,6 +108,8 @@ public sealed partial class CharacterSpeciesRequirement : CharacterRequirement
     }
 }
 
+
+
 /// <summary>
 ///     Requires the profile to have one of the specified traits
 /// </summary>
@@ -155,3 +159,60 @@ public sealed partial class CharacterLoadoutRequirement : CharacterRequirement
         return Loadouts.Any(l => profile.LoadoutPreferences.Contains(l.ToString()));
     }
 }
+
+// White Dream
+[UsedImplicitly]
+[Serializable, NetSerializable]
+public sealed partial class CharacterSexRequirement : CharacterRequirement
+{
+    [DataField(required: true)]
+    public Sex RequiredSex;
+
+    public override bool IsValid(JobPrototype job, HumanoidCharacterProfile profile,
+        Dictionary<string, TimeSpan> playTimes, bool whitelisted,
+        IEntityManager entityManager, IPrototypeManager prototypeManager, IConfigurationManager configManager,
+        out FormattedMessage? reason)
+    {
+        const string color = "green";
+        reason = FormattedMessage.FromMarkup(Loc.GetString("character-sex-requirement",
+            ("inverted", Inverted),
+            ("sex", $"[color={color}]{string.Join($"[/color], [color={color}]",
+                RequiredSex.ToString())}[/color]")));
+
+        return profile.Sex == RequiredSex;
+    }
+}
+
+[UsedImplicitly]
+[Serializable, NetSerializable]
+public sealed partial class CharacterGenderRequirement : CharacterRequirement
+{
+    [DataField(required: true)]
+    public Gender RequiredGender;
+
+    public override bool IsValid(JobPrototype job, HumanoidCharacterProfile profile,
+        Dictionary<string, TimeSpan> playTimes, bool whitelisted,
+        IEntityManager entityManager, IPrototypeManager prototypeManager, IConfigurationManager configManager,
+        out FormattedMessage? reason)
+    {
+        const string color = "green";
+        reason = FormattedMessage.FromMarkup(Loc.GetString("character-gender-requirement",
+            ("inverted", Inverted),
+            ("gender", $"[color={color}]{string.Join($"[/color], [color={color}]",
+                GenderToString())}[/color]")));
+
+        return profile.Gender == RequiredGender;
+    }
+
+    private string GenderToString()
+    {
+        return RequiredGender switch
+        {
+            Gender.Male => Loc.GetString("humanoid-profile-editor-pronouns-male-text"),
+            Gender.Female => Loc.GetString("humanoid-profile-editor-pronouns-female-text"),
+            _ => Loc.GetString("unknown")
+        };
+    }
+}
+// White Dream
+

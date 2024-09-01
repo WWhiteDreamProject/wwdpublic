@@ -227,6 +227,12 @@
       "name": "pda-seniorofficer"
     },
     {
+      "name": "pda-hobo"
+    },
+    {
+      "name": "pda-maid"
+    },
+    {
       "name": "equipped-IDCARD",
       "directions": 4
     }

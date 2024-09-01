@@ -42,6 +42,16 @@ character-clothing-preference-requirement = You must {$inverted ->
     *[other] wear
 } a [color=white]{$type}[/color]
 
+# White Dream
+character-sex-requirement = Your sex must {$inverted ->
+[true] not be
+*[other] be
+} a {$sex}
+character-gender-requirement = Your pronouns must {$inverted ->
+[true] not be
+*[other] be
+} a {$gender}
+# White Dream
 
 # Whitelist
 character-whitelist-requirement = You must {$inverted ->

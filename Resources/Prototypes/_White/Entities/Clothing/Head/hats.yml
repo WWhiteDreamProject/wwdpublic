@@ -1,0 +1,43 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHoboHat
+  name: hobo hat
+  description: An old century hat. It's worn out and looks unkempt.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Head/hobohat.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Head/hobohat.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHoboCap
+  name: hobo cap
+  description: Uninvited guest cap. Doesn't inspire confidence.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Head/hobocap.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Head/hobocap.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatMobCap
+  name: maid's mob cap
+  description: The headdress of a true servant.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Head/maidhat.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Head/maidhat.rsi
