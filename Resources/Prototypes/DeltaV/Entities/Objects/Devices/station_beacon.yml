@@ -130,7 +130,7 @@
 - type: entity
   parent: DefaultStationBeaconSecurity
   id: DefaultStationBeaconCorpsman
-  suffix: Corpsman
+  suffix: Brigmedic
   components:
   - type: NavMapBeacon
     text: station-beacon-corpsman

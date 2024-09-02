@@ -300,7 +300,7 @@
       - id: WeaponDisabler
       - id: ClothingOuterCoatHoSTrench
       - id: ClothingMaskNeckGaiter
-      - id: ClothingOuterHardsuitCombatHoS # DeltaV - ClothingOuterHardsuitSecurityRed replaced in favour of head of security's advanced combat hardsuit.
+      - id: ClothingOuterHardsuitSecurityRed # WWDP - Edit
       - id: ClothingBeltSecurityFilled
       - id: ClothingHeadsetAltSecurity
       - id: ClothingEyesGlassesSunglasses

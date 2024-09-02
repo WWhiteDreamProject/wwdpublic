@@ -34,15 +34,16 @@
   id: CorpsmanGear # see Prototypes/Roles/Jobs/Fun/misc_startinggear.yml for "BrigmedicGear"
   equipment:
     jumpsuit: ClothingUniformJumpsuitBrigmedic
-    outerClothing: ClothingOuterArmorPlateCarrier
-    back: ClothingBackpackBrigmedicFilled 
-    shoes: ClothingShoesBootsCombatFilled
+    outerClothing: ClothingOuterArmorBasic
+    back: ClothingBackpackBrigmedicFilled
+    shoes: ClothingShoesBootsJack
     gloves: ClothingHandsGlovesNitrile
-    eyes: ClothingEyesHudMedical
-    head: ClothingHeadHatBeretCorpsman
-    id: CorpsmanPDA
+    eyes: ClothingEyesHudMedSec
+    head: ClothingHeadHatBeretBrigmedic
+    mask: ClothingMaskSterile
+    id: BrigmedicPDA
     ears: ClothingHeadsetBrigmedic
-    belt: ClothingBeltCorpsmanWebbingFilled
+    belt: ClothingBeltBrigmedicRig
     pocket1: WeaponPistolMk58Nonlethal
   innerClothingSkirt: ClothingUniformJumpskirtBrigmedic
   satchel: ClothingBackpackSatchelBrigmedicFilled

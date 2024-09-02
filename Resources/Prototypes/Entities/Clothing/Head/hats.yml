@@ -49,9 +49,9 @@
   description: A stylish clothing option for security officers.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Head/Hats/beret_security.rsi # DeltaV - resprite
+    sprite: Clothing/Head/Hats/beret_security.rsi # WWDP - Edit
   - type: Clothing
-    sprite: DeltaV/Clothing/Head/Hats/beret_security.rsi # DeltaV - resprite
+    sprite: Clothing/Head/Hats/beret_security.rsi # WWDP - Edit
   - type: Tag
     tags:
     - ClothMade

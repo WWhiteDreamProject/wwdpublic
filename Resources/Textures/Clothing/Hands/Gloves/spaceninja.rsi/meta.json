@@ -29,6 +29,18 @@
       "directions": 4
     },
     {
+      "name": "equipped-HAND-body-slim",
+      "directions": 4
+    },
+    {
+      "name": "red-equipped-HAND-body-slim",
+      "directions": 4
+    },
+    {
+      "name": "green-equipped-HAND-body-slim",
+      "directions": 4
+    },
+    {
       "name": "inhand-left",
       "directions": 4
     },

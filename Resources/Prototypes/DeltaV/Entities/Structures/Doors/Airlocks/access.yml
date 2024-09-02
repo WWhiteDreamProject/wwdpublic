@@ -100,7 +100,7 @@
 - type: entity
   parent: AirlockSecurity
   id: AirlockCorpsmanLocked
-  suffix: Corpsman, Locked
+  suffix: Brigmedic, Locked
   components:
   - type: AccessReader
     access: [["Corpsman"]]
@@ -108,7 +108,7 @@
 - type: entity
   parent: AirlockSecurityGlass
   id: AirlockCorpsmanGlassLocked
-  suffix: Corpsman, Locked
+  suffix: Brigmedic, Locked
   components:
   - type: AccessReader
     access: [["Corpsman"]]

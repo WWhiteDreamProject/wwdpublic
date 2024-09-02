@@ -43,3 +43,20 @@ id-card-access-level-nuclear-operative = Ядерные оперативники
 id-card-access-level-syndicate-agent = Агенты Синдиката
 
 id-card-access-level-central-command = Центральное Коммандование
+
+id-card-access-level-orders = Заказы
+id-card-access-level-mantis = Мантис
+id-card-access-level-chief-justice = Верховный судья
+id-card-access-level-prosecutor = Прокурор
+id-card-access-level-justice = Юридический
+id-card-access-level-corpsman = Бригмедик
+id-card-access-level-psychologist = Психолог
+id-card-access-level-mail = Почта
+id-card-access-level-boxer = Боксёр
+id-card-access-level-clown = Клоун
+id-card-access-level-library = Библиотека
+id-card-access-level-mime = Мим
+id-card-access-level-musician = Музыкант
+id-card-access-level-reporter = Репортёр
+id-card-access-level-zookeeper = Зоолог
+id-card-access-level-unused = Ты не должен был видеть это

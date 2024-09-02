@@ -1,0 +1,10 @@
+﻿- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltMedicalRig
+  name: medical webbing
+  description: A medical webbing vest that has many pockets and places to store medications.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Belt/paramedwebbing.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Belt/paramedwebbing.rsi

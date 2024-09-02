@@ -14,13 +14,23 @@
       "name": "icon-running",
       "delays": [
         [
-          0.2,
-          0.2
+          0.1,
+          0.1,
+          0.1,
+          0.1
         ]
       ]
     },
     {
-      "name": "unlit"
+      "name": "unlit",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
     },
     {
       "name": "unlit-full"

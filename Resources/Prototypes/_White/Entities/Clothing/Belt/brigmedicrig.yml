@@ -1,0 +1,10 @@
+﻿- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltBrigmedicRig
+  name: brigmedic webbing
+  description: Recolor of medical webbing vest. Special for brigmedic!
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Belt/brigmedicwebbing.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Belt/brigmedicwebbing.rsi

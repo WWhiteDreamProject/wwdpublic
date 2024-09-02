@@ -109,7 +109,7 @@
         prob: 0.3
       - id: ClothingMaskSterile
       - id: LunchboxMedicalFilledRandom # Delta-V Lunchboxes!
-        prob: 0.3 
+        prob: 0.3
 
 - type: entity
   parent: LockerWallMedical
@@ -145,7 +145,7 @@
         orGroup: Surgshrubs
       - id: ClothingMaskSterile
       - id: LunchboxMedicalFilledRandom # Delta-V Lunchboxes!
-        prob: 0.3 
+        prob: 0.3
 
 - type: entity
   id: LockerChemistryFilled
@@ -184,10 +184,11 @@
       - id: ClothingHeadsetMedical
       - id: ClothingMaskSterile
       - id: ClothingShoesBootsWinterParamedic #Delta V: Add departmental winter boots
+      - id: ClothingBeltMedicalRig # WWDP - Edit
       - id: MedkitFilled
         prob: 0.3
       - id: LunchboxMedicalFilledRandom # Delta-V Lunchboxes!
-        prob: 0.3 
+        prob: 0.3
 
 - type: entity
   id: LockerParamedicFilledHardsuit #Delta V - Paramedic locker with suit
@@ -207,8 +208,9 @@
       - id: ClothingHeadsetMedical
       - id: ClothingMaskSterile
       - id: ClothingShoesBootsWinterParamedic #Delta V: Add departmental winter boots
+      - id: ClothingBeltMedicalRig # WWDP - Edit
       - id: HandheldGPSBasic
       - id: MedkitFilled
         prob: 0.3
       - id: LunchboxMedicalFilledRandom # Delta-V Lunchboxes!
-        prob: 0.3 
+        prob: 0.3
