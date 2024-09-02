@@ -24,7 +24,7 @@
           position: "0,-0.5"
         hard: false
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/shuttle.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/shuttle.rsi # WD EDIT
     snapCardinals: false
     layers:
     - state: closed
@@ -114,7 +114,7 @@
     noRot: false
   - type: Rotatable
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/shuttle.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/shuttle.rsi # WD EDIT
     state: closed
   - type: Construction
     graph: AirlockShuttle
@@ -162,4 +162,4 @@
   description: Necessary for connecting two space craft together.
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/shuttle_syndicate.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/shuttle_syndicate.rsi # WD EDIT
