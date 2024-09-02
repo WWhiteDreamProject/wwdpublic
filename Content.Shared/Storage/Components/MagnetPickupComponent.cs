@@ -17,8 +17,7 @@ public sealed partial class MagnetPickupComponent : Component
     /// <summary>
     /// If true, ignores SlotFlags and can magnet pickup on hands/ground.
     /// </summary>
-
-    [ViewVariables(VVAccess.ReadWrite), DataField()]
+    [ViewVariables(VVAccess.ReadWrite), DataField]
     [AutoNetworkedField]
     public bool ForcePickup = true;
 
