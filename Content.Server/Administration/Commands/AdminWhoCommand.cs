@@ -7,7 +7,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Administration.Commands;
 
-[AdminCommand(AdminFlags.Admin)]
+[AnyCommand]
 public sealed class AdminWhoCommand : IConsoleCommand
 {
     public string Command => "adminwho";
@@ -19,42 +19,36 @@ public sealed class AdminWhoCommand : IConsoleCommand
         var adminMgr = IoCManager.Resolve<IAdminManager>();
         var afk = IoCManager.Resolve<IAfkManager>();
 
-        var seeStealth = true;
-
-        // If null it (hopefully) means it is being called from the console.
-        if (shell.Player != null)
-        {
-            var playerData = adminMgr.GetAdminData(shell.Player);
-
-            seeStealth = playerData != null && playerData.CanStealth();
-        }
-
         var sb = new StringBuilder();
         var first = true;
+
+        // WD start
+        var isAdmin = shell.Player is {} player && adminMgr.HasAdminFlag(player, AdminFlags.Admin);
         foreach (var admin in adminMgr.ActiveAdmins)
         {
-            if (!first)
-                sb.Append('\n');
-            first = false;
-
             var adminData = adminMgr.GetAdminData(admin)!;
             DebugTools.AssertNotNull(adminData);
 
-            if (adminData.Stealth && !seeStealth)
+            if (!isAdmin && adminData.Stealth)
                 continue;
+
+            if (!first)
+                sb.Append('\n');
+            first = false;
 
             sb.Append(admin.Name);
             if (adminData.Title is { } title)
                 sb.Append($": [{title}]");
 
-            if (adminData.Stealth)
-                sb.Append(" (S)");
+            if (!isAdmin)
+                continue;
 
-            if (shell.Player is { } player && adminMgr.HasAdminFlag(player, AdminFlags.Admin))
-            {
-                if (afk.IsAfk(admin))
-                    sb.Append(" [AFK]");
-            }
+            if (afk.IsAfk(admin))
+                sb.Append(" [AFK]");
+
+            if (adminData.Stealth)
+                sb.Append(" [Stealth]");
+            // WD end
         }
 
         shell.WriteLine(sb.ToString());
