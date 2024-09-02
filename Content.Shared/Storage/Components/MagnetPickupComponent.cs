@@ -1,11 +1,13 @@
 using Content.Shared.Inventory;
+using Robust.Shared.GameStates;
 
 namespace Content.Server.Storage.Components;
 
 /// <summary>
 /// Applies an ongoing pickup area around the attached entity.
 /// </summary>
-[RegisterComponent, AutoGenerateComponentPause]
+[NetworkedComponent]
+[RegisterComponent, AutoGenerateComponentPause, AutoGenerateComponentState]
 public sealed partial class MagnetPickupComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite), DataField("nextScan")]
@@ -15,7 +17,9 @@ public sealed partial class MagnetPickupComponent : Component
     /// <summary>
     /// If true, ignores SlotFlags and can magnet pickup on hands/ground.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
+
+    [ViewVariables(VVAccess.ReadWrite), DataField()]
+    [AutoNetworkedField]
     public bool ForcePickup = true;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("range")]
