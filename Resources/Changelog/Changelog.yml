@@ -5857,3 +5857,9 @@ Entries:
         new UI for this in the future!
   id: 6306
   time: '2024-09-01T23:20:45.0000000+00:00'
+- author: DJB1gYAPPA
+  changes:
+    - type: Add
+      message: 'Added Jukebox with basic songs. '
+  id: 6309
+  time: '2024-09-02T02:28:11.0000000+00:00'
