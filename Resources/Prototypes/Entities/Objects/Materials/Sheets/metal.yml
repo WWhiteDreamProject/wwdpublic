@@ -71,13 +71,16 @@
           Quantity: 1
   - type: UserInterface # White Dream Start
     interfaces:
-    - key: enum.InhandCraftingUiKey.Key
-      type: InhandCraftMenuBUI
+    - key: enum.ShortConstructionUiKey.Key
+      type: ShortConstructionMenuBUI
   - type: ActivatableUI
-    key: enum.InhandCraftingUiKey.Key
-  - type: InhandCrafting
+    key: enum.ShortConstructionUiKey.Key
+  - type: ShortConstruction
     prototypes:
     - Girder
+    - MetalRod
+    - TileSteel
+    - TileWhite
     - TileDark # White Dream end
 
 - type: entity
