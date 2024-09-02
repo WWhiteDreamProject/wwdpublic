@@ -44,7 +44,7 @@
   parent: AirlockAssembly
   components:
   - type: Sprite
-    sprite: _White/Structures/Doors/Airlocks/Standard/clockwork_pinion.rsi # WD EDIT
+    sprite: Structures/Doors/Airlocks/Standard/clockwork_pinion.rsi
     state: "assembly"
   - type: Construction
     graph: PinionAirlock
@@ -58,7 +58,7 @@
   suffix: Pinion, Clockwork, Glass
   components:
   - type: Sprite
-    sprite: _White/Structures/Doors/Airlocks/Glass/clockwork_pinion.rsi # WD EDIT
+    sprite: Structures/Doors/Airlocks/Glass/clockwork_pinion.rsi
     state: "assembly"
 
 #Command
