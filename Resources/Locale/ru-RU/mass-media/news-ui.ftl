@@ -1,0 +1,16 @@
+news-read-ui-next-text = Следующий
+news-read-ui-past-text = Предыдущий
+news-read-ui-default-title = Новости станции
+news-read-ui-not-found-text = Статьи не найдены
+news-read-ui-time-prefix-text = Время публикации:
+news-read-ui-notification-off = ̶♫̶
+news-read-ui-notification-on = ♫
+news-read-ui-no-author = Анонимно
+news-read-ui-author-prefix = Автор:
+news-write-ui-default-title = Менеджмент СМИ
+news-write-ui-articles-label = Статьи:
+news-write-ui-delete-text = Удалить
+news-write-ui-share-text = Публиковать
+news-write-ui-article-name-label = Заголовок:
+news-write-ui-article-content-label = Содержание:
+news-write-no-access-popup = Нет доступа

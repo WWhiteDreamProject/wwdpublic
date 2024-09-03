@@ -1,0 +1,10 @@
+atmos-plaque-component-desc-zum = Эта табличка увековечивает восхождение дивизиона Atmos ZUM. Пусть они несут факел, который оставили дивизионы Atmos ZAS, LINDA и FEA.
+atmos-plaque-component-desc-fea = Эта табличка увековечивает падение дивизиона Atmos FEA. Для всех сожжённых, потерянных в сознании и хрупких людей, которые погибли от его рук.
+atmos-plaque-component-desc-linda = Эта табличка увековечивает падение дивизиона Atmos LINDA. Для всех сожжённых, потерянных в сознании и хрупких людей, которые погибли от его рук.
+atmos-plaque-component-desc-zas = Эта табличка увековечивает падение дивизиона Atmos ZAS. Для всех сожжённых, потерянных в сознании и хрупких людей, которые погибли от его рук.
+atmos-plaque-component-name-zum = Табличка дивизиона атмосферных технологий ZUM
+atmos-plaque-component-name-fea = Табличка дивизиона атмосферных технологий FEA
+atmos-plaque-component-name-linda = Табличка дивизиона атмосферных технологий LINDA
+atmos-plaque-component-name-zas = Табличка дивизиона атмосферных технологий ZAS
+atmos-plaque-component-name-unset = Эмм
+atmos-plaque-component-desc-unset = Эмм

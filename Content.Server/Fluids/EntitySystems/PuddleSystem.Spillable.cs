@@ -1,5 +1,6 @@
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Fluids.Components;
+using Content.Shared._White.Blocking;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
@@ -28,7 +29,8 @@ public sealed partial class PuddleSystem
 
         SubscribeLocalEvent<SpillableComponent, LandEvent>(SpillOnLand);
         // Openable handles the event if it's closed
-        SubscribeLocalEvent<SpillableComponent, MeleeHitEvent>(SplashOnMeleeHit, after: [typeof(OpenableSystem)]);
+        SubscribeLocalEvent<SpillableComponent, MeleeHitEvent>(
+            SplashOnMeleeHit, before: new[] {typeof(MeleeBlockSystem)}, after:[typeof(OpenableSystem)]); // WD EDIT
         SubscribeLocalEvent<SpillableComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<SpillableComponent, GotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<SpillableComponent, SolutionContainerOverflowEvent>(OnOverflow);

@@ -15,8 +15,6 @@
     bluntStaminaDamageFactor: 3
     heavyRateModifier: 0.8
     heavyRangeModifier: 1.25
-    heavyDamageBaseModifier: 1.25
-    heavyStaminaCost: 10
     maxTargets: 2
     angle: 180
     soundHit:
@@ -63,8 +61,6 @@
       bluntStaminaDamageFactor: 3
       heavyRateModifier: 0.8
       heavyRangeModifier: 1.25
-      heavyDamageBaseModifier: 1.25
-      heavyStaminaCost: 10
       maxTargets: 2
       angle: 180
       soundHit:
@@ -258,6 +254,7 @@
     - type: Spillable
       solution: absorbed
     - type: MeleeWeapon
+      canBeBlocked: false # WD EDIT
       soundNoDamage:
         path: "/Audio/Effects/Fluids/splat.ogg"
       damage:

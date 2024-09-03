@@ -21,8 +21,6 @@
         Blunt: 4
         Slash: 6
         Structural: 10
-    heavyDamageBaseModifier: 1.0
-    heavyStaminaCost: 10
     angle: 100
     soundHit:
       collection: MetalThud
@@ -30,8 +28,8 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 2
-        Slash: 5
+        Blunt: 2.5 # WD EDIT
+        Slash: 7.5 # WD EDIT
         Structural: 40
   - type: Item
     size: Ginormous
@@ -43,6 +41,7 @@
   - type: Tool
     qualities:
       - Prying
+      - AdvancedPrying # White Dream
   - type: ToolTileCompatible
   - type: Prying
   - type: UseDelay

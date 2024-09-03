@@ -25,6 +25,7 @@
     - alertType: Magboots
     - alertType: Pacified
     - alertType: Offer
+    - alertType: RecentlyBlocked # WD EDIT
 
 - type: entity
   id: AlertSpriteView
@@ -448,6 +449,13 @@
   description: alerts-walking-desc
   minSeverity: 0
   maxSeverity: 1
+
+# WD EDIT
+- type: alert
+  id: RecentlyBlocked
+  icons: [ /Textures/Objects/Weapons/Melee/shields.rsi/buckler-icon.png ]
+  name: alerts-blocked-name
+  description: alerts-blocked-desc
 
 - type: alert
   id: Debug1

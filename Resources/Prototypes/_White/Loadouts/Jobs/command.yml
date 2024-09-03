@@ -1,0 +1,75 @@
+# Maid
+- type: loadout
+  id: LoadoutUniformJumpskirtMaid
+  category: Jobs
+  cost: 2
+  exclusive: true
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingUniformJumpskirtMaid
+
+- type: loadout
+  id: LoadoutUniformJumpskirtMaidMini
+  category: Jobs
+  cost: 2
+  exclusive: true
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingUniformJumpskirtMaidMini
+
+- type: loadout
+  id: LoadoutShoesMaid
+  category: Jobs
+  cost: 2
+  exclusive: true
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingShoesMaid
+
+- type: loadout
+  id: LoadoutEyesGlassesMaid
+  category: Jobs
+  cost: 3
+  exclusive: true
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingEyesGlassesMaid
+
+- type: loadout
+  id: LoadoutHeadHatMobCap
+  category: Jobs
+  cost: 1
+  exclusive: true
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingHeadHatMobCap

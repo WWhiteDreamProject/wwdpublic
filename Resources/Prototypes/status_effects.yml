@@ -59,3 +59,9 @@
 
 - type: statusEffect
   id: StaminaModifier
+
+# WD EDIT
+- type: statusEffect
+  id: RecentlyBlocked
+  alwaysAllowed: true
+  alert: RecentlyBlocked

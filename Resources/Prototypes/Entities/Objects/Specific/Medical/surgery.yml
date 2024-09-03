@@ -55,8 +55,6 @@
     damage:
       types:
         Piercing: 8
-    heavyDamageBaseModifier: 1.5
-    heavyStaminaCost: 5
     maxTargets: 1
     angle: 20
     soundHit:
@@ -92,8 +90,6 @@
       types:
         Slash: 7.5
     heavyRateModifier: 0.8
-    heavyDamageBaseModifier: 1.25
-    heavyStaminaCost: 5
     maxTargets: 1
     angle: 20
     soundHit:

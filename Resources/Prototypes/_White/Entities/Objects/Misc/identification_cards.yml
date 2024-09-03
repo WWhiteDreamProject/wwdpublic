@@ -1,0 +1,23 @@
+- type: entity
+  parent: IDCardStandard
+  id: HoboIDCard
+  name: Hobo ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: idhobo
+  - type: PresetIdCard
+    job: Passenger
+
+- type: entity
+  parent: IDCardStandard
+  id: MaidIDCard
+  name: Maid ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: idmaid
+  - type: PresetIdCard
+    job: Maid

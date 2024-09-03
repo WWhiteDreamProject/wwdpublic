@@ -165,3 +165,10 @@
 
 - type: playTimeTracker
   id: JobZookeeper
+
+# WHITE
+- type: playTimeTracker
+  id: JobHobo
+
+- type: playTimeTracker
+  id: JobMaid

@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWhiteHobo
+  name: hobo uniform
+  description: The ragged form of a man who has been through a lot. It's not so much the holes in all the places that strike you as the smell of her.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Uniforms/Jumpsuit/hobo.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Uniforms/Jumpsuit/hobo.rsi

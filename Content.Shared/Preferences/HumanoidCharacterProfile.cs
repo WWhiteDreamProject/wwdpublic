@@ -495,7 +495,8 @@ namespace Content.Shared.Preferences
 
             if (configManager.GetCVar(CCVars.RestrictedNames))
             {
-                name = Regex.Replace(name, @"[^\u0030-\u0039,\u0041-\u005A,\u0061-\u007A,\u00C0-\u00D6,\u00D8-\u00F6,\u00F8-\u00FF,\u0100-\u017F, '.,-]", string.Empty);
+                // White Dream: Added Cyrillic support
+                name = Regex.Replace(name, @"[^\u0030-\u0039,\u0041-\u005A,\u0061-\u007A,\u00C0-\u00D6,\u00D8-\u00F6,\u00F8-\u00FF,\u0100-\u017F,\u0410-\u044F, '.,-]", string.Empty);
                 /*
                  * 0030-0039  Basic Latin: ASCII Digits
                  * 0041-005A  Basic Latin: Uppercase Latin Alphabet
@@ -504,6 +505,7 @@ namespace Content.Shared.Preferences
                  * 00D8-00F6  Latin-1 Supplement: Letters II
                  * 00F8-00FF  Latin-1 Supplement: Letters III
                  * 0100-017F  Latin Extended A: European Latin
+                 * 0410-044F  Cyrillic Alphabet
                  */
             }
 

@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
 using Content.Shared.Input;
@@ -6,6 +7,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Robust.Shared.Input.Binding;
+using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 
@@ -17,6 +19,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
     {
@@ -148,6 +151,17 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
         _standing.Down(uid, true, behavior != DropHeldItemsBehavior.NoDrop, standingState);
         return true;
+    }
+
+    public void LieDownInRange(EntityUid uid, EntityCoordinates coords, float range = 0.4f)
+    {
+        var ents = new HashSet<Entity<LayingDownComponent>>();
+        _lookup.GetEntitiesInRange(coords, range, ents);
+
+        foreach (var ent in ents.Where(ent => ent.Owner != uid))
+        {
+            TryLieDown(ent, behavior:DropHeldItemsBehavior.DropIfStanding);
+        }
     }
 }
 
