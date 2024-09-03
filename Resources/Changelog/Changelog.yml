@@ -5511,3 +5511,11 @@ Entries:
       message: Ore processor fixed
   id: 6285
   time: '2024-09-03T10:18:06.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added disarm animation / Добавлена анимация толчка
+    - type: Tweak
+      message: 'Heavy damage modifier: 1.2 => 1 /  Модификатор урона тяжелой атакой: 1'
+  id: 6286
+  time: '2024-09-03T10:22:51.0000000+00:00'
