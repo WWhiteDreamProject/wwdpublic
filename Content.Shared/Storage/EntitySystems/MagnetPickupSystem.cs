@@ -1,6 +1,5 @@
 using Content.Server.Storage.Components;
 using Content.Shared.Examine;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Item.ItemToggle;
@@ -32,8 +31,8 @@ public sealed class MagnetPickupSystem : EntitySystem
     {
         base.Initialize();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
-        SubscribeLocalEvent<MagnetPickupComponent, ItemToggledEvent>(ToggleDone); // White Dream
-        SubscribeLocalEvent<MagnetPickupComponent, ExaminedEvent>(onExamined); // WD EDIT
+        SubscribeLocalEvent<MagnetPickupComponent, ItemToggledEvent>(OnItemToggled); // White Dream
+        SubscribeLocalEvent<MagnetPickupComponent, ExaminedEvent>(OnExamined); // WD EDIT
         SubscribeLocalEvent<MagnetPickupComponent, MapInitEvent>(OnMagnetMapInit);
     }
 
@@ -43,7 +42,7 @@ public sealed class MagnetPickupSystem : EntitySystem
     }
 
     //WD EDIT start
-    private void onExamined(Entity<MagnetPickupComponent> entity, ref ExaminedEvent args)
+    private void OnExamined(Entity<MagnetPickupComponent> entity, ref ExaminedEvent args)
     {
         var onMsg = _itemToggle.IsActivated(entity.Owner)
             ? Loc.GetString("comp-magnet-pickup-examined-on")
@@ -51,7 +50,7 @@ public sealed class MagnetPickupSystem : EntitySystem
         args.PushMarkup(onMsg);
     }
 
-    private void ToggleDone(Entity<MagnetPickupComponent> entity, ref ItemToggledEvent args)
+    private void OnItemToggled(Entity<MagnetPickupComponent> entity, ref ItemToggledEvent args)
     {
         _item.SetHeldPrefix(entity.Owner, args.Activated ? "on" : "off");
     }
@@ -79,8 +78,7 @@ public sealed class MagnetPickupSystem : EntitySystem
             comp.NextScan += ScanDelay;
 
             // WD EDIT START. Added ForcePickup.
-            if (!comp.ForcePickup &&
-                !_inventory.TryGetContainingSlot((uid, xform, meta), out var slotDef))
+            if (!comp.ForcePickup && !_inventory.TryGetContainingSlot((uid, xform, meta), out _))
                 continue;
             //WD EDIT END.
 
@@ -109,17 +107,14 @@ public sealed class MagnetPickupSystem : EntitySystem
                 // the problem is that stack pickups delete the original entity, which is fine, but due to
                 // game state handling we can't show a lerp animation for it.
                 var nearXform = Transform(near);
-                var nearMap = nearXform.MapPosition;
+                var nearMap = _transform.GetMapCoordinates(near);
                 var nearCoords = EntityCoordinates.FromMap(moverCoords.EntityId, nearMap, _transform, EntityManager);
 
                 if (!_storage.Insert(uid, near, out var stacked, storageComp: storage, playSound: !playedSound))
                     continue;
 
                 // Play pickup animation for either the stack entity or the original entity.
-                if (stacked != null)
-                    _storage.PlayPickupAnimation(stacked.Value, nearCoords, finalCoords, nearXform.LocalRotation);
-                else
-                    _storage.PlayPickupAnimation(near, nearCoords, finalCoords, nearXform.LocalRotation);
+                _storage.PlayPickupAnimation(stacked ?? near, nearCoords, finalCoords, nearXform.LocalRotation);
 
                 playedSound = true;
             }
