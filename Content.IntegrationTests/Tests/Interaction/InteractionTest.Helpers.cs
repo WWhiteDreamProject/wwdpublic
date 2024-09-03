@@ -369,10 +369,13 @@ public abstract partial class InteractionTest
     /// Cancel any currently active DoAfters. Default arguments are such that it also checks that there is at least one
     /// active DoAfter to cancel.
     /// </summary>
-    protected async Task CancelDoAfters(int minExpected = 0, int maxExpected = 1)
+    protected async Task CancelDoAfters(int minExpected = 1, int maxExpected = 1)
     {
         Assert.That(ActiveDoAfters.Count(), Is.GreaterThanOrEqualTo(minExpected));
         Assert.That(ActiveDoAfters.Count(), Is.LessThanOrEqualTo(maxExpected));
+
+        if (!ActiveDoAfters.Any())
+            return;
 
         // Cancel all the do-afters
         var doAfters = ActiveDoAfters.ToList();
