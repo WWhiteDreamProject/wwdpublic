@@ -5519,3 +5519,11 @@ Entries:
       message: 'Heavy damage modifier: 1.2 => 1 /  Модификатор урона тяжелой атакой: 1'
   id: 6286
   time: '2024-09-03T10:22:51.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        An ordinary player can now use adminwho / Обычные игроки теперь могут
+        использовать adminwho
+  id: 6287
+  time: '2024-09-03T17:01:18.0000000+00:00'
