@@ -5503,3 +5503,11 @@ Entries:
         are using.
   id: 6284
   time: '2024-09-03T05:39:50.0000000+00:00'
+- author: Hell_Cat
+  changes:
+    - type: Add
+      message: added toggle in ore bag
+    - type: Fix
+      message: Ore processor fixed
+  id: 6285
+  time: '2024-09-03T10:18:06.0000000+00:00'
