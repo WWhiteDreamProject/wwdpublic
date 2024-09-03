@@ -5527,3 +5527,11 @@ Entries:
         использовать adminwho
   id: 6287
   time: '2024-09-03T17:01:18.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        The trown item is now triggred once / Брошенные предметы теперь
+        срабатывают единожды
+  id: 6288
+  time: '2024-09-03T17:02:18.0000000+00:00'
