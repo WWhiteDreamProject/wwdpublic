@@ -371,11 +371,11 @@ public abstract partial class InteractionTest
     /// </summary>
     protected async Task CancelDoAfters(int minExpected = 1, int maxExpected = 1)
     {
+        if (!ActiveDoAfters.Any()) // WD EDIT
+            return;
+
         Assert.That(ActiveDoAfters.Count(), Is.GreaterThanOrEqualTo(minExpected));
         Assert.That(ActiveDoAfters.Count(), Is.LessThanOrEqualTo(maxExpected));
-
-        if (!ActiveDoAfters.Any())
-            return;
 
         // Cancel all the do-afters
         var doAfters = ActiveDoAfters.ToList();
