@@ -5493,3 +5493,13 @@ Entries:
       message: Logo / Лого
   id: 6283
   time: '2024-09-01T10:11:53.0000000+00:00'
+- author: Remuchi
+  changes:
+    - type: Add
+      message: >-
+        Простые и часто используемые вещи теперь можно создавать взаимодействуя
+        с материалом в руках без меню строительства / A bunch of construction
+        recipes can now be quickly accessed by interacting with material they
+        are using.
+  id: 6284
+  time: '2024-09-03T05:39:50.0000000+00:00'
