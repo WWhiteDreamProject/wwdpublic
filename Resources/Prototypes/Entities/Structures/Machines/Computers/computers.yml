@@ -752,8 +752,8 @@
     energy: 1.6
     color: "#3c5eb5"
   - type: Damageable
-    damageContainer: StructuralInorganic # WWDP
-    damageModifierSet: StrongMetallic
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
 
 - type: entity
   parent: ComputerComms
@@ -1037,8 +1037,8 @@
     speechVerb: Robotic
     speechSounds: Pai
   - type: Damageable
-    damageContainer: StructuralInorganic # WWDP
-    damageModifierSet: StrongMetallic
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
   - type: GuideHelp
     guides:
     - Cloning
@@ -1383,7 +1383,7 @@
         whitelist:
           components:
           - SiliconLawProvider
-#          - Item          WD edit - comment out
+          - Item
   - type: ContainerContainer
     containers:
       circuit_holder: !type:ContainerSlot

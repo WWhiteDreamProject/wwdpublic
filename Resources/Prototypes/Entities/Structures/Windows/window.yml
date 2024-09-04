@@ -142,7 +142,7 @@
         - GlassLayer
   - type: Repairable
   - type: Damageable
-    damageContainer: StructuralInorganic # WWDP
+    damageContainer: StructuralInorganic
     damageModifierSet: Glass
   - type: ExaminableDamage
     messages: WindowMessages

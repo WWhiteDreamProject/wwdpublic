@@ -17,8 +17,8 @@
   - type: DeviceNetworkRequiresPower
   - type: InteractionOutline
   - type: Damageable
-    damageContainer: StructuralInorganic # WWDP EDIT
-    damageModifierSet: StructuralMetallic # WWDP EDIT
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
   - type: RCDDeconstructable
     cost: 4
     delay: 6
@@ -117,7 +117,6 @@
     enabled: false
     castShadows: false
   - type: NavMapDoor
-  - type: PryUnpowered # WWDP edit
 
 - type: entity
   id: Firelock

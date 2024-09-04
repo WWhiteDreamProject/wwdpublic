@@ -45,7 +45,7 @@
   - type: AnimationPlayer
   - type: Tag
     tags:
-      - WeldbotFixableStructure
+    - WeldbotFixableStructure
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: DoorSignalControl
@@ -56,18 +56,18 @@
     range: 200
   - type: DeviceLinkSink
     ports:
-      - Open
-      - Close
-      - Toggle
-      - AutoClose
-      - DoorBolt
+    - Open
+    - Close
+    - Toggle
+    - AutoClose
+    - DoorBolt
   - type: DeviceLinkSource
     ports:
     - DoorStatus
     lastSignals:
       DoorStatus: false
   - type: Damageable
-    damageContainer: StructuralInorganic # WD EDIT: Inorganic -> StructuralInorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Glass
   - type: ExaminableDamage
     messages: WindowMessages
@@ -148,7 +148,7 @@
   - type: Airtight
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:
-      - South
+    - South
   - type: Construction
     graph: Windoor
     node: windoor
