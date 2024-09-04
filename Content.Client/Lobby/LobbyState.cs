@@ -221,10 +221,7 @@ namespace Content.Client.Lobby
         private void UpdateLobbyBackground()
         {
             if (_gameTicker.LobbyBackground != null)
-                _lobby!.Background.Texture = _resourceCache.GetResource<TextureResource>(_gameTicker.LobbyBackground);
-            else
-                _lobby!.Background.Texture = null;
-
+                _lobby!.Background.SetRSI(_resourceCache.GetResource<RSIResource>(_gameTicker.LobbyBackground).RSI); // WD EDIT
         }
 
         private void SetReady(bool newReady)
