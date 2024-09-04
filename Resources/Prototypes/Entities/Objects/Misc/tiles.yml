@@ -52,6 +52,7 @@
     state: steel
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: steel
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
@@ -79,6 +80,7 @@
     state: checker-dark
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: checker-dark
     sprite: _White/Objects/Tiles/tile.rsi
   - type: FloorTile
     outputs:
@@ -94,6 +96,7 @@
     state: checker-light
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: checker-light
     sprite: _White/Objects/Tiles/tile.rsi
   - type: FloorTile
     outputs:
@@ -128,6 +131,7 @@
     state: wood
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: wood
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: wood
   - type: FloorTile
@@ -149,6 +153,7 @@
     state: white
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: white
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: white
   - type: FloorTile
@@ -170,6 +175,7 @@
     state: dark
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: dark
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: dark
   - type: FloorTile
@@ -207,6 +213,7 @@
     state: reinforced
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: reinforced
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: reinforced
   - type: FloorTile
@@ -243,6 +250,7 @@
     state: lino
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: lino
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
@@ -379,6 +387,7 @@
     state: rockvault
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: rockvault
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
@@ -397,6 +406,7 @@
     state: blue
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: blue
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: carpet-blue
   - type: FloorTile
@@ -415,6 +425,7 @@
     state: lime
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: lime
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
@@ -482,6 +493,7 @@
     state: freezer
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: freezer
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: showroom
   - type: FloorTile
@@ -500,6 +512,7 @@
     state: showroom
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: showroom
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: showroom
   - type: FloorTile
@@ -518,6 +531,7 @@
     state: hydro
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: hydro
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: hydro
   - type: FloorTile
@@ -536,6 +550,7 @@
     state: bar
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: bar
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
@@ -554,6 +569,7 @@
     state: clown
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: clown
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
@@ -572,6 +588,7 @@
     state: mime
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: mime
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
@@ -590,6 +607,7 @@
     state: kitchen
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: kitchen
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: dark
   - type: FloorTile
@@ -608,6 +626,7 @@
     state: laundry
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: laundry
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
@@ -821,6 +840,7 @@
     state: shuttleblue
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: shuttleblue
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: shuttleblue
   - type: FloorTile
@@ -839,6 +859,7 @@
     state: shuttleorange
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: shuttleorange
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: shuttleorange
   - type: FloorTile
@@ -857,6 +878,7 @@
     state: shuttlepurple
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: shuttlepurple
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: shuttlepurple
   - type: FloorTile
@@ -875,6 +897,7 @@
     state: shuttlered
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: shuttlered
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: shuttlered
   - type: FloorTile
@@ -893,6 +916,7 @@
     state: shuttlegrey
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: shuttlegrey
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: shuttlegrey
   - type: FloorTile
@@ -911,6 +935,7 @@
     state: shuttleblack
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: checker-light
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: shuttleblack
   - type: FloorTile
@@ -930,6 +955,7 @@
     state: gold
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: gold
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: gold
   - type: FloorTile
@@ -948,6 +974,7 @@
     state: silver
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: silver
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: silver
   - type: FloorTile
@@ -967,6 +994,7 @@
     state: gcircuit
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: gcircuit
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: gcircuit
   - type: FloorTile
@@ -985,6 +1013,7 @@
     state: bcircuit
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: bcircuit
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: bcircuit
   - type: FloorTile
@@ -1070,6 +1099,7 @@
     state: woodpatternfloor
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: woodpatternfloor
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: wood
   - type: FloorTile
@@ -1243,6 +1273,7 @@
     state: wood-large
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: wood-large
     sprite: _White/Objects/Tiles/tile.rsi
     heldPrefix: wood
   - type: FloorTile
@@ -1520,6 +1551,7 @@
     state: rglass-frame
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: rglass-frame
     sprite: _White/Objects/Tiles/tile.rsi
   - type: FloorTile
     outputs:
@@ -1554,6 +1586,7 @@
     state: glass-frame
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
+    state: glass-frame
     sprite: _White/Objects/Tiles/tile.rsi
   - type: FloorTile
     outputs:
