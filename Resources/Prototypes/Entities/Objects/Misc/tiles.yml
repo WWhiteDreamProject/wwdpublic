@@ -1520,7 +1520,6 @@
     state: rglass-frame
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
-    state: rgalss-frame
     sprite: _White/Objects/Tiles/tile.rsi
   - type: FloorTile
     outputs:
@@ -1555,7 +1554,6 @@
     state: glass-frame
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
-    state: galss-frame
     sprite: _White/Objects/Tiles/tile.rsi
   - type: FloorTile
     outputs:
