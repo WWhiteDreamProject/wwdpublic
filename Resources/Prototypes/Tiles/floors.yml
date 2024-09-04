@@ -811,7 +811,7 @@
 - type: tile
   id: FloorRockVault
   name: tiles-rock-floor
-  sprite: /Textures/Tiles/rock_vault.png
+  sprite: /Textures/_White/Tiles/rock_vault.png
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
