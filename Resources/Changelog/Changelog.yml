@@ -5972,3 +5972,12 @@ Entries:
   id: 6314
   time: '2024-09-03T02:17:55.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/808
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        The duafter is removed when opening the door or tearing off the tile
+        with a crowbar / Убран дуафтер при открывании шлюзов или отрывании
+        плитки ломом
+  id: 6290
+  time: '2024-09-05T18:15:32.0000000+00:00'
