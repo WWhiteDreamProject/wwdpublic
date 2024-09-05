@@ -5981,3 +5981,12 @@ Entries:
         плитки ломом
   id: 6290
   time: '2024-09-05T18:15:32.0000000+00:00'
+- author: Remuchi
+  changes:
+    - type: Tweak
+      message: >-
+        Апстрим с Einstein Engines. Основные отличия можно глянуть на гитхабе
+        либо полный ченджлог доступен в игре.
+  id: 6315
+  time: '2024-09-05T19:58:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/39
