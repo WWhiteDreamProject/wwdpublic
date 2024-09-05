@@ -1,0 +1,170 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Made by Gersoon",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bar"
+    },
+    {
+      "name": "bcircuit"
+    },
+    {
+      "name": "blue"
+    },
+    {
+      "name": "checker-dark"
+    },
+    {
+      "name": "checker-light"
+    },
+    {
+      "name": "clown"
+    },
+    {
+      "name": "dark"
+    },
+    {
+      "name": "freezer"
+    },
+    {
+      "name": "gcircuit"
+    },
+    {
+      "name": "glass-frame"
+    },
+    {
+      "name": "gold"
+    },
+    {
+      "name": "hydro"
+    },
+    {
+      "name": "kitchen"
+    },
+    {
+      "name": "laundry"
+    },
+    {
+      "name": "lime"
+    },
+    {
+      "name": "lino"
+    },
+    {
+      "name": "lino-dark"
+    },
+    {
+      "name": "lino-grey"
+    },
+    {
+      "name": "lino-white"
+    },
+    {
+      "name": "mime"
+    },
+    {
+      "name": "plastic-blue"
+    },
+    {
+      "name": "plastic-green"
+    },
+    {
+      "name": "plastic-yellow"
+    },
+    {
+      "name": "plastic-red"
+    },
+    {
+      "name": "plastic-dark"
+    },
+    {
+      "name": "plastic-grey"
+    },
+    {
+      "name": "plastic-white"
+    },
+    {
+      "name": "reinforced"
+    },
+    {
+      "name": "rglass-frame"
+    },
+    {
+      "name": "rockvault"
+    },
+    {
+      "name": "shielding"
+    },
+    {
+      "name": "shielding-mono"
+    },
+    {
+      "name": "showroom"
+    },
+    {
+      "name": "shuttleblack"
+    },
+    {
+      "name": "shuttleblue"
+    },
+    {
+      "name": "shuttlegrey"
+    },
+    {
+      "name": "shuttleorange"
+    },
+    {
+      "name": "shuttlepurple"
+    },
+    {
+      "name": "shuttlered"
+    },
+    {
+      "name": "shuttlesyndie"
+    },
+    {
+      "name": "shuttlewhite"
+    },
+    {
+      "name": "silver"
+    },
+    {
+      "name": "steel"
+    },
+    {
+      "name": "steel-blue"
+    },
+    {
+      "name": "steel-green"
+    },
+    {
+      "name": "steel-red"
+    },
+    {
+      "name": "steel-yellow"
+    },
+    {
+      "name": "sterile"
+    },
+    {
+      "name": "sterile-dark"
+    },
+    {
+      "name": "white"
+    },
+    {
+      "name": "wood"
+    },
+    {
+      "name": "wood-large"
+    },
+    {
+      "name": "woodpatternfloor"
+    }
+  ]
+}

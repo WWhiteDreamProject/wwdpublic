@@ -323,9 +323,9 @@
   description: Meant for a clown of the cloth.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/clownpriest.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/clownpriest.rsi #WWDP edit
 
 - type: entity
   parent: ClothingOuterStorageBase

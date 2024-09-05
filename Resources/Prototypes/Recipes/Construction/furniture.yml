@@ -587,7 +587,7 @@
   category: construction-category-furniture
   description: Do not apply fire to this. Rumour says it burns easily.
   icon:
-    sprite: Structures/Furniture/Tables/counterwood.rsi
+    sprite: _White/Structures/Furniture/Tables/counterwood.rsi #WWDP edit
     state: full
   objectType: Structure
   placementMode: SnapgridCenter

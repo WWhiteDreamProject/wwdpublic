@@ -1,0 +1,118 @@
+﻿- type: decal
+  id: WindowFramekBox
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_box
+
+- type: decal
+  id: WindowFrameCornerNe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_corner_ne
+
+- type: decal
+  id: WindowFrameCornerSe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_corner_se
+
+- type: decal
+  id: WindowFrameCornerNw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_corner_nw
+
+- type: decal
+  id: WindowFrameCornerSw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_corner_sw
+
+- type: decal
+  id: WindowFrameInnerNe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_inner_ne
+
+- type: decal
+  id: WindowFrameInnerSe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_inner_se
+
+- type: decal
+  id: WindowFrameInnerNw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_inner_nw
+
+- type: decal
+  id: WindowFrameInnerSw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_inner_sw
+
+- type: decal
+  id: WindowFrameEndN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_end_n
+
+- type: decal
+  id: WindowFrameEndE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_end_e
+
+- type: decal
+  id: WindowFrameEndS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_end_s
+
+- type: decal
+  id: WindowFrameEndW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_end_w
+
+- type: decal
+  id: WindowFrameLineN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_line_n
+
+- type: decal
+  id: WindowFrameLineE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_line_e
+
+- type: decal
+  id: WindowFrameLineS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_line_s
+
+- type: decal
+  id: WindowFrameLineW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: frame_line_w
