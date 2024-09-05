@@ -24,8 +24,6 @@
         Shock: 1
     bluntStaminaDamageFactor: 1.5
     heavyRateModifier: 0.75
-    heavyDamageBaseModifier: 1.2
-    heavyStaminaCost: 10
     angle: 75
   - type: Item
     size: Normal

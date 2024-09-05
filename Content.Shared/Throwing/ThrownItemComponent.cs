@@ -50,5 +50,7 @@ namespace Content.Shared.Throwing
         /// </summary>
         [DataField]
         public Vector2? OriginalScale = null;
+
+        public readonly List<EntityUid> Processed = new(); // WD EDIT
     }
 }

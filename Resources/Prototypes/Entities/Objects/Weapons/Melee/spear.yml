@@ -42,8 +42,6 @@
         Slash: 1
     heavyRateModifier: 0.75
     heavyRangeModifier: 1.25
-    heavyDamageBaseModifier: 1.0
-    heavyStaminaCost: 5
     maxTargets: 3
     angle: 20
     animation: WeaponArcThrust

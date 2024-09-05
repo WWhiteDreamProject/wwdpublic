@@ -5493,6 +5493,60 @@ Entries:
       message: Logo / Лого
   id: 6283
   time: '2024-09-01T10:11:53.0000000+00:00'
+- author: Remuchi
+  changes:
+    - type: Add
+      message: >-
+        Простые и часто используемые вещи теперь можно создавать взаимодействуя
+        с материалом в руках без меню строительства / A bunch of construction
+        recipes can now be quickly accessed by interacting with material they
+        are using.
+  id: 6284
+  time: '2024-09-03T05:39:50.0000000+00:00'
+- author: Hell_Cat
+  changes:
+    - type: Add
+      message: added toggle in ore bag
+    - type: Fix
+      message: Ore processor fixed
+  id: 6285
+  time: '2024-09-03T10:18:06.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added disarm animation / Добавлена анимация толчка
+    - type: Tweak
+      message: 'Heavy damage modifier: 1.2 => 1 /  Модификатор урона тяжелой атакой: 1'
+  id: 6286
+  time: '2024-09-03T10:22:51.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        An ordinary player can now use adminwho / Обычные игроки теперь могут
+        использовать adminwho
+  id: 6287
+  time: '2024-09-03T17:01:18.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        The trown item is now triggred once / Брошенные предметы теперь
+        срабатывают единожды
+  id: 6288
+  time: '2024-09-03T17:02:18.0000000+00:00'
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Добавлены новые тайлы и текстуры для них
+    - type: Add
+      message: Добавлены новые декали и текстуры для них
+    - type: Add
+      message: Добавлены растения с рандомным спрайтом
+    - type: Tweak
+      message: Изменено много спрайтов тайлов, декалей, структур из дерева и другое...
+  id: 6289
+  time: '2024-09-05T09:34:23.0000000+00:00'
 - author: Mnemotechnician
   changes:
     - type: Fix

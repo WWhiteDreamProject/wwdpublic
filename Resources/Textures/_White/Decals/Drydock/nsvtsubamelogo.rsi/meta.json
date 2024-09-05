@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by ONIKS",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "TsubamePart1"
+        },
+        {
+            "name": "TsubamePart2"
+        },
+        {
+            "name": "TsubamePart3"
+        },
+        {
+            "name": "TsubamePart4"
+        },
+        {
+            "name": "TsubamePart5"
+        }
+    ]
+}

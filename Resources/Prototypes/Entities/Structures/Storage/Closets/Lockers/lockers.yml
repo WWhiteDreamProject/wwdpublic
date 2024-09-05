@@ -4,12 +4,13 @@
   name: booze storage
   description: This is where the bartender keeps the booze.
   components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/closet.rsi #WWDP edit
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: cabinet
     stateDoorOpen: cabinet_open
     stateDoorClosed: cabinet_door
-
   - type: AccessReader
     access: [["Bar"]]
   - type: EntityStorage

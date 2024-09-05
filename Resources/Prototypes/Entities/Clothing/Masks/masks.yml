@@ -188,9 +188,9 @@
   description: A true prankster's facial attire. A clown is incomplete without his wig and mask.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/clown.rsi
+    sprite: _White/Clothing/Mask/clown.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Mask/clown.rsi
+    sprite: _White/Clothing/Mask/clown.rsi #WWDP edit
   - type: BreathMask
   - type: IdentityBlocker
   - type: Tag
@@ -217,9 +217,9 @@
   name: banana clown wig and mask
   components:
   - type: Sprite
-    sprite: Clothing/Mask/clown_banana.rsi
+    sprite: _White/Clothing/Mask/clown_banana.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Mask/clown_banana.rsi
+    sprite: _White/Clothing/Mask/clown_banana.rsi #WWDP edit
   - type: Construction
     graph: BananaClownMask
     node: mask
@@ -321,9 +321,9 @@
   description: Cursed cluwne face and hair.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/cluwne.rsi
+    sprite: _White/Clothing/Mask/cluwne.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Mask/cluwne.rsi
+    sprite: _White/Clothing/Mask/cluwne.rsi #WWDP edit
   - type: Unremoveable
   - type: AddAccentClothing
     accent: StutteringAccent
@@ -544,9 +544,9 @@
   description: Some naughty clowns think this is what the Honkmother looks like.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/sexyclown.rsi
+    sprite: _White/Clothing/Mask/sexyclown.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Mask/sexyclown.rsi
+    sprite: _White/Clothing/Mask/sexyclown.rsi #WWDP edit
 
 - type: entity
   parent: ClothingMaskMime

@@ -46,7 +46,7 @@
   description: For fast running from security.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/clown.rsi
+    sprite: _White/Clothing/Back/Satchels/clown.rsi #WWDP edit
   - type: Storage
     storageOpenSound:
       collection: BikeHorn

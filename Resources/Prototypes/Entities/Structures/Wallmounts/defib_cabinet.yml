@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: DefibrillatorCabinet
   name: defibrillator cabinet
   description: A small wall mounted cabinet designed to hold a defibrillator.
@@ -10,7 +10,7 @@
     - type: Clickable
     - type: InteractionOutline
     - type: Sprite
-      sprite: Structures/Wallmounts/defib_cabinet.rsi
+      sprite: _White/Structures/Wallmounts/defib_cabinet.rsi #WWDP edit
       noRot: false
       layers:
       - state: frame

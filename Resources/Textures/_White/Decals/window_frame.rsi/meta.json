@@ -1,0 +1,62 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "Made by Gersoon",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "frame_box"
+        },
+        {
+            "name": "frame_corner_ne"
+        },
+        {
+            "name": "frame_corner_se"
+        },
+        {
+            "name": "frame_corner_nw"
+        },
+        {
+            "name": "frame_corner_sw"
+        },
+        {
+            "name": "frame_end_n"
+        },
+        {
+            "name": "frame_end_e"
+        },
+        {
+            "name": "frame_end_s"
+        },
+        {
+            "name": "frame_end_w"
+        },
+        {
+            "name": "frame_line_n"
+        },
+        {
+            "name": "frame_line_e"
+        },
+        {
+            "name": "frame_line_s"
+        },
+        {
+            "name": "frame_line_w"
+        },
+        {
+            "name": "frame_inner_ne"
+        },
+        {
+            "name": "frame_inner_se"
+        },
+        {
+            "name": "frame_inner_nw"
+        },
+        {
+            "name": "frame_inner_sw"
+        }
+    ]
+}
