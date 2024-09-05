@@ -139,6 +139,8 @@ namespace Content.Client.Stylesheets
 
         //Background
         public const string StyleClassBackgroundBaseDark = "PanelBackgroundBaseDark";
+        public const string StyleClassLobbyBackground = "LobbyBackground"; // WD EDIT
+        public const string StyleClassPanelBackground = "PanelBackground"; // WD EDIT
 
         //Buttons
         public const string StyleClassCrossButtonRed = "CrossButtonRed";
@@ -463,6 +465,29 @@ namespace Content.Client.Stylesheets
                 Mode = StyleBoxTexture.StretchMode.Tile
             };
 
+            // WD EDIT START
+            var lobbyBackgroundTex = resCache.GetTexture("/Textures/_White/Interface/Nano/lobby.png");
+            var lobbyBackground = new StyleBoxTexture
+            {
+                Texture = lobbyBackgroundTex,
+                Mode = StyleBoxTexture.StretchMode.Tile
+            };
+
+            lobbyBackground.SetPatchMargin(StyleBox.Margin.All, 24);
+            lobbyBackground.SetExpandMargin(StyleBox.Margin.All, -4);
+            lobbyBackground.SetContentMarginOverride(StyleBox.Margin.All, 8);
+
+            var panelBackgroundTex = resCache.GetTexture("/Textures/_White/Interface/Nano/panel.png");
+            var panelBackground = new StyleBoxTexture
+            {
+                Texture = panelBackgroundTex,
+                Mode = StyleBoxTexture.StretchMode.Tile
+            };
+
+            panelBackground.SetPatchMargin(StyleBox.Margin.All, 6);
+            panelBackground.SetExpandMargin(StyleBox.Margin.All, -2);
+            // WD EDIT END
+
             // Slider
             var sliderOutlineTex = resCache.GetTexture("/Textures/Interface/Nano/slider_outline.svg.96dpi.png");
             var sliderFillTex = resCache.GetTexture("/Textures/Interface/Nano/slider_fill.svg.96dpi.png");
@@ -684,6 +709,22 @@ namespace Content.Client.Stylesheets
                     {
                         new StyleProperty("font-color", Color.FromHex("#E5E5E581")),
                     }),
+
+                // WD EDIT START
+                new StyleRule(
+                    new SelectorElement(null, new[] {StyleClassLobbyBackground}, null, null),
+                    new[]
+                    {
+                        new StyleProperty(PanelContainer.StylePropertyPanel, lobbyBackground),
+                    }),
+
+                new StyleRule(
+                    new SelectorElement(null, new[] {StyleClassPanelBackground}, null, null),
+                    new[]
+                    {
+                        new StyleProperty(PanelContainer.StylePropertyPanel, panelBackground),
+                    }),
+                // WD EDIT END
 
                 // Context Menu window
                 Element<PanelContainer>().Class(ContextMenuPopup.StyleClassContextMenuPopup)
