@@ -5547,3 +5547,12 @@ Entries:
       message: Изменено много спрайтов тайлов, декалей, структур из дерева и другое...
   id: 6289
   time: '2024-09-05T09:34:23.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        The duafter is removed when opening the door or tearing off the tile
+        with a crowbar / Убран дуафтер при открывании шлюзов или отрывании
+        плитки ломом
+  id: 6290
+  time: '2024-09-05T18:15:32.0000000+00:00'
