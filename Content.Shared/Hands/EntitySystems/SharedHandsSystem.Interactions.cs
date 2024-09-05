@@ -95,7 +95,27 @@ public abstract partial class SharedHandsSystem : EntitySystem
     private bool DropPressed(ICommonSession? session, EntityCoordinates coords, EntityUid netEntity)
     {
         if (TryComp(session?.AttachedEntity, out HandsComponent? hands) && hands.ActiveHand != null)
-            TryDrop(session.AttachedEntity.Value, hands.ActiveHand, coords, handsComp: hands);
+        {
+            // WD EDIT START
+            if (session != null)
+            {
+                var ent = session.AttachedEntity.Value;
+
+                if (TryGetActiveItem(ent, out var item) && TryComp<VirtualItemComponent>(item, out var virtComp))
+                {
+                    var userEv = new VirtualItemDropAttemptEvent(virtComp.BlockingEntity, ent, item.Value, false);
+                    RaiseLocalEvent(ent, userEv);
+
+                    var targEv = new VirtualItemDropAttemptEvent(virtComp.BlockingEntity, ent, item.Value, false);
+                    RaiseLocalEvent(virtComp.BlockingEntity, targEv);
+
+                    if (userEv.Cancelled || targEv.Cancelled)
+                        return false;
+                }
+                TryDrop(ent, hands.ActiveHand, coords, handsComp: hands);
+            }
+        }
+        // WD EDIT END
 
         // always send to server.
         return false;

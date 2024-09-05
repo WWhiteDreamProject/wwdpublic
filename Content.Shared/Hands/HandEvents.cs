@@ -148,13 +148,56 @@ namespace Content.Shared.Hands
     {
         public EntityUid BlockingEntity;
         public EntityUid User;
+        public EntityUid VirtualItem;  // WD EDIT
 
-        public VirtualItemDeletedEvent(EntityUid blockingEntity, EntityUid user)
+        public VirtualItemDeletedEvent(EntityUid blockingEntity, EntityUid user, EntityUid virtualItem)  // WD EDIT
         {
             BlockingEntity = blockingEntity;
             User = user;
+            VirtualItem = virtualItem;  // WD EDIT
         }
     }
+
+    // WD EDIT START
+    /// <summary>
+    ///     Raised directed on both the blocking entity and user when
+    ///     a virtual hand item is thrown (at least attempted to).
+    /// </summary>
+    public sealed class VirtualItemThrownEvent : EntityEventArgs
+    {
+        public EntityUid BlockingEntity;
+        public EntityUid User;
+        public EntityUid VirtualItem;
+        public Vector2 Direction;
+        public VirtualItemThrownEvent(EntityUid blockingEntity, EntityUid user, EntityUid virtualItem, Vector2 direction)
+        {
+            BlockingEntity = blockingEntity;
+            User = user;
+            VirtualItem = virtualItem;
+            Direction = direction;
+        }
+    }
+
+    /// <summary>
+    ///     Raised directed on both the blocking entity and user when
+    ///     user tries to drop it by keybind.
+    ///     Cancellable.
+    /// </summary>
+    public sealed class VirtualItemDropAttemptEvent : CancellableEntityEventArgs
+    {
+        public EntityUid BlockingEntity;
+        public EntityUid User;
+        public EntityUid VirtualItem;
+        public bool Throw;
+        public VirtualItemDropAttemptEvent(EntityUid blockingEntity, EntityUid user, EntityUid virtualItem, bool thrown)
+        {
+            BlockingEntity = blockingEntity;
+            User = user;
+            VirtualItem = virtualItem;
+            Throw = thrown;
+        }
+    }
+    // WD EDIT END
 
     /// <summary>
     ///     Raised when putting an entity into a hand slot
