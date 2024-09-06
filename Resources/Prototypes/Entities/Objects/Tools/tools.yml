@@ -263,7 +263,7 @@
     sound:
       path: /Audio/Items/multitool_drop.ogg
   - type: Sprite
-    sprite: Objects/Tools/multitool.rsi
+    sprite: _White/Objects/Tools/multitool.rsi #WWDP edit
     layers:
     - state: icon
     - state: green-unlit
@@ -281,7 +281,7 @@
   - type: Item
     size: Small
   - type: Clothing
-    sprite: Objects/Tools/multitool.rsi
+    sprite: _White/Objects/Tools/multitool.rsi #WWDP edit
     quickEquip: false
     slots:
     - Belt
