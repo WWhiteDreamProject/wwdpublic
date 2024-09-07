@@ -70,6 +70,12 @@ namespace Content.Client.Preferences.UI
 
             _humanoidProfileEditor = new HumanoidProfileEditor(preferencesManager, prototypeManager, configurationManager);
             _humanoidProfileEditor.OnProfileChanged += ProfileChanged;
+
+            // WD-EDIT start
+            _humanoidProfileEditor.HorizontalExpand = true;
+            _humanoidProfileEditor.HorizontalAlignment = HAlignment.Stretch;
+            // WD-EDIT end
+
             CharEditor.AddChild(_humanoidProfileEditor);
 
             UpdateUI();
@@ -201,6 +207,7 @@ namespace Content.Client.Preferences.UI
                 {
                     Text = description,
                     ClipText = true,
+                    MinSize = new Vector2(100, 0),
                     HorizontalExpand = true
                 };
                 var deleteButton = new Button
@@ -230,6 +237,7 @@ namespace Content.Client.Preferences.UI
                 {
                     Orientation = LayoutOrientation.Horizontal,
                     HorizontalExpand = true,
+                    MinSize = new Vector2(125, 0), // WD EDIT
                     SeparationOverride = 0,
                     Children =
                     {
