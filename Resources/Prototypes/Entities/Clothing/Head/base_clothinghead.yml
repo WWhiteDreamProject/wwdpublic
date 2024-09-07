@@ -126,7 +126,8 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.2
+    heatingCoefficient: 0.2
+    coolingCoefficient: 0.2
   - type: IgniteFromGasImmunity
     parts:
     - Head
@@ -162,7 +163,8 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.2
+    heatingCoefficient: 0.2
+    coolingCoefficient: 0.2
   - type: IgniteFromGasImmunity
     parts:
     - Head
@@ -205,7 +207,8 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.2 # WWDP
+    heatingCoefficient: 0.2 # WD EDIT: 0.1 -> 0.2
+    coolingCoefficient: 0.2 # WD EDIT: 0.1 -> 0.2
   - type: IgniteFromGasImmunity
     parts:
     - Head
@@ -238,9 +241,9 @@
   #  reflects:
   #  - Energy
   #  - NonEnergy
-  # WD EDIT END
-  - type: TinfoilHat # WWDP
+  - type: TinfoilHat
     destroyOnFry: false
+  # WD EDIT END
 
 - type: entity
   abstract: true
@@ -279,7 +282,8 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.2
+    heatingCoefficient: 0.2
+    coolingCoefficient: 0.2
   - type: IngestionBlocker
   - type: Tag
     tags:
@@ -474,7 +478,8 @@
     quickEquip: false
     slots: [ HEAD ]
   - type: TemperatureProtection
-    coefficient: 0.7
+    heatingCoefficient: 1.05
+    coolingCoefficient: 0.7
   - type: GroupExamine
   - type: HideLayerClothing
     slots:

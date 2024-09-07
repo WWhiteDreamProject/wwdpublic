@@ -120,7 +120,6 @@
   abstract: true
   parent: [ClothingOuterStorageFoldableBase, ClothingOuterFoldableBaseOpened]
   id: ClothingOuterStorageFoldableBaseOpened
-  suffix: opened
 
 - type: entity
   abstract: true
@@ -146,6 +145,8 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
+    heatingCoefficient: 0.01
+    coolingCoefficient: 0.01
   - type: IgniteFromGasImmunity
     parts:
     - Torso
@@ -182,7 +183,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-    - HidesHarpyWings #DeltaV: Used by harpies to help render their hardsuit sprites
+    - HidesHarpyWings
     - AllowLamiaHardsuit
     - FullBodyOuter
     - PlasmamanSafe
@@ -338,7 +339,8 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.2 # WWDP
+    heatingCoefficient: 0.2 # WD EDIT: 0.01 -> 0.2
+    coolingCoefficient: 0.2 # WD EDIT: 0.01 -> 0.2
   - type: IgniteFromGasImmunity
     parts:
     - Torso

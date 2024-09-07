@@ -486,7 +486,8 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.2
+    heatingCoefficient: 0.2
+    coolingCoefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
@@ -606,7 +607,8 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.2
+    heatingCoefficient: 0.2
+    coolingCoefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
@@ -677,7 +679,8 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.2
+    heatingCoefficient: 0.2
+    coolingCoefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
@@ -1259,7 +1262,8 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/beanie.rsi
   - type: TemperatureProtection
-    coefficient: 0.5
+    heatingCoefficient: 0.5
+    coolingCoefficient: 0.5
 
 - type: entity
   parent: ClothingHeadBase
@@ -1272,7 +1276,8 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/beanie_winter.rsi
   - type: TemperatureProtection
-    coefficient: 0.5
+    heatingCoefficient: 0.5
+    coolingCoefficient: 0.5
 
 - type: entity
   parent: ClothingHeadBase
@@ -1285,7 +1290,8 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/beanie_submariner.rsi
   - type: TemperatureProtection
-    coefficient: 0.5
+    heatingCoefficient: 0.5
+    coolingCoefficient: 0.5
 
 - type: entity
   parent: ClothingHeadBase
@@ -1298,7 +1304,8 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/beanie_tight.rsi
   - type: TemperatureProtection
-    coefficient: 0.5
+    heatingCoefficient: 0.5
+    coolingCoefficient: 0.5
   - type: HideLayerClothing
     slots:
     - Hair

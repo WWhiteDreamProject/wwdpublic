@@ -26,7 +26,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: TemperatureProtection
-    coefficient: 0.1 # WWDP
+    heatingCoefficient: 0.1 # WD EDIT: 0.001 -> 0.1
+    coolingCoefficient: 0.1 # WD EDIT: 0.001 -> 0.1
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetCultArmor
   - type: CultItem

@@ -9,7 +9,8 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
   - type: TemperatureProtection
-    coefficient: 0.7 # WWDP
+    heatingCoefficient: 0.7 # WD EDIT: 0.1 -> 0.7
+    coolingCoefficient: 0.7 # WD EDIT: 0.1 -> 0.7
 
 - type: entity
   parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBasic]
@@ -153,7 +154,8 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/trenchcoat.rsi
   - type: TemperatureProtection
-    coefficient: 0.7 # WWDP
+    heatingCoefficient: 0.7 # WD EDIT: 0.1 -> 0.7
+    coolingCoefficient: 0.7 # WD EDIT: 0.1 -> 0.7
   - type: Armor
     modifiers:
       coefficients:

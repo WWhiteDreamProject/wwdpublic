@@ -48,7 +48,8 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.001
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
   - type: FireProtection
     reduction: 0.5 # WWDP, most protection is on the helmet
   - type: ExplosionResistance
@@ -129,7 +130,8 @@
   - type: GuideHelp
     guides: [ HephaestusIndustries ]
   - type: TemperatureProtection
-    coefficient: 0.1 # WWDP
+    heatingCoefficient: 0.1 # WD EDIT: 0.001 -> 0.1
+    coolingCoefficient: 0.1 # WD EDIT: 0.001 -> 0.1
   - type: FireProtection
     reduction: 0.5 # WWDP, most protection is on the helmet
 
@@ -209,7 +211,8 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
   - type: TemperatureProtection
-    coefficient: 0.2 # WWDP
+    heatingCoefficient: 0.2 # WD EDIT: 0.1 -> 0.2
+    coolingCoefficient: 0.2 # WD EDIT: 0.1 -> 0.2
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -258,7 +261,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: TemperatureProtection
-    coefficient: 0.1 # WWDP
+    heatingCoefficient: 0.1 # WD EDIT: 0.001 -> 0.1
+    coolingCoefficient: 0.1 # WD EDIT: 0.001 -> 0.1
   - type: FireProtection
     reduction: 0.5 # WWDP, most protection is on the helmet
   - type: ToggleableClothing
@@ -443,7 +447,8 @@
   - type: GuideHelp
     guides: [ HephaestusIndustries ]
   - type: TemperatureProtection
-    coefficient: 0.1 # WWDP
+    heatingCoefficient: 0.1 # WD EDIT: 0.001 -> 0.1
+    coolingCoefficient: 0.1 # WD EDIT: 0.001 -> 0.1
   - type: FireProtection
     reduction: 0.5 # WWDP, most protection is on the helmet
 
@@ -709,7 +714,8 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.1 # WWDP
+    heatingCoefficient: 0.1 # WD EDIT: 0.001 -> 0.1
+    coolingCoefficient: 0.1 # WD EDIT: 0.001 -> 0.1
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: Armor
@@ -1040,7 +1046,8 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
   - type: TemperatureProtection
-    coefficient: 0.1 # WWDP
+    heatingCoefficient: 0.1 # WD EDIT: 0.001 -> 0.1
+    coolingCoefficient: 0.1 # WD EDIT: 0.001 -> 0.1
   - type: FireProtection
     reduction: 0.5 # WWDP, most protection is on the helmet
     #WWDP edit delete StaminaDamageResistance
@@ -1089,7 +1096,8 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.001
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: FireProtection
@@ -1128,7 +1136,8 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.1 # WWDP
+    heatingCoefficient: 0.1 # WD EDIT: 0.001 -> 0.1
+    coolingCoefficient: 0.1 # WD EDIT: 0.001 -> 0.1
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: Armor

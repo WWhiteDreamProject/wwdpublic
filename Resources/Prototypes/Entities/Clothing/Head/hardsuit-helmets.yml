@@ -60,9 +60,10 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.005
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
   - type: FireProtection
-    reduction: 1 # WD EDIT
+    reduction: 1 # WD EDIT: 0.2 -> 1
 
 #Engineering Hardsuit
 - type: entity
@@ -560,7 +561,8 @@
     - Snout
     - Hair
   - type: TemperatureProtection
-    coefficient: 0.1 # WWDP
+    heatingCoefficient: 0.1 # WD EDIT: 0.005 -> 0.1
+    coolingCoefficient: 0.1 # WD EDIT: 0.005 -> 0.1
   - type: FireProtection
     reduction: 0.2
   - type: Armor
@@ -918,7 +920,8 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.1 # WWDP
+    heatingCoefficient: 0.1 # WD EDIT: 0.005 -> 0.1
+    coolingCoefficient: 0.1 # WD EDIT: 0.005 -> 0.1
   - type: Armor
     modifiers:
       coefficients:
