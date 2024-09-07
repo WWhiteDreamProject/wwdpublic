@@ -249,6 +249,7 @@ namespace Content.Client.Lobby
             _consoleHost.ExecuteCommand($"toggleready {newReady}");
         }
 
+        // WD EDIT START
         private void MakeButtonReady(WhiteLobbyTextButton button)
         {
             button.ButtonText = Loc.GetString("lobby-state-ready-button-ready-up-state");
@@ -349,5 +350,6 @@ namespace Content.Client.Lobby
                 ModulateSelfOverride = Color.FromHex(color)
             };
         }
+        // WD EDIT END
     }
 }

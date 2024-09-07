@@ -92,7 +92,7 @@
             </BoxContainer>
             <!-- Right Panel -->
             <PanelContainer Name="RightSide" StyleClasses="LobbyBackground" HorizontalAlignment="Right" VerticalExpand="True"
-                            VerticalAlignment="Stretch">
+                            VerticalAlignment="Stretch"><!-- WD EDIT -->
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True">
                     <!-- Top row -->
                     <BoxContainer Orientation="Horizontal" MinSize="0 40" Name="HeaderContainer" Access="Public"
@@ -106,7 +106,7 @@
                     <!-- Server info -->
                     <controls:NanoHeading Text="{Loc 'ui-lobby-server-info-block'}" />
                     <info:ServerInfo Name="ServerInfo" Access="Public" MinSize="0 100" VerticalExpand="false"
-                                     Margin="3 3 3 3" MaxWidth="400" HorizontalAlignment="Left" />
+                                     Margin="3 3 3 3" MaxWidth="400" HorizontalAlignment="Left" /><!-- WD EDIT -->
                     <Label Name="StationTime" Access="Public" FontColorOverride="{x:Static maths:Color.MediumVioletRed}"
                            Margin="3 3 3 3" HorizontalAlignment="Left" />
                     <Label Name="StartTime" Access="Public" FontColorOverride="{x:Static maths:Color.MediumVioletRed}"

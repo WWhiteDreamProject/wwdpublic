@@ -207,7 +207,7 @@ namespace Content.Client.Preferences.UI
                 {
                     Text = description,
                     ClipText = true,
-                    MinSize = new Vector2(100, 0),
+                    MinSize = new Vector2(100, 0), // WD EDIT
                     HorizontalExpand = true
                 };
                 var deleteButton = new Button
