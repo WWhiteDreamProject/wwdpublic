@@ -5990,3 +5990,14 @@ Entries:
   id: 6315
   time: '2024-09-05T19:58:43.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/39
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added BackStab / Добавлен удар в спину
+    - type: Add
+      message: >-
+        Added the Betrayal dagger to uplink / Добавлен Предательский кинжал в
+        аплинк
+  id: 6316
+  time: '2024-09-07T02:50:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/30
