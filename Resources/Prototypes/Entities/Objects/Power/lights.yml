@@ -122,11 +122,11 @@
   components:
   - type: LightBulb
     bulb: Bulb
-    color: "#BFA156" # WWDP edit
+    color: "#BFA156" # WD EDI: #FFD1A3 -> #BFA156
     lightEnergy: 1.0
-    lightRadius: 5 # WWDP edit
+    lightRadius: 6 # WD EDIT: 6 -> 5
     lightSoftness: 1.1
-  - type: Tag #WWDP EDIT
+  - type: Tag
     tags:
     - LightBulb
 
@@ -144,6 +144,9 @@
     lightSoftness: 1
     BurningTemperature: 350 #LEDs are colder than incandescent bulbs
     PowerUse: 6 #LEDs are more power efficient than incandescent bulbs
+  - type: Tag
+    tags:
+    - LightBulb
 
 - type: entity
   parent: LightBulb
@@ -157,6 +160,9 @@
     lightEnergy: 0.3 # old incandescents just arent as bright
     lightRadius: 6
     lightSoftness: 1.1
+  - type: Tag
+    tags:
+    - LightBulb
 
 - type: entity
   suffix: Broken
@@ -181,6 +187,9 @@
     lightEnergy: 0.45
     lightRadius: 1.5
     lightSoftness: 3
+  - type: Tag
+    tags:
+    - LightBulb
 
 - type: entity
   parent: BaseLightTube
@@ -189,8 +198,8 @@
   description: A light fixture.
   components:
   - type: LightBulb
-    color: "#D2DCF2" # WWDP edit
-    lightEnergy: 1 # WWDP edit
+    color: "#D2DCF2" # WD EDIT: #FFE4CE -> #D2DCF2
+    lightEnergy: 1 # WD EDIT: 0.8 -> 1
     lightRadius: 10
     lightSoftness: 1
     PowerUse: 25

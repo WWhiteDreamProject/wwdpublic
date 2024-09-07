@@ -23,8 +23,8 @@
     ClothingEyesBlindfold: 1
     ClothingShoesBootsCombat: 1
     ClothingShoesBootsWinterSec: 2
+    ClothingHeadHelmetJustice: 1
     ClothingOuterStasecSweater: 2 # WWDP - moved sweaters from security lockers to SecDrobe
     ClothingOuterArmorBasic: 2 # WWDP - moved body armour back to SecDrobe from SecTech
   contrabandInventory:
     ClothingMaskClownSecurity: 1
-
