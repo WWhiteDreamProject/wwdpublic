@@ -2,7 +2,7 @@ using Robust.Client.UserInterface.CustomControls;
 
 namespace Content.Client._White.UI.Buttons;
 
-public class WhiteUICommandButton : WhiteCommandButton
+public sealed class WhiteUICommandButton : WhiteCommandButton
 {
     public Type? WindowType { get; set; }
     private DefaultWindow? _window;
@@ -12,7 +12,11 @@ public class WhiteUICommandButton : WhiteCommandButton
         if (WindowType == null)
             return;
 
-        _window = (DefaultWindow) IoCManager.Resolve<IDynamicTypeFactory>().CreateInstance(WindowType);
-        _window?.OpenCentered();
+        var windowInstance = IoCManager.Resolve<IDynamicTypeFactory>().CreateInstance(WindowType);
+        if (windowInstance is not DefaultWindow window)
+            return;
+
+        _window = window;
+        _window.OpenCentered();
     }
 }
