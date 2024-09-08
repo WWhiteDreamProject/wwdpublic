@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: ClothingBackpack
   id: ClothingBackpackChameleon
   name: backpack
@@ -8,7 +8,7 @@
     - type: Tag
       tags: [] # ignore "WhitelistChameleon" tag
     - type: Sprite
-      sprite: Clothing/Back/Backpacks/backpack.rsi
+      sprite: _White/Clothing/Back/Backpacks/backpack.rsi #WWDP edit
     - type: ChameleonClothing
       slot: [back]
       default: ClothingBackpack

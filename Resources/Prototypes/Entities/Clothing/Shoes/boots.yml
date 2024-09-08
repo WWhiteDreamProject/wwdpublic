@@ -5,9 +5,9 @@
   description: Engineering lace-up work boots for the especially blue-collar.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/workboots.rsi
+    sprite: _White/Clothing/Shoes/Boots/workboots.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/workboots.rsi
+    sprite: _White/Clothing/Shoes/Boots/workboots.rsi #WWDP edit
   - type: Matchbox
 
 - type: entity

@@ -98,9 +98,9 @@
   description: Regal blue gloves, with a nice gold trim. Swanky.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/captain.rsi
+    sprite: _White/Clothing/Hands/Gloves/captain.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/captain.rsi
+    sprite: _White/Clothing/Hands/Gloves/captain.rsi #WWDP edit
   - type: GloveHeatResistance
     heatResistance: 1400
   - type: Insulated
@@ -136,9 +136,9 @@
   description: Thin sterile latex gloves. Basic PPE for any doctor.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/latex.rsi
+    sprite: _White/Clothing/Hands/Gloves/latex.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/latex.rsi
+    sprite: _White/Clothing/Hands/Gloves/latex.rsi #WWDP edit
   - type: Fiber
     fiberMaterial: fibers-latex
   - type: FingerprintMask
@@ -285,9 +285,9 @@
   description: Plain black gloves without fingertips for the hard working.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/fingerless.rsi
+    sprite: _White/Clothing/Hands/Gloves/fingerless.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/fingerless.rsi
+    sprite: _White/Clothing/Hands/Gloves/fingerless.rsi #WWDP edit
   - type: Fiber
     fiberMaterial: fibers-synthetic
     fiberColor: fibers-black

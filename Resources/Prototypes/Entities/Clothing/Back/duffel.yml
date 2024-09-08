@@ -88,7 +88,7 @@
   description: A large duffel bag for holding extra beakers and test tubes.
   components:
     - type: Sprite
-      sprite: Clothing/Back/Duffels/chemistry.rsi
+      sprite: _White/Clothing/Back/Duffels/chemistry.rsi #WWDP edit
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -128,7 +128,7 @@
   description: A large duffel bag for holding extra science related goods.
   components:
     - type: Sprite
-      sprite: Clothing/Back/Duffels/science.rsi
+      sprite: _White/Clothing/Back/Duffels/science.rsi #WWDP edit
 
 - type: entity
   parent: ClothingBackpackDuffel

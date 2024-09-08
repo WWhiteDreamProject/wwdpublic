@@ -918,7 +918,7 @@
     key: walls
     base: state
   - type: Icon
-    sprite: _Whute/Structures/Walls/solid_diagonal.rsi  #WWDP edit
+    sprite: _White/Structures/Walls/solid_diagonal.rsi  #WWDP edit
     state: state0
 
 - type: entity

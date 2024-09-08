@@ -6,9 +6,9 @@
   description: A lightweight vacsuit with the basic ability to protect the wearer from the vacuum of space during emergencies.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/eva.rsi
+    sprite: _White/Clothing/OuterClothing/Suits/eva.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/eva.rsi
+    sprite: _White/Clothing/OuterClothing/Suits/eva.rsi #WWDP edit
   - type: Tag
     tags:
     - SuitEVA
@@ -24,9 +24,9 @@
   description: "Has a tag on the back that reads: 'Totally not property of an enemy corporation, honest!'"
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
+    sprite: _White/Clothing/OuterClothing/Suits/eva_syndicate.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
+    sprite: _White/Clothing/OuterClothing/Suits/eva_syndicate.rsi #WWDP edit
   - type: Tag
     tags:
     - SuitEVA
@@ -42,9 +42,9 @@
   description: An emergency vacsuit with a built-in helmet. It's horribly slow and lacking in temperature protection, but enough to bide you time from the harsh vaccuum of space.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/eva_emergency.rsi
+    sprite: _White/Clothing/OuterClothing/Suits/eva_emergency.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/eva_emergency.rsi
+    sprite: _White/Clothing/OuterClothing/Suits/eva_emergency.rsi #WWDP edit
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -66,9 +66,9 @@
   description: A lightweight space suit for prisoners to protect them from the vacuum of space during emergencies.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/eva_prisoner.rsi
+    sprite: _White/Clothing/OuterClothing/Suits/eva_prisoner.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/eva_prisoner.rsi
+    sprite: _White/Clothing/OuterClothing/Suits/eva_prisoner.rsi #WWDP edit
   - type: Tag
     tags:
     - SuitEVA

@@ -6,9 +6,9 @@
   description: A suit that protects against biological contamination.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/general.rsi
+    sprite: _White/Clothing/OuterClothing/Bio/general.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/general.rsi
+    sprite: _White/Clothing/OuterClothing/Bio/general.rsi #WWDP edit
   - type: Armor
     modifiers:
       coefficients:
@@ -22,9 +22,9 @@
   description: An advanced suit that protects against biological contamination, in CMO colors.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/cmo.rsi
+    sprite: _White/Clothing/OuterClothing/Bio/cmo.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/cmo.rsi
+    sprite: _White/Clothing/OuterClothing/Bio/cmo.rsi #WWDP edit
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -34,9 +34,9 @@
   description: A suit that protects against biological contamination, in Janitor colors.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/janitor.rsi
+    sprite: _White/Clothing/OuterClothing/Bio/janitor.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/janitor.rsi
+    sprite: _White/Clothing/OuterClothing/Bio/janitor.rsi #WWD{ edit}
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -46,9 +46,9 @@
   description: A suit that protects against biological contamination, in Scientist colors.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/scientist.rsi
+    sprite: _White/Clothing/OuterClothing/Bio/scientist.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/scientist.rsi
+    sprite: _White/Clothing/OuterClothing/Bio/scientist.rsi #WWDP edit
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -58,9 +58,9 @@
   description: A suit that protects against biological contamination, in Security colors.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/security.rsi
+    sprite: _White/Clothing/OuterClothing/Bio/security.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/security.rsi
+    sprite: _White/Clothing/OuterClothing/Bio/security.rsi #WWDP edit
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -70,6 +70,6 @@
   description: A suit that protects against biological contamination, in Virology colors.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/virology.rsi
+    sprite: _White/Clothing/OuterClothing/Bio/virology.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/virology.rsi
+    sprite: _White/Clothing/OuterClothing/Bio/virology.rsi #WWDP edit
