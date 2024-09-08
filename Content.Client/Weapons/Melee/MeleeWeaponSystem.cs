@@ -127,6 +127,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 return;
             }
 
+            // WD EDIT START
             // If it's a ranged weapon then do a light attack
             if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey)
             {
