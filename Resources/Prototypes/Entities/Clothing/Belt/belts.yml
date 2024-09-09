@@ -717,7 +717,7 @@
     sprite: Clothing/Belt/securitywebbing.rsi
 
 - type: entity
-  parent: [ClothingBaseWebbing, ClothingBeltStorageBase] # WWDP
+  parent: [ClothingBaseWebbing, BaseSecurityCargoContraband, ClothingBeltStorageBase] # WWDP
   id: ClothingBeltMercWebbing
   name: mercenary webbing
   description: Ideal for storing everything from ammo to weapons and combat essentials.

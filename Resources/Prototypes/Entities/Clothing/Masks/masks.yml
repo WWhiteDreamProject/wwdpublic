@@ -40,7 +40,7 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
-  # - type: IngestionBlocker # Goobstation # WWDP moved to parent
+  # - type: IngestionBlocker - WWDP moved to parent
   #   blockSmokeIngestion: true
 
 - type: entity
@@ -62,7 +62,7 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
-  # - type: IngestionBlocker # Goobstation # WWDP moved to parent
+  # - type: IngestionBlocker # WWDP moved to parent
   #   blockSmokeIngestion: true
 
 - type: entity
@@ -105,7 +105,7 @@
     sprite: Clothing/Mask/gascaptaincombat.rsi
 
 - type: entity
-  parent: ClothingMaskGasAtmos
+  parent: [ ClothingMaskGasAtmos, BaseCentcommContraband ]
   id: ClothingMaskGasCentcom
   name: CentComm gas mask
   description: Oooh, gold and green. Fancy! This should help as you sit in your office.
@@ -233,9 +233,11 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: Construction # WWDP
+  # WD EDIT START
+  - type: Construction
     graph: BananaClownMask
     node: basemask
+  # WD EDIT END
 
 - type: entity
   parent: ClothingMaskClown
@@ -411,7 +413,7 @@
     sprite: Clothing/Mask/merc.rsi
 
 - type: entity
-  parent: ClothingMaskGasSyndicate
+  parent: [ BaseCentcommContraband, ClothingMaskGasSyndicate ]
   id: ClothingMaskGasERT
   name: ert gas mask
   description: The gas mask of the elite squad of the ERT.
@@ -428,7 +430,7 @@
     - Hair
     - Snout
     hideOnToggle: true
-  # - type: IngestionBlocker # Goobstation # WWDP moved to parent
+  # - type: IngestionBlocker # WWDP moved to parent
   #   blockSmokeIngestion: true
 
 - type: entity
@@ -462,7 +464,7 @@
   - type: BreathMask
   - type: Tag
     tags:
-    - IPCMaskWearable # Estacao Pirata - IPCs
+    - IPCMaskWearable
     - HamsterWearable
     - WhitelistChameleon
   - type: HideLayerClothing
@@ -599,7 +601,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-    - IPCMaskWearable # Estacao Pirata - IPCs
+    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskNeckGaiter
@@ -631,9 +633,11 @@
     sprite: Clothing/Mask/sexyclown.rsi
   - type: Clothing
     sprite: Clothing/Mask/sexyclown.rsi
-  - type: Construction # WWDP
+  # WD EDIT START
+  - type: Construction
     graph: BananaClownMask
     node: sexymask
+  # WD EDIT END
 
 - type: entity
   parent: ClothingMaskMime
@@ -701,5 +705,5 @@
   - type: IdentityBlocker
   - type: Tag
     tags:
-    - IPCMaskWearable # Estacao Pirata - IPCs
+    - IPCMaskWearable
   - type: Unremoveable
