@@ -5,9 +5,9 @@
   description: A nice and tidy uniform. Shame about the bar though.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/bartender.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/bartender.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/bartender.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/bartender.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -16,9 +16,9 @@
   description: It's a blue jumpskirt with some gold markings denoting the rank of "Captain".
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/captain.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/captain.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/captain.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/captain.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -27,9 +27,9 @@
   description: A sturdy jumpskirt, issued to members of the Logistics department. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/cargotech.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/cargotech.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/cargotech.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/cargotech.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -38,9 +38,9 @@
   description: It's a high visibility jumpskirt given to those engineers insane enough to achieve the rank of Chief Engineer. It has minor radiation shielding.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/ce.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/ce.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/ce.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/ce.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -71,9 +71,9 @@
   description: Can't cook without this.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/chef.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/chef.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/chef.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/chef.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -82,9 +82,9 @@
   description: There's some odd stains on this jumpskirt. Hm.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/chemistry.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/chemistry.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/chemistry.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/chemistry.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -115,9 +115,9 @@
   description: It's a jumpskirt worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/cmo.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/cmo.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/cmo.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/cmo.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -126,9 +126,9 @@
   description: Someone who wears this means business.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/detective.rsi
+      sprite: _White/Clothing/Uniforms/Jumpskirt/detective.rsi #WWDP edit
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/detective.rsi
+      sprite: _White/Clothing/Uniforms/Jumpskirt/detective.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -137,9 +137,9 @@
   description: A hard-boiled private investigator's grey suit, complete with tie clip.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/detective_grey.rsi
+      sprite: _White/Clothing/Uniforms/Jumpskirt/detective_grey.rsi #WWDP edit
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/detective_grey.rsi
+      sprite: _White/Clothing/Uniforms/Jumpskirt/detective_grey.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -148,9 +148,9 @@
   description: If this suit was non-conductive, maybe engineers would actually do their damn job.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/engineering.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/engineering.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/engineering.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/engineering.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -159,9 +159,9 @@
   description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/hop.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/hop.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/hop.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/hop.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -170,9 +170,9 @@
   description: A standard Station Security uniform, adorned with gold emblems and commander's epaulettes. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/hos.rsi # DeltaV - resprite
+    sprite: _White/Clothing/Uniforms/Jumpskirt/hos.rsi #WWDP edit
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/hos.rsi # DeltaV - resprite
+    sprite: _White/Clothing/Uniforms/Jumpskirt/hos.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -181,9 +181,9 @@
   description: It's a turtleneck worn by those strong and disciplined enough to achieve the position of Head of Security. Its sturdy fabric provides minor protection from slash and pierce damage.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/hos_alt.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/hos_alt.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/hos_alt.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/hos_alt.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -192,9 +192,9 @@
   description: A head of security's luxury-wear, for special occasions.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/hos_parade.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/hos_parade.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/hos_parade.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/hos_parade.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -203,9 +203,9 @@
   description: Has a strong earthy smell to it. Hopefully it's merely dirty as opposed to soiled.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/hydro.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/hydro.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/hydro.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/hydro.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -225,9 +225,9 @@
   description: It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/medical.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/medical.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/medical.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/medical.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -236,9 +236,9 @@
   description: ...
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/mime.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/mime.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/mime.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/mime.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -247,9 +247,9 @@
   description: It's got a plus on it, that's a good thing right?
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/paramedic.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/paramedic.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/paramedic.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/paramedic.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -309,9 +309,9 @@
   description: 'What can brown do for you?'
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/qm.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/qm.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/qm.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/qm.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -342,9 +342,9 @@
   description: It's made of a special fiber that provides minor protection against explosives. It has markings that denote the wearer as a scientist.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/scientist.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/scientist.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/scientist.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/scientist.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -364,9 +364,9 @@
   description: A charcoal skirt and a dull red shirt, the standard-issue uniform of the infamous Station Security Department. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/security.rsi # DeltaV - resprite
+    sprite: _White/Clothing/Uniforms/Jumpskirt/security.rsi #WWDP edit
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/security.rsi # DeltaV - resprite
+    sprite: _White/Clothing/Uniforms/Jumpskirt/security.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -375,9 +375,9 @@
   description: Red shirt on a charcoal skirt, with white markings and epaulettes that denote a warden's rank. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/warden.rsi # DeltaV - resprite
+    sprite: _White/Clothing/Uniforms/Jumpskirt/warden.rsi #WWDP edit
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpskirt/warden.rsi # DeltaV - resprite
+    sprite: _White/Clothing/Uniforms/Jumpskirt/warden.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -452,9 +452,9 @@
   description: Uniform for elite syndicate operatives performing tactical operations in deep space.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/operative_s.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/operative_s.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/operative_s.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/operative_s.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -478,9 +478,9 @@
   description: I am at work. I can't leave work. Work is breathing. I am testing air quality.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/atmosf.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/atmosf.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/atmosf.rsi
+    sprite: _White/Clothing/Uniforms/Jumpskirt/atmosf.rsi #WWDP edit
 
 - type: entity
   parent: ClothingUniformSkirtBase
