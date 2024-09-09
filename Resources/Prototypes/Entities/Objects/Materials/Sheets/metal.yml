@@ -69,19 +69,6 @@
           Quantity: 9
         - ReagentId: Carbon
           Quantity: 1
-  - type: UserInterface # White Dream Start
-    interfaces:
-    - key: enum.ShortConstructionUiKey.Key
-      type: ShortConstructionMenuBUI
-  - type: ActivatableUI
-    key: enum.ShortConstructionUiKey.Key
-  - type: ShortConstruction
-    prototypes:
-    - Girder
-    - MetalRod
-    - TileSteel
-    - TileWhite
-    - TileDark # White Dream end
 
 - type: entity
   parent: SheetSteel
