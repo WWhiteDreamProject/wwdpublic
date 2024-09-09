@@ -66,7 +66,9 @@ public sealed class ShortConstructionMenuBUI : BoundUserInterface
 
         var mainContainer = new RadialContainer
         {
-            Radius = 36f / MathF.Sin(MathF.PI / crafting.Prototypes.Count)
+            Radius = 36f / (crafting.Prototypes.Count == 1
+                ? 0.75f
+                : MathF.Sin(MathF.PI / crafting.Prototypes.Count))
         };
 
         foreach (var protoId in crafting.Prototypes)
