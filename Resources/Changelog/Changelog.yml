@@ -6012,3 +6012,14 @@ Entries:
   id: 6317
   time: '2024-09-09T05:36:59.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/42
+- author: Remuchi
+  changes:
+    - type: Add
+      message: Old ahelp sound. All hail BWOINK! / Возвращен старый звук ахелпа
+    - type: Remove
+      message: >-
+        Sound on sending ahelp message was removed / Удален звук при отправке
+        сообщения в ахелпе.
+  id: 6318
+  time: '2024-09-09T08:26:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/48
