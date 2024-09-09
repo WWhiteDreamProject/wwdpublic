@@ -163,7 +163,9 @@ namespace Content.Server.GameTicking
 
         public HumanoidCharacterProfile GetPlayerProfile(ICommonSession p)
         {
-            return (HumanoidCharacterProfile) _prefsManager.GetPreferences(p.UserId).SelectedCharacter;
+            var profile = (HumanoidCharacterProfile) _prefsManager.GetPreferences(p.UserId).SelectedCharacter;
+            profile.EnsureValid(p, IoCManager.Instance!);
+            return profile;
         }
 
         public void PlayerJoinGame(ICommonSession session, bool silent = false)
