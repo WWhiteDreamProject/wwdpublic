@@ -7,12 +7,12 @@
   markingLimits: MobHarpyMarkingLimits
   dollPrototype: MobHarpyDummy
   skinColoration: HumanToned
-  minHeight: 0.6
+  minHeight: 0.8
   defaultHeight: 0.8
-  maxHeight: 1.1
-  minWidth: 0.55
+  maxHeight: 1
+  minWidth: 0.8
   defaultWidth: 0.8
-  maxWidth: 1.15
+  maxWidth: 1
 
 - type: speciesBaseSprites
   id: MobHarpySprites
