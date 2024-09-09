@@ -6298,3 +6298,10 @@ Entries:
   id: 6340
   time: '2024-09-09T16:06:49.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/50
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added a few translations / Добавлено немного переводов
+  id: 6341
+  time: '2024-09-09T16:23:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/51
