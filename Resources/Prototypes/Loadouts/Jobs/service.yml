@@ -1,7 +1,7 @@
 # Clown
 - type: loadout
   id: LoadoutServiceClownOutfitJester
-  category: Jobs
+  category: JobsAUncategorized
   cost: 3
   exclusive: true
   requirements:
@@ -15,7 +15,7 @@
 
 - type: loadout
   id: LoadoutServiceClownOutfitJesterAlt
-  category: Jobs
+  category: JobsAUncategorized
   cost: 3
   exclusive: true
   requirements:
@@ -29,7 +29,7 @@
 
 - type: loadout
   id: LoadoutServiceClownOuterWinter
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
@@ -41,7 +41,7 @@
 
 - type: loadout
   id: LoadoutServiceClownOuterClownPriest
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
@@ -53,24 +53,19 @@
 
 - type: loadout
   id: LoadoutServiceClownBootsWinter
-  category: Jobs
+  category: JobsAUncategorized
   cost: 1
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
         - Clown
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Diona
-        - Harpy
   items:
     - ClothingShoesBootsWinterClown
 
 - type: loadout
   id: LoadoutServiceClownMaskSexy
-  category: Jobs
+  category: JobsAUncategorized
   cost: 1
   exclusive: true
   requirements:
@@ -82,7 +77,7 @@
 
 - type: loadout
   id: LoadoutServiceClownBedsheetClown
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
@@ -95,7 +90,7 @@
 # Mime
 - type: loadout
   id: LoadoutServiceMimeOuterWinter
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
@@ -107,7 +102,7 @@
 
 - type: loadout
   id: LoadoutServiceMimeMaskSad
-  category: Jobs
+  category: JobsAUncategorized
   cost: 1
   exclusive: true
   requirements:
@@ -119,7 +114,7 @@
 
 - type: loadout
   id: LoadoutServiceMimeMaskScared
-  category: Jobs
+  category: JobsAUncategorized
   cost: 1
   exclusive: true
   requirements:
@@ -131,7 +126,7 @@
 
 - type: loadout
   id: LoadoutServiceMimeMaskSexy
-  category: Jobs
+  category: JobsAUncategorized
   cost: 1
   exclusive: true
   requirements:
@@ -143,24 +138,19 @@
 
 - type: loadout
   id: LoadoutServiceMimeShoesBootsWinter
-  category: Jobs
+  category: JobsAUncategorized
   cost: 1
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
         - Mime
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Diona
-        - Harpy
   items:
     - ClothingShoesBootsWinterMime
 
 - type: loadout
   id: LoadoutServiceMimeBedsheetMime
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
@@ -173,7 +163,7 @@
 # Bartender
 - type: loadout
   id: LoadoutServiceBartenderUniformPurple
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
@@ -186,12 +176,12 @@
 # Botanist
 - type: loadout
   id: LoadoutServiceBotanistUniformOveralls
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
-     jobs:
+      jobs:
         - Botanist
   items:
     - ClothingUniformOveralls
@@ -199,23 +189,19 @@
 # Lawyer
 - type: loadout
   id: LoadoutServiceLawyerUniformBlueSuit
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Harpy
     - !type:CharacterJobRequirement
-     jobs:
+      jobs:
         - Lawyer
   items:
     - ClothingUniformJumpsuitLawyerBlue
 
 - type: loadout
   id: LoadoutServiceLawyerUniformBlueSkirt
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
@@ -227,14 +213,10 @@
 
 - type: loadout
   id: LoadoutServiceLawyerUniformRedSuit
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Harpy
     - !type:CharacterJobRequirement
       jobs:
         - Lawyer
@@ -243,7 +225,7 @@
 
 - type: loadout
   id: LoadoutServiceLawyerUniformRedSkirt
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
@@ -255,14 +237,10 @@
 
 - type: loadout
   id: LoadoutServiceLawyerUniformPurpleSuit
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Harpy
     - !type:CharacterJobRequirement
       jobs:
         - Lawyer
@@ -271,7 +249,7 @@
 
 - type: loadout
   id: LoadoutServiceLawyerUniformPurpleSkirt
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
@@ -283,14 +261,10 @@
 
 - type: loadout
   id: LoadoutServiceLawyerUniformGoodSuit
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Harpy
     - !type:CharacterJobRequirement
       jobs:
         - Lawyer
@@ -299,7 +273,7 @@
 
 - type: loadout
   id: LoadoutServiceLawyerUniformGoodSkirt
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
@@ -311,7 +285,7 @@
 
 - type: loadout
   id: LoadoutServiceReporterUniformJournalist
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
@@ -324,14 +298,10 @@
 # Reporter
 - type: loadout
   id: LoadoutServiceReporterUniformDetectivesuit
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Harpy
     - !type:CharacterJobRequirement
       jobs:
         - Reporter
@@ -340,7 +310,7 @@
 
 - type: loadout
   id: LoadoutServiceReporterUniformDetectiveskirt
-  category: Jobs
+  category: JobsAUncategorized
   cost: 2
   exclusive: true
   requirements:
@@ -353,7 +323,7 @@
 # Musician
 - type: loadout
   id: LoadoutItemSynthesizerInstrument
-  category: Jobs
+  category: JobsAUncategorized
   cost: 8
   requirements:
     - !type:CharacterJobRequirement
