@@ -74,6 +74,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+    - Bot
     - SiliconMob
   - type: MobState
     allowedStates:
@@ -432,6 +433,7 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
+    - Bot
   - type: ActiveRadio
     channels:
     - Binary
