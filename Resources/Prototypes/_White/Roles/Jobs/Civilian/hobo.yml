@@ -31,5 +31,4 @@
   id: HoboGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitWhiteHobo
-    outerClothing: ClothingOuterOverCoatHobo
     id: HoboPDA
