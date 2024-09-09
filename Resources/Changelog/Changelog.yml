@@ -6037,8 +6037,8 @@ Entries:
   changes:
     - type: Fix
       message: >-
-        Fixed a couple issues with the new interaction verb system /
-        Исправлены некоторые проблемы с новой системой взаимодействий.
+        Fixed a couple issues with the new interaction verb system / Исправлены
+        некоторые проблемы с новой системой взаимодействий.
   id: 6316
   time: '2024-09-05T00:18:41.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/854
@@ -6048,8 +6048,8 @@ Entries:
       message: >-
         Due to NUMEROUS complaints, NanoTrasen has swapped the sticker labels on
         all colored jumpskirts to correctly state that they are infact,
-        "Skirts", so now they can legally be worn by Harpies, Lamia, and
-        Arachne / Часть ранее недоступных для гарпий юбкомбенизонов теперь доступны.
+        "Skirts", so now they can legally be worn by Harpies, Lamia, and Arachne
+        / Часть ранее недоступных для гарпий юбкомбенизонов теперь доступны.
   id: 6317
   time: '2024-09-05T00:19:49.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/848
@@ -6060,7 +6060,9 @@ Entries:
         The cost of many traits have been updated / Стоимость многих черт
         персонажей была изменена.
     - type: Tweak
-      message: A few traits have been tweaked / Некоторые черты персонажа были изменены.
+      message: >-
+        A few traits have been tweaked / Некоторые черты персонажа были
+        изменены.
   id: 6318
   time: '2024-09-06T20:08:38.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/842
@@ -6075,8 +6077,8 @@ Entries:
     - type: Add
       message: >-
         Added new PDA, ID, and bag variants for roboticists. The mystagogue will
-        now also find a roboticist PDA in their office / Добавлены ПДА, ID карта и
-        сумка робототехника.
+        now also find a roboticist PDA in their office / Добавлены ПДА, ID карта
+        и сумка робототехника.
   id: 6319
   time: '2024-09-06T20:17:31.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/801
@@ -6085,8 +6087,8 @@ Entries:
     - type: Fix
       message: >-
         The loadout/trait editors' performance has been improved by 100~1000x /
-        Производительность окна смены лодаутов/черт персонажей была улучшена
-        в 100-1000 раз.
+        Производительность окна смены лодаутов/черт персонажей была улучшена в
+        100-1000 раз.
     - type: Tweak
       message: >-
         The character editor's tabs look, feel, and function much better /
@@ -6102,20 +6104,21 @@ Entries:
     - type: Add
       message: >-
         Added a button to remove any unusable loadouts (or traits) you have
-        selected / Добавлена кнопка удалить все неиспользуемые лодауты
-        (или черты персонажа).
+        selected / Добавлена кнопка удалить все неиспользуемые лодауты (или
+        черты персонажа).
     - type: Add
       message: >-
         Loadouts and traits can have subcategories, though only Command loadouts
-        use them at the moment / Лодауты и черты персонажей получили подкатегории.
+        use them at the moment / Лодауты и черты персонажей получили
+        подкатегории.
     - type: Fix
       message: >-
-        Fixed empty loadout categories not hiding /
-        Исправлено, что пустые категории лодаутов не скрывались.
+        Fixed empty loadout categories not hiding / Исправлено, что пустые
+        категории лодаутов не скрывались.
     - type: Fix
       message: >-
-        Fixed spacing on some loadout requirements' reason text /
-        Исправлено отображение текста на некоторых лодаутах.
+        Fixed spacing on some loadout requirements' reason text / Исправлено
+        отображение текста на некоторых лодаутах.
     - type: Fix
       message: >-
         Fixed traits not updating after saving / Черты персонажей теперь
@@ -6129,15 +6132,15 @@ Entries:
       message: >-
         The first of all new loadout groups has been added, Civilian Uniforms.
         Only one civilian uniform can be selected, in exchange for... /
-        Добавлена первая из новых групп лодаутов - «Гражданская униформа».
-        Можно выбрать только одну гражданскую форму, в обмен на...
+        Добавлена первая из новых групп лодаутов - «Гражданская униформа». Можно
+        выбрать только одну гражданскую форму, в обмен на...
     - type: Tweak
       message: >-
         All non-job specific uniforms have had their points reduced drastically,
         almost all of them down to 0 points, with only a tiny handful at 2
         points, and the rest as 1 / Всем униформам, не относящимся к конкретным
-        профессиям, значительно снижена цена. Большая часть до 0 очков, небольшое
-        количества по 2 очков, а остальные - 1.
+        профессиям, значительно снижена цена. Большая часть до 0 очков,
+        небольшое количества по 2 очков, а остальные - 1.
   id: 6321
   time: '2024-09-07T00:53:13.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/872
@@ -6155,8 +6158,8 @@ Entries:
   changes:
     - type: Tweak
       message: >-
-        Eyewear have had their loadout point costs significantly reduced /
-        Цены на многие очки в лодаутах были снижены.
+        Eyewear have had their loadout point costs significantly reduced / Цены
+        на многие очки в лодаутах были снижены.
   id: 6323
   time: '2024-09-07T01:04:42.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/879
@@ -6174,9 +6177,9 @@ Entries:
     - type: Add
       message: >-
         Your character size now affects your blood level. Smaller characters
-        will have less blood, and larger characters will have more /
-        Размер персонажа теперь влияет на количество крови в нем. Меньше размер
-        -> меньше крови. И наоборот.
+        will have less blood, and larger characters will have more / Размер
+        персонажа теперь влияет на количество крови в нем. Меньше размер ->
+        меньше крови. И наоборот.
   id: 6326
   time: '2024-09-08T14:39:19.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/858
@@ -6184,8 +6187,8 @@ Entries:
   changes:
     - type: Tweak
       message: >-
-        Female slimes no longer have movie screams /
-        Звук крика слаймов женщин был изменен.
+        Female slimes no longer have movie screams / Звук крика слаймов женщин
+        был изменен.
   id: 6328
   time: '2024-09-08T14:44:29.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/849
@@ -6193,8 +6196,8 @@ Entries:
   changes:
     - type: Add
       message: >-
-        Chat bubbles now use the font & color of the language of the message /
-        В чате теперь корректно отображаются цвета и шрифты.
+        Chat bubbles now use the font & color of the language of the message / В
+        чате теперь корректно отображаются цвета и шрифты.
   id: 6329
   time: '2024-09-08T14:51:20.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/812
@@ -6213,8 +6216,8 @@ Entries:
     - type: Fix
       message: >-
         Multiple issues with translators were fixed. Additionally, you can now
-        hold multiple handheld translators at once without issues /
-        Различные исправления внутреигровых переводчиков.
+        hold multiple handheld translators at once without issues / Различные
+        исправления внутреигровых переводчиков.
   id: 6331
   time: '2024-09-08T15:08:37.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/834
@@ -6222,13 +6225,13 @@ Entries:
   changes:
     - type: Add
       message: >-
-        Recyclers can now once again eat people when emagged /
-        Переработчик теперь снова может есть людей и других зверей.
+        Recyclers can now once again eat people when emagged / Переработчик
+        теперь снова может есть людей и других зверей.
     - type: Add
       message: >-
         Recyclers require power to eat people. No more dragging emagged
-        recyclers into crowds / Переработчик теперь требует энергии для
-        поедания людей.
+        recyclers into crowds / Переработчик теперь требует энергии для поедания
+        людей.
   id: 6332
   time: '2024-09-08T15:15:56.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/822
@@ -6236,8 +6239,8 @@ Entries:
   changes:
     - type: Add
       message: >-
-        Added bwoink hammer with bwoink sound /
-        Добавлена игрушка-молот со звуком ахелпа.
+        Added bwoink hammer with bwoink sound / Добавлена игрушка-молот со
+        звуком ахелпа.
   id: 6333
   time: '2024-09-08T15:16:09.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/759
@@ -6245,8 +6248,8 @@ Entries:
   changes:
     - type: Add
       message: >-
-        A new console command, AddPsionicPower has been added /
-        Новая педальная команда - AddPsionicPower.
+        A new console command, AddPsionicPower has been added / Новая педальная
+        команда - AddPsionicPower.
   id: 6334
   time: '2024-09-08T15:16:29.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/807
@@ -6254,13 +6257,12 @@ Entries:
   changes:
     - type: Add
       message: >-
-        Glacier, Core, and Saltern now have assistant job slots /
-        Glacier, Core и Saltern теперь имеют слоты ассистентов.
+        Glacier, Core, and Saltern now have assistant job slots / Glacier, Core
+        и Saltern теперь имеют слоты ассистентов.
     - type: Add
       message: >-
-        Glacier, Core, and Saltern are now able to be voted on for map
-        selection / Glacier, Core и Saltern теперь доступы в голосовании
-        за карту.
+        Glacier, Core, and Saltern are now able to be voted on for map selection
+        / Glacier, Core и Saltern теперь доступы в голосовании за карту.
   id: 6335
   time: '2024-09-09T04:13:06.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/838
@@ -6291,3 +6293,8 @@ Entries:
   id: 6339
   time: '2024-09-09T05:30:34.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/870
+- author: Remuchi
+  changes: []
+  id: 6340
+  time: '2024-09-09T16:06:49.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/50
