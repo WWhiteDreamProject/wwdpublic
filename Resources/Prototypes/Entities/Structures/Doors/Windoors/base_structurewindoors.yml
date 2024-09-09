@@ -207,7 +207,7 @@
             max: 2
           SheetPlasteel1:
             min: 1
-            max:
+            max: 2
       # WD EDIT START
       - !type:PlaySoundBehavior
         sound:
@@ -220,6 +220,10 @@
     node: windoorSecure
   - type: StaticPrice
     price: 350
+  - type: Tag
+    tags:
+    - SecureWindoor
+    # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
   # WD EDIT START
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -345,6 +349,10 @@
     price: 500
   - type: RadiationBlocker
     resistance: 6
+  - type: Tag
+    tags:
+    - SecurePlasmaWindoor
+    # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
 
 #Uranium Windoors
 - type: entity
@@ -465,3 +473,7 @@
     price: 750
   - type: RadiationBlocker
     resistance: 8
+  - type: Tag
+    tags:
+    - SecureUraniumWindoor
+    # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
