@@ -10,8 +10,6 @@ gun-set-fire-mode = Выбрать {$mode}
 gun-SemiAuto = полуавто
 gun-Burst = очередь
 gun-FullAuto = авто
-gun-PullItem = тащить предмет
-gun-PullMob = тащить существ
 
 # BallisticAmmoProvider
 gun-ballistic-cycle = Перезарядка
@@ -20,7 +18,6 @@ gun-ballistic-cycled-empty = Разряжено
 gun-ballistic-transfer-invalid = { CAPITALIZE($ammoEntity) } нельзя поместить в { $targetEntity }!
 gun-ballistic-transfer-empty = В { CAPITALIZE($entity) } пусто.
 gun-ballistic-transfer-target-full = { CAPITALIZE($entity) } уже полностью заряжен.
-gun-ballistic-not-cycled = Не перезаряжено
 
 # CartridgeAmmo
 gun-cartridge-spent = Он [color=red]израсходован[/color].
@@ -50,10 +47,3 @@ gun-revolver-insert = Заряжен
 gun-revolver-spin = Вращать барабан
 gun-revolver-spun = Барабан вращается
 gun-speedloader-empty = Спидлоадер пуст
-
-# TwoModeGun
-gun-twomode-mode-examine = Выбран тип огня [color={ $color }]{ $mode }[/color].
-gun-twomode-Stun = шокер
-gun-twomode-Laser = лазер
-gun-twomode-Cool = охлаждение
-gun-twomode-Heat = нагрев
