@@ -26,13 +26,13 @@
     ClothingUniformJumpsuitTacticool: 1
     ClothingUniformJumpskirtTacticool: 1
     ClothingBackpackSatchelSmugglerUnanchored: 1 # this definitely is not intended for loadout
-  #WWDP edit start
-  emaggedInventory:
-    ClothingHandsGlovesCombat: 1
-    ClothingUniformJumpsuitOperative: 1
-    ClothingBeltMilitaryWebbing: 1
-    ClothingBackpackDuffelSyndicate: 1
-    ClothingHeadsetAltSyndicate: 1
-    ClothingShoesBootsCombatFilled: 1
-    ClothingMaskGasSyndicate: 1
-  #WWDP edit end
+    #WWDP edit start
+    emaggedInventory:
+      ClothingHandsGlovesCombat: 1
+      ClothingUniformJumpsuitOperative: 1
+      ClothingBeltMilitaryWebbing: 1
+      ClothingBackpackDuffelSyndicate: 1
+      ClothingHeadsetAltSyndicate: 1
+      ClothingShoesBootsCombatFilled: 1
+      ClothingMaskGasSyndicate: 1
+    #WWDP edit end
