@@ -14,10 +14,10 @@
     min: 65
     max: 110
   - !type:CharacterSexRequirement
-    requiredSex:
+    sex:
     - Male
   - !type:GenderRequirement
-    requiredGender:
+    gender:
     - Male
   weight: 20
   icon: "JobIconHobo"
