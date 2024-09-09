@@ -5,7 +5,7 @@
   suffix: Atmospherics
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/atmospherics.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/atmospherics.rsi # WD EDIT
     state: "assembly"
 
 - type: entity
@@ -14,7 +14,7 @@
   suffix: Atmospherics, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/atmospherics.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/atmospherics.rsi # WD EDIT
     state: "assembly"
 
 #Cargo
@@ -24,7 +24,7 @@
   suffix: Cargo
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/cargo.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/cargo.rsi # WD EDIT
     state: "assembly"
 
 - type: entity
@@ -33,7 +33,7 @@
   suffix: Cargo, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/cargo.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/cargo.rsi # WD EDIT
     state: "assembly"
 
 #Clockwork
@@ -68,7 +68,7 @@
   suffix: Command
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/command.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/command.rsi # WD EDIT
     state: "assembly"
 
 - type: entity
@@ -77,7 +77,7 @@
   suffix: Command, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/command.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/command.rsi # WD EDIT
     state: "assembly"
 
 #Engineering
@@ -87,7 +87,7 @@
   suffix: Engineering
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/engineering.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/engineering.rsi # WD EDIT
     state: "assembly"
 
 - type: entity
@@ -96,7 +96,7 @@
   suffix: Engineering, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/engineering.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/engineering.rsi # WD EDIT
     state: "assembly"
 
 #External
@@ -106,7 +106,7 @@
   suffix: External
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/external.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/external.rsi # WD EDIT
     state: "assembly"
 
 - type: entity
@@ -115,7 +115,7 @@
   suffix: External, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/external.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/external.rsi # WD EDIT
     state: "assembly"
 
 #Public (Glass Airlock)
@@ -125,7 +125,7 @@
   suffix: Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/glass.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/glass.rsi # WD EDIT
     state: "assembly"
 
 #Freezer
@@ -135,7 +135,7 @@
   suffix: Freezer
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/freezer.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/freezer.rsi # WD EDIT
     state: "assembly"
 
 #Maintenance
@@ -145,7 +145,7 @@
   suffix: Maintenance
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/maint.rsi # WD EDIT
     state: "assembly"
 
 - type: entity
@@ -154,7 +154,7 @@
   suffix: Maintenance, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/maint.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/maint.rsi # WD EDIT
     state: "assembly"
 
 #Medical
@@ -164,7 +164,7 @@
   suffix: Medical
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/medical.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/medical.rsi # WD EDIT
     state: "assembly"
 
 - type: entity
@@ -173,7 +173,7 @@
   suffix: Medical, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/medical.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/medical.rsi # WD EDIT
     state: "assembly"
 
 #Science
@@ -183,7 +183,7 @@
   suffix: Science
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/science.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/science.rsi # WD EDIT
     state: "assembly"
 
 - type: entity
@@ -192,7 +192,7 @@
   suffix: Science, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/science.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/science.rsi # WD EDIT
     state: "assembly"
 
 #Security
@@ -202,7 +202,7 @@
   suffix: Security
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/security.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/security.rsi # WD EDIT
     state: "assembly"
 
 - type: entity
@@ -211,7 +211,7 @@
   suffix: Security, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/security.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/security.rsi # WD EDIT
     state: "assembly"
 
 #Shuttle
@@ -221,7 +221,7 @@
   suffix: Shuttle
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/shuttle.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/shuttle.rsi # WD EDIT
     state: "assembly"
 
 - type: entity
@@ -230,7 +230,7 @@
   suffix: Shuttle, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/shuttle.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/shuttle.rsi # WD EDIT
     state: "assembly"
 
 #Virology
@@ -240,7 +240,7 @@
   suffix: Virology
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/virology.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/virology.rsi # WD EDIT
     state: "assembly"
 
 - type: entity
@@ -249,7 +249,7 @@
   suffix: Virology, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/virology.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/virology.rsi # WD EDIT
     state: "assembly"
 
 #CentralCommand
@@ -259,7 +259,7 @@
   suffix: CentralCommand
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/centcomm.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/centcomm.rsi # WD EDIT
     state: "assembly"
 
 - type: entity
@@ -268,7 +268,7 @@
   suffix: CentralCommand, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/centcomm.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/centcomm.rsi # WD EDIT
     state: "assembly"
 
 #Mining
@@ -278,7 +278,7 @@
   suffix: Mining
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/mining.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/mining.rsi # WD EDIT
     state: "assembly"
 
 - type: entity
@@ -287,7 +287,7 @@
   suffix: Mining, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/mining.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/mining.rsi # WD EDIT
     state: "assembly"
 
 #Syndicate
@@ -297,7 +297,7 @@
   suffix: Syndicate
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/syndicate.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/syndicate.rsi # WD EDIT
     state: "assembly"
 
 - type: entity
@@ -306,7 +306,7 @@
   suffix: Syndicate, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/syndicate.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/syndicate.rsi # WD EDIT
     state: "assembly"
 
 #ShuttleSyndicate
@@ -316,7 +316,7 @@
   suffix: ShuttleSyndicate
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/shuttle_syndicate.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/shuttle_syndicate.rsi # WD EDIT
     state: "assembly"
 
 - type: entity
@@ -325,7 +325,7 @@
   suffix: ShuttleSyndicate, Glass
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/shuttle_syndicate.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/shuttle_syndicate.rsi # WD EDIT
     state: "assembly"
 
 #High Security
@@ -335,5 +335,5 @@
   suffix: HighSec
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/highsec/highsec.rsi
+    sprite: _White/Structures/Doors/Airlocks/highsec/highsec.rsi # WD EDIT
     state: "assembly"
