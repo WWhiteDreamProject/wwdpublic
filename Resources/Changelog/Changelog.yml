@@ -6001,3 +6001,14 @@ Entries:
   id: 6316
   time: '2024-09-07T02:50:31.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/30
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added WD airlock texture / Добавлены Текстуры шлюзов от ВД
+    - type: Tweak
+      message: The powered airlock are now glowing / Запитанные шлюзы теперь светятся
+    - type: Fix
+      message: Fixed animation of airlock / Исправлена анимация шлюзов
+  id: 6317
+  time: '2024-09-09T05:36:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/42
