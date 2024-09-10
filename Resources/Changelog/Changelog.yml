@@ -6314,3 +6314,16 @@ Entries:
   id: 6342
   time: '2024-09-10T10:03:48.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/52
+- author: Remuchi
+  changes:
+    - type: Tweak
+      message: >-
+        Most of the hardsuits slow down less now / Большая часть скафандром
+        теперь слабее замедляет. 
+    - type: Remove
+      message: >-
+        Removed equip/unequip delay from most of the clothes / Убран ду-афтер
+        одевания/снятия большей части одежды.
+  id: 6343
+  time: '2024-09-10T17:00:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/54
