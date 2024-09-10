@@ -34,7 +34,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
-using Robust.Shared.Random;
+//using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Disposal.Unit.EntitySystems;
@@ -42,7 +42,7 @@ namespace Content.Server.Disposal.Unit.EntitySystems;
 public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
 {
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    //[Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AtmosphereSystem _atmosSystem = default!;
@@ -297,20 +297,21 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
     private void OnThrowCollide(EntityUid uid, SharedDisposalUnitComponent component, ThrowHitByEvent args)
     {
         var canInsert = CanInsert(uid, component, args.Thrown);
-        var randDouble = _robustRandom.NextDouble();
+        //var randDouble = _robustRandom.NextDouble();
 
         if (!canInsert)
         {
             return;
         }
 
-        if (randDouble > 0.75)
-        {
-            _audioSystem.PlayPvs(component.MissSound, uid);
-
-            _popupSystem.PopupEntity(Loc.GetString("disposal-unit-thrown-missed"), uid);
-            return;
-        }
+//        WWDP EDIT
+//        if (randDouble > 0.75)
+//        {
+//            _audioSystem.PlayPvs(component.MissSound, uid);
+//
+//            _popupSystem.PopupEntity(Loc.GetString("disposal-unit-thrown-missed"), uid);
+//            return;
+//        }
 
         var inserted = _containerSystem.Insert(args.Thrown, component.Container);
 
