@@ -118,7 +118,7 @@
     sprintModifier: 0.6
   - type: HeldSpeedModifier
   - type: Item
-    size: Ginormous
+    size: Huge # White Dream: Bringing back our old hardsuits
   - type: Armor
     modifiers:
       coefficients:
