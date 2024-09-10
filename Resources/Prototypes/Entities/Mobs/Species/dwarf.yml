@@ -60,6 +60,8 @@
     - SolCommon
   - type: LightweightDrunk
     boozeStrengthMultiplier: 0.5
+  - type: Stamina
+    critThreshold: 115
 
 - type: entity
   parent: BaseSpeciesDummy
