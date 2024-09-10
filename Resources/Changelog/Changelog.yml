@@ -6305,3 +6305,12 @@ Entries:
   id: 6341
   time: '2024-09-09T16:23:30.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/51
+- author: TokiJumper
+  changes:
+    - type: Remove
+      message: >-
+        You can no longer miss when throwing something in disposal bin / Убран
+        промах у мусорки.
+  id: 6342
+  time: '2024-09-10T10:03:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/52
