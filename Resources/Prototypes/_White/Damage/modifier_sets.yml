@@ -1,0 +1,10 @@
+﻿- type: damageModifierSet
+  id: Ipc
+  coefficients:
+    Blunt: 1
+    Slash: 1
+    Piercing: 1
+  flatReductions:
+    Slash: 5
+    Piercing: 5
+    Blunt: 5
