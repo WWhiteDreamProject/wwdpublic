@@ -114,15 +114,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_tiny_1
     - state: dirt_tiny_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_tiny_1
+    - state: plant_tiny_1
       map: [ "plant" ]
 
 - type: entity
@@ -134,15 +133,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_tiny_2
     - state: dirt_tiny_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_tiny_2
+    - state: plant_tiny_1
       map: [ "plant" ]
 
 - type: entity
@@ -154,15 +152,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_tiny_3
     - state: dirt_tiny_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_tiny_3
+    - state: plant_tiny_1
       map: [ "plant" ]
 
 - type: entity
@@ -174,15 +171,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_tiny_4
     - state: dirt_tiny_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_tiny_4
+    - state: plant_tiny_1
       map: [ "plant" ]
 
 - type: entity
@@ -194,15 +190,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_tiny_5
     - state: dirt_tiny_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_tiny_5
+    - state: plant_tiny_1
       map: [ "plant" ]
 
 - type: entity
@@ -214,15 +209,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_tiny_6
     - state: dirt_tiny_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_tiny_6
+    - state: plant_tiny_1
       map: [ "plant" ]
 
 - type: entity
@@ -234,15 +228,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_tiny_7
     - state: dirt_tiny_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_tiny_7
+    - state: plant_tiny_1
       map: [ "plant" ]
 
 # Small
@@ -335,15 +328,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_small_1
     - state: dirt_small_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_small_1
+    - state: plant_small_1
       map: [ "plant" ]
 
 - type: entity
@@ -355,15 +347,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_small_2
     - state: dirt_small_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_small_2
+    - state: plant_small_1
       map: [ "plant" ]
 
 - type: entity
@@ -375,15 +366,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_small_3
     - state: dirt_small_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_small_3
+    - state: plant_small_1
       map: [ "plant" ]
 
 - type: entity
@@ -395,15 +385,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_small_4
     - state: dirt_small_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_small_4
+    - state: plant_small_1
       map: [ "plant" ]
 
 - type: entity
@@ -415,15 +404,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_small_5
     - state: dirt_small_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_small_5
+    - state: plant_small_1
       map: [ "plant" ]
 
 - type: entity
@@ -435,15 +423,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_small_6
     - state: dirt_small_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_small_6
+    - state: plant_small_1
       map: [ "plant" ]
 
 - type: entity
@@ -455,15 +442,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_small_7
     - state: dirt_small_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_small_7
+    - state: plant_small_1
       map: [ "plant" ]
 
 - type: entity
@@ -475,15 +461,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_small_8
     - state: dirt_small_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_small_8
+    - state: plant_small_1
       map: [ "plant" ]
 
 - type: entity
@@ -495,15 +480,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_small_9
     - state: dirt_small_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_small_9
+    - state: plant_small_1
       map: [ "plant" ]
 
 - type: entity
@@ -515,15 +499,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_small_10
     - state: dirt_small_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_small_10
+    - state: plant_small_1
       map: [ "plant" ]
 
 # Medium
@@ -599,15 +582,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_medium_1
     - state: dirt_medium_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_medium_1
+    - state: plant_medium_1
       map: [ "plant" ]
 
 - type: entity
@@ -619,15 +601,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_medium_2
     - state: dirt_medium_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_medium_2
+    - state: plant_medium_1
       map: [ "plant" ]
 
 - type: entity
@@ -639,15 +620,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_medium_3
     - state: dirt_medium_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_medium_3
+    - state: plant_medium_1
       map: [ "plant" ]
 
 - type: entity
@@ -659,15 +639,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_medium_4
     - state: dirt_medium_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_medium_4
+    - state: plant_medium_1
       map: [ "plant" ]
 
 - type: entity
@@ -679,15 +658,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_medium_5
     - state: dirt_medium_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_medium_5
+    - state: plant_medium_1
       map: [ "plant" ]
 
 - type: entity
@@ -699,15 +677,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_medium_6
     - state: dirt_medium_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_medium_6
+    - state: plant_medium_1
       map: [ "plant" ]
 
 - type: entity
@@ -719,15 +696,14 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: icon_spawner
+    - state: mask_null
       map: [ "pot" ]
-      scale: 0.01, 0.01
     - state: pot_medium_7
     - state: dirt_medium_1
       map: [ "dirt" ]
     - state: mask_null
       map: [ "decor" ]
-    - state: icon_pot_medium_7
+    - state: plant_medium_1
       map: [ "plant" ]
 
 # Big
