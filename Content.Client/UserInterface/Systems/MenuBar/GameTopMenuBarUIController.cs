@@ -49,7 +49,7 @@ public sealed class GameTopMenuBarUIController : UIController
         _action.UnloadButton();
         _sandbox.UnloadButton();
         _language.UnloadButton();
-        _emotions.LoadButton();
+        _emotions.LoadButton(); // WD EDIT
     }
 
     public void LoadButtons()
@@ -63,6 +63,6 @@ public sealed class GameTopMenuBarUIController : UIController
         _action.LoadButton();
         _sandbox.LoadButton();
         _language.LoadButton();
-        _emotions.LoadButton();
+        _emotions.LoadButton(); // WD EDIT
     }
 }
