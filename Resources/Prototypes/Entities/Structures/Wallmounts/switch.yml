@@ -15,7 +15,7 @@
     canCollide: false
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch.rsi
+    sprite: _White/Structures/Wallmounts/switch.rsi #WWDP edit
     state: on
   - type: SignalSwitch
   - type: UseDelay
@@ -54,7 +54,7 @@
     canCollide: false
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch.rsi
+    sprite: _White/Structures/Wallmounts/switch.rsi #WWDP edit
     state: dead
   - type: UseDelay
     delay: 0.5 # prevent light-toggling auto-clickers.
@@ -116,7 +116,7 @@
       anchored: true
     - type: Sprite
       drawdepth: SmallObjects
-      sprite: Structures/Wallmounts/switch.rsi
+      sprite: _White/Structures/Wallmounts/switch.rsi #WWDP edit
       state: on
     - type: Rotatable
     - type: ExtensionCableReceiver
@@ -232,7 +232,7 @@
   - type: AccessReader
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: Structures/Wallmounts/locked_switch.rsi
+    sprite: _White/Structures/Wallmounts/locked_switch.rsi #WWDP edit
     layers:
     - state: base
     - state: locked
@@ -479,7 +479,7 @@
   - type: AccessReader
     access: [["Atmospherics"]]
 
-# button frames
+# button frames 1
 
 - type: entity
   id: ButtonFrame
@@ -498,7 +498,7 @@
     canCollide: false
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
+    sprite: _White/Structures/Wallmounts/switch_frame/f1.rsi
     state: grey
   - type: Rotatable
   - type: Fixtures
@@ -506,49 +506,443 @@
 - type: entity
   id: ButtonFrameGrey
   parent: ButtonFrame
-  suffix: grey
+  suffix: 1 grey
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
+    sprite: _White/Structures/Wallmounts/switch_frame/f1.rsi
     state: grey
 
 - type: entity
   id: ButtonFrameCaution
   parent: ButtonFrame
-  suffix: caution
+  suffix: 1 caution
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
+    sprite: _White/Structures/Wallmounts/switch_frame/f1.rsi
     state: caution
 
 - type: entity
   id: ButtonFrameCautionSecurity
   parent: ButtonFrame
-  suffix: caution
+  suffix: 1 caution
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
+    sprite: _White/Structures/Wallmounts/switch_frame/f1.rsi
     state: caution_security
 
 - type: entity
   id: ButtonFrameExit
   parent: ButtonFrame
-  suffix: exit
+  suffix: 1 exit
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
-    state: exit
+    sprite: _White/Structures/Wallmounts/switch_frame/f1.rsi
+    layers:
+     - state: exit
+     - state: exit_glow
+       shader: unshaded
+
 
 - type: entity
   id: ButtonFrameJanitor
   parent: ButtonFrame
-  suffix: janitor
+  suffix: 1 janitor
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
+    sprite: _White/Structures/Wallmounts/switch_frame/f1.rsi
+    state: janitor
+
+# button frames 2
+
+- type: entity
+  id: ButtonFrame2
+  name: button frame
+  noSpawn: true
+  description: It's a frame to help distinguish switches visually.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: Clickable
+  - type: WallMount
+    arc: 360
+  - type: Physics
+    canCollide: false
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f2.rsi
+    state: grey
+  - type: Rotatable
+  - type: Fixtures
+
+- type: entity
+  id: ButtonFrameGrey2
+  parent: ButtonFrame2
+  suffix: 2 grey
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f2.rsi
+    state: grey
+
+- type: entity
+  id: ButtonFrameCaution2
+  parent: ButtonFrame2
+  suffix: 2 caution
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f2.rsi
+    state: caution
+
+- type: entity
+  id: ButtonFrameCautionSecurity2
+  parent: ButtonFrame2
+  suffix: 2 caution
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f2.rsi
+    state: caution_security
+
+- type: entity
+  id: ButtonFrameExit2
+  parent: ButtonFrame2
+  suffix: 2 exit
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f2.rsi
+    layers:
+     - state: exit
+     - state: exit_glow
+       shader: unshaded
+
+
+- type: entity
+  id: ButtonFrameJanitor2
+  parent: ButtonFrame2
+  suffix: 2 janitor
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f2.rsi
+    state: janitor
+
+    # button frames 3
+
+- type: entity
+  id: ButtonFrame3
+  name: button frame
+  noSpawn: true
+  description: It's a frame to help distinguish switches visually.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: Clickable
+  - type: WallMount
+    arc: 360
+  - type: Physics
+    canCollide: false
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f3.rsi
+    state: grey
+  - type: Rotatable
+  - type: Fixtures
+
+- type: entity
+  id: ButtonFrameGrey3
+  parent: ButtonFrame3
+  suffix: 3 grey
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f3.rsi
+    state: grey
+
+- type: entity
+  id: ButtonFrameCaution3
+  parent: ButtonFrame3
+  suffix: 3 caution
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f3.rsi
+    state: caution
+
+- type: entity
+  id: ButtonFrameCautionSecurity3
+  parent: ButtonFrame3
+  suffix: 3 caution
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f3.rsi
+    state: caution_security
+
+- type: entity
+  id: ButtonFrameExit3
+  parent: ButtonFrame3
+  suffix: 3 exit
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f3.rsi
+    layers:
+     - state: exit
+     - state: exit_glow
+       shader: unshaded
+
+
+- type: entity
+  id: ButtonFrameJanitor3
+  parent: ButtonFrame3
+  suffix: 3 janitor
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f3.rsi
+    state: janitor
+
+    # button frames 4
+
+- type: entity
+  id: ButtonFrame4
+  name: button frame
+  noSpawn: true
+  description: It's a frame to help distinguish switches visually.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: Clickable
+  - type: WallMount
+    arc: 360
+  - type: Physics
+    canCollide: false
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f4.rsi
+    state: grey
+  - type: Rotatable
+  - type: Fixtures
+
+- type: entity
+  id: ButtonFrameGrey4
+  parent: ButtonFrame4
+  suffix: 4 grey
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f4.rsi
+    state: grey
+
+- type: entity
+  id: ButtonFrameCaution4
+  parent: ButtonFrame4
+  suffix: 4 caution
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f4.rsi
+    state: caution
+
+- type: entity
+  id: ButtonFrameCautionSecurity4
+  parent: ButtonFrame4
+  suffix: 4 caution
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f4.rsi
+    state: caution_security
+
+- type: entity
+  id: ButtonFrameExit4
+  parent: ButtonFrame4
+  suffix: 4 exit
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f4.rsi
+    layers:
+     - state: exit
+     - state: exit_glow
+       shader: unshaded
+
+
+- type: entity
+  id: ButtonFrameJanitor4
+  parent: ButtonFrame4
+  suffix: 4 janitor
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f4.rsi
+    state: janitor
+
+    # button frames 5
+
+- type: entity
+  id: ButtonFrame5
+  name: button frame
+  noSpawn: true
+  description: It's a frame to help distinguish switches visually.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: Clickable
+  - type: WallMount
+    arc: 360
+  - type: Physics
+    canCollide: false
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f5.rsi
+    state: grey
+  - type: Rotatable
+  - type: Fixtures
+
+- type: entity
+  id: ButtonFrameGrey5
+  parent: ButtonFrame5
+  suffix: 5 grey
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f5.rsi
+    state: grey
+
+- type: entity
+  id: ButtonFrameCaution5
+  parent: ButtonFrame5
+  suffix: 5 caution
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f5.rsi
+    state: caution
+
+- type: entity
+  id: ButtonFrameCautionSecurity5
+  parent: ButtonFrame5
+  suffix: 5 caution
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f5.rsi
+    state: caution_security
+
+- type: entity
+  id: ButtonFrameExit5
+  parent: ButtonFrame5
+  suffix: 5 exit
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f5.rsi
+    layers:
+     - state: exit
+     - state: exit_glow
+       shader: unshaded
+
+
+- type: entity
+  id: ButtonFrameJanitor5
+  parent: ButtonFrame5
+  suffix: 5 janitor
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f5.rsi
+    state: janitor
+
+    # button frames 6
+
+- type: entity
+  id: ButtonFrame6
+  name: button frame
+  noSpawn: true
+  description: It's a frame to help distinguish switches visually.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: Clickable
+  - type: WallMount
+    arc: 360
+  - type: Physics
+    canCollide: false
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f6.rsi
+    state: grey
+  - type: Rotatable
+  - type: Fixtures
+
+- type: entity
+  id: ButtonFrameGrey6
+  parent: ButtonFrame6
+  suffix: 6 grey
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f6.rsi
+    state: grey
+
+- type: entity
+  id: ButtonFrameCaution6
+  parent: ButtonFrame6
+  suffix: 6 caution
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f6.rsi
+    state: caution
+
+- type: entity
+  id: ButtonFrameCautionSecurity6
+  parent: ButtonFrame6
+  suffix: 6 caution
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f6.rsi
+    state: caution_security
+
+- type: entity
+  id: ButtonFrameExit6
+  parent: ButtonFrame6
+  suffix: 6 exit
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f6.rsi
+    layers:
+     - state: exit
+     - state: exit_glow
+       shader: unshaded
+
+
+- type: entity
+  id: ButtonFrameJanitor6
+  parent: ButtonFrame6
+  suffix: 6 janitor
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f6.rsi
     state: janitor

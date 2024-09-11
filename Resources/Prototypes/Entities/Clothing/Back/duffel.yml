@@ -58,7 +58,7 @@
   description: A large duffel bag for holding extra honk goods.
   components:
     - type: Sprite
-      sprite: Clothing/Back/Duffels/clown.rsi
+      sprite: _White/Clothing/Back/Duffels/clown.rsi #WWDP edit
     - type: Storage
       storageOpenSound:
         collection: BikeHorn
@@ -129,6 +129,15 @@
   components:
     - type: Sprite
       sprite: Clothing/Back/Duffels/science.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelRobotics
+  name: robotics duffel bag
+  description: A large and sturdy duffel bag to fit everything needed to build a cyborg.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Duffels/robotics.rsi
 
 - type: entity
   parent: ClothingBackpackDuffel

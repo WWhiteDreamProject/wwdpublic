@@ -5,6 +5,7 @@
   description: Finally, some decent reception around here...
   components:
   - type: Sprite
+    sprite: _White/Structures/Machines/computers.rsi #WWDP edit
     noRot: true
     drawdepth: SmallObjects
     layers:
@@ -12,6 +13,7 @@
       state: television
     - map: ["computerLayerScreen"]
       state: detective_television
+      shader: unshaded
   - type: Computer
     board: ComputerTelevisionCircuitboard
   - type: PointLight
@@ -137,12 +139,15 @@
     node: TelevisionFrame
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: Structures/Wallmounts/flatscreentv.rsi
+    sprite: _White/Structures/Wallmounts/flatscreentv.rsi #WWDP edit
     layers:
       - map: ["computerLayerBody"]
         state: television_wall
-      - map: ["computerLayerScreen"]
-        state: television_wallscreen
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89f25"
+    enabled: false
 
 - type: entity
   parent: WallmountTelevisionFrame
@@ -151,6 +156,15 @@
   name: television
   description: Finally, some decent reception around here...
   components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _White/Structures/Wallmounts/flatscreentv.rsi #WWDP edit
+    layers:
+      - map: ["computerLayerBody"]
+        state: television_wall
+      - map: ["computerLayerScreen"]
+        state: television_wallscreen
+        shader: unshaded
   - type: Construction
     graph: WallmountTelevision
     node: Television

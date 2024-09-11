@@ -183,9 +183,9 @@
   name: clown winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatclown.rsi
+    sprite: _White/Clothing/OuterClothing/WinterCoats/coatclown.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatclown.rsi
+    sprite: _White/Clothing/OuterClothing/WinterCoats/coatclown.rsi #WWDP edit
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable

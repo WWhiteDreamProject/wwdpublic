@@ -132,7 +132,7 @@
   - type: Sprite
     drawdepth: WallMountedItems
     noRot: false
-    sprite: Structures/Storage/wall_locker.rsi
+    sprite: _White/Structures/Storage/wall_locker.rsi #WWDP edit
     layers:
     - state: generic
       map: ["enum.StorageVisualLayers.Base"]

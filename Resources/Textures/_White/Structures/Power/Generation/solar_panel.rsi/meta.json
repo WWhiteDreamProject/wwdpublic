@@ -1,0 +1,30 @@
+{
+	"version":1,
+	"license":"CC-BY-SA-3.0",
+	"copyright":"FrostyDev",
+	"size":{"x":32,"y":32},
+	"states":
+	[
+		{
+			"name": "normal",
+			"select": [],
+			"flags": {},
+			"directions": 8
+		},
+		{
+			"name": "broken",
+			"select": [],
+			"flags": {},
+			"directions": 1
+		},
+		{
+			"name": "static"
+		},
+		{
+			"name": "solar_assembly"
+		},
+		{
+			"name": "solar_tracker"
+		}
+	]
+}

@@ -6,4 +6,19 @@ encryption-keys-are-locked = Слоты для ключей шифрования
 encryption-keys-panel-locked = Сначала откройте панель технического обслуживания!
 examine-encryption-channels-prefix = Доступные частоты:
 examine-encryption-channel = [color={ $color }]{ $key } для { $id } ({ $freq })[/color]
-examine-encryption-default-channel = Каналом по умолчанию является [color={ $color }]{ $channel }[/color].
+examine-encryption-default-channel =
+    Стандартный канал [color={ $color }]{ $channel ->
+    [Syndicate] Синдикат
+    [Supply] Снабжение
+    [Command] Командование
+    [CentCom] ЦентКом
+    [Common] Общий
+    [Engineering] Инженерный
+    [Science] Научный
+    [Medical] Медицинский
+    [Security] Безопасность
+    [Service] Сервисный
+    [Binary] Бинарный
+    [Freelance] Наемный
+    *[other] _
+    }[/color].

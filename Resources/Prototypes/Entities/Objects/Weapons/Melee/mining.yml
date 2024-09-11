@@ -52,8 +52,6 @@
         Slash: 4
     bluntStaminaDamageFactor: 2.0
     heavyRateModifier: 0.75
-    heavyDamageBaseModifier: 1.2
-    heavyStaminaCost: 10
     angle: 120
     soundHit:
       collection: MetalThud

@@ -65,7 +65,13 @@ namespace Content.Shared.Throwing
             if (args.OtherEntity == component.Thrower)
                 return;
 
+            // WD EDIT START
+            if (component.Processed.Contains(args.OtherEntity))
+                return;
+            // WD EDIT END
+
             ThrowCollideInteraction(component, args.OurEntity, args.OtherEntity);
+            component.Processed.Add(args.OtherEntity); // WD EDIT
         }
 
         private void PreventCollision(EntityUid uid, ThrownItemComponent component, ref PreventCollideEvent args)
@@ -110,6 +116,7 @@ namespace Content.Shared.Throwing
 
             EntityManager.EventBus.RaiseLocalEvent(uid, new StopThrowEvent { User = thrownItemComponent.Thrower }, true);
             EntityManager.RemoveComponent<ThrownItemComponent>(uid);
+            thrownItemComponent.Processed.Clear(); // WD EDIT
         }
 
         public void LandComponent(EntityUid uid, ThrownItemComponent thrownItem, PhysicsComponent physics, bool playSound)
@@ -137,10 +144,10 @@ namespace Content.Shared.Throwing
                 _adminLogger.Add(LogType.ThrowHit, LogImpact.Low,
                     $"{ToPrettyString(thrown):thrown} thrown by {ToPrettyString(component.Thrower.Value):thrower} hit {ToPrettyString(target):target}.");
 
-            if (component.Thrower is not null)// Nyano - Summary: Gotta check if there was a thrower. 
+            if (component.Thrower is not null)// Nyano - Summary: Gotta check if there was a thrower.
                 RaiseLocalEvent(target, new ThrowHitByEvent(component.Thrower.Value, thrown, target, component), true); // Nyano - Summary: Gotta update for who threw it.
             else
-                RaiseLocalEvent(target, new ThrowHitByEvent(null, thrown, target, component), true); // Nyano - Summary: No thrower. 
+                RaiseLocalEvent(target, new ThrowHitByEvent(null, thrown, target, component), true); // Nyano - Summary: No thrower.
             RaiseLocalEvent(thrown, new ThrowDoHitEvent(thrown, target, component), true);
         }
 

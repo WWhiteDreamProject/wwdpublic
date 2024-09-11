@@ -1,0 +1,255 @@
+﻿
+- type: decal
+  id: TrimWarnBox
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_box
+
+- type: decal
+  id: TrimWarnGreyscaleBox
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_box_greyscale
+
+- type: decal
+  id: TrimWarnGreyscaleCornerNE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_corner_greyscale_ne
+
+- type: decal
+  id: TrimWarnGreyscaleCornerNW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_corner_greyscale_nw
+
+- type: decal
+  id: TrimWarnGreyscaleCornerSE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_corner_greyscale_se
+
+- type: decal
+  id: TrimWarnGreyscaleCornerSW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_corner_greyscale_sw
+
+- type: decal
+  id: TrimWarnCornerNE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_corner_ne
+
+- type: decal
+  id: TrimWarnCornerNW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_corner_nw
+
+- type: decal
+  id: TrimWarnCornerSE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_corner_se
+
+- type: decal
+  id: TrimWarnCornerSW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_corner_sw
+
+- type: decal
+  id: TrimWarnGreyscaleCornerSmallNE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_corner_small_greyscale_ne
+
+- type: decal
+  id: TrimWarnGreyscaleCornerSmallNW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_corner_small_greyscale_nw
+
+- type: decal
+  id: TrimWarnGreyscaleCornerSmallSE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_corner_small_greyscale_se
+
+- type: decal
+  id: TrimWarnGreyscaleCornerSmallSW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_corner_small_greyscale_sw
+
+- type: decal
+  id: TrimWarnCornerSmallNE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_corner_small_ne
+
+- type: decal
+  id: TrimWarnCornerSmallNW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_corner_small_nw
+
+- type: decal
+  id: TrimWarnCornerSmallSE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_corner_small_se
+
+- type: decal
+  id: TrimWarnCornerSmallSW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_corner_small_sw
+
+- type: decal
+  id: TrimWarnEndE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_end_e
+
+- type: decal
+  id: TrimWarnEndN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_end_n
+
+- type: decal
+  id: TrimWarnEndS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_end_s
+
+- type: decal
+  id: TrimWarnEndW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_end_w
+
+- type: decal
+  id: TrimWarnGreyscaleEndE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_end_greyscale_e
+
+- type: decal
+  id: TrimWarnGreyscaleEndN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_end_greyscale_n
+
+- type: decal
+  id: TrimWarnGreyscaleEndS
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_end_greyscale_s
+
+- type: decal
+  id: TrimWarnGreyscaleEndW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_end_greyscale_w
+
+- type: decal
+  id: TrimWarnLineE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_line_e
+
+- type: decal
+  id: TrimWarnLineW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_line_n
+
+- type: decal
+  id: TrimWarnLineN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_line_s
+
+- type: decal
+  id: TrimWarnLineS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_line_w
+
+- type: decal
+  id: TrimWarnGreyscaleLineE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_line_greyscale_e
+
+- type: decal
+  id: TrimWarnGreyscaleLineN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_line_greyscale_n
+
+- type: decal
+  id: TrimWarnGreyscaleLineS
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_line_greyscale_s
+
+- type: decal
+  id: TrimWarnGreyscaleLineW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _White/Decals/trim_markings.rsi
+    state: warn_line_greyscale_w
