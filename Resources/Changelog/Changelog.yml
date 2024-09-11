@@ -6560,3 +6560,12 @@ Entries:
   id: 6368
   time: '2024-10-16T02:13:34.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/85
+- author: Mnemotechnician
+  changes:
+    - type: Add
+      message: >-
+        The "food recipes" page in guidebook now contains an automatically
+        generated list of food recipes.
+  id: 6341
+  time: '2024-09-11T17:55:11.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/783
