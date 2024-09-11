@@ -52,8 +52,8 @@
         <Control MinHeight="10" />
         <!-- tabContainer -->
         <PanelContainer StyleClasses="PanelBackground" VerticalExpand="True" VerticalAlignment="Stretch"> <!-- WD EDIT -->
-            <TabContainer Name="CTabContainer" MinWidth="750" VerticalExpand="True" HorizontalExpand="True">
-                <BoxContainer Orientation="Vertical">
+            <ui:NeoTabContainer Name="CTabContainer" MinWidth="750" VerticalExpand="True" HorizontalExpand="True">
+                <BoxContainer Name="CAppearance" HorizontalExpand="True" Orientation="Vertical">
                     <ScrollContainer VerticalExpand="True">
                         <!-- appearanceList -->
                         <BoxContainer Orientation="Vertical">
@@ -148,20 +148,20 @@
                         </BoxContainer>
                     </ScrollContainer>
                 </BoxContainer>
-                <BoxContainer Orientation="Vertical">
+                <BoxContainer Name="CJobs" Orientation="Vertical" HorizontalExpand="True">
                     <!-- Jobs -->
                     <OptionButton Name="CPreferenceUnavailableButton" />
                     <ScrollContainer VerticalExpand="True">
                         <BoxContainer Name="CJobList" Orientation="Vertical" />
                     </ScrollContainer>
                 </BoxContainer>
-                <BoxContainer Orientation="Vertical" Margin="10">
+                <BoxContainer Name="CAntags" Orientation="Vertical" Margin="10" HorizontalExpand="True">
                     <!-- Antags -->
                     <ScrollContainer VerticalExpand="True">
                         <BoxContainer Name="CAntagList" Orientation="Vertical" />
                     </ScrollContainer>
                 </BoxContainer>
-                <BoxContainer Name="CTraitsTab" Orientation="Vertical" Margin="10">
+                <BoxContainer Name="CTraitsTab" Orientation="Vertical" Margin="10" HorizontalExpand="True">
                     <!-- Traits -->
                     <Label Name="TraitPointsLabel" HorizontalAlignment="Stretch" Align="Center" />
                     <ProgressBar Name="TraitPointsBar" MaxValue="1" Value="1" MaxHeight="8" Margin="0 5" />
@@ -184,9 +184,9 @@
                           StyleClasses="OpenLeft" />
                     </BoxContainer>
 
-                    <TabContainer Name="CTraitsTabs" VerticalExpand="True" />
+                    <ui:NeoTabContainer Name="CTraitsTabs" VerticalExpand="True" />
                 </BoxContainer>
-                <BoxContainer Name="CLoadoutsTab" Orientation="Vertical" Margin="10">
+                <BoxContainer Name="CLoadoutsTab" Orientation="Vertical" Margin="10" HorizontalExpand="True">
                     <!-- Loadouts -->
                     <Label Name="LoadoutPointsLabel" HorizontalAlignment="Stretch" Align="Center" />
                     <ProgressBar Name="LoadoutPointsBar" MaxValue="1" Value="1" MaxHeight="8" Margin="0 5" />
@@ -208,16 +208,14 @@
                           HorizontalExpand="True"
                           StyleClasses="OpenLeft" />
                     </BoxContainer>
-                  
-                    <TabContainer Name="CLoadoutsTabs" VerticalExpand="True" />
+
+                    <ui:NeoTabContainer Name="CLoadoutsTabs" VerticalExpand="True" />
                 </BoxContainer>
-                <BoxContainer Name="CMarkingsTab" Orientation="Vertical" Margin="10">
+                <BoxContainer Name="CMarkingsTab" HorizontalExpand="True" Orientation="Vertical" Margin="10">
                     <!-- Markings -->
-                    <ScrollContainer VerticalExpand="True">
-                        <humanoid:MarkingPicker Name="CMarkings" IgnoreCategories="Hair,FacialHair" />
-                    </ScrollContainer>
+                    <humanoid:MarkingPicker Name="CMarkings" IgnoreCategories="Hair,FacialHair" />
                 </BoxContainer>
-            </TabContainer>
+            </ui:NeoTabContainer>
         </PanelContainer>
     </BoxContainer>
     <!-- Right side -->
