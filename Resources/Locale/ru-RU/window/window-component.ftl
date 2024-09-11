@@ -10,3 +10,5 @@ comp-window-damaged-6 = Всё в глубоких трещинах, вот-во
 
 ### Interaction Messages
 
+# Shown when knocking on a window
+comp-window-knock = *тук тук*

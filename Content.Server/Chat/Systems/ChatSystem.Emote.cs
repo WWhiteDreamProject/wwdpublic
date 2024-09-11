@@ -28,7 +28,7 @@ public partial class ChatSystem
         {
             foreach (var word in emote.ChatTriggers)
             {
-                var lowerWord = word.ToLower();
+                var lowerWord = Loc.GetString(word).ToLower();
                 if (dict.TryGetValue(lowerWord, out var value))
                 {
                     var errMsg = $"Duplicate of emote word {lowerWord} in emotes {emote.ID} and {value.ID}";

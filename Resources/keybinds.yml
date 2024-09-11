@@ -187,6 +187,11 @@ binds:
 - function: OpenCharacterMenu
   type: State
   key: C
+  # WD EDIT START
+- function: OpenEmotionsMenu
+  type: State
+  key: Y
+  # WD EDIT END
 - function: OpenLanguageMenu
   type: State
   key: L
@@ -543,7 +548,8 @@ binds:
 - function: Hotbar9
   type: State
   key: Num9
-  #WD EDIT
+  # WD EDIT START
 - function: LookUp
   type: State
   key: Space
+  # WD EDIT END

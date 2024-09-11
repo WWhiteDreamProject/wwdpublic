@@ -2,158 +2,173 @@
 - type: emote
   id: Scream
   category: Vocal
-  chatMessages: [ screams ]
+  buttonText: "emote-chat-button-text-scream"
+  chatMessages: [ "emote-chat-messages-scream-1", "emote-chat-messages-scream-2", "emote-chat-messages-scream-3", "emote-chat-messages-scream-4" ]
   chatTriggers:
-    - screams
-    - shrieks
-    - screeches
-    - yells
+    - "emote-chat-messages-scream-1"
+    - "emote-chat-messages-scream-2"
+    - "emote-chat-messages-scream-3"
+    - "emote-chat-messages-scream-4"
+  allowMenu: true
 
 - type: emote
   id: Laugh
   category: Vocal
-  chatMessages: [ laughs ]
+  buttonText: "emote-chat-button-text-laugh"
+  chatMessages: [ "emote-chat-messages-laugh-1", "emote-chat-messages-laugh-2", "emote-chat-messages-laugh-3", "emote-chat-messages-laugh-4" ]
   chatTriggers:
-    - laughs
-    - chuckles
-    - giggles
-    - chortles
+    - "emote-chat-messages-laugh-1"
+    - "emote-chat-messages-laugh-2"
+    - "emote-chat-messages-laugh-3"
+    - "emote-chat-messages-laugh-4"
+  allowMenu: true
 
 - type: emote
   id: Honk
   category: Vocal
-  chatMessages: [ honks ]
+  chatMessages: [ "emote-chat-messages-honk-1" ]
   chatTriggers:
-    - honks
+    - "emote-chat-messages-honk-1"
 
 - type: emote
   id: Sigh
   category: Vocal
-  chatMessages: [ sighs ]
+  buttonText: "emote-chat-button-text-sigh"
+  chatMessages: [ "emote-chat-messages-sigh-1" ]
   chatTriggers:
-    - sighs
+    - "emote-chat-messages-sigh-1"
+  allowMenu: true
 
 - type: emote
   id: Whistle
   category: Vocal
-  chatMessages: [ whistles ]
+  buttonText: "emote-chat-button-text-whistle"
+  chatMessages: [ "emote-chat-messages-whistle-1" ]
   chatTriggers:
-    - whistles
+    - "emote-chat-messages-whistle-1"
+  allowMenu: true
 
 - type: emote
   id: Crying
   category: Vocal
-  chatMessages: [ cries ]
+  buttonText: "emote-chat-button-text-crying"
+  chatMessages: [ "emote-chat-messages-crying-1" ]
   chatTriggers:
-    - cries
-    - sobs
+    - "emote-chat-messages-crying-1"
+    - "emote-chat-messages-crying-2"
+  allowMenu: true
 
 - type: emote
   id: Squish
   category: Vocal
-  chatMessages: [ squishes ]
+  chatMessages: [ "emote-chat-messages-squish-1" ]
   chatTriggers:
-    - squishes
+    - "emote-chat-messages-squish-1"
 
 - type: emote
   id: Chitter
   category: Vocal
-  chatMessages: [ chitters ]
+  chatMessages: [ "emote-chat-messages-сhitter-1" ]
   chatTriggers:
-   - chitters
+   - "emote-chat-messages-сhitter-1"
 
 - type: emote
   id: Squeak
   category: Vocal
-  chatMessages: [ squeaks ]
+  chatMessages: [ "emote-chat-messages-squeak-1" ]
   chatTriggers:
-   - squeaks
+   - "emote-chat-messages-squeak-1"
 
 - type: emote
   id: Click
   category: Vocal
-  chatMessages: [ clicks ]
+  chatMessages: [ "emote-chat-messages-сlick-1" ]
   chatTriggers:
-   - clicks
+   - "emote-chat-messages-сlick-1"
+   - "emote-chat-messages-сlick-2"
 
 # hand emotes
 - type: emote
   id: Clap
   category: Hands
-  chatMessages: [ claps ]
+  buttonText: "emote-chat-button-text-сlap"
+  chatMessages: [ "emote-chat-messages-сlap-1" ]
   chatTriggers:
-    - claps
+    - "emote-chat-messages-сlap-1"
+  allowMenu: true
 
 - type: emote
   id: Snap
   category: Hands
-  chatMessages: [ snaps ] # snaps <{THEIR($ent)}> fingers?
+  buttonText: "emote-chat-button-text-snap"
+  chatMessages: [ "emote-chat-messages-snap-1" ] # snaps <{THEIR($ent)}> fingers?
   chatTriggers:
-    - snaps
-    - snaps fingers
-    - snaps his fingers
-    - snaps her fingers
-    - snaps their fingers
-    - snaps its fingers
-    - snaps its' fingers
+    - "emote-chat-messages-snap-1"
+    - "emote-chat-messages-snap-2"
+    - "emote-chat-messages-snap-3"
+    - "emote-chat-messages-snap-4"
+    - "emote-chat-messages-snap-5"
+    - "emote-chat-messages-snap-6"
+    - "emote-chat-messages-snap-7"
+  allowMenu: true
 
 - type: emote
   id: Salute
   category: Hands
-  chatMessages: [ salutes ]
+  buttonText: "emote-chat-button-text-salute"
+  chatMessages: [ "emote-chat-messages-salute-1" ]
   chatTriggers:
-    - salutes
+    - "emote-chat-messages-salute-1"
+  allowMenu: true
 
 - type: emote
   id: DefaultDeathgasp
-  chatMessages: ["emote-deathgasp"]
-  chatTriggers:
-  - deathgasp
+  chatMessages: [ "emote-chat-messages-deathgasp-1" ]
 
 - type: emote
   id: Buzz
   category: Vocal
-  chatMessages: [ buzzes ]
+  chatMessages: [ "emote-chat-messages-buzz-1" ]
   chatTriggers:
-    - buzzes
+    - "emote-chat-messages-buzz-1"
 
 - type: emote
   id: Weh
   category: Vocal
-  chatMessages: [ wehs ]
+  chatMessages: [ "emote-chat-messages-weh-1" ]
 
 - type: emote
   id: Chirp
   category: Vocal
-  chatMessages: [ chirps ]
+  chatMessages: [ "emote-chat-messages-chirp-1" ]
   chatTriggers:
-    - chirps
+    - "emote-chat-messages-chirp-1"
 
 # Machine Emotes
 - type: emote
   id: Beep
   category: Vocal
-  chatMessages: [ beeps ]
+  chatMessages: [ "emote-chat-messages-beep-1" ]
   chatTriggers:
-    - beeps
+    - "emote-chat-messages-beep-1"
 
 - type: emote
   id: Chime
   category: Vocal
-  chatMessages: [ chimes ]
+  chatMessages: [ "emote-chat-messages-сhime-1" ]
   chatTriggers:
-    - chimes
+    - "emote-chat-messages-сhime-1"
 
 - type: emote
   id: Buzz-Two
   category: Vocal
-  chatMessages: [ "buzzes twice" ]
+  chatMessages: [ "emote-chat-messages-buzz-two-1" ]
   chatTriggers:
-    - buzzes twice
+    - "emote-chat-messages-buzz-two-1"
 
 - type: emote
   id: Ping
   category: Vocal
-  chatMessages: [ pings ]
+  chatMessages: [ "emote-chat-messages-ping-1" ]
   chatTriggers:
-    - pings
+    - "emote-chat-messages-ping-1"
