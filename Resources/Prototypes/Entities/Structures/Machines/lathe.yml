@@ -443,6 +443,7 @@
       - SurveillanceWirelessCameraMonitorCircuitboard
       - SurveillanceCameraWirelessRouterCircuitboard
       - ComputerTelevisionCircuitboard
+      - JukeboxCircuitBoard
       - SurveillanceWirelessCameraMovableCircuitboard
       - SurveillanceWirelessCameraAnchoredCircuitboard
       - HydroponicsTrayMachineCircuitboard
@@ -1216,6 +1217,7 @@
     - type: MaterialStorageMagnetPickup # Delta V - Summary: Adds magnet pull from Frontier
       magnetEnabled: True
       range: 0.30 # Delta V - End Magnet Pull
+    - type: PlaceableSurface # WHITE EDIT
 
 - type: entity
   parent: OreProcessor
@@ -1408,6 +1410,7 @@
       - SingularityToy
       - TeslaToy
       - ToySword
+      - BwoinkHammer
       - ThronglerToy
   - type: MaterialStorage
     whitelist:

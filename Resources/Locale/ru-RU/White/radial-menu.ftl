@@ -1,1 +1,0 @@
-radial-ui-close = Закрыть

@@ -11,7 +11,10 @@
       - Ghost
       - Normal
   - type: ContentEye
-    maxZoom: 8.916104, 8.916104
+    maxZoom: 10, 10
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 20
+    baseWalkSpeed: 10
   - type: Tag
     tags:
     - InstantDoAfters

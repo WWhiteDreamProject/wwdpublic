@@ -1,6 +1,5 @@
 ### for technical and/or system messages
 
-
 ## General
 
 shell-server-cannot = Сервер не может выполнить это.
@@ -28,6 +27,7 @@ shell-argument-must-be-number = Аргумент должен быть числ�
 shell-argument-must-be-boolean = Аргумент должен быть boolean.
 shell-wrong-arguments-number = Неправильное количество аргументов.
 shell-need-between-arguments = Нужно от { $lower } до { $upper } аргументов!
+
 shell-argument-uid = EntityUid
 
 ## Guards
@@ -51,5 +51,7 @@ shell-argument-number-must-be-between = Аргумент { $index } должен
 shell-argument-station-id-invalid = Аргумент { $index } должен быть валидным station id!
 shell-argument-map-id-invalid = Аргумент { $index } должен быть валидным map id!
 shell-argument-number-invalid = Аргумент { $index } должен быть валидным числом!
+
 # Hints
 shell-argument-username-hint = <username>
+shell-argument-username-optional-hint = [username]

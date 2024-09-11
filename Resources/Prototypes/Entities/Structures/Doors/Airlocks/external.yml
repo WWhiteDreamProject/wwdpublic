@@ -15,7 +15,7 @@
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/external.rsi
+    sprite: _White/Structures/Doors/Airlocks/Standard/external.rsi # WD EDIT
   - type: PaintableAirlock
     group: External
     department: null
@@ -30,6 +30,6 @@
   - type: Occluder
     enabled: false
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/external.rsi
+    sprite: _White/Structures/Doors/Airlocks/Glass/external.rsi # WD EDIT
   - type: PaintableAirlock
     group: ExternalGlass

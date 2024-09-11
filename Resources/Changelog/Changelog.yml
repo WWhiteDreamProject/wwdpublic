@@ -4051,7 +4051,7 @@ Entries:
     - type: Add
       message: >-
         Glass/Crystal shards and floor tiles now deal damage and embed in
-        victims when colliding with them. 
+        victims when colliding with them.
   id: 6107
   time: '2024-05-11T01:23:00.0000000+00:00'
 - author: FoxxoTrystan
@@ -4262,7 +4262,7 @@ Entries:
     - type: Fix
       message: >-
         Spent bullet casings now fly away from a shooter in a cinematic manner,
-        rather than fall at their feet. 
+        rather than fall at their feet.
   id: 6133
   time: '2024-07-01T22:37:29.0000000+00:00'
 - author: WarMechanic
@@ -4458,7 +4458,7 @@ Entries:
     - type: Add
       message: >-
         Cablecuffs and Zipties are now easier to escape out of if you're
-        smaller. 
+        smaller.
   id: 6158
   time: '2024-07-13T08:05:52.0000000+00:00'
 - author: FoxxoTrystan
@@ -4526,7 +4526,7 @@ Entries:
     - type: Fix
       message: >-
         Harpies can no longer buy Loadout items that are impossible for them to
-        wear due to having digitigrade legs. 
+        wear due to having digitigrade legs.
   id: 6168
   time: '2024-07-18T02:34:52.0000000+00:00'
 - author: Mnemotechnician
@@ -4585,7 +4585,7 @@ Entries:
     - type: Add
       message: >-
         Camera Shake is now affected by character mass. Small characters
-        experience more camera shake. Large characters experience less. 
+        experience more camera shake. Large characters experience less.
   id: 6176
   time: '2024-07-21T06:50:25.0000000+00:00'
 - author: VMSolidus
@@ -4593,7 +4593,7 @@ Entries:
     - type: Add
       message: >-
         The Head Of Personnel can now hire people onto basic roles for each
-        department by vending PDAs. 
+        department by vending PDAs.
   id: 6177
   time: '2024-07-22T19:12:01.0000000+00:00'
 - author: VMSolidus
@@ -4700,7 +4700,7 @@ Entries:
     - type: Fix
       message: >-
         Fixed Tools, Drink Containers, Lockers, and all base items having
-        inconsistent sound settings. 
+        inconsistent sound settings.
   id: 6191
   time: '2024-07-31T22:47:01.0000000+00:00'
 - author: VMSolidus
@@ -4808,7 +4808,7 @@ Entries:
     - type: Add
       message: >-
         Added a 1-point combat knife to Loadouts for Felinid/Harpy security
-        jobs. 
+        jobs.
     - type: Tweak
       message: Made the security belt and security webbing able to hold combat knives.
     - type: Tweak
@@ -4858,7 +4858,7 @@ Entries:
         Due to budget cuts, Nanotrasen has ceased stocking Clothesmate vendors
         with more clothing than the average cargo tech can afford. Civilians are
         advised to bring their own clothes to the station if they wish to wear
-        anything other than grey. 
+        anything other than grey.
   id: 6208
   time: '2024-08-04T00:23:53.0000000+00:00'
 - author: VMSolidus
@@ -4866,7 +4866,7 @@ Entries:
     - type: Add
       message: >-
         SweatMAX, "hot foods", Mars Mart, and Nippon-tan vendors have all been
-        added to vendor spawners. 
+        added to vendor spawners.
   id: 6209
   time: '2024-08-04T06:26:34.0000000+00:00'
 - author: Skubman
@@ -4925,7 +4925,7 @@ Entries:
         The Carrying system has been reworked as a means of better supporting
         having extremely large species and characters. 10kg Harpies should no
         longer be oppressed by 2000kg Lamia with infinitely short carry
-        attempts. 
+        attempts.
   id: 6216
   time: '2024-08-05T17:11:37.0000000+00:00'
 - author: Rane
@@ -4953,11 +4953,11 @@ Entries:
     - type: Add
       message: >-
         CPR has been added to the game. People with CPR training can now perform
-        CPR on anyone who is in either crit or dead states. 
+        CPR on anyone who is in either crit or dead states.
     - type: Add
       message: >-
         CPR Training has been added to the game as a new positive trait. All
-        medical staff start with this trait for free. 
+        medical staff start with this trait for free.
   id: 6220
   time: '2024-08-06T05:28:54.0000000+00:00'
 - author: Skubman
@@ -5144,7 +5144,7 @@ Entries:
     - type: Fix
       message: >-
         Sluggish and Snail-Paced will now properly apply their movement
-        penalties upon joining. 
+        penalties upon joining.
   id: 6244
   time: '2024-08-09T17:28:01.0000000+00:00'
 - author: ODJ
@@ -5160,7 +5160,7 @@ Entries:
     - type: Tweak
       message: >-
         Renamed "Psionic Mantis" to "Mantis", as it was originally going to be
-        called. 
+        called.
   id: 6246
   time: '2024-08-10T12:03:12.0000000+00:00'
 - author: Skubman
@@ -5493,3 +5493,837 @@ Entries:
       message: Logo / Лого
   id: 6283
   time: '2024-09-01T10:11:53.0000000+00:00'
+- author: Remuchi
+  changes:
+    - type: Add
+      message: >-
+        Простые и часто используемые вещи теперь можно создавать взаимодействуя
+        с материалом в руках без меню строительства / A bunch of construction
+        recipes can now be quickly accessed by interacting with material they
+        are using.
+  id: 6284
+  time: '2024-09-03T05:39:50.0000000+00:00'
+- author: Hell_Cat
+  changes:
+    - type: Add
+      message: added toggle in ore bag
+    - type: Fix
+      message: Ore processor fixed
+  id: 6285
+  time: '2024-09-03T10:18:06.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added disarm animation / Добавлена анимация толчка
+    - type: Tweak
+      message: 'Heavy damage modifier: 1.2 => 1 /  Модификатор урона тяжелой атакой: 1'
+  id: 6286
+  time: '2024-09-03T10:22:51.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        An ordinary player can now use adminwho / Обычные игроки теперь могут
+        использовать adminwho
+  id: 6287
+  time: '2024-09-03T17:01:18.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        The trown item is now triggred once / Брошенные предметы теперь
+        срабатывают единожды
+  id: 6288
+  time: '2024-09-03T17:02:18.0000000+00:00'
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Добавлены новые тайлы и текстуры для них
+    - type: Add
+      message: Добавлены новые декали и текстуры для них
+    - type: Add
+      message: Добавлены растения с рандомным спрайтом
+    - type: Tweak
+      message: Изменено много спрайтов тайлов, декалей, структур из дерева и другое...
+  id: 6289
+  time: '2024-09-05T09:34:23.0000000+00:00'
+- author: Mnemotechnician
+  changes:
+    - type: Fix
+      message: You no longer need to have a station record to publish news.
+  id: 6270
+  time: '2024-08-18T18:11:10.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        The Mood System has been ported from White Dream. Mood acts as a 3rd
+        healthbar, alongside Health and Stamina, representing your character's
+        current mental state. Having either high or low mood can modify certain
+        physical attributes.
+    - type: Add
+      message: >-
+        Mood modifies your Critical Threshold. Your critical threshold can be
+        increased or decreased depending on how high or low your character's
+        mood is.
+    - type: Add
+      message: >-
+        Mood modifies your Movement Speed. Characters move faster when they have
+        an overall high mood, and move slower when they have a lower mood.
+    - type: Add
+      message: >-
+        Saturnine and Sanguine have been added to the list of Mental traits,
+        both providing innate modifiers to a character's Morale.
+  id: 6272
+  time: '2024-08-20T08:16:05.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: Latent Psychic has been added as a new positive trait.
+    - type: Tweak
+      message: >-
+        Psionics have received a substantial refactor. While no new powers have
+        been added this patch, this initial refactor lays the groundwork so that
+        new psionic powers will be easier to create.
+    - type: Tweak
+      message: >-
+        Latent Psychic is now fully required to become psionic, or to interact
+        with Oracle.
+    - type: Tweak
+      message: Psychics can now have more than one active power.
+    - type: Remove
+      message: Mimes are no longer Psionic.
+    - type: Tweak
+      message: >-
+        Chaplain, Mantis, & Mystagogue all receive the Latent Psychic trait for
+        free, automatically.
+  id: 6273
+  time: '2024-08-20T18:42:44.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: >-
+        Fixed an issue where Overlays(Dogvision, Ultravision, Mood) would apply
+        globally to all entities when updating.
+  id: 6274
+  time: '2024-08-20T18:49:28.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Actions no longer need to hardcode in target blacklists, and can now
+        blacklist entities in YML. This is notably useful for Psionic powers,
+        which all share a common feature that they can't target people with
+        Psionic Insulation (Or have been Mindbroken).
+  id: 6275
+  time: '2024-08-21T09:08:40.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        PsionicPowers that add a Component now also allow for adding a Component
+        with Arguments. This works exactly like the trait system's
+        implementation of components.
+  id: 6276
+  time: '2024-08-21T09:10:28.0000000+00:00'
+- author: Timemaster99
+  changes:
+    - type: Add
+      message: Added IPC as a playable species.
+  id: 6277
+  time: '2024-08-21T09:14:30.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: Traits can now add Active Abilities to a character.
+    - type: Add
+      message: Traits can now add Psionic Powers to a character.
+  id: 6278
+  time: '2024-08-21T09:49:54.0000000+00:00'
+- author: stellar-novas
+  changes:
+    - type: Tweak
+      message: Ifrit has received some damage resistance changes
+  id: 6279
+  time: '2024-08-21T21:00:01.0000000+00:00'
+- author: Rane
+  changes:
+    - type: Add
+      message: Added Xenoglossy to the psionic power pool.
+  id: 6280
+  time: '2024-08-22T00:08:59.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Tweak
+      message: >-
+        Trait points have been made more granular by both doubling the available
+        number of trait points, and increasing the base cost of all pre-existing
+        traits.
+  id: 6281
+  time: '2024-08-22T00:52:11.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Tweak
+      message: Moths can now be colorful again.
+  id: 6282
+  time: '2024-08-22T08:43:20.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Cataloguer has been re-added to the game as a new roundstart Psionic
+        role. The Cataloguer is a unique role that will always start with the
+        Latent Psychic trait, as well as the new Xenoglossy power, which allows
+        him to know and speak all languages.
+  id: 6283
+  time: '2024-08-22T17:00:11.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Gaining a new Psionic Power can now display messages to alert the
+        player, both as a short popup, and optionally a lengthier message sent
+        to the user's Chat window.
+  id: 6284
+  time: '2024-08-22T17:12:26.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: Fix
+      message: >-
+        Announcements can play multiple sounds now (you can revert to the old
+        behavior in sound setting if you want though)
+  id: 6285
+  time: '2024-08-22T21:46:38.0000000+00:00'
+- author: v0idRift
+  changes:
+    - type: Add
+      message: >-
+        Added the ability for IPCs to speak and understand Galactic Common and
+        RobotTalk languages.
+    - type: Add
+      message: >-
+        Enabled IPCs to heal themselves using welding tools via the
+        WeldingHealable component.
+  id: 6286
+  time: '2024-08-23T03:58:35.0000000+00:00'
+- author: FoxxoTrystan
+  changes:
+    - type: Fix
+      message: Supermatter Annoncements
+  id: 6287
+  time: '2024-08-24T07:56:12.0000000+00:00'
+- author: Fansana
+  changes:
+    - type: Fix
+      message: >-
+        Fixed most door accesses including: Lawyer, Mantis, Corpsman, Boxer,
+        Clown, Mime, Musician, Reporter, Library, Zookeeper, Salvage and
+        Psychologist.
+  id: 6288
+  time: '2024-08-25T08:45:17.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: Fixed the FixGridAtmos command.
+  id: 6289
+  time: '2024-08-26T00:02:53.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Lab Mixes have been added to the game as a new random animal. Be sure to
+        keep Felinids and Harpies away from them.
+  id: 6290
+  time: '2024-08-27T03:16:46.0000000+00:00'
+- author: router
+  changes:
+    - type: Add
+      message: >-
+        Added more sounds to IPCs. IPCs can now also whistle, whirr, beep, boop,
+        ping, chime, buzz and buzz twice.
+    - type: Fix
+      message: IPCs no longer have the default wilhelm sound.
+    - type: Tweak
+      message: Silicon deathgasps are now darker.
+  id: 6291
+  time: '2024-08-29T02:57:16.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: IPCs can now lay down, offer people items, and be picked up and carried.
+  id: 6292
+  time: '2024-08-29T20:01:47.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: IPC now have their own unique deathgasp message.
+  id: 6294
+  time: '2024-08-30T00:50:20.0000000+00:00'
+- author: Mnemotechnician
+  changes:
+    - type: Fix
+      message: >-
+        Shoving once again works correctly, and mass difference matters a lot
+        when shoving someone.
+    - type: Fix
+      message: >-
+        The time it takes to escape one's hands once again depends on the mass
+        difference between the escapee and the holder.
+    - type: Tweak
+      message: >-
+        Exiting stamina crit now leaves you with 0 stamina. You can't be
+        immediately stunned again, but you will suffer from slowdown and combat
+        disadvantages!
+  id: 6295
+  time: '2024-08-30T04:46:40.0000000+00:00'
+- author: ShatteredSwords
+  changes:
+    - type: Tweak
+      message: Thieves are now in Survival, Hellshift, and Extended.
+  id: 6296
+  time: '2024-08-30T04:57:29.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        TelepathyComponent has been split off from the PsionicComponent, now as
+        it's own standalone feature.
+    - type: Add
+      message: Telepathy has been added as a new Psionic Power
+    - type: Add
+      message: >-
+        Natural Telepath has returned from Psionic-Refactor V1, now using new
+        functionality from the trait system that allows traits to buy psionic
+        powers directly.
+    - type: Add
+      message: >-
+        Latent Psychics who have neither bought Natural Telepath, nor acquired
+        Telepathy during the round, can sometimes hear snippets of conversation
+        from telepathic chat.
+    - type: Tweak
+      message: >-
+        The cost of Latent Psychic has been reduced from 6 to 4 points, this is
+        to accommodate for the loss of Telepathy as a bonus feature for all
+        Psionics. Since Natural Telepath is a 2 point trait, this gives a net 0
+        change in trait points for anyone who wishes to keep being a roundstart
+        Telepath.
+    - type: Tweak
+      message: >-
+        Psionic Mantis, Mystagogue, Chaplain, and Cataloguer are all Naturally
+        Telepathic, and thus get the new trait for free.
+  id: 6297
+  time: '2024-08-30T05:27:54.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        x-Waveform Misalignment has been rebased from the Psionic Refactor v1.
+        x-Waveform Misalignment is an extraordinarily expensive trait that
+        grants full immunity to nearly all psionic powers and effects, both
+        positive and negative.
+  id: 6298
+  time: '2024-08-30T05:39:59.0000000+00:00'
+- author: Mnemotechnician
+  changes:
+    - type: Add
+      message: >-
+        A new interaction system has been implemented. The right-click menu now
+        provides a wide variety of different interactions with different
+        entities. Some old default interactions, such as hugging, knocking,
+        fence rattling, have also been moved to that system.
+  id: 6299
+  time: '2024-08-30T05:45:24.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Tweak
+      message: >-
+        Radiation shielding objects have been rebalanced, such that objects that
+        players previously assumed would provide reasonable protection from
+        radiation, now factually do. For instance, Radiation Shutters now
+        actually block radiation.
+  id: 6300
+  time: '2024-08-30T14:10:02.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: Glacier Returns.
+  id: 6301
+  time: '2024-08-30T14:13:04.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Saltern has been added to the map rotation. Now featuring a compact
+        Supermatter engine, full Epistemics department, and a significantly
+        expanded Chapel and Library.
+  id: 6302
+  time: '2024-08-30T14:24:49.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Core has been added to the list of maps in rotation. This time featuring
+        a custom Supermatter Engine
+  id: 6303
+  time: '2024-08-30T14:42:12.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: >-
+        InnatePsionicPowers now operates on MapInitEvent instead of
+        ComponentStartup, meaning that it can now be safely used on entities
+        that are mapped in instead of spawned.
+    - type: Add
+      message: >-
+        Oracle and Sophia are now recognized as Divine, and as such are
+        creatures that can be prayed to.
+  id: 6304
+  time: '2024-08-31T04:28:16.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: Diagonal windows now use connected textures.
+  id: 6305
+  time: '2024-09-01T23:20:12.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Tweak
+      message: Character names can now be up to 48 characters in length.
+    - type: Tweak
+      message: >-
+        Character descriptions can now be up to 1024 characters in length. This
+        is the maximum size descriptions can be without the menu having a scroll
+        bar. And while we'd like it to be bigger, we're going to want to get a
+        new UI for this in the future!
+  id: 6306
+  time: '2024-09-01T23:20:45.0000000+00:00'
+- author: DJB1gYAPPA
+  changes:
+    - type: Add
+      message: 'Added Jukebox with basic songs. '
+  id: 6309
+  time: '2024-09-02T02:28:11.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Revenants, Reagent Slimes, and Ore Crabs are now considered to be
+        Psionic(But cannot gain powers randomly). This is due to their status as
+        "Magical And/Or Extraplanar Creatures", which makes them valid targets
+        for anti-psychic abilities such as the Psionic Mantis' Anti-Psychic
+        Knife.
+    - type: Add
+      message: Some Reagent Slimes can now contain Lotophagoi Oil.
+  id: 6310
+  time: '2024-09-02T15:08:11.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: Cloning & Metempsychosis Machines have been refactored!
+    - type: Add
+      message: >-
+        Cloning can now fail at any point during the cloning process, turning
+        the would-be clone into a soup of blood and ammonia.
+    - type: Add
+      message: >-
+        "Clone Soup" scales directly with the mass of the entity you're
+        attempting to clone. Fail to clone a Lamia, and you'll be greeted with
+        an Olympic swimming pool worth of blood when the machine opens.
+    - type: Add
+      message: >-
+        Cloning will fail if at any point during the procedure, the machine is
+        depowered, unanchored, or emagged.
+    - type: Add
+      message: >-
+        Clones come out of the machine with severe Cellular damage. Consider
+        using Doxarubixadone in a Cryo tube as an affordable means of
+        "Finishing" clones.
+    - type: Tweak
+      message: >-
+        Cloning Time is now increased proportionally if an entity being cloned
+        is larger than a standard human(smaller entities are unchanged)
+    - type: Tweak
+      message: >-
+        The cost to clone an entity can now be configured on a per-server basis
+        via CCVar "cloning.biomass_cost_multiplier"
+    - type: Tweak
+      message: >-
+        The Biomass Reclaimer can now be toggled to round-remove ensouled bodies
+        or not via CCVar "cloning.reclaim_souled_bodies"
+    - type: Add
+      message: >-
+        The effects of Metempsychosis now scale with a Psion's relevant caster
+        stats. More powerful psychics are more likely to get favorable results
+        from being forcibly reincarnated.
+  id: 6311
+  time: '2024-09-02T15:08:52.0000000+00:00'
+- author: Rane
+  changes:
+    - type: Add
+      message: Added Psychognomy.
+    - type: Tweak
+      message: Reverted Sophia name change.
+    - type: Tweak
+      message: Minor tweaks to psionic chat eligibility and formatting.
+    - type: Add
+      message: >-
+        Some new utility has been added to player-controlled Oracle or Sophia.
+        NPC functionality later :^)
+  id: 6314
+  time: '2024-09-03T02:17:55.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/808
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        The duafter is removed when opening the door or tearing off the tile
+        with a crowbar / Убран дуафтер при открывании шлюзов или отрывании
+        плитки ломом
+  id: 6290
+  time: '2024-09-05T18:15:32.0000000+00:00'
+- author: Remuchi
+  changes:
+    - type: Tweak
+      message: >-
+        Апстрим с Einstein Engines. Основные отличия можно глянуть на гитхабе
+        либо полный ченджлог доступен в игре.
+  id: 6315
+  time: '2024-09-05T19:58:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/39
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added BackStab / Добавлен удар в спину
+    - type: Add
+      message: >-
+        Added the Betrayal dagger to uplink / Добавлен Предательский кинжал в
+        аплинк
+  id: 6316
+  time: '2024-09-07T02:50:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/30
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added WD airlock texture / Добавлены Текстуры шлюзов от ВД
+    - type: Tweak
+      message: The powered airlock are now glowing / Запитанные шлюзы теперь светятся
+    - type: Fix
+      message: Fixed animation of airlock / Исправлена анимация шлюзов
+  id: 6317
+  time: '2024-09-09T05:36:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/42
+- author: Remuchi
+  changes:
+    - type: Add
+      message: Old ahelp sound. All hail BWOINK! / Возвращен старый звук ахелпа
+    - type: Remove
+      message: >-
+        Sound on sending ahelp message was removed / Удален звук при отправке
+        сообщения в ахелпе.
+  id: 6318
+  time: '2024-09-09T08:26:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/48
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Several new tips have been added to the game, many of which reference
+        new content available on Einstein-Engines / Добавлены новые подсказки,
+        касающиеся контента Einstein Engines.
+  id: 6315
+  time: '2024-09-05T00:00:21.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/844
+- author: Mnemotechnician
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a couple issues with the new interaction verb system / Исправлены
+        некоторые проблемы с новой системой взаимодействий.
+  id: 6316
+  time: '2024-09-05T00:18:41.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/854
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Due to NUMEROUS complaints, NanoTrasen has swapped the sticker labels on
+        all colored jumpskirts to correctly state that they are infact,
+        "Skirts", so now they can legally be worn by Harpies, Lamia, and Arachne
+        / Часть ранее недоступных для гарпий юбкомбенизонов теперь доступны.
+  id: 6317
+  time: '2024-09-05T00:19:49.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/848
+- author: ShatteredSwords
+  changes:
+    - type: Tweak
+      message: >-
+        The cost of many traits have been updated / Стоимость многих черт
+        персонажей была изменена.
+    - type: Tweak
+      message: >-
+        A few traits have been tweaked / Некоторые черты персонажа были
+        изменены.
+  id: 6318
+  time: '2024-09-06T20:08:38.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/842
+- author: Mnemotechnician
+  changes:
+    - type: Add
+      message: >-
+        A new Roboticist job has been added. The job does not offer any new
+        accesses, but lets you distinguish yourself from scientists. Existing
+        maps will need to be updated to support the new job / Добавлена роль
+        Робототехника.
+    - type: Add
+      message: >-
+        Added new PDA, ID, and bag variants for roboticists. The mystagogue will
+        now also find a roboticist PDA in their office / Добавлены ПДА, ID карта
+        и сумка робототехника.
+  id: 6319
+  time: '2024-09-06T20:17:31.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/801
+- author: DEATHB4DEFEAT
+  changes:
+    - type: Fix
+      message: >-
+        The loadout/trait editors' performance has been improved by 100~1000x /
+        Производительность окна смены лодаутов/черт персонажей была улучшена в
+        100-1000 раз.
+    - type: Tweak
+      message: >-
+        The character editor's tabs look, feel, and function much better /
+        Улучшен визуальный вид окна изменения персонажа
+    - type: Fix
+      message: >-
+        Unusable loadouts/traits have an orange color when selected /
+        Неиспользуемые лодауты/черты теперь имеют оранжевый цвет при выборе
+    - type: Tweak
+      message: >-
+        Loadout previews are now inside the button / Превью лодаутов теперь
+        внутри кнопки (не знаю что Death имел в виду тут).
+    - type: Add
+      message: >-
+        Added a button to remove any unusable loadouts (or traits) you have
+        selected / Добавлена кнопка удалить все неиспользуемые лодауты (или
+        черты персонажа).
+    - type: Add
+      message: >-
+        Loadouts and traits can have subcategories, though only Command loadouts
+        use them at the moment / Лодауты и черты персонажей получили
+        подкатегории.
+    - type: Fix
+      message: >-
+        Fixed empty loadout categories not hiding / Исправлено, что пустые
+        категории лодаутов не скрывались.
+    - type: Fix
+      message: >-
+        Fixed spacing on some loadout requirements' reason text / Исправлено
+        отображение текста на некоторых лодаутах.
+    - type: Fix
+      message: >-
+        Fixed traits not updating after saving / Черты персонажей теперь
+        корректно сохраняются
+  id: 6320
+  time: '2024-09-06T21:59:51.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/736
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        The first of all new loadout groups has been added, Civilian Uniforms.
+        Only one civilian uniform can be selected, in exchange for... /
+        Добавлена первая из новых групп лодаутов - «Гражданская униформа». Можно
+        выбрать только одну гражданскую форму, в обмен на...
+    - type: Tweak
+      message: >-
+        All non-job specific uniforms have had their points reduced drastically,
+        almost all of them down to 0 points, with only a tiny handful at 2
+        points, and the rest as 1 / Всем униформам, не относящимся к конкретным
+        профессиям, значительно снижена цена. Большая часть до 0 очков,
+        небольшое количества по 2 очков, а остальные - 1.
+  id: 6321
+  time: '2024-09-07T00:53:13.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/872
+- author: VMSolidus
+  changes:
+    - type: Tweak
+      message: >-
+        All neck slot Loadout items have had their costs significantly reduced,
+        most of them to 0 / Цены на все вещи на шею в лодаутах были снижены,
+        вплоть до нуля.
+  id: 6322
+  time: '2024-09-07T00:55:49.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/874
+- author: VMSolidus
+  changes:
+    - type: Tweak
+      message: >-
+        Eyewear have had their loadout point costs significantly reduced / Цены
+        на многие очки в лодаутах были снижены.
+  id: 6323
+  time: '2024-09-07T01:04:42.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/879
+- author: VMSolidus
+  changes:
+    - type: Tweak
+      message: >-
+        All masks have had their loadout point costs substantially reduced /
+        Цены на многие маски в лодаутах были снижены.
+  id: 6324
+  time: '2024-09-07T01:06:11.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/875
+- author: Mnemotechnician
+  changes:
+    - type: Add
+      message: >-
+        Your character size now affects your blood level. Smaller characters
+        will have less blood, and larger characters will have more / Размер
+        персонажа теперь влияет на количество крови в нем. Меньше размер ->
+        меньше крови. И наоборот.
+  id: 6326
+  time: '2024-09-08T14:39:19.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/858
+- author: router
+  changes:
+    - type: Tweak
+      message: >-
+        Female slimes no longer have movie screams / Звук крика слаймов женщин
+        был изменен.
+  id: 6328
+  time: '2024-09-08T14:44:29.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/849
+- author: Mnemotechnician
+  changes:
+    - type: Add
+      message: >-
+        Chat bubbles now use the font & color of the language of the message / В
+        чате теперь корректно отображаются цвета и шрифты.
+  id: 6329
+  time: '2024-09-08T14:51:20.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/812
+- author: Mnemotechnician
+  changes:
+    - type: Add
+      message: >-
+        A shrimp morphotype was added to the failure pool of the metempsychotic
+        machine / Добавлено превращение в креветку как неудачный эксперимент в
+        метемпсихозной машине.
+  id: 6330
+  time: '2024-09-08T14:56:13.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/882
+- author: Mnemotechnician
+  changes:
+    - type: Fix
+      message: >-
+        Multiple issues with translators were fixed. Additionally, you can now
+        hold multiple handheld translators at once without issues / Различные
+        исправления внутреигровых переводчиков.
+  id: 6331
+  time: '2024-09-08T15:08:37.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/834
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Recyclers can now once again eat people when emagged / Переработчик
+        теперь снова может есть людей и других зверей.
+    - type: Add
+      message: >-
+        Recyclers require power to eat people. No more dragging emagged
+        recyclers into crowds / Переработчик теперь требует энергии для поедания
+        людей.
+  id: 6332
+  time: '2024-09-08T15:15:56.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/822
+- author: BlueHNT
+  changes:
+    - type: Add
+      message: >-
+        Added bwoink hammer with bwoink sound / Добавлена игрушка-молот со
+        звуком ахелпа.
+  id: 6333
+  time: '2024-09-08T15:16:09.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/759
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        A new console command, AddPsionicPower has been added / Новая педальная
+        команда - AddPsionicPower.
+  id: 6334
+  time: '2024-09-08T15:16:29.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/807
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Glacier, Core, and Saltern now have assistant job slots / Glacier, Core
+        и Saltern теперь имеют слоты ассистентов.
+    - type: Add
+      message: >-
+        Glacier, Core, and Saltern are now able to be voted on for map selection
+        / Glacier, Core и Saltern теперь доступы в голосовании за карту.
+  id: 6335
+  time: '2024-09-09T04:13:06.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/838
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: >-
+        Felinids and Harpies will now correctly never set off floor traps, such
+        as landmines and mouse traps / Фелиниды и гарпии теперь не будут
+        активировать напольные ловушки, например, мины или мышеловки.
+    - type: Add
+      message: >-
+        Trap Avoider has been added as a new trait, allowing characters to buy
+        the innate ability to avoid floor traps. I would have named this "Light
+        Step", after the trait from Fallout that shares its name and effect, but
+        someone already gave that name to a different trait entirely / Добавлена
+        особенность Trap Avoider, позволяющая избегать напольные ловушки.
+  id: 6338
+  time: '2024-09-09T04:14:44.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/884
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Arm and Leg markings are now split between individual arms, hands, legs,
+        and feet / кастомизация рук и ног теперь распределяется между отдельными
+        руками, кистями, ногами и ступнями.
+  id: 6339
+  time: '2024-09-09T05:30:34.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/870
+- author: Remuchi
+  changes: []
+  id: 6340
+  time: '2024-09-09T16:06:49.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/50
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added a few translations / Добавлено немного переводов
+  id: 6341
+  time: '2024-09-09T16:23:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/51
+- author: TokiJumper
+  changes:
+    - type: Remove
+      message: >-
+        You can no longer miss when throwing something in disposal bin / Убран
+        промах у мусорки.
+  id: 6342
+  time: '2024-09-10T10:03:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/52
+- author: Remuchi
+  changes:
+    - type: Tweak
+      message: >-
+        Most of the hardsuits slow down less now / Большая часть скафандром
+        теперь слабее замедляет. 
+    - type: Remove
+      message: >-
+        Removed equip/unequip delay from most of the clothes / Убран ду-афтер
+        одевания/снятия большей части одежды.
+  id: 6343
+  time: '2024-09-10T17:00:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/54

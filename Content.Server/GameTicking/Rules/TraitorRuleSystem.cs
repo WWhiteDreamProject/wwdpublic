@@ -18,6 +18,7 @@ using System.Text;
 using Content.Server.GameTicking.Components;
 using Content.Server.Traitor.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Mood;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -121,6 +122,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         // Change the faction
         _npcFaction.RemoveFaction(traitor, component.NanoTrasenFaction, false);
         _npcFaction.AddFaction(traitor, component.SyndicateFaction);
+
+        RaiseLocalEvent(traitor, new MoodEffectEvent("TraitorFocused"));
 
         // Give traitors their objectives
         if (giveObjectives)

@@ -18,8 +18,6 @@
         Blunt: 3.5
     heavyRateModifier: 0.8
     heavyRangeModifier: 0.8
-    heavyDamageBaseModifier: 2
-    heavyStaminaCost: 5
     maxTargets: 8
   - type: Tag
     tags:

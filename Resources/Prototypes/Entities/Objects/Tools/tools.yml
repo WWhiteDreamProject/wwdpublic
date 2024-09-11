@@ -37,8 +37,6 @@
       types:
         Blunt: 6.5
     heavyRateModifier: 0.9
-    heavyDamageBaseModifier: 1.2
-    heavyStaminaCost: 5
     maxTargets: 4
     angle: 60
     soundHit:
@@ -102,8 +100,6 @@
       types:
         Piercing: 6
     heavyRateModifier: 0.75
-    heavyDamageBaseModifier: 1.5
-    heavyStaminaCost: 5
     maxTargets: 1
     angle: 20
     soundHit:

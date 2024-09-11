@@ -1,0 +1,356 @@
+﻿- type: decal
+  id: TrimDarkBox
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_box
+
+- type: decal
+  id: TrimDarkCornerNe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_corner_ne
+
+- type: decal
+  id: TrimDarkCornerSe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_corner_se
+
+- type: decal
+  id: TrimDarkCornerNw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_corner_nw
+
+- type: decal
+  id: TrimDarkCornerSw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_corner_sw
+
+- type: decal
+  id: TrimDarkInnerNe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_inner_ne
+
+- type: decal
+  id: TrimDarkInnerSe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_inner_se
+
+- type: decal
+  id: TrimDarkInnerNw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_inner_nw
+
+- type: decal
+  id: TrimDarkInnerSw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_inner_sw
+
+- type: decal
+  id: TrimDarkEndN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_end_n
+
+- type: decal
+  id: TrimDarkEndE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_end_e
+
+- type: decal
+  id: TrimDarkEndS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_end_s
+
+- type: decal
+  id: TrimDarkEndW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_end_w
+
+- type: decal
+  id: TrimDarkLineN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_line_n
+
+- type: decal
+  id: TrimDarkLineE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_line_e
+
+- type: decal
+  id: TrimDarkLineS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_line_s
+
+- type: decal
+  id: TrimDarkLineW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: dark_line_w
+
+- type: decal
+  id: TrimSteelBox
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_box
+
+- type: decal
+  id: TrimSteelCornerNe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_corner_ne
+
+- type: decal
+  id: TrimSteelCornerSe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_corner_se
+
+- type: decal
+  id: TrimSteelCornerNw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_corner_nw
+
+- type: decal
+  id: TrimSteelCornerSw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_corner_sw
+
+- type: decal
+  id: TrimSteelInnerNe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_inner_ne
+
+- type: decal
+  id: TrimSteelInnerSe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_inner_se
+
+- type: decal
+  id: TrimSteelInnerNw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_inner_nw
+
+- type: decal
+  id: TrimSteelInnerSw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_inner_sw
+
+- type: decal
+  id: TrimSteelEndN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_end_n
+
+- type: decal
+  id: TrimSteelEndE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_end_e
+
+- type: decal
+  id: TrimSteelEndS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_end_s
+
+- type: decal
+  id: TrimSteelEndW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_end_w
+
+- type: decal
+  id: TrimSteelLineN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_line_n
+
+- type: decal
+  id: TrimSteelLineE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_line_e
+
+- type: decal
+  id: TrimSteelLineS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_line_s
+
+- type: decal
+  id: TrimSteelLineW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: steel_line_w
+
+- type: decal
+  id: TrimWhiteBox
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_box
+
+- type: decal
+  id: TrimWhiteCornerNe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_corner_ne
+
+- type: decal
+  id: TrimWhiteCornerSe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_corner_se
+
+- type: decal
+  id: TrimWhiteCornerNw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_corner_nw
+
+- type: decal
+  id: TrimWhiteCornerSw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_corner_sw
+
+- type: decal
+  id: TrimWhiteInnerNe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_inner_ne
+
+- type: decal
+  id: TrimWhiteInnerSe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_inner_se
+
+- type: decal
+  id: TrimWhiteInnerNw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_inner_nw
+
+- type: decal
+  id: TrimWhiteInnerSw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_inner_sw
+
+- type: decal
+  id: TrimWhiteEndN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_end_n
+
+- type: decal
+  id: TrimWhiteEndE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_end_e
+
+- type: decal
+  id: TrimWhiteEndS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_end_s
+
+- type: decal
+  id: TrimWhiteEndW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_end_w
+
+- type: decal
+  id: TrimWhiteLineN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_line_n
+
+- type: decal
+  id: TrimWhiteLineE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_line_e
+
+- type: decal
+  id: TrimWhiteLineS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_line_s
+
+- type: decal
+  id: TrimWhiteLineW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/trim.rsi
+    state: white_line_w

@@ -39,7 +39,7 @@
   description: It's a backpack made by Honk! Co.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/clown.rsi
+    sprite: _White/Clothing/Back/Backpacks/clown.rsi #WWDP edit
   - type: Storage
     storageOpenSound:
       collection: BikeHorn
@@ -145,6 +145,15 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/science.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackRobotics
+  name: robotics backpack
+  description: A sturdy backpack to store all the tools and parts.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/robotics.rsi
 
 - type: entity
   parent: ClothingBackpack
@@ -301,7 +310,7 @@
   description: It's a backpack made by Jonk! Co.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/cluwne.rsi
+    sprite: _White/Clothing/Back/Backpacks/cluwne.rsi #WWDP edit
   - type: Unremoveable
     deleteOnDrop: false
 

@@ -1,0 +1,739 @@
+# Base
+
+- type: entity
+  id: RandomPottedPlantBase
+  parent: PottedPlantBase
+  abstract: true
+  components:
+  - type: SecretStash
+    secretPartName: secret-stash-part-plant
+    maxItemSize: Tiny
+  - type: Sprite
+    offset: "0.0,2.3"
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: pot_small_1
+      map: [ "pot" ]
+    - state: dirt_small_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: plant_small_1
+      map: [ "plant" ]
+
+- type: entity
+  name: random RANDOM potted plant spawner
+  id: RandomPottedPlantSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+      - state: green
+      - sprite: _White/Structures/Furniture/random_potted_plants.rsi
+        state: icon_spawner
+    - type: RandomSpawner
+      prototypes:
+        - RandomPottedTinyPlant
+        - RandomPottedSmallPlant
+        - RandomPottedMediumPlant
+      offset: 0.0
+
+# Tiny
+
+- type: entity
+  parent: RandomPottedPlantBase
+  id: RandomPottedTinyPlant
+  name: Potted Plant
+  suffix: Tiny Base
+  components:
+  - type: Item
+    size: Small
+    storedOffset: 0,4
+  - type: SecretStash
+    secretPartName: secret-stash-part-plant
+    maxItemSize: Tiny
+  - type: InteractionOutline
+  - type: Sprite
+    offset: "0.0,2.3"
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: pot_tiny_3
+      map: [ "pot" ]
+    - state: dirt_tiny_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: plant_tiny_3
+      map: [ "plant" ]
+  - type: RandomSprite
+    available:
+      - pot:
+          pot_tiny_1: ""
+          pot_tiny_2: ""
+          pot_tiny_3: ""
+          pot_tiny_4: ""
+          pot_tiny_5: ""
+          pot_tiny_6: ""
+          pot_tiny_7: ""
+        dirt:
+          dirt_tiny_1: ""
+          dirt_tiny_2: ""
+          dirt_tiny_3: ""
+          dirt_tiny_4: ""
+          dirt_tiny_5: ""
+          dirt_tiny_6: ""
+          mask_null: ""
+        plant:
+          plant_tiny_1: ""
+          plant_tiny_2: ""
+          plant_tiny_3: ""
+          plant_tiny_4: ""
+          plant_tiny_5: ""
+          plant_tiny_6: ""
+          plant_tiny_7: ""
+          plant_tiny_8: ""
+          plant_tiny_9: ""
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.15
+        density: 190
+        mask:
+        - Impassable
+
+# Pot variants
+
+- type: entity
+  parent: RandomPottedTinyPlant
+  id: RandomPottedTinyPlantPot1
+  name: Potted Plant
+  suffix: Tiny Pot 1
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_tiny_1
+    - state: dirt_tiny_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_tiny_1
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedTinyPlant
+  id: RandomPottedTinyPlantPot2
+  name: Potted Plant
+  suffix: Tiny Pot 2
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_tiny_2
+    - state: dirt_tiny_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_tiny_2
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedTinyPlant
+  id: RandomPottedTinyPlantPot3
+  name: Potted Plant
+  suffix: Tiny Pot 3
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_tiny_3
+    - state: dirt_tiny_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_tiny_3
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedTinyPlant
+  id: RandomPottedTinyPlantPot4
+  name: Potted Plant
+  suffix: Tiny Pot 4
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_tiny_4
+    - state: dirt_tiny_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_tiny_4
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedTinyPlant
+  id: RandomPottedTinyPlantPot5
+  name: Potted Plant
+  suffix: Tiny Pot 5
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_tiny_5
+    - state: dirt_tiny_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_tiny_5
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedTinyPlant
+  id: RandomPottedTinyPlantPot6
+  name: Potted Plant
+  suffix: Tiny Pot 6
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_tiny_6
+    - state: dirt_tiny_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_tiny_6
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedTinyPlant
+  id: RandomPottedTinyPlantPot7
+  name: Potted Plant
+  suffix: Tiny Pot 7
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_tiny_7
+    - state: dirt_tiny_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_tiny_7
+      map: [ "plant" ]
+
+# Small
+
+- type: entity
+  parent: RandomPottedPlantBase
+  id: RandomPottedSmallPlant
+  name: Potted Plant
+  suffix: Small Base
+  components:
+  - type: Item
+    storedOffset: 0,5
+    size: Normal
+  - type: SecretStash
+    secretPartName: secret-stash-part-plant
+    maxItemSize: Small
+  - type: InteractionOutline
+  - type: Sprite
+    offset: "0.0,2.3"
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: pot_small_3
+      map: [ "pot" ]
+    - state: dirt_small_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: plant_small_15
+      map: [ "plant" ]
+  - type: RandomSprite
+    available:
+      - pot:
+          pot_small_1: ""
+          pot_small_2: ""
+          pot_small_3: ""
+          pot_small_4: ""
+          pot_small_5: ""
+          pot_small_6: ""
+          pot_small_7: ""
+          pot_small_8: ""
+          pot_small_9: ""
+          pot_small_10: ""
+        dirt:
+          dirt_small_1: ""
+          dirt_small_2: ""
+          dirt_small_3: ""
+          dirt_small_4: ""
+          dirt_small_5: ""
+          dirt_small_6: ""
+          mask_null: ""
+        plant:
+          plant_small_1: ""
+          plant_small_2: ""
+          plant_small_3: ""
+          plant_small_4: ""
+          plant_small_5: ""
+          plant_small_6: ""
+          plant_small_7: ""
+          plant_small_8: ""
+          plant_small_9: ""
+          plant_small_10: ""
+          plant_small_11: ""
+          plant_small_12: ""
+          plant_small_13: ""
+          plant_small_14: ""
+          plant_small_15: ""
+          plant_small_16: ""
+          plant_small_17: ""
+          plant_small_18: ""
+          plant_small_19: ""
+          plant_small_20: ""
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 190
+        mask:
+        - Impassable
+
+# Pot variants
+
+- type: entity
+  parent: RandomPottedSmallPlant
+  id: RandomPottedSmallPlantPot1
+  name: Potted Plant
+  suffix: Small Pot 1
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_small_1
+    - state: dirt_small_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_small_1
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedSmallPlant
+  id: RandomPottedSmallPlantPot2
+  name: Potted Plant
+  suffix: Small Pot 2
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_small_2
+    - state: dirt_small_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_small_2
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedSmallPlant
+  id: RandomPottedSmallPlantPot3
+  name: Potted Plant
+  suffix: Small Pot 3
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_small_3
+    - state: dirt_small_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_small_3
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedSmallPlant
+  id: RandomPottedSmallPlantPot4
+  name: Potted Plant
+  suffix: Small Pot 4
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_small_4
+    - state: dirt_small_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_small_4
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedSmallPlant
+  id: RandomPottedSmallPlantPot5
+  name: Potted Plant
+  suffix: Small Pot 5
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_small_5
+    - state: dirt_small_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_small_5
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedSmallPlant
+  id: RandomPottedSmallPlantPot6
+  name: Potted Plant
+  suffix: Small Pot 6
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_small_6
+    - state: dirt_small_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_small_6
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedSmallPlant
+  id: RandomPottedSmallPlantPot7
+  name: Potted Plant
+  suffix: Small Pot 7
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_small_7
+    - state: dirt_small_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_small_7
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedSmallPlant
+  id: RandomPottedSmallPlantPot8
+  name: Potted Plant
+  suffix: Small Pot 8
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_small_8
+    - state: dirt_small_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_small_8
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedSmallPlant
+  id: RandomPottedSmallPlantPot9
+  name: Potted Plant
+  suffix: Small Pot 9
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_small_9
+    - state: dirt_small_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_small_9
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedSmallPlant
+  id: RandomPottedSmallPlantPot10
+  name: Potted Plant
+  suffix: Small Pot 10
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_small_10
+    - state: dirt_small_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_small_10
+      map: [ "plant" ]
+
+# Medium
+
+- type: entity
+  parent: RandomPottedPlantBase
+  id: RandomPottedMediumPlant
+  name: Potted Plant
+  suffix: Medium Base
+  components:
+  - type: SecretStash
+    secretPartName: secret-stash-part-plant
+    maxItemSize: Normal
+  - type: InteractionOutline
+  - type: Sprite
+    offset: "0.0,2.3"
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: pot_medium_2
+      map: [ "pot" ]
+    - state: dirt_medium_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: plant_medium_5
+      map: [ "plant" ]
+  - type: RandomSprite
+    available:
+      - pot:
+          pot_medium_1: ""
+          pot_medium_2: ""
+          pot_medium_3: ""
+          pot_medium_4: ""
+          pot_medium_5: ""
+          pot_medium_6: ""
+          pot_medium_7: ""
+        dirt:
+          dirt_medium_1: ""
+          dirt_medium_2: ""
+          dirt_medium_3: ""
+          dirt_medium_4: ""
+          dirt_medium_5: ""
+          dirt_medium_6: ""
+          mask_null: ""
+        plant:
+          plant_medium_1: ""
+          plant_medium_2: ""
+          plant_medium_3: ""
+          plant_medium_4: ""
+          plant_medium_5: ""
+          plant_medium_6: ""
+          plant_medium_7: ""
+          plant_medium_8: ""
+          plant_medium_9: ""
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 190
+        mask:
+        - Impassable
+
+# Pot variants
+
+- type: entity
+  parent: RandomPottedMediumPlant
+  id: RandomPottedMediumPlantPot1
+  name: Potted Plant
+  suffix: Medium Pot 1
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_medium_1
+    - state: dirt_medium_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_medium_1
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedMediumPlant
+  id: RandomPottedMediumPlantPot2
+  name: Potted Plant
+  suffix: Medium Pot 2
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_medium_2
+    - state: dirt_medium_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_medium_2
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedMediumPlant
+  id: RandomPottedMediumPlantPot3
+  name: Potted Plant
+  suffix: Medium Pot 3
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_medium_3
+    - state: dirt_medium_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_medium_3
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedMediumPlant
+  id: RandomPottedMediumPlantPot4
+  name: Potted Plant
+  suffix: Medium Pot 4
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_medium_4
+    - state: dirt_medium_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_medium_4
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedMediumPlant
+  id: RandomPottedMediumPlantPot5
+  name: Potted Plant
+  suffix: Medium Pot 5
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_medium_5
+    - state: dirt_medium_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_medium_5
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedMediumPlant
+  id: RandomPottedMediumPlantPot6
+  name: Potted Plant
+  suffix: Medium Pot 6
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_medium_6
+    - state: dirt_medium_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_medium_6
+      map: [ "plant" ]
+
+- type: entity
+  parent: RandomPottedMediumPlant
+  id: RandomPottedMediumPlantPot7
+  name: Potted Plant
+  suffix: Medium Pot 7
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    layers:
+    - state: icon_spawner
+      map: [ "pot" ]
+      scale: 0.01, 0.01
+    - state: pot_medium_7
+    - state: dirt_medium_1
+      map: [ "dirt" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: icon_pot_medium_7
+      map: [ "plant" ]
+
+# Big
+
+# Pot variants
+
+# Huge
+
+# Pot variants
