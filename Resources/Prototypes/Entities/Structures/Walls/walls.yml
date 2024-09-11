@@ -985,9 +985,9 @@
   name: wood wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/wood.rsi
+    sprite: _White/Structures/Walls/wood.rsi #WWDP edit
   - type: Icon
-    sprite: Structures/Walls/wood.rsi
+    sprite: _White/Structures/Walls/wood.rsi #WWDP edit
   - type: Construction
     graph: Girder
     node: woodWall
