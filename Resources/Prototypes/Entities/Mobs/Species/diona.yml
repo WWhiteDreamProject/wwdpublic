@@ -118,7 +118,7 @@
       60: 0.9
       80: 0.75
   - type: NoSlip
-  - type: StepTriggerImmune
+  - type: ProtectedFromStepTriggers
     whitelist:
       types:
       - Shard
