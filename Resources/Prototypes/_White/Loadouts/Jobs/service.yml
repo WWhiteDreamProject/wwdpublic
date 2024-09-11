@@ -1,23 +1,8 @@
 # Hobo
 - type: loadout
-  id: LoadoutUniformJumpsuitWhiteHobo
-  category: Jobs
-  cost: 2
-  exclusive: true
-  requirements:
-  - !type:CharacterSpeciesRequirement
-    species:
-    - Human
-  - !type:CharacterJobRequirement
-    jobs:
-    - Hobo
-  items:
-  - ClothingUniformJumpsuitWhiteHobo
-
-- type: loadout
   id: LoadoutOverCoatHobo
-  category: Jobs
-  cost: 4
+  category: JobsAUncategorized
+  cost: 3
   exclusive: true
   requirements:
   - !type:CharacterSpeciesRequirement
@@ -31,7 +16,7 @@
 
 - type: loadout
   id: LoadoutHeadHatHoboCap
-  category: Jobs
+  category: JobsAUncategorized
   cost: 3
   exclusive: true
   requirements:
@@ -46,7 +31,7 @@
 
 - type: loadout
   id: LoadoutHeadHatHoboHat
-  category: Jobs
+  category: JobsAUncategorized
   cost: 3
   exclusive: true
   requirements:
@@ -58,10 +43,10 @@
     - Hobo
   items:
   - ClothingHeadHatHoboHat
-    
+
 - type: loadout
   id: LoadoutHeadHatWatermelon
-  category: Jobs
+  category: JobsAUncategorized
   cost: 3
   exclusive: true
   requirements:

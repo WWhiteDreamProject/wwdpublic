@@ -16,10 +16,10 @@
     - Felinid
     - Harpy
   - !type:CharacterSexRequirement
-    requiredSex:
+    sex:
     - Female
   - !type:GenderRequirement
-    requiredGender:
+    gender:
     - Female
   weight: 20
   icon: "JobIconMaid"

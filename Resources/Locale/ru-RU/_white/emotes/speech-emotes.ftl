@@ -72,7 +72,7 @@ emote-chat-messages-deathgasp-silicon-1 = отключается и бессил
 emote-chat-messages-deathgasp-ipc-1 = С скрежушим шипением сервоприводов и визгом умирающих миомеров, {CAPITALIZE($entity)} динамики резко затихают...
 
 #Buzz
-emote-chat-messages-buzz-1 = жужжит
+emote-chat-messages-buzz-1 = бззз
 
 #Weh
 emote-chat-messages-weh-1 = Вах!
@@ -83,6 +83,9 @@ emote-chat-messages-chirp-1 = чирикает
 #Beep
 emote-chat-messages-beep-1 = гудит
 
+#Boop
+emote-chat-messages-boop-1 = бууп
+
 #Chime
 emote-chat-messages-chime-1 = звенит
 
@@ -91,6 +94,9 @@ emote-chat-messages-buzz-two-1 = дважды жужжит
 
 #Ping
 emote-chat-messages-ping-1 = пинг
+
+#Whirr
+emote-chat-messages-whirr-1 = жужжит
 
 #Nod
 emote-chat-button-text-nod = Кивать

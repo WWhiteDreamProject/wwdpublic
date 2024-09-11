@@ -83,6 +83,9 @@ emote-chat-messages-chirp-1 = chirps
 #Beep
 emote-chat-messages-beep-1 = beeps
 
+#Boop
+emote-chat-messages-boop-1 = boops
+
 #Chime
 emote-chat-messages-chime-1 = chimes 
 
@@ -91,6 +94,9 @@ emote-chat-messages-buzz-two-1 = buzzes twice
 
 #Ping
 emote-chat-messages-ping-1 = pings
+
+#Whirr
+emote-chat-messages-whirr-1 = whirrs
 
 #Nod
 emote-chat-button-text-nod = Nod

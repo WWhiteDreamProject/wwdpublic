@@ -47,19 +47,34 @@ petting-failure-monkey = Вы протягиваете руку, чтобы по
 petting-failure-nymph = Вы протягиваете руку, чтобы погладить { $target }, но { POSS-ADJ($target) } отодвигает свои ветки от вас.
 petting-failure-shadow = Вы пытаетесь погладить {$target}, но ваша рука проходит сквозь холодную темноту его тела.
 
-## Knocking on windows
+## Petting silicons
 
 petting-success-honkbot = Вы гладите { $target } по его скользкой металлической голове.
 petting-success-mimebot = Вы гладите { $target } по { POSS-ADJ($target) } холодной металлической голове.
 petting-success-cleanbot = Вы гладите { $target } по его влажной металлической голове.
 petting-success-medibot = Вы гладите { $target } по его стерильной металлической голове.
+petting-success-recycler = Вы погладили  {$target} по {POSS-ADJ($target)} слегка угрожающему стальному корпусу.
+
 petting-failure-honkbot = Вы тянетесь погладить { $target }, но { $target } хонкает и уворачивается!
 petting-failure-cleanbot = Вы тянетесь погладить { $target }, но { $target } занят уборкой!
 petting-failure-mimebot = Вы тянетесь погладить { $target }, но { SUBJECT($target) } { CONJUGATE-BE($target) } занятый мимикацией!
 petting-failure-medibot = Вы тянетесь погладить { $target }, но { $target } едва не пронзает вашу руку шприцом!
+
+## Knocking on windows
+
 # Shown when knocking on a window
+comp-window-knock = *тук-тук*
+
+## Rattling fences
+
+fence-rattle-success = *грохот*
+
+# Hugging players
 hugging-success-generic = Вы обнимаете { $target }.
 hugging-success-generic-others = { CAPITALIZE($user) } обнимает { $target }.
 hugging-success-generic-target = { CAPITALIZE($user) } обнимает вас.
 
+## Other
+petting-success-tesla = Вы погладили {$target}, нарушив законы природы и физики.
+petting-failure-tesla = Вы протягиваете руку в сторону {$target}, но она отбрасывает её.
 petting-success-cat-others = { CAPITALIZE($user) } гладит { $target } по { POSS-ADJ($target) } маленькой пушистой голове.

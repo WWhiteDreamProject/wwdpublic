@@ -21,9 +21,9 @@
         Slash: 0.9
         Piercing: 0.9
         Caustic: 0.9
-  - type: ClothingSpeedModifier
-    walkModifier: 0.80
-    sprintModifier: 0.80
+  - type: ClothingSpeedModifier # White Dream: Make almost all hardsuits slow a bit less
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitBasic
@@ -55,9 +55,9 @@
         Heat: 0.2
         Radiation: 0.5
         Caustic: 0.5
-  - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.7
+  - type: ClothingSpeedModifier # White Dream: Make almost all hardsuits slow a bit less
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitAtmos
@@ -94,9 +94,9 @@
         Shock: 0.8
         Caustic: 0.5
         Radiation: 0.2
-  - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.7
+  - type: ClothingSpeedModifier # White Dream: Make almost all hardsuits slow a bit less
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitEngineering
@@ -125,9 +125,9 @@
         Piercing: 0.9
         Radiation: 0.3 #salv is supposed to have radiation hazards in the future
         Caustic: 0.8
-  - type: ClothingSpeedModifier
+  - type: ClothingSpeedModifier # White Dream: Make almost all hardsuits slow a bit less
     walkModifier: 0.9
-    sprintModifier: 0.8
+    sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSpatio
@@ -156,9 +156,9 @@
         Piercing: 0.5
         Radiation: 0.3
         Caustic: 0.7
-  - type: ClothingSpeedModifier
-    walkModifier: 0.75
-    sprintModifier: 0.75
+  - type: ClothingSpeedModifier # White Dream: Make almost all hardsuits slow a bit less
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
@@ -193,7 +193,6 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitVoidParamed
-
 
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -249,9 +248,9 @@
         Slash: 0.6
         Piercing: 0.6
         Caustic: 0.7
-  - type: ClothingSpeedModifier
-    walkModifier: 0.75
-    sprintModifier: 0.75
+  - type: ClothingSpeedModifier # White Dream: Make almost all hardsuits slow a bit less
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurity
@@ -260,7 +259,7 @@
 
 #Brigmedic Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ClothingOuterHardsuitSecurity
   id: ClothingOuterHardsuitBrigmedic
   name: corpsman hardsuit # DeltaV - rename brigmedic to corpsman
   description: Special hardsuit of the guardian angel of the brig. It is the medical version of the security hardsuit. # I will fix the rest of this entry later when I resprite sec suits
@@ -278,18 +277,12 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.7
-  - type: ClothingSpeedModifier
-    walkModifier: 0.65
-    sprintModifier: 0.65
-  - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitBrigmedic
-  - type: StaminaDamageResistance
-    coefficient: 0.75 # 25%
 
 #Warden's Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ClothingOuterHardsuitSecurity
   id: ClothingOuterHardsuitWarden
   name: warden's hardsuit
   description: A specialized riot suit geared to combat low pressure environments.
@@ -303,25 +296,51 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.4
-  - type: Armor
+  - type: Armor # White Dream: Changed defense values to a bit less protective
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.6
-        Piercing: 0.6
-        Caustic: 0.7
-  - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.7
-  - type: HeldSpeedModifier
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Caustic: 0.65
+        Heat: 0.65
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWarden
   - type: StaminaDamageResistance
     coefficient: 0.65 # 35%
 
+#Head of Security's Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSecurity
+  id: ClothingOuterHardsuitSecurityRed
+  name: head of security's hardsuit
+  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.45
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.5
+        Piercing: 0.5
+        Radiation: 0.5
+        Caustic: 0.6
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSecurityRed
+  - type: StaminaDamageResistance
+    coefficient: 0.5 # 50%
+
 #Captain's Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: ClothingOuterHardsuitWarden
   id: ClothingOuterHardsuitCap
   name: captain's armored spacesuit
   description: A formal armored spacesuit, made for the station's captain.
@@ -335,11 +354,11 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
-  - type: Armor
+  - type: Armor # White Dream: Cap hardsuit is no longer a fucking joke.
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
+        Blunt: 0.6
+        Slash: 0.6
         Piercing: 0.6
         Heat: 0.5
         Radiation: 0.5
@@ -347,7 +366,6 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
-  - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCap
   - type: StaminaDamageResistance
@@ -378,9 +396,9 @@
         Heat: 0.4
         Radiation: 0.0
         Caustic: 0.7
-  - type: ClothingSpeedModifier
-    walkModifier: 0.75
-    sprintModifier: 0.8
+  - type: ClothingSpeedModifier # White Dream: Make almost all hardsuits slow a bit less
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitEngineeringWhite
@@ -440,9 +458,9 @@
         Caustic: 0.2
   - type: ExplosionResistance
     damageCoefficient: 0.1
-  - type: ClothingSpeedModifier
-    walkModifier: 0.75
-    sprintModifier: 0.75
+  - type: ClothingSpeedModifier # White Dream: Make almost all hardsuits slow a bit less
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: Item
     size: Normal
@@ -458,39 +476,6 @@
     stealGroup: ClothingOuterHardsuitRd
   - type: StaminaDamageResistance
     coefficient: 0.75 # 25% as in "shock resistance" :trollface:
-
-#Head of Security's Hardsuit
-- type: entity
-  parent: ClothingOuterHardsuitSecurity
-  id: ClothingOuterHardsuitSecurityRed
-  name: head of security's hardsuit
-  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.45
-    lowPressureMultiplier: 1000
-  - type: ExplosionResistance
-    damageCoefficient: 0.6
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.5
-        Piercing: 0.5
-        Radiation: 0.5
-        Caustic: 0.6
-  - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
-  - type: HeldSpeedModifier
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitSecurityRed
-  - type: StaminaDamageResistance
-    coefficient: 0.5 # 50%
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -533,8 +518,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
-  - type: Item
-    size: Huge
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
   - type: PressureProtection
@@ -589,8 +572,6 @@
     - Hardsuit
     - WhitelistChameleon
     - HidesHarpyWings
-  - type: StaminaDamageResistance
-    coefficient: 0.5 # 50%
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -619,8 +600,6 @@
         Heat: 0.2
         Radiation: 0.01
         Caustic: 0.5
-  - type: Item
-    size: Huge
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
@@ -843,8 +822,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTLeader
-  - type: StaminaDamageResistance
-    coefficient: 0.5 # 50%
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -859,8 +836,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTChaplain
-  - type: StaminaDamageResistance
-    coefficient: 0.5 # 50%
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -891,8 +866,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTMedical
-  - type: StaminaDamageResistance
-    coefficient: 0.5 # 50%
 
 #ERT Security Hardsuit
 - type: entity
@@ -911,8 +884,6 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-  - type: StaminaDamageResistance
-    coefficient: 0.5 # 50%
 
 #ERT Janitor Hardsuit
 - type: entity

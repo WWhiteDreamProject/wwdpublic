@@ -126,6 +126,10 @@
   chatMessages: [ "emote-chat-messages-deathgasp-1" ]
 
 - type: emote
+  id: SiliconDeathgasp
+  chatMessages: [ "emote-chat-messages-deathgasp-ipc-1" ]
+
+- type: emote
   id: Buzz
   category: Vocal
   chatMessages: [ "emote-chat-messages-buzz-1" ]
@@ -153,6 +157,13 @@
     - "emote-chat-messages-beep-1"
 
 - type: emote
+  id: Boop
+  category: Vocal
+  chatMessages: [ "emote-chat-messages-boop-1" ]
+  chatTriggers:
+    - "emote-chat-messages-boop-1"
+
+- type: emote
   id: Chime
   category: Vocal
   chatMessages: [ "emote-chat-messages-chime-1" ]
@@ -172,3 +183,9 @@
   chatMessages: [ "emote-chat-messages-ping-1" ]
   chatTriggers:
     - "emote-chat-messages-ping-1"
+
+- type: emote
+  id: Whirr # uncategorized as it is generic
+  chatMessages: [ "emote-chat-messages-whirr-1" ]
+  chatTriggers:
+    - "emote-chat-messages-whirr-1"

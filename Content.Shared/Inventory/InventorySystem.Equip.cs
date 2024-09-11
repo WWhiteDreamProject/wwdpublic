@@ -170,6 +170,7 @@ public abstract partial class InventorySystem
                 BreakOnHandChange = true,
                 BreakOnUserMove = true,
                 BreakOnTargetMove = true,
+                BreakOnDamage = false, // White Dream: Do not break on recieving damage
                 CancelDuplicate = true,
                 RequireCanInteract = true,
                 NeedHand = true
@@ -416,6 +417,7 @@ public abstract partial class InventorySystem
                 BreakOnHandChange = true,
                 BreakOnUserMove = true,
                 BreakOnTargetMove = true,
+                BreakOnDamage = false, // White Dream: Do not break on recieving damage
                 CancelDuplicate = true,
                 RequireCanInteract = true,
                 NeedHand = true
