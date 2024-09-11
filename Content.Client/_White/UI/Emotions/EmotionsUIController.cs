@@ -42,14 +42,8 @@ public sealed class EmotionsUIController : UIController, IOnStateChanged<Gamepla
             if (!emote.AllowToEmotionsMenu)
                 continue;
 
-            var control = new Button();
-            control.OnPressed += _ => UseEmote(Loc.GetString(_random.Pick(emote.ChatMessages)));
-            control.Text = Loc.GetString(emote.ButtonText);
-            control.HorizontalExpand = true;
-            control.VerticalExpand = true;
-            control.MaxWidth = 250;
-            control.MaxHeight = 50;
-            _window.EmotionsContainer.AddChild(control);
+            var button = CreateEmoteButton(emote);
+            _window.EmotionsContainer.AddChild(button);
         }
 
         CommandBinds.Builder
@@ -127,5 +121,17 @@ public sealed class EmotionsUIController : UIController, IOnStateChanged<Gamepla
 
         _lastEmotionTimeUse = DateTime.Now;
         _chatManager.SendMessage(emote, ChatSelectChannel.Emotes);
+    }
+
+    private Button CreateEmoteButton(EmotePrototype emote)
+    {
+        var control = new Button();
+        control.OnPressed += _ => UseEmote(Loc.GetString(_random.Pick(emote.ChatMessages)));
+        control.Text = Loc.GetString(emote.ButtonText);
+        control.HorizontalExpand = true;
+        control.VerticalExpand = true;
+        control.MaxWidth = 250;
+        control.MaxHeight = 50;
+        return control;
     }
 }

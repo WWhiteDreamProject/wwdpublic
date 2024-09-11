@@ -23,12 +23,12 @@ emote-chat-button-text-sigh = Sigh
 emote-chat-messages-sigh-1 = sighs
 
 #Whistle
-emote-chat-button-text-whistle = Цhistle
+emote-chat-button-text-whistle = Whistle
 
 emote-chat-messages-whistle-1 = whistles
 
 #Crying
-emote-chat-button-text-crying = Сrie
+emote-chat-button-text-crying = Сry
 
 emote-chat-messages-crying-1 = cries
 
@@ -36,7 +36,7 @@ emote-chat-messages-crying-1 = cries
 emote-chat-messages-squish-1 = squishes
 
 #Chitter
-emote-chat-messages-chitter-1 = squishes
+emote-chat-messages-chitter-1 = chitters
 
 #Squeak
 emote-chat-messages-squeak-1 = squeaks
@@ -114,6 +114,6 @@ emote-chat-button-text-frown = Frown
 emote-chat-messages-frown-1 = frowns
 
 #Smile
-emote-chat-button-text-smile = Улыбаться
+emote-chat-button-text-smile = Smile
 
-emote-chat-messages-smile-1 = улыбается
+emote-chat-messages-smile-1 = smiles
