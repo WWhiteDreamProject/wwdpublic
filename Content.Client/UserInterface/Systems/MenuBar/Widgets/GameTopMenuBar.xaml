@@ -19,10 +19,10 @@
         Icon="{xe:Tex '/Textures/Interface/hamburger.svg.192dpi.png'}"
         BoundKey = "{x:Static ic:EngineKeyFunctions.EscapeMenu}"
         ToolTip="{Loc 'game-hud-open-escape-menu-button-tooltip'}"
-        MinSize="70 64"
+        MinSize="42 64"
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonOpenRight}"
-        />
+        /> <!-- WD EDIT -->
     <ui:MenuButton
         Name="GuidebookButton"
         Access="Internal"
@@ -46,7 +46,7 @@
     <ui:MenuButton
         Name="EmotionsButton"
         Access="Internal"
-        Icon="{xe:Tex '/Textures/Interface/emotions.svg.192dpi.png'}"
+        Icon="{xe:Tex '/Textures/_White/Interface/emotions.svg.192dpi.png'}"
         ToolTip="{Loc 'game-hud-open-emotions-menu-button-tooltip'}"
         BoundKey = "{x:Static is:ContentKeyFunctions.OpenEmotionsMenu}"
         MinSize="42 64"

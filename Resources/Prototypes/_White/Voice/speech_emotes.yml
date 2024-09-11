@@ -15,7 +15,7 @@
 - type: emote
   id: Frown
   category: General
-  buttonText: "emote-chat-button-frown"
+  buttonText: "emote-chat-button-text-frown"
   chatMessages: [ "emote-chat-messages-frown-1" ]
   allowMenu: true
 
