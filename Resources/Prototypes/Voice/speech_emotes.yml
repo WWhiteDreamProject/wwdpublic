@@ -68,9 +68,9 @@
 - type: emote
   id: Chitter
   category: Vocal
-  chatMessages: [ "emote-chat-messages-сhitter-1" ]
+  chatMessages: [ "emote-chat-messages-chitter-1" ]
   chatTriggers:
-   - "emote-chat-messages-сhitter-1"
+   - "emote-chat-messages-chitter-1"
 
 - type: emote
   id: Squeak
@@ -82,19 +82,19 @@
 - type: emote
   id: Click
   category: Vocal
-  chatMessages: [ "emote-chat-messages-сlick-1" ]
+  chatMessages: [ "emote-chat-messages-click-1" ]
   chatTriggers:
-   - "emote-chat-messages-сlick-1"
-   - "emote-chat-messages-сlick-2"
+   - "emote-chat-messages-click-1"
+   - "emote-chat-messages-click-2"
 
 # hand emotes
 - type: emote
   id: Clap
   category: Hands
-  buttonText: "emote-chat-button-text-сlap"
-  chatMessages: [ "emote-chat-messages-сlap-1" ]
+  buttonText: "emote-chat-button-text-clap"
+  chatMessages: [ "emote-chat-messages-clap-1" ]
   chatTriggers:
-    - "emote-chat-messages-сlap-1"
+    - "emote-chat-messages-clap-1"
   allowMenu: true
 
 - type: emote
@@ -155,9 +155,9 @@
 - type: emote
   id: Chime
   category: Vocal
-  chatMessages: [ "emote-chat-messages-сhime-1" ]
+  chatMessages: [ "emote-chat-messages-chime-1" ]
   chatTriggers:
-    - "emote-chat-messages-сhime-1"
+    - "emote-chat-messages-chime-1"
 
 - type: emote
   id: Buzz-Two

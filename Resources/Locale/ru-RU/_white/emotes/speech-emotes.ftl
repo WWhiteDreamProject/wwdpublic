@@ -91,3 +91,23 @@ emote-chat-messages-buzz-two-1 = дважды жужжит
 
 #Ping
 emote-chat-messages-ping-1 = пинг
+
+#Nod
+emote-chat-button-text-nod = Кивать
+
+emote-chat-messages-nod-1 = кивает
+
+#ShakeHead
+emote-chat-button-text-shake-head = Покачать головой
+
+emote-chat-messages-shake-head-1 = качает головой
+
+#Frown
+emote-chat-button-text-frown = Хмуриться
+
+emote-chat-messages-frown-1 = хмурится
+
+#Smile
+emote-chat-button-text-smile = Улыбаться
+
+emote-chat-messages-smile-1 = улыбается
