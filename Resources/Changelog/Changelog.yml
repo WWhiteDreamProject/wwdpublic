@@ -6334,3 +6334,31 @@ Entries:
   id: 6344
   time: '2024-09-12T04:31:46.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/47
+- author: Remuchi
+  changes:
+    - type: Add
+      message: >-
+        Reintroduced dwarfs / Возвращены дворфы в игру. Лучше переносят алкоголь
+        и имеют чуть больше выносливости, чем остальные расы.
+    - type: Tweak
+      message: >-
+        Arachnids now have action to place spider web and no longer slowed down
+        by it / Арахниды получили возможность ставить паутину и не замедляться в
+        ней.
+    - type: Tweak
+      message: >-
+        Most races min/max/default height and width was rebalanced. Now they go
+        mostly +-10% from default / Параметры роста/ширины многих раз были
+        изменены. Теперь они могут (в большинстве случаев) изменяться на
+        максимум +-10% от стандартного значения.
+    - type: Remove
+      message: >-
+        Removed arachne from roundstart species pool / Арахне были удалены из
+        стартового набора рас.
+    - type: Remove
+      message: >-
+        Removed oni from roundstart species pool / Они были удалены из
+        стартового набора рас.
+  id: 6345
+  time: '2024-09-12T05:51:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/49
