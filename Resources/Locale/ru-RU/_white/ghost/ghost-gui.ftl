@@ -1,1 +1,1 @@
-ghost-gui-return-to-round-button = Return to round
+ghost-gui-return-to-round-button = Вернуться в раунд
