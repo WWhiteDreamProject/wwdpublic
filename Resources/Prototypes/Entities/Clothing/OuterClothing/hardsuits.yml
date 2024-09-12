@@ -36,9 +36,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has thermal shielding.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/atmospherics.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/atmospherics.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/atmospherics.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/atmospherics.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -75,9 +75,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has radiation shielding.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/engineering.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/engineering.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.04
     lowPressureMultiplier: 1000
@@ -111,9 +111,9 @@
   description: A lightweight hardsuit designed for industrial EVA in zero gravity.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/spatio.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/spatio.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.7
     lowPressureMultiplier: 1000
@@ -140,9 +140,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has reinforced plating for wildlife encounters.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/salvage.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/salvage.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -171,9 +171,9 @@
   description: A hardsuit made for paramedics.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/paramed.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/paramed.rsi #WWDP edit
   - type: TemperatureProtection
     coefficient: 0.1
   - type: PressureProtection
@@ -233,9 +233,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/security.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/security.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -288,9 +288,9 @@
   description: A specialized riot suit geared to combat low pressure environments.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/security-warden.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/security-warden.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -317,9 +317,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/security-red.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/security-red.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
@@ -346,9 +346,9 @@
   description: A formal armored spacesuit, made for the station's captain.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/capspace.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/capspace.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -379,9 +379,9 @@
   description: A special hardsuit that protects against hazardous, low pressure environments, made for the chief engineer of the station.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/engineering-white.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/engineering-white.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -441,9 +441,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor. Able to be compressed to small sizes.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/rd.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/rd.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -485,9 +485,9 @@
   description: A refurbished mining hardsuit, fashioned after the Logistics Officer's colors. Graphene lining provides less protection, but is much easier to move. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/luxury.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/luxury.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/luxury.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/luxury.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -517,9 +517,9 @@
   description: A heavily armored hardsuit designed for work in special operations. Property of Gorlex Marauders.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/syndicate.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/syndicate.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -581,9 +581,9 @@
   description: An elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Gorlex Marauders.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/syndieelite.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/syndieelite.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -617,9 +617,9 @@
   description: A bulked up version of the blood-red hardsuit, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -651,9 +651,9 @@
   description: A suit made by the cutting edge R&D department at cybersun to be hyper resilient.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/cybersun.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/cybersun.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.2
     lowPressureMultiplier: 1000
@@ -909,9 +909,9 @@
   description: An advanced hardsuit favored by commandos for use in special operations.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/deathsquad.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
+    sprite: _White/Clothing/OuterClothing/Hardsuits/deathsquad.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
