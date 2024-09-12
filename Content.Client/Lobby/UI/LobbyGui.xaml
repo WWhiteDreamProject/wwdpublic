@@ -1,3 +1,4 @@
+<!-- White Dream Lobby -->
 <lobbyUi:LobbyGui
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,10 +9,10 @@
     xmlns:info="clr-namespace:Content.Client.Info"
     xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Chat.Widgets"
     xmlns:animatedBackground="clr-namespace:Content.Client._White.UI.AnimatedBackground"
-    xmlns:buttons="clr-namespace:Content.Client._White.UI.Buttons"> <!-- WD EDIT -->
+    xmlns:buttons="clr-namespace:Content.Client._White.UI.Buttons">
     <!-- Background -->
     <animatedBackground:AnimatedBackgroundControl Access="Public" Name="Background" VerticalExpand="True" HorizontalExpand="True"
-                                                  Stretch="KeepAspectCovered" /><!-- WD EDIT -->
+                                                  Stretch="KeepAspectCovered" />
     <BoxContainer Name="MainContainer" VerticalExpand="True" HorizontalExpand="True" Orientation="Horizontal"
                   Margin="10 10 10 10" SeparationOverride="2">
         <SplitContainer State="Auto" HorizontalExpand="True">
@@ -26,7 +27,7 @@
                     <!-- Vertical Padding -->
                     <Control VerticalExpand="True" />
                     <RichTextLabel Name="LabelName" Access="Public" HorizontalAlignment="Left"
-                                   VerticalAlignment="Center" Margin="0 0 0 420" /> <!-- WD EDIT -->
+                                   VerticalAlignment="Center" Margin="20 0 0 420" />
                     <!-- Left Bot Panel -->
                     <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
                         <info:DevInfoBanner Name="DevInfoBanner" VerticalExpand="false" Margin="3 3 3 3" />
@@ -34,7 +35,6 @@
                             <RichTextLabel Name="LobbySong" Access="Public" HorizontalAlignment="Center" />
                         </PanelContainer>
                     </BoxContainer>
-                    <!-- WD EDIT START -->
                     <!-- Left Panel -->
                     <PanelContainer HorizontalAlignment="Left" Name="Center" VerticalAlignment="Center">
                         <BoxContainer Orientation="Vertical" HorizontalAlignment="Center"
@@ -44,7 +44,7 @@
                                 Access="Public"
                                 ToggleMode="True"
                                 ButtonText="{Loc 'lobby-state-player-status-not-ready'}"
-                                Margin="0 0 0 10" />
+                                Margin="0 30 0 10" />
                             <buttons:WhiteUICommandButton
                                 Name="ObserveButton"
                                 WindowType="{x:Type lobbyUi:ObserveWarningWindow}"
@@ -72,6 +72,11 @@
                                 ButtonText="{Loc 'ui-lobby-ahelp-button'}"
                                 Margin="0 10 0 10" />
                             <buttons:WhiteLobbyTextButton
+                                Name="ChangelogButton"
+                                Access="Public"
+                                ButtonText="{Loc 'ui-lobby-changelog-button'}"
+                                Margin="0 10 0 10" />
+                            <buttons:WhiteLobbyTextButton
                                 Name="QuitButton"
                                 Access="Public"
                                 ButtonText="{Loc 'ui-lobby-leave-button'}"
@@ -87,12 +92,11 @@
                                           StyleClasses="LobbyBackground" />
                         </BoxContainer>
                     </PanelContainer>
-                    <!-- WD EDIT END -->
                 </Control>
             </BoxContainer>
             <!-- Right Panel -->
             <PanelContainer Name="RightSide" StyleClasses="LobbyBackground" HorizontalAlignment="Right" VerticalExpand="True"
-                            VerticalAlignment="Stretch"><!-- WD EDIT -->
+                            VerticalAlignment="Stretch">
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True">
                     <!-- Top row -->
                     <BoxContainer Orientation="Horizontal" MinSize="0 40" Name="HeaderContainer" Access="Public"
@@ -106,11 +110,11 @@
                     <!-- Server info -->
                     <controls:NanoHeading Text="{Loc 'ui-lobby-server-info-block'}" />
                     <info:ServerInfo Name="ServerInfo" Access="Public" MinSize="0 100" VerticalExpand="false"
-                                     Margin="3 3 3 3" MaxWidth="400" HorizontalAlignment="Left" /><!-- WD EDIT -->
+                                     Margin="3 3 3 3" MaxWidth="400" HorizontalAlignment="Left" />
                     <Label Name="StationTime" Access="Public" FontColorOverride="{x:Static maths:Color.MediumVioletRed}"
                            Margin="3 3 3 3" HorizontalAlignment="Left" />
                     <Label Name="StartTime" Access="Public" FontColorOverride="{x:Static maths:Color.MediumVioletRed}"
-                           Margin="3 3 3 3" StyleClasses="Label" HorizontalExpand="True" /> <!-- WD EDIT -->
+                           Margin="3 3 3 3" StyleClasses="Label" HorizontalExpand="True" />
                     <controls:HSpacer Spacing="5" />
                     <BoxContainer MinHeight="10" />
                     <!-- Gold line -->

@@ -23,8 +23,11 @@ namespace Content.Client.Lobby.UI
             LobbySong.SetMarkup(Loc.GetString("lobby-state-song-no-song-text"));
 
             OptionsButton.OnPressed += _ => _userInterfaceManager.GetUIController<OptionsUIController>().ToggleWindow();
-            /*DiscordButton.OnPressed += _ => _stalinManager.RequestUri();*/ // WD EDIT
-            QuitButton.OnPressed += _ => _consoleHost.ExecuteCommand("disconnect"); // WD EDIT
+            // White Edit Start
+            /*DiscordButton.OnPressed += _ => _stalinManager.RequestUri();*/
+            ChangelogButton.OnPressed += _ => UserInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
+            QuitButton.OnPressed += _ => _consoleHost.ExecuteCommand("disconnect");
+            // White Edit End
         }
 
         public void SwitchState(LobbyGuiState state)
