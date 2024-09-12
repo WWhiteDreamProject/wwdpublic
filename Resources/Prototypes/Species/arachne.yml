@@ -1,7 +1,7 @@
 - type: species
   id: Arachne
   name: species-name-arachne
-  roundStart: true
+  roundStart: false # White Dream - disable arachne for missing textures.
   prototype: MobArachne
   sprites: MobArachneSprites
   markingLimits: MobArachneMarkingLimits

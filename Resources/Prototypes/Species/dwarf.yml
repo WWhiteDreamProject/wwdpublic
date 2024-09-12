@@ -1,15 +1,15 @@
 - type: species
   id: Dwarf
   name: species-name-dwarf
-  roundStart: false # DeltaV - Disable dwarf
+  roundStart: true
   prototype: MobDwarf
   sprites: MobHumanSprites
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobDwarfDummy
   skinColoration: HumanToned
-  minHeight: 0.6
+  minHeight: 0.7 # White Dream: Changed sizes of all species to be less extreme.
   defaultHeight: 0.8
-  maxHeight: 0.8
-  minWidth: 0.55
+  maxHeight: 0.9
+  minWidth: 0.7
   defaultWidth: 0.8
-  maxWidth: 0.85
+  maxWidth: 0.9 # White Dream: End of changes

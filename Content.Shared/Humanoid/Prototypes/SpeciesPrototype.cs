@@ -125,37 +125,37 @@ public sealed partial class SpeciesPrototype : IPrototype
     ///     The minimum height for this species
     /// </summary>
     [DataField]
-    public float MinHeight = 0.75f;
+    public float MinHeight = 0.9f; // White Dream Edit
 
     /// <summary>
     ///     The default height for this species
     /// </summary>
     [DataField]
-    public float DefaultHeight = 1f;
+    public float DefaultHeight = 1f; // White Dream Edit
 
     /// <summary>
     ///     The maximum height for this species
     /// </summary>
     [DataField]
-    public float MaxHeight = 1.25f;
+    public float MaxHeight = 1.1f; // White Dream Edit
 
     /// <summary>
     ///     The minimum width for this species
     /// </summary>
     [DataField]
-    public float MinWidth = 0.7f;
+    public float MinWidth = 0.9f; // White Dream Edit
 
     /// <summary>
     ///     The default width for this species
     /// </summary>
     [DataField]
-    public float DefaultWidth = 1f;
+    public float DefaultWidth = 1f; // White Dream Edit
 
     /// <summary>
     ///     The maximum width for this species
     /// </summary>
     [DataField]
-    public float MaxWidth = 1.3f;
+    public float MaxWidth = 1.1f; // White Dream Edit
 
     /// <summary>
     ///     The average height in centimeters for this species, used to calculate player facing height values in UI elements
