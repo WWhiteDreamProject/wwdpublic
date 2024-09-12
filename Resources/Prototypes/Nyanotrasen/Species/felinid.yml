@@ -7,12 +7,12 @@
   markingLimits: MobFelinidMarkingLimits
   dollPrototype: MobFelinidDummy
   skinColoration: HumanToned
-  minHeight: 0.8
-  defaultHeight: 0.8
+  minHeight: 0.8 # White Dream: Changed sizes of all species to be less extreme.
+  defaultHeight: 0.85
   maxHeight: 1
   minWidth: 0.8
   defaultWidth: 0.8
-  maxWidth: 1
+  maxWidth: 1 # White Dream: End of changes
 
 - type: markingPoints
   id: MobFelinidMarkingLimits

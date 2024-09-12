@@ -163,9 +163,11 @@ namespace Content.Server.GameTicking
 
         public HumanoidCharacterProfile GetPlayerProfile(ICommonSession p)
         {
+            // White Dream Start
             var profile = (HumanoidCharacterProfile) _prefsManager.GetPreferences(p.UserId).SelectedCharacter;
             profile.EnsureValid(p, IoCManager.Instance!);
             return profile;
+            // White Dream End
         }
 
         public void PlayerJoinGame(ICommonSession session, bool silent = false)

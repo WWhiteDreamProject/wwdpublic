@@ -60,7 +60,7 @@
     - SolCommon
   - type: LightweightDrunk
     boozeStrengthMultiplier: 0.5
-  - type: Stamina
+  - type: Stamina # White Dream: Make dwarfs a bit more durable.
     critThreshold: 115
 
 - type: entity

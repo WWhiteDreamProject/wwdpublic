@@ -11,12 +11,12 @@
   maleFirstNames: names_reptilian_male
   femaleFirstNames: names_reptilian_female
   naming: FirstDashFirst
-  minHeight: 0.9
+  minHeight: 0.9 # White Dream: Changed sizes of all species to be less extreme.
   defaultHeight: 1.1
   maxHeight: 1.2
   minWidth: 0.9
   defaultWidth: 1.1
-  maxWidth: 1.2
+  maxWidth: 1.2 # White Dream: End of changes.
 
 - type: speciesBaseSprites
   id: MobReptilianSprites
