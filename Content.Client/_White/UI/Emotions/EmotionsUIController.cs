@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Client._White.UI.Emotions.Windows;
 using Content.Client.Chat.Managers;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
@@ -8,6 +7,7 @@ using Content.Shared.Chat.Prototypes;
 using Content.Shared.Input;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
+using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -20,8 +20,7 @@ public sealed class EmotionsUIController : UIController, IOnStateChanged<Gamepla
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
 
-
-    private EmotionsWindow? _window;
+    private DefaultWindow? _window;
     private MenuButton? EmotionsButton => UIManager.GetActiveUIWidgetOrNull<UserInterface.Systems.MenuBar.Widgets.GameTopMenuBar>()?.EmotionsButton;
 
     private DateTime _lastEmotionTimeUse = DateTime.Now;
@@ -29,28 +28,16 @@ public sealed class EmotionsUIController : UIController, IOnStateChanged<Gamepla
 
     public void OnStateEntered(GameplayState state)
     {
-        _window = UIManager.CreateWindow<EmotionsWindow>();
+        _window = FormMenu();
 
         _window.OnOpen += OnWindowOpened;
         _window.OnClose += OnWindowClosed;
-
-        var emotions = _prototypeManager.EnumeratePrototypes<EmotePrototype>().ToList();
-        emotions.Sort((a,b) => string.Compare(Loc.GetString(a.ButtonText), Loc.GetString(b.ButtonText.ToString()), StringComparison.Ordinal));
-
-        foreach (var emote in emotions)
-        {
-            if (!emote.AllowToEmotionsMenu)
-                continue;
-
-            var button = CreateEmoteButton(emote);
-            _window.EmotionsContainer.AddChild(button);
-        }
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.OpenEmotionsMenu,
                 InputCmdHandler.FromDelegate(_ => ToggleWindow()))
             .Register<EmotionsUIController>();
-    }
+   }
 
     public void OnStateExited(GameplayState state)
     {
@@ -125,13 +112,51 @@ public sealed class EmotionsUIController : UIController, IOnStateChanged<Gamepla
 
     private Button CreateEmoteButton(EmotePrototype emote)
     {
-        var control = new Button();
+        var control = new Button
+        {
+            ClipText = true,
+            HorizontalExpand = true,
+            VerticalExpand = true,
+            MinWidth = 120,
+            MaxWidth = 250,
+            MaxHeight = 35,
+            TextAlign = Label.AlignMode.Left,
+            Text = Loc.GetString(emote.ButtonText)
+        };
+
         control.OnPressed += _ => UseEmote(Loc.GetString(_random.Pick(emote.ChatMessages)));
-        control.Text = Loc.GetString(emote.ButtonText);
-        control.HorizontalExpand = true;
-        control.VerticalExpand = true;
-        control.MaxWidth = 250;
-        control.MaxHeight = 50;
         return control;
+    }
+
+    private DefaultWindow FormMenu()
+    {
+        var window = new DefaultWindow
+        {
+            Title = Loc.GetString("emotions-menu-title"),
+            VerticalExpand = true,
+            HorizontalExpand = true,
+            MinHeight = 250,
+            MinWidth = 300
+        };
+
+        var grid = new GridContainer
+        {
+            Columns = 3
+        };
+
+        var emotions = _prototypeManager.EnumeratePrototypes<EmotePrototype>().ToList();
+        emotions.Sort((a,b) => string.Compare(Loc.GetString(a.ButtonText), Loc.GetString(b.ButtonText.ToString()), StringComparison.Ordinal));
+
+        foreach (var emote in emotions)
+        {
+            if (!emote.AllowToEmotionsMenu)
+                continue;
+
+            var button = CreateEmoteButton(emote);
+            grid.AddChild(button);
+        }
+
+        window.Contents.AddChild(grid);
+        return window;
     }
 }

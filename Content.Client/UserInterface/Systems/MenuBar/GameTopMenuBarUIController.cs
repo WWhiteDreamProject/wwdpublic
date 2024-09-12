@@ -49,7 +49,7 @@ public sealed class GameTopMenuBarUIController : UIController
         _action.UnloadButton();
         _sandbox.UnloadButton();
         _language.UnloadButton();
-        _emotions.LoadButton(); // WD EDIT
+        _emotions.UnloadButton(); // WD EDIT
     }
 
     public void LoadButtons()
