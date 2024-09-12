@@ -6327,3 +6327,10 @@ Entries:
   id: 6343
   time: '2024-09-10T17:00:41.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/54
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added new Lobby / Добавлено новое лобби
+  id: 6344
+  time: '2024-09-12T04:31:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/47
