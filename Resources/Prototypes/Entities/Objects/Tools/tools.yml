@@ -409,10 +409,6 @@
       Plastic: 100
 #  - type: DynamicPrice
 #    price: 100
-  - type: ReverseEngineering # Nyano
-    difficulty: 2
-    recipes:
-      - PowerDrill
   - type: StaticPrice
     price: 100
   - type: MeleeWeapon
@@ -429,6 +425,10 @@
     angle: 20
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - PowerDrill
 
 - type: entity
   id: RCD
@@ -474,7 +474,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 600
-      Plastic: 100
+      Plastic: 150
   - type: StaticPrice
     price: 100
   - type: UserInterface
@@ -483,6 +483,10 @@
       type: RCDMenuBoundUserInterface
   - type: ActivatableUI
     key: enum.RcdUiKey.Key
+  - type: ReverseEngineering # Nyano
+    difficulty: 3
+    recipes:
+      - RCD
 
 - type: entity
   id: RCDEmpty
@@ -544,7 +548,7 @@
     heldPrefix: ammo
   - type: PhysicalComposition
     materialComposition:
-      Steel: 100
+      Steel: 300
       Plastic: 100
   - type: StaticPrice
     price: 60
