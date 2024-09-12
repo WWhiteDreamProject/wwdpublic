@@ -123,6 +123,10 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_arachnid"
         visible: false
+  # White Dream Start - transfer features from Arachne
+  - type: Spider
+  - type: IgnoreSpiderWeb
+  # White Dream End
 
 - type: entity
   parent: BaseSpeciesDummy

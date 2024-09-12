@@ -76,7 +76,7 @@ public sealed partial class AirlockComponent : Component
     /// Whether the door lights should be visible.
     /// </summary>
     [DataField]
-    public bool OpenUnlitVisible = false;
+    public bool OpenUnlitVisible = true; // WD EDIT
 
     /// <summary>
     /// Whether the door should display emergency access lights.
