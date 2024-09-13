@@ -124,6 +124,7 @@ public sealed class StepTriggerSystem : EntitySystem
             || component.CurrentlySteppedOn.Contains(otherUid))
             return false;
 
+        // Immunity checks
         if (TryComp<StepTriggerImmuneComponent>(otherUid, out var stepTriggerImmuneComponent)
             && component.TriggerGroups != null
             && component.TriggerGroups.IsValid(stepTriggerImmuneComponent))

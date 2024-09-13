@@ -11,6 +11,7 @@ namespace Content.Shared.StepTrigger.Prototypes
     /// A group of <see cref="StepTriggerTypePrototype">
     /// Used to determine StepTriggerTypes like Tags.
     /// Used for better work with Immunity.
+    /// StepTriggerTypes in StepTriggerTypes.yml
     /// WD EDIT
     /// </summary>
     /// <code>
@@ -31,6 +32,9 @@ namespace Content.Shared.StepTrigger.Prototypes
         [DataField]
         public List<ProtoId<StepTriggerTypePrototype>>? Types = null;
 
+        /// <summary>
+        /// Checks if types of this StepTriggerGroup is similar to types of AnotherGroup
+        /// </summary>
         public bool IsValid(StepTriggerGroup? AnotherGroup)
         {
             if (Types != null)
@@ -46,6 +50,10 @@ namespace Content.Shared.StepTrigger.Prototypes
             return false;
         }
 
+        /// <summary>
+        /// Checks validation (if types of this StepTriggerGroup are similar to types of
+        /// another StepTriggerComponent.
+        /// </summary>
         public bool IsValid(StepTriggerComponent component)
         {
             if (component.TriggerGroups != null)
@@ -55,6 +63,10 @@ namespace Content.Shared.StepTrigger.Prototypes
             return false;
         }
 
+        /// <summary>
+        /// Checks validation (if types of this StepTriggerGroup are similar to types of
+        /// another StepTriggerImmuneComponent.
+        /// </summary>
         public bool IsValid(StepTriggerImmuneComponent component)
         {
             if (component.Whitelist != null)
