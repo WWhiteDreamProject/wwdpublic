@@ -21,5 +21,5 @@ public sealed partial class StepTriggerImmuneComponent : Component
     /// WhiteList of immunable triggers.
     /// </summary>
     [DataField]
-    public StepTriggerGroup? Whitelist = default!;
+    public StepTriggerGroup? Whitelist;
 }

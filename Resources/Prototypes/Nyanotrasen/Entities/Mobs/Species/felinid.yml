@@ -82,7 +82,10 @@
   - type: StepTriggerImmune
     whitelist:
       types:
-      - Lava
+        - Shard
+        - Liquid
+        - Landmine
+        - Mousetrap
 
 - type: entity
   save: false

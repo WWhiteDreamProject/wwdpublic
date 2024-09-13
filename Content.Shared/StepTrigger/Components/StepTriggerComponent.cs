@@ -59,8 +59,11 @@ public sealed partial class StepTriggerComponent : Component
     [DataField, AutoNetworkedField]
     public bool StepOn = false;
 
-    [DataField, AutoNetworkedField]
-    public StepTriggerGroup? TriggerGroups = default!;
+    /// <summary>
+    /// If TriggerGroups is specified, it will check StepTriggerImmunityComponent to have the same TriggerType to activate immunity
+    /// </summary>
+    [DataField]
+    public StepTriggerGroup? TriggerGroups;
 }
 
 [RegisterComponent]

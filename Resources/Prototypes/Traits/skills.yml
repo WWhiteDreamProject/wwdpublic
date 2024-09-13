@@ -270,6 +270,12 @@
   points: -3
   components:
     - type: StepTriggerImmune
+      whitelist:
+        types:
+        - Shard
+        - Liquid
+        - Landmine
+        - Mousetrap
   requirements:
     - !type:CharacterSpeciesRequirement
       inverted: true

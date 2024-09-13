@@ -7,15 +7,27 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Shared.StepTrigger.Prototypes
 {
     /// <summary>
-    ///  A group of <see cref="StepTriggerTypePrototype">
-    ///
+    ///A group of <see cref="StepTriggerTypePrototype">
+    ///Used to determine StepTriggerTypes like Tags.
+    ///Used for better work with Immunity
     /// </summary>
+    /// <code>
+    /// stepTriggerGroup:
+    ///   type:
+    ///   - Lava
+    ///   - Landmine
+    ///   - Shard
+    ///   - Liquid
+    ///   - Soap
+    ///   - Chasm
+    ///   - Mousetrap
+    ///   - Banana
+    /// </code>
     [DataDefinition]
     [Serializable, NetSerializable]
     public sealed partial class StepTriggerGroup
     {
-        [DataField("Types", customTypeSerializer:typeof(PrototypeIdListSerializer<StepTriggerTypePrototype>))]
-        [Access(typeof(StepTriggerSystem), Other = AccessPermissions.ReadExecute)]
-        public List<string> Types = new();
+        [DataField("types", customTypeSerializer:typeof(PrototypeIdListSerializer<StepTriggerTypePrototype>))]
+        public List<string>? Types = null;
     }
 }

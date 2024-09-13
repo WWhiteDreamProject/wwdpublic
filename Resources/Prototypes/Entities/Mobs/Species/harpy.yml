@@ -119,6 +119,12 @@
     - GalacticCommon
     - SolCommon
   - type: StepTriggerImmune
+    whitelist:
+      types:
+      - Shard
+      - Liquid
+      - Landmine
+      - Mousetrap
 
 - type: entity
   save: false

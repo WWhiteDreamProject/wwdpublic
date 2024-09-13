@@ -132,11 +132,12 @@ public sealed class StepTriggerSystem : EntitySystem
 
         if (TryComp<StepTriggerImmuneComponent>(otherUid, out var stepTriggerImmuneComponent))
         {
-            if (stepTriggerImmuneComponent.Whitelist != null)
+            if (stepTriggerImmuneComponent.Whitelist != null && stepTriggerImmuneComponent.Whitelist.Types != null)
             {
                 foreach (var type in stepTriggerImmuneComponent.Whitelist.Types)
                 {
-                    if (component.TriggerGroups != null && component.TriggerGroups.Types != null && component.TriggerGroups.Types.Contains(type))
+                    if (component.TriggerGroups != null && component.TriggerGroups.Types != null &&
+                        component.TriggerGroups.Types.Contains(type))
                         return false;
                 }
             }

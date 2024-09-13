@@ -13,9 +13,9 @@
     blacklist:
       tags:
         - Catwalk
-    triggerGroup:
+    triggerGroups:
       types:
-      - Lava
+        - Lava
   - type: Lava
     fireStacks: 0.75
   - type: Transform
