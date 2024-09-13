@@ -1,0 +1,27 @@
+- type: emote
+  id: Nod
+  category: General
+  buttonText: "emote-chat-button-text-nod"
+  chatMessages: [ "emote-chat-messages-nod-1" ]
+  allowMenu: true
+
+- type: emote
+  id: ShakeHead
+  category: General
+  buttonText: "emote-chat-button-text-shake-head"
+  chatMessages: [ "emote-chat-messages-shake-head-1" ]
+  allowMenu: true
+
+- type: emote
+  id: Frown
+  category: General
+  buttonText: "emote-chat-button-text-frown"
+  chatMessages: [ "emote-chat-messages-frown-1" ]
+  allowMenu: true
+
+- type: emote
+  id: Smile
+  category: General
+  buttonText: "emote-chat-button-text-smile"
+  chatMessages: [ "emote-chat-messages-smile-1" ]
+  allowMenu: true

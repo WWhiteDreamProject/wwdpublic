@@ -1,0 +1,1 @@
+emotions-menu-title = Emotions menu
