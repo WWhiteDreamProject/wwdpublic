@@ -19,7 +19,7 @@ public record struct MeleeAttemptedEvent
 
     public bool Cancelled { get; private set; }
 
-    /// </summary>
+    /// <summary>
     /// Prevent the weapon from attacking
     /// </summary>
     public void Cancel()
@@ -27,7 +27,7 @@ public record struct MeleeAttemptedEvent
         Cancelled = true;
     }
 
-    /// </summary>
+    /// <summary>
     /// Allow the weapon to attack again, only use if you know what you are doing
     /// </summary>
     public void Uncancel()
