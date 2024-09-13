@@ -6,9 +6,9 @@
   description: A hood that protects the head and face from biological contaminants.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/general.rsi
+    sprite: _White/Clothing/Head/Hoods/Bio/general.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/general.rsi
+    sprite: _White/Clothing/Head/Hoods/Bio/general.rsi #WWDP edit
   - type: BreathMask
   - type: IngestionBlocker
   - type: Tag
@@ -25,9 +25,9 @@
   components:
   - type: IdentityBlocker
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/cmo.rsi
+    sprite: _White/Clothing/Head/Hoods/Bio/cmo.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/cmo.rsi
+    sprite: _White/Clothing/Head/Hoods/Bio/cmo.rsi #WWDP edit
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -38,9 +38,9 @@
   components:
   - type: IdentityBlocker
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/janitor.rsi
+    sprite: _White/Clothing/Head/Hoods/Bio/janitor.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/janitor.rsi
+    sprite: _White/Clothing/Head/Hoods/Bio/janitor.rsi #WWDP edit
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -51,9 +51,9 @@
   components:
   - type: IdentityBlocker
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/scientist.rsi
+    sprite: _White/Clothing/Head/Hoods/Bio/scientist.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/scientist.rsi
+    sprite: _White/Clothing/Head/Hoods/Bio/scientist.rsi #WWDP edit
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -64,9 +64,9 @@
   components:
   - type: IdentityBlocker
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/security.rsi
+    sprite: _White/Clothing/Head/Hoods/Bio/security.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/security.rsi
+    sprite: _White/Clothing/Head/Hoods/Bio/security.rsi #WWDP edit
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -77,9 +77,9 @@
   components:
   - type: IdentityBlocker
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/virology.rsi
+    sprite: _White/Clothing/Head/Hoods/Bio/virology.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/virology.rsi
+    sprite: _White/Clothing/Head/Hoods/Bio/virology.rsi #WWDP edit
 
 - type: entity
   parent: ClothingHeadBase
@@ -136,9 +136,9 @@
   description: A hood of the hazmat suit, designed for protection from high radioactivity.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/rad.rsi
+    sprite: _White/Clothing/Head/Hoods/rad.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hoods/rad.rsi
+    sprite: _White/Clothing/Head/Hoods/rad.rsi #WWDP edit
   - type: Armor
     modifiers:
       coefficients:

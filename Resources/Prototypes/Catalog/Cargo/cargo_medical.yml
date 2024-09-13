@@ -101,7 +101,7 @@
 - type: cargoProduct
   id: MedicalBiosuit
   icon:
-    sprite: Clothing/Head/Hoods/Bio/bio.rsi
+    sprite: _White/Clothing/Head/Hoods/Bio/bio.rsi #WWDP edit
     state: icon
   product: CrateVirologyBiosuit
   cost: 800

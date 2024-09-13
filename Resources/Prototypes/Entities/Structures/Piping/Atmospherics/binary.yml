@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: GasPipeBase
   abstract: true
   id: GasBinaryBase
@@ -286,7 +286,7 @@
   components:
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: Structures/Piping/Atmospherics/vent.rsi
+      sprite: _White/Structures/Piping/Atmospherics/vent.rsi #WWDP edit
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeStraight

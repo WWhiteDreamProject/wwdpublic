@@ -105,9 +105,9 @@
   description: Rubber boots.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Specific/galoshes.rsi
+    sprite: _White/Clothing/Shoes/Specific/galoshes.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Shoes/Specific/galoshes.rsi
+    sprite: _White/Clothing/Shoes/Specific/galoshes.rsi #WWDP edit
   - type: NoSlip
 
 - type: entity

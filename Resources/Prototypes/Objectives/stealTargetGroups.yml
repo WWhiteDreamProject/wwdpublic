@@ -104,7 +104,7 @@
   id: HeadCloak
   name: head's cloaks (any)
   sprite:
-    sprite: Clothing/Neck/Cloaks/cap.rsi
+    sprite: _White/Clothing/Neck/Cloaks/cap.rsi #WWDP edit
     state: icon
 
 - type: stealTargetGroup

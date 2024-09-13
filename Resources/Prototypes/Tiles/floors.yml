@@ -2135,14 +2135,20 @@
   id: FloorAsteroidCoarse
   name: tiles-asteroid-coarse
   sprite: /Textures/_White/Tiles/Asteroid/asteroid_coarse.png
-  variants: 6
+  variants: 12
   placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
+  - 0.15
+  - 0.15
+  - 0.15
+  - 0.15
+  - 0.15
+  - 0.15
+  - 0.016
+  - 0.016
+  - 0.016
+  - 0.016
+  - 0.016
+  - 0.016
   baseTurf: Space
   isSubfloor: true
   footstepSounds:

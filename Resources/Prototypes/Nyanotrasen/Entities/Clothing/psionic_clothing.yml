@@ -54,9 +54,9 @@
   description: Flimsy synthrubber work gloves styled in a drab yellow color. They are not electrically insulated, and provide no protection against any shocks.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+    sprite: _White/Clothing/Hands/Gloves/Color/yellow.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+    sprite: _White/Clothing/Hands/Gloves/Color/yellow.rsi #WWDP edit
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-yellow
