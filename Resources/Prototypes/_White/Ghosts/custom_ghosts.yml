@@ -92,15 +92,15 @@
   ghostDescription: Мяу!
   size: 0.8, 0.8
 
-#xivi
-- type: customGhost
-  id: xivi-ghost
-  ckey: xivi
-  sprite: _White/Ghosts/xivi-ghost.rsi
-  alpha: 0.9
-  ghostName: Project Bunny
-  ghostDescription: Ride on!
-  size: 0.6, 0.6
+##xivi
+#- type: customGhost
+#  id: xivi-ghost
+#  ckey: xivi
+#  sprite: _White/Ghosts/xivi-ghost.rsi
+#  alpha: 0.9
+#  ghostName: Project Bunny
+#  ghostDescription: Ride on!
+#  size: 0.6, 0.6
 
 
 ## Unused
