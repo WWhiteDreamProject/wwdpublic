@@ -32,6 +32,13 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
+  - type: MeleeWeapon # WD EDIT
+    attackRate: 0.7
+    damage:
+      types:
+        Blunt: 10
+    soundHit:
+      collection: GenericHit
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -68,6 +75,13 @@
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+  - type: MeleeWeapon # WD EDIT
+    attackRate: 0.7
+    damage:
+      types:
+        Blunt: 10
+    soundHit:
+      collection: GenericHit
 
 - type: entity
   id: BaseWeaponBatterySmall
@@ -88,6 +102,11 @@
     slots:
     - Belt
     - suitStorage
+  - type: MeleeWeapon # WD EDIT
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
 
 - type: entity
   id: BaseWeaponPowerCellSmall
