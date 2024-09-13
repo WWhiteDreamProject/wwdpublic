@@ -273,9 +273,9 @@
       whitelist: # WD EDIT
         types:
         - Shard
-        - Liquid
         - Landmine
         - Mousetrap
+        - SlipEntity
   requirements:
     - !type:CharacterSpeciesRequirement
       inverted: true

@@ -83,9 +83,9 @@
     whitelist: # WD EDIT
       types:
         - Shard
-        - Liquid
         - Landmine
         - Mousetrap
+        - SlipEntity
 
 - type: entity
   save: false

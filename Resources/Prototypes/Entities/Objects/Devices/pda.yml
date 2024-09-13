@@ -274,7 +274,7 @@
   - type: StepTrigger
     triggerGroups: # WD EDIT
       types:
-      - Soap
+      - SlipEntity
   - type: CollisionWake
     enabled: false
   - type: Physics

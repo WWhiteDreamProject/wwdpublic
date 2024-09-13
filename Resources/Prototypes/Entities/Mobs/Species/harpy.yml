@@ -122,7 +122,6 @@
     whitelist: # WD EDIT
       types:
       - Shard
-      - Liquid
       - Landmine
       - Mousetrap
 

@@ -18,11 +18,10 @@ namespace Content.Shared.StepTrigger.Prototypes
     ///   - Lava
     ///   - Landmine
     ///   - Shard
-    ///   - Liquid
-    ///   - Soap
     ///   - Chasm
     ///   - Mousetrap
-    ///   - Banana
+    ///   - SlipTile
+    ///   - SlipEntity
     /// </code>
     [DataDefinition]
     [Serializable, NetSerializable]

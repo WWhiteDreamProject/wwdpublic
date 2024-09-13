@@ -313,7 +313,11 @@
   - type: Slippery
     launchForwardsMultiplier: 1.5
   - type: StepTrigger
-    intersectRatio: 0.2
+    intersectRatio: 0.
+    triggerGroups:
+      types:
+      - SlipEntity
+
   - type: CollisionWake
     enabled: false
   - type: Physics
