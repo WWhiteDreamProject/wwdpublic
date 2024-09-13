@@ -6372,3 +6372,10 @@ Entries:
   id: 6346
   time: '2024-09-13T05:04:33.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/46
+- author: Spatison
+  changes:
+    - type: Add
+      message: added emotions menu / Добавлено меню эмоций
+  id: 6347
+  time: '2024-09-13T05:13:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/55
