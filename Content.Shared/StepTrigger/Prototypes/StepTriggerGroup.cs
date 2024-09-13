@@ -15,7 +15,7 @@ namespace Content.Shared.StepTrigger.Prototypes
     /// WD EDIT
     /// </summary>
     /// <code>
-    /// stepTriggerGroup:
+    /// stepTriggerGroups:
     ///   types:
     ///   - Lava
     ///   - Landmine
