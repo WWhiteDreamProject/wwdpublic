@@ -307,6 +307,9 @@ namespace Content.Server.GameTicking
                 _mind.TransferTo(mindId, ghost, mind: mind);
 
             // WD EDIT START
+            if (mind.Session == null)
+                return true;
+
             var userId = mind.Session!.UserId;
             if (!_ghostReturnToRound.DeathTime.TryGetValue(userId, out _))
                 _ghostReturnToRound.DeathTime[userId] = _gameTiming.CurTime;
