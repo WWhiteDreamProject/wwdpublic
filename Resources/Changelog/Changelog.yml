@@ -6379,3 +6379,10 @@ Entries:
   id: 6347
   time: '2024-09-13T05:13:02.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/55
+- author: Warete
+  changes:
+    - type: Add
+      message: Custom Ghost's / Кастомные призраки
+  id: 6348
+  time: '2024-09-13T07:52:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/21
