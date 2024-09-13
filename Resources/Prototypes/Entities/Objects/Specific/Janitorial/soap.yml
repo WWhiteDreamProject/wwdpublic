@@ -160,7 +160,7 @@
     paralyzeTime: 5
     launchForwardsMultiplier: 2.5
   - type: StepTrigger
-    triggerGroup: # WD EDIT
+    triggerGroups: # WD EDIT
       types:
       - SlipEntity
     intersectRatio: 0.04

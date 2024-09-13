@@ -1,0 +1,20 @@
+﻿- type: StepTriggerType
+  id: Lava
+
+- type: StepTriggerType
+  id: Landmine
+
+- type: StepTriggerType
+  id: Shard
+
+- type: StepTriggerType
+  id: Chasm
+
+- type: StepTriggerType
+  id: Mousetrap
+
+- type: StepTriggerType
+  id: SlipTile
+
+- type: StepTriggerType
+  id: SlipEntity

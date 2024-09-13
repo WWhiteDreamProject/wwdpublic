@@ -317,7 +317,6 @@
     triggerGroups:
       types:
       - SlipEntity
-
   - type: CollisionWake
     enabled: false
   - type: Physics
