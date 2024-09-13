@@ -6362,3 +6362,13 @@ Entries:
   id: 6345
   time: '2024-09-12T05:51:42.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/49
+- author: Gersoon
+  changes:
+    - type: Tweak
+      message: >-
+        Brought back old White textures of walls, tables, windows, tools and
+        clothes / Изменены многие текстуры стен, столов, окон, инструментов,
+        одежды, скафандров и подобного на старые Вайтовские
+  id: 6346
+  time: '2024-09-13T05:04:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/46
