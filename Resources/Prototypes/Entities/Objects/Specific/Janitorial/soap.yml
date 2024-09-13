@@ -26,7 +26,7 @@
   - type: StepTrigger
     triggerGroups: # WD EDIT
       types:
-      - Soap
+      - SlipEntity
     intersectRatio: 0.2
   - type: CollisionWake
     enabled: false
@@ -160,6 +160,9 @@
     paralyzeTime: 5
     launchForwardsMultiplier: 2.5
   - type: StepTrigger
+    triggerGroup: # WD EDIT
+      types:
+      - SlipEntity
     intersectRatio: 0.04
   - type: Item
     heldPrefix: syndie
@@ -201,6 +204,9 @@
   - type: Slippery
     paralyzeTime: 2
   - type: StepTrigger
+    triggerGroups: # WD EDIT
+      types:
+      - SlipEntity
   - type: Item
     heldPrefix: gibs
   - type: FlavorProfile
