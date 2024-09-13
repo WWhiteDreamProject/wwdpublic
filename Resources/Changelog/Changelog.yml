@@ -6386,3 +6386,10 @@ Entries:
   id: 6348
   time: '2024-09-13T07:52:47.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/21
+- author: vanx
+  changes:
+    - type: Add
+      message: Огнестрельное оружие теперь может атаковать вблизи на ПКМ
+  id: 6349
+  time: '2024-09-13T18:36:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/24
