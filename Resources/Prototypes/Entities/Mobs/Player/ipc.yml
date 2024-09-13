@@ -112,7 +112,6 @@
   - type: LayingDown
   - type: Carriable
   - type: Damageable
-    damageModifierSet: Ipc
 
 - type: entity
   save: false

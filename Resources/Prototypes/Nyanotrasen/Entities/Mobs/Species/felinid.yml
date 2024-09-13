@@ -80,6 +80,9 @@
     stripTimeReduction: 0
     stripTimeMultiplier: 0.667
   - type: StepTriggerImmune
+    whitelist:
+      types:
+      - Lava
 
 - type: entity
   save: false

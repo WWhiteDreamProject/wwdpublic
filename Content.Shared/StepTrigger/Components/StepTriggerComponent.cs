@@ -1,3 +1,4 @@
+using Content.Shared.StepTrigger.Prototypes;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
@@ -57,6 +58,9 @@ public sealed partial class StepTriggerComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool StepOn = false;
+
+    [DataField, AutoNetworkedField]
+    public StepTriggerGroup? TriggerGroups = default!;
 }
 
 [RegisterComponent]
