@@ -62,6 +62,7 @@ public sealed partial class StepTriggerComponent : Component
     /// <summary>
     /// If TriggerGroups is specified, it will check StepTriggerImmunityComponent to have the same TriggerType to activate immunity
     /// </summary>
+    // WD EDIT
     [DataField]
     public StepTriggerGroup? TriggerGroups;
 }

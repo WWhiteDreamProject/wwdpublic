@@ -270,7 +270,7 @@
   points: -3
   components:
     - type: StepTriggerImmune
-      whitelist:
+      whitelist: # WD EDIT
         types:
         - Shard
         - Liquid

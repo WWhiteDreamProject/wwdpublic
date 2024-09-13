@@ -111,7 +111,7 @@
   - type: OfferItem
   - type: LayingDown
   - type: Carriable
-  - type: StepTriggerImmune
+  - type: StepTriggerImmune #WD EDIT
     whitelist:
       types:
       - Shard

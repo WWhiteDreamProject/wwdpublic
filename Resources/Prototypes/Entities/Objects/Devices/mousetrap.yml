@@ -13,7 +13,7 @@
     - type: StepTrigger
       intersectRatio: 0.2
       requiredTriggeredSpeed: 0
-      triggerGroups:
+      triggerGroups: # WD EDIT
         types:
         - Mousetrap
     - type: Mousetrap

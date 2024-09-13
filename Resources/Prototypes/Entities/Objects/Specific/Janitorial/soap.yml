@@ -24,7 +24,7 @@
     paralyzeTime: 2
     launchForwardsMultiplier: 1.5
   - type: StepTrigger
-    triggerGroups:
+    triggerGroups: # WD EDIT
       types:
       - Soap
     intersectRatio: 0.2

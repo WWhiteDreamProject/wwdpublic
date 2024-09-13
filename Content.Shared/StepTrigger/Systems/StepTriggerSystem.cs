@@ -119,13 +119,7 @@ public sealed class StepTriggerSystem : EntitySystem
 
     private bool CanTrigger(EntityUid uid, EntityUid otherUid, StepTriggerComponent component)
     {
-        /*
-        if (HasComp<StepTriggerImmuneComponent>(otherUid)
-            || !component.Active
-            || component.CurrentlySteppedOn.Contains(otherUid))
-            return false;
-            */
-
+        // WD EDIT START
         if (!component.Active
             || component.CurrentlySteppedOn.Contains(otherUid))
             return false;
@@ -142,6 +136,7 @@ public sealed class StepTriggerSystem : EntitySystem
                 }
             }
         }
+        // WD EDIT END
 
         // Can't trigger if we don't ignore weightless entities
         // and the entity is flying or currently weightless

@@ -119,7 +119,7 @@
     - GalacticCommon
     - SolCommon
   - type: StepTriggerImmune
-    whitelist:
+    whitelist: # WD EDIT
       types:
       - Shard
       - Liquid

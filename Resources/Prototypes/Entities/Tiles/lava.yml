@@ -13,7 +13,7 @@
     blacklist:
       tags:
         - Catwalk
-    triggerGroups:
+    triggerGroups: # WD EDIT
       types:
         - Lava
   - type: Lava

@@ -7,9 +7,10 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Shared.StepTrigger.Prototypes
 {
     /// <summary>
-    ///A group of <see cref="StepTriggerTypePrototype">
-    ///Used to determine StepTriggerTypes like Tags.
-    ///Used for better work with Immunity
+    /// A group of <see cref="StepTriggerTypePrototype">
+    /// Used to determine StepTriggerTypes like Tags.
+    /// Used for better work with Immunity.
+    /// WD EDIT
     /// </summary>
     /// <code>
     /// stepTriggerGroup:
