@@ -8,7 +8,7 @@ namespace Content.Shared.StepTrigger.Prototypes
     ///     gets saved in StepTriggerGroup.
     /// </summary>
     // WD EDIT
-    [Prototype("StepTriggerType")]
+    [Prototype("stepTriggerType")]
     public sealed partial class StepTriggerTypePrototype : IPrototype
     {
         [ViewVariables]

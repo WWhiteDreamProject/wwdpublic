@@ -1,20 +1,20 @@
-﻿- type: StepTriggerType
+﻿- type: stepTriggerType
   id: Lava
 
-- type: StepTriggerType
+- type: stepTriggerType
   id: Landmine
 
-- type: StepTriggerType
+- type: stepTriggerType
   id: Shard
 
-- type: StepTriggerType
+- type: stepTriggerType
   id: Chasm
 
-- type: StepTriggerType
+- type: stepTriggerType
   id: Mousetrap
 
-- type: StepTriggerType
+- type: stepTriggerType
   id: SlipTile
 
-- type: StepTriggerType
+- type: stepTriggerType
   id: SlipEntity

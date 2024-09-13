@@ -1,4 +1,5 @@
 ﻿using Content.Shared.Damage.Prototypes;
+using Content.Shared.StepTrigger.Components;
 using Content.Shared.StepTrigger.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -14,7 +15,7 @@ namespace Content.Shared.StepTrigger.Prototypes
     /// </summary>
     /// <code>
     /// stepTriggerGroup:
-    ///   type:
+    ///   types:
     ///   - Lava
     ///   - Landmine
     ///   - Shard
@@ -27,7 +28,38 @@ namespace Content.Shared.StepTrigger.Prototypes
     [Serializable, NetSerializable]
     public sealed partial class StepTriggerGroup
     {
-        [DataField("types", customTypeSerializer:typeof(PrototypeIdListSerializer<StepTriggerTypePrototype>))]
-        public List<string>? Types = null;
+        [DataField]
+        public List<ProtoId<StepTriggerTypePrototype>>? Types = null;
+
+        public bool IsValid(StepTriggerGroup? AnotherGroup)
+        {
+            if (Types != null)
+            {
+                foreach (var type in Types)
+                {
+                    if (AnotherGroup != null
+                        && AnotherGroup.Types != null
+                        && AnotherGroup.Types.Contains(type))
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        public bool IsValid(StepTriggerComponent component)
+        {
+            if (component.TriggerGroups != null)
+            {
+                return IsValid(component.TriggerGroups);
+            }
+            return false;
+        }
+
+        public bool IsValid(StepTriggerImmuneComponent component)
+        {
+            if (component.Whitelist != null)
+                return IsValid(component.Whitelist);
+            return false;
+        }
     }
 }

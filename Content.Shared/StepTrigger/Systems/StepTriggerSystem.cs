@@ -124,18 +124,10 @@ public sealed class StepTriggerSystem : EntitySystem
             || component.CurrentlySteppedOn.Contains(otherUid))
             return false;
 
-        if (TryComp<StepTriggerImmuneComponent>(otherUid, out var stepTriggerImmuneComponent))
-        {
-            if (stepTriggerImmuneComponent.Whitelist != null && stepTriggerImmuneComponent.Whitelist.Types != null)
-            {
-                foreach (var type in stepTriggerImmuneComponent.Whitelist.Types)
-                {
-                    if (component.TriggerGroups != null && component.TriggerGroups.Types != null &&
-                        component.TriggerGroups.Types.Contains(type))
-                        return false;
-                }
-            }
-        }
+        if (TryComp<StepTriggerImmuneComponent>(otherUid, out var stepTriggerImmuneComponent)
+            && component.TriggerGroups != null
+            && component.TriggerGroups.IsValid(stepTriggerImmuneComponent))
+            return false;
         // WD EDIT END
 
         // Can't trigger if we don't ignore weightless entities

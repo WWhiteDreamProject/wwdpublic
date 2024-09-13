@@ -137,7 +137,7 @@
   - type: Speech
     speechVerb: Cluwne
   - type: StepTrigger
-    triggerGroup:
+    triggerGroups:
       types:
       - SlipEntity
     intersectRatio: 0.2
