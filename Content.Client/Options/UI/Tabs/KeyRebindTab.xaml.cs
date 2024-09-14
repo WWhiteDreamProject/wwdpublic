@@ -98,6 +98,12 @@ namespace Content.Client.Options.UI.Tabs
             _deferCommands.Add(_inputManager.SaveToUserData);
         }
 
+        private void HandleDefaultWalk(BaseButton.ButtonToggledEventArgs args)
+        {
+            _cfg.SetCVar(CCVars.DefaultWalk, args.Pressed);
+			_cfg.SaveToFile();
+        }
+
         private void HandleHoldLookUp(BaseButton.ButtonToggledEventArgs args) // WD EDIT
         {
             _cfg.SetCVar(WhiteCVars.HoldLookUp, args.Pressed);
@@ -174,6 +180,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.MoveRight);
             AddButton(EngineKeyFunctions.Walk);
             AddCheckBox("ui-options-hotkey-toggle-walk", _cfg.GetCVar(CCVars.ToggleWalk), HandleToggleWalk);
+            AddCheckBox("ui-options-hotkey-default-walk", _cfg.GetCVar(CCVars.DefaultWalk), HandleDefaultWalk);
             InitToggleWalk();
 
             AddHeader("ui-options-header-camera");
