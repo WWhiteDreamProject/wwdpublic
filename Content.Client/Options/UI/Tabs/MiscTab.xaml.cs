@@ -157,6 +157,7 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.ScreenShakeIntensity, ScreenShakeIntensitySlider.Value / 100f);
             // _cfg.SetCVar(CCVars.ToggleWalk, ToggleWalk.Pressed);
             _cfg.SetCVar(CCVars.StaticStorageUI, StaticStorageUI.Pressed);
+            _cfg.SetCVar(WhiteCVars.LogInChat, LogInChatCheckBox.Pressed); // WD EDIT
 
             if (HudLayoutOption.SelectedMetadata is string opt)
             {
@@ -187,7 +188,7 @@ namespace Content.Client.Options.UI.Tabs
             var isScreenShakeIntensitySame = Math.Abs(ScreenShakeIntensitySlider.Value / 100f - _cfg.GetCVar(CCVars.ScreenShakeIntensity)) < 0.01f;
             // var isToggleWalkSame = ToggleWalk.Pressed == _cfg.GetCVar(CCVars.ToggleWalk);
             var isStaticStorageUISame = StaticStorageUI.Pressed == _cfg.GetCVar(CCVars.StaticStorageUI);
-            var isLogInChatCheckBoxSame = StaticStorageUI.Pressed == _cfg.GetCVar(WhiteCVars.LogInChat); // WD EDIT
+            var isLogInChatCheckBoxSame = LogInChatCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.LogInChat); // WD EDIT
 
             ApplyButton.Disabled = isHudThemeSame &&
                                    isLayoutSame &&
