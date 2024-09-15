@@ -43,7 +43,17 @@ namespace Content.Client.Popups
         public const float MaximumPopupLifetime = 5f;
         public const float PopupLifetimePerCharacter = 0.04f;
 
-        private bool _isLogging; // WD EDIT
+        // WD EDIT START
+        private static readonly Dictionary<PopupType, string> FontSizeDict = new()
+        {
+            { PopupType.Medium, "12" },
+            { PopupType.MediumCaution, "12" },
+            { PopupType.Large, "15" },
+            { PopupType.LargeCaution, "15" }
+        };
+
+        private bool _shouldLogInChat;
+        // WD EDIT END
 
         public override void Initialize()
         {
@@ -64,8 +74,8 @@ namespace Content.Client.Popups
                     this));
 
             // WD EDIT START
-            _isLogging = _configManager.GetCVar(WhiteCVars.LogInChat);
-            _configManager.OnValueChanged(WhiteCVars.LogInChat, log => { _isLogging = log; });
+            _shouldLogInChat = _configManager.GetCVar(WhiteCVars.LogInChat);
+            _configManager.OnValueChanged(WhiteCVars.LogInChat, log => { _shouldLogInChat = log; });
             // WD EDIT END
         }
 
@@ -98,7 +108,7 @@ namespace Content.Client.Popups
             _aliveWorldLabels.Add(label);
 
             // WD EDIT START
-            if (!_isLogging)
+            if (!_shouldLogInChat)
                 return;
 
             if (_playerManager.LocalEntity == null)
@@ -107,15 +117,7 @@ namespace Content.Client.Popups
             if (!_examine.InRangeUnOccluded(_playerManager.LocalEntity.Value, coordinates, 10))
                 return;
 
-            var fontSizeDict = new Dictionary<PopupType, string>
-            {
-                { PopupType.Medium, "12" },
-                { PopupType.MediumCaution, "12" },
-                { PopupType.Large, "15" },
-                { PopupType.LargeCaution, "15" }
-            };
-
-            var fontsize = fontSizeDict.GetValueOrDefault(type, "10");
+            var fontsize = FontSizeDict.GetValueOrDefault(type, "10");
             var fontcolor = type is PopupType.LargeCaution or PopupType.MediumCaution or PopupType.SmallCaution
                 ? "#C62828"
                 : "#AEABC4";
