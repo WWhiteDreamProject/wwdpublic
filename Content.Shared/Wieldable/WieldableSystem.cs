@@ -209,6 +209,7 @@ public sealed class WieldableSystem : EntitySystem
     /// <returns>True if the attempt wasn't blocked.</returns>
     public bool TryUnwield(EntityUid used, WieldableComponent component, EntityUid user)
     {
+        // WD EDIT START
         if (!component.Wielded)
             return false;
 
@@ -217,6 +218,7 @@ public sealed class WieldableSystem : EntitySystem
             && TryComp<CartridgeAmmoComponent>(ballisticAmmoProvider.Entities[^1], out var cartridgeAmmo)
             && cartridgeAmmo.Spent)
             return false;
+        // WD EDIT END
 
         var ev = new BeforeUnwieldEvent();
         RaiseLocalEvent(used, ev);
