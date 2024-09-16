@@ -1,0 +1,73 @@
+ent-PlushieArachne = плюшевая арахна
+    .desc = Плюшевая игрушка арахне — полулюдское, полузначное существо. Почему оно выглядит знакомо?
+ent-PlushieJester = плюшевый ящер шут
+    .desc = Сомнительное плюшевое создание, затевающее пакости.
+ent-PlushieSlips = плюшевый ящер уборщик
+    .desc = Тихий уборщик, его позывной подскальзун! 
+ent-PlushieGnome = плюшевый гном
+    .desc = Плюшевая игрушка, напоминающая гнома или дварфа...
+ent-PlushieLoveable = плюшевый ласкатель
+    .desc = Плюшевая игрушка, напоминающая... какое-то существо.
+ent-PlushieDeer = плюшевый олень
+    .desc = Плюшевая игрушка, напоминающая оленя!
+ent-PlushieIpc = плюшевый ИПС
+    .desc = Плюшевая игрушка, напоминающая ИПС!
+ent-PlushieGrey = плюшевый серый
+    .desc = Плюшевая игрушка, напоминающая серое существо!
+ent-PlushieAbductor = плюшевый абдуктор
+    .desc = Плюшевая игрушка, напоминающая абдуктора!
+ent-PlushieAbductorAgent = плюшевый агент абдуктор
+    .desc = Плюшевая игрушка, напоминающая агента абдуктора!
+
+ent-PlushieRedFox = плюшевая красная лиса
+    .desc = Милая плюшевая игрушка, напоминающая красную лису!
+ent-PlushiePurpleFox = плюшевая фиолетовая лиса
+    .desc = Милая плюшевая игрушка, напоминающая фиолетовую лису!
+ent-PlushiePinkFox = плюшевая розовая лиса
+    .desc = Милая плюшевая игрушка, напоминающая розовую лису!
+ent-PlushieOrangeFox = плюшевая оранжевая лиса
+    .desc = Милая плюшевая игрушка, напоминающая оранжевая лису!
+ent-PlushieMarbleFox = плюшевая мраморная лиса
+    .desc = Милая плюшевая игрушка, напоминающая мрамортную лису!
+ent-PlushieCrimsonFox = плюшевая алая лиса
+    .desc = Милая плюшевая игрушка, напоминающая алую лису!
+ent-PlushieCoffeeFox = плюшевая кофейная лиса
+    .desc = Милая плюшевая игрушка, напоминающая кофейную лису!
+ent-PlushieBlueFox = плюшевая синяя лиса
+    .desc = Милая плюшевая игрушка, напоминающая синюю лису!
+ent-PlushieBlackFox = плюшевая чёрная лиса
+    .desc = Милая плюшевая игрушка, напоминающая чёрную лису!
+
+ent-PlushieVulp = плюшевая вульпа
+    .desc = Миленькая плюшевая игрушка вульпакина, которую можно обнять без риска быть укушенным!
+ent-PlushieTrystan = плюшевая офисная вульпа
+    .desc = Плюшевая вульпа развитая достаточно, чтоб делать йеп йеп на бумажках!
+
+ent-PlushieCorgi = плюшевый корги
+    .desc = Плюшевый Иан!
+ent-PlushieGirlyCorgi = плюшевая корги
+    .desc = Плюшевая Лиза!
+ent-PlushieRobotCorgi = плюшевый робот корги
+    .desc = Бип-тяф!
+
+ent-BasePlushieCat = плюшевый котёнок
+    .desc = Плюшевая игрушка, напоминающая милого котенка!
+
+ent-PlushieCatBlack = плюшевый чёрный котёнок
+    .desc = { ent-BasePlushieCat.desc }
+ent-PlushieCatGrey = плюшевый серый котёнок
+    .desc = { ent-BasePlushieCat.desc }
+ent-PlushieCatOrange = плюшевый оранжевый котёнок
+    .desc = { ent-BasePlushieCat.desc }
+ent-PlushieCatSiames = плюшевый сиамский котёнок
+    .desc = { ent-BasePlushieCat.desc }
+ent-PlushieCatTabby = плюшевый табби-котёнок
+    .desc = { ent-BasePlushieCat.desc }
+ent-PlushieCatTuxedo = плюшевый котёнок в смокинге
+    .desc = { ent-BasePlushieCat.desc }
+ent-PlushieCatWhite = плюшевый белый котёнок
+    .desc = { ent-BasePlushieCat.desc }
+
+ent-ThronglerToy = плюшевый нагибатор
+    .desc = { ent-Throngler.desc }
+    .suffix = Игрушка
