@@ -32,19 +32,19 @@ public sealed class WhiteCVars
 
     #endregion
 
-<<<<<<< ghost-respawn
     #region GhostRespawn
     public static readonly CVarDef<double> GhostRespawnTime =
         CVarDef.Create("ghost.respawn_time", 15d, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GhostRespawnMaxPlayers =
         CVarDef.Create("ghost.respawn_max_players", 40, CVar.SERVERONLY);
-=======
+
+    #endregion
+        
     #region OptionsMisc
 
     public static readonly CVarDef<bool> LogInChat =
         CVarDef.Create("white.log_in_chat", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
 
->>>>>>> master
     #endregion
 }
