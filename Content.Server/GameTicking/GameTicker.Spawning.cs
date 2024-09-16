@@ -158,61 +158,17 @@ namespace Content.Server.GameTicking
 
             //WD EDIT START
             //Ghost system return to round, check for whether the character isn't the same.
-            if (lateJoin && !_adminManager.IsAdmin(player))
+            if (lateJoin && !_adminManager.IsAdmin(player) && !CheckGhostReturnToRound(player, character, out var checkAvoid))
             {
-                var sameChar = false;
-                var checkAvoid = false;
+                var message = checkAvoid
+                    ? Loc.GetString("ghost-respawn-same-character-slightly-changed-name")
+                    : Loc.GetString("ghost-respawn-same-character");
+                var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
 
-                var allPlayerMinds = EntityQuery<MindComponent>()
-                    .Where(mind => mind.OriginalOwnerUserId == player.UserId);
+                _chatManager.ChatMessageToOne(ChatChannel.Server, message, wrappedMessage,
+                    default, false, player.Channel, Color.Red);
 
-                foreach (var mind in allPlayerMinds)
-                {
-                    if (mind.CharacterName == character.Name)
-                    {
-                        sameChar = true;
-                        break;
-                    }
-
-                    if (mind.CharacterName != null)
-                    {
-                        var similarity = CalculateStringSimilarity(mind.CharacterName, character.Name);
-
-                        switch (similarity)
-                        {
-                            case >= 85f:
-                            {
-                                _chatManager.SendAdminAlert(Loc.GetString("ghost-respawn-log-character-almost-same",
-                                    ("player", player.Name), ("try", false), ("oldName", mind.CharacterName), ("newName", character.Name)));
-
-                                checkAvoid = true;
-                                sameChar = true;
-
-                                break;
-                            }
-                            case >= 50f:
-                            {
-                                _chatManager.SendAdminAlert(Loc.GetString("ghost-respawn-log-character-almost-same",
-                                    ("player", player.Name), ("try", true), ("oldName", mind.CharacterName), ("newName", character.Name)));
-
-                                break;
-                            }
-                        }
-                    }
-                }
-
-                if (sameChar)
-                {
-                    var message = checkAvoid
-                        ? Loc.GetString("ghost-respawn-same-character-slightly-changed-name")
-                        : Loc.GetString("ghost-respawn-same-character");
-                    var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
-
-                    _chatManager.ChatMessageToOne(ChatChannel.Server, message, wrappedMessage,
-                        default, false, player.Channel, Color.Red);
-
-                    return;
-                }
+                return;
             }
             //WD EDIT END
 
@@ -409,6 +365,47 @@ namespace Content.Server.GameTicking
         }
 
         //WD EDIT START
+        private bool CheckGhostReturnToRound(ICommonSession player, HumanoidCharacterProfile character, out bool checkAvoid)
+        {
+            checkAvoid = false;
+
+            var allPlayerMinds = EntityQuery<MindComponent>()
+                .Where(mind => mind.OriginalOwnerUserId == player.UserId);
+
+            foreach (var mind in allPlayerMinds)
+            {
+                if (mind.CharacterName == character.Name)
+                    return false;
+
+                if (mind.CharacterName == null)
+                    continue;
+
+                var similarity = CalculateStringSimilarity(mind.CharacterName, character.Name);
+                switch (similarity)
+                {
+                    case >= 85f:
+                    {
+                        _chatManager.SendAdminAlert(Loc.GetString("ghost-respawn-log-character-almost-same",
+                            ("player", player.Name), ("try", false), ("oldName", mind.CharacterName),
+                            ("newName", character.Name)));
+                        checkAvoid = true;
+
+                        return false;
+                    }
+                    case >= 50f:
+                    {
+                        _chatManager.SendAdminAlert(Loc.GetString("ghost-respawn-log-character-almost-same",
+                            ("player", player.Name), ("try", true), ("oldName", mind.CharacterName),
+                            ("newName", character.Name)));
+
+                        break;
+                    }
+                }
+            }
+
+            return true;
+        }
+
         private float CalculateStringSimilarity(string str1, string str2)
         {
             var minLength = Math.Min(str1.Length, str2.Length);

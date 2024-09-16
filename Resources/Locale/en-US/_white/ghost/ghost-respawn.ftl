@@ -6,7 +6,6 @@ ghost-respawn-time-left = Before the opportunity to return to the round { $time 
 ghost-respawn-max-players = The function is not available, there should be fewer players on the server { $players }.
 ghost-respawn-window-title = Rules for returning to the round
 ghost-respawn-window-rules-footer = By using this feature, you [color=#ff7700]agree[/color] [color=#ff0000]not to transfer[/color] the knowledge of your past character to a new one. For violation of the clause specified here, [color=#ff0000]a ban in the amount of 3 days or more follows[/color].
-ghost-respawn-bug = There is no time of death. The standard value is set.
 ghost-respawn-same-character = You cannot enter the round for the same character. Change it in the character settings.
 
 ghost-respawn-log-character-almost-same = Player { $player } { $try ->
