@@ -5,7 +5,7 @@
   description: You wear this on your back and put items into it.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/backpack.rsi
+    sprite: _White/Clothing/Back/Backpacks/backpack.rsi #WWDP edit
     state: icon
   - type: Item
     size: Huge
@@ -63,7 +63,7 @@
   description: It's a very robust backpack.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/security.rsi
+    sprite: _White/Clothing/Back/Backpacks/security.rsi #WWDP edit
 
 - type: entity
   parent: ClothingBackpack
@@ -81,7 +81,7 @@
   description: It's a tough backpack for the daily grind of station life.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/engineering.rsi
+    sprite: _White/Clothing/Back/Backpacks/engineering.rsi #WWDP edit
 
 - type: entity
   parent: ClothingBackpack
@@ -99,7 +99,7 @@
   description: It's a backpack especially designed for use in a sterile environment.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/medical.rsi
+    sprite: _White/Clothing/Back/Backpacks/medical.rsi #WWDP edit
 
 - type: entity
   parent: ClothingBackpack
@@ -108,7 +108,7 @@
   description: It's a special backpack made exclusively for Nanotrasen officers.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/captain.rsi
+    sprite: _White/Clothing/Back/Backpacks/captain.rsi #WWDP edit
 
 - type: entity
   parent: ClothingBackpack
@@ -117,7 +117,7 @@
   description: A silent backpack made for those silent workers. Silence Co.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/mime.rsi
+    sprite: _White/Clothing/Back/Backpacks/mime.rsi #WWDP edit
 
 - type: entity
   parent: ClothingBackpack
@@ -126,7 +126,7 @@
   description: A backpack specially designed to repel stains and hazardous liquids.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/chemistry.rsi
+    sprite: _White/Clothing/Back/Backpacks/chemistry.rsi #WWDP edit
 
 - type: entity
   parent: ClothingBackpack
@@ -135,7 +135,7 @@
   description: It's a backpack made of all-natural fibers.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/hydroponics.rsi
+    sprite: _White/Clothing/Back/Backpacks/hydroponics.rsi #WWDP edit
 
 - type: entity
   parent: ClothingBackpack
@@ -144,7 +144,7 @@
   description: A backpack specially designed to repel stains and hazardous liquids.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/science.rsi
+    sprite: _White/Clothing/Back/Backpacks/science.rsi #WWDP edit
 
 - type: entity
   parent: ClothingBackpack
@@ -162,7 +162,7 @@
   description: A backpack made of hypo-allergenic fibers. It's designed to help prevent the spread of disease. Smells like monkey.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/virology.rsi
+    sprite: _White/Clothing/Back/Backpacks/virology.rsi #WWDP edit
 
 - type: entity
   parent: ClothingBackpack
@@ -171,7 +171,7 @@
   description: A backpack designed to be super tough, just in case someone hulks out on you.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/genetics.rsi
+    sprite: _White/Clothing/Back/Backpacks/genetics.rsi #WWDP edit
 
 - type: entity
   parent: ClothingBackpack

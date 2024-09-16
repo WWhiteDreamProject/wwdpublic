@@ -65,6 +65,12 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
+  - type: MeleeWeapon # WD EDIT
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
 
 - type: entity
   name: viper

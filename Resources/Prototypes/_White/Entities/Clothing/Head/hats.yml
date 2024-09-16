@@ -5,9 +5,9 @@
   description: An old century hat. It's worn out and looks unkempt.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Head/hobohat.rsi
+    sprite: _White/Clothing/Head/Hats/hobohat.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/hobohat.rsi
+    sprite: _White/Clothing/Head/Hats/hobohat.rsi
   - type: Tag
     tags:
     - HidesHair
@@ -23,9 +23,9 @@
   description: Uninvited guest cap. Doesn't inspire confidence.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Head/hobocap.rsi
+    sprite: _White/Clothing/Head/Hats/hobocap.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/hobocap.rsi
+    sprite: _White/Clothing/Head/Hats/hobocap.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -38,6 +38,6 @@
   description: The headdress of a true servant.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Head/maidhat.rsi
+    sprite: _White/Clothing/Head/Hats/maidhat.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/maidhat.rsi
+    sprite: _White/Clothing/Head/Hats/maidhat.rsi

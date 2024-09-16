@@ -6362,3 +6362,58 @@ Entries:
   id: 6345
   time: '2024-09-12T05:51:42.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/49
+- author: Gersoon
+  changes:
+    - type: Tweak
+      message: >-
+        Brought back old White textures of walls, tables, windows, tools and
+        clothes / Изменены многие текстуры стен, столов, окон, инструментов,
+        одежды, скафандров и подобного на старые Вайтовские
+  id: 6346
+  time: '2024-09-13T05:04:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/46
+- author: Spatison
+  changes:
+    - type: Add
+      message: added emotions menu / Добавлено меню эмоций
+  id: 6347
+  time: '2024-09-13T05:13:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/55
+- author: Warete
+  changes:
+    - type: Add
+      message: Custom Ghost's / Кастомные призраки
+  id: 6348
+  time: '2024-09-13T07:52:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/21
+- author: vanx
+  changes:
+    - type: Add
+      message: Огнестрельное оружие теперь может атаковать вблизи на ПКМ
+  id: 6349
+  time: '2024-09-13T18:36:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/24
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added Logging Of Chat Action / Добавлено Логирование Действий В Чат
+  id: 6350
+  time: '2024-09-15T16:06:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/57
+- author: Hell_Cat
+  changes:
+    - type: Fix
+      message: 'IPC: Immunity for shards and SpiderWeb | Иммунитет осколкам.'
+    - type: Fix
+      message: >-
+        Felinid | Фелиниды : Immunity for Shard Landmine Mousetrap SlipEntities
+        | Иммунитет для осколков, жидкости, мин, мышеловок, мыла и бананов.
+    - type: Fix
+      message: >-
+        Harpy | Гарпия : Immunity for Shards Landmine Mousetrap | Иммунитет для
+        осколков, жидкости, мин и мышеловок.
+    - type: Fix
+      message: 'Mice | Мыши : Don''t blow up on landmines | Мыши не подрываются на минах.'
+  id: 6351
+  time: '2024-09-16T14:16:49.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/53

@@ -15,7 +15,7 @@
       state: equipped-INNERCLOTHING
     - sprite: Clothing/OuterClothing/Armor/security.rsi
       state: equipped-OUTERCLOTHING
-    - sprite: Clothing/Hands/Gloves/Color/black.rsi
+    - sprite: _White/Clothing/Hands/Gloves/Color/black.rsi #WWDP edit
       state: equipped-HAND
     - sprite: Clothing/Mask/gas.rsi
       state: equipped-MASK

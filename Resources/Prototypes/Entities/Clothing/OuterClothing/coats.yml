@@ -5,9 +5,9 @@
   description: A thick, well-worn WW2 leather bomber jacket.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/bomber.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/bomber.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/bomber.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/bomber.rsi #WWDP edit
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -16,9 +16,9 @@
   description: A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. Wearing it makes you feel for the plight of the Tibetans.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/detective.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/detective.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/detective.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/detective.rsi #WWDP edit
   - type: StorageFill
     contents:
     - id: SmokingPipeFilledTobacco
@@ -49,9 +49,9 @@
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/OuterClothing/Coats/hos_trenchcoat.rsi # DeltaV - resprite
+    sprite: _White/Clothing/OuterClothing/Coats/hos_trenchcoat.rsi #WWDP edit
   - type: Clothing
-    sprite: DeltaV/Clothing/OuterClothing/Coats/hos_trenchcoat.rsi # DeltaV - resprite
+    sprite: _White/Clothing/OuterClothing/Coats/hos_trenchcoat.rsi #WWDP edit
   - type: Armor
     modifiers:
       coefficients:
@@ -120,9 +120,9 @@
   description: A suit that protects against minor chemical spills.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/labcoat.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/labcoat.rsi #WWDP edit
   - type: Armor
     modifiers:
       coefficients:
@@ -140,9 +140,9 @@
   description: A suit that protects against minor chemical spills. Has an orange stripe on the shoulder.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_chem.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/labcoat_chem.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_chem.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/labcoat_chem.rsi #WWDP edit
   - type: Armor
     modifiers:
       coefficients:
@@ -160,9 +160,9 @@
   description: A suit that protects against bacteria and viruses. Has an green stripe on the shoulder.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_viro.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/labcoat_viro.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_viro.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/labcoat_viro.rsi #WWDP edit
   - type: Armor
     modifiers:
       coefficients:
@@ -200,9 +200,9 @@
   description: Bluer than the standard model.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_cmo.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/labcoat_cmo.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_cmo.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/labcoat_cmo.rsi #WWDP edit
   - type: Armor
     modifiers:
       coefficients:
@@ -292,9 +292,9 @@
   description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/warden.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/warden.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/warden.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/warden.rsi #WWDP edit
   - type: Armor
     modifiers:
       coefficients:

@@ -5,12 +5,12 @@
   description: Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle.
   components:
     - type: Sprite
-      sprite: Clothing/Shoes/Boots/magboots.rsi
+      sprite: _White/Clothing/Shoes/Boots/magboots.rsi #WWDP edit
       layers:
       - state: icon
         map: [ "enum.ToggleVisuals.Layer" ]
     - type: Clothing
-      sprite: Clothing/Shoes/Boots/magboots.rsi
+      sprite: _White/Clothing/Shoes/Boots/magboots.rsi #WWDP edit
     - type: Magboots
     - type: ClothingSpeedModifier
       walkModifier: 0.85
@@ -36,10 +36,10 @@
   description: State-of-the-art magnetic boots that do not slow down their wearer.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/magboots-advanced.rsi
+    sprite: _White/Clothing/Shoes/Boots/magboots-advanced.rsi #WWDP edit
     state: icon
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/magboots-advanced.rsi
+    sprite: _White/Clothing/Shoes/Boots/magboots-advanced.rsi #WWDP edit
   - type: Magboots
     toggleAction: ActionToggleMagbootsAdvanced
   - type: ClothingSpeedModifier
@@ -87,10 +87,10 @@
   description: Reverse-engineered magnetic boots that have a heavy magnetic pull and integrated thrusters.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
+    sprite: _White/Clothing/Shoes/Boots/magboots-syndicate.rsi #WWDP edit
     state: icon
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
+    sprite: _White/Clothing/Shoes/Boots/magboots-syndicate.rsi #WWDP edit
   - type: Magboots
     toggleAction: ActionToggleMagbootsSyndie
   - type: ClothingSpeedModifier
@@ -144,8 +144,8 @@
   noSpawn: true
   components:
   - type: InstantAction
-    icon: { sprite: Clothing/Shoes/Boots/magboots.rsi, state: icon }
-    iconOn: { sprite : Clothing/Shoes/Boots/magboots.rsi, state: icon-on }
+    icon: { sprite: _White/Clothing/Shoes/Boots/magboots.rsi, state: icon }  #WWDP edit
+    iconOn: { sprite : _White/Clothing/Shoes/Boots/magboots.rsi, state: icon-on }  #WWDP edit
 
 - type: entity
   id: ActionToggleMagbootsAdvanced
@@ -153,8 +153,8 @@
   noSpawn: true
   components:
   - type: InstantAction
-    icon: { sprite: Clothing/Shoes/Boots/magboots-advanced.rsi, state: icon }
-    iconOn: Clothing/Shoes/Boots/magboots-advanced.rsi/icon-on.png
+    icon: { sprite: _White/Clothing/Shoes/Boots/magboots-advanced.rsi, state: icon }  #WWDP edit
+    iconOn: _White/Clothing/Shoes/Boots/magboots-advanced.rsi/icon-on.png  #WWDP edit
 
 - type: entity
   id: ActionToggleMagbootsSci
@@ -171,5 +171,5 @@
   noSpawn: true
   components:
   - type: InstantAction
-    icon: { sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi, state: icon }
-    iconOn: Clothing/Shoes/Boots/magboots-syndicate.rsi/icon-on.png
+    icon: { sprite: _White/Clothing/Shoes/Boots/magboots-syndicate.rsi, state: icon }  #WWDP edit
+    iconOn: _White/Clothing/Shoes/Boots/magboots-syndicate.rsi/icon-on.png  #WWDP edit

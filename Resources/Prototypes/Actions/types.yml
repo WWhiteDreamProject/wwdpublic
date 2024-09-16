@@ -54,7 +54,7 @@
     itemIconStyle: BigAction
     priority: -20
     icon:
-      sprite: Clothing/Back/Backpacks/backpack.rsi
+      sprite: _White/Clothing/Back/Backpacks/backpack.rsi #WWDP edit
       state: icon
     event: !type:OpenStorageImplantEvent
 

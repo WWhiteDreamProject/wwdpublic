@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._White.Weapons.Melee.Events; // WD EDIT
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;
@@ -62,7 +63,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MeleeWeaponComponent, HandSelectedEvent>(OnMeleeSelected);
-        SubscribeLocalEvent<MeleeWeaponComponent, ShotAttemptedEvent>(OnMeleeShotAttempted);
+        SubscribeLocalEvent<MeleeWeaponComponent, MeleeAttemptedEvent>(OnMeleeAttempted); // WD EDIT
         SubscribeLocalEvent<MeleeWeaponComponent, GunShotEvent>(OnMeleeShot);
         SubscribeLocalEvent<BonusMeleeDamageComponent, GetMeleeDamageEvent>(OnGetBonusMeleeDamage);
         SubscribeLocalEvent<BonusMeleeDamageComponent, GetHeavyDamageModifierEvent>(OnGetBonusHeavyDamageModifier);
@@ -86,7 +87,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 #endif
     }
 
-    private void OnMeleeShotAttempted(EntityUid uid, MeleeWeaponComponent comp, ref ShotAttemptedEvent args)
+    private void OnMeleeAttempted(EntityUid uid, MeleeWeaponComponent comp, ref MeleeAttemptedEvent args) // WD EDIT
     {
         if (comp.NextAttack > Timing.CurTime)
             args.Cancel();

@@ -30,7 +30,7 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/atmospherics.rsi
+    sprite: _White/Clothing/Head/Hardsuits/atmospherics.rsi #WWDP edit
     layers:
     - state: icon
     - state: icon-unshaded
@@ -88,7 +88,7 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/spatiohelm.rsi
+    sprite: _White/Clothing/Head/Hardsuits/spatiohelm.rsi #WWDP edit
     layers:
     - state: icon
     - state: icon-unshaded
@@ -123,9 +123,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/salvage.rsi
+    sprite: _White/Clothing/Head/Hardsuits/salvage.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/salvage.rsi
+    sprite: _White/Clothing/Head/Hardsuits/salvage.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
@@ -184,9 +184,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security.rsi
+    sprite: _White/Clothing/Head/Hardsuits/security.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security.rsi
+    sprite: _White/Clothing/Head/Hardsuits/security.rsi #WWDP edit
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -261,12 +261,14 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/capspace.rsi
+    sprite: _White/Clothing/Head/Hardsuits/capspace.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/capspace.rsi
+    sprite: _White/Clothing/Head/Hardsuits/capspace.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
+  - type: PointLight
+    color: "#9CF4FF"
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -277,9 +279,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/engineering-white.rsi
+    sprite: _White/Clothing/Head/Hardsuits/engineering-white.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/engineering-white.rsi
+    sprite: _White/Clothing/Head/Hardsuits/engineering-white.rsi #WWDP edit
   - type: PointLight
     color: "#daffad"
   - type: PressureProtection
@@ -356,9 +358,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/luxury.rsi
+    sprite: _White/Clothing/Head/Hardsuits/luxury.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/luxury.rsi
+    sprite: _White/Clothing/Head/Hardsuits/luxury.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
@@ -376,9 +378,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/syndicate.rsi
+    sprite: _White/Clothing/Head/Hardsuits/syndicate.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/syndicate.rsi
+    sprite: _White/Clothing/Head/Hardsuits/syndicate.rsi #WWDP edit
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -426,9 +428,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/syndieelite.rsi
+    sprite: _White/Clothing/Head/Hardsuits/syndieelite.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/syndieelite.rsi
+    sprite: _White/Clothing/Head/Hardsuits/syndieelite.rsi #WWDP edit
   - type: PointLight
     color: red
   - type: PressureProtection
@@ -453,9 +455,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
+    sprite: _White/Clothing/Head/Hardsuits/syndiecommander.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
+    sprite: _White/Clothing/Head/Hardsuits/syndiecommander.rsi #WWDP edit
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -478,9 +480,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/cybersun.rsi
+    sprite: _White/Clothing/Head/Hardsuits/cybersun.rsi #WWDP edit
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/cybersun.rsi
+    sprite: _White/Clothing/Head/Hardsuits/cybersun.rsi #WWDP edit
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
