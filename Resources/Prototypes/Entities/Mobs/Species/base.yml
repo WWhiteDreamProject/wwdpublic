@@ -245,6 +245,7 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+    - AnomalyHost
   - type: Targeting
   - type: SurgeryTarget
   - type: TTS # WD EDIT
