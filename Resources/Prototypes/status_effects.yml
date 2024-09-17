@@ -60,8 +60,13 @@
 - type: statusEffect
   id: StaminaModifier
 
-# WD EDIT
+# WD EDIT START
 - type: statusEffect
   id: RecentlyBlocked
   alwaysAllowed: true
   alert: RecentlyBlocked
+
+- type: statusEffect
+  id: BlurryVision
+  alwaysAllowed: true
+# WD EDIT END

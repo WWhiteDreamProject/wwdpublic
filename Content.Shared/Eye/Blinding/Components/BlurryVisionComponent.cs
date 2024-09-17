@@ -15,13 +15,13 @@ public sealed partial class BlurryVisionComponent : Component
     ///     Amount of "blurring". Also modifies examine ranges.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("magnitude"), AutoNetworkedField]
-    public float Magnitude;
+    public float Magnitude = 4f; // WD EDIT
 
     /// <summary>
     ///     Exponent that controls the magnitude of the effect.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("correctionPower"), AutoNetworkedField]
-    public float CorrectionPower;
+    public float CorrectionPower = 2f; // WD EDIT
 
     public const float MaxMagnitude = 6;
     public const float DefaultCorrectionPower = 2f;
