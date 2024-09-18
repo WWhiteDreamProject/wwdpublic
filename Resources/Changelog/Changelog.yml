@@ -6843,3 +6843,12 @@ Entries:
   id: 6366
   time: '2024-09-17T23:39:57.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/925
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: >-
+        Cloning Consoles will now correctly state when a body has the
+        Uncloneable trait. 
+  id: 6368
+  time: '2024-09-18T04:30:39.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/926
