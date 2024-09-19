@@ -6852,3 +6852,10 @@ Entries:
   id: 6368
   time: '2024-09-18T04:30:39.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/926
+- author: FoxxoTrystan
+  changes:
+    - type: Remove
+      message: DeltaV Option Tab (Options moved)
+  id: 6370
+  time: '2024-09-19T02:24:25.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/928
