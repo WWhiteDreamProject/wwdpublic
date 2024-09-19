@@ -1,1 +1,0 @@
-backstab-damage-betrayal-dagger = A stab in the back: {$damage}!
