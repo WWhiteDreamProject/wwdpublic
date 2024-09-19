@@ -370,6 +370,7 @@
     - id: SecurityTechFabCircuitboard
     - id: WeaponEnergyShotgun
     # - id: WeaponDisabler - WD EDIT
+    - id: WantedListCartridge
     # WD EDIT START
     - id: BoxBasicRegulatorLamp
     - id: AssballBat
