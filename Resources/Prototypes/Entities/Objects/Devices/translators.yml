@@ -65,13 +65,13 @@
   components:
   - type: HandheldTranslator
     spoken:
-    - GalacticCommon
+    - TauCetiBasic
     - Canilunzt
     understood:
-    - GalacticCommon
+    - TauCetiBasic
     - Canilunzt
     requires:
-    - GalacticCommon
+    - TauCetiBasic
     - Canilunzt
 
 - type: entity
@@ -82,13 +82,13 @@
   components:
   - type: HandheldTranslator
     spoken:
-    - GalacticCommon
+    - TauCetiBasic
     - Bubblish
     understood:
-    - GalacticCommon
+    - TauCetiBasic
     - Bubblish
     requires:
-    - GalacticCommon
+    - TauCetiBasic
     - Bubblish
 
 - type: entity
@@ -99,13 +99,13 @@
   components:
   - type: HandheldTranslator
     spoken:
-    - GalacticCommon
+    - TauCetiBasic
     - Nekomimetic
     understood:
-    - GalacticCommon
+    - TauCetiBasic
     - Nekomimetic
     requires:
-    - GalacticCommon
+    - TauCetiBasic
     - Nekomimetic
 
 - type: entity
@@ -116,13 +116,13 @@
   components:
   - type: HandheldTranslator
     spoken:
-    - GalacticCommon
+    - TauCetiBasic
     - Draconic
     understood:
-    - GalacticCommon
+    - TauCetiBasic
     - Draconic
     requires:
-    - GalacticCommon
+    - TauCetiBasic
     - Draconic
 
 - type: entity
@@ -133,13 +133,13 @@
   components:
   - type: HandheldTranslator
     spoken:
-    - GalacticCommon
+    - TauCetiBasic
     - SolCommon
     understood:
-    - GalacticCommon
+    - TauCetiBasic
     - SolCommon
     requires:
-    - GalacticCommon
+    - TauCetiBasic
     - SolCommon
 
 - type: entity
@@ -150,13 +150,13 @@
   components:
   - type: HandheldTranslator
     spoken:
-    - GalacticCommon
+    - TauCetiBasic
     - RootSpeak
     understood:
-    - GalacticCommon
+    - TauCetiBasic
     - RootSpeak
     requires:
-    - GalacticCommon
+    - TauCetiBasic
     - RootSpeak
 
 - type: entity
@@ -167,13 +167,13 @@
   components:
   - type: HandheldTranslator
     spoken:
-    - GalacticCommon
+    - TauCetiBasic
     - Moffic
     understood:
-    - GalacticCommon
+    - TauCetiBasic
     - Moffic
     requires:
-    - GalacticCommon
+    - TauCetiBasic
     - Moffic
 
 - type: entity
@@ -184,13 +184,13 @@
   components:
   - type: HandheldTranslator
     spoken:
-    - GalacticCommon
+    - TauCetiBasic
     - Xeno
     understood:
-    - GalacticCommon
+    - TauCetiBasic
     - Xeno
     requires:
-    - GalacticCommon
+    - TauCetiBasic
 
 - type: entity
   id: AnimalTranslator
@@ -215,5 +215,5 @@
     - Kobold
     - Hissing
     requires:
-    - GalacticCommon
+    - TauCetiBasic
     setLanguageOnInteract: false
