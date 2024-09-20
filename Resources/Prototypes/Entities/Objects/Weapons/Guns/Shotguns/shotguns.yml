@@ -85,6 +85,8 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
     fireOnDropChance: 0.3
+  - type: Wieldable
+  - type: GunRequiresWield
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -126,6 +128,8 @@
   - type: Gun
     fireRate: 2
     fireOnDropChance: 0.5
+  - type: Wieldable
+  - type: GunRequiresWield
   - type: BallisticAmmoProvider
     capacity: 2
     autoCycle: true # WD EDIT
@@ -155,6 +159,8 @@
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/enforcer.rsi # Delta-V
   - type: BallisticAmmoProvider
+  - type: Wieldable
+  - type: GunRequiresWield
 
 - type: entity
   parent: WeaponShotgunEnforcer
@@ -185,6 +191,8 @@
   - type: Tag
     tags:
     - WeaponShotgunKammerer
+  - type: Wieldable
+  - type: GunRequiresWield
 
 - type: entity
   name: sawn-off shotgun
@@ -269,6 +277,8 @@
     capacity: 1
   - type: StaticPrice
     price: 0
+  - type: Wieldable
+  - type: GunRequiresWield
 
 - type: entity
   name: improvised shotgun
