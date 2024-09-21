@@ -6417,3 +6417,10 @@ Entries:
   id: 6351
   time: '2024-09-16T14:16:49.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/53
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added respawn button / Добавлена кнопка респавна
+  id: 6352
+  time: '2024-09-21T10:20:10.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/56
