@@ -1,30 +1,26 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprite by https://github.com/noudoit. Edit by Spatison(discord)",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/ at d0dffe7ca643db2624424fdcebf45863f85c0448, on inhand sprites by Aviu. Edit by Spatison(discord)",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "stunprod"
+      "name": "snatcherprod"
     },
     {
-      "name": "stunprod_cell"
+      "name": "snatcherprod_cell"
     },
     {
-      "name": "stunprod_on",
+      "name": "snatcherprod_on",
       "delays": [
         [
           0.1,
           0.1
         ]
       ]
-    },
-    {
-      "name": "equipped-BACKPACK",
-      "directions": 4
     },
     {
       "name": "off-inhand-left",
