@@ -61,15 +61,10 @@ public sealed class WieldableSystem : EntitySystem
 
     private void OnShootAttempt(EntityUid uid, GunRequiresWieldComponent component, ref AttemptShootEvent args)
     {
-        if (TryComp<WieldableComponent>(uid, out var wieldable) &&
-            !wieldable.Wielded)
+        if (TryComp<WieldableComponent>(uid, out var wieldable) && !wieldable.Wielded)
         {
             args.Cancelled = true;
-
-            if (!HasComp<MeleeWeaponComponent>(uid) && !HasComp<MeleeRequiresWieldComponent>(uid))
-            {
-                args.Message = Loc.GetString("wieldable-component-requires", ("item", uid));
-            }
+            args.Message = Loc.GetString("wieldable-component-requires", ("item", uid));
         }
     }
 
@@ -214,6 +209,17 @@ public sealed class WieldableSystem : EntitySystem
     /// <returns>True if the attempt wasn't blocked.</returns>
     public bool TryUnwield(EntityUid used, WieldableComponent component, EntityUid user)
     {
+        // WD EDIT START
+        if (!component.Wielded)
+            return false;
+
+        if (TryComp<BallisticAmmoProviderComponent>(used, out var ballisticAmmoProvider)
+            && ballisticAmmoProvider.Entities.Count != 0
+            && TryComp<CartridgeAmmoComponent>(ballisticAmmoProvider.Entities[^1], out var cartridgeAmmo)
+            && cartridgeAmmo.Spent)
+            return false;
+        // WD EDIT END
+
         var ev = new BeforeUnwieldEvent();
         RaiseLocalEvent(used, ev);
 

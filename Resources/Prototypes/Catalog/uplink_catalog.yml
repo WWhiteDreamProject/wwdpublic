@@ -387,7 +387,7 @@
   description: uplink-sniper-ammo-desc
   productEntity: MagazineBoxAntiMateriel
   cost:
-    Telecrystal: 2
+    Telecrystal: 6 # WD EDIT
   categories:
   - UplinkAmmo
 
@@ -889,7 +889,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base }
   productEntity: BriefcaseSyndieSniperBundleFilled
   cost:
-    Telecrystal: 12
+    Telecrystal: 20 # WD EDIT
   categories:
   - UplinkBundles
   saleLimit: 1 # WD EDIT

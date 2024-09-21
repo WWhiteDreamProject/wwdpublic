@@ -31,6 +31,7 @@
     whitelist:
       tags:
       - CartridgeLightRifle
+    autoCycle: false # WD EDIT
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
@@ -75,17 +76,36 @@
   id: WeaponSniperHristov
   description: A portable anti-materiel rifle. Fires armor piercing 14.5mm shells. Uses .60 anti-materiel ammo.
   components:
+  # WD EDIT START
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+    sprite: _White/Objects/Weapons/Guns/Snipers/hristov-icons.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+    sprite: _White/Objects/Weapons/Guns/Snipers/hristov-inhands.rsi
+  - type: Item
+    sprite: _White/Objects/Weapons/Guns/Snipers/hristov-inhands.rsi
   - type: BallisticAmmoProvider
+    soundInsert: /Audio/_White/Guns/insert.ogg
     whitelist:
       tags:
       - CartridgeAntiMateriel
     capacity: 5
     proto: CartridgeAntiMateriel
-  - type: Telescope # WD EDIT
+  - type: Gun
+    fireRate: 0.6
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: Telescope
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  # WD EDIT END
 
 - type: entity
   name: musket
