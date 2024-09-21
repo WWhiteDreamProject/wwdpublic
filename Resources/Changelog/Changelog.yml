@@ -6424,3 +6424,16 @@ Entries:
   id: 6352
   time: '2024-09-21T10:20:10.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/56
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added a new sprite of Hristov / Добавлен новый спрайт Христова
+    - type: Tweak
+      message: Hristov has been improved / Христов был улучшен
+    - type: Tweak
+      message: >-
+        Some weapons now require manually cycling / В некоторых видах оружия
+        теперь необходимо вручную досылать патрон
+  id: 6353
+  time: '2024-09-21T10:21:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/58
