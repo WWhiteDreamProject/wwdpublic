@@ -77,6 +77,9 @@
   - type: ShortConstruction
     prototypes:
     - Grille
+  - type: Tag # WD EDIT
+    tags:
+    - CrossbowBolt
 
 - type: entity
   parent: PartRodMetal
@@ -86,6 +89,7 @@
   components:
   - type: Tag
     tags:
+    - CrossbowBolt # WD EDIT
     - RodMetal1
   - type: Sprite
     state: rods
@@ -100,6 +104,7 @@
   components:
   - type: Tag
     tags:
+    - CrossbowBolt # WD EDIT
     - RodMetal1
   - type: Sprite
     state: rods
