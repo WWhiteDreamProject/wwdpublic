@@ -135,11 +135,11 @@
     speechVerb: Robotic
 
 - type: entity
+  parent: BasePDA
   id: BaseSecurityPDA
   abstract: true
   components:
   - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
@@ -214,7 +214,7 @@
     - Medical Doctor
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSecurityPDA
   id: SecurityCadetPDA
   name: security cadet PDA
   description: Why isn't it red?
@@ -227,14 +227,6 @@
     accentVColor: "#A32D26"
   - type: Icon
     state: pda-interncadet
-  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NewsReaderCartridge
-    - CrimeAssistCartridge
-    - SecWatchCartridge
-    - NanoChatCartridge
 
 - type: entity
   parent: BasePDA
@@ -564,7 +556,7 @@
     state: pda-library
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BaseSecurityPDA
   id: LawyerPDA
   name: lawyer PDA
   description: For lawyers to poach dubious clients.
@@ -615,7 +607,7 @@
     state: pda-janitor
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BaseSecurityPDA
   id: CaptainPDA
   name: captain PDA
   description: Surprisingly no different from your PDA... Wait, it's a fair bit heavy to hold.
@@ -953,7 +945,7 @@
     state: pda-robotics
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BaseSecurityPDA
   id: HoSPDA
   name: head of security PDA
   description: Whosoever bears this PDA is the law.
@@ -968,7 +960,7 @@
     state: pda-hos
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BaseSecurityPDA
   id: HoSNTPDA
   name: HOS special PDA unit
   description: Whosoever bears this PDA is the law.it says in gold "special unit unique to the best head of security in the sector".
@@ -983,7 +975,7 @@
     state: pda-hosnano
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BaseSecurityPDA
   id: WardenPDA
   name: warden PDA
   description: The OS appears to have been jailbroken.
@@ -998,7 +990,7 @@
     state: pda-warden
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BaseSecurityPDA
   id: SecurityPDA
   name: security PDA
   description: Red to hide the stains of passenger blood.
@@ -1012,7 +1004,7 @@
     state: pda-security
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BaseSecurityPDA
   id: CentcomPDA
   name: CentComm PDA
   description: Light green sign of walking bureaucracy.
@@ -1335,7 +1327,7 @@
     state: pda-boxer
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BaseSecurityPDA
   id: DetectivePDA
   name: detective PDA
   description: Smells like rain... pouring down the rooftops...
@@ -1455,7 +1447,7 @@
     state: pda-seniorphysician
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BaseSecurityPDA
   id: SeniorOfficerPDA
   name: senior officer PDA
   description: Beaten, battered and broken, but just barely useable.
