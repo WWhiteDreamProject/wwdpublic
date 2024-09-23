@@ -442,6 +442,12 @@ public sealed partial class CCVars
         CVarDef.Create("game.contraband_examine", false, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
+    /// Size of the lookup area for adding entities to the context menu
+    /// </summary>
+    public static readonly CVarDef<float> GameEntityMenuLookup =
+        CVarDef.Create("game.entity_menu_lookup", 0.25f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
     ///     Should the clients window show the server hostname in the title?
     /// </summary>
     public static readonly CVarDef<bool> GameHostnameInTitlebar =
