@@ -6437,3 +6437,10 @@ Entries:
   id: 6353
   time: '2024-09-21T10:21:44.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/58
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added ru keycodes / Добавлены русские ключи радиоканалов
+  id: 6354
+  time: '2024-09-23T02:57:16.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/67
