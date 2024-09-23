@@ -22,11 +22,8 @@ public sealed class CritSystem : EntitySystem
 
     private void HandleHit(EntityUid uid, CritComponent component, MeleeHitEvent args)
     {
-        if (args.HitEntities.Count == 0
-            || !IsCriticalHit(component))
-        {
+        if (args.HitEntities.Count == 0 || !IsCriticalHit(component))
             return;
-        }
 
         var damage = args.BaseDamage.GetTotal() * component.CritMultiplier;
 
@@ -46,7 +43,7 @@ public sealed class CritSystem : EntitySystem
         if (isCritical)
             component.RealChance = component.CritChance;
         else
-            component.RealChance++;
+            component.RealChance += component.CritChance;
 
         return isCritical;
     }
