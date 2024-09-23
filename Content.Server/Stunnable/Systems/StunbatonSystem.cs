@@ -72,12 +72,16 @@ namespace Content.Server.Stunnable.Systems
             // WD EDIT START
             if (TryGetBatteryComponent(entity, out var battery, out _)
                 && battery.CurrentCharge >= entity.Comp.EnergyPerUse)
-                return;
+            {
 
-            args.Cancelled = true;
+                args.Cancelled = true;
 
-            if (args.User != null)
-                _popup.PopupEntity(Loc.GetString("stunbaton-component-low-charge"), (EntityUid) args.User, (EntityUid) args.User);
+                if (args.User != null)
+                {
+                    _popup.PopupEntity(Loc.GetString("stunbaton-component-low-charge"), (EntityUid) args.User,
+                        (EntityUid) args.User);
+                }
+            }
             // WD EDIT END
 
             if (TryComp<RiggableComponent>(entity, out var rig) && rig.IsRigged)
