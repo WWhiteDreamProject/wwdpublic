@@ -6444,3 +6444,12 @@ Entries:
   id: 6354
   time: '2024-09-23T02:57:16.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/67
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        The size of the Lobby cannot be changed now / Размер лобби теперь нельзя
+        изменить
+  id: 6355
+  time: '2024-09-23T02:57:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/64
