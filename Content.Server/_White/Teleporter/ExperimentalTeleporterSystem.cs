@@ -39,15 +39,15 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
     {
         if (_charges.IsEmpty(uid)
             || !TryComp<TransformComponent>(args.User, out var xform)
-            || _containerSystem.IsEntityInContainer(args.User)
-            && !_containerSystem.TryRemoveFromContainer(args.User))
+            || (_containerSystem.IsEntityInContainer(args.User)
+                && !_containerSystem.TryRemoveFromContainer(args.User)))
             return;
 
         var oldCoords = xform.Coordinates;
-        var random = _random.Next(component.MinTeleportRange, component.MaxTeleportRange);
+        var range = _random.Next(component.MinTeleportRange, component.MaxTeleportRange);
         var offset = xform.LocalRotation.ToWorldVec().Normalized();
         var direction = xform.LocalRotation.GetDir().ToVec();
-        var newOffset = offset + direction * random;
+        var newOffset = offset + direction * range;
 
         var coords = xform.Coordinates.Offset(newOffset).SnapToGrid(EntityManager);
 
@@ -75,7 +75,7 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
 
     private void Teleport(EntityUid uid, EntityUid teleporterUid, ExperimentalTeleporterComponent component, EntityCoordinates coords, EntityCoordinates oldCoords)
     {
-        SoundAndEffects(component, coords, oldCoords);
+        PlaySoundAndEffects(component, coords, oldCoords);
 
         _layingDown.LieDownInRange(uid, coords);
         _transform.SetCoordinates(uid, coords);
@@ -83,7 +83,7 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
         _charges.UseCharge(teleporterUid);
     }
 
-    private void SoundAndEffects(ExperimentalTeleporterComponent component, EntityCoordinates coords, EntityCoordinates oldCoords)
+    private void PlaySoundAndEffects(ExperimentalTeleporterComponent component, EntityCoordinates coords, EntityCoordinates oldCoords)
     {
         _audio.PlayPvs(component.TeleportSound, coords);
         _audio.PlayPvs(component.TeleportSound, oldCoords);
@@ -105,6 +105,9 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
 
     private Vector2 VectorRandomDirection(ExperimentalTeleporterComponent component, Vector2 offset, int length)
     {
+        if (component.RandomRotations.Count == 0)
+            return Vector2.Zero;
+
         var randomRotation = _random.Next(0, component.RandomRotations.Count);
         return Angle.FromDegrees(component.RandomRotations[randomRotation]).RotateVec(offset.Normalized() * length);
     }
