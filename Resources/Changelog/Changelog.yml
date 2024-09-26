@@ -6462,3 +6462,10 @@ Entries:
   id: 6356
   time: '2024-09-23T03:18:33.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/61
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added small energy crossbow / Добавлен маленький энерго арбалет
+  id: 6357
+  time: '2024-09-26T01:56:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/60
