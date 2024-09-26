@@ -70,8 +70,8 @@ namespace Content.Server.Stunnable.Systems
         private void TryTurnOn(Entity<StunbatonComponent> entity, ref ItemToggleActivateAttemptEvent args)
         {
             // WD EDIT START
-            if (TryGetBatteryComponent(entity, out var battery, out _)
-                && battery.CurrentCharge >= entity.Comp.EnergyPerUse)
+            if (!TryGetBatteryComponent(entity, out var battery, out _)
+                || battery.CurrentCharge < entity.Comp.EnergyPerUse)
             {
 
                 args.Cancelled = true;
@@ -81,6 +81,8 @@ namespace Content.Server.Stunnable.Systems
                     _popup.PopupEntity(Loc.GetString("stunbaton-component-low-charge"), (EntityUid) args.User,
                         (EntityUid) args.User);
                 }
+                
+                return;
             }
             // WD EDIT END
 
