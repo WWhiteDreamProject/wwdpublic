@@ -2,6 +2,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Stacks;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -46,6 +47,20 @@ public abstract partial class SharedGunSystem
 
         if (GetBallisticShots(component) >= component.Capacity)
             return;
+
+        // WD EDIT START
+        var entity = args.Used;
+        var doInsert = true;
+        if (TryComp(args.Used, out StackComponent? stack) && stack.Count > 1)
+        {
+            entity = GetStackEntity(args.Used, stack);
+            doInsert = false;
+        }
+
+        component.Entities.Add(entity);
+        if (_netManager.IsServer || doInsert)
+            Containers.Insert(entity, component.Container);
+         // WD EDIT END
 
         component.Entities.Add(args.Used);
         Containers.Insert(args.Used, component.Container);
@@ -284,6 +299,13 @@ public abstract partial class SharedGunSystem
         Appearance.SetData(uid, AmmoVisuals.AmmoCount, GetBallisticShots(component), appearance);
         Appearance.SetData(uid, AmmoVisuals.AmmoMax, component.Capacity, appearance);
     }
+
+    // WD EDIT START
+    protected virtual EntityUid GetStackEntity(EntityUid uid, StackComponent stack)
+    {
+        return uid;
+    }
+    // WD EDIT END
 }
 
 /// <summary>

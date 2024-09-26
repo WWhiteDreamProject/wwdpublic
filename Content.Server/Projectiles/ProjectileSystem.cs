@@ -4,6 +4,7 @@ using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Database;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
@@ -17,11 +18,13 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly GunSystem _guns = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!; // WD EDIT
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<ProjectileComponent, StartCollideEvent>(OnStartCollide);
+        SubscribeLocalEvent<EmbeddableProjectileComponent, EmbedEvent>(OnEmbed);
     }
 
     private void OnStartCollide(EntityUid uid, ProjectileComponent component, ref StartCollideEvent args)
@@ -77,4 +80,13 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             RaiseNetworkEvent(new ImpactEffectEvent(component.ImpactEffect, GetNetCoordinates(xform.Coordinates)), Filter.Pvs(xform.Coordinates, entityMan: EntityManager));
         }
     }
+
+    // WD EDIT START
+    private void OnEmbed(EntityUid uid, EmbeddableProjectileComponent component, ref EmbedEvent args)
+    {
+        var dmg = _damageable.TryChangeDamage(args.Embedded, component.Damage, origin: args.Shooter);
+        if (dmg is { Empty: false })
+            _color.RaiseEffect(Color.Red, new List<EntityUid>() { args.Embedded }, Filter.Pvs(args.Embedded, entityManager: EntityManager));
+    }
+    // WD EDIT END
 }

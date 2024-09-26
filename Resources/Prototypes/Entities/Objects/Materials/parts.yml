@@ -80,6 +80,11 @@
   - type: Tag # WD EDIT
     tags:
     - CrossbowBolt
+  - type: EmbeddableProjectile
+    minimumSpeed: 20
+    damage:
+      types:
+        Piercing: 15
 
 - type: entity
   parent: PartRodMetal

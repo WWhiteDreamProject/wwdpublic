@@ -1,7 +1,7 @@
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio;
 
-namespace Content.Shared._White.Drawable;
+namespace Content.Shared._White.Guns.Drawable;
 
 [RegisterComponent]
 public sealed partial class DrawableComponent : Component

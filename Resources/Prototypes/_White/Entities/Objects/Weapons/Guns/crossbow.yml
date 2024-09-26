@@ -6,7 +6,10 @@
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/crossbow.rsi
-    state: base
+    layers:
+    - state: crossbow
+    - state: undrawn
+      map: [ "enum.DrawableVisuals.Layer" ]
   - type: Clothing
     quickEquip: false
     slots:
@@ -49,6 +52,15 @@
         maxStackAmount: 1
   - type: Drawable
   - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.HasAmmo:
+        enum.DrawableVisuals.Layer:
+          True: {state: loaded}
+      enum.DrawableVisuals.Drawn:
+        enum.DrawableVisuals.Layer:
+          True: {state: drawn}
+          False: {state: undrawn}
   - type: Construction
     deconstructionTarget: null
     graph: WeaponPoweredCrossbowGraph

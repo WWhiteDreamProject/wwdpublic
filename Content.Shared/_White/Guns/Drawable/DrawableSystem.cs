@@ -5,7 +5,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._White.Drawable;
+namespace Content.Shared._White.Guns.Drawable;
 
 public sealed class DrawableSystem : EntitySystem
 {
