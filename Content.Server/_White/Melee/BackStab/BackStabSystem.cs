@@ -1,19 +1,18 @@
+using Content.Server.Popups;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._White.BackStab;
+namespace Content.Server._White.Melee.BackStab;
 
 public sealed class BackStabSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -49,10 +48,7 @@ public sealed class BackStabSystem : EntitySystem
         args.BonusDamage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Slash"),
             damage - args.BaseDamage.GetTotal());
 
-        if (!_net.IsServer)
-            return;
-
-        var message = Loc.GetString("backstab-damage-betrayal-dagger", ("damage", damage));
+        var message = Loc.GetString("melee-backstab-damage", ("damage", damage));
         _popup.PopupEntity(message, args.User, args.User, PopupType.MediumCaution);
     }
 }

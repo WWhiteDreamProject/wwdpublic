@@ -1,4 +1,4 @@
-namespace Content.Shared._White.BackStab;
+namespace Content.Server._White.Melee.BackStab;
 
 [RegisterComponent]
 public sealed partial class BackStabComponent : Component
