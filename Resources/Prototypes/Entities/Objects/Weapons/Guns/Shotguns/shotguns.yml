@@ -35,6 +35,7 @@
       - ShellShotgun
     capacity: 7
     proto: ShellShotgun
+    autoCycle: false # WD EDIT
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
   - type: ContainerContainer
@@ -127,6 +128,7 @@
     fireOnDropChance: 0.5
   - type: BallisticAmmoProvider
     capacity: 2
+    autoCycle: true # WD EDIT
   - type: Construction
     graph: ShotgunSawn
     node: start

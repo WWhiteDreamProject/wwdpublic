@@ -1,14 +1,17 @@
 - type: radioChannel
   id: Common
   name: chat-radio-common
-  keycode: ";"
+  keycodes: # WD EDIT
+    - ";"
   frequency: 1459
   color: "#32cd32"
 
 - type: radioChannel
   id: CentCom
   name: chat-radio-centcom
-  keycode: 'y'
+  keycodes: # WD EDIT
+    - 'y'
+    - 'ц'
   frequency: 1337
   color: "#2681a5"
   longRange: true
@@ -16,56 +19,72 @@
 - type: radioChannel
   id: Command
   name: chat-radio-command
-  keycode: 'c'
+  keycodes: # WD EDIT
+    - 'c'
+    - 'к'
   frequency: 1353
   color: "#fcdf03"
 
 - type: radioChannel
   id: Engineering
   name: chat-radio-engineering
-  keycode: 'e'
+  keycodes: # WD EDIT
+    - 'e'
+    - 'и'
   frequency: 1357
   color: "#f37746"
 
 - type: radioChannel
   id: Medical
   name: chat-radio-medical
-  keycode: 'm'
+  keycodes: # WD EDIT
+    - 'm'
+    - 'м'
   frequency: 1355
   color: "#57b8f0"
 
 - type: radioChannel
   id: Science
   name: chat-radio-science
-  keycode: 'n'
+  keycodes: # WD EDIT
+    - 'n'
+    - 'н'
   frequency: 1351
   color: "#c68cfa"
 
 - type: radioChannel
   id: Security
   name: chat-radio-security
-  keycode: 's'
+  keycodes: # WD EDIT
+    - 's'
+    - 'о'
   frequency: 1359
   color: "#dd3535"
 
 - type: radioChannel
   id: Service
   name: chat-radio-service
-  keycode: 'v'
+  keycodes: # WD EDIT
+    - 'v'
+    - 'в'
   frequency: 1349
   color: "#6ca729"
 
 - type: radioChannel
   id: Supply
   name: chat-radio-supply
-  keycode: 'u'
+  keycodes:
+    - 'u' # WD EDIT
+    - 'с'
   frequency: 1347
   color: "#b88646"
 
 - type: radioChannel
   id: Syndicate
   name: chat-radio-syndicate
-  keycode: 't'
+  keycodes: # WD EDIT
+    - 't'
+    - 'т'
   frequency: 1213
   color: "#8f4a4b"
   longRange: true
@@ -81,7 +100,9 @@
 - type: radioChannel
   id: Binary
   name: chat-radio-binary
-  keycode: 'b'
+  keycodes: # WD EDIT
+    - 'b'
+    - 'б'
   frequency: 1001
   color: "#2ed2fd"
   # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
@@ -90,7 +111,9 @@
 - type: radioChannel
   id: Freelance
   name: chat-radio-freelance
-  keycode: 'f'
+  keycodes: # WD EDIT
+    - 'f'
+    - 'ф'
   frequency: 1984
   color: "#f6ce64"
   # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms

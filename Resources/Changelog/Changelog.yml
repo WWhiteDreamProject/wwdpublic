@@ -6417,3 +6417,55 @@ Entries:
   id: 6351
   time: '2024-09-16T14:16:49.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/53
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added respawn button / Добавлена кнопка респавна
+  id: 6352
+  time: '2024-09-21T10:20:10.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/56
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added a new sprite of Hristov / Добавлен новый спрайт Христова
+    - type: Tweak
+      message: Hristov has been improved / Христов был улучшен
+    - type: Tweak
+      message: >-
+        Some weapons now require manually cycling / В некоторых видах оружия
+        теперь необходимо вручную досылать патрон
+  id: 6353
+  time: '2024-09-21T10:21:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/58
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added ru keycodes / Добавлены русские ключи радиоканалов
+  id: 6354
+  time: '2024-09-23T02:57:16.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/67
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        The size of the Lobby cannot be changed now / Размер лобби теперь нельзя
+        изменить
+  id: 6355
+  time: '2024-09-23T02:57:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/64
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        The screen now perceives the Russian alphabet / Экран теперь
+        воспринимает русский алфавит
+  id: 6356
+  time: '2024-09-23T03:18:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/61
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added small energy crossbow / Добавлен маленький энерго арбалет
+  id: 6357
+  time: '2024-09-26T01:56:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/60

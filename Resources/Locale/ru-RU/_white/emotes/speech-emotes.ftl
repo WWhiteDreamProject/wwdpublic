@@ -64,7 +64,7 @@ emote-chat-messages-snap-7 = щёлкнуло пальцами
 #Salute
 emote-chat-button-text-salute = Салютовать
 
-emote-chat-messages-salute-1 = салютутет
+emote-chat-messages-salute-1 = салютует
 
 #Deathgasp
 emote-chat-messages-deathgasp-1 = отключается и бессильно падает, {POSS-ADJ($entity)} глаза становятся пустыми и безжизненными...
