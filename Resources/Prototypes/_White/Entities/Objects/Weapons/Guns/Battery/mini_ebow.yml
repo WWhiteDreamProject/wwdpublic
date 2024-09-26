@@ -1,0 +1,36 @@
+- type: entity
+  name: small energy crossbow
+  description: Shoots energy bolts that poison and stun the target.
+  parent: BaseItem
+  id: EnergyCrossbowMini
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Battery/mini-ebow.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: _White/Objects/Weapons/Guns/Battery/mini-ebow.rsi
+  - type: Clothing
+    slots:
+    - Belt
+  - type: Gun
+    resetOnHandSelected: false
+    fireRate: 0.4
+    soundGunshot:
+      path: /Audio/Weapons/click.ogg
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1.5
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BoltEnergyCrossbow
+    capacity: 1
+    count: 1
+  - type: AmmoCounter
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.HasAmmo:
+        base:
+          True: { state: icon }
+          False: { state: empty }
+  - type: Appearance
