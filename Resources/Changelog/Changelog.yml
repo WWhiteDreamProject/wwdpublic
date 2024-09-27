@@ -6469,3 +6469,18 @@ Entries:
   id: 6357
   time: '2024-09-26T01:56:42.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/60
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added snatchprod / Добавлена хваталка
+    - type: Tweak
+      message: >-
+        You can now change the battery in the stunprod / В шок-палке теперь
+        можно менять батарейку
+    - type: Tweak
+      message: >-
+        The creation of the stunprod  is now hidden / Создание шок-палке теперь
+        скрытое
+  id: 6358
+  time: '2024-09-27T02:10:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/65
