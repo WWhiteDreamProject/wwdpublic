@@ -1,0 +1,33 @@
+- type: entity
+  parent: StunprodBase
+  id: Snatcherprod
+  name: snatcher prod
+  description: It sparkles with a thirst for theft and treachery.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Melee/snatcherprod.rsi
+    layers:
+    - state: snatcherprod
+    - state: snatcherprod_on
+      visible: false
+      map: [ "enum.ToggleVisuals.Layer" ]
+    - state: snatcherprod_cell
+      visible: false
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Item
+    sprite: _White/Objects/Weapons/Melee/snatcherprod.rsi
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {visible: true}
+          False: {visible: false}
+      enum.PowerCellSlotVisuals.Enabled:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: {visible: true}
+          False: {visible: false}
+  - type: SnatchOnMeleeHit
+  - type: Construction
+    deconstructionTarget: cuffs
+    graph: StunprodGraph
+    node: snatcherprod
