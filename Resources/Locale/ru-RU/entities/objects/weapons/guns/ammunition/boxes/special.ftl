@@ -1,0 +1,12 @@
+ent-MagazineBoxSpecialIncendiary = коробка с патронами (.38 специальные зажигательные) 
+    .desc = 
+ent-MagazineBoxSpecialMindbreaker = коробка с патронами (.38 специальные майндбрейкер)
+    .desc = 
+ent-MagazineBoxSpecialPractice = коробка с патронами (.38 специальные тренировочные)  
+    .desc = 
+ent-MagazineBoxSpecialRubber = коробка с патронами (.38 специальные резиновые) 
+    .desc = 
+ent-MagazineBoxSpecialUranium = коробка с патронами (.38 специальные урановые)
+    .desc = 
+ent-MagazineBoxSpecial = коробка с патронами (.38 специальные) 
+    .desc = 
