@@ -50,7 +50,7 @@
           StationEngineer: [ 4, 5 ]
           TechnicalAssistant: [ 3, 4 ]
           #Science
-          SeniorResearcher: [ 1, 1 ]
+          #SeniorResearcher: [ 1, 1 ]
           ForensicMantis: [ 1, 1 ]
           Chaplain: [ 2, 2 ]
           Scientist: [ 3, 4 ]
