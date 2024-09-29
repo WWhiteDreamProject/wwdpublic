@@ -45,7 +45,7 @@
           SalvageSpecialist: [ 3, 3 ]
           CargoTechnician: [ 3, 5 ]
           #Engineering
-          SeniorEngineer: [ 1, 1 ]
+          #SeniorEngineer: [ 1, 1 ]
           AtmosphericTechnician: [ 3, 3 ]
           StationEngineer: [ 4, 5 ]
           TechnicalAssistant: [ 3, 4 ]
