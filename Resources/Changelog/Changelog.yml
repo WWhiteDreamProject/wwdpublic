@@ -6493,3 +6493,12 @@ Entries:
   id: 6359
   time: '2024-09-27T02:12:53.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/63
+- author: PointPNG
+  changes:
+    - type: Add
+      message: ДрайДок добавлен в билд.
+    - type: Add
+      message: ДрайДок добавлен в ротацию карт.
+  id: 6360
+  time: '2024-09-29T12:15:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/68
