@@ -7196,3 +7196,10 @@ Entries:
   id: 6402
   time: '2024-09-30T16:27:47.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/965
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: Added Shadeskip as a new psionic power.
+  id: 6404
+  time: '2024-09-30T18:04:20.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/987
