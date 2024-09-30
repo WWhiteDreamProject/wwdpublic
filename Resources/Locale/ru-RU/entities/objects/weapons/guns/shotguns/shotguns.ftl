@@ -3,3 +3,5 @@ ent-WeaponShotgunKammerer = Каммерер
 ent-WeaponShotgunKammererNonLethal = { ent-WeaponShotgunKammerer }
     .desc = { ent-WeaponShotgunKammerer.desc }
     .suffix = Нелетальный
+ent-WeaponShotgunAdjutant = дробовик "Адъютант"  
+    .desc = Дробовик "Адъютант" продаваемый как оружие против беспорядкой. Специальная система отвода газов даёт возможность вести подавляющий огонь. Использовался для подавления мятежей во многих системах.
