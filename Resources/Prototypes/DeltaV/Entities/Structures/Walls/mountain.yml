@@ -5,15 +5,11 @@
   suffix: Low Ore Yield
   description: A rocky asteroid.
   components:
-  - type: Gatherable
-    whitelist:
-      tags:
-        - Pickaxe
   - type: Sprite
     sprite: DeltaV/Structures/Walls/asteroid_rock.rsi
     state: full
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -40,7 +36,7 @@
     key: walls
     base: rock_
   - type: OreVein
-    oreChance: 0.2
+    oreChance: 0.25
     oreRarityPrototypeId: RandomOreDistributionStandard
 
 - type: entity
@@ -110,12 +106,8 @@
   suffix: Higher Ore Yield
   description: A rocky asteroid.
   components:
-  - type: Gatherable
-    whitelist:
-      tags:
-        - Pickaxe
   - type: OreVein
-    oreChance: 0.33
+    oreChance: 0.5
     oreRarityPrototypeId: RandomOreDistributionStandard
 
 - type: entity
