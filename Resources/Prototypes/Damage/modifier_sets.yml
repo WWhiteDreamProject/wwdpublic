@@ -49,6 +49,21 @@
     Blunt: 5
 
 - type: damageModifierSet
+  id: RockStrong
+  coefficients:
+    Structural: 4
+    Blunt: 0.25
+    Slash: 0.1
+    Piercing: 0.25
+    Heat: 0.5
+  flatReduction:
+    Blunt: 10
+    Slash: 10
+    Piercing: 10
+    Heat: 10
+    Structural: 10
+
+- type: damageModifierSet
   id: PerforatedMetallic
   coefficients:
     Blunt: 2
