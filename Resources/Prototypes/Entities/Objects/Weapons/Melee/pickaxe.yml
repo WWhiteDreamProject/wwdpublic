@@ -30,7 +30,7 @@
     damage:
       types:
         Blunt: 5
-        Structural: 30
+        Structural: 20
   - type: Item
     size: Normal
     shape:
@@ -59,18 +59,16 @@
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
-    attackRate: 0.5
-    range: 1.4
+    attackRate: 1
+    range: 1
     damage:
       types:
         Blunt: 9
         Slash: 3
-        Structural: 12
-    bluntStaminaDamageFactor: 4.0
+        Structural: 20
     heavyRateModifier: 1
     heavyRangeModifier: 2
     heavyDamageBaseModifier: 1
-    heavyStaminaCost: 10
     maxTargets: 3
     angle: 20
 
