@@ -1,17 +1,17 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprite by https://github.com/noudoit",
+  "copyright": "Sprite by https://github.com/noudoit. Edit by Spatison(discord)",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "stunprod_off"
+      "name": "stunprod"
     },
     {
-      "name": "stunprod_nocell"
+      "name": "stunprod_cell"
     },
     {
       "name": "stunprod_on",

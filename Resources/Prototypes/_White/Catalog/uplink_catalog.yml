@@ -9,11 +9,38 @@
     - UplinkUtility
 
 - type: listing
+  id: UplinkExperimentalSyndicateTeleporter
+  name: uplink-experimental-syndicate-teleporter-name
+  description: uplink-experimental-syndicate-teleporter-desc
+  productEntity: ExperimentalSyndicateTeleporter
+  cost:
+    Telecrystal: 10
+  categories:
+    - UplinkUtility
+
+- type: listing
   id: UplinkBetrayalKnife
   name: uplink-betrayal-knife-name
   description: uplink-betrayal-knife-desc
   icon: { sprite: /Textures/_White/Objects/Weapons/Melee/Daggers/betrayal_knife.rsi, state: icon }
   productEntity: BetrayalKnife
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1
+
+- type: listing
+  id: UplinkMiniEbow
+  name: uplink-ebow-name
+  description: uplink-ebow-desc
+  icon: { sprite:  /Textures/_White/Objects/Weapons/Guns/Battery/mini-ebow.rsi, state: icon }
+  productEntity: EnergyCrossbowMini
   cost:
     Telecrystal: 10
   categories:

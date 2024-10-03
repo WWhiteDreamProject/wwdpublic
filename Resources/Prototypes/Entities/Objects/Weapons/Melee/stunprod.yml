@@ -1,14 +1,10 @@
 - type: entity
   name: stun prod
   parent: BaseItem
-  id: Stunprod
-  description: A stun prod for illegal incapacitation.
+  id: StunprodBase # WD EDIT
+  abstract: true
+  noSpawn: true
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/stunprod.rsi
-    layers:
-    - state: stunprod_off
-      map: [ "enum.ToggleVisuals.Layer" ]
   - type: ItemToggle
     soundActivate:
       collection: sparks
@@ -48,29 +44,82 @@
   - type: StaminaDamageOnCollide
     damage: 22
     sound: /Audio/Weapons/egloves.ogg
-  - type: Battery
-    maxCharge: 360
-    startingCharge: 360
   - type: UseDelay
   - type: Item
     heldPrefix: off
     size: Normal
+    shape: # WD EDIT
+    - 0,0,2,0
+  - type: DisarmMalus
+    malus: 0.225
+  - type: Appearance
+  - type: StaticPrice
+    price: 100
+# WD EDIT START
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot {}
+
+- type: entity
+  name: stun prod
+  parent: StunprodBase
+  id: Stunprod
+  description: A stun prod for illegal incapacitation.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/stunprod.rsi
+    layers:
+    - state: stunprod
+    - state: stunprod_on
+      visible: false
+      map: [ "enum.ToggleVisuals.Layer" ]
+    - state: stunprod_cell
+      visible: false
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Item
+    sprite: Objects/Weapons/Melee/stunprod.rsi
   - type: Clothing
     sprite: Objects/Weapons/Melee/stunprod.rsi
     quickEquip: false
     slots:
     - back
-  - type: DisarmMalus
-    malus: 0.225
-  - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.ToggleVisuals.Toggled:
         enum.ToggleVisuals.Layer:
-          True: {state: stunprod_on}
-          False: {state: stunprod_off}
-  - type: StaticPrice
-    price: 100
+          True: {visible: true}
+          False: {visible: false}
+      enum.PowerCellSlotVisuals.Enabled:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: {visible: true}
+          False: {visible: false}
   - type: Construction
-    graph: makeshiftstunprod
-    node: msstunprod
+    deconstructionTarget: cuffs
+    graph: StunprodGraph
+    node: stunprod
+
+- type: entity
+  parent: BaseItem
+  id: ProdUnfinished
+  name: wound rod
+  description: A rod with wires.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Melee/prod.rsi
+    state: prod_unfinished
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    storedRotation: 44
+  - type: Construction
+    deconstructionTarget: cuffs
+    graph: StunprodGraph
+    node: unfinished
+# WD EDIT END

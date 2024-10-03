@@ -1,0 +1,31 @@
+- type: entity
+  name: energy crossbow bolt
+  parent: BaseBullet
+  id: BoltEnergyCrossbow
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Projectiles/ebolt.rsi
+    state: bullet
+  - type: Ammo
+    muzzleFlash: null
+  - type: Projectile
+    impactEffect: null
+    damage:
+      types:
+        Poison: 15
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.2,0.1,0.2"
+        hard: false
+        mask:
+        - Opaque
+  - type: KnockdownOnCollide
+    behavior: AlwaysDrop
+  - type: BlurOnCollide
