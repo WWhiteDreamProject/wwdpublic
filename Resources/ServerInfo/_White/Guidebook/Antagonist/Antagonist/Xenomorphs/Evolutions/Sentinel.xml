@@ -1,0 +1,28 @@
+<Document>
+  # Плевальщик ксеноморфов
+
+  <Box>
+    <GuideEntityEmbed Entity="MobAlienSentinel" Caption=""/>
+  </Box>
+  Их задача - защита улья/гнезда, они очень опасны как в близи на расстоянии.
+По сравнению с охотником, имеет меньшую скорость передвижения. Как и о остальных ксеноморфах, о них мало информации.
+
+  ## Особенности
+  
+  - Получает [color=#ff1f1f]на 15% меньше тупого урона, на 20% меньше режущего урона, на 20% больше колотого урона[/color], [color=#ffa500]на 80% больше урона от огня[/color] и [color=#46A446]на 100% меньше урона от яда[/color].
+  - Наносит [color=#ff1f1f]20 режущего урона[/color] и [color=#ffa500]10 структурного урона[/color] своими когтями.
+  - Имеет 250 ХП.
+  - Может вскрывать шлюзы своими лапами.
+  - Может плюваться нейротоксином.
+  - Обладает термальным зрением.
+  - Содержит до [color=#9400D3]150[/color] плазмы.
+
+  Способности:
+  <Box>
+    <GuideEntityEmbed Entity="XenomorphXRayIcon" Caption=""/>
+    <GuideEntityEmbed Entity="VomitIcon" Caption=""/>
+    <GuideEntityEmbed Entity="XenomorphPlasmaTransferIcon" Caption=""/>
+    <GuideEntityEmbed Entity="ActionResinNode" Caption=""/>
+  </Box>
+
+</Document>
