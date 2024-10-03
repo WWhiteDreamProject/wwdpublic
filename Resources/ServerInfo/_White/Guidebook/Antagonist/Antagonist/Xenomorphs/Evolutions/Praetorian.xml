@@ -1,0 +1,36 @@
+<Document>
+  # Преторианец ксеноморфов
+
+  <Box>
+    <GuideEntityEmbed Entity="MobAlienPraetorian" Caption=""/>
+  </Box>
+  Большой и мощный ксеноморф, способный в одиночку отбить нападение глупцов, осмелившихся напасть на гнездо или на его Королеву.
+
+  Является основой королевской гвардии, защищает всеми возможными способами свою королеву и в случае чего самому стать королевой. Как и о остальных ксеноморфах, о них мало информации.
+
+  ## Особенности
+  
+  - Получает [color=#ff1f1f]на 15% меньше тупого урона, на 20% меньше режущего урона, на 20% больше колотого урона[/color], [color=#ffa500]на 80% больше урона от огня[/color] и [color=#46A446]на 100% меньше урона от яда[/color].
+  - Наносит [color=#ff1f1f]30 режущего урона[/color] и [color=#ffa500]10 структурного урона[/color] своими когтями.
+  - Наносит [color=#46A446]33 кислотного урона[/color] своими плевками.
+  - Имеет 250 ХП.
+  - Может вскрывать шлюзы своими лапами.
+  - Может возводить полимерные строения.
+  - Может ударять хвостом.
+  - Может плюваться нейротоксином.
+  - Обладает термальным зрением.
+  - Содержит до [color=#9400D3]500[/color] плазмы.
+
+  Способности:
+  <Box>
+    <GuideEntityEmbed Entity="XenomorphXRayIcon" Caption=""/>
+    <GuideEntityEmbed Entity="VomitIcon" Caption=""/>
+    <GuideEntityEmbed Entity="XenomorphPlasmaTransferIcon" Caption=""/>
+    <GuideEntityEmbed Entity="XenomorphTailAttackIcon" Caption=""/>
+    <GuideEntityEmbed Entity="ActionResinNode" Caption=""/>
+    <GuideEntityEmbed Entity="XenomorphNestIcon" Caption=""/>
+    <GuideEntityEmbed Entity="XenomorphMembraneIcon" Caption=""/>
+    <GuideEntityEmbed Entity="XenomorphWallIcon" Caption=""/>
+  </Box>
+
+</Document>

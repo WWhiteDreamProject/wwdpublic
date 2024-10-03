@@ -1,0 +1,186 @@
+﻿# BASE EGG
+
+- type: entity
+  parent:
+  - BaseStructureDynamic
+  id: BaseAlienEgg
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+    - type: Transform
+      anchored: true
+      noRot: true
+    - type: InteractionOutline
+    - type: Physics
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.4,-0.4,0.4,0.4"
+          density: 1000
+          mask:
+          - SmallMobMask
+          layer:
+          - BulletImpassable
+          hard: false
+    - type: PlaceableSurface
+      isPlaceable: false # defaults to closed.
+    - type: Damageable
+      damageContainer: Biological
+      damageModifierSet: Resin
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 50
+          behaviors:
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: blood
+            - !type:SpawnEntitiesBehavior
+              spawnInContainer: true
+              spawn:
+                FacehuggerInactive:
+                  min: 1
+                  max: 1
+        - trigger:
+            !type:DamageTypeTrigger
+            damageType: Heat
+            damage: 45
+          behaviors:
+            - !type:SpawnEntitiesBehavior
+              spawnInContainer: true
+              spawn:
+                Ash:
+                  min: 0
+                  max: 1
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+    - type: Flammable
+      fireSpread: false
+      damage:
+        types:
+          Heat: 3
+    - type: Appearance
+    - type: ItemSlots
+    - type: StaticPrice
+      price: 1000
+
+# EGGS
+
+- type: entity
+  parent:
+  - BaseAlienEgg
+  id: AlienEgg
+  name: egg
+  description: A large mottled egg.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+    - type: Icon
+      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
+      state: egg
+    - type: Sprite
+      noRot: true
+      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
+      state: egg
+    - type: AlienEggHatch
+      polymorphPrototype: AlienEggHatch
+
+- type: entity
+  parent:
+  - BaseAlienEgg
+  id: AlienEggGrowing
+  name: egg
+  description: A large mottled egg.
+  suffix: Growing
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+    - type: Icon
+      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
+      state: egg_growing
+    - type: Sprite
+      noRot: true
+      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
+      state: egg_growing
+    - type: TimedPolymorph
+      polymorphTime: 240
+      polymorphPrototype: AlienEggGrowth
+
+- type: entity
+  parent:
+  - BaseAlienEgg
+  id: AlienEggHatching
+  name: egg
+  description: A large mottled egg.
+  suffix: Hatching
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+    - type: Icon
+      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
+      state: egg_opening
+    - type: Sprite
+      noRot: true
+      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
+      state: egg_opening
+    - type: TimedDespawn
+      lifetime: 1.5
+    - type: SpawnOnDespawn
+      prototype: AlienEggOpened
+
+- type: entity
+  parent:
+  - BaseAlienEgg
+  id: AlienEggOpened
+  name: egg
+  description: A large mottled egg.
+  suffix: Open, Facehugger
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+    - type: Icon
+      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
+      state: egg_hatched
+    - type: Sprite
+      noRot: true
+      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
+      state: egg_hatched
+    - type: ConditionalSpawner
+      prototypes:
+      - Facehugger
+
+- type: entity
+  parent:
+  - BaseAlienEgg
+  id: AlienEggOpenedDecoration
+  name: egg
+  description: A large mottled egg.
+  suffix: Open, Decoration
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+    - type: Icon
+      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
+      state: egg_hatched
+    - type: Sprite
+      noRot: true
+      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
+      state: egg_hatched

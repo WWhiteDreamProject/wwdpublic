@@ -1,0 +1,95 @@
+{
+	"license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/master/icons/mob/screen_alien.dmi",
+    "version": 1,
+    "size": { "y": 32, "x": 32 },
+    "states": [
+        {
+            "name": "harm"
+        },
+        {
+            "name": "help"
+        },
+        {
+            "name": "help-alt"
+        },
+        {
+            "name": "vision_on"
+        },
+        {
+            "name": "vision_on_action"
+        },
+        {
+            "name": "vision_off"
+        },
+        {
+            "name": "vision_off_action"
+        },
+        {
+            "name": "leap_off"
+        },
+        {
+            "name": "leap_on"
+        },
+        {
+            "name": "crawl"
+        },
+        {
+            "name": "stalk_off"
+        },
+        {
+            "name": "stalk_on"
+        },
+        {
+            "name": "egg"
+        },
+        {
+            "name": "egg_action"
+        },
+        {
+            "name": "plant_seed"
+        },
+        {
+            "name": "plant_seed_action"
+        },
+        {
+            "name": "tail_attack"
+        },
+        {
+            "name": "tail_attack_action"
+        },
+        {
+            "name": "plasma_transfer_on"
+        },
+        {
+            "name": "plasma_transfer_on_action"
+        },
+        {
+            "name": "plasma_transfer_off"
+        },
+        {
+            "name": "plasma_transfer_off_action"
+        },
+        {
+            "name": "acid"
+        },
+        {
+            "name": "acid_action"
+        },
+        {
+            "name": "promote"
+        },
+        {
+            "name": "promote_action"
+        },
+        {
+            "name": "alien_medal"
+        },
+        {
+            "name": "alien_medal_active"
+        },
+        {
+            "name": "whisper"
+        }
+    ]
+}

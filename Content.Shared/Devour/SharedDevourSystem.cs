@@ -47,24 +47,22 @@ public abstract class SharedDevourSystem : EntitySystem
         args.Handled = true;
         var target = args.Target;
 
+    // WWDP START
         // Structure and mob devours handled differently.
         if (TryComp(target, out MobStateComponent? targetState))
         {
-            switch (targetState.CurrentState)
+            if (component.Consumes.Contains(targetState.CurrentState))
             {
-                case MobState.Critical:
-                case MobState.Dead:
-
-                    _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.DevourTime, new DevourDoAfterEvent(), uid, target: target, used: uid)
-                    {
-                        BreakOnTargetMove = true,
-                        BreakOnUserMove = true,
-                    });
-                    break;
-                default:
-                    _popupSystem.PopupClient(Loc.GetString("devour-action-popup-message-fail-target-alive"), uid,uid);
-                    break;
+                _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.DevourTime, new DevourDoAfterEvent(), uid, target: target, used: uid)
+                {
+                    BreakOnMove = true,
+                });
             }
+            else
+            {
+                _popupSystem.PopupClient(Loc.GetString("devour-action-popup-message-fail-target-alive"), uid,uid);
+            }
+    // WWDP END
 
             return;
         }

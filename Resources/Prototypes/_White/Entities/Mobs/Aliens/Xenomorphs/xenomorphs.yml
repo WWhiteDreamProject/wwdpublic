@@ -1,0 +1,802 @@
+﻿- type: entity
+  parent: MobAlienBase
+  id: MobAlienDroneBase
+  abstract: true
+  name: alien drone
+  components:
+    - type: Sprite
+      sprite: _White/Mobs/Aliens/Xenomorph/drone.rsi
+      layers:
+        - map: ["enum.DamageStateVisualLayers.Base"]
+          state: aliend
+        - map: [ "pocket1" ]
+        - map: [ "pocket2" ]
+        - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+          color: "#ffffff"
+          sprite: _White/Effects/cuffs.rsi
+          state: aliencuff
+          visible: false
+        - map: [ "clownedon" ] # Dynamically generated
+          sprite: "Effects/creampie.rsi"
+          state: "creampie_human"
+          visible: false
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: aliend
+        Critical:
+          Base: aliend_unconscious
+        Dead:
+          Base: aliend_dead
+    - type: AcidMaker
+      action: ActionMakeAcid
+      productionLength: 0
+      entityProduced: AlienAcid
+    - type: ResinSpinner
+    - type: PlasmaVessel
+      plasmaPerSecond: 5
+      plasmaModified: 15
+    - type: PraetorianEvolution
+    - type: GuideHelp
+      guides:
+      - XenomorphDrone
+    - type: Devourer
+      devourTime: 3
+      consumes:
+      - Alive
+      - Critical
+
+- type: entity
+  parent: MobAlienDroneBase
+  id: MobAlienDrone
+  components:
+    - type: MindContainer
+      showExamineInfo: true
+    - type: GlobalAntagonist
+      antagonistPrototype: globalAntagonistXenomorphs
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      allowMovement: true
+      allowSpeech: true
+      makeSentient: true
+      name: ghost-role-mob-alien-name
+      description: ghost-role-mob-alien-description
+      rules: ghost-role-information-xeno-rules
+      raffle:
+        settings: default
+
+- type: entity
+  parent: MobAlienDroneBase
+  id: MobAlienDroneDummy
+  noSpawn: true
+  suffix: Без гост роли
+  components:
+    - type: MovementSpeedModifier
+      baseSprintSpeed: 4
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        100: 0.7
+        130: 0.6
+        160: 0.5
+    - type: Damageable
+      damageModifierSet: XenomorphDummy
+    - type: HTN
+      rootTask:
+        task: XenomorphCompound
+      blackboard:
+        NavClimb: !type:Bool
+          true
+        NavInteract: !type:Bool
+          true
+        NavPry: !type:Bool
+          true
+        NavSmash: !type:Bool
+          true
+        FreeHands: !type:Bool
+          false
+        ActiveHandFree: !type:Bool
+          false
+        Inventory: !type:Bool
+          false
+
+- type: entity
+  parent: MobAlienBase
+  id: MobAlienSentinelBase
+  abstract: true
+  name: alien sentinel
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorph/sentinel.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: aliens
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+        color: "#ffffff"
+        sprite: _White/Effects/cuffs.rsi
+        state: aliencuff
+        visible: false
+      - map: [ "clownedon" ] # Dynamically generated
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_human"
+        visible: false
+  - type: Alien
+    caste: sentinel
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      250: Critical
+      260: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      170: 0.9
+      200: 0.7
+      220: 0.6
+  - type: MeleeWeapon
+    altDisarm: true
+    angle: 0
+    soundHit:
+      collection: AlienClaw
+    animation: WeaponArcBite
+    damage:
+      groups:
+        Brute: 25
+      types:
+        Structural: 8
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: aliens
+      Critical:
+        Base: aliens_unconscious
+      Dead:
+        Base: aliens_dead
+  - type: PlasmaVessel
+    maxPlasma: 150
+    plasmaPerSecond: 5
+    plasmaModified: 15
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.75
+  - type: BasicEntityAmmoProvider
+    proto: BulletAcidSentinel
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 0.25
+    useKey: false
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
+  - type: GuideHelp
+    guides:
+    - XenomorphSentinel
+  - type: Devourer
+    devourTime: 3
+    consumes:
+    - Alive
+    - Critical
+
+- type: entity
+  parent: MobAlienSentinelBase
+  id: MobAlienSentinel
+  components:
+    - type: MindContainer
+      showExamineInfo: true
+    - type: GlobalAntagonist
+      antagonistPrototype: globalAntagonistXenomorphs
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      allowMovement: true
+      allowSpeech: true
+      makeSentient: true
+      name: ghost-role-mob-alien-name
+      description: ghost-role-mob-alien-description
+      rules: ghost-role-information-xeno-rules
+      raffle:
+        settings: default
+
+- type: entity
+  parent: MobAlienSentinelBase
+  id: MobAlienSentinelDummy
+  noSpawn: true
+  suffix: Без гост роли
+  components:
+    - type: MovementSpeedModifier
+      baseSprintSpeed: 3.2
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        170: 0.7
+        200: 0.6
+        220: 0.5
+    - type: Damageable
+      damageModifierSet: XenomorphDummy
+    - type: BasicEntityAmmoProvider
+      proto: BulletAcidSentinelDummy
+    - type: HTN
+      rootTask:
+        task: XenomorphRangeCompound
+      blackboard:
+        NavClimb: !type:Bool
+          true
+        NavInteract: !type:Bool
+          true
+        NavPry: !type:Bool
+          true
+        NavSmash: !type:Bool
+          true
+        FreeHands: !type:Bool
+          false
+        ActiveHandFree: !type:Bool
+          false
+        Inventory: !type:Bool
+          false
+
+- type: entity
+  parent: MobAlienBase
+  id: MobAlienHunterBase
+  abstract: true
+  name: alien hunter
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorph/hunter.rsi
+    layers:
+      - map: [ "enum.JumpLayers.Jumping" ]
+        sprite: _White/Mobs/Aliens/Xenomorph/hunter_jump.rsi
+        state: icon
+        visible: false
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alienh
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+        color: "#ffffff"
+        sprite: _White/Effects/cuffs.rsi
+        state: aliencuff
+        visible: false
+      - map: [ "clownedon" ] # Dynamically generated
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_human"
+        visible: false
+  - type: Alien
+    caste: hunter
+  - type: GenericVisualizer
+    visuals:
+      enum.JumpVisuals.Jumping:
+        enum.JumpLayers.Jumping:
+          True: { visible: true }
+          False: { visible: false }
+        enum.DamageStateVisualLayers.Base:
+          True: { visible: false}
+          False: { visible: true}
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      205: Critical
+      215: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      140: 0.9
+      170: 0.7
+      190: 0.6
+  - type: MeleeWeapon
+    altDisarm: true
+    angle: 0
+    soundHit:
+      collection: AlienClaw
+    animation: WeaponArcBite
+    damage:
+      groups:
+        Brute: 20
+      types:
+        Structural: 8
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: alienh
+      Critical:
+        Base: alienh_unconscious
+      Dead:
+        Base: alienh_dead
+  - type: PlasmaVessel
+    maxPlasma: 150
+    plasmaPerSecond: 5
+    plasmaModified: 15
+  - type: Devourer
+    devourTime: 2
+    consumes:
+    - Alive
+    - Critical
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5.8
+  - type: AlienStalk
+  - type: JumpVisuals
+    baseState: alienh
+  - type: AlienJump
+    jumpSprite: _White/Mobs/Aliens/Xenomorph/alien_hunter_jump.rsi
+  - type: GuideHelp
+    guides:
+    - XenomorphHunter
+
+- type: entity
+  parent: MobAlienHunterBase
+  id: MobAlienHunter
+  components:
+    - type: MindContainer
+      showExamineInfo: true
+    - type: GlobalAntagonist
+      antagonistPrototype: globalAntagonistXenomorphs
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      allowMovement: true
+      allowSpeech: true
+      makeSentient: true
+      name: ghost-role-mob-alien-name
+      description: ghost-role-mob-alien-description
+      rules: ghost-role-information-xeno-rules
+      raffle:
+        settings: default
+
+- type: entity
+  parent: MobAlienHunterBase
+  id: MobAlienHunterDummy
+  noSpawn: true
+  suffix: Без гост роли
+  components:
+    - type: MovementSpeedModifier
+      baseSprintSpeed: 4.8
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        140: 0.7
+        170: 0.6
+        190: 0.5
+    - type: Damageable
+      damageModifierSet: XenomorphDummy
+    - type: HTN
+      rootTask:
+        task: XenomorphCompound
+      blackboard:
+        NavClimb: !type:Bool
+          true
+        NavInteract: !type:Bool
+          true
+        NavPry: !type:Bool
+          true
+        NavSmash: !type:Bool
+          true
+        FreeHands: !type:Bool
+          false
+        ActiveHandFree: !type:Bool
+          false
+        Inventory: !type:Bool
+          false
+
+- type: entity
+  parent: MobAlienBase
+  id: MobAlienPraetorianBase
+  abstract: true
+  name: alien praetorian
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorph/praetorian.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alienp
+        offset: 0, 0.6
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+        color: "#ffffff"
+        sprite: _White/Effects/cuffs_big.rsi
+        state: aliencuff_p
+        visible: false
+  - type: Inventory
+    templateId: alien_praetorian
+    speciesId: alien_praetorian
+  - type: Alien
+    caste: drone # Because Dummy
+  - type: AcidMaker
+    action: ActionMakeAcid
+    entityProduced: AlienAcid
+    plasmaCost: 100
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      250: Critical
+      260: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      170: 0.9
+      200: 0.7
+      220: 0.6
+  - type: MeleeWeapon
+    altDisarm: true
+    angle: 0
+    soundHit:
+      collection: AlienClaw
+    animation: WeaponArcBite
+    damage:
+      groups:
+        Brute: 30
+      types:
+        Structural: 10
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: alienp
+      Critical:
+        Base: alienp_unconscious
+      Dead:
+        Base: alienp_dead
+  - type: PlasmaVessel
+    plasmaPerSecond: 5
+    plasmaModified: 15
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.75
+  - type: BasicEntityAmmoProvider
+    proto: BulletAcidSentinel
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 0.3
+    useKey: false
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
+  - type: QueenEvolution
+  - type: ResinSpinner
+  - type: TailLash
+  - type: GuideHelp
+    guides:
+    - XenomorphPraetorian
+  - type: Devourer
+    devourTime: 3
+    consumes:
+    - Alive
+    - Critical
+
+- type: entity
+  parent: MobAlienPraetorianBase
+  id: MobAlienPraetorian
+  components:
+    - type: MindContainer
+      showExamineInfo: true
+    - type: Alien
+      caste: praetorian
+    - type: GlobalAntagonist
+      antagonistPrototype: globalAntagonistXenomorphs
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      allowMovement: true
+      allowSpeech: true
+      makeSentient: true
+      name: ghost-role-mob-alien-name
+      description: ghost-role-mob-alien-description
+      rules: ghost-role-information-xeno-rules
+      raffle:
+        settings: default
+
+- type: entity
+  parent: MobAlienPraetorianBase
+  id: MobAlienPraetorianDummy
+  noSpawn: true
+  suffix: Без гост роли
+  components:
+    - type: MovementSpeedModifier
+      baseSprintSpeed: 3.8
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        170: 0.7
+        200: 0.6
+        220: 0.5
+    - type: Damageable
+      damageModifierSet: XenomorphDummy
+    - type: HTN
+      rootTask:
+        task: XenomorphCompound
+      blackboard:
+        NavClimb: !type:Bool
+          true
+        NavInteract: !type:Bool
+          true
+        NavPry: !type:Bool
+          true
+        NavSmash: !type:Bool
+          true
+        FreeHands: !type:Bool
+          false
+        ActiveHandFree: !type:Bool
+          false
+        Inventory: !type:Bool
+          false
+
+- type: entity
+  parent: MobAlienBase
+  id: MobAlienQueenBase
+  abstract: true
+  name: alien queen
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorph/queen.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alienq
+        offset: 0, 0.6
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+        color: "#ffffff"
+        sprite: _White/Effects/cuffs_big.rsi
+        state: aliencuff_q
+        visible: false
+  - type: Alien
+    caste: drone # Because Dummy
+  - type: TypingIndicator
+    proto: alien_royal
+  - type: Inventory
+    templateId: alien_queen
+    speciesId: alien_queen
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 300
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      640: Critical
+      650: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      540: 0.9
+      580: 0.7
+      610: 0.6
+  - type: MeleeWeapon
+    altDisarm: true
+    angle: 0
+    soundHit:
+      collection: AlienClaw
+    animation: WeaponArcBite
+    damage:
+      groups:
+        Brute: 30
+      types:
+        Structural: 30
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: alienq
+      Critical:
+        Base: alienq_unconscious
+      Dead:
+        Base: alienq_dead
+  - type: PlasmaVessel
+    maxPlasma: 500
+    plasmaPerSecond: 5
+    plasmaModified: 15
+  - type: ResinSpinner
+  - type: AcidMaker
+    plasmaCost: 50
+    entityProduced: AlienAcid
+    action: ActionMakeAcid
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.75
+  - type: BasicEntityAmmoProvider
+    proto: BulletAcidSentinel
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 0.25
+    useKey: false
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
+  - type: AlienQueen
+    action: ActionAlienRoyalLarva
+  - type: EmitSoundOnSpawn
+    sound:
+      collection:
+        XenomorphQueenCommand
+  - type: DeathGasps
+    deathSounds:
+      collection: XenomorphQueenDeath
+    canOtherHearDeathSound: True
+  - type: Speech
+    speechSounds: Xenomorph
+    speechVerb: LargeMob
+  - type: TailLash
+  - type: GuideHelp
+    guides:
+    - XenomorphQueen
+  - type: Devourer
+    devourTime: 3
+    consumes:
+    - Alive
+    - Critical
+
+- type: entity
+  parent: MobAlienQueenBase
+  id: MobAlienQueen
+  components:
+    - type: MindContainer
+      showExamineInfo: true
+    - type: Alien
+      caste: queen
+    - type: GlobalAntagonist
+      antagonistPrototype: globalAntagonistXenomorphs
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      allowMovement: true
+      allowSpeech: true
+      makeSentient: true
+      name: ghost-role-mob-alien-name
+      description: ghost-role-mob-alien-description
+      rules: ghost-role-information-xeno-rules
+      raffle:
+        settings: default
+
+- type: entity
+  parent: MobAlienQueenBase
+  id: MobAlienQueenDummy
+  noSpawn: true
+  suffix: Без гост роли
+  components:
+    - type: MovementSpeedModifier
+      baseSprintSpeed: 3.8
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        540: 0.7
+        580: 0.6
+        610: 0.5
+    - type: Damageable
+      damageModifierSet: XenomorphDummy
+    - type: HTN
+      rootTask:
+        task: XenomorphCompound
+      blackboard:
+        NavClimb: !type:Bool
+          true
+        NavInteract: !type:Bool
+          true
+        NavPry: !type:Bool
+          true
+        NavSmash: !type:Bool
+          true
+        FreeHands: !type:Bool
+          false
+        ActiveHandFree: !type:Bool
+          false
+        Inventory: !type:Bool
+          false
+
+- type: entity
+  parent: MobAlienBase
+  id: MobAlienMaidBase
+  abstract: true
+  name: lusty alien maid
+  description: Don't ask it to lay eggs in you.
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorph/maid.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: maid
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+        color: "#ffffff"
+        sprite: _White/Effects/cuffs.rsi
+        state: aliencuff
+        visible: false
+      - map: [ "clownedon" ] # Dynamically generated
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_human"
+        visible: false
+  - type: Alien
+    caste: maid
+  - type: PlasmaVessel
+    plasmaPerSecond: 5
+    plasmaModified: 15
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      150: 0.9
+      170: 0.7
+      190: 0.6
+  - type: MeleeWeapon
+    altDisarm: true
+    angle: 0
+    soundHit:
+      collection: AlienClaw
+    animation: WeaponArcBite
+    damage:
+      groups:
+        Brute: 10
+      types:
+        Structural: 5
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: maid
+      Dead:
+        Base: maid_dead
+  - type: OwOAccent
+  - type: Pacified
+  - type: GuideHelp
+    guides:
+    - XenomorphMaid
+
+- type: entity
+  parent: MobAlienMaidBase
+  id: MobAlienMaid
+  components:
+    - type: MindContainer
+      showExamineInfo: true
+    - type: GlobalAntagonist
+      antagonistPrototype: globalAntagonistXenomorphs
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      allowMovement: true
+      allowSpeech: true
+      makeSentient: true
+      name: ghost-role-mob-alien-name
+      description: ghost-role-mob-alien-description
+      rules: ghost-role-information-xeno-rules
+      raffle:
+        settings: default
+
+- type: entity
+  parent: MobAlienMaidBase
+  id: MobAlienMaidDummy
+  noSpawn: true
+  suffix: Без гост роли
+  components:
+    - type: Damageable
+      damageModifierSet: XenomorphDummy
+    - type: HTN
+      rootTask:
+        task: XenomorphCompound
+      blackboard:
+        NavClimb: !type:Bool
+          true
+        NavInteract: !type:Bool
+          true
+        NavPry: !type:Bool
+          true
+        NavSmash: !type:Bool
+          false
+        FreeHands: !type:Bool
+          false
+        ActiveHandFree: !type:Bool
+          false
+        Inventory: !type:Bool
+          false

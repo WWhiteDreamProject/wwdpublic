@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation: https://github.com/tgstation/tgstation/blob/master/icons/mob/nonhuman-player/alien.dmi | Edited by PuroSlavKing (Github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [ 
+    {
+      "name": "facehugger_dead"
+    },
+    {
+      "name": "facehugger_impregnated"
+    },
+    {
+      "name": "facehugger_thrown",
+      "directions": 4
+    },
+    {
+      "name": "facehugger",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "facehugger_inactive",
+      "directions": 4
+    }
+  ]
+}
