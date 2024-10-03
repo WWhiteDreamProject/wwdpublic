@@ -91,9 +91,14 @@ namespace Content.Shared.Chat
         Telepathic = 1 << 15,
 
         /// <summary>
+        ///     WWDP - Xenomorph Hivemind
+        /// </summary>
+        XenoHivemind = 2 << 1,
+
+        /// <summary>
         ///     Channels considered to be IC.
         /// </summary>
-        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Telepathic | Notifications, //Nyano - Summary: Adds telepathic as an 'IC' labelled chat..
+        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Telepathic | XenoHivemind | Notifications, //Nyano - Summary: Adds telepathic as an 'IC' labelled chat.. Also WWDP adds XenoHivemind
 
         AdminRelated = Admin | AdminAlert | AdminChat,
     }

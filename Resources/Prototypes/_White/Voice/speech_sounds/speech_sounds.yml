@@ -1,0 +1,8 @@
+- type: speechSounds
+  id: Xenomorph
+  saySound:
+    path: /Audio/_White/Voice/Xenomorph/xenomorph.ogg
+  askSound:
+    path: /Audio/_White/Voice/Xenomorph/xenomorph_ask.ogg
+  exclaimSound:
+    path: /Audio/_White/Voice/Xenomorph/xenomorph_exclaim.ogg

@@ -1,0 +1,131 @@
+- type: entity
+  parent: BaseStructure
+  id: ResinWeed
+  name: resin weed
+  description: Strange grey weeds.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Specific/Xenomorph/resin_weed.rsi
+    state: full
+    drawdepth: FloorTiles
+  - type: Icon
+    sprite: _White/Structures/Specific/Xenomorph/resin_weed.rsi
+    state: full
+  - type: Tag
+    tags: [ Carpet ]
+  - type: Physics
+    canCollide: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - SlipLayer
+        mask:
+        - ItemMask
+        density: 1000
+        hard: false
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Resin
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 18
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: blood
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 18
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PlasmaGainModifier
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/_White/Misc/resin_footstep.ogg
+
+- type: entity
+  parent: BaseStructure
+  id: ResinWeedNode
+  name: resin node
+  description: Slimy and sticky mass with luminous seeds.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Specific/Xenomorph/resin_weed_node.rsi
+    state: full
+    drawdepth: FloorTiles
+  - type: Icon
+    sprite: _White/Structures/Specific/Xenomorph/resin_weed_node.rsi
+    state: full
+  - type: AreaSpawner
+    radius: 3
+    spawnPrototype: ResinWeed
+    intervalSeconds: 20
+  - type: PointLight
+    radius: 2.5
+    energy: 2
+    color: "#00CED1"
+  - type: Tag
+    tags: [ Carpet ]
+  - type: Physics
+    canCollide: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - SlipLayer
+        mask:
+        - ItemMask
+        density: 1000
+        hard: false
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Resin
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 18
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: blood
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 18
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PlasmaGainModifier
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/_White/Misc/resin_footstep.ogg

@@ -1,0 +1,79 @@
+- type: entity
+  parent: BaseStructure
+  id: WindowResin
+  name: resin-membrane-name
+  description: resin-membrane-desc
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Window
+  components:
+    - type: MeleeSound
+      soundGroups:
+        Brute:
+          collection: blood
+    - type: WallMount
+      arc: 360 # interact despite grilles
+    - type: Tag
+      tags:
+        - ForceFixRotations
+        - Window
+    - type: Sprite
+      drawdepth: WallTops
+      sprite: _White/Structures/Windows/resin_membrane.rsi
+    - type: Icon
+      sprite: _White/Structures/Windows/resin_membrane.rsi
+      state: full
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb {}
+          mask:
+            - FullTileMask
+          layer:
+            - GlassLayer
+    - type: Damageable
+      damageContainer: Biological
+      damageModifierSet: Resin
+    - type: ExaminableDamage
+      messages: WindowMessages
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTypeTrigger
+          damageType: Blunt
+          damage: 95
+        behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: gib
+      - trigger:
+          !type:DamageTypeTrigger
+          damageType: Heat
+          damage: 65
+        behaviors:
+        - !type:SpawnEntitiesBehavior
+          spawnInContainer: true
+          spawn:
+            Ash:
+              min: 0
+              max: 1
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - type: Airtight
+    - type: IconSmooth
+      key: resin_membrane
+      base: resin_membrane
+    - type: InteractionPopup
+      interactSuccessString: comp-window-knock
+      messagePerceivedByOthers: comp-window-knock
+      interactSuccessSound:
+        path: /Audio/Effects/glass_knock.ogg
+    - type: Appearance
+    - type: StaticPrice
+      price: 100

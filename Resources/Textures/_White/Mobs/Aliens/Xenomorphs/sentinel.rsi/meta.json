@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation: https://github.com/tgstation/tgstation/blob/master/icons/mob/nonhuman-player/alien.dmi | Edited by PuroSlavKing (Github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [ 
+    {
+      "name": "aliens",
+      "directions": 4
+    },
+    {
+      "name": "aliens_pounce",
+      "directions": 4
+    },
+    {
+      "name": "aliens_sleep",
+      "directions": 4
+    },
+    {
+      "name": "aliens_unconscious"
+    },
+    {
+      "name": "aliens_dead"
+    },
+    {
+      "name": "Sentinel_Front_Half",
+      "directions": 4
+    },
+    {
+      "name": "Sentinel_Back_Half",
+      "directions": 4
+    },
+    {
+      "name": "aliens_husked"
+    }
+  ]
+}
