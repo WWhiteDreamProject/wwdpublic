@@ -589,7 +589,7 @@
 
 - type: entity
   name: x-ray cannon
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponFlux] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband, BaseWeaponFlux] # wwdp edit - overheat
   id: WeaponXrayCannon
   description: An experimental weapon that uses concentrated x-ray energy against its target.
   components:
