@@ -1,0 +1,120 @@
+# Xenomorph Evolutions
+
+- type: polymorph
+  id: AlienEvolutionGrowStageTwo
+  configuration:
+    entity: MobAlienLarvaGrowStageTwo
+    forced: true
+    transferName: true
+    revertOnDeath: false
+    revertOnCrit: false
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: AlienEvolutionGrowStageThree
+  configuration:
+    entity: MobAlienLarvaGrowStageThree
+    forced: true
+    transferName: true
+    revertOnDeath: false
+    revertOnCrit: false
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: AlienEvolutionDrone
+  configuration:
+    entity: MobAlienDrone
+    forced: true
+    transferName: false
+    revertOnDeath: false
+    revertOnCrit: false
+    inventory: Transfer
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: AlienEvolutionSentinel
+  configuration:
+    entity: MobAlienSentinel
+    forced: true
+    transferName: false
+    revertOnDeath: false
+    revertOnCrit: false
+    inventory: Transfer
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: AlienEvolutionHunter
+  configuration:
+    entity: MobAlienHunter
+    forced: true
+    transferName: false
+    revertOnDeath: false
+    revertOnCrit: false
+    inventory: Transfer
+    allowRepeatedMorphs: true
+
+- type: polymorph # Not evolution
+  id: AlienHunterMorph
+  configuration:
+    entity: MobAlienHunter
+    forced: true
+    transferName: true
+    revertOnDeath: true
+    revertOnCrit: false
+    inventory: Drop
+
+- type: polymorph
+  id: AlienEvolutionPraetorian
+  configuration:
+    entity: MobAlienPraetorian
+    forced: true
+    transferName: false
+    revertOnDeath: false
+    revertOnCrit: false
+    inventory: Transfer
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: AlienEvolutionQueen
+  configuration:
+    entity: MobAlienQueen
+    forced: true
+    transferName: false
+    revertOnDeath: false
+    revertOnCrit: false
+    inventory: Transfer
+    allowRepeatedMorphs: true
+
+# Alien Egg
+
+- type: polymorph
+  id: AlienEggHatch
+  configuration:
+    entity: AlienEggHatching
+    forced: true
+    transferName: false
+    revertOnDeath: false
+    revertOnCrit: false
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: AlienEggGrowth
+  configuration:
+    entity: AlienEgg
+    forced: true
+    transferName: false
+    revertOnDeath: false
+    revertOnCrit: false
+    allowRepeatedMorphs: true
+
+# Deactivating Facehugger
+
+- type: polymorph
+  id: FacehuggerToInactive
+  configuration:
+    entity: FacehuggerInactive
+    forced: true
+    transferName: false
+    revertOnDeath: false
+    revertOnCrit: false
+    allowRepeatedMorphs: true

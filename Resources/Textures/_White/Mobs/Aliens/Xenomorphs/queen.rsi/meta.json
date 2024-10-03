@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation on: https://github.com/tgstation/tgstation/blob/master/icons/mob/nonhuman-player/alienqueen.dmi | Edited by PuroSlavKing (Github)",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "alienq",
+      "directions": 4
+    },
+    {
+      "name": "alienq_running",
+      "directions": 4
+    },
+    {
+      "name": "alienq_sleep"
+    },
+    {
+      "name": "alienq_unconscious"
+    },
+    {
+      "name": "alienq_dead"
+    },
+    {
+      "name": "alienq_husked"
+    },
+    {
+      "name": "alienqmaid_husked"
+    }
+  ]
+}

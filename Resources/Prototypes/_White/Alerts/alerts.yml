@@ -1,0 +1,68 @@
+- type: alert
+  id: AlienHealth
+  category: Health
+  icons:
+  - sprite: /Textures/_White/Interface/Alien/screen_alien.rsi
+    state: health0
+  - sprite: /Textures/_White/Interface/Alien/screen_alien.rsi
+    state: health1
+  - sprite: /Textures/_White/Interface/Alien/screen_alien.rsi
+    state: health2
+  - sprite: /Textures/_White/Interface/Alien/screen_alien.rsi
+    state: health3
+  - sprite: /Textures/_White/Interface/Alien/screen_alien.rsi
+    state: health4
+  name: alerts-health-name
+  description: alerts-health-desc
+  minSeverity: 0
+  maxSeverity: 4
+
+- type: alert
+  id: AlienCrit
+  category: Health
+  icons:
+  - sprite: /Textures/_White/Interface/Alien/screen_alien.rsi
+    state: health6
+  name: alerts-crit-name
+  description: alerts-crit-desc
+
+- type: alert
+  id: AlienDead
+  category: Health
+  icons:
+  - sprite: /Textures/_White/Interface/Alien/screen_alien.rsi
+    state: health7
+  name: alerts-dead-name
+  description: alerts-dead-desc
+
+
+- type: alert
+  id: PlasmaCounter
+  category: Counter
+  icons:
+  - sprite: /Textures/_White/Interface/Alerts/plasma_counter.rsi
+    state: power_display0
+  - sprite: /Textures/_White/Interface/Alerts/plasma_counter.rsi
+    state: power_display1
+  - sprite: /Textures/_White/Interface/Alerts/plasma_counter.rsi
+    state: power_display2
+  - sprite: /Textures/_White/Interface/Alerts/plasma_counter.rsi
+    state: power_display3
+  - sprite: /Textures/_White/Interface/Alerts/plasma_counter.rsi
+    state: power_display4
+  - sprite: /Textures/_White/Interface/Alerts/plasma_counter.rsi
+    state: power_display5
+  - sprite: /Textures/_White/Interface/Alerts/plasma_counter.rsi
+    state: power_display6
+  - sprite: /Textures/_White/Interface/Alerts/plasma_counter.rsi
+    state: power_display7
+  - sprite: /Textures/_White/Interface/Alerts/plasma_counter.rsi
+    state: power_display8
+  - sprite: /Textures/_White/Interface/Alerts/plasma_counter.rsi
+    state: power_display9
+  - sprite: /Textures/_White/Interface/Alerts/plasma_counter.rsi
+    state: power_display10
+  minSeverity: 0
+  maxSeverity: 11
+  name: alerts-plasma-name
+  description: alerts-plasma-desc

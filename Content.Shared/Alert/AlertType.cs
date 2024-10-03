@@ -23,6 +23,9 @@ namespace Content.Shared.Alert
         HumanCrit,
         HumanDead,
         HumanHealth,
+        AlienCrit, // WWDP
+        AlienDead, // WWDP
+        AlienHealth, // WWDP
         BorgBattery,
         BorgBatteryNone,
 
@@ -57,6 +60,7 @@ namespace Content.Shared.Alert
         VowOfSilence,
         VowBroken,
         Essence,
+        PlasmaCounter, // WWDP
         Corporeal,
         Bleed,
         Pacified,

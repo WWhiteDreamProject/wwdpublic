@@ -1,0 +1,111 @@
+- type: entity
+  parent: MobAlienLarva # Larva that is inside of it's owner
+  id: MobAlienLarvaInside
+  noSpawn: true
+  components:
+  - type: TimedPolymorph
+    enabled: false
+  - type: InsideAlienLarva
+    evolutionCooldown: 5
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-alien-larva-name
+    description: ghost-role-information-alien-larva-inside-description
+    raffle:
+      settings: default
+
+- type: entity
+  parent: MobAlienLarva
+  id: MobAlienLarvaGrowStageTwo
+  components:
+    - type: Sprite
+      drawdepth: SmallMobs
+      sprite: _White/Mobs/Aliens/Xenomorph/larva.rsi
+      layers:
+        - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
+          state: larva1
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: larva1
+      noMovementLayers:
+        movement:
+          state: larva1_idle
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: larva1
+        Critical:
+          Base: larva1_stun
+        Dead:
+          Base: larva1_dead
+    - type: TimedPolymorph
+      polymorphPrototype: AlienEvolutionGrowStageThree
+      polymorphTime: 50
+    - type: EmitSoundOnSpawn
+      sound:
+        collection:
+          LarvaBurst
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      makeSentient: true
+      allowSpeech: true
+      allowMovement: true
+      name: ghost-role-information-alien-larva-name
+      description: ghost-role-information-alien-larva-description
+      raffle:
+        settings: default
+
+- type: entity
+  parent: MobAlienLarva
+  id: MobAlienLarvaGrowStageThreeBase
+  abstract: true
+  components:
+    - type: Sprite
+      drawdepth: SmallMobs
+      sprite: _White/Mobs/Aliens/Xenomorph/larva.rsi
+      layers:
+        - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
+          state: larva2
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: larva2
+      noMovementLayers:
+        movement:
+          state: larva2_idle
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: larva2
+        Critical:
+          Base: larva2_stun
+        Dead:
+          Base: larva2_dead
+    - type: TimedPolymorph
+      enabled: false
+    - type: AlienEvolution
+      evolutionCooldown: 50
+
+- type: entity
+  parent: MobAlienLarvaGrowStageThreeBase
+  id: MobAlienLarvaGrowStageThree
+  components:
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      makeSentient: true
+      allowSpeech: true
+      allowMovement: true
+      name: ghost-role-information-alien-larva-name
+      description: ghost-role-information-alien-larva-description
+      raffle:
+        settings: default
+
+- type: entity
+  parent: MobAlienLarvaGrowStageThreeBase
+  id: MobAlienLarvaGrowStageThreeDummy
+  noSpawn: true
+  suffix: Без гост роли

@@ -1,0 +1,252 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation: https://github.com/tgstation/tgstation/blob/master/icons/mob/nonhuman-player/alien.dmi | Edited by PuroSlavKing (Github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [ 
+    {
+      "name": "larva0",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "larva0_sleep",
+      "delays": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "larva0_stun",
+      "directions": 4,
+      "delays": [
+        [
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7
+        ]
+      ]
+    },
+    {
+      "name": "larva0_cuff",
+      "directions": 4
+    },
+    {
+      "name": "larva0_idle",
+      "directions": 4
+    },
+    {
+      "name": "larva0_dead"
+    },
+    {
+      "name": "larva1",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "larva1_sleep",
+      "delays": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "larva1_stun",
+      "directions": 4,
+      "delays": [
+        [
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7
+        ]
+      ]
+    },
+    {
+      "name": "larva1_cuff",
+      "directions": 4
+    },
+    {
+      "name": "larva1_idle",
+      "directions": 4
+    },
+    {
+      "name": "larva1_dead"
+    },
+    {
+      "name": "larva2",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "larva2_sleep",
+      "delays": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "larva2_stun",
+      "directions": 4,
+      "delays": [
+        [
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7
+        ],
+        [
+          0.7,
+          0.7
+        ]
+      ]
+    },
+    {
+      "name": "larva2_cuff",
+      "directions": 4
+    },
+    {
+      "name": "larva2_idle",
+      "directions": 4
+    },
+    {
+      "name": "larva2_dead"
+    }
+  ]
+}
+

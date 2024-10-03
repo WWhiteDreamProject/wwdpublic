@@ -72,6 +72,11 @@ namespace Content.Client.Chat.Managers
                     _consoleHost.ExecuteCommand($"tsay \"{CommandParsing.Escape(str)}\"");
                     break;
 
+                // WWDP
+                case ChatSelectChannel.XenoHivemind:
+                    _consoleHost.ExecuteCommand($"aliensay \"{CommandParsing.Escape(str)}\"");
+                    break;
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(channel), channel, null);
             }
