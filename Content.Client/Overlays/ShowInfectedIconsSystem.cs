@@ -25,14 +25,14 @@ public sealed class ShowInfectedIconsSystem : EquipmentHudSystem<ShowInfectedIco
     {
         if (!IsActive)
             return;
-        if (component.GrowthStage <= 5)
+        if (component.GrowthStage <= 6)
         {
             if (_prototype.TryIndex(component.InfectedIcons.ElementAt(component.GrowthStage), out var iconPrototype))
                 ev.StatusIcons.Add(iconPrototype);
         }
         else
         {
-            if (_prototype.TryIndex(component.InfectedIcons.ElementAt(5), out var iconPrototype))
+            if (_prototype.TryIndex(component.InfectedIcons.ElementAt(6), out var iconPrototype))
                 ev.StatusIcons.Add(iconPrototype);
         }
 

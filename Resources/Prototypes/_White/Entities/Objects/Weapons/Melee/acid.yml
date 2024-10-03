@@ -33,8 +33,6 @@
         path: /Audio/Weapons/pierce.ogg
     - type: Item
       size: Tiny
-      sprite: _White/Interface/Actions/xenomorph.rsi
-      state: acid
     - type: Damageable
       damageContainer: Inorganic
     - type: Appearance

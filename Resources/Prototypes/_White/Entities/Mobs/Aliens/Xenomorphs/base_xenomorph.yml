@@ -12,7 +12,7 @@
   components:
     - type: ThermalVision
       toggleAction: ActionXenomorphThermalVision
-      color: "#00000000"
+      color: "#7d0cc9"
     - type: NightVision
       toggleAction: ActionXenomorphVision
       color: "#7d0cc9"
@@ -27,7 +27,6 @@
     - type: NameIdentifier
       group: GenericNumber
     - type: Tool
-      speed: 2
       speedModifier: 2
       qualities:
         - Prying
@@ -49,17 +48,11 @@
     - type: Strippable
     - type: UserInterface
       interfaces:
-        enum.HumanoidMarkingModifierKey.Key:
-          type: HumanoidMarkingModifierBoundUserInterface
         enum.StrippingUiKey.Key:
           type: StrippableBoundUserInterface
         enum.InstrumentUiKey.Key:
           type: InstrumentBoundUserInterface
           requireInputValidation: false
-        enum.RadialSelectorUiKey.Key:
-          type: RadialSelectorMenuBUI
-        enum.ListViewSelectorUiKey.Key:
-          type: ListViewSelectorBUI
         enum.SurgeryUIKey.Key:
           type: SurgeryBui
     - type: Sprite
@@ -195,9 +188,9 @@
       - Critical
     - type: Vocal
       sounds:
-        Male: UnisexXenomorphHybrid
-        Female: UnisexXenomorphHybrid
-        Unsexed: UnisexXenomorphHybrid
+        Male: Xenomorph
+        Female: Xenomorph
+        Unsexed: Xenomorph
     - type: Emoting
     - type: BodyEmotes
       soundsId: GeneralBodyEmotes
@@ -223,8 +216,8 @@
   components:
     - type: Buckle
     - type: ThermalVision
-      toggleAction: null
-      color: "#00000000"
+      toggleAction: ActionXenomorphThermalVision
+      color: "#7d0cc9"
     - type: NightVision
       toggleAction: ActionXenomorphVision
       color: "#7d0cc9"
@@ -244,9 +237,9 @@
       - TauCetiBasic
     - type: Vocal
       sounds:
-        Male: UnisexXenomorphHybrid
-        Female: UnisexXenomorphHybrid
-        Unsexed: UnisexXenomorphHybrid
+        Male: Xenomorph
+        Female: Xenomorph
+        Unsexed: Xenomorph
     - type: Emoting
     - type: BodyEmotes
       soundsId: GeneralBodyEmotes

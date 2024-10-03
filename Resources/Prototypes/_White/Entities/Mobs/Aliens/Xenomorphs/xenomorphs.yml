@@ -32,7 +32,6 @@
       prototype: XenomorphLarge
     - type: AcidMaker
       action: ActionMakeAcid
-      productionLength: 0
       entityProduced: CorrosiveAcid
     - type: ResinSpinner
     - type: PlasmaVessel

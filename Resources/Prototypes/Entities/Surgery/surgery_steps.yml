@@ -103,7 +103,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
-    skill: 2
     tool:
     - type: Scalpel
   - type: SurgeryCutLarvaRootsStep
@@ -119,7 +118,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
-    skill: 2
     tool:
     - type: Hemostat
     bodyRemove:

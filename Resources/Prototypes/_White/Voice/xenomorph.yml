@@ -1,0 +1,57 @@
+- type: soundCollection
+  id: XenomorphScreams
+  files:
+  - /Audio/_White/Voice/Xenomorph/growl1.ogg
+  - /Audio/_White/Voice/Xenomorph/growl2.ogg
+  - /Audio/_White/Voice/Xenomorph/growl3.ogg
+  - /Audio/_White/Voice/Xenomorph/growl4.ogg
+  - /Audio/_White/Voice/Xenomorph/growl5.ogg
+  - /Audio/_White/Voice/Xenomorph/growl6.ogg
+  - /Audio/_White/Voice/Xenomorph/growl7.ogg
+  - /Audio/_White/Voice/Xenomorph/growl8.ogg
+  - /Audio/_White/Voice/Xenomorph/growl9.ogg
+  - /Audio/_White/Voice/Xenomorph/growl10.ogg
+
+- type: soundCollection
+  id: XenomorphLaugh
+  files:
+  - /Audio/_White/Voice/Xenomorph/laugh1.ogg
+  - /Audio/_White/Voice/Xenomorph/laugh2.ogg
+  - /Audio/_White/Voice/Xenomorph/laugh3.ogg
+
+- type: soundCollection
+  id: XenomorphSneezes
+  files:
+  - /Audio/_White/Voice/Xenomorph/cough1.ogg
+
+- type: soundCollection
+  id: XenomorphCoughs
+  files:
+  - /Audio/_White/Voice/Xenomorph/cough1.ogg
+
+- type: soundCollection
+  id: XenomorphMeows
+  files:
+  - /Audio/_White/Voice/Xenomorph/hiss1.ogg
+  - /Audio/_White/Voice/Xenomorph/hiss2.ogg
+  - /Audio/_White/Voice/Xenomorph/hiss3.ogg
+  - /Audio/_White/Voice/Xenomorph/hiss4.ogg
+  - /Audio/_White/Voice/Xenomorph/hiss5.ogg
+
+- type: soundCollection
+  id: XenomorphYawn
+  files:
+  - /Audio/_White/Voice/Xenomorph/hiss1.ogg
+  - /Audio/_White/Voice/Xenomorph/hiss2.ogg
+  - /Audio/_White/Voice/Xenomorph/hiss3.ogg
+  - /Audio/_White/Voice/Xenomorph/hiss4.ogg
+  - /Audio/_White/Voice/Xenomorph/hiss5.ogg
+
+- type: soundCollection
+  id: XenomorphSnores
+  files:
+  - /Audio/_White/Voice/Xenomorph/sleep1.ogg
+  - /Audio/_White/Voice/Xenomorph/sleep2.ogg
+  - /Audio/_White/Voice/Xenomorph/sleep3.ogg
+  - /Audio/_White/Voice/Xenomorph/sleep4.ogg
+  - /Audio/_White/Voice/Xenomorph/sleep5.ogg
