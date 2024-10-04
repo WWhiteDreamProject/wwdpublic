@@ -7322,3 +7322,10 @@ Entries:
   id: 6417
   time: '2024-10-04T00:14:21.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1002
+- author: Mnemotechnician
+  changes:
+    - type: Fix
+      message: Winter boots are no longer able to protect you from insane temperatures.
+  id: 6420
+  time: '2024-10-04T00:52:11.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1004
