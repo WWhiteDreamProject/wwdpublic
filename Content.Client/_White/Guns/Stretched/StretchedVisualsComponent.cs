@@ -10,5 +10,5 @@ public sealed partial class StretchedVisualsComponent : Component
     public string? StretchedState;
 
     [DataField]
-    public string? UnstrungVisible;
+    public string? UnstrungState;
 }

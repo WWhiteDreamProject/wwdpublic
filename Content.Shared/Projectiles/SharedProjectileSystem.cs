@@ -114,12 +114,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         Dirty(id, component);
     }
 
-    [Serializable, NetSerializable]
-    private sealed partial class RemoveEmbeddedProjectileEvent : DoAfterEvent
-    {
-        public override DoAfterEvent Clone() => this;
-    }
-
     /// <summary>
     /// Prevent players with the Pacified status effect from throwing embeddable projectiles.
     /// </summary>

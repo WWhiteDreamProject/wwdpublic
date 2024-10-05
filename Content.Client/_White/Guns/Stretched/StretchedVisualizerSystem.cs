@@ -16,6 +16,9 @@ public sealed class StretchedVisualizerSystem : VisualizerSystem<StretchedVisual
         _appearance.TryGetData<bool>(uid, StretchedVisuals.Stretched, out var stretched, args.Component);
         _appearance.TryGetData<bool>(uid, AmmoVisuals.HasAmmo, out var hasAmmo, args.Component);
 
-        args.Sprite.LayerSetState(StretchedVisuals.Layer, stretched ? component.StretchedState : hasAmmo ? component.LoadedState : component.UnstrungVisible);
+        // StretchedState: Weapon is stretched and ready to fire
+        // LoadedState: Weapon is loaded but not stretched
+        // UnstrungState: Weapon is neither stretched nor loaded
+        args.Sprite.LayerSetState(StretchedVisuals.Layer, stretched ? component.StretchedState : hasAmmo ? component.LoadedState : component.UnstrungState);
     }
 }

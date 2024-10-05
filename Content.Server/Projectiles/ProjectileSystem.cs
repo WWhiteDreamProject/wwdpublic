@@ -131,8 +131,13 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             return;
         }
 
+        if (!TryComp<PhysicsComponent>(uid, out var physics))
+        {
+            FreePenetrated(uid);
+            return;
+        }
+
         var xform = Transform(uid);
-        TryComp<PhysicsComponent>(uid, out var physics);
         _physics.SetBodyType(uid, BodyType.Dynamic, body: physics, xform: xform);
         _transform.AttachToGridOrMap(uid, xform);
 
