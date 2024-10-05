@@ -154,7 +154,7 @@ public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, Projectile
 [ByRefEvent]
 public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null);
 
-
+// WD EDIT START
 [Serializable, NetSerializable]
 public sealed partial class RemoveEmbeddedProjectileEvent : DoAfterEvent
 {
@@ -163,3 +163,4 @@ public sealed partial class RemoveEmbeddedProjectileEvent : DoAfterEvent
         return this;
     }
 }
+// WD EDIT END

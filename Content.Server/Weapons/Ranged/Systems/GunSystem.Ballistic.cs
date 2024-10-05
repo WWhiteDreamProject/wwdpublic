@@ -8,7 +8,7 @@ namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem
 {
-    [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private readonly StackSystem _stack = default!; // WD EDIT
 
     protected override void Cycle(EntityUid uid, BallisticAmmoProviderComponent component, MapCoordinates coordinates)
     {

@@ -77,7 +77,8 @@
   - type: ShortConstruction
     prototypes:
     - Grille
-  - type: Tag # WD EDIT
+  # WD EDIT START
+  - type: Tag
     tags:
     - CrossbowBolt
   - type: EmbeddableProjectile
@@ -90,6 +91,7 @@
     damage:
       types:
         Piercing: 15
+  # WD EDIT END
 
 - type: entity
   parent: PartRodMetal

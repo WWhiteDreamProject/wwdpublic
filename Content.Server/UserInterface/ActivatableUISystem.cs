@@ -1,5 +1,4 @@
 using Content.Server.Administration.Managers;
-using Content.Server.Projectiles;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Ghost;
 using Content.Shared.Hands;
@@ -25,7 +24,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ActivatableUIComponent, ActivateInWorldEvent>(OnActivate, after: new[] {typeof(ProjectileSystem)});
+        SubscribeLocalEvent<ActivatableUIComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<ActivatableUIComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<ActivatableUIComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<ActivatableUIComponent, HandDeselectedEvent>(OnHandDeselected);
@@ -88,7 +87,6 @@ public sealed partial class ActivatableUISystem : EntitySystem
 
     private void OnActivate(EntityUid uid, ActivatableUIComponent component, ActivateInWorldEvent args)
     {
-        Log.Error("2");
         if (args.Handled)
             return;
 

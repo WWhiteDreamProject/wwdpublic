@@ -295,7 +295,7 @@ public abstract partial class SharedGunSystem
 
         var count = GetBallisticShots(component); // WD EDIT
 
-        Appearance.SetData(uid, AmmoVisuals.AmmoCount, count, appearance);
+        Appearance.SetData(uid, AmmoVisuals.AmmoCount, count, appearance); // WD EDIT
         Appearance.SetData(uid, AmmoVisuals.AmmoMax, component.Capacity, appearance);
         Appearance.SetData(uid, AmmoVisuals.HasAmmo, count != 0, appearance); // WD EDIT
     }

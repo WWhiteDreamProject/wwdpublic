@@ -1,6 +1,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Effects;
 using Content.Server.Hands.Systems;
+using Content.Server.UserInterface;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._White.Penetrated;
 using Content.Shared._White.Projectile;
@@ -26,20 +27,24 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly GunSystem _guns = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!; // WD EDIT
-    [Dependency] private readonly HandsSystem _hands = default!; // WD EDIT
-    [Dependency] private readonly PhysicsSystem _physics = default!; // WD EDIT
-    [Dependency] private readonly SharedTransformSystem _transform = default!; // WD EDIT
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!; // WD EDIT
-    [Dependency] private readonly PenetratedSystem _penetrated = default!; // WD EDIT
+    // WD EDIT START
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly PhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly PenetratedSystem _penetrated = default!;
+    // WD EDIT END
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<ProjectileComponent, StartCollideEvent>(OnStartCollide);
-        SubscribeLocalEvent<EmbeddableProjectileComponent, EmbedEvent>(OnEmbed); // WD EDIT
-        SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate); // WD EDIT
-        SubscribeLocalEvent<EmbeddableProjectileComponent, RemoveEmbeddedProjectileEvent>(OnEmbedRemove); // WD EDIT
+        // WD EDIT START
+        SubscribeLocalEvent<EmbeddableProjectileComponent, EmbedEvent>(OnEmbed);
+        SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate, before: new[] {typeof(ActivatableUISystem)});
+        SubscribeLocalEvent<EmbeddableProjectileComponent, RemoveEmbeddedProjectileEvent>(OnEmbedRemove);
+        // WD EDIT END
     }
 
     private void OnStartCollide(EntityUid uid, ProjectileComponent component, ref StartCollideEvent args)
