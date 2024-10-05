@@ -4,11 +4,11 @@ namespace Content.Client._White.Guns.Stretched;
 public sealed partial class StretchedVisualsComponent : Component
 {
     [DataField(required: true)]
-    public string? LoadedState;
+    public string LoadedState = string.Empty;
 
     [DataField(required: true)]
-    public string? StretchedState;
+    public string StretchedState = string.Empty;
 
     [DataField(required: true)]
-    public string? UnstrungState;
+    public string UnstrungState = string.Empty;
 }
