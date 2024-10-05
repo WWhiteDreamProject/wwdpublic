@@ -1,11 +1,19 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Effects;
+using Content.Server.Hands.Systems;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._White.Penetrated;
+using Content.Shared._White.Projectile;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Database;
-using Content.Shared.Mobs.Components;
+using Content.Shared.DoAfter;
+using Content.Shared.Interaction;
 using Content.Shared.Projectiles;
+using Content.Shared.Throwing;
+using Robust.Server.GameObjects;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 
@@ -19,12 +27,19 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     [Dependency] private readonly GunSystem _guns = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!; // WD EDIT
+    [Dependency] private readonly HandsSystem _hands = default!; // WD EDIT
+    [Dependency] private readonly PhysicsSystem _physics = default!; // WD EDIT
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // WD EDIT
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!; // WD EDIT
+    [Dependency] private readonly PenetratedSystem _penetrated = default!; // WD EDIT
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<ProjectileComponent, StartCollideEvent>(OnStartCollide);
-        SubscribeLocalEvent<EmbeddableProjectileComponent, EmbedEvent>(OnEmbed);
+        SubscribeLocalEvent<EmbeddableProjectileComponent, EmbedEvent>(OnEmbed); // WD EDIT
+        SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate); // WD EDIT
+        SubscribeLocalEvent<EmbeddableProjectileComponent, RemoveEmbeddedProjectileEvent>(OnEmbedRemove); // WD EDIT
     }
 
     private void OnStartCollide(EntityUid uid, ProjectileComponent component, ref StartCollideEvent args)
@@ -87,6 +102,78 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         var dmg = _damageable.TryChangeDamage(args.Embedded, component.Damage, origin: args.Shooter);
         if (dmg is { Empty: false })
             _color.RaiseEffect(Color.Red, new List<EntityUid>() { args.Embedded }, Filter.Pvs(args.Embedded, entityManager: EntityManager));
+    }
+
+    private void OnEmbedActivate(EntityUid uid, EmbeddableProjectileComponent component, ActivateInWorldEvent args)
+    {
+        if (args.Handled
+            || !AttemptEmbedRemove(uid, args.User, component))
+            return;
+
+        args.Handled = true;
+    }
+
+    private void OnEmbedRemove(EntityUid uid, EmbeddableProjectileComponent component, RemoveEmbeddedProjectileEvent args)
+    {
+        // Whacky prediction issues.
+        if (args.Cancelled)
+            return;
+
+        if (component.DeleteOnRemove)
+        {
+            QueueDel(uid);
+            FreePenetrated(uid);
+            return;
+        }
+
+        var xform = Transform(uid);
+        TryComp<PhysicsComponent>(uid, out var physics);
+        _physics.SetBodyType(uid, BodyType.Dynamic, body: physics, xform: xform);
+        _transform.AttachToGridOrMap(uid, xform);
+
+        // Reset whether the projectile has damaged anything if it successfully was removed
+        if (TryComp<ProjectileComponent>(uid, out var projectile))
+        {
+            projectile.Shooter = null;
+            projectile.Weapon = null;
+            projectile.DamagedEntity = false;
+        }
+
+        FreePenetrated(uid);
+
+        // Land it just coz uhhh yeah
+        var landEv = new LandEvent(args.User, true);
+        RaiseLocalEvent(uid, ref landEv);
+        _physics.WakeBody(uid, body: physics);
+
+        // try place it in the user's hand
+        _hands.TryPickupAnyHand(args.User, uid);
+    }
+
+    private bool AttemptEmbedRemove(EntityUid uid, EntityUid user, EmbeddableProjectileComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false)
+            || component.RemovalTime == null
+            || !TryComp<PhysicsComponent>(uid, out var physics)
+            || physics.BodyType != BodyType.Static)
+            return false;
+
+        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, component.RemovalTime.Value,
+            new RemoveEmbeddedProjectileEvent(), eventTarget: uid, target: uid)
+        {
+            DistanceThreshold = SharedInteractionSystem.InteractionRange,
+        });
+
+        return true;
+    }
+
+    private void FreePenetrated(EntityUid uid, PenetratedProjectileComponent? penetratedProjectile = null)
+    {
+        if (!Resolve(uid, ref penetratedProjectile)
+            || !penetratedProjectile.PenetratedUid.HasValue)
+            return;
+
+        _penetrated.FreePenetrated(penetratedProjectile.PenetratedUid.Value);
     }
     // WD EDIT END
 }

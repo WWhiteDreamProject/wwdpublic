@@ -11,13 +11,13 @@
       "name": "crossbow"
     },
     {
-      "name": "undrawn"
+      "name": "unstrung"
     },
     {
       "name": "loaded"
     },
     {
-      "name": "drawn"
+      "name": "stretched"
     },
     {
       "name": "inhand-left",

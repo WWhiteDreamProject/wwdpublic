@@ -60,10 +60,7 @@ public abstract partial class SharedGunSystem
         component.Entities.Add(entity);
         if (_netManager.IsServer || doInsert)
             Containers.Insert(entity, component.Container);
-         // WD EDIT END
-
-        component.Entities.Add(args.Used);
-        Containers.Insert(args.Used, component.Container);
+        // WD EDIT END
         // Not predicted so
         Audio.PlayPredicted(component.SoundInsert, uid, args.User);
         args.Handled = true;
@@ -296,8 +293,11 @@ public abstract partial class SharedGunSystem
         if (!Timing.IsFirstTimePredicted || !TryComp<AppearanceComponent>(uid, out var appearance))
             return;
 
-        Appearance.SetData(uid, AmmoVisuals.AmmoCount, GetBallisticShots(component), appearance);
+        var count = GetBallisticShots(component); // WD EDIT
+
+        Appearance.SetData(uid, AmmoVisuals.AmmoCount, count, appearance);
         Appearance.SetData(uid, AmmoVisuals.AmmoMax, component.Capacity, appearance);
+        Appearance.SetData(uid, AmmoVisuals.HasAmmo, count != 0, appearance); // WD EDIT
     }
 
     // WD EDIT START

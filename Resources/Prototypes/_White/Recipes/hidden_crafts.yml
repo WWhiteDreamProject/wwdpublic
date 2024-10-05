@@ -85,3 +85,35 @@
           prototype: Igniter
         - !type:EmptyAllContainers
         - !type:DeleteEntity
+
+- type: constructionGraph
+  id: WeaponPoweredCrossbowGraph
+  start: stock
+  graph:
+  - node: stock
+    edges:
+      - to: unfinished
+        steps:
+          - material: MetalRod
+            amount: 3
+            doAfter: 3
+  - node: unfinished
+    entity: WeaponPoweredCrossbowUnfinished
+    edges:
+      - to: crossbow
+        steps:
+          - tool: Welding
+            doAfter: 5
+          - material: Cable
+            amount: 5
+            doAfter: 0.5
+          - material: Plastic
+            amount: 3
+            doAfter: 0.5
+          - material: Cable
+            amount: 5
+            doAfter: 0.5
+          - tool: Screwing
+            doAfter: 1
+  - node: crossbow
+    entity: WeaponPoweredCrossbow

@@ -5,12 +5,9 @@
   noSpawn: true
   components:
   - type: Projectile
-    deleteOnCollide: false
     damage:
       types:
         Piercing: 19
-  - type: EmbeddableProjectile
-    embedOnThrow: false
 
 - type: entity
   id: BulletLightRiflePractice

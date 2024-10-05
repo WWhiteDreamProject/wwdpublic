@@ -81,7 +81,12 @@
     tags:
     - CrossbowBolt
   - type: EmbeddableProjectile
-    minimumSpeed: 20
+    minimumSpeed: 15
+    damage:
+      types:
+        Piercing: 15
+  - type: PenetratedProjectile
+    minimumSpeed: 30
     damage:
       types:
         Piercing: 15

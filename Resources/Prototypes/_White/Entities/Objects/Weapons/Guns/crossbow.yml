@@ -1,15 +1,15 @@
 - type: entity
   parent: BaseItem
   id: WeaponPoweredCrossbow
-  name: арбалет
-  description: Опасная штука, страшная вещь.
+  name: Crossbow
+  description: It's a dangerous thing.
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/crossbow.rsi
     layers:
     - state: crossbow
-    - state: undrawn
-      map: [ "enum.DrawableVisuals.Layer" ]
+    - state: unstrung
+      map: [ "enum.StretchedVisuals.Layer" ]
   - type: Clothing
     quickEquip: false
     slots:
@@ -19,12 +19,10 @@
     size: Huge
     sprite: _White/Objects/Weapons/Guns/crossbow.rsi
   - type: Gun
-    forceThrowingAngle: true
-    angle: 225
-    projectileSpeed: 35
     fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/click.ogg
+    throwAngle: 225
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -44,23 +42,13 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-      crystal_slot:
-        name: Кристалл
-        whitelist:
-          tags:
-            - Telecrystal
-        maxStackAmount: 1
-  - type: Drawable
+  - type: Stretched 
+  - type: Powered
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.AmmoVisuals.HasAmmo:
-        enum.DrawableVisuals.Layer:
-          True: {state: loaded}
-      enum.DrawableVisuals.Drawn:
-        enum.DrawableVisuals.Layer:
-          True: {state: drawn}
-          False: {state: undrawn}
+  - type: StretchedVisuals
+    loadedState: loaded
+    stretchedState: stretched
+    unstrungVisible: unstrung
   - type: Construction
     deconstructionTarget: null
     graph: WeaponPoweredCrossbowGraph
@@ -69,8 +57,8 @@
 - type: entity
   parent: BaseItem
   id: WeaponPoweredCrossbowUnfinished
-  name: часть арбалета
-  description: Недоделанный арбалет.
+  name: Unfinished crossbow
+  description: It's going to be a dangerous thing.
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/crossbow.rsi
