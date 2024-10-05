@@ -48,7 +48,7 @@
   - type: StretchedVisuals
     loadedState: loaded
     stretchedState: stretched
-    unstrungVisible: unstrung
+    unstrungState: unstrung
   - type: Construction
     deconstructionTarget: null
     graph: WeaponPoweredCrossbowGraph
