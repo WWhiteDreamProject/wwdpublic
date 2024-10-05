@@ -12,6 +12,7 @@ using Content.Shared.Database;
 using Content.Shared.Effects;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Projectiles;
+using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
@@ -293,7 +294,12 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             RemoveShootable(uid);
             // TODO: Someone can probably yeet this a billion miles so need to pre-validate input somewhere up the call stack.
+            // WD EDIT START
+            if (gun.ThrowAngle.HasValue)
+                EnsureComp<ThrowingAngleComponent>(uid).Angle = gun.ThrowAngle.Value;
+            // WD EDIT END
             ThrowingSystem.TryThrow(uid, mapDirection, gun.ProjectileSpeedModified, user);
+            RemComp<ThrowingAngleComponent>(uid); // WD EDIT
             return;
         }
 

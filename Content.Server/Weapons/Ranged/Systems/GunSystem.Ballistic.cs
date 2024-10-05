@@ -1,3 +1,5 @@
+using Content.Server.Stack;
+using Content.Shared.Stacks;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Map;
@@ -6,6 +8,8 @@ namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem
 {
+    [Dependency] private readonly StackSystem _stack = default!; // WD EDIT
+
     protected override void Cycle(EntityUid uid, BallisticAmmoProviderComponent component, MapCoordinates coordinates)
     {
         EntityUid? ent = null;
@@ -32,4 +36,11 @@ public sealed partial class GunSystem
         var cycledEvent = new GunCycledEvent();
         RaiseLocalEvent(uid, ref cycledEvent);
     }
+
+    // WD EDIT START
+    protected override EntityUid GetStackEntity(EntityUid uid, StackComponent stack)
+    {
+        return _stack.Split(uid, 1, Transform(uid).Coordinates, stack) ?? uid;
+    }
+    // WD EDIT END
 }

@@ -1,2 +1,8 @@
 - type: Tag
   id: EnergySword
+
+- type: Tag
+  id: CrossbowBolt
+
+- type: Tag
+  id: Telecrystal
