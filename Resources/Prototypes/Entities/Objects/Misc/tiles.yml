@@ -42,6 +42,22 @@
     damage:
       types:
         Blunt: 5
+  # WD EDIT START
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+            - -0.25,-0.25
+            - -0.30,-0.25
+            - 0.25,0.25
+            - -0.25,0.25
+        density: 20
+        mask:
+        - ThrownItem
+        restitution: 0.3
+        friction: 0.2
+  # WD EDIT END
 
 - type: entity
   name: steel tile

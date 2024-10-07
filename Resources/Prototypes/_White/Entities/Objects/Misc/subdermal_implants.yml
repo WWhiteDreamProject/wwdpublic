@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseSubdermalImplant
+  id: HardlightSpearImplant
+  name: hardlight spear implant
+  description: This implant creates hardlight spear in your hands.
+  noSpawn: true
+  components:
+    - type: SubdermalImplant
+      implantAction: ActivateHardlightSpearImplant
+    - type: SpawnImplant
+      spawnId: HardlightSpear

@@ -9,3 +9,6 @@ uplink-betrayal-knife-desc = Syndicate teleporter, when used, moves 3-8 meters f
 
 uplink-ebow-name = Small energy crossbow
 uplink-ebow-desc = A fairly quiet weapon that automatically reloads and stuns. It goes well with other types of weapons.
+
+uplink-hardlight-spear-implant-name = Hardlight spear implanter
+uplink-hardlight-spear-implant-desc = An implant injected into the body, and later activated at the user's will. It will summon a spear made out of hardlight that the user can use to wreak havoc.
