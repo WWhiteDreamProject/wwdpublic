@@ -51,3 +51,13 @@
       tags:
       - NukeOpsUplink
   saleLimit: 1
+
+- type: listing
+  id: UplinkImplanterSyndi
+  name: uplink-implanter-name
+  description: uplink-implanter-desc
+  productEntity: ImplanterSyndi
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkImplants
