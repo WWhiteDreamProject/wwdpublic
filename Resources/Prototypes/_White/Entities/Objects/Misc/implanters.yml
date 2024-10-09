@@ -1,0 +1,8 @@
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: HardlightSpearImplanter
+  name: hardlight spear implanter
+  suffix: hardlight spear
+  components:
+    - type: Implanter
+      implant: HardlightSpearImplant
