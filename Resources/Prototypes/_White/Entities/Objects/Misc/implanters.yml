@@ -1,0 +1,7 @@
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: NeuroStabilizationImplanter
+  suffix: neuro stabilization
+  components:
+  - type: Implanter
+    implant: NeuroStabilizationImplant

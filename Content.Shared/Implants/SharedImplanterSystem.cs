@@ -69,6 +69,8 @@ public abstract class SharedImplanterSystem : EntitySystem
         implantContainer.OccludesLight = false;
         _container.Insert(implant.Value, implantContainer);
 
+        RaiseLocalEvent(implant.Value, new SubdermalImplantInserted(user, target)); // WD EDIT
+
         if (component.CurrentMode == ImplanterToggleMode.Inject && !component.ImplantOnly)
             DrawMode(implanter, component);
         else
@@ -145,6 +147,8 @@ public abstract class SharedImplanterSystem : EntitySystem
                 implantComp.ImplantedEntity = null;
                 _container.Insert(implant, implanterContainer);
                 permanentFound = implantComp.Permanent;
+
+                RaiseLocalEvent(implant, new SubdermalImplantRemoved(user, target)); // WD EDIT
 
                 var ev = new TransferDnaEvent { Donor = target, Recipient = implanter };
                 RaiseLocalEvent(target, ref ev);
@@ -225,3 +229,31 @@ public sealed class AddImplantAttemptEvent : CancellableEntityEventArgs
         Implanter = implanter;
     }
 }
+
+// WD EDIT START
+public sealed class SubdermalImplantInserted(EntityUid user, EntityUid target)
+{
+    /// <summary>
+    ///     Entity who implants
+    /// </summary>
+    public EntityUid User = user;
+
+    /// <summary>
+    ///     Entity being implanted
+    /// </summary>
+    public EntityUid Target = target;
+}
+
+public sealed class SubdermalImplantRemoved(EntityUid user, EntityUid target)
+{
+    /// <summary>
+    ///     Entity who removes implant
+    /// </summary>
+    public EntityUid User = user;
+
+    /// <summary>
+    ///     Entity which implant is removing
+    /// </summary>
+    public EntityUid Target = target;
+}
+// WD EDIT END
