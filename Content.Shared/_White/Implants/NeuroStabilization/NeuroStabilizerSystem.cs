@@ -18,11 +18,11 @@ public sealed class NeuroStabilizationSystem : EntitySystem
     {
         args.Cancelled = true;
 
-        if (component.Electrocution)
-        {
-            _electrocution.TryDoElectrocution(uid, null,
-                (int) MathF.Round(args.Value * component.DamageModifier), component.TimeElectrocution,
-                false, 0.5f, null, true);
-        }
+        if (!component.Electrocution)
+            return;
+
+        var damage = (int) MathF.Round(args.Value * component.DamageModifier);
+        _electrocution.TryDoElectrocution(uid, null, damage, component.TimeElectrocution,
+            false, 0.5f, null, true);
     }
 }

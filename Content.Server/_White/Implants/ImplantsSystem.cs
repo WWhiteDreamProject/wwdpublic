@@ -64,13 +64,13 @@ public sealed class ImplantsSystem : EntitySystem
             return false;
         }
 
-        if (!_mindSystem.TryGetMind(target, out var mindId, out _)
-            || !_roleSystem.MindTryRemoveRole<RevolutionaryRoleComponent>(mindId))
-            return true;
-
-        _adminLogManager.Add(LogType.Mind, LogImpact.Medium,
+        if (_mindSystem.TryGetMind(target, out var mindId, out _)
+            && _roleSystem.MindTryRemoveRole<RevolutionaryRoleComponent>(mindId))
+        {
+            _adminLogManager.Add(LogType.Mind, LogImpact.Medium,
             $"{ToPrettyString(target)} was deconverted due to being implanted with a Mindshield.");
-        return false;
+        }
 
+        return true;
     }
 }
