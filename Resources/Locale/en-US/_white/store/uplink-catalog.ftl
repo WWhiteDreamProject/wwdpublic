@@ -9,3 +9,6 @@ uplink-betrayal-knife-desc = Syndicate teleporter, when used, moves 3-8 meters f
 
 uplink-ebow-name = Small energy crossbow
 uplink-ebow-desc = A fairly quiet weapon that automatically reloads and stuns. It goes well with other types of weapons.
+
+uplink-neuro-control = Neuro stabilization implanter
+uplink-neuro-control-desc = Blocks all incoming stamina damage, compensating for it with a heat damage proportional to the blocked one.

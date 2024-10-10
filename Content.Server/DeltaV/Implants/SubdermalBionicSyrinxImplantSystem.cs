@@ -29,7 +29,7 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<VoiceMaskerComponent, ImplantImplantedEvent>(OnInsert);
+        SubscribeLocalEvent<VoiceMaskerComponent, SubdermalImplantInserted>(OnInsert); // WD EDIT
         SubscribeLocalEvent<SyrinxVoiceMaskComponent, TransformSpeakerNameEvent>(OnSpeakerNameTransform);
         SubscribeLocalEvent<SyrinxVoiceMaskComponent, VoiceMaskChangeNameMessage>(OnChangeName);
         // We need to remove the SyrinxVoiceMaskComponent from the owner before the implant
@@ -37,16 +37,17 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
         SubscribeLocalEvent<VoiceMaskerComponent, EntGotRemovedFromContainerMessage>(OnRemove, before: new[] { typeof(SubdermalImplantSystem) });
     }
 
-    private void OnInsert(EntityUid uid, VoiceMaskerComponent component, ImplantImplantedEvent args)
+    // WD EDIT START
+    private void OnInsert(EntityUid uid, VoiceMaskerComponent component, SubdermalImplantInserted args)
     {
-        if (!args.Implanted.HasValue ||
-            !_tag.HasTag(args.Implant, BionicSyrinxImplant))
+        if (_tag.HasTag(uid, BionicSyrinxImplant))
             return;
 
-        var voicemask = EnsureComp<SyrinxVoiceMaskComponent>(args.Implanted.Value);
-        voicemask.VoiceName = MetaData(args.Implanted.Value).EntityName;
-        Dirty(args.Implanted.Value, voicemask);
+        var voicemask = EnsureComp<SyrinxVoiceMaskComponent>(args.Target);
+        voicemask.VoiceName = MetaData(args.Target).EntityName;
+        Dirty(args.Target, voicemask);
     }
+    // WD EDIT END
 
     private void OnRemove(EntityUid uid, VoiceMaskerComponent component, EntGotRemovedFromContainerMessage args)
     {

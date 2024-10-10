@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseSubdermalImplant
+  id: NeuroStabilizationImplant
+  name: neuro stabilization implant
+  description: Blocks all incoming stamina damage at a cost of shock.
+  noSpawn: true
+  components:
+  - type: SubdermalImplant
+  - type: Tag
+    tags:
+    - NeuroStabilization
