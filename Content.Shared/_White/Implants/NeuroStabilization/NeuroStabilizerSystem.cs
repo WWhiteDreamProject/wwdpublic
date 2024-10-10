@@ -3,7 +3,7 @@ using Content.Shared.Damage.Systems;
 
 namespace Content.Shared._White.Implants.NeuroStabilization;
 
-public sealed class NeuroStabilizerSystem : EntitySystem
+public sealed class NeuroStabilizationSystem : EntitySystem
 {
     [Dependency] private readonly SharedElectrocutionSystem _electrocution = default!;
 
