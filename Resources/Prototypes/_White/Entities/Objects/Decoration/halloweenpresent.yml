@@ -14,10 +14,10 @@
 
 - type: entity
   id: PresentHalloweenBaseTrash
-  noSpawn: true
   parent: BaseItem
   name: wrapping paper
   description: Carefully folded, taped, and tied with a bow. Then ceremoniously ripped apart and tossed on the floor.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _White/Objects/Decoration/Halloween/present.rsi
@@ -32,10 +32,10 @@
 
 - type: entity
   id: PresentHalloweenSweetTrash
-  noSpawn: true
   parent: BaseItem
   name: wrapping paper
   description: Carefully folded, taped, and tied with a bow. Then ceremoniously ripped apart and tossed on the floor. Looks edible and smells sweet.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _White/Objects/Decoration/Halloween/present.rsi
@@ -59,10 +59,10 @@
 
 - type: entity
   id: PresentHalloweenClothTrash
-  noSpawn: true
   parent: BaseItem
   name: wrapping paper
   description: Carefully folded, taped, and tied with a bow. Then ceremoniously ripped apart and tossed on the floor.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _White/Objects/Decoration/Halloween/present.rsi
@@ -80,7 +80,7 @@
   name: present soul
   description: Something small, spooky and ghostly in the form of a gift.
   parent: BaseItem
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _White/Objects/Decoration/Halloween/presentsoul.rsi
@@ -101,7 +101,7 @@
   name: present soul
   description: Nothinng.
   parent: BaseItem
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _White/Objects/Decoration/Halloween/presentsoul.rsi
