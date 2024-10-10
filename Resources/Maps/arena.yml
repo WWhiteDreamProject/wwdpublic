@@ -158556,7 +158556,7 @@ entities:
     - type: Transform
       pos: -3.5,-18.5
       parent: 6747
-- proto: VendingMachinePride
+- proto: VendingMachineCola
   entities:
   - uid: 10266
     components:
