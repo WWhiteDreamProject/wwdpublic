@@ -12,3 +12,6 @@ uplink-ebow-desc = Довольно тихое оружие, которое ав
 
 uplink-implanter-name = Имплантер
 uplink-implanter-desc = Продвинутый имплантер, позволяющий быстро вкалывать и вытаскивать импланты.
+
+uplink-smoke-implant-name = Имплант дыма
+uplink-smoke-implant-desc = Выпускает облако дыма при активации.

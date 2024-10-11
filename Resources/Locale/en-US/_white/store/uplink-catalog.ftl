@@ -12,3 +12,6 @@ uplink-ebow-desc = A fairly quiet weapon that automatically reloads and stuns. I
 
 uplink-implanter-name = Implanter
 uplink-implanter-desc = An advanced implant that allows you to quickly insert and remove implants.
+
+uplink-smoke-implant-name = Smoke implant
+uplink-smoke-implant-desc = Releases a cloud of smoke when activated.

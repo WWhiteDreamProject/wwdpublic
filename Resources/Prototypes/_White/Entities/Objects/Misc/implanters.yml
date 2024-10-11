@@ -10,3 +10,11 @@
     - type: Implanter
       drawTime: 2
       implantTime: 2
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: SmokeImplanter
+  suffix: smoke
+  components:
+  - type: Implanter
+    implant: SmokeImplant
