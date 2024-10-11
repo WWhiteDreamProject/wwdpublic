@@ -6532,3 +6532,10 @@ Entries:
   id: 6364
   time: '2024-10-11T04:26:13.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/78
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added neuro stabilization Implant / Добавлен имплант нейро стабильности
+  id: 6365
+  time: '2024-10-11T05:03:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/80
