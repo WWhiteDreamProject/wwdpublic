@@ -2,7 +2,7 @@
   parent: BaseSubdermalImplant
   id: NeuroStabilizationImplant
   name: neuro stabilization implant
-  description: Blocks all incoming stamina damage at a cost of shock.
+  description: Blocks all of the incoming stamina damage at the cost of frying you nerve system a bit each time.
   noSpawn: true
   components:
   - type: SubdermalImplant
