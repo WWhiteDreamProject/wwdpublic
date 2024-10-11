@@ -1,4 +1,4 @@
-﻿uplink-emp-flashlight-name = Электромагнитный фонарик
+uplink-emp-flashlight-name = Электромагнитный фонарик
 uplink-emp-flashlight-desc = Замаскированное под фонарик устройство. При ударе выпускает ЭМИ, поражающий электрические устройства.
 
 uplink-betrayal-knife-name = Предательский кинжал
@@ -12,6 +12,9 @@ uplink-ebow-desc = Довольно тихое оружие, которое ав
 
 uplink-hardlight-spear-implant-name = Имплант светового копья
 uplink-hardlight-spear-implant-desc = Имплант, вводимый в тело и активируемый по желанию пользователя. Он вызывает копье из твердого света, с помощью которого пользователь может сеять хаос.
+
+uplink-implanter-name = Имплантер
+uplink-implanter-desc = Продвинутый имплантер, позволяющий быстро вкалывать и вытаскивать импланты.
 
 uplink-smoke-implant-name = Имплант дыма
 uplink-smoke-implant-desc = Выпускает облако дыма при активации.
