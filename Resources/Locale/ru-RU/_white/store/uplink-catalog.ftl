@@ -12,3 +12,6 @@ uplink-ebow-desc = Довольно тихое оружие, которое ав
 
 uplink-hardlight-spear-implant-name = Имплант светового копья
 uplink-hardlight-spear-implant-desc = Имплант, вводимый в тело и активируемый по желанию пользователя. Он вызывает копье из твердого света, с помощью которого пользователь может сеять хаос.
+
+uplink-smoke-implant-name = Имплант дыма
+uplink-smoke-implant-desc = Выпускает облако дыма при активации.
