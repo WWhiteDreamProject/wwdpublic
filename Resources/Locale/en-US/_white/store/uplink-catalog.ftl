@@ -10,6 +10,9 @@ uplink-betrayal-knife-desc = Syndicate teleporter, when used, moves 3-8 meters f
 uplink-ebow-name = Small energy crossbow
 uplink-ebow-desc = A fairly quiet weapon that automatically reloads and stuns. It goes well with other types of weapons.
 
+uplink-neuro-control = Neuro stabilization implanter
+uplink-neuro-control-desc = Blocks all of the incoming stamina damage while dealing shock damage instead.
+
 uplink-implanter-name = Implanter
 uplink-implanter-desc = An advanced implant that allows you to quickly insert and remove implants.
 

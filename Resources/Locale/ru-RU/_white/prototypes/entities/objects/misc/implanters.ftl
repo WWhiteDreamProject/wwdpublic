@@ -1,3 +1,7 @@
+ent-NeuroStabilizationImplanter = { ent-BaseImplanter }
+    .desc = { ent-BaseImplanter.desc }
+    .suffix = нейро стабилизация
+
 ent-ImplanterSyndi = { ent-BaseImplanter }
     .desc = Компактный одноразовый шприц, предназначенный исключительно для введения и извлечения подкожных имплантатов.
 
