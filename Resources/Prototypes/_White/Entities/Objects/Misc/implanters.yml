@@ -1,7 +1,7 @@
 - type: entity
   parent: Implanter
   id: ImplanterSyndi
-  description: A compact disposable syringe exclusively designed for the injection and extraction of subdermal implants.
+  description: A compact disposable syringe exclusively designed for the quick injection and extraction of subdermal implants.
   components:
     - type: Item
       sprite: Objects/Specific/Medical/syndi_implanter.rsi
