@@ -6502,3 +6502,33 @@ Entries:
   id: 6360
   time: '2024-09-29T12:15:14.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/68
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Dwarf now weigh more / Дварфы теперь весят больше
+  id: 6361
+  time: '2024-10-11T03:54:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/83
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        No more discounts in uplink implant / Больше никаких скидок в имплант
+        аплинка
+  id: 6362
+  time: '2024-10-11T03:55:38.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/81
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added smoke implant / Добавлен имплант дыма
+  id: 6363
+  time: '2024-10-11T04:07:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/79
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added syndicate implanter / Добавлен имплантер синдиката
+  id: 6364
+  time: '2024-10-11T04:26:13.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/78

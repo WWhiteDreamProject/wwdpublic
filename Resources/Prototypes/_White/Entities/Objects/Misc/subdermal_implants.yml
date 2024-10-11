@@ -9,3 +9,19 @@
   - type: Tag
     tags:
     - NeuroStabilization
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SmokeImplant
+  name: smoke implant
+  description: This implant releases smoke cloud on activation.
+  noSpawn: true
+  components:
+    - type: SubdermalImplant
+      implantAction: ActivateSmokeImplant
+    - type: TriggerImplantAction
+    - type: SmokeOnTrigger
+      spreadAmount: 25
+      duration: 15
+    - type: SoundOnTrigger
+      sound: /Audio/Effects/smoke.ogg

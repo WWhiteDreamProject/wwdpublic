@@ -12,3 +12,9 @@ uplink-ebow-desc = A fairly quiet weapon that automatically reloads and stuns. I
 
 uplink-neuro-control = Neuro stabilization implanter
 uplink-neuro-control-desc = Blocks all of the incoming stamina damage while dealing shock damage instead.
+
+uplink-implanter-name = Implanter
+uplink-implanter-desc = An advanced implant that allows you to quickly insert and remove implants.
+
+uplink-smoke-implant-name = Smoke implant
+uplink-smoke-implant-desc = Releases a cloud of smoke when activated.

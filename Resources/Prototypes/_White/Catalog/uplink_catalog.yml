@@ -60,3 +60,24 @@
     Telecrystal: 2
   categories:
   - UplinkImplants
+
+- type: listing
+  id: UplinkImplanterSyndi
+  name: uplink-implanter-name
+  description: uplink-implanter-desc
+  productEntity: ImplanterSyndi
+  cost:
+    Telecrystal: 1
+  categories: 
+  - UplinkImplants
+
+- type: listing
+  id: UplinkSmokeImplanter
+  name: uplink-smoke-implant-name
+  description: uplink-smoke-implant-desc
+  icon: { sprite: /Textures/Objects/Weapons/Grenades/smoke.rsi, state: icon }
+  productEntity: SmokeImplanter
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkImplants
