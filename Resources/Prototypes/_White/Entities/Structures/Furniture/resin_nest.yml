@@ -1,0 +1,66 @@
+- type: entity
+  parent: BaseStructure
+  id: AlienNest
+  name: resin nest
+  description: Slimy and sticky mass representing a bed?....
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: _White/Structures/Specific/Xenomorph/resin_nest.rsi
+    drawdepth: Objects
+  - type: Icon
+    sprite: _White/Structures/Specific/Xenomorph/resin_nest.rsi
+    state: full
+  - type: IconSmooth
+    key: full
+    base: alien_nest
+  - type: Physics
+    canCollide: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 55
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Resin
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 35
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: blood
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 45
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: HealOnBuckle
+    damage:
+      types:
+        Poison: -0.01
+        Blunt: -0.01
+  - type: Strap
+    delay: 120
+    position: Down
+    rotation: -90

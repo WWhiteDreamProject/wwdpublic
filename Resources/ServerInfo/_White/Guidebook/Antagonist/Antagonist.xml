@@ -1,0 +1,11 @@
+<Document>
+  # Антагонисты
+
+  Простая и общая информация об уникальных антагонистах сборки.
+
+  Мажорные антагонисты:
+  <Box>
+    <GuideEntityEmbed Entity="MobAlienQueen" Caption="Ксеноморф."/>
+  </Box>
+
+</Document>

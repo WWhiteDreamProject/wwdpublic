@@ -1,0 +1,34 @@
+﻿- type: entity
+  parent:
+  - BaseFacehugger
+  id: Facehugger
+  name: alien
+  description: It has some sort of a tube at the end of its tail. It seems to be active!
+  components:
+  - type: Sprite
+    state: facehugger
+  - type: Facehugger
+    range: 1
+
+- type: entity
+  parent:
+  - BaseFacehugger
+  id: FacehuggerInactive
+  name: alien
+  description: It has some sort of a tube at the end of its tail. It doesn't seem active.
+  suffix: Inactive
+  components:
+    - type: Sprite
+      state: facehugger_impregnated
+    - type: StaticPrice
+      price: 269
+
+- type: entity
+  parent:
+  - BaseFacehugger
+  id: FacehuggerLamarr
+  name: Lamarr
+  description: It has some sort of a tube at the end of its tail, but it doesn't seem, like it can use it.
+  components:
+  - type: Sprite
+    state: facehugger
