@@ -64,6 +64,7 @@ namespace Content.IntegrationTests.Tests
             "Submarine", //DeltaV
             "Gax",
             "DryDock" //WWDP
+            "Rad"
         };
 
         /// <summary>
