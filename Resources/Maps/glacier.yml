@@ -101090,7 +101090,7 @@ entities:
     - type: Transform
       pos: 29.5,0.5
       parent: 2
-- proto: VendingMachineCola
+- proto: VendingMachinePride
   entities:
   - uid: 4015
     components:

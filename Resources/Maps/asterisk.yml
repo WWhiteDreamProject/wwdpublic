@@ -62162,7 +62162,7 @@ entities:
     - type: Transform
       pos: 13.5,-20.5
       parent: 2
-- proto: VendingMachineCola
+- proto: VendingMachinePride
   entities:
   - uid: 4671
     components:

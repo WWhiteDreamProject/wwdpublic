@@ -78406,7 +78406,7 @@ entities:
     - type: Transform
       pos: -20.5,-7.5
       parent: 34
-- proto: VendingMachineCola
+- proto: VendingMachinePride
   entities:
   - uid: 61
     components:
