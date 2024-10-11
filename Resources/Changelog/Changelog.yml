@@ -6509,3 +6509,12 @@ Entries:
   id: 6361
   time: '2024-10-11T03:54:12.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/83
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        No more discounts in uplink implant / Больше никаких скидок в имплант
+        аплинка
+  id: 6362
+  time: '2024-10-11T03:55:38.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/81
