@@ -22,7 +22,6 @@
   id: UplinkBetrayalKnife
   name: uplink-betrayal-knife-name
   description: uplink-betrayal-knife-desc
-  icon: { sprite: /Textures/_White/Objects/Weapons/Melee/Daggers/betrayal_knife.rsi, state: icon }
   productEntity: BetrayalKnife
   cost:
     Telecrystal: 10
@@ -39,7 +38,6 @@
   id: UplinkMiniEbow
   name: uplink-ebow-name
   description: uplink-ebow-desc
-  icon: { sprite:  /Textures/_White/Objects/Weapons/Guns/Battery/mini-ebow.rsi, state: icon }
   productEntity: EnergyCrossbowMini
   cost:
     Telecrystal: 10
@@ -51,3 +49,35 @@
       tags:
       - NukeOpsUplink
   saleLimit: 1
+
+- type: listing
+  id: NeuroControlImplanter
+  name: uplink-neuro-control
+  description: uplink-neuro-control-desc
+  icon: { sprite: /Textures/Interface/Alerts/stamina.rsi, state: stamina5 }
+  productEntity: NeuroStabilizationImplanter
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkImplanterSyndi
+  name: uplink-implanter-name
+  description: uplink-implanter-desc
+  productEntity: ImplanterSyndi
+  cost:
+    Telecrystal: 1
+  categories: 
+  - UplinkImplants
+
+- type: listing
+  id: UplinkSmokeImplanter
+  name: uplink-smoke-implant-name
+  description: uplink-smoke-implant-desc
+  icon: { sprite: /Textures/Objects/Weapons/Grenades/smoke.rsi, state: icon }
+  productEntity: SmokeImplanter
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkImplants
