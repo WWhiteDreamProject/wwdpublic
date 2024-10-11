@@ -13,7 +13,10 @@ uplink-ebow-desc = A fairly quiet weapon that automatically reloads and stuns. I
 uplink-hardlight-spear-implant-name = Hardlight spear implanter
 uplink-hardlight-spear-implant-desc = An implant injected into the body, and later activated at the user's will. It will summon a spear made out of hardlight that the user can use to wreak havoc.
 
-uplink-implanter-name = Implanter
+uplink-neuro-control = Neuro stabilization implanter
+uplink-neuro-control-desc = Blocks all of the incoming stamina damage while dealing shock damage instead.
+
+uplink-implanter-name = Имплантер
 uplink-implanter-desc = An advanced implant that allows you to quickly insert and remove implants.
 
 uplink-smoke-implant-name = Smoke implant

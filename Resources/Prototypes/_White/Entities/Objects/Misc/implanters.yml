@@ -1,4 +1,12 @@
 - type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: NeuroStabilizationImplanter
+  suffix: neuro stabilization
+  components:
+  - type: Implanter
+    implant: NeuroStabilizationImplant
+
+- type: entity
   parent: Implanter
   id: ImplanterSyndi
   description: A compact disposable syringe exclusively designed for the quick injection and extraction of subdermal implants.
