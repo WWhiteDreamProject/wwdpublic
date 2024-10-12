@@ -18,3 +18,6 @@ uplink-implanter-desc = An advanced implant that allows you to quickly insert an
 
 uplink-smoke-implant-name = Smoke implant
 uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
+
+uplink-mind-slave = Mindslave implant
+uplink-mind-slave-desc = Capture the mind of a living being and order him to throw explosive pies at the captain.

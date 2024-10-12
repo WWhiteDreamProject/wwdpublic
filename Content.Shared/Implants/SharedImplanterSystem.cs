@@ -88,9 +88,11 @@ public abstract class SharedImplanterSystem : EntitySystem
         EntityUid implanter,
         ImplanterComponent component,
         [NotNullWhen(true)] out EntityUid? implant,
-        [NotNullWhen(true)] out SubdermalImplantComponent? implantComp)
+        [NotNullWhen(true)] out SubdermalImplantComponent? implantComp,
+        out bool popup) // WD EDIT
     {
         implant = component.ImplanterSlot.ContainerSlot?.ContainedEntities.FirstOrNull();
+        popup = true; // WD EDIF
         if (!TryComp(implant, out implantComp))
             return false;
 
@@ -100,8 +102,12 @@ public abstract class SharedImplanterSystem : EntitySystem
             return false;
         }
 
-        var ev = new AddImplantAttemptEvent(user, target, implant.Value, implanter);
-        RaiseLocalEvent(target, ev);
+        // WD EDIT START
+        var ev = new AttemptSubdermalImplantInserted(user, target);
+        RaiseLocalEvent(implant.Value, ev);
+
+        popup = ev.Popup;
+        // WD EDIT END
         return !ev.Cancelled;
     }
 
@@ -214,23 +220,25 @@ public sealed partial class DrawEvent : SimpleDoAfterEvent
 {
 }
 
-public sealed class AddImplantAttemptEvent : CancellableEntityEventArgs
+// WD EDIT START
+public sealed class AttemptSubdermalImplantInserted(EntityUid user, EntityUid target, bool popup = true) : CancellableEntityEventArgs
 {
-    public readonly EntityUid User;
-    public readonly EntityUid Target;
-    public readonly EntityUid Implant;
-    public readonly EntityUid Implanter;
+    /// <summary>
+    ///     Entity who implants
+    /// </summary>
+    public EntityUid User = user;
 
-    public AddImplantAttemptEvent(EntityUid user, EntityUid target, EntityUid implant, EntityUid implanter)
-    {
-        User = user;
-        Target = target;
-        Implant = implant;
-        Implanter = implanter;
-    }
+    /// <summary>
+    ///     Entity being implanted
+    /// </summary>
+    public EntityUid Target = target;
+
+    /// <summary>
+    ///     Popup if implanted failed
+    /// </summary>
+    public bool Popup = popup;
 }
 
-// WD EDIT START
 public sealed class SubdermalImplantInserted(EntityUid user, EntityUid target)
 {
     /// <summary>
