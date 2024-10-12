@@ -29,11 +29,11 @@ public sealed class MindSlaveIconsSystem : EquipmentHudSystem<MindSlaveComponent
             || !TryComp(_player.LocalEntity, out MindSlaveComponent? ownerMindSlave))
             return;
 
-        var mindSlaveIcon = MindslaveIcon(uid, ownerMindSlave);
+        var mindSlaveIcon = MindSlaveIcon(uid, ownerMindSlave);
         args.StatusIcons.AddRange(mindSlaveIcon);
     }
 
-    private IEnumerable<StatusIconPrototype> MindslaveIcon(EntityUid uid, MindSlaveComponent mindSlave)
+    private IEnumerable<StatusIconPrototype> MindSlaveIcon(EntityUid uid, MindSlaveComponent mindSlave)
     {
         var result = new List<StatusIconPrototype>();
         string iconType;

@@ -180,19 +180,23 @@ public sealed class ImplantsSystem : EntitySystem
     /// </summary>
     private bool MindSlaveCheck(EntityUid user, EntityUid target)
     {
-        string? message = null;
+        string message;
         if (target == user)
+        {
             message = Loc.GetString("mindslave-target-self");
-
-        if (HasComp<MindShieldComponent>(target)
-            || HasComp<RevolutionaryComponent>(target)
-            || !_mind.TryGetMind(target, out _, out _)
-            || (TryComp<MindSlaveComponent>(target, out var mindSlave)
-                && mindSlave.Master.HasValue))
+        }
+        else if (HasComp<MindShieldComponent>(target)
+                 || HasComp<RevolutionaryComponent>(target)
+                 || !_mind.TryGetMind(target, out _, out _)
+                 || (TryComp<MindSlaveComponent>(target, out var mindSlave)
+                     && mindSlave.Master.HasValue))
+        {
             message = Loc.GetString("mindslave-cant-insert");
-
-        if (message == null)
+        }
+        else
+        {
             return true;
+        }
 
         _popup.PopupEntity(message, target, user);
         return false;
