@@ -56,7 +56,7 @@ public abstract class SharedImplanterSystem : EntitySystem
     //Set to draw mode if not implant only
     public void Implant(EntityUid user, EntityUid target, EntityUid implanter, ImplanterComponent component)
     {
-        if (!CanImplant(user, target, implanter, component, out var implant, out var implantComp))
+        if (!CanImplant(user, target, implanter, component, out var implant, out var implantComp, out _))
             return;
 
         //If the target doesn't have the implanted component, add it.

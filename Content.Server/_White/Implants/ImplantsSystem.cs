@@ -86,7 +86,8 @@ public sealed class ImplantsSystem : EntitySystem
     private bool MindShieldCheck(EntityUid uid, EntityUid target)
     {
         if (HasComp<HeadRevolutionaryComponent>(target)
-            || HasComp<MindSlaveComponent>(target))
+            || (TryComp<MindSlaveComponent>(target, out var mindSlave)
+                && mindSlave.Master.HasValue))
         {
             _popup.PopupEntity(Loc.GetString("head-rev-break-mindshield"), target);
             QueueDel(uid);
