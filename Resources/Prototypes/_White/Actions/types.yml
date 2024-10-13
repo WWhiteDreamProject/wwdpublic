@@ -12,3 +12,17 @@
       sprite: Objects/Weapons/Grenades/smoke.rsi
       state: icon
     event: !type:ActivateImplantEvent
+
+- type: entity
+  id: ToggleNightVision
+  name: Toggle night vision
+  description: Switches night vision.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
+      state: icon
+    event: !type:ToggleNightVisionEvent

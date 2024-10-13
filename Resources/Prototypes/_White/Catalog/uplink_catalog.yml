@@ -81,3 +81,34 @@
     Telecrystal: 2
   categories:
   - UplinkImplants
+
+# Night Vision
+- type: listing
+  id: UplinkNightGoggles
+  name: uplink-night-vision-name
+  description: uplink-night-vision-desc
+  productEntity: ClothingEyesNightVisionGogglesSyndie
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkArmor
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkNightGogglesNukie
+  name: uplink-night-vision-name
+  description: uplink-night-vision-desc
+  productEntity: ClothingEyesNightVisionGogglesNukie
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkArmor
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink

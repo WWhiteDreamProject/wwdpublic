@@ -18,3 +18,6 @@ uplink-implanter-desc = An advanced implant that allows you to quickly insert an
 
 uplink-smoke-implant-name = Smoke implant
 uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
+
+uplink-night-vision-name = Night vision goggles
+uplink-night-vision-desc = They allow you to see in the dark, all while looking like normal sunglasses!
