@@ -3,7 +3,7 @@
   id: HardlightSpearImplant
   name: hardlight spear implant
   description: This implant creates hardlight spear in your hands.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
       implantAction: ActivateHardlightSpearImplant
