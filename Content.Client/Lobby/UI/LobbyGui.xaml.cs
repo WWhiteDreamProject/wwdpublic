@@ -8,10 +8,9 @@ using Robust.Client.UserInterface.XAML;
 namespace Content.Client.Lobby.UI
 {
     [GenerateTypedNameReferences]
-    internal sealed partial class LobbyGui : UIScreen
+    public sealed partial class LobbyGui : UIScreen
     {
         [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
-        [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
 
         public LobbyGui()
         {
@@ -22,7 +21,7 @@ namespace Content.Client.Lobby.UI
 
             LobbySong.SetMarkup(Loc.GetString("lobby-state-song-no-song-text"));
 
-            OptionsButton.OnPressed += _ => _userInterfaceManager.GetUIController<OptionsUIController>().ToggleWindow();
+            OptionsButton.OnPressed += _ => UserInterfaceManager.GetUIController<OptionsUIController>().ToggleWindow();
             // White Edit Start
             /*DiscordButton.OnPressed += _ => _stalinManager.RequestUri();*/
             ChangelogButton.OnPressed += _ => UserInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
@@ -52,13 +51,13 @@ namespace Content.Client.Lobby.UI
                     Changelog.Visible = false;
                     // WD EDIT END
 
-                    var actualWidth = (float) _userInterfaceManager.RootControl.PixelWidth;
+                    var actualWidth = (float) UserInterfaceManager.RootControl.PixelWidth;
                     var setupWidth = (float) LeftSide.PixelWidth;
 
                     if (1 - (setupWidth / actualWidth) > 0.30)
-                    {
                         RightSide.Visible = false;
-                    }
+
+                    UserInterfaceManager.GetUIController<LobbyUIController>().ReloadCharacterSetup();
 
                     break;
             }
@@ -66,14 +65,10 @@ namespace Content.Client.Lobby.UI
 
         public enum LobbyGuiState : byte
         {
-            /// <summary>
-            ///  The default state, i.e., what's seen on launch.
-            /// </summary>
+            /// The default state, i.e., what's seen on launch.
             Default,
-            /// <summary>
-            ///  The character setup state.
-            /// </summary>
-            CharacterSetup
+            /// The character setup state.
+            CharacterSetup,
         }
     }
 }

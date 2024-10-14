@@ -55,9 +55,9 @@
         Heat: 0.2
         Radiation: 0.5
         Caustic: 0.5
-  - type: ClothingSpeedModifier # White Dream: Make almost all hardsuits slow a bit less
-    walkModifier: 0.85
-    sprintModifier: 0.85
+  - type: ClothingSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.7
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitAtmos
@@ -433,7 +433,7 @@
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitRd
   name: experimental research hardsuit
-  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor. Able to be compressed to small sizes.
+  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
     sprite: _White/Clothing/OuterClothing/Hardsuits/rd.rsi #WWDP edit
@@ -581,6 +581,8 @@
     coefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.2
+  - type: FireProtection
+    reduction: 0.8 # perfect protection like atmos firesuit for pyro tf2 ops
   - type: Armor
     modifiers:
       coefficients:

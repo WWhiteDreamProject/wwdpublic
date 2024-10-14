@@ -65,6 +65,8 @@
         shader: unshaded
   - type: DisarmMalus
     malus: 0
+  - type: Reflect
+    enabled: false
   - type: IgnitionSource
     temperature: 700
   - type: MeleeBlock # WD EDIT
@@ -92,6 +94,7 @@
     sprite: DeltaV/Objects/Weapons/Melee/e_sword.rsi # Delta-V
   - type: Reflect # WD EDIT
     reflectProb: .5
+    minReflectProb: 0.25
     spread: 75
     reflects:
       - Energy #DeltaV:
@@ -241,7 +244,7 @@
   name: double-bladed energy sword
   parent: EnergySwordBase
   id: EnergySwordDouble
-  description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. This can be stored in pockets.
+  description: Syndicate Command's intern thought that having only one blade on energy swords was not cool enough. This can be stored in pockets.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword_double.rsi
@@ -263,6 +266,7 @@
         Heat: 15
   - type: Reflect # WD EDIT
     reflectProb: 1
+    minReflectProb: .65
     spread: 75
     reflects:
       - Energy
