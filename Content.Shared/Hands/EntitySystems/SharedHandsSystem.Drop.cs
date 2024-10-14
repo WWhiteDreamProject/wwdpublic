@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Database;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.VirtualItem;
@@ -210,7 +211,7 @@ public abstract partial class SharedHandsSystem
     /// <summary>
     ///     Removes the contents of a hand from its container. Assumes that the removal is allowed. In general, you should not be calling this directly.
     /// </summary>
-    public virtual void DoDrop(EntityUid uid, Hand hand, bool doDropInteraction = true, HandsComponent? handsComp = null)
+    public virtual void DoDrop(EntityUid uid, Hand hand, bool doDropInteraction = true, HandsComponent? handsComp = null, bool log = true)
     {
         if (!Resolve(uid, ref handsComp))
             return;
@@ -235,6 +236,9 @@ public abstract partial class SharedHandsSystem
 
         if (doDropInteraction)
             _interactionSystem.DroppedInteraction(uid, entity);
+
+        if (log)
+            _adminLogger.Add(LogType.Drop, LogImpact.Low, $"{ToPrettyString(uid):user} dropped {ToPrettyString(entity):entity}");
 
         RaiseLocalEvent(entity, new ItemDroppedEvent(uid)); // WWDP EDIT
         if (hand == handsComp.ActiveHand)
