@@ -52,7 +52,7 @@
 
 - type: listing
   id: NeuroControlImplanter
-  name: uplink-neuro-control
+  name: uplink-neuro-control-name
   description: uplink-neuro-control-desc
   icon: { sprite: /Textures/Interface/Alerts/stamina.rsi, state: stamina5 }
   productEntity: NeuroStabilizationImplanter
@@ -83,6 +83,7 @@
   - UplinkImplants
 
 # Night Vision
+
 - type: listing
   id: UplinkNightGoggles
   name: uplink-night-vision-name
@@ -103,6 +104,38 @@
   name: uplink-night-vision-name
   description: uplink-night-vision-desc
   productEntity: ClothingEyesNightVisionGogglesNukie
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkArmor
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+# Thermal Vision
+
+- type: listing
+  id: UplinkThermalGoggles
+  name: uplink-thermal-vision-name
+  description: uplink-thermal-vision-desc
+  productEntity: ClothingEyesThermalVisionGogglesSyndie
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkArmor
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkThermalGogglesNukie
+  name: uplink-thermal-vision-name
+  description: uplink-thermal-vision-desc
+  productEntity: ClothingEyesThermalVisionGogglesNukie
   cost:
     Telecrystal: 3
   categories:

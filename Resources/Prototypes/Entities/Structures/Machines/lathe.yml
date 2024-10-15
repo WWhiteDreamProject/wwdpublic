@@ -355,6 +355,10 @@
       - AnimalTranslator
       - MofficTranslatorImplanter
       - MofficTranslator
+      # WD EDIT START
+      - ClothingEyesNightVisionGoggles
+      - ClothingEyesThermalVisionGoggles
+      # WD EDIT END
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ExplosivePayload

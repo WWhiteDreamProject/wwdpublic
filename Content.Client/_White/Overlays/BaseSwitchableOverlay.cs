@@ -6,27 +6,29 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._White.Overlays;
 
-public sealed class NightVisionOverlay : Overlay
+public sealed class BaseSwitchableOverlay<TComp> : Overlay
+    where TComp : SwitchableOverlayComponent
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IEntityManager _entity = default!;
 
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     private readonly ShaderInstance _shader;
 
-    public NightVisionOverlay()
+    public BaseSwitchableOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _shader = _prototypeManager.Index<ShaderPrototype>("NightVision").Instance().Duplicate();
+        _shader = _prototype.Index<ShaderPrototype>("NightVision").Instance().Duplicate();
     }
 
     protected override void Draw(in OverlayDrawArgs args)
     {
         if (ScreenTexture is null
-            || _playerManager.LocalEntity == null
-            || !_entityManager.TryGetComponent<NightVisionComponent>(_playerManager.LocalEntity.Value, out var component))
+            || _player.LocalEntity == null
+            || !_entity.TryGetComponent<TComp>(_player.LocalEntity.Value, out var component)
+            || !component.IsActive)
             return;
 
         _shader.SetParameter("SCREEN_TEXTURE", ScreenTexture);

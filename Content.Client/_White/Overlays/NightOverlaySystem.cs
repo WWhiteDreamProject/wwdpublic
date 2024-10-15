@@ -12,7 +12,7 @@ public sealed class NightOverlaySystem : SwitchableOverlaySystem<NightVisionComp
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly ILightManager _lightManager = default!;
 
-    private NightVisionOverlay _overlay = default!;
+    private BaseSwitchableOverlay<NightVisionComponent> _overlay = default!;
 
     public override void Initialize()
     {
@@ -22,7 +22,7 @@ public sealed class NightOverlaySystem : SwitchableOverlaySystem<NightVisionComp
         SubscribeLocalEvent<NightVisionComponent, PlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestart);
 
-        _overlay = new NightVisionOverlay();
+        _overlay = new BaseSwitchableOverlay<NightVisionComponent>();
     }
 
     private void OnPlayerAttached(EntityUid uid, NightVisionComponent component, PlayerAttachedEvent args)
