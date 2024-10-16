@@ -6553,3 +6553,10 @@ Entries:
   id: 6367
   time: '2024-10-16T01:57:56.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/86
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added maindslave implanter/ Добавлен имплант подчинения
+  id: 6368
+  time: '2024-10-16T02:13:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/85
