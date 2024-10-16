@@ -1,6 +1,5 @@
 namespace Content.Shared._White.Overlays;
 
-[RegisterComponent]
 public abstract partial class BaseOverlayComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadOnly)]
