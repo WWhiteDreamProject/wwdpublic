@@ -254,3 +254,7 @@ BriefcaseSyndieBase: null
 # 2024-04-08
 BodyBag_Container: BodyBag
 BodyBag_Folded: BodyBagFolded
+
+# 2024-11-10 WD EDIT
+VendingMachinePride: RandomVending
+VendingMachineRestockPride: null
