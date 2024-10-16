@@ -13,7 +13,7 @@
   id: VendingMachineRestockPride
   name: Pride-O-Mat restock box
   description: The station needs more plushie sharks and you know it.
-  noSpawn: true
+  noSpawn: true # WD EDIT
   components:
   - type: VendingMachineRestock
     canRestock:
