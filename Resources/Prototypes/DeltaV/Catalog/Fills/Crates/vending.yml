@@ -1,7 +1,6 @@
 - type: entity
   id: CrateVendingMachineRestockPrideFilled
   parent: CratePlastic
-  noSpawn: true # WD EDIT
   components:
   - type: StorageFill
     contents:
