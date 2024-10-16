@@ -1,3 +1,4 @@
+using Content.Server._White.Other.BloodLust;
 using Content.Server.Body.Components;
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Chemistry.ReactionEffects;
@@ -14,6 +15,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Drunk;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Speech.EntitySystems;
@@ -39,6 +41,7 @@ public sealed class BloodstreamSystem : EntitySystem
     [Dependency] private readonly SharedStutteringSystem _stutteringSystem = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!; // WD
 
     public override void Initialize()
     {
@@ -352,7 +355,7 @@ public sealed class BloodstreamSystem : EntitySystem
     /// <summary>
     ///     Attempts to modify the blood level of this entity directly.
     /// </summary>
-    public bool TryModifyBloodLevel(EntityUid uid, FixedPoint2 amount, BloodstreamComponent? component = null)
+    public bool TryModifyBloodLevel(EntityUid uid, FixedPoint2 amount, BloodstreamComponent? component = null, bool createPuddle = true) // WD EDIT
     {
         if (!Resolve(uid, ref component, logMissing: false)
             || !_solutionContainerSystem.ResolveSolution(uid, component.BloodSolutionName, ref component.BloodSolution))
@@ -373,7 +376,7 @@ public sealed class BloodstreamSystem : EntitySystem
 
         tempSolution.AddSolution(newSol, _prototypeManager);
 
-        if (tempSolution.Volume > component.BleedPuddleThreshold)
+        if (tempSolution.Volume > component.BleedPuddleThreshold && createPuddle) // WD EDIT
         {
             // Pass some of the chemstream into the spilled blood.
             if (_solutionContainerSystem.ResolveSolution(uid, component.ChemicalSolutionName, ref component.ChemicalSolution))
@@ -405,6 +408,16 @@ public sealed class BloodstreamSystem : EntitySystem
 
         component.BleedAmount += amount;
         component.BleedAmount = Math.Clamp(component.BleedAmount, 0, component.MaxBleedAmount);
+
+        // WD EDIT START
+        if (HasComp<BloodLustComponent>(uid))
+        {
+            if (component.BleedAmount == 0f)
+                RemComp<BloodLustComponent>(uid);
+
+            _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+        }
+        // WD EDIT END
 
         if (component.BleedAmount == 0)
             _alertsSystem.ClearAlert(uid, AlertType.Bleed);
