@@ -83,6 +83,17 @@
   - UplinkImplants
 
 - type: listing
+  id: UplinkMindSlaveImplanter
+  name: uplink-mind-slave
+  description: uplink-mind-slave-desc
+  icon: { sprite: /Textures/_White/Overlays/mindslave.rsi, state: master }
+  productEntity: MindSlaveImplanter
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkImplants
+
+- type: listing
   id: UplinkBloodDagger
   name: uplink-blood-dagger-name
   description: uplink-blood-dagger-desc

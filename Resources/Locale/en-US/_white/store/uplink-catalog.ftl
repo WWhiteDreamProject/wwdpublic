@@ -19,5 +19,8 @@ uplink-implanter-desc = An advanced implant that allows you to quickly insert an
 uplink-smoke-implant-name = Smoke implant
 uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 
+uplink-mind-slave = Mindslave implant
+uplink-mind-slave-desc = Capture the mind of a living being and order him to throw explosive pies at the captain.
+
 uplink-blood-dagger-name = Blood dagger
 uplink-blood-dagger-desc = A dagger of pain and blood. It has deadly accuracy, allowing you to deal critical damage and extract blood from opponents, treating the owner in proportion to the sucked blood. When absorbing the owner's blood, it briefly enhances his valuable profuse bleeding.
