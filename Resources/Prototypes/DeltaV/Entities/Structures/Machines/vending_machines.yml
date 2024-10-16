@@ -3,7 +3,6 @@
   id: VendingMachinePride
   name: Pride-O-Mat
   description: A vending machine containing crimes.
-  noSpawn: true # WD EDIT
   components:
   - type: VendingMachine
     pack: PrideDrobeInventory
