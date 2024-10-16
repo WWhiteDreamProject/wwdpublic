@@ -43,16 +43,20 @@ public sealed partial class ImplanterSystem : SharedImplanterSystem
         }
         else
         {
-            if (!CanImplant(args.User, target, uid, component, out var implant, out _))
+            if (!CanImplant(args.User, target, uid, component, out var implant, out _, out var popup)) // WD EDIT
             {
                 // no popup if implant doesn't exist
                 if (implant == null)
                     return;
 
                 // show popup to the user saying implant failed
-                var name = Identity.Name(target, EntityManager, args.User);
-                var msg = Loc.GetString("implanter-component-implant-failed", ("implant", implant), ("target", name));
-                _popup.PopupEntity(msg, target, args.User);
+                if (popup) // WD EDIT
+                {
+                    var name = Identity.Name(target, EntityManager, args.User);
+                    var msg = Loc.GetString("implanter-component-implant-failed", ("implant", implant),
+                        ("target", name));
+                    _popup.PopupEntity(msg, target, args.User);
+                }
                 // prevent further interaction since popup was shown
                 args.Handled = true;
                 return;
