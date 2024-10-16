@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared._White.Overlays;
 
-[AutoGenerateComponentState]
+[NetworkedComponent, AutoGenerateComponentState]
 public abstract partial class SwitchableOverlayComponent : BaseOverlayComponent
 {
     [DataField, AutoNetworkedField]
