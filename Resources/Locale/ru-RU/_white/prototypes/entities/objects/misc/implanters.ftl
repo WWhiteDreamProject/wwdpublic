@@ -7,3 +7,8 @@ ent-ImplanterSyndi = { ent-BaseImplanter }
 
 ent-SmokeImplanter = { ent-BaseImplanter }
     .desc = { ent-BaseImplanter.desc }
+    .suffix = дым
+
+ent-MindSlaveImplanter = { ent-BaseImplanter }
+    .desc = { ent-BaseImplanter.desc }
+    .suffix = подчинение

@@ -20,7 +20,7 @@ public sealed class CritSystem : EntitySystem
         SubscribeLocalEvent<CritComponent, MeleeHitEvent>(HandleHit, before: new [] {typeof(MeleeBlockSystem)});
     }
 
-    private void HandleHit(EntityUid uid, CritComponent component, MeleeHitEvent args)
+    private void HandleHit(EntityUid uid, CritComponent component, ref MeleeHitEvent args)
     {
         if (args.HitEntities.Count == 0 || !IsCriticalHit(component))
             return;
@@ -32,6 +32,8 @@ public sealed class CritSystem : EntitySystem
 
         var message = Loc.GetString("melee-crit-damage", ("damage", damage));
         _popup.PopupEntity(message, args.User, args.User, PopupType.MediumCaution);
+
+        RaiseLocalEvent(uid, new CritHitEvent(args.User, args.HitEntities));
     }
 
     private bool IsCriticalHit(CritComponent component)
@@ -47,4 +49,17 @@ public sealed class CritSystem : EntitySystem
 
         return isCritical;
     }
+}
+
+public sealed class CritHitEvent(EntityUid user, IReadOnlyList<EntityUid> target)
+{
+    /// <summary>
+    ///     Entity who attacked with a critical attack
+    /// </summary>
+    public EntityUid User = user;
+
+    /// <summary>
+    ///     Entities who was attacked with a critical attack
+    /// </summary>
+    public IReadOnlyList<EntityUid> Targets = target;
 }
