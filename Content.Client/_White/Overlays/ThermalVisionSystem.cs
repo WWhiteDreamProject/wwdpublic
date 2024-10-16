@@ -12,7 +12,7 @@ public sealed class ThermalVisionSystem : SwitchableOverlaySystem<ThermalVisionC
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
 
     private ThermalVisionOverlay _thermalOverlay = default!;
-    private BaseSwitchableOverlay<ThermalVisionComponent> _overlay = default!;
+    private ThermalOverlay _overlay = default!;
 
     public override void Initialize()
     {
@@ -23,7 +23,7 @@ public sealed class ThermalVisionSystem : SwitchableOverlaySystem<ThermalVisionC
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestart);
 
         _thermalOverlay = new ThermalVisionOverlay();
-        _overlay = new BaseSwitchableOverlay<ThermalVisionComponent>();
+        _overlay = new ThermalOverlay();
     }
 
     private void OnPlayerAttached(EntityUid uid, ThermalVisionComponent component, PlayerAttachedEvent args)

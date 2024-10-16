@@ -49,8 +49,12 @@ public sealed class ThermalVisionOverlay : Overlay
 
         var worldHandle = args.WorldHandle;
         var eye = args.Viewport.Eye;
-        var mapId = eye?.Position.MapId;
-        var eyeRot = eye?.Rotation ?? default;
+
+        if (eye == null)
+            return;
+
+        var mapId = eye.Position.MapId;
+        var eyeRot = eye.Rotation;
 
         _entries.Clear();
         var entities = _entity.EntityQueryEnumerator<BodyComponent, SpriteComponent, TransformComponent>();
@@ -105,7 +109,7 @@ public sealed class ThermalVisionOverlay : Overlay
     private bool CanSee(EntityUid uid, SpriteComponent sprite, BodyComponent body)
     {
         return sprite.Visible
-               && body.Thermal
+               && body.ThermalVisibility
                && (!_entity.TryGetComponent(uid, out StealthComponent? stealth)
                    || _stealth.GetVisibility(uid, stealth) > 0.5f);
     }

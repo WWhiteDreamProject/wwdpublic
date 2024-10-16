@@ -44,6 +44,6 @@ public sealed partial class BodyComponent : Component
 
     // WD EDIT START
     [DataField, AutoNetworkedField]
-    public bool Thermal = true;
+    public bool ThermalVisibility = true;
     // WD EDIT END
 }

@@ -6,13 +6,13 @@ using Robust.Shared.Player;
 
 namespace Content.Client._White.Overlays;
 
-public sealed class NightOverlaySystem : SwitchableOverlaySystem<NightVisionComponent, ToggleNightVisionEvent>
+public sealed class NightVisionSystem : SwitchableOverlaySystem<NightVisionComponent, ToggleNightVisionEvent>
 {
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly ILightManager _lightManager = default!;
 
-    private BaseSwitchableOverlay<NightVisionComponent> _overlay = default!;
+    private NightVisionOverlay _overlay = default!;
 
     public override void Initialize()
     {
@@ -22,7 +22,7 @@ public sealed class NightOverlaySystem : SwitchableOverlaySystem<NightVisionComp
         SubscribeLocalEvent<NightVisionComponent, PlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestart);
 
-        _overlay = new BaseSwitchableOverlay<NightVisionComponent>();
+        _overlay = new NightVisionOverlay();
     }
 
     private void OnPlayerAttached(EntityUid uid, NightVisionComponent component, PlayerAttachedEvent args)
