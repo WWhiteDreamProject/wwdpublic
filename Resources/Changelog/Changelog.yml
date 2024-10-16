@@ -6546,3 +6546,10 @@ Entries:
   id: 6366
   time: '2024-10-16T01:46:51.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/87
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added blood dagger/ Добавлен кровавый кинжал
+  id: 6367
+  time: '2024-10-16T01:57:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/86
