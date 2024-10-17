@@ -442,6 +442,12 @@ public sealed partial class CCVars
         CVarDef.Create("game.contraband_examine", false, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
+    ///     Should the clients window show the server hostname in the title?
+    /// </summary>
+    public static readonly CVarDef<bool> GameHostnameInTitlebar =
+        CVarDef.Create("game.hostname_in_titlebar", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
     /// Set to true to enable the dynamic hostname system.
     /// Automatically updates the hostname to include current map and preset.
     /// Configure what that looks like for you in Resources/Prototypes/Locale/en-US/dynamichostname/hostname.ftl
