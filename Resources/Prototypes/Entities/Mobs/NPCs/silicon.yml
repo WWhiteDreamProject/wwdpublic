@@ -183,6 +183,8 @@
     maxInterval: 12
     sound:
       collection: BikeHorn
+      params:
+        variation: 0.125
   - type: Sprite
     sprite: Mobs/Silicon/Bots/honkbot.rsi
     layers:
@@ -235,6 +237,8 @@
     interactFailureString: petting-failure-honkbot
     interactSuccessSound:
       path: /Audio/Items/bikehorn.ogg
+      params:
+        variation: 0.125
 
 - type: entity
   parent: MobHonkBot
@@ -245,6 +249,8 @@
   - type: SpamEmitSound
     sound:
       collection: CluwneHorn
+      params:
+        variation: 0.125
   - type: Sprite
     layers:
     - state: jonkbot
@@ -265,6 +271,8 @@
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Items/brokenbikehorn.ogg
+      params:
+        variation: 0.125
   - type: Vocal
     sounds:
       Unsexed: Cluwne
