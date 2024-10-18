@@ -247,6 +247,11 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField]
     public bool DoRecoil = true;
+
+    // WD EDIT START
+    [DataField]
+    public Angle? ThrowAngle;
+    // WD EDIT END
 }
 
 [Flags]

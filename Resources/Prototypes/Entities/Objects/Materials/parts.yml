@@ -77,6 +77,21 @@
   - type: ShortConstruction
     prototypes:
     - Grille
+  # WD EDIT START
+  - type: Tag
+    tags:
+    - CrossbowBolt
+  - type: EmbeddableProjectile
+    minimumSpeed: 15
+    damage:
+      types:
+        Piercing: 15
+  - type: PenetratedProjectile
+    minimumSpeed: 30
+    damage:
+      types:
+        Piercing: 15
+  # WD EDIT END
 
 - type: entity
   parent: PartRodMetal
@@ -86,6 +101,7 @@
   components:
   - type: Tag
     tags:
+    - CrossbowBolt # WD EDIT
     - RodMetal1
   - type: Sprite
     state: rods
@@ -100,6 +116,7 @@
   components:
   - type: Tag
     tags:
+    - CrossbowBolt # WD EDIT
     - RodMetal1
   - type: Sprite
     state: rods
