@@ -365,10 +365,17 @@
   description: Exotic energy shield, when folded, can even fit in your pocket.
   components:
     - type: ItemToggle
+      predictable: false # WD EDIT
       soundActivate:
         path: /Audio/Weapons/ebladeon.ogg
       soundDeactivate:
         path: /Audio/Weapons/ebladeoff.ogg
+      # WD EDIT START
+      soundFailToActivate:
+        path: /Audio/Machines/button.ogg
+        params:
+          variation: 0.250
+      # WD EDIT END
     - type: ItemToggleActiveSound
       activeSound:
         path: /Audio/Weapons/ebladehum.ogg
@@ -404,11 +411,12 @@
       netsync: false
       enabled: false
       radius: 1.5
-      energy: 2
-      color: blue
+      energy: 0.7 # WD EDIT
+      color: "#678AD9" # WD EDIT
     - type: Reflect
       enabled: false
-      reflectProb: 0.95
+      reflectProb: 1 # WD EDIT
+      DamageOnReflectModifier: 0.5 # WD EDIT
       reflects:
         - Energy
     - type: Blocking
@@ -430,31 +438,18 @@
     - type: Appearance
     - type: Damageable
       damageContainer: Shield
-    - type: Destructible
-      thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 180
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-        - trigger:
-            !type:DamageTrigger
-            damage: 100
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:PlaySoundBehavior
-              sound:
-                collection: GlassBreak
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                BrokenEnergyShield:
-                  min: 1
-                  max: 1
     - type: StaticPrice
       price: 350
-    - type: MeleeBlock # WD EDIT
+      # WD EDIT START
+    - type: MeleeBlock
+    - type: Battery
+      maxCharge: 40
+      startingCharge: 40
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 1
+    - type: RechargeableBlocking
+      # WD EDIT END
 
 - type: entity
   name: broken energy shield

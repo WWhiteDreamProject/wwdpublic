@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Audio;
+using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
@@ -35,6 +36,7 @@ public sealed class ReflectSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -123,6 +125,14 @@ public sealed class ReflectSystem : EntitySystem
 
         if (Resolve(projectile, ref projectileComp, false))
         {
+            // WD EDIT START
+            if (reflect.DamageOnReflectModifier != 0)
+            {
+                _damageable.TryChangeDamage(reflector, projectileComp.Damage * reflect.DamageOnReflectModifier,
+                    projectileComp.IgnoreResistances, origin: projectileComp.Shooter);
+            }
+            // WD EDIT END
+
             _adminLogger.Add(LogType.BulletHit, LogImpact.Medium, $"{ToPrettyString(user)} reflected {ToPrettyString(projectile)} from {ToPrettyString(projectileComp.Weapon)} shot by {projectileComp.Shooter}");
 
             projectileComp.Shooter = user;
