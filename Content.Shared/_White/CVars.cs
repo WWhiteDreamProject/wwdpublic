@@ -40,7 +40,7 @@ public sealed class WhiteCVars
         CVarDef.Create("ghost.respawn_max_players", 40, CVar.SERVERONLY);
 
     #endregion
-        
+
     #region OptionsMisc
 
     public static readonly CVarDef<bool> LogInChat =
