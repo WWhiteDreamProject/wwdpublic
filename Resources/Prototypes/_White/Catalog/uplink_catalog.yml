@@ -51,6 +51,23 @@
   saleLimit: 1
 
 - type: listing
+  id: UplinkHardlightSpearImplanter
+  name: uplink-hardlight-spear-implant-name
+  description: uplink-hardlight-spear-implant-desc
+  icon: { sprite: /Textures/_White/Objects/Weapons/Melee/Spear/hardlight_spear.rsi, state: spear }
+  productEntity: HardlightSpearImplanter
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1
+
+- type: listing
   id: NeuroControlImplanter
   name: uplink-neuro-control
   description: uplink-neuro-control-desc

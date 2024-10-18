@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Server._White.Throwing;
 using Content.Server.Inventory;
 using Content.Server.Stack;
 using Content.Server.Stunnable;
@@ -206,6 +207,11 @@ namespace Content.Server.Hands.Systems
 
             var throwStrength = hands.ThrowForceMultiplier;
 
+            // WD EDIT START
+            if (TryComp<ThrowingItemModifierComponent>(throwEnt, out var throwingItemModifier))
+                throwStrength *= throwingItemModifier.ThrowingMultiplier;
+            // WD EDIT END
+            
             // Let other systems change the thrown entity (useful for virtual items)
             // or the throw strength.
             var ev = new BeforeThrowEvent(throwEnt, direction, throwStrength, player);

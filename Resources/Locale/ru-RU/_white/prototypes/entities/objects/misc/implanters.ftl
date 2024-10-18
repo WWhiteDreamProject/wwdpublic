@@ -1,3 +1,7 @@
+ent-HardlightSpearImplanter = { ent-BaseImplanter }
+    .desc = { ent-BaseImplanter.desc }
+    .suffix = световое копьё
+
 ent-NeuroStabilizationImplanter = { ent-BaseImplanter }
     .desc = { ent-BaseImplanter.desc }
     .suffix = нейро стабилизация
