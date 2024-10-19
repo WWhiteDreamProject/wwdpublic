@@ -68,14 +68,6 @@ public sealed partial class EmotePrototype : IPrototype
     /// </summary>
     [DataField]
     public HashSet<string> ChatTriggers = new();
-
-    // WD EDIT START
-    [DataField]
-    public string ButtonText = "Unknown";
-
-    [DataField("allowMenu")]
-    public bool AllowToEmotionsMenu;
-    // WD EDIT END
 }
 
 /// <summary>
