@@ -116,12 +116,6 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SaveToFile();
         }
 
-        private void HandleToggleAutoGetUp(BaseButton.ButtonToggledEventArgs args) // WD EDIT
-        {
-            _cfg.SetCVar(WhiteCVars.AutoGetUp, args.Pressed);
-            _cfg.SaveToFile();
-        }
-
         public KeyRebindTab()
         {
             IoCManager.InjectDependencies(this);
@@ -207,7 +201,6 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.SaveItemLocation);
             AddButton(ContentKeyFunctions.ToggleStanding);
             AddButton(ContentKeyFunctions.LookUp); // WD EDIT
-            AddCheckBox("ui-options-function-auto-get-up", _cfg.GetCVar(WhiteCVars.AutoGetUp), HandleToggleAutoGetUp); // WD EDIT
             AddCheckBox("ui-options-function-hold-look-up", _cfg.GetCVar(WhiteCVars.HoldLookUp), HandleHoldLookUp); // WD EDIT
 
             AddHeader("ui-options-header-interaction-adv");
