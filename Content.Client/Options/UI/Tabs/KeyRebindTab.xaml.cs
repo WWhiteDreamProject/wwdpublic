@@ -110,12 +110,6 @@ namespace Content.Client.Options.UI.Tabs
 			_cfg.SaveToFile();
         }
 
-        private void HandleHoldLookUp(BaseButton.ButtonToggledEventArgs args) // WD EDIT
-        {
-            _cfg.SetCVar(WhiteCVars.HoldLookUp, args.Pressed);
-            _cfg.SaveToFile();
-        }
-
         private void HandleStaticStorageUI(BaseButton.ButtonToggledEventArgs args)
         {
             _cfg.SetCVar(CCVars.StaticStorageUI, args.Pressed);
@@ -242,7 +236,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.CycleChatChannelForward);
             AddButton(ContentKeyFunctions.CycleChatChannelBackward);
             AddButton(ContentKeyFunctions.OpenCharacterMenu);
-            AddButton(ContentKeyFunctions.OpenEmotionsMenu); // WD EDIT
+            AddButton(ContentKeyFunctions.OpenEmotesMenu); // WD EDIT
             AddButton(ContentKeyFunctions.OpenCraftingMenu);
             AddButton(ContentKeyFunctions.OpenGuidebook);
             AddButton(ContentKeyFunctions.OpenInventoryMenu);

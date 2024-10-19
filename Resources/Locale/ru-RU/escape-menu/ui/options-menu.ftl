@@ -140,7 +140,6 @@ ui-options-function-swap-hands = Поменять руки
 ui-options-function-move-stored-item = Переместить хранящийся объект
 ui-options-function-rotate-stored-item = Повернуть хранящийся объект
 ui-options-function-lie-down = Лечь/встать
-ui-options-function-auto-get-up = Автоматически вставать при падении
 ui-options-function-save-item-location = Сохранить позицию предмета
 ui-options-static-storage-ui = Закрепить интерфейс хранилища на хотбаре
 ui-options-function-offer-item = Передать что-то
@@ -271,3 +270,8 @@ ui-options-net-pvs-leave-tooltip =
 ## Toggle window console command
 cmd-options-desc = Открывает меню опций, опционально с конкретно выбранной вкладкой.
 cmd-options-help = Использование: options [tab]
+
+## Combat Options
+ui-options-function-look-up = Присмотреться/Прицелиться
+ui-options-function-auto-get-up = Автоматически вставать при падении
+ui-options-function-hold-look-up = Удерживать клавишу для прицеливания

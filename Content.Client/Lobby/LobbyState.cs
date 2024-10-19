@@ -56,9 +56,10 @@ namespace Content.Client.Lobby
 
             UpdateLobbyUi();
 
-            Lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed;
+            // Lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed;
             Lobby.ReadyButton.OnPressed += OnReadyPressed;
             Lobby.ReadyButton.OnToggled += OnReadyToggled;
+            Lobby.CharacterSetupButton.OnPressed += OnSetupPressed;
 
             _gameTicker.InfoBlobUpdated += UpdateLobbyUi;
             _gameTicker.LobbyStatusUpdated += LobbyStatusUpdated;
@@ -69,6 +70,7 @@ namespace Content.Client.Lobby
 
         protected override void Shutdown()
         {
+
             var chatController = _userInterfaceManager.GetUIController<ChatUIController>();
             chatController.SetMainChat(false);
             _gameTicker.InfoBlobUpdated -= UpdateLobbyUi;
@@ -78,9 +80,13 @@ namespace Content.Client.Lobby
 
             _voteManager.ClearPopupContainer();
 
-            Lobby!.CharacterPreview.CharacterSetupButton.OnPressed -= OnSetupPressed;
-            Lobby!.ReadyButton.OnPressed -= OnReadyPressed;
-            Lobby!.ReadyButton.OnToggled -= OnReadyToggled;
+            if (Lobby is null)
+                return;
+
+            Lobby.CharacterSetupButton.OnPressed -= OnSetupPressed;
+            // Lobby!.CharacterPreview.CharacterSetupButton.OnPressed -= OnSetupPressed;
+            Lobby.ReadyButton.OnPressed -= OnReadyPressed;
+            Lobby.ReadyButton.OnToggled -= OnReadyToggled;
 
             Lobby = null;
         }

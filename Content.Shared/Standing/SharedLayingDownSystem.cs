@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.DoAfter;
@@ -9,6 +10,7 @@ using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Robust.Shared.Configuration;
 using Robust.Shared.Input.Binding;
+using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 
@@ -16,20 +18,23 @@ namespace Content.Shared.Standing;
 
 public abstract class SharedLayingDownSystem : EntitySystem
 {
+    [Dependency] private readonly IConfigurationManager _config = default!;
+
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!; // WWDP
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
 
     public override void Initialize()
     {
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.ToggleStanding, InputCmdHandler.FromDelegate(ToggleStanding))
-            .Bind(ContentKeyFunctions.ToggleCrawlingUnder, InputCmdHandler.FromDelegate(HandleCrawlUnderRequest, handle: false))
+            .Bind(ContentKeyFunctions.ToggleCrawlingUnder,
+                InputCmdHandler.FromDelegate(HandleCrawlUnderRequest, handle: false))
             .Register<SharedLayingDownSystem>();
 
         SubscribeNetworkEvent<ChangeLayingDownEvent>(OnChangeState);
@@ -60,7 +65,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
     private void HandleCrawlUnderRequest(ICommonSession? session)
     {
         if (session == null
-            || session.AttachedEntity is not {} uid
+            || session.AttachedEntity is not { } uid
             || !TryComp<StandingStateComponent>(uid, out var standingState)
             || !TryComp<LayingDownComponent>(uid, out var layingDown)
             || !_actionBlocker.CanInteract(uid, null))
@@ -107,20 +112,23 @@ public abstract class SharedLayingDownSystem : EntitySystem
     private void OnStandingUpDoAfter(EntityUid uid, StandingStateComponent component, StandingUpDoAfterEvent args)
     {
         if (args.Handled || args.Cancelled
-            || HasComp<KnockedDownComponent>(uid)
-            || _mobState.IsIncapacitated(uid)
-            || !_standing.Stand(uid))
+                         || HasComp<KnockedDownComponent>(uid)
+                         || _mobState.IsIncapacitated(uid)
+                         || !_standing.Stand(uid))
             component.CurrentState = StandingState.Lying;
 
         component.CurrentState = StandingState.Standing;
     }
 
-    private void OnRefreshMovementSpeed(EntityUid uid, LayingDownComponent component, RefreshMovementSpeedModifiersEvent args)
+    private void OnRefreshMovementSpeed(EntityUid uid,
+        LayingDownComponent component,
+        RefreshMovementSpeedModifiersEvent args)
     {
         if (!_standing.IsDown(uid))
             return;
 
-        var modifier = component.LyingSpeedModifier * (component.IsCrawlingUnder ? component.CrawlingUnderSpeedModifier : 1);
+        var modifier = component.LyingSpeedModifier *
+                       (component.IsCrawlingUnder ? component.CrawlingUnderSpeedModifier : 1);
         args.ModifySpeed(modifier, modifier);
     }
 
@@ -135,7 +143,9 @@ public abstract class SharedLayingDownSystem : EntitySystem
         _standing.Stand(uid, standingState);
     }
 
-    public bool TryStandUp(EntityUid uid, LayingDownComponent? layingDown = null, StandingStateComponent? standingState = null)
+    public bool TryStandUp(EntityUid uid,
+        LayingDownComponent? layingDown = null,
+        StandingStateComponent? standingState = null)
     {
         if (!Resolve(uid, ref standingState, false)
             || !Resolve(uid, ref layingDown, false)
@@ -158,7 +168,10 @@ public abstract class SharedLayingDownSystem : EntitySystem
         return true;
     }
 
-    public bool TryLieDown(EntityUid uid, LayingDownComponent? layingDown = null, StandingStateComponent? standingState = null, DropHeldItemsBehavior behavior = DropHeldItemsBehavior.NoDrop)
+    public bool TryLieDown(EntityUid uid,
+        LayingDownComponent? layingDown = null,
+        StandingStateComponent? standingState = null,
+        DropHeldItemsBehavior behavior = DropHeldItemsBehavior.NoDrop)
     {
         if (!Resolve(uid, ref standingState, false)
             || !Resolve(uid, ref layingDown, false)
@@ -172,6 +185,18 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
         _standing.Down(uid, true, behavior != DropHeldItemsBehavior.NoDrop, standingState, setDrawDepth: true);
         return true;
+    }
+
+    // WWDP
+    public void LieDownInRange(EntityUid uid, EntityCoordinates coords, float range = 0.4f)
+    {
+        var ents = new HashSet<Entity<LayingDownComponent>>();
+        _lookup.GetEntitiesInRange(coords, range, ents);
+
+        foreach (var ent in ents.Where(ent => ent.Owner != uid))
+        {
+            TryLieDown(ent, behavior: DropHeldItemsBehavior.DropIfStanding);
+        }
     }
 }
 

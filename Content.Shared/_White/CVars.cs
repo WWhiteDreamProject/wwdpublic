@@ -15,13 +15,6 @@ public sealed class WhiteCVars
 
     #endregion
 
-    #region Keybind
-
-    public static readonly CVarDef<bool> HoldLookUp =
-        CVarDef.Create("white.hold_look_up", false, CVar.CLIENT | CVar.ARCHIVE);
-
-    #endregion
-
     #region Locale
 
     public static readonly CVarDef<string>

@@ -27,8 +27,7 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
     public void OnStateEntered(GameplayState state)
     {
         CommandBinds.Builder
-            .Bind(ContentKeyFunctions.OpenEmotesMenu,
-                InputCmdHandler.FromDelegate(_ => ToggleEmotesMenu(false)))
+            .Bind(ContentKeyFunctions.OpenEmotesMenu, InputCmdHandler.FromDelegate(_ => ToggleEmotesMenu(false)))
             .Register<EmotesUIController>();
     }
 

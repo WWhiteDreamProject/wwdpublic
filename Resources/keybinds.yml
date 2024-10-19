@@ -187,11 +187,9 @@ binds:
 - function: OpenCharacterMenu
   type: State
   key: C
-  # WD EDIT START
-- function: OpenEmotionsMenu
+- function: OpenEmotesMenu
   type: State
   key: Y
-  # WD EDIT END
 - function: OpenLanguageMenu
   type: State
   key: L

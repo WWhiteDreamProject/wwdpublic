@@ -60,7 +60,7 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.UseItemInHand);
             human.AddFunction(ContentKeyFunctions.AltUseItemInHand);
             human.AddFunction(ContentKeyFunctions.OpenCharacterMenu);
-            human.AddFunction(ContentKeyFunctions.OpenEmotionsMenu); // WD EDIT
+            human.AddFunction(ContentKeyFunctions.OpenEmotesMenu); // WD EDIT
             human.AddFunction(ContentKeyFunctions.OpenLanguageMenu);
             human.AddFunction(ContentKeyFunctions.ActivateItemInWorld);
             human.AddFunction(ContentKeyFunctions.ThrowItemInHand);
