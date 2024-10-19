@@ -4051,7 +4051,7 @@ Entries:
     - type: Add
       message: >-
         Glass/Crystal shards and floor tiles now deal damage and embed in
-        victims when colliding with them.
+        victims when colliding with them. 
   id: 6107
   time: '2024-05-11T01:23:00.0000000+00:00'
 - author: FoxxoTrystan
@@ -4262,7 +4262,7 @@ Entries:
     - type: Fix
       message: >-
         Spent bullet casings now fly away from a shooter in a cinematic manner,
-        rather than fall at their feet.
+        rather than fall at their feet. 
   id: 6133
   time: '2024-07-01T22:37:29.0000000+00:00'
 - author: WarMechanic
@@ -4458,7 +4458,7 @@ Entries:
     - type: Add
       message: >-
         Cablecuffs and Zipties are now easier to escape out of if you're
-        smaller.
+        smaller. 
   id: 6158
   time: '2024-07-13T08:05:52.0000000+00:00'
 - author: FoxxoTrystan
@@ -4526,7 +4526,7 @@ Entries:
     - type: Fix
       message: >-
         Harpies can no longer buy Loadout items that are impossible for them to
-        wear due to having digitigrade legs.
+        wear due to having digitigrade legs. 
   id: 6168
   time: '2024-07-18T02:34:52.0000000+00:00'
 - author: Mnemotechnician
@@ -4585,7 +4585,7 @@ Entries:
     - type: Add
       message: >-
         Camera Shake is now affected by character mass. Small characters
-        experience more camera shake. Large characters experience less.
+        experience more camera shake. Large characters experience less. 
   id: 6176
   time: '2024-07-21T06:50:25.0000000+00:00'
 - author: VMSolidus
@@ -4593,7 +4593,7 @@ Entries:
     - type: Add
       message: >-
         The Head Of Personnel can now hire people onto basic roles for each
-        department by vending PDAs.
+        department by vending PDAs. 
   id: 6177
   time: '2024-07-22T19:12:01.0000000+00:00'
 - author: VMSolidus
@@ -4700,7 +4700,7 @@ Entries:
     - type: Fix
       message: >-
         Fixed Tools, Drink Containers, Lockers, and all base items having
-        inconsistent sound settings.
+        inconsistent sound settings. 
   id: 6191
   time: '2024-07-31T22:47:01.0000000+00:00'
 - author: VMSolidus
@@ -4808,7 +4808,7 @@ Entries:
     - type: Add
       message: >-
         Added a 1-point combat knife to Loadouts for Felinid/Harpy security
-        jobs.
+        jobs. 
     - type: Tweak
       message: Made the security belt and security webbing able to hold combat knives.
     - type: Tweak
@@ -4858,7 +4858,7 @@ Entries:
         Due to budget cuts, Nanotrasen has ceased stocking Clothesmate vendors
         with more clothing than the average cargo tech can afford. Civilians are
         advised to bring their own clothes to the station if they wish to wear
-        anything other than grey.
+        anything other than grey. 
   id: 6208
   time: '2024-08-04T00:23:53.0000000+00:00'
 - author: VMSolidus
@@ -4866,7 +4866,7 @@ Entries:
     - type: Add
       message: >-
         SweatMAX, "hot foods", Mars Mart, and Nippon-tan vendors have all been
-        added to vendor spawners.
+        added to vendor spawners. 
   id: 6209
   time: '2024-08-04T06:26:34.0000000+00:00'
 - author: Skubman
@@ -4925,7 +4925,7 @@ Entries:
         The Carrying system has been reworked as a means of better supporting
         having extremely large species and characters. 10kg Harpies should no
         longer be oppressed by 2000kg Lamia with infinitely short carry
-        attempts.
+        attempts. 
   id: 6216
   time: '2024-08-05T17:11:37.0000000+00:00'
 - author: Rane
@@ -4953,11 +4953,11 @@ Entries:
     - type: Add
       message: >-
         CPR has been added to the game. People with CPR training can now perform
-        CPR on anyone who is in either crit or dead states.
+        CPR on anyone who is in either crit or dead states. 
     - type: Add
       message: >-
         CPR Training has been added to the game as a new positive trait. All
-        medical staff start with this trait for free.
+        medical staff start with this trait for free. 
   id: 6220
   time: '2024-08-06T05:28:54.0000000+00:00'
 - author: Skubman
@@ -5144,7 +5144,7 @@ Entries:
     - type: Fix
       message: >-
         Sluggish and Snail-Paced will now properly apply their movement
-        penalties upon joining.
+        penalties upon joining. 
   id: 6244
   time: '2024-08-09T17:28:01.0000000+00:00'
 - author: ODJ
@@ -5160,7 +5160,7 @@ Entries:
     - type: Tweak
       message: >-
         Renamed "Psionic Mantis" to "Mantis", as it was originally going to be
-        called.
+        called. 
   id: 6246
   time: '2024-08-10T12:03:12.0000000+00:00'
 - author: Skubman
@@ -5391,168 +5391,20 @@ Entries:
         three-tone variants.
   id: 6269
   time: '2024-08-18T05:52:22.0000000+00:00'
-- author: 6Mirage6
-  changes:
-    - type: Tweak
-      message: >-
-        Current sprites of steel, plasteel, glass (all types) and plastic. /
-        Добавляет спрайты листов стали, пластали, стекла (всех видов), пластика.
-  id: 6270
-  time: '2024-08-21T10:53:44.0000000+00:00'
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added telescope system / Добавлена система прицеливания
-    - type: Tweak
-      message: Now you can aim from Hristov / Теперь можно прицеливаться из Христова
-  id: 6271
-  time: '2024-08-23T01:45:30.0000000+00:00'
-- author: Hell_Cat
-  changes:
-    - type: Add
-      message: Добавлен предмет аплинка - ЭМИ фонарик.
-  id: 6272
-  time: '2024-08-23T02:53:41.0000000+00:00'
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added lying down system / Добавлена система лежания
-  id: 6273
-  time: '2024-08-23T13:30:07.0000000+00:00'
-- author: Spatison
-  changes:
-    - type: Tweak
-      message: Press to walk / Нажать чтобы идти
-  id: 6274
-  time: '2024-08-23T13:30:51.0000000+00:00'
-- author: Remuchi
-  changes:
-    - type: Fix
-      message: >-
-        Thieves and Ninjas now properly spawn with their gear / Ниндзя и воры
-        теперь корректно спавнятся со своим снаряжением.
-  id: 6275
-  time: '2024-08-24T04:45:51.0000000+00:00'
-- author: Spatison
-  changes:
-    - type: Add
-      message: added BlinkSystem / Добавлена система телепортации
-  id: 6276
-  time: '2024-08-27T10:01:15.0000000+00:00'
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added discounts in uplink / Добавлены скидки в аплинк
-  id: 6277
-  time: '2024-08-27T10:55:17.0000000+00:00'
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added aspects / Добавлены аспекты
-  id: 6278
-  time: '2024-08-30T02:46:26.0000000+00:00'
-- author: Warete
-  changes:
-    - type: Add
-      message: >-
-        The ability to remove tiles with axes / Возможность снимать плитку
-        топорами
-  id: 6279
-  time: '2024-08-31T16:22:01.0000000+00:00'
-- author: Spatison
-  changes:
-    - type: Add
-      message: >-
-        Added flip when hiting with a double energy sword / Добавлено сальто при
-        ударе двойным энергетическим мечом
-    - type: Tweak
-      message: >-
-        The chance to reflect the laser with energy swords has been increased /
-        Увеличен шанс отразить лазер энергетическими мечами
-    - type: Tweak
-      message: >-
-        The double Energy Sword can no longer be activated in one hand / Двойной
-        энергетический меч больше нельзя активировать в одной руке
-  id: 6280
-  time: '2024-08-31T17:40:36.0000000+00:00'
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added melee block / Добавлен блок в ближнем бою
-  id: 6281
-  time: '2024-08-31T18:58:03.0000000+00:00'
-- author: Warete
-  changes:
-    - type: Add
-      message: Added two roles Maid and Hobo / Добавлено две роли Прислуга и Бомж
-  id: 6282
-  time: '2024-09-01T07:21:33.0000000+00:00'
-- author: Spatison
-  changes:
-    - type: Add
-      message: Logo / Лого
-  id: 6283
-  time: '2024-09-01T10:11:53.0000000+00:00'
-- author: Remuchi
-  changes:
-    - type: Add
-      message: >-
-        Простые и часто используемые вещи теперь можно создавать взаимодействуя
-        с материалом в руках без меню строительства / A bunch of construction
-        recipes can now be quickly accessed by interacting with material they
-        are using.
-  id: 6284
-  time: '2024-09-03T05:39:50.0000000+00:00'
-- author: Hell_Cat
-  changes:
-    - type: Add
-      message: added toggle in ore bag
-    - type: Fix
-      message: Ore processor fixed
-  id: 6285
-  time: '2024-09-03T10:18:06.0000000+00:00'
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added disarm animation / Добавлена анимация толчка
-    - type: Tweak
-      message: 'Heavy damage modifier: 1.2 => 1 /  Модификатор урона тяжелой атакой: 1'
-  id: 6286
-  time: '2024-09-03T10:22:51.0000000+00:00'
-- author: Spatison
-  changes:
-    - type: Tweak
-      message: >-
-        An ordinary player can now use adminwho / Обычные игроки теперь могут
-        использовать adminwho
-  id: 6287
-  time: '2024-09-03T17:01:18.0000000+00:00'
-- author: Spatison
-  changes:
-    - type: Fix
-      message: >-
-        The trown item is now triggred once / Брошенные предметы теперь
-        срабатывают единожды
-  id: 6288
-  time: '2024-09-03T17:02:18.0000000+00:00'
-- author: Gersoon458
-  changes:
-    - type: Add
-      message: Добавлены новые тайлы и текстуры для них
-    - type: Add
-      message: Добавлены новые декали и текстуры для них
-    - type: Add
-      message: Добавлены растения с рандомным спрайтом
-    - type: Tweak
-      message: Изменено много спрайтов тайлов, декалей, структур из дерева и другое...
-  id: 6289
-  time: '2024-09-05T09:34:23.0000000+00:00'
 - author: Mnemotechnician
   changes:
     - type: Fix
       message: You no longer need to have a station record to publish news.
   id: 6270
   time: '2024-08-18T18:11:10.0000000+00:00'
+- author: ShatteredSwords
+  changes:
+    - type: Add
+      message: Several useful items have been added to loadouts
+    - type: Add
+      message: Cowtools are selectable for clown in the "Jobs" category of loadouts
+  id: 6271
+  time: '2024-08-20T06:48:59.0000000+00:00'
 - author: VMSolidus
   changes:
     - type: Add
@@ -5596,7 +5448,7 @@ Entries:
     - type: Tweak
       message: >-
         Chaplain, Mantis, & Mystagogue all receive the Latent Psychic trait for
-        free, automatically.
+        free, automatically. 
   id: 6273
   time: '2024-08-20T18:42:44.0000000+00:00'
 - author: VMSolidus
@@ -5614,7 +5466,7 @@ Entries:
         Actions no longer need to hardcode in target blacklists, and can now
         blacklist entities in YML. This is notably useful for Psionic powers,
         which all share a common feature that they can't target people with
-        Psionic Insulation (Or have been Mindbroken).
+        Psionic Insulation (Or have been Mindbroken). 
   id: 6275
   time: '2024-08-21T09:08:40.0000000+00:00'
 - author: VMSolidus
@@ -5683,7 +5535,7 @@ Entries:
       message: >-
         Gaining a new Psionic Power can now display messages to alert the
         player, both as a short popup, and optionally a lengthier message sent
-        to the user's Chat window.
+        to the user's Chat window. 
   id: 6284
   time: '2024-08-22T17:12:26.0000000+00:00'
 - author: DEATHB4DEFEAT
@@ -5756,6 +5608,12 @@ Entries:
 - author: VMSolidus
   changes:
     - type: Fix
+      message: Temporarily disabled Telegnosis pending a lengthier update.
+  id: 6293
+  time: '2024-08-30T00:46:52.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Fix
       message: IPC now have their own unique deathgasp message.
   id: 6294
   time: '2024-08-30T00:50:20.0000000+00:00'
@@ -5794,7 +5652,7 @@ Entries:
       message: >-
         Natural Telepath has returned from Psionic-Refactor V1, now using new
         functionality from the trait system that allows traits to buy psionic
-        powers directly.
+        powers directly. 
     - type: Add
       message: >-
         Latent Psychics who have neither bought Natural Telepath, nor acquired
@@ -5872,7 +5730,7 @@ Entries:
       message: >-
         InnatePsionicPowers now operates on MapInitEvent instead of
         ComponentStartup, meaning that it can now be safely used on entities
-        that are mapped in instead of spawned.
+        that are mapped in instead of spawned. 
     - type: Add
       message: >-
         Oracle and Sophia are now recognized as Divine, and as such are
@@ -5897,6 +5755,20 @@ Entries:
         new UI for this in the future!
   id: 6306
   time: '2024-09-01T23:20:45.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: >-
+        The default stamina cost for Power Attacks for any weapon that doesn't
+        explicitly modify it is now correctly set to 10 stamina(down from 20).
+  id: 6307
+  time: '2024-09-01T23:25:51.0000000+00:00'
+- author: Evgencheg
+  changes:
+    - type: Add
+      message: Changelogs should be shown in Discord now
+  id: 6308
+  time: '2024-09-01T23:47:18.0000000+00:00'
 - author: DJB1gYAPPA
   changes:
     - type: Add
@@ -5911,7 +5783,7 @@ Entries:
         Psionic(But cannot gain powers randomly). This is due to their status as
         "Magical And/Or Extraplanar Creatures", which makes them valid targets
         for anti-psychic abilities such as the Psionic Mantis' Anti-Psychic
-        Knife.
+        Knife. 
     - type: Add
       message: Some Reagent Slimes can now contain Lotophagoi Oil.
   id: 6310
@@ -5928,7 +5800,7 @@ Entries:
       message: >-
         "Clone Soup" scales directly with the mass of the entity you're
         attempting to clone. Fail to clone a Lamia, and you'll be greeted with
-        an Olympic swimming pool worth of blood when the machine opens.
+        an Olympic swimming pool worth of blood when the machine opens. 
     - type: Add
       message: >-
         Cloning will fail if at any point during the procedure, the machine is
@@ -5937,7 +5809,7 @@ Entries:
       message: >-
         Clones come out of the machine with severe Cellular damage. Consider
         using Doxarubixadone in a Cryo tube as an affordable means of
-        "Finishing" clones.
+        "Finishing" clones. 
     - type: Tweak
       message: >-
         Cloning Time is now increased proportionally if an entity being cloned
@@ -5957,6 +5829,24 @@ Entries:
         from being forcibly reincarnated.
   id: 6311
   time: '2024-09-02T15:08:52.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+    - type: Add
+      message: New changelogs should now show links to their PRs
+    - type: Tweak
+      message: Changelog authors should now be a header instead of bold text
+    - type: Fix
+      message: Changelogs shouldn't send random amounts of old changelogs
+  id: 6312
+  time: '2024-09-02T19:52:08.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/843
+- author: DEATHB4DEFEAT
+  changes:
+    - type: Fix
+      message: oatnsdaoersoaetaroeoertnsirlea
+  id: 6313
+  time: '2024-09-02T19:54:19.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/846
 - author: Rane
   changes:
     - type: Add
@@ -5972,73 +5862,19 @@ Entries:
   id: 6314
   time: '2024-09-03T02:17:55.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/808
-- author: Spatison
-  changes:
-    - type: Tweak
-      message: >-
-        The duafter is removed when opening the door or tearing off the tile
-        with a crowbar / Убран дуафтер при открывании шлюзов или отрывании
-        плитки ломом
-  id: 6290
-  time: '2024-09-05T18:15:32.0000000+00:00'
-- author: Remuchi
-  changes:
-    - type: Tweak
-      message: >-
-        Апстрим с Einstein Engines. Основные отличия можно глянуть на гитхабе
-        либо полный ченджлог доступен в игре.
-  id: 6315
-  time: '2024-09-05T19:58:43.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/39
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added BackStab / Добавлен удар в спину
-    - type: Add
-      message: >-
-        Added the Betrayal dagger to uplink / Добавлен Предательский кинжал в
-        аплинк
-  id: 6316
-  time: '2024-09-07T02:50:31.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/30
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added WD airlock texture / Добавлены Текстуры шлюзов от ВД
-    - type: Tweak
-      message: The powered airlock are now glowing / Запитанные шлюзы теперь светятся
-    - type: Fix
-      message: Fixed animation of airlock / Исправлена анимация шлюзов
-  id: 6317
-  time: '2024-09-09T05:36:59.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/42
-- author: Remuchi
-  changes:
-    - type: Add
-      message: Old ahelp sound. All hail BWOINK! / Возвращен старый звук ахелпа
-    - type: Remove
-      message: >-
-        Sound on sending ahelp message was removed / Удален звук при отправке
-        сообщения в ахелпе.
-  id: 6318
-  time: '2024-09-09T08:26:34.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/48
 - author: VMSolidus
   changes:
     - type: Add
       message: >-
         Several new tips have been added to the game, many of which reference
-        new content available on Einstein-Engines / Добавлены новые подсказки,
-        касающиеся контента Einstein Engines.
+        new content available on Einstein-Engines. 
   id: 6315
   time: '2024-09-05T00:00:21.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/844
 - author: Mnemotechnician
   changes:
     - type: Fix
-      message: >-
-        Fixed a couple issues with the new interaction verb system / Исправлены
-        некоторые проблемы с новой системой взаимодействий.
+      message: Fixed a couple issues with the new interaction verb system.
   id: 6316
   time: '2024-09-05T00:18:41.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/854
@@ -6048,21 +5884,17 @@ Entries:
       message: >-
         Due to NUMEROUS complaints, NanoTrasen has swapped the sticker labels on
         all colored jumpskirts to correctly state that they are infact,
-        "Skirts", so now they can legally be worn by Harpies, Lamia, and Arachne
-        / Часть ранее недоступных для гарпий юбкомбенизонов теперь доступны.
+        "Skirts", so now they can legally be worn by Harpies, Lamia, and
+        Arachne. 
   id: 6317
   time: '2024-09-05T00:19:49.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/848
 - author: ShatteredSwords
   changes:
     - type: Tweak
-      message: >-
-        The cost of many traits have been updated / Стоимость многих черт
-        персонажей была изменена.
+      message: The cost of many traits have been updated
     - type: Tweak
-      message: >-
-        A few traits have been tweaked / Некоторые черты персонажа были
-        изменены.
+      message: A few traits have been tweaked
   id: 6318
   time: '2024-09-06T20:08:38.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/842
@@ -6072,57 +5904,38 @@ Entries:
       message: >-
         A new Roboticist job has been added. The job does not offer any new
         accesses, but lets you distinguish yourself from scientists. Existing
-        maps will need to be updated to support the new job / Добавлена роль
-        Робототехника.
+        maps will need to be updated to support the new job.
     - type: Add
       message: >-
         Added new PDA, ID, and bag variants for roboticists. The mystagogue will
-        now also find a roboticist PDA in their office / Добавлены ПДА, ID карта
-        и сумка робототехника.
+        now also find a roboticist PDA in their office.
   id: 6319
   time: '2024-09-06T20:17:31.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/801
 - author: DEATHB4DEFEAT
   changes:
     - type: Fix
-      message: >-
-        The loadout/trait editors' performance has been improved by 100~1000x /
-        Производительность окна смены лодаутов/черт персонажей была улучшена в
-        100-1000 раз.
+      message: The loadout/trait editors' performance has been improved by 100~1000x
     - type: Tweak
-      message: >-
-        The character editor's tabs look, feel, and function much better /
-        Улучшен визуальный вид окна изменения персонажа
+      message: The character editor's tabs look, feel, and function much better
     - type: Fix
-      message: >-
-        Unusable loadouts/traits have an orange color when selected /
-        Неиспользуемые лодауты/черты теперь имеют оранжевый цвет при выборе
+      message: Unusable loadouts/traits have an orange color when selected
     - type: Tweak
-      message: >-
-        Loadout previews are now inside the button / Превью лодаутов теперь
-        внутри кнопки (не знаю что Death имел в виду тут).
+      message: Loadout previews are now inside the button
     - type: Add
       message: >-
         Added a button to remove any unusable loadouts (or traits) you have
-        selected / Добавлена кнопка удалить все неиспользуемые лодауты (или
-        черты персонажа).
+        selected
     - type: Add
       message: >-
         Loadouts and traits can have subcategories, though only Command loadouts
-        use them at the moment / Лодауты и черты персонажей получили
-        подкатегории.
+        use them at the moment
     - type: Fix
-      message: >-
-        Fixed empty loadout categories not hiding / Исправлено, что пустые
-        категории лодаутов не скрывались.
+      message: Fixed empty loadout categories not hiding
     - type: Fix
-      message: >-
-        Fixed spacing on some loadout requirements' reason text / Исправлено
-        отображение текста на некоторых лодаутах.
+      message: Fixed spacing on some loadout requirements' reason text
     - type: Fix
-      message: >-
-        Fixed traits not updating after saving / Черты персонажей теперь
-        корректно сохраняются
+      message: Fixed traits not updating after saving
   id: 6320
   time: '2024-09-06T21:59:51.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/736
@@ -6131,16 +5944,12 @@ Entries:
     - type: Add
       message: >-
         The first of all new loadout groups has been added, Civilian Uniforms.
-        Only one civilian uniform can be selected, in exchange for... /
-        Добавлена первая из новых групп лодаутов - «Гражданская униформа». Можно
-        выбрать только одну гражданскую форму, в обмен на...
+        Only one civilian uniform can be selected, in exchange for...
     - type: Tweak
       message: >-
         All non-job specific uniforms have had their points reduced drastically,
         almost all of them down to 0 points, with only a tiny handful at 2
-        points, and the rest as 1 / Всем униформам, не относящимся к конкретным
-        профессиям, значительно снижена цена. Большая часть до 0 очков,
-        небольшое количества по 2 очков, а остальные - 1.
+        points, and the rest as 1. 
   id: 6321
   time: '2024-09-07T00:53:13.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/872
@@ -6149,55 +5958,63 @@ Entries:
     - type: Tweak
       message: >-
         All neck slot Loadout items have had their costs significantly reduced,
-        most of them to 0 / Цены на все вещи на шею в лодаутах были снижены,
-        вплоть до нуля.
+        most of them to 0.
   id: 6322
   time: '2024-09-07T00:55:49.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/874
 - author: VMSolidus
   changes:
     - type: Tweak
-      message: >-
-        Eyewear have had their loadout point costs significantly reduced / Цены
-        на многие очки в лодаутах были снижены.
+      message: Eyewear have had their loadout point costs significantly reduced.
   id: 6323
   time: '2024-09-07T01:04:42.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/879
 - author: VMSolidus
   changes:
     - type: Tweak
-      message: >-
-        All masks have had their loadout point costs substantially reduced /
-        Цены на многие маски в лодаутах были снижены.
+      message: All masks have had their loadout point costs substantially reduced.
   id: 6324
   time: '2024-09-07T01:06:11.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/875
+- author: Remuchi
+  changes:
+    - type: Add
+      message: >-
+        Interacting with some materials now opens the radial menu containing
+        some of the most used recipes of that material.
+  id: 6325
+  time: '2024-09-07T03:59:44.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/861
 - author: Mnemotechnician
   changes:
     - type: Add
       message: >-
         Your character size now affects your blood level. Smaller characters
-        will have less blood, and larger characters will have more / Размер
-        персонажа теперь влияет на количество крови в нем. Меньше размер ->
-        меньше крови. И наоборот.
+        will have less blood, and larger characters will have more.
   id: 6326
   time: '2024-09-08T14:39:19.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/858
+- author: Mnemotechnician
+  changes:
+    - type: Remove
+      message: >-
+        Quick swap has been disabled for most item slots. This primarily means
+        you will have to eject power cells/magazines from items/weapons/borgs
+        before replacing them with different ones.
+  id: 6327
+  time: '2024-09-08T14:42:30.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/856
 - author: router
   changes:
     - type: Tweak
-      message: >-
-        Female slimes no longer have movie screams / Звук крика слаймов женщин
-        был изменен.
+      message: Female slimes no longer have movie screams.
   id: 6328
   time: '2024-09-08T14:44:29.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/849
 - author: Mnemotechnician
   changes:
     - type: Add
-      message: >-
-        Chat bubbles now use the font & color of the language of the message / В
-        чате теперь корректно отображаются цвета и шрифты.
+      message: Chat bubbles now use the font & color of the language of the message.
   id: 6329
   time: '2024-09-08T14:51:20.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/812
@@ -6206,8 +6023,7 @@ Entries:
     - type: Add
       message: >-
         A shrimp morphotype was added to the failure pool of the metempsychotic
-        machine / Добавлено превращение в креветку как неудачный эксперимент в
-        метемпсихозной машине.
+        machine.
   id: 6330
   time: '2024-09-08T14:56:13.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/882
@@ -6216,70 +6032,83 @@ Entries:
     - type: Fix
       message: >-
         Multiple issues with translators were fixed. Additionally, you can now
-        hold multiple handheld translators at once without issues / Различные
-        исправления внутреигровых переводчиков.
+        hold multiple handheld translators at once without issues.
   id: 6331
   time: '2024-09-08T15:08:37.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/834
 - author: VMSolidus
   changes:
     - type: Add
+      message: Recyclers can now once again eat people when emagged.
+    - type: Add
       message: >-
-        Recyclers can now once again eat people when emagged / Переработчик
-        теперь снова может есть людей и других зверей.
+        The ability for emagged Recyclers to eat people is now controlled by the
+        CVar "reclaimer.allow_gibbing".
     - type: Add
       message: >-
         Recyclers require power to eat people. No more dragging emagged
-        recyclers into crowds / Переработчик теперь требует энергии для поедания
-        людей.
+        recyclers into crowds.
   id: 6332
   time: '2024-09-08T15:15:56.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/822
 - author: BlueHNT
   changes:
     - type: Add
-      message: >-
-        Added bwoink hammer with bwoink sound / Добавлена игрушка-молот со
-        звуком ахелпа.
+      message: Added bwoink hammer with bwoink sound
   id: 6333
   time: '2024-09-08T15:16:09.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/759
 - author: VMSolidus
   changes:
     - type: Add
-      message: >-
-        A new console command, AddPsionicPower has been added / Новая педальная
-        команда - AddPsionicPower.
+      message: 'A new console command, AddPsionicPower has been added. '
   id: 6334
   time: '2024-09-08T15:16:29.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/807
 - author: VMSolidus
   changes:
     - type: Add
-      message: >-
-        Glacier, Core, and Saltern now have assistant job slots / Glacier, Core
-        и Saltern теперь имеют слоты ассистентов.
+      message: Glacier, Core, and Saltern now have assistant job slots.
     - type: Add
       message: >-
-        Glacier, Core, and Saltern are now able to be voted on for map selection
-        / Glacier, Core и Saltern теперь доступы в голосовании за карту.
+        Glacier, Core, and Saltern are now able to be voted on for map
+        selection.
   id: 6335
   time: '2024-09-09T04:13:06.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/838
 - author: VMSolidus
   changes:
+    - type: Tweak
+      message: >-
+        Wide Swing is no longer possible as a default on all weapons, the
+        default is now Power Attack (10 stamina spent, for 20% bonus damage to
+        single target only). Only a small number of weapons designed to
+        "Cleave", still have their wide swing functionality.
+  id: 6336
+  time: '2024-09-09T04:13:14.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/866
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: >-
+        Arrivals has been re-enabled. I feel sorry for all the people who
+        thought we had disabled it. This was a legacy toggle that was leftover
+        from when we forked DeltaV
+  id: 6337
+  time: '2024-09-09T04:13:50.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/871
+- author: VMSolidus
+  changes:
     - type: Fix
       message: >-
         Felinids and Harpies will now correctly never set off floor traps, such
-        as landmines and mouse traps / Фелиниды и гарпии теперь не будут
-        активировать напольные ловушки, например, мины или мышеловки.
+        as landmines and mouse traps.
     - type: Add
       message: >-
         Trap Avoider has been added as a new trait, allowing characters to buy
         the innate ability to avoid floor traps. I would have named this "Light
         Step", after the trait from Fallout that shares its name and effect, but
-        someone already gave that name to a different trait entirely / Добавлена
-        особенность Trap Avoider, позволяющая избегать напольные ловушки.
+        someone already gave that name to a different trait entirely.
   id: 6338
   time: '2024-09-09T04:14:44.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/884
@@ -6288,278 +6117,19 @@ Entries:
     - type: Add
       message: >-
         Arm and Leg markings are now split between individual arms, hands, legs,
-        and feet / кастомизация рук и ног теперь распределяется между отдельными
-        руками, кистями, ногами и ступнями.
+        and feet.
   id: 6339
   time: '2024-09-09T05:30:34.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/870
-- author: Remuchi
-  changes: []
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        The Antag Refactor has been once again added back in. More antags will
+        be coming soon. 
   id: 6340
-  time: '2024-09-09T16:06:49.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/50
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added a few translations / Добавлено немного переводов
-  id: 6341
-  time: '2024-09-09T16:23:30.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/51
-- author: TokiJumper
-  changes:
-    - type: Remove
-      message: >-
-        You can no longer miss when throwing something in disposal bin / Убран
-        промах у мусорки.
-  id: 6342
-  time: '2024-09-10T10:03:48.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/52
-- author: Remuchi
-  changes:
-    - type: Tweak
-      message: >-
-        Most of the hardsuits slow down less now / Большая часть скафандром
-        теперь слабее замедляет. 
-    - type: Remove
-      message: >-
-        Removed equip/unequip delay from most of the clothes / Убран ду-афтер
-        одевания/снятия большей части одежды.
-  id: 6343
-  time: '2024-09-10T17:00:41.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/54
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added new Lobby / Добавлено новое лобби
-  id: 6344
-  time: '2024-09-12T04:31:46.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/47
-- author: Remuchi
-  changes:
-    - type: Add
-      message: >-
-        Reintroduced dwarfs / Возвращены дворфы в игру. Лучше переносят алкоголь
-        и имеют чуть больше выносливости, чем остальные расы.
-    - type: Tweak
-      message: >-
-        Arachnids now have action to place spider web and no longer slowed down
-        by it / Арахниды получили возможность ставить паутину и не замедляться в
-        ней.
-    - type: Tweak
-      message: >-
-        Most races min/max/default height and width was rebalanced. Now they go
-        mostly +-10% from default / Параметры роста/ширины многих раз были
-        изменены. Теперь они могут (в большинстве случаев) изменяться на
-        максимум +-10% от стандартного значения.
-    - type: Remove
-      message: >-
-        Removed arachne from roundstart species pool / Арахне были удалены из
-        стартового набора рас.
-    - type: Remove
-      message: >-
-        Removed oni from roundstart species pool / Они были удалены из
-        стартового набора рас.
-  id: 6345
-  time: '2024-09-12T05:51:42.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/49
-- author: Gersoon
-  changes:
-    - type: Tweak
-      message: >-
-        Brought back old White textures of walls, tables, windows, tools and
-        clothes / Изменены многие текстуры стен, столов, окон, инструментов,
-        одежды, скафандров и подобного на старые Вайтовские
-  id: 6346
-  time: '2024-09-13T05:04:33.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/46
-- author: Spatison
-  changes:
-    - type: Add
-      message: added emotions menu / Добавлено меню эмоций
-  id: 6347
-  time: '2024-09-13T05:13:02.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/55
-- author: Warete
-  changes:
-    - type: Add
-      message: Custom Ghost's / Кастомные призраки
-  id: 6348
-  time: '2024-09-13T07:52:47.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/21
-- author: vanx
-  changes:
-    - type: Add
-      message: Огнестрельное оружие теперь может атаковать вблизи на ПКМ
-  id: 6349
-  time: '2024-09-13T18:36:01.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/24
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added Logging Of Chat Action / Добавлено Логирование Действий В Чат
-  id: 6350
-  time: '2024-09-15T16:06:53.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/57
-- author: Hell_Cat
-  changes:
-    - type: Fix
-      message: 'IPC: Immunity for shards and SpiderWeb | Иммунитет осколкам.'
-    - type: Fix
-      message: >-
-        Felinid | Фелиниды : Immunity for Shard Landmine Mousetrap SlipEntities
-        | Иммунитет для осколков, жидкости, мин, мышеловок, мыла и бананов.
-    - type: Fix
-      message: >-
-        Harpy | Гарпия : Immunity for Shards Landmine Mousetrap | Иммунитет для
-        осколков, жидкости, мин и мышеловок.
-    - type: Fix
-      message: 'Mice | Мыши : Don''t blow up on landmines | Мыши не подрываются на минах.'
-  id: 6351
-  time: '2024-09-16T14:16:49.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/53
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added respawn button / Добавлена кнопка респавна
-  id: 6352
-  time: '2024-09-21T10:20:10.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/56
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added a new sprite of Hristov / Добавлен новый спрайт Христова
-    - type: Tweak
-      message: Hristov has been improved / Христов был улучшен
-    - type: Tweak
-      message: >-
-        Some weapons now require manually cycling / В некоторых видах оружия
-        теперь необходимо вручную досылать патрон
-  id: 6353
-  time: '2024-09-21T10:21:44.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/58
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added ru keycodes / Добавлены русские ключи радиоканалов
-  id: 6354
-  time: '2024-09-23T02:57:16.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/67
-- author: Spatison
-  changes:
-    - type: Fix
-      message: >-
-        The size of the Lobby cannot be changed now / Размер лобби теперь нельзя
-        изменить
-  id: 6355
-  time: '2024-09-23T02:57:40.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/64
-- author: Spatison
-  changes:
-    - type: Fix
-      message: >-
-        The screen now perceives the Russian alphabet / Экран теперь
-        воспринимает русский алфавит
-  id: 6356
-  time: '2024-09-23T03:18:33.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/61
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added small energy crossbow / Добавлен маленький энерго арбалет
-  id: 6357
-  time: '2024-09-26T01:56:42.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/60
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added snatchprod / Добавлена хваталка
-    - type: Tweak
-      message: >-
-        You can now change the battery in the stunprod / В шок-палке теперь
-        можно менять батарейку
-    - type: Tweak
-      message: >-
-        The creation of the stunprod  is now hidden / Создание шок-палке теперь
-        скрытое
-  id: 6358
-  time: '2024-09-27T02:10:40.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/65
-- author: Spatison
-  changes:
-    - type: Add
-      message: >-
-        Added experimental syndicate teleporter / Добавлен экспериментальный
-        телепортатор синдиката
-  id: 6359
-  time: '2024-09-27T02:12:53.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/63
-- author: PointPNG
-  changes:
-    - type: Add
-      message: ДрайДок добавлен в билд.
-    - type: Add
-      message: ДрайДок добавлен в ротацию карт.
-  id: 6360
-  time: '2024-09-29T12:15:14.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/68
-- author: Spatison
-  changes:
-    - type: Tweak
-      message: Dwarf now weigh more / Дварфы теперь весят больше
-  id: 6361
-  time: '2024-10-11T03:54:12.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/83
-- author: Spatison
-  changes:
-    - type: Fix
-      message: >-
-        No more discounts in uplink implant / Больше никаких скидок в имплант
-        аплинка
-  id: 6362
-  time: '2024-10-11T03:55:38.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/81
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added smoke implant / Добавлен имплант дыма
-  id: 6363
-  time: '2024-10-11T04:07:40.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/79
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added syndicate implanter / Добавлен имплантер синдиката
-  id: 6364
-  time: '2024-10-11T04:26:13.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/78
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added neuro stabilization Implant / Добавлен имплант нейро стабильности
-  id: 6365
-  time: '2024-10-11T05:03:33.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/80
-- author: Spatison
-  changes:
-    - type: Tweak
-      message: Changed the chances of secret modes / Изменены шансы режимов в секрете
-  id: 6366
-  time: '2024-10-16T01:46:51.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/87
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added blood dagger/ Добавлен кровавый кинжал
-  id: 6367
-  time: '2024-10-16T01:57:56.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/86
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added maindslave implanter/ Добавлен имплант подчинения
-  id: 6368
-  time: '2024-10-16T02:13:34.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/85
+  time: '2024-09-09T14:21:56.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/794
 - author: Mnemotechnician
   changes:
     - type: Add
@@ -6843,6 +6413,13 @@ Entries:
   id: 6366
   time: '2024-09-17T23:39:57.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/925
+- author: zelezniciar
+  changes:
+    - type: Tweak
+      message: The fireaxe once again can pry subfloors
+  id: 6367
+  time: '2024-09-17T23:40:13.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/921
 - author: VMSolidus
   changes:
     - type: Fix
@@ -6852,6 +6429,21 @@ Entries:
   id: 6368
   time: '2024-09-18T04:30:39.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/926
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added lying down system / Добавлена система лежания
+    - type: Tweak
+      message: >-
+        Lying down now uses do-afters that are visible to other people to
+        indicate what is going on.
+    - type: Add
+      message: Added telescope system / Добавлена система прицеливания
+    - type: Tweak
+      message: Now you can aim from Hristov / Теперь можно прицеливаться из Христова
+  id: 6369
+  time: '2024-09-19T02:18:35.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/815
 - author: FoxxoTrystan
   changes:
     - type: Remove
@@ -6921,6 +6513,13 @@ Entries:
   id: 6375
   time: '2024-09-20T19:34:02.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/939
+- author: ODJ
+  changes:
+    - type: Tweak
+      message: Tweaked melee; Less stamina usage on heavy attacks.
+  id: 6376
+  time: '2024-09-20T19:34:46.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/938
 - author: VMSolidus
   changes:
     - type: Tweak
@@ -6984,6 +6583,13 @@ Entries:
   id: 6382
   time: '2024-09-21T22:46:49.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/917
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added discounts in uplink / Добавлены скидки в аплинк
+  id: 6383
+  time: '2024-09-21T22:46:59.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/930
 - author: VMSolidus
   changes:
     - type: Add
@@ -7196,6 +6802,15 @@ Entries:
   id: 6402
   time: '2024-09-30T16:27:47.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/965
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        The size of the Lobby cannot be changed now / Размер лобби теперь нельзя
+        изменить
+  id: 6403
+  time: '2024-09-30T16:29:47.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/962
 - author: VMSolidus
   changes:
     - type: Add
@@ -7322,6 +6937,25 @@ Entries:
   id: 6417
   time: '2024-10-04T00:14:21.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1002
+- author: FoxxoTrystan
+  changes:
+    - type: Tweak
+      message: Directional Windows and Tables has gotten new sprites!
+    - type: Fix
+      message: AirAlarm Inverted Alert States has been fixed!
+  id: 6418
+  time: '2024-10-04T00:25:33.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/958
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        Ported a Respawn System. This system allows players to return themselves
+        to the lobby, while also requiring that if they re-enter the round, that
+        they must do so on a different character.
+  id: 6419
+  time: '2024-10-04T00:43:37.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/998
 - author: Mnemotechnician
   changes:
     - type: Fix
@@ -7470,6 +7104,15 @@ Entries:
   id: 6434
   time: '2024-10-09T23:01:29.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1024
+- author: DangerRevolution
+  changes:
+    - type: Add
+      message: Resprited basic Service Staff uniforms
+    - type: Add
+      message: Add rolled sleeve variants for Service Staff uniforms.
+  id: 6435
+  time: '2024-10-10T16:21:24.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1021
 - author: VMSolidus
   changes:
     - type: Remove
@@ -7569,6 +7212,18 @@ Entries:
   id: 6445
   time: '2024-10-13T19:25:05.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1035
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: >-
+        NT has started hiring contractors from other corporations to fill out
+        station staff. New loadout items for corporate contractors are now
+        available for Bartender, Botanist, Cataloguer, Chef, and Janitor.
+        Currently there are no jumpskirt versions of these uniforms. We are
+        looking for people willing to make skirt variations of each of these. 
+  id: 6446
+  time: '2024-10-13T19:26:23.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1041
 - author: Mnemotechnician
   changes:
     - type: Add
@@ -7683,302 +7338,10 @@ Entries:
   id: 6459
   time: '2024-10-17T19:21:01.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1058
-- author: Remuchi
+- author: zelezniciar
   changes:
-    - type: Add
-      message: Upstream
+    - type: Fix
+      message: Fixes Air Alarms not entering danger/warning state when pressure is low
   id: 6460
-  time: '2024-10-19T12:09:52.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/93
-- author: Gersoon
-  changes:
-    - type: Add
-      message: translation of tiles/перевод тайлов
-    - type: Tweak
-      message: sign textures changed/изменены текстуры знаков
-  id: 6461
-  time: '2024-10-21T06:56:21.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/90
-- author: Spatison
-  changes:
-    - type: Remove
-      message: Thieves' pacifism has been removed / Убран воровской пацифизм
-  id: 6462
-  time: '2024-10-22T16:35:54.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/95
-- author: Spatison
-  changes:
-    - type: Remove
-      message: Delete Prido-O-Mat / Удален прайдомат
-  id: 6463
-  time: '2024-10-23T03:35:00.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/84
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added hardlight spear implanter/ Добавлен имплант светового копья
-  id: 6464
-  time: '2024-10-23T10:20:53.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/77
-- author: Spatison
-  changes:
-    - type: Tweak
-      message: The energy shield can now be discharged  / Энерго щит теперь имеет заряд
-  id: 6465
-  time: '2024-10-23T10:23:45.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/94
-- author: Remuchi
-  changes:
-    - type: Add
-      message: >-
-        Переводы всех черт персонажа, черт внешности и меню персонажа. Так же
-        переведен весь контент Нянотрайзен.
-  id: 6466
-  time: '2024-10-23T14:11:51.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/97
-- author: Gersoon458
-  changes:
-    - type: Tweak
-      message: DryDock update/Обновление ДрайДока
-  id: 6467
-  time: '2024-10-24T13:50:33.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/98
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added night vision goggle/ Добавлен прибор ночного видения
-    - type: Add
-      message: Added thermal vision goggle/ Добавлен прибор термального видения
-  id: 6468
-  time: '2024-10-26T09:36:10.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/89
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added crossbow / Добавлен арбалет
-  id: 6469
-  time: '2024-10-26T09:41:08.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/76
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added Gondola / Добавлена Гондола
-  id: 6470
-  time: '2024-10-26T11:15:09.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/96
-- author: PuroSlavKing
-  changes:
-    - type: Add
-      message: Added "Operative" UI style / Добавлен стиль интерфейса "Оперативник"
-  id: 6471
-  time: '2024-10-27T02:51:58.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/102
-- author: Spatison
-  changes:
-    - type: Fix
-      message: >-
-        correction of a collision at a glass shard/ Исправление колизии у
-        осколка стекла
-  id: 6472
-  time: '2024-10-27T13:28:02.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/104
-- author: Gersoon
-  changes:
-    - type: Add
-      message: New map added - Moose/Новая карта добавлена - Мус
-    - type: Tweak
-      message: Prisoners added to DryDock/На ДрайДок добавлены заключенные
-  id: 6473
-  time: '2024-10-27T13:49:26.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/100
-- author: Gersoon
-  changes:
-    - type: Add
-      message: >-
-        5 types of Halloween gifts, namely: basic, sweet, sweet themed, clothes,
-        themed clothes!/5 видов хеллоуинских подарков, а именно: основной,
-        сладкий, сладкий тематический, одежда, одежда тематичская!
-    - type: Add
-      message: New autumn grass and trees tiles!/Новые осенние тайлы травы и деревья!
-    - type: Add
-      message: >-
-        You can 100% find Halloween gifts in tech's closets!/В шкафах техов 100%
-        можно встретить хеллоунские подарки!
-    - type: Add
-      message: >-
-        New Halloween theme! (Settings -> HUD Theme: ->
-        ui-options-hud-theme-halloween (If I didn’t manage to take away the
-        ability to change themes during the week or didn’t add
-        translations))/Новая хеллоуинская тема худа! (Настройки -> Тема HUD: ->
-        ui-options-hud-theme-halloween (Если я не успел забрать возможность
-        менять темы на протяжении недели или не добавил переводы))
-    - type: Add
-      message: >-
-        Each roundstart role has a candy bucket! (Kutos)/У каждой роли
-        раундстартом есть ведерко для конфет! (Kutos)
-    - type: Add
-      message: New costumes! (Purka)/Новые костюмы! (Purka)
-    - type: Add
-      message: >-
-        New sweets! (Purka, Kilath, Canceredpussy (Cyber ​​cutlet))/Новые
-        сладости! (Purka, Kilath, Canceredpussy (Кибер котлетка))
-    - type: Tweak
-      message: The cards are now SPOOOOOOOKY!/Карты теперь ЖУУУУТКИЕ!
-  id: 6474
-  time: '2024-10-31T02:44:08.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/113
-- author: Spatison
-  changes:
-    - type: Tweak
-      message: With FTL, a person now falls / При ФТЛ перемещении человек теперь падает
-    - type: Tweak
-      message: >-
-        Magnetic boots now do not let you fall / Магнитные сапоги теперь не дают
-        упасть
-  id: 6475
-  time: '2024-10-31T02:52:22.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/111
-- author: Spatison
-  changes:
-    - type: Add
-      message: Added footsteps / Добавлены следы
-  id: 6476
-  time: '2024-10-31T03:03:14.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/110
-- author: Spatison
-  changes:
-    - type: Fix
-      message: >-
-        ПНВ и ПТВ теперь могут быть исследованы /  NVG and TVG can now be
-        researched
-  id: 6477
-  time: '2024-10-31T03:03:31.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/109
-- author: Spatison
-  changes:
-    - type: Fix
-      message: >-
-        Fixing the animation of the clown's shoes / Исправление анимации ботинок
-        клоуна
-  id: 6478
-  time: '2024-10-31T03:22:32.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/107
-- author: Spatison
-  changes:
-    - type: Fix
-      message: Сorrection of a Butlutron collision / Исправлена коллизия Бутлетрона
-  id: 6479
-  time: '2024-10-31T03:22:53.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/105
-- author: Spatison
-  changes:
-    - type: Fix
-      message: Fixed bugs with sprites / Исправлены баги с спрайтами
-  id: 6480
-  time: '2024-10-31T03:23:25.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/103
-- author: PuroSlavKing
-  changes:
-    - type: Tweak
-      message: Измененён звук пожарной тревоги.
-  id: 6481
-  time: '2024-10-31T03:24:35.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/106
-- author: Spatison
-  changes:
-    - type: Remove
-      message: Deleted fire alarm sound / Удален звук пожарной тревоги
-  id: 6482
-  time: '2024-11-01T11:47:36.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/115
-- author: Gersoon458
-  changes:
-    - type: Remove
-      message: >-
-        Fun removed :( Specifically the basket and the gift from the hands
-        :(/Удалено веселье :( А конкретно корзинка и подарок из рук :( 
-  id: 6483
-  time: '2024-11-06T02:52:23.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/119
-- author: Spatison
-  changes:
-    - type: Tweak
-      message: >-
-        Changed the chances of modes falling out / Изменены шансы выпадения
-        режимов
-  id: 6484
-  time: '2024-11-06T03:10:55.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/118
-- author: Gersoon458
-  changes:
-    - type: Add
-      message: Added a new map - WhiteBox/Добавлена новая карта - ВайтБокс
-    - type: Fix
-      message: Fixed Moose (Added cadet spawner)/Починен Мус (Добавлен спавнер кадета)
-    - type: Fix
-      message: >-
-        Asterisk has been fixed, now there is no planet on it (Which do not
-        work. Thanks to Kutos)/Починен Астериск, теперь на нём нет планеты
-        (Которые не работают. Спасибо Кутосу)
-  id: 6485
-  time: '2024-11-06T03:45:51.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/117
-- author: Spatison
-  changes:
-    - type: Tweak
-      message: The pickaxe has been improved / Улучшена кирка
-  id: 6486
-  time: '2024-11-06T03:46:19.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/108
-- author: Spatison
-  changes:
-    - type: Tweak
-      message: >-
-        The holoprojectors have been redesigned / Голопроекторы были
-        переработаны
-  id: 6487
-  time: '2024-11-06T03:48:03.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/112
-- author: Warete
-  changes:
-    - type: Fix
-      message: >-
-        Some benches had to get their rotation back / Скамьи должны были вернуть
-        свой поворот
-    - type: Tweak
-      message: >-
-        Automatic shift end is now off / Выключено автоматическое завершение
-        смены
-  id: 6488
-  time: '2024-11-06T04:32:07.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/99
-- author: unkima
-  changes: []
-  id: 6489
-  time: '2024-11-14T04:51:11.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/122
-- author: PuroSlavKing
-  changes:
-    - type: Add
-      message: Добавлен КапитанШкаф, содержащий в себе все вещи капитана.
-    - type: Add
-      message: 'Добавлены новые стили одежды капитана: белый, шериф, командный.'
-  id: 6490
-  time: '2024-11-14T04:55:10.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/123
-- author: vanx
-  changes:
-    - type: Add
-      message: Возвращена возможность казни
-  id: 6491
-  time: '2024-11-14T09:41:30.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/126
-- author: PuroSlavKing
-  changes:
-    - type: Add
-      message: >-
-        Added 5 new variations of body bags / Добавлено 5 новых вариаций мешков
-        для - тел.
-  id: 6492
-  time: '2024-11-14T09:45:21.0000000+00:00'
-  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/120
+  time: '2024-10-19T08:25:27.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/996
