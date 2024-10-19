@@ -16,7 +16,7 @@
     - "emote-chat-messages-scream-2"
     - "emote-chat-messages-scream-3"
     - "emote-chat-messages-scream-4"
-  allowMenu: true
+
 
 - type: emote
   id: Laugh
@@ -35,7 +35,6 @@
     - "emote-chat-messages-laugh-2"
     - "emote-chat-messages-laugh-3"
     - "emote-chat-messages-laugh-4"
-  allowMenu: true
 
 - type: emote
   id: Honk
@@ -65,7 +64,6 @@
   chatMessages: ["chat-emote-msg-sigh"]
   chatTriggers:
     - "emote-chat-messages-sigh-1"
-  allowMenu: true
 
 - type: emote
   id: Whistle
@@ -81,7 +79,6 @@
   chatMessages: ["chat-emote-msg-whistle"]
   chatTriggers:
     - "emote-chat-messages-whistle-1"
-  allowMenu: true
 
 - type: emote
   id: Crying
@@ -98,7 +95,6 @@
   chatTriggers:
     - "emote-chat-messages-crying-1"
     - "emote-chat-messages-crying-2"
-  allowMenu: true
 
 - type: emote
   id: Squish
@@ -180,7 +176,6 @@
   chatMessages: ["chat-emote-msg-clap"]
   chatTriggers:
     - "emote-chat-messages-clap-1"
-  allowMenu: true
 
 - type: emote
   id: Snap
@@ -202,7 +197,6 @@
     - "emote-chat-messages-snap-5"
     - "emote-chat-messages-snap-6"
     - "emote-chat-messages-snap-7"
-  allowMenu: true
 
 - type: emote
   id: Salute
@@ -218,7 +212,6 @@
   chatMessages: ["chat-emote-msg-salute"]
   chatTriggers:
     - "emote-chat-messages-salute-1"
-  allowMenu: true
 
 - type: emote
   id: DefaultDeathgasp
