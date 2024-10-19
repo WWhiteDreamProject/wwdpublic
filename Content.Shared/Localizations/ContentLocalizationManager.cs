@@ -39,7 +39,8 @@ namespace Content.Shared.Localizations
             var fallbackCulture = new CultureInfo(FallbackCulture);
 
             _loc.LoadCulture(culture);
-            _loc.LoadCulture(fallbackCulture);
+            if (_culture != FallbackCulture)
+                _loc.LoadCulture(fallbackCulture);
             _loc.SetFallbackCluture(fallbackCulture);
 
             _loc.AddFunction(culture, "PRESSURE", FormatPressure);
