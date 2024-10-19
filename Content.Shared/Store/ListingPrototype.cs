@@ -75,14 +75,14 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     public EntProtoId? ProductAction;
 
     /// <summary>
-    ///     The listing ID of the related upgrade listing. Can be used to link a <see cref="ProductAction"/> to an
-    ///         upgrade or to use standalone as an upgrade
+    /// The listing ID of the related upgrade listing. Can be used to link a <see cref="ProductAction"/> to an
+    /// upgrade or to use standalone as an upgrade
     /// </summary>
     [DataField]
-    public ProtoId<ListingPrototype>? ProductUpgradeID;
+    public ProtoId<ListingPrototype>? ProductUpgradeId;
 
     /// <summary>
-    ///     Keeps track of the current action entity this is tied to, for action upgrades
+    /// Keeps track of the current action entity this is tied to, for action upgrades
     /// </summary>
     [DataField]
     [NonSerialized]
@@ -109,7 +109,6 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     [DataField]
     public TimeSpan RestockTime = TimeSpan.Zero;
 
-    // WD START
     [DataField]
     public int SaleLimit = 3;
 
@@ -122,7 +121,6 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
 
     [DataField]
     public List<string> Components = new();
-    // WD END
 
     public bool Equals(ListingData? listing)
     {
@@ -176,18 +174,16 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             Priority = Priority,
             ProductEntity = ProductEntity,
             ProductAction = ProductAction,
-            ProductUpgradeID = ProductUpgradeID,
+            ProductUpgradeId = ProductUpgradeId,
             ProductActionEntity = ProductActionEntity,
             ProductEvent = ProductEvent,
             PurchaseAmount = PurchaseAmount,
             RestockTime = RestockTime,
-            // WD START
             SaleLimit = SaleLimit,
             SaleBlacklist = SaleBlacklist,
             DiscountValue = DiscountValue,
             OldCost = OldCost,
             Components = Components,
-            // WD END
         };
     }
 }
