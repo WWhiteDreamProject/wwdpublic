@@ -57,6 +57,11 @@ public sealed partial class ReflectComponent : Component
     /// </summary>
     [DataField]
     public float MinReflectProb = 0.1f;
+    
+    // WD START
+    [DataField, AutoNetworkedField]
+    public float DamageOnReflectModifier;
+    // WD END
 }
 
 [Flags]
