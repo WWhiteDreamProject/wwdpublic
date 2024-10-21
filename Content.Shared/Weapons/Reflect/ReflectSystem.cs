@@ -3,6 +3,7 @@ using System.Numerics;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.Audio;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.Gravity;
