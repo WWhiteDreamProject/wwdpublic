@@ -41,7 +41,7 @@
           bounds: "-0.2,-0.2,0.2,0.2"
         density: 30
         mask:
-        - ItemMask
+        - ThrownItem # WD EDIT
   - type: DamageOtherOnHit
     damage:
       types:
