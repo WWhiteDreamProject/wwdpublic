@@ -7690,3 +7690,12 @@ Entries:
   id: 6460
   time: '2024-10-19T12:09:52.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/93
+- author: Gersoon
+  changes:
+    - type: Add
+      message: translation of tiles/перевод тайлов
+    - type: Tweak
+      message: sign textures changed/изменены текстуры знаков
+  id: 6461
+  time: '2024-10-21T06:56:21.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/90
