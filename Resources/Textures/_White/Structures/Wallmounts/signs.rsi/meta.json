@@ -5,7 +5,7 @@
     "y": 32
   },
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from CEV-Eris and edited by Gersoon",
+  "copyright": "Taken from CEV-Eris and edited by Gersoon. Directional taken from ss13",
     "states": [
         {
             "name": "ai",
@@ -368,7 +368,7 @@
             ]
         },
         {
-            "name": "kpp",
+            "name": "check",
             "delays": [
                 [
                     1
@@ -626,6 +626,438 @@
         {
             "name": "zomlab",
             "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_bar",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_exam",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_icu",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_janitor",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_food",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_hop",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_library",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_chemistry",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_eng",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_evac",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_supply",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_bridge",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_med",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_sci",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_sec",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_brig",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_chapel",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_hydro",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_dorms",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_cryo",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_gravity",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_salvage",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_solar",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "direction_wash",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
                 [
                     1
                 ]
