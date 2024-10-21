@@ -87,7 +87,7 @@ emote-chat-messages-beep-1 = beeps
 emote-chat-messages-boop-1 = boops
 
 #Chime
-emote-chat-messages-chime-1 = chimes 
+emote-chat-messages-chime-1 = chimes
 
 #Buzz-Two
 emote-chat-messages-buzz-two-1 = buzzes twice
@@ -98,22 +98,12 @@ emote-chat-messages-ping-1 = pings
 #Whirr
 emote-chat-messages-whirr-1 = whirrs
 
-#Nod
-emote-chat-button-text-nod = Nod
+chat-emote-name-nod = Nod
+chat-emote-name-shake-head = Shake Head
+chat-emote-name-frown = Frown
+chat-emote-name-smile = Smile
 
-emote-chat-messages-nod-1 = nods
-
-#ShakeHead
-emote-chat-button-text-shake-head = Shake head
-
-emote-chat-messages-shake-head-1 = shakes head
-
-#Frown
-emote-chat-button-text-frown = Frown
-
-emote-chat-messages-frown-1 = frowns
-
-#Smile
-emote-chat-button-text-smile = Smile
-
-emote-chat-messages-smile-1 = smiles
+chat-emote-msg-nod = nods.
+chat-emote-msg-shake-head = shakes {POSS-ADJ($entity)} head..
+chat-emote-msg-frown = frowns.
+chat-emote-msg-smile = smiles.

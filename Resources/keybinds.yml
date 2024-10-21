@@ -187,11 +187,9 @@ binds:
 - function: OpenCharacterMenu
   type: State
   key: C
-  # WD EDIT START
-- function: OpenEmotionsMenu
+- function: OpenEmotesMenu
   type: State
   key: Y
-  # WD EDIT END
 - function: OpenLanguageMenu
   type: State
   key: L
@@ -268,6 +266,10 @@ binds:
   key: F
 - function: ToggleStanding
   type: State
+  key: R
+- function: ToggleCrawlingUnder
+  type: State
+  mod1: Shift
   key: R
 - function: ShowDebugConsole
   type: State
@@ -466,6 +468,9 @@ binds:
 - function: OpenDecalSpawnWindow
   type: State
   key: F8
+- function: OpenScoreboardWindow
+  type: State
+  key: F9
 - function: OpenSandboxWindow
   type: State
   key: B
@@ -548,8 +553,6 @@ binds:
 - function: Hotbar9
   type: State
   key: Num9
-  # WD EDIT START
 - function: LookUp
   type: State
   key: Space
-  # WD EDIT END

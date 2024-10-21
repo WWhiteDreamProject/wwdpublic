@@ -15,29 +15,10 @@ public sealed class WhiteCVars
 
     #endregion
 
-    #region Keybind
-
-    public static readonly CVarDef<bool> AutoGetUp =
-        CVarDef.Create("white.auto_get_up", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
-
-    public static readonly CVarDef<bool> HoldLookUp =
-        CVarDef.Create("white.hold_look_up", false, CVar.CLIENT | CVar.ARCHIVE);
-
-    #endregion
-
     #region Locale
 
     public static readonly CVarDef<string>
         ServerCulture = CVarDef.Create("white.culture", "ru-RU", CVar.REPLICATED | CVar.SERVER);
-
-    #endregion
-
-    #region GhostRespawn
-    public static readonly CVarDef<double> GhostRespawnTime =
-        CVarDef.Create("ghost.respawn_time", 15d, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> GhostRespawnMaxPlayers =
-        CVarDef.Create("ghost.respawn_max_players", 40, CVar.SERVERONLY);
 
     #endregion
 
