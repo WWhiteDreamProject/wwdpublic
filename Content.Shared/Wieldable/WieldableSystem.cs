@@ -1,3 +1,4 @@
+using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -45,6 +46,7 @@ public sealed class WieldableSystem : EntitySystem
         SubscribeLocalEvent<GunWieldBonusComponent, ItemWieldedEvent>(OnGunWielded);
         SubscribeLocalEvent<GunWieldBonusComponent, ItemUnwieldedEvent>(OnGunUnwielded);
         SubscribeLocalEvent<GunWieldBonusComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers);
+        SubscribeLocalEvent<GunWieldBonusComponent, ExaminedEvent>(OnExamine);
 
         SubscribeLocalEvent<IncreaseDamageOnWieldComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
     }
@@ -90,6 +92,12 @@ public sealed class WieldableSystem : EntitySystem
         }
     }
 
+    private void OnExamine(EntityUid uid, GunWieldBonusComponent component, ref ExaminedEvent args)
+    {
+        if (component.WieldBonusExamineMessage != null)
+            args.PushText(Loc.GetString(component.WieldBonusExamineMessage));
+    }
+
     private void AddToggleWieldVerb(EntityUid uid, WieldableComponent component, GetVerbsEvent<InteractionVerb> args)
     {
         if (args.Hands == null || !args.CanAccess || !args.CanInteract)
@@ -120,7 +128,7 @@ public sealed class WieldableSystem : EntitySystem
 
         if (!component.Wielded)
             args.Handled = TryWield(uid, component, args.User);
-        else
+        else if (component.UnwieldOnUse)
             args.Handled = TryUnwield(uid, component, args.User);
     }
 
