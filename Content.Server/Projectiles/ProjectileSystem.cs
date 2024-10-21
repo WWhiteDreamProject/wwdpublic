@@ -1,7 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Effects;
 using Content.Server.Hands.Systems;
-using Content.Server.UserInterface;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._White.Penetrated;
 using Content.Shared._White.Projectile;
@@ -9,7 +8,6 @@ using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
-using Content.Shared.Interaction;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
 using Robust.Server.GameObjects;
@@ -32,7 +30,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly PenetratedSystem _penetrated = default!;
     // WD EDIT END
 
@@ -42,7 +39,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         SubscribeLocalEvent<ProjectileComponent, StartCollideEvent>(OnStartCollide);
         // WD EDIT START
         SubscribeLocalEvent<EmbeddableProjectileComponent, EmbedEvent>(OnEmbed);
-        SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate, before: new[] {typeof(ActivatableUISystem)});
         SubscribeLocalEvent<EmbeddableProjectileComponent, RemoveEmbeddedProjectileEvent>(OnEmbedRemove);
         // WD EDIT END
     }
@@ -109,15 +105,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             _color.RaiseEffect(Color.Red, new List<EntityUid>() { args.Embedded }, Filter.Pvs(args.Embedded, entityManager: EntityManager));
     }
 
-    private void OnEmbedActivate(EntityUid uid, EmbeddableProjectileComponent component, ActivateInWorldEvent args)
-    {
-        if (args.Handled
-            || !AttemptEmbedRemove(uid, args.User, component))
-            return;
-
-        args.Handled = true;
-    }
-
     private void OnEmbedRemove(EntityUid uid, EmbeddableProjectileComponent component, RemoveEmbeddedProjectileEvent args)
     {
         // Whacky prediction issues.
@@ -158,23 +145,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
 
         // try place it in the user's hand
         _hands.TryPickupAnyHand(args.User, uid);
-    }
-
-    private bool AttemptEmbedRemove(EntityUid uid, EntityUid user, EmbeddableProjectileComponent? component = null)
-    {
-        if (!Resolve(uid, ref component, false)
-            || component.RemovalTime == null
-            || !TryComp<PhysicsComponent>(uid, out var physics)
-            || physics.BodyType != BodyType.Static)
-            return false;
-
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, component.RemovalTime.Value,
-            new RemoveEmbeddedProjectileEvent(), eventTarget: uid, target: uid)
-        {
-            DistanceThreshold = SharedInteractionSystem.InteractionRange,
-        });
-
-        return true;
     }
 
     private void FreePenetrated(EntityUid uid, PenetratedProjectileComponent? penetratedProjectile = null)

@@ -7,6 +7,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Throwing;
+using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -26,6 +27,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -35,6 +37,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         SubscribeLocalEvent<EmbeddableProjectileComponent, ProjectileHitEvent>(OnEmbedProjectileHit);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ThrowDoHitEvent>(OnEmbedThrowDoHit);
         SubscribeLocalEvent<EmbeddableProjectileComponent, AttemptPacifiedThrowEvent>(OnAttemptPacifiedThrow);
+        SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate, before: new[] {typeof(ActivatableUISystem)}); // WD EDI
     }
 
     private void OnEmbedThrowDoHit(EntityUid uid, EmbeddableProjectileComponent component, ThrowDoHitEvent args)
@@ -121,6 +124,34 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     {
         args.Cancel("pacified-cannot-throw-embed");
     }
+
+    // WD EDIT START
+    private void OnEmbedActivate(EntityUid uid, EmbeddableProjectileComponent component, ActivateInWorldEvent args)
+    {
+        if (args.Handled
+            || !AttemptEmbedRemove(uid, args.User, component))
+            return;
+
+        args.Handled = true;
+    }
+
+    private bool AttemptEmbedRemove(EntityUid uid, EntityUid user, EmbeddableProjectileComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false)
+            || component.RemovalTime == null
+            || !TryComp<PhysicsComponent>(uid, out var physics)
+            || physics.BodyType != BodyType.Static)
+            return false;
+
+        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, component.RemovalTime.Value,
+            new RemoveEmbeddedProjectileEvent(), eventTarget: uid, target: uid)
+        {
+            DistanceThreshold = SharedInteractionSystem.InteractionRange,
+        });
+
+        return true;
+    }
+    // WD EDIT END
 }
 
 [Serializable, NetSerializable]
