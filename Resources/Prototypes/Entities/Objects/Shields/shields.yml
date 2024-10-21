@@ -416,7 +416,7 @@
     - type: Reflect
       enabled: false
       reflectProb: 1 # WD EDIT
-      DamageOnReflectModifier: 0.5 # WD EDIT
+      damageOnReflectModifier: 0.5 # WD EDIT
       reflects:
         - Energy
     - type: Blocking

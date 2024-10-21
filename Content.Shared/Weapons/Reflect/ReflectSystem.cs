@@ -61,7 +61,7 @@ public sealed class ReflectSystem : EntitySystem
 
         foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(uid, SlotFlags.All & ~SlotFlags.POCKET))
         {
-            if (!TryReflectHitscan(uid, ent, args.Shooter, args.SourceItem, args.Direction, out var dir))
+            if (!TryReflectHitscan(uid, ent, args.Shooter, args.SourceItem, args.Direction, args.Damage, out var dir))
                 continue;
 
             args.Direction = dir.Value;
@@ -155,7 +155,7 @@ public sealed class ReflectSystem : EntitySystem
             return;
         }
 
-        if (TryReflectHitscan(uid, uid, args.Shooter, args.SourceItem, args.Direction, out var dir))
+        if (TryReflectHitscan(uid, uid, args.Shooter, args.SourceItem, args.Direction, args.Damage, out var dir)) // WD EDIT
         {
             args.Direction = dir.Value;
             args.Reflected = true;
@@ -168,6 +168,7 @@ public sealed class ReflectSystem : EntitySystem
         EntityUid? shooter,
         EntityUid shotSource,
         Vector2 direction,
+        DamageSpecifier? damage, // WD EDIT
         [NotNullWhen(true)] out Vector2? newDirection)
     {
         if (!TryComp<ReflectComponent>(reflector, out var reflect) ||
@@ -183,6 +184,11 @@ public sealed class ReflectSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
             _audio.PlayPvs(reflect.SoundOnReflect, user, AudioHelpers.WithVariation(0.05f, _random));
         }
+
+        // WD EDIT START
+        if (reflect.DamageOnReflectModifier != 0 && damage != null)
+            _damageable.TryChangeDamage(reflector, damage * reflect.DamageOnReflectModifier, origin: shooter);
+        // WD EDIT END
 
         var spread = _random.NextAngle(-reflect.Spread / 2, reflect.Spread / 2);
         newDirection = -spread.RotateVec(direction);
