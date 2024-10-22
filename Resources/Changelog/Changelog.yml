@@ -7699,3 +7699,10 @@ Entries:
   id: 6461
   time: '2024-10-21T06:56:21.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/90
+- author: Spatison
+  changes:
+    - type: Remove
+      message: Thieves' pacifism has been removed / Убран воровской пацифизм
+  id: 6462
+  time: '2024-10-22T16:35:54.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/95
