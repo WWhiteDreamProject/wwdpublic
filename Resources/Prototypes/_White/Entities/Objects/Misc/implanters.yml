@@ -1,0 +1,36 @@
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: NeuroStabilizationImplanter
+  suffix: neuro stabilization
+  components:
+  - type: Implanter
+    implant: NeuroStabilizationImplant
+
+- type: entity
+  parent: Implanter
+  id: ImplanterSyndi
+  description: A compact disposable syringe exclusively designed for the quick injection and extraction of subdermal implants.
+  components:
+    - type: Item
+      sprite: Objects/Specific/Medical/syndi_implanter.rsi
+    - type: Sprite
+      sprite: Objects/Specific/Medical/syndi_implanter.rsi
+    - type: Implanter
+      drawTime: 2
+      implantTime: 2
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: SmokeImplanter
+  suffix: smoke
+  components:
+  - type: Implanter
+    implant: SmokeImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: MindSlaveImplanter
+  suffix: mindslave
+  components:
+  - type: Implanter
+    implant: MindSlaveImplant

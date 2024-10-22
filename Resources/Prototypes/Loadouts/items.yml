@@ -119,6 +119,10 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutInstrumentsAny
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Musician
 
 - type: loadout
   id: LoadoutItemKalimbaInstrument
@@ -129,6 +133,10 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutInstrumentsAny
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Musician
 
 - type: loadout
   id: LoadoutItemTrumpetInstrument
@@ -139,6 +147,10 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutInstrumentsAny
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Musician
 
 - type: loadout
   id: LoadoutItemElectricGuitar
@@ -149,6 +161,10 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutInstrumentsAny
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Musician
 
 - type: loadout
   id: LoadoutItemBassGuitar
@@ -159,6 +175,10 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutInstrumentsAny
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Musician
 
 - type: loadout
   id: LoadoutItemRockGuitar
@@ -169,6 +189,10 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutInstrumentsAny
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Musician
 
 - type: loadout
   id: LoadoutItemAcousticGuitar
@@ -179,6 +203,10 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutInstrumentsAny
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Musician
 
 - type: loadout
   id: LoadoutItemViolin
@@ -189,6 +217,10 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutInstrumentsAny
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Musician
 
 - type: loadout
   id: LoadoutItemHarmonica
@@ -199,6 +231,10 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutInstrumentsAny
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Musician
 
 - type: loadout
   id: LoadoutItemAccordion
@@ -209,6 +245,10 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutInstrumentsAny
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Musician
 
 - type: loadout
   id: LoadoutItemFlute
@@ -219,6 +259,10 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutInstrumentsAny
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Musician
 
 - type: loadout
   id: LoadoutItemOcarina
@@ -229,6 +273,10 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutInstrumentsAny
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Musician
 
 # Survival Kit
 - type: loadout
@@ -607,18 +655,6 @@
   cost: 3
   items:
     - PersonalAI
-
-- type: loadout
-  id: LoadoutItemBackpackSatchelLeather
-  category: Items
-  cost: 1
-  items:
-    - ClothingBackpackSatchelLeather
-  requirements:
-    - !type:CharacterJobRequirement
-       inverted: true
-       jobs:
-         - Prisoner
 
 - type: loadout
   id: LoadoutItemWaistbag
