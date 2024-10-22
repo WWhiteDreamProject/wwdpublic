@@ -1,0 +1,54 @@
+# RAW
+
+- type: entity
+  parent: FoodMeatRawBase
+  id: FoodMeatGondola
+  name: raw Gondola meat
+  description: You're a monster.
+  components:
+  - type: Sprite
+    state: plain
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 9
+        - ReagentId: Fat
+          Quantity: 9
+        - ReagentId: Tranquility
+          Quantity: 10
+  - type: Construction
+    graph: GondolaSteak
+    node: start
+    defaultTarget: gondola steak
+
+# COOKED
+
+- type: entity
+  parent: FoodMeatBase
+  id: FoodMeatGondolaCooked
+  name: Gondola steak
+  description: Cooked Gondola meat...
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+    - Steak
+  - type: Sprite
+    layers:
+    - state: plain-cooked
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: Tranquility
+          Quantity: 15
+  - type: Construction
+    graph: GondolaSteak
+    node: gondola steak
