@@ -29,7 +29,7 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<VoiceMaskerComponent, ImplantImplantedEvent>(OnInsert);
+        SubscribeLocalEvent<VoiceMaskerComponent, SubdermalImplantInserted>(OnInsert); // WD EDIT
         SubscribeLocalEvent<SyrinxVoiceMaskComponent, TransformSpeakerNameEvent>(OnSpeakerNameTransform);
         SubscribeLocalEvent<SyrinxVoiceMaskComponent, VoiceMaskChangeNameMessage>(OnChangeName);
         // We need to remove the SyrinxVoiceMaskComponent from the owner before the implant
@@ -37,16 +37,17 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
         SubscribeLocalEvent<VoiceMaskerComponent, EntGotRemovedFromContainerMessage>(OnRemove, before: new[] { typeof(SubdermalImplantSystem) });
     }
 
-    private void OnInsert(EntityUid uid, VoiceMaskerComponent component, ImplantImplantedEvent args)
+    // WD EDIT START
+    private void OnInsert(EntityUid uid, VoiceMaskerComponent component, SubdermalImplantInserted args)
     {
-        if (!args.Implanted.HasValue ||
-            !_tag.HasTag(args.Implant, BionicSyrinxImplant))
+        if (_tag.HasTag(uid, BionicSyrinxImplant))
             return;
 
-        var voicemask = EnsureComp<SyrinxVoiceMaskComponent>(args.Implanted.Value);
-        voicemask.VoiceName = MetaData(args.Implanted.Value).EntityName;
-        Dirty(args.Implanted.Value, voicemask);
+        var voicemask = EnsureComp<SyrinxVoiceMaskComponent>(args.Target);
+        voicemask.VoiceName = MetaData(args.Target).EntityName;
+        Dirty(args.Target, voicemask);
     }
+    // WD EDIT END
 
     private void OnRemove(EntityUid uid, VoiceMaskerComponent component, EntGotRemovedFromContainerMessage args)
     {
@@ -63,17 +64,14 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
     {
         if (message.Name.Length > HumanoidCharacterProfile.MaxNameLength || message.Name.Length <= 0)
         {
-            _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-failure"), uid, message.Session, PopupType.SmallCaution);
+            _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-failure"), uid, message.Actor, PopupType.SmallCaution);
             return;
         }
 
         component.VoiceName = message.Name;
-        if (message.Session.AttachedEntity != null)
-            _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(message.Session.AttachedEntity.Value):player} set voice of {ToPrettyString(uid):mask}: {component.VoiceName}");
-        else
-            _adminLogger.Add(LogType.Action, LogImpact.Medium, $"Voice of {ToPrettyString(uid):mask} set: {component.VoiceName}");
+        _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(message.Actor):player} set voice of {ToPrettyString(uid):mask}: {component.VoiceName}");
 
-        _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-success"), uid, message.Session);
+        _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-success"), uid, message.Actor);
         TrySetLastKnownName(uid, message.Name);
         UpdateUI(uid, component);
     }
@@ -98,8 +96,8 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
         if (!Resolve(owner, ref component, logMissing: false))
             return;
 
-        if (_uiSystem.TryGetUi(owner, VoiceMaskUIKey.Key, out var bui))
-            _uiSystem.SetUiState(bui, new VoiceMaskBuiState(component.VoiceName, null));
+        if (_uiSystem.TryGetOpenUi(owner, VoiceMaskUIKey.Key, out _))
+            _uiSystem.SetUiState(new(owner, null), VoiceMaskUIKey.Key, new VoiceMaskBuiState(component.VoiceName, null));
     }
 
     /// <summary>

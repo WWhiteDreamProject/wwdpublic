@@ -1,4 +1,4 @@
-using Content.Shared._White.Standing;
+using Content.Shared.Standing;
 
 namespace Content.Shared._White.Collision.Knockdown;
 
