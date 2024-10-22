@@ -458,8 +458,6 @@
     - AdvancedRetractor
     - VehicleWheelchairFolded # Goobstation
     # WD EDIT START
-    - MiniSyringe
-    - SyringeGun
     - Intellicard
     # WD EDIT END
   - type: EmagLatheRecipes
