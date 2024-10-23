@@ -7720,3 +7720,10 @@ Entries:
   id: 6464
   time: '2024-10-23T10:20:53.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/77
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: The energy shield can now be discharged  / Энерго щит теперь имеет заряд
+  id: 6465
+  time: '2024-10-23T10:23:45.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/94
