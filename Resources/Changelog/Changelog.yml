@@ -7706,3 +7706,10 @@ Entries:
   id: 6462
   time: '2024-10-22T16:35:54.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/95
+- author: Spatison
+  changes:
+    - type: Remove
+      message: Delete Prido-O-Mat / Удален прайдомат
+  id: 6463
+  time: '2024-10-23T03:35:00.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/84
