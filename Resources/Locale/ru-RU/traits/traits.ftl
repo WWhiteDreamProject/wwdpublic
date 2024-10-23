@@ -314,7 +314,7 @@ trait-name-PowerOverwhelming = Подавляющая Мощь
 trait-description-PowerOverwhelming =
     СТАНЬТЕ СВИДЕТЕЛЯМИ МОЕЙ НЕНАВИСТИ, СМЕРТНЫЕ, ПРЕКЛОНИТЕСЬ ПЕРЕД МОЕЙ ПСИОНИЧЕСКОЙ МОЩЬЮ! РЕАЛЬНОСТЬ ТАКОВА, КАКОЙ Я ЕЕ СЧИТАЮ.
 
-trait-name-LowDampening = Дефецит kδ
+trait-name-LowDampening = Дефицит kδ
 trait-description-LowDampening =
     Ваше умение манипулировать ноосферой слабее, чем у других. У вас чаще бывают нежелательные эффекты от использования способностей.
 
