@@ -7713,3 +7713,10 @@ Entries:
   id: 6463
   time: '2024-10-23T03:35:00.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/84
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added hardlight spear implanter/ Добавлен имплант светового копья
+  id: 6464
+  time: '2024-10-23T10:20:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/77
