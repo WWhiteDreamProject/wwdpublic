@@ -7727,3 +7727,12 @@ Entries:
   id: 6465
   time: '2024-10-23T10:23:45.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/94
+- author: Remuchi
+  changes:
+    - type: Add
+      message: >-
+        Переводы всех черт персонажа, черт внешности и меню персонажа. Так же
+        переведен весь контент Нянотрайзен.
+  id: 6466
+  time: '2024-10-23T14:11:51.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/97
