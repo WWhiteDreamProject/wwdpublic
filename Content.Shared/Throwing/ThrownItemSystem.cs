@@ -25,6 +25,7 @@ namespace Content.Shared.Throwing
         [Dependency] private readonly SharedGravitySystem _gravity = default!;
 
         private const string ThrowingFixture = "throw-fixture";
+        private const string Fixture1 = "fix1"; // WD EDIT
 
         public override void Initialize()
         {
@@ -66,6 +67,9 @@ namespace Content.Shared.Throwing
                 return;
 
             // WD EDIT START
+            if (args.OurFixtureId != Fixture1)
+                return;
+
             if (component.Processed.Contains(args.OtherEntity))
                 return;
             // WD EDIT END
