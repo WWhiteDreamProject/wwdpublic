@@ -25,8 +25,5 @@ uplink-mind-slave-desc = Capture the mind of a living being and order him to thr
 uplink-blood-dagger-name = Blood dagger
 uplink-blood-dagger-desc = A dagger of pain and blood. It has deadly accuracy, allowing you to deal critical damage and extract blood from opponents, treating the owner in proportion to the sucked blood. When absorbing the owner's blood, it briefly enhances his valuable profuse bleeding.
 
-uplink-blood-dagger-name = Blood dagger
-uplink-blood-dagger-desc = A dagger of pain and blood. It has deadly accuracy, allowing you to deal critical damage and extract blood from opponents, treating the owner in proportion to the sucked blood. When absorbing the owner's blood, it briefly enhances his valuable profuse bleeding.
-
 uplink-gondola-name = Gondola crate
 uplink-gondola-desc = A crate containing a single Gondola. The meat of the Gondola contains tranquility reagent.
