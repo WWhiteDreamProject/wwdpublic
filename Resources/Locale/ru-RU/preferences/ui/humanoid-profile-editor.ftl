@@ -65,7 +65,7 @@ humanoid-profile-editor-traits-show-unusable-button = Показать непр�
 humanoid-profile-editor-traits-show-unusable-button-tooltip =
     При включении, черты, которые ваш персонаж не может использовать, будут отображаться красным или же оранжевым, если выбраны.
     Вы все еще не сможете использовать эти черты.
-humanoid-profile-editor-traits-remove-unusable-button = Убрать неприменимы черты ({$count})
+humanoid-profile-editor-traits-remove-unusable-button = Убрать неприменимые черты ({$count})
 humanoid-profile-editor-traits-remove-unusable-button-tooltip = При нажатии все неприменимые черты будут убраны.
 humanoid-profile-editor-traits-no-traits = Черты не найдены
 

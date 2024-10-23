@@ -24,7 +24,7 @@ reverse-engineering-failure = КРИТИЧЕСКАЯ ОШИБКА
 reverse-engineering-stagnation = Минимальный прогресс
 reverse-engineering-minor = Слабый прогресс
 reverse-engineering-average = Прогресс
-reverse-engineering-major = Уверенный прогрес
+reverse-engineering-major = Уверенный прогресс
 reverse-engineering-success = Прорывной прогресс
 
 reverse-engineering-machine-bonus-upgrade = Сила аналитики

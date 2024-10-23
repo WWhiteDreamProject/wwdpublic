@@ -37,10 +37,10 @@ deep-fryer-button-remove-all-items-tooltip = Убрать все предмет�
 deep-fried-crispy-item = хрустящий {$entity}
 deep-fried-crispy-item-examine = Он покрыт хрустящей маслянистой текстурой.
 
-deep-fried-fried-item = зажареный {$entity}
+deep-fried-fried-item = зажаренный {$entity}
 deep-fried-fried-item-examine = Он покрыт толстым, хрустящим слоем.
 
-deep-fried-burned-item = подгоревший  {$entity}
+deep-fried-burned-item = подгоревший {$entity}
 deep-fried-burned-item-examine = Он почернел от углей.
 
 reagent-name-oil-ghee = топленое масло
