@@ -35,7 +35,7 @@ marking-MothAntennasMoffra-moffra = Усики
 marking-MothAntennasMoffra = Усики (Моффра)
 
 marking-MothAntennasOakworm-oakworm = Усики
-marking-MothAntennasOakworm = Усики (Дятел)
+marking-MothAntennasOakworm = Усики (Дубовая Моль)
 
 marking-MothAntennasPlasmafire-plasmafire = Усики
 marking-MothAntennasPlasmafire = Усики (Пожар Плазмы)
@@ -102,7 +102,7 @@ marking-MothWingsMoffra-moffra_secondary = Вторичные
 marking-MothWingsMoffra = Крылья (Моффра)
 
 marking-MothWingsOakworm-oakworm = Крылья
-marking-MothWingsOakworm = Крылья (Дятел)
+marking-MothWingsOakworm = Крылья (Дубовая Моль)
 
 marking-MothWingsPlasmafire-plasmafire_primary = Основные
 marking-MothWingsPlasmafire-plasmafire_secondary = Вторичные
@@ -278,22 +278,22 @@ marking-MothRArmMoonfly = Правая рука (Лунатик)
 
 
 marking-MothChestOakworm-oakworm_chest = Тело
-marking-MothChestOakworm = Тело (Дятел)
+marking-MothChestOakworm = Тело (Дубовая Моль)
 
 marking-MothHeadOakworm-oakworm_head = Голова
-marking-MothHeadOakworm = Голова (Дятел)
+marking-MothHeadOakworm = Голова (Дубовая Моль)
 
 marking-MothLLegOakworm-oakworm_l_leg = Левая нога
-marking-MothLLegOakworm = Левая нога (Дятел)
+marking-MothLLegOakworm = Левая нога (Дубовая Мольая Моль)
 
 marking-MothRLegOakworm-oakworm_r_leg = Правая нога
-marking-MothRLegOakworm = Правая нога (Дятел)
+marking-MothRLegOakworm = Правая нога (Дубовая Моль)
 
 marking-MothLArmOakworm-oakworm_l_arm = Левая рука
-marking-MothLArmOakworm = Левая рука (Дятел)
+marking-MothLArmOakworm = Левая рука (Дубовая Моль)
 
 marking-MothRArmOakworm-oakworm_r_arm = Правая рука
-marking-MothRArmOakworm = Правая рука (Дятел)
+marking-MothRArmOakworm = Правая рука (Дубовая Моль)
 
 
 

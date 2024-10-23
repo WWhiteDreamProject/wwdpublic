@@ -1,4 +1,4 @@
-reagent-name-atomicpunch = Атомный пунш
+reagent-name-atomicpunch = атомный пунш
 reagent-desc-atomicpunch = НЕ сделает вас неуязвимым к пулям; изотопы включены!
 
 reagent-name-pinkdrink = розовый напиток
