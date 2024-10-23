@@ -7699,3 +7699,40 @@ Entries:
   id: 6461
   time: '2024-10-21T06:56:21.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/90
+- author: Spatison
+  changes:
+    - type: Remove
+      message: Thieves' pacifism has been removed / Убран воровской пацифизм
+  id: 6462
+  time: '2024-10-22T16:35:54.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/95
+- author: Spatison
+  changes:
+    - type: Remove
+      message: Delete Prido-O-Mat / Удален прайдомат
+  id: 6463
+  time: '2024-10-23T03:35:00.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/84
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added hardlight spear implanter/ Добавлен имплант светового копья
+  id: 6464
+  time: '2024-10-23T10:20:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/77
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: The energy shield can now be discharged  / Энерго щит теперь имеет заряд
+  id: 6465
+  time: '2024-10-23T10:23:45.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/94
+- author: Remuchi
+  changes:
+    - type: Add
+      message: >-
+        Переводы всех черт персонажа, черт внешности и меню персонажа. Так же
+        переведен весь контент Нянотрайзен.
+  id: 6466
+  time: '2024-10-23T14:11:51.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/97

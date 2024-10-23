@@ -1,5 +1,17 @@
 - type: entity
   parent: BaseSubdermalImplant
+  id: HardlightSpearImplant
+  name: hardlight spear implant
+  description: This implant creates hardlight spear in your hands.
+  noSpawn: true
+  components:
+    - type: SubdermalImplant
+      implantAction: ActivateHardlightSpearImplant
+    - type: SpawnImplant
+      spawnId: HardlightSpear
+
+- type: entity
+  parent: BaseSubdermalImplant
   id: NeuroStabilizationImplant
   name: neuro stabilization implant
   description: Blocks all of the incoming stamina damage at the cost of frying you nerve system a bit each time.
