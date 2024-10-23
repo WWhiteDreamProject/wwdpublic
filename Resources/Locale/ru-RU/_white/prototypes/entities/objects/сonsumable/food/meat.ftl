@@ -1,6 +1,6 @@
-ent-FoodMeat = { ent-FoodMeatCooked }
+ent-FoodMeatGondola = { ent-FoodMeatCooked }
     .desc = { ent-FoodMeatCooked.desc }
     .suffix = Гондола
-ent-FoodMeat = { ent-FoodMeatCooked }
+ent-FoodMeatGondolaCooked = { ent-FoodMeatCooked }
     .desc = { ent-FoodMeatCooked.desc }
     .suffix = Гондола
