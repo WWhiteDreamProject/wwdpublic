@@ -3,8 +3,9 @@
 - type: entity
   parent: FoodMeatRawBase
   id: FoodMeatGondola
-  name: raw Gondola meat
-  description: You're a monster.
+  name: raw meat
+  description: A slab of raw meat.
+  suffix: Gondola
   components:
   - type: Sprite
     state: plain
@@ -28,8 +29,9 @@
 - type: entity
   parent: FoodMeatBase
   id: FoodMeatGondolaCooked
-  name: Gondola steak
-  description: Cooked Gondola meat...
+  name: steak
+  description: A cooked slab of meat. Smells primal.
+  suffix: Gondola
   components:
   - type: Tag
     tags:
