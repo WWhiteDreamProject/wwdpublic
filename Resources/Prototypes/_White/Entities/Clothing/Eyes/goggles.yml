@@ -24,16 +24,15 @@
     default: ClothingEyesGlassesSunglasses
   - type: UserInterface
     interfaces:
-    - key: enum.ChameleonUiKey.Key
-      type: ChameleonBoundUserInterface
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
 
 - type: entity
-  parent: ClothingEyesNightVisionGogglesSyndie
+  parent: [ClothingEyesNightVisionGogglesSyndie, ShowSecurityIcons]
   id: ClothingEyesNightVisionGogglesNukie
   suffix: "Chameleon, NukeOps"
   components:
   - type: ShowSyndicateIcons
-  - type: ShowSecurityIcons
 
 # Thermal Vision Goggles
 
@@ -61,13 +60,12 @@
     default: ClothingEyesGlassesSunglasses
   - type: UserInterface
     interfaces:
-    - key: enum.ChameleonUiKey.Key
-      type: ChameleonBoundUserInterface
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
 
 - type: entity
-  parent: ClothingEyesThermalVisionGogglesSyndie
+  parent: [ClothingEyesThermalVisionGogglesSyndie, ShowSecurityIcons]
   id: ClothingEyesThermalVisionGogglesNukie
   suffix: "Chameleon, NukeOps"
   components:
   - type: ShowSyndicateIcons
-  - type: ShowSecurityIcons
