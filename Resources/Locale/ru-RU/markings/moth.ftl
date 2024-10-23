@@ -1,60 +1,60 @@
-marking-MothAntennasDefault-default = Антенны
-marking-MothAntennasDefault = Антенны (Обычные)
+marking-MothAntennasDefault-default = Усики
+marking-MothAntennasDefault = Усики (Обычные)
 
-marking-MothAntennasCharred-charred = Антенны
-marking-MothAntennasCharred = Антенны (Подгоревшие)
+marking-MothAntennasCharred-charred = Усики
+marking-MothAntennasCharred = Усики (Подгоревшие)
 
-marking-MothAntennasDbushy-dbushy = Антенны
-marking-MothAntennasDbushy = Антенны (Пушистые)
+marking-MothAntennasDbushy-dbushy = Усики
+marking-MothAntennasDbushy = Усики (Пушистые)
 
-marking-MothAntennasDcurvy-dcurvy = Антенны
-marking-MothAntennasDcurvy = Антенны (Закрученные)
+marking-MothAntennasDcurvy-dcurvy = Усики
+marking-MothAntennasDcurvy = Усики (Закрученные)
 
-marking-MothAntennasDfan-dfan = Антенны
-marking-MothAntennasDfan = Антенны (Вентилятор)
+marking-MothAntennasDfan-dfan = Усики
+marking-MothAntennasDfan = Усики (Вентилятор)
 
-marking-MothAntennasDpointy-dpointy = Антенны
-marking-MothAntennasDpointy = Антенны (Заостренные)
+marking-MothAntennasDpointy-dpointy = Усики
+marking-MothAntennasDpointy = Усики (Заостренные)
 
-marking-MothAntennasFeathery-feathery = Антенны
-marking-MothAntennasFeathery = Антенны (Перистые)
+marking-MothAntennasFeathery-feathery = Усики
+marking-MothAntennasFeathery = Усики (Перистые)
 
-marking-MothAntennasFirewatch-firewatch = Антенны
-marking-MothAntennasFirewatch = Антенны (Пожарный дозор)
+marking-MothAntennasFirewatch-firewatch = Усики
+marking-MothAntennasFirewatch = Усики (Пожарный Дозор)
 
-marking-MothAntennasGray-gray = Антенны
-marking-MothAntennasGray = Антенны (Серые)
+marking-MothAntennasGray-gray = Усики
+marking-MothAntennasGray = Усики (Серые)
 
-marking-MothAntennasJungle-jungle = Антенны
-marking-MothAntennasJungle = Антенны (Джунгли)
+marking-MothAntennasJungle-jungle = Усики
+marking-MothAntennasJungle = Усики (Джунгли)
 
-marking-MothAntennasMaple-maple = Антенны
-marking-MothAntennasMaple = Антенны (Клён)
+marking-MothAntennasMaple-maple = Усики
+marking-MothAntennasMaple = Усики (Клён)
 
-marking-MothAntennasMoffra-moffra = Антенны
-marking-MothAntennasMoffra = Антенны (Моффра)
+marking-MothAntennasMoffra-moffra = Усики
+marking-MothAntennasMoffra = Усики (Моффра)
 
-marking-MothAntennasOakworm-oakworm = Антенны
-marking-MothAntennasOakworm = Антенны (Дятел)
+marking-MothAntennasOakworm-oakworm = Усики
+marking-MothAntennasOakworm = Усики (Дятел)
 
-marking-MothAntennasPlasmafire-plasmafire = Антенны
-marking-MothAntennasPlasmafire = Антенны (Пожар плазмы)
+marking-MothAntennasPlasmafire-plasmafire = Усики
+marking-MothAntennasPlasmafire = Усики (Пожар Плазмы)
 
-marking-MothAntennasRoyal-royal = Антенны
-marking-MothAntennasRoyal = Антенны (Королевские)
+marking-MothAntennasRoyal-royal = Усики
+marking-MothAntennasRoyal = Усики (Королевские)
 
-marking-MothAntennasStriped-striped = Антенны
-marking-MothAntennasStriped = Антенны (В полоску)
+marking-MothAntennasStriped-striped = Усики
+marking-MothAntennasStriped = Усики (В полоску)
 
-marking-MothAntennasWhitefly-whitefly = Антенны
-marking-MothAntennasWhitefly = Антенны (Белая Мечта)
+marking-MothAntennasWhitefly-whitefly = Усики
+marking-MothAntennasWhitefly = Усики (Белая Мечта)
 
-marking-MothAntennasWitchwing-witchwing = Антенны
-marking-MothAntennasWitchwing = Антенны (Крылья Ведьмы)
+marking-MothAntennasWitchwing-witchwing = Усики
+marking-MothAntennasWitchwing = Усики (Крылья Ведьмы)
 
 marking-MothAntennasUnderwing-underwing_primary = Основные
 marking-MothAntennasUnderwing-underwing_secondary = Основные
-marking-MothAntennasUnderwing = Антенны (Подкрылок)
+marking-MothAntennasUnderwing = Усики (Подкрылок)
 
 
 
@@ -83,7 +83,7 @@ marking-MothWingsFeathery = Крылья (Перистые)
 
 marking-MothWingsFirewatch-firewatch_primary = Основные
 marking-MothWingsFirewatch-firewatch_secondary = Вторичные
-marking-MothWingsFirewatch = Крылья (Пожарный дозор)
+marking-MothWingsFirewatch = Крылья (Пожарный Дозор)
 
 marking-MothWingsGothic-gothic = Крылья
 marking-MothWingsGothic = Крылья (Готика)
@@ -106,7 +106,7 @@ marking-MothWingsOakworm = Крылья (Дятел)
 
 marking-MothWingsPlasmafire-plasmafire_primary = Основные
 marking-MothWingsPlasmafire-plasmafire_secondary = Вторичные
-marking-MothWingsPlasmafire = Крылья (Пожар плазмы)
+marking-MothWingsPlasmafire = Крылья (Пожар Плазмы)
 
 marking-MothWingsPointy-pointy = Крылья
 marking-MothWingsPointy = Крылья (Заостренные)
@@ -198,22 +198,22 @@ marking-MothRArmFan = Правая рука (Вентилятор)
 
 
 marking-MothChestFirewatch-firewatch_chest = Тело
-marking-MothChestFirewatch = Тело (Пожарный дозор)
+marking-MothChestFirewatch = Тело (Пожарный Дозор)
 
 marking-MothHeadFirewatch-firewatch_head = Голова
-marking-MothHeadFirewatch = Голова (Пожарный дозор)
+marking-MothHeadFirewatch = Голова (Пожарный Дозор)
 
 marking-MothLLegFirewatch-firewatch_l_leg = Левая нога
-marking-MothLLegFirewatch = Левая нога (Пожарный дозор)
+marking-MothLLegFirewatch = Левая нога (Пожарный Дозор)
 
 marking-MothRLegFirewatch-firewatch_r_leg = Правая нога
-marking-MothRLegFirewatch = Правая нога (Пожарный дозор)
+marking-MothRLegFirewatch = Правая нога (Пожарный Дозор)
 
 marking-MothLArmFirewatch-firewatch_l_arm = Левая рука
-marking-MothLArmFirewatch = Левая рука (Пожарный дозор)
+marking-MothLArmFirewatch = Левая рука (Пожарный Дозор)
 
 marking-MothRArmFirewatch-firewatch_r_arm = Правая рука
-marking-MothRArmFirewatch = Правая рука (Пожарный дозор)
+marking-MothRArmFirewatch = Правая рука (Пожарный Дозор)
 
 
 
