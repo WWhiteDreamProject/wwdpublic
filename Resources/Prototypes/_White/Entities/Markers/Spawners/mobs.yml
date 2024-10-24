@@ -1,0 +1,13 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobGondola
+  name: Gondola spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Animals/gondola.rsi
+        state: icon
+  - type: ConditionalSpawner
+    prototypes:
+      - MobGondola

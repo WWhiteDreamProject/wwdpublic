@@ -1,0 +1,11 @@
+- type: polymorph
+  id: Gondola
+  configuration:
+    entity: MobGondola
+    forced: true
+    transferName: false
+    transferHumanoidAppearance: false
+    inventory: Drop
+    revertOnDeath: true
+    revertOnCrit: false
+    duration: 900
