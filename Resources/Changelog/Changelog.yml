@@ -7736,3 +7736,10 @@ Entries:
   id: 6466
   time: '2024-10-23T14:11:51.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/97
+- author: Gersoon458
+  changes:
+    - type: Tweak
+      message: DryDock update/Обновление ДрайДока
+  id: 6467
+  time: '2024-10-24T13:50:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/98
