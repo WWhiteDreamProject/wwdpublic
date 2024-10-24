@@ -206,6 +206,14 @@
         #- id: WeaponSniperMosin
         #  prob: 0.0010
         #  orGroup: syndiemaintloot
+        # WD EDIT START
+        - id: ClothingEyesNightVisionGogglesSyndie
+          prob: 0.005
+          orGroup: syndiemaintloot
+        - id: ClothingEyesThermalVisionGogglesSyndie
+          prob: 0.005
+          orGroup: syndiemaintloot
+        # WD EDIT END
 
 - type: entity
   id: ClosetWallMaintenanceFilledRandom
