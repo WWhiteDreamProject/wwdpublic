@@ -1,0 +1,77 @@
+- type: entity
+  parent: BaseItem
+  id: WeaponPoweredCrossbow
+  name: Crossbow
+  description: It's a dangerous thing.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/crossbow.rsi
+    layers:
+    - state: crossbow
+    - state: unstrung
+      map: [ "enum.StretchedVisuals.Layer" ]
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Back
+    - SuitStorage
+  - type: Item
+    size: Huge
+    sprite: _White/Objects/Weapons/Guns/crossbow.rsi
+  - type: Gun
+    fireRate: 0.5
+    soundGunshot:
+      path: /Audio/Weapons/click.ogg
+    throwAngle: 225
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CrossbowBolt
+    capacity: 1
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+      cell_slot: !type:ContainerSlot
+      crystal_slot: !type:ContainerSlot
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+  - type: Stretched 
+  - type: Powered
+  - type: Appearance
+  - type: StretchedVisuals
+    loadedState: loaded
+    stretchedState: stretched
+    unstrungState: unstrung
+  - type: Construction
+    deconstructionTarget: null
+    graph: WeaponPoweredCrossbowGraph
+    node: crossbow
+
+- type: entity
+  parent: BaseItem
+  id: WeaponPoweredCrossbowUnfinished
+  name: Unfinished crossbow
+  description: It's going to be a dangerous thing.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/crossbow.rsi
+    state: crossbow
+  - type: Item
+    size: Huge
+    sprite: _White/Objects/Weapons/Guns/crossbow.rsi
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Back
+    - SuitStorage
+  - type: Construction
+    deconstructionTarget: null
+    graph: WeaponPoweredCrossbowGraph
+    node: unfinished
