@@ -817,6 +817,7 @@
       - SpeedLoaderSpecial
       - MagazinePistolSpecial
     dynamicRecipes:
+      - BolaEnergy
       - BoxBeanbag
       - BoxShotgunIncendiary
       - BoxShotgunUranium
