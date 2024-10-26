@@ -7743,3 +7743,12 @@ Entries:
   id: 6467
   time: '2024-10-24T13:50:33.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/98
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added night vision goggle/ Добавлен прибор ночного видения
+    - type: Add
+      message: Added thermal vision goggle/ Добавлен прибор термального видения
+  id: 6468
+  time: '2024-10-26T09:36:10.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/89
