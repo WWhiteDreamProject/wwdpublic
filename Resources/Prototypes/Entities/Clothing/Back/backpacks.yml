@@ -39,7 +39,7 @@
   description: It's a backpack made by Honk! Co.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Back/Backpacks/clown.rsi #WWDP edit
+    sprite: Clothing/Back/Backpacks/clown.rsi
   - type: Storage
     storageOpenSound:
       collection: BikeHorn
@@ -310,7 +310,7 @@
   description: It's a backpack made by Jonk! Co.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Back/Backpacks/cluwne.rsi #WWDP edit
+    sprite: Clothing/Back/Backpacks/cluwne.rsi
   - type: Unremoveable
     deleteOnDrop: false
 

@@ -11,13 +11,13 @@
       "name": "barricade",
       "directions": 1
     },
-	{
-	  "name": "barricade_full",
-	  "directions": 1
-	},
-	{
-	  "name": "barricade_directional",
-	  "directions": 4
-	}
+    {
+      "name": "barricade_full",
+      "directions": 1
+    },
+    {
+      "name": "barricade_directional",
+      "directions": 4
+    }
   ]
 }

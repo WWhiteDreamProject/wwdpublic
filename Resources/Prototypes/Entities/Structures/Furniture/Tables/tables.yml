@@ -6,9 +6,9 @@
   description: Pieces of metal that make the frame of a table.
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/Tables/frame.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/frame.rsi
   - type: Icon
-    sprite: _White/Structures/Furniture/Tables/frame.rsi
+    sprite: Structures/Furniture/Tables/frame.rsi
     state: full
   - type: Fixtures
     fixtures:
@@ -451,9 +451,9 @@
   description: Do not apply fire to this. Rumour says it burns easily.
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/Tables/wood.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/wood.rsi
   - type: Icon
-    sprite: _White/Structures/Furniture/Tables/wood.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/wood.rsi
   - type: Damageable
     damageModifierSet: Wood
   - type: Destructible
@@ -498,9 +498,9 @@
   description: Play em' cowboy.
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/Tables/carpet.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/carpet.rsi
   - type: Icon
-    sprite: _White/Structures/Furniture/Tables/carpet.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/carpet.rsi
   - type: Damageable
     damageModifierSet: Wood
   - type: Destructible

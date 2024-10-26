@@ -9,7 +9,7 @@
     - Disposal
   components:
   - type: Sprite
-    sprite: _White/Structures/Piping/disposal.rsi #WWDP edit
+    sprite: Structures/Piping/disposal.rsi
     layers:
     - state: condisposal
       map: [ "enum.DisposalUnitVisualLayers.Unanchored" ]
@@ -71,7 +71,7 @@
   name: disposal unit
   components:
   - type: Sprite
-    sprite: _White/Structures/Piping/disposal.rsi #WWDP edit
+    sprite: Structures/Piping/disposal.rsi
     snapCardinals: true
   - type: Construction
     graph: DisposalMachine
@@ -93,7 +93,7 @@
   description: A pneumatic mail delivery unit.
   components:
   - type: Sprite
-    sprite: _White/Structures/Piping/disposal.rsi #WWDP edit
+    sprite: Structures/Piping/disposal.rsi
     snapCardinals: true
     layers:
       - state: conmailing

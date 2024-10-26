@@ -975,9 +975,9 @@
   description: A custom-made clown hardsuit.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/clown.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/clown.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/clown.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/clown.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
