@@ -1,4 +1,55 @@
 - type: entity
+  name: white linoleum floor
+  parent: FloorTileItemLino
+  id: FloorTileItemLinoWhite
+  components:
+  - type: Sprite
+    state: lino-white
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    heldPrefix: steel
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorLinoWhite
+  - type: Stack
+    stackType: FloorTileLino
+
+- type: entity
+  name: grey linoleum floor
+  parent: FloorTileItemLino
+  id: FloorTileItemLinoGrey
+  components:
+  - type: Sprite
+    state: lino-grey
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    heldPrefix: steel
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorLinoGrey
+  - type: Stack
+    stackType: FloorTileLino
+
+- type: entity
+  name: dark linoleum floor
+  parent: FloorTileItemLino
+  id: FloorTileItemLinoDark
+  components:
+  - type: Sprite
+    state: lino-dark
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    heldPrefix: steel
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorLinoDark
+  - type: Stack
+    stackType: FloorTileLino
+
+- type: entity
   name: steel yellow tile
   parent: FloorTileItemSteel
   id: FloorTileItemSteelYellow
