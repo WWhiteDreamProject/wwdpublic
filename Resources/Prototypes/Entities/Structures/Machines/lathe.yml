@@ -359,6 +359,10 @@
       - AnimalTranslator
       - MofficTranslatorImplanter
       - MofficTranslator
+      # WD EDIT START
+      - ClothingEyesNightVisionGoggles
+      - ClothingEyesThermalVisionGoggles
+      # WD EDIT END
       - RCDAmmo #DeltaV
       - RCD #EE
   - type: EmagLatheRecipes
