@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Power.Events;
@@ -12,7 +11,6 @@ using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Popups;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Stunnable;
-using Robust.Shared.Containers;
 
 namespace Content.Server.Stunnable.Systems
 {
@@ -23,8 +21,6 @@ namespace Content.Server.Stunnable.Systems
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly BatterySystem _battery = default!;
         [Dependency] private readonly SharedItemToggleSystem _itemToggle = default!;
-        [Dependency] private readonly SharedContainerSystem _containers = default!; // WD EDIT
-
         public override void Initialize()
         {
             base.Initialize();
@@ -42,7 +38,7 @@ namespace Content.Server.Stunnable.Systems
         {
             // WD EDIT START
             if (!_itemToggle.IsActivated(entity.Owner)
-                || !TryGetBatteryComponent(entity, out var battery, out var batteryUid)
+                || !_battery.TryGetBatteryComponent(entity, out var battery, out var batteryUid)
                 || !_battery.TryUseCharge(batteryUid.Value, entity.Comp.EnergyPerUse, battery))
                 args.Cancelled = true;
             // WD EDIT END
@@ -55,7 +51,7 @@ namespace Content.Server.Stunnable.Systems
             : Loc.GetString("comp-stunbaton-examined-off");
             args.PushMarkup(onMsg);
 
-            if (TryGetBatteryComponent(entity, out var battery, out _)) // WD EDIT
+            if (_battery.TryGetBatteryComponent(entity, out var battery, out _)) // WD EDIT
             {
                 var count = (int) (battery.CurrentCharge / entity.Comp.EnergyPerUse);
                 args.PushMarkup(Loc.GetString("melee-battery-examine", ("color", "yellow"), ("count", count)));
@@ -70,7 +66,7 @@ namespace Content.Server.Stunnable.Systems
         private void TryTurnOn(Entity<StunbatonComponent> entity, ref ItemToggleActivateAttemptEvent args)
         {
             // WD EDIT START
-            if (!TryGetBatteryComponent(entity, out var battery, out _)
+            if (!_battery.TryGetBatteryComponent(entity, out var battery, out _)
                 || battery.CurrentCharge < entity.Comp.EnergyPerUse)
             {
 
@@ -81,7 +77,7 @@ namespace Content.Server.Stunnable.Systems
                     _popup.PopupEntity(Loc.GetString("stunbaton-component-low-charge"), (EntityUid) args.User,
                         (EntityUid) args.User);
                 }
-                
+
                 return;
             }
             // WD EDIT END
@@ -126,35 +122,9 @@ namespace Content.Server.Stunnable.Systems
 
         private void CheckCharge(Entity<StunbatonComponent> entity)
         {
-            if (!TryGetBatteryComponent(entity, out var battery, out _)
+            if (!_battery.TryGetBatteryComponent(entity, out var battery, out _)
                 || battery.CurrentCharge < entity.Comp.EnergyPerUse)
                 _itemToggle.TryDeactivate(entity.Owner, predicted: false);
-        }
-
-        private bool TryGetBatteryComponent(EntityUid uid, [NotNullWhen(true)] out BatteryComponent? battery,
-            [NotNullWhen(true)] out EntityUid? batteryUid)
-        {
-            if (TryComp(uid, out battery))
-            {
-                batteryUid = uid;
-                return true;
-            }
-
-            if (!_containers.TryGetContainer(uid, "cell_slot", out var container)
-                || container is not ContainerSlot slot)
-            {
-                battery = null;
-                batteryUid = null;
-                return false;
-            }
-
-            batteryUid = slot.ContainedEntity;
-
-            if (batteryUid != null)
-                return TryComp(batteryUid, out battery);
-
-            battery = null;
-            return false;
         }
         // WD EDIT END
     }

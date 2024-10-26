@@ -2,6 +2,12 @@
   id: EnergySword
 
 - type: Tag
+  id: CrossbowBolt
+
+- type: Tag
+  id: Telecrystal
+
+- type: Tag
   id: NeuroStabilization
 
 - type: Tag
