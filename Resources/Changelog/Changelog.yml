@@ -7759,3 +7759,10 @@ Entries:
   id: 6469
   time: '2024-10-26T09:41:08.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/76
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added Gondola / Добавлена Гондола
+  id: 6470
+  time: '2024-10-26T11:15:09.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/96
