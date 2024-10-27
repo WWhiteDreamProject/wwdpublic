@@ -9724,7 +9724,7 @@ entities:
     - type: GasTileOverlay
     - type: NavMap
     - type: BecomesStation
-      id: WhiteMooseStation
+      id: MooseStation
   - uid: 3058
     components:
     - type: MetaData

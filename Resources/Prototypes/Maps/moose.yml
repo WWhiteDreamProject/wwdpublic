@@ -5,7 +5,7 @@
   minPlayers: 10
   maxPlayers: 50
   stations:
-    DryDockStation:
+    MooseStation:
       stationProto: StandardNanotrasenStation
       components:
       - type: StationNameSetup
