@@ -7782,3 +7782,12 @@ Entries:
   id: 6472
   time: '2024-10-27T13:28:02.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/104
+- author: Gersoon
+  changes:
+    - type: Add
+      message: New map added - Moose/Новая карта добавлена - Мус
+    - type: Tweak
+      message: Prisoners added to DryDock/На ДрайДок добавлены заключенные
+  id: 6473
+  time: '2024-10-27T13:49:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/100
