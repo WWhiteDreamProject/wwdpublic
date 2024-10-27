@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "sprite made by Gtheglorious based on the sprite made by Alekshhh for SS14 | vulpkanin versions made by Floofers. Vox states by Flareguy for Space Station 14",
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Made by WWDP team",
   "size": {
     "x": 32,
     "y": 32
@@ -18,11 +18,7 @@
       "directions": 4
     },
     {
-      "name": "on-equipped-HELMET",
-      "directions": 4
-    },
-    {
-      "name": "on-equipped-HELMET-vulpkanin",
+      "name": "off-equipped-HELMET-vox",
       "directions": 4
     },
     {
@@ -30,11 +26,15 @@
       "directions": 4
     },
     {
-      "name": "off-equipped-HELMET-vox",
+      "name": "on-equipped-HELMET",
       "directions": 4
     },
     {
       "name": "on-equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-vulpkanin",
       "directions": 4
     }
   ]

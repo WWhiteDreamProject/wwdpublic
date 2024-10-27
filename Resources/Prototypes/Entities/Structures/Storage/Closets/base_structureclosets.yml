@@ -227,7 +227,7 @@
     noRot: true
   - type: Sprite
     noRot: true
-    sprite: _White/Structures/Storage/suit_storage.rsi
+    sprite: Structures/Storage/suit_storage.rsi
     layers:
     - state: base
     - state: door

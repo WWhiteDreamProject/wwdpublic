@@ -5,9 +5,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _White/Structures/Windows/plasma_window.rsi #WWDP edit
+    sprite: Structures/Windows/plasma_window.rsi
   - type: Icon
-    sprite: _White/Structures/Windows/plasma_window.rsi #WWDP edit
+    sprite: Structures/Windows/plasma_window.rsi
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
@@ -64,10 +64,10 @@
     - Window
   components:
   - type: Sprite
-    sprite: _White/Structures/Windows/directional.rsi #WWDP edit
+    sprite: Structures/Windows/directional.rsi
     state: plasma_window
   - type: Icon
-    sprite: _White/Structures/Windows/directional.rsi #WWDP edit
+    sprite: Structures/Windows/directional.rsi
     state: plasma_window
   - type: Construction
     graph: WindowDirectional
@@ -109,14 +109,14 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _White/Structures/Windows/plasma_diagonal.rsi #WWDP edit
+    sprite: Structures/Windows/plasma_diagonal.rsi
     state: state0
   - type: IconSmooth
     mode: Diagonal
     key: walls
     base: state
   - type: Icon
-    sprite: _White/Structures/Windows/plasma_diagonal.rsi #WWDP edit
+    sprite: Structures/Windows/plasma_diagonal.rsi
     state: state0
   - type: Fixtures
     fixtures:

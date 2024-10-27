@@ -206,7 +206,7 @@
       repeating: true
     - type: Anchorable
     - type: Sprite
-      sprite: _White/Objects/Weapons/pflash.rsi #WWDP edit
+      sprite: Objects/Weapons/pflash.rsi
       layers:
         - state: "off"
           map: ["enum.ProximityTriggerVisualLayers.Base"]

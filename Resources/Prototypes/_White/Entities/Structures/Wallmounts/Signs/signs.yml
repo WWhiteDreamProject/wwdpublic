@@ -1,0 +1,219 @@
+- type: entity
+  parent: BaseSign
+  id: SignAME
+  name: AME sign
+  description: A sign indicating the AME.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: ame
+
+- type: entity
+  parent: BaseSign
+  id: SignArrivals
+  name: arrivals sign
+  description: A sign indicating the arrivals.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: arrivals
+
+- type: entity
+  parent: BaseSign
+  id: SignBoxing
+  name: boxing sign
+  description: A sign indicating the boxing.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: boxing
+
+- type: entity
+  parent: BaseSign
+  id: SignBrig
+  name: brig sign
+  description: A sign indicating the brig.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: brig
+
+- type: entity
+  parent: BaseSign
+  id: SignCaptain
+  name: captain sign
+  description: A sign indicating the captain office.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: captain
+
+- type: entity
+  parent: BaseSign
+  id: SignCryo
+  name: cryogenics sign
+  description: A sign indicating the cryogenics.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: cryo
+
+- type: entity
+  parent: BaseSign
+  id: SignDorms
+  name: dorms sign
+  description: A sign indicating the dorms.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: dorms
+
+- type: entity
+  parent: BaseSign
+  id: SignEquip
+  name: equipment sign
+  description: A sign indicating the equipment.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: equip
+
+- type: entity
+  parent: BaseSign
+  id: SignEvac
+  name: evacuation sign
+  description: A sign indicating the evacuation.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: evac
+
+- type: entity
+  parent: BaseSign
+  id: SignGate
+  name: gate sign
+  description: A sign indicating the gate.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: gate
+
+- type: entity
+  parent: BaseSign
+  id: SignGenetics
+  name: genetics sign
+  description: A sign indicating the genetics.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: genetics
+
+- type: entity
+  parent: BaseSign
+  id: SignHydro
+  name: hydroponics sign
+  description: A sign indicating the hydroponics area.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: hydro
+
+- type: entity
+  parent: BaseSign
+  id: SignHOP
+  name: HOP sign
+  description: A sign indicating the HOP office.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: hop
+
+- type: entity
+  parent: BaseSign
+  id: SignKitchen
+  name: kitchen sign
+  description: A sign indicating the kitchen.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: kitchen
+
+- type: entity
+  parent: BaseSign
+  id: SignCheckpoint
+  name: checkpoint sign
+  description: A sign indicating the checkpoint.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: check
+
+- type: entity
+  parent: BaseSign
+  id: SignNukeVault
+  name: nuclear vault sign
+  description: A sign indicating the nuclear.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: nukevault
+
+- type: entity
+  parent: BaseSign
+  id: SignPA
+  name: PA sign
+  description: A sign indicating the PA.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: pa
+
+- type: entity
+  parent: BaseSign
+  id: SignSMES
+  name: SMES sign
+  description: A sign indicating the SMES room.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: smes
+
+- type: entity
+  parent: BaseSign
+  id: SignSolar
+  name: solar pannels sign
+  description: A sign indicating the solar pannels.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: solar
+
+- type: entity
+  parent: BaseSign
+  id: SignStorage
+  name: storage sign
+  description: A sign indicating the storage.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: storage
+
+- type: entity
+  parent: BaseSign
+  id: SignTheatre
+  name: theatre sign
+  description: A sign indicating the theatre.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: theatre
+
+- type: entity
+  parent: BaseSign
+  id: SignToilet
+  name: toilet sign
+  description: A sign indicating the toilet.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/signs.rsi
+    state: toilet

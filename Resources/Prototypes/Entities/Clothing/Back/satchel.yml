@@ -5,7 +5,7 @@
   description: A trendy looking satchel.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Back/Satchels/satchel.rsi #WWDP edit
+    sprite: Clothing/Back/Satchels/satchel.rsi
   - type: Storage
     grid:
     - 0,0,1,3
@@ -28,7 +28,7 @@
   description: A tough satchel with extra pockets.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Back/Satchels/engineering.rsi #WWDP edit
+    sprite: Clothing/Back/Satchels/engineering.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -67,7 +67,7 @@
   description: A sterile satchel used in medical departments.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Back/Satchels/medical.rsi #WWDP edit
+    sprite: Clothing/Back/Satchels/medical.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -76,7 +76,7 @@
   description: A sterile satchel with chemist colours.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Back/Satchels/chemistry.rsi #WWDP edit
+    sprite: Clothing/Back/Satchels/chemistry.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -103,7 +103,7 @@
   description: Useful for holding research materials.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Back/Satchels/science.rsi #WWDP edit
+    sprite: Clothing/Back/Satchels/science.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -121,7 +121,7 @@
   description: A robust satchel for security related needs.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Back/Satchels/security.rsi #WWDP edit
+    sprite: Clothing/Back/Satchels/security.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -139,7 +139,7 @@
   description: An exclusive satchel for Nanotrasen officers.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Back/Satchels/captain.rsi #WWDP edit
+    sprite: Clothing/Back/Satchels/captain.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -148,7 +148,7 @@
   description: A satchel made of all natural fibers.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Back/Satchels/hydroponics.rsi #WWDP edit
+    sprite: Clothing/Back/Satchels/hydroponics.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel

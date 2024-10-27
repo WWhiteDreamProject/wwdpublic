@@ -286,7 +286,7 @@
   components:
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: _White/Structures/Piping/Atmospherics/vent.rsi #WWDP edit
+      sprite: Structures/Piping/Atmospherics/vent.rsi
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeStraight

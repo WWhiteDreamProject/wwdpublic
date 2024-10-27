@@ -7,9 +7,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _White/Clothing/Head/Helmets/eva.rsi #WWDP edit
+    sprite: Clothing/Head/Helmets/eva.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/Helmets/eva.rsi #WWDP edit
+    sprite: Clothing/Head/Helmets/eva.rsi
   - type: Tag
     tags:
     - HelmetEVA
@@ -24,9 +24,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _White/Clothing/Head/Helmets/eva_large.rsi #WWDP edit
+    sprite: Clothing/Head/Helmets/eva_large.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/Helmets/eva_large.rsi #WWDP edit
+    sprite: Clothing/Head/Helmets/eva_large.rsi
 
 #Syndicate EVA Helmet
 - type: entity
@@ -37,9 +37,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _White/Clothing/Head/Helmets/eva_syndicate.rsi #WWDP edit
+    sprite: Clothing/Head/Helmets/eva_syndicate.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/Helmets/eva_syndicate.rsi #WWDP edit
+    sprite: Clothing/Head/Helmets/eva_syndicate.rsi
 
 #Cosmonaut Helmet
 - type: entity

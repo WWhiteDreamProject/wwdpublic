@@ -63,9 +63,9 @@
   components:
   - type: SpriteFade
   - type: Sprite
-    sprite: _White/Structures/Furniture/Tables/frame.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/frame.rsi
   - type: Icon
-    sprite: _White/Structures/Furniture/Tables/frame.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/frame.rsi
     state: full
   - type: Fixtures
     fixtures:
@@ -117,9 +117,9 @@
   description: Pieces of metal that make the frame of a table.
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/Tables/frame.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/frame.rsi
   - type: Icon
-    sprite: _White/Structures/Furniture/Tables/frame.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/frame.rsi
     state: full
   - type: Damageable
     damageContainer: Inorganic
@@ -162,9 +162,9 @@
   description: A square piece of metal standing on four metal legs.
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/Tables/generic.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/generic.rsi
   - type: Icon
-    sprite: _White/Structures/Furniture/Tables/generic.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/generic.rsi
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -203,9 +203,9 @@
   description: A square piece of metal standing on four metal legs. Extra robust.
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/Tables/reinforced.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/reinforced.rsi
   - type: Icon
-    sprite: _White/Structures/Furniture/Tables/reinforced.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/reinforced.rsi
   - type: Destructible
     thresholds:
     - trigger:
@@ -248,9 +248,9 @@
   description: A square piece of glass, standing on four metal legs.
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/Tables/glass.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/glass.rsi
   - type: Icon
-    sprite: _White/Structures/Furniture/Tables/glass.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/glass.rsi
   - type: GlassTable
     climberDamage:
       types:
@@ -300,9 +300,9 @@
   description: A square piece of glass, standing on four metal legs. Extra robust.
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/Tables/r_glass.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/r_glass.rsi
   - type: Icon
-    sprite: _White/Structures/Furniture/Tables/r_glass.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/r_glass.rsi
   - type: GlassTable
     climberDamage:
       types:
@@ -355,9 +355,9 @@
   description: A square piece of plasma glass, standing on four metal legs. Pretty!
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/Tables/plasma.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/plasma.rsi
   - type: Icon
-    sprite: _White/Structures/Furniture/Tables/plasma.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/plasma.rsi
   - type: GlassTable
     climberDamage:
       types:
@@ -777,9 +777,9 @@
   description: Do not apply fire to this. Rumour says it burns easily.
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/Tables/counterwood.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/counterwood.rsi
   - type: Icon
-    sprite: _White/Structures/Furniture/Tables/counterwood.rsi #WWDP edit
+    sprite: Structures/Furniture/Tables/counterwood.rsi
     state: full
   - type: Damageable
     damageContainer: Inorganic

@@ -22,7 +22,7 @@
         layer:
         - MachineLayer
   - type: Sprite
-    sprite: _White/Structures/Piping/Atmospherics/Portable/portable_scrubber.rsi #WWDP edit
+    sprite: Structures/Piping/Atmospherics/Portable/portable_scrubber.rsi
     noRot: true
     layers:
     - state: icon
