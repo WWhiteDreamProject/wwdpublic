@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Numerics;
 using Content.Shared._White.Penetrated;
 using Content.Shared._White.Projectile;
@@ -6,6 +7,7 @@ using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.Physics;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
@@ -37,7 +39,8 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         SubscribeLocalEvent<EmbeddableProjectileComponent, ProjectileHitEvent>(OnEmbedProjectileHit);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ThrowDoHitEvent>(OnEmbedThrowDoHit);
         SubscribeLocalEvent<EmbeddableProjectileComponent, AttemptPacifiedThrowEvent>(OnAttemptPacifiedThrow);
-        SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate, before: new[] {typeof(ActivatableUISystem)}); // WD EDI
+        SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate, before: new[] {typeof(ActivatableUISystem)}); // WD EDIT
+        SubscribeLocalEvent<EmbeddableProjectileComponent, PreventCollideEvent>(OnPreventCollision); // WD EDIT
     }
 
     private void OnEmbedThrowDoHit(EntityUid uid, EmbeddableProjectileComponent component, ThrowDoHitEvent args)
@@ -133,6 +136,14 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             return;
 
         args.Handled = true;
+    }
+
+    private void OnPreventCollision(EntityUid uid, EmbeddableProjectileComponent component, ref PreventCollideEvent args)
+    {
+        // Opaque collision mask doesn't work for EmbeddableProjectileComponent
+        if (component.PreventCollide && TryComp(args.OtherEntity, out FixturesComponent? fixtures) &&
+            fixtures.Fixtures.All(fix => (fix.Value.CollisionLayer & (int) CollisionGroup.Opaque) == 0))
+            args.Cancelled = true;
     }
 
     private bool AttemptEmbedRemove(EntityUid uid, EntityUid user, EmbeddableProjectileComponent? component = null)
