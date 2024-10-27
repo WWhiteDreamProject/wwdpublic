@@ -169,7 +169,7 @@
   id: AdvancedToolsTechnology
   name: research-technology-advanced-tools
   icon:
-    sprite: _White/Objects/Tools/welder_experimental.rsi #WWDP edit
+    sprite: Objects/Tools/welder_experimental.rsi
     state: icon
   discipline: Industrial
   tier: 2

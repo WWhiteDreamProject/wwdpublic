@@ -1669,7 +1669,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   icon:
-    sprite: _White/Structures/Doors/secret_door.rsi #WWDP edit
+    sprite: Structures/Doors/secret_door.rsi
     state: closed
   conditions:
     - !type:TileNotBlocked

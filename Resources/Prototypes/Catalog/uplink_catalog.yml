@@ -795,7 +795,7 @@
   id: UplinkStorageImplanter
   name: uplink-storage-implanter-name
   description: uplink-storage-implanter-desc
-  icon: { sprite: /Textures/_White/Clothing/Back/Backpacks/backpack.rsi, state: icon } #WWDP edit
+  icon: { sprite: /Textures/Clothing/Back/Backpacks/backpack.rsi, state: icon }
   productEntity: StorageImplanter
   cost:
     Telecrystal: 8
