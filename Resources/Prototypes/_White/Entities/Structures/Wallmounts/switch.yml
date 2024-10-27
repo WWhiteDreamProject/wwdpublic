@@ -1,7 +1,7 @@
 # button frames 1
 
 - type: entity
-  id: ButtonFrameGrey1
+  id: ButtonFrameGrey
   parent: ButtonFrame
   suffix: "Grey, 1"
   components:
@@ -11,7 +11,7 @@
     state: grey
 
 - type: entity
-  id: ButtonFrameCaution1
+  id: ButtonFrameCaution
   parent: ButtonFrame
   suffix: "Caution, 1"
   components:
@@ -21,7 +21,7 @@
     state: caution
 
 - type: entity
-  id: ButtonFrameCautionSecurity1
+  id: ButtonFrameCautionSecurity
   parent: ButtonFrame
   suffix: "Security, 1"
   components:
@@ -31,7 +31,7 @@
     state: caution_security
 
 - type: entity
-  id: ButtonFrameExit1
+  id: ButtonFrameExit
   parent: ButtonFrame
   suffix: "Exit, 1"
   components:
@@ -44,7 +44,7 @@
        shader: unshaded
 
 - type: entity
-  id: ButtonFrameJanitor1
+  id: ButtonFrameJanitor
   parent: ButtonFrame
   suffix: "Janitor, 1"
   components:
