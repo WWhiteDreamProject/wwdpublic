@@ -51,5 +51,8 @@ public sealed partial class EmbeddableProjectileComponent : Component
     // WD EDIT START
     [DataField]
     public DamageSpecifier Damage = new();
+
+    [DataField]
+    public bool PreventCollide;
     // WD EDIT END
 }
