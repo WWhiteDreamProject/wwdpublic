@@ -7773,3 +7773,12 @@ Entries:
   id: 6471
   time: '2024-10-27T02:51:58.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/102
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        correction of a collision at a glass shard/ Исправление колизии у
+        осколка стекла
+  id: 6472
+  time: '2024-10-27T13:28:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/104
