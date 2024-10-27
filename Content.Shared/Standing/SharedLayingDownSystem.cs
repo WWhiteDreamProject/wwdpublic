@@ -203,6 +203,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
 [Serializable, NetSerializable]
 public sealed partial class StandingUpDoAfterEvent : SimpleDoAfterEvent;
 
+[Serializable, NetSerializable]
 public enum DropHeldItemsBehavior : byte
 {
     NoDrop,
