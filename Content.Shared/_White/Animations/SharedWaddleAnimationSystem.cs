@@ -7,7 +7,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._White.Animations;
 
-public abstract class SharedWaddledAnimationSystem : EntitySystem
+public abstract class SharedWaddleAnimationSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;

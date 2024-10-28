@@ -3,7 +3,7 @@ using Content.Shared.Movement.Components;
 
 namespace Content.Server._White.Animations;
 
-public sealed class WaddleAnimationSystem : SharedWaddledAnimationSystem
+public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
 {
     protected override void PlayAnimation(EntityUid user)
     {

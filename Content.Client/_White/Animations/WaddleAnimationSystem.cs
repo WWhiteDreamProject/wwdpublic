@@ -10,7 +10,7 @@ using Robust.Shared.Animations;
 
 namespace Content.Client._White.Animations;
 
-public sealed class WaddleAnimationSystem : SharedWaddledAnimationSystem
+public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
