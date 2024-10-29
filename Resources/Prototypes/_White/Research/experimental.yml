@@ -1,19 +1,6 @@
 # Tier 2
 
 - type: technology
-  id: BasicRobotics
-  name: research-technology-basic-robotics
-  icon:
-    sprite: Structures/Machines/exosuit_fabricator.rsi
-    state: fab-idle
-  discipline: Experimental
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - ProximitySensor
-  - ExosuitFabricatorMachineCircuitboard
-
-- type: technology
   id: NightVisionTech
   name: research-technology-night-vision
   icon:
