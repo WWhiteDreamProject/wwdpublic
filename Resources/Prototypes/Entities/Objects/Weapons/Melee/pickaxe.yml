@@ -25,6 +25,9 @@
     bluntStaminaDamageFactor: 2.0
     maxTargets: 2
     angle: 60
+    heavyRateModifier: 1.2
+    heavyDamageBaseModifier: 0.5
+    heavyStaminaCost: 0
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
