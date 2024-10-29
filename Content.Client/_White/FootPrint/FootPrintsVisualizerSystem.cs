@@ -43,35 +43,20 @@ public sealed class FootPrintsVisualizerSystem : VisualizerSystem<FootPrintCompo
             || !TryComp<AppearanceComponent>(uid, out var appearance))
             return;
 
-        if (_appearance.TryGetData<FootPrintVisuals>(uid, FootPrintVisualState.State, out var printVisuals, appearance))
-        {
-            switch (printVisuals)
-            {
-                case FootPrintVisuals.BareFootPrint:
-                    sprite.LayerSetState(layer,
-                            printsComponent.RightStep
-                            ? new RSI.StateId(printsComponent.RightBarePrint)
-                            : new RSI.StateId(printsComponent.LeftBarePrint),
-                        printsComponent.RsiPath);
-                    break;
-                case FootPrintVisuals.ShoesPrint:
-                    sprite.LayerSetState(layer, new RSI.StateId(printsComponent.ShoesPrint), printsComponent.RsiPath);
-                    break;
-                case FootPrintVisuals.SuitPrint:
-                    sprite.LayerSetState(layer, new RSI.StateId(printsComponent.SuitPrint), printsComponent.RsiPath);
-                    break;
-                case FootPrintVisuals.Dragging:
-                    sprite.LayerSetState(layer, new RSI.StateId(_random.Pick(printsComponent.DraggingPrint)), printsComponent.RsiPath);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException($"Unknown {printVisuals} parameter.");
-            }
-        }
-
-        if (!_appearance.TryGetData<Color>(uid, FootPrintVisualState.Color, out var printColor, appearance))
+        if (!_appearance.TryGetData<FootPrintVisuals>(uid, FootPrintVisualState.State, out var printVisuals, appearance))
             return;
 
-        sprite.LayerSetColor(layer, printColor);
+        sprite.LayerSetState(layer, new RSI.StateId(printVisuals switch
+        {
+            FootPrintVisuals.BareFootPrint => printsComponent.RightStep ? printsComponent.RightBarePrint : printsComponent.LeftBarePrint,
+            FootPrintVisuals.ShoesPrint => printsComponent.ShoesPrint,
+            FootPrintVisuals.SuitPrint => printsComponent.SuitPrint,
+            FootPrintVisuals.Dragging => _random.Pick(printsComponent.DraggingPrint),
+            _ => throw new ArgumentOutOfRangeException($"Unknown {printVisuals} parameter.")
+        }), printsComponent.RsiPath);
+
+        if (_appearance.TryGetData<Color>(uid, FootPrintVisualState.Color, out var printColor, appearance))
+            sprite.LayerSetColor(layer, printColor);
     }
 
     protected override void OnAppearanceChange (EntityUid uid, FootPrintComponent component, ref AppearanceChangeEvent args)

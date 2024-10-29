@@ -52,7 +52,8 @@ public sealed class FootPrintsSystem : EntitySystem
             || !_map.TryFindGridAt(_transform.GetMapCoordinates((uid, transform)), out var gridUid, out _))
             return;
 
-        var dragging = mobThreshHolds.CurrentThresholdState is MobState.Critical or MobState.Dead || _layingQuery.TryComp(uid, out var laying) && laying.IsCrawlingUnder;
+        var dragging = mobThreshHolds.CurrentThresholdState is MobState.Critical or MobState.Dead
+                       || _layingQuery.TryComp(uid, out var laying) && laying.IsCrawlingUnder;
         var distance = (transform.LocalPosition - component.StepPos).Length();
         var stepSize = dragging ? component.DragSize : component.StepSize;
 
@@ -80,7 +81,7 @@ public sealed class FootPrintsSystem : EntitySystem
             ? (transform.LocalPosition - component.StepPos).ToAngle() + Angle.FromDegrees(-90f)
             : transform.LocalRotation + Angle.FromDegrees(180f);
 
-        component.PrintsColor = component.PrintsColor.WithAlpha(ReduceAlpha(component.PrintsColor.A, component.ColorReduceAlpha));
+        component.PrintsColor = component.PrintsColor.WithAlpha(Math.Max(0f, component.PrintsColor.A - component.ColorReduceAlpha));
         component.StepPos = transform.LocalPosition;
 
         if (!TryComp<SolutionContainerManagerComponent>(entity, out var solutionContainer)
@@ -117,15 +118,5 @@ public sealed class FootPrintsSystem : EntitySystem
             state = FootPrintVisuals.Dragging;
 
         return state;
-    }
-
-    private float ReduceAlpha(float alpha, float reductionAmount)
-    {
-        if (alpha - reductionAmount > 0f)
-            alpha -= reductionAmount;
-        else
-            alpha = 0f;
-
-        return alpha;
     }
 }
