@@ -19,7 +19,7 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
        SubscribeLocalEvent<PuddleFootPrintsComponent, EndCollideEvent>(OnStepTrigger);
    }
 
-    private void OnStepTrigger(EntityUid uid, PuddleFootPrintsComponent comp, ref EndCollideEvent args)
+    private void OnStepTrigger(EntityUid uid, PuddleFootPrintsComponent component, ref EndCollideEvent args)
     {
         if (!TryComp<AppearanceComponent>(uid, out var appearance)
             || !TryComp<PuddleComponent>(uid, out var puddle)
@@ -32,7 +32,7 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
         var totalSolutionQuantity = solutions.Contents.Sum(sol => (float)sol.Quantity);
         var waterQuantity = (from sol in solutions.Contents where sol.Reagent.Prototype == "Water" select (float) sol.Quantity).FirstOrDefault();
 
-        if (waterQuantity / (totalSolutionQuantity / 100f) > comp.OffPercent || solutions.Contents.Count <= 0)
+        if (waterQuantity / (totalSolutionQuantity / 100f) > component.OffPercent || solutions.Contents.Count <= 0)
             return;
 
         tripper.ReagentToTransfer =
@@ -40,14 +40,14 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
 
         if (_appearance.TryGetData(uid, PuddleVisuals.SolutionColor, out var color, appearance)
             && _appearance.TryGetData(uid, PuddleVisuals.CurrentVolume, out var volume, appearance))
-            AddColor((Color)color, (float)volume * comp.SizeRatio, tripper);
+            AddColor((Color)color, (float)volume * component.SizeRatio, tripper);
 
         _solutionContainer.RemoveEachReagent(puddle.Solution.Value, 1);
     }
 
-    private void AddColor(Color col, float quantity, FootPrintsComponent comp)
+    private void AddColor(Color col, float quantity, FootPrintsComponent component)
     {
-        comp.PrintsColor = comp.ColorQuantity == 0f ? col : Color.InterpolateBetween(comp.PrintsColor, col, 0.2f);
-        comp.ColorQuantity += quantity;
+        component.PrintsColor = component.ColorQuantity == 0f ? col : Color.InterpolateBetween(component.PrintsColor, col, component.ColorInterpolationFactor);
+        component.ColorQuantity += quantity;
     }
 }

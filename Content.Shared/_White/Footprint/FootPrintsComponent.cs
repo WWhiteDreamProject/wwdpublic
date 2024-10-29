@@ -58,7 +58,15 @@ public sealed partial class FootPrintsComponent : Component
     [DataField]
     public Vector2 OffsetPrint = new(0.1f, 0f);
 
+    /// <summary>
+    /// Tracks which foot should make the next print. True for right foot, false for left.
+    /// </summary>
     public bool RightStep = true;
 
+    /// <summary>
+    /// The position of the last footprint in world coordinates.
+    /// </summary>
     public Vector2 StepPos = Vector2.Zero;
+
+    public float ColorInterpolationFactor = 0.2f;
 }

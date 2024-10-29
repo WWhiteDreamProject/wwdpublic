@@ -39,30 +39,30 @@ public sealed class FootPrintsSystem : EntitySystem
        SubscribeLocalEvent<FootPrintsComponent, MoveEvent>(OnMove);
    }
 
-    private void OnStartupComponent(EntityUid uid, FootPrintsComponent comp, ComponentStartup args)
+    private void OnStartupComponent(EntityUid uid, FootPrintsComponent component, ComponentStartup args)
     {
-        comp.StepSize += _random.NextFloat(-0.05f, 0.05f);
+        component.StepSize = Math.Max(0f, component.StepSize + _random.NextFloat(-0.05f, 0.05f));
     }
 
-    private void OnMove(EntityUid uid, FootPrintsComponent comp, ref MoveEvent args)
+    private void OnMove(EntityUid uid, FootPrintsComponent component, ref MoveEvent args)
     {
-        if (comp.PrintsColor.A <= 0f
+        if (component.PrintsColor.A <= 0f
             || !_transformQuery.TryComp(uid, out var transform)
             || !_mobThresholdQuery.TryComp(uid, out var mobThreshHolds)
             || !_map.TryFindGridAt(_transform.GetMapCoordinates((uid, transform)), out var gridUid, out _))
             return;
 
         var dragging = mobThreshHolds.CurrentThresholdState is MobState.Critical or MobState.Dead || _layingQuery.TryComp(uid, out var laying) && laying.IsCrawlingUnder;
-        var distance = (transform.LocalPosition - comp.StepPos).Length();
-        var stepSize = dragging ? comp.DragSize : comp.StepSize;
+        var distance = (transform.LocalPosition - component.StepPos).Length();
+        var stepSize = dragging ? component.DragSize : component.StepSize;
 
         if (!(distance > stepSize))
             return;
 
-        comp.RightStep = !comp.RightStep;
+        component.RightStep = !component.RightStep;
 
-        var entity = Spawn(comp.StepProtoId, CalcCoords(gridUid, comp, transform, dragging));
-        var footPrintComponent = Comp<FootPrintComponent>(entity); // There's NO way there's no footprint commponent in a FOOTPRINT
+        var entity = Spawn(component.StepProtoId, CalcCoords(gridUid, component, transform, dragging));
+        var footPrintComponent = EnsureComp<FootPrintComponent>(entity);
 
         footPrintComponent.PrintOwner = uid;
         Dirty(entity, footPrintComponent);
@@ -70,35 +70,35 @@ public sealed class FootPrintsSystem : EntitySystem
         if (_appearanceQuery.TryComp(entity, out var appearance))
         {
             _appearance.SetData(entity, FootPrintVisualState.State, PickState(uid, dragging), appearance);
-            _appearance.SetData(entity, FootPrintVisualState.Color, comp.PrintsColor, appearance);
+            _appearance.SetData(entity, FootPrintVisualState.Color, component.PrintsColor, appearance);
         }
 
         if (!_transformQuery.TryComp(entity, out var stepTransform))
             return;
 
         stepTransform.LocalRotation = dragging
-            ? (transform.LocalPosition - comp.StepPos).ToAngle() + Angle.FromDegrees(-90f)
+            ? (transform.LocalPosition - component.StepPos).ToAngle() + Angle.FromDegrees(-90f)
             : transform.LocalRotation + Angle.FromDegrees(180f);
 
-        comp.PrintsColor = comp.PrintsColor.WithAlpha(ReduceAlpha(comp.PrintsColor.A, comp.ColorReduceAlpha));
-        comp.StepPos = transform.LocalPosition;
+        component.PrintsColor = component.PrintsColor.WithAlpha(ReduceAlpha(component.PrintsColor.A, component.ColorReduceAlpha));
+        component.StepPos = transform.LocalPosition;
 
         if (!TryComp<SolutionContainerManagerComponent>(entity, out var solutionContainer)
             || !_solution.ResolveSolution((entity, solutionContainer), footPrintComponent.SolutionName, ref footPrintComponent.Solution, out var solution)
-            || string.IsNullOrWhiteSpace(comp.ReagentToTransfer) || solution.Volume >= 1)
+            || string.IsNullOrWhiteSpace(component.ReagentToTransfer) || solution.Volume >= 1)
             return;
 
-        _solution.TryAddReagent(footPrintComponent.Solution.Value, comp.ReagentToTransfer, 1, out _);
+        _solution.TryAddReagent(footPrintComponent.Solution.Value, component.ReagentToTransfer, 1, out _);
     }
 
-    private EntityCoordinates CalcCoords(EntityUid uid, FootPrintsComponent comp, TransformComponent transform, bool state)
+    private EntityCoordinates CalcCoords(EntityUid uid, FootPrintsComponent component, TransformComponent transform, bool state)
     {
         if (state)
             return new EntityCoordinates(uid, transform.LocalPosition);
 
-        var offset = comp.RightStep
-            ? new Angle(Angle.FromDegrees(180f) + transform.LocalRotation).RotateVec(comp.OffsetPrint)
-            : new Angle(transform.LocalRotation).RotateVec(comp.OffsetPrint);
+        var offset = component.RightStep
+            ? new Angle(Angle.FromDegrees(180f) + transform.LocalRotation).RotateVec(component.OffsetPrint)
+            : new Angle(transform.LocalRotation).RotateVec(component.OffsetPrint);
 
         return new EntityCoordinates(uid, transform.LocalPosition + offset);
     }
