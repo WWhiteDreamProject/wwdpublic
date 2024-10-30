@@ -36,6 +36,7 @@
     damage:
       types:
         Blunt: 0
+    hidden: true
   - type: DamageOtherOnHit
   - type: PhysicalComposition
     materialComposition:
