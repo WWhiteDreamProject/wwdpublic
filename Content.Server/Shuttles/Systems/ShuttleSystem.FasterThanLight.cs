@@ -599,7 +599,7 @@ public sealed partial class ShuttleSystem
         {
             foreach (var child in toKnock)
             {
-                _layingDown.TryLieDown(child, behavior: DropHeldItemsBehavior.DropIfStanding);
+                _layingDown.TryLieDown(child, behavior: DropHeldItemsBehavior.DropIfStanding); // WD EDIT
 
                 // If the guy we knocked down is on a spaced tile, throw them too
                 if (grid != null)
