@@ -40,6 +40,9 @@
     head: ClothingHeadHatCatEars
     ears: ClothingHeadsetService
     belt: ClothingBeltJanitorFilled
+  inhand:
+    - CandyBucket
+    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtJanimaid
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled

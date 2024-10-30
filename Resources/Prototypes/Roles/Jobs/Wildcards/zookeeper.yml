@@ -23,6 +23,7 @@
     shoes: ClothingShoesColorWhite
     id: ZookeeperPDA
     ears: ClothingHeadsetService
+    pocket2: CandyBucket
   innerClothingSkirt: ClothingUniformJumpsuitSafari
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled

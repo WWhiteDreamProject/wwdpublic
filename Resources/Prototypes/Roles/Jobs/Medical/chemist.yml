@@ -28,6 +28,9 @@
     id: ChemistryPDA
     ears: ClothingHeadsetMedical
     belt: ChemBag
+  inhand:
+    - CandyBucket
+    - PresentHalloweenRandom
     # the purple glasses?
   innerClothingSkirt: ClothingUniformJumpskirtChemistry
   satchel: ClothingBackpackSatchelChemistryFilled

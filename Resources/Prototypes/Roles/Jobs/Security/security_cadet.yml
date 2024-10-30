@@ -35,7 +35,10 @@
     id: SecurityCadetPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
-    pocket2: BookSecurity
+    pocket1: BookSecurity
+  inhand:
+    - CandyBucket
+    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtColorRed
   satchel: ClothingBackpackSatchelSecurity
   duffelbag: ClothingBackpackDuffelSecurity

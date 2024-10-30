@@ -30,6 +30,9 @@
     id: MedicalPDA
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
+  inhand:
+    - CandyBucket
+    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtMedicalDoctor
   satchel: ClothingBackpackSatchelMedicalFilled
   duffelbag: ClothingBackpackDuffelMedicalFilled

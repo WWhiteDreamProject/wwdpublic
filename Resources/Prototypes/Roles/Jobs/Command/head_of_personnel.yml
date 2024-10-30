@@ -78,6 +78,9 @@
     gloves: ClothingHandsGlovesHop
     ears: ClothingHeadsetHoP # DeltaV - HoP is now a service role, replaces their all channels headset.
     belt: BoxFolderClipboard
+  inhand:
+    - CandyBucket
+    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtHoP
   satchel: ClothingBackpackSatchelHOPFilled
   duffelbag: ClothingBackpackDuffelHOPFilled

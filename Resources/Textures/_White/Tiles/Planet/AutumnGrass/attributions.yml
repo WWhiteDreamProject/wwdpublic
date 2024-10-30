@@ -1,0 +1,16 @@
+- files:
+  - red.png
+  - red_triple_edge.png
+  - red_double_edge.png
+  - red_single_edge.png
+  - orange.png
+  - orange_triple_edge.png
+  - orange_double_edge.png
+  - orange_single_edge.png
+  - yellow.png
+  - yellow_triple_edge.png
+  - yellow_double_edge.png
+  - yellow_single_edge.png
+  license: "CC-BY-SA-3.0"
+  copyright: "https://github.com/discordia-space/CEV-Eris/commit/026ee3250ac1de938b503e3eb46ad73dd9c3ca82 and edited by Gersoon"
+  source: "https://github.com/discordia-space/CEV-Eris/commit/026ee3250ac1de938b503e3eb46ad73dd9c3ca82"
