@@ -247,3 +247,10 @@ DrinkBottleGoldschlager: DrinkBottleGildlager
 
 # 2024-11-10 WD EDIT
 VendingMachinePride: RandomVending
+
+# 2024-30-10 WD EDIT
+HoloprojectorEmpty: Holoprojector
+HoloprojectorBorg: Holoprojector
+HolofanProjectorEmpty: HolofanProjector
+HoloprojectorFieldEmpty: HoloprojectorField
+HoloprojectorSecurityEmpty: HoloprojectorSecurity

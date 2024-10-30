@@ -114,7 +114,7 @@
 
 - type: latheRecipe
   id: HoloprojectorSecurity
-  result: HoloprojectorSecurityEmpty
+  result: HoloprojectorSecurity # WD EDIT
   completetime: 2
   materials:
     Steel: 300

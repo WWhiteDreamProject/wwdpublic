@@ -343,7 +343,7 @@
   - type: ItemBorgModule
     items:
     - AdvMopItem
-    - HoloprojectorBorg
+    - Holoprojector # WD EDIT
     - SprayBottleSpaceCleaner
     - Dropper
     - TrashBag
