@@ -84,12 +84,16 @@ public sealed class HolosignSystem : EntitySystem
     // WD EDIT START
     private void OnUse(EntityUid uid, HolosignProjectorComponent component, UseInHandEvent args)
     {
+        if (args.Handled)
+            return;
+
         foreach (var sign in component.Signs.ToList())
         {
             component.Signs.Remove(sign);
             QueueDel(sign);
         }
 
+        args.Handled = true;
         component.Uses = component.MaxUses;
         _popup.PopupEntity(Loc.GetString("holoprojector-delete-signs"), args.User, args.User, PopupType.Medium);
     }
