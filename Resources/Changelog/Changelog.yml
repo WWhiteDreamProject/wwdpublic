@@ -7791,3 +7791,39 @@ Entries:
   id: 6473
   time: '2024-10-27T13:49:26.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/100
+- author: Gersoon
+  changes:
+    - type: Add
+      message: >-
+        5 types of Halloween gifts, namely: basic, sweet, sweet themed, clothes,
+        themed clothes!/5 видов хеллоуинских подарков, а именно: основной,
+        сладкий, сладкий тематический, одежда, одежда тематичская!
+    - type: Add
+      message: New autumn grass and trees tiles!/Новые осенние тайлы травы и деревья!
+    - type: Add
+      message: >-
+        You can 100% find Halloween gifts in tech's closets!/В шкафах техов 100%
+        можно встретить хеллоунские подарки!
+    - type: Add
+      message: >-
+        New Halloween theme! (Settings -> HUD Theme: ->
+        ui-options-hud-theme-halloween (If I didn’t manage to take away the
+        ability to change themes during the week or didn’t add
+        translations))/Новая хеллоуинская тема худа! (Настройки -> Тема HUD: ->
+        ui-options-hud-theme-halloween (Если я не успел забрать возможность
+        менять темы на протяжении недели или не добавил переводы))
+    - type: Add
+      message: >-
+        Each roundstart role has a candy bucket! (Kutos)/У каждой роли
+        раундстартом есть ведерко для конфет! (Kutos)
+    - type: Add
+      message: New costumes! (Purka)/Новые костюмы! (Purka)
+    - type: Add
+      message: >-
+        New sweets! (Purka, Kilath, Canceredpussy (Cyber ​​cutlet))/Новые
+        сладости! (Purka, Kilath, Canceredpussy (Кибер котлетка))
+    - type: Tweak
+      message: The cards are now SPOOOOOOOKY!/Карты теперь ЖУУУУТКИЕ!
+  id: 6474
+  time: '2024-10-31T02:44:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/113
