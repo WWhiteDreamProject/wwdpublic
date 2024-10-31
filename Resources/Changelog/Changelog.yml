@@ -7838,3 +7838,10 @@ Entries:
   id: 6475
   time: '2024-10-31T02:52:22.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/111
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added footsteps / Добавлены следы
+  id: 6476
+  time: '2024-10-31T03:03:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/110
