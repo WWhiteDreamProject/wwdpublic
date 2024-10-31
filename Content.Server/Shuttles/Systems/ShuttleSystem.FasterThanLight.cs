@@ -7,12 +7,14 @@ using Content.Server.Station.Events;
 using Content.Shared.Body.Components;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CCVar;
+using Content.Shared.Clothing;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
 using Content.Shared.Maps;
 using Content.Shared.Parallax;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
+using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Timing;
 using Content.Shared.Whitelist;
@@ -597,10 +599,7 @@ public sealed partial class ShuttleSystem
         {
             foreach (var child in toKnock)
             {
-                if (!_statusQuery.TryGetComponent(child, out var status))
-                    continue;
-
-                _stuns.TryParalyze(child, _hyperspaceKnockdownTime, true, status);
+                _layingDown.TryLieDown(child, behavior: DropHeldItemsBehavior.DropIfStanding); // WD EDIT
 
                 // If the guy we knocked down is on a spaced tile, throw them too
                 if (grid != null)
@@ -617,6 +616,12 @@ public sealed partial class ShuttleSystem
         {
             if (!_buckleQuery.TryGetComponent(child, out var buckle) || buckle.Buckled)
                 continue;
+
+            // WD EDIT START
+            if (_inventory.TryGetSlotEntity(child, "shoes", out var shoes) &&
+                TryComp<MagbootsComponent>(shoes, out var magboots) && magboots.On)
+                continue;
+            // WD EDIT END
 
             toKnock.Add(child);
         }
