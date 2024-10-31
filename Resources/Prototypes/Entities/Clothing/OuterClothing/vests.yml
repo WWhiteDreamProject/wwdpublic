@@ -48,9 +48,9 @@
   description: A hard-boiled private investigator's armored vest.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Vests/detvest.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Vests/detvest.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Vests/detvest.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Vests/detvest.rsi
   - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
     modifiers:
       coefficients:
@@ -69,9 +69,9 @@
   description: A high-visibility vest used in work zones.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Vests/hazard.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Vests/hazard.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Vests/hazard.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Vests/hazard.rsi
   - type: Tag
     tags:
     - HiViz

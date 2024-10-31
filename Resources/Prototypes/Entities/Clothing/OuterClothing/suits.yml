@@ -60,9 +60,9 @@
   description: A suit that helps protect against hazardous temperatures.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Suits/fire.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Suits/fire.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Suits/fire.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Suits/fire.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.04
   - type: TemperatureProtection
@@ -130,14 +130,14 @@
   description: "A suit that protects against radiation. The label reads, 'Made with lead. Please do not consume insulation.'"
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Suits/rad.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Suits/rad.rsi
   - type: Armor
     modifiers:
       coefficients:
         Heat: 0.90
         Radiation: 0.001
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Suits/rad.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Suits/rad.rsi
   - type: GroupExamine
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodRad

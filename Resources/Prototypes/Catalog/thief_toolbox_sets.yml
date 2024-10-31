@@ -21,7 +21,7 @@
   name: thief-backpack-category-tools-name
   description: thief-backpack-category-tools-description
   sprite: 
-    sprite: _White/Objects/Tools/jaws_of_life.rsi #WWDP edit
+    sprite: Objects/Tools/jaws_of_life.rsi
     state: jaws_pry
   content:
   - WelderIndustrialAdvanced

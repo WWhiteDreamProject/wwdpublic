@@ -1,12 +1,12 @@
 # Attempted to keep the files in alphabetical order so its easier to audit.
 # Finding individual authors is an unfeasible task. If you can reference the author please do so.
 
-- files: ["dark.png", "dark_offset.png", "dark_mono.png", "dark_mini.png", "dark_herringbone.png", "dark_pavement.png", "dark_pavement_vertical.png", "steel.png", "steel_offset.png", "steel_mono.png", "steel_mini.png", "steel_herringbone.png", "steel_pavement.png", "steel_pavement_vertical.png", "white.png", "white_offset.png", "white_mono.png", "white_mini.png", "white_herringbone.png", "white_pavement.png", "white_pavement_vertical.png", "bar.png", "hydro.png", "lino.png", "rglass_frame.png", "silver.png", "steel_green.png", "steel_blue.png", "steel_red.png", "steel_yellow.png", "steel_burnt.png", "steel_damaged.png", "rock_vault.png"]
+- files: ["rglass_frame.png", "glass_frame.png"]
   license: "CC-BY-SA-4.0"
   copyright: "Made by Dosharus and edited by Gersoon"
   source: "https://github.com/WWhiteDreamProject/wwdpublic"
 
-- files: ["blue.png", "lime.png", "cafeteria.png", "checker_dark.png", "clown.png", "freezer.png", "glass.png", "rglass.png", "gold.png", "laundry.png", "lino_dark.png", "lino_grey.png", "lino_white.png", "mime.png", "plastic.png", "dark_plastic.png", "white_plastic.png", "super_reinforced.png", "wood.png", "wood_broken.png", "wood_large.png", "wood_tile.png", "plating.png", "plating_burnt.png", "plating_damaged.png", "plating_diagonal_ne.png", "plating_diagonal_nw.png", "plating_diagonal_se.png", "plating_diagonal_sw.png", "plastic_blue.png", "plastic_green.png", "plastic_red.png", "plastic_yellow.png", "shielding.png", "showroom.png", "shuttleblack.png", "shuttlepurple.png", "shuttlegrey.png", "shuttleorange.png", "shuttlewhite.png", "shuttlesyndie.png", "asteroid_coarse.png", "asteroid_coarse_dug.png", "asteroid_grvel.png", "dark_diagonal.png", "dark_diagonal_mini.png", "steel_diagonal.png", "steel_diagonal_mini.png", "white_diagonal.png", "white_diagonal_mini.png"]
+- files: ["lino_dark.png", "lino_grey.png", "lino_white.png", "plastic_blue.png", "plastic_green.png", "plastic_red.png", "plastic_yellow.png", "plating_diagonal_ne.png", "plating_diagonal_nw.png", "plating_diagonal_se.png", "plating_diagonal_sw.png", "shielding.png", "shuttlesyndie.png", "steel_blue.png", "steel_red.png", "steel_yellow.png", "steel_green.png"]
   license: "CC-BY-SA-4.0"
   copyright: "Made by Gersoon"
   source: "https://github.com/WWhiteDreamProject/wwdpublic"

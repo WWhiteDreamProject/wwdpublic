@@ -79,9 +79,9 @@
   name: captain's winter coat
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/WinterCoats/coatcap.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/WinterCoats/coatcap.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCaptain
   - type: Armor # DeltaV - adds resists to coat, same as HoS coat. Still better than nothing, but nowhere as good as a carapace
@@ -183,9 +183,9 @@
   name: clown winter coat
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/WinterCoats/coatclown.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/WinterCoats/coatclown.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/WinterCoats/coatclown.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/WinterCoats/coatclown.rsi
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable

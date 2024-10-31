@@ -9,9 +9,9 @@
   description: Standard security gear. Protects the head from impacts.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Head/Helmets/security.rsi #WWDP edit
+    sprite: Clothing/Head/Helmets/security.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/Helmets/security.rsi #WWDP edit
+    sprite: Clothing/Head/Helmets/security.rsi
   - type: Armor #Values seem to let the user survive one extra hit if attacked consistently.
     modifiers:
       coefficients:

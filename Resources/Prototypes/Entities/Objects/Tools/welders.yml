@@ -12,7 +12,7 @@
     sound:
       path: /Audio/Items/welder_drop.ogg
   - type: Sprite
-    sprite: _White/Objects/Tools/welder.rsi #WWDP edit
+    sprite: Objects/Tools/welder.rsi
     layers:
     - state: icon
     - state: welder_flame
@@ -27,7 +27,7 @@
           False: { visible: false }
   - type: Item
     size: Small
-    sprite: _White/Objects/Tools/welder.rsi #WWDP edit
+    sprite: Objects/Tools/welder.rsi
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -122,9 +122,9 @@
   description: "An industrial welder with over double the fuel capacity."
   components:
   - type: Sprite
-    sprite: _White/Objects/Tools/welder_industrial.rsi #WWDP edit
+    sprite: Objects/Tools/welder_industrial.rsi
   - type: Item
-    sprite: _White/Objects/Tools/welder_industrial.rsi #WWDP edit
+    sprite: Objects/Tools/welder_industrial.rsi
   - type: SolutionContainerManager
     solutions:
       Welder:
@@ -140,9 +140,9 @@
   description: "An advanced industrial welder with over double the fuel capacity and hotter flame."
   components:
   - type: Sprite
-    sprite: _White/Objects/Tools/welder_industrialadv.rsi #WWDP edit
+    sprite: Objects/Tools/welder_industrialadv.rsi
   - type: Item
-    sprite: _White/Objects/Tools/welder_industrialadv.rsi #WWDP edit
+    sprite: Objects/Tools/welder_industrialadv.rsi
   - type: SolutionContainerManager
     solutions:
       Welder:
@@ -160,9 +160,9 @@
   description: "An experimental welder capable of self-fuel generation and less harmful to the eyes."
   components:
   - type: Sprite
-    sprite: _White/Objects/Tools/welder_experimental.rsi #WWDP edit
+    sprite: Objects/Tools/welder_experimental.rsi
   - type: Item
-    sprite: _White/Objects/Tools/welder_experimental.rsi #WWDP edit
+    sprite: Objects/Tools/welder_experimental.rsi
   - type: SolutionContainerManager
     solutions:
       Welder:
@@ -188,10 +188,10 @@
   description: "A miniature welder used during emergencies."
   components:
   - type: Sprite
-    sprite: _White/Objects/Tools/welder_mini.rsi #WWDP edit
+    sprite: Objects/Tools/welder_mini.rsi
   - type: Item
     size: Tiny
-    sprite: _White/Objects/Tools/welder_mini.rsi #WWDP edit
+    sprite: Objects/Tools/welder_mini.rsi
   - type: RefillableSolution
     solution: Welder
   - type: SolutionContainerManager

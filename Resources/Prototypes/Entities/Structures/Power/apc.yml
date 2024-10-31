@@ -26,7 +26,7 @@
     anchored: true
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: _White/Structures/Power/apc.rsi #WWDP edit
+    sprite: Structures/Power/apc.rsi
     layers:
     - state: base
     - state: panel
@@ -70,7 +70,7 @@
     sourceNode: input
     loadNode: output
     collectionName: apc
-    sprite: _White/Structures/Power/apc.rsi #WWDP edit
+    sprite: Structures/Power/apc.rsi
     state: static
   - type: BatteryCharger
     voltage: Medium
@@ -156,7 +156,7 @@
     anchored: true
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: _White/Structures/Power/apc.rsi #WWDP edit
+    sprite: Structures/Power/apc.rsi
     state: frame
   - type: Construction
     graph: APC

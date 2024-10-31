@@ -157,8 +157,6 @@
   parent: BaseWallLocker
   name: medical wall locker
   components:
-  - type: Sprite
-    sprite: _White/Structures/Storage/wall_locker.rsi #WWDP edit
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: med

@@ -197,9 +197,9 @@
   description: It's good being the king.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Head/Hats/captain.rsi #WWDP edit
+    sprite: Clothing/Head/Hats/captain.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/Hats/captain.rsi #WWDP edit
+    sprite: Clothing/Head/Hats/captain.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -228,9 +228,9 @@
   description: "It's good to be the emperor."
   components:
   - type: Sprite
-    sprite: _White/Clothing/Head/Hats/centcom.rsi #WWDP edit
+    sprite: Clothing/Head/Hats/centcom.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/Hats/centcom.rsi #WWDP edit
+    sprite: Clothing/Head/Hats/centcom.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -733,18 +733,18 @@
   description: A hat with bells, to add some merriness to the suit.
   components:
     - type: Sprite
-      sprite: _White/Clothing/Head/Hats/jester.rsi #WWDP edit
+      sprite: Clothing/Head/Hats/jester.rsi
     - type: Clothing
-      sprite: _White/Clothing/Head/Hats/jester.rsi #WWDP edit
+      sprite: Clothing/Head/Hats/jester.rsi
 
 - type: entity
   parent: ClothingHeadHatJester
   id: ClothingHeadHatJesterAlt
   components:
     - type: Sprite
-      sprite: _White/Clothing/Head/Hats/jester2.rsi #WWDP edit
+      sprite: Clothing/Head/Hats/jester2.rsi
     - type: Clothing
-      sprite: _White/Clothing/Head/Hats/jester2.rsi #WWDP edit
+      sprite: Clothing/Head/Hats/jester2.rsi
 
 - type: entity
   parent: ClothingHeadBase

@@ -204,7 +204,7 @@
   parent: UnanchoredChairBase
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/chairs.rsi #WWDP edit
+    sprite: Structures/Furniture/chairs.rsi
     state: wooden
     noRot: true
   - type: Construction
