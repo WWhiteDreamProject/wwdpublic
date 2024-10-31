@@ -26,7 +26,7 @@
     maxTargets: 2
     angle: 60
     # WD EDIT START
-    heavyRateModifier: 1.2
+    heavyRateModifier: 0.8
     heavyDamageBaseModifier: 0.5
     heavyStaminaCost: 0
     # WD EDIT END
