@@ -7877,3 +7877,10 @@ Entries:
   id: 6480
   time: '2024-10-31T03:23:25.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/103
+- author: PuroSlavKing
+  changes:
+    - type: Tweak
+      message: Измененён звук пожарной тревоги.
+  id: 6481
+  time: '2024-10-31T03:24:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/106
