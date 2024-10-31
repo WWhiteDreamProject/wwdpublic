@@ -75,7 +75,7 @@ public sealed class HolosignSystem : EntitySystem
         EnsureComp<HolosignComponent>(holoUid, out var holosign);
         --component.Uses;
         component.Signs.Add(holoUid);
-        holosign.Sign = uid;
+        holosign.Projector = uid;
         // WD EDIT END
 
         args.Handled = true;

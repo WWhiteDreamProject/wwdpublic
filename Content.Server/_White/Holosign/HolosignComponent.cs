@@ -4,5 +4,5 @@ namespace Content.Server._White.Holosign;
 public sealed partial class HolosignComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)]
-    public EntityUid? Sign;
+    public EntityUid? Projector;
 }

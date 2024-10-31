@@ -12,7 +12,7 @@ public sealed class HolosignSystem : EntitySystem
 
     private void OnDestruction(EntityUid uid, HolosignComponent component, DestructionEventArgs args)
     {
-        if (!TryComp<HolosignProjectorComponent>(component.Sign, out var holosignProjector))
+        if (!TryComp<HolosignProjectorComponent>(component.Projector, out var holosignProjector))
             return;
 
         holosignProjector.Signs.Remove(uid);
