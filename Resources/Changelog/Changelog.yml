@@ -7863,3 +7863,10 @@ Entries:
   id: 6478
   time: '2024-10-31T03:22:32.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/107
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Сorrection of a Butlutron collision / Исправлена коллизия Бутлетрона
+  id: 6479
+  time: '2024-10-31T03:22:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/105
