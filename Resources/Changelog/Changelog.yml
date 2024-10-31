@@ -7870,3 +7870,10 @@ Entries:
   id: 6479
   time: '2024-10-31T03:22:53.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/105
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Fixed bugs with sprites / Исправлены баги с спрайтами
+  id: 6480
+  time: '2024-10-31T03:23:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/103
