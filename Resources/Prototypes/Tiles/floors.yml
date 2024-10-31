@@ -2402,6 +2402,106 @@
 # Faux sci tiles
 
 # Grass
+
+- type: tile
+  id: FloorAstroGrassAutumnRed
+  name: tiles-astro-grass-autumn-red-floor
+  sprite: /Textures/_White/Tiles/Planet/AutumnGrass/red.png
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/_White/Tiles/Planet/AutumnGrass/red_single_edge.png
+    NorthEast: /Textures/_White/Tiles/Planet/AutumnGrass/red_single_edge.png
+    NorthWest: /Textures/_White/Tiles/Planet/AutumnGrass/red_single_edge.png
+    SouthWest: /Textures/_White/Tiles/Planet/AutumnGrass/red_single_edge.png
+    South: /Textures/_White/Tiles/Planet/AutumnGrass/red_double_edge.png
+    East: /Textures/_White/Tiles/Planet/AutumnGrass/red_double_edge.png
+    North: /Textures/_White/Tiles/Planet/AutumnGrass/red_double_edge.png
+    West: /Textures/_White/Tiles/Planet/AutumnGrass/red_double_edge.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Cutting ]
+  footstepSounds:
+    collection: FootstepGrass
+  itemDrop: FloorTileItemAstroGrass
+  heatCapacity: 10000
+  tileRipResistance: 50
+
+- type: tile
+  id: FloorAstroGrassAutumnOrange
+  name: tiles-astro-grass-autumn-orange-floor
+  sprite: /Textures/_White/Tiles/Planet/AutumnGrass/orange.png
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/_White/Tiles/Planet/AutumnGrass/orange_single_edge.png
+    NorthEast: /Textures/_White/Tiles/Planet/AutumnGrass/orange_single_edge.png
+    NorthWest: /Textures/_White/Tiles/Planet/AutumnGrass/orange_single_edge.png
+    SouthWest: /Textures/_White/Tiles/Planet/AutumnGrass/orange_single_edge.png
+    South: /Textures/_White/Tiles/Planet/AutumnGrass/orange_double_edge.png
+    East: /Textures/_White/Tiles/Planet/AutumnGrass/orange_double_edge.png
+    North: /Textures/_White/Tiles/Planet/AutumnGrass/orange_double_edge.png
+    West: /Textures/_White/Tiles/Planet/AutumnGrass/orange_double_edge.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Cutting ]
+  footstepSounds:
+    collection: FootstepGrass
+  itemDrop: FloorTileItemAstroGrass
+  heatCapacity: 10000
+  tileRipResistance: 50
+
+- type: tile
+  id: FloorAstroGrassAutumnYellow
+  name: tiles-astro-grass-autumn-yellow-floor
+  sprite: /Textures/_White/Tiles/Planet/AutumnGrass/yellow.png
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_single_edge.png
+    NorthEast: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_single_edge.png
+    NorthWest: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_single_edge.png
+    SouthWest: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_single_edge.png
+    South: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_double_edge.png
+    East: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_double_edge.png
+    North: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_double_edge.png
+    West: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_double_edge.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Cutting ]
+  footstepSounds:
+    collection: FootstepGrass
+  itemDrop: FloorTileItemAstroGrass
+  heatCapacity: 10000
+  tileRipResistance: 50
+
 - type: tile
   id: FloorAstroGrass
   name: tiles-astro-grass

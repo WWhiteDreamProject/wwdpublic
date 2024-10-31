@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Made by Kilath, Purka and Canceredpussy",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "ghost"
+    },
+    {
+      "name": "scull"
+    },
+    {
+      "name": "scull_chocolate"
+    },
+    {
+      "name": "cotton_candy"
+    },
+    {
+      "name": "eye"
+    },
+    {
+      "name": "eye_open"
+    },
+    {
+      "name": "eye_trash"
+    },
+    {
+      "name": "pumpkin"
+    },
+    {
+      "name": "gummybear"
+    },
+    {
+      "name": "gummybear_greyscale"
+    },
+    {
+      "name": "gumbear"
+    },
+    {
+      "name": "gumbear_greyscale"
+    },
+    {
+      "name": "valerabear"
+    },
+    {
+      "name": "lollipop_pink"
+    },
+    {
+      "name": "lollipop_green"
+    },
+    {
+      "name": "lollipop_orange"
+    },
+    {
+      "name": "lollipop_rainbow"
+    },
+    {
+      "name": "bean_brown"
+    },
+    {
+      "name": "bean_pink"
+    },
+    {
+      "name": "bean_green"
+    },
+    {
+      "name": "bean_red"
+    },
+    {
+      "name": "bean_white"
+    }
+  ]
+}
