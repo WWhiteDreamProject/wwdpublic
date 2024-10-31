@@ -7854,3 +7854,12 @@ Entries:
   id: 6477
   time: '2024-10-31T03:03:31.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/109
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        Fixing the animation of the clown's shoes / Исправление анимации ботинок
+        клоуна
+  id: 6478
+  time: '2024-10-31T03:22:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/107
