@@ -7827,3 +7827,14 @@ Entries:
   id: 6474
   time: '2024-10-31T02:44:08.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/113
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: With FTL, a person now falls / При ФТЛ перемещении человек теперь падает
+    - type: Tweak
+      message: >-
+        Magnetic boots now do not let you fall / Магнитные сапоги теперь не дают
+        упасть
+  id: 6475
+  time: '2024-10-31T02:52:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/111
