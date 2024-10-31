@@ -7845,3 +7845,12 @@ Entries:
   id: 6476
   time: '2024-10-31T03:03:14.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/110
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        ПНВ и ПТВ теперь могут быть исследованы /  NVG and TVG can now be
+        researched
+  id: 6477
+  time: '2024-10-31T03:03:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/109
