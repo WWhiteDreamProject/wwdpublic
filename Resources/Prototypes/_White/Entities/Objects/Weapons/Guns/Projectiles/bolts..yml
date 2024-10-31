@@ -26,6 +26,6 @@
         hard: false
         mask:
         - Opaque
-  - type: KnockdownOnCollide
+  - type: LayDownOnCollide
     behavior: AlwaysDrop
   - type: BlurOnCollide

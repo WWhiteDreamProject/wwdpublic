@@ -17,6 +17,7 @@
     - category: Piloting
     - alertType: Corporeal
     - alertType: Stun
+    - alertType: KnockedDown # WD EDIT
     - category: Breathing # Vox gang not calling this oxygen
     - category: Pressure
     - alertType: Bleed
@@ -452,13 +453,6 @@
   minSeverity: 0
   maxSeverity: 1
 
-# WD EDIT
-- type: alert
-  id: RecentlyBlocked
-  icons: [ /Textures/Objects/Weapons/Melee/shields.rsi/buckler-icon.png ]
-  name: alerts-blocked-name
-  description: alerts-blocked-desc
-
 - type: alert
   id: Debug1
   icons:
@@ -625,3 +619,19 @@
     state: deflecting0
   name: alerts-deflecting-name
   description: alerts-deflecting-desc
+
+# WD EDIT START
+- type: alert
+  id: KnockedDown
+  icons: 
+  - sprite: /Textures/_White/Interface/Alerts/knockdown.rsi
+    state: knockdown
+  name: alerts-knockdown-name
+  description: alerts-knockdown-desc
+
+- type: alert
+  id: RecentlyBlocked
+  icons: [ /Textures/Objects/Weapons/Melee/shields.rsi/buckler-icon.png ]
+  name: alerts-blocked-name
+  description: alerts-blocked-desc
+# WD EDIT END

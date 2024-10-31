@@ -17,6 +17,7 @@ namespace Content.Shared.Alert
         Hot,
         Weightless,
         Stun,
+        KnockedDown, // WD EDIT
         Handcuffed,
         Ensnared,
         Buckled,

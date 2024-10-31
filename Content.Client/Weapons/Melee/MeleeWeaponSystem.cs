@@ -116,7 +116,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         // Unarmed will try to disarm
         // Melee weapons will wideswing
         // Ranged weapons will do a light attack.
-        if (altDown == BoundKeyState.Down)
+        if (altDown == BoundKeyState.Down && weapon.CanHeavyAttack) // WD EDIT
         {
             // Get the target that was clicked on
             EntityUid? target = null;
