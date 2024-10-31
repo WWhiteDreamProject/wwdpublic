@@ -154,7 +154,7 @@ namespace Content.Server.Explosion.EntitySystems
         private void HandleFlashTrigger(EntityUid uid, FlashOnTriggerComponent component, TriggerEvent args)
         {
             // TODO Make flash durations sane ffs.
-            _flashSystem.FlashArea(uid, args.User, component.Range, component.Duration * 1000f, probability: component.Probability);
+            _flashSystem.FlashArea(uid, args.User, component.Range, component.Duration * 1000f, probability: component.Probability, stunTime: component.StunTime, knockdownTime: component.KnockdownTime); // WD EDIT
             args.Handled = true;
         }
 

@@ -67,6 +67,8 @@
     sprite: Objects/Weapons/Grenades/flashbang.rsi
   - type: FlashOnTrigger
     range: 7
+    stunTime: 2 # WD EDIT
+    knockdownTime: 10 # WD EDIT
   - type: SoundOnTrigger
     sound:
       path: "/Audio/Effects/flash_bang.ogg"

@@ -199,6 +199,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
+  
 
 #Brigmedic Hardsuit
 - type: entity
@@ -226,6 +229,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Warden's Hardsuit
 - type: entity
@@ -251,6 +256,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Captain's Hardsuit
 - type: entity
@@ -269,6 +276,8 @@
     lowPressureMultiplier: 1000
   - type: PointLight
     color: "#9CF4FF"
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -348,6 +357,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -393,6 +404,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Blood-red Medic Hardsuit
 - type: entity
@@ -418,6 +432,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -447,6 +464,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -472,6 +492,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -495,6 +518,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Wizard Hardsuit
 - type: entity
@@ -593,6 +619,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -608,6 +637,9 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertchaplain.rsi
   - type: PointLight
     color: "#ffffff"
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -630,6 +662,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #ERT Medical Hardsuit
 - type: entity
@@ -645,6 +680,9 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
   - type: PointLight
     color: "#adffec"
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #ERT Security Hardsuit
 - type: entity
@@ -667,6 +705,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -682,6 +723,9 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #CBURN Hardsuit
 - type: entity
@@ -721,6 +765,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Deathsquad Hardsuit
 - type: entity
@@ -751,6 +798,10 @@
     component:
     - type: ThermalVision
     - type: NightVision
+  - type: EyeProtection
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+    maxRange: 0
   # WD EDIT END
 
 #MISC. HARDSUITS
