@@ -33,6 +33,7 @@
           SecurityCadet: [ 4, 4 ]
           Detective: [ 1, 1 ]
           Lawyer: [ 2, 2 ]
+          Prisoner: [ 1, 2 ]
           #Medical
           Chemist: [ 1, 1 ]
           Paramedic: [ 1, 1 ]

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tg station at commit https://github.com/tgstation/tgstation/commit/6f450d93a6bfcc94e9c43ef7938e85bda49f7b6f",
+  "copyright": "Taken from tg station at commit https://github.com/tgstation/tgstation/commit/6f450d93a6bfcc94e9c43ef7938e85bda49f7b6f. modified by WD team",
   "size": {
     "x": 32,
     "y": 32
@@ -18,6 +18,21 @@
     },
     {
       "name": "closed_unlit"
+    },
+    {
+      "name": "open_unlit"
+    },
+    {
+      "name": "bolted_open_unlit"
+    },
+    {
+      "name": "emergency_open_unlit",
+      "delays": [
+        [
+          0.4,
+          0.4
+        ]
+      ]
     },
     {
       "name": "closing",

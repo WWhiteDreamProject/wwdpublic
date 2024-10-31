@@ -34,6 +34,9 @@
     ears: ClothingHeadsetService
     outerClothing: ClothingOuterApronChef
     belt: ClothingBeltChefFilled
+  inhand:
+    - CandyBucket
+    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtChef
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled

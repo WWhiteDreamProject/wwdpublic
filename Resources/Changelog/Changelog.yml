@@ -7759,3 +7759,128 @@ Entries:
   id: 6469
   time: '2024-10-26T09:41:08.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/76
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added Gondola / Добавлена Гондола
+  id: 6470
+  time: '2024-10-26T11:15:09.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/96
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: Added "Operative" UI style / Добавлен стиль интерфейса "Оперативник"
+  id: 6471
+  time: '2024-10-27T02:51:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/102
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        correction of a collision at a glass shard/ Исправление колизии у
+        осколка стекла
+  id: 6472
+  time: '2024-10-27T13:28:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/104
+- author: Gersoon
+  changes:
+    - type: Add
+      message: New map added - Moose/Новая карта добавлена - Мус
+    - type: Tweak
+      message: Prisoners added to DryDock/На ДрайДок добавлены заключенные
+  id: 6473
+  time: '2024-10-27T13:49:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/100
+- author: Gersoon
+  changes:
+    - type: Add
+      message: >-
+        5 types of Halloween gifts, namely: basic, sweet, sweet themed, clothes,
+        themed clothes!/5 видов хеллоуинских подарков, а именно: основной,
+        сладкий, сладкий тематический, одежда, одежда тематичская!
+    - type: Add
+      message: New autumn grass and trees tiles!/Новые осенние тайлы травы и деревья!
+    - type: Add
+      message: >-
+        You can 100% find Halloween gifts in tech's closets!/В шкафах техов 100%
+        можно встретить хеллоунские подарки!
+    - type: Add
+      message: >-
+        New Halloween theme! (Settings -> HUD Theme: ->
+        ui-options-hud-theme-halloween (If I didn’t manage to take away the
+        ability to change themes during the week or didn’t add
+        translations))/Новая хеллоуинская тема худа! (Настройки -> Тема HUD: ->
+        ui-options-hud-theme-halloween (Если я не успел забрать возможность
+        менять темы на протяжении недели или не добавил переводы))
+    - type: Add
+      message: >-
+        Each roundstart role has a candy bucket! (Kutos)/У каждой роли
+        раундстартом есть ведерко для конфет! (Kutos)
+    - type: Add
+      message: New costumes! (Purka)/Новые костюмы! (Purka)
+    - type: Add
+      message: >-
+        New sweets! (Purka, Kilath, Canceredpussy (Cyber ​​cutlet))/Новые
+        сладости! (Purka, Kilath, Canceredpussy (Кибер котлетка))
+    - type: Tweak
+      message: The cards are now SPOOOOOOOKY!/Карты теперь ЖУУУУТКИЕ!
+  id: 6474
+  time: '2024-10-31T02:44:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/113
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: With FTL, a person now falls / При ФТЛ перемещении человек теперь падает
+    - type: Tweak
+      message: >-
+        Magnetic boots now do not let you fall / Магнитные сапоги теперь не дают
+        упасть
+  id: 6475
+  time: '2024-10-31T02:52:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/111
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added footsteps / Добавлены следы
+  id: 6476
+  time: '2024-10-31T03:03:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/110
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        ПНВ и ПТВ теперь могут быть исследованы /  NVG and TVG can now be
+        researched
+  id: 6477
+  time: '2024-10-31T03:03:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/109
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        Fixing the animation of the clown's shoes / Исправление анимации ботинок
+        клоуна
+  id: 6478
+  time: '2024-10-31T03:22:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/107
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Сorrection of a Butlutron collision / Исправлена коллизия Бутлетрона
+  id: 6479
+  time: '2024-10-31T03:22:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/105
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Fixed bugs with sprites / Исправлены баги с спрайтами
+  id: 6480
+  time: '2024-10-31T03:23:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/103
+- author: PuroSlavKing
+  changes:
+    - type: Tweak
+      message: Измененён звук пожарной тревоги.
+  id: 6481
+  time: '2024-10-31T03:24:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/106

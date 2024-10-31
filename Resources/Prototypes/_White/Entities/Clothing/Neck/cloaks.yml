@@ -1,0 +1,8 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakVampire
+  name: vampire cloak
+  description: '"The dark and blood colored cloack of a tyrannical nobility of long ago, who gave their souls to the devil for eternal youth and power." Reads the label behind the collar of this cloack.'
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Neck/Cloaks/vampire.rsi

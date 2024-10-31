@@ -1,0 +1,94 @@
+- type: entity
+  parent:
+    - MobRespirator
+    - MobAtmosStandard
+    - BaseSimpleMob
+    - MobBloodstream
+    - MobFlammable
+  id: MobGondola
+  name: Gondola
+  description: Having no hands, he embodies the Taoist principle of Wu wei (inaction), and the expression on his smiling face shows his complete acceptance of the world as it is.
+  components:
+  - type: FloatingVisuals
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: Sprite
+    sprite: _White/Mobs/Animals/gondola.rsi
+    layers:
+      - state: gondola_body_medium
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+        color: "#6e4e40"
+        shader: unshaded
+      - state: gondola_moustache_large_short
+        map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        shader: unshaded
+  - type: RandomSprite
+    available:
+        - enum.DamageStateVisualLayers.Base:
+            gondola_body_long: Browns
+            gondola_body_medium: Browns
+          enum.DamageStateVisualLayers.BaseUnshaded:
+            gondola_moustache_large: ""
+            gondola_moustache_small: ""
+        - enum.DamageStateVisualLayers.Base:
+            gondola_body_medium: Browns
+            gondola_body_short: Browns
+          enum.DamageStateVisualLayers.BaseUnshaded:
+            gondola_moustache_large_short: ""
+            gondola_moustache_small_short: ""
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatGondola
+      amount: 3
+  - type: Bloodstream
+    bloodMaxVolume: 150
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Scale
+  - type: Tag
+    tags:
+    - VimPilot
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1
+    baseSprintSpeed: 2
+  - type: Speech
+    speechVerb: Gondola
+    speechSounds: Gondola
+  - type: ReplacementAccent
+    accent: gondola
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: Body
+    prototype: Animal
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.7
+      80: 0.5
+  - type: MobPrice
+    price: 1000
+  - type: Perishable
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-gondola-name
+    description: ghost-role-information-gondola-description
+  - type: GhostTakeoverAvailable
+  - type: NpcFactionMember
+    factions:
+    - Passive

@@ -59,7 +59,7 @@
         - Unstackable
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: _White/Structures/Piping/Atmospherics/vent.rsi #WWDP edit
+      sprite: Structures/Piping/Atmospherics/vent.rsi
       noRot: true
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
@@ -101,7 +101,7 @@
     # TODO ATMOS: Find sprite for this.
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: _White/Structures/Piping/Atmospherics/vent.rsi #WWDP edit
+      sprite: Structures/Piping/Atmospherics/vent.rsi
       noRot: true
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
@@ -152,7 +152,7 @@
         - Unstackable
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: _White/Structures/Piping/Atmospherics/scrubber.rsi #WWDP edit
+      sprite: Structures/Piping/Atmospherics/scrubber.rsi
       noRot: true
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi

@@ -1,0 +1,467 @@
+- type: entity
+  name: chocolate skull
+  parent: FoodSnackBase
+  id: FoodSnackCandySkullChocolate
+  description: A regular chocolate skull candy. Tastes like death.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: scull_chocolate
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Theobromine
+          Quantity: 3
+        - ReagentId: CocoaPowder
+          Quantity: 1
+
+- type: entity
+  name: candy skull
+  parent: FoodSnackBase
+  id: FoodSnackCandySkull
+  description: A regular skull candy. Tastes like death.
+  components:
+  - type: FlavorProfile
+    flavors:
+     - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: scull
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: candy skull
+  parent: FoodSnackBase
+  id: FoodSnackCandyGhost
+  description: A regular ghost candy. Tastes like death and ectoplasm.
+  components:
+  - type: FlavorProfile
+    flavors:
+     - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: ghost
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: candy pumpkin
+  parent: FoodSnackBase
+  id: FoodSnackCandyPumpkin
+  description: A regular pumpkin candy. Tastes like pumpkin, nothing unexpeccted.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: pumpkin
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: cotton
+  parent: FoodSnackBase
+  id: FoodSnackCandyCotton
+  description: A regular cotton candy. Tastes sweet and airy.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: cotton_candy
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: lollipop
+  parent: FoodSnackBase
+  id: FoodSnackCandyLollipopPink
+  description: A regular lollipop. Tastes very sweet.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: lollipop_pink
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: lollipop
+  parent: FoodSnackBase
+  id: FoodSnackCandyLollipopGreen
+  description: A regular lollipop.Tastes like an apple.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: lollipop_green
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: lollipop
+  parent: FoodSnackBase
+  id: FoodSnackCandyLollipopOrange
+  description: A regular lollipop.Tastes like an orange.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: lollipop_orange
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: lollipop
+  parent: FoodSnackBase
+  id: FoodSnackCandyLollipopRainbow
+  description: A regular lollipop. Tastes very sweet.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: lollipop_rainbow
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: gummy bear
+  parent: FoodSnackBase
+  id: FoodSnackCandyGummyBear
+  description: A regular gummy bear. Tastes sweet.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    layers:
+    - map: [ "color" ]
+      state: gumbear_greyscale
+  - type: RandomSprite
+    available:
+    - color:
+        gumbear_greyscale: Emagged
+  - type: Item
+    size: Small
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 15
+
+- type: entity
+  name: small gummy bear
+  parent: FoodSnackBase
+  id: FoodSnackCandyGummyBearSmall
+  description: A regular small gummy bear. Tastes sweet.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    layers:
+    - map: [ "color" ]
+      state: gummybear_greyscale
+  - type: RandomSprite
+    available:
+    - color:
+        gummybear_greyscale: Emagged
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: big gummy bear
+  parent: FoodSnackBase
+  id: FoodSnackCandyGummyBearBigValera
+  description: A regular big gummy bear. Tastes sweet, like the pain of this bear from various experiments and like memories. For some reason you want to call him Valera.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: valerabear
+  - type: Item
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 100
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 50
+
+- type: entity
+  name: small gummy bear
+  parent: FoodSnackBase
+  id: FoodSnackCandyGummyBearSmallValera
+  description: A regular small gummy bear. Tastes sweet. For some reason you want to call him Valera.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: gummybear
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: gummy bear
+  parent: FoodSnackBase
+  id: FoodSnackCandyGummyBearValera
+  description: A regular gummy bear. Tastes sweet. For some reason you want to call him Valera.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: gumbear
+  - type: Item
+    size: Small
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 15
+
+- type: entity
+  name: gummy bean
+  parent: FoodSnackBase
+  id: FoodSnackCandyGummyBeanBrown
+  description: A regular gummy bean. Tastes like Cola.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: bean_brown
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: gummy bean
+  parent: FoodSnackBase
+  id: FoodSnackCandyGummyBeanGreen
+  description: A regular gummy bean. Tastes like an apple.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: bean_green
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: gummy bean
+  parent: FoodSnackBase
+  id: FoodSnackCandyGummyBeanPink
+  description: A regular gummy bean. Tastes very sweet.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: bean_pink
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: gummy bean
+  parent: FoodSnackBase
+  id: FoodSnackCandyGummyBeanRed
+  description: A regular gummy bean. Tastes like strawberry.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: bean_red
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: gummy bean
+  parent: FoodSnackBase
+  id: FoodSnackCandyGummyBeanWhite
+  description: A regular gummy bean. Tastes like party and confetti.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: bean_white
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  name: gummy eye
+  parent: BaseItem
+  id: FoodSnackCandyGummyEye
+  description: A regular gummy eye in a wrapper.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: eye
+  - type: Item
+    size: Tiny
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodPacketCandyGummyEyeTrash
+      - id: FoodSnackCandyGummyEyeOpen
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: gummy eye
+  parent: FoodSnackBase
+  id: FoodSnackCandyGummyEyeOpen
+  description: A regular gummy eye. Tastes sweet and like photoreceptors in the eye.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: eye_open
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketTrash
+  id: FoodPacketCandyGummyEyeTrash
+  name: gymmy eye wrapper
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Consumable/Food/candy.rsi
+    state: eye_trash

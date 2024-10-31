@@ -28,6 +28,7 @@
     whitelist:
       components:
         - Pill
+        - Food
       tags:
         - FoodSnack
   - type: ContainerContainer

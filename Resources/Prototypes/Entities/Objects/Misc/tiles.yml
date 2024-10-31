@@ -54,7 +54,7 @@
             - -0.25,0.25
         density: 20
         mask:
-        - ThrownItem
+        - ItemMask
         restitution: 0.3
         friction: 0.2
   # WD EDIT END
@@ -64,11 +64,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemSteel
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: steel
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
     outputs:
@@ -91,11 +91,11 @@
   parent: FloorTileItemSteel
   id: FloorTileItemSteelCheckerDark
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: checker-dark
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: FloorTile
     outputs:
       - Plating
@@ -106,11 +106,11 @@
   parent: FloorTileItemSteel
   id: FloorTileItemSteelCheckerLight
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: checker-light
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: FloorTile
     outputs:
       - Plating
@@ -140,11 +140,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemWood
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: wood
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: wood
   - type: FloorTile
     outputs:
@@ -161,11 +161,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemWhite
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: white
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: white
   - type: FloorTile
     outputs:
@@ -182,11 +182,11 @@
   parent: FloorTileItemSteel
   id: FloorTileItemDark
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: dark
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: dark
   - type: FloorTile
     outputs:
@@ -219,11 +219,11 @@
   parent: FloorTileItemSteel
   id: FloorTileItemReinforced
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: reinforced
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: reinforced
   - type: FloorTile
     outputs:
@@ -255,64 +255,16 @@
   parent: FloorTileItemBase
   id: FloorTileItemLino
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: lino
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
     outputs:
       - Plating
       - FloorLino
-  - type: Stack
-    stackType: FloorTileLino
-
-- type: entity
-  name: white linoleum floor
-  parent: FloorTileItemLino
-  id: FloorTileItemLinoWhite
-  components:
-  - type: Sprite
-    state: lino-white
-  - type: Item
-    heldPrefix: steel
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorLinoWhite
-  - type: Stack
-    stackType: FloorTileLino
-
-- type: entity
-  name: grey linoleum floor
-  parent: FloorTileItemLino
-  id: FloorTileItemLinoGrey
-  components:
-  - type: Sprite
-    state: lino-grey
-  - type: Item
-    heldPrefix: steel
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorLinoGrey
-  - type: Stack
-    stackType: FloorTileLino
-
-- type: entity
-  name: dark linoleum floor
-  parent: FloorTileItemLino
-  id: FloorTileItemLinoDark
-  components:
-  - type: Sprite
-    state: lino-dark
-  - type: Item
-    heldPrefix: steel
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorLinoDark
   - type: Stack
     stackType: FloorTileLino
 
@@ -391,11 +343,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemRockVault
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: rockvault
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
     outputs:
@@ -409,11 +361,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemBlue
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: blue
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: carpet-blue
   - type: FloorTile
     outputs:
@@ -427,11 +379,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemLime
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: lime
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
     outputs:
@@ -494,11 +446,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemFreezer
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite # WWDP edit
     state: freezer
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: _White/Objects/Tiles/tile.rsi # WWDP edit
     heldPrefix: showroom
   - type: FloorTile
     outputs:
@@ -512,11 +464,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemShowroom
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: showroom
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: showroom
   - type: FloorTile
     outputs:
@@ -530,11 +482,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemHydro
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: hydro
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: hydro
   - type: FloorTile
     outputs:
@@ -548,11 +500,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemBar
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: bar
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
     outputs:
@@ -566,11 +518,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemClown
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: clown
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
     outputs:
@@ -584,11 +536,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemMime
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: mime
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
     outputs:
@@ -602,11 +554,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemKitchen
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: kitchen
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: dark
   - type: FloorTile
     outputs:
@@ -620,11 +572,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemLaundry
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: laundry
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
     outputs:
@@ -833,11 +785,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemShuttleBlue
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: shuttleblue
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: shuttleblue
   - type: FloorTile
     outputs:
@@ -851,11 +803,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemShuttleOrange
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: shuttleorange
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: shuttleorange
   - type: FloorTile
     outputs:
@@ -869,11 +821,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemShuttlePurple
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: shuttlepurple
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: shuttlepurple
   - type: FloorTile
     outputs:
@@ -887,11 +839,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemShuttleRed
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: shuttlered
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: shuttlered
   - type: FloorTile
     outputs:
@@ -905,11 +857,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemShuttleGrey
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: shuttlegrey
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: shuttlegrey
   - type: FloorTile
     outputs:
@@ -923,11 +875,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemShuttleBlack
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: shuttleblack
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: shuttleblack
   - type: FloorTile
     outputs:
@@ -942,11 +894,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemGold
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: gold
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: gold
   - type: FloorTile
     outputs:
@@ -960,11 +912,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemSilver
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: silver
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: silver
   - type: FloorTile
     outputs:
@@ -979,11 +931,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemGCircuit
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: gcircuit
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: gcircuit
   - type: FloorTile
     outputs:
@@ -997,11 +949,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemBCircuit
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: bcircuit
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: bcircuit
   - type: FloorTile
     outputs:
@@ -1082,11 +1034,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemWoodPattern
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: woodpatternfloor
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: wood
   - type: FloorTile
     outputs:
@@ -1255,11 +1207,11 @@
   parent: FloorTileItemBase
   id: FloorTileItemWoodLarge
   components:
-  - type: Sprite #WWDP edit
+  - type: Sprite
     state: wood-large
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
+    sprite: Objects/Tiles/tile.rsi
     heldPrefix: wood
   - type: FloorTile
     outputs:
@@ -1270,312 +1222,4 @@
   - type: Construction
     graph: TileWoodLarge
     node: woodtilelarge
-
-- type: entity #WWDP add
-  name: steel yellow tile
-  parent: FloorTileItemSteel
-  id: FloorTileItemSteelYellow
-  components:
-  - type: Sprite
-    state: steel-yellow
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorSteelYellow
-
-- type: entity #WWDP add
-  name: steel red tile
-  parent: FloorTileItemSteel
-  id: FloorTileItemSteelRed
-  components:
-  - type: Sprite
-    state: steel-red
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorSteelRed
-
-- type: entity #WWDP add
-  name: steel green tile
-  parent: FloorTileItemSteel
-  id: FloorTileItemSteelGreen
-  components:
-  - type: Sprite
-    state: steel-green
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorSteelGreen
-
-- type: entity #WWDP add
-  name: steel blue tile
-  parent: FloorTileItemSteel
-  id: FloorTileItemSteelBlue
-  components:
-  - type: Sprite
-    state: steel-blue
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorSteelBlue
-
-- type: entity #WWDP add
-  name: plastic yellow tile
-  parent: FloorTileItemSteel
-  id: FloorTileItemPlasticYellow
-  components:
-  - type: Sprite
-    state: plastic-yellow
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorPlasticYellow
-
-- type: entity #WWDP add
-  name: plastic red tile
-  parent: FloorTileItemSteel
-  id: FloorTileItemPlasticRed
-  components:
-  - type: Sprite
-    state: plastic-red
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorPlasticRed
-
-- type: entity #WWDP add
-  name: plastic green tile
-  parent: FloorTileItemSteel
-  id: FloorTileItemPlasticGreen
-  components:
-  - type: Sprite
-    state: plastic-green
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorPlasticGreen
-
-- type: entity #WWDP add
-  name: plastic blue tile
-  parent: FloorTileItemSteel
-  id: FloorTileItemPlasticBlue
-  components:
-  - type: Sprite
-    state: plastic-blue
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorPlasticBlue
-
-- type: entity #WWDP add
-  name: plastic dark tile
-  parent: FloorTileItemSteel
-  id: FloorTileItemPlasticDark
-  components:
-  - type: Sprite
-    state: plastic-dark
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorDarkPlastic
-
-- type: entity #WWDP add
-  name: plastic grey tile
-  parent: FloorTileItemSteel
-  id: FloorTileItemPlasticGrey
-  components:
-  - type: Sprite
-    state: plastic-grey
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorPlastic
-
-- type: entity #WWDP add
-  name: plastic white tile
-  parent: FloorTileItemSteel
-  id: FloorTileItemPlasticWhite
-  components:
-  - type: Sprite
-    state: plastic-white
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorWhitePlastic
-
-- type: entity #WWDP add
-  name: shielding floor
-  parent: FloorTileItemSteel
-  id: FloorTileItemShielding
-  components:
-  - type: Sprite
-    state: shielding
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorShielding
-
-- type: entity #WWDP add
-  name: mono shielding floor
-  parent: FloorTileItemSteel
-  id: FloorTileItemShieldingMono
-  components:
-  - type: Sprite
-    state: shielding-mono
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorShieldingMono
-
-- type: entity #WWDP add
-  name: shuttle syndie floor
-  parent: FloorTileItemSteel
-  id: FloorTileItemShuttleSyndie
-  components:
-  - type: Sprite
-    state: shuttlesyndie
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorShuttleSyndie
-
-- type: entity #WWDP add
-  name: sterile floor
-  parent: FloorTileItemSteel
-  id: FloorTileItemSterile
-  components:
-  - type: Sprite
-    state: sterile
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorSterile
-
-- type: entity #WWDP add
-  name: dark sterile floor
-  parent: FloorTileItemSteel
-  id: FloorTileItemSterileDark
-  components:
-  - type: Sprite
-    state: sterile-dark
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorSterileDark
-
-- type: entity #WWDP add
-  name: reinforced glass frame floor
-  parent: FloorTileItemSteel
-  id: FloorTileItemReinforcedGlassFrame
-  components:
-  - type: Sprite
-    state: rglass-frame
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorReinforcedGlassFrame
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 30
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 5
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-          params:
-            volume: -5
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-
-- type: entity #WWDP add
-  name: glass frame floor
-  parent: FloorTileItemSteel
-  id: FloorTileItemGlassFrame
-  components:
-  - type: Sprite
-    state: glass-frame
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorGlassFrame
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 30
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 5
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-          params:
-            volume: -5
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
 
