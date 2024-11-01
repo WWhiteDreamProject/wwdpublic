@@ -43,9 +43,6 @@
     id: SeniorOfficerPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
-  inhand:
-    - CandyBucket
-    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtSeniorOfficer
   satchel: ClothingBackpackSatchelSecurity
   duffelbag: ClothingBackpackDuffelSecurity

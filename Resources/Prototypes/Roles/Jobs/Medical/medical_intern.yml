@@ -30,9 +30,6 @@
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
     pocket1: BookMedicalReferenceBook
-  inhand:
-    - CandyBucket
-    - PresentHalloweenRandom
   # innerClothingSkirt: ClothingUniformJumpskirtColorWhite # DeltaV
   satchel: ClothingBackpackSatchelMedicalFilled
   duffelbag: ClothingBackpackDuffelMedicalFilled

@@ -23,9 +23,6 @@
     outerClothing: ClothingOuterCoatRnd
     id: SciencePDA
     ears: ClothingHeadsetScience
-  inhand:
-    - CandyBucket
-    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtScientist
   satchel: ClothingBackpackSatchelScienceFilled
   duffelbag: ClothingBackpackDuffelScienceFilled
