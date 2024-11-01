@@ -63,9 +63,10 @@ namespace Content.IntegrationTests.Tests
             "Lighthouse", //DeltaV
             "Submarine", //DeltaV
             "Gax",
+            "Rad",
             "DryDock", //WWDP
             "Moose", //WWDP
-            "Rad"
+            "WhiteBox" //WWDP
         };
 
         /// <summary>
