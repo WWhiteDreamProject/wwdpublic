@@ -631,7 +631,9 @@
 
 - type: alert
   id: RecentlyBlocked
-  icons: [ /Textures/Objects/Weapons/Melee/shields.rsi/buckler-icon.png ]
+  icons:
+  - sprite: /Textures/Objects/Weapons/Melee/shields.rsi
+    state: buckler-icon
   name: alerts-blocked-name
   description: alerts-blocked-desc
 # WD EDIT END

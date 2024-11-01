@@ -171,7 +171,7 @@ namespace Content.Server.Flash
         // WD EDIT START
         private void FlashStun(EntityUid target, float stunDuration, float knockdownDuration, float distance, float range)
         {
-            if (stunDuration <= 0 || knockdownDuration <= 0)
+            if (stunDuration <= 0 && knockdownDuration <= 0)
                 return;
 
             if (TryComp<FlashSoundSuppressionComponent>(target, out var suppression))

@@ -28,6 +28,9 @@ public sealed class LayDownOnCollideSystem : EntitySystem
 
     private void ApplyEffects(EntityUid target, LayDownOnCollideComponent component)
     {
+        if (!Exists(target))
+            return;
+
         _layingDown.TryLieDown(target, null, null, component.Behavior);
     }
 }
