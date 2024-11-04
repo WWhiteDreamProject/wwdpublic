@@ -29,6 +29,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Toolshed;
+using Robust.Shared.Audio;
+using Robust.Shared.GameObjects;
 
 namespace Content.Server.Silicons.Laws;
 
@@ -42,7 +44,6 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!; // WD edit - AiRemoteControl
     [Dependency] private readonly IRobustRandom _random = default!; // WWDP - random roundstart lawset
 
@@ -176,7 +177,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             return;
 
         base.OnGotEmagged(uid, component, ref args);
-        NotifyLawsChanged(uid);
+        NotifyLawsChanged(uid, component.EmaggedSound);
         EnsureEmaggedRole(uid, component);
 
         _stunSystem.TryParalyze(uid, component.StunTime, true);
@@ -191,7 +192,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         while (query.MoveNext(out var update))
         {
             if (!TryComp<EmagSiliconLawComponent>(update, out var emagSiliconLaw)
-               || !TryComp<SiliconLawProviderComponent>(update, out var siliconLawProvider))
+                || !TryComp<SiliconLawProviderComponent>(update, out var siliconLawProvider))
                 continue;
 
             OnGotEmagged(update, emagSiliconLaw, ref args);
@@ -290,7 +291,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         return ev.Laws;
     }
 
-    public void NotifyLawsChanged(EntityUid uid)
+    public void NotifyLawsChanged(EntityUid uid, SoundSpecifier? cue = null)
     {
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
@@ -298,6 +299,9 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         var msg = Loc.GetString("laws-update-notify");
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
         _chatManager.ChatMessageToOne(ChatChannel.Server, msg, wrappedMessage, default, false, actor.PlayerSession.Channel, colorOverride: Color.Red);
+
+        if (cue != null && _mind.TryGetMind(uid, out var mindId, out _))
+            _roles.MindPlaySound(mindId, cue);
     }
 
     /// <summary>
@@ -322,7 +326,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     /// <summary>
     /// Set the laws of a silicon entity while notifying the player.
     /// </summary>
-    public bool SetLaws(List<SiliconLaw> newLaws, EntityUid target, bool unRemovable = false)
+    public bool SetLaws(List<SiliconLaw> newLaws, EntityUid target, SoundSpecifier? cue = null, bool unRemovable = false)
     {
         if (!TryComp<SiliconLawProviderComponent>(target, out var component)
             || component.UnRemovable)
@@ -333,7 +337,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         component.UnRemovable = unRemovable;
         component.Lawset.Laws = newLaws;
-        NotifyLawsChanged(target);
+        NotifyLawsChanged(target, cue);
         return true;
     }
 
@@ -348,7 +352,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         while (query.MoveNext(out var update))
         {
-            SetLaws(lawset, update);
+            SetLaws(lawset, update, provider.LawUploadSound, provider.UnRemovable);
 
             // WD edit - AiRemoteControl-Start
             if (TryComp<StationAiHeldComponent>(update, out var stationAiHeldComp) && stationAiHeldComp.CurrentConnectedEntity != null && HasComp<SiliconLawProviderComponent>(stationAiHeldComp.CurrentConnectedEntity))
@@ -356,11 +360,6 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
                 SetLaws(lawset, stationAiHeldComp.CurrentConnectedEntity.Value);
             }
             // WD edit - AiRemoteControl-End
-            if (!SetLaws(lawset, update, provider.UnRemovable))
-                continue;
-
-            if (provider.LawUploadSound != null && _mind.TryGetMind(update, out var mindId, out _))
-                _roles.MindPlaySound(mindId, provider.LawUploadSound);
         }
     }
 
