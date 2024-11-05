@@ -352,7 +352,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         return maybeOther is HumanoidCharacterProfile other
             && Name == other.Name
             && Age == other.Age
-            && Voice == other.Voice
+            && Voice == other.Voice // WD EDIT
             && Sex == other.Sex
             && Gender == other.Gender
             && Species == other.Species

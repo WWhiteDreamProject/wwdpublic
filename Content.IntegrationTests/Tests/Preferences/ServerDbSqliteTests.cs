@@ -45,7 +45,7 @@ namespace Content.IntegrationTests.Tests.Preferences
                 Species = "Human",
                 Customspeciename = "",
                 Age = 21,
-                Voice = "Eugene",
+                Voice = "Eugene", // WD EDIT
                 Appearance = new(
                     "Afro",
                     Color.Aqua,
