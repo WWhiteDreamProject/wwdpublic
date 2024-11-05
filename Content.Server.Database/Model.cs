@@ -334,6 +334,7 @@ namespace Content.Server.Database
         public string CustomSpecieName { get; set; } = null!;
         public int Age { get; set; }
         public string Sex { get; set; } = null!;
+        public string Voice { get; set; } = null!; // WD EDIT
         public string Gender { get; set; } = null!;
         public string Species { get; set; } = null!;
         public float Height { get; set; } = 1f;

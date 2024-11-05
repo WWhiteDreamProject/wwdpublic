@@ -149,6 +149,14 @@ namespace Content.Client.Lobby.UI
 
             #endregion Sex
 
+            // WD EDIT START
+            #region Voice
+
+            InitializeVoice();
+
+            #endregion
+            // WD EDIT END
+
             #region Age
 
             AgeEdit.OnTextChanged += args =>
@@ -636,6 +644,7 @@ namespace Content.Client.Lobby.UI
 
             UpdateNameEdit();
             UpdateSexControls();
+            UpdateTTSVoicesControls(); // WD EDIT
             UpdateGenderControls();
             UpdateSkinColor();
             UpdateSpawnPriorityControls();
@@ -1122,9 +1131,18 @@ namespace Content.Client.Lobby.UI
             }
             UpdateGenderControls();
             Markings.SetSex(newSex);
+            UpdateTTSVoicesControls(); // WD EDIT
             ReloadProfilePreview();
             SetDirty();
         }
+
+        // WD EDIT START
+        private void SetVoice(string newVoice)
+        {
+            Profile = Profile?.WithVoice(newVoice);
+            IsDirty = true;
+        }
+        // WD EDIT END
 
         private void SetGender(Gender newGender)
         {
@@ -1437,7 +1455,7 @@ namespace Content.Client.Lobby.UI
                 var avg = (Profile.Width + Profile.Height) / 2;
                 var weight = MathF.Round(MathF.PI * MathF.Pow(radius * avg, 2) * density);
                 WeightLabel.Text = Loc.GetString("humanoid-profile-editor-weight-label", ("weight", (int) weight));
-            } 
+            }
             else // Whelp, the fixture doesn't exist, guesstimate it instead
                 WeightLabel.Text = Loc.GetString("humanoid-profile-editor-weight-label", ("weight", (int) 71));
 
