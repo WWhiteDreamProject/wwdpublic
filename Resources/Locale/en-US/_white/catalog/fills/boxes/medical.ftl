@@ -1,0 +1,10 @@
+ent-BoxBodyBagBluespace = bluespace body bag box  
+    .desc = { ent-BoxBodyBag.desc }  
+ent-BoxBodyBagNanoTrasen = NanoTrasen body bag box  
+    .desc = { ent-BoxBodyBag.desc }  
+ent-BoxBodyBagPrisoner = prisoner body bag box  
+    .desc = { ent-BoxBodyBag.desc }  
+ent-BoxBodyBagRadiation = radiation body bag box  
+    .desc = { ent-BoxBodyBag.desc }  
+ent-BoxBodyBagSyndicate = red body bag box  
+    .desc = { ent-BoxBodyBag.desc }  

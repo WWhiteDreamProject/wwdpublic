@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseMechEquipment
+  id: MechEquipmentDrill
+  name: mech drill
+  description: Gives the mech the ability to drill.
+  components:
+  - type: Sprite
+    state: mecha_drill
+  - type: Tag
+    tags:
+    - Pickaxe
+  - type: MeleeWeapon
+    autoAttack: true
+    angle: 0
+    attackRate: 3.5
+    wideAnimationRotation: -90
+    soundHit:
+      path: "/Audio/Items/drill_hit.ogg"
+    damage:
+      groups:
+        Brute: 5
+      types:
+        Structural: 15
