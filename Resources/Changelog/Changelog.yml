@@ -7939,3 +7939,16 @@ Entries:
   id: 6487
   time: '2024-11-06T03:48:03.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/112
+- author: Warete
+  changes:
+    - type: Fix
+      message: >-
+        Some benches had to get their rotation back / Скамьи должны были вернуть
+        свой поворот
+    - type: Tweak
+      message: >-
+        Automatic shift end is now off / Выключено автоматическое завершение
+        смены
+  id: 6488
+  time: '2024-11-06T04:32:07.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/99
