@@ -1668,7 +1668,7 @@ namespace Content.Shared.CCVar
         ///     Time in minutes after round start to auto-call the shuttle. Set to zero to disable.
         /// </summary>
         public static readonly CVarDef<int> EmergencyShuttleAutoCallTime =
-            CVarDef.Create("shuttle.auto_call_time", 120, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.auto_call_time", 0, CVar.SERVERONLY);
 
         /// <summary>
         ///     Time in minutes after the round was extended (by recalling the shuttle) to call
