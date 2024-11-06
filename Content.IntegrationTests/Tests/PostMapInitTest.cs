@@ -65,6 +65,7 @@ namespace Content.IntegrationTests.Tests
             "Gax",
             "DryDock", //WWDP
             "Moose", //WWDP
+            "WhiteBox", //WWDP
             "Rad"
         };
 
