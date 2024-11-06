@@ -7923,3 +7923,10 @@ Entries:
   id: 6485
   time: '2024-11-06T03:45:51.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/117
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: The pickaxe has been improved / Улучшена кирка
+  id: 6486
+  time: '2024-11-06T03:46:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/108
