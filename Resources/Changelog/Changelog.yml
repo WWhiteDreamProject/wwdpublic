@@ -7930,3 +7930,12 @@ Entries:
   id: 6486
   time: '2024-11-06T03:46:19.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/108
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        The holoprojectors have been redesigned / Голопроекторы были
+        переработаны
+  id: 6487
+  time: '2024-11-06T03:48:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/112
