@@ -1,7 +1,8 @@
 ﻿using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Robust.Shared.Utility;
+using Content.Shared._White;
+using Robust.Shared.Configuration;
 
 namespace Content.Shared.Localizations
 {
@@ -10,7 +11,9 @@ namespace Content.Shared.Localizations
         [Dependency] private readonly ILocalizationManager _loc = default!;
 
         // If you want to change your codebase's language, do it here.
-        private const string Culture = "en-US";
+
+        // WD-EDIT
+        private const string FallbackCulture = "en-US";
 
         /// <summary>
         /// Custom format strings used for parsing and displaying minutes:seconds timespans.
@@ -23,11 +26,23 @@ namespace Content.Shared.Localizations
             @"mm"
         };
 
+        // WD-EDIT
+        private string _culture = FallbackCulture;
+
         public void Initialize()
         {
-            var culture = new CultureInfo(Culture);
+            // White Dream
+            var cfgManager = IoCManager.Resolve<IConfigurationManager>();
+            _culture = cfgManager.GetCVar(WhiteCVars.ServerCulture);
+
+            var culture = new CultureInfo(_culture);
+            var fallbackCulture = new CultureInfo(FallbackCulture);
 
             _loc.LoadCulture(culture);
+            if (_culture != FallbackCulture)
+                _loc.LoadCulture(fallbackCulture);
+            _loc.SetFallbackCluture(fallbackCulture);
+
             _loc.AddFunction(culture, "PRESSURE", FormatPressure);
             _loc.AddFunction(culture, "POWERWATTS", FormatPowerWatts);
             _loc.AddFunction(culture, "POWERJOULES", FormatPowerJoules);
@@ -37,6 +52,14 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "NATURALFIXED", FormatNaturalFixed);
             _loc.AddFunction(culture, "NATURALPERCENT", FormatNaturalPercent);
 
+            _loc.AddFunction(fallbackCulture, "PRESSURE", FormatPressure);
+            _loc.AddFunction(fallbackCulture, "POWERWATTS", FormatPowerWatts);
+            _loc.AddFunction(fallbackCulture, "POWERJOULES", FormatPowerJoules);
+            _loc.AddFunction(fallbackCulture, "UNITS", FormatUnits);
+            _loc.AddFunction(fallbackCulture, "TOSTRING", args => FormatToString(culture, args));
+            _loc.AddFunction(fallbackCulture, "LOC", FormatLoc);
+            _loc.AddFunction(fallbackCulture, "NATURALFIXED", FormatNaturalFixed);
+            _loc.AddFunction(fallbackCulture, "NATURALPERCENT", FormatNaturalPercent);
 
             /*
              * The following language functions are specific to the english localization. When working on your own
@@ -47,6 +70,7 @@ namespace Content.Shared.Localizations
 
             _loc.AddFunction(cultureEn, "MAKEPLURAL", FormatMakePlural);
             _loc.AddFunction(cultureEn, "MANY", FormatMany);
+            // White Dream End
         }
 
         private ILocValue FormatMany(LocArgs args)
@@ -67,18 +91,18 @@ namespace Content.Shared.Localizations
         {
             var number = ((LocValueNumber) args.Args[0]).Value * 100;
             var maxDecimals = (int)Math.Floor(((LocValueNumber) args.Args[1]).Value);
-            var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(Culture)).Clone();
+            var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(_culture)).Clone();
             formatter.NumberDecimalDigits = maxDecimals;
-            return new LocValueString(string.Format(formatter, "{0:N}", number).TrimEnd('0').TrimEnd('.') + "%");
+            return new LocValueString(string.Format(formatter, "{0:N}", number).TrimEnd('0').TrimEnd(char.Parse(formatter.NumberDecimalSeparator)) + "%");
         }
 
         private ILocValue FormatNaturalFixed(LocArgs args)
         {
             var number = ((LocValueNumber) args.Args[0]).Value;
             var maxDecimals = (int)Math.Floor(((LocValueNumber) args.Args[1]).Value);
-            var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(Culture)).Clone();
+            var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(CultureInfo.GetCultureInfo(_culture)).Clone();
             formatter.NumberDecimalDigits = maxDecimals;
-            return new LocValueString(string.Format(formatter, "{0:N}", number).TrimEnd('0').TrimEnd('.'));
+            return new LocValueString(string.Format(formatter, "{0:N}", number).TrimEnd('0').TrimEnd(char.Parse(formatter.NumberDecimalSeparator)));
         }
 
         private static readonly Regex PluralEsRule = new("^.*(s|sh|ch|x|z)$");

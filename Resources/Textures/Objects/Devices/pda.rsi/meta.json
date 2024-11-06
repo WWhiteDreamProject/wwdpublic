@@ -142,7 +142,7 @@
       "name": "pda-rd"
     },
     {
-      "name": "pda-roboticist"
+      "name": "pda-robotics"
     },
     {
       "name": "pda-science"
@@ -225,6 +225,12 @@
     },
     {
       "name": "pda-seniorofficer"
+    },
+    {
+      "name": "pda-hobo"
+    },
+    {
+      "name": "pda-maid"
     },
     {
       "name": "equipped-IDCARD",

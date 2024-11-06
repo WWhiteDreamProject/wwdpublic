@@ -2,6 +2,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Stacks;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -47,8 +48,19 @@ public abstract partial class SharedGunSystem
         if (GetBallisticShots(component) >= component.Capacity)
             return;
 
-        component.Entities.Add(args.Used);
-        Containers.Insert(args.Used, component.Container);
+        // WD EDIT START
+        var entity = args.Used;
+        var doInsert = true;
+        if (TryComp(args.Used, out StackComponent? stack) && stack.Count > 1)
+        {
+            entity = GetStackEntity(args.Used, stack);
+            doInsert = false;
+        }
+
+        component.Entities.Add(entity);
+        if (_netManager.IsServer || doInsert)
+            Containers.Insert(entity, component.Container);
+        // WD EDIT END
         // Not predicted so
         Audio.PlayPredicted(component.SoundInsert, uid, args.User);
         args.Handled = true;
@@ -240,14 +252,29 @@ public abstract partial class SharedGunSystem
                 entity = component.Entities[^1];
 
                 args.Ammo.Add((entity, EnsureShootable(entity)));
-                component.Entities.RemoveAt(component.Entities.Count - 1);
-                Containers.Remove(entity, component.Container);
+
+                if (component.AutoCycle) // WD EDIT
+                {
+                    component.Entities.RemoveAt(component.Entities.Count - 1);
+                    Containers.Remove(entity, component.Container);
+                }
+                else
+                    break;
             }
             else if (component.UnspawnedCount > 0)
             {
                 component.UnspawnedCount--;
                 entity = Spawn(component.Proto, args.Coordinates);
                 args.Ammo.Add((entity, EnsureShootable(entity)));
+
+                 // WD EDIT START
+                if (!component.AutoCycle && HasComp<CartridgeAmmoComponent>(entity))
+                {
+                    component.Entities.Add(entity);
+                    Containers.Insert(entity, component.Container);
+                    break;
+                }
+                // WD EDIT END
             }
         }
 
@@ -266,9 +293,19 @@ public abstract partial class SharedGunSystem
         if (!Timing.IsFirstTimePredicted || !TryComp<AppearanceComponent>(uid, out var appearance))
             return;
 
-        Appearance.SetData(uid, AmmoVisuals.AmmoCount, GetBallisticShots(component), appearance);
+        var count = GetBallisticShots(component); // WD EDIT
+
+        Appearance.SetData(uid, AmmoVisuals.AmmoCount, count, appearance); // WD EDIT
         Appearance.SetData(uid, AmmoVisuals.AmmoMax, component.Capacity, appearance);
+        Appearance.SetData(uid, AmmoVisuals.HasAmmo, count != 0, appearance); // WD EDIT
     }
+
+    // WD EDIT START
+    protected virtual EntityUid GetStackEntity(EntityUid uid, StackComponent stack)
+    {
+        return uid;
+    }
+    // WD EDIT END
 }
 
 /// <summary>

@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Made by Gersoon",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "freezer"
+    },
+    {
+      "name": "glass-frame"
+    },
+    {
+      "name": "lino-dark"
+    },
+    {
+      "name": "lino-grey"
+    },
+    {
+      "name": "lino-white"
+    },
+    {
+      "name": "plastic-blue"
+    },
+    {
+      "name": "plastic-green"
+    },
+    {
+      "name": "plastic-yellow"
+    },
+    {
+      "name": "plastic-red"
+    },
+    {
+      "name": "plastic-dark"
+    },
+    {
+      "name": "plastic-grey"
+    },
+    {
+      "name": "plastic-white"
+    },
+    {
+      "name": "rglass-frame"
+    },
+    {
+      "name": "shielding"
+    },
+    {
+      "name": "shielding-mono"
+    },
+    {
+      "name": "shuttlesyndie"
+    },
+    {
+      "name": "steel-blue"
+    },
+    {
+      "name": "steel-green"
+    },
+    {
+      "name": "steel-red"
+    },
+    {
+      "name": "steel-yellow"
+    },
+    {
+      "name": "sterile"
+    },
+    {
+      "name": "sterile-dark"
+    }
+  ]
+}

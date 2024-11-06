@@ -4,22 +4,26 @@
       "x":32,
       "y":32
    },
-   "license":"CC-BY-SA-3.0",
-   "copyright":"Taken from https://github.com/ParadiseSS13/Paradise/",
+   "license": "CC-BY-SA-4.0",
+   "copyright": "Made by WWDP Team",
    "states":[
       {
-         "name":"vent_off"
+         "name":"vent_off",
+         "directions" : 4
       },
       {
-         "name":"vent_welded"
+         "name":"vent_welded",
+         "directions" : 4
       },
       {
          "name":"vent_out",
-         "delays":[ [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ] ]
+         "directions" : 4,
+         "delays":[ [ 0.08, 0.08, 0.08, 0.08 ], [ 0.08, 0.08, 0.08, 0.08 ], [ 0.08, 0.08, 0.08, 0.08 ], [ 0.08, 0.08, 0.08, 0.08 ] ]
       },
       {
          "name":"vent_in",
-         "delays":[ [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ] ]
+         "directions" : 4,
+         "delays":[ [ 0.08, 0.08, 0.08, 0.08 ], [ 0.08, 0.08, 0.08, 0.08 ], [ 0.08, 0.08, 0.08, 0.08 ], [ 0.08, 0.08, 0.08, 0.08 ] ]
       }
    ]
 }

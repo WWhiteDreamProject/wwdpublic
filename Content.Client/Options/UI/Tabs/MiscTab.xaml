@@ -25,6 +25,7 @@
                 <CheckBox Name="ReducedMotionCheckBox" Text="{Loc 'ui-options-reduced-motion'}" />
                 <CheckBox Name="EnableColorNameCheckBox" Text="{Loc 'ui-options-enable-color-name'}" />
                 <CheckBox Name="ColorblindFriendlyCheckBox" Text="{Loc 'ui-options-colorblind-friendly'}" />
+                <CheckBox Name="DisableFiltersCheckBox" Text="{Loc 'ui-options-no-filters'}" />
                 <BoxContainer Orientation="Horizontal">
                     <Label Text="{Loc 'ui-options-chat-window-opacity'}" Margin="8 0" />
                     <Slider Name="ChatWindowOpacitySlider"
@@ -53,6 +54,7 @@
                 <CheckBox Name="ShowLoocAboveHeadCheckBox" Text="{Loc 'ui-options-show-looc-on-head'}" />
                 <CheckBox Name="FancySpeechBubblesCheckBox" Text="{Loc 'ui-options-fancy-speech'}" />
                 <CheckBox Name="FancyNameBackgroundsCheckBox" Text="{Loc 'ui-options-fancy-name-background'}" />
+                <CheckBox Name="LogInChatCheckBox" Text="{Loc 'ui-options-log-in-chat'}" /> <!-- WD EDIT -->
                 <Label Text="{Loc 'ui-options-general-cursor'}"
                        FontColorOverride="{xNamespace:Static s:StyleNano.NanoGold}"
                        StyleClasses="LabelKeyText"/>

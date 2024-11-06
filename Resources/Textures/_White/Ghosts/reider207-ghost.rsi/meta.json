@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "reider207",
+  "size": {
+    "x": 128,
+    "y": 128
+  },
+  "states": [
+    {
+      "name": "animated"
+    }
+  ]
+}

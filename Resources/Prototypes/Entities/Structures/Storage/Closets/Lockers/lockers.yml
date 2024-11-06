@@ -9,7 +9,6 @@
     stateBaseClosed: cabinet
     stateDoorOpen: cabinet_open
     stateDoorClosed: cabinet_door
-
   - type: AccessReader
     access: [["Bar"]]
   - type: EntityStorage

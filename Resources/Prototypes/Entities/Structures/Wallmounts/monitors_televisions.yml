@@ -5,6 +5,7 @@
   description: Finally, some decent reception around here...
   components:
   - type: Sprite
+    sprite: Structures/Machines/computers.rsi
     noRot: true
     drawdepth: SmallObjects
     layers:
@@ -12,6 +13,7 @@
       state: television
     - map: ["computerLayerScreen"]
       state: detective_television
+      shader: unshaded #WWDP edit
   - type: Computer
     board: ComputerTelevisionCircuitboard
   - type: PointLight
@@ -110,8 +112,8 @@
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
-      - key: enum.SurveillanceCameraMonitorUiKey.Key
-        type: SurveillanceCameraMonitorBoundUserInterface
+        enum.SurveillanceCameraMonitorUiKey.Key:
+          type: SurveillanceCameraMonitorBoundUserInterface
 
 # Wall Televisions
 
@@ -141,8 +143,11 @@
     layers:
       - map: ["computerLayerBody"]
         state: television_wall
-      - map: ["computerLayerScreen"]
-        state: television_wallscreen
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89f25"
+    enabled: false
 
 - type: entity
   parent: WallmountTelevisionFrame
@@ -151,6 +156,15 @@
   name: television
   description: Finally, some decent reception around here...
   components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: Structures/Wallmounts/flatscreentv.rsi
+    layers:
+      - map: ["computerLayerBody"]
+        state: television_wall
+      - map: ["computerLayerScreen"]
+        state: television_wallscreen
+        shader: unshaded
   - type: Construction
     graph: WallmountTelevision
     node: Television
@@ -169,8 +183,8 @@
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
-      - key: enum.SurveillanceCameraMonitorUiKey.Key
-        type: SurveillanceCameraMonitorBoundUserInterface
+        enum.SurveillanceCameraMonitorUiKey.Key:
+          type: SurveillanceCameraMonitorBoundUserInterface
   - type: PointLight
     radius: 1.5
     energy: 1.6

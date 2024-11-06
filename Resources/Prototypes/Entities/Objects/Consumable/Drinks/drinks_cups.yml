@@ -10,7 +10,8 @@
     solutions:
       drink:
         maxVol: 20
-        canMix: true
+  - type: MixableSolution
+    solution: drink
   - type: FitsInDispenser
     solution: drink
   - type: DrawableSolution
@@ -24,14 +25,15 @@
     maxTransferAmount: 10
   - type: UserInterface
     interfaces:
-    - key: enum.TransferAmountUiKey.Key
-      type: TransferAmountBoundUserInterface
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
   - type: Drink
   - type: Sprite
     state: icon
   - type: Spillable
     solution: drink
   - type: MeleeWeapon
+    canBeBlocked: false # WD EDIT
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"
     damage:

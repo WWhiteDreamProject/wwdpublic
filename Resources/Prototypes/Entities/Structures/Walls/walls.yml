@@ -549,8 +549,6 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
-    destroySound:
-      collection: MetalBreak
   - type: IconSmooth
     key: walls
     base: reinf_over
@@ -579,9 +577,9 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: Structures/Walls/solid_rust.rsi 
   - type: Icon
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: Structures/Walls/solid_rust.rsi 
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -806,8 +804,6 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
-    destroySound:
-      collection: MetalBreak
   - type: Construction
     graph: Girder
     node: diagonalshuttleWall
@@ -821,9 +817,9 @@
     tags:
       - Wall
   - type: Sprite
-    sprite: Structures/Walls/shuttle.rsi
+    sprite: Structures/Walls/shuttle.rsi 
   - type: Icon
-    sprite: Structures/Walls/shuttle.rsi
+    sprite: Structures/Walls/shuttle.rsi 
     state: full
 #  - type: Destructible
 #    thresholds:
@@ -862,13 +858,13 @@
     tags:
       - Wall
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi
+    sprite: Structures/Walls/solid.rsi 
   - type: WallReplacementMarker
   - type: Construction
     graph: Girder
     node: wall
   - type: Icon
-    sprite: Structures/Walls/solid.rsi
+    sprite: Structures/Walls/solid.rsi 
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -911,14 +907,14 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/solid_diagonal.rsi
+    sprite: Structures/Walls/solid_diagonal.rsi 
     state: state0
   - type: IconSmooth
     mode: Diagonal
     key: walls
     base: state
   - type: Icon
-    sprite: Structures/Walls/solid_diagonal.rsi
+    sprite: Structures/Walls/solid_diagonal.rsi 
     state: state0
 
 - type: entity
@@ -928,9 +924,9 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: Structures/Walls/solid_rust.rsi 
   - type: Icon
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: Structures/Walls/solid_rust.rsi 
     state: full
   - type: Construction
     graph: Girder
@@ -1212,7 +1208,7 @@
   name: force wall
   components:
     - type: TimedDespawn
-      lifetime: 20
+      lifetime: 12
     - type: Tag
       tags:
         - Wall

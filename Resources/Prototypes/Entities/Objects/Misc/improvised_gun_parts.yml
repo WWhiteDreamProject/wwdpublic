@@ -27,9 +27,12 @@
     - type: Sprite
       sprite: Objects/Misc/rifle_stock.rsi
       state: icon
+    # WD EDIT STRART
     - type: Construction
-      graph: RifleStockGraph
-      node: riflestock
+      deconstructionTarget: null
+      graph: WeaponPoweredCrossbowGraph
+      node: stock
+    # WD EDIT END
     - type: Tag
       tags:
       - RifleStock

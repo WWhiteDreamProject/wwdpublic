@@ -33,7 +33,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 25
       behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
@@ -48,6 +48,7 @@
           collection: MetalBreak
   - type: StaticPrice
     price: 10
+  - type: RequireProjectileTarget
 
 #Starts unanchored, cannot be rotated while anchored
 - type: entity
@@ -203,7 +204,9 @@
   parent: UnanchoredChairBase
   components:
   - type: Sprite
+    sprite: Structures/Furniture/chairs.rsi
     state: wooden
+    noRot: true
   - type: Construction
     graph: Seat
     node: chairWood
@@ -238,6 +241,7 @@
   description: Looks uncomfortable.
   components:
   - type: Sprite
+    sprite: Structures/Furniture/chairs.rsi #WWDP edit
     state: ritual
   - type: Construction
     graph: RitualSeat
@@ -262,6 +266,7 @@
   description: It's staring back.
   components:
   - type: Sprite
+    sprite: Structures/Furniture/chairs.rsi #WWDP edit
     state: cursed
   - type: Strap
     buckleSound:

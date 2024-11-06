@@ -1,3 +1,4 @@
+using Content.Shared.Contests;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
@@ -103,7 +104,7 @@ public sealed partial class MeleeWeaponComponent : Component
     ///     Weapon damage is multiplied by this amount for heavy swings
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float HeavyDamageBaseModifier = 1.2f;
+    public float HeavyDamageBaseModifier = 1f; // WD EDIT
 
     /// <summary>
     /// Total width of the angle for wide attacks.
@@ -117,6 +118,11 @@ public sealed partial class MeleeWeaponComponent : Component
     [DataField, AutoNetworkedField]
     public EntProtoId WideAnimation = "WeaponArcSlash";
 
+    // WD EDIT START
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public EntProtoId DisarmAnimation = "WeaponArcDisarm";
+    // WD EDIT END
+
     /// <summary>
     /// Rotation of the animation.
     /// 0 degrees means the top faces the attacker.
@@ -128,7 +134,7 @@ public sealed partial class MeleeWeaponComponent : Component
     public bool SwingLeft;
 
     [DataField, AutoNetworkedField]
-    public float HeavyStaminaCost = 20f;
+    public float HeavyStaminaCost = 20f; // WD EDIT
 
     [DataField, AutoNetworkedField]
     public int MaxTargets = 5;
@@ -156,6 +162,33 @@ public sealed partial class MeleeWeaponComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public SoundSpecifier SoundNoDamage { get; set; } = new SoundCollectionSpecifier("WeakHit");
+
+    /// <summary>
+    ///     Arguments for the MeleeContestInteractions constructor
+    /// </summary>
+    [DataField]
+    public ContestArgs ContestArgs = new ContestArgs
+    {
+        DoStaminaInteraction = true,
+        StaminaDisadvantage = true,
+        StaminaRangeModifier = 2,
+        StaminaOffset = 0.25f,
+        DoHealthInteraction = true,
+        HealthRangeModifier = 1.5f,
+    };
+
+    // WD EDIT START
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public bool CanBeBlocked = true;
+    // WD EDIT END
+
+    /// <summary>
+    ///     If true, the weapon must be equipped for it to be used.
+    ///     E.g boxing gloves must be equipped to your gloves,
+    ///     not just held in your hand to be used.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool MustBeEquippedToUse = false;
 }
 
 /// <summary>

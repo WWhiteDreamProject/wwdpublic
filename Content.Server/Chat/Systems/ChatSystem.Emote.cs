@@ -2,6 +2,7 @@ using System.Collections.Frozen;
 using System.Linq;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
+using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -28,7 +29,7 @@ public partial class ChatSystem
         {
             foreach (var word in emote.ChatTriggers)
             {
-                var lowerWord = word.ToLower();
+                var lowerWord = Loc.GetString(word).ToLower(); // WD EDIT
                 if (dict.TryGetValue(lowerWord, out var value))
                 {
                     var errMsg = $"Duplicate of emote word {lowerWord} in emotes {emote.ID} and {value.ID}";
@@ -83,6 +84,16 @@ public partial class ChatSystem
         bool ignoreActionBlocker = false
         )
     {
+        if (!(emote.Whitelist?.IsValid(source, EntityManager) ?? true))
+            return;
+        if (emote.Blacklist?.IsValid(source, EntityManager) ?? false)
+            return;
+
+        if (!emote.Available &&
+            TryComp<SpeechComponent>(source, out var speech) &&
+            !speech.AllowedEmotes.Contains(emote.ID))
+            return;
+
         // check if proto has valid message for chat
         if (emote.ChatMessages.Count != 0)
         {

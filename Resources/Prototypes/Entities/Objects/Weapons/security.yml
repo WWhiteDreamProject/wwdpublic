@@ -36,8 +36,6 @@
         Blunt: 7
     bluntStaminaDamageFactor: 2.0
     heavyRateModifier: 0.75
-    heavyDamageBaseModifier: 1.75
-    heavyStaminaCost: 5
     maxTargets: 3
     angle: 60
     animation: WeaponArcSlash
@@ -82,6 +80,10 @@
     explosionType: Default
     intensitySlope: 1.5
     maxIntensity: 200
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
   - type: GuideHelp
     guides:
     - Security
@@ -105,10 +107,11 @@
       collection: MetalThud
     bluntStaminaDamageFactor: 2
     heavyRateModifier: 1
-    heavyDamageBaseModifier: 1.2
-    heavyStaminaCost: 10
   - type: Item
     size: Normal
+  - type: Tag
+    tags: 
+    - Truncheon
   - type: Clothing
     sprite: Objects/Weapons/Melee/truncheon.rsi
     quickEquip: false
@@ -143,6 +146,7 @@
       maxCharges: 5
       charges: 5
     - type: MeleeWeapon
+      canBeBlocked: false # WD EDIT
       wideAnimationRotation: 180
       damage:
         types:

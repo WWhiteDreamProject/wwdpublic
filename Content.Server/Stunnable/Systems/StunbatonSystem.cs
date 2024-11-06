@@ -9,6 +9,7 @@ using Content.Shared.Item;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Popups;
+using Content.Shared.PowerCell.Components;
 using Content.Shared.Stunnable;
 
 namespace Content.Server.Stunnable.Systems
@@ -20,7 +21,6 @@ namespace Content.Server.Stunnable.Systems
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly BatterySystem _battery = default!;
         [Dependency] private readonly SharedItemToggleSystem _itemToggle = default!;
-
         public override void Initialize()
         {
             base.Initialize();
@@ -31,15 +31,17 @@ namespace Content.Server.Stunnable.Systems
             SubscribeLocalEvent<StunbatonComponent, ItemToggleActivateAttemptEvent>(TryTurnOn);
             SubscribeLocalEvent<StunbatonComponent, ItemToggledEvent>(ToggleDone);
             SubscribeLocalEvent<StunbatonComponent, ChargeChangedEvent>(OnChargeChanged);
+            SubscribeLocalEvent<StunbatonComponent, PowerCellChangedEvent>(OnPowerCellChanged); // WD EDIT
         }
 
         private void OnStaminaHitAttempt(Entity<StunbatonComponent> entity, ref StaminaDamageOnHitAttemptEvent args)
         {
-            if (!_itemToggle.IsActivated(entity.Owner) ||
-            !TryComp<BatteryComponent>(entity.Owner, out var battery) || !_battery.TryUseCharge(entity.Owner, entity.Comp.EnergyPerUse, battery))
-            {
+            // WD EDIT START
+            if (!_itemToggle.IsActivated(entity.Owner)
+                || !_battery.TryGetBatteryComponent(entity, out var battery, out var batteryUid)
+                || !_battery.TryUseCharge(batteryUid.Value, entity.Comp.EnergyPerUse, battery))
                 args.Cancelled = true;
-            }
+            // WD EDIT END
         }
 
         private void OnExamined(Entity<StunbatonComponent> entity, ref ExaminedEvent args)
@@ -49,7 +51,7 @@ namespace Content.Server.Stunnable.Systems
             : Loc.GetString("comp-stunbaton-examined-off");
             args.PushMarkup(onMsg);
 
-            if (TryComp<BatteryComponent>(entity.Owner, out var battery))
+            if (_battery.TryGetBatteryComponent(entity, out var battery, out _)) // WD EDIT
             {
                 var count = (int) (battery.CurrentCharge / entity.Comp.EnergyPerUse);
                 args.PushMarkup(Loc.GetString("melee-battery-examine", ("color", "yellow"), ("count", count)));
@@ -63,15 +65,22 @@ namespace Content.Server.Stunnable.Systems
 
         private void TryTurnOn(Entity<StunbatonComponent> entity, ref ItemToggleActivateAttemptEvent args)
         {
-            if (!TryComp<BatteryComponent>(entity, out var battery) || battery.CurrentCharge < entity.Comp.EnergyPerUse)
+            // WD EDIT START
+            if (!_battery.TryGetBatteryComponent(entity, out var battery, out _)
+                || battery.CurrentCharge < entity.Comp.EnergyPerUse)
             {
+
                 args.Cancelled = true;
+
                 if (args.User != null)
                 {
-                    _popup.PopupEntity(Loc.GetString("stunbaton-component-low-charge"), (EntityUid) args.User, (EntityUid) args.User);
+                    _popup.PopupEntity(Loc.GetString("stunbaton-component-low-charge"), (EntityUid) args.User,
+                        (EntityUid) args.User);
                 }
+
                 return;
             }
+            // WD EDIT END
 
             if (TryComp<RiggableComponent>(entity, out var rig) && rig.IsRigged)
             {
@@ -102,11 +111,21 @@ namespace Content.Server.Stunnable.Systems
 
         private void OnChargeChanged(Entity<StunbatonComponent> entity, ref ChargeChangedEvent args)
         {
-            if (TryComp<BatteryComponent>(entity.Owner, out var battery) &&
-                battery.CurrentCharge < entity.Comp.EnergyPerUse)
-            {
-                _itemToggle.TryDeactivate(entity.Owner, predicted: false);
-            }
+            CheckCharge(entity); // WD EDIT
         }
+
+        // WD EDIT START
+        private void OnPowerCellChanged(Entity<StunbatonComponent> entity, ref PowerCellChangedEvent args)
+        {
+            CheckCharge(entity);
+        }
+
+        private void CheckCharge(Entity<StunbatonComponent> entity)
+        {
+            if (!_battery.TryGetBatteryComponent(entity, out var battery, out _)
+                || battery.CurrentCharge < entity.Comp.EnergyPerUse)
+                _itemToggle.TryDeactivate(entity.Owner, predicted: false);
+        }
+        // WD EDIT END
     }
 }

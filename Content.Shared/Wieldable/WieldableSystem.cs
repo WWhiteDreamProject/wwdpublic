@@ -1,3 +1,4 @@
+using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -45,6 +46,7 @@ public sealed class WieldableSystem : EntitySystem
         SubscribeLocalEvent<GunWieldBonusComponent, ItemWieldedEvent>(OnGunWielded);
         SubscribeLocalEvent<GunWieldBonusComponent, ItemUnwieldedEvent>(OnGunUnwielded);
         SubscribeLocalEvent<GunWieldBonusComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers);
+        SubscribeLocalEvent<GunWieldBonusComponent, ExaminedEvent>(OnExamine);
 
         SubscribeLocalEvent<IncreaseDamageOnWieldComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
     }
@@ -61,15 +63,10 @@ public sealed class WieldableSystem : EntitySystem
 
     private void OnShootAttempt(EntityUid uid, GunRequiresWieldComponent component, ref AttemptShootEvent args)
     {
-        if (TryComp<WieldableComponent>(uid, out var wieldable) &&
-            !wieldable.Wielded)
+        if (TryComp<WieldableComponent>(uid, out var wieldable) && !wieldable.Wielded)
         {
             args.Cancelled = true;
-
-            if (!HasComp<MeleeWeaponComponent>(uid) && !HasComp<MeleeRequiresWieldComponent>(uid))
-            {
-                args.Message = Loc.GetString("wieldable-component-requires", ("item", uid));
-            }
+            args.Message = Loc.GetString("wieldable-component-requires", ("item", uid));
         }
     }
 
@@ -93,6 +90,12 @@ public sealed class WieldableSystem : EntitySystem
             args.AngleDecay += bonus.Comp.AngleDecay;
             args.AngleIncrease += bonus.Comp.AngleIncrease;
         }
+    }
+
+    private void OnExamine(EntityUid uid, GunWieldBonusComponent component, ref ExaminedEvent args)
+    {
+        if (component.WieldBonusExamineMessage != null)
+            args.PushText(Loc.GetString(component.WieldBonusExamineMessage));
     }
 
     private void AddToggleWieldVerb(EntityUid uid, WieldableComponent component, GetVerbsEvent<InteractionVerb> args)
@@ -125,7 +128,7 @@ public sealed class WieldableSystem : EntitySystem
 
         if (!component.Wielded)
             args.Handled = TryWield(uid, component, args.User);
-        else
+        else if (component.UnwieldOnUse)
             args.Handled = TryUnwield(uid, component, args.User);
     }
 
@@ -214,6 +217,17 @@ public sealed class WieldableSystem : EntitySystem
     /// <returns>True if the attempt wasn't blocked.</returns>
     public bool TryUnwield(EntityUid used, WieldableComponent component, EntityUid user)
     {
+        // WD EDIT START
+        if (!component.Wielded)
+            return false;
+
+        if (TryComp<BallisticAmmoProviderComponent>(used, out var ballisticAmmoProvider)
+            && ballisticAmmoProvider.Entities.Count != 0
+            && TryComp<CartridgeAmmoComponent>(ballisticAmmoProvider.Entities[^1], out var cartridgeAmmo)
+            && cartridgeAmmo.Spent)
+            return false;
+        // WD EDIT END
+
         var ev = new BeforeUnwieldEvent();
         RaiseLocalEvent(used, ev);
 

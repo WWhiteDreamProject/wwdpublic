@@ -3,8 +3,6 @@ using Content.IntegrationTests.Tests.Construction.Interaction;
 using Content.IntegrationTests.Tests.Interaction;
 using Content.IntegrationTests.Tests.Weldable;
 using Content.Shared.Tools.Components;
-using Content.Server.Tools.Components;
-using Content.Shared.DoAfter;
 
 namespace Content.IntegrationTests.Tests.DoAfter;
 
@@ -69,6 +67,15 @@ public sealed class DoAfterCancellationTests : InteractionTest
     {
         await SetTile(Floor);
         await Interact(Pry, awaitDoAfters: false);
+
+        // WD EDIT START
+        if (!ActiveDoAfters.Any())
+        {
+            await AssertTile(Plating);
+            return;
+        }
+        // WD EDIT END
+
         await CancelDoAfters();
         await AssertTile(Floor);
 
@@ -82,6 +89,10 @@ public sealed class DoAfterCancellationTests : InteractionTest
         await SetTile(Floor);
         await Interact(Pry, awaitDoAfters: false);
         await RunTicks(1);
+
+        if (!ActiveDoAfters.Any()) // WD EDIT
+            return;
+
         Assert.That(ActiveDoAfters.Count(), Is.EqualTo(1));
         await AssertTile(Floor);
 

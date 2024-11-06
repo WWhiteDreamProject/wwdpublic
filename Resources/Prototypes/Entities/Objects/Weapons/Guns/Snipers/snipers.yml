@@ -18,6 +18,8 @@
     - Back
     - suitStorage
   - type: AmmoCounter
+  - type: Wieldable
+  - type: GunRequiresWield
   - type: Gun
     fireRate: 0.75
     selectedMode: SemiAuto
@@ -31,16 +33,24 @@
     whitelist:
       tags:
       - CartridgeLightRifle
+    autoCycle: false # WD EDIT
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
         ents: []
   - type: StaticPrice
     price: 500
+  - type: MeleeWeapon # WD EDIT
+    attackRate: 0.5
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: GenericHit
 
 - type: entity
   name: Kardashev-Mosin
-  parent: BaseWeaponSniper
+  parent: [BaseWeaponSniper, BaseGunWieldable]
   id: WeaponSniperMosin
   description: A weapon for hunting, or endless trench warfare. Uses .30 rifle ammo.
   components:
@@ -54,24 +64,60 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
     fireOnDropChance: 1
+  - type: MeleeWeapon # WD EDIT
+    damage:
+      types:
+        Piercing: 10
+        Slash: 5
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+
+- type: entity
+  name: Kardashev-Mosin
+  parent: WeaponSniperMosin
+  id: WeaponSniperMosinRubber
+  description: A weapon for hunting, or endless trench warfare. Uses .30 rifle rubber ammo.
+  suffix: Non-Lethal
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleRubber
 
 - type: entity
   name: Hristov
-  parent: BaseWeaponSniper
+  parent: [BaseWeaponSniper, BaseGunWieldable]
   id: WeaponSniperHristov
   description: A portable anti-materiel rifle. Fires armor piercing 14.5mm shells. Uses .60 anti-materiel ammo.
   components:
+  # WD EDIT START
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+    sprite: _White/Objects/Weapons/Guns/Snipers/hristov-icons.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+    sprite: _White/Objects/Weapons/Guns/Snipers/hristov-inhands.rsi
+  - type: Item
+    sprite: _White/Objects/Weapons/Guns/Snipers/hristov-inhands.rsi
   - type: BallisticAmmoProvider
+    soundInsert: /Audio/_White/Guns/insert.ogg
     whitelist:
       tags:
       - CartridgeAntiMateriel
     capacity: 5
     proto: CartridgeAntiMateriel
-  - type: Telescope # WD EDIT
+  - type: Gun
+    fireRate: 0.6
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: Telescope
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  # WD EDIT END
 
 - type: entity
   name: musket

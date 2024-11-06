@@ -29,7 +29,8 @@
     solutions:
       drink: # This solution name and target volume is hard-coded in ChemMasterComponent
         maxVol: 30
-        canMix: true
+  - type: MixableSolution
+    solution: drink
   - type: RefillableSolution
     solution: drink
   - type: DrainableSolution
@@ -41,16 +42,19 @@
   - type: SolutionTransfer
     maxTransferAmount: 30
     canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: drink
   - type: UserInterface
     interfaces:
-    - key: enum.TransferAmountUiKey.Key
-      type: TransferAmountBoundUserInterface
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
   - type: Item
     size: Tiny
     sprite: Objects/Specific/Chemistry/beaker.rsi
   - type: Spillable
     solution: drink
   - type: MeleeWeapon
+    canBeBlocked: false # WD EDIT
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"
     damage:

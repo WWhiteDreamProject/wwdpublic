@@ -6,10 +6,8 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Radio.Components;
-using Content.Shared.Tools;
 using Content.Shared.Tools.Components;
 using Content.Shared.Wires;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
@@ -175,7 +173,9 @@ public sealed partial class EncryptionKeySystem : EntitySystem
 
     private void OnHolderExamined(EntityUid uid, EncryptionKeyHolderComponent component, ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange)
+        if (!args.IsInDetailsRange
+            || !component.ExamineWhileLocked && !component.KeysUnlocked
+            || !component.ExamineWhileLocked && TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open)
             return;
 
         if (component.KeyContainer.ContainedEntities.Count == 0)
@@ -218,7 +218,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
 
             var key = id == SharedChatSystem.CommonChannel
                 ? SharedChatSystem.RadioCommonPrefix.ToString()
-                : $"{SharedChatSystem.RadioChannelPrefix}{proto.KeyCode}";
+                : $":{string.Join(", :", proto.KeyCodes.ToArray())}"; // WD EDIT
 
             examineEvent.PushMarkup(Loc.GetString(channelFTLPattern,
                 ("color", proto.Color),

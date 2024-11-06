@@ -1,0 +1,16 @@
+ent-RnDLootSpawner = Спавнер научного лута
+   .desc = ""
+ent-SalvagePartsT2Spawner = Спавнер ур.2 машинных деталей
+   .desc = ""
+ent-SalvagePartsT3T4Spawner = Спавнер ур.3-4 машинных деталей
+   .desc = ""
+ent-SalvagePartsT3Spawner = Спавнер ур.3 машинных деталей
+   .desc = ""
+ent-SalvagePartsT4Spawner = Спавнер ур.4 машинных деталей
+   .desc = ""
+ent-SpawnMobKangarooSalvage = Спавнер на обломке кенгуру
+   .desc = ""
+ent-SpawnMobSpiderSalvage = Спавнер на обломке космо-паук
+   .desc = ""
+ent-SpacemenFigureSpawner = Спавнер фигурки космонавта
+   .desc = ""

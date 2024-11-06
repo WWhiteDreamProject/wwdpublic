@@ -17,6 +17,8 @@ using System.Linq;
 using System.Text;
 using Content.Server.GameTicking.Components;
 using Content.Server.Traitor.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Mood;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -31,6 +33,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly SharedJobSystem _jobs = default!;
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!; // WD EDIT
 
     public const int MaxPicks = 20;
 
@@ -74,7 +77,10 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         if (!_mindSystem.TryGetMind(traitor, out var mindId, out var mind))
             return false;
 
+        component.SelectionStatus = TraitorRuleComponent.SelectionState.Started; // WD EDIT
+
         var briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", component.Codewords)));
+        var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers).Values);
 
         if (TryComp<AutoTraitorComponent>(traitor, out var autoTraitorComponent))
         {
@@ -104,7 +110,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
         }
 
-        _antag.SendBriefing(traitor, GenerateBriefing(component.Codewords, code), null, component.GreetSoundNotification);
+        _antag.SendBriefing(traitor, GenerateBriefing(component.Codewords, code, issuer), null, component.GreetSoundNotification);
 
         component.TraitorMinds.Add(mindId);
 
@@ -117,6 +123,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         // Change the faction
         _npcFaction.RemoveFaction(traitor, component.NanoTrasenFaction, false);
         _npcFaction.AddFaction(traitor, component.SyndicateFaction);
+
+        RaiseLocalEvent(traitor, new MoodEffectEvent("TraitorFocused"));
 
         // Give traitors their objectives
         if (giveObjectives)
@@ -149,10 +157,10 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         args.Text += "\n" + Loc.GetString("traitor-round-end-codewords", ("codewords", string.Join(", ", comp.Codewords)));
     }
 
-    private string GenerateBriefing(string[] codewords, Note[]? uplinkCode)
+    private string GenerateBriefing(string[] codewords, Note[]? uplinkCode, string? objectiveIssuer = null)
     {
         var sb = new StringBuilder();
-        sb.AppendLine(Loc.GetString("traitor-role-greeting"));
+        sb.AppendLine(Loc.GetString("traitor-role-greeting", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
         sb.AppendLine(Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", codewords))));
         if (uplinkCode != null)
             sb.AppendLine(Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
@@ -190,4 +198,47 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         return traitors;
     }
+
+    // WD EDIT START
+    public List<(EntityUid Id, MindComponent Mind)> GetAllLivingConnectedTraitors()
+    {
+        var traitors = new List<(EntityUid Id, MindComponent Mind)>();
+
+        var traitorRules = EntityQuery<TraitorRuleComponent>();
+
+        foreach (var traitorRule in traitorRules)
+        {
+            traitors.AddRange(GetLivingConnectedTraitors(traitorRule));
+        }
+
+        return traitors;
+    }
+
+    private List<(EntityUid Id, MindComponent Mind)> GetLivingConnectedTraitors(TraitorRuleComponent traitorRule)
+    {
+        var traitors = new List<(EntityUid Id, MindComponent Mind)>();
+
+        foreach (var traitor in traitorRule.TraitorMinds)
+        {
+            if (!TryComp(traitor, out MindComponent? mind))
+                continue;
+
+            if (mind.OwnedEntity == null)
+                continue;
+
+            if (mind.Session == null)
+                continue;
+
+            if (!_mobStateSystem.IsAlive(mind.OwnedEntity.Value))
+                continue;
+
+            if (mind.CurrentEntity != mind.OwnedEntity)
+                continue;
+
+            traitors.Add((traitor, mind));
+        }
+
+        return traitors;
+    }
+    // WD EDIT END
 }

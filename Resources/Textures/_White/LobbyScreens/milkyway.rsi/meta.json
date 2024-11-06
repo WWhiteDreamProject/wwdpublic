@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "WD team",
+  "size": {
+    "x": 640,
+    "y": 365
+  },
+  "states": [
+    {
+      "name": "1",
+	  "delays": [
+        [
+          0.1
+        ]
+      ]
+    }
+  ]
+}

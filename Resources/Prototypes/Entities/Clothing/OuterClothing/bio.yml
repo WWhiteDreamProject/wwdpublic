@@ -36,7 +36,7 @@
   - type: Sprite
     sprite: Clothing/OuterClothing/Bio/janitor.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/janitor.rsi
+    sprite: Clothing/OuterClothing/Bio/janitor.rsi #WWD{ edit}
 
 - type: entity
   parent: ClothingOuterBioGeneral

@@ -116,6 +116,12 @@
   id: FloorSteelOffset
   name: tiles-steel-floor-offset
   sprite: /Textures/Tiles/steel_offset.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -242,7 +248,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemPlasticGrey
   heatCapacity: 10000
   tileRipResistance: 80
 
@@ -348,6 +354,12 @@
   name: tiles-white-floor-offset
   sprite: /Textures/Tiles/white_offset.png
   baseTurf: Plating
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -447,7 +459,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemWhite
+  itemDrop: FloorTileItemPlasticWhite
   heatCapacity: 10000
   tileRipResistance: 80
 
@@ -532,6 +544,12 @@
   name: tiles-dark-floor-offset
   sprite: /Textures/Tiles/dark_offset.png
   baseTurf: Plating
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -631,7 +649,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDark
+  itemDrop: FloorTileItemPlasticDark
   heatCapacity: 10000
   tileRipResistance: 50
 
@@ -744,6 +762,12 @@
   name: tiles-blue-tile
   sprite: /Textures/Tiles/blue.png
   baseTurf: Plating
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -816,6 +840,12 @@
   name: tiles-freezer
   sprite: /Textures/Tiles/freezer.png
   baseTurf: Plating
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -829,6 +859,20 @@
   name: tiles-showroom-floor
   sprite: /Textures/Tiles/showroom.png
   baseTurf: Plating
+  variants: 12
+  placementVariants:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -842,6 +886,12 @@
   name: tiles-hydro-floor
   sprite: /Textures/Tiles/hydro.png
   baseTurf: Plating
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -874,6 +924,24 @@
   name: tiles-clown-floor
   sprite: /Textures/Tiles/clown.png
   baseTurf: Plating
+  variants: 16
+  placementVariants:
+  - 0.4
+  - 0.015
+  - 0.015
+  - 0.4
+  - 0.015
+  - 0.015
+  - 0.015
+  - 0.015
+  - 0.015
+  - 0.015
+  - 0.015
+  - 0.015
+  - 0.015
+  - 0.015
+  - 0.015
+  - 0.015
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -887,6 +955,15 @@
   name: tiles-mime-floor
   sprite: /Textures/Tiles/mime.png
   baseTurf: Plating
+  variants: 7
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -900,6 +977,12 @@
   name: tiles-kitchen-floor
   sprite: /Textures/Tiles/kitchen.png
   baseTurf: Plating
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -913,6 +996,15 @@
   name: tiles-laundry-floor
   sprite: /Textures/Tiles/laundry.png
   baseTurf: Plating
+  variants: 7
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -925,8 +1017,11 @@
   id: FloorSteelDamaged
   name: tiles-steel-floor
   sprite: /Textures/Tiles/steel_damaged.png
-  variants: 5
+  variants: 8
   placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
   - 1.0
   - 1.0
   - 1.0
@@ -945,8 +1040,14 @@
   id: FloorSteelBurnt
   name: tiles-steel-floor
   sprite: /Textures/Tiles/steel_burnt.png
-  variants: 2
+  variants: 8
   placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   - 1.0
   - 1.0
   baseTurf: Plating
@@ -1369,7 +1470,6 @@
   heatCapacity: 10000
   tileRipResistance: 4500
 
-
 # Materials
 - type: tile
   id: FloorGold
@@ -1400,7 +1500,7 @@
 - type: tile
   id: FloorGlass
   name: tiles-glass-floor
-  sprite: /Textures/DeltaV/Tiles/glass.png # DeltaV - Replace glass texture so it's easier to see
+  sprite: /Textures/Tiles/glass.png
   variants: 4
   placementVariants:
   - 1.0
@@ -1480,7 +1580,7 @@
   - 1.0
   - 1.0
   baseTurf: FloorDirt
-  isSubfloor: false
+  isSubfloor: true
   footstepSounds:
     collection: FootstepTile
   heatCapacity: 10000
@@ -1491,8 +1591,7 @@
   name: tiles-planet-grass-floor
   sprite: /Textures/Tiles/grass.png
   baseTurf: FloorDirt
-  isSubfloor: false
-  canShovel: true #DV
+  isSubfloor: true
   footstepSounds:
     collection: FootstepGrass
   itemDrop: FloorTileItemGrass
@@ -1504,8 +1603,7 @@
   name: tiles-jungle-grass-floor
   sprite: /Textures/Tiles/grassjungle.png
   baseTurf: FloorDirt
-  isSubfloor: false
-  canShovel: true # Delta V
+  isSubfloor: true
   footstepSounds:
     collection: FootstepGrass
   itemDrop: FloorTileItemGrassJungle
@@ -1523,11 +1621,9 @@
   - 1.0
   - 1.0
   baseTurf: FloorDirt
-  isSubfloor: false
-  canShovel: true # Delta V
+  isSubfloor: true
   footstepSounds:
     collection: FootstepGrass
-  itemDrop: FloorTileItemGrassDark # Delta V
   heatCapacity: 10000
   weather: true
 
@@ -1542,11 +1638,9 @@
   - 1.0
   - 1.0
   baseTurf: FloorDirt
-  isSubfloor: false
-  canShovel: true # Delta V
+  isSubfloor: true
   footstepSounds:
     collection: FootstepGrass
-  itemDrop: FloorTileItemGrassLight
   heatCapacity: 10000
   weather: true
 
@@ -1562,12 +1656,10 @@
   - 1.0
   baseTurf: Plating
   isSubfloor: true
-  canShovel: true # Delta V
   footstepSounds:
     collection: FootstepAsteroid
-  itemDrop: FloorTileItemDirt # Delta V
   heatCapacity: 10000
-  weather: True
+  weather: true
 
 # Asteroid
 
@@ -1599,7 +1691,7 @@
 
 - type: tile
   id: FloorAsteroidSandDug
-  name: tiles-asteroid-sand
+  name: tiles-asteroid-sand-dug
   sprite: /Textures/Tiles/Asteroid/asteroid_dug.png
   baseTurf: Space
   isSubfloor: true
@@ -1907,6 +1999,106 @@
 # Faux sci tiles
 
 # Grass
+
+- type: tile
+  id: FloorAstroGrassAutumnRed
+  name: tiles-astro-grass-autumn-red-floor
+  sprite: /Textures/_White/Tiles/Planet/AutumnGrass/red.png
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/_White/Tiles/Planet/AutumnGrass/red_single_edge.png
+    NorthEast: /Textures/_White/Tiles/Planet/AutumnGrass/red_single_edge.png
+    NorthWest: /Textures/_White/Tiles/Planet/AutumnGrass/red_single_edge.png
+    SouthWest: /Textures/_White/Tiles/Planet/AutumnGrass/red_single_edge.png
+    South: /Textures/_White/Tiles/Planet/AutumnGrass/red_double_edge.png
+    East: /Textures/_White/Tiles/Planet/AutumnGrass/red_double_edge.png
+    North: /Textures/_White/Tiles/Planet/AutumnGrass/red_double_edge.png
+    West: /Textures/_White/Tiles/Planet/AutumnGrass/red_double_edge.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Cutting ]
+  footstepSounds:
+    collection: FootstepGrass
+  itemDrop: FloorTileItemAstroGrass
+  heatCapacity: 10000
+  tileRipResistance: 50
+
+- type: tile
+  id: FloorAstroGrassAutumnOrange
+  name: tiles-astro-grass-autumn-orange-floor
+  sprite: /Textures/_White/Tiles/Planet/AutumnGrass/orange.png
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/_White/Tiles/Planet/AutumnGrass/orange_single_edge.png
+    NorthEast: /Textures/_White/Tiles/Planet/AutumnGrass/orange_single_edge.png
+    NorthWest: /Textures/_White/Tiles/Planet/AutumnGrass/orange_single_edge.png
+    SouthWest: /Textures/_White/Tiles/Planet/AutumnGrass/orange_single_edge.png
+    South: /Textures/_White/Tiles/Planet/AutumnGrass/orange_double_edge.png
+    East: /Textures/_White/Tiles/Planet/AutumnGrass/orange_double_edge.png
+    North: /Textures/_White/Tiles/Planet/AutumnGrass/orange_double_edge.png
+    West: /Textures/_White/Tiles/Planet/AutumnGrass/orange_double_edge.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Cutting ]
+  footstepSounds:
+    collection: FootstepGrass
+  itemDrop: FloorTileItemAstroGrass
+  heatCapacity: 10000
+  tileRipResistance: 50
+
+- type: tile
+  id: FloorAstroGrassAutumnYellow
+  name: tiles-astro-grass-autumn-yellow-floor
+  sprite: /Textures/_White/Tiles/Planet/AutumnGrass/yellow.png
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_single_edge.png
+    NorthEast: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_single_edge.png
+    NorthWest: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_single_edge.png
+    SouthWest: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_single_edge.png
+    South: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_double_edge.png
+    East: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_double_edge.png
+    North: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_double_edge.png
+    West: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_double_edge.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Cutting ]
+  footstepSounds:
+    collection: FootstepGrass
+  itemDrop: FloorTileItemAstroGrass
+  heatCapacity: 10000
+  tileRipResistance: 50
+
 - type: tile
   id: FloorAstroGrass
   name: tiles-astro-grass

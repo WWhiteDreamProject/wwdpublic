@@ -183,6 +183,7 @@
   components:
   - type: Implanter
     implant: UplinkImplant
+  - type: GiftIgnore # WD EDIT
 
 - type: entity
   id: EmpImplanter

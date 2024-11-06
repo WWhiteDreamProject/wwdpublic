@@ -17,6 +17,7 @@ using Content.Server.Chemistry.Containers.EntitySystems;
 using Robust.Shared.GameStates;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._White.Blocking;
 using Robust.Server.Audio;
 
 namespace Content.Server.Chemistry.EntitySystems;
@@ -25,14 +26,14 @@ public sealed class HypospraySystem : SharedHypospraySystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly InteractionSystem _interaction = default!;
-    [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<HyposprayComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<HyposprayComponent, MeleeHitEvent>(OnAttack);
+        SubscribeLocalEvent<HyposprayComponent, MeleeHitEvent>(OnAttack,
+            after: new[] {typeof(MeleeBlockSystem)}); // WD EDIT
         SubscribeLocalEvent<HyposprayComponent, UseInHandEvent>(OnUseInHand);
     }
 
@@ -68,6 +69,9 @@ public sealed class HypospraySystem : SharedHypospraySystem
 
     public void OnAttack(Entity<HyposprayComponent> entity, ref MeleeHitEvent args)
     {
+        if (args.Handled) // WD EDIT
+            return;
+
         if (!args.HitEntities.Any())
             return;
 

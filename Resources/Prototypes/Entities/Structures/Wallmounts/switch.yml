@@ -479,8 +479,6 @@
   - type: AccessReader
     access: [["Atmospherics"]]
 
-# button frames
-
 - type: entity
   id: ButtonFrame
   name: button frame
@@ -498,57 +496,8 @@
     canCollide: false
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
+    sprite: _White/Structures/Wallmounts/switch_frame/f1.rsi # WD EDIT
     state: grey
   - type: Rotatable
   - type: Fixtures
 
-- type: entity
-  id: ButtonFrameGrey
-  parent: ButtonFrame
-  suffix: grey
-  components:
-  - type: Sprite
-    drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
-    state: grey
-
-- type: entity
-  id: ButtonFrameCaution
-  parent: ButtonFrame
-  suffix: caution
-  components:
-  - type: Sprite
-    drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
-    state: caution
-
-- type: entity
-  id: ButtonFrameCautionSecurity
-  parent: ButtonFrame
-  suffix: caution
-  components:
-  - type: Sprite
-    drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
-    state: caution_security
-
-- type: entity
-  id: ButtonFrameExit
-  parent: ButtonFrame
-  suffix: exit
-  components:
-  - type: Sprite
-    drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
-    state: exit
-
-- type: entity
-  id: ButtonFrameJanitor
-  parent: ButtonFrame
-  suffix: janitor
-  components:
-  - type: Sprite
-    drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
-    state: janitor

@@ -18,8 +18,6 @@
       types:
         Slash: 8
     heavyRateModifier: 0.8
-    heavyDamageBaseModifier: 1.2
-    heavyStaminaCost: 5
     maxTargets: 3
     angle: 40
     soundHit:
@@ -278,7 +276,6 @@
     tags:
     - CombatKnife
     - Knife
-    - CannonRestrict
   - type: Sprite
     sprite: Objects/Weapons/Melee/throwing_knife.rsi
     state: icon

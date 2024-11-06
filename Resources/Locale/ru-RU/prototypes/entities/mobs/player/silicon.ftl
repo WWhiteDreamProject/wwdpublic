@@ -1,0 +1,9 @@
+ent-PlayerSiliconBase = { "" }
+    .desc = { "" }
+    .suffix = { "" }
+ent-Drone = дрон
+    .desc = { ent-PlayerSiliconBase.desc }
+    .suffix = { "" }
+ent-Onestar = меха звёздочка
+    .desc = { ent-PlayerSiliconBase.desc }
+    .suffix = { "" }

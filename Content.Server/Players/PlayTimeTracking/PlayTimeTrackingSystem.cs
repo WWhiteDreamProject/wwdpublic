@@ -1,4 +1,6 @@
 using System.Linq;
+using Content.Server.Administration;
+using Content.Server.Administration.Managers;
 using Content.Server.Afk;
 using Content.Server.Afk.Events;
 using Content.Server.GameTicking;
@@ -34,6 +36,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly MindSystem _minds = default!;
     [Dependency] private readonly PlayTimeTrackingManager _tracking = default!;
+    [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly CharacterRequirementsSystem _characterRequirements = default!;
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
@@ -54,6 +57,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         SubscribeLocalEvent<UnAFKEvent>(OnUnAFK);
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<PlayerJoinedLobbyEvent>(OnPlayerJoinedLobby);
+        _adminManager.OnPermsChanged += AdminPermsChanged;
     }
 
     public override void Shutdown()
@@ -61,12 +65,20 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         base.Shutdown();
 
         _tracking.CalcTrackers -= CalcTrackers;
+        _adminManager.OnPermsChanged -= AdminPermsChanged;
     }
 
     private void CalcTrackers(ICommonSession player, HashSet<string> trackers)
     {
         if (_afk.IsAfk(player))
             return;
+
+        if (_adminManager.IsAdmin(player))
+        {
+            trackers.Add(PlayTimeTrackingShared.TrackerAdmin);
+            trackers.Add(PlayTimeTrackingShared.TrackerOverall);
+            return;
+        }
 
         if (!IsPlayerAlive(player))
             return;
@@ -138,6 +150,11 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         _tracking.QueueRefreshTrackers(ev.Session);
     }
 
+    private void AdminPermsChanged(AdminPermsChangedEventArgs admin)
+    {
+        _tracking.QueueRefreshTrackers(admin.Player);
+    }
+
     private void OnPlayerAttached(PlayerAttachedEvent ev)
     {
         _tracking.QueueRefreshTrackers(ev.Player);
@@ -186,6 +203,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             (HumanoidCharacterProfile) _prefs.GetPreferences(player.UserId).SelectedCharacter,
             playTimes,
             isWhitelisted,
+            job,
             EntityManager,
             _prototypes,
             _config,
@@ -216,6 +234,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
                         (HumanoidCharacterProfile) _prefs.GetPreferences(player.UserId).SelectedCharacter,
                         playTimes,
                         isWhitelisted,
+                        job,
                         EntityManager,
                         _prototypes,
                         _config,
@@ -257,15 +276,16 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
                 continue;
 
             if (!_characterRequirements.CheckRequirementsValid(
-                    jobber.Requirements,
-                    jobber,
-                    (HumanoidCharacterProfile) _prefs.GetPreferences(userId).SelectedCharacter,
-                    _tracking.GetPlayTimes(_playerManager.GetSessionById(userId)),
-                    _playerManager.GetSessionById(userId).ContentData()?.Whitelisted ?? false,
-                    EntityManager,
-                    _prototypes,
-                    _config,
-                    out _))
+                jobber.Requirements,
+                jobber,
+                (HumanoidCharacterProfile) _prefs.GetPreferences(userId).SelectedCharacter,
+                _tracking.GetPlayTimes(_playerManager.GetSessionById(userId)),
+                _playerManager.GetSessionById(userId).ContentData()?.Whitelisted ?? false,
+                jobber,
+                EntityManager,
+                _prototypes,
+                _config,
+                out _))
             {
                 jobs.RemoveSwap(i);
                 i--;

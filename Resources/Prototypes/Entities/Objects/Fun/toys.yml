@@ -29,6 +29,7 @@
   - type: UseDelay
     delay: 1.0
   - type: MeleeWeapon
+    canBeBlocked: false # WD EDIT
     wideAnimationRotation: 180
     soundHit:
       collection: ToySqueak
@@ -1387,6 +1388,7 @@
     sprite: Objects/Fun/toys.rsi
     state: foamblade
   - type: MeleeWeapon
+    canBeBlocked: false # WD EDIT
     attackRate: 1.5
     angle: 0
     animation: WeaponArcThrust
@@ -1629,6 +1631,7 @@
     - type: StaminaDamageOnHit
       damage: 8
     - type: MeleeWeapon
+      canBeBlocked: false # WD EDIT
       damage:
         types:
           Blunt: 0
@@ -1673,6 +1676,7 @@
     sprite: Objects/Weapons/Melee/cutlass.rsi
     state: foam_icon
   - type: MeleeWeapon
+    canBeBlocked: false # WD EDIT
     attackRate: 1.5
     range: 2.0
     angle: 0
@@ -1731,6 +1735,7 @@
     - type: DisarmMalus
       malus: 0
     - type: MeleeWeapon
+      canBeBlocked: false # WD EDIT
       soundHit:
         collection: RubberHammer
         params:
@@ -1738,6 +1743,34 @@
             volume: 3
       soundNoDamage:
         collection: RubberHammer
+        params:
+            variation: 0.03
+            volume: 3
+      damage:
+        types:
+          Blunt: 0
+
+- type: entity
+  parent: ToyHammer
+  id: BwoinkHammer
+  name: bwoink hammer
+  description: A toy hammer which makes a wildly terrifying sound. It is missing it's old spirit of bangammer and is still unraisinable.
+  suffix: DO NOT MAP
+  components:
+    - type: Sprite
+      sprite: Objects/Fun/bwoink_hammer.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: Objects/Fun/bwoink_hammer.rsi
+    - type: MeleeWeapon
+      soundHit:
+        path: /Audio/Admin/adminhelp_old.ogg
+        params:
+            variation: 0.03
+            volume: 3
+      soundNoDamage:
+        path: /Audio/Admin/adminhelp_old.ogg
         params:
             variation: 0.03
             volume: 3
@@ -1772,6 +1805,7 @@
       params:
         variation: 0.125
   - type: MeleeWeapon
+    canBeBlocked: false # WD EDIT
     soundHit:
       collection: Parp
       params:
@@ -1914,6 +1948,7 @@
     - type: StaminaDamageOnHit
       damage: 0.8
     - type: MeleeWeapon
+      canBeBlocked: false # WD EDIT
       wideAnimationRotation: -135
       attackRate: 10
       damage:

@@ -90,6 +90,8 @@
     name: ghost-role-information-rat-king-name
     description: ghost-role-information-rat-king-description
     rules: ghost-role-information-rat-king-rules
+    raffle:
+      settings: default
   - type: GhostTakeoverAvailable
   - type: Tag
     tags:
@@ -118,13 +120,12 @@
   - type: Grammar
     attributes:
       gender: male
-  - type: PotentialPsionic # Nyano
   - type: LanguageKnowledge
     speaks:
-    - GalacticCommon
+    - TauCetiBasic
     - Mouse
     understands:
-    - GalacticCommon
+    - TauCetiBasic
     - Mouse
 
 - type: entity
@@ -302,7 +303,7 @@
     speaks:
     - Mouse
     understands:
-    - GalacticCommon
+    - TauCetiBasic
     - Mouse
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi

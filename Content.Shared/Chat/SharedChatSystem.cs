@@ -1,4 +1,4 @@
-using System.Collections.Frozen;
+using System.Linq;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
@@ -39,7 +39,7 @@ public abstract class SharedChatSystem : EntitySystem
     /// <summary>
     /// Cache of the keycodes for faster lookup.
     /// </summary>
-    private FrozenDictionary<char, RadioChannelPrototype> _keyCodes = default!;
+    private readonly Dictionary<char, RadioChannelPrototype> _keyCodes = new(); // WD EDIT
 
     public override void Initialize()
     {
@@ -57,8 +57,17 @@ public abstract class SharedChatSystem : EntitySystem
 
     private void CacheRadios()
     {
-        _keyCodes = _prototypeManager.EnumeratePrototypes<RadioChannelPrototype>()
-            .ToFrozenDictionary(x => x.KeyCode);
+        // WD EDIT START
+        _keyCodes.Clear();
+
+        foreach (var proto in _prototypeManager.EnumeratePrototypes<RadioChannelPrototype>())
+        {
+            foreach (var keycode in proto.KeyCodes.Where(keycode => !_keyCodes.ContainsKey(keycode)))
+            {
+                _keyCodes.Add(keycode, proto);
+            }
+        }
+        // WD EDIT END
     }
 
     /// <summary>
@@ -154,8 +163,14 @@ public abstract class SharedChatSystem : EntitySystem
         if (string.IsNullOrEmpty(message))
             return message;
         // Capitalize first letter
-        message = char.ToUpper(message[0]) + message.Remove(0, 1);
+        message = OopsConcat(char.ToUpper(message[0]).ToString(), message.Remove(0, 1));
         return message;
+    }
+
+    private static string OopsConcat(string a, string b)
+    {
+        // This exists to prevent Roslyn being clever and compiling something that fails sandbox checks.
+        return a + b;
     }
 
     public string SanitizeMessageCapitalizeTheWordI(string message, string theWordI = "i")

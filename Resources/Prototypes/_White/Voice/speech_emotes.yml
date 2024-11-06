@@ -1,0 +1,23 @@
+- type: emote
+  id: Nod
+  name: chat-emote-name-nod
+  category: General
+  chatMessages: [ "chat-emote-msg-nod" ]
+
+- type: emote
+  id: ShakeHead
+  name: chat-emote-name-shake-head
+  category: General
+  chatMessages: [ "chat-emote-msg-shake-head" ]
+
+- type: emote
+  id: Frown
+  name: chat-emote-name-frown
+  category: General
+  chatMessages: [ "chat-emote-msg-frown" ]
+
+- type: emote
+  id: Smile
+  name: chat-emote-name-smile
+  category: General
+  chatMessages: [ "chat-emote-msg-smile" ]

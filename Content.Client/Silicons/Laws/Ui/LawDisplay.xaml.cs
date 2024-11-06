@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Client.Chat.Managers;
 using Content.Client.Message;
 using Content.Shared.Chat;
@@ -75,7 +76,7 @@ public sealed partial class LawDisplay : Control
                     case SharedChatSystem.CommonChannel:
                         _chatManager.SendMessage($"{SharedChatSystem.RadioCommonPrefix} {lawIdentifier}: {lawDescription}", ChatSelectChannel.Radio); break;
                     default:
-                        _chatManager.SendMessage($"{SharedChatSystem.RadioChannelPrefix}{radioChannelProto.KeyCode} {lawIdentifier}: {lawDescription}", ChatSelectChannel.Radio); break;
+                        _chatManager.SendMessage($"{SharedChatSystem.RadioChannelPrefix}{radioChannelProto.KeyCodes.First()} {lawIdentifier}: {lawDescription}", ChatSelectChannel.Radio); break;
                 }
             };
 

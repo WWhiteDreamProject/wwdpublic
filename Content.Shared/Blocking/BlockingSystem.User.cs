@@ -1,5 +1,7 @@
+using Content.Shared._White.Blocking;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Item.ItemToggle.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -20,7 +22,32 @@ public sealed partial class BlockingSystem
         SubscribeLocalEvent<BlockingUserComponent, ContainerGettingInsertedAttemptEvent>(OnInsertAttempt);
         SubscribeLocalEvent<BlockingUserComponent, AnchorStateChangedEvent>(OnAnchorChanged);
         SubscribeLocalEvent<BlockingUserComponent, EntityTerminatingEvent>(OnEntityTerminating);
+
+        SubscribeLocalEvent<BlockingUserComponent, MeleeBlockAttemptEvent>(OnMeleeBlockAttempt); // WD
     }
+
+    // WD START
+    private void OnMeleeBlockAttempt(Entity<BlockingUserComponent> ent, ref MeleeBlockAttemptEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        var uid = ent.Comp.BlockingItem;
+        if (!TryComp(uid, out BlockingComponent? blocking) || !blocking.IsBlocking)
+            return;
+
+        if (TryComp(uid.Value, out ItemToggleComponent? toggle) && !toggle.Activated)
+            return;
+
+        if (!TryComp(uid.Value, out DamageableComponent? damageable))
+            return;
+
+        _audio.PlayPredicted(blocking.BlockSound, ent, args.Attacker);
+        _popupSystem.PopupPredicted(Loc.GetString("melee-block-event-blocked"), ent, args.Attacker);
+        _damageable.TryChangeDamage(uid.Value, args.Damage, damageable: damageable);
+        args.Handled = true;
+    }
+    // WD END
 
     private void OnParentChanged(EntityUid uid, BlockingUserComponent component, ref EntParentChangedMessage args)
     {

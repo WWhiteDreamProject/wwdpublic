@@ -1,9 +1,10 @@
-﻿- type: tile
+- type: tile
   id: Plating
   name: tiles-plating
   sprite: /Textures/Tiles/plating.png
   baseTurf: Lattice
   isSubfloor: true
+  deconstructTools: [ AdvancedPrying ] #WWDP edit
   footstepSounds:
     collection: FootstepPlating
   friction: 0.3
@@ -13,13 +14,15 @@
   id: PlatingDamaged
   name: tiles-plating
   sprite: /Textures/Tiles/plating_damaged.png
-  variants: 3
+  variants: 4
   placementVariants:
+  - 1.0
   - 1.0
   - 1.0
   - 1.0
   baseTurf: Lattice
   isSubfloor: true
+  deconstructTools: [ AdvancedPrying ] #WWDP edit
   footstepSounds:
     collection: FootstepPlating
   friction: 0.3
@@ -29,8 +32,15 @@
   id: PlatingBurnt
   name: tiles-plating
   sprite: /Textures/Tiles/plating_burnt.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   baseTurf: Lattice
   isSubfloor: true
+  deconstructTools: [ AdvancedPrying ] #WWDP edit
   footstepSounds:
     collection: FootstepPlating
   friction: 0.3
@@ -98,3 +108,4 @@
   isSpace: true
   itemDrop: PartRodMetal1
   heatCapacity: 10000
+

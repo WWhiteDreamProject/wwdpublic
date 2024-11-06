@@ -15,11 +15,15 @@
     solutions:
       drink:
         maxVol: 50
+  - type: PressurizedSolution
+    solution: drink
+  - type: Shakeable
   - type: Sprite
     state: icon
   - type: Item
     size: Small
   - type: MeleeWeapon
+    canBeBlocked: false # WD EDIT
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"
     damage:

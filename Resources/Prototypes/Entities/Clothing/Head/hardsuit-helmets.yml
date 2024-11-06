@@ -17,9 +17,9 @@
     sprite: Clothing/Head/Hardsuits/basic.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/basic.rsi
-  - type: Tag
-    tags:
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
 #Atmospherics Hardsuit
 - type: entity
@@ -267,6 +267,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
+  - type: PointLight
+    color: "#9CF4FF"
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -436,6 +438,8 @@
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
     coefficient: 0.005
+  - type: FireProtection
+    reduction: 0.2
   - type: Armor
     modifiers:
       coefficients:
@@ -742,6 +746,12 @@
         Heat: 0.80
         Radiation: 0.80
         Caustic: 0.95
+  # WD EDIT START
+  - type: ClothingGrantComponent
+    component:
+    - type: ThermalVision
+    - type: NightVision
+  # WD EDIT END
 
 #MISC. HARDSUITS
 #Clown Hardsuit

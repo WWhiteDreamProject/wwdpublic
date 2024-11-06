@@ -22,7 +22,7 @@
 
 - type: entity
   name: china lake
-  parent: BaseWeaponLauncher
+  parent: [BaseWeaponLauncher, BaseGunWieldable]
   id: WeaponLauncherChinaLake
   description: PLOOP
   components:
@@ -80,6 +80,7 @@
     capacity: 1
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+    autoCycle: false # WD EDIT
   - type: MagazineVisuals
     magState: mag
     steps: 2
@@ -307,6 +308,7 @@
           unshaded:
             True: { visible: true }
             False: { visible: false }
+    - type: GiftIgnore # WD EDIT
 
 - type: entity
   name: force gun
@@ -349,6 +351,7 @@
           unshaded:
             True: { visible: true }
             False: { visible: false }
+    - type: GiftIgnore # WD EDIT
 
 - type: entity
   name: meteor launcher
@@ -362,6 +365,7 @@
       tags:
         - CartridgeRocket
     proto: MeteorLarge
+  - type: GiftIgnore # WD EDIT
 
 - type: entity
   name: immovable rod launcher
@@ -375,3 +379,30 @@
       tags:
         - CartridgeRocket
     proto: ImmovableRodSlow
+  - type: GiftIgnore # WD EDIT
+
+# Frontier mail RPDS
+- type: entity
+  name: mail RPDS
+  parent: WeaponLauncherChinaLake
+  id: WeaponMailLake
+  description: Rap(b?)id Parcel Delivery System
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/mail.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Launchers/mail.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - Belt
+    - suitStorage
+  - type: BallisticAmmoProvider
+    proto: null
+    whitelist:
+      tags:
+      - MailCapsule
+    capacity: 4

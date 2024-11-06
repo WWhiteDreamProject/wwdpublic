@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWhiteHobo
+  name: hobo uniform
+  description: The ragged form of a man who has been through a lot. It's not so much the holes in all the places that strike you as the smell of her.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Uniforms/Jumpsuit/hobo.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Uniforms/Jumpsuit/hobo.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSkeletonHalloween
+  name: skeleton costume
+  description: A suit made of fabric with an anatomically correct humanoid skeleton pattern. Made especially for a spooky day and maybe not only for this day.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Uniforms/Jumpsuit/skeleton.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Uniforms/Jumpsuit/skeleton.rsi
