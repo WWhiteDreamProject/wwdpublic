@@ -43,9 +43,6 @@
     id: LibrarianPDA
     ears: ClothingHeadsetScience
     pocket1: HandLabeler
-  inhand:
-    - CandyBucket
-    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtLibrarian
   satchel: ClothingBackpackSatchelLibrarianFilled
   duffelbag: ClothingBackpackDuffelLibrarianFilled

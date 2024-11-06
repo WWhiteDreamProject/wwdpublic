@@ -33,9 +33,6 @@
     mask: ClothingMaskMime
     id: MimePDA
     ears: ClothingHeadsetService
-  inhand:
-    - CandyBucket
-    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtMime
   satchel: ClothingBackpackSatchelMimeFilled
   duffelbag: ClothingBackpackDuffelMimeFilled

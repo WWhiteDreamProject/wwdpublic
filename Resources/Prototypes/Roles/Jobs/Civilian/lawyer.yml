@@ -27,10 +27,8 @@
     id: LawyerPDA
     ears: ClothingHeadsetSecurity
     pocket1: BookSecurity
-    pocket2: PresentHalloweenRandom
   inhand:
     - BriefcaseBrownFilled
-    - CandyBucket
   innerClothingSkirt: ClothingUniformJumpskirtLawyerBlack
   satchel: ClothingBackpackSatchelLawyerFilled #DeltaV - stamp included
   duffelbag: ClothingBackpackDuffelLawyerFilled #DeltaV - stamp included

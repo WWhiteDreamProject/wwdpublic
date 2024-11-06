@@ -37,9 +37,6 @@
     id: SeniorPhysicianPDA
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
-  inhand:
-    - CandyBucket
-    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtSeniorPhysician
   satchel: ClothingBackpackSatchelMedicalFilled
   duffelbag: ClothingBackpackDuffelMedicalFilled

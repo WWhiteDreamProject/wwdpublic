@@ -7884,3 +7884,28 @@ Entries:
   id: 6481
   time: '2024-10-31T03:24:35.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/106
+- author: Spatison
+  changes:
+    - type: Remove
+      message: Deleted fire alarm sound / Удален звук пожарной тревоги
+  id: 6482
+  time: '2024-11-01T11:47:36.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/115
+- author: Gersoon458
+  changes:
+    - type: Remove
+      message: >-
+        Fun removed :( Specifically the basket and the gift from the hands
+        :(/Удалено веселье :( А конкретно корзинка и подарок из рук :( 
+  id: 6483
+  time: '2024-11-06T02:52:23.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/119
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the chances of modes falling out / Изменены шансы выпадения
+        режимов
+  id: 6484
+  time: '2024-11-06T03:10:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/118
