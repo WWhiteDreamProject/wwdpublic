@@ -42,9 +42,6 @@
     shoes: ClothingShoesColorBlack
     id: ChaplainPDA
     ears: ClothingHeadsetScience
-  inhand:
-    - CandyBucket
-    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtChaplain
   satchel: ClothingBackpackSatchelChaplainFilled
   duffelbag: ClothingBackpackDuffelChaplainFilled

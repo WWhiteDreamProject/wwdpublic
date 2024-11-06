@@ -30,9 +30,6 @@
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering
     pocket1: BookEngineersHandbook
-  inhand:
-    - CandyBucket
-    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtColorYellow
   satchel: ClothingBackpackSatchelEngineeringFilled
   duffelbag: ClothingBackpackDuffelEngineeringFilled

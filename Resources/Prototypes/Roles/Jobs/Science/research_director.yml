@@ -59,9 +59,6 @@
     id: RnDPDA
     ears: ClothingHeadsetRD
     belt: BibleMystagogue # Nyanotrasen - Mystagogue book for their Ifrit
-  inhand:
-    - CandyBucket
-    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtResearchDirector
   satchel: ClothingBackpackSatchelResearchDirectorFilled
   duffelbag: ClothingBackpackDuffelResearchDirectorFilled

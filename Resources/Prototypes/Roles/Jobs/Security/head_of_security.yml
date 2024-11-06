@@ -52,9 +52,6 @@
     gloves: ClothingHandsGlovesCombat
     ears: ClothingHeadsetAltSecurity
     belt: ClothingBeltSecurityFilled
-  inhand:
-    - CandyBucket
-    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtHoS
   satchel: ClothingBackpackSatchelHOSFilled
   duffelbag: ClothingBackpackDuffelHOSFilled
