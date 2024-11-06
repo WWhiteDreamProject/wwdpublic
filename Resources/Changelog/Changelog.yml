@@ -7909,3 +7909,17 @@ Entries:
   id: 6484
   time: '2024-11-06T03:10:55.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/118
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Added a new map - WhiteBox/Добавлена новая карта - ВайтБокс
+    - type: Fix
+      message: Fixed Moose (Added cadet spawner)/Починен Мус (Добавлен спавнер кадета)
+    - type: Fix
+      message: >-
+        Asterisk has been fixed, now there is no planet on it (Which do not
+        work. Thanks to Kutos)/Починен Астериск, теперь на нём нет планеты
+        (Которые не работают. Спасибо Кутосу)
+  id: 6485
+  time: '2024-11-06T03:45:51.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/117
