@@ -4,31 +4,32 @@
   # If item is not in list it will go at the bottom (ties broken by alert type enum value)
   id: BaseAlertOrder
   order:
-    - category: Health
-    - category: Mood
-    - category: Stamina
-    - alertType: SuitPower
-    - alertType: ModsuitPower # Goobstation - Modsuits
-    - category: Internals
-    - alertType: Fire
-    - alertType: Handcuffed
-    - alertType: Ensnared
-    - category: Buckled
-    - alertType: Pulling
-    - category: Piloting
-    - alertType: Corporeal
-    - alertType: Stun
-    - alertType: KnockedDown
-    - category: Breathing # Vox gang not calling this oxygen
-    - category: Pressure
-    - alertType: Bleed
-    - category: Temperature
-    - category: Hunger
-    - category: Thirst
-    - alertType: Magboots
-    - alertType: Pacified
-    - alertType: Offer
-    - alertType: Deflecting
+  - category: Health
+  - category: Mood
+  - category: Stamina
+  - alertType: SuitPower
+  - alertType: ModsuitPower # Goobstation - Modsuits
+  - category: Internals
+  - alertType: Fire
+  - alertType: Handcuffed
+  - alertType: Ensnared
+  - category: Buckled
+  - alertType: Pulling
+  - alertType: Walking
+  - category: Piloting
+  - alertType: Corporeal
+  - alertType: Stun
+  - alertType: KnockedDown
+  - category: Breathing # Vox gang not calling this oxygen
+  - category: Pressure
+  - alertType: Bleed
+  - category: Temperature
+  - category: Hunger
+  - category: Thirst
+  - alertType: Magboots
+  - alertType: Pacified
+  - alertType: Offer
+  - alertType: Deflecting
     - alertType: RecentlyBlocked # WD EDIT
 
 - type: entity
@@ -149,6 +150,18 @@
   icons: [ /Textures/Interface/Alerts/Weightless/weightless.png ]
   name: alerts-weightless-name
   description: alerts-weightless-desc
+
+- type: alert
+  id: Walking
+  icons:
+  - sprite: /Textures/Interface/Alerts/walking.rsi
+    state: walking
+  - sprite: /Textures/Interface/Alerts/walking.rsi
+    state: running
+  name: alerts-walking-name
+  description: alerts-walking-desc
+  minSeverity: 0
+  maxSeverity: 1
 
 - type: alert
   id: Stun
@@ -482,18 +495,6 @@
     state: heart-on
   name: alerts-adrenaline-name
   description: alerts-adrenaline-desc
-
-- type: alert
-  id: Walking
-  icons:
-  - sprite: /Textures/Interface/Alerts/walking.rsi
-    state: walking0
-  - sprite: /Textures/Interface/Alerts/walking.rsi
-    state: walking1
-  name: alerts-walking-name
-  description: alerts-walking-desc
-  minSeverity: 0
-  maxSeverity: 1
 
 - type: alert
   id: Debug1
