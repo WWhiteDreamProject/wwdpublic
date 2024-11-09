@@ -254,3 +254,6 @@ HoloprojectorBorg: Holoprojector
 HolofanProjectorEmpty: HolofanProjector
 HoloprojectorFieldEmpty: HoloprojectorField
 HoloprojectorSecurityEmpty: HoloprojectorSecurity
+
+# 2024-09-11 WD EDIT
+DresserCaptainFilled: CaptainDrobe
