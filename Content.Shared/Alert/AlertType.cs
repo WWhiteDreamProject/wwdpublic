@@ -76,6 +76,7 @@ namespace Content.Shared.Alert
         BorgDead,
         Offer,
         RecentlyBlocked, // WD EDIT
+        Deflecting,
     }
 
 }

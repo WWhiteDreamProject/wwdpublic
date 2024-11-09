@@ -33,6 +33,7 @@
     gloves: ClothingHandsGlovesBoxingRed
     shoes: ClothingShoesColorRed
     belt: ClothingBeltChampion
+    pocket2: CandyBucket
   innerClothingSkirt: UniformShortsRedWithTop
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled

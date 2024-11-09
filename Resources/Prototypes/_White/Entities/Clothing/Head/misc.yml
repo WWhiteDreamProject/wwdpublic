@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatToyDemon
+  name: toy demon horns
+  description: Plastic toy demon horns made especially for the spooky day and maybe not only for this day. They smell of hell...
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Head/Misc/toy_demon.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Head/Misc/toy_demon.rsi

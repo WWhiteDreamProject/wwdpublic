@@ -1,0 +1,855 @@
+- type: entity
+  id: PresentHalloweenBase
+  description: A little box with spooky surprises inside.
+  abstract: true
+  suffix: Halloween
+  parent: [PresentBase, BaseItem]
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Halloween/present.rsi
+    layers:
+      - state: base
+      - state: base_glow
+        shader: unshaded
+
+- type: entity
+  id: PresentHalloweenBaseTrash
+  noSpawn: true
+  parent: BaseItem
+  name: wrapping paper
+  description: Carefully folded, taped, and tied with a bow. Then ceremoniously ripped apart and tossed on the floor.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Halloween/present.rsi
+    layers:
+      - state: base_unwrapped
+  - type: Tag
+    tags:
+    - Trash
+  - type: SpaceGarbage
+  - type: TimedDespawn
+    lifetime: 25
+
+- type: entity
+  id: PresentHalloweenSweetTrash
+  noSpawn: true
+  parent: BaseItem
+  name: wrapping paper
+  description: Carefully folded, taped, and tied with a bow. Then ceremoniously ripped apart and tossed on the floor. Looks edible and smells sweet.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Halloween/present.rsi
+    layers:
+      - state: sweet_unwrapped
+  - type: Tag
+    tags:
+    - Trash
+  - type: SpaceGarbage
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 1
+  - type: FlavorProfile
+  - type: Food
+  - type: TimedDespawn
+    lifetime: 25
+
+- type: entity
+  id: PresentHalloweenClothTrash
+  noSpawn: true
+  parent: BaseItem
+  name: wrapping paper
+  description: Carefully folded, taped, and tied with a bow. Then ceremoniously ripped apart and tossed on the floor.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Halloween/present.rsi
+    layers:
+      - state: cloth_unwrapped
+  - type: Tag
+    tags:
+    - Trash
+  - type: SpaceGarbage
+  - type: TimedDespawn
+    lifetime: 25
+
+- type: entity
+  id: PresentHalloweenSoul
+  name: present soul
+  description: Something small, spooky and ghostly in the form of a gift.
+  parent: BaseItem
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Halloween/presentsoul.rsi
+    offset: "0, 0.5"
+    layers:
+      - state: base
+      - state: base_glow
+        shader: unshaded
+  - type: TimedDespawn
+    lifetime: 6
+  - type: PointLight
+    radius: 1.5
+    energy: 1
+    color: "#f0a356"
+
+- type: entity
+  id: PresentHalloweenNothing
+  name: present soul
+  description: Nothinng.
+  parent: BaseItem
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Halloween/presentsoul.rsi
+    layers:
+      - state: nothing
+  - type: TimedDespawn
+    lifetime: 0.01
+
+- type: entity
+  id: PresentHalloweenRandom
+  name: spooky present
+  suffix: Halloween, Thematic
+  description: A little box with spooky surprises inside.
+  parent: PresentHalloweenBase
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Halloween/present.rsi
+    layers:
+      - state: base
+      - state: base_glow
+        shader: unshaded
+  - type: SpawnItemsOnUse
+    items:
+      - id: PresentHalloweenBaseTrash
+      - id: PresentHalloweenRandomSweet
+        prob: 0.5
+        orGroup: GiftPool
+      - id: PresentHalloweenRandomALLSweet
+        orGroup: GiftPool
+      - id: PresentHalloweenRandomCloth
+        prob: 0.5
+        orGroup: GiftPool
+      - id: PresentHalloweenRandomALLCloth
+        orGroup: GiftPool
+      - id: PresentHalloweenSoul
+        prob: 0.5
+        orGroup: GiftPoolSoul
+      - id: PresentHalloweenNothing
+        orGroup: GiftPoolSoul
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  id: PresentHalloweenRandomSweet
+  name: sweet spooky present
+  suffix: Halloween, Thematic
+  description: A little box with sweet surprises inside.
+  parent: PresentHalloweenBase
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Halloween/present.rsi
+    layers:
+      - state: sweet
+      - state: sweet_glow
+        shader: unshaded
+  - type: SpawnItemsOnUse
+    items:
+      - id: PresentHalloweenSweetTrash
+      - id: FoodSnackCandySkullChocolate
+        orGroup: GiftPool
+      - id: FoodSnackCandySkull
+        orGroup: GiftPool
+      - id: FoodSnackCandyGhost
+        orGroup: GiftPool
+      - id: FoodSnackCandyPumpkin
+        orGroup: GiftPool
+      - id: FoodSnackCandyCotton
+        orGroup: GiftPool
+      - id: FoodSnackCandyLollipopPink
+        orGroup: GiftPool
+      - id: FoodSnackCandyLollipopGreen
+        orGroup: GiftPool
+      - id: FoodSnackCandyLollipopOrange
+        orGroup: GiftPool
+      - id: FoodSnackCandyLollipopRainbow
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBear
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBearSmall
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBearBigValera
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBearSmallValera
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBearValera
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBeanBrown
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBeanGreen
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBeanPink
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBeanRed
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBeanWhite
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyEye
+        orGroup: GiftPool
+      - id: PresentHalloweenSoul
+        prob: 0.5
+        orGroup: GiftPoolSoul
+      - id: PresentHalloweenNothing
+        orGroup: GiftPoolSoul
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  id: PresentHalloweenRandomALLSweet
+  name: sweet spooky present
+  suffix: Halloween, Almost all
+  description: A little box with sweet surprises inside.
+  parent: PresentHalloweenBase
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Halloween/present.rsi
+    layers:
+      - state: sweet
+      - state: sweet_glow
+        shader: unshaded
+  - type: SpawnItemsOnUse
+    items:
+      - id: PresentHalloweenSweetTrash
+      - id: FoodCakeLemoonSlice
+        orGroup: GiftPool
+      - id: FoodMothCheesecakeBalls
+        orGroup: GiftPool
+      - id: FoodCakeOrangeSlice
+        orGroup: GiftPool
+      - id: FoodBakedPancake
+        orGroup: GiftPool
+      - id: FoodBakedPancakeBb
+        orGroup: GiftPool
+      - id: FoodBakedPancakeCc
+        orGroup: GiftPool
+      - id: FoodCakeVanillaSlice
+        orGroup: GiftPool
+      - id: FoodCakeBirthdaySlice
+        orGroup: GiftPool
+      - id: FoodCakeClownSlice
+        orGroup: GiftPool
+      - id: FoodCakeSpacemanSlice
+        orGroup: GiftPool
+      - id: FoodCakeLimeSlice
+        orGroup: GiftPool
+      - id: FoodCakeLemonSlice
+        orGroup: GiftPool
+      - id: FoodCakeCarrotSlice
+        orGroup: GiftPool
+      - id: FoodCakePumpkinSlice
+        orGroup: GiftPool
+      - id: FoodCakeChristmasSlice
+        orGroup: GiftPool
+      - id: FoodCakeSlimeSlice
+        orGroup: GiftPool
+      - id: FoodCakeCheeseSlice
+        orGroup: GiftPool
+      - id: FoodCakePlainSlice
+        orGroup: GiftPool
+      - id: FoodCakeBrainSlice
+        orGroup: GiftPool
+      - id: FoodCakeBlueberrySlice
+        orGroup: GiftPool
+      - id: FoodCakeChocolateSlice
+        orGroup: GiftPool
+      - id: FoodCakeAppleSlice
+        orGroup: GiftPool
+      - id: FoodCakeSuppermatterSlice
+        orGroup: GiftPool
+      - id: FoodPieBananaCreamSlice
+        orGroup: GiftPool
+      - id: FoodPiePumpkinSlice
+        orGroup: GiftPool
+      - id: FoodPieCherrySlice
+        orGroup: GiftPool
+      - id: FoodPieBananaCream
+        orGroup: GiftPool
+      - id: FoodPieXenoSlice
+        orGroup: GiftPool
+      - id: FoodPieFrostySlice
+        orGroup: GiftPool
+      - id: FoodPieMeatSlice
+        orGroup: GiftPool
+      - id: FoodPieBaklavaSlice
+        orGroup: GiftPool
+      - id: FoodPieAppleSlice
+        orGroup: GiftPool
+      - id: FoodPieClafoutisSlice
+        orGroup: GiftPool
+      - id: FoodPieAmanita
+        orGroup: GiftPool
+      - id: FoodPiePlump
+        orGroup: GiftPool
+      - id: FoodGumball
+        orGroup: GiftPool
+      - id: FoodSnackChocolate
+        orGroup: GiftPool
+      - id: FoodFrozenPopsicleOrange
+        orGroup: GiftPool
+      - id: FoodFrozenSnowcone
+        orGroup: GiftPool
+      - id: FoodFrozenSnowconeClown
+        orGroup: GiftPool
+      - id: FoodFrozenSandwichStrawberry
+        orGroup: GiftPool
+      - id: FoodFrozenCornuto
+        orGroup: GiftPool
+      - id: FoodFrozenFreezy
+        orGroup: GiftPool
+      - id: FoodFrozenSnowconeMime
+        orGroup: GiftPool
+      - id: FoodFrozenSundae
+        orGroup: GiftPool
+      - id: FoodFrozenPopsicleJumbo
+        orGroup: GiftPool
+      - id: FoodFrozenSandwich
+        orGroup: GiftPool
+      - id: FoodFrozenSnowconeRainbow
+        orGroup: GiftPool
+      - id: FoodFrozenSnowconeBase
+        orGroup: GiftPool
+      - id: FoodFrozenSnowconeFruit
+        orGroup: GiftPool
+      - id: FoodFrozenPopsicleBerry
+        orGroup: GiftPool
+      - id: FoodFrozenSnowconeBerry
+        orGroup: GiftPool
+      - id: FoodBakedBrownie
+        orGroup: GiftPool
+      - id: FoodSnackJoveGello
+        orGroup: GiftPool
+      - id: FoodLollipop
+        orGroup: GiftPool
+      - id: FoodMothMothmallow
+        orGroup: GiftPool
+      - id: FoodMothMothmallowSlice
+        orGroup: GiftPool
+      - id: FoodPSBBarNeapolitan
+        orGroup: GiftPool
+      - id: FoodSnackPokeysticks
+        orGroup: GiftPool
+      - id: FoodPumpkin
+        orGroup: GiftPool
+      - id: FoodBakedCookie
+        orGroup: GiftPool
+      - id: FoodBakedCookieRaisin
+        orGroup: GiftPool
+      - id: FoodSnackCookieFortune
+        orGroup: GiftPool
+      - id: FoodCondimentPacketSugar
+        orGroup: GiftPool
+      - id: FoodBakedCookieSugar
+        orGroup: GiftPool
+      - id: FoodSnackEnergy
+        orGroup: GiftPool
+      - id: FoodSnackDango
+        orGroup: GiftPool
+      - id: FoodSnackProteinbar
+        orGroup: GiftPool
+      - id: FoodSnackPlutoniumrods
+        orGroup: GiftPool
+      - id: FoodSnackRaisins
+        orGroup: GiftPool
+        #WWDP candy
+      - id: FoodSnackCandySkullChocolate
+        orGroup: GiftPool
+      - id: FoodSnackCandySkull
+        orGroup: GiftPool
+      - id: FoodSnackCandyGhost
+        orGroup: GiftPool
+      - id: FoodSnackCandyPumpkin
+        orGroup: GiftPool
+      - id: FoodSnackCandyCotton
+        orGroup: GiftPool
+      - id: FoodSnackCandyLollipopPink
+        orGroup: GiftPool
+      - id: FoodSnackCandyLollipopGreen
+        orGroup: GiftPool
+      - id: FoodSnackCandyLollipopOrange
+        orGroup: GiftPool
+      - id: FoodSnackCandyLollipopRainbow
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBear
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBearSmall
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBearBigValera
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBearSmallValera
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBearValera
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBeanBrown
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBeanGreen
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBeanPink
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBeanRed
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyBeanWhite
+        orGroup: GiftPool
+      - id: FoodSnackCandyGummyEye
+        orGroup: GiftPool
+      - id: PresentHalloweenSoul
+        prob: 0.5
+        orGroup: GiftPoolSoul
+      - id: PresentHalloweenNothing
+        orGroup: GiftPoolSoul
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  id: PresentHalloweenRandomCloth
+  name: clothing spooky present
+  suffix: Halloween, Thematic
+  description: A little box with clothing surprises inside.
+  parent: PresentHalloweenBase
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Halloween/present.rsi
+    layers:
+      - state: cloth
+      - state: cloth_glow
+        shader: unshaded
+  - type: SpawnItemsOnUse
+    items:
+      - id: PresentHalloweenClothTrash
+        #HatPool
+      - id: ClothingHeadHatToyDemon
+        orGroup: GiftPoolHat
+        prob: 0.33
+      - id: ClothingHeadHatPumpkin
+        orGroup: GiftPoolHat
+        prob: 0.33
+      - id: ClothingMaskToyVampireFangs
+        orGroup: GiftPoolHat
+        prob: 0.33
+      - id: PresentHalloweenNothing
+        orGroup: GiftPoolHat
+        #UniformPool
+      - id: ClothingUniformJumpsuitSkeletonHalloween
+        orGroup: GiftPoolUniform
+        prob: 0.33
+      - id: ClothingNeckCloakVampire
+        orGroup: GiftPoolUniform
+        prob: 0.33
+      - id: PresentHalloweenNothing
+        orGroup: GiftPoolUniform
+      - id: PresentHalloweenSoul
+        prob: 0.5
+        orGroup: GiftPoolSoul
+      - id: PresentHalloweenNothing
+        orGroup: GiftPoolSoul
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  id: PresentHalloweenRandomALLCloth
+  name: clothing spooky present
+  suffix: Halloween, Almost all
+  description: A little box with clothing surprises inside.
+  parent: PresentHalloweenBase
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Halloween/present.rsi
+    layers:
+      - state: cloth
+      - state: cloth_glow
+        shader: unshaded
+  - type: SpawnItemsOnUse
+    items:
+      - id: PresentHalloweenClothTrash
+        #HatPool
+      - id: ClothingHeadHatFedoraBlack
+        orGroup: GiftPoolHat
+      - id: ClothingMaskToyVampireFangs
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatToyDemon
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatFedoraChoc
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatFedoraWhite
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatFlatBlack
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatFlatBrown
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatSurgcapBlack
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatSurgcapCyan
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatSurgcapCybersun
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatSurgcapPink
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatSurgcapRainbow
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatSurgcapWhite
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatDirCap
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatBeaverHat
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatBeret
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatBeretFrench
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatCasa
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatBeretMerc
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatBowlerHat
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatCardborg
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatCentcom
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatFedoraBrown
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatFedoraGrey
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatFez
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatOutlawHat
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatWitch1
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatPaper
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatPirate
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatPlaguedoctor
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatRedwizard
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatSantahat
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatSombrero
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatSurgcapBlue
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatSurgcapGreen
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatSurgcapPurple
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatTophat
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatUshanka
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatVioletwizard
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatWitch
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatWizardFake
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatXmasCrown
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatTrucker
+        orGroup: GiftPoolHat
+      - id: ClothingHeadPyjamaSyndicateBlack
+        orGroup: GiftPoolHat
+      - id: ClothingHeadPyjamaSyndicatePink
+        orGroup: GiftPoolHat
+      - id: ClothingHeadPyjamaSyndicateRed
+        orGroup: GiftPoolHat
+      - id: ClothingHeadPaperSack
+        orGroup: GiftPoolHat
+      - id: ClothingHeadPaperSackSmile
+        orGroup: GiftPoolHat
+      - id: ClothingHeadFishCap
+        orGroup: GiftPoolHat
+      - id: ClothingHeadNurseHat
+        orGroup: GiftPoolHat
+      - id: ClothingHeadRastaHat
+        orGroup: GiftPoolHat
+      - id: ClothingHeadSafari
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatJester
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatJesterAlt
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatPirateTricord
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatWatermelon
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatSyndie
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatSyndieMAA
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatTacticalMaidHeadband
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatHetmanHat
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatMagician
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatMagician
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatCentcomcap
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatGladiator
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatPartyRed
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatPartyYellow
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatPartyGreen
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatPartyBlue
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatPartyWaterCup
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatGreyFlatcap
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatBrownFlatcap
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatCowboyBrown
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatCowboyBlack
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatCowboyGrey
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatCowboyRed
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatCowboyWhite
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatCowboyBountyHunter
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatStrawHat
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatHoboHat
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatHoboCap
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatMobCap
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatBunny
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatCake
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatChickenhead
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatFlowerWreath
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatPumpkin
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatPwig
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatRichard
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatSkub
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatShrineMaidenWig
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatCone
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatFancyCrown
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatCatEars
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatDogEars
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatSquid
+        orGroup: GiftPoolHat
+      - id: ClothingHeadHatRedRacoon
+        orGroup: GiftPoolHat
+      - id: WaterDropletHat
+        orGroup: GiftPoolHat
+      - id: ClothingHeadNurseHat
+        orGroup: GiftPoolHat
+        #UniformPool
+      - id: ClothingUniformJumpsuitSkeletonHalloween
+        orGroup: GiftPoolUniform
+      - id: ClothingNeckCloakVampire
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtColorWhite
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtColorBlack
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtColorBlue
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtColorDarkBlue
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtColorTeal
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtColorGreen
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtColorDarkGreen
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtColorOrange
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtColorPink
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtColorRed
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtColorYellow
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtColorPurple
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtColorLightBrown
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtColorBrown
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtColorMaroon
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtColorOrange
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitColorWhite
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitColorBlack
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitColorBlue
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitColorDarkBlue
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitColorTeal
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitColorGreen
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitColorDarkGreen
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitColorOrange
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitColorPink
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitColorRed
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitColorYellow
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitColorPurple
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitColorLightBrown
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitColorBrown
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitColorMaroon
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitColorOrange
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformRandomBra
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformRandomShirt
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformRandomStandard
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformRandomArmless
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformRandomShorts
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtJanimaid
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtJanimaidmini
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtTacticalMaid
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitGalaxyBlue
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitGalaxyRed
+        orGroup: GiftPoolUniform
+      - id: UniformGeisha
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformMartialGi
+        orGroup: GiftPoolUniform
+      - id: UniformJabroni
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitKilt
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitSuitBrownMob
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitLostTourist
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtNurse
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformRat
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitKimono
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitDameDane
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtOfLife
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtPerformer
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtJanimaidmini
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpskirtTacticalMaid
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitGalaxyBlue
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitGalaxyRed
+        orGroup: GiftPoolUniform
+      - id: UniformGeisha
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformMartialGi
+        orGroup: GiftPoolUniform
+      - id: UniformJabroni
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitKilt
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitSuitBrownMob
+        orGroup: GiftPoolUniform
+      - id: ClothingUniformJumpsuitLostTourist
+        orGroup: GiftPoolUniform
+        #ShoesPool
+      - id: ClothingShoesBootsPerformer
+        orGroup: GiftPoolShoes
+      - id: ClothingShoesBootsCowboyFancy
+        orGroup: GiftPoolShoes
+      - id: ClothingShoesBootsCowboyBlack
+        orGroup: GiftPoolShoes
+      - id: ClothingShoesBootsCowboyBrown
+        orGroup: GiftPoolShoes
+      - id: ClothingShoesGeta
+        orGroup: GiftPoolShoes
+      - id: ClothingShoesSkates
+        orGroup: GiftPoolShoes
+      - id: ClothingShoesBootsCowboyWhite
+        orGroup: GiftPoolShoes
+      - id: ClothingShoesWizardFake
+        orGroup: GiftPoolShoes
+      - id: ClothingShoesDameDane
+        orGroup: GiftPoolShoes
+      - id: ClothingShoesCult
+        orGroup: GiftPoolShoes
+      - id: ClothingShoesFlippers
+        orGroup: GiftPoolShoes
+      - id: ClothingShoesTourist
+        orGroup: GiftPoolShoes
+      - id: ClothingShoesSlippers
+        orGroup: GiftPoolShoes
+      - id: ClothingShoeSlippersDuck
+        orGroup: GiftPoolShoes
+      #OuterPool
+      - id: ClothingOuterSuitMonkey
+        prob: 0.1
+        orGroup: GiftPoolOuter
+      - id: ClothingOuterSuitCarp
+        prob: 0.1
+        orGroup: GiftPoolOuter
+      - id: ClothingOuterSuitIan
+        prob: 0.1
+        orGroup: GiftPoolOuter
+      - id: ClothingOuterSuitShrineMaiden
+        prob: 0.1
+        orGroup: GiftPoolOuter
+      - id: PresentHalloweenSoul
+        prob: 0.5
+        orGroup: GiftPoolOuter
+      - id: PresentHalloweenNothing
+        orGroup: GiftPoolOuter
+    sound:
+      path: /Audio/Effects/unwrap.ogg

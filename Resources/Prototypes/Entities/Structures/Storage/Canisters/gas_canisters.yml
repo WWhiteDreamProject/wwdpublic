@@ -9,7 +9,7 @@
     - type: Transform
       noRot: true
     - type: Sprite
-      sprite: _White/Structures/Storage/canister.rsi #WWDP edit
+      sprite: Structures/Storage/canister.rsi
       noRot: true
       layers:
         - state: grey
@@ -36,7 +36,7 @@
             3: { state: can-o3, shader: "unshaded" }
     - type: UserInterface
       interfaces:
-        - key: enum.GasCanisterUiKey.Key
+        enum.GasCanisterUiKey.Key:
           type: GasCanisterBoundUserInterface
     - type: Destructible
       thresholds:
@@ -674,7 +674,7 @@
       damageModifierSet: Metallic
     - type: InteractionOutline
     - type: Sprite
-      sprite: _White/Structures/Storage/canister.rsi #WWDP edit
+      sprite: Structures/Storage/canister.rsi
       state: grey-1
     - type: Physics
       bodyType: Dynamic

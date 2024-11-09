@@ -5,7 +5,7 @@
   description: Mostly filled with books.
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/bookshelf.rsi #WWDP edit
+    sprite: Structures/Furniture/bookshelf.rsi
     snapCardinals: true
     layers:
       - state: base
@@ -59,8 +59,8 @@
         - Spellbook
   - type: UserInterface
     interfaces:
-    - key: enum.StorageUiKey.Key
-      type: StorageBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
   - type: InteractionOutline
   - type: ContainerContainer
     containers:

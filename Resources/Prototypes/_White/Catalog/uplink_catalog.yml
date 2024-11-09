@@ -19,11 +19,10 @@
     - UplinkUtility
 
 - type: listing
-  id: UplinkBetrayalKnife
-  name: uplink-betrayal-knife-name
-  description: uplink-betrayal-knife-desc
-  icon: { sprite: /Textures/_White/Objects/Weapons/Melee/Daggers/betrayal_knife.rsi, state: icon }
-  productEntity: BetrayalKnife
+  id: UplinkBetrayalDagger
+  name: uplink-betrayal-dagger-name
+  description: uplink-betrayal-dagger-desc
+  productEntity: BetrayalDagger
   cost:
     Telecrystal: 10
   categories:
@@ -39,7 +38,6 @@
   id: UplinkMiniEbow
   name: uplink-ebow-name
   description: uplink-ebow-desc
-  icon: { sprite:  /Textures/_White/Objects/Weapons/Guns/Battery/mini-ebow.rsi, state: icon }
   productEntity: EnergyCrossbowMini
   cost:
     Telecrystal: 10
@@ -51,3 +49,149 @@
       tags:
       - NukeOpsUplink
   saleLimit: 1
+
+- type: listing
+  id: UplinkHardlightSpearImplanter
+  name: uplink-hardlight-spear-implant-name
+  description: uplink-hardlight-spear-implant-desc
+  icon: { sprite: /Textures/_White/Objects/Weapons/Melee/Spear/hardlight_spear.rsi, state: spear }
+  productEntity: HardlightSpearImplanter
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1
+
+- type: listing
+  id: NeuroControlImplanter
+  name: uplink-neuro-control-name
+  description: uplink-neuro-control-desc
+  icon: { sprite: /Textures/Interface/Alerts/stamina.rsi, state: stamina5 }
+  productEntity: NeuroStabilizationImplanter
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkImplanterSyndi
+  name: uplink-implanter-name
+  description: uplink-implanter-desc
+  productEntity: ImplanterSyndi
+  cost:
+    Telecrystal: 1
+  categories: 
+  - UplinkImplants
+
+- type: listing
+  id: UplinkSmokeImplanter
+  name: uplink-smoke-implant-name
+  description: uplink-smoke-implant-desc
+  icon: { sprite: /Textures/Objects/Weapons/Grenades/smoke.rsi, state: icon }
+  productEntity: SmokeImplanter
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkImplants
+
+# Night Vision
+
+- type: listing
+  id: UplinkNightGoggles
+  name: uplink-night-vision-name
+  description: uplink-night-vision-desc
+  productEntity: ClothingEyesNightVisionGogglesSyndie
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkArmor
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkNightGogglesNukie
+  name: uplink-night-vision-name
+  description: uplink-night-vision-desc
+  productEntity: ClothingEyesNightVisionGogglesNukie
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkArmor
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+# Thermal Vision
+
+- type: listing
+  id: UplinkThermalGoggles
+  name: uplink-thermal-vision-name
+  description: uplink-thermal-vision-desc
+  productEntity: ClothingEyesThermalVisionGogglesSyndie
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkArmor
+
+- type: listing
+  id: UplinkThermalGogglesNukie
+  name: uplink-thermal-vision-name
+  description: uplink-thermal-vision-desc
+  productEntity: ClothingEyesThermalVisionGogglesNukie
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkArmor
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkMindSlaveImplanter
+  name: uplink-mind-slave
+  description: uplink-mind-slave-desc
+  icon: { sprite: /Textures/_White/Overlays/mindslave.rsi, state: master }
+  productEntity: MindSlaveImplanter
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkBloodDagger
+  name: uplink-blood-dagger-name
+  description: uplink-blood-dagger-desc
+  productEntity: BloodDagger
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1
+
+- type: listing
+  id: UplinkCrateNPCGondola
+  name: uplink-gondola-name
+  description: uplink-gondola-desc
+  icon: { sprite: /Textures/_White/Mobs/Animals/gondola.rsi, state: icon }
+  productEntity: CrateNPCGondola
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkUtility

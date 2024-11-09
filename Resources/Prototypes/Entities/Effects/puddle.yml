@@ -142,8 +142,11 @@
     mode: CardinalFlags
   - type: SolutionContainerManager
     solutions:
-      puddle: { maxVol: 1000 }
+      puddle:
+        maxVol: 1000
   - type: Puddle
+  - type: MixableSolution
+    solution: puddle
   - type: Appearance
   - type: ActiveEdgeSpreader
   - type: EdgeSpreader
@@ -163,3 +166,4 @@
     solution: puddle
   - type: BadDrink
   - type: IgnoresFingerprints
+  - type: PuddleFootPrints # WD EDIT

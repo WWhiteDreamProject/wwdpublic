@@ -89,3 +89,5 @@ public sealed partial class UseDnaScramblerImplantEvent : InstantActionEvent
 {
 
 }
+
+public sealed partial class ActivateSpawnImplantEvent : InstantActionEvent; // WD EDIT

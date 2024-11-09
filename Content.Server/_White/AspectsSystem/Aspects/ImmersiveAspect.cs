@@ -3,16 +3,15 @@ using Content.Server._White.AspectsSystem.Aspects.Components;
 using Content.Server._White.AspectsSystem.Base;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Components;
-using Content.Shared._White.Telescope;
 using Content.Shared.Humanoid;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Telescope;
 
 namespace Content.Server._White.AspectsSystem.Aspects;
 
 public sealed class ImmersiveAspect : AspectSystem<ImmersiveAspectComponent>
 {
-
     [Dependency] private readonly SharedContentEyeSystem _eye = default!;
     [Dependency] private readonly SharedTelescopeSystem _telescope = default!;
 
@@ -22,7 +21,9 @@ public sealed class ImmersiveAspect : AspectSystem<ImmersiveAspectComponent>
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
     }
 
-    protected override void Started(EntityUid uid, ImmersiveAspectComponent component, GameRuleComponent gameRule,
+    protected override void Started(EntityUid uid,
+        ImmersiveAspectComponent component,
+        GameRuleComponent gameRule,
         GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
@@ -76,7 +77,10 @@ public sealed class ImmersiveAspect : AspectSystem<ImmersiveAspectComponent>
     }
 
 
-    protected override void Ended(EntityUid uid, ImmersiveAspectComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
+    protected override void Ended(EntityUid uid,
+        ImmersiveAspectComponent component,
+        GameRuleComponent gameRule,
+        GameRuleEndedEvent args)
     {
         base.Ended(uid, component, gameRule, args);
 

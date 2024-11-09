@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -46,4 +47,12 @@ public sealed partial class EmbeddableProjectileComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public SoundSpecifier? Sound;
+
+    // WD EDIT START
+    [DataField]
+    public DamageSpecifier Damage = new();
+
+    [DataField]
+    public bool PreventCollide;
+    // WD EDIT END
 }

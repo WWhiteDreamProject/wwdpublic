@@ -1,0 +1,51 @@
+- type: entity
+  parent: BaseSubdermalImplant
+  id: HardlightSpearImplant
+  name: hardlight spear implant
+  description: This implant creates hardlight spear in your hands.
+  noSpawn: true
+  components:
+    - type: SubdermalImplant
+      implantAction: ActivateHardlightSpearImplant
+    - type: SpawnImplant
+      spawnId: HardlightSpear
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: NeuroStabilizationImplant
+  name: neuro stabilization implant
+  description: Blocks all of the incoming stamina damage at the cost of frying you nerve system a bit each time.
+  noSpawn: true
+  components:
+  - type: SubdermalImplant
+  - type: Tag
+    tags:
+    - NeuroStabilization
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SmokeImplant
+  name: smoke implant
+  description: This implant releases smoke cloud on activation.
+  noSpawn: true
+  components:
+    - type: SubdermalImplant
+      implantAction: ActivateSmokeImplant
+    - type: TriggerImplantAction
+    - type: SmokeOnTrigger
+      spreadAmount: 25
+      duration: 15
+    - type: SoundOnTrigger
+      sound: /Audio/Effects/smoke.ogg
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MindSlaveImplant
+  name: mindslave implant
+  description: Make someone a proper doll for your use.
+  noSpawn: true
+  components:
+  - type: SubdermalImplant
+  - type: Tag
+    tags:
+    - MindSlave

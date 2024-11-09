@@ -70,13 +70,50 @@
           Quantity: 0.5
   - type: UserInterface
     interfaces:
-    - key: enum.ShortConstructionUiKey.Key
-      type: ShortConstructionMenuBUI
+      enum.ShortConstructionUiKey.Key:
+        type: ShortConstructionMenuBUI
   - type: ActivatableUI
     key: enum.ShortConstructionUiKey.Key
   - type: ShortConstruction
-    prototypes:
-    - Grille
+    entries:
+    - prototype: Grille
+    - prototype: GrilleDiagonal
+    - category:
+        name: Railings
+        icon:
+          sprite: Structures/Walls/railing.rsi
+          state: side
+        entries:
+        - prototype: Railing
+        - prototype: RailingCorner
+        - prototype: RailingRound
+        - prototype: RailingCornerSmall
+    - category:
+        name: Glass
+        icon:
+          sprite: Objects/Materials/Sheets/glass.rsi
+          state: rglass_3
+        entries:
+        - prototype: SheetRPGlass
+        - prototype: SheetRPGlass0
+        - prototype: SheetRUGlass
+        - prototype: SheetRUGlass0
+        - prototype: SheetRGlass
+  # WD EDIT START
+  - type: Tag
+    tags:
+    - CrossbowBolt
+  - type: EmbeddableProjectile
+    minimumSpeed: 15
+    damage:
+      types:
+        Piercing: 15
+  - type: PenetratedProjectile
+    minimumSpeed: 30
+    damage:
+      types:
+        Piercing: 15
+  # WD EDIT END
 
 - type: entity
   parent: PartRodMetal
@@ -86,6 +123,7 @@
   components:
   - type: Tag
     tags:
+    - CrossbowBolt # WD EDIT
     - RodMetal1
   - type: Sprite
     state: rods
@@ -100,6 +138,7 @@
   components:
   - type: Tag
     tags:
+    - CrossbowBolt # WD EDIT
     - RodMetal1
   - type: Sprite
     state: rods

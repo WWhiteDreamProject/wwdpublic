@@ -21,6 +21,9 @@
   - type: Currency
     price:
       Telecrystal: 1
+  - type: Tag # WD EDIT
+    tags:
+    - Telecrystal
 
 - type: entity
   parent: Telecrystal
@@ -63,8 +66,8 @@
     heldPrefix: radio
   - type: UserInterface
     interfaces:
-    - key: enum.StoreUiKey.Key
-      type: StoreBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
   - type: ActivatableUI
     key: enum.StoreUiKey.Key
   - type: Store

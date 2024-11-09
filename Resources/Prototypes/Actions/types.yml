@@ -54,7 +54,7 @@
     itemIconStyle: BigAction
     priority: -20
     icon:
-      sprite: _White/Clothing/Back/Backpacks/backpack.rsi #WWDP edit
+      sprite: Clothing/Back/Backpacks/backpack.rsi
       state: icon
     event: !type:OpenStorageImplantEvent
 
@@ -91,7 +91,6 @@
       sprite: Objects/Magic/magicactions.rsi
       state: gib
     event: !type:ActivateImplantEvent
-
 
 - type: entity
   id: ActionActivateFreedomImplant
@@ -130,6 +129,7 @@
   noSpawn: true
   components:
   - type: InstantAction
+    checkCanInteract: false
     charges: 3
     useDelay: 5
     itemIconStyle: BigAction
@@ -170,6 +170,21 @@
       sprite: Clothing/OuterClothing/Hardsuits/lingspacesuit.rsi
       state: icon
     event: !type:UseDnaScramblerImplantEvent
+
+- type: entity
+  id: ActionMorphGeras
+  name: Morph into Geras
+  description:  Morphs you into a Geras - a miniature version of you which allows you to move fast, at the cost of your inventory.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    useDelay: 10 # prevent spam
+    priority: -20
+    icon:
+      sprite: Mobs/Aliens/slimes.rsi
+      state: blue_adult_slime
+    event: !type:MorphIntoGeras
 
 - type: entity
   id: ActionToggleSuitPiece

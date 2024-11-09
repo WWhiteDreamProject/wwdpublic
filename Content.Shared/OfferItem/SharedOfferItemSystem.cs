@@ -155,3 +155,12 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
         return entity != null && Resolve(entity.Value, ref component, false) && component.IsInOfferMode;
     }
 }
+
+// WD EDIT START
+[Serializable]
+public sealed class HandedEvent(EntityUid user, EntityUid target) : EntityEventArgs
+{
+    public EntityUid User = user;
+    public EntityUid Target = target;
+}
+// WD EDIT END

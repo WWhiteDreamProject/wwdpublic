@@ -92,7 +92,7 @@
   suffix: Wood
   components:
   - type: Sprite
-    sprite: _White/Structures/stairs.rsi #WWDP edit
+    sprite: Structures/stairs.rsi
     state: stairs_wood
     drawdepth: FloorTiles
 
@@ -102,6 +102,6 @@
   suffix: Wood, stage
   components:
   - type: Sprite
-    sprite: _White/Structures/stairs.rsi #WWDP edit
+    sprite: Structures/stairs.rsi
     state: stairs_stage_wood
     drawdepth: FloorTiles

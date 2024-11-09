@@ -8,15 +8,15 @@
     - type: Tag
       tags: [] # ignore "WhitelistChameleon" tag
     - type: Sprite
-      sprite: _White/Clothing/Back/Backpacks/backpack.rsi #WWDP edit
+      sprite: Clothing/Back/Backpacks/backpack.rsi
     - type: ChameleonClothing
       slot: [back]
       default: ClothingBackpack
     - type: UserInterface
       interfaces:
-        - key: enum.StorageUiKey.Key
+        enum.StorageUiKey.Key:
           type: StorageBoundUserInterface
-        - key: enum.ChameleonUiKey.Key
+        enum.ChameleonUiKey.Key:
           type: ChameleonBoundUserInterface
 
 - type: entity
@@ -51,8 +51,8 @@
     canChangeTransferAmount: true
   - type: UserInterface
     interfaces:
-    - key: enum.TransferAmountUiKey.Key
-      type: TransferAmountBoundUserInterface
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
   - type: DrawableSolution
     solution: tank
   - type: RefillableSolution

@@ -1,0 +1,1 @@
+ent-SpawnMobGondola = спавнер Гондолы

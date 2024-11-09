@@ -1,0 +1,57 @@
+- type: entity
+  id: ActivateHardlightSpearImplant
+  name: Create hardlight spear
+  description: Creates hardlight spear in your hands.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 1.5
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: _White/Objects/Weapons/Melee/Spear/hardlight_spear.rsi
+      state: spear
+    event: !type:ActivateSpawnImplantEvent
+    
+- type: entity
+  id: ActivateSmokeImplant
+  name: Release a cloud of smoke
+  description: Releases a cloud of smoke around you.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 20
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Objects/Weapons/Grenades/smoke.rsi
+      state: icon
+    event: !type:ActivateImplantEvent
+
+- type: entity
+  id: ToggleNightVision
+  name: Switch night vision
+  description: Switches night vision.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
+      state: icon
+    event: !type:ToggleNightVisionEvent
+
+- type: entity
+  id: ToggleThermalVision
+  name: Switch Thermal vision
+  description: Switches Thermal vision.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
+      state: icon
+    event: !type:ToggleThermalVisionEvent

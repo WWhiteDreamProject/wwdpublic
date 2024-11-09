@@ -12,6 +12,7 @@ using Content.Shared.Database;
 using Content.Shared.Effects;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Projectiles;
+using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
@@ -107,7 +108,7 @@ public sealed partial class GunSystem : SharedGunSystem
         // Update shot based on the recoil
         toMap = fromMap.Position + angle.ToVec() * mapDirection.Length();
         mapDirection = toMap - fromMap.Position;
-        var gunVelocity = Physics.GetMapLinearVelocity(gunUid);
+        var gunVelocity = Physics.GetMapLinearVelocity(fromEnt);
 
         // I must be high because this was getting tripped even when true.
         // DebugTools.Assert(direction != Vector2.Zero);
@@ -156,7 +157,7 @@ public sealed partial class GunSystem : SharedGunSystem
                         });
 
                         SetCartridgeSpent(ent.Value, cartridge, true);
-                        MuzzleFlash(gunUid, cartridge, user);
+                        MuzzleFlash(gunUid, cartridge, mapDirection.ToAngle(), user);
                         Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
 
                         if (cartridge.DeleteOnSpawn)
@@ -178,7 +179,7 @@ public sealed partial class GunSystem : SharedGunSystem
                 // Ammo shoots itself
                 case AmmoComponent newAmmo:
                     shotProjectiles.Add(ent!.Value);
-                    MuzzleFlash(gunUid, newAmmo, user);
+                    MuzzleFlash(gunUid, newAmmo, mapDirection.ToAngle(), user);
                     Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     ShootOrThrow(ent.Value, mapDirection, gunVelocity, gun, gunUid, user);
                     break;
@@ -210,7 +211,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
                             FireEffects(fromEffect, result.Distance, dir.Normalized().ToAngle(), hitscan, hit);
 
-                            var ev = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, dir, false);
+                            var ev = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, dir, false, hitscan.Damage); // WD EDIT
                             RaiseLocalEvent(hit, ref ev);
 
                             if (!ev.Reflected)
@@ -293,7 +294,12 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             RemoveShootable(uid);
             // TODO: Someone can probably yeet this a billion miles so need to pre-validate input somewhere up the call stack.
+            // WD EDIT START
+            if (gun.ThrowAngle.HasValue)
+                EnsureComp<ThrowingAngleComponent>(uid).Angle = gun.ThrowAngle.Value;
+            // WD EDIT END
             ThrowingSystem.TryThrow(uid, mapDirection, gun.ProjectileSpeedModified, user);
+            RemComp<ThrowingAngleComponent>(uid); // WD EDIT
             return;
         }
 
@@ -337,9 +343,9 @@ public sealed partial class GunSystem : SharedGunSystem
 
     protected override void Popup(string message, EntityUid? uid, EntityUid? user) { }
 
-    protected override void CreateEffect(EntityUid uid, MuzzleFlashEvent message, EntityUid? user = null)
+    protected override void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null)
     {
-        var filter = Filter.Pvs(uid, entityManager: EntityManager);
+        var filter = Filter.Pvs(gunUid, entityManager: EntityManager);
 
         if (TryComp<ActorComponent>(user, out var actor))
             filter.RemovePlayer(actor.PlayerSession);

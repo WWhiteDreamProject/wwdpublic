@@ -13,8 +13,6 @@
   - type: Sprite
     sprite: Structures/Holo/wetfloor.rsi
     state: icon
-  - type: TimedDespawn
-    lifetime: 90
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -25,6 +23,14 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  # WD EDIT START
+  - type: Clickable
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/egloves.ogg"
+  # WD EDIT END
 
 - type: entity
   id: HoloFan
@@ -41,8 +47,6 @@
         shape:
           !type:PhysShapeAabb
             bounds: "-0.5,-0.5,0.5,0.5"
-  - type: TimedDespawn
-    lifetime: 180
   - type: Airtight
     noAirWhenFullyAirBlocked: false
 
@@ -68,14 +72,11 @@
             - TableMask
           layer:
             - TableLayer
-    - type: TimedDespawn
-      lifetime: 180
     - type: PointLight
       enabled: true
       radius: 3
       color: red
     - type: Climbable
-    - type: Clickable
 
 - type: entity
   id: HolosignForcefield
@@ -99,13 +100,10 @@
         - FullTileMask
         layer:
         - GlassLayer
-  - type: TimedDespawn
-    lifetime: 180
   - type: PointLight
     enabled: true
     radius: 3
     color: blue
-  - type: Clickable
   - type: ContainmentField
     throwForce: 0
   - type: Destructible
