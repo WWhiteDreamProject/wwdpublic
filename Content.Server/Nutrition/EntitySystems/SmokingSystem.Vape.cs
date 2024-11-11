@@ -124,8 +124,7 @@ namespace Content.Server.Nutrition.EntitySystems
 
         private void OnVapeDoAfter(Entity<VapeComponent> entity, ref VapeDoAfterEvent args)
         {
-            if (args.Handled
-            || args.Args.Target == null)
+            if (args.Cancelled || args.Handled || args.Args.Target == null)
                 return;
 
             var environment = _atmosphereSystem.GetContainingMixture(args.Args.Target.Value, true, true);
