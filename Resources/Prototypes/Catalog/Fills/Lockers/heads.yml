@@ -270,6 +270,7 @@
       - id: EncryptionKeyBinary
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
+      - id: BoxBodyBagRadiation # WD
 
 - type: entity
   id: LockerResearchDirectorFilled
@@ -292,6 +293,7 @@
       - id: EncryptionKeyBinary
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
+      - id: BoxBodyBagRadiation # WD
 
 - type: entity
   id: LockerHeadOfSecurityFilledHardsuit
