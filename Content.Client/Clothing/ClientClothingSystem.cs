@@ -64,6 +64,7 @@ public sealed class ClientClothingSystem : ClothingSystem
         base.Initialize();
 
         SubscribeLocalEvent<ClothingComponent, GetEquipmentVisualsEvent>(OnGetVisuals);
+        SubscribeLocalEvent<ClothingComponent, InventoryTemplateUpdated>(OnInventoryTemplateUpdated);
 
         SubscribeLocalEvent<InventoryComponent, VisualsChangedEvent>(OnVisualsChanged);
         SubscribeLocalEvent<SpriteComponent, DidUnequipEvent>(OnDidUnequip);
@@ -76,17 +77,30 @@ public sealed class ClientClothingSystem : ClothingSystem
         if (args.Sprite == null)
             return;
 
-        var enumerator = _inventorySystem.GetSlotEnumerator((uid, component));
-        while (enumerator.NextItem(out var item, out var slot))
-        {
-            RenderEquipment(uid, item, slot.Name, component);
-        }
+        UpdateAllSlots(uid, component);
 
         // No clothing equipped -> make sure the layer is hidden, though this should already be handled by on-unequip.
         if (args.Sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out var layer))
         {
             DebugTools.Assert(!args.Sprite[layer].Visible);
             args.Sprite.LayerSetVisible(layer, false);
+        }
+    }
+
+    private void OnInventoryTemplateUpdated(Entity<ClothingComponent> ent, ref InventoryTemplateUpdated args)
+    {
+        UpdateAllSlots(ent.Owner, clothing: ent.Comp);
+    }
+
+    private void UpdateAllSlots(
+        EntityUid uid,
+        InventoryComponent? inventoryComponent = null,
+        ClothingComponent? clothing = null)
+    {
+        var enumerator = _inventorySystem.GetSlotEnumerator((uid, inventoryComponent));
+        while (enumerator.NextItem(out var item, out var slot))
+        {
+            RenderEquipment(uid, item, slot.Name, inventoryComponent, clothingComponent: clothing);
         }
     }
 
@@ -299,23 +313,6 @@ public sealed class ClientClothingSystem : ClothingSystem
             return;
         }
 
-        if (TryComp<HideLayerClothingComponent>(equipment, out var hideLayer) &&
-            hideLayer.ClothingSlots != null)
-        {
-            foreach (var clothingSlot in hideLayer.ClothingSlots)
-            {
-                if (!inventorySlots.VisualLayerKeys.TryGetValue(clothingSlot, out var revealedLayersToHide))
-                    continue;
-
-                foreach (var layerToHide in revealedLayersToHide)
-                    sprite.LayerSetVisible(layerToHide, false);
-            }
-            inventorySlots.HiddenSlots.UnionWith(hideLayer.ClothingSlots);
-        }
-
-        if (clothingComponent.RenderLayer != null)
-            slot = clothingComponent.RenderLayer;
-
         // temporary, until layer draw depths get added. Basically: a layer with the key "slot" is being used as a
         // bookmark to determine where in the list of layers we should insert the clothing layers.
         bool slotLayerExists = sprite.LayerMapTryGet(slot, out var index);
@@ -383,6 +380,8 @@ public sealed class ClientClothingSystem : ClothingSystem
 
                 if (layerData.Color != null)
                     sprite.LayerSetColor(key, layerData.Color.Value);
+                if (layerData.Scale != null)
+                    sprite.LayerSetScale(key, layerData.Scale.Value);
             }
             else
                 index = sprite.LayerMapReserveBlank(key);
