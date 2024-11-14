@@ -7957,3 +7957,12 @@ Entries:
   id: 6489
   time: '2024-11-14T04:51:11.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/122
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: Добавлен КапитанШкаф, содержащий в себе все вещи капитана.
+    - type: Add
+      message: 'Добавлены новые стили одежды капитана: белый, шериф, командный.'
+  id: 6490
+  time: '2024-11-14T04:55:10.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/123
