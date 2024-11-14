@@ -32,7 +32,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterArmorCaptainCarapace
+#      - id: ClothingOuterArmorCaptainCarapace # WD Remove - Because CaptainDrobe
       - id: NukeDisk
       - id: PinpointerNuclear
 #     - id: CaptainIDCard # DeltaV - Replaced by the spare ID system
@@ -47,10 +47,10 @@
         prob: 0.25
       - id: ClothingBeltSheathFilled
       - id: DoorRemoteCommand
-      - id: RubberStampCaptain
+#      - id: RubberStampCaptain # WD Remove - Because CaptainDrobe
 #     - id: WeaponAntiqueLaser # DeltaV - Remove in favor of the glass box
       - id: JetpackCaptainFilled
-      - id: MedalCase
+#      - id: MedalCase # WD Remove - Because CaptainDrobe
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
 
@@ -61,7 +61,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterArmorCaptainCarapace
+#      - id: ClothingOuterArmorCaptainCarapace # WD Remove - Because CaptainDrobe
       - id: NukeDisk
       - id: PinpointerNuclear
 #     - id: CaptainIDCard # DeltaV - Replaced by the spare ID system
@@ -75,11 +75,11 @@
         prob: 0.25
       - id: ClothingBeltSheathFilled
       - id: DoorRemoteCommand
-      - id: RubberStampCaptain
+#      - id: RubberStampCaptain # WD Remove - Because CaptainDrobe
       - id: WeaponAntiqueLaser
       - id: JetpackCaptainFilled
-      - id: MedalCase
-      - id: ClothingHeadHatBeretCap # Nyanotrasen - Captain's Beret
+#      - id: MedalCase # WD Remove - Because CaptainDrobe
+#      - id: ClothingHeadHatBeretCap # Nyanotrasen - Captain's Beret |  WD Remove - Because CaptainDrobe
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
 
@@ -90,7 +90,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterArmorCaptainCarapace
+#      - id: ClothingOuterArmorCaptainCarapace # WD Remove - Because CaptainDrobe
       - id: NukeDisk
       - id: PinpointerNuclear
 #      - id: CaptainIDCard # Delta V - Replaced by spare ID system. The funny biscuit that I cant even eat.
@@ -104,10 +104,10 @@
         prob: 0.25
       - id: ClothingBeltSheathFilled
       - id: DoorRemoteCommand
-      - id: RubberStampCaptain
+#      - id: RubberStampCaptain # WD Remove - Because CaptainDrobe
       - id: JetpackCaptainFilled
-      - id: MedalCase
-      - id: ClothingHeadHatBeretCap # Nyanotrasen - Captain's Beret
+#      - id: MedalCase # WD Remove - Because CaptainDrobe
+#      - id: ClothingHeadHatBeretCap # Nyanotrasen - Captain's Beret |  WD Remove - Because CaptainDrobe
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
 
