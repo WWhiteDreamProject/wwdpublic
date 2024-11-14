@@ -7966,3 +7966,10 @@ Entries:
   id: 6490
   time: '2024-11-14T04:55:10.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/123
+- author: vanx
+  changes:
+    - type: Add
+      message: Возвращена возможность казни
+  id: 6491
+  time: '2024-11-14T09:41:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/126
