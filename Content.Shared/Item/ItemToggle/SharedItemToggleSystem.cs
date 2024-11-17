@@ -169,11 +169,11 @@ public abstract class SharedItemToggleSystem : EntitySystem
     /// </summary>
     private void Deactivate(EntityUid uid, ItemToggleComponent itemToggle, bool predicted, EntityUid? user = null)
     {
-        if (_netManager.IsClient) // WD EDIT
-            return;
-
         var soundToPlay = itemToggle.SoundDeactivate;
-        _audio.PlayPvs(soundToPlay, uid);
+        if (predicted)
+            _audio.PlayPredicted(soundToPlay, uid, user);
+        else
+            _audio.PlayPvs(soundToPlay, uid);
         // END FIX HARDCODING
 
         var toggleUsed = new ItemToggledEvent(predicted, Activated: false, user);
@@ -240,14 +240,27 @@ public abstract class SharedItemToggleSystem : EntitySystem
     /// </summary>
     private void UpdateActiveSound(EntityUid uid, ItemToggleActiveSoundComponent activeSound, ref ItemToggledEvent args)
     {
-        if (_netManager.IsClient) // WD EDIT
-            return;
-
         if (args.Activated)
         {
             if (activeSound.ActiveSound != null && activeSound.PlayingStream == null)
             {
-                activeSound.PlayingStream = _audio.PlayPvs(activeSound.ActiveSound, uid, AudioParams.Default.WithLoop(true)).Value.Entity;
+                if (args.Predicted)
+                {
+                    var playingStream = _audio.PlayPredicted(activeSound.ActiveSound, uid, args.User, AudioParams.Default.WithLoop(true));
+
+                    if (playingStream == null)
+                        return;
+
+                    activeSound.PlayingStream = playingStream!.Value.Entity;
+                } else
+                {
+                    var playingStream = _audio.PlayPvs(activeSound.ActiveSound, uid, AudioParams.Default.WithLoop(true));
+
+                    if (playingStream == null)
+                        return;
+
+                    activeSound.PlayingStream = playingStream!.Value.Entity;
+                }
             }
         }
         else
