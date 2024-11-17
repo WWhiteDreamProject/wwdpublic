@@ -57,7 +57,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi
   - type: GiftIgnore # WD EDIT
-
+    
 - type: entity
   id: BulletDebug
   name: bang, ded bullet
@@ -119,7 +119,6 @@
     damage:
       types:
         Blunt: 100
-  - type: GiftIgnore # WD EDIT
 
 - type: entity
   name: bang stick 200dmg
@@ -133,4 +132,52 @@
     damage:
       types:
         Blunt: 200
+
+- type: entity
+  name: bang severer
+  parent: BaseItem
+  id: MeleeDebugSever
+  description: sever yer parts a week from now
+  suffix: DEBUG
+  components:
+  - type: Tag
+    tags:
+    - Debug
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/debug.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 20000
+    clickPartDamageMultiplier: 10
+  - type: Item
+    size: Tiny
+    sprite: Objects/Weapons/Melee/debug.rsi
   - type: GiftIgnore # WD EDIT
+    
+- type: entity
+  name: bang severer 100dmg
+  parent: MeleeDebugSever
+  id: MeleeDebugSever100
+  components:
+  - type: Tag
+    tags:
+    - Debug
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 100
+
+- type: entity
+  name: bang severer 200dmg
+  parent: MeleeDebugSever
+  id: MeleeDebugSever200
+  components:
+  - type: Tag
+    tags:
+    - Debug
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 200
