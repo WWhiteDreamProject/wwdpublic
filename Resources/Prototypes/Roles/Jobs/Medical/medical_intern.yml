@@ -30,8 +30,7 @@
     shoes: ClothingShoesColorWhite
     id: MedicalInternPDA
     ears: ClothingHeadsetMedical
-    belt: ClothingBeltMedicalFilled
-    pocket1: BookMedicalReferenceBook
+    pocket2: BookMedicalReferenceBook
   # innerClothingSkirt: ClothingUniformJumpskirtColorWhite # DeltaV
   satchel: ClothingBackpackSatchelMedicalFilled
   duffelbag: ClothingBackpackDuffelMedicalFilled
