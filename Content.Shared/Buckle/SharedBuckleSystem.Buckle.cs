@@ -399,6 +399,11 @@ public abstract partial class SharedBuckleSystem
             buckleComp.BuckledTo is not { } strapUid)
             return false;
 
+    // WWDP START
+        if (CompOrNull<StrapComponent>(strapUid) != null && Comp<StrapComponent>(strapUid).Delay > buckleComp.Delay)
+            buckleComp.Delay = Comp<StrapComponent>(strapUid).Delay;
+    // WWDP END
+
         if (!force)
         {
             var attemptEvent = new BuckleAttemptEvent(strapUid, buckleUid, userUid, false);
@@ -407,8 +412,13 @@ public abstract partial class SharedBuckleSystem
             if (attemptEvent.Cancelled)
                 return false;
 
+    // WWDP-EDIT START
             if (_gameTiming.CurTime < buckleComp.BuckleTime + buckleComp.Delay)
+            {
+                _popup.PopupEntity(Loc.GetString("unbuckling-wait-message", ("delay", Math.Round((buckleComp.Delay - _gameTiming.CurTime + buckleComp.BuckleTime).TotalSeconds))), buckleUid, buckleUid);
                 return false;
+            }
+    // WWDP-EDIT END
 
             if (!_interaction.InRangeUnobstructed(userUid, strapUid, buckleComp.Range, popup: true))
                 return false;

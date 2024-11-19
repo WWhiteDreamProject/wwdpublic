@@ -17,5 +17,6 @@ public enum AlertCategory
     Hunger,
     Thirst,
     Toxins,
-    Battery
+    Battery,
+    Counter // WWDP
 }

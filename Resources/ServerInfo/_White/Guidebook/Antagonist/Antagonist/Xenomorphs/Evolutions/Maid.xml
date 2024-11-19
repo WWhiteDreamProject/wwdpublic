@@ -1,0 +1,27 @@
+<Document>
+  # Горничная ксеноморфов
+
+  <Box>
+    <GuideEntityEmbed Entity="MobAlienMaid" Caption=""/>
+  </Box>
+  Ксено-горничная, не смотря на свой грозный вид, является пацифистом, отказываясь от каких либо попыток причинить боль. Происхождение неизвестно, однако ходят слухи, что это неудачные гибриды.
+
+  ## Особенности
+  
+  - Получает [color=#ff1f1f]на 15% меньше тупого урона, на 20% меньше режущего урона, на 20% больше колотого урона[/color], [color=#ffa500]на 80% больше урона от огня[/color] и [color=#46A446]на 100% меньше урона от яда[/color].
+  - Наносит [color=#ff1f1f]10 режущего урона[/color] и [color=#ffa500]5 структурного урона[/color] своими когтями.
+  - Имеет 200 ХП.
+  - Может вскрывать шлюзы своими лапами.
+  - Не может эволюционировать.
+  - Обладает термальным зрением.
+  - Содержит до [color=#9400D3]500[/color] плазмы.
+
+  Способности:
+  <Box>
+    <GuideEntityEmbed Entity="XenomorphXRayIcon" Caption=""/>
+    <GuideEntityEmbed Entity="VomitIcon" Caption=""/>
+    <GuideEntityEmbed Entity="XenomorphPlasmaTransferIcon" Caption=""/>
+    <GuideEntityEmbed Entity="ActionResinNode" Caption=""/>
+  </Box>
+
+</Document>

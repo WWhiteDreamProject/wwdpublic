@@ -2,6 +2,9 @@
   id: EnergySword
 
 - type: Tag
+  id: AlienItem
+
+- type: Tag
   id: CrossbowBolt
 
 - type: Tag
