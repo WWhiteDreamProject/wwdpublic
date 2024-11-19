@@ -4051,7 +4051,7 @@ Entries:
     - type: Add
       message: >-
         Glass/Crystal shards and floor tiles now deal damage and embed in
-        victims when colliding with them. 
+        victims when colliding with them.
   id: 6107
   time: '2024-05-11T01:23:00.0000000+00:00'
 - author: FoxxoTrystan
@@ -4262,7 +4262,7 @@ Entries:
     - type: Fix
       message: >-
         Spent bullet casings now fly away from a shooter in a cinematic manner,
-        rather than fall at their feet. 
+        rather than fall at their feet.
   id: 6133
   time: '2024-07-01T22:37:29.0000000+00:00'
 - author: WarMechanic
@@ -4458,7 +4458,7 @@ Entries:
     - type: Add
       message: >-
         Cablecuffs and Zipties are now easier to escape out of if you're
-        smaller. 
+        smaller.
   id: 6158
   time: '2024-07-13T08:05:52.0000000+00:00'
 - author: FoxxoTrystan
@@ -4526,7 +4526,7 @@ Entries:
     - type: Fix
       message: >-
         Harpies can no longer buy Loadout items that are impossible for them to
-        wear due to having digitigrade legs. 
+        wear due to having digitigrade legs.
   id: 6168
   time: '2024-07-18T02:34:52.0000000+00:00'
 - author: Mnemotechnician
@@ -4585,7 +4585,7 @@ Entries:
     - type: Add
       message: >-
         Camera Shake is now affected by character mass. Small characters
-        experience more camera shake. Large characters experience less. 
+        experience more camera shake. Large characters experience less.
   id: 6176
   time: '2024-07-21T06:50:25.0000000+00:00'
 - author: VMSolidus
@@ -4593,7 +4593,7 @@ Entries:
     - type: Add
       message: >-
         The Head Of Personnel can now hire people onto basic roles for each
-        department by vending PDAs. 
+        department by vending PDAs.
   id: 6177
   time: '2024-07-22T19:12:01.0000000+00:00'
 - author: VMSolidus
@@ -4700,7 +4700,7 @@ Entries:
     - type: Fix
       message: >-
         Fixed Tools, Drink Containers, Lockers, and all base items having
-        inconsistent sound settings. 
+        inconsistent sound settings.
   id: 6191
   time: '2024-07-31T22:47:01.0000000+00:00'
 - author: VMSolidus
@@ -4808,7 +4808,7 @@ Entries:
     - type: Add
       message: >-
         Added a 1-point combat knife to Loadouts for Felinid/Harpy security
-        jobs. 
+        jobs.
     - type: Tweak
       message: Made the security belt and security webbing able to hold combat knives.
     - type: Tweak
@@ -4858,7 +4858,7 @@ Entries:
         Due to budget cuts, Nanotrasen has ceased stocking Clothesmate vendors
         with more clothing than the average cargo tech can afford. Civilians are
         advised to bring their own clothes to the station if they wish to wear
-        anything other than grey. 
+        anything other than grey.
   id: 6208
   time: '2024-08-04T00:23:53.0000000+00:00'
 - author: VMSolidus
@@ -4866,7 +4866,7 @@ Entries:
     - type: Add
       message: >-
         SweatMAX, "hot foods", Mars Mart, and Nippon-tan vendors have all been
-        added to vendor spawners. 
+        added to vendor spawners.
   id: 6209
   time: '2024-08-04T06:26:34.0000000+00:00'
 - author: Skubman
@@ -4925,7 +4925,7 @@ Entries:
         The Carrying system has been reworked as a means of better supporting
         having extremely large species and characters. 10kg Harpies should no
         longer be oppressed by 2000kg Lamia with infinitely short carry
-        attempts. 
+        attempts.
   id: 6216
   time: '2024-08-05T17:11:37.0000000+00:00'
 - author: Rane
@@ -4953,11 +4953,11 @@ Entries:
     - type: Add
       message: >-
         CPR has been added to the game. People with CPR training can now perform
-        CPR on anyone who is in either crit or dead states. 
+        CPR on anyone who is in either crit or dead states.
     - type: Add
       message: >-
         CPR Training has been added to the game as a new positive trait. All
-        medical staff start with this trait for free. 
+        medical staff start with this trait for free.
   id: 6220
   time: '2024-08-06T05:28:54.0000000+00:00'
 - author: Skubman
@@ -5144,7 +5144,7 @@ Entries:
     - type: Fix
       message: >-
         Sluggish and Snail-Paced will now properly apply their movement
-        penalties upon joining. 
+        penalties upon joining.
   id: 6244
   time: '2024-08-09T17:28:01.0000000+00:00'
 - author: ODJ
@@ -5160,7 +5160,7 @@ Entries:
     - type: Tweak
       message: >-
         Renamed "Psionic Mantis" to "Mantis", as it was originally going to be
-        called. 
+        called.
   id: 6246
   time: '2024-08-10T12:03:12.0000000+00:00'
 - author: Skubman
@@ -5448,7 +5448,7 @@ Entries:
     - type: Tweak
       message: >-
         Chaplain, Mantis, & Mystagogue all receive the Latent Psychic trait for
-        free, automatically. 
+        free, automatically.
   id: 6273
   time: '2024-08-20T18:42:44.0000000+00:00'
 - author: VMSolidus
@@ -5466,7 +5466,7 @@ Entries:
         Actions no longer need to hardcode in target blacklists, and can now
         blacklist entities in YML. This is notably useful for Psionic powers,
         which all share a common feature that they can't target people with
-        Psionic Insulation (Or have been Mindbroken). 
+        Psionic Insulation (Or have been Mindbroken).
   id: 6275
   time: '2024-08-21T09:08:40.0000000+00:00'
 - author: VMSolidus
@@ -5535,7 +5535,7 @@ Entries:
       message: >-
         Gaining a new Psionic Power can now display messages to alert the
         player, both as a short popup, and optionally a lengthier message sent
-        to the user's Chat window. 
+        to the user's Chat window.
   id: 6284
   time: '2024-08-22T17:12:26.0000000+00:00'
 - author: DEATHB4DEFEAT
@@ -5652,7 +5652,7 @@ Entries:
       message: >-
         Natural Telepath has returned from Psionic-Refactor V1, now using new
         functionality from the trait system that allows traits to buy psionic
-        powers directly. 
+        powers directly.
     - type: Add
       message: >-
         Latent Psychics who have neither bought Natural Telepath, nor acquired
@@ -5730,7 +5730,7 @@ Entries:
       message: >-
         InnatePsionicPowers now operates on MapInitEvent instead of
         ComponentStartup, meaning that it can now be safely used on entities
-        that are mapped in instead of spawned. 
+        that are mapped in instead of spawned.
     - type: Add
       message: >-
         Oracle and Sophia are now recognized as Divine, and as such are
@@ -5783,7 +5783,7 @@ Entries:
         Psionic(But cannot gain powers randomly). This is due to their status as
         "Magical And/Or Extraplanar Creatures", which makes them valid targets
         for anti-psychic abilities such as the Psionic Mantis' Anti-Psychic
-        Knife. 
+        Knife.
     - type: Add
       message: Some Reagent Slimes can now contain Lotophagoi Oil.
   id: 6310
@@ -5800,7 +5800,7 @@ Entries:
       message: >-
         "Clone Soup" scales directly with the mass of the entity you're
         attempting to clone. Fail to clone a Lamia, and you'll be greeted with
-        an Olympic swimming pool worth of blood when the machine opens. 
+        an Olympic swimming pool worth of blood when the machine opens.
     - type: Add
       message: >-
         Cloning will fail if at any point during the procedure, the machine is
@@ -5809,7 +5809,7 @@ Entries:
       message: >-
         Clones come out of the machine with severe Cellular damage. Consider
         using Doxarubixadone in a Cryo tube as an affordable means of
-        "Finishing" clones. 
+        "Finishing" clones.
     - type: Tweak
       message: >-
         Cloning Time is now increased proportionally if an entity being cloned
@@ -5867,7 +5867,7 @@ Entries:
     - type: Add
       message: >-
         Several new tips have been added to the game, many of which reference
-        new content available on Einstein-Engines. 
+        new content available on Einstein-Engines.
   id: 6315
   time: '2024-09-05T00:00:21.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/844
@@ -5885,7 +5885,7 @@ Entries:
         Due to NUMEROUS complaints, NanoTrasen has swapped the sticker labels on
         all colored jumpskirts to correctly state that they are infact,
         "Skirts", so now they can legally be worn by Harpies, Lamia, and
-        Arachne. 
+        Arachne.
   id: 6317
   time: '2024-09-05T00:19:49.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/848
@@ -5949,7 +5949,7 @@ Entries:
       message: >-
         All non-job specific uniforms have had their points reduced drastically,
         almost all of them down to 0 points, with only a tiny handful at 2
-        points, and the rest as 1. 
+        points, and the rest as 1.
   id: 6321
   time: '2024-09-07T00:53:13.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/872
@@ -6126,7 +6126,7 @@ Entries:
     - type: Add
       message: >-
         The Antag Refactor has been once again added back in. More antags will
-        be coming soon. 
+        be coming soon.
   id: 6340
   time: '2024-09-09T14:21:56.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/794
@@ -6234,7 +6234,7 @@ Entries:
     - type: Add
       message: >-
         added rcds to the list of possible re and ported over the re update from
-        delta 
+        delta
     - type: Tweak
       message: >-
         tweaked the costs of boards re-machine boards to be more consistent with
@@ -6425,7 +6425,7 @@ Entries:
     - type: Fix
       message: >-
         Cloning Consoles will now correctly state when a body has the
-        Uncloneable trait. 
+        Uncloneable trait.
   id: 6368
   time: '2024-09-18T04:30:39.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/926
@@ -6544,7 +6544,7 @@ Entries:
     - type: Add
       message: >-
         All "Long-arms", Rifles, Light Machine Guns, Shotguns, now require
-        wielding to use. 
+        wielding to use.
   id: 6378
   time: '2024-09-20T20:35:43.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/913
@@ -6562,7 +6562,7 @@ Entries:
     - type: Add
       message: >-
         Tau-Ceti Basic, Tradeband, Freespeak, Elyran Standard, Sol Common, and
-        Sign Language have been added to the Languages tab. 
+        Sign Language have been added to the Languages tab.
   id: 6380
   time: '2024-09-20T21:46:47.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/936
@@ -6572,7 +6572,7 @@ Entries:
       message: >-
         Removed the "Become Psionic" traitor objective. It was literally
         impossible to fail if you took the Latent Psychic trait, and literally
-        impossible to greentext if you didn't. 
+        impossible to greentext if you didn't.
   id: 6381
   time: '2024-09-20T21:47:16.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/940
@@ -6643,7 +6643,7 @@ Entries:
       message: >-
         The Do-After bar for Breath of Life and Healing Word is now hidden if
         glimmer is low enough. The threshold for which scales with your
-        Dampening stat. More Dampening = stealthier casting. 
+        Dampening stat. More Dampening = stealthier casting.
   id: 6386
   time: '2024-09-24T00:56:34.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/949
@@ -6683,7 +6683,7 @@ Entries:
     - type: Remove
       message: >-
         The button for "Suit/Skirt Preference" has also been removed. Suit
-        selection is done via Loadouts. 
+        selection is done via Loadouts.
   id: 6390
   time: '2024-09-28T00:46:19.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/957
@@ -6789,7 +6789,7 @@ Entries:
       message: >-
         Nerfed the fuck out of Reagent Slimes. They have 1/3rd as much HP, spawn
         half as many during reagent slime vents, deal significantly less damage,
-        and inject a lot less chems when biting people. 
+        and inject a lot less chems when biting people.
   id: 6401
   time: '2024-09-29T17:42:43.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/977
@@ -6836,7 +6836,7 @@ Entries:
       message: >-
         Oni now have a built-in negative trait that acts as a more severe
         version of Low Psi-Potential. Oni now have significant penalties to
-        generating new Psionic Powers. 
+        generating new Psionic Powers.
   id: 6406
   time: '2024-09-30T18:28:31.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/983
@@ -6987,7 +6987,7 @@ Entries:
       message: >-
         Nerfed Lotophagoi Moodlets so that both the positive and negative
         moodlets only last for 10 minutes. The total mood modification has been
-        left untouched. 
+        left untouched.
   id: 6423
   time: '2024-10-07T15:29:05.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1013
@@ -7005,7 +7005,7 @@ Entries:
     - type: Add
       message: >-
         The Salvage Shittle has been replaced with the Pathfinder Expedition
-        Vessel from Frontier. 
+        Vessel from Frontier.
   id: 6425
   time: '2024-10-09T01:17:11.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1027
@@ -7208,7 +7208,7 @@ Entries:
       message: >-
         Added 8 new Physical Traits. These are, Cyber-Eyes Basic System(Plus 4
         different modular options), Bionic Arm, Dermal Armor, and Platelet
-        Factories. 
+        Factories.
   id: 6445
   time: '2024-10-13T19:25:05.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1035
@@ -7220,7 +7220,7 @@ Entries:
         station staff. New loadout items for corporate contractors are now
         available for Bartender, Botanist, Cataloguer, Chef, and Janitor.
         Currently there are no jumpskirt versions of these uniforms. We are
-        looking for people willing to make skirt variations of each of these. 
+        looking for people willing to make skirt variations of each of these.
   id: 6446
   time: '2024-10-13T19:26:23.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1041
@@ -7286,7 +7286,7 @@ Entries:
     - type: Tweak
       message: >-
         Psionic Rolls should now generate larger, random amounts of Potentia.
-        This should make it a lot easier to obtain powers. 
+        This should make it a lot easier to obtain powers.
   id: 6453
   time: '2024-10-15T23:13:13.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1047
@@ -7384,7 +7384,7 @@ Entries:
       message: >-
         The Syndicate has significantly expanded their Listening Outpost
         operations, featuring larger, better defended outposts. These new
-        outposts also serve as supply depots for Syndicate agents in the field. 
+        outposts also serve as supply depots for Syndicate agents in the field.
   id: 6465
   time: '2024-10-19T08:45:44.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1065
@@ -7591,7 +7591,7 @@ Entries:
       message: >-
         The Syndicate Listening Post now has a custom communications console,
         which no longer can recall Nanotrasen shuttles, and doesn't sign its
-        messages as Nuclear Operatives. 
+        messages as Nuclear Operatives.
   id: 6490
   time: '2024-10-27T15:31:16.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1143
@@ -7646,12 +7646,12 @@ Entries:
         New psi-power "Summon Imp", as the first new Psi Familiar. Imps are
         small motes of living flame that follow and protect their summoner. Imps
         also emit an incredibly bright light, and can natively cast Pyrokinetic
-        Flare. 
+        Flare.
     - type: Add
       message: >-
         Remilia has been updated to be a Psi Familiar, and no longer requires
         the Bible to summon. Chaplains now start with a Power that lets them
-        summon Remilia once every 2 minutes. 
+        summon Remilia once every 2 minutes.
   id: 6495
   time: '2024-10-27T16:51:18.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1146
@@ -7690,7 +7690,7 @@ Entries:
     - type: Tweak
       message: >-
         Literally doubled the power output of solar panels, to make them
-        actually worthwhile to setup. 
+        actually worthwhile to setup.
   id: 6498
   time: '2024-11-02T00:40:50.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1170
@@ -7744,7 +7744,7 @@ Entries:
     - type: Add
       message: >-
         lockers for Syndicate Agent (for mapping), Janitor and Bartender have
-        been added. 
+        been added.
     - type: Add
       message: a new wall variant has been added for the radiation closet
     - type: Add
@@ -7781,7 +7781,7 @@ Entries:
       message: >-
         Communications Consoles that are marked as "Can't Recall The Shuttle"
         now can't recall the shuttle. Previously they were still able to recall
-        it. 
+        it.
   id: 6506
   time: '2024-11-05T04:12:36.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1180
@@ -7829,7 +7829,7 @@ Entries:
     - type: Remove
       message: >-
         Shadowkin have been temporarily disabled pending significant reworks and
-        balance updates. 
+        balance updates.
   id: 6512
   time: '2024-11-08T19:33:53.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1187
@@ -7849,7 +7849,7 @@ Entries:
   - type: Fix
     message: >-
       Fixed AddTrait and ReplaceTrait functions giving players an unmodified,
-      completely default component. 
+      completely default component.
   id: 6514
   time: '2024-11-10T15:22:47.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1195
@@ -7991,7 +7991,7 @@ Entries:
     - type: Add
       message: >-
         The stamina cost of an object's power attack can now be revealed by
-        examining its damage values. 
+        examining its damage values.
     - type: Tweak
       message: >-
         Power attacks can't be done if your stamina is too low, so you can't
@@ -8029,3 +8029,302 @@ Entries:
   id: 6531
   time: '2024-11-18T22:08:35.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1230
+- author Remuchi
+  changes
+  - type Add
+  message Upstream
+  id 6460
+  time '2024-10-19T120952.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull93
+- author Gersoon
+  changes
+  - type Add
+  message translation of tilesперевод тайлов
+  - type Tweak
+  message sign textures changedизменены текстуры знаков
+  id 6461
+  time '2024-10-21T065621.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull90
+- author Spatison
+  changes
+  - type Remove
+  message Thieves' pacifism has been removed  Убран воровской пацифизм
+  id 6462
+  time '2024-10-22T163554.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull95
+- author Spatison
+  changes
+  - type Remove
+  message Delete Prido-O-Mat  Удален прайдомат
+  id 6463
+  time '2024-10-23T033500.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull84
+- author Spatison
+  changes
+  - type Add
+  message Added hardlight spear implanter Добавлен имплант светового копья
+  id 6464
+  time '2024-10-23T102053.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull77
+- author Spatison
+  changes
+  - type Tweak
+  message The energy shield can now be discharged   Энерго щит теперь имеет заряд
+  id 6465
+  time '2024-10-23T102345.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull94
+- author Remuchi
+  changes
+  - type Add
+  message -
+  Переводы всех черт персонажа, черт внешности и меню персонажа. Так же
+  переведен весь контент Нянотрайзен.
+  id 6466
+  time '2024-10-23T141151.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull97
+- author Gersoon458
+  changes
+  - type Tweak
+  message DryDock updateОбновление ДрайДока
+  id 6467
+  time '2024-10-24T135033.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull98
+- author Spatison
+  changes
+  - type Add
+  message Added night vision goggle Добавлен прибор ночного видения
+  - type Add
+  message Added thermal vision goggle Добавлен прибор термального видения
+  id 6468
+  time '2024-10-26T093610.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull89
+- author Spatison
+  changes
+  - type Add
+  message Added crossbow  Добавлен арбалет
+  id 6469
+  time '2024-10-26T094108.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull76
+- author Spatison
+  changes
+  - type Add
+  message Added Gondola  Добавлена Гондола
+  id 6470
+  time '2024-10-26T111509.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull96
+- author PuroSlavKing
+  changes
+  - type Add
+  message Added Operative UI style  Добавлен стиль интерфейса Оперативник
+  id 6471
+  time '2024-10-27T025158.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull102
+- author Spatison
+  changes
+  - type Fix
+  message -
+  correction of a collision at a glass shard Исправление колизии у
+  осколка стекла
+  id 6472
+  time '2024-10-27T132802.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull104
+- author Gersoon
+  changes
+  - type Add
+  message New map added - MooseНовая карта добавлена - Мус
+  - type Tweak
+  message Prisoners added to DryDockНа ДрайДок добавлены заключенные
+  id 6473
+  time '2024-10-27T134926.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull100
+- author Gersoon
+  changes
+  - type Add
+  message -
+  5 types of Halloween gifts, namely basic, sweet, sweet themed, clothes,
+  themed clothes!5 видов хеллоуинских подарков, а именно основной,
+  сладкий, сладкий тематический, одежда, одежда тематичская!
+  - type Add
+  message New autumn grass and trees tiles!Новые осенние тайлы травы и деревья!
+  - type Add
+  message -
+  You can 100% find Halloween gifts in tech's closets!В шкафах техов 100%
+  можно встретить хеллоунские подарки!
+  - type Add
+  message -
+  New Halloween theme! (Settings - HUD Theme -
+  ui-options-hud-theme-halloween (If I didn’t manage to take away the
+  ability to change themes during the week or didn’t add
+  translations))Новая хеллоуинская тема худа! (Настройки - Тема HUD -
+  ui-options-hud-theme-halloween (Если я не успел забрать возможность
+  менять темы на протяжении недели или не добавил переводы))
+  - type Add
+  message -
+  Each roundstart role has a candy bucket! (Kutos)У каждой роли
+  раундстартом есть ведерко для конфет! (Kutos)
+  - type Add
+  message New costumes! (Purka)Новые костюмы! (Purka)
+  - type Add
+  message -
+  New sweets! (Purka, Kilath, Canceredpussy (Cyber ​​cutlet))Новые
+  сладости! (Purka, Kilath, Canceredpussy (Кибер котлетка))
+  - type Tweak
+  message The cards are now SPOOOOOOOKY!Карты теперь ЖУУУУТКИЕ!
+  id 6474
+  time '2024-10-31T024408.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull113
+- author Spatison
+  changes
+  - type Tweak
+  message With FTL, a person now falls  При ФТЛ перемещении человек теперь падает
+  - type Tweak
+  message -
+  Magnetic boots now do not let you fall  Магнитные сапоги теперь не дают
+  упасть
+  id 6475
+  time '2024-10-31T025222.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull111
+- author Spatison
+  changes
+  - type Add
+  message Added footsteps  Добавлены следы
+  id 6476
+  time '2024-10-31T030314.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull110
+- author Spatison
+  changes
+  - type Fix
+  message -
+  ПНВ и ПТВ теперь могут быть исследованы   NVG and TVG can now be
+  researched
+  id 6477
+  time '2024-10-31T030331.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull109
+- author Spatison
+  changes
+  - type Fix
+  message -
+  Fixing the animation of the clown's shoes  Исправление анимации ботинок
+  клоуна
+  id 6478
+  time '2024-10-31T032232.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull107
+- author Spatison
+  changes
+  - type Fix
+  message Сorrection of a Butlutron collision  Исправлена коллизия Бутлетрона
+  id 6479
+  time '2024-10-31T032253.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull105
+- author Spatison
+  changes
+  - type Fix
+  message Fixed bugs with sprites  Исправлены баги с спрайтами
+  id 6480
+  time '2024-10-31T032325.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull103
+- author PuroSlavKing
+  changes
+  - type Tweak
+  message Измененён звук пожарной тревоги.
+  id 6481
+  time '2024-10-31T032435.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull106
+- author Spatison
+  changes
+  - type Remove
+  message Deleted fire alarm sound  Удален звук пожарной тревоги
+  id 6482
+  time '2024-11-01T114736.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull115
+- author Gersoon458
+  changes
+  - type Remove
+  message -
+  Fun removed ( Specifically the basket and the gift from the hands
+  (Удалено веселье ( А конкретно корзинка и подарок из рук (
+  id 6483
+  time '2024-11-06T025223.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull119
+- author Spatison
+  changes
+  - type Tweak
+  message -
+  Changed the chances of modes falling out  Изменены шансы выпадения
+  режимов
+  id 6484
+  time '2024-11-06T031055.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull118
+- author Gersoon458
+  changes
+  - type Add
+  message Added a new map - WhiteBoxДобавлена новая карта - ВайтБокс
+  - type Fix
+  message Fixed Moose (Added cadet spawner)Починен Мус (Добавлен спавнер кадета)
+  - type Fix
+  message -
+  Asterisk has been fixed, now there is no planet on it (Which do not
+  work. Thanks to Kutos)Починен Астериск, теперь на нём нет планеты
+  (Которые не работают. Спасибо Кутосу)
+  id 6485
+  time '2024-11-06T034551.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull117
+- author Spatison
+  changes
+  - type Tweak
+  message The pickaxe has been improved  Улучшена кирка
+  id 6486
+  time '2024-11-06T034619.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull108
+- author Spatison
+  changes
+  - type Tweak
+  message -
+  The holoprojectors have been redesigned  Голопроекторы были
+  переработаны
+  id 6487
+  time '2024-11-06T034803.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull112
+- author Warete
+  changes
+  - type Fix
+  message -
+  Some benches had to get their rotation back  Скамьи должны были вернуть
+  свой поворот
+  - type Tweak
+  message -
+  Automatic shift end is now off  Выключено автоматическое завершение
+  смены
+  id 6488
+  time '2024-11-06T043207.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull99
+- author unkima
+  changes []
+  id 6489
+  time '2024-11-14T045111.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull122
+- author PuroSlavKing
+  changes
+  - type Add
+  message Добавлен КапитанШкаф, содержащий в себе все вещи капитана.
+  - type Add
+  message 'Добавлены новые стили одежды капитана белый, шериф, командный.'
+  id 6490
+  time '2024-11-14T045510.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull123
+- author vanx
+  changes
+  - type Add
+  message Возвращена возможность казни
+  id 6491
+  time '2024-11-14T094130.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull126
+- author PuroSlavKing
+  changes
+  - type Add
+  message -
+  Added 5 new variations of body bags  Добавлено 5 новых вариаций мешков
+  для - тел.
+  id 6492
+  time '2024-11-14T094521.0000000+0000'
+  url httpsgithub.comWWhiteDreamProjectwwdpublicpull120

@@ -15,18 +15,16 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<VoiceMaskerComponent, SubdermalImplantInserted>(OnInsert); // WD EDIT
+        SubscribeLocalEvent<VoiceMaskComponent, SubdermalImplantInserted>(OnInsert); // WD EDIT
     }
 
     // WD EDIT START
-    private void OnInsert(EntityUid uid, VoiceMaskerComponent component, SubdermalImplantInserted args)
+    private void OnInsert(EntityUid uid, VoiceMaskComponent component, SubdermalImplantInserted args)
     {
         if (_tag.HasTag(uid, BionicSyrinxImplant))
             return;
 
-        var voicemask = EnsureComp<SyrinxVoiceMaskComponent>(args.Target);
-        voicemask.VoiceName = MetaData(args.Target).EntityName;
-        Dirty(args.Target, voicemask);
+        component.VoiceMaskName = Name(args.Target);
     }
     // WD EDIT END
 }
