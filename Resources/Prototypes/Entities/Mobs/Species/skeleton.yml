@@ -102,7 +102,6 @@
           probability: 0.5
   - type: FireVisuals
     alternateState: Standing
-  - type: FootPrints # WD EDIT
 
 - type: entity
   parent: BaseSpeciesDummy
