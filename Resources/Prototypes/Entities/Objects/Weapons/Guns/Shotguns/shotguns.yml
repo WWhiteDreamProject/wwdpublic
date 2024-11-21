@@ -118,7 +118,7 @@
   description: This is a seemingly ordinary shotgun, no different from those issued as standard in the Republic of Biesel Navy. A close inspection reveals that this weapon's serial number is 000000013.
   components:
     - type: StealTarget
-      stealGroup: WeaponShotgunBulldogHoS
+      stealGroup: HoSAntiqueWeapon
 
 - type: entity
   name: double-barreled shotgun
@@ -194,7 +194,7 @@
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: Clothing
-    sprite: DeltaV/Objects/Weapons/Guns/Shotguns/pump.rsi
+    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: BallisticAmmoProvider
     capacity: 4

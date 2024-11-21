@@ -60,11 +60,6 @@ petting-failure-cleanbot = Вы тянетесь погладить { $target },
 petting-failure-mimebot = Вы тянетесь погладить { $target }, но { SUBJECT($target) } { CONJUGATE-BE($target) } занятый мимикацией!
 petting-failure-medibot = Вы тянетесь погладить { $target }, но { $target } едва не пронзает вашу руку шприцом!
 
-## Knocking on windows
-
-# Shown when knocking on a window
-comp-window-knock = *тук-тук*
-
 ## Rattling fences
 
 fence-rattle-success = *грохот*

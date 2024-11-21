@@ -17,12 +17,12 @@
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 30
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   # WD EDIT START
   - type: Clickable
   - type: MeleeSound
@@ -31,6 +31,9 @@
         path:
           "/Audio/Weapons/egloves.ogg"
   # WD EDIT END
+  - type: Tag
+    tags:
+    - NoPaint
 
 - type: entity
   id: HoloFan
@@ -46,7 +49,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-            bounds: "-0.5,-0.5,0.5,0.5"
+          bounds: "-0.5,-0.5,0.5,0.5"
   - type: Airtight
     noAirWhenFullyAirBlocked: false
 
@@ -56,27 +59,27 @@
   name: holographic barrier
   description: A barrier of hard light that blocks movement, but pretty weak.
   components:
-    - type: Physics
-      bodyType: Static
-      canCollide: true
-    - type: Sprite
-      sprite: Structures/Holo/security.rsi
-      state: icon
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.3,-0.3,0.3,0.3"
-          mask:
-            - TableMask
-          layer:
-            - TableLayer
-    - type: PointLight
-      enabled: true
-      radius: 3
-      color: red
-    - type: Climbable
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: Sprite
+    sprite: Structures/Holo/security.rsi
+    state: icon
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: PointLight
+    enabled: true
+    radius: 3
+    color: red
+  - type: Climbable
 
 - type: entity
   id: HolosignForcefield
@@ -108,9 +111,9 @@
     throwForce: 0
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 60
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
