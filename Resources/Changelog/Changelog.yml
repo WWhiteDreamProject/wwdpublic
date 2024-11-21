@@ -7846,10 +7846,10 @@ Entries:
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1190
 - author: VMSolidus
   changes:
-  - type: Fix
-    message: >-
-      Fixed AddTrait and ReplaceTrait functions giving players an unmodified,
-      completely default component.
+    - type: Fix
+      message: >-
+        Fixed AddTrait and ReplaceTrait functions giving players an unmodified,
+        completely default component.
   id: 6514
   time: '2024-11-10T15:22:47.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1195
@@ -8031,270 +8031,270 @@ Entries:
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1230
 - author: Remuchi
   changes:
-  - type: Add
-    message: Upstream
+    - type: Add
+      message: Upstream
   id: 6460
   time: '2024-10-19T12:09:52.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/93
 - author: Gersoon
   changes:
-  - type: Add
-    message: translation of tiles/перевод тайлов
-  - type: Tweak
-    message: sign textures changed/изменены текстуры знаков
+    - type: Add
+      message: translation of tiles/перевод тайлов
+    - type: Tweak
+      message: sign textures changed/изменены текстуры знаков
   id: 6461
   time: '2024-10-21T06:56:21.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/90
 - author: Spatison
   changes:
-  - type: Remove
-    message: Thieves' pacifism has been removed / Убран воровской пацифизм
+    - type: Remove
+      message: Thieves' pacifism has been removed / Убран воровской пацифизм
   id: 6462
   time: '2024-10-22T16:35:54.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/95
 - author: Spatison
   changes:
-  - type: Remove
-    message: Delete Prido-O-Mat / Удален прайдомат
+    - type: Remove
+      message: Delete Prido-O-Mat / Удален прайдомат
   id: 6463
   time: '2024-10-23T03:35:00.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/84
 - author: Spatison
   changes:
-  - type: Add
-    message: Added hardlight spear implanter/ Добавлен имплант светового копья
+    - type: Add
+      message: Added hardlight spear implanter/ Добавлен имплант светового копья
   id: 6464
   time: '2024-10-23T10:20:53.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/77
 - author: Spatison
   changes:
-  - type: Tweak
-    message: The energy shield can now be discharged  / Энерго щит теперь имеет заряд
+    - type: Tweak
+      message: The energy shield can now be discharged  / Энерго щит теперь имеет заряд
   id: 6465
   time: '2024-10-23T10:23:45.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/94
 - author: Remuchi
   changes:
-  - type: Add
-    message: >-
-      Переводы всех черт персонажа, черт внешности и меню персонажа. Так же
-      переведен весь контент Нянотрайзен.
+    - type: Add
+      message: >-
+        Переводы всех черт персонажа, черт внешности и меню персонажа. Так же
+        переведен весь контент Нянотрайзен.
   id: 6466
   time: '2024-10-23T14:11:51.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/97
 - author: Gersoon458
   changes:
-  - type: Tweak
-    message: DryDock update/Обновление ДрайДока
+    - type: Tweak
+      message: DryDock update/Обновление ДрайДока
   id: 6467
   time: '2024-10-24T13:50:33.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/98
 - author: Spatison
   changes:
-  - type: Add
-    message: Added night vision goggle/ Добавлен прибор ночного видения
-  - type: Add
-    message: Added thermal vision goggle/ Добавлен прибор термального видения
+    - type: Add
+      message: Added night vision goggle/ Добавлен прибор ночного видения
+    - type: Add
+      message: Added thermal vision goggle/ Добавлен прибор термального видения
   id: 6468
   time: '2024-10-26T09:36:10.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/89
 - author: Spatison
   changes:
-  - type: Add
-    message: Added crossbow / Добавлен арбалет
+    - type: Add
+      message: Added crossbow / Добавлен арбалет
   id: 6469
   time: '2024-10-26T09:41:08.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/76
 - author: Spatison
   changes:
-  - type: Add
-    message: Added Gondola / Добавлена Гондола
+    - type: Add
+      message: Added Gondola / Добавлена Гондола
   id: 6470
   time: '2024-10-26T11:15:09.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/96
 - author: PuroSlavKing
   changes:
-  - type: Add
-    message: Added "Operative" UI style / Добавлен стиль интерфейса "Оперативник"
+    - type: Add
+      message: Added "Operative" UI style / Добавлен стиль интерфейса "Оперативник"
   id: 6471
   time: '2024-10-27T02:51:58.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/102
 - author: Spatison
   changes:
-  - type: Fix
-    message: >-
-      correction of a collision at a glass shard/ Исправление колизии у
-      осколка стекла
+    - type: Fix
+      message: >-
+        correction of a collision at a glass shard/ Исправление колизии у
+        осколка стекла
   id: 6472
   time: '2024-10-27T13:28:02.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/104
 - author: Gersoon
   changes:
-  - type: Add
-    message: New map added - Moose/Новая карта добавлена - Мус
-  - type: Tweak
-    message: Prisoners added to DryDock/На ДрайДок добавлены заключенные
+    - type: Add
+      message: New map added - Moose/Новая карта добавлена - Мус
+    - type: Tweak
+      message: Prisoners added to DryDock/На ДрайДок добавлены заключенные
   id: 6473
   time: '2024-10-27T13:49:26.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/100
 - author: Gersoon
   changes:
-  - type: Add
-    message: >-
-      5 types of Halloween gifts, namely: basic, sweet, sweet themed, clothes,
-      themed clothes!/5 видов хеллоуинских подарков, а именно: основной,
-      сладкий, сладкий тематический, одежда, одежда тематичская!
-  - type: Add
-    message: New autumn grass and trees tiles!/Новые осенние тайлы травы и деревья!
-  - type: Add
-    message: >-
-      You can 100% find Halloween gifts in tech's closets!/В шкафах техов 100%
-      можно встретить хеллоунские подарки!
-  - type: Add
-    message: >-
-      New Halloween theme! (Settings -> HUD Theme: ->
-      ui-options-hud-theme-halloween (If I didn’t manage to take away the
-      ability to change themes during the week or didn’t add
-      translations))/Новая хеллоуинская тема худа! (Настройки -> Тема HUD: ->
-      ui-options-hud-theme-halloween (Если я не успел забрать возможность
-      менять темы на протяжении недели или не добавил переводы))
-  - type: Add
-    message: >-
-      Each roundstart role has a candy bucket! (Kutos)/У каждой роли
-      раундстартом есть ведерко для конфет! (Kutos)
-  - type: Add
-    message: New costumes! (Purka)/Новые костюмы! (Purka)
-  - type: Add
-    message: >-
-      New sweets! (Purka, Kilath, Canceredpussy (Cyber ​​cutlet))/Новые
-      сладости! (Purka, Kilath, Canceredpussy (Кибер котлетка))
-  - type: Tweak
-    message: The cards are now SPOOOOOOOKY!/Карты теперь ЖУУУУТКИЕ!
+    - type: Add
+      message: >-
+        5 types of Halloween gifts, namely: basic, sweet, sweet themed, clothes,
+        themed clothes!/5 видов хеллоуинских подарков, а именно: основной,
+        сладкий, сладкий тематический, одежда, одежда тематичская!
+    - type: Add
+      message: New autumn grass and trees tiles!/Новые осенние тайлы травы и деревья!
+    - type: Add
+      message: >-
+        You can 100% find Halloween gifts in tech's closets!/В шкафах техов 100%
+        можно встретить хеллоунские подарки!
+    - type: Add
+      message: >-
+        New Halloween theme! (Settings -> HUD Theme: ->
+        ui-options-hud-theme-halloween (If I didn’t manage to take away the
+        ability to change themes during the week or didn’t add
+        translations))/Новая хеллоуинская тема худа! (Настройки -> Тема HUD: ->
+        ui-options-hud-theme-halloween (Если я не успел забрать возможность
+        менять темы на протяжении недели или не добавил переводы))
+    - type: Add
+      message: >-
+        Each roundstart role has a candy bucket! (Kutos)/У каждой роли
+        раундстартом есть ведерко для конфет! (Kutos)
+    - type: Add
+      message: New costumes! (Purka)/Новые костюмы! (Purka)
+    - type: Add
+      message: >-
+        New sweets! (Purka, Kilath, Canceredpussy (Cyber ​​cutlet))/Новые
+        сладости! (Purka, Kilath, Canceredpussy (Кибер котлетка))
+    - type: Tweak
+      message: The cards are now SPOOOOOOOKY!/Карты теперь ЖУУУУТКИЕ!
   id: 6474
   time: '2024-10-31T02:44:08.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/113
 - author: Spatison
   changes:
-  - type: Tweak
-    message: With FTL, a person now falls / При ФТЛ перемещении человек теперь падает
-  - type: Tweak
-    message: >-
-      Magnetic boots now do not let you fall / Магнитные сапоги теперь не дают
-      упасть
+    - type: Tweak
+      message: With FTL, a person now falls / При ФТЛ перемещении человек теперь падает
+    - type: Tweak
+      message: >-
+        Magnetic boots now do not let you fall / Магнитные сапоги теперь не дают
+        упасть
   id: 6475
   time: '2024-10-31T02:52:22.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/111
 - author: Spatison
   changes:
-  - type: Add
-    message: Added footsteps / Добавлены следы
+    - type: Add
+      message: Added footsteps / Добавлены следы
   id: 6476
   time: '2024-10-31T03:03:14.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/110
 - author: Spatison
   changes:
-  - type: Fix
-    message: >-
-      ПНВ и ПТВ теперь могут быть исследованы /  NVG and TVG can now be
-      researched
+    - type: Fix
+      message: >-
+        ПНВ и ПТВ теперь могут быть исследованы /  NVG and TVG can now be
+        researched
   id: 6477
   time: '2024-10-31T03:03:31.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/109
 - author: Spatison
   changes:
-  - type: Fix
-    message: >-
-      Fixing the animation of the clown's shoes / Исправление анимации ботинок
-      клоуна
+    - type: Fix
+      message: >-
+        Fixing the animation of the clown's shoes / Исправление анимации ботинок
+        клоуна
   id: 6478
   time: '2024-10-31T03:22:32.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/107
 - author: Spatison
   changes:
-  - type: Fix
-    message: Сorrection of a Butlutron collision / Исправлена коллизия Бутлетрона
+    - type: Fix
+      message: Сorrection of a Butlutron collision / Исправлена коллизия Бутлетрона
   id: 6479
   time: '2024-10-31T03:22:53.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/105
 - author: Spatison
   changes:
-  - type: Fix
-    message: Fixed bugs with sprites / Исправлены баги с спрайтами
+    - type: Fix
+      message: Fixed bugs with sprites / Исправлены баги с спрайтами
   id: 6480
   time: '2024-10-31T03:23:25.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/103
 - author: PuroSlavKing
   changes:
-  - type: Tweak
-    message: Измененён звук пожарной тревоги.
+    - type: Tweak
+      message: Измененён звук пожарной тревоги.
   id: 6481
   time: '2024-10-31T03:24:35.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/106
 - author: Spatison
   changes:
-  - type: Remove
-    message: Deleted fire alarm sound / Удален звук пожарной тревоги
+    - type: Remove
+      message: Deleted fire alarm sound / Удален звук пожарной тревоги
   id: 6482
   time: '2024-11-01T11:47:36.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/115
 - author: Gersoon458
   changes:
-  - type: Remove
-    message: >-
-      Fun removed :( Specifically the basket and the gift from the hands
-      :(/Удалено веселье :( А конкретно корзинка и подарок из рук :(
+    - type: Remove
+      message: >-
+        Fun removed :( Specifically the basket and the gift from the hands
+        :(/Удалено веселье :( А конкретно корзинка и подарок из рук :(
   id: 6483
   time: '2024-11-06T02:52:23.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/119
 - author: Spatison
   changes:
-  - type: Tweak
-    message: >-
-      Changed the chances of modes falling out / Изменены шансы выпадения
-      режимов
+    - type: Tweak
+      message: >-
+        Changed the chances of modes falling out / Изменены шансы выпадения
+        режимов
   id: 6484
   time: '2024-11-06T03:10:55.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/118
 - author: Gersoon458
   changes:
-  - type: Add
-    message: Added a new map - WhiteBox/Добавлена новая карта - ВайтБокс
-  - type: Fix
-    message: Fixed Moose (Added cadet spawner)/Починен Мус (Добавлен спавнер кадета)
-  - type: Fix
-    message: >-
-      Asterisk has been fixed, now there is no planet on it (Which do not
-      work. Thanks to Kutos)/Починен Астериск, теперь на нём нет планеты
-      (Которые не работают. Спасибо Кутосу)
+    - type: Add
+      message: Added a new map - WhiteBox/Добавлена новая карта - ВайтБокс
+    - type: Fix
+      message: Fixed Moose (Added cadet spawner)/Починен Мус (Добавлен спавнер кадета)
+    - type: Fix
+      message: >-
+        Asterisk has been fixed, now there is no planet on it (Which do not
+        work. Thanks to Kutos)/Починен Астериск, теперь на нём нет планеты
+        (Которые не работают. Спасибо Кутосу)
   id: 6485
   time: '2024-11-06T03:45:51.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/117
 - author: Spatison
   changes:
-  - type: Tweak
-    message: The pickaxe has been improved / Улучшена кирка
+    - type: Tweak
+      message: The pickaxe has been improved / Улучшена кирка
   id: 6486
   time: '2024-11-06T03:46:19.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/108
 - author: Spatison
   changes:
-  - type: Tweak
-    message: >-
-      The holoprojectors have been redesigned / Голопроекторы были
-      переработаны
+    - type: Tweak
+      message: >-
+        The holoprojectors have been redesigned / Голопроекторы были
+        переработаны
   id: 6487
   time: '2024-11-06T03:48:03.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/112
 - author: Warete
   changes:
-  - type: Fix
-    message: >-
-      Some benches had to get their rotation back / Скамьи должны были вернуть
-      свой поворот
-  - type: Tweak
-    message: >-
-      Automatic shift end is now off / Выключено автоматическое завершение
-      смены
+    - type: Fix
+      message: >-
+        Some benches had to get their rotation back / Скамьи должны были вернуть
+        свой поворот
+    - type: Tweak
+      message: >-
+        Automatic shift end is now off / Выключено автоматическое завершение
+        смены
   id: 6488
   time: '2024-11-06T04:32:07.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/99
@@ -8305,26 +8305,33 @@ Entries:
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/122
 - author: PuroSlavKing
   changes:
-  - type: Add
-    message: Добавлен КапитанШкаф, содержащий в себе все вещи капитана.
-  - type: Add
-    message: 'Добавлены новые стили одежды капитана: белый, шериф, командный.'
+    - type: Add
+      message: Добавлен КапитанШкаф, содержащий в себе все вещи капитана.
+    - type: Add
+      message: 'Добавлены новые стили одежды капитана: белый, шериф, командный.'
   id: 6490
   time: '2024-11-14T04:55:10.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/123
 - author: vanx
   changes:
-  - type: Add
-    message: Возвращена возможность казни
+    - type: Add
+      message: Возвращена возможность казни
   id: 6491
   time: '2024-11-14T09:41:30.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/126
 - author: PuroSlavKing
   changes:
-  - type: Add
-    message: >-
-      Added 5 new variations of body bags / Добавлено 5 новых вариаций мешков
-      для - тел.
+    - type: Add
+      message: >-
+        Added 5 new variations of body bags / Добавлено 5 новых вариаций мешков
+        для - тел.
   id: 6492
   time: '2024-11-14T09:45:21.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/120
+- author: Spatison
+  changes:
+    - type: Add
+      message: Upstream :D
+  id: 6532
+  time: '2024-11-21T10:49:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/129
