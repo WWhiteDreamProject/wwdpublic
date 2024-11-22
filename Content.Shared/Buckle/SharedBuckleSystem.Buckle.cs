@@ -344,6 +344,18 @@ public abstract partial class SharedBuckleSystem
         else if (user != null)
             _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):player} buckled {ToPrettyString(buckle)} to {ToPrettyString(strap)}");
 
+        // WD EDIT START
+        switch (strap.Comp.Position)
+        {
+            case StrapPosition.Stand:
+                _standing.Stand(buckle);
+                break;
+            case StrapPosition.Down:
+                _standing.Down(buckle, false, false);
+                break;
+        }
+        // WD EDIT END
+
         _audio.PlayPredicted(strap.Comp.BuckleSound, strap, user);
 
         SetBuckledTo(buckle, strap!);
@@ -356,16 +368,6 @@ public abstract partial class SharedBuckleSystem
 
         _transform.SetCoordinates(buckle, xform, coords, rotation: Angle.Zero);
         _joints.SetRelay(buckle, strap);
-
-        switch (strap.Comp.Position)
-        {
-            case StrapPosition.Stand:
-                _standing.Stand(buckle);
-                break;
-            case StrapPosition.Down:
-                _standing.Down(buckle, false, false);
-                break;
-        }
 
         var ev = new StrappedEvent(strap, buckle);
         RaiseLocalEvent(strap, ref ev);
