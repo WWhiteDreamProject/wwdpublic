@@ -98,12 +98,12 @@ public partial class MobStateSystem
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
                 break;
             case MobState.Critical:
-                _standing.Down(target);
+                _standing.Down(target, dropHeldItems:true);
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Critical);
                 break;
             case MobState.Dead:
                 EnsureComp<CollisionWakeComponent>(target);
-                _standing.Down(target);
+                _standing.Down(target, dropHeldItems:true);
 
                 if (_standing.IsDown(target) && TryComp<PhysicsComponent>(target, out var physics))
                 {
