@@ -14,6 +14,7 @@ using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Buckle;
+using Content.Shared.Standing;
 
 
 namespace Content.Shared.Body.Systems;
@@ -215,6 +216,7 @@ public partial class SharedBodySystem
             Dirty(bodyEnt, bodyEnt.Comp);
             if (!_buckle.IsBuckled(bodyEnt)) // WD EDIT
                 Standing.Down(bodyEnt);
+            RaiseLocalEvent(bodyEnt, new DropHandItemsEvent(), false); // WD EDIT
         }
     }
 
