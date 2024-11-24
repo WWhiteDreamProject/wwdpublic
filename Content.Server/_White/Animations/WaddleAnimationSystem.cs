@@ -9,9 +9,4 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
     {
         RaiseNetworkEvent(new StartedWaddlingEvent(GetNetEntity(user)));
     }
-
-    protected override void StopAnimation(EntityUid user)
-    {
-        RaiseNetworkEvent(new StoppedWaddlingEvent(GetNetEntity(user)));
-    }
 }
