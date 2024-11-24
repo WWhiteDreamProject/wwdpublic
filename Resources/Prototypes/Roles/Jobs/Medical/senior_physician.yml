@@ -3,7 +3,6 @@
   name: job-name-senior-physician
   description: job-description-senior-physician
   playTimeTracker: JobSeniorPhysician
-  setPreference: false # DeltaV - Disable Senior Roles round start selection
   requirements:
     - !type:CharacterPlaytimeRequirement
       tracker: JobChemist
@@ -25,6 +24,8 @@
   - !type:AddComponentSpecial
     components:
     - type: CPRTraining
+    - type: SurgerySpeedModifier
+      SpeedModifier: 2.0
 
 - type: startingGear
   id: SeniorPhysicianGear
@@ -37,9 +38,6 @@
     id: SeniorPhysicianPDA
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
-  inhand:
-    - CandyBucket
-    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtSeniorPhysician
   satchel: ClothingBackpackSatchelMedicalFilled
   duffelbag: ClothingBackpackDuffelMedicalFilled

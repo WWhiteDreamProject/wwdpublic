@@ -11358,7 +11358,7 @@ entities:
       pos: 23.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -30571.775
+      secondsUntilStateChange: -30627.271
       state: Opening
 - proto: AirlockExternalGlassShuttleEmergencyLocked
   entities:
@@ -86148,6 +86148,18 @@ entities:
     components:
     - type: Transform
       pos: -14.5,-63.5
+      parent: 2
+- proto: SpawnPointSecurityCadet
+  entities:
+  - uid: 14798
+    components:
+    - type: Transform
+      pos: 9.5,3.5
+      parent: 2
+  - uid: 14799
+    components:
+    - type: Transform
+      pos: 4.5,7.5
       parent: 2
 - proto: SpawnPointSecurityOfficer
   entities:

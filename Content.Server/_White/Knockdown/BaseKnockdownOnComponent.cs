@@ -1,3 +1,6 @@
+using Content.Shared.Standing;
+
+
 namespace Content.Server._White.Knockdown;
 
 public abstract partial class BaseKnockdownOnComponent : Component
@@ -7,6 +10,9 @@ public abstract partial class BaseKnockdownOnComponent : Component
 
     [DataField]
     public TimeSpan KnockdownTime = TimeSpan.FromSeconds(5);
+
+    [DataField]
+    public DropHeldItemsBehavior DropHeldItemsBehavior = DropHeldItemsBehavior.DropIfStanding;
 
     [DataField]
     public TimeSpan JitterTime = TimeSpan.FromSeconds(15);

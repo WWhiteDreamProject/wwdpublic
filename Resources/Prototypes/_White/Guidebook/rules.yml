@@ -1,0 +1,4 @@
+- type: guideEntry
+  id: MedusaRuleset
+  name: guide-entry-rules-white-medusa
+  text: "/ServerInfo/Guidebook/ServerRules/MedusaRules.xml"

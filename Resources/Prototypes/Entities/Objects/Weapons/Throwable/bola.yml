@@ -1,7 +1,9 @@
 - type: entity
+  name: bola
+  abstract: true
+  id: BaseBola
   parent: BaseItem
-  id: BaseBola # WD EDIT
-  abstract: true # WD EDIT
+  description: High velocity entanglement tool.
   components:
   - type: Item
     size: Normal
@@ -14,11 +16,70 @@
     sound: /Audio/Effects/snap.ogg
   - type: Ensnaring
     freeTime: 2.0
-    breakoutTime: 3.5 #all bola should generally be fast to remove
-    walkSpeed: 0.7 #makeshift bola shouldn't slow too much
+    breakoutTime: 3.5
+    walkSpeed: 0.7
     sprintSpeed: 0.7
-    staminaDamage: 55 # Sudden weight increase sapping stamina
+    staminaDamage: 20 # WD EDIT
     canThrowTrigger: true
     canMoveBreakout: true
   - type: LayDownOnCollide # WD EDIT
 
+- type: entity
+  name: bola
+  parent: [BaseBola]
+  id: Bola
+  description: Linked together with some spare cuffs and metal.
+  components:
+  - type: Construction
+    graph: Bola
+    node: bola
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  # WD EDIT START
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 5
+  # WD EDIT END
+
+- type: entity
+  name: energy bola
+  id: BolaEnergy
+  parent: BaseBola
+  description: An advanced hardlight criminal entangling tool. Otherwise known as an expensive piece of string.
+  components:
+  # WD EDIT START
+  - type: Item
+    size: Small
+  # WD EDIT END
+  - type: Sprite
+    sprite: Objects/Weapons/Throwable/energy_bola.rsi
+  # WD EDIT START
+  - type: EmitSoundOnLand
+    sound:
+      collection: sparks
+  - type: KnockdownOnCollide
+    knockdownTime: 1
+    jitterTime: 7
+    stutterTime: 7
+  - type: Tag
+    tags:
+      - SecBeltEquip
+  # WD EDIT END

@@ -1,20 +1,5 @@
 -create-3rd-person =
     { $chance ->
-        [1] Создает
-       *[other] создаёт
-    }
--cause-3rd-person =
-    { $chance ->
-        [1] Вызывает
-       *[other] вызывает
-    }
--satiate-3rd-person =
-    { $chance ->
-        [1] Насыщает
-       *[other] насыщает
-    }
--create-3rd-person =
-    { $chance ->
         [1] создает
        *[other] Создает
     }
@@ -41,11 +26,6 @@ reagent-effect-guidebook-explosion-reaction-effect =
         [1] вызывает
        *[other] Вызывает
     } взрыв
-reagent-effect-guidebook-foam-area-reaction-effect =
-    { $chance ->
-        [1] создаёт
-       *[other] Создаёт
-    } большое количество пены
 reagent-effect-guidebook-foam-area-reaction-effect =
     { $chance ->
         [1] создаёт

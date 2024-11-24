@@ -318,6 +318,10 @@ trait-name-AddictionNicotine = Nicotine Addiction
 trait-description-AddictionNicotine =
     You have an addiction to Nicotine, and will require frequent smoke breaks to keep your mood in check.
 
+trait-name-AnimalFriend = Animal Friend
+trait-description-AnimalFriend =
+    You have a way with animals. You will never be attacked by animals, unless you attack them first.
+    
 trait-name-Liar = Pathological liar
 trait-description-Liar = You can hardly bring yourself to tell the truth. Sometimes you lie anyway.
 
@@ -400,3 +404,6 @@ trait-description-CyberEyesOmni =
     This expensive implant provides the combined benefits of a SecHud, MedHud, and a DiagHud.
     Note that this augmentation is considered Contraband for anyone not under the employ of station Security personel,
     and may be disabled by your employer before dispatch to the station.
+
+trait-name-ShadowkinBlackeye = Blackeye
+trait-description-ShadowkinBlackeye = You lose your special Shadowkin powers, in return for some points.

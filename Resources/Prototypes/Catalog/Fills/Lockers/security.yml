@@ -26,6 +26,7 @@
       - id: BoxEncryptionKeyPrisoner #Delta-V
       - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
         prob: 0.3
+      - id: BoxBodyBagPrisoner # WD
 
 - type: entity
   id: LockerWardenFilled
@@ -54,6 +55,7 @@
       - id: BoxEncryptionKeyPrisoner #Delta-V
       - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
         prob: 0.3
+      - id: BoxBodyBagPrisoner # WD
 
 - type: entity
   id: LockerSecurityFilled
@@ -137,6 +139,7 @@
 ##        prob: 0.15
       - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
         prob: 0.3
+      - id: BoxBodyBagPrisoner # WD
 
 # DeltaV - adding corpsman locker w/ hardsuit
 
@@ -170,6 +173,7 @@
         prob: 0.7
       - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
         prob: 0.3
+      - id: BoxBodyBagPrisoner # WD
 
 # DeltaV - end addition
 

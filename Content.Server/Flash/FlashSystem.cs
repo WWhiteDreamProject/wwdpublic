@@ -25,6 +25,8 @@ using InventoryComponent = Content.Shared.Inventory.InventoryComponent;
 using Content.Shared.Traits.Assorted.Components;
 using Robust.Shared.Random;
 using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Standing;
+
 
 namespace Content.Server.Flash
 {
@@ -192,7 +194,7 @@ namespace Content.Server.Flash
 
             var knockdownTime = float.Lerp(knockdownDuration, 0f, distance / range);
             if (knockdownTime > 0f)
-                _stun.TryKnockdown(target, TimeSpan.FromSeconds(knockdownTime), true);
+                _stun.TryKnockdown(target, TimeSpan.FromSeconds(knockdownTime), true, DropHeldItemsBehavior.DropIfStanding);
 
             var stunTime = float.Lerp(stunDuration, 0f, distance / range);
             if (stunTime > 0f)

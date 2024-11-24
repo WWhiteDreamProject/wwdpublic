@@ -24,7 +24,7 @@ namespace Content.Shared.CCVar
         ///     Name of the rules txt file in the "Resources/Server Info" dir. Include the extension.
         /// </summary>
         public static readonly CVarDef<string> RulesFile =
-            CVarDef.Create("server.rules_file", "Ru_rules.txt", CVar.REPLICATED | CVar.SERVER);
+            CVarDef.Create("server.rules_file", "DefaultRuleset", CVar.REPLICATED | CVar.SERVER);
 
         /// <summary>
         ///     A loc string for what should be displayed as the title on the Rules window.
@@ -180,28 +180,37 @@ namespace Content.Shared.CCVar
         ///     Minimum time between Basic station events in seconds
         /// </summary>
         public static readonly CVarDef<int> // 5 Minutes
-            GameEventsBasicMinimumTime = CVarDef.Create("game.events_basic_minimum_time", 300, CVar.SERVERONLY);
+            GameEventsBasicMinimumTime = CVarDef.Create("game.events_basic_minimum_time", 300, CVar.SERVERONLY | CVar.ARCHIVE);
 
         /// <summary>
         ///     Maximum time between Basic station events in seconds
         /// </summary>
         public static readonly CVarDef<int> // 25 Minutes
-            GameEventsBasicMaximumTime = CVarDef.Create("game.events_basic_maximum_time", 1500, CVar.SERVERONLY);
+            GameEventsBasicMaximumTime = CVarDef.Create("game.events_basic_maximum_time", 1500, CVar.SERVERONLY | CVar.ARCHIVE);
 
         /// <summary>
         ///     Minimum time between Ramping station events in seconds
         /// </summary>
         public static readonly CVarDef<int> // 4 Minutes
-            GameEventsRampingMinimumTime = CVarDef.Create("game.events_ramping_minimum_time", 240, CVar.SERVERONLY);
+            GameEventsRampingMinimumTime = CVarDef.Create("game.events_ramping_minimum_time", 240, CVar.SERVERONLY | CVar.ARCHIVE);
 
         /// <summary>
         ///     Maximum time between Ramping station events in seconds
         /// </summary>
         public static readonly CVarDef<int> // 12 Minutes
-            GameEventsRampingMaximumTime = CVarDef.Create("game.events_ramping_maximum_time", 720, CVar.SERVERONLY);
+            GameEventsRampingMaximumTime = CVarDef.Create("game.events_ramping_maximum_time", 720, CVar.SERVERONLY | CVar.ARCHIVE);
 
         /// <summary>
-        ///
+        ///     Minimum time between Oscillating station events in seconds. This is the bare minimum which will never be violated, unlike with ramping events.
+        /// </summary>
+        public static readonly CVarDef<int> // 40 seconds
+            GameEventsOscillatingMinimumTime = CVarDef.Create("game.events_oscillating_minimum_time", 40, CVar.SERVERONLY | CVar.ARCHIVE);
+
+        /// <summary>
+        ///     Time between Oscillating station events in seconds at 1x chaos level. Events may occur at larger intervals if current chaos is lower than that.
+        /// </summary>
+        public static readonly CVarDef<int> // 20 Minutes - which constitutes a minimum of 120 seconds between events in Irregular and 280 seconds in Extended Irregular
+            GameEventsOscillatingAverageTime = CVarDef.Create("game.events_oscillating_average_time", 1200, CVar.SERVERONLY | CVar.ARCHIVE);
 
         /// <summary>
         ///     Controls the maximum number of character slots a player is allowed to have.
@@ -214,6 +223,13 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<string>
             GameMap = CVarDef.Create("game.map", string.Empty, CVar.SERVERONLY);
+
+        /// <summary>
+        /// If roles should be restricted based on whether or not they are whitelisted.
+        /// </summary>
+        public static readonly CVarDef<bool>
+            GameRoleWhitelist = CVarDef.Create("game.role_whitelist", true, CVar.SERVER | CVar.REPLICATED);
+
 
         /// <summary>
         ///     Controls whether to use world persistence or not.
@@ -396,13 +412,6 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> GameAutoEatDrinks =
             CVarDef.Create("game.auto_eat_drinks", false, CVar.REPLICATED);
-
-
-        /// <summary>
-        ///     When true, you have to press the change speed button to sprint.
-        /// </summary>
-        public static readonly CVarDef<bool> GamePressToSprint =
-            CVarDef.Create("game.press_to_sprint", false, CVar.REPLICATED);
 
         /// <summary>
         ///     Whether item slots, such as power cell slots or AME fuel cell slots, should support quick swap if it is not otherwise specified in their YAML prototype.
@@ -1535,7 +1544,7 @@ namespace Content.Shared.CCVar
         /// Whether the arrivals shuttle is enabled.
         /// </summary>
         public static readonly CVarDef<bool> ArrivalsShuttles =
-            CVarDef.Create("shuttle.arrivals", false, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.arrivals", true, CVar.SERVERONLY);
 
         /// <summary>
         /// The map to use for the arrivals station.
@@ -1992,6 +2001,12 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> ICShowSSDIndicator =
             CVarDef.Create("ic.show_ssd_indicator", true, CVar.CLIENTONLY);
 
+        /// <summary>
+        /// Allow Ethereal Ent to PassThrough Walls/Objects while in Ethereal.
+        /// </summary>
+        public static readonly CVarDef<bool> EtherealPassThrough =
+            CVarDef.Create("ic.EtherealPassThrough", false, CVar.SERVER);
+
         /*
          * Salvage
          */
@@ -2047,16 +2062,22 @@ namespace Content.Shared.CCVar
          */
 
         /// <summary>
-        /// Time that players have to wait before rules can be accepted.
+        ///     Time that players have to wait before rules can be accepted.
         /// </summary>
         public static readonly CVarDef<float> RulesWaitTime =
-            CVarDef.Create("rules.time", 60f, CVar.SERVER | CVar.REPLICATED);
+            CVarDef.Create("rules.time", 10f, CVar.SERVER | CVar.REPLICATED);
 
         /// <summary>
-        /// Don't show rules to localhost/loopback interface.
+        ///     Don't show rules to localhost/loopback interface.
         /// </summary>
         public static readonly CVarDef<bool> RulesExemptLocal =
             CVarDef.Create("rules.exempt_local", true, CVar.SERVERONLY);
+
+        /// <summary>
+        /// The next time the rules will popup for this client, expressed in minutes
+        /// </summary>
+        public static readonly CVarDef<string> RulesNextPopupTime =
+            CVarDef.Create("rules.next_popup_time", "Jan 1, 1997", CVar.CLIENTONLY | CVar.ARCHIVE);
 
 
         /*
@@ -2619,5 +2640,35 @@ namespace Content.Shared.CCVar
             CVarDef.Create("ghost.allow_same_character", false, CVar.SERVERONLY);
 
         #endregion
+
+        #region Surgery
+
+        public static readonly CVarDef<bool> CanOperateOnSelf =
+            CVarDef.Create("surgery.can_operate_on_self", false, CVar.SERVERONLY);
+
+        #endregion
+        /// <summary>
+        /// Set to true to disable parallel processing in the pow3r solver.
+        /// </summary>
+        public static readonly CVarDef<bool> DebugPow3rDisableParallel =
+            CVarDef.Create("debug.pow3r_disable_parallel", true, CVar.SERVERONLY);
+
+        /*
+        * AUTOVOTE SYSTEM
+        */
+
+        /// Enables the automatic voting system.
+        public static readonly CVarDef<bool> AutoVoteEnabled =
+            CVarDef.Create("vote.autovote_enabled", false, CVar.SERVERONLY);
+
+        /// Automatically starts a map vote when returning to the lobby.
+        /// Requires auto voting to be enabled.
+        public static readonly CVarDef<bool> MapAutoVoteEnabled =
+            CVarDef.Create("vote.map_autovote_enabled", true, CVar.SERVERONLY);
+
+        /// Automatically starts a gamemode vote when returning to the lobby.
+        /// Requires auto voting to be enabled.
+        public static readonly CVarDef<bool> PresetAutoVoteEnabled =
+            CVarDef.Create("vote.preset_autovote_enabled", true, CVar.SERVERONLY);
     }
 }

@@ -2,7 +2,7 @@
   id: ActivateHardlightSpearImplant
   name: Create hardlight spear
   description: Creates hardlight spear in your hands.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     useDelay: 1.5
@@ -17,7 +17,7 @@
   id: ActivateSmokeImplant
   name: Release a cloud of smoke
   description: Releases a cloud of smoke around you.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     useDelay: 20
@@ -32,7 +32,7 @@
   id: ToggleNightVision
   name: Switch night vision
   description: Switches night vision.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     itemIconStyle: BigAction
@@ -46,7 +46,7 @@
   id: ToggleThermalVision
   name: Switch Thermal vision
   description: Switches Thermal vision.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     itemIconStyle: BigAction

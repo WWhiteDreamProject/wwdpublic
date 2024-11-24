@@ -41,8 +41,5 @@
     pocket2: ClownRecorder
     id: ClownPDA
     ears: ClothingHeadsetService
-  inhand:
-    - CandyBucket
-    - PresentHalloweenRandom
   satchel: ClothingBackpackSatchelClownFilled
   duffelbag: ClothingBackpackDuffelClownFilled

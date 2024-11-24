@@ -1,10 +1,11 @@
 using Content.Server.Jittering;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Stunnable;
-using Content.Shared.Damage.Events;
 using Content.Shared.Projectiles;
 using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable.Events;
 using Content.Shared.Throwing;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Timing;
 
 namespace Content.Server._White.Knockdown;
@@ -18,25 +19,25 @@ public sealed class KnockdownSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<KnockdownOnHitComponent, TakeStaminaDamageEvent>(OnMeleeHit);
+        SubscribeLocalEvent<KnockdownOnHitComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<KnockdownOnCollideComponent, ProjectileHitEvent>(OnProjectileHit);
         SubscribeLocalEvent<KnockdownOnCollideComponent, ThrowDoHitEvent>(OnThrowDoHit);
     }
 
-    private void OnMeleeHit(EntityUid uid, KnockdownOnHitComponent component, TakeStaminaDamageEvent args)
+    private void OnMeleeHit(EntityUid uid, KnockdownOnHitComponent component, MeleeHitEvent args)
     {
-        Knockdown(args.Target, component);
+        var ev = new KnockdownOnHitAttemptEvent();
+        RaiseLocalEvent(uid, ref ev);
+        if (ev.Cancelled)
+            return;
+
+        foreach (var hitEntity in args.HitEntities)
+            Knockdown(hitEntity, component);
     }
 
-    private void OnProjectileHit(EntityUid uid, KnockdownOnCollideComponent component, ProjectileHitEvent args)
-    {
-        Knockdown(args.Target, component);
-    }
+    private void OnProjectileHit(EntityUid uid, KnockdownOnCollideComponent component, ProjectileHitEvent args) => Knockdown(args.Target, component);
 
-    private void OnThrowDoHit(EntityUid uid, KnockdownOnCollideComponent component, ThrowDoHitEvent args)
-    {
-        Knockdown(args.Target, component);
-    }
+    private void OnThrowDoHit(EntityUid uid, KnockdownOnCollideComponent component, ThrowDoHitEvent args) => Knockdown(args.Target, component);
 
     private void Knockdown(EntityUid target, BaseKnockdownOnComponent component)
     {
@@ -58,6 +59,7 @@ public sealed class KnockdownSystem : EntitySystem
         var knockdown = EnsureComp<KnockComponent>(target);
         knockdown.Delay = _timing.CurTime + component.Delay;
         knockdown.KnockdownTime = component.KnockdownTime;
+        knockdown.DropHeldItemsBehavior = component.DropHeldItemsBehavior;
     }
 
     public override void Update(float frameTime)
@@ -70,7 +72,7 @@ public sealed class KnockdownSystem : EntitySystem
             if (delayedKnockdown.Delay > _timing.CurTime)
                 continue;
 
-            _sharedStun.TryKnockdown(uid, delayedKnockdown.KnockdownTime, true);
+            _sharedStun.TryKnockdown(uid, delayedKnockdown.KnockdownTime, true, delayedKnockdown.DropHeldItemsBehavior);
             RemCompDeferred<KnockComponent>(uid);
         }
     }
