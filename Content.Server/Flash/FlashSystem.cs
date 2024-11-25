@@ -135,6 +135,13 @@ namespace Content.Server.Flash
             if (!Resolve(target, ref flashable, false))
                 return;
 
+            // WWDP-Start
+            if (TryComp<FlashModifierComponent>(target, out var flashModifier))
+            {
+                flashDuration *= flashModifier.Modifier;
+            }
+            // WWDP-End
+
             var attempt = new FlashAttemptEvent(target, user, used);
             RaiseLocalEvent(target, attempt, true);
 
