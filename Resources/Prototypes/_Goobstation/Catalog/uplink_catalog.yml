@@ -183,8 +183,10 @@
   description: uplink-rifle-subsonic-mag-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: rubber }
   productEntity: MagazineLightRifleSubsonic
+  # WD EDIT START
   cost:
-    Telecrystal: 5
+    Telecrystal: 1
+  # WD EDIT END
   categories:
   - UplinkAmmo
   conditions:
@@ -199,8 +201,10 @@
   description: uplink-rifle-mag-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: red }
   productEntity: MagazineRifle
+  # WD EDIT START
   cost:
-    Telecrystal: 6 # Slightly more expensive than C20 mag due to more total damage
+    Telecrystal: 1
+  # WD EDIT END
   categories:
   - UplinkAmmo
 
@@ -210,8 +214,10 @@
   description: uplink-high-caliber-explosive-magazine-desc
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
   productEntity: MagazineHighCaliberExplosive
+  # WD EDIT START
   cost:
-    Telecrystal: 12 # Twice as much compared to regular mags. Idk if it's reasonable
+    Telecrystal: 1
+  # WD EDIT END
   categories:
   - UplinkAmmo
 
@@ -221,8 +227,10 @@
   description: uplink-high-caliber-magazine-desc
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
   productEntity: MagazineHighCaliber
+  # WD EDIT START
   cost:
-    Telecrystal: 6 # Slightly more total damage compared to C20 mags
+    Telecrystal: 1
+  # WD EDIT END
   categories:
   - UplinkAmmo
 
@@ -232,7 +240,31 @@
   description: uplink-l6-box-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_box.rsi, state: base }
   productEntity: MagazineLightRifleBox
+  # WD EDIT START
+  discountDownTo:
+    Telecrystal: 1
   cost:
-    Telecrystal: 25 # 5 times as much total damage as C20 mag - 5 time as much cost
+    Telecrystal: 5
+  # WD EDIT END
   categories:
   - UplinkAmmo
+
+- type: listing
+  id: UplinkSyndicateSegwayCrate
+  name: uplink-syndicate-segway-crate-name # Funnily enough these localizations weren't removed when wiz removed vehicles
+  description: uplink-syndicate-segway-crate-desc
+  icon: { sprite: /Textures/Objects/Vehicles/syndicatesegway.rsi, state: icon }
+  productEntity: CrateFunSyndicateSegway
+  # WD EDIT START
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 5
+  # WD EDIT END
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
