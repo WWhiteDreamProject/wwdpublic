@@ -109,6 +109,26 @@
     - !type:CharacterItemGroupRequirement
       group: LoadoutSmokes
 
+- type: loadout
+  id: LoadoutItemBlunt
+  category: Items
+  cost: 0
+  items:
+    - Blunt
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutSmokes
+
+- type: loadout
+  id: LoadoutItemJoint
+  category: Items
+  cost: 0
+  items:
+    - Joint
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutSmokes
+
 # Instruments
 - type: loadout
   id: LoadoutItemMicrophoneInstrument
@@ -320,6 +340,7 @@
   id: LoadoutItemsEmergencyCrowbar
   category: Items
   cost: 3
+  canBeHeirloom: true
   items:
     - CrowbarRed
 
@@ -416,6 +437,13 @@
   cost: 3
   items:
     - LunchboxGenericFilledRandom
+
+- type: loadout
+  id: LoadoutItemDrinkMREFlask
+  category: Items
+  cost: 2
+  items:
+    - DrinkMREFlask
 
 # Survival boxes
 - type: loadout
@@ -653,6 +681,7 @@
   id: LoadoutItemPAI
   category: Items
   cost: 3
+  canBeHeirloom: true
   items:
     - PersonalAI
 
@@ -695,3 +724,39 @@
   cost: 3
   items:
     - HandLabeler
+
+- type: loadout
+  id: LoadoutItemHandheldStationMap
+  category: Items
+  cost: 2
+  items:
+    - HandheldStationMap
+
+- type: loadout
+  id: LoadoutItemLantern
+  category: Items
+  cost: 2
+  items:
+    - Lantern
+
+- type: loadout
+  id: LoadoutItemDrinkShinyFlask
+  category: Items
+  cost: 1
+  canBeHeirloom: true
+  items:
+    - DrinkShinyFlask
+
+- type: loadout
+  id: LoadoutItemDrinkLithiumFlask
+  category: Items
+  cost: 1
+  items:
+    - DrinkLithiumFlask
+
+- type: loadout
+  id: LoadoutItemDrinkVacuumFlask
+  category: Items
+  cost: 1
+  items:
+    - DrinkVacuumFlask
