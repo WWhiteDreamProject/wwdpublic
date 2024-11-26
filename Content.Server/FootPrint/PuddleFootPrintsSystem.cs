@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.Fluids.EntitySystems;
 using Content.Shared.FootPrint;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
@@ -12,11 +13,13 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly PuddleSystem _puddle = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<PuddleFootPrintsComponent, EndCollideEvent>(OnStepTrigger);
+        SubscribeLocalEvent<PuddleFootPrintsComponent, StartCollideEvent>(OnStartCollide); // WD EDIT
     }
 
     private void OnStepTrigger(EntityUid uid, PuddleFootPrintsComponent component, ref EndCollideEvent args)
@@ -42,6 +45,18 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
             AddColor((Color) color, (float) volume * component.SizeRatio, tripper);
 
         _solutionContainer.RemoveEachReagent(puddle.Solution.Value, 1);
+    }
+
+    public void OnStartCollide(EntityUid uid, PuddleFootPrintsComponent component, StartCollideEvent args)
+    {
+        if (!TryComp<PuddleComponent>(args.OtherEntity, out var puddle)
+            || !HasComp<FootPrintComponent>(args.OtherEntity)
+            || !TryComp<SolutionContainerManagerComponent>(args.OtherEntity, out var solutionManager)
+            || !_solutionContainer.ResolveSolution((args.OtherEntity, solutionManager), puddle.SolutionName, ref puddle.Solution, out var solutions))
+            return;
+
+        if (_puddle.TryAddSolution(uid, solutions, sol:solutionManager))
+            QueueDel(args.OtherEntity);
     }
 
     private void AddColor(Color col, float quantity, FootPrintsComponent component)
