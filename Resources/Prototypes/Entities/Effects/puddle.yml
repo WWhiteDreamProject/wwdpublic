@@ -134,7 +134,9 @@
         mask:
         - ItemMask
         layer:
-        - SlipLayer
+        - Impassable
+        - MidImpassable
+        - LowImpassable
         hard: false
   - type: IconSmooth
     key: puddles
@@ -167,12 +169,10 @@
   - type: BadDrink
   - type: IgnoresFingerprints
   - type: PuddleFootPrints
-  - type: ItemPlacer # WD EDIT
 
 - type: entity
   name: footstep
   id: Footstep
-  parent: Puddle
   save: false
   description: Trace of liquid.
   components:
@@ -203,7 +203,7 @@
   - type: SolutionContainerManager
     solutions:
       step: { maxVol: 2 }
-  - type: Footprint
+  - type: FootPrint
   - type: Puddle
     solution: step
   - type: Appearance
