@@ -4,6 +4,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Prototypes;
+using Content.Shared.Buckle.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.DragDrop;
@@ -34,6 +35,8 @@ public partial class SharedBodySystem
      * - Each "connection" is a body part (e.g. arm, hand, etc.) and each part can also contain organs.
      */
 
+    [Dependency] private readonly StandingStateSystem _standing = default!;// WD EDIT
+
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly GibbingSystem _gibbingSystem = default!;
@@ -52,6 +55,7 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyComponent, MapInitEvent>(OnBodyMapInit);
         SubscribeLocalEvent<BodyComponent, CanDragEvent>(OnBodyCanDrag);
         SubscribeLocalEvent<BodyComponent, StandAttemptEvent>(OnStandAttempt);
+        SubscribeLocalEvent<BodyComponent, UnbuckledEvent>(OnUnbuckled); // WD EDIT
         SubscribeLocalEvent<BodyComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished);
     }
 
@@ -143,6 +147,14 @@ public partial class SharedBodySystem
         if (ent.Comp.LegEntities.Count == 0)
             args.Cancel();
     }
+
+    // WD EDIT START
+    private void OnUnbuckled(Entity<BodyComponent> ent, ref UnbuckledEvent args)
+    {
+        if (ent.Comp.LegEntities.Count == 0)
+            _standing.Down(ent.Owner, dropHeldItems:true);
+    }
+    // WD EDIT END
 
     /// <summary>
     /// Sets up all of the relevant body parts for a particular body entity and root part.

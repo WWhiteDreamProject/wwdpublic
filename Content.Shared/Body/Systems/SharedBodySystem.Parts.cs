@@ -13,6 +13,9 @@ using Robust.Shared.Containers;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.Buckle;
+using Content.Shared.Standing;
+
 
 namespace Content.Shared.Body.Systems;
 
@@ -20,6 +23,8 @@ public partial class SharedBodySystem
 {
     [Dependency] private readonly RandomHelperSystem _randomHelper = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly SharedBuckleSystem _buckle = default!; //WD EDIT
+
     private void InitializeParts()
     {
         // TODO: This doesn't handle comp removal on child ents.
@@ -209,7 +214,9 @@ public partial class SharedBodySystem
             bodyEnt.Comp.LegEntities.Remove(legEnt);
             UpdateMovementSpeed(bodyEnt);
             Dirty(bodyEnt, bodyEnt.Comp);
-            Standing.Down(bodyEnt);
+            if (!_buckle.IsBuckled(bodyEnt)) // WD EDIT
+                Standing.Down(bodyEnt);
+            RaiseLocalEvent(bodyEnt, new DropHandItemsEvent(), false); // WD EDIT
         }
     }
 
