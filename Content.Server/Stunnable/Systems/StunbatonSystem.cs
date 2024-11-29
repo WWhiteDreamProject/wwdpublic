@@ -40,10 +40,7 @@ namespace Content.Server.Stunnable.Systems
         private void OnStaminaHitAttempt(Entity<StunbatonComponent> entity, ref StaminaDamageOnHitAttemptEvent args)
         {
             // WD EDIT START
-            if (!_itemToggle.IsActivated(entity.Owner)
-                || !_battery.TryGetBatteryComponent(entity, out var battery, out var batteryUid)
-                || battery.CurrentCharge < entity.Comp.EnergyPerUse
-                || !_battery.TryUseCharge(batteryUid.Value, entity.Comp.EnergyPerUse / 2, battery))
+            if (!_itemToggle.IsActivated(entity.Owner) || TryUseCharge(entity))
                 args.Cancelled = true;
             // WD EDIT END
         }
@@ -51,10 +48,7 @@ namespace Content.Server.Stunnable.Systems
         // WD EDIT START
         private void OnKnockdownHitAttempt(Entity<StunbatonComponent> entity, ref KnockdownOnHitAttemptEvent args)
         {
-            if (!_itemToggle.IsActivated(entity.Owner)
-                || !_battery.TryGetBatteryComponent(entity, out var battery, out var batteryUid)
-                || battery.CurrentCharge < entity.Comp.EnergyPerUse
-                || !_battery.TryUseCharge(batteryUid.Value, entity.Comp.EnergyPerUse / 2, battery))
+            if (!_itemToggle.IsActivated(entity.Owner) || TryUseCharge(entity))
                 args.Cancelled = true;
         }
         // WD EDIT END
@@ -140,6 +134,13 @@ namespace Content.Server.Stunnable.Systems
             if (!_battery.TryGetBatteryComponent(entity, out var battery, out _)
                 || battery.CurrentCharge < entity.Comp.EnergyPerUse)
                 _itemToggle.TryDeactivate(entity.Owner, predicted: false);
+        }
+
+        private bool TryUseCharge(Entity<StunbatonComponent> entity)
+        {
+            return _battery.TryGetBatteryComponent(entity, out var battery, out var batteryUid)
+                && battery.CurrentCharge >= entity.Comp.EnergyPerUse
+                && _battery.TryUseCharge(batteryUid.Value, entity.Comp.EnergyPerUse / 2, battery);
         }
         // WD EDIT END
     }
