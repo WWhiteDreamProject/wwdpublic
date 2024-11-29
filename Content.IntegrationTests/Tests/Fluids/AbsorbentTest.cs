@@ -7,6 +7,8 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using System.Collections.Generic;
 using System.Linq;
+using Robust.Shared.Physics;
+
 
 namespace Content.IntegrationTests.Tests.Fluids;
 
@@ -81,6 +83,7 @@ public sealed class AbsorbentTest
         var entityManager = server.ResolveDependency<IEntityManager>();
         var absorbentSystem = entityManager.System<AbsorbentSystem>();
         var solutionContainerSystem = entityManager.System<SharedSolutionContainerSystem>();
+        var transform = entityManager.System<SharedTransformSystem>();
         var prototypeManager = server.ResolveDependency<IPrototypeManager>();
 
         EntityUid user = default;
@@ -109,7 +112,7 @@ public sealed class AbsorbentTest
                 solutionContainerSystem.AddSolution(refillableSoln.Value, new Solution(NonEvaporablePrototypeId, testCase.InitialRefillableSolution.VolumeOfNonEvaporable));
 
             // Act
-            absorbentSystem.Mop(user, refillable, absorbent, component);
+            absorbentSystem.Mop(user, refillable, component, transform.GetMoverCoordinates(absorbent));
 
             // Assert
             var absorbentComposition = absorbentSolution.GetReagentPrototypes(prototypeManager).ToDictionary(r => r.Key.ID, r => r.Value);
@@ -139,6 +142,7 @@ public sealed class AbsorbentTest
         var entityManager = server.ResolveDependency<IEntityManager>();
         var absorbentSystem = entityManager.System<AbsorbentSystem>();
         var solutionContainerSystem = entityManager.System<SharedSolutionContainerSystem>();
+        var transform = entityManager.System<SharedTransformSystem>();
         var prototypeManager = server.ResolveDependency<IPrototypeManager>();
 
         EntityUid user = default;
@@ -166,7 +170,7 @@ public sealed class AbsorbentTest
                 solutionContainerSystem.AddSolution(refillableSoln.Value, new Solution(NonEvaporablePrototypeId, testCase.InitialRefillableSolution.VolumeOfNonEvaporable));
 
             // Act
-            absorbentSystem.Mop(user, refillable, absorbent, component);
+            absorbentSystem.Mop(user, refillable, component, transform.GetMoverCoordinates(absorbent));
 
             // Assert
             var absorbentComposition = absorbentSolution.GetReagentPrototypes(prototypeManager).ToDictionary(r => r.Key.ID, r => r.Value);

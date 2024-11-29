@@ -34,9 +34,6 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
     [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!; // WD EDIT
-
-    public const float AbsorptionRange = 0.25f; // WD EDIT
 
     public override void Initialize()
     {
@@ -98,20 +95,20 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
         if (args.Handled || args.Target == null)
             return;
 
-        Mop(uid, args.Target.Value, uid, component);
+        Mop(uid, uid, component, args.ClickLocation, args.Target);
         args.Handled = true;
     }
 
     private void OnAfterInteract(EntityUid uid, AbsorbentComponent component, AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Handled || args.Target == null)
+        if (!args.CanReach || args.Handled)
             return;
 
-        Mop(args.User, args.Target.Value, args.Used, component);
+        Mop(args.User, args.Used, component, args.ClickLocation, args.Target);
         args.Handled = true;
     }
 
-    public void Mop(EntityUid user, EntityUid target, EntityUid used, AbsorbentComponent component)
+    public void Mop(EntityUid user, EntityUid used, AbsorbentComponent component, EntityCoordinates coordinates, EntityUid? target = null)
     {
         if (!_solutionContainerSystem.TryGetSolution(used, AbsorbentComponent.SolutionName, out var absorberSoln))
             return;
@@ -121,12 +118,14 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
             return;
 
         // If it's a puddle try to grab from
-        if (!TryPuddleInteract(user, used, target, component, useDelay, absorberSoln.Value))
-        {
-            // If it's refillable try to transfer
-            if (!TryRefillableInteract(user, used, target, component, useDelay, absorberSoln.Value))
-                return;
-        }
+        if (TryPuddleInteract(user, used, component, useDelay, absorberSoln.Value, coordinates))
+            return;
+
+        // If it's refillable try to transfer
+        if (!target.HasValue)
+            return;
+
+        TryRefillableInteract(user, used, target.Value, component, useDelay, absorberSoln.Value);
     }
 
     /// <summary>
@@ -276,23 +275,20 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
     /// <summary>
     ///     Logic for an absorbing entity interacting with a puddle.
     /// </summary>
-    private bool TryPuddleInteract(EntityUid user, EntityUid used, EntityUid target, AbsorbentComponent absorber, UseDelayComponent? useDelay, Entity<SolutionComponent> absorberSoln)
+    private bool TryPuddleInteract(EntityUid user, EntityUid used, AbsorbentComponent absorber, UseDelayComponent? useDelay, Entity<SolutionComponent> absorberSoln, EntityCoordinates coordinates)
     {
-        if (!HasComp<PuddleComponent>(target))
-            return false;
-
-        var targets = new HashSet<Entity<PuddleComponent>>();
-        _lookup.GetEntitiesInRange(Transform(target).Coordinates, AbsorptionRange, targets, LookupFlags.Dynamic | LookupFlags.Uncontained);
-
-        foreach (var (entity, component) in targets)
+        foreach (var entity in coordinates.GetEntitiesInTile())
         {
+            if (!TryComp<PuddleComponent>(entity, out var component))
+                continue;
+
             if (!_solutionContainerSystem.ResolveSolution(entity, component.SolutionName, ref component.Solution, out var puddleSolution) || puddleSolution.Volume <= 0)
                 return false;
 
             // Check if the puddle has any non-evaporative reagents
             if (_puddleSystem.CanFullyEvaporate(puddleSolution))
             {
-                _popups.PopupEntity(Loc.GetString("mopping-system-puddle-evaporate", ("target", target)), user, user);
+                _popups.PopupEntity(Loc.GetString("mopping-system-puddle-evaporate", ("target", entity)), user, user);
                 continue;
             }
 
@@ -304,7 +300,7 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
             if (available == FixedPoint2.Zero)
             {
                 _popups.PopupEntity(Loc.GetString("mopping-system-no-water", ("used", used)), user, user);
-                return true;
+                break;
             }
 
             var transferMax = absorber.PickupAmount;
@@ -326,12 +322,12 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
             _solutionContainerSystem.AddSolution(absorberSoln, puddleSplit);
         }
 
-        _audio.PlayPvs(absorber.PickupSound, target);
+        _audio.PlayPvs(absorber.PickupSound, used);
         if (useDelay != null)
             _useDelay.TryResetDelay((used, useDelay));
 
         var userXform = Transform(user);
-        var targetPos = _transform.GetWorldPosition(target);
+        var targetPos = coordinates.Position;
         var localPos = Vector2.Transform(targetPos, _transform.GetInvWorldMatrix(userXform));
         localPos = userXform.LocalRotation.RotateVec(localPos);
 
