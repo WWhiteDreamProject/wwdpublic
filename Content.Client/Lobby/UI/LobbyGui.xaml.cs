@@ -46,7 +46,7 @@ namespace Content.Client.Lobby.UI
                     CharacterSetupState.Visible = true;
                     // WD EDIT START
                     Center.Visible = false;
-                    RightSide.Visible = true;
+                    RightSide.Visible = false;
                     LabelName.Visible = false;
                     Changelog.Visible = false;
                     // WD EDIT END
@@ -54,8 +54,10 @@ namespace Content.Client.Lobby.UI
                     var actualWidth = (float) UserInterfaceManager.RootControl.PixelWidth;
                     var setupWidth = (float) LeftSide.PixelWidth;
 
-                    if (1 - (setupWidth / actualWidth) < 0.30)
-                        RightSide.Visible = false;
+                    // WD EDIT START
+                    if (1 - (setupWidth / actualWidth) < 0.15)
+                        RightSide.Visible = true;
+                    // WD EDIT END
 
                     UserInterfaceManager.GetUIController<LobbyUIController>().ReloadCharacterSetup();
 

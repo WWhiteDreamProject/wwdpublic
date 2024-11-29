@@ -403,7 +403,7 @@
     solution:
       reagents:
       - ReagentId: SpaceCleaner
-        Quantity: 30
+        Quantity: 50 # WD EDIT
 
 - type: entity
   parent: SmokeGrenade

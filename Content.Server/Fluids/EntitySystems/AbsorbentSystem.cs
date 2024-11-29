@@ -34,6 +34,10 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
     [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!; // WD EDIT
+    [Dependency] private readonly EntityLookupSystem _lookup = default!; // WD EDIT
+
+    public const float AbsorptionRange = 0.25f; // WD EDIT
 
     public override void Initialize()
     {
@@ -277,20 +281,29 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
     /// </summary>
     private bool TryPuddleInteract(EntityUid user, EntityUid used, AbsorbentComponent absorber, UseDelayComponent? useDelay, Entity<SolutionComponent> absorberSoln, EntityCoordinates coordinates)
     {
-        foreach (var entity in coordinates.GetEntitiesInTile())
-        {
-            if (!TryComp<PuddleComponent>(entity, out var component))
-                continue;
+        // WD EDIT START
+        if (!_mapManager.TryFindGridAt(coordinates.ToMap(EntityManager, _transform), out var gridUid, out var mapGrid))
+            return false;
 
+        var tileRef = _mapSystem.GetTileRef(gridUid, mapGrid, coordinates);
+        var tile = new EntityCoordinates(coordinates.EntityId, new (tileRef.X + 0.5f, tileRef.Y + 0.5f));
+        var targets = new HashSet<Entity<PuddleComponent>>();
+        _lookup.GetEntitiesInRange(tile, AbsorptionRange, targets, LookupFlags.Dynamic | LookupFlags.Uncontained);
+
+        if (targets.Count == 0)
+            return false;
+
+        var playSound = false;
+        // WD EDIT END
+
+        foreach (var (entity, component) in targets) // WD EDIT
+        {
             if (!_solutionContainerSystem.ResolveSolution(entity, component.SolutionName, ref component.Solution, out var puddleSolution) || puddleSolution.Volume <= 0)
-                return false;
+                continue;
 
             // Check if the puddle has any non-evaporative reagents
             if (_puddleSystem.CanFullyEvaporate(puddleSolution))
-            {
-                _popups.PopupEntity(Loc.GetString("mopping-system-puddle-evaporate", ("target", entity)), user, user);
                 continue;
-            }
 
             // Check if we have any evaporative reagents on our absorber to transfer
             var absorberSolution = absorberSoln.Comp.Solution;
@@ -310,24 +323,25 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
             var absorberSplit = absorberSolution.SplitSolutionWithOnly(puddleSplit.Volume, PuddleSystem.EvaporationReagents);
 
             // Do tile reactions first
-            var transform = Transform(entity);
-            var gridUid = transform.GridUid;
-            if (TryComp(gridUid, out MapGridComponent? mapGrid))
-            {
-                var tileRef = _mapSystem.GetTileRef(gridUid.Value, mapGrid, transform.Coordinates);
-                _puddleSystem.DoTileReactions(tileRef, absorberSplit);
-            }
+            _puddleSystem.DoTileReactions(tileRef, absorberSplit);
 
             _solutionContainerSystem.AddSolution(component.Solution.Value, absorberSplit);
             _solutionContainerSystem.AddSolution(absorberSoln, puddleSplit);
+
+            playSound = true; // WD EDIT
         }
 
+        // WD EDIT START
+        if (!playSound)
+            return false;
+        // WD EDIT END
         _audio.PlayPvs(absorber.PickupSound, used);
+
         if (useDelay != null)
             _useDelay.TryResetDelay((used, useDelay));
 
         var userXform = Transform(user);
-        var targetPos = coordinates.Position;
+        var targetPos = tile.Position; // WD EDIT
         var localPos = Vector2.Transform(targetPos, _transform.GetInvWorldMatrix(userXform));
         localPos = userXform.LocalRotation.RotateVec(localPos);
 

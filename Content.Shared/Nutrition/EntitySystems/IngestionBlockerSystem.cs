@@ -1,7 +1,7 @@
-﻿using Content.Server.Nutrition.Components;
+﻿using Content.Shared.Nutrition.Components;
 using Content.Shared.Clothing;
 
-namespace Content.Server.Nutrition.EntitySystems;
+namespace Content.Shared.Nutrition.EntitySystems;
 
 public sealed class IngestionBlockerSystem : EntitySystem
 {
