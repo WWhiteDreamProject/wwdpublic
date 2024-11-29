@@ -468,7 +468,7 @@ namespace Content.Shared.CCVar
         ///     Optionally force set an announcer
         /// </summary>
         public static readonly CVarDef<string> Announcer =
-            CVarDef.Create("announcer.announcer", "", CVar.SERVERONLY);
+            CVarDef.Create("announcer.announcer", "RuOld", CVar.SERVERONLY);
 
         /// <summary>
         ///     Optionally blacklist announcers
