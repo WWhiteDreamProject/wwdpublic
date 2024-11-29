@@ -8413,3 +8413,12 @@ Entries:
   id: 6537
   time: '2024-11-24T18:20:14.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/130
+- author: Warete
+  changes:
+    - type: Add
+      message: RU Annoncer / Оповещения на русском
+    - type: Tweak
+      message: Forced Annoncer in CVAR / Закреплены оповещения в CVAR
+  id: 6538
+  time: '2024-11-29T03:53:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/127
