@@ -72,6 +72,17 @@
   - type: Tag
     tags:
     - NoPaint
+  - type: Scalpel
+    speed: 0.75
+  - type: Cautery
+    speed: 0.2
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/Weapons/ebladehum.ogg
+    endSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
   - type: MeleeBlock # WD EDIT
     delay: 6.1
     blockSound:

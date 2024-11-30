@@ -285,6 +285,9 @@
       - CryostasisBeaker
       - SyringeCryostasis
       - Syringe
+      - EnergyScalpel
+      - EnergyCautery
+      - AdvancedRetractor
       - Implanter
       - PillCanister
       - ChemistryEmptyBottle01
@@ -359,10 +362,6 @@
       - AnimalTranslator
       - MofficTranslatorImplanter
       - MofficTranslator
-      # WD EDIT START
-      - ClothingEyesNightVisionGoggles
-      - ClothingEyesThermalVisionGoggles
-      # WD EDIT END
       - RCDAmmo #DeltaV
       - RCD #EE
   - type: EmagLatheRecipes
@@ -606,6 +605,7 @@
     - BorgModuleConstruction
     - BorgModuleService
     - BorgModuleTreatment
+    - BorgModuleSurgery
     - BorgModuleCleaning
     - CyborgEndoskeleton
     - LeftArmBorg
@@ -662,6 +662,12 @@
     - BorgModuleDiagnosis
     - BorgModuleDefibrillator
     - BorgModuleAdvancedTreatment
+    - BorgModuleAdvancedSurgery
+    - JawsOfLifeLeftArm
+    - JawsOfLifeRightArm
+    - SpeedLeftLeg
+    - SpeedRightLeg
+    - BasicCyberneticEyes
     - RipleyHarness
     - RipleyLArm
     - RipleyRArm
@@ -902,6 +908,8 @@
       - MagazineBoxSpecialIncendiary
       - MagazineBoxSpecialUranium
       - MagazineBoxSpecialMindbreaker
+      - SecurityCyberneticEyes
+      - MedicalCyberneticEyes
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1031,13 +1039,11 @@
       - ClothingEyesHudMedical # Nyano
       - ChemicalPayload # Nyano
       - SyringeCryostasis
-      - BluespaceBodyBag # WD
-      - NTBodyBag # WD
-      - PrisonerBodyBag # WD
-      - RadiationBodyBag # WD
-  - type: EmagLatheRecipes
-    emagDynamicRecipes:
-      - SyndicateBodyBag # WD
+      - EnergyScalpel
+      - EnergyCautery
+      - AdvancedRetractor
+      - OmnimedTool
+      - MedicalCyberneticEyes
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
@@ -1310,7 +1316,6 @@
     - type: MaterialStorageMagnetPickup # Delta V - Summary: Adds magnet pull from Frontier
       magnetEnabled: True
       range: 0.30 # Delta V - End Magnet Pull
-    - type: PlaceableSurface # WHITE EDIT
 
 - type: entity
   parent: OreProcessor
