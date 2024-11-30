@@ -24,7 +24,7 @@ namespace Content.Shared.CCVar
         ///     Name of the rules txt file in the "Resources/Server Info" dir. Include the extension.
         /// </summary>
         public static readonly CVarDef<string> RulesFile =
-            CVarDef.Create("server.rules_file", "DefaultRuleset", CVar.REPLICATED | CVar.SERVER);
+            CVarDef.Create("server.rules_file", "MedusaRuleset", CVar.REPLICATED | CVar.SERVER); // WD EDIT
 
         /// <summary>
         ///     A loc string for what should be displayed as the title on the Rules window.
@@ -468,7 +468,7 @@ namespace Content.Shared.CCVar
         ///     Optionally force set an announcer
         /// </summary>
         public static readonly CVarDef<string> Announcer =
-            CVarDef.Create("announcer.announcer", "", CVar.SERVERONLY);
+            CVarDef.Create("announcer.announcer", "RuOld", CVar.SERVERONLY);
 
         /// <summary>
         ///     Optionally blacklist announcers

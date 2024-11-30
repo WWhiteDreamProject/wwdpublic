@@ -56,7 +56,7 @@ trait-name-Snoring = Храп
 trait-description-Snoring = Вы храпите во время сна.
 
 trait-name-CPRTraining = Тренировки ПМП.
-trait-description-CPRTraining = В какой момент своей жизни вы научились делать СЛР. Все врачи это умеют.
+trait-description-CPRTraining = В какой-то момент своей жизни вы научились делать СЛР. Все врачи это умеют.
 
 trait-name-Nearsighted = Близорукость
 trait-description-Nearsighted = Ваше зрение уже далеко от лучшего и вам тяжело видеть вещи в далеке без очков.

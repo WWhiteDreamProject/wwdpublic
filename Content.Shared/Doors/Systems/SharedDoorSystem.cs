@@ -569,6 +569,11 @@ public abstract partial class SharedDoorSystem : EntitySystem
             if (otherPhysics.CollisionLayer == (int) CollisionGroup.ConveyorMask)
                 continue;
 
+            // WD EDIT START
+            if (otherPhysics.CollisionLayer == (int) CollisionGroup.MidImpassable)
+                continue;
+            // WD EDIT END
+
             if ((physics.CollisionMask & otherPhysics.CollisionLayer) == 0 && (otherPhysics.CollisionMask & physics.CollisionLayer) == 0)
                 continue;
 
