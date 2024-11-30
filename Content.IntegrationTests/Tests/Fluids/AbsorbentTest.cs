@@ -112,7 +112,7 @@ public sealed class AbsorbentTest
                 solutionContainerSystem.AddSolution(refillableSoln.Value, new Solution(NonEvaporablePrototypeId, testCase.InitialRefillableSolution.VolumeOfNonEvaporable));
 
             // Act
-            absorbentSystem.Mop(user, refillable, component, absorbent.ToCoordinates(), absorbent); // WD EDIT
+            absorbentSystem.Mop(user, absorbent, component, refillable.ToCoordinates(), refillable); // WD EDIT
 
             // Assert
             var absorbentComposition = absorbentSolution.GetReagentPrototypes(prototypeManager).ToDictionary(r => r.Key.ID, r => r.Value);
@@ -169,7 +169,7 @@ public sealed class AbsorbentTest
                 solutionContainerSystem.AddSolution(refillableSoln.Value, new Solution(NonEvaporablePrototypeId, testCase.InitialRefillableSolution.VolumeOfNonEvaporable));
 
             // Act
-            absorbentSystem.Mop(user, refillable, component, absorbent.ToCoordinates(), absorbent); // WD EDIT
+            absorbentSystem.Mop(user, absorbent, component, refillable.ToCoordinates(), refillable); // WD EDIT
 
             // Assert
             var absorbentComposition = absorbentSolution.GetReagentPrototypes(prototypeManager).ToDictionary(r => r.Key.ID, r => r.Value);

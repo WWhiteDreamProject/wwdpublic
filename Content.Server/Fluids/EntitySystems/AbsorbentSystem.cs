@@ -135,7 +135,7 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
     /// <summary>
     ///     Logic for an absorbing entity interacting with a refillable.
     /// </summary>
-    private bool TryRefillableInteract(EntityUid user, EntityUid used, EntityUid target, AbsorbentComponent component, UseDelayComponent? useDelay, Entity<SolutionComponent> absorbentSoln)
+    public bool TryRefillableInteract(EntityUid user, EntityUid used, EntityUid target, AbsorbentComponent component, UseDelayComponent? useDelay, Entity<SolutionComponent> absorbentSoln)
     {
         if (!TryComp(target, out RefillableSolutionComponent? refillable))
             return false;
