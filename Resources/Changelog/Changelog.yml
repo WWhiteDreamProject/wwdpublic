@@ -8524,3 +8524,33 @@ Entries:
   id: 6544
   time: '2024-12-01T13:41:09.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/131
+- author: Spatison
+  changes:
+    - type: Add
+      message: 'Added energy bola / Добавлена энергетическая бола '
+    - type: Add
+      message: >-
+        Full-size headphones and some helmets received additional protection
+        from flashbang grenades / В полноразмерные наушники и некоторые шлема
+        добавлена защита от светошумовых гранат
+    - type: Add
+      message: Bola are now being knocked down / Болы теперь сбивают с ног
+    - type: Add
+      message: >-
+        Stunbatons are now being knocked down / Дубинки-шокеры теперь сбивают с
+        ног
+    - type: Add
+      message: Taser shot now being knocked down / Выстрел тазера теперь сбивает с ног
+    - type: Tweak
+      message: >-
+        The Attack rate of the stunbatons has been lowered / Скорость атаки
+        дубинок-шокеров понижена
+    - type: Tweak
+      message: >-
+        Stamina damage from stunbaton has been increased / Увеличен урон по
+        стамине у дубинок-шокеров
+    - type: Remove
+      message: Deleted taser stun / Удаленно оглушение у тазера
+  id: 6545
+  time: '2024-12-01T19:49:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/114
