@@ -6,6 +6,9 @@ using Content.Shared.FootPrint;
 using Content.Shared.Standing;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Fluids.Components;
+using Content.Shared.Maps;
+using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 
@@ -20,11 +23,11 @@ public sealed class FootPrintsSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly StandingStateSystem _standingState = default!; // WD EDIT
 
     private EntityQuery<TransformComponent> _transformQuery;
     private EntityQuery<MobThresholdsComponent> _mobThresholdQuery;
     private EntityQuery<AppearanceComponent> _appearanceQuery;
-    private EntityQuery<LayingDownComponent> _layingQuery;
 
     public override void Initialize()
     {
@@ -33,7 +36,6 @@ public sealed class FootPrintsSystem : EntitySystem
         _transformQuery = GetEntityQuery<TransformComponent>();
         _mobThresholdQuery = GetEntityQuery<MobThresholdsComponent>();
         _appearanceQuery = GetEntityQuery<AppearanceComponent>();
-        _layingQuery = GetEntityQuery<LayingDownComponent>();
 
         SubscribeLocalEvent<FootPrintsComponent, ComponentStartup>(OnStartupComponent);
         SubscribeLocalEvent<FootPrintsComponent, MoveEvent>(OnMove);
@@ -53,7 +55,7 @@ public sealed class FootPrintsSystem : EntitySystem
             return;
 
         var dragging = mobThreshHolds.CurrentThresholdState is MobState.Critical or MobState.Dead
-                       || _layingQuery.TryComp(uid, out var laying) && laying.IsCrawlingUnder;
+                       || _standingState.IsDown(uid); // WD EDIT
         var distance = (transform.LocalPosition - component.StepPos).Length();
         var stepSize = dragging ? component.DragSize : component.StepSize;
 

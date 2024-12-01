@@ -6,11 +6,14 @@ using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Nutrition.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Network;
 using Robust.Shared.Utility;
 using Robust.Shared.Random;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Timing;
+
 
 namespace Content.Shared.Medical.CPR
 {
@@ -26,6 +29,7 @@ namespace Content.Shared.Medical.CPR
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly INetManager _net = default!;
+        [Dependency] private readonly IGameTiming _timing = default!; // WD EDIT
         public override void Initialize()
         {
             base.Initialize();
@@ -56,27 +60,36 @@ namespace Content.Shared.Medical.CPR
 
         private void StartCPR(EntityUid performer, EntityUid target, CPRTrainingComponent cprComponent)
         {
+            // WD EDIT START
+            if (!_timing.IsFirstTimePredicted)
+                return;
+            // WD EDIT END
+
             if (HasComp<RottingComponent>(target))
             {
-                _popupSystem.PopupEntity(Loc.GetString("cpr-target-rotting", ("entity", target)), performer, performer);
+                _popupSystem.PopupPredicted(Loc.GetString("cpr-target-rotting", ("entity", target)), performer, performer);
                 return;
             }
 
             if (_inventory.TryGetSlotEntity(target, "outerClothing", out var outer))
             {
-                _popupSystem.PopupEntity(Loc.GetString("cpr-must-remove", ("clothing", outer)), performer, performer, PopupType.MediumCaution);
+                _popupSystem.PopupPredicted(Loc.GetString("cpr-must-remove", ("clothing", outer)), performer, performer, PopupType.MediumCaution);
                 return;
             }
 
-            if (_inventory.TryGetSlotEntity(target, "mask", out var mask))
+            if (_inventory.TryGetSlotEntity(target, "mask", out var mask)
+                && TryComp<IngestionBlockerComponent>(mask, out var blockerTarget) // WD EDIT
+                && blockerTarget.Enabled) // WD EDIT)
             {
-                _popupSystem.PopupEntity(Loc.GetString("cpr-must-remove", ("clothing", mask)), performer, performer, PopupType.MediumCaution);
+                _popupSystem.PopupPredicted(Loc.GetString("cpr-must-remove", ("clothing", mask)), performer, performer, PopupType.MediumCaution);
                 return;
             }
 
-            if (_inventory.TryGetSlotEntity(performer, "mask", out var maskSelf))
+            if (_inventory.TryGetSlotEntity(performer, "mask", out var maskSelf)
+                && TryComp<IngestionBlockerComponent>(maskSelf, out var blockerPerformer) // WD EDIT
+                && blockerPerformer.Enabled) // WD EDIT
             {
-                _popupSystem.PopupEntity(Loc.GetString("cpr-must-remove-own-mask", ("clothing", maskSelf)), performer, performer, PopupType.MediumCaution);
+                _popupSystem.PopupPredicted(Loc.GetString("cpr-must-remove-own-mask", ("clothing", maskSelf)), performer, performer, PopupType.MediumCaution);
                 return;
             }
 

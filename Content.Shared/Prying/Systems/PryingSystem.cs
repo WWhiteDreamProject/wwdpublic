@@ -140,6 +140,7 @@ public sealed class PryingSystem : EntitySystem
 
         if (time <= modEv.Neglect)
             time = 0;
+        // WD EDIT END
 
         var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(time), new DoorPryDoAfterEvent(), target, target, tool) // WD EDIT END
         {

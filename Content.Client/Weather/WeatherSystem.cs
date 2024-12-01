@@ -47,11 +47,12 @@ public sealed class WeatherSystem : SharedWeatherSystem
         if (!Timing.IsFirstTimePredicted || weatherProto.Sound == null)
             return;
 
-        var playStream = _audio.PlayGlobal(weatherProto.Sound, Filter.Local(), true);
-        weather.Stream ??= playStream!.Value.Entity;
+        // WD EDIT START
+        weather.Stream ??= _audio.PlayGlobal(weatherProto.Sound, Filter.Local(), true)?.Entity;
+        if (!TryComp(weather.Stream, out AudioComponent? comp))
+            return;
+        // WD EDIT END
 
-        var stream = weather.Stream.Value;
-        var comp = Comp<AudioComponent>(stream);
         var occlusion = 0f;
 
         // Work out tiles nearby to determine volume.
@@ -116,7 +117,7 @@ public sealed class WeatherSystem : SharedWeatherSystem
 
         var alpha = GetPercent(weather, uid);
         alpha *= SharedAudioSystem.VolumeToGain(weatherProto.Sound.Params.Volume);
-        _audio.SetGain(stream, alpha, comp);
+        _audio.SetGain(weather.Stream, alpha, comp); // WD EDIR
         comp.Occlusion = occlusion;
     }
 
