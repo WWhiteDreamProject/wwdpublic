@@ -31,16 +31,16 @@
   - type: UseDelay
     delay: 2
   - type: TelescopicBaton
-  - type: KnockdownOnHit
-    duration: 1.5
-    dropHeldItemsBehavior: NoDrop
+  - type: KnockdownOnHit # WD EDIT
+    jitterTime: 0
+    stutterTime: 0
+    delay: 0
+    knockdownTime: 1
   - type: MeleeWeapon
     attackRate: 0.8
     bluntStaminaDamageFactor: 1.5
-    heavyDamageBaseModifier: 1.2
-    heavyStaminaCost: 5
     maxTargets: 1
-    angle: 40
+    canHeavyAttack: false
     damage:
       types:
         Blunt: 1
@@ -62,7 +62,7 @@
   - type: TelescopicBaton
     attackTimeframe: 300 # one minute after activation
   - type: KnockdownOnHit
-    duration: 60 #
+    knockdownTime: 60 # WD EDIT
   - type: MeleeWeapon
     attackRate: 1.2
   - type: ItemToggleMeleeWeapon

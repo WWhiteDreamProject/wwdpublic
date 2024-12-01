@@ -133,6 +133,9 @@ public sealed partial class MeleeWeaponComponent : Component
     // WD EDIT START
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public EntProtoId DisarmAnimation = "WeaponArcDisarm";
+
+    [DataField, AutoNetworkedField]
+    public bool CanHeavyAttack = true;
     // WD EDIT END
 
     /// <summary>
