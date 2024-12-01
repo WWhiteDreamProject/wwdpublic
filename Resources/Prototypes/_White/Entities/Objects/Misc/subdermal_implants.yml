@@ -3,7 +3,7 @@
   id: HardlightSpearImplant
   name: hardlight spear implant
   description: This implant creates hardlight spear in your hands.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
       implantAction: ActivateHardlightSpearImplant
@@ -15,7 +15,7 @@
   id: NeuroStabilizationImplant
   name: neuro stabilization implant
   description: Blocks all of the incoming stamina damage at the cost of frying you nerve system a bit each time.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
   - type: Tag
@@ -27,7 +27,7 @@
   id: SmokeImplant
   name: smoke implant
   description: This implant releases smoke cloud on activation.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
       implantAction: ActivateSmokeImplant
@@ -43,7 +43,7 @@
   id: MindSlaveImplant
   name: mindslave implant
   description: Make someone a proper doll for your use.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
   - type: Tag

@@ -2,16 +2,11 @@ using System.Numerics;
 using Content.Shared.Weather;
 using Robust.Client.Audio;
 using Robust.Client.GameObjects;
-using Robust.Client.Graphics;
 using Robust.Client.Player;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using AudioComponent = Robust.Shared.Audio.Components.AudioComponent;
 
@@ -52,10 +47,12 @@ public sealed class WeatherSystem : SharedWeatherSystem
         if (!Timing.IsFirstTimePredicted || weatherProto.Sound == null)
             return;
 
-        weather.Stream ??= _audio.PlayGlobal(weatherProto.Sound, Filter.Local(), true).Value.Entity;
+        // WD EDIT START
+        weather.Stream ??= _audio.PlayGlobal(weatherProto.Sound, Filter.Local(), true)?.Entity;
+        if (!TryComp(weather.Stream, out AudioComponent? comp))
+            return;
+        // WD EDIT END
 
-        var stream = weather.Stream.Value;
-        var comp = Comp<AudioComponent>(stream);
         var occlusion = 0f;
 
         // Work out tiles nearby to determine volume.
@@ -120,13 +117,13 @@ public sealed class WeatherSystem : SharedWeatherSystem
 
         var alpha = GetPercent(weather, uid);
         alpha *= SharedAudioSystem.VolumeToGain(weatherProto.Sound.Params.Volume);
-        _audio.SetGain(stream, alpha, comp);
+        _audio.SetGain(weather.Stream, alpha, comp); // WD EDIR
         comp.Occlusion = occlusion;
     }
 
-    protected override bool SetState(WeatherState state, WeatherComponent comp, WeatherData weather, WeatherPrototype weatherProto)
+    protected override bool SetState(EntityUid uid, WeatherState state, WeatherComponent comp, WeatherData weather, WeatherPrototype weatherProto)
     {
-        if (!base.SetState(state, comp, weather, weatherProto))
+        if (!base.SetState(uid, state, comp, weather, weatherProto))
             return false;
 
         if (!Timing.IsFirstTimePredicted)
@@ -164,7 +161,7 @@ public sealed class WeatherSystem : SharedWeatherSystem
                 continue;
 
             // New weather
-            StartWeather(component, ProtoMan.Index<WeatherPrototype>(proto), weather.EndTime);
+            StartWeather(uid, component, ProtoMan.Index<WeatherPrototype>(proto), weather.EndTime);
         }
     }
 }

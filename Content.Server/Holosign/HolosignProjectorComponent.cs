@@ -10,10 +10,15 @@ namespace Content.Server.Holosign
         [DataField("signProto", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string SignProto = "HolosignWetFloor";
 
-        /// <summary>
-        /// How much charge a single use expends.
-        /// </summary>
-        [ViewVariables(VVAccess.ReadWrite), DataField("chargeUse")]
-        public float ChargeUse = 50f;
+        // WD EDIT START
+        [DataField]
+        public int MaxUses = 6;
+
+        [DataField]
+        public int Uses = 6;
+
+        [ViewVariables(VVAccess.ReadOnly)]
+        public List<EntityUid?> Signs = new();
+        // WD EDIT END
     }
 }

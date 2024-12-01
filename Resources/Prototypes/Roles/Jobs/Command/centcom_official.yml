@@ -27,6 +27,3 @@
     belt: WeaponPistolN1984
     pocket1: BoxFolderBlack
     pocket2: PenCentcom
-  inhand:
-    - CandyBucket
-    - PresentHalloweenRandom

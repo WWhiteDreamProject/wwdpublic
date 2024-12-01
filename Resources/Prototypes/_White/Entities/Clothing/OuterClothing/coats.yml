@@ -18,3 +18,21 @@
         Slash: 0.90
         Piercing: 0.90
         Heat: 0.75
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatCaptain
+  name: captain jacket
+  description: Captain formal jacket, inlaid with gold.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/OuterClothing/Coats/captain.rsi
+  - type: Clothing
+    sprite: _White/Clothing/OuterClothing/Coats/captain.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.6
+        Heat: 0.8

@@ -24,7 +24,6 @@
         - Impassable
         layer:
         - MidImpassable
-        - BulletImpassable
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic

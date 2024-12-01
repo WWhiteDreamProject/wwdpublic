@@ -141,8 +141,8 @@
     - TemporaryBlindness
     - Pacified
     - StaminaModifier
-    - PsionicsDisabled #Nyano - Summary: PCs can have psionics disabled.
-    - PsionicallyInsulated #Nyano - Summary: PCs can be made insulated from psionic powers.
+    - PsionicsDisabled
+    - PsionicallyInsulated
   - type: Reflect
     enabled: false
     reflectProb: 0
@@ -152,7 +152,6 @@
   - type: Identity
   - type: IdExaminable
   - type: Hands
-  - type: Internals
   - type: Inventory
   - type: InventorySlots
   - type: FloatingVisuals
@@ -191,8 +190,6 @@
   - type: Strippable
   - type: UserInterface
     interfaces:
-      enum.VoiceMaskUIKey.Key:
-        type: VoiceMaskBoundUserInterface
       enum.HumanoidMarkingModifierKey.Key:
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
@@ -200,6 +197,8 @@
       enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
         requireInputValidation: false
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -229,6 +228,8 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+  - type: Targeting
+  - type: SurgeryTarget
 
 - type: entity
   save: false
@@ -273,6 +274,8 @@
     - Muted
     - Pacified
     - StaminaModifier
+    - PsionicsDisabled
+    - PsionicallyInsulated
   - type: Blindable
   # Other
   - type: Temperature

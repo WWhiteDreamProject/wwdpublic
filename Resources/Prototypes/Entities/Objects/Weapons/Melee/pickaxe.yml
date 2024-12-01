@@ -25,6 +25,11 @@
     bluntStaminaDamageFactor: 2.0
     maxTargets: 2
     angle: 60
+    # WD EDIT START
+    heavyRateModifier: 0.8
+    heavyDamageBaseModifier: 0.5
+    heavyStaminaCost: 0
+    # WD EDIT END
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
@@ -59,20 +64,14 @@
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
-    attackRate: 0.5
-    range: 1.4
     damage:
       types:
-        Blunt: 9
+        Blunt: 2 # WD EDIT
         Slash: 3
         Structural: 12
-    bluntStaminaDamageFactor: 4.0
-    heavyRateModifier: 1
-    heavyRangeModifier: 2
-    heavyDamageBaseModifier: 1
-    heavyStaminaCost: 10
-    maxTargets: 3
-    angle: 20
+    attackRate: 3.5 # WD EDIT
+    heavyStaminaCost: 0 # WD EDIT
+    angle: 0 # WD EDIT
 
   - type: ReverseEngineering # Nyano
     difficulty: 2

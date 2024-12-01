@@ -2,7 +2,7 @@
   name: energy crossbow bolt
   parent: BaseBullet
   id: BoltEnergyCrossbow
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Projectiles/ebolt.rsi

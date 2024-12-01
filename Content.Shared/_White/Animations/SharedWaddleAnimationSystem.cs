@@ -18,34 +18,18 @@ public abstract class SharedWaddleAnimationSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<WaddleAnimationComponent, MoveInputEvent>(OnMovementInput);
+        SubscribeLocalEvent<WaddleAnimationComponent, MoveEvent>(OnMovementInput);
     }
 
-    private void OnMovementInput(EntityUid uid, WaddleAnimationComponent component, MoveInputEvent args)
+    private void OnMovementInput(EntityUid uid, WaddleAnimationComponent component, MoveEvent args)
     {
-        if (!Timing.IsFirstTimePredicted
-            || _standingState.IsDown(uid)
+        if (_standingState.IsDown(uid)
             || _gravity.IsWeightless(uid)
             || _buckle.IsBuckled(uid))
             return;
-
-        if (!args.HasDirectionalMovement && component.IsCurrentlyWaddling)
-        {
-            component.IsCurrentlyWaddling = false;
-            StopAnimation(uid);
-
-            return;
-        }
-
-        if (component.IsCurrentlyWaddling || !args.HasDirectionalMovement)
-            return;
-
-        component.IsCurrentlyWaddling = true;
 
         PlayAnimation(uid);
     }
 
     protected abstract void PlayAnimation(EntityUid user);
-
-    protected abstract void StopAnimation(EntityUid user);
 }

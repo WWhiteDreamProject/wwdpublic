@@ -1,7 +1,6 @@
 seed-analyzer-window-entity-name-text = Растение: {$name}
 seed-analyzer-window-entity-viable-text = Это растение нежизнеспособно, оно скоро погибнет.
 seed-analyzer-window-entity-traits-text = Черты: 
-seed-analyzer-window-entity-traits-text = Нет интересных черт(
 seed-analyzer-window-entity-chemicals-text = Химикаты:
 seed-analyzer-window-entity-chemical-text = {$localizedName}:
 seed-analyzer-window-entity-amount-text = {$amount}u

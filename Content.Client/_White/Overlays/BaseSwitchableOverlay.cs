@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared._White.Overlays;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -38,7 +39,7 @@ public class BaseSwitchableOverlay<TComp> : Overlay
 
         var worldHandle = args.WorldHandle;
 
-        worldHandle.SetTransform(Matrix3.Identity);
+        worldHandle.SetTransform(Matrix3x2.Identity);
         worldHandle.UseShader(_shader);
         worldHandle.DrawRect(args.WorldBounds, component.Color);
         worldHandle.UseShader(null);
