@@ -13,16 +13,6 @@ public sealed class StartedWaddlingEvent(NetEntity user) : EntityEventArgs
 {
     public NetEntity User = user;
 }
-
-/// <summary>
-/// Declares that an entity has stopped waddling like a duck/clown.
-/// </summary>
-/// <param name="user">The former waddle-er.</param>
-[Serializable, NetSerializable]
-public sealed class StoppedWaddlingEvent(NetEntity user) : EntityEventArgs
-{
-    public NetEntity User = user;
-}
 // WD EDIT END
 
 /// <summary>
@@ -67,9 +57,4 @@ public sealed partial class WaddleAnimationComponent : Component
     /// Stores which step we made last, so if someone cancels out of the animation mid-step then restarts it looks more natural.
     /// </summary>
     public bool LastStep;
-
-    /// <summary>
-    /// Stores if we're currently waddling so we can start/stop as appropriate and can tell other systems our state.
-    /// </summary>
-    public bool IsCurrentlyWaddling;
 }

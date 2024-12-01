@@ -189,7 +189,7 @@
 
 - type: latheRecipe
   id: HolofanProjector
-  result: HolofanProjectorEmpty
+  result: HolofanProjector # WD EDIT
   category: Tools
   completetime: 8
   materials:
@@ -238,7 +238,7 @@
 
 - type: latheRecipe
   id: HoloprojectorField
-  result: HoloprojectorFieldEmpty
+  result: HoloprojectorField # WD EDIT
   category: Tools
   completetime: 3
   materials:

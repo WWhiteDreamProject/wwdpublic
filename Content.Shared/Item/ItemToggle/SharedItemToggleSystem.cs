@@ -247,7 +247,9 @@ public abstract class SharedItemToggleSystem : EntitySystem
         {
             if (activeSound.ActiveSound != null && activeSound.PlayingStream == null)
             {
-                activeSound.PlayingStream = _audio.PlayPvs(activeSound.ActiveSound, uid, AudioParams.Default.WithLoop(true)).Value.Entity;
+                var playingStream = _audio.PlayPvs(activeSound.ActiveSound, uid, AudioParams.Default.WithLoop(true));
+
+                activeSound.PlayingStream = playingStream!.Value.Entity;
             }
         }
         else

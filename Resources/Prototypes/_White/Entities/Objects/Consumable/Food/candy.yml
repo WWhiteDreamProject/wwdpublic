@@ -457,10 +457,10 @@
           Quantity: 5
 
 - type: entity
-  noSpawn: true
   parent: FoodPacketTrash
   id: FoodPacketCandyGummyEyeTrash
   name: gymmy eye wrapper
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _White/Objects/Consumable/Food/candy.rsi

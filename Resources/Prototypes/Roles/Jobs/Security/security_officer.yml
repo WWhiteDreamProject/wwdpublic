@@ -6,7 +6,6 @@
   requirements:
     - !type:CharacterDepartmentTimeRequirement
       department: Security
-      min: 14400 # DeltaV - 4 hours
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
@@ -34,9 +33,6 @@
     id: SecurityPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
-  inhand:
-    - CandyBucket
-    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtSec
   satchel: ClothingBackpackSatchelSecurity
   duffelbag: ClothingBackpackDuffelSecurity

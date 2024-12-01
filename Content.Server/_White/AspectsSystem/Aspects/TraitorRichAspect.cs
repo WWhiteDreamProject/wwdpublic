@@ -8,8 +8,8 @@ using Content.Server.Traitor.Uplink;
 using Content.Server._White.AspectsSystem.Aspects.Components;
 using Content.Server._White.AspectsSystem.Base;
 using Content.Server._White.AspectsSystem.Managers;
-using Content.Server.GameTicking.Components;
 using Content.Shared.FixedPoint;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 
 namespace Content.Server._White.AspectsSystem.Aspects;
@@ -22,8 +22,7 @@ public sealed class TraitorRichAspect : AspectSystem<TraitorRichAspectComponent>
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly AspectManager _aspectManager = default!;
 
-    protected override void Started(EntityUid uid, TraitorRichAspectComponent component, GameRuleComponent gameRule,
-        GameRuleStartedEvent args)
+    protected override void Started(EntityUid uid, TraitorRichAspectComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
 
@@ -62,8 +61,5 @@ public sealed class TraitorRichAspect : AspectSystem<TraitorRichAspectComponent>
         chatManager.DispatchServerMessage(mind.Session, Robust.Shared.Localization.Loc.GetString("aspect-traitor-rich-briefing"));
     }
 
-    private bool HasTraitorGameRule()
-    {
-        return EntityQuery<TraitorRuleComponent>().Any();
-    }
+    private bool HasTraitorGameRule() => EntityQuery<TraitorRuleComponent>().Any();
 }

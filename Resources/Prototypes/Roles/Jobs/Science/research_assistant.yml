@@ -25,9 +25,6 @@
     id: ResearchAssistantPDA
     ears: ClothingHeadsetScience
     pocket1: BookScientistsGuidebook
-  inhand:
-    - CandyBucket
-    - PresentHalloweenRandom
   innerClothingSkirt: ClothingUniformJumpskirtColorWhite
   satchel: ClothingBackpackSatchelScienceFilled
   duffelbag: ClothingBackpackDuffelScienceFilled
