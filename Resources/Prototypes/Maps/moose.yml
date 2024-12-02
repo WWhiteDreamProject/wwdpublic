@@ -21,6 +21,7 @@
         availableJobs:
           #Heads
           Captain: [ 1, 1 ]
+          Maid: [ 1, 1 ]
           HeadOfSecurity: [ 1, 1 ]
           HeadOfPersonnel: [ 1, 1 ]
           ChiefEngineer: [ 1, 1 ]
@@ -66,4 +67,5 @@
           Boxer: [ 1, 1 ]
           Borg: [ 1, 1 ]
           Passenger: [ -1, -1 ]
+          Hobo: [ 1, 1 ]
 
