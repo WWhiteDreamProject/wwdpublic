@@ -844,3 +844,18 @@ Entries:
   id: 90
   time: '2024-12-01T19:49:52.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/114
+- author: Gersoon458
+  changes:
+    - type: Tweak
+      message: >-
+        Someone opened the window and snow blew through it. Are you feeling this
+        New Year's vibe? All our stations are now winter, some bugs have also
+        been fixed
+    - type: Tweak
+      message: >-
+        Кто-то открыл форточку и через неё надуло снегу. Ощущаете этот
+        новогодний вайб? Все наши станции теперь зимние, также были пофикшены
+        некоторые баги
+  id: 91
+  time: '2024-12-02T18:42:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/132
