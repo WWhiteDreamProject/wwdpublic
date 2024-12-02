@@ -156840,13 +156840,6 @@ entities:
     - type: Transform
       pos: 21.5,2.5
       parent: 2
-- proto: SpawnPointCourier
-  entities:
-  - uid: 22588
-    components:
-    - type: Transform
-      pos: -21.5,-16.5
-      parent: 2
 - proto: SpawnPointDetective
   entities:
   - uid: 22126
