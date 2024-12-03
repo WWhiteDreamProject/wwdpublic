@@ -200,6 +200,12 @@ namespace Content.Server.Database
             if (Enum.TryParse<Gender>(profile.Gender, true, out var genderVal))
                 gender = genderVal;
 
+            // WD EDIT START
+            var voice = profile.Voice;
+            if (voice == string.Empty)
+                voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
+            // WD EDIT END
+
             // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
             var markingsRaw = profile.Markings?.Deserialize<List<string>>();
 
@@ -225,6 +231,7 @@ namespace Content.Server.Database
                 profile.Width,
                 profile.Age,
                 sex,
+                voice, // WD EDIT
                 gender,
                 new HumanoidCharacterAppearance(
                     profile.HairName,
@@ -263,6 +270,7 @@ namespace Content.Server.Database
             profile.CustomSpecieName = humanoid.Customspeciename;
             profile.Age = humanoid.Age;
             profile.Sex = humanoid.Sex.ToString();
+            profile.Voice = humanoid.Voice; // WD EDIT
             profile.Gender = humanoid.Gender.ToString();
             profile.Height = humanoid.Height;
             profile.Width = humanoid.Width;

@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._White.TTS;
 using Content.Shared.Decals;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid.Markings;
@@ -44,6 +45,17 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
     [ValidatePrototypeId<SpeciesPrototype>]
     public const string DefaultSpecies = "Human";
+
+    // WD EDIT START
+    [ValidatePrototypeId<TTSVoicePrototype>]
+    public const string DefaultVoice = "Eugene";
+    public static readonly Dictionary<Sex, string> DefaultSexVoice = new()
+    {
+        {Sex.Male, "Eugene"},
+        {Sex.Female, "Kseniya"},
+        {Sex.Unsexed, "Xenia"},
+    };
+    // WD EDIT END
 
     public override void Initialize()
     {
@@ -298,6 +310,33 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             Dirty(uid, humanoid);
     }
 
+    // WD EDIT START
+    /// <summary>
+    ///     Set a humanoid mob's voice type.
+    /// </summary>
+    /// <param name="uid">The humanoid mob's UID.</param>
+    /// <param name="voiceId">The tts voice to set the mob to.</param>
+    /// <param name="sync">Whether to immediately synchronize this to the humanoid mob, or not.</param>
+    /// <param name="humanoid">Humanoid component of the entity</param>
+    // ReSharper disable once InconsistentNaming
+    public void SetTTSVoice(
+        EntityUid uid,
+        ProtoId<TTSVoicePrototype> voiceId,
+        bool sync = true,
+        HumanoidAppearanceComponent? humanoid = null)
+    {
+        if (!TryComp<TTSComponent>(uid, out var comp)
+            || !Resolve(uid, ref humanoid))
+            return;
+
+        humanoid.Voice = voiceId;
+        comp.Prototype = voiceId;
+
+        if (sync)
+            Dirty(uid, humanoid);
+    }
+    // WD EDIT END
+
     /// <summary>
     ///     Set the height of a humanoid mob
     /// </summary>
@@ -369,6 +408,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         SetSpecies(uid, profile.Species, false, humanoid);
         SetSex(uid, profile.Sex, false, humanoid);
+        SetTTSVoice(uid, profile.Voice, false, humanoid); // WD EDIT
         humanoid.EyeColor = profile.Appearance.EyeColor;
         var ev = new EyeColorInitEvent();
         RaiseLocalEvent(uid, ref ev);
