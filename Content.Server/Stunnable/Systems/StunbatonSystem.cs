@@ -40,7 +40,7 @@ namespace Content.Server.Stunnable.Systems
         private void OnStaminaHitAttempt(Entity<StunbatonComponent> entity, ref StaminaDamageOnHitAttemptEvent args)
         {
             // WD EDIT START
-            if (!_itemToggle.IsActivated(entity.Owner) || TryUseCharge(entity))
+            if (!_itemToggle.IsActivated(entity.Owner) || !TryUseCharge(entity))
                 args.Cancelled = true;
             // WD EDIT END
         }
@@ -48,7 +48,7 @@ namespace Content.Server.Stunnable.Systems
         // WD EDIT START
         private void OnKnockdownHitAttempt(Entity<StunbatonComponent> entity, ref KnockdownOnHitAttemptEvent args)
         {
-            if (!_itemToggle.IsActivated(entity.Owner) || TryUseCharge(entity))
+            if (!_itemToggle.IsActivated(entity.Owner) || !TryUseCharge(entity))
                 args.Cancelled = true;
         }
         // WD EDIT END
