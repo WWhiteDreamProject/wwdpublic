@@ -1,1 +1,0 @@
-changelog-tab-title-WhiteChangelog = White Dream

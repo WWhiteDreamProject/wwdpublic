@@ -241,7 +241,7 @@ namespace Content.Client.Lobby
             Lobby.ChangelogContainer.Children.Clear();
 
             var changelogs = await _changelog.LoadChangelog();
-            var whiteChangelog = changelogs.Find(cl => cl.Name == "WhiteChangelog");
+            var whiteChangelog = changelogs.Find(cl => cl.Name == "Changelog");
 
             if (whiteChangelog is null)
             {
@@ -253,7 +253,7 @@ namespace Content.Client.Lobby
 
             var entries = whiteChangelog.Entries
                 .OrderByDescending(c => c.Time)
-                .Take(3);
+                .Take(5);
 
             foreach (var entry in entries)
             {
