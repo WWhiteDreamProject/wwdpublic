@@ -8569,3 +8569,10 @@ Entries:
   id: 6546
   time: '2024-12-02T18:42:52.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/132
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added TTS / Добавлен ТТС
+  id: 6547
+  time: '2024-12-03T20:05:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/121
