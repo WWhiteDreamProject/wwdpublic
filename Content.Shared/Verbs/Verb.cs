@@ -310,6 +310,17 @@ namespace Content.Shared.Verbs
     {
         public override int TypePriority => 2;
         public new static string DefaultTextStyleClass = "AlternativeVerb";
+        // WD EDIT START
+        /// <summary>
+        /// If true, this verb can only be triggered by alt-interacting (alt-Z) with the parent item
+        /// while holding it in the active hand, or via context menu. The latter does not require holding in active hand.
+        /// </summary>
+        /// <remarks>
+        /// On alt-Z, if item returns no <see cref="AlternativeVerb"/> with <see cref="InActiveHandOnly"/> being true, other <see cref="AlternativeVerb"/>s will be considered.
+        /// This is not true for the reverse: alt-clicking an item not in your main hand will not proc an <see cref="AlternativeVerb"/> if it's <see cref="InActiveHandOnly"/> is true.
+        /// </remarks>
+        public bool InActiveHandOnly = false; // todo: better name?
+        // WD EDIT END
         public override bool DefaultDoContactInteraction => true;
 
         public AlternativeVerb() : base()

@@ -1090,7 +1090,7 @@ namespace Content.Shared.Interaction
         public bool AltInteract(EntityUid user, EntityUid target)
         {
             // Get list of alt-interact verbs
-            var verbs = _verbSystem.GetLocalVerbs(target, user, typeof(AlternativeVerb));
+            var verbs = _verbSystem.GetLocalVerbs(target, user, typeof(AlternativeVerb)).Where(verb => ((AlternativeVerb) verb).InActiveHandOnly == false); // WD EDIT
 
             if (!verbs.Any())
                 return false;
@@ -1098,6 +1098,24 @@ namespace Content.Shared.Interaction
             _verbSystem.ExecuteVerb(verbs.First(), user, target);
             return true;
         }
+
+        // WD EDIT START
+        /// <summary>
+        ///     Very alternative interactions on an entity.
+        /// </summary>
+        /// <returns>True if the interaction was handled, false otherwise.</returns>
+        public bool ActiveHandAltInteract(EntityUid user, EntityUid target)
+        {
+            // Get list of alt-interact verbs
+            var verbs = _verbSystem.GetLocalVerbs(target, user, typeof(AlternativeVerb)).Where(verb => ((AlternativeVerb)verb).InActiveHandOnly == true);
+
+            if (!verbs.Any())
+                return false;
+
+            _verbSystem.ExecuteVerb(verbs.First(), user, target);
+            return true;
+        }
+        // WD EDIT END
         #endregion
 
         public void DroppedInteraction(EntityUid user, EntityUid item)
