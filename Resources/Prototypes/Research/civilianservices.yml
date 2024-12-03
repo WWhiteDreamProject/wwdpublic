@@ -131,6 +131,9 @@
   - CryoPodMachineCircuitboard
   - CryostasisBeaker
   - SyringeCryostasis
+  - NTBodyBag # WD
+  - PrisonerBodyBag # WD
+  - RadiationBodyBag # WD
 
 - type: technology
   id: MechanizedTreatment
@@ -229,6 +232,7 @@
   recipeUnlocks:
   - BluespaceBeaker
   - SyringeBluespace
+  - BluespaceBodyBag # WD
 
 - type: technology
   id: BasicTranslation

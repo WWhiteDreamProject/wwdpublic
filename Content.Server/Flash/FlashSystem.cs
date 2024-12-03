@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server._White.Flash;
 using Content.Server.Flash.Components;
 using Content.Shared.Flash.Components;
 using Content.Server.Light.EntitySystems;
@@ -24,6 +25,8 @@ using InventoryComponent = Content.Shared.Inventory.InventoryComponent;
 using Content.Shared.Traits.Assorted.Components;
 using Robust.Shared.Random;
 using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Standing;
+
 
 namespace Content.Server.Flash
 {
@@ -167,7 +170,39 @@ namespace Content.Server.Flash
             }
         }
 
-        public void FlashArea(Entity<FlashComponent?> source, EntityUid? user, float range, float duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null)
+        // WD EDIT START
+        private void FlashStun(EntityUid target, float stunDuration, float knockdownDuration, float distance, float range)
+        {
+            if (stunDuration <= 0 && knockdownDuration <= 0)
+                return;
+
+            if (TryComp<FlashSoundSuppressionComponent>(target, out var suppression))
+                range = MathF.Min(range, suppression.MaxRange);
+
+            var ev = new FlashbangedEvent(range);
+            RaiseLocalEvent(target, ev);
+
+            range = MathF.Min(range, ev.MaxRange);
+            if (range <= 0f)
+                return;
+
+            if (distance < 0f)
+                distance = 0f;
+
+            if (distance > range)
+                return;
+
+            var knockdownTime = float.Lerp(knockdownDuration, 0f, distance / range);
+            if (knockdownTime > 0f)
+                _stun.TryKnockdown(target, TimeSpan.FromSeconds(knockdownTime), true, DropHeldItemsBehavior.DropIfStanding);
+
+            var stunTime = float.Lerp(stunDuration, 0f, distance / range);
+            if (stunTime > 0f)
+                _stun.TryStun(target, TimeSpan.FromSeconds(stunTime), true);
+        }
+        // WD EDIT END
+
+        public void FlashArea(Entity<FlashComponent?> source, EntityUid? user, float range, float duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null, float stunTime = 0f, float knockdownTime = 0f) // WD EDIT
         {
             var transform = Transform(source);
             var mapPosition = _transform.GetMapCoordinates(transform);
@@ -187,6 +222,11 @@ namespace Content.Server.Flash
 
                 // They shouldn't have flash removed in between right?
                 Flash(entity, user, source, duration, slowTo, displayPopup, flashableQuery.GetComponent(entity));
+
+                // WD EDIT START
+                var distance = (mapPosition.Position - _transform.GetMapCoordinates(entity).Position).Length();
+                FlashStun(entity, stunTime, knockdownTime, distance, range);
+                // WD EDIT END
             }
 
             _audio.PlayPvs(sound, source, AudioParams.Default.WithVolume(1f).WithMaxDistance(3f));
@@ -251,6 +291,4 @@ namespace Content.Server.Flash
             Used = used;
         }
     }
-
-
 }

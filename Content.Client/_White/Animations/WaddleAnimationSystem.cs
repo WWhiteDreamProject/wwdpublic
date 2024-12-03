@@ -19,10 +19,7 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<WaddleAnimationComponent, AnimationCompletedEvent>(OnAnimationCompleted);
-
         SubscribeAllEvent<StartedWaddlingEvent>(ev => PlayAnimation(GetEntity(ev.User)));
-        SubscribeAllEvent<StoppedWaddlingEvent>(ev => StopAnimation(GetEntity(ev.User)));
     }
 
     protected override void PlayAnimation(EntityUid uid)
@@ -40,7 +37,6 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
         var len = mover.Sprinting ? component.AnimationLength * component.RunAnimationLengthMultiplier : component.AnimationLength;
 
         component.LastStep = !component.LastStep;
-        component.IsCurrentlyWaddling = true;
 
         var animation = new Animation()
         {
@@ -54,9 +50,9 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
                     InterpolationMode = AnimationInterpolationMode.Linear,
                     KeyFrames =
                     {
-                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(0), 0),
-                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(tumbleIntensity), len/3),
-                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(0), len/3),
+                        new(Angle.FromDegrees(0), 0),
+                        new(Angle.FromDegrees(tumbleIntensity), len/3),
+                        new(Angle.FromDegrees(0), len/3),
                     }
                 },
                 new AnimationTrackComponentProperty()
@@ -66,35 +62,14 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
                     InterpolationMode = AnimationInterpolationMode.Linear,
                     KeyFrames =
                     {
-                        new AnimationTrackProperty.KeyFrame(new Vector2(), 0),
-                        new AnimationTrackProperty.KeyFrame(component.HopIntensity, len/3),
-                        new AnimationTrackProperty.KeyFrame(new Vector2(), len/3),
+                        new(new Vector2(), 0),
+                        new(component.HopIntensity, len/3),
+                        new(new Vector2(), len/3),
                     }
                 }
             }
         };
 
         _animation.Play(uid, animation, component.KeyName);
-    }
-
-    protected override void StopAnimation(EntityUid uid)
-    {
-        if (!TryComp<WaddleAnimationComponent>(uid, out var component)
-            || !TryComp<SpriteComponent>(uid, out var sprite))
-            return;
-
-        _animation.Stop(uid, component.KeyName);
-
-        sprite.Offset = new Vector2();
-        sprite.Rotation = Angle.FromDegrees(0);
-        component.IsCurrentlyWaddling = false;
-    }
-
-    private void OnAnimationCompleted(EntityUid uid, WaddleAnimationComponent component, AnimationCompletedEvent args)
-    {
-        if (args.Key != component.KeyName)
-            return;
-
-        PlayAnimation(uid);
     }
 }

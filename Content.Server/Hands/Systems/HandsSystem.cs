@@ -3,6 +3,8 @@ using Content.Server._White.Throwing;
 using Content.Server.Inventory;
 using Content.Server.Stack;
 using Content.Server.Stunnable;
+using Content.Shared.Body.Systems;
+using Content.Shared.Body.Events;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Body.Part;
 using Content.Shared.CombatMode;
@@ -36,12 +38,12 @@ namespace Content.Server.Hands.Systems
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly PullingSystem _pullingSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-
+        [Dependency] private readonly SharedBodySystem _bodySystem = default!;
         public override void Initialize()
         {
             base.Initialize();
 
-            SubscribeLocalEvent<HandsComponent, DisarmedEvent>(OnDisarmed, before: new[] {typeof(StunSystem)});
+            SubscribeLocalEvent<HandsComponent, DisarmedEvent>(OnDisarmed, before: new[] { typeof(StunSystem) });
 
             SubscribeLocalEvent<HandsComponent, PullStartedMessage>(HandlePullStarted);
             SubscribeLocalEvent<HandsComponent, PullStoppedMessage>(HandlePullStopped);
@@ -52,6 +54,8 @@ namespace Content.Server.Hands.Systems
             SubscribeLocalEvent<HandsComponent, ComponentGetState>(GetComponentState);
 
             SubscribeLocalEvent<HandsComponent, BeforeExplodeEvent>(OnExploded);
+            SubscribeLocalEvent<HandsComponent, BodyPartEnabledEvent>(HandleBodyPartEnabled);
+            SubscribeLocalEvent<HandsComponent, BodyPartDisabledEvent>(HandleBodyPartDisabled);
 
             CommandBinds.Builder
                 .Bind(ContentKeyFunctions.ThrowItemInHand, new PointerInputCmdHandler(HandleThrowItem))
@@ -99,31 +103,54 @@ namespace Content.Server.Hands.Systems
             args.Handled = true; // no shove/stun.
         }
 
-        private void HandleBodyPartAdded(EntityUid uid, HandsComponent component, ref BodyPartAddedEvent args)
+        private void TryAddHand(EntityUid uid, HandsComponent component, Entity<BodyPartComponent> part, string slot)
         {
-            if (args.Part.Comp.PartType != BodyPartType.Hand)
+            if (part.Comp is null
+                || part.Comp.PartType != BodyPartType.Hand)
                 return;
 
             // If this annoys you, which it should.
             // Ping Smugleaf.
-            var location = args.Part.Comp.Symmetry switch
+            var location = part.Comp.Symmetry switch
             {
                 BodyPartSymmetry.None => HandLocation.Middle,
                 BodyPartSymmetry.Left => HandLocation.Left,
                 BodyPartSymmetry.Right => HandLocation.Right,
-                _ => throw new ArgumentOutOfRangeException(nameof(args.Part.Comp.Symmetry))
+                _ => throw new ArgumentOutOfRangeException(nameof(part.Comp.Symmetry))
             };
 
-            AddHand(uid, args.Slot, location);
+            if (part.Comp.Enabled
+                && _bodySystem.TryGetParentBodyPart(part, out var _, out var parentPartComp)
+                && parentPartComp.Enabled)
+                AddHand(uid, slot, location);
+        }
+
+        private void HandleBodyPartAdded(EntityUid uid, HandsComponent component, ref BodyPartAddedEvent args)
+        {
+            TryAddHand(uid, component, args.Part, args.Slot);
         }
 
         private void HandleBodyPartRemoved(EntityUid uid, HandsComponent component, ref BodyPartRemovedEvent args)
         {
-            if (args.Part.Comp.PartType != BodyPartType.Hand)
+            if (args.Part.Comp is null
+                || args.Part.Comp.PartType != BodyPartType.Hand)
                 return;
-
             RemoveHand(uid, args.Slot);
         }
+
+        private void HandleBodyPartEnabled(EntityUid uid, HandsComponent component, ref BodyPartEnabledEvent args) =>
+            TryAddHand(uid, component, args.Part, SharedBodySystem.GetPartSlotContainerId(args.Part.Comp.ParentSlot?.Id ?? string.Empty));
+
+        private void HandleBodyPartDisabled(EntityUid uid, HandsComponent component, ref BodyPartDisabledEvent args)
+        {
+            if (TerminatingOrDeleted(uid)
+                || args.Part.Comp is null
+                || args.Part.Comp.PartType != BodyPartType.Hand)
+                return;
+
+            RemoveHand(uid, SharedBodySystem.GetPartSlotContainerId(args.Part.Comp.ParentSlot?.Id ?? string.Empty));
+        }
+
 
         #region pulling
 
@@ -168,7 +195,7 @@ namespace Content.Server.Hands.Systems
 
         private bool HandleThrowItem(ICommonSession? playerSession, EntityCoordinates coordinates, EntityUid entity)
         {
-            if (playerSession?.AttachedEntity is not {Valid: true} player || !Exists(player))
+            if (playerSession?.AttachedEntity is not { Valid: true } player || !Exists(player))
                 return false;
 
             return ThrowHeldItem(player, coordinates);
@@ -193,7 +220,7 @@ namespace Content.Server.Hands.Systems
             {
                 var splitStack = _stackSystem.Split(throwEnt, 1, EntityManager.GetComponent<TransformComponent>(player).Coordinates, stack);
 
-                if (splitStack is not {Valid: true})
+                if (splitStack is not { Valid: true })
                     return false;
 
                 throwEnt = splitStack.Value;
@@ -205,7 +232,7 @@ namespace Content.Server.Hands.Systems
 
             var length = direction.Length();
             var distance = Math.Clamp(length, minDistance, hands.ThrowRange);
-            direction *= distance/length;
+            direction *= distance / length;
 
             var throwStrength = hands.ThrowForceMultiplier;
 

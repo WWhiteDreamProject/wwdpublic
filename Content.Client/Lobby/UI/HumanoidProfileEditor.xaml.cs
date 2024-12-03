@@ -648,6 +648,8 @@ namespace Content.Client.Lobby.UI
             UpdateGenderControls();
             UpdateSkinColor();
             UpdateSpawnPriorityControls();
+            UpdateFlavorTextEdit();
+            UpdateCustomSpecieNameEdit();
             UpdateAgeEdit();
             UpdateEyePickers();
             UpdateSaveButton();
@@ -779,7 +781,9 @@ namespace Content.Client.Lobby.UI
                     icon.Texture = jobIcon.Icon.Frame0();
                     selector.Setup(items, job.LocalizedName, 200, job.LocalizedDescription, icon);
 
-                    if (!_characterRequirementsSystem.CheckRequirementsValid(
+                    if (!_requirements.CheckJobWhitelist(job, out var reason))
+                        selector.LockRequirements(reason);
+                    else if (!_characterRequirementsSystem.CheckRequirementsValid(
                          job.Requirements ?? new(),
                          job,
                          Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
@@ -925,7 +929,9 @@ namespace Content.Client.Lobby.UI
                     icon.Texture = jobIcon.Icon.Frame0();
                     selector.Setup(items, job.LocalizedName, 200, job.LocalizedDescription, icon);
 
-                    if (!_characterRequirementsSystem.CheckRequirementsValid(
+                    if (!_requirements.CheckJobWhitelist(job, out var reason))
+                        selector.LockRequirements(reason);
+                    else if (!_characterRequirementsSystem.CheckRequirementsValid(
                         job.Requirements ?? new(),
                         job,
                         Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
@@ -981,6 +987,7 @@ namespace Content.Client.Lobby.UI
             {
                 var proto = _prototypeManager.Index<JobPrototype>(jobId);
                 if ((JobPriority) selector.Selected == JobPriority.Never
+                    || _requirements.CheckJobWhitelist(proto, out _)
                     || _characterRequirementsSystem.CheckRequirementsValid(
                         proto.Requirements ?? new(),
                         proto,
@@ -1218,15 +1225,9 @@ namespace Content.Client.Lobby.UI
 
         private void UpdateCustomSpecieNameEdit()
         {
-            if (Profile == null)
-                return;
-
-            _customspecienameEdit.Text = Profile.Customspeciename ?? "";
-
-            if (!_prototypeManager.TryIndex<SpeciesPrototype>(Profile.Species, out var speciesProto))
-                return;
-
-            _ccustomspecienamecontainerEdit.Visible = speciesProto.CustomName;
+            var species = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
+            _customspecienameEdit.Text = string.IsNullOrEmpty(Profile?.Customspeciename) ? Loc.GetString(species.Name) : Profile.Customspeciename;
+            _ccustomspecienamecontainerEdit.Visible = species.CustomName;
         }
 
         private void UpdateFlavorTextEdit()
@@ -2306,7 +2307,7 @@ namespace Content.Client.Lobby.UI
                 return match;
 
             foreach (var subcategory in parent.Contents.Where(c => c is NeoTabContainer).Cast<NeoTabContainer>())
-                match = FindCategory(id, subcategory);
+                match ??= FindCategory(id, subcategory);
 
             return match;
         }

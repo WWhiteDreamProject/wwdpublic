@@ -88,7 +88,8 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
             new SiliconRepairFinishedEvent
             {
                 Delay = delay,
-            });
+            },
+            5); // WD EDIT
     }
 
     private bool HasDamage(DamageableComponent component, WeldingHealingComponent healable)

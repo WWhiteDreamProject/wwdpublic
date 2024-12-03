@@ -87,6 +87,12 @@ public sealed partial class MeleeWeaponComponent : Component
     [DataField, AutoNetworkedField]
     public FixedPoint2 ClickDamageModifier = FixedPoint2.New(1);
 
+    /// <summary>
+    ///     Part damage is multiplied by this amount for single-target attacks
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float ClickPartDamageMultiplier = 1.00f;
+
     // TODO: Temporarily 1.5 until interactionoutline is adjusted to use melee, then probably drop to 1.2
     /// <summary>
     /// Nearest edge range to hit an entity.
@@ -107,6 +113,12 @@ public sealed partial class MeleeWeaponComponent : Component
     public float HeavyDamageBaseModifier = 1f; // WD EDIT
 
     /// <summary>
+    ///     Part damage is multiplied by this amount for heavy swings
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float HeavyPartDamageMultiplier = 0.5f;
+
+    /// <summary>
     /// Total width of the angle for wide attacks.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -121,6 +133,9 @@ public sealed partial class MeleeWeaponComponent : Component
     // WD EDIT START
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public EntProtoId DisarmAnimation = "WeaponArcDisarm";
+
+    [DataField, AutoNetworkedField]
+    public bool CanHeavyAttack = true;
     // WD EDIT END
 
     /// <summary>
@@ -171,10 +186,7 @@ public sealed partial class MeleeWeaponComponent : Component
     {
         DoStaminaInteraction = true,
         StaminaDisadvantage = true,
-        StaminaRangeModifier = 2,
-        StaminaOffset = 0.25f,
         DoHealthInteraction = true,
-        HealthRangeModifier = 1.5f,
     };
 
     // WD EDIT START

@@ -1,7 +1,7 @@
 using Content.Server.Animals.Components;
 using Content.Server.Chemistry.Containers.EntitySystems;
-using Content.Server.Nutrition;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Timing;
@@ -9,7 +9,7 @@ using Robust.Shared.Timing;
 namespace Content.Server.Animals.Systems;
 
 /// <summary>
-///     Gives ability to produce fiber reagents, produces endless if the 
+///     Gives ability to produce fiber reagents, produces endless if the
 ///     owner has no HungerComponent
 /// </summary>
 public sealed class WoolySystem : EntitySystem

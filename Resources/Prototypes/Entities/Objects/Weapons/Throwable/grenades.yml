@@ -67,6 +67,8 @@
     sprite: Objects/Weapons/Grenades/flashbang.rsi
   - type: FlashOnTrigger
     range: 7
+    stunTime: 2 # WD EDIT
+    knockdownTime: 10 # WD EDIT
   - type: SoundOnTrigger
     sound:
       path: "/Audio/Effects/flash_bang.ogg"
@@ -83,7 +85,7 @@
 
 - type: entity
   id: GrenadeFlashEffect
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: PointLight
       enabled: true
@@ -125,7 +127,7 @@
   description: Go out on your own terms!
   parent: GrenadeBase
   id: SelfDestructSeq
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: ExplodeOnTrigger
   - type: Explosive
@@ -403,7 +405,7 @@
     solution:
       reagents:
       - ReagentId: SpaceCleaner
-        Quantity: 30
+        Quantity: 50 # WD EDIT
 
 - type: entity
   parent: SmokeGrenade
