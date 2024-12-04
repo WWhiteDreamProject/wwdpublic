@@ -25,7 +25,7 @@ public sealed class TTSSystem : EntitySystem
 
     public override void Initialize()
     {
-        _cfg.OnValueChanged(WhiteCVars.TtsVolume, OnTtsVolumeChanged, true);
+        _cfg.OnValueChanged(WhiteCVars.TTSVolume, OnTtsVolumeChanged, true);
 
         SubscribeNetworkEvent<PlayTTSEvent>(OnPlayTTS);
     }
@@ -33,7 +33,7 @@ public sealed class TTSSystem : EntitySystem
     public override void Shutdown()
     {
         base.Shutdown();
-        _cfg.UnsubValueChanged(WhiteCVars.TtsVolume, OnTtsVolumeChanged);
+        _cfg.UnsubValueChanged(WhiteCVars.TTSVolume, OnTtsVolumeChanged);
         ClearQueues();
     }
 

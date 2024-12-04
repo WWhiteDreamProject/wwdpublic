@@ -41,8 +41,8 @@ public sealed partial class TTSSystem : EntitySystem
 
     public override void Initialize()
     {
-        _cfg.OnValueChanged(WhiteCVars.TtsEnabled, v => _isEnabled = v, true);
-        _cfg.OnValueChanged(WhiteCVars.TtsApiUrl, url => _apiUrl = url, true);
+        _cfg.OnValueChanged(WhiteCVars.TTSEnabled, v => _isEnabled = v, true);
+        _cfg.OnValueChanged(WhiteCVars.TTSApiUrl, url => _apiUrl = url, true);
 
         SubscribeLocalEvent<TTSComponent, EntitySpokeEvent>(OnEntitySpoke);
 
@@ -171,7 +171,7 @@ public sealed partial class TTSSystem : EntitySystem
 
     private async void OnRequestTTS(MsgRequestTTS ev)
     {
-        var url = _cfg.GetCVar(WhiteCVars.TtsApiUrl);
+        var url = _cfg.GetCVar(WhiteCVars.TTSApiUrl);
         if (string.IsNullOrWhiteSpace(url))
             return;
 
