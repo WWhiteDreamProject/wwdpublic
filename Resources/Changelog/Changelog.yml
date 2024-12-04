@@ -8576,3 +8576,13 @@ Entries:
   id: 6547
   time: '2024-12-03T20:05:05.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/121
+- author: RedFoxIV
+  changes:
+    - type: Tweak
+      message: >-
+        Альтернативное использование предметов в *активной руке* теперь может
+        быть отличным от альтернативного использования предмета на полу/в
+        неактивной руке. Ключевое слово - (*может*).
+  id: 6548
+  time: '2024-12-04T18:33:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/135
