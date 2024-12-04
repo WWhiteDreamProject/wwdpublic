@@ -19,17 +19,20 @@ public sealed class TTSPitchRateSystem : EntitySystem
 
     public string TryGetPitchRate(EntityUid? uid, string text, string? speechRate = null, string? speechPitch = null)
     {
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
-            return $"<speak>{text}</speak>";
-
-        var species = SpeciesPitches.GetValueOrDefault(humanoid.Species);
-        if (species == null)
-            return $"<speak>{text}</speak>";
+        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+        {
+            var species = SpeciesPitches.GetValueOrDefault(humanoid.Species);
+            if (species != null)
+            {
+                speechRate ??= species.Rate;
+                speechPitch ??= species.Pitch;
+            }
+        }
 
         if (speechRate != null)
-            text = $"<prosody rate=\"{species.Rate}\">{text}</prosody>";
+            text = $"<prosody rate=\"{speechRate}\">{text}</prosody>";
         if (speechPitch != null)
-            text = $"<prosody pitch=\"{species.Pitch}\">{text}</prosody>";
+            text = $"<prosody pitch=\"{speechPitch}\">{text}</prosody>";
 
         return $"<speak>{text}</speak>";
     }
