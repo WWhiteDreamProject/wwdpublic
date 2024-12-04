@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
@@ -18,21 +17,21 @@ public sealed class TTSPitchRateSystem : EntitySystem
         ["Reptilian"] = new TTSPitchRate("low", "slow"),
     };
 
-    public bool TryGetPitchRate(EntityUid uid, [NotNullWhen(true)] out TTSPitchRate? pitch)
+    public string TryGetPitchRate(EntityUid? uid, string text, string? speechRate = null, string? speechPitch = null)
     {
         if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
-        {
-            pitch = new TTSPitchRate();
-            return false;
-        }
+            return $"<speak>{text}</speak>";
 
-        pitch = GetPitchRate(humanoid.Species);
-        return pitch != null;
-    }
+        var species = SpeciesPitches.GetValueOrDefault(humanoid.Species);
+        if (species == null)
+            return $"<speak>{text}</speak>";
 
-    public TTSPitchRate? GetPitchRate(ProtoId<SpeciesPrototype> protoId)
-    {
-        return SpeciesPitches.GetValueOrDefault(protoId);
+        if (speechRate != null)
+            text = $"<prosody rate=\"{species.Rate}\">{text}</prosody>";
+        if (speechPitch != null)
+            text = $"<prosody pitch=\"{species.Pitch}\">{text}</prosody>";
+
+        return $"<speak>{text}</speak>";
     }
 }
 

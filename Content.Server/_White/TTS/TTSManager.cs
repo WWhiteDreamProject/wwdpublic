@@ -50,7 +50,7 @@ public sealed class TTSManager
     /// <param name="speaker">Identifier of speaker</param>
     /// <param name="text">SSML formatted text</param>
     /// <returns>OGG audio bytes</returns>
-    public async Task<byte[]?> ConvertTextToSpeech(string speaker, string text, string pitch, string rate, string? effect = null)
+    public async Task<byte[]?> ConvertTextToSpeech(string speaker, string text)
     {
         var url = _cfg.GetCVar(WhiteCVars.TTSApiUrl);
         if (string.IsNullOrWhiteSpace(url))
@@ -80,10 +80,7 @@ public sealed class TTSManager
         {
             ApiToken = token,
             Text = text,
-            Speaker = speaker,
-            Pitch = pitch,
-            Rate = rate,
-            Effect = effect
+            Speaker = speaker
         };
 
         var reqTime = DateTime.UtcNow;
@@ -147,15 +144,6 @@ public sealed class TTSManager
 
         [JsonPropertyName("speaker")]
         public string Speaker { get; set; } = default!;
-
-        [JsonPropertyName("pitch")]
-        public string Pitch { get; set; } = default!;
-
-        [JsonPropertyName("rate")]
-        public string Rate { get; set; } = default!;
-
-        [JsonPropertyName("effect")]
-        public string? Effect { get; set; }
     }
 
     private struct GenerateVoiceResponse
