@@ -149,7 +149,10 @@ public abstract partial class SharedHandsSystem : EntitySystem
             return false;
 
         if (altInteract)
-            return _interactionSystem.AltInteract(uid, held);
+            if(hand == handsComp.ActiveHand)    // WD EDIT START
+                return _interactionSystem.ActiveHandAltInteract(uid, held) || _interactionSystem.AltInteract(uid, held); // todo: should these be merged into one method?
+            else                                // WD EDIT END
+                return _interactionSystem.AltInteract(uid, held);
         else
             return _interactionSystem.UseInHandInteraction(uid, held);
     }
