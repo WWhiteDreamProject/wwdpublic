@@ -140,10 +140,28 @@ public sealed class TTSManager
         public string ApiToken { get; set; } = "";
 
         [JsonPropertyName("text")]
-        public string Text { get; set; } = default!;
+        public string Text { get; set; } = "";
 
         [JsonPropertyName("speaker")]
-        public string Speaker { get; set; } = default!;
+        public string Speaker { get; set; } = "";
+
+        [JsonPropertyName("ssml")]
+        public bool SSML { get; private set; } = true;
+
+        [JsonPropertyName("word_ts")]
+        public bool WordTS { get; private set; } = false;
+
+        [JsonPropertyName("put_accent")]
+        public bool PutAccent { get; private set; } = true;
+
+        [JsonPropertyName("put_yo")]
+        public bool PutYo { get; private set; } = false;
+
+        [JsonPropertyName("sample_rate")]
+        public int SampleRate { get; private set; } = 24000;
+
+        [JsonPropertyName("format")]
+        public string Format { get; private set; } = "ogg";
     }
 
     private struct GenerateVoiceResponse
