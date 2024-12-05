@@ -2,12 +2,10 @@
 using System.Threading.Tasks;
 using Content.Server.Chat.Systems;
 using Content.Server._White.Chat.Systems;
-using Content.Server.Players.RateLimiting;
 using Content.Shared._White;
 using Content.Shared._White.TTS;
 using Content.Shared.GameTicking;
 using Content.Shared.Radio;
-using Content.Shared.Players.RateLimiting;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -248,7 +246,7 @@ public sealed class EntitySpokeLanguageEvent: EntityEventArgs
         ObsMsg = obsMsg;
         Source = source;
         Message = message;
-        OriginalMessage = originalMessage; // Corvax-TTS: Spec symbol sanitize
+        OriginalMessage = originalMessage;
         Channel = channel;
         ObfuscatedMessage = obfuscatedMessage;
     }

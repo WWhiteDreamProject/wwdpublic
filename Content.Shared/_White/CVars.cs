@@ -70,5 +70,27 @@ public sealed class WhiteCVars
     public static readonly CVarDef<int> TTSApiTimeout =
         CVarDef.Create("tts.api_timeout", 5, CVar.SERVERONLY | CVar.ARCHIVE);
 
+    /// <summary>
+    /// VoiceId for Announcement TTS
+    /// </summary>
+    // ReSharper disable once InconsistentNaming
+    public static readonly CVarDef<string> TTSAnnounceVoiceId =
+        CVarDef.Create("tts.announce_voice", "Announcer", CVar.SERVERONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Tts rate limit values are accounted in periods of this size (seconds).
+    /// After the period has passed, the count resets.
+    ///  </summary>
+    // ReSharper disable once InconsistentNaming
+    public static readonly CVarDef<float> TTSRateLimitPeriod =
+        CVarDef.Create("tts.rate_limit_period", 2f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// How many tts preview messages are allowed in a single rate limit period.
+    /// </summary>
+    // ReSharper disable once InconsistentNaming
+    public static readonly CVarDef<int> TTSRateLimitCount =
+        CVarDef.Create("tts.rate_limit_count", 3, CVar.SERVERONLY);
+
     #endregion
 }

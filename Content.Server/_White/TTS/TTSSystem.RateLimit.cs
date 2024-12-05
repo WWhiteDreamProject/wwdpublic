@@ -1,11 +1,12 @@
 ﻿using Content.Server.Chat.Managers;
 using Content.Server.Players.RateLimiting;
-using Content.Shared.Corvax.CCCVars;
+using Content.Shared._White;
 using Content.Shared.Players.RateLimiting;
 using Robust.Shared.Player;
 
-namespace Content.Server.Corvax.TTS;
+namespace Content.Server._White.TTS;
 
+// ReSharper disable once InconsistentNaming
 public sealed partial class TTSSystem
 {
     [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
@@ -17,8 +18,8 @@ public sealed partial class TTSSystem
     {
         _rateLimitManager.Register(RateLimitKey,
             new RateLimitRegistration(
-                CCCVars.TTSRateLimitPeriod,
-                CCCVars.TTSRateLimitCount,
+                WhiteCVars.TTSRateLimitPeriod,
+                WhiteCVars.TTSRateLimitCount,
                 RateLimitPlayerLimited)
             );
     }

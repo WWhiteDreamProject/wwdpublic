@@ -1,13 +1,11 @@
-﻿using Content.Shared.Backmen.TTS;
-using Content.Shared.Corvax.TTS;
+﻿using Content.Shared._White.TTS;
 using Content.Shared.Players.RateLimiting;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 
+namespace Content.Server._White.TTS;
 
-// ReSharper disable once CheckNamespace
-namespace Content.Server.Corvax.TTS;
-
+// ReSharper disable once InconsistentNaming
 public sealed partial class TTSSystem
 {
     [Dependency] private readonly IRobustRandom _robustRandom = default!;

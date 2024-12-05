@@ -1,12 +1,10 @@
 ﻿using System.Threading.Tasks;
-using Content.Server.Backmen.TTS;
-using Content.Server.SS220.Chat.Systems;
-using Content.Shared.Corvax.TTS;
-using Content.Shared.SS220.AnnounceTTS;
+using Content.Server._White.Chat.Systems;
+using Content.Shared._White.TTS;
 
-// ReSharper disable once CheckNamespace
-namespace Content.Server.Corvax.TTS;
+namespace Content.Server._White.TTS;
 
+// ReSharper disable once InconsistentNaming
 public sealed partial class TTSSystem
 {
     private string _voiceId = "Announcer";

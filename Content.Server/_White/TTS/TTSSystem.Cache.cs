@@ -1,11 +1,11 @@
 ﻿using System.Threading.Tasks;
-using Content.Shared.Corvax.TTS;
+using Content.Shared._White.TTS;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Utility;
 
-// ReSharper disable once CheckNamespace
-namespace Content.Server.Corvax.TTS;
+namespace Content.Server._White.TTS;
 
+// ReSharper disable once InconsistentNaming
 public sealed partial class TTSSystem
 {
     [Dependency] private readonly IResourceManager _resourceManager = default!;

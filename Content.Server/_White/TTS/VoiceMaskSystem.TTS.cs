@@ -1,11 +1,11 @@
-﻿using Content.Server.Corvax.TTS;
-using Content.Shared.Corvax.TTS;
-using Content.Shared.VoiceMask;
+﻿using Content.Server._White.TTS;
+using Content.Shared._White.TTS;
 
 namespace Content.Server.VoiceMask;
 
 public partial class VoiceMaskSystem
 {
+    // ReSharper disable once InconsistentNaming
     private void InitializeTTS()
     {
         SubscribeLocalEvent<VoiceMaskComponent, TransformSpeakerVoiceEvent>(OnSpeakerVoiceTransform);
