@@ -45,6 +45,17 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [ValidatePrototypeId<SpeciesPrototype>]
     public const string DefaultSpecies = "Human";
 
+    // WD EDIT START
+    public const string DefaultVoice = "Aidar";
+
+    public static readonly Dictionary<Sex, string> DefaultSexVoice = new()
+    {
+        { Sex.Male, "Aidar" },
+        { Sex.Female, "Kseniya" },
+        { Sex.Unsexed, "Baya" },
+    };
+    // WD EDIT END
+
     public override void Initialize()
     {
         base.Initialize();
