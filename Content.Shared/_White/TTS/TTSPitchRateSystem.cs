@@ -17,8 +17,9 @@ public sealed class TTSPitchRateSystem : EntitySystem
         ["Reptilian"] = new TTSPitchRate("low", "slow"),
     };
 
-    public string TryGetPitchRate(EntityUid? uid, string text, string? speechRate = null, string? speechPitch = null)
+    public string GetFormattedSpeechText(EntityUid? uid, string text, string? speechRate = null, string? speechPitch = null)
     {
+        var ssml = text;
         if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
         {
             var species = SpeciesPitches.GetValueOrDefault(humanoid.Species);
@@ -30,11 +31,11 @@ public sealed class TTSPitchRateSystem : EntitySystem
         }
 
         if (speechRate != null)
-            text = $"<prosody rate=\"{speechRate}\">{text}</prosody>";
+            ssml = $"<prosody rate=\"{speechRate}\">{ssml}</prosody>";
         if (speechPitch != null)
-            text = $"<prosody pitch=\"{speechPitch}\">{text}</prosody>";
+            ssml = $"<prosody pitch=\"{speechPitch}\">{ssml}</prosody>";
 
-        return $"<speak>{text}</speak>";
+        return $"<speak>{ssml}</speak>";
     }
 }
 

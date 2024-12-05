@@ -190,7 +190,7 @@ public sealed partial class TTSSystem : EntitySystem
         if (textSanitized == "")
             return null;
 
-        textSanitized = _ttsPitchRateSystem.TryGetPitchRate(uid, textSanitized, speechRate, speechPitch);
+        textSanitized = _ttsPitchRateSystem.GetFormattedSpeechText(uid, textSanitized, speechRate, speechPitch);
         return await _ttsManager.ConvertTextToSpeech(speaker, textSanitized);
     }
 }
