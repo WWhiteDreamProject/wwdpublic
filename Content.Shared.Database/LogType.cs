@@ -89,13 +89,6 @@ public enum LogType
     ItemConfigure = 84,
     DeviceLinking = 85,
     Tile = 86,
-    /// <summary>
-    /// User was rate-limited for some spam action.
-    /// </summary>
-    /// <remarks>
-    /// This is a default value used by <c>PlayerRateLimitManager</c>, though users can use different log types.
-    /// </remarks>
-    RateLimited = 87,
     BagOfHolding = 420, //Nyano - Summary: adds bag of holding.
     Psionics = 421, //Nyano - Summary: ads psionic as a log type.
 
@@ -106,9 +99,16 @@ public enum LogType
     AtmosTemperatureChanged = 88,
     DeviceNetwork = 89,
     StoreRefund = 90,
+    /// <summary>
+    /// User was rate-limited for some spam action.
+    /// </summary>
+    /// <remarks>
+    /// This is a default value used by <c>PlayerRateLimitManager</c>, though users can use different log types.
+    /// </remarks>
+    RateLimited = 91,
     // WD EDIT
-    AspectAnnounced = 91,
-    AspectStarted = 92,
-    AspectStopped = 93,
+    AspectAnnounced = 92,
+    AspectStarted = 93,
+    AspectStopped = 94,
     // WD EDIT
 }
