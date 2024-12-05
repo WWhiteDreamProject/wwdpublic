@@ -828,13 +828,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("sex");
 
-                    // WD EDIT START
-                    b.Property<string>("Voice")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("voice");
-                    // WD EDIT END
-
                     b.Property<string>("SkinColor")
                         .IsRequired()
                         .HasColumnType("TEXT")

@@ -1,4 +1,3 @@
-using Content.Server._White.TTS;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -66,7 +65,6 @@ namespace Content.Server.IoC
             IoCManager.Register<DiscordAuthManager>();
             IoCManager.Register<ISharedPlaytimeManager, PlayTimeTrackingManager>();
             IoCManager.Register<ServerApi>();
-            IoCManager.Register<TTSManager>(); // WD EDIT
         }
     }
 }
