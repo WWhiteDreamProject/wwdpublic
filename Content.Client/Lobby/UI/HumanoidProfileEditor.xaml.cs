@@ -149,6 +149,14 @@ namespace Content.Client.Lobby.UI
 
             #endregion Sex
 
+            // WD EDIT START
+            #region Voice
+
+            InitializeVoice();
+
+            #endregion
+            // WD EDIT END
+
             #region Age
 
             AgeEdit.OnTextChanged += args =>

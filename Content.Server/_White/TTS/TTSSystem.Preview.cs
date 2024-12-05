@@ -1,5 +1,4 @@
 ﻿using Content.Shared._White.TTS;
-using Content.Shared.Players.RateLimiting;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 
@@ -45,9 +44,6 @@ public sealed partial class TTSSystem
             RaiseNetworkEvent(new PlayTTSEvent(cached), Filter.SinglePlayer(args.SenderSession));
             return;
         }
-
-        if (HandleRateLimit(args.SenderSession) != RateLimitStatus.Allowed)
-            return;
 
         var soundData = await GenerateTTS(txt, protoVoice.Speaker);
         if (soundData is null)
