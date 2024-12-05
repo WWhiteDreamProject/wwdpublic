@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading;
@@ -52,21 +51,14 @@ public sealed class TTSManager
     /// <returns>OGG audio bytes</returns>
     public async Task<byte[]?> ConvertTextToSpeech(string speaker, string text, string pitch, string rate, string? effect = null)
     {
-        var url = _cfg.GetCVar(WhiteCVars.TTSApiUrl);
+        var url = _cfg.GetCVar(WhiteCVars.TtsApiUrl);
         if (string.IsNullOrWhiteSpace(url))
         {
             _sawmill.Log(LogLevel.Error, nameof(TTSManager), "TTS Api url not specified");
             return null;
         }
 
-        var token = _cfg.GetCVar(WhiteCVars.TTSApiToken);
-        if (string.IsNullOrWhiteSpace(token))
-        {
-            _sawmill.Log(LogLevel.Error, nameof(TTSManager), "TTS Api token not specified");
-            return null;
-        }
-
-        var maxCacheSize = _cfg.GetCVar(WhiteCVars.TTSMaxCache);
+        var maxCacheSize = _cfg.GetCVar(WhiteCVars.TtsMaxCacheSize);
         WantedCount.Inc();
         var cacheKey = GenerateCacheKey(speaker, text);
         if (_cache.TryGetValue(cacheKey, out var data))
@@ -78,7 +70,6 @@ public sealed class TTSManager
 
         var body = new GenerateVoiceRequest
         {
-            ApiToken = token,
             Text = text,
             Speaker = speaker,
             Pitch = pitch,
@@ -86,11 +77,13 @@ public sealed class TTSManager
             Effect = effect
         };
 
+        var request = CreateRequestLink(url, body);
+
         var reqTime = DateTime.UtcNow;
         try
         {
             var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
-            var response = await _httpClient.PostAsJsonAsync(url, body, cts.Token);
+            var response = await _httpClient.GetAsync(request, cts.Token);
             if (!response.IsSuccessStatusCode)
                 throw new Exception($"TTS request returned bad status code: {response.StatusCode}");
 
@@ -123,6 +116,23 @@ public sealed class TTSManager
         }
     }
 
+    private static string CreateRequestLink(string url, GenerateVoiceRequest body)
+    {
+        var uriBuilder = new UriBuilder(url);
+        var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+        query["speaker"] = body.Speaker;
+        query["text"] = body.Text;
+        query["pitch"] = body.Pitch;
+        query["rate"] = body.Rate;
+        query["file"] = "1";
+        query["ext"] = "ogg";
+        if (body.Effect != null)
+            query["effect"] = body.Effect;
+
+        uriBuilder.Query = query.ToString();
+        return uriBuilder.ToString();
+    }
+
     public void ResetCache()
     {
         _cache.Clear();
@@ -139,9 +149,6 @@ public sealed class TTSManager
 
     private record GenerateVoiceRequest
     {
-        [JsonPropertyName("api_token")]
-        public string ApiToken { get; set; } = "";
-
         [JsonPropertyName("text")]
         public string Text { get; set; } = default!;
 
