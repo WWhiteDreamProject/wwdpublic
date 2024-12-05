@@ -50,7 +50,7 @@ public sealed class TTSManager
     /// <param name="speaker">Identifier of speaker</param>
     /// <param name="text">SSML formatted text</param>
     /// <returns>OGG audio bytes</returns>
-    public async Task<byte[]?> ConvertTextToSpeech(string speaker, string text, string pitch, string rate, string? effect = null)
+    public async Task<byte[]?> ConvertTextToSpeech(string speaker, string text)
     {
         var url = _cfg.GetCVar(WhiteCVars.TTSApiUrl);
         if (string.IsNullOrWhiteSpace(url))
@@ -80,10 +80,7 @@ public sealed class TTSManager
         {
             ApiToken = token,
             Text = text,
-            Speaker = speaker,
-            Pitch = pitch,
-            Rate = rate,
-            Effect = effect
+            Speaker = speaker
         };
 
         var reqTime = DateTime.UtcNow;
@@ -143,19 +140,28 @@ public sealed class TTSManager
         public string ApiToken { get; set; } = "";
 
         [JsonPropertyName("text")]
-        public string Text { get; set; } = default!;
+        public string Text { get; set; } = "";
 
         [JsonPropertyName("speaker")]
-        public string Speaker { get; set; } = default!;
+        public string Speaker { get; set; } = "";
 
-        [JsonPropertyName("pitch")]
-        public string Pitch { get; set; } = default!;
+        [JsonPropertyName("ssml")]
+        public bool SSML { get; private set; } = true;
 
-        [JsonPropertyName("rate")]
-        public string Rate { get; set; } = default!;
+        [JsonPropertyName("word_ts")]
+        public bool WordTS { get; private set; } = false;
 
-        [JsonPropertyName("effect")]
-        public string? Effect { get; set; }
+        [JsonPropertyName("put_accent")]
+        public bool PutAccent { get; private set; } = true;
+
+        [JsonPropertyName("put_yo")]
+        public bool PutYo { get; private set; } = false;
+
+        [JsonPropertyName("sample_rate")]
+        public int SampleRate { get; private set; } = 24000;
+
+        [JsonPropertyName("format")]
+        public string Format { get; private set; } = "ogg";
     }
 
     private struct GenerateVoiceResponse

@@ -113,7 +113,7 @@ public sealed partial class TTSSystem : EntitySystem
         if (!_prototypeManager.TryIndex(ev.VoiceId, out var ttsPrototype))
             return;
         var message = FormattedMessage.RemoveMarkup(ev.Message);
-        var soundData = await GenerateTTS(null, message, ttsPrototype.Speaker, speechRate: "slow", effect: "announce");
+        var soundData = await GenerateTTS(null, message, ttsPrototype.Speaker, speechRate: "slow");
         if (soundData == null)
             return;
         Filter filter;
@@ -184,35 +184,14 @@ public sealed partial class TTSSystem : EntitySystem
             RaiseNetworkEvent(new PlayTTSEvent(ev.Uid, soundData, false), Filter.SinglePlayer(session), false);
     }
 
-    private async Task<byte[]?> GenerateTTS(EntityUid? uid, string text, string speaker, string? speechPitch = null,
-        string? speechRate = null, string? effect = null)
+    private async Task<byte[]?> GenerateTTS(EntityUid? uid, string text, string speaker, string? speechRate = null, string? speechPitch = null)
     {
         var textSanitized = Sanitize(text);
         if (textSanitized == "")
             return null;
 
-        string pitch;
-        string rate;
-        if (speechPitch == null || speechRate == null)
-        {
-            if (uid == null || !_ttsPitchRateSystem.TryGetPitchRate(uid.Value, out var pitchRate))
-            {
-                pitch = "medium";
-                rate = "medium";
-            }
-            else
-            {
-                pitch = pitchRate.Pitch;
-                rate = pitchRate.Rate;
-            }
-        }
-        else
-        {
-            pitch = speechPitch;
-            rate = speechRate;
-        }
-
-        return await _ttsManager.ConvertTextToSpeech(speaker, textSanitized, pitch, rate, effect);
+        textSanitized = _ttsPitchRateSystem.GetFormattedSpeechText(uid, textSanitized, speechRate, speechPitch);
+        return await _ttsManager.ConvertTextToSpeech(speaker, textSanitized);
     }
 }
 
