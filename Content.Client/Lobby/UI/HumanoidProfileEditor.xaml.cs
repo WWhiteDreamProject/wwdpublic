@@ -644,6 +644,7 @@ namespace Content.Client.Lobby.UI
 
             UpdateNameEdit();
             UpdateSexControls();
+            UpdateTTSVoicesControls(); // WD EDIT
             UpdateGenderControls();
             UpdateSkinColor();
             UpdateSpawnPriorityControls();
@@ -1137,9 +1138,18 @@ namespace Content.Client.Lobby.UI
             }
             UpdateGenderControls();
             Markings.SetSex(newSex);
+            UpdateTTSVoicesControls(); // WD EDIT
             ReloadProfilePreview();
             SetDirty();
         }
+
+        // WD EDIT START
+        private void SetVoice(string newVoice)
+        {
+            Profile = Profile?.WithVoice(newVoice);
+            IsDirty = true;
+        }
+        // WD EDIT END
 
         private void SetGender(Gender newGender)
         {
