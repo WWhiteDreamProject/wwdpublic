@@ -35,8 +35,6 @@ public sealed partial class TTSSystem : EntitySystem
         SubscribeNetworkEvent<RequestPreviewTTSEvent>(OnRequestPreviewTTS);
         SubscribeLocalEvent<TTSComponent, MapInitEvent>(OnTtsInitialized);
         SubscribeLocalEvent<TTSComponent, EntitySpokeLanguageEvent>(OnEntitySpoke);
-
-        RegisterRateLimits();
     }
 
     private void OnTtsInitialized(Entity<TTSComponent> ent, ref MapInitEvent args)
