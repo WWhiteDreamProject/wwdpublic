@@ -330,7 +330,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             return;
 
         humanoid.Voice = voiceId;
-        comp.Prototype = voiceId;
+        comp.VoicePrototypeId = voiceId;
 
         if (sync)
             Dirty(uid, humanoid);
