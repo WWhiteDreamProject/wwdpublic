@@ -92,7 +92,12 @@ public abstract class SharedCombatModeSystem : EntitySystem
     {
         if (value)
         {
-            EnsureComp<MouseRotatorComponent>(uid);
+            var rot = EnsureComp<MouseRotatorComponent>(uid);
+            if (TryComp<CombatModeComponent>(uid, out var comp) && comp.smoothRotation) // no idea under which (intended) circumstances this can fail (if any), so i'll avoid Comp<>().
+            {
+                rot.AngleTolerance = Angle.FromDegrees(1); // arbitrary
+                rot.Simple4DirMode = false;
+            }
             EnsureComp<NoRotateOnMoveComponent>(uid);
         }
         else
