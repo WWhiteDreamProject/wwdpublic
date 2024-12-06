@@ -28,6 +28,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!; // WD EDIT
 
@@ -40,7 +41,42 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         SubscribeLocalEvent<EmbeddableProjectileComponent, ThrowDoHitEvent>(OnEmbedThrowDoHit);
         SubscribeLocalEvent<EmbeddableProjectileComponent, AttemptPacifiedThrowEvent>(OnAttemptPacifiedThrow);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate, before: new[] {typeof(ActivatableUISystem)}); // WD EDIT
+        SubscribeLocalEvent<EmbeddableProjectileComponent, RemoveEmbeddedProjectileEvent>(OnEmbedRemove);
         SubscribeLocalEvent<EmbeddableProjectileComponent, PreventCollideEvent>(OnPreventCollision); // WD EDIT
+    }
+
+    private void OnEmbedRemove(EntityUid uid, EmbeddableProjectileComponent component, RemoveEmbeddedProjectileEvent args)
+    {
+        // Whacky prediction issues.
+        if (args.Cancelled || _netManager.IsClient)
+            return;
+
+        if (component.DeleteOnRemove)
+        {
+            QueueDel(uid);
+            return;
+        }
+
+        var xform = Transform(uid);
+        TryComp<PhysicsComponent>(uid, out var physics);
+        _physics.SetBodyType(uid, BodyType.Dynamic, body: physics, xform: xform);
+        _transform.AttachToGridOrMap(uid, xform);
+
+        // Reset whether the projectile has damaged anything if it successfully was removed
+        if (TryComp<ProjectileComponent>(uid, out var projectile))
+        {
+            projectile.Shooter = null;
+            projectile.Weapon = null;
+            projectile.DamagedEntity = false;
+        }
+
+        // Land it just coz uhhh yeah
+        var landEv = new LandEvent(args.User, true);
+        RaiseLocalEvent(uid, ref landEv);
+        _physics.WakeBody(uid, body: physics);
+
+        // try place it in the user's hand
+        _hands.TryPickupAnyHand(args.User, uid);
     }
 
     private void OnEmbedThrowDoHit(EntityUid uid, EmbeddableProjectileComponent component, ThrowDoHitEvent args)
@@ -120,6 +156,12 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         Dirty(id, component);
     }
 
+    [Serializable, NetSerializable]
+    private sealed partial class RemoveEmbeddedProjectileEvent : DoAfterEvent
+    {
+        public override DoAfterEvent Clone() => this;
+    }
+
     /// <summary>
     /// Prevent players with the Pacified status effect from throwing embeddable projectiles.
     /// </summary>
@@ -189,14 +231,3 @@ public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, Projectile
 /// </summary>
 [ByRefEvent]
 public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null);
-
-// WD EDIT START
-[Serializable, NetSerializable]
-public sealed partial class RemoveEmbeddedProjectileEvent : DoAfterEvent
-{
-    public override DoAfterEvent Clone()
-    {
-        return this;
-    }
-}
-// WD EDIT END
