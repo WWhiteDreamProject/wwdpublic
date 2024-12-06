@@ -8173,3 +8173,10 @@ Entries:
   id: 6543
   time: '2024-11-29T15:26:27.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1292
+- author: Spatison
+  changes:
+    - type: Add
+      message: Отдельный ченжлог для контента вайта
+  id: 6544
+  time: '2024-12-06T17:45:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/133
