@@ -60,6 +60,6 @@ namespace Content.Shared.CombatMode
         ///     No effect if <see cref="ToggleMouseRotator"/> is false.
         /// </remarks>
         [DataField, AutoNetworkedField]
-        public bool smoothRotation = true;
+        public bool SmoothRotation = true;
     }
 }
