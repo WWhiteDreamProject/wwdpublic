@@ -187,6 +187,7 @@ namespace Content.Client.Options.UI.Tabs
             var isTtsVolumeSame =
                 Math.Abs(TtsVolumeSlider.Value - _cfg.GetCVar(WhiteCVars.TTSVolume) * 100f / ContentAudioSystem.TTSMultiplier) < 0.01f; // WD EDIT
 
+
             var isAmbientSoundsSame = (int)AmbienceSoundsSlider.Value == _cfg.GetCVar(CCVars.MaxAmbientSources);
             var isLobbySame = LobbyMusicCheckBox.Pressed == _cfg.GetCVar(CCVars.LobbyMusicEnabled);
             var isRestartSoundsSame = RestartSoundsCheckBox.Pressed == _cfg.GetCVar(CCVars.RestartSoundsEnabled);

@@ -31,44 +31,47 @@ public sealed class WhiteCVars
 
     #region TTS
 
-    /// <summary>
-    /// if the TTS system enabled or not.
+        /// <summary>
+    /// URL of the TTS server API.
     /// </summary>
-    // ReSharper disable once InconsistentNaming
-    public static readonly CVarDef<bool> TTSEnabled = CVarDef.Create("tts.enabled", true, CVar.SERVERONLY);
+    public static readonly CVarDef<bool> TTSEnabled =
+        CVarDef.Create("tts.enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
     /// <summary>
     /// URL of the TTS server API.
     /// </summary>
-    // ReSharper disable once InconsistentNaming
-    public static readonly CVarDef<string> TTSApiUrl = CVarDef.Create("tts.api_url", "", CVar.SERVERONLY);
+    public static readonly CVarDef<string> TTSApiUrl =
+        CVarDef.Create("tts.api_url", "", CVar.SERVERONLY | CVar.ARCHIVE);
 
     /// <summary>
     /// Auth token of the TTS server API.
     /// </summary>
-    // ReSharper disable once InconsistentNaming
     public static readonly CVarDef<string> TTSApiToken =
         CVarDef.Create("tts.api_token", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
     /// <summary>
-    /// The volume of TTS playback.
-    /// </summary>
-    // ReSharper disable once InconsistentNaming
-    public static readonly CVarDef<float> TTSVolume = CVarDef.Create("tts.volume", 0f, CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// TTS Cache.
-    /// </summary>
-    // ReSharper disable once InconsistentNaming
-    public static readonly CVarDef<int> TTSMaxCache =
-        CVarDef.Create("tts.max_cash_size", 200, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    /// <summary>
     /// Amount of seconds before timeout for API
     /// </summary>
-    // ReSharper disable once InconsistentNaming
     public static readonly CVarDef<int> TTSApiTimeout =
         CVarDef.Create("tts.api_timeout", 5, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Default volume setting of TTS sound
+    /// </summary>
+    public static readonly CVarDef<float> TTSVolume =
+        CVarDef.Create("tts.volume", 0f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Count of in-memory cached tts voice lines.
+    /// </summary>
+    public static readonly CVarDef<int> TTSMaxCache =
+        CVarDef.Create("tts.max_cache", 250, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// VoiceId for Announcement TTS
+    /// </summary>
+    public static readonly CVarDef<string> TTSAnnounceVoiceId =
+        CVarDef.Create("tts.announce_voice", "Announcer", CVar.SERVERONLY | CVar.ARCHIVE);
 
     #endregion
 }

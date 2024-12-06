@@ -1,3 +1,4 @@
+using Content.Shared.Humanoid;
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
 
@@ -31,6 +32,12 @@ public sealed partial class VoiceMaskComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId Action = "ActionChangeVoiceMask";
+
+    // WD EDIT START
+    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public string VoiceId = SharedHumanoidAppearanceSystem.DefaultVoice;
+    // WD EDIT END
 
     /// <summary>
     ///     Reference to the action.

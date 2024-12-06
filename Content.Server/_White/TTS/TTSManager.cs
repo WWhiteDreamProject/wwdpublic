@@ -1,11 +1,12 @@
-using System.Linq;
+﻿using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
 using Content.Shared._White;
 using Prometheus;
 using Robust.Shared.Configuration;
@@ -15,33 +16,47 @@ namespace Content.Server._White.TTS;
 // ReSharper disable once InconsistentNaming
 public sealed class TTSManager
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-
     private static readonly Histogram RequestTimings = Metrics.CreateHistogram(
         "tts_req_timings",
         "Timings of TTS API requests",
-        new HistogramConfiguration
+        new HistogramConfiguration()
         {
-            LabelNames = new[] { "type" },
+            LabelNames = new[] {"type"},
             Buckets = Histogram.ExponentialBuckets(.1, 1.5, 10),
         });
 
-    private static readonly Counter WantedCount =
-        Metrics.CreateCounter("tts_wanted_count", "Amount of wanted TTS audio.");
+    private static readonly Counter WantedCount = Metrics.CreateCounter(
+        "tts_wanted_count",
+        "Amount of wanted TTS audio.");
 
-    private static readonly Counter ReusedCount =
-        Metrics.CreateCounter("tts_reused_count", "Amount of reused TTS audio from cache.");
+    private static readonly Counter ReusedCount = Metrics.CreateCounter(
+        "tts_reused_count",
+        "Amount of reused TTS audio from cache.");
 
-    private static readonly Gauge CachedCount = Metrics.CreateGauge("tts_cached_count", "Amount of cached TTS audio.");
+    [Robust.Shared.IoC.Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private readonly HttpClient _httpClient = new();
-    private readonly Dictionary<string, byte[]?> _cache = new();
 
     private ISawmill _sawmill = default!;
+    // ReSharper disable once InconsistentNaming
+    public readonly Dictionary<string, byte[]> _cache = new();
+    // ReSharper disable once InconsistentNaming
+    public readonly HashSet<string> _cacheKeysSeq = new();
+    // ReSharper disable once InconsistentNaming
+    public int _maxCachedCount = 200;
+    private string _apiUrl = string.Empty;
+    private string _apiToken = string.Empty;
 
     public void Initialize()
     {
         _sawmill = Logger.GetSawmill("tts");
+        _cfg.OnValueChanged(WhiteCVars.TTSMaxCache, val =>
+        {
+            _maxCachedCount = val;
+            ResetCache();
+        }, true);
+        _cfg.OnValueChanged(WhiteCVars.TTSApiUrl, v => _apiUrl = v, true);
+        _cfg.OnValueChanged(WhiteCVars.TTSApiToken, v => _apiToken = v, true);
     }
 
     /// <summary>
@@ -49,59 +64,59 @@ public sealed class TTSManager
     /// </summary>
     /// <param name="speaker">Identifier of speaker</param>
     /// <param name="text">SSML formatted text</param>
-    /// <returns>OGG audio bytes</returns>
+    /// <returns>OGG audio bytes or null if failed</returns>
     public async Task<byte[]?> ConvertTextToSpeech(string speaker, string text)
     {
-        var url = _cfg.GetCVar(WhiteCVars.TTSApiUrl);
-        if (string.IsNullOrWhiteSpace(url))
-        {
-            _sawmill.Log(LogLevel.Error, nameof(TTSManager), "TTS Api url not specified");
-            return null;
-        }
-
-        var token = _cfg.GetCVar(WhiteCVars.TTSApiToken);
-        if (string.IsNullOrWhiteSpace(token))
-        {
-            _sawmill.Log(LogLevel.Error, nameof(TTSManager), "TTS Api token not specified");
-            return null;
-        }
-
-        var maxCacheSize = _cfg.GetCVar(WhiteCVars.TTSMaxCache);
         WantedCount.Inc();
         var cacheKey = GenerateCacheKey(speaker, text);
         if (_cache.TryGetValue(cacheKey, out var data))
         {
             ReusedCount.Inc();
-            _sawmill.Debug($"Use cached sound for '{text}' speech by '{speaker}' speaker");
+            _sawmill.Verbose($"Use cached sound for '{text}' speech by '{speaker}' speaker");
             return data;
         }
 
+        _sawmill.Verbose($"Generate new audio for '{text}' speech by '{speaker}' speaker");
+
         var body = new GenerateVoiceRequest
         {
-            ApiToken = token,
+            ApiToken = _apiToken,
             Text = text,
-            Speaker = speaker
+            Speaker = speaker,
         };
 
         var reqTime = DateTime.UtcNow;
         try
         {
-            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
-            var response = await _httpClient.PostAsJsonAsync(url, body, cts.Token);
+            var timeout = _cfg.GetCVar(WhiteCVars.TTSApiTimeout);
+            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(timeout));
+            var response = await _httpClient.PostAsJsonAsync(_apiUrl, body, cts.Token);
             if (!response.IsSuccessStatusCode)
-                throw new Exception($"TTS request returned bad status code: {response.StatusCode}");
+            {
+                if (response.StatusCode == HttpStatusCode.TooManyRequests)
+                {
+                    _sawmill.Warning("TTS request was rate limited");
+                    return null;
+                }
 
-            var soundData = await response.Content.ReadAsByteArrayAsync(cts.Token);
+                _sawmill.Error($"TTS request returned bad status code: {response.StatusCode}");
+                return null;
+            }
 
-            if (_cache.Count > maxCacheSize)
-                _cache.Remove(_cache.Last().Key);
+            var json = await response.Content.ReadFromJsonAsync<GenerateVoiceResponse>(cancellationToken: cts.Token);
+            var soundData = Convert.FromBase64String(json.Results.First().Audio);
 
-            _cache.Add(cacheKey, soundData);
-            CachedCount.Inc();
 
-            _sawmill.Debug(
-                $"Generated new sound for '{text}' speech by '{speaker}' speaker ({soundData.Length} bytes)");
+            _cache.TryAdd(cacheKey, soundData);
+            _cacheKeysSeq.Add(cacheKey);
+            if (_cache.Count > _maxCachedCount)
+            {
+                var firstKey = _cacheKeysSeq.First();
+                _cache.Remove(firstKey);
+                _cacheKeysSeq.Remove(firstKey);
+            }
 
+            _sawmill.Debug($"Generated new audio for '{text}' speech by '{speaker}' speaker ({soundData.Length} bytes)");
             RequestTimings.WithLabels("Success").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
 
             return soundData;
@@ -109,13 +124,13 @@ public sealed class TTSManager
         catch (TaskCanceledException)
         {
             RequestTimings.WithLabels("Timeout").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
-            _sawmill.Warning($"Timeout of request generation new sound for '{text}' speech by '{speaker}' speaker");
+            _sawmill.Error($"Timeout of request generation new audio for '{text}' speech by '{speaker}' speaker");
             return null;
         }
         catch (Exception e)
         {
             RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
-            _sawmill.Warning($"Failed of request generation new sound for '{text}' speech by '{speaker}' speaker\n{e}");
+            _sawmill.Error($"Failed of request generation new sound for '{text}' speech by '{speaker}' speaker\n{e}");
             return null;
         }
     }
@@ -123,19 +138,23 @@ public sealed class TTSManager
     public void ResetCache()
     {
         _cache.Clear();
-        CachedCount.Set(0);
+        _cacheKeysSeq.Clear();
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     private string GenerateCacheKey(string speaker, string text)
     {
-        var key = $"{speaker}/{text}";
-        var keyData = Encoding.UTF8.GetBytes(key);
-        var bytes = System.Security.Cryptography.SHA256.HashData(keyData);
-        return Convert.ToHexString(bytes);
+        var keyData = Encoding.UTF8.GetBytes($"{speaker}/{text}");
+        var hashBytes = System.Security.Cryptography.SHA256.HashData(keyData);
+        return Convert.ToHexString(hashBytes);
     }
 
-    private record GenerateVoiceRequest
+    private struct GenerateVoiceRequest
     {
+        public GenerateVoiceRequest()
+        {
+        }
+
         [JsonPropertyName("api_token")]
         public string ApiToken { get; set; } = "";
 

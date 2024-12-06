@@ -1,57 +1,70 @@
-using System.IO;
 using Content.Shared._White;
-using Content.Shared._White.TTS.Events;
+using Content.Shared.Chat;
+using Content.Shared._White.TTS;
+using Content.Shared.GameTicking;
 using Robust.Client.Audio;
+using Robust.Client.ResourceManagement;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Components;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
+using Robust.Shared.ContentPack;
+using Robust.Shared.Utility;
 
 namespace Content.Client._White.TTS;
 
-// ReSharper disable InconsistentNaming
+/// <summary>
+/// Plays TTS audio in world
+/// </summary>
+// ReSharper disable once InconsistentNaming
 public sealed class TTSSystem : EntitySystem
 {
-    [Dependency] private readonly IAudioManager _audioManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
+    [Dependency] private readonly IResourceManager _res = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
 
-    private float _volume;
-    private readonly Dictionary<EntityUid, AudioComponent> _currentlyPlaying = new();
+    private ISawmill _sawmill = default!;
+    private readonly MemoryContentRoot _contentRoot = new();
+    private ResPath _prefix;
 
-    private readonly Dictionary<EntityUid, Queue<AudioStreamWithParams>> _enquedStreams = new();
+    /// <summary>
+    /// Reducing the volume of the TTS when whispering. Will be converted to logarithm.
+    /// </summary>
+    private const float WhisperFade = 4f;
 
-    // Same as Server.ChatSystem.VoiceRange
-    private const float VoiceRange = 10;
+    /// <summary>
+    /// The volume at which the TTS sound will not be heard.
+    /// </summary>
+    private const float MinimalVolume = -10f;
+
+    private float _volume = 0.0f;
+    private ulong _fileIdx = 0;
+    private static ulong _shareIdx = 0;
 
     public override void Initialize()
     {
+        _prefix = ResPath.Root / $"TTS{_shareIdx++}";
+        _sawmill = Logger.GetSawmill("tts");
+        _res.AddRoot(_prefix, _contentRoot);
         _cfg.OnValueChanged(WhiteCVars.TTSVolume, OnTtsVolumeChanged, true);
-
         SubscribeNetworkEvent<PlayTTSEvent>(OnPlayTTS);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+    }
+
+    private void OnRoundRestart(RoundRestartCleanupEvent ev)
+    {
+        _contentRoot.Clear();
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
         _cfg.UnsubValueChanged(WhiteCVars.TTSVolume, OnTtsVolumeChanged);
-        ClearQueues();
+        _contentRoot.Dispose();
     }
 
-    public override void FrameUpdate(float frameTime)
+    public void RequestGlobalTTS(VoiceRequestType text, string voiceId)
     {
-        foreach (var (uid, audioComponent) in _currentlyPlaying)
-        {
-            if (!Deleted(uid) && audioComponent is { Running: true, Playing: true }
-                || !_enquedStreams.TryGetValue(uid, out var queue)
-                || !queue.TryDequeue(out var toPlay))
-                continue;
-
-            var audio = _audioSystem.PlayEntity(toPlay.Stream, uid, toPlay.Params);
-            if (!audio.HasValue)
-                continue;
-
-            _currentlyPlaying[uid] = audio.Value.Component;
-        }
+        RaiseNetworkEvent(new RequestPreviewTTSEvent(voiceId));
     }
 
     private void OnTtsVolumeChanged(float volume)
@@ -61,70 +74,46 @@ public sealed class TTSSystem : EntitySystem
 
     private void OnPlayTTS(PlayTTSEvent ev)
     {
-        PlayTTS(GetEntity(ev.Uid), ev.Data, ev.BoostVolume ? _volume + 5 : _volume);
-    }
+        _sawmill.Verbose($"Play TTS audio {ev.Data.Length} bytes from {ev.SourceUid} entity");
 
-    public void PlayTTS(EntityUid uid, byte[] data, float volume)
-    {
-        if (_volume <= -20f)
-            return;
+        var filePath = new ResPath($"{_fileIdx++}.ogg");
+        _contentRoot.AddOrUpdateFile(filePath, ev.Data);
 
-        var stream = CreateAudioStream(data);
+        var audioResource = new AudioResource();
+        audioResource.Load(IoCManager.Instance!, _prefix / filePath);
 
-        var audioParams = new AudioParams
+        var audioParams = AudioParams.Default
+            .WithVolume(AdjustVolume(ev.IsWhisper))
+            .WithMaxDistance(AdjustDistance(ev.IsWhisper));
+
+        if (ev.SourceUid != null)
         {
-            Volume = volume,
-            MaxDistance = VoiceRange
-        };
-
-        var audioStream = new AudioStreamWithParams(stream, audioParams);
-        EnqueueAudio(uid, audioStream);
-    }
-
-    public void StopCurrentTTS(EntityUid uid)
-    {
-        if (!_currentlyPlaying.TryGetValue(uid, out var audio))
-            return;
-
-        _audioSystem.Stop(audio.Owner);
-    }
-
-    private void EnqueueAudio(EntityUid uid, AudioStreamWithParams audioStream)
-    {
-        if (!_currentlyPlaying.ContainsKey(uid))
+            var sourceUid = GetEntity(ev.SourceUid.Value);
+            if(sourceUid.IsValid())
+                _audio.PlayEntity(audioResource.AudioStream, sourceUid, audioParams);
+        }
+        else
         {
-            var audio = _audioSystem.PlayEntity(audioStream.Stream, uid, audioStream.Params);
-            if (!audio.HasValue)
-                return;
-
-            _currentlyPlaying[uid] = audio.Value.Component;
-            return;
+            _audio.PlayGlobal(audioResource.AudioStream, audioParams);
         }
 
-        if (_enquedStreams.TryGetValue(uid, out var queue))
+        _contentRoot.RemoveFile(filePath);
+    }
+
+    private float AdjustVolume(bool isWhisper)
+    {
+        var volume = Math.Max(MinimalVolume, SharedAudioSystem.GainToVolume(_volume));
+
+        if (isWhisper)
         {
-            queue.Enqueue(audioStream);
-            return;
+            volume -= SharedAudioSystem.GainToVolume(WhisperFade);
         }
 
-        queue = new Queue<AudioStreamWithParams>();
-        queue.Enqueue(audioStream);
-        _enquedStreams[uid] = queue;
+        return volume;
     }
 
-    private void ClearQueues()
+    private float AdjustDistance(bool isWhisper)
     {
-        foreach (var (_, queue) in _enquedStreams)
-        {
-            queue.Clear();
-        }
+        return isWhisper ? SharedChatSystem.WhisperMuffledRange : SharedChatSystem.VoiceRange;
     }
-
-    private AudioStream CreateAudioStream(byte[] data)
-    {
-        var dataStream = new MemoryStream(data) { Position = 0 };
-        return _audioManager.LoadAudioOggVorbis(dataStream);
-    }
-
-    private record AudioStreamWithParams(AudioStream Stream, AudioParams Params);
 }

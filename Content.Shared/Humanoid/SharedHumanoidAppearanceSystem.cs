@@ -47,13 +47,13 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     public const string DefaultSpecies = "Human";
 
     // WD EDIT START
-    [ValidatePrototypeId<TTSVoicePrototype>]
-    public const string DefaultVoice = "Eugene";
+    public const string DefaultVoice = "Aidar";
+
     public static readonly Dictionary<Sex, string> DefaultSexVoice = new()
     {
-        {Sex.Male, "Eugene"},
-        {Sex.Female, "Kseniya"},
-        {Sex.Unsexed, "Xenia"},
+        { Sex.Male, "Aidar" },
+        { Sex.Female, "Kseniya" },
+        { Sex.Unsexed, "Baya" },
     };
     // WD EDIT END
 
@@ -330,7 +330,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             return;
 
         humanoid.Voice = voiceId;
-        comp.Prototype = voiceId;
+        comp.VoicePrototypeId = voiceId;
 
         if (sync)
             Dirty(uid, humanoid);

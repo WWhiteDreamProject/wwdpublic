@@ -252,6 +252,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         ).ID;
         // WD EDIT END
 
+
         var name = GetName(species, gender);
 
         return new HumanoidCharacterProfile()
@@ -260,16 +261,16 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             Sex = sex,
             Age = age,
             Gender = gender,
-            Species = species,
             Voice = voiceId, // WD EDIT
+            Species = species,
             Appearance = HumanoidCharacterAppearance.Random(species, sex),
         };
     }
 
     public HumanoidCharacterProfile WithName(string name) => new(this) { Name = name };
     public HumanoidCharacterProfile WithFlavorText(string flavorText) => new(this) { FlavorText = flavorText };
-    public HumanoidCharacterProfile WithAge(int age) => new(this) { Age = age };
     public HumanoidCharacterProfile WithVoice(string voice) => new(this) { Voice = voice }; // WD EDIT
+    public HumanoidCharacterProfile WithAge(int age) => new(this) { Age = age };
     public HumanoidCharacterProfile WithSex(Sex sex) => new(this) { Sex = sex };
     public HumanoidCharacterProfile WithGender(Gender gender) => new(this) { Gender = gender };
     public HumanoidCharacterProfile WithSpecies(string species) => new(this) { Species = species };
@@ -352,8 +353,8 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         return maybeOther is HumanoidCharacterProfile other
             && Name == other.Name
             && Age == other.Age
-            && Voice == other.Voice // WD EDIT
             && Sex == other.Sex
+            && Voice == other.Voice // WD EDIT
             && Gender == other.Gender
             && Species == other.Species
             && PreferenceUnavailable == other.PreferenceUnavailable
