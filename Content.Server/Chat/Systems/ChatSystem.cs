@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using Content.Server._White.TTS;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
@@ -709,6 +710,11 @@ public sealed partial class ChatSystem : SharedChatSystem
     private void SendInVoiceRange(ChatChannel channel, string name, string message, string wrappedMessage, string obfuscated, string obfuscatedWrappedMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, LanguagePrototype? languageOverride = null)
     {
         var language = languageOverride ?? _language.GetLanguage(source);
+
+        // WD EDIT START
+        var orgMsg = new HashSet<ICommonSession>();
+        var obsMsg = new HashSet<ICommonSession>();
+        // WD EDIT END
         foreach (var (session, data) in GetRecipients(source, Transform(source).GridUid == null ? 0.3f : VoiceRange))
         {
             if (session.AttachedEntity != null
@@ -728,15 +734,34 @@ public sealed partial class ChatSystem : SharedChatSystem
             // If the channel does not support languages, or the entity can understand the message, send the original message, otherwise send the obfuscated version
             if (channel == ChatChannel.LOOC || channel == ChatChannel.Emotes || _language.CanUnderstand(listener, language.ID))
             {
+                orgMsg.Add(session); // WD EDIT
                 _chatManager.ChatMessageToOne(channel, message, wrappedMessage, source, entHideChat, session.Channel, author: author);
             }
             else
             {
+                obsMsg.Add(session); // WD EDIT
                 _chatManager.ChatMessageToOne(channel, obfuscated, obfuscatedWrappedMessage, source, entHideChat, session.Channel, author: author);
             }
         }
 
         _replay.RecordServerMessage(new ChatMessage(channel, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
+
+        // WD EDIT START
+        if ((orgMsg.Count > 0 || obsMsg.Count > 0) && (channel & ChatChannel.Local) != 0)
+        {
+            RaiseLocalEvent(source,
+                new EntitySpokeLanguageEvent(
+                    Filter.Empty().AddPlayers(orgMsg),
+                    Filter.Empty().AddPlayers(obsMsg),
+                    source,
+                    message,
+                    wrappedMessage,
+                    null,
+                    false,
+                    obfuscated)
+                );
+        }
+        // WD EDIT END
     }
 
     /// <summary>
