@@ -1,3 +1,4 @@
+using Content.Shared._White.TTS;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences; // DeltaV
@@ -111,6 +112,11 @@ public sealed partial class HumanoidAppearanceComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float Width = 1f;
+
+    // WD EDIT START
+    [DataField, AutoNetworkedField]
+    public ProtoId<TTSVoicePrototype> Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice;
+    // WD EDIT END
 }
 
 [DataDefinition]

@@ -879,6 +879,13 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("sex");
 
+                    // WD EDIT START
+                    b.Property<string>("Voice")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("voice");
+                    // WD EDIT END
+
                     b.Property<string>("SkinColor")
                         .IsRequired()
                         .HasColumnType("text")

@@ -37,6 +37,13 @@ public sealed partial class WieldableComponent : Component
     public string? WieldedInhandPrefix = "wielded";
 
     public string? OldInhandPrefix = null;
+    // WD EDIT START
+    /// <summary>
+    /// Requires item to be alt-used in hand (alt-Z / alt-click in active hand) to be wielded.
+    /// </summary>
+    [DataField]
+    public bool AltUseInHand = false;
+    // WD EDIT END
 }
 
 [Serializable, NetSerializable]

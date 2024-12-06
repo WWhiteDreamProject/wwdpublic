@@ -230,6 +230,7 @@
     - DoorBumpOpener
   - type: Targeting
   - type: SurgeryTarget
+  - type: TTS # WD EDIT
 
 - type: entity
   save: false

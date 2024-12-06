@@ -24,6 +24,11 @@ public abstract class SharedChatSystem : EntitySystem
     public const char WhisperPrefix = ',';
     public const char TelepathicPrefix = '='; //Nyano - Summary: Adds the telepathic channel's prefix.
     public const char DefaultChannelKey = 'h';
+    // WD EDIT START
+    public const int VoiceRange = 10;
+    public const int WhisperClearRange = 2;
+    public const int WhisperMuffledRange = 5;
+    // WD EDIT END
 
     [ValidatePrototypeId<RadioChannelPrototype>]
     public const string CommonChannel = "Common";
