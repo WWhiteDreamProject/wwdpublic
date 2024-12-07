@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System.Linq;
+using System.Numerics;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
@@ -89,6 +90,7 @@ public sealed partial class EmotesMenu : RadialMenu
             if (child is not RadialContainer container)
                 continue;
             AddEmoteClickAction(container);
+            container.Radius = 64f + 32f * MathF.Log(container.Children.Count());
         }
     }
 

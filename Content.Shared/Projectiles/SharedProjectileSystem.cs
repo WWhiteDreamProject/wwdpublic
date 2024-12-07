@@ -31,6 +31,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!; // WD EDIT
+    [Dependency] private readonly PenetratedSystem _penetrated = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -54,6 +55,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (component.DeleteOnRemove)
         {
             QueueDel(uid);
+            FreePenetrated(uid); // WD EDIT
             return;
         }
 
@@ -69,6 +71,8 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             projectile.Weapon = null;
             projectile.DamagedEntity = false;
         }
+
+        FreePenetrated(uid); // WD EDIT
 
         // Land it just coz uhhh yeah
         var landEv = new LandEvent(args.User, true);
@@ -203,6 +207,15 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         });
 
         return true;
+    }
+
+    private void FreePenetrated(EntityUid uid, PenetratedProjectileComponent? penetratedProjectile = null)
+    {
+        if (!Resolve(uid, ref penetratedProjectile)
+            || !penetratedProjectile.PenetratedUid.HasValue)
+            return;
+
+        _penetrated.FreePenetrated(penetratedProjectile.PenetratedUid.Value);
     }
     // WD EDIT END
 }

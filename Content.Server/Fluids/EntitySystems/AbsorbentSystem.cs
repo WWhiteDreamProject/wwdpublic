@@ -4,6 +4,7 @@ using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Coordinates;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Fluids.Components;
@@ -99,7 +100,7 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
         if (args.Handled)
             return;
 
-        Mop(uid, uid, component, args.ClickLocation, args.Target); // WD EDIT
+        Mop(uid, uid, component, args.Target.ToCoordinates(), args.Target); // WD EDIT
         args.Handled = true;
     }
 
