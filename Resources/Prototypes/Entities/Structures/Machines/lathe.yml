@@ -364,6 +364,10 @@
       - MofficTranslator
       - RCDAmmo #DeltaV
       - RCD #EE
+      # WD EDIT START
+      - ClothingEyesNightVisionGoggles
+      - ClothingEyesThermalVisionGoggles
+      # WD EDIT END
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -1045,6 +1049,13 @@
       - AdvancedRetractor
       - OmnimedTool
       - MedicalCyberneticEyes
+      - BluespaceBodyBag # WD
+      - NTBodyBag # WD
+      - PrisonerBodyBag # WD
+      - RadiationBodyBag # WD
+  - type: EmagLatheRecipes
+    emagDynamicRecipes:
+      - SyndicateBodyBag # WD
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
