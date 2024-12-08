@@ -12,6 +12,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Targeting;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
@@ -150,7 +151,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         }
     }
 
-    public void Embed(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component, bool raiseEvent = true) // WD EDIT
+    public void Embed(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component, TargetBodyPart? targetPart = null, bool raiseEvent = true) // WD EDIT
     {
         // WD EDIT START
         if (!TryComp<PhysicsComponent>(uid, out var physics)
@@ -224,7 +225,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         args.Cancel("pacified-cannot-throw-embed");
     }
 
-
     private void OnExamined(EntityUid uid, EmbeddableProjectileComponent component, ExaminedEvent args)
     {
         if (!(component.Target is {} target))
@@ -276,10 +276,17 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             || physics.BodyType != BodyType.Static)
             return false;
 
+        if (component.Target is {} targetUid)
+            _popup.PopupClient(Loc.GetString("throwing-embed-remove-alert-owner", ("item", uid), ("other", user)),
+                user, targetUid);
+
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, component.RemovalTime.Value,
             new RemoveEmbeddedProjectileEvent(), eventTarget: uid, target: uid)
         {
             DistanceThreshold = SharedInteractionSystem.InteractionRange,
+            BreakOnUserMove = true,
+            BreakOnTargetMove = true,
+            NeedHand = true,
         });
 
         return true;
@@ -287,7 +294,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void FreePenetrated(EntityUid uid, PenetratedProjectileComponent? penetratedProjectile = null)
     {
-        if (!Resolve(uid, ref penetratedProjectile)
+        if (!Resolve(uid, ref penetratedProjectile, false)
             || !penetratedProjectile.PenetratedUid.HasValue)
             return;
 
