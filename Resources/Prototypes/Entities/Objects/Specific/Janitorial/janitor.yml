@@ -19,6 +19,11 @@
     angle: 180
     soundHit:
       collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 6
+    staminaCost: 8
   - type: Spillable
     solution: absorbed
   - type: Wieldable
@@ -68,6 +73,11 @@
       angle: 180
       soundHit:
          collection: MetalThud
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Blunt: 6
+      staminaCost: 8
     - type: Spillable
       solution: absorbed
     - type: Wieldable

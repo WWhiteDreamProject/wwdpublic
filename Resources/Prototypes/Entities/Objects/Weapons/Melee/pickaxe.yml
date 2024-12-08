@@ -30,6 +30,8 @@
     heavyDamageBaseModifier: 0.5
     heavyStaminaCost: 0
     # WD EDIT END
+  - type: DamageOtherOnHit
+    staminaCost: 5
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
@@ -72,6 +74,10 @@
     attackRate: 3.5 # WD EDIT
     heavyStaminaCost: 0 # WD EDIT
     angle: 0 # WD EDIT
+  - type: DamageOtherOnHit
+    staminaCost: 8
+  - type: ThrowingAngle
+    angle: 270
 
   - type: ReverseEngineering # Nyano
     difficulty: 2

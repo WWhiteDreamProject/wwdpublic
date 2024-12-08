@@ -29,6 +29,7 @@
     activatedDamage:
       types:
         Blunt: 0
+  - type: ItemToggleDamageOtherOnHit
   - type: MeleeWeapon
     damage:
       types:
@@ -37,6 +38,8 @@
     canHeavyAttack: false # WD EDIT
     attackRate: 0.4 # WD EDIT
     angle: 60
+    animation: WeaponArcSlash
+  - type: DamageOtherOnHit
   - type: StaminaDamageOnHit
     damage: 55 # WD EDIT
     sound: /Audio/Weapons/egloves.ogg
@@ -106,10 +109,12 @@
       collection: MetalThud
     bluntStaminaDamageFactor: 2
     heavyRateModifier: 1
+  - type: DamageOtherOnHit
+    staminaCost: 9
   - type: Item
     size: Normal
   - type: Tag
-    tags: 
+    tags:
     - Truncheon
   - type: Clothing
     sprite: Objects/Weapons/Melee/truncheon.rsi

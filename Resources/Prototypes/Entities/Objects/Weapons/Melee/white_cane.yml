@@ -22,6 +22,7 @@
     heavyRangeModifier: 1.75
     maxTargets: 1
     angle: 20
+  - type: DamageOtherOnHit
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
@@ -29,4 +30,3 @@
         Blunt: 2
   - type: UseDelay
     delay: 1
-

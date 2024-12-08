@@ -25,6 +25,8 @@
     bluntStaminaDamageFactor: 1.5
     heavyRateModifier: 0.75
     angle: 75
+  - type: DamageOtherOnHit
+    staminaCost: 8
   - type: Item
     size: Normal
     sprite: Objects/Fun/Instruments/eguitar.rsi
@@ -67,6 +69,8 @@
     heavyDamageBaseModifier: 1.2
     heavyStaminaCost: 10
     angle: 75
+  - type: DamageOtherOnHit
+    staminaCost: 8
   - type: Item
     size: Normal
     sprite: Objects/Fun/Instruments/bassguitar.rsi
@@ -110,6 +114,8 @@
     heavyDamageBaseModifier: 1.2
     heavyStaminaCost: 15
     angle: 160
+  - type: DamageOtherOnHit
+    staminaCost: 8
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
@@ -177,6 +183,10 @@
     damage:
       types:
         Blunt: 20
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 20
   - type: MeleeWeapon
     range: 1.5
     wideAnimationRotation: 45
@@ -188,6 +198,8 @@
     heavyDamageBaseModifier: 1.2
     heavyStaminaCost: 10
     angle: 75
+  - type: DamageOtherOnHit
+    staminaCost: 7
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -234,6 +246,8 @@
     heavyDamageBaseModifier: 1.2
     heavyStaminaCost: 10
     angle: 75
+  - type: DamageOtherOnHit
+    staminaCost: 8
 
 - type: entity
   parent: BaseHandheldInstrument

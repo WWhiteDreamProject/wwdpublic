@@ -1,7 +1,7 @@
 - type: entity
   name: energy sword
   parent: BaseItem
-  id: EnergySwordBase
+  id: EnergySword
   description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
   abstract: true
   components:
@@ -39,12 +39,24 @@
         Slash: 15
         Heat: 15
         Structural: 20
+  - type: ItemToggleDamageOtherOnHit
+    activatedStaminaCost: 6
+  - type: ItemToggleEmbedPassiveDamage
+  - type: ItemToggleEmbeddableProjectile
+    activatedEmbedOnThrow: true
+  - type: ItemToggleThrowingAngle
+    activatedAngle: 225
+    deleteOnDeactivate: true
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 1
     damage:
       types:
         Blunt: 4.5
+  - type: DamageOtherOnHit
+  - type: EmbeddableProjectile
+    embedOnThrow: false
+  - type: EmbedPassiveDamage
   - type: UseDelay
     delay: 1.0
   - type: PointLight
@@ -67,11 +79,11 @@
     malus: 0
   - type: Reflect
     enabled: false
-  - type: IgnitionSource
-    temperature: 700
   - type: Tag
     tags:
-    - NoPaint
+      - NoPaint
+  - type: IgnitionSource
+    temperature: 700
   - type: Scalpel
     speed: 0.75
   - type: Cautery
@@ -126,12 +138,12 @@
   id: EnergySwordHoS
   description: An elegant weapon fit for a prince, this otherwise plain silver hilt is engraved with, "My Love".
   components:
-  - type: EnergySword
-    activatedColor: "#00CCFF"
-    colorOptions:
-    - "#00CCFF"
-  - type: StealTarget
-    stealGroup: HoSAntiqueWeapon
+    - type: EnergySword
+      activatedColor: "#00CCFF"
+      colorOptions:
+       - "#00CCFF"
+    - type: StealTarget
+      stealGroup: HoSAntiqueWeapon
 
 - type: entity
   name: pen
@@ -191,6 +203,8 @@
     spread: 75
     reflects:
     - Energy
+  - type: UseDelay
+    delay: 1.0
   - type: PointLight
     enabled: false
     radius: 1.5
@@ -201,6 +215,9 @@
   - type: Tag
     tags:
     - Write
+    - NoPaint
+  - type: DisarmMalus
+    malus: 0
   - type: MeleeBlock # WD EDIT
     delay: 12.1
 
