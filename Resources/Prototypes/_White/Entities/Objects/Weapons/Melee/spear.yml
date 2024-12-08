@@ -1,0 +1,58 @@
+- type: entity
+  name: hardlight spear
+  parent: Spear
+  id: HardlightSpear
+  description: A spear made out of hardened light.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Melee/Spear/hardlight_spear.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 18
+        Heat: 18
+    soundHit:
+      path: /Audio/Weapons/smash.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 20
+        Heat: 20
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 4
+        Heat: 4
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: EmbeddableProjectile
+    offset: 0.15,0.15
+    deleteOnRemove: true
+    preventCollide: true
+  - type: DespawnOnLandItem
+  - type: ThrowingItemModifier
+  - type: PointLight
+    radius: 1.5
+    energy: 2
+    color: yellow
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+            - -0.20,-0.10
+            - -0.10,-0.20
+            - 0.40,0.30
+            - 0.30,0.40
+        density: 20
+        mask:
+        - Opaque
+        restitution: 0.3
+        friction: 0.2

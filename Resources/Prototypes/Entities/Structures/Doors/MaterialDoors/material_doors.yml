@@ -84,7 +84,7 @@
   description: A door, where will it lead?
   components:
   - type: Sprite
-    sprite: _White/Structures/Doors/MineralDoors/wood_door.rsi #WWDP edit
+    sprite: Structures/Doors/MineralDoors/wood_door.rsi
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]

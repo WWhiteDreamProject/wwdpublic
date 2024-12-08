@@ -1,8 +1,5 @@
-using Content.Shared._White.Standing;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Audio;
-using Content.Shared.DragDrop;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
@@ -12,13 +9,11 @@ using Content.Shared.Database;
 using Content.Shared.Hands;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -28,14 +23,16 @@ namespace Content.Shared.Stunnable;
 
 public abstract class SharedStunSystem : EntitySystem
 {
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
+
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly SharedLayingDownSystem _layingDown = default!; // WD EDIT
-    [Dependency] private readonly SharedContainerSystem _container = default!; // WD EDIT
+    [Dependency] private readonly SharedLayingDownSystem _layingDown = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     /// <summary>
     /// Friction modifier for knocked down players.
@@ -80,15 +77,12 @@ public abstract class SharedStunSystem : EntitySystem
     private void OnMobStateChanged(EntityUid uid, MobStateComponent component, MobStateChangedEvent args)
     {
         if (!TryComp<StatusEffectsComponent>(uid, out var status))
-        {
             return;
-        }
+
         switch (args.NewMobState)
         {
             case MobState.Alive:
-            {
                 break;
-            }
             case MobState.Critical:
             {
                 _statusEffect.TryRemoveStatusEffect(uid, "Stun");
@@ -113,13 +107,12 @@ public abstract class SharedStunSystem : EntitySystem
 
     private void OnKnockInit(EntityUid uid, KnockedDownComponent component, ComponentInit args)
     {
-        RaiseNetworkEvent(new CheckAutoGetUpEvent(GetNetEntity(uid))); // WD EDIT
-        _layingDown.TryLieDown(uid, null, null, DropHeldItemsBehavior.DropIfStanding); // WD EDIT
+        RaiseNetworkEvent(new CheckAutoGetUpEvent(GetNetEntity(uid)));
+        _layingDown.TryLieDown(uid, null, null, component.DropHeldItemsBehavior); // WD EDIT
     }
 
     private void OnKnockShutdown(EntityUid uid, KnockedDownComponent component, ComponentShutdown args)
     {
-        // WD EDIT START
         if (!TryComp(uid, out StandingStateComponent? standing))
             return;
 
@@ -131,7 +124,6 @@ public abstract class SharedStunSystem : EntitySystem
         }
 
         _standingState.Stand(uid, standing);
-        // WD EDIT END
     }
 
     private void OnStandAttempt(EntityUid uid, KnockedDownComponent component, StandAttemptEvent args)
@@ -165,13 +157,9 @@ public abstract class SharedStunSystem : EntitySystem
     public bool TryStun(EntityUid uid, TimeSpan time, bool refresh,
         StatusEffectsComponent? status = null)
     {
-        if (time <= TimeSpan.Zero)
-            return false;
-
-        if (!Resolve(uid, ref status, false))
-            return false;
-
-        if (!_statusEffect.TryAddStatusEffect<StunnedComponent>(uid, "Stun", time, refresh))
+        if (time <= TimeSpan.Zero
+            || !Resolve(uid, ref status, false)
+            || !_statusEffect.TryAddStatusEffect<StunnedComponent>(uid, "Stun", time, refresh))
             return false;
 
         var ev = new StunnedEvent();
@@ -185,15 +173,31 @@ public abstract class SharedStunSystem : EntitySystem
     ///     Knocks down the entity, making it fall to the ground.
     /// </summary>
     public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh,
+        DropHeldItemsBehavior behavior = DropHeldItemsBehavior.DropIfStanding,
         StatusEffectsComponent? status = null)
     {
-        if (time <= TimeSpan.Zero)
+        if (time <= TimeSpan.Zero || !Resolve(uid, ref status, false))
             return false;
 
-        if (!Resolve(uid, ref status, false))
+        var component = _componentFactory.GetComponent<KnockedDownComponent>();
+        component.DropHeldItemsBehavior = behavior;
+        if (!_statusEffect.TryAddStatusEffect(uid, "KnockedDown", time, refresh, component))
             return false;
 
-        if (!_statusEffect.TryAddStatusEffect<KnockedDownComponent>(uid, "KnockedDown", time, refresh))
+        var ev = new KnockedDownEvent();
+        RaiseLocalEvent(uid, ref ev);
+        return true;
+    }
+
+    /// <summary>
+    ///     Knocks down the entity, making it fall to the ground.
+    /// </summary>
+    public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh,
+        StatusEffectsComponent? status = null)
+    {
+        if (time <= TimeSpan.Zero
+            || !Resolve(uid, ref status, false)
+            || !_statusEffect.TryAddStatusEffect<KnockedDownComponent>(uid, "KnockedDown", time, refresh))
             return false;
 
         var ev = new KnockedDownEvent();
@@ -221,10 +225,8 @@ public abstract class SharedStunSystem : EntitySystem
         float walkSpeedMultiplier = 1f, float runSpeedMultiplier = 1f,
         StatusEffectsComponent? status = null)
     {
-        if (!Resolve(uid, ref status, false))
-            return false;
-
-        if (time <= TimeSpan.Zero)
+        if (!Resolve(uid, ref status, false)
+            || time <= TimeSpan.Zero)
             return false;
 
         if (_statusEffect.TryAddStatusEffect<SlowedDownComponent>(uid, "SlowedDown", time, refresh, status))
@@ -247,22 +249,16 @@ public abstract class SharedStunSystem : EntitySystem
 
     private void OnInteractHand(EntityUid uid, KnockedDownComponent knocked, InteractHandEvent args)
     {
-        // This is currently disabled in favor of an interaction verb with the same effect, but more obvious usage.
-        return;
-
-        if (args.Handled || knocked.HelpTimer > 0f)
-            return;
-
-        // TODO: This should be an event.
-        if (HasComp<SleepingComponent>(uid))
+        if (args.Handled || knocked.HelpTimer > 0f
+            || HasComp<SleepingComponent>(uid))
             return;
 
         // Set it to half the help interval so helping is actually useful...
-        knocked.HelpTimer = knocked.HelpInterval/2f;
+        knocked.HelpTimer = knocked.HelpInterval / 2f;
 
         _statusEffect.TryRemoveTime(uid, "KnockedDown", TimeSpan.FromSeconds(knocked.HelpInterval));
         _audio.PlayPredicted(knocked.StunAttemptSound, uid, args.User);
-        Dirty(knocked);
+        Dirty(uid, knocked);
 
         args.Handled = true;
     }
@@ -290,15 +286,19 @@ public abstract class SharedStunSystem : EntitySystem
     private void OnEquipAttempt(EntityUid uid, StunnedComponent stunned, IsEquippingAttemptEvent args)
     {
         // is this a self-equip, or are they being stripped?
-        if (args.Equipee == uid)
-            args.Cancel();
+        if (args.Equipee != uid)
+            return;
+
+        args.Cancel();
     }
 
     private void OnUnequipAttempt(EntityUid uid, StunnedComponent stunned, IsUnequippingAttemptEvent args)
     {
         // is this a self-equip, or are they being stripped?
-        if (args.Unequipee == uid)
-            args.Cancel();
+        if (args.Unequipee != uid)
+            return;
+
+        args.Cancel();
     }
 
     #endregion

@@ -1,17 +1,21 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Alert;
 using Content.Shared.Audio;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Database;
+using Content.Shared.Gravity;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Standing;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
@@ -35,6 +39,13 @@ public sealed class ReflectSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!; // WD EDIT
+
+    [ValidatePrototypeId<AlertPrototype>]
+    private const string DeflectingAlert = "Deflecting";
 
     public override void Initialize()
     {
@@ -57,9 +68,9 @@ public sealed class ReflectSystem : EntitySystem
         if (args.Reflected)
             return;
 
-        foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(uid, SlotFlags.All & ~SlotFlags.POCKET))
+        foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(uid, SlotFlags.WITHOUT_POCKET))
         {
-            if (!TryReflectHitscan(uid, ent, args.Shooter, args.SourceItem, args.Direction, out var dir))
+            if (!TryReflectHitscan(uid, ent, args.Shooter, args.SourceItem, args.Direction, args.Damage, out var dir))
                 continue;
 
             args.Direction = dir.Value;
@@ -70,7 +81,7 @@ public sealed class ReflectSystem : EntitySystem
 
     private void OnReflectUserCollide(EntityUid uid, ReflectUserComponent component, ref ProjectileReflectAttemptEvent args)
     {
-        foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(uid, SlotFlags.All & ~SlotFlags.POCKET))
+        foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(uid, SlotFlags.WITHOUT_POCKET))
         {
             if (!TryReflectProjectile(uid, ent, args.ProjUid))
                 continue;
@@ -91,15 +102,20 @@ public sealed class ReflectSystem : EntitySystem
 
     private bool TryReflectProjectile(EntityUid user, EntityUid reflector, EntityUid projectile, ProjectileComponent? projectileComp = null, ReflectComponent? reflect = null)
     {
-        if (!Resolve(reflector, ref reflect, false) ||
+        // Do we have the components needed to try a reflect at all?
+        if (
+            !Resolve(reflector, ref reflect, false) ||
             !reflect.Enabled ||
             !TryComp<ReflectiveComponent>(projectile, out var reflective) ||
             (reflect.Reflects & reflective.Reflective) == 0x0 ||
-            !_random.Prob(reflect.ReflectProb) ||
-            !TryComp<PhysicsComponent>(projectile, out var physics))
-        {
+            !TryComp<PhysicsComponent>(projectile, out var physics) ||
+            TryComp<StaminaComponent>(reflector, out var staminaComponent) && staminaComponent.Critical ||
+            _standing.IsDown(reflector)
+        )
             return false;
-        }
+
+        if (!_random.Prob(CalcReflectChance(reflector, reflect)))
+            return false;
 
         var rotation = _random.NextAngle(-reflect.Spread / 2, reflect.Spread / 2).Opposite();
         var existingVelocity = _physics.GetMapLinearVelocity(projectile, component: physics);
@@ -123,6 +139,14 @@ public sealed class ReflectSystem : EntitySystem
 
         if (Resolve(projectile, ref projectileComp, false))
         {
+            // WD EDIT START
+            if (reflect.DamageOnReflectModifier != 0)
+            {
+                _damageable.TryChangeDamage(reflector, projectileComp.Damage * reflect.DamageOnReflectModifier,
+                    projectileComp.IgnoreResistances, origin: projectileComp.Shooter);
+            }
+            // WD EDIT END
+
             _adminLogger.Add(LogType.BulletHit, LogImpact.Medium, $"{ToPrettyString(user)} reflected {ToPrettyString(projectile)} from {ToPrettyString(projectileComp.Weapon)} shot by {projectileComp.Shooter}");
 
             projectileComp.Shooter = user;
@@ -137,6 +161,34 @@ public sealed class ReflectSystem : EntitySystem
         return true;
     }
 
+    private float CalcReflectChance(EntityUid reflector, ReflectComponent reflect)
+    {
+        /*
+         *  The rules of deflection are as follows:
+         *  If you innately reflect things via magic, biology etc., you always have a full chance.
+         *  If you are standing up and standing still, you're prepared to deflect and have full chance.
+         *  If you have velocity, your deflection chance depends on your velocity, clamped.
+         *  If you are floating, your chance is the minimum value possible.
+         *  You cannot deflect if you are knocked down or stunned.
+         */
+
+        if (reflect.Innate)
+            return reflect.ReflectProb;
+
+        if (_gravity.IsWeightless(reflector))
+            return reflect.MinReflectProb;
+
+        if (!TryComp<PhysicsComponent>(reflector, out var reflectorPhysics))
+            return reflect.ReflectProb;
+
+        return MathHelper.Lerp(
+            reflect.MinReflectProb,
+            reflect.ReflectProb,
+            // Inverse progression between velocities fed in as progression between probabilities. We go high -> low so the output here needs to be _inverted_.
+            1 - Math.Clamp((reflectorPhysics.LinearVelocity.Length() - reflect.VelocityBeforeNotMaxProb) / (reflect.VelocityBeforeMinProb - reflect.VelocityBeforeNotMaxProb), 0, 1)
+        );
+    }
+
     private void OnReflectHitscan(EntityUid uid, ReflectComponent component, ref HitScanReflectAttemptEvent args)
     {
         if (args.Reflected ||
@@ -145,7 +197,7 @@ public sealed class ReflectSystem : EntitySystem
             return;
         }
 
-        if (TryReflectHitscan(uid, uid, args.Shooter, args.SourceItem, args.Direction, out var dir))
+        if (TryReflectHitscan(uid, uid, args.Shooter, args.SourceItem, args.Direction, args.Damage, out var dir)) // WD EDIT
         {
             args.Direction = dir.Value;
             args.Reflected = true;
@@ -158,11 +210,19 @@ public sealed class ReflectSystem : EntitySystem
         EntityUid? shooter,
         EntityUid shotSource,
         Vector2 direction,
+        DamageSpecifier? damage, // WD EDIT
         [NotNullWhen(true)] out Vector2? newDirection)
     {
         if (!TryComp<ReflectComponent>(reflector, out var reflect) ||
             !reflect.Enabled ||
-            !_random.Prob(reflect.ReflectProb))
+            TryComp<StaminaComponent>(reflector, out var staminaComponent) && staminaComponent.Critical ||
+            _standing.IsDown(reflector))
+        {
+            newDirection = null;
+            return false;
+        }
+
+        if (!_random.Prob(CalcReflectChance(reflector, reflect)))
         {
             newDirection = null;
             return false;
@@ -173,6 +233,11 @@ public sealed class ReflectSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
             _audio.PlayPvs(reflect.SoundOnReflect, user, AudioHelpers.WithVariation(0.05f, _random));
         }
+
+        // WD EDIT START
+        if (reflect.DamageOnReflectModifier != 0 && damage != null)
+            _damageable.TryChangeDamage(reflector, damage * reflect.DamageOnReflectModifier, origin: shooter);
+        // WD EDIT END
 
         var spread = _random.NextAngle(-reflect.Spread / 2, reflect.Spread / 2);
         newDirection = -spread.RotateVec(direction);
@@ -191,6 +256,9 @@ public sealed class ReflectSystem : EntitySystem
             return;
 
         EnsureComp<ReflectUserComponent>(args.Equipee);
+
+        if (component.Enabled)
+            EnableAlert(args.Equipee);
     }
 
     private void OnReflectUnequipped(EntityUid uid, ReflectComponent comp, GotUnequippedEvent args)
@@ -204,6 +272,9 @@ public sealed class ReflectSystem : EntitySystem
             return;
 
         EnsureComp<ReflectUserComponent>(args.User);
+
+        if (component.Enabled)
+            EnableAlert(args.User);
     }
 
     private void OnReflectHandUnequipped(EntityUid uid, ReflectComponent component, GotUnequippedHandEvent args)
@@ -215,6 +286,11 @@ public sealed class ReflectSystem : EntitySystem
     {
         comp.Enabled = args.Activated;
         Dirty(uid, comp);
+
+        if (comp.Enabled)
+            EnableAlert(uid);
+        else
+            DisableAlert(uid);
     }
 
     /// <summary>
@@ -222,15 +298,28 @@ public sealed class ReflectSystem : EntitySystem
     /// </summary>
     private void RefreshReflectUser(EntityUid user)
     {
-        foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(user, SlotFlags.All & ~SlotFlags.POCKET))
+        foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(user, SlotFlags.WITHOUT_POCKET))
         {
             if (!HasComp<ReflectComponent>(ent))
                 continue;
 
             EnsureComp<ReflectUserComponent>(user);
+            EnableAlert(user);
+
             return;
         }
 
         RemCompDeferred<ReflectUserComponent>(user);
+        DisableAlert(user);
+    }
+
+    private void EnableAlert(EntityUid alertee)
+    {
+        _alerts.ShowAlert(alertee, DeflectingAlert);
+    }
+
+    private void DisableAlert(EntityUid alertee)
+    {
+        _alerts.ClearAlert(alertee, DeflectingAlert);
     }
 }

@@ -10,7 +10,7 @@ using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using System.Linq;
-using Content.Server._White.StoreDiscount;
+using Content.Server.StoreDiscount;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Store.Systems;
@@ -23,7 +23,7 @@ public sealed partial class StoreSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StoreDiscountSystem _storeDiscount = default!; // WD EDIT
+    [Dependency] private readonly StoreDiscountSystem _storeDiscount = default!;
 
     public override void Initialize()
     {
@@ -102,7 +102,7 @@ public sealed partial class StoreSystem : EntitySystem
         if (args.Handled)
         {
             var msg = Loc.GetString("store-currency-inserted", ("used", args.Used), ("target", args.Target));
-            _popup.PopupEntity(msg, args.Target.Value);
+            _popup.PopupEntity(msg, args.Target.Value, args.User);
             QueueDel(args.Used);
         }
     }
@@ -201,13 +201,10 @@ public sealed partial class StoreSystem : EntitySystem
         if (component.Balance == new Dictionary<string, FixedPoint2>() && preset.InitialBalance != null) //if we don't have a value stored, use the preset
             TryAddCurrency(preset.InitialBalance, uid, component);
 
-        _storeDiscount.ApplyDiscounts(component.Listings, preset); // WD EDIT
+        _storeDiscount.ApplyDiscounts(component.Listings, preset);
 
-        var ui = _ui.GetUiOrNull(uid, StoreUiKey.Key);
-        if (ui != null)
-        {
-            _ui.SetUiState(ui, new StoreInitializeState(preset.StoreName));
-        }
+        if (_ui.HasUi(uid, StoreUiKey.Key))
+            _ui.SetUiState(uid, StoreUiKey.Key, new StoreInitializeState(preset.StoreName));
     }
 }
 

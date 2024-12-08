@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared.Actions;
+using Content.Shared.Chat;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -29,6 +30,7 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
         SubscribeLocalEvent<ImplantedComponent, MobStateChangedEvent>(RelayToImplantEvent);
         SubscribeLocalEvent<ImplantedComponent, AfterInteractUsingEvent>(RelayToImplantEvent);
         SubscribeLocalEvent<ImplantedComponent, SuicideEvent>(RelayToImplantEvent);
+        SubscribeLocalEvent<ImplantedComponent, TransformSpeakerSpeechEvent>(RelayToImplantEvent);
     }
 
     private void OnInsert(EntityUid uid, SubdermalImplantComponent component, EntGotInsertedIntoContainerMessage args)
@@ -53,9 +55,6 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
                 }
             }
         }
-
-        var ev = new ImplantImplantedEvent(uid, component.ImplantedEntity.Value);
-        RaiseLocalEvent(uid, ref ev);
     }
 
     private void OnRemoveAttempt(EntityUid uid, SubdermalImplantComponent component, ContainerGettingRemovedAttemptEvent args)
@@ -125,6 +124,8 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
 
         component.ImplantedEntity = target;
         _container.Insert(implant, implantContainer);
+
+        RaiseLocalEvent(implant, new SubdermalImplantInserted(target, target)); // WD EDIT
     }
 
     /// <summary>
@@ -183,25 +184,5 @@ public sealed class ImplantRelayEvent<T> where T : notnull
     public ImplantRelayEvent(T ev)
     {
         Event = ev;
-    }
-}
-
-/// <summary>
-/// Event that is raised whenever someone is implanted with any given implant.
-/// Raised on the the implant entity.
-/// </summary>
-/// <remarks>
-/// implant implant implant implant
-/// </remarks>
-[ByRefEvent]
-public readonly struct ImplantImplantedEvent
-{
-    public readonly EntityUid Implant;
-    public readonly EntityUid? Implanted;
-
-    public ImplantImplantedEvent(EntityUid implant, EntityUid? implanted)
-    {
-        Implant = implant;
-        Implanted = implanted;
     }
 }

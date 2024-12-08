@@ -1,3 +1,4 @@
+using Content.Server._White.TTS;
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -13,8 +14,8 @@ using Content.Server.EUI;
 using Content.Server.GameTicking;
 using Content.Server.GhostKick;
 using Content.Server.GuideGenerator;
-using Content.Server.Info;
 using Content.Server.IoC;
+using Content.Server.Players.JobWhitelist;
 using Content.Server.Maps;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.Players.PlayTimeTracking;
@@ -109,10 +110,12 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<JoinQueueManager>().Initialize();
                 IoCManager.Resolve<DiscordAuthManager>().Initialize();
                 IoCManager.Resolve<ServerApi>().Initialize();
+                IoCManager.Resolve<TTSManager>().Initialize(); // WD EDIT
 
                 _voteManager.Initialize();
                 _updateManager.Initialize();
                 _playTimeTracking.Initialize();
+                IoCManager.Resolve<JobWhitelistManager>().Initialize();
             }
         }
 
@@ -141,7 +144,6 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<RecipeManager>().Initialize();
                 IoCManager.Resolve<IAdminManager>().Initialize();
                 IoCManager.Resolve<IAfkManager>().Initialize();
-                IoCManager.Resolve<RulesManager>().Initialize();
                 _euiManager.Initialize();
 
                 IoCManager.Resolve<IGameMapManager>().Initialize();

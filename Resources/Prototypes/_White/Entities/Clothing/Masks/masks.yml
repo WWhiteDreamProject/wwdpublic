@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskToyVampireFangs
+  name: toy vampire fangs
+  description: Plastic toy vampire fangs made especially for the spooky day and maybe not only for this day. They smell of blood...
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Mask/toy_vampire_fangs.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Mask/toy_vampire_fangs.rsi
+  - type: Tag
+    tags:
+    - IPCMaskWearable

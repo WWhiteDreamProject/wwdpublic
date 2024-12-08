@@ -1,8 +1,8 @@
 using System.Linq;
 using System.Numerics;
 using Content.Shared._White.Blink;
-using Content.Shared._White.Standing;
 using Content.Shared.Physics;
+using Content.Shared.Standing;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;

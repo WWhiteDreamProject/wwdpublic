@@ -2,7 +2,7 @@
   parent: MobObserver
   id: AdminObserver
   name: admin observer
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Eye
     visMask:
@@ -10,6 +10,7 @@
       - PsionicInvisibility
       - Ghost
       - Normal
+      - Ethereal
   - type: ContentEye
     maxZoom: 10, 10
   - type: MovementSpeedModifier
@@ -28,12 +29,15 @@
   - type: GhostHearing
   - type: Hands
   - type: Puller
+    pushAcceleration: 1000000 # Will still be capped in max speed
+    maxPushRange: 20
   - type: CombatMode
   - type: Physics
     ignorePaused: true
     bodyType: Kinematic
   - type: Body
     prototype: Aghost
+    thermalVisibility: false # WD EDIT
   - type: Access
     groups:
     - AllAccess
@@ -43,32 +47,32 @@
     - CentralCommand
   - type: UserInterface
     interfaces:
-      - key: enum.SolarControlConsoleUiKey.Key
+      enum.SolarControlConsoleUiKey.Key:
         type: SolarControlConsoleBoundUserInterface
-      - key: enum.CommunicationsConsoleUiKey.Key
+      enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
-      - key: enum.RadarConsoleUiKey.Key
+      enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
-      - key: enum.CargoConsoleUiKey.Orders
+      enum.CargoConsoleUiKey.Orders:
         type: CargoOrderConsoleBoundUserInterface
-      - key: enum.CrewMonitoringUIKey.Key
+      enum.CrewMonitoringUIKey.Key:
         type: CrewMonitoringBoundUserInterface
-      - key: enum.GeneralStationRecordConsoleKey.Key
-        # who the fuck named this bruh
+      enum.GeneralStationRecordConsoleKey.Key:
+      # who the fuck named this bruh
         type: GeneralStationRecordConsoleBoundUserInterface
   - type: IntrinsicUI
     uis:
-      - key: enum.SolarControlConsoleUiKey.Key
+      enum.SolarControlConsoleUiKey.Key:
         toggleAction: ActionAGhostShowSolar
-      - key: enum.CommunicationsConsoleUiKey.Key
+      enum.CommunicationsConsoleUiKey.Key:
         toggleAction: ActionAGhostShowCommunications
-      - key: enum.RadarConsoleUiKey.Key
+      enum.RadarConsoleUiKey.Key:
         toggleAction: ActionAGhostShowRadar
-      - key: enum.CargoConsoleUiKey.Orders
+      enum.CargoConsoleUiKey.Orders:
         toggleAction: ActionAGhostShowCargo
-      - key: enum.CrewMonitoringUIKey.Key
+      enum.CrewMonitoringUIKey.Key:
         toggleAction: ActionAGhostShowCrewMonitoring
-      - key: enum.GeneralStationRecordConsoleKey.Key
+      enum.GeneralStationRecordConsoleKey.Key:
         toggleAction: ActionAGhostShowStationRecords
   - type: SolarControlConsole # look ma i AM the computer!
   - type: CommunicationsConsole
@@ -104,7 +108,7 @@
   id: ActionAGhostShowSolar
   name: Solar Control Interface
   description: View a solar control interface.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
@@ -117,7 +121,7 @@
   id: ActionAGhostShowCommunications
   name: Communications Interface
   description: View a communications interface.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
@@ -130,7 +134,7 @@
   id: ActionAGhostShowRadar
   name: Mass Scanner Interface
   description: View a mass scanner interface.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
@@ -143,7 +147,7 @@
   id: ActionAGhostShowCargo
   name: Cargo Ordering Interface
   description: View a cargo ordering interface.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
@@ -156,7 +160,7 @@
   id: ActionAGhostShowCrewMonitoring
   name: Crew Monitoring Interface
   description: View a crew monitoring interface.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
@@ -169,7 +173,7 @@
   id: ActionAGhostShowStationRecords
   name: Station Records Interface
   description: View a station records Interface
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }

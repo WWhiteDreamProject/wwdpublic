@@ -10,4 +10,3 @@ upgradeaction-command-entity-does-not-exist = This entity does not exist, a vali
 upgradeaction-command-entity-is-not-action = This entity doesn't have the action upgrade component, so this action cannot be leveled.
 upgradeaction-command-cannot-level-up = The action cannot be leveled up.
 upgradeaction-command-description = Upgrades an action by one level, or to the specified level, if applicable.
-comp-window-knock = тук тук

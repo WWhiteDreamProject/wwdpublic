@@ -9,7 +9,7 @@
     - Disposal
   components:
   - type: Sprite
-    sprite: _White/Structures/Piping/disposal.rsi #WWDP edit
+    sprite: Structures/Piping/disposal.rsi
     layers:
     - state: condisposal
       map: [ "enum.DisposalUnitVisualLayers.Unanchored" ]
@@ -56,8 +56,8 @@
   - type: Appearance
   - type: UserInterface
     interfaces:
-    - key: enum.DisposalUnitUiKey.Key
-      type: DisposalUnitBoundUserInterface
+      enum.DisposalUnitUiKey.Key:
+        type: DisposalUnitBoundUserInterface
   - type: ContainerContainer
     containers:
       disposals: !type:Container
@@ -71,16 +71,19 @@
   name: disposal unit
   components:
   - type: Sprite
-    sprite: _White/Structures/Piping/disposal.rsi #WWDP edit
+    sprite: Structures/Piping/disposal.rsi
     snapCardinals: true
   - type: Construction
     graph: DisposalMachine
     node: disposal_unit
   - type: DisposalUnit
+  - type: ThrowInsertContainer
+    containerId: disposals
+    probability: 0 # WD EDIT
   - type: UserInterface
     interfaces:
-    - key: enum.DisposalUnitUiKey.Key
-      type: DisposalUnitBoundUserInterface
+      enum.DisposalUnitUiKey.Key:
+        type: DisposalUnitBoundUserInterface
   - type: RatKingRummageable
   - type: RequireProjectileTarget
 
@@ -91,7 +94,7 @@
   description: A pneumatic mail delivery unit.
   components:
   - type: Sprite
-    sprite: _White/Structures/Piping/disposal.rsi #WWDP edit
+    sprite: Structures/Piping/disposal.rsi
     snapCardinals: true
     layers:
       - state: conmailing
@@ -130,7 +133,7 @@
   - type: Appearance
   - type: UserInterface
     interfaces:
-    - key: enum.MailingUnitUiKey.Key
-      type: DisposalUnitBoundUserInterface
-    - key: enum.ConfigurationUiKey.Key
-      type: ConfigurationBoundUserInterface
+      enum.MailingUnitUiKey.Key:
+        type: DisposalUnitBoundUserInterface
+      enum.ConfigurationUiKey.Key:
+        type: ConfigurationBoundUserInterface

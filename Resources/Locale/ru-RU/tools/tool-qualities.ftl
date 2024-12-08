@@ -4,9 +4,6 @@ tool-quality-anchoring-tool-name = Гаечный ключ
 tool-quality-prying-name = Монтирование
 tool-quality-prying-tool-name = Лом
 
-tool-quality-advanced-prying-tool-name = Продвинутое монтирование
-tool-quality-advanced-prying-tool-name = Топор
-
 tool-quality-screwing-name = Свинчивание
 tool-quality-screwing-tool-name = Отвертка
 

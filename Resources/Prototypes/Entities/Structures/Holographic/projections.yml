@@ -13,18 +13,27 @@
   - type: Sprite
     sprite: Structures/Holo/wetfloor.rsi
     state: icon
-  - type: TimedDespawn
-    lifetime: 90
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 30
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  # WD EDIT START
+  - type: Clickable
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/egloves.ogg"
+  # WD EDIT END
+  - type: Tag
+    tags:
+    - NoPaint
 
 - type: entity
   id: HoloFan
@@ -40,9 +49,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-            bounds: "-0.5,-0.5,0.5,0.5"
-  - type: TimedDespawn
-    lifetime: 180
+          bounds: "-0.5,-0.5,0.5,0.5"
   - type: Airtight
     noAirWhenFullyAirBlocked: false
 
@@ -52,30 +59,27 @@
   name: holographic barrier
   description: A barrier of hard light that blocks movement, but pretty weak.
   components:
-    - type: Physics
-      bodyType: Static
-      canCollide: true
-    - type: Sprite
-      sprite: Structures/Holo/security.rsi
-      state: icon
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.3,-0.3,0.3,0.3"
-          mask:
-            - TableMask
-          layer:
-            - TableLayer
-    - type: TimedDespawn
-      lifetime: 180
-    - type: PointLight
-      enabled: true
-      radius: 3
-      color: red
-    - type: Climbable
-    - type: Clickable
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: Sprite
+    sprite: Structures/Holo/security.rsi
+    state: icon
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: PointLight
+    enabled: true
+    radius: 3
+    color: red
+  - type: Climbable
 
 - type: entity
   id: HolosignForcefield
@@ -99,20 +103,17 @@
         - FullTileMask
         layer:
         - GlassLayer
-  - type: TimedDespawn
-    lifetime: 180
   - type: PointLight
     enabled: true
     radius: 3
     color: blue
-  - type: Clickable
   - type: ContainmentField
     throwForce: 0
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 60
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

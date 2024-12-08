@@ -98,10 +98,16 @@ namespace Content.Client.Options.UI.Tabs
             _deferCommands.Add(_inputManager.SaveToUserData);
         }
 
-        private void HandleHoldLookUp(BaseButton.ButtonToggledEventArgs args) // WD EDIT
+        private void HandleHoldLookUp(BaseButton.ButtonToggledEventArgs args)
         {
-            _cfg.SetCVar(WhiteCVars.HoldLookUp, args.Pressed);
+            _cfg.SetCVar(CCVars.HoldLookUp, args.Pressed);
             _cfg.SaveToFile();
+        }
+
+        private void HandleDefaultWalk(BaseButton.ButtonToggledEventArgs args)
+        {
+            _cfg.SetCVar(CCVars.DefaultWalk, args.Pressed);
+			_cfg.SaveToFile();
         }
 
         private void HandleStaticStorageUI(BaseButton.ButtonToggledEventArgs args)
@@ -110,9 +116,9 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SaveToFile();
         }
 
-        private void HandleToggleAutoGetUp(BaseButton.ButtonToggledEventArgs args) // WD EDIT
+        private void HandleToggleAutoGetUp(BaseButton.ButtonToggledEventArgs args)
         {
-            _cfg.SetCVar(WhiteCVars.AutoGetUp, args.Pressed);
+            _cfg.SetCVar(CCVars.AutoGetUp, args.Pressed);
             _cfg.SaveToFile();
         }
 
@@ -174,6 +180,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.MoveRight);
             AddButton(EngineKeyFunctions.Walk);
             AddCheckBox("ui-options-hotkey-toggle-walk", _cfg.GetCVar(CCVars.ToggleWalk), HandleToggleWalk);
+            AddCheckBox("ui-options-hotkey-default-walk", _cfg.GetCVar(CCVars.DefaultWalk), HandleDefaultWalk);
             InitToggleWalk();
 
             AddHeader("ui-options-header-camera");
@@ -199,9 +206,10 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.OfferItem);
             AddButton(ContentKeyFunctions.SaveItemLocation);
             AddButton(ContentKeyFunctions.ToggleStanding);
-            AddButton(ContentKeyFunctions.LookUp); // WD EDIT
-            AddCheckBox("ui-options-function-auto-get-up", _cfg.GetCVar(WhiteCVars.AutoGetUp), HandleToggleAutoGetUp); // WD EDIT
-            AddCheckBox("ui-options-function-hold-look-up", _cfg.GetCVar(WhiteCVars.HoldLookUp), HandleHoldLookUp); // WD EDIT
+            AddButton(ContentKeyFunctions.ToggleCrawlingUnder);
+            AddButton(ContentKeyFunctions.LookUp);
+            AddCheckBox("ui-options-function-auto-get-up", _cfg.GetCVar(CCVars.AutoGetUp), HandleToggleAutoGetUp);
+            AddCheckBox("ui-options-function-hold-look-up", _cfg.GetCVar(CCVars.HoldLookUp), HandleHoldLookUp);
 
             AddHeader("ui-options-header-interaction-adv");
             AddButton(ContentKeyFunctions.SmartEquipBackpack);
@@ -228,13 +236,14 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.CycleChatChannelForward);
             AddButton(ContentKeyFunctions.CycleChatChannelBackward);
             AddButton(ContentKeyFunctions.OpenCharacterMenu);
-            AddButton(ContentKeyFunctions.OpenEmotionsMenu); // WD EDIT
+            AddButton(ContentKeyFunctions.OpenEmotesMenu); // WD EDIT
             AddButton(ContentKeyFunctions.OpenCraftingMenu);
             AddButton(ContentKeyFunctions.OpenGuidebook);
             AddButton(ContentKeyFunctions.OpenInventoryMenu);
             AddButton(ContentKeyFunctions.OpenLanguageMenu);
             AddButton(ContentKeyFunctions.OpenAHelp);
             AddButton(ContentKeyFunctions.OpenActionsMenu);
+            AddButton(ContentKeyFunctions.ToggleRoundEndSummaryWindow);
             AddButton(ContentKeyFunctions.OpenEntitySpawnWindow);
             AddButton(ContentKeyFunctions.OpenSandboxWindow);
             AddButton(ContentKeyFunctions.OpenTileSpawnWindow);
@@ -244,6 +253,14 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.WindowCloseRecent);
             AddButton(EngineKeyFunctions.EscapeMenu);
             AddButton(ContentKeyFunctions.EscapeContext);
+
+            AddHeader("ui-options-header-targeting");
+            AddButton(ContentKeyFunctions.TargetHead);
+            AddButton(ContentKeyFunctions.TargetTorso);
+            AddButton(ContentKeyFunctions.TargetLeftArm);
+            AddButton(ContentKeyFunctions.TargetRightArm);
+            AddButton(ContentKeyFunctions.TargetLeftLeg);
+            AddButton(ContentKeyFunctions.TargetRightLeg);
 
             AddHeader("ui-options-header-misc");
             AddButton(ContentKeyFunctions.TakeScreenshot);

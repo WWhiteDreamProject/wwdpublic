@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Server.Cargo.Systems;
 using Content.Server.Emp;
 using Content.Shared.Emp;
@@ -5,6 +6,7 @@ using Content.Server.Power.Components;
 using Content.Shared.Examine;
 using Content.Shared.Rejuvenate;
 using JetBrains.Annotations;
+using Robust.Shared.Containers;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Power.EntitySystems
@@ -12,6 +14,8 @@ namespace Content.Server.Power.EntitySystems
     [UsedImplicitly]
     public sealed class BatterySystem : EntitySystem
     {
+        [Dependency] private readonly SharedContainerSystem _containers = default!; // WD EDIT
+
         public override void Initialize()
         {
             base.Initialize();
@@ -21,7 +25,6 @@ namespace Content.Server.Power.EntitySystems
             SubscribeLocalEvent<BatteryComponent, RejuvenateEvent>(OnBatteryRejuvenate);
             SubscribeLocalEvent<BatteryComponent, PriceCalculationEvent>(CalculateBatteryPrice);
             SubscribeLocalEvent<BatteryComponent, EmpPulseEvent>(OnEmpPulse);
-            SubscribeLocalEvent<BatteryComponent, EmpDisabledRemoved>(OnEmpDisabledRemoved);
 
             SubscribeLocalEvent<NetworkBatteryPreSync>(PreSync);
             SubscribeLocalEvent<NetworkBatteryPostSync>(PostSync);
@@ -106,17 +109,6 @@ namespace Content.Server.Power.EntitySystems
             UseCharge(uid, args.EnergyConsumption, component);
         }
 
-        // if a disabled battery is put into a recharged,
-        // allow the recharger to start recharging again after the disable ends
-        private void OnEmpDisabledRemoved(EntityUid uid, BatteryComponent component, ref EmpDisabledRemoved args)
-        {
-            if (!TryComp<ChargingComponent>(uid, out var charging))
-                return;
-
-            var ev = new ChargerUpdateStatusEvent(); 
-            RaiseLocalEvent<ChargerUpdateStatusEvent>(charging.ChargerUid, ref ev);
-        }
-
         public float UseCharge(EntityUid uid, float value, BatteryComponent? battery = null)
         {
             if (value <= 0 ||  !Resolve(uid, ref battery) || battery.CurrentCharge == 0)
@@ -191,11 +183,35 @@ namespace Content.Server.Power.EntitySystems
             if (!Resolve(uid, ref battery))
                 return false;
 
-            // If the battery is full, remove its charging component.
-            if (TryComp<ChargingComponent>(uid, out _))
-                RemComp<ChargingComponent>(uid);
-
             return battery.CurrentCharge / battery.MaxCharge >= 0.99f;
         }
+
+        // WD EDIT START
+        public bool TryGetBatteryComponent(EntityUid uid, [NotNullWhen(true)] out BatteryComponent? battery,
+            [NotNullWhen(true)] out EntityUid? batteryUid)
+        {
+            if (TryComp(uid, out battery))
+            {
+                batteryUid = uid;
+                return true;
+            }
+
+            if (!_containers.TryGetContainer(uid, "cell_slot", out var container)
+                || container is not ContainerSlot slot)
+            {
+                battery = null;
+                batteryUid = null;
+                return false;
+            }
+
+            batteryUid = slot.ContainedEntity;
+
+            if (batteryUid != null)
+                return TryComp(batteryUid, out battery);
+
+            battery = null;
+            return false;
+        }
+        // WD EDIT END
     }
 }

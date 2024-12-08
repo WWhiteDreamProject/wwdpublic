@@ -19,3 +19,14 @@
     sprite: _White/Clothing/Uniforms/Jumpskirt/maidmini.rsi
   - type: Clothing
     sprite: _White/Clothing/Uniforms/Jumpskirt/maidmini.rsi
+
+- type: entity
+  parent: ClothingUniformJumpskirtCaptain
+  id: ClothingUniformJumpskirtWhiteCaptain
+  name: white captain jumpskirt
+  description: White captain jumpsuit skirt symbolizing that your salary clearly exceeds the norm.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Uniforms/Jumpskirt/white_captain.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Uniforms/Jumpskirt/white_captain.rsi

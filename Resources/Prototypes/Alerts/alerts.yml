@@ -7,6 +7,7 @@
     - category: Health
     - category: Mood
     - category: Stamina
+    - alertType: ShadowkinPower
     - alertType: SuitPower
     - category: Internals
     - alertType: Fire
@@ -17,6 +18,7 @@
     - category: Piloting
     - alertType: Corporeal
     - alertType: Stun
+    - alertType: KnockedDown # WD EDIT
     - category: Breathing # Vox gang not calling this oxygen
     - category: Pressure
     - alertType: Bleed
@@ -27,10 +29,11 @@
     - alertType: Pacified
     - alertType: Offer
     - alertType: RecentlyBlocked # WD EDIT
+    - alertType: Deflecting
 
 - type: entity
   id: AlertSpriteView
-  categories: [ hideSpawnMenu ]
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -191,6 +194,7 @@
 - type: alert
   id: HumanHealth
   category: Health
+  onClick: !type:CheckHealth { }
   icons:
   - sprite: /Textures/Interface/Alerts/human_alive.rsi
     state: health0
@@ -451,13 +455,6 @@
   minSeverity: 0
   maxSeverity: 1
 
-# WD EDIT
-- type: alert
-  id: RecentlyBlocked
-  icons: [ /Textures/Objects/Weapons/Melee/shields.rsi/buckler-icon.png ]
-  name: alerts-blocked-name
-  description: alerts-blocked-desc
-
 - type: alert
   id: Debug1
   icons:
@@ -616,3 +613,29 @@
       state: mood_happiness_bad
   name: alerts-mood-dead-name
   description: alerts-mood-dead-desc
+
+- type: alert
+  id: Deflecting
+  icons:
+  - sprite: /Textures/Interface/Alerts/deflecting.rsi
+    state: deflecting0
+  name: alerts-deflecting-name
+  description: alerts-deflecting-desc
+
+# WD EDIT START
+- type: alert
+  id: KnockedDown
+  icons: 
+  - sprite: /Textures/_White/Interface/Alerts/knockdown.rsi
+    state: knockdown
+  name: alerts-knockdown-name
+  description: alerts-knockdown-desc
+
+- type: alert
+  id: RecentlyBlocked
+  icons:
+  - sprite: /Textures/Objects/Weapons/Melee/shields.rsi
+    state: buckler-icon
+  name: alerts-blocked-name
+  description: alerts-blocked-desc
+# WD EDIT END
