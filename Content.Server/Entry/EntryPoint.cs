@@ -7,6 +7,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.Connection;
 using Content.Server.JoinQueue;
 using Content.Server.Database;
+using Content.Server._White.Discord;
 using Content.Server.DiscordAuth;
 using Content.Server.EUI;
 using Content.Server.GameTicking;
@@ -104,6 +105,7 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<ContentNetworkResourceManager>().Initialize();
                 IoCManager.Resolve<GhostKickManager>().Initialize();
                 IoCManager.Resolve<ServerInfoManager>().Initialize();
+                IoCManager.Resolve<DiscordLink>().Initialize(); // WD-Edit
                 IoCManager.Resolve<JoinQueueManager>().Initialize();
                 IoCManager.Resolve<DiscordAuthManager>().Initialize();
                 IoCManager.Resolve<ServerApi>().Initialize();
@@ -172,6 +174,7 @@ namespace Content.Server.Entry
         {
             _playTimeTracking?.Shutdown();
             _dbManager?.Shutdown();
+            IoCManager.Resolve<DiscordLink>().Shutdown(); // WD-Edit
             IoCManager.Resolve<ServerApi>().Shutdown();
         }
 

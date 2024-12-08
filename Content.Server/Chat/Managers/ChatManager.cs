@@ -1,17 +1,22 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
+using Content.Server.Discord;
 using Content.Server.MoMMI;
 using Content.Server.Preferences.Managers;
+using Content.Shared._White;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Mind;
+using Discord.WebSocket;
 using Robust.Server.Player;
+using Robust.Shared.Asynchronous;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -45,6 +50,8 @@ namespace Content.Server.Chat.Managers
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly DiscordLink _discordLink = default!;
+        [Dependency] private readonly ITaskManager _taskManager = default!;
 
         /// <summary>
         /// The maximum length a player-sent message can be sent
@@ -53,6 +60,7 @@ namespace Content.Server.Chat.Managers
 
         private bool _oocEnabled = true;
         private bool _adminOocEnabled = true;
+        private ulong _relayChannelId = 0; // WD-EDIT
 
         private readonly Dictionary<NetUserId, ChatUser> _players = new();
 
@@ -63,9 +71,36 @@ namespace Content.Server.Chat.Managers
 
             _configurationManager.OnValueChanged(CCVars.OocEnabled, OnOocEnabledChanged, true);
             _configurationManager.OnValueChanged(CCVars.AdminOocEnabled, OnAdminOocEnabledChanged, true);
+            _configurationManager.OnValueChanged(WhiteCVars.OocRelayChannelId, OnOocChannelChanged, true); // WD-EDIT
+            _discordLink.OnMessageReceived += MessageReceived; // WD-EDIT
 
             _playerManager.PlayerStatusChanged += PlayerStatusChanged;
         }
+
+        // WD-EDIT Start
+        private void MessageReceived(SocketMessage arg)
+        {
+            if (arg.Author.IsBot)
+            {
+                return;
+            }
+            if (arg.Channel.Id == _relayChannelId)
+            {
+                _taskManager.RunOnMainThread(() =>
+                {
+                    SendHookOOC(arg.Author.Username, arg.Content);
+                });
+            }
+        }
+        private void OnOocChannelChanged(string id)
+        {
+            if (!ulong.TryParse(id, out var channelId))
+            {
+                return;
+            }
+            _relayChannelId = channelId;
+        }
+        // WD-EDIT End
 
         private void OnOocEnabledChanged(bool val)
         {
@@ -251,7 +286,7 @@ namespace Content.Server.Chat.Managers
 
             //TODO: player.Name color, this will need to change the structure of the MsgChatMessage
             ChatMessageToAll(ChatChannel.OOC, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride: colorOverride, author: player.UserId);
-            _mommiLink.SendOOCMessage(player.Name, message);
+            _discordLink.SendMessage($"**OOC**: `{player.Name}`: {message}", _relayChannelId); // WD-Edit
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"OOC from {player:Player}: {message}");
         }
 
