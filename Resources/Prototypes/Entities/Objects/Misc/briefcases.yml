@@ -19,6 +19,8 @@
     heavyRateModifier: 0.8
     heavyRangeModifier: 0.8
     maxTargets: 8
+  - type: DamageOtherOnHit
+    staminaCost: 5
   - type: Tag
     tags:
     - Briefcase

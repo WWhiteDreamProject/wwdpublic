@@ -1,7 +1,10 @@
 using System.Numerics;
 using Content.Shared.Damage;
+using Content.Shared.Targeting;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+
 
 namespace Content.Shared.Projectiles;
 
@@ -28,7 +31,7 @@ public sealed partial class EmbeddableProjectileComponent : Component
     /// How long it takes to remove the embedded object.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
-    public float? RemovalTime = 3f;
+    public float? RemovalTime = 5f;
 
     /// <summary>
     ///     Whether this entity will embed when thrown, or only when shot as a projectile.
@@ -47,6 +50,30 @@ public sealed partial class EmbeddableProjectileComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public SoundSpecifier? Sound;
+
+    /// <summary>
+    ///   The entity this embeddable is attached to.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public EntityUid? Target = null;
+
+    /// <summary>
+    ///   The body part of the target this embeddable is attached to.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public TargetBodyPart? TargetBodyPart = null;
+
+    /// <summary>
+    ///   How much time before this entity automatically falls off? (0 is never)
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public float AutoRemoveDuration = 40f;
+
+    /// <summary>
+    ///   The time when this entity automatically falls off after being attached.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    public TimeSpan? AutoRemoveTime = null;
 
     // WD EDIT START
     [DataField]

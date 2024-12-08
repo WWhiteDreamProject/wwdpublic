@@ -48,6 +48,8 @@
     maxTargets: 8
     soundHit:
       path: /Audio/Weapons/smash.ogg
+  - type: DamageOtherOnHit
+    staminaCost: 9
   - type: Tool
     qualities:
     - Rolling

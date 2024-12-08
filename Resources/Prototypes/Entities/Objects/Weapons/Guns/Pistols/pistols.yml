@@ -121,6 +121,9 @@
   description: A small, easily concealable, but somewhat underpowered gun, produced by a bulk arms manufacturer now defunct for over a century.
                Uses .35 auto ammo. The serial number on the handguard marks this gun as belonging to an NT Security Officer.
   suffix: Security Loadouts
+  components:
+  - type: GuideHelp
+    guides: [ SecurityWeapons ]
 
 - type: entity
   id: WeaponPistolViperNonLethal
@@ -155,6 +158,9 @@
   suffix: Non-lethal, SecurityLoadouts
   description: A small, easily concealable, but somewhat underpowered gun, produced by a bulk arms manufacturer now defunct for over a century.
                Uses .35 auto ammo. The serial number on the handguard marks this gun as belonging to an NT Security Officer.
+  components:
+  - type: GuideHelp
+    guides: [ SecurityWeapons ]
 
 - type: entity
   name: cobra
@@ -235,6 +241,9 @@
   description: A cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Uses .35 auto ammo.
                The serial number on the handguard marks this gun as belonging to an NT Security Officer.
   suffix: Security Loadouts
+  components:
+  - type: GuideHelp
+    guides: [ SecurityWeapons ]
 
 - type: entity
   id: WeaponPistolMk58Nonlethal
@@ -268,6 +277,9 @@
   suffix: Non-lethal, Security Loadouts
   description: A cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Uses .35 auto ammo.
                The serial number on the handguard marks this gun as belonging to an NT Security Officer.
+  components:
+  - type: GuideHelp
+    guides: [ SecurityWeapons ]
 
 - type: entity
   name: N1984
@@ -321,6 +333,9 @@
   description: The sidearm of any self respecting officer.     Comes in .45 magnum, the lord's caliber.
                The serial number on the handguard marks this gun as belonging to an NT Security Officer.
   suffix: Security Loadouts
+  components:
+  - type: GuideHelp
+    guides: [ SecurityWeapons ]
 
 - type: entity
   name: N1984
@@ -356,3 +371,6 @@
   description: The sidearm of any self respecting officer.     Comes in .45 magnum, the lord's caliber.
                The serial number on the handguard marks this gun as belonging to an NT Security Officer.
   suffix: Security Loadouts
+  components:
+  - type: GuideHelp
+    guides: [ SecurityWeapons ]

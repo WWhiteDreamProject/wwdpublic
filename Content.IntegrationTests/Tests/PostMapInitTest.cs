@@ -67,7 +67,8 @@ namespace Content.IntegrationTests.Tests
             "DryDock", //WWDP
             "Moose", //WWDP
             "WhiteBox", //WWDP
-            "Rad"
+            "Rad",
+            "Europa"
         };
 
         /// <summary>
