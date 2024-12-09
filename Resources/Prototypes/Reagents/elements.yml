@@ -117,17 +117,6 @@
   meltingPoint: 1064.76
 
 - type: reagent
-  id: Hydrogen
-  name: reagent-name-hydrogen
-  group: Elements
-  desc: reagent-desc-hydrogen
-  physicalDesc: reagent-physical-desc-gaseous
-  flavor: bitter
-  color: "#808080"
-  boilingPoint: -253.0
-  meltingPoint: -259.2
-
-- type: reagent
   id: Iodine
   name: reagent-name-iodine
   group: Elements
