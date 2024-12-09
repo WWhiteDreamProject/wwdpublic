@@ -1,0 +1,11 @@
+gases-bz = BZ
+gases-pluoxium = Pluoxium
+gases-hydrogen = Hydrogen
+gases-nitrium = Nitrium
+gases-healium = Healium
+gases-hyper-noblium = Hyper-Noblium
+gases-proto-nitrate = Proto-Nitrate
+gases-zauker = Zauker
+gases-halon = Halon
+gases-helium = Helium
+gases-anti-noblium = Anti-Noblium
