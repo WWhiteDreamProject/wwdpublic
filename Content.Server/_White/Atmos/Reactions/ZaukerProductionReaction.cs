@@ -15,13 +15,12 @@ public sealed partial class ZaukerProductionReaction : IGasReactionEffect
         if (initialHyperNoblium >= 5.0f && mixture.Temperature > 20f)
             return ReactionResult.NoReaction;
 
-        var initialHypernoblium = mixture.GetMoles(Gas.HyperNoblium);
         var initialNitrium = mixture.GetMoles(Gas.Nitrium);
 
         var temperature = mixture.Temperature;
-        var heatEfficiency = Math.Min(temperature * Atmospherics.ZaukerFormationTemperatureScale, Math.Min(initialHypernoblium * 0.01f, initialNitrium * 0.5f));
+        var heatEfficiency = Math.Min(temperature * Atmospherics.ZaukerFormationTemperatureScale, Math.Min(initialHyperNoblium * 0.01f, initialNitrium * 0.5f));
 
-        if (heatEfficiency <= 0 || initialHypernoblium - heatEfficiency * 0.01f < 0 || initialNitrium - heatEfficiency * 0.5f < 0)
+        if (heatEfficiency <= 0 || initialHyperNoblium - heatEfficiency * 0.01f < 0 || initialNitrium - heatEfficiency * 0.5f < 0)
             return ReactionResult.NoReaction;
 
         var oldHeatCapacity = atmosphereSystem.GetHeatCapacity(mixture, true);

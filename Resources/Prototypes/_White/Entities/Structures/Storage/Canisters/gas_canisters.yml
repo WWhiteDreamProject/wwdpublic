@@ -632,7 +632,7 @@
   parent: GasCanisterBrokenBase
   id: BZCanisterBroken
   name: BZ canister
-  description: A canister that can contain any type of gas. This one is supposed to contain BZ. It can be attached to connector ports using a wrench.
+  description: A broken canister that previously supposedly contained BZ. It cannot be connected to the connectors in its current state.
   suffix: broken
   components:
   - type: Sprite
@@ -642,7 +642,7 @@
   parent: GasCanisterBrokenBase
   id: PluoxiumCanisterBroken
   name: Pluoxium canister
-  description: A canister that can contain any type of gas. This one is supposed to contain pluoxium. It can be attached to connector ports using a wrench.
+  description: A broken canister that previously supposedly contained pluoxium. It cannot be connected to the connectors in its current state.
   suffix: broken
   components:
   - type: Sprite
@@ -652,7 +652,7 @@
   parent: GasCanisterBrokenBase
   id: HydrogenCanisterBroken
   name: Hydrogen canister
-  description: A canister that can contain any type of gas. This one is supposed to contain hydrogen. It can be attached to connector ports using a wrench.
+  description: A broken canister that previously supposedly contained hydrogen. It cannot be connected to the connectors in its current state.
   suffix: broken
   components:
   - type: Sprite
@@ -662,7 +662,7 @@
   parent: GasCanisterBrokenBase
   id: NitriumCanisterBroken
   name: Nitrium canister
-  description: A canister that can contain any type of gas. This one is supposed to contain nitrium. It can be attached to connector ports using a wrench.
+  description: A broken canister that previously supposedly contained nitrium. It cannot be connected to the connectors in its current state.
   suffix: broken
   components:
   - type: Sprite
@@ -672,7 +672,7 @@
   parent: GasCanisterBrokenBase
   id: HealiumCanisterBroken
   name: Healium canister
-  description: A canister that can contain any type of gas. This one is supposed to contain healium. It can be attached to connector ports using a wrench.
+  description: A broken canister that previously supposedly contained healium. It cannot be connected to the connectors in its current state.
   suffix: broken
   components:
   - type: Sprite
@@ -682,7 +682,7 @@
   parent: GasCanisterBrokenBase
   id: HyperNobliumCanisterBroken
   name: Hyper-Noblium canister
-  description: A canister that can contain any type of gas. This one is supposed to contain hyper-noblium. It can be attached to connector ports using a wrench.
+  description: A broken canister that previously supposedly contained hyper-noblium. It cannot be connected to the connectors in its current state.
   suffix: broken
   components:
   - type: Sprite
@@ -692,7 +692,7 @@
   parent: GasCanisterBrokenBase
   id: ProtoNitrateCanisterBroken
   name: Proto-Nitrate canister
-  description: A canister that can contain any type of gas. This one is supposed to contain proto-nitrate. It can be attached to connector ports using a wrench.
+  description: A broken canister that previously supposedly contained proto-nitrate. It cannot be connected to the connectors in its current state.
   suffix: broken
   components:
   - type: Sprite
@@ -702,7 +702,7 @@
   parent: GasCanisterBrokenBase
   id: ZaukerCanisterBroken
   name: Zauker canister
-  description: A canister that can contain any type of gas. This one is supposed to contain zauker. It can be attached to connector ports using a wrench.
+  description: A broken canister that previously supposedly contained zauker. It cannot be connected to the connectors in its current state.
   suffix: broken
   components:
   - type: Sprite
@@ -712,7 +712,7 @@
   parent: GasCanisterBrokenBase
   id: HalonCanisterBroken
   name: Halon canister
-  description: A canister that can contain any type of gas. This one is supposed to contain halon. It can be attached to connector ports using a wrench.
+  description: A broken canister that previously supposedly contained halon. It cannot be connected to the connectors in its current state.
   suffix: broken
   components:
   - type: Sprite
@@ -722,7 +722,7 @@
   parent: GasCanisterBrokenBase
   id: HeliumCanisterBroken
   name: Helium canister
-  description: A canister that can contain any type of gas. This one is supposed to contain helium. It can be attached to connector ports using a wrench.
+  description: A broken canister that previously supposedly contained helium. It cannot be connected to the connectors in its current state.
   suffix: broken
   components:
   - type: Sprite
@@ -732,7 +732,7 @@
   parent: GasCanisterBrokenBase
   id: AntiNobliumCanisterBroken
   name: Anti-Noblium canister
-  description: A canister that can contain any type of gas. This one is supposed to contain anti-noblium. It can be attached to connector ports using a wrench.
+  description: A broken canister that previously supposedly contained anti-noblium. It cannot be connected to the connectors in its current state.
   suffix: broken
   components:
   - type: Sprite
