@@ -45,8 +45,10 @@
       types:
         Blunt: 4
         Holy: 20
-    heavyRateModifier: 0.8
-    maxTargets: 3
+    heavyRateModifier: 1.25
+    heavyDamageBaseModifier: 1
+    heavyStaminaCost: 5
+    maxTargets: 4
   - type: Tag
     tags:
     - Book

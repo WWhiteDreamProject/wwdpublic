@@ -38,7 +38,7 @@
     delay: 0
     knockdownTime: 1
   - type: MeleeWeapon
-    attackRate: 0.8
+    attackRate: 1.25
     bluntStaminaDamageFactor: 1.5
     maxTargets: 1
     canHeavyAttack: false
@@ -67,7 +67,7 @@
   - type: KnockdownOnHit
     knockdownTime: 60 # WD EDIT
   - type: MeleeWeapon
-    attackRate: 1.2
+    attackRate: .83
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:

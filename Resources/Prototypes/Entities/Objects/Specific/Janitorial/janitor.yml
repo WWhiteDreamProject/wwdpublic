@@ -13,7 +13,7 @@
       types:
         Blunt: 2
     bluntStaminaDamageFactor: 3
-    heavyRateModifier: 0.8
+    heavyRateModifier: 1.25
     heavyRangeModifier: 1.25
     maxTargets: 2
     angle: 180
@@ -67,7 +67,7 @@
         types:
           Blunt: 2
       bluntStaminaDamageFactor: 3
-      heavyRateModifier: 0.8
+      heavyRateModifier: 1.25
       heavyRangeModifier: 1.25
       maxTargets: 2
       angle: 180

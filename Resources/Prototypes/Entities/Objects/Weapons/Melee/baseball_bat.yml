@@ -15,7 +15,9 @@
         Blunt: 7.5
         Structural: 5
     bluntStaminaDamageFactor: 2.0
-    heavyRateModifier: 0.5
+    heavyRateModifier: 2
+    heavyDamageBaseModifier: 1.75
+    heavyStaminaCost: 10
     maxTargets: 2
     angle: 120
     soundHit:

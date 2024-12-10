@@ -49,7 +49,7 @@
     deleteOnDeactivate: true
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    attackRate: 1
+    attackRate: .8
     damage:
       types:
         Blunt: 4.5
@@ -81,7 +81,7 @@
     enabled: false
   - type: Tag
     tags:
-      - NoPaint
+    - NoPaint
   - type: IgnitionSource
     temperature: 700
   - type: Scalpel
@@ -138,12 +138,12 @@
   id: EnergySwordHoS
   description: An elegant weapon fit for a prince, this otherwise plain silver hilt is engraved with, "My Love".
   components:
-    - type: EnergySword
-      activatedColor: "#00CCFF"
-      colorOptions:
-       - "#00CCFF"
-    - type: StealTarget
-      stealGroup: HoSAntiqueWeapon
+  - type: EnergySword
+    activatedColor: "#00CCFF"
+    colorOptions:
+    - "#00CCFF"
+  - type: StealTarget
+    stealGroup: HoSAntiqueWeapon
 
 - type: entity
   name: pen
