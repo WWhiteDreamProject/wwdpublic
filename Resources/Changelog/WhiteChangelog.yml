@@ -876,3 +876,10 @@ Entries:
   id: 93
   time: '2024-12-10T17:10:40.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/144
+- author: Warete
+  changes:
+    - type: Add
+      message: Dexpth_q and nonta228 custom ghosts / Пара кастомных гостов
+  id: 94
+  time: '2024-12-10T17:11:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/145
