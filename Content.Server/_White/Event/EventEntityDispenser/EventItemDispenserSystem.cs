@@ -15,6 +15,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Containers;
 using Content.Shared.Administration;
 using Robust.Shared.Prototypes;
+using System.Diagnostics;
 
 namespace Content.Server._White.Event;
 public class EventItemDispenserSystem : SharedEventItemDispenserSystem
@@ -28,13 +29,15 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
 
     [Dependency] private readonly IAdminManager _admeme = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
-    [Dependency] private readonly ISawmill _sawmill = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
+    //[Dependency] private readonly ILogManager _log = default!;
+    //ISawmill _sawmill = default!;
 
 
     public override void Initialize()
     {
+        //_sawmill = _log.GetSawmill("EventDispenser");
         SubscribeLocalEvent<EventItemDispenserComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<EventItemDispenserComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<EventItemDispenserComponent, InteractHandEvent>(OnInteractHand);
@@ -75,22 +78,31 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
             //_sawmill.Warning($"")
             return;
         }
-        comp.DispensingPrototype = ValidateProto(msg.DispensingPrototype, "FoodBanana");
+        string newProto = ValidateProto(msg.DispensingPrototype, comp.DispensingPrototype);
+        if (comp.DispensingPrototype != newProto) {
+            comp.DispensingPrototype = newProto;
+            DeleteAll(uid, comp);
+        }
         comp.AutoDispose = msg.AutoDispose;
         comp.CanManuallyDispose = msg.CanManuallyDispose;
         comp.Infinite = msg.Infinite;
-        comp.Limit = msg.Limit;
+        //if(msg.Limit < comp.Limit) // too hard to include all possible cases without a reset every time limit is decreased.
+        //{
+        //    DeleteExcess(comp);
+        //}
+        comp.Limit = msg.Limit; // It still works ok.
         
-        if(string.IsNullOrWhiteSpace(msg.DisposedReplacement)) // if the prototype is set to null, just set the relevant flag to false
-        {
-            comp.ReplaceDisposedItems = false;
-        }
-        else
-        {
-            comp.DisposedReplacement = ValidateProto(msg.DisposedReplacement, "EffectTeslaSparksSilent");
-            comp.ReplaceDisposedItems = msg.ReplaceDisposedItems;
-        }
+        //if(string.IsNullOrWhiteSpace(msg.DisposedReplacement)) // if the prototype is set to null, just set the relevant flag to false
+        //{
+        //    comp.ReplaceDisposedItems = false;
+        //}
+        //else
+        //{
+        comp.DisposedReplacement = ValidateProto(msg.DisposedReplacement, comp.DisposedReplacement);
+        comp.ReplaceDisposedItems = msg.ReplaceDisposedItems;
+        //}
         comp.AutoCleanUp = msg.AutoCleanUp;
+        Dirty(uid, comp);
     }
     private void OnDispensedStartup(EntityUid uid, EventDispensedComponent comp, ComponentStartup args)
     {
@@ -121,37 +133,35 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
     {
         if (comp.AutoCleanUp)
         {
-            foreach (var items in comp.dispensedItems.Values)
-            {
-                foreach (var item in items)
-                {
-                    if (!TerminatingOrDeleted(item)) // do i have to?
-                    {
-                        QueueDel(item); // no fancy effects
-                    } // "{{{{}}}}" is non-negotiable
-                }
-            }
+            DeleteAll(uid, comp);
+        }
+        else
+        {
+            ReleaseAll(uid, comp);
         }
     }
     private void OnInteractUsing(EntityUid uid, EventItemDispenserComponent comp, InteractUsingEvent args)
     {
         EntityUid user = args.User;
+        EntityUid item = args.Used;
+
 
         if (CanOpenUI(user))
         {
-            string newProto = MetaData(args.Used).EntityPrototype?.ID ?? comp.DispensingPrototype;
-            if(_ui.TryOpenUi((uid, comp), EventItemDispenserUiKey.Key, user))
-                _ui.ServerSendUiMessage((uid, comp), EventItemDispenserUiKey.Key, new EventItemDispenserNewProtoBoundUserInterfaceMessage(newProto), args.User);
+            var uicomp = Comp<UserInterfaceComponent>(uid);
+            string newProto = MetaData(item).EntityPrototype?.ID ?? comp.DispensingPrototype;
+            if(_ui.TryOpenUi((uid, uicomp), EventItemDispenserUiKey.Key, user))
+                _ui.ServerSendUiMessage((uid, uicomp), EventItemDispenserUiKey.Key, new EventItemDispenserNewProtoBoundUserInterfaceMessage(newProto), args.User);
             return;
         }
         if( comp.CanManuallyDispose &&
-            TryComp<EventDispensedComponent>(args.Used, out var dispensed) &&
+            TryComp<EventDispensedComponent>(item, out var dispensed) &&
             dispensed.ItemOwner == user &&
             dispensed.Dispenser == comp.Owner)
         {
-            QueueDel(args.Used);
+            Recycle(item, comp, false);
+            PopupRemaining(user, comp);
             _audio.PlayPvs(comp.ManualDisposeSound, uid);
-            comp.dispensedItemsAmount[dispensed.ItemOwner] -= 1;
         }
     }
 
@@ -161,56 +171,117 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
 
         if (CanOpenUI(user))
         {
-            _ui.TryToggleUi((uid, comp), EventItemDispenserUiKey.Key, user); // todo: user is ICommonSession, not EntityUid; tuple is not converted into Entity (it should)
+            var uicomp = Comp<UserInterfaceComponent>(uid);
+            _ui.TryToggleUi((uid, uicomp), EventItemDispenserUiKey.Key, user);
             return;
         }
-        List<EntityUid> items = comp.dispensedItems.GetOrNew(user).Where(item => !TerminatingOrDeleted(item)).ToList();
-        comp.dispensedItems[user] = items;
+        PruneItemList(user, comp);
+        var items = comp.dispensedItems[user];
         comp.dispensedItemsAmount.TryGetValue(user, out int allTimeAmount);
 
         if (comp.Limit > 0)
         {
-            if (!comp.AutoDispose && items.Count >= comp.Limit)
-            {
-                _audio.PlayPvs(comp.FailSound, uid);
-                _popup.PopupEntity(_loc.GetString("event-item-dispenser-limit-reached"), uid, user);
-                return;
-            }
-
-            if (!comp.Infinite && allTimeAmount >= comp.Limit)
+            if (!comp.Infinite && allTimeAmount >= comp.Limit) // no fancy bluespace disposal shit if dispenser is meant to be finite.
             {
                 _audio.PlayPvs(comp.FailSound, uid);
                 _popup.PopupEntity(_loc.GetString("event-item-dispenser-out-of-stock"), uid, user);
                 return;
             }
-            DeleteExcess(user, comp);
+
+            if (items.Count >= comp.Limit)
+            {
+                if (comp.AutoDispose)
+                    DeleteOne(user, comp);
+                else
+                {
+                    _audio.PlayPvs(comp.FailSound, uid);
+                    _popup.PopupEntity(_loc.GetString("event-item-dispenser-limit-reached"), uid, user);
+                    return;
+                }
+            }
+
+            
         }
         Dispense(user, comp);
     }
 
     /// <summary>
-    /// Deletes items over limit. Actually, because of the ">=" in the while loop, deletes items over excess plus one. This (somewhat) makes sense
-    /// because this method is called immediately before dispensing a new item, if item limit is set.
+    /// Used to delete an oldest item when trying to dispense over limit.
+    /// Does not update the dispensedItems dict, so calling it multiple times will not work.
     /// </summary>
-    private void DeleteExcess(EntityUid owner, EventItemDispenserComponent comp)
+    private void DeleteOne(EntityUid owner, EventItemDispenserComponent comp)
     {
         var items = comp.dispensedItems[owner];
-        int itemAmount = items.Count;
-        while (itemAmount >= comp.Limit) // in case limit was substantially decreased at some point.
+        if (items.Count > 0)
+            Recycle(items.First(), comp);
+    }
+
+    /// <summary>
+    /// Deletes items over limit. Only called when <see cref="EventItemDispenserComponent.Limit"/> is reduced.
+    /// </summary>
+    private void DeleteExcess(EventItemDispenserComponent comp)
+    {
+        foreach (var owner in comp.dispensedItems.Keys)
         {
-            var toDelete = items.First();
-            if (comp.ReplaceDisposedItems)
+            var items = comp.dispensedItems[owner];
+            if (items.Count <= comp.Limit)
+                continue;
+
+            items = items.AsEnumerable().Reverse().ToList();
+            while (items.Count > comp.Limit)
             {
-                var mapPos = _transform.ToMapCoordinates(new Robust.Shared.Map.EntityCoordinates(toDelete, default));
-                Spawn(comp.DisposedReplacement, mapPos);
+                var item = items.Pop();
+                Recycle(item, comp);
             }
-            QueueDel(toDelete);
-            itemAmount--;
-            // items.Remove(toDelete); // who cares, invalid EntityUids will be pruned in the beginning of OnActivate anyways
         }
     }
 
+    private void DeleteAll(EntityUid uid, EventItemDispenserComponent comp)
+    {
+        foreach (var items in comp.dispensedItems.Values)
+        {
+            foreach (var item in items)
+            {
+                if (!TerminatingOrDeleted(item)) // do i have to?
+                {
+                    Recycle(item, comp, false); // no fancy effects
+                } // "{{{{}}}}" is non-negotiable
+            }
+        }
+    }
 
+    private void ReleaseAll(EntityUid dispenser, EventItemDispenserComponent comp) 
+    {
+        foreach (var items in comp.dispensedItems.Values)
+        {
+            foreach (var item in items)
+            {
+                if (!TerminatingOrDeleted(item))
+                {
+                    // not clearing dicts because this is only called immediately prior dispenser comp deletion
+                    RemComp<EventDispensedComponent>(item);
+                } // "{{{{}}}}" is non-negotiable
+            }
+        }
+    }
+
+    private void Recycle(EntityUid item, EventItemDispenserComponent comp, bool replace = true)
+    {
+        if(TryComp<EventDispensedComponent>(item, out var itemcomp))
+        {
+            Debug.Assert(comp.Owner == itemcomp.Dispenser, "Attempted to recycle dispensed item in wrong dispenser.");
+            comp.dispensedItemsAmount[itemcomp.ItemOwner]--;
+            comp.dispensedItems[itemcomp.ItemOwner].Remove(item);
+            Debug.Assert(comp.dispensedItemsAmount[itemcomp.ItemOwner] >= 0, "EventItemDispenser ended up with negative total items dispensed.");
+            if (comp.ReplaceDisposedItems && replace)
+            {
+                var mapPos = _transform.ToMapCoordinates(new Robust.Shared.Map.EntityCoordinates(item, default));
+                Spawn(comp.DisposedReplacement, mapPos);
+            }
+
+            QueueDel(item);
+        }
+    }
     /// <summary>
     /// This hot mess does a lot of things at once:
     ///     * Spawn and configure the item
@@ -239,7 +310,27 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
         comp.dispensedItemsAmount[user] = amount + 1;
 
         _hands.TryPickup(user, item);
+        PopupRemaining(user, comp);
         _audio.PlayPvs(comp.DispenseSound, comp.Owner);
+    }
+
+    private void PopupRemaining(EntityUid user, EventItemDispenserComponent comp)
+    {
+        _popup.PopupEntity($"{GetRemaining(user, comp)}/{comp.Limit}", comp.Owner, user);
+    }
+
+    private int GetRemaining(EntityUid user, EventItemDispenserComponent comp)
+    {
+        if (comp.Infinite)
+            return comp.dispensedItems[user].Count;
+        else
+            return comp.Limit - comp.dispensedItemsAmount[user];
+    }
+
+
+    private void PruneItemList(EntityUid user, EventItemDispenserComponent comp)
+    {
+        comp.dispensedItems[user] = comp.dispensedItems.GetOrNew(user).Where(item => !TerminatingOrDeleted(item)).ToList();
     }
 }
 

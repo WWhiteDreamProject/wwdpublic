@@ -26,11 +26,6 @@
         - MachineMask
         layer:
         - MachineLayer
-  - type: ActivatableUI
-    key: enum.EventItemDispenserUiKey.Key
-    adminOnly: true
-    requireHands: false
-    verbText: "ui-verb-configure-dispenser"
   - type: UserInterface
     interfaces:
         enum.EventItemDispenserUiKey.Key:
