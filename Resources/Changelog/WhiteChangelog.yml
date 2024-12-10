@@ -869,3 +869,10 @@ Entries:
   id: 92
   time: '2024-12-06T19:03:26.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/141
+- author: TokiJumper
+  changes:
+    - type: Add
+      message: Added link to wiki in EscMenu/Добавлена ссылка на вики в меню игры
+  id: 93
+  time: '2024-12-10T17:10:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/144
