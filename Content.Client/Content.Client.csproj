@@ -28,4 +28,12 @@
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
+  <ItemGroup>
+    <EmbeddedResource Remove="_White\Event\EventItemDispenserConfigWindow.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Update="_White\Event\EventItemDispenserConfigWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AdditionalFiles>
+  </ItemGroup>
 </Project>

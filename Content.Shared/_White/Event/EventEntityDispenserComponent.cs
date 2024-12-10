@@ -1,5 +1,7 @@
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Content.Shared._White.Event;
-[RegisterComponent, AutoGenerateComponentState]
+[RegisterComponent, AutoGenerateComponentState, NetworkedComponent]
 public sealed partial class EventItemDispenserComponent : Component
 {
 
@@ -15,33 +17,38 @@ public sealed partial class EventItemDispenserComponent : Component
     public EntProtoId DispensingPrototype;
 
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool CanManuallyDispose = true;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool AutoDispose = true;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool Infinite = true;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int Limit = 3;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool AutoCleanUp = true;
 
-    
-    [DataField]
+    //[DataField] // see OnDispensedRemove in serverside system
+    //public bool AutoCleanStorages = true;
+
+
+
+
+    [DataField, AutoNetworkedField]
     public SoundSpecifier DispenseSound = new SoundPathSpecifier("/Audio/Machines/machine_vend.ogg");
-    [DataField]
+    [DataField, AutoNetworkedField]
     public SoundSpecifier FailSound = new SoundPathSpecifier("/Audio/Machines/custom_deny.ogg");
-    [DataField]
+    [DataField, AutoNetworkedField]
     public SoundSpecifier ManualDisposeSound = new SoundCollectionSpecifier("trashBagRustle");
 
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool ReplaceDisposedItems = true;
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntProtoId DisposedReplacement = "EffectTeslaSparksSilent";
 
 
@@ -75,4 +82,39 @@ public sealed partial class EventDispensedComponent : Component
     /// </summary>
     [ViewVariables]
     public EntityUid Dispenser;
+    /// <summary>
+    /// 
+    /// </summary>
+    [ViewVariables]
+    public List<EntityUid> Slaved = new();
 }
+
+
+[Serializable, NetSerializable]
+public enum EventItemDispenserUiKey : byte
+{
+    Key,
+}
+
+
+[Serializable, NetSerializable]
+public class EventItemDispenserNewConfigBoundUserInterfaceMessage : BoundUserInterfaceMessage
+{
+    public string DispensingPrototype = "FoodBanana";
+    public bool CanManuallyDispose;
+    public bool AutoDispose;
+    public bool Infinite;
+    public int Limit;
+    public bool AutoCleanUp;
+    public bool ReplaceDisposedItems;
+    public string DisposedReplacement = "EffectTeslaSparksSilent";
+}
+
+
+[Serializable, NetSerializable]
+public class EventItemDispenserNewProtoBoundUserInterfaceMessage : BoundUserInterfaceMessage
+{
+    public string DispensingPrototype = "FoodBanana";
+    public EventItemDispenserNewProtoBoundUserInterfaceMessage(string proto) { DispensingPrototype = proto; }
+}
+
