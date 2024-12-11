@@ -5,14 +5,14 @@
   description: Finally, some decent reception around here...
   components:
   - type: Sprite
-    sprite: Structures/Machines/computers.rsi
+    sprite: _White/Structures/Machines/Computers/tv.rsi # WWDP-EDIT
     noRot: true
     drawdepth: SmallObjects
     layers:
     - map: ["computerLayerBody"]
       state: television
     - map: ["computerLayerScreen"]
-      state: detective_television
+      state: television_playing # WWDP-EDIT
       shader: unshaded #WWDP edit
   - type: Computer
     board: ComputerTelevisionCircuitboard
