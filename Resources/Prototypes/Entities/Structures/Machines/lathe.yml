@@ -361,6 +361,7 @@
       - MofficTranslator
       # WD EDIT START
       - ClothingEyesNightVisionGoggles
+      - ClothingEyesNightVisionDiagnosticGoggles
       - ClothingEyesThermalVisionGoggles
       # WD EDIT END
       - RCDAmmo #DeltaV
@@ -888,6 +889,7 @@
       - ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
       - ClothingHeadCage # Nyanotrasen - Insulative headgear
       - ShockCollar # Nyanotrasen - Shock Collar
+      - ClothingEyesNightVisionSecurityGoggles # WWDP
       - WeaponXrayCannon
       - WeaponEnergyGun
       - WeaponEnergyGunMini
@@ -1035,6 +1037,7 @@
       - NTBodyBag # WD
       - PrisonerBodyBag # WD
       - RadiationBodyBag # WD
+      - ClothingEyesNightVisionMedicalGoggles # WWDP
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - SyndicateBodyBag # WD
