@@ -50,13 +50,24 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
-  - type: MeleeWeapon # WD EDIT
-    attackRate: 0.7
+  - type: MeleeWeapon
+    attackRate: 1.3333
     damage:
       types:
-        Blunt: 10
+        Blunt: 8.5
+    bluntStaminaDamageFactor: 1.25
+    swapKeys: true
+    disableHeavy: true
+    animation: WeaponArcThrust
+    wideAnimationRotation: 180
     soundHit:
-      collection: GenericHit
+      collection: MetalThud
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 2.5
+  - type: DamageOtherOnHit
+    staminaCost: 7.5
 
 - type: entity
   name: AKMS
@@ -106,10 +117,6 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: MeleeWeapon # WD EDIT
-    damage:
-      types:
-        Blunt: 10
 
 - type: entity
   name: M-90gl
