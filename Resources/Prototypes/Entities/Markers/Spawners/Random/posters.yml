@@ -180,26 +180,14 @@
       # WWDP-START
     rarePrototypes:
       - FlagAgurk
-      - FlagBelarus
-      - FlagChechnya
-      - FlagGermany
-      - FlagGermanySolfed
-      - FlagGoldRing
       - FlagHCA
       - FlagLizard
-      - FlagCalifornia
-      - FlagCaliforniaSolfed
       - FlagMothic
-      - FlagNRI
       - FlagNanoTrasen
-      - FlagRussian
       - FlagShigu
       - FlagSolfed
       - FlagSolfedAlt
-      - FlagSovietUSSP
       - FlagTizira
-      - FlagUkraine
-      - FlagUSA
       - FlagVulp
     rareChance: 0.01
       # WWDP-END

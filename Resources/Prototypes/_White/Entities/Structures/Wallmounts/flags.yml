@@ -10,26 +10,6 @@
 
 - type: entity
   parent: BaseFlag
-  id: FlagBelarus
-  name: сцяг Беларусі
-  description: Сцяг некалі самай лепшай дзяржавы на планеце з наймацнейшым лідэрам, вядомым як Дужы Арэшак.
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Wallmounts/flags.rsi
-    state: belarus
-
-- type: entity
-  parent: BaseFlag
-  id: FlagChechnya
-  name: Chechnya flag
-  description: Cool!!!
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Wallmounts/flags.rsi
-    state: chechnya
-
-- type: entity
-  parent: BaseFlag
   id: FlagCoder
   name: coder flag
   description: The flag of the nerd club. Great.
@@ -37,36 +17,6 @@
   - type: Sprite
     sprite: _White/Structures/Wallmounts/flags.rsi
     state: coder
-
-- type: entity
-  parent: BaseFlag
-  id: FlagGermany
-  name: Germany flag
-  description: Die Flagge eines einst aufstrebenden Staates, der heute irgendwo in der Geschichte verloren ist. Aus irgendeinem Grund riecht sie nach Asche...
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Wallmounts/flags.rsi
-    state: germany
-
-- type: entity
-  parent: BaseFlag
-  id: FlagGermanySolfed
-  name: Fegeral Republic of Germany flag
-  description: The flag of the German Republic under the SolFed authority.
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Wallmounts/flags.rsi
-    state: germany_solfed
-
-- type: entity
-  parent: BaseFlag
-  id: FlagGoldRing
-  name: Gold Ring flag
-  description: This is the flag of the Gold Ring. The Golden Ring is a megalopolis in the southern part of Tal that has grown to the size of a full-fledged state. Being located around the ColVilous salt Lake, the Golden Ring has become an oasis in the boundless desert where trade and culture flourish.
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Wallmounts/flags.rsi
-    state: goldring
 
 - type: entity
   parent: BaseFlag
@@ -100,26 +50,6 @@
 
 - type: entity
   parent: BaseFlag
-  id: FlagCalifornia
-  name: Сalifornia flag
-  description: The flag of Сalifornia.
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Wallmounts/flags.rsi
-    state: california
-
-- type: entity
-  parent: BaseFlag
-  id: FlagCaliforniaSolfed
-  name: Sol Federation Сalifornia flag
-  description: The flag of Сalifornia. Originally a revolutionary flag during the Californian Rebellions, it has since been adopted as the official flag of the planet controlled by the Solar Federation.
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Wallmounts/flags.rsi
-    state: california_solfed
-
-- type: entity
-  parent: BaseFlag
   id: FlagMothic
   name: Grand Nomad Fleet flag
   description: The flag of the Mothic Grand Nomad Fleet. A classic naval ensign, its use has superceded the old national flag which can be seen in its canton.
@@ -130,16 +60,6 @@
 
 - type: entity
   parent: BaseFlag
-  id: FlagNRI
-  name: Novaya Rossiyskaya Imperiya flag
-  description: The flag of the Novaya Rossiyskaya Imperiya. The yellow, black and white colours represent its sovereignity, spirituality and pureness.
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Wallmounts/flags.rsi
-    state: nri
-
-- type: entity
-  parent: BaseFlag
   id: FlagNanoTrasen
   name: Nanotrasen flag
   description: The official corporate flag of Nanotrasen. Mostly flown as a ceremonial piece, or to mark land on a new frontier.
@@ -147,16 +67,6 @@
   - type: Sprite
     sprite: _White/Structures/Wallmounts/flags.rsi
     state: nt
-
-- type: entity
-  parent: BaseFlag
-  id: FlagRussian
-  name: флаг Российской Федерации
-  description: Флаг некогда великого Государства, обладающего огромными землями, возможностями, а также огромным Советским Наследством.
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Wallmounts/flags.rsi
-    state: russian
 
 - type: entity
   parent: BaseFlag
@@ -188,16 +98,6 @@
 
 - type: entity
   parent: BaseFlag
-  id: FlagSovietUSSP
-  name: флаг Союза Советских Социалистических Республик
-  description: Флаг некогда великого Государства. От флага ощущается сильный запах... железа. Или крови? Из чего сделана эта красная краска?
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Wallmounts/flags.rsi
-    state: soviet
-
-- type: entity
-  parent: BaseFlag
   id: FlagSyndicate
   name: Syndicate flag
   description: The flag of the Sothran Syndicate. Previously used by the Sothran people as a way of declaring opposition against the Nanotrasen, now it became an intergalactic symbol of the same, yet way more skewed purpose, as more groups of interest have joined the rebellions side for their own gain.
@@ -215,26 +115,6 @@
   - type: Sprite
     sprite: _White/Structures/Wallmounts/flags.rsi
     state: tizira
-
-- type: entity
-  parent: BaseFlag
-  id: FlagUkraine
-  name: Ukraine flag
-  description: Прапор колись особливо героїчної держави, яку було загублено в попелищі Земної Історії...
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Wallmounts/flags.rsi
-    state: ukraine
-
-- type: entity
-  parent: BaseFlag
-  id: FlagUSA
-  name: United States of America flag
-  description: Stars and Stripes, the flag of the United States of America. Its red color represents endurance and valor; blue one shows diligence, vigilance and justice, and the white one signs at pureness. Its thirteen red-and-white stripes show the initial thirteen founding colonies, and fifty stars designate fifty states.
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Wallmounts/flags.rsi
-    state: usa
 
 - type: entity
   parent: BaseFlag
