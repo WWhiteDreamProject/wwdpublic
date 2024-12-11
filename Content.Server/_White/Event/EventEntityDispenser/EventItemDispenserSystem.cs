@@ -153,13 +153,15 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
             desc = $"event-item-dispenser-examine-infinite{(comp.AutoDispose ? "-autodispose" : "")}{(comp.CanManuallyDispose ? "-manualdispose" : "")}{(comp.Limit == 1 ? "-single" : "")}";
         }
         int remaining = GetRemaining(args.Examiner, comp);
+
+        args.PushMarkup($"Выдаёт нечто под названием \"[color=violet]{_loc.GetEntityData(comp.DispensingPrototype).Name}[/color]\"", 1);
         args.PushMarkup(
         Loc.GetString(
             desc,
             ("remaining", remaining),
             ("limit", comp.Limit),
             ("plural", GetPlural(remaining, "предмет", "предмета", "предметов")) // todo: look for equivalent func but for .ftl files
-            ));
+            ), 0);
     }
     private void OnInteractUsing(EntityUid uid, EventItemDispenserComponent comp, InteractUsingEvent args)
     {
