@@ -883,3 +883,12 @@ Entries:
   id: 94
   time: '2024-12-10T17:11:20.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/145
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Specialized NVG has been added - medical, security and diagnostic /
+        Добавлены специализированные ПНВ - медицинский, СБ и диагностический.
+  id: 95
+  time: '2024-12-11T14:47:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/149
