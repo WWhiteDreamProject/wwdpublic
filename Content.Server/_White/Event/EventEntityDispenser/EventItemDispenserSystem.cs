@@ -16,6 +16,7 @@ using Robust.Shared.Containers;
 using Content.Shared.Administration;
 using Robust.Shared.Prototypes;
 using System.Diagnostics;
+using Content.Shared.Examine;
 
 namespace Content.Server._White.Event;
 public class EventItemDispenserSystem : SharedEventItemDispenserSystem
@@ -41,6 +42,8 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
         SubscribeLocalEvent<EventItemDispenserComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<EventItemDispenserComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<EventItemDispenserComponent, InteractHandEvent>(OnInteractHand);
+
+        SubscribeLocalEvent<EventItemDispenserComponent, ExaminedEvent>(OnExamine);
 
         SubscribeLocalEvent<EventItemDispenserComponent, EventItemDispenserNewConfigBoundUserInterfaceMessage>(OnMessage);
 
@@ -140,6 +143,24 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
             ReleaseAll(uid, comp);
         }
     }
+    private void OnExamine(EntityUid uid, EventItemDispenserComponent comp, ExaminedEvent args)
+    {
+        string desc = "";
+        if (!comp.Infinite)
+            desc = $"event-item-dispenser-examine-finite{(comp.CanManuallyDispose ? "-manualdispose" : "")}{(comp.Limit == 1 ? "-single" : "")}";
+        else
+        {
+            desc = $"event-item-dispenser-examine-infinite{(comp.AutoDispose ? "-autodispose" : "")}{(comp.CanManuallyDispose ? "-manualdispose" : "")}{(comp.Limit == 1 ? "-single" : "")}";
+        }
+        int remaining = GetRemaining(args.Examiner, comp);
+        args.PushMarkup(
+        Loc.GetString(
+            desc,
+            ("remaining", remaining),
+            ("limit", comp.Limit),
+            ("plural", GetPlural(remaining, "предмет", "предмета", "предметов")) // todo: look for equivalent func but for .ftl files
+            ));
+    }
     private void OnInteractUsing(EntityUid uid, EventItemDispenserComponent comp, InteractUsingEvent args)
     {
         EntityUid user = args.User;
@@ -199,8 +220,6 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
                     return;
                 }
             }
-
-            
         }
         Dispense(user, comp);
     }
@@ -316,21 +335,52 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
 
     private void PopupRemaining(EntityUid user, EventItemDispenserComponent comp)
     {
-        _popup.PopupEntity($"{GetRemaining(user, comp)}/{comp.Limit}", comp.Owner, user);
+        int remaining = GetRemaining(user, comp);
+        if (comp.Infinite)
+            remaining = comp.Limit - remaining; // to instead indicate how much items we have already taken
+        _popup.PopupEntity($"{remaining}/{comp.Limit}", comp.Owner, user);
     }
 
+    /// <summary>
+    /// Self-explanatory.
+    /// As for how it's used, because i failed at coming up with a more descriptive name for the bool switch:
+    /// rawCount is true when getting the remaining for a popu; false when getting it for the examine text.
+    /// </summary>
     private int GetRemaining(EntityUid user, EventItemDispenserComponent comp)
     {
-        if (comp.Infinite)
-            return comp.dispensedItems[user].Count;
+        if(comp.Infinite)
+            return comp.dispensedItems.ContainsKey(user) ? comp.Limit - comp.dispensedItems[user].Count : comp.Limit;
         else
-            return comp.Limit - comp.dispensedItemsAmount[user];
-    }
+            return comp.dispensedItemsAmount.ContainsKey(user) ? comp.Limit - comp.dispensedItemsAmount[user] : comp.Limit;
 
+    }
 
     private void PruneItemList(EntityUid user, EventItemDispenserComponent comp)
     {
         comp.dispensedItems[user] = comp.dispensedItems.GetOrNew(user).Where(item => !TerminatingOrDeleted(item)).ToList();
+    }
+
+    /// <summary>
+    /// my beloved
+    /// </summary>
+    private string GetPlural(int n, string one, string two, string five) // this has to exist somewhere else in the code, right?
+    {                                                                    // todo: find it i guess
+        n = Math.Abs(n);
+        n %= 100;
+        if (n >= 5 && n <= 20)
+        {
+            return five;
+        }
+        n %= 10;
+        if (n == 1)
+        {
+            return one;
+        }
+        if (n >= 2 && n <= 4)
+        {
+            return two;
+        }
+        return five;
     }
 }
 
