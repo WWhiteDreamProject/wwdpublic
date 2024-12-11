@@ -56,11 +56,13 @@ public sealed partial class EventItemDispenserComponent : Component
     /// Stores Lists with all (currently existing) items.
     /// Owners' Uids used as keys.
     /// </summary>
+    [ViewVariables]
     public Dictionary<EntityUid, List<EntityUid>> dispensedItems = new();
     /// <summary>
     /// Stores the amount of items spawned by each person in this dispenser's lifetime.
     /// Owners' Uids used as keys.
     /// </summary>
+    [ViewVariables]
     public Dictionary<EntityUid, int> dispensedItemsAmount = new();
 
 }

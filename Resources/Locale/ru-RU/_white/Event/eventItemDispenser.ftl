@@ -51,3 +51,14 @@ event-item-dispenser-examine-finite-manualdispose-single = {$remaining ->
     [1] Внутри только [color=yellow]один[/color] предмет. редмет. Если что, я смогу его вернуть, чтобы получить новый..
     *[other] Внутри [color=yellow]пусто[/color], но я могу вернуть здесь старый предмет, чтобы получить новый.
 }
+
+
+
+eventitemdispenser-configwindow-dispensingPrototype = Прототип предмета
+eventitemdispenser-configwindow-AutoDispose = Автоматически удалять излишек?
+eventitemdispenser-configwindow-CanManuallyDispose = Можно ли вручную удалить предмет?
+eventitemdispenser-configwindow-Infinite = Бесконечно восполняемый запас
+eventitemdispenser-configwindow-Limit = Лимит предметов
+eventitemdispenser-configwindow-ReplaceDisposedItems = Заменять автоматически удалённые предметы?
+eventitemdispenser-configwindow-DisposedReplacement = Прототип замены
+eventitemdispenser-configwindow-AutoCleanUp = Автоматическая чистка при удалении раздатчика

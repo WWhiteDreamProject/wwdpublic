@@ -4,14 +4,17 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Content.Client._White.Event;
 
+#pragma warning disable IDE1006 // i am going to fucking lose it
 
 /// <summary>
 /// Hopefully i never have to touch UI ever again.
@@ -19,39 +22,93 @@ namespace Content.Client._White.Event;
 /// </summary>
 public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterface
 {
+
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
-    
+    [Dependency] private readonly ILocalizationManager _loc = default!;
+
+    static readonly Color Green = new Color(0, 255, 0); 
+    static readonly Color Red = new Color(255, 0, 0);
+
     //EventItemDispenserConfigWindow? window; // Trying to work with robustengine's ui system makes me want to quote AM.
-    DefaultWindow? window;
+    DefaultWindow window = default!;
     EventItemDispenserComponent dispenserComp;
     public EventItemDispenserConfigBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey) {
         IoCManager.InjectDependencies(this);
         dispenserComp = _entMan.GetComponent<EventItemDispenserComponent>(Owner);
     }
 
-    BoxContainer? baseBox;
-    BoxContainer? optionBox;
-    BoxContainer? buttonBox;
+    #region man-made horrors beyond your comprehension 
 
-    LineEdit? DispensingPrototypeLineEdit;
+    #region all the controls
+    BoxContainer baseBox = default!;
+    BoxContainer optionBox = default!;
+    BoxContainer buttonBox = default!;
+    BoxContainer copypasteBox = default!;
+
+    LineEdit DispensingPrototypeLineEdit = default!;
     bool DispensingPrototypeValid = false;
-    CheckBox? AutoDisposeCheckBox;
-    CheckBox? CanManuallyDisposeCheckBox;
-    CheckBox? InfiniteCheckBox;
-    LineEdit? LimitLineEdit;
+    CheckBox AutoDisposeCheckBox = default!;
+    CheckBox CanManuallyDisposeCheckBox = default!;
+    CheckBox InfiniteCheckBox = default!;
+    LineEdit LimitLineEdit = default!;
 
-    CheckBox? ReplaceDisposedItemsCheckBox;
-    LineEdit? DisposedReplacementLineEdit;
+    CheckBox ReplaceDisposedItemsCheckBox = default!;
+    LineEdit DisposedReplacementPrototypeLineEdit = default!;
     bool DisposedReplacementPrototypeValid = false;
 
-    CheckBox? AutoCleanUpCheckBox;
+    CheckBox AutoCleanUpCheckBox = default!;
 
-    Button? copyButton;
-    Button? pasteButton;
-    Button? confirmButton;
+    Button copyButton = default!;
+    Button pasteButton = default!;
+    Button confirmButton = default!;
 
     //Button cancelButton = new(); // just hit the "x" 4head
+    #endregion
+
+    #region copypasta stuff
+    static string SavedDispensingPrototype = default!;
+    static bool SavedAutoDispose = default;
+    static bool SavedCanManuallyDispose = default;
+    static bool SavedInfinite = default;
+    static string SavedLimit = default!;
+    static bool SavedReplaceDisposedItems = default;
+    static string SavedDisposedReplacementPrototype = default!;
+    static bool SavedAutoCleanUp = default;
+
+    static bool saved = false;
+
+    private void CopySettings(EventArgs whatever)
+    {
+        saved = true;
+
+        SavedDispensingPrototype = DispensingPrototypeLineEdit.Text;
+        SavedAutoDispose = AutoDisposeCheckBox.Pressed;
+        SavedCanManuallyDispose = CanManuallyDisposeCheckBox.Pressed;
+        SavedInfinite = InfiniteCheckBox.Pressed;
+        SavedLimit = LimitLineEdit.Text;
+        SavedReplaceDisposedItems = ReplaceDisposedItemsCheckBox.Pressed;
+        SavedDisposedReplacementPrototype = DisposedReplacementPrototypeLineEdit.Text;
+        SavedAutoCleanUp = AutoCleanUpCheckBox.Pressed;
+
+        pasteButton.Disabled = false;
+    }
+
+    private void PasteSettings(EventArgs whatever)
+    {
+        DebugTools.Assert(saved);
+
+        DispensingPrototypeLineEdit.Text = SavedDispensingPrototype;
+        AutoDisposeCheckBox.Pressed = SavedAutoDispose;
+        CanManuallyDisposeCheckBox.Pressed = SavedCanManuallyDispose;
+        InfiniteCheckBox.Pressed = SavedInfinite;
+        LimitLineEdit.Text = SavedLimit;
+        ReplaceDisposedItemsCheckBox.Pressed = SavedReplaceDisposedItems;
+        DisposedReplacementPrototypeLineEdit.Text = SavedDisposedReplacementPrototype;
+        AutoCleanUpCheckBox.Pressed = SavedAutoCleanUp;
+        
+    }
+    #endregion
 
     private void InitializeControls(DefaultWindow window) // windows forms ahh method 
     {
@@ -68,18 +125,36 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
 
         buttonBox = this.CreateDisposableControl<BoxContainer>();
         buttonBox.Orientation = BoxContainer.LayoutOrientation.Horizontal;
-        buttonBox.Align = BoxContainer.AlignMode.End;
+        //buttonBox.Align = BoxContainer.AlignMode.End;
         baseBox.AddChild(buttonBox);
+
+        copypasteBox = this.CreateDisposableControl<BoxContainer>();
+        //copypasteBox.HorizontalAlignment = Control.HAlignment.Left;
+        copypasteBox.HorizontalExpand = true;
+
+        copyButton = this.CreateDisposableControl<Button>();
+        copyButton.Label.Text = "Copy";
+        copyButton.OnPressed += CopySettings;
+        copypasteBox.AddChild(copyButton);
+
+        pasteButton = this.CreateDisposableControl<Button>();
+        pasteButton.Label.Text = "Paste";
+        pasteButton.OnPressed += PasteSettings;
+        pasteButton.Disabled = !saved;
+        copypasteBox.AddChild(pasteButton);
 
         confirmButton = this.CreateDisposableControl<Button>();
         confirmButton.Label.Text = "OK";
         confirmButton.OnPressed += TrySubmit;
+        confirmButton.HorizontalAlignment = Control.HAlignment.Right;
+
+        buttonBox.AddChild(copypasteBox);
         buttonBox.AddChild(confirmButton);
+
     }
 
 
-    Color Green = new Color(0, 255, 0);
-    Color Red = new Color(255, 0, 0);
+
 
 
     /// <summary>
@@ -94,29 +169,30 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
         InitializeControls(window);
         
 
-        DispensingPrototypeLineEdit =   AddOption<LineEdit>("dispensingPrototypeLineEdit");
+        DispensingPrototypeLineEdit = AddOption<LineEdit>(_loc.GetString("eventitemdispenser-configwindow-dispensingPrototype"));
         DispensingPrototypeLineEdit.MinWidth = 300;
         DispensingPrototypeLineEdit.OnTextChanged += (args) => { DispensingPrototypeValid = ValidateProto(args); confirmButton!.Disabled = !DispensingPrototypeValid || !DisposedReplacementPrototypeValid; };
         DispensingPrototypeLineEdit.OnTextEntered += TrySubmit;
 
-        AutoDisposeCheckBox =           AddOption<CheckBox>("AutoDisposeCheckBox");
-        CanManuallyDisposeCheckBox =    AddOption<CheckBox>("CanManuallyDisposeCheckBox");
+        AutoDisposeCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-AutoDispose"));
+        CanManuallyDisposeCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-CanManuallyDispose"));
 
-        InfiniteCheckBox =              AddOption<CheckBox>("InfiniteCheckBox");
+        InfiniteCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-Infinite"));
+        InfiniteCheckBox.OnPressed += (_) => AutoDisposeCheckBox.Disabled = !InfiniteCheckBox.Pressed;
 
-        LimitLineEdit =                 AddOption<LineEdit>("LimitLineEdit");
+        LimitLineEdit = AddOption<LineEdit>(_loc.GetString("eventitemdispenser-configwindow-Limit"));
         LimitLineEdit.IsValid = s => int.TryParse(s, out int _) && s.IndexOf('-') == -1; // no "_ > 0" because being able to input -0 makes me cringe
         LimitLineEdit.MinWidth = 100;
         LimitLineEdit.OnTextEntered += TrySubmit;
 
-        ReplaceDisposedItemsCheckBox =  AddOption<CheckBox>("ReplaceDisposedItemsCheckBox");
+        ReplaceDisposedItemsCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-ReplaceDisposedItems"));
 
-        DisposedReplacementLineEdit =   AddOption<LineEdit>("DisposedReplacementLineEdit");
-        DisposedReplacementLineEdit.MinWidth = 300;
-        DisposedReplacementLineEdit.OnTextChanged += (args) => { DisposedReplacementPrototypeValid = ValidateProto(args); confirmButton!.Disabled = !DispensingPrototypeValid || !DisposedReplacementPrototypeValid; };
-        DisposedReplacementLineEdit.OnTextEntered += TrySubmit;
+        DisposedReplacementPrototypeLineEdit = AddOption<LineEdit>(_loc.GetString("eventitemdispenser-configwindow-DisposedReplacement"));
+        DisposedReplacementPrototypeLineEdit.MinWidth = 300;
+        DisposedReplacementPrototypeLineEdit.OnTextChanged += (args) => { DisposedReplacementPrototypeValid = ValidateProto(args); confirmButton!.Disabled = !DispensingPrototypeValid || !DisposedReplacementPrototypeValid; };
+        DisposedReplacementPrototypeLineEdit.OnTextEntered += TrySubmit;
 
-        AutoCleanUpCheckBox =           AddOption<CheckBox>("AutoCleanUpCheckBox");
+        AutoCleanUpCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-AutoCleanUp"));
 
         
         DispensingPrototypeLineEdit.SetText(dispenserComp.DispensingPrototype, true);
@@ -125,8 +201,10 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
         InfiniteCheckBox.Pressed = dispenserComp.Infinite;
         LimitLineEdit.SetText(dispenserComp.Limit.ToString());
         ReplaceDisposedItemsCheckBox.Pressed = dispenserComp.ReplaceDisposedItems;
-        DisposedReplacementLineEdit.SetText(dispenserComp.DisposedReplacement, true);
+        DisposedReplacementPrototypeLineEdit.SetText(dispenserComp.DisposedReplacement, true);
         AutoCleanUpCheckBox.Pressed = dispenserComp.AutoCleanUp;
+
+        AutoDisposeCheckBox.Disabled = !dispenserComp.Infinite;
 
         window.OpenCentered();
     }
@@ -156,18 +234,18 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
 
     private void TrySubmit(EventArgs whatever)
     {
-        if (!confirmButton! .Disabled)
+        if (!confirmButton.Disabled)
         {
             var msg = new EventItemDispenserNewConfigBoundUserInterfaceMessage()
             {
-                DispensingPrototype = DispensingPrototypeLineEdit!.Text,
-                AutoDispose = AutoDisposeCheckBox!.Pressed,
-                CanManuallyDispose = CanManuallyDisposeCheckBox!.Pressed,
-                Infinite = InfiniteCheckBox!.Pressed,
-                Limit = int.Parse(LimitLineEdit!.Text),
-                ReplaceDisposedItems = ReplaceDisposedItemsCheckBox!.Pressed,
-                DisposedReplacement = DisposedReplacementLineEdit!.Text,
-                AutoCleanUp = AutoCleanUpCheckBox!.Pressed
+                DispensingPrototype = DispensingPrototypeLineEdit.Text,
+                AutoDispose = AutoDisposeCheckBox.Pressed,
+                CanManuallyDispose = CanManuallyDisposeCheckBox.Pressed,
+                Infinite = InfiniteCheckBox.Pressed,
+                Limit = int.Parse(LimitLineEdit.Text),
+                ReplaceDisposedItems = ReplaceDisposedItemsCheckBox.Pressed,
+                DisposedReplacement = DisposedReplacementPrototypeLineEdit.Text,
+                AutoCleanUp = AutoCleanUpCheckBox.Pressed
             };
             SendMessage(msg);
             Close();
@@ -179,7 +257,9 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
         base.ReceiveMessage(message);
         if(message is EventItemDispenserNewProtoBoundUserInterfaceMessage { } msg)
         {
-            DispensingPrototypeLineEdit!.SetText(msg.DispensingPrototype);
+            DispensingPrototypeLineEdit.SetText(msg.DispensingPrototype);
         }
     }
+    #endregion
 }
+#pragma warning restore IDE1006

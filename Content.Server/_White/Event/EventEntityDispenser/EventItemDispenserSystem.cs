@@ -15,7 +15,6 @@ using Content.Shared.Popups;
 using Robust.Shared.Containers;
 using Content.Shared.Administration;
 using Robust.Shared.Prototypes;
-using System.Diagnostics;
 using Content.Shared.Examine;
 
 namespace Content.Server._White.Event;
@@ -290,17 +289,17 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
     {
         if(TryComp<EventDispensedComponent>(item, out var itemcomp))
         {
-            Debug.Assert(comp.Owner == itemcomp.Dispenser, "Attempted to recycle dispensed item in wrong dispenser.");
+            DebugTools.Assert(comp.Owner == itemcomp.Dispenser, "Attempted to recycle dispensed item in wrong dispenser.");
             comp.dispensedItemsAmount[itemcomp.ItemOwner]--;
-            comp.dispensedItems[itemcomp.ItemOwner].Remove(item);
-            Debug.Assert(comp.dispensedItemsAmount[itemcomp.ItemOwner] >= 0, "EventItemDispenser ended up with negative total items dispensed.");
+            //comp.dispensedItems[itemcomp.ItemOwner].Remove(item); // fucks up foreach loops
+            DebugTools.Assert(comp.dispensedItemsAmount[itemcomp.ItemOwner] >= 0, "EventItemDispenser ended up with negative total items dispensed.");
             if (comp.ReplaceDisposedItems && replace)
             {
                 var mapPos = _transform.ToMapCoordinates(new Robust.Shared.Map.EntityCoordinates(item, default));
                 Spawn(comp.DisposedReplacement, mapPos);
             }
 
-            QueueDel(item);
+            Del(item);
         }
     }
     /// <summary>
@@ -350,8 +349,11 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
     /// </summary>
     private int GetRemaining(EntityUid user, EventItemDispenserComponent comp)
     {
-        if(comp.Infinite)
+        if (comp.Infinite)
+        {
+            PruneItemList(user, comp);
             return comp.dispensedItems.ContainsKey(user) ? comp.Limit - comp.dispensedItems[user].Count : comp.Limit;
+        }
         else
             return comp.dispensedItemsAmount.ContainsKey(user) ? comp.Limit - comp.dispensedItemsAmount[user] : comp.Limit;
 
