@@ -317,7 +317,8 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
     /// <param name="comp"></param>
     private void Dispense(EntityUid user, EventItemDispenserComponent comp)
     {
-        var item = Spawn(comp.DispensingPrototype, new Robust.Shared.Map.EntityCoordinates(user, default)); // am i retarded?
+        var mapPos = _transform.ToMapCoordinates(new Robust.Shared.Map.EntityCoordinates(user, default));
+        var item = Spawn(comp.DispensingPrototype, mapPos);
         var ev = new ItemPurchasedEvent(user);
         RaiseLocalEvent(item, ref ev); // erectin' a vendomat
         var dispensedComp = AddComp<EventDispensedComponent>(item);
