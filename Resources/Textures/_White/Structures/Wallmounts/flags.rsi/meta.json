@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/c51c246b6d26884357d5e5088658584224403f72/modular_bluemoon/SmiLeY/aesthetics/flag/icons/flags.dmi | Edited by PuroSlavKing (Github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "agurk"
+    },
+    {
+      "name": "belarus"
+    },
+    {
+      "name": "chechnya"
+    },
+    {
+      "name": "coder"
+    },
+    {
+      "name": "germany"
+    },
+    {
+      "name": "germany_solfed"
+    },
+    {
+      "name": "goldring"
+    },
+    {
+      "name": "hca"
+    },
+    {
+      "name": "inteq"
+    },
+    {
+      "name": "lizard"
+    },
+    {
+      "name": "california"
+    },
+    {
+      "name": "california_solfed"
+    },
+    {
+      "name": "mothic"
+    },
+    {
+      "name": "nri"
+    },
+    {
+      "name": "nt"
+    },
+    {
+      "name": "russian"
+    },
+    {
+      "name": "shigu"
+    },
+    {
+      "name": "solfed"
+    },
+    {
+      "name": "solfed_alt"
+    },
+    {
+      "name": "soviet"
+    },
+    {
+      "name": "syndicate"
+    },
+    {
+      "name": "tizira"
+    },
+    {
+      "name": "ukraine"
+    },
+    {
+      "name": "usa"
+    },
+    {
+      "name": "vulp"
+    }
+  ]
+}
