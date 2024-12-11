@@ -190,7 +190,7 @@
   parent: BaseFlag
   id: FlagSovietUSSP
   name: флаг Союза Советских Социалистических Республик
-  description: Флаг некогда великого Государства, которое максимально сильно приблизилось к значению Утопичной Диктатуры. От флага ощущается сильный запах... железа. Или крови? Из чего сделана эта красная краска?
+  description: Флаг некогда великого Государства. От флага ощущается сильный запах... железа. Или крови? Из чего сделана эта красная краска?
   components:
   - type: Sprite
     sprite: _White/Structures/Wallmounts/flags.rsi
@@ -230,7 +230,7 @@
   parent: BaseFlag
   id: FlagUSA
   name: United States of America flag
-  description: Stars and Stripes, the flag of the United States of America. Its red color represents endurance and valor; blue one shows diligence, vigilance and justice, and the white one signs at pureness. Its thirteen red-and-white stripes show the initial thirteen founding colonies, and fifty stars designate the current fifty states.
+  description: Stars and Stripes, the flag of the United States of America. Its red color represents endurance and valor; blue one shows diligence, vigilance and justice, and the white one signs at pureness. Its thirteen red-and-white stripes show the initial thirteen founding colonies, and fifty stars designate fifty states.
   components:
   - type: Sprite
     sprite: _White/Structures/Wallmounts/flags.rsi
