@@ -48,7 +48,7 @@ event-item-dispenser-examine-finite-single = {$remaining ->
 }
 
 event-item-dispenser-examine-finite-manualdispose-single = {$remaining ->
-    [1] Внутри только [color=yellow]один[/color] предмет. редмет. Если что, я смогу его вернуть, чтобы получить новый..
+    [1] Внутри только [color=yellow]один[/color] предмет. Если что, я смогу его вернуть, чтобы получить новый.
     *[other] Внутри [color=yellow]пусто[/color], но я могу вернуть здесь старый предмет, чтобы получить новый.
 }
 

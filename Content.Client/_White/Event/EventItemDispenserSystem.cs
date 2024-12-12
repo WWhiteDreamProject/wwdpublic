@@ -24,24 +24,20 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
 
     private void OnInit(EntityUid uid, EventItemDispenserComponent comp, ComponentInit args)
     {
-        var sprite = Comp<SpriteComponent>(uid);
-        var icon = _sprite.GetPrototypeIcon(comp.DispensingPrototype).Default;
-        sprite.LayerSetTexture(EventItemDispenserVisualLayers.ItemPreview, icon);
-        float scale = comp.ItemPreviewScale;
-
-        if(scale <= 0)
-        {
-            scale = 32f / Math.Max(15, Math.Max(icon.Width, icon.Height));
-        }
-        sprite.LayerSetScale(EventItemDispenserVisualLayers.ItemPreview, new Vector2(scale));
+        UpdateVisuals(uid, comp);
     }
     private void OnAfterAutoHandleState(EntityUid uid, EventItemDispenserComponent comp, AfterAutoHandleStateEvent args)
+    {
+        UpdateVisuals(uid, comp);
+    }
+
+    private void UpdateVisuals(EntityUid uid, EventItemDispenserComponent comp)
     {
         var sprite = Comp<SpriteComponent>(uid);
         var icon = _sprite.GetPrototypeIcon(comp.DispensingPrototype).Default;
         sprite.LayerSetTexture(EventItemDispenserVisualLayers.ItemPreview, icon);
-
         float scale = comp.ItemPreviewScale;
+
         if (scale <= 0)
         {
             scale = 32f / Math.Max(15, Math.Max(icon.Width, icon.Height));

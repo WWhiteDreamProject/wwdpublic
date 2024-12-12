@@ -39,7 +39,12 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
         dispenserComp = _entMan.GetComponent<EventItemDispenserComponent>(Owner);
     }
 
+
+
     #region man-made horrors beyond your comprehension 
+
+
+
 
     #region all the controls
     BoxContainer baseBox = default!;
@@ -154,10 +159,6 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
 
     }
 
-
-
-
-
     /// <summary>
     /// I am not sorry.
     /// </summary>
@@ -174,7 +175,6 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
         DispensingPrototypeLineEdit.MinWidth = 300;
         DispensingPrototypeLineEdit.OnTextChanged += (args) => { DispensingPrototypeValid = ValidateProto(args); confirmButton!.Disabled = !DispensingPrototypeValid || !DisposedReplacementPrototypeValid; };
         DispensingPrototypeLineEdit.OnTextEntered += TrySubmit;
-        
 
         AutoDisposeCheckBox = AddOption<CheckBox>("eventitemdispenser-configwindow-autodispose");
         CanManuallyDisposeCheckBox = AddOption<CheckBox>("eventitemdispenser-configwindow-canmanuallydispose");
@@ -198,7 +198,6 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
         DisposedReplacementPrototypeLineEdit.OnTextEntered += TrySubmit;
 
         AutoCleanUpCheckBox = AddOption<CheckBox>("eventitemdispenser-configwindow-autocleanup");
-
         
         DispensingPrototypeLineEdit.SetText(dispenserComp.DispensingPrototype, true);
         AutoDisposeCheckBox.Pressed = dispenserComp.AutoDispose;
