@@ -6,7 +6,7 @@
   - type: StationEvent
     startAnnouncement: true
     weight: 8
-    duration: 60
+    duration: 10
     minimumPlayers: 15
     earliestStart: 35
     reoccurrenceDelay: 50
