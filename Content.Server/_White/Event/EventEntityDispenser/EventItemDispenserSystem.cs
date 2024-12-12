@@ -16,6 +16,7 @@ using Robust.Shared.Containers;
 using Content.Shared.Administration;
 using Robust.Shared.Prototypes;
 using Content.Shared.Examine;
+using Robust.Shared.Map;
 
 namespace Content.Server._White.Event;
 public class EventItemDispenserSystem : SharedEventItemDispenserSystem
@@ -50,16 +51,7 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
         SubscribeLocalEvent<EventDispensedComponent, ComponentRemove>(OnDispensedRemove);
     }
 
-    private string ValidateProto(string proto, string backup)
-    {
-        return _proto.HasIndex(proto) ? proto : backup;
-    }
-    private bool CanOpenUI(EntityUid user)
-    {
-        var adminData = _admeme.GetAdminData(user);
-        return adminData != null && adminData.CanAdminPlace() &&
-            MetaData(user).EntityPrototype?.ID == GameTicker.AdminObserverPrototypeName;
-    }
+
 
     private void OnMessage(EntityUid uid, EventItemDispenserComponent comp, EventItemDispenserNewConfigBoundUserInterfaceMessage msg)
     {
@@ -155,7 +147,6 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
     {
         EntityUid user = args.User;
         EntityUid item = args.Used;
-
 
         if (CanOpenUI(user))
         {
@@ -311,6 +302,16 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
             remaining = comp.Limit - remaining; // to instead indicate how much items we have already taken
         _popup.PopupEntity($"{remaining}/{comp.Limit}", comp.Owner, user);
     }
+    private string ValidateProto(string proto, string backup)
+    {
+        return _proto.HasIndex<EntityPrototype>(proto) ? proto : backup;
+    }
+    private bool CanOpenUI(EntityUid user)
+    {
+        var adminData = _admeme.GetAdminData(user);
+        return adminData != null && adminData.CanAdminPlace() &&
+            MetaData(user).EntityPrototype?.ID == GameTicker.AdminObserverPrototypeName;
+    }
 
     /// <summary>
     /// Self-explanatory.
@@ -328,7 +329,6 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
             return comp.dispensedItemsAmount.ContainsKey(user) ? comp.Limit - comp.dispensedItemsAmount[user] : comp.Limit;
 
     }
-
     private void PruneItemList(EntityUid user, EventItemDispenserComponent comp)
     {
         comp.dispensedItems[user] = comp.dispensedItems.GetOrNew(user).Where(item => !TerminatingOrDeleted(item)).ToList();

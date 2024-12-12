@@ -170,33 +170,34 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
         InitializeControls(window);
 
         window.Title = _loc.GetString("eventitemdispenser-configwindow-title");
-        DispensingPrototypeLineEdit = AddOption<LineEdit>(_loc.GetString("eventitemdispenser-configwindow-dispensingprototype"));
+        DispensingPrototypeLineEdit = AddOption<LineEdit>("eventitemdispenser-configwindow-dispensingprototype");
         DispensingPrototypeLineEdit.MinWidth = 300;
         DispensingPrototypeLineEdit.OnTextChanged += (args) => { DispensingPrototypeValid = ValidateProto(args); confirmButton!.Disabled = !DispensingPrototypeValid || !DisposedReplacementPrototypeValid; };
         DispensingPrototypeLineEdit.OnTextEntered += TrySubmit;
+        
 
-        AutoDisposeCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-autodispose"));
-        CanManuallyDisposeCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-canmanuallydispose"));
+        AutoDisposeCheckBox = AddOption<CheckBox>("eventitemdispenser-configwindow-autodispose");
+        CanManuallyDisposeCheckBox = AddOption<CheckBox>("eventitemdispenser-configwindow-canmanuallydispose");
 
-        InfiniteCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-infinite"));
+        InfiniteCheckBox = AddOption<CheckBox>("eventitemdispenser-configwindow-infinite");
         InfiniteCheckBox.OnPressed += (_) => {
             AutoDisposeCheckBox.Disabled = !InfiniteCheckBox.Pressed;
-            AutoDisposeCheckBox.ModulateSelfOverride = AutoDisposeCheckBox.Disabled ? Gray : null; 
+            AutoDisposeCheckBox.ModulateSelfOverride = AutoDisposeCheckBox.Disabled ? Gray : null;
         };
 
-        LimitLineEdit = AddOption<LineEdit>(_loc.GetString("eventitemdispenser-configwindow-limit"));
+        LimitLineEdit = AddOption<LineEdit>("eventitemdispenser-configwindow-limit");
         LimitLineEdit.IsValid = s => int.TryParse(s, out int _) && s.IndexOf('-') == -1; // no "_ > 0" because being able to input -0 makes me cringe
         LimitLineEdit.MinWidth = 100;
         LimitLineEdit.OnTextEntered += TrySubmit;
 
-        ReplaceDisposedItemsCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-replacedisposeditems"));
+        ReplaceDisposedItemsCheckBox = AddOption<CheckBox>("eventitemdispenser-configwindow-replacedisposeditems");
 
-        DisposedReplacementPrototypeLineEdit = AddOption<LineEdit>(_loc.GetString("eventitemdispenser-configwindow-disposedreplacement"));
+        DisposedReplacementPrototypeLineEdit = AddOption<LineEdit>("eventitemdispenser-configwindow-disposedreplacement");
         DisposedReplacementPrototypeLineEdit.MinWidth = 300;
         DisposedReplacementPrototypeLineEdit.OnTextChanged += (args) => { DisposedReplacementPrototypeValid = ValidateProto(args); confirmButton!.Disabled = !DispensingPrototypeValid || !DisposedReplacementPrototypeValid; };
         DisposedReplacementPrototypeLineEdit.OnTextEntered += TrySubmit;
 
-        AutoCleanUpCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-autocleanup"));
+        AutoCleanUpCheckBox = AddOption<CheckBox>("eventitemdispenser-configwindow-autocleanup");
 
         
         DispensingPrototypeLineEdit.SetText(dispenserComp.DispensingPrototype, true);
@@ -219,12 +220,13 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
         var box = this.CreateDisposableControl<BoxContainer>();
         box.HorizontalAlignment = Control.HAlignment.Stretch;
         var label = this.CreateDisposableControl<Label>();
-        label.Text = text;
+        label.Text = _loc.GetString(text);
         label.HorizontalExpand = true;
         label.HorizontalAlignment = Label.HAlignment.Left;
         box.AddChild(label);
         var control = this.CreateDisposableControl<T>();
         control.HorizontalAlignment = Control.HAlignment.Right;
+        control.ToolTip = _loc.GetString($"{text}-tooltip");
         box.AddChild(control);
         optionBox!.AddChild(box); // called after control init // i can't even remember what i meant by this, that's how bad it has got.
         return control;

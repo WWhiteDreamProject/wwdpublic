@@ -7,9 +7,18 @@
     sprite: _White/Structures/Misc/EventItemDispenser.rsi
     layers:
     - state: base
-      map: ["enum.EventItemDispenserVisualLayers.Base"]
+      offset: 0, 0.0625
+    - state: base_glow
+      shader: unshaded
+      offset: 0, 0.0625
+    - state: lamp_glow
+      shader: unshaded
+      offset: 0, 0.0625
+    - state: hands
+      offset: 0, 0.0625
     - map: ["enum.EventItemDispenserVisualLayers.ItemPreview"]
-      shader: SimpleHologram      
+      shader: FlickerHologram
+      offset: 0, 0.25
   - type: InteractionOutline
   - type: Physics
     bodyType: Static

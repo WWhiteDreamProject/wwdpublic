@@ -54,6 +54,15 @@ event-item-dispenser-examine-finite-manualdispose-single = {$remaining ->
 
 
 
+eventitemdispenser-configwindow-dispensingprototype-tooltip = Прототип предмета, который будет выдаваться игроку при клике. Когда вы в aghost: кликните предметом по раздатчику, чтобы скопировать его прототип сюда.
+eventitemdispenser-configwindow-autodispose-tooltip = При попытке взять предмет сверх установленного лимита, удаляет самый старый предмет. Не имеет эффекта на раздатчиках с конечным запасом!
+eventitemdispenser-configwindow-infinite-tooltip = Раздатчик с конечным запасом отслеживает, сколько предметов взял игрок и не даёт взять сверх лимита. Бесконечный раздатчик в своём подсчёте не учитывает удалённые предметы.
+eventitemdispenser-configwindow-limit-tooltip = Максимальное количество предметов, которое может взять каждый игрок из этого раздатчика.
+eventitemdispenser-configwindow-canmanuallydispose-tooltip = Если да, то при клике на раздатчик выданным предметом удаляет его, "возвращая" в раздатчик. Свойства предмета (напр. батарейка егана) не переносятся на следующий выдаваемый предмет.
+eventitemdispenser-configwindow-replacedisposeditems-tooltip = При автоматическом удалении лишних предметов заменять их на данный прототип. Не имеет эффекта на раздатчиках без автоудаления излишка!
+eventitemdispenser-configwindow-disposedreplacement-tooltip = Прототип предмета, на который будет заменён удаляемый лишний предмет. Рекомендуется указать либо прототип какого-нибудь мусора, либо прототип эффекта. [color=yellow]Не имеет эффекта на раздатчиках без автоудаления излишка![/color]
+eventitemdispenser-configwindow-autocleanup-tooltip = Если да, то все предметы, выданные этим раздатчиком, будут удалены вместе с этим раздатчиком. (На самом деле вместе с компонентом EventItemDispenser раздатчика)
+
 eventitemdispenser-configwindow-title = Erectin' a dispenser
 eventitemdispenser-configwindow-dispensingprototype = Прототип предмета
 eventitemdispenser-configwindow-autodispose = Автоматически удалять излишек?
