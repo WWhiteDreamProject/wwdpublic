@@ -52,7 +52,7 @@ void fragment() {
 	
 	highp vec3 col = rgb2hsv(tex.rgb);
 	col.x = hue;
-	col.z *= 3; // increase the value in hsv color, helps with highlighting detail
+	col.z = (log(col.z)+4)/4; // increase the value in hsv color, helps with highlighting detail
 	
 	// this produces a color which randomly flashes from hue2 (at max value) to white
 	// mixed in with sprite color down below

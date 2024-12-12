@@ -40,7 +40,6 @@
         enum.EventItemDispenserUiKey.Key:
           type: EventItemDispenserConfigBoundUserInterface
           interactionRange: -1
-          RequireInputValidation: false
   - type: EventItemDispenser
     dispensing: FoodBanana
 
