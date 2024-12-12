@@ -48,17 +48,6 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
 
         SubscribeLocalEvent<EventDispensedComponent, ComponentStartup>(OnDispensedStartup);
         SubscribeLocalEvent<EventDispensedComponent, ComponentRemove>(OnDispensedRemove);
-
-
-        // todo add ComponentStart handler to EventDispensedComponent to properly dispose of items spawning with filled storage
-        //      * add a List<EntityUid> var to EventDispensedComponent tracking all slaved items
-        //      * handle dropping stuff from storage that is not slaved, in case it's not handled by default (i think it's not)
-
-        // todo examine for per-player limits?
-        //      * maybe adding a List<EntityUid> variable to EventItemDispenserComponent for strictly client-side usage?
-        //        >will require server to confirm the item count (otherwise items outside pvs will desync the counter one way or another)
-        //      * keep examine server-sided
-        //        >can examine tooltip be "postponed" until receiving relevant info?
     }
 
     private string ValidateProto(string proto, string backup)
@@ -236,26 +225,6 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
             Recycle(items.First(), comp);
     }
 
-    /// <summary>
-    /// Deletes items over limit. Only called when <see cref="EventItemDispenserComponent.Limit"/> is reduced.
-    /// </summary>
-    private void DeleteExcess(EventItemDispenserComponent comp)
-    {
-        foreach (var owner in comp.dispensedItems.Keys)
-        {
-            var items = comp.dispensedItems[owner];
-            if (items.Count <= comp.Limit)
-                continue;
-
-            items = items.AsEnumerable().Reverse().ToList();
-            while (items.Count > comp.Limit)
-            {
-                var item = items.Pop();
-                Recycle(item, comp);
-            }
-        }
-    }
-
     private void DeleteAll(EntityUid uid, EventItemDispenserComponent comp)
     {
         foreach (var items in comp.dispensedItems.Values)
@@ -311,7 +280,7 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
     ///     * Put said item into user's hands
     ///     * Play a sound
     ///
-    /// In short: this is stupid and ugly. TODO fix this.
+    /// In short: this is stupid and ugly. TODO fix this. // oh you sweet summer child
     /// </summary>
     /// <param name="user"></param>
     /// <param name="comp"></param>

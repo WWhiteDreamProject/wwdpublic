@@ -54,11 +54,12 @@ event-item-dispenser-examine-finite-manualdispose-single = {$remaining ->
 
 
 
-eventitemdispenser-configwindow-dispensingPrototype = Прототип предмета
-eventitemdispenser-configwindow-AutoDispose = Автоматически удалять излишек?
-eventitemdispenser-configwindow-CanManuallyDispose = Можно ли вручную удалить предмет?
-eventitemdispenser-configwindow-Infinite = Бесконечно восполняемый запас
-eventitemdispenser-configwindow-Limit = Лимит предметов
-eventitemdispenser-configwindow-ReplaceDisposedItems = Заменять автоматически удалённые предметы?
-eventitemdispenser-configwindow-DisposedReplacement = Прототип замены
-eventitemdispenser-configwindow-AutoCleanUp = Автоматическая чистка при удалении раздатчика
+eventitemdispenser-configwindow-title = Erectin' a dispenser
+eventitemdispenser-configwindow-dispensingprototype = Прототип предмета
+eventitemdispenser-configwindow-autodispose = Автоматически удалять излишек?
+eventitemdispenser-configwindow-canmanuallydispose = Можно ли вручную удалить предмет?
+eventitemdispenser-configwindow-infinite = Бесконечно восполняемый запас
+eventitemdispenser-configwindow-limit = Лимит предметов
+eventitemdispenser-configwindow-replacedisposeditems = Заменять автоматически удалённые предметы?
+eventitemdispenser-configwindow-disposedreplacement = Прототип замены
+eventitemdispenser-configwindow-autocleanup = Автоматическая чистка при удалении раздатчика

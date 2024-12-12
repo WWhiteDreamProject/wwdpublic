@@ -27,8 +27,9 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
 
-    static readonly Color Green = new Color(0, 255, 0); 
+    static readonly Color Green = new Color(0, 255, 0);
     static readonly Color Red = new Color(255, 0, 0);
+    static readonly Color Gray = new Color(127, 127, 127);
 
     //EventItemDispenserConfigWindow? window; // Trying to work with robustengine's ui system makes me want to quote AM.
     DefaultWindow window = default!;
@@ -167,32 +168,35 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
         window.Resizable = false;
         window.OnClose += Close;
         InitializeControls(window);
-        
 
-        DispensingPrototypeLineEdit = AddOption<LineEdit>(_loc.GetString("eventitemdispenser-configwindow-dispensingPrototype"));
+        window.Title = _loc.GetString("eventitemdispenser-configwindow-title");
+        DispensingPrototypeLineEdit = AddOption<LineEdit>(_loc.GetString("eventitemdispenser-configwindow-dispensingprototype"));
         DispensingPrototypeLineEdit.MinWidth = 300;
         DispensingPrototypeLineEdit.OnTextChanged += (args) => { DispensingPrototypeValid = ValidateProto(args); confirmButton!.Disabled = !DispensingPrototypeValid || !DisposedReplacementPrototypeValid; };
         DispensingPrototypeLineEdit.OnTextEntered += TrySubmit;
 
-        AutoDisposeCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-AutoDispose"));
-        CanManuallyDisposeCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-CanManuallyDispose"));
+        AutoDisposeCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-autodispose"));
+        CanManuallyDisposeCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-canmanuallydispose"));
 
-        InfiniteCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-Infinite"));
-        InfiniteCheckBox.OnPressed += (_) => AutoDisposeCheckBox.Disabled = !InfiniteCheckBox.Pressed;
+        InfiniteCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-infinite"));
+        InfiniteCheckBox.OnPressed += (_) => {
+            AutoDisposeCheckBox.Disabled = !InfiniteCheckBox.Pressed;
+            AutoDisposeCheckBox.ModulateSelfOverride = AutoDisposeCheckBox.Disabled ? Gray : null; 
+        };
 
-        LimitLineEdit = AddOption<LineEdit>(_loc.GetString("eventitemdispenser-configwindow-Limit"));
+        LimitLineEdit = AddOption<LineEdit>(_loc.GetString("eventitemdispenser-configwindow-limit"));
         LimitLineEdit.IsValid = s => int.TryParse(s, out int _) && s.IndexOf('-') == -1; // no "_ > 0" because being able to input -0 makes me cringe
         LimitLineEdit.MinWidth = 100;
         LimitLineEdit.OnTextEntered += TrySubmit;
 
-        ReplaceDisposedItemsCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-ReplaceDisposedItems"));
+        ReplaceDisposedItemsCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-replacedisposeditems"));
 
-        DisposedReplacementPrototypeLineEdit = AddOption<LineEdit>(_loc.GetString("eventitemdispenser-configwindow-DisposedReplacement"));
+        DisposedReplacementPrototypeLineEdit = AddOption<LineEdit>(_loc.GetString("eventitemdispenser-configwindow-disposedreplacement"));
         DisposedReplacementPrototypeLineEdit.MinWidth = 300;
         DisposedReplacementPrototypeLineEdit.OnTextChanged += (args) => { DisposedReplacementPrototypeValid = ValidateProto(args); confirmButton!.Disabled = !DispensingPrototypeValid || !DisposedReplacementPrototypeValid; };
         DisposedReplacementPrototypeLineEdit.OnTextEntered += TrySubmit;
 
-        AutoCleanUpCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-AutoCleanUp"));
+        AutoCleanUpCheckBox = AddOption<CheckBox>(_loc.GetString("eventitemdispenser-configwindow-autocleanup"));
 
         
         DispensingPrototypeLineEdit.SetText(dispenserComp.DispensingPrototype, true);

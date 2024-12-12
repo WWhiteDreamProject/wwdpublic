@@ -7,10 +7,10 @@
     sprite: _White/Structures/Misc/EventItemDispenser.rsi
     layers:
     - state: base
-      map: ["placeholderBase"]
+      map: ["enum.EventItemDispenserVisualLayers.Base"]
+    - map: ["enum.EventItemDispenserVisualLayers.ItemPreview"]
+      shader: SimpleHologram      
   - type: InteractionOutline
-  - type: Anchorable
-    delay: 2
   - type: Physics
     bodyType: Static
   - type: Transform
@@ -49,7 +49,7 @@
   id: BaseEventItemDispenserFinite
   components:
   - type: EventItemDispenser
-    dispensing: GrenadeDummy
+    dispensing: Stunbaton
     limit: 2
     infinite: false
 

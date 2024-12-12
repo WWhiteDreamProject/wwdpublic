@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Content.Shared._White.Event;
-[RegisterComponent, AutoGenerateComponentState, NetworkedComponent]
+[RegisterComponent, AutoGenerateComponentState(true), NetworkedComponent]
 public sealed partial class EventItemDispenserComponent : Component
 {
 
@@ -50,6 +50,9 @@ public sealed partial class EventItemDispenserComponent : Component
     public bool ReplaceDisposedItems = true;
     [DataField, AutoNetworkedField]
     public EntProtoId DisposedReplacement = "EffectTeslaSparksSilent";
+
+    [DataField, AutoNetworkedField]
+    public float ItemPreviewScale = 0f;
 
 
     /// <summary>
