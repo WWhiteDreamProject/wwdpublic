@@ -15,6 +15,7 @@
     color: "#00ccff"
     castShadows: false
   - type: InteractionOutline
+  - type: WormholeAnomaly
   - type: Portal
     maxRandomRadius: 20
   - type: Physics
