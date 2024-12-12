@@ -26,3 +26,5 @@
     DrinkMugRainbow: 2
     DrinkMugRed: 2
     LunchboxGeneric: 10 # Delta-V Adds Lunchbox
+  emaggedInventory:
+    DehydratedSpaceCarp: 1 # WWDP
