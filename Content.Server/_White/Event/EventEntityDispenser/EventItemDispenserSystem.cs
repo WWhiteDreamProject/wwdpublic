@@ -34,13 +34,8 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
     [Dependency] private readonly ILocalizationManager _loc = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
-    //[Dependency] private readonly ILogManager _log = default!;
-    //ISawmill _sawmill = default!;
-
-
     public override void Initialize()
     {
-        //_sawmill = _log.GetSawmill("EventDispenser");
         SubscribeLocalEvent<EventItemDispenserComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<EventItemDispenserComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<EventItemDispenserComponent, ActivateInWorldEvent>(OnActivateInWorld);
@@ -60,7 +55,6 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
         var adminData = _admeme.GetAdminData(msg.Actor);
         if (adminData == null || !adminData.CanAdminPlace())
         {
-            //_sawmill.Warning($"")
             return;
         }
         string newProto = ValidateProto(msg.DispensingPrototype, comp.DispensingPrototype);
@@ -71,24 +65,13 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
         comp.AutoDispose = msg.AutoDispose;
         comp.CanManuallyDispose = msg.CanManuallyDispose;
         comp.Infinite = msg.Infinite;
-        //if(msg.Limit < comp.Limit) // too hard to include all possible cases without a reset every time limit is decreased.
-        //{
-        //    DeleteExcess(comp);
-        //}
-        comp.Limit = msg.Limit; // It still works ok.
-        
-        //if(string.IsNullOrWhiteSpace(msg.DisposedReplacement)) // if the prototype is set to null, just set the relevant flag to false
-        //{
-        //    comp.ReplaceDisposedItems = false;
-        //}
-        //else
-        //{
+        comp.Limit = msg.Limit;
         comp.DisposedReplacement = ValidateProto(msg.DisposedReplacement, comp.DisposedReplacement);
         comp.ReplaceDisposedItems = msg.ReplaceDisposedItems;
-        //}
         comp.AutoCleanUp = msg.AutoCleanUp;
         Dirty(uid, comp);
     }
+
     private void OnDispensedStartup(EntityUid uid, EventDispensedComponent comp, ComponentStartup args)
     {
         if (!TryComp<ContainerManagerComponent>(uid, out var contManager))
@@ -118,21 +101,16 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
             RecursiveSlaveAllContents(ent, comp, depth);
         }
     }
+
     private void OnDispensedRemove(EntityUid uid, EventDispensedComponent comp, ComponentRemove args)
     {
 
         foreach(var item in comp.Slaved)
         {
-            // will require either caching parent dispenser's ReplaceDisposedItems and DisposedReplacement, or looking up EventItemDispenserComponent.
-            // the latter will break if dispenser is being removed.
-            //if (comp.ReplaceDisposedItems)
-            //{
-            //    var mapPos = _transform.ToMapCoordinates(new Robust.Shared.Map.EntityCoordinates(item, default));
-            //    Spawn(comp.DisposedReplacement, mapPos);
-            //}
             QueueDel(item);
         }
     }
+
     private void OnRemove(EntityUid uid, EventItemDispenserComponent comp, ComponentRemove args)
     {
         if (comp.AutoCleanUp)
@@ -144,6 +122,7 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
             ReleaseAll(uid, comp);
         }
     }
+
     private void OnExamine(EntityUid uid, EventItemDispenserComponent comp, ExaminedEvent args)
     {
         string desc = "";
@@ -165,6 +144,7 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
             ("noLimit", comp.Limit <= 0) // this is getting ridiculous
             ), 0);
     }
+
     private void OnInteractUsing(EntityUid uid, EventItemDispenserComponent comp, InteractUsingEvent args)
     {
         EntityUid user = args.User;
@@ -288,6 +268,7 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
             Del(item);
         }
     }
+
     /// <summary>
     /// This hot mess does a lot of things at once:
     ///     * Spawn and configure the item
@@ -328,10 +309,12 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
             remaining = comp.Limit - remaining; // to instead indicate how much items we have already taken
         _popup.PopupEntity($"{remaining}/{comp.Limit}", comp.Owner, user);
     }
+
     private string ValidateProto(string proto, string backup)
     {
         return _proto.HasIndex<EntityPrototype>(proto) ? proto : backup;
     }
+
     private bool CanOpenUI(EntityUid user)
     {
         var adminData = _admeme.GetAdminData(user);
@@ -343,8 +326,6 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
 
     /// <summary>
     /// Self-explanatory.
-    /// As for how it's used, because i failed at coming up with a more descriptive name for the bool switch:
-    /// rawCount is true when getting the remaining for a popu; false when getting it for the examine text.
     /// </summary>
     private int GetRemaining(EntityUid user, EventItemDispenserComponent comp)
     {
