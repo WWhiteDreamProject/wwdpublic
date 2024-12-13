@@ -9,13 +9,13 @@ namespace Content.Server.StationEvents.Events;
 
 public sealed class RandomSpawnRule : StationEventSystem<RandomSpawnRuleComponent>
 {
-    private static readonly Random RandomGenerator = new Random(); // WWDP
+    [Dependency] private readonly IRobustRandom _random = default!; // WWDP
     protected override void Started(EntityUid uid, RandomSpawnRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, comp, gameRule, args);
 
         // WWDP-EDIT-START
-        int spawnCount = RandomGenerator.Next(comp.MinCount, comp.MaxCount + 1);
+        int spawnCount = _random.Next(comp.MinCount, comp.MaxCount + 1);
 
         for (int i = 0; i < spawnCount; i++)
         {
