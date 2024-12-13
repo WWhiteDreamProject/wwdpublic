@@ -901,3 +901,10 @@ Entries:
   id: 96
   time: '2024-12-12T18:48:47.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/157
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added new hairstyles / Добавлены новые прически
+  id: 97
+  time: '2024-12-13T07:34:09.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/158
