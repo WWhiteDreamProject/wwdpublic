@@ -1,0 +1,13 @@
+- type: entity
+  parent: AdminInstantEffectBase
+  id: SmallExplosionInstant
+  name: instant effect
+  suffix: Explosion, small
+  components:
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 5
+    intensitySlope: 3
+    totalIntensity: 5
+    canCreateVacuum: false

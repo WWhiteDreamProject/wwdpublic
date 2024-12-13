@@ -1,0 +1,80 @@
+# Default
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleDefault
+  suffix: Empty, default
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/SupplyPodDefault.rsi
+
+# Bluespace
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleBluespace
+  suffix: Empty, bluespace
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/SupplyPodBluespace.rsi
+
+# Cult
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleCult
+  suffix: Empty, cult
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/SupplyPodCult.rsi
+
+# Gondola
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleGondola
+  suffix: Empty, Gondola
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/SupplyPodGondola.rsi
+
+# Orange
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleOrange
+  suffix: Empty, orange
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/SupplyPodOrange.rsi
+
+# Honk
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleHonk
+  suffix: Empty, honk
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/SupplyPodHonk.rsi
+
+# NanoTrasen
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleNanoTrasen
+  suffix: Empty, NanoTrasen
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/SupplyPodNanoTrasen.rsi
+
+# Squad
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleSquad
+  suffix: Empty, squad
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/SupplyPodSquad.rsi
+
+# Syndicate
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleSyndicate
+  suffix: Empty, Syndicate
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/SupplyPodSyndicate.rsi

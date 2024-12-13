@@ -1,0 +1,117 @@
+# SyndicateSurplusBundle
+- type: entity
+  parent: BaseSupplyPodTargetCircle
+  id: SupplyPodCircleSyndicateSurplusBundle
+  name: Surplus Crate
+  suffix: Surplus bundle, Syndicate
+  components:
+    - type: TimedSpawner
+      prototypes:
+        -  SupplyPodFallingAnimationSyndicateSurplusBundle
+
+- type: entity
+  parent: SupplyPodSyndicateFallingAnimation
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodFallingAnimationSyndicateSurplusBundle
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodSyndicateSurplusBundle
+
+- type: entity
+  parent: SupplyPodCapsuleSyndicate
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodSyndicateSurplusBundle
+  components:
+    - type: SurplusBundle
+      totalPrice: 50
+
+# SyndicateSuperSurplusBundle
+- type: entity
+  parent: BaseSupplyPodTargetCircle
+  id: SupplyPodCircleSyndicateSuperSurplusBundle
+  name: Super Surplus Crate
+  suffix: Super surplus bundle, Syndicate
+  components:
+    - type: TimedSpawner
+      prototypes:
+        -  SupplyPodFallingAnimationSyndicateSuperSurplusBundle
+
+- type: entity
+  parent: SupplyPodSyndicateFallingAnimation
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodFallingAnimationSyndicateSuperSurplusBundle
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodSyndicateSuperSurplusBundle
+
+- type: entity
+  parent: SupplyPodCapsuleSyndicate
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodSyndicateSuperSurplusBundle
+  components:
+    - type: SurplusBundle
+      totalPrice: 125
+
+# CybersunJuggernautBundle
+- type: entity
+  parent: BaseSupplyPodTargetCircle
+  id: SupplyPodCircleCybersunJuggernautBundle
+  name: Cybersun Juggernaut Suit
+  suffix: Cybersun Juggernaut bundle, Syndicate
+  components:
+    - type: TimedSpawner
+      prototypes:
+        -  SupplyPodFallingAnimationCybersunJuggernautBundle
+
+- type: entity
+  parent: SupplyPodSyndicateFallingAnimation
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodFallingAnimationCybersunJuggernautBundle
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodCybersunJuggernautBundle
+
+- type: entity
+  parent: SupplyPodCapsuleSyndicate
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodCybersunJuggernautBundle
+  components:
+    - type: StorageFill
+      contents:
+        - id: ClothingOuterHardsuitJuggernaut
+        - id: ClothingMaskGasSyndicate
+        - id: ClothingHandsGlovesCombat
+        - id: DoubleEmergencyOxygenTankFilled
+        - id: DoubleEmergencyNitrogenTankFilled
+
+# NPCGondola
+- type: entity
+  parent: BaseSupplyPodTargetCircle
+  id: SupplyPodCircleNPCGondola
+  name: Gondola
+  suffix:  Gondola
+  components:
+    - type: TimedSpawner
+      prototypes:
+        -  SupplyPodFallingAnimationNPCGondola
+
+- type: entity
+  parent: SupplyPodGondolaFallingAnimation
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodFallingAnimationNPCGondola
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodNPCGondola
+
+- type: entity
+  parent: SupplyPodCapsuleGondola
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodNPCGondola
+  components:
+    - type: StorageFill
+      contents:
+        - id: MobGondola

@@ -1085,7 +1085,7 @@
   id: UplinkSurplusBundle
   name: uplink-surplus-bundle-name
   description: uplink-surplus-bundle-desc
-  productEntity: CrateSyndicateSurplusBundle
+  productEntity: SupplyPodCircleSyndicateSurplusBundle # WWDP-EDIT
   cost:
     Telecrystal: 20
   categories:
@@ -1105,7 +1105,7 @@
   id: UplinkSuperSurplusBundle
   name: uplink-super-surplus-bundle-name
   description: uplink-super-surplus-bundle-desc
-  productEntity: CrateSyndicateSuperSurplusBundle
+  productEntity: SupplyPodCircleSyndicateSuperSurplusBundle # WWDP-EDIT
   cost:
     Telecrystal: 40
   categories:
@@ -1520,7 +1520,7 @@
   name: uplink-clothing-outer-hardsuit-juggernaut-name
   description: uplink-clothing-outer-hardsuit-juggernaut-desc
   icon: { sprite: /Textures/Structures/Storage/Crates/syndicate.rsi, state: icon }
-  productEntity: CrateCybersunJuggernautBundle
+  productEntity: SupplyPodCircleCybersunJuggernautBundle # WWDP-EDIT
   cost:
     Telecrystal: 12
   categories:
