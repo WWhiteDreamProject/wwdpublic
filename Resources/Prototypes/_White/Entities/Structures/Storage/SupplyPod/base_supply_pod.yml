@@ -53,7 +53,7 @@
       entity_storage: !type:Container
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: Biological
+    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
