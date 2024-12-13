@@ -116,7 +116,7 @@
   id: 18
   name: gases-helium
   specificHeat: 15
-  heatCapacityRatio: 20
+  heatCapacityRatio: 1.6
   molarMass: 4
   color: 005959
   reagent: Helium
