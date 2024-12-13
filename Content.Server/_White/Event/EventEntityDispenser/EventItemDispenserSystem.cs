@@ -17,6 +17,8 @@ using Content.Shared.Administration;
 using Robust.Shared.Prototypes;
 using Content.Shared.Examine;
 using Robust.Shared.Map;
+using Content.Shared.Ghost;
+using Content.Shared.Weapons.Ranged.Events;
 
 namespace Content.Server._White.Event;
 public class EventItemDispenserSystem : SharedEventItemDispenserSystem
@@ -41,7 +43,7 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
         //_sawmill = _log.GetSawmill("EventDispenser");
         SubscribeLocalEvent<EventItemDispenserComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<EventItemDispenserComponent, InteractUsingEvent>(OnInteractUsing);
-        SubscribeLocalEvent<EventItemDispenserComponent, InteractHandEvent>(OnInteractHand);
+        SubscribeLocalEvent<EventItemDispenserComponent, ActivateInWorldEvent>(OnActivateInWorld);
 
         SubscribeLocalEvent<EventItemDispenserComponent, ExaminedEvent>(OnExamine);
 
@@ -91,10 +93,29 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
     {
         if (!TryComp<ContainerManagerComponent>(uid, out var contManager))
             return;
-        var containers = _container.GetAllContainers(uid);
-        foreach(var container in containers)
+
+        RecursiveSlaveAllContents(uid, comp);
+    }
+
+    private void RecursiveSlaveAllContents(EntityUid item, EventDispensedComponent comp, int depth = 0)
+    {
+        if (depth >= 5) // what the fuck kind of item is that?
+            throw new ArgumentException($"Item Uid:{item}, proto:\"{MetaData(item).EntityPrototype?.ID}\" has FIVE levels of storage component entities stored in each other. What the fuck?");
+        if (!HasComp<ContainerManagerComponent>(item))
+            return;
+        depth++;
+        RaiseLocalEvent(item, new ForceSpawnAmmoEvent());
+        var containers = _container.GetAllContainers(item);
+        bool more = false;
+        List<EntityUid> ents = new();
+        foreach (var container in containers)
         {
-            comp.Slaved.AddRange(container.ContainedEntities);
+            ents.AddRange(container.ContainedEntities);
+        }
+        comp.Slaved.AddRange(ents);
+        foreach (var ent in ents)
+        {
+            RecursiveSlaveAllContents(ent, comp, depth);
         }
     }
     private void OnDispensedRemove(EntityUid uid, EventDispensedComponent comp, ComponentRemove args)
@@ -140,7 +161,8 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
             desc,
             ("remaining", remaining),
             ("limit", comp.Limit),
-            ("plural", GetPlural(remaining, "предмет", "предмета", "предметов")) // todo: look for equivalent func but for .ftl files
+            ("plural", GetPlural(remaining, "предмет", "предмета", "предметов")), // todo: look for equivalent func but for .ftl files
+            ("noLimit", comp.Limit <= 0) // this is getting ridiculous
             ), 0);
     }
     private void OnInteractUsing(EntityUid uid, EventItemDispenserComponent comp, InteractUsingEvent args)
@@ -167,10 +189,14 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
         }
     }
 
-    private void OnInteractHand(EntityUid uid, EventItemDispenserComponent comp, ref InteractHandEvent args)
+    private void OnActivateInWorld(EntityUid uid, EventItemDispenserComponent comp, ActivateInWorldEvent args)
     {
-        EntityUid user = args.User;
+        if(Deleted(_hands.GetActiveItem(args.User)))
+            DispenseRequest(uid, args.User, comp);
+    }
 
+    private void DispenseRequest(EntityUid uid, EntityUid user, EventItemDispenserComponent comp)
+    {
         if (CanOpenUI(user))
         {
             var uicomp = Comp<UserInterfaceComponent>(uid);
@@ -310,7 +336,9 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
     {
         var adminData = _admeme.GetAdminData(user);
         return adminData != null && adminData.CanAdminPlace() &&
-            MetaData(user).EntityPrototype?.ID == GameTicker.AdminObserverPrototypeName;
+            HasComp<GhostComponent>(user);
+            //MetaData(user).EntityPrototype?.ID == GameTicker.AdminObserverPrototypeName;
+
     }
 
     /// <summary>
@@ -320,6 +348,8 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
     /// </summary>
     private int GetRemaining(EntityUid user, EventItemDispenserComponent comp)
     {
+        if (comp.Limit <= 0)
+            return 9001;
         if (comp.Infinite)
         {
             PruneItemList(user, comp);
