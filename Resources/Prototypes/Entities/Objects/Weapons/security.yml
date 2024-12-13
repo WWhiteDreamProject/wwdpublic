@@ -36,9 +36,8 @@
         Blunt: 7
     bluntStaminaDamageFactor: 2.0
     canHeavyAttack: false # WD EDIT
-    attackRate: 0.4 # WD EDIT
+    attackRate: 3 # WD EDIT
     angle: 60
-    animation: WeaponArcSlash
   - type: DamageOtherOnHit
   - type: StaminaDamageOnHit
     damage: 55 # WD EDIT
