@@ -1,62 +1,94 @@
 ﻿- type: dataset
   id: names_death_commando
   values:
-  - A whole bunch of spiders in a SWAT suit
-  - AMERICA
-  - Beat Punchbeef
-  - Blast Hardcheese
-  - Blast Thickneck
-  - Bold Bigflank
-  - Bolt Vanderhuge
-  - Brick Hardmeat
-  - Buck Plankchest
-  - Buff Drinklots
-  - Buff Hardback
-  - Butch Deadlift
-  - Crud Bonemeal
-  - Crunch Buttsteak
-  - Crush McStompbones
-  - Duke Killington
-  - Fist Rockbone
-  - Flint Ironstag
-  - Fridge Largebeet
-  - GORE Vidal
-  - George Melons
-  - Gibbs McLargehuge
-  - Gristle McThornBody
-  - Hank Chesthair
-  - Hans Testosteroneson
-  - Im going to kill you, im not even kidding
-  - Killiam Shakespeare
-  - Killing McKillingalot
-  - Lance Killiam
-  - Leonardo Da Viking
-  - Lump Beefrock
-  - Pack Blowfist
-  - Punch Rockgroin
-  - Punch Sideiron
-  - Punt Speedchunk
-  - Reef Blastbody
-  - Rex Dudekiller VII
-  - Rip Sidecheek
-  - Rip Steakface
-  - Roll Fizzlebeef
-  - Seamus McTosterone
-  - Sgt. Slaughter
-  - Sir Killaslot
-  - Slab Bulkhead
-  - Slab Squatthrust
-  - Slake Fistcrunch
-  - Slate Slabrock
-  - Smash Lampjaw
-  - Smoke Manmuscle
-  - Splint Chesthair
-  - Stabby McGee
-  - Stump Beefgnaw
-  - Stump Chunkman
-  - THAT DAMN TRAITOR GEORGE MELONS
-  - The last thing you will ever see
-  - Theodore Pain
-  - Thick McRunfast
-  - Touch Rustrod
-  - Trunk Slamchest
+    - Целая Куча Пауков В Костюме Спецназа
+    - Эл "отта" Гор
+    - Америка
+    - Бит Пунчбиф
+    - Говяжья Мускулатура
+    - Говяжья Плита
+    - Бенни Бладмульч
+    - Бицепс Мактричеп
+    - Билли Херрингтон
+    - Дробеструйный Харчиз
+    - Взрывная Шея
+    - Боб Джонсон
+    - Смелый Большой Фланг
+    - Вольт Вандерхаге
+    - Мозговой Хьюгенек
+    - Кирпичное Мясо
+    - Грудь Бака Планкчеста
+    - Буфетные Напитки
+    - Buff Hardback
+    - Грудь Баффа Шламчеста
+    - Butch Deadlift
+    - Хомбо Кромагнум
+    - Круд Бонемилл
+    - Хрустящий Жополиз
+    - Раздавить Мактомпбонов
+    - Диего Дифифист
+    - Дирк Хардпек
+    - Дюк Киллингтон
+    - Злой Боб Марли
+    - Злой Мартин Лютер Кинг
+    - Кулак Каменной Кости
+    - Флинтовой Железный Штаг
+    - Ford Spinetwist
+    - Холодильник Большое Блюдо
+    - Джордж Мелонс
+    - Гиббс Макларджхьюдж
+    - Большой Видаль
+    - Хрустел Макторнбоди
+    - Хэнк Честерхайр
+    - Ганс Тестостеронесон
+    - Кильям Шекспир
+    - Убийство Маккиллингэлота
+    - Реактивная Кровь Рук
+    - Лэнс Киллиам
+    - Леонардо Да Викинг
+    - Кусковой Говяжий Камень
+    - Дробилка В Прыжке Вниз
+    - Макброрап Манкраш Макброрап
+    - Макс Боль
+    - Максимилианский Убийца
+    - Максимальная Мощность
+    - Ноам Бомбски
+    - Норб Хрометайнтен
+    - Овес Скватзон
+    - Пакетный Паяльник
+    - Пунш Рокгроин
+    - Удар Сидерон
+    - Плоскостной Хладагент
+    - Рифовое Тело Взрывное Устройство
+    - Рекс Дудекиллер VII
+    - Рип Сайдечек
+    - Стейкфейс Из Ржавчины
+    - Рок Вангранит
+    - Ройд Сулебода
+    - Ролл Физзлбиф
+    - Ронни Ройдриди Уже Готов
+    - Сара Боль
+    - Шеймус Мактостерон
+    - Сержант Убийца
+    - Измельчение Глютефлекса
+    - Сэр Килласлот
+    - Перегородка Перекрытия Перекрытия
+    - Slab Squatthrust Slab Squatthrust
+    - Слэйк Фишкранч
+    - Сланцевый Сляброк
+    - Челюсть Смэша
+    - Дымовая Мускулатура
+    - Сплинт Грудной Волос
+    - Удар Ножом Макги
+    - Пень Говяжья Говядина Пень
+    - Пень Чангмэн
+    - Этот Чертов Педик Предатель Джордж Меллонс
+    - Теодор Боль
+    - Толстый Макранфаст
+    - Двигай Вандерхаг
+    - Трикотажная Рубашка Трента
+    - Набор Инструментов Роза
+    - Нажмите Растрод
+    - Грудь Из Багажника
+    - Ван Даркхольм
+    - Зомби Ганди Ганди
