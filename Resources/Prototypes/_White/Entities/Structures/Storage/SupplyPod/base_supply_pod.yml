@@ -42,12 +42,12 @@
   - type: ResistLocker
   - type: ItemSlots
   - type: EntityStorage
-    capacity: 0
+    capacity: 10
   - type: RadiationBlockingContainer
     resistance: 5
   - type: ExplosionResistance
     worn: false
-    damageCoefficient: 0
+    damageCoefficient: 0.1
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container
@@ -73,6 +73,3 @@
           collection: MetalBreak
           params:
             volume: -6
-  - type: WarpPoint
-    follow: true
-    location: Грузовая капсула
