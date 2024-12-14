@@ -33,6 +33,8 @@
   components:
   - type: Sprite
     sprite: _White/Structures/Storage/SupplyPods/supply_pod_gondola.rsi
+  - type: Construction
+    node: SupplyPodGondola
 
 # Orange
 - type: entity
@@ -42,6 +44,8 @@
   components:
   - type: Sprite
     sprite: _White/Structures/Storage/SupplyPods/supply_pod_orange.rsi
+  - type: Construction
+    node: SupplyPodOrange
 
 # Honk
 - type: entity

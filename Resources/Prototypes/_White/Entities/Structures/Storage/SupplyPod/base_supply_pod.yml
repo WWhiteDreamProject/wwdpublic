@@ -54,6 +54,9 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Metallic
+  - type: Construction
+    graph: SupplyPod
+    node: SupplyPod
   - type: Destructible
     thresholds:
     - trigger:
