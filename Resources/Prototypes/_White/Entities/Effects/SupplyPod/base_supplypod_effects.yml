@@ -49,6 +49,7 @@
   - type: Physics
     bodyType: Static
     canCollide: False
+  - type: Timer
   - type: TimedSpawner
     prototypes:
       - SupplyPodCapsuleDefault
