@@ -11,3 +11,17 @@
     intensitySlope: 3
     totalIntensity: 5
     canCreateVacuum: false
+
+- type: entity
+  parent: AdminInstantEffectBase
+  id: MediumExplosionInstant
+  name: instant effect
+  suffix: Explosion, medium
+  components:
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 10
+    intensitySlope: 3
+    totalIntensity: 120
+    canCreateVacuum: false
