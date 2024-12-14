@@ -88,7 +88,7 @@
 - type: entity
   parent: BaseSupplyPodTargetCircle
   id: SupplyPodCircleNPCGondola
-  suffix:  Gondola
+  suffix: Gondola
   components:
     - type: TimedSpawner
       prototypes:
