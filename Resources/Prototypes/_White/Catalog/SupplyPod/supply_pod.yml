@@ -2,7 +2,6 @@
 - type: entity
   parent: BaseSupplyPodTargetCircle
   id: SupplyPodCircleSyndicateSurplusBundle
-  name: Surplus Crate
   suffix: Surplus bundle, Syndicate
   components:
     - type: TimedSpawner
@@ -30,7 +29,6 @@
 - type: entity
   parent: BaseSupplyPodTargetCircle
   id: SupplyPodCircleSyndicateSuperSurplusBundle
-  name: Super Surplus Crate
   suffix: Super surplus bundle, Syndicate
   components:
     - type: TimedSpawner
@@ -58,7 +56,6 @@
 - type: entity
   parent: BaseSupplyPodTargetCircle
   id: SupplyPodCircleCybersunJuggernautBundle
-  name: Cybersun Juggernaut Suit
   suffix: Cybersun Juggernaut bundle, Syndicate
   components:
     - type: TimedSpawner
@@ -91,7 +88,6 @@
 - type: entity
   parent: BaseSupplyPodTargetCircle
   id: SupplyPodCircleNPCGondola
-  name: Gondola
   suffix:  Gondola
   components:
     - type: TimedSpawner
