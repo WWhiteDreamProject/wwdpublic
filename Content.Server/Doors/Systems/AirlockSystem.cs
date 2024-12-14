@@ -67,10 +67,8 @@ public sealed class AirlockSystem : SharedAirlockSystem
 
     private void OnActivate(EntityUid uid, AirlockComponent component, ActivateInWorldEvent args)
     {
-        // WD EDIT START
-        if (args.Handled)
+        if (args.Handled || !args.Complex)
             return;
-        // WD EDIT END
 
         if (TryComp<WiresPanelComponent>(uid, out var panel) &&
             panel.Open &&

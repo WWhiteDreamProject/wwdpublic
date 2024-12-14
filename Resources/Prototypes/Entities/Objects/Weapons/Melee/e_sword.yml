@@ -39,12 +39,24 @@
         Slash: 15
         Heat: 15
         Structural: 20
+  - type: ItemToggleDamageOtherOnHit
+    activatedStaminaCost: 6
+  - type: ItemToggleEmbedPassiveDamage
+  - type: ItemToggleEmbeddableProjectile
+    activatedEmbedOnThrow: true
+  - type: ItemToggleThrowingAngle
+    activatedAngle: 225
+    deleteOnDeactivate: true
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    attackRate: 1
+    attackRate: .8
     damage:
       types:
         Blunt: 4.5
+  - type: DamageOtherOnHit
+  - type: EmbeddableProjectile
+    embedOnThrow: false
+  - type: EmbedPassiveDamage
   - type: UseDelay
     delay: 1.0
   - type: PointLight
@@ -67,11 +79,22 @@
     malus: 0
   - type: Reflect
     enabled: false
-  - type: IgnitionSource
-    temperature: 700
   - type: Tag
     tags:
     - NoPaint
+  - type: IgnitionSource
+    temperature: 700
+  - type: Scalpel
+    speed: 0.75
+  - type: Cautery
+    speed: 0.2
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/Weapons/ebladehum.ogg
+    endSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
   - type: MeleeBlock # WD EDIT
     delay: 6.1
     blockSound:
@@ -180,6 +203,8 @@
     spread: 75
     reflects:
     - Energy
+  - type: UseDelay
+    delay: 1.0
   - type: PointLight
     enabled: false
     radius: 1.5
@@ -190,6 +215,9 @@
   - type: Tag
     tags:
     - Write
+    - NoPaint
+  - type: DisarmMalus
+    malus: 0
   - type: MeleeBlock # WD EDIT
     delay: 12.1
 
