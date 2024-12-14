@@ -6,9 +6,9 @@ ent-Rocket = { ent-BaseRocket }
 ent-RocketSyndicate = { ent-BaseRocket }
     .desc = { ent-BaseRocket.desc }
 
-ent-Rocket = { ent-Rocket }
+ent-RocketMediumExplosionCircle = { ent-Rocket }
     .desc = { ent-Rocket.desc }
     .suffix = Взрыв, средний
-ent-RocketSyndicate = { ent-RocketSyndicate }
+ent-RocketSyndicateMediumExplosionCircle = { ent-RocketSyndicate }
     .desc = { ent-RocketSyndicate.desc }
     .suffix = Взрыв, средний
