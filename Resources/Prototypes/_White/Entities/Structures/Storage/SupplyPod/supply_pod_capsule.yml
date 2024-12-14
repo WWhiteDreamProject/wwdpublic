@@ -5,7 +5,7 @@
   suffix: Empty, default
   components:
   - type: Sprite
-    sprite: _White/Structures/Storage/SupplyPods/SupplyPodDefault.rsi
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_default.rsi
 
 # Bluespace
 - type: entity
@@ -14,7 +14,7 @@
   suffix: Empty, bluespace
   components:
   - type: Sprite
-    sprite: _White/Structures/Storage/SupplyPods/SupplyPodBluespace.rsi
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_bluespace.rsi
 
 # Cult
 - type: entity
@@ -23,7 +23,7 @@
   suffix: Empty, cult
   components:
   - type: Sprite
-    sprite: _White/Structures/Storage/SupplyPods/SupplyPodCult.rsi
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_cult.rsi
 
 # Gondola
 - type: entity
@@ -32,7 +32,7 @@
   suffix: Empty, Gondola
   components:
   - type: Sprite
-    sprite: _White/Structures/Storage/SupplyPods/SupplyPodGondola.rsi
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_gondola.rsi
 
 # Orange
 - type: entity
@@ -41,7 +41,7 @@
   suffix: Empty, orange
   components:
   - type: Sprite
-    sprite: _White/Structures/Storage/SupplyPods/SupplyPodOrange.rsi
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_orange.rsi
 
 # Honk
 - type: entity
@@ -50,7 +50,7 @@
   suffix: Empty, honk
   components:
   - type: Sprite
-    sprite: _White/Structures/Storage/SupplyPods/SupplyPodHonk.rsi
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_honk.rsi
 
 # NanoTrasen
 - type: entity
@@ -59,7 +59,7 @@
   suffix: Empty, NanoTrasen
   components:
   - type: Sprite
-    sprite: _White/Structures/Storage/SupplyPods/SupplyPodNanoTrasen.rsi
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_nanotrasen.rsi
 
 # Squad
 - type: entity
@@ -68,7 +68,7 @@
   suffix: Empty, squad
   components:
   - type: Sprite
-    sprite: _White/Structures/Storage/SupplyPods/SupplyPodSquad.rsi
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_squad.rsi
 
 # Syndicate
 - type: entity
@@ -77,4 +77,4 @@
   suffix: Empty, Syndicate
   components:
   - type: Sprite
-    sprite: _White/Structures/Storage/SupplyPods/SupplyPodSyndicate.rsi
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_syndicate.rsi
