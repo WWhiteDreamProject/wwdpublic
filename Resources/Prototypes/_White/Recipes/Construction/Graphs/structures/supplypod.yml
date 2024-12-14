@@ -9,28 +9,28 @@
             - !type:SnapToGrid
               southRotation: true
           steps:
-            - material: SheetSteel1
-              amount: 1
+            - material: Steel
+              amount: 3
               doAfter: 1
 
     - node: SupplyPod
-      entity: SupplyPod
+      entity: SupplyPodCapsuleDefault
       edges:
         - to: start
           completed:
             - !type:SpawnPrototype
               prototype: SheetSteel1
-              amount: 1
+              amount: 3
             - !type:EmptyAllContainers
             - !type:DeleteEntity {}
           steps:
             - tool: Welding
-              doAfter: 3
+              doAfter: 2
             - tool: Screwing
               doAfter: 1
 
     - node: SupplyPodGondola
-      entity: SupplyPod
+      entity: SupplyPodCapsuleGondola
       edges:
         - to: start
           completed:
@@ -41,10 +41,10 @@
             - !type:DeleteEntity {}
           steps:
             - tool: Cutting
-              doAfter: 5
+              doAfter: 3
 
     - node: SupplyPodOrange
-      entity: SupplyPod
+      entity: SupplyPodCapsuleOrange
       edges:
         - to: start
           completed:
@@ -55,4 +55,4 @@
             - !type:DeleteEntity {}
           steps:
             - tool: Cutting
-              doAfter: 5
+              doAfter: 3
