@@ -32,10 +32,10 @@
     RArm: MobReptilianRArm
     LHand: MobReptilianLHand
     RHand: MobReptilianRHand
-    LLeg: MobReptilianLLeg
-    RLeg: MobReptilianRLeg
-    LFoot: MobReptilianLFoot
-    RFoot: MobReptilianRFoot
+    LLeg: MobReptilianLLegDigi # WWDP-Edit
+    RLeg: MobReptilianRLegDigi # WWDP-Edit
+    LFoot: MobReptilianLFootDigi # WWDP-Edit
+    RFoot: MobReptilianRFootDigi # WWDP-Edit
 
 - type: markingPoints
   id: MobReptilianMarkingLimits
