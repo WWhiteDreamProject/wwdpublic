@@ -20,6 +20,7 @@
     anchored: true
   - type: Physics
     bodyType: Static
+    canCollide: False
 
 # Base supply pod target circle
 - type: entity
@@ -47,6 +48,7 @@
       offset: "0,3.3"
   - type: Physics
     bodyType: Static
+    canCollide: False
   - type: TimedSpawner
     prototypes:
       - SupplyPodCapsuleDefault
