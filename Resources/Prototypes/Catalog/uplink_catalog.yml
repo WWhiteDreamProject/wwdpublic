@@ -1520,7 +1520,7 @@
   name: uplink-clothing-outer-hardsuit-juggernaut-name
   description: uplink-clothing-outer-hardsuit-juggernaut-desc
   icon: { sprite: /Textures/Structures/Storage/Crates/syndicate.rsi, state: icon }
-  productEntity: SupplyPodCircleCybersunJuggernautBundle # WWDP-EDIT
+  productEntity: CrateCybersunJuggernautBundle
   cost:
     Telecrystal: 12
   categories:

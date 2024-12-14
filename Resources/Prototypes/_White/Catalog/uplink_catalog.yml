@@ -190,7 +190,7 @@
   name: uplink-gondola-name
   description: uplink-gondola-desc
   icon: { sprite: /Textures/_White/Mobs/Animals/gondola.rsi, state: icon }
-  productEntity: SupplyPodCircleNPCGondola
+  productEntity: CrateNPCGondola
   cost:
     Telecrystal: 2
   categories:
