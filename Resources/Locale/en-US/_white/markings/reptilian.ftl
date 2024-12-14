@@ -22,7 +22,7 @@ marking-LizardHornsRam-horns_ram_l = Left horn
 marking-LizardHornsRam-horns_ram_r = Right horn
 
 marking-LizardHornsShort-horns_short_l = Left horn
-marking-LizardHornsShort-horns_short_r = The right horn
+marking-LizardHornsShort-horns_short_r = Right horn
 
 marking-LizardHornsSimple-horns_simple_l = Left horn
 marking-LizardHornsSimple-horns_simple_r = Right horn
