@@ -2,7 +2,7 @@
   name: barrier grenade box
   parent: BoxCardboard
   id: BoxGrenadeBarrier
-  description: A box full of barrier grenade.
+  description: A box full of barrier grenades.
   components:
   - type: StorageFill
     contents:
