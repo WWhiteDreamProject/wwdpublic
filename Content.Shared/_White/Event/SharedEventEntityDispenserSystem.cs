@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Content.Shared._White.Event;
+
 public abstract class SharedEventItemDispenserSystem : EntitySystem {}
 // Spawning logic is handled server-side, anything cosmetic is clientside.
 // Got nothing to stuff in here.

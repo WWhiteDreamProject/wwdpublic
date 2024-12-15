@@ -19,13 +19,13 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
     {
         SubscribeLocalEvent<EventItemDispenserComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<EventItemDispenserComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
-
     }
 
     private void OnInit(EntityUid uid, EventItemDispenserComponent comp, ComponentInit args)
     {
         UpdateVisuals(uid, comp);
     }
+    
     private void OnAfterAutoHandleState(EntityUid uid, EventItemDispenserComponent comp, AfterAutoHandleStateEvent args)
     {
         UpdateVisuals(uid, comp);
@@ -39,9 +39,8 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
         float scale = comp.ItemPreviewScale;
 
         if (scale <= 0)
-        {
             scale = 32f / Math.Max(15, Math.Max(icon.Width, icon.Height));
-        }
+            
         sprite.LayerSetScale(EventItemDispenserVisualLayers.ItemPreview, new Vector2(scale));
     }
 }

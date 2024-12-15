@@ -9,13 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Content.Shared._White.Event;
+
 [RegisterComponent, AutoGenerateComponentState(true), NetworkedComponent]
 public sealed partial class EventItemDispenserComponent : Component
 {
 
     [DataField("dispensing"), AutoNetworkedField]
     public EntProtoId DispensingPrototype;
-
 
     [DataField, AutoNetworkedField]
     public bool CanManuallyDispose = true;
@@ -32,19 +32,14 @@ public sealed partial class EventItemDispenserComponent : Component
     [DataField, AutoNetworkedField]
     public bool AutoCleanUp = true;
 
-    //[DataField] // see OnDispensedRemove in serverside system
-    //public bool AutoCleanStorages = true;
-
-
-
-
     [DataField, AutoNetworkedField]
     public SoundSpecifier DispenseSound = new SoundPathSpecifier("/Audio/Machines/machine_vend.ogg");
+    
     [DataField, AutoNetworkedField]
     public SoundSpecifier FailSound = new SoundPathSpecifier("/Audio/Machines/custom_deny.ogg");
+    
     [DataField, AutoNetworkedField]
     public SoundSpecifier ManualDisposeSound = new SoundCollectionSpecifier("trashBagRustle");
-
 
     [DataField, AutoNetworkedField]
     public bool ReplaceDisposedItems = true;
@@ -54,13 +49,13 @@ public sealed partial class EventItemDispenserComponent : Component
     [DataField, AutoNetworkedField]
     public float ItemPreviewScale = 0f;
 
-
     /// <summary>
     /// Stores Lists with all (currently existing) items.
     /// Owners' Uids used as keys.
     /// </summary>
     [ViewVariables]
     public Dictionary<EntityUid, List<EntityUid>> dispensedItems = new();
+    
     /// <summary>
     /// Stores the amount of items spawned by each person in this dispenser's lifetime.
     /// Owners' Uids used as keys.
