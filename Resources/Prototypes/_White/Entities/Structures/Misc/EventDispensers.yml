@@ -44,7 +44,7 @@
     dispensing: FoodBanana
 
 - type: entity
-  name: Раздатчик приколов
+  name: Fun dispenser
   parent: BaseEventItemDispenser
   id: EventExGrenadeDispenser
   components:
@@ -52,7 +52,7 @@
     dispensing: GrenadeDummy
 
 - type: entity
-  name: Ограниченный Раздатчик приколов
+  name: Limited fun dispenser
   parent: BaseEventItemDispenser
   id: BaseEventItemDispenserFinite
   components:
@@ -60,24 +60,3 @@
     dispensing: Stunbaton
     limit: 2
     infinite: false
-
-
-- type: entity
-  id: EffectTeslaSparksSilent
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: TimedDespawn
-    lifetime: 0.5
-  - type: Sprite
-    drawdepth: Effects
-    noRot: true
-    layers:
-    - shader: unshaded
-      map: ["enum.EffectLayers.Unshaded"]
-      sprite: Effects/atmospherics.rsi
-      state: frezon_old
-  - type: EffectVisuals
-  - type: Tag
-    tags:
-    - HideContextMenu
-  - type: AnimationPlayer
