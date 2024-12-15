@@ -10,14 +10,19 @@
   - type: Stack
     stackType: PlumbingPipe
     baseLayer: base
-    #layerStates:
-    #- coilhv-10
-    #- coilhv-20
-    #- coilhv-30
+    layerStates:
+    - pipestack-10
+    - pipestack-20
+    - pipestack-30
   - type: Sprite
-    sprite: Objects/Tools/cable-coils.rsi
+    sprite: _White\Structures\Machines\Plumbing\pipestack.rsi
+    state: pipestack-30
+    layers:
+    - state: pipestack-30
+      map: ["base"]
   - type: Item
-    sprite: Objects/Tools/cable-coils.rsi
+    heldPrefix: pipestack
+    sprite: _White\Structures\Machines\Plumbing\pipestack.rsi
     size: Small
     storedRotation: -90
   - type: Clickable
@@ -28,12 +33,6 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 15
-  #- type: Sprite
-  #  state: coilhv-30
-  #  layers:
-  #  - state: coilhv-30
-  #    map: ["base"]
-  #  heldPrefix: coilhv
   - type: CablePlacer
     cablePrototypeID: PlumbingPipe
     blockingWireType: HighVoltage # todo copypaste CablePlacer to not interact with wires
@@ -91,8 +90,8 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: CableVisualizer
-    statePrefix: hvcable_
+  #- type: CableVisualizer
+  #  statePrefix: hvcable_
 
 
 - type: stack
@@ -101,6 +100,79 @@
   icon: Objects/Specific/Syndicate/telecrystal.rsi
   spawn: PlumbingPipeStack
   itemSize: 1
+
+
+- type: entity
+  id: BasePlumbingOutput
+  abstract: true
+  parent: BaseMachinePowered
+  name: chemical producer
+  description: ass
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    sprite: _White/Structures/Machines/Plumbing/factory.rsi
+    state: base
+  - type: Rotatable
+  - type: NodeContainer
+    nodes:
+      output:
+        !type:PipeNode
+        nodeGroupID: Plumbing
+        pipeDirection: South
+
+
+- type: entity
+  id: BasePlumbingInputOutput
+  abstract: true
+  parent: BaseMachinePowered
+  name: chemical producer
+  description: ass
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    sprite: _White/Structures/Machines/Plumbing/factory.rsi
+    state: base
+  - type: Rotatable
+  - type: NodeContainer
+    nodes:
+      input:
+        !type:PipeNode
+        nodeGroupID: Plumbing
+        pipeDirection: North
+      output:
+        !type:PipeNode
+        nodeGroupID: Plumbing
+        pipeDirection: South
+
+- type: entity
+  id: PlumbingFactory
+  parent: BasePlumbingOutput
+  name: chemical producer
+  description: makes chemicals
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Machines/Plumbing/factory.rsi
+    state: base
+  - type: PlumbingFactory
+
+- type: entity
+  id: PlumbingStorageTank
+  parent: BasePlumbingInputOutput
+  name: chemical tank
+  description: stores chemicals
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Machines/Plumbing/storagetank.rsi
+    state: base
+  - type: SolutionContainerManager
+    solutions:
+      storage_tank:
+        maxVol: 400
+  - type: PlumbingStorageTank
+
 
 
 #- type: NodeContainer
