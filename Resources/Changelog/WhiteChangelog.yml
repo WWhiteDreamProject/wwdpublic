@@ -869,3 +869,56 @@ Entries:
   id: 92
   time: '2024-12-06T19:03:26.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/141
+- author: TokiJumper
+  changes:
+    - type: Add
+      message: Added link to wiki in EscMenu/Добавлена ссылка на вики в меню игры
+  id: 93
+  time: '2024-12-10T17:10:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/144
+- author: Warete
+  changes:
+    - type: Add
+      message: Dexpth_q and nonta228 custom ghosts / Пара кастомных гостов
+  id: 94
+  time: '2024-12-10T17:11:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/145
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Specialized NVG has been added - medical, security and diagnostic /
+        Добавлены специализированные ПНВ - медицинский, СБ и диагностический.
+  id: 95
+  time: '2024-12-11T14:47:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/149
+- author: Warete
+  changes:
+    - type: Tweak
+      message: >-
+        Vending Machine's inventory update / Обновление инвентаря торг.
+        автоматов
+  id: 96
+  time: '2024-12-12T18:48:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/157
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added new hairstyles / Добавлены новые прически
+  id: 97
+  time: '2024-12-13T07:34:09.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/158
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added new musics in the lobby / Добавлена новая музыка в лобби
+  id: 98
+  time: '2024-12-13T07:35:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/155
+- author: Spatison
+  changes:
+    - type: Add
+      message: Апстрим 19.11 - 12.12
+  id: 99
+  time: '2024-12-14T08:41:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/142

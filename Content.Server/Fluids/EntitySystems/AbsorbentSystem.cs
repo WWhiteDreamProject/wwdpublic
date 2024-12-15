@@ -4,6 +4,7 @@ using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Coordinates;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Fluids.Components;
@@ -44,7 +45,7 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
         base.Initialize();
         SubscribeLocalEvent<AbsorbentComponent, ComponentInit>(OnAbsorbentInit);
         SubscribeLocalEvent<AbsorbentComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<AbsorbentComponent, InteractNoHandEvent>(OnInteractNoHand);
+        SubscribeLocalEvent<AbsorbentComponent, UserActivateInWorldEvent>(OnActivateInWorld);
         SubscribeLocalEvent<AbsorbentComponent, SolutionContainerChangedEvent>(OnAbsorbentSolutionChange);
     }
 
@@ -94,12 +95,12 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
         Dirty(uid, component);
     }
 
-    private void OnInteractNoHand(EntityUid uid, AbsorbentComponent component, InteractNoHandEvent args)
+    private void OnActivateInWorld(EntityUid uid, AbsorbentComponent component, UserActivateInWorldEvent args)
     {
-        if (args.Handled || args.Target == null)
+        if (args.Handled)
             return;
 
-        Mop(uid, uid, component, args.ClickLocation, args.Target);
+        Mop(uid, uid, component, args.Target.ToCoordinates(), args.Target); // WD EDIT
         args.Handled = true;
     }
 

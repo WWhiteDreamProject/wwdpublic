@@ -13,12 +13,17 @@
       types:
         Blunt: 2
     bluntStaminaDamageFactor: 3
-    heavyRateModifier: 0.8
+    heavyRateModifier: 1.25
     heavyRangeModifier: 1.25
     maxTargets: 2
     angle: 180
     soundHit:
       collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 6
+    staminaCost: 8
   - type: Spillable
     solution: absorbed
   - type: Wieldable
@@ -62,12 +67,17 @@
         types:
           Blunt: 2
       bluntStaminaDamageFactor: 3
-      heavyRateModifier: 0.8
+      heavyRateModifier: 1.25
       heavyRangeModifier: 1.25
       maxTargets: 2
       angle: 180
       soundHit:
          collection: MetalThud
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Blunt: 6
+      staminaCost: 8
     - type: Spillable
       solution: absorbed
     - type: Wieldable

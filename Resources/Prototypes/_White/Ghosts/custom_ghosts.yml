@@ -92,6 +92,24 @@
   ghostDescription: Мяу!
   size: 0.8, 0.8
 
+#dexpth_q
+- type: customGhost
+  id: dexpth_q-ghost
+  ckey: Dexpth_q
+  sprite: _White/Ghosts/dexpth_q-ghost.rsi
+  alpha: 0.8
+  ghostName: Saya
+  ghostDescription: Но... её голос, когда она кричит от боли, довольно милый, не правда ли?
+
+#nonta228
+- type: customGhost
+  id: nonta228-ghost
+  ckey: nonta228
+  sprite: _White/Ghosts/nonta228-ghost.rsi
+  alpha: 0.8
+  ghostName: Flowey
+  ghostDescription: Собирает души забаненных игроков.
+
 ##xivi
 #- type: customGhost
 #  id: xivi-ghost

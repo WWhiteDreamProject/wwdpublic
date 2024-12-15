@@ -60,6 +60,9 @@
 - type: statusEffect
   id: StaminaModifier
 
+- type: statusEffect
+  id: PhaseShifted
+
 # WD EDIT START
 - type: statusEffect
   id: RecentlyBlocked
