@@ -1,0 +1,59 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+	"license": "CC-BY-SA-4.0",
+	"copyright": "TG",
+    "states": [
+        {
+            "name": "pipe_0"
+        },
+        {
+            "name": "pipe_1"
+        },
+        {
+            "name": "pipe_2"
+        },
+        {
+            "name": "pipe_3"
+        },
+        {
+            "name": "pipe_4"
+        },
+        {
+            "name": "pipe_5"
+        },
+        {
+            "name": "pipe_6"
+        },
+        {
+            "name": "pipe_7"
+        },
+        {
+            "name": "pipe_8"
+        },
+        {
+            "name": "pipe_9"
+        },
+        {
+            "name": "pipe_10"
+        },
+        {
+            "name": "pipe_11"
+        },
+        {
+            "name": "pipe_12"
+        },
+        {
+            "name": "pipe_13"
+        },
+        {
+            "name": "pipe_14"
+        },
+        {
+            "name": "pipe_15"
+        }
+    ]
+}
