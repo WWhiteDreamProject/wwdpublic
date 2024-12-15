@@ -1,0 +1,111 @@
+- type: entity
+  id: PlumbingPipeStack
+  parent: BaseItem
+  name: plumbing pipe stack
+  suffix: Full
+  components:
+  #- type: Tag
+  #  tags:
+  #  - CableCoil
+  - type: Stack
+    stackType: PlumbingPipe
+    baseLayer: base
+    #layerStates:
+    #- coilhv-10
+    #- coilhv-20
+    #- coilhv-30
+  - type: Sprite
+    sprite: Objects/Tools/cable-coils.rsi
+  - type: Item
+    sprite: Objects/Tools/cable-coils.rsi
+    size: Small
+    storedRotation: -90
+  - type: Clickable
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 1
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 15
+  #- type: Sprite
+  #  state: coilhv-30
+  #  layers:
+  #  - state: coilhv-30
+  #    map: ["base"]
+  #  heldPrefix: coilhv
+  - type: CablePlacer
+    cablePrototypeID: PlumbingPipe
+    blockingWireType: HighVoltage # todo copypaste CablePlacer to not interact with wires
+  - type: Appearance
+  - type: Extractable
+    grindableSolutionName: pipe
+  - type: SolutionContainerManager
+    solutions:
+      pipe:
+        reagents:
+        - ReagentId: Iron
+          Quantity: 5
+        - ReagentId: Carbon #steel-reinforced
+          Quantity: 1
+
+
+- type: entity
+  parent: CableBase
+  id: PlumbingPipe
+  name: plumbing pipe
+  description: polska toilet dota sex.
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Cables/hv_cable.rsi
+    state: hvcable_0
+    drawdepth: ThickWire
+  - type: Icon
+    sprite: Structures/Power/Cables/hv_cable.rsi
+    state: hvcable_4
+  - type: NodeContainer
+    nodes:
+      pipe:
+        !type:PipeNode
+        nodeGroupID: Plumbing
+        pipeDirection: Fourway
+  #- type: Cable
+  #  cableDroppedOnCutPrototype: PlumbingPipeStack
+  #  cableType: HighVoltage
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CableHVStack1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: CableVisualizer
+    statePrefix: hvcable_
+
+
+- type: stack
+  id: PlumbingPipe
+  name: plumbing pipe
+  icon: Objects/Specific/Syndicate/telecrystal.rsi
+  spawn: PlumbingPipeStack
+  itemSize: 1
+
+
+#- type: NodeContainer
+#nodes:
+#  inlet:
+#    !type:PipeNode
+#    nodeGroupID: Plumbing
+#    pipeDirection: North
