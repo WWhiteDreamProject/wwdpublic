@@ -2,13 +2,18 @@
 -event-item-dispenser-limit-reached = Лимит достигнут!
 -event-item-dispenser-unlimited = [color=yellow]сколько угодно[/color] предметов
 
-# For some reason, after the {-items-plural()} fluent fails to insert {$l}, despite it being passed, but successfully inserts {$limit}, even though
+# For some reason, after the {-item-plural()} fluent fails to insert {$l}, despite it being passed, but successfully inserts {$limit}, even though
 # it is "global" and should fail the same way it fails to insert {$remaining}.
--event-item-dispenser-infinite-count = ещё [color=yellow]{ $r }[/color] {-items-plural(count:$r)} (из [color=yellow]{ $limit }[/color])
--items-plural = {$count ->
+-event-item-dispenser-infinite-count = ещё [color=yellow]{ $r }[/color] {-item-plural(count:$r)} (из [color=yellow]{ $limit }[/color])
+-item-plural = {$count ->
     [one] предмет
     [few] предмета
     *[many] предметов
+}
+
+-item-plural-remain = {$count ->
+    [one] остался
+    *[few] осталось
 }
 
 event-item-dispenser-item-name = Выдаёт нечто под названием "[color=violet]{ $itemName }[/color]" 
@@ -18,19 +23,19 @@ event-item-dispenser-examine-infinite = Я могу взять {$noLimit ->
     *[other] { -event-item-dispenser-infinite-count(r: $remaining, l: $limit) }.
 }
 
-event-item-dispenser-examine-infinite-autodispose = Я могу взять {$noLimit -> 
-    [true]   { -event-item-dispenser-unlimited }!
-    *[other] { -event-item-dispenser-infinite-count(r: $remaining, l: $limit) }, прежде чем самый старый предмет пропадёт.
+event-item-dispenser-examine-infinite-autodispose = {$noLimit -> 
+    [true]   Я могу взять { -event-item-dispenser-unlimited }!
+    *[other] Я могу взять { -event-item-dispenser-infinite-count(r: $remaining, l: $limit) }, прежде чем самый старый предмет пропадёт.
 }
 
-event-item-dispenser-examine-infinite-autodispose-manualdispose = Я могу взять {$noLimit -> 
-    [true]   { -event-item-dispenser-unlimited }! Если что, я могу вернуть их здесь.
-    *[other] { -event-item-dispenser-infinite-count(r: $remaining, l: $limit) }, прежде чем самый старый предмет пропадёт. Если что, я могу вернуть их здесь, чтобы получить новые.
+event-item-dispenser-examine-infinite-autodispose-manualdispose = {$noLimit -> 
+    [true]   Я могу взять { -event-item-dispenser-unlimited }! Если что, я могу вернуть их здесь.
+    *[other] Я могу взять { -event-item-dispenser-infinite-count(r: $remaining, l: $limit) }, прежде чем самый старый предмет пропадёт. Если что, я могу вернуть их здесь, чтобы получить новые.
 }
 
-event-item-dispenser-examine-infinite-manualdispose= Я могу взять {$noLimit ->
-    [true]   { -event-item-dispenser-unlimited }! Если что, я могу вернуть их здесь.
-    *[other] { -event-item-dispenser-infinite-count(r: $remaining, l: $limit) }, прежде чем мне придётся их вернуть, чтобы взять новые.
+event-item-dispenser-examine-infinite-manualdispose= {$noLimit ->
+    [true]   Я могу взять { -event-item-dispenser-unlimited }! Если что, я могу вернуть их здесь.
+    *[other] Я могу взять { -event-item-dispenser-infinite-count(r: $remaining, l: $limit) }, прежде чем мне придётся их вернуть, чтобы взять новые.
 }
 
 event-item-dispenser-examine-infinite-single = {$remaining ->
@@ -53,20 +58,21 @@ event-item-dispenser-examine-infinite-manualdispose-single = {$remaining ->
     *[0] Внутри [color=yellow]пусто[/color], но я могу вернуть здесь старый предмет, чтобы получить новый.
 }
 
--event-item-dispenser-finite-count = [color=yellow]{$r}[/color] {$p} (из [color=yellow]{$l}[/color])
--evd-remainplural = {$remaining ->
-    [1] остался
-    *[other] осталось
+
+# For some reason, after the {-item-plural()} fluent fails to insert {$l}, despite it being passed, but successfully inserts {$limit}, even though
+# it is "global" and should fail the same way it fails to insert {$remaining}.
+-event-item-dispenser-finite-count = [color=yellow]{$r}[/color] { -item-plural(count: $remaining)} (из [color=yellow]{$limit}[/color])
+
+
+
+event-item-dispenser-examine-finite = {$noLimit ->
+    [true]   Я могу взять { -event-item-dispenser-unlimited }!
+    *[false] Внутри {-item-plural-remain(count: $remaining)} { -event-item-dispenser-finite-count(r:$remaining, l:$limit) }.
 }
 
-event-item-dispenser-examine-finite = Внутри {-evd-remainplural} {$noLimit ->
-    [true]   { -event-item-dispenser-unlimited }!
-    *[false] { -event-item-dispenser-finite-count(r:$remaining, p:$plural, l:$limit) }.
-}
-
-event-item-dispenser-examine-finite-manualdispose = Внутри {-evd-remainplural} {$noLimit ->
-    [true]   { -event-item-dispenser-unlimited }! Если что, я могу их вернуть.
-    *[false] { -event-item-dispenser-finite-count(r:$remaining, p:$plural, l:$limit) } Если что, я могу их вернуть, чтобы получить новые.
+event-item-dispenser-examine-finite-manualdispose = Внутри {-item-plural-remain(count: $remaining)} {$noLimit ->
+    [true]   Я могу взять { -event-item-dispenser-unlimited }! Если что, я могу их вернуть.
+    *[false] Внутри {-item-plural-remain(count: $remaining)} { -event-item-dispenser-finite-count(r:$remaining, l:$limit) } Если что, я могу их вернуть, чтобы получить новые.
 }11
 
 event-item-dispenser-examine-finite-single = {$remaining ->

@@ -29,7 +29,7 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
 
     static readonly Color Green = new Color(0, 255, 0);
     static readonly Color Red = new Color(255, 0, 0);
-    static readonly Color Gray = new Color(127, 127, 127);
+    static readonly Color Transparent = new Color(255, 255, 255, 127);
 
     //EventItemDispenserConfigWindow? window; // Trying to work with robustengine's ui system makes me want to quote AM.
     DefaultWindow window = default!;
@@ -55,6 +55,7 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
     LineEdit DispensingPrototypeLineEdit = default!;
     bool DispensingPrototypeValid = false;
     CheckBox AutoDisposeCheckBox = default!;
+    Label AutoDisposeLabel = default!;
     CheckBox CanManuallyDisposeCheckBox = default!;
     CheckBox InfiniteCheckBox = default!;
     LineEdit LimitLineEdit = default!;
@@ -159,6 +160,14 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
 
     }
 
+    private void ColorAutoDispose(EventArgs whatever = default!) // please put me out of my misery
+    {
+        AutoDisposeCheckBox.Disabled = !InfiniteCheckBox.Pressed;
+        //AutoDisposeCheckBox.ModulateSelfOverride = AutoDisposeCheckBox.Disabled ? Transparent : null; // doesn't work :(
+        AutoDisposeLabel.ModulateSelfOverride = AutoDisposeCheckBox.Disabled ? Transparent : null;
+
+    }
+
     /// <summary>
     /// I am not sorry.
     /// </summary>
@@ -176,14 +185,12 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
         DispensingPrototypeLineEdit.OnTextChanged += (args) => { DispensingPrototypeValid = ValidateProto(args); confirmButton!.Disabled = !DispensingPrototypeValid || !DisposedReplacementPrototypeValid; };
         DispensingPrototypeLineEdit.OnTextEntered += TrySubmit;
 
-        AutoDisposeCheckBox = AddOption<CheckBox>("eventitemdispenser-configwindow-autodispose");
+        (AutoDisposeCheckBox, AutoDisposeLabel) = _AddOption<CheckBox>("eventitemdispenser-configwindow-autodispose");
         CanManuallyDisposeCheckBox = AddOption<CheckBox>("eventitemdispenser-configwindow-canmanuallydispose");
 
         InfiniteCheckBox = AddOption<CheckBox>("eventitemdispenser-configwindow-infinite");
-        InfiniteCheckBox.OnPressed += (_) => {
-            AutoDisposeCheckBox.Disabled = !InfiniteCheckBox.Pressed;
-            AutoDisposeCheckBox.ModulateSelfOverride = AutoDisposeCheckBox.Disabled ? Gray : null;
-        };
+        InfiniteCheckBox.OnPressed += ColorAutoDispose;
+
 
         LimitLineEdit = AddOption<LineEdit>("eventitemdispenser-configwindow-limit");
         LimitLineEdit.IsValid = s => int.TryParse(s, out int _) && s.IndexOf('-') == -1; // no "_ > 0" because being able to input -0 makes me cringe
@@ -203,6 +210,7 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
         AutoDisposeCheckBox.Pressed = dispenserComp.AutoDispose;
         CanManuallyDisposeCheckBox.Pressed = dispenserComp.CanManuallyDispose;
         InfiniteCheckBox.Pressed = dispenserComp.Infinite;
+        ColorAutoDispose();
         LimitLineEdit.SetText(dispenserComp.Limit.ToString());
         ReplaceDisposedItemsCheckBox.Pressed = dispenserComp.ReplaceDisposedItems;
         DisposedReplacementPrototypeLineEdit.SetText(dispenserComp.DisposedReplacement, true);
@@ -212,9 +220,12 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
 
         window.OpenCentered();
     }
-
-
     private T AddOption<T>(string text) where T : Control, IDisposable, new()
+    {
+        return _AddOption<T>(text).Item1;
+    }
+
+        private (T, Label) _AddOption<T>(string text) where T : Control, IDisposable, new()
     {
         var box = this.CreateDisposableControl<BoxContainer>();
         box.HorizontalAlignment = Control.HAlignment.Stretch;
@@ -228,7 +239,7 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
         control.ToolTip = _loc.GetString($"{text}-tooltip");
         box.AddChild(control);
         optionBox!.AddChild(box); // called after control init // i can't even remember what i meant by this, that's how bad it has got.
-        return control;
+        return (control, label);
     }
     private bool ValidateProto(LineEdit.LineEditEventArgs args)
     {
