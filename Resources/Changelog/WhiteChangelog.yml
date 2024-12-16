@@ -940,3 +940,13 @@ Entries:
   id: 100
   time: '2024-12-16T18:13:42.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/164
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Добавлена барьерная граната, которая развёртывает закреплённый барьер на
+        месте своего падения. Можно заказать в карго за 2000 кредитов, или взять
+        в автомате со снаряжением СБ.
+  id: 101
+  time: '2024-12-16T18:15:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/167
