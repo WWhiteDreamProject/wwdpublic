@@ -1,27 +1,36 @@
 -event-item-dispenser-out-of-stock = Предметы кончились!
 -event-item-dispenser-limit-reached = Лимит достигнут!
 -event-item-dispenser-unlimited = [color=yellow]сколько угодно[/color] предметов
--event-item-dispenser-infinite-count = ещё [color=yellow]{$r}[/color] {$p} (из [color=yellow]{$l}[/color])
 
+# For some reason, after the {-items-plural()} fluent fails to insert {$l}, despite it being passed, but successfully inserts {$limit}, even though
+# it is "global" and should fail the same way it fails to insert {$remaining}.
+-event-item-dispenser-infinite-count = ещё [color=yellow]{ $r }[/color] {-items-plural(count:$r)} (из [color=yellow]{ $limit }[/color])
+-items-plural = {$count ->
+    [one] предмет
+    [few] предмета
+    *[many] предметов
+}
 
-event-item-dispenser-examine-infinite = Внутри {$remaining ->
-    [true] остался
-    *[other] осталось
-} [color=yellow]{$remaining}[/color] {$plural} (из [color=yellow]{$limit}[/color]).
+event-item-dispenser-item-name = Выдаёт нечто под названием "[color=violet]{ $itemName }[/color]" 
+
+event-item-dispenser-examine-infinite = Я могу взять {$noLimit -> 
+    [true]   { -event-item-dispenser-unlimited }!
+    *[other] { -event-item-dispenser-infinite-count(r: $remaining, l: $limit) }.
+}
 
 event-item-dispenser-examine-infinite-autodispose = Я могу взять {$noLimit -> 
     [true]   { -event-item-dispenser-unlimited }!
-    *[other] { -event-item-dispenser-infinite-count(r: $remaining, p: $plural, l:$limit) }, прежде чем самый старый предмет пропадёт.
+    *[other] { -event-item-dispenser-infinite-count(r: $remaining, l: $limit) }, прежде чем самый старый предмет пропадёт.
 }
 
 event-item-dispenser-examine-infinite-autodispose-manualdispose = Я могу взять {$noLimit -> 
     [true]   { -event-item-dispenser-unlimited }! Если что, я могу вернуть их здесь.
-    *[other] { -event-item-dispenser-infinite-count(r: $remaining, p: $plural, l:$limit) }, прежде чем самый старый предмет пропадёт. Если что, я могу вернуть их здесь, чтобы получить новые.
+    *[other] { -event-item-dispenser-infinite-count(r: $remaining, l: $limit) }, прежде чем самый старый предмет пропадёт. Если что, я могу вернуть их здесь, чтобы получить новые.
 }
 
 event-item-dispenser-examine-infinite-manualdispose= Я могу взять {$noLimit ->
     [true]   { -event-item-dispenser-unlimited }! Если что, я могу вернуть их здесь.
-    *[other] { -event-item-dispenser-infinite-count(r: $remaining, p: $plural, l:$limit) }, прежде чем мне придётся их вернуть, чтобы взять новые.
+    *[other] { -event-item-dispenser-infinite-count(r: $remaining, l: $limit) }, прежде чем мне придётся их вернуть, чтобы взять новые.
 }
 
 event-item-dispenser-examine-infinite-single = {$remaining ->
@@ -52,22 +61,22 @@ event-item-dispenser-examine-infinite-manualdispose-single = {$remaining ->
 
 event-item-dispenser-examine-finite = Внутри {-evd-remainplural} {$noLimit ->
     [true]   { -event-item-dispenser-unlimited }!
-    *[other] { -event-item-dispenser-finite-count(r:$remaining, p:$plural, l:$limit) }.
+    *[false] { -event-item-dispenser-finite-count(r:$remaining, p:$plural, l:$limit) }.
 }
 
 event-item-dispenser-examine-finite-manualdispose = Внутри {-evd-remainplural} {$noLimit ->
     [true]   { -event-item-dispenser-unlimited }! Если что, я могу их вернуть.
-    *[other] { -event-item-dispenser-finite-count(r:$remaining, p:$plural, l:$limit) } Если что, я могу их вернуть, чтобы получить новые.
-}
+    *[false] { -event-item-dispenser-finite-count(r:$remaining, p:$plural, l:$limit) } Если что, я могу их вернуть, чтобы получить новые.
+}11
 
 event-item-dispenser-examine-finite-single = {$remaining ->
     [1] Внутри только [color=yellow]один[/color] предмет.
-    *[other] Внутри [color=yellow]пусто[/color].
+    *[0] Внутри [color=yellow]пусто[/color].
 }
 
 event-item-dispenser-examine-finite-manualdispose-single = {$remaining ->
     [1] Внутри только [color=yellow]один[/color] предмет. Если что, я смогу его вернуть, чтобы получить новый.
-    *[other] Внутри [color=yellow]пусто[/color], но я могу вернуть здесь старый предмет, чтобы получить новый.
+    *[0] Внутри [color=yellow]пусто[/color], но я могу вернуть здесь старый предмет, чтобы получить новый.
 }
 
 

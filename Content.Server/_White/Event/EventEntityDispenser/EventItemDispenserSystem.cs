@@ -134,15 +134,17 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
         }
         int remaining = GetRemaining(args.Examiner, comp);
 
-        args.PushMarkup($"Выдаёт нечто под названием \"[color=violet]{_loc.GetEntityData(comp.DispensingPrototype).Name}[/color]\"", 1);
         args.PushMarkup(
-        Loc.GetString(
-            desc,
-            ("remaining", remaining),
-            ("limit", comp.Limit),
-            ("plural", GetPlural(remaining, "предмет", "предмета", "предметов")), // todo: look for equivalent func but for .ftl files
-            ("noLimit", comp.Limit <= 0) // this is getting ridiculous
-            ), 0);
+            Loc.GetString(
+                "event-item-dispenser-item-name",
+                ("itemName", _loc.GetEntityData(comp.DispensingPrototype).Name)), 1);
+        args.PushMarkup(
+            Loc.GetString(
+                desc,
+                ("remaining", remaining),
+                ("limit", comp.Limit),
+                ("noLimit", comp.Limit <= 0) // this is getting ridiculous
+                ), 0);
     }
 
     private void OnInteractUsing(EntityUid uid, EventItemDispenserComponent comp, InteractUsingEvent args)
@@ -345,27 +347,28 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
         comp.dispensedItems[user] = comp.dispensedItems.GetOrNew(user).Where(item => !TerminatingOrDeleted(item)).ToList();
     }
 
-    /// <summary>
-    /// my beloved
-    /// </summary>
-    private string GetPlural(int n, string one, string two, string five) // this has to exist somewhere else in the code, right?
-    {                                                                    // todo: find it i guess
-        n = Math.Abs(n);
-        n %= 100;
-        if (n >= 5 && n <= 20)
-        {
-            return five;
-        }
-        n %= 10;
-        if (n == 1)
-        {
-            return one;
-        }
-        if (n >= 2 && n <= 4)
-        {
-            return two;
-        }
-        return five;
-    }
+    // i refuse to delete my beloved
+    ///// <summary>
+    ///// my beloved
+    ///// </summary>
+    //private string GetPlural(int n, string one, string two, string five)
+    //{
+    //    n = Math.Abs(n);
+    //    n %= 100;
+    //    if (n >= 5 && n <= 20)
+    //    {
+    //        return five;
+    //    }
+    //    n %= 10;
+    //    if (n == 1)
+    //    {
+    //        return one;
+    //    }
+    //    if (n >= 2 && n <= 4)
+    //    {
+    //        return two;
+    //    }
+    //    return five;
+    //}
 }
 
