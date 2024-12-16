@@ -36,7 +36,7 @@ public sealed class PlumbingSystem : EntitySystem
 }
 
 
-[ByRef]
+[ByRefEvent]
 public class PlumbingPollOutputsEvent : EntityEventArgs
 {
     public string? ReagentFilter { get; private set; }
