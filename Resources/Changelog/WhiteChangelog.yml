@@ -922,3 +922,21 @@ Entries:
   id: 99
   time: '2024-12-14T08:41:28.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/142
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: Добавлены новые кастомизации для ящеров.
+    - type: Tweak
+      message: >-
+        Изменены спрайты ящеров. Свободная покраска рогов под любой цвет,
+        изменённая форма ног, улучшенный окрас частей тела и остальных
+        кастомизаций.
+    - type: Tweak
+      message: Изменено количество очков кастомизации груди ящера, 1 > 3.
+    - type: Remove
+      message: >-
+        Удалена диета ящеров, больше невидимая сила не запрещает им совать
+        гадости в пасть. Неправильная еда всё ещё травит их.
+  id: 100
+  time: '2024-12-16T18:13:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/164
