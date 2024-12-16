@@ -29,7 +29,7 @@ public sealed class EventItemDispenserConfigBoundUserInterface : BoundUserInterf
 
     static readonly Color Green = new Color(0, 255, 0);
     static readonly Color Red = new Color(255, 0, 0);
-    static readonly Color Transparent = new Color(255, 255, 255, 127);
+    static readonly Color Transparent = new Color(255, 255, 255, 69/*haha*/);
 
     //EventItemDispenserConfigWindow? window; // Trying to work with robustengine's ui system makes me want to quote AM.
     DefaultWindow window = default!;
