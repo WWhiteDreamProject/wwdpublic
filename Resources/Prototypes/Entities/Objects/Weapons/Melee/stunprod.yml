@@ -25,7 +25,7 @@
   - type: Stunbaton
     energyPerUse: 120
   - type: MeleeWeapon
-    attackRate: 0.4 # WD EDIT
+    attackRate: 3.5 # WD EDIT
     range: 1.4
     damage:
       types:
@@ -35,6 +35,8 @@
   - type: StaminaDamageOnHit
     damage: 35 # WD EDIT
     sound: /Audio/Weapons/egloves.ogg
+  - type: ItemToggleDamageOtherOnHit
+  - type: DamageOtherOnHit
   - type: StaminaDamageOnCollide
     damage: 22
     sound: /Audio/Weapons/egloves.ogg
@@ -49,7 +51,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 100
-# WD EDIT START
+  # WD EDIT START
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: ItemSlots

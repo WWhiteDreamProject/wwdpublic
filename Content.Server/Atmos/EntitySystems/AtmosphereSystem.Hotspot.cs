@@ -44,7 +44,8 @@ namespace Content.Server.Atmos.EntitySystems
                 ExcitedGroupResetCooldowns(tile.ExcitedGroup);
 
             if ((tile.Hotspot.Temperature < Atmospherics.FireMinimumTemperatureToExist) || (tile.Hotspot.Volume <= 1f)
-                || tile.Air == null || tile.Air.GetMoles(Gas.Oxygen) < 0.5f || (tile.Air.GetMoles(Gas.Plasma) < 0.5f && tile.Air.GetMoles(Gas.Tritium) < 0.5f))
+                || tile.Air == null || tile.Air.GetMoles(Gas.Oxygen) < 0.5f || (tile.Air.GetMoles(Gas.Plasma) < 0.5f && tile.Air.GetMoles(Gas.Tritium) < 0.5f
+                    && tile.Air.GetMoles(Gas.Hydrogen) < 0.5f && tile.Air.GetMoles(Gas.HyperNoblium) > 5f)) // WD EDIT
             {
                 tile.Hotspot = new Hotspot();
                 InvalidateVisuals(ent, tile);
@@ -109,40 +110,51 @@ namespace Content.Server.Atmos.EntitySystems
 
             var plasma = tile.Air.GetMoles(Gas.Plasma);
             var tritium = tile.Air.GetMoles(Gas.Tritium);
+            var hydrogen = tile.Air.GetMoles(Gas.Hydrogen); // WD EDIT
+            var hypernoblium = tile.Air.GetMoles(Gas.HyperNoblium); // WD EDIT
 
             if (tile.Hotspot.Valid)
             {
-                if (soh)
-                {
-                    if (plasma > 0.5f || tritium > 0.5f)
-                    {
-                        if (tile.Hotspot.Temperature < exposedTemperature)
-                            tile.Hotspot.Temperature = exposedTemperature;
-                        if (tile.Hotspot.Volume < exposedVolume)
-                            tile.Hotspot.Volume = exposedVolume;
-                    }
-                }
+                // WD EDIT START
+                if (!soh)
+                    return;
+
+                if ((!(plasma > 0.5f) || !(hypernoblium < 5f))
+                    && (!(tritium > 0.5f) || !(hypernoblium < 5f))
+                    && (!(hydrogen > 0.5f) || !(hypernoblium < 5f)))
+                    return;
+
+                if (tile.Hotspot.Temperature < exposedTemperature)
+                    tile.Hotspot.Temperature = exposedTemperature;
+                if (tile.Hotspot.Volume < exposedVolume)
+                    tile.Hotspot.Volume = exposedVolume;
+                // WD EDIT END
 
                 return;
             }
 
-            if ((exposedTemperature > Atmospherics.PlasmaMinimumBurnTemperature) && (plasma > 0.5f || tritium > 0.5f))
+            // WD EDIT START
+            if (!(exposedTemperature > Atmospherics.PlasmaMinimumBurnTemperature)
+                || (!(plasma > 0.5f) || !(hypernoblium < 5f))
+                    && (!(tritium > 0.5f) || !(hypernoblium < 5f))
+                    && (!(hydrogen > 0.5f) || !(hypernoblium < 5f)))
+                return;
+            // WD EDIT END
+
+            if (sparkSourceUid.HasValue)
+                _adminLog.Add(LogType.Flammable, LogImpact.High, $"Heat/spark of {ToPrettyString(sparkSourceUid.Value)} caused atmos ignition of gas: {tile.Air.Temperature.ToString():temperature}K - {oxygen}mol Oxygen, {plasma}mol Plasma, {tritium}mol Tritium, {hydrogen}mol Hydrogen");
+
+            tile.Hotspot = new Hotspot
             {
-                if (sparkSourceUid.HasValue)
-                    _adminLog.Add(LogType.Flammable, LogImpact.High, $"Heat/spark of {ToPrettyString(sparkSourceUid.Value)} caused atmos ignition of gas: {tile.Air.Temperature.ToString():temperature}K - {oxygen}mol Oxygen, {plasma}mol Plasma, {tritium}mol Tritium");
+                Volume = exposedVolume * 25f,
+                Temperature = exposedTemperature,
+                SkippedFirstProcess = tile.CurrentCycle > gridAtmosphere.UpdateCounter,
+                Valid = true,
+                State = 1
+            };
 
-                tile.Hotspot = new Hotspot
-                {
-                    Volume = exposedVolume * 25f,
-                    Temperature = exposedTemperature,
-                    SkippedFirstProcess = tile.CurrentCycle > gridAtmosphere.UpdateCounter,
-                    Valid = true,
-                    State = 1
-                };
-
-                AddActiveTile(gridAtmosphere, tile);
-                gridAtmosphere.HotspotTiles.Add(tile);
-            }
+            AddActiveTile(gridAtmosphere, tile);
+            gridAtmosphere.HotspotTiles.Add(tile);
         }
 
         private void PerformHotspotExposure(TileAtmosphere tile)

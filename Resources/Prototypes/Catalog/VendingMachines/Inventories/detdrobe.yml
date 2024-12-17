@@ -14,3 +14,8 @@
     ClothingHandsGlovesColorBlack: 2
     ClothingHandsGlovesLatex: 2
     ClothingHeadsetSecurity: 2
+  # Shhhhh... They don't know...
+  contrabandInventory:
+    SpaceCash2500: 1 # WWDP
+  emaggedInventory:
+    WeaponShotgunDoubleBarreled: 1 # WWDP

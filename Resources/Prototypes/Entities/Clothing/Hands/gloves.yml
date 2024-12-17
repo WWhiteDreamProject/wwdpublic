@@ -100,9 +100,9 @@
   description: Regal blue gloves, with a nice gold trim. Swanky.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/captain.rsi #WWDP edit
+    sprite: Clothing/Hands/Gloves/captain.rsi
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/captain.rsi #WWDP edit
+    sprite: Clothing/Hands/Gloves/captain.rsi
   - type: GloveHeatResistance
     heatResistance: 1400
   - type: Insulated
@@ -138,9 +138,9 @@
   description: Thin sterile latex gloves. Basic PPE for any doctor.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/latex.rsi #WWDP edit
+    sprite: Clothing/Hands/Gloves/latex.rsi
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/latex.rsi #WWDP edit
+    sprite: Clothing/Hands/Gloves/latex.rsi
   - type: Fiber
     fiberMaterial: fibers-latex
   - type: FingerprintMask
@@ -293,9 +293,9 @@
   description: Plain black gloves without fingertips for the hard working.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/fingerless.rsi #WWDP edit
+    sprite: Clothing/Hands/Gloves/fingerless.rsi
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/fingerless.rsi #WWDP edit
+    sprite: Clothing/Hands/Gloves/fingerless.rsi
   - type: Fiber
     fiberMaterial: fibers-synthetic
     fiberColor: fibers-black
@@ -361,7 +361,10 @@
     sprite: Clothing/Hands/Gloves/northstar.rsi
   - type: MeleeWeapon
     autoAttack: true
-    attackRate: 4
+    attackRate: 0.25
+    heavyStaminaCost: 2
+    heavyDamageBaseModifier: 1.05
+    maxTargets: 1
     damage:
       types:
        Blunt: 8

@@ -892,3 +892,71 @@ Entries:
   id: 95
   time: '2024-12-11T14:47:33.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/149
+- author: Warete
+  changes:
+    - type: Tweak
+      message: >-
+        Vending Machine's inventory update / Обновление инвентаря торг.
+        автоматов
+  id: 96
+  time: '2024-12-12T18:48:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/157
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added new hairstyles / Добавлены новые прически
+  id: 97
+  time: '2024-12-13T07:34:09.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/158
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added new musics in the lobby / Добавлена новая музыка в лобби
+  id: 98
+  time: '2024-12-13T07:35:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/155
+- author: Spatison
+  changes:
+    - type: Add
+      message: Апстрим 19.11 - 12.12
+  id: 99
+  time: '2024-12-14T08:41:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/142
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: Добавлены новые кастомизации для ящеров.
+    - type: Tweak
+      message: >-
+        Изменены спрайты ящеров. Свободная покраска рогов под любой цвет,
+        изменённая форма ног, улучшенный окрас частей тела и остальных
+        кастомизаций.
+    - type: Tweak
+      message: Изменено количество очков кастомизации груди ящера, 1 > 3.
+    - type: Remove
+      message: >-
+        Удалена диета ящеров, больше невидимая сила не запрещает им совать
+        гадости в пасть. Неправильная еда всё ещё травит их.
+  id: 100
+  time: '2024-12-16T18:13:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/164
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Добавлена барьерная граната, которая развёртывает закреплённый барьер на
+        месте своего падения. Можно заказать в карго за 2000 кредитов, или взять
+        в автомате со снаряжением СБ.
+  id: 101
+  time: '2024-12-16T18:15:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/167
+- author: Spatison
+  changes:
+    - type: Add
+      message: >-
+        All /tg/gases have been added. Good luck stopping atmos tech on nitrium
+        and healium. / Добавлены все /tg/ газы. Желаю удачи остановить атмоса
+        под нитриумом и хилиумом. / 
+  id: 102
+  time: '2024-12-17T07:08:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/147
