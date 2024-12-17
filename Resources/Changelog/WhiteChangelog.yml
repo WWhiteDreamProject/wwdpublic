@@ -950,3 +950,13 @@ Entries:
   id: 101
   time: '2024-12-16T18:15:52.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/167
+- author: Spatison
+  changes:
+    - type: Add
+      message: >-
+        All /tg/gases have been added. Good luck stopping atmos tech on nitrium
+        and healium. / Добавлены все /tg/ газы. Желаю удачи остановить атмоса
+        под нитриумом и хилиумом. / 
+  id: 102
+  time: '2024-12-17T07:08:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/147
