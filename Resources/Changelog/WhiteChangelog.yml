@@ -969,3 +969,13 @@ Entries:
   id: 103
   time: '2024-12-17T19:03:13.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/161
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Supply pods have been added. The syndicate has forked out and delivers
+        elite bundles in supply pods / Добавлены грузовые капсулы. Синдикат
+        раскошелился и доставляет элитные наборы в грузовых капсулах
+  id: 104
+  time: '2024-12-17T19:03:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/162
