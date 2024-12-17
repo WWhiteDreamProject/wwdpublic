@@ -12,5 +12,5 @@
     reoccurrenceDelay: 50
   - type: RandomSpawnRule
     prototype: AnomalyWormhole
-    minCount: 30
-    maxCount: 50
+    minCount: 20
+    maxCount: 35
