@@ -2,6 +2,8 @@ using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Tag;
+using Robust.Shared.Timing;
+
 
 namespace Content.Shared.SimpleStation14.Clothing;
 
@@ -10,6 +12,7 @@ public sealed class ClothingGrantingSystem : EntitySystem
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -24,6 +27,12 @@ public sealed class ClothingGrantingSystem : EntitySystem
 
     private void OnCompEquip(EntityUid uid, ClothingGrantComponentComponent component, GotEquippedEvent args)
     {
+        // WD EDIT START
+        if (!_timing.IsFirstTimePredicted
+            || _timing.ApplyingState)
+            return;
+        // WD EDIT END
+
         if (!TryComp<ClothingComponent>(uid, out var clothing)) return;
 
         if (!clothing.Slots.HasFlag(args.SlotFlags)) return;
