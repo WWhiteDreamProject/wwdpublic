@@ -21,7 +21,6 @@ namespace Content.Server.Anomaly.Effects
         public override void Initialize()
         {
             SubscribeLocalEvent<WormholeAnomalyComponent, ComponentInit>(OnInit);
-            SubscribeLocalEvent<WormholeAnomalyComponent, ComponentShutdown>(OnShutdown);
         }
 
         private void OnInit(EntityUid uid, WormholeAnomalyComponent component, ComponentInit args)
@@ -49,11 +48,6 @@ namespace Content.Server.Anomaly.Effects
             _audio.PlayPvs(component.TeleportSound, uid);
 
             StartPulseTimer(uid, component);
-        }
-
-        private void OnShutdown(EntityUid uid, WormholeAnomalyComponent component, ComponentShutdown args)
-        {
-
         }
     }
 }
