@@ -1,1 +1,1 @@
-announcer-RuOld-name = M.U.Z.Y
+announcer-RuOld-name = M.A.I.A
