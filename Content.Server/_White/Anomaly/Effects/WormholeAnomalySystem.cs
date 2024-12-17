@@ -38,9 +38,7 @@ namespace Content.Server.Anomaly.Effects
         {
             var xformQuery = GetEntityQuery<TransformComponent>();
             if (!xformQuery.TryGetComponent(uid, out var xform))
-            {
                 return;
-            }
 
             var range = component.MaxShuffleRadius;
             var newPosition = _random.NextVector2(range);
