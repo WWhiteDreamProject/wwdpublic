@@ -11,3 +11,10 @@
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: Maid
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconDeathSquad
+  icon:
+    sprite: /Textures/_White/Interface/Misc/job_icons.rsi
+    state: DeathSquad
