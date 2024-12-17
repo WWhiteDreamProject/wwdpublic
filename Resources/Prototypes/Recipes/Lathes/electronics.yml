@@ -626,6 +626,16 @@
      Glass: 500
 
 - type: latheRecipe
+  id: SMESAdvancedMachineCircuitboard
+  result: SMESAdvancedMachineCircuitboard
+  category: Circuitry
+  completetime: 4
+  materials:
+     Steel: 150
+     Glass: 580
+     Gold: 50
+
+- type: latheRecipe
   id: PortableGeneratorPacmanMachineCircuitboard
   result: PortableGeneratorPacmanMachineCircuitboard
   category: Circuitry
