@@ -40,19 +40,39 @@
       points: 2
       required: true
       defaultMarkings: [ ResomiTail, ResomiTailFeathers ]
-    Legs:
-      points: 2
-      required: false
-      defaultMarkings: [ ResomiLLegFeathers, ResomiRLegFeathers ]
-    Arms:
-      points: 2
-      required: false
-      defaultMarkings: [ ResomiLArmFeathers, ResomiRArmFeathers ]
     Head:
       points: 2
       required: false
     Chest:
       points: 1
+      required: false
+    RightLeg:
+      points: 2
+      required: false
+      defaultMarkings: [ ResomiRLegFeathers ]
+    RightFoot:
+      points: 2
+      required: false
+    LeftLeg:
+      points: 2
+      required: false
+      defaultMarkings: [ ResomiLLegFeathers ]
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+      defaultMarkings: [ ResomiRArmFeathers ]
+    RightHand:
+      points: 2
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+      defaultMarkings: [ ResomiLArmFeathers ]
+    LeftHand:
+      points: 2
       required: false
 
 - type: humanoidBaseSprite
