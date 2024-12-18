@@ -1,5 +1,5 @@
--event-item-dispenser-out-of-stock = Предметы кончились!
--event-item-dispenser-limit-reached = Лимит достигнут!
+event-item-dispenser-out-of-stock = Предметы кончились!
+event-item-dispenser-limit-reached = Лимит достигнут!
 -event-item-dispenser-unlimited = [color=yellow]сколько угодно[/color] предметов
 
 # For some reason, after the {-item-plural()} fluent fails to insert {$l}, despite it being passed, but successfully inserts {$limit}, even though
