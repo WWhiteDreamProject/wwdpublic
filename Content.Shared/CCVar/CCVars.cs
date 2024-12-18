@@ -419,6 +419,7 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> AllowSlotQuickSwap =
             CVarDef.Create("game.slot_quick_swap", false, CVar.REPLICATED);
 
+
 #if EXCEPTION_TOLERANCE
         /// <summary>
         ///     Amount of times round start must fail before the server is shut down.
