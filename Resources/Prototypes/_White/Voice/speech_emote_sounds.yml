@@ -19,10 +19,6 @@
       collection: MaleCry
     Weh:
       collection: Weh
-    Gasp:
-      collection: MaleGasp
-    DefaultDeathgasp:
-      collection: DeathGasp
     Yawn:
       collection: MaleYawn
     Snore:
@@ -51,10 +47,6 @@
       collection: FemaleCry
     Weh:
       collection: Weh
-    Gasp:
-      collection: FemaleGasp
-    DefaultDeathgasp:
-      collection: DeathGasp
     Yawn:
       collection: FemaleYawn
     Snore:
