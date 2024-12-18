@@ -20,7 +20,7 @@
 - type: marking
   id: ResomiLArmFeathers
   bodyPart: LHand
-  markingCategory: Arms
+  markingCategory: LeftArm
   speciesRestriction: [Resomi]
   sprites:
   - sprite: _CorvaxNext/Mobs/Customization/resomi_parts.rsi
@@ -29,7 +29,7 @@
 - type: marking
   id: ResomiLLegFeathers
   bodyPart: LFoot
-  markingCategory: Legs
+  markingCategory: LeftLeg
   speciesRestriction: [Resomi]
   sprites:
   - sprite: _CorvaxNext/Mobs/Customization/resomi_parts.rsi
@@ -38,7 +38,7 @@
 - type: marking
   id: ResomiRArmFeathers
   bodyPart: RHand
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Resomi]
   sprites:
   - sprite: _CorvaxNext/Mobs/Customization/resomi_parts.rsi
@@ -47,7 +47,7 @@
 - type: marking
   id: ResomiRLegFeathers
   bodyPart: RFoot
-  markingCategory: Legs
+  markingCategory: RightLeg
   speciesRestriction: [Resomi]
   sprites:
   - sprite: _CorvaxNext/Mobs/Customization/resomi_parts.rsi

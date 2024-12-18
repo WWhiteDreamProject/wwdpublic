@@ -10,7 +10,9 @@
   - type: ChatModifier
     whisperListeningRange: 4
   - type: ResomiAccent
-  - type: FootprintVisualizer
+  - type: FootPrints
+    leftBarePrint: "footprint-left-bare-lizard"
+    rightBarePrint: "footprint-right-bare-lizard"
   - type: DamageVisuals
     thresholds: [ 10, 30, 50, 70]
     targetLayers:
