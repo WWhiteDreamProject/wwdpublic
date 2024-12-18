@@ -960,3 +960,36 @@ Entries:
   id: 102
   time: '2024-12-17T07:08:35.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/147
+- author: RedFoxIV
+  changes:
+    - type: Tweak
+      message: >-
+        Чтобы взять огнестрельное оружие в две руки, возьмите его в активную
+        руку и альтернативно-используйте его (Alt-Z по умолчанию).
+  id: 103
+  time: '2024-12-17T19:03:13.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/161
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Supply pods have been added. The syndicate has forked out and delivers
+        elite bundles in supply pods / Добавлены грузовые капсулы. Синдикат
+        раскошелился и доставляет элитные наборы в грузовых капсулах
+  id: 104
+  time: '2024-12-17T19:03:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/162
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        The "Stray Capsules" event has been added. Supply pods that have strayed
+        off their path land on the station. They can contain everything from a
+        full range of cargo to complete syndicate sets, priced from 5 TK to 25
+        TK. / Добавлено событие "Бродячая капсула". Сбившиеся со своего пути
+        грузовые капсулы падают на станцию, могут содержать от всего
+        ассортимента карго, до полноценных наборов синдиката ценой от 5ТК до
+        25ТК.
+  id: 105
+  time: '2024-12-18T20:28:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/171
