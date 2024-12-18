@@ -18,7 +18,7 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
-using Content.Shared._CorvaxNext.Resomi.Abilities;
+using Content.Shared._White.Resomi.Abilities;
 
 namespace Content.Shared.Wieldable;
 
