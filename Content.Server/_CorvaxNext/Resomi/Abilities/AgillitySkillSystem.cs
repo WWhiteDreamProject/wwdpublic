@@ -18,7 +18,7 @@ public sealed class AgillitySkillSystem : SharedAgillitySkillSystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
 
-    private Entity<BaseActionComponent> action;
+    private Entity<BaseActionComponent> _action = default!;
 
     public override void Initialize()
     {
@@ -35,15 +35,15 @@ public sealed class AgillitySkillSystem : SharedAgillitySkillSystem
 
     private void SwitchAgility(Entity<AgillitySkillComponent> ent, ref SwitchAgillityActionEvent args)
     {
-        action = args.Action;
+        _action = args.Action!;
 
         if (!ent.Comp.Active)
         {
-            ActivateAgility(ent, action);
+            ActivateAgility(ent, _action!);
         }
         else
         {
-            DeactivateAgility(ent.Owner, ent.Comp, action);
+            DeactivateAgility(ent.Owner, ent.Comp, _action!);
         }
     }
 
@@ -102,7 +102,7 @@ public sealed class AgillitySkillSystem : SharedAgillitySkillSystem
 
             _stamina.TryTakeStamina(uid, resomiComp.StaminaDamagePassive);
             if (stamina.StaminaDamage > stamina.CritThreshold * 0.50f)
-                DeactivateAgility(uid, resomiComp, action);
+                DeactivateAgility(uid, resomiComp, _action!);
         }
     }
 }
