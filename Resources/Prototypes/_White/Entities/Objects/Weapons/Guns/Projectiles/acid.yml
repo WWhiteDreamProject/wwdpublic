@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseBullet
+  id: BulletAcidSentinel
+  noSpawn: true
+  name: acid spit
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Caustic: 28
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
+    layers:
+    - state: xeno_toxic
+  - type: Ammo
+    muzzleFlash: null
+
+- type: entity
+  parent: BulletAcidSentinel
+  id: BulletAcidSentinelDummy
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Caustic: 15

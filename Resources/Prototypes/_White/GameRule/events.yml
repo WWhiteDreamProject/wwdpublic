@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseGameRule
+  id: XenomorphInfestation
+  noSpawn: true
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-alien-infestation-anouncement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    startDelay: 10
+    earliestStart: 20
+    reoccurrenceDelay: 40
+    minimumPlayers: 30
+    weight: 5
+    duration: 1
+  - type: RandomSpawnRule
+    prototype: SpawnPointGhostAlienLarva
