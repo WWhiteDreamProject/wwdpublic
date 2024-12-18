@@ -203,16 +203,16 @@
     - BorgChassis
   chatMessages: ["chat-emote-msg-thump"]
   chatTriggers:
-    - thump
-    - thumps
-    - thumping
-    - thumped
-    - thump tail
-    - thumps tail
-    - thumps their tail
-    - thumps her tail
-    - thumps his tail
-    - thumps its tail
+  - thump
+  - thumps
+  - thumping
+  - thumped
+  - thump tail
+  - thumps tail
+  - thumps their tail
+  - thumps her tail
+  - thumps his tail
+  - thumps its tail
 
 - type: emote
   id: Salute
@@ -304,6 +304,13 @@
   chatTriggers:
   - "chat-emote-trigger-weh-1"
   # WD EDIT END
+
+- type: emote
+  id: Hew
+  name: chat-emote-name-hew
+  category: Vocal
+  icon: Interface/Emotes/hew.png
+  chatMessages: ["chat-emote-msg-hew"]
 
 - type: emote
   id: Chirp
