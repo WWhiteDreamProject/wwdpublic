@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/pull/1247/files | Edited by PuroSlavKing (Github)",
+
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "DeathSquad"
+        },
+        {
+            "name": "Shrambled",
+            "delays":
+            [
+                [0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2]
+            ]
+        }
+    ]
+}
