@@ -2375,7 +2375,8 @@
 - type: entity
   name: tarantula
   parent: [ SimpleMobBase, MobCombat ]
-  id: MobGiantSpider
+  id: MobSpiderBase
+  abstract: true
   description: Widely recognized to be the literal worst thing in existence.
   components:
   - type: Sprite
@@ -2513,9 +2514,9 @@
 
 - type: entity
   name: tarantula
-  parent: MobGiantSpider
-  id: MobGiantSpiderAngry
-  suffix: Angry
+  parent: MobSpiderBase
+  id: MobSpiderAngryBase
+  abstract: true
   components:
   - type: NpcFactionMember
     factions:
@@ -2529,14 +2530,57 @@
     makeSentient: true
     name: ghost-role-information-giant-spider-name
     description: ghost-role-information-giant-spider-description
-    rules: deltav-ghost-role-information-softantag-rules
+    rules: ghost-role-information-giant-spider-rules
     raffle:
       settings: short
   - type: GhostTakeoverAvailable
 
 - type: entity
+  name: tarantula
+  parent: MobSpiderBase
+  id: MobGiantSpider
+  description: Widely recognized to be the literal worst thing in existence.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: tarantula
+      sprite: Mobs/Animals/spider.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: tarantula-moving
+    noMovementLayers:
+      movement:
+        state: tarantula
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: tarantula
+      Critical:
+        Base: tarantula_dead
+      Dead:
+        Base: tarantula_dead
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 6
+
+- type: entity
+  parent:
+  - MobGiantSpider
+  - MobSpiderAngryBase
+  id: MobGiantSpiderAngry
+
+- type: entity
   name: clown spider
-  parent: MobGiantSpiderAngry
+  parent: MobSpiderAngryBase
   id: MobClownSpider
   description: Combines the two most terrifying things in existence, spiders and clowns.
   components:
