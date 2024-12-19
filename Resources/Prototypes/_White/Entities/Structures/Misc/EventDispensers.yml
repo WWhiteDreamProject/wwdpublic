@@ -1,0 +1,62 @@
+- type: entity
+  abstract: true
+  parent: BaseStructure
+  id: BaseEventItemDispenser
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Misc/EventItemDispenser.rsi
+    layers:
+    - state: base
+      offset: 0, 0.0625
+    - state: base_glow
+      shader: unshaded
+      offset: 0, 0.0625
+    - state: lamp_glow
+      shader: unshaded
+      offset: 0, 0.0625
+    - state: hands
+      offset: 0, 0.0625
+    - map: ["enum.EventItemDispenserVisualLayers.ItemPreview"]
+      shader: FlickerHologram
+      offset: 0, 0.25
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: UserInterface
+    interfaces:
+        enum.EventItemDispenserUiKey.Key:
+          type: EventItemDispenserConfigBoundUserInterface
+          interactionRange: -1
+  - type: EventItemDispenser
+    dispensing: FoodBanana
+
+- type: entity
+  name: Fun dispenser
+  parent: BaseEventItemDispenser
+  id: EventExGrenadeDispenser
+  components:
+  - type: EventItemDispenser
+    dispensing: GrenadeDummy
+
+- type: entity
+  name: Limited fun dispenser
+  parent: BaseEventItemDispenser
+  id: BaseEventItemDispenserFinite
+  components:
+  - type: EventItemDispenser
+    dispensing: Stunbaton
+    limit: 2
+    infinite: false
