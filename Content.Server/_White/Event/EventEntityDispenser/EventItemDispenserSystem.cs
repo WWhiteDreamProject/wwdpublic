@@ -104,7 +104,6 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
 
     private void OnDispensedRemove(EntityUid uid, EventDispensedComponent comp, ComponentRemove args)
     {
-
         foreach(var item in comp.Slaved)
         {
             QueueDel(item);
@@ -322,8 +321,6 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
         var adminData = _admeme.GetAdminData(user);
         return adminData != null && adminData.CanAdminPlace() &&
             HasComp<GhostComponent>(user);
-            //MetaData(user).EntityPrototype?.ID == GameTicker.AdminObserverPrototypeName;
-
     }
 
     /// <summary>
@@ -346,29 +343,5 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
     {
         comp.dispensedItems[user] = comp.dispensedItems.GetOrNew(user).Where(item => !TerminatingOrDeleted(item)).ToList();
     }
-
-    // i refuse to delete my beloved
-    ///// <summary>
-    ///// my beloved
-    ///// </summary>
-    //private string GetPlural(int n, string one, string two, string five)
-    //{
-    //    n = Math.Abs(n);
-    //    n %= 100;
-    //    if (n >= 5 && n <= 20)
-    //    {
-    //        return five;
-    //    }
-    //    n %= 10;
-    //    if (n == 1)
-    //    {
-    //        return one;
-    //    }
-    //    if (n >= 2 && n <= 4)
-    //    {
-    //        return two;
-    //    }
-    //    return five;
-    //}
 }
 
