@@ -105,6 +105,18 @@
     prototypes: [ MobAghostGear ]
   - type: SupermatterImmune
   - type: BypassInteractionChecks
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+    - Silicon
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+  - type: ShowSyndicateIcons
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
+  - type: ShowCriminalRecordIcons
 
 - type: entity
   id: ActionAGhostShowSolar
