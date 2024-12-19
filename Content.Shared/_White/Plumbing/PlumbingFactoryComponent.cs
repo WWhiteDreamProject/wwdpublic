@@ -1,4 +1,5 @@
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ public partial class PlumbingFactoryComponent : Component
     [DataField("reagent", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
     public string reagentprototype = "Water";
     [DataField]
-    public int perTick = 5;
+    public FixedPoint2 perTick = 5;
 
 }
 
@@ -22,14 +23,16 @@ public partial class PlumbingFactoryComponent : Component
 public partial class PlumbingStorageTankComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public string Solution = "storage_tank";
+    public string Solution = "plumbing_storage_tank";
 }
 
 [RegisterComponent]
 public partial class PlumbingSimpleDemandComponent : Component
 {
-    [DataField(required: true)]
-    public string Solution = default!;
+    [DataField]
+    public string Solution = "plumbing_storage_tank";
+    [DataField]
+    public FixedPoint2 RequestPerTick = 10;
 
 
 }

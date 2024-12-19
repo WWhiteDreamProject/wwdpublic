@@ -136,6 +136,13 @@
     sprite: _White/Structures/Machines/Plumbing/factory.rsi
     state: base
   - type: Rotatable
+  - type: ExaminableSolution
+    solution: plumbing_storage_tank
+  - type: PlumbingSimpleDemand
+  - type: SolutionContainerManager
+    solutions:
+      plumbing_storage_tank:
+        maxVol: 100
   - type: NodeContainer
     nodes:
       input:
@@ -167,9 +174,10 @@
   - type: Sprite
     sprite: _White/Structures/Machines/Plumbing/storagetank.rsi
     state: base
+
   - type: SolutionContainerManager
     solutions:
-      storage_tank:
+      plumbing_storage_tank:
         maxVol: 400
   - type: PlumbingStorageTank
 
