@@ -105,6 +105,7 @@
     prototypes: [ MobAghostGear ]
   - type: SupermatterImmune
   - type: BypassInteractionChecks
+  # WD EDIT START
   - type: ShowHealthBars
     damageContainers:
     - Biological
@@ -117,6 +118,7 @@
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
   - type: ShowCriminalRecordIcons
+  # WD EDIT END
 
 - type: entity
   id: ActionAGhostShowSolar
