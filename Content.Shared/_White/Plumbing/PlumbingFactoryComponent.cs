@@ -27,13 +27,42 @@ public partial class PlumbingStorageTankComponent : Component
 }
 
 [RegisterComponent]
-public partial class PlumbingSimpleDemandComponent : Component
+public partial class PlumbingSimpleInputComponent : Component
+{
+    [DataField]
+    public bool UseFilters = false;
+    [DataField]
+    public List<string> ReagentFilters = new();
+    [DataField]
+    public string Solution = "plumbing_storage_tank";
+    //[DataField]
+    //public FixedPoint2 InputPerSecond = 10;
+}
+
+[RegisterComponent]
+public partial class PlumbingSimpleOutputComponent : Component
 {
     [DataField]
     public string Solution = "plumbing_storage_tank";
     [DataField]
-    public FixedPoint2 RequestPerTick = 10;
-
-
+    public FixedPoint2 OutputPerSecond = 10;
 }
+
+
+[RegisterComponent]
+public partial class PlumbingInternalTankComponent : Component
+{
+    [DataField]
+    public string Solution = "plumbing_storage_tank";
+}
+
+
+
+[RegisterComponent]
+public partial class PlumbingItemSlotTankComponent : Component
+{
+    [DataField(required: true)]
+    public string Slot = "";
+}
+
 
