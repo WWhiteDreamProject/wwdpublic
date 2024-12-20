@@ -38,10 +38,10 @@
     blockingWireType: HighVoltage # todo copypaste CablePlacer to not interact with wires
   - type: Appearance
   - type: Extractable
-    grindableSolutionName: pipe
+    grindableSolutionName: grind
   - type: SolutionContainerManager
     solutions:
-      pipe:
+      grind:
         reagents:
         - ReagentId: Iron
           Quantity: 5
@@ -103,18 +103,24 @@
 
 
 - type: entity
+  id: BasePlumbing
+  parent: BaseMachinePowered
+  abstract: true
+  components:
+  - type: Rotatable
+  - type: Transform
+    noRot: true
+
+- type: entity
   id: BasePlumbingOutput
   abstract: true
-  parent: BaseMachinePowered
+  parent: BasePlumbing
   name: chemical producer
   description: ass
   components:
-  - type: Transform
-    noRot: true
   - type: Sprite
     sprite: _White/Structures/Machines/Plumbing/factory.rsi
     state: base
-  - type: Rotatable
   - type: NodeContainer
     nodes:
       output:
@@ -126,23 +132,19 @@
 - type: entity
   id: BasePlumbingInputOutput
   abstract: true
-  parent: BaseMachinePowered
+  parent: BasePlumbing
   name: chemical producer
   description: ass
   components:
-  - type: Transform
-    noRot: true
   - type: Sprite
     sprite: _White/Structures/Machines/Plumbing/factory.rsi
     state: base
-  - type: Rotatable
-  - type: ExaminableSolution
-    solution: plumbing_storage_tank
-  - type: PlumbingSimpleDemand
-  - type: SolutionContainerManager
-    solutions:
-      plumbing_storage_tank:
-        maxVol: 100
+  #- type: PlumbingSimpleInput
+  #- type: PlumbingSimpleOutput
+  #- type: SolutionContainerManager
+  #  solutions:
+  #    plumbing_storage_tank:
+  #      maxVol: 100
   - type: NodeContainer
     nodes:
       input:
@@ -174,15 +176,37 @@
   - type: Sprite
     sprite: _White/Structures/Machines/Plumbing/storagetank.rsi
     state: base
-
   - type: SolutionContainerManager
     solutions:
       plumbing_storage_tank:
         maxVol: 400
-  - type: PlumbingStorageTank
+  - type: PlumbingInternalTank
+    solution: plumbing_storage_tank
+  - type: ExaminableSolution
+    solution: plumbing_storage_tank
+  - type: PlumbingSimpleInput
+  - type: PlumbingSimpleOutput
 
 
-
+- type: entity
+  id: PlumbingInputPort
+  parent: BasePlumbingOutput
+  name: chemical input port
+  description: eats chemicals
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Machines/Plumbing/input.rsi
+    state: base
+  - type: ItemSlots
+    slots:
+      plumbingInputPort:
+        ejectOnInteract: true
+  - type: PlumbingSimpleOutput
+    solution: plumbingInputPort
+  - type: PlumbingItemSlotTank
+    slot: plumbingInputPort
+  #- type: ExaminableSolution
+  #  solution: plumbingInputPort
 #- type: NodeContainer
 #nodes:
 #  inlet:
