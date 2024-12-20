@@ -18,6 +18,10 @@
       "directions": 4
     },
     {
+      "name": "equipped-OUTERCLOTHING-body-slim",
+      "directions": 4
+    },
+    {
       "name": "equipped-OUTERCLOTHING-vox",
       "directions": 4
     },
@@ -31,6 +35,10 @@
     },
     {
       "name": "open-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "open-OUTERCLOTHING-body-slim",
       "directions": 4
     },
     {

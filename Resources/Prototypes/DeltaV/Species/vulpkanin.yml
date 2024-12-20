@@ -3,7 +3,10 @@
   name: species-name-vulpkanin
   roundStart: true
   prototype: MobVulpkanin
-  sprites: MobVulpkaninSprites
+  # WD EDIT START
+  bodyTypes:
+    - VulpkaninNormal
+  # WD EDIT END
   defaultSkinTone: "#985629"
   markingLimits: MobVulpkaninMarkingLimits
   dollPrototype: MobVulpkaninDummy
@@ -12,8 +15,10 @@
   femaleFirstNames: names_vulpkanin_female
   lastNames: names_vulpkanin_last
 
-- type: speciesBaseSprites
-  id: MobVulpkaninSprites
+# WD EDIT
+- type: bodyType
+  id: VulpkaninNormal
+  name: body-normal
   sprites:
     Head: MobVulpkaninHead
     Face: MobHumanoidAnyMarking

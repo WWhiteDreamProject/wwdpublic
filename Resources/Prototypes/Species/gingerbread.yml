@@ -3,14 +3,19 @@
   name: species-name-human
   roundStart: false
   prototype: MobGingerbread
-  sprites: MobGingerbreadSprites
+  # WD EDIT START
+  bodyTypes:
+    - GingerbreadNormal
+  # WD EDIT END
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobGingerbreadDummy
   skinColoration: HumanToned
   defaultSkinTone: "#9a7c5a"
 
-- type: speciesBaseSprites
-  id: MobGingerbreadSprites
+  # WD EDIT
+- type: bodyType
+  id: GingerbreadNormal
+  name: body-normal
   sprites:
     Head: MobGingerbreadHead
     HeadTop: MobHumanoidAnyMarking

@@ -3,7 +3,10 @@
   name: species-name-arachnid
   roundStart: true
   prototype: MobArachnid
-  sprites: MobArachnidSprites
+  # WD EDIT START
+  bodyTypes:
+    - ArachnidNormal
+  # WD EDIT END
   defaultSkinTone: "#385878"
   markingLimits: MobArachnidMarkingLimits
   dollPrototype: MobArachnidDummy
@@ -14,8 +17,10 @@
   sexes:
   - Unsexed
 
-- type: speciesBaseSprites
-  id: MobArachnidSprites
+# WD EDIT
+- type: bodyType
+  id: ArachnidNormal
+  name: body-normal
   sprites:
     Head: MobArachnidHead
     Snout: MobHumanoidAnyMarking

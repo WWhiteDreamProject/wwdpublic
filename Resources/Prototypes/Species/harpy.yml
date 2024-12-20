@@ -3,7 +3,10 @@
   name: species-name-harpy
   roundStart: true
   prototype: MobHarpy
-  sprites: MobHarpySprites
+  # WD EDIT START
+  bodyTypes:
+  - HarpyNormal
+  # WD EDIT END
   defaultSkinTone: "#c0967f"
   markingLimits: MobHarpyMarkingLimits
   dollPrototype: MobHarpyDummy
@@ -15,8 +18,10 @@
   defaultWidth: 0.8
   maxWidth: 1 # White Dream: End of changes
 
-- type: speciesBaseSprites
-  id: MobHarpySprites
+  # WD EDIT
+- type: bodyType
+  id: HarpyNormal
+  name: body-normal
   sprites:
     Head: MobHarpyHead
     Face: MobHumanoidAnyMarking
