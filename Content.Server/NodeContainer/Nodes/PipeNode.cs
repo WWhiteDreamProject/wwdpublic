@@ -30,6 +30,7 @@ namespace Content.Server.NodeContainer.Nodes
 
         private HashSet<PipeNode>? _alwaysReachable;
 
+        public PipeDirection GetOriginalPipeDirection() => _originalPipeDirection; // WD EDIT
         public void AddAlwaysReachable(PipeNode pipeNode)
         {
             if (pipeNode.NodeGroupID != NodeGroupID) return;
