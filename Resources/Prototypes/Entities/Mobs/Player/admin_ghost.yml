@@ -114,7 +114,7 @@
   components:
   - type: InstantAction
     icon: { sprite: _White/Interface/Actions.rsi, state: solar } # WWDP-Edit
-    iconOn: _White/Interface/Actions/solar.png # WWDP-Edit
+    iconOn: _White/Interface/Actions.rsi/solar.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
     event: !type:ToggleIntrinsicUIEvent { key: enum.SolarControlConsoleUiKey.Key }
@@ -127,7 +127,7 @@
   components:
   - type: InstantAction
     icon: { sprite: _White/Interface/Actions.rsi, state: communication } # WWDP-Edit
-    iconOn: _White/Interface/Actions/communication.png # WWDP-Edit
+    iconOn: _White/Interface/Actions.rsi/communication.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
     event: !type:ToggleIntrinsicUIEvent { key: enum.CommunicationsConsoleUiKey.Key }
@@ -140,7 +140,7 @@
   components:
   - type: InstantAction
     icon: { sprite: _White/Interface/Actions.rsi, state: radar } # WWDP-Edit
-    iconOn: _White/Interface/Actions/radar.png # WWDP-Edit
+    iconOn: _White/Interface/Actions.rsi/radar.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
     event: !type:ToggleIntrinsicUIEvent { key: enum.RadarConsoleUiKey.Key }
@@ -153,7 +153,7 @@
   components:
   - type: InstantAction
     icon: { sprite: _White/Interface/Actions.rsi, state: cargo } # WWDP-Edit
-    iconOn: _White/Interface/Actions/cargo.png # WWDP-Edit
+    iconOn: _White/Interface/Actions.rsi/cargo.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
     event: !type:ToggleIntrinsicUIEvent { key: enum.CargoConsoleUiKey.Orders }
@@ -166,7 +166,7 @@
   components:
   - type: InstantAction
     icon: { sprite: _White/Interface/Actions.rsi, state: crew } # WWDP-Edit
-    iconOn: _White/Interface/Actions/crew.png # WWDP-Edit
+    iconOn: _White/Interface/Actions.rsi/crew.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
     event: !type:ToggleIntrinsicUIEvent { key: enum.CrewMonitoringUIKey.Key }
@@ -179,7 +179,7 @@
   components:
   - type: InstantAction
     icon: { sprite: _White/Interface/Actions.rsi, state: records } # WWDP-Edit
-    iconOn: _White/Interface/Actions/records.png # WWDP-Edit
+    iconOn: _White/Interface/Actions.rsi/records.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
     event: !type:ToggleIntrinsicUIEvent { key: enum.GeneralStationRecordConsoleKey.Key }
