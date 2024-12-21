@@ -29,3 +29,13 @@ public sealed class TakeAmmoEvent : EntityEventArgs
         User = user;
     }
 }
+
+// WD EDIT START
+/// <summary>
+/// Raised on BallisticAmmoComponents to force them to generate their ammo as actual entities.
+/// </summary>
+public sealed class ForceSpawnAmmoEvent : EntityEventArgs
+{
+   
+}
+// WD EDIT END
