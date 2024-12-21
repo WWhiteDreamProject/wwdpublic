@@ -1,0 +1,246 @@
+- type: entity
+  id: PlumbingPipeStack
+  parent: BaseItem
+  name: plumbing pipe stack
+  suffix: Full
+  components:
+  #- type: Tag
+  #  tags:
+  #  - CableCoil
+  - type: Stack
+    stackType: PlumbingPipe
+    baseLayer: base
+    layerStates:
+    - pipestack-10
+    - pipestack-20
+    - pipestack-30
+  - type: Sprite
+    sprite: _White\Structures\Machines\Plumbing\pipestack.rsi
+    state: pipestack-30
+    layers:
+    - state: pipestack-30
+      map: ["base"]
+  - type: Item
+    heldPrefix: pipestack
+    sprite: _White\Structures\Machines\Plumbing\pipestack.rsi
+    size: Small
+    storedRotation: -90
+  - type: Clickable
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 1
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 15
+  - type: CablePlacer
+    cablePrototypeID: PlumbingPipe
+    blockingWireType: HighVoltage # todo copypaste CablePlacer to not interact with wires
+  - type: Appearance
+  - type: Extractable
+    grindableSolutionName: grind
+  - type: SolutionContainerManager
+    solutions:
+      grind:
+        reagents:
+        - ReagentId: Iron
+          Quantity: 5
+        - ReagentId: Carbon #steel-reinforced
+          Quantity: 1
+
+
+- type: entity
+  id: PlumbingPipe
+  name: plumbing pipe
+  description: polska toilet dota sex.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Machines/Plumbing/pipe.rsi
+    state: pipe_0
+    drawdepth: FloorObjects
+  - type: Icon
+    sprite: _White/Structures/Machines/Plumbing/pipe.rsi
+    state: pipe_0
+  - type: PlumbingPipeVis
+    node: pipe
+  - type: NodeContainer
+    nodes:
+      pipe:
+        !type:PipeNode
+        nodeGroupID: Plumbing
+        pipeDirection: Fourway
+  #- type: Cable
+  #  cableDroppedOnCutPrototype: PlumbingPipeStack
+  #  cableType: HighVoltage
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 70
+      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PlumbingPipeStack:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  #- type: CableVisualizer
+  #  statePrefix: hvcable_
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Transform
+    anchored: true
+    noRot: true
+  # TODO: Remove both of these, same with CollideOnAnchor
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Fixtures
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: CollideOnAnchor
+  - type: Appearance
+  #- type: RCDDeconstructable
+  #  cost: 2
+  #  delay: 0
+  #  fx: EffectRCDConstruct0  
+
+- type: stack
+  id: PlumbingPipe
+  name: plumbing pipe
+  icon: Objects/Specific/Syndicate/telecrystal.rsi
+  spawn: PlumbingPipeStack
+  itemSize: 1
+
+
+- type: entity
+  id: BasePlumbing
+  parent: BaseMachinePowered
+  abstract: true
+  components:
+  - type: Rotatable
+  - type: Transform
+    noRot: false
+  - type: PlumbingInputOutputVisualiser
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    granularLayersRendering: true
+
+
+
+- type: entity
+  id: BasePlumbingOutput
+  abstract: true
+  parent: BasePlumbing
+  name: chemical producer
+  description: ass
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Machines/Plumbing/factory.rsi
+    state: base
+  - type: NodeContainer
+    nodes:
+      output:
+        !type:PipeNode
+        nodeGroupID: Plumbing
+        pipeDirection: South
+
+
+- type: entity
+  id: BasePlumbingInputOutput
+  abstract: true
+  parent: BasePlumbing
+  name: chemical producer
+  description: ass
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Machines/Plumbing/factory.rsi
+    state: base
+  #- type: PlumbingSimpleInput
+  #- type: PlumbingSimpleOutput
+  #- type: SolutionContainerManager
+  #  solutions:
+  #    plumbing_storage_tank:
+  #      maxVol: 100
+  - type: NodeContainer
+    nodes:
+      input:
+        !type:PipeNode
+        nodeGroupID: Plumbing
+        pipeDirection: North
+      output:
+        !type:PipeNode
+        nodeGroupID: Plumbing
+        pipeDirection: South
+
+- type: entity
+  id: PlumbingFactory
+  parent: BasePlumbingOutput
+  name: chemical producer
+  description: makes chemicals
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Machines/Plumbing/factory.rsi
+    state: base
+  - type: PlumbingInfiniteTank
+    reagentId: Water
+  - type: PlumbingSimpleOutput
+    
+
+- type: entity
+  id: PlumbingStorageTank
+  parent: BasePlumbingInputOutput
+  name: chemical tank
+  description: stores chemicals
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Machines/Plumbing/storagetank.rsi
+    state: base
+  - type: SolutionContainerManager
+    solutions:
+      plumbing_storage_tank:
+        maxVol: 400
+  - type: PlumbingInternalTank
+    solution: plumbing_storage_tank
+  - type: ExaminableSolution
+    solution: plumbing_storage_tank
+  - type: PlumbingSimpleInput
+  - type: PlumbingSimpleOutput
+
+
+- type: entity
+  id: PlumbingInputPort
+  parent: BasePlumbingOutput
+  name: chemical input port
+  description: eats chemicals
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Machines/Plumbing/input.rsi
+    state: base
+  - type: ItemSlots
+    slots:
+      plumbingInputPort:
+        ejectOnInteract: true
+  - type: PlumbingSimpleOutput
+    solution: plumbingInputPort
+  - type: PlumbingItemSlotTank
+    slot: plumbingInputPort
+  #- type: ExaminableSolution
+  #  solution: plumbingInputPort
+#- type: NodeContainer
+#nodes:
+#  inlet:
+#    !type:PipeNode
+#    nodeGroupID: Plumbing
+#    pipeDirection: North
