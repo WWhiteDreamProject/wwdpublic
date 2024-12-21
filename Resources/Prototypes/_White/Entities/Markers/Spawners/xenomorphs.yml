@@ -1,0 +1,139 @@
+# XENOMORPHS
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobAlienDrone
+  name: spawn alien drone
+  suffix: Без гост роли
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorph/drone.rsi
+        state: aliend
+  - type: ConditionalSpawner
+    prototypes:
+      - MobAlienDroneDummy
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobAlienSentinel
+  name: spawn alien sentinel
+  suffix: Без гост роли
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorph/sentinel.rsi
+        state: aliens
+  - type: ConditionalSpawner
+    prototypes:
+      - MobAlienSentinelDummy
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobAlienHunter
+  name: spawn alien hunter
+  suffix: Без гост роли
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorph/hunter.rsi
+        state: alienh
+  - type: ConditionalSpawner
+    prototypes:
+      - MobAlienHunterDummy
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobAlienPraetorian
+  name: spawn alien praetorian
+  suffix: Без гост роли
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorph/praetorian.rsi
+        state: alienp
+  - type: ConditionalSpawner
+    prototypes:
+      - MobAlienPraetorianDummy
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobAlienQueen
+  name: spawn alien queen
+  suffix: Без гост роли
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorph/queen.rsi
+        state: alienq
+  - type: ConditionalSpawner
+    prototypes:
+      - MobAlienQueenDummy
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobAlienMaid
+  name: spawn alien maid
+  suffix: Без гост роли
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorph/maid.rsi
+        state: maid
+  - type: ConditionalSpawner
+    prototypes:
+      - MobAlienMaidDummy
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobAlienLarva
+  name: spawn alien larva
+  suffix: Без гост роли
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorph/larva.rsi
+        state: larva2
+  - type: ConditionalSpawner
+    prototypes:
+      - MobAlienLarvaGrowStageThreeDummy
+
+# EGGS
+
+- type: entity
+  parent: MarkerBase
+  id: AlienEggSpawner
+  name: alien egg spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
+      state: egg
+  - type: RandomSpawner
+    prototypes:
+    - AlienEgg
+    chance: 1
+
+- type: entity
+  id: AlienEggSpawnerRandom
+  name: alien egg spawner
+  suffix: 20%
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
+      state: egg
+  - type: RandomSpawner
+    prototypes:
+    - AlienEgg
+    chance: 0.2

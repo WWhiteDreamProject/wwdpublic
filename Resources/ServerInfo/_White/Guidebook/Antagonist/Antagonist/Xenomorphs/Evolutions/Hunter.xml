@@ -1,0 +1,33 @@
+<Document>
+  # Охотник ксеноморфов
+
+  <Box>
+    <GuideEntityEmbed Entity="MobAlienHunter" Caption=""/>
+  </Box>
+  Сильный и маневренный, может охотиться вдали от улья и пожирать своих жертв, чтобы быстро переносить в улей.
+
+  Охотники производят плазму медленно и имеют пониженное количество плазмы. Самый быстрый и сильный физически. Как и о остальных ксеноморфах, о них мало информации.
+
+  ## Особенности
+  
+  - Получает [color=#ff1f1f]на 15% меньше тупого урона, на 20% меньше режущего урона, на 20% больше колотого урона[/color], [color=#ffa500]на 80% больше урона от огня[/color] и [color=#46A446]на 100% меньше урона от яда[/color].
+  - Наносит [color=#ff1f1f]20 режущего урона[/color] и [color=#ffa500]10 структурного урона[/color] своими когтями.
+  - Имеет 205 ХП.
+  - Может вскрывать шлюзы своими лапами.
+  - Может пожирать трупы.
+  - Может прыгать.
+  - Может становиться невидимым.
+  - Обладает термальным зрением.
+  - Содержит до [color=#9400D3]150[/color] плазмы.
+
+  Способности:
+  <Box>
+    <GuideEntityEmbed Entity="XenomorphXRayIcon" Caption=""/>
+    <GuideEntityEmbed Entity="VomitIcon" Caption=""/>
+    <GuideEntityEmbed Entity="XenomorphJumpIcon" Caption=""/>
+    <GuideEntityEmbed Entity="XenomorphStalkIcon" Caption=""/>
+    <GuideEntityEmbed Entity="XenomorphPlasmaTransferIcon" Caption=""/>
+    <GuideEntityEmbed Entity="ActionResinNode" Caption=""/>
+  </Box>
+
+</Document>
