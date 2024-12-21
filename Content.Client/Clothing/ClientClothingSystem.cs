@@ -96,6 +96,15 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         List<PrototypeLayerData>? layers = null;
 
+        // WD EDIT START
+        // body type specific
+        if (TryComp(args.Equipee, out HumanoidAppearanceComponent? humanoid))
+        {
+            var bodyTypeName = _prototype.Index<BodyTypePrototype>(humanoid.BodyType).Name;
+            item.ClothingVisuals.TryGetValue($"{args.Slot}-{bodyTypeName}", out layers);
+        }
+        // WD EDIT END
+
         // first attempt to get species specific data.
         if (inventory.SpeciesId != null)
             item.ClothingVisuals.TryGetValue($"{args.Slot}-{inventory.SpeciesId}", out layers);

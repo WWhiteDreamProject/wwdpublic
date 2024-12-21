@@ -30,6 +30,12 @@
       - state: equipped-FEET
         color: "#1d1d1d"
       - state: soles-equipped-FEET
+      # WD EDIT START
+      shoes-body-slim:
+      - state: equipped-FEET-body-slim
+        color: "#1d1d1d"
+      - state: soles-equipped-FEET-body-slim
+      # WD EDIT END
 
 # White Shoes
 - type: entity
@@ -59,6 +65,12 @@
       - state: equipped-FEET
         color: "#EAE8E8"
       - state: contrastedsoles-equipped-FEET
+      # WD EDIT START
+      shoes-body-slim:
+      - state: equipped-FEET-body-slim
+        color: "#EAE8E8"
+      - state: soles-equipped-FEET-body-slim
+      # WD EDIT END
 
 # Blue Shoes
 - type: entity
@@ -90,6 +102,12 @@
       - state: equipped-FEET
         color: "#0089EF"
       - state: soles-equipped-FEET
+      # WD EDIT START
+      shoes-body-slim:
+      - state: equipped-FEET-body-slim
+        color: "#0089EF"
+      - state: soles-equipped-FEET-body-slim
+      # WD EDIT END
 
 # Brown Shoes
 - type: entity
@@ -121,6 +139,12 @@
       - state: equipped-FEET
         color: "#592D01"
       - state: soles-equipped-FEET
+      # WD EDIT START
+      shoes-body-slim:
+      - state: equipped-FEET-body-slim
+        color: "#592D01"
+      - state: soles-equipped-FEET-body-slim
+      # WD EDIT END
 
 # Green Shoes
 - type: entity
@@ -152,6 +176,12 @@
       - state: equipped-FEET
         color: "#5ABF2F"
       - state: soles-equipped-FEET
+      # WD EDIT START
+      shoes-body-slim:
+      - state: equipped-FEET-body-slim
+        color: "#5ABF2F"
+      - state: soles-equipped-FEET-body-slim
+      # WD EDIT END
 
 # Orange Shoes
 - type: entity
@@ -183,6 +213,12 @@
       - state: equipped-FEET
         color: "#EF8100"
       - state: soles-equipped-FEET
+      # WD EDIT START
+      shoes-body-slim:
+      - state: equipped-FEET-body-slim
+        color: "#EF8100"
+      - state: soles-equipped-FEET-body-slim
+      # WD EDIT END
 
 # Red Shoes
 - type: entity
@@ -214,6 +250,12 @@
       - state: equipped-FEET
         color: "#940000"
       - state: soles-equipped-FEET
+      # WD EDIT START
+      shoes-body-slim:
+      - state: equipped-FEET-body-slim
+        color: "#940000"
+      - state: soles-equipped-FEET-body-slim
+      # WD EDIT END
 
 # Yellow Shoes
 - type: entity
@@ -245,6 +287,12 @@
       - state: equipped-FEET
         color: "#EBE216"
       - state: soles-equipped-FEET
+      # WD EDIT START
+      shoes-body-slim:
+      - state: equipped-FEET-body-slim
+        color: "#EBE216"
+      - state: soles-equipped-FEET-body-slim
+      # WD EDIT END
 
 # Purple Shoes
 - type: entity
@@ -276,3 +324,9 @@
       - state: equipped-FEET
         color: "#9C0DE1"
       - state: soles-equipped-FEET
+      # WD EDIT START
+      shoes-body-slim:
+      - state: equipped-FEET-body-slim
+        color: "#9C0DE1"
+      - state: soles-equipped-FEET-body-slim
+      # WD EDIT END
