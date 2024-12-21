@@ -6,8 +6,8 @@ using Content.Server.Mind;
 using Content.Server._White.AspectsSystem.Aspects.Components;
 using Content.Server._White.AspectsSystem.Base;
 using Content.Server._White.AspectsSystem.Managers;
-using Content.Server.GameTicking.Components;
 using Content.Server.GameTicking.Rules;
+using Content.Shared.GameTicking.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 

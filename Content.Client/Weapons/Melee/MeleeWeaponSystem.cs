@@ -43,6 +43,12 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         UpdatesOutsidePrediction = true;
     }
 
+    public override void FrameUpdate(float frameTime)
+    {
+        base.FrameUpdate(frameTime);
+        UpdateEffects();
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -110,7 +116,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         // Unarmed will try to disarm
         // Melee weapons will wideswing
         // Ranged weapons will do a light attack.
-        if (altDown == BoundKeyState.Down)
+        if (altDown == BoundKeyState.Down && weapon.CanHeavyAttack) // WD EDIT
         {
             // Get the target that was clicked on
             EntityUid? target = null;

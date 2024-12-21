@@ -134,20 +134,17 @@ character-item-group-requirement = You must {$inverted ->
     *[other] have {$max} or less
 } items from the group [color=white]{$group}[/color]
 
-# White Dream
-character-sex-requirement = Your sex must {$inverted ->
-    [true] not be
-    *[other] be
-} a {$sex}
-character-gender-requirement = Your pronouns must {$inverted ->
-    [true] not be
-    *[other] be
-} a {$gender}
-# White Dream
-
 
 ## Whitelist
 character-whitelist-requirement = You must{$inverted ->
     [true]{" "}not
     *[other]{""}
 } be whitelisted
+
+## CVar
+
+character-cvar-requirement = 
+    The server must{$inverted ->
+    [true]{" "}not
+    *[other]{""}
+} have [color={$color}]{$cvar}[/color] set to [color={$color}]{$value}[/color].

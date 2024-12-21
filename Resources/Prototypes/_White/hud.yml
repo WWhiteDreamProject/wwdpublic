@@ -1,0 +1,11 @@
+- type: hudTheme
+  id: SS14OperativeTheme
+  name: ui-options-hud-theme-operative
+  path: /Textures/_White/Interface/Operative/
+  order: 7
+
+- type: hudTheme
+  id: SS14HalloweenTheme
+  name: ui-options-hud-theme-halloween
+  path: /Textures/_White/Interface/Halloween/
+  order: 8

@@ -1,0 +1,84 @@
+# Default
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleDefault
+  suffix: Empty, default
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_default.rsi
+
+# Bluespace
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleBluespace
+  suffix: Empty, bluespace
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_bluespace.rsi
+
+# Cult
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleCult
+  suffix: Empty, cult
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_cult.rsi
+
+# Gondola
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleGondola
+  suffix: Empty, Gondola
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_gondola.rsi
+  - type: Construction
+    node: SupplyPodGondola
+
+# Orange
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleOrange
+  suffix: Empty, orange
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_orange.rsi
+  - type: Construction
+    node: SupplyPodOrange
+
+# Honk
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleHonk
+  suffix: Empty, honk
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_honk.rsi
+
+# NanoTrasen
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleNanoTrasen
+  suffix: Empty, NanoTrasen
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_nanotrasen.rsi
+
+# Squad
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleSquad
+  suffix: Empty, squad
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_squad.rsi
+
+# Syndicate
+- type: entity
+  parent: BaseSupplyPod
+  id: SupplyPodCapsuleSyndicate
+  suffix: Empty, Syndicate
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_syndicate.rsi

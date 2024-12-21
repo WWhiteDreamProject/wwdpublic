@@ -1,3 +1,4 @@
+using Content.Shared._White.TTS;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences; // DeltaV
@@ -31,6 +32,9 @@ public sealed partial class HumanoidAppearanceComponent : Component
 
     [DataField, AutoNetworkedField]
     public int Age = 18;
+
+    [DataField, AutoNetworkedField]
+    public string CustomSpecieName = "";
 
     /// <summary>
     ///     Any custom base layers this humanoid might have. See:
@@ -86,6 +90,12 @@ public sealed partial class HumanoidAppearanceComponent : Component
     public Color? CachedFacialHairColor;
 
     /// <summary>
+    ///     Which layers of this humanoid that should be hidden on equipping a corresponding item..
+    /// </summary>
+    [DataField]
+    public HashSet<HumanoidVisualLayers> HideLayersOnEquip = [HumanoidVisualLayers.Hair];
+
+    /// <summary>
     /// DeltaV - let paradox anomaly be cloned
     /// </summary>
     [ViewVariables]
@@ -102,6 +112,11 @@ public sealed partial class HumanoidAppearanceComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float Width = 1f;
+
+    // WD EDIT START
+    [DataField, AutoNetworkedField]
+    public ProtoId<TTSVoicePrototype> Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice;
+    // WD EDIT END
 }
 
 [DataDefinition]

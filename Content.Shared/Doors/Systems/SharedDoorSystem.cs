@@ -216,7 +216,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
     #region Interactions
     protected void OnActivate(EntityUid uid, DoorComponent door, ActivateInWorldEvent args)
     {
-        if (args.Handled || !door.ClickOpen)
+        if (args.Handled || !args.Complex || !door.ClickOpen)
             return;
 
         if (!TryToggleDoor(uid, door, args.User, predicted: true))
@@ -430,7 +430,11 @@ public abstract partial class SharedDoorSystem : EntitySystem
         if (door.State is DoorState.Welded or DoorState.Closed)
             return false;
 
-        var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck);
+        var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck)
+        {
+            User = user
+        };
+
         RaiseLocalEvent(uid, ev);
         if (ev.Cancelled)
             return false;
@@ -568,6 +572,11 @@ public abstract partial class SharedDoorSystem : EntitySystem
             //For when doors need to close over conveyor belts
             if (otherPhysics.CollisionLayer == (int) CollisionGroup.ConveyorMask)
                 continue;
+
+            // WD EDIT START
+            if (otherPhysics.CollisionLayer == (int) CollisionGroup.MidImpassable)
+                continue;
+            // WD EDIT END
 
             if ((physics.CollisionMask & otherPhysics.CollisionLayer) == 0 && (otherPhysics.CollisionMask & physics.CollisionLayer) == 0)
                 continue;

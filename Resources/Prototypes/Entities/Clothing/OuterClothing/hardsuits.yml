@@ -36,9 +36,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has thermal shielding.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/atmospherics.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/atmospherics.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/atmospherics.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/atmospherics.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -55,17 +55,14 @@
         Heat: 0.2
         Radiation: 0.5
         Caustic: 0.5
-  - type: ClothingSpeedModifier # White Dream: Make almost all hardsuits slow a bit less
-    walkModifier: 0.85
-    sprintModifier: 0.85
+  - type: ClothingSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.7
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitAtmos
-  - type: ReverseEngineering # Nyano
-    difficulty: 5
-    newItem: ClothingOuterHardsuitJuggernautReverseEngineered
-    recipes:
-      - ClothingOuterHardsuitJuggernautReverseEngineered
+  - type: GuideHelp
+    guides: [ HephaestusIndustries ]
 
 #Engineering Hardsuit
 - type: entity
@@ -75,9 +72,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has radiation shielding.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/engineering.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/engineering.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.04
     lowPressureMultiplier: 1000
@@ -102,6 +99,8 @@
     clothingPrototype: ClothingHeadHelmetHardsuitEngineering
   - type: StaminaDamageResistance
     coefficient: 0.75 # 25%
+  - type: GuideHelp
+    guides: [ HephaestusIndustries ]
 
 #Spationaut Hardsuit
 - type: entity
@@ -111,9 +110,9 @@
   description: A lightweight hardsuit designed for industrial EVA in zero gravity.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/spatio.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/spatio.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.7
     lowPressureMultiplier: 1000
@@ -131,6 +130,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSpatio
+  - type: GuideHelp
+    guides: [ HephaestusIndustries ]
 
 #Salvage Hardsuit
 - type: entity
@@ -140,9 +141,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has reinforced plating for wildlife encounters.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/salvage.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/salvage.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -162,6 +163,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
+  - type: GuideHelp
+    guides: [ HephaestusIndustries ]
 
 #Paramedic Voidsuit
 - type: entity
@@ -171,9 +174,9 @@
   description: A hardsuit made for paramedics.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/paramed.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/paramed.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
   - type: TemperatureProtection
     coefficient: 0.1
   - type: PressureProtection
@@ -193,6 +196,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitVoidParamed
+  - type: GuideHelp
+    guides: [ ZengHuPharmaceuticals ]
 
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -224,6 +229,8 @@
     coefficient: 0.001
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMaxim
+  - type: GuideHelp
+    guides: [ HephaestusIndustries ]
 
 #Security Hardsuit
 - type: entity
@@ -233,9 +240,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/security.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/security.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -288,9 +295,9 @@
   description: A specialized riot suit geared to combat low pressure environments.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/security-warden.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/security-warden.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -317,9 +324,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/security-red.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/security-red.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
@@ -346,9 +353,9 @@
   description: A formal armored spacesuit, made for the station's captain.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/capspace.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/capspace.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -370,6 +377,8 @@
     clothingPrototype: ClothingHeadHelmetHardsuitCap
   - type: StaminaDamageResistance
     coefficient: 0.5 # 50%
+  - type: GuideHelp
+    guides: [ NanoTrasen ]
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -379,9 +388,9 @@
   description: A special hardsuit that protects against hazardous, low pressure environments, made for the chief engineer of the station.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/engineering-white.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/engineering-white.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -407,6 +416,8 @@
     - type: SupermatterImmune
   - type: StaminaDamageResistance
     coefficient: 0.65 # 35%
+  - type: GuideHelp
+    guides: [ HephaestusIndustries ]
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -432,18 +443,20 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMedical
+  - type: GuideHelp
+    guides: [ ZengHuPharmaceuticals ]
 
 #Research Director's Hardsuit
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitRd
   name: experimental research hardsuit
-  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor. Able to be compressed to small sizes.
+  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/rd.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/rd.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -476,6 +489,8 @@
     stealGroup: ClothingOuterHardsuitRd
   - type: StaminaDamageResistance
     coefficient: 0.75 # 25% as in "shock resistance" :trollface:
+  - type: GuideHelp
+    guides: [ NanoTrasen ]
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -485,9 +500,9 @@
   description: A refurbished mining hardsuit, fashioned after the Logistics Officer's colors. Graphene lining provides less protection, but is much easier to move. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/luxury.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/luxury.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/luxury.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/luxury.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -507,6 +522,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitLuxury
+  - type: GuideHelp
+    guides: [ HephaestusIndustries ]
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
@@ -517,9 +534,9 @@
   description: A heavily armored hardsuit designed for work in special operations. Property of Gorlex Marauders.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/syndicate.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/syndicate.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -540,11 +557,6 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndie
-  - type: ReverseEngineering # Nyano
-    difficulty: 5
-    newItem: ClothingOuterHardsuitSyndieReverseEngineered
-    recipes:
-      - ClothingOuterHardsuitSyndieReverseEngineered
   - type: Tag
     tags:
     - MonkeyWearable
@@ -581,9 +593,9 @@
   description: An elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Gorlex Marauders.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/syndieelite.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/syndieelite.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -591,6 +603,8 @@
     coefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.2
+  - type: FireProtection
+    reduction: 0.8 # perfect protection like atmos firesuit for pyro tf2 ops
   - type: Armor
     modifiers:
       coefficients:
@@ -617,9 +631,9 @@
   description: A bulked up version of the blood-red hardsuit, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -651,9 +665,9 @@
   description: A suit made by the cutting edge R&D department at cybersun to be hyper resilient.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/cybersun.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/cybersun.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.2
     lowPressureMultiplier: 1000
@@ -909,9 +923,9 @@
   description: An advanced hardsuit favored by commandos for use in special operations.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/deathsquad.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/deathsquad.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -983,9 +997,9 @@
   description: A custom-made clown hardsuit.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Hardsuits/clown.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/clown.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Hardsuits/clown.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Hardsuits/clown.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -1002,9 +1016,9 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
-  #- type: Construction # DeltaV - Prevent clowns from making the hardsuit
-  #   graph: ClownHardsuit
-  #   node: clownHardsuit
+  - type: Construction
+    graph: ClownHardsuit
+    node: clownHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitClown
 
@@ -1019,9 +1033,9 @@
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
-#  - type: Construction # DeltaV - Nuh uh
-#    graph: MimeHardsuit
-#    node: mimeHardsuit
+  - type: Construction
+    graph: MimeHardsuit
+    node: mimeHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMime
 

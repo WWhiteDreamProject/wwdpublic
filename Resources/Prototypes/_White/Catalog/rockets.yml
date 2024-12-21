@@ -1,0 +1,19 @@
+# Rocket, medium explosion
+- type: entity
+  parent: BaseSupplyPodTargetCircle
+  id: RocketMediumExplosionCircle
+  suffix: Explosion, medium
+  components:
+    - type: TimedSpawner
+      prototypes:
+        -  RocketMediumExplosionFallingAnimation
+
+# Syndicate rocket, medium explosion
+- type: entity
+  parent: BaseSupplyPodTargetCircle
+  id: RocketSyndicateMediumExplosionCircle
+  suffix: Explosion, medium
+  components:
+    - type: TimedSpawner
+      prototypes:
+        -  RocketSyndicateMediumExplosionFallingAnimation

@@ -8,12 +8,12 @@
     tags:
     - JawsOfLife
   - type: Sprite
-    sprite: _White/Objects/Tools/jaws_of_life.rsi #WWDP edit
+    sprite: Objects/Tools/jaws_of_life.rsi
     state: jaws_pry
   - type: Item
     size: Normal
   - type: Clothing
-    sprite: _White/Objects/Tools/jaws_of_life.rsi #WWDP edit
+    sprite: Objects/Tools/jaws_of_life.rsi
     quickEquip: false
     slots:
       - Belt
@@ -32,30 +32,40 @@
     entries:
       - behavior: Prying
         sprite:
-          sprite: _White/Objects/Tools/jaws_of_life.rsi #WWDP edit
+          sprite: Objects/Tools/jaws_of_life.rsi
           state: jaws_pry
         useSound: /Audio/Items/jaws_pry.ogg
         changeSound: /Audio/Items/change_jaws.ogg
       - behavior: Cutting
         sprite:
-          sprite: _White/Objects/Tools/jaws_of_life.rsi #WWDP edit
+          sprite: Objects/Tools/jaws_of_life.rsi
           state: jaws_cutter
         useSound: /Audio/Items/jaws_cut.ogg
         changeSound: /Audio/Items/change_jaws.ogg
   - type: MeleeWeapon
     wideAnimationRotation: 90
-    attackRate: 0.75
-    range: 1.75
+    attackRate: 1.17
+    range: 1.65
     damage:
       types:
         Blunt: 10
         Slash: 2
     bluntStaminaDamageFactor: 2.0
-    heavyRateModifier: 0.8
+    heavyRateModifier: 1.25
+    heavyDamageBaseModifier: 1.5
+    heavyStaminaCost: 5
     maxTargets: 1
     angle: 20
     soundHit:
       collection: MetalThud
+  - type: DamageOtherOnHit
+    staminaCost: 7
+  - type: ThrowingAngle
+    angle: 90
+  - type: ReverseEngineering # Delta
+    difficulty: 3
+    recipes:
+      - JawsOfLife
 
 - type: entity
   name: syndicate jaws of life
@@ -64,7 +74,7 @@
   description: Useful for entering the station or its departments.
   components:
   - type: Sprite
-    sprite: _White/Objects/Tools/jaws_of_life.rsi #WWDP edit
+    sprite: Objects/Tools/jaws_of_life.rsi
     state: syn_jaws_pry
   - type: Item
     inhandVisuals:
@@ -81,13 +91,13 @@
     entries:
       - behavior: Prying
         sprite:
-          sprite: _White/Objects/Tools/jaws_of_life.rsi #WWDP edit
+          sprite: Objects/Tools/jaws_of_life.rsi
           state: syn_jaws_pry
         useSound: /Audio/Items/jaws_pry.ogg
         changeSound: /Audio/Items/change_jaws.ogg
       - behavior: Cutting
         sprite:
-          sprite: _White/Objects/Tools/jaws_of_life.rsi #WWDP edit
+          sprite: Objects/Tools/jaws_of_life.rsi
           state: syn_jaws_cutter
         useSound: /Audio/Items/jaws_cut.ogg
         changeSound: /Audio/Items/change_jaws.ogg
@@ -96,3 +106,4 @@
       types:
         Blunt: 12
         Slash: 2
+  - type: DamageOtherOnHit

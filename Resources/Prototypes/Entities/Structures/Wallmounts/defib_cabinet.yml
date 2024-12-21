@@ -10,7 +10,7 @@
     - type: Clickable
     - type: InteractionOutline
     - type: Sprite
-      sprite: _White/Structures/Wallmounts/defib_cabinet.rsi #WWDP edit
+      sprite: Structures/Wallmounts/defib_cabinet.rsi
       noRot: false
       layers:
       - state: frame

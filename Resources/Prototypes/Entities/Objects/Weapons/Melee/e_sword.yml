@@ -35,16 +35,28 @@
       params:
         variation: 0.125
     activatedDamage:
-        types:
-            Slash: 15
-            Heat: 15
-            Structural: 20
+      types:
+        Slash: 15
+        Heat: 15
+        Structural: 20
+  - type: ItemToggleDamageOtherOnHit
+    activatedStaminaCost: 6
+  - type: ItemToggleEmbedPassiveDamage
+  - type: ItemToggleEmbeddableProjectile
+    activatedEmbedOnThrow: true
+  - type: ItemToggleThrowingAngle
+    activatedAngle: 225
+    deleteOnDeactivate: true
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    attackRate: 1
+    attackRate: .8
     damage:
       types:
         Blunt: 4.5
+  - type: DamageOtherOnHit
+  - type: EmbeddableProjectile
+    embedOnThrow: false
+  - type: EmbedPassiveDamage
   - type: UseDelay
     delay: 1.0
   - type: PointLight
@@ -65,8 +77,24 @@
         shader: unshaded
   - type: DisarmMalus
     malus: 0
+  - type: Reflect
+    enabled: false
+  - type: Tag
+    tags:
+    - NoPaint
   - type: IgnitionSource
     temperature: 700
+  - type: Scalpel
+    speed: 0.75
+  - type: Cautery
+    speed: 0.2
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/Weapons/ebladehum.ogg
+    endSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
   - type: MeleeBlock # WD EDIT
     delay: 6.1
     blockSound:
@@ -81,20 +109,21 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword.rsi
     layers:
-      - state: e_sword
-      - state: e_sword_blade
-        color: "#FFFFFF"
-        visible: false
-        shader: unshaded
-        map: [ "blade" ]
+    - state: e_sword
+    - state: e_sword_blade
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
   - type: Item
     size: Small
     sprite: DeltaV/Objects/Weapons/Melee/e_sword.rsi # Delta-V
   - type: Reflect # WD EDIT
     reflectProb: .5
+    minReflectProb: 0.25
     spread: 75
     reflects:
-      - Energy #DeltaV:
+    - Energy #DeltaV:
   - type: Construction # WD EDIT
     deconstructionTarget: null
     graph: EnergyDoubleSwordGraph
@@ -102,6 +131,19 @@
   - type: Tag # WD EDIT
     tags:
     - EnergySword
+
+- type: entity
+  name: antique energy sword
+  parent: EnergySword
+  id: EnergySwordHoS
+  description: An elegant weapon fit for a prince, this otherwise plain silver hilt is engraved with, "My Love".
+  components:
+  - type: EnergySword
+    activatedColor: "#00CCFF"
+    colorOptions:
+    - "#00CCFF"
+  - type: StealTarget
+    stealGroup: HoSAntiqueWeapon
 
 - type: entity
   name: pen
@@ -113,12 +155,12 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_dagger.rsi
     layers:
-      - state: e_sword
-      - state: e_sword_blade
-        color: "#FFFFFF"
-        visible: false
-        shader: unshaded
-        map: [ "blade" ]
+    - state: e_sword
+    - state: e_sword_blade
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/e_dagger.rsi
@@ -138,9 +180,9 @@
         volume: -6
         variation: 0.250
     activatedDamage:
-        types:
-            Slash: 4
-            Heat: 8
+      types:
+        Slash: 4
+        Heat: 8
     deactivatedSecret: true
   - type: ItemToggleActiveSound
     activeSound:
@@ -160,7 +202,9 @@
     reflectProb: .25
     spread: 75
     reflects:
-      - Energy
+    - Energy
+  - type: UseDelay
+    delay: 1.0
   - type: PointLight
     enabled: false
     radius: 1.5
@@ -171,6 +215,9 @@
   - type: Tag
     tags:
     - Write
+    - NoPaint
+  - type: DisarmMalus
+    malus: 0
   - type: MeleeBlock # WD EDIT
     delay: 12.1
 
@@ -201,20 +248,20 @@
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi # DeltaV
     layers:
-      - state: e_cutlass
-      - state: e_cutlass_blade
-        color: "#e95151"
-        visible: false
-        shader: unshaded
-        map: [ "blade" ]
+    - state: e_cutlass
+    - state: e_cutlass_blade
+      color: "#e95151"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
   - type: Item
     size: Small
     sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi #DeltaV
   - type: ItemToggleMeleeWeapon
     activatedDamage:
-        types:
-            Slash: 10
-            Heat: 12
+      types:
+        Slash: 10
+        Heat: 12
     deactivatedSecret: true
   - type: MeleeWeapon # DeltaV - reduced attack rate of e-cutlass; slower, more brutal swings
     attackRate: 0.75
@@ -228,17 +275,17 @@
   name: double-bladed energy sword
   parent: EnergySwordBase
   id: EnergySwordDouble
-  description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. This can be stored in pockets.
+  description: Syndicate Command's intern thought that having only one blade on energy swords was not cool enough. This can be stored in pockets.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword_double.rsi
     layers:
-      - state: e_sword_double
-      - state: e_sword_double_blade
-        color: "#FFFFFF"
-        visible: false
-        shader: unshaded
-        map: [ "blade" ]
+    - state: e_sword_double
+    - state: e_sword_double_blade
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
   - type: Item
     size: Small
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
@@ -250,9 +297,10 @@
         Heat: 15
   - type: Reflect # WD EDIT
     reflectProb: 1
+    minReflectProb: .65
     spread: 75
     reflects:
-      - Energy
+    - Energy
   - type: ToggleableWielded # WD EDIT
   - type: MeleeBlock # WD EDIT
     delay: 3.1

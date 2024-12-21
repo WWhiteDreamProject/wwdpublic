@@ -1,15 +1,22 @@
+using System.Numerics;
 using Content.Server.Chemistry.Containers.EntitySystems;
+using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Coordinates;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Maps;
+using Content.Shared.Physics;
 using Content.Shared.Timing;
+using Content.Shared.Tools.Components;
 using Content.Shared.Weapons.Melee;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -28,13 +35,17 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
     [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!; // WD EDIT
+    [Dependency] private readonly EntityLookupSystem _lookup = default!; // WD EDIT
+
+    public const float AbsorptionRange = 0.25f; // WD EDIT
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<AbsorbentComponent, ComponentInit>(OnAbsorbentInit);
         SubscribeLocalEvent<AbsorbentComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<AbsorbentComponent, InteractNoHandEvent>(OnInteractNoHand);
+        SubscribeLocalEvent<AbsorbentComponent, UserActivateInWorldEvent>(OnActivateInWorld);
         SubscribeLocalEvent<AbsorbentComponent, SolutionContainerChangedEvent>(OnAbsorbentSolutionChange);
     }
 
@@ -84,25 +95,25 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
         Dirty(uid, component);
     }
 
-    private void OnInteractNoHand(EntityUid uid, AbsorbentComponent component, InteractNoHandEvent args)
+    private void OnActivateInWorld(EntityUid uid, AbsorbentComponent component, UserActivateInWorldEvent args)
     {
-        if (args.Handled || args.Target == null)
+        if (args.Handled)
             return;
 
-        Mop(uid, args.Target.Value, uid, component);
+        Mop(uid, uid, component, args.Target.ToCoordinates(), args.Target); // WD EDIT
         args.Handled = true;
     }
 
     private void OnAfterInteract(EntityUid uid, AbsorbentComponent component, AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Handled || args.Target == null)
+        if (!args.CanReach || args.Handled)
             return;
 
-        Mop(args.User, args.Target.Value, args.Used, component);
+        Mop(args.User, args.Used, component, args.ClickLocation, args.Target);
         args.Handled = true;
     }
 
-    public void Mop(EntityUid user, EntityUid target, EntityUid used, AbsorbentComponent component)
+    public void Mop(EntityUid user, EntityUid used, AbsorbentComponent component, EntityCoordinates coordinates, EntityUid? target = null)
     {
         if (!_solutionContainerSystem.TryGetSolution(used, AbsorbentComponent.SolutionName, out var absorberSoln))
             return;
@@ -112,18 +123,20 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
             return;
 
         // If it's a puddle try to grab from
-        if (!TryPuddleInteract(user, used, target, component, useDelay, absorberSoln.Value))
-        {
-            // If it's refillable try to transfer
-            if (!TryRefillableInteract(user, used, target, component, useDelay, absorberSoln.Value))
-                return;
-        }
+        if (TryPuddleInteract(user, used, component, useDelay, absorberSoln.Value, coordinates))
+            return;
+
+        // If it's refillable try to transfer
+        if (!target.HasValue)
+            return;
+
+        TryRefillableInteract(user, used, target.Value, component, useDelay, absorberSoln.Value);
     }
 
     /// <summary>
     ///     Logic for an absorbing entity interacting with a refillable.
     /// </summary>
-    private bool TryRefillableInteract(EntityUid user, EntityUid used, EntityUid target, AbsorbentComponent component, UseDelayComponent? useDelay, Entity<SolutionComponent> absorbentSoln)
+    public bool TryRefillableInteract(EntityUid user, EntityUid used, EntityUid target, AbsorbentComponent component, UseDelayComponent? useDelay, Entity<SolutionComponent> absorbentSoln)
     {
         if (!TryComp(target, out RefillableSolutionComponent? refillable))
             return false;
@@ -267,57 +280,70 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
     /// <summary>
     ///     Logic for an absorbing entity interacting with a puddle.
     /// </summary>
-    private bool TryPuddleInteract(EntityUid user, EntityUid used, EntityUid target, AbsorbentComponent absorber, UseDelayComponent? useDelay, Entity<SolutionComponent> absorberSoln)
+    private bool TryPuddleInteract(EntityUid user, EntityUid used, AbsorbentComponent absorber, UseDelayComponent? useDelay, Entity<SolutionComponent> absorberSoln, EntityCoordinates coordinates)
     {
-        if (!TryComp(target, out PuddleComponent? puddle))
+        // WD EDIT START
+        if (!_mapManager.TryFindGridAt(coordinates.ToMap(EntityManager, _transform), out var gridUid, out var mapGrid))
             return false;
 
-        if (!_solutionContainerSystem.ResolveSolution(target, puddle.SolutionName, ref puddle.Solution, out var puddleSolution) || puddleSolution.Volume <= 0)
+        var tileRef = _mapSystem.GetTileRef(gridUid, mapGrid, coordinates);
+        var tile = new EntityCoordinates(coordinates.EntityId, new (tileRef.X + 0.5f, tileRef.Y + 0.5f));
+        var targets = new HashSet<Entity<PuddleComponent>>();
+        _lookup.GetEntitiesInRange(tile, AbsorptionRange, targets, LookupFlags.Dynamic | LookupFlags.Uncontained);
+
+        if (targets.Count == 0)
             return false;
 
-        // Check if the puddle has any non-evaporative reagents
-        if (_puddleSystem.CanFullyEvaporate(puddleSolution))
+        var playSound = false;
+        // WD EDIT END
+
+        foreach (var (entity, component) in targets) // WD EDIT
         {
-            _popups.PopupEntity(Loc.GetString("mopping-system-puddle-evaporate", ("target", target)), user, user);
-            return true;
-        }
+            if (!_solutionContainerSystem.ResolveSolution(entity, component.SolutionName, ref component.Solution, out var puddleSolution) || puddleSolution.Volume <= 0)
+                continue;
 
-        // Check if we have any evaporative reagents on our absorber to transfer
-        var absorberSolution = absorberSoln.Comp.Solution;
-        var available = absorberSolution.GetTotalPrototypeQuantity(PuddleSystem.EvaporationReagents);
+            // Check if the puddle has any non-evaporative reagents
+            if (_puddleSystem.CanFullyEvaporate(puddleSolution))
+                continue;
 
-        // No material
-        if (available == FixedPoint2.Zero)
-        {
-            _popups.PopupEntity(Loc.GetString("mopping-system-no-water", ("used", used)), user, user);
-            return true;
-        }
+            // Check if we have any evaporative reagents on our absorber to transfer
+            var absorberSolution = absorberSoln.Comp.Solution;
+            var available = absorberSolution.GetTotalPrototypeQuantity(PuddleSystem.EvaporationReagents);
 
-        var transferMax = absorber.PickupAmount;
-        var transferAmount = available > transferMax ? transferMax : available;
+            // No material
+            if (available == FixedPoint2.Zero)
+            {
+                _popups.PopupEntity(Loc.GetString("mopping-system-no-water", ("used", used)), user, user);
+                break;
+            }
 
-        var puddleSplit = puddleSolution.SplitSolutionWithout(transferAmount, PuddleSystem.EvaporationReagents);
-        var absorberSplit = absorberSolution.SplitSolutionWithOnly(puddleSplit.Volume, PuddleSystem.EvaporationReagents);
+            var transferMax = absorber.PickupAmount;
+            var transferAmount = available > transferMax ? transferMax : available;
 
-        // Do tile reactions first
-        var transform = Transform(target);
-        var gridUid = transform.GridUid;
-        if (TryComp(gridUid, out MapGridComponent? mapGrid))
-        {
-            var tileRef = _mapSystem.GetTileRef(gridUid.Value, mapGrid, transform.Coordinates);
+            var puddleSplit = puddleSolution.SplitSolutionWithout(transferAmount, PuddleSystem.EvaporationReagents);
+            var absorberSplit = absorberSolution.SplitSolutionWithOnly(puddleSplit.Volume, PuddleSystem.EvaporationReagents);
+
+            // Do tile reactions first
             _puddleSystem.DoTileReactions(tileRef, absorberSplit);
+
+            _solutionContainerSystem.AddSolution(component.Solution.Value, absorberSplit);
+            _solutionContainerSystem.AddSolution(absorberSoln, puddleSplit);
+
+            playSound = true; // WD EDIT
         }
 
-        _solutionContainerSystem.AddSolution(puddle.Solution.Value, absorberSplit);
-        _solutionContainerSystem.AddSolution(absorberSoln, puddleSplit);
+        // WD EDIT START
+        if (!playSound)
+            return false;
+        // WD EDIT END
+        _audio.PlayPvs(absorber.PickupSound, used);
 
-        _audio.PlayPvs(absorber.PickupSound, target);
         if (useDelay != null)
             _useDelay.TryResetDelay((used, useDelay));
 
         var userXform = Transform(user);
-        var targetPos = _transform.GetWorldPosition(target);
-        var localPos = _transform.GetInvWorldMatrix(userXform).Transform(targetPos);
+        var targetPos = tile.Position; // WD EDIT
+        var localPos = Vector2.Transform(targetPos, _transform.GetInvWorldMatrix(userXform));
         localPos = userXform.LocalRotation.RotateVec(localPos);
 
         _melee.DoLunge(user, used, Angle.Zero, localPos, null, false);

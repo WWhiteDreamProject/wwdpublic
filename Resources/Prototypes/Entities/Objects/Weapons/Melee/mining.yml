@@ -55,6 +55,8 @@
     angle: 120
     soundHit:
       collection: MetalThud
+  - type: DamageOtherOnHit
+    staminaCost: 8
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
@@ -93,6 +95,12 @@
     heavyStaminaCost: 5
     maxTargets: 2
     angle: 20
+  - type: DamageOtherOnHit
+    staminaCost: 5
+  - type: EmbeddableProjectile
+  - type: EmbedPassiveDamage
+  - type: ThrowingAngle
+    angle: 225
   - type: Tag
     tags:
     - Knife
@@ -111,6 +119,10 @@
       groups:
         Brute: -21
   - type: MeleeWeapon
+  - type: EmbeddableProjectile
+  - type: EmbedPassiveDamage
+  - type: ThrowingAngle
+    angle: 225
   - type: Tag
     tags:
       - Pickaxe

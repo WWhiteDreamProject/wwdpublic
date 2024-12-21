@@ -191,6 +191,7 @@
   parent: BaseWall
   id: WallCult
   name: cult wall
+  description: Keeps the cult in and the crew out.
   components:
   - type: Tag
     tags:
@@ -215,6 +216,9 @@
   - type: IconSmooth
     key: walls
     base: cult
+  - type: Construction
+    graph: CultGirder
+    node: wall
 
 - type: entity
   parent: BaseWall
@@ -514,9 +518,9 @@
   name: reinforced wall
   components:
   - type: Sprite
-    sprite: _White/Structures/Walls/solid.rsi #WWDP edit
+    sprite: Structures/Walls/solid.rsi
   - type: Icon
-    sprite: _White/Structures/Walls/solid.rsi #WWDP edit
+    sprite: Structures/Walls/solid.rsi
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -549,8 +553,6 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
-    destroySound:
-      collection: MetalBreak
   - type: IconSmooth
     key: walls
     base: reinf_over
@@ -579,9 +581,9 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: _White/Structures/Walls/solid_rust.rsi  #WWDP edit
+    sprite: Structures/Walls/solid_rust.rsi 
   - type: Icon
-    sprite: _White/Structures/Walls/solid_rust.rsi  #WWDP edit
+    sprite: Structures/Walls/solid_rust.rsi 
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -806,8 +808,6 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
-    destroySound:
-      collection: MetalBreak
   - type: Construction
     graph: Girder
     node: diagonalshuttleWall
@@ -821,9 +821,9 @@
     tags:
       - Wall
   - type: Sprite
-    sprite: _White/Structures/Walls/shuttle.rsi  #WWDP edit
+    sprite: Structures/Walls/shuttle.rsi 
   - type: Icon
-    sprite: _White/Structures/Walls/shuttle.rsi  #WWDP edit
+    sprite: Structures/Walls/shuttle.rsi 
     state: full
 #  - type: Destructible
 #    thresholds:
@@ -862,13 +862,13 @@
     tags:
       - Wall
   - type: Sprite
-    sprite: _White/Structures/Walls/solid.rsi  #WWDP edit
+    sprite: Structures/Walls/solid.rsi 
   - type: WallReplacementMarker
   - type: Construction
     graph: Girder
     node: wall
   - type: Icon
-    sprite: _White/Structures/Walls/solid.rsi  #WWDP edit
+    sprite: Structures/Walls/solid.rsi 
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -911,14 +911,14 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: _White/Structures/Walls/solid_diagonal.rsi  #WWDP edit
+    sprite: Structures/Walls/solid_diagonal.rsi 
     state: state0
   - type: IconSmooth
     mode: Diagonal
     key: walls
     base: state
   - type: Icon
-    sprite: _White/Structures/Walls/solid_diagonal.rsi  #WWDP edit
+    sprite: Structures/Walls/solid_diagonal.rsi 
     state: state0
 
 - type: entity
@@ -928,9 +928,9 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: _White/Structures/Walls/solid_rust.rsi  #WWDP edit
+    sprite: Structures/Walls/solid_rust.rsi 
   - type: Icon
-    sprite: _White/Structures/Walls/solid_rust.rsi  #WWDP edit
+    sprite: Structures/Walls/solid_rust.rsi 
     state: full
   - type: Construction
     graph: Girder
@@ -985,9 +985,9 @@
   name: wood wall
   components:
   - type: Sprite
-    sprite: _White/Structures/Walls/wood.rsi #WWDP edit
+    sprite: Structures/Walls/wood.rsi
   - type: Icon
-    sprite: _White/Structures/Walls/wood.rsi #WWDP edit
+    sprite: Structures/Walls/wood.rsi
   - type: Construction
     graph: Girder
     node: woodWall
@@ -1212,7 +1212,7 @@
   name: force wall
   components:
     - type: TimedDespawn
-      lifetime: 20
+      lifetime: 12
     - type: Tag
       tags:
         - Wall

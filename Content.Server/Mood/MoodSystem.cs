@@ -32,15 +32,6 @@ public sealed class MoodSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
 
-#if RELEASE
-    // Disable Mood for tests, because of a stupid race condition where if it spawns an Urist McHarpy,
-    // the Harpy will choke during the test, creating a mood alert.
-    // And then cause a debug assert.
-    private bool _debugMode;
-#else
-    private bool _debugMode = true;
-#endif
-
 
     public override void Initialize()
     {
@@ -53,18 +44,14 @@ public sealed class MoodSystem : EntitySystem
         SubscribeLocalEvent<MoodComponent, DamageChangedEvent>(OnDamageChange);
         SubscribeLocalEvent<MoodComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
         SubscribeLocalEvent<MoodComponent, MoodRemoveEffectEvent>(OnRemoveEffect);
-
-        SubscribeLocalEvent<MoodModifyTraitComponent, ComponentStartup>(OnTraitStartup);
     }
 
-    private void OnShutdown(EntityUid uid, MoodComponent component, ComponentShutdown args)
-    {
-        _alerts.ClearAlertCategory(uid, AlertCategory.Mood);
-    }
+    private void OnShutdown(EntityUid uid, MoodComponent component, ComponentShutdown args) =>
+        _alerts.ClearAlertCategory(uid, component.MoodCategory);
 
     private void OnRemoveEffect(EntityUid uid, MoodComponent component, MoodRemoveEffectEvent args)
     {
-        if (_debugMode)
+        if (!_config.GetCVar(CCVars.MoodEnabled))
             return;
 
         if (component.UncategorisedEffects.TryGetValue(args.EffectId, out _))
@@ -80,7 +67,7 @@ public sealed class MoodSystem : EntitySystem
 
     private void OnRefreshMoveSpeed(EntityUid uid, MoodComponent component, RefreshMovementSpeedModifiersEvent args)
     {
-        if (_debugMode
+        if (!_config.GetCVar(CCVars.MoodEnabled)
             || component.CurrentMoodThreshold is > MoodThreshold.Meh and < MoodThreshold.Good or MoodThreshold.Dead
             || _jetpack.IsUserFlying(uid))
             return;
@@ -101,18 +88,9 @@ public sealed class MoodSystem : EntitySystem
         args.ModifySpeed(1, modifier);
     }
 
-    private void OnTraitStartup(EntityUid uid, MoodModifyTraitComponent component, ComponentStartup args)
-    {
-        if (_debugMode
-            || component.MoodId is null)
-            return;
-
-        RaiseLocalEvent(uid, new MoodEffectEvent($"{component.MoodId}"));
-    }
-
     private void OnMoodEffect(EntityUid uid, MoodComponent component, MoodEffectEvent args)
     {
-        if (_debugMode
+        if (!_config.GetCVar(CCVars.MoodEnabled)
             || !_config.GetCVar(CCVars.MoodEnabled)
             || !_prototypeManager.TryIndex<MoodEffectPrototype>(args.EffectId, out var prototype) )
             return;
@@ -133,16 +111,15 @@ public sealed class MoodSystem : EntitySystem
                 if (!_prototypeManager.TryIndex<MoodEffectPrototype>(oldPrototypeId, out var oldPrototype))
                     return;
 
-                if (prototype.ID != oldPrototype.ID)
-                {
+                // Don't send the moodlet popup if we already have the moodlet.
+                if (!component.CategorisedEffects.ContainsValue(prototype.ID))
                     SendEffectText(uid, prototype);
+
+                if (prototype.ID != oldPrototype.ID)
                     component.CategorisedEffects[prototype.Category] = prototype.ID;
-                }
             }
             else
-            {
                 component.CategorisedEffects.Add(prototype.Category, prototype.ID);
-            }
 
             if (prototype.Timeout != 0)
                 Timer.Spawn(TimeSpan.FromSeconds(prototype.Timeout), () => RemoveTimedOutEffect(uid, prototype.ID, prototype.Category));
@@ -157,7 +134,10 @@ public sealed class MoodSystem : EntitySystem
             if (moodChange == 0)
                 return;
 
-            SendEffectText(uid, prototype);
+            // Don't send the moodlet popup if we already have the moodlet.
+            if (!component.UncategorisedEffects.ContainsKey(prototype.ID))
+                SendEffectText(uid, prototype);
+
             component.UncategorisedEffects.Add(prototype.ID, moodChange);
 
             if (prototype.Timeout != 0)
@@ -195,12 +175,31 @@ public sealed class MoodSystem : EntitySystem
             comp.CategorisedEffects.Remove(category);
         }
 
+        ReplaceMood(uid, prototypeId);
         RefreshMood(uid, comp);
+    }
+
+    /// <summary>
+    ///     Some moods specifically create a moodlet upon expiration. This is normally used for "Addiction" type moodlets,
+    ///     such as a positive moodlet from an addictive substance that becomes a negative moodlet when a timer ends.
+    /// </summary>
+    /// <remarks>
+    ///     Moodlets that use this should probably also share a category with each other, but this isn't necessarily required.
+    ///     Only if you intend that "Re-using the drug" should also remove the negative moodlet.
+    /// </remarks>
+    private void ReplaceMood(EntityUid uid, string prototypeId)
+    {
+        if (!_prototypeManager.TryIndex<MoodEffectPrototype>(prototypeId, out var proto)
+            || proto.MoodletOnEnd is null)
+            return;
+
+        var ev = new MoodEffectEvent(proto.MoodletOnEnd);
+        EntityManager.EventBus.RaiseLocalEvent(uid, ev);
     }
 
     private void OnMobStateChanged(EntityUid uid, MoodComponent component, MobStateChangedEvent args)
     {
-        if (_debugMode)
+        if (!_config.GetCVar(CCVars.MoodEnabled))
             return;
 
         if (args.NewMobState == MobState.Dead && args.OldMobState != MobState.Dead)
@@ -239,10 +238,11 @@ public sealed class MoodSystem : EntitySystem
 
     private void OnInit(EntityUid uid, MoodComponent component, ComponentStartup args)
     {
-        if (_debugMode)
+        if (!_config.GetCVar(CCVars.MoodEnabled))
             return;
 
-        if (TryComp<MobThresholdsComponent>(uid, out var mobThresholdsComponent)
+        if (_config.GetCVar(CCVars.MoodModifiesThresholds)
+            && TryComp<MobThresholdsComponent>(uid, out var mobThresholdsComponent)
             && _mobThreshold.TryGetThresholdForState(uid, MobState.Critical, out var critThreshold, mobThresholdsComponent))
             component.CritThresholdBeforeModify = critThreshold.Value;
 
@@ -263,15 +263,14 @@ public sealed class MoodSystem : EntitySystem
 
         if (ev.Cancelled)
             return;
-        else
-        {
-            uid = ev.Receiver;
-            amount = ev.MoodChangedAmount;
-        }
+
+        uid = ev.Receiver;
+        amount = ev.MoodChangedAmount;
 
         var newMoodLevel = amount + neutral;
         if (!force)
-            newMoodLevel = Math.Clamp(amount + neutral,
+            newMoodLevel = Math.Clamp(
+                amount + neutral,
                 component.MoodThresholds[MoodThreshold.Dead],
                 component.MoodThresholds[MoodThreshold.Perfect]);
 
@@ -320,7 +319,7 @@ public sealed class MoodSystem : EntitySystem
         if (component.MoodThresholdsAlerts.TryGetValue(component.CurrentMoodThreshold, out var alertId))
             _alerts.ShowAlert(uid, alertId);
         else
-            _alerts.ClearAlertCategory(uid, AlertCategory.Mood);
+            _alerts.ClearAlertCategory(uid, component.MoodCategory);
 
         component.LastThreshold = component.CurrentMoodThreshold;
     }
@@ -335,7 +334,8 @@ public sealed class MoodSystem : EntitySystem
 
     private void SetCritThreshold(EntityUid uid, MoodComponent component, int modifier)
     {
-        if (!TryComp<MobThresholdsComponent>(uid, out var mobThresholds)
+        if (!_config.GetCVar(CCVars.MoodModifiesThresholds)
+            || !TryComp<MobThresholdsComponent>(uid, out var mobThresholds)
             || !_mobThreshold.TryGetThresholdForState(uid, MobState.Critical, out var key))
             return;
 
@@ -343,7 +343,7 @@ public sealed class MoodSystem : EntitySystem
         {
             1 => FixedPoint2.New(key.Value.Float() * component.IncreaseCritThreshold),
             -1 => FixedPoint2.New(key.Value.Float() * component.DecreaseCritThreshold),
-            _ => component.CritThresholdBeforeModify
+            _ => component.CritThresholdBeforeModify,
         };
 
         component.CritThresholdBeforeModify = key.Value;
@@ -366,15 +366,13 @@ public sealed class MoodSystem : EntitySystem
         return result;
     }
 
-    private int GetMovementThreshold(MoodThreshold threshold)
-    {
-        return threshold switch
+    private int GetMovementThreshold(MoodThreshold threshold) =>
+        threshold switch
         {
             >= MoodThreshold.Good => 1,
             <= MoodThreshold.Meh => -1,
-            _ => 0
+            _ => 0,
         };
-    }
 
     private void OnDamageChange(EntityUid uid, MoodComponent component, DamageChangedEvent args)
     {
@@ -396,8 +394,7 @@ public sealed class MoodSystem : EntitySystem
     }
 }
 
-[UsedImplicitly]
-[DataDefinition]
+[UsedImplicitly, DataDefinition]
 public sealed partial class ShowMoodEffects : IAlertClick
 {
     public void AlertClicked(EntityUid uid)
@@ -409,8 +406,7 @@ public sealed partial class ShowMoodEffects : IAlertClick
 
         if (!entityManager.TryGetComponent<MoodComponent>(uid, out var comp)
             || comp.CurrentMoodThreshold == MoodThreshold.Dead
-            || !playerManager.TryGetSessionByEntity(uid, out var session)
-            || session == null)
+            || !playerManager.TryGetSessionByEntity(uid, out var session))
             return;
 
         var msgStart = Loc.GetString("mood-show-effects-start");
@@ -438,15 +434,17 @@ public sealed partial class ShowMoodEffects : IAlertClick
 
     private void SendDescToChat(MoodEffectPrototype proto, ICommonSession session)
     {
-        if (session == null)
-            return;
-
         var chatManager = IoCManager.Resolve<IChatManager>();
 
         var color = (proto.MoodChange > 0) ? "#008000" : "#BA0000";
         var msg = $"[font size=10][color={color}]{proto.Description}[/color][/font]";
 
-        chatManager.ChatMessageToOne(ChatChannel.Emotes, msg, msg, EntityUid.Invalid, false,
+        chatManager.ChatMessageToOne(
+            ChatChannel.Emotes,
+            msg,
+            msg,
+            EntityUid.Invalid,
+            false,
             session.Channel);
     }
 }

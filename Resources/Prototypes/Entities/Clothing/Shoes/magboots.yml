@@ -5,12 +5,12 @@
   description: Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle.
   components:
     - type: Sprite
-      sprite: _White/Clothing/Shoes/Boots/magboots.rsi #WWDP edit
+      sprite: Clothing/Shoes/Boots/magboots.rsi
       layers:
       - state: icon
         map: [ "enum.ToggleVisuals.Layer" ]
     - type: Clothing
-      sprite: _White/Clothing/Shoes/Boots/magboots.rsi #WWDP edit
+      sprite: Clothing/Shoes/Boots/magboots.rsi
     - type: Magboots
     - type: ClothingSpeedModifier
       walkModifier: 0.85
@@ -28,6 +28,18 @@
     - type: Tag
       tags:
       - WhitelistChameleon
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - ClothingShoesBootsMag
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Blunt: 9
+      staminaCost: 11.5
+      soundHit:
+        path: /Audio/Weapons/smash.ogg
+
 
 - type: entity
   parent: ClothingShoesBootsMag
@@ -36,10 +48,10 @@
   description: State-of-the-art magnetic boots that do not slow down their wearer.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Shoes/Boots/magboots-advanced.rsi #WWDP edit
+    sprite: Clothing/Shoes/Boots/magboots-advanced.rsi
     state: icon
   - type: Clothing
-    sprite: _White/Clothing/Shoes/Boots/magboots-advanced.rsi #WWDP edit
+    sprite: Clothing/Shoes/Boots/magboots-advanced.rsi
   - type: Magboots
     toggleAction: ActionToggleMagbootsAdvanced
   - type: ClothingSpeedModifier
@@ -55,6 +67,11 @@
     price: 750
   - type: StealTarget
     stealGroup: ClothingShoesBootsMagAdv
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 13
+    staminaCost: 15
 
 - type: entity
   parent: ClothingShoesBootsMag
@@ -87,10 +104,10 @@
   description: Reverse-engineered magnetic boots that have a heavy magnetic pull and integrated thrusters.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Shoes/Boots/magboots-syndicate.rsi #WWDP edit
+    sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
     state: icon
   - type: Clothing
-    sprite: _White/Clothing/Shoes/Boots/magboots-syndicate.rsi #WWDP edit
+    sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
   - type: Magboots
     toggleAction: ActionToggleMagbootsSyndie
   - type: ClothingSpeedModifier
@@ -110,7 +127,7 @@
     key: enum.SharedGasTankUiKey.Key
   - type: UserInterface
     interfaces:
-      - key: enum.SharedGasTankUiKey.Key
+      enum.SharedGasTankUiKey.Key:
         type: GasTankBoundUserInterface
   - type: Explosive
     explosionType: Default
@@ -127,12 +144,19 @@
   - type: Tag
     tags:
       - WhitelistChameleon
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 20
+    staminaCost: 25
+    soundHit:
+      collection: MetalThud
 
 - type: entity
   id: ActionBaseToggleMagboots
   name: Toggle Magboots
   description: Toggles the magboots on and off.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     itemIconStyle: NoItem
@@ -141,25 +165,25 @@
 - type: entity
   id: ActionToggleMagboots
   parent: ActionBaseToggleMagboots
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    icon: { sprite: _White/Clothing/Shoes/Boots/magboots.rsi, state: icon }  #WWDP edit
-    iconOn: { sprite : _White/Clothing/Shoes/Boots/magboots.rsi, state: icon-on }  #WWDP edit
+    icon: { sprite: Clothing/Shoes/Boots/magboots.rsi, state: icon } 
+    iconOn: { sprite : Clothing/Shoes/Boots/magboots.rsi, state: icon-on } 
 
 - type: entity
   id: ActionToggleMagbootsAdvanced
   parent: ActionBaseToggleMagboots
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    icon: { sprite: _White/Clothing/Shoes/Boots/magboots-advanced.rsi, state: icon }  #WWDP edit
-    iconOn: _White/Clothing/Shoes/Boots/magboots-advanced.rsi/icon-on.png  #WWDP edit
+    icon: { sprite: Clothing/Shoes/Boots/magboots-advanced.rsi, state: icon } 
+    iconOn: Clothing/Shoes/Boots/magboots-advanced.rsi/icon-on.png 
 
 - type: entity
   id: ActionToggleMagbootsSci
   parent: ActionBaseToggleMagboots
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon: { sprite: Clothing/Shoes/Boots/magboots-science.rsi, state: icon }
@@ -168,8 +192,8 @@
 - type: entity
   id: ActionToggleMagbootsSyndie
   parent: ActionBaseToggleMagboots
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    icon: { sprite: _White/Clothing/Shoes/Boots/magboots-syndicate.rsi, state: icon }  #WWDP edit
-    iconOn: _White/Clothing/Shoes/Boots/magboots-syndicate.rsi/icon-on.png  #WWDP edit
+    icon: { sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi, state: icon } 
+    iconOn: Clothing/Shoes/Boots/magboots-syndicate.rsi/icon-on.png 

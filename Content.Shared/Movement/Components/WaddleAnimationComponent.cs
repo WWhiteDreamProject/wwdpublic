@@ -1,26 +1,19 @@
 ﻿using System.Numerics;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Movement.Components;
 
+// WD EDIT START
 /// <summary>
 /// Declares that an entity has started to waddle like a duck/clown.
 /// </summary>
-/// <param name="Entity">The newly be-waddled.</param>
-[ByRefEvent]
-public record struct StartedWaddlingEvent(EntityUid Entity)
+/// <param name="user">The newly be-waddled.</param>
+[Serializable, NetSerializable]
+public sealed class StartedWaddlingEvent(NetEntity user) : EntityEventArgs
 {
-    public EntityUid Entity = Entity;
+    public NetEntity User = user;
 }
-
-/// <summary>
-/// Declares that an entity has stopped waddling like a duck/clown.
-/// </summary>
-/// <param name="Entity">The former waddle-er.</param>
-[ByRefEvent]
-public record struct StoppedWaddlingEvent(EntityUid Entity)
-{
-    public EntityUid Entity = Entity;
-}
+// WD EDIT END
 
 /// <summary>
 /// Defines something as having a waddle animation when it moves.
@@ -64,9 +57,4 @@ public sealed partial class WaddleAnimationComponent : Component
     /// Stores which step we made last, so if someone cancels out of the animation mid-step then restarts it looks more natural.
     /// </summary>
     public bool LastStep;
-
-    /// <summary>
-    /// Stores if we're currently waddling so we can start/stop as appropriate and can tell other systems our state.
-    /// </summary>
-    public bool IsCurrentlyWaddling;
 }

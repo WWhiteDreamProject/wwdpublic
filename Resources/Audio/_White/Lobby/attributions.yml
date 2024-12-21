@@ -1,0 +1,79 @@
+- files: ["all-that-I-can-see.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "All that i can see by Эдипов Комплекс"
+  source: "https://www.youtube.com/watch?v=LFXo1XN6xc8&ysclid=m4k6j9v59l684837129"
+
+- files: ["atomicamnesiammx.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Atomic Amnesia MMX by Phillip Dyer"
+  source: "https://soundcloud.com/3kliksphilip/atomic-amnesia-mmx-1"
+
+- files: ["circles-around-the-sun.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Circles Around The Sun by Dispatch"
+  source: "https://www.youtube.com/watch?v=V2V8sdbyrAI"
+
+- files: ["comet_haley.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Comet Halley by Stellardrone"
+  source: "https://freemusicarchive.org/music/Stellardrone/Light_Years_1227/07_Comet_Halley"
+
+- files: ["endless_space.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Endless Space Expanded by Solus"
+  source: "https://www.newgrounds.com/audio/listen/74946"
+
+- files: ["every_light_is_blinking_at_once.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Lasers rip apart by Sunbeamstress"
+  source: "https://soundcloud.com/sunbeamstress/lasers-rip-apart-the-bulkhead"
+
+- files: ["level!.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Level! by DapperHusky"
+  source: "https://www.newgrounds.com/audio/listen/1215730"
+
+- files: ["marhaba.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Marhaba by Ian Alex Mac."
+  source: "https://freemusicarchive.org/music/Ian_Alex_Mac/Cues/Marhaba"
+
+- files: ["mod.flip-flap.ogg"]
+  license: "Custom"
+  copyright: "Flip Flap by X-ceed is licensed under a short but clear license (see flip-flap.txt in Audio/Lobby) and is free for non-commercial use. Converted to mono OGG."
+  source: "http://aminet.net/package/mods/xceed/Flipflap"
+
+- files: ["monument.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Monument by Six Umbrellas."
+  source: "https://sixumbrellas.bandcamp.com/album/the-psychedelic-and"
+
+- files: ["singuloose.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Singuloose by Janis Schiedková."
+  source: "https://youtu.be/k3nLcQOKA8E"
+
+- files: ["space_asshole.ogg"]
+  license: "Custom"
+  copyright: "Space Asshole by Chris Remo is used with special permission from the author, under the condition that the project remains non-commercial and open source. The author also requested that a link to his bandcamp be included: https://chrisremo.bandcamp.com/."
+  source: "https://idlethumbs.bandcamp.com/track/space-asshole"
+
+- files: ["spaced.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Spaced by pinkblossom6"
+  source: "https://youtu.be/rW86xYFmcVs?si=-UhlsL7qYvvV7Kjv"
+
+- files: ["space-oddity.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Space Oddity by Chris Hadfield"
+  source: "https://youtu.be/KaOC9danxNo"
+
+- files: ["space-shuttle.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Space Shuttle by Эдипов Комплекс"
+  source: "https://youtu.be/aOFjbkAHEGg"
+
+- files: ["title3.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Tintin on the Moon by Jeroen Tel"
+  source: "https://youtu.be/Hz6KO0gnrS8"

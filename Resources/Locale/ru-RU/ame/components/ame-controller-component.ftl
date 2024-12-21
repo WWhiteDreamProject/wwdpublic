@@ -16,7 +16,6 @@ ame-window-fuel-not-inserted-text = Топливо не вставлено
 ame-window-injection-amount-label = Количество впрыска:
 ame-window-refresh-parts-button = Обновить детали
 ame-window-core-count-label = Количество ядер:
-ame-window-toggle-injection-button = Переключение впрыска
 ame-window-eject-button = Извлечь
 ame-window-increase-fuel-button = Увеличить
 ame-window-decrease-fuel-button = Уменьшить

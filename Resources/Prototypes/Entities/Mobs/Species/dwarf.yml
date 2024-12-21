@@ -35,8 +35,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        # they r smaller
-        density: 120
+        density: 240 # WD EDIT
         restitution: 0.0
         mask:
         - MobMask
@@ -51,19 +50,37 @@
     accent: dwarf
   - type: Speech
     speechSounds: Bass
+  - type: HumanoidAppearance
+    species: Human
+    hideLayersOnEquip:
+    - Hair
+    - Snout
   - type: LanguageKnowledge
     speaks:
-    - GalacticCommon
+    - TauCetiBasic
     - SolCommon
     understands:
-    - GalacticCommon
+    - TauCetiBasic
     - SolCommon
   - type: LightweightDrunk
     boozeStrengthMultiplier: 0.5
-  - type: Stamina # White Dream: Make dwarfs a bit more durable.
-    critThreshold: 115
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
 
 - type: entity
   parent: BaseSpeciesDummy
   id: MobDwarfDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

@@ -3,10 +3,13 @@ using Content.Server.Effects;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Events;
 using Content.Shared.Database;
 using Content.Shared.Projectiles;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
+using Robust.Shared.Utility;
+
 
 namespace Content.Server.Projectiles;
 
@@ -22,6 +25,10 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     {
         base.Initialize();
         SubscribeLocalEvent<ProjectileComponent, StartCollideEvent>(OnStartCollide);
+        SubscribeLocalEvent<EmbeddableProjectileComponent, DamageExamineEvent>(OnDamageExamine);
+        // WD EDIT START
+        SubscribeLocalEvent<EmbeddableProjectileComponent, EmbedEvent>(OnEmbed);
+        // WD EDIT END
     }
 
     private void OnStartCollide(EntityUid uid, ProjectileComponent component, ref StartCollideEvent args)
@@ -77,4 +84,30 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             RaiseNetworkEvent(new ImpactEffectEvent(component.ImpactEffect, GetNetCoordinates(xform.Coordinates)), Filter.Pvs(xform.Coordinates, entityMan: EntityManager));
         }
     }
+
+    private void OnDamageExamine(EntityUid uid, EmbeddableProjectileComponent component, ref DamageExamineEvent args)
+    {
+        if (!component.EmbedOnThrow)
+            return;
+
+        if (!args.Message.IsEmpty)
+            args.Message.PushNewline();
+
+        var isHarmful = TryComp<EmbedPassiveDamageComponent>(uid, out var passiveDamage) && passiveDamage.Damage.Any();
+        var loc = isHarmful
+            ? "damage-examine-embeddable-harmful"
+            : "damage-examine-embeddable";
+
+        var staminaCostMarkup = FormattedMessage.FromMarkupOrThrow(Loc.GetString(loc));
+        args.Message.AddMessage(staminaCostMarkup);
+    }
+
+    // WD EDIT START
+    private void OnEmbed(EntityUid uid, EmbeddableProjectileComponent component, ref EmbedEvent args)
+    {
+        var dmg = _damageableSystem.TryChangeDamage(args.Embedded, component.Damage, origin: args.Shooter);
+        if (dmg is { Empty: false })
+            _color.RaiseEffect(Color.Red, new List<EntityUid>() { args.Embedded }, Filter.Pvs(args.Embedded, entityManager: EntityManager));
+    }
+    // WD EDIT END
 }

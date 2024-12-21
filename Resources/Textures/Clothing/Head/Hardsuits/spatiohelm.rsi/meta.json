@@ -1,8 +1,7 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Original by Emisse, modified by EmoGarbage404 | vulpkanin version made by Floofers",
-
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Made by WWDP team",
   "size": {
     "x": 32,
     "y": 32
@@ -25,11 +24,27 @@
       "directions": 4
     },
     {
+      "name": "equipped-head-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-vulpkanin",
+      "directions": 4
+    },
+    {
       "name": "equipped-head-light",
       "directions": 4
     },
     {
+      "name": "equipped-head-light-vox",
+      "directions": 4
+    },
+    {
       "name": "equipped-head-unshaded",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-unshaded-vox",
       "directions": 4
     },
     {
@@ -54,10 +69,6 @@
     },
     {
       "name": "inhand-right-light",
-      "directions": 4
-    },
-    {
-      "name": "equipped-head-vulpkanin",
       "directions": 4
     }
   ]

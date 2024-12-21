@@ -11,7 +11,7 @@
           "/Audio/Weapons/smash.ogg"
   - type: InteractionOutline
   - type: Sprite
-    sprite: _White/Structures/Doors/Airlocks/Standard/basic.rsi # WD EDIT
+    sprite: Structures/Doors/Airlocks/Standard/basic.rsi
     snapCardinals: true
     layers:
     - state: closed
@@ -64,6 +64,7 @@
     containers:
       board: !type:Container
   - type: Weldable
+    fuel: 5
     time: 3
   - type: Airlock
   - type: NavMapDoor
@@ -103,8 +104,8 @@
   - type: SpawnOnOverload
   - type: UserInterface
     interfaces:
-    - key: enum.WiresUiKey.Key
-      type: WiresBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: Airtight
     noAirWhenFullyAirBlocked: false
   - type: RadiationBlocker
@@ -152,6 +153,9 @@
   - type: InteractionVerbs
     allowedVerbs:
     - KnockOn
+  - type: TwistedConstructionTarget
+    replacementProto: CultDoor
+    doAfterDelay: 10
   placement:
     mode: SnapgridCenter
 
@@ -177,7 +181,7 @@
   - type: Occluder
     enabled: false
   - type: Sprite
-    sprite: _White/Structures/Doors/Airlocks/Glass/glass.rsi # WD EDIT
+    sprite: Structures/Doors/Airlocks/Glass/glass.rsi
   - type: AnimationPlayer
   - type: Fixtures
     fixtures:

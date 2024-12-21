@@ -20,6 +20,7 @@ public abstract class SharedImplanterSystem : EntitySystem
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
     public override void Initialize()
     {
@@ -56,7 +57,7 @@ public abstract class SharedImplanterSystem : EntitySystem
     //Set to draw mode if not implant only
     public void Implant(EntityUid user, EntityUid target, EntityUid implanter, ImplanterComponent component)
     {
-        if (!CanImplant(user, target, implanter, component, out var implant, out var implantComp))
+        if (!CanImplant(user, target, implanter, component, out var implant, out var implantComp, out _))
             return;
 
         //If the target doesn't have the implanted component, add it.
@@ -69,6 +70,8 @@ public abstract class SharedImplanterSystem : EntitySystem
         implantContainer.OccludesLight = false;
         _container.Insert(implant.Value, implantContainer);
 
+        RaiseLocalEvent(implant.Value, new SubdermalImplantInserted(user, target)); // WD EDIT
+
         if (component.CurrentMode == ImplanterToggleMode.Inject && !component.ImplantOnly)
             DrawMode(implanter, component);
         else
@@ -77,7 +80,7 @@ public abstract class SharedImplanterSystem : EntitySystem
         var ev = new TransferDnaEvent { Donor = target, Recipient = implanter };
         RaiseLocalEvent(target, ref ev);
 
-        Dirty(component);
+        Dirty(implanter, component);
     }
 
     public bool CanImplant(
@@ -86,9 +89,11 @@ public abstract class SharedImplanterSystem : EntitySystem
         EntityUid implanter,
         ImplanterComponent component,
         [NotNullWhen(true)] out EntityUid? implant,
-        [NotNullWhen(true)] out SubdermalImplantComponent? implantComp)
+        [NotNullWhen(true)] out SubdermalImplantComponent? implantComp,
+        out bool popup) // WD EDIT
     {
         implant = component.ImplanterSlot.ContainerSlot?.ContainedEntities.FirstOrNull();
+        popup = true; // WD EDIF
         if (!TryComp(implant, out implantComp))
             return false;
 
@@ -98,15 +103,19 @@ public abstract class SharedImplanterSystem : EntitySystem
             return false;
         }
 
-        var ev = new AddImplantAttemptEvent(user, target, implant.Value, implanter);
-        RaiseLocalEvent(target, ev);
+        // WD EDIT START
+        var ev = new AttemptSubdermalImplantInserted(user, target);
+        RaiseLocalEvent(implant.Value, ev);
+
+        popup = ev.Popup;
+        // WD EDIT END
         return !ev.Cancelled;
     }
 
     protected bool CheckTarget(EntityUid target, EntityWhitelist? whitelist, EntityWhitelist? blacklist)
     {
-        return whitelist?.IsValid(target, EntityManager) != false &&
-            blacklist?.IsValid(target, EntityManager) != true;
+        return _whitelistSystem.IsWhitelistPassOrNull(whitelist, target) &&
+            _whitelistSystem.IsBlacklistFailOrNull(blacklist, target);
     }
 
     //Draw the implant out of the target
@@ -146,6 +155,8 @@ public abstract class SharedImplanterSystem : EntitySystem
                 _container.Insert(implant, implanterContainer);
                 permanentFound = implantComp.Permanent;
 
+                RaiseLocalEvent(implant, new SubdermalImplantRemoved(user, target)); // WD EDIT
+
                 var ev = new TransferDnaEvent { Donor = target, Recipient = implanter };
                 RaiseLocalEvent(target, ref ev);
 
@@ -156,7 +167,7 @@ public abstract class SharedImplanterSystem : EntitySystem
             if (component.CurrentMode == ImplanterToggleMode.Draw && !component.ImplantOnly && !permanentFound)
                 ImplantMode(implanter, component);
 
-            Dirty(component);
+            Dirty(implanter, component);
         }
     }
 
@@ -210,18 +221,48 @@ public sealed partial class DrawEvent : SimpleDoAfterEvent
 {
 }
 
-public sealed class AddImplantAttemptEvent : CancellableEntityEventArgs
+// WD EDIT START
+public sealed class AttemptSubdermalImplantInserted(EntityUid user, EntityUid target, bool popup = true) : CancellableEntityEventArgs
 {
-    public readonly EntityUid User;
-    public readonly EntityUid Target;
-    public readonly EntityUid Implant;
-    public readonly EntityUid Implanter;
+    /// <summary>
+    ///     Entity who implants
+    /// </summary>
+    public EntityUid User = user;
 
-    public AddImplantAttemptEvent(EntityUid user, EntityUid target, EntityUid implant, EntityUid implanter)
-    {
-        User = user;
-        Target = target;
-        Implant = implant;
-        Implanter = implanter;
-    }
+    /// <summary>
+    ///     Entity being implanted
+    /// </summary>
+    public EntityUid Target = target;
+
+    /// <summary>
+    ///     Popup if implanted failed
+    /// </summary>
+    public bool Popup = popup;
 }
+
+public sealed class SubdermalImplantInserted(EntityUid user, EntityUid target)
+{
+    /// <summary>
+    ///     Entity who implants
+    /// </summary>
+    public EntityUid User = user;
+
+    /// <summary>
+    ///     Entity being implanted
+    /// </summary>
+    public EntityUid Target = target;
+}
+
+public sealed class SubdermalImplantRemoved(EntityUid user, EntityUid target)
+{
+    /// <summary>
+    ///     Entity who removes implant
+    /// </summary>
+    public EntityUid User = user;
+
+    /// <summary>
+    ///     Entity which implant is removing
+    /// </summary>
+    public EntityUid Target = target;
+}
+// WD EDIT END

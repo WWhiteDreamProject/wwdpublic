@@ -1,0 +1,1 @@
+humanoid-profile-editor-voice-label = Голос:

@@ -1,27 +1,23 @@
 - type: emote
   id: Nod
+  name: chat-emote-name-nod
   category: General
-  buttonText: "emote-chat-button-text-nod"
-  chatMessages: [ "emote-chat-messages-nod-1" ]
-  allowMenu: true
+  chatMessages: [ "chat-emote-msg-nod" ]
 
 - type: emote
   id: ShakeHead
+  name: chat-emote-name-shake-head
   category: General
-  buttonText: "emote-chat-button-text-shake-head"
-  chatMessages: [ "emote-chat-messages-shake-head-1" ]
-  allowMenu: true
+  chatMessages: [ "chat-emote-msg-shake-head" ]
 
 - type: emote
   id: Frown
+  name: chat-emote-name-frown
   category: General
-  buttonText: "emote-chat-button-text-frown"
-  chatMessages: [ "emote-chat-messages-frown-1" ]
-  allowMenu: true
+  chatMessages: [ "chat-emote-msg-frown" ]
 
 - type: emote
   id: Smile
+  name: chat-emote-name-smile
   category: General
-  buttonText: "emote-chat-button-text-smile"
-  chatMessages: [ "emote-chat-messages-smile-1" ]
-  allowMenu: true
+  chatMessages: [ "chat-emote-msg-smile" ]

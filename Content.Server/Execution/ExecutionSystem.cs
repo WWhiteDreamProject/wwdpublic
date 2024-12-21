@@ -43,7 +43,7 @@ public sealed class ExecutionSystem : EntitySystem
 
     private const float MeleeExecutionTimeModifier = 5.0f;
     private const float GunExecutionTime = 6.0f;
-    private const float DamageModifier = 9.0f;
+    private const float DamageModifier = 20.0f; // WD EDIT
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -133,12 +133,18 @@ public sealed class ExecutionSystem : EntitySystem
         if (!_actionBlockerSystem.CanAttack(attacker, victim))
             return false;
 
+        // WD EDIT START
+        /*
+
         // The victim must be incapacitated to be executed
         if (victim != attacker && _actionBlockerSystem.CanInteract(victim, null))
             return false;
 
         if (victim == attacker)
             return false; // DeltaV - Fucking seriously?
+
+        */
+        //WD EDIT END
 
         // All checks passed
         return true;
@@ -201,6 +207,22 @@ public sealed class ExecutionSystem : EntitySystem
         if (!CanExecuteWithGun(weapon, victim, attacker))
             return;
 
+        // WD EDIT START
+
+        // Raise an event to see if any system can cancel the shot
+        var attemptEv = new AttemptShootEvent(attacker, null);
+        RaiseLocalEvent(weapon, ref attemptEv);
+
+        if (attemptEv.Cancelled)
+        {
+            if (attemptEv.Message != null)
+            {
+                _popupSystem.PopupEntity(attemptEv.Message, weapon, attacker);
+                return;
+            }
+        }
+        // WD EDIT END
+
         if (attacker == victim)
         {
             ShowExecutionPopup("suicide-popup-gun-initial-internal", Filter.Entities(attacker), PopupType.Medium, attacker, victim, weapon);
@@ -250,7 +272,7 @@ public sealed class ExecutionSystem : EntitySystem
         if (!TryComp<MeleeWeaponComponent>(weapon, out var melee) && melee!.Damage.GetTotal() > 0.0f)
             return;
 
-        _damageableSystem.TryChangeDamage(victim, melee.Damage * DamageModifier, true);
+        _damageableSystem.TryChangeDamage(victim, melee.Damage * DamageModifier, true, origin: attacker);
         _audioSystem.PlayEntity(melee.SoundHit, Filter.Pvs(weapon), weapon, true, AudioParams.Default);
 
         if (attacker == victim)
@@ -281,7 +303,7 @@ public sealed class ExecutionSystem : EntitySystem
         var prevention = new ShotAttemptedEvent
         {
             User = attacker,
-            Used = weapon
+            Used = new Entity<GunComponent>(uid, component)
         };
 
         RaiseLocalEvent(weapon, ref prevention);
@@ -291,19 +313,6 @@ public sealed class ExecutionSystem : EntitySystem
         RaiseLocalEvent(attacker, ref prevention);
         if (prevention.Cancelled)
             return;
-
-        // Not sure what this is for but gunsystem uses it so ehhh
-        var attemptEv = new AttemptShootEvent(attacker, null);
-        RaiseLocalEvent(weapon, ref attemptEv);
-
-        if (attemptEv.Cancelled)
-        {
-            if (attemptEv.Message != null)
-            {
-                _popupSystem.PopupClient(attemptEv.Message, weapon, attacker);
-                return;
-            }
-        }
 
         // Take some ammunition for the shot (one bullet)
         var fromCoordinates = Transform(attacker).Coordinates;
@@ -374,7 +383,7 @@ public sealed class ExecutionSystem : EntitySystem
         }
 
         // Gun successfully fired, deal damage
-        _damageableSystem.TryChangeDamage(victim, damage * DamageModifier, true);
+        _damageableSystem.TryChangeDamage(victim, damage * DamageModifier, true, origin: attacker);
         _audioSystem.PlayEntity(component.SoundGunshot, Filter.Pvs(weapon), weapon, false, AudioParams.Default);
 
         // Popups

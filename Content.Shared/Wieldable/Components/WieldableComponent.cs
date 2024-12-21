@@ -26,10 +26,24 @@ public sealed partial class WieldableComponent : Component
     [AutoNetworkedField, DataField("wielded")]
     public bool Wielded = false;
 
+    /// <summary>
+    ///     Whether using the item inhand while wielding causes the item to unwield.
+    ///     Unwielding can conflict with other inhand actions. 
+    /// </summary>
+    [DataField]
+    public bool UnwieldOnUse = true;
+
     [DataField("wieldedInhandPrefix")]
     public string? WieldedInhandPrefix = "wielded";
 
     public string? OldInhandPrefix = null;
+    // WD EDIT START
+    /// <summary>
+    /// Requires item to be alt-used in hand (alt-Z / alt-click in active hand) to be wielded.
+    /// </summary>
+    [DataField]
+    public bool AltUseInHand = false;
+    // WD EDIT END
 }
 
 [Serializable, NetSerializable]

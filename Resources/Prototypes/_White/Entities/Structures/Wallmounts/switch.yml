@@ -1,0 +1,330 @@
+# button frames 1
+
+- type: entity
+  id: ButtonFrameGrey
+  parent: ButtonFrame
+  suffix: "Grey, 1"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f1.rsi
+    state: grey
+
+- type: entity
+  id: ButtonFrameCaution
+  parent: ButtonFrame
+  suffix: "Caution, 1"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f1.rsi
+    state: caution
+
+- type: entity
+  id: ButtonFrameCautionSecurity
+  parent: ButtonFrame
+  suffix: "Security, 1"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f1.rsi
+    state: caution_security
+
+- type: entity
+  id: ButtonFrameExit
+  parent: ButtonFrame
+  suffix: "Exit, 1"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f1.rsi
+    layers:
+     - state: exit
+     - state: exit_glow
+       shader: unshaded
+
+- type: entity
+  id: ButtonFrameJanitor
+  parent: ButtonFrame
+  suffix: "Janitor, 1"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f1.rsi
+    state: janitor
+
+# button frames 2
+
+- type: entity
+  id: ButtonFrameGrey2
+  parent: ButtonFrame
+  suffix: "Grey, 2"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f2.rsi
+    state: grey
+
+- type: entity
+  id: ButtonFrameCaution2
+  parent: ButtonFrame
+  suffix: "Caution, 2"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f2.rsi
+    state: caution
+
+- type: entity
+  id: ButtonFrameCautionSecurity2
+  parent: ButtonFrame
+  suffix: "Security, 2"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f2.rsi
+    state: caution_security
+
+- type: entity
+  id: ButtonFrameExit2
+  parent: ButtonFrame
+  suffix: "Exit, 2"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f2.rsi
+    layers:
+     - state: exit
+     - state: exit_glow
+       shader: unshaded
+
+- type: entity
+  id: ButtonFrameJanitor2
+  parent: ButtonFrame
+  suffix: "Janitor, 2"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f2.rsi
+    state: janitor
+
+# button frames 3
+
+- type: entity
+  id: ButtonFrameGrey3
+  parent: ButtonFrame
+  suffix: "Grey, 3"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f3.rsi
+    state: grey
+
+- type: entity
+  id: ButtonFrameCaution3
+  parent: ButtonFrame
+  suffix: "Caution, 3"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f3.rsi
+    state: caution
+
+- type: entity
+  id: ButtonFrameCautionSecurity3
+  parent: ButtonFrame
+  suffix: "Security, 3"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f3.rsi
+    state: caution_security
+
+- type: entity
+  id: ButtonFrameExit3
+  parent: ButtonFrame
+  suffix: "Exit, 3"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f3.rsi
+    layers:
+     - state: exit
+     - state: exit_glow
+       shader: unshaded
+
+- type: entity
+  id: ButtonFrameJanitor3
+  parent: ButtonFrame
+  suffix: "Janitor, 3"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f3.rsi
+    state: janitor
+
+# button frames 4
+
+- type: entity
+  id: ButtonFrameGrey4
+  parent: ButtonFrame
+  suffix: "Grey, 4"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f4.rsi
+    state: grey
+
+- type: entity
+  id: ButtonFrameCaution4
+  parent: ButtonFrame
+  suffix: "Caution, 4"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f4.rsi
+    state: caution
+
+- type: entity
+  id: ButtonFrameCautionSecurity4
+  parent: ButtonFrame
+  suffix: "Security, 4"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f4.rsi
+    state: caution_security
+
+- type: entity
+  id: ButtonFrameExit4
+  parent: ButtonFrame
+  suffix: "Exit, 4"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f4.rsi
+    layers:
+     - state: exit
+     - state: exit_glow
+       shader: unshaded
+
+- type: entity
+  id: ButtonFrameJanitor4
+  parent: ButtonFrame
+  suffix: "Janitor, 4"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f4.rsi
+    state: janitor
+
+# button frames 5
+
+- type: entity
+  id: ButtonFrameGrey5
+  parent: ButtonFrame
+  suffix: "Grey, 5"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f5.rsi
+    state: grey
+
+- type: entity
+  id: ButtonFrameCaution5
+  parent: ButtonFrame
+  suffix: "Caution, 5"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f5.rsi
+    state: caution
+
+- type: entity
+  id: ButtonFrameCautionSecurity5
+  parent: ButtonFrame
+  suffix: "Security, 5"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f5.rsi
+    state: caution_security
+
+- type: entity
+  id: ButtonFrameExit5
+  parent: ButtonFrame
+  suffix: "Exit, 5"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f5.rsi
+    layers:
+     - state: exit
+     - state: exit_glow
+       shader: unshaded
+
+- type: entity
+  id: ButtonFrameJanitor5
+  parent: ButtonFrame
+  suffix: "Janitor, 5"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f5.rsi
+    state: janitor
+
+# button frames 6
+
+- type: entity
+  id: ButtonFrameGrey6
+  parent: ButtonFrame
+  suffix: "Grey, 6"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f6.rsi
+    state: grey
+
+- type: entity
+  id: ButtonFrameCaution6
+  parent: ButtonFrame
+  suffix: "Caution, 6"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f6.rsi
+    state: caution
+
+- type: entity
+  id: ButtonFrameCautionSecurity6
+  parent: ButtonFrame
+  suffix: "Security, 6"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f6.rsi
+    state: caution_security
+
+- type: entity
+  id: ButtonFrameExit6
+  parent: ButtonFrame
+  suffix: "Exit, 6"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f6.rsi
+    layers:
+     - state: exit
+     - state: exit_glow
+       shader: unshaded
+
+
+- type: entity
+  id: ButtonFrameJanitor6
+  parent: ButtonFrame
+  suffix: "Janitor, 6"
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _White/Structures/Wallmounts/switch_frame/f6.rsi
+    state: janitor

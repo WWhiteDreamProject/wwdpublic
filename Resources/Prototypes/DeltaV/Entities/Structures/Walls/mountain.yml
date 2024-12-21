@@ -9,6 +9,12 @@
   suffix: Low Ore Yield
   description: A rocky asteroid.
   components:
+  # WD EDIT START
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+        - Pickaxe
+  # WD EDIT END
   - type: Sprite
     sprite: DeltaV/Structures/Walls/asteroid_rock.rsi
     state: full
@@ -99,6 +105,12 @@
   suffix: Higher Ore Yield
   description: A rocky asteroid.
   components:
+  # WD EDIT START
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+        - Pickaxe
+  #WD EDIT END
   - type: OreVein
     oreChance: 0.5
     oreRarityPrototypeId: RandomOreDistributionStandard

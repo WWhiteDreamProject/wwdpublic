@@ -5,20 +5,20 @@
   description: A thick, well-worn WW2 leather bomber jacket.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Coats/bomber.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/bomber.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Coats/bomber.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/bomber.rsi
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing]
   id: ClothingOuterCoatDetective
   name: detective trenchcoat
   description: A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. Wearing it makes you feel for the plight of the Tibetans.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Coats/detective.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/detective.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Coats/detective.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/detective.rsi
   - type: StorageFill
     contents:
     - id: SmokingPipeFilledTobacco
@@ -32,6 +32,15 @@
         Heat: 0.80
 
 - type: entity
+  parent: ClothingOuterCoatDetective
+  id: ClothingOuterCoatDetectiveLoadout
+  components:
+  - type: StorageFill
+    contents:
+    - id: SmokingPipeFilledTobacco
+    - id: FlippoLighter #Not the steal objective, only difference from normal detective trenchcoat
+
+- type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatGentle
   name: gentle coat
@@ -43,15 +52,46 @@
     sprite: Clothing/OuterClothing/Coats/gentlecoat.rsi
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  abstract: true
+  parent: AllowSuitStorageClothing
+  id: ClothingOuterArmorHoS
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+        Caustic: 0.75 # not the full 90% from ss13 because of the head
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  abstract: true
+  parent: AllowSuitStorageClothing
+  id: ClothingOuterArmorWarden
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase]
   id: ClothingOuterCoatHoSTrench
   name: head of security's armored trenchcoat
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Coats/hos_trenchcoat.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Coats/hos_trenchcoat.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -120,9 +160,9 @@
   description: A suit that protects against minor chemical spills.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Coats/labcoat.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/labcoat.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Coats/labcoat.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/labcoat.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -140,9 +180,9 @@
   description: A suit that protects against minor chemical spills. Has an orange stripe on the shoulder.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Coats/labcoat_chem.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/labcoat_chem.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Coats/labcoat_chem.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/labcoat_chem.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -160,9 +200,9 @@
   description: A suit that protects against bacteria and viruses. Has an green stripe on the shoulder.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Coats/labcoat_viro.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/labcoat_viro.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Coats/labcoat_viro.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/labcoat_viro.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -197,16 +237,18 @@
   parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatLabCmo
   name: chief medical officer's lab coat
-  description: Bluer than the standard model.
+  description: Custom made blue lab coat for the Chief Medical Officer, offers improved protection against chemical spills and minor cuts
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Coats/labcoat_cmo.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/labcoat_cmo.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Coats/labcoat_cmo.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/labcoat_cmo.rsi
   - type: Armor
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Slash: 0.95
+        Heat: 0.95
+        Caustic: 0.65
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabCmo]
@@ -286,15 +328,15 @@
     sprite: Clothing/OuterClothing/Coats/pirate.rsi
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase]
   id: ClothingOuterCoatWarden
   name: warden's armored jacket
   description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Coats/warden.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/warden.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Coats/warden.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/warden.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -323,9 +365,9 @@
   description: Meant for a clown of the cloth.
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Coats/clownpriest.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
   - type: Clothing
-    sprite: _White/Clothing/OuterClothing/Coats/clownpriest.rsi #WWDP edit
+    sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
 
 - type: entity
   parent: ClothingOuterStorageBase

@@ -8,47 +8,26 @@
     storedRotation: -90
   - type: HolosignProjector
   - type: UseDelay
-  - type: ContainerContainer
-    containers:
-      cell_slot: !type:ContainerSlot {}
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
+    delay: 0.5 # WD EDIT
   - type: Sprite
     sprite: Objects/Devices/Holoprojectors/custodial.rsi
     state: icon
   - type: Tag
     tags:
       - HolosignProjector
-
-- type: entity
-  parent: Holoprojector
-  id: HoloprojectorEmpty
-  suffix: Empty
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-
-- type: entity
-  parent: Holoprojector
-  id: HoloprojectorBorg
-  suffix: borg
-  components:
-  - type: HolosignProjector
-    chargeUse: 240
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMicroreactor
-        disableEject: true
-        swap: false
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 6.5
+    bluntStaminaDamageFactor: 2
+    heavyRateModifier: 0.9
+    maxTargets: 1
+    angle: 20
+    soundHit:
+      collection: MetalThud
+  - type: DamageOtherOnHit
 
 - type: entity
   parent: Holoprojector
@@ -58,7 +37,6 @@
   components:
   - type: HolosignProjector
     signProto: HoloFan
-    chargeUse: 120
   - type: Sprite
     sprite: Objects/Devices/Holoprojectors/atmos.rsi
     state: icon
@@ -68,18 +46,9 @@
   - type: StaticPrice
     price: 80
   - type: ReverseEngineering # Nyano
+    difficulty: 3
     recipes:
       - HolofanProjector
-
-- type: entity
-  parent: HolofanProjector
-  id: HolofanProjectorEmpty
-  suffix: Empty
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
 
 - type: entity
   parent: Holoprojector
@@ -89,7 +58,6 @@
   components:
     - type: HolosignProjector
       signProto: HolosignForcefield
-      chargeUse: 120
     - type: Sprite
       sprite: Objects/Devices/Holoprojectors/field.rsi
       state: icon
@@ -98,16 +66,10 @@
         - HolofanProjector
     - type: StaticPrice
       price: 130
-
-- type: entity
-  parent: HoloprojectorField
-  id: HoloprojectorFieldEmpty
-  suffix: Empty
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
+    - type: ReverseEngineering # Nyano
+      difficulty: 3
+      recipes:
+        - HoloprojectorField
 
 - type: entity
   parent: Holoprojector
@@ -117,7 +79,6 @@
   components:
     - type: HolosignProjector
       signProto: HolosignSecurity
-      chargeUse: 120
     - type: Sprite
       sprite: Objects/Devices/Holoprojectors/security.rsi
       state: icon
@@ -126,13 +87,3 @@
         - HolofanProjector
     - type: StaticPrice
       price: 50
-
-- type: entity
-  parent: HoloprojectorSecurity
-  id: HoloprojectorSecurityEmpty
-  suffix: Empty
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default

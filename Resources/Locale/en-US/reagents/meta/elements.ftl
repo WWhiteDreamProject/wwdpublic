@@ -22,9 +22,6 @@ reagent-desc-fluorine = A highly toxic pale yellow gas. Extremely reactive.
 reagent-name-gold = gold
 reagent-desc-gold = Gold is a dense, soft, shiny metal and the most malleable and ductile metal known.
 
-reagent-name-hydrogen = hydrogen
-reagent-desc-hydrogen = A light, flammable gas.
-
 reagent-name-iodine = iodine
 reagent-desc-iodine = Commonly added to table salt as a nutrient. On its own it tastes far less pleasing.
 

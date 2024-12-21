@@ -28,9 +28,9 @@ public sealed class ClothingGrantingSystem : EntitySystem
 
         if (!clothing.Slots.HasFlag(args.SlotFlags)) return;
 
-        if (component.Components.Count > 1)
+        if (component.Components.Count > 8) // WD EDIT
         {
-            Logger.Error("Although a component registry supports multiple components, we cannot bookkeep more than 1 component for ClothingGrantComponent at this time.");
+            Logger.Error("Although a component registry supports multiple components, we cannot bookkeep more than 8 component for ClothingGrantComponent at this time."); // WD EDIT
             return;
         }
 
@@ -46,9 +46,9 @@ public sealed class ClothingGrantingSystem : EntitySystem
             var temp = (object) newComp;
             _serializationManager.CopyTo(data.Component, ref temp);
             EntityManager.AddComponent(args.Equipee, (Component)temp!);
-
-            component.IsActive = true;
         }
+
+        component.IsActive = true; // WD EDIT
     }
 
     private void OnCompUnequip(EntityUid uid, ClothingGrantComponentComponent component, GotUnequippedEvent args)

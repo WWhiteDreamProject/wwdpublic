@@ -17,9 +17,9 @@
     sprite: Clothing/Head/Hardsuits/basic.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/basic.rsi
-  - type: Tag
-    tags:
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
 #Atmospherics Hardsuit
 - type: entity
@@ -30,7 +30,7 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _White/Clothing/Head/Hardsuits/atmospherics.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/atmospherics.rsi
     layers:
     - state: icon
     - state: icon-unshaded
@@ -88,7 +88,7 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _White/Clothing/Head/Hardsuits/spatiohelm.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/spatiohelm.rsi
     layers:
     - state: icon
     - state: icon-unshaded
@@ -123,9 +123,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _White/Clothing/Head/Hardsuits/salvage.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/salvage.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/Hardsuits/salvage.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/salvage.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
@@ -136,7 +136,7 @@
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitMaxim
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: salvager maxim helmet
   description: A predication of decay washes over your mind.
   components:
@@ -184,9 +184,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _White/Clothing/Head/Hardsuits/security.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/security.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/Hardsuits/security.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/security.rsi
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -199,6 +199,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
+  
 
 #Brigmedic Hardsuit
 - type: entity
@@ -226,6 +229,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Warden's Hardsuit
 - type: entity
@@ -251,6 +256,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Captain's Hardsuit
 - type: entity
@@ -261,14 +268,16 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _White/Clothing/Head/Hardsuits/capspace.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/capspace.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/Hardsuits/capspace.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/capspace.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: PointLight
     color: "#9CF4FF"
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -279,9 +288,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _White/Clothing/Head/Hardsuits/engineering-white.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/engineering-white.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/Hardsuits/engineering-white.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/engineering-white.rsi
   - type: PointLight
     color: "#daffad"
   - type: PressureProtection
@@ -348,6 +357,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -358,9 +369,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _White/Clothing/Head/Hardsuits/luxury.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/luxury.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/Hardsuits/luxury.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/luxury.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
@@ -378,9 +389,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _White/Clothing/Head/Hardsuits/syndicate.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/syndicate.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/Hardsuits/syndicate.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/syndicate.rsi
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -393,6 +404,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Blood-red Medic Hardsuit
 - type: entity
@@ -418,6 +432,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -428,9 +445,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _White/Clothing/Head/Hardsuits/syndieelite.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/syndieelite.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/Hardsuits/syndieelite.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/syndieelite.rsi
   - type: PointLight
     color: red
   - type: PressureProtection
@@ -438,6 +455,8 @@
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
     coefficient: 0.005
+  - type: FireProtection
+    reduction: 0.2
   - type: Armor
     modifiers:
       coefficients:
@@ -445,6 +464,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -455,9 +477,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _White/Clothing/Head/Hardsuits/syndiecommander.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/Hardsuits/syndiecommander.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -470,6 +492,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -480,9 +505,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _White/Clothing/Head/Hardsuits/cybersun.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/cybersun.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/Hardsuits/cybersun.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/cybersun.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -493,6 +518,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Wizard Hardsuit
 - type: entity
@@ -591,6 +619,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -606,6 +637,9 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertchaplain.rsi
   - type: PointLight
     color: "#ffffff"
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -628,6 +662,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #ERT Medical Hardsuit
 - type: entity
@@ -643,6 +680,9 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
   - type: PointLight
     color: "#adffec"
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #ERT Security Hardsuit
 - type: entity
@@ -665,6 +705,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -680,6 +723,9 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #CBURN Hardsuit
 - type: entity
@@ -719,6 +765,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # WD EDIT
+  - type: FlashImmunity # WD EDIT
+  - type: FlashSoundSuppression # WD EDIT
 
 #Deathsquad Hardsuit
 - type: entity
@@ -744,6 +793,16 @@
         Heat: 0.80
         Radiation: 0.80
         Caustic: 0.95
+  # WD EDIT START
+  - type: ClothingGrantComponent
+    component:
+    - type: ThermalVision
+    - type: NightVision
+  - type: EyeProtection
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+    maxRange: 0
+  # WD EDIT END
 
 #MISC. HARDSUITS
 #Clown Hardsuit
@@ -755,9 +814,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _White/Clothing/Head/Hardsuits/clown.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/clown.rsi
   - type: Clothing
-    sprite: _White/Clothing/Head/Hardsuits/clown.rsi #WWDP edit
+    sprite: Clothing/Head/Hardsuits/clown.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Effects/Emotes/parp1.ogg
 

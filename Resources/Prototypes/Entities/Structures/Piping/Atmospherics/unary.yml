@@ -53,13 +53,26 @@
         Ammonia: stationAmmonia
         NitrousOxide: stationNO
         Frezon: danger
+        # WD EDIT START
+        BZ: danger
+        Pluoxium: unwanted
+        Hydrogen: danger
+        Nitrium: unwanted
+        Healium: danger
+        HyperNoblium: unwanted
+        ProtoNitrate: danger
+        Zauker: danger
+        Halon: danger
+        Helium: unwanted
+        AntiNoblium: danger
+        # WD EDIT END
     - type: Tag
       tags:
         - GasVent
         - Unstackable
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: _White/Structures/Piping/Atmospherics/vent.rsi #WWDP edit
+      sprite: Structures/Piping/Atmospherics/vent.rsi
       noRot: true
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
@@ -101,7 +114,7 @@
     # TODO ATMOS: Find sprite for this.
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: _White/Structures/Piping/Atmospherics/vent.rsi #WWDP edit
+      sprite: Structures/Piping/Atmospherics/vent.rsi
       noRot: true
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
@@ -146,13 +159,26 @@
         Ammonia: stationAmmonia
         NitrousOxide: stationNO
         Frezon: danger
+        # WD EDIT START
+        BZ: danger
+        Pluoxium: unwanted
+        Hydrogen: danger
+        Nitrium: unwanted
+        Healium: danger
+        HyperNoblium: unwanted
+        ProtoNitrate: danger
+        Zauker: danger
+        Halon: danger
+        Helium: unwanted
+        AntiNoblium: danger
+        # WD EDIT END
     - type: Tag
       tags:
         - GasScrubber
         - Unstackable
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: _White/Structures/Piping/Atmospherics/scrubber.rsi #WWDP edit
+      sprite: Structures/Piping/Atmospherics/scrubber.rsi
       noRot: true
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
@@ -242,8 +268,8 @@
     - type: AtmosDevice
     - type: UserInterface
       interfaces:
-      - key: enum.ThermomachineUiKey.Key
-        type: GasThermomachineBoundUserInterface
+        enum.ThermomachineUiKey.Key:
+          type: GasThermomachineBoundUserInterface
     - type: ActivatableUI
       inHandsOnly: false
       key: enum.ThermomachineUiKey.Key
@@ -460,7 +486,8 @@
     solutions:
       tank:
         maxVol: 400
-        canMix: true
+  - type: MixableSolution
+    solution: tank
   - type: DrainableSolution
     solution: tank
   - type: ExaminableSolution

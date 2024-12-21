@@ -1,0 +1,7 @@
+- type: entity
+  parent: DeployableBarrier
+  id: DeployableBarrierLocked
+  suffix: Locked
+  components:
+  - type: Lock
+    locked: true

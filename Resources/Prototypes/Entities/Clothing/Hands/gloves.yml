@@ -20,6 +20,7 @@
     soundHit:
       collection: BoxingHit
     animation: WeaponArcFist
+    mustBeEquippedToUse: true
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-red
@@ -90,6 +91,7 @@
       types:
         Blunt: 8
     bluntStaminaDamageFactor: 0.0 # so blunt doesn't deal stamina damage at all
+    mustBeEquippedToUse: true
 
 - type: entity
   parent: ClothingHandsBase
@@ -98,9 +100,9 @@
   description: Regal blue gloves, with a nice gold trim. Swanky.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Hands/Gloves/captain.rsi #WWDP edit
+    sprite: Clothing/Hands/Gloves/captain.rsi
   - type: Clothing
-    sprite: _White/Clothing/Hands/Gloves/captain.rsi #WWDP edit
+    sprite: Clothing/Hands/Gloves/captain.rsi
   - type: GloveHeatResistance
     heatResistance: 1400
   - type: Insulated
@@ -136,9 +138,9 @@
   description: Thin sterile latex gloves. Basic PPE for any doctor.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Hands/Gloves/latex.rsi #WWDP edit
+    sprite: Clothing/Hands/Gloves/latex.rsi
   - type: Clothing
-    sprite: _White/Clothing/Hands/Gloves/latex.rsi #WWDP edit
+    sprite: Clothing/Hands/Gloves/latex.rsi
   - type: Fiber
     fiberMaterial: fibers-latex
   - type: FingerprintMask
@@ -239,6 +241,12 @@
   name: combat gloves
   description: These tactical gloves are fireproof and shock resistant.
   components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/combat.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/combat.rsi
+  - type: GloveHeatResistance
+    heatResistance: 1400
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
@@ -285,9 +293,9 @@
   description: Plain black gloves without fingertips for the hard working.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Hands/Gloves/fingerless.rsi #WWDP edit
+    sprite: Clothing/Hands/Gloves/fingerless.rsi
   - type: Clothing
-    sprite: _White/Clothing/Hands/Gloves/fingerless.rsi #WWDP edit
+    sprite: Clothing/Hands/Gloves/fingerless.rsi
   - type: Fiber
     fiberMaterial: fibers-synthetic
     fiberColor: fibers-black
@@ -353,13 +361,17 @@
     sprite: Clothing/Hands/Gloves/northstar.rsi
   - type: MeleeWeapon
     autoAttack: true
-    attackRate: 4
+    attackRate: 0.25
+    heavyStaminaCost: 2
+    heavyDamageBaseModifier: 1.05
+    maxTargets: 1
     damage:
       types:
        Blunt: 8
     soundHit:
       collection: Punch
     animation: WeaponArcFist
+    mustBeEquippedToUse: true
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-blue
@@ -367,12 +379,11 @@
   - type: MeleeSpeech
   - type: ActivatableUI
     key: enum.MeleeSpeechUiKey.Key
-    closeOnHandDeselect: false
-    rightClickOnly: true
+    verbOnly: true
   - type: Actions
   - type: UserInterface
     interfaces:
-      - key: enum.MeleeSpeechUiKey.Key
+      enum.MeleeSpeechUiKey.Key:
         type: MeleeSpeechBoundUserInterface
   - type: StaticPrice
     price: 0

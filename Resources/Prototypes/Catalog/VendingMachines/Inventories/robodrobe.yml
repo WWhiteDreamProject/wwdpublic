@@ -14,3 +14,7 @@
     ClothingBackpackRobotics: 2
     ClothingBackpackSatchelRobotics: 2
     ClothingBackpackDuffelRobotics: 2
+  contrabandInventory:
+    ClothingEyesGlassesMeson: 1 # WWDP
+  emaggedInventory:
+    EncryptionKeySyndie: 1 # WWDP

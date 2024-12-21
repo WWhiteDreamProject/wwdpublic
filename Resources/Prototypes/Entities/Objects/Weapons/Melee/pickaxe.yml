@@ -21,10 +21,17 @@
     damage:
       types:
         Blunt: 6
-        Pierce: 3
+        Piercing: 3
     bluntStaminaDamageFactor: 2.0
     maxTargets: 2
     angle: 60
+    # WD EDIT START
+    heavyRateModifier: 0.8
+    heavyDamageBaseModifier: 0.5
+    heavyStaminaCost: 0
+    # WD EDIT END
+  - type: DamageOtherOnHit
+    staminaCost: 5
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
@@ -59,18 +66,18 @@
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
-    attackRate: 1
-    range: 1
     damage:
       types:
-        Blunt: 9
+        Blunt: 2 # WD EDIT
         Slash: 3
-        Structural: 20
-    heavyRateModifier: 1
-    heavyRangeModifier: 2
-    heavyDamageBaseModifier: 1
-    maxTargets: 3
-    angle: 20
+        Structural: 12
+    attackRate: 3.5 # WD EDIT
+    heavyStaminaCost: 0 # WD EDIT
+    angle: 0 # WD EDIT
+  - type: DamageOtherOnHit
+    staminaCost: 8
+  - type: ThrowingAngle
+    angle: 270
 
   - type: ReverseEngineering # Nyano
     difficulty: 2

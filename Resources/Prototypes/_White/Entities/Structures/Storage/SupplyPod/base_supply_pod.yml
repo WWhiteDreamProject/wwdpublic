@@ -1,0 +1,80 @@
+# Base Supply Pod
+- type: entity
+  parent: BaseStructure
+  id: BaseSupplyPod
+  abstract: true
+  name: supply pod
+  description: It broke the goddamn floor... ugh...
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Appearance
+  - type: Sprite
+    noRot: true
+    scale: 0.9, 0.9
+    offset: 0, 0.3
+    sprite: _White/Structures/Storage/SupplyPods/supply_pod_default.rsi
+    layers:
+    - state: default_pod
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: rubble_overlay
+      map: ["base"]
+    - state: default_closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: overlay
+      map: ["enum.EffectLayers.Unshaded"]
+      shader: unshaded
+  - type: EntityStorageVisuals
+    stateBaseClosed: default_pod
+    stateDoorOpen: default_open
+    stateDoorClosed: default_closed
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        enum.EffectLayers.Unshaded:
+          True: { visible: False }
+          False: { visible: True }
+  - type: InteractionOutline
+  - type: Weldable
+  - type: ResistLocker
+  - type: ItemSlots
+  - type: EntityStorage
+    capacity: 10
+  - type: RadiationBlockingContainer
+    resistance: 5
+  - type: ExplosionResistance
+    worn: false
+    damageCoefficient: 0.1
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Metallic
+  - type: Construction
+    graph: SupplyPod
+    node: SupplyPod
+    containers:
+      - entity_storage
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 3
+      - !type:EmptyAllContainersBehaviour
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6

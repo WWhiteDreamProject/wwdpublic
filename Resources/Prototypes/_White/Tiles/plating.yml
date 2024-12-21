@@ -1,0 +1,51 @@
+- type: tile
+  id: PlatingDiagonalNE
+  name: tiles-plating-diagonal-NE
+  sprite: /Textures/_White/Tiles/plating_diagonal_ne.png
+  baseTurf: Lattice
+  isSubfloor: true
+  isSpace: true
+  deconstructTools: [ AdvancedPrying ]
+  footstepSounds:
+    collection: FootstepPlating
+  friction: 0.3
+  heatCapacity: 10000
+
+- type: tile
+  id: PlatingDiagonalNW
+  name: tiles-plating-diagonal-NW
+  sprite: /Textures/_White/Tiles/plating_diagonal_nw.png
+  baseTurf: Lattice
+  isSubfloor: true
+  isSpace: true
+  deconstructTools: [ AdvancedPrying ]
+  footstepSounds:
+    collection: FootstepPlating
+  friction: 0.3
+  heatCapacity: 10000
+
+- type: tile
+  id: PlatingDiagonalSE
+  name: tiles-plating-diagonal-SE
+  sprite: /Textures/_White/Tiles/plating_diagonal_se.png
+  baseTurf: Lattice
+  isSubfloor: true
+  isSpace: true
+  deconstructTools: [ AdvancedPrying ]
+  footstepSounds:
+    collection: FootstepPlating
+  friction: 0.3
+  heatCapacity: 10000
+
+- type: tile
+  id: PlatingDiagonalSW
+  name: tiles-plating-diagonal-SW
+  sprite: /Textures/_White/Tiles/plating_diagonal_sw.png
+  baseTurf: Lattice
+  isSubfloor: true
+  isSpace: true
+  deconstructTools: [ AdvancedPrying ]
+  footstepSounds:
+    collection: FootstepPlating
+  friction: 0.3
+  heatCapacity: 10000

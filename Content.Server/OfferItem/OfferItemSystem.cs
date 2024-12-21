@@ -39,11 +39,11 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
 
             if (!offerItem.IsInReceiveMode)
             {
-                _alertsSystem.ClearAlert(uid, AlertType.Offer);
+                _alertsSystem.ClearAlert(uid, offerItem.OfferAlert);
                 continue;
             }
 
-            _alertsSystem.ShowAlert(uid, AlertType.Offer);
+            _alertsSystem.ShowAlert(uid, offerItem.OfferAlert);
         }
     }
 
@@ -75,6 +75,8 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
                     ("item", Identity.Entity(offerItem.Item.Value, EntityManager)),
                     ("target", Identity.Entity(uid, EntityManager)))
                 , component.Target.Value, Filter.PvsExcept(component.Target.Value, entityManager: EntityManager), true);
+
+            RaiseLocalEvent(offerItem.Item.Value, new HandedEvent(component.Target.Value, uid)); // WD EDIT
         }
 
         offerItem.Item = null;
