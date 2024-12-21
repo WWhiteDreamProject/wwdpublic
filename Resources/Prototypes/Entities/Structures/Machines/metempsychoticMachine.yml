@@ -5,7 +5,7 @@
   description: Speeds along the transmigration of a soul to its next vessel.
   components:
     - type: CloningPod
-      doMetempsychosis: true
+      doMetempsychosis: false # WD EDIT
       biomassCostMultiplier: 0.5
     - type: Machine
       board: MetempsychoticMachineCircuitboard
@@ -23,4 +23,4 @@
             NoMind: { state: cloning_active }
             Gore: { state: cloning_failed }
             Idle: { state: cloning_idle }
-    - type: Psionic
+#    - type: Psionic # WD EDIT
