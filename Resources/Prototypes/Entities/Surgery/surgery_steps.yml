@@ -326,8 +326,8 @@
     - type: Tending
     duration: 1
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/hemostat.rsi
-    state: hemostat
+    sprite: Objects/Specific/Medical/Surgery/retractor.rsi # WD EDIT
+    state: retractor # WD EDIT
   - type: SurgeryTendWoundsEffect
     damage:
       groups:
@@ -345,8 +345,8 @@
     - type: Tending
     duration: 1
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/hemostat.rsi
-    state: hemostat
+    sprite: Objects/Specific/Medical/Surgery/retractor.rsi # WD EDIT
+    state: retractor # WD EDIT
   - type: SurgeryTendWoundsEffect
     mainGroup: Burn
     damage:
