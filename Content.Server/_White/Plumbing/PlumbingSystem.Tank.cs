@@ -27,7 +27,7 @@ public sealed partial class PlumbingSystem : EntitySystem
 
         SubscribeLocalEvent<PlumbingInternalTankComponent, PlumbingGetTank>(OnGetTankInternal);
         SubscribeLocalEvent<PlumbingItemSlotTankComponent, PlumbingGetTank>(OnGetTankItemSlot);
-
+        SubscribeLocalEvent<PlumbingInfiniteTankComponent, PlumbingGetTank>(OnGetTankInfinite);
         //SubscribeLocalEvent<PlumbingSimpleInputComponent, PlumbingRequestOutputEvent>(OnFactoryRequest);
         //simpleDemandQuery = GetEntityQuery<PlumbingSimpleDemandComponent>();
     }
@@ -45,4 +45,8 @@ public sealed partial class PlumbingSystem : EntitySystem
             args.solutionEnt = ent;
     }
 
+    private void OnGetTankInfinite(EntityUid uid, PlumbingInfiniteTankComponent comp, ref PlumbingGetTank args)
+    {
+        args.solution = new Solution(comp.ReagentPrototype, comp.tankSize);
+    }
 }
