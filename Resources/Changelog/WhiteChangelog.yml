@@ -1010,3 +1010,10 @@ Entries:
   id: 107
   time: '2024-12-21T21:35:13.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/177
+- author: islambrosgood
+  changes:
+    - type: Add
+      message: Aghosts with visors / Агосты с визорами
+  id: 108
+  time: '2024-12-21T21:35:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/175
