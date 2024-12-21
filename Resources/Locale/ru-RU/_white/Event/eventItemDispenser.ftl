@@ -73,7 +73,7 @@ event-item-dispenser-examine-finite = {$noLimit ->
 event-item-dispenser-examine-finite-manualdispose = Внутри {-item-plural-remain(count: $remaining)} {$noLimit ->
     [true]   Я могу взять { -event-item-dispenser-unlimited }! Если что, я могу их вернуть.
     *[false] Внутри {-item-plural-remain(count: $remaining)} { -event-item-dispenser-finite-count(r:$remaining, l:$limit) } Если что, я могу их вернуть, чтобы получить новые.
-}11
+}
 
 event-item-dispenser-examine-finite-single = {$remaining ->
     [1] Внутри только [color=yellow]один[/color] предмет.
