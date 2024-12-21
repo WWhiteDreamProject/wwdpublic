@@ -113,7 +113,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    icon: { sprite: _White/Interface/Actions, state: solar } # WWDP-Edit
+    icon: { sprite: _White/Interface/Actions.rsi, state: solar } # WWDP-Edit
     iconOn: _White/Interface/Actions/solar.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
@@ -126,7 +126,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    icon: { sprite: _White/Interface/Actions, state: communication } # WWDP-Edit
+    icon: { sprite: _White/Interface/Actions.rsi, state: communication } # WWDP-Edit
     iconOn: _White/Interface/Actions/communication.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
@@ -139,7 +139,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    icon: { sprite: _White/Interface/Actions, state: radar } # WWDP-Edit
+    icon: { sprite: _White/Interface/Actions.rsi, state: radar } # WWDP-Edit
     iconOn: _White/Interface/Actions/radar.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
@@ -152,7 +152,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    icon: { sprite: _White/Interface/Actions, state: cargo } # WWDP-Edit
+    icon: { sprite: _White/Interface/Actions.rsi, state: cargo } # WWDP-Edit
     iconOn: _White/Interface/Actions/cargo.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
@@ -165,7 +165,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    icon: { sprite: _White/Interface/Actions, state: crew } # WWDP-Edit
+    icon: { sprite: _White/Interface/Actions.rsi, state: crew } # WWDP-Edit
     iconOn: _White/Interface/Actions/crew.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
@@ -178,7 +178,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    icon: { sprite: _White/Interface/Actions, state: records } # WWDP-Edit
+    icon: { sprite: _White/Interface/Actions.rsi, state: records } # WWDP-Edit
     iconOn: _White/Interface/Actions/records.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
