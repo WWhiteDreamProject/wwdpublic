@@ -14,5 +14,5 @@
     sprite: Markers/jobs.rsi
     layers:
     - state: green
-    - sprite: _White/Mobs/Aliens/Xenos/larva.rsi
+    - sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
       state: larva1

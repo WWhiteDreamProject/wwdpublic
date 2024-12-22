@@ -1,9 +1,9 @@
 - type: entity
   parent: BaseItem
-  id: AlienAcid
-  noSpawn: true
-  name: alien-acid-name
-  description: alien-acid-desc
+  id: CorrosiveAcid
+  categories: [ HideSpawnMenu ]
+  name: corrosive acid
+  description: Green light acid.
   components:
     - type: Fixtures
       fixtures:
@@ -66,11 +66,10 @@
         - AlienItem
 
 - type: entity
-  id: CorrosiveAcid
-  noSpawn: true
-  name: alien-acid-name
-  suffix: overlay
-  description: alien-acid-desc
+  id: CorrosiveAcidOverlay
+  categories: [ HideSpawnMenu ]
+  name: corrosive acid
+  description: Green light acid.
   components:
   - type: Sprite
     sprite: _White/Interface/Actions/xenomorph.rsi
@@ -84,10 +83,9 @@
 
 - type: entity
   id: CorrodedAcid
-  noSpawn: true
-  name: corroded acid
-  suffix: overlay
-  description: alien-acid-desc
+  categories: [ HideSpawnMenu ]
+  name: corrosive acid
+  description: Green light acid.
   components:
   - type: Sprite
     sprite: _White/Interface/Actions/xenomorph.rsi

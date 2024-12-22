@@ -10,5 +10,5 @@ namespace Content.Server.Aliens.Components;
 public sealed partial class AlienAcidComponent : Component
 {
     [DataField("corrosiveAcidPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string AcidPrototype = "CorrosiveAcid";
+    public string AcidPrototype = "CorrosiveAcidOverlay";
 }

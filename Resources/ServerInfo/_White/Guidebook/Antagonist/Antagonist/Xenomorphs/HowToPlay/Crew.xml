@@ -10,8 +10,8 @@
 
   Если вы убили охотника, рекомендуется РАЗДЕЛАТЬ его чем-нибудь острым, ведь они имеют способность поглощать тела экипажа, именно в нём может находится ваш пропавший друг, или важный для станции персонал.
   <Box>
-    <GuideEntityEmbed Entity="MobAlienHunter" Caption="Охотник."/>
-  </Box> 
+    <GuideEntityEmbed Entity="MobXenomorphHunter" Caption="Охотник."/>
+  </Box>
 
   На вашем пути встали противные полимерные структуры? Их нужно уничтожить!
   Структуры:
@@ -40,9 +40,9 @@
 
   - В первую очередь пытайтесь уничтожить королеву, а потом преторианца вместе с дронами, пока кто-то из них жив, вы не сможете устранить угрозу до конца. Именно эти особи могут сделать улей снова великим, не допустите этого, даже ценой своей жизни.
   <Box>
-    <GuideEntityEmbed Entity="MobAlienQueen" Caption="Королева."/>
-    <GuideEntityEmbed Entity="MobAlienPraetorian" Caption="Преторианец."/>
-    <GuideEntityEmbed Entity="MobAlienDrone" Caption="Дрон."/>
+    <GuideEntityEmbed Entity="MobXenomorphQueen" Caption="Королева."/>
+    <GuideEntityEmbed Entity="MobXenomorphPraetorian" Caption="Преторианец."/>
+    <GuideEntityEmbed Entity="MobXenomorphDrone" Caption="Дрон."/>
   </Box>
 
   ## Советы для робаста

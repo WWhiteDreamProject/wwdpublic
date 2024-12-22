@@ -13,20 +13,20 @@
 
   Тир 1, Королева:
   <Box>
-    <GuideEntityEmbed Entity="MobAlienQueen" Caption="Королева."/>
+    <GuideEntityEmbed Entity="MobXenomorphQueen" Caption="Королева."/>
   </Box>
 
   Тир 2, Королевская гвардия:
   <Box>
-    <GuideEntityEmbed Entity="MobAlienPraetorian" Caption="Преторианец."/>
+    <GuideEntityEmbed Entity="MobXenomorphPraetorian" Caption="Преторианец."/>
   </Box>
 
   Тир 3, Специалисты:
   <Box>
-    <GuideEntityEmbed Entity="MobAlienDrone" Caption="Дрон."/>
-    <GuideEntityEmbed Entity="MobAlienSentinel" Caption="Плевальщик."/>
-    <GuideEntityEmbed Entity="MobAlienHunter" Caption="Охотник."/>
-    <GuideEntityEmbed Entity="MobAlienMaid" Caption="Горничная!?"/>
+    <GuideEntityEmbed Entity="MobXenomorphDrone" Caption="Дрон."/>
+    <GuideEntityEmbed Entity="MobXenomorphSentinel" Caption="Плевальщик."/>
+    <GuideEntityEmbed Entity="MobXenomorphHunter" Caption="Охотник."/>
+    <GuideEntityEmbed Entity="MobXenomorphMaid" Caption="Горничная!?"/>
   </Box>
 
   Тир 4, Низшие:

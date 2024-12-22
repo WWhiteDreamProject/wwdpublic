@@ -10,9 +10,9 @@
   id: MobAlienBase
   abstract: true
   components:
-#    - type: ThermalVision # Because need port
-#      toggleAction: null
-#      color: "#00000000"
+    - type: ThermalVision
+      toggleAction: null
+      color: "#00000000"
     - type: NightVision
       toggleAction: ActionXenomorphVision
       color: "#7d0cc9"
@@ -21,38 +21,26 @@
     - type: CombatMode
       combatToggleAction: ActionCombatModeToggleAlien
       canDisarm: true
-    - type: InputMover
-    - type: MobMover
     - type: MovementSpeedModifier
       baseWalkSpeed: 3
       baseSprintSpeed: 4.5
     - type: NameIdentifier
       group: GenericNumber
     - type: Tool
-      speed: 3
-      speedModifier: 3
+      speed: 2
+      speedModifier: 2
       qualities:
         - Prying
     - type: Prying
-      pryPowered: !type:Bool
-        true
-      force: !type:Bool
-        true
-      useSound:
-        path: /Audio/Items/crowbar.ogg
-    - type: Reactive
-      groups:
-        Flammable: [Touch]
-        Extinguish: [Touch]
+      speedModifier: 2
+      pryPowered: true
     - type: NpcFactionMember
       factions:
         - Xeno
-    - type: DeathGasps
-      prototype: XenomorphDeathGasp
-      deathSounds:
-        collection: XenomorphDeath
-      canOtherHearDeathSound: True
+    - type: Deathgasp
+      prototype: XenomorphDeathgasp
     - type: Hands
+    - type: ComplexInteraction
     - type: Puller
       needsHands: false
     - type: IdExaminable
@@ -61,11 +49,21 @@
     - type: Strippable
     - type: UserInterface
       interfaces:
-        - key: enum.StrippingUiKey.Key
+        enum.HumanoidMarkingModifierKey.Key:
+          type: HumanoidMarkingModifierBoundUserInterface
+        enum.StrippingUiKey.Key:
           type: StrippableBoundUserInterface
+        enum.InstrumentUiKey.Key:
+          type: InstrumentBoundUserInterface
+          requireInputValidation: false
+        enum.RadialSelectorUiKey.Key:
+          type: RadialSelectorMenuBUI
+        enum.ListViewSelectorUiKey.Key:
+          type: ListViewSelectorBUI
+        enum.SurgeryUIKey.Key:
+          type: SurgeryBui
     - type: Sprite
       drawdepth: Mobs
-      offset: 0, 0.2
     - type: Fixtures
       fixtures:
         fix1:
@@ -123,11 +121,11 @@
           Structural: 10
     - type: DamageStateVisuals
       rotate: true
-    - type: Butcherable
-      butcheringType: knife
-      spawned:
-        - id: FoodMeatXeno
-          amount: 5
+#    - type: Butcherable
+#      butcheringType: knife
+#      spawned:
+#        - id: FoodMeatXeno
+#          amount: 5
     - type: RotationVisuals
       defaultRotation: 90
       horizontalRotation: 90
@@ -142,6 +140,7 @@
         - CannotSuicide
         - DoorBumpOpener
         - FootstepSound
+    - type: ZombieImmune
     - type: NoSlip
     - type: Perishable
       molsPerSecondPerUnitMass: 0.0005
@@ -159,35 +158,41 @@
           Airloss: -10
           Brute: -5
     - type: Body
-      prototype: Xeno
+      prototype: XenomorphLarge
     - type: Inventory
       templateId: alien
     - type: Cuffable
-    - type: Ensnareable
-      sprite: Objects/Misc/ensnare.rsi
-      state: icon
     - type: StatusEffects
       allowed:
-        - Stun
-        - KnockedDown
-        - SlowedDown
-        - Stutter
-        - Electrocution
-        - ForcedSleep
-        - TemporaryBlindness
-        - Pacified
-        - StaminaModifier
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Stutter
+      - Electrocution
+      - RatvarianLanguage
+      - PressureImmunity
+      - Pacified
+      - StaminaModifier
+      - PsionicsDisabled
+      - PsionicallyInsulated
     - type: VomitAction
       thirstAdded: 5.0
       hungerAdded: 5.0
     - type: PlasmaVessel
-    - type: Alerts
     - type: Speech
       speechSounds: Xenomorph
       speechVerb: SmallMob
+    - type: LanguageKnowledge
+      speaks:
+      - Xeno
+      understands:
+      - Xeno
+      - Hissing
+      - Draconic
+      - TauCetiBasic
     - type: SSDIndicator
     - type: StandingState
-      canLieDown: true
+    - type: Dna
     - type: Devourer
       devourTime: 2
       consumes:
@@ -198,34 +203,62 @@
         Male: UnisexXenomorphHybrid
         Female: UnisexXenomorphHybrid
         Unsexed: UnisexXenomorphHybrid
+    - type: Emoting
+    - type: BodyEmotes
+      soundsId: GeneralBodyEmotes
     - type: LizardAccent
     - type: GuideHelp
       guides:
       - Xenomorphs
+    - type: Targeting
+    - type: SurgeryTarget
 
 # BASE LARVA
 
 - type: entity
-  parent: SimpleSpaceMobBase
+  parent:
+  - BaseMob
+  - MobDamageable
+  - MobCombat
+  - MobBloodstream
+  - MobFlammable
   id: MobAlienLarva
   name: alien larva
   description: Little and harmless alien
   components:
+    - type: ThermalVision
+      toggleAction: ActionXenomorphVision
+      color: "#00000000"
+    - type: NightVision
+      toggleAction: ActionXenomorphVision
+      color: "#7d0cc9"
     - type: ShowInfectedIcons
     - type: Body
-      prototype: Xeno
+      prototype: XenomorphTiny
     - type: Speech
       speechSounds: Xenomorph
       speechVerb: SmallMob
+    - type: LanguageKnowledge
+      speaks:
+      - Xeno
+      understands:
+      - Xeno
+      - Hissing
+      - Draconic
+      - TauCetiBasic
     - type: Vocal
       sounds:
         Male: UnisexXenomorphHybrid
         Female: UnisexXenomorphHybrid
         Unsexed: UnisexXenomorphHybrid
+    - type: Emoting
+    - type: BodyEmotes
+      soundsId: GeneralBodyEmotes
     - type: LizardAccent
+    - type: ZombieImmune
     - type: Sprite
       drawdepth: SmallMobs
-      sprite: _White/Mobs/Aliens/Xenomorph/larva.rsi
+      sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
       layers:
         - map: ["enum.DamageStateVisualLayers.Base", "movement"]
           state: larva0
@@ -254,18 +287,8 @@
             - SmallMobMask
           layer:
             - SmallMobLayer
-    - type: MobState
-    - type: DeathGasps
-      prototype: XenomorphDeathGasp
-      deathSounds:
-        collection: LarvaDeath
-      canOtherHearDeathSound: True
-    - type: MobStateActions
-      actions:
-        Critical:
-          - ActionCritSuccumb
-          - ActionCritFakeDeath
-          - ActionCritLastWords
+    - type: Deathgasp
+      prototype: LarvaDeathgasp
     - type: MobThresholds
       thresholds:
         0: Alive
@@ -285,12 +308,6 @@
           Base: larva0_stun
         Dead:
           Base: larva0_dead
-    - type: Tag
-      tags:
-        - Trash
-        - VimPilot
-        - Meat
-      wilhelmProbability: 0.001
     - type: CombatMode
       combatToggleAction: ActionCombatModeToggleAlien
     - type: MeleeWeapon
@@ -305,12 +322,9 @@
       bloodMaxVolume: 50
       bloodReagent: FluorosulfuricAcid
     - type: MobPrice
-      price: 50
-    - type: BadFood
+      price: 250
     - type: TypingIndicator
       proto: alien
-    - type: NonSpreaderZombie
-    - type: PreventSpiller
     - type: PassiveDamage
       allowedStates:
       - Alive
@@ -342,9 +356,9 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _White/Mobs/Aliens/Xenomorph/facehugger.rsi
+    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
   - type: Item
-    sprite: _White/Mobs/Aliens/Xenomorph/facehugger_inhands.rsi
+    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger_inhands.rsi
     size: Small
   - type: Damageable
     damageContainer: Biological

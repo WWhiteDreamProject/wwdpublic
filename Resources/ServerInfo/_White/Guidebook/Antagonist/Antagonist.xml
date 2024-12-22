@@ -5,7 +5,7 @@
 
   Мажорные антагонисты:
   <Box>
-    <GuideEntityEmbed Entity="MobAlienQueen" Caption="Ксеноморф."/>
+    <GuideEntityEmbed Entity="MobXenomorphQueen" Caption="Ксеноморф."/>
   </Box>
 
 </Document>

@@ -10,6 +10,11 @@
     snap:
     - Wall
   components:
+    - type: Icon
+      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
+    - type: Sprite
+      noRot: true
+      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
     - type: Transform
       anchored: true
       noRot: true
@@ -86,11 +91,8 @@
     - Wall
   components:
     - type: Icon
-      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
       state: egg
     - type: Sprite
-      noRot: true
-      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
       state: egg
     - type: AlienEggHatch
       polymorphPrototype: AlienEggHatch
@@ -108,11 +110,8 @@
     - Wall
   components:
     - type: Icon
-      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
       state: egg_growing
     - type: Sprite
-      noRot: true
-      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
       state: egg_growing
     - type: TimedPolymorph
       polymorphTime: 240
@@ -131,11 +130,8 @@
     - Wall
   components:
     - type: Icon
-      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
       state: egg_opening
     - type: Sprite
-      noRot: true
-      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
       state: egg_opening
     - type: TimedDespawn
       lifetime: 1.5
@@ -155,12 +151,33 @@
     - Wall
   components:
     - type: Icon
-      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
       state: egg_hatched
     - type: Sprite
-      noRot: true
-      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
       state: egg_hatched
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 50
+          behaviors:
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: blood
+        - trigger:
+            !type:DamageTypeTrigger
+            damageType: Heat
+            damage: 45
+          behaviors:
+            - !type:SpawnEntitiesBehavior
+              spawnInContainer: true
+              spawn:
+                Ash:
+                  min: 0
+                  max: 1
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
     - type: ConditionalSpawner
       prototypes:
       - Facehugger
@@ -178,9 +195,30 @@
     - Wall
   components:
     - type: Icon
-      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
       state: egg_hatched
     - type: Sprite
-      noRot: true
-      sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
       state: egg_hatched
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 50
+          behaviors:
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: blood
+        - trigger:
+            !type:DamageTypeTrigger
+            damageType: Heat
+            damage: 45
+          behaviors:
+            - !type:SpawnEntitiesBehavior
+              spawnInContainer: true
+              spawn:
+                Ash:
+                  min: 0
+                  max: 1
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]

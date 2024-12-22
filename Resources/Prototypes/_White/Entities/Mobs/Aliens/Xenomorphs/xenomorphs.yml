@@ -1,11 +1,11 @@
 ﻿- type: entity
   parent: MobAlienBase
-  id: MobAlienDroneBase
+  id: MobXenomorphDroneBase
   abstract: true
   name: alien drone
   components:
     - type: Sprite
-      sprite: _White/Mobs/Aliens/Xenomorph/drone.rsi
+      sprite: _White/Mobs/Aliens/Xenomorphs/drone.rsi
       layers:
         - map: ["enum.DamageStateVisualLayers.Base"]
           state: aliend
@@ -28,6 +28,8 @@
           Base: aliend_unconscious
         Dead:
           Base: aliend_dead
+    - type: Body
+      prototype: XenomorphLarge
     - type: AcidMaker
       action: ActionMakeAcid
       productionLength: 0
@@ -47,8 +49,8 @@
       - Critical
 
 - type: entity
-  parent: MobAlienDroneBase
-  id: MobAlienDrone
+  parent: MobXenomorphDroneBase
+  id: MobXenomorphDrone
   components:
     - type: MindContainer
       showExamineInfo: true
@@ -64,9 +66,8 @@
         settings: default
 
 - type: entity
-  parent: MobAlienDroneBase
-  id: MobAlienDroneDummy
-  noSpawn: true
+  parent: MobXenomorphDroneBase
+  id: MobXenomorphDroneDummy
   suffix: Без гост роли
   components:
     - type: MovementSpeedModifier
@@ -99,12 +100,12 @@
 
 - type: entity
   parent: MobAlienBase
-  id: MobAlienSentinelBase
+  id: MobXenomorphSentinelBase
   abstract: true
   name: alien sentinel
   components:
   - type: Sprite
-    sprite: _White/Mobs/Aliens/Xenomorph/sentinel.rsi
+    sprite: _White/Mobs/Aliens/Xenomorphs/sentinel.rsi
     layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: aliens
@@ -121,6 +122,8 @@
         visible: false
   - type: Alien
     caste: sentinel
+  - type: Body
+    prototype: XenomorphLargeSentinel
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -178,8 +181,8 @@
     - Critical
 
 - type: entity
-  parent: MobAlienSentinelBase
-  id: MobAlienSentinel
+  parent: MobXenomorphSentinelBase
+  id: MobXenomorphSentinel
   components:
     - type: MindContainer
       showExamineInfo: true
@@ -195,9 +198,8 @@
         settings: default
 
 - type: entity
-  parent: MobAlienSentinelBase
-  id: MobAlienSentinelDummy
-  noSpawn: true
+  parent: MobXenomorphSentinelBase
+  id: MobXenomorphSentinelDummy
   suffix: Без гост роли
   components:
     - type: MovementSpeedModifier
@@ -232,15 +234,15 @@
 
 - type: entity
   parent: MobAlienBase
-  id: MobAlienHunterBase
+  id: MobXenomorphHunterBase
   abstract: true
   name: alien hunter
   components:
   - type: Sprite
-    sprite: _White/Mobs/Aliens/Xenomorph/hunter.rsi
+    sprite: _White/Mobs/Aliens/Xenomorphs/hunter.rsi
     layers:
       - map: [ "enum.JumpLayers.Jumping" ]
-        sprite: _White/Mobs/Aliens/Xenomorph/hunter_jump.rsi
+        sprite: _White/Mobs/Aliens/Xenomorphs/hunter_jump.rsi
         state: icon
         visible: false
       - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -258,6 +260,8 @@
         visible: false
   - type: Alien
     caste: hunter
+  - type: Body
+    prototype: XenomorphMedium
   - type: GenericVisualizer
     visuals:
       enum.JumpVisuals.Jumping:
@@ -313,14 +317,14 @@
   - type: JumpVisuals
     baseState: alienh
   - type: AlienJump
-    jumpSprite: _White/Mobs/Aliens/Xenomorph/alien_hunter_jump.rsi
+    jumpSprite: _White/Mobs/Aliens/Xenomorphs/alien_hunter_jump.rsi
   - type: GuideHelp
     guides:
     - XenomorphHunter
 
 - type: entity
-  parent: MobAlienHunterBase
-  id: MobAlienHunter
+  parent: MobXenomorphHunterBase
+  id: MobXenomorphHunter
   components:
     - type: MindContainer
       showExamineInfo: true
@@ -336,9 +340,8 @@
         settings: default
 
 - type: entity
-  parent: MobAlienHunterBase
-  id: MobAlienHunterDummy
-  noSpawn: true
+  parent: MobXenomorphHunterBase
+  id: MobXenomorphHunterDummy
   suffix: Без гост роли
   components:
     - type: MovementSpeedModifier
@@ -371,12 +374,12 @@
 
 - type: entity
   parent: MobAlienBase
-  id: MobAlienPraetorianBase
+  id: MobXenomorphPraetorianBase
   abstract: true
   name: alien praetorian
   components:
   - type: Sprite
-    sprite: _White/Mobs/Aliens/Xenomorph/praetorian.rsi
+    sprite: _White/Mobs/Aliens/Xenomorphs/praetorian.rsi
     layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alienp
@@ -393,6 +396,8 @@
     speciesId: alien_praetorian
   - type: Alien
     caste: drone # Because Dummy
+  - type: Body
+    prototype: XenomorphLargeSentinel
   - type: AcidMaker
     action: ActionMakeAcid
     entityProduced: AlienAcid
@@ -467,8 +472,8 @@
     - Critical
 
 - type: entity
-  parent: MobAlienPraetorianBase
-  id: MobAlienPraetorian
+  parent: MobXenomorphPraetorianBase
+  id: MobXenomorphPraetorian
   components:
     - type: MindContainer
       showExamineInfo: true
@@ -486,9 +491,8 @@
         settings: default
 
 - type: entity
-  parent: MobAlienPraetorianBase
-  id: MobAlienPraetorianDummy
-  noSpawn: true
+  parent: MobXenomorphPraetorianBase
+  id: MobXenomorphPraetorianDummy
   suffix: Без гост роли
   components:
     - type: MovementSpeedModifier
@@ -521,12 +525,12 @@
 
 - type: entity
   parent: MobAlienBase
-  id: MobAlienQueenBase
+  id: MobXenomorphQueenBase
   abstract: true
   name: alien queen
   components:
   - type: Sprite
-    sprite: _White/Mobs/Aliens/Xenomorph/queen.rsi
+    sprite: _White/Mobs/Aliens/Xenomorphs/queen.rsi
     layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alienq
@@ -540,6 +544,8 @@
         visible: false
   - type: Alien
     caste: drone # Because Dummy
+  - type: Body
+    prototype: XenomorphQueen
   - type: TypingIndicator
     proto: alien_royal
   - type: Inventory
@@ -614,13 +620,20 @@
     sound:
       collection:
         XenomorphQueenCommand
-  - type: DeathGasps
-    deathSounds:
-      collection: XenomorphQueenDeath
-    canOtherHearDeathSound: True
+  - type: Deathgasp
+    prototype: XenomorphQueenDeathgasp
   - type: Speech
     speechSounds: Xenomorph
     speechVerb: LargeMob
+  - type: LanguageKnowledge
+    speaks:
+    - Xeno
+    - TauCetiBasic
+    understands:
+    - Xeno
+    - Hissing
+    - Draconic
+    - TauCetiBasic
   - type: TailLash
   - type: GuideHelp
     guides:
@@ -632,8 +645,8 @@
     - Critical
 
 - type: entity
-  parent: MobAlienQueenBase
-  id: MobAlienQueen
+  parent: MobXenomorphQueenBase
+  id: MobXenomorphQueen
   components:
     - type: MindContainer
       showExamineInfo: true
@@ -651,9 +664,8 @@
         settings: default
 
 - type: entity
-  parent: MobAlienQueenBase
-  id: MobAlienQueenDummy
-  noSpawn: true
+  parent: MobXenomorphQueenBase
+  id: MobXenomorphQueenDummy
   suffix: Без гост роли
   components:
     - type: MovementSpeedModifier
@@ -686,13 +698,13 @@
 
 - type: entity
   parent: MobAlienBase
-  id: MobAlienMaidBase
+  id: MobXenomorphMaidBase
   abstract: true
   name: lusty alien maid
   description: Don't ask it to lay eggs in you.
   components:
   - type: Sprite
-    sprite: _White/Mobs/Aliens/Xenomorph/maid.rsi
+    sprite: _White/Mobs/Aliens/Xenomorphs/maid.rsi
     layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: maid
@@ -746,8 +758,8 @@
     - XenomorphMaid
 
 - type: entity
-  parent: MobAlienMaidBase
-  id: MobAlienMaid
+  parent: MobXenomorphMaidBase
+  id: MobXenomorphMaid
   components:
     - type: MindContainer
       showExamineInfo: true
@@ -763,9 +775,8 @@
         settings: default
 
 - type: entity
-  parent: MobAlienMaidBase
-  id: MobAlienMaidDummy
-  noSpawn: true
+  parent: MobXenomorphMaidBase
+  id: MobXenomorphMaidDummy
   suffix: Без гост роли
   components:
     - type: Damageable

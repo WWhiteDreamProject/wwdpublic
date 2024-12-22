@@ -1,6 +1,94 @@
 ﻿- type: entity
-  parent: BaseAnimalOrgan
-  id: OrganXenoAcidGland
+  parent: BaseItem
+  id: BaseXenomorphOrgan
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Species/Xenomorph/organs.rsi
+  - type: Organ
+  - type: Food
+  - type: Extractable
+    grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - people
+  - type: Tag
+    tags:
+      - Meat
+
+- type: entity
+  parent: [BaseXenomorphOrgan, OrganHumanBrain]
+  id: OrganXenomorphBrain
+  name: alien brain
+  description: "The source of incredible, unending intelligence."
+
+- type: entity
+  parent: [BaseXenomorphOrgan, OrganHumanEyes]
+  id: OrganXenomorphEyes
+  name: alien eyes
+  description: "We see you!"
+
+- type: entity
+  parent: [BaseXenomorphOrgan, OrganHumanTongue]
+  id: OrganXenomorphTongue
+  name: alien tongue
+  description: "A fleshy mini alien mostly used for bite."
+
+- type: entity
+  parent: [BaseXenomorphOrgan, OrganHumanEars]
+  id: OrganXenomorphEars
+  name: alien ears
+  description: "WTF is this..."
+
+- type: entity
+  parent: [BaseXenomorphOrgan, OrganHumanLungs]
+  id: OrganXenomorphLungs
+  name: alien lungs
+  description: "Its just work."
+  components:
+  - type: Metabolizer
+    groups:
+    - id: Gas
+      rateModifier: 0
+
+- type: entity
+  parent: [BaseXenomorphOrgan, OrganHumanHeart]
+  id: OrganXenomorphHeart
+  name: alien heart
+  description: "I feel bad for the heartless bastard who lost this."
+
+- type: entity
+  parent: [BaseXenomorphOrgan, OrganReptilianStomach]
+  id: OrganXenomorphStomach
+  name: alien stomach
+  description: "Gross. This is hard to stomach."
+
+- type: entity
+  parent: [BaseXenomorphOrgan, OrganHumanLiver]
+  id: OrganXenomorphLiver
+  name: alien liver
+  description: "Pairing suggestion: chianti and fava beans."
+
+- type: entity
+  parent: [BaseXenomorphOrgan, OrganHumanKidneys]
+  id: OrganXenomorphKidneys
+  name: alien kidneys
+  description: "Filters toxins from the bloodstream."
+
+- type: entity
+  parent: BaseXenomorphOrgan
+  id: OrganXenomorphAcidGland
   name: acid-gland
   components:
     - type: Sprite
@@ -9,8 +97,8 @@
     - type: Organ
 
 - type: entity
-  parent: BaseAnimalOrgan
-  id: OrganXenoEggsac
+  parent: BaseXenomorphOrgan
+  id: OrganXenomorphEggsac
   name: eggsac
   components:
     - type: Sprite
@@ -19,8 +107,8 @@
     - type: Organ
 
 - type: entity
-  parent: BaseAnimalOrgan
-  id: OrganXenoHivenode
+  parent: BaseXenomorphOrgan
+  id: OrganXenomorphHivenode
   name: hivenode
   components:
     - type: Sprite
@@ -29,8 +117,8 @@
     - type: Organ
 
 - type: entity
-  parent: BaseAnimalOrgan
-  id: OrganXenoPlasmaVesselTiny
+  parent: BaseXenomorphOrgan
+  id: OrganXenomorphPlasmaVesselTiny
   name: tiny plasma-vessel
   components:
     - type: Sprite
@@ -39,8 +127,8 @@
     - type: Organ
 
 - type: entity
-  parent: BaseAnimalOrgan
-  id: OrganXenoPlasmaVesselSmall
+  parent: BaseXenomorphOrgan
+  id: OrganXenomorphPlasmaVesselSmall
   name: small plasma-vessel
   components:
     - type: Sprite
@@ -49,8 +137,8 @@
     - type: Organ
 
 - type: entity
-  parent: BaseAnimalOrgan
-  id: OrganXenoPlasmaVesselMedium
+  parent: BaseXenomorphOrgan
+  id: OrganXenomorphPlasmaVesselMedium
   name: medium plasma-vessel
   components:
     - type: Sprite
@@ -59,50 +147,11 @@
     - type: Organ
 
 - type: entity
-  parent: BaseAnimalOrgan
-  id: OrganXenoPlasmaVesselLarge
+  parent: BaseXenomorphOrgan
+  id: OrganXenomorphPlasmaVesselLarge
   name: large plasma-vessel
   components:
     - type: Sprite
       sprite: _White/Mobs/Species/Xenomorph/organs.rsi
       state: plasma_large
     - type: Organ
-
-- type: entity
-  parent: BaseHumanOrganUnGibbable
-  id: OrganXenoBrain
-  noSpawn: true
-  name: brain
-  description: "The source of incredible, unending intelligence. Honk."
-  components:
-    - type: Sprite
-      sprite: _White/Mobs/Species/Xenomorph/organs.rsi
-      state: brain
-    - type: Organ
-    - type: Input
-      context: "ghost"
-    - type: Brain
-    - type: InputMover
-    - type: Examiner
-    - type: BlockMovement
-    - type: BadFood
-    - type: Tag
-      tags:
-        - Meat
-
-- type: entity
-  id: TorsoXeno
-  noSpawn: true
-  name: "alien torso"
-  parent: [PartHuman, BaseTorso]
-  components:
-    - type: Sprite
-      sprite: _White/Mobs/Species/Xenomorph/parts.rsi
-      state: "torso_m"
-    - type: Extractable
-      juiceSolution:
-        reagents:
-          - ReagentId: Fat
-            Quantity: 10
-          - ReagentId: Blood
-            Quantity: 20

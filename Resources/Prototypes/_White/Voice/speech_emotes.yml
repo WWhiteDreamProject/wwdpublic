@@ -1,4 +1,28 @@
 - type: emote
+  id: XenomorphQueenDeathgasp
+  name: chat-emote-name-deathgasp
+  icon: Interface/Emotes/deathgasp.png
+  chatMessages: ["chat-emote-msg-deathgasp"]
+  chatTriggers:
+  - xenomorphqueendeathgasp
+
+- type: emote
+  id: XenomorphDeathgasp
+  name: chat-emote-name-deathgasp
+  icon: Interface/Emotes/deathgasp.png
+  chatMessages: ["chat-emote-msg-deathgasp"]
+  chatTriggers:
+  - xenomorphdeathgasp
+
+- type: emote
+  id: LarvaDeathgasp
+  name: chat-emote-name-deathgasp
+  icon: Interface/Emotes/deathgasp.png
+  chatMessages: ["chat-emote-msg-deathgasp"]
+  chatTriggers:
+  - larvadeathgasp
+
+- type: emote
   id: Nod
   name: chat-emote-name-nod
   category: General

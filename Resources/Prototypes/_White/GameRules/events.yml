@@ -44,3 +44,18 @@
       reoccurrenceDelay: 40
     - type: RandomSpawnRule
       prototype: SpawnStraySupplyPodSyndicate
+
+- type: entity
+  parent: BaseGameRule
+  id: XenomorphInfestation
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: StationEvent
+      startAnnouncement: true
+      weight: 5
+      duration: 10
+      minimumPlayers: 30
+      earliestStart: 20
+      reoccurrenceDelay: 50
+    - type: RandomSpawnRule
+      prototype: SpawnPointGhostAlienLarva

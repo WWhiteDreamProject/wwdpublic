@@ -3,7 +3,7 @@
   id: ActionXenomorphVision
   name: action-toggle-xenomorph-vision-name
   description: action-toggle-xenomorph-vision-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: InstantAction
       icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: vision_on_action }
@@ -16,7 +16,7 @@
   id: ActionVomit
   name: action-vomit-name
   description: action-vomit-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: InstantAction
       icon: { sprite : Fluids/vomit.rsi, state: vomit-0 }
@@ -29,7 +29,7 @@
   id: ActionMakeAcid
   name: action-make-acid-name
   description: action-make-acid-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: InstantAction
       icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: acid_action }
@@ -41,7 +41,7 @@
   id: ActionResinNode
   name: action-create-weednode-name
   description: action-create-weednode-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     priority: 2
@@ -53,7 +53,7 @@
   id: ActionCombatModeToggleAlien
   name: "[color=red]Боевой режим[/color]"
   description: Войти в боевой режим.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -69,7 +69,7 @@
   id: ActionAlienDroneWall
   name: action-create-resin-wall-name
   description: action-create-resin-wall-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: InstantAction
       priority: 3
@@ -81,7 +81,7 @@
   id: ActionWindowResin
   name: action-create-resin-window-name
   description: action-create-resin-window-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: InstantAction
       priority: 4
@@ -93,7 +93,7 @@
   id: ActionAlienNest
   name: action-create-alien-nest-name
   description: action-create-alien-nest-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     priority: 4
@@ -107,72 +107,72 @@
   id: ActionEvolveDrone
   name: action-evolve-alien-drone
   description: action-evolve-alien-drone-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     priority: 9
     useDelay: 5
-    icon: { sprite : _White/Mobs/Aliens/Xenos/drone.rsi, state: aliend }
+    icon: { sprite : _White/Mobs/Aliens/Xenomorphs/drone.rsi, state: aliend }
     event: !type:AlienDroneEvolveActionEvent
 
 - type: entity
   id: ActionEvolveSentinel
   name: action-evolve-alien-sentinel
   description: action-evolve-alien-sentinel-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     priority: 11
     useDelay: 5
-    icon: { sprite : _White/Mobs/Aliens/Xenos/sentinel.rsi, state: aliens }
+    icon: { sprite : _White/Mobs/Aliens/Xenomorphs/sentinel.rsi, state: aliens }
     event: !type:AlienSentinelEvolveActionEvent
 
 - type: entity
   id: ActionEvolvePraetorian
   name: action-evolve-alien-praetorian
   description: action-evolve-alien-praetorian-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     priority: 10
     useDelay: 0
-    icon: { sprite : _White/Mobs/Aliens/Xenos/praetorian.rsi, state: alienp }
+    icon: { sprite : _White/Mobs/Aliens/Xenomorphs/praetorian.rsi, state: alienp }
     event: !type:AlienPraetorianEvolveActionEvent
 
 - type: entity
   id: ActionEvolveHunter
   name: action-evolve-alien-hunter
   description: action-evolve-alien-hunter-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     priority: 10
     useDelay: 0
-    icon: { sprite : _White/Mobs/Aliens/Xenos/hunter.rsi, state: alienh }
+    icon: { sprite : _White/Mobs/Aliens/Xenomorphs/hunter.rsi, state: alienh }
     event: !type:AlienHunterEvolveActionEvent
 
 - type: entity
   id: ActionEvolveQueen
   name: action-evolve-alien-queen
   description: action-evolve-alien-queen-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     priority: 10
     useDelay: 0
-    icon: { sprite : _White/Mobs/Aliens/Xenos/queen.rsi, state: alienq }
+    icon: { sprite : _White/Mobs/Aliens/Xenomorphs/queen.rsi, state: alienq }
     event: !type:AlienQueenEvolveActionEvent
 
 - type: entity
   id: ActionLarvaGrow
   name: action-larva-grow
   description: action-larva-grow-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     priority: 10
     useDelay: 0
-    icon: { sprite : _White/Mobs/Aliens/Xenos/larva.rsi, state: larva0 }
+    icon: { sprite : _White/Mobs/Aliens/Xenomorphs/larva.rsi, state: larva0 }
     event: !type:AlienLarvaGrowActionEvent
 
 # Hunter
@@ -181,7 +181,7 @@
   id: ActionJumpAlien
   name: action-alien-jump
   description: action-alien-jump-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     priority: 0
@@ -196,7 +196,7 @@
   id: ActionStalkAlien
   name: action-stalk-alien-hunter
   description: action-stalk-alien-hunter-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     priority: 0
@@ -211,7 +211,7 @@
   id: ActionAlienEgg
   name: action-egg-alien
   description: action-egg-alien-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     priority: 0
@@ -223,7 +223,7 @@
   id: ActionAlienRoyalLarva
   name: action-promotion-alien
   description: action-promotion-alien-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     priority: 0
@@ -235,7 +235,7 @@
   id: ActionTailLash
   name: action-tail-lash
   description: action-tail-lash-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     priority: 0
@@ -247,7 +247,7 @@
   id: ActionAlienTransferPlasma
   name: action-transfer-plasma-alien
   description: action-transfer-plasma-alien-desc
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
     priority: 0
