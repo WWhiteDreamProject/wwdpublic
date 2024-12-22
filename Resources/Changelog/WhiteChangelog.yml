@@ -1035,3 +1035,28 @@ Entries:
   id: 110
   time: '2024-12-22T05:19:01.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/156
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Стан и теневые узы теперь являются аурами
+    - type: Tweak
+      message: Конструкты теперь понимают культистов и могут общаться в канале культа
+    - type: Tweak
+      message: Конструкты теперь лечатся от пилона
+    - type: Tweak
+      message: На конструктах теперь отображаются иконки
+    - type: Tweak
+      message: 'Конструкты теперь превращаются в цитоплазму при смерти '
+    - type: Tweak
+      message: Повязка зилота теперь дает ночное зрение и защиту от сварки
+    - type: Fix
+      message: >-
+        Кровавый обряд больше нельзя поместить в хранилища, передать и выбросить
+        на пол
+    - type: Fix
+      message: Кровавое копье теперь всегда возвращается в руку
+    - type: Fix
+      message: Теневые узы теперь работают
+  id: 111
+  time: '2024-12-22T05:28:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/169
