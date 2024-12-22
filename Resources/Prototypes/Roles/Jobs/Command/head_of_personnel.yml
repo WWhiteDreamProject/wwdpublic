@@ -60,6 +60,11 @@
   - Musician # DeltaV - Add Musician access
   - Reporter # DeltaV - Add Reporter access
   - Zookeeper # DeltaV - Add Zookeeper access
+  - Quartermaster
+  - Mail
+  - Paramedic
+  - Psychologist
+  - Corpsman
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
