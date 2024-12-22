@@ -113,8 +113,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    icon: { sprite: _White/Interface/Actions.rsi, state: solar } # WWDP-Edit
-    iconOn: _White/Interface/Actions.rsi/solar.png # WWDP-Edit
+    icon: { sprite: _White/Interface/Actions/consoles.rsi, state: solar } # WWDP-Edit
+    iconOn: _White/Interface/Actions/consoles.rsi/solar.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
     event: !type:ToggleIntrinsicUIEvent { key: enum.SolarControlConsoleUiKey.Key }
@@ -126,8 +126,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    icon: { sprite: _White/Interface/Actions.rsi, state: communication } # WWDP-Edit
-    iconOn: _White/Interface/Actions.rsi/communication.png # WWDP-Edit
+    icon: { sprite: _White/Interface/Actions/consoles.rsi, state: communication } # WWDP-Edit
+    iconOn: _White/Interface/Actions/consoles.rsi/communication.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
     event: !type:ToggleIntrinsicUIEvent { key: enum.CommunicationsConsoleUiKey.Key }
@@ -139,8 +139,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    icon: { sprite: _White/Interface/Actions.rsi, state: radar } # WWDP-Edit
-    iconOn: _White/Interface/Actions.rsi/radar.png # WWDP-Edit
+    icon: { sprite: _White/Interface/Actions/consoles.rsi, state: radar } # WWDP-Edit
+    iconOn: _White/Interface/Actions/consoles.rsi/radar.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
     event: !type:ToggleIntrinsicUIEvent { key: enum.RadarConsoleUiKey.Key }
@@ -152,8 +152,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    icon: { sprite: _White/Interface/Actions.rsi, state: cargo } # WWDP-Edit
-    iconOn: _White/Interface/Actions.rsi/cargo.png # WWDP-Edit
+    icon: { sprite: _White/Interface/Actions/consoles.rsi, state: cargo } # WWDP-Edit
+    iconOn: _White/Interface/Actions/consoles.rsi/cargo.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
     event: !type:ToggleIntrinsicUIEvent { key: enum.CargoConsoleUiKey.Orders }
@@ -165,8 +165,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    icon: { sprite: _White/Interface/Actions.rsi, state: crew } # WWDP-Edit
-    iconOn: _White/Interface/Actions.rsi/crew.png # WWDP-Edit
+    icon: { sprite: _White/Interface/Actions/consoles.rsi, state: crew } # WWDP-Edit
+    iconOn: _White/Interface/Actions/consoles.rsi/crew.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
     event: !type:ToggleIntrinsicUIEvent { key: enum.CrewMonitoringUIKey.Key }
@@ -178,8 +178,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    icon: { sprite: _White/Interface/Actions.rsi, state: records } # WWDP-Edit
-    iconOn: _White/Interface/Actions.rsi/records.png # WWDP-Edit
+    icon: { sprite: _White/Interface/Actions/consoles.rsi, state: records } # WWDP-Edit
+    iconOn: _White/Interface/Actions/consoles.rsi/records.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
     priority: -10
     event: !type:ToggleIntrinsicUIEvent { key: enum.GeneralStationRecordConsoleKey.Key }
