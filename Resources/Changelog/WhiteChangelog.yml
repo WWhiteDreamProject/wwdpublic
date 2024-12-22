@@ -1060,3 +1060,10 @@ Entries:
   id: 111
   time: '2024-12-22T05:28:12.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/169
+- author: Spatison
+  changes:
+    - type: Add
+      message: 'Добавлена новая картинка в лобби. '
+  id: 112
+  time: '2024-12-22T05:29:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/170
