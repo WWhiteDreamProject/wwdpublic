@@ -222,6 +222,7 @@
     - MofficTranslator
     - N14MaterialCircuitry
     - VehicleWheelchairFolded # Goobstation
+    - BoxTapeRecorder
     - SnowballMaker # WWDP
     - Matchbox  # WWDP
   - type: EmagLatheRecipes

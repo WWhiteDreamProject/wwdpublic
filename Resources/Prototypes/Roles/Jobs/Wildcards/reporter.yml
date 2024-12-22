@@ -27,15 +27,3 @@
     shoes: ClothingShoesColorWhite
     id: ReporterPDA
     ears: ClothingHeadsetService
-    pocket2: CandyBucket
-  innerClothingSkirt: ClothingUniformJumpsuitJournalist
-  satchel: ClothingBackpackSatchelFilled
-  duffelbag: ClothingBackpackDuffelFilled
-
-- type: startingGear
-  id: ReporterPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitReporter
-    head: ClothingHeadEnvirohelmReporter
-    gloves: ClothingHandsGlovesEnviroglovesReporter
