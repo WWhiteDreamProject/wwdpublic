@@ -16,6 +16,14 @@
       "directions": 4
     },
     {
+      "name": "Praetorian_Front_Half",
+      "directions": 4
+    },
+    {
+      "name": "Praetorian_Back_Half",
+      "directions": 4
+    },
+    {
       "name": "alienp_sleep"
     },
     {
@@ -26,6 +34,44 @@
     },
     {
       "name": "alienp_husked"
+    },
+    {
+      "name": "alienspit_p",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
     }
   ]
 }

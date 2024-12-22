@@ -4,8 +4,8 @@
 		"x": 40,
 		"y": 40
 	},
-	"license": "",
-	"copyright": "",
+        "license": "CC-BY-SA-3.0",
+        "copyright": "Taken from tgstation",
 	"states": [
 		{
 			"name": "full",

@@ -5,6 +5,12 @@
     "size": { "y": 32, "x": 32 },
     "states": [
         {
+            "name": "templaye"
+        },
+        {
+            "name": "templaye_frame"
+        },
+        {
             "name": "harm"
         },
         {
