@@ -61,6 +61,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitAtmos
+  - type: GuideHelp
+    guides: [ HephaestusIndustries ]
 
 #Engineering Hardsuit
 - type: entity
@@ -97,6 +99,8 @@
     clothingPrototype: ClothingHeadHelmetHardsuitEngineering
   - type: StaminaDamageResistance
     coefficient: 0.75 # 25%
+  - type: GuideHelp
+    guides: [ HephaestusIndustries ]
 
 #Spationaut Hardsuit
 - type: entity
@@ -126,6 +130,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSpatio
+  - type: GuideHelp
+    guides: [ HephaestusIndustries ]
 
 #Salvage Hardsuit
 - type: entity
@@ -157,6 +163,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
+  - type: GuideHelp
+    guides: [ HephaestusIndustries ]
 
 #Paramedic Voidsuit
 - type: entity
@@ -188,6 +196,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitVoidParamed
+  - type: GuideHelp
+    guides: [ ZengHuPharmaceuticals ]
 
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -219,6 +229,8 @@
     coefficient: 0.001
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMaxim
+  - type: GuideHelp
+    guides: [ HephaestusIndustries ]
 
 #Security Hardsuit
 - type: entity
@@ -365,6 +377,8 @@
     clothingPrototype: ClothingHeadHelmetHardsuitCap
   - type: StaminaDamageResistance
     coefficient: 0.5 # 50%
+  - type: GuideHelp
+    guides: [ NanoTrasen ]
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -402,6 +416,8 @@
     - type: SupermatterImmune
   - type: StaminaDamageResistance
     coefficient: 0.65 # 35%
+  - type: GuideHelp
+    guides: [ HephaestusIndustries ]
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -427,6 +443,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMedical
+  - type: GuideHelp
+    guides: [ ZengHuPharmaceuticals ]
 
 #Research Director's Hardsuit
 - type: entity
@@ -471,6 +489,8 @@
     stealGroup: ClothingOuterHardsuitRd
   - type: StaminaDamageResistance
     coefficient: 0.75 # 25% as in "shock resistance" :trollface:
+  - type: GuideHelp
+    guides: [ NanoTrasen ]
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -502,6 +522,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitLuxury
+  - type: GuideHelp
+    guides: [ HephaestusIndustries ]
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
@@ -994,9 +1016,9 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
-  #- type: Construction # DeltaV - Prevent clowns from making the hardsuit
-  #   graph: ClownHardsuit
-  #   node: clownHardsuit
+  - type: Construction
+    graph: ClownHardsuit
+    node: clownHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitClown
 
@@ -1011,9 +1033,9 @@
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
-#  - type: Construction # DeltaV - Nuh uh
-#    graph: MimeHardsuit
-#    node: mimeHardsuit
+  - type: Construction
+    graph: MimeHardsuit
+    node: mimeHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMime
 

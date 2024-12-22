@@ -883,3 +883,200 @@ Entries:
   id: 94
   time: '2024-12-10T17:11:20.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/145
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Specialized NVG has been added - medical, security and diagnostic /
+        Добавлены специализированные ПНВ - медицинский, СБ и диагностический.
+  id: 95
+  time: '2024-12-11T14:47:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/149
+- author: Warete
+  changes:
+    - type: Tweak
+      message: >-
+        Vending Machine's inventory update / Обновление инвентаря торг.
+        автоматов
+  id: 96
+  time: '2024-12-12T18:48:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/157
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added new hairstyles / Добавлены новые прически
+  id: 97
+  time: '2024-12-13T07:34:09.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/158
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added new musics in the lobby / Добавлена новая музыка в лобби
+  id: 98
+  time: '2024-12-13T07:35:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/155
+- author: Spatison
+  changes:
+    - type: Add
+      message: Апстрим 19.11 - 12.12
+  id: 99
+  time: '2024-12-14T08:41:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/142
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: Добавлены новые кастомизации для ящеров.
+    - type: Tweak
+      message: >-
+        Изменены спрайты ящеров. Свободная покраска рогов под любой цвет,
+        изменённая форма ног, улучшенный окрас частей тела и остальных
+        кастомизаций.
+    - type: Tweak
+      message: Изменено количество очков кастомизации груди ящера, 1 > 3.
+    - type: Remove
+      message: >-
+        Удалена диета ящеров, больше невидимая сила не запрещает им совать
+        гадости в пасть. Неправильная еда всё ещё травит их.
+  id: 100
+  time: '2024-12-16T18:13:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/164
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Добавлена барьерная граната, которая развёртывает закреплённый барьер на
+        месте своего падения. Можно заказать в карго за 2000 кредитов, или взять
+        в автомате со снаряжением СБ.
+  id: 101
+  time: '2024-12-16T18:15:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/167
+- author: Spatison
+  changes:
+    - type: Add
+      message: >-
+        All /tg/gases have been added. Good luck stopping atmos tech on nitrium
+        and healium. / Добавлены все /tg/ газы. Желаю удачи остановить атмоса
+        под нитриумом и хилиумом. / 
+  id: 102
+  time: '2024-12-17T07:08:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/147
+- author: RedFoxIV
+  changes:
+    - type: Tweak
+      message: >-
+        Чтобы взять огнестрельное оружие в две руки, возьмите его в активную
+        руку и альтернативно-используйте его (Alt-Z по умолчанию).
+  id: 103
+  time: '2024-12-17T19:03:13.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/161
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Supply pods have been added. The syndicate has forked out and delivers
+        elite bundles in supply pods / Добавлены грузовые капсулы. Синдикат
+        раскошелился и доставляет элитные наборы в грузовых капсулах
+  id: 104
+  time: '2024-12-17T19:03:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/162
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        The "Stray Capsules" event has been added. Supply pods that have strayed
+        off their path land on the station. They can contain everything from a
+        full range of cargo to complete syndicate sets, priced from 5 TK to 25
+        TK. / Добавлено событие "Бродячая капсула". Сбившиеся со своего пути
+        грузовые капсулы падают на станцию, могут содержать от всего
+        ассортимента карго, до полноценных наборов синдиката ценой от 5ТК до
+        25ТК.
+  id: 105
+  time: '2024-12-18T20:28:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/171
+- author: Warete
+  changes:
+    - type: Tweak
+      message: >-
+        Metempsychotic cloning machine now common cloning machine / Агрегат с
+        труднопроизносимым названием наконец-то работает как обычная машина для
+        клонирования
+  id: 106
+  time: '2024-12-21T08:16:21.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/178
+- author: islambrosgood
+  changes:
+    - type: Fix
+      message: Surgery step sprite / Спрайт этапа хирургии
+  id: 107
+  time: '2024-12-21T21:35:13.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/177
+- author: islambrosgood
+  changes:
+    - type: Add
+      message: Aghosts with visors / Агосты с визорами
+  id: 108
+  time: '2024-12-21T21:35:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/175
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Некоторые прически изменились
+  id: 109
+  time: '2024-12-22T05:17:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/181
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Added a random event - "Wormhole". Up to 35 anomalies appear on the
+        station, changing their location every 15 seconds. / Добавлен случайный
+        ивент "Червоточина". На станции появляется до 35 аномалий меняющих своё
+        расположение каждые 15 секунд.
+  id: 110
+  time: '2024-12-22T05:19:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/156
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Стан и теневые узы теперь являются аурами
+    - type: Tweak
+      message: Конструкты теперь понимают культистов и могут общаться в канале культа
+    - type: Tweak
+      message: Конструкты теперь лечатся от пилона
+    - type: Tweak
+      message: На конструктах теперь отображаются иконки
+    - type: Tweak
+      message: 'Конструкты теперь превращаются в цитоплазму при смерти '
+    - type: Tweak
+      message: Повязка зилота теперь дает ночное зрение и защиту от сварки
+    - type: Fix
+      message: >-
+        Кровавый обряд больше нельзя поместить в хранилища, передать и выбросить
+        на пол
+    - type: Fix
+      message: Кровавое копье теперь всегда возвращается в руку
+    - type: Fix
+      message: Теневые узы теперь работают
+  id: 111
+  time: '2024-12-22T05:28:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/169
+- author: Spatison
+  changes:
+    - type: Add
+      message: 'Добавлена новая картинка в лобби. '
+  id: 112
+  time: '2024-12-22T05:29:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/170
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Мидраунд ядерные оперативники теперь спавнятся гостами
+    - type: Tweak
+      message: 'Количество оперативников необходимых для объявление войны: 4 -> 2'
+    - type: Tweak
+      message: >-
+        Количество игроков необходимых для запуска режима ядерных оперативников:
+        35 -> 20
+  id: 113
+  time: '2024-12-22T05:31:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/173

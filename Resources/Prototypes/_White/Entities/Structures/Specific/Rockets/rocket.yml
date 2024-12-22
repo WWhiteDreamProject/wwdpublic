@@ -1,0 +1,15 @@
+# Default
+- type: entity
+  parent: BaseRocket
+  id: Rocket
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Specific/Rockets/rocket.rsi
+
+# Syndicate
+- type: entity
+  parent: BaseRocket
+  id: RocketSyndicate
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Specific/Rockets/rocket_syndicate.rsi

@@ -4,6 +4,7 @@
     SecurityWhistle: 5
     Handcuffs: 8
     GrenadeFlashBang: 4
+    GrenadeBarrier: 4 # WWDP
     TearGasGrenade: 4
     ClusterBangFull: 2
     GrenadeStinger: 4

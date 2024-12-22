@@ -29,6 +29,9 @@ uplink-fire-axe-flaming-desc = Оружие в классическом стил
 uplink-gloves-north-star-name = Перчатки Полярной звезды
 uplink-gloves-north-star-desc = Пара перчаток, которые резко сокращают время восстановления ваших ударов, позволяя вам избивать людей до смерти шквалом ударов.
 
+uplink-emp-flashlight-name = Электромагнитный фонарик
+uplink-emp-flashlight-desc = Замаскированное под фонарик устройство. При ударе выпускает ЭМИ, поражающий электрические устройства.
+
 # Explosives
 uplink-explosive-grenade-name = Разрывная граната
 uplink-explosive-grenade-desc = Граната, которая производит небольшой, но разрушительный взрыв.

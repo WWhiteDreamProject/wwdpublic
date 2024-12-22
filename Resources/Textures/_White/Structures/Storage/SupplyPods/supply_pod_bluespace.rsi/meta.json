@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/master/icons/obj/supplypods.dmi | Edited by PuroSlavKing (Github)",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "default_pod"
+    },
+    {
+      "name": "supplypod_falling"
+    },
+    {
+      "name": "overlay"
+    },
+    {
+      "name": "default_closed"
+    },
+    {
+      "name": "default_open"
+    },
+    {
+      "name": "rubble_overlay"
+    },
+    {
+      "name": "welded"
+    }
+  ]
+}

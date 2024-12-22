@@ -1,0 +1,20 @@
+- type: soundCollection
+  id: WhiteLobbyMusic
+  files:
+    - /Audio/_White/Lobby/all-that-I-can-see.ogg
+    - /Audio/_White/Lobby/atomicamnesiammx.ogg
+    - /Audio/_White/Lobby/circles-around-the-sun.ogg
+    - /Audio/_White/Lobby/comet_haley.ogg
+    - /Audio/_White/Lobby/endless_space.ogg
+    - /Audio/_White/Lobby/every_light_is_blinking_at_once.ogg
+    - /Audio/_White/Lobby/lasers_rip_apart_the_bulkhead.ogg
+    - /Audio/_White/Lobby/level!.ogg
+    - /Audio/_White/Lobby/marhaba.ogg
+    - /Audio/_White/Lobby/mod.flip-flap.ogg
+    - /Audio/_White/Lobby/monument.ogg
+    - /Audio/_White/Lobby/singuloose.ogg
+    - /Audio/_White/Lobby/space_asshole.ogg
+    - /Audio/_White/Lobby/spaced.ogg
+    - /Audio/_White/Lobby/space-oddity.ogg
+    - /Audio/_White/Lobby/space-shuttle.ogg
+    - /Audio/_White/Lobby/title3.ogg
