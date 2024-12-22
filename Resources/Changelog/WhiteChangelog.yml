@@ -1024,3 +1024,14 @@ Entries:
   id: 109
   time: '2024-12-22T05:17:58.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/181
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Added a random event - "Wormhole". Up to 35 anomalies appear on the
+        station, changing their location every 15 seconds. / Добавлен случайный
+        ивент "Червоточина". На станции появляется до 35 аномалий меняющих своё
+        расположение каждые 15 секунд.
+  id: 110
+  time: '2024-12-22T05:19:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/156
