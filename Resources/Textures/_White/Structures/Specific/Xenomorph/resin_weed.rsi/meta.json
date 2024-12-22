@@ -10,6 +10,38 @@
 		{
 			"name": "full",
 			"directions": 1
+		},
+		{
+			"name": "resin-weeds0",
+			"directions": 4
+		},
+		{
+			"name": "resin-weeds1",
+			"directions": 4
+		},
+		{
+			"name": "resin-weeds2",
+			"directions": 4
+		},
+		{
+			"name": "resin-weeds3",
+			"directions": 4
+		},
+		{
+			"name": "resin-weeds4",
+			"directions": 4
+		},
+		{
+			"name": "resin-weeds5",
+			"directions": 4
+		},
+		{
+			"name": "resin-weeds6",
+			"directions": 4
+		},
+		{
+			"name": "resin-weeds7",
+			"directions": 4
 		}
 	]
 }

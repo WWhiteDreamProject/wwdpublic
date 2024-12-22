@@ -10,6 +10,38 @@
 		{
 			"name": "full",
 			"directions": 1
+		},
+		{
+			"name": "weednode0",
+			"directions": 4
+		},
+		{
+			"name": "weednode1",
+			"directions": 4
+		},
+		{
+			"name": "weednode2",
+			"directions": 4
+		},
+		{
+			"name": "weednode3",
+			"directions": 4
+		},
+		{
+			"name": "weednode4",
+			"directions": 4
+		},
+		{
+			"name": "weednode5",
+			"directions": 4
+		},
+		{
+			"name": "weednode6",
+			"directions": 4
+		},
+		{
+			"name": "weednode7",
+			"directions": 4
 		}
 	]
 }
