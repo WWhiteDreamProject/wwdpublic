@@ -1017,3 +1017,10 @@ Entries:
   id: 108
   time: '2024-12-21T21:35:33.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/175
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Некоторые прически изменились
+  id: 109
+  time: '2024-12-22T05:17:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/181
