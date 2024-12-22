@@ -1,0 +1,43 @@
+- type: entity
+  id: AnomalyWormhole
+  name: wormhole
+  description: It looks highly unstable, it could close at any moment.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Specific/anomaly.rsi
+    state: wormhole
+    drawdepth: Effects
+  - type: TimedDespawn
+    lifetime: 90
+  - type: PointLight
+    radius: 2.0
+    energy: 5.5
+    color: "#00ccff"
+    castShadows: false
+  - type: InteractionOutline
+  - type: WormholeAnomaly
+  - type: Portal
+    maxRandomRadius: 20
+  - type: Physics
+    bodyType: Static
+    bodyStatus: InAir
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
