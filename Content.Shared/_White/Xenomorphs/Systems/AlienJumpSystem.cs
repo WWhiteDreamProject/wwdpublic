@@ -74,7 +74,7 @@ public sealed class AlienJumpSystem : EntitySystem
 
         if (HasComp<StandingStateComponent>(args.Target))
         {
-            _standing.TryLieDown(args.Target, null, StandingStateSystem.DropHeldItemsBehavior.NoDrop);
+            _standing.Down(args.Target, false, dropHeldItems:false);
         }
     }
 

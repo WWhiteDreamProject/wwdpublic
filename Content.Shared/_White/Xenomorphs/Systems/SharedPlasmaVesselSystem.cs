@@ -21,6 +21,9 @@ public sealed class SharedPlasmaVesselSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     private IGameTiming? _gameTiming;
 
+    [ValidatePrototypeId<AlertPrototype>]
+    public const string PlasmaCounterAlert = "PlasmaCounter";
+
     public override void Initialize()
     {
         _gameTiming = IoCManager.Resolve<IGameTiming>();
@@ -106,7 +109,7 @@ public sealed class SharedPlasmaVesselSystem : EntitySystem
 
                 if (currentTime - component.LastAlertUpdateTime >= PlasmaVesselComponent.AlertUpdateInterval)
                 {
-                    _alerts.ShowAlert(uid, AlertType.PlasmaCounter, (short)newAlertValue);
+                    _alerts.ShowAlert(uid, PlasmaCounterAlert, (short)newAlertValue);
                     component.AlertValue = newAlertValue;
                     component.LastAlertUpdateTime = currentTime;
                 }

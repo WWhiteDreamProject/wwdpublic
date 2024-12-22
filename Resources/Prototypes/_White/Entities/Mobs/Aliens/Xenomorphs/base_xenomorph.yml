@@ -212,8 +212,6 @@
   description: Little and harmless alien
   components:
     - type: ShowInfectedIcons
-    - type: GlobalAntagonist
-      antagonistPrototype: globalAntagonistXenomorphs
     - type: Body
       prototype: Xeno
     - type: Speech

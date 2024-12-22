@@ -52,12 +52,12 @@
         Admin = ChatChannel.AdminChat,
 
         /// <summary>
-        ///     Nyano - Summary:. Telepathic channel for all psionic entities. 
+        ///     Nyano - Summary:. Telepathic channel for all psionic entities.
         /// </summary>
         Telepathic = ChatChannel.Telepathic,
 
         /// <summary>
-        ///     WWDP - Xenomorph Hivemind 
+        ///     WWDP - Xenomorph Hivemind
         /// </summary>
         XenoHivemind = ChatChannel.XenoHivemind,
 

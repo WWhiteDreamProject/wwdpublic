@@ -40,7 +40,7 @@ public sealed class TailLashSystem : EntitySystem
         {
             if (HasComp<StandingStateComponent>(entity))
             {
-                _standing.TryLieDown(entity, null, DropHeldItemsBehavior.NoDrop);
+                _standing.Down(entity, playSound: false, dropHeldItems:false);
             }
         }
         _actions.SetCooldown(component.TailLashActionEntity, TimeSpan.FromSeconds(component.Cooldown));

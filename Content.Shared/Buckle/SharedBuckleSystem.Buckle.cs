@@ -11,6 +11,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Popups;
 using Content.Shared.Pulling.Events;
+using Content.Shared.Bed.Sleep; // WWDP
 using Content.Shared.Rotation;
 using Content.Shared.Standing;
 using Content.Shared.Storage.Components;
@@ -404,7 +405,9 @@ public abstract partial class SharedBuckleSystem
         if (!Resolve(buckle.Owner, ref buckle.Comp))
             return false;
 
+        if (!CanUnbuckle(buckle, user, popup, out var strap)) // WWDP - Remove this after fix shit under it
     // WWDP START
+/*
         if (CompOrNull<StrapComponent>(strapUid) != null && Comp<StrapComponent>(strapUid).Delay > buckleComp.Delay)
             buckleComp.Delay = Comp<StrapComponent>(strapUid).Delay;
 
@@ -442,6 +445,7 @@ public abstract partial class SharedBuckleSystem
         SetBuckledTo(buckleUid, null, null, buckleComp);
 
         if (!TryComp<StrapComponent>(strapUid, out var strapComp))
+*/
     // WWDP END
             return false;
 

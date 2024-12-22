@@ -52,8 +52,6 @@
   components:
     - type: MindContainer
       showExamineInfo: true
-    - type: GlobalAntagonist
-      antagonistPrototype: globalAntagonistXenomorphs
     - type: GhostTakeoverAvailable
     - type: GhostRole
       allowMovement: true
@@ -185,8 +183,6 @@
   components:
     - type: MindContainer
       showExamineInfo: true
-    - type: GlobalAntagonist
-      antagonistPrototype: globalAntagonistXenomorphs
     - type: GhostTakeoverAvailable
     - type: GhostRole
       allowMovement: true
@@ -328,8 +324,6 @@
   components:
     - type: MindContainer
       showExamineInfo: true
-    - type: GlobalAntagonist
-      antagonistPrototype: globalAntagonistXenomorphs
     - type: GhostTakeoverAvailable
     - type: GhostRole
       allowMovement: true
@@ -480,8 +474,6 @@
       showExamineInfo: true
     - type: Alien
       caste: praetorian
-    - type: GlobalAntagonist
-      antagonistPrototype: globalAntagonistXenomorphs
     - type: GhostTakeoverAvailable
     - type: GhostRole
       allowMovement: true
@@ -647,8 +639,6 @@
       showExamineInfo: true
     - type: Alien
       caste: queen
-    - type: GlobalAntagonist
-      antagonistPrototype: globalAntagonistXenomorphs
     - type: GhostTakeoverAvailable
     - type: GhostRole
       allowMovement: true
@@ -761,8 +751,6 @@
   components:
     - type: MindContainer
       showExamineInfo: true
-    - type: GlobalAntagonist
-      antagonistPrototype: globalAntagonistXenomorphs
     - type: GhostTakeoverAvailable
     - type: GhostRole
       allowMovement: true

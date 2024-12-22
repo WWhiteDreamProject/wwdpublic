@@ -42,7 +42,6 @@ action-transfer-plasma-alien-desc = Передайте 50 плазмы ближ�
 alien-transfer-fail = Вы не можете передать плазму прямо сейчас.
 
 alien-plasma-left = Осталось {$value} плазмы.
-alien-create-structure-failed = Вы не можете создать структуру здесь.
 alien-action-fail-plasma = Недостаточно плазмы.
 
 action-larva-grow = Рости
