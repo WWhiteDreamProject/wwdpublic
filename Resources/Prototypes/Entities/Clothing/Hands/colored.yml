@@ -28,11 +28,6 @@
       gloves:
       - state: equipped-HAND
         color: "#9C0DE1"
-      # WD EDIT START
-      gloves-body-slim:
-      - state: equipped-HAND-body-slim
-        color: "#9C0DE1"
-      # WD EDIT END
   - type: Fiber
     fiberColor: fibers-purple
 
@@ -62,11 +57,6 @@
       gloves:
       - state: equipped-HAND
         color: "#940000"
-      # WD EDIT START
-      gloves-body-slim:
-      - state: equipped-HAND-body-slim
-        color: "#940000"
-      # WD EDIT END
   - type: Fiber
     fiberColor: fibers-red
 
@@ -96,11 +86,6 @@
       gloves:
       - state: equipped-HAND
         color: "#0089EF"
-      # WD EDIT START
-      gloves-body-slim:
-      - state: equipped-HAND-body-slim
-        color: "#0089EF"
-      # WD EDIT END
   - type: Fiber
     fiberColor: fibers-blue
 
@@ -130,11 +115,6 @@
       gloves:
       - state: equipped-HAND
         color: "#723A02"
-      # WD EDIT START
-      gloves-body-slim:
-      - state: equipped-HAND-body-slim
-        color: "#723A02"
-      # WD EDIT END
   - type: Fiber
     fiberColor: fibers-brown
 
@@ -164,11 +144,6 @@
       gloves:
       - state: equipped-HAND
         color: "#999999"
-      # WD EDIT START
-      gloves-body-slim:
-      - state: equipped-HAND-body-slim
-        color: "#999999"
-      # WD EDIT END
   - type: Fiber
     fiberColor: fibers-grey
 
@@ -198,11 +173,6 @@
       gloves:
       - state: equipped-HAND
         color: "#5ABF2F"
-      # WD EDIT START
-      gloves-body-slim:
-      - state: equipped-HAND-body-slim
-        color: "#5ABF2F"
-      # WD EDIT END
   - type: Fiber
     fiberColor: fibers-green
 
@@ -232,11 +202,6 @@
       gloves:
       - state: equipped-HAND
         color: "#C09F72"
-      # WD EDIT START
-      gloves-body-slim:
-      - state: equipped-HAND-body-slim
-        color: "#C09F72"
-      # WD EDIT END
   - type: Fiber
     fiberColor: fibers-brown
 
@@ -266,11 +231,6 @@
       gloves:
       - state: equipped-HAND
         color: "#EF8100"
-      # WD EDIT START
-      gloves-body-slim:
-      - state: equipped-HAND-body-slim
-        color: "#EF8100"
-      # WD EDIT END
   - type: Fiber
     fiberColor: fibers-orange
 
@@ -300,11 +260,6 @@
       gloves:
       - state: equipped-HAND
         color: "#EAE8E8"
-      # WD EDIT START
-      gloves-body-slim:
-      - state: equipped-HAND-body-slim
-        color: "#EAE8E8"
-      # WD EDIT END
   - type: Fiber
     fiberColor: fibers-white
 

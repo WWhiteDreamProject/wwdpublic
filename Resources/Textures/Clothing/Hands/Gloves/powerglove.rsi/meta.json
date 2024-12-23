@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from cev-eris at commit https://github.com/discordia-space/CEV-Eris/commit/55d823b97dda098a1b2ee9edfca7155c753e456e. Slim by WWDP TEAM",
+  "copyright": "Taken from cev-eris at commit https://github.com/discordia-space/CEV-Eris/commit/55d823b97dda098a1b2ee9edfca7155c753e456e",
   "size": {
     "x": 32,
     "y": 32
@@ -18,15 +18,7 @@
       "directions": 4
     },
     {
-      "name": "equipped-HAND-body-slim",
-      "directions": 4
-    },
-    {
       "name": "on-equipped-HAND",
-      "directions": 4
-    },
-    {
-      "name": "on-equipped-HAND-body-slim",
       "directions": 4
     },
     {
