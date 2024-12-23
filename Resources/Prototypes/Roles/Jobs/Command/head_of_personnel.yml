@@ -61,11 +61,13 @@
   - Reporter # DeltaV - Add Reporter access
   - Zookeeper # DeltaV - Add Zookeeper access
   # WD EDIT  START
+  # WD EDIT  START
   - Quartermaster
   - Mail
   - Paramedic
   - Psychologist
   - Corpsman
+  # WD EDIT END
   # WD EDIT END
   special:
   - !type:AddImplantSpecial
