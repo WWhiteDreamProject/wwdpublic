@@ -42,6 +42,11 @@
           32:
             sprite: _White/Mobs/Species/Human/displacement.rsi
             state: jumpsuit
+      shoes-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: shoes
       # WD EDIT END
 
 - type: entity
@@ -62,4 +67,9 @@
           32:
             sprite: _White/Mobs/Species/Human/displacement.rsi
             state: jumpsuit
+      shoes-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: shoes
       # WD EDIT END
