@@ -107,7 +107,7 @@ public sealed class WieldableSystem : EntitySystem
     private void OnGunRefreshModifiers(Entity<GunWieldBonusComponent> bonus, ref GunRefreshModifiersEvent args)
     {
         if (TryComp(bonus, out WieldableComponent? wield) &&
-            wield.Wielded && !HasComp<WeaponsUseInabilityComponent>(wield.User)) //Corvax-Next-Resomi
+            wield.Wielded && !HasComp<WeaponsUseInabilityComponent>(wield.User)) // WWDP-Edit
         {
             args.MinAngle += bonus.Comp.MinAngle;
             args.MaxAngle += bonus.Comp.MaxAngle;
@@ -270,7 +270,7 @@ public sealed class WieldableSystem : EntitySystem
         var othersMessage = Loc.GetString("wieldable-component-successful-wield-other", ("user", user), ("item", used));
         _popupSystem.PopupPredicted(selfMessage, othersMessage, user, user);
 
-        component.User = user; //Corvax-Next-Resomi
+        component.User = user; // WWDP
 
         var targEv = new ItemWieldedEvent();
         RaiseLocalEvent(used, ref targEv);

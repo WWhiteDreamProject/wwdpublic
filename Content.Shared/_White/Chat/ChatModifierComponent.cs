@@ -1,7 +1,9 @@
 namespace Content.Shared.Chat;
+
 /// <summary>
-/// Corvax-Next-Resomi
+/// WWDP
 /// </summary>
+
 [RegisterComponent]
 public sealed partial class ChatModifierComponent : Component
 {

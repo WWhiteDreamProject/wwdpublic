@@ -43,9 +43,9 @@ public sealed partial class WieldableComponent : Component
     /// </summary>
     [DataField]
     public bool AltUseInHand = false;
-    // WD EDIT END
 
-    public EntityUid? User = null; 
+    public EntityUid? User = null;
+    // WD EDIT END
 }
 
 [Serializable, NetSerializable]

@@ -1,8 +1,7 @@
  namespace Content.Shared.Flash.Components;
 
-
 /// <summary>
-/// Corvax-Next-Resomi
+/// WWDP
 /// </summary>
 
 [RegisterComponent]
