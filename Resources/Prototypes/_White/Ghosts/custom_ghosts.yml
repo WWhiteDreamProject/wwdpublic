@@ -140,7 +140,7 @@
 #purka
 - type: customGhost
   id: purka-ghost
-  ckey: Purka
+  ckey: PurplePi
   sprite: _White/Ghosts/purka-ghost.rsi
   alpha: 0.8
   ghostName: Purka
