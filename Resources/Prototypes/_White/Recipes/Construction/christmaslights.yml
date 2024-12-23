@@ -1,0 +1,56 @@
+
+- type: construction
+  name: Red-blue christmas lights
+  id: RedBlueChristmasLights
+  graph: RedBlueChristmasLights
+  startNode: start
+  targetNode: ChristmasLightsFull
+  category: construction-category-structures
+  description: An improvised barricade made out of wooden planks.
+  icon:
+    sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
+    state: base
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Yellow-cyan christmas lights
+  id: YellowCyanChristmasLights
+  graph: YellowCyanChristmasLights
+  startNode: start
+  targetNode: ChristmasLightsFull
+  category: construction-category-structures
+  description: An improvised barricade made out of wooden planks.
+  icon:
+    sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
+    state: base
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Purple-green christmas lights
+  id: PurpleGreenChristmasLights
+  graph: PurpleGreenChristmasLights
+  startNode: start
+  targetNode: ChristmasLightsFull
+  category: construction-category-structures
+  description: An improvised barricade made out of wooden planks.
+  icon:
+    sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
+    state: base
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Rainbow christmas lights
+  id: RainbowChristmasLights
+  graph: RainbowChristmasLights
+  startNode: start
+  targetNode: ChristmasLightsFull
+  category: construction-category-structures
+  description: An improvised barricade made out of wooden planks.
+  icon:
+    sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
+    state: base
+  objectType: Structure
+  placementMode: SnapgridCenter

@@ -35,7 +35,7 @@ namespace Content.Server.NodeContainer.NodeGroups
         string? GetDebugData();
     }
 
-    [NodeGroup(NodeGroupID.Default, NodeGroupID.WireNet)]
+    [NodeGroup(NodeGroupID.Default, NodeGroupID.WireNet, NodeGroupID.ChristmasLights)] // WD EDIT
     [Virtual]
     public class BaseNodeGroup : INodeGroup
     {

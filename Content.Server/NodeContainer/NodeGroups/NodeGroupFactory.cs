@@ -61,7 +61,9 @@ namespace Content.Server.NodeContainer.NodeGroups
         AMEngine,
         Pipe,
         WireNet,
-
+        // WD EDIT START // ALSO FUCK THIS ID SHIT
+        ChristmasLights,
+        // WD EDIT END
         /// <summary>
         /// Group used by the TEG.
         /// </summary>

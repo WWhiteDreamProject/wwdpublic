@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Made by rybbinka and edited by Gersoon",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base"
+    },
+    {
+      "name": "blue_red"
+    },
+    {
+      "name": "yellow_green"
+    },
+    {
+      "name": "greyscale_first"
+    },
+    {
+      "name": "greyscale_second"
+    },
+    {
+      "name": "blue_red_glow",
+      "delays": [
+        [
+          0.25,
+          0.15,
+          0.15,
+          0.25,
+          0.15,
+          0.15,
+          0.25,
+          0.15,
+          0.15,
+          0.25,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "yellow_green_glow",
+      "delays": [
+        [
+          0.25,
+          0.15,
+          0.15,
+          0.25,
+          0.15,
+          0.15,
+          0.25,
+          0.15,
+          0.15,
+          0.25,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "_greyscale_first_glow",
+      "delays": [
+        [
+          0.25,
+          0.15,
+          0.15,
+          0.25,
+          0.15,
+          0.15,
+          0.25,
+          0.15,
+          0.15,
+          0.25,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "_greyscale_second_glow",
+      "delays": [
+        [
+          0.25,
+          0.15,
+          0.15,
+          0.25,
+          0.15,
+          0.15,
+          0.25,
+          0.15,
+          0.15,
+          0.25,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "greyscale_first_glow",
+      "delays": [
+        [
+          0.25,
+          0.15,
+          0.15,
+          0.25,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "greyscale_second_glow",
+      "delays": [
+        [
+          0.25,
+          0.15,
+          0.15,
+          0.25,
+          0.15,
+          0.15
+        ]
+      ]
+    }
+  ]
+}

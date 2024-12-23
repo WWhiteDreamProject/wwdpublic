@@ -1,0 +1,120 @@
+- type: entity
+  parent: BaseSign
+  id: BaseChristmasLights
+  name: christmas lights
+  description: Merry Christmas! These lights are powered by the crew jollyness and christmas spirit! Also has a miniature backup fusion reactor, just in case.
+  abstract: true
+  components:
+  - type: Transform
+    anchored: true # basesign is static instead of being anchored, for some reason. 
+  - type: WallMount
+    arc: 360
+  - type: Construction
+    graph: RainbowChristmasDisassembly
+    node: start
+  - type: Sprite
+    noRot: false
+    drawdepth: WallTops
+    sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
+    layers:
+      - state: base
+        map: ["enum.ChristmasLightsLayers.Base"]
+      - state: greyscale_first
+        map: ["enum.ChristmasLightsLayers.Lights1"]
+      - state: greyscale_second
+        map: ["enum.ChristmasLightsLayers.Lights2"]
+      - state: greyscale_first_glow
+        map: ["enum.ChristmasLightsLayers.Glow1"]
+        shader: unshaded
+      - state: greyscale_second_glow
+        map: ["enum.ChristmasLightsLayers.Glow2"]
+        shader: unshaded
+  - type: ChristmasLights
+    color1: "#FFFFFF"
+    color2: "#FFFFFF"  
+    mode: always_on
+    modes:
+    - always_on
+    #- sinwave_full
+    #- sinwave_partial
+    #- sinwave_partial_rainbow
+    #- strobe_double
+    #- strobe
+    #- strobe_slow
+    #- rainbow
+  - type: NodeContainer
+    nodes:
+      christmaslight:
+        !type:SamePrototypeAdjacentNode
+        nodeGroupID: ChristmasLights
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/poster_broken.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PosterBroken:
+            min: 1
+            max: 1
+        offset: 0
+
+
+- type: entity
+  parent: BaseChristmasLights
+  id: SimpleChristmasLights
+  abstract: true
+  components:
+  - type: ChristmasLights
+    mode: always_on
+    modes:
+    - always_on
+    - fade
+    - sinwave_full
+    - sinwave_partial
+    - squarewave
+    - strobe_double
+    - strobe
+    - strobe_slow
+
+- type: entity
+  parent: SimpleChristmasLights
+  id: RedBlueChristmasLights
+  components:
+  - type: ChristmasLights
+    color1: "#FF0000"
+    color2: "#0000FF"
+
+- type: entity
+  parent: SimpleChristmasLights
+  id: YellowCyanChristmasLights
+  components:
+  - type: ChristmasLights
+    color1: "#FFFF00"
+    color2: "#00FFFF"
+
+- type: entity
+  parent: SimpleChristmasLights
+  id: PurpleGreenChristmasLights
+  components:
+  - type: ChristmasLights
+    color1: "#FF00FF"
+    color2: "#00FF00"
+
+
+- type: entity
+  parent: BaseChristmasLights
+  id: RainbowChristmasLights
+  components:
+  - type: ChristmasLights
+    mode: rainbow
+    modes:
+    - rainbow
+    - sinwave_partial_rainbow
+    - squarewave_rainbow

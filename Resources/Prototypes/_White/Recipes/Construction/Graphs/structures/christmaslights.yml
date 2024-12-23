@@ -1,0 +1,107 @@
+- type: constructionGraph
+  id: RedBlueChristmasLights
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ChristmasLightsFull
+          steps:
+            - material: Cable
+              amount: 1
+              doAfter: 0.5
+    - node: ChristmasLightsFull
+      entity: RedBlueChristmasLights
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: Cable
+              amount: 1 #returns 1 less as one breaks
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Cutting
+
+- type: constructionGraph
+  id: YellowCyanChristmasLights
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ChristmasLightsFull
+          steps:
+            - material: Cable
+              amount: 1
+              doAfter: 0.5
+    - node: ChristmasLightsFull
+      entity: YellowCyanChristmasLights
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: Cable
+              amount: 1 #returns 1 less as one breaks
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Cutting
+
+- type: constructionGraph
+  id: PurpleGreenChristmasLights
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ChristmasLightsFull
+          steps:
+            - material: Cable
+              amount: 1
+              doAfter: 0.5
+    - node: ChristmasLightsFull
+      entity: PurpleGreenChristmasLights
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: Cable
+              amount: 1 #returns 1 less as one breaks
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Cutting
+
+- type: constructionGraph
+  id: RainbowChristmasLights
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ChristmasLightsFull
+          steps:
+            - material: Cable
+              amount: 1
+              doAfter: 0.5
+    - node: ChristmasLightsFull
+      entity: RainbowChristmasLights
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: Cable
+              amount: 1
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Cutting
+
+- type: constructionGraph # specified in BaseChristmasLights since it's the same for all children christmas lights. I wish generic graphs were a thing.
+  id: RainbowChristmasDisassembly 
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ass
+          steps:
+            - tool: Cutting
+          completed:
+            - !type:SpawnPrototype
+              prototype: CableApcStack1
+              amount: 1
+            - !type:DeleteEntity {}
+    - node: ass # doesn't matter
