@@ -53,21 +53,19 @@
   - Cargo
   - Atmospherics
   - Medical
-  - Boxer # DeltaV - Add Boxer access
-  - Clown # DeltaV - Add Clown access
-  - Library # DeltaV - Add Library access
-  - Mime # DeltaV - Add Mime access
-  - Musician # DeltaV - Add Musician access
-  - Reporter # DeltaV - Add Reporter access
-  - Zookeeper # DeltaV - Add Zookeeper access
-  # WD EDIT  START
+  - Boxer # WD EDIT
+  - Clown # WD EDIT
+  - Library # WD EDIT
+  - Mime # WD EDIT
+  - Musician # WD EDIT
+  - Reporter # WD EDIT
+  - Zookeeper 
   # WD EDIT  START
   - Quartermaster
   - Mail
   - Paramedic
   - Psychologist
   - Corpsman
-  # WD EDIT END
   # WD EDIT END
   special:
   - !type:AddImplantSpecial
