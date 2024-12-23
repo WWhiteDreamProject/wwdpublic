@@ -25,11 +25,6 @@
       jumpsuit:
       - state: equipped-INNERCLOTHING
       - state: trinkets-equipped-INNERCLOTHING
-      # WD EDIT START
-      jumpsuit-body-slim:
-      - state: equipped-INNERCLOTHING-body-slim
-      - state: trinkets-equipped-INNERCLOTHING-body-slim
-      # WD EDIT END
 
 # Grey Jumpskirt
 - type: entity
@@ -61,12 +56,6 @@
       - state: equipped-INNERCLOTHING
         color: "#b3b3b3"
       - state: trinkets-equipped-INNERCLOTHING
-      # WD EDIT START
-      jumpsuit-body-slim:
-      - state: equipped-INNERCLOTHING-body-slim
-        color: "#b3b3b3"
-      - state: trinkets-equipped-INNERCLOTHING-body-slim
-      # WD EDIT END
 
 # Black Jumpskirt
 - type: entity
@@ -98,12 +87,6 @@
       - state: equipped-INNERCLOTHING
         color: "#3f3f3f"
       - state: trinkets-equipped-INNERCLOTHING
-      # WD EDIT START
-      jumpsuit-body-slim:
-      - state: equipped-INNERCLOTHING-body-slim
-        color: "#3f3f3f"
-      - state: trinkets-equipped-INNERCLOTHING-body-slim
-      # WD EDIT END
 
 # Blue Jumpskirt
 - type: entity
@@ -135,12 +118,6 @@
       - state: equipped-INNERCLOTHING
         color: "#52aecc"
       - state: trinkets-equipped-INNERCLOTHING
-      # WD EDIT START
-      jumpsuit-body-slim:
-      - state: equipped-INNERCLOTHING-body-slim
-        color: "#52aecc"
-      - state: trinkets-equipped-INNERCLOTHING-body-slim
-      # WD EDIT END
 
 # Dark Blue Jumpskirt
 - type: entity
@@ -172,12 +149,6 @@
       - state: equipped-INNERCLOTHING
         color: "#3285ba"
       - state: trinkets-equipped-INNERCLOTHING
-      # WD EDIT START
-      jumpsuit-body-slim:
-      - state: equipped-INNERCLOTHING-body-slim
-        color: "#3285ba"
-      - state: trinkets-equipped-INNERCLOTHING-body-slim
-      # WD EDIT END
 
 # Teal Jumpskirt
 - type: entity
@@ -209,12 +180,6 @@
       - state: equipped-INNERCLOTHING
         color: "#77f3b7"
       - state: trinkets-equipped-INNERCLOTHING
-      # WD EDIT START
-      jumpsuit-body-slim:
-      - state: equipped-INNERCLOTHING-body-slim
-        color: "#77f3b7"
-      - state: trinkets-equipped-INNERCLOTHING-body-slim
-      # WD EDIT END
 
 # Green Jumpskirt
 - type: entity
@@ -246,12 +211,6 @@
       - state: equipped-INNERCLOTHING
         color: "#9ed63a"
       - state: trinkets-equipped-INNERCLOTHING
-      # WD EDIT START
-      jumpsuit-body-slim:
-      - state: equipped-INNERCLOTHING-body-slim
-        color: "#9ed63a"
-      - state: trinkets-equipped-INNERCLOTHING-body-slim
-      # WD EDIT END
 
  # Dark Green Jumpskirt
 - type: entity
@@ -283,12 +242,6 @@
       - state: equipped-INNERCLOTHING
         color: "#79CC26"
       - state: trinkets-equipped-INNERCLOTHING
-      # WD EDIT START
-      jumpsuit-body-slim:
-      - state: equipped-INNERCLOTHING-body-slim
-        color: "#79CC26"
-      - state: trinkets-equipped-INNERCLOTHING-body-slim
-      # WD EDIT END
 
 # Orange Jumpskirt
 - type: entity
@@ -320,12 +273,6 @@
       - state: equipped-INNERCLOTHING
         color: "#ff8c19"
       - state: trinkets-equipped-INNERCLOTHING
-      # WD EDIT START
-      jumpsuit-body-slim:
-      - state: equipped-INNERCLOTHING-body-slim
-        color: "#ff8c19"
-      - state: trinkets-equipped-INNERCLOTHING-body-slim
-      # WD EDIT END
 
 # Pink Jumpskirt
 - type: entity
@@ -357,12 +304,6 @@
       - state: equipped-INNERCLOTHING
         color: "#ffa69b"
       - state: trinkets-equipped-INNERCLOTHING
-      # WD EDIT START
-      jumpsuit-body-slim:
-      - state: equipped-INNERCLOTHING-body-slim
-        color: "#ffa69b"
-      - state: trinkets-equipped-INNERCLOTHING-body-slim
-      # WD EDIT END
 
 # Red Jumpskirt
 - type: entity
@@ -394,12 +335,6 @@
       - state: equipped-INNERCLOTHING
         color: "#eb0c07"
       - state: trinkets-equipped-INNERCLOTHING
-      # WD EDIT START
-      jumpsuit-body-slim:
-      - state: equipped-INNERCLOTHING-body-slim
-        color: "#eb0c07"
-      - state: trinkets-equipped-INNERCLOTHING-body-slim
-      # WD EDIT END
 
 # Yellow Jumpskirt
 - type: entity
@@ -431,12 +366,6 @@
       - state: equipped-INNERCLOTHING
         color: "#ffe14d"
       - state: trinkets-equipped-INNERCLOTHING
-      # WD EDIT START
-      jumpsuit-body-slim:
-      - state: equipped-INNERCLOTHING-body-slim
-        color: "#ffe14d"
-      - state: trinkets-equipped-INNERCLOTHING-body-slim
-      # WD EDIT END
 
 # Purple Jumpskirt
 - type: entity
@@ -468,12 +397,6 @@
       - state: equipped-INNERCLOTHING
         color: "#9f70cc"
       - state: trinkets-equipped-INNERCLOTHING
-      # WD EDIT START
-      jumpsuit-body-slim:
-      - state: equipped-INNERCLOTHING-body-slim
-        color: "#9f70cc"
-      - state: trinkets-equipped-INNERCLOTHING-body-slim
-      # WD EDIT END
 
 # Light Brown Jumpskirt
 - type: entity
@@ -505,12 +428,6 @@
       - state: equipped-INNERCLOTHING
         color: "#c59431"
       - state: trinkets-equipped-INNERCLOTHING
-      # WD EDIT START
-      jumpsuit-body-slim:
-      - state: equipped-INNERCLOTHING-body-slim
-        color: "#c59431"
-      - state: trinkets-equipped-INNERCLOTHING-body-slim
-      # WD EDIT END
 
 # Brown Jumpskirt
 - type: entity
@@ -542,12 +459,6 @@
       - state: equipped-INNERCLOTHING
         color: "#a17229"
       - state: trinkets-equipped-INNERCLOTHING
-      # WD EDIT START
-      jumpsuit-body-slim:
-      - state: equipped-INNERCLOTHING-body-slim
-        color: "#a17229"
-      - state: trinkets-equipped-INNERCLOTHING-body-slim
-      # WD EDIT END
 
 # Maroon Jumpskirt
 - type: entity
@@ -579,9 +490,3 @@
       - state: equipped-INNERCLOTHING
         color: "#cc295f"
       - state: trinkets-equipped-INNERCLOTHING
-      # WD EDIT START
-      jumpsuit-body-slim:
-      - state: equipped-INNERCLOTHING-body-slim
-        color: "#cc295f"
-      - state: trinkets-equipped-INNERCLOTHING-body-slim
-      # WD EDIT END

@@ -322,21 +322,32 @@ public sealed class ClientClothingSystem : ClothingSystem
         // Select displacement maps
         var displacementData = inventory.Displacements.GetValueOrDefault(slot); //Default unsexed map
 
-        var equipeeSex = CompOrNull<HumanoidAppearanceComponent>(equipee)?.Sex;
-        if (equipeeSex != null)
+        // WD EDIT START
+        string? bodyTypeName = null;
+        if (TryComp(equipee, out HumanoidAppearanceComponent? humanoid))
         {
-            switch (equipeeSex)
+            bodyTypeName = _prototype.Index(humanoid.BodyType).Name;
+            switch (humanoid.Sex)
             {
                 case Sex.Male:
                     if (inventory.MaleDisplacements.Count > 0)
-                        displacementData = inventory.MaleDisplacements.GetValueOrDefault(slot);
+                    {
+                        displacementData = inventory.MaleDisplacements.GetValueOrDefault($"{slot}-{bodyTypeName}")
+                            ?? inventory.MaleDisplacements.GetValueOrDefault(slot);
+                    }
+
                     break;
                 case Sex.Female:
                     if (inventory.FemaleDisplacements.Count > 0)
-                        displacementData = inventory.FemaleDisplacements.GetValueOrDefault(slot);
+                    {
+                        displacementData = inventory.FemaleDisplacements.GetValueOrDefault($"{slot}-{bodyTypeName}")
+                            ?? inventory.FemaleDisplacements.GetValueOrDefault(slot);
+                    }
+
                     break;
             }
         }
+        // WD EDIT END
 
         // add the new layers
         foreach (var (key, layerData) in ev.Layers)
@@ -387,7 +398,8 @@ public sealed class ClientClothingSystem : ClothingSystem
             if (displacementData is not null)
             {
                 //Checking that the state is not tied to the current race. In this case we don't need to use the displacement maps.
-                if (layerData.State is not null && inventory.SpeciesId is not null && layerData.State.EndsWith(inventory.SpeciesId))
+                if (layerData.State is not null && (inventory.SpeciesId is not null && layerData.State.EndsWith(inventory.SpeciesId)
+                    || bodyTypeName is not null && layerData.State.EndsWith(bodyTypeName)))
                     continue;
 
                 if (_displacement.TryAddDisplacement(displacementData, sprite, index, key, revealedLayers))
