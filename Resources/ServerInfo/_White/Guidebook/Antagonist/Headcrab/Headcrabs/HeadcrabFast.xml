@@ -16,9 +16,4 @@
   - Имеет 50 ХП.
   - Передвигается на 20% быстрее.
 
-  Способности:
-  <Box>
-    <GuideEntityEmbed Entity="HeadcrabJumpIcon" Caption=""/>
-  </Box>
-
 </Document>

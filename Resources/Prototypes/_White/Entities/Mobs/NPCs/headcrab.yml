@@ -79,7 +79,6 @@
   - type: NpcFactionMember
     factions:
       - Zombie
-      - SimpleHostile
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -149,7 +148,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Poison: 1.2
+        Poison: 2
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.6
     baseSprintSpeed: 3.6
