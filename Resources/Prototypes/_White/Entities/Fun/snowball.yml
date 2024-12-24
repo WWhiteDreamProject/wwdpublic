@@ -1,11 +1,11 @@
 - type: entity
-  name: snowball maker
   parent: BaseItem
   id: ItemSnowballMaker
+  name: snowball maker
   description: Makes snowballs.
   components:
   - type: Sprite
-    sprite: _CorvaxNext/Objects/Misc/snowball_maker.rsi
+    sprite: _White/Objects/Misc/snowball_maker.rsi
     layers:
     - state: snowball-maker
   - type: Item
@@ -25,7 +25,7 @@
   parent: [BaseItem, FoodBase]
   id: ItemSnowball
   name: snowball
-  description: Fun
+  description: Iced.
   components:
   - type: Damageable
     damageContainer: Inorganic
@@ -50,7 +50,7 @@
   - type: StaminaDamageOnCollide
     damage: 8.1
   - type: Sprite
-    sprite: _CorvaxNext/Objects/Misc/snowball.rsi
+    sprite: _White/Objects/Misc/snowball.rsi
     state: snowball
   - type: Item
     size: Tiny

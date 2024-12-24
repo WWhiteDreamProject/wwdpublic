@@ -12,10 +12,10 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
         [DataField]
         public string? Solution;
 
-        // Corvax-Next-Snowballs-Start
+        // WWDP-Start
         [DataField]
         public bool SpillSound = true;
-        // Corvax-Next-Snowballs-End
+        // WWDP-End
 
         /// <summary>
         /// If there is a SpillableComponent on EntityUidowner use it to create a puddle/smear.
@@ -40,7 +40,7 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
             else if (Solution != null &&
                      solutionContainerSystem.TryGetSolution(owner, Solution, out _, out var behaviorSolution))
             {
-                spillableSystem.TrySplashSpillAt(owner, coordinates, behaviorSolution, out _, SpillSound, user: cause); // Corvax-Next-Snowballs
+                spillableSystem.TrySplashSpillAt(owner, coordinates, behaviorSolution, out _, SpillSound, user: cause); // WWDP-Edit
             }
         }
     }
