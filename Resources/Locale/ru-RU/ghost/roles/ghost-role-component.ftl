@@ -23,7 +23,7 @@ ghost-role-information-hamlet-description = Живёт на капитанско
 
 ghost-role-information-Shiva-name = Шива
 ghost-role-information-Shiva-description = Вы - паук-защитник. Защищайте же станцию до самого конца!
-ghost-role-information-Shive-rules = Слушайтесь глав, защищайте экипаж и не смейте коконировать мирных!
+ghost-role-information-Shiva-rules = Слушайтесь глав, защищайте экипаж и не смейте коконировать мирных!
 
 ghost-role-information-slimes-name = Слайм
 ghost-role-information-slimes-description = Обычный слайм без особых потребностей или интересов. Он просто живет.
