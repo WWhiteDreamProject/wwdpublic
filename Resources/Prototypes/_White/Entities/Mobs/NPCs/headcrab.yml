@@ -16,10 +16,10 @@
   - type: GhostTakeoverAvailable
   - type: GhostRole
     allowSpeech: false
-    name: Хедкраб
-    description: Оседлай носителя, откуси ему голову, а главное защити гнездо. 
+    name: ghost-role-information-headcrab-name
+    description: ghost-role-information-headcrab-description 
     raffle:
-      settings: default
+      settings: short
   - type: Sprite
     drawdepth: SmallMobs
     layers:

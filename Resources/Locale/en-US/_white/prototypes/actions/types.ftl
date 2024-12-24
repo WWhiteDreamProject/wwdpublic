@@ -1,2 +1,2 @@
 jump-action-name = Jump
-jump-action-description = Super jump.
+jump-action-description = Do super jump.
