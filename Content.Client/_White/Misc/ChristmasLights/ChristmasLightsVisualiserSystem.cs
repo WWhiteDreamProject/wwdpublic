@@ -1,4 +1,6 @@
 using Content.Shared._White.Misc.ChristmasLights;
+using Content.Shared.Examine;
+using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
 using Robust.Client.GameObjects;
@@ -19,10 +21,12 @@ using System.Threading.Tasks;
 
 namespace Content.Client._White.Misc.ChristmasLights;
 
-public sealed class ChristmasLightsVisualiserSystem : VisualizerSystem<ChristmasLightsComponent>
+
+
+public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _rng = default!;
+    
 
     //[Dependency] private readonly IReflectionManager _reflection = default!; // we have reflection at home
 
@@ -31,26 +35,69 @@ public sealed class ChristmasLightsVisualiserSystem : VisualizerSystem<Christmas
         base.Initialize();
 
         SubscribeLocalEvent<ChristmasLightsComponent, ComponentInit>(OnInit);
-        //SubscribeLocalEvent<T, AppearanceChangeEvent>(OnAppearanceChange);
+        SubscribeLocalEvent<ChristmasLightsComponent, AfterAutoHandleStateEvent>(OnAutoState);
+        SubscribeLocalEvent<ChristmasLightsComponent, GetVerbsEvent<AlternativeVerb>>(OnChristmasLightsAltVerbs);
+        SubscribeLocalEvent<ChristmasLightsComponent, GetVerbsEvent<Verb>>(OnChristmasLightsVerbs);
 
         InitModes();
     }
 
-    //protected virtual void OnAppearanceChange(EntityUid uid, T component, ref AppearanceChangeEvent args) { }
 
+    // Yes, this gets called for every autoupdate. Yes, i should use appearance system and events instead. No, i will not.
+    private void OnAutoState(EntityUid uid, ChristmasLightsComponent comp, AfterAutoHandleStateEvent args)
+    {
+        var sprite = Comp<SpriteComponent>(uid); // if you're reading this with stack trace pointing to this line, consider the following: https://www.youtube.com/watch?v=CPF2-PpfAfA
+        sprite.LayerSetState(ChristmasLightsLayers.Glow1, $"greyscale_first_glow{(comp.LowPower ? "_lp" : "")}");
+        sprite.LayerSetState(ChristmasLightsLayers.Glow2, $"greyscale_second_glow{(comp.LowPower ? "_lp" : "")}");
+    }
     private void OnInit(EntityUid uid, ChristmasLightsComponent comp, ComponentInit args)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
-            return; // anti-dumbass protection
+        var sprite = Comp<SpriteComponent>(uid); // see above
 
         SetLamp1Color(sprite, comp.Color1);
         SetLamp2Color(sprite, comp.Color2);
+        sprite.LayerSetState(ChristmasLightsLayers.Glow1, $"greyscale_first_glow{(comp.LowPower ? "_lp" : "")}");
+        sprite.LayerSetState(ChristmasLightsLayers.Glow2, $"greyscale_second_glow{(comp.LowPower ? "_lp" : "")}");
         sprite.LayerSetAutoAnimated(ChristmasLightsLayers.Glow1, false); // evil grinch smile
         sprite.LayerSetAutoAnimated(ChristmasLightsLayers.Glow2, false);
-
-        //ApplyMode("always_on", comp, sprite);
-
     }
+
+    private void OnChristmasLightsAltVerbs(EntityUid uid, ChristmasLightsComponent comp, GetVerbsEvent<AlternativeVerb> args)
+    {
+        args.Verbs.Add(
+            new AlternativeVerb
+            {
+                Priority = 3,
+                Text = Loc.GetString("christmas-lights-toggle-brightness"),
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/light.svg.192dpi.png")),
+                ClientExclusive = true,
+                Act = () => {
+                    if (_timing.IsFirstTimePredicted) // i hate the antichrist i hate the antichrist i hate the antichrist
+                        RaiseNetworkEvent(new ChangeChristmasLightsBrightnessAttemptEvent(GetNetEntity(args.Target)));
+                }
+            });
+    }
+
+    private void OnChristmasLightsVerbs(EntityUid uid, ChristmasLightsComponent comp, GetVerbsEvent<Verb> args)
+    {
+        args.Verbs.Add(
+            new Verb
+            {
+                Priority = 3,
+                Text = Loc.GetString("christmas-lights-next-mode"),
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/group.svg.192dpi.png")),
+                ClientExclusive = true,
+                Act = () => RaiseNetworkEvent(new ChangeChristmasLightsModeAttemptEvent(GetNetEntity(args.Target)))
+            });
+    }
+
+
+
+
+
+    // Funny shitcode game: everything that gets called in FrameUpdate() must be coded as if it's from a shader.
+
+
 
 
     // paranoidal profiling, not for live
@@ -85,46 +132,53 @@ public sealed class ChristmasLightsVisualiserSystem : VisualizerSystem<Christmas
 #endif
 
 
-    /// <summary>
-    /// https://www.desmos.com/calculator/ckyz8ikijz
-    /// Don't ask me why. I won't be able to answer.
-    /// </summary>
-    /// <param name="x"></param>
-    /// <returns></returns>
 
-    private void SetLamp1Color(SpriteComponent sprite, Color c)
+    private void SetLamp1Color(SpriteComponent sprite, Color c) // only for init, LEDs changing colors while off is lame
     {
         sprite.LayerSetColor(ChristmasLightsLayers.Lights1, c.WithAlpha(255));
         sprite.LayerSetColor(ChristmasLightsLayers.Glow1, c);
     }
 
-    private void SetLamp2Color(SpriteComponent sprite, Color c)
+    private void SetLamp2Color(SpriteComponent sprite, Color c) // only for init, LEDs changing colors while off is lame
     {
         sprite.LayerSetColor(ChristmasLightsLayers.Lights2, c.WithAlpha(255));
         sprite.LayerSetColor(ChristmasLightsLayers.Glow2, c);
     }
 
+#region helper functions
+    /// <summary>
+    /// https://www.desmos.com/calculator/ckyz8ikijz
+    /// Don't ask me why. I won't be able to answer.
+    /// </summary>
+    /// <param name="x"></param>
+    /// <returns>x but with a crippling disability</returns>
     private static float shitsin(float x) => (float) ((8 * MathF.Sin(x) + MathF.Sin(3 * x)) / 14 + 0.5);
-    //private static float shitsin(double x) => shitsin((float) x);
     private static float step(float x, int stepsNum) => MathF.Round(x * stepsNum) / stepsNum;
     private static int round(float x) => (int) MathF.Round(x);
     private float curtime => (float) _timing.CurTime.TotalSeconds;
     Color getRainbowColor(float secondsPerCycle, float hueOffset, int steps) => Color.FromHsv(new Vector4(step((curtime + hueOffset) % secondsPerCycle / secondsPerCycle, steps), 1f, 1f, 1f));
     private bool cycle(float seconds) => curtime % (seconds * 2) <= seconds;
+    /// <summary>
+    ///  will not be kept in sync between clients, but who cares, it is different with every access and is intended to induce epileptic seizures
+    /// </summary>
+    float random { get { 
+            _shift++;
+            return (1 + MathF.Sin((_shift+curtime) * 5023.85929f)) * 9491.59902f % 1;
+        } }
+    int _shift = 0;
+#endregion
 
     public override void FrameUpdate(float frameTime) {
         base.FrameUpdate(frameTime);
 
-        //float time1 = shitsin(curtime);
-        //float time2 = shitsin(curtime + Math.PI);
-
         var query = AllEntityQuery<ChristmasLightsComponent, SpriteComponent>();
+
 #if DEBUG
         stopwatch.Restart();
 #endif
         while (query.MoveNext(out var comp, out var sprite))
         {
-            ApplyMode(comp.mode, /*time1, time2,*/ comp, sprite);
+            ApplyMode(comp.mode, comp, sprite);
         }
 #if DEBUG
         _lastStopwatch = stopwatch.Elapsed.TotalMilliseconds;
@@ -135,7 +189,7 @@ public sealed class ChristmasLightsVisualiserSystem : VisualizerSystem<Christmas
 #endif
     }
 
-    private void ApplyMode(string mode, /*float time1, float time2,*/ ChristmasLightsComponent comp, SpriteComponent sprite)
+    private void ApplyMode(string mode, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
         if (sprite.TryGetLayer(sprite.LayerMapGet(ChristmasLightsLayers.Glow1), out var layer1) &&
             sprite.TryGetLayer(sprite.LayerMapGet(ChristmasLightsLayers.Glow2), out var layer2))
@@ -143,18 +197,14 @@ public sealed class ChristmasLightsVisualiserSystem : VisualizerSystem<Christmas
             layer1.Color = comp.Color1; // in case some mode doesn't change the colors, reset them so they don't get stuck at 0 alpha or something
             layer2.Color = comp.Color2;
 
-
             if (modes.TryGetValue(mode, out var deleg))
             {
-                deleg(/*time1, time2,*/ layer1, layer2, comp, sprite);
-                //continue;
+                deleg(layer1, layer2, comp, sprite);
             }
 
         }
     }
 
-
-    // shit like this should be put in a shader methinks...
     delegate void ModeFunc(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite);
 
     Dictionary<string, ModeFunc> modes = new();
@@ -163,6 +213,8 @@ public sealed class ChristmasLightsVisualiserSystem : VisualizerSystem<Christmas
     {
         modes["test1"] = modeTest1;
         modes["test2"] = modeTest2;
+        modes["emp"] = modeFubar;
+        modes["emp_rainbow"] = modeFubarRainbow;
         modes["always_on"] = modeAlwaysOn;
         modes["fade"] = modeFade;
         modes["sinwave_full"] = modeSinWaveFull;
@@ -175,15 +227,32 @@ public sealed class ChristmasLightsVisualiserSystem : VisualizerSystem<Christmas
         modes["strobe_slow"] = modeStrobeSlow;
         modes["rainbow"] = modeRainbow;
     }
-
+    
     void modeTest1(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
-        
+        // for playing with hot reload
     }
 
     void modeTest2(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
+        // for playing with hot reload
+    }
+    void modeFubar(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    {
+        layer1.AnimationFrame = round(random*3);
+        layer2.AnimationFrame = round(random*3);
+        layer1.State = $"greyscale_first_glow{(random > 0.5 ? "_lp" : "")}";
+        layer2.State = $"greyscale_second_glow{(random > 0.5 ? "_lp" : "")}";
+    }
 
+    void modeFubarRainbow(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    {
+        layer1.AnimationFrame = round(random * 3);
+        layer2.AnimationFrame = round(random * 3);
+        layer1.Color = getRainbowColor(1, random, 16);
+        layer2.Color = getRainbowColor(1, random, 16);
+        layer1.State = $"greyscale_first_glow{(random > 0.5 ? "_lp" : "")}";
+        layer2.State = $"greyscale_second_glow{(random > 0.5 ? "_lp" : "")}";
     }
 
     void modeAlwaysOn(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
@@ -220,20 +289,20 @@ public sealed class ChristmasLightsVisualiserSystem : VisualizerSystem<Christmas
     void modeSinWavePartialRainbow(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
         modeSinWavePartial(layer1, layer2, comp, sprite);
-        SetLamp1Color(sprite, getRainbowColor(2f, 0f, 10));
-        SetLamp2Color(sprite, getRainbowColor(2f, 0.5f, 10));
+        layer1.Color = getRainbowColor(2f, 0f, 10);
+        layer2.Color = getRainbowColor(2f, 0.5f, 10);
     }
     void modeSquareWave(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
-        layer1.AnimationFrame = 3 * round(shitsin(curtime));
-        layer2.AnimationFrame = 3 * round(shitsin(curtime + MathF.PI));
+        layer1.AnimationFrame = 3 * round((1+MathF.Sin(curtime))/2);
+        layer2.AnimationFrame = 3 * round((1+MathF.Sin(curtime + MathF.PI/2))/2);
     }
 
     void modeSquareWaveRainbow(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
         modeSquareWave(layer1, layer2, comp, sprite);
-        SetLamp1Color(sprite, getRainbowColor(2f, 0f, 10));
-        SetLamp2Color(sprite, getRainbowColor(2f, 0.5f, 10));
+        layer1.Color = getRainbowColor(2f, 0f, 10);
+        layer2.Color = getRainbowColor(2f, 0.5f, 10);
     }
 
     void modeStrobeDouble(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
@@ -261,7 +330,7 @@ public sealed class ChristmasLightsVisualiserSystem : VisualizerSystem<Christmas
     {
         layer1.AnimationFrame = 3;
         layer2.AnimationFrame = 3;
-        SetLamp1Color(sprite, getRainbowColor(2f, 0f, 10));
-        SetLamp2Color(sprite, getRainbowColor(2f, 0.5f, 10));
+        layer1.Color = getRainbowColor(2f, 0f, 10);
+        layer2.Color = getRainbowColor(2f, 0.5f, 10);
     }
 }

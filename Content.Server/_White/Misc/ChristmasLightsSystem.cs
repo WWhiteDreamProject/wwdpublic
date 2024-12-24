@@ -1,13 +1,20 @@
+using Content.Server.Emp;
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared._White.Misc.ChristmasLights;
+using Content.Shared.ActionBlocker;
+using Content.Shared.Emag.Components;
+using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction;
+using Content.Shared.Verbs;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,82 +22,142 @@ using System.Threading.Tasks;
 namespace Content.Server._White.Misc;
 
 
-public sealed class ChristmasLightsSystem : EntitySystem
+public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 {
-   [Dependency] private readonly NodeGroupSystem _node = default!;
+    [Dependency] private readonly NodeGroupSystem _node = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<ChristmasLightsComponent, ActivateInWorldEvent>(OnChristmasLightsActivate);
-        SubscribeLocalEvent<ChristmasLightsComponent, ComponentInit>(OnChristmasLightsInit);
+        base.Initialize();
 
+        SubscribeLocalEvent<ChristmasLightsComponent, ComponentInit>(OnChristmasLightsInit);
+        SubscribeLocalEvent<ChristmasLightsComponent, ActivateInWorldEvent>(OnChristmasLightsActivateInWorld);
+        SubscribeLocalEvent<ChristmasLightsComponent, EmpPulseEvent>(OnChristmasLightsMinisculeTrolling);
+        SubscribeLocalEvent<ChristmasLightsComponent, GotEmaggedEvent>(OnChristmasLightsModerateTrolling);
+
+        SubscribeNetworkEvent<ChangeChristmasLightsModeAttemptEvent>(OnModeChangeAttempt);
+        SubscribeNetworkEvent<ChangeChristmasLightsBrightnessAttemptEvent>(OnBrightnessChangeAttempt);
     }
 
     private void OnChristmasLightsInit(EntityUid uid, ChristmasLightsComponent comp, ComponentInit args)
     {
-        if(TryComp<NodeContainerComponent>(uid, out var cont))
+        if (TryComp<NodeContainerComponent>(uid, out var cont))
         {
-            if(cont.Nodes.TryGetValue("christmaslight", out var node))
+            comp.CurrentModeIndex = comp.modes.IndexOf(comp.mode); // returns -1 if mode is not in list: disables mode changing if that's the case
+            if (cont.Nodes.TryGetValue("christmaslight", out var node))
                 _node.QueueReflood(node);
         }
     }
 
-
-    private void OnChristmasLightsActivate(EntityUid uid, ChristmasLightsComponent comp, ActivateInWorldEvent args)
+    private void OnChristmasLightsMinisculeTrolling(EntityUid uid, ChristmasLightsComponent comp, ref EmpPulseEvent args)
     {
-        if(TryComp<NodeContainerComponent>(uid, out var cont) && cont.Nodes.TryGetValue("christmaslight", out var node) && node.NodeGroup is not null){
-            var thisProt = MetaData(uid).EntityPrototype;
-            foreach(var n in node.NodeGroup.Nodes)
+        args.Affected = true;
+        if (TryGetConnected(uid, out var nodes))
+        {
+            foreach (var node in nodes)
             {
-                if(TryComp<ChristmasLightsComponent>(n.Owner, out var jolly))
+                var jolly = Comp<ChristmasLightsComponent>(node.Owner);
+                jolly.mode = $"emp{(comp.Multicolor ? "_rainbow" : "")}";
+                Dirty(jolly.Owner, jolly);
+            }
+        }
+    }
+
+    private void OnChristmasLightsModerateTrolling(EntityUid uid, ChristmasLightsComponent comp, ref GotEmaggedEvent args)
+    {
+        if (TryGetConnected(uid, out var nodes))
+        {
+            foreach (var node in nodes)
+            {
+                EnsureComp<EmaggedComponent>(node.Owner);
+                var jolly = Comp<ChristmasLightsComponent>(node.Owner);
+                jolly.mode = $"emp{(jolly.Multicolor ? "_rainbow" : "")}";
+                jolly.CurrentModeIndex = -1; // disables mode change
+                Dirty(jolly.Owner, jolly);
+            }
+        }
+        _audio.PlayPvs(comp.EmagSound, uid);
+        args.Handled = true;
+    }
+
+    int GetNextModeIndex(ChristmasLightsComponent comp) // cycles modes as usual, but also handles the -1 case
+    {
+        if (comp.CurrentModeIndex == -1) return -1;
+        return (comp.CurrentModeIndex + 1) % comp.modes.Count;
+    }
+
+    private void OnModeChangeAttempt(ChangeChristmasLightsModeAttemptEvent args, EntitySessionEventArgs sessionArgs)
+    {
+        if (!sessionArgs.SenderSession.AttachedEntity.HasValue)
+            return;
+        EntityUid uid = GetEntity(args.target);
+        EntityUid user = sessionArgs.SenderSession.AttachedEntity!.Value; // no it will not be a fucking null, shut the fuck up
+        if (_actionBlocker.CanInteract(user, uid) && !HasComp<EmaggedComponent>(uid))
+        {
+            var jolly = Comp<ChristmasLightsComponent>(uid);
+            UpdateAllConnected(uid, jolly.LowPower, GetNextModeIndex(jolly));
+        }
+
+    }
+
+    private void OnBrightnessChangeAttempt(ChangeChristmasLightsBrightnessAttemptEvent args, EntitySessionEventArgs sessionArgs)
+    {
+        if (!sessionArgs.SenderSession.AttachedEntity.HasValue)
+            return;
+        EntityUid uid = GetEntity(args.target);
+        EntityUid user = sessionArgs.SenderSession.AttachedEntity!.Value; 
+        if (_actionBlocker.CanInteract(user, uid) && !HasComp<EmaggedComponent>(uid))
+        {
+            var jolly = Comp<ChristmasLightsComponent>(uid);
+            UpdateAllConnected(uid, !jolly.LowPower, GetNextModeIndex(jolly));
+        }
+    }
+
+    private void OnChristmasLightsActivateInWorld(EntityUid uid, ChristmasLightsComponent comp, ActivateInWorldEvent args)
+    {
+        if (!HasComp<EmaggedComponent>(uid))
+        {
+            var jolly = Comp<ChristmasLightsComponent>(uid);
+            UpdateAllConnected(uid, jolly.LowPower, GetNextModeIndex(jolly));
+        }
+    }
+
+    /// <summary>
+    /// note: also updates the uid passed, so technically it's "UpdateAllConnectedAndItself" or something like that
+    /// </summary>
+    private void UpdateAllConnected(EntityUid uid, bool brightness, int newModeIndex)
+    {
+        if (newModeIndex >= 0 && TryGetConnected(uid, out var nodes))
+        {
+            foreach (var node in nodes)
+            {
+                var jollyUid = node.Owner;
+                if (TryComp<ChristmasLightsComponent>(jollyUid, out var jolly))
                 {
-                    if (MetaData(n.Owner).EntityPrototype != thisProt)
+                    if (HasComp<EmaggedComponent>(jollyUid))
                         continue;
-                    int i = jolly.modes.IndexOf(jolly.mode);
-                    jolly.mode = jolly.modes[(i + 1) % jolly.modes.Count];
-                    Dirty(jolly.Owner, jolly);
+                    jolly.LowPower = brightness;
+                    jolly.mode = jolly.modes[newModeIndex];
+                    Dirty(jollyUid, jolly);
                 }
             }
         }
     }
-}
 
 
-public sealed partial class SamePrototypeAdjacentNode : Node
-{
-    [ViewVariables]
-    public string OwnerPrototypeID = default!;
-
-    public override void Initialize(EntityUid owner, IEntityManager entMan)
+    /// <summary>
+    /// returns connected *and* self.
+    /// </summary>
+    private bool TryGetConnected(EntityUid uid, [NotNullWhen(true)] out IEnumerable<Node>? nodes)
     {
-        base.Initialize(owner, entMan);
-        
-
-        if (String.IsNullOrEmpty(OwnerPrototypeID))
+        nodes = null;
+        if (TryComp<NodeContainerComponent>(uid, out var cont) && cont.Nodes.TryGetValue("christmaslight", out var node) && node.NodeGroup is not null)
         {
-            var prot = entMan.GetComponent<MetaDataComponent>(owner).EntityPrototype;
-            DebugTools.Assert(prot is not null, "SamePrototypeAdjacentNode used on an entity with no EntityPrototype specified in metadata. Please reconsider your life choices that have lead you to this point.");
-            OwnerPrototypeID = prot.ID;
-
+            nodes = node.NodeGroup.Nodes;
+            return true;
         }
-    }
-    public override IEnumerable<Node> GetReachableNodes(TransformComponent xform,
-        EntityQuery<NodeContainerComponent> nodeQuery,
-        EntityQuery<TransformComponent> xformQuery,
-        MapGridComponent? grid,
-        IEntityManager entMan)
-    {
-        if (!xform.Anchored || grid == null)
-            yield break;
-
-        var gridIndex = grid.TileIndicesFor(xform.Coordinates);
-
-        foreach (var (_, node) in NodeHelpers.GetCardinalNeighborNodes(nodeQuery, grid, gridIndex))
-        {
-            if (node is SamePrototypeAdjacentNode spaNode &&
-                spaNode != this &&
-                spaNode.OwnerPrototypeID == this.OwnerPrototypeID)
-                yield return node;
-        }
+        return false;
     }
 }

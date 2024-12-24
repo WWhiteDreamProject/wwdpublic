@@ -1,4 +1,6 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Content.Shared._White.Misc.ChristmasLights;
 
-[RegisterComponent, AutoGenerateComponentState, NetworkedComponent]
+[RegisterComponent, AutoGenerateComponentState(true), NetworkedComponent]
 public sealed partial class ChristmasLightsComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
@@ -21,22 +23,29 @@ public sealed partial class ChristmasLightsComponent : Component
     [DataField, AutoNetworkedField]
     public string mode = "always_on";
 
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    public int CurrentModeIndex = default;
+
+    [DataField, ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    public List<string> modes = new List<string> { "always_on" };
+
+    /// <summary>
+    /// refers to the glow state sprites, no actual power consumtion regardless of value
+    /// </summary>
     [DataField, AutoNetworkedField]
-    public List<string> modes = new List<string>
-    {
-        "always_on",
-        //"sinwave_full",
-        //"sinwave_partial",
-        //"sinwave_partial_rainbow",
-        //"rainbow",
-        //"strobe_double",
-        //"strobe",
-        //"strobe_slow",
-    };
+    public bool LowPower = true;
 
+    /// <summary>
+    /// as in, are the LEDs capable of changing colors.
+    /// Doesn't actually limit anything, only used by server side system to tell
+    /// whether it should apply regular or rainbow epilepsy mode when EMP'd.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Multicolor = false;
+
+    [DataField]
+    public SoundSpecifier EmagSound = new SoundCollectionSpecifier("sparks");
 }
-
-
 
 public enum ChristmasLightsLayers
 {
@@ -46,3 +55,4 @@ public enum ChristmasLightsLayers
     Glow1,
     Glow2
 }
+

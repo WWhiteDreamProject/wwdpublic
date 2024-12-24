@@ -2,16 +2,9 @@
   parent: BaseSign
   id: BaseChristmasLights
   name: christmas lights
-  description: Merry Christmas! These lights are powered by the crew jollyness and christmas spirit! Also has a miniature backup fusion reactor, just in case.
+  description: Merry Christmas! These lights are powered by the crew cheer and christmas spirit! Also has a miniature backup fusion reactor, just in case.
   abstract: true
   components:
-  - type: Transform
-    anchored: true # basesign is static instead of being anchored, for some reason. 
-  - type: WallMount
-    arc: 360
-  - type: Construction
-    graph: RainbowChristmasDisassembly
-    node: start
   - type: Sprite
     noRot: false
     drawdepth: WallTops
@@ -23,25 +16,28 @@
         map: ["enum.ChristmasLightsLayers.Lights1"]
       - state: greyscale_second
         map: ["enum.ChristmasLightsLayers.Lights2"]
-      - state: greyscale_first_glow
+      - state: greyscale_first_glow # be advised: if you change this state name, be sure to change it in clientside christmas lights system as well (methods modeFubar() and modeFubarRainbow())
         map: ["enum.ChristmasLightsLayers.Glow1"]
         shader: unshaded
       - state: greyscale_second_glow
         map: ["enum.ChristmasLightsLayers.Glow2"]
         shader: unshaded
+  - type: Tag
+    tags: 
+      - Unstackable
+  - type: Transform
+    anchored: true # basesign is static instead of being anchored, for some reason. 
+  - type: WallMount
+    arc: 360
+  - type: Construction
+    graph: GenericChristmasLightsDisassembly
+    node: start
   - type: ChristmasLights
     color1: "#FFFFFF"
     color2: "#FFFFFF"  
     mode: always_on
     modes:
     - always_on
-    #- sinwave_full
-    #- sinwave_partial
-    #- sinwave_partial_rainbow
-    #- strobe_double
-    #- strobe
-    #- strobe_slow
-    #- rainbow
   - type: NodeContainer
     nodes:
       christmaslight:
@@ -113,6 +109,7 @@
   id: RainbowChristmasLights
   components:
   - type: ChristmasLights
+    multicolor: true
     mode: rainbow
     modes:
     - rainbow

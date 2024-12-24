@@ -1,4 +1,3 @@
-
 - type: construction
   name: Red-blue christmas lights
   id: RedBlueChristmasLights
@@ -6,12 +5,16 @@
   startNode: start
   targetNode: ChristmasLightsFull
   category: construction-category-structures
-  description: An improvised barricade made out of wooden planks.
+  description: Merry Christmas! These lights are powered by the crew jollyness and christmas spirit! Also has a miniature backup fusion reactor, just in case.
   icon:
     sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
     state: base
   objectType: Structure
   placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:NoUnstackableInTile
+    - !type:WallmountCondition
 
 - type: construction
   name: Yellow-cyan christmas lights
@@ -20,12 +23,15 @@
   startNode: start
   targetNode: ChristmasLightsFull
   category: construction-category-structures
-  description: An improvised barricade made out of wooden planks.
+  description: Merry Christmas! These lights are powered by the crew jollyness and christmas spirit! Also has a miniature backup fusion reactor, just in case.
   icon:
     sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
     state: base
   objectType: Structure
   placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
 
 - type: construction
   name: Purple-green christmas lights
@@ -34,12 +40,16 @@
   startNode: start
   targetNode: ChristmasLightsFull
   category: construction-category-structures
-  description: An improvised barricade made out of wooden planks.
+  description: Merry Christmas! These lights are powered by the crew jollyness and christmas spirit! Also has a miniature backup fusion reactor, just in case.
   icon:
     sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
     state: base
   objectType: Structure
   placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:NoUnstackableInTile
+    - !type:WallmountCondition
 
 - type: construction
   name: Rainbow christmas lights
@@ -48,9 +58,13 @@
   startNode: start
   targetNode: ChristmasLightsFull
   category: construction-category-structures
-  description: An improvised barricade made out of wooden planks.
+  description: Merry Christmas! These lights are powered by the crew jollyness and christmas spirit! Also has a miniature backup fusion reactor, just in case.
   icon:
     sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
     state: base
   objectType: Structure
   placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:NoUnstackableInTile
+    - !type:WallmountCondition

@@ -8,18 +8,11 @@
           steps:
             - material: Cable
               amount: 1
-              doAfter: 0.5
+              doAfter: 1
     - node: ChristmasLightsFull
       entity: RedBlueChristmasLights
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: Cable
-              amount: 1 #returns 1 less as one breaks
-            - !type:DeleteEntity {}
-          steps:
-            - tool: Cutting
+    # this node doesn't have a "disassembly" edge because i'd have to specify ChristmasLightsFull as a starting node for all christmas light prototypes
+    # instead i have a "generic" disassembly graph which is used only once in BaseChristmasLights' construction comp.  
 
 - type: constructionGraph
   id: YellowCyanChristmasLights
@@ -31,18 +24,9 @@
           steps:
             - material: Cable
               amount: 1
-              doAfter: 0.5
+              doAfter: 1
     - node: ChristmasLightsFull
       entity: YellowCyanChristmasLights
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: Cable
-              amount: 1 #returns 1 less as one breaks
-            - !type:DeleteEntity {}
-          steps:
-            - tool: Cutting
 
 - type: constructionGraph
   id: PurpleGreenChristmasLights
@@ -54,18 +38,9 @@
           steps:
             - material: Cable
               amount: 1
-              doAfter: 0.5
+              doAfter: 1
     - node: ChristmasLightsFull
       entity: PurpleGreenChristmasLights
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: Cable
-              amount: 1 #returns 1 less as one breaks
-            - !type:DeleteEntity {}
-          steps:
-            - tool: Cutting
 
 - type: constructionGraph
   id: RainbowChristmasLights
@@ -76,22 +51,13 @@
         - to: ChristmasLightsFull
           steps:
             - material: Cable
-              amount: 1
-              doAfter: 0.5
+              amount: 2
+              doAfter: 1
     - node: ChristmasLightsFull
       entity: RainbowChristmasLights
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: Cable
-              amount: 1
-            - !type:DeleteEntity {}
-          steps:
-            - tool: Cutting
 
 - type: constructionGraph # specified in BaseChristmasLights since it's the same for all children christmas lights. I wish generic graphs were a thing.
-  id: RainbowChristmasDisassembly 
+  id: GenericChristmasLightsDisassembly 
   start: start
   graph:
     - node: start
@@ -99,9 +65,28 @@
         - to: ass
           steps:
             - tool: Cutting
+              doAfter: 2
           completed:
-            - !type:SpawnPrototype
+            - !type:GivePrototype
               prototype: CableApcStack1
               amount: 1
+            - !type:DeleteEntity {}
+    - node: ass # doesn't matter
+
+
+- type: constructionGraph # since rainbow lights use 2 cable pieces
+  id: RainbowChristmasLightsDisassembly 
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ass
+          steps:
+            - tool: Cutting
+              doAfter: 2
+          completed:
+            - !type:GivePrototype
+              prototype: CableApcStack1
+              amount: 2
             - !type:DeleteEntity {}
     - node: ass # doesn't matter
