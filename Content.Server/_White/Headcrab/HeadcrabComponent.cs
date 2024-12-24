@@ -18,16 +18,16 @@ public sealed partial class HeadcrabComponent : Component
     [DataField("paralyzeTime"), ViewVariables(VVAccess.ReadWrite)]
     public float ParalyzeTime = 3f;
 
-    [DataField("chansePounce"), ViewVariables(VVAccess.ReadWrite)]
-    public int ChansePounce = 33;
+    [DataField("chancePounce"), ViewVariables(VVAccess.ReadWrite)]
+    public int ChancePounce = 33;
 
     [DataField("damage", required: true)]
     [ViewVariables(VVAccess.ReadWrite)]
     public DamageSpecifier Damage = default!;
 
-    public bool IsDeath = false;
+    public bool IsDead = false;
 
-    public EntityUid EquipedOn;
+    public EntityUid EquippedOn;
 
     [ViewVariables] public float Accumulator = 0;
 

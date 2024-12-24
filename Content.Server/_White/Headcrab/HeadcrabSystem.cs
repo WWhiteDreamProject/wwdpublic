@@ -64,7 +64,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
     private void OnHeadcrabDoHit(EntityUid uid, HeadcrabComponent component, ThrowDoHitEvent args)
     {
-        if (component.IsDeath)
+        if (component.IsDead)
             return;
         if (HasComp<ZombieComponent>(args.Target))
             return;
@@ -85,7 +85,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
         if (!_inventory.TryEquip(args.Target, uid, "mask", true))
             return;
 
-        component.EquipedOn = args.Target;
+        component.EquippedOn = args.Target;
 
         _popup.PopupEntity(Loc.GetString("headcrab-hit-entity-head"),
             args.Target, args.Target, PopupType.LargeCaution);
@@ -106,7 +106,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
     {
         if (args.Slot != "mask")
             return;
-        component.EquipedOn = args.Equipee;
+        component.EquippedOn = args.Equipee;
         EnsureComp<PacifiedComponent>(uid);
         _npcFaction.AddFaction(uid, "Zombie");
     }
@@ -115,7 +115,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
     {
         if (args.Slot != "mask")
             return;
-        if (component.EquipedOn != args.Unequipee)
+        if (component.EquippedOn != args.Unequipee)
             return;
         if (HasComp<ZombieComponent>(args.Unequipee))
             return;
@@ -128,7 +128,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
     {
         if (HasComp<ZombieComponent>(args.User))
             return;
-        if (component.IsDeath)
+        if (component.IsDead)
             return;
         // _handsSystem.TryDrop(args.User, uid, checkActionBlocker: false);
         _damageableSystem.TryChangeDamage(args.User, component.Damage);
@@ -140,7 +140,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
     {
         if (args.Slot != "mask")
             return;
-        component.EquipedOn = EntityUid.Invalid;
+        component.EquippedOn = EntityUid.Invalid;
         RemCompDeferred<PacifiedComponent>(uid);
         var combatMode = EnsureComp<CombatModeComponent>(uid);
         _combat.SetInCombatMode(uid, true, combatMode);
@@ -170,7 +170,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
             if (HasComp<IngestionBlockerComponent>(headItem))
                 return;
 
-            var shouldEquip = _random.Next(1, 101) <= component.ChansePounce;
+            var shouldEquip = _random.Next(1, 101) <= component.ChancePounce;
             if (!shouldEquip)
                 return;
 
@@ -178,7 +178,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
             if (!equipped)
                 return;
 
-            component.EquipedOn = entity;
+            component.EquippedOn = entity;
 
             _popup.PopupEntity(Loc.GetString("headcrab-eat-entity-face"),
                 entity, entity, PopupType.LargeCaution);
@@ -200,7 +200,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
     {
         if (args.NewMobState == MobState.Dead)
         {
-            component.IsDeath = true;
+            component.IsDead = true;
         }
     }
     private void OnJump(EntityUid uid, HeadcrabComponent component, JumpActionEvent args)
@@ -233,16 +233,16 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
             comp.Accumulator = 0;
 
-            if (comp.EquipedOn is not { Valid: true } targetId)
+            if (comp.EquippedOn is not { Valid: true } targetId)
                 continue;
-            if (HasComp<ZombieComponent>(comp.EquipedOn))
+            if (HasComp<ZombieComponent>(comp.EquippedOn))
                 return;
             if (TryComp(targetId, out MobStateComponent? mobState))
             {
                 if (mobState.CurrentState is not MobState.Alive)
                 {
                     _inventory.TryUnequip(targetId, "mask", true, true);
-                    comp.EquipedOn = EntityUid.Invalid;
+                    comp.EquippedOn = EntityUid.Invalid;
                     return;
                 }
             }

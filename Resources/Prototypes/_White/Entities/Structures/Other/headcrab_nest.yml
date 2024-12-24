@@ -19,7 +19,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 180
+        damage: 250
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -45,7 +45,7 @@
       - MobHeadcrabPoison
     intervalSeconds: 60
     minimumEntitiesSpawned: 1
-    maximumEntitiesSpawned: 1
-#  - type: GuideHelp
-#    guides:
-#    - Headcrabs
+    maximumEntitiesSpawned: 2
+  - type: GuideHelp
+    guides:
+    - Headcrabs
