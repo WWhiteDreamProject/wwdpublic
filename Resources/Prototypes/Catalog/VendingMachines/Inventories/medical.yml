@@ -8,6 +8,8 @@
     EpinephrineChemistryBottle: 3
     Syringe: 5
     Portafib: 1
-    ClothingEyesGlasses: 5
-    ClothingEyesHudMedical: 2
-    ClothingEyesEyepatchHudMedical: 2
+    # WD EDIT START
+    #ClothingEyesGlasses: 5
+    #ClothingEyesHudMedical: 2
+    #ClothingEyesEyepatchHudMedical: 2
+    # WD EDIT END

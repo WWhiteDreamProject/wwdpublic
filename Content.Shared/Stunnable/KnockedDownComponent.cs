@@ -14,7 +14,7 @@ public sealed partial class KnockedDownComponent : Component
     public SoundSpecifier StunAttemptSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg");
 
     [DataField]
-    public DropHeldItemsBehavior DropHeldItemsBehavior = DropHeldItemsBehavior.DropIfStanding;
+    public DropHeldItemsBehavior DropHeldItemsBehavior = DropHeldItemsBehavior.AlwaysDrop;
 
     [ViewVariables, AutoNetworkedField]
     public float HelpTimer = 0f;

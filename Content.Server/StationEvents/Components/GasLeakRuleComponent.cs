@@ -13,7 +13,12 @@ public sealed partial class GasLeakRuleComponent : Component
         Gas.Plasma,
         Gas.Tritium,
         Gas.Frezon,
-        Gas.WaterVapor, // the fog
+        Gas.WaterVapor,
+        // WD EDIT START
+        Gas.BZ,
+        Gas.Hydrogen,
+        Gas.Halon,
+        // WD EDIT END
     };
 
     /// <summary>

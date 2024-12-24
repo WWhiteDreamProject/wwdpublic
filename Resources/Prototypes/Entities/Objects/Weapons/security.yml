@@ -10,7 +10,7 @@
     - state: stunbaton_off
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: Stunbaton
-    energyPerUse: 50
+    energyPerUse: 100 # WD EDIT
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -29,18 +29,18 @@
     activatedDamage:
       types:
         Blunt: 0
+  - type: ItemToggleDamageOtherOnHit
   - type: MeleeWeapon
-    wideAnimationRotation: -135
     damage:
       types:
         Blunt: 7
     bluntStaminaDamageFactor: 2.0
-    heavyRateModifier: 0.75
-    maxTargets: 3
+    canHeavyAttack: false # WD EDIT
+    attackRate: 3 # WD EDIT
     angle: 60
-    animation: WeaponArcSlash
+  - type: DamageOtherOnHit
   - type: StaminaDamageOnHit
-    damage: 35
+    damage: 55 # WD EDIT
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
     damage: 35
@@ -87,6 +87,7 @@
   - type: GuideHelp
     guides:
     - Security
+  - type: KnockdownOnHit # WD EDIT
 
 - type: entity
   name: truncheon
@@ -107,10 +108,12 @@
       collection: MetalThud
     bluntStaminaDamageFactor: 2
     heavyRateModifier: 1
+  - type: DamageOtherOnHit
+    staminaCost: 9
   - type: Item
     size: Normal
   - type: Tag
-    tags: 
+    tags:
     - Truncheon
   - type: Clothing
     sprite: Objects/Weapons/Melee/truncheon.rsi

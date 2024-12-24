@@ -1,14 +1,4 @@
 ﻿- type: listing
-  id: UplinkEmpFlashlight
-  name: uplink-emp-flashlight-name
-  description: uplink-emp-flashlight-desc
-  productEntity: FlashlightEmp
-  cost:
-    Telecrystal: 3
-  categories:
-    - UplinkUtility
-
-- type: listing
   id: UplinkExperimentalSyndicateTeleporter
   name: uplink-experimental-syndicate-teleporter-name
   description: uplink-experimental-syndicate-teleporter-desc
@@ -16,7 +6,7 @@
   cost:
     Telecrystal: 10
   categories:
-    - UplinkUtility
+  - UplinkUtility
 
 - type: listing
   id: UplinkBetrayalDagger
@@ -85,7 +75,7 @@
   productEntity: ImplanterSyndi
   cost:
     Telecrystal: 1
-  categories: 
+  categories:
   - UplinkImplants
 
 - type: listing

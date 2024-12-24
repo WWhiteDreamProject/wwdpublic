@@ -1,7 +1,9 @@
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared._White.TTS;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Loadouts.Prototypes;
+using Content.Shared.Clothing.Loadouts.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -46,10 +48,10 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     private HashSet<string> _traitPreferences = new();
 
     /// <see cref="_loadoutPreferences"/>
-    public HashSet<string> LoadoutPreferences => _loadoutPreferences;
+    public HashSet<LoadoutPreference> LoadoutPreferences => _loadoutPreferences;
 
     [DataField]
-    private HashSet<string> _loadoutPreferences = new();
+    private HashSet<LoadoutPreference> _loadoutPreferences = new();
 
     [DataField]
     public string Name { get; set; } = "John Doe";
@@ -76,6 +78,11 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
     [DataField]
     public Sex Sex { get; private set; } = Sex.Male;
+
+    // WD EDIT START
+    [DataField]
+    public string Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice;
+    // WD EDIT END
 
     [DataField]
     public Gender Gender { get; private set; } = Gender.Male;
@@ -119,6 +126,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         float width,
         int age,
         Sex sex,
+        string voice, // WD EDIT
         Gender gender,
         HumanoidCharacterAppearance appearance,
         SpawnPriorityPreference spawnPriority,
@@ -128,7 +136,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         PreferenceUnavailableMode preferenceUnavailable,
         HashSet<string> antagPreferences,
         HashSet<string> traitPreferences,
-        HashSet<string> loadoutPreferences)
+        HashSet<LoadoutPreference> loadoutPreferences)
     {
         Name = name;
         FlavorText = flavortext;
@@ -138,6 +146,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         Width = width;
         Age = age;
         Sex = sex;
+        Voice = voice; // WD EDIT
         Gender = gender;
         Appearance = appearance;
         SpawnPriority = spawnPriority;
@@ -161,6 +170,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             other.Width,
             other.Age,
             other.Sex,
+            other.Voice, // WD EDIT
             other.Gender,
             other.Appearance.Clone(),
             other.SpawnPriority,
@@ -170,7 +180,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             other.PreferenceUnavailable,
             new HashSet<string>(other.AntagPreferences),
             new HashSet<string>(other.TraitPreferences),
-            new HashSet<string>(other.LoadoutPreferences))
+            new HashSet<LoadoutPreference>(other.LoadoutPreferences))
     {
     }
 
@@ -236,6 +246,14 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
                 break;
         }
 
+        // WD EDIT START
+        var voiceId = random.Pick(prototypeManager
+            .EnumeratePrototypes<TTSVoicePrototype>()
+            .Where(o => CanHaveVoice(o, sex)).ToArray()
+        ).ID;
+        // WD EDIT END
+
+
         var name = GetName(species, gender);
 
         return new HumanoidCharacterProfile()
@@ -244,6 +262,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             Sex = sex,
             Age = age,
             Gender = gender,
+            Voice = voiceId, // WD EDIT
             Species = species,
             Appearance = HumanoidCharacterAppearance.Random(species, sex),
         };
@@ -251,6 +270,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
     public HumanoidCharacterProfile WithName(string name) => new(this) { Name = name };
     public HumanoidCharacterProfile WithFlavorText(string flavorText) => new(this) { FlavorText = flavorText };
+    public HumanoidCharacterProfile WithVoice(string voice) => new(this) { Voice = voice }; // WD EDIT
     public HumanoidCharacterProfile WithAge(int age) => new(this) { Age = age };
     public HumanoidCharacterProfile WithSex(Sex sex) => new(this) { Sex = sex };
     public HumanoidCharacterProfile WithGender(Gender gender) => new(this) { Gender = gender };
@@ -309,14 +329,19 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         return new(this) { _traitPreferences = list };
     }
 
-    public HumanoidCharacterProfile WithLoadoutPreference(string loadoutId, bool pref)
+    public HumanoidCharacterProfile WithLoadoutPreference(
+        string loadoutId,
+        bool pref,
+        string? customName = null,
+        string? customDescription = null,
+        string? customColor = null,
+        bool? customHeirloom = null)
     {
-        var list = new HashSet<string>(_loadoutPreferences);
+        var list = new HashSet<LoadoutPreference>(_loadoutPreferences);
 
+        list.RemoveWhere(l => l.LoadoutName == loadoutId);
         if (pref)
-            list.Add(loadoutId);
-        else
-            list.Remove(loadoutId);
+            list.Add(new(loadoutId, customName, customDescription, customColor, customHeirloom) { Selected = pref });
 
         return new HumanoidCharacterProfile(this) { _loadoutPreferences = list };
     }
@@ -335,6 +360,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             && Name == other.Name
             && Age == other.Age
             && Sex == other.Sex
+            && Voice == other.Voice // WD EDIT
             && Gender == other.Gender
             && Species == other.Species
             && PreferenceUnavailable == other.PreferenceUnavailable
@@ -469,7 +495,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             .ToList();
 
         var loadouts = LoadoutPreferences
-            .Where(prototypeManager.HasIndex<LoadoutPrototype>)
+            .Where(l => prototypeManager.HasIndex<LoadoutPrototype>(l.LoadoutName))
             .ToList();
 
         Name = name;
@@ -498,7 +524,20 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
         _loadoutPreferences.Clear();
         _loadoutPreferences.UnionWith(loadouts);
+
+        // WD EDIT START
+        prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
+        if (voice is null || !CanHaveVoice(voice, Sex))
+            Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
+        // WD EDIT END
     }
+
+    // WD EDIT START
+    public static bool CanHaveVoice(TTSVoicePrototype voice, Sex sex)
+    {
+        return voice.RoundStart && sex == Sex.Unsexed || voice.Sex == sex || voice.Sex == Sex.Unsexed;
+    }
+    // WD EDIT END
 
     public ICharacterProfile Validated(ICommonSession session, IDependencyCollection collection)
     {

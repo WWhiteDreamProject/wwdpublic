@@ -1,0 +1,1155 @@
+Entries:
+- author: 6Mirage6
+  changes:
+    - type: Tweak
+      message: >-
+        Current sprites of steel, plasteel, glass (all types) and plastic. /
+        Добавляет спрайты листов стали, пластали, стекла (всех видов), пластика.
+  id: 1
+  time: '2024-08-21T10:53:44.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added telescope system / Добавлена система прицеливания
+    - type: Tweak
+      message: Now you can aim from Hristov / Теперь можно прицеливаться из Христова
+  id: 2
+  time: '2024-08-23T01:45:30.0000000+00:00'
+- author: Hell_Cat
+  changes:
+    - type: Add
+      message: Добавлен предмет аплинка - ЭМИ фонарик.
+  id: 3
+  time: '2024-08-23T02:53:41.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added lying down system / Добавлена система лежания
+  id: 4
+  time: '2024-08-23T13:30:07.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Press to walk / Нажать чтобы идти
+  id: 5
+  time: '2024-08-23T13:30:51.0000000+00:00'
+- author: Remuchi
+  changes:
+    - type: Fix
+      message: >-
+        Thieves and Ninjas now properly spawn with their gear / Ниндзя и воры
+        теперь корректно спавнятся со своим снаряжением.
+  id: 6
+  time: '2024-08-24T04:45:51.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: added BlinkSystem / Добавлена система телепортации
+  id: 7
+  time: '2024-08-27T10:01:15.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added discounts in uplink / Добавлены скидки в аплинк
+  id: 8
+  time: '2024-08-27T10:55:17.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added aspects / Добавлены аспекты
+  id: 9
+  time: '2024-08-30T02:46:26.0000000+00:00'
+- author: Warete
+  changes:
+    - type: Add
+      message: >-
+        The ability to remove tiles with axes / Возможность снимать плитку
+        топорами
+  id: 10
+  time: '2024-08-31T16:22:01.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: >-
+        Added flip when hiting with a double energy sword / Добавлено сальто при
+        ударе двойным энергетическим мечом
+    - type: Tweak
+      message: >-
+        The chance to reflect the laser with energy swords has been increased /
+        Увеличен шанс отразить лазер энергетическими мечами
+    - type: Tweak
+      message: >-
+        The double Energy Sword can no longer be activated in one hand / Двойной
+        энергетический меч больше нельзя активировать в одной руке
+  id: 11
+  time: '2024-08-31T17:40:36.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added melee block / Добавлен блок в ближнем бою
+  id: 12
+  time: '2024-08-31T18:58:03.0000000+00:00'
+- author: Warete
+  changes:
+    - type: Add
+      message: Added two roles Maid and Hobo / Добавлено две роли Прислуга и Бомж
+  id: 13
+  time: '2024-09-01T07:21:33.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: Logo / Лого
+  id: 14
+  time: '2024-09-01T10:11:53.0000000+00:00'
+- author: Remuchi
+  changes:
+    - type: Add
+      message: >-
+        Простые и часто используемые вещи теперь можно создавать взаимодействуя
+        с материалом в руках без меню строительства / A bunch of construction
+        recipes can now be quickly accessed by interacting with material they
+        are using.
+  id: 15
+  time: '2024-09-03T05:39:50.0000000+00:00'
+- author: Hell_Cat
+  changes:
+    - type: Add
+      message: added toggle in ore bag
+    - type: Fix
+      message: Ore processor fixed
+  id: 16
+  time: '2024-09-03T10:18:06.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added disarm animation / Добавлена анимация толчка
+    - type: Tweak
+      message: 'Heavy damage modifier: 1.2 => 1 /  Модификатор урона тяжелой атакой: 1'
+  id: 17
+  time: '2024-09-03T10:22:51.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        An ordinary player can now use adminwho / Обычные игроки теперь могут
+        использовать adminwho
+  id: 18
+  time: '2024-09-03T17:01:18.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        The trown item is now triggred once / Брошенные предметы теперь
+        срабатывают единожды
+  id: 19
+  time: '2024-09-03T17:02:18.0000000+00:00'
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Добавлены новые тайлы и текстуры для них
+    - type: Add
+      message: Добавлены новые декали и текстуры для них
+    - type: Add
+      message: Добавлены растения с рандомным спрайтом
+    - type: Tweak
+      message: Изменено много спрайтов тайлов, декалей, структур из дерева и другое...
+  id: 20
+  time: '2024-09-05T09:34:23.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        The duafter is removed when opening the door or tearing off the tile
+        with a crowbar / Убран дуафтер при открывании шлюзов или отрывании
+        плитки ломом
+  id: 21
+  time: '2024-09-05T18:15:32.0000000+00:00'
+- author: Remuchi
+  changes:
+    - type: Tweak
+      message: >-
+        Апстрим с Einstein Engines. Основные отличия можно глянуть на гитхабе
+        либо полный ченджлог доступен в игре.
+  id: 22
+  time: '2024-09-05T19:58:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/39
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added BackStab / Добавлен удар в спину
+    - type: Add
+      message: >-
+        Added the Betrayal dagger to uplink / Добавлен Предательский кинжал в
+        аплинк
+  id: 23
+  time: '2024-09-07T02:50:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/30
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added WD airlock texture / Добавлены Текстуры шлюзов от ВД
+    - type: Tweak
+      message: The powered airlock are now glowing / Запитанные шлюзы теперь светятся
+    - type: Fix
+      message: Fixed animation of airlock / Исправлена анимация шлюзов
+  id: 24
+  time: '2024-09-09T05:36:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/42
+- author: Remuchi
+  changes:
+    - type: Add
+      message: Old ahelp sound. All hail BWOINK! / Возвращен старый звук ахелпа
+    - type: Remove
+      message: >-
+        Sound on sending ahelp message was removed / Удален звук при отправке
+        сообщения в ахелпе.
+  id: 25
+  time: '2024-09-09T08:26:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/48
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added a few translations / Добавлено немного переводов
+  id: 26
+  time: '2024-09-09T16:23:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/51
+- author: TokiJumper
+  changes:
+    - type: Remove
+      message: >-
+        You can no longer miss when throwing something in disposal bin / Убран
+        промах у мусорки.
+  id: 27
+  time: '2024-09-10T10:03:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/52
+- author: Remuchi
+  changes:
+    - type: Tweak
+      message: >-
+        Most of the hardsuits slow down less now / Большая часть скафандром
+        теперь слабее замедляет.
+    - type: Remove
+      message: >-
+        Removed equip/unequip delay from most of the clothes / Убран ду-афтер
+        одевания/снятия большей части одежды.
+  id: 28
+  time: '2024-09-10T17:00:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/54
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added new Lobby / Добавлено новое лобби
+  id: 29
+  time: '2024-09-12T04:31:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/47
+- author: Remuchi
+  changes:
+    - type: Add
+      message: >-
+        Reintroduced dwarfs / Возвращены дворфы в игру. Лучше переносят алкоголь
+        и имеют чуть больше выносливости, чем остальные расы.
+    - type: Tweak
+      message: >-
+        Arachnids now have action to place spider web and no longer slowed down
+        by it / Арахниды получили возможность ставить паутину и не замедляться в
+        ней.
+    - type: Tweak
+      message: >-
+        Most races min/max/default height and width was rebalanced. Now they go
+        mostly +-10% from default / Параметры роста/ширины многих раз были
+        изменены. Теперь они могут (в большинстве случаев) изменяться на
+        максимум +-10% от стандартного значения.
+    - type: Remove
+      message: >-
+        Removed arachne from roundstart species pool / Арахне были удалены из
+        стартового набора рас.
+    - type: Remove
+      message: >-
+        Removed oni from roundstart species pool / Они были удалены из
+        стартового набора рас.
+  id: 30
+  time: '2024-09-12T05:51:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/49
+- author: Gersoon
+  changes:
+    - type: Tweak
+      message: >-
+        Brought back old White textures of walls, tables, windows, tools and
+        clothes / Изменены многие текстуры стен, столов, окон, инструментов,
+        одежды, скафандров и подобного на старые Вайтовские
+  id: 31
+  time: '2024-09-13T05:04:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/46
+- author: Spatison
+  changes:
+    - type: Add
+      message: added emotions menu / Добавлено меню эмоций
+  id: 32
+  time: '2024-09-13T05:13:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/55
+- author: Warete
+  changes:
+    - type: Add
+      message: Custom Ghost's / Кастомные призраки
+  id: 33
+  time: '2024-09-13T07:52:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/21
+- author: vanx
+  changes:
+    - type: Add
+      message: Огнестрельное оружие теперь может атаковать вблизи на ПКМ
+  id: 34
+  time: '2024-09-13T18:36:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/24
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added Logging Of Chat Action / Добавлено Логирование Действий В Чат
+  id: 35
+  time: '2024-09-15T16:06:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/57
+- author: Hell_Cat
+  changes:
+    - type: Fix
+      message: 'IPC: Immunity for shards and SpiderWeb | Иммунитет осколкам.'
+    - type: Fix
+      message: >-
+        Felinid | Фелиниды : Immunity for Shard Landmine Mousetrap SlipEntities
+        | Иммунитет для осколков, жидкости, мин, мышеловок, мыла и бананов.
+    - type: Fix
+      message: >-
+        Harpy | Гарпия : Immunity for Shards Landmine Mousetrap | Иммунитет для
+        осколков, жидкости, мин и мышеловок.
+    - type: Fix
+      message: 'Mice | Мыши : Don''t blow up on landmines | Мыши не подрываются на минах.'
+  id: 36
+  time: '2024-09-16T14:16:49.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/53
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added respawn button / Добавлена кнопка респавна
+  id: 37
+  time: '2024-09-21T10:20:10.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/56
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added a new sprite of Hristov / Добавлен новый спрайт Христова
+    - type: Tweak
+      message: Hristov has been improved / Христов был улучшен
+    - type: Tweak
+      message: >-
+        Some weapons now require manually cycling / В некоторых видах оружия
+        теперь необходимо вручную досылать патрон
+  id: 38
+  time: '2024-09-21T10:21:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/58
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added ru keycodes / Добавлены русские ключи радиоканалов
+  id: 39
+  time: '2024-09-23T02:57:16.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/67
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        The size of the Lobby cannot be changed now / Размер лобби теперь нельзя
+        изменить
+  id: 40
+  time: '2024-09-23T02:57:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/64
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        The screen now perceives the Russian alphabet / Экран теперь
+        воспринимает русский алфавит
+  id: 41
+  time: '2024-09-23T03:18:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/61
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added small energy crossbow / Добавлен маленький энерго арбалет
+  id: 42
+  time: '2024-09-26T01:56:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/60
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added snatchprod / Добавлена хваталка
+    - type: Tweak
+      message: >-
+        You can now change the battery in the stunprod / В шок-палке теперь
+        можно менять батарейку
+    - type: Tweak
+      message: >-
+        The creation of the stunprod  is now hidden / Создание шок-палке теперь
+        скрытое
+  id: 43
+  time: '2024-09-27T02:10:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/65
+- author: Spatison
+  changes:
+    - type: Add
+      message: >-
+        Added experimental syndicate teleporter / Добавлен экспериментальный
+        телепортатор синдиката
+  id: 44
+  time: '2024-09-27T02:12:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/63
+- author: PointPNG
+  changes:
+    - type: Add
+      message: ДрайДок добавлен в билд.
+    - type: Add
+      message: ДрайДок добавлен в ротацию карт.
+  id: 45
+  time: '2024-09-29T12:15:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/68
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Dwarf now weigh more / Дварфы теперь весят больше
+  id: 46
+  time: '2024-10-11T03:54:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/83
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        No more discounts in uplink implant / Больше никаких скидок в имплант
+        аплинка
+  id: 47
+  time: '2024-10-11T03:55:38.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/81
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added smoke implant / Добавлен имплант дыма
+  id: 48
+  time: '2024-10-11T04:07:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/79
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added syndicate implanter / Добавлен имплантер синдиката
+  id: 49
+  time: '2024-10-11T04:26:13.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/78
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added neuro stabilization Implant / Добавлен имплант нейро стабильности
+  id: 50
+  time: '2024-10-11T05:03:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/80
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Changed the chances of secret modes / Изменены шансы режимов в секрете
+  id: 51
+  time: '2024-10-16T01:46:51.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/87
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added blood dagger/ Добавлен кровавый кинжал
+  id: 52
+  time: '2024-10-16T01:57:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/86
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added maindslave implanter/ Добавлен имплант подчинения
+  id: 53
+  time: '2024-10-16T02:13:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/85
+- author: Remuchi
+  changes:
+    - type: Add
+      message: Upstream
+  id: 54
+  time: '2024-10-19T12:09:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/93
+- author: Gersoon
+  changes:
+    - type: Add
+      message: translation of tiles/перевод тайлов
+    - type: Tweak
+      message: sign textures changed/изменены текстуры знаков
+  id: 55
+  time: '2024-10-21T06:56:21.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/90
+- author: Spatison
+  changes:
+    - type: Remove
+      message: Thieves' pacifism has been removed / Убран воровской пацифизм
+  id: 56
+  time: '2024-10-22T16:35:54.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/95
+- author: Spatison
+  changes:
+    - type: Remove
+      message: Delete Prido-O-Mat / Удален прайдомат
+  id: 57
+  time: '2024-10-23T03:35:00.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/84
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added hardlight spear implanter/ Добавлен имплант светового копья
+  id: 58
+  time: '2024-10-23T10:20:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/77
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: The energy shield can now be discharged  / Энерго щит теперь имеет заряд
+  id: 59
+  time: '2024-10-23T10:23:45.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/94
+- author: Remuchi
+  changes:
+    - type: Add
+      message: >-
+        Переводы всех черт персонажа, черт внешности и меню персонажа. Так же
+        переведен весь контент Нянотрайзен.
+  id: 60
+  time: '2024-10-23T14:11:51.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/97
+- author: Gersoon458
+  changes:
+    - type: Tweak
+      message: DryDock update/Обновление ДрайДока
+  id: 61
+  time: '2024-10-24T13:50:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/98
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added night vision goggle/ Добавлен прибор ночного видения
+    - type: Add
+      message: Added thermal vision goggle/ Добавлен прибор термального видения
+  id: 62
+  time: '2024-10-26T09:36:10.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/89
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added crossbow / Добавлен арбалет
+  id: 63
+  time: '2024-10-26T09:41:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/76
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added Gondola / Добавлена Гондола
+  id: 64
+  time: '2024-10-26T11:15:09.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/96
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: Added "Operative" UI style / Добавлен стиль интерфейса "Оперативник"
+  id: 65
+  time: '2024-10-27T02:51:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/102
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        correction of a collision at a glass shard/ Исправление колизии у
+        осколка стекла
+  id: 66
+  time: '2024-10-27T13:28:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/104
+- author: Gersoon
+  changes:
+    - type: Add
+      message: New map added - Moose/Новая карта добавлена - Мус
+    - type: Tweak
+      message: Prisoners added to DryDock/На ДрайДок добавлены заключенные
+  id: 67
+  time: '2024-10-27T13:49:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/100
+- author: Gersoon
+  changes:
+    - type: Add
+      message: >-
+        5 types of Halloween gifts, namely: basic, sweet, sweet themed, clothes,
+        themed clothes!/5 видов хеллоуинских подарков, а именно: основной,
+        сладкий, сладкий тематический, одежда, одежда тематичская!
+    - type: Add
+      message: New autumn grass and trees tiles!/Новые осенние тайлы травы и деревья!
+    - type: Add
+      message: >-
+        You can 100% find Halloween gifts in tech's closets!/В шкафах техов 100%
+        можно встретить хеллоунские подарки!
+    - type: Add
+      message: >-
+        New Halloween theme! (Settings -> HUD Theme: ->
+        ui-options-hud-theme-halloween (If I didn’t manage to take away the
+        ability to change themes during the week or didn’t add
+        translations))/Новая хеллоуинская тема худа! (Настройки -> Тема HUD: ->
+        ui-options-hud-theme-halloween (Если я не успел забрать возможность
+        менять темы на протяжении недели или не добавил переводы))
+    - type: Add
+      message: >-
+        Each roundstart role has a candy bucket! (Kutos)/У каждой роли
+        раундстартом есть ведерко для конфет! (Kutos)
+    - type: Add
+      message: New costumes! (Purka)/Новые костюмы! (Purka)
+    - type: Add
+      message: >-
+        New sweets! (Purka, Kilath, Canceredpussy (Cyber ​​cutlet))/Новые
+        сладости! (Purka, Kilath, Canceredpussy (Кибер котлетка))
+    - type: Tweak
+      message: The cards are now SPOOOOOOOKY!/Карты теперь ЖУУУУТКИЕ!
+  id: 68
+  time: '2024-10-31T02:44:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/113
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: With FTL, a person now falls / При ФТЛ перемещении человек теперь падает
+    - type: Tweak
+      message: >-
+        Magnetic boots now do not let you fall / Магнитные сапоги теперь не дают
+        упасть
+  id: 69
+  time: '2024-10-31T02:52:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/111
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added footsteps / Добавлены следы
+  id: 70
+  time: '2024-10-31T03:03:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/110
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        ПНВ и ПТВ теперь могут быть исследованы /  NVG and TVG can now be
+        researched
+  id: 71
+  time: '2024-10-31T03:03:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/109
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        Fixing the animation of the clown's shoes / Исправление анимации ботинок
+        клоуна
+  id: 72
+  time: '2024-10-31T03:22:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/107
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Сorrection of a Butlutron collision / Исправлена коллизия Бутлетрона
+  id: 73
+  time: '2024-10-31T03:22:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/105
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Fixed bugs with sprites / Исправлены баги с спрайтами
+  id: 74
+  time: '2024-10-31T03:23:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/103
+- author: PuroSlavKing
+  changes:
+    - type: Tweak
+      message: Измененён звук пожарной тревоги.
+  id: 75
+  time: '2024-10-31T03:24:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/106
+- author: Spatison
+  changes:
+    - type: Remove
+      message: Deleted fire alarm sound / Удален звук пожарной тревоги
+  id: 76
+  time: '2024-11-01T11:47:36.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/115
+- author: Gersoon458
+  changes:
+    - type: Remove
+      message: >-
+        Fun removed :( Specifically the basket and the gift from the hands
+        :(/Удалено веселье :( А конкретно корзинка и подарок из рук :(
+  id: 77
+  time: '2024-11-06T02:52:23.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/119
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the chances of modes falling out / Изменены шансы выпадения
+        режимов
+  id: 78
+  time: '2024-11-06T03:10:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/118
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Added a new map - WhiteBox/Добавлена новая карта - ВайтБокс
+    - type: Fix
+      message: Fixed Moose (Added cadet spawner)/Починен Мус (Добавлен спавнер кадета)
+    - type: Fix
+      message: >-
+        Asterisk has been fixed, now there is no planet on it (Which do not
+        work. Thanks to Kutos)/Починен Астериск, теперь на нём нет планеты
+        (Которые не работают. Спасибо Кутосу)
+  id: 79
+  time: '2024-11-06T03:45:51.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/117
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: The pickaxe has been improved / Улучшена кирка
+  id: 80
+  time: '2024-11-06T03:46:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/108
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        The holoprojectors have been redesigned / Голопроекторы были
+        переработаны
+  id: 81
+  time: '2024-11-06T03:48:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/112
+- author: Warete
+  changes:
+    - type: Fix
+      message: >-
+        Some benches had to get their rotation back / Скамьи должны были вернуть
+        свой поворот
+    - type: Tweak
+      message: >-
+        Automatic shift end is now off / Выключено автоматическое завершение
+        смены
+  id: 82
+  time: '2024-11-14T04:51:11.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/122
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: Добавлен КапитанШкаф, содержащий в себе все вещи капитана.
+    - type: Add
+      message: 'Добавлены новые стили одежды капитана: белый, шериф, командный.'
+  id: 83
+  time: '2024-11-14T04:55:10.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/123
+- author: vanx
+  changes:
+    - type: Add
+      message: Возвращена возможность казни
+  id: 84
+  time: '2024-11-14T09:41:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/126
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Added 5 new variations of body bags / Добавлено 5 новых вариаций мешков
+        для - тел.
+  id: 85
+  time: '2024-11-14T09:45:21.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/120
+- author: Spatison
+  changes:
+    - type: Add
+      message: Upstream :D
+  id: 86
+  time: '2024-11-21T10:49:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/129
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Массовый баг фикс
+  id: 87
+  time: '2024-11-24T18:20:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/130
+- author: Warete
+  changes:
+    - type: Add
+      message: RU Annoncer / Оповещения на русском
+    - type: Tweak
+      message: Forced Annoncer in CVAR / Закреплены оповещения в CVAR
+  id: 88
+  time: '2024-11-29T03:53:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/127
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Швабра теперь моет весь тайл
+    - type: Tweak
+      message: Увеличено количество чистящего вещества в чистящих гранатах с 30 до 50
+    - type: Tweak
+      message: ЕГан теперь имеет размер 4x2 и вешается на пояс
+    - type: Tweak
+      message: Автоматическое завершение смены снова убрано
+    - type: Tweak
+      message: Следы теперь полноценные лужи
+    - type: Tweak
+      message: Шахтерский бур теперь не тратит стамину и работает быстрее
+    - type: Fix
+      message: Открытие дверей с открытой крышкой теперь работает корректно
+    - type: Fix
+      message: Интерфейс лобби теперь подстраивается под разрешение экрана правильно
+    - type: Fix
+      message: СЛР теперь работает в не закрывающих лицо масках
+    - type: Fix
+      message: Кусачки для растений теперь наносят урон
+    - type: Fix
+      message: Погода теперь работает корректно и не кладет клиент
+    - type: Fix
+      message: Хранилища теперь работают корректно
+  id: 89
+  time: '2024-12-01T13:41:09.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/131
+- author: Spatison
+  changes:
+    - type: Add
+      message: 'Added energy bola / Добавлена энергетическая бола '
+    - type: Add
+      message: >-
+        Full-size headphones and some helmets received additional protection
+        from flashbang grenades / В полноразмерные наушники и некоторые шлема
+        добавлена защита от светошумовых гранат
+    - type: Add
+      message: Bola are now being knocked down / Болы теперь сбивают с ног
+    - type: Add
+      message: >-
+        Stunbatons are now being knocked down / Дубинки-шокеры теперь сбивают с
+        ног
+    - type: Add
+      message: Taser shot now being knocked down / Выстрел тазера теперь сбивает с ног
+    - type: Tweak
+      message: >-
+        The Attack rate of the stunbatons has been lowered / Скорость атаки
+        дубинок-шокеров понижена
+    - type: Tweak
+      message: >-
+        Stamina damage from stunbaton has been increased / Увеличен урон по
+        стамине у дубинок-шокеров
+    - type: Remove
+      message: Deleted taser stun / Удаленно оглушение у тазера
+  id: 90
+  time: '2024-12-01T19:49:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/114
+- author: Gersoon458
+  changes:
+    - type: Tweak
+      message: >-
+        Someone opened the window and snow blew through it. Are you feeling this
+        New Year's vibe? All our stations are now winter, some bugs have also
+        been fixed
+    - type: Tweak
+      message: >-
+        Кто-то открыл форточку и через неё надуло снегу. Ощущаете этот
+        новогодний вайб? Все наши станции теперь зимние, также были пофикшены
+        некоторые баги
+  id: 91
+  time: '2024-12-02T18:42:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/132
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: >-
+        В тестовом режиме: персонажи теперь вращаются на все полные, красивые
+        360°. Ну, кроме спрайтиков. Спрайтики всё ещё двухмерные, с четырьмя
+        направлениями. Зато какие теперь классные фонарики!
+  id: 92
+  time: '2024-12-06T19:03:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/141
+- author: TokiJumper
+  changes:
+    - type: Add
+      message: Added link to wiki in EscMenu/Добавлена ссылка на вики в меню игры
+  id: 93
+  time: '2024-12-10T17:10:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/144
+- author: Warete
+  changes:
+    - type: Add
+      message: Dexpth_q and nonta228 custom ghosts / Пара кастомных гостов
+  id: 94
+  time: '2024-12-10T17:11:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/145
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Specialized NVG has been added - medical, security and diagnostic /
+        Добавлены специализированные ПНВ - медицинский, СБ и диагностический.
+  id: 95
+  time: '2024-12-11T14:47:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/149
+- author: Warete
+  changes:
+    - type: Tweak
+      message: >-
+        Vending Machine's inventory update / Обновление инвентаря торг.
+        автоматов
+  id: 96
+  time: '2024-12-12T18:48:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/157
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added new hairstyles / Добавлены новые прически
+  id: 97
+  time: '2024-12-13T07:34:09.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/158
+- author: Spatison
+  changes:
+    - type: Add
+      message: Added new musics in the lobby / Добавлена новая музыка в лобби
+  id: 98
+  time: '2024-12-13T07:35:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/155
+- author: Spatison
+  changes:
+    - type: Add
+      message: Апстрим 19.11 - 12.12
+  id: 99
+  time: '2024-12-14T08:41:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/142
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: Добавлены новые кастомизации для ящеров.
+    - type: Tweak
+      message: >-
+        Изменены спрайты ящеров. Свободная покраска рогов под любой цвет,
+        изменённая форма ног, улучшенный окрас частей тела и остальных
+        кастомизаций.
+    - type: Tweak
+      message: Изменено количество очков кастомизации груди ящера, 1 > 3.
+    - type: Remove
+      message: >-
+        Удалена диета ящеров, больше невидимая сила не запрещает им совать
+        гадости в пасть. Неправильная еда всё ещё травит их.
+  id: 100
+  time: '2024-12-16T18:13:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/164
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Добавлена барьерная граната, которая развёртывает закреплённый барьер на
+        месте своего падения. Можно заказать в карго за 2000 кредитов, или взять
+        в автомате со снаряжением СБ.
+  id: 101
+  time: '2024-12-16T18:15:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/167
+- author: Spatison
+  changes:
+    - type: Add
+      message: >-
+        All /tg/gases have been added. Good luck stopping atmos tech on nitrium
+        and healium. / Добавлены все /tg/ газы. Желаю удачи остановить атмоса
+        под нитриумом и хилиумом. / 
+  id: 102
+  time: '2024-12-17T07:08:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/147
+- author: RedFoxIV
+  changes:
+    - type: Tweak
+      message: >-
+        Чтобы взять огнестрельное оружие в две руки, возьмите его в активную
+        руку и альтернативно-используйте его (Alt-Z по умолчанию).
+  id: 103
+  time: '2024-12-17T19:03:13.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/161
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Supply pods have been added. The syndicate has forked out and delivers
+        elite bundles in supply pods / Добавлены грузовые капсулы. Синдикат
+        раскошелился и доставляет элитные наборы в грузовых капсулах
+  id: 104
+  time: '2024-12-17T19:03:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/162
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        The "Stray Capsules" event has been added. Supply pods that have strayed
+        off their path land on the station. They can contain everything from a
+        full range of cargo to complete syndicate sets, priced from 5 TK to 25
+        TK. / Добавлено событие "Бродячая капсула". Сбившиеся со своего пути
+        грузовые капсулы падают на станцию, могут содержать от всего
+        ассортимента карго, до полноценных наборов синдиката ценой от 5ТК до
+        25ТК.
+  id: 105
+  time: '2024-12-18T20:28:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/171
+- author: Warete
+  changes:
+    - type: Tweak
+      message: >-
+        Metempsychotic cloning machine now common cloning machine / Агрегат с
+        труднопроизносимым названием наконец-то работает как обычная машина для
+        клонирования
+  id: 106
+  time: '2024-12-21T08:16:21.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/178
+- author: islambrosgood
+  changes:
+    - type: Fix
+      message: Surgery step sprite / Спрайт этапа хирургии
+  id: 107
+  time: '2024-12-21T21:35:13.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/177
+- author: islambrosgood
+  changes:
+    - type: Add
+      message: Aghosts with visors / Агосты с визорами
+  id: 108
+  time: '2024-12-21T21:35:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/175
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Некоторые прически изменились
+  id: 109
+  time: '2024-12-22T05:17:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/181
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Added a random event - "Wormhole". Up to 35 anomalies appear on the
+        station, changing their location every 15 seconds. / Добавлен случайный
+        ивент "Червоточина". На станции появляется до 35 аномалий меняющих своё
+        расположение каждые 15 секунд.
+  id: 110
+  time: '2024-12-22T05:19:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/156
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Стан и теневые узы теперь являются аурами
+    - type: Tweak
+      message: Конструкты теперь понимают культистов и могут общаться в канале культа
+    - type: Tweak
+      message: Конструкты теперь лечатся от пилона
+    - type: Tweak
+      message: На конструктах теперь отображаются иконки
+    - type: Tweak
+      message: 'Конструкты теперь превращаются в цитоплазму при смерти '
+    - type: Tweak
+      message: Повязка зилота теперь дает ночное зрение и защиту от сварки
+    - type: Fix
+      message: >-
+        Кровавый обряд больше нельзя поместить в хранилища, передать и выбросить
+        на пол
+    - type: Fix
+      message: Кровавое копье теперь всегда возвращается в руку
+    - type: Fix
+      message: Теневые узы теперь работают
+  id: 111
+  time: '2024-12-22T05:28:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/169
+- author: Spatison
+  changes:
+    - type: Add
+      message: 'Добавлена новая картинка в лобби. '
+  id: 112
+  time: '2024-12-22T05:29:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/170
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Мидраунд ядерные оперативники теперь спавнятся гостами
+    - type: Tweak
+      message: 'Количество оперативников необходимых для объявление войны: 4 -> 2'
+    - type: Tweak
+      message: >-
+        Количество игроков необходимых для запуска режима ядерных оперативников:
+        35 -> 20
+  id: 113
+  time: '2024-12-22T05:31:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/173
+- author: Warete
+  changes:
+    - type: Add
+      message: Custom ghosts for good people / Кастомные призраки хороших людей.
+  id: 114
+  time: '2024-12-23T17:17:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/186
+- author: dexpth
+  changes:
+    - type: Remove
+      message: Удалён ивент neutralXenoVents
+  id: 115
+  time: '2024-12-24T09:34:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/187
+- author: idoffront
+  changes:
+    - type: Remove
+      message: Отобрано право выключать сервер у малоправных
+  id: 116
+  time: '2024-12-24T12:05:45.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/193
+- author: islambrosgood
+  changes:
+    - type: Add
+      message: Пояс врача теперь в МедШкаф
+    - type: Tweak
+      message: Очки, медхуд и повязка из НаноМед переехали в МедШкаф
+  id: 117
+  time: '2024-12-24T12:07:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/189
+- author: DuckierReaper
+  changes:
+    - type: Tweak
+      message: Расширенные доступы ХоПа возвращены
+  id: 118
+  time: '2024-12-24T12:09:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/184
+- author: pofitlo-Git
+  changes:
+    - type: Add
+      message: >-
+        New game race has been added - Rezomi! / Добавлена новая игровая раса -
+        Резоми!
+  id: 119
+  time: '2024-12-24T12:52:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/172
+- author: Remuchi
+  changes:
+    - type: Add
+      message: >-
+        Added tiny fan & drain crafts. Be ware that disassembling them yields
+        less resources than assembling | Добавлены крафты маленьких вентиляторов
+        и дренажей. Учитывайте, что их разбор приносит меньше ресурсов, чем
+        стоимость их сбора.
+    - type: Remove
+      message: >-
+        Most of the guns no longer require forced wielding. Rifles still can be
+        wielded for increased accuracy. You can't wield SMGs though. | Большая
+        часть оружия теперь не требует пренудительного держания в двух руках.
+        Винтовки все еще можно взять в две руки, чтобы получить бонус к
+        точности. ПП взять в две руки нельзя вовсе.
+  id: 120
+  time: '2024-12-24T13:42:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/194
+- author: Oniks
+  changes:
+    - type: Tweak
+      message: >-
+        Резоми больше нельзя выбрать как игровую расу в редакторе. No fun
+        allowed.
+  id: 121
+  time: '2024-12-24T13:45:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/196

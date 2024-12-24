@@ -99,9 +99,16 @@ public enum LogType
     AtmosTemperatureChanged = 88,
     DeviceNetwork = 89,
     StoreRefund = 90,
+    /// <summary>
+    /// User was rate-limited for some spam action.
+    /// </summary>
+    /// <remarks>
+    /// This is a default value used by <c>PlayerRateLimitManager</c>, though users can use different log types.
+    /// </remarks>
+    RateLimited = 91,
     // WD EDIT
-    AspectAnnounced = 91,
-    AspectStarted = 92,
-    AspectStopped = 93,
+    AspectAnnounced = 200,
+    AspectStarted = 201,
+    AspectStopped = 202,
     // WD EDIT
 }

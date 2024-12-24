@@ -1,0 +1,58 @@
+- type: constructionGraph
+  id: SupplyPod
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: SupplyPod
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Steel
+              amount: 3
+              doAfter: 1
+
+    - node: SupplyPod
+      entity: SupplyPodCapsuleDefault
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 3
+            - !type:EmptyAllContainers
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 2
+            - tool: Screwing
+              doAfter: 1
+
+    - node: SupplyPodGondola
+      entity: SupplyPodCapsuleGondola
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: FoodMeatGondola
+              amount: 1
+            - !type:EmptyAllContainers
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Cutting
+              doAfter: 3
+
+    - node: SupplyPodOrange
+      entity: SupplyPodCapsuleOrange
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: OrangeSeeds
+              amount: 3
+            - !type:EmptyAllContainers
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Cutting
+              doAfter: 3

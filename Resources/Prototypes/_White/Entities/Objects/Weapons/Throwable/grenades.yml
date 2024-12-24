@@ -1,0 +1,21 @@
+- type: entity
+  parent: GrenadeBase
+  id: GrenadeBarrier
+  name: barrier grenade
+  description: Instant cover.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/flashbang.rsi
+  - type: SoundOnTrigger
+    sound:
+      path: "/Audio/Effects/snap.ogg"
+  - type: DeleteOnTrigger
+  - type: SpawnOnTrigger
+    proto: DeployableBarrierLocked
+  - type: SmokeOnTrigger
+    duration: 1
+    spreadAmount: 1
+  - type: Appearance
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/countdown.ogg

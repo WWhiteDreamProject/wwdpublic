@@ -110,7 +110,6 @@
   - type: Gun
     fireRate: 0.6
   - type: Wieldable
-  - type: GunRequiresWield
   - type: Telescope
   - type: MagazineVisuals
     magState: mag

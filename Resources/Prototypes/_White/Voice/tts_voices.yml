@@ -1,0 +1,335 @@
+- type: ttsVoice
+  id: Eugene
+  name: tts-voice-name-eugene
+  sex: Male
+  speaker: eugene
+
+- type: ttsVoice
+  id: Kseniya
+  name: tts-voice-name-kseniya
+  sex: Female
+  speaker: kseniya
+
+- type: ttsVoice
+  id: Xenia
+  name: tts-voice-name-xenia
+  sex: Female
+  speaker: xenia
+
+- type: ttsVoice
+  id: Oleg
+  name: tts-voice-name-oleg
+  sex: Male
+  speaker: oleg
+
+- type: ttsVoice
+  id: Zina
+  name: tts-voice-name-zina
+  sex: Female
+  speaker: zina
+
+- type: ttsVoice
+  id: Alex
+  name: tts-voice-name-alex
+  sex: Female
+  speaker: alex
+
+- type: ttsVoice
+  id: Galina
+  name: tts-voice-name-galina
+  sex: Female
+  speaker: galina
+
+- type: ttsVoice
+  id: Katya
+  name: tts-voice-name-katya
+  sex: Female
+  speaker: katya
+
+- type: ttsVoice
+  id: Masha
+  name: tts-voice-name-masha
+  sex: Female
+  speaker: masha
+
+- type: ttsVoice
+  id: Vasya
+  name: tts-voice-name-vasya
+  sex: Male
+  speaker: vasya
+
+- type: ttsVoice
+  id: Ibragim
+  name: tts-voice-name-ibragim
+  sex: Male
+  speaker: m-1
+
+- type: ttsVoice
+  id: lalo
+  name: tts-voice-name-lalo
+  sex: Male
+  speaker: m-2
+
+- type: ttsVoice
+  id: galo
+  name: tts-voice-name-galo
+  sex: Male
+  speaker: m-3
+
+- type: ttsVoice
+  id: nacho
+  name: tts-voice-name-nacho
+  sex: Male
+  speaker: m-4
+
+- type: ttsVoice
+  id: Vespuchi
+  name: tts-voice-name-vespuchi
+  sex: Male
+  speaker: m-5
+
+- type: ttsVoice
+  id: john
+  name: tts-voice-name-john
+  sex: Male
+  speaker: m-6
+
+- type: ttsVoice
+  id: Vyachik
+  name: tts-voice-name-vyachik
+  sex: Male
+  speaker: m-8
+
+- type: ttsVoice
+  id: Nalchik
+  name: tts-voice-name-nalchik
+  sex: Male
+  speaker: m-9
+
+- type: ttsVoice
+  id: Goshik
+  name: tts-voice-name-goshik
+  sex: Male
+  speaker: m-11
+
+- type: ttsVoice
+  id: Alfa
+  name: tts-voice-name-alfa
+  sex: Unsexed
+  speaker: u-1
+  roundStart: false
+
+- type: ttsVoice
+  id: Announcer
+  name: tts-voice-name-beta
+  sex: Unsexed
+  speaker: u-3
+  roundStart: false
+
+- type: ttsVoice
+  id: Vega
+  name: tts-voice-name-vega
+  sex: Unsexed
+  speaker: u-2
+  roundStart: false
+
+- type: ttsVoice
+  id: lina
+  name: tts-voice-name-lina
+  sex: Female
+  speaker: f-1
+
+- type: ttsVoice
+  id: Vika
+  name: tts-voice-name-vika
+  sex: Female
+  speaker: f-2
+
+- type: ttsVoice
+  id: zena
+  name: tts-voice-name-zena
+  sex: Female
+  speaker: f-3
+
+- type: ttsVoice
+  id: Charlie
+  name: tts-voice-name-charlie
+  sex: Female
+  speaker: f-4
+
+- type: ttsVoice
+  id: lifty
+  name: tts-voice-name-lifty
+  sex: Female
+  speaker: f-5
+
+- type: ttsVoice
+  id: Yor
+  name: tts-voice-name-yor
+  sex: Female
+  speaker: f-6
+
+- type: ttsVoice
+  id: Asa
+  name: tts-voice-name-asa
+  sex: Female
+  speaker: f-7
+
+- type: ttsVoice
+  id: valentain
+  name: tts-voice-name-valentain
+  sex: Female
+  speaker: f-8
+
+- type: ttsVoice
+  id: chelsea
+  name: tts-voice-name-chelsea
+  sex: Female
+  speaker: f-9
+
+- type: ttsVoice
+  id: anna
+  name: tts-voice-name-anna
+  sex: Female
+  speaker: f-10
+
+- type: ttsVoice
+  id: jeanne
+  name: tts-voice-name-jeanne
+  sex: Female
+  speaker: f-11
+
+- type: ttsVoice
+  id: jasmin
+  name: tts-voice-name-jasmin
+  sex: Female
+  speaker: f-12
+
+- type: ttsVoice
+  id: juelette
+  name: tts-voice-name-juelette
+  sex: Female
+  speaker: f-13
+
+- type: ttsVoice
+  id: arina
+  name: tts-voice-name-arina
+  sex: Female
+  speaker: f-14
+
+- type: ttsVoice
+  id: milana
+  name: tts-voice-name-milana
+  sex: Female
+  speaker: f-15
+
+- type: ttsVoice
+  id: sofy
+  name: tts-voice-name-sofy
+  sex: Female
+  speaker: f-16
+
+- type: ttsVoice
+  id: Bob
+  name: tts-voice-name-bob
+  sex: Male
+  speaker: m-24
+
+- type: ttsVoice
+  id: Richard
+  name: tts-voice-name-richard
+  sex: Male
+  speaker: m-25
+
+- type: ttsVoice
+  id: jake
+  name: tts-voice-name-jake
+  sex: Male
+  speaker: m-26
+
+- type: ttsVoice
+  id: rihter
+  name: tts-voice-name-rihter
+  sex: Male
+  speaker: m-27
+
+- type: ttsVoice
+  id: wane
+  name: tts-voice-name-wane
+  sex: Male
+  speaker: m-28
+
+- type: ttsVoice
+  id: Npc1
+  name: tts-voice-name-npc-1
+  sex: Unsexed
+  speaker: npc-1
+  roundStart: false
+
+- type: ttsVoice
+  id: Npc2
+  name: tts-voice-name-npc-2
+  sex: Unsexed
+  speaker: npc-2
+  roundStart: false
+
+- type: ttsVoice
+  id: Npc3
+  name: tts-voice-name-npc-3
+  sex: Unsexed
+  speaker: npc-3
+  roundStart: false
+
+- type: ttsVoice
+  id: Aidar
+  name: tts-voice-name-aidar
+  sex: Male
+  speaker: aidar
+
+- type: ttsVoice
+  id: Baya
+  name: tts-voice-name-baya
+  sex: Unsexed
+  speaker: baya
+
+- type: ttsVoice
+  id: Garithos
+  name: tts-voice-name-garithos
+  sex: Male
+  speaker: garithos
+  roundStart: false
+
+- type: ttsVoice
+  id: TrainingRobot
+  name: tts-voice-name-trainingrobot
+  sex: Unsexed
+  speaker: u-1
+  roundStart: false
+
+- type: ttsVoice
+  id: Kelthuzad
+  name: tts-voice-name-kelthuzad
+  sex: Unsexed
+  speaker: u-1
+  roundStart: false
+
+- type: ttsVoice
+  id: Maiev
+  name: tts-voice-name-maiev
+  sex: Female
+  speaker: maiev
+  roundStart: false
+
+- type: ttsVoice
+  id: Myron
+  name: tts-voice-name-myron
+  sex: Unsexed
+  speaker: myron
+  roundStart: false
+
+- type: ttsVoice
+  id: Borgs
+  name: tts-voice-name-borgs
+  sex: Unsexed
+  speaker: Borgs
+  roundStart: false

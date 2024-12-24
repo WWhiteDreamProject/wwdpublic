@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: TelescopicBaton
   parent: BaseItem
   name: telescopic baton
@@ -26,24 +26,27 @@
     activatedDamage:
       types:
         Blunt: 12
+  - type: ItemToggleDamageOtherOnHit
   - type: ItemToggleSize
     activatedSize: Normal
   - type: UseDelay
     delay: 2
   - type: TelescopicBaton
-  - type: KnockdownOnHit
-    duration: 1.5
-    dropHeldItemsBehavior: NoDrop
+  - type: KnockdownOnHit # WD EDIT
+    jitterTime: 0
+    stutterTime: 0
+    delay: 0
+    knockdownTime: 1
   - type: MeleeWeapon
-    attackRate: 0.8
+    attackRate: 1.25
     bluntStaminaDamageFactor: 1.5
-    heavyDamageBaseModifier: 1.2
-    heavyStaminaCost: 5
     maxTargets: 1
-    angle: 40
+    canHeavyAttack: false
     damage:
       types:
         Blunt: 1
+  - type: DamageOtherOnHit
+    staminaCost: 6
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -62,9 +65,9 @@
   - type: TelescopicBaton
     attackTimeframe: 300 # one minute after activation
   - type: KnockdownOnHit
-    duration: 60 #
+    knockdownTime: 60 # WD EDIT
   - type: MeleeWeapon
-    attackRate: 1.2
+    attackRate: .83
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:

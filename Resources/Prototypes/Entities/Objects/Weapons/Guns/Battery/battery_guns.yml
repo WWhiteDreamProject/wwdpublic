@@ -32,6 +32,11 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
+  - type: Cautery
+    speed: 0.9
+  - type: SurgeryTool
+    endSound:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: MeleeWeapon # WD EDIT
     attackRate: 0.7
     damage:
@@ -75,6 +80,11 @@
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+  - type: Cautery
+    speed: 0.9
+  - type: SurgeryTool
+    endSound:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: MeleeWeapon # WD EDIT
     attackRate: 0.7
     damage:

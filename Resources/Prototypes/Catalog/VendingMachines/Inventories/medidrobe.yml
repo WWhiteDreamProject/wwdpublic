@@ -22,6 +22,10 @@
     ClothingHeadHatSurgcapBlue: 4
     ClothingHeadHatSurgcapPurple: 4
     ClothingShoesBootsWinterMed: 2
+    ClothingBeltMedical: 4 # WD EDIT
+    ClothingEyesGlasses: 5 # WD EDIT
+    ClothingEyesHudMedical: 2 # WD EDIT
+    ClothingEyesEyepatchHudMedical: 2 # WD EDIT
   contrabandInventory: #DeltaV
     UniformScrubsColorCybersun: 1 #DeltaV
     ClothingHeadHatSurgcapCybersun: 1 #DeltaV

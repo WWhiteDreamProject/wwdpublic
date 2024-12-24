@@ -7,7 +7,7 @@
 
 - type: statusEffect
   id: KnockedDown
-  alert: Stun
+  alert: KnockedDown # WD EDIT
 
 - type: statusEffect
   id: SlowedDown
@@ -59,6 +59,9 @@
 
 - type: statusEffect
   id: StaminaModifier
+
+- type: statusEffect
+  id: PhaseShifted
 
 # WD EDIT START
 - type: statusEffect
