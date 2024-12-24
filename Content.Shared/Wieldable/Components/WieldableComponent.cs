@@ -43,6 +43,8 @@ public sealed partial class WieldableComponent : Component
     /// </summary>
     [DataField]
     public bool AltUseInHand = false;
+
+    public EntityUid? User = null;
     // WD EDIT END
 }
 
