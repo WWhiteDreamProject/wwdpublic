@@ -18,7 +18,6 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
-using Content.Shared._White.Resomi.Abilities;
 
 namespace Content.Shared.Wieldable;
 
@@ -107,7 +106,7 @@ public sealed class WieldableSystem : EntitySystem
     private void OnGunRefreshModifiers(Entity<GunWieldBonusComponent> bonus, ref GunRefreshModifiersEvent args)
     {
         if (TryComp(bonus, out WieldableComponent? wield) &&
-            wield.Wielded && !HasComp<WeaponsUseInabilityComponent>(wield.User)) // WWDP-Edit
+            wield.Wielded)
         {
             args.MinAngle += bonus.Comp.MinAngle;
             args.MaxAngle += bonus.Comp.MaxAngle;
@@ -269,8 +268,6 @@ public sealed class WieldableSystem : EntitySystem
         var selfMessage = Loc.GetString("wieldable-component-successful-wield", ("item", used));
         var othersMessage = Loc.GetString("wieldable-component-successful-wield-other", ("user", user), ("item", used));
         _popupSystem.PopupPredicted(selfMessage, othersMessage, user, user);
-
-        component.User = user; // WWDP
 
         var targEv = new ItemWieldedEvent();
         RaiseLocalEvent(used, ref targEv);
