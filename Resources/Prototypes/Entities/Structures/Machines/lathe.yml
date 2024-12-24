@@ -196,6 +196,7 @@
       - WeaponCapacitorRechargerCircuitboard
       - HandheldStationMap
       - ClothingHeadHatWelding
+      - SnowballMaker # WWDP
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
