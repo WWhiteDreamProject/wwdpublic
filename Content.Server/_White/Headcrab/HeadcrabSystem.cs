@@ -15,7 +15,7 @@ using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Hands;
 using Content.Shared.Humanoid;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.SVO;
+using Content.Shared._White.Headcrab;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs;
