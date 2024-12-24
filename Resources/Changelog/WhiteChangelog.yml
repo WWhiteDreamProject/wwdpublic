@@ -1144,3 +1144,12 @@ Entries:
   id: 120
   time: '2024-12-24T13:42:28.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/194
+- author: Oniks
+  changes:
+    - type: Tweak
+      message: >-
+        Резоми больше нельзя выбрать как игровую расу в редакторе. No fun
+        allowed.
+  id: 121
+  time: '2024-12-24T13:45:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/196
