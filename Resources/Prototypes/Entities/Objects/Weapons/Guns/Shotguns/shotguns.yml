@@ -51,7 +51,7 @@
         Blunt: 10
     soundHit:
       collection: GenericHit
-  - type: GunRequiresWield
+  - type: GunRequiresWield # WD EDIT
 
 - type: entity
   name: Bulldog

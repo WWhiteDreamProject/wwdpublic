@@ -102,8 +102,8 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
   - type: Gun
-    minAngle: 2
-    maxAngle: 10
+    minAngle: 2 # WD EDIT
+    maxAngle: 10 # WD EDIT
     shotsPerBurst: 5
     availableModes:
     - SemiAuto
@@ -145,8 +145,8 @@
     - type: Clothing
       sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
     - type: Gun
-      minAngle: 2
-      maxAngle: 14
+      minAngle: 2 # WD EDIT
+      maxAngle: 14 # WD EDIT
       fireRate: 6
       selectedMode: FullAuto
       soundGunshot:
