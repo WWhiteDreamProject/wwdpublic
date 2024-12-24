@@ -60,3 +60,6 @@
             - !type:PlaySoundBehavior
               sound:
                 collection: MetalBreak
+    - type: Construction
+      graph: FloorDrain
+      node: floorDrain
