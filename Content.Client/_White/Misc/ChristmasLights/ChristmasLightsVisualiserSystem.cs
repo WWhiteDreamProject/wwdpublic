@@ -95,7 +95,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 
 
 
-    // Funny shitcode game: everything that gets called in FrameUpdate() must be coded as if it's from a shader.
+    // Funny shitcode game: everything that gets called in FrameUpdate() must be coded as if it's in a shader.
 
 
 

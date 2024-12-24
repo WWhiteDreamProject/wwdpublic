@@ -85,7 +85,8 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
     int GetNextModeIndex(ChristmasLightsComponent comp) // cycles modes as usual, but also handles the -1 case
     {
         if (comp.CurrentModeIndex == -1) return -1;
-        return (comp.CurrentModeIndex + 1) % comp.modes.Count;
+        comp.CurrentModeIndex = (comp.CurrentModeIndex + 1) % comp.modes.Count;
+        return comp.CurrentModeIndex;
     }
 
     private void OnModeChangeAttempt(ChangeChristmasLightsModeAttemptEvent args, EntitySessionEventArgs sessionArgs)
