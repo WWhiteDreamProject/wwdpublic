@@ -1085,3 +1085,10 @@ Entries:
   id: 114
   time: '2024-12-23T17:17:55.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/186
+- author: dexpth
+  changes:
+    - type: Remove
+      message: Удалён ивент neutralXenoVents
+  id: 115
+  time: '2024-12-24T09:34:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/187
