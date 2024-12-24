@@ -1117,3 +1117,12 @@ Entries:
   id: 118
   time: '2024-12-24T12:09:31.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/184
+- author: pofitlo-Git
+  changes:
+    - type: Add
+      message: >-
+        New game race has been added - Rezomi! / Добавлена новая игровая раса -
+        Резоми!
+  id: 119
+  time: '2024-12-24T12:52:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/172
