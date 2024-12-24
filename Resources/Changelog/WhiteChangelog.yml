@@ -1126,3 +1126,21 @@ Entries:
   id: 119
   time: '2024-12-24T12:52:58.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/172
+- author: Remuchi
+  changes:
+    - type: Add
+      message: >-
+        Added tiny fan & drain crafts. Be ware that disassembling them yields
+        less resources than assembling | Добавлены крафты маленьких вентиляторов
+        и дренажей. Учитывайте, что их разбор приносит меньше ресурсов, чем
+        стоимость их сбора.
+    - type: Remove
+      message: >-
+        Most of the guns no longer require forced wielding. Rifles still can be
+        wielded for increased accuracy. You can't wield SMGs though. | Большая
+        часть оружия теперь не требует пренудительного держания в двух руках.
+        Винтовки все еще можно взять в две руки, чтобы получить бонус к
+        точности. ПП взять в две руки нельзя вовсе.
+  id: 120
+  time: '2024-12-24T13:42:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/194
