@@ -34,7 +34,7 @@
   - Janitor
   - Theatre
   - Kitchen
-#  - Chapel
+  - Chapel # WD EDIT
   - Hydroponics
   - External
   - Cryogenics
@@ -42,24 +42,31 @@
   # As of 15/03/23 they can't do that so here's MOST of the rest of the access levels.
   # Head level access that isn't their own was deliberately left out, get AA from the captain instead.
   # Delta V - fuck all of this HoP is a service role
-#  - Chemistry
-#  - Engineering
-#  - Research
-#  - Detective
-#  - Salvage
-#  - Security # NoooOoOo!! My HoPcurity!1
-#  - Brig
+  - Chemistry
+  - Engineering
+  - Research
+  - Detective
+  - Salvage
+  - Security # NoooOoOo!! My HoPcurity!1
+  - Brig
   - Lawyer
   - Cargo
-#  - Atmospherics
-#  - Medical
-  - Boxer # DeltaV - Add Boxer access
-  - Clown # DeltaV - Add Clown access
-  - Library # DeltaV - Add Library access
-  - Mime # DeltaV - Add Mime access
-  - Musician # DeltaV - Add Musician access
-  - Reporter # DeltaV - Add Reporter access
-  - Zookeeper # DeltaV - Add Zookeeper access
+  - Atmospherics
+  - Medical
+  - Boxer # WD EDIT
+  - Clown # WD EDIT
+  - Library # WD EDIT
+  - Mime # WD EDIT
+  - Musician # WD EDIT
+  - Reporter # WD EDIT
+  - Zookeeper 
+  # WD EDIT  START
+  - Quartermaster
+  - Mail
+  - Paramedic
+  - Psychologist
+  - Corpsman
+  # WD EDIT END
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
