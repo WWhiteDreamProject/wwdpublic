@@ -18,10 +18,16 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-            bounds: "-0.5,-0.5,0.5,0.5"
+          bounds: "-0.5,-0.5,0.5,0.5"
   - type: Airtight
     noAirWhenFullyAirBlocked: false
   - type: Clickable
   - type: Tag
     tags:
-      - SpreaderIgnore
+    - SpreaderIgnore
+  # WD EDIT START
+  - type: Construction
+    graph: TinyFan
+    node: tinyFan
+  # WD EDIT END
+    
