@@ -11,7 +11,9 @@
     tags:
       - Payload
   - type: InteractionPopup
-    successChance: 1
+    interactSuccessString: ringing-success # WWDP
+    interactFailureString: ringing-failure # WWDP
+    successChance: 0.95 # WWDP-Edit
     interactSuccessSound:
       collection: DeskBell
       params:
