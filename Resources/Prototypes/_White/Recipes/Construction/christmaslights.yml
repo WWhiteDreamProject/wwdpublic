@@ -8,7 +8,7 @@
   description: Merry Christmas! These lights are powered by the crew jollyness and christmas spirit! Also has a miniature backup fusion reactor, just in case.
   icon:
     sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
-    state: base
+    state: preview_redblue
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
@@ -26,7 +26,7 @@
   description: Merry Christmas! These lights are powered by the crew jollyness and christmas spirit! Also has a miniature backup fusion reactor, just in case.
   icon:
     sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
-    state: base
+    state: preview_yellowcyan
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
@@ -44,7 +44,7 @@
   description: Merry Christmas! These lights are powered by the crew jollyness and christmas spirit! Also has a miniature backup fusion reactor, just in case.
   icon:
     sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
-    state: base
+    state: preview_purplegreen
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
@@ -62,7 +62,7 @@
   description: Merry Christmas! These lights are powered by the crew jollyness and christmas spirit! Also has a miniature backup fusion reactor, just in case.
   icon:
     sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
-    state: base
+    state: preview_rainbow
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true

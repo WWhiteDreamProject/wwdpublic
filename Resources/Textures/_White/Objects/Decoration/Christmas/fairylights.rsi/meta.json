@@ -17,6 +17,18 @@
       "name": "greyscale_second"
     },
     {
+	  "name": "preview_redblue"
+    },
+    {
+	  "name": "preview_yellowcyan"
+    },
+    {
+	  "name": "preview_purplegreen"
+    },
+    {
+	  "name": "preview_rainbow"
+    },	
+    {
       "name": "greyscale_first_glow",
       "delays": [
         [

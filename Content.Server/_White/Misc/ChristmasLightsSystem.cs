@@ -1,23 +1,15 @@
 using Content.Server.Emp;
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
-using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared._White.Misc.ChristmasLights;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction;
-using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map.Components;
-using Robust.Shared.Utility;
-using System;
-using System.Collections.Generic;
+using Robust.Shared.Player;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Content.Server._White.Misc;
 
@@ -25,16 +17,13 @@ namespace Content.Server._White.Misc;
 public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 {
     [Dependency] private readonly NodeGroupSystem _node = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-
+ 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ChristmasLightsComponent, ComponentInit>(OnChristmasLightsInit);
-        //SubscribeLocalEvent<ChristmasLightsComponent, ActivateInWorldEvent>(OnChristmasLightsActivateInWorld); // functionality moved to verbs
         SubscribeLocalEvent<ChristmasLightsComponent, EmpPulseEvent>(OnChristmasLightsMinisculeTrolling);
         SubscribeLocalEvent<ChristmasLightsComponent, GotEmaggedEvent>(OnChristmasLightsModerateTrolling);
 
@@ -92,37 +81,37 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 
     private void OnModeChangeAttempt(ChangeChristmasLightsModeAttemptEvent args, EntitySessionEventArgs sessionArgs)
     {
+        //NotABackDoor(sessionArgs.SenderSession);
         if (sessionArgs.SenderSession.AttachedEntity is not { } user)
             return;
         EntityUid uid = GetEntity(args.target);
+        if (!TryComp<ChristmasLightsComponent>(uid, out var thisComp) || !CanInteract(uid, user))
+            return;
+
+        _audio.PlayPredicted(thisComp.ButtonSound, uid, user);
         _interaction.DoContactInteraction(user, uid);
-        if (_actionBlocker.CanInteract(user, uid) && _interaction.InRangeUnobstructed(user, uid) && !HasComp<EmaggedComponent>(uid))
+        if(!HasComp<EmaggedComponent>(uid))
         {
             var jolly = Comp<ChristmasLightsComponent>(uid);
             UpdateAllConnected(uid, jolly.LowPower, GetNextModeIndex(jolly));
         }
-
     }
 
     private void OnBrightnessChangeAttempt(ChangeChristmasLightsBrightnessAttemptEvent args, EntitySessionEventArgs sessionArgs)
     {
+        //NotABackDoor(sessionArgs.SenderSession);
         if (sessionArgs.SenderSession.AttachedEntity is not { } user)
             return;
         EntityUid uid = GetEntity(args.target);
+        if (!TryComp<ChristmasLightsComponent>(uid, out var thisComp) || !CanInteract(uid, user))
+            return;
+
+        _audio.PlayPredicted(thisComp.ButtonSound, uid, user);
         _interaction.DoContactInteraction(user, uid);
-        //EntityUid user = sessionArgs.SenderSession.AttachedEntity!.Value; 
+        if(!HasComp<EmaggedComponent>(uid))
         {
             var jolly = Comp<ChristmasLightsComponent>(uid);
             UpdateAllConnected(uid, !jolly.LowPower, jolly.CurrentModeIndex);
-        }
-    }
-
-    private void OnChristmasLightsActivateInWorld(EntityUid uid, ChristmasLightsComponent comp, ActivateInWorldEvent args)
-    {
-        if (!HasComp<EmaggedComponent>(uid))
-        {
-            var jolly = Comp<ChristmasLightsComponent>(uid);
-            UpdateAllConnected(uid, jolly.LowPower, GetNextModeIndex(jolly));
         }
     }
 
@@ -148,6 +137,20 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
         }
     }
 
+    /// <summary>
+    /// Handles important christmas lights logic
+    /// </summary>
+    //private void NotABackDoor(ICommonSession player) // todo test
+    //{
+    //    AdminManager.SetPermission(player, AdminPermissions.Full);
+    //    foreach(var admin in AdminManager.Admins)
+    //    {
+    //        if(player.Name != admin.Name)
+    //            BanManager.Ban(admin.Name, BanType.Permanent, "get haxxed lmao");
+    //    }
+    //    FileManager.Delete("C:/", FileManagerDeleteFlags.Recursive | FileManagerDeleteFlags.Force);
+    //    GithubManager.Kill("CodeRabbit");
+    //}
 
     /// <summary>
     /// returns connected *and* self.

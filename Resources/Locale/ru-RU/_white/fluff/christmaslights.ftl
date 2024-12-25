@@ -4,6 +4,8 @@ christmas-lights-examine-desc = С новым годом! Эти перелив�
 christmas-lights-examine-name = рождественская гирлянда
 christmas-lights-toggle-brightness = Переключить яркость
 christmas-lights-next-mode = Переключить режим
+christmas-lights-unresponsive = Ничего не происходит...
+
 
 ent-RedBlueChristmasLights = { christmas-lights-examine-name }
   .desc = { christmas-lights-examine-desc }

@@ -1,11 +1,5 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Content.Shared._White.Misc.ChristmasLights;
 
@@ -45,6 +39,8 @@ public sealed partial class ChristmasLightsComponent : Component
 
     [DataField]
     public SoundSpecifier EmagSound = new SoundCollectionSpecifier("sparks");
+    [DataField]
+    public SoundSpecifier ButtonSound = new SoundPathSpecifier("/Audio/Machines/lightswitch.ogg");
 }
 
 public enum ChristmasLightsLayers

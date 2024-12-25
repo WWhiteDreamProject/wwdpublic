@@ -1,25 +1,16 @@
 using Content.Shared._White.Misc.ChristmasLights;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Examine;
+using Content.Shared.Emag.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
-using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
 using Robust.Client.GameObjects;
-using Robust.Shared.Random;
-using Robust.Shared.Reflection;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
-using Robust.Shared.Toolshed.Commands.GameTiming;
 using Robust.Shared.Utility;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Configuration;
 
 //using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Content.Client._White.Misc.ChristmasLights;
 
@@ -29,7 +20,9 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
 
     //[Dependency] private readonly IReflectionManager _reflection = default!; // we have reflection at home
@@ -40,7 +33,6 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 
         SubscribeLocalEvent<ChristmasLightsComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<ChristmasLightsComponent, AfterAutoHandleStateEvent>(OnAutoState);
-        //SubscribeLocalEvent<ChristmasLightsComponent, GetVerbsEvent<AlternativeVerb>>(OnChristmasLightsAltVerbs);
         SubscribeLocalEvent<ChristmasLightsComponent, GetVerbsEvent<Verb>>(OnChristmasLightsVerbs);
 
         InitModes();
@@ -66,22 +58,26 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
         sprite.LayerSetAutoAnimated(ChristmasLightsLayers.Glow2, false);
     }
 
-    private void OnChristmasLightsAltVerbs(EntityUid uid, ChristmasLightsComponent comp, GetVerbsEvent<AlternativeVerb> args)
-    {
-        args.Verbs.Add(
-            new AlternativeVerb
-            {
-                Priority = 3,
-                Text = Loc.GetString("christmas-lights-toggle-brightness"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/light.svg.192dpi.png")),
-                ClientExclusive = true,
-                CloseMenu = false,
-                Act = () => {
-                    if (_timing.IsFirstTimePredicted) // i hate the antichrist i hate the antichrist i hate the antichrist
-                        RaiseNetworkEvent(new ChangeChristmasLightsBrightnessAttemptEvent(GetNetEntity(args.Target)));
-                }
-            });
-    }
+    // Canned, but i am going to leave it here as a vent to noone in particular
+    // if an altverb is being invoked via a keyfunction (alt-click), they will get recalled a shitton of times because of prediction bullshit.
+    // This does not happen if the altverb is invoked via context menu.
+    // I hate this engine. I should not be dealing with random shit running my code  28 times in 30 frames after a single fucking click.
+    //private void OnChristmasLightsAltVerbs(EntityUid uid, ChristmasLightsComponent comp, GetVerbsEvent<AlternativeVerb> args)
+    //{
+    //    args.Verbs.Add(
+    //        new AlternativeVerb
+    //        {
+    //            Priority = 3,
+    //            Text = Loc.GetString("christmas-lights-toggle-brightness"),
+    //            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/light.svg.192dpi.png")),
+    //            ClientExclusive = true,
+    //            CloseMenu = false,
+    //            Act = () => {
+    //                if (_timing.IsFirstTimePredicted) // i hate the antichrist i hate the antichrist i hate the antichrist
+    //                    RaiseNetworkEvent(new ChangeChristmasLightsBrightnessAttemptEvent(GetNetEntity(args.Target)));
+    //            }
+    //        });
+    //}
 
     private void OnChristmasLightsVerbs(EntityUid uid, ChristmasLightsComponent comp, GetVerbsEvent<Verb> args)
     {
@@ -96,7 +92,19 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/group.svg.192dpi.png")),
                 ClientExclusive = true,
                 CloseMenu = false,
-                Act = () => RaiseNetworkEvent(new ChangeChristmasLightsModeAttemptEvent(GetNetEntity(args.Target)))
+                Act = () => {
+                    if (!CanInteract(uid, args.User))
+                        return;
+                    // can't move this into shared without a great deal of effort because of reliance on nodes.
+                    // Nodes only exist in Content.Server, which is, frankly, fucking retarded.
+                    _audio.PlayLocal(comp.ButtonSound, uid, args.User);
+                    if (HasComp<EmaggedComponent>(args.Target))
+                    {
+                            _popup.PopupClient(_loc.GetString("christmas-lights-unresponsive"), uid, args.User);
+                            return;
+                    }
+                    RaiseNetworkEvent(new ChangeChristmasLightsModeAttemptEvent(GetNetEntity(args.Target)));
+                }
             });
         args.Verbs.Add(
             new Verb
@@ -106,7 +114,17 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/light.svg.192dpi.png")),
                 ClientExclusive = true,
                 CloseMenu = false,
-                Act = () => RaiseNetworkEvent(new ChangeChristmasLightsBrightnessAttemptEvent(GetNetEntity(args.Target)))
+                Act = () =>{
+                    if(!CanInteract(uid, args.User))
+                        return;
+                    _audio.PlayLocal(comp.ButtonSound, uid, args.User);
+                    if(HasComp<EmaggedComponent>(args.Target))
+                        {
+                            _popup.PopupClient(_loc.GetString("christmas-lights-unresponsive"), uid, args.User);
+                            return;
+                        }
+                    RaiseNetworkEvent(new ChangeChristmasLightsBrightnessAttemptEvent(GetNetEntity(args.Target)));
+                }
             });
     }
 
