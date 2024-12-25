@@ -1198,3 +1198,10 @@ Entries:
   id: 126
   time: '2024-12-25T23:53:35.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/202
+- author: DuckierReaper
+  changes:
+    - type: Add
+      message: 'Локализация гост роли Шивы и Лайки. '
+  id: 127
+  time: '2024-12-25T23:54:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/198
