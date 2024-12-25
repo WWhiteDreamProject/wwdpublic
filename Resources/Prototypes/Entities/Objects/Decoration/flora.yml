@@ -490,7 +490,7 @@
     receivedPopup: christmas-tree-got-gift
     deniedPopup: christmas-tree-no-gift
     requiredHoliday: FestiveSeason
-  - type: Destructible # Goobstation
+  - type: Destructible # WWDP
     thresholds:
     - trigger:
         !type:DamageTrigger
@@ -508,7 +508,7 @@
           params:
             volume: 5
             variation: 0.05
-      - !type:KillSignCauseBehavior
+      - !type:KillSignCauseBehavior # Very funny, ho-ho-ho!
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:SpawnEntitiesBehavior
