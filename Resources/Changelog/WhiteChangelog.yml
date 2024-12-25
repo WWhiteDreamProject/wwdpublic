@@ -1173,3 +1173,12 @@ Entries:
   id: 123
   time: '2024-12-25T11:54:58.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/200
+- author: PuroSlavKing
+  changes:
+    - type: Tweak
+      message: >-
+        Changed PDA light, now it illuminates in front of you, not around /
+        Изменен свет ПДА, теперь он освещает перед вами, а не вокруг вас.
+  id: 124
+  time: '2024-12-25T11:57:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/201
