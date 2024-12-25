@@ -85,7 +85,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 
     private void OnChristmasLightsVerbs(EntityUid uid, ChristmasLightsComponent comp, GetVerbsEvent<Verb> args)
     {
-        if (!_actionBlocker.CanInteract(user, uid) || !_interaction.InRangeUnobstructed(user, uid))
+        if (!_actionBlocker.CanInteract(args.User, uid) || !_interaction.InRangeUnobstructed(args.User, uid))
             return;
 
         args.Verbs.Add(

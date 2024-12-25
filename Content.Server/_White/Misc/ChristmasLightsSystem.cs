@@ -92,10 +92,10 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 
     private void OnModeChangeAttempt(ChangeChristmasLightsModeAttemptEvent args, EntitySessionEventArgs sessionArgs)
     {
-        if (!sessionArgs.SenderSession.AttachedEntity.HasValue)
+        if (sessionArgs.SenderSession.AttachedEntity is not { } user)
             return;
         EntityUid uid = GetEntity(args.target);
-        EntityUid user = sessionArgs.SenderSession.AttachedEntity!.Value; // no it will not be a fucking null, shut the fuck up
+        _interaction.DoContactInteraction(user, uid);
         if (_actionBlocker.CanInteract(user, uid) && _interaction.InRangeUnobstructed(user, uid) && !HasComp<EmaggedComponent>(uid))
         {
             var jolly = Comp<ChristmasLightsComponent>(uid);
@@ -106,14 +106,14 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 
     private void OnBrightnessChangeAttempt(ChangeChristmasLightsBrightnessAttemptEvent args, EntitySessionEventArgs sessionArgs)
     {
-        if (!sessionArgs.SenderSession.AttachedEntity.HasValue)
+        if (sessionArgs.SenderSession.AttachedEntity is not { } user)
             return;
         EntityUid uid = GetEntity(args.target);
-        EntityUid user = sessionArgs.SenderSession.AttachedEntity!.Value; 
-        if (_actionBlocker.CanInteract(user, uid) && _interaction.InRangeUnobstructed(user, uid) && !HasComp<EmaggedComponent>(uid))
+        _interaction.DoContactInteraction(user, uid);
+        //EntityUid user = sessionArgs.SenderSession.AttachedEntity!.Value; 
         {
             var jolly = Comp<ChristmasLightsComponent>(uid);
-            UpdateAllConnected(uid, !jolly.LowPower, GetNextModeIndex(jolly));
+            UpdateAllConnected(uid, !jolly.LowPower, jolly.CurrentModeIndex);
         }
     }
 

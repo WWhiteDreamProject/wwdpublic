@@ -16,13 +16,13 @@ public abstract class SharedChristmasLightsSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<ChristmasLightsComponent, ExaminedEvent>(OnChristmasLightsExamine);
+        //SubscribeLocalEvent<ChristmasLightsComponent, ExaminedEvent>(OnChristmasLightsExamine);
 
     }
 
     private void OnChristmasLightsExamine(EntityUid uid, ChristmasLightsComponent comp, ExaminedEvent args) // todo why am i forced to keep this in shared?
     {
-        args.PushMarkup(_loc.GetString("christmas-lights-examine-toggle-mode-tip"), 1);
-        args.PushMarkup(_loc.GetString("christmas-lights-examine-toggle-brightness-tip"), 0);
+        //args.PushMarkup(_loc.GetString("christmas-lights-examine-toggle-mode-tip"), 1);
+        //args.PushMarkup(_loc.GetString("christmas-lights-examine-toggle-brightness-tip"), 0);
     }
 }
