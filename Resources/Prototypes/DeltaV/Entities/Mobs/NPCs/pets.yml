@@ -25,7 +25,7 @@
   id: MobSecDogLaika
   description: Much like her namesake, Laika is a specimen of indeterminate breed, fresh off the streets and ready to tussle.
   components:
-- type: GhostRole
+  - type: GhostRole
     makeSentient: true
     allowSpeech: true
     allowMovement: true
