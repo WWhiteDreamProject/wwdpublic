@@ -1191,3 +1191,10 @@ Entries:
   id: 125
   time: '2024-12-25T12:35:33.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/188
+- author: Purka581
+  changes:
+    - type: Fix
+      message: Исправлено название госта в файлах
+  id: 126
+  time: '2024-12-25T23:53:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/202
