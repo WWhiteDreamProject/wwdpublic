@@ -31,6 +31,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: true
   conditions:
+    - !type:NoUnstackableInTile
     - !type:WallmountCondition
 
 - type: construction
