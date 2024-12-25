@@ -25,12 +25,12 @@
   id: MobSecDogLaika
   description: Much like her namesake, Laika is a specimen of indeterminate breed, fresh off the streets and ready to tussle.
   components:
-  - type: GhostRole
+- type: GhostRole
     makeSentient: true
     allowSpeech: true
     allowMovement: true
-    name: "Laika"
-    description: "Security's resident she-dog. Badger the officers for headpats and nip at the heels of violent offenders."
+    name: ghost-role-information-Laika-name # Localization added by WD
+    description: ghost-role-information-Laika-description # Localization added by WD
     requirements:
     - !type:DepartmentTimeRequirement
       department: Security
