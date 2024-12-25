@@ -1162,3 +1162,14 @@ Entries:
   id: 122
   time: '2024-12-25T11:53:43.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/199
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        If you break a christmas tree, you will now be killsigned and valid for
+        gibbing, lobotomising, and whatnot / Если вы сломаете новогоднюю ёлку,
+        вас признают виновным в убийстве и отправят на гильотину, лоботомию и
+        так далее.
+  id: 123
+  time: '2024-12-25T11:54:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/200
