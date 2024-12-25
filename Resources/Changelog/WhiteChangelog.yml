@@ -1205,3 +1205,12 @@ Entries:
   id: 127
   time: '2024-12-25T23:54:42.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/198
+- author: PuroSlavKing
+  changes:
+    - type: Fix
+      message: >-
+        Исправлено отображение правил Медузы! У сервера снова есть правила,
+        1984.
+  id: 128
+  time: '2024-12-25T23:58:10.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/204
