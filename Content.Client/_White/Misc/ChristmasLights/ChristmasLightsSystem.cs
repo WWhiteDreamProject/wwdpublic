@@ -93,17 +93,8 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
                 ClientExclusive = true,
                 CloseMenu = false,
                 Act = () => {
-                    if (!CanInteract(uid, args.User))
-                        return;
-                    // can't move this into shared without a great deal of effort because of reliance on nodes.
-                    // Nodes only exist in Content.Server, which is, frankly, fucking retarded.
-                    _audio.PlayLocal(comp.ButtonSound, uid, args.User);
-                    if (HasComp<EmaggedComponent>(args.Target))
-                    {
-                            _popup.PopupClient(_loc.GetString("christmas-lights-unresponsive"), uid, args.User);
-                            return;
-                    }
-                    RaiseNetworkEvent(new ChangeChristmasLightsModeAttemptEvent(GetNetEntity(args.Target)));
+                    if(TryInteract(uid, args.User, comp))
+                        RaiseNetworkEvent(new ChangeChristmasLightsModeAttemptEvent(GetNetEntity(args.Target)));
                 }
             });
         args.Verbs.Add(
@@ -115,19 +106,26 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
                 ClientExclusive = true,
                 CloseMenu = false,
                 Act = () =>{
-                    if(!CanInteract(uid, args.User))
-                        return;
-                    _audio.PlayLocal(comp.ButtonSound, uid, args.User);
-                    if(HasComp<EmaggedComponent>(args.Target))
-                        {
-                            _popup.PopupClient(_loc.GetString("christmas-lights-unresponsive"), uid, args.User);
-                            return;
-                        }
-                    RaiseNetworkEvent(new ChangeChristmasLightsBrightnessAttemptEvent(GetNetEntity(args.Target)));
+                    if(TryInteract(uid, args.User, comp))
+                        RaiseNetworkEvent(new ChangeChristmasLightsBrightnessAttemptEvent(GetNetEntity(args.Target)));
                 }
             });
     }
 
+    private bool TryInteract(EntityUid uid, EntityUid user, ChristmasLightsComponent comp)
+    {
+        if (!CanInteract(uid, user))
+            return false;
+                    // can't move this into shared without a great deal of effort because of reliance on nodes.
+                    // Nodes only exist in Content.Server, which is, frankly, fucking retarded.
+        _audio.PlayLocal(comp.ButtonSound, uid, user);
+        if (HasComp<EmaggedComponent>(uid))
+        {
+            _popup.PopupClient(_loc.GetString("christmas-lights-unresponsive"), uid, user);
+            return false;
+        }
+        return true;
+    }
 
 
 
