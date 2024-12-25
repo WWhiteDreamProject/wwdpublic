@@ -21,6 +21,13 @@ ghost-role-information-hamster-description = A grumpy little ball of fluff.
 ghost-role-information-hamlet-name = Hamlet the hamster.
 ghost-role-information-hamlet-description = Lives in the station bridge, has a bit of a temper and is always hungry.
 
+ghost-role-information-Shiva-name = Shiva
+ghost-role-information-Shiva-description = You are a spider defender. Protect the station till the end!
+ghost-role-information-Shiva-rules = Obey the heads, protect the crew and do not cocoon peaceful beings!
+
+ghost-role-information-Laika-name = Laika
+ghost-role-information-Laika-description = Security's resident she-dog. Badger the officers for headpats and nip at the heels of violent offenders.
+
 ghost-role-information-slimes-name = Slime
 ghost-role-information-slimes-description = An ordinary slime with no special needs or interests. You are friendly to others.
 
