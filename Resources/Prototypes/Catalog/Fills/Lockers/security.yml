@@ -65,16 +65,16 @@
   - type: StorageFill
     contents:
       - id: FlashlightSeclite
-      - id: ClothingUniformJumpsuitSec
+      - id: ClothingUniformJumpsuitSec # WD - Less random bloat
       - id: ClothingHeadHelmetBasic
       - id: ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
-      - id: ClothingOuterArmorBasic # WWDP - plate carrier and stabproof vest replaced back to regular bodyarmor
+      - id: ClothingOuterArmorBasic # WD - plate carrier and stabproof vest replaced back to regular bodyarmor
       - id: ClothingBeltSecurityFilled
-      - id: ClothingEyesGlassesSecurity
+      - id: ClothingEyesGlassesSecurity # WD - SecHuds
       - id: ClothingHeadsetSecurity
       - id: ClothingHandsGlovesColorBlack
       - id: ClothingShoesBootsJack
-      - id: WeaponDisabler
+      - id: WeaponDisabler # WD
       - id: WeaponMeleeNeedle
         prob: 0.1
       - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!

@@ -5,6 +5,7 @@
     ClothingBackpackSatchelSecurity: 3
     ClothingBackpackDuffelSecurity: 3
 ##    ClothingHeadHatSecsoft: 3 # DeltaV - removed from SecDrobe due to inconsistency with art direction
+# WD edit start - moved clothes from SecTech & sorted by type
     ClothingHeadsetSecurity: 3
     ClothingHeadHelmetBasic: 2
     ClothingHeadHelmetInsulated: 2
@@ -33,3 +34,4 @@
     ClothingUniformJumpskirtSecGrey: 3
     ClothingUniformJumpsuitSecBlue: 3
     ClothingUniformJumpskirtSecBlue: 3 # DeltaV - new skirt sprited, added to secdrobe
+# WD edit end

@@ -11,9 +11,9 @@
     Flash: 5
     Tourniquet: 5
     FlashlightSeclite: 5
-    HoloprojectorSecurity: 5
+    HoloprojectorSecurity: 5 # WD - moved from Sec lockers
     ClothingEyesGlassesSunglasses: 2
-    ClothingEyesGlassesSecurity: 2
+    ClothingEyesGlassesSecurity: 2 # WD - SecHuds
     ClothingEyesHudSecurity: 2
     ClothingEyesEyepatchHudSecurity: 2
     ClothingBeltSecurityWebbing: 5
@@ -24,6 +24,7 @@
     RiotLaserShield: 2
     RiotBulletShield: 2
     RadioHandheldSecurity: 5
+    # WD - armor moved to SecDrobe
     BreachingCharge: 8
   # security officers need to follow a diet regimen!
   contrabandInventory:
