@@ -1182,3 +1182,12 @@ Entries:
   id: 124
   time: '2024-12-25T11:57:52.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/201
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Изменено наполнение шкафов СБ; не забывайте про СБТех и Охраншкаф и
+        пользуйтесь опцией лодаутов в настройках персонажа!
+  id: 125
+  time: '2024-12-25T12:35:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/188
