@@ -27,13 +27,14 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
     [Dependency] private readonly NodeGroupSystem _node = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ChristmasLightsComponent, ComponentInit>(OnChristmasLightsInit);
-        SubscribeLocalEvent<ChristmasLightsComponent, ActivateInWorldEvent>(OnChristmasLightsActivateInWorld);
+        //SubscribeLocalEvent<ChristmasLightsComponent, ActivateInWorldEvent>(OnChristmasLightsActivateInWorld); // functionality moved to verbs
         SubscribeLocalEvent<ChristmasLightsComponent, EmpPulseEvent>(OnChristmasLightsMinisculeTrolling);
         SubscribeLocalEvent<ChristmasLightsComponent, GotEmaggedEvent>(OnChristmasLightsModerateTrolling);
 
@@ -95,7 +96,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
             return;
         EntityUid uid = GetEntity(args.target);
         EntityUid user = sessionArgs.SenderSession.AttachedEntity!.Value; // no it will not be a fucking null, shut the fuck up
-        if (_actionBlocker.CanInteract(user, uid) && !HasComp<EmaggedComponent>(uid))
+        if (_actionBlocker.CanInteract(user, uid) && _interaction.InRangeUnobstructed(user, uid) && !HasComp<EmaggedComponent>(uid))
         {
             var jolly = Comp<ChristmasLightsComponent>(uid);
             UpdateAllConnected(uid, jolly.LowPower, GetNextModeIndex(jolly));
@@ -109,7 +110,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
             return;
         EntityUid uid = GetEntity(args.target);
         EntityUid user = sessionArgs.SenderSession.AttachedEntity!.Value; 
-        if (_actionBlocker.CanInteract(user, uid) && !HasComp<EmaggedComponent>(uid))
+        if (_actionBlocker.CanInteract(user, uid) && _interaction.InRangeUnobstructed(user, uid) && !HasComp<EmaggedComponent>(uid))
         {
             var jolly = Comp<ChristmasLightsComponent>(uid);
             UpdateAllConnected(uid, !jolly.LowPower, GetNextModeIndex(jolly));

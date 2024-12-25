@@ -1,5 +1,7 @@
 using Content.Shared._White.Misc.ChristmasLights;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Examine;
+using Content.Shared.Interaction;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
@@ -26,7 +28,9 @@ namespace Content.Client._White.Misc.ChristmasLights;
 public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+
 
     //[Dependency] private readonly IReflectionManager _reflection = default!; // we have reflection at home
 
@@ -36,7 +40,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 
         SubscribeLocalEvent<ChristmasLightsComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<ChristmasLightsComponent, AfterAutoHandleStateEvent>(OnAutoState);
-        SubscribeLocalEvent<ChristmasLightsComponent, GetVerbsEvent<AlternativeVerb>>(OnChristmasLightsAltVerbs);
+        //SubscribeLocalEvent<ChristmasLightsComponent, GetVerbsEvent<AlternativeVerb>>(OnChristmasLightsAltVerbs);
         SubscribeLocalEvent<ChristmasLightsComponent, GetVerbsEvent<Verb>>(OnChristmasLightsVerbs);
 
         InitModes();
@@ -71,6 +75,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
                 Text = Loc.GetString("christmas-lights-toggle-brightness"),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/light.svg.192dpi.png")),
                 ClientExclusive = true,
+                CloseMenu = false,
                 Act = () => {
                     if (_timing.IsFirstTimePredicted) // i hate the antichrist i hate the antichrist i hate the antichrist
                         RaiseNetworkEvent(new ChangeChristmasLightsBrightnessAttemptEvent(GetNetEntity(args.Target)));
@@ -80,6 +85,9 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 
     private void OnChristmasLightsVerbs(EntityUid uid, ChristmasLightsComponent comp, GetVerbsEvent<Verb> args)
     {
+        if (!_actionBlocker.CanInteract(user, uid) || !_interaction.InRangeUnobstructed(user, uid))
+            return;
+
         args.Verbs.Add(
             new Verb
             {
@@ -87,7 +95,18 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
                 Text = Loc.GetString("christmas-lights-next-mode"),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/group.svg.192dpi.png")),
                 ClientExclusive = true,
+                CloseMenu = false,
                 Act = () => RaiseNetworkEvent(new ChangeChristmasLightsModeAttemptEvent(GetNetEntity(args.Target)))
+            });
+        args.Verbs.Add(
+            new Verb
+            {
+                Priority = 3,
+                Text = Loc.GetString("christmas-lights-toggle-brightness"),
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/light.svg.192dpi.png")),
+                ClientExclusive = true,
+                CloseMenu = false,
+                Act = () => RaiseNetworkEvent(new ChangeChristmasLightsBrightnessAttemptEvent(GetNetEntity(args.Target)))
             });
     }
 
