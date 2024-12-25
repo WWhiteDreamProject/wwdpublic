@@ -1153,3 +1153,12 @@ Entries:
   id: 121
   time: '2024-12-24T13:45:41.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/196
+- author: csqrb
+  changes:
+    - type: Add
+      message: >-
+        Added snowballs! To get them, use a snowball maker from autolathe /
+        Добавлены снежки! Для их получения используйте снежколеп из автолата.
+  id: 122
+  time: '2024-12-25T11:53:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/199
