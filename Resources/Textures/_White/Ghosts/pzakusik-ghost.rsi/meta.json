@@ -8,8 +8,7 @@
   },
   "states": [
    {
-      "name": "kutosghost",
-      "directions": 1,
+      "name": "animated",
       "delays": [
         [
           0.15,
