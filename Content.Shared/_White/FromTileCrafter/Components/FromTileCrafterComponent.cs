@@ -48,13 +48,7 @@ public sealed partial class FromTileCraftDoAfterEvent : DoAfterEvent
 
     public override DoAfterEvent Clone()
     {
-        return this;
+        return new FromTileCraftDoAfterEvent(Grid, GridTile);
     }
 
-    public override bool IsDuplicate(DoAfterEvent other)
-    {
-        return other is FromTileCraftDoAfterEvent otherTile
-               && Grid == otherTile.Grid
-               && GridTile == otherTile.GridTile;
-    }
 }

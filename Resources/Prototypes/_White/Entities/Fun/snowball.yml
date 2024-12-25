@@ -74,5 +74,4 @@
     solution: snowball
   - type: RefillableSolution
     solution: snowball
-  - type: LandAtCursor
-
+#  - type: LandAtCursor
