@@ -65,40 +65,18 @@
   - type: StorageFill
     contents:
       - id: FlashlightSeclite
-        prob: 0.8
-      - id: ClothingUniformJumpsuitSecGrey
-        prob: 0.3
-      - id: ClothingUniformJumpsuitSecBlue # DeltaV - consistency with other sec uniforms
-        prob: 0.3
-      - id: ClothingUniformJumpsuitSec # DeltaV - consistency with other sec uniforms
-        prob: 0.3
-      - id: ClothingUniformJumpskirtSecGrey # DeltaV - consistency with other sec uniforms
-        prob: 0.3
-      - id: ClothingUniformJumpskirtSecBlue # DeltaV - consistency with other sec uniforms
-        prob: 0.3
-      - id: ClothingUniformJumpskirtSec # DeltaV - consistency with other sec uniforms
-        prob: 0.3
+      - id: ClothingUniformJumpsuitSec # WD - Less random bloat
       - id: ClothingHeadHelmetBasic
       - id: ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
-        prob: 0.4
-      - id: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier and stabproof vest
-      - id: ClothingOuterArmorDuraVest
-      - id: ClothingOuterStasecSweater # DeltaV - in case the officers get cold :3
-        prob: 0.75
-      - id: ClothingUniformJumpsuitSecFormal # DeltaV - emergency parade time, Central's coming to visit
-        prob: 0.25
+      - id: ClothingOuterArmorBasic # WD - plate carrier and stabproof vest replaced back to regular bodyarmor
       - id: ClothingBeltSecurityFilled
-      - id: Flash
-        prob: 0.5
-      - id: ClothingEyesGlassesSunglasses
+      - id: ClothingEyesGlassesSecurity # WD - SecHuds
       - id: ClothingHeadsetSecurity
       - id: ClothingHandsGlovesColorBlack
       - id: ClothingShoesBootsJack
+      - id: WeaponDisabler # WD
       - id: WeaponMeleeNeedle
         prob: 0.1
-      - id: ClothingEyesHudSecurity
-      - id: HoloprojectorSecurity
-        prob: 0.6
       - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
         prob: 0.3
 

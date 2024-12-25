@@ -4,26 +4,34 @@
     ClothingBackpackSecurity: 3
     ClothingBackpackSatchelSecurity: 3
     ClothingBackpackDuffelSecurity: 3
-    ClothingUniformJumpsuitSec: 3
-    ClothingShoesBootsJack: 3
-    ClothingHeadHatBeretSecurity: 3
 ##    ClothingHeadHatSecsoft: 3 # DeltaV - removed from SecDrobe due to inconsistency with art direction
+# WD edit start - moved clothes from SecTech & sorted by type
+    ClothingHeadsetSecurity: 3
+    ClothingHeadHelmetBasic: 2
+    ClothingHeadHelmetInsulated: 2
+    ClothingHeadCage: 2
+    ClothingHeadHatBeretSecurity: 3
     ClothingHeadBandRed: 3
+    ClothingHeadHatCowboyBlack: 1
+    ClothingNeckScarfStripedRed: 3
+    ClothingEyesBlindfold: 1
+    ClothingOuterWinterSec: 2
+    ClothingOuterStasecSweater: 2 # WWDP - moved sweaters from security lockers to SecDrobe
+    ClothingOuterCoatGreatcoat: 2 # DeltaV - added greatcoats to SecDrobe. Surplus, reminds the officers of the good times.
+    ClothingOuterArmorBasic: 2 # WWDP - moved body armour back to SecDrobe from SecTech
+    ClothingOuterArmorBasicSlim: 2
+    ClothingOuterArmorPlateCarrier: 2
+    ClothingOuterArmorDuraVest: 2
+    ClothingShoesBootsJack: 3
+    ClothingShoesBootsCombat: 1
+    ClothingShoesBootsWinterSec: 2
+    ClothingShoesBootsCowboyBlack: 1
     ClothingHandsGlovesColorBlack: 3
     ClothingHandsGlovesFingerless: 3
+    ClothingUniformJumpsuitSec: 3
     ClothingUniformJumpskirtSec: 3
     ClothingUniformJumpsuitSecGrey: 3
     ClothingUniformJumpskirtSecGrey: 3
     ClothingUniformJumpsuitSecBlue: 3
     ClothingUniformJumpskirtSecBlue: 3 # DeltaV - new skirt sprited, added to secdrobe
-    ClothingHeadsetSecurity: 3
-    ClothingOuterWinterSec: 2
-    ClothingOuterCoatGreatcoat: 2 # DeltaV - added greatcoats to SecDrobe. Surplus, reminds the officers of the good times.
-##    ClothingOuterArmorBasic: 2 # DeltaV - moved body armour from SecDrobe to SecTech
-##    ClothingOuterArmorBasicSlim: 2
-    ClothingNeckScarfStripedRed: 3
-    ClothingEyesBlindfold: 1
-    ClothingShoesBootsCombat: 1
-    ClothingShoesBootsWinterSec: 2
-    ClothingShoesBootsCowboyBlack: 1
-    ClothingHeadHatCowboyBlack: 1
+# WD edit end
