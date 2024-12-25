@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared._CorvaxNext.FromTileCrafter.Components;
+using Content.Shared._White.FromTileCrafter.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -9,7 +9,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Random;
 
 
-namespace Content.Shared._CorvaxNext.FromTileCrafter.Systems;
+namespace Content.Shared._White.FromTileCrafter.Systems;
 
 public sealed class FromTileCrafterSystem : EntitySystem
 {
