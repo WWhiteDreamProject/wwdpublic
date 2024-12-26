@@ -71,10 +71,8 @@ public sealed partial class HeadcrabSystem : EntitySystem
                 return;
 
         _inventory.TryGetSlotEntity(args.Target, "head", out var headItem);
-        if (HasComp<IngestionBlockerComponent>(headItem))
-            return;
-
-        if (!_inventory.TryEquip(args.Target, uid, "mask", true))
+        if (HasComp<IngestionBlockerComponent>(headItem) 
+            || !_inventory.TryEquip(args.Target, uid, "mask", true))
             return;
 
         component.EquippedOn = args.Target;
