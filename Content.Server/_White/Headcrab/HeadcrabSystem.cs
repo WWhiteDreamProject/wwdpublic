@@ -123,52 +123,11 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
     private void OnMeleeHit(EntityUid uid, HeadcrabComponent component, MeleeHitEvent args)
     {
-        if (!args.HitEntities.Any())
+        if (!args.HitEntities.Any()
+            || _random.Next(1, 101) <= component.ChancePounce)
             return;
 
-        foreach (var entity in args.HitEntities)
-        {
-            if (!HasComp<HumanoidAppearanceComponent>(entity))
-                return;
-
-            if (TryComp(entity, out MobStateComponent? mobState))
-            {
-                if (mobState.CurrentState is not MobState.Alive)
-                {
-                    return;
-                }
-            }
-
-            _inventory.TryGetSlotEntity(entity, "head", out var headItem);
-            if (HasComp<IngestionBlockerComponent>(headItem))
-                return;
-
-            var shouldEquip = _random.Next(1, 101) <= component.ChancePounce;
-            if (!shouldEquip)
-                return;
-
-            var equipped = _inventory.TryEquip(entity, uid, "mask", true);
-            if (!equipped)
-                return;
-
-            if (_mobState.IsDead(uid) ||
-                HasComp<ZombieComponent>(entity) ||
-                !HasComp<HumanoidAppearanceComponent>(entity) ||
-                !_mobState.IsAlive(entity))
-                return;
-
-            _inventory.TryGetSlotEntity(entity, "head", out var headItem2);
-            if (HasComp<IngestionBlockerComponent>(headItem2) ||
-                !_inventory.TryEquip(entity, uid, "mask", true))
-                return;
-
-            component.EquippedOn = entity;
-
-            EnsureComp<PacifiedComponent>(uid);
-            _stunSystem.TryParalyze(entity, TimeSpan.FromSeconds(component.ParalyzeTime), true);
-            _damageableSystem.TryChangeDamage(entity, component.Damage, origin: entity);
-            break;
-        }
+        TryEquipHeadcrab(uid, args.HitEntities.First(), component);
     }
 
     private void OnJump(EntityUid uid, HeadcrabComponent component, JumpActionEvent args)
