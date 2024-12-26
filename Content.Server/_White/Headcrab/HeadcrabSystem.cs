@@ -226,14 +226,11 @@ public sealed partial class HeadcrabSystem : EntitySystem
                 || HasComp<ZombieComponent>(comp.EquippedOn)
                 || _mobstate.IsDead(uid))
                 continue;
-            if (TryComp(targetId, out MobStateComponent? mobState))
+            if (!_mobState.IsAlive(targetId))
             {
-                if (mobState.CurrentState is not MobState.Alive)
-                {
-                    _inventory.TryUnequip(targetId, "mask", true, true);
+                     _inventory.TryUnequip(targetId, "mask", true, true);
                     comp.EquippedOn = EntityUid.Invalid;
                     return;
-                }
             }
             _damageableSystem.TryChangeDamage(targetId, comp.Damage);
             _popup.PopupEntity(Loc.GetString("headcrab-eat-entity-face"),
