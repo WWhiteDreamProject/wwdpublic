@@ -24,8 +24,6 @@ public sealed partial class HeadcrabComponent : Component
     [DataField(required: true)]
     public DamageSpecifier Damage = default!;
 
-    public bool IsDead = false;
-
     public EntityUid EquippedOn;
 
     [ViewVariables]

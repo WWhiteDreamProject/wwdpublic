@@ -62,36 +62,6 @@ public sealed partial class HeadcrabSystem : EntitySystem
         _action.AddAction(uid, component.JumpAction);
     }
 
-    private void OnHeadcrabDoHit(EntityUid uid, HeadcrabComponent component, ThrowDoHitEvent args)
-    {
-        if (_mobState.IsDead(uid)
-            || HasComp<ZombieComponent>(args.Target)
-            || !HasComp<HumanoidAppearanceComponent>(args.Target)
-            || !_mobState.IsAlive(args.Target)
-                return;
-
-        _inventory.TryGetSlotEntity(args.Target, "head", out var headItem);
-        if (HasComp<IngestionBlockerComponent>(headItem) 
-            || !_inventory.TryEquip(args.Target, uid, "mask", true))
-            return;
-
-        component.EquippedOn = args.Target;
-
-        _popup.PopupEntity(Loc.GetString("headcrab-hit-entity-head"),
-            args.Target, args.Target, PopupType.LargeCaution);
-
-        _popup.PopupEntity(Loc.GetString("headcrab-hit-entity-head",
-                ("entity", args.Target)),
-            uid, uid, PopupType.LargeCaution);
-
-        _popup.PopupEntity(Loc.GetString("headcrab-eat-other-entity-face",
-            ("entity", args.Target)), args.Target, Filter.PvsExcept(uid), true, PopupType.Large);
-
-        EnsureComp<PacifiedComponent>(uid);
-        _stunSystem.TryParalyze(args.Target, TimeSpan.FromSeconds(component.ParalyzeTime), true);
-        _damageableSystem.TryChangeDamage(args.Target, component.Damage);
-    }
-
     private void OnGotEquipped(EntityUid uid, HeadcrabComponent component, GotEquippedEvent args)
     {
         if (args.Slot != "mask")
@@ -108,6 +78,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
             || HasComp<ZombieComponent>(args.Unequipee)
             || _mobState.IsDead(uid))
             return;
+
         _popup.PopupEntity(Loc.GetString("headcrab-try-unequip"),
             args.Unequipee, args.Unequipee, PopupType.Large);
         args.Cancel();
@@ -118,7 +89,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
         if (_mobState.IsDead(uid)
             || HasComp<ZombieComponent>(args.User))
             return;
-            
+
         _handsSystem.TryDrop(args.User, uid, checkActionBlocker: false);
         _damageableSystem.TryChangeDamage(args.User, component.Damage);
         _popup.PopupEntity(Loc.GetString("headcrab-entity-bite"),
@@ -167,16 +138,18 @@ public sealed partial class HeadcrabSystem : EntitySystem
             if (!equipped)
                 return;
 
+            if (_mobState.IsDead(uid)
+                || HasComp<ZombieComponent>(entity)
+                || !HasComp<HumanoidAppearanceComponent>(entity)
+                || !_mobState.IsAlive(entity)
+                    return;
+
+            _inventory.TryGetSlotEntity(entity, "head", out var headItem);
+            if (HasComp<IngestionBlockerComponent>(headItem)
+                || !_inventory.TryEquip(entity, uid, "mask", true))
+                return;
+
             component.EquippedOn = entity;
-
-            _popup.PopupEntity(Loc.GetString("headcrab-eat-entity-face"),
-                entity, entity, PopupType.LargeCaution);
-
-            _popup.PopupEntity(Loc.GetString("headcrab-hit-entity-head", ("entity", entity)),
-                uid, uid, PopupType.LargeCaution);
-
-            _popup.PopupEntity(Loc.GetString("headcrab-eat-other-entity-face",
-                ("entity", entity)), entity, Filter.PvsExcept(entity), true, PopupType.Large);
 
             EnsureComp<PacifiedComponent>(uid);
             _stunSystem.TryParalyze(entity, TimeSpan.FromSeconds(component.ParalyzeTime), true);
@@ -185,13 +158,6 @@ public sealed partial class HeadcrabSystem : EntitySystem
         }
     }
 
-    private static void OnMobStateChanged(EntityUid uid, HeadcrabComponent component, MobStateChangedEvent args)
-    {
-        if (args.NewMobState == MobState.Dead)
-        {
-            component.IsDead = true;
-        }
-    }
     private void OnJump(EntityUid uid, HeadcrabComponent component, JumpActionEvent args)
     {
         if (args.Handled
@@ -204,8 +170,8 @@ public sealed partial class HeadcrabSystem : EntitySystem
         var direction = mapCoords.Position - _transform.GetMapCoordinates(xform).Position;
 
         _throwing.TryThrow(uid, direction, 7F, uid, 10F);
-        if (component.HeadcrabJumpSound != null)
-            _audioSystem.PlayPvs(component.HeadcrabJumpSound, uid, component.HeadcrabJumpSound.Params);
+        if (component.JumpSound != null)
+            _audioSystem.PlayPvs(component.JumpSound, uid, component.JumpSound.Params);
     }
 
     public override void Update(float frameTime)
@@ -226,6 +192,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
                 || HasComp<ZombieComponent>(comp.EquippedOn)
                 || _mobstate.IsDead(uid))
                 continue;
+
             if (!_mobState.IsAlive(targetId))
             {
                      _inventory.TryUnequip(targetId, "mask", true, true);
