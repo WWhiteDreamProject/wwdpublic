@@ -46,6 +46,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
     {
         SubscribeLocalEvent<HeadcrabComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<HeadcrabComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<HeadcrabComponent, ThrowDoHitEvent>(OnThrowDoHit);
         SubscribeLocalEvent<HeadcrabComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<HeadcrabComponent, GotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<HeadcrabComponent, GotEquippedHandEvent>(OnGotEquippedHand);
