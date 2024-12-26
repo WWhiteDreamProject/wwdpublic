@@ -31,7 +31,7 @@ public sealed partial class HeadcrabComponent : Component
     [ViewVariables]
     public float Accumulator = 0;
 
-    [DataField("damageFrequency"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public float DamageFrequency = 5;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("jumpSound")]
