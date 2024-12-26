@@ -5,6 +5,7 @@ using Content.Server.Administration.Systems;
 using Content.Server.GameTicking;
 using Content.Server.PDA;
 using Content.Server.StationRecords.Systems;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.PDA;
 using Content.Shared.StationRecords;
@@ -30,6 +31,12 @@ public sealed class RulonOboevAspect : AspectSystem<RenameCrewAspectComponent>
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
         SubscribeLocalEvent<RenameCrewAspectComponent, ComponentInit>(OnCompInit);
 
+    }
+
+    protected override void Ended(EntityUid uid, RenameCrewAspectComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
+    {
+        base.Ended(uid, component, gameRule, args);
+        existing = null;
     }
 
     public override void Shutdown()
