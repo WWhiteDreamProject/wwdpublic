@@ -58,8 +58,8 @@
 
 - type: entity
   id: ActionHeadcrabJump
-  name: jump-action-name
-  description: jump-action-description
+  name: Jump
+  description: Do super jump.
   categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
