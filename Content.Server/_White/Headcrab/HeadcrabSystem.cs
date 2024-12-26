@@ -200,7 +200,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
             {
                 _inventory.TryUnequip(targetId, "mask", true, true);
                 comp.EquippedOn = EntityUid.Invalid;
-                return;
+                continue;
             }
 
             _damageableSystem.TryChangeDamage(targetId, comp.Damage);
