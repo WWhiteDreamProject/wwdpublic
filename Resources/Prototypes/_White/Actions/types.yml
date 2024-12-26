@@ -65,7 +65,10 @@
   - type: WorldTargetAction
     icon:
       sprite: _White/Interface/Actions/headcrab.rsi
-      state: jump
+      state: jump-off
+    iconOn:
+      sprite: _White/Interface/Actions/headcrab.rsi
+      state: jump-on
     event: !type:JumpActionEvent
     useDelay: 6
     range: 160

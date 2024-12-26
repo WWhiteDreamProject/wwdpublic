@@ -5,7 +5,10 @@
     "size": { "y": 32, "x": 32 },
     "states": [
         {
-            "name": "jump"
+            "name": "jump-on"
+        },
+        {
+            "name": "jump-off"
         }
     ]
 }
