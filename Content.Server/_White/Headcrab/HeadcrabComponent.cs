@@ -12,7 +12,7 @@ public sealed partial class HeadcrabComponent : Component
     /// <summary>
     /// WorldTargetAction
     /// </summary>
-    [DataField("jumpAction", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string JumpAction = "ActionHeadcrabJump";
 
     [DataField("paralyzeTime"), ViewVariables(VVAccess.ReadWrite)]
