@@ -205,9 +205,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
         _throwing.TryThrow(uid, direction, 7F, uid, 10F);
         if (component.HeadcrabJumpSound != null)
-        {
             _audioSystem.PlayPvs(component.HeadcrabJumpSound, uid, component.HeadcrabJumpSound.Params);
-        }
     }
 
     public override void Update(float frameTime)
