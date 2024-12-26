@@ -28,7 +28,8 @@ public sealed partial class HeadcrabComponent : Component
 
     public EntityUid EquippedOn;
 
-    [ViewVariables] public float Accumulator = 0;
+    [ViewVariables]
+    public float Accumulator = 0;
 
     [DataField("damageFrequency"), ViewVariables(VVAccess.ReadWrite)]
     public float DamageFrequency = 5;
