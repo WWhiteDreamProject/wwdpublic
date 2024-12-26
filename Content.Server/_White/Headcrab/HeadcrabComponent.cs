@@ -18,7 +18,7 @@ public sealed partial class HeadcrabComponent : Component
     [DataField]
     public float ParalyzeTime = 3f;
 
-    [DataField("chancePounce"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public int ChancePounce = 33;
 
     [DataField(required: true)]
