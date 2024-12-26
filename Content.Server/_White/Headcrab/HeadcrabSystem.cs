@@ -234,9 +234,9 @@ public sealed partial class HeadcrabSystem : EntitySystem
             comp.Accumulator = 0;
 
             if (comp.EquippedOn is not { Valid: true } targetId)
+                || HasComp<ZombieComponent>(comp.EquippedOn)
+                || _mobstate.IsDead(uid))
                 continue;
-            if (HasComp<ZombieComponent>(comp.EquippedOn))
-                return;
             if (TryComp(targetId, out MobStateComponent? mobState))
             {
                 if (mobState.CurrentState is not MobState.Alive)
