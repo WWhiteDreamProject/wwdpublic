@@ -64,19 +64,11 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
     private void OnHeadcrabDoHit(EntityUid uid, HeadcrabComponent component, ThrowDoHitEvent args)
     {
-        if (component.IsDead)
-            return;
-        if (HasComp<ZombieComponent>(args.Target))
-            return;
-        if (!HasComp<HumanoidAppearanceComponent>(args.Target))
-            return;
-        if (TryComp(args.Target, out MobStateComponent? mobState))
-        {
-            if (mobState.CurrentState is not MobState.Alive)
-            {
+        if (_mobState.IsDead(uid)
+            || HasComp<ZombieComponent>(args.Target)
+            || !HasComp<HumanoidAppearanceComponent>(args.Target)
+            || !_mobState.IsAlive(args.Target)
                 return;
-            }
-        }
 
         _inventory.TryGetSlotEntity(args.Target, "head", out var headItem);
         if (HasComp<IngestionBlockerComponent>(headItem))
