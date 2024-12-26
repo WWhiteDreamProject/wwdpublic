@@ -43,7 +43,7 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
-    attackRate: 0.75
+    attackRate: 0.5
     range: 1.75
     wideAnimationRotation: -135
     damage:
@@ -63,7 +63,7 @@
       types:
         Blunt: 2.5
         Slash: 2.5
-        Structural: 30
+        Structural: 20
   - type: GunRequiresWield
   - type: Item
     size: Ginormous
@@ -114,8 +114,6 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/crusher_glaive.rsi
-  - type: UseDelay
-    delay: 1.9
   - type: LeechOnMarker
     leech:
       groups:

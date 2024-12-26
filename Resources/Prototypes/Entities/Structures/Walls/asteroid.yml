@@ -36,7 +36,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 100
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -418,13 +418,15 @@
     - type: Transform
       noRot: true
     - type: SoundOnGather
+    # WD EDIT START
     - type: Gatherable
       toolWhitelist:
         tags:
           - Pickaxe
+    # WD EDIT END
     - type: Damageable
-      damageContainer: Inorganic
-      damageModifierSet: Metallic
+      damageContainer: StructuralInorganic
+      damageModifierSet: RockStrong
     - type: Destructible
       thresholds:
         - trigger:
