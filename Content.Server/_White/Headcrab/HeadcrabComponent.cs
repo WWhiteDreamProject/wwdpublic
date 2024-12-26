@@ -34,7 +34,7 @@ public sealed partial class HeadcrabComponent : Component
     [DataField]
     public float DamageFrequency = 5;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("jumpSound")]
-    public SoundSpecifier? HeadcrabJumpSound = new SoundPathSpecifier("/Audio/_White/Misc/Headcrab/headcrab_jump.ogg");
+    [DataField]
+    public SoundSpecifier? JumpSound = new SoundPathSpecifier("/Audio/_White/Misc/Headcrab/headcrab_jump.ogg");
 
 }
