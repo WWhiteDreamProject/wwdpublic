@@ -124,6 +124,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
         var combatMode = EnsureComp<CombatModeComponent>(uid);
         _combat.SetInCombatMode(uid, true, combatMode);
         EnsureComp<NPCMeleeCombatComponent>(uid);
+        _npcFaction.RemoveFaction(args.Equipee, "Zombie");
     }
 
     private void OnMeleeHit(EntityUid uid, HeadcrabComponent component, MeleeHitEvent args)
