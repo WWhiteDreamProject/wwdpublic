@@ -224,7 +224,8 @@ public sealed partial class HeadcrabSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        foreach (var comp in EntityQuery<HeadcrabComponent>())
+        var query = EntityQueryEnumerator<HeadcrabComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
             comp.Accumulator += frameTime;
 
