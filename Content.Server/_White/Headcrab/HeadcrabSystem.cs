@@ -10,6 +10,7 @@ using Content.Server._White.Headcrab;
 using Content.Server.Zombies;
 using Content.Shared.Zombies;
 using Content.Shared.CombatMode;
+using Content.Shared.Ghost;
 using Content.Shared.Damage;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Hands;
@@ -91,6 +92,11 @@ public sealed partial class HeadcrabSystem : EntitySystem
         if (_mobState.IsDead(uid) || HasComp<ZombieComponent>(args.User))
             return;
 
+        if (_mobState.IsDead(uid) ||
+            HasComp<ZombieComponent>(args.User) ||
+            HasComp<GhostComponent>(args.User))
+            return;
+
         _handsSystem.TryDrop(args.User, uid, checkActionBlocker: false);
         _damageableSystem.TryChangeDamage(args.User, component.Damage);
         _popup.PopupEntity(Loc.GetString("headcrab-entity-bite"),
@@ -145,8 +151,8 @@ public sealed partial class HeadcrabSystem : EntitySystem
                 !_mobState.IsAlive(entity))
                 return;
 
-            _inventory.TryGetSlotEntity(entity, "head", out var headItem);
-            if (HasComp<IngestionBlockerComponent>(headItem) ||
+            _inventory.TryGetSlotEntity(entity, "head", out var headItem2);
+            if (HasComp<IngestionBlockerComponent>(headItem2) ||
                 !_inventory.TryEquip(entity, uid, "mask", true))
                 return;
 
