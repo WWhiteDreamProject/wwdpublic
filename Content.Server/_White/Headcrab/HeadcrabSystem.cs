@@ -178,4 +178,17 @@ public sealed partial class HeadcrabSystem : EntitySystem
                 ("entity", targetId)), targetId, Filter.PvsExcept(targetId), true);
         }
     }
+    
+        private bool TryEquipHeadcrab(EntityUid uid, EntityUid target, HeadcrabComponent component)
+    {
+        if (_mobState.IsDead(uid)
+            || !_mobState.IsAlive(target)
+            || !HasComp<HumanoidAppearanceComponent>(target)
+            || HasComp<ZombieComponent>(target))
+            return false;
+
+        _inventory.TryGetSlotEntity(target, "head", out var headItem);
+        return !HasComp<IngestionBlockerComponent>(headItem)
+            && !_inventory.TryEquip(target, uid, "mask", true);
+    }
 }
