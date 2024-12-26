@@ -21,10 +21,6 @@
     {
       "name": "shoes",
       "directions" : 4
-    },
-    {
-      "name": "outerClothing",
-      "directions" : 4
     }
   ]
 }

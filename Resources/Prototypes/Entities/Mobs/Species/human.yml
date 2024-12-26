@@ -52,11 +52,6 @@
           32:
             sprite: _White/Mobs/Species/Human/displacement.rsi
             state: gloves
-      outerClothing-body-slim:
-        sizeMaps:
-          32:
-            sprite: _White/Mobs/Species/Human/displacement.rsi
-            state: outerClothing
       # WD EDIT END
 
 - type: entity
@@ -87,9 +82,4 @@
           32:
             sprite: _White/Mobs/Species/Human/displacement.rsi
             state: gloves
-      outerClothing-body-slim:
-        sizeMaps:
-          32:
-            sprite: _White/Mobs/Species/Human/displacement.rsi
-            state: outerClothing
       # WD EDIT END
