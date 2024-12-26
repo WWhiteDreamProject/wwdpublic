@@ -115,11 +115,11 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
     private void OnGotEquippedHand(EntityUid uid, HeadcrabComponent component, GotEquippedHandEvent args)
     {
-        if (HasComp<ZombieComponent>(args.User))
+        if (_mobState.IsDead(uid)
+            || HasComp<ZombieComponent>(args.User))
             return;
-        if (component.IsDead)
-            return;
-        // _handsSystem.TryDrop(args.User, uid, checkActionBlocker: false);
+            
+        _handsSystem.TryDrop(args.User, uid, checkActionBlocker: false);
         _damageableSystem.TryChangeDamage(args.User, component.Damage);
         _popup.PopupEntity(Loc.GetString("headcrab-entity-bite"),
             args.User, args.User);
