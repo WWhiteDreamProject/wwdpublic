@@ -89,9 +89,6 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
     private void OnGotEquippedHand(EntityUid uid, HeadcrabComponent component, GotEquippedHandEvent args)
     {
-        if (_mobState.IsDead(uid) || HasComp<ZombieComponent>(args.User))
-            return;
-
         if (_mobState.IsDead(uid) ||
             HasComp<ZombieComponent>(args.User) ||
             HasComp<GhostComponent>(args.User))
