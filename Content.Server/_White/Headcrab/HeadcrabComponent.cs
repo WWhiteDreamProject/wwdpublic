@@ -21,8 +21,7 @@ public sealed partial class HeadcrabComponent : Component
     [DataField("chancePounce"), ViewVariables(VVAccess.ReadWrite)]
     public int ChancePounce = 33;
 
-    [DataField("damage", required: true)]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField(required: true)]
     public DamageSpecifier Damage = default!;
 
     public bool IsDead = false;
