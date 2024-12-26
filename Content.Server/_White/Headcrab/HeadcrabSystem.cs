@@ -104,10 +104,9 @@ public sealed partial class HeadcrabSystem : EntitySystem
     private void OnUnequipAttempt(EntityUid uid, HeadcrabComponent component, BeingUnequippedAttemptEvent args)
     {
         if (args.Slot != "mask")
-            return;
-        if (component.EquippedOn != args.Unequipee)
-            return;
-        if (HasComp<ZombieComponent>(args.Unequipee))
+            || component.EquippedOn != args.Unequipee)
+            || HasComp<ZombieComponent>(args.Unequipee)
+            || _mobState.IsDead(uid))
             return;
         _popup.PopupEntity(Loc.GetString("headcrab-try-unequip"),
             args.Unequipee, args.Unequipee, PopupType.Large);
