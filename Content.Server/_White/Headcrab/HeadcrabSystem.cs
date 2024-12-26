@@ -59,6 +59,11 @@ public sealed partial class HeadcrabSystem : EntitySystem
         _action.AddAction(uid, component.JumpAction);
     }
 
+    private void OnThrowDoHit(EntityUid uid, HeadcrabComponent component, ThrowDoHitEvent args)
+    {
+        TryEquipHeadcrab(uid, args.Target, component);
+    }
+    
     private void OnGotEquipped(EntityUid uid, HeadcrabComponent component, GotEquippedEvent args)
     {
         if (args.Slot != "mask")
