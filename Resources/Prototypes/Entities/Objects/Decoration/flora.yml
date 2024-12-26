@@ -458,16 +458,25 @@
   name: christmas tree
   components:
   - type: Sprite
-    state: treechristmas01
+    noRot: true
+    sprite: _White/Objects/Decoration/Flora/christmastree.rsi
+    layers:
+    - state: christmastree
+    - state: glow
+      shader: unshaded
 
 - type: entity
-  parent: BaseTreeConifer
+  parent: FloraTreeChristmas01
   id: FloraTreeChristmas02
   suffix: PresentsGiver
   name: christmas tree
   components:
   - type: Sprite
-    state: treechristmas02
+    layers:
+    - state: christmastree
+    - state: glow
+      shader: unshaded
+    - state: presents
   - type: Fixtures
     fixtures:
       fix1:
