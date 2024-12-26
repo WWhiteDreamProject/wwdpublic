@@ -194,7 +194,8 @@ public sealed partial class HeadcrabSystem : EntitySystem
     }
     private void OnJump(EntityUid uid, HeadcrabComponent component, JumpActionEvent args)
     {
-        if (args.Handled)
+        if (args.Handled
+            || comp.EquippedOn is { Valid: true })
             return;
 
         args.Handled = true;
