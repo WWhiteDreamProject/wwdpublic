@@ -1,10 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Content.Server.Actions;
 using Content.Server.NPC.Components;
 using Content.Server.Nutrition.Components;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Popups;
-using Content.Server.NPC.Components;
 using Content.Server.NPC.Systems;
 using Content.Server._White.Headcrab;
 using Content.Server.Zombies;
@@ -13,12 +13,14 @@ using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Hands;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.Nutrition.Components;
 using Content.Shared._White.Headcrab;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
@@ -38,6 +40,8 @@ public sealed partial class HeadcrabSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
@@ -48,11 +52,9 @@ public sealed partial class HeadcrabSystem : EntitySystem
     {
         SubscribeLocalEvent<HeadcrabComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<HeadcrabComponent, MeleeHitEvent>(OnMeleeHit);
-        SubscribeLocalEvent<HeadcrabComponent, ThrowDoHitEvent>(OnHeadcrabDoHit);
         SubscribeLocalEvent<HeadcrabComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<HeadcrabComponent, GotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<HeadcrabComponent, GotEquippedHandEvent>(OnGotEquippedHand);
-        SubscribeLocalEvent<HeadcrabComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<HeadcrabComponent, BeingUnequippedAttemptEvent>(OnUnequipAttempt);
         SubscribeLocalEvent<HeadcrabComponent, JumpActionEvent>(OnJump);
     }
@@ -66,17 +68,17 @@ public sealed partial class HeadcrabSystem : EntitySystem
     {
         if (args.Slot != "mask")
             return;
+
         component.EquippedOn = args.Equipee;
         EnsureComp<PacifiedComponent>(uid);
-        _npcFaction.AddFaction(uid, "Zombie");
     }
 
     private void OnUnequipAttempt(EntityUid uid, HeadcrabComponent component, BeingUnequippedAttemptEvent args)
     {
-        if (args.Slot != "mask")
-            || component.EquippedOn != args.Unequipee)
-            || HasComp<ZombieComponent>(args.Unequipee)
-            || _mobState.IsDead(uid))
+        if (args.Slot != "mask" ||
+            component.EquippedOn != args.Unequipee ||
+            HasComp<ZombieComponent>(args.Unequipee) ||
+            _mobState.IsDead(uid))
             return;
 
         _popup.PopupEntity(Loc.GetString("headcrab-try-unequip"),
@@ -86,8 +88,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
     private void OnGotEquippedHand(EntityUid uid, HeadcrabComponent component, GotEquippedHandEvent args)
     {
-        if (_mobState.IsDead(uid)
-            || HasComp<ZombieComponent>(args.User))
+        if (_mobState.IsDead(uid) || HasComp<ZombieComponent>(args.User))
             return;
 
         _handsSystem.TryDrop(args.User, uid, checkActionBlocker: false);
@@ -100,12 +101,12 @@ public sealed partial class HeadcrabSystem : EntitySystem
     {
         if (args.Slot != "mask")
             return;
+
         component.EquippedOn = EntityUid.Invalid;
         RemCompDeferred<PacifiedComponent>(uid);
         var combatMode = EnsureComp<CombatModeComponent>(uid);
         _combat.SetInCombatMode(uid, true, combatMode);
         EnsureComp<NPCMeleeCombatComponent>(uid);
-        _npcFaction.RemoveFaction(uid, "Zombie");
     }
 
     private void OnMeleeHit(EntityUid uid, HeadcrabComponent component, MeleeHitEvent args)
@@ -138,15 +139,15 @@ public sealed partial class HeadcrabSystem : EntitySystem
             if (!equipped)
                 return;
 
-            if (_mobState.IsDead(uid)
-                || HasComp<ZombieComponent>(entity)
-                || !HasComp<HumanoidAppearanceComponent>(entity)
-                || !_mobState.IsAlive(entity)
-                    return;
+            if (_mobState.IsDead(uid) ||
+                HasComp<ZombieComponent>(entity) ||
+                !HasComp<HumanoidAppearanceComponent>(entity) ||
+                !_mobState.IsAlive(entity))
+                return;
 
             _inventory.TryGetSlotEntity(entity, "head", out var headItem);
-            if (HasComp<IngestionBlockerComponent>(headItem)
-                || !_inventory.TryEquip(entity, uid, "mask", true))
+            if (HasComp<IngestionBlockerComponent>(headItem) ||
+                !_inventory.TryEquip(entity, uid, "mask", true))
                 return;
 
             component.EquippedOn = entity;
@@ -160,8 +161,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
     private void OnJump(EntityUid uid, HeadcrabComponent component, JumpActionEvent args)
     {
-        if (args.Handled
-            || comp.EquippedOn is { Valid: true })
+        if (args.Handled || component.EquippedOn is { Valid: true })
             return;
 
         args.Handled = true;
@@ -188,17 +188,18 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
             comp.Accumulator = 0;
 
-            if (comp.EquippedOn is not { Valid: true } targetId)
-                || HasComp<ZombieComponent>(comp.EquippedOn)
-                || _mobstate.IsDead(uid))
+            if (comp.EquippedOn is not { Valid: true } targetId ||
+                HasComp<ZombieComponent>(comp.EquippedOn) ||
+                _mobState.IsDead(uid))
                 continue;
 
             if (!_mobState.IsAlive(targetId))
             {
-                     _inventory.TryUnequip(targetId, "mask", true, true);
-                    comp.EquippedOn = EntityUid.Invalid;
-                    return;
+                _inventory.TryUnequip(targetId, "mask", true, true);
+                comp.EquippedOn = EntityUid.Invalid;
+                return;
             }
+
             _damageableSystem.TryChangeDamage(targetId, comp.Damage);
             _popup.PopupEntity(Loc.GetString("headcrab-eat-entity-face"),
                 targetId, targetId, PopupType.LargeCaution);
