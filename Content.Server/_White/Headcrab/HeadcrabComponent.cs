@@ -15,7 +15,7 @@ public sealed partial class HeadcrabComponent : Component
     [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string JumpAction = "ActionHeadcrabJump";
 
-    [DataField("paralyzeTime"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public float ParalyzeTime = 3f;
 
     [DataField("chancePounce"), ViewVariables(VVAccess.ReadWrite)]
