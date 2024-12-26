@@ -65,6 +65,21 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
         component.EquippedOn = args.Equipee;
         EnsureComp<PacifiedComponent>(uid);
+        RemComp<NPCMeleeCombatComponent>(uid);
+        _npcFaction.AddFaction(args.Equipee, "Zombie");
+
+        if (_mobState.IsDead(uid))
+            return;
+
+        _popup.PopupEntity(Loc.GetString("headcrab-hit-entity-head",
+                ("entity", args.Equipee)),
+            uid, uid, PopupType.LargeCaution);
+
+        _popup.PopupEntity(Loc.GetString("headcrab-eat-other-entity-face",
+            ("entity", args.Equipee)), args.Equipee, Filter.PvsExcept(uid), true, PopupType.Large);
+
+        _stunSystem.TryParalyze(args.Equipee, TimeSpan.FromSeconds(component.ParalyzeTime), true);
+        _damageableSystem.TryChangeDamage(args.Equipee, component.Damage, origin: uid);
     }
 
     private void OnUnequipAttempt(EntityUid uid, HeadcrabComponent component, BeingUnequippedAttemptEvent args)
