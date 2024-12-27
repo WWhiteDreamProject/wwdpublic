@@ -55,3 +55,20 @@
       sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
       state: icon
     event: !type:ToggleThermalVisionEvent
+
+- type: entity
+  id: ActionHeadcrabJump
+  name: Jump
+  description: Do super jump.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    icon:
+      sprite: _White/Interface/Actions/headcrab.rsi
+      state: jump-off
+    iconOn:
+      sprite: _White/Interface/Actions/headcrab.rsi
+      state: jump-on
+    event: !type:JumpActionEvent
+    useDelay: 6
+    range: 160

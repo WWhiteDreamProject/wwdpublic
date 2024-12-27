@@ -1,0 +1,22 @@
+<Document>
+  # Хедкрабы
+
+  Хедкрабы (Headcrab, дословный перевод — головной краб, головокраб) — самые многочисленные создания-паразиты из мира Зен. Вырвавшись на свободу из мира Зен во время инцидента в исследовательском центре «Чёрная Меза», эти существа выжили и размножились на Земле, а после и вовсе перебрались по всей галактике.
+
+  Хедкрабы начинают размножение из своего гнезда.
+
+  ## Виды
+
+  Гнездо:
+  <Box>
+    <GuideEntityEmbed Entity="HeadcrabNest" Caption=""/>
+  </Box>
+
+  Хедкрабы:
+  <Box>
+    <GuideEntityEmbed Entity="MobHeadcrab" Caption="Обычный."/>
+    <GuideEntityEmbed Entity="MobHeadcrabFast" Caption="Быстрый."/>
+    <GuideEntityEmbed Entity="MobHeadcrabPoison" Caption="Ядовитый."/>
+  </Box>
+
+</Document>

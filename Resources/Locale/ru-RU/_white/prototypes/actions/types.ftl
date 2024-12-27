@@ -9,3 +9,6 @@ ent-ToggleNightVision = Переключить ночное зрение
     
 ent-ToggleThermalVision = Переключить термальное зрение
     .desc = Переключает термальное зрение.
+
+ent-ActionHeadcrabJump = Прыгнуть
+    .desc = Сделать крутой прыжок.
