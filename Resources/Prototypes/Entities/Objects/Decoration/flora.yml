@@ -468,7 +468,7 @@
     # WD EDIT END
 
 - type: entity
-  parent: FloraTreeChristmas01
+  parent: FloraTreeChristmas01 # WD EDIT
   id: FloraTreeChristmas02
   suffix: PresentsGiver
   name: christmas tree
