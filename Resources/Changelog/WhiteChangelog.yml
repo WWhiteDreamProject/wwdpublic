@@ -1080,3 +1080,148 @@ Entries:
   id: 113
   time: '2024-12-22T05:31:40.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/173
+- author: Warete
+  changes:
+    - type: Add
+      message: Custom ghosts for good people / Кастомные призраки хороших людей.
+  id: 114
+  time: '2024-12-23T17:17:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/186
+- author: dexpth
+  changes:
+    - type: Remove
+      message: Удалён ивент neutralXenoVents
+  id: 115
+  time: '2024-12-24T09:34:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/187
+- author: idoffront
+  changes:
+    - type: Remove
+      message: Отобрано право выключать сервер у малоправных
+  id: 116
+  time: '2024-12-24T12:05:45.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/193
+- author: islambrosgood
+  changes:
+    - type: Add
+      message: Пояс врача теперь в МедШкаф
+    - type: Tweak
+      message: Очки, медхуд и повязка из НаноМед переехали в МедШкаф
+  id: 117
+  time: '2024-12-24T12:07:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/189
+- author: DuckierReaper
+  changes:
+    - type: Tweak
+      message: Расширенные доступы ХоПа возвращены
+  id: 118
+  time: '2024-12-24T12:09:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/184
+- author: pofitlo-Git
+  changes:
+    - type: Add
+      message: >-
+        New game race has been added - Rezomi! / Добавлена новая игровая раса -
+        Резоми!
+  id: 119
+  time: '2024-12-24T12:52:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/172
+- author: Remuchi
+  changes:
+    - type: Add
+      message: >-
+        Added tiny fan & drain crafts. Be ware that disassembling them yields
+        less resources than assembling | Добавлены крафты маленьких вентиляторов
+        и дренажей. Учитывайте, что их разбор приносит меньше ресурсов, чем
+        стоимость их сбора.
+    - type: Remove
+      message: >-
+        Most of the guns no longer require forced wielding. Rifles still can be
+        wielded for increased accuracy. You can't wield SMGs though. | Большая
+        часть оружия теперь не требует пренудительного держания в двух руках.
+        Винтовки все еще можно взять в две руки, чтобы получить бонус к
+        точности. ПП взять в две руки нельзя вовсе.
+  id: 120
+  time: '2024-12-24T13:42:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/194
+- author: Oniks
+  changes:
+    - type: Tweak
+      message: >-
+        Резоми больше нельзя выбрать как игровую расу в редакторе. No fun
+        allowed.
+  id: 121
+  time: '2024-12-24T13:45:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/196
+- author: csqrb
+  changes:
+    - type: Add
+      message: >-
+        Added snowballs! To get them, use a snowball maker from autolathe /
+        Добавлены снежки! Для их получения используйте снежколеп из автолата.
+  id: 122
+  time: '2024-12-25T11:53:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/199
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        If you break a christmas tree, you will now be killsigned and valid for
+        gibbing, lobotomising, and whatnot / Если вы сломаете новогоднюю ёлку,
+        вас признают виновным в убийстве и отправят на гильотину, лоботомию и
+        так далее.
+  id: 123
+  time: '2024-12-25T11:54:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/200
+- author: PuroSlavKing
+  changes:
+    - type: Tweak
+      message: >-
+        Changed PDA light, now it illuminates in front of you, not around /
+        Изменен свет ПДА, теперь он освещает перед вами, а не вокруг вас.
+  id: 124
+  time: '2024-12-25T11:57:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/201
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Изменено наполнение шкафов СБ; не забывайте про СБТех и Охраншкаф и
+        пользуйтесь опцией лодаутов в настройках персонажа!
+  id: 125
+  time: '2024-12-25T12:35:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/188
+- author: Purka581
+  changes:
+    - type: Fix
+      message: Исправлено название госта в файлах
+  id: 126
+  time: '2024-12-25T23:53:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/202
+- author: DuckierReaper
+  changes:
+    - type: Add
+      message: 'Локализация гост роли Шивы и Лайки. '
+  id: 127
+  time: '2024-12-25T23:54:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/198
+- author: PuroSlavKing
+  changes:
+    - type: Fix
+      message: >-
+        Исправлено отображение правил Медузы! У сервера снова есть правила,
+        1984.
+  id: 128
+  time: '2024-12-25T23:58:10.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/204
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Added event "Headcrab Invasion", a nest appears on the station,
+        spreading dangerous parasites throughout the station / Добавлен ивент
+        "Нашествие хедкрабов", на станции появляется гнездо, распространяющее
+        опасных паразитов по станции.
+  id: 129
+  time: '2024-12-27T03:51:15.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/190

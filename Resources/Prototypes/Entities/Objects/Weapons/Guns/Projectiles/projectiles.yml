@@ -413,10 +413,10 @@
     damage:
       types:
         Blunt: 25
-        Structural: 30
+        Structural: 20
   # Short lifespan
   - type: TimedDespawn
-    lifetime: 0.4
+    lifetime: 0.2 # WD EDIT / Actually short bullet, ~4 tiles.
 
 - type: entity
   id: BulletKineticShuttle

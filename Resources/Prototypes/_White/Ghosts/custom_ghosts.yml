@@ -110,6 +110,81 @@
   ghostName: Flowey
   ghostDescription: Собирает души забаненных игроков.
 
+#puroslavking
+- type: customGhost
+  id: puroslavking-ghost
+  ckey: PuroSlavKing
+  sprite: _White/Ghosts/puroslavking-ghost.rsi
+  alpha: 0.8
+  ghostName: PuroSlavKing
+  ghostDescription: Что за гомосексуалист на моём рабочем месте?
+
+#kilath
+- type: customGhost
+  id: kilath-ghost
+  ckey: Kilath
+  sprite: _White/Ghosts/kilath-ghost.rsi
+  alpha: 0.8
+  ghostName: LeaSzish
+  ghostDescription: Руками перья не смотреть!
+
+#gavrik
+- type: customGhost
+  id: gavrik-ghost
+  ckey: Gavrik
+  sprite: _White/Ghosts/gavrik-ghost.rsi
+  alpha: 0.8
+  ghostName: Gavrik
+  ghostDescription: Лучший в категории Поп
+
+#purka
+- type: customGhost
+  id: purka-ghost
+  ckey: PurplePi
+  sprite: _White/Ghosts/purka-ghost.rsi
+  alpha: 0.8
+  ghostName: Purka
+  ghostDescription: Следи за осанкой!
+
+#pzakusik
+- type: customGhost
+  id: pzakusik-ghost
+  ckey: PZAKusik
+  sprite: _White/Ghosts/pzakusik-ghost.rsi
+  alpha: 0.8
+  ghostName: Kutos
+  ghostDescription: ...
+
+#felix163
+- type: customGhost
+  id: felix163-ghost
+  ckey: felix163
+  sprite: _White/Ghosts/felix163-ghost.rsi
+  alpha: 1
+  ghostName: Кошмар
+  ghostDescription: ползёт, ползёт...
+  size: 0.8, 0.8
+
+#tokijumper
+- type: customGhost
+  id: tokijumper-ghost
+  ckey: TokiJumper
+  sprite: _White/Ghosts/headwiki-ghost.rsi
+  alpha: 1
+  ghostName: Toki
+  ghostDescription: Премудрый раб, прав не имеющий, в подвале мапперов содержащийся, лороведов упрашивающий, спрайтеров любящий, кокеров преследующий, космонавтиков боящийся глава Лороведов.
+  size: 0.8, 0.8
+
+#izeribak
+- type: customGhost
+  id: izeribak-ghost
+  ckey: IzeRibak
+  sprite: _White/Ghosts/headwiki-ghost.rsi
+  alpha: 1
+  ghostName: IzeRibak
+  ghostDescription: Премудрый царь, право имеющий, в подвале мапперов держащий, лороведов не спрашивающий, спрайтеров принижающий, кокерами повелевающий, космонавтиков травящий глава Викиводов.
+  size: 0.8, 0.8
+
 ##xivi
 #- type: customGhost
 #  id: xivi-ghost
@@ -157,16 +232,6 @@
 #  alpha: 0.8
 #  ghostName: Мона
 #  ghostDescription: Годротянка с хорошей задницей
-#  size: 0.8, 0.8
-#
-##felix
-#- type: customGhost
-#  id: felix163-ghost
-#  ckey: felix163
-#  sprite: _White/Ghosts/felix-ghost.rsi
-#  alpha: 1
-#  ghostName: Кошмар
-#  ghostDescription: ползёт, ползёт...
 #  size: 0.8, 0.8
 #
 ##doommax

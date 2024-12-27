@@ -53,9 +53,24 @@
     - type: StationEvent
       startAnnouncement: true
       weight: 5
-      duration: 10
+      duration: 5
       minimumPlayers: 30
-      earliestStart: 20
+      earliestStart: 25
       reoccurrenceDelay: 50
     - type: RandomSpawnRule
       prototype: SpawnPointGhostAlienLarva
+
+- type: entity
+  parent: BaseGameRule
+  id: HeadcrabInvasion
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: StationEvent
+      startAnnouncement: true
+      weight: 8
+      duration: 1
+      minimumPlayers: 15
+      earliestStart: 15
+      reoccurrenceDelay: 25
+    - type: RandomSpawnRule
+      prototype: SpawnHeadcrabNest

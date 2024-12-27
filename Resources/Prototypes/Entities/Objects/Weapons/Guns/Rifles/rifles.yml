@@ -15,7 +15,6 @@
     - Back
     - suitStorage
   - type: Wieldable
-  - type: GunRequiresWield
   - type: AmmoCounter
   - type: Gun
     fireRate: 5

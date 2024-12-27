@@ -1,0 +1,29 @@
+﻿- type: construction
+  id: TinyFan
+  name: tiny fan
+  description: A tiny fan, releasing a thin gust of air.
+  category: construction-category-utilities
+  graph: TinyFan
+  startNode: start
+  targetNode: tinyFan
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/tinyfan.rsi
+    state: icon
+
+- type: construction
+  id: FloorDrain
+  name: drain
+  description: Drains puddles around it. Useful for dumping mop buckets or keeping certain rooms clean.
+  category: construction-category-utilities
+  graph: FloorDrain
+  startNode: start
+  targetNode: floorDrain
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  icon:
+    sprite: Objects/Specific/Janitorial/drain.rsi
+    state: icon

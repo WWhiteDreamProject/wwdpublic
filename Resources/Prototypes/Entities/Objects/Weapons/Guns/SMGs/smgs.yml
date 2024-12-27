@@ -88,7 +88,7 @@
 
 - type: entity
   name: C-20r sub machine gun
-  parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
+  parent: [BaseWeaponSubMachineGun]
   id: WeaponSubMachineGunC20r
   description: Manufactured by Cybersun-Armaments, the C-20r is one of the most popular personal small-arms in the Coalition of Colonies. Uses .35 auto ammo.
   components:
@@ -101,13 +101,9 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
-  - type: Wieldable
-  - type: GunWieldBonus
-    minAngle: -19
-    maxAngle: -16
   - type: Gun
-    minAngle: 21
-    maxAngle: 32
+    minAngle: 2 # WD EDIT
+    maxAngle: 10 # WD EDIT
     shotsPerBurst: 5
     availableModes:
     - SemiAuto
@@ -135,7 +131,7 @@
 
 - type: entity
   name: Drozd
-  parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
+  parent: [BaseWeaponSubMachineGun]
   id: WeaponSubMachineGunDrozd
   description: An excellent fully automatic Heavy SMG.
   components:
@@ -148,13 +144,9 @@
           map: ["enum.GunVisualLayers.Mag"]
     - type: Clothing
       sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
-    - type: Wieldable
-    - type: GunWieldBonus
-      minAngle: -19
-      maxAngle: -16
     - type: Gun
-      minAngle: 21
-      maxAngle: 32
+      minAngle: 2 # WD EDIT
+      maxAngle: 14 # WD EDIT
       fireRate: 6
       selectedMode: FullAuto
       soundGunshot:
