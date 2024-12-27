@@ -692,7 +692,7 @@
   targetNode: dresser
   category: construction-category-furniture
   icon:
-    sprite: _White/Structures/Furniture/furniture.rsi
+    sprite: Structures/Furniture/furniture.rsi
     state: dresser
   objectType: Structure
   placementMode: SnapgridCenter
