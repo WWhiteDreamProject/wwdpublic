@@ -1214,3 +1214,14 @@ Entries:
   id: 128
   time: '2024-12-25T23:58:10.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/204
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: >-
+        Added event "Headcrab Invasion", a nest appears on the station,
+        spreading dangerous parasites throughout the station / Добавлен ивент
+        "Нашествие хедкрабов", на станции появляется гнездо, распространяющее
+        опасных паразитов по станции.
+  id: 129
+  time: '2024-12-27T03:51:15.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/190
