@@ -1,0 +1,121 @@
+# !!!THATS NEED FOR GUIDEBOOK!!!
+
+# XENOMORPH XRAY ICON
+- type: entity
+  parent: BaseItem
+  id: XenomorphXRayIcon
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Interface/Actions/xenomorph.rsi
+    state: vision_on
+
+# VOMIT ICON
+- type: entity
+  parent: BaseItem
+  id: VomitIcon
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Fluids/vomit.rsi
+    state: vomit-0
+
+# XENOMORPH PLASMA TRANSFER ICON
+- type: entity
+  parent: BaseItem
+  id: XenomorphPlasmaTransferIcon
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Interface/Actions/xenomorph.rsi
+    state: plasma_transfer_on
+
+# XENOMORPH TAIL ATTACK ICON
+- type: entity
+  parent: BaseItem
+  id: XenomorphTailAttackIcon
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Interface/Actions/xenomorph.rsi
+    state: tail_attack
+
+# XENOMORPH ROYAL LARVA ICON
+- type: entity
+  parent: BaseItem
+  id: XenomorphRoyalLarvaIcon
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Interface/Actions/xenomorph.rsi
+    state: alien_medal_active
+
+# XENOMORPH NEST ICON
+- type: entity
+  parent: BaseItem
+  id: XenomorphNestIcon
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Specific/Xenomorph/resin_nest.rsi
+    state: full
+
+# XENOMORPH MEMBRANE ICON
+- type: entity
+  parent: BaseItem
+  id: XenomorphMembraneIcon
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Windows/resin_membrane.rsi
+    state: full
+
+# XENOMORPH WALL ICON
+- type: entity
+  parent: BaseItem
+  id: XenomorphWallIcon
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Walls/resin.rsi
+    state: full
+
+# XENOMORPH JUMP ICON
+- type: entity
+  parent: BaseItem
+  id: XenomorphJumpIcon
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Interface/Actions/xenomorph.rsi
+    state: leap_off
+
+# XENOMORPH STALK ICON
+- type: entity
+  parent: BaseItem
+  id: XenomorphStalkIcon
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Interface/Actions/xenomorph.rsi
+    state: stalk_off
+
+# XENOMORPH GUNS ICON
+- type: entity
+  parent: BaseItem
+  id: XenomorphGunsIcon
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Misc/icons.rsi
+    state: xenomorph_guns
+
+# XENOMORPH FIRE ICON
+- type: entity
+  parent: BaseItem
+  id: XenomorphFireIcon
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Misc/icons.rsi
+    state: xenomorph_fire
