@@ -1,0 +1,9 @@
+- type: guideEntry
+  id: XenomorphHowToPlayCrew
+  name: howtoplay-name-xenomorph-crew
+  text: "/ServerInfo/_Ataraxia/Guidebook/Antagonist/Antagonist/Xenomorphs/HowToPlay/Crew.xml"
+
+- type: guideEntry
+  id: XenomorphHowToPlayXenomorph
+  name: howtoplay-name-xenomorph-xenomorph
+  text: "/ServerInfo/_Ataraxia/Guidebook/Antagonist/Antagonist/Xenomorphs/HowToPlay/Xenomorph.xml"

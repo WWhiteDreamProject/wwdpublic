@@ -1,0 +1,39 @@
+- type: guideEntry
+  id: XenomorphQueen
+  name: antagonist-name-xenomorph-queen
+  text: "/ServerInfo/_White/Guidebook/Antagonist/Xenomorphs/Xenomorphs/Evolutions/Queen.xml"
+
+- type: guideEntry
+  id: XenomorphPraetorian
+  name: antagonist-name-xenomorph-praetorian
+  text: "/ServerInfo/_White/Guidebook/Antagonist/Xenomorphs/Xenomorphs/Evolutions/Praetorian.xml"
+
+- type: guideEntry
+  id: XenomorphDrone
+  name: antagonist-name-xenomorph-drone
+  text: "/ServerInfo/_White/Guidebook/Antagonist/Xenomorphs/Xenomorphs/Evolutions/Drone.xml"
+
+- type: guideEntry
+  id: XenomorphHunter
+  name: antagonist-name-xenomorph-hunter
+  text: "/ServerInfo/_White/Guidebook/Antagonist/Xenomorphs/Xenomorphs/Evolutions/Hunter.xml"
+
+- type: guideEntry
+  id: XenomorphMaid
+  name: antagonist-name-xenomorph-maid
+  text: "/ServerInfo/_White/Guidebook/Antagonist/Xenomorphs/Xenomorphs/Evolutions/Maid.xml"
+
+- type: guideEntry
+  id: XenomorphSentinel
+  name: antagonist-name-xenomorph-sentinel
+  text: "/ServerInfo/_White/Guidebook/Antagonist/Xenomorphs/Xenomorphs/Evolutions/Sentinel.xml"
+
+- type: guideEntry
+  id: XenomorphFacehugger
+  name: antagonist-name-xenomorph-facehugger
+  text: "/ServerInfo/_White/Guidebook/Antagonist/Xenomorphs/Xenomorphs/Evolutions/Facehugger.xml"
+
+- type: guideEntry
+  id: XenomorphLarva
+  name: antagonist-name-xenomorph-larva
+  text: "/ServerInfo/_White/Guidebook/Antagonist/Xenomorphs/Xenomorphs/Evolutions/Larva.xml"
