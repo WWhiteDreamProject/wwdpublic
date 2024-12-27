@@ -13,32 +13,31 @@ public sealed partial class AlienEvolutionComponent : Component
     [DataField]
     public ProtoId<PolymorphPrototype> DronePolymorphPrototype = "AlienEvolutionDrone";
 
-    [DataField("droneEvolutionAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? DroneEvolutionAction = "ActionEvolveDrone";
 
-    [DataField("droneEvolutionActionEntity")]
+    [DataField]
     public EntityUid? DroneEvolutionActionEntity;
 
     [DataField]
     public ProtoId<PolymorphPrototype> SentinelPolymorphPrototype = "AlienEvolutionSentinel";
 
-    [DataField("sentinelEvolutionAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? SentinelEvolutionAction = "ActionEvolveSentinel";
 
-    [DataField("sentinelEvolutionActionEntity")]
+    [DataField]
     public EntityUid? SentinelEvolutionActionEntity;
 
     [DataField]
     public ProtoId<PolymorphPrototype> HunterPolymorphPrototype = "AlienEvolutionHunter";
 
-    [DataField("hunterEvolutionAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? HunterEvolutionAction = "ActionEvolveHunter";
 
-    [DataField("hunterEvolutionActionEntity")]
+    [DataField]
     public EntityUid? HunterEvolutionActionEntity;
 
-    [DataField("evolutionCooldown")]
+    [DataField]
     public TimeSpan EvolutionCooldown;
-
 
 }

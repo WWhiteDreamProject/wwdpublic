@@ -16,30 +16,30 @@ public sealed partial class AlienComponent : Component
 {
     // Actions
 
-    [DataField("devourAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? DevourAction = "ActionDevour";
 
     /// <summary>
     /// This will subtract (not add, don't get this mixed up) from the current plasma of the mob making node.
     /// </summary>
-    [DataField("plasmaCostNode")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     [AutoNetworkedField]
     public float PlasmaCostNode = 50f;
 
     /// <summary>
     /// The node prototype to use.
     /// </summary>
-    [DataField("nodePrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string WeednodePrototype = "ResinWeedNode";
 
-    [DataField("nodeAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? WeednodeAction = "ActionResinNode";
 
     [DataField]
     public string Caste;
 
-    [DataField("nodeActionEntity")] public EntityUid? WeednodeActionEntity;
+    [DataField]
+    public EntityUid? WeednodeActionEntity;
 
     [DataField(required: true)]
     public DamageSpecifier WeedHeal;

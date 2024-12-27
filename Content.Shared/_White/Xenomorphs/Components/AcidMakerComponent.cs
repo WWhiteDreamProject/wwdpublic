@@ -13,8 +13,7 @@ public sealed partial class AcidMakerComponent : Component
     /// <summary>
     /// The text that pops up whenever making acid fails for not having enough plasma.
     /// </summary>
-    [DataField("popupText")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     [AutoNetworkedField]
     public string PopupText = "alien-action-fail-plasma";
 
@@ -22,7 +21,6 @@ public sealed partial class AcidMakerComponent : Component
     /// What will be produced at the end of the action.
     /// </summary>
     [DataField(required: true)]
-    [ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public EntProtoId EntityProduced;
 
@@ -30,19 +28,17 @@ public sealed partial class AcidMakerComponent : Component
     /// The entity needed to actually make acid. This will be granted (and removed) upon the entity's creation.
     /// </summary>
     [DataField(required: true)]
-    [ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public EntProtoId Action;
 
+    [DataField]
     [AutoNetworkedField]
-    [DataField("actionEntity")]
     public EntityUid? ActionEntity;
 
     /// <summary>
     /// This will subtract (not add, don't get this mixed up) from the current plasma of the mob making acid.
     /// </summary>
-    [DataField("plasmaCost")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     [AutoNetworkedField]
     public float PlasmaCost = 300f;
 

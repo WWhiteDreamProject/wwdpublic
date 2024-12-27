@@ -6,10 +6,7 @@ namespace Content.Client.Aliens;
 /// This is used for...
 /// </summary>
 [RegisterComponent]
-public sealed partial class JumpVisualsComponent : Component
-{
-
-}
+public sealed partial class JumpVisualsComponent : Component;
 
 public enum JumpLayers : byte
 {

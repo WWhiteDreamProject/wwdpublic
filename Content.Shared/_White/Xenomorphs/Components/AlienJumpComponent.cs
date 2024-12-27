@@ -11,27 +11,22 @@ namespace Content.Shared.Aliens.Components;
 [RegisterComponent]
 public sealed partial class AlienJumpComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId Action = "ActionJumpAlien";
 
-    [DataField("actionEntity")]
+    [DataField]
     public EntityUid? ActionEntity;
 
     [DataField]
     public float JumpTime = 1f;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("jumpSprite")]
+    [DataField]
     public ResPath JumpSprite { get; set; }
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("sprite")]
+    [DataField]
     public ResPath Sprite { get; set; }
 
-    [ViewVariables]
     public SpriteSpecifier? OldSprite;
 
-    [ViewVariables]
     public bool Hit = false;
 }
 

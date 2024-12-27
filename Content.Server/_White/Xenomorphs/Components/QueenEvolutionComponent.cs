@@ -13,13 +13,12 @@ public sealed partial class QueenEvolutionComponent : Component
     [DataField]
     public ProtoId<PolymorphPrototype> QueenPolymorphPrototype = "AlienEvolutionQueen";
 
-    [DataField("queenEvolutionAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? QueenEvolutionAction = "ActionEvolveQueen";
 
-    [DataField("queenEvolutionActionEntity")]
+    [DataField]
     public EntityUid? QueenEvolutionActionEntity;
 
-    [DataField("plasmaCost")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public float PlasmaCost = 490f;
 }

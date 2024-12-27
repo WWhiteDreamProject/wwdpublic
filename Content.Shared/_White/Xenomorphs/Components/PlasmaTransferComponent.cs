@@ -9,10 +9,9 @@ namespace Content.Shared.Aliens.Components;
 [RegisterComponent]
 public sealed partial class PlasmaTransferComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId Action = "ActionAlienTransferPlasma";
 
-    [DataField("actionEntity")]
+    [DataField]
     public EntityUid? ActionEntity;
 
     [DataField]
@@ -20,5 +19,3 @@ public sealed partial class PlasmaTransferComponent : Component
 }
 
 public sealed partial class TransferPlasmaActionEvent : EntityTargetActionEvent { }
-
-

@@ -14,13 +14,13 @@ public sealed partial class InsideAlienLarvaComponent : Component
     [DataField]
     public ProtoId<PolymorphPrototype> PolymorphPrototype = "AlienEvolutionGrowStageTwo";
 
-    [DataField("EvolutionAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? EvolutionAction = "ActionLarvaGrow";
 
-    [DataField("EvolutionActionEntity")]
+    [DataField]
     public EntityUid? EvolutionActionEntity;
 
-    [DataField("evolutionCooldown")]
+    [DataField]
     public TimeSpan EvolutionCooldown = TimeSpan.Zero;
 
     public bool IsGrown;

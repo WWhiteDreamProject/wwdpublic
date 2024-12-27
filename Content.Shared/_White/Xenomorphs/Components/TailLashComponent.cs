@@ -11,10 +11,11 @@ namespace Content.Shared.Aliens.Components;
 [RegisterComponent]
 public sealed partial class TailLashComponent : Component
 {
-    [DataField("tailLashAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? TailLashAction = "ActionTailLash";
 
-    [DataField("tailLashActionEntity")] public EntityUid? TailLashActionEntity;
+    [DataField]
+    public EntityUid? TailLashActionEntity;
 
     [DataField]
     public float LashRange = 2f;
@@ -25,7 +26,7 @@ public sealed partial class TailLashComponent : Component
     [DataField]
     public int Cooldown = 15;
 
-    [DataField("disarmSuccessSound")]
+    [DataField]
     public SoundSpecifier LashSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg");
 }
 

@@ -8,7 +8,4 @@ namespace Content.Shared.Aliens.Components;
 /// This is used for...
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class ShowInfectedIconsComponent : Component
-{
-
-}
+public sealed partial class ShowInfectedIconsComponent : Component;

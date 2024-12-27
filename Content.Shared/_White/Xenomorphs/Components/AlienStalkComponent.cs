@@ -10,16 +10,15 @@ namespace Content.Shared.Aliens.Components;
 public sealed partial class AlienStalkComponent : Component
 {
 
-    [DataField("stalkAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? StalkAction = "ActionStalkAlien";
 
-    [DataField("stalkActionEntity")]
+    [DataField]
     public EntityUid? StalkActionEntity;
 
     [DataField]
     public int PlasmaCost = 5;
 
-    [ViewVariables]
     public bool IsActive;
 
     public float Sprint;
