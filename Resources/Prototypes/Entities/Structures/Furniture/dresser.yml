@@ -5,8 +5,8 @@
   description: Wooden dresser, can store things inside itself, ideal for underwear, and someone's kidneys?...
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/furniture.rsi
-    noRot: True
+    sprite: Structures/Furniture/furniture.rsi
+    noRot: True # WD EDIT
     state: dresser
   - type: Damageable
     damageModifierSet: Wood
