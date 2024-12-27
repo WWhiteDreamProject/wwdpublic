@@ -254,6 +254,8 @@
     - type: Emoting
     - type: BodyEmotes
       soundsId: GeneralBodyEmotes
+    - type: Inventory
+      templateId: larva
     - type: LizardAccent
     - type: ZombieImmune
     - type: Sprite

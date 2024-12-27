@@ -5,19 +5,24 @@ using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
+using Content.Server.Popups;
 using Content.Shared.Aliens.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Part;
+using Content.Shared.Popups;
 using Content.Shared.Damage;
 using Content.Shared.Ghost.Roles;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Random;
+using Robust.Shared.Player;
 using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using FastAccessors;
 using Robust.Shared.Containers;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using AlienInfectedComponent = Content.Shared.Aliens.Components.AlienInfectedComponent;
@@ -33,6 +38,9 @@ public sealed class AlienInfectedSystem : EntitySystem
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
@@ -72,14 +80,22 @@ public sealed class AlienInfectedSystem : EntitySystem
             {
                 _container.EmptyContainer(infected.Stomach);
                 _entityManager.RemoveComponent<AlienInfectedComponent>(uid);
+                _mobStateSystem.ChangeMobState(uid, MobState.Dead);
+                _damageable.TryChangeDamage(uid, infected.BurstDamage, true, false); // TODO: Only torso damage
+                _popup.PopupClient(Loc.GetString("larva-burst-entity"),
+                    uid, PopupType.LargeCaution);
+                _popup.PopupEntity(Loc.GetString("larva-burst-entity-other"),
+                    uid, PopupType.MediumCaution);
             }
 
-            if (infected.GrowthStage == 5)
+            if (infected.GrowthStage == 6)
             {
                 var larva = Spawn(infected.Prototype, Transform(uid).Coordinates);
                 _container.Insert(larva, infected.Stomach);
                 infected.SpawnedLarva = larva;
                 infected.GrowthStage++;
+                _popup.PopupClient(Loc.GetString("larva-inside-entity"),
+                    uid, PopupType.Medium);
             }
 
             if (_random.Prob(infected.GrowProb))

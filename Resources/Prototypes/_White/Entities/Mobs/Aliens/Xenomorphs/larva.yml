@@ -1,17 +1,24 @@
 - type: entity
-  parent: MobAlienLarva # Larva that is inside of it's owner
-  id: MobAlienLarvaInside
+  id: MobAlienLarvaInside # Larva that is inside of it's owner
   categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: larva0
+  - type: NpcFactionMember
+    factions:
+      - Xeno
   - type: TimedPolymorph
+    polymorphPrototype: AlienEvolutionGrowStageTwo
     enabled: false
   - type: InsideAlienLarva
     evolutionCooldown: 5
   - type: GhostTakeoverAvailable
   - type: GhostRole
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: true
+    allowSpeech: false
     name: ghost-role-information-alien-larva-name
     description: ghost-role-information-alien-larva-inside-description
     raffle:
