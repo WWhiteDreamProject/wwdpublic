@@ -474,11 +474,13 @@
   name: christmas tree
   components:
   - type: Sprite
+    # WD EDIT START
     layers:
     - state: christmastree
     - state: glow
       shader: unshaded
     - state: presents
+    # WD EDIT END
   - type: Fixtures
     fixtures:
       fix1:
