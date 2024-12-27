@@ -458,12 +458,14 @@
   name: christmas tree
   components:
   - type: Sprite
+    # WD EDIT START
     noRot: true
     sprite: _White/Objects/Decoration/Flora/christmastree.rsi
     layers:
     - state: christmastree
     - state: glow
       shader: unshaded
+    # WD EDIT END
 
 - type: entity
   parent: FloraTreeChristmas01
