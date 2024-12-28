@@ -444,7 +444,7 @@
 - type: trait
   id: BionicArm
   category: Physical
-  points: -8
+  points: -6 # WWDP-Edit
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -456,7 +456,7 @@
       components:
         - type: Prying
           speedModifier: 1
-          pryPowered: true
+          pryPowered: false # WWDP-Edit
     - !type:TraitPushDescription
       descriptionExtensions:
         - description: examine-bionic-arm-message
