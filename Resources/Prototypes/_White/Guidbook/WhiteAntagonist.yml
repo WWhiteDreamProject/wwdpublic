@@ -1,8 +1,0 @@
-# ANTAGONIST
-
-- type: guideEntry
-  id: WhiteAntagonist
-  name: guide-entry-antagonist
-  text: "/ServerInfo/_White/Guidebook/Antagonist/Antagonist.xml"
-  children:
-    - Xenomorphs
