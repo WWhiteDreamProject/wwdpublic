@@ -1814,7 +1814,7 @@
         gibContents: Skip
         recursive: false
   # WD EDIT END
-  -
+
 - type: entity
   parent: MobMouse
   suffix: Dead
