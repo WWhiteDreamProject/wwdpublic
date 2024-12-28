@@ -84,7 +84,7 @@ public partial class ChatSystem
         bool ignoreActionBlocker = false
         )
     {
-        if (_whitelistSystem.IsWhitelistFailOrNull(emote.Whitelist, source) || _whitelistSystem.IsBlacklistPass(emote.Blacklist, source))
+        if (!_whitelistSystem.IsWhitelistPassOrNull(emote.Whitelist, source) || _whitelistSystem.IsBlacklistPass(emote.Blacklist, source)) // WD EDIT
             return;
 
         if (!emote.Available &&

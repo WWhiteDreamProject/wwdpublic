@@ -19,6 +19,13 @@
                     <Control MinSize="4 0" />
                     <OptionButton Name="HudLayoutOption" />
                 </BoxContainer>
+                <!--WD EDIT START-->
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="{Loc 'ui-options-emotes-menu'}" />
+                    <Control MinSize="4 0" />
+                    <OptionButton Name="EmotesMenuType" />
+                </BoxContainer>
+                <!--WD EDIT END-->
                 <Label Text="{Loc 'ui-options-general-accessibility'}"
                        FontColorOverride="{xNamespace:Static s:StyleNano.NanoGold}"
                        StyleClasses="LabelKeyText"/>

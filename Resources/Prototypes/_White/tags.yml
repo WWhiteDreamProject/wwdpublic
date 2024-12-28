@@ -15,3 +15,12 @@
 
 - type: Tag
   id: GlassesNearsight
+
+- type: Tag
+  id: Dog
+
+- type: Tag
+  id: Bird
+
+- type: Tag
+  id: Cat

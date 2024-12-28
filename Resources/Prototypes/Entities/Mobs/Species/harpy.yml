@@ -114,6 +114,7 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+    - Bird # WD EDIT
   - type: LanguageKnowledge
     speaks:
     - TauCetiBasic

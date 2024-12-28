@@ -84,6 +84,11 @@
         - Landmine
         - Mousetrap
         - SlipEntity
+  # WD EDIT START
+  - type: Tag
+    tags:
+    - Cat
+  # WD EDIT END
 
 - type: entity
   save: false

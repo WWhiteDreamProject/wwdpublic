@@ -116,6 +116,11 @@
     drinkDelayMultiplier: 0.5
   - type: Flammable
     fireStackIncreaseMultiplier: 1.25
+  # WD EDIT START
+  - type: Tag
+    tags:
+    - Dog
+  # WD EDIT END
 
 - type: entity
   save: false

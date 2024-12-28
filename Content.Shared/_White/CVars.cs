@@ -27,6 +27,9 @@ public sealed class WhiteCVars
     public static readonly CVarDef<bool> LogInChat =
         CVarDef.Create("white.log_in_chat", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
 
+    public static readonly CVarDef<string> EmotesMenuStyle =
+        CVarDef.Create("white.emotes_menu_style", "Window", CVar.CLIENT | CVar.ARCHIVE);
+
     #endregion
 
     #region TTS

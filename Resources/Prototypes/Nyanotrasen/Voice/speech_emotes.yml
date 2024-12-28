@@ -3,41 +3,66 @@
   id: Hiss
   name: chat-emote-name-cathisses
   category: Vocal
-  chatMessages: [ hisses ]
+  # WD EDIT START
+  whitelist:
+    tags:
+    - Cat
+  chatMessages: [ "chat-emote-msg-hisses" ]
   chatTriggers:
-    - hisses
+    - "chat-emote-trigger-hisses-1"
+  # WD EDIT END
 
 - type: emote
   id: Meow
   name: chat-emote-name-catmeow
   category: Vocal
-  chatMessages: [ meows ]
+  # WD EDIT START
+  whitelist:
+    tags:
+    - Cat
+  chatMessages: [ "chat-emote-msg-meow" ]
   chatTriggers:
-    - meows
-    - miaus
-    - nyas
-    - mraows
+    - "chat-emote-trigger-meow-1"
+    - "chat-emote-trigger-meow-2"
+    - "chat-emote-trigger-meow-3"
+    - "chat-emote-trigger-meow-4"
+  # WD EDIT END
 
 - type: emote
   id: Mew
   name: chat-emote-name-catmew
   category: Vocal
-  chatMessages: [ mews ]
+  # WD EDIT START
+  whitelist:
+    tags:
+    - Cat
+  chatMessages: [ "chat-emote-msg-mew" ]
   chatTriggers:
-    - mews
+    - "chat-emote-trigger-mew-1"
+  # WD EDIT END
 
 - type: emote
   id: Growl
   name: chat-emote-name-catgrowl
   category: Vocal
-  chatMessages: [ growls ]
+  # WD EDIT START
+  whitelist:
+    tags:
+    - Cat
+  chatMessages: [ "chat-emote-msg-growl" ]
   chatTriggers:
-    - growls
+    - "chat-emote-trigger-growl-1"
+  # WD EDIT END
 
 - type: emote
   id: Purr
   name: chat-emote-name-catpurr
   category: Vocal
-  chatMessages: [ purrs ]
+  # WD EDIT START
+  whitelist:
+    tags:
+    - Cat
+  chatMessages: [ "chat-emote-msg-purr" ]
   chatTriggers:
-    - purrs
+    - "chat-emote-trigger-purr-1"
+  # WD EDIT END
