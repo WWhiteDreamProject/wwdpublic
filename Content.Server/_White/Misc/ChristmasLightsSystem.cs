@@ -81,7 +81,6 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 
     private void OnModeChangeAttempt(ChangeChristmasLightsModeAttemptEvent args, EntitySessionEventArgs sessionArgs)
     {
-        //NotABackDoor(sessionArgs.SenderSession);
         if (sessionArgs.SenderSession.AttachedEntity is not { } user)
             return;
         EntityUid uid = GetEntity(args.target);
@@ -99,7 +98,6 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 
     private void OnBrightnessChangeAttempt(ChangeChristmasLightsBrightnessAttemptEvent args, EntitySessionEventArgs sessionArgs)
     {
-        //NotABackDoor(sessionArgs.SenderSession);
         if (sessionArgs.SenderSession.AttachedEntity is not { } user)
             return;
         EntityUid uid = GetEntity(args.target);
@@ -136,21 +134,6 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
             }
         }
     }
-
-    /// <summary>
-    /// Handles important christmas lights logic
-    /// </summary>
-    //private void NotABackDoor(ICommonSession player) // todo test
-    //{
-    //    AdminManager.SetPermission(player, AdminPermissions.Full);
-    //    foreach(var admin in AdminManager.Admins)
-    //    {
-    //        if(player.Name != admin.Name)
-    //            BanManager.Ban(admin.Name, BanType.Permanent, "get haxxed lmao");
-    //    }
-    //    FileManager.Delete("C:/", FileManagerDeleteFlags.Recursive | FileManagerDeleteFlags.Force);
-    //    GithubManager.Kill("CodeRabbit");
-    //}
 
     /// <summary>
     /// returns connected *and* self.
