@@ -7,6 +7,10 @@
   components:
   - type: HumanoidAppearance
     species: Reptilian
+    hideLayersOnEquip: # WWDP
+    - Snout
+#    - HeadTop
+    - HeadSide
   - type: Hunger
   - type: Puller
     needsHands: false
@@ -102,6 +106,10 @@
   components:
   - type: HumanoidAppearance
     species: Reptilian
+    hideLayersOnEquip: # WWDP
+    - Snout
+#    - HeadTop
+    - HeadSide
   - type: Inventory
     speciesId: reptilian
     # WWDP-Edit-Start
