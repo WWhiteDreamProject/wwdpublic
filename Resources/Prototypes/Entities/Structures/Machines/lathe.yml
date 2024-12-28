@@ -596,7 +596,6 @@
     - SolarControlComputerCircuitboard
     - SolarTrackerElectronics
     - TurboItemRechargerCircuitboard
-    - PowerComputerCircuitboard
     - AlertsComputerCircuitboard
     - AutolatheHyperConvectionMachineCircuitboard
     - ProtolatheHyperConvectionMachineCircuitboard
