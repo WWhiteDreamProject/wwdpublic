@@ -82,8 +82,6 @@ public sealed class SharedFacehuggerSystem : EntitySystem
                 continue;
             _inventory.TryUnequip(entity.Value, "mask", true);
             _inventory.TryEquip(entity.Value, entity.Key, "mask", true);
-
-
         }
     }
 }

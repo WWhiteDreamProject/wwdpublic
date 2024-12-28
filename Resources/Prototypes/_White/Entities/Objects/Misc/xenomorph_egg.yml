@@ -13,6 +13,7 @@
     - type: Icon
       sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
     - type: Sprite
+      drawdepth: FloorObjects
       noRot: true
       sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
     - type: Transform

@@ -6,6 +6,7 @@ using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
 using Content.Server.Popups;
+using Content.Server.Jittering;
 using Content.Shared.Aliens.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
@@ -43,6 +44,7 @@ public sealed class AlienInfectedSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly JitteringSystem _jittering = default!;
 
     public override void Initialize()
     {
@@ -94,6 +96,7 @@ public sealed class AlienInfectedSystem : EntitySystem
                 _container.Insert(larva, infected.Stomach);
                 infected.SpawnedLarva = larva;
                 infected.GrowthStage++;
+                _jittering.DoJitter(uid, TimeSpan.FromSeconds(8), true);
                 _popup.PopupClient(Loc.GetString("larva-inside-entity"),
                     uid, PopupType.Medium);
             }

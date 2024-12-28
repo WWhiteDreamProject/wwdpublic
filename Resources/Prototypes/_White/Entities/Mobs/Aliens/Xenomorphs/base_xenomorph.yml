@@ -120,12 +120,7 @@
         types:
           Structural: 10
     - type: DamageStateVisuals
-      rotate: true
-#    - type: Butcherable
-#      butcheringType: knife
-#      spawned:
-#        - id: FoodMeatXeno
-#          amount: 5
+      rotate: false
     - type: RotationVisuals
       defaultRotation: 90
       horizontalRotation: 90
@@ -227,7 +222,7 @@
   description: Little and harmless alien
   components:
     - type: ThermalVision
-      toggleAction: ActionXenomorphVision
+      toggleAction: null
       color: "#00000000"
     - type: NightVision
       toggleAction: ActionXenomorphVision
@@ -297,7 +292,6 @@
         25: Dead
       stateAlertDict:
         Alive: AlienHealth
-        Critical: AlienCrit
         Dead: AlienDead
     - type: MovementSpeedModifier
       baseWalkSpeed : 2
@@ -306,8 +300,6 @@
       states:
         Alive:
           Base: larva0
-        Critical:
-          Base: larva0_stun
         Dead:
           Base: larva0_dead
     - type: CombatMode
@@ -354,46 +346,38 @@
 - type: entity
   parent:
   - BaseItem
+  - BaseMob
+  - MobDamageable
+  - MobFlammable
   id: BaseFacehugger
   abstract: true
   components:
   - type: Sprite
+    drawdepth: SmallMobs
     sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: facehugger
   - type: Item
     sprite: _White/Mobs/Aliens/Xenomorphs/facehugger_inhands.rsi
     size: Small
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Xenomorph
-  - type: Destructible
+  - type: MobState
+  - type: MobThresholds
     thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 25
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawnInContainer: true
-        spawn:
-          FacehuggerInactive:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Heat
-        damage: 50
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawnInContainer: true
-        spawn:
-          FacehuggerInactive:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: Physics
+      0: Alive
+      25: Dead
+    stateAlertDict:
+      Alive: AlienHealth
+      Dead: AlienDead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: facehugger
+      Dead:
+        Base: facehugger_impregnated
   - type: Fixtures
     fixtures:
       fix1:
@@ -405,7 +389,6 @@
         - SmallMobMask
         layer:
         - BulletImpassable
-  - type: MobState
   - type: Tag
     tags:
     - AlienItem

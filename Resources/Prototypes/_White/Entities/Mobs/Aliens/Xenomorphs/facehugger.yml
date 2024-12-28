@@ -5,23 +5,8 @@
   name: alien
   description: It has some sort of a tube at the end of its tail. It seems to be active!
   components:
-  - type: Sprite
-    state: facehugger
   - type: Facehugger
     range: 1
-
-- type: entity
-  parent:
-  - BaseFacehugger
-  id: FacehuggerInactive
-  name: alien
-  description: It has some sort of a tube at the end of its tail. It doesn't seem active.
-  suffix: Inactive
-  components:
-    - type: Sprite
-      state: facehugger_impregnated
-    - type: StaticPrice
-      price: 269
 
 - type: entity
   parent:
@@ -29,6 +14,35 @@
   id: FacehuggerLamarr
   name: Lamarr
   description: It has some sort of a tube at the end of its tail, but it doesn't seem, like it can use it.
+
+- type: entity
+  parent:
+  - BaseItem
+  id: FacehuggerInactive
+  name: alien
+  description: It has some sort of a tube at the end of its tail. It doesn't seem active.
+  suffix: Inactive
   components:
-  - type: Sprite
-    state: facehugger
+    - type: Sprite
+      sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+      state: facehugger_impregnated
+    - type: Item
+      sprite: _White/Mobs/Aliens/Xenomorphs/facehugger_inhands.rsi
+      size: Small
+    - type: Clothing
+      sprite: _White/Clothing/Mask/facehugger.rsi
+      slots:
+      - Mask
+    - type: BreathMask
+    - type: Blindfold
+    - type: GuideHelp
+      guides:
+      - XenomorphFacehugger
+    - type: Tag
+      tags:
+      - AlienItem
+      - WhitelistChameleon
+      - MonkeyWearable
+      - PetWearable
+    - type: StaticPrice
+      price: 269
