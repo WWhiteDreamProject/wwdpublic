@@ -48,6 +48,25 @@
     - Nekomimetic
   - type: PotentiaModifier
     potentiaMultiplier: 0.5
+  # WD EDIT START
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: jumpsuit
+      shoes-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: shoes
+      gloves-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: gloves
+  # WD EDIT END
 
 - type: entity
   save: false
@@ -56,3 +75,23 @@
   id: MobOniDummy
   categories: [ HideSpawnMenu ]
   description: A dummy oni meant to be used in character setup.
+  components:
+  # WD EDIT START
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: jumpsuit
+      shoes-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: shoes
+      gloves-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: gloves
+  # WD EDIT END
