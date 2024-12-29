@@ -1248,3 +1248,18 @@ Entries:
   id: 132
   time: '2024-12-29T17:39:21.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/220
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        Время До возможности переродится теперь может показывать секунды, если
+        осталось меньше минуты 
+    - type: Fix
+      message: Время смерти призрака при осмотре теперь показывается правильно
+    - type: Fix
+      message: Время до возрождения теперь не сбрасывается при возвращении в тело
+    - type: Fix
+      message: 'Время до возрождения теперь должно быть корректным '
+  id: 133
+  time: '2024-12-29T17:40:11.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/219
