@@ -1232,3 +1232,12 @@ Entries:
   id: 130
   time: '2024-12-29T06:08:37.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/216
+- author: PuroSlavKing
+  changes:
+    - type: Tweak
+      message: >-
+        Изменено веселье. Трейт бионической руки больше не вскрывает шлюзы с
+        питанием, только обесточенные. Так же цена бионической руки 8 > 6 очков.
+  id: 131
+  time: '2024-12-29T06:11:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/214
