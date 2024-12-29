@@ -36,6 +36,12 @@
   chatMessages: [ "chat-emote-msg-monkeyscreeches" ]
 
 - type: emote
+  id: RobotBeep
+  name: chat-emote-name-robotbeep
+  category: Vocal
+  chatMessages: [ "chat-emote-msg-beep" ]
+
+- type: emote
   id: Yawn
   name: chat-emote-name-yawn
   icon: Interface/Emotes/yawn.png

@@ -12,9 +12,9 @@
       collection: MaleSneezes
     Cough:
       collection: MaleCoughs
-    CatMeow:
+    Meow:
       collection: CatMeows
-    CatHisses:
+    Hisses:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
@@ -48,9 +48,9 @@
       collection: FemaleSneezes
     Cough:
       collection: FemaleCoughs
-    CatMeow:
+    Meow:
       collection: CatMeows
-    CatHisses:
+    Hisses:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
@@ -120,9 +120,9 @@
       collection: MaleSneezes
     Cough:
       collection: MaleCoughs
-    CatMeow:
+    Meow:
       collection: CatMeows
-    CatHisses:
+    Hisses:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
@@ -158,9 +158,9 @@
       collection: FemaleSneezes
     Cough:
       collection: FemaleCoughs
-    CatMeow:
+    Meow:
       collection: CatMeows
-    CatHisses:
+    Hisses:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
@@ -319,9 +319,9 @@
       collection: MaleSneezes
     Cough:
       collection: MaleCoughs
-    CatMeow:
+    Meow:
       collection: CatMeows
-    CatHisses:
+    Hisses:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
@@ -356,9 +356,9 @@
       collection: FemaleSneezes
     Cough:
       collection: FemaleCoughs
-    CatMeow:
+    Meow:
       collection: CatMeows
-    CatHisses:
+    Hisses:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
@@ -553,11 +553,11 @@
       path: /Audio/Voice/IPC/pai_whistle.ogg
       params:
         variation: 0.125
-    CatMeow:
+    Meow:
       collection: CatMeows
       params:
         variation: 0.125
-    CatHisses:
+    Hisses:
       collection: CatHisses
       params:
         variation: 0.125

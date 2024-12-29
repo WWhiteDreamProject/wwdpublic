@@ -48,6 +48,7 @@
   whitelist:
     components:
     - BorgChassis # WD EDIT
+    - Silicon # WD EDOT
   chatTriggers:
   - "chat-emote-trigger-honk-1" # WD EDIT
 
@@ -231,6 +232,7 @@
   blacklist:
     components:
     - BorgChassis
+    - Silicon
   # WD EDIT END
   chatMessages: ["chat-emote-msg-deathgasp"]
   chatTriggers:
@@ -250,6 +252,7 @@
   whitelist:
     components:
     - BorgChassis
+    - Silicon
   # WD EDIT END
   chatMessages: ["chat-emote-msg-deathgasp-silicon"]
   chatTriggers:
@@ -263,6 +266,7 @@
   whitelist:
     components:
     - BorgChassis
+    - Silicon # WD EDIT
   chatMessages: ["chat-emote-msg-buzz"]
   chatTriggers:
   - "chat-emote-trigger-buzz-1" # WD EDIT
@@ -295,6 +299,7 @@
   whitelist:
     components:
     - BorgChassis
+    - Silicon # WD EDIT
   chatMessages: ["chat-emote-msg-beep"]
   chatTriggers:
   - "chat-emote-trigger-beep-1" # WD EDIT
@@ -307,6 +312,7 @@
   whitelist:
     components:
     - BorgChassis
+    - Silicon
   chatMessages: [ "chat-emote-msg-boop-1" ]
   # WD EDIT END
   chatTriggers:
@@ -320,6 +326,7 @@
   whitelist:
     components:
     - BorgChassis
+    - Silicon # WD EDIT
   chatMessages: ["chat-emote-msg-chime"]
   chatTriggers:
   - "chat-emote-trigger-chime-1" # WD EDIT
@@ -332,6 +339,7 @@
   whitelist:
     components:
     - BorgChassis
+    - Silicon # WD EDIT
   chatMessages: ["chat-emote-msg-buzzestwo"]
   chatTriggers:
   - "chat-emote-trigger-buzz-two-1" # WD EDIT
@@ -344,6 +352,7 @@
   whitelist:
     components:
     - BorgChassis
+    - Silicon # WD EDIT
   chatMessages: ["chat-emote-msg-ping"]
   chatTriggers:
   - "chat-emote-trigger-ping-1" # WD EDIT
@@ -355,6 +364,7 @@
   whitelist:
     components:
     - BorgChassis
+    - Silicon
   chatMessages: ["chat-emote-msg-whirr"]
   # WD EDIT END
   chatTriggers:
