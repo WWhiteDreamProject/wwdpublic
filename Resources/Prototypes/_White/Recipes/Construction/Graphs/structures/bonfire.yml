@@ -1,0 +1,45 @@
+- type: constructionGraph
+  id: Bonfires
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: Bonfire
+          steps:
+            - material: WoodPlank
+              amount: 25
+              doAfter: 15
+        - to: LegionnaireBonfire
+          steps:
+            - material: WoodPlank
+              amount: 25
+              doAfter: 15
+            - tag: Head
+              name: любая голова
+              icon:
+                sprite: Mobs/Species/Skeleton/parts.rsi
+                state: skull_icon
+
+    - node: Bonfire
+      entity: Bonfire
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank10
+          steps:
+            - tool: Screwing
+              doAfter: 20
+
+    - node: LegionnaireBonfire
+      entity: LegionnaireBonfire
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank10
+          steps:
+            - tool: Screwing
+              doAfter: 20
