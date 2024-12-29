@@ -1274,3 +1274,10 @@ Entries:
   id: 134
   time: '2024-12-29T17:41:03.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/212
+- author: Spatison
+  changes:
+    - type: Fix
+      message: С мышей и тараканов больше не выпадают органы
+  id: 135
+  time: '2024-12-29T17:44:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/213
