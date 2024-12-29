@@ -1,6 +1,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
+using Content.Server.Mind;
 using Content.Shared.Database;
 using Content.Shared.CCVar;
 using Content.Shared.Ghost;
@@ -13,6 +14,8 @@ namespace Content.Server.Ghost;
 
 public sealed class GhostReturnToRoundSystem : EntitySystem
 {
+    [Dependency] private readonly MindSystem _mindSystem = default!; // WD EDIT
+
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -57,6 +60,10 @@ public sealed class GhostReturnToRoundSystem : EntitySystem
         }
 
         var deathTime = EnsureComp<GhostComponent>(uid).TimeOfDeath;
+        // WD EDIT START
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.TimeOfDeath.HasValue)
+            deathTime = mind.TimeOfDeath.Value;
+        // WD EDIT END
         var timeUntilRespawn = _cfg.GetCVar(CCVars.GhostRespawnTime);
         var timePast = (_gameTiming.CurTime - deathTime).TotalMinutes;
         if (timePast >= timeUntilRespawn)
