@@ -399,6 +399,7 @@
       behaviors:
       - !type:GibBehavior
         gibContents: Skip
+        recursive: false # WD EDIT
   - type: NonSpreaderZombie
   - type: LanguageKnowledge
     speaks: [Hissing]
@@ -1801,6 +1802,18 @@
     interfaces:
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
+  # WD EDIT START
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 100
+      behaviors:
+      - !type:GibBehavior
+        gibContents: Skip
+        recursive: false
+  # WD EDIT END
 
 - type: entity
   parent: MobMouse
