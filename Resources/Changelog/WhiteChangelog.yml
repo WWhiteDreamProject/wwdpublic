@@ -1263,3 +1263,14 @@ Entries:
   id: 133
   time: '2024-12-29T17:40:11.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/219
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        The color of the humanoids in the spawn panel is now correct / Цвет
+        гуманойдов в панели спавна теперь правильный
+    - type: Fix
+      message: IPCs can no longer be invisible / КПБ теперь не могут невидимыми
+  id: 134
+  time: '2024-12-29T17:41:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/212
