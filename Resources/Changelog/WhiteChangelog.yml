@@ -1225,3 +1225,10 @@ Entries:
   id: 129
   time: '2024-12-27T03:51:15.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/190
+- author: PuroSlavKing
+  changes:
+    - type: Tweak
+      message: Изменен интеллект мышей, они больше не жрут всю еду станции.
+  id: 130
+  time: '2024-12-29T06:08:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/216
