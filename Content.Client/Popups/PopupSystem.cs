@@ -113,16 +113,16 @@ namespace Content.Client.Popups
             if (_shouldLogInChat &&
                 _playerManager.LocalEntity != null && 
                 _examine.InRangeUnOccluded(_playerManager.LocalEntity.Value, coordinates, 10))
-                    {
-                        var fontsize = FontSizeDict.GetValueOrDefault(type, "10");
-                        var fontcolor = type is PopupType.LargeCaution or PopupType.MediumCaution or PopupType.SmallCaution
-                            ? "#C62828"
-                            : "#AEABC4";
+            {
+                var fontsize = FontSizeDict.GetValueOrDefault(type, "10");
+                var fontcolor = type is PopupType.LargeCaution or PopupType.MediumCaution or PopupType.SmallCaution
+                    ? "#C62828"
+                    : "#AEABC4";
 
-                        var wrappedMessage = $"[font size={fontsize}][color={fontcolor}]{message}[/color][/font]";
-                        var chatMsg = new ChatMessage(ChatChannel.Emotes, message, wrappedMessage, GetNetEntity(EntityUid.Invalid), null);
-                        _uiManager.GetUIController<ChatUIController>().ProcessChatMessage(chatMsg);
-                    }
+                var wrappedMessage = $"[font size={fontsize}][color={fontcolor}]{message}[/color][/font]";
+                var chatMsg = new ChatMessage(ChatChannel.Emotes, message, wrappedMessage, GetNetEntity(EntityUid.Invalid), null);
+                _uiManager.GetUIController<ChatUIController>().ProcessChatMessage(chatMsg);
+            }
             // WD EDIT END
 
             var popupData = new WorldPopupData(message, type, coordinates, entity);

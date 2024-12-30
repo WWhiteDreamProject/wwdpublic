@@ -25,6 +25,7 @@ public partial class ChatBox : UIWidget
     private readonly ChatUIController _controller;
     private readonly IEntityManager _entManager;
     private readonly IConfigurationManager _cfg; // WD EDIT
+    private readonly ILocalizationManager _loc; // WD EDIT
 
     public bool Main { get; set; }
 
@@ -38,6 +39,7 @@ public partial class ChatBox : UIWidget
     public ChatBox()
     {
         RobustXamlLoader.Load(this);
+        _loc = IoCManager.Resolve<ILocalizationManager>();
         _entManager = IoCManager.Resolve<IEntityManager>();
 
         ChatInput.Input.OnTextEntered += OnTextEntered;
@@ -138,8 +140,13 @@ public partial class ChatBox : UIWidget
         formatted.AddMarkup(message);
         formatted.Pop();
         if(repeat != 0) // WD EDIT START
-        {   // awkward numbers in Min() are because repeat kinda starts from 1, not from 0. Oh well.
-            formatted.AddMarkup($" [font size={Math.Min(9+repeat, 18)}][color=#FF2222][bold][italic]x{repeat+1}![/italic][/bold][/color][/font]");
+        {   
+            int displayRepeat = repeat + 1;
+            int sizeIncrease = Math.Min(displayRepeat / 6, 5);
+            formatted.AddMarkup(_loc.GetString("chat-system-repeated-message-counter",
+                                ("count", displayRepeat),
+                                ("size", 8+sizeIncrease)
+                                ));
         } // WD EDIT END
         Contents.AddMessage(formatted);
     }
