@@ -138,8 +138,8 @@ public partial class ChatBox : UIWidget
         formatted.AddMarkup(message);
         formatted.Pop();
         if(repeat != 0) // WD EDIT START
-        {
-            formatted.AddMarkup($" [color=#FF0000][bold][italic]x{repeat+1}![/italic][/bold][/color]");
+        {   // awkward numbers in Min() are because repeat kinda starts from 1, not from 0. Oh well.
+            formatted.AddMarkup($" [font size={Math.Min(9+repeat, 18)}][color=#FF2222][bold][italic]x{repeat+1}![/italic][/bold][/color][/font]");
         } // WD EDIT END
         Contents.AddMessage(formatted);
     }
