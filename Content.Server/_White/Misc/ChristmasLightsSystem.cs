@@ -33,25 +33,25 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 
     private void OnChristmasLightsInit(EntityUid uid, ChristmasLightsComponent comp, ComponentInit args)
     {
-        if (TryComp<NodeContainerComponent>(uid, out var cont))
-        {
-            comp.CurrentModeIndex = comp.modes.IndexOf(comp.mode); // returns -1 if mode is not in list: disables mode changing if that's the case
-            if (cont.Nodes.TryGetValue("christmaslight", out var node))
-                _node.QueueReflood(node);
-        }
+        if (!TryComp<NodeContainerComponent>(uid, out var cont))
+            return;
+        comp.CurrentModeIndex = comp.modes.IndexOf(comp.mode); // returns -1 if mode is not in list: disables mode changing if that's the case
+    if (cont.Nodes.TryGetValue("christmaslight", out var node))
+        _node.QueueReflood(node);
     }
 
     private void OnChristmasLightsMinisculeTrolling(EntityUid uid, ChristmasLightsComponent comp, ref EmpPulseEvent args)
     {
         args.Affected = true;
-        if (TryGetConnected(uid, out var nodes))
+
+        if (!TryGetConnected(uid, out var nodes))
+            return;
+
+        foreach (var node in nodes)
         {
-            foreach (var node in nodes)
-            {
-                var jolly = Comp<ChristmasLightsComponent>(node.Owner);
-                jolly.mode = $"emp{(comp.Multicolor ? "_rainbow" : "")}";
-                Dirty(jolly.Owner, jolly);
-            }
+            var jolly = Comp<ChristmasLightsComponent>(node.Owner);
+            jolly.mode = $"emp{(comp.Multicolor ? "_rainbow" : "")}";
+            Dirty(node.Owner, jolly);
         }
     }
 
@@ -72,9 +72,11 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
         args.Handled = true;
     }
 
-    int GetNextModeIndex(ChristmasLightsComponent comp) // cycles modes as usual, but also handles the -1 case
+    private int GetNextModeIndex(ChristmasLightsComponent comp) // cycles modes as usual, but also handles the -1 case
     {
-        if (comp.CurrentModeIndex == -1) return -1;
+        if (comp.CurrentModeIndex == -1)
+            return -1;
+
         comp.CurrentModeIndex = (comp.CurrentModeIndex + 1) % comp.modes.Count;
         return comp.CurrentModeIndex;
     }
@@ -83,34 +85,38 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
     {
         if (sessionArgs.SenderSession.AttachedEntity is not { } user)
             return;
-        EntityUid uid = GetEntity(args.target);
+
+        var uid = GetEntity(args.target);
         if (!TryComp<ChristmasLightsComponent>(uid, out var thisComp) || !CanInteract(uid, user))
             return;
 
         _audio.PlayPredicted(thisComp.ButtonSound, uid, user);
         _interaction.DoContactInteraction(user, uid);
-        if(!HasComp<EmaggedComponent>(uid))
-        {
-            var jolly = Comp<ChristmasLightsComponent>(uid);
-            UpdateAllConnected(uid, jolly.LowPower, GetNextModeIndex(jolly));
-        }
+
+        if (HasComp<EmaggedComponent>(uid))
+            return;
+        
+        var jolly = Comp<ChristmasLightsComponent>(uid);
+        UpdateAllConnected(uid, jolly.LowPower, GetNextModeIndex(jolly));
     }
 
     private void OnBrightnessChangeAttempt(ChangeChristmasLightsBrightnessAttemptEvent args, EntitySessionEventArgs sessionArgs)
     {
         if (sessionArgs.SenderSession.AttachedEntity is not { } user)
             return;
-        EntityUid uid = GetEntity(args.target);
+
+        var uid = GetEntity(args.target);
         if (!TryComp<ChristmasLightsComponent>(uid, out var thisComp) || !CanInteract(uid, user))
             return;
 
         _audio.PlayPredicted(thisComp.ButtonSound, uid, user);
         _interaction.DoContactInteraction(user, uid);
-        if(!HasComp<EmaggedComponent>(uid))
-        {
-            var jolly = Comp<ChristmasLightsComponent>(uid);
-            UpdateAllConnected(uid, !jolly.LowPower, jolly.CurrentModeIndex);
-        }
+
+        if (HasComp<EmaggedComponent>(uid))
+            return;
+        
+        var jolly = Comp<ChristmasLightsComponent>(uid);
+        UpdateAllConnected(uid, !jolly.LowPower, GetNextModeIndex(jolly));
     }
 
     /// <summary>
@@ -118,20 +124,19 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
     /// </summary>
     private void UpdateAllConnected(EntityUid uid, bool brightness, int newModeIndex)
     {
-        if (newModeIndex >= 0 && TryGetConnected(uid, out var nodes))
+        if (newModeIndex < 0 || !TryGetConnected(uid, out var nodes))
+            return;
+        
+        foreach (var node in nodes)
         {
-            foreach (var node in nodes)
-            {
-                var jollyUid = node.Owner;
-                if (TryComp<ChristmasLightsComponent>(jollyUid, out var jolly))
-                {
-                    if (HasComp<EmaggedComponent>(jollyUid))
-                        continue;
-                    jolly.LowPower = brightness;
-                    jolly.mode = jolly.modes[newModeIndex];
-                    Dirty(jollyUid, jolly);
-                }
-            }
+            var jollyUid = node.Owner;
+            if (!TryComp<ChristmasLightsComponent>(jollyUid, out var jolly)
+                || HasComp<EmaggedComponent>(jollyUid))
+                continue;
+            
+            jolly.LowPower = brightness;
+            jolly.mode = jolly.modes[newModeIndex];
+            Dirty(jollyUid, jolly);
         }
     }
 
@@ -141,11 +146,13 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
     private bool TryGetConnected(EntityUid uid, [NotNullWhen(true)] out IEnumerable<Node>? nodes)
     {
         nodes = null;
-        if (TryComp<NodeContainerComponent>(uid, out var cont) && cont.Nodes.TryGetValue("christmaslight", out var node) && node.NodeGroup is not null)
-        {
-            nodes = node.NodeGroup.Nodes;
-            return true;
-        }
-        return false;
+        
+        if (!TryComp<NodeContainerComponent>(uid, out var cont)
+            || !cont.Nodes.TryGetValue("christmaslight", out var node)
+            || node.NodeGroup is null)
+            return false;
+        
+        nodes = node.NodeGroup.Nodes;
+        return true;
     }
 }

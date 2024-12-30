@@ -30,14 +30,12 @@ public sealed partial class SamePrototypeAdjacentNode : Node
     {
         base.Initialize(owner, entMan);
 
-
-        if (String.IsNullOrEmpty(OwnerPrototypeID))
-        {
-            var prot = entMan.GetComponent<MetaDataComponent>(owner).EntityPrototype;
-            DebugTools.Assert(prot is not null, "SamePrototypeAdjacentNode used on an entity with no EntityPrototype specified in metadata. Please reconsider your life choices that have lead you to this point.");
-            OwnerPrototypeID = prot.ID;
-
-        }
+        if (!string.IsNullOrEmpty(OwnerPrototypeID))
+            return;
+        
+        var proto = entMan.GetComponent<MetaDataComponent>(owner).EntityPrototype;
+        DebugTools.Assert(proto is not null, "SamePrototypeAdjacentNode used on an entity with no EntityPrototype specified in metadata. Please reconsider your life choices that have lead you to this point.");
+        OwnerPrototypeID = proto.ID;
     }
     public override IEnumerable<Node> GetReachableNodes(TransformComponent xform,
         EntityQuery<NodeContainerComponent> nodeQuery,
@@ -54,7 +52,7 @@ public sealed partial class SamePrototypeAdjacentNode : Node
         {
             if (node is SamePrototypeAdjacentNode spaNode &&
                 spaNode != this &&
-                spaNode.OwnerPrototypeID == this.OwnerPrototypeID)
+                spaNode.OwnerPrototypeID == OwnerPrototypeID)
                 yield return node;
         }
     }

@@ -12,16 +12,22 @@ namespace Content.Shared._White.Misc.ChristmasLights;
 [Serializable, NetSerializable]
 public sealed class ChangeChristmasLightsModeAttemptEvent : EntityEventArgs
 {
-    public NetEntity target;
+    public NetEntity Target;
 
-    public ChangeChristmasLightsModeAttemptEvent(NetEntity target) { this.target = target; }
+    public ChangeChristmasLightsModeAttemptEvent(NetEntity target)
+    {
+        Target = target;
+    }
 }
 
 [Serializable, NetSerializable]
 public sealed class ChangeChristmasLightsBrightnessAttemptEvent : EntityEventArgs
 {
-    public NetEntity target;
+    public NetEntity Target;
 
-    public ChangeChristmasLightsBrightnessAttemptEvent(NetEntity target) { this.target = target; }
+    public ChangeChristmasLightsBrightnessAttemptEvent(NetEntity target)
+    {
+        Target = target;
+    }
 }
 

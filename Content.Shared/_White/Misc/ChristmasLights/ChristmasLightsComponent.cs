@@ -8,6 +8,7 @@ public sealed partial class ChristmasLightsComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public Color Color1 = new Color(255, 0, 0);
+    
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public Color Color2 = new Color(0, 0, 255);
 
@@ -15,13 +16,13 @@ public sealed partial class ChristmasLightsComponent : Component
     /// Consult <see cref="Content.Client._White.Misc.ChristmasLights.ChristmasLightsVisualiserSystem"/> for available modes.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public string mode = "always_on";
+    public string Mode = "always_on";
 
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public int CurrentModeIndex = default;
 
     [DataField, ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
-    public List<string> modes = new List<string> { "always_on" };
+    public List<string> Modes = new List<string> { "always_on" };
 
     /// <summary>
     /// refers to the glow state sprites, no actual power consumtion regardless of value
@@ -39,6 +40,7 @@ public sealed partial class ChristmasLightsComponent : Component
 
     [DataField]
     public SoundSpecifier EmagSound = new SoundCollectionSpecifier("sparks");
+    
     [DataField]
     public SoundSpecifier ButtonSound = new SoundPathSpecifier("/Audio/Machines/lightswitch.ogg");
 }
