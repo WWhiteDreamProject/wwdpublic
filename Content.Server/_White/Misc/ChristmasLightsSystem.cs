@@ -116,7 +116,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
             return;
         
         var jolly = Comp<ChristmasLightsComponent>(uid);
-        UpdateAllConnected(uid, !jolly.LowPower, GetNextModeIndex(jolly));
+        UpdateAllConnected(uid, !jolly.LowPower, jolly.CurrentModeIndex);
     }
 
     /// <summary>
