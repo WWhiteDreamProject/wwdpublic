@@ -1,4 +1,4 @@
-﻿blood-cult-spells-no-empty-hand = Вам нужна свободная рука чтоыб использовать заклинание!
+﻿blood-cult-spells-no-empty-hand = Вам нужна свободная рука, чтобы использовать заклинание!
 blood-cult-spells-too-many = Слишком много заклинаний уже было создано!
 blood-cult-no-spells = У вас нет заклинаний
 
