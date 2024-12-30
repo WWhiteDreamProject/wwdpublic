@@ -52,7 +52,7 @@ public partial class ChatBox : UIWidget
 
         // WD EDIT START
         _cfg = IoCManager.Resolve<IConfigurationManager>(); 
-        _coalescence = _cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages); // i am uncomfortable calling repopulate on chatbox init, even though it worked in testing i'll err on the side of caution
+        _coalescence = _cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages); // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
         _cfg.OnValueChanged(WhiteCVars.CoalesceIdenticalMessages, UpdateCoalescence, false); // eplicitly false to underline the above comment
         // WD EDIT END
     }
@@ -131,9 +131,9 @@ public partial class ChatBox : UIWidget
         }
     }
 
-    public void AddLine(string message, Color color, int repeat = 0)
+    public void AddLine(string message, Color color, int repeat = 0) // WD EDIT
     {
-        var formatted = new FormattedMessage(4);
+        var formatted = new FormattedMessage(4); // WD EDIT // specifying size beforehand smells like a useless microoptimisation, but i'll give them the benefit of doubt
         formatted.PushColor(color);
         formatted.AddMarkup(message);
         formatted.Pop();
