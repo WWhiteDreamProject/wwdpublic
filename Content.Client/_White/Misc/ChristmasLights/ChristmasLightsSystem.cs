@@ -42,7 +42,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
     // Yes, this gets called for every autoupdate. Yes, i should use appearance system and events instead. No, i will not.
     private void OnAutoState(EntityUid uid, ChristmasLightsComponent comp, AfterAutoHandleStateEvent args)
     {
-        var sprite = Comp<SpriteComponent>(uid); // if you're reading this with stack trace pointing to this line, consider the following: https://www.youtube.com/watch?v=CPF2-PpfAfA
+        var sprite = Comp<SpriteComponent>(uid);
         sprite.LayerSetState(ChristmasLightsLayers.Glow1, $"greyscale_first_glow{(comp.LowPower ? "_lp" : "")}");
         sprite.LayerSetState(ChristmasLightsLayers.Glow2, $"greyscale_second_glow{(comp.LowPower ? "_lp" : "")}");
     }
