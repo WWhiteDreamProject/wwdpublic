@@ -2,7 +2,7 @@
 cult-rune-cant-draw-rending = Вы должны быть рядом с местом, где Завеса наиболее тонка!
 cult-rune-started-erasing = Начинаем стирать руну...
 cult-rune-erased = Руна была стерта.
-cult-rune-not-enough-cultists = Недостаточно культистом чтобы совершить ритуал!
+cult-rune-not-enough-cultists = Недостаточно культистов, чтобы совершить ритуал!
 cult-rune-no-targets = Цели не были найдены!
 
 cult-teleport-not-found = Другие руны не были найдены!.

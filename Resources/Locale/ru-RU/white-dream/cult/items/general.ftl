@@ -18,7 +18,7 @@ ghost-role-information-soul-shard-holy-rules = Примите форму одн�
 shuttle-curse-cant-activate = Сила Нар'Си не работает здесь.
 shuttle-curse-max-charges = Вы пытаетесь разбить шар, но он остается тверд как камень!
 shuttle-curse-shuttle-arrived = Шаттл уже прибыл. Вы уже не можете его отсрочить.
-shuttle-curse-shuttle-not-called = Шаттл еще не не был вызван.
+shuttle-curse-shuttle-not-called = Шаттл еще не был вызван.
 
 shuttle-curse-system-failure = СИСТЕМНАЯ ОШИБКА
 shuttle-curse-success-global = Шаттл будет задержан на {$time} минут.
