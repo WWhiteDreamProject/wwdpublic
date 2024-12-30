@@ -83,6 +83,7 @@ namespace Content.Client.Options.UI.Tabs
             StaticStorageUI.OnToggled += OnCheckBoxToggled;
             DisableFiltersCheckBox.OnToggled += OnCheckBoxToggled;
             LogInChatCheckBox.OnToggled += OnCheckBoxToggled; // WD EDIT
+            CoalesceIdenticalMessagesCheckBox.OnToggled += OnCheckBoxToggled; // WD EDIT
 
             HudThemeOption.SelectId(_hudThemeIdToIndex.GetValueOrDefault(_cfg.GetCVar(CVars.InterfaceTheme), 0));
             DiscordRich.Pressed = _cfg.GetCVar(CVars.DiscordEnabled);
@@ -103,7 +104,7 @@ namespace Content.Client.Options.UI.Tabs
             StaticStorageUI.Pressed = _cfg.GetCVar(CCVars.StaticStorageUI);
             DisableFiltersCheckBox.Pressed = _cfg.GetCVar(CCVars.NoVisionFilters);
             LogInChatCheckBox.Pressed = _cfg.GetCVar(WhiteCVars.LogInChat); // WD EDIT
-
+            CoalesceIdenticalMessagesCheckBox.Pressed = _cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages); // WD EDIT // THIS IS DISGUSTING BTW
 
             ApplyButton.OnPressed += OnApplyButtonPressed;
             UpdateApplyButton();
@@ -161,6 +162,7 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.StaticStorageUI, StaticStorageUI.Pressed);
             _cfg.SetCVar(CCVars.NoVisionFilters, DisableFiltersCheckBox.Pressed);
             _cfg.SetCVar(WhiteCVars.LogInChat, LogInChatCheckBox.Pressed); // WD EDIT
+            _cfg.SetCVar(WhiteCVars.CoalesceIdenticalMessages, CoalesceIdenticalMessagesCheckBox.Pressed); // WD EDIT
 
             if (HudLayoutOption.SelectedMetadata is string opt)
             {
@@ -193,6 +195,8 @@ namespace Content.Client.Options.UI.Tabs
             var isStaticStorageUISame = StaticStorageUI.Pressed == _cfg.GetCVar(CCVars.StaticStorageUI);
             var isNoVisionFiltersSame = DisableFiltersCheckBox.Pressed == _cfg.GetCVar(CCVars.NoVisionFilters);
             var isLogInChatCheckBoxSame = LogInChatCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.LogInChat); // WD EDIT
+            var CoalesceIdenticalMessagesCheckBoxSame = CoalesceIdenticalMessagesCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages); // WD EDIT // HOLY SHIT
+
 
             ApplyButton.Disabled = isHudThemeSame &&
                                    isLayoutSame &&
@@ -213,7 +217,8 @@ namespace Content.Client.Options.UI.Tabs
                                    // isToggleWalkSame &&
                                    isStaticStorageUISame &&
                                    isNoVisionFiltersSame &&
-                                   isLogInChatCheckBoxSame; // WD EDIT
+                                   isLogInChatCheckBoxSame && // WD EDIT
+                                   CoalesceIdenticalMessagesCheckBoxSame; // WD EDIT
         }
 
     }

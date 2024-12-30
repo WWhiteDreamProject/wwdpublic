@@ -1,4 +1,5 @@
 using Content.Client.UserInterface.Systems.Chat.Controls;
+using Content.Shared._White;
 using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.Audio;
@@ -8,6 +9,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Audio;
+using Robust.Shared.Configuration;
 using Robust.Shared.Input;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -22,10 +24,16 @@ public partial class ChatBox : UIWidget
 {
     private readonly ChatUIController _controller;
     private readonly IEntityManager _entManager;
+    private readonly IConfigurationManager _cfg; // WD EDIT
 
     public bool Main { get; set; }
 
     public ChatSelectChannel SelectedChannel => ChatInput.ChannelSelector.SelectedChannel;
+    // WD EDIT START
+    private bool _coalescence = false; // op ult btw
+    private (string, Color)? _lastLine;
+    private int _lastLineRepeatCount = 0;
+    // WD EDIT END
 
     public ChatBox()
     {
@@ -41,7 +49,15 @@ public partial class ChatBox : UIWidget
         _controller = UserInterfaceManager.GetUIController<ChatUIController>();
         _controller.MessageAdded += OnMessageAdded;
         _controller.RegisterChat(this);
+
+        // WD EDIT START
+        _cfg = IoCManager.Resolve<IConfigurationManager>(); 
+        _coalescence = _cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages); // i am uncomfortable calling repopulate on chatbox init, even though it worked in testing i'll err on the side of caution
+        _cfg.OnValueChanged(WhiteCVars.CoalesceIdenticalMessages, UpdateCoalescence, false); // eplicitly false to underline the above comment
+        // WD EDIT END
     }
+
+    private void UpdateCoalescence(bool value) { _coalescence = value; Repopulate(); } // WD EDIT
 
     private void OnTextEntered(LineEditEventArgs args)
     {
@@ -63,7 +79,26 @@ public partial class ChatBox : UIWidget
 
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
-        AddLine(msg.WrappedMessage, color);
+        // WD EDIT START
+        (string, Color) tup = (msg.WrappedMessage, color);
+
+        // Removing and then adding insantly nudges the chat window up before slowly dragging it back down, which makes the whole chat log shake
+        // and make it borderline unreadable with frequent enough spam.
+        // Adding first and then removing does not produce any visual effects.
+        // The other option is to copypaste into Content all of OutputPanel and everything it uses but is intertanl to Robust namespace.
+        // Thanks robustengine, very cool.
+        if (_coalescence && _lastLine == tup)
+        {
+            _lastLineRepeatCount++;
+            AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
+            Contents.RemoveEntry(^2); 
+        }
+        else
+        {
+            _lastLineRepeatCount = 0;
+            _lastLine = (msg.WrappedMessage, color);
+            AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
+        } // WD EDIT END
     }
 
     private void OnChannelSelect(ChatSelectChannel channel)
@@ -96,12 +131,16 @@ public partial class ChatBox : UIWidget
         }
     }
 
-    public void AddLine(string message, Color color)
+    public void AddLine(string message, Color color, int repeat = 0)
     {
-        var formatted = new FormattedMessage(3);
+        var formatted = new FormattedMessage(4);
         formatted.PushColor(color);
         formatted.AddMarkup(message);
         formatted.Pop();
+        if(repeat != 0) // WD EDIT START
+        {
+            formatted.AddMarkup($" [color=#FF0000][bold][italic]x{repeat+1}![/italic][/bold][/color]");
+        } // WD EDIT END
         Contents.AddMessage(formatted);
     }
 
@@ -185,5 +224,6 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnKeyBindDown -= OnInputKeyBindDown;
         ChatInput.Input.OnTextChanged -= OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
+        _cfg.UnsubValueChanged(WhiteCVars.CoalesceIdenticalMessages, UpdateCoalescence); // WD EDIT
     }
 }
