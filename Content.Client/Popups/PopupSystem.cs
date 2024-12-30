@@ -109,6 +109,22 @@ namespace Content.Client.Popups
                     _replayRecording.RecordClientMessage(new PopupCoordinatesEvent(message, type, GetNetCoordinates(coordinates)));
             }
 
+            // WD EDIT START
+            if (_shouldLogInChat &&
+                _playerManager.LocalEntity != null && 
+                _examine.InRangeUnOccluded(_playerManager.LocalEntity.Value, coordinates, 10))
+                    {
+                        var fontsize = FontSizeDict.GetValueOrDefault(type, "10");
+                        var fontcolor = type is PopupType.LargeCaution or PopupType.MediumCaution or PopupType.SmallCaution
+                            ? "#C62828"
+                            : "#AEABC4";
+
+                        var wrappedMessage = $"[font size={fontsize}][color={fontcolor}]{message}[/color][/font]";
+                        var chatMsg = new ChatMessage(ChatChannel.Emotes, message, wrappedMessage, GetNetEntity(EntityUid.Invalid), null);
+                        _uiManager.GetUIController<ChatUIController>().ProcessChatMessage(chatMsg);
+                    }
+            // WD EDIT END
+
             var popupData = new WorldPopupData(message, type, coordinates, entity);
             if (_aliveWorldLabels.TryGetValue(popupData, out var existingLabel))
             {
@@ -124,25 +140,6 @@ namespace Content.Client.Popups
 
             _aliveWorldLabels.Add(popupData, label);
 
-            // WD EDIT START
-            if (!_shouldLogInChat)
-                return;
-
-            if (_playerManager.LocalEntity == null)
-                return;
-
-            if (!_examine.InRangeUnOccluded(_playerManager.LocalEntity.Value, coordinates, 10))
-                return;
-
-            var fontsize = FontSizeDict.GetValueOrDefault(type, "10");
-            var fontcolor = type is PopupType.LargeCaution or PopupType.MediumCaution or PopupType.SmallCaution
-                ? "#C62828"
-                : "#AEABC4";
-
-            var wrappedMessage = $"[font size={fontsize}][color={fontcolor}]{message}[/color][/font]";
-            var chatMsg = new ChatMessage(ChatChannel.Emotes, message, wrappedMessage, GetNetEntity(EntityUid.Invalid), null);
-            _uiManager.GetUIController<ChatUIController>().ProcessChatMessage(chatMsg);
-            // WD EDIT END
         }
 
         #region Abstract Method Implementations
