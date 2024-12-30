@@ -16,7 +16,7 @@ ent-AlienEggOpenedDecoration = { ent-AlienEggGrowing }
 ent-AlienEggSpawner = спавнер яйца ксеноморфа
 ent-AlienEggSpawnerRandom = { ent-AlienEggSpawner }
 
-ent-MobAlienLarva = лярва
+ent-MobAlienLarva = грудолом
     .desc = Маленький и безобидный инопланетянин.
     .suffix = Первая стадия
 ent-MobAlienLarvaInside = { ent-MobAlienLarva }
@@ -29,8 +29,7 @@ ent-MobAlienLarvaGrowStageThree = { ent-MobAlienLarva }
     .desc = { ent-MobAlienLarva.desc }
     .suffix = Третья стадия
 ent-SpawnPointGhostAlienLarva = спавнер роли призрак
-    .desc = Z.
-    .suffix = Лярва
+    .suffix = Грудолом
 
 ent-Facehugger = лицехват
     .desc = На конце хвоста есть что-то вроде трубки.
@@ -81,7 +80,7 @@ ent-SpawnMobXenomorphQueen = спавнер ксеноморф королева
     .desc = { ent-MobXenomorphDrone.desc }
 ent-SpawnMobXenomorphMaid = спавнер ксеноморф горничная
     .desc = { ent-MobXenomorphDrone.desc }
-ent-SpawnMobAlienLarva = спавнер лярва
+ent-SpawnMobAlienLarva = спавнер грудолом
     .desc = { ent-MobAlienLarvaGrowStageThree.desc }
 
 station-event-xenomorph-infestation-announcement = Обнаружены неопознанные признаки жизни на борту станции. Обеспечьте безопасность внешних доступов, включая скубберы и вентиляцию.
@@ -90,12 +89,12 @@ hud-chatbox-select-channel-XenoHivemind = Разум роя
 
 ghost-role-mob-alien-name = Ксеноморф
 ghost-role-mob-alien-description = Станьте ксеноморфом, развивайтесь и сделайте свой улей великим.
-ghost-role-information-alien-larva-name = Лярва
+ghost-role-information-alien-larva-name = Грудолом
 ghost-role-information-alien-larva-description = Станьте безобидной личинкой, развивайтесь и сделайте свой улей великим.
-ghost-role-information-alien-larva-inside-name = Лярва (Вырывающаяся)
+ghost-role-information-alien-larva-inside-name = Грудолом (Вырывающаяся)
 ghost-role-information-alien-larva-inside-description = Станьте инопланетной личинкой, которая вот-вот вырвется наружу из своего носителя.
 
-alien-role-greeting = Вы - лярва. Помогите своему улью расширяться. Если вы первый, или последний в своём улье - найдите безопасное место, для нового улья и эволюционируйте в ДРОНА, иначе рой не сможет продолжить своё существование. Вы можете связаться со своим ульем, добавив английскую "а" в начале своего сообщения.
+alien-role-greeting = Вы - грудолом. Помогите своему улью расширяться. Если вы первый, или последний в своём улье - найдите безопасное место, для нового улья и эволюционируйте в ДРОНА, иначе рой не сможет продолжить своё существование. Вы можете связаться со своим ульем, добавив английскую "а" в начале своего сообщения.
 alien-hunter-greeting = Вы - охотник. Найдите лицехватов и бросайте их в носителей. Пожирайте людей и доставляйте их в свой улей. Вы можете связаться со своим ульем, добавив английскую "а" в начале своего сообщения.
 alien-drone-greeting = Вы - дрон. Постройте свой улей, эволюционируйте в преторианца, если вы будете первым. Вы можете связаться со своим ульем, добавив английскую "а" в начале своего сообщения.
 alien-sentinel-greeting = Вы - плевальщик. Защищайте свой улей, сражайтесь с незваными гостями. Вы можете связаться со своим ульем, добавив английскую "а" в начале своего сообщения.
