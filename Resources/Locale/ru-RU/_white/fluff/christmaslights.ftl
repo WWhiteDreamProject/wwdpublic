@@ -1,9 +1,7 @@
-christmas-lights-examine-toggle-mode-tip = Активируйте для переключения режима.
-christmas-lights-examine-toggle-brightness-tip = Альтернативно активируйте для переключения яркости.
 christmas-lights-examine-desc = С новым годом! Эти переливающиеся огоньки запитаны духом рождества и праздничным настроением экипажа! И микрореактором термоядерного синтеза, на всякий случай. 
 christmas-lights-examine-name = рождественская гирлянда
-christmas-lights-toggle-brightness = Переключить яркость
-christmas-lights-next-mode = Переключить режим
+christmas-lights-toggle-brightness-verb = Переключить яркость
+christmas-lights-next-mode-verb = Переключить режим
 christmas-lights-unresponsive = Ничего не происходит...
 
 

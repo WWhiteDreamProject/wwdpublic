@@ -14,18 +14,11 @@ using Robust.Shared.Utility;
 
 namespace Content.Client._White.Misc.ChristmasLights;
 
-
-
 public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-
-
-    //[Dependency] private readonly IReflectionManager _reflection = default!; // we have reflection at home
 
     public override void Initialize()
     {
@@ -37,7 +30,6 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 
         InitModes();
     }
-
 
     // Yes, this gets called for every autoupdate. Yes, i should use appearance system and events instead. No, i will not.
     private void OnAutoState(EntityUid uid, ChristmasLightsComponent comp, AfterAutoHandleStateEvent args)
@@ -88,7 +80,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
             new Verb
             {
                 Priority = 3,
-                Text = Loc.GetString("christmas-lights-next-mode"),
+                Text = Loc.GetString("christmas-lights-next-mode-verb"),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/group.svg.192dpi.png")),
                 ClientExclusive = true,
                 CloseMenu = false,
@@ -101,7 +93,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
             new Verb
             {
                 Priority = 3,
-                Text = Loc.GetString("christmas-lights-toggle-brightness"),
+                Text = Loc.GetString("christmas-lights-toggle-brightness-verb"),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/light.svg.192dpi.png")),
                 ClientExclusive = true,
                 CloseMenu = false,
@@ -121,7 +113,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
         _audio.PlayLocal(comp.ButtonSound, uid, user);
         if (HasComp<EmaggedComponent>(uid))
         {
-            _popup.PopupClient(_loc.GetString("christmas-lights-unresponsive"), uid, user);
+            _popup.PopupClient(Loc.GetString("christmas-lights-unresponsive"), uid, user);
             return false;
         }
         return true;
@@ -149,7 +141,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
         int i = -1;
         public double Add(double x)
         {
-            int ind = (++i) % size; // this takes me back to the indecencies i've used to do in cpp
+            int ind = (++i) % size;
             double val = buf[ind];
             buf[ind] = x;
             return val;
@@ -159,7 +151,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
     circlebuf _cbuf = new(256);
     [ViewVariables]
     double _cumul = 0;
-    [ViewVariables, UsedImplicitly] // just for vv
+    [ViewVariables, UsedImplicitly]
     double _averageStopwatch = 0;
     [ViewVariables]
     double _lastStopwatch = 0;
@@ -187,20 +179,20 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
     /// </summary>
     /// <param name="x"></param>
     /// <returns>x but with a crippling disability</returns>
-    private static float shitsin(float x) => (float) ((8 * MathF.Sin(x) + MathF.Sin(3 * x)) / 14 + 0.5);
-    private static float step(float x, int stepsNum) => MathF.Round(x * stepsNum) / stepsNum;
-    private static int round(float x) => (int) MathF.Round(x);
+    private static float Shitsin(float x) => (float) ((8 * MathF.Sin(x) + MathF.Sin(3 * x)) / 14 + 0.5);
+    private static float Step(float x, int stepsNum) => MathF.Round(x * stepsNum) / stepsNum;
+    private static int Round(float x) => (int) MathF.Round(x);
     private float curtime => (float) _timing.CurTime.TotalSeconds;
-    Color getRainbowColor(float secondsPerCycle, float hueOffset, int steps) => Color.FromHsv(new Vector4(step((curtime + hueOffset) % secondsPerCycle / secondsPerCycle, steps), 1f, 1f, 1f));
-    private bool cycle(float seconds) => curtime % (seconds * 2) <= seconds;
+    Color GetRainbowColor(float secondsPerCycle, float hueOffset, int steps) => Color.FromHsv(new Vector4(Step((curtime + hueOffset) % secondsPerCycle / secondsPerCycle, steps), 1f, 1f, 1f));
+    private bool Cycle(float seconds) => curtime % (seconds * 2) <= seconds;
     /// <summary>
     ///  will not be kept in sync between clients, but who cares, it is different with every access and is intended to induce epileptic seizures
     /// </summary>
-    float random { get { 
+    private float random { get { 
             _shift++;
             return (1 + MathF.Sin((_shift+curtime) * 5023.85929f)) * 9491.59902f % 1;
         } }
-    int _shift = 0;
+    private int _shift = 0;
 #endregion
 
     public override void FrameUpdate(float frameTime) {
@@ -213,7 +205,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 #endif
         while (query.MoveNext(out var comp, out var sprite))
         {
-            ApplyMode(comp.mode, comp, sprite);
+            ApplyMode(comp.Mode, comp, sprite);
         }
 #if DEBUG
         _lastStopwatch = stopwatch.Elapsed.TotalMilliseconds;
@@ -246,101 +238,101 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 
     private void InitModes()
     {
-        modes["test1"] = modeTest1;
-        modes["test2"] = modeTest2;
-        modes["emp"] = modeFubar;
-        modes["emp_rainbow"] = modeFubarRainbow;
-        modes["always_on"] = modeAlwaysOn;
-        modes["fade"] = modeFade;
-        modes["sinwave_full"] = modeSinWaveFull;
-        modes["sinwave_partial"] = modeSinWavePartial;
-        modes["sinwave_partial_rainbow"] = modeSinWavePartialRainbow;
-        modes["squarewave"] = modeSquareWave;
-        modes["squarewave_rainbow"] = modeSquareWaveRainbow;
-        modes["strobe_double"] = modeStrobeDouble;
-        modes["strobe"] = modeStrobe;
-        modes["strobe_slow"] = modeStrobeSlow;
-        modes["rainbow"] = modeRainbow;
+        modes["test1"] = ModeTest1;
+        modes["test2"] = ModeTest2;
+        modes["emp"] = ModeFubar;
+        modes["emp_rainbow"] = ModeFubarRainbow;
+        modes["always_on"] = ModeAlwaysOn;
+        modes["fade"] = ModeFade;
+        modes["sinwave_full"] = ModeSinWaveFull;
+        modes["sinwave_partial"] = ModeSinWavePartial;
+        modes["sinwave_partial_rainbow"] = ModeSinWavePartialRainbow;
+        modes["squarewave"] = ModeSquareWave;
+        modes["squarewave_rainbow"] = ModeSquareWaveRainbow;
+        modes["strobe_double"] = ModeStrobeDouble;
+        modes["strobe"] = ModeStrobe;
+        modes["strobe_slow"] = ModeStrobeSlow;
+        modes["rainbow"] = ModeRainbow;
     }
     
-    void modeTest1(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    void ModeTest1(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
         // for playing with hot reload
     }
 
-    void modeTest2(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    void ModeTest2(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
         // for playing with hot reload
     }
-    void modeFubar(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    void ModeFubar(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
-        layer1.AnimationFrame = round(random*3);
-        layer2.AnimationFrame = round(random*3);
+        layer1.AnimationFrame = Round(random*3);
+        layer2.AnimationFrame = Round(random*3);
         layer1.State = $"greyscale_first_glow{(random > 0.5 ? "_lp" : "")}";
         layer2.State = $"greyscale_second_glow{(random > 0.5 ? "_lp" : "")}";
     }
 
-    void modeFubarRainbow(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    void ModeFubarRainbow(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
-        layer1.AnimationFrame = round(random * 3);
-        layer2.AnimationFrame = round(random * 3);
-        layer1.Color = getRainbowColor(1, random, 16);
-        layer2.Color = getRainbowColor(1, random, 16);
+        layer1.AnimationFrame = Round(random * 3);
+        layer2.AnimationFrame = Round(random * 3);
+        layer1.Color = GetRainbowColor(1, random, 16);
+        layer2.Color = GetRainbowColor(1, random, 16);
         layer1.State = $"greyscale_first_glow{(random > 0.5 ? "_lp" : "")}";
         layer2.State = $"greyscale_second_glow{(random > 0.5 ? "_lp" : "")}";
     }
 
-    void modeAlwaysOn(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    void ModeAlwaysOn(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
         layer1.AnimationFrame = 3;
         layer2.AnimationFrame = 3;
     }
-    void modeFade(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    void ModeFade(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
-        if (cycle(2*MathF.PI))
+        if (Cycle(2*MathF.PI))
         {
-            layer1.AnimationFrame = round(3 * shitsin(curtime - MathF.PI/2)); // it's important for shitsin to be equal to zero
+            layer1.AnimationFrame = Round(3 * Shitsin(curtime - MathF.PI/2)); // it's important for shitsin to be equal to zero
             layer2.AnimationFrame = 0;                                      // at the beginning of sim for correct color switching.
         }
         else
         {
             layer1.AnimationFrame = 0;
-            layer2.AnimationFrame = round(3 * shitsin(curtime - MathF.PI/2));
+            layer2.AnimationFrame = Round(3 * Shitsin(curtime - MathF.PI/2));
         }
     }
 
-    void modeSinWaveFull(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    void ModeSinWaveFull(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
-        layer1.AnimationFrame = round(3 * shitsin(curtime));
-        layer2.AnimationFrame = round(3 * shitsin(curtime + MathF.PI));
+        layer1.AnimationFrame = Round(3 * Shitsin(curtime));
+        layer2.AnimationFrame = Round(3 * Shitsin(curtime + MathF.PI));
     }
 
-    void modeSinWavePartial(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    void ModeSinWavePartial(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
-        layer1.AnimationFrame = 1 + round(2 * shitsin(1.33f * curtime));
-        layer2.AnimationFrame = 1 + round(2 * shitsin(1.33f * curtime + MathF.PI));
+        layer1.AnimationFrame = 1 + Round(2 * Shitsin(1.33f * curtime));
+        layer2.AnimationFrame = 1 + Round(2 * Shitsin(1.33f * curtime + MathF.PI));
     }
 
-    void modeSinWavePartialRainbow(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    void ModeSinWavePartialRainbow(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
-        modeSinWavePartial(layer1, layer2, comp, sprite);
-        layer1.Color = getRainbowColor(2f, 0f, 10);
-        layer2.Color = getRainbowColor(2f, 0.5f, 10);
+        ModeSinWavePartial(layer1, layer2, comp, sprite);
+        layer1.Color = GetRainbowColor(2f, 0f, 10);
+        layer2.Color = GetRainbowColor(2f, 0.5f, 10);
     }
-    void modeSquareWave(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    void ModeSquareWave(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
-        layer1.AnimationFrame = 3 * round((1+MathF.Sin(curtime))/2);
-        layer2.AnimationFrame = 3 * round((1+MathF.Sin(curtime + MathF.PI/2))/2);
-    }
-
-    void modeSquareWaveRainbow(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
-    {
-        modeSquareWave(layer1, layer2, comp, sprite);
-        layer1.Color = getRainbowColor(2f, 0f, 10);
-        layer2.Color = getRainbowColor(2f, 0.5f, 10);
+        layer1.AnimationFrame = 3 * Round((1+MathF.Sin(curtime))/2);
+        layer2.AnimationFrame = 3 * Round((1+MathF.Sin(curtime + MathF.PI/2))/2);
     }
 
-    void modeStrobeDouble(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    void ModeSquareWaveRainbow(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    {
+        ModeSquareWave(layer1, layer2, comp, sprite);
+        layer1.Color = GetRainbowColor(2f, 0f, 10);
+        layer2.Color = GetRainbowColor(2f, 0.5f, 10);
+    }
+
+    void ModeStrobeDouble(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
         float second = curtime % 1;
         int frame = (second % 0.25) < 0.125 ? 3 : 0;
@@ -348,24 +340,24 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
         layer2.AnimationFrame = second >= 0.5 ? frame : 0;
     }
 
-    void modeStrobe(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    void ModeStrobe(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
         int frame = (curtime % 0.25) < 0.125 ? 3 : 0;
         layer1.AnimationFrame = frame;
         layer2.AnimationFrame = 3 - frame;
     }
 
-    void modeStrobeSlow(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    void ModeStrobeSlow(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
         float second = curtime % 1;
         layer1.AnimationFrame = second < 0.5 ? 3 : 0;
         layer2.AnimationFrame = second >= 0.5 ? 3 : 0;
     }
-    void modeRainbow(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
+    void ModeRainbow(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
         layer1.AnimationFrame = 3;
         layer2.AnimationFrame = 3;
-        layer1.Color = getRainbowColor(2f, 0f, 10);
-        layer2.Color = getRainbowColor(2f, 0.5f, 10);
+        layer1.Color = GetRainbowColor(2f, 0f, 10);
+        layer2.Color = GetRainbowColor(2f, 0.5f, 10);
     }
 }

@@ -37,6 +37,7 @@ public sealed partial class SamePrototypeAdjacentNode : Node
         DebugTools.Assert(proto is not null, "SamePrototypeAdjacentNode used on an entity with no EntityPrototype specified in metadata. Please reconsider your life choices that have lead you to this point.");
         OwnerPrototypeID = proto.ID;
     }
+
     public override IEnumerable<Node> GetReachableNodes(TransformComponent xform,
         EntityQuery<NodeContainerComponent> nodeQuery,
         EntityQuery<TransformComponent> xformQuery,

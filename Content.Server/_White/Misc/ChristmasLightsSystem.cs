@@ -13,12 +13,11 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server._White.Misc;
 
-
 public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 {
     [Dependency] private readonly NodeGroupSystem _node = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
- 
+
     public override void Initialize()
     {
         base.Initialize();
@@ -35,7 +34,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
     {
         if (!TryComp<NodeContainerComponent>(uid, out var cont))
             return;
-        comp.CurrentModeIndex = comp.modes.IndexOf(comp.mode); // returns -1 if mode is not in list: disables mode changing if that's the case
+        comp.CurrentModeIndex = comp.Modes.IndexOf(comp.Mode); // returns -1 if mode is not in list: disables mode changing if that's the case
     if (cont.Nodes.TryGetValue("christmaslight", out var node))
         _node.QueueReflood(node);
     }
@@ -50,7 +49,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
         foreach (var node in nodes)
         {
             var jolly = Comp<ChristmasLightsComponent>(node.Owner);
-            jolly.mode = $"emp{(comp.Multicolor ? "_rainbow" : "")}";
+            jolly.Mode = $"emp{(comp.Multicolor ? "_rainbow" : "")}";
             Dirty(node.Owner, jolly);
         }
     }
@@ -63,7 +62,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
             {
                 EnsureComp<EmaggedComponent>(node.Owner);
                 var jolly = Comp<ChristmasLightsComponent>(node.Owner);
-                jolly.mode = $"emp{(jolly.Multicolor ? "_rainbow" : "")}";
+                jolly.Mode = $"emp{(jolly.Multicolor ? "_rainbow" : "")}";
                 jolly.CurrentModeIndex = -1; // disables mode change
                 Dirty(jolly.Owner, jolly);
             }
@@ -77,7 +76,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
         if (comp.CurrentModeIndex == -1)
             return -1;
 
-        comp.CurrentModeIndex = (comp.CurrentModeIndex + 1) % comp.modes.Count;
+        comp.CurrentModeIndex = (comp.CurrentModeIndex + 1) % comp.Modes.Count;
         return comp.CurrentModeIndex;
     }
 
@@ -86,7 +85,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
         if (sessionArgs.SenderSession.AttachedEntity is not { } user)
             return;
 
-        var uid = GetEntity(args.target);
+        var uid = GetEntity(args.Target);
         if (!TryComp<ChristmasLightsComponent>(uid, out var thisComp) || !CanInteract(uid, user))
             return;
 
@@ -105,7 +104,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
         if (sessionArgs.SenderSession.AttachedEntity is not { } user)
             return;
 
-        var uid = GetEntity(args.target);
+        var uid = GetEntity(args.Target);
         if (!TryComp<ChristmasLightsComponent>(uid, out var thisComp) || !CanInteract(uid, user))
             return;
 
@@ -135,7 +134,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
                 continue;
             
             jolly.LowPower = brightness;
-            jolly.mode = jolly.modes[newModeIndex];
+            jolly.Mode = jolly.Modes[newModeIndex];
             Dirty(jollyUid, jolly);
         }
     }

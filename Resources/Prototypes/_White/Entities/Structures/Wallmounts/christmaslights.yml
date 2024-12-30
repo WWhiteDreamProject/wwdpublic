@@ -2,6 +2,7 @@
   parent: BaseSign
   id: BaseChristmasLights
   name: christmas lights
+  suffix: unspecified
   description: Merry Christmas! These lights are powered by the crew cheer and christmas spirit! Also has a miniature backup fusion reactor, just in case.
   abstract: true
   components:
@@ -47,7 +48,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 15
+        damage: 30
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -82,6 +83,7 @@
 - type: entity
   parent: SimpleChristmasLights
   id: RedBlueChristmasLights
+  suffix: red&blue
   components:
   - type: ChristmasLights
     color1: "#FF0000"
@@ -90,6 +92,7 @@
 - type: entity
   parent: SimpleChristmasLights
   id: YellowCyanChristmasLights
+  suffix: yellow&cyan
   components:
   - type: ChristmasLights
     color1: "#FFFF00"
@@ -98,15 +101,16 @@
 - type: entity
   parent: SimpleChristmasLights
   id: PurpleGreenChristmasLights
+  suffix: purple&green
   components:
   - type: ChristmasLights
     color1: "#FF00FF"
     color2: "#00FF00"
 
-
 - type: entity
   parent: BaseChristmasLights
   id: RainbowChristmasLights
+  suffix: rainbow
   components:
   - type: ChristmasLights
     multicolor: true
