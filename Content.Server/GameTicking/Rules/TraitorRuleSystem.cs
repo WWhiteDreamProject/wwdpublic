@@ -13,8 +13,10 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Mood;
 using Content.Shared.Objectives.Components;
 using Content.Shared.PDA;
+using Content.Shared.Radio;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
+using Content.Shared.Roles.RoleCodeword;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
@@ -24,6 +26,8 @@ namespace Content.Server.GameTicking.Rules;
 
 public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 {
+    private static readonly Color TraitorCodewordColor = Color.FromHex("#cc3b3b");
+
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
@@ -36,6 +40,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!; // WD EDIT
 
     public const int MaxPicks = 20;
+    [Dependency] private readonly SharedRoleCodewordSystem _roleCodewordSystem = default!;
 
     public override void Initialize()
     {
@@ -142,6 +147,15 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 Log.Debug($"Added objective {ToPrettyString(objective):objective} with {adding} difficulty");
             }
         }
+        // Send codewords to only the traitor client
+        var color = TraitorCodewordColor; // Fall back to a dark red Syndicate color if a prototype is not found
+
+        RoleCodewordComponent codewordComp = EnsureComp<RoleCodewordComponent>(mindId);
+        _roleCodewordSystem.SetRoleCodewords(codewordComp, "traitor", component.Codewords.ToList(), color);
+
+        // Change the faction
+        _npcFaction.RemoveFaction(traitor, component.NanoTrasenFaction, false);
+        _npcFaction.AddFaction(traitor, component.SyndicateFaction);
 
         return true;
     }
