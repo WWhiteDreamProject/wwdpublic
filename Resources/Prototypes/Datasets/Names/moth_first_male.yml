@@ -1,50 +1,50 @@
 - type: dataset
   id: names_moth_first_male
   values:
-  - Agrius # Agrius
-  - Atlas # Attacus atlas
-  - Attacus # Attacus
-  - Caesar # Attacus caesar
-  - Hercules # Coscinocera hercules
-  - Rannoch # Itame brunneata, "Rannoch Looper"
-  - Socrates # Acosmeryx socrates
-  - Solus # Saturniidae solus
+  - Агриус # Agrius
+  - Атлас # Attacus atlas
+  - Аттак # Attacus
+  - Цезарь # Attacus caesar
+  - Геркулес # Coscinocera hercules
+  - Раннок # Itame brunneata, «Rannoch Looper»
+  - Сократ # Acosmeryx socrates
+  - Солус # Saturniidae solus
 
-  # Other languages
-  - Ash # Hebrew עש "moth"
-  - Azar # Persian "fire"
-  - Kaiser # German "emperor" descendant of the Latin caesar
-  - Rex # Latin "king"
-  - Rajas # Sanskrit "darkness" or "dust"
-  - Skoros # Greek "clothes moth"
+  # Другие языки
+  - Ясень # Hebrew עש "moth"
+  - Азар # Persian "fire"
+  - Кайзер # German "emperor" descendant of the Latin caesar
+  - Рекс # Latin "king"
+  - Раджас # Sanskrit "darkness" or "dust"
+  - Скорос # Greek "clothes moth"
 
-  # Myth and legend
-  - Bladud # legendary king of the Britons who crafted wings and died in his attempt at flight
-  - Daedalus # father of Icarus
-  - Erebus # Greek primordial deity of darkness
-  - Icarus # the classic
-  - Jatayu # Hindu figure, similar to Icarus
-  - Koho # Japanese reading of 夸父（こほ）
-  - Kuafu # Chinese giant 夸父, similar to Icarus
-  - Lucifer # more commonly-known fall-from-heaven figure
-  - Merlin # Arthurian wizard
-  - Phaethon # another Greek figure, similar to Icarus
-  - Wolford # rendering of Bladud from the Welsh blaidd "wolf" + iudd "lord"
+  # Миф и легенда
+  - Бладуд # легендарный король бриттов, который сделал себе крылья и погиб при попытке полета
+  - Дедал # отец Икара
+  - Эребус # греческое первобытное божество тьмы
+  - Икар # классика
+  - Джатаю # индуистская фигура, похожая на Икара
+  - Кохо # японское чтение 夸父（こほ）
+  - Куафу # китайский гигант 夸父, похожий на Икара
+  - Люцифер # более известная фигура падшего с небес
+  - Мерлин # артурианский волшебник
+  - Фаэтон # другая греческая фигура, похожая на Икара
+  - Вулфорд # переделка имени Бладуд из валлийского blaidd «волк» + iudd «лорд».
 
-  # Fun names
-  - Ace
-  - Altair
-  - Dusty
-  - Gambit
-  - Hawk
-  - Mothew
-  - Timothy
+  # веселые имена
+  - Туз
+  - Альтаир
+  - Дасти
+  - Гамбит
+  - Ястреб
+  - Мотя
+  - Тимоти
 
-  # Common names, filler
-  - Asher
-  - Isaac
-  - Roman
-  - Samuel
-  - Sebastian
-  - Silas
-  - Simon
+  # Общие имена, наполнитель
+  - Ашер
+  - Исаак
+  - Роман
+  - Самуил
+  - Себастьян
+  - Силас
+  - Симон

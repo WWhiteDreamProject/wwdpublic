@@ -24,7 +24,7 @@ namespace Content.Shared.Preferences;
 [Serializable, NetSerializable]
 public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 {
-    private static readonly Regex RestrictedNameRegex = new("[^A-Z,a-z,0-9,А-Я,а-я, -]");
+    private static readonly Regex RestrictedNameRegex = new("[^А-Я,а-я, ё-]");
     private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
     public const int MaxNameLength = 64;
@@ -458,7 +458,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
                     ? FormattedMessage.RemoveMarkupPermissive(Customspeciename)[..MaxNameLength]
                     : FormattedMessage.RemoveMarkupPermissive(Customspeciename);
 
-        if (string.IsNullOrEmpty(name))
+        if (string.IsNullOrWhiteSpace(name)) // WD edit
         {
             name = GetName(Species, gender);
         }
