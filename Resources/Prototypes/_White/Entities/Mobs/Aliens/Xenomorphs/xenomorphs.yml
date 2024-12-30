@@ -33,10 +33,10 @@
     - type: AcidMaker
       action: ActionMakeAcid
       productionLength: 0
-      entityProduced: AlienAcid
+      entityProduced: CorrosiveAcid
     - type: ResinSpinner
     - type: PlasmaVessel
-      plasmaPerSecond: 5
+      plasmaUnmodified: 5
       plasmaModified: 15
     - type: PraetorianEvolution
     - type: GuideHelp
@@ -155,8 +155,8 @@
       Dead:
         Base: aliens_dead
   - type: PlasmaVessel
-    maxPlasma: 150
-    plasmaPerSecond: 5
+    plasmaRegenCap: 150
+    plasmaUnmodified: 5
     plasmaModified: 15
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.75
@@ -302,8 +302,8 @@
       Dead:
         Base: alienh_dead
   - type: PlasmaVessel
-    maxPlasma: 150
-    plasmaPerSecond: 5
+    plasmaRegenCap: 150
+    plasmaUnmodified: 5
     plasmaModified: 15
   - type: Devourer
     devourTime: 2
@@ -400,7 +400,7 @@
     prototype: XenomorphLargeSentinel
   - type: AcidMaker
     action: ActionMakeAcid
-    entityProduced: AlienAcid
+    entityProduced: CorrosiveAcid
     plasmaCost: 100
   - type: Fixtures
     fixtures:
@@ -444,7 +444,7 @@
       Dead:
         Base: alienp_dead
   - type: PlasmaVessel
-    plasmaPerSecond: 5
+    plasmaUnmodified: 5
     plasmaModified: 15
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.75
@@ -593,13 +593,13 @@
       Dead:
         Base: alienq_dead
   - type: PlasmaVessel
-    maxPlasma: 500
-    plasmaPerSecond: 5
+    plasmaRegenCap: 500
+    plasmaUnmodified: 5
     plasmaModified: 15
   - type: ResinSpinner
   - type: AcidMaker
     plasmaCost: 50
-    entityProduced: AlienAcid
+    entityProduced: CorrosiveAcid
     action: ActionMakeAcid
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.75
@@ -722,7 +722,7 @@
   - type: Alien
     caste: maid
   - type: PlasmaVessel
-    plasmaPerSecond: 5
+    plasmaUnmodified: 5
     plasmaModified: 15
   - type: MobThresholds
     thresholds:

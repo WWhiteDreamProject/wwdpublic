@@ -74,25 +74,5 @@
   - type: Sprite
     sprite: _White/Interface/Actions/xenomorph.rsi
     state: acid
-  - type: TimedSpawner
-    prototypes:
-    - CorrodedAcid
-    intervalSeconds: 30
-    minimumEntitiesSpawned: 1
-    maximumEntitiesSpawned: 1
+  - type: AlienAcid
 
-- type: entity
-  id: CorrodedAcid
-  categories: [ HideSpawnMenu ]
-  name: corrosive acid
-  description: Green light acid.
-  components:
-  - type: Sprite
-    sprite: _White/Interface/Actions/xenomorph.rsi
-    state: acid
-  - type: EventHorizon
-    radius: 0.1
-    consumeTiles: false
-    canBreachContainment: true
-  - type: TimedDespawn
-    lifetime: 0.1

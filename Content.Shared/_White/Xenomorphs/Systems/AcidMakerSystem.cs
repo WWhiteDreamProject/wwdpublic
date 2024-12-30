@@ -58,6 +58,7 @@ public sealed class AcidMakerSystem : EntitySystem
         {
             return;
         }
+
         if (TryComp<PlasmaVesselComponent>(uid, out var plasmaComp)
         && plasmaComp.Plasma < comp.PlasmaCost)
         {
@@ -65,13 +66,16 @@ public sealed class AcidMakerSystem : EntitySystem
             return;
         }
 
-        _plasmaVesselSystem.ChangePlasmaAmount(uid, -comp.PlasmaCost);
         if (_netManager.IsClient) // Have to do this because spawning stuff in shared is CBT.
             return;
 
         var newEntity = Spawn(comp.EntityProduced, Transform(uid).Coordinates);
 
         _stackSystem.TryMergeToHands(newEntity, uid);
+        args.Handled = true;
+
+        _plasmaVesselSystem.ChangePlasmaAmount(uid, -comp.PlasmaCost);
+
     }
 }
 

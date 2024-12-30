@@ -13,6 +13,7 @@ public partial class PlasmaVesselComponent : Component
     /// <summary>
     /// The total amount of plasma the alien has.
     /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
     public FixedPoint2 Plasma = 0;
 
     /// <summary>

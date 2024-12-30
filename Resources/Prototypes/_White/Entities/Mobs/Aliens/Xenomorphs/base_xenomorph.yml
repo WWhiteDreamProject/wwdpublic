@@ -333,7 +333,7 @@
           Airloss: -10
           Brute: -5
     - type: PlasmaVessel
-      maxPlasma: 30
+      plasmaRegenCap: 30
     - type: TimedPolymorph
       polymorphPrototype: AlienEvolutionGrowStageTwo
       polymorphTime: 50
