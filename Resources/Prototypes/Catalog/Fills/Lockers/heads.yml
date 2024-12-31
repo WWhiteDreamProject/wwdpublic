@@ -53,6 +53,7 @@
   components:
   - type: StorageFill
     contents:
+      - id: ClothingOuterCoatCapTrench # TheDen
       - id: NukeDisk
       - id: PinpointerNuclear
       - id: CaptainIDCard
