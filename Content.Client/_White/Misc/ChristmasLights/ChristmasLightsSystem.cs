@@ -10,8 +10,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-//using System.Drawing;
-
 namespace Content.Client._White.Misc.ChristmasLights;
 
 public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
