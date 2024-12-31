@@ -50,27 +50,6 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
         sprite.LayerSetAutoAnimated(ChristmasLightsLayers.Glow2, false);
     }
 
-    // Canned, but i am going to leave it here as a vent to noone in particular
-    // if an altverb is being invoked via a keyfunction (alt-click), they will get recalled a shitton of times because of prediction bullshit.
-    // This does not happen if the altverb is invoked via context menu.
-    // I hate this engine. I should not be dealing with random shit running my code  28 times in 30 frames after a single fucking click.
-    //private void OnChristmasLightsAltVerbs(EntityUid uid, ChristmasLightsComponent comp, GetVerbsEvent<AlternativeVerb> args)
-    //{
-    //    args.Verbs.Add(
-    //        new AlternativeVerb
-    //        {
-    //            Priority = 3,
-    //            Text = Loc.GetString("christmas-lights-toggle-brightness"),
-    //            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/light.svg.192dpi.png")),
-    //            ClientExclusive = true,
-    //            CloseMenu = false,
-    //            Act = () => {
-    //                if (_timing.IsFirstTimePredicted) // i hate the antichrist i hate the antichrist i hate the antichrist
-    //                    RaiseNetworkEvent(new ChangeChristmasLightsBrightnessAttemptEvent(GetNetEntity(args.Target)));
-    //            }
-    //        });
-    //}
-
     private void OnChristmasLightsVerbs(EntityUid uid, ChristmasLightsComponent comp, GetVerbsEvent<Verb> args)
     {
         if (!_actionBlocker.CanInteract(args.User, uid) || !_interaction.InRangeUnobstructed(args.User, uid))
@@ -119,14 +98,6 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
         return true;
     }
 
-
-
-
-    // Funny shitcode game: everything that gets called in FrameUpdate() must be coded as if it's in a shader.
-
-
-
-
     // paranoidal profiling, not for live
 #if DEBUG
     class circlebuf
@@ -158,8 +129,6 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
     Stopwatch stopwatch = new();
 #endif
 
-
-
     private void SetLamp1Color(SpriteComponent sprite, Color c) // only for init, LEDs changing colors while off is lame
     {
         sprite.LayerSetColor(ChristmasLightsLayers.Lights1, c.WithAlpha(255));
@@ -179,7 +148,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
     /// </summary>
     /// <param name="x"></param>
     /// <returns>x but with a crippling disability</returns>
-    private static float Sin(float x) => (float) ((8 * MathF.Sin(x) + MathF.Sin(3 * x)) / 14 + 0.5);
+    private static float Shitsin(float x) => (float) ((8 * MathF.Sin(x) + MathF.Sin(3 * x)) / 14 + 0.5);
     
     private static float Step(float x, int stepsNum) => MathF.Round(x * stepsNum) / stepsNum;
     
@@ -201,6 +170,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
     private int _shift = 0;
 #endregion
 
+    // Funny shitcode game: everything that gets called in FrameUpdate() must be coded as if it's in a shader.
     public override void FrameUpdate(float frameTime) {
         base.FrameUpdate(frameTime);
 
@@ -244,8 +214,6 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
 
     private void InitModes()
     {
-        modes["test1"] = ModeTest1;
-        modes["test2"] = ModeTest2;
         modes["emp"] = ModeFubar;
         modes["emp_rainbow"] = ModeFubarRainbow;
         modes["always_on"] = ModeAlwaysOn;
@@ -261,15 +229,6 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
         modes["rainbow"] = ModeRainbow;
     }
     
-    void ModeTest1(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
-    {
-        // for playing with hot reload
-    }
-
-    void ModeTest2(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
-    {
-        // for playing with hot reload
-    }
     void ModeFubar(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
         layer1.AnimationFrame = Round(random*3);
@@ -293,6 +252,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
         layer1.AnimationFrame = 3;
         layer2.AnimationFrame = 3;
     }
+
     void ModeFade(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
         if (Cycle(2*MathF.PI))
