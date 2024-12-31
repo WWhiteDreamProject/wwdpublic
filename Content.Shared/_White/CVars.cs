@@ -27,6 +27,9 @@ public sealed class WhiteCVars
     public static readonly CVarDef<bool> LogInChat =
         CVarDef.Create("white.log_in_chat", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
 
+    public static readonly CVarDef<bool> CoalesceIdenticalMessages =
+        CVarDef.Create("white.coalesce_identical_messages", true, CVar.CLIENT | CVar.ARCHIVE | CVar.CLIENTONLY);
+
     #endregion
 
     #region TTS
