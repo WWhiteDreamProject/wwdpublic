@@ -139,7 +139,7 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: ClothingOuterHardsuitCombatOfficer # DeltaV - ClothingOuterHardsuitSecurity replaced in favour of security combat hardsuit.
+        - id: ClothingOuterHardsuitSecurity #WWDP edit
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Security"]]
@@ -198,7 +198,7 @@
     contents:
         - id: OxygenTankFilled
         - id: JetpackSecurityFilled
-        - id: ClothingOuterHardsuitCombatHoS # DeltaV - ClothingOuterHardsuitSecurityRed replaced in favour of head of security's advanced combat hardsuit.
+        - id: ClothingOuterHardsuitSecurityRed #WWDP edit
         - id: ClothingMaskGasSwat
   - type: AccessReader
     access: [["HeadOfSecurity"]]
@@ -212,7 +212,7 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: ClothingOuterHardsuitCombatWarden # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.
+        - id: ClothingOuterHardsuitWarden #WWDP edit
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Armory"]]

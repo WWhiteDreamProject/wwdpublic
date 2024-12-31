@@ -2,7 +2,7 @@
   id: WhiteBox
   mapName: 'Box Station'
   mapPath: /Maps/WhiteBox.yml
-  minPlayers: 0
+  minPlayers: 40
   stations:
     WhiteBoxStation:
       stationProto: StandardNanotrasenStation
