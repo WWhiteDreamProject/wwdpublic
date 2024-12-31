@@ -650,6 +650,8 @@
     - MetempsychoticMachineCircuitboard
     - SalvageExpeditionsComputerCircuitboard
     - JukeboxCircuitBoard
+    - SMESAdvancedMachineCircuitboard
+    - HolopadMachineCircuitboard
     - AutodocCircuitboard # Shitmed Change
     #    - OperatingTableCircuitboard # Shitmed Change
     - MaterialSiloCircuitboard
@@ -661,7 +663,6 @@
     - DurandTargetingElectronics
     - ClarkeCentralElectronics
     - ClarkePeripheralsElectronics
-    - SMESAdvancedMachineCircuitboard
     - BaseComputerModularCircuitBoard # Arcadis - Modular Computer System
     - DiskBurnerMachineCircuitboard # Arcadis - Modular Computer System
     # WD EDIT START
