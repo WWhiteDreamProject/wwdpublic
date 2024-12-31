@@ -1297,3 +1297,20 @@ Entries:
   id: 137
   time: '2024-12-31T06:58:44.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/208
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: New Year's map update/Новогоднее обновление карт
+    - type: Tweak
+      message: >-
+        Security now has regular hardsuits, not EE ones/У СБ теперь обычные
+        риги, а не ЕЕшные
+    - type: Tweak
+      message: >-
+        The Christmas tree has a new texture/У Рождественской ёлки новая
+        текстура
+    - type: Fix
+      message: Map bugs fixed/Пофикшены баги карт
+  id: 138
+  time: '2024-12-31T10:49:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/210
