@@ -319,7 +319,7 @@
       amount: 4
 
 - type: entity
-  parent: [GunSafeBaseSecure, AlertLevelLock] # WD EDIT: AlertLevelLock
+  parent: [GunSafeBaseSecure, BaseRestrictedContraband, AlertLevelLock] # WD EDIT: AlertLevelLock
   id: GunSafeLaserCarbine
   name: laser safe
   suffix: Alert Level Lock # WWDP
