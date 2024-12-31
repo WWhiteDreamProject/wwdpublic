@@ -84,6 +84,12 @@ public sealed partial class StrapComponent : Component
     /// </summary>
     [DataField]
     public bool BuckleOnInteractHand = true;
+
+    /// <summary>
+    /// Delay, that must occur, before user can unbuckle
+    /// </summary>
+    [DataField]
+    public float Delay;
 }
 
 public enum StrapPosition

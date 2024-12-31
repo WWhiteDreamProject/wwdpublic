@@ -405,6 +405,8 @@ public abstract partial class SharedBuckleSystem
         if (!Resolve(buckle.Owner, ref buckle.Comp))
             return false;
 
+
+
         if (!CanUnbuckle(buckle, user, popup, out var strap)) // WWDP - Remove this after fix shit under it
     // WWDP START
 /*
@@ -448,6 +450,14 @@ public abstract partial class SharedBuckleSystem
 */
     // WWDP END
             return false;
+
+        if (_gameTiming.CurTime < buckle.Comp.BuckleTime + TimeSpan.FromSeconds(strap.Comp.Delay) && user == buckle.Owner)
+        {
+            _popup.PopupEntity(
+                Loc.GetString("buckle-component-unbuckle-delay", ("time", Math.Ceiling((buckle.Comp.BuckleTime + TimeSpan.FromSeconds(strap.Comp.Delay) - _gameTiming.CurTime)!.Value.TotalSeconds))),
+                user!.Value);
+            return false;
+        }
 
         Unbuckle(buckle!, strap, user);
         return true;
@@ -542,6 +552,7 @@ public abstract partial class SharedBuckleSystem
         strap = (strapUid, strapComp);
         if (_gameTiming.CurTime < buckle.Comp.BuckleTime + buckle.Comp.Delay)
             return false;
+
 
         if (user != null && !_interaction.InRangeUnobstructed(user.Value, strap.Owner, buckle.Comp.Range, popup: popup))
             return false;

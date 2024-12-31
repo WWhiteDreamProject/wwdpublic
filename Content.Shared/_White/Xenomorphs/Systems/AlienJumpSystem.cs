@@ -2,6 +2,7 @@
 using System.Numerics;
 using Content.Shared.Actions;
 using Content.Shared.Aliens.Components;
+using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -13,6 +14,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 
@@ -25,7 +27,6 @@ public sealed class AlienJumpSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
@@ -60,20 +61,21 @@ public sealed class AlienJumpSystem : EntitySystem
     private void OnHit(EntityUid uid, AlienJumpComponent comp, ThrowDoHitEvent args)
     {
         var xform = Transform(args.Target);
-        var coords = xform.Coordinates;
+        var coords = xform.Coordinates.SnapToGrid(EntityManager, _mapMan);
         var tile = coords.GetTileRef(EntityManager, _mapMan);
-
         if (tile == null)
             return;
 
         if (_turf.IsTileBlocked(tile.Value, CollisionGroup.Impassable))
         {
+            _physics.SetBodyStatus(uid, EnsureComp<PhysicsComponent>(uid), BodyStatus.OnGround);
             _stun.TryParalyze(uid, TimeSpan.FromSeconds(4), true);
             return;
-        }
 
+        }
         if (HasComp<StandingStateComponent>(args.Target))
         {
+            _physics.SetBodyStatus(uid, EnsureComp<PhysicsComponent>(uid), BodyStatus.OnGround);
             _standing.Down(args.Target, false, dropHeldItems:false);
         }
     }
