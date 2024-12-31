@@ -3,11 +3,12 @@ using Content.Server._White.Throwing;
 using Content.Server.Inventory;
 using Content.Server.Stack;
 using Content.Server.Stunnable;
-using Content.Shared.Body.Systems;
-using Content.Shared.Body.Events;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems; // Shitmed Change
+using Content.Shared._Shitmed.Body.Events; // Shitmed Change
 using Content.Shared.CombatMode;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Explosion;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -38,7 +39,7 @@ namespace Content.Server.Hands.Systems
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly PullingSystem _pullingSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-        [Dependency] private readonly SharedBodySystem _bodySystem = default!;
+        [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
         public override void Initialize()
         {
             base.Initialize();
@@ -54,8 +55,8 @@ namespace Content.Server.Hands.Systems
             SubscribeLocalEvent<HandsComponent, ComponentGetState>(GetComponentState);
 
             SubscribeLocalEvent<HandsComponent, BeforeExplodeEvent>(OnExploded);
-            SubscribeLocalEvent<HandsComponent, BodyPartEnabledEvent>(HandleBodyPartEnabled);
-            SubscribeLocalEvent<HandsComponent, BodyPartDisabledEvent>(HandleBodyPartDisabled);
+            SubscribeLocalEvent<HandsComponent, BodyPartEnabledEvent>(HandleBodyPartEnabled); // Shitmed Change
+            SubscribeLocalEvent<HandsComponent, BodyPartDisabledEvent>(HandleBodyPartDisabled); // Shitmed Change
 
             CommandBinds.Builder
                 .Bind(ContentKeyFunctions.ThrowItemInHand, new PointerInputCmdHandler(HandleThrowItem))
@@ -100,9 +101,11 @@ namespace Content.Server.Hands.Systems
             if (!ThrowHeldItem(args.Target, offsetRandomCoordinates))
                 return;
 
+
             args.Handled = true; // no shove/stun.
         }
 
+        // Shitmed Change Start
         private void TryAddHand(EntityUid uid, HandsComponent component, Entity<BodyPartComponent> part, string slot)
         {
             if (part.Comp is null
@@ -151,6 +154,7 @@ namespace Content.Server.Hands.Systems
             RemoveHand(uid, SharedBodySystem.GetPartSlotContainerId(args.Part.Comp.ParentSlot?.Id ?? string.Empty));
         }
 
+        // Shitmed Change End
 
         #region pulling
 

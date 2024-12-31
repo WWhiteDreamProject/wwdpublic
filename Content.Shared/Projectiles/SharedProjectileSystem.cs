@@ -12,7 +12,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
-using Content.Shared.Targeting;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;

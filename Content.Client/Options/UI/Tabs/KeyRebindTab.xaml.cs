@@ -254,6 +254,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.EscapeMenu);
             AddButton(ContentKeyFunctions.EscapeContext);
 
+            // Shitmed Change Start - TODO: Add groin targeting.
             AddHeader("ui-options-header-targeting");
             AddButton(ContentKeyFunctions.TargetHead);
             AddButton(ContentKeyFunctions.TargetTorso);
@@ -265,6 +266,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.TargetLeftFoot);
             AddButton(ContentKeyFunctions.TargetRightLeg);
             AddButton(ContentKeyFunctions.TargetRightFoot);
+            // Shitmed Change End
 
             AddHeader("ui-options-header-misc");
             AddButton(ContentKeyFunctions.TakeScreenshot);
