@@ -405,52 +405,10 @@ public abstract partial class SharedBuckleSystem
         if (!Resolve(buckle.Owner, ref buckle.Comp))
             return false;
 
-
-
-        if (!CanUnbuckle(buckle, user, popup, out var strap)) // WWDP - Remove this after fix shit under it
-    // WWDP START
-/*
-        if (CompOrNull<StrapComponent>(strapUid) != null && Comp<StrapComponent>(strapUid).Delay > buckleComp.Delay)
-            buckleComp.Delay = Comp<StrapComponent>(strapUid).Delay;
-
-        if (!force)
-        {
-            var attemptEvent = new BuckleAttemptEvent(strapUid, buckleUid, userUid, false);
-            RaiseLocalEvent(attemptEvent.BuckledEntity, ref attemptEvent);
-            RaiseLocalEvent(attemptEvent.StrapEntity, ref attemptEvent);
-            if (attemptEvent.Cancelled)
-                return false;
-
-            if (_gameTiming.CurTime < buckleComp.BuckleTime + buckleComp.Delay)
-            {
-                _popup.PopupEntity(Loc.GetString("unbuckling-wait-message", ("delay", Math.Round((buckleComp.Delay - _gameTiming.CurTime + buckleComp.BuckleTime).TotalSeconds))), buckleUid, buckleUid);
-                return false;
-            }
-
-            if (!_interaction.InRangeUnobstructed(userUid, strapUid, buckleComp.Range, popup: true))
-                return false;
-
-            if (HasComp<SleepingComponent>(buckleUid) && buckleUid == userUid)
-                return false;
-
-            // If the person is crit or dead in any kind of strap, return. This prevents people from unbuckling themselves while incapacitated.
-            if (_mobState.IsIncapacitated(buckleUid) && userUid == buckleUid)
-                return false;
-        }
-
-        // Logging
-        if (userUid != buckleUid)
-            _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(userUid):player} unbuckled {ToPrettyString(buckleUid)} from {ToPrettyString(strapUid)}");
-        else
-            _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(userUid):player} unbuckled themselves from {ToPrettyString(strapUid)}");
-
-        SetBuckledTo(buckleUid, null, null, buckleComp);
-
-        if (!TryComp<StrapComponent>(strapUid, out var strapComp))
-*/
-    // WWDP END
+        if (!CanUnbuckle(buckle, user, popup, out var strap))
             return false;
 
+    // WWDP START
         if (_gameTiming.CurTime < buckle.Comp.BuckleTime + TimeSpan.FromSeconds(strap.Comp.Delay) && user == buckle.Owner)
         {
             _popup.PopupEntity(
@@ -458,6 +416,7 @@ public abstract partial class SharedBuckleSystem
                 user!.Value);
             return false;
         }
+    // WWDP END
 
         Unbuckle(buckle!, strap, user);
         return true;
@@ -552,7 +511,6 @@ public abstract partial class SharedBuckleSystem
         strap = (strapUid, strapComp);
         if (_gameTiming.CurTime < buckle.Comp.BuckleTime + buckle.Comp.Delay)
             return false;
-
 
         if (user != null && !_interaction.InRangeUnobstructed(user.Value, strap.Owner, buckle.Comp.Range, popup: popup))
             return false;
