@@ -12,7 +12,7 @@ antagonist-name-xenomorph-hunter = Охотник
 antagonist-name-xenomorph-maid = Горничная
 antagonist-name-xenomorph-sentinel = Плевальщик
 antagonist-name-xenomorph-facehugger = Лицехват
-antagonist-name-xenomorph-larva = Лярва
+antagonist-name-xenomorph-larva = Грудолом
 
 antagonist-name-headcrabs = Хедкрабы
 
