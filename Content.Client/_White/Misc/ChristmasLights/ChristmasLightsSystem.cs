@@ -179,12 +179,18 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
     /// </summary>
     /// <param name="x"></param>
     /// <returns>x but with a crippling disability</returns>
-    private static float Shitsin(float x) => (float) ((8 * MathF.Sin(x) + MathF.Sin(3 * x)) / 14 + 0.5);
+    private static float Sin(float x) => (float) ((8 * MathF.Sin(x) + MathF.Sin(3 * x)) / 14 + 0.5);
+    
     private static float Step(float x, int stepsNum) => MathF.Round(x * stepsNum) / stepsNum;
+    
     private static int Round(float x) => (int) MathF.Round(x);
+    
     private float curtime => (float) _timing.CurTime.TotalSeconds;
+    
     Color GetRainbowColor(float secondsPerCycle, float hueOffset, int steps) => Color.FromHsv(new Vector4(Step((curtime + hueOffset) % secondsPerCycle / secondsPerCycle, steps), 1f, 1f, 1f));
+    
     private bool Cycle(float seconds) => curtime % (seconds * 2) <= seconds;
+    
     /// <summary>
     ///  will not be kept in sync between clients, but who cares, it is different with every access and is intended to induce epileptic seizures
     /// </summary>
@@ -353,6 +359,7 @@ public sealed class ChristmasLightsSystem : SharedChristmasLightsSystem
         layer1.AnimationFrame = second < 0.5 ? 3 : 0;
         layer2.AnimationFrame = second >= 0.5 ? 3 : 0;
     }
+    
     void ModeRainbow(SpriteComponent.Layer layer1, SpriteComponent.Layer layer2, ChristmasLightsComponent comp, SpriteComponent sprite)
     {
         layer1.AnimationFrame = 3;
