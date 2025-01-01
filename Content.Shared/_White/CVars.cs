@@ -30,9 +30,6 @@ public sealed class WhiteCVars
     public static readonly CVarDef<int> CoalesceIdenticalMessages =
         CVarDef.Create("white.coalesce_identical_messages", 1, CVar.CLIENT | CVar.ARCHIVE | CVar.CLIENTONLY);
 
-    //public static readonly CVarDef<bool> CoalesceIdenticalMessagesDouble =
-    //    CVarDef.Create("white.coalesce_identical_messages_double", true, CVar.CLIENT | CVar.ARCHIVE | CVar.CLIENTONLY);
-
     #endregion
 
     #region TTS

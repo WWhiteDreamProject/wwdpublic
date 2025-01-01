@@ -141,7 +141,8 @@ public partial class ChatBox : UIWidget
     public void Repopulate()
     {
         Contents.Clear();
-
+        _lastLine1 = null;
+        _lastLine2 = null;
         foreach (var message in _controller.History)
         {
             OnMessageAdded(message.Item2);
