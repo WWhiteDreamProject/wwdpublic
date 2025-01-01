@@ -7,13 +7,17 @@ christmas-lights-unresponsive = Ничего не происходит...
 
 ent-RedBlueChristmasLights = { christmas-lights-examine-name }
   .desc = { christmas-lights-examine-desc }
+  .suffix = Красно-синяя
 
 ent-YellowCyanChristmasLights = { christmas-lights-examine-name }
   .desc = { christmas-lights-examine-desc }
+  .suffix = Жёлто-голубая
 
 ent-PurpleGreenChristmasLights = { christmas-lights-examine-name }
   .desc = { christmas-lights-examine-desc }
+  .suffix = Фиолетово-зелёная
 
 ent-RainbowChristmasLights = { christmas-lights-examine-name }
   .desc = { christmas-lights-examine-desc }
+  .suffix = Радужная
 
