@@ -27,14 +27,8 @@ public sealed class WhiteCVars
     public static readonly CVarDef<bool> LogInChat =
         CVarDef.Create("white.log_in_chat", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
 
-    /// <summary>
-    /// Chatstack mode
-    /// 0 - no chatstack
-    /// 1 - chatstack only last message
-    /// 2 - chatstack only last two messages
-    /// </summary>
-    public static readonly CVarDef<int> CoalesceIdenticalMessages =
-        CVarDef.Create("white.coalesce_identical_messages_mode", 1, CVar.CLIENT | CVar.ARCHIVE | CVar.CLIENTONLY);
+    public static readonly CVarDef<int> ChatStackAmount =
+        CVarDef.Create("white.chatstack_last_N_messages", 1, CVar.CLIENT | CVar.ARCHIVE | CVar.CLIENTONLY);
 
     #endregion
 

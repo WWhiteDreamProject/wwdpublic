@@ -64,7 +64,8 @@ namespace Content.Client.Options.UI.Tabs
             CoalesceIdenticalMessagesOptionButton.AddItem(_loc.GetString("chat-system-coalesce-mode-off"), 0);
             CoalesceIdenticalMessagesOptionButton.AddItem(_loc.GetString("chat-system-coalesce-mode-single"), 1);
             CoalesceIdenticalMessagesOptionButton.AddItem(_loc.GetString("chat-system-coalesce-mode-double"), 2);
-            CoalesceIdenticalMessagesOptionButton.TrySelectId(_cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages));
+            CoalesceIdenticalMessagesOptionButton.AddItem(_loc.GetString("chat-system-coalesce-mode-triple"), 3);
+            CoalesceIdenticalMessagesOptionButton.TrySelectId(_cfg.GetCVar(WhiteCVars.ChatStackAmount));
             CoalesceIdenticalMessagesOptionButton.OnItemSelected += args =>
             {
                 CoalesceIdenticalMessagesOptionButton.SelectId(args.Id);
@@ -172,7 +173,7 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.StaticStorageUI, StaticStorageUI.Pressed);
             _cfg.SetCVar(CCVars.NoVisionFilters, DisableFiltersCheckBox.Pressed);
             _cfg.SetCVar(WhiteCVars.LogInChat, LogInChatCheckBox.Pressed); // WD EDIT
-            _cfg.SetCVar(WhiteCVars.CoalesceIdenticalMessages, CoalesceIdenticalMessagesOptionButton.SelectedId); // WD EDIT
+            _cfg.SetCVar(WhiteCVars.ChatStackAmount, CoalesceIdenticalMessagesOptionButton.SelectedId); // WD EDIT
 
             if (HudLayoutOption.SelectedMetadata is string opt)
             {
@@ -205,7 +206,7 @@ namespace Content.Client.Options.UI.Tabs
             var isStaticStorageUISame = StaticStorageUI.Pressed == _cfg.GetCVar(CCVars.StaticStorageUI);
             var isNoVisionFiltersSame = DisableFiltersCheckBox.Pressed == _cfg.GetCVar(CCVars.NoVisionFilters);
             var isLogInChatCheckBoxSame = LogInChatCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.LogInChat); // WD EDIT
-            var CoalesceIdenticalMessagesOptionButtonSame = CoalesceIdenticalMessagesOptionButton.SelectedId == _cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages); // WD EDIT // HOLY SHIT
+            var CoalesceIdenticalMessagesOptionButtonSame = CoalesceIdenticalMessagesOptionButton.SelectedId == _cfg.GetCVar(WhiteCVars.ChatStackAmount); // WD EDIT // HOLY SHIT
 
 
             ApplyButton.Disabled = isHudThemeSame &&

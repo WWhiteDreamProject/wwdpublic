@@ -25,6 +25,7 @@ ui-options-coalesce-identical-messages = Автоматическое слиян
 chat-system-coalesce-mode-off = Выкл.
 chat-system-coalesce-mode-single = Только последнее сообщение
 chat-system-coalesce-mode-double = Последние два сообщения
+chat-system-coalesce-mode-triple = Последние три сообщения
 
 ## Audio menu
 

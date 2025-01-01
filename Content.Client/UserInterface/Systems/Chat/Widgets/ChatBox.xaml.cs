@@ -31,13 +31,8 @@ public partial class ChatBox : UIWidget
 
     public ChatSelectChannel SelectedChannel => ChatInput.ChannelSelector.SelectedChannel;
     // WD EDIT START
-    private bool _coalescence = false; // op ult btw
-    private bool _coalescencedouble = false; // i swear this is the last one
-
-    private (string, Color)? _lastLine1;
-    private int _lastLineRepeatCount1 = 0;
-    private (string, Color)? _lastLine2;
-    private int _lastLineRepeatCount2 = 0;
+    private int _chatStackAmount = 0;
+    private List<ChatStackData> _chatStackList;
     // WD EDIT END
 
     public ChatBox()
@@ -58,17 +53,18 @@ public partial class ChatBox : UIWidget
 
         // WD EDIT START
         _cfg = IoCManager.Resolve<IConfigurationManager>(); 
-        _coalescence = _cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages) != 0; // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
-        _coalescencedouble = _cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages) == 2; 
-        _cfg.OnValueChanged(WhiteCVars.CoalesceIdenticalMessages, UpdateCoalescence, false); // eplicitly false to underline the above comment
+        _chatStackAmount = _cfg.GetCVar(WhiteCVars.ChatStackAmount);
+        if(_chatStackAmount < 0) // because someone would invariably try that
+            _chatStackAmount = 0;
+        _chatStackList = new(_chatStackAmount);
+        _cfg.OnValueChanged(WhiteCVars.ChatStackAmount, UpdateChatStack, false); // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
         // WD EDIT END
     }
 
     // WD EDIT START
-    private void UpdateCoalescence(int value)
+    private void UpdateChatStack(int value)
     {
-        _coalescence = value != 0;
-        _coalescencedouble = value == 2;
+        _chatStackAmount = value >= 0 ? value : 0;
         Repopulate();
     } // WD EDIT END
 
@@ -93,51 +89,59 @@ public partial class ChatBox : UIWidget
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
         // WD EDIT START
-
-        // Removing and then adding insantly nudges the chat window up before slowly dragging it back down, which makes the whole chat log shake
-        // and make it borderline unreadable with frequent enough spam.
-        // Adding first and then removing does not produce any visual effects.
-        // The other option is to copypaste into Content all of OutputPanel and everything it uses but is intertanl to Robust namespace.
-        // Thanks robustengine, very cool.
-        (string, Color) tup = (msg.WrappedMessage, color);
-        if (!_coalescence || msg.IgnoreChatCoalescence)
+        if(_chatStackAmount == 0)
         {
-            AddLineAndShift(tup);
+            AddLine(msg.WrappedMessage, color);
+            return;
+        }
+        if (msg.IgnoreChatCoalescence)
+        {
+            AddLineAndShift(msg.WrappedMessage, color);
             return;
         }
 
-        if (tup == _lastLine1)
-            UpdateRepeatingLine1();
-        else
-            if (_coalescencedouble && tup == _lastLine2)
-                UpdateRepeatingLine2();
-            else
-                AddLineAndShift(tup);
+        int index = _chatStackList.FindIndex(data => data.WrappedMessage == msg.WrappedMessage);
+
+        if(index == -1)
+        {
+            AddLineAndShift(msg.WrappedMessage, color);
+            return;
+        }
+
+        UpdateRepeatingLine(index);
     }
 
-    private void AddLineAndShift((string WrappedMessage, Color color) msgTuple)
+    private void AddLineAndShift(string wrappedMessage, Color color)
     {
-        _lastLine2 = _lastLine1;
-        _lastLineRepeatCount2 = _lastLineRepeatCount1;
-        _lastLine1 = msgTuple;
-        _lastLineRepeatCount1 = 0;
-        AddLine(msgTuple);
+        if (_chatStackList.Count == _chatStackList.Capacity)
+            _chatStackList.RemoveAt(_chatStackList.Capacity - 1);
+
+        _chatStackList.Insert(0, new ChatStackData(wrappedMessage, color));
+        AddLine(wrappedMessage, color);
     }
 
-    private void UpdateRepeatingLine1()
+    /// <summary>
+    /// Removing and then adding insantly nudges the chat window up before slowly dragging it back down, which makes the whole chat log shake
+    /// and make it borderline unreadable with frequent enough spam.
+    /// Adding first and then removing does not produce any visual effects.
+    /// The other option is to copypaste into Content all of OutputPanel and everything it uses but is intertanl to Robust namespace.
+    /// Thanks robustengine, very cool.
+    /// </summary>
+    /// <remarks>
+    /// zero index is the very last line, 1 is the line before the last one, 2 is the line before that, etc.
+    /// </remarks>
+    private void UpdateRepeatingLine(int index)
     {
-        _lastLineRepeatCount1++;
-        AddLine(_lastLine1!.Value, _lastLineRepeatCount1);
-        Contents.RemoveEntry(^2);
-    }
-
-    private void UpdateRepeatingLine2()
-    {
-        _lastLineRepeatCount2++;
-        AddLine(_lastLine2!.Value, _lastLineRepeatCount2);
-        AddLine(_lastLine1!.Value, _lastLineRepeatCount1);
-        Contents.RemoveEntry(^3);
-        Contents.RemoveEntry(^3);
+        _chatStackList[index].RepeatCount++;
+        for(int i = index; i >= 0; i--)
+        {
+            var data = _chatStackList[i];
+            AddLine(data.WrappedMessage, data.ColorOverride, data.RepeatCount);
+        }
+        for (int i = index; i >= 0; i--) // same cycle for clarity, i doesn't actually matter here
+        {
+            Contents.RemoveEntry(Index.FromEnd(index + 2));
+        }
     }
 // WD EDIT END
 
@@ -149,8 +153,7 @@ private void OnChannelSelect(ChatSelectChannel channel)
     public void Repopulate()
     {
         Contents.Clear();
-        _lastLine1 = null;
-        _lastLine2 = null;
+        _chatStackList = new List<ChatStackData>(_chatStackAmount);
         foreach (var message in _controller.History)
         {
             OnMessageAdded(message.Item2);
@@ -171,8 +174,6 @@ private void OnChannelSelect(ChatSelectChannel channel)
             _controller.ClearUnfilteredUnreads(channel);
         }
     }
-
-    public void AddLine((string message, Color color) tuple, int repeat = 0) => AddLine(tuple.message, tuple.color, repeat);
 
     public void AddLine(string message, Color color, int repeat = 0) // WD EDIT
     {
@@ -272,6 +273,19 @@ private void OnChannelSelect(ChatSelectChannel channel)
         ChatInput.Input.OnKeyBindDown -= OnInputKeyBindDown;
         ChatInput.Input.OnTextChanged -= OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
-        _cfg.UnsubValueChanged(WhiteCVars.CoalesceIdenticalMessages, UpdateCoalescence); // WD EDIT
+        _cfg.UnsubValueChanged(WhiteCVars.ChatStackAmount, UpdateChatStack); // WD EDIT
+    }
+
+    private class ChatStackData
+    {
+        public string WrappedMessage;
+        public Color ColorOverride;
+        public int RepeatCount = 0;
+
+        public ChatStackData(string wrappedMessage, Color colorOverride)
+        {
+            WrappedMessage = wrappedMessage;
+            ColorOverride = colorOverride;
+        }
     }
 }
