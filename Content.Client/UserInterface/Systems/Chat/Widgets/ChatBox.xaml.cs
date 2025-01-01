@@ -32,8 +32,12 @@ public partial class ChatBox : UIWidget
     public ChatSelectChannel SelectedChannel => ChatInput.ChannelSelector.SelectedChannel;
     // WD EDIT START
     private bool _coalescence = false; // op ult btw
-    private (string, Color)? _lastLine;
-    private int _lastLineRepeatCount = 0;
+    private bool _coalescencedouble = false; // i swear this is the last one
+
+    private (string, Color)? _lastLine1;
+    private int _lastLineRepeatCount1 = 0;
+    private (string, Color)? _lastLine2;
+    private int _lastLineRepeatCount2 = 0;
     // WD EDIT END
 
     public ChatBox()
@@ -54,12 +58,19 @@ public partial class ChatBox : UIWidget
 
         // WD EDIT START
         _cfg = IoCManager.Resolve<IConfigurationManager>(); 
-        _coalescence = _cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages); // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
+        _coalescence = _cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages) != 0; // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
+        _coalescencedouble = _cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages) == 2; 
         _cfg.OnValueChanged(WhiteCVars.CoalesceIdenticalMessages, UpdateCoalescence, false); // eplicitly false to underline the above comment
         // WD EDIT END
     }
 
-    private void UpdateCoalescence(bool value) { _coalescence = value; Repopulate(); } // WD EDIT
+    // WD EDIT START
+    private void UpdateCoalescence(int value)
+    {
+        _coalescence = value != 0;
+        _coalescencedouble = value == 2;
+        Repopulate();
+    } // WD EDIT END
 
     private void OnTextEntered(LineEditEventArgs args)
     {
@@ -82,24 +93,43 @@ public partial class ChatBox : UIWidget
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
         // WD EDIT START
-        (string, Color) tup = (msg.WrappedMessage, color);
 
         // Removing and then adding insantly nudges the chat window up before slowly dragging it back down, which makes the whole chat log shake
         // and make it borderline unreadable with frequent enough spam.
         // Adding first and then removing does not produce any visual effects.
         // The other option is to copypaste into Content all of OutputPanel and everything it uses but is intertanl to Robust namespace.
         // Thanks robustengine, very cool.
-        if (_coalescence && _lastLine == tup)
+        if (!_coalescence)
         {
-            _lastLineRepeatCount++;
-            AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
-            Contents.RemoveEntry(^2); 
+            AddLine(msg.WrappedMessage, color);
+            return;
+        }
+
+        (string, Color) tup = (msg.WrappedMessage, color);
+        if (tup == _lastLine1)
+        {
+            _lastLineRepeatCount1++;
+            AddLine(_lastLine1!.Value, _lastLineRepeatCount1);
+            Contents.RemoveEntry(^2);
         }
         else
         {
-            _lastLineRepeatCount = 0;
-            _lastLine = (msg.WrappedMessage, color);
-            AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
+            if (_coalescencedouble && tup == _lastLine2)
+            {
+                _lastLineRepeatCount2++;
+                AddLine(_lastLine2!.Value, _lastLineRepeatCount2);
+                AddLine(_lastLine1!.Value, _lastLineRepeatCount1);
+                Contents.RemoveEntry(^3);
+                Contents.RemoveEntry(^3);
+            }
+            else
+            {
+                _lastLine2 = _lastLine1;
+                _lastLineRepeatCount2 = _lastLineRepeatCount1;
+                _lastLine1 = (msg.WrappedMessage, color);
+                _lastLineRepeatCount1 = 0;
+                AddLine(msg.WrappedMessage, color);
+            }
         } // WD EDIT END
     }
 
@@ -132,6 +162,8 @@ public partial class ChatBox : UIWidget
             _controller.ClearUnfilteredUnreads(channel);
         }
     }
+
+    public void AddLine((string message, Color color) tuple, int repeat = 0) => AddLine(tuple.message, tuple.color, repeat);
 
     public void AddLine(string message, Color color, int repeat = 0) // WD EDIT
     {
