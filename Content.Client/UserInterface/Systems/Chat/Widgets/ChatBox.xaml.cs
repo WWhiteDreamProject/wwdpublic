@@ -31,9 +31,8 @@ public partial class ChatBox : UIWidget
 
     public ChatSelectChannel SelectedChannel => ChatInput.ChannelSelector.SelectedChannel;
     // WD EDIT START
-    private bool _coalescence = false; // op ult btw
-    private (string, Color)? _lastLine;
-    private int _lastLineRepeatCount = 0;
+    private int _chatStackAmount = 0;
+    private List<ChatStackData> _chatStackList;
     // WD EDIT END
 
     public ChatBox()
@@ -54,12 +53,20 @@ public partial class ChatBox : UIWidget
 
         // WD EDIT START
         _cfg = IoCManager.Resolve<IConfigurationManager>(); 
-        _coalescence = _cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages); // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
-        _cfg.OnValueChanged(WhiteCVars.CoalesceIdenticalMessages, UpdateCoalescence, false); // eplicitly false to underline the above comment
+        _chatStackAmount = _cfg.GetCVar(WhiteCVars.ChatStackAmount);
+        if(_chatStackAmount < 0) // because someone would invariably try that
+            _chatStackAmount = 0;
+        _chatStackList = new(_chatStackAmount);
+        _cfg.OnValueChanged(WhiteCVars.ChatStackAmount, UpdateChatStack, false); // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
         // WD EDIT END
     }
 
-    private void UpdateCoalescence(bool value) { _coalescence = value; Repopulate(); } // WD EDIT
+    // WD EDIT START
+    private void UpdateChatStack(int value)
+    {
+        _chatStackAmount = value >= 0 ? value : 0;
+        Repopulate();
+    } // WD EDIT END
 
     private void OnTextEntered(LineEditEventArgs args)
     {
@@ -82,28 +89,63 @@ public partial class ChatBox : UIWidget
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
         // WD EDIT START
-        (string, Color) tup = (msg.WrappedMessage, color);
-
-        // Removing and then adding insantly nudges the chat window up before slowly dragging it back down, which makes the whole chat log shake
-        // and make it borderline unreadable with frequent enough spam.
-        // Adding first and then removing does not produce any visual effects.
-        // The other option is to copypaste into Content all of OutputPanel and everything it uses but is intertanl to Robust namespace.
-        // Thanks robustengine, very cool.
-        if (_coalescence && _lastLine == tup)
+        if(_chatStackAmount == 0)
         {
-            _lastLineRepeatCount++;
-            AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
-            Contents.RemoveEntry(^2); 
+            AddLine(msg.WrappedMessage, color);
+            return;
         }
-        else
+        if (msg.IgnoreChatCoalescence)
         {
-            _lastLineRepeatCount = 0;
-            _lastLine = (msg.WrappedMessage, color);
-            AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
-        } // WD EDIT END
+            AddLineAndShift(msg.WrappedMessage, color);
+            return;
+        }
+
+        int index = _chatStackList.FindIndex(data => data.WrappedMessage == msg.WrappedMessage);
+
+        if(index == -1)
+        {
+            AddLineAndShift(msg.WrappedMessage, color);
+            return;
+        }
+
+        UpdateRepeatingLine(index);
     }
 
-    private void OnChannelSelect(ChatSelectChannel channel)
+    private void AddLineAndShift(string wrappedMessage, Color color)
+    {
+        if (_chatStackList.Count == _chatStackList.Capacity)
+            _chatStackList.RemoveAt(_chatStackList.Capacity - 1);
+
+        _chatStackList.Insert(0, new ChatStackData(wrappedMessage, color));
+        AddLine(wrappedMessage, color);
+    }
+
+    /// <summary>
+    /// Removing and then adding insantly nudges the chat window up before slowly dragging it back down, which makes the whole chat log shake
+    /// and make it borderline unreadable with frequent enough spam.
+    /// Adding first and then removing does not produce any visual effects.
+    /// The other option is to copypaste into Content all of OutputPanel and everything it uses but is intertanl to Robust namespace.
+    /// Thanks robustengine, very cool.
+    /// </summary>
+    /// <remarks>
+    /// zero index is the very last line, 1 is the line before the last one, 2 is the line before that, etc.
+    /// </remarks>
+    private void UpdateRepeatingLine(int index)
+    {
+        _chatStackList[index].RepeatCount++;
+        for(int i = index; i >= 0; i--)
+        {
+            var data = _chatStackList[i];
+            AddLine(data.WrappedMessage, data.ColorOverride, data.RepeatCount);
+        }
+        for (int i = index; i >= 0; i--) // same cycle for clarity, i doesn't actually matter here
+        {
+            Contents.RemoveEntry(Index.FromEnd(index + 2));
+        }
+    }
+// WD EDIT END
+
+private void OnChannelSelect(ChatSelectChannel channel)
     {
         _controller.UpdateSelectedChannel(this);
     }
@@ -111,7 +153,7 @@ public partial class ChatBox : UIWidget
     public void Repopulate()
     {
         Contents.Clear();
-
+        _chatStackList = new List<ChatStackData>(_chatStackAmount);
         foreach (var message in _controller.History)
         {
             OnMessageAdded(message.Item2);
@@ -231,6 +273,19 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnKeyBindDown -= OnInputKeyBindDown;
         ChatInput.Input.OnTextChanged -= OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
-        _cfg.UnsubValueChanged(WhiteCVars.CoalesceIdenticalMessages, UpdateCoalescence); // WD EDIT
+        _cfg.UnsubValueChanged(WhiteCVars.ChatStackAmount, UpdateChatStack); // WD EDIT
+    }
+
+    private class ChatStackData
+    {
+        public string WrappedMessage;
+        public Color ColorOverride;
+        public int RepeatCount = 0;
+
+        public ChatStackData(string wrappedMessage, Color colorOverride)
+        {
+            WrappedMessage = wrappedMessage;
+            ColorOverride = colorOverride;
+        }
     }
 }

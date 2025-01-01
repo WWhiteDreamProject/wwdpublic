@@ -20,7 +20,12 @@ ui-options-general-cursor = Курсор
 ui-options-general-speech = Речь
 ui-options-general-storage = Инвентарь
 ui-options-general-accessibility = Доступность
-ui-options-coalesce-identical-messages = Не повторять одинаковые сообщения в чате
+ui-options-coalesce-identical-messages = Автоматическое слияние одинаковых сообщений
+
+chat-system-coalesce-mode-off = Выкл.
+chat-system-coalesce-mode-single = Только последнее сообщение
+chat-system-coalesce-mode-double = Последние два сообщения
+chat-system-coalesce-mode-triple = Последние три сообщения
 
 ## Audio menu
 
