@@ -273,7 +273,7 @@
         Amount: 1
         DefaultPrototype: Beaker
         ExamineName: Glass Beaker
-    materialRequirements:
+    componentRequirements:
       DiseaseSwab:
         Amount: 1
         DefaultPrototype: DiseaseSwab
@@ -782,7 +782,7 @@
     requirements:
       Capacitor: 2
       CableHV: 20
-    materialRequirements:
+    componentRequirements:
       PowerCell:
         amount: 4
         DefaultPrototype: PowerCellMedium
@@ -1266,7 +1266,7 @@
       prototype: FatExtractor
       requirements:
         Manipulator: 1
-      materialRequirements:
+      componentRequirements:
         Utensil:
           Amount: 1
           DefaultPrototype: ForkPlastic
