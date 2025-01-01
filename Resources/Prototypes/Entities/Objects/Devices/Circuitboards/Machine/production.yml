@@ -781,10 +781,11 @@
     prototype: SMESAdvancedEmpty
     requirements:
       Capacitor: 2
+    materialRequirements:
       CableHV: 20
     componentRequirements:
       PowerCell:
-        amount: 4
+        Amount: 4
         DefaultPrototype: PowerCellMedium
 
 - type: entity
