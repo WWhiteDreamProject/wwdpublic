@@ -99,41 +99,49 @@ public partial class ChatBox : UIWidget
         // Adding first and then removing does not produce any visual effects.
         // The other option is to copypaste into Content all of OutputPanel and everything it uses but is intertanl to Robust namespace.
         // Thanks robustengine, very cool.
-        if (!_coalescence)
+        (string, Color) tup = (msg.WrappedMessage, color);
+        if (!_coalescence || msg.IgnoreChatCoalescence)
         {
-            AddLine(msg.WrappedMessage, color);
+            AddLineAndShift(tup);
             return;
         }
 
-        (string, Color) tup = (msg.WrappedMessage, color);
         if (tup == _lastLine1)
-        {
-            _lastLineRepeatCount1++;
-            AddLine(_lastLine1!.Value, _lastLineRepeatCount1);
-            Contents.RemoveEntry(^2);
-        }
+            UpdateRepeatingLine1();
         else
-        {
             if (_coalescencedouble && tup == _lastLine2)
-            {
-                _lastLineRepeatCount2++;
-                AddLine(_lastLine2!.Value, _lastLineRepeatCount2);
-                AddLine(_lastLine1!.Value, _lastLineRepeatCount1);
-                Contents.RemoveEntry(^3);
-                Contents.RemoveEntry(^3);
-            }
+                UpdateRepeatingLine2();
             else
-            {
-                _lastLine2 = _lastLine1;
-                _lastLineRepeatCount2 = _lastLineRepeatCount1;
-                _lastLine1 = (msg.WrappedMessage, color);
-                _lastLineRepeatCount1 = 0;
-                AddLine(msg.WrappedMessage, color);
-            }
-        } // WD EDIT END
+                AddLineAndShift(tup);
     }
 
-    private void OnChannelSelect(ChatSelectChannel channel)
+    private void AddLineAndShift((string WrappedMessage, Color color) msgTuple)
+    {
+        _lastLine2 = _lastLine1;
+        _lastLineRepeatCount2 = _lastLineRepeatCount1;
+        _lastLine1 = msgTuple;
+        _lastLineRepeatCount1 = 0;
+        AddLine(msgTuple);
+    }
+
+    private void UpdateRepeatingLine1()
+    {
+        _lastLineRepeatCount1++;
+        AddLine(_lastLine1!.Value, _lastLineRepeatCount1);
+        Contents.RemoveEntry(^2);
+    }
+
+    private void UpdateRepeatingLine2()
+    {
+        _lastLineRepeatCount2++;
+        AddLine(_lastLine2!.Value, _lastLineRepeatCount2);
+        AddLine(_lastLine1!.Value, _lastLineRepeatCount1);
+        Contents.RemoveEntry(^3);
+        Contents.RemoveEntry(^3);
+    }
+// WD EDIT END
+
+private void OnChannelSelect(ChatSelectChannel channel)
     {
         _controller.UpdateSelectedChannel(this);
     }
