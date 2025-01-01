@@ -1,8 +1,8 @@
 - type: statusIcon
   id: SecurityIcon
   abstract: true
-  offset: 1
-  locationPreference: Left
+  offset: 2 # WWDP-Edit
+  locationPreference: Right # WWDP-Edit
   isShaded: true
 
 - type: statusIcon

@@ -128,8 +128,8 @@
   parent: JobIcon
   id: JobIconUnknown
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Unknown
+    sprite: /Textures/_White/Interface/Misc/job_icons.rsi # WWDP-Edit
+    state: Shrambled # WWDP-Edit
 
 - type: statusIcon
   parent: JobIcon
