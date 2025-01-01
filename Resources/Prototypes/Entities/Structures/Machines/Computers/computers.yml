@@ -1316,10 +1316,10 @@
 #  - type: SiliconLawUpdater # WWDP - REMOVED UNTIL AI ADDED
 #    components:
 #    - type: StationAiHeld
-  - type: ItemSlotsLock
-    slots:
-    - circuit_holder
-  - type: ItemSlotRequiresPower
+#  - type: ItemSlotsLock # WWDP - DONT HAVE ITEMTOGGLE REFACTOR
+#    slots:
+#    - circuit_holder
+#  - type: ItemSlotRequiresPower # WWDP - DONT HAVE SYSTEM
   - type: ItemSlots
     slots:
       circuit_holder:
