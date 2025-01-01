@@ -1,4 +1,4 @@
-﻿using Content.Shared.Whitelist;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
@@ -23,7 +23,7 @@ namespace Content.Shared.UserInterface
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
-        public bool AdminOnly;
+        public bool AdminOnly;  
 
         [DataField]
         public LocId VerbText = "ui-verb-toggle-open";

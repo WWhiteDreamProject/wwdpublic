@@ -37,3 +37,23 @@
       drawdepth: Effects
     - type: PointLight
       color: "#008DFE"
+
+- type: entity
+  id: EffectTeslaSparksSilent
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: Effects/atmospherics.rsi
+      state: frezon_old
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: AnimationPlayer
