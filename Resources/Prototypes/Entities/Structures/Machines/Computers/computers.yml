@@ -1320,16 +1320,16 @@
 #    slots:
 #    - circuit_holder
 #  - type: ItemSlotRequiresPower # WWDP - DONT HAVE SYSTEM
-  - type: ItemSlots
-    slots:
-      circuit_holder:
-        name: circuit-holder
-        insertSuccessPopup: silicon-laws-updated
-        whitelist:
-          requireAll: true
-          components:
-          - SiliconLawProvider
-          - Item
+#  - type: ItemSlots # WWDP - REMOVED UNTIL AI ADDED
+#    slots:
+#      circuit_holder:
+#        name: circuit-holder
+#        insertSuccessPopup: silicon-laws-updated
+#        whitelist:
+#          requireAll: true
+#          components:
+#          - SiliconLawProvider
+#          - Item
   - type: ContainerContainer
     containers:
       circuit_holder: !type:ContainerSlot

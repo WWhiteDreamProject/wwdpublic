@@ -273,7 +273,7 @@
         Amount: 1
         DefaultPrototype: Beaker
         ExamineName: Glass Beaker
-    componentRequirements:
+    materialRequirements:
       DiseaseSwab:
         Amount: 1
         DefaultPrototype: DiseaseSwab
@@ -779,13 +779,13 @@
     state: power_mod
   - type: MachineBoard
     prototype: SMESAdvancedEmpty
-    stackRequirements:
+    requirements:
       Capacitor: 2
       CableHV: 20
-    componentRequirements:
+    materialRequirements:
       PowerCell:
         amount: 4
-        defaultPrototype: PowerCellMedium
+        DefaultPrototype: PowerCellMedium
 
 - type: entity
   id: CellRechargerCircuitboard
@@ -1266,7 +1266,7 @@
       prototype: FatExtractor
       requirements:
         Manipulator: 1
-      componentRequirements:
+      materialRequirements:
         Utensil:
           Amount: 1
           DefaultPrototype: ForkPlastic
