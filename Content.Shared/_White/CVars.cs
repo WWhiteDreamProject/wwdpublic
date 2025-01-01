@@ -28,7 +28,7 @@ public sealed class WhiteCVars
         CVarDef.Create("white.log_in_chat", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
 
     public static readonly CVarDef<int> CoalesceIdenticalMessages =
-        CVarDef.Create("white.coalesce_identical_messages", 1, CVar.CLIENT | CVar.ARCHIVE | CVar.CLIENTONLY);
+        CVarDef.Create("white.coalesce_identical_messages_mode", 1, CVar.CLIENT | CVar.ARCHIVE | CVar.CLIENTONLY);
 
     #endregion
 
