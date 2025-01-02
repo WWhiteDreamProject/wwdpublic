@@ -23,14 +23,13 @@ public sealed class RulonOboevAspect : AspectSystem<RenameCrewAspectComponent>
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IRobustRandom _rng = default!;
 
-    EntityUid? existing = null;
+    private EntityUid? _existing = null;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
         SubscribeLocalEvent<RenameCrewAspectComponent, ComponentInit>(OnCompInit);
-
     }
 
     protected override void Ended(EntityUid uid, RenameCrewAspectComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
@@ -68,11 +67,14 @@ public sealed class RulonOboevAspect : AspectSystem<RenameCrewAspectComponent>
             name = _rng.PickAndTake(comp.SpecialNames);
             return true;
         }
-        if (comp.RegularNameCombos.Count > 0) {
+
+        if (comp.RegularNameCombos.Count > 0)
+        {
             (int first, int last) = _rng.PickAndTake(comp.RegularNameCombos);
             name = string.Join(' ', comp.FirstNames[first], comp.LastNames[last]);
             return true;
         }
+
         name = null;
         return false;
     }
