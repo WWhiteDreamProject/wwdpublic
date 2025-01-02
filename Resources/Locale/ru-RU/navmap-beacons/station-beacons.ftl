@@ -36,7 +36,7 @@ station-beacon-anomaly-gen = Контроль аномалий
 station-beacon-supply = Отдел логистики
 station-beacon-cargo = Карго
 station-beacon-cargo-bay = Стыковочный док карго
-station-beacon-qm = Завхоз
+station-beacon-qm = Квартирмейстер
 station-beacon-salvage = Утилизаторская
 
 station-beacon-engineering = Инженерный отдел
