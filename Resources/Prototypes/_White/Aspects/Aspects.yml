@@ -101,7 +101,7 @@
     forbidden: true
     hidden: true
   - type: RenameCrewAspect
-    specialNameChance: 0.1
+    #specialNameChance: 1
     firstNames:
     - Ушат
     - Улов

@@ -26,35 +26,27 @@ public sealed class RenameCrewAspect : AspectSystem<RenameCrewAspectComponent>
     [Dependency] private readonly IConsoleHost _con = default!;
     [Dependency] private readonly IRobustRandom _rng = default!;
 
-    private EntityUid? _existing = null;
-
     public override void Initialize()
     {
         base.Initialize();
         //SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
         SubscribeLocalEvent<PlayerProfileAdjustEvent>(OnPlayerProfileAdjust);
         SubscribeLocalEvent<RenameCrewAspectComponent, ComponentInit>(OnCompInit);
+        //SubscribeLocalEvent<CleanUp>(OnCompInit);
     }
 
-    protected override void Ended(EntityUid uid, RenameCrewAspectComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
-    {
-        base.Ended(uid, component, gameRule, args);
-        _existing = null;
-    }
-
-    public override void Shutdown()
-    {
-        base.Shutdown();
-        _existing = null;
-    }
+    //protected override void Ended(EntityUid uid, RenameCrewAspectComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
+    //{
+    //    base.Ended(uid, component, gameRule, args);
+    //}
+    //
+    //public override void Shutdown()
+    //{
+    //    base.Shutdown();
+    //}
 
     private void OnCompInit(EntityUid uid, RenameCrewAspectComponent comp, ComponentInit args)
     {
-        if (_existing.HasValue) {
-            //Sawmill.Error("RulonOboev aspect should only exist as a single gamerule. Stop spamming shit.");
-            return; // fuck off we're full
-        }
-        _existing = uid;
         for (int i = 0; i < comp.FirstNames.Count; i++)
         {
             for (int j = 0; j < comp.LastNames.Count; j++)
@@ -64,7 +56,7 @@ public sealed class RenameCrewAspect : AspectSystem<RenameCrewAspectComponent>
         }
     }
 
-    private bool PickName(RenameCrewAspectComponent comp, [NotNullWhen(true)] out string? name)
+    private bool TryPickName(RenameCrewAspectComponent comp, [NotNullWhen(true)] out string? name)
     {
         if (_rng.Prob(comp.SpecialNameChance) && comp.SpecialNames.Count > 0)
         {
@@ -85,19 +77,15 @@ public sealed class RenameCrewAspect : AspectSystem<RenameCrewAspectComponent>
         return false;
     }
 
-    /// <summary>
-    /// copypasted from RenameCommand
-    /// </summary>
     private void OnPlayerProfileAdjust(ref PlayerProfileAdjustEvent args)
     {
-        if (!_existing.HasValue)
-            return;
-
-        var comp = Comp<RenameCrewAspectComponent>(_existing.Value);
-        if (!PickName(comp, out var newName))
-            return;
-
-        args.Profile = args.Profile.WithName(newName);
+        var query = QueryActiveRules();
+        while (query.MoveNext(out var ruleEntity, out var renameAspect, out var gameRule))
+        {
+            if (!TryPickName(renameAspect, out var newName))
+                return;
+            args.Profile = args.Profile.WithName(newName);
+        }
     }
 }
 
