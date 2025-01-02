@@ -191,6 +191,10 @@ namespace Content.Server.GameTicking
                 return;
             }
 
+            var pev = new PlayerProfileAdjustEvent(player, character, station);
+            RaiseLocalEvent(ref pev);
+            character = pev.Profile;
+
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)
             var bev = new PlayerBeforeSpawnEvent(player, character, jobId, lateJoin, station);
             RaiseLocalEvent(bev);
@@ -566,6 +570,22 @@ namespace Content.Server.GameTicking
             Profile = profile;
             JobId = jobId;
             LateJoin = lateJoin;
+            Station = station;
+        }
+    }
+    /// <summary>
+    ///     
+    /// </summary>
+    [ByRefEvent]
+    public sealed class PlayerProfileAdjustEvent : HandledEntityEventArgs
+    {
+        public ICommonSession Player { get; }
+        public HumanoidCharacterProfile Profile;
+        public EntityUid Station { get; }
+        public PlayerProfileAdjustEvent(ICommonSession player, HumanoidCharacterProfile profile, EntityUid station)
+        {
+            Player = player;
+            Profile = profile;
             Station = station;
         }
     }

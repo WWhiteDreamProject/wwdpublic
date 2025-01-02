@@ -100,7 +100,8 @@
     weight: 2
     forbidden: true
     hidden: true
-  - type: RulonOboevAspect
+  - type: RenameCrewAspect
+    specialNameChance: 0.1
     firstNames:
     - Ушат
     - Улов

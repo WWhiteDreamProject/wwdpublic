@@ -19,7 +19,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server._White.AspectsSystem.Aspects;
 
-public sealed class RulonOboevAspect : AspectSystem<RenameCrewAspectComponent>
+public sealed class RenameCrewAspect : AspectSystem<RenameCrewAspectComponent>
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -31,7 +31,8 @@ public sealed class RulonOboevAspect : AspectSystem<RenameCrewAspectComponent>
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
+        //SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
+        SubscribeLocalEvent<PlayerProfileAdjustEvent>(OnPlayerProfileAdjust);
         SubscribeLocalEvent<RenameCrewAspectComponent, ComponentInit>(OnCompInit);
     }
 
@@ -87,7 +88,7 @@ public sealed class RulonOboevAspect : AspectSystem<RenameCrewAspectComponent>
     /// <summary>
     /// copypasted from RenameCommand
     /// </summary>
-    private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
+    private void OnPlayerProfileAdjust(ref PlayerProfileAdjustEvent args)
     {
         if (!_existing.HasValue)
             return;
@@ -96,7 +97,7 @@ public sealed class RulonOboevAspect : AspectSystem<RenameCrewAspectComponent>
         if (!PickName(comp, out var newName))
             return;
 
-        _con.ExecuteCommand($"rename {args.Mob} {newName}");
+        args.Profile = args.Profile.WithName(newName);
     }
 }
 
