@@ -9,7 +9,7 @@
     species: Reptilian
     hideLayersOnEquip: # WWDP
     - Snout
-#    - HeadTop
+    #    - HeadTop
     - HeadSide
   - type: Hunger
   - type: Puller
@@ -71,6 +71,12 @@
   - type: FootPrints
     leftBarePrint: "footprint-left-bare-lizard"
     rightBarePrint: "footprint-right-bare-lizard"
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - UnathiEmotes
   - type: Inventory
     speciesId: reptilian
     # WWDP-Edit-Start
@@ -108,7 +114,7 @@
     species: Reptilian
     hideLayersOnEquip: # WWDP
     - Snout
-#    - HeadTop
+    #    - HeadTop
     - HeadSide
   - type: Inventory
     speciesId: reptilian
