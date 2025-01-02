@@ -1,4 +1,15 @@
 - type: entity
+  abstract: true
+  parent: MarkerBase
+  id: BaseAntagSpawner
+  name: ghost role spawn point
+  components:
+  - type: GhostRole
+    raffle:
+      settings: default
+  - type: GhostRoleAntagSpawner
+
+- type: entity
   id: SpawnPointGhostRatKing
   name: ghost role spawn point
   suffix: rat king
@@ -15,9 +26,9 @@
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
-      - state: green
-      - sprite: Mobs/Animals/regalrat.rsi
-        state: icon
+    - state: green
+    - sprite: Mobs/Animals/regalrat.rsi
+      state: icon
 
 - type: entity
   id: SpawnPointGhostRemilia
@@ -36,9 +47,9 @@
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
-      - state: green
-      - sprite: Mobs/Animals/bat.rsi
-        state: bat
+    - state: green
+    - sprite: Mobs/Animals/bat.rsi
+      state: bat
 
 - type: entity
   id: SpawnPointGhostCerberus
@@ -57,59 +68,54 @@
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
-      - state: green
-      - sprite: Mobs/Pets/corgi.rsi
-        state: narsian
+    - state: green
+    - sprite: Mobs/Pets/corgi.rsi
+      state: narsian
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu, Spawner ]
   id: SpawnPointGhostNukeOperative
   name: ghost role spawn point
   suffix: nukeops
-  parent: MarkerBase
+  parent: BaseAntagSpawner
   components:
   - type: GhostRole
     rules: ghost-role-information-nukeop-rules
-    raffle:
-      settings: default
   - type: GhostRoleMobSpawner
     prototype: MobHumanNukeOp
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
-      - state: green
-      - sprite: Structures/Wallmounts/signs.rsi
-        state: radiation
+    - state: green
+    - sprite: Structures/Wallmounts/signs.rsi
+      state: radiation
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu, Spawner ]
   id: SpawnPointLoneNukeOperative
   name: ghost role spawn point
   suffix: loneops
-  parent: MarkerBase
+  parent: BaseAntagSpawner
   components:
   - type: GhostRole
     name: ghost-role-information-loneop-name
     description: ghost-role-information-loneop-description
     rules: ghost-role-information-loneop-rules
-    raffle:
-      settings: default
     requirements:
     - !type:CharacterOverallTimeRequirement
       min: 172800 # DeltaV - 48 hours
     - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
       department: Security
       time: 36000 # DeltaV - 10 hours
-  - type: GhostRoleAntagSpawner
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
-      - state: green
-      - sprite: Structures/Wallmounts/signs.rsi
-        state: radiation
+    - state: green
+    - sprite: Structures/Wallmounts/signs.rsi
+      state: radiation
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu, Spawner ]
   parent: SpawnPointLoneNukeOperative
   id: SpawnPointNukeopsCommander
   components:
@@ -118,7 +124,7 @@
     description: roles-antag-nuclear-operative-commander-objective
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu, Spawner ]
   parent: SpawnPointLoneNukeOperative
   id: SpawnPointNukeopsMedic
   components:
@@ -127,7 +133,7 @@
     description: roles-antag-nuclear-operative-agent-objective
 
 - type: entity
-  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu, Spawner ]
   parent: SpawnPointLoneNukeOperative
   id: SpawnPointNukeopsOperative
   components:
@@ -136,9 +142,9 @@
     description: roles-antag-nuclear-operative-objective
 
 - type: entity
-  parent: MarkerBase
+  parent: BaseAntagSpawner
   id: SpawnPointGhostDragon
-  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu, Spawner ]
   name: ghost role spawn point
   suffix: dragon
   components:
@@ -146,8 +152,6 @@
     name: ghost-role-information-space-dragon-name
     description: ghost-role-information-space-dragon-description
     rules: ghost-role-component-default-rules
-    raffle:
-      settings: default
   - type: GhostRoleMobSpawner
     prototype: MobDragon
   - type: Sprite
@@ -157,19 +161,16 @@
       state: alive
 
 - type: entity
+  parent: BaseAntagSpawner
   id: SpawnPointGhostSpaceNinja
+  categories: [ HideSpawnMenu, Spawner ]
   name: ghost role spawn point
   suffix: space ninja
-  parent: MarkerBase
   components:
   - type: GhostRole
     name: ghost-role-information-space-ninja-name
     description: ghost-role-information-space-ninja-description
     rules: ghost-role-information-space-ninja-rules
-    raffle:
-      settings: default
-  - type: GhostRoleMobSpawner
-    prototype: MobHumanSpaceNinja
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

@@ -108,8 +108,7 @@ namespace Content.Shared.Medical.CPR
 
             _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, performer, cprComponent.DoAfterDuration, new CPRDoAfterEvent(), performer, target, performer)
             {
-                BreakOnTargetMove = true,
-                BreakOnUserMove = true,
+                BreakOnMove = true,
                 NeedHand = true,
                 BlockDuplicate = true
             });
