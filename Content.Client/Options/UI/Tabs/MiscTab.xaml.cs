@@ -60,6 +60,18 @@ namespace Content.Client.Options.UI.Tabs
                 UpdateApplyButton();
             };
 
+            ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-off"), 0);
+            ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-single"), 1);
+            ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-double"), 2);
+            ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-triple"), 3);
+            ChatStackOption.TrySelectId(_cfg.GetCVar(CCVars.ChatStackLastLines));
+
+            ChatStackOption.OnItemSelected += args =>
+            {
+                ChatStackOption.SelectId(args.Id);
+                UpdateApplyButton();
+            };
+
             // Channel can be null in replays so.
             // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
             ShowOocPatronColor.Visible = _playerManager.LocalSession?.Channel?.UserData.PatronTier is { };
@@ -160,6 +172,7 @@ namespace Content.Client.Options.UI.Tabs
             // _cfg.SetCVar(CCVars.ToggleWalk, ToggleWalk.Pressed);
             _cfg.SetCVar(CCVars.StaticStorageUI, StaticStorageUI.Pressed);
             _cfg.SetCVar(CCVars.NoVisionFilters, DisableFiltersCheckBox.Pressed);
+            _cfg.SetCVar(CCVars.ChatStackLastLines, ChatStackOption.SelectedId);
             _cfg.SetCVar(WhiteCVars.LogInChat, LogInChatCheckBox.Pressed); // WD EDIT
 
             if (HudLayoutOption.SelectedMetadata is string opt)
@@ -192,6 +205,7 @@ namespace Content.Client.Options.UI.Tabs
             // var isToggleWalkSame = ToggleWalk.Pressed == _cfg.GetCVar(CCVars.ToggleWalk);
             var isStaticStorageUISame = StaticStorageUI.Pressed == _cfg.GetCVar(CCVars.StaticStorageUI);
             var isNoVisionFiltersSame = DisableFiltersCheckBox.Pressed == _cfg.GetCVar(CCVars.NoVisionFilters);
+            var isChatStackTheSame = ChatStackOption.SelectedId == _cfg.GetCVar(CCVars.ChatStackLastLines);
             var isLogInChatCheckBoxSame = LogInChatCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.LogInChat); // WD EDIT
 
             ApplyButton.Disabled = isHudThemeSame &&
@@ -213,6 +227,7 @@ namespace Content.Client.Options.UI.Tabs
                                    // isToggleWalkSame &&
                                    isStaticStorageUISame &&
                                    isNoVisionFiltersSame &&
+                                   isChatStackTheSame &&
                                    isLogInChatCheckBoxSame; // WD EDIT
         }
 
