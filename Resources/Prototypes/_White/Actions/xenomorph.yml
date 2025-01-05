@@ -13,6 +13,19 @@
       event: !type:ToggleNightVisionEvent
 
 - type: entity
+  id: ActionXenomorphThermalVision
+  name: action-toggle-xenomorph-thermal-vision-name
+  description: action-toggle-xenomorph-thermal-vision-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: vision_off_action }
+    priority: -1
+    useDelay: 1
+    checkCanInteract: false
+    event: !type:ToggleThermalVisionEvent
+
+- type: entity
   id: ActionVomit
   name: action-vomit-name
   description: action-vomit-desc
