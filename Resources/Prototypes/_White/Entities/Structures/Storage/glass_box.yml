@@ -1,0 +1,27 @@
+- type: entity
+  parent: GlassBox
+  id: GlassBoxLamarrFilled
+  suffix: Lamarr, Filled
+  components:
+  - type: Sprite
+    sprite: Structures/Storage/glassbox.rsi
+    layers:
+    - state: base
+    - sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+      state: facehugger
+      map: ["enum.ItemCabinetVisualLayers.ContainsItem"]
+      visible: true
+    - state: glass
+      map: ["enum.ItemCabinetVisualLayers.Door"]
+    - state: locked
+      shader: unshaded
+      map: ["enum.LockVisualLayers.Lock"]
+  - type: AccessReader
+    access: [["ResearchDirector"]]
+  - type: ItemCabinet
+    cabinetSlot:
+      startingItem: FacehuggerLamarr
+      ejectOnInteract: true
+      whitelist:
+        tags:
+        - Facehugger

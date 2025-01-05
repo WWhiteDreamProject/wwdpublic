@@ -397,6 +397,7 @@
     - WhitelistChameleon
     - MonkeyWearable
     - PetWearable
+    - Facehugger
   - type: StaticPrice
     price: 1000
   - type: Clothing

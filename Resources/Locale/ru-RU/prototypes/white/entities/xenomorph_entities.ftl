@@ -29,6 +29,7 @@ ent-MobAlienLarvaGrowStageThree = { ent-MobAlienLarva }
     .desc = { ent-MobAlienLarva.desc }
     .suffix = Третья стадия
 ent-SpawnPointGhostAlienLarva = спавнер роли призрак
+    .desc = { ent-MarkerBase.desc }
     .suffix = Грудолом
 
 ent-Facehugger = лицехват
@@ -39,6 +40,10 @@ ent-FacehuggerInactive = { ent-Facehugger }
 ent-FacehuggerLamarr = Ламар
     .desc = На конце хвоста есть что-то вроде трубки, но не похоже, что он может им пользоваться.
     .suffix = Лицехват
+
+ent-GlassBoxLamarrFilled = { ent-GlassBox }
+    .desc = { ent-GlassBox.desc }
+    .suffix = Ламар, Заполненный
 
 ent-MobXenomorphDrone = ксеноморф дрон
     .desc = Существо с черной гладкой оболочкой, длинными конечностями, острыми зубами и хищным, вытянутым черепом. У него отсутствуют глаза, а на месте рта ярко выраженные челюсти.
@@ -69,19 +74,23 @@ ent-MobAlienLarvaGrowStageThreeDummy = { ent-MobAlienLarvaGrowStageThree }
     .desc = { ent-MobAlienLarvaGrowStageThree.desc }
 
 ent-SpawnMobXenomorphDrone = спавнер ксеноморф дрон
-    .desc = { ent-MobXenomorphDrone.desc }
+    .desc = { ent-MarkerBase.desc }
 ent-SpawnMobXenomorphSentinel = спавнер ксеноморф плевальщик
-    .desc = { ent-MobXenomorphDrone.desc }
+    .desc = { ent-MarkerBase.desc }
 ent-SpawnMobXenomorphHunter = спавнер ксеноморф охотник
-    .desc = { ent-MobXenomorphDrone.desc }
+    .desc = { ent-MarkerBase.desc }
 ent-SpawnMobXenomorphPraetorian = спавнер ксеноморф преторианец
-    .desc = { ent-MobXenomorphDrone.desc }
+    .desc = { ent-MarkerBase.desc }
 ent-SpawnMobXenomorphQueen = спавнер ксеноморф королева
-    .desc = { ent-MobXenomorphDrone.desc }
+    .desc = { ent-MarkerBase.desc }
 ent-SpawnMobXenomorphMaid = спавнер ксеноморф горничная
-    .desc = { ent-MobXenomorphDrone.desc }
+    .desc = { ent-MarkerBase.desc }
 ent-SpawnMobAlienLarva = спавнер грудолом
-    .desc = { ent-MobAlienLarvaGrowStageThree.desc }
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnMobFacehugger = спавнер лицехват
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnMobLamarr = спавнер Ламар
+    .desc = { ent-MarkerBase.desc }
 
 station-event-xenomorph-infestation-announcement = Обнаружены неопознанные признаки жизни на борту станции. Обеспечьте безопасность внешних доступов, включая скубберы и вентиляцию.
 
@@ -107,10 +116,8 @@ alerts-plasma-desc = Ваше тело синтезирует плазму, ко
 
 ent-CorrosiveAcid = кислота
     .desc = Яркая зелёная кислота.
-ent-CorrosiveAcidOverlay = { ent-AlienAcid }
-    .desc = { ent-AlienAcid.desc }
-ent-CorrodedAcid = { ent-AlienAcid }
-    .desc = { ent-AlienAcid.desc }
+ent-CorrosiveAcidOverlay = { ent-CorrosiveAcid }
+    .desc = { ent-CorrosiveAcid.desc }
 
 ent-OrganXenomorphAcidGland = кислотная гланда
     .desc = Вставляется в рот, позволяет носителю плеваться плазмой.

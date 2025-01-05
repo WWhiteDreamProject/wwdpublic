@@ -105,6 +105,34 @@
     prototypes:
       - MobAlienLarvaGrowStageThreeDummy
 
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobFacehugger
+  name: spawn facehugger
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+        state: facehugger
+  - type: ConditionalSpawner
+    prototypes:
+      - Facehugger
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobLamarr
+  name: spawn Lamarr
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+        state: facehugger
+  - type: ConditionalSpawner
+    prototypes:
+      - FacehuggerLamarr
+
 # EGGS
 
 - type: entity
