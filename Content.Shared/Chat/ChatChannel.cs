@@ -93,7 +93,7 @@ namespace Content.Shared.Chat
         /// <summary>
         ///     WWDP - Xenomorph Hivemind
         /// </summary>
-        XenoHivemind = 2 << 1,
+        XenoHivemind = 2 << 2,
 
         /// <summary>
         ///     Channels considered to be IC.

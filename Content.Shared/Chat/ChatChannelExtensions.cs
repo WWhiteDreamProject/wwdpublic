@@ -15,7 +15,7 @@ public static class ChatChannelExtensions
             ChatChannel.AdminAlert => Color.Red,
             ChatChannel.AdminChat => Color.HotPink,
             ChatChannel.Whisper => Color.DarkGray,
-//            ChatChannel.XenoHivemind => Color.FromHex("#600a91"), // WWDP
+            ChatChannel.XenoHivemind => Color.FromHex("#600a91"), // WWDP
             _ => Color.LightGray
         };
     }
