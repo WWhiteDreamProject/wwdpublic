@@ -8,14 +8,17 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Shared.Aliens.Components;
 
 /// <summary>
-/// This is used for...
-/// </summary>
+/// The AlienComponent is used to manage the abilities and properties of alien entities.
+/// </summary
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState(true)]
 public sealed partial class AlienComponent : Component
 {
     // Actions
 
+    /// <summary>
+    /// The prototype ID for the devour action.
+    /// </summary>
     [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? DevourAction = "ActionDevour";
 
@@ -27,23 +30,38 @@ public sealed partial class AlienComponent : Component
     public float PlasmaCostNode = 50f;
 
     /// <summary>
-    /// The node prototype to use.
+    /// The prototype ID for the weed node to use.
     /// </summary>
     [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string WeednodePrototype = "ResinWeedNode";
 
+    /// <summary>
+    /// The prototype ID for the action associated with the weed node.
+    /// </summary>
     [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? WeednodeAction = "ActionResinNode";
 
+    /// <summary>
+    /// The caste type of the alien.
+    /// </summary>
     [DataField]
     public string Caste;
 
+    /// <summary>
+    /// Optional reference to the entity associated with the weed node action.
+    /// </summary>
     [DataField]
     public EntityUid? WeednodeActionEntity;
 
+    /// <summary>
+    /// Required damage specifier for healing provided by the weed.
+    /// </summary>
     [DataField(required: true)]
     public DamageSpecifier WeedHeal;
 
 }
 
+/// <summary>
+/// Event for the instant action related to weed node actions.
+/// </summary>
 public sealed partial class WeednodeActionEvent : InstantActionEvent { }

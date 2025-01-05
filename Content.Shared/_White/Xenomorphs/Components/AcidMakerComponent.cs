@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Aliens.Components;
 
 /// <summary>
-/// This is used for...
+/// The AcidMakerComponent is used for managing the acid production process.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(AcidMakerSystem)), AutoGenerateComponentState]
 public sealed partial class AcidMakerComponent : Component
@@ -31,6 +31,9 @@ public sealed partial class AcidMakerComponent : Component
     [AutoNetworkedField]
     public EntProtoId Action;
 
+    /// <summary>
+    /// Optional reference to the entity performing the acid-making action.
+    /// </summary>
     [DataField]
     [AutoNetworkedField]
     public EntityUid? ActionEntity;
