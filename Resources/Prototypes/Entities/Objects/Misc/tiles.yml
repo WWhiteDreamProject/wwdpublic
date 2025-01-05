@@ -45,24 +45,24 @@
   - type: DamageOnLand
     damage:
       types:
-        Blunt: 5
+        Blunt: 2
   # WD EDIT START
   - type: Fixtures
     fixtures:
       fix1:
         shape: !type:PolygonShape
           vertices:
-            - -0.25,-0.25
-            - -0.30,-0.25
-            - 0.25,0.25
-            - -0.25,0.25
+          - -0.25,-0.25
+          - -0.30,-0.25
+          - 0.25,0.25
+          - -0.25,0.25
         density: 20
         mask:
         - ItemMask
         restitution: 0.3
         friction: 0.2
   # WD EDIT END
-
+  -
 - type: entity
   name: steel tile
   parent: FloorTileItemBase
@@ -70,9 +70,7 @@
   components:
   - type: Sprite
     state: steel
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
     outputs:
@@ -97,9 +95,6 @@
   components:
   - type: Sprite
     state: checker-dark
-    sprite: Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: Objects/Tiles/tile.rsi
   - type: FloorTile
     outputs:
       - Plating
@@ -112,9 +107,6 @@
   components:
   - type: Sprite
     state: checker-light
-    sprite: Objects/Tiles/tile.rsi
-  - type: Item
-    sprite: Objects/Tiles/tile.rsi
   - type: FloorTile
     outputs:
       - Plating
@@ -122,7 +114,7 @@
 
 - type: entity
   name: steel tile
-  parent: FloorTileItemBase
+  parent: FloorTileItemSteel
   id: FloorTileItemMetalDiamond
   components:
   - type: Sprite
@@ -146,9 +138,7 @@
   components:
   - type: Sprite
     state: wood
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: wood
   - type: FloorTile
     outputs:
@@ -167,9 +157,7 @@
   components:
   - type: Sprite
     state: white
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: white
   - type: FloorTile
     outputs:
@@ -188,9 +176,7 @@
   components:
   - type: Sprite
     state: dark
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: dark
   - type: FloorTile
     outputs:
@@ -204,7 +190,7 @@
 
 - type: entity
   name: techmaint floor
-  parent: FloorTileItemBase
+  parent: FloorTileItemSteel
   id: FloorTileItemTechmaint
   components:
   - type: Sprite
@@ -225,9 +211,7 @@
   components:
   - type: Sprite
     state: reinforced
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: reinforced
   - type: FloorTile
     outputs:
@@ -261,9 +245,7 @@
   components:
   - type: Sprite
     state: lino
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
     outputs:
@@ -349,9 +331,7 @@
   components:
   - type: Sprite
     state: rockvault
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
     outputs:
@@ -367,9 +347,7 @@
   components:
   - type: Sprite
     state: blue
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: carpet-blue
   - type: FloorTile
     outputs:
@@ -385,9 +363,7 @@
   components:
   - type: Sprite
     state: lime
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
     outputs:
@@ -414,7 +390,7 @@
 
 - type: entity
   name: dark mining tile
-  parent: FloorTileItemBase
+  parent: FloorTileItemSteel
   id: FloorTileItemMiningDark
   components:
   - type: Sprite
@@ -430,7 +406,7 @@
 
 - type: entity
   name: light mining tile
-  parent: FloorTileItemBase
+  parent: FloorTileItemSteel
   id: FloorTileItemMiningLight
   components:
   - type: Sprite
@@ -450,11 +426,9 @@
   parent: FloorTileItemBase
   id: FloorTileItemFreezer
   components:
-  - type: Sprite # WWDP edit
-    state: freezer
-    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Sprite
+    state: showroom
   - type: Item
-    sprite: _White/Objects/Tiles/tile.rsi # WWDP edit
     heldPrefix: showroom
   - type: FloorTile
     outputs:
@@ -470,9 +444,7 @@
   components:
   - type: Sprite
     state: showroom
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: showroom
   - type: FloorTile
     outputs:
@@ -488,9 +460,7 @@
   components:
   - type: Sprite
     state: hydro
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: hydro
   - type: FloorTile
     outputs:
@@ -506,9 +476,7 @@
   components:
   - type: Sprite
     state: bar
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
     outputs:
@@ -524,9 +492,7 @@
   components:
   - type: Sprite
     state: clown
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
     outputs:
@@ -542,9 +508,7 @@
   components:
   - type: Sprite
     state: mime
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
     outputs:
@@ -560,9 +524,7 @@
   components:
   - type: Sprite
     state: kitchen
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: dark
   - type: FloorTile
     outputs:
@@ -578,9 +540,7 @@
   components:
   - type: Sprite
     state: laundry
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: steel
   - type: FloorTile
     outputs:
@@ -791,9 +751,7 @@
   components:
   - type: Sprite
     state: shuttleblue
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: shuttleblue
   - type: FloorTile
     outputs:
@@ -809,9 +767,7 @@
   components:
   - type: Sprite
     state: shuttleorange
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: shuttleorange
   - type: FloorTile
     outputs:
@@ -827,9 +783,7 @@
   components:
   - type: Sprite
     state: shuttlepurple
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: shuttlepurple
   - type: FloorTile
     outputs:
@@ -845,9 +799,7 @@
   components:
   - type: Sprite
     state: shuttlered
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: shuttlered
   - type: FloorTile
     outputs:
@@ -863,9 +815,7 @@
   components:
   - type: Sprite
     state: shuttlegrey
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: shuttlegrey
   - type: FloorTile
     outputs:
@@ -881,9 +831,7 @@
   components:
   - type: Sprite
     state: shuttleblack
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: shuttleblack
   - type: FloorTile
     outputs:
@@ -900,9 +848,7 @@
   components:
   - type: Sprite
     state: gold
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: gold
   - type: FloorTile
     outputs:
@@ -918,9 +864,7 @@
   components:
   - type: Sprite
     state: silver
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: silver
   - type: FloorTile
     outputs:
@@ -937,9 +881,7 @@
   components:
   - type: Sprite
     state: gcircuit
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: gcircuit
   - type: FloorTile
     outputs:
@@ -955,9 +897,7 @@
   components:
   - type: Sprite
     state: bcircuit
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: bcircuit
   - type: FloorTile
     outputs:
@@ -1040,9 +980,7 @@
   components:
   - type: Sprite
     state: woodpatternfloor
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: wood
   - type: FloorTile
     outputs:
@@ -1213,9 +1151,7 @@
   components:
   - type: Sprite
     state: wood-large
-    sprite: Objects/Tiles/tile.rsi
   - type: Item
-    sprite: Objects/Tiles/tile.rsi
     heldPrefix: wood
   - type: FloorTile
     outputs:
@@ -1226,4 +1162,3 @@
   - type: Construction
     graph: TileWoodLarge
     node: woodtilelarge
-
