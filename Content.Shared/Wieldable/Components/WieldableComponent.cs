@@ -28,7 +28,7 @@ public sealed partial class WieldableComponent : Component
 
     /// <summary>
     ///     Whether using the item inhand while wielding causes the item to unwield.
-    ///     Unwielding can conflict with other inhand actions. 
+    ///     Unwielding can conflict with other inhand actions.
     /// </summary>
     [DataField]
     public bool UnwieldOnUse = true;
@@ -43,8 +43,6 @@ public sealed partial class WieldableComponent : Component
     /// </summary>
     [DataField]
     public bool AltUseInHand = false;
-
-    public EntityUid? User = null;
 
     /// <summary>
     /// Automatically attempts to wield the item upon being picked or switched to (while held)
