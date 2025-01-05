@@ -50,7 +50,7 @@ public sealed partial class AlienInfectedComponent : Component
 
     public Container Stomach = default!;
 
-    public EntityUid SpawnedLarva;
+    public EntityUid? SpawnedLarva;
 
     [DataField]
     public DamageSpecifier BurstDamage = new()
@@ -60,4 +60,6 @@ public sealed partial class AlienInfectedComponent : Component
             { "Blunt", 100 }
         }
     };
+
+    public bool RootsCut;
 }

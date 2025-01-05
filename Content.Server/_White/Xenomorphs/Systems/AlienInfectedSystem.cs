@@ -78,7 +78,7 @@ public sealed class AlienInfectedSystem : EntitySystem
                 continue;
 
             if (HasComp<InsideAlienLarvaComponent>(infected.SpawnedLarva) &&
-                Comp<InsideAlienLarvaComponent>(infected.SpawnedLarva).IsGrown)
+                Comp<InsideAlienLarvaComponent>(infected.SpawnedLarva.Value).IsGrown)
             {
                 _container.EmptyContainer(infected.Stomach);
                 _entityManager.RemoveComponent<AlienInfectedComponent>(uid);
