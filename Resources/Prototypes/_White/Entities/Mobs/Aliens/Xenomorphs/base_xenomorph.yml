@@ -221,6 +221,7 @@
   name: alien larva
   description: Little and harmless alien
   components:
+    - type: Buckle
     - type: ThermalVision
       toggleAction: null
       color: "#00000000"
@@ -361,6 +362,7 @@
   - type: Item
     sprite: _White/Mobs/Aliens/Xenomorphs/facehugger_inhands.rsi
     size: Small
+  - type: Buckle
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Xenomorph

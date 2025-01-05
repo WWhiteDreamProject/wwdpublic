@@ -2,6 +2,7 @@
   id: MobAlienLarvaInside # Larva that is inside of it's owner
   categories: [ HideSpawnMenu ]
   components:
+  - type: Buckle
   - type: Sprite
     drawdepth: SmallMobs
     sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi

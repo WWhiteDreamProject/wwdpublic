@@ -37,7 +37,7 @@ public partial class PlasmaVesselComponent : Component
     /// The amount of plasma to which plasma per second will be equal, when alien stands on weeds.
     /// </summary>
     [DataField]
-    public float WeedModifier = 0.2f;
+    public float WeedModifier = 15;
 
     /// <summary>
     /// Alert value for tracking alert state.

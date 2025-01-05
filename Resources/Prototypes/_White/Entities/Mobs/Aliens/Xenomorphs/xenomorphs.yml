@@ -37,7 +37,7 @@
     - type: ResinSpinner
     - type: PlasmaVessel
       plasmaUnmodified: 5
-      plasmaModified: 15
+      weedModifier: 15
     - type: PraetorianEvolution
     - type: GuideHelp
       guides:
@@ -157,7 +157,7 @@
   - type: PlasmaVessel
     plasmaRegenCap: 150
     plasmaUnmodified: 5
-    plasmaModified: 15
+    weedModifier: 15
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.75
   - type: BasicEntityAmmoProvider
@@ -304,7 +304,7 @@
   - type: PlasmaVessel
     plasmaRegenCap: 150
     plasmaUnmodified: 5
-    plasmaModified: 15
+    weedModifier: 15
   - type: Devourer
     devourTime: 2
     consumes:
@@ -445,7 +445,7 @@
         Base: alienp_dead
   - type: PlasmaVessel
     plasmaUnmodified: 5
-    plasmaModified: 15
+    weedModifier: 15
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.75
   - type: BasicEntityAmmoProvider
@@ -595,7 +595,7 @@
   - type: PlasmaVessel
     plasmaRegenCap: 500
     plasmaUnmodified: 5
-    plasmaModified: 15
+    weedModifier: 15
   - type: ResinSpinner
   - type: AcidMaker
     plasmaCost: 50
@@ -723,7 +723,7 @@
     caste: maid
   - type: PlasmaVessel
     plasmaUnmodified: 5
-    plasmaModified: 15
+    weedModifier: 15
   - type: MobThresholds
     thresholds:
       0: Alive
