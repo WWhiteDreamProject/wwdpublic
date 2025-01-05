@@ -32,6 +32,11 @@ ent-SpawnPointGhostAlienLarva = спавнер роли призрак
     .desc = { ent-MarkerBase.desc }
     .suffix = Грудолом
 
+ent-XenomorphEmbryon = эмбрион
+    .desc = Мёртвая инопланетная штучка.
+ent-XenomorphEmbryonDark = { ent-XenomorphEmbryon }
+    .desc = { ent-XenomorphEmbryon.desc }
+
 ent-Facehugger = лицехват
     .desc = На конце хвоста есть что-то вроде трубки.
 ent-FacehuggerInactive = { ent-Facehugger }

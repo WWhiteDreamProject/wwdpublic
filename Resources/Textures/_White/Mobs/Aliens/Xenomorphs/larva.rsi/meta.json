@@ -246,6 +246,12 @@
     },
     {
       "name": "larva2_dead"
+    },
+    {
+      "name": "embryon"
+    },
+    {
+      "name": "embryon_dark"
     }
   ]
 }

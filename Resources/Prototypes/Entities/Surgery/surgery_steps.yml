@@ -129,7 +129,7 @@
     state: hemostat
   - type: SurgeryOperatingTableCondition
   - type: SurgeryStepSpawnEffect
-    entity: MobAlienLarva
+    entity: XenomorphEmbryon
 
 - type: entity
   parent: SurgeryStepBase

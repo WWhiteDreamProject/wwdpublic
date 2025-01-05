@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseItem
+  id: XenomorphEmbryon
+  name: embryon
+  description: Dead alien thing.
+  components:
+    - type: Sprite
+      sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
+      layers:
+      - state: embryon
+    - type: StaticPrice
+      price: 1200
+    - type: Tag
+      tags:
+        - AlienItem
+
+- type: entity
+  parent: XenomorphEmbryon
+  id: XenomorphEmbryonDark
+  components:
+    - type: Sprite
+      layers:
+      - state: embryon_dark
