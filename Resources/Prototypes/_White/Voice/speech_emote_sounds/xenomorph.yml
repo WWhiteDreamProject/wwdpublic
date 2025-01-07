@@ -49,5 +49,5 @@
       collection: Hew
     Gasp:
       collection: MaleGasp
-    DefaultDeathgasp:
-      collection: MaleDeathGasp
+#    DefaultDeathgasp:
+#      collection: XenomorphDeathgasp
