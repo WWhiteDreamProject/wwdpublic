@@ -4,6 +4,7 @@
   roundStart: true
   prototype: MobDwarf
   sprites: MobHumanSprites
+  defaultSkinTone: "#c0967f"
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobDwarfDummy
   skinColoration: HumanToned

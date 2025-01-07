@@ -4,6 +4,7 @@
   roundStart: false # White Dream - disable arachne for missing textures.
   prototype: MobArachne
   sprites: MobArachneSprites
+  defaultSkinTone: "#c0967f"
   markingLimits: MobArachneMarkingLimits
   dollPrototype: MobArachneDummy
   skinColoration: HumanToned
