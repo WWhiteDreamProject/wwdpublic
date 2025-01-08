@@ -43,7 +43,7 @@ public sealed partial class AlienQueenComponent : Component
     public float PlasmaCostRoyalLarva = 300f;
 
     [DataField]
-    public EntProtoId PraetorianPolymorphPrototype = "AlienEvolutionPraetorian";
+    public ProtoId<PolymorphPrototype> PraetorianPolymorphPrototype = "AlienEvolutionPraetorian";
 }
 
 public sealed partial class AlienEggActionEvent : InstantActionEvent { }

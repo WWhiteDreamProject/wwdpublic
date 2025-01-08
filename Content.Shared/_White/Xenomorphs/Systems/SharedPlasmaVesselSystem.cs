@@ -23,7 +23,7 @@ public sealed class SharedPlasmaVesselSystem : EntitySystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     [ValidatePrototypeId<AlertPrototype>]
-    public EntProtoId PlasmaCounterAlert = "PlasmaCounter";
+    public ProtoId<AlertPrototype> PlasmaCounterAlert = "PlasmaCounter";
 
     public bool ChangePlasmaGain(EntityUid uid, float modifier, PlasmaVesselComponent? component = null)
     {
