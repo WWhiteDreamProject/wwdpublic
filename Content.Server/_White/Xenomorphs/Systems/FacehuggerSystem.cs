@@ -78,9 +78,12 @@ public sealed class FacehuggerSystem : EntitySystem
         }
 
         foreach (var facehugger in growedLarva)
-        {
-            if(!HasComp<AlienInfectedComponent>(facehugger.Value.Equipee))
-                AddComp<AlienInfectedComponent>(facehugger.Value.Equipee);
+        {   
+            if (!facehugger.HasValue)
+                continue;
+            
+            EnsureComp<AlienInfectedComponent>(facehugger.Value.Equipee);
+
             _polymorph.PolymorphEntity(facehugger.Key, facehugger.Value.FacehuggerPolymorphPrototype);
         }
     }
