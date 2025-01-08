@@ -29,12 +29,13 @@ public sealed class AlienAcidSystem : EntitySystem
     {
         foreach (var hitEntity in args.HitEntities)
         {
-            if (_tag.HasTag(hitEntity, "Wall"))
-            {
-                var acid = Spawn(component.AcidPrototype, hitEntity.ToCoordinates());
-                var acidComp = EnsureComp<AlienAcidComponent>(acid);
-                acidComp.MeltTimeSpan = _timing.CurTime + TimeSpan.FromSeconds(component.MeltTime);
-                acidComp.WallUid = hitEntity;
+            if (!_tag.HasTag(hitEntity, "Wall"))
+                continue;
+                
+            var acid = Spawn(component.AcidPrototype, hitEntity.ToCoordinates());
+            var acidComp = EnsureComp<AlienAcidComponent>(acid);
+            acidComp.MeltTimeSpan = _timing.CurTime + TimeSpan.FromSeconds(component.MeltTime);
+            acidComp.WallUid = hitEntity;
             }
         }
     }
