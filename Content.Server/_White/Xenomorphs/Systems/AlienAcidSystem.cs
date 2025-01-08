@@ -42,15 +42,12 @@ public sealed class AlienAcidSystem : EntitySystem
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<AlienAcidComponent>();
-        var deletingQueue = new List<EntityUid>();
         while (query.MoveNext(out var uid, out var component))
         {
             if (component.WallUid == null || _timing.CurTime < component.MeltTimeSpan)
                 continue;
-            deletingQueue.Add(uid);
-            deletingQueue.Add(component.WallUid!.Value);
-        }
-        foreach (var uid in deletingQueue)
             QueueDel(uid);
+            QueueDel(component.WallUid!.Value);
+        }
     }
 }

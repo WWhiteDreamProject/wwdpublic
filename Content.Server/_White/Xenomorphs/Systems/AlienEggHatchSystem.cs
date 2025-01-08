@@ -47,15 +47,8 @@ public sealed class AlienEggHatchSystem : EntitySystem
 
             foreach (var entity in _lookup.GetEntitiesInRange(uid, alienEgg.ActivationRange))
             {
-                if (_inventory.HasSlot(entity, "mask"))
-                {
-                    hasMaskEntityNearby = true;
-                }
-
-                if (EntityManager.HasComponent<GhostComponent>(entity))
-                {
-                    hasGhostEntityNearby = true;
-                }
+                hasMaskEntityNearby = _inventory.HasSlot(entity, "mask");
+                hasGhostEntityNearby = EntityManager.HasComponent<GhostComponent>(entity);
             }
 
             if (hasMaskEntityNearby && !hasGhostEntityNearby)

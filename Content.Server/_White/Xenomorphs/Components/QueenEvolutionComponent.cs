@@ -19,8 +19,8 @@ public sealed partial class QueenEvolutionComponent : Component
     /// <summary>
     /// Action prototype ID for the evolution action.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? QueenEvolutionAction = "ActionEvolveQueen";
+    [DataField]
+    public EntProtoId? QueenEvolutionAction = "ActionEvolveQueen";
 
     /// <summary>
     /// Reference to the entity associated with the evolution action.

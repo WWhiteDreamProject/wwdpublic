@@ -36,20 +36,22 @@ public sealed class SharedPlasmaTransferSystem : EntitySystem
     public void OnPlasmaTransfer(EntityUid uid, PlasmaTransferComponent component, TransferPlasmaActionEvent args)
     {
         if (args.Handled)
-        {
             return;
-        }
 
         args.Handled = true;
-        if (!HasComp<PlasmaVesselComponent>(args.Target))
+        if (TryComp(args.Target, out PlasmaVesselComponent? plasmaVesselTarget))
         {
             _popup.PopupEntity(Loc.GetString("alien-transfer-fail"), uid);
             return;
         }
 
-        var plasmaVesselSelf = Comp<PlasmaVesselComponent>(uid);
-        var plasmaVesselTarget = Comp<PlasmaVesselComponent>(args.Target);
-        if (plasmaVesselSelf.Plasma >= component.Amount && component.Amount + plasmaVesselTarget.Plasma < plasmaVesselTarget.PlasmaRegenCap)
+        if (TryComp(uid, out PlasmaVesselComponent? plasmaVesselSelf))
+        {
+            _popup.PopupEntity(Loc.GetString("alien-transfer-fail"), uid);
+            return;
+        }
+
+        if (plasmaVesselSelf!.Plasma >= component.Amount && component.Amount + plasmaVesselTarget!.Plasma < plasmaVesselTarget.PlasmaRegenCap)
         {
             _plasmaVessel.ChangePlasmaAmount(uid, -component.Amount);
             _plasmaVessel.ChangePlasmaAmount(args.Target, component.Amount);

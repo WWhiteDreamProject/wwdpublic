@@ -1,4 +1,5 @@
 ﻿using Content.Shared.Actions;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Aliens.Components;
@@ -6,7 +7,7 @@ namespace Content.Shared.Aliens.Components;
 /// <summary>
 /// This is used for...
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class PlasmaTransferComponent : Component
 {
     public EntProtoId Action = "ActionAlienTransferPlasma";

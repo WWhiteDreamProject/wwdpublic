@@ -21,6 +21,7 @@ public sealed class TimedPolymorphSystem : EntitySystem
     {
         component.TokenSource?.Cancel();
         component.TokenSource = new CancellationTokenSource();
+
         uid.SpawnRepeatingTimer(TimeSpan.FromSeconds(component.PolymorphTime), () => OnTimerFired(uid, component), component.TokenSource.Token);
     }
 

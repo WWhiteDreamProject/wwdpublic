@@ -25,6 +25,7 @@ public sealed class ShowInfectedIconsSystem : EquipmentHudSystem<ShowInfectedIco
     {
         if (!IsActive)
             return;
+
         if (component.GrowthStage <= 6)
         {
             if (_prototype.TryIndex(component.InfectedIcons.ElementAt(component.GrowthStage), out var iconPrototype))

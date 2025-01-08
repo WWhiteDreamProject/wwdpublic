@@ -22,10 +22,6 @@ public sealed class SharedFacehuggerSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
-    public override void Initialize()
-    {
-
-    }
 
     public override void Update(float frameTime)
     {

@@ -38,12 +38,14 @@ public sealed class SharedAlienStalkSystem : EntitySystem
         var stealth = EnsureComp<StealthComponent>(uid);
         var movementSpeedMofifier = EnsureComp<MovementSpeedModifierComponent>(uid);
         var sprint = component.Sprint;
+
         component.Sprint = movementSpeedMofifier.BaseSprintSpeed;
         _movementSpeedModifier.ChangeBaseSpeed(uid, movementSpeedMofifier.BaseWalkSpeed, sprint,
             movementSpeedMofifier.Acceleration);
+
         _stealth.SetVisibility(uid, 0.2f, stealth);
         _stealth.SetEnabled(uid, !component.IsActive, stealth);
-        component.IsActive = !component.IsActive;
+        Dirty(uid, component);
     }
 
     public override void Update(float frameTime)
@@ -53,12 +55,15 @@ public sealed class SharedAlienStalkSystem : EntitySystem
         var query = EntityQueryEnumerator<PlasmaVesselComponent>();
         while (query.MoveNext(out var uid, out var alien))
         {
-            if(TryComp<AlienStalkComponent>(uid, out var stalk)
-               && alien.Plasma >= stalk.PlasmaCost
-                && stalk.IsActive)
-            {
-                    _plasmaVessel.ChangePlasmaAmount(uid, -stalk.PlasmaCost, alien);
-            }
+            if (!TryComp<AlienStalkComponent>(uid, out var stalk))
+                continue;
+
+            if (alien.Plasma < stalk.PlasmaCost)
+                continue;
+
+            if (!stalk.IsActive)
+                continue;
+            _plasmaVessel.ChangePlasmaAmount(uid, -stalk.PlasmaCost, alien);
         }
     }
 }

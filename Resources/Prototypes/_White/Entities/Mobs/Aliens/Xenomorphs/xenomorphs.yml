@@ -120,7 +120,7 @@
         state: "creampie_human"
         visible: false
   - type: Alien
-    caste: sentinel
+    greeting-text: alien-sentinel-greeting
   - type: Body
     prototype: XenomorphLargeSentinel
   - type: MobThresholds
@@ -258,7 +258,7 @@
         state: "creampie_human"
         visible: false
   - type: Alien
-    caste: hunter
+    greetingText: alien-hunter-greeting
   - type: Body
     prototype: XenomorphMedium
   - type: GenericVisualizer
@@ -393,8 +393,7 @@
   - type: Inventory
     templateId: alien_praetorian
     speciesId: alien_praetorian
-  - type: Alien
-    caste: drone # Because Dummy
+  - type: Alien # Because Dummy
   - type: Body
     prototype: XenomorphLargeSentinel
   - type: AcidMaker
@@ -477,7 +476,7 @@
     - type: MindContainer
       showExamineInfo: true
     - type: Alien
-      caste: praetorian
+      greetingText: alien-praetorian-greeting
     - type: GhostTakeoverAvailable
     - type: GhostRole
       allowMovement: true
@@ -542,7 +541,6 @@
         state: aliencuff_q
         visible: false
   - type: Alien
-    caste: drone # Because Dummy
   - type: Body
     prototype: XenomorphQueen
   - type: TypingIndicator
@@ -650,7 +648,7 @@
     - type: MindContainer
       showExamineInfo: true
     - type: Alien
-      caste: queen
+      greetingText: alien-queen-greeting
     - type: GhostTakeoverAvailable
     - type: GhostRole
       allowMovement: true
@@ -719,7 +717,7 @@
         state: "creampie_human"
         visible: false
   - type: Alien
-    caste: maid
+    greetingText: alien-maid-greeting
   - type: PlasmaVessel
     plasmaUnmodified: 5
     weedModifier: 15

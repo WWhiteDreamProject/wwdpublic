@@ -49,7 +49,7 @@ public sealed class AlienQueenSystem : EntitySystem
         if (TryComp<PlasmaVesselComponent>(uid, out var plasmaComp)
             && plasmaComp.Plasma < component.PlasmaCostEgg)
         {
-            _popup.PopupClient(Loc.GetString(Loc.GetString("alien-action-fail-plasma")), uid, uid);
+            _popup.PopupEntity(Loc.GetString(Loc.GetString("alien-action-fail-plasma")), uid, uid);
             return;
         }
         CreateStructure(uid, component);
@@ -80,6 +80,7 @@ public sealed class AlienQueenSystem : EntitySystem
         {
             if (Prototype(entity) == null)
                 continue;
+
             if (Prototype(entity)!.ID != component.EggPrototype)
                 continue;
             _popup.PopupEntity(Loc.GetString("alien-create-structure-failed"), uid, uid);

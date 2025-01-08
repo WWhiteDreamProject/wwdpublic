@@ -19,8 +19,8 @@ public sealed partial class AlienComponent : Component
     /// <summary>
     /// The prototype ID for the devour action.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? DevourAction = "ActionDevour";
+    [DataField]
+    public EntProtoId? DevourAction = "ActionDevour";
 
     /// <summary>
     /// This will subtract (not add, don't get this mixed up) from the current plasma of the mob making node.
@@ -32,20 +32,20 @@ public sealed partial class AlienComponent : Component
     /// <summary>
     /// The prototype ID for the weed node to use.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string WeednodePrototype = "ResinWeedNode";
+    [DataField]
+    public EntProtoId WeednodePrototype = "ResinWeedNode";
 
     /// <summary>
     /// The prototype ID for the action associated with the weed node.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? WeednodeAction = "ActionResinNode";
+    [DataField]
+    public EntProtoId? WeednodeAction = "ActionResinNode";
 
     /// <summary>
     /// The caste type of the alien.
     /// </summary>
     [DataField]
-    public string Caste;
+    public string GreetingText;
 
     /// <summary>
     /// Optional reference to the entity associated with the weed node action.

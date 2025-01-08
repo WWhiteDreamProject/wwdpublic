@@ -17,8 +17,8 @@ public sealed partial class AreaSpawnerComponent : Component
 
     // Prototype of entity spawned
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("spawnPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string SpawnPrototype;
+    [DataField]
+    public EntProtoId SpawnPrototype;
 
     /// <summary>
     /// Length of the interval between spawn attempts.

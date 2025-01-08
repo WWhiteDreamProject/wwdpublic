@@ -340,12 +340,15 @@ public sealed partial class ChatSystem : SharedChatSystem
     {
         if (!CanSendInGame(message, shell, player))
             return;
+
         if (player != null && _chatManager.HandleRateLimit(player) != RateLimitStatus.Allowed)
             return;
+
         // It doesn't make any sense for a non-player to send in-game OOC messages, whereas non-players may be sending
         // in-game IC messages.
         if (player?.AttachedEntity is not { Valid: true } entity || source != entity)
             return;
+
         message = SanitizeInGameOOCMessage(message);
         var sendType = type;
         switch (sendType)
@@ -696,6 +699,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         var playerName = Name(source);
         var speech = GetSpeechVerb(source, message);
         string wrappedMessage;
+
         if (!HasComp<AlienQueenComponent>(source))
         {
             wrappedMessage = Loc.GetString(speech.Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message",

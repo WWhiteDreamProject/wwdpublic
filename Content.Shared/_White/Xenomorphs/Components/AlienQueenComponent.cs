@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Actions;
 using Content.Shared.Polymorph;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -8,7 +9,7 @@ namespace Content.Shared.Aliens.Components;
 /// <summary>
 /// This is used for...
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class AlienQueenComponent : Component
 {
     [DataField]
@@ -17,11 +18,11 @@ public sealed partial class AlienQueenComponent : Component
     /// <summary>
     /// The egg prototype to use.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string EggPrototype = "AlienEggGrowing";
+    [DataField]
+    public EntProtoId EggPrototype = "AlienEggGrowing";
 
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? EggAction = "ActionAlienEgg";
+    [DataField]
+    public EntProtoId? EggAction = "ActionAlienEgg";
 
     [DataField]
     public EntityUid? EggActionEntity;

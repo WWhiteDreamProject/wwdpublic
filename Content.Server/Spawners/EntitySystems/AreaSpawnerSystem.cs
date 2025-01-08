@@ -39,6 +39,7 @@ public sealed class AreaSpawnerSystem : EntitySystem
     {
         component.TokenSource?.Cancel();
         component.TokenSource = new CancellationTokenSource();
+
         uid.SpawnRepeatingTimer(TimeSpan.FromSeconds(component.IntervalSeconds), () => OnTimerFired(uid, component), component.TokenSource.Token);
     }
 
@@ -120,14 +121,13 @@ public sealed class AreaSpawnerSystem : EntitySystem
         var xform = Transform(uid);
         var coords = xform.Coordinates.Offset(offset);
         var tile = coords.GetTileRef(EntityManager, _mapMan);
+
         if (tile == null)
             return false;
 
         // Check there are no walls there
         if (_turf.IsTileBlocked(tile.Value, CollisionGroup.InteractImpassable))
-        {
             return false;
-        }
 
         // Check there are no same entities in tile
         foreach (var entity in _lookup.GetEntitiesInRange(coords, 0.1f))
@@ -155,7 +155,6 @@ public sealed class AreaSpawnerSystem : EntitySystem
                     return true;
             }
         }
-
 
         return false;
     }

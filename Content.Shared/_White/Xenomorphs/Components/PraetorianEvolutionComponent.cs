@@ -13,8 +13,8 @@ public sealed partial class PraetorianEvolutionComponent : Component
     [DataField]
     public ProtoId<PolymorphPrototype> PraetorianPolymorphPrototype = "AlienEvolutionPraetorian";
 
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? PraetorianEvolutionAction = "ActionEvolvePraetorian";
+    [DataField]
+    public EntProtoId? PraetorianEvolutionAction = "ActionEvolvePraetorian";
 
     [DataField]
     public EntityUid? PraetorianEvolutionActionEntity;

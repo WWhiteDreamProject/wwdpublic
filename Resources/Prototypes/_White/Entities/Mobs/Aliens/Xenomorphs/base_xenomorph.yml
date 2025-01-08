@@ -138,7 +138,7 @@
       - Critical
       - Dead
     - type: Alien
-      caste: drone
+      greetingText: alien-drone-greeting
       weedHeal:
         groups:
           Burn: -5
@@ -319,7 +319,7 @@
       - Critical
       - Dead
     - type: Alien
-      caste: larva
+      greetingText: alien-role-greeting
       weedHeal:
         groups:
           Burn: -5

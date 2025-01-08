@@ -12,8 +12,8 @@ public sealed partial class AlienAcidComponent : Component
     /// <summary>
     // Prototype ID for the acid.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string AcidPrototype = "CorrosiveAcidOverlay";
+    [DataField]
+    public EntProtoId AcidPrototype = "CorrosiveAcidOverlay";
 
     /// <summary>
     // Duration for the melting effect.

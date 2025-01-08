@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Actions;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -8,11 +9,11 @@ namespace Content.Shared.Aliens.Components;
 /// <summary>
 /// This is used for...
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class TailLashComponent : Component
 {
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? TailLashAction = "ActionTailLash";
+    [DataField]
+    public EntProtoId? TailLashAction = "ActionTailLash";
 
     [DataField]
     public EntityUid? TailLashActionEntity;

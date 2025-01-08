@@ -26,6 +26,7 @@ public sealed class FacehuggerSystem : EntitySystem
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly MobStateSystem _mobstate = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -36,14 +37,21 @@ public sealed class FacehuggerSystem : EntitySystem
 
     public void OnEquipped(EntityUid uid, FacehuggerComponent component, GotEquippedEvent args)
     {
-        if(!component.Active || args.Slot != "mask" || !TryComp(uid, out MobStateComponent? mobStateComponent) || mobStateComponent.CurrentState == MobState.Dead)
+        if (!component.Active)
             return;
+        if (args.Slot != "mask")
+            return;
+        if (_mobstate.IsDead(uid))
+            return;
+
         _stun.TryParalyze(args.Equipee, TimeSpan.FromSeconds(15), false);
         component.Equipped = true;
         component.Equipee = args.Equipee;
         component.Active = false;
+
         var curTime = _timing.CurTime;
         component.GrowTime = curTime + TimeSpan.FromSeconds(component.EmbryoTime);
+
         _popup.PopupEntity(Loc.GetString("facehugger-equipped-entity-other"),
             uid, PopupType.Medium);
     }
@@ -62,7 +70,9 @@ public sealed class FacehuggerSystem : EntitySystem
         var growedLarva = new Dictionary<EntityUid, FacehuggerComponent>();
         while (query.MoveNext(out var uid, out var facehugger))
         {
-            if(_timing.CurTime < facehugger.GrowTime || !facehugger.Equipped)
+            if (_timing.CurTime < facehugger.GrowTime)
+                continue;
+            if (!facehugger.Equipped)
                 continue;
             growedLarva.TryAdd(uid, facehugger);
         }

@@ -1,16 +1,17 @@
-﻿using Robust.Shared.Prototypes;
+﻿using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Aliens.Components;
 
+
 /// <summary>
 /// This is used for...
 /// </summary>
-[RegisterComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ResinSpinnerComponent : Component
 {
     [DataField]
-    [AutoNetworkedField]
     public string PopupText = "alien-action-fail-plasma";
 
     /// <summary>
@@ -30,11 +31,11 @@ public sealed partial class ResinSpinnerComponent : Component
     /// <summary>
     /// The wall prototype to use.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string WallPrototype = "WallResin";
+    [DataField]
+    public EntProtoId WallPrototype = "WallResin";
 
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? ResinWallAction = "ActionAlienDroneWall";
+    [DataField]
+    public EntProtoId? ResinWallAction = "ActionAlienDroneWall";
 
     [DataField]
     public EntityUid? ResinWallActionEntity;
@@ -56,11 +57,11 @@ public sealed partial class ResinSpinnerComponent : Component
     /// <summary>
     /// The wall prototype to use.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string WindowPrototype = "WindowResin";
+    [DataField]
+    public EntProtoId WindowPrototype = "WindowResin";
 
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? ResinWindowAction = "ActionWindowResin";
+    [DataField]
+    public EntProtoId? ResinWindowAction = "ActionWindowResin";
 
     [DataField]
     public EntityUid? ResinWindowActionEntity;
@@ -82,11 +83,11 @@ public sealed partial class ResinSpinnerComponent : Component
     /// <summary>
     /// The wall prototype to use.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string NestPrototype = "AlienNest";
+    [DataField]
+    public EntProtoId NestPrototype = "AlienNest";
 
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? NestAction = "ActionAlienNest";
+    [DataField]
+    public EntProtoId? NestAction = "ActionAlienNest";
 
     [DataField]
     public EntityUid? NestActionEntity;

@@ -10,8 +10,8 @@ namespace Content.Shared.Aliens.Components;
 public sealed partial class AlienStalkComponent : Component
 {
 
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? StalkAction = "ActionStalkAlien";
+    [DataField]
+    public EntProtoId? StalkAction = "ActionStalkAlien";
 
     [DataField]
     public EntityUid? StalkActionEntity;

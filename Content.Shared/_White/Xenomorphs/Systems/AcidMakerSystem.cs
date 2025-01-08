@@ -55,9 +55,7 @@ public sealed class AcidMakerSystem : EntitySystem
     private void OnAcidMakingStart(EntityUid uid, AcidMakerComponent comp, AcidMakeActionEvent args)
     {
         if (!_hands.TryGetEmptyHand(uid, out _))
-        {
             return;
-        }
 
         if (TryComp<PlasmaVesselComponent>(uid, out var plasmaComp)
         && plasmaComp.Plasma < comp.PlasmaCost)

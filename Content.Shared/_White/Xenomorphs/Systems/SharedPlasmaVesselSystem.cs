@@ -19,15 +19,10 @@ public sealed class SharedPlasmaVesselSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    private IGameTiming? _gameTiming;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     [ValidatePrototypeId<AlertPrototype>]
     public const string PlasmaCounterAlert = "PlasmaCounter";
-
-    public override void Initialize()
-    {
-        _gameTiming = IoCManager.Resolve<IGameTiming>();
-    }
 
     public bool ChangePlasmaGain(EntityUid uid, float modifier, PlasmaVesselComponent? component = null)
     {

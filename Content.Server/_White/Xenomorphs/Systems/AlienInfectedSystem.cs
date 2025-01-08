@@ -43,14 +43,12 @@ public sealed class AlienInfectedSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly JitteringSystem _jittering = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<AlienInfectedComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<AlienInfectedComponent, ComponentShutdown>(OnComponentShutdown);
     }
 
     private void OnComponentInit(EntityUid uid, AlienInfectedComponent component, ComponentInit args)
@@ -60,11 +58,6 @@ public sealed class AlienInfectedSystem : EntitySystem
         // _body.InsertOrgan(torsoPart, Spawn(component.OrganProtoId, Transform(uid).Coordinates), "alienLarvaOrgan");
         component.NextGrowRoll = _timing.CurTime + TimeSpan.FromSeconds(component.GrowTime);
         component.Stomach = _container.EnsureContainer<Container>(uid, "stomach");
-    }
-
-    private void OnComponentShutdown(EntityUid uid, AlienInfectedComponent component, ComponentShutdown args)
-    {
-
     }
 
     public override void Update(float frameTime)
@@ -77,14 +70,13 @@ public sealed class AlienInfectedSystem : EntitySystem
             if (_timing.CurTime < infected.NextGrowRoll)
                 continue;
 
-            if (HasComp<InsideAlienLarvaComponent>(infected.SpawnedLarva) &&
-                Comp<InsideAlienLarvaComponent>(infected.SpawnedLarva.Value).IsGrown)
+            if (TryComp<InsideAlienLarvaComponent>(infected.SpawnedLarva, out var insideAlienLarvaComponent) && insideAlienLarvaComponent.IsGrown)
             {
                 _container.EmptyContainer(infected.Stomach);
-                _entityManager.RemoveComponent<AlienInfectedComponent>(uid);
+                RemComp<AlienInfectedComponent>(uid);
                 _mobStateSystem.ChangeMobState(uid, MobState.Dead);
                 _damageable.TryChangeDamage(uid, infected.BurstDamage, true, false); // TODO: Only torso damage
-                _popup.PopupClient(Loc.GetString("larva-burst-entity"),
+                _popup.PopupEntity(Loc.GetString("larva-burst-entity"),
                     uid, PopupType.LargeCaution);
                 _popup.PopupEntity(Loc.GetString("larva-burst-entity-other"),
                     uid, PopupType.MediumCaution);

@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Aliens.Systems;
 using Content.Server.Animals.Components;
@@ -70,31 +71,7 @@ public sealed class AlienSystem : EntitySystem
 
     private void OnTakeRole(EntityUid uid, AlienComponent component, PlayerAttachedEvent args)
     {
-        switch (component.Caste)
-        {
-            case "larva":
-                _chatMan.DispatchServerMessage(args.Player, Loc.GetString("alien-role-greeting"));
-                break;
-            case "drone":
-                _chatMan.DispatchServerMessage(args.Player, Loc.GetString("alien-drone-greeting"));
-                break;
-            case "sentinel":
-                _chatMan.DispatchServerMessage(args.Player, Loc.GetString("alien-sentinel-greeting"));
-                break;
-            case "hunter":
-                _chatMan.DispatchServerMessage(args.Player, Loc.GetString("alien-hunter-greeting"));
-                break;
-            case "praetorian":
-                _chatMan.DispatchServerMessage(args.Player, Loc.GetString("alien-praetorian-greeting"));
-                break;
-            case "queen":
-                _chatMan.DispatchServerMessage(args.Player, Loc.GetString("alien-queen-greeting"));
-                break;
-            case "maid":
-                _chatMan.DispatchServerMessage(args.Player, Loc.GetString("alien-maid-greeting"));
-                break;
-        }
-
+        _chatMan.DispatchServerMessage(args.Player, Loc.GetString(component.GreetingText));
     }
 
     private void OnPickup(EntityUid uid, AlienComponent component, PickupAttemptEvent args)
@@ -111,7 +88,7 @@ public sealed class AlienSystem : EntitySystem
         if (TryComp<PlasmaVesselComponent>(uid, out var plasmaComp)
             && plasmaComp.Plasma < component.PlasmaCostNode)
         {
-            _popup.PopupClient(Loc.GetString(Loc.GetString("alien-action-fail-plasma")), uid, uid);
+            _popup.PopupEntity(Loc.GetString(Loc.GetString("alien-action-fail-plasma")), uid, uid);
             return;
         }
         CreateStructure(uid, component);
@@ -142,6 +119,7 @@ public sealed class AlienSystem : EntitySystem
         {
             if (Prototype(entity) == null)
                 continue;
+
             if (Prototype(entity)!.ID == component.WeednodePrototype)
                 return;
         }
@@ -160,13 +138,13 @@ public sealed class AlienSystem : EntitySystem
         {
             var weed = false;
             var passiveDamageComponent = EnsureComp<PassiveDamageComponent>(uid);
-            foreach (var entity in _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 0.1f))
+            foreach (var entity in _lookup.GetEntitiesInRange(
+                    Transform(uid).Coordinates,
+                    0.1f)
+                .Where(entity => HasComp<PlasmaGainModifierComponent>(entity) && passiveDamageComponent.Damage.Empty))
             {
-                if (HasComp<PlasmaGainModifierComponent>(entity) && passiveDamageComponent.Damage.Empty)
-                {
-                    passiveDamageComponent.Damage = alien.WeedHeal;
-                    weed = true;
-                }
+                passiveDamageComponent.Damage = alien.WeedHeal;
+                weed = true;
             }
 
             if (!weed)
