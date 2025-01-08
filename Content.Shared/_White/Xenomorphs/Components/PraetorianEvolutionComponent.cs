@@ -7,7 +7,7 @@ namespace Content.Shared.Aliens.Components;
 /// <summary>
 /// This is used for...
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class PraetorianEvolutionComponent : Component
 {
     [DataField]
