@@ -25,6 +25,7 @@
       - id: BoxPDAPrisoner # Delta-V
       - id: ClothingShoesBootsWinterWarden #Delta V: Add departmental winter boots
       - id: BoxEncryptionKeyPrisoner #Delta-V
+      - id: BoxPrisonerHeadset
       - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
         prob: 0.3
       - id: BoxBodyBagPrisoner # WD
@@ -54,6 +55,7 @@
       - id: BoxPDAPrisoner # Delta-V
       - id: ClothingShoesBootsWinterWarden #Delta V: Add departmental winter boots
       - id: BoxEncryptionKeyPrisoner #Delta-V
+      - id: BoxPrisonerHeadset
       - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
         prob: 0.3
       - id: BoxBodyBagPrisoner # WD
