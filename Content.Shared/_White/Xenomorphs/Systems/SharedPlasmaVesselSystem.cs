@@ -71,7 +71,7 @@ public sealed class SharedPlasmaVesselSystem : EntitySystem
 
     public bool ChangePlasmaAmount(EntityUid uid, FixedPoint2 amount, PlasmaVesselComponent? component = null, bool regenCap = false)
     {
-        if (!Resolve(uid, ref component) || component == null)
+        if (!Resolve(uid, ref component))
         {
             return false;
         }
@@ -84,7 +84,7 @@ public sealed class SharedPlasmaVesselSystem : EntitySystem
         }
 
         var stalk = CompOrNull<AlienStalkComponent>(uid);
-        if (stalk != null && stalk.IsActive)
+        if (stalk is { IsActive: true })
         {
             return true;
         }
@@ -94,22 +94,17 @@ public sealed class SharedPlasmaVesselSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("alien-plasma-left", ("value", component.Plasma)), uid, uid);
         }
 
-        int newAlertValue = (int)(component.Plasma.Float() / 50);
+        var newAlertValue = (int)(component.Plasma.Float() / 50);
 
-        if (newAlertValue != component.AlertValue)
-        {
-            if (_gameTiming != null)
-            {
-                float currentTime = (float)_gameTiming.CurTime.TotalSeconds;
+        if (newAlertValue == component.AlertValue)
+            return true;
+        var currentTime = (float)_gameTiming.CurTime.TotalSeconds;
 
-                if (currentTime - component.LastAlertUpdateTime >= PlasmaVesselComponent.AlertUpdateInterval)
-                {
-                    _alerts.ShowAlert(uid, PlasmaCounterAlert, (short)newAlertValue);
-                    component.AlertValue = newAlertValue;
-                    component.LastAlertUpdateTime = currentTime;
-                }
-            }
-        }
+        if (!(currentTime - component.LastAlertUpdateTime >= PlasmaVesselComponent.AlertUpdateInterval))
+            return true;
+        _alerts.ShowAlert(uid, PlasmaCounterAlert, (short)newAlertValue);
+        component.AlertValue = newAlertValue;
+        component.LastAlertUpdateTime = currentTime;
 
         return true;
     }
