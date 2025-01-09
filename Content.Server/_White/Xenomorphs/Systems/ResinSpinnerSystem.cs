@@ -99,9 +99,11 @@ public sealed class ResinSpinnerSystem : EntitySystem
 
         foreach (var entity in _lookupSystem.GetEntitiesInRange(coords, 0.1f))
         {
-            if (Prototype(entity) == null)
+            var protoId = Prototype(entity);
+            
+            if (protoId == null)
                 continue;
-            if (Prototype(entity)!.ID != structurePrototype)
+            if (protoId.ID != structurePrototype)
                 continue;
             _popupSystem.PopupEntity(Loc.GetString("alien-create-structure-failed"), uid, uid);
             return;

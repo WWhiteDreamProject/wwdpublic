@@ -38,6 +38,7 @@
         - Xeno
     - type: Deathgasp
       prototype: XenomorphDeathgasp
+    - type: Buckle
     - type: Hands
     - type: ComplexInteraction
     - type: Puller

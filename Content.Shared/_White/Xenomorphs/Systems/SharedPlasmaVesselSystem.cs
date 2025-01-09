@@ -7,6 +7,7 @@ using Content.Shared.Popups;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Localization;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Aliens.Systems;
@@ -22,7 +23,7 @@ public sealed class SharedPlasmaVesselSystem : EntitySystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     [ValidatePrototypeId<AlertPrototype>]
-    public const string PlasmaCounterAlert = "PlasmaCounter";
+    public ProtoId<AlertPrototype> PlasmaCounterAlert = "PlasmaCounter";
 
     public bool ChangePlasmaGain(EntityUid uid, float modifier, PlasmaVesselComponent? component = null)
     {

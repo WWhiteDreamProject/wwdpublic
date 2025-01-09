@@ -42,8 +42,8 @@ public sealed partial class AlienQueenComponent : Component
     [DataField]
     public float PlasmaCostRoyalLarva = 300f;
 
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<PolymorphPrototype>))]
-    public string PraetorianPolymorphPrototype = "AlienEvolutionPraetorian";
+    [DataField]
+    public ProtoId<PolymorphPrototype> PraetorianPolymorphPrototype = "AlienEvolutionPraetorian";
 }
 
 public sealed partial class AlienEggActionEvent : InstantActionEvent { }

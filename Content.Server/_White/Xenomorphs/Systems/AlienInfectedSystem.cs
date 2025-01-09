@@ -89,7 +89,7 @@ public sealed class AlienInfectedSystem : EntitySystem
                 infected.SpawnedLarva = larva;
                 infected.GrowthStage++;
                 _jittering.DoJitter(uid, TimeSpan.FromSeconds(8), true);
-                _popup.PopupClient(Loc.GetString("larva-inside-entity"),
+                _popup.PopupEntity(Loc.GetString("larva-inside-entity"),
                     uid, PopupType.Medium);
             }
 
