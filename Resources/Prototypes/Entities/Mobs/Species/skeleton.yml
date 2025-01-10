@@ -104,7 +104,7 @@
   - type: FireVisuals
     alternateState: Standing
   - type: FootPrints
-  - type: FlashImmunity
+  - type: LayingDown
   - type: Inventory
     femaleDisplacements:
       jumpsuit:
@@ -118,12 +118,12 @@
   id: MobSkeletonPersonDummy
   categories: [ HideSpawnMenu ]
   components:
-  - type: HumanoidAppearance
-    species: Skeleton
-  - type: Inventory
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
+    - type: HumanoidAppearance
+      species: Skeleton
+    - type: Inventory
+      femaleDisplacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: Mobs/Species/Human/displacement.rsi
+              state: jumpsuit-female
