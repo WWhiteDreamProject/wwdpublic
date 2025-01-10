@@ -799,6 +799,9 @@
   - type: FlashSoundSuppression
     maxRange: 0
   # WD EDIT END
+  - type: ThermalVision
+    color: "#98EEFB"
+    lightRadius: 15
 
 #MISC. HARDSUITS
 #Clown Hardsuit

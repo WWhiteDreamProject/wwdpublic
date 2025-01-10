@@ -341,6 +341,13 @@ uplink-hardsuit-syndieelite-desc = Элитная версия кроваво-к
 
 uplink-clothing-outer-hardsuit-juggernaut-name = Костюм джаггернаута Cybersun
 uplink-clothing-outer-hardsuit-juggernaut-desc = Сверхпрочная броня из материалов, испытанных в хромосферном комплексе Тау. Единственное, что будет замедлять вас - это сам костюм... и тазеры.
+
+uplink-night-vision-name = Прибор ночного видения
+uplink-night-vision-desc = Позволяет вам видеть в темноте, при этом выглядя как обычные солнцезащитные очки!
+
+uplink-thermal-vision-name = Прибор термального видения
+uplink-thermal-vision-desc = Позволяет вам видеть живых существ независимо от преград, при этом выглядя как обычные солнцезащитные очки!
+
 # Misc
 uplink-cyberpen-name = Ручка Cybersun
 uplink-cyberpen-desc = Ручка юридического отдела "Cybersun". Бесценная для подделки документов и побегов из тюрем. Смутно пахнет хардлайтом и наживой на ВПК.

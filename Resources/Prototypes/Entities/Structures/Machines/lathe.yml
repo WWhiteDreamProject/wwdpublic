@@ -362,6 +362,9 @@
     - AnimalTranslator
     - MofficTranslatorImplanter
     - MofficTranslator
+    - ClothingEyesNightVisionGoggles
+    - ClothingEyesNightVisionDiagnosticGoggles
+    - ClothingEyesThermalVisionGoggles
     - RCDAmmo #DeltaV
     - RCD #EE
     # Shitmed Change
@@ -911,6 +914,7 @@
     - WeaponDisablerSMG
     - WeaponLaserCannon
     - WeaponLaserCarbine
+    - ClothingEyesNightVisionSecurityGoggles
     - ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
     - ClothingHeadCage # Nyanotrasen - Insulative headgear
     - ShockCollar # Nyanotrasen - Shock Collar
@@ -1059,6 +1063,7 @@
     - ClothingEyesHudMedical # Nyano
     - ChemicalPayload # Nyano
     - SyringeCryostasis
+    - ClothingEyesNightVisionMedicalGoggles
     # Shitmed Change
     - EnergyScalpel
     - EnergyCautery
