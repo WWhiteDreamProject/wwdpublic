@@ -22,6 +22,7 @@
       malus: 0.6
   - type: ItemToggleSize
     activatedSize: Huge
+  - type: ItemTogglePointLight
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
       path: /Audio/Weapons/eblade1.ogg
