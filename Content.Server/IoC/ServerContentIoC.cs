@@ -80,6 +80,7 @@ namespace Content.Server.IoC
             IoCManager.Register<PlayerRateLimitManager>();
             IoCManager.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             IoCManager.Register<MappingManager>();
+            IoCManager.Register<ConnectionManager>();
             IoCManager.Register<TTSManager>(); // WD EDIT
         }
     }
