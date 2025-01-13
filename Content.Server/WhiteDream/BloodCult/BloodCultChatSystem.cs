@@ -6,7 +6,6 @@ using Content.Server.Language;
 using Content.Shared.Chat;
 using Content.Shared.Language;
 using Content.Shared.WhiteDream.BloodCult.BloodCultist;
-using Content.Shared.WhiteDream.BloodCult.Constructs;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -24,19 +23,10 @@ public sealed class BloodCultChatSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BloodCultistComponent, EntitySpokeEvent>(OnCultistSpeak);
-        SubscribeLocalEvent<ConstructComponent, EntitySpokeEvent>(OnConstructSpeak);
+        SubscribeLocalEvent<BloodCultistComponent, EntitySpokeEvent>(OnSpeak);
     }
 
-    private void OnCultistSpeak(EntityUid uid, BloodCultistComponent component, EntitySpokeEvent args)
-    {
-        if (args.Source != uid || args.Language.ID != component.CultLanguageId || args.IsWhisper)
-            return;
-
-        SendMessage(args.Source, args.Message, false, args.Language);
-    }
-
-    private void OnConstructSpeak(EntityUid uid, ConstructComponent component, EntitySpokeEvent args)
+    private void OnSpeak(EntityUid uid, BloodCultistComponent component, EntitySpokeEvent args)
     {
         if (args.Source != uid || args.Language.ID != component.CultLanguageId || args.IsWhisper)
             return;

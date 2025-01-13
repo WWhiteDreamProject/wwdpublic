@@ -9,6 +9,20 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.WhiteDream.BloodCult.Spells;
 
+public sealed partial class BloodCultStunEvent : EntityTargetActionEvent, ISpeakSpell
+{
+    [DataField]
+    public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(16);
+
+    [DataField]
+    public TimeSpan MuteDuration = TimeSpan.FromSeconds(12);
+
+    [DataField]
+    public string? Speech { get; set; }
+
+    public InGameICChatType ChatType => InGameICChatType.Whisper;
+}
+
 public sealed partial class BloodCultTeleportEvent : EntityTargetActionEvent, ISpeakSpell
 {
     [DataField]
@@ -40,6 +54,23 @@ public sealed partial class BloodCultEmpEvent : InstantActionEvent, ISpeakSpell
     public InGameICChatType ChatType => InGameICChatType.Whisper;
 }
 
+public sealed partial class BloodCultShacklesEvent : EntityTargetActionEvent, ISpeakSpell
+{
+    [DataField]
+    public EntProtoId ShacklesProto = "ShadowShackles";
+
+    [DataField]
+    public TimeSpan MuteDuration = TimeSpan.FromSeconds(5);
+
+    [DataField]
+    public TimeSpan KnockdownDuration = TimeSpan.FromSeconds(1);
+
+    [DataField]
+    public string? Speech { get; set; }
+
+    public InGameICChatType ChatType => InGameICChatType.Whisper;
+}
+
 public sealed partial class BloodCultTwistedConstructionEvent : EntityTargetActionEvent, ISpeakSpell
 {
     [DataField]
@@ -58,9 +89,6 @@ public sealed partial class SummonEquipmentEvent : InstantActionEvent, ISpeakSpe
 
     [DataField]
     public string? Speech { get; set; }
-
-    [DataField]
-    public bool Force { get; set; } = true;
 
     public InGameICChatType ChatType => InGameICChatType.Whisper;
 }

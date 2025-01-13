@@ -1,5 +1,4 @@
 ﻿using Content.Shared.Antag;
-using Content.Shared.Language;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 
@@ -19,12 +18,6 @@ public sealed partial class ConstructComponent : Component
 
     [DataField]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "BloodCultMember";
-
-    [DataField]
-    public ProtoId<LanguagePrototype> CultLanguageId { get; set; } = "Eldritch";
-
-    [DataField]
-    public ProtoId<EntityPrototype> SpawnOnDeathPrototype { get; set; } = "Ectoplasm";
 
     [DataField]
     public bool IconVisibleToGhost { get; set; } = true;

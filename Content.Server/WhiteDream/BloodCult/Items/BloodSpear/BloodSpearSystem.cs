@@ -1,6 +1,5 @@
 ﻿using Content.Server.Actions;
 using Content.Server.Hands.Systems;
-using Content.Server.Projectiles;
 using Content.Server.Stunnable;
 using Content.Shared.Humanoid;
 using Content.Shared.Item;
@@ -8,7 +7,6 @@ using Content.Shared.Projectiles;
 using Content.Shared.WhiteDream.BloodCult.BloodCultist;
 using Content.Shared.WhiteDream.BloodCult.Spells;
 using Robust.Server.Audio;
-using Robust.Server.GameObjects;
 
 namespace Content.Server.WhiteDream.BloodCult.Items.BloodSpear;
 
@@ -18,8 +16,6 @@ public sealed class BloodSpearSystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly ProjectileSystem _projectile = default!;
 
     public override void Initialize()
     {
@@ -69,16 +65,6 @@ public sealed class BloodSpearSystem : EntitySystem
         var spearUid = cultist.Comp.BloodSpear;
         if (!spearUid.HasValue || !TryComp(spearUid, out BloodSpearComponent? spear))
             return;
-
-        var spearXform = Transform(spearUid.Value);
-        var cultistCoords = _transform.GetWorldPosition(cultist);
-
-        if (TryComp<EmbeddableProjectileComponent>(spearUid, out var embeddableProjectile)
-            && embeddableProjectile.Target.HasValue)
-            _projectile.RemoveEmbed(spearUid.Value, embeddableProjectile);
-
-        _transform.AttachToGridOrMap(spearUid.Value, spearXform);
-        _transform.SetWorldPosition(spearXform, cultistCoords);
 
         _hands.TryForcePickupAnyHand(cultist, spearUid.Value);
         _audio.PlayPvs(spear.RecallAudio, spearUid.Value);
