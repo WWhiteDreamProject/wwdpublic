@@ -11,6 +11,12 @@
     - state: animation-icon
       visible: false
       map: [ "empty-icon" ]
+  - type: ExtendDescription
+    descriptionList:
+    - description: "gun-legality-salvage"
+      fontSize: 12
+      color: "#ff4f00"
+      requireDetailRange: false
   - type: MeleeWeapon # WD EDIT
     attackRate: 0.7
     damage:
