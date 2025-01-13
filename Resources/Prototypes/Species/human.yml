@@ -4,7 +4,6 @@
   roundStart: true
   prototype: MobHuman
   sprites: MobHumanSprites
-  defaultSkinTone: "#c0967f" # WD EDIT
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobHumanDummy
   skinColoration: HumanToned
