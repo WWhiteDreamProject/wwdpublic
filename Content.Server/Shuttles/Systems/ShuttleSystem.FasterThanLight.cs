@@ -10,6 +10,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
+using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Maps;
 using Content.Shared.Parallax;
 using Content.Shared.SegmentedEntity;
@@ -649,8 +650,10 @@ public sealed partial class ShuttleSystem
                 continue;
 
             // WD EDIT START
-            if (_inventory.TryGetSlotEntity(child, "shoes", out var shoes) &&
-                TryComp<MagbootsComponent>(shoes, out var magboots) && magboots.On)
+            if (_inventory.TryGetSlotEntity(child, "shoes", out var shoes)
+                && HasComp<MagbootsComponent>(shoes)
+                && TryComp<ItemToggleComponent>(shoes, out var toggle)
+                && toggle.Activated)
                 continue;
             // WD EDIT END
 

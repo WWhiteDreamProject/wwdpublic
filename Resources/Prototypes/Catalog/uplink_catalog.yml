@@ -8,7 +8,7 @@
   productEntity: WeaponPistolViper
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 3
   categories:
@@ -21,7 +21,7 @@
   productEntity: WeaponRevolverPythonAP
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 8 # Originally was 13 TC but was not used due to high cost
   categories:
@@ -35,7 +35,7 @@
   productEntity: WeaponPistolCobra
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -59,7 +59,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword.rsi, state: icon }
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 1 # WD EDIT
   productEntity: EnergySword
   cost:
     Telecrystal: 8
@@ -88,7 +88,7 @@
   productEntity: ThrowingKnivesKit
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 6
   categories:
@@ -102,7 +102,7 @@
   productEntity: ClothingHandsGlovesNorthStar
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 8
   categories:
@@ -115,7 +115,7 @@
   productEntity: ToolboxElectricalTurretFilled
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 6
   categories:
@@ -134,9 +134,9 @@
   productEntity: EnergyShield
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2 # WD EDIT
   cost:
-    Telecrystal: 16
+    Telecrystal: 6 # WD EDIT
   categories:
   - UplinkWeaponry
   conditions:
@@ -151,11 +151,11 @@
   description: uplink-sniper-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base }
   productEntity: BriefcaseSyndieSniperBundleFilled
-  discountCategory: usualDiscounts
+  discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 6
+    Telecrystal: 4 # WD EDIT
   cost:
-    Telecrystal: 12
+    Telecrystal: 18
   categories:
   - UplinkWeaponry
 
@@ -167,7 +167,7 @@
   productEntity: ClothingBackpackDuffelSyndicateFilledSMG
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 10
+    Telecrystal: 4 # WD EDIT
   cost:
     Telecrystal: 17
   categories:
@@ -181,7 +181,7 @@
   productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 12
+    Telecrystal: 4 # WD EDIT
   cost:
     Telecrystal: 20
   categories:
@@ -195,7 +195,7 @@
   productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 20
+    Telecrystal: 5 # WD EDIT
   cost:
     Telecrystal: 25
   categories:
@@ -209,7 +209,7 @@
   productEntity: ClothingBackpackDuffelSyndicateFilledLMG
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 24
+    Telecrystal: 6 # WD EDIT
   cost:
     Telecrystal: 30
   categories:
@@ -224,7 +224,7 @@
   productEntity: ExGrenade
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -257,7 +257,7 @@
   productEntity: SyndieMiniBomb
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 6
   categories:
@@ -270,7 +270,7 @@
   productEntity: SupermatterGrenade
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 6
   categories:
@@ -296,7 +296,7 @@
   productEntity: MobGrenadePenguin
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 5
   categories:
@@ -327,7 +327,7 @@
   productEntity: ClothingBeltMilitaryWebbingGrenadeFilled
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 6
+    Telecrystal: 3 # WD EDIT
   cost:
     Telecrystal: 12
   categories:
@@ -345,7 +345,7 @@
   productEntity: ClothingBackpackDuffelSyndicateC4tBundle
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 8
+    Telecrystal: 3 # WD EDIT
   cost:
     Telecrystal: 12 #you're buying bulk so its a 25% discount, so no additional random discount over it
   categories:
@@ -372,7 +372,7 @@
   productEntity: PenExplodingBox
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -383,6 +383,10 @@
   name: uplink-exploding-syndicate-bomb-name
   description: uplink-exploding-syndicate-bomb-desc
   productEntity: SyndicateBomb
+  # WD EDIT START
+  discountDownTo:
+    Telecrystal: 3
+  # WD EDIT END
   cost:
     Telecrystal: 11
   categories:
@@ -399,6 +403,10 @@
   name: uplink-exploding-syndicate-bomb-name
   description: uplink-exploding-syndicate-bomb-desc
   productEntity: SyndicateBomb
+  # WD EDIT START
+  discountDownTo:
+    Telecrystal: 3
+  # WD EDIT END
   cost:
     Telecrystal: 11
   categories:
@@ -416,7 +424,7 @@
   productEntity: ClusterGrenade
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 8
   categories:
@@ -429,7 +437,7 @@
   productEntity: GrenadeShrapnel
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -442,7 +450,7 @@
   productEntity: GrenadeIncendiary
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -455,7 +463,7 @@
   productEntity: ElectricalDisruptionKit
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 6
   categories:
@@ -481,6 +489,11 @@
   description: uplink-pistol-magazine-c20r-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
   productEntity: MagazinePistolSubMachineGun
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  # WD EDIT END
   cost:
     Telecrystal: 2
   categories:
@@ -505,6 +518,11 @@
   description: uplink-speedloader-magnu-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
   productEntity: SpeedLoaderMagnumAP
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  # WD EDIT END
   cost:
     Telecrystal: 3
   categories:
@@ -527,8 +545,13 @@
   name: uplink-sniper-ammo-name
   description: uplink-sniper-ammo-desc
   productEntity: MagazineBoxAntiMateriel
-  cost:
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
     Telecrystal: 2
+  # WD EDIT END
+  cost:
+    Telecrystal: 6 # WD EDIT
   categories:
   - UplinkAmmo
 
@@ -537,6 +560,11 @@
   name: uplink-ammo-bundle-name
   description: uplink-ammo-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateAmmoFilled
+  # WD EDIT START
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  # WD EDIT END
   cost:
     Telecrystal: 15
   categories:
@@ -561,7 +589,7 @@
   productEntity: HypopenBox
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 6
   categories:
@@ -589,7 +617,7 @@
   productEntity: ChemicalSynthesisKit
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -601,6 +629,11 @@
   description: uplink-zombie-bundle-desc
   icon: { sprite: /Textures/Structures/Wallmounts/signs.rsi, state: bio }
   productEntity: ClothingBackpackDuffelZombieBundle
+  # WD EDIT START
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 8
+  # WD EDIT END
   cost:
     Telecrystal: 40
   categories:
@@ -622,7 +655,7 @@
   productEntity: NocturineChemistryBottle
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 6
   categories:
@@ -635,7 +668,7 @@
   productEntity: MedkitCombatFilled
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 5
   categories:
@@ -648,7 +681,7 @@
   productEntity: CombatMedipen
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -661,7 +694,7 @@
   productEntity: Stimpack
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -674,7 +707,7 @@
   productEntity: StimkitFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 8
+    Telecrystal: 3 # WD EDIT
   cost:
     Telecrystal: 12
   categories:
@@ -700,7 +733,7 @@
   productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 12
+    Telecrystal: 4 # WD EDIT
   cost:
     Telecrystal: 20
   categories:
@@ -737,7 +770,7 @@
   productEntity: StealthBox
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 5
   categories:
@@ -750,7 +783,7 @@
   productEntity: ChameleonProjector
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 7
   categories:
@@ -810,7 +843,7 @@
   productEntity: BriefcaseSyndieLobbyingBundleFilled
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -832,9 +865,6 @@
   description: uplink-decoy-kit-desc
   icon: { sprite: /Textures/Objects/Tools/Decoys/operative_decoy.rsi, state: folded }
   productEntity: ClothingBackpackDuffelSyndicateDecoyKitFilled
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 3
   cost:
     Telecrystal: 1
   categories:
@@ -862,7 +892,7 @@
   productEntity: Emag
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 8
   categories:
@@ -875,7 +905,7 @@
   productEntity: RadioJammer
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -888,7 +918,7 @@
   productEntity: BorgModuleSyndicateWeapon
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 5
   categories:
@@ -902,7 +932,7 @@
   icon: { sprite: /Textures/Objects/Specific/Robotics/borgmodule.rsi, state: syndicateborgbomb }
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -964,7 +994,7 @@
   productEntity: ClothingBackpackDuffelSyndicateFilledMedical
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -977,7 +1007,7 @@
   productEntity: PowerSink
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 8
   categories:
@@ -1014,7 +1044,7 @@
   productEntity: SingularityBeacon
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 3 # WD EDIT
   cost:
     Telecrystal: 12
   categories:
@@ -1028,9 +1058,9 @@
   description: uplink-holopara-kit-desc
   icon: { sprite: /Textures/Objects/Misc/guardian_info.rsi, state: icon }
   productEntity: BoxHoloparasite
-  discountCategory: usualDiscounts
+  discountCategory: veryRareDiscounts # WD EDIT
   discountDownTo:
-    Telecrystal: 8
+    Telecrystal: 3 # WD EDIT
   cost:
     Telecrystal: 14
   categories:
@@ -1047,9 +1077,9 @@
   description: uplink-reinforcement-radio-desc
   productEntity: ReinforcementRadioSyndicate
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
-  discountCategory: usualDiscounts
+  discountCategory: veryRareDiscounts # WD EDIT
   discountDownTo:
-    Telecrystal: 7
+    Telecrystal: 4 # WD EDIT
   cost:
     Telecrystal: 16
   categories:
@@ -1066,6 +1096,11 @@
   description: uplink-reinforcement-radio-desc
   productEntity: ReinforcementRadioSyndicateNukeops
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
+  # WD EDIT START
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  # WD EDIT END
   cost:
     Telecrystal: 16
   categories:
@@ -1082,6 +1117,11 @@
   description: uplink-reinforcement-radio-cyborg-assault-desc
   productEntity: ReinforcementRadioSyndicateCyborgAssault
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
+  # WD EDIT START
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 13
+  # WD EDIT END
   cost:
     Telecrystal: 65
   categories:
@@ -1100,7 +1140,7 @@
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-ancestor }
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 8
   categories:
@@ -1119,7 +1159,7 @@
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-ancestor }
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 6
   categories:
@@ -1151,7 +1191,7 @@
   productEntity: ReinforcementRadioSyndicateSyndiCat
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 6
   categories:
@@ -1167,7 +1207,7 @@
   productEntity: StorageImplanter
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 8
   categories:
@@ -1184,9 +1224,9 @@
   description: uplink-freedom-implanter-desc
   icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: freedom }
   productEntity: FreedomImplanter
-  discountCategory: veryRareDiscounts
+  discountCategory: usualDiscounts # WD EDIT
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 5
   categories:
@@ -1198,9 +1238,9 @@
   description: uplink-scram-implanter-desc
   icon: { sprite: /Textures/Structures/Specific/anomaly.rsi, state: anom4 }
   productEntity: ScramImplanter
-  discountCategory: veryRareDiscounts
+  discountCategory: rareDiscounts # WD EDIT
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 6 # it's a gamble that may kill you easily so 6 TC per 2 uses, second one more of a backup
   categories:
@@ -1214,7 +1254,7 @@
   productEntity: DnaScramblerImplanter
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 5
   categories:
@@ -1226,7 +1266,7 @@
   description: uplink-emp-implanter-desc
   icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: shield }
   productEntity: EmpImplanter
-  discountCategory: veryRareDiscounts
+  discountCategory: usualDiscounts # WD EDIT
   discountDownTo:
     Telecrystal: 1
   cost:
@@ -1240,6 +1280,11 @@
   description: uplink-micro-bomb-implanter-desc
   icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
   productEntity: MicroBombImplanter
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  # WD EDIT END
   cost:
     Telecrystal: 2
   categories:
@@ -1260,6 +1305,11 @@
   description: uplink-macro-bomb-implanter-desc
   icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
   productEntity: MacroBombImplanter
+  # WD EDIT START
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  # WD EDIT END
   cost:
     Telecrystal: 13
   categories:
@@ -1280,6 +1330,11 @@
   description: uplink-death-acidifier-implant-desc
   icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
   productEntity: DeathAcidifierImplanter
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  # WD EDIT END
   cost:
     Telecrystal: 4
   categories:
@@ -1314,6 +1369,11 @@
   name: uplink-deathrattle-implant-name
   description: uplink-deathrattle-implant-desc
   productEntity: BoxDeathRattleImplants
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  # WD EDIT END
   cost:
     Telecrystal: 4
   categories:
@@ -1335,7 +1395,7 @@
   name: uplink-black-jetpack-name
   description: uplink-black-jetpack-desc
   productEntity: JetpackBlackFilled
-  discountCategory: veryRareDiscounts
+  discountCategory: usualDiscounts # WD EDIT
   discountDownTo:
     Telecrystal: 1
   cost:
@@ -1350,7 +1410,7 @@
   productEntity: ClothingMaskGasVoiceChameleon
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 1
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 6
   categories:
@@ -1366,7 +1426,7 @@
   icon: { sprite: /Textures/Clothing/Uniforms/Jumpsuit/rainbow.rsi, state: icon }
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -1377,7 +1437,7 @@
   name: uplink-clothing-no-slips-shoes-name
   description: uplink-clothing-no-slips-shoes-desc
   productEntity: ClothingShoesChameleonNoSlips
-  discountCategory: veryRareDiscounts
+  discountCategory: usualDiscounts # WD EDIT
   discountDownTo:
     Telecrystal: 1
   cost:
@@ -1390,9 +1450,9 @@
   name: uplink-clothing-thieving-gloves-name
   description: uplink-clothing-thieving-gloves-desc
   productEntity: ThievingGloves
-  discountCategory: veryRareDiscounts
+  discountCategory: usualDiscounts # WD EDIT
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -1418,7 +1478,7 @@
   productEntity: ClothingShoesBootsMagSyndie
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -1430,7 +1490,7 @@
   description: uplink-eva-syndie-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Suits/eva_syndicate.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEVABundle
-  discountCategory: rareDiscounts
+  discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 1
   cost:
@@ -1460,7 +1520,7 @@
   productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 10
   categories:
@@ -1471,6 +1531,11 @@
   name: uplink-clothing-conducting-gloves-name
   description: uplink-clothing-conducting-gloves-desc
   productEntity: ClothingHandsGlovesConducting
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  # WD EDIT END
   cost:
     Telecrystal: 2
   categories:
@@ -1493,7 +1558,7 @@
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 7
+    Telecrystal: 3 # WD EDIT
   cost:
     Telecrystal: 12
   categories:
@@ -1507,7 +1572,7 @@
   productEntity: CrateCybersunJuggernautBundle
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 8
+    Telecrystal: 3 # WD EDIT
   cost:
     Telecrystal: 12
   categories:
@@ -1518,6 +1583,11 @@
   name: uplink-clothing-eyes-hud-syndicate-name
   description: uplink-clothing-eyes-hud-syndicate-desc
   productEntity: ClothingEyesHudSyndicate
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  # WD EDIT END
   cost:
     Telecrystal: 2
   categories:
@@ -1537,7 +1607,7 @@
   name: uplink-night-vision-name
   description: uplink-night-vision-desc
   productEntity: ClothingEyesNightVisionGogglesSyndie
-  discountCategory: rareDiscounts
+  discountCategory: usualDiscounts # WD EDIT
   discountDownTo:
     Telecrystal: 1
   cost:
@@ -1555,7 +1625,7 @@
   name: uplink-night-vision-name
   description: uplink-night-vision-desc
   productEntity: ClothingEyesNightVisionGogglesNukie
-  discountCategory: rareDiscounts
+  discountCategory: usualDiscounts # WD EDIT
   discountDownTo:
     Telecrystal: 1
   cost:
@@ -1573,7 +1643,7 @@
   name: uplink-thermal-vision-name
   description: uplink-thermal-vision-desc
   productEntity: ClothingEyesThermalVisionGogglesSyndie
-  discountCategory: rareDiscounts
+  discountCategory: usualDiscounts # WD EDIT
   discountDownTo:
     Telecrystal: 1
   cost:
@@ -1591,7 +1661,7 @@
   name: uplink-thermal-vision-name
   description: uplink-thermal-vision-desc
   productEntity: ClothingEyesThermalVisionGogglesNukie
-  discountCategory: rareDiscounts
+  discountCategory: usualDiscounts # WD EDIT
   discountDownTo:
     Telecrystal: 1
   cost:
@@ -1611,9 +1681,6 @@
   name: uplink-syndicate-stamp-name
   description: uplink-syndicate-stamp-desc
   productEntity: RubberStampSyndicate
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1
   cost:
     Telecrystal: 1
   categories:
@@ -1628,7 +1695,7 @@
   productEntity: GatfruitSeeds
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 6
   categories:
@@ -1645,7 +1712,7 @@
   productEntity: ClothingHandsGlovesBoxingRigged
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 6
   categories:
@@ -1662,7 +1729,7 @@
   productEntity: ClothingHandsGlovesBoxingRigged
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -1679,7 +1746,7 @@
   productEntity: BibleNecronomicon
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 #WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -1698,9 +1765,9 @@
   name: uplink-holy-hand-grenade-name
   description: uplink-holy-hand-grenade-desc
   productEntity: HolyHandGrenade
-  discountCategory: rareDiscounts
+  discountCategory: veryRareDiscounts # WD EDIT
   discountDownTo:
-    Telecrystal: 14
+    Telecrystal: 4 # WD EDIT
   cost:
     Telecrystal: 20
   categories:
@@ -1715,9 +1782,9 @@
   name: uplink-revolver-cap-gun-fake-name
   description: uplink-revolver-cap-gun-fake-desc
   productEntity: RevolverCapGunFake
-  discountCategory: usualDiscounts
+  discountCategory: rareDiscounts # WD EDIT
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 9
   categories:
@@ -1734,7 +1801,7 @@
   description: uplink-banana-peel-explosive-desc
   icon: { sprite: Objects/Specific/Hydroponics/banana.rsi, state: peel }
   productEntity: TrashBananaPeelExplosiveUnarmed
-  discountCategory: rareDiscounts
+  discountCategory: usualDiscounts # WD EDIT
   discountDownTo:
     Telecrystal: 1
   cost:
@@ -1753,7 +1820,7 @@
   productEntity: ClusterBananaPeel
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2 # WD EDIT
   cost:
     Telecrystal: 6
   categories:
@@ -1771,7 +1838,7 @@
   productEntity: BoxHoloclown
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 6
+    Telecrystal: 3 # WD EDIT
   cost:
     Telecrystal: 12
   categories:
@@ -1787,7 +1854,7 @@
   description: uplink-hot-potato-desc
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   productEntity: HotPotato
   cost:
     Telecrystal: 4
@@ -1808,7 +1875,7 @@
   productEntity: WeaponPistolCHIMPUpgradeKit
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4
   categories:
@@ -1825,7 +1892,7 @@
   productEntity: WetFloorSignMineExplosive
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 5 # was 4, with my buff made it 5 to be closer to minibomb -panzer
   categories:
@@ -1846,7 +1913,7 @@
   icon: { sprite:  Objects/Misc/monkeycube.rsi, state: box}
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 2 # WD EDIT
   productEntity: SyndicateSpongeBox
   cost:
     Telecrystal: 7
@@ -1869,7 +1936,7 @@
   productEntity: CaneSheathFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 5
   categories:
@@ -1907,6 +1974,11 @@
   name: uplink-emp-flashlight-name
   description: uplink-emp-flashlight-desc
   productEntity: FlashlightEmp
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  # WD EDIT END
   cost:
     Telecrystal: 3
   categories:

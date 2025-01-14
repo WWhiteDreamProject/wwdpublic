@@ -62,7 +62,7 @@
         restitution: 0.3
         friction: 0.2
   # WD EDIT END
-  -
+
 - type: entity
   name: steel tile
   parent: FloorTileItemBase

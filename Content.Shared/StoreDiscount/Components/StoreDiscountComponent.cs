@@ -17,6 +17,14 @@ public sealed partial class StoreDiscountComponent : Component
     /// </summary>
     [ViewVariables, DataField]
     public IReadOnlyList<StoreDiscountData> Discounts = Array.Empty<StoreDiscountData>();
+
+    // WD EDIT START
+    [DataField]
+    public int MinItems = 1;
+
+    [DataField]
+    public int MaxItems = 8;
+    // WD EDIT END
 }
 
 /// <summary>

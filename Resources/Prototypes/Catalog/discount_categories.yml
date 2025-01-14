@@ -6,6 +6,7 @@
 - type: discountCategory
   id: usualDiscounts # Cheap items that are used not very often.
   weight: 80
+  maxItems: 3 # WD EDIT
 
 - type: discountCategory
   id: veryRareDiscounts # Casually used items that are widely used but can be (rarely) discounted for epic lulz.

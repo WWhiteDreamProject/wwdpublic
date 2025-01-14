@@ -3,6 +3,9 @@
   name: uplink-experimental-syndicate-teleporter-name
   description: uplink-experimental-syndicate-teleporter-desc
   productEntity: ExperimentalSyndicateTeleporter
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
   cost:
     Telecrystal: 10
   categories:
@@ -13,6 +16,9 @@
   name: uplink-betrayal-dagger-name
   description: uplink-betrayal-dagger-desc
   productEntity: BetrayalDagger
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 2
   cost:
     Telecrystal: 10
   categories:
@@ -29,8 +35,11 @@
   name: uplink-ebow-name
   description: uplink-ebow-desc
   productEntity: EnergyCrossbowMini
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 3
   cost:
-    Telecrystal: 10
+    Telecrystal: 14
   categories:
   - UplinkWeapons
   conditions:
@@ -46,6 +55,9 @@
   description: uplink-hardlight-spear-implant-desc
   icon: { sprite: /Textures/_White/Objects/Weapons/Melee/Spear/hardlight_spear.rsi, state: spear }
   productEntity: HardlightSpearImplanter
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 3
   cost:
     Telecrystal: 12
   categories:
@@ -63,6 +75,9 @@
   description: uplink-neuro-control-desc
   icon: { sprite: /Textures/Interface/Alerts/stamina.rsi, state: stamina5 }
   productEntity: NeuroStabilizationImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
     Telecrystal: 2
   categories:
@@ -84,6 +99,9 @@
   description: uplink-smoke-implant-desc
   icon: { sprite: /Textures/Objects/Weapons/Grenades/smoke.rsi, state: icon }
   productEntity: SmokeImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
     Telecrystal: 2
   categories:
@@ -95,6 +113,9 @@
   description: uplink-mind-slave-desc
   icon: { sprite: /Textures/_White/Overlays/mindslave.rsi, state: master }
   productEntity: MindSlaveImplanter
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
   cost:
     Telecrystal: 6
   categories:
@@ -105,6 +126,9 @@
   name: uplink-blood-dagger-name
   description: uplink-blood-dagger-desc
   productEntity: BloodDagger
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
   cost:
     Telecrystal: 8
   categories:
@@ -122,6 +146,9 @@
   description: uplink-gondola-desc
   icon: { sprite: /Textures/_White/Mobs/Animals/gondola.rsi, state: icon }
   productEntity: CrateNPCGondola
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
     Telecrystal: 2
   categories:

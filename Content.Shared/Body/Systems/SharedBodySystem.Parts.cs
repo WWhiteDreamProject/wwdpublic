@@ -4,7 +4,6 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
-using Content.Shared.BodyEffects;
 using Content.Shared.Buckle;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;

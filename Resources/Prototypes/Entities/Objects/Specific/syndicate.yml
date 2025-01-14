@@ -73,7 +73,10 @@
   - type: Store
     balance:
       Telecrystal: 0
-  - type: GiftIgnore # WD EDIT
+  # WD EDIT START
+  - type: StoreDiscount
+  - type: GiftIgnore
+  # WD EDIT END
 
 - type: entity
   parent: BaseUplinkRadio

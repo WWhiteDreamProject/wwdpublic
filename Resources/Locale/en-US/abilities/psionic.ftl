@@ -71,6 +71,3 @@ action-desc-rf-sensitivity = Toggle your ability to interpret radio waves on and
 
 action-name-assay = Assay
 action-description-assay = Probe an entity at close range to glean metaphorical information about any powers they may have
-
-action-name-assay = Assay
-action-description-assay = Probe an entity at close range to glean metaphorical information about any powers they may have

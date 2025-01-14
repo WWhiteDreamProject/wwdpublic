@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Client.Overlays;
 using Content.Shared._White.Implants.MindSlave;
 using Content.Shared.StatusIcon;
@@ -19,41 +20,36 @@ public sealed class MindSlaveIconsSystem : EquipmentHudSystem<MindSlaveComponent
         SubscribeLocalEvent<MindSlaveComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent);
     }
 
-    private void OnGetStatusIconsEvent(
-        EntityUid uid,
-        MindSlaveComponent mindSlaveComponent,
-        ref GetStatusIconsEvent args)
+    private void OnGetStatusIconsEvent(EntityUid uid, MindSlaveComponent component, ref GetStatusIconsEvent args)
     {
-        if (!IsActive
-            || args.InContainer
-            || !TryComp(_player.LocalEntity, out MindSlaveComponent? ownerMindSlave))
+        if (!IsActive)
             return;
 
-        var mindSlaveIcon = MindSlaveIcon(uid, ownerMindSlave);
+        var mindSlaveIcon = MindSlaveIcon(uid, component);
         args.StatusIcons.AddRange(mindSlaveIcon);
     }
 
     private IEnumerable<StatusIconPrototype> MindSlaveIcon(EntityUid uid, MindSlaveComponent mindSlave)
     {
-        var result = new List<StatusIconPrototype>();
-        string iconType;
-        var netUid = GetNetEntity(uid);
+        var result = new List<FactionIconPrototype>();
 
-        if (mindSlave.Master == netUid)
+        if (TryComp(_player.LocalEntity, out MindSlaveComponent? ownerMindSlave))
         {
-            iconType = mindSlave.MasterStatusIcon;
-        }
-        else if (mindSlave.Slaves.Contains(netUid))
-        {
-            iconType = mindSlave.SlaveStatusIcon;
+            var netUid = GetNetEntity(uid);
+            if (ownerMindSlave.Master == netUid && _prototype.TryIndex<FactionIconPrototype>(ownerMindSlave.MasterStatusIcon, out var masterIcon))
+                result.Add(masterIcon);
+
+            if (ownerMindSlave.Slaves.Contains(netUid) && _prototype.TryIndex<FactionIconPrototype>(ownerMindSlave.MasterStatusIcon, out var slaveIcon))
+                result.Add(slaveIcon);
         }
         else
         {
-            return result;
-        }
+            if (mindSlave.Slaves.Any() && _prototype.TryIndex<FactionIconPrototype>(mindSlave.MasterStatusIcon, out var masterIcon))
+                result.Add(masterIcon);
 
-        if (_prototype.TryIndex<StatusIconPrototype>(iconType, out var mindslaveIcon))
-            result.Add(mindslaveIcon);
+            if (mindSlave.Master.HasValue && _prototype.TryIndex<FactionIconPrototype>(mindSlave.MasterStatusIcon, out var slaveIcon))
+                result.Add(slaveIcon);
+        }
 
         return result;
     }

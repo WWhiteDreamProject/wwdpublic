@@ -9,7 +9,6 @@ using Content.Shared.DragDrop;
 using Content.Shared.Gibbing.Components;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Gibbing.Systems;
-using Content.Shared.Humanoid.Events;
 using Content.Shared.Inventory;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -38,7 +37,6 @@ public partial class SharedBodySystem
      * - On MapInit we spawn the root entity in the prototype and spawn all connections outwards from here
      * - Each "connection" is a body part (e.g. arm, hand, etc.) and each part can also contain organs.
      */
-    [Dependency] private readonly StandingStateSystem _standing = default!;// WD EDIT
 
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly GibbingSystem _gibbingSystem = default!;

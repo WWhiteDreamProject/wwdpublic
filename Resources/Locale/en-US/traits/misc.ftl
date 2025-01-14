@@ -2,6 +2,3 @@ examine-cybereyes-message = {CAPITALIZE(POSS-ADJ($entity))} eyes shine with a fa
 examine-dermal-armor-message = {CAPITALIZE(POSS-ADJ($entity))} skin seems to be made of a sturdy, yet flexible plastic.
 examine-bionic-arm-message = {CAPITALIZE(POSS-ADJ($entity))} limbs emit an ever present faint chirp of servomotors.
 examine-thermal-vision-message = {CAPITALIZE(POSS-ADJ($entity))} eyes periodically pulse with a menacing red glare.
-
-examine-thermal-vision-message = {CAPITALIZE(POSS-ADJ($entity))} eyes periodically pulse with a menacing red glare.
-

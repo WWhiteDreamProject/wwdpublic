@@ -3,6 +3,7 @@ using System.Linq;
 using Content.Server.Store.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Store;
+using Content.Shared.Store.Components;
 using Content.Shared.StoreDiscount.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -27,6 +28,8 @@ public sealed class StoreDiscountSystem : EntitySystem
 
         SubscribeLocalEvent<StoreInitializedEvent>(OnStoreInitialized);
         SubscribeLocalEvent<StoreBuyFinishedEvent>(OnBuyFinished);
+
+        SubscribeLocalEvent<StoreDiscountComponent, MapInitEvent>(OnMapInit);
     }
 
     /// <summary> Decrements discounted item count, removes discount modifier and category, if counter reaches zero. </summary>
@@ -64,10 +67,22 @@ public sealed class StoreDiscountSystem : EntitySystem
         }
 
         var discountComponent = EnsureComp<StoreDiscountComponent>(ev.Store);
-        var discounts = InitializeDiscounts(ev.Listings);
+        var discounts = InitializeDiscounts(ev.Listings, _random.Next(discountComponent.MinItems, discountComponent.MaxItems + 1)); // WD EDIT
         ApplyDiscounts(ev.Listings, discounts);
         discountComponent.Discounts = discounts;
     }
+
+    // WD EDIT START
+    private void OnMapInit(EntityUid uid, StoreDiscountComponent component, MapInitEvent args)
+    {
+        if (!TryComp<StoreComponent>(uid, out var store))
+            return;
+
+        var discounts = InitializeDiscounts(store.FullListingsCatalog, _random.Next(component.MinItems, component.MaxItems + 1));
+        ApplyDiscounts(store.FullListingsCatalog.ToArray(), discounts);
+        component.Discounts = discounts;
+    }
+    // WD EDIT END
 
     private IReadOnlyList<StoreDiscountData> InitializeDiscounts(
         IReadOnlyCollection<ListingDataWithCostModifiers> listings,
