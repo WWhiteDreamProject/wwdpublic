@@ -9,7 +9,7 @@
   cost:
     Telecrystal: 10
   categories:
-  - UplinkUtility
+  - UplinkDisruption
 
 - type: listing
   id: UplinkBetrayalDagger
@@ -22,7 +22,7 @@
   cost:
     Telecrystal: 10
   categories:
-  - UplinkWeapons
+  - UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
@@ -41,7 +41,7 @@
   cost:
     Telecrystal: 14
   categories:
-  - UplinkWeapons
+  - UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
@@ -132,7 +132,7 @@
   cost:
     Telecrystal: 8
   categories:
-  - UplinkWeapons
+  - UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
@@ -152,4 +152,4 @@
   cost:
     Telecrystal: 2
   categories:
-  - UplinkUtility
+  - UplinkAllies
