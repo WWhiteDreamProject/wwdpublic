@@ -800,6 +800,7 @@
     maxRange: 0
   # WD EDIT END
   - type: ThermalVision
+    isEquipment: true
     color: "#98EEFB"
     lightRadius: 15
 
