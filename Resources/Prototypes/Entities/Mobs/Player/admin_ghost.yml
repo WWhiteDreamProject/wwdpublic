@@ -118,7 +118,6 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-  - type: ShowAntagIcons
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
   - type: ShowCriminalRecordIcons
