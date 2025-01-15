@@ -1,0 +1,5 @@
+- type: shader
+  id: FlickerHologram
+  kind: source
+  path: "/Textures/_White/Shaders/flickerhologram.swsl"
+  light_mode: unshaded
