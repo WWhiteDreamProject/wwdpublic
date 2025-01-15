@@ -2,8 +2,9 @@
   id: MasterMindSlaveFaction
   priority: 3
   locationPreference: Left
-  components:
-  - ShowAntagIcons
+  showTo:
+    components:
+    - ShowAntagIcons
   icon:
     sprite: /Textures/_White/Overlays/mindslave.rsi
     state: master
@@ -12,8 +13,9 @@
   id: SlaveMindSlaveFaction
   priority: 3
   locationPreference: Left
-  components:
-  - ShowAntagIcons
+  showTo:
+    components:
+    - ShowAntagIcons
   icon:
     sprite: /Textures/_White/Overlays/mindslave.rsi
     state: slave

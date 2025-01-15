@@ -28,7 +28,6 @@
     blacklist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1
 
 - type: listing
   id: UplinkMiniEbow
@@ -47,7 +46,6 @@
     blacklist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1
 
 - type: listing
   id: UplinkHardlightSpearImplanter
@@ -67,7 +65,6 @@
     blacklist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1
 
 - type: listing
   id: NeuroControlImplanter
@@ -138,7 +135,6 @@
     blacklist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1
 
 - type: listing
   id: UplinkCrateNPCGondola

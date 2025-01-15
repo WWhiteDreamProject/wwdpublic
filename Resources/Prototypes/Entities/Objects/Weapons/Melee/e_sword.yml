@@ -81,7 +81,6 @@
   - type: DisarmMalus
     malus: 0
   - type: Reflect
-    enabled: false
   - type: Tag
     tags:
     - NoPaint

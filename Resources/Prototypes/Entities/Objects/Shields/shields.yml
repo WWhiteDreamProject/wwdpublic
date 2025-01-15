@@ -368,7 +368,6 @@
     color: "#678AD9" # WD EDIT
   - type: ItemTogglePointLight
   - type: Reflect
-    enabled: false
     reflectProb: 1 # WD EDIT
     damageOnReflectModifier: 0.5 # WD EDIT
     reflects:
