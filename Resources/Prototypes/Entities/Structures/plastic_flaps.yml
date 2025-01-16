@@ -41,7 +41,10 @@
   - type: StaticPrice
     price: 83
   - type: RequireProjectileTarget
-  
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.4
+    sprintSpeedModifier: 0.4
+
 - type: entity
   id: PlasticFlapsClear
   parent: PlasticFlapsBase
@@ -96,6 +99,9 @@
   - type: Airtight
   - type: StaticPrice
     price: 100
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.3
+    sprintSpeedModifier: 0.3
 
 - type: entity
   id: PlasticFlapsAirtightOpaque
@@ -115,3 +121,6 @@
   - type: Airtight
   - type: StaticPrice
     price: 100
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.3
+    sprintSpeedModifier: 0.3
