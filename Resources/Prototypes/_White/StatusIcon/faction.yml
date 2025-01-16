@@ -5,6 +5,7 @@
   showTo:
     components:
     - ShowAntagIcons
+    - MindSlave
   icon:
     sprite: /Textures/_White/Overlays/mindslave.rsi
     state: master
@@ -16,6 +17,7 @@
   showTo:
     components:
     - ShowAntagIcons
+    - MindSlave
   icon:
     sprite: /Textures/_White/Overlays/mindslave.rsi
     state: slave
