@@ -12,6 +12,7 @@ using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.MenuBar.Widgets;
 using Content.Shared.Administration;
+using Content.Shared.CCVar;
 using Content.Shared.Input;
 using JetBrains.Annotations;
 using Robust.Client.Audio;
@@ -21,6 +22,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
+using Robust.Shared.Configuration;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -33,6 +35,7 @@ public sealed class AHelpUIController : UIController, IOnSystemChanged<BwoinkSys
     IOnStateChanged<LobbyState>
 {
     [Dependency] private readonly IClientAdminManager _adminManager = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IClyde _clyde = default!;
     [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
@@ -45,6 +48,7 @@ public sealed class AHelpUIController : UIController, IOnSystemChanged<BwoinkSys
 
     private bool _discordRelayActive;
     private bool _hasUnreadAHelp;
+    private bool _bwoinkSoundEnabled;
 
     private const string AHelpReceiveSound = "/Audio/Admin/bwoink.ogg";
 
@@ -56,6 +60,7 @@ public sealed class AHelpUIController : UIController, IOnSystemChanged<BwoinkSys
         SubscribeNetworkEvent<BwoinkPlayerTypingUpdated>(PeopleTypingUpdated);
 
         _adminManager.AdminStatusUpdated += OnAdminStatusUpdated;
+        _config.OnValueChanged(CCVars.BwoinkSoundEnabled, v => _bwoinkSoundEnabled = v, true);
     }
 
     public void UnloadButton()
@@ -130,7 +135,7 @@ public sealed class AHelpUIController : UIController, IOnSystemChanged<BwoinkSys
 
         EnsureUIHelper();
 
-        if (message.PlaySound && !UIHelper!.IsOpen)
+        if (message.PlaySound && !UIHelper!.IsOpen && (_bwoinkSoundEnabled || !_adminManager.IsActive()))
         {
             _audio.PlayGlobal(AHelpReceiveSound, Filter.Local(), false);
             _clyde.RequestWindowAttention();
