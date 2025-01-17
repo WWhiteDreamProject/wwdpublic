@@ -48,7 +48,8 @@
     outerClothing: ClothingOuterCoatRnd
     id: LibrarianPDA
     ears: ClothingHeadsetScience
-    pocket1: HandLabeler
+    pocket1: BookPsionicsGuidebook
+    pocket2: HandLabeler
   innerClothingSkirt: ClothingUniformJumpskirtLibrarian
   satchel: ClothingBackpackSatchelLibrarianFilled
   duffelbag: ClothingBackpackDuffelLibrarianFilled
