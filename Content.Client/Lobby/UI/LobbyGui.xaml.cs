@@ -21,6 +21,7 @@ namespace Content.Client.Lobby.UI
             SetAnchorPreset(Background, LayoutPreset.Wide);
 
             LobbySong.SetMarkup(Loc.GetString("lobby-state-song-no-song-text"));
+            LobbyBackground.SetMarkup(Loc.GetString("lobby-state-background-no-background-text"));
 
             OptionsButton.OnPressed += _ => UserInterfaceManager.GetUIController<OptionsUIController>().ToggleWindow();
             // White Edit Start
