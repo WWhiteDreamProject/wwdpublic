@@ -112,6 +112,10 @@
       - Sheet
       - RawMaterial
       - Ingot
+      - Wooden
+      - ClothMade
+      - Gauze
+      - Metal
   - type: Lathe
     idleState: icon
     runningState: building
@@ -196,6 +200,19 @@
     - WeaponCapacitorRechargerCircuitboard
     - HandheldStationMap
     - ClothingHeadHatWelding
+    - FauxTileAstroGrass
+    - FauxTileMowedAstroGrass
+    - FauxTileJungleAstroGrass
+    - FauxTileAstroIce
+    - FauxTileAstroSnow
+    - CanilunztTranslator
+    - BubblishTranslator
+    - NekomimeticTranslator
+    - DraconicTranslator
+    - SolCommonTranslator
+    - RootSpeakTranslator
+    - BasicGalaticCommonTranslatorImplanter
+    - MofficTranslator
     - SnowballMaker # WWDP
   - type: EmagLatheRecipes
     emagStaticRecipes:
@@ -267,6 +284,10 @@
       - Sheet
       - RawMaterial
       - Ingot
+      - Wooden
+      - ClothMade
+      - Gauze
+      - Metal
   - type: Lathe
     idleState: icon
     runningState: building
@@ -328,6 +349,7 @@
     - ClothingShoesBootsMagSci
     - ClothingShoesBootsMoon
     - ClothingShoesBootsSpeed
+    - ClothingShoesBootsMagAdv
     - NodeScanner
     - HolofanProjector
     - BluespaceBeaker
@@ -343,21 +365,9 @@
     - WelderExperimental
     - JawsOfLife
     - CoreSilver # Nyanotrasen - Silver Golem core
-    - FauxTileAstroGrass
-    - FauxTileMowedAstroGrass
-    - FauxTileJungleAstroGrass
-    - FauxTileAstroIce
-    - FauxTileAstroSnow
     - OreBagOfHolding
     - DeviceQuantumSpinInverter
-    - CanilunztTranslator
-    - BubblishTranslator
-    - NekomimeticTranslator
-    - DraconicTranslator
-    - SolCommonTranslator
-    - RootSpeakTranslator
     - XenoTranslator
-    - BasicGalaticCommonTranslatorImplanter
     - AdvancedGalaticCommonTranslatorImplanter
     - BubblishTranslatorImplanter
     - NekomimeticTranslatorImplanter
@@ -367,7 +377,6 @@
     - RootSpeakTranslatorImplanter
     - AnimalTranslator
     - MofficTranslatorImplanter
-    - MofficTranslator
     - ClothingEyesNightVisionGoggles
     - ClothingEyesNightVisionDiagnosticGoggles
     - ClothingEyesThermalVisionGoggles
@@ -480,13 +489,17 @@
     - DeepFryerMachineCircuitboard #Nyano - Summary: adds deep fryer circuit board
     - SpaceHeaterMachineCircuitBoard
     - StationAnchorCircuitboard
+    - SeedExtractorMachineCircuitboard
+    - HydroponicsTrayMachineCircuitboard
+    - ReagentGrinderIndustrialMachineCircuitboard
+    - StasisBedMachineCircuitboard
+    - CryoPodMachineCircuitboard
     dynamicRecipes:
     - ThermomachineFreezerMachineCircuitBoard
     - HellfireFreezerMachineCircuitBoard
     - PortableScrubberMachineCircuitBoard
     - CloningPodMachineCircuitboard
     - MedicalScannerMachineCircuitboard
-    - CryoPodMachineCircuitboard
     - VaccinatorMachineCircuitboard
     - DiagnoserMachineCircuitboard
     - BiomassReclaimerMachineCircuitboard
@@ -499,7 +512,6 @@
     - JukeboxCircuitBoard
     - SurveillanceWirelessCameraMovableCircuitboard
     - SurveillanceWirelessCameraAnchoredCircuitboard
-    - HydroponicsTrayMachineCircuitboard
     - SolarControlComputerCircuitboard
     - SolarTrackerElectronics
     - TurboItemRechargerCircuitboard
@@ -516,7 +528,6 @@
     - TechDiskComputerCircuitboard
     - DawInstrumentMachineCircuitboard
     - CloningConsoleComputerCircuitboard
-    - StasisBedMachineCircuitboard
     - OreProcessorIndustrialMachineCircuitboard
     - CargoTelepadMachineCircuitboard
     - RipleyCentralElectronics
@@ -539,7 +550,6 @@
     - MiniGravityGeneratorCircuitboard
     - ShuttleGunKineticCircuitboard
     - GasRecyclerMachineCircuitboard
-    - SeedExtractorMachineCircuitboard
     - AnalysisComputerCircuitboard
     - ExosuitFabricatorMachineCircuitboard
     - AnomalyVesselCircuitboard
@@ -550,7 +560,6 @@
     - ArtifactCrusherMachineCircuitboard
     - TelecomServerCircuitboard
     - MassMediaCircuitboard
-    - ReagentGrinderIndustrialMachineCircuitboard
     - ReverseEngineeringMachineCircuitboard
     - CrewMonitoringComputerCircuitboard
     - DoorElectronics
@@ -578,6 +587,10 @@
       - Sheet
       - RawMaterial
       - Ingot
+      - Wooden
+      - ClothMade
+      - Gauze
+      - Metal
   - type: RequireProjectileTarget
 
 - type: entity
@@ -715,6 +728,10 @@
       - Sheet
       - RawMaterial
       - Ingot
+      - Wooden
+      - ClothMade
+      - Gauze
+      - Metal
   - type: GuideHelp
     guides:
     - Robotics
@@ -745,6 +762,11 @@
       tags:
       - Sheet
       - RawMaterial
+      - Ingot
+      - Wooden
+      - ClothMade
+      - Gauze
+      - Metal
   - type: Lathe
     idleState: icon
     runningState: building
@@ -957,12 +979,29 @@
     - MagazineBoxSpecialMindbreaker
     - SecurityCyberneticEyes
     - MedicalCyberneticEyes
+    - ClothingOuterHardsuitCombatStandard
+    - ClothingOuterHardsuitCombatMedical
+    - ClothingOuterHardsuitCombatRiot
+    - ClothingOuterHardsuitCombatAdvanced
+    - ClothingOuterHardsuitSyndieReverseEngineered
+    - ClothingOuterHardsuitJuggernautReverseEngineered
+    - BluespaceBodyBag # WD
+    - NTBodyBag # WD
+    - PrisonerBodyBag # WD
+    - RadiationBodyBag # WD
+  - type: EmagLatheRecipes
+    emagDynamicRecipes:
+    - SyndicateBodyBag # WD
   - type: MaterialStorage
     whitelist:
       tags:
       - Sheet
       - RawMaterial
       - Ingot
+      - Wooden
+      - ClothMade
+      - Gauze
+      - Metal
 
 - type: entity
   id: AmmoTechFab
@@ -1020,6 +1059,10 @@
       - Sheet
       - RawMaterial
       - Ingot
+      - Wooden
+      - ClothMade
+      - Gauze
+      - Metal
 
 - type: entity
   id: MedicalTechFab
@@ -1097,13 +1140,6 @@
     - AdvancedRetractor
     - OmnimedTool
     - MedicalCyberneticEyes
-    - BluespaceBodyBag # WD
-    - NTBodyBag # WD
-    - PrisonerBodyBag # WD
-    - RadiationBodyBag # WD
-  - type: EmagLatheRecipes
-    emagDynamicRecipes:
-    - SyndicateBodyBag # WD
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
@@ -1333,6 +1369,10 @@
       - Sheet
       - RawMaterial
       - Ingot
+      - Wooden
+      - ClothMade
+      - Gauze
+      - Metal
 
 - type: entity
   parent: [BaseLathe, BaseMaterialSiloUtilizer]
@@ -1611,6 +1651,11 @@
       tags:
       - Sheet
       - RawMaterial
+      - Ingot
+      - Wooden
+      - ClothMade
+      - Gauze
+      - Metal
   - type: Lathe
     idleState: limbgrower_idleoff
     runningState: limbgrower_idleon
