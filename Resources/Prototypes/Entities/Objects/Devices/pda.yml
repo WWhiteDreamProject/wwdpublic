@@ -1144,6 +1144,7 @@
       - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
       - LogProbeCartridge
       - NanoChatCartridge # DeltaV
+      - MedTekCartridge
 
 - type: entity
   parent: ERTLeaderPDA
