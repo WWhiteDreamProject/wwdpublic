@@ -369,6 +369,8 @@ public abstract partial class SharedBuckleSystem
         _transform.SetCoordinates(buckle, xform, coords, rotation: Angle.Zero);
         _joints.SetRelay(buckle, strap);
 
+        SetBuckledTo(buckle, strap!); // DeltaV - Allow standing system to handle Down/Stand before buckling
+
         var ev = new StrappedEvent(strap, buckle);
         RaiseLocalEvent(strap, ref ev);
 
