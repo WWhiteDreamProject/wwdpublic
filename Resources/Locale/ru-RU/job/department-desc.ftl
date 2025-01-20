@@ -5,4 +5,5 @@ department-Engineering-description = Поддерживайте электроэ
 department-Medical-description = Поддерживайте здоровье персонала.
 department-Security-description = Охраняйте порядок на станции.
 department-Science-description = Исследуйте новые технологии и опасные артефакты.
+department-Silicon-description = Соблюдайте свои законы и служите экипажу.
 department-Specific-description = Должности, которые есть не на всех станциях.

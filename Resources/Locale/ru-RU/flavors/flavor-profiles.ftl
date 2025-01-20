@@ -123,6 +123,7 @@ flavor-complex-meatballs = как фрикадельки
 flavor-complex-nettles = как крапива
 flavor-complex-jungle = как джунгли
 flavor-complex-vegetables = как овощи
+flavor-complex-cherry = как вишня
 # use it when there multiple types of veggies
 
 ## Complex foodstuffs (cooked foods, joke flavors, etc)
@@ -168,6 +169,11 @@ flavor-complex-lost-friendship = как прошедшая дружба
 flavor-complex-light = как угасший свет
 flavor-complex-profits = как выгода
 flavor-complex-fishops = как ужасные рыболовы
+flavor-complex-numbing-tranquility = как онемевшая безмятежность
+flavor-complex-true-nature = как истинная природа реальности
+flavor-complex-false-meat = не совсем непохоже на мясо
+flavor-complex-paper = как кашица
+flavor-complex-compressed-meat = как спрессованное мясо
 
 # Drink-specific flavors.
 

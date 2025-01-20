@@ -1,8 +1,8 @@
 ﻿roles-antag-syndicate-agent-name = Агент Синдиката
 roles-antag-syndicate-agent-objective = Выполните свои задачи и не попадитесь.
 
-roles-antag-changeling-name = Генокрад
-roles-antag-changeling-objective = Выполните свои задачи и не попадитесь.
+roles-antag-syndicate-agent-sleeper-name = Спящий агент Синдиката
+roles-antag-syndicate-agent-sleeper-objective = Разновидность агента Синдиката, который может активироваться и начать действие в любой момент смены.
 
 roles-antag-initial-infected-name = Нулевой пациент
 roles-antag-initial-infected-objective = После превращения заразите как можно больше других членов экипажа.
@@ -33,6 +33,3 @@ roles-antag-space-ninja-objective = Используйте свою скрытн
 
 roles-antag-thief-name = Вор
 roles-antag-thief-objective = Пополните свою личную коллекцию имуществом Nanotrasen, не прибегая к насилию.
-
-roles-antag-terminator-name = Экстерминатор
-roles-antag-terminator-objective = Убейте цель любой ценой, от этого зависит будущее.

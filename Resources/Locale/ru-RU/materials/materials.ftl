@@ -23,7 +23,10 @@ materials-meat = мясо
 materials-web = шёлк
 materials-bones = кости
 materials-coal = уголь
+materials-diamond = алмазы
 materials-gunpowder = чёрный порох
+materials-bluespace = блюспейс
+materials-normality = нормальность
 # Ores
 materials-raw-iron = руда железа
 materials-raw-quartz = руда кварца

@@ -14,6 +14,7 @@ marking-slot-remove = Удалить
 # Categories
 
 markings-category-Hair = Причёска
+markings-category-Face = Лицо
 markings-category-FacialHair = Лицевая растительность
 markings-category-Head = Голова
 markings-category-HeadTop = Голова (верх)

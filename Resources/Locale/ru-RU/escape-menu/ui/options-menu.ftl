@@ -20,6 +20,11 @@ ui-options-general-cursor = Курсор
 ui-options-general-speech = Речь
 ui-options-general-storage = Инвентарь
 ui-options-general-accessibility = Доступность
+ui-options-chatstack = Автоматическое объединение одинаковых сообщения в чате
+ui-options-chatstack-off = Выключено
+ui-options-chatstack-single = Только последнее сообщение
+ui-options-chatstack-double = Два последних сообщения
+ui-options-chatstack-triple = Три последних сообщения
 
 ## Audio menu
 

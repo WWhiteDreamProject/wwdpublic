@@ -4,3 +4,4 @@ job-name-clerk = Судебный клерк
 job-name-prosecutor = Прокурор
 job-name-lawyer = Адвокат
 job-name-courier = Курьер
+job-name-admin-assistant = Административный Ассистент

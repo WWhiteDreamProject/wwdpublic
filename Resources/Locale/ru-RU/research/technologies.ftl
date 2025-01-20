@@ -19,6 +19,8 @@ research-technology-advanced-tools = Продвинутые инструмент
 research-technology-super-powercells = Сверхмощные батареи
 research-technology-bluespace-storage = Блюспейс хранилища
 research-technology-portable-fission = Портативный распад
+research-technology-space-scanning = Сканирование космоса
+research-technology-excavation = Массовые раскопки
 
 research-technology-salvage-weapons = Вооружение для утилизации
 research-technology-draconic-munitions = Драконьи боеприпасы
@@ -42,7 +44,6 @@ research-technology-alternative-research = Альтернативные иссл
 research-technology-magnets-tech = Локализованный магнетизм
 research-technology-advanced-parts = Продвинутые компоненты
 research-technology-anomaly-harnessing = Применение ядер аномалий
-research-technology-grappling = Крюки
 research-technology-abnormal-artifact-manipulation = Нестандартные манипуляции с артефактами
 research-technology-gravity-manipulation = Управление гравитацией
 research-technology-quantum-leaping = Квантовые скачки
@@ -50,6 +51,8 @@ research-technology-advanced-anomaly-research = Продвинутое иссл�
 research-technology-rped = Быстрая Замена Деталей
 research-technology-super-parts = Суперкомпоненты
 research-technology-deterrence = Технология сдерживания
+research-technology-night-vision = Ночное видение
+research-technology-thermal-vision = Термальное видение
 
 research-technology-janitorial-equipment = Уборочное оборудование
 research-technology-laundry-tech = Прачечная технология
