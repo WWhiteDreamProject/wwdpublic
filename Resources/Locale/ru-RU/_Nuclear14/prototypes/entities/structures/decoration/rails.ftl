@@ -26,7 +26,7 @@ ent-N14RailsTurnNW = { ent-N14Rails }
     .desc = { ent-N14Rails.desc }
     .suffix = поворот на север-запад
 
-ent-N14RailsTurnNW = { ent-N14Rails }
+ent-N14RailsTurnNE = { ent-N14Rails }
     .desc = { ent-N14Rails.desc }
     .suffix = поворот на север-восток
 

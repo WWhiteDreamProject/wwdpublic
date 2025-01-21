@@ -221,11 +221,11 @@ namespace Content.Client.Lobby
 
         private void UpdateLobbyBackground()
         {
-            if (_gameTicker.LobbyBackground != null)
+            if (_gameTicker.AnimatedLobbyScreen != null) // WD EDIT
             {
-                Lobby!.Background.SetRSI(_resourceCache.GetResource<RSIResource>(_gameTicker.LobbyBackground).RSI); // WD EDIT
+                Lobby!.Background.SetRSI(_resourceCache.GetResource<RSIResource>(_gameTicker.AnimatedLobbyScreen.Path).RSI); // WD EDIT
 
-                var lobbyBackground = _gameTicker.LobbyBackground;
+                var lobbyBackground = _gameTicker.AnimatedLobbyScreen; // WD EDIT
 
                 var name = string.IsNullOrEmpty(lobbyBackground.Name)
                     ? Loc.GetString("lobby-state-background-unknown-title")

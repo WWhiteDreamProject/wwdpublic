@@ -149,6 +149,3 @@ ent-N14WallRockAndesiteUranium = { ent-N14WallRockAndesite }
 ent-N14WallRockAndesiteSalt = { ent-N14WallRockAndesite }
     .desc = Рудная жила, богатая солью.
     .suffix = Соль
-ent-N14WallRockGold = { ent-N14WallRock }
-    .desc = Рудная жила, богатая золотом.
-    .suffix = Золото

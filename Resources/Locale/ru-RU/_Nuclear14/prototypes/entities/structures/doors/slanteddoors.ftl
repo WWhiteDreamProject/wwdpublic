@@ -2,7 +2,7 @@ ent-N14DoorMetalBlueSlanted = синяя металлическая дверь
     .desc = Старая синяя металлическая дверь.
     .suffix = Перспектива
 
-ent-N14DoorMetalBlueSlanted = красная металлическая дверь
+ent-N14DoorMetalRedSlanted = красная металлическая дверь
     .desc = Старая красная металлическая дверь.
     .suffix = Перспектива
 

@@ -1,43 +1,43 @@
-ent-PartKobold = часть тела обезьяны
+ent-PartMonkey = часть тела обезьяны
     .desc = { "" }
     .suffix = { "" }
 
-ent-TorsoKobold = туловище обезьяны
+ent-TorsoMonkey = туловище обезьяны
     .desc = { "" }
     .suffix = { "" }
 
-ent-HeadKobold = голова обезьяны
+ent-HeadMonkey = голова обезьяны
     .desc = { "" }
     .suffix = { "" }
 
-ent-LeftArmKobold = левая рука обезьяны
+ent-LeftArmMonkey = левая рука обезьяны
     .desc = { "" }
     .suffix = { "" }
 
-ent-RightArmKobold = правая рука обезьяны
+ent-RightArmMonkey = правая рука обезьяны
     .desc = { "" }
     .suffix = { "" }
 
-ent-LeftHandKobold = левая кисть обезьяны
+ent-LeftHandMonkey = левая кисть обезьяны
     .desc = { "" }
     .suffix = { "" }
 
-ent-RightHandKobold = правая кисть обезьяны
+ent-RightHandMonkey = правая кисть обезьяны
     .desc = { "" }
     .suffix = { "" }
 
-ent-LeftLegKobold = левая нога обезьяны
+ent-LeftLegMonkey = левая нога обезьяны
     .desc = { "" }
     .suffix = { "" }
 
-ent-RightLegKobold = правая нога обезьяны
+ent-RightLegMonkey = правая нога обезьяны
     .desc = { "" }
     .suffix = { "" }
 
-ent-LeftFootKobold = левая ступня обезьяны
+ent-LeftFootMonkey = левая ступня обезьяны
     .desc = { "" }
     .suffix = { "" }
 
-ent-RightFootKobold = правая ступня обезьяны
+ent-RightFootMonkey = правая ступня обезьяны
     .desc = { "" }
     .suffix = { "" }

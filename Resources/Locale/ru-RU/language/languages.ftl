@@ -1,7 +1,7 @@
 language-Universal-name = Универсальный
 language-Universal-description = Что ты такое?
 
-цццццlanguage-Bubblish-name = Пузырчатый
+language-Bubblish-name = Пузырчатый
 language-Bubblish-description = Язык слаймов. Поскольку он представляет собой смесь булькающих звуков и хлопков, людям очень трудно говорить на нем без использования механических приспособлений.
 
 language-RootSpeak-name = Песнь корней

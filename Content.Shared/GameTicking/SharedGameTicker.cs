@@ -1,3 +1,4 @@
+using Content.Shared._White;
 using Content.Shared.Roles;
 using Content.Shared.GameTicking.Prototypes;
 using Robust.Shared.Network;
@@ -79,17 +80,17 @@ namespace Content.Shared.GameTicking
     public sealed class TickerLobbyStatusEvent : EntityEventArgs
     {
         public bool IsRoundStarted { get; }
-        public LobbyBackgroundPrototype? LobbyBackground { get; }
+        public AnimatedLobbyScreenPrototype? AnimatedLobbyScreen { get; } // WD EDIT
         public bool YouAreReady { get; }
         // UTC.
         public TimeSpan StartTime { get; }
         public TimeSpan RoundStartTimeSpan { get; }
         public bool Paused { get; }
 
-        public TickerLobbyStatusEvent(bool isRoundStarted, LobbyBackgroundPrototype? lobbyBackground, bool youAreReady, TimeSpan startTime, TimeSpan preloadTime, TimeSpan roundStartTimeSpan, bool paused)
+        public TickerLobbyStatusEvent(bool isRoundStarted, AnimatedLobbyScreenPrototype? animatedLobbyBackground, bool youAreReady, TimeSpan startTime, TimeSpan preloadTime, TimeSpan roundStartTimeSpan, bool paused) // WD EDIT
         {
             IsRoundStarted = isRoundStarted;
-            LobbyBackground = lobbyBackground;
+            AnimatedLobbyScreen = animatedLobbyBackground; // WD EDIT
             YouAreReady = youAreReady;
             StartTime = startTime;
             RoundStartTimeSpan = roundStartTimeSpan;

@@ -1,4 +1,4 @@
- ent-N14LightSmallAlwayson = маленький светильник
+ent-N14LightSmallAlwayson = маленький светильник
     .desc = Всегда включенный светильник.
     .suffix = всегда включен
 

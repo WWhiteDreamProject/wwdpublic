@@ -2,6 +2,7 @@ using Content.Client.Administration.Managers;
 using Content.Client.Gameplay;
 using Content.Client.Lobby;
 using Content.Client.RoundEnd;
+using Content.Shared._White;
 using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Prototypes;
 using Content.Shared.GameWindow;
@@ -27,7 +28,7 @@ namespace Content.Client.GameTicking.Managers
         [ViewVariables] public bool AreWeReady { get; private set; }
         [ViewVariables] public bool IsGameStarted { get; private set; }
         [ViewVariables] public string? RestartSound { get; private set; }
-        [ViewVariables] public LobbyBackgroundPrototype? LobbyBackground { get; private set; }
+        [ViewVariables] public AnimatedLobbyScreenPrototype? AnimatedLobbyScreen { get; private set; } // WD EDIT
         [ViewVariables] public bool DisallowedLateJoin { get; private set; }
         [ViewVariables] public string? ServerInfoBlob { get; private set; }
         [ViewVariables] public TimeSpan StartTime { get; private set; }
@@ -119,7 +120,7 @@ namespace Content.Client.GameTicking.Managers
             RoundStartTimeSpan = message.RoundStartTimeSpan;
             IsGameStarted = message.IsRoundStarted;
             AreWeReady = message.YouAreReady;
-            LobbyBackground = message.LobbyBackground;
+            AnimatedLobbyScreen = message.AnimatedLobbyScreen; // WD EDIT
             Paused = message.Paused;
 
             LobbyStatusUpdated?.Invoke();

@@ -6,10 +6,6 @@ ent-N14DoorMetalRedTall = металлическая дверь
     .desc = Старая красная металлическая дверь.
     .suffix = Высокая
 
-ent-N14DoorMetalBlueAltTall = металлическая дверь
-    .desc = Старая темно-синяя металлическая дверь.
-    .suffix = Высокая
-
 ent-N14DoorMetalBlueAltTall = { ent-N14DoorMetalBlueTall }
     .desc = { ent-N14DoorMetalBlueTall.desc }
     .suffix = { ent-N14DoorMetalBlueTall.suffix }
