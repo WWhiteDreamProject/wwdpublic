@@ -50,26 +50,6 @@ research-technology-deterrence = Технология сдерживания
 research-technology-night-vision = Ночное видение
 research-technology-thermal-vision = Термальное видение
 
-research-technology-janitorial-equipment = Уборочное оборудование
-research-technology-laundry-tech = Прачечная технология
-research-technology-basic-hydroponics = Основы гидропоники
-research-technology-critter-mechs = Мехи для животных
-research-technology-food-service = Организация питания
-research-technology-advanced-entertainment = Продвинутые развлечения
-research-technology-audio-visual-communication = Т/В связь
-research-technology-faux-astro-tiles = Искусственная астроплитка
-research-technology-biochemical-stasis = Биохимический стазис
-research-technology-crew-monitoring = Отслеживание состояние экипажа
-research-technology-mechanized-treatment = Mechanized Treatment
-research-technology-robotic-cleanliness = Роботизированная уборка
-research-technology-advanced-cleaning = Продвинутая уборка
-research-technology-meat-manipulation = Манипулирование мясом
-research-technology-honk-mech = Мех Х.О.Н.К.
-research-technology-advanced-spray = Продвинутые спреи
-research-technology-bluespace-cargo-transport = Блюспейс-транспортировка грузов
-research-technology-quantum-fiber-weaving = Плетение квантового волокна
-research-technology-bluespace-chemistry = Блюспейс химия
-
 research-technology-basic-cybernetics = Базовая кибернетика
 research-technology-basic-electronics = Базовая электроника
 research-technology-basic-life-improvements = Базовые улучшения жизни
