@@ -199,6 +199,9 @@ ui-options-function-editor-line-place = Размещать в линию
 ui-options-function-editor-rotate-object = Повернуть
 ui-options-function-editor-flip-object = Перевернуть
 ui-options-function-editor-copy-object = Копировать
+ui-options-function-mapping-enable-pick = Выбрать объект/тайл
+ui-options-function-mapping-enable-decal-pick = Выбрать декаль
+ui-options-function-mapping-enable-delete = Удалить объект
 
 ui-options-function-show-debug-console = Открыть консоль
 ui-options-function-show-debug-monitors = Показать дебаг информацию

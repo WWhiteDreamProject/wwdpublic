@@ -6,5 +6,5 @@ marking-VoxLLegScales = Левая нога Вокса
 marking-VoxRArmScales = Правая рука Вокса
 marking-VoxRFootScales = Правая нога Вокса
 marking-VoxRHandScales = Правая кисть Вокса
-marking-VoxRLegScale = Правая нога Вокса
+marking-VoxRLegScales = Правая нога Вокса
 marking-VoxTail = Хвост Вокса

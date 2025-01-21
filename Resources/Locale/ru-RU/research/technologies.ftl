@@ -22,20 +22,16 @@ research-technology-portable-fission = Портативный распад
 research-technology-space-scanning = Сканирование космоса
 research-technology-excavation = Массовые раскопки
 
-research-technology-salvage-weapons = Вооружение для утилизации
+research-technology-basic-weapons = Базовое вооружиение
 research-technology-draconic-munitions = Драконьи боеприпасы
 research-technology-uranium-munitions = Урановые боеприпасы
 research-technology-explosive-technology = Взрывные технологии
-research-technology-weaponized-laser-manipulation = Лазерные технологии в оружии
 research-technology-nonlethal-ammunition = Нелетальные боеприпасы
 research-technology-practice-ammunition = Учебные боеприпасы
-research-technology-concentrated-laser-weaponry = Оружие из концентрированного лазера
-research-technology-wave-particle-harnessing = Применение волновых частиц
-research-technology-advanced-riot-control = Продвинутое противодействие беспорядкам
-research-technology-portable-microfusion-weaponry = Оруженый портативный микросинтез
-research-technology-experimental-battery-ammo = Экспериментальные боеприпасы-батарейки
-research-technology-basic-shuttle-armament = Базовое корабельное вооружение
-research-technology-advanced-shuttle-weapon = Продвинутое корабельное оружие
+research-technology-advanced-weapons = Продвинутое вооружиение
+research-technology-prototype-weapons = Прототипы вооружиения
+research-technology-advanced-tacsuits = Усовершенствованные тактические костюмы
+research-technology-prototype-tacsuits = Прототипы тактических костюмов
 
 research-technology-basic-robotics = Основы робототехники
 research-technology-basic-anomalous-research = Основы исследования аномалий
