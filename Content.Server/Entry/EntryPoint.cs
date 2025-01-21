@@ -158,6 +158,7 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<GameTicker>().PostInitialize();
                 IoCManager.Resolve<IBanManager>().Initialize();
                 IoCManager.Resolve<IConnectionManager>().PostInit();
+                IoCManager.Resolve<MultiServerKickManager>().Initialize();
             }
         }
 
