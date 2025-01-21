@@ -10,4 +10,10 @@ public sealed partial class AnimatedLobbyScreenPrototype : IPrototype
 
     [DataField(required: true)]
     public string Path = default!;
+
+    [DataField]
+    public string? Name;
+
+    [DataField]
+    public string? Artist;
 }

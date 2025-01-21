@@ -8,19 +8,19 @@ public sealed partial class CCVars
     ///     Link to Discord server to show in the launcher.
     /// </summary>
     public static readonly CVarDef<string> InfoLinksDiscord =
-        CVarDef.Create("infolinks.discord", "", CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("infolinks.discord", "https://discord.com/invite/vHQtueFmgu", CVar.SERVER | CVar.REPLICATED); // WD EDIT
 
     /// <summary>
     ///     Link to website to show in the launcher.
     /// </summary>
     public static readonly CVarDef<string> InfoLinksForum =
-        CVarDef.Create("infolinks.forum", "", CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("infolinks.forum", "https://forum.wwdp.ee/", CVar.SERVER | CVar.REPLICATED); // WD EDIT
 
     /// <summary>
     ///     Link to GitHub page to show in the launcher.
     /// </summary>
     public static readonly CVarDef<string> InfoLinksGithub =
-        CVarDef.Create("infolinks.github", "", CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("infolinks.github", "https://github.com/WWhiteDreamProject/wwdpublic", CVar.SERVER | CVar.REPLICATED); // WD EDIT
 
     /// <summary>
     ///     Link to website to show in the launcher.
@@ -32,7 +32,7 @@ public sealed partial class CCVars
     ///     Link to wiki to show in the launcher.
     /// </summary>
     public static readonly CVarDef<string> InfoLinksWiki =
-        CVarDef.Create("infolinks.wiki", "", CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("infolinks.wiki", "https://wiki.wwdp.ee/", CVar.SERVER | CVar.REPLICATED); // WD EDIT
 
     /// <summary>
     ///     Link to Patreon. Not shown in the launcher currently.

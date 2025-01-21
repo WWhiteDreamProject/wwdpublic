@@ -25,6 +25,19 @@
         Ammonia: stationAmmonia
         NitrousOxide: stationNO
         Frezon: danger
+        # WD EDIT START
+        BZ: danger
+        Pluoxium: unwanted
+        Hydrogen: danger
+        Nitrium: unwanted
+        Healium: danger
+        HyperNoblium: unwanted
+        ProtoNitrate: danger
+        Zauker: danger
+        Halon: danger
+        Helium: unwanted
+        AntiNoblium: danger
+        # WD EDIT END
     - type: Tag
       tags:
         - AirSensor
