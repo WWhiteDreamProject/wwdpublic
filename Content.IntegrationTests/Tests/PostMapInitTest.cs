@@ -71,7 +71,8 @@ namespace Content.IntegrationTests.Tests
             "WhiteBox", //WWDP
             "Rad",
             "Europa",
-            "Meta"
+            "Meta",
+            "Box"
         };
 
         /// <summary>
