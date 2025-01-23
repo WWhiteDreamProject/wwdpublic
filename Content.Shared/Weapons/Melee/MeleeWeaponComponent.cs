@@ -233,6 +233,10 @@ public sealed partial class MeleeWeaponComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool MustBeEquippedToUse = false;
+
+    // Goobstation
+    [DataField, AutoNetworkedField]
+    public bool CanWideSwing = true;
 }
 
 /// <summary>
