@@ -126,6 +126,9 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         }
 
         args.PushText(Loc.GetString("humanoid-appearance-component-examine", ("user", identity), ("age", age), ("species", species)));
+
+        if (component.DisplayPronouns != null)
+            args.PushText(Loc.GetString("humanoid-appearance-component-examine-pronouns", ("user", identity), ("pronouns", component.DisplayPronouns)));
     }
 
     /// <summary>
@@ -465,6 +468,9 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         if (TryComp<GrammarComponent>(uid, out var grammar))
             grammar.Gender = profile.Gender;
 
+        humanoid.DisplayPronouns = profile.DisplayPronouns;
+        humanoid.StationAiName = profile.StationAiName;
+        humanoid.CyborgName = profile.CyborgName;
         humanoid.Age = profile.Age;
 
         humanoid.CustomSpecieName = profile.Customspeciename;

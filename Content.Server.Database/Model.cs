@@ -393,6 +393,9 @@ namespace Content.Server.Database
         public string Sex { get; set; } = null!;
         public string Voice { get; set; } = null!; // WD EDIT
         public string Gender { get; set; } = null!;
+        public string? DisplayPronouns { get; set; }
+        public string? StationAiName { get; set; }
+        public string? CyborgName { get; set; }
         public string Species { get; set; } = null!;
         public float Height { get; set; } = 1f;
         public float Width { get; set; } = 1f;
@@ -899,7 +902,7 @@ namespace Content.Server.Database
         Panic = 3,
         /*
          * TODO: Remove baby jail code once a more mature gateway process is established. This code is only being issued as a stopgap to help with potential tiding in the immediate future.
-         * 
+         *
          * If baby jail is removed, please reserve this value for as long as can reasonably be done to prevent causing ambiguity in connection denial reasons.
          * Reservation by commenting out the value is likely sufficient for this purpose, but may impact projects which depend on SS14 like SS14.Admin.
          */
