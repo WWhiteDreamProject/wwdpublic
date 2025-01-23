@@ -9522,27 +9522,7 @@ Entries:
     - type: Add
       message: >-
         Added 2 new traits related to CyberEyes. Light Amplification Module, and
-        Thermographic Scanner Module.
-  id: 6658
-  time: '2025-01-10T05:14:46.0000000+00:00'
-  url: https://github.com/Simple-Station/Einstein-Engines/pull/1477
-- author: VMSolidus
-  changes:
-    - type: Add
-      message: >-
-        Added Assay as a new psi-power, which is available roundstart to the
-        Psionic Mantis. Assay allows the caster to obtain more direct
-        information about the statistics of a specific Psion, as well as vague
-        hints as to what their powers may be, if any.
-  id: 6659
-  time: '2025-01-11T00:13:27.0000000+00:00'
-  url: https://github.com/Simple-Station/Einstein-Engines/pull/1450
-- author: VMSolidus
-  changes:
-    - type: Add
-      message: >-
-        Added 2 new traits related to CyberEyes. Light Amplification Module, and
-        Thermographic Scanner Module.
+        Thermographic Scanner Module. 
   id: 6658
   time: '2025-01-10T05:14:46.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1477
@@ -10635,3 +10615,31 @@ Entries:
   id: 6751
   time: '2025-01-23T00:19:49.0000000+00:00'
   url: https://github.com/Simple-Station/Einstein-Engines/pull/1626
+- author: BlueHNT
+  changes:
+    - type: Add
+      message: Added 2 new security loadout items
+    - type: Tweak
+      message: Tweaked BSO's ammo
+    - type: Fix
+      message: Fixed energy cutlass sprite
+    - type: Remove
+      message: Removed broken Ion component
+  id: 6752
+  time: '2025-01-23T00:22:22.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1599
+- author: Mike32oz
+  changes:
+    - type: Add
+      message: >-
+        Box Station, supermatter crystal, holopads, and Thermal-electric
+        generator.
+    - type: Tweak
+      message: >-
+        Box Station, Engineer, Medical, Epistemics, Cargo, Security, and Service
+        Departments.
+    - type: Remove
+      message: Box Station, Particle Accelerator Room in Engineer Departments.
+  id: 6753
+  time: '2025-01-23T01:11:05.0000000+00:00'
+  url: https://github.com/Simple-Station/Einstein-Engines/pull/1615
