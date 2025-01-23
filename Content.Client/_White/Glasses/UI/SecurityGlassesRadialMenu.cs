@@ -13,7 +13,6 @@ namespace Content.Client._White.Glasses.UI;
 public sealed class SecurityGlassesRadialMenu : RadialMenu
 {
     private const float MenuSize = 256f;
-    private const float ContainerRadius = 60f;
     private const float ButtonSize = 64f;
     private const float TextureScale = 2f;
 
@@ -22,9 +21,9 @@ public sealed class SecurityGlassesRadialMenu : RadialMenu
     private readonly RSIResource _rsi;
 
     private static SecurityGlassesRadialMenu? _currentOpenMenu;
-    
+
     public static SecurityGlassesRadialMenu? GetCurrentMenu() => _currentOpenMenu;
-    
+
     public SecurityGlassesRadialMenu()
     {
         BackButtonStyleClass = "RadialMenuBackButton";
@@ -43,9 +42,8 @@ public sealed class SecurityGlassesRadialMenu : RadialMenu
         var container = new RadialContainer
         {
             Name = "StatusContainer",
-            Radius = ContainerRadius
         };
-        
+
         AddChild(container);
 
         var statuses = new[]
@@ -87,7 +85,7 @@ public sealed class SecurityGlassesRadialMenu : RadialMenu
 
         return button;
     }
-    
+
     private Texture GetStatusTexture(SecurityStatus status)
     {
         var stateName = status switch
@@ -101,8 +99,8 @@ public sealed class SecurityGlassesRadialMenu : RadialMenu
             _ => "none"
         };
 
-        return _rsi.RSI.TryGetState(stateName, out var state) 
-            ? state.Frame0 
+        return _rsi.RSI.TryGetState(stateName, out var state)
+            ? state.Frame0
             : Texture.Transparent;
     }
 
@@ -121,7 +119,7 @@ public sealed class SecurityGlassesRadialMenu : RadialMenu
         EnsureSingletonOpen();
         base.Open(screenPos);
     }
-    
+
     public new void OpenCentered()
     {
         EnsureSingletonOpen();
@@ -131,10 +129,10 @@ public sealed class SecurityGlassesRadialMenu : RadialMenu
     public override void Close()
     {
         base.Close();
-        
+
         if (_currentOpenMenu == this)
         {
             _currentOpenMenu = null;
         }
     }
-} 
+}
