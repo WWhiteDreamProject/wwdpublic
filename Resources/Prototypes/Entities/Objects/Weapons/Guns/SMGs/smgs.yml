@@ -159,9 +159,9 @@
     fireRate: 10
     shotsPerBurst: 5
     availableModes:
-    - SemiAuto
     - Burst
     - FullAuto
+    - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
     fireOnDropChance: 0.3
@@ -239,11 +239,12 @@
     # minAngle: 21 - WD EDIT
     # maxAngle: 32 - WD EDIT
     fireRate: 6
-    selectedMode: FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
     availableModes:
+    - Burst
     - FullAuto
+    - SemiAuto
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -365,9 +366,9 @@
     burstCooldown: 0.2
     burstFireRate: 7
     availableModes:
-    - SemiAuto
     - Burst
     - FullAuto
+    - SemiAuto
     fireOnDropChance: 0.1
   - type: ItemSlots
     slots:
