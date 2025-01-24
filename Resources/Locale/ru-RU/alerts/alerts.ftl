@@ -119,7 +119,3 @@ alerts-offer-desc = Кто-то предлагает вам предмет.
 
 alerts-deflecting-name = Отражение
 alerts-deflecting-desc = У вас есть шанс отразить снаряды. Стоя на месте или двигаясь медленно, вы увеличиваете этот шанс.
-
-alerts-mana-name = Уровень маны
-alerts-mana-desc = Количество маны, доступное для использования ваших способностей.
-mana-alert = [font size=12][color=purple]Мана: {$mana}/{$manaMax}[/color][/font]

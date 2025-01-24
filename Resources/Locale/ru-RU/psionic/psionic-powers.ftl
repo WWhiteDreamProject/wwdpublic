@@ -1,6 +1,5 @@
 generic-power-initialization-feedback = Я пробуждаюсь.
 already-casting = Я не могу направлять больше одной способности за раз.
-no-mana = Я не могу направить достаточное колчество энергии.
 
 # Dispel
 dispel-power-description = Развеять призванных сущностей, таких как фамильяры или силовые стены.

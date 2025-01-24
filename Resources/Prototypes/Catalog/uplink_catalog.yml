@@ -59,7 +59,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword.rsi, state: icon }
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 1 # WD EDIT
+    Telecrystal: 2 # WD EDIT
   productEntity: EnergySword
   cost:
     Telecrystal: 8
