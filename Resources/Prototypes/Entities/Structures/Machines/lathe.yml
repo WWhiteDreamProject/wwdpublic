@@ -207,7 +207,6 @@
     - SubstationMachineCircuitboard
     - WallmountSubstationElectronics
     - CellRechargerCircuitboard
-    - BorgChargerCircuitboard
     - WeaponCapacitorRechargerCircuitboard
     - HydroponicsTrayMachineCircuitboard
     - HandheldStationMap
@@ -569,6 +568,7 @@
     - SpaceHeaterMachineCircuitBoard
     - CutterMachineCircuitboard
     - SalvageMagnetMachineCircuitboard
+    - BorgChargerCircuitboard
     - SeedExtractorMachineCircuitboard
     - ReagentGrinderIndustrialMachineCircuitboard
     - StasisBedMachineCircuitboard
