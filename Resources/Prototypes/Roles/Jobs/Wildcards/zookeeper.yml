@@ -16,6 +16,8 @@
 
 - type: startingGear
   id: ZookeeperGear
+  subGear:
+  - ZookeeperPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSafari
     back: ClothingBackpackFilled
@@ -27,3 +29,11 @@
   innerClothingSkirt: ClothingUniformJumpsuitSafari
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
+
+- type: startingGear
+  id: ZookeeperPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitSafari
+    head: ClothingHeadEnvirohelmSafari
+    gloves: ClothingHandsGlovesEnviroglovesPurple
