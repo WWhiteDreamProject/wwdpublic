@@ -368,6 +368,7 @@
     #- id: WeaponEnergyShotgun - WWDP edit
     # - id: WeaponDisabler - WD EDIT
     - id: WantedListCartridge
+    - id: DrinkHosFlask
     # WD EDIT START
     - id: BoxBasicFluxCore
     - id: AssballBat
