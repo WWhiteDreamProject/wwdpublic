@@ -308,12 +308,10 @@ ui-options-net-pvs-leave-tooltip =
     привести к неправильным предугадываниям и другим проблемам.
 
 ## Toggle window console command
-## Toggle window console command
+
 cmd-options-desc = Открывает меню опций, опционально с конкретно выбранной вкладкой.
 cmd-options-help = Использование: options [tab]
 
 ## Combat Options
-## Combat Options
-ui-options-function-look-up = Присмотреться/Прицелиться
+
 ui-options-function-auto-get-up = Автоматически вставать при падении
-ui-options-function-hold-look-up = Удерживать клавишу для прицеливания

@@ -64,7 +64,7 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction ToggleStanding = "ToggleStanding";
         public static readonly BoundKeyFunction ToggleCrawlingUnder = "ToggleCrawlingUnder";
         public static readonly BoundKeyFunction ToggleCombatMode = "ToggleCombatMode"; // WD EDIT
-        public static readonly BoundKeyFunction LookUp = "LookUp";
+        public static readonly BoundKeyFunction LookUp = "LookUp"; // WD EDIT
         public static readonly BoundKeyFunction TargetHead = "TargetHead";
         public static readonly BoundKeyFunction TargetTorso = "TargetTorso";
         public static readonly BoundKeyFunction TargetLeftArm = "TargetLeftArm";

@@ -1,17 +1,16 @@
 ﻿using System.Numerics;
 using Content.Server._White.GameTicking.Aspects.Components;
+using Content.Server.Movement.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Telescope;
 
 namespace Content.Server._White.GameTicking.Aspects;
 
 public sealed class ImmersiveAspect : AspectSystem<ImmersiveAspectComponent>
 {
     [Dependency] private readonly SharedContentEyeSystem _eye = default!;
-    [Dependency] private readonly SharedTelescopeSystem _telescope = default!;
 
     public override void Initialize()
     {
@@ -39,7 +38,7 @@ public sealed class ImmersiveAspect : AspectSystem<ImmersiveAspectComponent>
         while (query.MoveNext(out var entity, out _))
         {
             SetEyeZoom(entity, component.EyeModifier);
-            AddTelescope(entity, component.TelescopeDivisor, component.TelescopeLerpAmount);
+            EnsureComp<EyeCursorOffsetComponent>(entity);
         }
     }
 
@@ -47,13 +46,6 @@ public sealed class ImmersiveAspect : AspectSystem<ImmersiveAspectComponent>
     {
         _eye.SetMaxZoom(human, new Vector2(modifier));
         _eye.SetZoom(human, new Vector2(modifier));
-    }
-
-    private void AddTelescope(EntityUid human, float divisor, float lerpAmount)
-    {
-        var telescope = EnsureComp<TelescopeComponent>(human);
-
-        _telescope.SetParameters((human, telescope), divisor, lerpAmount);
     }
 
     private void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
@@ -68,7 +60,7 @@ public sealed class ImmersiveAspect : AspectSystem<ImmersiveAspectComponent>
                 continue;
 
             SetEyeZoom(ev.Mob, immersiveAspect.EyeModifier);
-            AddTelescope(ev.Mob, immersiveAspect.TelescopeDivisor, immersiveAspect.TelescopeLerpAmount);
+            EnsureComp<EyeCursorOffsetComponent>(ev.Mob);
         }
     }
 
@@ -87,7 +79,7 @@ public sealed class ImmersiveAspect : AspectSystem<ImmersiveAspectComponent>
         {
             SetEyeZoom(entity, 1f);
 
-            RemComp<TelescopeComponent>(entity);
+            RemComp<EyeCursorOffsetComponent>(entity);
         }
     }
 }

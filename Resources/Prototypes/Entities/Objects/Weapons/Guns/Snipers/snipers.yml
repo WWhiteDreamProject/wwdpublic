@@ -183,12 +183,15 @@
     capacity: 5
     proto: CartridgeAntiMateriel
   - type: Gun
-    angleDecay: 1 # WWDP
-    bonusAngleDecay: 10 # WWDP
-    bonusAngleIncreaseTurn: 1  # wwdp
-    fireRate: 0.6
+    angleDecay: 1
+    bonusAngleDecay: 10
+    bonusAngleIncreaseTurn: 1
+    fireRate: 0.5
   - type: Wieldable
-  - type: Telescope
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 0.3
   - type: MagazineVisuals
     magState: mag
     steps: 1
