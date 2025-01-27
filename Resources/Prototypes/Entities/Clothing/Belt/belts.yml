@@ -35,6 +35,7 @@
     #     - WeldingMask
     #     - RPD
     #   components:
+    #     - StationMap
     #     - SprayPainter
     #     - NetworkConfigurator
     #     - RCD
@@ -125,6 +126,7 @@
     #     - AppraisalTool
     #     - RPD
     #   components:
+    #     - StationMap
     #     - SprayPainter
     #     - NetworkConfigurator
     #     - RCD
