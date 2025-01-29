@@ -12,6 +12,7 @@ species-name-skeleton = Скелет
 species-name-vox = Вокс
 species-name-ipc = КПБ
 species-name-shadowkin = Тенерожденный
+species-name-plasmaman = Плазмачеловек
 
 ## Misc species things
 

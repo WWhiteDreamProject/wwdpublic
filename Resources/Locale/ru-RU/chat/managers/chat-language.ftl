@@ -12,9 +12,11 @@ chat-language-Elyran-name = Элирианский
 chat-language-Canilunzt-name = Канилунцт
 chat-language-Moffic-name = Моффический
 chat-language-RobotTalk-name = Двоичный
+chat-language-Calcic-name = Кальцик
 chat-language-ValyrianStandard-name = Валирийский
 chat-language-Sign-name = Жесты
 chat-language-Marish-name = Маришский
+chat-language-Chittin-name = Хитинидский
 
 # Animal Languages
 
