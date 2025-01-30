@@ -22,29 +22,31 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
         _overlay = new BaseSwitchableOverlay<ThermalVisionComponent>();
     }
 
-    protected override void OnRefreshComponentHud(EntityUid uid,
-        ThermalVisionComponent component,
-        RefreshEquipmentHudEvent<ThermalVisionComponent> args)
+    protected override void OnRefreshComponentHud(
+        Entity<ThermalVisionComponent> ent,
+         ref RefreshEquipmentHudEvent<ThermalVisionComponent> args
+        )
     {
-        if (component.IsEquipment)
+        if (ent.Comp.IsEquipment)
             return;
 
-        base.OnRefreshComponentHud(uid, component, args);
+        base.OnRefreshComponentHud(ent, ref args);
     }
 
-    protected override void OnRefreshEquipmentHud(EntityUid uid,
-        ThermalVisionComponent component,
-        InventoryRelayedEvent<RefreshEquipmentHudEvent<ThermalVisionComponent>> args)
+    protected override void OnRefreshEquipmentHud(
+        Entity<ThermalVisionComponent> ent,
+        ref InventoryRelayedEvent<RefreshEquipmentHudEvent<ThermalVisionComponent>> args
+        )
     {
-        if (!component.IsEquipment)
+        if (!ent.Comp.IsEquipment)
             return;
 
-        base.OnRefreshEquipmentHud(uid, component, args);
+        base.OnRefreshEquipmentHud(ent, ref args);
     }
 
     private void OnToggle(Entity<ThermalVisionComponent> ent, ref SwitchableOverlayToggledEvent args)
     {
-        RefreshOverlay(args.User);
+        RefreshOverlay();
     }
 
     protected override void UpdateInternal(RefreshEquipmentHudEvent<ThermalVisionComponent> args)
