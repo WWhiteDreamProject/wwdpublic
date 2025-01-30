@@ -1178,15 +1178,28 @@
 # Disruption
 
 - type: listing
+  id: UplinkAccessBreaker
+  name: uplink-access-breaker-name
+  description: uplink-access-breaker-desc
+  productEntity: AccessBreaker
+  discountCategory: rareDiscounts # WD EDIT
+  discountDownTo:
+    Telecrystal: 1 # WD EDIT
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkDisruption
+
+- type: listing
   id: UplinkEmag
   name: uplink-emag-name
   description: uplink-emag-desc
   productEntity: Emag
   discountCategory: rareDiscounts # WD EDIT
   discountDownTo:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 1 # WD EDIT
   cost:
-    Telecrystal: 8 # WD EDIT
+    Telecrystal: 4 # WD EDIT
   categories:
   - UplinkDisruption
 
