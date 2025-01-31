@@ -77,7 +77,12 @@ public sealed class ClientClothingSystem : ClothingSystem
         if (args.Sprite == null)
             return;
 
-        UpdateAllSlots(uid, component);
+        if (_inventorySystem.TryGetSlotEntity(uid, Jumpsuit, out var suit, component)
+            && TryComp(suit, out ClothingComponent? clothing))
+        {
+            SetGenderedMask(uid, args.Sprite, clothing);
+            return;
+        }
 
         // No clothing equipped -> make sure the layer is hidden, though this should already be handled by on-unequip.
         if (args.Sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out var layer))
@@ -227,6 +232,14 @@ public sealed class ClientClothingSystem : ClothingSystem
 
     private void OnDidUnequip(EntityUid uid, SpriteComponent component, DidUnequipEvent args)
     {
+        // Hide jumpsuit mask layer.
+        if (args.Slot == Jumpsuit
+            && TryComp(uid, out SpriteComponent? sprite)
+            && sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out var maskLayer))
+        {
+            sprite.LayerSetVisible(maskLayer, false);
+        }
+
         if (!TryComp(uid, out InventorySlotsComponent? inventorySlots))
             return;
 
@@ -285,6 +298,9 @@ public sealed class ClientClothingSystem : ClothingSystem
             return;
         }
 
+        if (slot == Jumpsuit)
+            SetGenderedMask(equipee, sprite, clothingComponent);
+
         if (!_inventorySystem.TryGetSlot(equipee, slot, out var slotDef, inventory))
             return;
 
@@ -313,12 +329,28 @@ public sealed class ClientClothingSystem : ClothingSystem
             return;
         }
 
+        if (TryComp<HideLayerClothingComponent>(equipment, out var hideLayer) &&
+            hideLayer.ClothingSlots != null)
+        {
+            foreach (var clothingSlot in hideLayer.ClothingSlots)
+            {
+                if (!inventorySlots.VisualLayerKeys.TryGetValue(clothingSlot, out var revealedLayersToHide))
+                    continue;
+
+                foreach (var layerToHide in revealedLayersToHide)
+                    sprite.LayerSetVisible(layerToHide, false);
+            }
+            inventorySlots.HiddenSlots.UnionWith(hideLayer.ClothingSlots);
+        }
+
+        var displacementData = inventory.Displacements.GetValueOrDefault(slot);
+
+        if (clothingComponent.RenderLayer != null)
+            slot = clothingComponent.RenderLayer;
+
         // temporary, until layer draw depths get added. Basically: a layer with the key "slot" is being used as a
         // bookmark to determine where in the list of layers we should insert the clothing layers.
         bool slotLayerExists = sprite.LayerMapTryGet(slot, out var index);
-
-        // Select displacement maps
-        var displacementData = inventory.Displacements.GetValueOrDefault(slot); //Default unsexed map
 
         // WD EDIT START
         string? bodyTypeName = null;
@@ -387,7 +419,7 @@ public sealed class ClientClothingSystem : ClothingSystem
                 index = sprite.LayerMapReserveBlank(key);
 
             if (sprite[index] is not Layer layer)
-                continue;
+                return;
 
             // In case no RSI is given, use the item's base RSI as a default. This cuts down on a lot of unnecessary yaml entries.
             if (layerData.RsiPath == null
@@ -410,18 +442,68 @@ public sealed class ClientClothingSystem : ClothingSystem
             sprite.LayerSetData(index, layerData);
             layer.Offset += slotDef.Offset;
 
-            if (displacementData is not null)
+            if (displacementData != null)
             {
-                //Checking that the state is not tied to the current race. In this case we don't need to use the displacement maps.
-                if (layerData.State is not null && (inventory.SpeciesId is not null && layerData.State.EndsWith(inventory.SpeciesId)
-                    || bodyTypeName is not null && layerData.State.EndsWith(bodyTypeName))) // WD EDIT
-                    continue;
+                if (displacementData.ShaderOverride != null)
+                    sprite.LayerSetShader(index, displacementData.ShaderOverride);
 
-                if (_displacement.TryAddDisplacement(displacementData, sprite, index, key, revealedLayers))
-                    index++;
+                var displacementKey = $"{key}-displacement";
+                if (!revealedLayers.Add(displacementKey))
+                {
+                    Log.Warning($"Duplicate key for clothing visuals DISPLACEMENT: {displacementKey}.");
+                    continue;
+                }
+
+                var displacementLayer = _serialization.CreateCopy(displacementData.Layer, notNullableOverride: true);
+                displacementLayer.CopyToShaderParameters!.LayerKey = key;
+
+                // Add before main layer for this item.
+                sprite.AddLayer(displacementLayer, index);
+                sprite.LayerMapSet(displacementKey, index);
+
+                revealedLayers.Add(displacementKey);
             }
         }
 
         RaiseLocalEvent(equipment, new EquipmentVisualsUpdatedEvent(equipee, slot, revealedLayers), true);
+    }
+
+    /// <summary>
+    ///     Sets a sprite's gendered mask based on gender (obviously).
+    /// </summary>
+    /// <param name="sprite">Sprite to modify</param>
+    /// <param name="humanoid">Humanoid, to get gender from</param>
+    /// <param name="clothing">Clothing component, to get mask sprite type</param>
+    private void SetGenderedMask(EntityUid uid, SpriteComponent sprite, ClothingComponent clothing)
+    {
+        if (!sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out var layer))
+            return;
+
+        ClothingMask mask;
+        string prefix;
+
+        switch (CompOrNull<HumanoidAppearanceComponent>(uid)?.Sex)
+        {
+            case Sex.Male:
+                mask = clothing.MaleMask;
+                prefix = "male_";
+                break;
+            case Sex.Female:
+                mask = clothing.FemaleMask;
+                prefix = "female_";
+                break;
+            default:
+                mask = clothing.UnisexMask;
+                prefix = "unisex_";
+                break;
+        }
+
+        sprite.LayerSetState(layer, mask switch
+        {
+            ClothingMask.NoMask => $"{prefix}none",
+            ClothingMask.UniformTop => $"{prefix}top",
+            _ => $"{prefix}full",
+        });
+        sprite.LayerSetVisible(layer, true);
     }
 }
