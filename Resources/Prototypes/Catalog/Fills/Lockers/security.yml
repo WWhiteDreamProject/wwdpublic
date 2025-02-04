@@ -61,6 +61,7 @@
       amount: 2
     - id: RemoteSignaller
       amount: 2
+    - id: Binoculars
     - id: BoxPDAPrisoner
     - id: ClothingShoesBootsWinterWarden
     - id: BoxEncryptionKeyPrisoner
