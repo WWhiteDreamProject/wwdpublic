@@ -22,6 +22,7 @@
     staminaDamage: 20 # WD EDIT: 0 -> 20
     canThrowTrigger: true
     canMoveBreakout: true
+    maxEnsnares: 1
   - type: LandAtCursor
   - type: LayDownOnCollide # WD EDIT
 
