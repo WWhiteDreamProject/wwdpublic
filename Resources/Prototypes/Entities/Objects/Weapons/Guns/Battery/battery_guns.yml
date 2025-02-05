@@ -657,11 +657,12 @@
     price: 100
   - type: Gun
     fireRate: 2
+    projectileSpeed: 35 # any higher and this causes issues in lag
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
-    fireCost: 12.5 # wwdp edit
+    fireCost: 12.5 # WD EDIT: 50 -> 12.5
   - type: GunFlux
     heatCost: 0.2
   - type: MeleeWeapon
@@ -696,7 +697,7 @@
     - Belt
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 20 # WD EDIT: 100 -> 20
+    fireCost: 20 # WD EDIT: 50 -> 20
   - type: MeleeWeapon
     damage:
       types:
@@ -839,7 +840,7 @@
     angleDecay: 6
     # WD EDIT END
     selectedMode: FullAuto
-    fireRate: 4
+    fireRate: 4.5
     availableModes:
     - SemiAuto
     - FullAuto
@@ -853,7 +854,7 @@
     startingCharge: 2500
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
-    fireCost: 66
+    fireCost: 25
   - type: MagazineVisuals
     magState: mag
     steps: 5
