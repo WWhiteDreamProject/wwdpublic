@@ -1196,6 +1196,7 @@
     - Hemostat
     - ClothingEyesGlassesChemical
     - BoneGel # Shitmed Change
+    - AACTablet # DeltaV
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker
