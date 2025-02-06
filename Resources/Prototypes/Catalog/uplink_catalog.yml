@@ -2376,11 +2376,11 @@
   description: uplink-combat-bakery-desc
   icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
   productEntity: CombatBakeryKit
-  discountCategory: rareDiscounts
+  discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 1 # WD EDIT
+    Telecrystal: 1 # WD EDIT: 2 -> 1
   cost:
-    Telecrystal: 3 # WD EDIT
+    Telecrystal: 3 # WD EDIT: 4 -> 3
   categories:
   - UplinkJob
   conditions:
