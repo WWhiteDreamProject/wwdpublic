@@ -105,6 +105,11 @@
   - MedicalScannerMachineCircuitboard
   - MetempsychoticMachineCircuitboard
   - EnvirosuitExtinguisherRefill
+  - StasisBedMachineCircuitboard
+  - CryoPodMachineCircuitboard
+  - ReagentGrinderIndustrialMachineCircuitboard
+  - HydroponicsTrayMachineCircuitboard
+  - SeedExtractorMachineCircuitboard
   - NTBodyBag # WD
   - PrisonerBodyBag # WD
   - RadiationBodyBag # WD
