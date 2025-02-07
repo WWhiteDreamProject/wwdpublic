@@ -102,8 +102,8 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
         RaiseNetworkEvent(new CheckAutoGetUpEvent(GetNetEntity(uid)));
 
-        if (HasComp<KnockedDownComponent>(uid))
-            //|| _mobState.IsDown(uid))
+        if (HasComp<KnockedDownComponent>(uid)
+            || !_mobState.IsAlive(uid))
             return;
 
         if (_standing.IsDown(uid, standing))
@@ -115,9 +115,9 @@ public abstract class SharedLayingDownSystem : EntitySystem
     private void OnStandingUpDoAfter(EntityUid uid, StandingStateComponent component, StandingUpDoAfterEvent args)
     {
         if (args.Handled || args.Cancelled
-                         || HasComp<KnockedDownComponent>(uid)
-                         || _mobState.IsDown(uid)
-                         || !_standing.Stand(uid))
+            || HasComp<KnockedDownComponent>(uid)
+            || _mobState.IsIncapacitated(uid)
+            || !_standing.Stand(uid))
             component.CurrentState = StandingState.Lying;
 
         component.CurrentState = StandingState.Standing;
@@ -153,7 +153,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
         if (!Resolve(uid, ref standingState, false)
             || !Resolve(uid, ref layingDown, false)
             || standingState.CurrentState is not StandingState.Lying
-            || _mobState.IsDown(uid)
+            || !_mobState.IsAlive(uid)
             || TerminatingOrDeleted(uid)
             || !TryComp<BodyComponent>(uid, out var body)
             || body.LegEntities.Count < body.RequiredLegs
