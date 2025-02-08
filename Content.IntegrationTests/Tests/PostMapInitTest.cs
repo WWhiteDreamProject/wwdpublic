@@ -73,6 +73,7 @@ namespace Content.IntegrationTests.Tests
             "Europa",
             "Meta",
             "Box",
+            "Lambda",
             "Bagel",
             "Northway"
         };
