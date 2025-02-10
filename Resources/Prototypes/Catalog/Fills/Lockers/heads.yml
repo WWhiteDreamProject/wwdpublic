@@ -43,6 +43,7 @@
     - id: PlushieNuke
       prob: 0.1
     - id: DoorRemoteCommand
+    - id: RubberStampCaptain
     - id: JetpackCaptainFilled
     - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
       prob: 0.3
@@ -63,6 +64,7 @@
     - id: PlushieNuke
       prob: 0.1
     - id: DoorRemoteCommand
+    - id: RubberStampCaptain
     - id: JetpackCaptainFilled
     - id: LunchboxCommandFilledRandom
       prob: 0.3
@@ -83,6 +85,7 @@
     - id: PlushieNuke
       prob: 0.1
     - id: DoorRemoteCommand
+    - id: RubberStampCaptain
     - id: JetpackCaptainFilled
     - id: LunchboxCommandFilledRandom
       prob: 0.3
@@ -240,6 +243,11 @@
     - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
       prob: 0.3
     - id: PsiWatchCartridge
+    - id: StationAiUploadCircuitboard
+    - id: AsimovCircuitBoard
+    - id: AugustineCircuitBoard
+    - id: CrewsimovCircuitBoard
+    - id: AntimovCircuitBoard
     - id: BoxBodyBagRadiation # WD
 
 - type: entity
@@ -264,6 +272,11 @@
     - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
       prob: 0.3
     - id: PsiWatchCartridge
+    - id: StationAiUploadCircuitboard
+    - id: AsimovCircuitBoard
+    - id: AugustineCircuitBoard
+    - id: CrewsimovCircuitBoard
+    - id: AntimovCircuitBoard
     - id: BoxBodyBagRadiation # WD
 
 - type: entity
