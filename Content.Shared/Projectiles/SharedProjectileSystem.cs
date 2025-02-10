@@ -23,7 +23,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-
+using Content.Shared.Standing;
 
 namespace Content.Shared.Projectiles;
 
@@ -40,6 +40,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly PenetratedSystem _penetrated = default!; // WD EDIT
 
     public override void Initialize()
@@ -130,8 +131,9 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void OnEmbedThrowDoHit(EntityUid uid, EmbeddableProjectileComponent component, ThrowDoHitEvent args)
     {
-        if (!component.EmbedOnThrow ||
-            HasComp<ThrownItemImmuneComponent>(args.Target))
+        if (!component.EmbedOnThrow
+            || HasComp<ThrownItemImmuneComponent>(args.Target)
+            || _standing.IsDown(args.Target))
             return;
 
         Embed(uid, args.Target, null, component, args.TargetPart);
@@ -139,6 +141,9 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void OnEmbedProjectileHit(EntityUid uid, EmbeddableProjectileComponent component, ref ProjectileHitEvent args)
     {
+        if (_standing.IsDown(args.Target))
+            return;
+
         Embed(uid, args.Target, args.Shooter, component);
 
         // Raise a specific event for projectiles.
