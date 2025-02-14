@@ -16,7 +16,7 @@
         mask:
         - MachineMask
         layer:
-        - MachineLayer
+          - MachineLayer
   - type: Lathe
   - type: MaterialStorage
   - type: Destructible
@@ -1499,6 +1499,11 @@
     - IngotCopper1
     - N14IngotAluminium1
     - IngotTungsten1
+    # Additional recipes
+    - SheetPlasteel1
+    - SheetUGlass1
+    - SheetRUGlass1
+    - MaterialDiamond
     - BluespaceBodyBag # WD
     - NTBodyBag # WD
     - PrisonerBodyBag # WD
