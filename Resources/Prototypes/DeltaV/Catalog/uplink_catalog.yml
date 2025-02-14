@@ -5,7 +5,7 @@
   productEntity: ReinforcementRadioSyndicateNukieMouse
   icon: { sprite: DeltaV/Objects/Devices/communication.rsi, state: cheese-radio }
   cost:
-    Telecrystal: 15
+    Telecrystal: 3
   categories:
   - UplinkAllies
 
@@ -15,7 +15,7 @@
   description: uplink-bionic-syrinx-implanter-desc
   productEntity: BionicSyrinxImplanter
   cost:
-    Telecrystal: 10
+    Telecrystal: 2
   categories:
   - UplinkImplants
   conditions:
@@ -33,7 +33,7 @@
   description: uplink-doorjack-desc
   productEntity: Doorjack
   cost:
-    Telecrystal: 30
+    Telecrystal: 6
   categories:
   - UplinkDisruption
 
@@ -46,8 +46,8 @@
     entity: BaseBallBatHomeRun
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 30
+    Telecrystal: 6
   cost:
-    Telecrystal: 80
+    Telecrystal: 16
   categories:
   - UplinkWeaponry
