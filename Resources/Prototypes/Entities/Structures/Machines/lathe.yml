@@ -148,6 +148,7 @@
     - SheetRGlass
     - Beaker
     - Syringe
+    - DisposableSyringe
     - HandLabeler
     - LightTube
     - LedLightTube
@@ -318,6 +319,7 @@
     - CryostasisBeaker
     - SyringeCryostasis
     - Syringe
+    - DisposableSyringe
     - Implanter
     - PillCanister
     - ChemistryEmptyBottle01
@@ -1179,6 +1181,7 @@
     - Dropper
     - Jug
     - Syringe
+    - DisposableSyringe
     - Implanter
     - PillCanister
     - BodyBag
