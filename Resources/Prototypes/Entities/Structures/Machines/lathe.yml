@@ -948,9 +948,32 @@
     - HoloprojectorSecurity
     - BolaEnergy
     - ClothingHeadHelmetBasic
+    - MagazineShotgunBeanbag
+    - ShellTranquilizer
+    - BoxBeanbag
+    - CartridgePistolRubber
+    - CartridgeMagnumRubber
+    - CartridgeLightRifleRubber
+    - CartridgeRifleRubber
+    - MagazineRifleRubber
+    - MagazinePistolRubber
+    - MagazinePistolSubMachineGunRubber
+    - MagazineMagnumRubber
+    - MagazineLightRifleRubber
+    - SpeedLoaderMagnumRubber
+    - MagazineBoxPistolRubber
+    - MagazineBoxMagnumRubber
+    - MagazineBoxLightRifleRubber
+    - MagazineBoxRifleRubber
+    - CartridgeSpecialRubber
+    - MagazineBoxSpecialRubber
+    - MagazineBoxLightRifleRubber # Frontier
+    - MagazineBoxMagnumRubber # Frontier
+    - MagazineBoxPistolRubber # Frontier
+    - MagazineBoxRifleRubber # Frontier
+    - SpeedLoaderRifleHeavyRubber
     dynamicRecipes:
     - Truncheon
-    - BoxBeanbag
     - BoxShotgunIncendiary
     - BoxShotgunUranium
     - EncryptionKeySyndie
@@ -962,10 +985,6 @@
     - CartridgeMagnumUranium
     - CartridgePistolUranium
     - CartridgeRifleUranium
-    - CartridgeLightRifleRubber
-    - CartridgeMagnumRubber
-    - CartridgePistolRubber
-    - CartridgeRifleRubber
     - ExplosivePayload
     - FlashPayload
     - GrenadeBlast
@@ -980,43 +999,30 @@
     - MagazineBoxRifleIncendiary
     - MagazineBoxRifleUranium
     - ShellSoulbreaker
-    - MagazineBoxLightRifleRubber
-    - MagazineBoxMagnumRubber
-    - MagazineBoxPistolRubber
-    - MagazineBoxRifleRubber
     - MagazineGrenadeEmpty
-    - MagazineLightRifleRubber
     - MagazineLightRifleIncendiary
     - MagazineLightRifleUranium
-    - MagazinePistolRubber
     - MagazinePistolIncendiary
     - MagazinePistolUranium
-    - MagazinePistolSubMachineGunRubber
     - MagazinePistolSubMachineGunIncendiary
     - MagazinePistolSubMachineGunUranium
-    - MagazineMagnumRubber
     - MagazineMagnumIncendiary
     - MagazineMagnumUranium
-    - MagazineRifleRubber
     - MagazineRifleIncendiary
     - MagazineRifleUranium
-    - MagazineShotgunBeanbag
     - MagazineShotgunIncendiary
     - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium
     - PowerCageSmall
-    - ShellTranquilizer
     - ShuttleGunDusterCircuitboard
     - ShuttleGunFriendshipCircuitboard
     - ShuttleGunPerforatorCircuitboard
     - ShuttleGunSvalinnMachineGunCircuitboard
     - Signaller
     - SignalTrigger
-    - SpeedLoaderMagnumRubber
     - SpeedLoaderMagnumIncendiary
     - SpeedLoaderMagnumUranium
-    - SpeedLoaderRifleHeavyRubber
     - SpeedLoaderRifleHeavyIncendiary
     - SpeedLoaderRifleHeavyUranium
     - TimerTrigger
@@ -1035,12 +1041,10 @@
     - WeaponEnergyGunMini
     - WeaponEnergyGunPistol
     - WeaponGunLaserCarbineAutomatic
-    - CartridgeSpecialRubber
     - CartridgeSpecialIncendiary
     - CartridgeSpecialUranium
     - CartridgeSpecialHoly
     - CartridgeSpecialMindbreaker
-    - MagazineBoxSpecialRubber
     - MagazineBoxSpecialIncendiary
     - MagazineBoxSpecialUranium
     - MagazineBoxSpecialMindbreaker
