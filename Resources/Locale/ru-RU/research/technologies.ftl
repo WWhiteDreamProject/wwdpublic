@@ -26,7 +26,6 @@ research-technology-basic-weapons = Базовое вооружиение
 research-technology-draconic-munitions = Драконьи боеприпасы
 research-technology-uranium-munitions = Урановые боеприпасы
 research-technology-explosive-technology = Взрывные технологии
-research-technology-nonlethal-ammunition = Нелетальные боеприпасы
 research-technology-practice-ammunition = Учебные боеприпасы
 research-technology-advanced-weapons = Продвинутое вооружиение
 research-technology-prototype-weapons = Прототипы вооружиения

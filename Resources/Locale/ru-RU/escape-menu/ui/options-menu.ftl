@@ -92,6 +92,7 @@ ui-options-vp-integer-scaling-tooltip =
 ui-options-vp-low-res = Изображение низкого разрешения
 ui-options-parallax-low-quality = Низкокачественный параллакс (фон)
 ui-options-fps-counter = Показать счетчик FPS
+ui-options-mood-visual-effects = Включить визуальные эффекты системы настроения
 ui-options-vp-width = Ширина окна игры: { $width }
 ui-options-hud-layout = Тип HUD:
 

@@ -53,6 +53,7 @@ petting-success-honkbot = Вы гладите { $target } по { POSS-ADJ($targe
 petting-success-mimebot = Вы гладите { $target } по { POSS-ADJ($target) } холодной металлической голове.
 petting-success-cleanbot = Вы гладите { $target } по { POSS-ADJ($target) } влажной металлической голове.
 petting-success-medibot = Вы гладите { $target } по { POSS-ADJ($target) } стерильной металлической голове.
+petting-success-weldbot = Вы гладите { $target } по { POSS-ADJ($target) } покрытой пятнами металлической голове.
 petting-success-firebot = Вы гладите { $target } по { POSS-ADJ($target) } тёплой металлической голове.
 petting-success-generic-cyborg = Вы гладите { $target } по { POSS-ADJ($target) } металлической голове.
 petting-success-salvage-cyborg = Вы гладите { $target } по { POSS-ADJ($target) } грязной металлической голове.
