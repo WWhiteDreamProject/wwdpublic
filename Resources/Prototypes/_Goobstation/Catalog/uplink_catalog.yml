@@ -6,13 +6,8 @@
   description: uplink-mech-teleporter-assault-desc
   icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: darkgygax }
   productEntity: CrateCybersunDarkGygaxBundle
-  # WD EDIT START
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 16
-  # WD EDIT END
   cost:
-    Telecrystal: 80 # Einstein Engines -  1/5th the price due to no telecrystal rework
+    Telecrystal: 400
   categories:
   - UplinkAllies
 
@@ -22,13 +17,8 @@
   description: uplink-mech-teleporter-heavy-desc
   icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: mauler }
   productEntity: CrateCybersunMaulerBundle
-  # WD EDIT START
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 26
-  # WD EDIT END
   cost:
-    Telecrystal: 130 # WD EDIT
+    Telecrystal: 525
   categories:
   - UplinkAllies
   conditions:
