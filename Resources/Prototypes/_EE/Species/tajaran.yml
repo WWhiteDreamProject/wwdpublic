@@ -1,7 +1,7 @@
 - type: species
   id: Tajaran
   name: species-name-tajaran
-  roundStart: true
+  roundStart: false # WD EDIT
   prototype: MobTajaran
   sprites: MobTajaranSprites
   markingLimits: MobTajaranMarkingLimits
@@ -16,7 +16,7 @@
   maleFirstNames: names_tajaran_first
   femaleFirstNames: names_tajaran_first
   lastNames: names_tajaran_last
-  
+
 
 - type: markingPoints
   id: MobTajaranMarkingLimits
