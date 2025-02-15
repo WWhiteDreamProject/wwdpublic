@@ -174,7 +174,7 @@ binds:
 - function: SaveItemLocation
   type: State
   key: MouseMiddle
-- function: Drop
+- function: PreciseDrop
   type: State
   key: Q
 - function: ActivateItemInHand
