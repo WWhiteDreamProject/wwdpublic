@@ -23,11 +23,14 @@
   canBeAntag: false
   access:
   - Justice
+  - Clerk
   - Security
   - Maintenance
 
 - type: startingGear
   id: ClerkGear
+  subGear:
+  - PassengerPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitClerk
     back: ClothingBackpackFilled

@@ -90,19 +90,19 @@
   placement:
     mode: SnapgridCenter
   components:
-    # Animation is like 3 something seconds so we just need to despawn it before then.
-    - type: TimedDespawn
-      lifetime: 1
-    - type: EvaporationSparkle
-    - type: Transform
-      noRot: true
-      anchored: true
-    - type: Sprite
-      layers:
-        - sprite: Fluids/wet_floor_sparkles.rsi
-          state: sparkles
-      drawdepth: FloorObjects
-      color: "#FFFFFF80"
+  # Animation is like 3 something seconds so we just need to despawn it before then.
+  - type: TimedDespawn
+    lifetime: 1
+  - type: EvaporationSparkle
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: Fluids/wet_floor_sparkles.rsi
+      state: sparkles
+    drawdepth: FloorObjects
+    color: "#FFFFFF80"
 
 - type: entity
   name: puddle
@@ -127,6 +127,11 @@
     bodyType: Static
   - type: Fixtures
     fixtures:
+      # Context / examine fixture
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
       slipFixture:
         shape:
           !type:PhysShapeAabb
@@ -134,9 +139,7 @@
         mask:
         - ItemMask
         layer:
-        - Impassable
-        - MidImpassable
-        - LowImpassable
+        - SlipLayer
         hard: false
   - type: IconSmooth
     key: puddles
@@ -171,10 +174,10 @@
   - type: PuddleFootPrints
 
 - type: entity
-  name: footstep
+  name: Footstep
   id: Footstep
   save: false
-  description: Trace of liquid.
+  description: Trace of liquid
   components:
   - type: Clickable
   - type: FootstepModifier
@@ -191,14 +194,19 @@
     bodyType: Static
   - type: Fixtures
     fixtures:
+      # Context / examine fixture
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
       slipFixture:
         shape:
           !type:PhysShapeAabb
           bounds: "-0.4,-0.4,0.4,0.4"
         mask:
-          - ItemMask
+        - ItemMask
         layer:
-          - SlipLayer
+        - SlipLayer
         hard: false
   - type: SolutionContainerManager
     solutions:
@@ -207,16 +215,15 @@
   - type: Puddle
     solution: step
   - type: Appearance
-  - type: ExaminableSolution
+  - type: Drink
+    delay: 3
+    transferAmount: 1
     solution: step
-  - type: MixableSolution
+    examinable: false
+  - type: ExaminableSolution
     solution: step
   - type: DrawableSolution
     solution: step
   - type: BadDrink
-  - type: IgnoresFingerprints
-  - type: Drink
-    delay: 3
-    transferAmount: 0.5
+  - type: MixableSolution
     solution: step
-    examinable: false

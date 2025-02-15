@@ -15,6 +15,14 @@
         - Flashlight
         - ForensicBeltEquip
         - HandLabeler
+        - Sidearm
+        - Folder
+      components:
+        - AnomalyScanner
+        - AnomalyLocatorUnpowered
+        - AnomalyLocatorWideUnpowered
+        - NodeScanner
+        - Flash
 
 - type: entity
   parent: ClothingBeltBase

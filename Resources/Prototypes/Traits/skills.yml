@@ -16,6 +16,7 @@
         - Paramedic
         - ChiefMedicalOfficer
         - Brigmedic
+        - SeniorPhysician
 
 - type: trait
   id: SelfAware
@@ -135,6 +136,7 @@
       traits:
         - Sluggish
         - SnailPaced
+        - BadKnees
     - !type:CharacterSpeciesRequirement
       inverted: true
       species:
@@ -143,10 +145,12 @@
     - !type:TraitReplaceComponent
       components:
         - type: ClimbDelayModifier
-          climbDelayMultiplier: 0.35
-        - type: LayingDownModifier
-          layingDownCooldownMultiplier: 0.5
-          downedSpeedMultiplierMultiplier: 1.65
+          climbDelayMultiplier: 0.5
+        - type: SlippableModifier
+          paralyzeTimeMultiplier: 0.7
+        - type: SpeedModifiedByContactModifier
+          walkModifierEffectiveness: 0.5
+          sprintModifierEffectiveness: 0.5
 
 - type: trait
   id: LightStep
@@ -163,6 +167,7 @@
       inverted: true
       species:
         - Felinid
+        - Tajaran
 
 - type: trait
   id: Singer
@@ -178,6 +183,20 @@
       components:
         - type: Singer
           proto: NormalSinger
+
+- type: trait
+  id: LyreBird
+  category: Auditory
+  points: -10
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Harpy
+  functions:
+    - !type:TraitReplaceComponent
+      components:
+        - type: Singer
+          proto: HarpySingerAll
 
 - type: trait
   id: LatentPsychic
@@ -216,6 +235,8 @@
       inverted: true
       traits:
         - PsionicInsulation
+    - !type:CharacterItemGroupRequirement
+      group: TraitsMachine
 
 - type: trait
   id: PsionicInsulation
@@ -288,12 +309,6 @@
         - !type:CharacterTraitRequirement
           traits:
             - AnomalousPositronics
-    - !type:CharacterLogicOrRequirement
-      requirements:
-        - !type:CharacterSpeciesRequirement
-          inverted: true
-          species:
-            - Shadowkin
 
 - type: trait
   id: TrapAvoider
@@ -314,6 +329,7 @@
       inverted: true
       species:
         - Felinid
+        - Tajaran
         - Harpy
 
 - type: trait

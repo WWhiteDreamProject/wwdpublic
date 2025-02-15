@@ -1,10 +1,10 @@
-using Content.Server.Item;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
+using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.PowerCell.Components;
 

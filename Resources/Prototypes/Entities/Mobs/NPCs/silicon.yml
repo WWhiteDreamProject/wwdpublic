@@ -66,6 +66,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+    - SiliconMob
   - type: MobState
     allowedStates:
       - Alive
@@ -292,6 +293,8 @@
     graph: MediBot
     node: bot
   - type: NoSlip
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-mechanical
   - type: Anchorable
   - type: InteractionPopup
     interactSuccessString: petting-success-medibot

@@ -6,6 +6,7 @@ admin-player-actions-ahelp = Ахелп
 admin-player-actions-respawn = Респавн
 admin-player-actions-spawn = Заспавнить тут
 admin-player-spawn-failed = Не удалось найти подходящие координаты
+admin-player-actions-player-panel = Открыть панель игрока
 
 admin-player-actions-clone = Клонировать
 admin-player-actions-follow = Следовать

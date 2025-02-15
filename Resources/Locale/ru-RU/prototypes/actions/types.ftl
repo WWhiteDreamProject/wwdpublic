@@ -48,3 +48,12 @@ ent-ActionToggleEyes = Открыть/закрыть глаза
     .desc = Закройте глаза, чтобы защитить их, или откройте, чтобы насладиться яркими цветами.
 ent-ActionToggleWagging = action-name-toggle-wagging
     .desc = action-description-toggle-wagging
+
+ent-ToggleNightVision = Переключить ночное зрение
+    .desc = Переключает ночное зрение.
+
+ent-ToggleThermalVision = Переключить тепловизионное зрение
+    .desc = Переключает тепловизионное зрение.
+
+ent-PulseThermalVision = Подать термальный импульт
+    .desc = Временно активируйте тепловизионное зрение.

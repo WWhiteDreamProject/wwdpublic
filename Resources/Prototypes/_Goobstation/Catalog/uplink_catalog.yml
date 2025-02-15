@@ -1,0 +1,38 @@
+# Mechs
+
+- type: listing
+  id: UplinkDarkGygax
+  name: uplink-mech-teleporter-assault-name
+  description: uplink-mech-teleporter-assault-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: darkgygax }
+  productEntity: CrateCybersunDarkGygaxBundle
+  # WD EDIT START
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 16
+  # WD EDIT END
+  cost:
+    Telecrystal: 80 # Einstein Engines -  1/5th the price due to no telecrystal rework
+  categories:
+  - UplinkAllies
+
+- type: listing
+  id: UplinkMauler
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: mauler }
+  productEntity: CrateCybersunMaulerBundle
+  # WD EDIT START
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 26
+  # WD EDIT END
+  cost:
+    Telecrystal: 130 # WD EDIT
+  categories:
+  - UplinkAllies
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink

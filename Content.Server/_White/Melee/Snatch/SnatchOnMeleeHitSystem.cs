@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Server.Hands.Systems;
-using Content.Server.Item;
 using Content.Shared.Hands.Components;
+using Content.Shared.Item.ItemToggle;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Server._White.Melee.Snatch;
