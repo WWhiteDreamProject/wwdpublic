@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Content.Shared.Light.Components;
+namespace Content.Shared._White.Light.Components;
 
 [RegisterComponent]
 public sealed partial class RotatePointLightComponent : Component
