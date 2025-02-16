@@ -48,6 +48,7 @@ public sealed class WieldableSystem : EntitySystem
         SubscribeLocalEvent<WieldableComponent, GetVerbsEvent<InteractionVerb>>(AddToggleWieldVerb);
         SubscribeLocalEvent<WieldableComponent, GetVerbsEvent<AlternativeVerb>>(AddAltWieldVerb); // WD EDIT
         SubscribeLocalEvent<WieldableComponent, HandDeselectedEvent>(OnDeselectWieldable);
+        SubscribeLocalEvent<WieldableComponent, HandSelectedEvent>(OnSelectWieldable); // WWDP EDIT
 
         SubscribeLocalEvent<MeleeRequiresWieldComponent, AttemptMeleeEvent>(OnMeleeAttempt);
         SubscribeLocalEvent<GunRequiresWieldComponent, ExaminedEvent>(OnExamineRequires);
@@ -107,7 +108,18 @@ public sealed class WieldableSystem : EntitySystem
 
         TryUnwield(uid, component, args.User);
     }
+    
+	// WWDP EDIT START
+    private void OnSelectWieldable(EntityUid uid, WieldableComponent component, HandSelectedEvent args)
+    {
+        if (component.Wielded || // that's weird, but whatever
+            component.AutoWield && _handsSystem.EnumerateHands(args.User).Count() > 2)
+            return;
 
+        TryWield(uid, component, args.User, false, true);
+    }
+	// WWDP EDIT END
+	
     private void OnGunRefreshModifiers(Entity<GunWieldBonusComponent> bonus, ref GunRefreshModifiersEvent args)
     {
         if (TryComp(bonus, out WieldableComponent? wield) &&
@@ -152,7 +164,7 @@ public sealed class WieldableSystem : EntitySystem
             Text = component.Wielded ? Loc.GetString("wieldable-verb-text-unwield") : Loc.GetString("wieldable-verb-text-wield"),
             Act = component.Wielded
                 ? () => TryUnwield(uid, component, args.User)
-                : () => TryWield(uid, component, args.User)
+                : () => TryWield(uid, component, args.User, true) // WWDP EDIT
         };
 
         args.Verbs.Add(verb);
@@ -196,12 +208,12 @@ public sealed class WieldableSystem : EntitySystem
             return;
 
         if (!component.Wielded)
-            args.Handled = TryWield(uid, component, args.User);
+            args.Handled = TryWield(uid, component, args.User, true); // WWDP EDIT
         else if (component.UnwieldOnUse)
             args.Handled = TryUnwield(uid, component, args.User);
     }
 
-    public bool CanWield(EntityUid uid, WieldableComponent component, EntityUid user, bool quiet = false)
+    public bool CanWield(EntityUid uid, WieldableComponent component, EntityUid user, bool quiet = false, bool canFreeHands = false) // WWDP EDIT
     {
         // Do they have enough hands free?
         if (!EntityManager.TryGetComponent<HandsComponent>(user, out var hands))
@@ -219,7 +231,14 @@ public sealed class WieldableSystem : EntitySystem
             return false;
         }
 
-        if (_handsSystem.CountFreeableHands((user, hands)) < component.FreeHandsRequired)
+        // WWDP EDIT START
+        int availableHands = 0;
+        if (canFreeHands)
+            availableHands = _handsSystem.CountFreeableHands((user, hands));
+        else
+            availableHands = _handsSystem.EnumerateHands(user, hands).Where(hand => hand.IsEmpty).Count();
+
+        if (availableHands < component.FreeHandsRequired) // WWDP EDIT END
         {
             if (!quiet)
             {
@@ -238,9 +257,9 @@ public sealed class WieldableSystem : EntitySystem
     ///     Attempts to wield an item, starting a UseDelay after.
     /// </summary>
     /// <returns>True if the attempt wasn't blocked.</returns>
-    public bool TryWield(EntityUid used, WieldableComponent component, EntityUid user)
+    public bool TryWield(EntityUid used, WieldableComponent component, EntityUid user, bool dropOthers = false, bool quietFail = false, bool wieldPopup = true) // WWDP EDIT
     {
-        if (!CanWield(used, component, user))
+        if (!CanWield(used, component, user, quietFail, dropOthers)) // WWDP EDIT
             return false;
 
         var ev = new BeforeWieldEvent();
@@ -255,10 +274,13 @@ public sealed class WieldableSystem : EntitySystem
             _itemSystem.SetHeldPrefix(used, component.WieldedInhandPrefix, component: item);
         }
 
-        component.Wielded = true;
 
         if (component.WieldSound != null)
             _audioSystem.PlayPredicted(component.WieldSound, used, user);
+
+        if (TryComp(used, out UseDelayComponent? useDelay)
+            && !_delay.TryResetDelay((used, useDelay), true))
+            return false;
 
         //This section handles spawning the virtual item(s) to occupy the required additional hand(s).
         //Since the client can't currently predict entity spawning, only do this if this is running serverside.
@@ -268,7 +290,7 @@ public sealed class WieldableSystem : EntitySystem
             var virtuals = new List<EntityUid>();
             for (var i = 0; i < component.FreeHandsRequired; i++)
             {
-                if (_virtualItemSystem.TrySpawnVirtualItemInHand(used, user, out var virtualItem, true))
+                if (_virtualItemSystem.TrySpawnVirtualItemInHand(used, user, out var virtualItem, dropOthers)) // WWDP EDIT
                 {
                     virtuals.Add(virtualItem.Value);
                     continue;
@@ -281,20 +303,22 @@ public sealed class WieldableSystem : EntitySystem
             }
         }
 
-        if (TryComp(used, out UseDelayComponent? useDelay)
-            && !_delay.TryResetDelay((used, useDelay), true))
-            return false;
 
-        var selfMessage = Loc.GetString("wieldable-component-successful-wield", ("item", used));
-        var othersMessage = Loc.GetString("wieldable-component-successful-wield-other", ("user", Identity.Entity(user, EntityManager)), ("item", used));
-        _popupSystem.PopupPredicted(selfMessage, othersMessage, user, user);
-
+        component.Wielded = true;
         component.User = user; // WWDP
 
         var targEv = new ItemWieldedEvent();
         RaiseLocalEvent(used, ref targEv);
-
         Dirty(used, component);
+
+        // WWDP EDIT START
+        if (!wieldPopup)
+            return true;
+
+        var selfMessage = Loc.GetString("wieldable-component-successful-wield", ("item", used));
+        var othersMessage = Loc.GetString("wieldable-component-successful-wield-other", ("user", Identity.Entity(user, EntityManager)), ("item", used));
+        _popupSystem.PopupPredicted(selfMessage, othersMessage, user, user);
+        // WWDP EDIT END
         return true;
     }
 
