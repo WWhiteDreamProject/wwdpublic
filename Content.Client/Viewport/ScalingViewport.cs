@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Numerics;
+using Content.Shared.Input;
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.UserInterface;
@@ -24,6 +26,7 @@ namespace Content.Client.Viewport
         [Dependency] private readonly IClyde _clyde = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IInputManager _inputManager = default!;
+
 
         // Internal viewport creation is deferred.
         private IClydeViewport? _viewport;
@@ -123,6 +126,37 @@ namespace Content.Client.Viewport
             IoCManager.InjectDependencies(this);
             RectClipContent = true;
         }
+
+		// WWDP EDIT START
+        protected override void MouseWheel(GUIMouseWheelEventArgs args)
+        {
+            base.MouseWheel(args);
+
+            if (args.Handled)
+                return;
+            
+            var key = args.Delta.Y > 0 ? ContentKeyFunctions.MouseWheelUp : ContentKeyFunctions.MouseWheelDown;
+
+            var argsDown = new GUIBoundKeyEventArgs(key,
+                                                    Robust.Shared.Input.BoundKeyState.Down,
+                                                    args.GlobalPixelPosition,
+                                                    false,
+                                                    args.RelativePosition,
+                                                    args.RelativePixelPosition);
+            var argsUp = new GUIBoundKeyEventArgs(key,
+                                                    Robust.Shared.Input.BoundKeyState.Up,
+                                                    args.GlobalPixelPosition,
+                                                    false,
+                                                    args.RelativePosition,
+                                                    args.RelativePixelPosition);
+            float count = MathF.Abs(args.Delta.Y);
+            for (int i = 0; i < count; i++)
+            {
+                _inputManager.ViewportKeyEvent(this, argsDown); // thanks robust toolbox
+                _inputManager.ViewportKeyEvent(this, argsUp);   // very cool
+            }
+        }
+        // WWDP EDIT END
 
         protected override void KeyBindDown(GUIBoundKeyEventArgs args)
         {
