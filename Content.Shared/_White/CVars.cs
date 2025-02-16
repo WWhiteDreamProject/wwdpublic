@@ -74,4 +74,7 @@ public sealed class WhiteCVars
         CVarDef.Create("tts.announce_voice", "Announcer", CVar.SERVERONLY | CVar.ARCHIVE);
 
     #endregion
+
+    public static readonly CVarDef<bool> PixelSnapCamera =
+    CVarDef.Create("experimental.pixel_snap_camera", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 }
