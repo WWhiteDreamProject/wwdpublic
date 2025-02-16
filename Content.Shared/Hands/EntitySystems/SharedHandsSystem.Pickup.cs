@@ -225,9 +225,6 @@ public abstract partial class SharedHandsSystem : EntitySystem
             Log.Error($"Failed to insert {ToPrettyString(entity)} into users hand container when picking up. User: {ToPrettyString(uid)}. Hand: {hand.Name}.");
             return;
         }
-	
-        if (TryComp<RotatePointLightComponent>(entity, out var rotcomp))	// WWDP EDIT
-            _transform.SetLocalRotation(entity, -rotcomp.Angle);			// WWDP EDIT
 
         _adminLogger.Add(LogType.Pickup, LogImpact.Low, $"{ToPrettyString(uid):user} picked up {ToPrettyString(entity):entity}");
 
