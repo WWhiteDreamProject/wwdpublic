@@ -1,0 +1,1 @@
+ui-options-function-precise-drop = Положить предмет с поворотом

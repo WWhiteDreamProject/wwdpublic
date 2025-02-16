@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared.Examine;
+using Content.Shared._White.Hands.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Input;

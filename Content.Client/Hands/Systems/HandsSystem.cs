@@ -1,8 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Client._White.Hands;
+using Content.Shared._White.Hands.Components;
 using Content.Client.DisplacementMap;
 using Content.Client.Examine;
-using Content.Client.Hands;
 using Content.Client.Hands.Systems;
 using Content.Client.Strip;
 using Content.Client.Verbs.UI;

@@ -142,7 +142,6 @@ ui-options-function-alt-activate-item-in-hand = Альтернативно ис�
 ui-options-function-activate-item-in-world = Использовать предмет в мире
 ui-options-function-alt-activate-item-in-world = Альтернативно использовать предмет в мире
 ui-options-function-drop = Положить предмет
-ui-options-function-precise-drop = Положить предмет с поворотом
 ui-options-function-examine-entity = Изучить
 ui-options-function-swap-hands = Поменять руки
 ui-options-function-move-stored-item = Переместить хранящийся объект

@@ -4,7 +4,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Hands.Components;
+namespace Content.Shared._White.Hands.Components;
 
 
 // paranoidal component networking:

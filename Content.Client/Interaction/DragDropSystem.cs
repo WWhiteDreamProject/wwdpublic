@@ -8,7 +8,7 @@ using Content.Shared.DragDrop;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
-using Content.Shared.RenderOrderSystem;
+using Content.Shared._White.RenderOrderSystem;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -43,7 +43,7 @@ public sealed class DragDropSystem : SharedDragDropSystem
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedRenderOrderSystem _renderOrder = default!;
+    [Dependency] private readonly SharedRenderOrderSystem _renderOrder = default!; // WWDP
 
     // how often to recheck possible targets (prevents calling expensive
     // check logic each update)
@@ -476,8 +476,7 @@ public sealed class DragDropSystem : SharedDragDropSystem
                 continue;
 
             highlightedSprite.PostShader = null;
-            _renderOrder.UnsetRenderOrder(highlightedSprite.Owner, "DragDropSystem");
-            //highlightedSprite.RenderOrder = 0;
+            _renderOrder.UnsetRenderOrder(highlightedSprite.Owner, nameof(DragDropSystem)); // WWDP
         }
 
         _highlightedSprites.Clear();
