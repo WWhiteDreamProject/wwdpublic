@@ -1,13 +1,13 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
-  - Asterisk
-  - Pebble
-  - Shoukou
-  - Meta
-  - Box
-  - Lambda
-  - Bagel
+  # - Asterisk # De-rotated, no current maintainer.
+  - Pebble # Plyushsune is the current maintainer.
+  - Shoukou # Maintained by Violet, pending update.
+  - Meta # Maintained by Estacao Pirata
+  - Box # Maintained by Estacao Pirata
+  - Lambda # Maintained by Estacao Pirata
+  - Bagel # Maintained by Estacao Pirata
   # WD EDIT START - white dream maps
   - DryDock
   - Moose
