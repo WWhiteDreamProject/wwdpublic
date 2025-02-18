@@ -26,11 +26,6 @@
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: false
-  - type: Appearance
   - type: StaticPrice
     price: 500
   - type: MeleeWeapon
@@ -99,8 +94,8 @@
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
           tags:
-          - PowerCell
-          - PowerCellSmall
+            - PowerCell
+            - PowerCellSmall
   - type: Appearance
   - type: StaticPrice
     price: 500
@@ -222,7 +217,7 @@
 
 - type: entity
   name: retro laser blaster
-  parent: [BaseWeaponBatterySmall, BaseMajorContraband] # wwdp edit - overheat
+  parent: [ BaseWeaponBatterySmall, BaseMajorContraband ]
   id: WeaponLaserGun
   description: A weapon using light amplified by the stimulated emission of radiation. Widely used before the paradigm shift to higher capacity but less reliable power sources, it relies on the user's mastery over the art of shooting.
   components:
@@ -235,21 +230,19 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   # WD EDIT START: Projectile > Hitscan
-  - type: ProjectileBatteryAmmoProvider # WWDP
-    proto: BulletLaser # WWDP
-    fireCost: 100 # wwdp
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaser
+    fireCost: 100
   # WD EDIT END
   - type: MagazineVisuals
     magState: mag
     steps: 5
     zeroVisible: true
   - type: Appearance
-  # no gunflux component since this is a "ye olde" gun
-
 
 - type: entity
   name: makeshift laser pistol
-  parent: [BaseWeaponBatterySmall, BaseWeaponFluxSmall] # wwdp edit - overheat
+  parent: [BaseWeaponBatterySmall, BaseWeaponFluxSmall] # WD EDIT - BaseWeaponFluxSmall
   id: WeaponMakeshiftLaser
   description: Better pray it won't burn your hands off.
   components:
@@ -261,6 +254,11 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
   # WD EDIT START: Projectile > Hitscan
@@ -281,18 +279,18 @@
 
 - type: entity
   name: tesla gun
-  parent: [BaseWeaponBattery, BaseWeaponFlux] # wwdp
+  parent: [BaseWeaponBattery, BaseWeaponFlux] # WD EDIT - BaseWeaponFlux
   id: WeaponTeslaGun
   description: The power of the primordial element of lightning in your hands.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/tesla_gun.rsi
     layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
   - type: Gun
     projectileSpeed: 10
     soundGunshot:
@@ -307,7 +305,7 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
-  # WD EDIT START: Guns resize
+  # WD EDIT START - Guns resize
   - type: Item
     size: Huge
     shape:
@@ -316,9 +314,9 @@
 
 - type: entity
   name: practice laser rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponFlux] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponFlux] # WD EDIT - BaseWeaponFlux
   id: WeaponLaserCarbinePractice
-  description: This modified laser rifle fires (nearly) harmless beams in the 40-watt range, for target practice.
+  description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
@@ -328,21 +326,21 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: Battery
-    maxCharge: 2000
-    startingCharge: 2000
-  - type: GunFlux # wwdp
-    heatCost: 0.1
   # WD EDIT START: Projectile > Hitscan
-  - type: ProjectileBatteryAmmoProvider # WWDP
-    proto: BulletLaserPractice # WWDP
-    fireCost: 6.25 # wwdp edit
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserPractice
+    fireCost: 6.25
   # WD EDIT END
   - type: StaticPrice
     price: 300
@@ -350,7 +348,14 @@
     damage:
       types:
         Blunt: 4
-  - type: Item # WWDP guns resize
+  # WD EDIT START
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: GunFlux
+    heatCost: 0.1
+  # Guns resize
+  - type: Item
     size: Huge
     shape:
     - 0,0,7,1
@@ -374,7 +379,7 @@
 
 - type: entity
   name: pulse pistol
-  parent: [BaseWeaponBatterySmall, BaseWeaponFluxSmall]
+  parent: [BaseWeaponBatterySmall, BaseWeaponFluxSmall] # WD EDIT - BaseWeaponFluxSmall
   id: WeaponPulsePistol
   description: A state of the art energy pistol favoured as a sidearm by the NT operatives.
   components:
@@ -386,6 +391,11 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
   - type: Gun
@@ -399,9 +409,8 @@
     proto: BulletPulse
     fireCost: 100
   # WD EDIT END
-  - type: Battery
-    maxCharge: 3000 # WWDP
-    startingCharge: 3000 # WWDP
+    maxCharge: 3000 # WD EDIT: 2000 -> 3000
+    startingCharge: 3000 # WD EDIT: 2000 -> 3000
 
 - type: entity
   name: antique pulse pistol
@@ -423,7 +432,7 @@
 
 - type: entity
   name: pulse carbine
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband, BaseWeaponFlux] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband, BaseWeaponFlux] # WD WDIT - BaseWeaponFlux
   id: WeaponPulseCarbine
   description: A high tech energy carbine favoured by the NT-ERT operatives.
   components:
@@ -435,14 +444,19 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
   - type: Gun
     selectedMode: SemiAuto
     fireRate: 3
     availableModes:
-    - SemiAuto
-    - FullAuto
+      - SemiAuto
+      - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   # WD EDIT START: Projectile > Hitscan
@@ -451,9 +465,10 @@
     fireCost: 100
   # WD EDIT END
   - type: Battery
-    maxCharge: 6000 # wwdp
-    startingCharge: 6000 # wwdp
-  - type: Item # WWDP guns resize
+    maxCharge: 6000 # WD EDIT: 5000 -> 6000
+    startingCharge: 6000 # WD EDIT: 5000 -> 6000
+  # WD EDIT START - Gun resize
+  - type: Item
     size: Huge
     shape:
     - 0,0,5,1
@@ -461,7 +476,7 @@
 
 - type: entity
   name: pulse rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponFlux] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponFlux] # WD EDIT - BaseWeaponFlux
   id: WeaponPulseRifle
   description: A weapon that is almost as infamous as its users.
   components:
@@ -473,6 +488,11 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
   - type: Gun
@@ -480,9 +500,9 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   # WD EDIT START: Projectile > Hitscan
-  - type: ProjectileBatteryAmmoProvider # WWDP
-    proto: BulletPulse # WWDP
-    fireCost: 75 # wwdp edit
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletPulse
+    fireCost: 75
   # WD EDIT END
   - type: Battery
     maxCharge: 40000
@@ -490,7 +510,8 @@
   # WD EDIT START
   - type: GunFlux
     heatCost: 1
-  - type: Item # Guns resize
+  # Guns resize
+  - type: Item
     size: Huge
     shape:
     - 0,0,5,1
@@ -532,13 +553,12 @@
     bluntStaminaDamageFactor: 1.3333
   - type: DamageOtherOnHit
     staminaCost: 9.5
-  # WD EDIT START: guns resize
+  # WD EDIT START - Guns resize
   - type: Item
     size: Huge
     shape:
     - 0,0,7,1
   # WD EDIT END
-
 
 - type: entity
   name: portable particle decelerator
@@ -546,50 +566,50 @@
   id: WeaponParticleDecelerator
   description: A portable particle decelerator capable of decomposing a tesla or singularity.
   components:
-  - type: Item
-    size: Ginormous
-  - type: MultiHandedItem
-  - type: ClothingSpeedModifier
-    walkModifier: 0.6
-    sprintModifier: 0.6
-  - type: HeldSpeedModifier
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/particle_decelerator.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-  - type: Gun
-    fireRate: 0.5
-    soundGunshot:
-      path: /Audio/Weapons/emitter.ogg
-      params:
-        pitch: 2
-  - type: ProjectileBatteryAmmoProvider
-    proto: AntiParticlesProjectile
-    fireCost: 500
-  - type: Battery
-    maxCharge: 10000
-    startingCharge: 10000
-  - type: MeleeWeapon
-    attackRate: 1.6
-    damage: # This is super expensive, low attack rate, slows down the user and high stam cost so it can be high
-      types:
-        Blunt: 34
-        Structural: 10
-    swapKeys: false
-    disableHeavy: false
-    disableClick: true
-    bluntStaminaDamageFactor: 1.5
-    heavyRateModifier: 1.0
-    heavyDamageBaseModifier: 1.0
-    heavyStaminaCost: 21
-    wideAnimationRotation: 270
-  - type: DamageOtherOnHit
-    staminaCost: 48
+    - type: Item
+      size: Ginormous
+    - type: MultiHandedItem
+    - type: ClothingSpeedModifier
+      walkModifier: 0.6
+      sprintModifier: 0.6
+    - type: HeldSpeedModifier
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Battery/particle_decelerator.rsi
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+    - type: Gun
+      fireRate: 0.5
+      soundGunshot:
+        path: /Audio/Weapons/emitter.ogg
+        params:
+          pitch: 2
+    - type: ProjectileBatteryAmmoProvider
+      proto: AntiParticlesProjectile
+      fireCost: 500
+    - type: Battery
+      maxCharge: 10000
+      startingCharge: 10000
+    - type: MeleeWeapon
+      attackRate: 1.6
+      damage: # This is super expensive, low attack rate, slows down the user and high stam cost so it can be high
+        types:
+          Blunt: 34
+          Structural: 10
+      swapKeys: false
+      disableHeavy: false
+      disableClick: true
+      bluntStaminaDamageFactor: 1.5
+      heavyRateModifier: 1.0
+      heavyDamageBaseModifier: 1.0
+      heavyStaminaCost: 21
+      wideAnimationRotation: 270
+    - type: DamageOtherOnHit
+      staminaCost: 48
 
 - type: entity
   name: x-ray cannon
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband, BaseWeaponFlux] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband, BaseWeaponFlux] # WD EDIT - BaseWeaponFlux
   id: WeaponXrayCannon
   description: An experimental weapon that uses concentrated x-ray energy against its target.
   components:
@@ -606,9 +626,6 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: Battery
-    maxCharge: 2000
-    startingCharge: 2000
   # WD EDIT START: Projectile > Hitscan
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletXRay # WWDP
@@ -620,9 +637,13 @@
     zeroVisible: true
   - type: Appearance
   # WD EDIT START
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
   - type: GunFlux
     heatCost: 1.2
-  - type: Item # Guns resize
+  # Guns resize
+  - type: Item
     size: Huge
     shape:
     - 0,0,7,1
@@ -630,7 +651,7 @@
 
 - type: entity
   name: practice disabler
-  parent: [BaseWeaponBatterySmall, BaseWeaponFluxSmall]
+  parent: [BaseWeaponBatterySmall, BaseWeaponFluxSmall] # WD EDIT - BaseWeaponFluxSmall
   id: WeaponDisablerPractice
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for cadets making it mostly harmless.
   components:
@@ -663,17 +684,19 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
     fireCost: 12.5 # WD EDIT: 50 -> 12.5
-  - type: GunFlux
-    heatCost: 0.2
+  - type: Tag
+    tags:
+    - Taser
+    - Sidearm
   - type: MeleeWeapon
     damage:
       types:
         Blunt: 3
     bluntStaminaDamageFactor: 1.0
-  - type: Tag
-    tags:
-    - Taser
-    - Sidearm
+  # WD EDIT START
+  - type: GunFlux
+    heatCost: 0.2
+  # WD EDIT END
 
 - type: entity
   name: disabler
@@ -684,20 +707,24 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/disabler.rsi
     layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-0
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/disabler.rsi
     quickEquip: false
     slots:
-    - suitStorage
-    - Belt
+      - suitStorage
+      - Belt
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 20 # WD EDIT: 50 -> 20
+  - type: GuideHelp
+    guides:
+    - Security
+    - Antagonists
   - type: MeleeWeapon
     damage:
       types:
@@ -709,10 +736,6 @@
     - Taser
     - Sidearm
     - WeaponDisabler
-  - type: GuideHelp
-    guides:
-    - Security
-    - Antagonists
   # WD EDIT START
   - type: GunFlux
     heatCost: 0.5
@@ -808,27 +831,27 @@
 
 - type: entity
   name: disabler SMG
-  parent: [BaseWeaponBattery, BaseRestrictedContraband, BaseWeaponFlux, BaseGunWieldable] # wwdp edit - overheat + wieldable
+  parent: [ BaseWeaponBattery, BaseRestrictedContraband, BaseWeaponFlux, BaseGunWieldable] # WD EDIT - BaseWeaponFlux, BaseGunWieldable
   id: WeaponDisablerSMG
   description: Advanced weapon that exhausts organic targets, weakening them until they collapse.
   components:
   - type: Item
     size: Large
-    # WD EDIT START: Guns resize
+    # WD EDIT START - Guns resize
     shape:
     - 0,0,5,1
     # WD EDIT END
   - type: Tag
     tags:
-    - Taser
+      - Taser
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/disabler_smg.rsi
     layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-0
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
   - type: Gun
     # WD EDIT START
     bonusAngleIncreaseTurn: 0.3
@@ -842,16 +865,10 @@
     selectedMode: FullAuto
     fireRate: 4.5
     availableModes:
-    - SemiAuto
-    - FullAuto
+      - SemiAuto
+      - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: GunWieldBonus # WWDP
-    minAngle: -10
-    maxAngle: -10
-  - type: Battery
-    maxCharge: 2500
-    startingCharge: 2500
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
     fireCost: 25
@@ -859,6 +876,7 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: Appearance
   - type: StaticPrice
     price: 260
   - type: MeleeWeapon
@@ -867,6 +885,14 @@
         Blunt: 6.5
     bluntStaminaDamageFactor: 2.5
     wideAnimationRotation: 180
+  # WD EDIT START
+  - type: GunWieldBonus
+    minAngle: -10
+    maxAngle: -10
+  - type: Battery
+    maxCharge: 2500
+    startingCharge: 2500
+  # WD EDIT END
 
 - type: entity
   name: taser
@@ -906,7 +932,7 @@
 
 - type: entity
   name: antique laser pistol
-  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband, BaseWeaponFlux] # wwdp edit - overheat
+  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband, BaseWeaponFlux] # WD EDIT - BaseWeaponFlux
   id: WeaponAntiqueLaser
   description: This is an antique laser pistol. All craftsmanship is of the highest quality. It is decorated with a mahogany grip and chrome filigree. The object menaces with spikes of energy. On the item is an image of a captain and a clown. The clown is dead. The captain is striking a heroic pose.
   components:
@@ -945,6 +971,10 @@
     price: 750
   - type: StealTarget
     stealGroup: WeaponAntiqueLaser
+  - type: SentienceTarget # I hope this is only the captain's gun
+    flavorKind: station-event-random-sentience-flavor-inanimate
+    weight: 0.0002 # 5,000 times less likely than 1 regular animal
+    # not putting a BlockMovement component here cause that's funny.
   - type: MeleeWeapon
     attackRate: 1.3333
     damage:
@@ -954,16 +984,14 @@
     wideAnimationRotation: 135
   - type: DamageOtherOnHit
     staminaCost: 5
-  - type: SentienceTarget # I hope this is only the captain's gun
-    flavorKind: station-event-random-sentience-flavor-inanimate
-    weight: 0.0002 # 5,000 times less likely than 1 regular animal
-    # not putting a BlockMovement component here cause that's funny.
-  - type: GunFlux # wwdp
+  # WD EDIT START
+  - type: GunFlux
     heatCost: 1
+  # WD EDIT END
 
 - type: entity
   name: advanced laser pistol
-  parent: [BaseWeaponBatterySmall, BaseRestrictedContraband, BaseWeaponFlux] # wwdp edit - overheat
+  parent: [ BaseWeaponBatterySmall, BaseRestrictedContraband, BaseWeaponFlux] # WD EDIT - BaseWeaponFlux
   id: WeaponAdvancedLaser
   description: An experimental high-energy laser pistol with a self-charging nuclear battery.
   components:
@@ -1092,28 +1120,28 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 40
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-  - type: Appearance
   - type: StaticPrice
     price: 750
 
 - type: entity
   name: energy shotgun
-  parent: [BaseWeaponBattery, BaseWeaponFlux, BaseGunWieldable, BaseGrandTheftContraband] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseGrandTheftContraband, BaseWeaponFlux] # WD EDIT - BaseWeaponFlux
   id: WeaponEnergyShotgun
   description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
     layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
   - type: Gun
@@ -1133,7 +1161,7 @@
     - proto: BulletDisablerSmgSpread
       fireCost: 120
   - type: Item
-    # WD EDIT START: Guns resize
+    # WD EDIT START - Guns resize
     size: Huge
     shape:
     - 0,0,7,1
