@@ -12,6 +12,8 @@
     - Energy
     reflectProb: 0.2
     spread: 90
+  - type: RadiationBlockingContainer
+    resistance: 2.5
   - type: DamageOtherOnHit
     damage:
       types:
@@ -226,12 +228,12 @@
   id: CrateChemistrySecure
   name: secure chemistry crate
   components:
-  - type: Icon
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
-  - type: Sprite
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
-  - type: AccessReader
-    access: [["Chemistry"]]
+    - type: Icon
+      sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+    - type: Sprite
+      sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+    - type: AccessReader
+      access: [["Chemistry"]]
 
 - type: entity
   parent: CrateBaseSecure
@@ -284,10 +286,10 @@
   id: CrateSecure
   name: secure crate
   components:
-  - type: Icon
-    sprite: Structures/Storage/Crates/secure.rsi
-  - type: Sprite
-    sprite: Structures/Storage/Crates/secure.rsi
+    - type: Icon
+      sprite: Structures/Storage/Crates/secure.rsi
+    - type: Sprite
+      sprite: Structures/Storage/Crates/secure.rsi
 
 - type: entity
   parent: CrateBaseSecure
