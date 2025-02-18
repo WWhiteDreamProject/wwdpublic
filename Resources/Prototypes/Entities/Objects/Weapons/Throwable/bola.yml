@@ -28,7 +28,7 @@
 
 - type: entity
   id: Bola
-  parent: [BaseBola, BaseRestrictedContraband]
+  parent: [BaseBola, BaseSecurityContraband]
   name: bola
   description: Linked together with some spare cuffs and metal.
   components:
@@ -64,7 +64,7 @@
 
 - type: entity
   id: BolaEnergy
-  parent: [ BaseBola, BaseRestrictedContraband ]
+  parent: [ BaseBola, BaseSecurityContraband ]
   name: energy bola
   description: An advanced hardlight criminal entangling tool. Otherwise known as an expensive piece of string.
   components:

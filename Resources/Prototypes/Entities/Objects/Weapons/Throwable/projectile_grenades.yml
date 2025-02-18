@@ -28,7 +28,7 @@
   - type: Ammo # WD EDIT
 
 - type: entity
-  parent: [ProjectileGrenadeBase, BaseRestrictedContraband]
+  parent: [ProjectileGrenadeBase, BaseSecurityContraband]
   id: GrenadeStinger
   name: stinger grenade
   description: Nothing to see here, please disperse.

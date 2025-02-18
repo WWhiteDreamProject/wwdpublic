@@ -215,7 +215,7 @@
 
 - type: entity
   name: Drozd
-  parent: [BaseWeaponSubMachineGun, BaseRestrictedContraband, BaseGunWieldable] # WD EDIT: BaseGunWieldable
+  parent: [BaseWeaponSubMachineGun, BaseSecurityContraband, BaseGunWieldable] # WD EDIT: BaseGunWieldable
   id: WeaponSubMachineGunDrozd
   description: An excellent fully automatic Heavy SMG.
   components:
@@ -277,7 +277,7 @@
 
 - type: entity
   name: WT550
-  parent: [BaseWeaponSubMachineGun, BaseRestrictedContraband, BaseGunWieldable] # WD EDIT: BaseGunWieldable
+  parent: [BaseWeaponSubMachineGun, BaseSecurityContraband, BaseGunWieldable] # WD EDIT: BaseGunWieldable
   id: WeaponSubMachineGunWt550
   description: An excellent SMG, produced by NanoTrasen's Small Arms Division. Uses .35 auto ammo.
   components:

@@ -188,7 +188,7 @@
 # Secure Crates
 
 - type: entity
-  parent: [ CrateBaseSecure, BaseRestrictedContraband ]
+  parent: [ CrateBaseSecure, BaseSecurityContraband ]
   id: CrateSecgear
   name: secgear crate
   components:
@@ -228,12 +228,12 @@
   id: CrateChemistrySecure
   name: secure chemistry crate
   components:
-    - type: Icon
-      sprite: Structures/Storage/Crates/chemcrate_secure.rsi
-    - type: Sprite
-      sprite: Structures/Storage/Crates/chemcrate_secure.rsi
-    - type: AccessReader
-      access: [["Chemistry"]]
+  - type: Icon
+    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+  - type: AccessReader
+    access: [["Chemistry"]]
 
 - type: entity
   parent: CrateBaseSecure
@@ -286,10 +286,10 @@
   id: CrateSecure
   name: secure crate
   components:
-    - type: Icon
-      sprite: Structures/Storage/Crates/secure.rsi
-    - type: Sprite
-      sprite: Structures/Storage/Crates/secure.rsi
+  - type: Icon
+    sprite: Structures/Storage/Crates/secure.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/secure.rsi
 
 - type: entity
   parent: CrateBaseSecure
@@ -316,7 +316,7 @@
     access: [["Armory"]]
 
 - type: entity
-  parent: [ CrateBaseSecureReinforced, BaseRestrictedContraband ]
+  parent: [ CrateBaseSecureReinforced, BaseSecurityContraband ]
   suffix: Armory, Secure, Reinforced
   id: CrateContrabandStorageSecure
   name: contraband storage crate
