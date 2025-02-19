@@ -23,6 +23,10 @@
     - Belt
   - type: AmmoCounter
   - type: Gun
+    bonusAngleIncreaseMove: 20    # wwdp
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 45           # wwdp
+    maxBonusAngle: 10             # wwdp
     selectedMode: SemiAuto
     fireRate: 1.5
     availableModes:

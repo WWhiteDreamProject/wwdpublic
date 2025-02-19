@@ -15,7 +15,11 @@
     - Back
     - suitStorage
   - type: AmmoCounter
-  - type: Gun
+  - type: Gun # if changing also update WeaponDisablerSMG
+    bonusAngleIncreaseMove: 20    # wwdp
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 50           # wwdp
+    maxBonusAngle: 10             # wwdp
     minAngle: 2
     maxAngle: 16
     fireRate: 8

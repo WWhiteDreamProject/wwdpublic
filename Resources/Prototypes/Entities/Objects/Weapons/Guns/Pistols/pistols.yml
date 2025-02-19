@@ -26,6 +26,10 @@
     - suitStorage
     - Belt
   - type: Gun
+    bonusAngleIncreaseMove: 20    # wwdp
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 80           # wwdp
+    maxBonusAngle: 10             # wwdp
     fireRate: 6
     selectedMode: SemiAuto
     availableModes:

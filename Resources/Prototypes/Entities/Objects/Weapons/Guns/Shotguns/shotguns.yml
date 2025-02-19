@@ -19,7 +19,11 @@
     - Back
     - suitStorage
   - type: AmmoCounter
-  - type: Gun
+  - type: Gun # change WeaponShotgunBulldog too if updating this
+    bonusAngleIncreaseMove: 40    # wwdp 
+    bonusAngleIncreaseTurn: 0.25  # wwdp
+    bonusAngleDecay: 40           # wwdp
+    maxBonusAngle: 20             # wwdp
     fireRate: 2
     selectedMode: SemiAuto
     availableModes:
@@ -65,9 +69,25 @@
     staminaCost: 9.5
   - type: GunRequiresWield # WD EDIT
 
+- type: entity # supposed to be similiar to pistols
+  name: BaseWeaponShotgunSmall
+  parent: BaseWeaponShotgun
+  id: BaseWeaponShotgunSmall
+
+  description: A rootiny tootiny point and shootiny.
+  abstract: true
+  components:
+  - type: Gun # change WeaponFlareGun too if updating this 
+    bonusAngleIncreaseMove: 20    # wwdp 
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 80           # wwdp
+    maxBonusAngle: 10             # wwdp
+    fireRate: 2
+  
+
 - type: entity
   name: Bulldog
-  # Don't parent to BaseWeaponShotgun because it differs significantly
+  # Don't parent to BaseWeaponShotgun because it differs significantly # fuck you
   parent: [BaseItem, BaseGunWieldable]
   id: WeaponShotgunBulldog
   description: It's a magazine-fed shotgun designed for close quarters combat. Uses .50 shotgun shells.
@@ -90,6 +110,10 @@
   - type: AmmoCounter
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
+    bonusAngleIncreaseMove: 40    # wwdp
+    bonusAngleIncreaseTurn: 0.25  # wwdp
+    bonusAngleDecay: 40           # wwdp
+    maxBonusAngle: 20             # wwdp
     fireRate: 2
     selectedMode: FullAuto
     availableModes:
@@ -246,7 +270,7 @@
 
 - type: entity
   name: sawn-off shotgun
-  parent: BaseWeaponShotgun
+  parent: BaseWeaponShotgunSmall
   id: WeaponShotgunSawn
   description: Groovy! Uses .50 shotgun shells.
   components:
@@ -290,7 +314,7 @@
 
 - type: entity
   name: handmade pistol
-  parent: BaseWeaponShotgun
+  parent: BaseWeaponShotgunSmall
   id: WeaponShotgunHandmade
   description: Looks unreliable. Uses .50 shotgun shells.
   components:
