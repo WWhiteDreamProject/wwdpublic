@@ -1586,10 +1586,10 @@
     - map: [ "ears" ]
     - map: [ "innerBelt" ] # Einstein Engines
     - map: [ "innerNeck" ] # Einstein Engines
-    - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
+    - map: [ "outerClothing" ]
     - map: [ "neck" ]
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
