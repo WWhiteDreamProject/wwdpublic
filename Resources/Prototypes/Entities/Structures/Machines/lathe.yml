@@ -1103,6 +1103,10 @@
     - EnergyCutlass
     - WeaponSubMachineGunFPA90
     - WeaponSubMachineGunBRDIR25
+    - WeaponPistolMk58
+    - WeaponPistolN1984
+    - WeaponPistolViper
+    - WeaponPistolCobra
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1752,4 +1756,4 @@
   - type: MaterialStorage
     whitelist:
       tags:
-        - PrizeTicket
+      - PrizeTicket
