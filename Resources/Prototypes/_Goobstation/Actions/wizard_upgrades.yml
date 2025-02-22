@@ -246,37 +246,37 @@
 #    useDelay: 30
 
 # Tesla Blast
-- type: entity
-  parent: ActionTeslaBlast
-  id: ActionTeslaBlastII
-  name: Tesla Blast II
-  components:
-  - type: Action
-    useDelay: 23.25
-
-- type: entity
-  parent: ActionTeslaBlast
-  id: ActionTeslaBlastIII
-  name: Tesla Blast III
-  components:
-  - type: Action
-    useDelay: 16.5
-
-- type: entity
-  parent: ActionTeslaBlast
-  id: ActionTeslaBlastIV
-  name: Tesla Blast IV
-  components:
-  - type: Action
-    useDelay: 9.75
-
-- type: entity
-  parent: ActionTeslaBlast
-  id: ActionTeslaBlastV
-  name: Tesla Blast V
-  components:
-  - type: Action
-    useDelay: 3
+#- type: entity
+#  parent: ActionTeslaBlast
+#  id: ActionTeslaBlastII
+#  name: Tesla Blast II
+#  components:
+#  - type: Action
+#    useDelay: 23.25
+#
+#- type: entity
+#  parent: ActionTeslaBlast
+#  id: ActionTeslaBlastIII
+#  name: Tesla Blast III
+#  components:
+#  - type: Action
+#    useDelay: 16.5
+#
+#- type: entity
+#  parent: ActionTeslaBlast
+#  id: ActionTeslaBlastIV
+#  name: Tesla Blast IV
+#  components:
+#  - type: Action
+#    useDelay: 9.75
+#
+#- type: entity
+#  parent: ActionTeslaBlast
+#  id: ActionTeslaBlastV
+#  name: Tesla Blast V
+#  components:
+#  - type: Action
+#    useDelay: 3
 
 # Lightning Bolt
 #- type: entity
@@ -530,21 +530,21 @@
 #    useDelay: 5
 
 # Blink
-- type: entity
-  parent: ActionBlinkSpell
-  id: ActionBlinkII
-  name: Blink II
-  components:
-  - type: Action
-    useDelay: 2
-
-- type: entity
-  parent: ActionBlinkSpell
-  id: ActionBlinkIII
-  name: Blink III
-  components:
-  - type: Action
-    useDelay: 1
+#- type: entity
+#  parent: ActionBlinkSpell
+#  id: ActionBlinkII
+#  name: Blink II
+#  components:
+#  - type: Action
+#    useDelay: 2
+#
+#- type: entity
+#  parent: ActionBlinkSpell
+#  id: ActionBlinkIII
+#  name: Blink III
+#  components:
+#  - type: Action
+#    useDelay: 1
 
 # Force Wall
 - type: entity
@@ -552,7 +552,7 @@
   id: ActionForceWallII
   name: Force Wall II
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 8.75
 
 - type: entity
@@ -560,7 +560,7 @@
   id: ActionForceWallIII
   name: Force Wall III
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 7.5
 
 - type: entity
@@ -568,7 +568,7 @@
   id: ActionForceWallIV
   name: Force Wall IV
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 6.25
 
 - type: entity
@@ -576,7 +576,7 @@
   id: ActionForceWallV
   name: Force Wall V
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 5
 
 # Charge
@@ -585,7 +585,7 @@
   id: ActionChargeII
   name: Charge II
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 50
 
 - type: entity
@@ -593,7 +593,7 @@
   id: ActionChargeIII
   name: Charge III
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 40
 
 - type: entity
@@ -601,7 +601,7 @@
   id: ActionChargeIV
   name: Charge IV
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 30
 
 - type: entity
@@ -609,7 +609,7 @@
   id: ActionChargeV
   name: Charge V
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 20
 
 # Mind Swap
@@ -618,7 +618,7 @@
   id: ActionMindSwapII
   name: Mind Swap II
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 40
 
 - type: entity
@@ -626,7 +626,7 @@
   id: ActionMindSwapIII
   name: Mind Swap III
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 20
 
 # Smite
@@ -635,7 +635,7 @@
   id: ActionSmiteII
   name: Smite II
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 40
 
 - type: entity
@@ -643,7 +643,7 @@
   id: ActionSmiteIII
   name: Smite III
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 20
 
 # Knock
@@ -652,7 +652,7 @@
   id: ActionKnockII
   name: Knock II
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 6
 
 - type: entity
@@ -660,25 +660,25 @@
   id: ActionKnockIII
   name: Knock III
   components:
-  - type: Action
+  - type: InstantAction
     useDelay: 2
 
 # Spell Cards
-- type: entity
-  parent: ActionSpellCards
-  id: ActionSpellCardsII
-  name: Spell Cards II
-  components:
-  - type: SpellCardsAction
-    useDelay: 4
-
-- type: entity
-  parent: ActionSpellCards
-  id: ActionSpellCardsIII
-  name: Spell Cards III
-  components:
-  - type: SpellCardsAction
-    useDelay: 2
+#- type: entity
+#  parent: ActionSpellCards
+#  id: ActionSpellCardsII
+#  name: Spell Cards II
+#  components:
+#  - type: SpellCardsAction
+#    useDelay: 4
+#
+#- type: entity
+#  parent: ActionSpellCards
+#  id: ActionSpellCardsIII
+#  name: Spell Cards III
+#  components:
+#  - type: SpellCardsAction
+#    useDelay: 2
 
 # Rod Form
 - type: entity
@@ -686,11 +686,13 @@
   id: ActionPolymorphWizardRodII
   name: Rod Form II
   components:
-  - type: Action
+#  - type: Action
+#    useDelay: 21.25
+#    itemIconStyle: NoItem
+  - type: InstantAction
     useDelay: 21.25
     itemIconStyle: NoItem
-  - type: InstantAction
-    event: !type:PolymorphSpellEvent
+    event: !type:PolymorphActionEvent
       protoId: WizardRodII
 
 - type: entity
@@ -698,10 +700,11 @@
   id: ActionPolymorphWizardRodIII
   name: Rod Form III
   components:
-  - type: Action
-    useDelay: 17.5
+#  - type: Action
+#    useDelay: 17.5
   - type: InstantAction
-    event: !type:PolymorphSpellEvent
+    useDelay: 17.5
+    event: !type:PolymorphActionEvent
       protoId: WizardRodIII
 
 - type: entity
@@ -709,10 +712,11 @@
   id: ActionPolymorphWizardRodIV
   name: Rod Form IV
   components:
-  - type: Action
-    useDelay: 13.75
+#  - type: Action
+#    useDelay: 13.75
   - type: InstantAction
-    event: !type:PolymorphSpellEvent
+    useDelay: 13.75
+    event: !type:PolymorphActionEvent
       protoId: WizardRodIV
 
 - type: entity
@@ -720,71 +724,72 @@
   id: ActionPolymorphWizardRodV
   name: Rod Form V
   components:
-  - type: Action
-    useDelay: 10
+#  - type: Action
+#    useDelay: 10
   - type: InstantAction
-    event: !type:PolymorphSpellEvent
+    useDelay: 10
+    event: !type:PolymorphActionEvent
       protoId: WizardRodV
 
 # Summon Simians
-- type: entity
-  parent: ActionSummonSimians
-  id: ActionSummonSimiansII
-  name: Summon Simians II
-  components:
-  - type: Action
-    useDelay: 75
-  - type: InstantAction
-    event: !type:SummonSimiansEvent
-      mobs: SummonSimiansMobTableII
-      weapons: SummonSimiansWeaponTableII
-
-- type: entity
-  parent: ActionSummonSimians
-  id: ActionSummonSimiansIII
-  name: Summon Simians III
-  components:
-  - type: Action
-    useDelay: 60
-  - type: InstantAction
-    event: !type:SummonSimiansEvent
-      mobs: SummonSimiansMobTableIII
-      weapons: SummonSimiansWeaponTableIII
-      amount: 5
-      range: 1.25
-      spawnAngle: 50
-
-- type: entity
-  parent: ActionSummonSimians
-  id: ActionSummonSimiansIV
-  name: Summon Simians IV
-  components:
-  - type: Action
-    useDelay: 45
-  - type: InstantAction
-    event: !type:SummonSimiansEvent
-      mobs: SummonSimiansMobTableIV
-      weapons: SummonSimiansWeaponTableIV
-      amount: 5
-      range: 1.25
-      spawnAngle: 50
-
-- type: entity
-  parent: ActionSummonSimians
-  id: ActionSummonSimiansV
-  name: Summon Simians V
-  components:
-  - type: Action
-    useDelay: 30
-  - type: InstantAction
-    event: !type:SummonSimiansEvent
-      mobs: SummonSimiansMobTableV
-      weapons: SummonSimiansWeaponTableV
-      amount: 6
-      range: 1.5
-      spawnAngle: 60
-  - type: Magic
-    requiresClothes: false
-  - type: Tag
-    tags:
-      - SummonSimiansMaxLevelAction
+#- type: entity
+#  parent: ActionSummonSimians
+#  id: ActionSummonSimiansII
+#  name: Summon Simians II
+#  components:
+#  - type: Action
+#    useDelay: 75
+#  - type: InstantAction
+#    event: !type:SummonSimiansEvent
+#      mobs: SummonSimiansMobTableII
+#      weapons: SummonSimiansWeaponTableII
+#
+#- type: entity
+#  parent: ActionSummonSimians
+#  id: ActionSummonSimiansIII
+#  name: Summon Simians III
+#  components:
+#  - type: Action
+#    useDelay: 60
+#  - type: InstantAction
+#    event: !type:SummonSimiansEvent
+#      mobs: SummonSimiansMobTableIII
+#      weapons: SummonSimiansWeaponTableIII
+#      amount: 5
+#      range: 1.25
+#      spawnAngle: 50
+#
+#- type: entity
+#  parent: ActionSummonSimians
+#  id: ActionSummonSimiansIV
+#  name: Summon Simians IV
+#  components:
+#  - type: Action
+#    useDelay: 45
+#  - type: InstantAction
+#    event: !type:SummonSimiansEvent
+#      mobs: SummonSimiansMobTableIV
+#      weapons: SummonSimiansWeaponTableIV
+#      amount: 5
+#      range: 1.25
+#      spawnAngle: 50
+#
+#- type: entity
+#  parent: ActionSummonSimians
+#  id: ActionSummonSimiansV
+#  name: Summon Simians V
+#  components:
+#  - type: Action
+#    useDelay: 30
+#  - type: InstantAction
+#    event: !type:SummonSimiansEvent
+#      mobs: SummonSimiansMobTableV
+#      weapons: SummonSimiansWeaponTableV
+#      amount: 6
+#      range: 1.5
+#      spawnAngle: 60
+#  - type: Magic
+#    requiresClothes: false
+#  - type: Tag
+#    tags:
+#      - SummonSimiansMaxLevelAction
