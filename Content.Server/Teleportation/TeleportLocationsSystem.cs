@@ -1,7 +1,9 @@
 ﻿using Content.Server.Chat.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Teleportation;
 using Content.Shared.Teleportation.Components;
 using Content.Shared.Teleportation.Systems;
+using Content.Shared.Timing;
 using Content.Shared.UserInterface;
 using Content.Shared.Warps;
 using Content.Shared.Whitelist;
@@ -36,7 +38,7 @@ public sealed partial class TeleportLocationsSystem : SharedTeleportLocationsSys
 
     protected override void OnTeleportToLocationRequest(Entity<TeleportLocationsComponent> ent, ref TeleportLocationDestinationMessage args)
     {
-        if (Delay.IsDelayed(ent.Owner, TeleportDelay))
+        if (!TryComp(ent.Owner, out UseDelayComponent? useDelay) || Delay.IsDelayed((ent.Owner,useDelay)))
             return;
 
         if (!string.IsNullOrWhiteSpace(ent.Comp.Speech))
