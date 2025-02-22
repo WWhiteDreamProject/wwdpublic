@@ -27,15 +27,15 @@ public abstract partial class SharedTeleportLocationsSystem : EntitySystem
 
     private void OnUiOpenAttempt(Entity<TeleportLocationsComponent> ent, ref ActivatableUIOpenAttemptEvent args)
     {
-        if (!Delay.IsDelayed(ent.Owner, TeleportDelay))
+        if (!TryComp(ent.Owner, out UseDelayComponent? useDelay) || Delay.IsDelayed((ent.Owner,useDelay)))
             return;
 
-        args.Cancel();
+        // dargs.Cancel();
     }
 
     protected virtual void OnTeleportToLocationRequest(Entity<TeleportLocationsComponent> ent, ref TeleportLocationDestinationMessage args)
     {
-        if (!TryGetEntity(args.NetEnt, out var telePointEnt) || TerminatingOrDeleted(telePointEnt) || !HasComp<WarpPointComponent>(telePointEnt) || Delay.IsDelayed(ent.Owner, TeleportDelay))
+        if (!TryGetEntity(args.NetEnt, out var telePointEnt) || TerminatingOrDeleted(telePointEnt) || !HasComp<WarpPointComponent>(telePointEnt)  || !TryComp(ent.Owner, out UseDelayComponent? useDelay) || Delay.IsDelayed((ent.Owner,useDelay)))
             return;
 
         var comp = ent.Comp;
