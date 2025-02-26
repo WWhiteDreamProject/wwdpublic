@@ -2,6 +2,7 @@
 
 ui-options-title = Game Options
 ui-options-tab-accessibility = Accessibility
+ui-options-tab-admin = Admin
 ui-options-tab-graphics = Graphics
 ui-options-tab-controls = Controls
 ui-options-tab-audio = Audio
@@ -323,3 +324,7 @@ ui-options-screen-shake-percent = { TOSTRING($intensity, "P0") }
 
 ## Combat Options
 ui-options-function-auto-get-up = Automatically get up after falling
+
+## Admin menu
+
+ui-options-enable-classic-overlay = Revert antag overlay to classic mode
