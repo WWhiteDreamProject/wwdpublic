@@ -2,8 +2,13 @@
 
 injector-draw-text = Набрать
 injector-inject-text = Ввести
+injector-spent-text = Израсходовано
 injector-invalid-injector-toggle-mode = Неверный режим
-injector-volume-label = Объём: [color=white]{ $currentVolume }/{ $totalVolume }[/color] | [color=white]{ $modeString }[/color]
+injector-volume-label = Объём: [color=white]{ $currentVolume }/{ $totalVolume }[/color]
+    Режим: [color=white]{ $modeString }[/color] ([color=white]{ $transferVolume }u[/color])
+
+onetime-injector-simple-volume-label = Объем: [color=white]{ $currentVolume }[/color]
+    Режим: [color=white]{ $modeString }[/color]
 
 ## Entity
 
