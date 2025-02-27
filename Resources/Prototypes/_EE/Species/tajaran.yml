@@ -67,6 +67,7 @@
   id: MobTajaranSprites
   sprites:
     Head: MobTajaranHead
+    Face: MobHumanoidAnyMarking
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
