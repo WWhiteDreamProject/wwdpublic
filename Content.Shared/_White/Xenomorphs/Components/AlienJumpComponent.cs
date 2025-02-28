@@ -20,9 +20,6 @@ public sealed partial class AlienJumpComponent : Component
     public float JumpTime = 1f;
 
     [DataField]
-    public ResPath JumpSprite { get; set; }
-
-    [DataField]
     public ResPath Sprite { get; set; }
 
     public SpriteSpecifier? OldSprite;

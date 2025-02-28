@@ -1,8 +1,8 @@
 ﻿# Base actions
 - type: entity
-  id: ActionXenomorphVision
-  name: action-toggle-xenomorph-vision-name
-  description: action-toggle-xenomorph-vision-desc
+  id: ActionXenomorphNightVision
+  name: action-toggle-xenomorph-night-vision-name
+  description: action-toggle-xenomorph-night-vision-desc
   categories: [ HideSpawnMenu ]
   components:
     - type: InstantAction

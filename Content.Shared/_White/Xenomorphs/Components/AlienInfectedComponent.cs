@@ -22,7 +22,7 @@ public sealed partial class AlienInfectedComponent : Component
     public float GrowTime = 25f;
 
     /// <summary>
-    /// The prototype ID for the larval entity to be spawned.
+    /// The prototype ID for the larva entity to be spawned.
     /// </summary>
     [DataField]
     public EntProtoId Prototype = "MobAlienLarvaInside";
