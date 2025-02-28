@@ -20,6 +20,7 @@ public sealed class StoreDiscountSystem : EntitySystem
 
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly StoreSystem _store = default!; // WD EDIT
 
     /// <inheritdoc />
     public override void Initialize()
@@ -75,14 +76,15 @@ public sealed class StoreDiscountSystem : EntitySystem
     // WD EDIT START
     private void OnMapInit(EntityUid uid, StoreDiscountComponent component, MapInitEvent args)
     {
-        if (!TryComp<StoreComponent>(uid, out var store) || component.Discounts.Count != 0)
+        if (!TryComp<StoreComponent>(uid, out var store) || !component.OnSpawn)
             return;
 
         var uplinkInitializedEvent = new StoreInitializedEvent(
             TargetUser: uid,
             Store: uid,
             UseDiscounts: true,
-            Listings: store.FullListingsCatalog.ToArray());
+            Listings: _store.GetAvailableListings(uid, uid, store)
+                .ToArray());
         RaiseLocalEvent(ref uplinkInitializedEvent);
     }
     // WD EDIT END
