@@ -14,7 +14,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Aliens.Systems;
 
 /// <summary>
-/// This handles...
+/// This handles resin structure production for xenomorphs, including walls, windows and nests.
 /// </summary>.
 public sealed class SharedResinSpinnerSystem : EntitySystem
 {
