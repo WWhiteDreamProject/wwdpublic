@@ -10,9 +10,9 @@
   discountCategory: veryRareDiscounts
   discountDownTo:
     Telecrystal: 16
-  # WD EDIT END
   cost:
-    Telecrystal: 80 # Einstein Engines -  1/5th the price due to no telecrystal rework
+    Telecrystal: 80
+  # WD EDIT END
   categories:
   - UplinkAllies
 
@@ -26,9 +26,9 @@
   discountCategory: veryRareDiscounts
   discountDownTo:
     Telecrystal: 26
-  # WD EDIT END
   cost:
-    Telecrystal: 130 # WD EDIT
+    Telecrystal: 130
+  # WD EDIT END
   categories:
   - UplinkAllies
   conditions:
@@ -44,9 +44,11 @@
   icon: { sprite: /Textures/_Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
   discountCategory: rareDiscounts
+  # WD EDIT START
   discountDownTo:
-    Telecrystal: 35
+    Telecrystal: 3
   cost:
-    Telecrystal: 55
+    Telecrystal: 11
+  # WD EDIT END
   categories:
   - UplinkWearables
