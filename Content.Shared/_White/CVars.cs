@@ -81,7 +81,7 @@ public sealed class WhiteCVars
     #region PostManifestMassacre
 
     public static readonly CVarDef<bool> PMMEnabled =
-        CVarDef.Create("pmm.enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
+        CVarDef.Create("pmm.enabled", true, CVar.SERVER | CVar.ARCHIVE);
 
     #endregion
 }

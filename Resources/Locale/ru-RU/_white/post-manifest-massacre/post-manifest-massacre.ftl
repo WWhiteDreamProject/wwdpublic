@@ -1,1 +1,0 @@
-post-manifest-massacre=РЕЗНЯ!!!
