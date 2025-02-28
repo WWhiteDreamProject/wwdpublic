@@ -28,18 +28,6 @@ public sealed partial class AlienInfectedComponent : Component
     public EntProtoId Prototype = "MobAlienLarvaInside";
 
     /// <summary>
-    /// The prototype ID for the organ associated with the alien larva.
-    /// </summary>
-    [DataField]
-    public EntProtoId OrganProtoId = "AlienLarvaOrgan";
-
-    /// <summary>
-    /// The prototype ID for the part associated with the alien larva.
-    /// </summary>
-    [DataField]
-    public EntProtoId PartProtoId = "AlienLarvaPart";
-
-    /// <summary>
     /// A set of prototype IDs for status icons representing different growth stages of the infection.
     /// </summary>
     public readonly HashSet<ProtoId<StatusIconPrototype>> InfectedIcons =

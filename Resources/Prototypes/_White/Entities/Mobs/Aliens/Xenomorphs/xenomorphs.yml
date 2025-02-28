@@ -120,7 +120,7 @@
         state: "creampie_human"
         visible: false
   - type: Alien
-    greeting-text: alien-sentinel-greeting
+    greetingText: alien-sentinel-greeting
   - type: Body
     prototype: XenomorphLargeSentinel
   - type: MobThresholds
@@ -316,7 +316,7 @@
   - type: JumpVisuals
     baseState: alienh
   - type: AlienJump
-    jumpSprite: _White/Mobs/Aliens/Xenomorphs/alien_hunter_jump.rsi
+    jumpSprite: _White/Mobs/Aliens/Xenomorphs/hunter_jump.rsi
   - type: GuideHelp
     guides:
     - XenomorphHunter

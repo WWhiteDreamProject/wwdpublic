@@ -27,11 +27,10 @@
     - type: NameIdentifier
       group: GenericNumber
     - type: Tool
-      speedModifier: 2
       qualities:
         - Prying
+      speed: 1.8
     - type: Prying
-      speedModifier: 2
       pryPowered: true
     - type: NpcFactionMember
       factions:
