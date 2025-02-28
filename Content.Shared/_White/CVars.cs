@@ -77,4 +77,11 @@ public sealed class WhiteCVars
         CVarDef.Create("tts.announce_voice", "Announcer", CVar.SERVERONLY | CVar.ARCHIVE);
 
     #endregion
+
+    #region PostManifestMassacre
+
+    public static readonly CVarDef<bool> PMMEnabled =
+        CVarDef.Create("pmm.enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    #endregion
 }
