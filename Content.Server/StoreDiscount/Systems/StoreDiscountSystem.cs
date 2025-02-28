@@ -29,7 +29,7 @@ public sealed class StoreDiscountSystem : EntitySystem
         SubscribeLocalEvent<StoreInitializedEvent>(OnStoreInitialized);
         SubscribeLocalEvent<StoreBuyFinishedEvent>(OnBuyFinished);
 
-        SubscribeLocalEvent<StoreDiscountComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<StoreDiscountComponent, MapInitEvent>(OnMapInit); // WD EDIT
     }
 
     /// <summary> Decrements discounted item count, removes discount modifier and category, if counter reaches zero. </summary>
@@ -75,12 +75,16 @@ public sealed class StoreDiscountSystem : EntitySystem
     // WD EDIT START
     private void OnMapInit(EntityUid uid, StoreDiscountComponent component, MapInitEvent args)
     {
+
         if (!TryComp<StoreComponent>(uid, out var store))
             return;
 
-        var discounts = InitializeDiscounts(store.FullListingsCatalog, _random.Next(component.MinItems, component.MaxItems + 1));
-        ApplyDiscounts(store.FullListingsCatalog.ToArray(), discounts);
-        component.Discounts = discounts;
+        var uplinkInitializedEvent = new StoreInitializedEvent(
+            TargetUser: uid,
+            Store: uid,
+            UseDiscounts: true,
+            Listings: store.FullListingsCatalog.ToArray());
+        RaiseLocalEvent(ref uplinkInitializedEvent);
     }
     // WD EDIT END
 

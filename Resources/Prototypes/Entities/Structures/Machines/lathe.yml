@@ -1274,6 +1274,13 @@
     - AdvancedRetractor
     - OmnimedTool
     - MedicalCyberneticEyes
+    - BluespaceBodyBag # WD
+    - NTBodyBag # WD
+    - PrisonerBodyBag # WD
+    - RadiationBodyBag # WD
+  - type: EmagLatheRecipes
+    emagDynamicRecipes:
+    - SyndicateBodyBag # WD
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
@@ -1559,13 +1566,6 @@
     - SheetUGlass1
     - SheetRUGlass1
     - MaterialDiamond
-    - BluespaceBodyBag # WD
-    - NTBodyBag # WD
-    - PrisonerBodyBag # WD
-    - RadiationBodyBag # WD
-  - type: EmagLatheRecipes
-    emagDynamicRecipes:
-    - SyndicateBodyBag # WD
   - type: MaterialStorageMagnetPickup # Delta V - Summary: Adds magnet pull from Frontier
     magnetEnabled: True
     range: 0.30 # Delta V - End Magnet Pull
