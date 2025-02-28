@@ -7,7 +7,7 @@ using Robust.Server.Containers;
 namespace Content.Server.Aliens.Systems;
 
 /// <summary>
-/// This handles...
+/// This handles the lifecycle and evolution of alien larvae inside hosts.
 /// </summary>
 public sealed class InsideAlienLarvaSystem : EntitySystem
 {
