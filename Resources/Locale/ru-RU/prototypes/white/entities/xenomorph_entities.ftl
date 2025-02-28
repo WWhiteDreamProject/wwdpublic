@@ -46,8 +46,8 @@ ent-FacehuggerLamarr = Ламар
     .desc = На конце хвоста есть что-то вроде трубки, но не похоже, что он может им пользоваться.
     .suffix = Лицехват
 
-ent-GlassBoxLamarrFilled = { ent-GlassBox }
-    .desc = { ent-GlassBox.desc }
+ent-GlassBoxLamarrFilled = стеклянный короб
+    .desc = Прочная витрина для дорогостоящего экспоната.
     .suffix = Ламар, Заполненный
 
 ent-MobXenomorphDrone = ксеноморф дрон
