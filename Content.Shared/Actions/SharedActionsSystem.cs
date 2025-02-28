@@ -580,7 +580,11 @@ public abstract class SharedActionsSystem : EntitySystem
             dirty = true;
             action.Charges--;
             if (action is { Charges: 0, RenewCharges: false })
+            {
+                var disabledEv = new ActionGettingDisabledEvent(performer);
+                RaiseLocalEvent(actionId, ref disabledEv);
                 action.Enabled = false;
+            }
         }
 
         action.Cooldown = null;
@@ -863,8 +867,8 @@ public abstract class SharedActionsSystem : EntitySystem
         Dirty(actionId.Value, action);
         Dirty(performer, comp);
         ActionRemoved(performer, actionId.Value, comp, action);
-        if (action.Temporary)
-            QueueDel(actionId.Value);
+        if (action.Temporary && GameTiming.IsFirstTimePredicted) // WD EDIT
+            Del(actionId.Value); // WD EDIT
     }
 
     /// <summary>

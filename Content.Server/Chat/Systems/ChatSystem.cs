@@ -1,10 +1,12 @@
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using Content.Server._White.TTS;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
+using Content.Server.Players.RateLimiting;
 using Content.Server.Language;
 using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
@@ -21,8 +23,10 @@ using Content.Shared.Interaction;
 using Content.Shared.Language.Systems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
+using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
+using Content.Shared.Whitelist;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -69,6 +73,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
     [Dependency] private readonly TelepathicChatSystem _telepath = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -192,7 +197,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
         }
 
-        if (player != null && !_chatManager.HandleRateLimit(player))
+        if (player != null && _chatManager.HandleRateLimit(player) != RateLimitStatus.Allowed)
             return;
 
         // Sus
@@ -291,7 +296,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (!CanSendInGame(message, shell, player))
             return;
 
-        if (player != null && !_chatManager.HandleRateLimit(player))
+        if (player != null && _chatManager.HandleRateLimit(player) != RateLimitStatus.Allowed)
             return;
 
         // It doesn't make any sense for a non-player to send in-game OOC messages, whereas non-players may be sending
@@ -519,7 +524,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             // Result is the intermediate message derived from the perceived one via obfuscation
             // Wrapped message is the result wrapped in an "x says y" string
             string result, wrappedMessage;
-            if (data.Range <= WhisperClearRange)
+            if (data.Range <= (TryComp<ChatModifierComponent>(listener, out var modifier) ? modifier.WhisperListeningRange : WhisperClearRange)) // WWDP-Edit
             {
                 // Scenario 1: the listener can clearly understand the message
                 result = perceivedMessage;
@@ -709,6 +714,11 @@ public sealed partial class ChatSystem : SharedChatSystem
     private void SendInVoiceRange(ChatChannel channel, string name, string message, string wrappedMessage, string obfuscated, string obfuscatedWrappedMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, LanguagePrototype? languageOverride = null)
     {
         var language = languageOverride ?? _language.GetLanguage(source);
+
+        // WD EDIT START
+        var orgMsg = new HashSet<ICommonSession>();
+        var obsMsg = new HashSet<ICommonSession>();
+        // WD EDIT END
         foreach (var (session, data) in GetRecipients(source, Transform(source).GridUid == null ? 0.3f : VoiceRange))
         {
             if (session.AttachedEntity != null
@@ -728,15 +738,34 @@ public sealed partial class ChatSystem : SharedChatSystem
             // If the channel does not support languages, or the entity can understand the message, send the original message, otherwise send the obfuscated version
             if (channel == ChatChannel.LOOC || channel == ChatChannel.Emotes || _language.CanUnderstand(listener, language.ID))
             {
+                orgMsg.Add(session); // WD EDIT
                 _chatManager.ChatMessageToOne(channel, message, wrappedMessage, source, entHideChat, session.Channel, author: author);
             }
             else
             {
+                obsMsg.Add(session); // WD EDIT
                 _chatManager.ChatMessageToOne(channel, obfuscated, obfuscatedWrappedMessage, source, entHideChat, session.Channel, author: author);
             }
         }
 
         _replay.RecordServerMessage(new ChatMessage(channel, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
+
+        // WD EDIT START
+        if ((orgMsg.Count > 0 || obsMsg.Count > 0) && (channel & ChatChannel.Local) != 0)
+        {
+            RaiseLocalEvent(source,
+                new EntitySpokeLanguageEvent(
+                    Filter.Empty().AddPlayers(orgMsg),
+                    Filter.Empty().AddPlayers(obsMsg),
+                    source,
+                    message,
+                    wrappedMessage,
+                    null,
+                    false,
+                    obfuscated)
+                );
+        }
+        // WD EDIT END
     }
 
     /// <summary>
@@ -880,7 +909,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (language.SpeechOverride.Color is { } colorOverride)
             color = Color.InterpolateBetween(color, colorOverride, colorOverride.A);
         var languageDisplay = language.IsVisibleLanguage
-            ? $"{language.ChatName} | "
+            ? Loc.GetString("chat-manager-language-prefix", ("language", language.ChatName))
             : "";
 
         return Loc.GetString(wrapId,

@@ -22,6 +22,7 @@ using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -64,6 +65,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] protected readonly TagSystem TagSystem = default!;
     [Dependency] protected readonly ThrowingSystem ThrowingSystem = default!;
     [Dependency] private   readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
     private const float InteractNextFire = 0.3f;
     private const double SafetyNextFire = 0.5;
@@ -76,7 +78,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         SubscribeAllEvent<RequestShootEvent>(OnShootRequest);
         SubscribeAllEvent<RequestStopShootEvent>(OnStopShootRequest);
-        //SubscribeLocalEvent<GunComponent, MeleeHitEvent>(OnGunMelee); // WD EDIT
+        SubscribeLocalEvent<GunComponent, MeleeHitEvent>(OnGunMelee);
 
         // Ammo providers
         InitializeBallistic();
@@ -110,20 +112,21 @@ public abstract partial class SharedGunSystem : EntitySystem
         RefreshModifiers((gun, gun));
     }
 
-    // WD EDIT START
-    // Sets the gun cooldown to the melee attack cooldown on attack. Removed since it felt very unintuitive.
-    /*private void OnGunMelee(EntityUid uid, GunComponent component, MeleeHitEvent args)
+    private void OnGunMelee(EntityUid uid, GunComponent component, MeleeHitEvent args)
     {
-        if (!TryComp<MeleeWeaponComponent>(uid, out var melee))
-            return;
+        var curTime = Timing.CurTime;
 
-        if (melee.NextAttack > component.NextFire)
-        {
-            component.NextFire = melee.NextAttack;
-            Dirty(uid, component);
-        }
-    }*/
-    // WD EDIT END
+        if (component.NextFire < curTime)
+            component.NextFire = curTime;
+
+        var meleeCooldown = TimeSpan.FromSeconds(component.MeleeCooldown);
+
+        component.NextFire += meleeCooldown;
+        while (component.NextFire <= curTime)
+            component.NextFire += meleeCooldown;
+
+        Dirty(uid, component);
+    }
 
     private void OnShootRequest(RequestShootEvent msg, EntitySessionEventArgs args)
     {

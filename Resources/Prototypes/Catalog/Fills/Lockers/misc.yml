@@ -177,8 +177,6 @@
   table: !type:AllSelector
     children:
     - !type:EntSelector
-      id: PresentHalloweenRandom #Temporary edition for halloween time. WWDP edit
-    - !type:EntSelector
       id: StrangePill
       prob: 0.20
     # Tools

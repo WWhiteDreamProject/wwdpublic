@@ -196,6 +196,7 @@
       - WeaponCapacitorRechargerCircuitboard
       - HandheldStationMap
       - ClothingHeadHatWelding
+      - SnowballMaker # WWDP
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
@@ -285,6 +286,9 @@
       - CryostasisBeaker
       - SyringeCryostasis
       - Syringe
+      - EnergyScalpel
+      - EnergyCautery
+      - AdvancedRetractor
       - Implanter
       - PillCanister
       - ChemistryEmptyBottle01
@@ -359,12 +363,13 @@
       - AnimalTranslator
       - MofficTranslatorImplanter
       - MofficTranslator
-      # WD EDIT START
-      - ClothingEyesNightVisionGoggles
-      - ClothingEyesThermalVisionGoggles
-      # WD EDIT END
       - RCDAmmo #DeltaV
       - RCD #EE
+      # WD EDIT START
+      - ClothingEyesNightVisionGoggles
+      - ClothingEyesNightVisionDiagnosticGoggles
+      - ClothingEyesThermalVisionGoggles
+      # WD EDIT END
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -491,6 +496,7 @@
       - SolarTrackerElectronics
       - TurboItemRechargerCircuitboard
       - PowerComputerCircuitboard
+      - AlertsComputerCircuitboard
       - AutolatheHyperConvectionMachineCircuitboard
       - ProtolatheHyperConvectionMachineCircuitboard
       - CircuitImprinterHyperConvectionMachineCircuitboard
@@ -606,6 +612,7 @@
     - BorgModuleConstruction
     - BorgModuleService
     - BorgModuleTreatment
+    - BorgModuleSurgery
     - BorgModuleCleaning
     - CyborgEndoskeleton
     - LeftArmBorg
@@ -662,6 +669,12 @@
     - BorgModuleDiagnosis
     - BorgModuleDefibrillator
     - BorgModuleAdvancedTreatment
+    - BorgModuleAdvancedSurgery
+    - JawsOfLifeLeftArm
+    - JawsOfLifeRightArm
+    - SpeedLeftLeg
+    - SpeedRightLeg
+    - BasicCyberneticEyes
     - RipleyHarness
     - RipleyLArm
     - RipleyRArm
@@ -888,6 +901,7 @@
       - ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
       - ClothingHeadCage # Nyanotrasen - Insulative headgear
       - ShockCollar # Nyanotrasen - Shock Collar
+      - ClothingEyesNightVisionSecurityGoggles # WWDP
       - WeaponXrayCannon
       - WeaponEnergyGun
       - WeaponEnergyGunMini
@@ -902,6 +916,8 @@
       - MagazineBoxSpecialIncendiary
       - MagazineBoxSpecialUranium
       - MagazineBoxSpecialMindbreaker
+      - SecurityCyberneticEyes
+      - MedicalCyberneticEyes
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1031,10 +1047,16 @@
       - ClothingEyesHudMedical # Nyano
       - ChemicalPayload # Nyano
       - SyringeCryostasis
+      - EnergyScalpel
+      - EnergyCautery
+      - AdvancedRetractor
+      - OmnimedTool
+      - MedicalCyberneticEyes
       - BluespaceBodyBag # WD
       - NTBodyBag # WD
       - PrisonerBodyBag # WD
       - RadiationBodyBag # WD
+      - ClothingEyesNightVisionMedicalGoggles # WWDP
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - SyndicateBodyBag # WD
@@ -1310,7 +1332,6 @@
     - type: MaterialStorageMagnetPickup # Delta V - Summary: Adds magnet pull from Frontier
       magnetEnabled: True
       range: 0.30 # Delta V - End Magnet Pull
-    - type: PlaceableSurface # WHITE EDIT
 
 - type: entity
   parent: OreProcessor

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Clothing.Loadouts.Systems;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -180,7 +181,7 @@ namespace Content.Server.Database
             var jobs = profile.Jobs.ToDictionary(j => j.JobName, j => (JobPriority) j.Priority);
             var antags = profile.Antags.Select(a => a.AntagName);
             var traits = profile.Traits.Select(t => t.TraitName);
-            var loadouts = profile.Loadouts.Select(t => t.LoadoutName);
+            var loadouts = profile.Loadouts.Select(Shared.Clothing.Loadouts.Systems.Loadout (l) => l);
 
             var sex = Sex.Male;
             if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
@@ -199,6 +200,12 @@ namespace Content.Server.Database
             var gender = sex == Sex.Male ? Gender.Male : Gender.Female;
             if (Enum.TryParse<Gender>(profile.Gender, true, out var genderVal))
                 gender = genderVal;
+
+            // WD EDIT START
+            var voice = profile.Voice;
+            if (voice == string.Empty)
+                voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
+            // WD EDIT END
 
             // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
             var markingsRaw = profile.Markings?.Deserialize<List<string>>();
@@ -225,6 +232,7 @@ namespace Content.Server.Database
                 profile.Width,
                 profile.Age,
                 sex,
+                voice, // WD EDIT
                 gender,
                 new HumanoidCharacterAppearance(
                     profile.HairName,
@@ -242,7 +250,11 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts.ToHashSet()
+                loadouts.Select(l => new LoadoutPreference(l.LoadoutName)
+                {
+                    CustomName = l.CustomName, CustomDescription = l.CustomDescription,
+                    CustomColorTint = l.CustomColorTint, CustomHeirloom = l.CustomHeirloom, Selected = true,
+                }).ToHashSet()
             );
         }
 
@@ -263,6 +275,7 @@ namespace Content.Server.Database
             profile.CustomSpecieName = humanoid.Customspeciename;
             profile.Age = humanoid.Age;
             profile.Sex = humanoid.Sex.ToString();
+            profile.Voice = humanoid.Voice; // WD EDIT
             profile.Gender = humanoid.Gender.ToString();
             profile.Height = humanoid.Height;
             profile.Width = humanoid.Width;
@@ -299,10 +312,8 @@ namespace Content.Server.Database
             );
 
             profile.Loadouts.Clear();
-            profile.Loadouts.AddRange(
-                humanoid.LoadoutPreferences
-                    .Select(t => new Loadout { LoadoutName = t })
-            );
+            profile.Loadouts.AddRange(humanoid.LoadoutPreferences
+                .Select(l => new Loadout(l.LoadoutName, l.CustomName, l.CustomDescription, l.CustomColorTint, l.CustomHeirloom)));
 
             return profile;
         }

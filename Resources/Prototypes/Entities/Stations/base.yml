@@ -61,7 +61,7 @@
           - /Maps/Shuttles/trading_outpost.yml
         mining:
           paths:
-          - /Maps/Shuttles/pathfinder.yml
+          - /Maps/Shuttles/mining.yml
         # Spawn last
         ruins:
           hide: true

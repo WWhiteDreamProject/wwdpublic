@@ -13,3 +13,8 @@
     SeismicCharge: 2
     FultonBeacon: 1
     Fulton: 2
+  # Night operations
+  contrabandInventory:
+    ClothingEyesNightVisionGoggles : 1 # WWDP
+  emaggedInventory:
+    AntiPoisonMedipen: 1 # WWDP

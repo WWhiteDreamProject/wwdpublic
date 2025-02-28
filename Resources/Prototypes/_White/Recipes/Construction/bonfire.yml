@@ -1,0 +1,27 @@
+- type: construction
+  name: костёр
+  description: Тёплый, для зефирок.
+  id: Bonfire
+  graph: Bonfires
+  startNode: start
+  targetNode: Bonfire
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  icon:
+    sprite: /Textures/Structures/Decoration/bonfire.rsi
+    state: "bonfire"
+
+- type: construction
+  name: костёр легиона
+  description: Тёплый, для зефирок и мяса.
+  id: LegionnaireBonfire
+  graph: Bonfires
+  startNode: start
+  targetNode: LegionnaireBonfire
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  icon:
+    sprite: /Textures/Structures/Decoration/bonfire.rsi
+    state: legionnaire_bonfire

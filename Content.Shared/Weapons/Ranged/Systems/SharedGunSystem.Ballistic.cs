@@ -21,6 +21,8 @@ public abstract partial class SharedGunSystem
         SubscribeLocalEvent<BallisticAmmoProviderComponent, ComponentInit>(OnBallisticInit);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, MapInitEvent>(OnBallisticMapInit);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, TakeAmmoEvent>(OnBallisticTakeAmmo);
+        SubscribeLocalEvent<BallisticAmmoProviderComponent, ForceSpawnAmmoEvent>(OnForceSpawnAmmo); // WD EDIT
+
         SubscribeLocalEvent<BallisticAmmoProviderComponent, GetAmmoCountEvent>(OnBallisticAmmoCount);
 
         SubscribeLocalEvent<BallisticAmmoProviderComponent, ExaminedEvent>(OnBallisticExamine);
@@ -42,7 +44,10 @@ public abstract partial class SharedGunSystem
 
     private void OnBallisticInteractUsing(EntityUid uid, BallisticAmmoProviderComponent component, InteractUsingEvent args)
     {
-        if (args.Handled || component.Whitelist?.IsValid(args.Used, EntityManager) != true)
+        if (args.Handled)
+            return;
+
+        if (_whitelistSystem.IsWhitelistFailOrNull(component.Whitelist, args.Used))
             return;
 
         if (GetBallisticShots(component) >= component.Capacity)
@@ -282,6 +287,19 @@ public abstract partial class SharedGunSystem
         Dirty(uid, component);
     }
 
+    // WD EDIT START
+    private void OnForceSpawnAmmo(EntityUid uid, BallisticAmmoProviderComponent component, ForceSpawnAmmoEvent args)
+    {
+        while(component.UnspawnedCount > 0)
+        {
+            var ent = Spawn(component.Proto, MapCoordinates.Nullspace);
+            component.Entities.Add(ent);
+            Containers.Insert(ent, component.Container);
+            component.UnspawnedCount--;
+        }
+        Dirty(uid, component);
+    }
+    // WD EDIT END
     private void OnBallisticAmmoCount(EntityUid uid, BallisticAmmoProviderComponent component, ref GetAmmoCountEvent args)
     {
         args.Count = GetBallisticShots(component);

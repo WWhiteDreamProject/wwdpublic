@@ -60,3 +60,8 @@
             - !type:PlaySoundBehavior
               sound:
                 collection: MetalBreak
+    # WD EDIT START
+    - type: Construction
+      graph: FloorDrain
+      node: floorDrain
+    # WD EDIT END

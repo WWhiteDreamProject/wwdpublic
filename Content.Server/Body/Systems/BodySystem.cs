@@ -48,7 +48,7 @@ public sealed class BodySystem : SharedBodySystem
 
         if (_mobState.IsDead(ent) && _mindSystem.TryGetMind(ent, out var mindId, out var mind))
         {
-            mind.TimeOfDeath ??= _gameTiming.RealTime;
+            mind.TimeOfDeath ??= _gameTiming.CurTime; // WD EDIT
             _ticker.OnGhostAttempt(mindId, canReturnGlobal: true, mind: mind);
         }
     }
@@ -166,6 +166,16 @@ public sealed class BodySystem : SharedBodySystem
             QueueDel(partId);
 
         return gibs;
+    }
+
+    public override bool BurnPart(EntityUid partId, BodyPartComponent? part = null)
+    {
+        if (!Resolve(partId, ref part, logMissing: false)
+            || TerminatingOrDeleted(partId)
+            || EntityManager.IsQueuedForDeletion(partId))
+            return false;
+
+        return base.BurnPart(partId, part);
     }
 
     protected override void ApplyPartMarkings(EntityUid target, BodyPartAppearanceComponent component)

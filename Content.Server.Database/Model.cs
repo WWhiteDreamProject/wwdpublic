@@ -8,6 +8,8 @@ using System.Text.Json;
 using Content.Shared.Database;
 using Microsoft.EntityFrameworkCore;
 using NpgsqlTypes;
+using Robust.Shared.Serialization.Manager.Attributes;
+
 
 namespace Content.Server.Database
 {
@@ -342,6 +344,7 @@ namespace Content.Server.Database
         public string CustomSpecieName { get; set; } = null!;
         public int Age { get; set; }
         public string Sex { get; set; } = null!;
+        public string Voice { get; set; } = null!; // WD EDIT
         public string Gender { get; set; } = null!;
         public string Species { get; set; } = null!;
         public float Height { get; set; } = 1f;
@@ -404,13 +407,20 @@ namespace Content.Server.Database
         public string TraitName { get; set; } = null!;
     }
 
-    public class Loadout
+    [Serializable]
+    public partial class Loadout : Shared.Clothing.Loadouts.Systems.Loadout
     {
         public int Id { get; set; }
         public Profile Profile { get; set; } = null!;
         public int ProfileId { get; set; }
 
-        public string LoadoutName { get; set; } = null!;
+        public Loadout(
+            string loadoutName,
+            string? customName = null,
+            string? customDescription = null,
+            string? customColorTint = null,
+            bool? customHeirloom = null
+        ) : base(loadoutName, customName, customDescription, customColorTint, customHeirloom) { }
     }
 
     public enum DbPreferenceUnavailableMode

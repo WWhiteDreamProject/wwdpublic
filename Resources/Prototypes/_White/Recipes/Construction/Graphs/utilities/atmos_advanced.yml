@@ -1,0 +1,62 @@
+﻿- type: constructionGraph
+  id: TinyFan
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: tinyFan
+      steps:
+      - material: Steel
+        amount: 5
+      - material: Silver
+        amount: 10
+        doAfter: 4
+  - node: tinyFan
+    entity: AtmosDeviceFanTiny
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: IngotSilver1
+        amount: 5
+      - !type:DeleteEntity
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      - tool: Welding
+        doAfter: 5
+
+
+- type: constructionGraph
+  id: FloorDrain
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: floorDrain
+      steps:
+      - material: Steel
+        amount: 5
+      - material: Silver
+        amount: 10
+        doAfter: 4
+  - node: floorDrain
+    entity: FloorDrain
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: IngotSilver1
+        amount: 5
+      - !type:DeleteEntity
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      - tool: Welding
+        doAfter: 5

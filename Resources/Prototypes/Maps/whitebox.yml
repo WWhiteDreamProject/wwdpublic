@@ -2,7 +2,7 @@
   id: WhiteBox
   mapName: 'Box Station'
   mapPath: /Maps/WhiteBox.yml
-  minPlayers: 0
+  minPlayers: 40
   stations:
     WhiteBoxStation:
       stationProto: StandardNanotrasenStation
@@ -29,6 +29,8 @@
             Janitor: [ 3, 3 ]
             Mime: [ 1, 1 ]
             Captain: [ 1, 1 ]
+            Maid: [ 1, 1 ]
+            Hobo: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             ChiefEngineer: [ 1, 1 ]
             StationEngineer: [ 4, 4 ]

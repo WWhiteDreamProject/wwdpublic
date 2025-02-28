@@ -1,4 +1,4 @@
-﻿using Content.Shared.Whitelist;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
@@ -23,7 +23,7 @@ namespace Content.Shared.UserInterface
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
-        public bool AdminOnly;
+        public bool AdminOnly;  
 
         [DataField]
         public LocId VerbText = "ui-verb-toggle-open";
@@ -44,6 +44,12 @@ namespace Content.Shared.UserInterface
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public EntityWhitelist? RequiredItems;
+
+        /// <summary>
+        ///     Whitelist for the user who is trying to open this UI.
+        /// </summary>
+        [DataField]
+        public EntityWhitelist? UserWhitelist;
 
         /// <summary>
         ///     If true, then this UI can only be opened via verbs. I.e., normal interactions/activations will not open

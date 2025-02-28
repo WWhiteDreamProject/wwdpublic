@@ -1,0 +1,6 @@
+- type: guideEntry
+  id: WWDP
+  name: guide-entry-wwdp
+  text: "/ServerInfo/_White/Guidebook/WWDP.xml"
+  children:
+  - WhiteAntagonist

@@ -18,6 +18,7 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
+using Content.Shared._White.Resomi.Abilities;
 
 namespace Content.Shared.Wieldable;
 
@@ -42,6 +43,7 @@ public sealed class WieldableSystem : EntitySystem
         SubscribeLocalEvent<WieldableComponent, GotUnequippedHandEvent>(OnItemLeaveHand);
         SubscribeLocalEvent<WieldableComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<WieldableComponent, GetVerbsEvent<InteractionVerb>>(AddToggleWieldVerb);
+        SubscribeLocalEvent<WieldableComponent, GetVerbsEvent<AlternativeVerb>>(AddAltWieldVerb); // WD EDIT
         SubscribeLocalEvent<WieldableComponent, HandDeselectedEvent>(OnDeselectWieldable);
 
         SubscribeLocalEvent<MeleeRequiresWieldComponent, AttemptMeleeEvent>(OnMeleeAttempt);
@@ -105,7 +107,7 @@ public sealed class WieldableSystem : EntitySystem
     private void OnGunRefreshModifiers(Entity<GunWieldBonusComponent> bonus, ref GunRefreshModifiersEvent args)
     {
         if (TryComp(bonus, out WieldableComponent? wield) &&
-            wield.Wielded)
+            wield.Wielded && !HasComp<WeaponsUseInabilityComponent>(wield.User)) // WWDP-Edit
         {
             args.MinAngle += bonus.Comp.MinAngle;
             args.MaxAngle += bonus.Comp.MaxAngle;
@@ -143,9 +145,41 @@ public sealed class WieldableSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
+    // WD EDIT START
+    /// <summary>
+    /// Copypasted <see cref="AddToggleWieldVerb(EntityUid, WieldableComponent, GetVerbsEvent{InteractionVerb})"/>
+    /// </summary>
+    private void AddAltWieldVerb(EntityUid uid, WieldableComponent component, GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!component.AltUseInHand)
+            return;
+
+        if (args.Hands == null || !args.CanAccess || !args.CanInteract)
+            return;
+
+        if (!_handsSystem.IsHolding(args.User, uid, out _, args.Hands))
+            return;
+
+        // TODO VERB TOOLTIPS Make CanWield or some other function return string, set as verb tooltip and disable
+        // verb. Or just don't add it to the list if the action is not executable.
+
+        // TODO VERBS ICON
+        AlternativeVerb verb = new()
+        {
+            Text = component.Wielded ? Loc.GetString("wieldable-verb-text-unwield") : Loc.GetString("wieldable-verb-text-wield"),
+            Act = component.Wielded
+                ? () => TryUnwield(uid, component, args.User)
+                : () => TryWield(uid, component, args.User),
+            InActiveHandOnly = true
+        };
+
+        args.Verbs.Add(verb);
+    }
+    // WD EDIT END
+
     private void OnUseInHand(EntityUid uid, WieldableComponent component, UseInHandEvent args)
     {
-        if (args.Handled)
+        if (args.Handled || component.AltUseInHand) // WD EDIT
             return;
 
         if (!component.Wielded)
@@ -235,6 +269,8 @@ public sealed class WieldableSystem : EntitySystem
         var selfMessage = Loc.GetString("wieldable-component-successful-wield", ("item", used));
         var othersMessage = Loc.GetString("wieldable-component-successful-wield-other", ("user", user), ("item", used));
         _popupSystem.PopupPredicted(selfMessage, othersMessage, user, user);
+
+        component.User = user; // WWDP
 
         var targEv = new ItemWieldedEvent();
         RaiseLocalEvent(used, ref targEv);

@@ -84,15 +84,15 @@ public abstract class SharedStunSystem : EntitySystem
             case MobState.Alive:
                 break;
             case MobState.Critical:
-                {
-                    _statusEffect.TryRemoveStatusEffect(uid, "Stun");
-                    break;
-                }
+            {
+                _statusEffect.TryRemoveStatusEffect(uid, "Stun");
+                break;
+            }
             case MobState.Dead:
-                {
-                    _statusEffect.TryRemoveStatusEffect(uid, "Stun");
-                    break;
-                }
+            {
+                _statusEffect.TryRemoveStatusEffect(uid, "Stun");
+                break;
+            }
             case MobState.Invalid:
             default:
                 return;
@@ -108,7 +108,7 @@ public abstract class SharedStunSystem : EntitySystem
     private void OnKnockInit(EntityUid uid, KnockedDownComponent component, ComponentInit args)
     {
         RaiseNetworkEvent(new CheckAutoGetUpEvent(GetNetEntity(uid)));
-        _layingDown.TryLieDown(uid, null, null, component.DropHeldItemsBehavior);
+        _layingDown.TryLieDown(uid, null, null, component.DropHeldItemsBehavior); // WD EDIT
     }
 
     private void OnKnockShutdown(EntityUid uid, KnockedDownComponent component, ComponentShutdown args)
@@ -172,8 +172,7 @@ public abstract class SharedStunSystem : EntitySystem
     /// <summary>
     ///     Knocks down the entity, making it fall to the ground.
     /// </summary>
-    public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh,
-        DropHeldItemsBehavior behavior = DropHeldItemsBehavior.DropIfStanding,
+    public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh, DropHeldItemsBehavior behavior,
         StatusEffectsComponent? status = null)
     {
         if (time <= TimeSpan.Zero || !Resolve(uid, ref status, false))

@@ -1,0 +1,44 @@
+# Base Rocket
+- type: entity
+  parent: BaseStructure
+  id: BaseRocket
+  abstract: true
+  name: rocket
+  description: Its nuked... ugh...
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Appearance
+  - type: Sprite
+    noRot: true
+    scale: 0.9, 0.9
+    offset: 0, 0.3
+    sprite: _White/Structures/Specific/Rockets/rocket.rsi
+    layers:
+    - state: icon
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: rubble_overlay
+      map: ["base"]
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 3
+      - !type:EmptyAllContainersBehaviour
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6

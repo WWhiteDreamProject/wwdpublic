@@ -43,7 +43,7 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
-    attackRate: 0.75
+    attackRate: 0.5
     range: 1.75
     wideAnimationRotation: -135
     damage:
@@ -55,13 +55,15 @@
     angle: 120
     soundHit:
       collection: MetalThud
+  - type: DamageOtherOnHit
+    staminaCost: 8
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
         Blunt: 2.5
         Slash: 2.5
-        Structural: 30
+        Structural: 20
   - type: GunRequiresWield
   - type: Item
     size: Ginormous
@@ -93,6 +95,12 @@
     heavyStaminaCost: 5
     maxTargets: 2
     angle: 20
+  - type: DamageOtherOnHit
+    staminaCost: 5
+  - type: EmbeddableProjectile
+  - type: EmbedPassiveDamage
+  - type: ThrowingAngle
+    angle: 225
   - type: Tag
     tags:
     - Knife
@@ -106,13 +114,15 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/crusher_glaive.rsi
-  - type: UseDelay
-    delay: 1.9
   - type: LeechOnMarker
     leech:
       groups:
         Brute: -21
   - type: MeleeWeapon
+  - type: EmbeddableProjectile
+  - type: EmbedPassiveDamage
+  - type: ThrowingAngle
+    angle: 225
   - type: Tag
     tags:
       - Pickaxe

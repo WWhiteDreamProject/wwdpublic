@@ -1,3 +1,4 @@
+using Content.Shared.Inventory;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Flash
@@ -16,4 +17,18 @@ namespace Content.Shared.Flash
             args.State = new FlashableComponentState(component.Duration, component.LastFlash, component.EyeDamageChance, component.EyeDamage, component.DurationMultiplier);
         }
     }
+
+    // WD EDIT START
+    public sealed class FlashbangedEvent : EntityEventArgs, IInventoryRelayEvent
+    {
+        public float MaxRange;
+
+        public SlotFlags TargetSlots => SlotFlags.EARS | SlotFlags.HEAD;
+
+        public FlashbangedEvent(float maxRange)
+        {
+            MaxRange = maxRange;
+        }
+    }
+    // WD EDIT END
 }

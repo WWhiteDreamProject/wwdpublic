@@ -1,4 +1,6 @@
 using System.Linq;
+using System.Collections.Frozen;
+using System.Text.RegularExpressions;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
@@ -24,6 +26,11 @@ public abstract class SharedChatSystem : EntitySystem
     public const char WhisperPrefix = ',';
     public const char TelepathicPrefix = '='; //Nyano - Summary: Adds the telepathic channel's prefix.
     public const char DefaultChannelKey = 'h';
+    // WD EDIT START
+    public const int VoiceRange = 10;
+    public const int WhisperClearRange = 2;
+    public const int WhisperMuffledRange = 5;
+    // WD EDIT END
 
     [ValidatePrototypeId<RadioChannelPrototype>]
     public const string CommonChannel = "Common";
@@ -254,6 +261,18 @@ public abstract class SharedChatSystem : EntitySystem
 
         return rawmsg;
     }
+
+    /// <summary>
+    /// Injects a tag around all found instances of a specific string in a ChatMessage.
+    /// Excludes strings inside other tags and brackets.
+    /// </summary>
+    public static string InjectTagAroundString(ChatMessage message, string targetString, string tag, string? tagParameter)
+    {
+        var rawmsg = message.WrappedMessage;
+        rawmsg = Regex.Replace(rawmsg, "(?i)(" + targetString + ")(?-i)(?![^[]*])", $"[{tag}={tagParameter}]$1[/{tag}]");
+        return rawmsg;
+    }
+
     public static string GetStringInsideTag(ChatMessage message, string tag)
     {
         var rawmsg = message.WrappedMessage;

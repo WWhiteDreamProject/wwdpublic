@@ -44,13 +44,25 @@
         ents: []
   - type: StaticPrice
     price: 500
-  - type: MeleeWeapon # WD EDIT
-    attackRate: 0.7
+  - type: MeleeWeapon
+    attackRate: 1.4
     damage:
       types:
         Blunt: 10
+    bluntStaminaDamageFactor: 1.3333
+    swapKeys: true
+    disableHeavy: true
+    animation: WeaponArcThrust
+    wideAnimationRotation: 180
     soundHit:
-      collection: GenericHit
+      collection: MetalThud
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 2.5
+  - type: DamageOtherOnHit
+    staminaCost: 9.5
+  - type: GunRequiresWield # WD EDIT
 
 - type: entity
   name: Bulldog
@@ -86,7 +98,6 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
     fireOnDropChance: 0.3
-  - type: Wieldable
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -110,6 +121,24 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
+  - type: MeleeWeapon
+    attackRate: 1.4
+    damage:
+      types:
+        Blunt: 10
+    bluntStaminaDamageFactor: 1.3333
+    swapKeys: true
+    disableHeavy: true
+    animation: WeaponArcThrust
+    wideAnimationRotation: 180
+    soundHit:
+      collection: MetalThud
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 2.5
+  - type: DamageOtherOnHit
+    staminaCost: 9.5
 
 - type: entity
   name: antique Bulldog
@@ -133,7 +162,6 @@
     shape:
     - 0,0,4,0
     sprite: Objects/Weapons/Guns/Shotguns/db_shotgun_inhands_64x.rsi
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 2
     fireOnDropChance: 0.5
@@ -145,6 +173,12 @@
     graph: ShotgunSawn
     node: start
     deconstructionTarget: null
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8.5
+  - type: DamageOtherOnHit
+    staminaCost: 7.5
 
 - type: entity
   name: double-barreled shotgun
@@ -170,7 +204,13 @@
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: BallisticAmmoProvider
   - type: Wieldable
-  - type: GunRequiresWield
+  - type: MeleeWeapon
+    attackRate: 1.4
+    damage:
+      types:
+        Blunt: 9
+  - type: DamageOtherOnHit
+    staminaCost: 8.0
 
 - type: entity
   parent: WeaponShotgunEnforcer
@@ -195,7 +235,6 @@
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: BallisticAmmoProvider
     capacity: 4
   - type: Tag
@@ -225,6 +264,13 @@
     graph: ShotgunSawn
     node: shotgunsawn
     deconstructionTarget: null
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Blunt: 7.5
+  - type: DamageOtherOnHit
+    staminaCost: 6
 
 - type: entity
   name: sawn-off shogun
@@ -264,6 +310,14 @@
     deconstructionTarget: null
   - type: StaticPrice
     price: 0
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Blunt: 7.5
+    wideAnimationRotation: 135
+  - type: DamageOtherOnHit
+    staminaCost: 5
 
 - type: entity
   name: blunderbuss
@@ -278,7 +332,6 @@
     - 0,0,4,0
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/blunderbuss.rsi
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 2
     fireOnDropChance: 1
@@ -303,7 +356,6 @@
     shape:
     - 0,0,4,0
     sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun_inhands_64x.rsi
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 4 #No reason to stifle the firerate since you have to manually reload every time anyways.
     fireOnDropChance: 1

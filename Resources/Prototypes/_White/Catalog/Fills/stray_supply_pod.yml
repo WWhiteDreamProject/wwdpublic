@@ -1,0 +1,659 @@
+- type: entityTable
+  id: SurplusCargoTable
+  table: !type:GroupSelector
+    children:
+    # Common Group
+    - !type:GroupSelector
+      weight: 80
+      children:
+      - !type:AllSelector
+        children:
+        # Cargo - Armory
+        - !type:EntSelector
+          id: CrateTrainingBombs
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateTrackingImplants
+          weight: 1
+        # Cargo - Atmospherics
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: AirCanister
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: OxygenCanister
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: WaterVaporCanister
+          weight: 1
+        # Cargo - Botany
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateHydroponicsSeedsExotic
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateHydroponicsSeedsMedicinal
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateHydroponicsTools
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateHydroponicsSeeds
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CratePlantBGone
+          weight: 1
+        # Cargo - Cargo
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateCargoLuxuryHardsuit
+          weight: 1
+        # Cargo - Circuitboards
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateCrewMonitoringBoards
+          weight: 1
+        # Cargo - Emergency
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEmergencyExplosive
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEmergencyFire
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEmergencyInternals
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEmergencyInternalsLarge
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEmergencyRadiation
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEmergencyInflatablewall
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateSlimepersonLifeSupport
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateGenericBiosuit
+          weight: 1
+        # Cargo - Engineering
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringCableLV
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringCableMV
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringCableHV
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringCableBulk
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringElectricalSupplies
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringJetpack
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringMiniJetpack
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEvaKit
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateRCDAmmo
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateRCD
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateParticleDecelerators
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringAMEJar
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringSingularityGenerator
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringSingularityContainment
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringSingularityEmitter
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringTeslaGenerator
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringTEGKit
+          weight: 1
+        # Cargo - Food
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFoodPizza
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFoodPizzaLarge
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFoodMRE
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFoodCooking
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFoodBarSupply
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFoodSoftdrinks
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFoodSoftdrinksLarge
+          weight: 1
+        # Cargo - Fun
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFunInstrumentsVariety
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFunInstrumentsBrass
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFunInstrumentsString
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFunInstrumentsWoodwind
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFunInstrumentsKeyedPercussion
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFunInstrumentsSpecial
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFunArtSupplies
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFunSprayPaints
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFunParty
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFunSadTromboneImplants
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFunLightImplants
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFunToyBox
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFunBikeHornImplants
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateFunMysteryFigurines
+          weight: 1
+        # Cargo - Hardsuits
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringFotiaHardsuit
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringLampsiHardsuit
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateLogisticsKritiHardsuit
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateLogisticsLavrionHardsuit
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateSecurityBaghaturTacsuit
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateSecuritySuldeTacsuit
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateSecurityTsagaanTacsuit
+          weight: 1
+        # Cargo - Livestock
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateNPCCat
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateNPCChicken
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateNPCCow
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateNPCGorilla
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateNPCSnake
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateNPCLizard
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateNPCMothroach
+          weight: 1
+        # Cargo - Materials
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateMaterialGlass
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateMaterialSteel
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateMaterialPlastic
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateMaterialBrass
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateMaterialPlasteel
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateMaterialTextiles
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateMaterialPlasma
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: WeldingFuelTankFull
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: WaterTankFull
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateMaterialUranium
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateMaterialGold
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateMaterialSilver
+          weight: 1
+        # Cargo - Medical
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateMedicalSupplies
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateChemistrySupplies
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEmergencyBurnKit
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEmergencyToxinKit
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEmergencyO2Kit
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEmergencyBruteKit
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEmergencyAdvancedKit
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEmergencyRadiationKit
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateChemistryP
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateChemistryS
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateChemistryD
+          weight: 1
+        # Cargo - Science
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateArtifactContainer
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: RandomArtifactSpawner
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateScienceBiosuit
+          weight: 1
+        # Cargo - Security
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateSecurityArmor
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateSecurityHelmet
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateSecurityNonlethal
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateSecurityRiot
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateSecuritySupplies
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateRestraints
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateSecurityBiosuit
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: DeployableBarrier
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateSecurityGrenadeBarrier
+          weight: 1
+        # Cargo - Service
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateServiceJanitorialSupplies
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateServiceTheatre
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateServiceSmokeables
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateServiceCustomSmokable
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateServiceBureaucracy
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateServicePersonnel
+          weight: 1
+        # Cargo - Shuttle
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringThruster
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateEngineeringGyroscope
+          weight: 1
+    # Uncommon Group
+    - !type:GroupSelector
+      weight: 20
+      children:
+        # Cargo - Armory
+      - !type:AllSelector
+        children:
+        - !type:EntSelector
+          id: CrateArmorySMG
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateArmoryShotgun
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateArmoryLaser
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateArmoryPistols
+          weight: 1
+        # Cargo - Atmospherics
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: PlasmaCanister
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: TritiumCanister
+          weight: 1
+        # Cargo - Fun
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateCargoGambling
+          weight: 1
+        # Cargo - Hardsuits
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateSecurityShanlinTacsuit
+          weight: 1
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateSecurityGuanYuTacsuit
+          weight: 1
+        # Cargo - Medical
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: CrateMindShieldImplants
+          weight: 1

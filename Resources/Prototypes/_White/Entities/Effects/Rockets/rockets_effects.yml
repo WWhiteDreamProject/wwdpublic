@@ -1,0 +1,33 @@
+# Default
+- type: entity
+  parent: BaseSupplyPodFallingAnimation
+  categories: [ HideSpawnMenu ]
+  id: RocketMediumExplosionFallingAnimation
+  components:
+    - type: Sprite
+      sprite: _White/Effects/rocket_falling.rsi
+      layers:
+        - state: rocket_falling_animation
+    - type: TimedSpawner
+      prototypes:
+        - Rocket
+      intervalSeconds: 2
+    - type: SpawnOnDespawn
+      prototype: MediumExplosionInstant
+
+# Syndicate
+- type: entity
+  parent: BaseSupplyPodFallingAnimation
+  categories: [ HideSpawnMenu ]
+  id: RocketSyndicateMediumExplosionFallingAnimation
+  components:
+    - type: Sprite
+      sprite: _White/Effects/rocket_falling.rsi
+      layers:
+        - state: rocket_syndicate_falling_animation
+    - type: SpawnOnDespawn
+      prototype: MediumExplosionInstant
+    - type: TimedSpawner
+      prototypes:
+        - RocketSyndicate
+      intervalSeconds: 2

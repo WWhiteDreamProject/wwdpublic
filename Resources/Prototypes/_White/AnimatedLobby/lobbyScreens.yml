@@ -29,3 +29,7 @@
 - type: animatedLobbyScreen
   id: VangoghLobbyScreen
   path: /Textures/_White/LobbyScreens/vangogh.rsi
+
+- type: animatedLobbyScreen
+  id: BrighLobbyScreen
+  path: /Textures/_White/LobbyScreens/brig.rsi

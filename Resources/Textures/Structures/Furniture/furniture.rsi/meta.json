@@ -26,7 +26,8 @@
       "name": "rack"
     },
     {
-      "name": "dresser"
+      "name": "dresser",
+      "directions": 4
     }
   ]
 }

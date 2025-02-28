@@ -1,0 +1,67 @@
+# Base target circle
+- type: entity
+  id: BaseTargetCircle
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _White/Effects/telegraph.rsi
+    drawdepth: FloorTiles
+    layers:
+      - state: target_circle_holographic
+        shader: unshaded
+    color: "#FF0000"
+  - type: PointLight
+    color: "#FF0000"
+  - type: Timer
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Physics
+    bodyType: Static
+    canCollide: False
+
+# Base supply pod target circle
+- type: entity
+  parent: BaseTargetCircle
+  categories: [ HideSpawnMenu ]
+  id: BaseSupplyPodTargetCircle
+  suffix: Empty, default
+  components:
+  - type: TimedSpawner
+    prototypes:
+      -  BaseSupplyPodFallingAnimation
+    intervalSeconds: 10
+  - type: TimedDespawn
+    lifetime: 12
+
+# Base supply pod falling animation
+- type: entity
+  id: BaseSupplyPodFallingAnimation
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Effects/supplypod_falling.rsi
+    layers:
+    - state: default_falling_animation
+      offset: "0,3.3"
+  - type: Physics
+    bodyType: Static
+    canCollide: False
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - SupplyPodCapsuleDefault
+    intervalSeconds: 2
+  - type: TimedDespawn
+    lifetime: 2.1
+  - type: SpawnOnDespawn
+    prototype: SmallExplosionInstant
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_White/Weapons/mortar_long_whistle.ogg
+      params:
+        variation: 0.3
+        volume: 4
+        maxDistance: 20
