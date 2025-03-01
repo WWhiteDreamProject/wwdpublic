@@ -180,6 +180,22 @@ public sealed partial class PsionicsIconPrototype : StatusIconPrototype, IInheri
 }
 
 /// <summary>
+/// WWDP | StatusIcons for showing xenomorph infection status
+/// </summary>
+[Prototype]
+public sealed partial class InfectionIconPrototype : StatusIconPrototype, IInheritingPrototype
+{
+    /// <inheritdoc />
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<PsionicsIconPrototype>))]
+    public string[]? Parents { get; }
+
+    /// <inheritdoc />
+    [NeverPushInheritance]
+    [AbstractDataField]
+    public bool Abstract { get; }
+}
+
+/// <summary>
 /// StatusIcons for faction membership
 /// </summary>
 [Prototype]

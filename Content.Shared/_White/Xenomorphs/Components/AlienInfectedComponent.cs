@@ -30,7 +30,7 @@ public sealed partial class AlienInfectedComponent : Component
     /// <summary>
     /// A set of prototype IDs for status icons representing different growth stages of the infection.
     /// </summary>
-    public readonly HashSet<ProtoId<StatusIconPrototype>> InfectedIcons =
+    public readonly HashSet<ProtoId<InfectionIconPrototype>> InfectedIcons =
     [
         "AlienInfectedIconStageZero",
         "AlienInfectedIconStageOne",

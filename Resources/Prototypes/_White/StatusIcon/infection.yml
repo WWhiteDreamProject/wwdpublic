@@ -1,6 +1,6 @@
 # Infection Stages
 
-- type: factionIcon
+- type: infectionIcon
   id: AlienInfectedIconStageZero
   priority: 0
   locationPreference: Right
@@ -11,7 +11,7 @@
     sprite: /Textures/_White/Interface/Misc/infected.rsi
     state: infected0
 
-- type: factionIcon
+- type: infectionIcon
   id: AlienInfectedIconStageOne
   priority: 0
   locationPreference: Right
@@ -22,7 +22,7 @@
     sprite: /Textures/_White/Interface/Misc/infected.rsi
     state: infected1
 
-- type: factionIcon
+- type: infectionIcon
   id: AlienInfectedIconStageTwo
   priority: 0
   locationPreference: Right
@@ -33,7 +33,7 @@
     sprite: /Textures/_White/Interface/Misc/infected.rsi
     state: infected2
 
-- type: factionIcon
+- type: infectionIcon
   id: AlienInfectedIconStageThree
   priority: 0
   locationPreference: Right
@@ -44,7 +44,7 @@
     sprite: /Textures/_White/Interface/Misc/infected.rsi
     state: infected3
 
-- type: factionIcon
+- type: infectionIcon
   id: AlienInfectedIconStageFour
   priority: 0
   locationPreference: Right
@@ -55,7 +55,7 @@
     sprite: /Textures/_White/Interface/Misc/infected.rsi
     state: infected4
 
-- type: factionIcon
+- type: infectionIcon
   id: AlienInfectedIconStageFive
   priority: 0
   locationPreference: Right
@@ -66,7 +66,7 @@
     sprite: /Textures/_White/Interface/Misc/infected.rsi
     state: infected5
 
-- type: factionIcon
+- type: infectionIcon
   id: AlienInfectedIconStageSix
   priority: 0
   locationPreference: Right
