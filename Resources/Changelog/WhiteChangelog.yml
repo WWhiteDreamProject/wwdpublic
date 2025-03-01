@@ -1351,3 +1351,10 @@ Entries:
   id: 143
   time: '2025-03-01T09:35:06.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/235
+- author: '31893189'
+  changes:
+    - type: Add
+      message: Возвращена выдача оружия после манифеста
+  id: 144
+  time: '2025-03-01T09:36:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/234
