@@ -1393,3 +1393,12 @@ Entries:
   id: 149
   time: '2025-03-01T19:56:21.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/250
+- author: vanx
+  changes:
+    - type: Remove
+      message: >-
+        Из лодаутов убраны энергомечи и энергоревольверы СБ и станбатоны у
+        командования.
+  id: 150
+  time: '2025-03-01T19:56:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/248
