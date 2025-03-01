@@ -35,6 +35,10 @@
       id: LoadoutCommandHoSBulldog
     - type: loadout
       id: LoadoutCommandHoSEnergySword
+    - type: loadout # WWDP
+      id: LoadoutCommandHoSBreachingHammer
+    - type: loadout
+      id: LoadoutCommandHoSEnergyShotgun
     - type: loadout
       id: LoadoutCommandHoSEnergyGun
     - type: loadout

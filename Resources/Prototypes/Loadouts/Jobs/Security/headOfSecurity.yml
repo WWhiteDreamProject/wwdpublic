@@ -103,6 +103,36 @@
     - EnergySwordHoS
 
 - type: loadout
+  id: LoadoutCommandHoSBreachingHammer # WWDP
+  category: JobsSecurityHeadOfSecurity
+  cost: 0
+  canBeHeirloom: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutHeadOfSecurityWeapon
+  - !type:CharacterJobRequirement
+    jobs:
+    - HeadOfSecurity
+  items:
+  - SecBreachingHammer
+
+- type: loadout
+  id: LoadoutCommandHoSEnergyShotgun # WWDP
+  category: JobsSecurityHeadOfSecurity
+  cost: 0
+  canBeHeirloom: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutHeadOfSecurityWeapon
+  - !type:CharacterJobRequirement
+    jobs:
+    - HeadOfSecurity
+  - !type:CharacterAgeRequirement
+    min: 21
+  items:
+  - WeaponEnergyShotgun
+
+- type: loadout
   id: LoadoutCommandHoSEnergyGun
   category: JobsSecurityHeadOfSecurity
   cost: 0
