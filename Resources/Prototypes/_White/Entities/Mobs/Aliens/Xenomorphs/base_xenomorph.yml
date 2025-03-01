@@ -29,7 +29,6 @@
     - type: Tool
       qualities:
         - Prying
-      speed: 1.8
     - type: Prying
       pryPowered: true
     - type: NpcFactionMember
