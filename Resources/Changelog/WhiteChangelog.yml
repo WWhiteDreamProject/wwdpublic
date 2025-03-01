@@ -1379,3 +1379,10 @@ Entries:
   id: 147
   time: '2025-03-01T16:26:26.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/243
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Исправлены иконки роли ассистента
+  id: 148
+  time: '2025-03-01T16:27:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/242
