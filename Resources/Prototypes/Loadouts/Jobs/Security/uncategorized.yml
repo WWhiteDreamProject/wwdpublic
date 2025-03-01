@@ -490,7 +490,7 @@
     - SpeedLoaderRifleHeavyRubber
 
 - type: loadout #WWDP edit
-  id: LoadoutFlashlightSeclite
+  id: LoadoutSecurityFlashlightSeclite
   category: JobsSecurityAUncategorized
   cost: 1
   exclusive: true
@@ -504,7 +504,7 @@
   - FlashlightSeclite
 
 - type: loadout # WWDP edit
-  id: LoadoutHoloprojectorSecurity
+  id: LoadoutSecurityHoloprojector
   category: JobsSecurityAUncategorized
   cost: 2
   exclusive: true
@@ -1350,6 +1350,20 @@
 
 # Gloves
 
+- type: loadout
+  id: LoadoutSecurityHandsGlovesEnviroglovesBlack
+  category: JobsSecurityAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityGloves
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  items:
+  - ClothingHandsGlovesEnviroglovesBlack
+
 # Head
 - type: loadout
   id: LoadoutSecurityHeadHatBeret
@@ -1414,7 +1428,7 @@
     - ClothingMaskGasSwat
 
 - type: loadout # WWDP edit
-  id: LoadoutMaskGasSecurity
+  id: LoadoutSecurityMaskGas
   category: JobsSecurityAUncategorized
   cost: 0
   exclusive: true

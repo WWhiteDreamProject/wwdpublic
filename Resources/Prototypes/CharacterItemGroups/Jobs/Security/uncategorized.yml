@@ -159,10 +159,12 @@
     - type: loadout
       id: LoadoutClothingEyesGlassesCorpsman
 
-#- type: characterItemGroup
-#  id: LoadoutSecurityGloves
-#  maxItems: 1
-#  items:
+- type: characterItemGroup #WWDP edit
+  id: LoadoutSecurityGloves
+  maxItems: 1
+  items:
+  - type: loadout
+    id: LoadoutSecurityHandsGlovesEnviroglovesBlack
 #
 - type: characterItemGroup
   id: LoadoutSecurityHead
@@ -193,6 +195,8 @@
   items:
     - type: loadout
       id: LoadoutSecurityMaskGasSwat
+    - type: loadout #WWDP edit
+      id: LoadoutSecurityMaskGas
 
 - type: characterItemGroup
   id: LoadoutSecurityOuter
