@@ -49,11 +49,10 @@ public abstract class SharedDevourSystem : EntitySystem
         args.Handled = true;
         var target = args.Target;
 
-    // WWDP START
         // Structure and mob devours handled differently.
         if (TryComp(target, out MobStateComponent? targetState))
         {
-            if (component.Consumes.Contains(targetState.CurrentState))
+            switch (targetState.CurrentState)
             {
                 case MobState.Critical:
                 case MobState.Dead:
@@ -67,11 +66,6 @@ public abstract class SharedDevourSystem : EntitySystem
                     _popupSystem.PopupClient(Loc.GetString("devour-action-popup-message-fail-target-alive"), uid,uid);
                     break;
             }
-            else
-            {
-                _popupSystem.PopupClient(Loc.GetString("devour-action-popup-message-fail-target-alive"), uid,uid);
-            }
-    // WWDP END
 
             return;
         }
