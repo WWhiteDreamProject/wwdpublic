@@ -84,6 +84,7 @@
     slots: WITHOUT_POCKET
   - type: Tag
     tags:
+      - Suit # WD EDIT
       - WhitelistChameleon
       - HidesHarpyWings
 
@@ -119,6 +120,7 @@
       slots: WITHOUT_POCKET
     - type: Tag
       tags:
+        - Suit # WD EDIT
         - FullBodyOuter
         - WhitelistChameleon
         - HidesHarpyWings
@@ -149,6 +151,7 @@
     slots: WITHOUT_POCKET
   - type: Tag
     tags:
+      - Suit # WD EDIT
       - FullBodyOuter
       - WhitelistChameleon
       - HidesHarpyWings
@@ -211,6 +214,11 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellSmall
         disableEject: true
+  # WD EDIT START
+  - type: Tag
+    tags:
+    - Suit
+  # WD EDIT END
 
 - type: entity
   parent: ClothingOuterBase
@@ -226,6 +234,7 @@
     slots: WITHOUT_POCKET
   - type: Tag
     tags:
+      - Suit # WD EDIT
       - FullBodyOuter
 
 - type: entity
@@ -238,6 +247,11 @@
     sprite: Clothing/OuterClothing/Suits/shrine-maiden.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/shrine-maiden.rsi
+  # WD EDIT START
+  - type: Tag
+    tags:
+    - Suit
+  # WD EDIT END
 
 - type: entity
   parent: ClothingOuterBase
@@ -256,6 +270,7 @@
     slots: WITHOUT_POCKET
   - type: Tag
     tags:
+      - Suit # WD EDIT
       - FullBodyOuter
 
 - type: entity
@@ -280,6 +295,11 @@
     node: suit
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+  # WD EDIT START
+  - type: Tag
+    tags:
+    - Suit
+  # WD EDIT END
 
 - type: entity
   parent: ClothingOuterBase
@@ -298,6 +318,11 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:Container {}
+  # WD EDIT START
+  - type: Tag
+    tags:
+    - Suit
+  # WD EDIT END
 
 - type: entity
   parent: ClothingOuterSuitCarp
@@ -322,3 +347,8 @@
     sprite: Clothing/OuterClothing/Suits/witchrobe.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/witchrobe.rsi
+  # WD EDIT START
+  - type: Tag
+    tags:
+    - Suit
+  # WD EDIT END

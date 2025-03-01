@@ -1,14 +1,14 @@
 {
     "version": 1,
     "license": "CC-BY-SA-4.0",
-    "copyright": "Made by WWDP Team",
+    "copyright": "Made by WWDP Team, equipped-OUTERCLOTHING-resomi made by Pofitlo",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
         {
-            "name": "icon, equipped-OUTERCLOTHING-resomi made by Pofitlo"
+            "name": "icon
         },
         {
             "name": "equipped-OUTERCLOTHING",

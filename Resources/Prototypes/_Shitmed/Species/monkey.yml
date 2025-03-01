@@ -3,13 +3,18 @@
   name: species-name-monkey
   roundStart: false # sad...
   prototype: MobMonkey
-  sprites: MobMonkeySprites
+  # WD EDIT START
+  bodyTypes:
+  - MonkeyNormal
+  # WD EDIT END
   dollPrototype: MobMonkeyDummy
   skinColoration: HumanToned
   markingLimits: MobMonkeyMarkingLimits
 
-- type: speciesBaseSprites
-  id: MobMonkeySprites
+# WD EDIT
+- type: bodyType
+  id: MonkeyNormal
+  name: body-normal
   sprites:
     Head: MobMonkeyHead
     HeadTop: MobMonkeyAnyMarking

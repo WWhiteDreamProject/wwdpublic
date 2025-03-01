@@ -3,7 +3,10 @@
   name: species-name-chitinid
   roundStart: false # WD EDIT
   prototype: MobChitinid
-  sprites: MobChitinidSprites
+  # WD EDIT START
+  bodyTypes:
+  - ChitinidNormal
+  # WD EDIT END
   defaultSkinTone: "#ffda93"
   markingLimits: MobChitinidMarkingLimits
   dollPrototype: MobChitinidDummy
@@ -12,8 +15,10 @@
   femaleFirstNames: NamesChitinidFirstFemale
   naming: First
 
-- type: speciesBaseSprites
-  id: MobChitinidSprites
+# WD EDIT
+- type: bodyType
+  id: ChitinidNormal
+  name: body-normal
   sprites:
     Head: MobChitinidHead
     Snout: MobHumanoidAnyMarking
