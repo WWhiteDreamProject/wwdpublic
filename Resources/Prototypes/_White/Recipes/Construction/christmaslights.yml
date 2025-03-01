@@ -1,0 +1,71 @@
+- type: construction
+  name: Red-blue christmas lights
+  id: RedBlueChristmasLights
+  graph: RedBlueChristmasLights
+  startNode: start
+  targetNode: ChristmasLightsFull
+  category: construction-category-structures
+  description: Merry Christmas! These lights are powered by the crew jollyness and christmas spirit! Also has a miniature backup fusion reactor, just in case.
+  icon:
+    sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
+    state: preview_redblue
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:NoUnstackableInTile
+    - !type:WallmountCondition
+
+- type: construction
+  name: Yellow-cyan christmas lights
+  id: YellowCyanChristmasLights
+  graph: YellowCyanChristmasLights
+  startNode: start
+  targetNode: ChristmasLightsFull
+  category: construction-category-structures
+  description: Merry Christmas! These lights are powered by the crew jollyness and christmas spirit! Also has a miniature backup fusion reactor, just in case.
+  icon:
+    sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
+    state: preview_yellowcyan
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:NoUnstackableInTile
+    - !type:WallmountCondition
+
+- type: construction
+  name: Purple-green christmas lights
+  id: PurpleGreenChristmasLights
+  graph: PurpleGreenChristmasLights
+  startNode: start
+  targetNode: ChristmasLightsFull
+  category: construction-category-structures
+  description: Merry Christmas! These lights are powered by the crew jollyness and christmas spirit! Also has a miniature backup fusion reactor, just in case.
+  icon:
+    sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
+    state: preview_purplegreen
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:NoUnstackableInTile
+    - !type:WallmountCondition
+
+- type: construction
+  name: Rainbow christmas lights
+  id: RainbowChristmasLights
+  graph: RainbowChristmasLights
+  startNode: start
+  targetNode: ChristmasLightsFull
+  category: construction-category-structures
+  description: Merry Christmas! These lights are powered by the crew jollyness and christmas spirit! Also has a miniature backup fusion reactor, just in case.
+  icon:
+    sprite: _White/Objects/Decoration/Christmas/fairylights.rsi
+    state: preview_rainbow
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:NoUnstackableInTile
+    - !type:WallmountCondition

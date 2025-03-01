@@ -1,0 +1,92 @@
+- type: constructionGraph
+  id: RedBlueChristmasLights
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ChristmasLightsFull
+          steps:
+            - material: Cable
+              amount: 1
+              doAfter: 1
+    - node: ChristmasLightsFull
+      entity: RedBlueChristmasLights
+    # this node doesn't have a "disassembly" edge because i'd have to specify ChristmasLightsFull as a starting node for all christmas light prototypes
+    # instead i have a "generic" disassembly graph which is used only once in BaseChristmasLights' construction comp.  
+
+- type: constructionGraph
+  id: YellowCyanChristmasLights
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ChristmasLightsFull
+          steps:
+            - material: Cable
+              amount: 1
+              doAfter: 1
+    - node: ChristmasLightsFull
+      entity: YellowCyanChristmasLights
+
+- type: constructionGraph
+  id: PurpleGreenChristmasLights
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ChristmasLightsFull
+          steps:
+            - material: Cable
+              amount: 1
+              doAfter: 1
+    - node: ChristmasLightsFull
+      entity: PurpleGreenChristmasLights
+
+- type: constructionGraph
+  id: RainbowChristmasLights
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ChristmasLightsFull
+          steps:
+            - material: Cable
+              amount: 2
+              doAfter: 1
+    - node: ChristmasLightsFull
+      entity: RainbowChristmasLights
+
+- type: constructionGraph # specified in BaseChristmasLights since it's the same for all children christmas lights. I wish generic graphs were a thing.
+  id: GenericChristmasLightsDisassembly 
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ass
+          steps:
+            - tool: Cutting
+              doAfter: 2
+          completed:
+            - !type:GivePrototype
+              prototype: CableApcStack1
+              amount: 1
+            - !type:DeleteEntity {}
+    - node: ass # doesn't matter
+
+
+- type: constructionGraph # since rainbow lights use 2 cable pieces
+  id: RainbowChristmasLightsDisassembly 
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ass
+          steps:
+            - tool: Cutting
+              doAfter: 2
+          completed:
+            - !type:GivePrototype
+              prototype: CableApcStack1
+              amount: 2
+            - !type:DeleteEntity {}
+    - node: ass # doesn't matter
