@@ -1337,3 +1337,10 @@ Entries:
   id: 141
   time: '2025-03-01T08:28:51.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/230
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Действие доставания кого-то из меха теперь сбивается при движении
+  id: 142
+  time: '2025-03-01T09:31:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/237
