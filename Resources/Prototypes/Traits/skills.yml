@@ -318,27 +318,28 @@
           traits:
             - AnomalousPositronics
 
-- type: trait
-  id: TrapAvoider
-  category: Physical
-  points: -3
-  functions:
-    - !type:TraitAddComponent
-      components:
-        - type: StepTriggerImmune
-          whitelist:
-            types:
-              - Shard
-              - Landmine
-              - Mousetrap
-              - SlipEntity
-  requirements:
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Felinid
-        - Tajaran
-        - Harpy
+# WWDP - disabled overpowered trait
+#- type: trait
+#  id: TrapAvoider
+#  category: Physical
+#  points: -3
+#  functions:
+#    - !type:TraitAddComponent
+#      components:
+#        - type: StepTriggerImmune
+#          whitelist:
+#            types:
+#              - Shard
+#              - Landmine
+#              - Mousetrap
+#              - SlipEntity
+#  requirements:
+#    - !type:CharacterSpeciesRequirement
+#      inverted: true
+#      species:
+#        - Felinid
+#        - Tajaran
+#        - Harpy
 
 - type: trait
   id: AnomalousPositronics
