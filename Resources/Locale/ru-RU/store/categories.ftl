@@ -12,8 +12,7 @@ store-category-allies = Подкрепления
 store-category-job = Уникальное
 store-category-wearables = Надеваемое
 store-category-pointless = Безделушки
+store-discounted-items = Скидки
 
-# Revenant && Changeling
+# Revenant
 store-category-abilities = Способности
-store-category-stings = Жала
-store-category-boosters = Усиления

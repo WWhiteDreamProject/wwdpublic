@@ -10,7 +10,7 @@ uplink-ebow-desc = A fairly quiet weapon that automatically reloads and stuns. I
 uplink-hardlight-spear-implant-name = Hardlight spear implanter
 uplink-hardlight-spear-implant-desc = An implant injected into the body, and later activated at the user's will. It will summon a spear made out of hardlight that the user can use to wreak havoc.
 
-uplink-neuro-control-name = Neuro stabilization implanter
+uplink-neuro-control = Neuro stabilization implanter
 uplink-neuro-control-desc = Blocks all of the incoming stamina damage while dealing shock damage instead.
 
 uplink-implanter-name = Имплантер
@@ -18,12 +18,6 @@ uplink-implanter-desc = An advanced implant that allows you to quickly insert an
 
 uplink-smoke-implant-name = Smoke implant
 uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
-
-uplink-night-vision-name = Night vision goggles
-uplink-night-vision-desc = They allow you to see in the dark, all while looking like normal sunglasses!
-
-uplink-thermal-vision-name = Thermal vision goggles
-uplink-thermal-vision-desc = They allow you to see living creatures regardless of obstacles, all while looking like normal sunglasses!
 
 uplink-mind-slave = Mindslave implant
 uplink-mind-slave-desc = Capture the mind of a living being and order him to throw explosive pies at the captain.

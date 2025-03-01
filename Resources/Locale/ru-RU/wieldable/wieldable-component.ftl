@@ -18,3 +18,5 @@ wieldable-component-not-enough-free-hands =
 wieldable-component-not-in-hands = { CAPITALIZE($item) } не в ваших руках!
 
 wieldable-component-requires = { CAPITALIZE($item) } должно быть в руках!
+
+gunrequireswield-component-examine = Из этого оружия можно стрелять только держа его в двух руках.

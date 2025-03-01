@@ -50,3 +50,14 @@ cmd-playtime_flush-help =
     Если пользователь передан, то только этот пользователь будет обработан.
 cmd-playtime_flush-error-args = Ожидается ноль или один аргумент
 cmd-playtime_flush-arg-user = [user name]
+
+## Команда ``playtime_unlock``
+
+cmd-playtime_unlock-desc = Разблокировать требование игрового времени для определенных должностей.
+cmd-playtime_unlock-help = Использование: {$command} [имя пользователя] [трекеры...]
+    Эта команда разблокирует требования игрового времени для определенных должностей для пользователя.
+cmd-playtime_unlock-arg-user = [имя пользователя]
+cmd-playtime_unlock-arg-job = [ид должности]
+cmd-playtime_unlock-error-args = Ожидалось ноль или один аргумент
+cmd-playtime_unlock-error-job = Ожидался допустимый JobPrototype для второго аргумента, но получено {$invalidJob}.
+cmd-playtime_unlock-error-no-requirements = Не найдено требований CharacterPlaytimeRequirements или CharacterDepartmentTime.

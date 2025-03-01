@@ -48,14 +48,6 @@
             ]
         },
         {
-            "name": "cryo",
-            "delays": [
-                [
-                    1
-                ]
-            ]
-        },
-        {
             "name": "dorms",
             "delays": [
                 [
@@ -105,14 +97,6 @@
         },
         {
             "name": "hydro",
-            "delays": [
-                [
-                    1
-                ]
-            ]
-        },
-        {
-            "name": "kitchen",
             "delays": [
                 [
                     1

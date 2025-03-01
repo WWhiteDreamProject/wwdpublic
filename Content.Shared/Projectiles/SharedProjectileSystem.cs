@@ -3,7 +3,6 @@ using System.Numerics;
 using Content.Shared._White.Penetrated;
 using Content.Shared._White.Projectile;
 using Content.Shared.Body.Systems;
-using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -12,7 +11,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
-using Content.Shared.Targeting;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
@@ -24,7 +23,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-
+using Content.Shared.Standing;
 
 namespace Content.Shared.Projectiles;
 
@@ -41,6 +40,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly PenetratedSystem _penetrated = default!; // WD EDIT
 
     public override void Initialize()
@@ -52,7 +52,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         SubscribeLocalEvent<EmbeddableProjectileComponent, ThrowDoHitEvent>(OnEmbedThrowDoHit);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate, before: new[] {typeof(ActivatableUISystem)}); // WD EDIT
         SubscribeLocalEvent<EmbeddableProjectileComponent, RemoveEmbeddedProjectileEvent>(OnEmbedRemove);
-        SubscribeLocalEvent<EmbeddableProjectileComponent, AttemptPacifiedThrowEvent>(OnAttemptPacifiedThrow);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<EmbeddableProjectileComponent, PreventCollideEvent>(OnPreventCollision); // WD EDIT
     }
@@ -85,7 +84,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         RemoveEmbed(uid, component, args.User);
     }
 
-    public void RemoveEmbed(EntityUid uid, EmbeddableProjectileComponent component, EntityUid? remover = null) // WD EDIT
+    public void RemoveEmbed(EntityUid uid, EmbeddableProjectileComponent component, EntityUid? remover = null)
     {
         component.AutoRemoveTime = null;
         component.Target = null;
@@ -132,8 +131,9 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void OnEmbedThrowDoHit(EntityUid uid, EmbeddableProjectileComponent component, ThrowDoHitEvent args)
     {
-        if (!component.EmbedOnThrow ||
-            HasComp<ThrownItemImmuneComponent>(args.Target))
+        if (!component.EmbedOnThrow
+            || HasComp<ThrownItemImmuneComponent>(args.Target)
+            || _standing.IsDown(args.Target))
             return;
 
         Embed(uid, args.Target, null, component, args.TargetPart);
@@ -141,6 +141,9 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void OnEmbedProjectileHit(EntityUid uid, EmbeddableProjectileComponent component, ref ProjectileHitEvent args)
     {
+        if (_standing.IsDown(args.Target))
+            return;
+
         Embed(uid, args.Target, args.Shooter, component);
 
         // Raise a specific event for projectiles.
@@ -217,14 +220,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         Dirty(id, component);
     }
 
-    /// <summary>
-    /// Prevent players with the Pacified status effect from throwing embeddable projectiles.
-    /// </summary>
-    private void OnAttemptPacifiedThrow(Entity<EmbeddableProjectileComponent> ent, ref AttemptPacifiedThrowEvent args)
-    {
-        args.Cancel("pacified-cannot-throw-embed");
-    }
-
     private void OnExamined(EntityUid uid, EmbeddableProjectileComponent component, ExaminedEvent args)
     {
         if (!(component.Target is {} target))
@@ -284,8 +279,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             new RemoveEmbeddedProjectileEvent(), eventTarget: uid, target: uid)
         {
             DistanceThreshold = SharedInteractionSystem.InteractionRange,
-            BreakOnUserMove = true,
-            BreakOnTargetMove = true,
+            BreakOnMove = true,
             NeedHand = true,
         });
 
@@ -327,3 +321,9 @@ public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, Projectile
 /// </summary>
 [ByRefEvent]
 public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null);
+
+/// <summary>
+/// Raised after a projectile has dealt it's damage.
+/// </summary>
+[ByRefEvent]
+public record struct AfterProjectileHitEvent(DamageSpecifier Damage, EntityUid Target);

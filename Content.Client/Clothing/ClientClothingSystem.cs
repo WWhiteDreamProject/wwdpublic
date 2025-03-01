@@ -116,6 +116,11 @@ public sealed class ClientClothingSystem : ClothingSystem
                 i++;
             }
 
+            if (inventory.SpeciesId != null && item.Sprite != null
+                && _cache.TryGetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / item.Sprite, out var rsi)
+                && rsi.RSI.TryGetState($"{layer.State}-{inventory.SpeciesId}", out _))
+                layer.State = $"{layer.State}-{inventory.SpeciesId}";
+
             args.Layers.Add((key, layer));
         }
     }
@@ -133,8 +138,8 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         RSI? rsi = null;
 
-        if (clothing.RsiPath != null)
-            rsi = _cache.GetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / clothing.RsiPath).RSI;
+        if (clothing.Sprite != null)
+            rsi = _cache.GetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / clothing.Sprite).RSI;
         else if (TryComp(uid, out SpriteComponent? sprite))
             rsi = sprite.BaseRSI;
 
@@ -189,6 +194,20 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         if (!inventorySlots.VisualLayerKeys.TryGetValue(args.Slot, out var revealedLayers))
             return;
+
+        if (TryComp<HideLayerClothingComponent>(args.Equipment, out var hideLayer) &&
+            hideLayer.ClothingSlots != null)
+        {
+            foreach (var clothingSlot in hideLayer.ClothingSlots)
+            {
+                if (!inventorySlots.VisualLayerKeys.TryGetValue(clothingSlot, out var revealedLayersToShow))
+                    continue;
+
+                foreach (var layerToShow in revealedLayersToShow)
+                    component.LayerSetVisible(layerToShow, true);
+            }
+            inventorySlots.HiddenSlots.ExceptWith(hideLayer.ClothingSlots);
+        }
 
         // Remove old layers. We could also just set them to invisible, but as items may add arbitrary layers, this
         // may eventually bloat the player with lots of invisible layers.
@@ -256,6 +275,23 @@ public sealed class ClientClothingSystem : ClothingSystem
             return;
         }
 
+        if (TryComp<HideLayerClothingComponent>(equipment, out var hideLayer) &&
+            hideLayer.ClothingSlots != null)
+        {
+            foreach (var clothingSlot in hideLayer.ClothingSlots)
+            {
+                if (!inventorySlots.VisualLayerKeys.TryGetValue(clothingSlot, out var revealedLayersToHide))
+                    continue;
+
+                foreach (var layerToHide in revealedLayersToHide)
+                    sprite.LayerSetVisible(layerToHide, false);
+            }
+            inventorySlots.HiddenSlots.UnionWith(hideLayer.ClothingSlots);
+        }
+
+        if (clothingComponent.RenderLayer != null)
+            slot = clothingComponent.RenderLayer;
+
         // temporary, until layer draw depths get added. Basically: a layer with the key "slot" is being used as a
         // bookmark to determine where in the list of layers we should insert the clothing layers.
         bool slotLayerExists = sprite.LayerMapTryGet(slot, out var index);
@@ -312,6 +348,15 @@ public sealed class ClientClothingSystem : ClothingSystem
             {
                 layer.SetRsi(clothingSprite.BaseRSI);
             }
+
+            // Another "temporary" fix for clothing stencil masks.
+            // Sprite layer redactor when
+            // Sprite "redactor" just a week away.
+            if (slot == Jumpsuit)
+                layerData.Shader ??= "StencilDraw";
+
+            if (inventorySlots.HiddenSlots.Contains(slot))
+                layerData.Visible = false;
 
             sprite.LayerSetData(index, layerData);
             layer.Offset += slotDef.Offset;

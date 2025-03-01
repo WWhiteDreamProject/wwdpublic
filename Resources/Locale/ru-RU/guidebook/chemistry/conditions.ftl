@@ -16,7 +16,8 @@ reagent-effect-condition-guidebook-reagent-threshold =
                *[other] оно имеет между { NATURALFIXED($min, 2) }ед. и { NATURALFIXED($max, 2) }ед. { $reagent }
             }
     }
-reagent-effect-condition-guidebook-mob-state-condition = моб - { $state }
+reagent-effect-condition-guidebook-mob-state-condition = пациент в { $state }
+reagent-effect-condition-guidebook-job-condition = должность цели - { $job }
 reagent-effect-condition-guidebook-solution-temperature =
     температура раствора { $max ->
         [2147483648] по меньшей мере { NATURALFIXED($min, 2) }К

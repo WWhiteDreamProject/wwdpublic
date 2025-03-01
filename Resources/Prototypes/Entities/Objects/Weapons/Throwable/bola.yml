@@ -41,8 +41,8 @@
         !type:DamageTrigger
         damage: 75
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -81,5 +81,6 @@
     stutterTime: 7
   - type: Tag
     tags:
-      - SecBeltEquip
+    - SecBeltEquip
   # WD EDIT END
+  - type: LandAtCursor

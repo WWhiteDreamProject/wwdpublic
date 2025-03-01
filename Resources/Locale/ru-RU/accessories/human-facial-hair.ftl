@@ -1,6 +1,6 @@
 marking-HumanFacialHairAbe = Борода (Авраам Линкольн)
 marking-HumanFacialHairBrokenman = Борода (Сломанный человек)
-marking-HumanFacialHairChin = Борода (Шкиперская бородка)
+marking-HumanFacialHairChin = Борода (Шкиперская бородка 1)
 marking-HumanFacialHairDwarf = Борода (Дварф)
 marking-HumanFacialHairFullbeard = Борода (Полная)
 marking-HumanFacialHairCroppedfullbeard = Борода (Обрезанная полная борода)

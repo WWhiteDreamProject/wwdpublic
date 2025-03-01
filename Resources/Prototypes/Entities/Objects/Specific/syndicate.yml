@@ -51,7 +51,7 @@
 
 # Uplinks
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, StorePresetUplink ]
   id: BaseUplinkRadio
   name: syndicate uplink
   description: Suspiciously looking old radio...
@@ -71,10 +71,13 @@
   - type: ActivatableUI
     key: enum.StoreUiKey.Key
   - type: Store
-    preset: StorePresetUplink
     balance:
       Telecrystal: 0
-  - type: GiftIgnore # WD EDIT
+  # WD EDIT START
+  - type: StoreDiscount
+    onSpawn: true
+  - type: GiftIgnore
+  # WD EDIT END
 
 - type: entity
   parent: BaseUplinkRadio
@@ -82,7 +85,6 @@
   suffix: 20 TC
   components:
   - type: Store
-    preset: StorePresetUplink
     balance:
       Telecrystal: 20
 
@@ -92,7 +94,6 @@
   suffix: 25 TC
   components:
   - type: Store
-    preset: StorePresetUplink
     balance:
       Telecrystal: 25
 
@@ -103,9 +104,20 @@
   suffix: 40 TC, NukeOps
   components:
   - type: Store
-    preset: StorePresetUplink
     balance:
       Telecrystal: 40
+  - type: Tag
+    tags:
+    - NukeOpsUplink
+
+- type: entity
+  parent: BaseUplinkRadio
+  id: BaseUplinkRadio60TC
+  suffix: 60 TC, LoneOps
+  components:
+  - type: Store
+    balance:
+      Telecrystal: 60
   - type: Tag
     tags:
     - NukeOpsUplink
@@ -116,6 +128,5 @@
   suffix: DEBUG
   components:
   - type: Store
-    preset: StorePresetUplink
     balance:
       Telecrystal: 99999

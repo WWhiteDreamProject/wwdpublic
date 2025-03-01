@@ -1,10 +1,9 @@
+using Content.Shared._Shitmed.Targeting;
 using System.Numerics;
 using Content.Shared.Damage;
-using Content.Shared.Targeting;
 using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.Projectiles;
 

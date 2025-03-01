@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Based on tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, modified by EmoGarbage404 (github), harpy by VMSolidus. Vox state made by Flareguy for SS14, equipped-OUTERCLOTHING-resomi made by Pofitlo",
+    "copyright": "Based on tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, modified by EmoGarbage404 (github), harpy by VMSolidus. Vox state made by Flareguy for SS14, equipped-OUTERCLOTHING-resomi made by Pofitlo, lamia & segment by @noctyrnal",
     "size": {
         "x": 32,
         "y": 32
@@ -19,8 +19,19 @@
             "directions": 4
         },
         {
+            "name": "equipped-OUTERCLOTHING-harpy",
+            "directions": 4
+        },
+        {
             "name": "equipped-OUTERCLOTHING-resomi",
             "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-lamia",
+            "directions": 4
+        },
+        {
+            "name": "segment"
         },
         {
             "name": "inhand-left",
@@ -28,10 +39,6 @@
         },
         {
             "name": "inhand-right",
-            "directions": 4
-        },
-        {
-            "name": "equipped-OUTERCLOTHING-harpy",
             "directions": 4
         }
     ]

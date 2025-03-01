@@ -63,6 +63,36 @@
 
 #Engineering Hardsuit
 - type: entity
+  parent: ClothingHeadHelmetHardsuitEngineering
+  id: ClothingHeadHelmetHardsuitEngineeringUnpainted
+  name: engineering hardsuit helmet
+  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/engineering-base.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/engineering-base.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
+
+- type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitEngineering
   name: engineering hardsuit helmet
@@ -201,7 +231,7 @@
         Heat: 0.9
   - type: FlashImmunity # WD EDIT
   - type: FlashSoundSuppression # WD EDIT
-  
+
 
 #Brigmedic Hardsuit
 - type: entity
@@ -382,6 +412,35 @@
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
 - type: entity
+  parent: ClothingHeadHelmetHardsuitSyndie
+  id: ClothingHeadHelmetHardsuitShanlinUnpainted
+  name: Cybersun tacsuit helmet
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/syndicate-base.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/syndicate-base.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
+
+- type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndie
   name: blood-red hardsuit helmet
@@ -437,6 +496,35 @@
   - type: FlashSoundSuppression # WD EDIT
 
 #Syndicate Elite Hardsuit
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSyndieElite
+  id: ClothingHeadHelmetHardsuitShiweiUnpainted
+  name: Cybersun elite tacsuit helmet
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/syndicate-elite-base.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/syndicate-elite-base.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
+
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndieElite
@@ -794,15 +882,15 @@
         Radiation: 0.80
         Caustic: 0.95
   # WD EDIT START
-  - type: ClothingGrantComponent
-    component:
-    - type: ThermalVision
-    - type: NightVision
   - type: EyeProtection
   - type: FlashImmunity
   - type: FlashSoundSuppression
     maxRange: 0
   # WD EDIT END
+  - type: ThermalVision
+    isEquipment: true
+    color: "#98EEFB"
+    lightRadius: 15
 
 #MISC. HARDSUITS
 #Clown Hardsuit
