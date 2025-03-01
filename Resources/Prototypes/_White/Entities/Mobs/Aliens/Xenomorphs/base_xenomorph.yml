@@ -869,6 +869,12 @@
       state: facehugger
   - type: Alien
     greetingText: alien-facehugger-greeting
+    weedHeal:
+      groups:
+        Burn: -0.5
+        Toxin: -0.5
+        Airloss: -0.10
+        Brute: -0.5
   - type: Item
     sprite: _White/Mobs/Aliens/Xenomorphs/facehugger_inhands.rsi
     size: Small
