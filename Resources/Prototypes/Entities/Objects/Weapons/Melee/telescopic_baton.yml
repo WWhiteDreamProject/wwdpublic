@@ -27,21 +27,22 @@
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
-        Blunt: 12
+        Blunt: 6 # WWDP EDIT
   - type: ItemToggleDamageOtherOnHit
   - type: ItemToggleSize
     activatedSize: Normal
   - type: UseDelay
     delay: 2
   - type: TelescopicBaton
+    attackTimeframe: 2 # WWDP
   - type: KnockdownOnHit # WD EDIT
     jitterTime: 0
     stutterTime: 0
     delay: 0
     knockdownTime: 1
   - type: MeleeWeapon
-    attackRate: 1.25
-    bluntStaminaDamageFactor: 1.5
+    attackRate: 1 # WWDP
+    bluntStaminaDamageFactor: 4.5 # WWDP, 4 hits to stun
     maxTargets: 1
     canHeavyAttack: false
     damage:
