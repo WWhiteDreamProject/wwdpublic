@@ -1,5 +1,5 @@
 ent-FloorTileItemBase = { ent-BaseItem }
-    .desc = Может послужить неплохим метательным оружием.
+    .desc = Может больно прилететь по голове.
     .suffix = { "" }
 ent-FloorTileItemSteel = стальная плитка
     .desc = { ent-FloorTileItemBase.desc }
