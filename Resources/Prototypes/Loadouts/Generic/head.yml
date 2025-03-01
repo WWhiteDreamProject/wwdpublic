@@ -1,5 +1,16 @@
 # Hats
 - type: loadout
+  id: LoadoutHeadHatUshanka
+  category: Head
+  cost: 1
+  exclusive: true
+  items:
+  - ClothingHeadHatUshanka
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutHead
+
+- type: loadout
   id: LoadoutHeadBeaverHat
   category: Head
   cost: 1
