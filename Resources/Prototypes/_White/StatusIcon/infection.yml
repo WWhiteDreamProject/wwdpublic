@@ -1,57 +1,78 @@
 # Infection Stages
 
-- type: statusIcon
+- type: factionIcon
   id: AlienInfectedIconStageZero
   priority: 0
   locationPreference: Right
+  showTo:
+    components:
+    - Alien
   icon:
     sprite: /Textures/_White/Interface/Misc/infected.rsi
     state: infected0
 
-- type: statusIcon
+- type: factionIcon
   id: AlienInfectedIconStageOne
   priority: 0
   locationPreference: Right
+  showTo:
+    components:
+    - Alien
   icon:
     sprite: /Textures/_White/Interface/Misc/infected.rsi
     state: infected1
 
-- type: statusIcon
+- type: factionIcon
   id: AlienInfectedIconStageTwo
   priority: 0
   locationPreference: Right
+  showTo:
+    components:
+    - Alien
   icon:
     sprite: /Textures/_White/Interface/Misc/infected.rsi
     state: infected2
 
-- type: statusIcon
+- type: factionIcon
   id: AlienInfectedIconStageThree
   priority: 0
   locationPreference: Right
+  showTo:
+    components:
+    - Alien
   icon:
     sprite: /Textures/_White/Interface/Misc/infected.rsi
     state: infected3
 
-- type: statusIcon
+- type: factionIcon
   id: AlienInfectedIconStageFour
   priority: 0
   locationPreference: Right
+  showTo:
+    components:
+    - Alien
   icon:
     sprite: /Textures/_White/Interface/Misc/infected.rsi
     state: infected4
 
-- type: statusIcon
+- type: factionIcon
   id: AlienInfectedIconStageFive
   priority: 0
   locationPreference: Right
+  showTo:
+    components:
+    - Alien
   icon:
     sprite: /Textures/_White/Interface/Misc/infected.rsi
     state: infected5
 
-- type: statusIcon
+- type: factionIcon
   id: AlienInfectedIconStageSix
   priority: 0
   locationPreference: Right
+  showTo:
+    components:
+    - Alien
   icon:
     sprite: /Textures/_White/Interface/Misc/infected.rsi
     state: infected6

@@ -21,7 +21,6 @@ using Content.Shared.Random;
 using Robust.Shared.Player;
 using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
-using FastAccessors;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Random;

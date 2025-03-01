@@ -123,7 +123,7 @@
     bodyRemove:
     - type: AlienInfected
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/hemostat.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
   - type: SurgeryOperatingTableCondition
   - type: SurgeryStepSpawnEffect
