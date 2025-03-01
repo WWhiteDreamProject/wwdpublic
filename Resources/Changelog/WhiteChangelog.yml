@@ -1337,3 +1337,24 @@ Entries:
   id: 141
   time: '2025-03-01T08:28:51.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/230
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Действие доставания кого-то из меха теперь сбивается при движении
+  id: 142
+  time: '2025-03-01T09:31:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/237
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Летящие плитки пола больше не застревают в телах и стенах
+  id: 143
+  time: '2025-03-01T09:35:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/235
+- author: '31893189'
+  changes:
+    - type: Add
+      message: Возвращена выдача оружия после манифеста
+  id: 144
+  time: '2025-03-01T09:36:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/234
