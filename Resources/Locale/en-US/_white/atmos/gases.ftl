@@ -1,0 +1,11 @@
+gas-bz-abbreviation = BZ
+gas-pluoxium-dioxide-abbreviation = TCO₃
+gas-hydrogen-abbreviation = H₂
+gas-nitrium-abbreviation = NT₂
+gas-healium-oxide-abbreviation = FBZ
+gas-hypernoblium-abbreviation = TN₂
+gas-protonitrate-abbreviation = HTCO₃
+gas-zauker-abbreviation = (NT)₃
+gas-halon-vapor-abbreviation = Ha
+gas-helium-abbreviation = He
+gas-antinoblium-abbreviation = AN

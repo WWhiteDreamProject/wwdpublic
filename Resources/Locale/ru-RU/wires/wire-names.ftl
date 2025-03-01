@@ -37,8 +37,12 @@ wires-board-name-firelock = Панель управления пожарным �
 wires-board-name-windoor = Панель управления раздвижным окном
 wires-board-name-mech = Мех
 wires-board-name-fatextractor = Экстрактор жира
-wires-board-name-flatpacker = Флатпакер
-wires-board-name-criminal-record-server = Сервер криминальных записей
+wires-board-name-flatpacker = Упаковщик
+wires-board-name-spaceheater = Термостат
+wires-board-name-jukebox = Музыкальный автомат
+wires-board-name-computer = Компьютер
+wires-board-name-holopad = Голопад
+wires-board-name-barsign = Барная вывеска
 
 # names that get displayed in the wire hacking hud & admin logs.
 
@@ -66,3 +70,4 @@ wire-name-bomb-boom = ВЗРВ
 wire-name-bomb-bolt = БОЛТ
 wire-name-speech = СЛУШ
 wire-name-listen = ГОВР
+wire-name-log = ЛОГ

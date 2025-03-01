@@ -1321,3 +1321,19 @@ Entries:
   id: 139
   time: '2025-01-01T17:20:40.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/223
+- author: Spatison
+  changes:
+    - type: Add
+      message: Upstream 30.12-28.02 :D
+  id: 140
+  time: '2025-03-01T04:42:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/231
+- author: kekoven1
+  changes:
+    - type: Add
+      message: >-
+        Added some music from the lobby to the jukebox/ Добавлено немного музыки
+        из лобби в музыкальный автомат
+  id: 141
+  time: '2025-03-01T08:28:51.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/230

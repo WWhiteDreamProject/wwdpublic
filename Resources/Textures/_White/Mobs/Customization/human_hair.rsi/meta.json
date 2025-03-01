@@ -8,10 +8,6 @@
   },
   "states": [
     {
-      "name": "africanpigtails",
-      "directions": 4
-    },
-    {
       "name": "afropuffdouble",
       "directions": 4
     },
@@ -164,7 +160,7 @@
       "directions": 4
     },
     {
-      "name": "long4",
+      "name": "long5",
       "directions": 4
     },
     {

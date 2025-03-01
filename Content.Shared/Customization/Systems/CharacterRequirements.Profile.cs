@@ -25,8 +25,8 @@ public sealed partial class CharacterAgeRequirement : CharacterRequirement
     [DataField(required: true)]
     public int Min;
 
-    [DataField(required: true)]
-    public int Max;
+    [DataField]
+    public int Max = Int32.MaxValue;
 
     public override bool IsValid(
         JobPrototype job,
@@ -41,8 +41,15 @@ public sealed partial class CharacterAgeRequirement : CharacterRequirement
         int depth = 0
     )
     {
+        var localeString = "";
+
+        if (Max == Int32.MaxValue || Min <= 0)
+            localeString = Max == Int32.MaxValue ? "character-age-requirement-minimum-only" : "character-age-requirement-maximum-only";
+        else
+            localeString = "character-age-requirement-range";
+
         reason = Loc.GetString(
-            "character-age-requirement",
+            localeString,
             ("inverted", Inverted),
             ("min", Min),
             ("max", Max));

@@ -5,7 +5,7 @@
     - 'j'
     - 'ю'
   frequency: 1420
-  color: "#701442"
+  color: "#c70667"
 
 - type: radioChannel
   id: Prison

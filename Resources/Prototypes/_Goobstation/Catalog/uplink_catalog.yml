@@ -1,0 +1,54 @@
+# Mechs
+
+- type: listing
+  id: UplinkDarkGygax
+  name: uplink-mech-teleporter-assault-name
+  description: uplink-mech-teleporter-assault-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: darkgygax }
+  productEntity: CrateCybersunDarkGygaxBundle
+  # WD EDIT START
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 16
+  cost:
+    Telecrystal: 80
+  # WD EDIT END
+  categories:
+  - UplinkAllies
+
+- type: listing
+  id: UplinkMauler
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: mauler }
+  productEntity: CrateCybersunMaulerBundle
+  # WD EDIT START
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 26
+  cost:
+    Telecrystal: 130
+  # WD EDIT END
+  categories:
+  - UplinkAllies
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkHardsuitCybersunStealth
+  name: uplink-hardsuit-cybersun-stealth-name
+  description: uplink-hardsuit-cybersun-stealth-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
+  discountCategory: rareDiscounts
+  # WD EDIT START
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 11
+  # WD EDIT END
+  categories:
+  - UplinkWearables

@@ -1,14 +1,20 @@
 - type: animatedLobbyScreen
   id: CentcommLobbyScreen
   path: /Textures/_White/LobbyScreens/centcomm.rsi
+  name: Centcomm
+  artist: WWDP
 
 - type: animatedLobbyScreen
   id: CubeLobbyScreen
   path: /Textures/_White/LobbyScreens/cube.rsi
+  name: Frontier
+  artist: Mobius
 
 - type: animatedLobbyScreen
   id: MilkywayLobbyScreen
   path: /Textures/_White/LobbyScreens/milkyway.rsi
+  name: OUR GALAXY, THE MILKY WAY
+  artist: BONESTELL, CHESLEY
 
 #- type: animatedLobbyScreen
 #  id: NativeLobbyScreen
@@ -17,19 +23,29 @@
 - type: animatedLobbyScreen
   id: RocketLobbyScreen
   path: /Textures/_White/LobbyScreens/rocket.rsi
+  name: Росинант
+  artist: Tarantoga
 
 - type: animatedLobbyScreen
   id: SeaLobbyScreen
   path: /Textures/_White/LobbyScreens/sea.rsi
+  name: Floating in Space
+  artist: Don Mupasi
 
 - type: animatedLobbyScreen
   id: SyndicateLobbyScreen
   path: /Textures/_White/LobbyScreens/syndicate.rsi
+  name: YOU EITHER DRIP OR DROWN NT MAN
+  artist: Bill Steven
 
 - type: animatedLobbyScreen
   id: VangoghLobbyScreen
   path: /Textures/_White/LobbyScreens/vangogh.rsi
+  name: Starry Night
+  artist: Van Gogh
 
 - type: animatedLobbyScreen
-  id: BrighLobbyScreen
+  id: BrigLobbyScreen
   path: /Textures/_White/LobbyScreens/brig.rsi
+  name: Brig
+  artist: Waggier

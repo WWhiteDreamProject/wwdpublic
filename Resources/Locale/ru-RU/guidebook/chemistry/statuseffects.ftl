@@ -10,3 +10,6 @@ reagent-effect-status-effect-Drunk = пьянство
 reagent-effect-status-effect-PressureImmunity = устойчивость к давлению
 reagent-effect-status-effect-Pacified = боевое умиротворение
 reagent-effect-status-effect-RatvarianLanguage = ратварианские языковые шаблоны
+reagent-effect-status-effect-StaminaModifier = измененнае выносливости
+reagent-effect-status-effect-RadiationProtection = защиту от радиации
+reagent-effect-status-effect-Drowsiness = сонливость

@@ -41,10 +41,15 @@ thief-backpack-category-sleeper-description =
     Включает в себя набор флаконов с ноктюрином, гипоручку и
     баллон с усыпляющим газом.
 
-thief-backpack-category-communicator-name = набор связи
+thief-backpack-category-communicator-name = набор связиста
 thief-backpack-category-communicator-description =
     Набор любителя общения. Включает мастер-ключ для всех каналов станции, ручку Cybersun,
     портативный монитор экипажа, голосовую маску и много денег для деловых сделок.
+
+thief-backpack-category-communicator-plasmaman-name = Набор связиста
+thief-backpack-category-communicator-plasmaman-description =
+    Набор любителя общения. Включает в себя главный ключ ко всем каналам станции, ручку Cybersun,
+    портативный монитор экипажа, голосовую маску, тактический экологический костюм и много денег для деловых сделок.
 
 thief-backpack-category-smuggler-name = набор контрабандиста
 thief-backpack-category-smuggler-description =

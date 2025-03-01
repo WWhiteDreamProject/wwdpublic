@@ -11,7 +11,9 @@ species-name-moth = Моль
 species-name-skeleton = Скелет
 species-name-vox = Вокс
 species-name-ipc = КПБ
+species-name-shadowkin = Тенерожденный
+species-name-plasmaman = Плазмачеловек
 
-# Nyanocode
-species-name-felinid = Фелинид
-species-name-oni = Они
+## Misc species things
+
+snail-hurt-by-salt-popup = Соляной раствор жжёт как кислота!

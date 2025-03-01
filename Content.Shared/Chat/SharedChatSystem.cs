@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Collections.Frozen;
 using System.Text.RegularExpressions;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
@@ -86,25 +85,48 @@ public abstract class SharedChatSystem : EntitySystem
         if (!Resolve(source, ref speech, false))
             return _prototypeManager.Index<SpeechVerbPrototype>(DefaultSpeechVerb);
 
-        var evt = new TransformSpeakerSpeechEvent(source);
-        RaiseLocalEvent(source, evt);
-
-        SpeechVerbPrototype? speechProto = null;
-        if (evt.SpeechVerb != null && _prototypeManager.TryIndex(evt.SpeechVerb, out var evntProto))
-            speechProto = evntProto;
-
         // check for a suffix-applicable speech verb
+        SpeechVerbPrototype? current = null;
         foreach (var (str, id) in speech.SuffixSpeechVerbs)
         {
-            var proto = _prototypeManager.Index<SpeechVerbPrototype>(id);
-            if (message.EndsWith(Loc.GetString(str)) && proto.Priority >= (speechProto?.Priority ?? 0))
+            var proto = _prototypeManager.Index(id);
+            if (message.EndsWith(Loc.GetString(str)) && proto.Priority >= (current?.Priority ?? 0))
             {
-                speechProto = proto;
+                current = proto;
             }
         }
 
         // if no applicable suffix verb return the normal one used by the entity
-        return speechProto ?? _prototypeManager.Index<SpeechVerbPrototype>(speech.SpeechVerb);
+        return current ?? _prototypeManager.Index(speech.SpeechVerb);
+    }
+
+    /// <summary>
+    /// Splits the input message into a radio prefix part and the rest to preserve it during sanitization.
+    /// </summary>
+    /// <remarks>
+    /// This is primarily for the chat emote sanitizer, which can match against ":b" as an emote, which is a valid radio keycode.
+    /// </remarks>
+    public void GetRadioKeycodePrefix(EntityUid source,
+        string input,
+        out string output,
+        out string prefix)
+    {
+        prefix = string.Empty;
+        output = input;
+
+        // If the string is less than 2, then it's probably supposed to be an emote.
+        // No one is sending empty radio messages!
+        if (input.Length <= 2)
+            return;
+
+        if (!(input.StartsWith(RadioChannelPrefix) || input.StartsWith(RadioChannelAltPrefix)))
+            return;
+
+        if (!_keyCodes.TryGetValue(input[1], out _))
+            return;
+
+        prefix = input[..2];
+        output = input[2..];
     }
 
     /// <summary>

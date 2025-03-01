@@ -86,9 +86,12 @@ chat-speech-verb-reptilian-1 = шипит
 chat-speech-verb-reptilian-2 = фыркает
 chat-speech-verb-reptilian-3 = пыхтит
 
+chat-speech-verb-name-skeleton = Скелет / Плазмочеловек
 chat-speech-verb-skeleton-1 = гремит
-chat-speech-verb-skeleton-2 = щелкает
-chat-speech-verb-skeleton-3 = скрежет
+chat-speech-verb-skeleton-2 = ребрами
+chat-speech-verb-skeleton-3 = костями
+chat-speech-verb-skeleton-4 = стучит
+chat-speech-verb-skeleton-5 = трещит
 
 chat-speech-verb-canine-1 = гавкает
 chat-speech-verb-canine-2 = лает

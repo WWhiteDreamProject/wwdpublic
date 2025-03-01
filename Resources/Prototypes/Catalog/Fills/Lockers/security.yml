@@ -25,6 +25,7 @@
       - id: BoxPDAPrisoner # Delta-V
       - id: ClothingShoesBootsWinterWarden #Delta V: Add departmental winter boots
       - id: BoxEncryptionKeyPrisoner #Delta-V
+      - id: BoxPrisonerHeadset
       - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
         prob: 0.3
       - id: BoxBodyBagPrisoner # WD
@@ -54,6 +55,7 @@
       - id: BoxPDAPrisoner # Delta-V
       - id: ClothingShoesBootsWinterWarden #Delta V: Add departmental winter boots
       - id: BoxEncryptionKeyPrisoner #Delta-V
+      - id: BoxPrisonerHeadset
       - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
         prob: 0.3
       - id: BoxBodyBagPrisoner # WD
@@ -88,7 +90,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesHudSecurity
+      - id: ClothingEyesGlassesCorpsman # DeltaV - Corpsman Glasses
       - id: WeaponDisabler
       - id: TrackingImplanter
         amount: 2
@@ -129,7 +131,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesHudSecurity
+      - id: ClothingEyesGlassesCorpsman # DeltaV - Corpsman Glasses
       - id: WeaponDisabler
       - id: TrackingImplanter
         amount: 2
@@ -291,3 +293,16 @@
     contents:
     - id: WeaponLaserCarbine
       amount: 3
+
+- type: entity
+  id: GunSafeRifleBRDIR25
+  suffix: BRDI-R25
+  parent: GunSafe
+  name: BRDI-R25 safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunBRDIR25
+      amount: 2
+    - id: MagazineCaselessRifle
+      amount: 4

@@ -1,0 +1,13 @@
+marking-HumanHairArabicGathered = Собранные арабские волосы
+marking-HumanHairClassicHair = Классические волосы
+marking-HumanHairSideComb = Пробор набок
+marking-HumanHairLong4 = Длинные волосы 4
+marking-HumanHairManbun2 = Пучок (мужской пучок 2)
+marking-HumanHairPigtailTajaran = Таджарские косички
+marking-HumanHairShavedSide = Выбритый висок
+marking-HumanHairShorthair8 = Короткие волосы 8
+marking-HumanFembun = Женский пучок
+marking-HumanHairAfricanPigtails = Африканские косички
+marking-HumanHairAfropuffDouble = Афропучок (двойной)
+marking-HumanHairAfropuffLeft = Афропучок (левый)
+marking-HumanHairAfropuffRight = Афропучок (правый)
