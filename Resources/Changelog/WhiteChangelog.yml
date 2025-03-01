@@ -1344,3 +1344,10 @@ Entries:
   id: 142
   time: '2025-03-01T09:31:28.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/237
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Летящие плитки пола больше не застревают в телах и стенах
+  id: 143
+  time: '2025-03-01T09:35:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/235
