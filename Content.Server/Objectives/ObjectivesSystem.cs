@@ -22,12 +22,23 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<ObjectiveComponent, ObjectiveAfterAssignEvent>(OnAfterAssign);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
+    }
+
+    //Set the name and description for the objective.
+    private void OnAfterAssign(Entity<ObjectiveComponent> condition, ref ObjectiveAfterAssignEvent args)
+    {
+        if (condition.Comp.Title != null)
+            _metaData.SetEntityName(condition.Owner, Loc.GetString(condition.Comp.Title), args.Meta);
+        if (condition.Comp.Description != null)
+            _metaData.SetEntityDescription(condition.Owner, Loc.GetString(condition.Comp.Description), args.Meta);
     }
 
     /// <summary>
