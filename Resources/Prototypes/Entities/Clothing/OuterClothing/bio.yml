@@ -13,6 +13,11 @@
     modifiers:
       coefficients:
         Caustic: 0.5
+  # WD EDIT START
+  - type: Tag
+    tags:
+    - Suit
+  # WD EDIT END
 
 - type: entity
   parent: ClothingOuterBioGeneral

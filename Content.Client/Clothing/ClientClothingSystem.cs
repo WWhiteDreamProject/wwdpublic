@@ -12,6 +12,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
+using Content.Shared.Tag;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -26,7 +27,12 @@ namespace Content.Client.Clothing;
 public sealed class ClientClothingSystem : ClothingSystem
 {
     public const string Jumpsuit = "jumpsuit";
-
+    // WD EDIT START
+    public const string Hardsuit = "hardsuit";
+    public const string HardsuitTag = "Hardsuit";
+    public const string Suit = "suit";
+    public const string SuitTag = "Suit";
+    // WD EDIT END
     /// <summary>
     /// This is a shitty hotfix written by me (Paul) to save me from renaming all files.
     /// For some context, im currently refactoring inventory. Part of that is slots not being indexed by a massive enum anymore, but by strings.
@@ -57,6 +63,7 @@ public sealed class ClientClothingSystem : ClothingSystem
     [Dependency] private readonly DisplacementMapSystem _displacement = default!;
 
     [Dependency] private readonly IPrototypeManager _prototype = default!; // WD EDIT
+    [Dependency] private readonly TagSystem _tag = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -334,6 +341,18 @@ public sealed class ClientClothingSystem : ClothingSystem
                     {
                         displacementData = inventory.MaleDisplacements.GetValueOrDefault($"{slot}-{bodyTypeName}")
                             ?? inventory.MaleDisplacements.GetValueOrDefault(slot);
+
+                        if (_tag.HasTag(equipment, HardsuitTag))
+                        {
+                            displacementData = inventory.MaleDisplacements.GetValueOrDefault($"{Hardsuit}-{bodyTypeName}")
+                                ?? inventory.MaleDisplacements.GetValueOrDefault(Hardsuit);
+                        }
+
+                        if (_tag.HasTag(equipment, SuitTag))
+                        {
+                            displacementData = inventory.MaleDisplacements.GetValueOrDefault($"{Suit}-{bodyTypeName}")
+                                ?? inventory.MaleDisplacements.GetValueOrDefault(Suit);
+                        }
                     }
 
                     break;
@@ -342,6 +361,18 @@ public sealed class ClientClothingSystem : ClothingSystem
                     {
                         displacementData = inventory.FemaleDisplacements.GetValueOrDefault($"{slot}-{bodyTypeName}")
                             ?? inventory.FemaleDisplacements.GetValueOrDefault(slot);
+
+                        if (_tag.HasTag(equipment, HardsuitTag))
+                        {
+                            displacementData = inventory.FemaleDisplacements.GetValueOrDefault($"{Hardsuit}-{bodyTypeName}")
+                                ?? inventory.FemaleDisplacements.GetValueOrDefault(Hardsuit);
+                        }
+
+                        if (_tag.HasTag(equipment, SuitTag))
+                        {
+                            displacementData = inventory.FemaleDisplacements.GetValueOrDefault($"{Suit}-{bodyTypeName}")
+                                ?? inventory.FemaleDisplacements.GetValueOrDefault(Suit);
+                        }
                     }
 
                     break;

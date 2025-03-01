@@ -93,6 +93,21 @@
           32:
             sprite: _White/Mobs/Species/Human/displacement.rsi
             state: gloves
+      outerClothing-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: outer
+      hardsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: hardsuit
+      suit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: suit
       # WD EDIT END
 
 
@@ -124,5 +139,20 @@
           32:
             sprite: _White/Mobs/Species/Human/displacement.rsi
             state: gloves
+      outerClothing-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: outer
+      hardsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: hardsuit
+      suit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: suit
       # WD EDIT END
 

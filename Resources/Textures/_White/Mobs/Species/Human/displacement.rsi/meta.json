@@ -21,6 +21,18 @@
     {
       "name": "shoes",
       "directions" : 4
+    },
+    {
+      "name": "outer",
+      "directions" : 4
+    },
+    {
+      "name": "hardsuit",
+      "directions" : 4
+    },
+    {
+      "name": "suit",
+      "directions" : 4
     }
   ]
 }
