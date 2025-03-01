@@ -212,7 +212,10 @@ public sealed partial class MechSystem : SharedMechSystem
                     }
 
                     var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.ExitDelay,
-                        new MechExitEvent(), uid, target: uid);
+                        new MechExitEvent(), uid, target: uid)
+                    {
+                        BreakOnMove = true, // WWDP no grand theft mech
+                    };
 
                     _doAfter.TryStartDoAfter(doAfterEventArgs);
                 }
