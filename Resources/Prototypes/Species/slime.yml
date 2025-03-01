@@ -5,7 +5,7 @@
   prototype: MobSlimePerson
   # WD EDIT START
   bodyTypes:
-    - SlimeNormal
+  - SlimeNormal
   # WD EDIT END
   defaultSkinTone: "#b8b8b8"
   markingLimits: MobSlimeMarkingLimits
@@ -16,7 +16,7 @@
 - type: bodyType
   id: SlimeNormal
   name: body-normal
-# WD EDIT END
+  # WD EDIT END
   sprites:
     Face: MobHumanoidAnyMarking
     Head: MobSlimeHead
@@ -85,7 +85,7 @@
 - type: humanoidBaseSprite
   id: MobSlimeMarkingFollowSkin
   markingsMatchSkin: true
-  layerAlpha: 0.75
+  layerAlpha: 0.72
 
 - type: humanoidBaseSprite
   id: MobSlimeHead
