@@ -1365,3 +1365,10 @@ Entries:
   id: 145
   time: '2025-03-01T16:21:43.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/245
+- author: Vaaankas
+  changes:
+    - type: Tweak
+      message: Станбатон СБ теперь бьёт с обычной скоростью, но станит с трёх ударов.
+  id: 146
+  time: '2025-03-01T16:23:45.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/247
