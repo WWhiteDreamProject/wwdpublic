@@ -2,7 +2,6 @@ using System.Linq;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Server.Traitor.Uplink;
 using Content.Server._White.AspectsSystem.Aspects.Components;
@@ -11,6 +10,7 @@ using Content.Server._White.AspectsSystem.Managers;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
+using Content.Shared.Store.Components;
 
 namespace Content.Server._White.AspectsSystem.Aspects;
 
@@ -21,6 +21,8 @@ public sealed class TraitorRichAspect : AspectSystem<TraitorRichAspectComponent>
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly AspectManager _aspectManager = default!;
+
+    private const string UplinkPrototype = "StorePresetUplink";
 
     protected override void Started(EntityUid uid, TraitorRichAspectComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -45,7 +47,7 @@ public sealed class TraitorRichAspect : AspectSystem<TraitorRichAspectComponent>
 
             var uplink = _uplinkSystem.FindUplinkTarget(ent.Value);
 
-            if (uplink == null || !TryComp(uplink, out StoreComponent? store) || store.AccountOwner != ent || store.Preset != "StorePresetUplink")
+            if (uplink == null || !TryComp(uplink, out StoreComponent? store) || store.AccountOwner != ent || MetaData(uplink.Value).EntityPrototype?.Name != UplinkPrototype)
                 continue;
 
             if (_store.TryAddCurrency(new Dictionary<string, FixedPoint2> {{UplinkSystem.TelecrystalCurrencyPrototype, 10}}, uplink.Value, store))

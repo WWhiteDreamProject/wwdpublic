@@ -134,6 +134,18 @@
           map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
           color: "#40a7d7"
           shader: unshaded
+    - type: MeleeWeapon
+      hidden: false
+      altDisarm: false
+      animation: WeaponArcFist
+      attackRate: 0.3
+      autoAttack: true
+      soundHit:
+        collection: Punch
+      damage:
+        types:
+          Blunt: 10
+          Structural: 10
     - type: HTN
       rootTask:
         task: SimpleHumanoidHostileCompound
@@ -149,8 +161,8 @@
       allowMovement: true
       allowSpeech: true
       makeSentient: true
-      name: ghost-role-information-ifrit-name
-      description: ghost-role-information-ifrit-description
+      name: ghost-role-information-ifrit-wizard-name
+      description: ghost-role-information-ifrit-wizard-description
       raffle:
         settings: default
     - type: GhostTakeoverAvailable
@@ -168,9 +180,11 @@
           shader: unshaded
     - type: Psionic
       removable: false
+      roller: false
     - type: InnatePsionicPowers
       powersToAdd:
         - TelepathyPower
+    - type: Dispellable
 
 - type: entity
   name: HoloClown
@@ -230,7 +244,7 @@
     - type: Hands
     - type: ComplexInteraction
     - type: Clumsy
-      clumsyDamage:
+      gunShootFailDamage:
         types:
           Blunt: 5
           Piercing: 4

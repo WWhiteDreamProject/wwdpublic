@@ -5,6 +5,10 @@ job-name-hos = Глава Службы Безопасности
 job-name-detective = Детектив
 job-name-brigmedic = Бригмедик
 job-name-borg = Борг
+job-name-senior-researcher = Ведущий Исследователь
+job-name-senior-engineer = Бригадир
+job-name-senior-physician = Медицинский Офицер
+job-name-senior-officer = Ветеран СБ
 job-name-scientist = Учёный
 job-name-research-assistant = Научный Ассистент
 job-name-rd = Мистагог
@@ -35,10 +39,13 @@ job-name-botanist = Ботаник
 job-name-bartender = Бармен
 job-name-passenger = Ассистент
 job-name-salvagespec = Утилизатор
+job-name-station-ai = Станционный ИИ
 job-name-qm = Квартирмейстер
 job-name-cargotech = Грузчик
 job-name-chef = Шеф-повар
 job-name-clown = Клоун
+job-name-cburn = Агент РХБЗЗ
+job-name-deathsquad = Агент Эскадрона Смерти
 job-name-ertleader = Лидер ОБР
 job-name-ertchaplain = Священник ОБР
 job-name-ertengineer = Инженер ОБР
@@ -48,6 +55,21 @@ job-name-ertjanitor = Уборщик ОБР
 job-name-boxer = Боксёр
 job-name-zookeeper = Зоотехник
 job-name-visitor = Посетитель
+
+# unused jobs
+# these are required for the agent ID job icon tooltips
+# I am keeping them for roleplaying opportunities
+job-name-geneticist = Генетик
+job-name-no-id = Нет ID
+job-name-syndicate = Синдикат
+job-name-unknown = Неизвестно
+job-name-virologist = Вирусолог
+job-name-zombie = Зомби
+
+# Job titles
+job-title-visitor = Посетитель
+job-title-cluwne = Клувн
+job-title-universal = Универсальный
 
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = Атмосферный Техник
@@ -98,6 +120,7 @@ JobSeniorOfficer = Ветеран СБ
 JobSeniorPhysician = Медицинский Офицер
 JobSeniorResearcher = Ведущий Исследователь
 JobServiceWorker = Сервисный Работник
+JobStationAi = Станционный ИИ
 JobStationEngineer = Инженер
 JobTechnicalAssistant = Технический Ассистент
 JobVisitor = Посетитель

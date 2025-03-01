@@ -55,10 +55,17 @@ public abstract class SharedDevourSystem : EntitySystem
         {
             if (component.Consumes.Contains(targetState.CurrentState))
             {
-                _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.DevourTime, new DevourDoAfterEvent(), uid, target: target, used: uid)
-                {
-                    BreakOnUserMove = true,
-                });
+                case MobState.Critical:
+                case MobState.Dead:
+
+                    _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.DevourTime, new DevourDoAfterEvent(), uid, target: target, used: uid)
+                    {
+                        BreakOnMove = true,
+                    });
+                    break;
+                default:
+                    _popupSystem.PopupClient(Loc.GetString("devour-action-popup-message-fail-target-alive"), uid,uid);
+                    break;
             }
             else
             {
@@ -76,8 +83,7 @@ public abstract class SharedDevourSystem : EntitySystem
 
         _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.StructureDevourTime, new DevourDoAfterEvent(), uid, target: target, used: uid)
         {
-            BreakOnTargetMove = true,
-            BreakOnUserMove = true,
+            BreakOnMove = true,
         });
     }
 }

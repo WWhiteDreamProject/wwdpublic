@@ -100,10 +100,11 @@
 - type: reagent
   id: Hydrogen
   name: reagent-name-hydrogen
+  group: Elements
   desc: reagent-desc-hydrogen
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
-  color: "#808080"
+  color: "#cccccc"
   boilingPoint: -253.0
   meltingPoint: -259.2
 

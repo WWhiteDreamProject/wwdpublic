@@ -1,1 +1,1 @@
-toggle-magboots-verb-get-data-text = Переключить Магнитные сапоги
+toggle-magboots-verb-get-data-text = Переключить магнитные сапоги

@@ -2,7 +2,6 @@ using System.Linq;
 using Content.Server.Actions;
 using Content.Server.NPC.Components;
 using Content.Server.Popups;
-using Content.Server.NPC.Systems;
 using Content.Shared.Zombies;
 using Content.Shared.CombatMode;
 using Content.Shared.Ghost;
@@ -16,6 +15,7 @@ using Content.Shared._White.Headcrab;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
@@ -63,7 +63,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
     {
         TryEquipHeadcrab(uid, args.Target, component);
     }
-    
+
     private void OnGotEquipped(EntityUid uid, HeadcrabComponent component, GotEquippedEvent args)
     {
         if (args.Slot != "mask")
@@ -184,7 +184,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
                 ("entity", targetId)), targetId, Filter.PvsExcept(targetId), true);
         }
     }
-    
+
         private bool TryEquipHeadcrab(EntityUid uid, EntityUid target, HeadcrabComponent component)
     {
         if (_mobState.IsDead(uid)

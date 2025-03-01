@@ -76,7 +76,7 @@ public sealed class FromTileCrafterSystem : EntitySystem
         var doAfterEvent = new FromTileCraftDoAfterEvent(GetNetEntity(gridUid), tileRef.GridIndices);
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, comp.Delay, doAfterEvent, ent, used: ent)
         {
-            BreakOnUserMove = true,
+            BreakOnMove = true,
             BlockDuplicate = true,
             DuplicateCondition = DuplicateConditions.SameTool,
         };

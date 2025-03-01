@@ -14,8 +14,8 @@ public sealed partial class MindSlaveComponent : Component
     public NetEntity? Master;
 
     [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<StatusIconPrototype>))]
-    public string SlaveStatusIcon = "SlaveMindSlaveIcon";
+    public string SlaveStatusIcon = "SlaveMindSlaveFaction";
 
     [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<StatusIconPrototype>))]
-    public string MasterStatusIcon = "MasterMindSlaveIcon";
+    public string MasterStatusIcon = "MasterMindSlaveFaction";
 }

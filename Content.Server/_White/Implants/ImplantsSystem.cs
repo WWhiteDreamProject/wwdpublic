@@ -86,8 +86,8 @@ public sealed class ImplantsSystem : EntitySystem
     private bool MindShieldCheck(EntityUid uid, EntityUid target)
     {
         if (HasComp<HeadRevolutionaryComponent>(target)
-            || (TryComp<MindSlaveComponent>(target, out var mindSlave)
-                && mindSlave.Master.HasValue))
+            || TryComp<MindSlaveComponent>(target, out var mindSlave)
+                && mindSlave.Master.HasValue)
         {
             _popup.PopupEntity(Loc.GetString("head-rev-break-mindshield"), target);
             QueueDel(uid);
@@ -188,8 +188,8 @@ public sealed class ImplantsSystem : EntitySystem
         else if (HasComp<MindShieldComponent>(target)
                  || HasComp<RevolutionaryComponent>(target)
                  || !_mind.TryGetMind(target, out _, out _)
-                 || (TryComp<MindSlaveComponent>(target, out var mindSlave)
-                     && mindSlave.Master.HasValue))
+                 || TryComp<MindSlaveComponent>(target, out var mindSlave)
+                     && mindSlave.Master.HasValue)
         {
             message = Loc.GetString("mindslave-cant-insert");
         }

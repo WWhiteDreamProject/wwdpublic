@@ -9,8 +9,8 @@
     - alertType: PlasmaCounter # WD EDIT
     - category: Mood
     - category: Stamina
-    - alertType: ShadowkinPower
     - alertType: SuitPower
+    - alertType: ModsuitPower # Goobstation - Modsuits
     - category: Internals
     - alertType: Fire
     - alertType: Handcuffed
@@ -30,8 +30,8 @@
     - alertType: Magboots
     - alertType: Pacified
     - alertType: Offer
-    - alertType: RecentlyBlocked # WD EDIT
     - alertType: Deflecting
+    - alertType: RecentlyBlocked # WD EDIT
 
 - type: entity
   id: AlertSpriteView
@@ -58,6 +58,24 @@
       state: not_enough_nitro
   name: alerts-low-nitrogen-name
   description: alerts-low-nitrogen-desc
+
+- type: alert
+  id: LowPlasma
+  category: Breathing
+  icons:
+    - sprite: /Textures/Interface/Alerts/breathing.rsi
+      state: not_enough_tox
+  name: alerts-low-plasma-name
+  description: alerts-low-plasma-desc
+
+- type: alert
+  id: HighOxygen
+  category: Breathing
+  icons:
+    - sprite: /Textures/Interface/Alerts/breathing.rsi
+      state: too_much_oxy
+  name: alerts-high-oxygen-name
+  description: alerts-high-oxygen-desc
 
 - type: alert
   id: Toxins
@@ -627,7 +645,7 @@
 # WD EDIT START
 - type: alert
   id: KnockedDown
-  icons: 
+  icons:
   - sprite: /Textures/_White/Interface/Alerts/knockdown.rsi
     state: knockdown
   name: alerts-knockdown-name

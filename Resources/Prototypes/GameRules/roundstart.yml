@@ -64,17 +64,27 @@
     roundEndDelay: 10
 
 - type: entity
-  id: Nukeops
+  abstract: true
   parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
+  id: BaseNukeopsRule
   components:
   - type: GameRule
-    minPlayers: 20 # WD EDIT
   - type: RandomMetadata #this generates the random operation name cuz it's cool.
     nameSegments:
     - operationPrefix
     - operationSuffix
   - type: NukeopsRule
+  - type: RuleGrids
+  - type: AntagSelection
+  - type: AntagLoadProfileRule
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseNukeopsRule
+  id: Nukeops
+  components:
+  - type: GameRule
+    minPlayers: 20
   - type: LoadMapRule
     gameMap: NukieOutpost
   - type: AntagSelection
@@ -83,6 +93,8 @@
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsCommander
+      max: 1
+      playerRatio: 10
       startingGear: SyndicateCommanderGearFull
       components:
       - type: NukeOperative
@@ -99,6 +111,8 @@
     - prefRoles: [ NukeopsMedic ]
       fallbackRoles: [ Nukeops, NukeopsCommander ]
       spawnerPrototype: SpawnPointNukeopsMedic
+      max: 1
+      playerRatio: 10
       startingGear: SyndicateOperativeMedicFull
       components:
       - type: NukeOperative
@@ -132,9 +146,24 @@
         prototype: Nukeops
 
 - type: entity
-  id: Traitor
+  abstract: true
   parent: BaseGameRule
+  id: BaseTraitorRule
+  components:
+  - type: TraitorRule
+  # TODO: codewords in yml
+  # TODO: uplink in yml
+  - type: AntagRandomObjectives
+    sets:
+    - groups: TraitorObjectiveGroups
+    maxDifficulty: 5
+  - type: AntagSelection
+    agentName: traitor-round-end-agent-name
+
+- type: entity
   categories: [ HideSpawnMenu ]
+  parent: BaseTraitorRule
+  id: Traitor
   components:
   - type: GameRule
     minPlayers: 5
@@ -147,10 +176,22 @@
     - prefRoles: [ Traitor ]
       max: 8
       playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
       lateJoinAdditional: true
       mindComponents:
       - type: TraitorRole
         prototype: Traitor
+
+- type: entity
+  id: TraitorReinforcement
+  parent: Traitor
+  components:
+  - type: TraitorRule
+    giveUplink: false
+    giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
+    giveBriefing: false
 
 - type: entity
   id: Revolutionary
@@ -210,7 +251,7 @@
       blacklist:
         components:
         - ZombieImmune
-        - InitialInfectedExempt
+        - AntagImmune
       briefing:
         text: zombie-patientzero-role-greeting
         color: Plum
@@ -283,13 +324,13 @@
   components:
   - type: RoundstartStationVariationRule
     rules:
-    - id: BasicPoweredLightVariationPass
+#    - id: BasicPoweredLightVariationPass
     - id: BasicTrashVariationPass
-    - id: SolidWallRustingVariationPass
-    - id: ReinforcedWallRustingVariationPass
+#    - id: SolidWallRustingVariationPass
+#    - id: ReinforcedWallRustingVariationPass
     - id: BasicPuddleMessVariationPass
       prob: 0.99
       orGroup: puddleMess
-    - id: BloodbathPuddleMessVariationPass
-      prob: 0.01
-      orGroup: puddleMess
+#    - id: BloodbathPuddleMessVariationPass
+#      prob: 0.01
+#      orGroup: puddleMess

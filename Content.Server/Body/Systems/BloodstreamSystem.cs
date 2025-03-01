@@ -2,7 +2,7 @@ using Content.Server._White.Other.BloodLust;
 using Content.Server.Body.Components;
 using Content.Server.Body.Events;
 using Content.Server.Chemistry.Containers.EntitySystems;
-using Content.Server.Chemistry.ReactionEffects;
+using Content.Server.EntityEffects.Effects;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics;
 using Content.Server.Popups;

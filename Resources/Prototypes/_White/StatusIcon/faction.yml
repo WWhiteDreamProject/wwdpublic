@@ -1,0 +1,23 @@
+- type: factionIcon
+  id: MasterMindSlaveFaction
+  priority: 3
+  locationPreference: Left
+  showTo:
+    components:
+    - ShowAntagIcons
+    - MindSlave
+  icon:
+    sprite: /Textures/_White/Overlays/mindslave.rsi
+    state: master
+
+- type: factionIcon
+  id: SlaveMindSlaveFaction
+  priority: 3
+  locationPreference: Left
+  showTo:
+    components:
+    - ShowAntagIcons
+    - MindSlave
+  icon:
+    sprite: /Textures/_White/Overlays/mindslave.rsi
+    state: slave

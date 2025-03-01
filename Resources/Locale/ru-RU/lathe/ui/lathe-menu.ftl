@@ -6,6 +6,9 @@ lathe-menu-search-designs = Поиск проектов
 lathe-menu-category-all = Все
 lathe-menu-search-filter = Фильтр
 lathe-menu-amount = Кол-во:
+lathe-menu-reagent-slot-examine = Сбоку имеется отверстие для мензурки.
+lathe-reagent-dispense-no-container = Жидкость выливается из { $name } на пол!
+lathe-menu-result-reagent-display = { $reagent } ({ $amount }ед.)
 lathe-menu-material-display = { $material } ({ $amount })
 lathe-menu-tooltip-display = {$amount} {$material}
 lathe-menu-description-display = [italic]{$description}[/italic]
@@ -18,6 +21,7 @@ lathe-menu-material-amount-missing = { $amount ->
     *[other] {NATURALFIXED($amount, 1)} {$unit} {$material}, [color=red]требуется {NATURALFIXED($missingAmount, 1)} {$unit}[/color]
 }
 lathe-menu-no-materials-message = Материалы не загружены
+lathe-menu-connected-to-silo-message = Подключен к хранилищу ресурсов.
 lathe-menu-fabricating-message = Создаем...
 lathe-menu-materials-title = Материалы
 lathe-menu-queue-title = Очередь создания

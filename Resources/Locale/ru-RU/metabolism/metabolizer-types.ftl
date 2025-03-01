@@ -1,0 +1,15 @@
+metabolizer-type-animal = Животное
+metabolizer-type-bloodsucker = Кровопийца
+metabolizer-type-dragon = Дракон
+metabolizer-type-human = Человек
+metabolizer-type-slime = Слизень
+metabolizer-type-vox = Вокс
+metabolizer-type-rat = Крыса
+metabolizer-type-plant = Растение
+metabolizer-type-dwarf = Дварф
+metabolizer-type-moth = Моль
+metabolizer-type-arachnid = Паукообразное
+metabolizer-type-vampiric = Вампир
+metabolizer-type-liquorlifeline = Алкогольный источник жизни
+metabolizer-type-shadowkin = Тенерожденный
+metabolizer-type-plasmaman = Плазмочеловек

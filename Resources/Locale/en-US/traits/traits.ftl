@@ -3,7 +3,7 @@ trait-description-Blindness = You are legally blind, and can't see clearly past 
 trait-examined-Blindness = [color=lightblue]{CAPITALIZE(POSS-ADJ($target))} eyes are glassy and unfocused. It doesn't seem like {SUBJECT($target)} can see you well, if at all.[/color]
 
 trait-name-Narcolepsy = Narcolepsy
-trait-description-Narcolepsy = 
+trait-description-Narcolepsy =
     Due to a neurological disorder, controlling your sleep-wake cycles is difficult for you.
     As a result, you may repeatedly fall asleep for short periods of time throughout the day.
 
@@ -80,6 +80,21 @@ trait-description-Stutter =
 trait-name-Southern = Southern Drawl
 trait-description-Southern = You have a different way of speakin'.
 
+trait-name-GermanAccent = German accent
+trait-description-GermanAccent = You speak with a German accent.
+
+trait-name-RussianAccent = Russian accent
+trait-description-RussianAccent = You speak with a Russian accent.
+
+trait-name-FrenchAccent = French accent
+trait-description-FrenchAccent = You speak with a French accent.
+
+trait-name-ItalianAccent = Italian accent
+trait-description-ItalianAccent = You speak with a Italian accent.
+
+trait-name-SpanishAccent = Spanish accent
+trait-description-SpanishAccent = You speak with a Spanish accent.
+
 trait-name-Snoring = Snoring
 trait-description-Snoring = You tend to snore loudly while sleeping.
 
@@ -91,9 +106,12 @@ trait-name-Nearsighted = Nearsighted
 trait-description-Nearsighted = Your eyes are not what they once were, you have difficulty seeing things far away without corrective glasses.
 
 trait-name-NormalVisionHarpy = Trichromat Modification
-trait-description-NormalVisionHarpy = 
+trait-description-NormalVisionHarpy =
     Your eyes have been modified by means of advanced medicine to see in the standard colors of Red, Green, and Blue.
     You do not have the usual vision anomaly that your species may possess.
+
+trait-name-SkeletonAccent = Skeleton Accent
+trait-description-SkeletonAccent = You have a humerus skeleton accent that will rattle others to the bone!
 
 trait-name-NormalVision = Trichromat Modification
 trait-description-NormalVision =
@@ -163,21 +181,45 @@ trait-description-LowPainTolerance =
     Your tolerance for pain is far below average, and its effects are more inhibiting.
     Your melee/throwing damage is penalized by up to an additional 15% when taking stamina damage.
 
+trait-name-Steadfast = Steadfast
+trait-description-Steadfast =
+    When others would buckle from the weight of your injuries, you still march forward unrelentingly.
+    For most species [color=gray](excluding IPC/Shadowkin)[/color], this trait modifies:
+    - [color=yellow]25%[/color] movement slow at [color=red]60[/color] damage ➔ [color=yellow]17%[/color] movement slow at [color=red]70[/color] damage
+    - [color=yellow]45%[/color] movement slow at [color=red]80[/color] damage ➔ [color=yellow]30%[/color] movement slow at [color=red]90[/color] damage
+
+trait-name-Feeble = Feeble
+trait-description-Feeble =
+    Your body responds poorly to injuries, making damage affect your movement more severely.
+    For most species [color=gray](excluding IPC/Shadowkin)[/color], this trait modifies:
+    - [color=yellow]25%[/color] movement slow at [color=red]60[/color] damage ➔ [color=yellow]30%[/color] movement slow at [color=red]45[/color] damage
+    - [color=yellow]45%[/color] movement slow at [color=red]80[/color] damage ➔ [color=yellow]54%[/color] movement slow at [color=red]65[/color] damage
+
 trait-name-MartialArtist = Martial Artist
 trait-description-MartialArtist =
-    You have received formal training in unarmed combat, whether with Fists, Feet, or Claws.
-    Your unarmed melee attacks have a small range increase, and deal 50% more damage.
-    This does not apply to any form of armed melee, only the weapons you were naturally born with.
+    You have received formal training in unarmed combat, whether with fists, claws, feet, or teeth.
+    Your unarmed melee attack is now considered a single-target [color=orange]Power Attack[/color], requiring less precision.
+    Additionally, your unarmed melee attacks deal [color=yellow]20%[/color] more damage, attack [color=yellow]25%[/color] faster, and have [color=yellow]10%[/color] increased range.
+    This has no effect on damage dealt with any form of armed melee.
+    The [color=#9FED58]Boxer[/color], [color=#9FED58]Martial Artist[/color], and [color=#9FED58]Gladiator[/color] jobs start with this trait by default.
+
+-stamina-info = [color=gray]Most species start with [color=#919039]100 points[/color] of stamina and [color=#919039]3 points[/color] of stamina regen per second.[/color]
 
 trait-name-Vigor = Vigor
 trait-description-Vigor =
     Whether by pure determination, fitness, or bionic augmentations, your endurance is enhanced.
-    Your stamina is increased by 10 points.
+    Your stamina is increased by [color=yellow]10 points[/color].
+    Your stamina regen per second is increased by [color=yellow]0.6 points[/color].
+    Stamina regen now starts [color=lightblue]2.25 seconds[/color] after taking stamina damage, instead of [color=lightblue]3 seconds[/color].
+    { -stamina-info }
 
 trait-name-Lethargy = Lethargy
 trait-description-Lethargy =
     You become tired faster than others, making you more vulnerable to exhaustion and fatigue.
-    Your stamina is decreased by 15 points.
+    Your stamina is decreased by [color=yellow]15 points[/color].
+    Your stamina regen per second is decreased by [color=yellow]0.6 points[/color].
+    Stamina regen now starts [color=lightblue]3.75 seconds[/color] after taking stamina damage, instead of [color=lightblue]3 seconds[/color].
+    { -stamina-info }
 
 trait-name-SignLanguage = Sign Language
 trait-description-SignLanguage =
@@ -210,20 +252,32 @@ trait-description-Voracious =
     Nothing gets between you and your food.
     Your endless consumption of food and drinks is twice as fast.
 
+-terrain-example = [color=gray](e.g. plastic flaps, spider webs, slime puddles, kudzu)[/color]
+-slippery-example = [color=gray](e.g. banana peels, water puddles, soap, space lube)[/color]
+
 trait-name-ParkourTraining = Parkour Training
 trait-description-ParkourTraining =
     Whether as a hobby, lifestyle, or professional training, you are trained in the discipline of parkour.
-    You're faster with climbing, crawling, lying down, and getting up.
+    You climb structures like tables [color=yellow]50%[/color] faster.
+    Slipping leaves you stunned for [color=yellow]30%[/color] shorter. { -slippery-example }
+    You gain a [color=yellow]50%[/color] resistance to slows from difficult terrain. { -terrain-example }
+
+trait-name-BadKnees = Bad Knees
+trait-description-BadKnees =
+    Whether due to injury, age, or wear and tear, your knees aren't particularly strong or flexible.
+    You climb structures like tables [color=yellow]50%[/color] slower.
+    Slipping leaves you stunned for [color=yellow]40%[/color] longer. { -slippery-example }
+    Difficult terrain slows you down [color=yellow]35%[/color] more. { -terrain-example }
 
 trait-name-Sluggish = Sluggish
 trait-description-Sluggish =
     You navigate the world slower than others, perhaps due to a medical condition, inactivity, or age.
-    You move slower, and it takes longer for you to climb, lie down and get up.
+    Your movement speed is decreased by [color=yellow]16%[/color].
 
 trait-name-SnailPaced = Snail-Paced
 trait-description-SnailPaced =
     You walk at a snail's pace, perhaps due to a medical condition, mobility impairment, or age.
-    You move substantially slower, and it takes far longer for you to climb, lie down and get up.
+    Your movement speed is decreased by [color=yellow]32%[/color].
 
 trait-name-LightStep = Light Step
 trait-description-LightStep =
@@ -292,7 +346,7 @@ trait-description-Clumsy =
 trait-name-Small = Small
 trait-description-Small =
     You are much smaller than a typical person, and can climb into spaces others would not normally be able to fit into, such as duffel bags.
-    This trait does not in any way modify your character's size, it merely requires that your character be at most the size of a standard Felinid.
+    This trait does not in any way modify your character's size, it merely requires that your character be at most the size of a standard Tajaran.
 
 trait-name-TemperatureTolerance = Temperature Tolerance
 trait-description-TemperatureTolerance =
@@ -366,7 +420,7 @@ trait-description-HighPotential =
     Your connection to the noösphere is greater than average, making it easier to obtain new psionic powers.
 
 trait-name-LowAmplification = kα Deficiency
-trait-description-LowAmplifiction =
+trait-description-LowAmplification =
     Your psionic abilities are noticeably weaker than ones used by other psions.
 
 trait-name-HighAmplification = kα Abundance
@@ -412,29 +466,126 @@ trait-description-CyberEyes =
     Their most basic functionality is to provide amelioration for weaknesses of the wearer's natural eyes.
     The functionality of these implants can be extended by a variety of commercially available modules.
 
-trait-name-FlareShielding = Cyber-Eyes Flare Shielding
+trait-name-FlareShielding = Cyber-Eyes: Eye Damage Resistance
 trait-description-FlareShielding =
     Your cybereyes have been fitted with a photochromic lense that automatically darkens in response to intense stimuli.
-    This provides substantial protection from bright flashes of light, such as those from welding arcs.
+    This provides immunity from most bright flashes of light, such as those from welding arcs.
 
-trait-name-CyberEyesSecurity = Cyber-Eyes SecHud
+trait-name-CyberEyesSecurity = Cyber-Eyes: SecHud Module
 trait-description-CyberEyesSecurity =
     Your Cyber-Eyes have been upgraded to include a built-in Security Hud. Note that this augmentation is considered Contraband
     for anyone not under the employ of station Security personel, and may be disabled by your employer before dispatch to the station.
 
-trait-name-CyberEyesMedical = Cyber-Eyes MedHud
+trait-name-CyberEyesMedical = Cyber-Eyes: MedHud Module
 trait-description-CyberEyesMedical =
     Your Cyber-Eyes have been upgraded to include a built-in Medical Hud, allowing you to track the relative health condition of biological organisms.
 
-trait-name-CyberEyesDiagnostic = Cyber-Eyes DiagHud
+trait-name-CyberEyesDiagnostic = Cyber-Eyes: Diagnostics Module
 trait-description-CyberEyesDiagnostic =
     Your Cyber-Eyes have been upgraded to include a built-in Diagnostic Hud, allowing you to track the condition of synthetic entities.
 
-trait-name-CyberEyesOmni = Cyber-Eyes HudSuite
+trait-name-CyberEyesOmni = Cyber-Eyes: Premium Suite Module
 trait-description-CyberEyesOmni =
-    This expensive implant provides the combined benefits of a SecHud, MedHud, and a DiagHud.
+    This expensive implant provides the combined benefits of a SecHud, MedHud, and a Diagnostics Module.
     Note that this augmentation is considered Contraband for anyone not under the employ of station Security personel,
     and may be disabled by your employer before dispatch to the station.
 
+trait-name-DispelPower = Normality Projection
+trait-description-DispelPower =
+    Your Mentalic abilities include the power to enforce normality upon Noospheric phenomena.
+    This power, commonly known as "Dispel", allows the user to destroy otherworldly entities with their mind,
+    or to immediately end psychic effects.
+
+trait-name-MetapsionicPower = Metapsion
+trait-description-MetapsionicPower =
+    You are able to intuitively sense the activation of psionic abilities, as well as send out a 'scanning' pulse
+    to detect whether or not psions are nearby. This ability has a wide area of effect, and cannot precisely
+    scan individual entities. Still, it is better than being blind.
+
+trait-name-XenoglossyPower = Xenoglossy
+trait-description-XenoglossyPower =
+    An advanced form of Telepathy, Xenoglossy is the ability to speak using emotional and metaphysical concepts,
+    rather than words, to impart meaning directly into the minds of a listener. When speaking using Xenoglossy, a psion can be
+    universally understood by any entity, who will hear the words as if spoken in one's own native tongue. Additionally,
+    Xenoglossy grants the ability to divine the underlying emotional meaning from the minds of other speakers,
+    allowing its user to understand any spoken language as if it was the user's own native tongue.
+
+trait-name-PsychognomyPower = Psychognomist
+trait-description-PsychognomyPower =
+    A special talent derived from Telepathy, Psychognomy is the ability to read the underlying imprint of telepathic messages.
+    A Psychognomist can glean additional information from their telepathy, seeing vague outlines of what the source of a message
+    might be. This information is not precise, and is largely only useful for narrowing down who the source of a message might be.
+
+trait-name-Redshirt = Redshirt
+trait-description-Redshirt =
+    "They said this air would be breathable.
+    Get in, get out again, and no one gets hurt.
+    Something is pulling me up the hill.
+    I look down in my red shirt.
+    I look down in my red shirt."
+    Reduces your threshold for death by 100 points.
+
+trait-name-BrittleBoneDisease = Osteogenesis Imperfecta
+trait-description-BrittleBoneDisease =
+    Also known as "brittle bone disease", people with this genetic disorder have bones that are easily broken,
+    often simply by moving. This trait reduces your threshold for critical injury by 50 points.
+
+trait-name-LightAmplification = CyberEyes Module: Light Amplification
+trait-description-LightAmplification =
+    Your CyberEyes have been enhanced with a light amplifier module, enabling the user to toggle between standard sight and "Night Vision" mode.
+
+trait-name-ThermographicVision = CyberEyes Module: Thermographic Scanner
+trait-description-ThermographicVision =
+    Your CyberEyes have been enhanced with a Thermographic Scanner. When enabled, it captures a snapshot of the user's surroundings, while highlighting all
+    biological life forms. It can even detect individuals through the walls of a station.
+
 trait-name-ShadowkinBlackeye = Blackeye
-trait-description-ShadowkinBlackeye = You lose your special Shadowkin powers, in return for some points.
+trait-description-ShadowkinBlackeye =
+    You lose your special Shadowkin powers & respect amongst your peers, in return for some points. Effectively, you are only a Shadowkin in name, not in practice.
+
+trait-name-LyreBird = Lyre Bird
+trait-description-LyreBird =
+    Your natural talent for mimicry vastly exceeds that of other Harpies. You have the ability to perfectly imitate songs in their entirety.
+    Be your own full symphony orchestra, jazz group, or metal band.
+
+trait-name-NaniteAutoRepairBots = Nanite Auto-Repair Bots
+trait-description-NaniteAutoRepairBots =
+    Your chassis has been outfitted with Nanite Repair Drones. Whenever your sensors detect that you've recieved structural damage, the NRDs will activate to bring you back to operational standards.
+
+trait-name-BionicLeg = Bionic Leg
+trait-description-BionicLeg =
+    One or more of your limbs have been replaced with an expensive, state of the art bionic. It could be either one made of highly realistic synthflesh,
+    or a more obvious metal limb. This limb provides enhanced speed to it's user, allowing you to run away from situations faster or get to a place faster.
+
+trait-name-FlareShieldingModule = I.P.C Eye Module: Flare Shielding
+trait-description-FlareShieldingModule =
+    Your cybereyes have been fitted with a photochromic lense that automatically darkens in response to intense stimuli.
+    This provides immunity from most bright flashes of light, such as those from welding arcs, exclusive to IPCs because it only needs the module
+    skipping the eye insertion process.
+
+trait-name-SecurityEyesModule = I.P.C Eye Module: Sechud
+trait-description-SecurityEyesModule =
+    A module installed in IPCs that work for the security department and similar, this module is considered contraband and may be removed if the unit isn't working for the security department.
+
+trait-name-MedicalEyesModule = I.P.C Eye Module: Medical
+trait-description-MedicalEyesModule =
+    Your eyes have been upgraded to include a built-in Medical Hud, allowing you to track the relative health condition of biological organisms.
+
+trait-name-DiagnosticEyesModule = I.P.C Eye Module: Diagnostics
+trait-description-DiagnosticEyesModule =
+    You possess a built-in Diagnostic Hud, allowing you to track the condition of synthetic entities.
+
+trait-name-OmniEyesModule = I.P.C Eye Module: Premium Model
+trait-description-OmniEyesModule =
+    This upgrade provides the combined benefits of a SecHud, MedHud, and a Diagnostics Module.
+    Note that this module is considered Contraband for anyone not under the employ of station Security personel,
+    and may be disabled by your employer before dispatch to the station.
+
+trait-name-LightAmplificationModule = I.P.C Eye Module: Light Amplification
+trait-description-LightAmplificationModule =
+    Your vision has been enhanced with a light amplifier module, enabling the user to toggle between standard sight and "Night Vision" mode.
+
+trait-name-ThermographicVisionModule = I.P.C Eye Module: Thermographic Scanner
+trait-description-ThermographicVisionModule =
+    Your vision has been enhanced with a Thermographic Scanner. When enabled, it captures a snapshot of the user's surroundings, while highlighting all
+    biological life forms. It can even detect individuals through the walls of a station.

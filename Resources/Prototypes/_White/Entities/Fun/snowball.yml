@@ -11,7 +11,7 @@
   - type: Item
   - type: PhysicalComposition
     materialComposition:
-      Plastic: 200
+      Plastic: 100
   - type: FromTileCrafter
     delay: 0.5
     entityToSpawn: ItemSnowball

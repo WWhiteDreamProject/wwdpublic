@@ -34,3 +34,6 @@ cmd-ban_exemption_get-nargs = Ожидается 1 аргумент
 cmd-ban_exemption_get-none = Пользователь не освобождается от каких-либо запретов.
 cmd-ban_exemption_get-show = Пользователь освобожден от следующих флагов запрета: { $flags }.
 cmd-ban_exemption_get-arg-player = <игрок>
+
+# Kick on ban
+ban-kick-reason = Вы были забанены

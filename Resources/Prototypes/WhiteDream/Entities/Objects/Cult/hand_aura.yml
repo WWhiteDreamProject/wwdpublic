@@ -14,13 +14,12 @@
         Blunt: 0
     heavyStaminaCost: 0
     maxTargets: 1
-    canHeavyAttack: false
     animation: WeaponArcSlash
     angle: 1
   - type: Unremoveable
     deleteOnDrop: true
   - type: CultItem
-  - type: DeleteOnDropAttempt
+  - type: DeleteOnDrop
 
 - type: entity
   parent: BaseBloodCultAura

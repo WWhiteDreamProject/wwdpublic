@@ -19,7 +19,13 @@ ui-options-general-discord = Discord
 ui-options-general-cursor = Курсор
 ui-options-general-speech = Речь
 ui-options-general-storage = Инвентарь
+ui-options-general-other = Другое
 ui-options-general-accessibility = Доступность
+ui-options-chatstack = Автоматическое объединение одинаковых сообщения в чате
+ui-options-chatstack-off = Выключено
+ui-options-chatstack-single = Только последнее сообщение
+ui-options-chatstack-double = Два последних сообщения
+ui-options-chatstack-triple = Три последних сообщения
 
 ## Audio menu
 
@@ -86,6 +92,7 @@ ui-options-vp-integer-scaling-tooltip =
 ui-options-vp-low-res = Изображение низкого разрешения
 ui-options-parallax-low-quality = Низкокачественный параллакс (фон)
 ui-options-fps-counter = Показать счетчик FPS
+ui-options-mood-visual-effects = Включить визуальные эффекты системы настроения
 ui-options-vp-width = Ширина окна игры: { $width }
 ui-options-hud-layout = Тип HUD:
 
@@ -139,10 +146,12 @@ ui-options-function-examine-entity = Изучить
 ui-options-function-swap-hands = Поменять руки
 ui-options-function-move-stored-item = Переместить хранящийся объект
 ui-options-function-rotate-stored-item = Повернуть хранящийся объект
-ui-options-function-lie-down = Лечь/встать
-ui-options-function-save-item-location = Сохранить позицию предмета
-ui-options-static-storage-ui = Закрепить интерфейс хранилища на хотбаре
 ui-options-function-offer-item = Передать что-то
+ui-options-function-save-item-location = Сохранить позицию предмета
+ui-options-function-lie-down = Лечь/встать
+ui-options-function-toggle-crawling-under = Включить/выключить ползание под мебелью
+ui-options-static-storage-ui = Закрепить интерфейс хранилища на хотбаре
+ui-options-modern-progress-bar = Современный индикатор выполнения
 
 ui-options-function-smart-equip-backpack = Умная экипировка в рюкзак
 ui-options-function-smart-equip-belt = Умная экипировка на пояс
@@ -194,6 +203,9 @@ ui-options-function-editor-line-place = Размещать в линию
 ui-options-function-editor-rotate-object = Повернуть
 ui-options-function-editor-flip-object = Перевернуть
 ui-options-function-editor-copy-object = Копировать
+ui-options-function-mapping-enable-pick = Выбрать объект/тайл
+ui-options-function-mapping-enable-decal-pick = Выбрать декаль
+ui-options-function-mapping-enable-delete = Удалить объект
 
 ui-options-function-show-debug-console = Открыть консоль
 ui-options-function-show-debug-monitors = Показать дебаг информацию

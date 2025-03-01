@@ -1,0 +1,26 @@
+- type: entityList
+  id: PostManifestMassacreWeapons
+  entities:
+    - WeaponRifleAk
+    - WeaponRifleM90GrenadeLauncher
+    - WeaponRifleLecter
+    - WeaponSubMachineGunC20r
+    - WeaponSubMachineGunDrozd
+    - WeaponSubMachineGunVector
+    - WeaponSubMachineGunWt550
+    - WeaponShotgunBulldog
+    - WeaponShotgunEnforcer
+    - WeaponShotgunDoubleBarreled
+    - WeaponShotgunKammerer
+    - WeaponShotgunSawn
+    - WeaponRevolverDeckard
+    - WeaponRevolverInspector
+    - WeaponRevolverPython
+    - WeaponRevolverMateba
+    - WeaponLightMachineGunL6
+    - WeaponPistolViper
+    - WeaponPistolCobra
+    - WeaponPistolMk58
+    - WeaponPistolN1984
+    - WeaponSniperMosin
+    - WeaponSniperHristov

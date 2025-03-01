@@ -18,12 +18,14 @@
       - id: ClothingOuterWinterWarden
       - id: RubberStampWarden
       - id: DoorRemoteArmory
-      - id: ClothingOuterHardsuitCombatWarden # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.
+      - id: ClothingOuterHardsuitWarden # WWDP edit
+      - id: OxygenTankFilled # WWDP edit
       - id: HoloprojectorSecurity
       - id: ClothingEyesHudSecurity
       - id: BoxPDAPrisoner # Delta-V
       - id: ClothingShoesBootsWinterWarden #Delta V: Add departmental winter boots
       - id: BoxEncryptionKeyPrisoner #Delta-V
+      - id: BoxPrisonerHeadset
       - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
         prob: 0.3
       - id: BoxBodyBagPrisoner # WD
@@ -53,6 +55,7 @@
       - id: BoxPDAPrisoner # Delta-V
       - id: ClothingShoesBootsWinterWarden #Delta V: Add departmental winter boots
       - id: BoxEncryptionKeyPrisoner #Delta-V
+      - id: BoxPrisonerHeadset
       - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
         prob: 0.3
       - id: BoxBodyBagPrisoner # WD
@@ -87,7 +90,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesHudSecurity
+      - id: ClothingEyesGlassesCorpsman # DeltaV - Corpsman Glasses
       - id: WeaponDisabler
       - id: TrackingImplanter
         amount: 2
@@ -128,11 +131,12 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesHudSecurity
+      - id: ClothingEyesGlassesCorpsman # DeltaV - Corpsman Glasses
       - id: WeaponDisabler
       - id: TrackingImplanter
         amount: 2
-      - id: ClothingOuterHardsuitCombatCorpsman
+      - id: ClothingOuterHardsuitBrigmedic # WWDP edit
+      - id: OxygenTankFilled # WWDP edit
       - id: ClothingUniformJumpsuitBrigmedic
       - id: ClothingUniformJumpskirtBrigmedic
       - id: HandheldGPSBasic # Added GPS because I just think it should be there tbh.
@@ -289,3 +293,16 @@
     contents:
     - id: WeaponLaserCarbine
       amount: 3
+
+- type: entity
+  id: GunSafeRifleBRDIR25
+  suffix: BRDI-R25
+  parent: GunSafe
+  name: BRDI-R25 safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunBRDIR25
+      amount: 2
+    - id: MagazineCaselessRifle
+      amount: 4
