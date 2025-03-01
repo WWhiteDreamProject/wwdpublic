@@ -1402,3 +1402,12 @@ Entries:
   id: 150
   time: '2025-03-01T19:56:47.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/248
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Убрана возможность раундстартом взять роли центрального командования и
+        синего щита, просите педалей.
+  id: 151
+  time: '2025-03-01T19:58:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/236
