@@ -8,6 +8,9 @@
         "y": 8
     },
     "states": [
+		{
+            "name": "Assistant"
+        },
         {
             "name": "Detective"
         },

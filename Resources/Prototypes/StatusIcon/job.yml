@@ -242,7 +242,7 @@
   id: JobIconPassenger
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Passenger
+    state: Assistant # WWDP
   jobName: job-name-passenger
 
 - type: jobIcon
