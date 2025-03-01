@@ -7,9 +7,10 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyService
-      - EncryptionKeyCommand
-      - EncryptionKeyCommon
+      #- EncryptionKeyService wwdp
+      #- EncryptionKeyCommand wwdp
+      #- EncryptionKeyCommon wwdp
+       - EncryptionKeyStationMaster # wwdp
 
 - type: entity
   parent: ClothingHeadsetAlt
