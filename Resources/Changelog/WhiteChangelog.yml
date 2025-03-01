@@ -1372,3 +1372,10 @@ Entries:
   id: 146
   time: '2025-03-01T16:23:45.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/247
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Убрана черта персонажа на избегание ловушек и любых подскальзываний
+  id: 147
+  time: '2025-03-01T16:26:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/243
