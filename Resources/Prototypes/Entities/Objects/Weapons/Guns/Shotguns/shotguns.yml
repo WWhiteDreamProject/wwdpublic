@@ -63,7 +63,7 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 9.5
-  - type: GunRequiresWield # WD EDIT
+  # - type: GunRequiresWield # WD EDIT # WWDP EDIT DISABLED
 
 - type: entity
   name: Bulldog
@@ -88,7 +88,7 @@
     - Back
     - suitStorage
   - type: AmmoCounter
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  # - type: GunRequiresWield #remove when inaccuracy on spreads is fixed # WWDP removed
   - type: Gun
     fireRate: 2
     selectedMode: FullAuto

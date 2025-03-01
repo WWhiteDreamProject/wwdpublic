@@ -19,7 +19,6 @@
     - suitStorage
   - type: AmmoCounter
   - type: Wieldable
-  - type: GunRequiresWield
   - type: Gun
     fireRate: 0.75
     selectedMode: SemiAuto
@@ -162,6 +161,7 @@
     zeroVisible: true
   - type: Appearance
   # WD EDIT END
+  - type: GunRequiresWield # WWDP EDIT MOVED FROM BaseWeaponSniper
 
 - type: entity
   name: musket

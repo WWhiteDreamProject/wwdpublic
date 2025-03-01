@@ -252,7 +252,7 @@
       - BulletFoam
     capacity: 10
     proto: BulletFoam
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  # - type: GunRequiresWield #remove when inaccuracy on spreads is fixed # WWDP removed
   - type: Gun
     fireRate: 2
     selectedMode: SemiAuto
