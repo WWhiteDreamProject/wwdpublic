@@ -193,7 +193,10 @@ namespace Content.Server.NodeContainer.EntitySystems
                     continue;
 
                 if (rotatableNode.RotateNode(in ev))
+                { // WD EDIT START
+                    RaiseLocalEvent(uid, new NodeRotatedEvent(node));
                     _nodeGroupSystem.QueueReflood(node);
+                } // WD EDIT END
             }
         }
 
@@ -223,4 +226,15 @@ namespace Content.Server.NodeContainer.EntitySystems
             }
         }
     }
+    // WD EDIT START
+    public sealed class NodeRotatedEvent : EntityEventArgs
+    {
+        public Node Node;
+        public NodeRotatedEvent(Node node)
+        {
+            Node = node;
+        }
+    }
+    // WD EDIT END
 }
+
