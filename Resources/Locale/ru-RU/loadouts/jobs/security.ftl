@@ -1,6 +1,8 @@
 loadout-description-LoadoutSecurityUniformJumpskirtSenior = A skirt fit for the best of the best.
 loadout-description-LoadoutSecurityUniformJumpsuitSenior = A suit fit for the best of the best.
 loadout-description-LoadoutSecurityShoesJackboots = A really nice, heavy, pair of black boots.
+
+loadout-description-LoadoutClothingHandsGlovesPowergloveRealWarden = Заряженные перчатки для ближнего боя. Помни основы CQC.
 # Equipment
 loadout-name-LoadoutMagazinePistolSpare = pistol magazine (.35 auto, spare)
 loadout-name-LoadoutMagazinePistolNonLethalSpare = pistol magazine (.35 auto rubber, spare)

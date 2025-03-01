@@ -11,6 +11,20 @@
 
 # Gloves
 
+- type: loadout
+  id: LoadoutClothingHandsGlovesPowergloveRealWarden # WWDP
+  category: JobsSecurityWarden
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutWardenGloves
+  - !type:CharacterJobRequirement
+    jobs:
+    - Warden
+  items:
+  - ClothingHandsGlovesPowergloveReal
+
 # Head
 - type: loadout
   id: LoadoutClothingHeadHatBeretWarden

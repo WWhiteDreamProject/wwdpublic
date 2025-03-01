@@ -250,6 +250,20 @@
     verifyMapExistence: true
     owner: job-name-qm
 
+## warden # WWDP
+
+- type: entity
+  categories: [HideSpawnMenu]
+  parent: BaseTraitorStealObjective
+  id: PowerGlovesStealObjective
+  components:
+  - type: NotJobRequirement
+    job: Warden
+  - type: StealCondition
+    stealGroup: WardenPowerGloves
+    verifyMapExistence: true
+    owner: job-name-warden
+
 ## hop
 
 - type: entity

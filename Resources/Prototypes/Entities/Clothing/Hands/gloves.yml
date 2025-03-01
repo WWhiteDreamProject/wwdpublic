@@ -191,6 +191,34 @@
   - type: FingerprintMask
 
 - type: entity
+  parent: ClothingHandsGlovesPowerglove
+  id: ClothingHandsGlovesPowergloveReal # WWDP HIGH RISK WARDEN GLOVES (fake krav magas)
+  name: power gloves
+  description: Now I'm playin' with power! BAM!
+  components:
+  - type: Insulated
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 0.5
+    canHeavyAttack: false
+    maxTargets: 1
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: StaminaDamageOnHit
+    damage: 25
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: WardenPowerGloves
+
+
+- type: entity
   parent: ClothingHandsButcherable
   id: ClothingHandsGlovesRobohands
   name: robohands gloves
