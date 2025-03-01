@@ -69,7 +69,7 @@ public sealed class SharedResinSpinnerSystem : EntitySystem
             BlockDuplicate = true,
             BreakOnDamage = true,
             CancelDuplicate = true,
-            BreakOnUserMove = true
+            BreakOnMove = true
         };
 
         _doAfterSystem.TryStartDoAfter(doAfter);
