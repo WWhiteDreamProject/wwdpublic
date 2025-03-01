@@ -10,7 +10,7 @@
       #- EncryptionKeyService wwdp
       #- EncryptionKeyCommand wwdp
       #- EncryptionKeyCommon wwdp
-        - EncryptionKeyStationMaster # wwdp
+      - EncryptionKeyStationMaster # wwdp
 
 - type: entity
   parent: ClothingHeadsetAlt
