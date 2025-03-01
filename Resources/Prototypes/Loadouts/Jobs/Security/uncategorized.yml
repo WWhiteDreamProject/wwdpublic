@@ -1421,7 +1421,7 @@
     - !type:CharacterItemGroupRequirement
       group: LoadoutSecurityMask
     - !type:CharacterJobRequirement
-      jobs
+      jobs:
         - Warden
         - HeadOfSecurity
   items:
