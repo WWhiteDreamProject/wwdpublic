@@ -12,6 +12,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server._White.PostManifestMassacre;
+
 public sealed class PostManifestMassacreSystem : EntitySystem
 {
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -20,22 +21,18 @@ public sealed class PostManifestMassacreSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     
-    [ValidatePrototypeId<EntityListPrototype>]
-    private const string weaponsPrototypeId = "PostManifestMassacreWeapons";
+    private ProtoId<EntityListPrototype> _weaponsPrototypeId = "PostManifestMassacreWeapons";
     
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RoundEndedEvent>(onRoundEnded);
+        SubscribeLocalEvent<RoundEndedEvent>(OnRoundEnded);
     }
 
-    private void onRoundEnded(RoundEndedEvent ev)
+    private void OnRoundEnded(RoundEndedEvent ev)
     {
-        if(!_cfg.GetCVar(WhiteCVars.PMMEnabled))
-            return;
-
-        if (!_prototypeManager.TryIndex(weaponsPrototypeId, out EntityListPrototype? prototype))
+        if(!_cfg.GetCVar(WhiteCVars.PMMEnabled) || !_prototypeManager.TryIndex(_weaponsPrototypeId , out EntityListPrototype? prototype))
             return;
             
         var weapons = prototype.EntityIds;
