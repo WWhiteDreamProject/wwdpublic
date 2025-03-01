@@ -27,7 +27,7 @@
 
 - type: entity
   parent: MobAlienLarva
-  id: MobAlienLarvaGrowStageTwo
+  id: MobAlienLarvaGrowStageTwo # Larva that bursted owner tors
   components:
     - type: Sprite
       drawdepth: SmallMobs

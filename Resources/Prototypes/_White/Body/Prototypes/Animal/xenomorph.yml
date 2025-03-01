@@ -15,10 +15,11 @@
     torso:
       part: TorsoXenomorph
       connections:
-        - right_arm
-        - left_arm
-        - right_leg
-        - left_leg
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed
       organs:
         heart: OrganXenomorphHeart
         stomach: OrganXenomorphStomach
@@ -26,29 +27,29 @@
         kidneys: OrganXenomorphKidneys
         plasmaVessel: OrganXenomorphPlasmaVesselTiny
         hivenode: OrganXenomorphHivenode
-    right_arm:
+    right arm:
       part: RightArmHuman
       connections:
-        - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmHuman
       connections:
-        - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandHuman
-    left_hand:
+    left hand:
       part: LeftHandHuman
-    right_leg:
+    right leg:
       part: RightLegHuman
       connections:
-        - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegHuman
       connections:
-        - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootHuman
-    left_foot:
+    left foot:
       part: LeftFootHuman
 
 - type: body
@@ -66,10 +67,11 @@
     torso:
       part: TorsoXenomorph
       connections:
-        - right_arm
-        - left_arm
-        - right_leg
-        - left_leg
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed
       organs:
         heart: OrganXenomorphHeart
         stomach: OrganXenomorphStomach
@@ -77,29 +79,29 @@
         kidneys: OrganXenomorphKidneys
         plasmaVessel: OrganXenomorphPlasmaVesselSmall
         hivenode: OrganXenomorphHivenode
-    right_arm:
+    right arm:
       part: RightArmHuman
       connections:
-        - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmHuman
       connections:
-        - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandHuman
-    left_hand:
+    left hand:
       part: LeftHandHuman
-    right_leg:
+    right leg:
       part: RightLegHuman
       connections:
-        - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegHuman
       connections:
-        - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootHuman
-    left_foot:
+    left foot:
       part: LeftFootHuman
 
 - type: body
@@ -117,10 +119,11 @@
     torso:
       part: TorsoXenomorph
       connections:
-        - right_arm
-        - left_arm
-        - right_leg
-        - left_leg
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed
       organs:
         heart: OrganXenomorphHeart
         stomach: OrganXenomorphStomach
@@ -128,29 +131,29 @@
         kidneys: OrganXenomorphKidneys
         plasmaVessel: OrganXenomorphPlasmaVesselMedium
         hivenode: OrganXenomorphHivenode
-    right_arm:
+    right arm:
       part: RightArmHuman
       connections:
-        - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmHuman
       connections:
-        - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandHuman
-    left_hand:
+    left hand:
       part: LeftHandHuman
-    right_leg:
+    right leg:
       part: RightLegHuman
       connections:
-        - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegHuman
       connections:
-        - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootHuman
-    left_foot:
+    left foot:
       part: LeftFootHuman
 
 - type: body
@@ -168,10 +171,11 @@
     torso:
       part: TorsoXenomorph
       connections:
-        - right_arm
-        - left_arm
-        - right_leg
-        - left_leg
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed
       organs:
         heart: OrganXenomorphHeart
         stomach: OrganXenomorphStomach
@@ -179,29 +183,29 @@
         kidneys: OrganXenomorphKidneys
         plasmaVessel: OrganXenomorphPlasmaVesselLarge
         hivenode: OrganXenomorphHivenode
-    right_arm:
+    right arm:
       part: RightArmHuman
       connections:
-        - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmHuman
       connections:
-        - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandHuman
-    left_hand:
+    left hand:
       part: LeftHandHuman
-    right_leg:
+    right leg:
       part: RightLegHuman
       connections:
-        - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegHuman
       connections:
-        - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootHuman
-    left_foot:
+    left foot:
       part: LeftFootHuman
 
 - type: body
@@ -219,10 +223,11 @@
     torso:
       part: TorsoXenomorph
       connections:
-        - right_arm
-        - left_arm
-        - right_leg
-        - left_leg
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed
       organs:
         heart: OrganXenomorphHeart
         stomach: OrganXenomorphStomach
@@ -231,29 +236,29 @@
         plasmaVessel: OrganXenomorphPlasmaVesselLarge
         acidGland: OrganXenomorphAcidGland
         hivenode: OrganXenomorphHivenode
-    right_arm:
+    right arm:
       part: RightArmHuman
       connections:
-        - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmHuman
       connections:
-        - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandHuman
-    left_hand:
+    left hand:
       part: LeftHandHuman
-    right_leg:
+    right leg:
       part: RightLegHuman
       connections:
-        - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegHuman
       connections:
-        - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootHuman
-    left_foot:
+    left foot:
       part: LeftFootHuman
 
 - type: body
@@ -271,10 +276,11 @@
     torso:
       part: TorsoXenomorph
       connections:
-        - right_arm
-        - left_arm
-        - right_leg
-        - left_leg
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed
       organs:
         heart: OrganXenomorphHeart
         stomach: OrganXenomorphStomach
@@ -283,28 +289,28 @@
         plasmaVessel: OrganXenomorphPlasmaVesselLarge
         acidGland: OrganXenomorphAcidGland
         hivenode: OrganXenomorphHivenode
-#        groin: OrganXenomorphEggsac
-    right_arm:
+        groin: OrganXenomorphEggsac
+    right arm:
       part: RightArmHuman
       connections:
-        - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmHuman
       connections:
-        - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandHuman
-    left_hand:
+    left hand:
       part: LeftHandHuman
-    right_leg:
+    right leg:
       part: RightLegHuman
       connections:
-        - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegHuman
       connections:
-        - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootHuman
-    left_foot:
+    left foot:
       part: LeftFootHuman

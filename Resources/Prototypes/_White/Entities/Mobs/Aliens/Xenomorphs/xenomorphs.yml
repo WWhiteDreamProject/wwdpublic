@@ -160,8 +160,6 @@
   components:
     - type: MindContainer
       showExamineInfo: true
-    - type: Alien
-      greetingText: alien-praetorian-greeting
     - type: GhostTakeoverAvailable
     - type: GhostRole
       allowMovement: true
@@ -213,8 +211,6 @@
   components:
     - type: MindContainer
       showExamineInfo: true
-    - type: Alien
-      greetingText: alien-queen-greeting
     - type: GhostTakeoverAvailable
     - type: GhostRole
       allowMovement: true

@@ -138,7 +138,7 @@
       - Critical
       - Dead
     - type: Alien
-      greetingText: alien-drone-greeting
+      greetingText: alien-null-greeting
       weedHeal:
         groups:
           Burn: -5
@@ -225,6 +225,8 @@
           sprite: "Effects/creampie.rsi"
           state: "creampie_human"
           visible: false
+    - type: Alien
+      greetingText: alien-drone-greeting
     - type: DamageStateVisuals
       states:
         Alive:
@@ -446,7 +448,8 @@
   - type: Inventory
     templateId: alien_praetorian
     speciesId: alien_praetorian
-  - type: Alien # Because Dummy
+  - type: Alien
+    greetingText: alien-praetorian-greeting
   - type: Body
     prototype: XenomorphLargeSentinel
   - type: AcidMaker
@@ -542,6 +545,7 @@
         state: aliencuff_q
         visible: false
   - type: Alien
+    greetingText: alien-queen-greeting
   - type: Body
     prototype: XenomorphQueen
   - type: TypingIndicator
@@ -699,6 +703,15 @@
         Base: maid_dead
   - type: OwOAccent
   - type: Pacified
+  - type: LanguageKnowledge
+    speaks:
+    - Xeno
+    - TauCetiBasic # Smart thing
+    understands:
+    - Xeno
+    - Hissing
+    - Draconic
+    - TauCetiBasic
   - type: GuideHelp
     guides:
     - XenomorphMaid
@@ -821,7 +834,7 @@
       - Critical
       - Dead
     - type: Alien
-      greetingText: alien-role-greeting
+      greetingText: alien-larva-greeting
       weedHeal:
         groups:
           Burn: -5
@@ -854,6 +867,8 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: facehugger
+  - type: Alien
+    greetingText: alien-facehugger-greeting
   - type: Item
     sprite: _White/Mobs/Aliens/Xenomorphs/facehugger_inhands.rsi
     size: Small
