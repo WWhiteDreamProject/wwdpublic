@@ -342,7 +342,8 @@ public sealed class ClientClothingSystem : ClothingSystem
                         if (!string.IsNullOrEmpty(clothingComponent.ClothingType))
                         {
                             displacementData = inventory.MaleDisplacements.GetValueOrDefault($"{clothingComponent.ClothingType}-{bodyTypeName}")
-                                ?? inventory.MaleDisplacements.GetValueOrDefault(clothingComponent.ClothingType);
+                                ?? inventory.MaleDisplacements.GetValueOrDefault(clothingComponent.ClothingType)
+                                ?? inventory.MaleDisplacements.GetValueOrDefault(slot);
                             break;
                         }
 

@@ -6,6 +6,7 @@
   # WD EDIT START
   bodyTypes:
   - HarpyNormal
+  - HarpySlim
   # WD EDIT END
   defaultSkinTone: "#c0967f"
   markingLimits: MobHarpyMarkingLimits
