@@ -132,8 +132,8 @@ public class GunSpreadOverlay : Overlay
 
         var oldTheta = MathHelper.Clamp(gun.CurrentAngle - gun.AngleDecayModified * timeSinceLastFire, gun.MinAngleModified, gun.MaxAngleModified);
         var newTheta = MathHelper.Clamp(oldTheta + gun.AngleIncreaseModified.Theta, gun.MinAngleModified.Theta, gun.MaxAngleModified.Theta);
-        var shit = new Angle(newTheta + bonusSpread);
-        DrawCone(worldHandle, from, direction, shit, Color.Gray);
+        var fullSpread = new Angle(newTheta + bonusSpread);
+        DrawCone(worldHandle, from, direction, fullSpread, Color.Gray);
     }
 
     protected virtual void Reset() { }
