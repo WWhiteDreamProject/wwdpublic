@@ -1425,3 +1425,10 @@ Entries:
   id: 153
   time: '2025-03-02T13:15:59.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/256
+- author: '3189'
+  changes:
+    - type: Tweak
+      message: Ключи шифрования гарнитуры ХоПа были заменены на мастер-ключ
+  id: 154
+  time: '2025-03-02T13:17:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/241
