@@ -7,7 +7,6 @@
   bodyTypes:
     - ReptilianNormal
     - ReptilianSlim
-    - ReptilianDigi
   # WD EDIT END
   defaultSkinTone: "#34a223"
   markingLimits: MobReptilianMarkingLimits
@@ -43,10 +42,12 @@
     RArm: MobReptilianRArm
     LHand: MobReptilianLHand
     RHand: MobReptilianRHand
-    LLeg: MobReptilianLLeg
-    RLeg: MobReptilianRLeg
-    LFoot: MobReptilianLFoot
-    RFoot: MobReptilianRFoot
+    # WD EDUT START
+    LLeg: MobReptilianDigiLLeg
+    RLeg: MobReptilianDigiRLeg
+    LFoot: MobReptilianDigiLFoot
+    RFoot: MobReptilianDigiRFoot
+    # WD EDIT END
 
 - type: markingPoints
   id: MobReptilianMarkingLimits

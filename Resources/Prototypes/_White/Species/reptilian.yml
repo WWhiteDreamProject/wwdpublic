@@ -23,29 +23,6 @@
     LFoot: MobReptilianSlimLFoot
     RFoot: MobReptilianSlimRFoot
 
-- type: bodyType
-  id: ReptilianDigi
-  name: body-digitigrade
-  sprites:
-    Head: MobReptilianHead
-    Face: MobHumanoidAnyMarking
-    Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
-    Chest: MobReptilianTorso
-    HeadTop: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking
-    Tail: MobHumanoidAnyMarking
-    Eyes: MobHumanoidEyes
-    LArm: MobReptilianLArm
-    RArm: MobReptilianRArm
-    LHand: MobReptilianLHand
-    RHand: MobReptilianRHand
-    LLeg: MobReptilianDigiLLeg
-    RLeg: MobReptilianDigiRLeg
-    LFoot: MobReptilianDigiLFoot
-    RFoot: MobReptilianDigiRFoot
-
 # Slim types
 
 - type: humanoidBaseSprite
