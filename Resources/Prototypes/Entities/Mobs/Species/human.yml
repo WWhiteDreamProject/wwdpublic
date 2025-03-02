@@ -36,6 +36,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: Hearing # WWDP
 
 - type: entity
   parent: BaseSpeciesDummy

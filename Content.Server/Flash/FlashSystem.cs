@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server._White.Flash;
+using Content.Shared._White.Hearing;
 using Content.Server.Flash.Components;
 using Content.Shared.Flash.Components;
 using Content.Server.Light.EntitySystems;
@@ -162,6 +163,12 @@ namespace Content.Server.Flash
             flashable.LastFlash = _timing.CurTime;
             flashable.Duration = flashDuration / 1000f; // TODO: Make this sane...
             Dirty(target, flashable);
+
+            if (HasComp<HearingComponent>(target))
+            {
+                var deafen = new HearingChangedEvent(target, false, false, flashDuration / 1000f, "deaf-chat-message-flashbanged");
+                RaiseLocalEvent(target, deafen);
+            }
 
             if (TryComp<BlindableComponent>(target, out var blindable)
                 && !blindable.IsBlind
