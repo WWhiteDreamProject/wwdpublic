@@ -204,6 +204,13 @@
             tags:
               - TrashBag
           priority: 3 # Higher than drinking priority
+    - type: ItemSlotPicker # wwdp
+      itemSlots:
+      - mop_slot
+      - plunger_slot
+      - trashbag_slot
+      - lightreplacer_slot
+      - spraybottle_slot
     - type: Fixtures
       fixtures:
         fix1:

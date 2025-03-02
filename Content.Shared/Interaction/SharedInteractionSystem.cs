@@ -1189,6 +1189,8 @@ namespace Content.Shared.Interaction
             return InteractionActivate(user, used, false, false, false);
         }
 
+
+
         /// <summary>
         ///     Alternative interactions on an entity.
         /// </summary>
@@ -1198,6 +1200,19 @@ namespace Content.Shared.Interaction
         /// <returns>True if the interaction was handled, false otherwise.</returns>
         public bool AltInteract(EntityUid user, EntityUid target)
         {
+        	// WD EDIT START
+            // yeah, this is a crutch for stuff that should only be "alt-interacted"
+            // on a click, instead of showing it in the menu.
+            // Because of that, such interaction should not be obscured by a "higher priority" altverb,
+            // lest it becomes completely unavailable. Thus, it is relegated to a separate event,
+            // fired before looking for altverbs.
+            // Look upon my shit, and despair.
+            var ev = new AlternativeInteractionEvent(user);
+            RaiseLocalEvent(target, ev);
+            if (ev.Handled)
+                return true;
+			// WD EDIT END
+			
             // Get list of alt-interact verbs
             var verbs = _verbSystem.GetLocalVerbs(target, user, typeof(AlternativeVerb)).Where(verb => ((AlternativeVerb) verb).InActiveHandOnly == false); // WD EDIT
 
@@ -1440,6 +1455,12 @@ namespace Content.Shared.Interaction
             return _actionBlockerSystem.CanComplexInteract(user);
         }
     }
+	// WWDP EDIT START
+    public sealed class AlternativeInteractionEvent(EntityUid user) : HandledEntityEventArgs
+    {
+        public EntityUid User = user;
+    }
+    // WWDP EDIT END
 
     /// <summary>
     ///     Raised when a player attempts to activate an item in an inventory slot or hand slot

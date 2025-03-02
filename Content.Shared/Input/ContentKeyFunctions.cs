@@ -10,6 +10,9 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction ActivateItemInWorld = "ActivateItemInWorld";
         public static readonly BoundKeyFunction AltActivateItemInWorld = "AltActivateItemInWorld";
         public static readonly BoundKeyFunction Drop = "Drop";
+        public static readonly BoundKeyFunction PreciseDrop = "PreciseDrop";		// WWDP
+        public static readonly BoundKeyFunction MouseWheelUp = "MouseWheelUp";		// WWDP
+        public static readonly BoundKeyFunction MouseWheelDown = "MouseWheelDown";	// WWDP
         public static readonly BoundKeyFunction ExamineEntity = "ExamineEntity";
         public static readonly BoundKeyFunction FocusChat = "FocusChatInputWindow";
         public static readonly BoundKeyFunction FocusLocalChat = "FocusLocalChatWindow";

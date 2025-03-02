@@ -21,6 +21,10 @@
   - type: Wieldable
   - type: GunRequiresWield
   - type: Gun
+    bonusAngleIncreaseMove: 30  # wwdp
+    bonusAngleIncreaseTurn: 0.4 # wwdp
+    bonusAngleDecay: 30         # wwdp
+    maxBonusAngle: 30           # wwdp
     fireRate: 0.75
     selectedMode: SemiAuto
     availableModes:

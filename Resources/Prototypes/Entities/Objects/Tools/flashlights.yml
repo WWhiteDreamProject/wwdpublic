@@ -74,6 +74,8 @@
     autoRot: true
     radius: 6
     netsync: false
+  - type: RotatePointLight # wwdp
+    angle: -90
   - type: Appearance
   - type: StaticPrice
     price: 40

@@ -12,6 +12,16 @@
   - type: Item
     size: Small
     sprite: Objects/Weapons/Guns/Shotguns/flaregun.rsi
+  - type: Gun
+    bonusAngleIncreaseMove: 20    # wwdp 
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 80           # wwdp
+    maxBonusAngle: 10             # wwdp
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/flaregun.ogg
   - type: ItemSlots
     slots:
       gun_chamber:
@@ -39,13 +49,6 @@
     - Belt
     - suitStorage
   - type: Appearance
-  - type: Gun
-    fireRate: 8
-    selectedMode: SemiAuto
-    availableModes:
-      - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/flaregun.ogg
 
 
 - type: entity
