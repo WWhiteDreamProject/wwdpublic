@@ -48,21 +48,4 @@ public sealed class ShowSpreadCommand : IConsoleCommand
         }
     }
 }
-
-public sealed class ShowFullSpreadCommand : IConsoleCommand
-{
-    public string Command => "showgunspreadfull";
-    public string Description => $"Shows gun spread overlay for debugging";
-    public string Help => $"{Command}";
-    public void Execute(IConsoleShell shell, string argStr, string[] args)
-    {
-        var system = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<GunSystem>();
-        if (system.SpreadOverlay == GunSystem.GunSpreadOverlayEnum.Full)
-            system.SpreadOverlay = GunSystem.GunSpreadOverlayEnum.Off;
-        else
-            system.SpreadOverlay = GunSystem.GunSpreadOverlayEnum.Full;
-
-        shell.WriteLine($"Set spread overlay to \"{system.SpreadOverlay}\".");
-    }
-}
 // WWDP EDIT END

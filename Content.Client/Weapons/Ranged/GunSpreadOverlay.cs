@@ -115,7 +115,7 @@ public class GunSpreadOverlay : Overlay
 
     protected virtual void DrawSpread(DrawingHandleWorld worldHandle, GunComponent gun, Vector2 from, Vector2 direction, double timeSinceLastFire, Angle maxBonusSpread, Angle bonusSpread, Angle maxSpread, Angle minSpread, Angle currentAngle)
     {
-        worldHandle.DrawLine(from, direction*2, Color.Orange);
+        worldHandle.DrawLine(from, from + direction*2, Color.Orange);
 
         // Show max spread either side
         DrawCone(worldHandle, from, direction, maxSpread + bonusSpread, Color.Red);

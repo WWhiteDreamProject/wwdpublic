@@ -47,7 +47,8 @@ public sealed class DropOverlay : Overlay
     {
         if (_hands.GetActiveHandEntity() is not EntityUid held ||
             !_entMan.HasComponent<SpriteComponent>(held) ||
-            _player.LocalEntity is not EntityUid player) // how and why?
+            _player.LocalEntity is not EntityUid player || // how and why?
+            !_entMan.TryGetComponent<HoldingDropComponent>(player, out var dropcomp)) // this should never fail
             return;
 
         var handle = args.ScreenHandle;
@@ -59,12 +60,18 @@ public sealed class DropOverlay : Overlay
         var finalMapPos = _hands.GetFinalDropCoordinates(player, _transform.GetMapCoordinates(player), mouseMapPos);
         var finalScreenPos = _eye.MapToScreen(new MapCoordinates(finalMapPos, mouseMapPos.MapId)).Position;
 
-        var adjustedAngle = _entMan.GetComponent<HoldingDropComponent>(player).Angle;
+        var adjustedAngle = dropcomp.Angle;
         handle.RenderInRenderTarget(_renderBackbuffer, () =>
         {
             handle.DrawEntity(held, _renderBackbuffer.Size / 2, new Vector2(2), adjustedAngle);
         }, Color.Transparent);
 
         handle.DrawTexture(_renderBackbuffer.Texture, finalScreenPos - _renderBackbuffer.Size / 2, Color.GreenYellow.WithAlpha(0.75f));
+    }
+
+    protected override void DisposeBehavior()
+    {
+        _renderBackbuffer.Dispose();
+        base.DisposeBehavior();
     }
 }
