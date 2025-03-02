@@ -14,10 +14,11 @@
   dollPrototype: MobSkeletonPersonDummy
   skinColoration: TintedHues
 
-# WD EDIT
+# WD EDIT START
 - type: bodyType
   id: SkeletonNormal
   name: body-normal
+# WD EDIT END
   sprites:
     Head: MobSkeletonHead
     Chest: MobSkeletonTorso

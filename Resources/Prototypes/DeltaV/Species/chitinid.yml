@@ -15,10 +15,11 @@
   femaleFirstNames: NamesChitinidFirstFemale
   naming: First
 
-# WD EDIT
+# WD EDIT START
 - type: bodyType
   id: ChitinidNormal
   name: body-normal
+# WD EDIT END
   sprites:
     Head: MobChitinidHead
     Snout: MobHumanoidAnyMarking

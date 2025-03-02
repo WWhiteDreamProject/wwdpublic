@@ -12,10 +12,11 @@
   skinColoration: HumanToned
   defaultSkinTone: "#9a7c5a"
 
-  # WD EDIT
+# WD EDIT START
 - type: bodyType
   id: GingerbreadNormal
   name: body-normal
+# WD EDIT END
   sprites:
     Head: MobGingerbreadHead
     HeadTop: MobHumanoidAnyMarking

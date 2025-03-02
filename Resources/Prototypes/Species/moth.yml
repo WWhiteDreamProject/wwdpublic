@@ -15,10 +15,11 @@
   femaleFirstNames: names_moth_first_female
   lastNames: names_moth_last
 
-# WD EDIT
+# WD EDIT START
 - type: bodyType
   id: MothNormal
   name: body-normal
+# WD EDIT END
   sprites:
     Head: MobMothHead
     Face: MobHumanoidAnyMarking

@@ -12,10 +12,11 @@
   dollPrototype: MobSlimePersonDummy
   skinColoration: Hues
 
-  # WD EDIT
+# WD EDIT START
 - type: bodyType
   id: SlimeNormal
   name: body-normal
+# WD EDIT END
   sprites:
     Face: MobHumanoidAnyMarking
     Head: MobSlimeHead

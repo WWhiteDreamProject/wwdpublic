@@ -12,10 +12,11 @@
   defaultSkinTone: "#9a7c5a"
   markingLimits: MobKoboldMarkingLimits
 
-# WD EDIT
+# WD EDIT START
 - type: bodyType
   id: KoboldNormal
   name: body-normal
+# WD EDIT END
   sprites:
     Head: MobKoboldHead
     Chest: MobKoboldTorso

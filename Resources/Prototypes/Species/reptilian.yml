@@ -6,6 +6,8 @@
   # WD EDIT START
   bodyTypes:
     - ReptilianNormal
+    - ReptilianSlim
+    - ReptilianDigi
   # WD EDIT END
   defaultSkinTone: "#34a223"
   markingLimits: MobReptilianMarkingLimits
@@ -21,10 +23,11 @@
   defaultWidth: 1.1
   maxWidth: 1.2 # White Dream: End of changes.
 
-# WD EDIT
+# WD EDIT START
 - type: bodyType
   id: ReptilianNormal
   name: body-normal
+# WD EDIT END
   sprites:
     Head: MobReptilianHead
     Face: MobHumanoidAnyMarking
@@ -40,10 +43,10 @@
     RArm: MobReptilianRArm
     LHand: MobReptilianLHand
     RHand: MobReptilianRHand
-    LLeg: MobReptilianLLegDigi # WWDP-Edit
-    RLeg: MobReptilianRLegDigi # WWDP-Edit
-    LFoot: MobReptilianLFootDigi # WWDP-Edit
-    RFoot: MobReptilianRFootDigi # WWDP-Edit
+    LLeg: MobReptilianLLeg
+    RLeg: MobReptilianRLeg
+    LFoot: MobReptilianLFoot
+    RFoot: MobReptilianRFoot
 
 - type: markingPoints
   id: MobReptilianMarkingLimits

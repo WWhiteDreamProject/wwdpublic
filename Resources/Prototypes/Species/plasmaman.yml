@@ -20,10 +20,11 @@
   sexes:
   - Unsexed
 
-# WD EDIT
+# WD EDIT START
 - type: bodyType
   id: PlasmamanNormal
   name: body-normal
+# WD EDIT END
   sprites:
     Head: MobPlasmamanHead
     Face: MobHumanoidAnyMarking

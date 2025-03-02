@@ -66,10 +66,11 @@
       points: 3
       required: false
 
-# WD EDIT
+# WD EDIT START
 - type: bodyType
   id: TajaranNormal
   name: body-normal
+# WD EDIT END
   sprites:
     Head: MobTajaranHead
     HeadTop: MobHumanoidAnyMarking

@@ -15,10 +15,11 @@
   femaleFirstNames: names_vulpkanin_female
   lastNames: names_vulpkanin_last
 
-# WD EDIT
+# WD EDIT START
 - type: bodyType
   id: VulpkaninNormal
   name: body-normal
+# WD EDIT END
   sprites:
     Head: MobVulpkaninHead
     Face: MobHumanoidAnyMarking

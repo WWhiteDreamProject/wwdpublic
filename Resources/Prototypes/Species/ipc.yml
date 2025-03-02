@@ -28,10 +28,11 @@
 # be defined as a 'custom base layer'
 # in either the mob's starting marking prototype,
 # or it has to be added in C#.
-# WD EDIT
+# WD EDIT START
 - type: bodyType
   id: IPCNormal
   name: body-normal
+# WD EDIT END
   sprites:
     Head: MobIPCHead
     Face: MobHumanoidAnyMarking

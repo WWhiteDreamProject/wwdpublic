@@ -17,10 +17,11 @@
   sexes:
   - Unsexed
 
-  # WD EDIT
+# WD EDIT START
 - type: bodyType
   id: VoxNormal
   name: body-normal
+# WD EDIT END
   sprites:
     Head: MobVoxHead
     Snout: MobHumanoidAnyMarking

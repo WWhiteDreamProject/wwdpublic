@@ -16,10 +16,11 @@
   lastNames: DionaLast
   naming: TheFirstofLast
 
-# WD EDIT
+# WD EDIT START
 - type: bodyType
   id: DionaNormal
   name: body-normal
+# WD EDIT END
   sprites:
     Head: MobDionaHead
     HeadTop: MobHumanoidAnyMarking

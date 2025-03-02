@@ -11,10 +11,11 @@
   skinColoration: HumanToned
   markingLimits: MobMonkeyMarkingLimits
 
-# WD EDIT
+# WD EDIT START
 - type: bodyType
   id: MonkeyNormal
   name: body-normal
+# WD EDIT END
   sprites:
     Head: MobMonkeyHead
     HeadTop: MobMonkeyAnyMarking
