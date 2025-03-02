@@ -72,14 +72,15 @@ public sealed class StealConditionSystem : EntitySystem
     private void OnAfterAssign(Entity<StealConditionComponent> condition, ref ObjectiveAfterAssignEvent args)
     {
         var group = _proto.Index(condition.Comp.StealGroup);
+        var name = Loc.GetString(group.Name);
 
         var title =condition.Comp.OwnerText == null
-            ? Loc.GetString(condition.Comp.ObjectiveNoOwnerText, ("itemName", group.Name))
-            : Loc.GetString(condition.Comp.ObjectiveText, ("owner", Loc.GetString(condition.Comp.OwnerText)), ("itemName", group.Name));
+            ? Loc.GetString(condition.Comp.ObjectiveNoOwnerText, ("itemName", name))
+            : Loc.GetString(condition.Comp.ObjectiveText, ("owner", Loc.GetString(condition.Comp.OwnerText)), ("itemName", name));
 
         var description = condition.Comp.CollectionSize > 1
-            ? Loc.GetString(condition.Comp.DescriptionMultiplyText, ("itemName", group.Name), ("count", condition.Comp.CollectionSize))
-            : Loc.GetString(condition.Comp.DescriptionText, ("itemName", group.Name));
+            ? Loc.GetString(condition.Comp.DescriptionMultiplyText, ("itemName", name), ("count", condition.Comp.CollectionSize))
+            : Loc.GetString(condition.Comp.DescriptionText, ("itemName", name));
 
         _metaData.SetEntityName(condition.Owner, title, args.Meta);
         _metaData.SetEntityDescription(condition.Owner, description, args.Meta);

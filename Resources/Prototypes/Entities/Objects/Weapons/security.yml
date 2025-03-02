@@ -13,7 +13,7 @@
     tags:
     - Stunbaton
   - type: Stunbaton
-    energyPerUse: 100 # WD EDIT
+    energyPerUse: 50 # WD EDIT
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -39,18 +39,18 @@
         Blunt: 7
     bluntStaminaDamageFactor: 2.0
     canHeavyAttack: false # WD EDIT
-    attackRate: 3 # WD EDIT
+    attackRate: 1 # WD EDIT
     angle: 60
   - type: DamageOtherOnHit
   - type: StaminaDamageOnHit
-    damage: 55 # WD EDIT
+    damage: 35 # WD EDIT
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
     damage: 35
     sound: /Audio/Weapons/egloves.ogg
   - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+    maxCharge: 750 # WD EDIT
+    startingCharge: 750 # WD EDIT
   - type: Item
     heldPrefix: off
     size: Normal
