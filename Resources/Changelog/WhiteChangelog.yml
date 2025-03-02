@@ -1418,3 +1418,10 @@ Entries:
   id: 152
   time: '2025-03-02T13:12:58.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/255
+- author: vanx
+  changes:
+    - type: Add
+      message: Локализация целей на кражу синдиката и воров
+  id: 153
+  time: '2025-03-02T13:15:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/256
