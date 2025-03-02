@@ -40,7 +40,7 @@ namespace Content.Server.Abilities.Psionics
         {
             if (!_psionics.OnAttemptPowerUse(args.Performer, "mind swap")
                 || !(TryComp<DamageableComponent>(args.Target, out var damageable) && damageable.DamageContainerID == "Biological")
-                || HasComp<PsionicInsulationComponent>(args.Target))
+                || HasComp<PsionicInsulationComponent>(args.Target)) // WWDP fix
                 return;
 
             Swap(args.Performer, args.Target);
