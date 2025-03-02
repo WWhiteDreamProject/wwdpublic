@@ -180,6 +180,7 @@
   - type: Clothing
     equipDelay: 2.5 # Hardsuits are heavy and take a while to put on/off.
     unequipDelay: 2.5
+    clothingType: hardsuit # WD EDIT
   - type: Geiger
     attachedToSuit: true
     localSoundOnly: true
@@ -323,6 +324,7 @@
   - type: Clothing
     equipDelay: 1.25 # Softsuits are easier to put on and off
     unequipDelay: 1
+    clothingType: hardsuit # WD EDIT
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
   - type: Fixtures

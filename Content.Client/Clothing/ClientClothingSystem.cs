@@ -339,40 +339,30 @@ public sealed class ClientClothingSystem : ClothingSystem
                 case Sex.Male:
                     if (inventory.MaleDisplacements.Count > 0)
                     {
+                        if (!string.IsNullOrEmpty(clothingComponent.ClothingType))
+                        {
+                            displacementData = inventory.MaleDisplacements.GetValueOrDefault($"{clothingComponent.ClothingType}-{bodyTypeName}")
+                                ?? inventory.MaleDisplacements.GetValueOrDefault(clothingComponent.ClothingType);
+                            break;
+                        }
+
                         displacementData = inventory.MaleDisplacements.GetValueOrDefault($"{slot}-{bodyTypeName}")
                             ?? inventory.MaleDisplacements.GetValueOrDefault(slot);
-
-                        if (_tag.HasTag(equipment, HardsuitTag))
-                        {
-                            displacementData = inventory.MaleDisplacements.GetValueOrDefault($"{Hardsuit}-{bodyTypeName}")
-                                ?? inventory.MaleDisplacements.GetValueOrDefault(Hardsuit);
-                        }
-
-                        if (_tag.HasTag(equipment, SuitTag))
-                        {
-                            displacementData = inventory.MaleDisplacements.GetValueOrDefault($"{Suit}-{bodyTypeName}")
-                                ?? inventory.MaleDisplacements.GetValueOrDefault(Suit);
-                        }
                     }
 
                     break;
                 case Sex.Female:
                     if (inventory.FemaleDisplacements.Count > 0)
                     {
+                        if (!string.IsNullOrEmpty(clothingComponent.ClothingType))
+                        {
+                            displacementData = inventory.FemaleDisplacements.GetValueOrDefault($"{clothingComponent.ClothingType}-{bodyTypeName}")
+                                ?? inventory.FemaleDisplacements.GetValueOrDefault(clothingComponent.ClothingType);
+                            break;
+                        }
+
                         displacementData = inventory.FemaleDisplacements.GetValueOrDefault($"{slot}-{bodyTypeName}")
                             ?? inventory.FemaleDisplacements.GetValueOrDefault(slot);
-
-                        if (_tag.HasTag(equipment, HardsuitTag))
-                        {
-                            displacementData = inventory.FemaleDisplacements.GetValueOrDefault($"{Hardsuit}-{bodyTypeName}")
-                                ?? inventory.FemaleDisplacements.GetValueOrDefault(Hardsuit);
-                        }
-
-                        if (_tag.HasTag(equipment, SuitTag))
-                        {
-                            displacementData = inventory.FemaleDisplacements.GetValueOrDefault($"{Suit}-{bodyTypeName}")
-                                ?? inventory.FemaleDisplacements.GetValueOrDefault(Suit);
-                        }
                     }
 
                     break;
