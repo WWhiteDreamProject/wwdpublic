@@ -3,13 +3,10 @@
   id: Scream
   name: chat-emote-name-scream
   category: Vocal
-  icon: Interface/Actions/scream.png
+  icon: Interface/Emotes/scream.png
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-scream"]
   chatTriggers:
   # WD EDIT START
@@ -27,9 +24,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis # WD EDIT
   chatMessages: ["chat-emote-msg-laugh"]
   chatTriggers:
   # WD EDIT START
@@ -46,9 +40,9 @@
   icon: Interface/Emotes/honk.png
   chatMessages: ["chat-emote-msg-honk"]
   whitelist:
-    components:
-    - BorgChassis # WD EDIT
-    - Silicon # WD EDOT
+    tags:
+    - SiliconEmotes
+    - HarpyEmotes
   chatTriggers:
   - "chat-emote-trigger-honk-1" # WD EDIT
 
@@ -60,9 +54,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis # WD EDIT
   chatMessages: ["chat-emote-msg-sigh"]
   chatTriggers:
   - "chat-emote-trigger-sigh-1" # WD EDIT
@@ -75,9 +66,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-whistle"]
   chatTriggers:
   - "chat-emote-trigger-whistle-1" # WD EDIT
@@ -90,9 +78,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-crying"]
   chatTriggers:
   # WD EDIT START
@@ -104,11 +89,10 @@
   id: Squish
   name: chat-emote-name-squish
   category: Vocal
-  available: false
   icon: Interface/Emotes/squish.png
   whitelist:
-    components:
-    - Vocal
+    tags:
+    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis
@@ -120,11 +104,10 @@
   id: Chitter
   name: chat-emote-name-chitter
   category: Vocal
-  available: false
   icon: Interface/Emotes/chitter.png
   whitelist:
-    components:
-    - Vocal
+    tags:
+    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis
@@ -136,11 +119,10 @@
   id: Squeak
   name: chat-emote-name-squeak
   category: Vocal
-  available: false
   icon: Interface/Emotes/squeak.png
   whitelist:
-    components:
-    - Vocal
+    tags:
+    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis
@@ -152,11 +134,10 @@
   id: Click
   name: chat-emote-name-click
   category: Vocal
-  available: false
   icon: Interface/Emotes/click.png
   whitelist:
-    components:
-    - Vocal
+    tags:
+    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis
@@ -228,12 +209,9 @@
   whitelist:
     components:
     - MobState
-  # WD EDIT START
   blacklist:
-    components:
-    - BorgChassis
-    - Silicon
-  # WD EDIT END
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-deathgasp"]
   chatTriggers:
   - "chat-emote-trigger-deathgasp-1" # WD EDIT
@@ -247,13 +225,10 @@
 - type: emote
   id: SiliconDeathgasp
   name: chat-emote-name-deathgasp
-  # WD EDIT START
   icon: Interface/Emotes/deathgasp.png
   whitelist:
-    components:
-    - BorgChassis
-    - Silicon
-  # WD EDIT END
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-deathgasp-silicon"]
   chatTriggers:
   - "chat-emote-trigger-deathgasp-silicon-1" # WD EDIT
@@ -264,9 +239,9 @@
   category: Vocal
   icon: Interface/Emotes/buzz.png
   whitelist:
-    components:
-    - BorgChassis
-    - Silicon # WD EDIT
+    tags:
+    - SiliconEmotes
+    - HarpyEmotes
   chatMessages: ["chat-emote-msg-buzz"]
   chatTriggers:
   - "chat-emote-trigger-buzz-1" # WD EDIT
@@ -284,8 +259,11 @@
   category: Vocal
   icon: Interface/Emotes/chirp.png
   whitelist:
+    requireAll: false
     components:
     - Nymph
+    tags:
+    - HarpyEmotes
   chatMessages: ["chat-emote-msg-chirp"]
   chatTriggers:
   - "chat-emote-trigger-chirp-1" # WD EDIT
@@ -297,9 +275,9 @@
   category: Vocal
   icon: Interface/Emotes/beep.png
   whitelist:
-    components:
-    - BorgChassis
-    - Silicon # WD EDIT
+    tags:
+    - SiliconEmotes
+    - HarpyEmotes
   chatMessages: ["chat-emote-msg-beep"]
   chatTriggers:
   - "chat-emote-trigger-beep-1" # WD EDIT
@@ -308,15 +286,15 @@
   id: Boop
   name: chat-emote-name-boop
   category: Vocal
-  # WD EDIT START
   whitelist:
-    components:
-    - BorgChassis
-    - Silicon
+    tags:
+    - SiliconEmotes
+    - HarpyEmotes
+  # WD EDIT START
   chatMessages: [ "chat-emote-msg-boop-1" ]
-  # WD EDIT END
   chatTriggers:
-  - "chat-emote-trigger-boop-1" # WD EDIT
+  - "chat-emote-trigger-boop-1"
+  # WD EDIT END
 
 - type: emote
   id: Chime
@@ -324,25 +302,29 @@
   category: Vocal
   icon: Interface/Emotes/chime.png
   whitelist:
-    components:
-    - BorgChassis
-    - Silicon # WD EDIT
+    tags:
+    - SiliconEmotes
+    - HarpyEmotes
+  # WD EDIT START
   chatMessages: ["chat-emote-msg-chime"]
   chatTriggers:
-  - "chat-emote-trigger-chime-1" # WD EDIT
-
+  - "chat-emote-trigger-chime-1"
+  # WD EDIT END
+  
 - type: emote
   id: Buzz-Two
   name: chat-emote-name-buzztwo
   category: Vocal
   icon: Interface/Emotes/buzztwo.png
   whitelist:
-    components:
-    - BorgChassis
-    - Silicon # WD EDIT
+    tags:
+    - SiliconEmotes
+    - HarpyEmotes
+  # WD EDIT START
   chatMessages: ["chat-emote-msg-buzzestwo"]
   chatTriggers:
-  - "chat-emote-trigger-buzz-two-1" # WD EDIT
+  - "chat-emote-trigger-buzz-two-1"
+  # WD EDIT END
 
 - type: emote
   id: Ping
@@ -350,54 +332,59 @@
   category: Vocal
   icon: Interface/Emotes/ping.png
   whitelist:
-    components:
-    - BorgChassis
-    - Silicon # WD EDIT
+    tags:
+    - SiliconEmotes
+    - HarpyEmotes
+  # WD EDIT START
   chatMessages: ["chat-emote-msg-ping"]
   chatTriggers:
-  - "chat-emote-trigger-ping-1" # WD EDIT
+  - "chat-emote-trigger-ping-1"
+  # WD EDIT END
 
 - type: emote
   id: Whirr
   name: chat-emote-name-whirr
-  # WD EDIT START
+  category: Vocal
   whitelist:
-    components:
-    - BorgChassis
-    - Silicon
+    tags:
+    - SiliconEmotes
+    - HarpyEmotes
+  # WD EDIT START
   chatMessages: ["chat-emote-msg-whirr"]
-  # WD EDIT END
   chatTriggers:
-  - "chat-emote-trigger-whirr-1" # WD EDIT
+  - "chat-emote-trigger-whirr-1"
+  # WD EDIT END
 
 - type: emote
   id: Mars
   name: chat-emote-name-mars
   category: Vocal
-  # WD EDIT START
   whitelist:
-    components:
-    - Shadowkin
     tags:
-    - Bird
-    - Cat
+    - ShadowkinEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  # WD EDIT START
   chatMessages: ["chat-emote-msg-mars"]
-  # WD EDIT END
   chatTriggers:
-  - "chat-emote-trigger-mars-1" # WD EDIT
+  - "chat-emote-trigger-mars-1"
+  # WD EDIT END
 
 - type: emote
   id: Wurble
   name: chat-emote-name-wurble
   category: Vocal
-  # WD EDIT START
   whitelist:
-    components:
-    - Shadowkin
     tags:
-    - Bird
-    - Cat
-  # WD EDIT END
+    - ShadowkinEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  # WD EDIT START
   chatMessages: ["chat-emote-msg-wurble"]
   chatTriggers:
-  - "chat-emote-trigger-wurble-1" # WD EDIT
+  - "chat-emote-trigger-wurble-1"
+  # WD EDIT END

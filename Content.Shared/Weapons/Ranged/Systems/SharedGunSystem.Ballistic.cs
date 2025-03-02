@@ -16,11 +16,14 @@ public abstract partial class SharedGunSystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
+
     protected virtual void InitializeBallistic()
     {
         SubscribeLocalEvent<BallisticAmmoProviderComponent, ComponentInit>(OnBallisticInit);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, MapInitEvent>(OnBallisticMapInit);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, TakeAmmoEvent>(OnBallisticTakeAmmo);
+        SubscribeLocalEvent<BallisticAmmoProviderComponent, ForceSpawnAmmoEvent>(OnForceSpawnAmmo); // WD EDIT
+
         SubscribeLocalEvent<BallisticAmmoProviderComponent, GetAmmoCountEvent>(OnBallisticAmmoCount);
 
         SubscribeLocalEvent<BallisticAmmoProviderComponent, ExaminedEvent>(OnBallisticExamine);
@@ -36,7 +39,7 @@ public abstract partial class SharedGunSystem
         if (args.Handled)
             return;
 
-        ManualCycle(uid, component, Transform(uid).MapPosition, args.User);
+        ManualCycle(uid, component, TransformSystem.GetMapCoordinates(uid), args.User);
         args.Handled = true;
     }
 
@@ -89,8 +92,7 @@ public abstract partial class SharedGunSystem
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, component.FillDelay, new AmmoFillDoAfterEvent(), used: uid, target: args.Target, eventTarget: uid)
         {
-            BreakOnTargetMove = true,
-            BreakOnUserMove = true,
+            BreakOnMove = true,
             BreakOnDamage = false,
             NeedHand = true
         });
@@ -138,7 +140,7 @@ public abstract partial class SharedGunSystem
             if (ent == null)
                 continue;
 
-            if (!target.Whitelist.IsValid(ent.Value))
+            if (_whitelistSystem.IsWhitelistFail(target.Whitelist, ent.Value))
             {
                 Popup(
                     Loc.GetString("gun-ballistic-transfer-invalid",
@@ -177,7 +179,7 @@ public abstract partial class SharedGunSystem
             {
                 Text = Loc.GetString("gun-ballistic-cycle"),
                 Disabled = GetBallisticShots(component) == 0,
-                Act = () => ManualCycle(uid, component, Transform(uid).MapPosition, args.User),
+                Act = () => ManualCycle(uid, component, TransformSystem.GetMapCoordinates(uid), args.User),
             });
 
         }
@@ -285,6 +287,19 @@ public abstract partial class SharedGunSystem
         Dirty(uid, component);
     }
 
+    // WD EDIT START
+    private void OnForceSpawnAmmo(EntityUid uid, BallisticAmmoProviderComponent component, ForceSpawnAmmoEvent args)
+    {
+        while(component.UnspawnedCount > 0)
+        {
+            var ent = Spawn(component.Proto, MapCoordinates.Nullspace);
+            component.Entities.Add(ent);
+            Containers.Insert(ent, component.Container);
+            component.UnspawnedCount--;
+        }
+        Dirty(uid, component);
+    }
+    // WD EDIT END
     private void OnBallisticAmmoCount(EntityUid uid, BallisticAmmoProviderComponent component, ref GetAmmoCountEvent args)
     {
         args.Count = GetBallisticShots(component);

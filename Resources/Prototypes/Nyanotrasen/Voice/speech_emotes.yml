@@ -1,12 +1,16 @@
 # vocal emotes
 - type: emote
   id: Hiss
-  name: chat-emote-name-cathisses
+  name: chat-emote-name-hisses
   category: Vocal
-  # WD EDIT START
+  icon: Interface/Emotes/hiss.png
   whitelist:
     tags:
-    - Cat
+    - FelinidEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [ "chat-emote-msg-hisses" ]
   chatTriggers:
     - "chat-emote-trigger-hisses-1"
@@ -14,12 +18,17 @@
 
 - type: emote
   id: Meow
-  name: chat-emote-name-catmeow
+  name: chat-emote-name-meow
   category: Vocal
-  # WD EDIT START
+  icon: Interface/Emotes/meow.png
   whitelist:
     tags:
-    - Cat
+    - FelinidEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  # WD EDIT START
   chatMessages: [ "chat-emote-msg-meow" ]
   chatTriggers:
     - "chat-emote-trigger-meow-1"
@@ -30,12 +39,17 @@
 
 - type: emote
   id: Mew
-  name: chat-emote-name-catmew
+  name: chat-emote-name-mew
   category: Vocal
-  # WD EDIT START
+  icon: Interface/Emotes/mew.png
   whitelist:
     tags:
-    - Cat
+    - FelinidEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  # WD EDIT START
   chatMessages: [ "chat-emote-msg-mew" ]
   chatTriggers:
     - "chat-emote-trigger-mew-1"
@@ -43,12 +57,17 @@
 
 - type: emote
   id: Growl
-  name: chat-emote-name-catgrowl
+  name: chat-emote-name-growl
   category: Vocal
-  # WD EDIT START
+  icon: Interface/Emotes/growl.png
   whitelist:
     tags:
-    - Cat
+    - FelinidEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  # WD EDIT START
   chatMessages: [ "chat-emote-msg-growl" ]
   chatTriggers:
     - "chat-emote-trigger-growl-1"
@@ -56,12 +75,17 @@
 
 - type: emote
   id: Purr
-  name: chat-emote-name-catpurr
+  name: chat-emote-name-purr
   category: Vocal
-  # WD EDIT START
+  icon: Interface/Emotes/purr.png
   whitelist:
     tags:
-    - Cat
+    - FelinidEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  # WD EDIT START
   chatMessages: [ "chat-emote-msg-purr" ]
   chatTriggers:
     - "chat-emote-trigger-purr-1"

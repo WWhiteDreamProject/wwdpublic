@@ -52,7 +52,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.35,-0.4,0.35,0.4"
+          bounds: "-0.15,-0.2,0.15,0.2" # DeltaV: make it smaller
         density: 1000
         layer:
         - WallLayer
@@ -104,7 +104,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.1,-0.3,0.1,0.3"
+          bounds: "-0.1,-0.2,0.1,0.2" # DeltaV: make it smaller
         density: 4000
         layer:
         - WallLayer
@@ -122,7 +122,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.18,-0.35,0.18,0.35"
+          bounds: "-0.18,-0.2,0.18,0.2" # DeltaV: make it smaller
         density: 2000
         layer:
         - WallLayer
@@ -140,7 +140,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.1,-0.35,0.1,0.35"
+          bounds: "-0.1,-0.2,0.1,0.2" # DeltaV: make it smaller
         density: 3500
         layer:
         - WallLayer
@@ -458,16 +458,29 @@
   name: christmas tree
   components:
   - type: Sprite
-    state: treechristmas01
+    # WD EDIT START
+    noRot: true
+    sprite: _White/Objects/Decoration/Flora/christmastree.rsi
+    layers:
+    - state: christmastree
+    - state: glow
+      shader: unshaded
+    # WD EDIT END
 
 - type: entity
-  parent: BaseTreeConifer
+  parent: FloraTreeChristmas01 # WD EDIT
   id: FloraTreeChristmas02
   suffix: PresentsGiver
   name: christmas tree
   components:
   - type: Sprite
-    state: treechristmas02
+    # WD EDIT START
+    layers:
+    - state: christmastree
+    - state: glow
+      shader: unshaded
+    - state: presents
+    # WD EDIT END
   - type: Fixtures
     fixtures:
       fix1:

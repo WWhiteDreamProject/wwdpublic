@@ -25,7 +25,7 @@
     - Vocal
   blacklist:
     components:
-    - BorgChassis # WD EDIT
+    - BorgChassis
   chatTriggers:
     - "chat-emote-trigger-cough-1" # WD EDIT
 
@@ -52,7 +52,7 @@
     - Vocal
   blacklist:
     components:
-    - BorgChassis # WD EDIT
+    - BorgChassis
   chatTriggers:
     - "chat-emote-trigger-yawn-1" # WD EDIT
 

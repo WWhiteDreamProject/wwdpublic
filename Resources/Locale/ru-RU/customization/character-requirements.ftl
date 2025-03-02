@@ -43,10 +43,20 @@ character-logic-xor-requirement = Вы{$inverted ->
 
 
 ## Profile
-character-age-requirement = Вам{$inverted ->
+character-age-requirement-range = Вам{$inverted ->
     [true]{" "}не
     *[other]{""}
 } должно быть больше [color=yellow]{$min}[/color] и меньше [color=yellow]{$max}[/color] лет
+
+character-age-requirement-minimum-only = Вам{$inverted ->
+    [true]{" "}не
+    *[other]{""}
+} должно быть меньше [color=yellow]{$min}[/color] лет
+
+character-age-requirement-maximum-only = Вам{$inverted ->
+    [true]{""}
+    *[other]{" "}не
+} должно быть больше [color=yellow]{$max}[/color] лет
 
 character-backpack-type-requirement = Вы{$inverted ->
     [true]{" "}не

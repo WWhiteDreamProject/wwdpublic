@@ -1290,3 +1290,152 @@ Entries:
   id: 136
   time: '2024-12-31T00:36:55.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/224
+- author: Spatison
+  changes:
+    - type: Add
+      message: Апстрим 12.12-26.12
+  id: 137
+  time: '2024-12-31T06:58:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/208
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: New Year's map update/Новогоднее обновление карт
+    - type: Tweak
+      message: >-
+        Security now has regular hardsuits, not EE ones/У СБ теперь обычные
+        риги, а не ЕЕшные
+    - type: Tweak
+      message: >-
+        The Christmas tree has a new texture/У Рождественской ёлки новая
+        текстура
+    - type: Fix
+      message: Map bugs fixed/Пофикшены баги карт
+  id: 138
+  time: '2024-12-31T10:49:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/210
+- author: Spatison
+  changes:
+    - type: Fix
+      message: 'Теперь при полете над водой гарпия не ломает интерфейс '
+  id: 139
+  time: '2025-01-01T17:20:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/223
+- author: Spatison
+  changes:
+    - type: Add
+      message: Upstream 30.12-28.02 :D
+  id: 140
+  time: '2025-03-01T04:42:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/231
+- author: kekoven1
+  changes:
+    - type: Add
+      message: >-
+        Added some music from the lobby to the jukebox/ Добавлено немного музыки
+        из лобби в музыкальный автомат
+  id: 141
+  time: '2025-03-01T08:28:51.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/230
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Действие доставания кого-то из меха теперь сбивается при движении
+  id: 142
+  time: '2025-03-01T09:31:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/237
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Летящие плитки пола больше не застревают в телах и стенах
+  id: 143
+  time: '2025-03-01T09:35:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/235
+- author: '3189'
+  changes:
+    - type: Add
+      message: Возвращена выдача оружия после манифеста
+  id: 144
+  time: '2025-03-01T09:36:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/234
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Административный Ассистент переименован в Адъютанта
+  id: 145
+  time: '2025-03-01T16:21:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/245
+- author: Vaaankas
+  changes:
+    - type: Tweak
+      message: Станбатон СБ теперь бьёт с обычной скоростью, но станит с трёх ударов.
+  id: 146
+  time: '2025-03-01T16:23:45.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/247
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Убрана черта персонажа на избегание ловушек и любых подскальзываний
+  id: 147
+  time: '2025-03-01T16:26:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/243
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Исправлены иконки роли ассистента
+  id: 148
+  time: '2025-03-01T16:27:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/242
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Бита из аплинка теперь роняет при ударе на 1 секунду.
+  id: 149
+  time: '2025-03-01T19:56:21.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/250
+- author: vanx
+  changes:
+    - type: Remove
+      message: >-
+        Из лодаутов убраны энергомечи и энергоревольверы СБ и станбатоны у
+        командования.
+  id: 150
+  time: '2025-03-01T19:56:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/248
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Убрана возможность раундстартом взять роли центрального командования и
+        синего щита, просите педалей.
+  id: 151
+  time: '2025-03-01T19:58:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/236
+- author: vanx
+  changes:
+    - type: Fix
+      message: Исправлена дальность применения наручников
+  id: 152
+  time: '2025-03-02T13:12:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/255
+- author: vanx
+  changes:
+    - type: Add
+      message: Локализация целей на кражу синдиката и воров
+  id: 153
+  time: '2025-03-02T13:15:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/256
+- author: '3189'
+  changes:
+    - type: Tweak
+      message: Ключи шифрования гарнитуры ХоПа были заменены на мастер-ключ
+  id: 154
+  time: '2025-03-02T13:17:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/241
+- author: vanx
+  changes:
+    - type: Fix
+      message: Болты дисейблеров теперь снова пролетают через решётки и окна.
+  id: 155
+  time: '2025-03-02T13:29:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/246

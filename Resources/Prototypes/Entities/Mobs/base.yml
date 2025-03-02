@@ -47,6 +47,9 @@
   - type: RequireProjectileTarget
     active: False
   - type: AnimatedEmotes
+  - type: OwnInteractionVerbs
+    allowedVerbs: [] # TODO: define something here, or don't.
+  - type: Penetrated # WD EDIT
 
 - type: entity
   save: false
@@ -54,9 +57,6 @@
   abstract: true
   components:
   - type: Polymorphable
-  - type: OwnInteractionVerbs
-    allowedVerbs: [] # TODO: define something here, or don't.
-  - type: Penetrated # WD EDIT
 
 # Used for mobs that have health and can take damage.
 - type: entity

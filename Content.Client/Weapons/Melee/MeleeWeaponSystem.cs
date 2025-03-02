@@ -10,6 +10,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Wieldable.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -72,10 +73,22 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
         }
 
-        var useDown = _inputSystem.CmdStates.GetState(EngineKeyFunctions.Use);
-        var altDown = _inputSystem.CmdStates.GetState(EngineKeyFunctions.UseSecondary);
+        var useDown = _inputSystem.CmdStates.GetState(EngineKeyFunctions.Use) == BoundKeyState.Down;
+        var altDown = _inputSystem.CmdStates.GetState(EngineKeyFunctions.UseSecondary) == BoundKeyState.Down;
 
-        if (weapon.AutoAttack || useDown != BoundKeyState.Down && altDown != BoundKeyState.Down)
+        // Disregard inputs to the shoot binding
+        if (TryComp<GunComponent>(weaponUid, out var gun) &&
+            // Except if can't shoot due to being unwielded
+            (!HasComp<GunRequiresWieldComponent>(weaponUid) ||
+                (TryComp<WieldableComponent>(weaponUid, out var wieldable) && wieldable.Wielded)))
+        {
+            if (gun.UseKey)
+                useDown = false;
+            else
+                altDown = false;
+        }
+
+        if (weapon.AutoAttack || !useDown && !altDown)
         {
             if (weapon.Attacking)
             {
@@ -83,14 +96,12 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             }
         }
 
-        if (weapon.Attacking || weapon.NextAttack > Timing.CurTime)
+        if (weapon.Attacking || weapon.NextAttack > Timing.CurTime || (!useDown && !altDown))
         {
             return;
         }
 
-        // TODO using targeted actions while combat mode is enabled should NOT trigger attacks
-
-        // WD EDIT
+        // TODO using targeted actions while combat mode is enabled should NOT trigger attacks.
 
         var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
 
@@ -110,43 +121,30 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             coordinates = EntityCoordinates.FromMap(MapManager.GetMapEntityId(mousePos.MapId), mousePos, TransformSystem, EntityManager);
         }
 
-        // WD EDIT START
-
-        // Right click
-        // Unarmed will try to disarm
-        // Melee weapons will wideswing
-        // Ranged weapons will do a light attack.
-        if (altDown == BoundKeyState.Down && weapon.CanHeavyAttack) // WD EDIT
+        // Heavy attack.
+        if (!weapon.DisableHeavy &&
+            (!weapon.SwapKeys ? altDown : useDown)
+            && weapon.CanHeavyAttack) // WD EDIT
         {
-            // Get the target that was clicked on
-            EntityUid? target = null;
-
-            if (_stateManager.CurrentState is GameplayStateBase screen)
-            {
-                target = screen.GetClickedEntity(mousePos);
-            }
-
             // If it's an unarmed attack then do a disarm
             if (weapon.AltDisarm && weaponUid == entity)
             {
+                EntityUid? target = null;
+
+                if (_stateManager.CurrentState is GameplayStateBase screen)
+                {
+                    target = screen.GetClickedEntity(mousePos);
+                }
+
                 EntityManager.RaisePredictiveEvent(new DisarmAttackEvent(GetNetEntity(target), GetNetCoordinates(coordinates)));
                 return;
             }
 
             // WD EDIT START
-            // If it's a ranged weapon then do a light attack
-            if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey)
-            {
-                RaisePredictiveEvent(new LightAttackEvent(GetNetEntity(target), GetNetEntity(weaponUid), GetNetCoordinates(coordinates)));
-                return;
-            }
-
             if (HasComp<BlinkComponent>(weaponUid))
             {
                 if (!_xformQuery.TryGetComponent(entity, out var userXform) || !Timing.IsFirstTimePredicted)
-                {
                     return;
-                }
 
                 var targetMap = coordinates.ToMap(EntityManager, TransformSystem);
 
@@ -165,24 +163,18 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
         }
 
-        // WD EDIT START
-
-        // Left click
-        if (useDown == BoundKeyState.Down)
+        // Light attack
+        if (!weapon.DisableClick &&
+            (!weapon.SwapKeys ? useDown : altDown))
         {
-            // If it's a gun that shoots with left click do not attack
-            if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey)
-            {
-                return;
-            }
-
-            // WD EDIT END
-
-            var attackerPos = Transform(entity).MapPosition;
+            var attackerPos = TransformSystem.GetMapCoordinates(entity);
 
             if (mousePos.MapId != attackerPos.MapId ||
                 (attackerPos.Position - mousePos.Position).Length() > weapon.Range)
             {
+                if (weapon.HeavyOnLightMiss)
+                    ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
+
                 return;
             }
 
@@ -196,6 +188,12 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             // Don't light-attack if interaction will be handling this instead
             if (Interaction.CombatModeCanHandInteract(entity, target))
                 return;
+
+            if (weapon.HeavyOnLightMiss && !CanDoLightAttack(entity, target, weapon, out _))
+            {
+                ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
+                return;
+            }
 
             RaisePredictiveEvent(new LightAttackEvent(GetNetEntity(target), GetNetEntity(weaponUid), GetNetCoordinates(coordinates)));
         }

@@ -139,3 +139,6 @@ ent-CluwneIDCard = ID карта клувна
 ent-ResearchAssistantIDCard = ID карта научного ассистента
     .desc = { ent-IDCardStandard.desc }
     .suffix = { "" }
+ent-AdminAssistantIDCard = ID карта адъютанта
+    .desc = { ent-IDCardStandard.desc }
+    .suffix = { "" }

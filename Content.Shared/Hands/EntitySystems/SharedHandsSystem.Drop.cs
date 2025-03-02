@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Shared._White.DeleteOnDropAttempt;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.VirtualItem;
@@ -13,7 +12,7 @@ namespace Content.Shared.Hands.EntitySystems;
 public abstract partial class SharedHandsSystem
 {
     [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly INetManager _net = default!; // WD EDIT
+    [Dependency] private readonly INetManager _net = default!;
 
     private void InitializeDrop()
     {
@@ -65,13 +64,11 @@ public abstract partial class SharedHandsSystem
         if (hand.Container?.ContainedEntity is not {} held)
             return false;
 
-        // WD EDIT START
-        if (HasComp<DeleteOnDropAttemptComponent>(held) && _net.IsServer)
+        if (HasComp<DeleteOnDropComponent>(held) && _net.IsServer)
         {
             QueueDel(held);
             return false;
         }
-        // WD EDIT END
 
         if (!ContainerSystem.CanRemove(held, hand.Container))
             return false;

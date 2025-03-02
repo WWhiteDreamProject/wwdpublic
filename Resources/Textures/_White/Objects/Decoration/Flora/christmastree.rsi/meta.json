@@ -1,0 +1,33 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/b14f3827e5a7db2587b82b1a0314cd6daa2cac0d and edited by Gersoon",
+    "size": {
+        "x": 64,
+        "y": 96
+    },
+    "states": [
+        {
+            "name": "christmastree"
+        },
+        {
+            "name": "presents"
+        },
+        {
+            "name": "glow",
+            "delays": [
+              [
+                0.3,
+                0.3,
+                0.3,
+                0.3,
+                0.3,
+                0.3,
+                0.3,
+                0.3,
+                0.3
+              ]
+            ]
+        }
+    ]
+}

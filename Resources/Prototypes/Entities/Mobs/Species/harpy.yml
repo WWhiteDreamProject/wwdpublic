@@ -5,10 +5,6 @@
   id: MobHarpyBase
   abstract: true
   components:
-  - type: Flight
-    isLayerAnimated: true
-    layer: "/Textures/Mobs/Customization/Harpy/harpy_wings.rsi"
-    animationKey: "Flap"
   - type: Singer
     proto: HarpySinger
   - type: Sprite
@@ -18,9 +14,12 @@
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.Underwear" ]
+      - map: [ "enum.HumanoidVisualLayers.Undershirt" ]
       - map: [ "underpants" ]
       - map: [ "undershirt" ]
       - map: [ "socks" ]
@@ -37,6 +36,8 @@
       - map: [ "id" ]
       - map: [ "gloves" ]
       - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
       - map: [ "belt" ]
@@ -107,6 +108,19 @@
   - type: Inventory
     speciesId: harpy
     templateId: digitigrade
+    displacements:
+      jumpsuit:
+        # WD EDIT START
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+            copyToShaderParameters:
+              # Value required, provide a dummy. Gets overridden when applied.
+              layerKey: dummy
+              parameterTexture: displacementMap
+              parameterUV: displacementUV
+        # WD EDIT START
   - type: HarpyVisuals
   - type: UltraVision
   - type: Tag
@@ -114,7 +128,7 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
-    - Bird # WD EDIT
+    - HarpyEmotes
   - type: LanguageKnowledge
     speaks:
     - TauCetiBasic
@@ -134,6 +148,7 @@
 
 - type: entity
   save: false
+  categories: [ HideSpawnMenu ]
   name: Urist McBirb
   parent: MobHumanDummy
   id: MobHarpyDummy
@@ -144,6 +159,19 @@
   - type: Inventory
     speciesId: harpy
     templateId: digitigrade
+    displacements:
+      jumpsuit:
+        # WD EDIT START
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+            copyToShaderParameters:
+              # Value required, provide a dummy. Gets overridden when applied.
+              layerKey: dummy
+              parameterTexture: displacementMap
+              parameterUV: displacementUV
+        # WD EDIT START
   - type: Sprite
     scale: 0.9, 0.9
     layers:
@@ -151,6 +179,7 @@
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
@@ -165,6 +194,8 @@
       - map: [ "id" ]
       - map: [ "gloves" ]
       - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
       - map: [ "belt" ]

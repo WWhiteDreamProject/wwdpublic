@@ -106,6 +106,12 @@ public enum LogType
     /// This is a default value used by <c>PlayerRateLimitManager</c>, though users can use different log types.
     /// </remarks>
     RateLimited = 91,
+    InteractUsing = 92,
+
+    /// <summary>
+    /// Storage & entity-storage related interactions
+    /// </summary>
+    Storage = 93,
     // WD EDIT
     AspectAnnounced = 200,
     AspectStarted = 201,

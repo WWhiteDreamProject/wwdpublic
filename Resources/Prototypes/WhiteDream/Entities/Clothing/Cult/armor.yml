@@ -74,7 +74,7 @@
     clothingPrototype: ClothingHeadHatHoodCultHoodTrue
   - type: ContainerContainer
     containers:
-      toggleable-clothing: !type:ContainerSlot { }
+      toggleable-clothing: !type:Container { }
 
 - type: entity
   parent: ClothingHeadHatHoodCulthood
@@ -113,13 +113,13 @@
     sprite: Clothing/Eyes/Misc/blindfold.rsi
   - type: FlashImmunity
   - type: EyeProtection
-  - type: ClothingGrantComponent
-    component:
-    - type: NightVision
-      toggleAction: null
-      activateSound: null
-      deactivateSound: null
-      color: White
+  - type: NightVision
+    isActive: true
+    isEquipment: true
+    toggleAction: null
+    activateSound: null
+    deactivateSound: null
+    color: White
   - type: ShowHealthBars
     damageContainers:
     - Biological

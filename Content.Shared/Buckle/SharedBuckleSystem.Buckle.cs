@@ -220,8 +220,8 @@ public abstract partial class SharedBuckleSystem
             return false;
 
         // Does it pass the Whitelist
-        if (strapComp.Whitelist != null &&
-            !_whitelistSystem.IsValid(strapComp.Whitelist, buckleUid) || strapComp.Blacklist != null && _whitelistSystem.IsValid(strapComp.Blacklist, buckleUid))
+        if (_whitelistSystem.IsWhitelistFail(strapComp.Whitelist, buckleUid) ||
+            _whitelistSystem.IsBlacklistPass(strapComp.Blacklist, buckleUid))
         {
             if (popup)
                 _popup.PopupClient(Loc.GetString("buckle-component-cannot-fit-message"), user, PopupType.Medium);
@@ -368,6 +368,8 @@ public abstract partial class SharedBuckleSystem
 
         _transform.SetCoordinates(buckle, xform, coords, rotation: Angle.Zero);
         _joints.SetRelay(buckle, strap);
+
+        SetBuckledTo(buckle, strap!); // DeltaV - Allow standing system to handle Down/Stand before buckling
 
         var ev = new StrappedEvent(strap, buckle);
         RaiseLocalEvent(strap, ref ev);

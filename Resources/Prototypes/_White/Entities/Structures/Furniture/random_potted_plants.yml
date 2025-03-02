@@ -9,7 +9,7 @@
     secretPartName: secret-stash-part-plant
     maxItemSize: Tiny
   - type: Sprite
-    offset: "0.0,2.3"
+    offset: "0.0,2.25"
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
     - state: pot_small_1
@@ -43,7 +43,6 @@
 - type: entity
   parent: RandomPottedPlantBase
   id: RandomPottedTinyPlant
-
   suffix: Tiny Base
   components:
   - type: Item
@@ -54,8 +53,8 @@
     maxItemSize: Tiny
   - type: InteractionOutline
   - type: Sprite
-    offset: "0.0,2.3"
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    offset: "0.0,0.5"
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
     - state: pot_tiny_3
       map: [ "pot" ]
@@ -111,10 +110,8 @@
   suffix: Tiny Pot 1
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_tiny_1
     - state: dirt_tiny_1
       map: [ "dirt" ]
@@ -122,17 +119,35 @@
       map: [ "decor" ]
     - state: plant_tiny_1
       map: [ "plant" ]
+  - type: RandomSprite
+    available:
+    - dirt:
+        dirt_tiny_1: ""
+        dirt_tiny_2: ""
+        dirt_tiny_3: ""
+        dirt_tiny_4: ""
+        dirt_tiny_5: ""
+        dirt_tiny_6: ""
+        mask_null: ""
+      plant:
+        plant_tiny_1: ""
+        plant_tiny_2: ""
+        plant_tiny_3: ""
+        plant_tiny_4: ""
+        plant_tiny_5: ""
+        plant_tiny_6: ""
+        plant_tiny_7: ""
+        plant_tiny_8: ""
+        plant_tiny_9: ""
 
 - type: entity
-  parent: RandomPottedTinyPlant
+  parent: RandomPottedTinyPlantPot1
   id: RandomPottedTinyPlantPot2
   suffix: Tiny Pot 2
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_tiny_2
     - state: dirt_tiny_1
       map: [ "dirt" ]
@@ -142,15 +157,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedTinyPlant
+  parent: RandomPottedTinyPlantPot1
   id: RandomPottedTinyPlantPot3
   suffix: Tiny Pot 3
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_tiny_3
     - state: dirt_tiny_1
       map: [ "dirt" ]
@@ -160,15 +173,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedTinyPlant
+  parent: RandomPottedTinyPlantPot1
   id: RandomPottedTinyPlantPot4
   suffix: Tiny Pot 4
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_tiny_4
     - state: dirt_tiny_1
       map: [ "dirt" ]
@@ -178,15 +189,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedTinyPlant
+  parent: RandomPottedTinyPlantPot1
   id: RandomPottedTinyPlantPot5
   suffix: Tiny Pot 5
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_tiny_5
     - state: dirt_tiny_1
       map: [ "dirt" ]
@@ -196,15 +205,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedTinyPlant
+  parent: RandomPottedTinyPlantPot1
   id: RandomPottedTinyPlantPot6
   suffix: Tiny Pot 6
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_tiny_6
     - state: dirt_tiny_1
       map: [ "dirt" ]
@@ -214,15 +221,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedTinyPlant
+  parent: RandomPottedTinyPlantPot1
   id: RandomPottedTinyPlantPot7
   suffix: Tiny Pot 7
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_tiny_7
     - state: dirt_tiny_1
       map: [ "dirt" ]
@@ -246,8 +251,8 @@
     maxItemSize: Small
   - type: InteractionOutline
   - type: Sprite
-    offset: "0.0,2.3"
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    offset: "0.0,0.5"
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
     - state: pot_small_3
       map: [ "pot" ]
@@ -317,10 +322,8 @@
   suffix: Small Pot 1
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_small_1
     - state: dirt_small_1
       map: [ "dirt" ]
@@ -328,17 +331,46 @@
       map: [ "decor" ]
     - state: plant_small_1
       map: [ "plant" ]
+  - type: RandomSprite
+    available:
+    - dirt:
+        dirt_small_1: ""
+        dirt_small_2: ""
+        dirt_small_3: ""
+        dirt_small_4: ""
+        dirt_small_5: ""
+        dirt_small_6: ""
+        mask_null: ""
+      plant:
+        plant_small_1: ""
+        plant_small_2: ""
+        plant_small_3: ""
+        plant_small_4: ""
+        plant_small_5: ""
+        plant_small_6: ""
+        plant_small_7: ""
+        plant_small_8: ""
+        plant_small_9: ""
+        plant_small_10: ""
+        plant_small_11: ""
+        plant_small_12: ""
+        plant_small_13: ""
+        plant_small_14: ""
+        plant_small_15: ""
+        plant_small_16: ""
+        plant_small_17: ""
+        plant_small_18: ""
+        plant_small_19: ""
+        plant_small_20: ""
 
 - type: entity
-  parent: RandomPottedSmallPlant
+  parent: RandomPottedSmallPlantPot1
   id: RandomPottedSmallPlantPot2
   suffix: Small Pot 2
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_small_2
     - state: dirt_small_1
       map: [ "dirt" ]
@@ -348,15 +380,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedSmallPlant
+  parent: RandomPottedSmallPlantPot1
   id: RandomPottedSmallPlantPot3
   suffix: Small Pot 3
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_small_3
     - state: dirt_small_1
       map: [ "dirt" ]
@@ -366,15 +396,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedSmallPlant
+  parent: RandomPottedSmallPlantPot1
   id: RandomPottedSmallPlantPot4
   suffix: Small Pot 4
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_small_4
     - state: dirt_small_1
       map: [ "dirt" ]
@@ -384,15 +412,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedSmallPlant
+  parent: RandomPottedSmallPlantPot1
   id: RandomPottedSmallPlantPot5
   suffix: Small Pot 5
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_small_5
     - state: dirt_small_1
       map: [ "dirt" ]
@@ -402,15 +428,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedSmallPlant
+  parent: RandomPottedSmallPlantPot1
   id: RandomPottedSmallPlantPot6
   suffix: Small Pot 6
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_small_6
     - state: dirt_small_1
       map: [ "dirt" ]
@@ -420,15 +444,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedSmallPlant
+  parent: RandomPottedSmallPlantPot1
   id: RandomPottedSmallPlantPot7
   suffix: Small Pot 7
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_small_7
     - state: dirt_small_1
       map: [ "dirt" ]
@@ -438,15 +460,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedSmallPlant
+  parent: RandomPottedSmallPlantPot1
   id: RandomPottedSmallPlantPot8
   suffix: Small Pot 8
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_small_8
     - state: dirt_small_1
       map: [ "dirt" ]
@@ -456,15 +476,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedSmallPlant
+  parent: RandomPottedSmallPlantPot1
   id: RandomPottedSmallPlantPot9
   suffix: Small Pot 9
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_small_9
     - state: dirt_small_1
       map: [ "dirt" ]
@@ -474,15 +492,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedSmallPlant
+  parent: RandomPottedSmallPlantPot1
   id: RandomPottedSmallPlantPot10
   suffix: Small Pot 10
   components:
   - type: Sprite
-    sprite: _White/Structures/Furniture/random_potted_plants.rsi
+    sprite: _White/Structures/Furniture/random_potted_plants_small.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_small_10
     - state: dirt_small_1
       map: [ "dirt" ]
@@ -503,7 +519,7 @@
     maxItemSize: Normal
   - type: InteractionOutline
   - type: Sprite
-    offset: "0.0,2.3"
+    offset: "0.0,2.25"
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
     - state: pot_medium_2
@@ -562,8 +578,6 @@
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_medium_1
     - state: dirt_medium_1
       map: [ "dirt" ]
@@ -571,17 +585,35 @@
       map: [ "decor" ]
     - state: plant_medium_1
       map: [ "plant" ]
+  - type: RandomSprite
+    available:
+    - dirt:
+        dirt_medium_1: ""
+        dirt_medium_2: ""
+        dirt_medium_3: ""
+        dirt_medium_4: ""
+        dirt_medium_5: ""
+        dirt_medium_6: ""
+        mask_null: ""
+      plant:
+        plant_medium_1: ""
+        plant_medium_2: ""
+        plant_medium_3: ""
+        plant_medium_4: ""
+        plant_medium_5: ""
+        plant_medium_6: ""
+        plant_medium_7: ""
+        plant_medium_8: ""
+        plant_medium_9: ""
 
 - type: entity
-  parent: RandomPottedMediumPlant
+  parent: RandomPottedMediumPlantPot1
   id: RandomPottedMediumPlantPot2
   suffix: Medium Pot 2
   components:
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_medium_2
     - state: dirt_medium_1
       map: [ "dirt" ]
@@ -591,15 +623,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedMediumPlant
+  parent: RandomPottedMediumPlantPot1
   id: RandomPottedMediumPlantPot3
   suffix: Medium Pot 3
   components:
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_medium_3
     - state: dirt_medium_1
       map: [ "dirt" ]
@@ -609,15 +639,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedMediumPlant
+  parent: RandomPottedMediumPlantPot1
   id: RandomPottedMediumPlantPot4
   suffix: Medium Pot 4
   components:
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_medium_4
     - state: dirt_medium_1
       map: [ "dirt" ]
@@ -627,15 +655,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedMediumPlant
+  parent: RandomPottedMediumPlantPot1
   id: RandomPottedMediumPlantPot5
   suffix: Medium Pot 5
   components:
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_medium_5
     - state: dirt_medium_1
       map: [ "dirt" ]
@@ -645,15 +671,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedMediumPlant
+  parent: RandomPottedMediumPlantPot1
   id: RandomPottedMediumPlantPot6
   suffix: Medium Pot 6
   components:
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_medium_6
     - state: dirt_medium_1
       map: [ "dirt" ]
@@ -663,15 +687,13 @@
       map: [ "plant" ]
 
 - type: entity
-  parent: RandomPottedMediumPlant
+  parent: RandomPottedMediumPlantPot1
   id: RandomPottedMediumPlantPot7
   suffix: Medium Pot 7
   components:
   - type: Sprite
     sprite: _White/Structures/Furniture/random_potted_plants.rsi
     layers:
-    - state: mask_null
-      map: [ "pot" ]
     - state: pot_medium_7
     - state: dirt_medium_1
       map: [ "dirt" ]

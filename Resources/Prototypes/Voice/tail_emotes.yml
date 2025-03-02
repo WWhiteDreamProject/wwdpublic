@@ -1,11 +1,11 @@
 - type: emote
   id: WagTail
   name: chat-emote-name-tailwag
-  # WD EDIT START
   whitelist:
     tags:
-    - Dog
-    - Cat
+    - VulpEmotes
+    - UnathiEmotes
+  # WD EDIT START
   chatMessages: ["chat-emote-msg-tailwag"]
   chatTriggers:
     - "chat-emote-trigger-tailwag-1"

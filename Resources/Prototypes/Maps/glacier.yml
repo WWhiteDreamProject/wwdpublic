@@ -23,6 +23,10 @@
         availableJobs:
           Passenger: [ -1, -1 ]
           Captain: [ 1, 1 ]
+          BlueshieldOfficer: [ 0, 0 ] # WWDP no roundstart CC roles
+          NanotrasenRepresentative: [ 0, 0 ] # WWDP no roundstart CC roles
+          Magistrate: [ 0, 0 ] # WWDP no roundstart CC roles
+          AdministrativeAssistant: [ 1, 1 ]
         #service
           HeadOfPersonnel: [ 1, 1 ]
           Bartender: [ 2, 2 ]
@@ -70,3 +74,5 @@
           MailCarrier: [ 2, 3 ]
           SalvageSpecialist: [ 2, 3 ]
           CargoTechnician: [ 2, 3 ]
+        # Silicon
+          StationAi: [ 1, 1 ]

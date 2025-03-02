@@ -44,8 +44,12 @@ marking-LizardHornsBighorn-horns_bighorn_r = Правый рог
 
 # ХВОСТЫ
 marking-SnakeLargeTail = Ящер, большой змеиный хвост
-marking-SnakeLargeTail-tail_snakelarge = Верняя часть
-marking-SnakeLargeTail-tail_snakelarge_overlay = Нижняя часть
+marking-SnakeLargeTail-snakelarge = Верняя часть
+marking-SnakeLargeTail-snakelarge_overlay = Нижняя часть
+
+marking-SnakeLargeTailAnimated = Ящер, большой виляющий змеиный хвост
+marking-SnakeLargeTailAnimated-snake_large_wagging = Верняя часть
+marking-SnakeLargeTailAnimated-snake_large_wagging_overlay = Нижняя часть
 
 # ШИПЫ
 marking-LizardChestSpinesAquatic = Ящер, грудь, шипы на спине (Водный)

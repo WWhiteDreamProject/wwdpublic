@@ -97,13 +97,13 @@
       - PosterContrabandAyaya # Nyanotrasen Poster, see Resources/Prototypes/Nyanotrasen/Entities/Structures/Wallmount/Signs/posters.yml
       - PosterContrabandMissingSpacepen
     chance: 0.99 # WWDP-EDIT
-      # WWDP-START
+    # WWDP-START
     rarePrototypes:
-      - FlagCoder
-      - FlagSyndicate
-      - FlagInteQ
+    - FlagCoder
+    - FlagSyndicate
+    - FlagInteQ
     rareChance: 0.01
-      # WWDP-END
+    # WWDP-END
 
 - type: entity
   parent: MarkerBase
@@ -176,18 +176,20 @@
       - PosterLegitShoukou # Nyanotrasen Poster, see Resources/Prototypes/Nyanotrasen/Entities/Structures/Wallmount/Signs/posters.yml
       - PosterLegitCornzza # Nyanotrasen Poster, see Resources/Prototypes/Nyanotrasen/Entities/Structures/Wallmount/Signs/posters.yml
       - PosterLegitFuckAround # DeltaV Poster, see Resources/Prototypes/DeltaV/Entities/Structures/Wallmount/Signs/posters.yml
+      - PosterLegitOppenhopper
+      - PosterLegitSafetyMothSSD
     chance: 0.99 # WWDP-EDIT
-      # WWDP-START
+    # WWDP-START
     rarePrototypes:
-      - FlagAgurk
-      - FlagHCA
-      - FlagLizard
-      - FlagMothic
-      - FlagNanoTrasen
-      - FlagShigu
-      - FlagSolfed
-      - FlagSolfedAlt
-      - FlagTizira
-      - FlagVulp
+    - FlagAgurk
+    - FlagHCA
+    - FlagLizard
+    - FlagMothic
+    - FlagNanoTrasen
+    - FlagShigu
+    - FlagSolfed
+    - FlagSolfedAlt
+    - FlagTizira
+    - FlagVulp
     rareChance: 0.01
-      # WWDP-END
+    # WWDP-END

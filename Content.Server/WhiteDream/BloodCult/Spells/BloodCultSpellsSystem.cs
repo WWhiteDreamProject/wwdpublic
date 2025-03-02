@@ -141,7 +141,7 @@ public sealed class BloodCultSpellsSystem : EntitySystem
             createSpellEvent,
             cultist.Owner)
         {
-            BreakOnUserMove = true
+            BreakOnMove = true
         };
 
         if (_doAfter.TryStartDoAfter(doAfter, out var doAfterId))
