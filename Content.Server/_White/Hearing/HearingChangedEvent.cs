@@ -1,4 +1,4 @@
-﻿namespace Content.Shared._White.Hearing;
+﻿namespace Content.Server._White.Hearing;
 
 public sealed class HearingChangedEvent : EntityEventArgs
 {

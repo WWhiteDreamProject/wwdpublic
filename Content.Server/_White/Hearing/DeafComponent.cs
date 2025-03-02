@@ -1,14 +1,13 @@
 ﻿using System.Threading;
-using Robust.Shared.GameStates;
 
 
-namespace Content.Shared._White.Hearing;
+namespace Content.Server._White.Hearing;
 
 /// <summary>
 /// Changes all incoming chat messages to DeafChatMessage.
 /// Added by the DeafnessSystem on the HearingChangedEvent
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class DeafComponent : Component
 {
     [DataField]

@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Server._White.Flash;
-using Content.Shared._White.Hearing;
+using Content.Server._White.Hearing;
 using Content.Server.Flash.Components;
 using Content.Shared.Flash.Components;
 using Content.Server.Light.EntitySystems;

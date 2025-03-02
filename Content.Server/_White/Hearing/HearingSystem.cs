@@ -3,7 +3,8 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 
-namespace Content.Shared._White.Hearing;
+
+namespace Content.Server._White.Hearing;
 
 public sealed class HearingSystem : EntitySystem
 {
