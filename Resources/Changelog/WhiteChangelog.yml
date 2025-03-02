@@ -1432,3 +1432,10 @@ Entries:
   id: 154
   time: '2025-03-02T13:17:20.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/241
+- author: vanx
+  changes:
+    - type: Fix
+      message: Болты дисейблеров теперь снова пролетают через решётки и окна.
+  id: 155
+  time: '2025-03-02T13:29:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/246
