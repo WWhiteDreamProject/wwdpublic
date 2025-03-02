@@ -12,7 +12,6 @@ map_enabled = true
 
 [whitelist]
 enabled     = false
-reason      = "whitelist-not-whitelisted-peri"
 min_players = 10
 
 [ooc]

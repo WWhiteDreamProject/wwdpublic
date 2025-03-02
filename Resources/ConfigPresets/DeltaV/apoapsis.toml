@@ -8,7 +8,6 @@ rules_header = "ui-rules-header"
 
 [whitelist]
 enabled     = false
-reason      = "whitelist-not-whitelisted"
 min_players = 90
 
 [shuttle]
