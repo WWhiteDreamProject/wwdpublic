@@ -27,6 +27,11 @@
         Blunt: 10
   - type: StaminaDamageOnCollide
     damage: 40 # 3 hits to stun
+  - type: KnockdownOnCollide # WD EDIT
+    jitterTime: 2
+    stutterTime: 2
+    delay: 0.5
+    knockdownTime: 2
 
 - type: entity
   id: PelletShotgun
