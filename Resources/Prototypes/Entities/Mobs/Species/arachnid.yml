@@ -130,6 +130,7 @@
     rightBarePrint: "footprint-right-bare-spider"
   - type: Inventory
     templateId: arachnid
+    speciesId: arachnid
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -140,5 +141,6 @@
     species: Arachnid
   - type: Inventory
     templateId: arachnid
+    speciesId: arachnid
 
 #>88w88<

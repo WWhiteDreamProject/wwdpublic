@@ -134,6 +134,7 @@
   - type: FootPrints
   - type: CanMoveInAir
   - type: Inventory
+    speciesId: moth 
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -196,6 +197,7 @@
       state: "creampie_moth"
       visible: false
   - type: Inventory
+    speciesId: moth 
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
