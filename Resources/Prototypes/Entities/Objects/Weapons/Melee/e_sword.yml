@@ -51,6 +51,7 @@
     activatedAngle: 225
     deleteOnDeactivate: true
   - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     wideAnimationRotation: -135
     attackRate: .8
     damage:
@@ -198,7 +199,8 @@
     - type: DisarmMalus
       malus: 0.4
   - type: MeleeWeapon
-    wideAnimationRotation: -135
+    animationRotation: 135 # WWDP
+    wideAnimationRotation: 135 # WWDP
     attackRate: 1
     hidden: true
     damage:
@@ -291,8 +293,8 @@
         types:
             Slash: 6
             Heat: 12
-  - type: GuideHelp  
-    guides: [ SecurityWeapons ]  
+  - type: GuideHelp
+    guides: [ SecurityWeapons ]
 
 - type: entity
   name: double-bladed energy sword
