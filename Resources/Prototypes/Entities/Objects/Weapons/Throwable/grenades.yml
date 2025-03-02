@@ -35,6 +35,15 @@
         enum.ConstructionVisuals.Layer:
           Primed: { state: primed }
           Unprimed: { state: icon }
+  # WWDP edit below
+  - type: Tag
+    tags:
+    - RiotGrenade
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: GrenadeBase
+  - type: OnShotTimerTrigger
+    delayReduction: 2
 
 - type: entity
   name: explosive grenade
@@ -56,6 +65,9 @@
         volume: 5
     initialBeepDelay: 0
     beepInterval: 2 # 2 beeps total (at 0 and 2)
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: ExGrenade
 
 - type: entity
   name: flashbang
@@ -82,6 +94,9 @@
   - type: GuideHelp
     guides:
     - Security
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: GrenadeFlashBang
 
 - type: entity
   id: GrenadeFlashEffect
@@ -121,6 +136,9 @@
       path: /Audio/Effects/minibombcountdown.ogg
       params:
         volume: 12
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: SyndieMiniBomb
 
 - type: entity
   name: Self Destruct
@@ -208,6 +226,9 @@
           params:
             volume: 5
       - type: ExplodeOnTrigger
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: SupermatterGrenade
 
 - type: entity
   name: whitehole grenade
@@ -255,6 +276,9 @@
           params:
             volume: 15
       - type: DeleteOnTrigger
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: WhiteholeGrenade
 
 - type: entity
   name: the nuclear option
@@ -285,6 +309,9 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: NuclearGrenade
 
 - type: entity
   name: modular grenade
@@ -346,6 +373,9 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: EmpGrenade
 
 - type: entity
   name: holy hand grenade
@@ -371,6 +401,9 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/hallelujah.ogg
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: HolyHandGrenade
 
 - type: entity
   parent: GrenadeBase
@@ -389,6 +422,9 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Items/smoke_grenade_prime.ogg
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: SmokeGrenade
 
 - type: entity
   parent: SmokeGrenade
@@ -406,6 +442,9 @@
       reagents:
       - ReagentId: SpaceCleaner
         Quantity: 50 # WD EDIT
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: cleanade
 
 - type: entity
   parent: SmokeGrenade
@@ -422,6 +461,9 @@
       reagents:
       - ReagentId: TearGas
         Quantity: 50
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: TearGasGrenade
 
 # Non-explosive "dummy" grenades to use as a distraction.
 
@@ -443,6 +485,9 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: GrenadeDummy
 
 - type: entity
   name: syndicate trickybomb
@@ -461,3 +506,6 @@
       path: /Audio/Effects/minibombcountdown.ogg
       params:
         volume: 12
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: SyndieTrickyBomb

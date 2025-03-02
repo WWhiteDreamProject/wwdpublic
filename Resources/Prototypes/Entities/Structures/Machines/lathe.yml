@@ -976,6 +976,7 @@
     - ShellTranquilizer
     - BoxBeanbag
     dynamicRecipes:
+    - WeaponSecurityRiotLauncher # WWDP
     - Truncheon
     - BoxShotgunIncendiary
     - BoxShotgunUranium
