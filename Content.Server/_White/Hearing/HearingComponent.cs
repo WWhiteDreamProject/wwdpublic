@@ -1,7 +1,7 @@
 ﻿using Robust.Shared.GameStates;
 
 
-namespace Content.Shared._White.Hearing;
+namespace Content.Server._White.Hearing;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HearingComponent: Component

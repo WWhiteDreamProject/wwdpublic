@@ -1,8 +1,8 @@
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using Content.Server._White.Hearing;
 using Content.Server._White.TTS;
-using Content.Shared._White.Hearing;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
