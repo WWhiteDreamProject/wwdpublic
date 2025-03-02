@@ -1411,3 +1411,10 @@ Entries:
   id: 151
   time: '2025-03-01T19:58:08.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/236
+- author: vanx
+  changes:
+    - type: Fix
+      message: Исправлена дальность применения наручников
+  id: 152
+  time: '2025-03-02T13:12:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/255
