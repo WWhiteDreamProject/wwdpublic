@@ -157,7 +157,7 @@ public sealed partial class MeleeWeaponComponent : Component
     public Angle Angle = Angle.FromDegrees(60);
 
     [DataField, AutoNetworkedField]
-    public EntProtoId Animation = "WeaponArcPunch";
+    public EntProtoId Animation = "WeaponArcThrust";
 
     [DataField, AutoNetworkedField]
     public EntProtoId WideAnimation = "WeaponArcSlash";
@@ -168,6 +168,13 @@ public sealed partial class MeleeWeaponComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool CanHeavyAttack = true;
+
+    /// <summary>
+    /// Rotation of the animation.
+    /// 0 degrees means the top faces the attacker.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Angle AnimationRotation = Angle.Zero;
     // WD EDIT END
 
     /// <summary>
