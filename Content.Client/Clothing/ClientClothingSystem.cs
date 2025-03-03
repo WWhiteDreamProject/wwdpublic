@@ -27,12 +27,6 @@ namespace Content.Client.Clothing;
 public sealed class ClientClothingSystem : ClothingSystem
 {
     public const string Jumpsuit = "jumpsuit";
-    // WD EDIT START
-    public const string Hardsuit = "hardsuit";
-    public const string HardsuitTag = "Hardsuit";
-    public const string Suit = "suit";
-    public const string SuitTag = "Suit";
-    // WD EDIT END
     /// <summary>
     /// This is a shitty hotfix written by me (Paul) to save me from renaming all files.
     /// For some context, im currently refactoring inventory. Part of that is slots not being indexed by a massive enum anymore, but by strings.
