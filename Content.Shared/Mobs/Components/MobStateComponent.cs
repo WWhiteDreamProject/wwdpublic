@@ -18,13 +18,13 @@ public sealed partial class MobStateComponent : Component
     ///     Whether this mob will be allowed to issue movement commands when in the Critical MobState.
     /// </summary>
     [DataField]
-    public bool AllowMovementWhileCrit;
+    public bool AllowMovementWhileCrit = false;
 
     /// <summary>
     ///     Whether this mob will be allowed to issue movement commands when in the Soft-Crit MobState.
     /// </summary>
     [DataField]
-    public bool AllowMovementWhileSoftCrit;
+    public bool AllowMovementWhileSoftCrit = false;
 
     /// <summary>
     ///     Whether this mob will be allowed to issue movement commands when in the Dead MobState.
@@ -32,6 +32,18 @@ public sealed partial class MobStateComponent : Component
     /// </summary>
     [DataField]
     public bool AllowMovementWhileDead;
+
+    /// <summary>
+    /// WWDP - Whether this mob will be allowed to break from being pulled.
+    /// </summary>
+    [DataField]
+    public bool AllowBreakingPullingWhileCrit;
+
+    [DataField]
+    public bool AllowBreakingPullingWhileSoftCrit;
+
+    [DataField]
+    public bool AllowBreakingPullingWhileDead;
 
     /// <summary>
     ///     Whether this mob will be allowed to talk while in the Critical MobState.
