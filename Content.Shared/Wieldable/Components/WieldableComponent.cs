@@ -45,6 +45,12 @@ public sealed partial class WieldableComponent : Component
     public bool AltUseInHand = false;
 
     public EntityUid? User = null;
+
+    /// <summary>
+    /// Automatically attempts to wield the item upon being picked or switched to (while held)
+    /// </summary>
+    [DataField]
+    public bool AutoWield = true;
     // WD EDIT END
 }
 

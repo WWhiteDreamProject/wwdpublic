@@ -83,4 +83,7 @@ public sealed class WhiteCVars
 
     public static readonly CVarDef<bool> ColoredBubbleChat =
     	CVarDef.Create("chat.colored_bubble_chat", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<bool> PixelSnapCamera =
+    	CVarDef.Create("experimental.pixel_snap_camera", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 }

@@ -36,7 +36,12 @@
       - id: Flash
         amount: 3
 #      - Pepperspray
-#      - GrenadeTeargas
+    # WWDP launcher & more utility grenades
+      - id: WeaponSecurityRiotLauncher
+      - id: GrenadeStinger
+        amount: 2
+      - id: TearGasGrenade
+        amount: 2
 
 - type: entity
   id: CrateSecurityRiot

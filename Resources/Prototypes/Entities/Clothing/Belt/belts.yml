@@ -43,11 +43,11 @@
         - TrayScanner
         - GasAnalyzer
         - HandLabeler
-        - RemoteSignaller
-        - RemoteSignallerAdvanced
+        #- RemoteSignaller # WWDP fixing after someone who doesnt know what a component is
+        #- RemoteSignallerAdvanced # WWDP
         - AnomalyScanner
-        - AnomalyLocatorUnpowered
-        - AnomalyLocatorWideUnpowered
+        #- AnomalyLocatorUnpowered # WWDP
+        #- AnomalyLocatorWideUnpowered # WWDP
         - NodeScanner
   - type: ItemMapper
     mapLayers:

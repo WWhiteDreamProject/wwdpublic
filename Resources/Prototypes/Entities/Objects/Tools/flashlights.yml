@@ -74,6 +74,8 @@
     autoRot: true
     radius: 6
     netsync: false
+  - type: RotatePointLight # wwdp
+    angle: -90
   - type: Appearance
   - type: StaticPrice
     price: 40
@@ -118,7 +120,7 @@
         visible: false
         map: [ "light" ]
   - type: MeleeWeapon
-    wideAnimationRotation: 90
+    wideAnimationRotation: -90
     attackRate: 1.25
     damage:
       types:

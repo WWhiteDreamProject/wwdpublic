@@ -105,28 +105,6 @@
         Blunt: 1
 
 - type: entity
-  id: BaseBulletRubber
-  name: base bullet rubber
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    layers:
-    - state: rubber
-  - type: Projectile
-    damage:
-      types:
-        Blunt: 3
-    soundHit:
-      path: /Audio/Weapons/Guns/Hits/snap.ogg
-  - type: StaminaDamageOnCollide
-    damage: 22 # 5 hits to stun sounds reasonable
-  - type: Tag
-    tags:
-    - BulletRubber
-
-- type: entity
   id: BaseBulletIncendiary
   name: base bullet incendiary
   parent: BaseBullet
@@ -244,8 +222,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Impassable
-        - BulletImpassable
+        - Opaque # WWDP allow shooting through windows
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -284,8 +261,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Impassable
-        - BulletImpassable
+        - Opaque # WWDP allow shooting through windows
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -953,8 +929,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Impassable
-        - BulletImpassable
+        - Opaque # WWDP allow shooting through windows
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -1046,7 +1021,7 @@
       collection: MeatLaserImpact
 
 - type: entity
-  name: laser bolt 
+  name: laser bolt
   id: BulletLaser
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -1073,8 +1048,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Impassable
-        - BulletImpassable
+        - Opaque # WWDP allow shooting through windows
       fly-by: *flybyfixture
   - type: Ammo
   - type: Projectile
@@ -1095,7 +1069,7 @@
   - type: ProjectileSpread
     proto: BulletLaser
     count: 5 #50 heat damage if you hit all your shots, but wide spread
-    spread: 30 
+    spread: 30
 
 - type: entity
   name: narrow laser barrage
@@ -1139,7 +1113,7 @@
   - type: ProjectileSpread
     proto: BulletDisablerSmg
     count: 3 #bit stronger than a disabler if you hit your shots you goober, still not a 2 hit stun though
-    spread: 9 
+    spread: 9
 
 - type: entity #Goobstation, put here so the X-01 stuff isnt spread everywhere.
   name: magnum bolt

@@ -42,6 +42,7 @@
       sprite: _White/Objects/Weapons/Melee/Daggers/blood_dagger.rsi
       state: icon
     - type: MeleeWeapon
+      animationRotation: 45 # WWDP
       wideAnimationRotation: 135
       swingLeft: true
       attackRate: 1.3
