@@ -606,6 +606,14 @@
   materials:
     PrizeTicket: 80
 
+- type: latheRecipe # WWDP edit
+  id: PlushieSanabi
+  result: PlushieSanabi
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50
+
 # EMAG
 
 - type: latheRecipe
