@@ -36,6 +36,15 @@ public sealed partial class ObjectiveComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public SpriteSpecifier? Icon;
+
+    /// <summary>
+    /// WWDP - Localization override
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public LocId? Title;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public LocId? Description;
 }
 
 /// <summary>

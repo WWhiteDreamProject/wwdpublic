@@ -97,8 +97,8 @@
       id: LoadoutSecurityPistolViperWood
     - type: loadout
       id: LoadoutSecurityEquipmentTruncheon
-    - type: loadout
-      id: LoadoutSecurityEquipmentEnergySword
+    #- type: loadout # WWDP removed
+    #  id: LoadoutSecurityEquipmentEnergySword
     - type: loadout
       id: LoadoutSecurityPistolSvalin
     - type: loadout
@@ -129,8 +129,8 @@
       id: LoadoutSecurityArgenti
     - type: loadout
       id: LoadoutSecurityArgentiNonLethal
-    - type: loadout
-      id: LoadoutSecurityPistolEnergyRevolver
+    #- type: loadout # WWDP removed
+    #  id: LoadoutSecurityPistolEnergyRevolver
     - type: loadout
       id: LoadoutBSOEnergyRevolver
     - type: loadout

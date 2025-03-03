@@ -43,13 +43,14 @@
   - type: Objective
     unique: false
     icon:
-      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      sprite: Objects/Weapons/Melee/baseball_bat.rsi # WWDP
       state: icon
   - type: TeachLessonCondition
   - type: CodeCondition
   - type: ObjectiveBlacklistRequirement
     blacklist:
       components:
+      - KillPersonCondition # WWDP no Teach & Kill the same person
       - SocialObjective
 
 - type: entity
@@ -58,6 +59,7 @@
   description: Kill them, and show everyone we mean business. They only need to die once.
   components:
   - type: Objective
+    description: objective-condition-teach-person-description # WWDP Localization, title is done in TargetObjective
     difficulty: 1.75
     unique: false
   - type: TargetObjective

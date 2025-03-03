@@ -38,6 +38,8 @@
   description: Get the glimmer above the specified amount.
   components:
   - type: Objective
+    title: objective-condition-glimmer-title # WWDP Localization
+    description: objective-condition-glimmer-description
     difficulty: 2.5
     #unique: false
     icon:
