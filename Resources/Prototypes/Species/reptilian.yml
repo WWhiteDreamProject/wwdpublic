@@ -42,7 +42,7 @@
     RArm: MobReptilianRArm
     LHand: MobReptilianLHand
     RHand: MobReptilianRHand
-    # WD EDUT START
+    # WD EDIT START
     LLeg: MobReptilianDigiLLeg
     RLeg: MobReptilianDigiRLeg
     LFoot: MobReptilianDigiLFoot
