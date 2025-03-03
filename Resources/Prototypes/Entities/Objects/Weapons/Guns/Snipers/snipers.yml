@@ -82,6 +82,7 @@
       types:
         Piercing: 5
         Slash: 3.5
+    animationRotation: -135 # WWDP
     wideAnimationRotation: -135
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
@@ -197,6 +198,7 @@
       types:
         Piercing: 5
         Slash: 3.5
+    animationRotation: -135 # WWDP
     wideAnimationRotation: -135
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
