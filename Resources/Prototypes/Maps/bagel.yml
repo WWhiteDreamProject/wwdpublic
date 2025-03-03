@@ -19,8 +19,8 @@
           availableJobs:
             #command
             Captain: [ 1, 1 ]
-            NanotrasenRepresentative: [ 1, 1 ]
-            BlueshieldOfficer: [ 1, 1 ]
+            NanotrasenRepresentative: [ 0, 0 ] # WWDP no roundstart CC roles
+            BlueshieldOfficer: [ 0, 0 ] # WWDP no roundstart CC roles
             AdministrativeAssistant: [ 1, 1 ]
             #service
             HeadOfPersonnel: [ 1, 1 ]

@@ -798,6 +798,13 @@
 
 # Pets
 - type: loadout
+  id: LoadoutPetRock
+  category: Items
+  cost: 2
+  items:
+  - PetRock
+
+- type: loadout
   id: LoadoutItemPetMouse
   category: Items
   cost: 2

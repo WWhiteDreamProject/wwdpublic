@@ -1,1 +1,2 @@
-objective-condition-teach-person-title = Научите {$targetName}, {CAPITALIZE($job)}, уроку. Вы должны находиться в пределах 30 метров от цели, иначе синдикат не сможет взять на себя ответственность за работу.
+objective-condition-teach-person-title = Расправиться с {$targetName}, {CAPITALIZE($job)}, чтобы показать что с Синдикатом шутки плохи. Убейте цель, находясь от неё не дальше 30 метров.
+objective-condition-teach-person-description = После этого цель должна выжить - одной смерти будет достаточно.
