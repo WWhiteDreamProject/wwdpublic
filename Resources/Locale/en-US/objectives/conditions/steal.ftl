@@ -14,6 +14,7 @@ objective-condition-steal-smsliver-title = Cut off a sliver from the supermatter
 objective-condition-steal-smsliver-description = Use any cutting tool that comes in handy. A scalpel is more recommended. Also, don't die of radiation poisoning.
 
 steal-target-hypospray = hypospray
+steal-target-power-gloves = power gloves
 steal-target-handheld-crew-monitor = handheld crew monitor
 steal-target-experimental-research-hardsuit = experimental research hardsuit
 steal-target-hand-teleporter = hand teleporter

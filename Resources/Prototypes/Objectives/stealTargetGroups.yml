@@ -8,13 +8,6 @@
     state: hypo
 
 - type: stealTargetGroup
-  id: WardenPowerGloves
-  name: power gloves
-  sprite:
-    sprite: Clothing/Hands/Gloves/powerglove.rsi
-    state: icon
-
-- type: stealTargetGroup
   id: HandheldCrewMonitor
   name: steal-target-handheld-crew-monitor
   sprite:
