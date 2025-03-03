@@ -415,7 +415,7 @@ public sealed class ClientClothingSystem : ClothingSystem
             {
                 //Checking that the state is not tied to the current race. In this case we don't need to use the displacement maps.
                 if (layerData.State is not null && (inventory.SpeciesId is not null && layerData.State.EndsWith(inventory.SpeciesId)
-                    || bodyTypeName is not null && layerData.State.EndsWith(bodyTypeName)))
+                    || bodyTypeName is not null && layerData.State.EndsWith(bodyTypeName))) // WD EDIT
                     continue;
 
                 if (_displacement.TryAddDisplacement(displacementData, sprite, index, key, revealedLayers))
