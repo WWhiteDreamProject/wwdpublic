@@ -24,6 +24,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
+using Content.Shared._Lavaland.Weapons.Ranged.Events;
+using ProjectileShotEvent = Content.Shared._Lavaland.Weapons.Ranged.Events.ProjectileShotEvent; // Lavaland Change
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -270,7 +272,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
         void CreateAndFireProjectiles(EntityUid ammoEnt, AmmoComponent ammoComp)
         {
-            RaiseLocalEvent(ammoEnt, new ProjectileShotEvent()); // WWDP
+            RaiseLocalEvent(ammoEnt, new Content.Shared.Weapons.Ranged.Events.ProjectileShotEvent()); // WWDP
 
             if (TryComp<ProjectileSpreadComponent>(ammoEnt, out var ammoSpreadComp))
             {
@@ -286,6 +288,11 @@ public sealed partial class GunSystem : SharedGunSystem
                 for (var i = 1; i < ammoSpreadComp.Count; i++)
                 {
                     var newuid = Spawn(ammoSpreadComp.Proto, fromEnt);
+                    // Lavaland Change: Raise event when a projectile/pellet is fired from a gun.
+                    RaiseLocalEvent(gunUid, new ProjectileShotEvent()
+                    {
+                        FiredProjectile = newuid
+                    });
                     ShootOrThrow(newuid, angles[i].ToVec(), gunVelocity, gun, gunUid, user);
                     shotProjectiles.Add(newuid);
                 }
