@@ -1446,3 +1446,10 @@ Entries:
   id: 156
   time: '2025-03-03T10:23:28.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/266
+- author: '3189'
+  changes:
+    - type: Tweak
+      message: Вход в гостбар больше не влияет на время до возвращения в раунд
+  id: 157
+  time: '2025-03-03T12:27:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/267
