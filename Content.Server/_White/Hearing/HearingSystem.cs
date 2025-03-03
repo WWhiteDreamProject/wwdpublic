@@ -37,8 +37,6 @@ public sealed class HearingSystem : EntitySystem
 
         var eventParams = new HearingChangedEvent(uid, false, true, 0f, "deaf-chat-message");
         RaiseLocalEvent(uid, eventParams);
-
-        Dirty(uid, component);
     }
 
     private void OnSleepStateChanged(EntityUid uid, HearingComponent component, SleepStateChangedEvent args)
@@ -52,8 +50,6 @@ public sealed class HearingSystem : EntitySystem
 
         var eventParameters = new HearingChangedEvent(uid, true);
         RaiseLocalEvent(uid, eventParameters);
-
-        Dirty(uid, component);
     }
 
     private void OnHearingChanged(EntityUid uid, HearingComponent component, HearingChangedEvent args)
@@ -85,15 +81,11 @@ public sealed class HearingSystem : EntitySystem
         deafComponent.TokenSource = new CancellationTokenSource();
 
         uid.SpawnTimer(TimeSpan.FromSeconds(args.Duration), () => OnTimerFired(uid, deafComponent), deafComponent.TokenSource.Token);
-
-        Dirty(uid, component);
     }
 
     private void OnTimerFired(EntityUid uid, DeafComponent deafComponent)
     {
         if (!deafComponent.Permanent)
             RemComp<DeafComponent>(uid);
-
-        Dirty(uid, deafComponent);
     }
 }
