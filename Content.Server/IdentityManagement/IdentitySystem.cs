@@ -90,6 +90,7 @@ public sealed class IdentitySystem : SharedIdentitySystem
 
         return name;
     }
+    // WWDP edit end
 
     #region Private API
 
