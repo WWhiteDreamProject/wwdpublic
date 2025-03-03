@@ -44,6 +44,8 @@
   description: This is your universe now.
   components:
   - type: Objective
+    title: objective-condition-escape-shuttle-title # WWDP Localization
+    description: objective-condition-escape-shuttle-description
     icon:
       sprite: Structures/Furniture/chairs.rsi
       state: shuttle

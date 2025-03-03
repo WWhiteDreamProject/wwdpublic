@@ -133,3 +133,6 @@ ent-CluwnePDA = ПДА клувна
 ent-ResearchAssistantPDA = ПДА научного ассистента
     .desc = Почему он не фиолетовый?
     .suffix = { "" }
+ent-AdminAssistantPDA = ПДА адъютанта
+    .desc = Все его края исписаны ручкой.
+    .suffix = { "" }

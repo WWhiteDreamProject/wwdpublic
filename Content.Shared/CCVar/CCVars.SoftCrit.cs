@@ -12,6 +12,10 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> AllowMovementWhileCrit =
         CVarDef.Create("mobstate.allow_movement_while_crit", true, CVar.REPLICATED);
 
+    // WWDP no breaking pulling in crit
+    public static readonly CVarDef<bool> AllowBreakingPullingWhileCrit =
+        CVarDef.Create("mobstate.allow_breaking_pulling_while_crit", false, CVar.REPLICATED);
+
     public static readonly CVarDef<bool> AllowTalkingWhileCrit =
         CVarDef.Create("mobstate.allow_talking_while_crit", true, CVar.REPLICATED);
 

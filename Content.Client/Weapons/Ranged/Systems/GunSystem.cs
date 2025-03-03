@@ -1,10 +1,12 @@
 using System.Numerics;
 using Content.Client.Animations;
+using Content.Client.CombatMode;
 using Content.Client.Gameplay;
 using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
 using Content.Shared.Camera;
 using Content.Shared.CombatMode;
+using Content.Shared.Contests;
 using Content.Shared.Mech.Components; // Goobstation
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
@@ -38,11 +40,23 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly InputSystem _inputSystem = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
+    [Dependency] private readonly ContestsSystem _contest = default!; 		// WWDP
+    [Dependency] private readonly SpriteSystem _sprite = default!;			// WWDP
+    [Dependency] private readonly CombatModeSystem _combatMode = default!;	// WWDP
 
     [ValidatePrototypeId<EntityPrototype>]
     public const string HitscanProto = "HitscanEffect";
 
-    public bool SpreadOverlay
+	// WWDP EDIT START
+	public enum GunSpreadOverlayEnum
+    {
+        Off,
+        Partial,
+        Full
+    }
+
+    private GunSpreadOverlayEnum _spreadOverlay;
+    public GunSpreadOverlayEnum SpreadOverlay
     {
         get => _spreadOverlay;
         set
@@ -51,27 +65,57 @@ public sealed partial class GunSystem : SharedGunSystem
                 return;
 
             _spreadOverlay = value;
-            var overlayManager = IoCManager.Resolve<IOverlayManager>();
 
-            if (_spreadOverlay)
-            {
-                overlayManager.AddOverlay(new GunSpreadOverlay(
-                    EntityManager,
-                    _eyeManager,
-                    Timing,
-                    _inputManager,
-                    _player,
-                    this,
-                    TransformSystem));
-            }
-            else
-            {
-                overlayManager.RemoveOverlay<GunSpreadOverlay>();
-            }
+            UpdateSpreadOverlay();
         }
     }
 
-    private bool _spreadOverlay;
+    private void UpdateSpreadOverlay()
+    {
+        var overlayManager = IoCManager.Resolve<IOverlayManager>();
+        overlayManager.RemoveOverlay<GunSpreadOverlay>();
+        overlayManager.RemoveOverlay<PartialGunSpreadOverlay>();
+
+        switch (_spreadOverlay)
+        {
+            case GunSpreadOverlayEnum.Off:
+                return;
+            case GunSpreadOverlayEnum.Partial:
+                AddPartialSpreadOverlay(overlayManager);
+                return;
+            case GunSpreadOverlayEnum.Full:
+                AddFullSpreadOverlay(overlayManager);
+                return;
+        }
+
+        void AddPartialSpreadOverlay(IOverlayManager overlayManager)
+        {
+            overlayManager.AddOverlay(new PartialGunSpreadOverlay(
+                EntityManager,
+                _eyeManager,
+                Timing,
+                _inputManager,
+                _player,
+                this,
+                TransformSystem,
+                _contest,
+                _sprite));
+        }
+
+        void AddFullSpreadOverlay(IOverlayManager overlayManager)
+        {
+            overlayManager.AddOverlay(new GunSpreadOverlay(
+                EntityManager,
+                _eyeManager,
+                Timing,
+                _inputManager,
+                _player,
+                this,
+                TransformSystem,
+                _contest));
+        }
+    }
+	// WWDP EDIT END
 
     public override void Initialize()
     {
@@ -86,8 +130,18 @@ public sealed partial class GunSystem : SharedGunSystem
 
         InitializeMagazineVisuals();
         InitializeSpentAmmo();
-    }
 
+        _combatMode.LocalPlayerCombatModeUpdated += OnCombatModeUpdated; // WWDP EDIT
+    }
+    
+	// WWDP EDIT START
+    private void OnCombatModeUpdated(bool enabled)
+    {
+        if(SpreadOverlay != GunSpreadOverlayEnum.Full)
+            SpreadOverlay = enabled ? GunSpreadOverlayEnum.Partial : GunSpreadOverlayEnum.Off;
+    }
+	// WWDP EDIT END
+	
     private void OnUpdateClientAmmo(EntityUid uid, AmmoCounterComponent ammoComp, ref UpdateClientAmmoEvent args)
     {
         UpdateAmmoCount(uid, ammoComp);

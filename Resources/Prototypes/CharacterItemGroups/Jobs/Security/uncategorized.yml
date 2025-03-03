@@ -39,33 +39,17 @@
     - type: loadout
       id: LoadoutMagazinePistolSpare
     - type: loadout
-      id: LoadoutMagazinePistolRubber
-    - type: loadout
-      id: LoadoutMagazinePistolRubberSpare
-    - type: loadout
       id: LoadoutSpeedLoaderMagnum
     - type: loadout
       id: LoadoutSpeedLoaderMagnumSpare
     - type: loadout
-      id: LoadoutSpeedLoaderMagnumRubber
-    - type: loadout
-      id: LoadoutSpeedLoaderMagnumRubberSpare
-    - type: loadout
       id: LoadoutMagazineMagnum
     - type: loadout
-      id: LoadoutMagazineMagnumRubber
-    - type: loadout
       id: LoadoutMagazineMagnumSpare
-    - type: loadout
-      id: LoadoutMagazineMagnumRubberSpare
     - type: loadout
       id: LoadoutSpeedLoaderRifleHeavy
     - type: loadout
       id: LoadoutSpeedLoaderRifleHeavySpare
-    - type: loadout
-      id: LoadoutSpeedLoaderRifleHeavyRubber
-    - type: loadout
-      id: LoadoutSpeedLoaderRifleHeavyRubberSpare
 
 - type: characterItemGroup
   maxItems: 1
@@ -76,29 +60,19 @@
     - type: loadout
       id: LoadoutSecurityMk58
     - type: loadout
-      id: LoadoutSecurityMk58NonLethal
-    - type: loadout
       id: LoadoutSecurityRevolver
-    - type: loadout
-      id: LoadoutSecurityRevolverNonLethal
     - type: loadout
       id: LoadoutSecurityRevolverDeckard
     - type: loadout
-      id: LoadoutSecurityRevolverDeckardNonLethal
-    - type: loadout
       id: LoadoutSecurityPistolN1984
     - type: loadout
-      id: LoadoutSecurityPistolN1984NonLethal
-    - type: loadout
       id: LoadoutSecurityPistolViper
-    - type: loadout
-      id: LoadoutSecurityPistolViperNonLethal
     - type: loadout
       id: LoadoutSecurityPistolViperWood
     - type: loadout
       id: LoadoutSecurityEquipmentTruncheon
-    - type: loadout
-      id: LoadoutSecurityEquipmentEnergySword
+    #- type: loadout # WWDP removed
+    #  id: LoadoutSecurityEquipmentEnergySword
     - type: loadout
       id: LoadoutSecurityPistolSvalin
     - type: loadout
@@ -108,29 +82,17 @@
     - type: loadout
       id: LoadoutSecurityPistolPollock
     - type: loadout
-      id: LoadoutSecurityPistolPollockNonlethal
-    - type: loadout
       id: LoadoutSecurityRevolverSnub
-    - type: loadout
-      id: LoadoutSecurityRevolverSnubNonlethal
     - type: loadout
       id: LoadoutSecurityRevolverK38Master
     - type: loadout
-      id: LoadoutSecurityRevolverK38MasterNonlethal
-    - type: loadout
       id: LoadoutSecurityRevolverFitz
-    - type: loadout
-      id: LoadoutSecurityRevolverFitzNonlethal
     - type: loadout
       id: LoadoutSecurityRevolverPython
     - type: loadout
-      id: LoadoutSecurityRevolverPythonNonlethal
-    - type: loadout
       id: LoadoutSecurityArgenti
-    - type: loadout
-      id: LoadoutSecurityArgentiNonLethal
-    - type: loadout
-      id: LoadoutSecurityPistolEnergyRevolver
+    #- type: loadout # WWDP removed
+    #  id: LoadoutSecurityPistolEnergyRevolver
     - type: loadout
       id: LoadoutBSOEnergyRevolver
     - type: loadout

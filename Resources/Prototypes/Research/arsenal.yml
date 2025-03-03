@@ -12,6 +12,7 @@
   tier: 1
   cost: 10000
   recipeUnlocks:
+  - WeaponSecurityRiotLauncher # WWDP
   - WeaponProtoKineticAccelerator
   - ShuttleGunKineticCircuitboard
   - WeaponLaserCarbine

@@ -1351,10 +1351,164 @@ Entries:
   id: 143
   time: '2025-03-01T09:35:06.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/235
-- author: '31893189'
+- author: '3189'
   changes:
     - type: Add
       message: Возвращена выдача оружия после манифеста
   id: 144
   time: '2025-03-01T09:36:52.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/234
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Административный Ассистент переименован в Адъютанта
+  id: 145
+  time: '2025-03-01T16:21:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/245
+- author: Vaaankas
+  changes:
+    - type: Tweak
+      message: Станбатон СБ теперь бьёт с обычной скоростью, но станит с трёх ударов.
+  id: 146
+  time: '2025-03-01T16:23:45.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/247
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Убрана черта персонажа на избегание ловушек и любых подскальзываний
+  id: 147
+  time: '2025-03-01T16:26:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/243
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Исправлены иконки роли ассистента
+  id: 148
+  time: '2025-03-01T16:27:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/242
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Бита из аплинка теперь роняет при ударе на 1 секунду.
+  id: 149
+  time: '2025-03-01T19:56:21.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/250
+- author: vanx
+  changes:
+    - type: Remove
+      message: >-
+        Из лодаутов убраны энергомечи и энергоревольверы СБ и станбатоны у
+        командования.
+  id: 150
+  time: '2025-03-01T19:56:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/248
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Убрана возможность раундстартом взять роли центрального командования и
+        синего щита, просите педалей.
+  id: 151
+  time: '2025-03-01T19:58:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/236
+- author: vanx
+  changes:
+    - type: Fix
+      message: Исправлена дальность применения наручников
+  id: 152
+  time: '2025-03-02T13:12:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/255
+- author: vanx
+  changes:
+    - type: Add
+      message: Локализация целей на кражу синдиката и воров
+  id: 153
+  time: '2025-03-02T13:15:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/256
+- author: '3189'
+  changes:
+    - type: Tweak
+      message: Ключи шифрования гарнитуры ХоПа были заменены на мастер-ключ
+  id: 154
+  time: '2025-03-02T13:17:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/241
+- author: vanx
+  changes:
+    - type: Fix
+      message: Болты дисейблеров теперь снова пролетают через решётки и окна.
+  id: 155
+  time: '2025-03-02T13:29:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/246
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Правила сервера были обновлены, ознакомьтесь на F10 -> Правила.
+  id: 156
+  time: '2025-03-03T10:23:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/266
+- author: '3189'
+  changes:
+    - type: Tweak
+      message: Вход в гостбар больше не влияет на время до возвращения в раунд
+  id: 157
+  time: '2025-03-03T12:27:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/267
+- author: Vaaankas
+  changes:
+    - type: Tweak
+      message: Теперь персонажи не слышат чат во сне, крите или при оглушении вспышкой.
+  id: 158
+  time: '2025-03-03T12:27:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/265
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: >-
+        Оверлей, показывающий точность стрельбы и падение точности из-за
+        движения.
+    - type: Tweak
+      message: >-
+        Точность стрельбы при движении и на резких поворотах будет сильно
+        падать, одинаково для всех пушек. Оставьте тред в #feedback канале с
+        вашим мнением, какое оружие должно страдать от этого больше, а какое -
+        меньше.
+    - type: Add
+      message: >-
+        Добавлена возможность класть предметы на пол более точно, а так же
+        поворачивать их перед этим. Настройки -> Управление -> "Положить предмет
+        с поворотом". Рекомендуемые варианты настройки: Q для старого дропа и
+        Shift+Q для нового, либо же назначить новый дроп на Q вместо старого.
+        Просим вас оставить тред в дискорд канале #feedback, считаете ли вы
+        нужным сохранить обе клавиши, или от старой можно избавиться.
+    - type: Add
+      message: >-
+        Теперь при нажатии альтернативного взаимодействия по тележке уборщика
+        будет открываться радиальное меню с её содержимым. Оставьте тред в
+        дискорд канале #feedback о том, у каких ещё предметов хотели бы увидеть
+        подобный функционал.
+    - type: Remove
+      message: Removed Herobrine.
+    - type: Add
+      message: >-
+        "Pixel-Perfect" камера. Настройки -> Графика. Устраняет тряску предметов
+        при движении камеры. Фича экспериментальная, поэтому о любых недочётах и
+        погрешностях просим сообщать в дискорд канале #bugreporting.
+    - type: Fix
+      message: 'Spatison: Десворд больше не издает звуки после отключения'
+  id: 159
+  time: '2025-03-03T12:29:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/258
+- author: Spatison
+  changes:
+    - type: Add
+      message: Добавлены различные типы телосложения
+  id: 160
+  time: '2025-03-03T16:03:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/180
+- author: vanx
+  changes:
+    - type: Add
+      message: Станящие силовые перчатки для смотрителя и цель на их кражу для агентов.
+  id: 161
+  time: '2025-03-03T16:04:57.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/252

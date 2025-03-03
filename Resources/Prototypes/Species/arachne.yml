@@ -3,7 +3,10 @@
   name: species-name-arachne
   roundStart: false # White Dream - disable arachne for missing textures.
   prototype: MobArachne
-  sprites: MobArachneSprites
+  # WD EDIT START
+  bodyTypes:
+  - ArachneNormal
+  # WD EDIT END
   defaultSkinTone: "#c0967f"
   markingLimits: MobArachneMarkingLimits
   dollPrototype: MobArachneDummy
@@ -44,9 +47,11 @@
       points: 3
       required: false
 
-
-- type: speciesBaseSprites
-  id: MobArachneSprites
+# WD EDIT START
+- type: bodyType
+  id: ArachneNormal
+  name: body-normal
+# WD EDIT END
   sprites:
     Head: MobHumanHead
     Face: MobHumanoidAnyMarking

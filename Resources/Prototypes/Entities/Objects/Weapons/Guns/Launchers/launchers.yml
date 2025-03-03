@@ -19,6 +19,11 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
+  - type: Gun
+    bonusAngleIncreaseMove: 60    # wwdp
+    bonusAngleIncreaseTurn: 0.75   # wwdp
+    bonusAngleDecay: 35           # wwdp
+    maxBonusAngle: 30             # wwdp
   - type: MeleeWeapon
     attackRate: 1.5
     damage:

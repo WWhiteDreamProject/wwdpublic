@@ -110,7 +110,7 @@
     templateId: digitigrade
     displacements:
       jumpsuit:
-        # WD EDIT START
+    # WD EDIT START
         sizeMaps:
           32:
             sprite: Mobs/Species/Harpy/displacement.rsi
@@ -120,7 +120,14 @@
               layerKey: dummy
               parameterTexture: displacementMap
               parameterUV: displacementUV
-        # WD EDIT START
+    femaleDisplacements:
+      jumpsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit-slim
+    # WD EDIT END
+
   - type: HarpyVisuals
   - type: UltraVision
   - type: Tag
@@ -161,7 +168,7 @@
     templateId: digitigrade
     displacements:
       jumpsuit:
-        # WD EDIT START
+    # WD EDIT START
         sizeMaps:
           32:
             sprite: Mobs/Species/Harpy/displacement.rsi
@@ -171,7 +178,13 @@
               layerKey: dummy
               parameterTexture: displacementMap
               parameterUV: displacementUV
-        # WD EDIT START
+    femaleDisplacements:
+      jumpsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit-slim
+  # WD EDIT END
   - type: Sprite
     scale: 0.9, 0.9
     layers:

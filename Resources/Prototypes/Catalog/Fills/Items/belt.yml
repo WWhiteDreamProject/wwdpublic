@@ -208,7 +208,7 @@
     contents:
         - id: WeaponRevolverInspector
         - id: SpeedLoaderMagnum
-        - id: SpeedLoaderMagnumRubber
+        - id: SpeedLoaderMagnum
 
 - type: entity
   id: ClothingBeltChefFilled
