@@ -5,6 +5,7 @@
   components:
   - type: StorageFill
     contents:
+      - id: ClothingHandsGlovesPowergloveReal # WWDP, traitor steal objective, to do replace with krav-magas
       - id: FlashlightSeclite
       - id: WeaponDisabler
         prob: 0.3
@@ -12,7 +13,7 @@
       - id: Flash
       - id: ClothingEyesGlassesSunglasses
       - id: ClothingHeadsetAltSecurity
-      - id: ClothingHandsGlovesCombat
+      # - id: ClothingHandsGlovesCombat # WWDP, replaced by powergloves
       - id: ClothingShoesBootsJack
       - id: ClothingOuterCoatWarden
       - id: ClothingOuterWinterWarden
@@ -37,6 +38,7 @@
   components:
   - type: StorageFill
     contents:
+      - id: ClothingHandsGlovesPowergloveReal # WWDP, traitor steal objective, to do replace with krav-magas
       - id: FlashlightSeclite
       - id: WeaponDisabler
         prob: 0.3
@@ -44,7 +46,7 @@
       - id: Flash
       - id: ClothingEyesGlassesSunglasses
       - id: ClothingHeadsetAltSecurity
-      - id: ClothingHandsGlovesCombat
+      # - id: ClothingHandsGlovesCombat # WWDP, replaced by powergloves
       - id: ClothingShoesBootsJack
       - id: ClothingOuterCoatWarden
       - id: ClothingOuterWinterWarden
