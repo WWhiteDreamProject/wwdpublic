@@ -245,6 +245,7 @@
   - type: Targeting
   - type: SurgeryTarget
   - type: TTS # WD EDIT
+  - type: ExaminableCharacter # WWDP
 
 - type: entity
   save: false
