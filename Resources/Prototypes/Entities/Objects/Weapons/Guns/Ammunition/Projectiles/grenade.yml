@@ -21,6 +21,7 @@
     stutterTime: 2
     delay: 0.5
     knockdownTime: 2
+    dropHeldItemsBehavior: NoDrop
 
 - type: entity
   id: PelletClusterLethal
