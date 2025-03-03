@@ -1,3 +1,4 @@
+using Content.Shared._White.Light.Components;
 using Content.Shared.Database;
 using Content.Shared.Hands.Components;
 using Content.Shared.Item;
@@ -10,6 +11,8 @@ namespace Content.Shared.Hands.EntitySystems;
 
 public abstract partial class SharedHandsSystem : EntitySystem
 {
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // WWDP
+
     private void InitializePickup()
     {
         SubscribeLocalEvent<HandsComponent, EntInsertedIntoContainerMessage>(HandleEntityInserted);
@@ -227,6 +230,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
 
         Dirty(uid, hands);
 
+        RaiseLocalEvent(entity, new ItemPickedUpEvent(uid)); // WWDP EDIT
         if (hand == hands.ActiveHand)
             RaiseLocalEvent(entity, new HandSelectedEvent(uid), false);
     }

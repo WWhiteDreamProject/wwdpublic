@@ -17,8 +17,8 @@ namespace Content.Shared.Storage.Components
     {
         public string Layer = string.Empty;
 
-        [DataField("whitelist", required: true, serverOnly: true)]
-        public EntityWhitelist ServerWhitelist { get; set; } = new();
+        [DataField("whitelist", required: true)] 				// WWDP EDIT FORMELY ServerWhiteList
+        public EntityWhitelist Whitelist { get; set; } = new(); // WHO THE FUCK MADE IT SERVERONLY AND WHY
 
         /// <summary>
         ///     Minimal amount of entities that are valid for whitelist.

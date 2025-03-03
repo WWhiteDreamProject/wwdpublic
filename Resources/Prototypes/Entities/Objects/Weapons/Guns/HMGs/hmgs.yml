@@ -9,6 +9,10 @@
   - type: Item
     size: Ginormous
   - type: Gun
+    bonusAngleIncreaseMove: 60    # wwdp
+    bonusAngleIncreaseTurn: 1.5   # wwdp
+    bonusAngleDecay: 30           # wwdp
+    maxBonusAngle: 30             # wwdp
     fireRate: 20
     selectedMode: FullAuto
     availableModes:

@@ -77,4 +77,7 @@ public sealed class WhiteCVars
     
     public static readonly CVarDef<bool> PMMEnabled =
         CVarDef.Create("pmm.enabled", true, CVar.SERVER | CVar.ARCHIVE);
+
+    public static readonly CVarDef<bool> PixelSnapCamera =
+    	CVarDef.Create("experimental.pixel_snap_camera", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 }
