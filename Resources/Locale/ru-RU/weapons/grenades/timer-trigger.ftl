@@ -13,3 +13,5 @@ popup-start-on-stick-off = Устройство НЕ будет автомати
 popup-start-on-stick-on = Устройство будет автоматически активировано после установки
 
 trigger-activated = Вы активируете {$device}.
+
+trigger-activated-when-shot = Таймер будет короче на {$reduction} секунды при выстреле из гранатомёта.

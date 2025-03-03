@@ -19,3 +19,5 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
+  - type: CartridgeAmmo
+    proto: GrenadeBarrier

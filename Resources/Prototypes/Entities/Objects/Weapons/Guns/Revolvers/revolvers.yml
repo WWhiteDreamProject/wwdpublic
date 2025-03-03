@@ -103,22 +103,6 @@
     guides: [ SecurityWeapons ]
 
 - type: entity
-  name: Deckard
-  parent: WeaponRevolverDeckardSecurity
-  id: WeaponRevolverDeckardNonLethalSecurity
-  description: A rare, custom-built revolver. Use when you need to spare the Replicants. Comes with .45 magnum rubber.
-               The serial number on the handguard marks this gun as belonging to an NT Security Officer.
-  components:
-  - type: RevolverAmmoProvider
-    whitelist:
-      tags:
-        - CartridgeMagnum
-        - SpeedLoaderMagnum
-    proto: CartridgeMagnumRubber
-  - type: GuideHelp
-    guides: [ SecurityWeapons ]
-
-- type: entity
   name: Inspector
   parent: BaseWeaponRevolver
   id: WeaponRevolverInspector
@@ -140,22 +124,6 @@
   description: A detective's best friend. Uses .45 magnum ammo.
                The serial number on the handguard marks this gun as belonging to an NT Security Officer.
   components:
-  - type: GuideHelp
-    guides: [ SecurityWeapons ]
-
-- type: entity
-  name: Inspector
-  parent: WeaponRevolverInspectorSecurity
-  id: WeaponRevolverInspectorNonLethalSecurity
-  description: A detective's best friend. Comes loaded with .45 magnum rubber.
-               The serial number on the handguard marks this gun as belonging to an NT Security Officer.
-  components:
-  - type: RevolverAmmoProvider
-    whitelist:
-      tags:
-        - CartridgeMagnum
-        - SpeedLoaderMagnum
-    proto: CartridgeMagnumRubber
   - type: GuideHelp
     guides: [ SecurityWeapons ]
 
@@ -207,27 +175,6 @@
 
 - type: entity
   name: Python
-  parent: WeaponRevolverPythonSecurity
-  id: WeaponRevolverPythonNonlethalSecurity
-  components:
-  - type: RevolverAmmoProvider
-    whitelist:
-      tags:
-        - CartridgeMagnum
-        - SpeedLoaderMagnum
-    proto: CartridgeMagnumRubber
-    capacity: 6
-    chambers: [ True, True, True, True, True, True ]
-    ammoSlots: [ null, null, null, null, null, null ]
-    soundEject:
-      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
-  - type: GuideHelp
-    guides: [ SecurityWeapons ]
-
-- type: entity
-  name: Python
   parent: WeaponRevolverPython
   id: WeaponRevolverPythonAP # For the uplink.
   suffix: armor-piercing
@@ -268,20 +215,5 @@
   description: The military grade Argenti Type 20 revolver. Manufactured by Silver Industries. While the design with expanded cylinder is quite ancient, the right gunslinger will know how to utilise it well. Uses .20 rifle ammo.
                The serial number on the handguard marks this gun as belonging to an NT Security Officer.
   components:
-  - type: GuideHelp
-    guides: [ SecurityWeapons ]
-
-- type: entity
-  parent: WeaponRevolverArgenti
-  id: WeaponRevolverArgentiNonLethalSecurity
-  suffix: Non-lethal
-  description: The military grade Argenti Type 20 revolver. Manufactured by Silver Industries. While the design with expanded cylinder is quite ancient, the right gunslinger will know how to utilise it well. Comes with .20 rubber rifle ammo.
-               The serial number on the handguard marks this gun as belonging to an NT Security Officer.
-  components:
-  - type: RevolverAmmoProvider
-    capacity: 8
-    proto: CartridgeRifleRubber
-    chambers: [ True, True, True, True, True, True, True, True ]
-    ammoSlots: [ null, null, null, null, null, null, null, null ]
   - type: GuideHelp
     guides: [ SecurityWeapons ]
