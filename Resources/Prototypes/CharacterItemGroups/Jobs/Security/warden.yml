@@ -23,14 +23,12 @@
 #  id: LoadoutWardenEyes
 #  maxItems: 1
 #  items:
-
-- type: characterItemGroup
-  id: LoadoutWardenGloves # WWDP
-  maxItems: 1
-  items:
-  - type: loadout
-    id: LoadoutClothingHandsGlovesPowergloveRealWarden
-
+#
+#- type: characterItemGroup
+#  id: LoadoutWardenGloves
+#  maxItems: 1
+#  items:
+#
 - type: characterItemGroup
   id: LoadoutWardenHead
   maxItems: 1
