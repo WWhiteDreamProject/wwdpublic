@@ -58,6 +58,8 @@
                 <CheckBox Name="ShowOocPatronColor" Text="{Loc 'ui-options-show-ooc-patron-color'}" />
                 <CheckBox Name="ShowLoocAboveHeadCheckBox" Text="{Loc 'ui-options-show-looc-on-head'}" />
                 <CheckBox Name="FancySpeechBubblesCheckBox" Text="{Loc 'ui-options-fancy-speech'}" />
+                <CheckBox Name="EnableColorBubbleChatCheckBox" Text="{Loc 'ui-options-enable-color-in-bubble-chat'}" /> <!-- WD EDIT -->
+                <CheckBox Name="EnableChatFancyFontCheckBox" Text="{Loc 'ui-options-enable-chat-fancy-font'}" /> <!-- WD EDIT -->
                 <CheckBox Name="FancyNameBackgroundsCheckBox" Text="{Loc 'ui-options-fancy-name-background'}" />
                 <CheckBox Name="LogInChatCheckBox" Text="{Loc 'ui-options-log-in-chat'}" /> <!-- WD EDIT -->
                 <Label Text="{Loc 'ui-options-general-cursor'}"
