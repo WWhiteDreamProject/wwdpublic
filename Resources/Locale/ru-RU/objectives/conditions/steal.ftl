@@ -14,7 +14,6 @@ objective-condition-steal-smsliver-title = Отрезать кусок от кр
 objective-condition-steal-smsliver-description = Подойдёт любой режущий инструмент, но лучше всего - скальпель. Берегитесь радиации!
 
 steal-target-hypospray = гипоспрей
-steal-target-power-gloves = силовые перчатки
 steal-target-handheld-crew-monitor = портативный монитор экипажа
 steal-target-experimental-research-hardsuit = скафандр научного руководителя
 steal-target-hand-teleporter = ручной телепорт
