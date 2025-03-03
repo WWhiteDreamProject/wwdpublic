@@ -1453,3 +1453,10 @@ Entries:
   id: 157
   time: '2025-03-03T12:27:43.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/267
+- author: Vaaankas
+  changes:
+    - type: Tweak
+      message: Теперь персонажи не слышат чат во сне, крите или при оглушении вспышкой.
+  id: 158
+  time: '2025-03-03T12:27:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/265
