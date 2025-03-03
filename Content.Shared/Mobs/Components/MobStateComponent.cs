@@ -18,13 +18,13 @@ public sealed partial class MobStateComponent : Component
     ///     Whether this mob will be allowed to issue movement commands when in the Critical MobState.
     /// </summary>
     [DataField]
-    public bool AllowMovementWhileCrit = true;
+    public bool AllowMovementWhileCrit = false;
 
     /// <summary>
     ///     Whether this mob will be allowed to issue movement commands when in the Soft-Crit MobState.
     /// </summary>
     [DataField]
-    public bool AllowMovementWhileSoftCrit = true;
+    public bool AllowMovementWhileSoftCrit = false;
 
     /// <summary>
     ///     Whether this mob will be allowed to issue movement commands when in the Dead MobState.
