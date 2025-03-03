@@ -23,6 +23,8 @@
     <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
     <ProjectReference Include="..\RobustToolbox\Robust.Client\Robust.Client.csproj" />
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
+    <ProjectReference Include="..\StyleSheetify\Content.StyleSheetify.Client\Content.StyleSheetify.Client.csproj" />
+    <ProjectReference Include="..\StyleSheetify\Content.StyleSheetify.Shared\Content.StyleSheetify.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Spawners\" />

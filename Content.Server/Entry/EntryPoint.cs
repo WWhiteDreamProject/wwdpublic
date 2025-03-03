@@ -29,6 +29,7 @@ using Content.Server.Voting.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Kitchen;
 using Content.Shared.Localizations;
+using Content.StyleSheetify.Shared;
 using Robust.Server;
 using Robust.Server.ServerStatus;
 using Robust.Shared.Configuration;
@@ -75,6 +76,7 @@ namespace Content.Server.Entry
 
             prototypes.RegisterIgnore("parallax");
             prototypes.RegisterIgnore("guideEntry");
+            StylePrototypeIgnorance.Register(prototypes); //WD EDIT
 
             ServerContentIoC.Register();
 
