@@ -1505,3 +1505,10 @@ Entries:
   id: 160
   time: '2025-03-03T16:03:18.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/180
+- author: vanx
+  changes:
+    - type: Add
+      message: Станящие силовые перчатки для смотрителя и цель на их кражу для агентов.
+  id: 161
+  time: '2025-03-03T16:04:57.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/252
