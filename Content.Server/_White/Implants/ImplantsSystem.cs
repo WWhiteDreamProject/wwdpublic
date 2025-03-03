@@ -132,17 +132,14 @@ public sealed class ImplantsSystem : EntitySystem
             targetMind.Session.Channel, Color.FromHex("#5e9cff"));
 
         // add briefing in character menu
-        if (TryComp<RoleBriefingComponent>(targetMindId, out var roleBriefing))
+        if (EnsureComp<RoleBriefingComponent>(targetMindId, out var roleBriefing))
         {
             roleBriefing.Briefing += Loc.GetString("mindslave-briefing", ("player", user), ("role", jobName));
             Dirty(targetMindId, roleBriefing);
         }
         else
         {
-            _role.MindAddRole(targetMindId, new RoleBriefingComponent
-            {
-                Briefing = Loc.GetString("mindslave-briefing", ("player", user), ("role", jobName))
-            }, targetMind);
+            roleBriefing.Briefing = Loc.GetString("mindslave-briefing", ("player", user), ("role", jobName));
         }
 
         _adminLog.Add(LogType.Mind, LogImpact.High,

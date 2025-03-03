@@ -1,5 +1,4 @@
 using Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
-using Content.Shared._Lavaland.Weapons.Ranged.Events;
 using Content.Shared.CCVar;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;

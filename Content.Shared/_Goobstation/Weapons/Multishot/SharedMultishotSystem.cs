@@ -45,7 +45,7 @@ public sealed partial class SharedMultishotSystem : EntitySystem
         _gunSystem.AttemptShoot(args.User, comp.RelatedWeapon.Value, relatedGun, gun.ShootCoordinates.Value);
 
         // Synchronizing reload timer
-        var reloadDelta = relatedGun.LastFire - gun.LastFire;
+        var reloadDelta = relatedGun.CurrentAngleLastUpdate - gun.CurrentAngleLastUpdate; // WD EDIT
         relatedGun.NextFire -= reloadDelta.Duration();
     }
 
