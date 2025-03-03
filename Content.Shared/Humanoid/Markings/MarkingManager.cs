@@ -222,7 +222,7 @@ namespace Content.Shared.Humanoid.Markings
                 !prototypeManager.TryIndex(speciesProto.BodyTypes.First(), out BodyTypePrototype? baseBodyType) || // WD EDIT
                 !baseBodyType.Sprites.TryGetValue(layer, out var spriteName) || // WD EDIT
                 !prototypeManager.TryIndex(spriteName, out HumanoidSpeciesSpriteLayer? sprite) ||
-                sprite is not { MarkingsMatchSkin: true } // WD EDIT
+                !sprite.MarkingsMatchSkin
             )
             {
                 alpha = 1f;
