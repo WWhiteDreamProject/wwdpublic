@@ -136,8 +136,8 @@
     fillPrototype: PelletClusterRubber
     maxGrenadesCount: 30
     grenadeType: enum.GrenadeType.Shoot
-  - type: FlashOnTrigger
-    range: 7
+  #- type: FlashOnTrigger # WWDP
+  #  range: 7
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Effects/flash_bang.ogg"
