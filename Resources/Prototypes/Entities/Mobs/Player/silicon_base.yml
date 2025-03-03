@@ -331,6 +331,7 @@
     - type: FootPrints
     - type: Carriable
     - type: LayingDown
+    - type: ExaminableCharacter # WWDP
 
 
 - type: damageModifierSet
