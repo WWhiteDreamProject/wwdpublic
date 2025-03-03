@@ -30,6 +30,9 @@
   - type: Construction
     graph: PipeBomb
     node: pipebomb
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: PipeBomb
 
 - type: entity
   parent: BaseItem

@@ -14,3 +14,5 @@ popup-start-on-stick-off = The device will no longer activate automatically when
 popup-start-on-stick-on = The device will now activate automatically when planted
 
 trigger-activated = You activate {THE($device)}.
+
+trigger-activated-when-shot = The timer will be {$reduction}s shorter when shot as a projectile.

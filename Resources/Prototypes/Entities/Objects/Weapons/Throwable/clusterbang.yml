@@ -48,6 +48,9 @@
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
+      # WWDP edit below
+  - type: CartridgeAmmo
+    proto: ClusterBangFull
 
 - type: entity
   parent: GrenadeBase
@@ -77,6 +80,9 @@
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: ClusterGrenade
 
 - type: entity
   parent: BaseItem
@@ -130,8 +136,8 @@
     fillPrototype: PelletClusterRubber
     maxGrenadesCount: 30
     grenadeType: enum.GrenadeType.Shoot
-  - type: FlashOnTrigger
-    range: 7
+  #- type: FlashOnTrigger # WWDP
+  #  range: 7
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Effects/flash_bang.ogg"
@@ -143,6 +149,9 @@
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: GrenadeStinger
 
 - type: entity
   parent: GrenadeBase
@@ -172,6 +181,9 @@
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: GrenadeIncendiary
 
 - type: entity
   parent: GrenadeBase
@@ -201,6 +213,9 @@
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: GrenadeShrapnel
 
 - type: entity
   parent: SoapSyndie
@@ -262,3 +277,6 @@
     maxGrenadesCount: 30
     grenadeType: enum.GrenadeType.Throw
     velocity: 70
+  # WWDP edit below
+  - type: CartridgeAmmo
+    proto: GrenadeFoamDart

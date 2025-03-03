@@ -497,17 +497,6 @@
   - UplinkAmmo
 
 - type: listing
-  id: UplinkPistol9mmMagazineRubber
-  name: uplink-pistol-magazine-rubber-name
-  description: uplink-pistol-magazine-rubber-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red-icon }
-  productEntity: MagazinePistolRubber
-  cost:
-    Telecrystal: 1 # WD EDIT
-  categories:
-  - UplinkAmmo
-
-- type: listing
   id: UplinkPistol9mmMagazineIncendiary
   name: uplink-pistol-magazine-incendiary-name
   description: uplink-pistol-magazine-incendiary-desc
@@ -530,22 +519,6 @@
   description: uplink-pistol-magazine-c20r-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
   productEntity: MagazinePistolSubMachineGun
-  # WD EDIT START
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 2
-  # WD EDIT END
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkMagazinePistolSubMachineGunRubber
-  name: uplink-pistol-magazine-c20r-rubber-name
-  description: uplink-pistol-magazine-c20r-rubber-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
-  productEntity: MagazinePistolSubMachineGunRubber
   # WD EDIT START
   discountCategory: usualDiscounts
   discountDownTo:

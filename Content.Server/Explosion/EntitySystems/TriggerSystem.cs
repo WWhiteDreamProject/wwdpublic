@@ -82,6 +82,7 @@ namespace Content.Server.Explosion.EntitySystems
 
             InitializeProximity();
             InitializeOnUse();
+            InitializeOnShot(); // WWDP
             InitializeSignal();
             InitializeTimedCollide();
             InitializeVoice();

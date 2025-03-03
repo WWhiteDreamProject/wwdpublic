@@ -82,7 +82,32 @@ namespace Content.Shared.Hands
             User = user;
         }
     }
+    // WWDP EDIT START
+    /// <summary>
+    /// Raised at an item that is being picked up. Raised after all relevant checks are passed.
+    /// </summary>
+    [PublicAPI]
+    public sealed class ItemPickedUpEvent(EntityUid user) : EntityEventArgs
+    {
+        /// <summary>
+        /// Entity that is picking up the item
+        /// </summary>
+        public readonly EntityUid User = user;
+    }
 
+    /// <summary>
+    /// Raised at an item that is being dropped. Raised after all relevant checks are passed.
+    /// </summary>
+    [PublicAPI]
+    public sealed class ItemDroppedEvent(EntityUid user) : EntityEventArgs
+    {
+        /// <summary>
+        /// Entity dropping the item.
+        /// </summary>
+        public readonly EntityUid User = user;
+    }
+	// WWDP EDIT END
+	
     /// <summary>
     ///     Raised when an item entity held by a hand is selected.
     /// </summary>

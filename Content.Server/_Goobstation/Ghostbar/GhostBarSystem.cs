@@ -12,6 +12,7 @@ using Content.Shared.Ghost;
 using Content.Server._Goobstation.Ghostbar.Components;
 using Content.Server.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Mind; // wwdp
 using Content.Shared.Roles;
 using Content.Server.Antag.Components;
 using Content.Server.Traits; // Einstein Engines
@@ -118,6 +119,13 @@ public sealed class GhostBarSystem : EntitySystem
         _entityManager.EnsureComponent<AntagImmuneComponent>(mobUid);
         _entityManager.EnsureComponent<IsDeadICComponent>(mobUid);
 
+        // wwdp edit start
+        if(player.AttachedEntity != null)
+            _entityManager.GetComponent<GhostBarPlayerComponent>(mobUid).TimeOfDeath = _entityManager.GetComponent<GhostComponent>((Robust.Shared.GameObjects.EntityUid) player.AttachedEntity).TimeOfDeath;
+        if(mind.TimeOfDeath.HasValue)
+            _entityManager.GetComponent<GhostBarPlayerComponent>(mobUid).TimeOfDeath = mind.TimeOfDeath.Value;
+        // wwdp edit end
+
         if (mind.Objectives.Count == 0)
             _mindSystem.WipeMind(player);
         mindId = _mindSystem.CreateMind(data.UserId, profile.Name).Owner;
@@ -126,6 +134,9 @@ public sealed class GhostBarSystem : EntitySystem
 
     private void OnPlayerGhosted(EntityUid uid, GhostBarPlayerComponent component, MindRemovedMessage args)
     {
+        // wwdp start
+        _entityManager.GetComponent<MindComponent>(args.Mind).TimeOfDeath = _entityManager.GetComponent<GhostBarPlayerComponent>(uid).TimeOfDeath;    
+        // wwdp end
         _entityManager.DeleteEntity(uid);
     }
 }

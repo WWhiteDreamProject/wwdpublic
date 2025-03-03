@@ -32,6 +32,7 @@ using Content.Shared.Storage;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Server.GameObjects;
+using Content.Shared._White.Hands.Components;
 
 namespace Content.Server.Carrying
 {

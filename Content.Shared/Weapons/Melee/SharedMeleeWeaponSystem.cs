@@ -397,7 +397,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Attack confirmed
         for (var i = 0; i < swings; i++)
         {
-            string animation;
+            string animation = weapon.Animation;
+            Angle spriteRotation = weapon.AnimationRotation;
 
             switch (attack)
             {
@@ -416,12 +417,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                         return false;
 
                     animation = weapon.WideAnimation;
+                    spriteRotation = weapon.WideAnimationRotation;
                     break;
                 default:
                     throw new NotImplementedException();
             }
 
-            DoLungeAnimation(user, weaponUid, weapon.Angle, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation);
+            DoLungeAnimation(user, weaponUid, weapon.Angle, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation, spriteRotation);
         }
 
         var attackEv = new MeleeAttackEvent(weaponUid);
@@ -794,7 +796,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         return true;
     }
 
-    private void DoLungeAnimation(EntityUid user, EntityUid weapon, Angle angle, MapCoordinates coordinates, float length, string? animation)
+    private void DoLungeAnimation(EntityUid user, EntityUid weapon, Angle angle, MapCoordinates coordinates, float length, string? animation, Angle spriteRotation)
     {
         // TODO: Assert that offset eyes are still okay.
         if (!TryComp(user, out TransformComponent? userXform))
@@ -815,10 +817,10 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (localPos.Length() > visualLength)
             localPos = localPos.Normalized() * visualLength;
 
-        DoLunge(user, weapon, angle, localPos, animation);
+        DoLunge(user, weapon, angle, localPos, animation, spriteRotation);
     }
 
-    public abstract void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, bool predicted = true);
+    public abstract void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation, bool predicted = true);
 
     /// <summary>
     /// Used to update the MeleeWeapon component on item toggle.

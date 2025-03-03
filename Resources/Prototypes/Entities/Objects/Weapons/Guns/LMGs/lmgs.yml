@@ -20,6 +20,10 @@
     minAngle: -20
     maxAngle: -20
   - type: Gun
+    bonusAngleIncreaseMove: 50    # wwdp
+    bonusAngleIncreaseTurn: 0.5   # wwdp
+    bonusAngleDecay: 30           # wwdp
+    maxBonusAngle: 30             # wwdp
     minAngle: 24
     maxAngle: 45
     angleIncrease: 4
