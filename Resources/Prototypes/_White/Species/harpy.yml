@@ -1,6 +1,8 @@
 - type: bodyType
   id: HarpySlim
   name: body-slim
+  sexRestrictions:
+  - Male
   sprites:
     Head: MobHarpyHeadSlim
     Face: MobHumanoidAnyMarking
