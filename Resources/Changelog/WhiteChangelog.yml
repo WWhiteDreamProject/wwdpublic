@@ -1526,3 +1526,10 @@ Entries:
   id: 162
   time: '2025-03-03T18:26:37.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/257
+- author: vanx
+  changes:
+    - type: Fix
+      message: Окна шаттлов перекрывают решётки не давая им биться током
+  id: 163
+  time: '2025-03-04T13:28:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/271
