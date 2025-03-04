@@ -14,7 +14,7 @@
       collection: MaleCoughs
     CatMeow:
       collection: CatMeows
-    CatHiss:
+    CatHisses:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
@@ -50,7 +50,7 @@
       collection: FemaleCoughs
     CatMeow:
       collection: CatMeows
-    CatHiss:
+    CatHisses:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
@@ -160,7 +160,7 @@
       collection: MaleCoughs
     CatMeow:
       collection: CatMeows
-    CatHiss:
+    CatHisses:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
@@ -198,7 +198,7 @@
       collection: FemaleCoughs
     CatMeow:
       collection: CatMeows
-    CatHiss:
+    CatHisses:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
@@ -433,7 +433,7 @@
       collection: MaleCoughs
     CatMeow:
       collection: CatMeows
-    CatHiss:
+    CatHisses:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
@@ -470,7 +470,7 @@
       collection: FemaleCoughs
     CatMeow:
       collection: CatMeows
-    CatHiss:
+    CatHisses:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
