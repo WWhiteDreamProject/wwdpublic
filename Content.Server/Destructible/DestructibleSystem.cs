@@ -20,6 +20,14 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
+using System.Numerics;
+using Content.Server.Construction.Completions;
+using Content.Shared.Projectiles;
+using Content.Shared.Throwing;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
+
 
 namespace Content.Server.Destructible
 {
@@ -42,11 +50,18 @@ namespace Content.Server.Destructible
         [Dependency] public readonly IPrototypeManager PrototypeManager = default!;
         [Dependency] public readonly IComponentFactory ComponentFactory = default!;
         [Dependency] public readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly SharedPhysicsSystem _physics = default!; // WWDP
+        [Dependency] private readonly SharedTransformSystem _transform = default!; // WWDP
+        [Dependency] private readonly ThrowingSystem _throwing = default!; // WWDP
+        [Dependency] private readonly SharedProjectileSystem _projectile = default!; // WWDP
+        [Dependency] private readonly IRobustRandom _random = default!; // WWDP
 
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<DestructibleComponent, DamageChangedEvent>(Execute);
+            SubscribeLocalEvent<DestructibleComponent, DestructionEventArgs>(OnDestroyed);
+            SubscribeLocalEvent<DestructibleComponent, ConstructionBeforeDeleteEvent>(OnDeconstruct);
         }
 
         /// <summary>
@@ -89,6 +104,32 @@ namespace Content.Server.Destructible
                     return;
             }
         }
+
+        // WWDP - handle embed children on destruction
+        public void OnDestroyed(EntityUid uid, DestructibleComponent component, DestructionEventArgs args)
+        {
+            RemoveEmbedChildren(uid);
+        }
+
+        public void OnDeconstruct(EntityUid uid, DestructibleComponent component, ConstructionBeforeDeleteEvent args)
+        {
+            RemoveEmbedChildren(uid);
+        }
+
+        public void RemoveEmbedChildren(EntityUid uid)
+        {
+            var children = Transform(uid).ChildEnumerator;
+            while (children.MoveNext(out var child))
+            {
+                if (!TryComp<EmbeddableProjectileComponent>(child, out var embed))
+                    continue;
+
+                _projectile.RemoveEmbed(child, embed);
+                _throwing.TryThrow(child, _random.NextVector2() * 5, 5f, friction: 100f); // very short distance
+            }
+        }
+
+        // WWDP edit end
 
         // FFS this shouldn't be this hard. Maybe this should just be a field of the destructible component. Its not
         // like there is currently any entity that is NOT just destroyed upon reaching a total-damage value.

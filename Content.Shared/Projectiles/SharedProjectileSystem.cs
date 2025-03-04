@@ -94,8 +94,8 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
 
         // Whacky prediction issues.
-        if (_netManager.IsClient)
-            return;
+        //if (_netManager.IsClient) // WWDP disabled
+        //    return;
 
         if (component.DeleteOnRemove)
         {
@@ -127,6 +127,8 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         // try place it in the user's hand
         if (remover is {} removerUid)
             _hands.TryPickupAnyHand(removerUid, uid);
+
+        Dirty(uid, component); // WWDP
     }
 
     private void OnEmbedThrowDoHit(EntityUid uid, EmbeddableProjectileComponent component, ThrowDoHitEvent args)
