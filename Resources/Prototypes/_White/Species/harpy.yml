@@ -28,6 +28,12 @@
     state: head_slim_f
 
 - type: humanoidBaseSprite
+  id: MobHarpyHeadSlimMale
+  baseSprite:
+    sprite: _White/Mobs/Species/Harpy/parts.rsi
+    state: head_slim_f
+
+- type: humanoidBaseSprite
   id: MobHarpyHeadSlimFemale
   baseSprite:
     sprite: _White/Mobs/Species/Harpy/parts.rsi
@@ -35,6 +41,12 @@
 
 - type: humanoidBaseSprite
   id: MobHarpyTorsoSlim
+  baseSprite:
+    sprite: _White/Mobs/Species/Harpy/parts.rsi
+    state: torso_slim_f
+
+- type: humanoidBaseSprite
+  id: MobHarpyTorsoSlimMale
   baseSprite:
     sprite: _White/Mobs/Species/Harpy/parts.rsi
     state: torso_slim_f
