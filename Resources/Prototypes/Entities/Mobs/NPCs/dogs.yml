@@ -89,11 +89,6 @@
     understands:
     - Dog
     - TauCetiBasic
-  # WD EDIT START
-  - type: Tag
-    tags:
-    - Dog
-  # WD EDIT END
 
 - type: entity
   parent: MobPibble
