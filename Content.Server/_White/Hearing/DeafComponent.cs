@@ -14,7 +14,7 @@ public sealed partial class DeafComponent : Component
     public LocId DeafChatMessage = "deaf-chat-message";
 
     [DataField]
-    public bool Permanent = false;
+    public bool Permanent = true;
 
     [DataField]
     public float Duration = 0f; // In seconds
