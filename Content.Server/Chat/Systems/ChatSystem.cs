@@ -743,7 +743,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
             // WWDP Deafening
             if (_hearing.IsBlockedByDeafness(session, channel, language))
-                return;
+                continue;
             // WWDP end
 
             if (session.AttachedEntity is not { Valid: true } playerEntity)
