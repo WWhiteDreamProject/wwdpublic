@@ -2212,11 +2212,6 @@
     - TauCetiBasic
     understands:
     - TauCetiBasic
-  # WD EDIT START
-  - type: Tag
-    tags:
-    - Bird
-  # WD EDIT END
 
 - type: entity
   name: penguin
@@ -2949,7 +2944,6 @@
   - type: Tag
     tags:
     - VimPilot
-    - Dog # WD EDIT
   - type: RandomBark
     barkType: dog
 
@@ -3117,7 +3111,6 @@
   - type: Tag
     tags:
     - VimPilot
-    - Cat # WD EDIT
   - type: RandomBark
     barkType: cat
   - type: HTN # DeltaV - make all cats eat mice
