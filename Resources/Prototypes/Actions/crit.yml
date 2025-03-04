@@ -14,7 +14,7 @@
       state: icon
     event: !type:CritSuccumbEvent
     startDelay: true # WWDP no instant giveup
-    useDelay: 15 # WWDP
+    useDelay: 10 # WWDP
 
 - type: entity
   id: ActionCritFakeDeath
@@ -47,4 +47,4 @@
       state: lastwords
     event: !type:CritLastWordsEvent
     startDelay: true # WWDP no instant giveup
-    useDelay: 15 # WWDP
+    useDelay: 10 # WWDP
