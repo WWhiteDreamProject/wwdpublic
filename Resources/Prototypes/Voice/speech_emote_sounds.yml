@@ -12,9 +12,9 @@
       collection: MaleSneezes
     Cough:
       collection: MaleCoughs
-    Meow:
+    CatMeow:
       collection: CatMeows
-    Hiss:
+    CatHiss:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
@@ -48,9 +48,9 @@
       collection: FemaleSneezes
     Cough:
       collection: FemaleCoughs
-    Meow:
+    CatMeow:
       collection: CatMeows
-    Hiss:
+    CatHiss:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
@@ -158,9 +158,9 @@
       collection: MaleSneezes
     Cough:
       collection: MaleCoughs
-    Meow:
+    CatMeow:
       collection: CatMeows
-    Hiss:
+    CatHiss:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
@@ -196,9 +196,9 @@
       collection: FemaleSneezes
     Cough:
       collection: FemaleCoughs
-    Meow:
+    CatMeow:
       collection: CatMeows
-    Hiss:
+    CatHiss:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
@@ -431,9 +431,9 @@
       collection: MaleSneezes
     Cough:
       collection: MaleCoughs
-    Meow:
+    CatMeow:
       collection: CatMeows
-    Hiss:
+    CatHiss:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
@@ -468,9 +468,9 @@
       collection: FemaleSneezes
     Cough:
       collection: FemaleCoughs
-    Meow:
+    CatMeow:
       collection: CatMeows
-    Hiss:
+    CatHiss:
       collection: CatHisses
     MonkeyScreeches:
       collection: MonkeyScreeches
