@@ -1,5 +1,5 @@
 trait-name-ScottishAccent = Шотладнский акцент
-trait-description-ScottishAccent = Fer tha folk who come frae Hielan clan.
+trait-description-ScottishAccent = Для тех, кто родом из высокогорного клана.
 
 trait-name-UltraVision = Ультрафиолетовое зрение
 trait-description-UltraVision = Будь то с помощью специальных бионических глаз, случайной мутации
