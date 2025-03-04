@@ -12,7 +12,7 @@
     whitelist:
       tags:
         - CartridgePistol
-    capacity: 10
+    capacity: 12
   - type: Item
     size: Small
   - type: ContainerContainer
@@ -187,20 +187,6 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: MagazinePistolRubber
-  name: pistol magazine (.35 auto rubber)
-  parent: BaseMagazinePistol
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgePistolRubber
-  - type: Sprite
-    layers:
-    - state: rubber
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-
-- type: entity
   id: MagazinePistolUranium
   name: pistol magazine (.35 auto uranium)
   parent: BaseMagazinePistol
@@ -256,20 +242,6 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: MagazinePistolHighCapacityRubber
-  name: machine pistol magazine (.35 auto rubber)
-  parent: BaseMagazinePistolHighCapacity
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgePistol
-  - type: Sprite
-    layers:
-    - state: rubber
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-
-- type: entity
   id: MagazinePistolSubMachineGun
   name: SMG magazine (.35 auto)
   parent: BaseMagazinePistolSubMachineGun
@@ -317,22 +289,22 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: MagazinePistolSubMachineGunRubber
-  name: SMG magazine (.35 auto rubber)
+  id: MagazinePistolSubMachineGunIncendiary
+  name: SMG magazine (.35 auto incendiary)
   parent: BaseMagazinePistolSubMachineGun
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgePistolRubber
+    proto: CartridgePistolIncendiary
   - type: Sprite
     layers:
-    - state: rubber
+    - state: red
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
   id: MagazinePistolSubMachineGunUranium
-  name: SMG magazine (.35 auto rubber)
+  name: SMG magazine (.35 auto uranium)
   parent: BaseMagazinePistolSubMachineGun
   components:
   - type: BallisticAmmoProvider

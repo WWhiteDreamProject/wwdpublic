@@ -12,9 +12,9 @@
       types:
         Blunt: 11
     bluntStaminaDamageFactor: 2.0
-    heavyRateModifier: 0.5
+    heavyRateModifier: 2 # WWDP
     maxTargets: 2
-    angle: 120
+    angle: 60 # WWDP
     soundHit:
       collection: ExplosionSmall
   - type: DamageOtherOnHit
@@ -27,9 +27,14 @@
   - type: Item
     size: Large
   - type: Tool
-    speed: 0.5 # it's very heavy, it rolls slower than a wooden bat
+    speedModifier: 0.5 # it's very heavy, it rolls slower than a wooden bat
   - type: UseDelay
     delay: 2
   - type: PhysicalComposition
     materialComposition:
       Steel: 350 # it's not made of wood
+  - type: KnockdownOnHit # WWDP EDIT
+    jitterTime: 0
+    stutterTime: 0
+    delay: 0
+    knockdownTime: 1

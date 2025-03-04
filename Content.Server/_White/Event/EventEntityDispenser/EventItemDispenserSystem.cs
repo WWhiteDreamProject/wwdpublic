@@ -1,26 +1,18 @@
+using System.Linq;
+using Content.Server.Administration.Managers;
+using Content.Shared._White.Event;
+using Content.Shared.Examine;
+using Content.Shared.Ghost;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
-using Robust.Shared.Utility;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Content.Shared._White.Event;
-using Robust.Shared.Audio.Systems;
-using Content.Server.Store.Systems;
-using Content.Server.Administration.Managers;
-using Content.Server.GameTicking;
 using Content.Shared.Popups;
-using Robust.Shared.Containers;
-using Content.Shared.Administration;
-using Robust.Shared.Prototypes;
-using Content.Shared.Examine;
-using Robust.Shared.Map;
-using Content.Shared.Ghost;
 using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
-namespace Content.Server._White.Event;
+namespace Content.Server._White.Event.EventEntityDispenser;
 public class EventItemDispenserSystem : SharedEventItemDispenserSystem
 {
     [Dependency] private readonly SharedHandsSystem _hands = default!;
@@ -48,20 +40,19 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
         SubscribeLocalEvent<EventDispensedComponent, ComponentRemove>(OnDispensedRemove);
     }
 
-
-
     private void OnMessage(EntityUid uid, EventItemDispenserComponent comp, EventItemDispenserNewConfigBoundUserInterfaceMessage msg)
     {
         var adminData = _admeme.GetAdminData(msg.Actor);
         if (adminData == null || !adminData.CanAdminPlace())
-        {
             return;
-        }
-        string newProto = ValidateProto(msg.DispensingPrototype, comp.DispensingPrototype);
-        if (comp.DispensingPrototype != newProto) {
+
+        var newProto = ValidateProto(msg.DispensingPrototype, comp.DispensingPrototype);
+        if (comp.DispensingPrototype != newProto)
+        {
             comp.DispensingPrototype = newProto;
             DeleteAll(uid, comp);
         }
+
         comp.AutoDispose = msg.AutoDispose;
         comp.CanManuallyDispose = msg.CanManuallyDispose;
         comp.Infinite = msg.Infinite;
@@ -84,17 +75,20 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
     {
         if (depth >= 5) // what the fuck kind of item is that?
             throw new ArgumentException($"Item Uid:{item}, proto:\"{MetaData(item).EntityPrototype?.ID}\" has FIVE levels of storage component entities stored in each other. What the fuck?");
+
         if (!HasComp<ContainerManagerComponent>(item))
             return;
+
         depth++;
         RaiseLocalEvent(item, new ForceSpawnAmmoEvent());
-        var containers = _container.GetAllContainers(item);
-        bool more = false;
         List<EntityUid> ents = new();
+
+        var containers = _container.GetAllContainers(item);
         foreach (var container in containers)
         {
             ents.AddRange(container.ContainedEntities);
         }
+
         comp.Slaved.AddRange(ents);
         foreach (var ent in ents)
         {
@@ -124,14 +118,12 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
 
     private void OnExamine(EntityUid uid, EventItemDispenserComponent comp, ExaminedEvent args)
     {
-        string desc = "";
-        if (!comp.Infinite)
-            desc = $"event-item-dispenser-examine-finite{(comp.CanManuallyDispose ? "-manualdispose" : "")}{(comp.Limit == 1 ? "-single" : "")}";
-        else
-        {
-            desc = $"event-item-dispenser-examine-infinite{(comp.AutoDispose ? "-autodispose" : "")}{(comp.CanManuallyDispose ? "-manualdispose" : "")}{(comp.Limit == 1 ? "-single" : "")}";
-        }
-        int remaining = GetRemaining(args.Examiner, comp);
+        var desc = !comp.Infinite
+            ? $"event-item-dispenser-examine-finite{(comp.CanManuallyDispose
+                ? "-manualdispose" : "")}{(comp.Limit == 1 ? "-single" : "")}"
+            : $"event-item-dispenser-examine-infinite{(comp.AutoDispose ? "-autodispose" : "")}{(comp.CanManuallyDispose
+                ? "-manualdispose" : "")}{(comp.Limit == 1 ? "-single" : "")}";
+        var remaining = GetRemaining(args.Examiner, comp);
 
         args.PushMarkup(
             Loc.GetString(
@@ -237,7 +229,7 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
         }
     }
 
-    private void ReleaseAll(EntityUid dispenser, EventItemDispenserComponent comp) 
+    private void ReleaseAll(EntityUid dispenser, EventItemDispenserComponent comp)
     {
         foreach (var items in comp.dispensedItems.Values)
         {
@@ -273,7 +265,6 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
     /// <summary>
     /// This hot mess does a lot of things at once:
     ///     * Spawn and configure the item
-    ///       * Raise ItemPurchasedEvent on the item just in case
     ///       * Add and configure EventDispensedComponent, used for easier manual disposals (see <see cref="OnInteractUsing(EntityUid, EventItemDispenserComponent, InteractUsingEvent)"/>)
     ///     * Keep track on how many items there are
     ///     * Put said item into user's hands
@@ -287,8 +278,6 @@ public class EventItemDispenserSystem : SharedEventItemDispenserSystem
     {
         var mapPos = _transform.ToMapCoordinates(new Robust.Shared.Map.EntityCoordinates(user, default));
         var item = Spawn(comp.DispensingPrototype, mapPos);
-        var ev = new ItemPurchasedEvent(user);
-        RaiseLocalEvent(item, ref ev); // erectin' a vendomat
         var dispensedComp = AddComp<EventDispensedComponent>(item);
         dispensedComp.Dispenser = comp.Owner;
         dispensedComp.ItemOwner = user;

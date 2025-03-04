@@ -30,6 +30,7 @@
       map: [ "enum.DamageStateVisualLayers.Base" ]
     - state: cutters-cutty-thingy
   - type: MeleeWeapon
+    animationRotation: -90 # WWDP
     wideAnimationRotation: -90
     attackRate: 1.1
     range: 1.6
@@ -65,6 +66,7 @@
       Steel: 100
   - type: StaticPrice
     price: 30
+  # Shitmed Change
   - type: Retractor
     speed: 0.35
   - type: Hemostat
@@ -113,6 +115,7 @@
     sprite: Objects/Tools/screwdriver.rsi
     storedRotation: -90
   - type: MeleeWeapon
+    animationRotation: -90 # WWDP
     wideAnimationRotation: -90
     attackRate: .74
     damage:
@@ -146,6 +149,7 @@
       Steel: 100
   - type: StaticPrice
     price: 30
+  # Shitmed Change
   - type: Retractor
     speed: 0.45
   - type: Tending
@@ -189,6 +193,7 @@
       sprite: Objects/Tools/wrench.rsi
       state: storage
   - type: MeleeWeapon
+    animationRotation: 225 # WWDP
     wideAnimationRotation: 135
     attackRate: 1.1
     range: 1.6
@@ -247,6 +252,7 @@
       sprite: Objects/Tools/crowbar.rsi
       state: storage
   - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     wideAnimationRotation: -135
     attackRate: .8
     damage:
@@ -270,6 +276,7 @@
   - type: StaticPrice
     price: 22
   - type: Prying
+  # Shitmed Change
   - type: Tweezers
     speed: 0.55
   - type: SurgeryTool
@@ -349,8 +356,9 @@
       - DoorElectronicsConfigurator
   - type: PhysicalComposition
     materialComposition:
-      Steel: 100
-      Plastic: 100
+      Aluminum: 50
+      Plastic: 50
+      Circuitry: 25
   - type: StaticPrice
     price: 56
 
@@ -425,7 +433,7 @@
   - type: Tool
     qualities:
       - Screwing
-    speed: 1.5
+    speedModifier: 1.5
     useSound: /Audio/Items/drill_use.ogg
   - type: MultipleTool
     statusShowBehavior: true
@@ -449,13 +457,15 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 300
-      Plastic: 100
+      Plastic: 50
+      Circuitry: 50
 #  - type: DynamicPrice
 #    price: 100
   - type: StaticPrice
     price: 100
   - type: MeleeWeapon
-    wideAnimationRotation: -90
+    animationRotation: 90 # WWDP
+    wideAnimationRotation: 90 # WWDP
     attackRate: 1.1
     range: 1.4
     damage:
@@ -522,8 +532,9 @@
     - Belt
   - type: PhysicalComposition
     materialComposition:
-      Steel: 600
-      Plastic: 150
+      Steel: 400
+      Plastic: 100
+      Circuitry: 50
   - type: StaticPrice
     price: 100
   - type: UserInterface
@@ -628,7 +639,7 @@
   - type: Tool
     qualities:
       - Screwing
-    speed: 1.2 # Kept for future adjustments. Currently 1.2x for balance
+    speedModifier: 1.2 # Kept for future adjustments. Currently 1.2x for balance
     useSound: /Audio/Items/drill_use.ogg
   - type: ToolTileCompatible
   - type: MultipleTool
@@ -684,6 +695,7 @@
     sprite: Objects/Tools/shovel.rsi
     state: icon
   - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     wideAnimationRotation: 45
     attackRate: 1.25
     range: 1.75
@@ -737,6 +749,7 @@
     slots:
     - Belt
   - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     wideAnimationRotation: -135
     attackRate: 1.1
     damage:

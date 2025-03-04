@@ -3,8 +3,12 @@
   name: species-name-harpy
   roundStart: true
   prototype: MobHarpy
-  sprites: MobHarpySprites
-  defaultSkinTone: "#c0967f" # WD EDIT
+  # WD EDIT START
+  bodyTypes:
+  - HarpyNormal
+  - HarpySlim
+  # WD EDIT END
+  defaultSkinTone: "#c0967f"
   markingLimits: MobHarpyMarkingLimits
   dollPrototype: MobHarpyDummy
   skinColoration: HumanToned
@@ -15,10 +19,14 @@
   defaultWidth: 0.8
   maxWidth: 1 # White Dream: End of changes
 
-- type: speciesBaseSprites
-  id: MobHarpySprites
+# WD EDIT START
+- type: bodyType
+  id: HarpyNormal
+  name: body-normal
+# WD EDIT END
   sprites:
     Head: MobHarpyHead
+    Face: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
@@ -61,6 +69,12 @@
       points: 1
       required: true
       defaultMarkings: [ HarpyChestDefault ]
+    Underwear:
+      points: 1
+      required: false
+    Undershirt:
+      points: 1
+      required: false
     RightLeg:
       points: 2
       required: false

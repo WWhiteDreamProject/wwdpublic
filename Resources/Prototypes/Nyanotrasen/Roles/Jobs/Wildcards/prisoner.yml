@@ -6,28 +6,43 @@
   startingGear: PrisonerGear
   alwaysUseSpawner: true
   canBeAntag: false
-#  whitelistRequired: true
+  #  whitelistRequired: true
   icon: "JobIconPrisoner"
   supervisors: job-supervisors-security
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      min: 21600
-    - !type:CharacterLogicOrRequirement
-      requirements:
-        - !type:CharacterSpeciesRequirement
-          inverted: true
-          species:
-            - Shadowkin
-        - !type:CharacterTraitRequirement
-          traits:
-            - ShadowkinBlackeye
+  - !type:CharacterDepartmentTimeRequirement
+    department: Security
+    min: 21600
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+      - Shadowkin
+    - !type:CharacterTraitRequirement
+      traits:
+      - ShadowkinBlackeye
+  afterLoadoutSpecial:
+  - !type:ModifyEnvirosuitSpecial
+    charges: 3 # Poor prisoners with not a lot of self-extinguishes.
+  - !type:ModifyEnvirohelmSpecial
+    powerCell: PowerCellPotato
 
 - type: startingGear
   id: PrisonerGear
+  subGear:
+  - PrisonerPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitPrisoner
     shoes: ClothingShoesColorBlack
     id: PrisonerPDA
     ears: ClothingHeadsetPrison #deltaV
   innerClothingSkirt: ClothingUniformJumpsuitPrisoner
+
+- type: startingGear
+  id: PrisonerPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitPrisoner
+    head: ClothingHeadEnvirohelmPrisoner
+    gloves: ClothingHandsGlovesEnviroglovesBlack

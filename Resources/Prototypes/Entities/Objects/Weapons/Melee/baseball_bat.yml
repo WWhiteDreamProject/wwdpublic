@@ -8,6 +8,7 @@
     sprite: Objects/Weapons/Melee/baseball_bat.rsi
     state: icon
   - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     wideAnimationRotation: -135
     range: 1.6
     damage:
@@ -35,7 +36,7 @@
   - type: Tool
     qualities:
     - Rolling
-    speed: 0.75 # a bit unwieldly but does the job
+    speedModifier: 0.75 # a bit unwieldly but does the job
   - type: Clothing
     quickEquip: false
     slots:

@@ -57,6 +57,22 @@
 
 - type: entity
   parent: BasePlushie
+  id: PlushieThrongler
+  name: throngler plushie
+  description: A stuffed toy to remind cargo techs of what they can no longer have.
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Melee/ThronglerPlushie.rsi
+      state: icon
+    - type: MeleeWeapon
+      wideAnimationRotation: -135
+      attackRate: 10
+    - type: Item
+      size: Ginormous
+      sprite: Objects/Weapons/Melee/Throngler-in-hand.rsi
+
+- type: entity
+  parent: BasePlushie
   id: PlushieGhost
   name: ghost soft toy
   description: The start of your personal GHOST GANG!
@@ -618,6 +634,17 @@
     equippedPrefix: mouse
     slots:
     - HEAD
+  # Begin DeltaV additions: make cats attack mouse toys to play with them
+  - type: Damageable
+    damageContainer: StructuralInorganic # not actually destructible, just lets it be attacked
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive # always be considered alive
+  - type: NpcFactionMember
+    factions:
+    - Mouse
+  # End DeltaV additions
 
 - type: entity
   parent: BasePlushie
@@ -1626,6 +1653,7 @@
         right:
           - state: inhand-right-blade
             shader: unshaded
+    - type: ItemTogglePointLight
     - type: DisarmMalus
       malus: 0
     - type: StaminaDamageOnHit
@@ -1949,6 +1977,7 @@
       damage: 0.8
     - type: MeleeWeapon
       canBeBlocked: false # WD EDIT
+      animationRotation: -45 # WWDP
       wideAnimationRotation: -135
       attackRate: .1
       damage:
@@ -2009,7 +2038,7 @@
       params:
         variation: 0.05
   - type: EmitSoundOnLand
-    sound: 
+    sound:
       path: /Audio/DeltaV/Voice/Harpy/caw1.ogg
       params:
         variation: 0.05

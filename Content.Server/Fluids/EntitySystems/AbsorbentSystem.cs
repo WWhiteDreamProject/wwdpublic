@@ -24,7 +24,7 @@ using Robust.Shared.Utility;
 namespace Content.Server.Fluids.EntitySystems;
 
 /// <inheritdoc/>
-public sealed class AbsorbentSystem : SharedAbsorbentSystem
+public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
@@ -36,7 +36,6 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly IMapManager _mapManager = default!; // WD EDIT
-    [Dependency] private readonly EntityLookupSystem _lookup = default!; // WD EDIT
 
     public const float AbsorptionRange = 0.25f; // WD EDIT
 
@@ -346,7 +345,7 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
         var localPos = Vector2.Transform(targetPos, _transform.GetInvWorldMatrix(userXform));
         localPos = userXform.LocalRotation.RotateVec(localPos);
 
-        _melee.DoLunge(user, used, Angle.Zero, localPos, null, false);
+        _melee.DoLunge(user, used, Angle.Zero, localPos, null, Angle.Zero, false);
 
         return true;
     }

@@ -21,7 +21,6 @@
     fireOnDropChance: 0.15
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-    doRecoil: false
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
@@ -32,11 +31,6 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
-  - type: Cautery
-    speed: 0.9
-  - type: SurgeryTool
-    endSound:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: MeleeWeapon
     attackRate: 1.3333
     damage:
@@ -55,6 +49,12 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 7
+  # Shitmed Change
+  - type: Cautery
+    speed: 0.9
+  - type: SurgeryTool
+    endSound:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -72,7 +72,6 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-    doRecoil: false
   - type: MagazineAmmoProvider
   - type: ItemSlots
     slots:
@@ -91,11 +90,6 @@
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
-  - type: Cautery
-    speed: 0.9
-  - type: SurgeryTool
-    endSound:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: MeleeWeapon
     attackRate: 1.3333
     damage:
@@ -114,6 +108,12 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 7
+  # Shitmed Change
+  - type: Cautery
+    speed: 0.9
+  - type: SurgeryTool
+    endSound:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
 
 - type: entity
   id: BaseWeaponBatterySmall
@@ -128,6 +128,11 @@
   - type: Tag
     tags:
     - Sidearm
+  - type: Gun
+    bonusAngleIncreaseMove: 20    # wwdp
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 80           # wwdp
+    maxBonusAngle: 10             # wwdp
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/taser.rsi
     quickEquip: false
@@ -159,6 +164,11 @@
     quickEquip: false
     slots:
     - Belt
+  - type: Gun
+    bonusAngleIncreaseMove: 20    # wwdp
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 80           # wwdp
+    maxBonusAngle: 10             # wwdp
   - type: MeleeWeapon
     attackRate: 1.2
     damage:
@@ -529,6 +539,7 @@
       tags:
         - Taser
         - Sidearm
+        - WeaponDisabler
     - type: Sprite
       sprite: Objects/Weapons/Guns/Battery/disabler.rsi
       layers:
@@ -566,6 +577,35 @@
       wideAnimationRotation: 135
 
 - type: entity
+  name: CentCom disabler
+  parent: WeaponDisabler
+  id: WeaponCCDisabler
+  description: An improved self-defense weapon that exhausts organic targets, weakening them until they collapse. Only for the finest officers that we don't trust with lethals.
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20
+  - type: StealTarget
+    stealGroup: NTRepWeapon
+  - type: Gun
+    fireRate: 3
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/ccdisabler.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Taser
+    - Sidearm
+
+- type: entity
   name: disabler SMG
   parent: BaseWeaponBattery
   id: WeaponDisablerSMG
@@ -586,6 +626,10 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Gun
+    bonusAngleIncreaseMove: 20    # wwdp
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 50           # wwdp
+    maxBonusAngle: 10             # wwdp
     selectedMode: FullAuto
     fireRate: 4
     availableModes:
@@ -713,7 +757,7 @@
   - type: StaticPrice
     price: 750
   - type: StealTarget
-    stealGroup: WeaponCaptain
+    stealGroup: WeaponAntiqueLaser
   - type: MeleeWeapon
     attackRate: 1.3333
     damage:
@@ -723,6 +767,10 @@
     wideAnimationRotation: 135
   - type: DamageOtherOnHit
     staminaCost: 5
+  - type: SentienceTarget # I hope this is only the captain's gun
+    flavorKind: station-event-random-sentience-flavor-inanimate
+    weight: 0.0002 # 5,000 times less likely than 1 regular animal
+    # not putting a BlockMovement component here cause that's funny.
 
 - type: entity
   name: advanced laser pistol
@@ -858,3 +906,55 @@
   - type: Appearance
   - type: StaticPrice
     price: 750
+
+- type: entity
+  name: energy shotgun
+  parent: [BaseWeaponBattery, BaseGunWieldable]
+  id: WeaponEnergyShotgun
+  description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserSpread
+    fireCost: 150
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletLaserSpread
+      fireCost: 150
+    - proto: BulletLaserSpreadNarrow
+      fireCost: 200
+    - proto: BulletDisablerSmgSpread
+      fireCost: 120
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,1
+    sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
+    heldPrefix: energy
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: HoSAntiqueWeapon
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Battery
+    maxCharge: 1200
+    startingCharge: 1200
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 24
+    autoRechargePause: true
+    autoRechargePauseTime: 10

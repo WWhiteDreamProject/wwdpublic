@@ -14,12 +14,15 @@
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
-  - type: ItemToggleSharp
   - type: ItemToggleHot
-  - type: ItemToggleDisarmMalus
-    activatedDisarmMalus: 0.6
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+    - type: DisarmMalus
+      malus: 0.6
   - type: ItemToggleSize
     activatedSize: Huge
+  - type: ItemTogglePointLight
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
       path: /Audio/Weapons/eblade1.ogg
@@ -48,6 +51,7 @@
     activatedAngle: 225
     deleteOnDeactivate: true
   - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     wideAnimationRotation: -135
     attackRate: .8
     damage:
@@ -78,12 +82,12 @@
   - type: DisarmMalus
     malus: 0
   - type: Reflect
-    enabled: false
   - type: Tag
     tags:
     - NoPaint
   - type: IgnitionSource
     temperature: 700
+  # Shitmed Change
   - type: Scalpel
     speed: 0.75
   - type: Cautery
@@ -189,10 +193,14 @@
       path: /Audio/Weapons/ebladehum.ogg
       params:
         volume: -6
-  - type: ItemToggleDisarmMalus
-    activatedDisarmMalus: 0.4
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+    - type: DisarmMalus
+      malus: 0.4
   - type: MeleeWeapon
-    wideAnimationRotation: -135
+    animationRotation: 135 # WWDP
+    wideAnimationRotation: 135 # WWDP
     attackRate: 1
     hidden: true
     damage:
@@ -272,6 +280,23 @@
         Blunt: 6
 
 - type: entity
+  name: energy cutlass
+  parent: EnergyCutlass
+  id: EnergyCutlassSecurity
+  description: A sleek energy weapon, its blade hums with volatile plasma, expertly contained to cut through nearly any material. The serial number on the hilt marks this gun as belonging to an NT Security Officer. # how do I make the text blue
+  suffix: Security Loadouts
+  components:
+  - type: MeleeWeapon
+    attackRate: 0.6666
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+        types:
+            Slash: 6
+            Heat: 12
+  - type: GuideHelp
+    guides: [ SecurityWeapons ]
+
+- type: entity
   name: double-bladed energy sword
   parent: EnergySwordBase
   id: EnergySwordDouble
@@ -309,3 +334,5 @@
     deconstructionTarget: null
     graph: EnergyDoubleSwordGraph
     node: desword
+  - type: ItemToggle # WD EDIT
+    predictable: false

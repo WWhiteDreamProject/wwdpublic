@@ -1,4 +1,4 @@
-﻿<tabs:GraphicsTab xmlns="https://spacestation14.io"
+<tabs:GraphicsTab xmlns="https://spacestation14.io"
           xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
           xmlns:tabs="clr-namespace:Content.Client.Options.UI.Tabs">
     <BoxContainer Orientation="Vertical">
@@ -40,8 +40,10 @@
                       Text="{Loc 'ui-options-vp-vertical-fit'}"
                       ToolTip="{Loc 'ui-options-vp-vertical-fit-tooltip'}" />
             <CheckBox Name="ViewportLowResCheckBox" Text="{Loc 'ui-options-vp-low-res'}" />
+            <CheckBox Name="PixelSnapCameraCheckBox" Text="{Loc 'ui-options-pixel-snap-camera-experimental'}" /> <!-- wwdp edit -->
             <CheckBox Name="ParallaxLowQualityCheckBox" Text="{Loc 'ui-options-parallax-low-quality'}" />
             <CheckBox Name="FpsCounterCheckBox" Text="{Loc 'ui-options-fps-counter'}" />
+            <CheckBox Name="MoodVisualEffectsCheckBox" Text="{Loc 'ui-options-mood-visual-effects'}" />
         </BoxContainer>
         <controls:StripeBack HasBottomEdge="False" HasMargins="False">
             <Button Name="ApplyButton"

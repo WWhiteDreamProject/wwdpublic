@@ -86,8 +86,8 @@ public sealed class ImplantsSystem : EntitySystem
     private bool MindShieldCheck(EntityUid uid, EntityUid target)
     {
         if (HasComp<HeadRevolutionaryComponent>(target)
-            || (TryComp<MindSlaveComponent>(target, out var mindSlave)
-                && mindSlave.Master.HasValue))
+            || TryComp<MindSlaveComponent>(target, out var mindSlave)
+                && mindSlave.Master.HasValue)
         {
             _popup.PopupEntity(Loc.GetString("head-rev-break-mindshield"), target);
             QueueDel(uid);
@@ -132,17 +132,14 @@ public sealed class ImplantsSystem : EntitySystem
             targetMind.Session.Channel, Color.FromHex("#5e9cff"));
 
         // add briefing in character menu
-        if (TryComp<RoleBriefingComponent>(targetMindId, out var roleBriefing))
+        if (EnsureComp<RoleBriefingComponent>(targetMindId, out var roleBriefing))
         {
             roleBriefing.Briefing += Loc.GetString("mindslave-briefing", ("player", user), ("role", jobName));
             Dirty(targetMindId, roleBriefing);
         }
         else
         {
-            _role.MindAddRole(targetMindId, new RoleBriefingComponent
-            {
-                Briefing = Loc.GetString("mindslave-briefing", ("player", user), ("role", jobName))
-            }, targetMind);
+            roleBriefing.Briefing = Loc.GetString("mindslave-briefing", ("player", user), ("role", jobName));
         }
 
         _adminLog.Add(LogType.Mind, LogImpact.High,
@@ -188,8 +185,8 @@ public sealed class ImplantsSystem : EntitySystem
         else if (HasComp<MindShieldComponent>(target)
                  || HasComp<RevolutionaryComponent>(target)
                  || !_mind.TryGetMind(target, out _, out _)
-                 || (TryComp<MindSlaveComponent>(target, out var mindSlave)
-                     && mindSlave.Master.HasValue))
+                 || TryComp<MindSlaveComponent>(target, out var mindSlave)
+                     && mindSlave.Master.HasValue)
         {
             message = Loc.GetString("mindslave-cant-insert");
         }

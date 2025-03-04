@@ -37,7 +37,8 @@
   - type: FireExtinguisher
     hasSafety: true
   - type: MeleeWeapon
-    wideAnimationRotation: 180
+    animationRotation: -90 # WWDP
+    wideAnimationRotation: 0 # WWDP
     attackRate: 1.25
     bluntStaminaDamageFactor: 2.5
     range: 1.75
@@ -55,7 +56,7 @@
   - type: Tool
     qualities:
     - Rolling
-    speed: 0.5 # its very big, akward to use
+    speedModifier: 0.5 # its very big, akward to use
   - type: Appearance
   - type: GenericVisualizer
     visuals:

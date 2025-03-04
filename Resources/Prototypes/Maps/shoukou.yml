@@ -33,6 +33,10 @@
             Musician: [ 1, 1]
             Mime: [ 1, 1 ]
             Captain: [ 1, 1 ]
+            BlueshieldOfficer: [ 0, 0 ] # WWDP no roundstart CC roles
+            NanotrasenRepresentative: [ 0, 0 ] # WWDP no roundstart CC roles
+            Magistrate: [ 0, 0 ] # WWDP no roundstart CC roles
+            AdministrativeAssistant: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
           #Engineering
             ChiefEngineer: [ 1, 1 ]
@@ -66,4 +70,5 @@
             SalvageSpecialist: [ 2, 4 ]
             MailCarrier: [ 1, 2 ]
             CargoTechnician: [ 2, 3 ]
-
+          # Silicon
+            StationAi: [ 1, 1 ]

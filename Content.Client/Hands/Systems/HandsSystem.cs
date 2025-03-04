@@ -1,21 +1,31 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Client._White.Hands;
+using Content.Shared._White.Hands.Components;
 using Content.Client.DisplacementMap;
 using Content.Client.Examine;
+using Content.Client.Hands.Systems;
 using Content.Client.Strip;
 using Content.Client.Verbs.UI;
-using Content.Shared.Body.Part;
+using Content.Shared._Shitmed.Body.Events; // Shitmed Change
+using Content.Shared.Body.Part; // Shitmed Change
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using JetBrains.Annotations;
+using MathNet.Numerics.Distributions;
 using Robust.Client.GameObjects;
+using Robust.Client.Graphics;
+using Robust.Client.Input;
 using Robust.Client.Player;
+using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
+using Robust.Shared.Graphics;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
@@ -26,11 +36,13 @@ namespace Content.Client.Hands.Systems
     {
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IUserInterfaceManager _ui = default!;
+        [Dependency] private readonly IOverlayManager _overlay = default!;	// WWDP
 
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         [Dependency] private readonly StrippableSystem _stripSys = default!;
         [Dependency] private readonly ExamineSystem _examine = default!;
         [Dependency] private readonly DisplacementMapSystem _displacement = default!;
+        [Dependency] private readonly SharedTransformSystem _transform = default!;	// WWDP
 
         public event Action<string, HandLocation>? OnPlayerAddHand;
         public event Action<string>? OnPlayerRemoveHand;
@@ -51,8 +63,11 @@ namespace Content.Client.Hands.Systems
             SubscribeLocalEvent<HandsComponent, ComponentShutdown>(OnHandsShutdown);
             SubscribeLocalEvent<HandsComponent, ComponentHandleState>(HandleComponentState);
             SubscribeLocalEvent<HandsComponent, VisualsChangedEvent>(OnVisualsChanged);
-            SubscribeLocalEvent<HandsComponent, BodyPartRemovedEvent>(HandleBodyPartRemoved);
-            SubscribeLocalEvent<HandsComponent, BodyPartDisabledEvent>(HandleBodyPartDisabled);
+            SubscribeLocalEvent<HandsComponent, BodyPartRemovedEvent>(HandleBodyPartRemoved); // Shitmed Change
+            SubscribeLocalEvent<HandsComponent, BodyPartDisabledEvent>(HandleBodyPartDisabled); // Shitmed Change
+
+            SubscribeLocalEvent<HoldingDropComponent, ComponentInit>(HoldingDropComponentInit);			// WWDP
+            SubscribeLocalEvent<HoldingDropComponent, ComponentShutdown>(HoldingDropComponentShutdown);	// WWDP
 
             OnHandSetActive += OnHandActivated;
         }
@@ -121,6 +136,20 @@ namespace Content.Client.Hands.Systems
             }
         }
         #endregion
+		
+		// WWDP EDIT START
+        private void HoldingDropComponentInit(EntityUid uid, HoldingDropComponent comp, ComponentInit args)
+        {
+            if (_playerManager.LocalEntity == uid)
+                _overlay.AddOverlay(new DropOverlay(this, _transform));
+        }
+
+        private void HoldingDropComponentShutdown(EntityUid uid, HoldingDropComponent comp, ComponentShutdown args)
+        {
+            if (_playerManager.LocalEntity == uid)
+                _overlay.RemoveOverlay<DropOverlay>();
+        }
+		// WWDP EDIT END
 
         public void ReloadHandButtons()
         {
@@ -132,13 +161,16 @@ namespace Content.Client.Hands.Systems
             OnPlayerHandsAdded?.Invoke(hands);
         }
 
-        public override void DoDrop(EntityUid uid, Hand hand, bool doDropInteraction = true, HandsComponent? hands = null)
-        {
-            base.DoDrop(uid, hand, doDropInteraction, hands);
-
-            if (TryComp(hand.HeldEntity, out SpriteComponent? sprite))
-                sprite.RenderOrder = EntityManager.CurrentTick.Value;
-        }
+		// WWDP: let it be immmortalized
+		// whoever wrote this is a dum-dum
+        //public override void DoDrop(EntityUid uid, Hand hand, bool doDropInteraction = true, HandsComponent? hands = null)
+        //{
+        //    base.DoDrop(uid, hand, doDropInteraction, hands);
+		//	
+		//    // WHAT DOES HELDENTITY EQUAL TO AFTER CALLING DODROP, OH I WONDER
+        //    if (TryComp(hand.HeldEntity, out SpriteComponent? sprite))
+        //        sprite.RenderOrder = EntityManager.CurrentTick.Value;
+        //}
 
         public EntityUid? GetActiveHandEntity()
         {
@@ -246,6 +278,7 @@ namespace Content.Client.Hands.Systems
 
         #region visuals
 
+        // Shitmed Change Start
         private void HideLayers(EntityUid uid, HandsComponent component, Entity<BodyPartComponent> part, SpriteComponent? sprite = null)
         {
             if (part.Comp.PartType != BodyPartType.Hand || !Resolve(uid, ref sprite, logMissing: false))
@@ -272,6 +305,7 @@ namespace Content.Client.Hands.Systems
 
         private void HandleBodyPartDisabled(EntityUid uid, HandsComponent component, ref BodyPartDisabledEvent args) => HideLayers(uid, component, args.Part);
 
+        // Shitmed Change End
         protected override void HandleEntityInserted(EntityUid uid, HandsComponent hands, EntInsertedIntoContainerMessage args)
         {
             base.HandleEntityInserted(uid, hands, args);
@@ -472,3 +506,5 @@ namespace Content.Client.Hands.Systems
         }
     }
 }
+
+

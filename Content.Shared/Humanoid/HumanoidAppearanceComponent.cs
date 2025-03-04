@@ -1,3 +1,4 @@
+using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared._White.TTS;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -7,7 +8,8 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
-using Content.Shared.Preferences; //DeltaV, used for Metempsychosis, Fugitive, and Paradox Anomaly
+using Content.Shared.Preferences;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype; //DeltaV, used for Metempsychosis, Fugitive, and Paradox Anomaly
 
 namespace Content.Shared.Humanoid;
 
@@ -29,6 +31,15 @@ public sealed partial class HumanoidAppearanceComponent : Component
 
     [DataField, AutoNetworkedField]
     public Gender Gender;
+
+    [DataField, AutoNetworkedField]
+    public string? DisplayPronouns;
+
+    [DataField, AutoNetworkedField]
+    public string? StationAiName;
+
+    [DataField, AutoNetworkedField]
+    public string? CyborgName;
 
     [DataField, AutoNetworkedField]
     public int Age = 18;
@@ -114,6 +125,12 @@ public sealed partial class HumanoidAppearanceComponent : Component
     public float Width = 1f;
 
     // WD EDIT START
+    /// <summary>
+    ///     Current body type.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public ProtoId<BodyTypePrototype> BodyType { get; set; } = SharedHumanoidAppearanceSystem.DefaultBodyType;
+
     [DataField, AutoNetworkedField]
     public ProtoId<TTSVoicePrototype> Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice;
     // WD EDIT END

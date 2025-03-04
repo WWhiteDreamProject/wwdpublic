@@ -22,15 +22,15 @@ chat-manager-server-wrap-message = СЕРВЕР: { $message }
 chat-manager-sender-announcement-wrap-message = [font size=14][bold]Объявление {$sender}:[/font][font size=12]
                                                 {$message}[/bold][/font]
 
-chat-manager-entity-say-wrap-message = [BubbleHeader][bold][Name]{$entityName}[/Name][/bold][/BubbleHeader] [italic]{$verb}[/italic], [font={$fontType} size={$fontSize}]"[BubbleContent]{$message}[/BubbleContent]"[/font]
-chat-manager-entity-say-bold-wrap-message = [BubbleHeader][bold][Name]{$entityName}[/Name][/bold][/BubbleHeader] {$verb}, [font={$fontType} size={$fontSize}]"[BubbleContent][bold]{$message}[/bold][/BubbleContent]"[/font]
+chat-manager-entity-say-wrap-message = [bold][BubbleHeader][Name]{$entityName}[/Name][/BubbleHeader][/bold] [italic]{$verb}[/italic], [font="{$fontType}" size={$fontSize}]"[BubbleContent]{$message}[/BubbleContent]"[/font]
+chat-manager-entity-say-bold-wrap-message = [bold][BubbleHeader][Name]{$entityName}[/Name][/BubbleHeader][/bold] {$verb}, [font="{$fontType}" size={$fontSize}]"[bold][BubbleContent]{$message}[/BubbleContent][/bold]"[/font]
 
-chat-manager-entity-whisper-wrap-message = [font size=11][italic][BubbleHeader]{$entityName}[/BubbleHeader] шепчет,"[BubbleContent]{$message}[/BubbleContent]"[/italic][/font]
+chat-manager-entity-whisper-wrap-message = [font size=11][italic][BubbleHeader][Name]{$entityName}[/Name][/BubbleHeader] шепчет,"[BubbleContent]{$message}[/BubbleContent]"[/italic][/font]
 chat-manager-entity-whisper-unknown-wrap-message = [font size=11][italic][BubbleHeader]Некто[/BubbleHeader] шепчет, "[BubbleContent]{$message}[/BubbleContent]"[/italic][/font]
 
 chat-manager-entity-me-wrap-message = { $entityName } { $message }
 
-chat-manager-entity-looc-wrap-message = LOOC: [bold]{$entityName}:[/bold] {$message}
+chat-manager-entity-looc-wrap-message = LOOC: {$entityName}: [BubbleContent]{$message}[/BubbleContent]
 chat-manager-send-ooc-wrap-message = OOC: [bold]{$playerName}:[/bold] {$message}
 chat-manager-send-ooc-patron-wrap-message = OOC: [color={$patronColor}]{$playerName}[/color]: {$message}
 
@@ -86,9 +86,12 @@ chat-speech-verb-reptilian-1 = шипит
 chat-speech-verb-reptilian-2 = фыркает
 chat-speech-verb-reptilian-3 = пыхтит
 
+chat-speech-verb-name-skeleton = Скелет / Плазмочеловек
 chat-speech-verb-skeleton-1 = гремит
-chat-speech-verb-skeleton-2 = щелкает
-chat-speech-verb-skeleton-3 = скрежет
+chat-speech-verb-skeleton-2 = ребрами
+chat-speech-verb-skeleton-3 = костями
+chat-speech-verb-skeleton-4 = стучит
+chat-speech-verb-skeleton-5 = трещит
 
 chat-speech-verb-canine-1 = гавкает
 chat-speech-verb-canine-2 = лает

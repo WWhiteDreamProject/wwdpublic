@@ -3,19 +3,28 @@
   name: species-name-slime
   roundStart: true
   prototype: MobSlimePerson
-  sprites: MobSlimeSprites
+  # WD EDIT START
+  bodyTypes:
+    - SlimeNormal
+  # WD EDIT END
   defaultSkinTone: "#b8b8b8"
   markingLimits: MobSlimeMarkingLimits
   dollPrototype: MobSlimePersonDummy
   skinColoration: Hues
 
-- type: speciesBaseSprites
-  id: MobSlimeSprites
+# WD EDIT START
+- type: bodyType
+  id: SlimeNormal
+  name: body-normal
+# WD EDIT END
   sprites:
+    Face: MobHumanoidAnyMarking
     Head: MobSlimeHead
     HeadSide: MobHumanoidAnyMarking
     Hair: MobSlimeMarkingFollowSkin
     FacialHair: MobSlimeMarkingFollowSkin
+    Underwear: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
     Chest: MobSlimeTorso
     Eyes: MobHumanoidEyes
     LArm: MobSlimeLArm
@@ -40,6 +49,12 @@
       points: 1
       required: false
     Chest:
+      points: 1
+      required: false
+    Underwear:
+      points: 1
+      required: false
+    Undershirt:
       points: 1
       required: false
     RightLeg:

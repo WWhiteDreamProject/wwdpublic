@@ -86,6 +86,7 @@
         maxVol: 8 #uses less fuel than a welder, so this isnt as bad as it looks
   - type: MeleeWeapon
     canBeBlocked: false # WD EDIT
+    animationRotation: 180 # WWDP
     wideAnimationRotation: 180
     damage:
       types:
@@ -100,6 +101,7 @@
     netsync: false
     radius: 1.1 #smallest possible
     color: orange
+  # Shitmed Change
   - type: Cautery
     speed: 0.45
   - type: SurgeryTool
@@ -107,6 +109,7 @@
       collection: lighterOnSounds
     endSound:
       collection: lighterOffSounds
+  - type: ItemTogglePointLight
 
 - type: entity
   name: cheap lighter
@@ -228,6 +231,7 @@
         shader: unshaded
   - type: MeleeWeapon
     canBeBlocked: false # WD EDIT
+    animationRotation: 180 # WWDP
     wideAnimationRotation: 180
     damage:
       types:
@@ -238,6 +242,7 @@
     netsync: false
     radius: 1.2 #slightly stronger than the other lighters
     color: orange
+  - type: ItemTogglePointLight
   - type: UseDelay
   - type: IgnitionSource
     ignited: false

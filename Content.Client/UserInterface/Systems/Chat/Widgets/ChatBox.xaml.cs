@@ -1,5 +1,6 @@
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Shared._White;
+using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.Audio;
@@ -8,6 +9,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Input;
@@ -24,17 +26,19 @@ public partial class ChatBox : UIWidget
 {
     private readonly ChatUIController _controller;
     private readonly IEntityManager _entManager;
-    private readonly IConfigurationManager _cfg; // WD EDIT
-    private readonly ILocalizationManager _loc; // WD EDIT
+    private readonly IConfigurationManager _cfg;
+    private readonly ILocalizationManager _loc;
 
     public bool Main { get; set; }
 
     public ChatSelectChannel SelectedChannel => ChatInput.ChannelSelector.SelectedChannel;
-    // WD EDIT START
-    private bool _coalescence = false; // op ult btw
-    private (string, Color)? _lastLine;
-    private int _lastLineRepeatCount = 0;
-    // WD EDIT END
+   
+    private int _chatStackAmount = 0;
+    private bool _chatStackEnabled => _chatStackAmount > 0;
+    private List<ChatStackData> _chatStackList;
+
+    private bool _chatFontEnabled; // WWDP EDIT
+   
 
     public ChatBox()
     {
@@ -52,14 +56,23 @@ public partial class ChatBox : UIWidget
         _controller.MessageAdded += OnMessageAdded;
         _controller.RegisterChat(this);
 
-        // WD EDIT START
-        _cfg = IoCManager.Resolve<IConfigurationManager>(); 
-        _coalescence = _cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages); // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
-        _cfg.OnValueChanged(WhiteCVars.CoalesceIdenticalMessages, UpdateCoalescence, false); // eplicitly false to underline the above comment
-        // WD EDIT END
+       
+        _cfg = IoCManager.Resolve<IConfigurationManager>();
+        //_chatStackAmount = _cfg.GetCVar(CCVars.ChatStackLastLines);
+        //if (_chatStackAmount < 0) // anti-idiot protection
+        //    _chatStackAmount = 0;
+        _chatStackList = new(_chatStackAmount);
+        _cfg.OnValueChanged(CCVars.ChatStackLastLines, UpdateChatStack, true);
+        _cfg.OnValueChanged(WhiteCVars.ChatFancyFont, value => { _chatFontEnabled = value; Repopulate(); }, true); // WWDP EDIT
+       
     }
 
-    private void UpdateCoalescence(bool value) { _coalescence = value; Repopulate(); } // WD EDIT
+   
+    private void UpdateChatStack(int value)
+    {
+        _chatStackAmount = value >= 0 ? value : 0;
+        Repopulate();
+    }
 
     private void OnTextEntered(LineEditEventArgs args)
     {
@@ -81,26 +94,57 @@ public partial class ChatBox : UIWidget
 
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
-        // WD EDIT START
-        (string, Color) tup = (msg.WrappedMessage, color);
-
-        // Removing and then adding insantly nudges the chat window up before slowly dragging it back down, which makes the whole chat log shake
-        // and make it borderline unreadable with frequent enough spam.
-        // Adding first and then removing does not produce any visual effects.
-        // The other option is to copypaste into Content all of OutputPanel and everything it uses but is intertanl to Robust namespace.
-        // Thanks robustengine, very cool.
-        if (_coalescence && _lastLine == tup)
+       
+        if (msg.IgnoreChatStack)
         {
-            _lastLineRepeatCount++;
-            AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
-            Contents.RemoveEntry(^2); 
+            TrackNewMessage(msg.WrappedMessage, color, true);
+            AddLine(msg.WrappedMessage, color);
+            return;
         }
-        else
+
+        int index = _chatStackList.FindIndex(data => data.WrappedMessage == msg.WrappedMessage && !data.IgnoresChatstack);
+
+        if (index == -1) // this also handles chatstack being disabled, since FindIndex won't find anything in an empty array
         {
-            _lastLineRepeatCount = 0;
-            _lastLine = (msg.WrappedMessage, color);
-            AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
-        } // WD EDIT END
+            TrackNewMessage(msg.WrappedMessage, color);
+            AddLine(msg.WrappedMessage, color);
+            return;
+        }
+
+        UpdateRepeatingLine(index);
+    }
+
+    /// <summary>
+    /// Removing and then adding insantly nudges the chat window up before slowly dragging it back down, which makes the whole chat log shake.
+    /// With rapid enough updates, the whole chat becomes unreadable.
+    /// Adding first and then removing does not produce any visual effects.
+    /// The other option is to dublicate OutputPanel functionality and everything internal to the engine it relies on.
+    /// But OutputPanel relies on directly setting Control.Position for control embedding. (which is not exposed to Content.)
+    /// Thanks robustengine, very cool.
+    /// </summary>
+    /// <remarks>
+    /// zero index is the very last line in chat, 1 is the line before the last one, 2 is the line before that, etc.
+    /// </remarks>
+    private void UpdateRepeatingLine(int index)
+    {
+        _chatStackList[index].RepeatCount++;
+        for (int i = index; i >= 0; i--)
+        {
+            var data = _chatStackList[i];
+            AddLine(data.WrappedMessage, data.ColorOverride, data.RepeatCount);
+            Contents.RemoveEntry(Index.FromEnd(index + 2));
+        }
+    }
+
+    private void TrackNewMessage(string wrappedMessage, Color colorOverride, bool ignoresChatstack = false)
+    {
+        if (!_chatStackEnabled)
+            return;
+
+        if(_chatStackList.Count == _chatStackList.Capacity)
+            _chatStackList.RemoveAt(_chatStackList.Capacity - 1);
+
+        _chatStackList.Insert(0, new ChatStackData(wrappedMessage, colorOverride, ignoresChatstack)); 
     }
 
     private void OnChannelSelect(ChatSelectChannel channel)
@@ -111,7 +155,7 @@ public partial class ChatBox : UIWidget
     public void Repopulate()
     {
         Contents.Clear();
-
+        _chatStackList = new List<ChatStackData>(_chatStackAmount);
         foreach (var message in _controller.History)
         {
             OnMessageAdded(message.Item2);
@@ -133,21 +177,33 @@ public partial class ChatBox : UIWidget
         }
     }
 
-    public void AddLine(string message, Color color, int repeat = 0) // WD EDIT
+    public void AddLine(string message, Color color, int repeat = 0)
     {
-        var formatted = new FormattedMessage(4); // WD EDIT // specifying size beforehand smells like a useless microoptimisation, but i'll give them the benefit of doubt
+        // WWDP EDIT START // I FUCKING HATE THIS ENGINE
+        if (_chatFontEnabled)
+        {
+            message = $"[font=\"Chat\"]{message}[/font]";
+            message = message.Replace("[font size=", "[font=\"Chat\" size="); // AAAAAAAAAAAAAAAA
+            message = message.Replace("[font=\"Default\"", "[font=\"Chat\""); // AAAAAAAAAAAAAAAA
+            message = message.Replace("[bold]", "[cb]");
+            message = message.Replace("[/bold]", "[/cb]");
+            message = message.Replace("[italic]", "[ci]");
+            message = message.Replace("[/italic]", "[/ci]");
+        }
+        // WWDP EDIT END
+        var formatted = new FormattedMessage(4); 
         formatted.PushColor(color);
         formatted.AddMarkup(message);
         formatted.Pop();
-        if(repeat != 0) // WD EDIT START
-        {   
+        if (repeat != 0)
+        {
             int displayRepeat = repeat + 1;
             int sizeIncrease = Math.Min(displayRepeat / 6, 5);
             formatted.AddMarkup(_loc.GetString("chat-system-repeated-message-counter",
                                 ("count", displayRepeat),
-                                ("size", 8+sizeIncrease)
+                                ("size", 8 + sizeIncrease)
                                 ));
-        } // WD EDIT END
+        }
         Contents.AddMessage(formatted);
     }
 
@@ -231,6 +287,20 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnKeyBindDown -= OnInputKeyBindDown;
         ChatInput.Input.OnTextChanged -= OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
-        _cfg.UnsubValueChanged(WhiteCVars.CoalesceIdenticalMessages, UpdateCoalescence); // WD EDIT
+        _cfg.UnsubValueChanged(CCVars.ChatStackLastLines, UpdateChatStack);
+    }
+
+    private class ChatStackData
+    {
+        public string WrappedMessage;
+        public Color ColorOverride;
+        public int RepeatCount = 0;
+        public bool IgnoresChatstack;
+        public ChatStackData(string wrappedMessage, Color colorOverride, bool ignoresChatstack = false)
+        {
+            WrappedMessage = wrappedMessage;
+            ColorOverride = colorOverride;
+            IgnoresChatstack = ignoresChatstack;
+        }
     }
 }

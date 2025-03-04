@@ -14,6 +14,7 @@ marking-slot-remove = Удалить
 # Categories
 
 markings-category-Hair = Причёска
+markings-category-Face = Лицо
 markings-category-FacialHair = Лицевая растительность
 markings-category-Head = Голова
 markings-category-HeadTop = Голова (верх)
@@ -24,3 +25,5 @@ markings-category-Arms = Руки
 markings-category-Legs = Ноги
 markings-category-Tail = Хвост
 markings-category-Overlay = Наложение
+markings-category-Undershirt = Рубашка
+markings-category-Underwear = Нижнее белье

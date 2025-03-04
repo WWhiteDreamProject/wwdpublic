@@ -1,22 +1,15 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
-  # - Arena
-  - Asterisk
-  # - Core
-  # - Edge
-  # - Glacier
-  # - Hammurabi
-  # - Lighthouse
-  - Pebble
-  # - Saltern
-  - Shoukou
-  # - Submarine
-  # - Tortuga
-  # - TheHive
-  # - Gax
-  # - Rad
-  - Europa
+  # - Asterisk # De-rotated, no current maintainer.
+  - Pebble # Plyushsune is the current maintainer.
+  - Shoukou # Maintained by Violet, pending update.
+  - Meta # Maintained by Estacao Pirata
+  - Box # Maintained by Estacao Pirata
+  - Lambda # Maintained by Estacao Pirata
+  - Bagel # Maintained by Estacao Pirata
+  # WD EDIT START - white dream maps
   - DryDock
   - Moose
   - WhiteBox
+  # WD EDIT END

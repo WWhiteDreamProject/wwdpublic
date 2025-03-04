@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Client.UserInterface.Screens;
 using Content.Shared._White;
 using Content.Shared.CCVar;
@@ -60,6 +60,18 @@ namespace Content.Client.Options.UI.Tabs
                 UpdateApplyButton();
             };
 
+            ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-off"), 0);
+            ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-single"), 1);
+            ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-double"), 2);
+            ChatStackOption.AddItem(Loc.GetString("ui-options-chatstack-triple"), 3);
+            ChatStackOption.TrySelectId(_cfg.GetCVar(CCVars.ChatStackLastLines));
+
+            ChatStackOption.OnItemSelected += args =>
+            {
+                ChatStackOption.SelectId(args.Id);
+                UpdateApplyButton();
+            };
+
             // Channel can be null in replays so.
             // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
             ShowOocPatronColor.Visible = _playerManager.LocalSession?.Channel?.UserData.PatronTier is { };
@@ -75,15 +87,17 @@ namespace Content.Client.Options.UI.Tabs
             FancySpeechBubblesCheckBox.OnToggled += OnCheckBoxToggled;
             FancyNameBackgroundsCheckBox.OnToggled += OnCheckBoxToggled;
             EnableColorNameCheckBox.OnToggled += OnCheckBoxToggled;
+            EnableColorBubbleChatCheckBox.OnToggled += OnCheckBoxToggled;  // WWDP EDIT
+            EnableChatFancyFontCheckBox.OnToggled += OnCheckBoxToggled; // WWDP EDIT
             ColorblindFriendlyCheckBox.OnToggled += OnCheckBoxToggled;
             ReducedMotionCheckBox.OnToggled += OnCheckBoxToggled;
             ChatWindowOpacitySlider.OnValueChanged += OnChatWindowOpacitySliderChanged;
             ScreenShakeIntensitySlider.OnValueChanged += OnScreenShakeIntensitySliderChanged;
             // ToggleWalk.OnToggled += OnCheckBoxToggled;
             StaticStorageUI.OnToggled += OnCheckBoxToggled;
+            ModernProgressBar.OnToggled += OnCheckBoxToggled;
             DisableFiltersCheckBox.OnToggled += OnCheckBoxToggled;
             LogInChatCheckBox.OnToggled += OnCheckBoxToggled; // WD EDIT
-            CoalesceIdenticalMessagesCheckBox.OnToggled += OnCheckBoxToggled; // WD EDIT
 
             HudThemeOption.SelectId(_hudThemeIdToIndex.GetValueOrDefault(_cfg.GetCVar(CVars.InterfaceTheme), 0));
             DiscordRich.Pressed = _cfg.GetCVar(CVars.DiscordEnabled);
@@ -96,15 +110,18 @@ namespace Content.Client.Options.UI.Tabs
             FancySpeechBubblesCheckBox.Pressed = _cfg.GetCVar(CCVars.ChatEnableFancyBubbles);
             FancyNameBackgroundsCheckBox.Pressed = _cfg.GetCVar(CCVars.ChatFancyNameBackground);
             EnableColorNameCheckBox.Pressed = _cfg.GetCVar(CCVars.ChatEnableColorName);
+            EnableColorBubbleChatCheckBox.Pressed = _cfg.GetCVar(WhiteCVars.ColoredBubbleChat); // WWDP EDIT
+            EnableChatFancyFontCheckBox.Pressed = _cfg.GetCVar(WhiteCVars.ChatFancyFont);       // WWDP EDIT
             ColorblindFriendlyCheckBox.Pressed = _cfg.GetCVar(CCVars.AccessibilityColorblindFriendly);
             ReducedMotionCheckBox.Pressed = _cfg.GetCVar(CCVars.ReducedMotion);
             ChatWindowOpacitySlider.Value = _cfg.GetCVar(CCVars.ChatWindowOpacity);
             ScreenShakeIntensitySlider.Value = _cfg.GetCVar(CCVars.ScreenShakeIntensity) * 100f;
             // ToggleWalk.Pressed = _cfg.GetCVar(CCVars.ToggleWalk);
             StaticStorageUI.Pressed = _cfg.GetCVar(CCVars.StaticStorageUI);
+            ModernProgressBar.Pressed = _cfg.GetCVar(CCVars.ModernProgressBar);
             DisableFiltersCheckBox.Pressed = _cfg.GetCVar(CCVars.NoVisionFilters);
             LogInChatCheckBox.Pressed = _cfg.GetCVar(WhiteCVars.LogInChat); // WD EDIT
-            CoalesceIdenticalMessagesCheckBox.Pressed = _cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages); // WD EDIT // THIS IS DISGUSTING BTW
+
 
             ApplyButton.OnPressed += OnApplyButtonPressed;
             UpdateApplyButton();
@@ -154,15 +171,18 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.ChatEnableFancyBubbles, FancySpeechBubblesCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ChatFancyNameBackground, FancyNameBackgroundsCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ChatEnableColorName, EnableColorNameCheckBox.Pressed);
+            _cfg.SetCVar(WhiteCVars.ColoredBubbleChat, EnableColorBubbleChatCheckBox.Pressed);  // WWDP EDIT
+            _cfg.SetCVar(WhiteCVars.ChatFancyFont, EnableChatFancyFontCheckBox.Pressed);        // WWDP EDIT
             _cfg.SetCVar(CCVars.AccessibilityColorblindFriendly, ColorblindFriendlyCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ReducedMotion, ReducedMotionCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ChatWindowOpacity, ChatWindowOpacitySlider.Value);
             _cfg.SetCVar(CCVars.ScreenShakeIntensity, ScreenShakeIntensitySlider.Value / 100f);
             // _cfg.SetCVar(CCVars.ToggleWalk, ToggleWalk.Pressed);
             _cfg.SetCVar(CCVars.StaticStorageUI, StaticStorageUI.Pressed);
+            _cfg.SetCVar(CCVars.ModernProgressBar, ModernProgressBar.Pressed);
             _cfg.SetCVar(CCVars.NoVisionFilters, DisableFiltersCheckBox.Pressed);
+            _cfg.SetCVar(CCVars.ChatStackLastLines, ChatStackOption.SelectedId);
             _cfg.SetCVar(WhiteCVars.LogInChat, LogInChatCheckBox.Pressed); // WD EDIT
-            _cfg.SetCVar(WhiteCVars.CoalesceIdenticalMessages, CoalesceIdenticalMessagesCheckBox.Pressed); // WD EDIT
 
             if (HudLayoutOption.SelectedMetadata is string opt)
             {
@@ -187,16 +207,18 @@ namespace Content.Client.Options.UI.Tabs
             var isFancyChatSame = FancySpeechBubblesCheckBox.Pressed == _cfg.GetCVar(CCVars.ChatEnableFancyBubbles);
             var isFancyBackgroundSame = FancyNameBackgroundsCheckBox.Pressed == _cfg.GetCVar(CCVars.ChatFancyNameBackground);
             var isEnableColorNameSame = EnableColorNameCheckBox.Pressed == _cfg.GetCVar(CCVars.ChatEnableColorName);
+            var isEnableColorBubbleChatSame = EnableColorBubbleChatCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.ColoredBubbleChat);  // WWDP EDIT
+            var isEnableFancyChatFontSame = EnableChatFancyFontCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.ChatFancyFont);          // WWDP EDIT
             var isColorblindFriendly = ColorblindFriendlyCheckBox.Pressed == _cfg.GetCVar(CCVars.AccessibilityColorblindFriendly);
             var isReducedMotionSame = ReducedMotionCheckBox.Pressed == _cfg.GetCVar(CCVars.ReducedMotion);
             var isChatWindowOpacitySame = Math.Abs(ChatWindowOpacitySlider.Value - _cfg.GetCVar(CCVars.ChatWindowOpacity)) < 0.01f;
             var isScreenShakeIntensitySame = Math.Abs(ScreenShakeIntensitySlider.Value / 100f - _cfg.GetCVar(CCVars.ScreenShakeIntensity)) < 0.01f;
             // var isToggleWalkSame = ToggleWalk.Pressed == _cfg.GetCVar(CCVars.ToggleWalk);
             var isStaticStorageUISame = StaticStorageUI.Pressed == _cfg.GetCVar(CCVars.StaticStorageUI);
+            var isModernProgressBarSame = ModernProgressBar.Pressed == _cfg.GetCVar(CCVars.ModernProgressBar);
             var isNoVisionFiltersSame = DisableFiltersCheckBox.Pressed == _cfg.GetCVar(CCVars.NoVisionFilters);
+            var isChatStackTheSame = ChatStackOption.SelectedId == _cfg.GetCVar(CCVars.ChatStackLastLines);
             var isLogInChatCheckBoxSame = LogInChatCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.LogInChat); // WD EDIT
-            var CoalesceIdenticalMessagesCheckBoxSame = CoalesceIdenticalMessagesCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages); // WD EDIT // HOLY SHIT
-
 
             ApplyButton.Disabled = isHudThemeSame &&
                                    isLayoutSame &&
@@ -210,15 +232,18 @@ namespace Content.Client.Options.UI.Tabs
                                    isFancyChatSame &&
                                    isFancyBackgroundSame &&
                                    isEnableColorNameSame &&
+                                   isEnableColorBubbleChatSame &&   // WWDP EDIT
+                                   isEnableFancyChatFontSame &&     // WWDP EDIT
                                    isColorblindFriendly &&
                                    isReducedMotionSame &&
                                    isChatWindowOpacitySame &&
                                    isScreenShakeIntensitySame &&
                                    // isToggleWalkSame &&
                                    isStaticStorageUISame &&
+                                   isModernProgressBarSame &&
                                    isNoVisionFiltersSame &&
-                                   isLogInChatCheckBoxSame && // WD EDIT
-                                   CoalesceIdenticalMessagesCheckBoxSame; // WD EDIT
+                                   isChatStackTheSame &&
+                                   isLogInChatCheckBoxSame; // WD EDIT
         }
 
     }

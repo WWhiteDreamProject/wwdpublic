@@ -22,6 +22,10 @@
           availableJobs:
             #service
             Captain: [ 1, 1 ]
+            BlueshieldOfficer: [ 0, 0 ] # WWDP no roundstart CC roles
+            NanotrasenRepresentative: [ 0, 0 ] # WWDP no roundstart CC roles
+            Magistrate: [ 0, 0 ] # WWDP no roundstart CC roles
+            AdministrativeAssistant: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 2 ]
             Botanist: [ 1, 3 ]
@@ -62,4 +66,5 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 2 ]
             Passenger: [ -1, -1 ]
-
+            #silicon
+            StationAi: [ 1, 1 ]

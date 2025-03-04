@@ -51,6 +51,13 @@
     allowedVerbs: [] # TODO: define something here, or don't.
   - type: Penetrated # WD EDIT
 
+- type: entity
+  save: false
+  id: MobPolymorphable
+  abstract: true
+  components:
+  - type: Polymorphable
+
 # Used for mobs that have health and can take damage.
 - type: entity
   save: false
@@ -114,6 +121,7 @@
   - type: LightningTarget
     priority: 2
     lightningExplode: false
+  - type: Hearing # WWDP
 
 # Used for mobs that can enter combat mode and can attack.
 - type: entity

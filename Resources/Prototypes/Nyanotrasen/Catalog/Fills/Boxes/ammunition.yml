@@ -11,6 +11,9 @@
       layers:
         - state: boxwide
         - state: shellslug
+    - type: GuideHelp
+      guides: [ Mindbreaking ]
+
 
 - type: entity
   name: box of .45 magnum Universal magazines
@@ -39,24 +42,6 @@
   - type: StorageFill
     contents:
       - id: MagazineUniversalMagnumPractice
-        amount: 6
-  - type: Storage
-    maxItemSize: Small
-    grid:
-      - 0,0,3,2
-    whitelist:
-      components:
-        - BallisticAmmoProvider
-
-- type: entity
-  name: box of .45 magnum Universal (rubber) magazines
-  parent: BoxMagazine
-  id: BoxMagazineUniversalMagnumRubber
-  description: A box full of .45 magnum rubber magazines.
-  components:
-  - type: StorageFill
-    contents:
-      - id: MagazineUniversalMagnumRubber
         amount: 6
   - type: Storage
     maxItemSize: Small

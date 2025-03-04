@@ -1,6 +1,9 @@
 ent-BaseToolSurgery = { ent-BaseItem }
     .desc = { ent-BaseItem.desc }
     .suffix = { "" }
+ent-OmnimedTool = { ent-BaseToolSurgery }
+    .desc = { ent-BaseToolSurgery.desc }
+    .suffix = { "" }
 ent-Cautery = прибор для прижигания
     .desc = Хирургический инструмент, используемый для прижигания открытых ран.
     .suffix = { "" }
