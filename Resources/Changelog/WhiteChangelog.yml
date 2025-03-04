@@ -1533,3 +1533,14 @@ Entries:
   id: 163
   time: '2025-03-04T13:28:14.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/271
+- author: vanx
+  changes:
+    - type: Add
+      message: 'Новая черта персонажа: Глухой. Даёт глухоту и язык жестов.'
+    - type: Fix
+      message: Глухие персонажи теперь видят эмоции и OOC-чаты.
+    - type: Fix
+      message: Глухие персонажи теперь видят сообщения на языке жестов.
+  id: 164
+  time: '2025-03-04T13:30:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/270
