@@ -80,6 +80,7 @@ public sealed class HearingSystem : EntitySystem
         }
 
         EnsureComp<DeafComponent>(uid, out var deafComponent);
+        deafComponent.Permanent = false;
         deafComponent.DeafChatMessage = args.DeafChatMessage;
 
         deafComponent.TokenSource?.Cancel();
