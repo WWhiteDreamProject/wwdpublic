@@ -54,6 +54,9 @@
     reflectProb: .1
     spread: 90
   - type: Item
+    storedRotation: 45 # WWDP
+    shape:
+    - 0,0,3,0
     size: Normal
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
   - type: Tag
@@ -67,6 +70,7 @@
     # not putting a BlockMovement component here cause that's funny.
   - type: MeleeBlock # WD EDIT
     delay: 6.1
+
 
 - type: entity
   name: katana
@@ -103,6 +107,9 @@
   - type: Item
     size: Normal
     sprite: DeltaV/Objects/Weapons/Melee/katana.rsi #DeltaV
+    storedRotation: 45 # WWDP
+    shape:
+    - 0,0,4,0
   - type: DisarmMalus
   - type: MeleeBlock # WD EDIT
     delay: 6.1
@@ -125,6 +132,9 @@
     angle: 300
   - type: Item
     size: Large # WWDP
+    storedRotation: -30
+    shape:
+    - 0,0,6,0
     sprite: Objects/Weapons/Melee/energykatana.rsi
   - type: EnergyKatana
   - type: DashAbility
@@ -176,6 +186,9 @@
     angle: 225
   - type: Item
     size: Normal
+    storedRotation: 45
+    shape:
+    - 0,0,3,0
     sprite: Objects/Weapons/Melee/machete.rsi
 
 - type: entity
@@ -253,6 +266,9 @@
   - type: ThrowingAngle
     angle: 225
   - type: Item
+    storedRotation: 45
+    shape:
+    - 0,0,3,0
     size: Normal
     sprite: Objects/Weapons/Melee/cutlass.rsi
 

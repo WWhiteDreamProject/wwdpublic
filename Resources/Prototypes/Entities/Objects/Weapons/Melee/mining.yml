@@ -52,7 +52,9 @@
   description: Powerful tool used to quickly drill through rocks.
   components:
   - type: Item
-    storedRotation: -90
+    size: Large # WWDP
+    shape:
+    - 0,0,3,1
   - type: Tag
     tags:
     - Pickaxe

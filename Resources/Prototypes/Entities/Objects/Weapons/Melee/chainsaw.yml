@@ -40,7 +40,7 @@
     size: Normal
     storedRotation: 45
     shape:
-    - 0,0,5,1
+    - 0,0,4,1
     sprite: Objects/Weapons/Melee/chainsaw.rsi
   - type: DisarmMalus
   - type: RefillableSolution
