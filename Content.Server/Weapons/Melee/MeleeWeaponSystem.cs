@@ -238,7 +238,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
                         0f, 1f);
     }
 
-    // WWDP shove stamind damage based on mass
+    // WWDP shove stamina damage based on mass
     private float CalculateShoveStaminaDamage(EntityUid disarmer, EntityUid disarmed)
     {
         var baseStaminaDamage = TryComp<ShovingComponent>(disarmer, out var shoving) ? shoving.StaminaDamage : ShovingComponent.DefaultStaminaDamage;
