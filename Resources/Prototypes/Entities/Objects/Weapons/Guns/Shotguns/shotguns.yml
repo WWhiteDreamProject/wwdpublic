@@ -20,7 +20,7 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun # change WeaponShotgunBulldog too if updating this
-    bonusAngleIncreaseMove: 40    # wwdp 
+    bonusAngleIncreaseMove: 40    # wwdp
     bonusAngleIncreaseTurn: 0.25  # wwdp
     bonusAngleDecay: 40           # wwdp
     maxBonusAngle: 20             # wwdp
@@ -77,13 +77,13 @@
   description: A rootiny tootiny point and shootiny.
   abstract: true
   components:
-  - type: Gun # change WeaponFlareGun too if updating this 
-    bonusAngleIncreaseMove: 20    # wwdp 
+  - type: Gun # change WeaponFlareGun too if updating this
+    bonusAngleIncreaseMove: 20    # wwdp
     bonusAngleIncreaseTurn: 0.4   # wwdp
     bonusAngleDecay: 80           # wwdp
     maxBonusAngle: 10             # wwdp
     fireRate: 2
-  
+
 
 - type: entity
   name: Bulldog
@@ -100,7 +100,9 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Item
-    size: Large
+    size: Huge # WWDP guns resize
+    shape:
+    - 0,0,5,1
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
     quickEquip: false
@@ -184,9 +186,9 @@
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # Delta-V
   - type: Item
-    size: Normal
+    size: Huge # WWDP weapons resize
     shape:
-    - 0,0,4,0
+    - 0,0,7,0
     sprite: Objects/Weapons/Guns/Shotguns/db_shotgun_inhands_64x.rsi
   - type: Gun
     fireRate: 2
@@ -227,6 +229,9 @@
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: Item
+    size: Huge # WWDP guns resize
+    shape:
+    - 0,0,5,1
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: BallisticAmmoProvider
   - type: Wieldable
@@ -253,9 +258,9 @@
   description: When an old Remington design meets modern materials, this is the result. A favourite weapon of militia forces throughout many worlds. Uses .50 shotgun shells.
   components:
   - type: Item
-    size: Normal
+    size: Huge # WWDP guns resize
     shape:
-    - 0,0,4,0
+    - 0,0,7,0
     sprite: Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/pump.rsi
@@ -279,7 +284,9 @@
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/sawn.rsi # Delta-V
   - type: Item
-    size: Small
+    size: Normal # WWDP guns resize
+    shape:
+    - 0,0,3,0
     sprite: Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi
   - type: Gun
     fireRate: 4
@@ -319,8 +326,9 @@
   description: Looks unreliable. Uses .50 shotgun shells.
   components:
   - type: Item
-    size: Small
-    storedRotation: 90
+    size: Normal # WWDP guns resize
+    shape:
+    - 0,0,3,0
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
   - type: Clothing
@@ -353,9 +361,9 @@
   description: Deadly at close range.
   components:
   - type: Item
-    size: Normal
+    size: Large # WWDP guns resize
     shape:
-    - 0,0,4,0
+    - 0,0,5,1
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/blunderbuss.rsi
   - type: Gun
@@ -378,9 +386,9 @@
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi # Delta-V
   - type: Item
-    size: Normal
+    size: Huge # WWDP guns resize
     shape:
-    - 0,0,4,0
+    - 0,0,7,0
     sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun_inhands_64x.rsi
   - type: Gun
     fireRate: 4 #No reason to stifle the firerate since you have to manually reload every time anyways.

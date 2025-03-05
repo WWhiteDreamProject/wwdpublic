@@ -32,7 +32,10 @@
   - type: DamageOtherOnHit
     staminaCost: 10
   - type: Item
-    size: Normal
+    size: Huge
+    storedRotation: 45
+    shape:
+    - 0,0,7,0
   - type: Tool
     qualities:
     - Rolling

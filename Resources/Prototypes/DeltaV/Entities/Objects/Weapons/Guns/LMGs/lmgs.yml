@@ -12,6 +12,8 @@
           map: [ "enum.GunVisualLayers.Base" ]
     - type: Item
       size: Huge
+      shape:
+      - 0,0,7,2 # Same as L6 SAW
     - type: Gun
       minAngle: 4
       maxAngle: 20
