@@ -78,7 +78,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
             rot = mover.TargetRelativeRotation;
         }
 
-        if (!_decals.TryAddDecal(component.SelectedState, args.ClickLocation.Offset(new Vector2(-0.5f, -0.5f)), out _, component.Color, rot + component.Angle, cleanable: true))
+        if (!_decals.TryAddDecal(component.SelectedState, args.ClickLocation.Offset(new Vector2(-0.5f, -0.5f)), out _, component.Color, rot + component.Angle + 0.01f, cleanable: true))
             return;
         // WWDP EDIT END
         

@@ -74,6 +74,7 @@ public abstract class SharedCrayonSystem : EntitySystem
     private bool MouseWheelUp(in PointerInputCmdHandler.PointerInputCmdArgs args)
     {
         if (args.Session?.AttachedEntity is not EntityUid playerUid ||
+            HasComp<HoldingDropComponent>(playerUid) ||
             !TryComp<HandsComponent>(playerUid, out var hands))
             return false;
 
@@ -89,6 +90,7 @@ public abstract class SharedCrayonSystem : EntitySystem
     private bool MouseWheelDown(in PointerInputCmdHandler.PointerInputCmdArgs args)
     {
         if (args.Session?.AttachedEntity is not EntityUid playerUid ||
+            HasComp<HoldingDropComponent>(playerUid) ||
             !TryComp<HandsComponent>(playerUid, out var hands))
             return false;
 

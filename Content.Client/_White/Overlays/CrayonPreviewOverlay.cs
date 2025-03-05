@@ -1,4 +1,5 @@
 using Content.Client.Crayon;
+using Content.Shared._White.Hands.Components;
 using Content.Shared.Crayon;
 using Content.Shared.Decals;
 using Content.Shared.Interaction;
@@ -46,7 +47,8 @@ public sealed class CrayonPreviewOverlay : Overlay
     protected override void Draw(in OverlayDrawArgs args)
     {
         if (!_entMan.EntityExists(_crayonUid) || // failsafe
-            _player.LocalEntity is not EntityUid playerUid)
+            _player.LocalEntity is not EntityUid playerUid ||
+            _entMan.HasComponent<HoldingDropComponent>(playerUid))
             return;
 
         var handle = args.WorldHandle;
