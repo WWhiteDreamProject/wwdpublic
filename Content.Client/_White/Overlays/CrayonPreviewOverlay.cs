@@ -22,9 +22,9 @@ public sealed class CrayonPreviewOverlay : Overlay
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
-    CrayonComponent _crayonComp;
-    EntityUid _crayonUid;
-    string _currentState;
+    private CrayonComponent _crayonComp;
+    private EntityUid _crayonUid;
+    private string _currentState;
 
     private Texture _tex;
     private readonly SpriteSystem _sprite;
