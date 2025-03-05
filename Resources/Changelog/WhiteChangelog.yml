@@ -1565,3 +1565,10 @@ Entries:
   id: 166
   time: '2025-03-05T14:03:22.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/279
+- author: vanx
+  changes:
+    - type: Fix
+      message: КПБ теперь оставляют на предметах следы перчаток
+  id: 167
+  time: '2025-03-05T14:36:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/281
