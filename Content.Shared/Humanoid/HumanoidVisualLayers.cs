@@ -12,9 +12,9 @@ namespace Content.Shared.Humanoid
         Wings,
         Hair,
         FacialHair,
+        UndergarmentTop,
+        UndergarmentBottom,
         Chest,
-        Underwear,
-        Undershirt,
         Head,
         Snout,
         HeadSide, // side parts (i.e., frills)
