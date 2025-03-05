@@ -1551,3 +1551,17 @@ Entries:
   id: 165
   time: '2025-03-04T18:25:01.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/275
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: Возможность поворачивать рисунки при использовании мелков.
+    - type: Tweak
+      message: Теперь мелков хватает на вдвое больше рисунков
+    - type: Fix
+      message: >-
+        Значимый рефактор системы рисования мелками. Знаете, какое сейчас время?
+        Время нестабильных фич! По поводу любых багов, связанных с рисованием
+        мелками, просба обратиться в канал #bugreporting в дискорде.
+  id: 166
+  time: '2025-03-05T14:03:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/279
