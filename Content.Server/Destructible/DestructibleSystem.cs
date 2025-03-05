@@ -125,7 +125,7 @@ namespace Content.Server.Destructible
                     continue;
 
                 _projectile.RemoveEmbed(child, embed);
-                _throwing.TryThrow(child, _random.NextVector2() * 5, 5f, friction: 100f); // very short distance
+                _throwing.TryThrow(child, _random.NextVector2(), 1f, friction: 100f); // very short distance
             }
         }
 
