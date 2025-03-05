@@ -60,8 +60,8 @@ namespace Content.Server.Destructible
         {
             base.Initialize();
             SubscribeLocalEvent<DestructibleComponent, DamageChangedEvent>(Execute);
-            SubscribeLocalEvent<DestructibleComponent, DestructionEventArgs>(OnDestroyed);
-            SubscribeLocalEvent<DestructibleComponent, ConstructionBeforeDeleteEvent>(OnDeconstruct);
+            SubscribeLocalEvent<DestructibleComponent, DestructionEventArgs>(OnDestroyed); // WWDP
+            SubscribeLocalEvent<DestructibleComponent, ConstructionBeforeDeleteEvent>(OnDeconstruct); // WWDP
         }
 
         /// <summary>
