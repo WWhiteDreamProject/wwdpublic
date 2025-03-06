@@ -1551,3 +1551,47 @@ Entries:
   id: 165
   time: '2025-03-04T18:25:01.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/275
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: Возможность поворачивать рисунки при использовании мелков.
+    - type: Tweak
+      message: Теперь мелков хватает на вдвое больше рисунков
+    - type: Fix
+      message: >-
+        Значимый рефактор системы рисования мелками. Знаете, какое сейчас время?
+        Время нестабильных фич! По поводу любых багов, связанных с рисованием
+        мелками, просба обратиться в канал #bugreporting в дискорде.
+  id: 166
+  time: '2025-03-05T14:03:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/279
+- author: vanx
+  changes:
+    - type: Fix
+      message: КПБ теперь оставляют на предметах следы перчаток
+  id: 167
+  time: '2025-03-05T14:36:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/281
+- author: vanx
+  changes:
+    - type: Fix
+      message: Застрявшие предметы теперь выпадают при разрушении или разборке.
+  id: 168
+  time: '2025-03-06T07:58:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/278
+- author: '3189'
+  changes:
+    - type: Tweak
+      message: Перевод меню призраков
+  id: 169
+  time: '2025-03-06T08:01:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/283
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Большая часть оружия занимает больше места в инвентаре. Длинные
+        дробовики и винтовки теперь помещаются только в вещмешок.
+  id: 170
+  time: '2025-03-06T20:03:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/284

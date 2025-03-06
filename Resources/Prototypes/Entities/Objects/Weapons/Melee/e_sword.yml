@@ -21,7 +21,7 @@
     - type: DisarmMalus
       malus: 0.6
   - type: ItemToggleSize
-    activatedSize: Huge
+    activatedSize: Ginormous # it would just cut through the bag
   - type: ItemTogglePointLight
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:

@@ -231,6 +231,11 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    storedRotation: 45
+    size: Huge
+    shape:
+    - 0,0,7,0
 
 - type: entity
   parent: WeaponRifleSVT

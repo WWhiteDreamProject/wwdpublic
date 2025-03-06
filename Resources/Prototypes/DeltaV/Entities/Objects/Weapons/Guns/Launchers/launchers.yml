@@ -28,3 +28,7 @@
     - type: BatterySelfRecharger
       autoRecharge: true
       autoRechargeRate: 2
+    - type: Item # WWDP guns resize
+      size: Large
+      shape:
+      - 0,0,5,1 # Same as China Lake
