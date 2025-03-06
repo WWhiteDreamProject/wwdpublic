@@ -13,6 +13,7 @@
     # If you update this also update the bulldog's size.
     size: Large
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # Delta-V
     quickEquip: false
     slots:
@@ -68,6 +69,15 @@
   - type: DamageOtherOnHit
     staminaCost: 9.5
   - type: GunRequiresWield # WD EDIT
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: ShotgunsPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: ShotgunsDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: ShotgunsDrop
 
 - type: entity # supposed to be similiar to pistols
   name: BaseWeaponShotgunSmall
@@ -102,6 +112,7 @@
   - type: Item
     size: Large
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
     quickEquip: false
     slots:
@@ -175,6 +186,15 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 9.5
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: ShotgunsPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: ShotgunsDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: ShotgunsDrop
 
 - type: entity
   name: antique Bulldog

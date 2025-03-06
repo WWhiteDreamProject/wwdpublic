@@ -12,6 +12,7 @@
   - type: Item
     size: Huge
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
     quickEquip: false
     slots:
@@ -65,6 +66,15 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 7.5
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: SnipersPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: SnipersDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: SnipersDrop
 
 - type: entity
   name: Kardashev-Mosin

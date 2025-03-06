@@ -7,6 +7,7 @@
   - type: Item
     size: Huge
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
     quickEquip: false
     slots:
@@ -49,6 +50,15 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 7
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: LasersPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: LasersDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: LasersDrop
   # Shitmed Change
   - type: Cautery
     speed: 0.9
