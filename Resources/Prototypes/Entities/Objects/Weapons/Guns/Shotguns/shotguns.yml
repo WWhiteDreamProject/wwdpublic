@@ -137,7 +137,7 @@
       gun_chamber: # WWDP
         name: Chamber
         locked: true
-        startingItem: ShellShotgunBuckshot
+        startingItem: ShellShotgun
         priority: 1
         whitelist:
           tags:
