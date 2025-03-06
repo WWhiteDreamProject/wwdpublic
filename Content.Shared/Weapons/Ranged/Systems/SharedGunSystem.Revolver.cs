@@ -8,7 +8,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using System;
 using System.Linq;
-using Content.Shared.Examine; // WWDP
+using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using JetBrains.Annotations;
 

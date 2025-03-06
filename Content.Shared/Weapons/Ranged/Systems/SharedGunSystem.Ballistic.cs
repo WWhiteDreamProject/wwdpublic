@@ -1,6 +1,6 @@
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
-using Content.Shared.Hands.EntitySystems; // WWDP
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Stacks;
@@ -9,7 +9,7 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
-using Robust.Shared.Prototypes; // WWDP
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
@@ -367,8 +367,8 @@ public abstract partial class SharedGunSystem
                  // WD EDIT START
                 if (!component.AutoCycle && TryComp<CartridgeAmmoComponent>(entity, out var cartridge))
                 {
-                    component.Racked = false; // WWDP
-                    if (!cartridge.DeleteOnSpawn) // WWDP support caseless ammo
+                    component.Racked = false;
+                    if (!cartridge.DeleteOnSpawn)
                     {
                         component.Entities.Add(entity);
                         Containers.Insert(entity, component.Container);
