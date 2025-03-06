@@ -1572,3 +1572,10 @@ Entries:
   id: 167
   time: '2025-03-05T14:36:56.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/281
+- author: vanx
+  changes:
+    - type: Fix
+      message: Застрявшие предметы теперь выпадают при разрушении или разборке.
+  id: 168
+  time: '2025-03-06T07:58:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/278
