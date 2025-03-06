@@ -18,9 +18,9 @@
     slots:
     - Back
     - suitStorage
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: Gun # change WeaponShotgunBulldog too if updating this
-    bonusAngleIncreaseMove: 40    # wwdp 
+    bonusAngleIncreaseMove: 40    # wwdp
     bonusAngleIncreaseTurn: 0.25  # wwdp
     bonusAngleDecay: 40           # wwdp
     maxBonusAngle: 20             # wwdp
@@ -77,13 +77,13 @@
   description: A rootiny tootiny point and shootiny.
   abstract: true
   components:
-  - type: Gun # change WeaponFlareGun too if updating this 
-    bonusAngleIncreaseMove: 20    # wwdp 
+  - type: Gun # change WeaponFlareGun too if updating this
+    bonusAngleIncreaseMove: 20    # wwdp
     bonusAngleIncreaseTurn: 0.4   # wwdp
     bonusAngleDecay: 80           # wwdp
     maxBonusAngle: 10             # wwdp
     fireRate: 2
-  
+
 
 - type: entity
   name: Bulldog
@@ -107,7 +107,7 @@
     slots:
     - Back
     - suitStorage
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     bonusAngleIncreaseMove: 40    # wwdp
@@ -134,11 +134,21 @@
           - MagazineShotgun
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+      gun_chamber: # WWDP
+        name: Chamber
+        locked: true
+        startingItem: ShellShotgunBuckshot
+        priority: 1
+        whitelist:
+          tags:
+          - ShellShotgun
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
-  - type: MagazineAmmoProvider
+  - type: ChamberMagazineAmmoProvider # WWDP
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: MagazineVisuals
     magState: mag
     steps: 1

@@ -56,7 +56,7 @@
     slots:
     - Back
     - suitStorage
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: Gun
     fireRate: 1
     selectedMode: SemiAuto

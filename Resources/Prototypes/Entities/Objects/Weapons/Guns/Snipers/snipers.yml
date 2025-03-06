@@ -17,7 +17,7 @@
     slots:
     - Back
     - suitStorage
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: Wieldable
   - type: GunRequiresWield
   - type: Gun

@@ -15,7 +15,7 @@
     - Back
     - suitStorage
   - type: Wieldable
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: Gun
     bonusAngleIncreaseMove: 40    # wwdp
     bonusAngleIncreaseTurn: 0.25  # wwdp

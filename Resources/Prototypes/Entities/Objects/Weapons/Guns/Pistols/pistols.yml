@@ -70,7 +70,7 @@
   - type: StaticPrice
     price: 500
   - type: Execution
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: MeleeWeapon
     attackRate: 1.2
     damage:

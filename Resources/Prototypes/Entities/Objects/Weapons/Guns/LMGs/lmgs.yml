@@ -40,7 +40,7 @@
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: ItemSlots
     slots:
       gun_magazine:
