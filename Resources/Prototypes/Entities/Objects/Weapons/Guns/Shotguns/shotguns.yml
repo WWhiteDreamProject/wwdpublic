@@ -239,6 +239,8 @@
   - type: Item
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: BallisticAmmoProvider
+    soundRack: # WWDP
+      path: /Audio/_White/Guns/shotgun_rack.ogg
   - type: Wieldable
   - type: MeleeWeapon
     attackRate: 1.4
@@ -273,6 +275,8 @@
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: BallisticAmmoProvider
     capacity: 4
+    soundRack:
+      path: /Audio/_White/Guns/shotgun_rack.ogg
   - type: Tag
     tags:
     - WeaponShotgunKammerer

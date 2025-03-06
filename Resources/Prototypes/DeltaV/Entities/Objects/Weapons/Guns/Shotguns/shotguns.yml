@@ -20,6 +20,8 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticAmmoProvider
+    soundRack: # WWDP
+      path: /Audio/_White/Guns/shotgun_rack.ogg
 #    autoCycle: true
     whitelist:
       tags:

@@ -32,6 +32,8 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: BallisticAmmoProvider
+    soundRack: # WWDP
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
     capacity: 10
     proto: CartridgeLightRifle
     whitelist:
@@ -141,6 +143,8 @@
   - type: Item
     sprite: _White/Objects/Weapons/Guns/Snipers/hristov-inhands.rsi
   - type: BallisticAmmoProvider
+    soundRack: # WWDP
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
     soundInsert: /Audio/_White/Guns/insert.ogg
     whitelist:
       tags:
