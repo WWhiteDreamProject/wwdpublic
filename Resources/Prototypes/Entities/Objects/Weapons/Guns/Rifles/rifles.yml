@@ -93,6 +93,7 @@
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
     fireOnDropChance: 0.5
   - type: ChamberMagazineAmmoProvider
+    boltCatch: false # WWDP no zatvornaya zaderzhka kak u m-16
     soundRack:
       path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
   - type: ItemSlots

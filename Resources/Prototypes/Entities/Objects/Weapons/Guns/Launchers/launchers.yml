@@ -100,7 +100,7 @@
     capacity: 1
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-    autoCycle: false # WD EDIT
+    autoCycle: true # WD EDIT # WWDP edit
   - type: MagazineVisuals
     magState: mag
     steps: 2

@@ -57,7 +57,7 @@ public abstract partial class SharedGunSystem
 
         if (magEnt != null)
         {
-            RaiseLocalEvent(magEnt.Value, args);
+            //RaiseLocalEvent(magEnt.Value, args); // WWDP
             UpdateMagazineAppearance(magEnt.Value, component, magEnt.Value);
         }
     }
