@@ -45,7 +45,7 @@
     heldPrefix: off
     size: Normal
     shape: # WD EDIT
-    - 0,0,2,0
+    - 0,0,1,1 # WWDP
   - type: DisarmMalus
     malus: 0.225
   - type: Appearance

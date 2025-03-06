@@ -284,6 +284,10 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,7,1
 
 - type: entity
   name: laser rifle
@@ -310,6 +314,10 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,7,1
 
 - type: entity
   name: practice laser rifle
@@ -404,6 +412,10 @@
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: pulse rifle
@@ -431,6 +443,10 @@
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: laser cannon
@@ -463,6 +479,10 @@
     bluntStaminaDamageFactor: 1.3333
   - type: DamageOtherOnHit
     staminaCost: 9.5
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,7,1
 
 - type: entity
   name: portable particle decelerator
@@ -538,6 +558,10 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,7,1
 
 - type: entity
   name: disabler
@@ -621,8 +645,10 @@
   id: WeaponDisablerSMG
   description: Advanced weapon that exhausts organic targets, weakening them until they collapse.
   components:
-  - type: Item
+  - type: Item # WWDP guns resize
     size: Large
+    shape:
+    - 0,0,5,1
   - type: Tag
     tags:
       - Taser
@@ -949,9 +975,9 @@
     - proto: BulletDisablerSmgSpread
       fireCost: 120
   - type: Item
-    size: Large
+    size: Huge
     shape:
-    - 0,0,3,1
+    - 0,0,7,1
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
     heldPrefix: energy
   - type: Tag

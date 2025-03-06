@@ -19,7 +19,7 @@
   - type: Item
     size: Large
     shape:
-    - 0, 0, 3, 1
+    - 0, 0, 7, 1 # WWDP weapons resize
   # WD EDIT END
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/Battery/energygun.rsi
@@ -308,3 +308,7 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,7,1

@@ -72,6 +72,9 @@
     proto: GrenadeFrag
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: RPG-7
@@ -116,6 +119,9 @@
   - type: EmitSoundOnLand # WWDP sounds
     sound:
       collection: RiflesDrop
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,7,1
 
 - type: entity
   name: multiple rocket launcher
@@ -151,6 +157,9 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,7,2
 
 - type: entity
   name: pirate cannon
@@ -183,6 +192,9 @@
       proto: CannonBall
       soundInsert:
         path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+    - type: Item # WWDP guns resize
+      shape:
+      - 0,0,5,1
 
 - type: entity
   name: tether gun
@@ -193,7 +205,9 @@
   description: Manipulates gravity around objects to fling them at high velocities.
   components:
     - type: Item
-      storedRotation: -90
+      size: Large # WWDP Guns resize
+      shape:
+      - 0,0,5,1
     - type: TetherGun
       frequency: 5
       dampingRatio: 4
@@ -235,7 +249,9 @@
   description: Manipulates gravity around objects to fling them at high velocities.
   components:
     - type: Item
-      storedRotation: -90
+      size: Large # WWDP Guns resize
+      shape:
+      - 0,0,5,1
     - type: ForceGun
       frequency: 15
       dampingRatio: 4
@@ -304,6 +320,11 @@
           unshaded:
             True: { state: base-unshaded }
             False: { state: base-unshaded-off }
+    - type: Item # WWDP Guns resize
+      size: Small
+      shape:
+      - 0,0,1,0
+      - 0,1,0,1
 
 # Admeme
 - type: entity
@@ -345,6 +366,10 @@
             True: { visible: true }
             False: { visible: false }
     - type: GiftIgnore # WD EDIT
+    - type: Item # WWDP guns resize
+      size: Large
+      shape:
+      - 0,0,5,1
 
 - type: entity
   name: force gun
@@ -388,6 +413,10 @@
             True: { visible: true }
             False: { visible: false }
     - type: GiftIgnore # WD EDIT
+    - type: Item # WWDP guns resize
+      size: Large
+      shape:
+      - 0,0,5,1
 
 - type: entity
   name: meteor launcher
