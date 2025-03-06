@@ -185,6 +185,7 @@
   - type: UseDelay
     delay: 8 #it's a musket
   - type: BallisticAmmoProvider
+    autoCycle: true # WWDP
     whitelist:
       tags:
       - CartridgeMusket # DeltaV - musket instead of anti materiel ammo
@@ -237,6 +238,7 @@
   - type: UseDelay
     delay: 8 #it's a flintlock
   - type: BallisticAmmoProvider
+    autoCycle: true # WWDP
     whitelist:
       tags:
       - CartridgeMusket # DeltaV - musket instead of anti materiel ammo
