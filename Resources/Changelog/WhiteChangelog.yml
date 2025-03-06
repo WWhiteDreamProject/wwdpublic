@@ -1586,3 +1586,12 @@ Entries:
   id: 169
   time: '2025-03-06T08:01:05.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/283
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Большая часть оружия занимает больше места в инвентаре. Длинные
+        дробовики и винтовки теперь помещаются только в вещмешок.
+  id: 170
+  time: '2025-03-06T20:03:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/284
