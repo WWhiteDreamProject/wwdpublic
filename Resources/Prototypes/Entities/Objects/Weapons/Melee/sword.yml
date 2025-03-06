@@ -266,8 +266,8 @@
   - type: ThrowingAngle
     angle: 225
   - type: Item
-    storedRotation: 45
-    shape:
+    storedRotation: 45 # WWDP
+    shape: # WWDP
     - 0,0,3,0
     size: Normal
     sprite: Objects/Weapons/Melee/cutlass.rsi

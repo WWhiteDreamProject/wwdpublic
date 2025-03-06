@@ -32,9 +32,9 @@
   - type: DamageOtherOnHit
     staminaCost: 10
   - type: Item
-    size: Huge
-    storedRotation: 45
-    shape:
+    size: Huge # WWDP
+    storedRotation: 45 # WWDP
+    shape: # WWDP
     - 0,0,7,0
   - type: Tool
     qualities:

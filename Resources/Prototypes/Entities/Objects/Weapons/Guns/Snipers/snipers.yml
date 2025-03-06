@@ -174,8 +174,8 @@
   - type: Sharp
   - type: Item
     size: Large
-    storedRotation: 45
-    shape:
+    storedRotation: 45 # WWDP
+    shape: # WWDP
     - 0,0,7,0
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/musket.rsi
