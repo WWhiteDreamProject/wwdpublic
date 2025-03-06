@@ -1579,3 +1579,10 @@ Entries:
   id: 168
   time: '2025-03-06T07:58:46.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/278
+- author: '3189'
+  changes:
+    - type: Tweak
+      message: Перевод меню призраков
+  id: 169
+  time: '2025-03-06T08:01:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/283
