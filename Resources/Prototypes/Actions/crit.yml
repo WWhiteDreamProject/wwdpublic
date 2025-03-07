@@ -13,6 +13,8 @@
       sprite: Mobs/Ghosts/ghost_human.rsi
       state: icon
     event: !type:CritSuccumbEvent
+    startDelay: true # WWDP no instant giveup
+    useDelay: 10 # WWDP
 
 - type: entity
   id: ActionCritFakeDeath
@@ -44,3 +46,5 @@
       sprite: Interface/Actions/actions_crit.rsi
       state: lastwords
     event: !type:CritLastWordsEvent
+    startDelay: true # WWDP no instant giveup
+    useDelay: 10 # WWDP

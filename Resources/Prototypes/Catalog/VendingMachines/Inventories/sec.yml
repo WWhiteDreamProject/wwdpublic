@@ -3,6 +3,7 @@
   startingInventory:
     SecurityWhistle: 5
     Handcuffs: 8
+    WeaponSecurityRiotLauncher: 1
     GrenadeFlashBang: 4
     GrenadeBarrier: 4 # WWDP
     TearGasGrenade: 4

@@ -14,4 +14,7 @@
   id: MindSlave
 
 - type: Tag
-  id: GlassesNearsight
+  id: GlassesNearsight=
+
+- type: Tag
+  id: RiotGrenade

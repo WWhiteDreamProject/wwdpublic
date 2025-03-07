@@ -13,6 +13,7 @@
     types:
       - Knife
   - type: MeleeWeapon
+    animationRotation: -135 # WWDP
     wideAnimationRotation: -135
     attackRate: .8
     range: 1.5
@@ -101,7 +102,7 @@
   # Shitmed Change
   - type: Scalpel
     speed: 0.3
-  - type: BoneSaw 
+  - type: BoneSaw
     speed: 0.5
 
 - type: entity
@@ -156,6 +157,7 @@
     angle: 225
   - type: Item
     sprite: Objects/Weapons/Melee/survival_knife.rsi
+  - type: AttachmentBayonet # Lavaland Change
 
 - type: entity
   name: kukri knife
@@ -167,6 +169,7 @@
     sprite: Objects/Weapons/Melee/kukri_knife.rsi
     state: icon
   - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     attackRate: 1.0
     range: 1.75
     damage:

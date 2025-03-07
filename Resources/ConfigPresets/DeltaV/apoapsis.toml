@@ -4,7 +4,6 @@ soft_max_players = 100
 
 [server]
 rules_file   = "Rules.txt"
-rules_header = "ui-rules-header"
 
 [whitelist]
 enabled     = false

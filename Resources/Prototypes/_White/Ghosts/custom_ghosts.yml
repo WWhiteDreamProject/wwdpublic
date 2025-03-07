@@ -107,8 +107,8 @@
   ckey: nonta228
   sprite: _White/Ghosts/nonta228-ghost.rsi
   alpha: 0.8
-  ghostName: Flowey
-  ghostDescription: Собирает души забаненных игроков.
+  ghostName: nonta
+  ghostDescription: Я устрою конец света
 
 #puroslavking
 - type: customGhost

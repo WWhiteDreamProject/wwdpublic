@@ -1,5 +1,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Xml.Linq;
+using Content.Shared.Decals;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
@@ -39,6 +41,8 @@ public abstract class SharedChatSystem : EntitySystem
     [ValidatePrototypeId<SpeechVerbPrototype>]
     public const string DefaultSpeechVerb = "Default";
 
+    protected static string[] _chatNameColors = Array.Empty<string>(); // WWDP EDIT
+
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
@@ -53,13 +57,28 @@ public abstract class SharedChatSystem : EntitySystem
         DebugTools.Assert(_prototypeManager.HasIndex<RadioChannelPrototype>(CommonChannel));
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypeReload);
         CacheRadios();
+        CacheNameColors(); // WWDP EDIT
     }
 
     protected virtual void OnPrototypeReload(PrototypesReloadedEventArgs obj)
     {
         if (obj.WasModified<RadioChannelPrototype>())
             CacheRadios();
+        if (obj.WasModified<ColorPalettePrototype>())   // WWDP EDIT
+            CacheNameColors();                          // WWDP EDIT
     }
+
+    // WWDP EDIT START
+    private void CacheNameColors()
+    {
+        var nameColors = _prototypeManager.Index<ColorPalettePrototype>("ChatNames").Colors.Values.ToArray();
+        _chatNameColors = new string[nameColors.Length];
+        for (var i = 0; i < nameColors.Length; i++)
+        {
+            _chatNameColors[i] = nameColors[i].ToHex();
+        }
+    }
+    // WWDP EDIT END
 
     private void CacheRadios()
     {
@@ -284,6 +303,25 @@ public abstract class SharedChatSystem : EntitySystem
         return rawmsg;
     }
 
+    // WWDP EDIT START
+    public static string InjectTagAroundTag(ChatMessage message, string innerTag, string outerTag, string? tagParameter)
+    {
+        var rawmsg = message.WrappedMessage;
+        var tagStart = rawmsg.IndexOf($"[{innerTag}]");
+        var tagEnd = rawmsg.IndexOf($"[/{innerTag}]");
+        if (tagStart < 0 || tagEnd < 0) //If the inner tag is not found, the injection is not performed
+            return rawmsg;
+        tagEnd += innerTag.Length + 3;
+
+        string innerTagProcessed = tagParameter != null ? $"[{outerTag}={tagParameter}]" : $"[{outerTag}]";
+
+        rawmsg = rawmsg.Insert(tagEnd, $"[/{outerTag}]");
+        rawmsg = rawmsg.Insert(tagStart, innerTagProcessed);
+
+        return rawmsg;
+    }
+    // WWDP EDIT END
+
     /// <summary>
     /// Injects a tag around all found instances of a specific string in a ChatMessage.
     /// Excludes strings inside other tags and brackets.
@@ -305,6 +343,21 @@ public abstract class SharedChatSystem : EntitySystem
         tagStart += tag.Length + 2;
         return rawmsg.Substring(tagStart, tagEnd - tagStart);
     }
+
+    // WD EDIT START - Moved from ClatUIController
+    /// <summary>
+    /// Returns the chat name color for a mob
+    /// </summary>
+    /// <param name="name">Name of the mob</param>
+    /// <returns>Hex value of the color</returns>
+    public static string GetNameColor(string name)
+    {
+        if (_chatNameColors.Length == 0)
+            return "#FFFFFFFF";
+        var colorIdx = Math.Abs(name.GetHashCode() % _chatNameColors.Length);
+        return _chatNameColors[colorIdx];
+    }
+    // WD EDIT END
 }
 
 /// <summary>

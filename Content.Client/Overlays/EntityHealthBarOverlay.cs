@@ -86,7 +86,8 @@ public sealed class EntityHealthBarOverlay : Overlay
             if (CalcProgress(uid, mobStateComponent, damageableComponent, mobThresholdsComponent) is not { } deathProgress)
                 continue;
 
-            var worldPosition = _transform.GetWorldPosition(xform);
+            // Including sprite offsets to support pixel-perfect eye filter
+            var worldPosition = _transform.GetWorldPosition(xform) + Vector2.Transform(spriteComponent.Offset, rotationMatrix); // WWDP EDIT
             var worldMatrix = Matrix3Helpers.CreateTranslation(worldPosition);
 
             var scaledWorld = Matrix3x2.Multiply(scaleMatrix, worldMatrix);

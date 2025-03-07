@@ -89,23 +89,53 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _White/Mobs/Species/displacement.rsi
-            state: jumpsuit-female
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
+            state: jumpsuit-female-digi
       shoes:
         sizeMaps:
           32:
-            sprite: _White/Mobs/Species/displacement.rsi
-            state: shoes
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
+            state: shoes-digi
+      jumpsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
+            state: jumpsuit-female-slim
+      shoes-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
+            state: shoes-slim
+      gloves-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: gloves
+      outerClothing-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: outer
+      hardsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: hardsuit
+      suit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: suit
     displacements:
-      jumpsuit:
+      jumpsuit-body-digitigrade:
         sizeMaps:
           32:
-            sprite: _White/Mobs/Species/displacement.rsi
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
             state: jumpsuit
-      shoes:
+      shoes-body-digitigrade:
         sizeMaps:
           32:
-            sprite: _White/Mobs/Species/displacement.rsi
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
             state: shoes
     # WWDP-Edit-End
 
@@ -128,23 +158,53 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _White/Mobs/Species/displacement.rsi
-            state: jumpsuit-female
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
+            state: jumpsuit-female-digi
       shoes:
         sizeMaps:
           32:
-            sprite: _White/Mobs/Species/displacement.rsi
-            state: shoes
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
+            state: shoes-digi
+      jumpsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
+            state: jumpsuit-female-slim
+      shoes-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
+            state: shoes-slim
+      gloves-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: gloves
+      outerClothing-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: outer
+      hardsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: hardsuit
+      suit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: suit
     displacements:
-      jumpsuit:
+      jumpsuit-body-digitigrade:
         sizeMaps:
           32:
-            sprite: _White/Mobs/Species/displacement.rsi
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
             state: jumpsuit
-      shoes:
+      shoes-body-digitigrade:
         sizeMaps:
           32:
-            sprite: _White/Mobs/Species/displacement.rsi
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
             state: shoes
     # WWDP-Edit-End
 

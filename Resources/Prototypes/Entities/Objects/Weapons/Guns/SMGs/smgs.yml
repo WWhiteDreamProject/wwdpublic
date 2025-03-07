@@ -15,7 +15,11 @@
     - Back
     - suitStorage
   - type: AmmoCounter
-  - type: Gun
+  - type: Gun # if changing also update WeaponDisablerSMG
+    bonusAngleIncreaseMove: 20    # wwdp
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 50           # wwdp
+    maxBonusAngle: 10             # wwdp
     minAngle: 2
     maxAngle: 16
     fireRate: 8
@@ -99,6 +103,9 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,3,1
 
 - type: entity
   name: C-20r sub machine gun
@@ -133,6 +140,9 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: antique C-20r submachine gun
@@ -191,6 +201,9 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: Vector
@@ -239,6 +252,9 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: WT550
@@ -301,6 +317,9 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: antique Wt550
@@ -310,55 +329,3 @@
   components:
   - type: StealTarget
     stealGroup: HoSAntiqueWeapon
-
-# Rubber
-- type: entity
-  name: Drozd
-  parent: WeaponSubMachineGunDrozd
-  id: WeaponSubMachineGunDrozdRubber
-  suffix: Non-Lethal
-  components:
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazinePistolSubMachineGunRubber
-        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-          - MagazinePistolSubMachineGun
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgePistolRubber
-        priority: 1
-        whitelist:
-          tags:
-          - CartridgePistol
-
-- type: entity
-  name: Vector
-  parent: WeaponSubMachineGunVector
-  id: WeaponSubMachineGunVectorRubber
-  description: An excellent fully automatic Heavy SMG. Uses .45 magnum ammo.
-  suffix: Non-Lethal
-  components:
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazineMagnumSubMachineGunRubber
-        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-          - MagazineMagnumSubMachineGun
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgeMagnumRubber
-        priority: 1
-        whitelist:
-          tags:
-          - CartridgeMagnum

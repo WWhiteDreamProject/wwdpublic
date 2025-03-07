@@ -21,6 +21,10 @@
   - type: Wieldable
   - type: GunRequiresWield
   - type: Gun
+    bonusAngleIncreaseMove: 30  # wwdp
+    bonusAngleIncreaseTurn: 0.4 # wwdp
+    bonusAngleDecay: 30         # wwdp
+    maxBonusAngle: 30           # wwdp
     fireRate: 0.75
     selectedMode: SemiAuto
     availableModes:
@@ -82,6 +86,7 @@
       types:
         Piercing: 5
         Slash: 3.5
+    animationRotation: -135 # WWDP
     wideAnimationRotation: -135
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
@@ -100,16 +105,10 @@
   - type: EmbedPassiveDamage
   - type: ThrowingAngle
     angle: 225
-
-- type: entity
-  name: Kardashev-Mosin
-  parent: WeaponSniperMosin
-  id: WeaponSniperMosinRubber
-  description: A weapon for hunting, or endless trench warfare. Uses .30 rifle rubber ammo.
-  suffix: Non-Lethal
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleRubber
+  - type: Item # WWDP guns resize
+    storedRotation: 45
+    shape:
+    - 0,0,7,0
 
 - type: entity
   name: Kardashev-Mosin
@@ -144,6 +143,9 @@
   - type: Clothing
     sprite: _White/Objects/Weapons/Guns/Snipers/hristov-inhands.rsi
   - type: Item
+    size: Huge # WWDP guns resize
+    shape:
+    - 0,0,6,1 # needs to fit in a briefcase, collapsible stock or something
     sprite: _White/Objects/Weapons/Guns/Snipers/hristov-inhands.rsi
   - type: BallisticAmmoProvider
     soundInsert: /Audio/_White/Guns/insert.ogg
@@ -172,6 +174,9 @@
   - type: Sharp
   - type: Item
     size: Large
+    storedRotation: 45 # WWDP
+    shape: # WWDP
+    - 0,0,7,0
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/musket.rsi
     state: base
@@ -197,6 +202,7 @@
       types:
         Piercing: 5
         Slash: 3.5
+    animationRotation: -135 # WWDP
     wideAnimationRotation: -135
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
@@ -228,7 +234,8 @@
     fireOnDropChance: 1
   - type: Item
     size: Small
-    storedRotation: 90
+    shape: # WWDP guns resize
+    - 0,0,3,0
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
   - type: Clothing

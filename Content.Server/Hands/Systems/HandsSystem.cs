@@ -10,6 +10,7 @@ using Content.Shared._Shitmed.Body.Events; // Shitmed Change
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Explosion;
+using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Input;
@@ -26,6 +27,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Shared.Serialization;
+using Content.Shared._White.Hands;
 
 namespace Content.Server.Hands.Systems
 {
@@ -95,7 +98,7 @@ namespace Content.Server.Hands.Systems
 
             // Break any pulls
             if (TryComp(uid, out PullerComponent? puller) && TryComp(puller.Pulling, out PullableComponent? pullable))
-                _pullingSystem.TryStopPull(puller.Pulling.Value, pullable);
+                _pullingSystem.TryStopPull(puller.Pulling.Value, pullable, ignoreGrab: true); // Goobstation edit added check for grab
 
             var offsetRandomCoordinates = _transformSystem.GetMoverCoordinates(args.Target).Offset(_random.NextVector2(1f, 1.5f));
             if (!ThrowHeldItem(args.Target, offsetRandomCoordinates))
@@ -202,6 +205,20 @@ namespace Content.Server.Hands.Systems
             if (playerSession?.AttachedEntity is not { Valid: true } player || !Exists(player))
                 return false;
 
+            // Goobstation start
+            if (TryGetActiveItem(player, out var item) && TryComp<VirtualItemComponent>(item, out var virtComp))
+            {
+                var userEv = new VirtualItemDropAttemptEvent(virtComp.BlockingEntity, player, item.Value, true);
+                RaiseLocalEvent(player, userEv);
+
+                var targEv = new VirtualItemDropAttemptEvent(virtComp.BlockingEntity, player, item.Value, true);
+                RaiseLocalEvent(virtComp.BlockingEntity, targEv);
+
+                if (userEv.Cancelled || targEv.Cancelled)
+                    return false;
+            }
+            // Goobstation end
+
             return ThrowHeldItem(player, coordinates);
         }
 
@@ -215,6 +232,18 @@ namespace Content.Server.Hands.Systems
                 hands.ActiveHandEntity is not { } throwEnt ||
                 !_actionBlockerSystem.CanThrow(player, throwEnt))
                 return false;
+            // Goobstation start added throwing for grabbed mobs, mnoved direction.
+            var direction = _transformSystem.ToMapCoordinates(coordinates).Position - _transformSystem.GetWorldPosition(player);
+
+            if (TryComp<VirtualItemComponent>(throwEnt, out var virt))
+            {
+                var userEv = new VirtualItemThrownEvent(virt.BlockingEntity, player, throwEnt, direction);
+                RaiseLocalEvent(player, userEv);
+
+                var targEv = new VirtualItemThrownEvent(virt.BlockingEntity, player, throwEnt, direction);
+                RaiseLocalEvent(virt.BlockingEntity, targEv);
+            }
+            // Goobstation end
 
             if (_timing.CurTime < hands.NextThrowTime)
                 return false;
@@ -230,7 +259,6 @@ namespace Content.Server.Hands.Systems
                 throwEnt = splitStack.Value;
             }
 
-            var direction = coordinates.ToMapPos(EntityManager, _transformSystem) - Transform(player).WorldPosition;
             if (direction == Vector2.Zero)
                 return true;
 
@@ -262,7 +290,10 @@ namespace Content.Server.Hands.Systems
             // This can grief the above event so we raise it afterwards
             if (IsHolding(player, throwEnt, out _, hands) && !TryDrop(player, throwEnt, handsComp: hands))
                 return false;
-
+            // WWDP EDIT START
+            var deselEv = new HandDeselectedEvent(player);                              // because throwcode is serverside, the HandDeselectedEvent doesn't get raised on client.
+            RaiseNetworkEvent(new HandDeselectedNetworkCrutchWrap(GetNetEntity(throwEnt), GetNetEntity(player)));   // This is the best i've came up with.
+            // WWDP EDIT END
             _throwingSystem.TryThrow(ev.ItemUid, ev.Direction, ev.ThrowSpeed, ev.PlayerUid, compensateFriction: !HasComp<LandAtCursorComponent>(ev.ItemUid));
 
             return true;

@@ -43,6 +43,9 @@
             "directions": 4
         },
         {
+            "name": "segment"
+        },
+        {
             "name": "inhand-left",
             "directions": 4
         },

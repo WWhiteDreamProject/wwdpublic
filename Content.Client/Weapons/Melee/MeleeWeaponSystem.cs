@@ -88,18 +88,18 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 altDown = false;
         }
 
-        if (weapon.AutoAttack || !useDown && !altDown)
-        {
-            if (weapon.Attacking)
-            {
-                RaisePredictiveEvent(new StopAttackEvent(GetNetEntity(weaponUid)));
-            }
-        }
+        // WWDP fix autoattack
+        if (weapon.NextAttack > Timing.CurTime)
+            return;
 
-        if (weapon.Attacking || weapon.NextAttack > Timing.CurTime || (!useDown && !altDown))
+        if (weapon.Attacking)
         {
+            if (weapon.AutoAttack || !useDown && !altDown)
+                RaisePredictiveEvent(new StopAttackEvent(GetNetEntity(weaponUid)));
+
             return;
         }
+        // WWDP edit end
 
         // TODO using targeted actions while combat mode is enabled should NOT trigger attacks.
 
@@ -278,6 +278,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         // Entity might not have been sent by PVS.
         if (Exists(ent) && Exists(entWeapon))
-            DoLunge(ent, entWeapon, ev.Angle, ev.LocalPos, ev.Animation);
+            DoLunge(ent, entWeapon, ev.Angle, ev.LocalPos, ev.Animation, ev.SpriteRotation);
     }
 }

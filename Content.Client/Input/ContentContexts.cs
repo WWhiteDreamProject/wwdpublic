@@ -57,6 +57,9 @@ namespace Content.Client.Input
             human.AddFunction(EngineKeyFunctions.Walk);
             human.AddFunction(ContentKeyFunctions.SwapHands);
             human.AddFunction(ContentKeyFunctions.Drop);
+            human.AddFunction(ContentKeyFunctions.PreciseDrop);			// WWDP
+            human.AddFunction(ContentKeyFunctions.MouseWheelUp);		// WWDP
+            human.AddFunction(ContentKeyFunctions.MouseWheelDown);		// WWDP
             human.AddFunction(ContentKeyFunctions.UseItemInHand);
             human.AddFunction(ContentKeyFunctions.AltUseItemInHand);
             human.AddFunction(ContentKeyFunctions.OpenCharacterMenu);
@@ -115,6 +118,9 @@ namespace Content.Client.Input
             aghost.AddFunction(EngineKeyFunctions.Walk);
             aghost.AddFunction(ContentKeyFunctions.SwapHands);
             aghost.AddFunction(ContentKeyFunctions.Drop);
+            aghost.AddFunction(ContentKeyFunctions.PreciseDrop);	// WWDP
+            aghost.AddFunction(ContentKeyFunctions.MouseWheelUp);	// WWDP
+            aghost.AddFunction(ContentKeyFunctions.MouseWheelDown);	// WWDP
             aghost.AddFunction(ContentKeyFunctions.UseItemInHand);
             aghost.AddFunction(ContentKeyFunctions.AltUseItemInHand);
             aghost.AddFunction(ContentKeyFunctions.ActivateItemInWorld);

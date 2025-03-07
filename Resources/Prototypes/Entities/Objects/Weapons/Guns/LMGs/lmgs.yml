@@ -20,6 +20,10 @@
     minAngle: -20
     maxAngle: -20
   - type: Gun
+    bonusAngleIncreaseMove: 50    # wwdp
+    bonusAngleIncreaseTurn: 0.5   # wwdp
+    bonusAngleDecay: 30           # wwdp
+    maxBonusAngle: 30             # wwdp
     minAngle: 24
     maxAngle: 45
     angleIncrease: 4
@@ -100,6 +104,9 @@
     steps: 4
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,7,2 # Huge but not ginormous since it needs to fit into the bundle
 
 - type: entity
   name: L6C ROW
@@ -127,8 +134,9 @@
           map: [ "enum.GunVisualLayers.Base" ]
         - state: mag-3
           map: [ "enum.GunVisualLayers.Mag" ]
-    - type: Item
-      size: Huge
+    - type: Item # WWDP guns resize
+      shape:
+      - 0,0,7,2 # Same a L6 SAW
     - type: ContainerContainer
       containers:
         ballistic-ammo: !type:Container

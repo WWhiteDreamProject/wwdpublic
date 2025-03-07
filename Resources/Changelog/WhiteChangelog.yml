@@ -1439,3 +1439,179 @@ Entries:
   id: 155
   time: '2025-03-02T13:29:59.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/246
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Правила сервера были обновлены, ознакомьтесь на F10 -> Правила.
+  id: 156
+  time: '2025-03-03T10:23:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/266
+- author: '3189'
+  changes:
+    - type: Tweak
+      message: Вход в гостбар больше не влияет на время до возвращения в раунд
+  id: 157
+  time: '2025-03-03T12:27:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/267
+- author: Vaaankas
+  changes:
+    - type: Tweak
+      message: Теперь персонажи не слышат чат во сне, крите или при оглушении вспышкой.
+  id: 158
+  time: '2025-03-03T12:27:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/265
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: >-
+        Оверлей, показывающий точность стрельбы и падение точности из-за
+        движения.
+    - type: Tweak
+      message: >-
+        Точность стрельбы при движении и на резких поворотах будет сильно
+        падать, одинаково для всех пушек. Оставьте тред в #feedback канале с
+        вашим мнением, какое оружие должно страдать от этого больше, а какое -
+        меньше.
+    - type: Add
+      message: >-
+        Добавлена возможность класть предметы на пол более точно, а так же
+        поворачивать их перед этим. Настройки -> Управление -> "Положить предмет
+        с поворотом". Рекомендуемые варианты настройки: Q для старого дропа и
+        Shift+Q для нового, либо же назначить новый дроп на Q вместо старого.
+        Просим вас оставить тред в дискорд канале #feedback, считаете ли вы
+        нужным сохранить обе клавиши, или от старой можно избавиться.
+    - type: Add
+      message: >-
+        Теперь при нажатии альтернативного взаимодействия по тележке уборщика
+        будет открываться радиальное меню с её содержимым. Оставьте тред в
+        дискорд канале #feedback о том, у каких ещё предметов хотели бы увидеть
+        подобный функционал.
+    - type: Remove
+      message: Removed Herobrine.
+    - type: Add
+      message: >-
+        "Pixel-Perfect" камера. Настройки -> Графика. Устраняет тряску предметов
+        при движении камеры. Фича экспериментальная, поэтому о любых недочётах и
+        погрешностях просим сообщать в дискорд канале #bugreporting.
+    - type: Fix
+      message: 'Spatison: Десворд больше не издает звуки после отключения'
+  id: 159
+  time: '2025-03-03T12:29:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/258
+- author: Spatison
+  changes:
+    - type: Add
+      message: Добавлены различные типы телосложения
+  id: 160
+  time: '2025-03-03T16:03:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/180
+- author: vanx
+  changes:
+    - type: Add
+      message: Станящие силовые перчатки для смотрителя и цель на их кражу для агентов.
+  id: 161
+  time: '2025-03-03T16:04:57.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/252
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: >-
+        Красивые шрифты для облачков и чата. Красивый шрифт в чате выключается в
+        настройках - Общие - Речь, Красивый шрифт в облачках выключить нельзя,
+        превозмогайте.
+    - type: Add
+      message: >-
+        Цветной текст в облачках. По умолчанию включено, можно выключить в
+        настройках - Общие - Речь.
+  id: 162
+  time: '2025-03-03T18:26:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/257
+- author: vanx
+  changes:
+    - type: Fix
+      message: Окна шаттлов перекрывают решётки не давая им биться током
+  id: 163
+  time: '2025-03-04T13:28:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/271
+- author: vanx
+  changes:
+    - type: Add
+      message: 'Новая черта персонажа: Глухой. Даёт глухоту и язык жестов.'
+    - type: Fix
+      message: Глухие персонажи теперь видят эмоции и OOC-чаты.
+    - type: Fix
+      message: Глухие персонажи теперь видят сообщения на языке жестов.
+  id: 164
+  time: '2025-03-04T13:30:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/270
+- author: islambrosgood
+  changes:
+    - type: Tweak
+      message: мало переводов
+  id: 165
+  time: '2025-03-04T18:25:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/275
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: Возможность поворачивать рисунки при использовании мелков.
+    - type: Tweak
+      message: Теперь мелков хватает на вдвое больше рисунков
+    - type: Fix
+      message: >-
+        Значимый рефактор системы рисования мелками. Знаете, какое сейчас время?
+        Время нестабильных фич! По поводу любых багов, связанных с рисованием
+        мелками, просба обратиться в канал #bugreporting в дискорде.
+  id: 166
+  time: '2025-03-05T14:03:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/279
+- author: vanx
+  changes:
+    - type: Fix
+      message: КПБ теперь оставляют на предметах следы перчаток
+  id: 167
+  time: '2025-03-05T14:36:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/281
+- author: vanx
+  changes:
+    - type: Fix
+      message: Застрявшие предметы теперь выпадают при разрушении или разборке.
+  id: 168
+  time: '2025-03-06T07:58:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/278
+- author: '3189'
+  changes:
+    - type: Tweak
+      message: Перевод меню призраков
+  id: 169
+  time: '2025-03-06T08:01:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/283
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Большая часть оружия занимает больше места в инвентаре. Длинные
+        дробовики и винтовки теперь помещаются только в вещмешок.
+  id: 170
+  time: '2025-03-06T20:03:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/284
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        Lizard people's clothing is now displayed correctly again / Одежда на
+        ящерах вновь отображается нормально
+    - type: Fix
+      message: >-
+        Character breakage is now prevented / Теперь нельзя сломать себе
+        персонажа
+  id: 171
+  time: '2025-03-07T04:22:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/276
+- author: vanx
+  changes:
+    - type: Fix
+      message: Баги системы ближнего боя
+  id: 172
+  time: '2025-03-07T04:25:23.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/273

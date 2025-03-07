@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Client.UserInterface.Screens;
 using Content.Shared._White;
 using Content.Shared._White.UI.Emotes;
@@ -112,6 +112,8 @@ namespace Content.Client.Options.UI.Tabs
             FancySpeechBubblesCheckBox.OnToggled += OnCheckBoxToggled;
             FancyNameBackgroundsCheckBox.OnToggled += OnCheckBoxToggled;
             EnableColorNameCheckBox.OnToggled += OnCheckBoxToggled;
+            EnableColorBubbleChatCheckBox.OnToggled += OnCheckBoxToggled;  // WWDP EDIT
+            EnableChatFancyFontCheckBox.OnToggled += OnCheckBoxToggled; // WWDP EDIT
             ColorblindFriendlyCheckBox.OnToggled += OnCheckBoxToggled;
             ReducedMotionCheckBox.OnToggled += OnCheckBoxToggled;
             ChatWindowOpacitySlider.OnValueChanged += OnChatWindowOpacitySliderChanged;
@@ -133,6 +135,8 @@ namespace Content.Client.Options.UI.Tabs
             FancySpeechBubblesCheckBox.Pressed = _cfg.GetCVar(CCVars.ChatEnableFancyBubbles);
             FancyNameBackgroundsCheckBox.Pressed = _cfg.GetCVar(CCVars.ChatFancyNameBackground);
             EnableColorNameCheckBox.Pressed = _cfg.GetCVar(CCVars.ChatEnableColorName);
+            EnableColorBubbleChatCheckBox.Pressed = _cfg.GetCVar(WhiteCVars.ColoredBubbleChat); // WWDP EDIT
+            EnableChatFancyFontCheckBox.Pressed = _cfg.GetCVar(WhiteCVars.ChatFancyFont);       // WWDP EDIT
             ColorblindFriendlyCheckBox.Pressed = _cfg.GetCVar(CCVars.AccessibilityColorblindFriendly);
             ReducedMotionCheckBox.Pressed = _cfg.GetCVar(CCVars.ReducedMotion);
             ChatWindowOpacitySlider.Value = _cfg.GetCVar(CCVars.ChatWindowOpacity);
@@ -192,6 +196,8 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.ChatEnableFancyBubbles, FancySpeechBubblesCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ChatFancyNameBackground, FancyNameBackgroundsCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ChatEnableColorName, EnableColorNameCheckBox.Pressed);
+            _cfg.SetCVar(WhiteCVars.ColoredBubbleChat, EnableColorBubbleChatCheckBox.Pressed);  // WWDP EDIT
+            _cfg.SetCVar(WhiteCVars.ChatFancyFont, EnableChatFancyFontCheckBox.Pressed);        // WWDP EDIT
             _cfg.SetCVar(CCVars.AccessibilityColorblindFriendly, ColorblindFriendlyCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ReducedMotion, ReducedMotionCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ChatWindowOpacity, ChatWindowOpacitySlider.Value);
@@ -232,6 +238,8 @@ namespace Content.Client.Options.UI.Tabs
             var isFancyChatSame = FancySpeechBubblesCheckBox.Pressed == _cfg.GetCVar(CCVars.ChatEnableFancyBubbles);
             var isFancyBackgroundSame = FancyNameBackgroundsCheckBox.Pressed == _cfg.GetCVar(CCVars.ChatFancyNameBackground);
             var isEnableColorNameSame = EnableColorNameCheckBox.Pressed == _cfg.GetCVar(CCVars.ChatEnableColorName);
+            var isEnableColorBubbleChatSame = EnableColorBubbleChatCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.ColoredBubbleChat);  // WWDP EDIT
+            var isEnableFancyChatFontSame = EnableChatFancyFontCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.ChatFancyFont);          // WWDP EDIT
             var isColorblindFriendly = ColorblindFriendlyCheckBox.Pressed == _cfg.GetCVar(CCVars.AccessibilityColorblindFriendly);
             var isReducedMotionSame = ReducedMotionCheckBox.Pressed == _cfg.GetCVar(CCVars.ReducedMotion);
             var isChatWindowOpacitySame = Math.Abs(ChatWindowOpacitySlider.Value - _cfg.GetCVar(CCVars.ChatWindowOpacity)) < 0.01f;
@@ -256,6 +264,8 @@ namespace Content.Client.Options.UI.Tabs
                                    isFancyChatSame &&
                                    isFancyBackgroundSame &&
                                    isEnableColorNameSame &&
+                                   isEnableColorBubbleChatSame &&   // WWDP EDIT
+                                   isEnableFancyChatFontSame &&     // WWDP EDIT
                                    isColorblindFriendly &&
                                    isReducedMotionSame &&
                                    isChatWindowOpacitySame &&

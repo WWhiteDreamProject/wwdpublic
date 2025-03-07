@@ -128,6 +128,11 @@
   - type: Tag
     tags:
     - Sidearm
+  - type: Gun
+    bonusAngleIncreaseMove: 20    # wwdp
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 80           # wwdp
+    maxBonusAngle: 10             # wwdp
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/taser.rsi
     quickEquip: false
@@ -159,6 +164,11 @@
     quickEquip: false
     slots:
     - Belt
+  - type: Gun
+    bonusAngleIncreaseMove: 20    # wwdp
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 80           # wwdp
+    maxBonusAngle: 10             # wwdp
   - type: MeleeWeapon
     attackRate: 1.2
     damage:
@@ -264,6 +274,10 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,7,1
 
 - type: entity
   name: laser rifle
@@ -290,6 +304,10 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,7,1
 
 - type: entity
   name: practice laser rifle
@@ -384,6 +402,10 @@
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: pulse rifle
@@ -411,6 +433,10 @@
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: laser cannon
@@ -443,6 +469,10 @@
     bluntStaminaDamageFactor: 1.3333
   - type: DamageOtherOnHit
     staminaCost: 9.5
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,7,1
 
 - type: entity
   name: portable particle decelerator
@@ -518,6 +548,10 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,7,1
 
 - type: entity
   name: disabler
@@ -567,13 +601,44 @@
       wideAnimationRotation: 135
 
 - type: entity
+  name: CentCom disabler
+  parent: WeaponDisabler
+  id: WeaponCCDisabler
+  description: An improved self-defense weapon that exhausts organic targets, weakening them until they collapse. Only for the finest officers that we don't trust with lethals.
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20
+  - type: StealTarget
+    stealGroup: NTRepWeapon
+  - type: Gun
+    fireRate: 3
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/ccdisabler.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Taser
+    - Sidearm
+
+- type: entity
   name: disabler SMG
   parent: BaseWeaponBattery
   id: WeaponDisablerSMG
   description: Advanced weapon that exhausts organic targets, weakening them until they collapse.
   components:
-  - type: Item
+  - type: Item # WWDP guns resize
     size: Large
+    shape:
+    - 0,0,5,1
   - type: Tag
     tags:
       - Taser
@@ -587,6 +652,10 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Gun
+    bonusAngleIncreaseMove: 20    # wwdp
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 50           # wwdp
+    maxBonusAngle: 10             # wwdp
     selectedMode: FullAuto
     fireRate: 4
     availableModes:
@@ -896,9 +965,9 @@
     - proto: BulletDisablerSmgSpread
       fireCost: 120
   - type: Item
-    size: Large
+    size: Huge
     shape:
-    - 0,0,3,1
+    - 0,0,7,1
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
     heldPrefix: energy
   - type: Tag
