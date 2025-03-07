@@ -99,7 +99,8 @@ ent-SpawnMobLamarr = спавнер Ламар
 
 station-event-xenomorph-infestation-announcement = Обнаружены неопознанные признаки жизни на борту станции. Обеспечьте безопасность внешних доступов, включая скубберы и вентиляцию.
 
-hud-chatbox-select-channel-XenoHivemind = Разум роя
+chat-manager-send-xeno-hivemind-chat-wrap-message = [bold]\[{ $channelName }\] [BubbleHeader]{ $player }[/BubbleHeader]:[/bold] [BubbleContent]{ $message }[/BubbleContent]
+chat-manager-xeno-hivemind-channel-name = Разум роя
 
 ghost-role-mob-alien-name = Ксеноморф
 ghost-role-mob-alien-description = Станьте ксеноморфом, развивайтесь и сделайте свой улей великим.

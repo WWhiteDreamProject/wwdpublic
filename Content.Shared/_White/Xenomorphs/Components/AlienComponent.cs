@@ -1,6 +1,7 @@
 ﻿using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
+using Content.Shared.Language;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -58,6 +59,12 @@ public sealed partial class AlienComponent : Component
     /// </summary>
     [DataField(required: true)]
     public DamageSpecifier WeedHeal;
+
+    /// <summary>
+    /// Languge on which alien need to speak to send hivemind message.
+    /// </summary>
+    [DataField]
+    public ProtoId<LanguagePrototype> XenoLanguageId { get; set; } = "XenoHivemind";
 
 }
 

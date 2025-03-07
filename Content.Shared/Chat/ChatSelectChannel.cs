@@ -56,11 +56,6 @@
         /// </summary>
         Telepathic = ChatChannel.Telepathic,
 
-        /// <summary>
-        ///     WWDP - Xenomorph Hivemind
-        /// </summary>
-        XenoHivemind = ChatChannel.XenoHivemind,
-
         Console = ChatChannel.Unspecified
     }
 }

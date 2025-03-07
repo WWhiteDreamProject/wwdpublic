@@ -24,7 +24,6 @@ public abstract class SharedChatSystem : EntitySystem
     public const char AdminPrefix = ']';
     public const char WhisperPrefix = ',';
     public const char TelepathicPrefix = '='; //Nyano - Summary: Adds the telepathic channel's prefix.
-    public const char XenoHivemindPrefix = 'a'; // WWDP
     public const char DefaultChannelKey = 'h';
     // WD EDIT START
     public const int VoiceRange = 10;
@@ -328,7 +327,6 @@ public enum InGameICChatType : byte
 public enum InGameOOCChatType : byte
 {
     Looc,
-    HiveXeno, // WWDP
     Dead
 }
 

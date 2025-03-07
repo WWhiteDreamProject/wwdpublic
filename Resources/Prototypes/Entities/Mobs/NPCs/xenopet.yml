@@ -20,8 +20,10 @@
   - type: LanguageKnowledge
     speaks:
     - Xeno
+    - XenoHivemind
     understands:
     - Xeno
+    - XenoHivemind
     - TauCetiBasic
 
 - type: entity
@@ -45,8 +47,10 @@
   - type: LanguageKnowledge
     speaks:
     - Xeno
+    - XenoHivemind
     understands:
     - Xeno
+    - XenoHivemind
     - TauCetiBasic
 
 - type: entity
@@ -70,8 +74,10 @@
   - type: LanguageKnowledge
     speaks:
     - Xeno
+    - XenoHivemind
     understands:
     - Xeno
+    - XenoHivemind
     - TauCetiBasic
 
 - type: entity
@@ -95,8 +101,10 @@
   - type: LanguageKnowledge
     speaks:
     - Xeno
+    - XenoHivemind
     understands:
     - Xeno
+    - XenoHivemind
     - TauCetiBasic
 
 - type: inventoryTemplate

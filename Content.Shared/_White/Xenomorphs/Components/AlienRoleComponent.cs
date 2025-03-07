@@ -1,9 +1,9 @@
 ﻿using Content.Shared.Roles;
 
-namespace Content.Shared.Aliens.Components;
+namespace Content.Shared._White.Xenomorphs.Components;
 
 /// <summary>
-/// This is used for...
+///     Added to mind role entities to tag that they are an alien.
 /// </summary>
-[RegisterComponent, ExclusiveAntagonist]
-public sealed partial class AlienRoleComponent : AntagonistRoleComponent;
+[RegisterComponent]
+public sealed partial class AlienRoleComponent : BaseMindRoleComponent;
