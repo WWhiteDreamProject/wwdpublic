@@ -29,7 +29,7 @@ namespace Content.Client.Power.APC.UI
 
         public void SetEntity(EntityUid entity)
         {
-            EntityView.SetEntity(entity);
+            //EntityView.SetEntity(entity);
         }
 
         public void UpdateState(BoundUserInterfaceState state)
@@ -62,15 +62,15 @@ namespace Content.Client.Power.APC.UI
                 {
                     case ApcExternalPowerState.None:
                         ExternalPowerStateLabel.Text = Loc.GetString("apc-menu-power-state-none");
-                        ExternalPowerStateLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateNone);
+                        //ExternalPowerStateLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateNone);
                         break;
                     case ApcExternalPowerState.Low:
                         ExternalPowerStateLabel.Text = Loc.GetString("apc-menu-power-state-low");
-                        ExternalPowerStateLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateLow);
+                        //ExternalPowerStateLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateLow);
                         break;
                     case ApcExternalPowerState.Good:
                         ExternalPowerStateLabel.Text = Loc.GetString("apc-menu-power-state-good");
-                        ExternalPowerStateLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateGood);
+                        //ExternalPowerStateLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateGood);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -80,7 +80,7 @@ namespace Content.Client.Power.APC.UI
             if (ChargeBar != null)
             {
                 ChargeBar.Value = castState.Charge;
-                UpdateChargeBarColor(castState.Charge);
+                //UpdateChargeBarColor(castState.Charge);
                 var chargePercentage = (castState.Charge / ChargeBar.MaxValue);
                 ChargePercentage.Text = Loc.GetString("apc-menu-charge-label",("percent",  chargePercentage.ToString("P0")));
             }

@@ -1,35 +1,119 @@
 - type: styleSheet
   id: nano
   typeDefinition:
-    Label: "Robust.Client.UserInterface.Controls.Label"
     PanelContainer: "Robust.Client.UserInterface.Controls.PanelContainer"
     ContainerButton: "Robust.Client.UserInterface.Controls.ContainerButton"
-    Button: "Robust.Client.UserInterface.Controls.Button"
-    LineEdit: "Robust.Client.UserInterface.Controls.LineEdit"
-    TextEdit: "Robust.Client.UserInterface.Controls.TextEdit"
-    TabContainer: "Robust.Client.UserInterface.Controls.TabContainer"
     ProgressBar: "Robust.Client.UserInterface.Controls.ProgressBar"
-    TextureRect: "Robust.Client.UserInterface.Controls.TextureRect"
-    Tooltip: "Robust.Client.UserInterface.Controls.Tooltip"
-    RichTextLabel: "Robust.Client.UserInterface.Controls.RichTextLabel"
-    ItemList: "Robust.Client.UserInterface.Controls.ItemList"
-    Tree: "Robust.Client.UserInterface.Controls.FancyTree.Tree"
-    Placeholder: "Robust.Client.UserInterface.Controls.Placeholder"
-    MenuButton: "Robust.Client.UserInterface.CustomControls.MenuButton"
-    NanoHeading: "Robust.Client.UserInterface.Controls.NanoHeading"
-    StripeBack: "Robust.Client.UserInterface.Controls.StripeBack"
-    Slider: "Robust.Client.UserInterface.Controls.Slider"
-    ColorableSlider: "Robust.Client.UserInterface.Controls.ColorableSlider"
-    OptionButton: "Robust.Client.UserInterface.Controls.OptionButton"
-    TextureButton: "Robust.Client.UserInterface.Controls.TextureButton"
-    ContextMenuPopup: "Robust.Client.UserInterface.Controls.ContextMenuPopup"
-    ContextMenuElement: "Content.Client.ContextMenu.UI.ContextMenuElement"
-    ConfirmationMenuElement: "Content.Client.ContextMenu.UI.ConfirmationMenuElement"
-    ExamineButton: "Content.Client.Examine.ExamineButton"
-    DirectionIcon: "Content.Client.Verbs.UI.DirectionIcon"
-    PdaSettingsButton: "Content.Client.PDA.PdaSettingsButton"
-    PdaProgramItem: "Content.Client.PDA.PdaProgramItem"
-    SiliconLawContainer: "Content.Client.Silicons.Laws.SiliconLawEditUi.SiliconLawContainer"
   styles:
     PanelContainer.WindowHeadingBackground:
-      modulate-self: "#FF22aa"
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/APC/panel-header.png"
+          patchMarginLeft: 1
+          patchMarginRight: 1
+          patchMarginBottom: 2
+          patchMarginTop: 2
+          expandMarginLeft: 1
+          expandMarginRight: 1
+          expandMarginBottom: 2
+          expandMarginTop: 2
+          textureScale: 4,4
+      modulate-self: "#FFFFFF"
+    PanelContainer.WindowPanelBackground:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/APC/panel.png"
+          patchMarginAll: 1
+          expandMarginAll: 1
+          textureScale: 4,4
+      modulate-self: "#FFFFFF"
+    PanelContainer.APCScreen:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/APC/display-panel.png"
+          patchMarginLeft: 2
+          patchMarginRight: 2
+          patchMarginBottom: 4
+          patchMarginTop: 2
+          expandMarginLeft: 2
+          expandMarginRight: 2
+          expandMarginBottom: 4
+          expandMarginTop: 2
+          textureScale: 4,4
+      modulate-self: "#FFFFFF"
+    PanelContainer.APCControlPanel:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/APC/action-panel.png"
+          patchMarginLeft: 1
+          patchMarginRight: 1
+          patchMarginBottom: 1
+          patchMarginTop: 3
+          expandMarginLeft: 1
+          expandMarginRight: 1
+          expandMarginBottom: 1
+          expandMarginTop: 14
+          textureScale: 4,4
+      modulate-self: "#FFFFFF"
+    ContainerButton.APCControlButton:
+      stylebox:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/APC/button-panel-inactive.png"
+          patchMarginLeft: 1
+          patchMarginRight: 1
+          patchMarginBottom: 1
+          patchMarginTop: 3
+          expandMarginLeft: 1
+          expandMarginRight: 1
+          expandMarginBottom: 1
+          expandMarginTop: 3
+          textureScale: 4,4
+      modulate-self: "#FFFFFF"
+    ContainerButton.APCControlButton:pressed:
+      stylebox:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/APC/button-panel-active.png"
+          patchMarginLeft: 1
+          patchMarginRight: 1
+          patchMarginBottom: 1
+          patchMarginTop: 3
+          expandMarginLeft: 1
+          expandMarginRight: 1
+          expandMarginBottom: 1
+          expandMarginTop: 3
+          textureScale: 4,4
+      modulate-self: "#FFFFFF"
+    ContainerButton.APCControlButton:hover:
+      modulate-self: "#FFFFFF"
+    ContainerButton.APCControlButton:normal:
+      modulate-self: "#FFFFFF"
+    # ProgressBar
+    ProgressBar:
+      background:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/APC/progress-background.png"
+          patchMarginAll: 1
+          expandMarginAll: 1
+          textureScale: 4,4
+      foreground:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/APC/progress-foreground.png"
+          patchMarginAll: 1
+          expandMarginAll: 1
+          textureScale: 4,4
+    .APCLabel:
+      font:
+        valueType: Content.StyleSheetify.Client.Font.FontSpecifier
+        value:
+          font:
+           - "/Fonts/_White/LCD14/LCD14.otf"
+          size: 12
+      font-color: "#7CFC00"
