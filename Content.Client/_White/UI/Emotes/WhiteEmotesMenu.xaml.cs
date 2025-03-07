@@ -31,7 +31,7 @@ public sealed partial class WhiteEmotesMenu : DefaultWindow, IBaseEmoteMenu
         emotes.Sort((a,b) => string.Compare(a.Name, b.Name, StringComparison.Ordinal));
         foreach (var emote in emotes)
         {
-            var player = _playerManager.LocalSession?.AttachedEntity;
+            var player = _playerManager.LocalEntity;
             if (emote.Category == EmoteCategory.Invalid ||
                 emote.ChatTriggers.Count == 0 ||
                 !(player.HasValue && whitelistSystem.IsWhitelistPassOrNull(emote.Whitelist, player.Value)) ||
