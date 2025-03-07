@@ -35,8 +35,9 @@
       tags:
       - PKAUpgrade
   - type: Item
+    size: Huge # WWDP guns resize
     shape:
-    - 0,0,4,0
+    - 0,0,7,0 # WWDP
 
 - type: entity
   name: proto-kinetic repeater
@@ -85,8 +86,9 @@
       tags:
       - PKAUpgrade
   - type: Item
+    size: Large # WWDP guns resize
     shape:
-    - 0,0,2,1
+    - 0,0,5,1 # WWDP
 
 - type: entity
   name: proto-kinetic pistol

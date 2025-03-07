@@ -17,3 +17,8 @@
       - CartridgeMagnum
     capacity: 7
     proto: CartridgeMagnum
+  - type: Item # WWDP guns resize
+    size: Large
+    storedRotation: 45
+    shape:
+    - 0,0,7,0

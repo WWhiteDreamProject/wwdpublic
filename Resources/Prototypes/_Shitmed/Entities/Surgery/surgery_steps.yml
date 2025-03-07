@@ -324,14 +324,14 @@
   - type: SurgeryStep
     tool:
     - type: Tending
-    duration: 1
+    duration: 2 # WWDP less spam
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi # WD EDIT
-    state: retractor # WD EDIT
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi # WD EDIT
+    state: hemostat # WD EDIT
   - type: SurgeryTendWoundsEffect
     damage:
       groups:
-        Brute: -5
+        Brute: -10 # WWDP
   - type: SurgeryRepeatableStep
 
 - type: entity
@@ -343,15 +343,15 @@
   - type: SurgeryStep
     tool:
     - type: Tending
-    duration: 1
+    duration: 2 # WWDP less spam
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi # WD EDIT
-    state: retractor # WD EDIT
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi # WWDP
+    state: hemostat # WWDP
   - type: SurgeryTendWoundsEffect
     mainGroup: Burn
     damage:
       groups:
-        Burn: -5
+        Burn: -10 # WWDP
   - type: SurgeryRepeatableStep
 
 - type: entity
