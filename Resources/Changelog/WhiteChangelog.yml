@@ -1595,3 +1595,16 @@ Entries:
   id: 170
   time: '2025-03-06T20:03:27.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/284
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        Lizard people's clothing is now displayed correctly again / Одежда на
+        ящерах вновь отображается нормально
+    - type: Fix
+      message: >-
+        Character breakage is now prevented / Теперь нельзя сломать себе
+        персонажа
+  id: 171
+  time: '2025-03-07T04:22:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/276
