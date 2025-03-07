@@ -25,23 +25,28 @@
 - type: emote
   id: Nod
   name: chat-emote-name-nod
-  category: General
   chatMessages: [ "chat-emote-msg-nod" ]
+  chatTriggers:
+  - "chat-emote-trigger-nod-1"
 
 - type: emote
   id: ShakeHead
   name: chat-emote-name-shake-head
-  category: General
   chatMessages: [ "chat-emote-msg-shake-head" ]
+  chatTriggers:
+  - "chat-emote-trigger-shake-head-1"
+  - "chat-emote-trigger-shake-head-2"
 
 - type: emote
   id: Frown
   name: chat-emote-name-frown
-  category: General
   chatMessages: [ "chat-emote-msg-frown" ]
+  chatTriggers:
+  - "chat-emote-trigger-frown-1"
 
 - type: emote
   id: Smile
   name: chat-emote-name-smile
-  category: General
   chatMessages: [ "chat-emote-msg-smile" ]
+  chatTriggers:
+  - "chat-emote-trigger-smile-1"

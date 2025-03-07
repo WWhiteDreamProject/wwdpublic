@@ -1,25 +1,65 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Crayon
 {
 
+    // WWDP EDIT START
     /// <summary>
     /// Component holding the state of a crayon-like component
     /// </summary>
-    [NetworkedComponent, ComponentProtoName("Crayon"), Access(typeof(SharedCrayonSystem))]
-    public abstract partial class SharedCrayonComponent : Component
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+    public sealed partial class CrayonComponent : Component
     {
         /// <summary>
         /// The ID of currently selected decal prototype that will be placed when the crayon is used
         /// </summary>
-        public string SelectedState { get; set; } = string.Empty;
+        [ViewVariables(VVAccess.ReadWrite)]
+        [AutoNetworkedField]
+        public string SelectedState = string.Empty;
 
         /// <summary>
         /// Color with which the crayon will draw
         /// </summary>
-        [DataField("color")]
+        [DataField]
+        [AutoNetworkedField]
         public Color Color;
+
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        [AutoNetworkedField]
+        public Angle Angle;
+
+        [DataField]
+        [AutoNetworkedField]
+        public SoundSpecifier? UseSound;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
+        [AutoNetworkedField]
+        public bool SelectableColor;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        [AutoNetworkedField]
+        public int Charges;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
+        [AutoNetworkedField]
+        public int Capacity = 30;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
+        [AutoNetworkedField]
+        public bool DeleteEmpty = true;
+
+        /// <summary>
+        /// Used clientside only.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        public bool UIUpdateNeeded;
+        // WWDP EDIT END
 
         [Serializable, NetSerializable]
         public enum CrayonUiKey : byte
@@ -70,6 +110,7 @@ namespace Content.Shared.Crayon
         }
     }
 
+    /* // WWDP EDIT - DEFUNCT - Moved to using AutoState system.
     /// <summary>
     /// Component state, describes how many charges are left in the crayon in the near-hand UI
     /// </summary>
@@ -80,15 +121,18 @@ namespace Content.Shared.Crayon
         public readonly string State;
         public readonly int Charges;
         public readonly int Capacity;
+        public readonly Angle Angle;
 
-        public CrayonComponentState(Color color, string state, int charges, int capacity)
+        public CrayonComponentState(Color color, string state, int charges, int capacity, Angle angle)
         {
             Color = color;
             State = state;
             Charges = charges;
             Capacity = capacity;
+            Angle = angle;
         }
     }
+    */
 
     /// <summary>
     /// The state of the crayon UI as sent by the server

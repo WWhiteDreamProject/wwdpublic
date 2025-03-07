@@ -32,6 +32,12 @@
     state: head_slim_f
 
 - type: humanoidBaseSprite
+  id: MobReptilianSlimHeadMale
+  baseSprite:
+    sprite: _White/Mobs/Species/Reptilian/parts.rsi
+    state: head_slim_f
+    
+- type: humanoidBaseSprite
   id: MobReptilianSlimHeadFemale
   baseSprite:
     sprite: _White/Mobs/Species/Reptilian/parts.rsi
@@ -43,6 +49,12 @@
     sprite: _White/Mobs/Species/Reptilian/parts.rsi
     state: torso_slim_f
 
+- type: humanoidBaseSprite
+  id: MobReptilianSlimTorsoMale
+  baseSprite:
+    sprite: _White/Mobs/Species/Reptilian/parts.rsi
+    state: torso_slim_f
+    
 - type: humanoidBaseSprite
   id: MobReptilianSlimTorsoFemale
   baseSprite:

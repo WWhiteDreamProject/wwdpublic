@@ -28,6 +28,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Graphics;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Content.Shared._White.Hands;
 
 namespace Content.Client.Hands.Systems
 {
@@ -68,9 +69,22 @@ namespace Content.Client.Hands.Systems
 
             SubscribeLocalEvent<HoldingDropComponent, ComponentInit>(HoldingDropComponentInit);			// WWDP
             SubscribeLocalEvent<HoldingDropComponent, ComponentShutdown>(HoldingDropComponentShutdown);	// WWDP
+            SubscribeNetworkEvent<HandDeselectedNetworkCrutchWrap>(OnHandDeselectedCrutchWrap);	// WWDP
 
             OnHandSetActive += OnHandActivated;
         }
+
+        // WWDP EDIT START
+        /// <summary>
+        /// Throw code doesn't run on client so the HandDeselectedEvent that is raised serverside does not get raised clientside.
+        /// This is awful, but it fixes the issue.
+        /// </summary>
+        /// <param name="ev"></param>
+        private void OnHandDeselectedCrutchWrap(HandDeselectedNetworkCrutchWrap ev)
+        {
+            RaiseLocalEvent(GetEntity(ev.Target), new HandDeselectedEvent(GetEntity(ev.User))); // i think i'm starting to get desensitized to this kind of stuff.
+        }
+        // WWDP EDIT END
 
         #region StateHandling
         private void HandleComponentState(EntityUid uid, HandsComponent component, ref ComponentHandleState args)

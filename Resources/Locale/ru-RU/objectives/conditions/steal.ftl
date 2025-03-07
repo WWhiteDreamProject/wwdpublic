@@ -23,6 +23,7 @@ steal-target-prime-cut-corgi-meat = первосортное мясо корги
 steal-target-captain-id-card = ID карта капитана
 steal-target-captains-jetpack = джетпак капитана
 steal-target-captains-weapon = антикварный лазерный пистолет
+steal-target-ntr-weapon = оружие НТРа
 steal-target-nuclear-authentication-disk = диск ядерной авторизации
 steal-target-hos-personal-weapon = личное оружие главы службы безопасности
 

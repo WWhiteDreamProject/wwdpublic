@@ -11,9 +11,10 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ hisses ]
+  chatMessages: [ "chat-emote-msg-hisses" ]
   chatTriggers:
-    - hisses
+    - "chat-emote-trigger-hisses-1"
+  # WD EDIT END
 
 - type: emote
   id: Meow
@@ -27,12 +28,14 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ meows ]
+  # WD EDIT START
+  chatMessages: [ "chat-emote-msg-meow" ]
   chatTriggers:
-    - meows
-    - miaus
-    - nyas
-    - mraows
+    - "chat-emote-trigger-meow-1"
+    - "chat-emote-trigger-meow-2"
+    - "chat-emote-trigger-meow-3"
+    - "chat-emote-trigger-meow-4"
+  # WD EDIT END
 
 - type: emote
   id: Mew
@@ -46,9 +49,11 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ mews ]
+  # WD EDIT START
+  chatMessages: [ "chat-emote-msg-mew" ]
   chatTriggers:
-    - mews
+    - "chat-emote-trigger-mew-1"
+  # WD EDIT END
 
 - type: emote
   id: Growl
@@ -62,9 +67,11 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ growls ]
+  # WD EDIT START
+  chatMessages: [ "chat-emote-msg-growl" ]
   chatTriggers:
-    - growls
+    - "chat-emote-trigger-growl-1"
+  # WD EDIT END
 
 - type: emote
   id: Purr
@@ -78,6 +85,8 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ purrs ]
+  # WD EDIT START
+  chatMessages: [ "chat-emote-msg-purr" ]
   chatTriggers:
-    - purrs
+    - "chat-emote-trigger-purr-1"
+  # WD EDIT END
