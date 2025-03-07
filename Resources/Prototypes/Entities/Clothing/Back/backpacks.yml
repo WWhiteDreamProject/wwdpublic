@@ -8,8 +8,10 @@
     sprite: Clothing/Back/Backpacks/backpack.rsi
     state: icon
   - type: Item
+    canBeUsedWhileWorn: false # WWDP
     size: Huge
   - type: Clothing
+    #equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP todo sounds from the gunnening
     quickEquip: false
     slots:
     - back

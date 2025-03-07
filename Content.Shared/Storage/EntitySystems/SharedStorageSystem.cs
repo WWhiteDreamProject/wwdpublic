@@ -144,7 +144,6 @@ public abstract class SharedStorageSystem : EntitySystem
         SubscribeLocalEvent<StorageComponent, BoundUIOpenedEvent>(OnBoundUIOpen);
         SubscribeLocalEvent<StorageComponent, LockToggledEvent>(OnLockToggled);
         SubscribeLocalEvent<MetaDataComponent, StackCountChangedEvent>(OnStackCountChanged);
-        SubscribeLocalEvent<StorageComponent, GotEquippedEvent>(OnEquipped);
 
         SubscribeLocalEvent<StorageComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<StorageComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
@@ -1546,15 +1545,6 @@ public abstract class SharedStorageSystem : EntitySystem
         RaiseLocalEvent(storage, ref ev);
 
         return !ev.Cancelled;
-    }
-
-    // WWDP IF WE PUT IT ON AND ITS NOT ACCESSIBLE CLOSE THE UI
-    private void OnEquipped(Entity<StorageComponent> ent, ref GotEquippedEvent args)
-    {
-        if (!TryComp<ItemComponent>(ent, out var itemComponent) || itemComponent.CanBeUsedWhileWorn)
-            return;
-
-        UI.CloseUi(ent.Owner, StorageComponent.StorageUiKey.Key);
     }
 
     /// <summary>
