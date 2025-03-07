@@ -45,15 +45,8 @@ public partial class SharedGunSystem
                 loadedCount++;
         }
 
-        if (loadedCount > 0)
-        {
-            args.PushMarkup(Loc.GetString("gun-revolver-examine", ("color", ModeExamineColor),
-                ("count", loadedCount)), -1);
-        }
-        else
-        {
-            args.PushMarkup(Loc.GetString("gun-revolver-examine-empty", ("color", ModeExamineBadColor)), -1);
-        }
+        args.PushMarkup(Loc.GetString("gun-revolver-examine", ("color", ModeExamineColor),
+            ("count", loadedCount)), -1);
     }
     // WWDP edit end
 

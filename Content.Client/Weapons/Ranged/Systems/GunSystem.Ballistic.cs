@@ -73,7 +73,7 @@ public sealed partial class GunSystem
         }
         else
         {
-            Popup("Empty", uid, user);
+            Popup(Loc.GetString("gun-ballistic-empty"), uid, user);
             return;
         }
 

@@ -1,6 +1,7 @@
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Containers;
 
@@ -57,7 +58,7 @@ public abstract partial class SharedGunSystem
 
         if (magEnt != null)
         {
-            //RaiseLocalEvent(magEnt.Value, args); // WWDP
+            RaiseLocalEvent(magEnt.Value, args);
             UpdateMagazineAppearance(magEnt.Value, component, magEnt.Value);
         }
     }

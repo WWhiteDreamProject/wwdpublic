@@ -7,7 +7,17 @@ gun-ammocount-examine = Осталось [color={$color}]{$count}[/color] пат
 
 gun-racked-examine = - Затвор [color={$color}]взведён[/color].
 gun-racked-examine-not = - Затвор [color={$color}]не взведён[/color].
-gun-revolver-examine = - В барабане [color={$color}]{$count}[/color] патронов.
-gun-revolver-examine-empty = - Барабан [color={$color}]пуст[/color].
+
+gun-revolver-examine =
+    { $count ->
+        [0] - Барабан [color={$color}]пуст[/color].
+        [1] - В барабане [color={$color}]{ $count }[/color] патрон.
+        [2] - В барабане [color={$color}]{ $count }[/color] патрона.
+        [3] - В барабане [color={$color}]{ $count }[/color] патрона.
+        [4] - В барабане [color={$color}]{ $count }[/color] патрона.
+        *[other] - В барабане [color={$color}]{ $count }[/color] патронов.
+    }
 
 gun-ballistic-extract = Извлечь
+gun-ballistic-full = Полон!
+gun-ballistic-empty = Пуст!

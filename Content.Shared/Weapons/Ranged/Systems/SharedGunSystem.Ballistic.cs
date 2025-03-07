@@ -61,7 +61,7 @@ public abstract partial class SharedGunSystem
 
         if (GetBallisticShots(component) >= component.Capacity)
         {
-            Popup("Full", uid, args.User); // todo locale
+            Popup(Loc.GetString("gun-ballistic-full"), uid, args.User);
             return;
         }
         // WWDP EDIT END
