@@ -1005,7 +1005,9 @@ namespace Content.Shared.Interaction
             if (RangedInteractDoBefore(user, used, target, clickLocation, true))
                 return true;
 
-            // all interactions should only happen when in range / unobstructed, so no range check is needed
+            if (!InRangeAndAccessible(user, target)) // WWDP no interacting with items inside containers
+                return false;
+
             var interactUsingEvent = new InteractUsingEvent(user, used, target, clickLocation);
             RaiseLocalEvent(target, interactUsingEvent, true);
             DoContactInteraction(user, used, interactUsingEvent);
@@ -1212,7 +1214,7 @@ namespace Content.Shared.Interaction
             if (ev.Handled)
                 return true;
 			// WD EDIT END
-			
+
             // Get list of alt-interact verbs
             var verbs = _verbSystem.GetLocalVerbs(target, user, typeof(AlternativeVerb)).Where(verb => ((AlternativeVerb) verb).InActiveHandOnly == false); // WD EDIT
 
@@ -1301,7 +1303,7 @@ namespace Content.Shared.Interaction
             if (_containerSystem.IsInSameOrParentContainer(user, target, out _, out var container))
                 return true;
 
-            return container != null && CanAccessViaStorage(user, target, container);
+            return false; // WWDP no interacting with items inside containers
         }
 
         /// <summary>
