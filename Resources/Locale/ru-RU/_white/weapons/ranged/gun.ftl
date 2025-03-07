@@ -21,3 +21,5 @@ gun-revolver-examine =
 gun-ballistic-extract = Извлечь
 gun-ballistic-full = Полон!
 gun-ballistic-empty = Пуст!
+
+ammo-top-round-examine = Сверху заряжен [color={$color}]{ $round }[/color].

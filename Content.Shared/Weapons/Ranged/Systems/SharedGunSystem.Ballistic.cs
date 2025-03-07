@@ -221,9 +221,28 @@ public abstract partial class SharedGunSystem
             return;
 
         // WWDP edit; better examine, no ammo count on guns
-        if (!HasComp<GunComponent>(uid))
+
+        if (!HasComp<GunComponent>(uid)) // Magazines & Ammo boxes
         {
             args.PushMarkup(Loc.GetString("gun-ammocount-examine", ("color", AmmoExamineColor), ("count", GetBallisticShots(component))));
+
+            // Show top round
+            if (component.Entities.Count > 0)
+            {
+                var round = Name(component.Entities[-1]);
+
+                args.PushMarkup(
+                    Loc.GetString("ammo-top-round-examine", ("color", ModeExamineColor), ("round", round)));
+            }
+            else if (component.UnspawnedCount > 0)
+            {
+                if (!_proto.TryIndex(component.Proto, out var round))
+                    return;
+
+                args.PushMarkup(
+                    Loc.GetString("ammo-top-round-examine", ("color", ModeExamineColor), ("round", round.Name)));
+            }
+
             return;
         }
 
