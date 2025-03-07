@@ -60,12 +60,13 @@ public sealed partial class DevourerComponent : Component
         }
     };
 
-    // WWDP
+    // WWDP edit start
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public HashSet<MobState> Consumes = new()
     {
         MobState.Critical
     };
+    // WWDP edit end
 
     /// <summary>
     /// The chemical ID injected upon devouring

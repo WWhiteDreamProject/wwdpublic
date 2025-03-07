@@ -14,7 +14,6 @@ using Content.Server.Speech.EntitySystems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Aliens.Components; // WWDP
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Database;
@@ -868,16 +867,6 @@ public sealed partial class ChatSystem : SharedChatSystem
             .Union(_adminManager.ActiveAdmins)
             .Select(p => p.Channel);
     }
-
-    // WWDP START
-    private IEnumerable<INetChannel> GetXenoChatClients()
-    {
-        return Filter.Empty()
-            .AddWhereAttachedEntity(HasComp<AlienComponent>)
-            .Recipients
-            .Select(p => p.Channel);
-    }
-    // WWDP END
 
     private string SanitizeMessagePeriod(string message)
     {

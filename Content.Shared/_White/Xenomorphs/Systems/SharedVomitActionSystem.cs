@@ -1,9 +1,9 @@
-﻿using Content.Server.Medical.Components;
+﻿using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared.Actions;
 using Robust.Shared.Containers;
 
-namespace Content.Shared.Medical; // WWDP SYSTEM
 
+namespace Content.Shared._White.Xenomorphs.Systems;
 /// <summary>
 /// This handles...
 /// </summary>
@@ -18,6 +18,7 @@ public abstract class SharedVomitActionSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<VomitActionComponent, MapInitEvent>(OnInit);
+        SubscribeLocalEvent<VomitActionComponent, ComponentShutdown>(OnShutdown);
     }
 
     protected void OnInit(EntityUid uid, VomitActionComponent component, MapInitEvent args)
@@ -27,7 +28,10 @@ public abstract class SharedVomitActionSystem : EntitySystem
         _actionsSystem.AddAction(uid, ref component.VomitActionEntity, component.VomitAction);
     }
 
-
+    protected void OnShutdown(EntityUid uid, VomitActionComponent component, ComponentShutdown args)
+    {
+        _actionsSystem.RemoveAction(uid, component.VomitActionEntity);
+    }
 }
 
 public sealed partial class VomitActionEvent : InstantActionEvent { }
