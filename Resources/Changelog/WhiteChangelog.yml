@@ -1608,3 +1608,10 @@ Entries:
   id: 171
   time: '2025-03-07T04:22:08.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/276
+- author: vanx
+  changes:
+    - type: Fix
+      message: Баги системы ближнего боя
+  id: 172
+  time: '2025-03-07T04:25:23.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/273
