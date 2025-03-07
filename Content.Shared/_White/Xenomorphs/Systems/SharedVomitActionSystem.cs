@@ -4,9 +4,7 @@ using Robust.Shared.Containers;
 
 
 namespace Content.Shared._White.Xenomorphs.Systems;
-/// <summary>
-/// This handles...
-/// </summary>
+
 public abstract class SharedVomitActionSystem : EntitySystem
 {
     /// <inheritdoc/>

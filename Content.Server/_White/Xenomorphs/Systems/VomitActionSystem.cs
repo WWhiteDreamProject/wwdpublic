@@ -6,9 +6,6 @@ using VomitActionEvent = Content.Shared._White.Xenomorphs.Systems.VomitActionEve
 
 namespace Content.Server._White.Xenomorphs.Systems;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class VomitActionSystem : SharedVomitActionSystem
 {
     /// <inheritdoc/>
