@@ -69,40 +69,40 @@
     offset: 0
     prototypes:
       - BoxMagazinePistolCaselessRiflePractice
-      - BoxMagazineCaselessRifleRubber
+      - BoxMagazinePistolCaselessRifle # WD EDIT - no more rubber
       - BoxMagazineLightRiflePractice
-      - BoxMagazineCaselessRifleRubber
-      - BoxMagazineLightRifleRubber
+      - BoxMagazinePistolCaselessRifle # WD EDIT - no more rubber
+      - BoxMagazineLightRifle # WD EDIT - no more rubber
       - MagazineBoxMagnumPractice
       - BoxMagazineMagnumSubMachineGunPractice
-      - BoxMagazineMagnumSubMachineGunRubber
+      - BoxMagazineMagnumSubMachineGun # WD EDIT - no more rubber
       - BoxMagazinePistolPractice
-      - BoxMagazinePistolRubber
+      - BoxMagazinePistol # WD EDIT - no more rubber
       - BoxMagazinePistolHighCapacityPractice
-      - BoxMagazinePistolHighCapacityRubber
+      - BoxMagazinePistolHighCapacity # WD EDIT - no more rubber
       - BoxMagazinePistolSubMachineGunPractice
-      - BoxMagazinePistolSubMachineGunRubber
+      - BoxMagazinePistolSubMachineGun # WD EDIT - no more rubber
       - BoxMagazineShotgunBeanbag
       - BoxBeanbag
       - BoxShotgunFlare
       - BoxShotgunPractice
       - BoxShellTranquilizer
-      - BoxMagazineCaselessRifleRubber
-      - BoxMagazineCaselessRifleRubber
+      - BoxMagazinePistolCaselessRifle # WD EDIT - no more rubber
+      - BoxMagazinePistolCaselessRifle # WD EDIT - no more rubber
       - BoxMagazineRiflePractice
-      - BoxMagazineCaselessRifleRubber
-      - BoxMagazineRifleRubber
-      - BoxMagazineCaselessRifleRubber
+      - BoxMagazinePistolCaselessRifle # WD EDIT - no more rubber
+      - BoxMagazineRifle # WD EDIT - no more rubber
+      - BoxMagazinePistolCaselessRifle # WD EDIT - no more rubber
       - BoxMagazinePistolCaselessRiflePractice
       - BoxMagazinePistolCaselessRiflePractice
-      - BoxMagazineCaselessRifleRubber
+      - BoxMagazinePistolCaselessRifle # WD EDIT - no more rubber
       - BoxMagazinePistolCaselessRiflePractice
-      - BoxMagazineCaselessRifleRubber
+      - BoxMagazinePistolCaselessRifle # WD EDIT - no more rubber
       - BoxMagazinePistolCaselessRiflePractice
-      - BoxMagazineCaselessRifleRubber
+      - BoxMagazinePistolCaselessRifle # WD EDIT - no more rubber
       - BoxMagazineUniversalMagnumPractice
-      - BoxMagazineUniversalMagnumRubber
-      - MagazineBoxSpecialRubber
+      - BoxMagazineUniversalMagnum # WD EDIT - no more rubber
+      - MagazineBoxSpecial # WD EDIT - no more rubber
       - MagazineBoxSpecialPractice
     chance: 0.15
     rarePrototypes:
@@ -121,7 +121,7 @@
       - BoxShotgunSlug
       - BoxShotgunIncendiary
       - BoxMagazineRifle
-      - BoxMagazineCaselessRifleRubber
+      - BoxMagazinePistolCaselessRifle
       - BoxShellSoulbreaker
       - BoxMagazineUniversalMagnum
       - BoxSpeedLoaderLightRifle

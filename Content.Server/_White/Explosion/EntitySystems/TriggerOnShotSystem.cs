@@ -1,13 +1,16 @@
-using Content.Server.Sound.Components;
+using Content.Server.Explosion.EntitySystems;
+using Content.Shared._White.Explosion.Components;
+using Content.Shared._White.Weapons.Ranged.Events;
 using Content.Shared.Examine;
 using Content.Shared.Explosion.Components;
-using Content.Shared.Weapons.Ranged.Events;
 
-namespace Content.Server.Explosion.EntitySystems;
+namespace Content.Server._White.Explosion.EntitySystems;
 
-public sealed partial class TriggerSystem
+public sealed class TriggerOnShotSystem : EntitySystem
 {
-    private void InitializeOnShot()
+    [Dependency] private readonly TriggerSystem _trigger = default!;
+
+    public override void Initialize()
     {
         SubscribeLocalEvent<OnShotTimerTriggerComponent, ProjectileShotEvent>(OnShot);
         SubscribeLocalEvent<OnShotTimerTriggerComponent, ExaminedEvent>(OnExamined);
@@ -21,15 +24,12 @@ public sealed partial class TriggerSystem
 
     private void OnShot(EntityUid uid, OnShotTimerTriggerComponent component, ProjectileShotEvent args)
     {
-        if (args.Handled)
-            return;
-
-        if (!TryComp<OnUseTimerTriggerComponent>(uid, out var triggerComponent))
+        if (args.Handled || !TryComp<OnUseTimerTriggerComponent>(uid, out var triggerComponent))
             return;
 
         triggerComponent.Delay = Math.Max(0.5f, triggerComponent.Delay - component.DelayReduction);
 
-        StartTimer((uid, triggerComponent), uid);
+        _trigger.StartTimer((uid, triggerComponent), uid);
 
         args.Handled = true;
     }
