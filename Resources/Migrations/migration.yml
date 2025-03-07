@@ -330,6 +330,10 @@ NTFlag: FlagNanoTrasen
 SyndieFlag: FlagSyndicate
 LGBTQFlag: RandomPosterLegit
 
+# 2025-03-02
+WeaponSubMachineGunVectorRubber: null
+WeaponSubMachineGunVector: null
+
 # Lavaland EE stuff
 TreasureDatadiskEncrypted: null
 VendingMachineBoozeSyndicate: VendingMachineBooze
