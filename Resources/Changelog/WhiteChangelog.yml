@@ -1615,3 +1615,12 @@ Entries:
   id: 172
   time: '2025-03-07T04:25:23.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/273
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: 'Тип меню эмоций теперь можно менять в настройках '
+    - type: Tweak
+      message: Теперь у всех отдельный пул эмоций
+  id: 173
+  time: '2025-03-07T06:05:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/215
