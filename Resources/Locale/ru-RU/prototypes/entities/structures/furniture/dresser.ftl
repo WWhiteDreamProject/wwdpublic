@@ -16,3 +16,4 @@ ent-DresserQuarterMasterFilled = { ent-Dresser }
 ent-DresserResearchDirectorFilled = { ent-Dresser }
     .desc = { ent-Dresser.desc }
 ent-DresserWardenFilled = { ent-Dresser }
+    .desc = { ent-Dresser.desc }
