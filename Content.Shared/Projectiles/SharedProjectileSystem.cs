@@ -12,6 +12,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Item.ItemToggle;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
@@ -50,7 +51,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         SubscribeLocalEvent<ProjectileComponent, PreventCollideEvent>(PreventCollision);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ProjectileHitEvent>(OnEmbedProjectileHit);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ThrowDoHitEvent>(OnEmbedThrowDoHit);
-        SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate, before: new[] {typeof(ActivatableUISystem)}); // WD EDIT
+        SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate, before: new[] {typeof(ActivatableUISystem), typeof(ItemToggleSystem), }); // WD EDIT
         SubscribeLocalEvent<EmbeddableProjectileComponent, RemoveEmbeddedProjectileEvent>(OnEmbedRemove);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<EmbeddableProjectileComponent, PreventCollideEvent>(OnPreventCollision); // WD EDIT
@@ -94,8 +95,8 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
 
         // Whacky prediction issues.
-        if (_netManager.IsClient)
-            return;
+        //if (_netManager.IsClient) // WWDP disabled
+        //    return;
 
         if (component.DeleteOnRemove)
         {
@@ -127,6 +128,8 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         // try place it in the user's hand
         if (remover is {} removerUid)
             _hands.TryPickupAnyHand(removerUid, uid);
+
+        Dirty(uid, component); // WWDP
     }
 
     private void OnEmbedThrowDoHit(EntityUid uid, EmbeddableProjectileComponent component, ThrowDoHitEvent args)

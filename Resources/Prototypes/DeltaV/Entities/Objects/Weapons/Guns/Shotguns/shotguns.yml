@@ -10,6 +10,8 @@
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
   - type: Item
     size: Large
+    shape: # WWDP guns resize
+    - 0,0,7,1
   - type: Gun
     fireRate: 1.5
     selectedMode: SemiAuto
@@ -31,7 +33,7 @@
 
 - type: entity
   name: Kammerer
-  parent: BaseWeaponShotgun
+  parent: WeaponShotgunKammerer # WWDP fix
   id: WeaponShotgunKammererNonLethal #Legacy name
   description: When an old Remington design meets modern materials, this is the result. A favourite weapon of militia forces throughout many worlds. Uses .50 shotgun shells.
   suffix: Beanbag

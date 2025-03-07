@@ -1,3 +1,4 @@
+using Content.Server._White.Hearing;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Language;
@@ -33,6 +34,7 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly HearingSystem _hearing = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
 
     // set used to prevent radio feedback loops.
@@ -74,6 +76,11 @@ public sealed class RadioSystem : EntitySystem
     {
         if (TryComp(uid, out ActorComponent? actor))
         {
+            // WWDP Deafening
+            if (_hearing.IsBlockedByDeafness(actor.PlayerSession, ChatChannel.Radio, args.Language))
+                return;
+            // WWDP end
+
             // Einstein-Engines - languages mechanic
             var listener = component.Owner;
             var msg = args.OriginalChatMsg;

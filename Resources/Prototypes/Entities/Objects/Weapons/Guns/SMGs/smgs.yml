@@ -103,6 +103,9 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,3,1
 
 - type: entity
   name: C-20r sub machine gun
@@ -137,6 +140,9 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: antique C-20r submachine gun
@@ -195,6 +201,9 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: Vector
@@ -243,6 +252,9 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: WT550
@@ -305,6 +317,9 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: antique Wt550
