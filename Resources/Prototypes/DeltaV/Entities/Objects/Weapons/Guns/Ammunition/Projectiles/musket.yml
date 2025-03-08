@@ -7,4 +7,4 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 30 #4 shot kill for a musket
+        Piercing: 60 # WWDP as the founding fathers intended; same dmg total as handmade shotgun ammo
