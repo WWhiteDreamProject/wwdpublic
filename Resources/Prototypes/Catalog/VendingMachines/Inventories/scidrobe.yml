@@ -15,4 +15,6 @@
     ClothingOuterWinterSci: 2
     ClothingNeckScarfStripedPurple: 3
     ClothingHeadTinfoil: 2 # Nyanotrasen - Tinfoil hats for Epistemics
+    ClothingHeadHelmetInsulated: 1 # WWDP - Helmets for Sci, Sec helmets have their own protection now
+    ClothingHeadCage: 2 # WWDP - moved from SecDrobe
     ClothingShoesBootsWinterSci: 2

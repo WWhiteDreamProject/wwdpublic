@@ -8,8 +8,7 @@
 # WD edit start - moved clothes from SecTech & sorted by type
     ClothingHeadsetSecurity: 3
     ClothingHeadHelmetBasic: 2
-    ClothingHeadHelmetInsulated: 2
-    ClothingHeadCage: 2
+    # ClothingHeadHelmetInsulated: 2 # WWDP - all sec helmets are insulated now
     ClothingHeadHatBeretSecurity: 3
     ClothingHeadBandRed: 3
     ClothingHeadHatCowboyBlack: 1

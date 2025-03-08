@@ -72,7 +72,7 @@
       - id: FlashlightSeclite
       - id: ClothingUniformJumpsuitSec # WD - Less random bloat
       - id: ClothingHeadHelmetBasic
-      - id: ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
+      # - id: ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear # WWDP - all sec helmets are insulated now
       - id: ClothingOuterArmorBasic # WD - plate carrier and stabproof vest replaced back to regular bodyarmor
       - id: ClothingBeltSecurityFilled
       - id: ClothingEyesGlassesSecurity # WD - SecHuds
