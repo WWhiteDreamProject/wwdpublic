@@ -11,10 +11,12 @@
     canBeUsedWhileWorn: false # WWDP
     size: Huge
   - type: Clothing
-    #equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP todo sounds from the gunnening
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     quickEquip: false
     slots:
     - back
+  - type: EmitSoundOnPickup # WWDP
+    sound: /Audio/_White/Equip/clothingrustle2.ogg
   - type: Storage
     grid:
     - 0,0,6,3

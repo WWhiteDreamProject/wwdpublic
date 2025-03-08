@@ -1586,3 +1586,89 @@ Entries:
   id: 169
   time: '2025-03-06T08:01:05.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/283
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Большая часть оружия занимает больше места в инвентаре. Длинные
+        дробовики и винтовки теперь помещаются только в вещмешок.
+  id: 170
+  time: '2025-03-06T20:03:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/284
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        Lizard people's clothing is now displayed correctly again / Одежда на
+        ящерах вновь отображается нормально
+    - type: Fix
+      message: >-
+        Character breakage is now prevented / Теперь нельзя сломать себе
+        персонажа
+  id: 171
+  time: '2025-03-07T04:22:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/276
+- author: vanx
+  changes:
+    - type: Fix
+      message: Баги системы ближнего боя
+  id: 172
+  time: '2025-03-07T04:25:23.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/273
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: 'Тип меню эмоций теперь можно менять в настройках '
+    - type: Tweak
+      message: Теперь у всех отдельный пул эмоций
+  id: 173
+  time: '2025-03-07T06:05:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/215
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Изменены толчки руками на пкм - теперь они всегда попадают, отталкивают
+        и вдобавок имеют шанс обезоружить. Урон по стамине и расстояние
+        отталкивания зависит от веса персонажей. Шанс обезоружить зависит от
+        стамины и здоровья персонажей и предметах в их руках.
+  id: 174
+  time: '2025-03-07T06:54:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/280
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Большинство шлемов и скафандров теперь защищают от псионических атак при
+        ношении.
+    - type: Fix
+      message: Майндсвап больше не пробивает пси-защиту.
+  id: 175
+  time: '2025-03-08T08:34:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/253
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Изменен шрифт описания при осмотре.
+    - type: Tweak
+      message: Изменено меню осмотра огнестрельного оружия.
+    - type: Tweak
+      message: >-
+        Теперь чтобы увидеть точное количество патронов в магазине оружия нужно
+        достать магазин и осмотреть его.
+    - type: Add
+      message: >-
+        Возможность доставать патроны из дробовиков, бандольер, магазинов и
+        коробок на Alt+Клик
+    - type: Tweak
+      message: Уменьшена визуальная отдача при стрельбе.
+  id: 176
+  time: '2025-03-08T08:35:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/285
+- author: Vaaankas
+  changes:
+    - type: Fix
+      message: Исправлено отображение урона ближнего боя.
+  id: 177
+  time: '2025-03-08T08:35:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/286

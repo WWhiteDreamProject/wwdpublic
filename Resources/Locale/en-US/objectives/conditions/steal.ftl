@@ -23,6 +23,7 @@ steal-target-prime-cut-corgi-meat = prime-cut corgi meat
 steal-target-captain-id-card = captain ID card
 steal-target-captains-jetpack = captain's jetpack
 steal-target-captains-weapon = captains weapon
+steal-target-ntr-weapon = nanotrasen representative's weapon
 steal-target-nuclear-authentication-disk = nuclear authentication disk
 steal-target-hos-personal-weapon = head of security's personal weapon
 

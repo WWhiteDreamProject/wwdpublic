@@ -49,4 +49,36 @@ public sealed partial class GunSystem
         var cycledEvent = new GunCycledEvent();
         RaiseLocalEvent(uid, ref cycledEvent);
     }
+
+    // WWDP extract round
+    protected override void Extract(EntityUid uid, MapCoordinates coordinates, BallisticAmmoProviderComponent component,
+        EntityUid user)
+    {
+        if (!Timing.IsFirstTimePredicted)
+            return;
+
+        EntityUid entity;
+
+        if (component.Entities.Count > 0)
+        {
+            entity = component.Entities[^1];
+            component.Entities.RemoveAt(component.Entities.Count - 1);
+            EnsureShootable(entity);
+        }
+        else if (component.UnspawnedCount > 0)
+        {
+            component.UnspawnedCount--;
+            entity = Spawn(component.Proto, coordinates);
+            EnsureShootable(entity);
+        }
+        else
+        {
+            Popup(Loc.GetString("gun-ballistic-empty"), uid, user);
+            return;
+        }
+
+        if (IsClientSide(entity))
+            Del(entity);
+    }
+    // WWDP end
 }

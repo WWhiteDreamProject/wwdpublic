@@ -76,8 +76,8 @@ public abstract partial class SharedGunSystem : EntitySystem
     private const double SafetyNextFire = 0.5;
     private const float EjectOffset = 0.4f;
     protected const string AmmoExamineColor = "yellow";
-    protected const string FireRateExamineColor = "yellow";
-    public const string ModeExamineColor = "cyan";
+    public const string ModeExamineColor = "crimson"; // WWDP examine
+    public const string ModeExamineBadColor = "pink"; // WWDP examine
 
     public override void Initialize()
     {
@@ -148,7 +148,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         component.BonusAngleLastUpdate = curTime;
     }
 	// WWDP EDIT END
-	
+
     private void OnMapInit(Entity<GunComponent> gun, ref MapInitEvent args)
     {
 #if DEBUG
@@ -168,7 +168,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         if (melee.NextAttack > component.NextFire)
         {
-            component.NextFire = melee.NextAttack;
+            component.NextFire = Timing.CurTime + TimeSpan.FromSeconds(1f / component.FireRateModified); // WWDP delay based on the gun not melee so its shorter
             Dirty(uid, component);
         }
     }
