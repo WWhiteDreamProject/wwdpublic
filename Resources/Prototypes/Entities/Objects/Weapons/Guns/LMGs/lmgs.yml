@@ -29,7 +29,6 @@
     maxAngle: 45
     angleIncrease: 4
     angleDecay: 16
-    boltCatch: false # WWDP
     fireRate: 8
     selectedMode: FullAuto
     availableModes:
