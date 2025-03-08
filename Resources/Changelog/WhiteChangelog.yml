@@ -1679,3 +1679,12 @@ Entries:
   id: 178
   time: '2025-03-08T18:46:34.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/290
+- author: vanx
+  changes:
+    - type: Add
+      message: Теперь можно толкать не только космонавтиков но и любые предметы.
+    - type: Fix
+      message: Удалены техники бесконтактного боя.
+  id: 179
+  time: '2025-03-08T19:11:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/295
