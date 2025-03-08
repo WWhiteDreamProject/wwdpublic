@@ -161,7 +161,7 @@ namespace Content.Shared.Interaction
         private void OnBoundInterfaceInteractAttempt(BoundUserInterfaceMessageAttempt ev)
         {
             _uiQuery.TryComp(ev.Target, out var uiComp);
-            if (!_actionBlockerSystem.CanInteract(ev.Actor, ev.Target))
+            if (!_actionBlockerSystem.CanInteract(ev.Actor, ev.Target, true)) // WWDP interaction popups
             {
                 // We permit ghosts to open uis unless explicitly blocked
                 if (ev.Message is not OpenBoundInterfaceMessage || !HasComp<GhostComponent>(ev.Actor) || uiComp?.BlockSpectators == true)
@@ -381,7 +381,7 @@ namespace Content.Shared.Interaction
             if (_relayQuery.TryComp(user, out var relay) && relay.RelayEntity is not null)
             {
                 // TODO this needs to be handled better. This probably bypasses many complex can-interact checks in weird roundabout ways.
-                if (_actionBlockerSystem.CanInteract(user, target))
+                if (_actionBlockerSystem.CanInteract(user, target, true)) // WWDP interaction popups
                 {
                     UserInteraction(relay.RelayEntity.Value,
                         coordinates,
@@ -414,7 +414,7 @@ namespace Content.Shared.Interaction
                 return;
             }
 
-            if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, target))
+            if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, target, true)) // WWDP interaction popups
                 return;
 
             // Check if interacted entity is in the same container, the direct child, or direct parent of the user.
@@ -988,10 +988,7 @@ namespace Content.Shared.Interaction
             if (IsDeleted(user) || IsDeleted(used) || IsDeleted(target))
                 return false;
 
-            if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, target))
-                return false;
-
-            if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, target))
+            if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, target, true)) // WWDP interaction popups
                 return false;
 
             if (checkCanUse && !_actionBlockerSystem.CanUseHeldEntity(user, used))
@@ -1005,7 +1002,9 @@ namespace Content.Shared.Interaction
             if (RangedInteractDoBefore(user, used, target, clickLocation, true))
                 return true;
 
-            // all interactions should only happen when in range / unobstructed, so no range check is needed
+            if (!InRangeAndAccessible(user, target)) // WWDP no interacting with items inside containers
+                return false;
+
             var interactUsingEvent = new InteractUsingEvent(user, used, target, clickLocation);
             RaiseLocalEvent(target, interactUsingEvent, true);
             DoContactInteraction(user, used, interactUsingEvent);
@@ -1107,7 +1106,7 @@ namespace Content.Shared.Interaction
             if (checkUseDelay && delayComponent != null && _useDelay.IsDelayed((used, delayComponent)))
                 return false;
 
-            if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, used))
+            if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, used, true)) // WWDP interaction popups
                 return false;
 
             if (checkAccess && !InRangeUnobstructed(user, used))
@@ -1161,7 +1160,7 @@ namespace Content.Shared.Interaction
             if (checkUseDelay && delayComponent != null && _useDelay.IsDelayed((used, delayComponent)))
                 return true; // if the item is on cooldown, we consider this handled.
 
-            if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, used))
+            if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, used, true)) // WWDP interaction popups
                 return false;
 
             if (checkCanUse && !_actionBlockerSystem.CanUseHeldEntity(user, used))
@@ -1212,7 +1211,7 @@ namespace Content.Shared.Interaction
             if (ev.Handled)
                 return true;
 			// WD EDIT END
-			
+
             // Get list of alt-interact verbs
             var verbs = _verbSystem.GetLocalVerbs(target, user, typeof(AlternativeVerb)).Where(verb => ((AlternativeVerb) verb).InActiveHandOnly == false); // WD EDIT
 
@@ -1301,7 +1300,7 @@ namespace Content.Shared.Interaction
             if (_containerSystem.IsInSameOrParentContainer(user, target, out _, out var container))
                 return true;
 
-            return container != null && CanAccessViaStorage(user, target, container);
+            return false; // WWDP no interacting with items inside containers
         }
 
         /// <summary>
