@@ -8,23 +8,23 @@
     sprite: DeltaV/Clothing/Belt/ceremonial.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Belt/ceremonial.rsi
-  - type: Storage
-    whitelist:
-      tags:
-        - CigPack
-        - Taser
-        - SecBeltEquip
-        - Radio
-        - Flashlight
-      components:
-        - Stunbaton
-        - FlashOnTrigger
-        - Flash
-        - Handcuff
-        - BallisticAmmoProvider
-        - Ammo
-        - PowerCell
-        - OnUseTimerTrigger
+  # - type: Storage # WWDP no whitelists on belts
+  #   whitelist:
+  #     tags:
+  #       - CigPack
+  #       - Taser
+  #       - SecBeltEquip
+  #       - Radio
+  #       - Flashlight
+  #     components:
+  #       - Stunbaton
+  #       - FlashOnTrigger
+  #       - Flash
+  #       - Handcuff
+  #       - BallisticAmmoProvider
+  #       - Ammo
+  #       - PowerCell
+  #       - OnUseTimerTrigger
   - type: ItemMapper
     mapLayers:
       flashbang:
@@ -55,7 +55,7 @@
       - BeltSlotNotBelt
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ClothingBaseWebbing, ClothingBeltStorageBase] # WWDP
   id: ClothingBeltCorpsmanWebbing
   name: corpsman webbing
   description: A set of security webbing with blue corpsman highlights.
