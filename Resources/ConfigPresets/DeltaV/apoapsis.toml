@@ -7,7 +7,6 @@ rules_file   = "Rules.txt"
 
 [whitelist]
 enabled     = false
-reason      = "whitelist-not-whitelisted"
 min_players = 90
 
 [shuttle]
