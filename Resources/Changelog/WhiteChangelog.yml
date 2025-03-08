@@ -1665,3 +1665,10 @@ Entries:
   id: 176
   time: '2025-03-08T08:35:03.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/285
+- author: Vaaankas
+  changes:
+    - type: Fix
+      message: Исправлено отображение урона ближнего боя.
+  id: 177
+  time: '2025-03-08T08:35:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/286
