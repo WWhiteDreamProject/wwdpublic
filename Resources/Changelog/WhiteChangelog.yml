@@ -1646,3 +1646,22 @@ Entries:
   id: 175
   time: '2025-03-08T08:34:30.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/253
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Изменен шрифт описания при осмотре.
+    - type: Tweak
+      message: Изменено меню осмотра огнестрельного оружия.
+    - type: Tweak
+      message: >-
+        Теперь чтобы увидеть точное количество патронов в магазине оружия нужно
+        достать магазин и осмотреть его.
+    - type: Add
+      message: >-
+        Возможность доставать патроны из дробовиков, бандольер, магазинов и
+        коробок на Alt+Клик
+    - type: Tweak
+      message: Уменьшена визуальная отдача при стрельбе.
+  id: 176
+  time: '2025-03-08T08:35:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/285
