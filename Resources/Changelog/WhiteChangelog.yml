@@ -1635,3 +1635,14 @@ Entries:
   id: 174
   time: '2025-03-07T06:54:20.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/280
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Большинство шлемов и скафандров теперь защищают от псионических атак при
+        ношении.
+    - type: Fix
+      message: Майндсвап больше не пробивает пси-защиту.
+  id: 175
+  time: '2025-03-08T08:34:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/253
