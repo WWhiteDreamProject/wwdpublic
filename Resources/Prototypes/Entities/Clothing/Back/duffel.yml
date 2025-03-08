@@ -21,9 +21,9 @@
     canBeUsedWhileWorn: false # WWDP
     equipDelay: 1
     unequipDelay: 1
-    #equipSound: /Audio/_White/Equip/clothingrustle2.ogg todo sounds from the gunnening
-  #- type: EmitSoundOnPickup # WWDP
-  #  sound: /Audio/Items/Equip/clothingrustle2.ogg
+    equipSound: /Audio/_White/Equip/clothingrustle2.ogg # WWDP
+  - type: EmitSoundOnPickup # WWDP
+    sound: /Audio/Items/Equip/clothingrustle2.ogg
 
 - type: entity
   parent: ClothingBackpackDuffel
