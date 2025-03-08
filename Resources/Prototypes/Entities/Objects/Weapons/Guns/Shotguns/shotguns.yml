@@ -340,7 +340,7 @@
     staminaCost: 6
 
 - type: entity
-  name: sawn-off shogun
+  name: sawn-off shotgun
   parent: WeaponShotgunSawn
   id: WeaponShotgunSawnEmpty
   description: Groovy! Uses .50 shotgun shells.
@@ -371,11 +371,8 @@
     fireRate: 4
     fireOnDropChance: 1
   - type: BallisticAmmoProvider
+    autoCycle: true # WWDP
     capacity: 1
-  - type: Construction
-    graph: ShotgunSawn
-    node: shotgunsawn
-    deconstructionTarget: null
   - type: StaticPrice
     price: 0
   - type: MeleeWeapon
@@ -386,6 +383,19 @@
     wideAnimationRotation: 135
   - type: DamageOtherOnHit
     staminaCost: 5
+
+- type: entity # WWDP
+  name: sawn-off shotgun
+  parent: WeaponShotgunHandmade
+  id: WeaponShotgunHandmadeEmpty
+  suffix: Empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Construction
+    graph: ShotgunHandmadeSawn
+    node: shotgunsawn
+    deconstructionTarget: null
 
 - type: entity
   name: blunderbuss

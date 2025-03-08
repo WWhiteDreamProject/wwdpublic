@@ -663,6 +663,9 @@
       Gunpowder: 100
   - type: Item
     size: Tiny
+  - type: Construction # WWDP
+    graph: MaterialGunpowderGraph
+    node: gunpowder
 
 - type: entity
   parent: MaterialBase
