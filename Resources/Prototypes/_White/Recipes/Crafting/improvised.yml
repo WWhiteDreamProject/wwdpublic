@@ -37,7 +37,7 @@
 
 - type: construction
   name: gunpowder
-  id: MaterialGunpowder3
+  id: MaterialGunpowder
   graph: MaterialGunpowderGraph
   startNode: start
   targetNode: gunpowder
