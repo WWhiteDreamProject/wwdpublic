@@ -74,3 +74,35 @@
         doAfter: 4
   - node: gunpowder
     entity: MaterialGunpowder
+
+- type: construction
+  name: snap pop
+  id: snappop
+  graph: SnapPopGraph
+  startNode: start
+  targetNode: snappop
+  category: construction-category-weapons
+  objectType: Item
+  description: Throw it at the floor and listen to it POP!
+  icon:
+    sprite: Objects/Fun/toys.rsi
+    state: snappop
+
+- type: constructionGraph
+  id: SnapPopGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: snappop
+      steps:
+      - tag: Paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        name: paper
+      - material: Gunpowder
+        amount: 1
+        doAfter: 3
+  - node: snappop
+    entity: SnapPop
