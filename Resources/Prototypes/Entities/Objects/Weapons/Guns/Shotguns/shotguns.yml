@@ -13,12 +13,13 @@
     # If you update this also update the bulldog's size.
     size: Large
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # Delta-V
     quickEquip: false
     slots:
     - Back
     - suitStorage
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: Gun # change WeaponShotgunBulldog too if updating this
     bonusAngleIncreaseMove: 40    # wwdp
     bonusAngleIncreaseTurn: 0.25  # wwdp
@@ -68,6 +69,15 @@
   - type: DamageOtherOnHit
     staminaCost: 9.5
   - type: GunRequiresWield # WD EDIT
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: ShotgunsPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: ShotgunsDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: ShotgunsDrop
 
 - type: entity # supposed to be similiar to pistols
   name: BaseWeaponShotgunSmall
@@ -104,12 +114,13 @@
     shape:
     - 0,0,5,1
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     bonusAngleIncreaseMove: 40    # wwdp
@@ -136,11 +147,21 @@
           - MagazineShotgun
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+      gun_chamber: # WWDP
+        name: Chamber
+        locked: true
+        startingItem: ShellShotgun
+        priority: 1
+        whitelist:
+          tags:
+          - ShellShotgun
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
-  - type: MagazineAmmoProvider
+  - type: ChamberMagazineAmmoProvider # WWDP
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -167,6 +188,15 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 9.5
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: ShotgunsPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: ShotgunsDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: ShotgunsDrop
 
 - type: entity
   name: antique Bulldog
@@ -234,6 +264,8 @@
     - 0,0,5,1
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: BallisticAmmoProvider
+    soundRack: # WWDP
+      path: /Audio/_White/Guns/shotgun_rack.ogg
   - type: Wieldable
   - type: MeleeWeapon
     attackRate: 1.4
@@ -268,6 +300,8 @@
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: BallisticAmmoProvider
     capacity: 4
+    soundRack:
+      path: /Audio/_White/Guns/shotgun_rack.ogg
   - type: Tag
     tags:
     - WeaponShotgunKammerer

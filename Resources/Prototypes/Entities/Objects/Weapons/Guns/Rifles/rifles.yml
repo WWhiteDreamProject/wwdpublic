@@ -11,13 +11,14 @@
     shape:
     - 0,0,7,1
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/Rifles/ak.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
   - type: Wieldable
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: Gun
     bonusAngleIncreaseMove: 40    # wwdp
     bonusAngleIncreaseTurn: 0.25  # wwdp
@@ -95,6 +96,7 @@
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
     fireOnDropChance: 0.5
   - type: ChamberMagazineAmmoProvider
+    boltCatch: false # WWDP no zatvornaya zaderzhka kak u m-16
     soundRack:
       path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
   - type: ItemSlots
@@ -124,6 +126,15 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: RiflesDrop
 
 - type: entity
   name: M-90gl

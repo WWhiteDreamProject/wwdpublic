@@ -16,19 +16,26 @@ public abstract partial class SharedGunSystem
 
         using (args.PushGroup(nameof(GunComponent)))
         {
+            if (component.SelectedMode == component.AvailableModes) // WWDP IF THERE IS ONLY ONE MODE DONT WRITE IT
+                return;
+
             args.PushMarkup(Loc.GetString("gun-selected-mode-examine", ("color", ModeExamineColor),
                 ("mode", GetLocSelector(component.SelectedMode))));
-            args.PushMarkup(Loc.GetString("gun-fire-rate-examine", ("color", FireRateExamineColor),
+            /* WWDP no firerate on examine
+             args.PushMarkup(Loc.GetString("gun-fire-rate-examine", ("color", FireRateExamineColor),
                 ("fireRate", $"{(int) (component.FireRate * 60)}")));
+            */
 
             if (!component.AvailableModes.HasFlag(SelectiveFire.Burst))
                 return;
 
+            /* WWDP no firerate on examine
             if (component.FireRate != component.BurstFireRate)
                 args.PushMarkup(Loc.GetString("gun-burst-fire-rate-examine", ("color", FireRateExamineColor),
                     ("fireRate", $"{(int) (component.BurstFireRate * 60)}")));
+            */
 
-            args.PushMarkup(Loc.GetString("gun-burst-fire-burst-count", ("color", FireRateExamineColor),
+            args.PushMarkup(Loc.GetString("gun-burst-fire-burst-count", ("color", ModeExamineColor),
                 ("burstcount", $"{component.ShotsPerBurst}")));
         }
     }
