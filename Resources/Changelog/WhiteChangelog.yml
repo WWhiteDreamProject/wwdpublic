@@ -1695,3 +1695,10 @@ Entries:
   id: 180
   time: '2025-03-08T19:12:20.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/291
+- author: RedFoxIV
+  changes:
+    - type: Fix
+      message: Мелкофикс оверлея для мелков.
+  id: 181
+  time: '2025-03-08T19:20:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/297
