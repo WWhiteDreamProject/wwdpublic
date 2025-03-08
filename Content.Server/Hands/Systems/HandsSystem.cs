@@ -27,6 +27,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Shared.Serialization;
+using Content.Shared._White.Hands;
 
 namespace Content.Server.Hands.Systems
 {
@@ -291,7 +293,10 @@ namespace Content.Server.Hands.Systems
             // This can grief the above event so we raise it afterwards
             if (IsHolding(player, throwEnt, out _, hands) && !TryDrop(player, throwEnt, handsComp: hands))
                 return false;
-
+            // WWDP EDIT START
+            var deselEv = new HandDeselectedEvent(player);                              // because throwcode is serverside, the HandDeselectedEvent doesn't get raised on client.
+            RaiseNetworkEvent(new HandDeselectedNetworkCrutchWrap(GetNetEntity(throwEnt), GetNetEntity(player)));   // This is the best i've came up with.
+            // WWDP EDIT END
             _throwingSystem.TryThrow(ev.ItemUid, ev.Direction, ev.ThrowSpeed, ev.PlayerUid, compensateFriction: !HasComp<LandAtCursorComponent>(ev.ItemUid));
 
             return true;

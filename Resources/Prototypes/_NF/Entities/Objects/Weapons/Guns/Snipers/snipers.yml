@@ -12,8 +12,18 @@
   - type: StaticPrice
     price: 500
   - type: BallisticAmmoProvider
+    autoCycle: false # WWDP
+    soundRack: # WWDP
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
+      params:
+        volume: -3
     whitelist:
       tags:
       - CartridgeMagnum
     capacity: 7
     proto: CartridgeMagnum
+  - type: Item # WWDP guns resize
+    size: Large
+    storedRotation: 45
+    shape:
+    - 0,0,7,0

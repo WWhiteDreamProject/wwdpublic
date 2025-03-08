@@ -56,6 +56,8 @@
   components:
   - type: Item
     size: Large
+    shape: # WWDP guns resize
+    - 0,0,5,1 # bullpup
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Rifles/jackdaw.rsi
     layers:
@@ -183,7 +185,7 @@
   components:
   - type: BallisticAmmoProvider
     whitelist:
-      tags: 
+      tags:
       - CartridgeMusket
     capacity: 1
     proto: CartridgeMusket

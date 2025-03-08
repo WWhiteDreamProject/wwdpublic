@@ -62,7 +62,7 @@ namespace Content.Server.Forensics
                 return;
             }
 
-            if (TryComp<FingerprintComponent>(args.Target, out var fingerprint) && fingerprint.Fingerprint != null)
+            if (TryComp<FingerprintComponent>(args.Target, out var fingerprint)) // WWDP
             {
                 if (args.User != args.Target)
                 {
@@ -77,7 +77,7 @@ namespace Content.Server.Forensics
                 StartScan(uid, args.User, args.Target.Value, component, string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
         }
 
-        private void StartScan(EntityUid used, EntityUid user, EntityUid target, ForensicPadComponent pad, string sample)
+        private void StartScan(EntityUid used, EntityUid user, EntityUid target, ForensicPadComponent pad, string? sample) // WWDP
         {
             var ev = new ForensicPadDoAfterEvent(sample);
 
@@ -97,15 +97,34 @@ namespace Content.Server.Forensics
                 return;
             }
 
-            if (args.Args.Target != null)
+            // WWDP EDIT
+            if (args.Args.Target == null)
             {
-                var name = HasComp<FingerprintComponent>(args.Args.Target)
-                    ? "forensic-pad-fingerprint-name"
-                    : "forensic-pad-gloves-name";
-                _metaData.SetEntityName(uid, Loc.GetString(name, ("entity", args.Args.Target)));
+                args.Handled = true;
+                return;
             }
 
-            padComponent.Sample = args.Sample;
+            var name = "forensic-pad-gloves-name";
+            var sample = "";
+
+            if (TryComp<FingerprintComponent>(args.Args.Target, out var fingerprint))
+            {
+                if (fingerprint.NotLeavingFingerprints || args.Sample == null)
+                {
+                    var message = Loc.GetString("forensic-pad-no-fingerprints", ("target", Identity.Entity(args.Args.Target.Value, EntityManager)));
+                    _popupSystem.PopupEntity(message, (EntityUid)args.Args.Target, args.User);
+                    args.Handled = true;
+                    return;
+                }
+
+                name = "forensic-pad-fingerprint-name";
+                sample = args.Sample;
+            }
+
+            _metaData.SetEntityName(uid, Loc.GetString(name, ("entity", args.Args.Target)));
+
+            padComponent.Sample = sample;
+            // WWDP EDIT END
             padComponent.Used = true;
 
             args.Handled = true;

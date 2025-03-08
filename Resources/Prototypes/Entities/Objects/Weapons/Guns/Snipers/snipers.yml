@@ -12,12 +12,13 @@
   - type: Item
     size: Huge
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: Wieldable
   - type: GunRequiresWield
   - type: Gun
@@ -32,6 +33,8 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: BallisticAmmoProvider
+    soundRack: # WWDP
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
     capacity: 10
     proto: CartridgeLightRifle
     whitelist:
@@ -63,6 +66,15 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 7.5
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: SnipersPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: SnipersDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: SnipersDrop
 
 - type: entity
   name: Kardashev-Mosin
@@ -105,6 +117,10 @@
   - type: EmbedPassiveDamage
   - type: ThrowingAngle
     angle: 225
+  - type: Item # WWDP guns resize
+    storedRotation: 45
+    shape:
+    - 0,0,7,0
 
 - type: entity
   name: Kardashev-Mosin
@@ -139,8 +155,13 @@
   - type: Clothing
     sprite: _White/Objects/Weapons/Guns/Snipers/hristov-inhands.rsi
   - type: Item
+    size: Huge # WWDP guns resize
+    shape:
+    - 0,0,6,1 # needs to fit in a briefcase, collapsible stock or something
     sprite: _White/Objects/Weapons/Guns/Snipers/hristov-inhands.rsi
   - type: BallisticAmmoProvider
+    soundRack: # WWDP
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
     soundInsert: /Audio/_White/Guns/insert.ogg
     whitelist:
       tags:
@@ -167,6 +188,9 @@
   - type: Sharp
   - type: Item
     size: Large
+    storedRotation: 45 # WWDP
+    shape: # WWDP
+    - 0,0,7,0
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/musket.rsi
     state: base
@@ -181,6 +205,7 @@
   - type: UseDelay
     delay: 8 #it's a musket
   - type: BallisticAmmoProvider
+    autoCycle: true # WWDP
     whitelist:
       tags:
       - CartridgeMusket # DeltaV - musket instead of anti materiel ammo
@@ -224,7 +249,8 @@
     fireOnDropChance: 1
   - type: Item
     size: Small
-    storedRotation: 90
+    shape: # WWDP guns resize
+    - 0,0,3,0
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
   - type: Clothing
@@ -233,6 +259,7 @@
   - type: UseDelay
     delay: 8 #it's a flintlock
   - type: BallisticAmmoProvider
+    autoCycle: true # WWDP
     whitelist:
       tags:
       - CartridgeMusket # DeltaV - musket instead of anti materiel ammo
