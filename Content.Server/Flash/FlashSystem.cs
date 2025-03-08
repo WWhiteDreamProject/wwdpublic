@@ -149,15 +149,6 @@ namespace Content.Server.Flash
             if (attempt.Cancelled)
                 return;
 
-            if (melee)
-            {
-                var ev = new AfterFlashedEvent(target, user, used);
-                if (user != null)
-                    RaiseLocalEvent(user.Value, ref ev);
-                if (used != null)
-                    RaiseLocalEvent(used.Value, ref ev);
-            }
-
             flashDuration *= flashable.DurationMultiplier;
 
             flashable.LastFlash = _timing.CurTime;
