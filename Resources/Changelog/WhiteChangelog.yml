@@ -1672,3 +1672,10 @@ Entries:
   id: 177
   time: '2025-03-08T08:35:25.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/286
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Лимит длины оповещений увеличен до 1000 символов.
+  id: 178
+  time: '2025-03-08T18:46:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/290
