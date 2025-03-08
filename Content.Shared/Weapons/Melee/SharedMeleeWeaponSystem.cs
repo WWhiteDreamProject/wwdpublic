@@ -54,8 +54,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private   readonly IPrototypeManager       _protoManager    = default!;
     [Dependency] private   readonly StaminaSystem           _stamina         = default!;
     [Dependency] private   readonly ContestsSystem          _contests        = default!;
-    [Dependency] private   readonly ThrowingSystem          _throwing        = default!; // WWDP
-    [Dependency] private   readonly IConfigurationManager   _config          = default!; // WWDP
 
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
@@ -789,10 +787,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
     protected virtual bool DoDisarm(EntityUid user, DisarmAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
     {
-        if (!TryGetEntity(ev.Target, out var t)) // WWDP
-            return false;
-
-        var target = (EntityUid) t;
+        var target = GetEntity(ev.Target);
 
         if (Deleted(target) ||
             user == target)
@@ -800,20 +795,16 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
         }
 
-        // WWDP Push shove physics yeee
+        if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
+            combatMode.CanDisarm == false) // WWDP
+        {
+            return false;
+        }
 
-        float shoverange = _config.GetCVar(WhiteCVars.ShoveRange);
-        float shovespeed = _config.GetCVar(WhiteCVars.ShoveSpeed);
-        float shovemass = _config.GetCVar(WhiteCVars.ShoveMassFactor);
-
-        var force = shoverange * _contests.MassContest(user, target, rangeFactor: shovemass);
-
-        var userPos = user.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
-        var targetPos = target.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
-        var pushVector = (targetPos - userPos).Normalized() * force;
-
-        _throwing.TryThrow(target, pushVector, force * shovespeed, animated: false);
-        // WWDP Edit end
+        if (!InRange(user, target.Value, component.Range, session))
+        {
+            return false;
+        }
 
         // Play a sound to give instant feedback; same with playing the animations
         _meleeSound.PlaySwingSound(user, meleeUid, component);
