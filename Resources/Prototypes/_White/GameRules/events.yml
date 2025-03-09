@@ -47,6 +47,21 @@
 
 - type: entity
   parent: BaseGameRule
+  id: XenomorphInfestation
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: StationEvent
+      startAnnouncement: true
+      weight: 5
+      duration: 5
+      minimumPlayers: 30
+      earliestStart: 25
+      reoccurrenceDelay: 50
+    - type: RandomSpawnRule
+      prototype: SpawnPointGhostAlienLarva
+
+- type: entity
+  parent: BaseGameRule
   id: HeadcrabInvasion
   categories: [ HideSpawnMenu ]
   components:

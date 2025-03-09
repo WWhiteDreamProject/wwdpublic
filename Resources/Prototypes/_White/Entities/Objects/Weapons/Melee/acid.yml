@@ -1,0 +1,76 @@
+- type: entity
+  parent: BaseItem
+  id: CorrosiveAcid
+  categories: [ HideSpawnMenu ]
+  name: corrosive acid
+  description: Green light acid.
+  components:
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PolygonShape
+            vertices:
+              - -0.20,0.10
+              - -0.10,0.20
+              - 0.20,-0.10
+              - 0.10,-0.20
+          density: 20
+          mask:
+            - ItemMask
+          restitution: 0.3
+          friction: 0.2
+    - type: Sprite
+      sprite: _White/Interface/Actions/xenomorph.rsi
+      state: acid
+    - type: MeleeWeapon
+      wideAnimationRotation: -45
+      damage:
+        types:
+          Caustic: 33
+      angle: 0
+      animation: WeaponArcThrust
+      soundHit:
+        path: /Audio/Weapons/pierce.ogg
+    - type: Item
+      size: Tiny
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: Appearance
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 75
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 15
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            collection: WoodDestroy
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - type: DamageOnHit
+      damage:
+        types:
+          Blunt: 100
+    - type: Unremoveable
+    - type: AlienAcid
+    - type: Tag
+      tags:
+        - AlienItem
+
+- type: entity
+  id: CorrosiveAcidOverlay
+  categories: [ HideSpawnMenu ]
+  name: corrosive acid
+  description: Green light acid.
+  components:
+  - type: Sprite
+    sprite: _White/Interface/Actions/xenomorph.rsi
+    state: acid
+  - type: AlienAcid
+
