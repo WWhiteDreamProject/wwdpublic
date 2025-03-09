@@ -36,7 +36,7 @@
         doAfter: 10
   - node: musket
     entity: WeaponRifleMusket
-    
+
 - type: constructionGraph
   id: WeaponPistolFlintlockCraftedGraph
   start: start
@@ -45,11 +45,11 @@
     edges:
     - to: flintlock
       steps:
-      - tag: GasPipeHalf
+      - tag: Pipe # WWDP fix
         icon:
           sprite: Structures/Piping/Atmospherics/pipe.rsi
-          state: pipeHalf
-        name: half pipe
+          state: pipeStraight # WWDP fix
+        name: pipe # WWDP fix
       - tag: ModularBreech
         icon:
           sprite: DeltaV/Objects/Misc/modular_breech.rsi
@@ -65,11 +65,6 @@
           sprite: Objects/Misc/rifle_stock.rsi
           state: icon
         name: rifle stock
-      - tag: Bayonet
-        icon:
-          sprite: DeltaV/Objects/Misc/bayonet.rsi
-          state: base
-        name: bayonet
       - material: WoodPlank
         amount: 2
         doAfter: 10
