@@ -892,6 +892,8 @@
     idleState: icon
     runningState: icon
     staticRecipes:
+    - Truncheon
+    - Terminus
     - BoxLethalshot
     - BoxShotgunFlare
     - BoxShotgunPractice

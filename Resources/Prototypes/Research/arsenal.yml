@@ -157,6 +157,7 @@
   - WeaponPistolN1984
   # - WeaponPistolViper # WWDP no syndicate guns
   # - WeaponPistolCobra # WWDP no syndicate guns
+  - Terminus
   technologyPrerequisites:
   - BasicWeapons
 

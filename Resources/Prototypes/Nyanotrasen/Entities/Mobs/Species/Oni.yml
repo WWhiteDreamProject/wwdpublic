@@ -48,6 +48,9 @@
     - Nekomimetic
   - type: PotentiaModifier
     potentiaMultiplier: 0.5
+  - type: Tag
+    tags:
+    - Oni
   # WD EDIT START
   - type: Inventory
     femaleDisplacements:
