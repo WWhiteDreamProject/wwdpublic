@@ -13,15 +13,27 @@
     size: Large
     shape:
     - 0,0,4,1
-    sprite: Objects/Weapons/Guns/Launchers/riot_launcher.rsi
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - Grenade
-      - RiotGrenade
-    capacity: 1
+    sprite: _White/Objects/Weapons/Guns/Launchers/riot_launcher.rsi
+  - type: ItemSlots
+    slots:
+      gun_chamber:
+        name: Chamber
+        startingItem:
+        priority: 1
+        whitelist:
+          tags:
+          - Grenade
+          - RiotGrenade
+  - type: ContainerContainer
+    containers:
+      gun_chamber: !type:ContainerSlot
+  - type: ChamberMagazineAmmoProvider
+    autoCycle: true
+    boltClosed: true
+    canRack: false
+    soundBoltClosed: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
+    soundBoltOpened: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Launchers/riot_launcher.rsi
     quickEquip: false
     slots:
     - Back

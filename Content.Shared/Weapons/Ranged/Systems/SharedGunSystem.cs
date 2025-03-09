@@ -504,6 +504,15 @@ public abstract partial class SharedGunSystem : EntitySystem
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
     }
 
+    /// <summary>
+    /// WWDP - Manually sets the targeted entity of the gun.
+    /// Used for NPCs
+    /// </summary>
+    public void SetTarget(GunComponent gun, EntityUid target)
+    {
+        gun.Target = target;
+    }
+
     protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);
 
     /// <summary>

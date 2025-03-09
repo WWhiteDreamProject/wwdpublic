@@ -126,7 +126,7 @@ public sealed class WieldableSystem : EntitySystem
 
         TryUnwield(uid, component, args.User);
     }
-    
+
 	// WWDP EDIT START
     private void OnSelectWieldable(EntityUid uid, WieldableComponent component, HandSelectedEvent args)
     {
@@ -137,7 +137,7 @@ public sealed class WieldableSystem : EntitySystem
         TryWield(uid, component, args.User, false, true);
     }
 	// WWDP EDIT END
-	
+
     private void OnGunRefreshModifiers(Entity<GunWieldBonusComponent> bonus, ref GunRefreshModifiersEvent args)
     {
         if (TryComp(bonus, out WieldableComponent? wield) &&
@@ -152,6 +152,9 @@ public sealed class WieldableSystem : EntitySystem
 
     private void OnExamineRequires(Entity<GunRequiresWieldComponent> entity, ref ExaminedEvent args)
     {
+        if (!HasComp<WieldableComponent>(entity)) // WWDP
+            return;
+
         if(entity.Comp.WieldRequiresExamineMessage != null)
             args.PushText(Loc.GetString(entity.Comp.WieldRequiresExamineMessage));
     }

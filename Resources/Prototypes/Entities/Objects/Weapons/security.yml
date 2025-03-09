@@ -34,6 +34,7 @@
         Blunt: 0
   - type: ItemToggleDamageOtherOnHit
   - type: MeleeWeapon
+    animationRotation: 135 # WWDP
     damage:
       types:
         Blunt: 7
