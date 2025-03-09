@@ -22,7 +22,7 @@
     unequipDelay: 1
     equipSound: /Audio/_White/Equip/clothingrustle2.ogg # WWDP
   - type: EmitSoundOnPickup # WWDP
-    sound: /Audio/Items/Equip/clothingrustle2.ogg
+    sound: /Audio/_White/Equip/clothingrustle2.ogg
   - type: Item
     canBeUsedWhileWorn: false # WWDP
 
