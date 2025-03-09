@@ -34,7 +34,6 @@ marking-HumanHairHalfshaveLong = Наполовину выбритая (Длин
 marking-HumanHairHalfshaveMessy = Наполовину выбритая (Растрёпанная)
 marking-HumanHairHalfshaveMessyLong = Наполовину выбритая (Длинная растрёпанная)
 marking-HumanHairHalfshaveSnout = Наполовину выбритая 2 (Обрезанная)
-marking-HumanHairHightight = Хай-тайт
 marking-HumanHairHyenamane = Грива гиены
 marking-HumanHairJessica = Джессика
 marking-HumanHairLong5 = Длинная 5
