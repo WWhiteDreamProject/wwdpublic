@@ -28,5 +28,8 @@
     - HumanoidAppearance
   chatMessages: ["chat-emote-msg-jump"]
   chatTriggers:
-  - "chat-emote-trigger-jump-1" # WD EDIT
+  # WD EDIT START
+  - "chat-emote-trigger-jump-1"
+  - "chat-emote-trigger-jump-2"
+  # WD EDIT END
   event: !type:AnimationJumpEmoteEvent

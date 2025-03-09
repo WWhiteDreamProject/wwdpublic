@@ -1672,3 +1672,81 @@ Entries:
   id: 177
   time: '2025-03-08T08:35:25.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/286
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Лимит длины оповещений увеличен до 1000 символов.
+  id: 178
+  time: '2025-03-08T18:46:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/290
+- author: vanx
+  changes:
+    - type: Add
+      message: Теперь можно толкать не только космонавтиков но и любые предметы.
+    - type: Fix
+      message: Удалены техники бесконтактного боя.
+  id: 179
+  time: '2025-03-08T19:11:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/295
+- author: Spatison
+  changes:
+    - type: Add
+      message: Upstream 03.03-08.03
+  id: 180
+  time: '2025-03-08T19:12:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/291
+- author: RedFoxIV
+  changes:
+    - type: Fix
+      message: Мелкофикс оверлея для мелков.
+  id: 181
+  time: '2025-03-08T19:20:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/297
+- author: islambrosgood
+  changes:
+    - type: Tweak
+      message: мало переводов 2 🤏
+  id: 182
+  time: '2025-03-09T11:21:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/287
+- author: Spatison
+  changes:
+    - type: Add
+      message: Upstream 08.03-09.03
+  id: 183
+  time: '2025-03-09T12:01:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/299
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Чисто бот теперь работает
+    - type: Fix
+      message: Меньше лагов из-за следов
+  id: 184
+  time: '2025-03-09T12:01:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/298
+- author: vanx
+  changes:
+    - type: Fix
+      message: Мобы и турели теперь попадают по лежачим персонажам.
+    - type: Fix
+      message: Зеркала теперь работают на стене.
+    - type: Tweak
+      message: Теперь можно вернуться в раунд независимо от количества игроков.
+  id: 185
+  time: '2025-03-09T18:11:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/303
+- author: Vaaankas
+  changes:
+    - type: Tweak
+      message: Обновлены рецепты самодельного оружия и патронов.
+  id: 186
+  time: '2025-03-09T18:12:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/293
+- author: vanx
+  changes:
+    - type: Add
+      message: Локализация эмоций
+  id: 187
+  time: '2025-03-09T18:14:00.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/274
