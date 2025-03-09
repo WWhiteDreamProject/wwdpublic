@@ -116,6 +116,7 @@ namespace Content.Client.Crayon.UI
                     var button = new ContainerButton()
                     {
                         Name = name,
+                        ToolTip = name
                     };
                     button.OnPressed += ButtonOnPressed;
 

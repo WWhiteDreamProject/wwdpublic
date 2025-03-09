@@ -29,3 +29,25 @@
   - type: Construction
     graph: magic_crayon
     node: magicCrayon
+
+# wwdp edit # i am not making a new file in _White just for this shit
+- type: entity
+  parent: CrayonMagic
+  id: CrayoAdmin
+  suffix: Admeme
+  name: extra magic crayon
+  description: Specially blended with shitspawnium crystals and certified toxic.
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Fun/magic_crayon.rsi
+    state: icon
+  - type: Item
+    sprite: _NF/Objects/Fun/magic_crayon.rsi
+    heldPrefix: icon
+  - type: Tag # Removing trash & recyclable
+    tags:
+    - Write
+    - Crayon
+  - type: Crayon
+    allDecals: true
+    capacity: 2147483647 # int.MaxValue, infinite charges

@@ -47,7 +47,7 @@ public abstract class SharedCrayonSystem : EntitySystem
     private void OnCrayonBoundUI(EntityUid uid, CrayonComponent component, CrayonSelectMessage args)
     {
         // Check if the selected state is valid
-        if (!_prototypeManager.TryIndex<DecalPrototype>(args.State, out var prototype) || !prototype.Tags.Contains("crayon"))
+        if (!_prototypeManager.TryIndex<DecalPrototype>(args.State, out var prototype) || !component.AllDecals && !prototype.Tags.Contains("crayon")) // WWDP EDIT
             return;
 
         component.SelectedState = args.State;

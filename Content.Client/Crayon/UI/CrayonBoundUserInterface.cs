@@ -13,9 +13,12 @@ namespace Content.Client.Crayon.UI
 
         [ViewVariables]
         private CrayonWindow? _menu;
+        [ViewVariables]                      // WWDP EDIT
+        private CrayonComponent? _ownerComp; // WWDP EDIT
 
         public CrayonBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
+            EntMan.TryGetComponent<CrayonComponent>(owner, out _ownerComp); // WWDP EDIT
         }
 
         protected override void Open()
@@ -31,7 +34,11 @@ namespace Content.Client.Crayon.UI
 
         private void PopulateCrayons()
         {
-            var crayonDecals = _protoManager.EnumeratePrototypes<DecalPrototype>().Where(x => x.Tags.Contains("crayon"));
+			// WWDP EDIT START
+            var crayonDecals = _protoManager.EnumeratePrototypes<DecalPrototype>();
+            if(_ownerComp?.AllDecals != true)
+                crayonDecals = crayonDecals.Where(x => x.Tags.Contains("crayon"));
+            // WWDP EDIT END
             _menu?.Populate(crayonDecals.ToList());
         }
 
