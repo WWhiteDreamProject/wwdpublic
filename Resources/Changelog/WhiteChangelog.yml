@@ -1716,3 +1716,12 @@ Entries:
   id: 183
   time: '2025-03-09T12:01:34.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/299
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Чисто бот теперь работает
+    - type: Fix
+      message: Меньше лагов из-за следов
+  id: 184
+  time: '2025-03-09T12:01:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/298
