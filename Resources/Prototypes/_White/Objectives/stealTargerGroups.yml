@@ -1,6 +1,0 @@
-﻿- type: stealTargetGroup
-  id: WardenPowerGloves
-  name: steal-target-power-gloves
-  sprite:
-    sprite: Clothing/Hands/Gloves/powerglove.rsi
-    state: icon
