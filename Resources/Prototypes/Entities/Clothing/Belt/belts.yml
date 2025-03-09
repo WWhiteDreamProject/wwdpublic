@@ -218,7 +218,7 @@
     sprite: Clothing/Belt/janitor.rsi
   - type: Clothing
     sprite: Clothing/Belt/janitor.rsi
-  # - type: Storage # WWDP no belt whitelists
+  - type: Storage # WWDP no belt whitelists
     # whitelist:
     #   tags:
     #     - Wrench
