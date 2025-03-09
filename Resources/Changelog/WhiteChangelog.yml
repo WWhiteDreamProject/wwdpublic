@@ -1702,3 +1702,10 @@ Entries:
   id: 181
   time: '2025-03-08T19:20:19.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/297
+- author: islambrosgood
+  changes:
+    - type: Tweak
+      message: мало переводов 2 🤏
+  id: 182
+  time: '2025-03-09T11:21:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/287
