@@ -207,7 +207,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
             var msgUser = Loc.GetString(msgPrefix + "popup-message-cursor", ("targetName", Identity.Entity(target, EntityManager)));
 
-            PopupSystem.PopupEntity(msgOther, user, filterOther, true); // no popup for others, its noticeable enough
+            PopupSystem.PopupEntity(msgOther, user, filterOther, true);
             PopupSystem.PopupEntity(msgUser, target, user);
         }
         // WWDP edit end
