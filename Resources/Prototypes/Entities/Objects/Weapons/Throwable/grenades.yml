@@ -63,6 +63,11 @@
         volume: 5
     initialBeepDelay: 0
     beepInterval: 2 # 2 beeps total (at 0 and 2)
+  # WWDP edit below
+  - type: Tag
+    tags:
+    - RiotGrenade
+    - GrenadeTrapPart
 
 - type: entity
   name: flashbang

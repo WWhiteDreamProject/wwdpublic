@@ -18,4 +18,7 @@
 
 - type: Tag
   id: RiotGrenade
-  
+
+- type: Tag
+  id: GrenadeTrapPart
+
