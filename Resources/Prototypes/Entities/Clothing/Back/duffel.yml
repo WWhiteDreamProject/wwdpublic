@@ -17,13 +17,14 @@
     mirrorClothingModifier: false
     sprintModifier: 0.8
     walkModifier: 0.8
-  - type: Clothing # WWDP
-    canBeUsedWhileWorn: false # WWDP
+  - type: Clothing
     equipDelay: 1
     unequipDelay: 1
     equipSound: /Audio/_White/Equip/clothingrustle2.ogg # WWDP
   - type: EmitSoundOnPickup # WWDP
     sound: /Audio/Items/Equip/clothingrustle2.ogg
+  - type: Item
+    canBeUsedWhileWorn: false # WWDP
 
 - type: entity
   parent: ClothingBackpackDuffel
