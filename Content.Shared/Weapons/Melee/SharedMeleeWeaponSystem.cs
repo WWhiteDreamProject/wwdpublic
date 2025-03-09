@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._Goobstation.MartialArts.Events; // Goobstation - Martial Arts
 using Content.Shared._White;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
@@ -54,8 +55,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private   readonly IPrototypeManager       _protoManager    = default!;
     [Dependency] private   readonly StaminaSystem           _stamina         = default!;
     [Dependency] private   readonly ContestsSystem          _contests        = default!;
-    [Dependency] private   readonly ThrowingSystem          _throwing        = default!; // WWDP
-    [Dependency] private   readonly IConfigurationManager   _config          = default!; // WWDP
 
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
@@ -526,6 +525,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
         var damageResult = Damageable.TryChangeDamage(target, modifiedDamage, origin:user, ignoreResistances: resistanceBypass, partMultiplier: component.ClickPartDamageMultiplier);
+        var comboEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Harm);
+        RaiseLocalEvent(user, comboEv);
 
         if (damageResult is {Empty: false})
         {
@@ -693,6 +694,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
             var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, partMultiplier: component.HeavyPartDamageMultiplier);
 
+            var comboEv = new ComboAttackPerformedEvent(user, entity, meleeUid, ComboAttackType.HarmLight);
+            RaiseLocalEvent(user, comboEv);
+
             if (damageResult != null && damageResult.GetTotal() > FixedPoint2.Zero)
             {
                 // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
@@ -803,10 +807,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
     protected virtual bool DoDisarm(EntityUid user, DisarmAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
     {
-        if (!TryGetEntity(ev.Target, out var t)) // WWDP
-            return false;
-
-        var target = (EntityUid) t;
+        var target = GetEntity(ev.Target);
 
         if (Deleted(target) ||
             user == target)
@@ -814,20 +815,19 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
         }
 
-        // WWDP Push shove physics yeee
+        var comboEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Disarm);
+        RaiseLocalEvent(user, comboEv);
 
-        float shoverange = _config.GetCVar(WhiteCVars.ShoveRange);
-        float shovespeed = _config.GetCVar(WhiteCVars.ShoveSpeed);
-        float shovemass = _config.GetCVar(WhiteCVars.ShoveMassFactor);
+        if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
+            combatMode.CanDisarm == false) // WWDP
+        {
+            return false;
+        }
 
-        var force = shoverange * _contests.MassContest(user, target, rangeFactor: shovemass);
-
-        var userPos = user.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
-        var targetPos = target.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
-        var pushVector = (targetPos - userPos).Normalized() * force;
-
-        _throwing.TryThrow(target, pushVector, force * shovespeed, animated: false);
-        // WWDP Edit end
+        if (!InRange(user, target.Value, component.Range, session))
+        {
+            return false;
+        }
 
         // Play a sound to give instant feedback; same with playing the animations
         _meleeSound.PlaySwingSound(user, meleeUid, component);

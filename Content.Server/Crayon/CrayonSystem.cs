@@ -133,7 +133,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
 
     private void UseUpCrayon(EntityUid uid, EntityUid user)
     {
-        _popup.PopupEntity(Loc.GetString("crayon-interact-used-up-text", ("owner", uid)), user, user);
+        _popup.PopupEntity(Loc.GetString("crayon-interact-used-up-text", ("owner", user)), user, user); // WWDP EDIT
         EntityManager.QueueDeleteEntity(uid);
     }
 }
