@@ -297,7 +297,7 @@
     state: Psyke
 
 - type: decal
-  id: s1irius
+  id: sirius
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
