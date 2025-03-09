@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared.Crayon;
 using Content.Shared.Decals;
 using Robust.Client.GameObjects;
@@ -26,6 +26,7 @@ namespace Content.Client.Crayon.UI
             _menu.OnSelected += Select;
             PopulateCrayons();
             _menu.OpenCenteredLeft();
+            //_menu.Search.GrabKeyboardFocus();
         }
 
         private void PopulateCrayons()

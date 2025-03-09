@@ -5,7 +5,7 @@
     <BoxContainer Orientation="Vertical">
         <ColorSelectorSliders Name="ColorSelector" Visible="False" />
         <BoxContainer Orientation="Horizontal"> <!-- wwdp edit start -->
-            <LineEdit Name="Search" Margin="0 0 0 0" HorizontalExpand="True" VerticalAlignment="Center" PlaceHolder="{Loc 'crayon-window-placeholder'}" />
+            <LineEdit Name="Search" Access="Public" Margin="0 0 0 0" HorizontalExpand="True" VerticalAlignment="Center" PlaceHolder="{Loc 'crayon-window-placeholder'}" />
             <TextureButton Name="ClearButton" StyleClasses="windowCloseButton" VerticalAlignment="Center" />
         </BoxContainer> <!-- wwdp edit end -->
         <ScrollContainer VerticalExpand="True">

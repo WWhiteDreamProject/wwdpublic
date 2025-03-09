@@ -121,7 +121,8 @@ namespace Content.Client.Crayon.UI
 
                     var boxcont = new BoxContainer()
                     {
-                        Orientation = BoxContainer.LayoutOrientation.Vertical
+                        Orientation = BoxContainer.LayoutOrientation.Vertical,
+                        MaxWidth = texture.Width * 2
                     };
 
                     var texturerect = new TextureRect()

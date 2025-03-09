@@ -143,7 +143,7 @@
     state: 9
 
 - type: decal
-  id: Blasto
+  id: blasto
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -154,7 +154,7 @@
     state: Blasto
 
 - type: decal
-  id: Clandestine
+  id: clandestine
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -165,7 +165,7 @@
     state: Clandestine
 
 - type: decal
-  id: Cyber
+  id: cyber
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -176,7 +176,7 @@
     state: Cyber
 
 - type: decal
-  id: Diablo
+  id: diablo
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -187,7 +187,7 @@
     state: Diablo
 
 - type: decal
-  id: Donk
+  id: donk
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -198,7 +198,7 @@
     state: Donk
 
 - type: decal
-  id: Gene
+  id: gene
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -209,7 +209,7 @@
     state: Gene
 
 - type: decal
-  id: Gib
+  id: gib
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -220,7 +220,7 @@
     state: Gib
 
 - type: decal
-  id: Max
+  id: max
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -231,7 +231,7 @@
     state: Max
 
 - type: decal
-  id: Newton
+  id: newton
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -242,7 +242,7 @@
     state: Newton
 
 - type: decal
-  id: North
+  id: north
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -253,7 +253,7 @@
     state: North
 
 - type: decal
-  id: Omni
+  id: omni
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -264,7 +264,7 @@
     state: Omni
 
 - type: decal
-  id: Osiron
+  id: osiron
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -275,7 +275,7 @@
     state: Osiron
 
 - type: decal
-  id: Prima
+  id: prima
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -286,7 +286,7 @@
     state: Prima
 
 - type: decal
-  id: Psyke
+  id: psyke
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -297,7 +297,7 @@
     state: Psyke
 
 - type: decal
-  id: Sirius
+  id: s1irius
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -308,7 +308,7 @@
     state: Sirius
 
 - type: decal
-  id: Tunnel
+  id: tunnel
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -319,7 +319,7 @@
     state: Tunnel
 
 - type: decal
-  id: Waffle
+  id: waffle
   parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
@@ -627,7 +627,7 @@
     state: evac
 
 - type: decal
-  id: exclamationmark
+  id: emark
   parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
@@ -869,7 +869,7 @@
     state: prolizard
 
 - type: decal
-  id: questionmark
+  id: qmark
   parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
