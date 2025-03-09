@@ -59,8 +59,12 @@ namespace Content.Client.Crayon.UI
                 return;
 
             var filter = Search.Text;
-            var comma = filter.IndexOf(',');
-            var first = (comma == -1 ? filter : filter[..comma]).Trim();
+            // WWDP EDIT START
+            var firstcomma = filter.IndexOf(',');
+            var first = (firstcomma == -1 ? filter : filter[..firstcomma]).Trim();
+            var comma = filter.LastIndexOf(',')+1;
+            filter = filter.Substring(comma).Trim();
+            // WWDP EDIT END
 
             var names = _decals.Keys.ToList();
             names.Sort((a, b) => a == "random" ? 1 : b == "random" ? -1 : a.CompareTo(b));
@@ -75,7 +79,7 @@ namespace Content.Client.Crayon.UI
             foreach (var categoryName in names)
             {
                 var locName = Loc.GetString("crayon-category-" + categoryName);
-                var category = _decals[categoryName].Where(d => locName.Contains(first) || d.Name.Contains(first)).ToList();
+                var category = _decals[categoryName].Where(d => locName.Contains(filter) || d.Name.Contains(filter)).ToList(); // WWDP EDIT
 
                 if (category.Count == 0)
                     continue;

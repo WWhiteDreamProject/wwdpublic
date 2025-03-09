@@ -63,12 +63,12 @@ namespace Content.Client.Crayon.UI
 
         public void Select(string state)
         {
-            SendMessage(new CrayonSelectMessage(state));
+            SendPredictedMessage(new CrayonSelectMessage(state));
         }
 
         public void SelectColor(Color color)
         {
-            SendMessage(new CrayonColorMessage(color));
+            SendPredictedMessage(new CrayonColorMessage(color));
         }
     }
 }
