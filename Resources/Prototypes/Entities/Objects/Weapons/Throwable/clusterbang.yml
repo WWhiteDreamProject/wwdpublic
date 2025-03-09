@@ -16,6 +16,13 @@
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
+  # WWDP edit below
+  - type: Tag
+    tags:
+    - RiotGrenade
+  - type: Ammo
+  - type: OnShotTimerTrigger
+    delayReduction: 2
 
 - type: entity
   parent: GrenadeBase
@@ -48,9 +55,8 @@
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
-      # WWDP edit below
-  - type: CartridgeAmmo
-    proto: ClusterBangFull
+  # WWDP edit below
+  - type: Ammo
 
 - type: entity
   parent: GrenadeBase
@@ -81,8 +87,7 @@
     containers:
       cluster-payload: !type:Container
   # WWDP edit below
-  - type: CartridgeAmmo
-    proto: ClusterGrenade
+  - type: Ammo
 
 - type: entity
   parent: BaseItem
@@ -150,8 +155,7 @@
     containers:
       cluster-payload: !type:Container
   # WWDP edit below
-  - type: CartridgeAmmo
-    proto: GrenadeStinger
+  - type: Ammo
 
 - type: entity
   parent: GrenadeBase
@@ -182,8 +186,7 @@
     containers:
       cluster-payload: !type:Container
   # WWDP edit below
-  - type: CartridgeAmmo
-    proto: GrenadeIncendiary
+  - type: Ammo
 
 - type: entity
   parent: GrenadeBase
@@ -214,8 +217,7 @@
     containers:
       cluster-payload: !type:Container
   # WWDP edit below
-  - type: CartridgeAmmo
-    proto: GrenadeShrapnel
+  - type: Ammo
 
 - type: entity
   parent: SoapSyndie
@@ -278,5 +280,4 @@
     grenadeType: enum.GrenadeType.Throw
     velocity: 70
   # WWDP edit below
-  - type: CartridgeAmmo
-    proto: GrenadeFoamDart
+  - type: Ammo
