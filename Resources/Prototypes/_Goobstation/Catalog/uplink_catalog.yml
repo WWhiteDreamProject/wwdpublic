@@ -43,30 +43,30 @@
   name: uplink-cqc-name
   description: uplink-cqc-desc
   productEntity: CQCManual
+  # WD EDIT START
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 3
   cost:
-    Telecrystal: 60
+    Telecrystal: 12
+  # WD EDIT END
   categories:
   - UplinkDeception
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkMysteriousScroll
   name: uplink-sleeping-carp-name
   description: uplink-sleeping-carp-desc
   productEntity: SleepingCarpScroll
+  # WD EDIT START
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 3
   cost:
-    Telecrystal: 70
+    Telecrystal: 14
+  # WD EDIT END
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
 
 
 # Misc
