@@ -11,3 +11,4 @@ marking-HumanHairAfricanPigtails = Африканские косички
 marking-HumanHairAfropuffDouble = Афропучок (двойной)
 marking-HumanHairAfropuffLeft = Афропучок (левый)
 marking-HumanHairAfropuffRight = Афропучок (правый)
+marking-HumanHairHightight = High & Tight
