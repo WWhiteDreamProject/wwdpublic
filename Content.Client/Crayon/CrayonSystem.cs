@@ -33,12 +33,13 @@ public sealed class CrayonSystem : SharedCrayonSystem
         base.Initialize();
         // SubscribeLocalEvent<CrayonComponent, ComponentHandleState>(OnCrayonHandleState); // WWDP EDIT - DEFUNCT - Moved to using AutoState system.
         Subs.ItemStatus<CrayonComponent>(ent => new StatusControl(ent));
-		
-	    // WWDP EDIT START
+
+        // WWDP EDIT START
+        _overlay.AddOverlay(new CrayonPreviewOverlay(_sprite, _hands));
         SubscribeLocalEvent<CrayonComponent, AfterAutoHandleStateEvent>(CrayonAfterAutoState);
         SubscribeLocalEvent<CrayonComponent, AfterInteractEvent>(CrayonAfterInteract);
-        SubscribeLocalEvent<CrayonComponent, ComponentRemove>(CrayonRemoved);
-        SubscribeLocalEvent<CrayonComponent, EntityTerminatingEvent>(CrayonEntRemoved);
+        //SubscribeLocalEvent<CrayonComponent, ComponentRemove>(CrayonRemoved);
+        //SubscribeLocalEvent<CrayonComponent, EntityTerminatingEvent>(CrayonEntRemoved);
         // WWDP EDIT END
     }
 
@@ -49,39 +50,42 @@ public sealed class CrayonSystem : SharedCrayonSystem
             _ui.CloseUi(uid, CrayonComponent.CrayonUiKey.Key, args.User);
     }
 
-    private void CrayonRemoved(EntityUid uid, CrayonComponent comp, ComponentRemove args)
-    {
-        if (_player.LocalEntity is not EntityUid player ||
-            uid != _hands.GetActiveItem(player))
-            return;
-        _overlay.RemoveOverlay<CrayonPreviewOverlay>();
-    }
-
-    private void CrayonEntRemoved(EntityUid uid, CrayonComponent comp, EntityTerminatingEvent args)
-    {
-        if (_player.LocalEntity is not EntityUid player ||
-            uid != _hands.GetActiveItem(player))
-            return;
-        _overlay.RemoveOverlay<CrayonPreviewOverlay>();
-    }
+    // Some interactions involve removing an item from active hand without raising HandDeselectedEvent on the item first.
+    // I do not want to hunt down all the possible instances of this behaviour, so i am plugging the hole by making the
+    // overlay always on.
+    //private void CrayonRemoved(EntityUid uid, CrayonComponent comp, ComponentRemove args)
+    //{
+    //    if (_player.LocalEntity is not EntityUid player ||
+    //        uid != _hands.GetActiveItem(player))
+    //        return;
+    //    _overlay.RemoveOverlay<CrayonPreviewOverlay>();
+    //}
+    //
+    //private void CrayonEntRemoved(EntityUid uid, CrayonComponent comp, EntityTerminatingEvent args)
+    //{
+    //    if (_player.LocalEntity is not EntityUid player ||
+    //        uid != _hands.GetActiveItem(player))
+    //        return;
+    //    _overlay.RemoveOverlay<CrayonPreviewOverlay>();
+    //}
 
     private void CrayonAfterAutoState(EntityUid uid, CrayonComponent comp, AfterAutoHandleStateEvent args)
     {
         comp.UIUpdateNeeded = true;
     }
 
-    protected override void OnCrayonHandSelected(EntityUid uid, CrayonComponent component, HandSelectedEvent args) // WWDP EDIT
-    {
-        base.OnCrayonHandSelected(uid, component, args);
-        _overlay.RemoveOverlay<CrayonPreviewOverlay>(); // if i still fucked up somewhere and did not remove the event when i should've, this will catch it.
-        _overlay.AddOverlay(new CrayonPreviewOverlay(_sprite, component));
-    }
-
-    protected override void OnCrayonHandDeselected(EntityUid uid, CrayonComponent component, HandDeselectedEvent args) // WWDP EDIT
-    {
-        base.OnCrayonHandDeselected(uid, component, args);
-        _overlay.RemoveOverlay<CrayonPreviewOverlay>();
-    }
+    //protected override void OnCrayonHandSelected(EntityUid uid, CrayonComponent component, HandSelectedEvent args) // WWDP EDIT
+    //{
+    //    base.OnCrayonHandSelected(uid, component, args);
+    //    _overlay.RemoveOverlay<CrayonPreviewOverlay>(); // if i still fucked up somewhere and did not remove the event when i should've, this will catch it.
+    //    _overlay.AddOverlay(new CrayonPreviewOverlay(_sprite, component));
+    //}
+    //
+    //protected override void OnCrayonHandDeselected(EntityUid uid, CrayonComponent component, HandDeselectedEvent args) // WWDP EDIT
+    //{
+    //    base.OnCrayonHandDeselected(uid, component, args);
+    //    _overlay.RemoveOverlay<CrayonPreviewOverlay>();
+    //}
     // WWDP EDIT END
 
     private sealed class StatusControl : Control
