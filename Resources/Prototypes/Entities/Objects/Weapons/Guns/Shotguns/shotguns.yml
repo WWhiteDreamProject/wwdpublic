@@ -393,7 +393,7 @@
   - type: BallisticAmmoProvider
     proto: null
   - type: Construction
-    graph: ShotgunHandmadeSawn
+    graph: ImprovisedShotgunSawnGraph
     node: shotgunsawn
     deconstructionTarget: null
 
