@@ -1,7 +1,7 @@
 - type: trait
   id: WillToLive
   category: Physical
-  points: -1
+  points: -3
   requirements:
   - !type:CharacterJobRequirement
     inverted: true
@@ -50,7 +50,7 @@
 - type: trait
   id: Tenacity
   category: Physical
-  points: -3
+  points: -4
   requirements:
   - !type:CharacterJobRequirement
     inverted: true
@@ -239,7 +239,7 @@
 - type: trait
   id: Steadfast
   category: Physical
-  points: -4
+  points: -6
   requirements:
   - !type:CharacterJobRequirement
     inverted: true
@@ -616,6 +616,7 @@
     components:
     - type: Flashable # Effectively, removes any flash-vulnerability species traits.
 
+
 - type: trait
   id: FlareShielding
   category: Physical
@@ -634,6 +635,7 @@
     components:
     - type: FlashImmunity
     - type: EyeProtection
+
 
 - type: trait
   id: CyberEyesSecurity
