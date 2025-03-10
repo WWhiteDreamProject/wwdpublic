@@ -536,7 +536,7 @@
           params:
             volume: 5
             variation: 0.05
-      - !type:KillSignCauseBehavior # Very funny, ho-ho-ho!
+      # - !type:KillSignCauseBehavior # Very funny, ho-ho-ho! # WWDP not that funny tbh
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:SpawnEntitiesBehavior
