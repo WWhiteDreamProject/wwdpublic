@@ -1750,3 +1750,10 @@ Entries:
   id: 187
   time: '2025-03-09T18:14:00.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/274
+- author: Purka581
+  changes:
+    - type: Add
+      message: Мыши-оперативники получили свой акцент
+  id: 188
+  time: '2025-03-10T05:40:13.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/294
