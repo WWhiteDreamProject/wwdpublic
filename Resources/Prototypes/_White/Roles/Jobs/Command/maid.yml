@@ -30,8 +30,8 @@
   accessGroups:
   - Command
   - Service
-  - Maintenance
   access:
+  - Maintenance
   - BlueshieldOfficer
   - CentralCommand # Station NTR office
   special:
