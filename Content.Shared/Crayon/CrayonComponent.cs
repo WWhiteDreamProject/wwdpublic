@@ -54,6 +54,11 @@ namespace Content.Shared.Crayon
         [AutoNetworkedField]
         public bool DeleteEmpty = true;
 
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
+        [AutoNetworkedField]
+        public bool AllDecals = false;
+
         /// <summary>
         /// Used clientside only.
         /// </summary>

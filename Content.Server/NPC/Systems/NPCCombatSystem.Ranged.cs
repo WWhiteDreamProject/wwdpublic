@@ -200,6 +200,7 @@ public sealed partial class NPCCombatSystem
                 return;
             }
 
+            _gun.SetTarget(gun, comp.Target); // WWDP set target to hit prone enemies
             _gun.AttemptShoot(uid, gunUid, gun, targetCordinates);
         }
     }

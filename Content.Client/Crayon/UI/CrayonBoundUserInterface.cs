@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared.Crayon;
 using Content.Shared.Decals;
 using Robust.Client.GameObjects;
@@ -13,9 +13,12 @@ namespace Content.Client.Crayon.UI
 
         [ViewVariables]
         private CrayonWindow? _menu;
+        [ViewVariables]                      // WWDP EDIT
+        private CrayonComponent? _ownerComp; // WWDP EDIT
 
         public CrayonBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
+            EntMan.TryGetComponent<CrayonComponent>(owner, out _ownerComp); // WWDP EDIT
         }
 
         protected override void Open()
@@ -26,11 +29,16 @@ namespace Content.Client.Crayon.UI
             _menu.OnSelected += Select;
             PopulateCrayons();
             _menu.OpenCenteredLeft();
+            //_menu.Search.GrabKeyboardFocus();
         }
 
         private void PopulateCrayons()
         {
-            var crayonDecals = _protoManager.EnumeratePrototypes<DecalPrototype>().Where(x => x.Tags.Contains("crayon"));
+			// WWDP EDIT START
+            var crayonDecals = _protoManager.EnumeratePrototypes<DecalPrototype>();
+            if(_ownerComp?.AllDecals != true)
+                crayonDecals = crayonDecals.Where(x => x.Tags.Contains("crayon"));
+            // WWDP EDIT END
             _menu?.Populate(crayonDecals.ToList());
         }
 
@@ -63,12 +71,12 @@ namespace Content.Client.Crayon.UI
 
         public void Select(string state)
         {
-            SendMessage(new CrayonSelectMessage(state));
+            SendPredictedMessage(new CrayonSelectMessage(state));
         }
 
         public void SelectColor(Color color)
         {
-            SendMessage(new CrayonColorMessage(color));
+            SendPredictedMessage(new CrayonColorMessage(color));
         }
     }
 }

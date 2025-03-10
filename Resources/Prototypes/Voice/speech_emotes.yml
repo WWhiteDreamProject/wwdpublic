@@ -14,6 +14,7 @@
   - "chat-emote-trigger-scream-2"
   - "chat-emote-trigger-scream-3"
   - "chat-emote-trigger-scream-4"
+  - "chat-emote-trigger-scream-5"
   # WD EDIT END
 
 - type: emote
@@ -31,6 +32,7 @@
   - "chat-emote-trigger-laugh-2"
   - "chat-emote-trigger-laugh-3"
   - "chat-emote-trigger-laugh-4"
+  - "chat-emote-trigger-laugh-5"
   # WD EDIT END
 
 - type: emote
@@ -200,7 +202,11 @@
     - BorgChassis
   chatMessages: ["chat-emote-msg-salute"]
   chatTriggers:
-  - "chat-emote-trigger-salute-1" # WD EDIT
+  # WD EDIT START
+  - "chat-emote-trigger-salute-1"
+  - "chat-emote-trigger-salute-2"
+  - "chat-emote-trigger-salute-3"
+  # WD EDIT END
 
 - type: emote
   id: DefaultDeathgasp
@@ -310,7 +316,7 @@
   chatTriggers:
   - "chat-emote-trigger-chime-1"
   # WD EDIT END
-  
+
 - type: emote
   id: Buzz-Two
   name: chat-emote-name-buzztwo

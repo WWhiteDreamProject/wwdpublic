@@ -21,9 +21,10 @@
     speechVerb: SmallMob
     speechSounds: Squeak
   - type: PointLight
-    radius: 1.5
+    radius: 2
     energy: 2.3
-    offset: 0, -1
+    mask: /Textures/Effects/LightMasks/cone.png # WD EDIT
+    autoRot: true
     color: green
   - type: Sprite
     drawdepth: SmallMobs
@@ -96,8 +97,10 @@
     spawned:
     - id: FoodMeat
       amount: 1
+  - type: NukieMouseAccent # WD EDIT
   - type: LanguageKnowledge
     speaks:
+    - TauCetiBasic # WD EDIT
     - Mouse
     understands:
     - Mouse

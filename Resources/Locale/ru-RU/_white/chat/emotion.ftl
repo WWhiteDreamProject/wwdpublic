@@ -1,8 +1,8 @@
 # Names
-chat-emote-name-nod = Кивок
-chat-emote-name-shake-head = Качание головой
-chat-emote-name-frown = Нахмуривание  
-chat-emote-name-smile = Улыбка
+chat-emote-name-nod = Кивнуть
+chat-emote-name-shake-head = Качать головой
+chat-emote-name-frown = Хмуриться
+chat-emote-name-smile = Улыбнуться
 
 # Message
 chat-emote-msg-nod = кивает.
