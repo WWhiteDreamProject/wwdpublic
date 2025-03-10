@@ -1773,3 +1773,18 @@ Entries:
   id: 190
   time: '2025-03-10T11:25:04.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/305
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        Теперь очки с защитой от вспышек могут брать только главы или сотрудники
+        СБ
+    - type: Tweak
+      message: 'Ускорение от трейта на бионические ноги: 30 -> 10'
+    - type: Remove
+      message: >-
+        Удалены все трейты что давали ночное, термальное зрение, защиту от
+        вспышек или полный набор худов
+  id: 191
+  time: '2025-03-10T18:58:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/292
