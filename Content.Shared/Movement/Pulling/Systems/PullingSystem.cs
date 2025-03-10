@@ -327,7 +327,6 @@ public sealed class PullingSystem : EntitySystem
         damage.DamageDict.Add("Blunt", 5);
 
         TryStopPull(args.BlockingEntity, comp, uid, true);
-        //return; // WWDP disabled grab-throws
         _grabThrown.Throw(args.BlockingEntity,
             uid,
             direction,
