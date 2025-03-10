@@ -810,6 +810,7 @@
     - WhiteCane
 
 # Pets
+
 - type: loadout
   id: LoadoutPetRock
   category: Items
