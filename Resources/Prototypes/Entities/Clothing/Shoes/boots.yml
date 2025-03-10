@@ -57,7 +57,7 @@
     sprite: Clothing/Shoes/Boots/jackboots_color.rsi
 
 - type: entity
-  parent: ClothingShoesBaseButcherable
+  parent: ClothingShoesMilitaryBase # WWDP knife slot
   id: ClothingShoesBootsSalvage
   name: salvage boots
   description: Steel-toed salvage boots for salvaging in hazardous environments.
@@ -66,7 +66,6 @@
     sprite: Clothing/Shoes/Boots/explorer.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/explorer.rsi
-  - type: Matchbox
 
 - type: entity
   parent: ClothingShoesBaseButcherable

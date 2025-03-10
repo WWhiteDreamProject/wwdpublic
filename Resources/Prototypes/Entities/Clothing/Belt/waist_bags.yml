@@ -10,7 +10,7 @@
     sprite: Clothing/Belt/waistbag_leather.rsi
   - type: Storage
     grid:
-    - 0,0,3,1
+    - 0,0,3,2 # WWDP larger waist bags
 
 - type: entity
   parent: ClothingBeltStorageWaistbag
