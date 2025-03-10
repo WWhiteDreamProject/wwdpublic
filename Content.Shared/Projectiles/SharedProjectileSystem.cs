@@ -237,7 +237,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             : Loc.GetString("throwing-examine-embedded-part",
                 ("embedded", uid),
                 ("target", targetIdentity),
-                ("targetName", Name(targetIdentity)),
+                ("targetName", Name(targetIdentity)), // WWDP
                 ("targetPart", Loc.GetString($"body-part-{component.TargetBodyPart.ToString()}")));
 
         args.PushMarkup(loc);
