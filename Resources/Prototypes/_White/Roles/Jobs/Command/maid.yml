@@ -30,9 +30,10 @@
   accessGroups:
   - Command
   - Service
-  - CentralCommand # Station NTR office
-  - BlueshieldOfficer
   - Maintenance
+  access:
+  - BlueshieldOfficer
+  - CentralCommand # Station NTR office
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
