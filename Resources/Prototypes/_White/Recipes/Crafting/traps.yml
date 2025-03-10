@@ -43,7 +43,6 @@
     - to: trap_grenade
       steps:
       - tag: GrenadeTrapPart
-        amount: 1
         doAfter: 5
         name: "explosive grenade"
         icon:
@@ -55,7 +54,7 @@
     - to: trap_poles
       completed:
       - !type:SpawnPrototype
-        prototype: GrenadeShrapnelInsurgency
+        prototype: ExGrenade
       steps:
       - tool: Cutting
         doAfter: 5
