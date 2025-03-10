@@ -27,6 +27,12 @@
         Blunt: 10
   - type: StaminaDamageOnCollide
     damage: 40 # 3 hits to stun
+  - type: KnockdownOnCollide # WD EDIT
+    jitterTime: 2
+    stutterTime: 2
+    delay: 0.5
+    knockdownTime: 2
+    dropHeldItemsBehavior: NoDrop
 
 - type: entity
   id: PelletShotgun
@@ -144,13 +150,13 @@
   - type: SolutionContainerManager
     solutions:
       ammo:
-        maxVol: 15
+        maxVol: 30
   - type: RefillableSolution
     solution: ammo
   - type: DrainableSolution
     solution: ammo
   - type: SolutionInjectOnProjectileHit
-    transferAmount: 15
+    transferAmount: 30 # "Hey, you're not meant to have a shotgun its gree- *snores*"
     solution: ammo
   - type: InjectableSolution
     solution: ammo

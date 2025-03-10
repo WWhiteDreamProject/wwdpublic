@@ -6,17 +6,24 @@
   abstract: true
   components:
   - type: Sprite
-  - type: Item
+  - type: Item # WWDP guns resize
     size: Huge
+    shape:
+    - 0,0,7,1
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/Rifles/ak.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
   - type: Wieldable
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: Gun
+    bonusAngleIncreaseMove: 40    # wwdp
+    bonusAngleIncreaseTurn: 0.25  # wwdp
+    bonusAngleDecay: 40           # wwdp
+    maxBonusAngle: 20             # wwdp
     fireRate: 5
     selectedMode: FullAuto
     availableModes:
@@ -89,6 +96,7 @@
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
     fireOnDropChance: 0.5
   - type: ChamberMagazineAmmoProvider
+    boltCatch: false # WWDP no zatvornaya zaderzhka kak u m-16
     soundRack:
       path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
   - type: ItemSlots
@@ -118,6 +126,15 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: RiflesDrop
 
 - type: entity
   name: M-90gl
@@ -210,31 +227,6 @@
   - type: Appearance
 
 - type: entity
-  name: Lecter
-  parent: WeaponRifleLecter
-  id: WeaponRifleLecterRubber
-  suffix: Non-lethal
-  components:
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazineRifleRubber
-        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-            - MagazineRifle
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgeRifleRubber
-        priority: 1
-        whitelist:
-          tags:
-            - CartridgeRifle
-
-- type: entity
   name: Foam Force Astro Ace
   parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponRifleFoam
@@ -245,6 +237,8 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Rifles/foam_rifle.rsi
   - type: Item
+    shape: # WWDP guns resize
+    - 0,0,5,0 # Toy size
     sprite: Objects/Weapons/Guns/Rifles/foam_rifle_inhand_64x.rsi
   - type: BallisticAmmoProvider
     whitelist:

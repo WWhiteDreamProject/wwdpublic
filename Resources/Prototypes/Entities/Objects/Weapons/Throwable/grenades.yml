@@ -35,6 +35,13 @@
         enum.ConstructionVisuals.Layer:
           Primed: { state: primed }
           Unprimed: { state: icon }
+  # WWDP edit below
+  - type: Tag
+    tags:
+    - RiotGrenade
+  - type: Ammo
+  - type: OnShotTimerTrigger
+    delayReduction: 2
 
 - type: entity
   name: explosive grenade

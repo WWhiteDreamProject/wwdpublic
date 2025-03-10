@@ -3,7 +3,11 @@
   name: species-name-reptilian
   roundStart: true
   prototype: MobReptilian
-  sprites: MobReptilianSprites
+  # WD EDIT START
+  bodyTypes:
+    - ReptilianNormal
+    - ReptilianSlim
+  # WD EDIT END
   defaultSkinTone: "#34a223"
   markingLimits: MobReptilianMarkingLimits
   dollPrototype: MobReptilianDummy
@@ -18,8 +22,11 @@
   defaultWidth: 1.1
   maxWidth: 1.2 # White Dream: End of changes.
 
-- type: speciesBaseSprites
-  id: MobReptilianSprites
+# WD EDIT START
+- type: bodyType
+  id: ReptilianNormal
+  name: body-normal
+# WD EDIT END
   sprites:
     Head: MobReptilianHead
     Face: MobHumanoidAnyMarking
@@ -35,10 +42,12 @@
     RArm: MobReptilianRArm
     LHand: MobReptilianLHand
     RHand: MobReptilianRHand
-    LLeg: MobReptilianLLegDigi # WWDP-Edit
-    RLeg: MobReptilianRLegDigi # WWDP-Edit
-    LFoot: MobReptilianLFootDigi # WWDP-Edit
-    RFoot: MobReptilianRFootDigi # WWDP-Edit
+    # WD EDIT START
+    LLeg: MobReptilianDigiLLeg
+    RLeg: MobReptilianDigiRLeg
+    LFoot: MobReptilianDigiLFoot
+    RFoot: MobReptilianDigiRFoot
+    # WD EDIT END
 
 - type: markingPoints
   id: MobReptilianMarkingLimits
@@ -59,13 +68,13 @@
       required: true
       defaultMarkings: [ LizardSnoutRound ]
     HeadTop:
-      points: 2
+      points: 6
       required: false
     HeadSide:
-      points: 3
+      points: 6
       required: false
     Chest:
-      points: 3
+      points: 6
       required: false
     Underwear:
       points: 1
@@ -74,28 +83,28 @@
       points: 1
       required: false
     RightLeg:
-      points: 2
+      points: 6
       required: false
     RightFoot:
-      points: 2
+      points: 6
       required: false
     LeftLeg:
-      points: 2
+      points: 6
       required: false
     LeftFoot:
-      points: 2
+      points: 6
       required: false
     RightArm:
-      points: 2
+      points: 6
       required: false
     RightHand:
-      points: 3
+      points: 6
       required: false
     LeftArm:
-      points: 2
+      points: 6
       required: false
     LeftHand:
-      points: 3
+      points: 6
       required: false
 
 - type: humanoidBaseSprite

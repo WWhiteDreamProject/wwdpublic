@@ -24,6 +24,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
+using Content.Shared._Lavaland.Weapons.Ranged.Events;
+using ProjectileShotEvent = Content.Shared._Lavaland.Weapons.Ranged.Events.ProjectileShotEvent; // Lavaland Change
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -93,6 +95,7 @@ public sealed partial class GunSystem : SharedGunSystem
         // Update shot based on the recoil
         toMap = fromMap.Position + angle.ToVec() * mapDirection.Length();
         mapDirection = toMap - fromMap.Position;
+        mapAngle = mapDirection.ToAngle(); // WWDP
         var gunVelocity = Physics.GetMapLinearVelocity(fromEnt);
 
         // I must be high because this was getting tripped even when true.
@@ -269,6 +272,8 @@ public sealed partial class GunSystem : SharedGunSystem
 
         void CreateAndFireProjectiles(EntityUid ammoEnt, AmmoComponent ammoComp)
         {
+            RaiseLocalEvent(ammoEnt, new Content.Shared._White.Weapons.Ranged.Events.ProjectileShotEvent()); // WWDP
+
             if (TryComp<ProjectileSpreadComponent>(ammoEnt, out var ammoSpreadComp))
             {
                 var spreadEvent = new GunGetAmmoSpreadEvent(ammoSpreadComp.Spread);
@@ -283,6 +288,11 @@ public sealed partial class GunSystem : SharedGunSystem
                 for (var i = 1; i < ammoSpreadComp.Count; i++)
                 {
                     var newuid = Spawn(ammoSpreadComp.Proto, fromEnt);
+                    // Lavaland Change: Raise event when a projectile/pellet is fired from a gun.
+                    RaiseLocalEvent(gunUid, new ProjectileShotEvent()
+                    {
+                        FiredProjectile = newuid
+                    });
                     ShootOrThrow(newuid, angles[i].ToVec(), gunVelocity, gun, gunUid, user);
                     shotProjectiles.Add(newuid);
                 }
@@ -345,15 +355,14 @@ public sealed partial class GunSystem : SharedGunSystem
 
     private Angle GetRecoilAngle(TimeSpan curTime, GunComponent component, Angle direction, EntityUid? user)
     {
-        var timeSinceLastFire = (curTime - component.LastFire).TotalSeconds;
-        var newTheta = MathHelper.Clamp(component.CurrentAngle.Theta + component.AngleIncreaseModified.Theta - component.AngleDecayModified.Theta * timeSinceLastFire, component.MinAngleModified.Theta, component.MaxAngleModified.Theta);
-        component.CurrentAngle = new Angle(newTheta);
-        component.LastFire = component.NextFire;
-
+        // WWDP EDIT START
+        UpdateAngles(curTime, component);
+        UpdateBonusAngles(curTime, component);
+        // WWDP EDIT END
         // Convert it so angle can go either side.
         var random = Random.NextFloat(-0.5f, 0.5f) / _contests.MassContest(user);
         var spread = component.CurrentAngle.Theta * random;
-        var angle = new Angle(direction.Theta + component.CurrentAngle.Theta * random);
+        var angle = new Angle(direction.Theta + (component.CurrentAngle.Theta + component.BonusAngle.Theta) * random); // WWDP EDIT
         DebugTools.Assert(spread <= component.MaxAngleModified.Theta);
         return angle;
     }

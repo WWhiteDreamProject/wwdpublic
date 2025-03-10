@@ -95,6 +95,16 @@
     Gold: 500
 
 - type: latheRecipe
+  id: WeaponCivilianDisabler
+  result: WeaponCivilianDisabler
+  category: Weapons
+  completetime: 6
+  materials:
+    Aluminum: 200
+    Glass: 200
+    Plastic: 300
+
+- type: latheRecipe
   id: WeaponXrayCannon
   result: WeaponXrayCannon
   category: Weapons
@@ -163,42 +173,6 @@
     Steel: 100
 
 - type: latheRecipe
-  id: CartridgePistolRubber
-  result: CartridgePistolRubber
-  category: Ammo
-  completetime: 2
-  materials:
-    Plastic: 5
-    Steel: 5
-
-- type: latheRecipe
-  id: CartridgeMagnumRubber
-  result: CartridgeMagnumRubber
-  category: Ammo
-  completetime: 2
-  materials:
-    Plastic: 5
-    Steel: 5
-
-- type: latheRecipe
-  id: CartridgeLightRifleRubber
-  result: CartridgeLightRifleRubber
-  category: Ammo
-  completetime: 2
-  materials:
-    Plastic: 10
-    Steel: 5
-
-- type: latheRecipe
-  id: CartridgeRifleRubber
-  result: CartridgeRifleRubber
-  category: Ammo
-  completetime: 2
-  materials:
-    Plastic: 10
-    Steel: 5
-
-- type: latheRecipe
   id: ShellTranquilizer
   result: ShellTranquilizer
   category: Ammo
@@ -249,13 +223,6 @@
   materials:
     Steel: 145
 
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazinePistolCaselessRifleRubber
-  result: MagazinePistolCaselessRifleRubber
-  materials:
-    Plastic: 145
-
 # .25 Caseless (Civilian) Rifle Magazines
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -270,13 +237,6 @@
   result: MagazineCaselessRifleShort
   materials:
     Steel: 250
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineCaselessRifleShortRubber
-  result: MagazineCaselessRifleShortRubber
-  materials:
-    Plastic: 250
 
 # .25 Caseless (Military) Rifle Magazines
 - type: latheRecipe
@@ -293,13 +253,6 @@
   materials:
     Steel: 350
 
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineCaselessRifleRubber
-  result: MagazineCaselessRifleRubber
-  materials:
-    Plastic: 350
-
 # .25 Caseless (Box Mag) Rifle Magazines
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -312,13 +265,6 @@
   parent: BaseAmmoRecipe
   id: MagazineBoxCaselessRifle
   result: MagazineBoxCaselessRifle
-  materials:
-    Steel: 720
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineBoxCaselessRifleRubber
-  result: MagazineBoxCaselessRifleRubber
   materials:
     Steel: 720
 
@@ -338,15 +284,6 @@
   completetime: 5
   materials:
     Steel: 145
-
-- type: latheRecipe
-  id: MagazinePistolRubber
-  result: MagazinePistolRubber
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 45
-    Plastic: 100
 
 - type: latheRecipe
   id: MagazinePistolPractice
@@ -392,15 +329,6 @@
     Steel: 300
 
 - type: latheRecipe
-  id: MagazinePistolSubMachineGunRubber
-  result: MagazinePistolSubMachineGunRubber
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 100
-    Plastic: 200
-
-- type: latheRecipe
   id: MagazinePistolSubMachineGunUranium
   result: MagazinePistolSubMachineGunUranium
   category: Ammo
@@ -444,15 +372,6 @@
     Steel: 600
 
 - type: latheRecipe
-  id: MagazineBoxPistolRubber
-  result: MagazineBoxPistolRubber
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 350
-    Plastic: 300
-
-- type: latheRecipe
   id: MagazineBoxMagnum
   result: MagazineBoxMagnum
   category: Ammo
@@ -469,30 +388,12 @@
     Steel: 25
 
 - type: latheRecipe
-  id: MagazineBoxMagnumRubber
-  result: MagazineBoxMagnumRubber
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 350
-    Plastic: 300
-
-- type: latheRecipe
   id: MagazineRifle
   result: MagazineRifle
   category: Ammo
   completetime: 5
   materials:
     Steel: 475
-
-- type: latheRecipe
-  id: MagazineRifleRubber
-  result: MagazineRifleRubber
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 150
-    Plastic: 325
 
 - type: latheRecipe
   id: MagazineRiflePractice
@@ -538,15 +439,6 @@
     Steel: 565
 
 - type: latheRecipe
-  id: MagazineLightRifleRubber
-  result: MagazineLightRifleRubber
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 125
-    Plastic: 350
-
-- type: latheRecipe
   id: MagazineLightRiflePractice
   result: MagazineLightRiflePractice
   category: Ammo
@@ -590,15 +482,6 @@
     Steel: 150
 
 - type: latheRecipe
-  id: MagazineMagnumRubber
-  result: MagazineMagnumRubber
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 50
-    Plastic: 100
-
-- type: latheRecipe
   id: MagazineMagnumUranium
   result: MagazineMagnumUranium
   category: Ammo
@@ -624,15 +507,6 @@
   completetime: 5
   materials:
     Steel: 750
-
-- type: latheRecipe
-  id: MagazineBoxRifleRubber
-  result: MagazineBoxRifleRubber
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 350
-    Plastic: 600
 
 - type: latheRecipe
   id: MagazineBoxLightRifle
@@ -669,15 +543,6 @@
     Plastic: 160
 
 - type: latheRecipe
-  id: MagazineBoxLightRifleRubber
-  result: MagazineBoxLightRifleRubber
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 350
-    Plastic: 600
-
-- type: latheRecipe
   id: SpeedLoaderMagnumEmpty
   result: SpeedLoaderMagnumEmpty
   category: Ammo
@@ -692,15 +557,6 @@
   completetime: 5
   materials:
     Steel: 190
-
-- type: latheRecipe
-  id: SpeedLoaderMagnumRubber
-  result: SpeedLoaderMagnumRubber
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 50
-    Plastic: 70
 
 - type: latheRecipe
   id: SpeedLoaderMagnumPractice
@@ -1204,3 +1060,13 @@
     Plasteel: 100
     Plastic: 450
     Silver: 100
+
+# WWDP riot lanucher
+- type: latheRecipe
+  id: WeaponSecurityRiotLauncher
+  result: WeaponSecurityRiotLauncher
+  category: Weapons
+  completetime: 6
+  materials:
+    Steel: 1500
+    Plastic: 750

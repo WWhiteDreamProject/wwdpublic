@@ -49,10 +49,11 @@
           - LowImpassable
           hard: False
     - type: TileFrictionModifier
-      modifier: 0.01
+      modifier: 0.5 # WWDP
     - type: Projectile
       impactEffect: BulletImpactEffect
       deleteOnCollide: false
+      stopFlyingOnImpact: true # WWDP
       onlyCollideWhenShot: true
       damage:
         types:

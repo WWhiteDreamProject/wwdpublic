@@ -872,6 +872,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("voice");
+
+                    b.Property<string>("BodyType")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("body_type");
                     // WD EDIT END
 
                     b.Property<string>("SkinColor")

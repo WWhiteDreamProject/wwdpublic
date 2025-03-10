@@ -3,7 +3,11 @@
   name: species-name-harpy
   roundStart: true
   prototype: MobHarpy
-  sprites: MobHarpySprites
+  # WD EDIT START
+  bodyTypes:
+  - HarpyNormal
+  - HarpySlim
+  # WD EDIT END
   defaultSkinTone: "#c0967f"
   markingLimits: MobHarpyMarkingLimits
   dollPrototype: MobHarpyDummy
@@ -15,8 +19,11 @@
   defaultWidth: 0.8
   maxWidth: 1 # White Dream: End of changes
 
-- type: speciesBaseSprites
-  id: MobHarpySprites
+# WD EDIT START
+- type: bodyType
+  id: HarpyNormal
+  name: body-normal
+# WD EDIT END
   sprites:
     Head: MobHarpyHead
     Face: MobHumanoidAnyMarking
@@ -32,6 +39,8 @@
     RArm: MobHarpyRArm
     LHand: MobHarpyLHand
     RHand: MobHarpyRHand
+    Underwear: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
     LLeg: MobHarpyLLeg
     RLeg: MobHarpyRLeg
     LFoot: MobHarpyLFoot
@@ -52,14 +61,14 @@
       required: true
       defaultMarkings: [ HarpyTailPhoenix ]
     HeadTop:
-      points: 1
+      points: 2
       required: true
       defaultMarkings: [ HarpyEarsDefault ]
     HeadSide:
-      points: 3
+      points: 6
       required: false
     Chest:
-      points: 1
+      points: 6
       required: true
       defaultMarkings: [ HarpyChestDefault ]
     Underwear:
@@ -69,16 +78,16 @@
       points: 1
       required: false
     RightLeg:
-      points: 2
+      points: 6
       required: false
     RightFoot:
-      points: 2
+      points: 6
       required: false
     LeftLeg:
-      points: 2
+      points: 6
       required: false
     LeftFoot:
-      points: 2
+      points: 6
       required: false
     RightArm:
       points: 1

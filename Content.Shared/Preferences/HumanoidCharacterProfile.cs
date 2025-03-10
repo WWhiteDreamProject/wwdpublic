@@ -81,6 +81,9 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
     // WD EDIT START
     [DataField]
+    public string BodyType { get; set; } = SharedHumanoidAppearanceSystem.DefaultBodyType;
+
+    [DataField]
     public string Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice;
     // WD EDIT END
 
@@ -136,6 +139,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         int age,
         Sex sex,
         string voice, // WD EDIT
+        string bodyType, // WD EDIT
         Gender gender,
         string? displayPronouns,
         string? stationAiName,
@@ -159,6 +163,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         Age = age;
         Sex = sex;
         Voice = voice; // WD EDIT
+        BodyType = bodyType; // WD EDIT
         Gender = gender;
         DisplayPronouns = displayPronouns;
         StationAiName = stationAiName;
@@ -186,6 +191,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             other.Age,
             other.Sex,
             other.Voice, // WD EDIT
+            other.BodyType, // WD EDIT
             other.Gender,
             other.DisplayPronouns,
             other.StationAiName,
@@ -256,10 +262,12 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
         var sex = Sex.Unsexed;
         var age = 18;
+        var bodyType = SharedHumanoidAppearanceSystem.DefaultBodyType; // WD EDIT
         if (prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
         {
             sex = random.Pick(speciesPrototype.Sexes);
             age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
+            bodyType = speciesPrototype.BodyTypes.First(); // WD EDIT
         }
 
         var gender = Gender.Epicene;
@@ -291,6 +299,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             Age = age,
             Gender = gender,
             Voice = voiceId, // WD EDIT
+            BodyType = bodyType, // WD EDIT
             Species = species,
             Appearance = HumanoidCharacterAppearance.Random(species, sex),
         };
@@ -299,6 +308,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     public HumanoidCharacterProfile WithName(string name) => new(this) { Name = name };
     public HumanoidCharacterProfile WithFlavorText(string flavorText) => new(this) { FlavorText = flavorText };
     public HumanoidCharacterProfile WithVoice(string voice) => new(this) { Voice = voice }; // WD EDIT
+    public HumanoidCharacterProfile WithBodyType(string bodyType) => new(this) { BodyType = bodyType }; // WD EDIT
     public HumanoidCharacterProfile WithAge(int age) => new(this) { Age = age };
     public HumanoidCharacterProfile WithSex(Sex sex) => new(this) { Sex = sex };
     public HumanoidCharacterProfile WithGender(Gender gender) => new(this) { Gender = gender };
@@ -392,6 +402,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             && Age == other.Age
             && Sex == other.Sex
             && Voice == other.Voice // WD EDIT
+            && BodyType == other.BodyType // WD EDIT
             && Gender == other.Gender
             && Species == other.Species
             && PreferenceUnavailable == other.PreferenceUnavailable
@@ -439,6 +450,8 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             Gender.Neuter => Gender.Neuter,
             _ => Gender.Epicene // Invalid enum values.
         };
+
+        var bodyType = speciesPrototype.BodyTypes.Contains(BodyType) ? BodyType : speciesPrototype.BodyTypes.First(); // WD EDIT
 
         string name;
         if (string.IsNullOrEmpty(Name))
@@ -538,6 +551,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         Age = age;
         Sex = sex;
         Gender = gender;
+        BodyType = bodyType; // WD EDIT
         Appearance = appearance;
         SpawnPriority = spawnPriority;
 
@@ -606,6 +620,8 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         hashCode.Add(Age);
         hashCode.Add((int) Sex);
         hashCode.Add((int) Gender);
+        hashCode.Add(Voice); // WD EDIT
+        hashCode.Add(BodyType); // WD EDIT
         hashCode.Add(Appearance);
         hashCode.Add((int) SpawnPriority);
         hashCode.Add((int) PreferenceUnavailable);

@@ -2,6 +2,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Interaction;
+using Content.Shared.Physics;
 using Content.Shared.UserInterface;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -39,7 +40,7 @@ public abstract class SharedMagicMirrorSystem : EntitySystem
 
         DebugTools.Assert(component.Target != null && Exists(component.Target));
 
-        if (!_interaction.InRangeUnobstructed(uid, component.Target.Value))
+        if (!_interaction.InRangeUnobstructed(uid, component.Target.Value, collisionMask:CollisionGroup.None)) // WWDP mirrors shouldn't be stopped by walls
             args.Result = BoundUserInterfaceRangeResult.Fail;
     }
 

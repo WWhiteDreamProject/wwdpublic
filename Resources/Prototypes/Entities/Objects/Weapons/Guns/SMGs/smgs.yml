@@ -9,13 +9,18 @@
   - type: Item
     size: Large
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
-  - type: AmmoCounter
-  - type: Gun
+  # - type: AmmoCounter # WWDP
+  - type: Gun # if changing also update WeaponDisablerSMG
+    bonusAngleIncreaseMove: 20    # wwdp
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 50           # wwdp
+    maxBonusAngle: 10             # wwdp
     minAngle: 2
     maxAngle: 16
     fireRate: 8
@@ -75,6 +80,15 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 8
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: RiflesDrop
 
 - type: entity
   name: Atreides
@@ -99,6 +113,9 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,3,1
 
 - type: entity
   name: C-20r sub machine gun
@@ -133,6 +150,9 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: antique C-20r submachine gun
@@ -191,54 +211,61 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,5,1
 
-- type: entity
-  name: Vector
-  parent: BaseWeaponSubMachineGun
-  id: WeaponSubMachineGunVector
-  suffix: Deprecated use Drozd
-  description: An excellent fully automatic Heavy SMG. Uses .45 magnum ammo.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/SMGs/vector.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-0
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/SMGs/vector.rsi
-  - type: Gun
-    fireRate: 6
-    selectedMode: FullAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
-    availableModes:
-    - FullAuto
-    fireOnDropChance: 0.1
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazineMagnumSubMachineGun
-        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-          - MagazineMagnumSubMachineGun
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgeMagnum
-        priority: 1
-        whitelist:
-          tags:
-          - CartridgeMagnum
-  - type: MagazineVisuals
-    magState: mag
-    steps: 1
-    zeroVisible: true
-  - type: Appearance
+  #Commented out the Vector, as it is deprecated.
+  # - type: entity
+  #  name: Vector
+  #  parent: BaseWeaponSubMachineGun
+  #  id: WeaponSubMachineGunVector
+  #  suffix: Deprecated use Drozd
+  #  description: An excellent fully automatic Heavy SMG. Uses .45 magnum ammo.
+  #  components:
+  #  - type: Sprite
+  #    sprite: Objects/Weapons/Guns/SMGs/vector.rsi
+  #    layers:
+  #      - state: base
+  #        map: ["enum.GunVisualLayers.Base"]
+  #      - state: mag-0
+  #        map: ["enum.GunVisualLayers.Mag"]
+  #  - type: Clothing
+  #    sprite: Objects/Weapons/Guns/SMGs/vector.rsi
+  #  - type: Gun
+  #    fireRate: 6
+  #    selectedMode: FullAuto
+  #    soundGunshot:
+  #      path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+  #    availableModes:
+  #    - FullAuto
+  #    fireOnDropChance: 0.1
+  #  - type: ItemSlots
+  #    slots:
+  #      gun_magazine:
+  #        name: Magazine
+  #        startingItem: MagazineMagnumSubMachineGun
+  #        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+  #        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+  #        priority: 2
+  #       whitelist:
+  #          tags:
+  #            - MagazineMagnumSubMachineGun
+  #      gun_chamber:
+  #        name: Chamber
+  #        startingItem: CartridgeMagnum
+  #        priority: 1
+  #        whitelist:
+  #          tags:
+  #            - CartridgeMagnum
+  #  - type: MagazineVisuals
+  #    magState: mag
+  ##    steps: 1
+  #    zeroVisible: true
+  #  - type: Appearance
+  #  - type: Item # WWDP guns resize
+  #    shape:
+  #    - 0,0,5,1
 
 - type: entity
   name: WT550
@@ -264,7 +291,7 @@
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
-    fireRate: 5.5
+    fireRate: 7
     minAngle: 1
     maxAngle: 6
     angleIncrease: 1.5
@@ -301,6 +328,9 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: antique Wt550
@@ -310,55 +340,3 @@
   components:
   - type: StealTarget
     stealGroup: HoSAntiqueWeapon
-
-# Rubber
-- type: entity
-  name: Drozd
-  parent: WeaponSubMachineGunDrozd
-  id: WeaponSubMachineGunDrozdRubber
-  suffix: Non-Lethal
-  components:
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazinePistolSubMachineGunRubber
-        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-          - MagazinePistolSubMachineGun
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgePistolRubber
-        priority: 1
-        whitelist:
-          tags:
-          - CartridgePistol
-
-- type: entity
-  name: Vector
-  parent: WeaponSubMachineGunVector
-  id: WeaponSubMachineGunVectorRubber
-  description: An excellent fully automatic Heavy SMG. Uses .45 magnum ammo.
-  suffix: Non-Lethal
-  components:
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazineMagnumSubMachineGunRubber
-        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-          - MagazineMagnumSubMachineGun
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgeMagnumRubber
-        priority: 1
-        whitelist:
-          tags:
-          - CartridgeMagnum

@@ -9,10 +9,13 @@
     - Vocal
   chatMessages: ["chat-emote-msg-scream"]
   chatTriggers:
-    - screams
-    - shrieks
-    - screeches
-    - yells
+  # WD EDIT START
+  - "chat-emote-trigger-scream-1"
+  - "chat-emote-trigger-scream-2"
+  - "chat-emote-trigger-scream-3"
+  - "chat-emote-trigger-scream-4"
+  - "chat-emote-trigger-scream-5"
+  # WD EDIT END
 
 - type: emote
   id: Laugh
@@ -24,10 +27,13 @@
     - Vocal
   chatMessages: ["chat-emote-msg-laugh"]
   chatTriggers:
-    - laughs
-    - chuckles
-    - giggles
-    - chortles
+  # WD EDIT START
+  - "chat-emote-trigger-laugh-1"
+  - "chat-emote-trigger-laugh-2"
+  - "chat-emote-trigger-laugh-3"
+  - "chat-emote-trigger-laugh-4"
+  - "chat-emote-trigger-laugh-5"
+  # WD EDIT END
 
 - type: emote
   id: Honk
@@ -40,7 +46,7 @@
     - SiliconEmotes
     - HarpyEmotes
   chatTriggers:
-    - honks
+  - "chat-emote-trigger-honk-1" # WD EDIT
 
 - type: emote
   id: Sigh
@@ -52,7 +58,7 @@
     - Vocal
   chatMessages: ["chat-emote-msg-sigh"]
   chatTriggers:
-    - sighs
+  - "chat-emote-trigger-sigh-1" # WD EDIT
 
 - type: emote
   id: Whistle
@@ -64,7 +70,7 @@
     - Vocal
   chatMessages: ["chat-emote-msg-whistle"]
   chatTriggers:
-    - whistles
+  - "chat-emote-trigger-whistle-1" # WD EDIT
 
 - type: emote
   id: Crying
@@ -76,8 +82,10 @@
     - Vocal
   chatMessages: ["chat-emote-msg-crying"]
   chatTriggers:
-    - cries
-    - sobs
+  # WD EDIT START
+  - "chat-emote-trigger-crying-1"
+  - "chat-emote-trigger-crying-2"
+  # WD EDIT END
 
 - type: emote
   id: Squish
@@ -92,7 +100,7 @@
     - BorgChassis
   chatMessages: ["chat-emote-msg-squish"]
   chatTriggers:
-    - squishes
+  - "chat-emote-trigger-squish-1" # WD EDIT
 
 - type: emote
   id: Chitter
@@ -107,7 +115,7 @@
     - BorgChassis
   chatMessages: ["chat-emote-msg-chitter"]
   chatTriggers:
-   - chitters
+  - "chat-emote-trigger-chitter-1" # WD EDIT
 
 - type: emote
   id: Squeak
@@ -122,7 +130,7 @@
     - BorgChassis
   chatMessages: ["chat-emote-msg-squeak"]
   chatTriggers:
-   - squeaks
+  - "chat-emote-trigger-squeak-1" # WD EDIT
 
 - type: emote
   id: Click
@@ -137,7 +145,10 @@
     - BorgChassis
   chatMessages: ["chat-emote-msg-click"]
   chatTriggers:
-   - clicks
+  # WD EDIT START
+  - "chat-emote-trigger-click-1"
+  - "chat-emote-trigger-click-2"
+  # WD EDIT END
 
 # hand emotes
 - type: emote
@@ -153,7 +164,7 @@
     - BorgChassis
   chatMessages: ["chat-emote-msg-clap"]
   chatTriggers:
-    - claps
+  - "chat-emote-trigger-clap-1" # WD EDIT
 
 - type: emote
   id: Snap
@@ -168,13 +179,15 @@
     - BorgChassis
   chatMessages: ["chat-emote-msg-snap"] # snaps <{THEIR($ent)}> fingers?
   chatTriggers:
-    - snaps
-    - snaps fingers
-    - snaps his fingers
-    - snaps her fingers
-    - snaps their fingers
-    - snaps its fingers
-    - snaps its' fingers
+  # WD EDIT START
+  - "chat-emote-trigger-snap-1"
+  - "chat-emote-trigger-snap-2"
+  - "chat-emote-trigger-snap-3"
+  - "chat-emote-trigger-snap-4"
+  - "chat-emote-trigger-snap-5"
+  - "chat-emote-trigger-snap-6"
+  - "chat-emote-trigger-snap-7"
+  # WD EDIT END
 
 - type: emote
   id: Salute
@@ -189,7 +202,11 @@
     - BorgChassis
   chatMessages: ["chat-emote-msg-salute"]
   chatTriggers:
-    - salutes
+  # WD EDIT START
+  - "chat-emote-trigger-salute-1"
+  - "chat-emote-trigger-salute-2"
+  - "chat-emote-trigger-salute-3"
+  # WD EDIT END
 
 - type: emote
   id: DefaultDeathgasp
@@ -203,7 +220,7 @@
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-deathgasp"]
   chatTriggers:
-  - deathgasp
+  - "chat-emote-trigger-deathgasp-1" # WD EDIT
 
 - type: emote
   id: MonkeyDeathgasp
@@ -220,7 +237,7 @@
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-deathgasp-silicon"]
   chatTriggers:
-  - sdeathgasp
+  - "chat-emote-trigger-deathgasp-silicon-1" # WD EDIT
 
 - type: emote
   id: Buzz
@@ -233,14 +250,14 @@
     - HarpyEmotes
   chatMessages: ["chat-emote-msg-buzz"]
   chatTriggers:
-    - buzzes
+  - "chat-emote-trigger-buzz-1" # WD EDIT
 
 - type: emote
   id: Weh
   name: chat-emote-name-weh
   category: Vocal
   icon: Interface/Emotes/weh.png
-  chatMessages: [ wehs ]
+  chatMessages: ["chat-emote-msg-weh"]
 
 - type: emote
   id: Chirp
@@ -255,7 +272,7 @@
     - HarpyEmotes
   chatMessages: ["chat-emote-msg-chirp"]
   chatTriggers:
-    - chirps
+  - "chat-emote-trigger-chirp-1" # WD EDIT
 
 # Machine Emotes
 - type: emote
@@ -269,7 +286,7 @@
     - HarpyEmotes
   chatMessages: ["chat-emote-msg-beep"]
   chatTriggers:
-    - beeps
+  - "chat-emote-trigger-beep-1" # WD EDIT
 
 - type: emote
   id: Boop
@@ -279,9 +296,11 @@
     tags:
     - SiliconEmotes
     - HarpyEmotes
-  chatMessages: [ boops ]
+  # WD EDIT START
+  chatMessages: [ "chat-emote-msg-boop-1" ]
   chatTriggers:
-    - boops
+  - "chat-emote-trigger-boop-1"
+  # WD EDIT END
 
 - type: emote
   id: Chime
@@ -292,9 +311,11 @@
     tags:
     - SiliconEmotes
     - HarpyEmotes
+  # WD EDIT START
   chatMessages: ["chat-emote-msg-chime"]
   chatTriggers:
-    - chimes
+  - "chat-emote-trigger-chime-1"
+  # WD EDIT END
 
 - type: emote
   id: Buzz-Two
@@ -305,9 +326,11 @@
     tags:
     - SiliconEmotes
     - HarpyEmotes
+  # WD EDIT START
   chatMessages: ["chat-emote-msg-buzzestwo"]
   chatTriggers:
-    - buzzes twice
+  - "chat-emote-trigger-buzz-two-1"
+  # WD EDIT END
 
 - type: emote
   id: Ping
@@ -318,9 +341,11 @@
     tags:
     - SiliconEmotes
     - HarpyEmotes
+  # WD EDIT START
   chatMessages: ["chat-emote-msg-ping"]
   chatTriggers:
-    - pings
+  - "chat-emote-trigger-ping-1"
+  # WD EDIT END
 
 - type: emote
   id: Whirr
@@ -330,9 +355,11 @@
     tags:
     - SiliconEmotes
     - HarpyEmotes
-  chatMessages: [ whirrs ]
+  # WD EDIT START
+  chatMessages: ["chat-emote-msg-whirr"]
   chatTriggers:
-    - whirrs
+  - "chat-emote-trigger-whirr-1"
+  # WD EDIT END
 
 - type: emote
   id: Mars
@@ -345,9 +372,11 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ mars ]
+  # WD EDIT START
+  chatMessages: ["chat-emote-msg-mars"]
   chatTriggers:
-  - mars
+  - "chat-emote-trigger-mars-1"
+  # WD EDIT END
 
 - type: emote
   id: Wurble
@@ -360,6 +389,8 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ wurble ]
+  # WD EDIT START
+  chatMessages: ["chat-emote-msg-wurble"]
   chatTriggers:
-  - wurble
+  - "chat-emote-trigger-wurble-1"
+  # WD EDIT END

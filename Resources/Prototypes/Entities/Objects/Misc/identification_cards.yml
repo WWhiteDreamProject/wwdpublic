@@ -41,7 +41,7 @@
       color: "#878787"
     - state: subdepartment
       color: "#878787"
-    - state: passenger
+    - state: assistant # WWDP
   - type: PresetIdCard
     job: Passenger
 

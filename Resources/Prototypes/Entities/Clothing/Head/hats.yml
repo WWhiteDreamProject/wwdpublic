@@ -235,6 +235,8 @@
   name: captain's hardhat
   description: It's good being the king.
   components:
+  - type: TinfoilHat # WWDP
+    destroyOnFry: false
   - type: Sprite
     sprite: Clothing/Head/Hats/captain.rsi
   - type: Clothing

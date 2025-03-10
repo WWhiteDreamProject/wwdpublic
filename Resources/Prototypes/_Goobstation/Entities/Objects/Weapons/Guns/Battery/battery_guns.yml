@@ -23,6 +23,8 @@
     - Back
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
   - type: Gun
+    bonusAngleDecay: 60
+    maxBonusAngle: 10
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg

@@ -280,6 +280,8 @@
       deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
     - type: Pullable
     - type: Puller
+    - type: Fingerprint # WWDP
+      notLeavingFingerprints: true
 
     - type: BodyEmotes
       soundsId: GeneralBodyEmotes
@@ -331,6 +333,7 @@
     - type: FootPrints
     - type: Carriable
     - type: LayingDown
+    - type: ExaminableCharacter # WWDP
 
 
 - type: damageModifierSet

@@ -43,11 +43,11 @@
         - TrayScanner
         - GasAnalyzer
         - HandLabeler
-        - RemoteSignaller
-        - RemoteSignallerAdvanced
+        #- RemoteSignaller # WWDP fixing after someone who doesnt know what a component is
+        #- RemoteSignallerAdvanced # WWDP
         - AnomalyScanner
-        - AnomalyLocatorUnpowered
-        - AnomalyLocatorWideUnpowered
+        #- AnomalyLocatorUnpowered # WWDP
+        #- AnomalyLocatorWideUnpowered # WWDP
         - NodeScanner
   - type: ItemMapper
     mapLayers:
@@ -354,7 +354,7 @@
   - type: Storage
     whitelist:
       tags:
-        # - PlantAnalyzer
+        - PlantAnalyzer
         - PlantSampleTaker
         - BotanyShovel
         - BotanyHoe
@@ -374,10 +374,10 @@
         whitelist:
           tags:
           - BotanyHatchet
-      # hydro:
-      #   whitelist:
-      #     tags:
-      #     - PlantAnalyzer # Dunno what to put here, should be aight.
+      hydro:
+        whitelist:
+          tags:
+          - PlantAnalyzer
       hoe:
         whitelist:
           tags:
@@ -544,7 +544,7 @@
   - type: Clothing
     sprite: Clothing/Belt/sheath.rsi
   - type: Item
-    size: Ginormous
+    size: Large
   - type: ItemSlots
     slots:
       item:
@@ -579,6 +579,8 @@
   - type: Item
     size: Huge
   - type: BallisticAmmoProvider
+    soundInsert: # WWDP
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
     whitelist:
       tags:
         - ShellShotgun
