@@ -31,6 +31,18 @@
   - WeaponPistolMk58
   # These are roundstart but not replenishable for salvage
 
+  # WWDP Civilian/lowtier guns
+  - MagazineLightRifleLowCapacityEmpty
+  - MagazineLightRifleLowCapacity
+  - SpeedLoaderRifleHeavy
+  - SpeedLoaderRifleHeavyEmpty
+  - MagazineMagnumLeverRifle # Goobstation
+  - MagazineMagnumLeverRifleEmpty # Goobstation
+  - MagazineNovaliteC1Empty
+  - MagazineNovaliteC1
+  - WeaponRifleNovaliteC1
+  - WeaponRifleGestio
+
 - type: technology
   id: DraconicMunitions
   name: research-technology-draconic-munitions
@@ -141,10 +153,10 @@
   - WeaponGunLaserCarbineAutomatic
   - WeaponLaserCannon
   - WeaponMechCombatSolarisLaser # Goobstation
-  - WeaponSubMachineGunFPA90
+  # - WeaponSubMachineGunFPA90 # WWDP no syndicate guns
   - WeaponPistolN1984
-  - WeaponPistolViper
-  - WeaponPistolCobra
+  # - WeaponPistolViper # WWDP no syndicate guns
+  # - WeaponPistolCobra # WWDP no syndicate guns
   technologyPrerequisites:
   - BasicWeapons
 
@@ -184,7 +196,15 @@
   - PowerCageHigh
   - ShuttleGunDusterCircuitboard
   - WeaponMechCombatImmolationGun # Goobstation
-  - EnergySword # TODO: Add a bunch of stupidly exotic energy weapons to act as a reaaaaaally nice incentive for research to consider this.
-  - EnergySwordDouble
+
+  # WWDP no syndicate gear
+  # - EnergySword # TODO: Add a bunch of stupidly exotic energy weapons to act as a reaaaaaally nice incentive for research to consider this.
+  # - EnergySwordDouble
+
   - EnergyCutlass
+
+  # WWDP moved caseless ammo here
+  - MagazineBoxCaselessRiflePractice # EE
+  - MagazineBoxCaselessRifle # EE
+  - WeaponSubMachineGunBRDIR25
   softCapContribution: 1.5
