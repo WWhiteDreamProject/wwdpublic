@@ -1766,3 +1766,10 @@ Entries:
   id: 189
   time: '2025-03-10T11:24:14.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/307
+- author: Vaaankas
+  changes:
+    - type: Add
+      message: Добавлен крафт растяжки с гранатой
+  id: 190
+  time: '2025-03-10T11:25:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/305
