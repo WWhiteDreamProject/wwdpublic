@@ -203,3 +203,29 @@
   icon:
     sprite: Objects/Weapons/Bombs/pipebomb.rsi
     state: icon
+
+- type: construction
+  name: Right leg prosthetic
+  id: MakeshiftRightLeg
+  graph: MakeshiftRightLegGraph
+  startNode: start
+  targetNode: makeshiftrightleg
+  category: construction-category-misc
+  objectType: Item
+  description: Poor, slow replacement for a right leg, it's nearly impossible to run on it. It is cheap, though
+  icon:
+    sprite: Mobs/Customization/cyberlimbs/bishop/bishop_main.rsi
+    state: "r_leg-combined"
+
+- type: construction
+  name: Left leg prosthetic
+  id: MakeshiftLeftLeg
+  graph: MakeshiftLeftLegGraph
+  startNode: start
+  targetNode: makeshiftleftleg
+  category: construction-category-misc
+  objectType: Item
+  description: Poor, slow replacement for a left leg, it's nearly impossible to run on it. It is cheap, though
+  icon:
+    sprite: Mobs/Customization/cyberlimbs/bishop/bishop_main.rsi
+    state: "l_leg-combined"
