@@ -43,11 +43,13 @@
     attackRate: 1 # WD EDIT
     angle: 60
   - type: DamageOtherOnHit
-  - type: StaminaDamageOnHit
-    damage: 35 # WD EDIT
+  - type: StaminaDamageOnHit # Stunmeta
+    damage: 15
+    overtime: 40
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
-    damage: 35
+    damage: 15
+    overtime: 40
     sound: /Audio/Weapons/egloves.ogg
   - type: Battery
     maxCharge: 750 # WD EDIT
