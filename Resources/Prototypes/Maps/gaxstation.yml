@@ -20,9 +20,7 @@
           availableJobs:
             #service
             Captain: [ 1, 1 ]
-            NanotrasenRepresentative: [ 0, 0 ] # WWDP no roundstart CC roles
-            BlueshieldOfficer: [ 0, 0 ] # WWDP no roundstart CC roles
-            Magistrate: [ 0, 0 ] # WWDP no roundstart CC roles
+            Maid: [ 1, 1 ] # WWDP Combat Maid instead of CC roles
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
             Botanist: [3 , 3 ]
