@@ -204,7 +204,7 @@
   - EnergyCutlass
 
   # WWDP moved caseless ammo here
-  - MagazineBoxCaselessRiflePractice # EE
-  - MagazineBoxCaselessRifle # EE
+  - MagazineCaselessRiflePractice # EE
+  - MagazineCaselessRifle # EE
   - WeaponSubMachineGunBRDIR25
   softCapContribution: 1.5

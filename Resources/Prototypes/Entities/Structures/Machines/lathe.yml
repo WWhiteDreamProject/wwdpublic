@@ -922,6 +922,19 @@
     - MagazinePistolSubMachineGunEmpty
     - MagazinePistolSubMachineGunTopMounted
     - MagazinePistolSubMachineGunTopMountedEmpty
+    # WWDP removed caseless bloat
+    # # .35 Caseless Pistol
+    # - MagazinePistolCaselessRiflePractice # EE
+    # - MagazinePistolCaselessRifle # EE
+    # # .35 Caseless (Civilian) Rifle
+    # - MagazineCaselessRifleShortPractice # EE
+    # - MagazineCaselessRifleShort # EE
+    # # .35 Caseless (Military) Rifle
+    # - MagazineCaselessRiflePractice # EE
+    # - MagazineCaselessRifle # EE
+    # # .35 Caseless (Box Mag) Rifle
+    # - MagazineBoxCaselessRiflePractice # EE
+    # - MagazineBoxCaselessRifle # EE
     - MagazineMagnum
     - MagazineMagnumEmpty
     - MagazineRifle
@@ -950,6 +963,17 @@
     # - MagazinePistolSpecial
     - HandheldGPSBasic
     - HandheldStationMap
+    # WWDP gun bloat moved to tier 1 Arsenal research
+    # - MagazineLightRifleLowCapacityEmpty
+    # - MagazineLightRifleLowCapacity
+    # - SpeedLoaderRifleHeavy
+    # - SpeedLoaderRifleHeavyEmpty
+    # - MagazineMagnumLeverRifle # Goobstation
+    # - MagazineMagnumLeverRifleEmpty # Goobstation
+    # - MagazineNovaliteC1Empty
+    # - MagazineNovaliteC1
+    # - WeaponRifleNovaliteC1
+    # - WeaponRifleGestio
     # - ClothingEyesGlassesSecurity # WWDP no infinite sechuds
     - TelescopicShield
     - HoloprojectorSecurity
@@ -972,8 +996,8 @@
     - WeaponRifleGestio
 
     # WWDP caseless ammo moved to tier 3 Arsenal research
-    - MagazineBoxCaselessRiflePractice # EE
-    - MagazineBoxCaselessRifle # EE
+    - MagazineCaselessRiflePractice # EE
+    - MagazineCaselessRifle # EE
 
     - WeaponSecurityRiotLauncher # WWDP
     - Truncheon
@@ -1137,7 +1161,22 @@
     - SpeedLoaderMagnumEmpty
     - SpeedLoaderRifleHeavy
     - SpeedLoaderRifleHeavyEmpty
+
     # WWDP removed fancy ammo
+    # - CartridgeSpecial
+    # - MagazineBoxSpecial
+    # # .35 Caseless Pistol
+    # - MagazinePistolCaselessRiflePractice # EE
+    # - MagazinePistolCaselessRifle # EE
+    # # .35 Caseless (Civilian) Rifle
+    # - MagazineCaselessRifleShortPractice # EE
+    # - MagazineCaselessRifleShort # EE
+    # # .35 Caseless (Military) Rifle
+    # - MagazineCaselessRiflePractice # EE
+    # - MagazineCaselessRifle # EE
+    # # .35 Caseless (Box Mag) Rifle
+    # - MagazineBoxCaselessRiflePractice # EE
+    # - MagazineBoxCaselessRifle # EE
   - type: MaterialStorage
     whitelist:
       tags:
