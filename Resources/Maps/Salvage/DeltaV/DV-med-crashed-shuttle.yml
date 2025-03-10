@@ -87,7 +87,7 @@ entities:
             5: -2,-1
         - node:
             color: '#79150096'
-            id: questionmark
+            id: qmark
           decals:
             4: -2,4
         - node:

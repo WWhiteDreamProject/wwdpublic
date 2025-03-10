@@ -3,6 +3,7 @@ using Content.Client.Hands.Systems;
 using Content.Shared._White.Hands.Components;
 using Content.Shared.Crayon;
 using Content.Shared.Decals;
+using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -37,6 +38,7 @@ public sealed class CrayonPreviewOverlay : Overlay
     protected override void Draw(in OverlayDrawArgs args)
     {
         if (_player.LocalEntity is not EntityUid playerUid ||
+            !_entMan.HasComponent<HandsComponent>(playerUid) ||
             !_entMan.TryGetComponent<CrayonComponent>(_hands.GetActiveItem(playerUid), out var crayon) ||
             _entMan.HasComponent<HoldingDropComponent>(playerUid))
             return;
