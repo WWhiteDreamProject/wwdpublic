@@ -8,7 +8,7 @@
     sprite: _Goobstation/Clothing/Belt/judobelt.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Belt/judobelt.rsi
-  - type: GrantCorporateJudo
+  #- type: GrantCorporateJudo # wwdp edit, get fucked.
   - type: Storage
     whitelist:
       tags:
