@@ -196,7 +196,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
             if (!disarm)
             {
-                return; // Less popups
+                return; // WWDP specific - Less popups; would probably want to remove on upstream
                 msgPrefix = "disarm-action-shove-";
             }
 
