@@ -1757,3 +1757,12 @@ Entries:
   id: 188
   time: '2025-03-10T05:40:13.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/294
+- author: vanx
+  changes:
+    - type: Add
+      message: Возможность снарядить Служанку как секретного (или не очень) агента ЦК.
+    - type: Remove
+      message: Роли ЦК и адъютанта.
+  id: 189
+  time: '2025-03-10T11:24:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/307
