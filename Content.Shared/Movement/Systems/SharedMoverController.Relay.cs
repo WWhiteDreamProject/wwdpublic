@@ -53,6 +53,13 @@ public abstract partial class SharedMoverController
             Physics.UpdateIsPredicted(targetComp.Source);
         }
 
+        if (TryComp<InputMoverComponent>(uid, out var oldMover) &&
+            HasComp<InputMoverComponent>(relayEntity))
+        {
+            ushort subtick = default;
+            SetSprinting(relayEntity, subtick, oldMover.Sprinting);
+        }
+
         Physics.UpdateIsPredicted(uid);
         Physics.UpdateIsPredicted(relayEntity);
         component.RelayEntity = relayEntity;
