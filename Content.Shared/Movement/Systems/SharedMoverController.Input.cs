@@ -476,6 +476,7 @@ namespace Content.Shared.Movement.Systems
             component.LastInputSubTick = 0;
         }
 
+        // WWDP edited
         public void SetSprinting(EntityUid entity, ushort subTick, bool walking)
         {
             // Logger.Info($"[{_gameTiming.CurTick}/{subTick}] Sprint: {enabled}");
@@ -488,6 +489,7 @@ namespace Content.Shared.Movement.Systems
             SetMoveInput(entityComp, subTick, walking, MoveButtons.Walk);
             WalkingAlert(entityComp);
         }
+        // WWDP edit end
 
         /// <summary>
         ///     Retrieves the normalized direction vector for a specified combination of movement keys.
