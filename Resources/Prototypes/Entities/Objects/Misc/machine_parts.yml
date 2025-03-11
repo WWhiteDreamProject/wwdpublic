@@ -7,7 +7,6 @@
   components:
     - type: Sprite
       sprite: Objects/Misc/stock_parts.rsi
-      scale: 0.8, 0.8
     - type: Item
       size: Tiny
     - type: EmitSoundOnPickup

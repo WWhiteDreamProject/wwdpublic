@@ -160,9 +160,29 @@
     sprite: Decals/markings.rsi
     state: standclear_greyscale
 
-- type: decal
+- type: decal # WWDP edit
+  id: Warning
+  parent: A_StationDecal
+  abstract: true
+
+- type: decal # WWDP edit
   id: Warn
-  parent: Markings
+  parent: Warning
+  abstract: true
+
+- type: decal # WWDP edit
+  id: WarnGreyscale
+  parent: Warning
+  abstract: true
+
+- type: decal # WWDP edit
+  id: WarnWhite
+  parent: Warning
+  abstract: true
+
+- type: decal # WWDP edit
+  id: WarnWhiteGreyscale
+  parent: Warning
   abstract: true
 
 - type: decal
@@ -175,7 +195,7 @@
 
 - type: decal
   id: WarnBoxGreyscale
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -212,7 +232,7 @@
 
 - type: decal
   id: WarnFullGreyscale
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -305,7 +325,7 @@
 
 - type: decal
   id: WarnCornerGreyscaleNE
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -314,7 +334,7 @@
 
 - type: decal
   id: WarnCornerGreyscaleNW
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -323,7 +343,7 @@
 
 - type: decal
   id: WarnCornerGreyscaleSE
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -332,7 +352,7 @@
 
 - type: decal
   id: WarnCornerGreyscaleSW
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -373,7 +393,7 @@
 
 - type: decal
   id: WarnCornerSmallGreyscaleNE
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -382,7 +402,7 @@
 
 - type: decal
   id: WarnCornerSmallGreyscaleNW
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -391,7 +411,7 @@
 
 - type: decal
   id: WarnCornerSmallGreyscaleSE
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -400,7 +420,7 @@
 
 - type: decal
   id: WarnCornerSmallGreyscaleSW
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -473,7 +493,7 @@
 
 - type: decal
   id: WarnEndGreyscaleE
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -482,7 +502,7 @@
 
 - type: decal
   id: WarnEndGreyscaleN
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -491,7 +511,7 @@
 
 - type: decal
   id: WarnEndGreyscaleS
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -500,7 +520,7 @@
 
 - type: decal
   id: WarnEndGreyscaleW
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -541,7 +561,7 @@
 
 - type: decal
   id: WarnLineGreyscaleE
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -550,7 +570,7 @@
 
 - type: decal
   id: WarnLineGreyscaleN
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -559,7 +579,7 @@
 
 - type: decal
   id: WarnLineGreyscaleS
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -568,7 +588,7 @@
 
 - type: decal
   id: WarnLineGreyscaleW
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -590,4 +610,299 @@
   sprite:
     sprite: Decals/markings.rsi
     state: vent_small
+
+# WWDP edit start
+
+# White
+
+- type: decal
+  id: WarnBoxWhite
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_box
+
+- type: decal
+  id: WarnFullWhite
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_full
+
+- type: decal
+  id: WarnCornerWhiteNE
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_corner_ne
+
+- type: decal
+  id: WarnCornerWhiteNW
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_corner_nw
+
+- type: decal
+  id: WarnCornerWhiteSE
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_corner_se
+
+- type: decal
+  id: WarnCornerWhiteSW
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_corner_sw
+
+- type: decal
+  id: WarnCornerSmallWhiteNE
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_corner_small_ne
+
+- type: decal
+  id: WarnCornerSmallWhiteNW
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_corner_small_nw
+
+- type: decal
+  id: WarnCornerSmallWhiteSE
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_corner_small_se
+
+- type: decal
+  id: WarnCornerSmallWhiteSW
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_corner_small_sw
+
+- type: decal
+  id: WarnEndWhiteE
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_end_e
+
+- type: decal
+  id: WarnEndWhiteN
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_end_n
+
+- type: decal
+  id: WarnEndWhiteS
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_end_s
+
+- type: decal
+  id: WarnEndWhiteW
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_end_w
+
+- type: decal
+  id: WarnLineWhiteE
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_line_e
+
+- type: decal
+  id: WarnLineWhiteW
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_line_n
+
+- type: decal
+  id: WarnLineWhiteN
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_line_s
+
+- type: decal
+  id: WarnWhiteLineWhiteS
+  parent: WarnWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_line_w
+
+# White greyscale
+
+- type: decal
+  id: WarnBoxWhiteGreyscale
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_box_greyscale
+
+- type: decal
+  id: WarnFullWhiteGreyscale
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_full_greyscale
+
+- type: decal
+  id: WarnCornerWhiteGreyscaleNE
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_corner_greyscale_ne
+
+- type: decal
+  id: WarnCornerWhiteGreyscaleNW
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_corner_greyscale_nw
+
+- type: decal
+  id: WarnCornerWhiteGreyscaleSE
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_corner_greyscale_se
+
+- type: decal
+  id: WarnCornerWhiteGreyscaleSW
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_corner_greyscale_sw
+
+- type: decal
+  id: WarnCornerSmallWhiteGreyscaleNE
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_corner_small_greyscale_ne
+
+- type: decal
+  id: WarnCornerSmallWhiteGreyscaleNW
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_corner_small_greyscale_nw
+
+- type: decal
+  id: WarnCornerSmallWhiteGreyscaleSE
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_corner_small_greyscale_se
+
+- type: decal
+  id: WarnCornerSmallWhiteGreyscaleSW
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_corner_small_greyscale_sw
+
+- type: decal
+  id: WarnEndWhiteGreyscaleE
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_end_greyscale_e
+
+- type: decal
+  id: WarnEndWhiteGreyscaleN
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_end_greyscale_n
+
+- type: decal
+  id: WarnEndWhiteGreyscaleS
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_end_greyscale_s
+
+- type: decal
+  id: WarnEndWhiteGreyscaleW
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_end_greyscale_w
+
+- type: decal
+  id: WarnLineWhiteGreyscaleE
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_line_greyscale_e
+
+- type: decal
+  id: WarnLineWhiteGreyscaleW
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_line_greyscale_n
+
+- type: decal
+  id: WarnLineWhiteGreyscaleN
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_line_greyscale_s
+
+- type: decal
+  id: WarnLineWhiteGreyscaleS
+  parent: WarnWhiteGreyscale
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/markings.rsi
+    state: warn_line_greyscale_w
+# WWDP edit end
 
