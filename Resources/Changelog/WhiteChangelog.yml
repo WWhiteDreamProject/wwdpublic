@@ -1797,3 +1797,12 @@ Entries:
   id: 192
   time: '2025-03-11T05:10:04.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/313
+- author: vanx
+  changes:
+    - type: Remove
+      message: Оружие синдиката у СБ и в изучениях РНД.
+    - type: Fix
+      message: Печать денег с помощью безгильзовых патронов.
+  id: 193
+  time: '2025-03-11T05:13:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/312
