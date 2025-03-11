@@ -1831,3 +1831,16 @@ Entries:
   id: 196
   time: '2025-03-11T16:23:47.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/319
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Трейт на бионическую ногу теперь позволяет игнорировать часть замедления
+        от полученного урона.
+    - type: Tweak
+      message: >-
+        Фелиниды больше не игнорируют подскальзывания и ловушки и замеляются от
+        урона также как люди.
+  id: 197
+  time: '2025-03-11T16:24:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/314
