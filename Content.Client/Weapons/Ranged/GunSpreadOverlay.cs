@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.Resources;
+using Content.Client.Stylesheets;
 using Content.Client.Viewport;
 using Content.Client.Weapons.Ranged.Systems;
 using Content.Shared.Contests;
@@ -9,6 +10,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
 using Robust.Client.ResourceManagement;
+using Robust.Client.UserInterface;
 using Robust.Client.Utility;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Enums;
@@ -33,17 +35,19 @@ public class GunSpreadOverlay : Overlay
     protected readonly IGameTiming _timing;
     protected readonly IInputManager _input;
     protected readonly IPlayerManager _player;
+    protected readonly IUserInterfaceManager _userInterface;
     protected readonly GunSystem _guns;
     protected readonly SharedTransformSystem _transform;
     protected readonly ContestsSystem _contest;
 
-    public GunSpreadOverlay(IEntityManager entManager, IEyeManager eyeManager, IGameTiming timing, IInputManager input, IPlayerManager player, GunSystem system, SharedTransformSystem transform, ContestsSystem contest)
+    public GunSpreadOverlay(IEntityManager entManager, IEyeManager eyeManager, IGameTiming timing, IInputManager input, IPlayerManager player, IUserInterfaceManager userInterface, GunSystem system, SharedTransformSystem transform, ContestsSystem contest)
     {
         _entManager = entManager;
         _eye = eyeManager;
         _input = input;
         _timing = timing;
         _player = player;
+        _userInterface = userInterface;
         _guns = system;
         _transform = transform;
         _contest = contest;
@@ -92,7 +96,7 @@ public class GunSpreadOverlay : Overlay
         double maxBonusSpread = gun.MaxBonusAngleModified * contest / 2;
         double minSpread = Math.Max(gun.MinAngleModified, 0) * contest / 2;
         double maxSpread = gun.MaxAngleModified * contest / 2;
-        
+
         double bonusSpread = new Angle(MathHelper.Clamp((gun.BonusAngle - gun.BonusAngleDecayModified * timeSinceLastBonusUpdate) / 2,
                                                         0, maxBonusSpread)) * contest;
         double currentAngle = new Angle(MathHelper.Clamp((gun.CurrentAngle.Theta - gun.AngleDecayModified.Theta * timeSinceLastFire) / 2,
@@ -152,7 +156,7 @@ public sealed class PartialGunSpreadOverlay : GunSpreadOverlay
     private Texture _textureS;
     private Texture _textureL;
 
-    public PartialGunSpreadOverlay(IEntityManager entManager, IEyeManager eyeManager, IGameTiming timing, IInputManager input, IPlayerManager player, GunSystem system, SharedTransformSystem transform, ContestsSystem contest, SpriteSystem sprite) : base(entManager, eyeManager, timing, input, player, system, transform, contest)
+    public PartialGunSpreadOverlay(IEntityManager entManager, IEyeManager eyeManager, IGameTiming timing, IInputManager input, IPlayerManager player, IUserInterfaceManager userInterface, GunSystem system, SharedTransformSystem transform, ContestsSystem contest, SpriteSystem sprite) : base(entManager, eyeManager, timing, input, player, userInterface, system, transform, contest)
     {
         _sprite = sprite;
         _textureS = _sprite.Frame0(new SpriteSpecifier.Texture(new ResPath("/Textures/_White/Interface/gun-spread-marker-s.png")));
@@ -174,12 +178,10 @@ public sealed class PartialGunSpreadOverlay : GunSpreadOverlay
             SmoothedCurrentAngle = Double.Lerp(SmoothedCurrentAngle, currentAngle, 0.7);
             SmoothedBonusSpread = Double.Lerp(SmoothedBonusSpread, bonusSpread, 0.35);
         }
-        const float third = 1f / 3f;
-        float L = (float) ((currentAngle - minSpread) / (maxSpread - minSpread)); // not smoothed
-        float hue = Math.Clamp(third - third * L, 0, third);
-        Color color = Color.FromHsv(new Robust.Shared.Maths.Vector4(hue, 1, 1, 1));
+
+        Color color = _userInterface.CurrentTheme.ResolveColorOrSpecified("slotSelectedGold", Color.White);
         DrawCone(worldHandle, from, direction, SmoothedCurrentAngle + SmoothedBonusSpread, color, 0.15f);
-        DrawCone(worldHandle, from, direction, SmoothedCurrentAngle, color.WithAlpha(0.33f), 0.15f);
+        //DrawCone(worldHandle, from, direction, SmoothedCurrentAngle, color.WithAlpha(0.33f), 0.15f); // no duplicate line, only current
     }
 
     protected override void DrawCone(DrawingHandleWorld handle, Vector2 from, Vector2 direction, Angle angle, Color color, float lineLerp = 1f)
@@ -207,7 +209,7 @@ public sealed class PartialGunSpreadOverlay : GunSpreadOverlay
         handle.DrawTextureCentered(_textureL, dir2 * 1.24f, ang2, color);
 
     }
-}   
+}
 
 public static class DrawingHandleWorldExt
 {

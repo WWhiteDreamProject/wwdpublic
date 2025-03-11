@@ -72,7 +72,8 @@ public sealed class TraitSystem : EntitySystem
                 return;
             }
 
-            if (!_characterRequirements.CheckRequirementsValid(
+            if (!traitPrototype.Enable || // WD EDIT
+                !_characterRequirements.CheckRequirementsValid(
                 traitPrototype.Requirements,
                 jobPrototypeToUse,
                 profile, playTimes, whitelisted, traitPrototype,

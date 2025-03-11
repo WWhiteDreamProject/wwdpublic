@@ -25,7 +25,8 @@
   - type: Stunbaton
     energyPerUse: 120
   - type: MeleeWeapon
-    attackRate: 3.5 # WD EDIT
+    attackRate: 1 # WWDP
+    animationRotation: -45 # WWDP
     range: 1.4
     damage:
       types:

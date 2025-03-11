@@ -6,8 +6,8 @@
   - type: StorageFill
     contents:
     - id: FlashlightSeclite
-    - id: WeaponDisabler
-      prob: 0.3
+    # - id: WeaponDisabler # WWDP
+    #  prob: 0.3
     - id: ClothingBeltSecurityFilled
     - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
     - id: Flash
@@ -39,8 +39,8 @@
   - type: StorageFill
     contents:
     - id: FlashlightSeclite
-    - id: WeaponDisabler
-      prob: 0.3
+    #- id: WeaponDisabler # WWDP
+    #  prob: 0.3
     - id: ClothingBeltSecurityFilled
     - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
     - id: Flash
@@ -75,14 +75,13 @@
     # - id: ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear # WWDP - all sec helmets are insulated now
     - id: ClothingOuterArmorBasic # WD - plate carrier and stabproof vest replaced back to regular bodyarmor
     - id: ClothingBeltSecurityFilled
-    - id: ClothingBeltCorporateJudo # Goobstation - Martial Arts
+    # - id: ClothingBeltCorporateJudo # Goobstation - Martial Arts # WWDP disabled
     - id: Flash
       prob: 0.5
     - id: ClothingEyesGlassesSecurity # WD - SecHuds
     - id: ClothingHeadsetSecurity
     - id: ClothingHandsGlovesColorBlack
     - id: ClothingShoesBootsJack
-    - id: WeaponDisabler # WD
     - id: WeaponMeleeNeedle
       prob: 0.1
     - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
@@ -96,7 +95,7 @@
   - type: StorageFill
     contents:
     - id: ClothingEyesGlassesCorpsman # DeltaV - Corpsman Glasses
-    - id: WeaponDisabler
+    # - id: WeaponDisabler # WWDP
     - id: TrackingImplanter
       amount: 2
     ##      - id: ClothingOuterHardsuitCombatCorpsman # DeltaV - ClothingOuterHardsuitBrigmedic replaced in favour of corpsman's combat hardsuit; removing from standard filled locker to place in hardsuit filled locker.
@@ -137,7 +136,7 @@
   - type: StorageFill
     contents:
     - id: ClothingEyesGlassesCorpsman # DeltaV - Corpsman Glasses
-    - id: WeaponDisabler
+    # - id: WeaponDisabler # WWDP
     - id: TrackingImplanter
       amount: 2
     - id: ClothingOuterHardsuitBrigmedic # WWDP edit

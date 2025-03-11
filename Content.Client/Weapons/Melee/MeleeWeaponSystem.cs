@@ -220,7 +220,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return false;
 
         if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
-            combatMode.CanDisarm != true)
+            combatMode.CanDisarm == false) // WWDP
         {
             return false;
         }
@@ -236,8 +236,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
             if (Timing.IsFirstTimePredicted && HasComp<MobStateComponent>(target.Value))
                 PopupSystem.PopupEntity(Loc.GetString("disarm-action-disarmable", ("targetName", target.Value)), target.Value);
-
-            return false;
         }
 
         return true;

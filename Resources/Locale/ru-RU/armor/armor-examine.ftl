@@ -9,6 +9,7 @@ armor-coefficient-value =
         [Slash] Рубящий
         [Piercing] Проникающий
         [Heat] Тепловой
+        [Cold] Холодный
         [Radiation] Радиационный
         [Caustic] Кислотный
     }[/color] урон снижается на [color=lightblue]{ $value }%[/color].
@@ -19,6 +20,7 @@ armor-reduction-value =
         [Slash] Рубящий
         [Piercing] Проникающий
         [Heat] Тепловой
+        [Cold] Холодный
         [Radiation] Радиационный
         [Caustic] Кислотный
     }[/color] урон снижается на [color=lightblue]{ $value }[/color].

@@ -1725,3 +1725,140 @@ Entries:
   id: 184
   time: '2025-03-09T12:01:44.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/298
+- author: vanx
+  changes:
+    - type: Fix
+      message: Мобы и турели теперь попадают по лежачим персонажам.
+    - type: Fix
+      message: Зеркала теперь работают на стене.
+    - type: Tweak
+      message: Теперь можно вернуться в раунд независимо от количества игроков.
+  id: 185
+  time: '2025-03-09T18:11:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/303
+- author: Vaaankas
+  changes:
+    - type: Tweak
+      message: Обновлены рецепты самодельного оружия и патронов.
+  id: 186
+  time: '2025-03-09T18:12:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/293
+- author: vanx
+  changes:
+    - type: Add
+      message: Локализация эмоций
+  id: 187
+  time: '2025-03-09T18:14:00.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/274
+- author: Purka581
+  changes:
+    - type: Add
+      message: Мыши-оперативники получили свой акцент
+  id: 188
+  time: '2025-03-10T05:40:13.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/294
+- author: vanx
+  changes:
+    - type: Add
+      message: Возможность снарядить Служанку как секретного (или не очень) агента ЦК.
+    - type: Remove
+      message: Роли ЦК и адъютанта.
+  id: 189
+  time: '2025-03-10T11:24:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/307
+- author: Vaaankas
+  changes:
+    - type: Add
+      message: Добавлен крафт растяжки с гранатой
+  id: 190
+  time: '2025-03-10T11:25:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/305
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        Теперь очки с защитой от вспышек могут брать только главы или сотрудники
+        СБ
+    - type: Tweak
+      message: 'Ускорение от трейта на бионические ноги: 30 -> 10'
+    - type: Remove
+      message: >-
+        Удалены все трейты что давали ночное, термальное зрение, защиту от
+        вспышек или полный набор худов
+  id: 191
+  time: '2025-03-10T18:58:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/292
+- author: vanx
+  changes:
+    - type: Fix
+      message: Исправлены кулдауны броска грабом (4 секунды).
+    - type: Remove
+      message: Пояса дзюдо из шкафов СБ.
+  id: 192
+  time: '2025-03-11T05:10:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/313
+- author: vanx
+  changes:
+    - type: Remove
+      message: Оружие синдиката у СБ и в изучениях РНД.
+    - type: Fix
+      message: Печать денег с помощью безгильзовых патронов.
+  id: 193
+  time: '2025-03-11T05:13:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/312
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Изменены инвентари поясов, разгрузок, поясных сумок и внешней одежды.
+        Теперь в пояса можно класть что угодно.
+    - type: Add
+      message: В ботинки утилизатора теперь можно спрятать нож.
+  id: 194
+  time: '2025-03-11T07:30:09.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/289
+- author: vanx
+  changes:
+    - type: Fix
+      message: Открытые шкафы теперь не ловят пули и лазеры.
+  id: 195
+  time: '2025-03-11T14:22:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/316
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: 'Изначальное количество очков черт: 10 -> 0'
+  id: 196
+  time: '2025-03-11T16:23:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/319
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Трейт на бионическую ногу теперь позволяет игнорировать часть замедления
+        от полученного урона.
+    - type: Tweak
+      message: >-
+        Фелиниды больше не игнорируют подскальзывания и ловушки и замеляются от
+        урона также как люди.
+  id: 197
+  time: '2025-03-11T16:24:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/314
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Ядерные оперативники могут обьявить войну только начиная с 4 человек.
+    - type: Tweak
+      message: Защита скафандров синдиката.
+    - type: Tweak
+      message: Скафандр Джаггернаут получил защиу от замедления от урона.
+  id: 198
+  time: '2025-03-11T16:25:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/318
+- author: vanx
+  changes:
+    - type: Fix
+      message: Бег в мехах теперь работает по умолчанию и показывается на интерфейсе.
+  id: 199
+  time: '2025-03-11T17:37:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/317

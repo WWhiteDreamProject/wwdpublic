@@ -21,7 +21,7 @@
       enum.CrayonUiKey.Key:
         type: CrayonBoundUserInterface
   - type: Crayon
-    capacity: 55 # wwdp edit 25 -> 55
+    capacity: 60 # wwdp edit 25 -> 60
   - type: Food
   - type: SolutionContainerManager
     solutions:

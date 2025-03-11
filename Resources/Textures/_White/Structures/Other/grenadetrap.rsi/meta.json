@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Created by @vanxxxx for WWDP.",
+  "size": {
+    "x": 64,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "trap"
+    },
+	{
+      "name": "trap_grenade"
+    },
+	{
+      "name": "poles"
+    }
+  ]
+}
