@@ -617,7 +617,7 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.2 # WWDP
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
@@ -704,9 +704,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5 # WWDP
-        Slash: 0.5 # WWDP
-        Piercing: 0.5 # WWDP
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
         Heat: 0.2
         Radiation: 0.01
         Caustic: 0.5
@@ -736,7 +736,7 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.2 # WWDP
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
@@ -762,7 +762,7 @@
   parent: ClothingOuterHardsuitBaseHeavy
   id: ClothingOuterHardsuitJuggernaut
   name: cybersun juggernaut suit
-  description: A suit made by the cutting edge R&D department at cybersun to be hyper resilient. A robust exoskeleton allows the user to ignore injuries while moving. # WWDP
+  description: A suit made by the cutting edge R&D department at cybersun to be hyper resilient.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi
@@ -772,7 +772,7 @@
     highPressureMultiplier: 0.2
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.2 # WWDP
+    damageCoefficient: 0.3
   - type: Armor
     modifiers:
       coefficients:
@@ -785,8 +785,6 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.65
-  - type: ClothingSlowOnDamageModifier # WWDP
-    modifier: 0.05 # Literally Juggernaut
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
