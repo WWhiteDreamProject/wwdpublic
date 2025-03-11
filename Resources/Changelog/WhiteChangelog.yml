@@ -1806,3 +1806,14 @@ Entries:
   id: 193
   time: '2025-03-11T05:13:26.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/312
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Изменены инвентари поясов, разгрузок, поясных сумок и внешней одежды.
+        Теперь в пояса можно класть что угодно.
+    - type: Add
+      message: В ботинки утилизатора теперь можно спрятать нож.
+  id: 194
+  time: '2025-03-11T07:30:09.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/289
