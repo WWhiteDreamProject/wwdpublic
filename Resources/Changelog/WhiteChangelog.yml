@@ -1824,3 +1824,10 @@ Entries:
   id: 195
   time: '2025-03-11T14:22:40.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/316
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: 'Изначальное количество очков черт: 10 -> 0'
+  id: 196
+  time: '2025-03-11T16:23:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/319
