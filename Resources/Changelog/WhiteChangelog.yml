@@ -1817,3 +1817,10 @@ Entries:
   id: 194
   time: '2025-03-11T07:30:09.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/289
+- author: vanx
+  changes:
+    - type: Fix
+      message: Открытые шкафы теперь не ловят пули и лазеры.
+  id: 195
+  time: '2025-03-11T14:22:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/316
