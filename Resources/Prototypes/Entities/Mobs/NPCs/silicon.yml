@@ -135,7 +135,10 @@
       collection: BikeHorn
   - type: Sprite
     sprite: Mobs/Silicon/Bots/honkbot.rsi
-    state: honkbot
+    layers:
+    - state: honkbot
+    - state: honk_face
+      shader: unshaded
   - type: HTN
     rootTask:
       task: HonkbotCompound
@@ -193,7 +196,10 @@
     sound:
       collection: CluwneHorn
   - type: Sprite
-    state: jonkbot
+    layers:
+    - state: jonkbot
+    - state: jonk_face
+      shader: unshaded
   - type: Construction
     graph: JonkBot
     node: bot
@@ -228,7 +234,10 @@
   components:
   - type: Sprite
     sprite: Mobs/Silicon/Bots/cleanbot.rsi
-    state: cleanbot
+    layers:
+      - state: cleanbot
+      - state: face
+        shader: unshaded
   - type: Construction
     graph: CleanBot
     node: bot
@@ -296,7 +305,10 @@
         quantity: 25
   - type: Sprite
     sprite: Mobs/Silicon/Bots/medibot.rsi
-    state: medibot
+    layers:
+    - state: medibot
+    - state: face
+      shader: unshaded
   - type: HTN
     rootTask:
       task: MedibotCompound
@@ -332,10 +344,12 @@
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
   - type: Sprite
+    sprite: Mobs/Silicon/Bots/mimebot.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: mimebot
-      sprite: Mobs/Silicon/Bots/mimebot.rsi
+    - state: face
+      shader: unshaded
   - type: MimePowers
   - type: Construction
     graph: MimeBot
