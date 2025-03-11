@@ -2160,7 +2160,6 @@ namespace Content.Client.Lobby.UI
             bool CheckPoints(int points, bool preference)
             {
                 var temp = TraitPointsBar.Value + points;
-                Logger.Debug($"{temp} {preference}");
                 return preference ? !(temp < 0) : temp < 0;
             }
         }
