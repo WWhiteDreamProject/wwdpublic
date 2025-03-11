@@ -77,13 +77,13 @@
     stealth: Subtle
     stripTimeReduction: 0
     stripTimeMultiplier: 0.667
-  - type: StepTriggerImmune
-    whitelist:
-      types:
-        - Shard
-        - Landmine
-        - Mousetrap
-        - SlipEntity
+  # - type: StepTriggerImmune # WWDP no free noslips/ignoring traps
+  #   whitelist:
+  #     types:
+  #       - Shard
+  #       - Landmine
+  #       - Mousetrap
+  #       - SlipEntity
   # WD EDIT START
   - type: Inventory
     femaleDisplacements:
