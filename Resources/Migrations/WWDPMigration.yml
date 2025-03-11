@@ -46,3 +46,12 @@ WeaponRifleNovaliteC1Rubber: WeaponRifleNovaliteC1
 
 # 10-03-2025
 SpawnPointAdminAssistant: SpawnPointMaid
+
+# 11-03-2025
+
+WeaponEnergyShotgun: null
+WeaponLauncherRocket: null
+CartridgeRocket: null
+LockerNanorepFilled: null
+LockerMagistrateFilled: null
+LockerBlueshieldOfficerFilled: null

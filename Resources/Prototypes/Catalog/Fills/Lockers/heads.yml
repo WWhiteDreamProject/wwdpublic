@@ -297,7 +297,7 @@
   - type: StorageFill
     contents:
     - id: ClothingEyesHudSecurity
-    - id: WeaponDisabler
+    # - id: WeaponDisabler # WWDP
     - id: ClothingOuterCoatHoSTrench
     - id: ClothingMaskNeckGaiter
     - id: ClothingOuterHardsuitSecurityRed # WWDP edit
@@ -329,7 +329,7 @@
   - type: StorageFill
     contents:
     - id: ClothingEyesHudSecurity
-    - id: WeaponDisabler
+    # - id: WeaponDisabler # WWDP
     - id: ClothingOuterCoatHoSTrench
     - id: ClothingMaskNeckGaiter
     - id: ClothingBeltSecurityFilled
