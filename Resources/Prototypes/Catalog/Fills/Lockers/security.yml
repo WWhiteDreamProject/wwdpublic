@@ -75,7 +75,7 @@
     # - id: ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear # WWDP - all sec helmets are insulated now
     - id: ClothingOuterArmorBasic # WD - plate carrier and stabproof vest replaced back to regular bodyarmor
     - id: ClothingBeltSecurityFilled
-    - id: ClothingBeltCorporateJudo # Goobstation - Martial Arts
+    # - id: ClothingBeltCorporateJudo # Goobstation - Martial Arts # WWDP disabled
     - id: Flash
       prob: 0.5
     - id: ClothingEyesGlassesSecurity # WD - SecHuds
