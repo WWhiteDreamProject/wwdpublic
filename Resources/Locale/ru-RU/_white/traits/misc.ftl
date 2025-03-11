@@ -1,1 +1,1 @@
-trait-disable = Черта отключенна
+trait-disable = Черта отключена
