@@ -1855,3 +1855,10 @@ Entries:
   id: 198
   time: '2025-03-11T16:25:20.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/318
+- author: vanx
+  changes:
+    - type: Fix
+      message: Бег в мехах теперь работает по умолчанию и показывается на интерфейсе.
+  id: 199
+  time: '2025-03-11T17:37:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/317
