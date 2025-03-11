@@ -1844,3 +1844,14 @@ Entries:
   id: 197
   time: '2025-03-11T16:24:34.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/314
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Ядерные оперативники могут обьявить войну только начиная с 4 человек.
+    - type: Tweak
+      message: Защита скафандров синдиката.
+    - type: Tweak
+      message: Скафандр Джаггернаут получил защиу от замедления от урона.
+  id: 198
+  time: '2025-03-11T16:25:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/318
