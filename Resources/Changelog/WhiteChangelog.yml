@@ -1788,3 +1788,12 @@ Entries:
   id: 191
   time: '2025-03-10T18:58:27.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/292
+- author: vanx
+  changes:
+    - type: Fix
+      message: Исправлены кулдауны броска грабом (4 секунды).
+    - type: Remove
+      message: Пояса дзюдо из шкафов СБ.
+  id: 192
+  time: '2025-03-11T05:10:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/313
