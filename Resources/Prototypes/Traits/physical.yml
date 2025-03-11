@@ -886,9 +886,10 @@
   functions:
   - !type:TraitReplaceComponent
     components:
-    - type: TraitSpeedModifier
-      sprintModifier: 1.1 # WD EDIT
-      walkModifier: 1.05 # WD EDIT
+    - type: SlowOnDamage # WWDP edit
+      speedModifierThresholds:
+        60: 0.85
+        80: 0.75
   - !type:TraitPushDescription
     descriptionExtensions:
     - description: examine-bionic-leg-message

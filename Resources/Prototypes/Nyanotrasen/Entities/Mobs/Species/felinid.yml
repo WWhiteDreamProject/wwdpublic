@@ -27,8 +27,8 @@
     damageModifierSet: Felinid
   - type: SlowOnDamage
     speedModifierThresholds:
-      60: 0.85  # 0.7 is base speed.
-      80: 0.75  # 0.5 is base speed.
+      60: 0.75  # 0.7 is base speed. # WWDP who buffed these lol
+      80: 0.55  # 0.5 is base speed. # WWDP reverted both back to same as humans
   - type: MeleeWeapon
     soundHit:
       collection: Punch
