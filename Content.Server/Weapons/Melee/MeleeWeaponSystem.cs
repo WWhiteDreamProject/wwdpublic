@@ -116,18 +116,16 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         var target = GetEntity(ev.Target!.Value);
 
-        PhysicalShove(user, target); // WWDP physical shoving, including inanimate objects
-        Interaction.DoContactInteraction(user, target); // WWDP moved up for shoves
-
         EntityUid? inTargetHand = null;
 
         if (!TryComp<CombatModeComponent>(user, out var combatMode))
             return false;
 
+        PhysicalShove(user, target); // WWDP physical shoving, including inanimate objects
+        Interaction.DoContactInteraction(user, target); // WWDP moved
+
         if (_mobState.IsIncapacitated(target))
             return true; // WWDP
-
-
 
         if (!TryComp<HandsComponent>(target, out var targetHandsComponent))
         {
@@ -226,7 +224,16 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         var targetPos = target.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
         var pushVector = (targetPos - userPos).Normalized() * force;
 
-        _throwing.TryThrow(target, pushVector, force * shovespeed, animated: false);
+        var animated = false;
+        var throwInAir = false;
+
+        if (HasComp<ItemComponent>(target)) // Throw items instead of shoving
+        {
+            animated = true;
+            throwInAir = true;
+        }
+
+        _throwing.TryThrow(target, pushVector, force * shovespeed, user, animated: animated, throwInAir: throwInAir);
     }
 
     protected override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session)
