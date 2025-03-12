@@ -1,0 +1,117 @@
+﻿- type: constructionGraph
+  id: MakeshiftRightLegGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: makeshiftrightleg
+      steps:
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - material: Cable
+        amount: 10
+      - material: WoodPlank
+        amount: 3
+      - material: Cloth
+        amount: 3
+      - material: MetalRod
+        amount: 4
+        doAfter: 20
+  - node: makeshiftrightleg
+    entity: MakeshiftRightLeg
+
+- type: constructionGraph
+  id: MakeshiftLeftLegGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: makeshiftleftleg
+      steps:
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - material: Cable
+        amount: 10
+      - material: WoodPlank
+        amount: 3
+      - material: Cloth
+        amount: 3
+      - material: MetalRod
+        amount: 4
+        doAfter: 20
+  - node: makeshiftleftleg
+    entity: MakeshiftLeftLeg
+
+- type: constructionGraph
+  id: MakeshiftLeftArmGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: makeshiftleftarm
+      steps:
+      - material: Cloth
+        amount: 5
+      - material: Cable
+        amount: 15
+      - material: MetalRod
+        amount: 8
+        doAfter: 5
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+        doAfter: 25
+  - node: makeshiftleftarm
+    entity: MakeshiftleftArm
+
+- type: constructionGraph
+  id: MakeshiftRightArmGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: makeshiftrightarm
+      steps:
+      - material: Cloth
+        amount: 5
+      - material: Cable
+        amount: 15
+      - material: MetalRod
+        amount: 8
+        doAfter: 5
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+        doAfter: 25
+  - node: makeshiftrightarm
+    entity: MakeshiftRightArm
