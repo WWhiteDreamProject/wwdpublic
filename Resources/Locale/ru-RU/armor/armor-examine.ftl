@@ -10,6 +10,7 @@ armor-coefficient-value =
         [Piercing] Проникающий
         [Heat] Тепловой
         [Cold] Холодный
+        [Shock] Электрический
         [Radiation] Радиационный
         [Caustic] Кислотный
     }[/color] урон снижается на [color=lightblue]{ $value }%[/color].
@@ -21,6 +22,7 @@ armor-reduction-value =
         [Piercing] Проникающий
         [Heat] Тепловой
         [Cold] Холодный
+        [Shock] Электрический
         [Radiation] Радиационный
         [Caustic] Кислотный
     }[/color] урон снижается на [color=lightblue]{ $value }[/color].
