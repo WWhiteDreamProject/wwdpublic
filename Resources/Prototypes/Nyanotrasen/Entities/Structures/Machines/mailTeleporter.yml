@@ -16,13 +16,14 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-            bounds: "-0.45,-0.45,0.45,0.00"
+            bounds: "-0.3,-0.45,0.25,0.4"
         density: 120
         mask:
         - HighImpassable
+        layer:
+        - MachineLayer
   - type: Sprite
-    sprite: Nyanotrasen/Structures/mailbox.rsi
-    scale: 0.5, 0.5
+    sprite: Nyanotrasen/Structures/mailbox.rsi #Sprite edited by WWDP
     layers:
     - state: icon
     - state: unlit
@@ -46,7 +47,7 @@
         acts: ["Destruction"]
   - type: ApcPowerReceiver
     powerLoad: 1000 # TODO if we keep this make it spike power draw when teleporting
-    powerDisabled: false
+    powerDisabled: true
   - type: ExtensionCableReceiver
   - type: Appearance
   - type: GenericVisualizer

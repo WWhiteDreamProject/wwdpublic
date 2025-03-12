@@ -5,7 +5,7 @@
   description: Instant cover.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/flashbang.rsi
+    sprite: _White/Objects/Weapons/Grenades/barrier.rsi #WWDP edit
   - type: SoundOnTrigger
     sound:
       path: "/Audio/Effects/snap.ogg"

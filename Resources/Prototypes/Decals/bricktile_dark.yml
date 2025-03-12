@@ -1,5 +1,6 @@
 ﻿- type: decal
   id: BrickTile
+  parent: A_StationDecal
   abstract: true
 
 - type: decal
