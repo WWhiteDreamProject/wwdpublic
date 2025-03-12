@@ -447,50 +447,6 @@
   items:
     - SpeedLoaderRifleHeavy
 
-- type: loadout
-  id: LoadoutSpeedLoaderRifleHeavyRubber
-  category: JobsSecurityAUncategorized
-  cost: 2
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEquipment
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterAgeRequirement
-      min: 21
-  items:
-    - SpeedLoaderRifleHeavyRubber
-
-- type: loadout
-  id: LoadoutSpeedLoaderRifleHeavyRubberSpare
-  category: JobsSecurityAUncategorized
-  cost: 4
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEquipment
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterAgeRequirement
-      min: 21
-  items:
-    - SpeedLoaderRifleHeavyRubber
-
-
-
 # Service Weapon, limit 1 selection.
 # Security no longer spawns with a weapon automatically, instead they have a free choice of security appropriate Duty Pistol in their loadouts.
 # This category is universal to the entire security department by special request, so that players can choose their preferred Duty Pistol even if they aren't playing a security role.
@@ -1386,22 +1342,7 @@
         - HeadOfSecurity
   items:
     - ClothingMaskGasSwat
-
-- type: loadout
-  id: LoadoutSecurityMaskGasSwat
-  category: JobsSecurityAUncategorized
-  cost: 0
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityMask
-  - !type:CharacterJobRequirement
-    jobs:
-    - Warden
-    - HeadOfSecurity
-  items:
-  - ClothingMaskGasSwat
-
+    
 # Outer
 - type: loadout
   id: LoadoutClothingOuterWinterCoatSec
