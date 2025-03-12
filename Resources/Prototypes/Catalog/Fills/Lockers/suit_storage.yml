@@ -139,11 +139,11 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-          amount: 2 #DeltaV - Double the tanks
+          amount: 1 #DeltaV - Double the tanks # WWDP - no
         - id: ClothingOuterHardsuitSecurity #WWDP edit
-          amount: 2 #DeltaV - Double the suits
+          amount: 1 #DeltaV - Double the suits # WWDP - no
         - id: ClothingMaskBreath
-          amount: 2 #Delta-V Double the masks
+          amount: 1 #Delta-V Double the masks # WWDP - no
   - type: AccessReader
     access: [["Security"]]
 

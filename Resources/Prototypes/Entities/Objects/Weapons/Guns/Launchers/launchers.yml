@@ -56,7 +56,7 @@
     slots:
     - Back
     - suitStorage
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: Gun
     fireRate: 1
     selectedMode: SemiAuto
@@ -90,6 +90,7 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
   - type: Gun
     fireRate: 0.5
@@ -103,12 +104,21 @@
     capacity: 1
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-    autoCycle: false # WD EDIT
+    autoCycle: true # WD EDIT # WWDP edit
   - type: MagazineVisuals
     magState: mag
     steps: 2
     zeroVisible: false
   - type: Appearance
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: RiflesDrop
   - type: Item # WWDP guns resize
     shape:
     - 0,0,7,1

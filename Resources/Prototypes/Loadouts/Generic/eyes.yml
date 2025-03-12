@@ -190,6 +190,15 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutEyes
+    # WD EDIT
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+      - Command
+    - !type:CharacterJobRequirement
+      jobs:
+      - Brigmedic
+    # WD EDIT END
 
 - type: loadout
   id: LoadoutEyesGlassesSunglassesAviator
@@ -202,6 +211,15 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutEyes
+  # WD EDIT
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+      - Command
+    - !type:CharacterJobRequirement
+      jobs:
+      - Brigmedic
+  # WD EDIT END
 
 - type: loadout
   id: LoadoutEyesGlassesSunglassesBig
@@ -213,7 +231,16 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutEyes
-
+  # WD EDIT
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+      - Command
+    - !type:CharacterJobRequirement
+      jobs:
+      - Brigmedic
+  # WD EDIT END
+  
 - type: loadout
   id: LoadoutEyesGlassesSunglassesVisor
   category: Eyes
@@ -224,7 +251,16 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutEyes
-
+  # WD EDIT
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+      - Command
+    - !type:CharacterJobRequirement
+      jobs:
+      - Brigmedic
+  # WD EDIT END
+  
 - type: loadout
   id: LoadoutItemBlindfoldFake
   category: Eyes

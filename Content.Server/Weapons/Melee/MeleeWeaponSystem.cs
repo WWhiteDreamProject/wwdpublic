@@ -26,7 +26,14 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._White;
 using Content.Shared.Chat;
+using Content.Shared.Coordinates;
+using Content.Shared.Damage.Components;
+using Content.Shared.Item;
+using Content.Shared.Throwing;
+using Robust.Shared.Configuration;
+
 
 namespace Content.Server.Weapons.Melee;
 
@@ -37,9 +44,12 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
     [Dependency] private readonly LagCompensationSystem _lag = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly ContestsSystem _contests = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!; // WWDP
+    [Dependency] private readonly INetConfigurationManager _config = default!; // WWDP
+    [Dependency] private readonly MobStateSystem _mobState = default!; // WWDP
+    [Dependency] private readonly StaminaSystem _stamina = default!; // WWDP
 
     public override void Initialize()
     {
@@ -58,12 +68,12 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
 
         if (!component.DisableClick)
-            _damageExamine.AddDamageExamine(args.Message, damageSpec, Loc.GetString("damage-melee"));
+            _damageExamine.AddDamageExamine(args.Message, damageSpec * component.HeavyDamageBaseModifier, Loc.GetString("damage-melee")); // WWDP; "heavy" attacks are actually LMB and "light" are RMB swings, fucking EE man
 
         if (!component.DisableHeavy)
         {
-            if (damageSpec * component.HeavyDamageBaseModifier != damageSpec)
-                _damageExamine.AddDamageExamine(args.Message, damageSpec * component.HeavyDamageBaseModifier, Loc.GetString("damage-melee-heavy"));
+            if (damageSpec.GetTotal() * component.HeavyDamageBaseModifier != damageSpec.GetTotal()) // WWDP
+                _damageExamine.AddDamageExamine(args.Message, damageSpec, Loc.GetString("damage-melee-heavy")); // WWDP
 
             if (component.HeavyStaminaCost != 0)
             {
@@ -104,38 +114,40 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (!base.DoDisarm(user, ev, meleeUid, component, session))
             return false;
 
-        if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
-            combatMode.CanDisarm != true)
-        {
-            return false;
-        }
-
         var target = GetEntity(ev.Target!.Value);
 
-        if (_mobState.IsIncapacitated(target))
-        {
+        EntityUid? inTargetHand = null;
+
+        if (!TryComp<CombatModeComponent>(user, out var combatMode))
             return false;
-        }
+
+        PhysicalShove(user, target); // WWDP physical shoving, including inanimate objects
+        Interaction.DoContactInteraction(user, target); // WWDP moved
+
+        if (_mobState.IsIncapacitated(target))
+            return true; // WWDP
 
         if (!TryComp<HandsComponent>(target, out var targetHandsComponent))
         {
-            if (!TryComp<StatusEffectsComponent>(target, out var status) || !status.AllowedEffects.Contains("KnockedDown"))
-                return false;
+            if (!TryComp<StatusEffectsComponent>(target, out var status) ||
+                !status.AllowedEffects.Contains("KnockedDown"))
+            {
+                // WWDP edit; shoving items costs their throw stamina cost
+                if (HasComp<ItemComponent>(target)
+                    && TryComp<DamageOtherOnHitComponent>(target, out var throwComp)
+                    && throwComp.StaminaCost > 0)
+                {
+                    _stamina.TakeStaminaDamage(user, throwComp.StaminaCost);
+                }
+                return true;
+                // WWDP edit end
+            }
         }
-
-        if (!InRange(user, target, component.Range, session))
-        {
-            return false;
-        }
-
-        EntityUid? inTargetHand = null;
 
         if (targetHandsComponent?.ActiveHand is { IsEmpty: false })
         {
             inTargetHand = targetHandsComponent.ActiveHand.HeldEntity!.Value;
         }
-
-        Interaction.DoContactInteraction(user, target);
 
         var attemptEvent = new DisarmAttemptEvent(target, user, inTargetHand);
 
@@ -147,7 +159,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         RaiseLocalEvent(target, attemptEvent);
 
         if (attemptEvent.Cancelled)
-            return false;
+            return true; // WWDP
 
         var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
 
@@ -164,7 +176,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (!eventArgs.Handled)
         {
             ShoveOrDisarmPopup(disarm: false); // WWDP
-            return false;
+            return true;
         }
 
         ShoveOrDisarmPopup(disarm: true); // WWDP
@@ -181,7 +193,10 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             var msgPrefix = "disarm-action-";
 
             if (!disarm)
+            {
+                return; // WWDP specific - Less popups; would probably want to remove on upstream
                 msgPrefix = "disarm-action-shove-";
+            }
 
             var msgOther = Loc.GetString(
                 msgPrefix + "popup-message-other-clients",
@@ -194,6 +209,31 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             PopupSystem.PopupEntity(msgUser, target, user);
         }
         // WWDP edit end
+    }
+
+    // WWDP Push shove physics yeee
+    private void PhysicalShove(EntityUid user, EntityUid target)
+    {
+        float shoverange = _config.GetCVar(WhiteCVars.ShoveRange);
+        float shovespeed = _config.GetCVar(WhiteCVars.ShoveSpeed);
+        float shovemass = _config.GetCVar(WhiteCVars.ShoveMassFactor);
+
+        var force = shoverange * _contests.MassContest(user, target, rangeFactor: shovemass);
+
+        var userPos = user.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
+        var targetPos = target.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
+        var pushVector = (targetPos - userPos).Normalized() * force;
+
+        var animated = false;
+        var throwInAir = false;
+
+        if (HasComp<ItemComponent>(target)) // Throw items instead of shoving
+        {
+            animated = true;
+            throwInAir = true;
+        }
+
+        _throwing.TryThrow(target, pushVector, force * shovespeed, user, animated: animated, throwInAir: throwInAir);
     }
 
     protected override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session)

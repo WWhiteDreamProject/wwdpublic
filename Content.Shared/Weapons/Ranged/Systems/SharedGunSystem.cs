@@ -76,8 +76,8 @@ public abstract partial class SharedGunSystem : EntitySystem
     private const double SafetyNextFire = 0.5;
     private const float EjectOffset = 0.4f;
     protected const string AmmoExamineColor = "yellow";
-    protected const string FireRateExamineColor = "yellow";
-    public const string ModeExamineColor = "cyan";
+    public const string ModeExamineColor = "crimson"; // WWDP examine
+    public const string ModeExamineBadColor = "pink"; // WWDP examine
 
     public override void Initialize()
     {
@@ -502,6 +502,15 @@ public abstract partial class SharedGunSystem : EntitySystem
         projectile.Weapon = gunUid;
 
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
+    }
+
+    /// <summary>
+    /// WWDP - Manually sets the targeted entity of the gun.
+    /// Used for NPCs
+    /// </summary>
+    public void SetTarget(GunComponent gun, EntityUid target)
+    {
+        gun.Target = target;
     }
 
     protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);

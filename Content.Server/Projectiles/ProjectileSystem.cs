@@ -6,7 +6,9 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Database;
 using Content.Shared.Projectiles;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
@@ -19,6 +21,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly GunSystem _guns = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     public override void Initialize()
     {
@@ -77,6 +80,9 @@ public sealed class ProjectileSystem : SharedProjectileSystem
 
         if (component.DeleteOnCollide)
             QueueDel(uid);
+
+        if (component.StopFlyingOnImpact && TryComp<PhysicsComponent>(uid, out var physics)) // WWDP
+            _physics.SetBodyStatus(uid, physics, BodyStatus.OnGround);
 
         if (component.ImpactEffect != null && TryComp(uid, out TransformComponent? xform))
             RaiseNetworkEvent(new ImpactEffectEvent(component.ImpactEffect, GetNetCoordinates(xform.Coordinates)), Filter.Pvs(xform.Coordinates, entityMan: EntityManager));

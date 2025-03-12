@@ -1,7 +1,9 @@
 using Content.Client.Crayon;
+using Content.Client.Hands.Systems;
 using Content.Shared._White.Hands.Components;
 using Content.Shared.Crayon;
 using Content.Shared.Decals;
+using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -23,58 +25,45 @@ public sealed class CrayonPreviewOverlay : Overlay
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
-    private readonly CrayonComponent _crayonComp;
-    private readonly EntityUid _crayonUid;
-    private string _currentState;
-
-    private Texture _tex;
+    private readonly HandsSystem _hands;
     private readonly SpriteSystem _sprite;
 
-    public CrayonPreviewOverlay(SpriteSystem sprite, CrayonComponent comp)
+    public CrayonPreviewOverlay(SpriteSystem sprite, HandsSystem hands)
     {
         IoCManager.InjectDependencies(this);
         _sprite = sprite;
-
-        _crayonComp = comp;
-        _crayonUid = comp.Owner;
-        _currentState = comp.SelectedState;
-        if (_proto.TryIndex<DecalPrototype>(_currentState, out var proto))
-            _tex = _sprite.Frame0(proto.Sprite);
-        else
-            _tex = Texture.Transparent;
+        _hands = hands;
     }
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (!_entMan.EntityExists(_crayonUid) || // failsafe
-            _player.LocalEntity is not EntityUid playerUid ||
+        if (_player.LocalEntity is not EntityUid playerUid ||
+            !_entMan.HasComponent<HandsComponent>(playerUid) ||
+            !_entMan.TryGetComponent<CrayonComponent>(_hands.GetActiveItem(playerUid), out var crayon) ||
             _entMan.HasComponent<HoldingDropComponent>(playerUid))
             return;
 
         var handle = args.WorldHandle;
 
-        if (_currentState != _crayonComp.SelectedState)
-        {
-            _currentState = _crayonComp.SelectedState;
-            if (_proto.TryIndex<DecalPrototype>(_currentState, out var proto))
-                _tex = _sprite.Frame0(proto.Sprite);
-            else
-                _tex = Texture.Transparent;
-        }
+        Texture tex;
+        if (_proto.TryIndex<DecalPrototype>(crayon.SelectedState, out var proto))
+            tex = _sprite.Frame0(proto.Sprite);
+        else
+            tex = Texture.Transparent;
 
         var mouseScreenPos = _input.MouseScreenPosition.Position;
 
-        var angle = _crayonComp.Angle - _eye.CurrentEye.Rotation;
+        var angle = crayon.Angle - _eye.CurrentEye.Rotation;
         var mouseMapPos = _eye.ScreenToMap(mouseScreenPos);
         var playerMapPos = _entMan.GetComponent<TransformComponent>(playerUid).MapPosition;
 
         float alpha = 0.6f;
         if ((mouseMapPos.Position - playerMapPos.Position).LengthSquared() > SharedInteractionSystem.InteractionRangeSquared)
-            alpha = 0.1f;
+            alpha = 0.15f;
 
 
 #pragma warning disable RA0002 // ffs
-        handle.DrawTexture(_tex, mouseMapPos.Position - new Vector2(0.5f, 0.5f), angle, _crayonComp.Color.WithAlpha(alpha));
+        handle.DrawTexture(tex, mouseMapPos.Position - new Vector2(0.5f, 0.5f), angle, crayon.Color.WithAlpha(alpha));
 #pragma warning restore RA0002
     }
 }

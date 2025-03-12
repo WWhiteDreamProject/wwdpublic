@@ -31,6 +31,8 @@ public sealed partial class BallisticAmmoProviderComponent : Component
 
     public Container Container = default!;
 
+    public bool Racked = true; // WWDP
+
     // TODO: Make this use stacks when the typeserializer is done.
     [DataField, AutoNetworkedField]
     public List<EntityUid> Entities = new();

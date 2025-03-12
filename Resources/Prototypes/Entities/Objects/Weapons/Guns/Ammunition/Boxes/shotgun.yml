@@ -17,6 +17,8 @@
   abstract: true
   components:
     - type: BallisticAmmoProvider
+      soundInsert:
+        path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg # WWDP
       mayTransfer: true
       whitelist:
         tags:

@@ -9,6 +9,7 @@
   - type: Item
     size: Huge
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/LMGs/l6.rsi
     quickEquip: false
     slots:
@@ -39,7 +40,7 @@
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -85,6 +86,15 @@
         Blunt: 3
   - type: DamageOtherOnHit
     staminaCost: 12
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: RiflesDrop
 
 - type: entity
   name: L6 SAW

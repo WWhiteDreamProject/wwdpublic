@@ -27,6 +27,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed.TypeParsers;
 using System.Linq;
 using Content.Shared.Aliens.Components;
+using Content.Shared.Inventory.VirtualItem;
 
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
@@ -397,15 +398,20 @@ public abstract partial class SharedSurgerySystem
         if (!TryComp(args.Part, out BodyPartComponent? partComp) || partComp.PartType != BodyPartType.Torso)
             return;
 
+        _itemSlotsSystem.SetLock(args.Part, partComp.ItemInsertionSlot, false); // WWDP prevent inserting items into torsos without surgery
+
         var activeHandEntity = _hands.EnumerateHeld(args.User).FirstOrDefault();
         if (activeHandEntity != default
             && ent.Comp.Action == "Insert"
+            && !HasComp<VirtualItemComponent>(activeHandEntity) // WWDP prevent trying to insert virtual items
             && TryComp(activeHandEntity, out ItemComponent? itemComp)
             && (itemComp.Size.Id == "Tiny"
             || itemComp.Size.Id == "Small"))
             _itemSlotsSystem.TryInsert(ent, partComp.ItemInsertionSlot, activeHandEntity, args.User);
         else if (ent.Comp.Action == "Remove")
             _itemSlotsSystem.TryEjectToHands(ent, partComp.ItemInsertionSlot, args.User);
+
+        _itemSlotsSystem.SetLock(args.Part, partComp.ItemInsertionSlot, true); // WWDP prevent inserting items into torsos without surgery
     }
 
     private void OnCavityCheck(Entity<SurgeryStepCavityEffectComponent> ent, ref SurgeryStepCompleteCheckEvent args)

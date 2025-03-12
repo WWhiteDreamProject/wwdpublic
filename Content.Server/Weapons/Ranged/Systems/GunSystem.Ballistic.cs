@@ -1,4 +1,5 @@
 using Content.Server.Stack;
+using Content.Shared.Hands.EntitySystems; // WWDP
 using Content.Shared.Stacks;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -9,6 +10,7 @@ namespace Content.Server.Weapons.Ranged.Systems;
 public sealed partial class GunSystem
 {
     [Dependency] private readonly StackSystem _stack = default!; // WD EDIT
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!; // WWDP
 
     protected override void Cycle(EntityUid uid, BallisticAmmoProviderComponent component, MapCoordinates coordinates)
     {
@@ -36,6 +38,34 @@ public sealed partial class GunSystem
         var cycledEvent = new GunCycledEvent();
         RaiseLocalEvent(uid, ref cycledEvent);
     }
+
+    // WWDP extract round
+    protected override void Extract(EntityUid uid, MapCoordinates coordinates, BallisticAmmoProviderComponent component,
+        EntityUid user)
+    {
+        EntityUid entity;
+
+        if (component.Entities.Count > 0)
+        {
+            entity = component.Entities[^1];
+            component.Entities.RemoveAt(component.Entities.Count - 1);
+            EnsureShootable(entity);
+        }
+        else if (component.UnspawnedCount > 0)
+        {
+            component.UnspawnedCount--;
+            entity = Spawn(component.Proto, coordinates);
+            EnsureShootable(entity);
+        }
+        else
+        {
+            Popup(Loc.GetString("gun-ballistic-empty"), uid, user);
+            return;
+        }
+
+        _handsSystem.PickupOrDrop(user, entity);
+    }
+    // WWDP extract round end
 
     // WD EDIT START
     protected override EntityUid GetStackEntity(EntityUid uid, StackComponent stack)

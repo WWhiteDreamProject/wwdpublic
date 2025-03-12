@@ -1,3 +1,4 @@
+# Combat maid, a trained secret Centcom asset for protecting heads and enforcing Centcom orders.
 - type: job
   id: Maid
   name: job-name-maid
@@ -24,16 +25,22 @@
   weight: 20
   icon: "JobIconMaid"
   startingGear: MaidGear
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-captain
   canBeAntag: false
   accessGroups:
   - Command
   - Service
   access:
   - Maintenance
+  - BlueshieldOfficer
+  - CentralCommand # Station NTR office
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: CommandStaff
+    - type: CPRTraining
 
 - type: startingGear
   id: MaidGear

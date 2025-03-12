@@ -90,6 +90,11 @@ public sealed partial class TraitPreferenceSelector : Control
             entityManager, prototypeManager, configManager,
             out var reasons);
 
+        // WD EDIT START
+        if (!trait.Enable)
+            reasons.Add(Loc.GetString("trait-disable"));
+        // WD EDIT END
+
         // Add requirement reasons to the tooltip
         foreach (var reason in reasons)
             tooltip.Append($"\n{reason}");

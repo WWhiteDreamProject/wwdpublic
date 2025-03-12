@@ -18,6 +18,11 @@
   - type: Utensil
     types:
       - Knife
+  - type: Tool # WWDP
+    qualities:
+    - Slicing
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
 
 - type: entity
   name: captain's sabre

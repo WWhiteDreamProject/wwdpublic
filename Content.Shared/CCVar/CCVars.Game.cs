@@ -311,7 +311,7 @@ public sealed partial class CCVars
     ///     How many points a character should start with.
     /// </summary>
     public static readonly CVarDef<int> GameTraitsDefaultPoints =
-        CVarDef.Create("game.traits_default_points", 10, CVar.REPLICATED);
+        CVarDef.Create("game.traits_default_points", 0, CVar.REPLICATED); // WD EDIT
 
     /// <summary>
     ///     Whether the game will SMITE people who used cheat engine to spawn with all of the traits.

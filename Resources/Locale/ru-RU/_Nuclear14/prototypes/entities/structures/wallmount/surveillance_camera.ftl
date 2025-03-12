@@ -1,3 +1,3 @@
 ent-N14SurveillanceCameraBrotherhoodWashington = камера
     .desc = { ent-SurveillanceCameraBase.desc }
-    .suffix = Братство Вашингтона
+    .suffix = Братство Вашингтона, DO NOT MAP

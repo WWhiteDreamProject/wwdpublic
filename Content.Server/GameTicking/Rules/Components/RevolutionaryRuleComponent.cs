@@ -27,4 +27,26 @@ public sealed partial class RevolutionaryRuleComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan ShuttleCallTime = TimeSpan.FromMinutes(5);
+
+    // WWDP edit
+
+    /// <summary>
+    /// Announcement sender if the Revolution wins.
+    /// </summary>
+    [DataField]
+    public string RoundEndTextSender = "comms-console-announcement-title-revolution";
+
+    /// <summary>
+    /// Text to announce if the Revolution wins.
+    /// </summary>
+    [DataField]
+    public string RoundEndTextShuttleCall = "revolution-win-announcement-shuttle-call";
+
+    /// <summary>
+    /// Text to announce if the Revolution wins. Used if shuttle is already called
+    /// </summary>
+    [DataField]
+    public string RoundEndTextAnnouncement = "revolution-win-announcement";
+
+    // WWDP edit end
 }
