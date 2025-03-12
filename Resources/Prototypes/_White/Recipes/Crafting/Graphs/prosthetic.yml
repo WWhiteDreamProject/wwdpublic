@@ -85,8 +85,8 @@
         name: pipe
         doAfter: 25
   - node: makeshiftleftarm
-    entity: MakeshiftleftArm
-
+-    entity: MakeshiftleftArm
++    entity: MakeshiftLeftArm
 - type: constructionGraph
   id: MakeshiftRightArmGraph
   start: start
