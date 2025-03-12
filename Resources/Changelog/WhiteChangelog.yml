@@ -1917,3 +1917,22 @@ Entries:
   id: 201
   time: '2025-03-12T14:59:42.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/321
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Свиток спящего карпа теперь доступен только агентам
+    - type: Tweak
+      message: >-
+        Набор модьюсютов в аплинке теперь стоит адекватное количество
+        телекристалов
+    - type: Tweak
+      message: 'Цена свитка спящего карпа в аплинке: 14 -> 18'
+    - type: Tweak
+      message: 'Цена hуководства по CQC теперь в аплинке: 12 -> 16'
+    - type: Tweak
+      message: 'Цена енерго арбалета в аплинке: 14 -> 12'
+    - type: Tweak
+      message: 'Цена кровавого кинжала в аплинке: 8 -> 6'
+  id: 202
+  time: '2025-03-12T16:14:36.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/328
