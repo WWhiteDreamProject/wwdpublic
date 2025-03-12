@@ -1936,3 +1936,12 @@ Entries:
   id: 202
   time: '2025-03-12T16:14:36.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/328
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Теперь из дробовиков можно стрелять одной рукой с крайне низкой
+        точностью
+  id: 203
+  time: '2025-03-12T16:55:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/330
