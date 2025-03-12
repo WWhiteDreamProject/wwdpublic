@@ -52,6 +52,11 @@
   # WD EDIT END
   categories:
   - UplinkDeception
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkMysteriousScroll
@@ -67,7 +72,11 @@
   # WD EDIT END
   categories:
   - UplinkWeaponry
-
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 # Misc
 - type: listing

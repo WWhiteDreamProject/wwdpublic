@@ -11,11 +11,13 @@
   description: uplink-faction-san-asset-desc
   icon: { sprite: /Textures/Structures/Storage/Crates/aluminiumcrate.rsi, state: icon }
   productEntity: CrateSANModsuit
-  discountCategory: veryRareDiscounts
+  # WD EDIT START
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 20
+    Telecrystal: 2
   cost:
-    Telecrystal: 50
+    Telecrystal: 10
+  # WD EDIT END
   categories:
   - UplinkFaction
   conditions:
@@ -30,9 +32,9 @@
   productEntity: CrateSANModsuitGroup
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 80
+    Telecrystal: 8 # WD EDIT
   cost:
-    Telecrystal: 200
+    Telecrystal: 40 # WD EDIT
   categories:
   - UplinkFaction
   conditions:
