@@ -25,7 +25,7 @@
     bonusAngleIncreaseTurn: 0.25  # wwdp
     bonusAngleDecay: 40           # wwdp
     maxBonusAngle: 20             # wwdp
-    fireRate: 2
+    fireRate: 1 # WWDP lower fire rate
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -252,20 +252,19 @@
   name: Enforcer
   parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponShotgunEnforcer
-  description: A premium combat shotgun based on the Kammerer design, featuring an upgraded clip capacity. .50 shotgun shells.
+  description: A premium combat shotgun based on the Kammerer design, featuring a semi-automatic firing mode. Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi # WWDP
   - type: Clothing
-    sprite: DeltaV/Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi # WWDP
   - type: Item
     size: Huge # WWDP guns resize
     shape:
-    - 0,0,5,1
+    - 0,0,7,0
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: BallisticAmmoProvider
-    soundRack: # WWDP
-      path: /Audio/_White/Guns/shotgun_rack.ogg
+    autoCycle: true # WWDP semi-auto
   - type: Wieldable
   - type: MeleeWeapon
     attackRate: 1.4
@@ -299,7 +298,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: BallisticAmmoProvider
-    capacity: 4
+    capacity: 7 # WWDP same as enforcer
     soundRack:
       path: /Audio/_White/Guns/shotgun_rack.ogg
   - type: Tag
