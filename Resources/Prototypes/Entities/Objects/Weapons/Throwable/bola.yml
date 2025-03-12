@@ -82,5 +82,7 @@
   - type: Tag
     tags:
     - SecBeltEquip
+    - RiotGrenade
   # WD EDIT END
   - type: LandAtCursor
+  - type: Ammo # WWDP

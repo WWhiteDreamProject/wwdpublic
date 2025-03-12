@@ -6,13 +6,16 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Audio;
 using Content.Shared.CombatMode;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Contests;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Gravity;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Item;
 using Content.Shared.Mech.Components; // Goobstation
+using Content.Shared.MouseRotator;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Tag;
@@ -67,13 +70,14 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] protected readonly ThrowingSystem ThrowingSystem = default!;
     [Dependency] private   readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly ContestsSystem _contests = default!; // WWDP
 
     private const float InteractNextFire = 0.3f;
     private const double SafetyNextFire = 0.5;
     private const float EjectOffset = 0.4f;
     protected const string AmmoExamineColor = "yellow";
-    protected const string FireRateExamineColor = "yellow";
-    public const string ModeExamineColor = "cyan";
+    public const string ModeExamineColor = "crimson"; // WWDP examine
+    public const string ModeExamineBadColor = "pink"; // WWDP examine
 
     public override void Initialize()
     {
@@ -99,7 +103,51 @@ public abstract partial class SharedGunSystem : EntitySystem
         SubscribeLocalEvent<GunComponent, CycleModeEvent>(OnCycleMode);
         SubscribeLocalEvent<GunComponent, HandSelectedEvent>(OnGunSelected);
         SubscribeLocalEvent<GunComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<GunComponent, HolderMoveEvent>(OnHolderMove); // WWDP
     }
+
+	// WWDP EDIT START
+    private void OnHolderMove(EntityUid uid, GunComponent comp, ref HolderMoveEvent _args)
+    {
+        if (Timing.ApplyingState)
+            return;
+        MoveEvent args = _args.Ev;
+        double posDiff = 0;
+        if (!args.ParentChanged)
+            posDiff = (args.OldPosition.Position - args.NewPosition.Position).Length();
+        double rotDiff = Math.Abs(Angle.ShortestDistance(args.NewRotation, args.OldRotation).Degrees);
+
+        UpdateBonusAngles(Timing.CurTime, comp, posDiff * comp.BonusAngleIncreaseMove + rotDiff * comp.BonusAngleIncreaseTurn);
+        Dirty(uid, comp);
+    }
+
+    /// <summary>
+    /// For "proper" recoil prediction
+    /// </summary>
+    protected void UpdateAngles(TimeSpan curTime, GunComponent component, double angleIncrease = 0)
+    {
+        var timeSinceLastFire = (curTime - component.CurrentAngleLastUpdate).TotalSeconds;
+        // Two clamps, because first we need to compute how much CurrentAngle has decreased since the last time we fired
+        // If we ignore the first clamp, CurrentAngle may "go" into negatives, making the first shot after a while have less or even no inaccuracy
+        var oldTheta = MathHelper.Clamp(component.CurrentAngle - component.AngleDecayModified * timeSinceLastFire, component.MinAngleModified, component.MaxAngleModified);
+        var newTheta = MathHelper.Clamp(oldTheta + angleIncrease, component.MinAngleModified, component.MaxAngleModified.Theta);
+        component.CurrentAngle = new Angle(newTheta);
+        component.CurrentAngleLastUpdate = curTime;
+
+    }
+
+    /// <summary>
+    /// For "proper" recoil prediction
+    /// </summary>
+    /// <param name="curTime"></param>
+    /// <param name="component"></param>
+    protected void UpdateBonusAngles(TimeSpan curTime, GunComponent component, double angleIncrease = 0)
+    {
+        var timeSinceBonusUpdate = (curTime - component.BonusAngleLastUpdate).TotalSeconds;
+        component.BonusAngle = MathHelper.Clamp(component.BonusAngle + angleIncrease - component.BonusAngleDecayModified * timeSinceBonusUpdate, 0, component.MaxBonusAngleModified);
+        component.BonusAngleLastUpdate = curTime;
+    }
+	// WWDP EDIT END
 
     private void OnMapInit(Entity<GunComponent> gun, ref MapInitEvent args)
     {
@@ -120,7 +168,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         if (melee.NextAttack > component.NextFire)
         {
-            component.NextFire = melee.NextAttack;
+            component.NextFire = Timing.CurTime + TimeSpan.FromSeconds(1f / component.FireRateModified); // WWDP delay based on the gun not melee so its shorter
             Dirty(uid, component);
         }
     }
@@ -392,7 +440,7 @@ public abstract partial class SharedGunSystem : EntitySystem
                 gun.BurstShotsCount = 0;
             }
         }
-
+        UpdateAngles(curTime, gun); // WWDP
         // Shoot confirmed - sounds also played here in case it's invalid (e.g. cartridge already spent).
         Shoot(
             gunUid,
@@ -411,7 +459,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             if (_gravity.IsWeightless(user, userPhysics))
                 CauseImpulse(fromCoordinates, toCoordinates.Value, user, userPhysics);
         }
-
+        UpdateAngles(curTime, gun, gun.AngleIncreaseModified); // WWDP
         Dirty(gunUid, gun);
     }
 
@@ -454,6 +502,15 @@ public abstract partial class SharedGunSystem : EntitySystem
         projectile.Weapon = gunUid;
 
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
+    }
+
+    /// <summary>
+    /// WWDP - Manually sets the targeted entity of the gun.
+    /// Used for NPCs
+    /// </summary>
+    public void SetTarget(GunComponent gun, EntityUid target)
+    {
+        gun.Target = target;
     }
 
     protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);
@@ -558,6 +615,8 @@ public abstract partial class SharedGunSystem : EntitySystem
             comp.AngleDecay,
             comp.MaxAngle,
             comp.MinAngle,
+            comp.BonusAngleDecay,	// WWDP EDIT
+            comp.MaxBonusAngle,		// WWDP EDIT
             comp.ShotsPerBurst,
             comp.FireRate,
             comp.ProjectileSpeed
@@ -569,13 +628,17 @@ public abstract partial class SharedGunSystem : EntitySystem
         comp.CameraRecoilScalarModified = ev.CameraRecoilScalar;
         comp.AngleIncreaseModified = ev.AngleIncrease;
         comp.AngleDecayModified = ev.AngleDecay;
-        comp.MaxAngleModified = ev.MaxAngle;
-        comp.MinAngleModified = ev.MinAngle;
+        comp.MaxAngleModified = ClampAngle(ev.MaxAngle); 			// WWDP EDIT
+        comp.MinAngleModified = ClampAngle(ev.MinAngle); 			// WWDP EDIT
+        comp.BonusAngleDecayModified = ev.BonusAngleDecay;			// WWDP
+        comp.MaxBonusAngleModified = ClampAngle(ev.MaxBonusAngle);	// WWDP
         comp.ShotsPerBurstModified = ev.ShotsPerBurst;
         comp.FireRateModified = ev.FireRate;
         comp.ProjectileSpeedModified = ev.ProjectileSpeed;
 
         Dirty(gun);
+
+        Angle ClampAngle(Angle ang) => Math.Clamp(ang, 0, Math.Tau); // WWDP
     }
 
     protected abstract void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null);

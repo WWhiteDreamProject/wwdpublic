@@ -25,9 +25,8 @@
       allowNonHumans: true
       multiAntagSetting: All
       startingGear: ThiefGear
-      mindComponents:
-      - type: ThiefRole
-        prototype: Thief
+      mindRoles:
+      - MindRoleThief
       briefing:
         sound: "/Audio/Misc/thief_greeting.ogg"
 

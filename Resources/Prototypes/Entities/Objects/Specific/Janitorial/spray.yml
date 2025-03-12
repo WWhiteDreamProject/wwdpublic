@@ -34,8 +34,8 @@
     solution: spray
   - type: UseDelay
   - type: Spray
-    transferAmount: 10
-    sprayVelocity: 2
+    transferAmount: 5  # wwdp edit
+    sprayVelocity: 2.5 # wwdp edit
     spraySound:
       path: /Audio/Effects/spray2.ogg
   - type: TrashOnSolutionEmpty

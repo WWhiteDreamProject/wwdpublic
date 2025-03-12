@@ -27,7 +27,7 @@ public abstract partial class SharedGunSystem
 
         SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, GetVerbsEvent<ActivationVerb>>(OnChamberActivationVerb);
         SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, GetVerbsEvent<InteractionVerb>>(OnChamberInteractionVerb);
-        SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, GetVerbsEvent<AlternativeVerb>>(OnMagazineVerb);
+        // SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, GetVerbsEvent<AlternativeVerb>>(OnMagazineVerb); // WWDP no duplicate verbs
 
         SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, ActivateInWorldEvent>(OnChamberActivate);
         SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, UseInHandEvent>(OnChamberUse);
@@ -276,7 +276,6 @@ public abstract partial class SharedGunSystem
         if (!args.IsInDetailsRange)
             return;
 
-        var (count, _) = GetChamberMagazineCountCapacity(uid, component);
         string boltState;
 
         using (args.PushGroup(nameof(ChamberMagazineAmmoProviderComponent)))
@@ -288,10 +287,28 @@ public abstract partial class SharedGunSystem
                 else
                     boltState = Loc.GetString("gun-chamber-bolt-closed-state");
                 args.PushMarkup(Loc.GetString("gun-chamber-bolt", ("bolt", boltState),
-                    ("color", component.BoltClosed.Value ? Color.FromHex("#94e1f2") : Color.FromHex("#f29d94"))));
+                    ("color", component.BoltClosed.Value ? ModeExamineColor : ModeExamineBadColor))); // WWDP
             }
 
-            args.PushMarkup(Loc.GetString("gun-magazine-examine", ("color", AmmoExamineColor), ("count", count)));
+            // WWDP examine: show bolt state, chamber & magazine
+
+            var cartridge = _slots.GetItemOrNull(uid, "gun_chamber");
+            var magazine = _slots.GetItemOrNull(uid, "gun_magazine");
+
+            if (cartridge != null && TryComp<MetaDataComponent>(cartridge, out var cartridgeMetaData))
+            {
+                args.PushMarkup(Loc.GetString("gun-chamber-examine", ("color", ModeExamineColor),
+                    ("cartridge", cartridgeMetaData.EntityName)), -1);
+            }
+            else
+                args.PushMarkup(Loc.GetString("gun-chamber-examine-empty", ("color", ModeExamineBadColor)), -1);
+
+            if (TryComp<MetaDataComponent>(magazine, out var magazineMetaData))
+            {
+                args.PushMarkup(Loc.GetString("gun-inserted-magazine-examine", ("color", ModeExamineColor),
+                    ("magazine", magazineMetaData.EntityName)), -2);
+            }
+            // WWDP edit end
         }
     }
 
@@ -402,7 +419,7 @@ public abstract partial class SharedGunSystem
                 }
 
                 // If no more ammo then open bolt.
-                if (relayedArgs.Ammo.Count == 0)
+                if (relayedArgs.Ammo.Count == 0 && component.BoltCatch) // WWDP bolt catch
                 {
                     SetBoltClosed(uid, component, false, user: args.User, appearance: appearance);
                 }

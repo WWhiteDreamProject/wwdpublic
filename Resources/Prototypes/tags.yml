@@ -254,9 +254,6 @@
   id: BulletFoam
 
 - type: Tag
-  id: BulletRubber
-
-- type: Tag
   id: Burnt
 
 - type: Tag
@@ -357,6 +354,9 @@
 
 - type: Tag
   id: CartridgeHeavyRifle
+
+- type: Tag
+  id: CartridgeMinigun
 
 - type: Tag
   id: CartridgeLightRifle
@@ -889,6 +889,9 @@
 
 - type: Tag
   id: MagazineHeavyRifleBox
+
+- type: Tag
+  id: MagazineBoxRifleMinigun
 
 - type: Tag
   id: MagazineLightRifle

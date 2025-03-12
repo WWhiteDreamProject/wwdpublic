@@ -92,14 +92,14 @@
   ghostDescription: Мяу!
   size: 0.8, 0.8
 
-#dexpth_q
+#cyou
 - type: customGhost
-  id: dexpth_q-ghost
-  ckey: Dexpth_q
-  sprite: _White/Ghosts/dexpth_q-ghost.rsi
+  id: cyou-ghost
+  ckey: cyou
+  sprite: _White/Ghosts/cyou-ghost.rsi
   alpha: 0.8
-  ghostName: Saya
-  ghostDescription: Но... её голос, когда она кричит от боли, довольно милый, не правда ли?
+  ghostName: Marina
+  ghostDescription: Я, наверное, открою небольшой оккультный магазин где-нибудь. Где-нибудь далеко от Прехевиля... Может, в Рондоне. Хочу жить в оживлённом месте, среди множества людей. Людей, которые не будут осуждать меня или кого-то ещё вокруг…
 
 #nonta228
 - type: customGhost
@@ -107,8 +107,8 @@
   ckey: nonta228
   sprite: _White/Ghosts/nonta228-ghost.rsi
   alpha: 0.8
-  ghostName: Flowey
-  ghostDescription: Собирает души забаненных игроков.
+  ghostName: nonta
+  ghostDescription: Я устрою конец света
 
 #puroslavking
 - type: customGhost

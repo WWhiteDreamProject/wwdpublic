@@ -51,6 +51,12 @@ public sealed partial class ProjectileComponent : Component
     public bool DeleteOnCollide = true;
 
     /// <summary>
+    /// WWDP - If the projectile should change its Physics BodyStatus to OnGround on collision.
+    /// </summary>
+    [DataField]
+    public bool StopFlyingOnImpact;
+
+    /// <summary>
     ///     Ignore all damage resistances the target has.
     /// </summary>
     [DataField]

@@ -1,0 +1,12 @@
+<windows:WhiteEmotesMenu
+    xmlns="https://spacestation14.io"
+    xmlns:windows="clr-namespace:Content.Client._White.UI.Emotes"
+    Title="{Loc 'emotions-menu-title'}"
+    VerticalExpand="True"
+    HorizontalExpand="True"
+    MinHeight="250"
+    MinWidth="300">
+    <GridContainer Name="EmotionsContainer" Access="Public" Columns="3">
+
+    </GridContainer>
+</windows:WhiteEmotesMenu>

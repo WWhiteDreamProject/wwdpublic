@@ -31,13 +31,13 @@
   id: LoadoutBartenderWeapon
   items:
     - type: loadout
-      id: LoadoutServiceBartenderShotgunDoubleBarreledRubber
+      id: LoadoutServiceBartenderShotgunDoubleBarreled
     - type: loadout
-      id: LoadoutServiceBartenderMosinRubber
+      id: LoadoutServiceBartenderMosin
     - type: loadout
-      id: LoadoutServiceBartenderArgentiNonlethal
+      id: LoadoutServiceBartenderArgenti
     - type: loadout
-      id: LoadoutServiceBartenderRepeaterNonlethal
+      id: LoadoutServiceBartenderRepeater
 
 #- type: characterItemGroup
 #  id: LoadoutBartenderEyes

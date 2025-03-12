@@ -3,7 +3,10 @@
   name: species-name-ipc
   roundStart: true
   prototype: MobIPC
-  sprites: MobIPCSprites
+  # WD EDIT START
+  bodyTypes:
+  - IPCNormal
+  # WD EDIT END
   defaultSkinTone: "#aaa9ad"
   markingLimits: MobIPCMarkingLimits
   dollPrototype: MobIPCDummy
@@ -25,8 +28,11 @@
 # be defined as a 'custom base layer'
 # in either the mob's starting marking prototype,
 # or it has to be added in C#.
-- type: speciesBaseSprites
-  id: MobIPCSprites
+# WD EDIT START
+- type: bodyType
+  id: IPCNormal
+  name: body-normal
+# WD EDIT END
   sprites:
     Head: MobIPCHead
     Face: MobHumanoidAnyMarking
@@ -36,6 +42,8 @@
     Hair: MobHumanoidMarkingMatchSkin
     FacialHair: MobHumanoidMarkingMatchSkin
     Chest: MobIPCTorso
+    Underwear: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
     LArm: MobIPCLArm
     RArm: MobIPCRArm
     LHand: MobIPCLHand
@@ -57,42 +65,42 @@
       points: 1
       required: false
     Chest:
-      points: 1
+      points: 6
       required: true
       defaultMarkings: [ MobIPCTorsoDefault ]
     HeadSide:
-      points: 1
+      points: 6
       required: false
     RightLeg:
-      points: 1
+      points: 6
       required: false
       defaultMarkings: [ MobIPCRLegDefault ]
     RightFoot:
-      points: 1
+      points: 6
       required: false
       defaultMarkings: [ MobIPCRFootDefault ]
     LeftLeg:
-      points: 1
+      points: 6
       required: false
       defaultMarkings: [ MobIPCLLegDefault ]
     LeftFoot:
-      points: 1
+      points: 6
       required: false
       defaultMarkings: [ MobIPCLFootDefault ]
     RightArm:
-      points: 1
+      points: 6
       required: false
       defaultMarkings: [ MobIPCRArmDefault ]
     RightHand:
-      points: 1
+      points: 6
       required: false
       defaultMarkings: [ MobIPCRHandDefault ]
     LeftArm:
-      points: 1
+      points: 6
       required: false
       defaultMarkings: [ MobIPCLArmDefault ]
     LeftHand:
-      points: 1
+      points: 6
       required: false
       defaultMarkings: [ MobIPCLHandDefault ]
     Wings:

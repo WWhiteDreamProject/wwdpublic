@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server._White.Flash;
+using Content.Server._White.Hearing;
 using Content.Server.Flash.Components;
 using Content.Shared.Flash.Components;
 using Content.Server.Light.EntitySystems;
@@ -148,20 +149,17 @@ namespace Content.Server.Flash
             if (attempt.Cancelled)
                 return;
 
-            if (melee)
-            {
-                var ev = new AfterFlashedEvent(target, user, used);
-                if (user != null)
-                    RaiseLocalEvent(user.Value, ref ev);
-                if (used != null)
-                    RaiseLocalEvent(used.Value, ref ev);
-            }
-
             flashDuration *= flashable.DurationMultiplier;
 
             flashable.LastFlash = _timing.CurTime;
             flashable.Duration = flashDuration / 1000f; // TODO: Make this sane...
             Dirty(target, flashable);
+
+            if (HasComp<HearingComponent>(target))
+            {
+                var deafen = new HearingChangedEvent(target, false, false, flashDuration / 1000f, "deaf-chat-message-flashbanged");
+                RaiseLocalEvent(target, deafen);
+            }
 
             if (TryComp<BlindableComponent>(target, out var blindable)
                 && !blindable.IsBlind
@@ -282,24 +280,6 @@ namespace Content.Server.Flash
         public readonly EntityUid? Used;
 
         public FlashAttemptEvent(EntityUid target, EntityUid? user, EntityUid? used)
-        {
-            Target = target;
-            User = user;
-            Used = used;
-        }
-    }
-    /// <summary>
-    /// Called after a flash is used via melee on another person to check for rev conversion.
-    /// Raised on the user of the flash, the target hit by the flash, and the flash used.
-    /// </summary>
-    [ByRefEvent]
-    public readonly struct AfterFlashedEvent
-    {
-        public readonly EntityUid Target;
-        public readonly EntityUid? User;
-        public readonly EntityUid? Used;
-
-        public AfterFlashedEvent(EntityUid target, EntityUid? user, EntityUid? used)
         {
             Target = target;
             User = user;

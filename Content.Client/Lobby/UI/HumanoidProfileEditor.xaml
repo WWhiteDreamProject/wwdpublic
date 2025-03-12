@@ -68,6 +68,14 @@
                                     <Control HorizontalExpand="True"/>
                                         <LineEdit Name="CCustomSpecieNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
                                 </BoxContainer>
+                                <!--WD EDIT START-->
+                                <!-- Body Type -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-body-type-label'}"/>
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="CBodyTypesButton" HorizontalAlignment="Right" />
+                                </BoxContainer>
+                                <!--WD EDIT END-->
                                 <!-- Age -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-age-label'}" />
