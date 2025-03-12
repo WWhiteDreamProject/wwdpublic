@@ -68,7 +68,7 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 9.5
-  - type: GunRequiresWield # WD EDIT
+  # - type: GunRequiresWield # WD EDIT # WWDP disabled
   - type: EmitSoundOnPickup # WWDP sounds
     sound:
       collection: ShotgunsPickUp
@@ -121,7 +121,7 @@
     - Back
     - suitStorage
   # - type: AmmoCounter # WWDP
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  # - type: GunRequiresWield #remove when inaccuracy on spreads is fixed # WWDP disabled
   - type: Gun
     bonusAngleIncreaseMove: 40    # wwdp
     bonusAngleIncreaseTurn: 0.25  # wwdp
