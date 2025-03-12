@@ -239,11 +239,15 @@
 
 - type: entity
   name: flintlock pistol
-  parent: BaseWeaponSniper
+  parent: BaseWeaponShotgunSmall # WWDP
   id: WeaponPistolFlintlock
   description: A pirate's companion. Yarrr! Uses musket cartridges. # Delta V - Ditto the above
   components:
   - type: Gun
+    bonusAngleIncreaseMove: 30  # wwdp
+    bonusAngleIncreaseTurn: 0.4 # wwdp
+    bonusAngleDecay: 30         # wwdp
+    maxBonusAngle: 30           # wwdp
     minAngle: 0
     maxAngle: 30 #miss him entirely because the barrel is smoothbore
     fireOnDropChance: 1
@@ -253,6 +257,9 @@
     - 0,0,3,0
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
+    layers: # WWDP
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
   - type: UseDelayOnShoot

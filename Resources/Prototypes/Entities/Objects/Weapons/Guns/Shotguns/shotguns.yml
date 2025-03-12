@@ -384,7 +384,7 @@
     staminaCost: 5
 
 - type: entity # WWDP
-  name: sawn-off shotgun
+  name: improvised pistol # WWDP
   parent: WeaponShotgunHandmade
   id: WeaponShotgunHandmadeEmpty
   suffix: Empty
