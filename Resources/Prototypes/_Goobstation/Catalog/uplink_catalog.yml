@@ -46,17 +46,12 @@
   # WD EDIT START
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 4
   cost:
-    Telecrystal: 12
+    Telecrystal: 16
   # WD EDIT END
   categories:
   - UplinkDeception
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkMysteriousScroll
