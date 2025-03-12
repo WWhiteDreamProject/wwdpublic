@@ -72,7 +72,6 @@
         amount: 15
       - material: MetalRod
         amount: 8
-        doAfter: 5
       - tag: Pipe
         icon:
           sprite: Structures/Piping/Atmospherics/pipe.rsi
@@ -85,8 +84,7 @@
         name: pipe
         doAfter: 25
   - node: makeshiftleftarm
--    entity: MakeshiftleftArm
-+    entity: MakeshiftLeftArm
+    entity: MakeshiftLeftArm
 - type: constructionGraph
   id: MakeshiftRightArmGraph
   start: start
@@ -101,7 +99,6 @@
         amount: 15
       - material: MetalRod
         amount: 8
-        doAfter: 5
       - tag: Pipe
         icon:
           sprite: Structures/Piping/Atmospherics/pipe.rsi
