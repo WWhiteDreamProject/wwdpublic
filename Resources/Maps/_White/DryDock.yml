@@ -17400,11 +17400,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -227.5,-11.5
       parent: 2
-  - uid: 734
+  - uid: 739
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -220.5,-3.5
+      pos: -220.5,-4.5
       parent: 2
 - proto: BenchParkMiddle
   entities:
@@ -17416,6 +17416,12 @@ entities:
       parent: 2
 - proto: BenchParkRight
   entities:
+  - uid: 734
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -220.5,-3.5
+      parent: 2
   - uid: 736
     components:
     - type: Transform
@@ -17433,12 +17439,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -227.5,-10.5
-      parent: 2
-  - uid: 739
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -220.5,-4.5
       parent: 2
 - proto: BenchPewLeft
   entities:
@@ -17537,8 +17537,8 @@ entities:
   - uid: 754
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -113.5,-4.5
+      rot: 3.141592653589793 rad
+      pos: -114.5,-5.5
       parent: 2
   - uid: 755
     components:
@@ -17546,11 +17546,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -120.5,-5.5
       parent: 2
-  - uid: 756
+  - uid: 760
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -115.5,-6.5
+      rot: 1.5707963267948966 rad
+      pos: -116.5,-4.5
       parent: 2
 - proto: BenchSofaCorpMiddle
   entities:
@@ -17574,17 +17574,17 @@ entities:
       parent: 2
 - proto: BenchSofaCorpRight
   entities:
-  - uid: 760
+  - uid: 756
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -114.5,-5.5
+      rot: -1.5707963267948966 rad
+      pos: -113.5,-4.5
       parent: 2
   - uid: 761
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -116.5,-4.5
+      rot: 3.141592653589793 rad
+      pos: -115.5,-6.5
       parent: 2
   - uid: 762
     components:
@@ -17598,13 +17598,13 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -117.5,-0.5
+      pos: -117.5,-1.5
       parent: 2
-  - uid: 764
+  - uid: 766
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -110.5,-1.5
+      pos: -112.5,-1.5
       parent: 2
 - proto: BenchSofaMiddle
   entities:
@@ -17616,17 +17616,17 @@ entities:
       parent: 2
 - proto: BenchSofaRight
   entities:
-  - uid: 766
+  - uid: 764
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -112.5,-1.5
+      pos: -110.5,-1.5
       parent: 2
   - uid: 767
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -117.5,-1.5
+      pos: -117.5,-0.5
       parent: 2
 - proto: BenchSteelLeft
   entities:
@@ -17642,41 +17642,23 @@ entities:
       rot: 3.141592653589793 rad
       pos: -138.5,-3.5
       parent: 2
-  - uid: 770
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -136.5,3.5
-      parent: 2
-  - uid: 771
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -132.5,4.5
-      parent: 2
   - uid: 772
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -136.5,0.5
+      pos: -132.5,1.5
       parent: 2
   - uid: 773
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -136.5,1.5
+      rot: -1.5707963267948966 rad
+      pos: -132.5,3.5
       parent: 2
   - uid: 774
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -131.5,0.5
-      parent: 2
-  - uid: 775
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -131.5,1.5
+      pos: -137.5,1.5
       parent: 2
   - uid: 776
     components:
@@ -17718,17 +17700,35 @@ entities:
     - type: Transform
       pos: -134.5,-4.5
       parent: 2
-  - uid: 783
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -209.5,7.5
-      parent: 2
   - uid: 784
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -209.5,9.5
+      parent: 2
+  - uid: 803
+    components:
+    - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -205.5,9.5
+      pos: -205.5,7.5
+      parent: 2
+  - uid: 809
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -132.5,0.5
+      parent: 2
+  - uid: 810
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -136.5,4.5
+      parent: 2
+  - uid: 812
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -137.5,0.5
       parent: 2
 - proto: BenchSteelMiddle
   entities:
@@ -17824,22 +17824,40 @@ entities:
       parent: 2
 - proto: BenchSteelRight
   entities:
+  - uid: 770
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -131.5,1.5
+      parent: 2
+  - uid: 771
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -132.5,4.5
+      parent: 2
+  - uid: 775
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -136.5,1.5
+      parent: 2
+  - uid: 783
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -205.5,9.5
+      parent: 2
   - uid: 801
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -209.5,9.5
+      pos: -209.5,7.5
       parent: 2
   - uid: 802
     components:
     - type: Transform
       pos: -138.5,-4.5
-      parent: 2
-  - uid: 803
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -205.5,7.5
       parent: 2
   - uid: 804
     components:
@@ -17862,38 +17880,20 @@ entities:
   - uid: 807
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -136.5,4.5
+      rot: 3.141592653589793 rad
+      pos: -131.5,0.5
       parent: 2
   - uid: 808
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -132.5,3.5
-      parent: 2
-  - uid: 809
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -137.5,0.5
-      parent: 2
-  - uid: 810
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -137.5,1.5
+      rot: 1.5707963267948966 rad
+      pos: -136.5,3.5
       parent: 2
   - uid: 811
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -132.5,0.5
-      parent: 2
-  - uid: 812
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -132.5,1.5
+      pos: -136.5,0.5
       parent: 2
   - uid: 813
     components:
@@ -59996,7 +59996,7 @@ entities:
       pos: -28.5,-16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -14362.636
+      secondsUntilStateChange: -14809.691
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -61304,14 +61304,14 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: FloraTreeSpringOrangeLarge01
+- proto: FloraTreeSpringPinkLarge01
   entities:
   - uid: 5994
     components:
     - type: Transform
       pos: -228.34737,-8.852372
       parent: 2
-- proto: FloraTreeSpringOrangeLarge02
+- proto: FloraTreeSpringPinkLarge02
   entities:
   - uid: 8539
     components:
@@ -61323,7 +61323,7 @@ entities:
     - type: Transform
       pos: -216.769,-9.53284
       parent: 2
-- proto: FloraTreeSpringOrangeLarge03
+- proto: FloraTreeSpringPinkLarge03
   entities:
   - uid: 5993
     components:
@@ -61335,7 +61335,7 @@ entities:
     - type: Transform
       pos: -30.132147,0.42589116
       parent: 2
-- proto: FloraTreeSpringOrangeLarge04
+- proto: FloraTreeSpringPinkLarge04
   entities:
   - uid: 5995
     components:
@@ -83330,8 +83330,6 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-    - type: PointLight
-      color: '#D56C6CFF'
 - proto: GunSafeDisabler
   entities:
   - uid: 8547
@@ -87387,6 +87385,14 @@ entities:
     components:
     - type: Transform
       pos: -42.82453,-18.497826
+      parent: 2
+- proto: N14ChairOfficeRed
+  entities:
+  - uid: 8550
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -142.51175,0.6854415
       parent: 2
 - proto: N14ChairStoolBarRed
   entities:
@@ -118451,6 +118457,35 @@ entities:
       parent: 2
 - proto: WindowDirectional
   entities:
+  - uid: 8548
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,-3.5
+      parent: 2
+  - uid: 8549
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,-4.5
+      parent: 2
+  - uid: 8551
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,-2.5
+      parent: 2
+  - uid: 8552
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4.5,-2.5
+      parent: 2
+  - uid: 8553
+    components:
+    - type: Transform
+      pos: 4.5,-4.5
+      parent: 2
   - uid: 17465
     components:
     - type: Transform
@@ -119312,35 +119347,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -8.5,-9.5
-      parent: 2
-  - uid: 17613
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 4.5,-3.5
-      parent: 2
-  - uid: 17614
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 4.5,-2.5
-      parent: 2
-  - uid: 17615
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 4.5,-2.5
-      parent: 2
-  - uid: 17616
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 4.5,-4.5
-      parent: 2
-  - uid: 17617
-    components:
-    - type: Transform
-      pos: 4.5,-4.5
       parent: 2
   - uid: 17618
     components:

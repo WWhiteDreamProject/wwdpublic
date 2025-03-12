@@ -27469,12 +27469,6 @@ entities:
       parent: 2
 - proto: BenchSteelLeft
   entities:
-  - uid: 1024
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,-59.5
-      parent: 2
   - uid: 1027
     components:
     - type: Transform
@@ -27642,6 +27636,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 10.5,26.5
+      parent: 2
+  - uid: 1108
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,-59.5
       parent: 2
   - uid: 1110
     components:
@@ -27861,6 +27861,12 @@ entities:
       parent: 2
 - proto: BenchSteelRight
   entities:
+  - uid: 1024
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,-59.5
+      parent: 2
   - uid: 1025
     components:
     - type: Transform
@@ -27990,12 +27996,6 @@ entities:
     components:
     - type: Transform
       pos: -72.5,10.5
-      parent: 2
-  - uid: 1108
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.5,-59.5
       parent: 2
   - uid: 1109
     components:
@@ -97795,21 +97795,21 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 29.464336,9.508448
       parent: 2
-- proto: FloraTreeSpringOrangeLarge01
+- proto: FloraTreeSpringPinkLarge01
   entities:
   - uid: 23913
     components:
     - type: Transform
       pos: 29.868713,13.777755
       parent: 2
-- proto: FloraTreeSpringOrangeLarge02
+- proto: FloraTreeSpringPinkLarge02
   entities:
   - uid: 21113
     components:
     - type: Transform
       pos: 35.990334,12.603138
       parent: 2
-- proto: FloraTreeSpringOrangeLarge03
+- proto: FloraTreeSpringPinkLarge03
   entities:
   - uid: 11424
     components:
@@ -135007,8 +135007,6 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-    - type: PointLight
-      color: '#D56C6CFF'
   - uid: 1320
     components:
     - type: Transform

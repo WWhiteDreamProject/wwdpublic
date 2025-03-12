@@ -11643,7 +11643,7 @@ entities:
       pos: 23.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -46932.777
+      secondsUntilStateChange: -47064.465
       state: Opening
 - proto: AirlockExternalGlassShuttleEmergencyLocked
   entities:
@@ -42963,18 +42963,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -7.5,-11.5
       parent: 2
-  - uid: 14530
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 3.5,-4.5
-      parent: 2
-  - uid: 14800
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 3.5,-5.5
-      parent: 2
   - uid: 14801
     components:
     - type: Transform
@@ -42986,18 +42974,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 6.5,-9.5
-      parent: 2
-  - uid: 14803
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 8.5,-4.5
-      parent: 2
-  - uid: 14804
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 8.5,-5.5
       parent: 2
   - uid: 15960
     components:
@@ -51088,7 +51064,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -26.824606,26.725382
       parent: 2
-- proto: FloraTreeSpringOrangeLarge01
+- proto: FloraTreeSpringPinkLarge01
   entities:
   - uid: 11558
     components:
@@ -51096,7 +51072,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -28.359482,6.5557575
       parent: 2
-- proto: FloraTreeSpringOrangeLarge03
+- proto: FloraTreeSpringPinkLarge03
   entities:
   - uid: 4904
     components:
@@ -51104,7 +51080,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -28.400023,2.4783494
       parent: 2
-- proto: FloraTreeSpringOrangeLarge05
+- proto: FloraTreeSpringPinkLarge05
   entities:
   - uid: 4852
     components:
@@ -73256,8 +73232,6 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-    - type: PointLight
-      color: '#D56C6CFF'
   - uid: 14634
     components:
     - type: Transform
@@ -75536,6 +75510,34 @@ entities:
     components:
     - type: Transform
       pos: -72.74927,24.588608
+      parent: 2
+- proto: N14ChairOfficeBlue
+  entities:
+  - uid: 6721
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.349483,-5.2545
+      parent: 2
+  - uid: 9323
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.322455,-4.444419
+      parent: 2
+- proto: N14ChairOfficeRed
+  entities:
+  - uid: 6720
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.619752,-4.4309173
+      parent: 2
+  - uid: 9464
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.6602926,-5.295004
       parent: 2
 - proto: N14FloorWaterDirtyEntity
   entities:

@@ -137,7 +137,7 @@
     sprite: Mobs/Silicon/Bots/honkbot.rsi
     layers:
     - state: honkbot
-    - state: honk_face
+    - state: honk_face # WWDP edit
       shader: unshaded
   - type: HTN
     rootTask:
@@ -198,7 +198,7 @@
   - type: Sprite
     layers:
     - state: jonkbot
-    - state: jonk_face
+    - state: jonk_face # WWDP edit
       shader: unshaded
   - type: Construction
     graph: JonkBot
@@ -236,7 +236,7 @@
     sprite: Mobs/Silicon/Bots/cleanbot.rsi
     layers:
       - state: cleanbot
-      - state: face
+      - state: face # WWDP edit
         shader: unshaded
   - type: Construction
     graph: CleanBot
@@ -307,7 +307,7 @@
     sprite: Mobs/Silicon/Bots/medibot.rsi
     layers:
     - state: medibot
-    - state: face
+    - state: face # WWDP edit
       shader: unshaded
   - type: HTN
     rootTask:
@@ -348,7 +348,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: mimebot
-    - state: face
+    - state: face # WWDP edit
       shader: unshaded
   - type: MimePowers
   - type: Construction
