@@ -1945,3 +1945,12 @@ Entries:
   id: 203
   time: '2025-03-12T16:55:37.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/330
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Каммерер теперь имеет боезапас в 7 патронов, а Силовик стреляет в
+        полуавтоматическом режиме.
+  id: 204
+  time: '2025-03-12T16:56:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/325
