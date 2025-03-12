@@ -66,9 +66,9 @@
   # WD EDIT START
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 4
   cost:
-    Telecrystal: 14
+    Telecrystal: 18
   # WD EDIT END
   categories:
   - UplinkWeaponry
