@@ -989,7 +989,7 @@
       types:
         Heat: 12 # WWDP less powerful laser
     soundHit:
-      collection: MeatLaserImpact\
+      collection: MeatLaserImpact
   - type: PointLight # WWDP
     enabled: true
     color: "#ff0000"
