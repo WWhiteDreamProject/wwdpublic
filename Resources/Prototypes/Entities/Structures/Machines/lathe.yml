@@ -373,7 +373,7 @@
     - SyringeBluespace
     - WeaponForceGun
     - WeaponLaserSvalinn
-    - WeaponCivilianDisabler
+    # - WeaponCivilianDisabler # WWDP disabled (xd)
     - WeaponProtoKineticAccelerator
     - WeaponTetherGun
     - WeaponGrapplingGun

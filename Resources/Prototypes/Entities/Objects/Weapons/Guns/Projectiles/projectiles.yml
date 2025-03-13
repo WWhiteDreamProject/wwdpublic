@@ -185,6 +185,7 @@
         - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
+    muzzleFlash: null # WWDP
   - type: Projectile
     damage:
       types:
@@ -225,6 +226,7 @@
         - Opaque # WWDP allow shooting through windows
       fly-by: *flybyfixture
   - type: Ammo
+    muzzleFlash: null # WWDP
   - type: StaminaDamageOnCollide
     damage: 30
   - type: Projectile
@@ -268,6 +270,7 @@
         - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
+    muzzleFlash: null # WWDP
   - type: StaminaDamageOnCollide
     damage: 20
   - type: Projectile
@@ -307,6 +310,7 @@
         - Opaque # WWDP allow shooting through windows
       fly-by: *flybyfixture
   - type: Ammo
+    muzzleFlash: null # WWDP
   - type: StaminaDamageOnCollide
     damage: 1
   - type: Projectile
@@ -976,6 +980,7 @@
         - Opaque # WWDP allow shooting through windows
       fly-by: *flybyfixture
   - type: Ammo
+    muzzleFlash: null # WWDP
   - type: StaminaDamageOnCollide
     damage: 15
   - type: Projectile
@@ -1041,10 +1046,10 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
-    - state: omnilaser_greyscale
+    - state: laser_short # WWDP
       shader: unshaded
-      color: red
   - type: Ammo
+    muzzleFlash: null # WWDP
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -1057,10 +1062,10 @@
         - Opaque
       fly-by: *flybyfixture
   - type: Projectile
-    impactEffect: BulletImpactEffectRedDisabler
+    impactEffect: BulletImpactEffectLaserRed # WWDP
     damage:
       types:
-        Heat: 20 # Slightly more damage than the 17heat from the Captain's Hitscan lasgun
+        Heat: 12 # WWDP less powerful laser
     soundHit:
       collection: MeatLaserImpact
 
@@ -1081,7 +1086,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
-    - state: heavylaser
+    - state: laser # WWDP
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -1095,14 +1100,20 @@
         - Opaque # WWDP allow shooting through windows
       fly-by: *flybyfixture
   - type: Ammo
+    muzzleFlash: null # WWDP
   - type: Projectile
-    impactEffect: BulletImpactEffectOrangeDisabler
+    impactEffect: BulletImpactEffectLaserRed
     damage:
       types:
-        Heat: 10
+        Heat: 17 # WWDP
     soundHit:
-      collection: WeakHit
+      collection: MeatLaserImpact # WWDP
     forceSound: true
+  - type: PointLight # WWDP
+    enabled: true
+    color: "#ff0000"
+    radius: 2.0
+    energy: 1.0
 
 - type: entity
   name: laser barrage
@@ -1118,7 +1129,7 @@
 - type: entity
   name: laser slug
   id: BulletLaserSpreadSlug
-  parent: BulletLaserHeavy
+  parent: BulletLaserShotgunHeavy
   categories: [ HideSpawnMenu ]
   components:
   - type: ProjectileSpread
@@ -1128,7 +1139,7 @@
 
 - type: entity
   name : heavy laser bolt
-  id: BulletLaserHeavy
+  id: BulletLaserShotgunHeavy
   parent: BulletLaser
   categories: [ HideSpawnMenu ]
   components:
@@ -1140,7 +1151,7 @@
 
 - type: entity
   name: narrow laser barrage
-  id: BulletLaserHeavySpread
+  id: BulletLaserShotgunSpread
   parent: BulletLaser
   categories: [ HideSpawnMenu ]
   components:
@@ -1180,6 +1191,7 @@
     - state: heavylaser
       shader: unshaded
   - type: Ammo
+    muzzleFlash: null # WWDP
   - type: Physics
   - type: Fixtures
     fixtures:
