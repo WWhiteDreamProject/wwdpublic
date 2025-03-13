@@ -18,19 +18,20 @@
   category: Armory
   group: market
 
-- type: cargoProduct
-  id: ArmoryShotgunAdjutant
-  icon:
-    sprite: DeltaV/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
-    state: icon
-  product: CrateArmoryAdjutant
-  cost: 10000
-  category: Armory
-  group: market
+# WWDP disabled
+# - type: cargoProduct
+#   id: ArmoryShotgunAdjutant
+#   icon:
+#     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
+#     state: icon
+#   product: CrateArmoryAdjutant
+#   cost: 10000
+#   category: Armory
+#   group: market
 
 - type: cargoProduct
   id: ArmoryEnergyGun
-  icon: 
+  icon:
     sprite: DeltaV/Objects/Weapons/Guns/Battery/energygun.rsi
     state: icon
   product: CrateArmoryEnergyGun

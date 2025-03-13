@@ -14,10 +14,15 @@
   - type: Sprite
     state: icon
   - type: Item
-    size: Normal
+    size: Large # WWDP weapons resize
   - type: Utensil
     types:
       - Knife
+  - type: Tool # WWDP
+    qualities:
+    - Slicing
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
 
 - type: entity
   name: captain's sabre
@@ -54,12 +59,16 @@
     reflectProb: .1
     spread: 90
   - type: Item
+    storedRotation: 45 # WWDP
+    shape:
+    - 0,0,3,0
     size: Normal
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
   - type: Tag
     tags:
     - CaptainSabre
   - type: DisarmMalus
+    malus: 0.8 # WWDP
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
@@ -67,6 +76,7 @@
     # not putting a BlockMovement component here cause that's funny.
   - type: MeleeBlock # WD EDIT
     delay: 6.1
+
 
 - type: entity
   name: katana
@@ -103,7 +113,11 @@
   - type: Item
     size: Normal
     sprite: DeltaV/Objects/Weapons/Melee/katana.rsi #DeltaV
+    storedRotation: 45 # WWDP
+    shape:
+    - 0,0,4,0
   - type: DisarmMalus
+    malus: 0.5 # WWDP
   - type: MeleeBlock # WD EDIT
     delay: 6.1
 
@@ -124,7 +138,10 @@
   - type: ThrowingAngle
     angle: 300
   - type: Item
-    size: Normal
+    size: Large # WWDP
+    storedRotation: -30
+    shape:
+    - 0,0,6,0
     sprite: Objects/Weapons/Melee/energykatana.rsi
   - type: EnergyKatana
   - type: DashAbility
@@ -176,6 +193,9 @@
     angle: 225
   - type: Item
     size: Normal
+    storedRotation: 45
+    shape:
+    - 0,0,3,0
     sprite: Objects/Weapons/Melee/machete.rsi
 
 - type: entity
@@ -211,7 +231,10 @@
   - type: ThrowingAngle
     angle: 225
   - type: Item
-    size: Normal
+    size: Huge # WWDP
+    storedRotation: 45
+    shape:
+    - 0,0,4,1
   - type: Clothing
     sprite: Objects/Weapons/Melee/claymore.rsi
     slots:
@@ -250,6 +273,9 @@
   - type: ThrowingAngle
     angle: 225
   - type: Item
+    storedRotation: 45 # WWDP
+    shape: # WWDP
+    - 0,0,3,0
     size: Normal
     sprite: Objects/Weapons/Melee/cutlass.rsi
 

@@ -160,9 +160,19 @@
     sprite: Decals/markings.rsi
     state: standclear_greyscale
 
-- type: decal
+- type: decal # WWDP edit
+  id: Warning
+  parent: A_StationDecal
+  abstract: true
+
+- type: decal # WWDP edit
   id: Warn
-  parent: Markings
+  parent: Warning
+  abstract: true
+
+- type: decal # WWDP edit
+  id: WarnGreyscale
+  parent: Warning
   abstract: true
 
 - type: decal
@@ -175,7 +185,7 @@
 
 - type: decal
   id: WarnBoxGreyscale
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -212,7 +222,7 @@
 
 - type: decal
   id: WarnFullGreyscale
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -305,7 +315,7 @@
 
 - type: decal
   id: WarnCornerGreyscaleNE
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -314,7 +324,7 @@
 
 - type: decal
   id: WarnCornerGreyscaleNW
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -323,7 +333,7 @@
 
 - type: decal
   id: WarnCornerGreyscaleSE
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -332,7 +342,7 @@
 
 - type: decal
   id: WarnCornerGreyscaleSW
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -373,7 +383,7 @@
 
 - type: decal
   id: WarnCornerSmallGreyscaleNE
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -382,7 +392,7 @@
 
 - type: decal
   id: WarnCornerSmallGreyscaleNW
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -391,7 +401,7 @@
 
 - type: decal
   id: WarnCornerSmallGreyscaleSE
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -400,7 +410,7 @@
 
 - type: decal
   id: WarnCornerSmallGreyscaleSW
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -473,7 +483,7 @@
 
 - type: decal
   id: WarnEndGreyscaleE
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -482,7 +492,7 @@
 
 - type: decal
   id: WarnEndGreyscaleN
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -491,7 +501,7 @@
 
 - type: decal
   id: WarnEndGreyscaleS
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -500,7 +510,7 @@
 
 - type: decal
   id: WarnEndGreyscaleW
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -541,7 +551,7 @@
 
 - type: decal
   id: WarnLineGreyscaleE
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -550,7 +560,7 @@
 
 - type: decal
   id: WarnLineGreyscaleN
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -559,7 +569,7 @@
 
 - type: decal
   id: WarnLineGreyscaleS
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -568,7 +578,7 @@
 
 - type: decal
   id: WarnLineGreyscaleW
-  parent: Warn
+  parent: WarnGreyscale
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
@@ -590,4 +600,3 @@
   sprite:
     sprite: Decals/markings.rsi
     state: vent_small
-

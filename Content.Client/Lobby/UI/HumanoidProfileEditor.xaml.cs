@@ -1954,7 +1954,7 @@ namespace Content.Client.Lobby.UI
             // Reset trait points so you don't get -14 points or something for no reason
             var points = _cfgManager.GetCVar(CCVars.GameTraitsDefaultPoints);
             TraitPointsLabel.Text = Loc.GetString("humanoid-profile-editor-traits-points-label", ("points", points), ("max", points));
-            TraitPointsBar.MaxValue = points;
+            TraitPointsBar.MaxValue = 10; // WD EDIT
             TraitPointsBar.Value = points;
 
             // Reset the whole UI and delete caches
@@ -1972,7 +1972,8 @@ namespace Content.Client.Lobby.UI
             _traits.Clear();
             foreach (var trait in _prototypeManager.EnumeratePrototypes<TraitPrototype>())
             {
-                var usable = _characterRequirementsSystem.CheckRequirementsValid(
+                var usable = trait.Enable && // WD EDIT
+                    _characterRequirementsSystem.CheckRequirementsValid(
                     trait.Requirements,
                     highJob,
                     Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),

@@ -594,6 +594,10 @@
     inverted: true
     jobs:
     - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+  - !type:CharacterSpeciesRequirement
+    inverted: true
+    species:
+    - IPC
   - !type:CharacterTraitRequirement
     inverted: true
     traits:
@@ -612,11 +616,11 @@
     components:
     - type: Flashable # Effectively, removes any flash-vulnerability species traits.
 
-
 - type: trait
   id: FlareShielding
   category: Physical
   points: -4
+  enable: false # WD EDIT
   requirements:
   - !type:CharacterJobRequirement
     inverted: true
@@ -630,7 +634,6 @@
     components:
     - type: FlashImmunity
     - type: EyeProtection
-
 
 - type: trait
   id: CyberEyesSecurity
@@ -714,6 +717,7 @@
   id: CyberEyesOmni
   category: Physical
   points: -3
+  enable: false # WD EDIT
   requirements:
   - !type:CharacterJobRequirement
     inverted: true
@@ -799,6 +803,7 @@
   id: LightAmplification
   category: Physical
   points: -4
+  enable: false # WD EDIT
   requirements:
   - !type:CharacterJobRequirement
     inverted: true
@@ -816,6 +821,7 @@
   id: ThermographicVision
   category: Physical
   points: -4
+  enable: false # WD EDIT
   requirements:
   - !type:CharacterJobRequirement
     inverted: true
@@ -867,7 +873,7 @@
 - type: trait
   id: BionicLeg
   category: Physical
-  points: -6
+  points: -10 # WD EDIT
   requirements:
   - !type:CharacterJobRequirement
     inverted: true
@@ -878,9 +884,10 @@
   functions:
   - !type:TraitReplaceComponent
     components:
-    - type: TraitSpeedModifier
-      sprintModifier: 1.300
-      walkModifier: 1.125
+    - type: SlowOnDamage # WWDP edit
+      speedModifierThresholds:
+        60: 0.85
+        80: 0.75
   - !type:TraitPushDescription
     descriptionExtensions:
     - description: examine-bionic-leg-message
@@ -891,6 +898,7 @@
   id: FlareShieldingModule
   category: Physical
   points: -4
+  enable: false # WD EDIT
   requirements:
   - !type:CharacterJobRequirement
     inverted: true
@@ -899,6 +907,12 @@
   - !type:CharacterSpeciesRequirement
     species:
     - IPC
+  - !type:CharacterTraitRequirement
+    inverted: true
+    traits:
+    - Photophobia
+    - Blindness
+    - Nearsighted
   - !type:CharacterItemGroupRequirement
     group: TraitsMind
   functions:
@@ -926,6 +940,9 @@
     inverted: true
     traits:
     - OmniEyesModule
+    - Photophobia
+    - Blindness
+    - Nearsighted
   - !type:CharacterItemGroupRequirement
     group: TraitsMind
   functions:
@@ -952,6 +969,9 @@
     traits:
     - DiagnosticEyesModule
     - OmniEyesModule
+    - Photophobia
+    - Blindness
+    - Nearsighted
   - !type:CharacterItemGroupRequirement
     group: TraitsMind
   functions:
@@ -981,6 +1001,9 @@
     traits:
     - MedicalEyesModule
     - OmniEyesModule
+    - Photophobia
+    - Blindness
+    - Nearsighted
   - !type:CharacterItemGroupRequirement
     group: TraitsMind
   functions:
@@ -995,6 +1018,7 @@
   id: OmniEyesModule
   category: Physical
   points: -3
+  enable: false # WD EDIT
   requirements:
   - !type:CharacterJobRequirement
     inverted: true
@@ -1010,6 +1034,9 @@
   - !type:CharacterTraitRequirement
     inverted: true
     traits:
+    - Photophobia
+    - Blindness
+    - Nearsighted
     - MedicalEyesModule
     - DiagnosticEyesModule
     - SecurityEyesModule
@@ -1034,6 +1061,7 @@
   id: LightAmplificationModule
   category: Physical
   points: -4
+  enable: false # WD EDIT
   requirements:
   - !type:CharacterJobRequirement
     inverted: true
@@ -1042,6 +1070,12 @@
   - !type:CharacterSpeciesRequirement
     species:
     - IPC
+  - !type:CharacterTraitRequirement
+    inverted: true
+    traits:
+    - Photophobia
+    - Blindness
+    - Nearsighted
   - !type:CharacterItemGroupRequirement
     group: TraitsMind
   functions:
@@ -1053,6 +1087,7 @@
   id: ThermographicVisionModule
   category: Physical
   points: -4
+  enable: false # WD EDIT
   requirements:
   - !type:CharacterJobRequirement
     inverted: true
@@ -1061,6 +1096,12 @@
   - !type:CharacterSpeciesRequirement
     species:
     - IPC
+  - !type:CharacterTraitRequirement
+    inverted: true
+    traits:
+    - Photophobia
+    - Blindness
+    - Nearsighted
   - !type:CharacterItemGroupRequirement
     group: TraitsMind
   functions:

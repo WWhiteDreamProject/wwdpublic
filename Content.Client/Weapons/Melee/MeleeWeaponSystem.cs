@@ -88,18 +88,18 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 altDown = false;
         }
 
-        if (weapon.AutoAttack || !useDown && !altDown)
-        {
-            if (weapon.Attacking)
-            {
-                RaisePredictiveEvent(new StopAttackEvent(GetNetEntity(weaponUid)));
-            }
-        }
+        // WWDP fix autoattack
+        if (weapon.NextAttack > Timing.CurTime)
+            return;
 
-        if (weapon.Attacking || weapon.NextAttack > Timing.CurTime || (!useDown && !altDown))
+        if (weapon.Attacking)
         {
+            if (weapon.AutoAttack || !useDown && !altDown)
+                RaisePredictiveEvent(new StopAttackEvent(GetNetEntity(weaponUid)));
+
             return;
         }
+        // WWDP edit end
 
         // TODO using targeted actions while combat mode is enabled should NOT trigger attacks.
 
@@ -220,7 +220,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return false;
 
         if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
-            combatMode.CanDisarm != true)
+            combatMode.CanDisarm == false) // WWDP
         {
             return false;
         }
@@ -236,8 +236,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
             if (Timing.IsFirstTimePredicted && HasComp<MobStateComponent>(target.Value))
                 PopupSystem.PopupEntity(Loc.GetString("disarm-action-disarmable", ("targetName", target.Value)), target.Value);
-
-            return false;
         }
 
         return true;

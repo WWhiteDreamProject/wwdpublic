@@ -9,6 +9,7 @@
   - type: Item
     size: Huge
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/LMGs/l6.rsi
     quickEquip: false
     slots:
@@ -16,6 +17,9 @@
   - type: Wieldable
     unwieldOnUse: false
   - type: GunRequiresWield
+  - type: DisarmMalus # WWDP
+    malus: 0.3
+    wieldedBonus: 0.3
   - type: GunWieldBonus
     minAngle: -20
     maxAngle: -20
@@ -39,7 +43,7 @@
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -85,6 +89,15 @@
         Blunt: 3
   - type: DamageOtherOnHit
     staminaCost: 12
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: RiflesDrop
 
 - type: entity
   name: L6 SAW
@@ -104,6 +117,9 @@
     steps: 4
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,7,2 # Huge but not ginormous since it needs to fit into the bundle
 
 - type: entity
   name: L6C ROW
@@ -131,8 +147,9 @@
           map: [ "enum.GunVisualLayers.Base" ]
         - state: mag-3
           map: [ "enum.GunVisualLayers.Mag" ]
-    - type: Item
-      size: Huge
+    - type: Item # WWDP guns resize
+      shape:
+      - 0,0,7,2 # Same a L6 SAW
     - type: ContainerContainer
       containers:
         ballistic-ammo: !type:Container

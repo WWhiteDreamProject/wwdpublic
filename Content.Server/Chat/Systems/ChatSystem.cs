@@ -61,6 +61,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly IReplayRecordingManager _replay = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly HearingSystem _hearing = default!;
     [Dependency] private readonly IChatSanitizationManager _sanitizer = default!;
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -154,7 +155,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// <param name="shell"></param>
     /// <param name="player">The player doing the speaking</param>
     /// <param name="nameOverride">The name to use for the speaking entity. Usually this should just be modified via <see cref="TransformSpeakerSpeechEvent"/>. If this is set, the event will not get raised.</param>
-    public void TrySendInGameICMessage(
+    public override void TrySendInGameICMessage(
         EntityUid source,
         string message,
         InGameICChatType desiredType,
@@ -521,6 +522,11 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (MessageRangeCheck(session, data, range) != MessageRangeCheckResult.Full)
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
 
+            // WWDP Deafening
+            if (_hearing.IsBlockedByDeafness(session, ChatChannel.Whisper, language))
+                continue;
+            // WWDP end
+
             var canUnderstandLanguage = _language.CanUnderstand(listener, language.ID);
             // How the entity perceives the message depends on whether it can understand its language
             var perceivedMessage = canUnderstandLanguage ? message : languageObfuscatedMessage;
@@ -546,25 +552,6 @@ public sealed partial class ChatSystem : SharedChatSystem
                 result = ObfuscateMessageReadability(perceivedMessage);
                 wrappedMessage = WrapWhisperMessage(source, "chat-manager-entity-whisper-unknown-wrap-message", string.Empty, result, language);
             }
-
-            // WWDP Deafening
-            if (TryComp<MobStateComponent>(session.AttachedEntity, out var playermobstate))
-            {
-                if (playermobstate.CurrentState == MobState.Dead)
-                {
-                    continue;
-                }
-            }
-
-            if (TryComp<DeafComponent>(session.AttachedEntity, out var deafComp))
-            {
-                var canthearmessage = Loc.GetString(deafComp.DeafChatMessage);
-                var wrappedcanthearmessage = $"{canthearmessage}";
-
-                _chatManager.ChatMessageToOne(ChatChannel.Local, canthearmessage, wrappedcanthearmessage, EntityUid.Invalid, false, session.Channel);
-                continue;
-            }
-            // WWDP end
 
             _chatManager.ChatMessageToOne(ChatChannel.Whisper, result, wrappedMessage, source, false, session.Channel);
         }
@@ -755,20 +742,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             var entHideChat = entRange == MessageRangeCheckResult.HideChat;
 
             // WWDP Deafening
-            if (TryComp<MobStateComponent>(session.AttachedEntity, out var playermobstate))
-            {
-                if (playermobstate.CurrentState == MobState.Dead)
-                    continue;
-            }
-
-            if (TryComp<DeafComponent>(session.AttachedEntity, out var deafComp))
-            {
-                var canthearmessage = Loc.GetString(deafComp.DeafChatMessage);
-                var wrappedcanthearmessage = $"{canthearmessage}";
-
-                _chatManager.ChatMessageToOne(channel, canthearmessage, wrappedcanthearmessage, EntityUid.Invalid, false, session.Channel);
+            if (_hearing.IsBlockedByDeafness(session, channel, language))
                 continue;
-            }
             // WWDP end
 
             if (session.AttachedEntity is not { Valid: true } playerEntity)

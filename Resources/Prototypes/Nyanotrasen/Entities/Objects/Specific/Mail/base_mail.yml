@@ -9,9 +9,10 @@
     storedRotation: -90
   - type: Mail
   - type: AccessReader
+    # WWDP edit start
   - type: Sprite
-    scale: 0.7, 0.7 # Frontier
-    sprite: Objects/Specific/Mail/mail.rsi
+    # scale: 0.7, 0.7 # Frontier
+    sprite: Objects/Specific/Mail/mail.rsi #Sprites edited by WWDP
     layers:
     - state: icon
       map: ["enum.MailVisualLayers.Icon"]
@@ -20,8 +21,8 @@
       map: ["enum.MailVisualLayers.FragileStamp"]
       visible: false
     - map: ["enum.MailVisualLayers.JobStamp"]
-      scale: 0.8, 0.8 # Frontier 0.5<0.8
-      offset: 0.225, 0.165 # Frontier (0.275, 0.2)<(0.225, 0.165)
+      # scale: 0.8, 0.8 # Frontier 0.5<0.8
+      offset: 0.125, 0.0625 # WWDP edit. Previous edition: Frontier (0.275, 0.2)<(0.225, 0.165)
     - state: locked
       map: ["enum.MailVisualLayers.Lock"]
     - state: priority
@@ -31,6 +32,7 @@
     - state: broken
       map: ["enum.MailVisualLayers.Breakage"]
       visible: false
+      # WWDP edit end
   - type: Appearance
   - type: GenericVisualizer
     visuals:

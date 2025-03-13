@@ -1,4 +1,4 @@
-namespace Content.Server.CombatMode.Disarm
+namespace Content.Server.CombatMode.Disarm // WWDP moved to shared
 {
     /// <summary>
     /// Applies a malus to disarm attempts against this item.
@@ -12,5 +12,15 @@ namespace Content.Server.CombatMode.Disarm
         /// </summary>
         [DataField("malus")]
         public float Malus = 0.3f;
+
+        /// <summary>
+        /// WWDP - Flat increase to the disarm malus when wielded in two hands
+        /// </summary>
+        [DataField]
+        public float WieldedBonus = 0f;
+
+        // WWDP
+        [DataField, ViewVariables(VVAccess.ReadOnly)]
+        public float CurrentMalus;
     }
 }

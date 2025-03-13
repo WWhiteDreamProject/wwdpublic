@@ -51,10 +51,11 @@
     - JobsCommandAUncategorized
     - JobsCommandCaptain
     - JobsCommandHeadOfPersonnel
-    - JobsCommandAdminAssistant
-    - JobsCommandBlueshieldOfficer
-    - JobsCommandNanorep
-    - JobsCommandMagistrate
+    # - JobsCommandAdminAssistant # WWDP disabled roles
+    - JobsCommandMaid
+    # - JobsCommandBlueshieldOfficer # WWDP disabled roles
+    # - JobsCommandNanorep # WWDP disabled roles
+    # - JobsCommandMagistrate # WWDP disabled roles
 
 - type: loadoutCategory
   id: JobsCommandAUncategorized
@@ -67,6 +68,9 @@
 
 - type: loadoutCategory
   id: JobsCommandAdminAssistant
+
+- type: loadoutCategory
+  id: JobsCommandMaid
 
 - type: loadoutCategory
   id: JobsCommandBlueshieldOfficer

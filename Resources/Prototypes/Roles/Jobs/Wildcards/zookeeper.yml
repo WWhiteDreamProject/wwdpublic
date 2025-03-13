@@ -4,6 +4,7 @@
   description: job-description-zookeeper
   playTimeTracker: JobZookeeper
   startingGear: ZookeeperGear
+  setPreference: false # WWDP disabled
   icon: "JobIconZookeeper"
   supervisors: job-supervisors-hop
   access:

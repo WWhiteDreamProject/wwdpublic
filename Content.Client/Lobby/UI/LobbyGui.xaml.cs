@@ -42,6 +42,10 @@ namespace Content.Client.Lobby.UI
                     Center.Visible = true;
                     LabelName.Visible = true;
                     Changelog.Visible = true;
+                    LobbySong.Visible = true;
+                    LobbyBackground.Visible = true;
+                    DevInfoBanner.Visible = true;
+                    VoteContainer.Visible = true;
                     // WD EDIT END
                     break;
                 case LobbyGuiState.CharacterSetup:
@@ -51,6 +55,10 @@ namespace Content.Client.Lobby.UI
                     RightSide.Visible = false;
                     LabelName.Visible = false;
                     Changelog.Visible = false;
+                    LobbySong.Visible = false;
+                    LobbyBackground.Visible = false;
+                    DevInfoBanner.Visible = false;
+                    VoteContainer.Visible = false;
                     // WD EDIT END
 
                     var actualWidth = (float) UserInterfaceManager.RootControl.PixelWidth;

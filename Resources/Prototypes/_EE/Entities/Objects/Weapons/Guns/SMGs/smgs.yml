@@ -133,6 +133,9 @@
         fontSize: 10
         color: "#ff4f00"
         requireDetailRange: false
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,5,1 # SMG sized
 
 - type: entity
   name: antique BRDI R-25

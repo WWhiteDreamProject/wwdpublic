@@ -1,15 +1,61 @@
 {
-   "copyright" : "Taken from https://github.com/tgstation/tgstation",
-   "license" : "CC-BY-SA-3.0",
+  "version": 1,
+   "copyright" : "Made by Gersoon",
+   "license" : "CC-BY-SA-4.0",
    "size" : {
       "x" : 32,
       "y" : 32
    },
    "states" : [
       {
-         "directions" : 1,
-         "name" : "medibot"
+         "name" : "medibot",
+         "delays": [
+             [
+                 0.2,
+                 0.2,
+                 0.2,
+                 0.2,
+                 0.2,
+                 0.2
+             ]
+        ]
+      },
+      {
+         "name" : "face",
+         "delays": [
+             [
+                 10,
+                 0.2,
+                 0.25,
+                 0.2,
+                 10,
+                 0.2,
+                 3,
+                 0.2,
+                 0.2,
+                 0.2,
+                 3,
+                 0.2,
+                 5,
+                 7,
+                 10,
+                 0.2,
+                 0.2,
+                 0.2,
+                 0.2,
+                 0.2,
+                 0.2,
+                 0.2,
+                 0.2,
+                 0.2,
+                 0.2,
+                 0.2,
+                 0.2,
+                 0.2,
+                 0.2,
+                 2
+             ]
+         ]
       }
-   ],
-   "version" : 1
+   ]
 }

@@ -23,22 +23,22 @@
   maxItems: 1
   id: LoadoutHeadOfSecurityWeapon
   items:
-    - type: loadout
-      id: LoadoutCommandHoSPulsePistol
+    #- type: loadout # WWDP disabled
+    #  id: LoadoutCommandHoSPulsePistol
     - type: loadout
       id: LoadoutCommandHoSWt550
     - type: loadout
       id: LoadoutCommandHoSKatanaSheath
-    - type: loadout
-      id: LoadoutCommandHoSC20r
-    - type: loadout
-      id: LoadoutCommandHoSBulldog
-    - type: loadout
-      id: LoadoutCommandHoSEnergySword
+    # - type: loadout # WWDP disabled
+    #   id: LoadoutCommandHoSC20r
+    # - type: loadout # WWDP disabled
+    #   id: LoadoutCommandHoSBulldog
+    # - type: loadout # WWDP disabled
+    #   id: LoadoutCommandHoSEnergySword
     - type: loadout
       id: LoadoutCommandHoSEnergyGun
-    - type: loadout
-      id: LoadoutCommandHoSBRDIR25
+    # - type: loadout # WWDP disabled
+    #   id: LoadoutCommandHoSBRDIR25
 
 #- type: characterItemGroup
 #  id: LoadoutHeadOfSecurityEyes

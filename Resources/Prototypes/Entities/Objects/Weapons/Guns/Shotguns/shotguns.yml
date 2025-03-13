@@ -13,18 +13,19 @@
     # If you update this also update the bulldog's size.
     size: Large
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # Delta-V
     quickEquip: false
     slots:
     - Back
     - suitStorage
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: Gun # change WeaponShotgunBulldog too if updating this
-    bonusAngleIncreaseMove: 40    # wwdp 
+    bonusAngleIncreaseMove: 40    # wwdp
     bonusAngleIncreaseTurn: 0.25  # wwdp
     bonusAngleDecay: 40           # wwdp
     maxBonusAngle: 20             # wwdp
-    fireRate: 2
+    fireRate: 1 # WWDP lower fire rate
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -67,7 +68,16 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 9.5
-  - type: GunRequiresWield # WD EDIT
+  # - type: GunRequiresWield # WD EDIT # WWDP disabled
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: ShotgunsPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: ShotgunsDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: ShotgunsDrop
 
 - type: entity # supposed to be similiar to pistols
   name: BaseWeaponShotgunSmall
@@ -77,13 +87,13 @@
   description: A rootiny tootiny point and shootiny.
   abstract: true
   components:
-  - type: Gun # change WeaponFlareGun too if updating this 
-    bonusAngleIncreaseMove: 20    # wwdp 
+  - type: Gun # change WeaponFlareGun too if updating this
+    bonusAngleIncreaseMove: 20    # wwdp
     bonusAngleIncreaseTurn: 0.4   # wwdp
     bonusAngleDecay: 80           # wwdp
     maxBonusAngle: 10             # wwdp
     fireRate: 2
-  
+
 
 - type: entity
   name: Bulldog
@@ -100,15 +110,18 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Item
-    size: Large
+    size: Huge # WWDP guns resize
+    shape:
+    - 0,0,5,1
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
-  - type: AmmoCounter
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  # - type: AmmoCounter # WWDP
+  # - type: GunRequiresWield #remove when inaccuracy on spreads is fixed # WWDP disabled
   - type: Gun
     bonusAngleIncreaseMove: 40    # wwdp
     bonusAngleIncreaseTurn: 0.25  # wwdp
@@ -134,11 +147,21 @@
           - MagazineShotgun
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+      gun_chamber: # WWDP
+        name: Chamber
+        locked: true
+        startingItem: ShellShotgun
+        priority: 1
+        whitelist:
+          tags:
+          - ShellShotgun
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
-  - type: MagazineAmmoProvider
+  - type: ChamberMagazineAmmoProvider # WWDP
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -165,6 +188,15 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 9.5
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: ShotgunsPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: ShotgunsDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: ShotgunsDrop
 
 - type: entity
   name: antique Bulldog
@@ -184,9 +216,9 @@
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # Delta-V
   - type: Item
-    size: Normal
+    size: Huge # WWDP weapons resize
     shape:
-    - 0,0,4,0
+    - 0,0,7,0
     sprite: Objects/Weapons/Guns/Shotguns/db_shotgun_inhands_64x.rsi
   - type: Gun
     fireRate: 2
@@ -220,15 +252,19 @@
   name: Enforcer
   parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponShotgunEnforcer
-  description: A premium combat shotgun based on the Kammerer design, featuring an upgraded clip capacity. .50 shotgun shells.
+  description: A premium combat shotgun based on the Kammerer design, featuring a semi-automatic firing mode. Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi # WWDP
   - type: Clothing
-    sprite: DeltaV/Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi # WWDP
   - type: Item
+    size: Huge # WWDP guns resize
+    shape:
+    - 0,0,7,0
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: BallisticAmmoProvider
+    autoCycle: true # WWDP semi-auto
   - type: Wieldable
   - type: MeleeWeapon
     attackRate: 1.4
@@ -253,16 +289,18 @@
   description: When an old Remington design meets modern materials, this is the result. A favourite weapon of militia forces throughout many worlds. Uses .50 shotgun shells.
   components:
   - type: Item
-    size: Normal
+    size: Huge # WWDP guns resize
     shape:
-    - 0,0,4,0
+    - 0,0,7,0
     sprite: Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: BallisticAmmoProvider
-    capacity: 4
+    capacity: 7 # WWDP same as enforcer
+    soundRack:
+      path: /Audio/_White/Guns/shotgun_rack.ogg
   - type: Tag
     tags:
     - WeaponShotgunKammerer
@@ -279,7 +317,9 @@
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/sawn.rsi # Delta-V
   - type: Item
-    size: Small
+    size: Normal # WWDP guns resize
+    shape:
+    - 0,0,3,0
     sprite: Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi
   - type: Gun
     fireRate: 4
@@ -299,7 +339,7 @@
     staminaCost: 6
 
 - type: entity
-  name: sawn-off shogun
+  name: sawn-off shotgun
   parent: WeaponShotgunSawn
   id: WeaponShotgunSawnEmpty
   description: Groovy! Uses .50 shotgun shells.
@@ -319,8 +359,9 @@
   description: Looks unreliable. Uses .50 shotgun shells.
   components:
   - type: Item
-    size: Small
-    storedRotation: 90
+    size: Normal # WWDP guns resize
+    shape:
+    - 0,0,3,0
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
   - type: Clothing
@@ -329,11 +370,8 @@
     fireRate: 4
     fireOnDropChance: 1
   - type: BallisticAmmoProvider
+    autoCycle: true # WWDP
     capacity: 1
-  - type: Construction
-    graph: ShotgunSawn
-    node: shotgunsawn
-    deconstructionTarget: null
   - type: StaticPrice
     price: 0
   - type: MeleeWeapon
@@ -345,6 +383,19 @@
   - type: DamageOtherOnHit
     staminaCost: 5
 
+- type: entity # WWDP
+  name: improvised pistol # WWDP
+  parent: WeaponShotgunHandmade
+  id: WeaponShotgunHandmadeEmpty
+  suffix: Empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Construction
+    graph: ImprovisedShotgunSawnGraph
+    node: shotgunsawn
+    deconstructionTarget: null
+
 - type: entity
   name: blunderbuss
   parent: [BaseWeaponShotgun, BaseGunWieldable]
@@ -353,9 +404,9 @@
   description: Deadly at close range.
   components:
   - type: Item
-    size: Normal
+    size: Large # WWDP guns resize
     shape:
-    - 0,0,4,0
+    - 0,0,5,1
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/blunderbuss.rsi
   - type: Gun
@@ -378,9 +429,9 @@
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi # Delta-V
   - type: Item
-    size: Normal
+    size: Huge # WWDP guns resize
     shape:
-    - 0,0,4,0
+    - 0,0,7,0
     sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun_inhands_64x.rsi
   - type: Gun
     fireRate: 4 #No reason to stifle the firerate since you have to manually reload every time anyways.

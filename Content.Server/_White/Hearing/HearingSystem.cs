@@ -1,7 +1,11 @@
 ﻿using System.Threading;
+using Content.Server.Chat.Managers;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Chat;
+using Content.Shared.Language;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
+using Robust.Shared.Player;
 
 
 namespace Content.Server._White.Hearing;
@@ -10,6 +14,7 @@ public sealed class HearingSystem : EntitySystem
 {
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
 
     public override void Initialize()
     {
@@ -75,6 +80,7 @@ public sealed class HearingSystem : EntitySystem
         }
 
         EnsureComp<DeafComponent>(uid, out var deafComponent);
+        deafComponent.Permanent = false;
         deafComponent.DeafChatMessage = args.DeafChatMessage;
 
         deafComponent.TokenSource?.Cancel();
@@ -87,5 +93,28 @@ public sealed class HearingSystem : EntitySystem
     {
         if (!deafComponent.Permanent)
             RemComp<DeafComponent>(uid);
+    }
+
+    // Public API
+    // Returns true if the message can not be heard
+    // If true, sends a DeafChatMessage in player's chat
+    public bool IsBlockedByDeafness(ICommonSession session, ChatChannel channel, LanguagePrototype language)
+    {
+        if (channel is not (ChatChannel.Local or ChatChannel.Whisper or ChatChannel.Radio or ChatChannel.Notifications))
+            return false;
+
+        if (!language.SpeechOverride.RequireSpeech) // Non-verbal languages e.g. sign language
+            return false;
+
+        if (TryComp<DeafComponent>(session.AttachedEntity, out var deafComp))
+        {
+            var canthearmessage = Loc.GetString(deafComp.DeafChatMessage);
+            var wrappedcanthearmessage = $"{canthearmessage}";
+
+            _chatManager.ChatMessageToOne(ChatChannel.Local, canthearmessage, wrappedcanthearmessage, EntityUid.Invalid, false, session.Channel);
+            return true;
+        }
+
+        return false;
     }
 }

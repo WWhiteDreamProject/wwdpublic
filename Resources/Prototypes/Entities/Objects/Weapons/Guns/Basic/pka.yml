@@ -47,3 +47,7 @@
   #   node: start #Frontier
   #   deconstructionTarget: null #Frontier
   - type: Wieldable # Frontier
+  - type: Item # WWDP guns resize
+    size: Small
+    shape:
+    - 0,0,5,1

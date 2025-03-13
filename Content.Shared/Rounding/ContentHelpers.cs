@@ -34,6 +34,13 @@
                 return 0;
             }
 
+            // WWDP edit; fix partially filled mags
+            if (levels == 2)
+            {
+                return 1;
+            }
+            // WWDP edit end
+
             var toOne = actual / max;
             return (int) Math.Ceiling(toOne * (levels - 2));
         }

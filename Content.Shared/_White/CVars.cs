@@ -27,6 +27,12 @@ public sealed class WhiteCVars
     public static readonly CVarDef<bool> LogInChat =
         CVarDef.Create("white.log_in_chat", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
 
+    public static readonly CVarDef<string> EmotesMenuStyle =
+        CVarDef.Create("white.emotes_menu_style", "Window", CVar.CLIENT | CVar.ARCHIVE);
+
+    public static readonly CVarDef<bool> CoalesceIdenticalMessages =
+        CVarDef.Create("white.coalesce_identical_messages", true, CVar.CLIENT | CVar.ARCHIVE | CVar.CLIENTONLY);
+
     #endregion
 
     #region TTS
@@ -74,7 +80,7 @@ public sealed class WhiteCVars
         CVarDef.Create("tts.announce_voice", "Announcer", CVar.SERVERONLY | CVar.ARCHIVE);
 
     #endregion
-    
+
     public static readonly CVarDef<bool> PMMEnabled =
         CVarDef.Create("pmm.enabled", true, CVar.SERVER | CVar.ARCHIVE);
 
@@ -86,4 +92,24 @@ public sealed class WhiteCVars
 
     public static readonly CVarDef<bool> PixelSnapCamera =
     	CVarDef.Create("experimental.pixel_snap_camera", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #region Shoving
+    /// <summary>
+    /// Shove range multiplier.
+    /// </summary>
+    public static readonly CVarDef<float> ShoveRange =
+        CVarDef.Create("game.shove_range", 1f, CVar.SERVER | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Shove speed multiplier, does not affect range.
+    /// </summary>
+    public static readonly CVarDef<float> ShoveSpeed =
+        CVarDef.Create("game.shove_speed", 3f, CVar.SERVER | CVar.ARCHIVE);
+
+    /// <summary>
+    /// How much should the mass difference affect shove range & speed.
+    /// </summary>
+    public static readonly CVarDef<float> ShoveMassFactor =
+        CVarDef.Create("game.shove_mass_factor", 5f, CVar.SERVER | CVar.ARCHIVE);
+    #endregion
 }

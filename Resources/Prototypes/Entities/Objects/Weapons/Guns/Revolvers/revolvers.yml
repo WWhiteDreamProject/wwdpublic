@@ -16,6 +16,7 @@
     tags:
     - Sidearm
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle2.ogg # WWDP
     sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
     quickEquip: false
     slots:
@@ -36,6 +37,8 @@
     fireOnDropChance: 0.5
   - type: UseDelay
     delay: 0.66
+  - type: DisarmMalus # WWDP
+    malus: 0.3
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container
@@ -67,6 +70,15 @@
       collection: MetalThud
   - type: DamageOtherOnHit
     staminaCost: 5
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: RevolversPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: RevolversDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: RevolversDrop
 
 - type: entity
   name: Deckard

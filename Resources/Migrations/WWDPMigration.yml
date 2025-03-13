@@ -35,11 +35,24 @@ BoxMagazineLightRifleRubber: BoxMagazineLightRifle
 BoxMagazineRifleRubber: BoxMagazineRifle
 BoxMagazineCaselessRifleRubber: BoxMagazinePistolCaselessRifle
 BoxMagazineMagnumSubMachineGunRubber: BoxMagazineMagnumSubMachineGun
+BoxMagazineUniversalMagnumRubber: BoxMagazineUniversalMagnum
+MagazineUniversalMagnumRubber: null
 WeaponPistolMk58Nonlethal: WeaponPistolMk58
 WeaponPistolN1984Nonlethal: WeaponPistolN1984
-WeaponSubMachineGunVectorRubber: WeaponSubMachineGunVector
 WeaponSubMachineGunDrozdRubber: WeaponSubMachineGunDrozd
 WeaponRifleLecterRubber: WeaponRifleLecter
 WeaponSniperMosinRubber: WeaponSniperMosin
 WeaponRifleGestioRubber: WeaponRifleGestio
 WeaponRifleNovaliteC1Rubber: WeaponRifleNovaliteC1
+
+# 10-03-2025
+SpawnPointAdminAssistant: SpawnPointMaid
+
+# 11-03-2025
+
+WeaponEnergyShotgun: null
+WeaponLauncherRocket: null
+CartridgeRocket: null
+LockerNanorepFilled: null
+LockerMagistrateFilled: null
+LockerBlueshieldOfficerFilled: null

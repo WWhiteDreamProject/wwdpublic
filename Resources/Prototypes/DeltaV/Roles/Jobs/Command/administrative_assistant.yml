@@ -3,6 +3,7 @@
   name: job-name-admin-assistant
   description: job-description-admin-assistant
   playTimeTracker: JobAdminAssistant
+  setPreference: false # WWDP disabled
   requirements:
     - !type:CharacterDepartmentTimeRequirement
       department: Engineering
