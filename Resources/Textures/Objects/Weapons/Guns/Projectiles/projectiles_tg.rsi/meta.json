@@ -16,9 +16,6 @@
         {
             "name": "omnilaser_greyscale"
         },
-		{
-            "name": "omnilaser_weak_greyscale"
-        },
         {
             "name": "impact_bullet",
             "delays": [
