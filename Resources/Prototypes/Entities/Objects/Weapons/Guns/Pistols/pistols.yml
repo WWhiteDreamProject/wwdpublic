@@ -94,6 +94,8 @@
   - type: EmitSoundOnLand # WWDP sounds
     sound:
       collection: PistolsDrop
+  - type: DisarmMalus # WWDP
+    malus: 0.3
 
 - type: entity
   name: viper

@@ -21,6 +21,9 @@
   # - type: AmmoCounter # WWDP
   - type: Wieldable
   - type: GunRequiresWield
+  - type: DisarmMalus # WWDP
+    malus: 0.3
+    wieldedBonus: 0.3
   - type: Gun
     bonusAngleIncreaseMove: 30  # wwdp
     bonusAngleIncreaseTurn: 0.4 # wwdp

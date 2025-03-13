@@ -61,3 +61,4 @@
     size: Normal
     sprite: Nyanotrasen/Objects/Weapons/Melee/shinai.rsi
   - type: DisarmMalus
+    malus: 0.5 # WWDP

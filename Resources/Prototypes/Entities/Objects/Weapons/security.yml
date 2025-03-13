@@ -61,7 +61,7 @@
     slots:
     - Belt
   - type: DisarmMalus
-    malus: 0.225
+    malus: 0.8 # WWDP
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -128,7 +128,7 @@
     slots:
     - Belt
   - type: DisarmMalus
-    malus: 0.225
+    malus: 0.8 # WWDP
   - type: Appearance
   - type: StaticPrice
     price: 80

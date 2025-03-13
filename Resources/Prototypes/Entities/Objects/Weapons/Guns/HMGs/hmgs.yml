@@ -8,6 +8,9 @@
   - type: Sprite
   - type: Wieldable
     unwieldOnUse: false
+  - type: DisarmMalus # WWDP
+    malus: 0.3
+    wieldedBonus: 0.3
   - type: Item
     size: Ginormous
   - type: Gun
