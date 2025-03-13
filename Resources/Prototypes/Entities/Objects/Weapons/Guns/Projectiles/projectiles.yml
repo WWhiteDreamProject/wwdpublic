@@ -237,90 +237,42 @@
     soundHit:
       collection: WeakHit
     forceSound: true
+  - type: PointLight # WWDP
+    enabled: true
+    color: "#adffff"
+    radius: 2.0
+    energy: 1.0
 
 - type: entity
   name : disabler bolt
   id: BulletCivilianDisabler
-  parent: BaseBullet
+  parent: BulletDisabler # WWDP parented, this was a mess
   categories: [ HideSpawnMenu ]
   components:
-  - type: Reflective
-    reflective:
-    - Energy
-  - type: FlyBySound
-    sound:
-      collection: EnergyMiss
-      params:
-        volume: 3
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
     - state: omnilaser_weak
       shader: unshaded
-  - type: Physics
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.15,-0.3,0.15,0.3"
-        hard: false
-        mask:
-        - Impassable
-        - BulletImpassable
-      fly-by: *flybyfixture
-  - type: Ammo
-    muzzleFlash: null # WWDP
   - type: StaminaDamageOnCollide
     damage: 20
   - type: Projectile
-    impactEffect: BulletImpactEffectDisabler
     damage:
       types:
         Heat: 0.3
-    soundHit:
-      collection: WeakHit
-    forceSound: true
 
 - type: entity
   name : disabler bolt practice
   id: BulletDisablerPractice
-  parent: BaseBullet
+  parent: BulletDisabler # WWDP parented, this was a mess
   categories: [ HideSpawnMenu ]
   components:
-  - type: FlyBySound
-    sound:
-      collection: EnergyMiss
-      params:
-        volume: 5
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
-    layers:
-    - state: omnilaser
-      shader: unshaded
-  - type: Physics
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.15,-0.3,0.15,0.3"
-        hard: false
-        mask:
-        - Opaque # WWDP allow shooting through windows
-      fly-by: *flybyfixture
-  - type: Ammo
-    muzzleFlash: null # WWDP
   - type: StaminaDamageOnCollide
     damage: 1
   - type: Projectile
-    impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 1
-    soundHit:
-      collection: WeakHit
-    forceSound: true
+        Heat: 5
 
 - type: entity
   name: emitter bolt
@@ -952,45 +904,15 @@
 - type: entity
   name : disabler bolt smg
   id: BulletDisablerSmg
-  parent: BaseBullet
+  parent: BulletDisabler # WWDP parented, this was a mess
   categories: [ HideSpawnMenu ]
   components:
-  - type: Reflective
-    reflective:
-    - Energy
-  - type: FlyBySound
-    sound:
-      collection: EnergyMiss
-      params:
-        volume: 5
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
-    layers:
-    - state: omnilaser
-      shader: unshaded
-  - type: Physics
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.15,-0.3,0.15,0.3"
-        hard: false
-        mask:
-        - Opaque # WWDP allow shooting through windows
-      fly-by: *flybyfixture
-  - type: Ammo
-    muzzleFlash: null # WWDP
   - type: StaminaDamageOnCollide
     damage: 15
   - type: Projectile
-    impactEffect: BulletImpactEffectDisabler
     damage:
       types:
         Heat: 2
-    soundHit:
-      collection: WeakHit
-    forceSound: true
 
 - type: entity
   name: tesla gun lightning
@@ -1067,7 +989,12 @@
       types:
         Heat: 12 # WWDP less powerful laser
     soundHit:
-      collection: MeatLaserImpact
+      collection: MeatLaserImpact\
+  - type: PointLight # WWDP
+    enabled: true
+    color: "#ff0000"
+    radius: 2.0
+    energy: 1.0
 
 - type: entity
   name: laser bolt
