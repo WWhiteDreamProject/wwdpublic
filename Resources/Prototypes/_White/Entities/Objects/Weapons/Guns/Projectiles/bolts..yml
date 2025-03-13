@@ -97,7 +97,7 @@
     color: green
 
 - type: entity
-  name: pulse bolt
+  name: wisp lash
   id: BulletWispLash
   parent: BulletLaser
   categories: [ HideSpawnMenu ]
