@@ -1988,3 +1988,16 @@ Entries:
   id: 208
   time: '2025-03-13T12:06:34.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/334
+- author: vanx
+  changes:
+    - type: Fix
+      message: >-
+        Снижение шанса на дизарм теперь работает корректно и отображается при
+        осмотре.
+    - type: Add
+      message: >-
+        Добавлено снижение шанса на дизарм оружию, увеличенное при держании в
+        двух руках.
+  id: 209
+  time: '2025-03-13T12:38:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/335
