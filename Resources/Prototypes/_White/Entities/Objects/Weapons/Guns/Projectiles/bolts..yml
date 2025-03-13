@@ -85,7 +85,7 @@
   components:
   - type: Sprite
     layers:
-    - state: laser_green
+    - state: xray
       shader: unshaded
   - type: Projectile
     impactEffect: BulletImpactEffectLaserGreen

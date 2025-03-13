@@ -55,15 +55,15 @@
         },
 		{
             "name": "laser_blue"
-        },
-		{
-            "name": "laser_green"
-        },
+        }
 		{
             "name": "laser_short"
         },
         {
             "name": "heavylaser"
+        },
+		{
+            "name": "xray"
         }
     ]
 }
