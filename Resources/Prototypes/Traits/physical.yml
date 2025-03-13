@@ -619,8 +619,7 @@
 - type: trait
   id: FlareShielding
   category: Physical
-  points: -4
-  enable: false # WD EDIT
+  points: -2 # WWDP EDIT
   requirements:
   - !type:CharacterJobRequirement
     inverted: true
@@ -632,7 +631,7 @@
   functions:
   - !type:TraitAddComponent
     components:
-    - type: FlashImmunity
+    # - type: FlashImmunity # WWDP EDIT
     - type: EyeProtection
 
 - type: trait
@@ -897,8 +896,7 @@
 - type: trait
   id: FlareShieldingModule
   category: Physical
-  points: -4
-  enable: false # WD EDIT
+  points: -2 # WWDP EDIT
   requirements:
   - !type:CharacterJobRequirement
     inverted: true
@@ -918,7 +916,7 @@
   functions:
   - !type:TraitAddComponent
     components:
-    - type: FlashImmunity
+    #- type: FlashImmunity # WWDP EDIT
     - type: EyeProtection
 
 - type: trait
