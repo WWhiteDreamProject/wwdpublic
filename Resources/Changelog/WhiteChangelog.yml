@@ -1963,3 +1963,10 @@ Entries:
   id: 205
   time: '2025-03-12T16:56:30.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/329
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Режим революции теперь начинается минимум с двумя главами революции.
+  id: 206
+  time: '2025-03-13T08:23:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/331
