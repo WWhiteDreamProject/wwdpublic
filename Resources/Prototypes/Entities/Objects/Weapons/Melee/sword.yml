@@ -68,6 +68,7 @@
     tags:
     - CaptainSabre
   - type: DisarmMalus
+    malus: 0.8 # WWDP
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
@@ -116,6 +117,7 @@
     shape:
     - 0,0,4,0
   - type: DisarmMalus
+    malus: 0.5 # WWDP
   - type: MeleeBlock # WD EDIT
     delay: 6.1
 

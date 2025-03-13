@@ -61,6 +61,8 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
+  - type: DisarmMalus # WWDP
+    malus: 0.3
   - type: Execution
   - type: MeleeWeapon
     attackRate: 1.3333

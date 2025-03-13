@@ -335,7 +335,7 @@
   - type: ComponentToggler
     components:
     - type: DisarmMalus
-      malus: 0.6
+      malus: 0.9 # WWDP
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_shield.rsi
     layers:
@@ -436,7 +436,7 @@
   - type: ComponentToggler
     components:
     - type: DisarmMalus
-      malus: 0.6
+      malus: 0.9 # WWDP
   - type: ItemToggleSize
     activatedSize: Huge
   - type: Sprite

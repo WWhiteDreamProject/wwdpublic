@@ -17,6 +17,9 @@
   - type: Wieldable
     unwieldOnUse: false
   - type: GunRequiresWield
+  - type: DisarmMalus # WWDP
+    malus: 0.3
+    wieldedBonus: 0.3
   - type: GunWieldBonus
     minAngle: -20
     maxAngle: -20
