@@ -1977,3 +1977,14 @@ Entries:
   id: 207
   time: '2025-03-13T12:04:25.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/333
+- author: vanx
+  changes:
+    - type: Remove
+      message: Из меню выбора ролей убраны неиспользуемые.
+    - type: Fix
+      message: >-
+        Название фона лобби, трека, и голосования теперь не перекрывают меню
+        редактирования персонажа.
+  id: 208
+  time: '2025-03-13T12:06:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/334
