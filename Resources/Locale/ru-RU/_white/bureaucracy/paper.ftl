@@ -747,9 +747,6 @@ doc-text-printer-construction-permit =
 
     ====================================================
                                Место для подписей и печатей
-    (Full name), in the position of (full job title)
-    ====================================================
-                               Место для подписей и печатей
 doc-text-printer-order-dismissal =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Официальный документ[/head]
