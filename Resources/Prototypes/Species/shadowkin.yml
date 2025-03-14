@@ -38,7 +38,7 @@
     Snout: MobShadowkinAnyMarkingFollowSkin
     Underwear: MobHumanoidAnyMarking
     Undershirt: MobHumanoidAnyMarking
-    HeadTop: MobShadowkinAnyMarkingFollowSkin
+    HeadTop: MobShadowkinAnyMarking
     HeadSide: MobShadowkinAnyMarkingFollowSkin
     Tail: MobShadowkinAnyMarkingFollowSkin
     Chest: MobShadowkinTorso
@@ -94,6 +94,9 @@
 - type: humanoidBaseSprite
   id: MobShadowkinAnyMarkingFollowSkin
   markingsMatchSkin: true
+
+- type: humanoidBaseSprite
+  id: MobShadowkinAnyMarking
 
 - type: humanoidBaseSprite
   id: MobShadowkinHead
