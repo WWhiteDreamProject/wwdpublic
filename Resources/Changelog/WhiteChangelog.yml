@@ -2008,3 +2008,10 @@ Entries:
   id: 210
   time: '2025-03-14T19:40:06.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/340
+- author: vanx
+  changes:
+    - type: Fix
+      message: Коллизии унитазов и возможность интерактировать с ними.
+  id: 211
+  time: '2025-03-14T19:48:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/341
