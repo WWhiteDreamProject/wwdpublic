@@ -2015,3 +2015,12 @@ Entries:
   id: 211
   time: '2025-03-14T19:48:48.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/341
+- author: vanx
+  changes:
+    - type: Fix
+      message: Очки бригмедика теперь показывают здоровье.
+    - type: Fix
+      message: Крафт очков бригмедика заменён на (работающий) крафт очков медсек.
+  id: 212
+  time: '2025-03-14T19:58:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/342
