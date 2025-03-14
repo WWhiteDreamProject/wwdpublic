@@ -13,7 +13,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ShowHealthBars
+    damageContainers: # WWDP fix
+    - Biological
   - type: ShowHealthIcons
+    damageContainers: # WWDP fix
+    - Biological
 
 - type: entity
   id: ShowPsionicsIcons

@@ -21,12 +21,12 @@
   objectType: Item
 
 - type: construction
-  name: corpsman glasses 
-  id: ClothingEyesGlassesCorpsman
-  graph: GlassesCorpsHUD
+  name: medsec glasses # WWDP
+  id: ClothingEyesGlassesMedSec # WWDP
+  graph: GlassesMedSecHUD # WWDP
   startNode: start
-  targetNode: glassesCorps
+  targetNode: glassesMedSec # WWDP
   category: construction-category-clothing
   description: A pair of sunglasses, modified to have a built-in security and medical HUD.
-  icon: { sprite: DeltaV/Clothing/Eyes/Glasses/corpsglasses.rsi, state: icon }
+  icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi, state: icon } # WWDP
   objectType: Item
