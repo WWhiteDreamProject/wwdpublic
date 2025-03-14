@@ -225,6 +225,7 @@
     - JobsSecuritySecurityOfficer
     - JobsSecuritySeniorOfficer
     - JobsSecurityWarden
+    - JobsSecurityZPrisoner # this breaks convention some but i don't want to put it in the middle of actual sec stuff
 
 - type: loadoutCategory
   id: JobsSecurityAUncategorized
@@ -249,6 +250,9 @@
 
 - type: loadoutCategory
   id: JobsSecurityWarden
+
+- type: loadoutCategory
+  id: JobsSecurityZPrisoner
 
 # Service
 - type: loadoutCategory
