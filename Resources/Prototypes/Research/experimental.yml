@@ -11,7 +11,7 @@
   cost: 5000
   recipeUnlocks:
   - ProximitySensor
-  - ExosuitFabricatorMachineCircuitboard
+  - Drone # Goobstation
 
 - type: technology
   id: BasicAnomalousResearch
@@ -162,10 +162,10 @@
   tier: 2
   cost: 15000
   recipeUnlocks:
-    - BiomassReclaimerMachineCircuitboard
-    - CloningConsoleComputerCircuitboard
-    - MedicalScannerMachineCircuitboard
-    - MetempsychoticMachineCircuitboard
+  - BiomassReclaimerMachineCircuitboard
+  - CloningConsoleComputerCircuitboard
+  - MedicalScannerMachineCircuitboard
+  - MetempsychoticMachineCircuitboard
 
 - type: technology
   id: NightVisionTech
@@ -221,8 +221,8 @@
   tier: 3
   cost: 10000
   recipeUnlocks:
-    - WeaponForceGun
-    - WeaponTetherGun
+  - WeaponForceGun
+  - WeaponTetherGun
   softCapContribution: 1.5
 
 - type: technology
