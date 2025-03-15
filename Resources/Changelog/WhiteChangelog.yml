@@ -2044,3 +2044,10 @@ Entries:
   id: 214
   time: '2025-03-15T09:47:55.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/345
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Пулемёт L6 SAW теперь не теряет точность при стрельбе без движения.
+  id: 215
+  time: '2025-03-15T09:59:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/344
