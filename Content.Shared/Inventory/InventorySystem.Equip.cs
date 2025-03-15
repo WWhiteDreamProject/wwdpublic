@@ -10,7 +10,6 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Storage;
 using Content.Shared.Strip;
 using Content.Shared.Strip.Components;
 using Content.Shared.Whitelist;
@@ -31,7 +30,6 @@ public abstract partial class InventorySystem
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _interface = default!; // WWDP
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
@@ -45,8 +43,6 @@ public abstract partial class InventorySystem
         //these events ensure that the client also gets its proper events raised when getting its containerstate updated
         SubscribeLocalEvent<InventoryComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<InventoryComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
-
-        SubscribeLocalEvent<ItemComponent, GotEquippedEvent>(OnEquipped); // WWDP
 
         SubscribeAllEvent<UseSlotNetworkMessage>(OnUseSlot);
     }
@@ -128,15 +124,6 @@ public abstract partial class InventorySystem
         TryEquip(actor, actor, held.Value, ev.Slot, predicted: true, inventory: inventory, force: true, checkDoafter:true);
     }
 
-    // WWDP IF WE PUT IT ON AND ITS NOT ACCESSIBLE CLOSE THE UI
-    private void OnEquipped(Entity<ItemComponent> item, ref GotEquippedEvent args)
-    {
-        if (item.Comp.CanBeUsedWhileWorn)
-            return;
-
-        _interface.CloseUis(item.Owner);
-    }
-
     public bool TryEquip(EntityUid uid, EntityUid itemUid, string slot, bool silent = false, bool force = false, bool predicted = false,
         InventoryComponent? inventory = null, ClothingComponent? clothing = null, bool checkDoafter = false) =>
         TryEquip(uid, uid, itemUid, slot, silent, force, predicted, inventory, clothing, checkDoafter);
@@ -186,7 +173,7 @@ public abstract partial class InventorySystem
             {
                 BlockDuplicate = true,
                 BreakOnHandChange = true,
-                BreakOnMove = false, // WWDP no breaking on move
+                BreakOnMove = true,
                 BreakOnDamage = false, // White Dream: Do not break on recieving damage
                 CancelDuplicate = true,
                 RequireCanInteract = true,
@@ -435,7 +422,7 @@ public abstract partial class InventorySystem
             {
                 BlockDuplicate = true,
                 BreakOnHandChange = true,
-                BreakOnMove = false, // WWDP no breaking on move
+                BreakOnMove = true,
                 BreakOnDamage = false, // White Dream: Do not break on recieving damage
                 CancelDuplicate = true,
                 RequireCanInteract = true,
