@@ -45,7 +45,3 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: Item # WWDP guns resize
-    size: Large
-    shape:
-    - 0,0,5,1
