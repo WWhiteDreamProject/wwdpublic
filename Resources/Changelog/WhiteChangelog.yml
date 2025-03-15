@@ -2072,3 +2072,12 @@ Entries:
   id: 218
   time: '2025-03-15T16:43:38.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/309
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Все лазеры теперь стреляют проджектайлами.
+    - type: Remove
+      message: Гражданские дисейблеры
+  id: 219
+  time: '2025-03-15T17:14:36.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/336
