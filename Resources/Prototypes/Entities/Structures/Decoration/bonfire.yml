@@ -37,9 +37,6 @@
   - type: Tag
     tags:
       - NoPaint
-  - type: Construction # WWDP
-    graph: Bonfires
-    node: Bonfire
 
 - type: entity
   id: LegionnaireBonfire
@@ -52,6 +49,3 @@
       - state: legionnaire_bonfire
   - type: PointLight
     color: "#FF5601"
-  - type: Construction # WWDP
-    graph: Bonfires
-    node: LegionnaireBonfire

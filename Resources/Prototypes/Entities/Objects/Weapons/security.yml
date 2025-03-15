@@ -95,7 +95,6 @@
     - Security
   - type: MartialArtBlocked # Goobstation - Martial Arts
     form: CorporateJudo # Goobstation - Martial Arts
-  - type: KnockdownOnHit # WD EDIT
 
 - type: entity
   name: truncheon

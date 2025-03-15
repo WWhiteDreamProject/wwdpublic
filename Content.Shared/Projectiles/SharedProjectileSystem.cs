@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Numerics;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
@@ -8,6 +9,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared._White.Penetrated;
+using Content.Shared._White.Projectile;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
@@ -20,6 +23,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Content.Shared.Standing;
+using Robust.Shared.Network;
 
 namespace Content.Shared.Projectiles;
 
@@ -27,6 +31,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 {
     public const string ProjectileFixture = "projectile";
 
+    [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
@@ -169,13 +174,13 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
     }
 
-    private bool TryEmbed(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component, TargetBodyPart? targetPart = null, bool raiseEvent = true)
+    public bool TryEmbed(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component, TargetBodyPart? targetPart = null, bool raiseEvent = true)
     {
         // WD EDIT START
         if (!TryComp<PhysicsComponent>(uid, out var physics)
             || physics.LinearVelocity.Length() < component.MinimumSpeed
             || _netManager.IsClient)
-            return;
+            return false;
 
         var attemptEmbedEvent = new AttemptEmbedEvent(user, target);
         RaiseLocalEvent(uid, ref attemptEmbedEvent);
@@ -255,44 +260,12 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     }
 
     // WD EDIT START
-    private void OnEmbedActivate(EntityUid uid, EmbeddableProjectileComponent component, ActivateInWorldEvent args)
-    {
-        if (args.Handled
-            || !AttemptEmbedRemove(uid, args.User, component))
-            return;
-
-        args.Handled = true;
-    }
-
     private void OnPreventCollision(EntityUid uid, EmbeddableProjectileComponent component, ref PreventCollideEvent args)
     {
         // Opaque collision mask doesn't work for EmbeddableProjectileComponent
         if (component.PreventCollide && TryComp(args.OtherEntity, out FixturesComponent? fixtures) &&
             fixtures.Fixtures.All(fix => (fix.Value.CollisionLayer & (int) CollisionGroup.Opaque) == 0))
             args.Cancelled = true;
-    }
-
-    private bool AttemptEmbedRemove(EntityUid uid, EntityUid user, EmbeddableProjectileComponent? component = null)
-    {
-        if (!Resolve(uid, ref component, false)
-            || component.RemovalTime == null
-            || !TryComp<PhysicsComponent>(uid, out var physics)
-            || physics.BodyType != BodyType.Static)
-            return false;
-
-        if (component.Target is {} targetUid)
-            _popup.PopupClient(Loc.GetString("throwing-embed-remove-alert-owner", ("item", uid), ("other", user)),
-                user, targetUid);
-
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, component.RemovalTime.Value,
-            new RemoveEmbeddedProjectileEvent(), eventTarget: uid, target: uid)
-        {
-            DistanceThreshold = SharedInteractionSystem.InteractionRange,
-            BreakOnMove = true,
-            NeedHand = true,
-        });
-
-        return true;
     }
 
     private void FreePenetrated(EntityUid uid, PenetratedProjectileComponent? penetratedProjectile = null)
