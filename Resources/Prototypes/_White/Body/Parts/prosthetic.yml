@@ -8,7 +8,7 @@
     walkSpeed: 1.8
     sprintSpeed: 2.25 #you cant sprint fast on this
   - type: Construction
-    graph: MakeshiftRightLeg
+    graph: MakeshiftRightLegGraph
     node: makeshiftrightleg
   - type: PhysicalComposition
     materialComposition:
@@ -32,7 +32,7 @@
     walkSpeed: 1.8
     sprintSpeed: 2.25 #you cant sprint fast on this
   - type: Construction
-    graph: MakeshiftLeftLeg
+    graph: MakeshiftLeftLegGraph
     node: makeshiftleftleg
   - type: PhysicalComposition
     materialComposition:
@@ -53,7 +53,7 @@
   description: Primitive mechanic manipulator. Looks dieselpank-y
   components:
   - type: Construction
-    graph: MakeshiftRightArm
+    graph: MakeshiftRightArmGraph
     node: makeshiftrightarm
   - type: PhysicalComposition
     materialComposition:
@@ -73,7 +73,7 @@
   description: Primitive mechanic manipulator. Looks dieselpank-y
   components:
   - type: Construction
-    graph: MakeshiftLeftArm
+    graph: MakeshiftLeftArmGraph
     node: makeshiftleftarm
   - type: PhysicalComposition
     materialComposition:
