@@ -12,7 +12,9 @@
     - 3,0,6,3
     - 8,0,9,3
   - type: Clothing # WWDP
-    #equipSound: /Audio/_White/Equip/clothingrustle4.ogg todo sounds from the gunnening
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg
+  - type: Item # WWDP
+    canBeUsedWhileWorn: true
 
 - type: entity
   parent: ClothingBackpackSatchel
