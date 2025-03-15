@@ -428,6 +428,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Grenades/tear_gas.rsi
   - type: SmokeOnTrigger
+    smokePrototype: SmokeRed # WWDP
     duration: 10
     spreadAmount: 30
     solution:
