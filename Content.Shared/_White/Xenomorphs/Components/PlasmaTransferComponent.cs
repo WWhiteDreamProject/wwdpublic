@@ -2,11 +2,8 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Aliens.Components;
+namespace Content.Shared._White.Xenomorphs.Components;
 
-/// <summary>
-/// This is used for...
-/// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class PlasmaTransferComponent : Component
 {

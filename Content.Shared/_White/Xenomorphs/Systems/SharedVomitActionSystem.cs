@@ -2,15 +2,13 @@
 using Content.Shared.Actions;
 using Robust.Shared.Containers;
 
-
 namespace Content.Shared._White.Xenomorphs.Systems;
 
 public abstract class SharedVomitActionSystem : EntitySystem
 {
-    /// <inheritdoc/>
-
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();

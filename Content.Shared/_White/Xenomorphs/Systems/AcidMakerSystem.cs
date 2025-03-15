@@ -1,15 +1,11 @@
-﻿using Content.Shared.Actions;
-using Content.Shared.Aliens.Components;
-using Content.Shared.DoAfter;
+﻿using Content.Shared._White.Xenomorphs.Components;
+using Content.Shared.Actions;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Localization;
 using Robust.Shared.Network;
-using Robust.Shared.Serialization;
 
-namespace Content.Shared.Aliens.Systems;
+namespace Content.Shared._White.Xenomorphs.Systems;
 
 public sealed class AcidMakerSystem : EntitySystem
 {

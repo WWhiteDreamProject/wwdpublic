@@ -2,7 +2,6 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-
 namespace Content.Shared._White.Xenomorphs.Components;
 
 [RegisterComponent, NetworkedComponent]

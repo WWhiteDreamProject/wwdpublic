@@ -1,8 +1,5 @@
 ﻿using Content.Shared.FixedPoint;
-using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.Manager.Attributes;
-using Robust.Shared.ViewVariables;
 
 /// <summary>
 /// This is used for the plasma vessel component in the alien entities.

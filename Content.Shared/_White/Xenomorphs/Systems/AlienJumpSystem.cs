@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared.Actions;
 using Content.Shared.Aliens.Components;
 using Content.Shared.Coordinates.Helpers;
@@ -18,23 +19,23 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 
-namespace Content.Shared.Aliens.Systems;
+namespace Content.Shared._White.Xenomorphs.Systems;
 
-/// <summary>
-/// This handles...
-/// </summary>
+
 public sealed class AlienJumpSystem : EntitySystem
 {
+    // Managers
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
+
+    // Systems
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();

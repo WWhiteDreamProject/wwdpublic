@@ -1,33 +1,22 @@
 ﻿using Content.Shared.Actions;
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
 using Content.Shared.Language;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Shared.Aliens.Components;
+namespace Content.Shared._White.Xenomorphs.Components;
 
 /// <summary>
 /// The AlienComponent is used to manage the abilities and properties of alien entities.
-/// </summary
+/// </summary>
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState(true)]
 public sealed partial class AlienComponent : Component
 {
-    // Actions
-
-    /// <summary>
-    /// The prototype ID for the devour action.
-    /// </summary>
-    [DataField]
-    public EntProtoId? DevourAction = "ActionDevour";
-
     /// <summary>
     /// This will subtract (not add, don't get this mixed up) from the current plasma of the mob making node.
     /// </summary>
-    [DataField]
-    [AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float PlasmaCostNode = 50f;
 
     /// <summary>
@@ -61,11 +50,10 @@ public sealed partial class AlienComponent : Component
     public DamageSpecifier WeedHeal;
 
     /// <summary>
-    /// Languge on which alien need to speak to send hivemind message.
+    /// Language on which alien need to speak to send hivemind message.
     /// </summary>
     [DataField]
     public ProtoId<LanguagePrototype> XenoLanguageId { get; set; } = "XenoHivemind";
-
 }
 
 /// <summary>

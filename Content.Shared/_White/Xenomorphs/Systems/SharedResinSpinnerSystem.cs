@@ -1,27 +1,20 @@
-﻿using System;
-using Content.Shared.Actions;
+﻿using Content.Shared.Actions;
 using Content.Shared.Aliens.Components;
-using Content.Shared.Coordinates.Helpers;
 using Content.Shared.DoAfter;
-using Content.Shared.Maps;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Physics;
 using Content.Shared.Popups;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Localization;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Aliens.Systems;
+namespace Content.Shared._White.Xenomorphs.Systems;
 
 /// <summary>
 /// This handles resin structure production for xenomorphs, including walls, windows and nests.
 /// </summary>.
 public sealed class SharedResinSpinnerSystem : EntitySystem
 {
-    /// <inheritdoc/>
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();

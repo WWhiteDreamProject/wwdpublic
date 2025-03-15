@@ -2,13 +2,9 @@
 using Content.Shared.Polymorph;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Shared.Aliens.Components;
+namespace Content.Shared._White.Xenomorphs.Components;
 
-/// <summary>
-/// This is used for...
-/// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class AlienQueenComponent : Component
 {

@@ -1,14 +1,10 @@
-﻿using System.Threading;
-using Content.Shared._White.Xenomorphs;
+﻿using Content.Shared._White.StatusIcon;
 using Content.Shared.Damage;
-using Content.Shared.StatusIcon;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Shared.Aliens.Components;
+namespace Content.Shared._White.Xenomorphs.Components;
 
 /// <summary>
 /// The AlienInfectedComponent is used to manage the infection process and growth stages of alien larvae inside a host.

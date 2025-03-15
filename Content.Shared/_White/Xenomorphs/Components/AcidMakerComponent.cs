@@ -1,8 +1,7 @@
-﻿using Content.Shared.Aliens.Systems;
-using Robust.Shared.GameStates;
+﻿using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Aliens.Components;
+namespace Content.Shared._White.Xenomorphs.Components;
 
 /// <summary>
 /// The AcidMakerComponent is used for managing the acid production process.

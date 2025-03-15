@@ -1,24 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Content.Shared.Aliens.Components;
-using Content.Shared.Ghost;
+﻿using System.Linq;
+using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Inventory;
-using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Robust.Shared.GameObjects;
+namespace Content.Shared._White.Xenomorphs.Systems;
 
-namespace Content.Shared.Aliens.Systems;
-
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class SharedFacehuggerSystem : EntitySystem
 {
-    /// <inheritdoc/>
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;

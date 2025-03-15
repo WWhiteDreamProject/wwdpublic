@@ -1,13 +1,9 @@
 ﻿using Content.Shared.Actions;
 
-namespace Content.Shared.Aliens.Systems;
+namespace Content.Shared._White.Xenomorphs.Systems;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class SharedAlienEvolutionSystem : EntitySystem
 {
-    /// <inheritdoc/>
     public override void Initialize()
     {
 

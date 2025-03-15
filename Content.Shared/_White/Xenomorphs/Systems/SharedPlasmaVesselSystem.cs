@@ -1,26 +1,22 @@
-﻿using System;
+﻿using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared.Alert;
-using Content.Shared.Aliens.Components;
-using Content.Shared.Chat;
 using Content.Shared.FixedPoint;
 using Content.Shared.Popups;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
-using Robust.Shared.Localization;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Shared.Aliens.Systems;
+namespace Content.Shared._White.Xenomorphs.Systems;
 
 /// <summary>
 /// This handles the plasma vessel component.
 /// </summary>
 public sealed class SharedPlasmaVesselSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     [ValidatePrototypeId<AlertPrototype>]
     public ProtoId<AlertPrototype> PlasmaCounterAlert = "PlasmaCounter";

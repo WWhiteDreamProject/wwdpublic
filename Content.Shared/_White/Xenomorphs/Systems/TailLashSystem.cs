@@ -1,24 +1,17 @@
-﻿using System;
+﻿using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared.Actions;
-using Content.Shared.Aliens.Components;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Standing;
-using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.GameObjects;
 
-namespace Content.Shared.Aliens.Systems;
+namespace Content.Shared._White.Xenomorphs.Systems;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class TailLashSystem : EntitySystem
 {
-    /// <inheritdoc/>
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
+
     public override void Initialize()
     {
         base.Initialize();

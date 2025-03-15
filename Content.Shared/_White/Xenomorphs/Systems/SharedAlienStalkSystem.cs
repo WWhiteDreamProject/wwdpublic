@@ -1,19 +1,14 @@
-﻿using Content.Shared.Actions;
-using Content.Shared.Aliens.Components;
+﻿using Content.Shared._White.Xenomorphs.Components;
+using Content.Shared.Actions;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
-using Robust.Shared.GameObjects;
 
-namespace Content.Shared.Aliens.Systems;
+namespace Content.Shared._White.Xenomorphs.Systems;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class SharedAlienStalkSystem : EntitySystem
 {
-    /// <inheritdoc/>
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;

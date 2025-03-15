@@ -1,14 +1,9 @@
-﻿using Content.Shared.Actions;
-using Content.Shared.Aliens.Components;
+﻿using Content.Shared._White.Xenomorphs.Components;
+using Content.Shared.Actions;
 using Content.Shared.Popups;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Localization;
 
-namespace Content.Shared.Aliens.Systems;
+namespace Content.Shared._White.Xenomorphs.Systems;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class SharedPlasmaTransferSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
