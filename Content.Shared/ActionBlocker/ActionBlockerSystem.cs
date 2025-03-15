@@ -83,7 +83,7 @@ namespace Content.Shared.ActionBlocker
         ///     check other blockers like <see cref="CanPickup(EntityUid)"/>
         /// </remarks>
         /// <returns></returns>
-        public bool CanInteract(EntityUid user, EntityUid? target)
+        public bool CanInteract(EntityUid user, EntityUid? target, bool showFailedPopup = false)
         {
             if (!CanConsciouslyPerformAction(user))
                 return false;
@@ -97,7 +97,7 @@ namespace Content.Shared.ActionBlocker
             if (target == null || target == user)
                 return true;
 
-            var targetEv = new GettingInteractedWithAttemptEvent(user, target);
+            var targetEv = new GettingInteractedWithAttemptEvent(user, target, showFailedPopup);
             RaiseLocalEvent(target.Value, ref targetEv);
 
             return !targetEv.Cancelled;

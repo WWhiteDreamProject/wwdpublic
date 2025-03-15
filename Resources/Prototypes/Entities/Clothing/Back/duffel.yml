@@ -13,7 +13,18 @@
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 0.9
-  - type: HeldSpeedModifier
+  - type: HeldSpeedModifier # WWDP slow down with bags in hand
+    mirrorClothingModifier: false
+    sprintModifier: 0.8
+    walkModifier: 0.8
+  - type: Clothing
+    equipDelay: 1
+    unequipDelay: 1
+    equipSound: /Audio/_White/Equip/clothingrustle2.ogg # WWDP
+  - type: EmitSoundOnPickup # WWDP
+    sound: /Audio/_White/Equip/clothingrustle2.ogg
+  - type: Item
+    canBeUsedWhileWorn: false # WWDP
 
 - type: entity
   parent: ClothingBackpackDuffel
