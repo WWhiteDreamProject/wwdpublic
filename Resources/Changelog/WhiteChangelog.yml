@@ -2081,3 +2081,14 @@ Entries:
   id: 219
   time: '2025-03-15T17:14:36.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/336
+- author: vanx
+  changes:
+    - type: Fix
+      message: Надетые сумки теперь открываются.
+    - type: Fix
+      message: >-
+        Также можно интерактировать с надетыми сигаретами, фонариками и
+        баллонами.
+  id: 220
+  time: '2025-03-15T17:24:57.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/351
