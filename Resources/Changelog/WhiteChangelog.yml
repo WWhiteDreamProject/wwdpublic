@@ -2092,3 +2092,10 @@ Entries:
   id: 220
   time: '2025-03-15T17:24:57.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/351
+- author: vanx
+  changes:
+    - type: Fix
+      message: Шахтёрский ускоритель частиц больше не помещается в карман.
+  id: 221
+  time: '2025-03-15T20:51:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/352
