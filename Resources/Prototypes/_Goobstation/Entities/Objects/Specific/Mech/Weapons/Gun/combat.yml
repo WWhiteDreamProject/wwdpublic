@@ -15,8 +15,8 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: Pulse
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletPulse # WWDP
     fireCost: 40
   - type: Appearance
   - type: AmmoCounter
@@ -38,8 +38,8 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedHeavyLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaserHeavy # WWDP
     fireCost: 99
   - type: Appearance
   - type: AmmoCounter
@@ -61,8 +61,8 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
     fireCost: 59
   - type: Appearance
   - type: AmmoCounter
@@ -84,8 +84,8 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
     fireCost: 39
   - type: Appearance
   - type: AmmoCounter

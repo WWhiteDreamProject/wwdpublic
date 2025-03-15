@@ -104,15 +104,15 @@
     Steel: 2000
     Gold: 500
 
-- type: latheRecipe
-  id: WeaponCivilianDisabler
-  result: WeaponCivilianDisabler
-  category: Weapons
-  completetime: 6
-  materials:
-    Aluminum: 200
-    Glass: 200
-    Plastic: 300
+# - type: latheRecipe # WWDP disabled (xd)
+#   id: WeaponCivilianDisabler
+#   result: WeaponCivilianDisabler
+#   category: Weapons
+#   completetime: 6
+#   materials:
+#     Aluminum: 200
+#     Glass: 200
+#     Plastic: 300
 
 - type: latheRecipe
   id: WeaponXrayCannon
