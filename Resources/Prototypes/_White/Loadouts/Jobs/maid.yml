@@ -386,19 +386,19 @@
   - SpeedLoaderMagnum
   - SpeedLoaderMagnum
 
-- type: loadout
-  id: LoadoutMaidCQCManual
-  category: JobsCommandMaid
-  cost: 6
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutMaidPrimary
-  - !type:CharacterJobRequirement
-    jobs:
-    - Maid
-  items:
-  - BSOManual
+#- type: loadout
+#  id: LoadoutMaidCQCManual
+#  category: JobsCommandMaid
+#  cost: 6
+#  exclusive: true
+#  requirements:
+#  - !type:CharacterItemGroupRequirement
+#    group: LoadoutMaidPrimary
+#  - !type:CharacterJobRequirement
+#    jobs:
+#    - Maid
+#  items:
+#  - BSOManual
 
 # Secondary
 
