@@ -13,42 +13,42 @@
   - type: Storage
     maxItemSize: Normal
     # TODO: Fill this out more.
-    # whitelist: # WWDP no belt whitelists
-    #   tags:
-    #     - Powerdrill
-    #     - Wirecutter
-    #     - Crowbar
-    #     - Screwdriver
-    #     - Flashlight
-    #     - Wrench
-    #     - GeigerCounter
-    #     - Flare
-    #     - CableCoil
-    #     - CigPack
-    #     - Radio
-    #     - HolofanProjector
-    #     - Multitool
-    #     - AppraisalTool
-    #     - JawsOfLife
-    #     - GPS
-    #     - WeldingMask
-    #   components:
-    #     - SprayPainter
-    #     - NetworkConfigurator
-    #     - RCD
-    #     - RCDAmmo
-    #     - Welder
-    #     - PowerCell
-    #     - Geiger
-    #     - TrayScanner
-    #     - GasAnalyzer
-    #     - HandLabeler
-    #     #- RemoteSignaller # WWDP fixing after someone who doesnt know what a component is
-    #     #- RemoteSignallerAdvanced # WWDP
-    #     - AnomalyScanner
-    #     #- AnomalyLocatorUnpowered # WWDP
-    #     #- AnomalyLocatorWideUnpowered # WWDP
-    #     - NodeScanner
+    whitelist:
+      tags:
+      - Powerdrill
+      - Wirecutter
+      - Crowbar
+      - Screwdriver
+      - Flashlight
+      - Wrench
+      - GeigerCounter
+      - Flare
+      - CableCoil
+      - CigPack
+      - Radio
+      - HolofanProjector
+      - Multitool
+      - AppraisalTool
+      - JawsOfLife
+      - GPS
+      - WeldingMask
+      components:
+      - SprayPainter
+      - NetworkConfigurator
+      - RCD
+      - RCDAmmo
+      - Welder
+      - PowerCell
+      - Geiger
+      - TrayScanner
+      - GasAnalyzer
+      - HandLabeler
+      #- RemoteSignaller # WWDP fixing after someone who doesnt know what a component is
+      #- RemoteSignallerAdvanced # WWDP
+      - AnomalyScanner
+      #- AnomalyLocatorUnpowered # WWDP
+      #- AnomalyLocatorWideUnpowered # WWDP
+      - NodeScanner
   - type: ItemMapper
     mapLayers:
       drill:
@@ -101,40 +101,38 @@
   - type: Clothing
     sprite: Clothing/Belt/ce.rsi
   - type: Storage
-    grid: # WWDP
-    - 0,0,3,1
-    - 5,0,7,1
-    - 9,0,12,1
+    grid:
+    - 0,0,9,1
     # TODO: Fill this out more.
-    # whitelist: # WWDP no belt whitelists
-    #   tags:
-    #     - Wirecutter
-    #     - Crowbar
-    #     - Screwdriver
-    #     - Flashlight
-    #     - Wrench
-    #     - GeigerCounter
-    #     - Flare
-    #     - CableCoil
-    #     - Powerdrill
-    #     - JawsOfLife
-    #     - CigPack
-    #     - Radio
-    #     - HolofanProjector
-    #     - Multitool
-    #     - AppraisalTool
-    #   components:
-    #     - SprayPainter
-    #     - NetworkConfigurator
-    #     - RCD
-    #     - RCDAmmo
-    #     - Welder
-    #     - Flash
-    #     - Handcuff
-    #     - PowerCell
-    #     - Geiger
-    #     - TrayScanner
-    #     - GasAnalyzer
+    whitelist:
+      tags:
+      - Wirecutter
+      - Crowbar
+      - Screwdriver
+      - Flashlight
+      - Wrench
+      - GeigerCounter
+      - Flare
+      - CableCoil
+      - Powerdrill
+      - JawsOfLife
+      - CigPack
+      - Radio
+      - HolofanProjector
+      - Multitool
+      - AppraisalTool
+      components:
+      - SprayPainter
+      - NetworkConfigurator
+      - RCD
+      - RCDAmmo
+      - Welder
+      - Flash
+      - Handcuff
+      - PowerCell
+      - Geiger
+      - TrayScanner
+      - GasAnalyzer
   - type: ItemMapper
     mapLayers:
       drill:
@@ -186,19 +184,19 @@
     sprite: Clothing/Belt/assault.rsi
   - type: Clothing
     sprite: Clothing/Belt/assault.rsi
-    # - type: Storage # WWDP no belt whitelists
-    # whitelist:
-    #   tags:
-    #     - CigPack
-    #     - Taser
-    #   components:
-    #     - Stunbaton
-    #     - FlashOnTrigger
-    #     - SmokeOnTrigger
-    #     - Flash
-    #     - Handcuff
-    #     - BallisticAmmoProvider
-    #     - Ammo
+  - type: Storage
+    whitelist:
+      tags:
+      - CigPack
+      - Taser
+      components:
+      - Stunbaton
+      - FlashOnTrigger
+      - SmokeOnTrigger
+      - Flash
+      - Handcuff
+      - BallisticAmmoProvider
+      - Ammo
   - type: ItemMapper
     mapLayers:
       flashbang:
@@ -226,22 +224,22 @@
     sprite: Clothing/Belt/janitor.rsi
   - type: Clothing
     sprite: Clothing/Belt/janitor.rsi
-  # - type: Storage # WWDP no belt whitelists
-    # whitelist:
-    #   tags:
-    #     - Wrench
-    #     - Bottle
-    #     - Spray
-    #     - Soap
-    #     - Flashlight
-    #     - CigPack
-    #     - TrashBag
-    #     - WetFloorSign
-    #     - HolosignProjector
-    #     - Plunger
-    #   components:
-    #     - LightReplacer
-    #     - SmokeOnTrigger
+  - type: Storage
+    whitelist:
+      tags:
+      - Wrench
+      - Bottle
+      - Spray
+      - Soap
+      - Flashlight
+      - CigPack
+      - TrashBag
+      - WetFloorSign
+      - HolosignProjector
+      - Plunger
+      components:
+      - LightReplacer
+      - SmokeOnTrigger
     maxItemSize: Large
   - type: ItemMapper
     mapLayers:
@@ -270,26 +268,26 @@
     sprite: Clothing/Belt/medical.rsi
   - type: Clothing
     sprite: Clothing/Belt/medical.rsi
-    # - type: Storage # WWDP no belt whitelists
-    # whitelist:
-    #   tags:
-    #     - Wrench
-    #     - Bottle
-    #     - Spray
-    #     - Brutepack
-    #     - Bloodpack
-    #     - Gauze
-    #     - Ointment
-    #     - CigPack
-    #     - PillCanister
-    #     - Radio
-    #     - DiscreteHealthAnalyzer
-    #   components:
-    #     - SurgeryTool # Shitmed Change
-    #     - Hypospray
-    #     - Injector
-    #     - Pill
-    #     - HandLabeler
+  - type: Storage
+    whitelist:
+      tags:
+      - Wrench
+      - Bottle
+      - Spray
+      - Brutepack
+      - Bloodpack
+      - Gauze
+      - Ointment
+      - CigPack
+      - PillCanister
+      - Radio
+      - DiscreteHealthAnalyzer
+      components:
+      - SurgeryTool # Shitmed Change
+      - Hypospray
+      - Injector
+      - Pill
+      - HandLabeler
   - type: ItemMapper
     mapLayers:
       bottle:
@@ -361,23 +359,23 @@
     sprite: Clothing/Belt/plant.rsi
   - type: Clothing
     sprite: Clothing/Belt/plant.rsi
-    # - type: Storage # WWDP no belt whitelists
-    # whitelist:
-    #   tags:
-    #     - PlantAnalyzer
-    #     - PlantSampleTaker
-    #     - BotanyShovel
-    #     - BotanyHoe
-    #     - BotanyHatchet
-    #     - PlantSampleTaker
-    #     - PlantBGone
-    #     - Bottle
-    #     - Syringe
-    #     - CigPack
-    #   components:
-    #     - Seed
-    #     - Smokable
-    #     - HandLabeler
+  - type: Storage
+    whitelist:
+      tags:
+      - PlantAnalyzer
+      - PlantSampleTaker
+      - BotanyShovel
+      - BotanyHoe
+      - BotanyHatchet
+      - PlantSampleTaker
+      - PlantBGone
+      - Bottle
+      - Syringe
+      - CigPack
+      components:
+      - Seed
+      - Smokable
+      - HandLabeler
   - type: ItemMapper
     mapLayers:
       hatchet:
@@ -417,28 +415,28 @@
     sprite: Clothing/Belt/chef.rsi
   - type: Clothing
     sprite: Clothing/Belt/chef.rsi
-    # - type: Storage # WWDP no belt whitelists
-    # whitelist:
-    #   tags:
-    #     - KitchenKnife
-    #     - Cleaver
-    #     - RollingPin
-    #     - Coldsau ce
-    #     - Enzyme
-    #     - Hotsauce
-    #     - Ketchup
-    #     - BBQsauce
-    #     - SaltShaker
-    #     - PepperShaker
-    #     - CigPack
-    #     - Packet
-    #     - Skewer
-    #     - MonkeyCube
-    #     - Mayo
-    #   components:
-    #     - Mousetrap
-    #     - Smokable
-    #     - Utensil
+  - type: Storage
+    whitelist:
+      tags:
+      - KitchenKnife
+      - Cleaver
+      - RollingPin
+      - Coldsauce
+      - Enzyme
+      - Hotsauce
+      - Ketchup
+      - BBQsauce
+      - SaltShaker
+      - PepperShaker
+      - CigPack
+      - Packet
+      - Skewer
+      - MonkeyCube
+      - Mayo
+      components:
+      - Mousetrap
+      - Smokable
+      - Utensil
   - type: ItemMapper
     mapLayers:
       kitchenknife:
@@ -494,30 +492,30 @@
     sprite: Clothing/Belt/security.rsi
   - type: Clothing
     sprite: Clothing/Belt/security.rsi
-    # - type: Storage # WWDP no belt whitelists
-    # whitelist:
-    #   tags:
-    #     - CigPack
-    #     - Taser
-    #     - SecBeltEquip
-    #     - Radio
-    #     - Sidearm
-    #     - MagazinePistol
-    #     - MagazineMagnum
-    #     - CombatKnife
-    #     - Truncheon
-    #   components:
-    #     - Stunbaton
-    #     - FlashOnTrigger
-    #     - SmokeOnTrigger
-    #     - Flash
-    #     - Handcuff
-    #     - BallisticAmmoProvider
-    #     - CartridgeAmmo
-    #     - DoorRemote
-    #     - Whistle
-    #     - HolosignProjector
-    #     - BalloonPopper
+  - type: Storage
+    whitelist:
+      tags:
+      - CigPack
+      - Taser
+      - SecBeltEquip
+      - Radio
+      - Sidearm
+      - MagazinePistol
+      - MagazineMagnum
+      - CombatKnife
+      - Truncheon
+      components:
+      - Stunbaton
+      - FlashOnTrigger
+      - SmokeOnTrigger
+      - Flash
+      - Handcuff
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      - DoorRemote
+      - Whistle
+      - HolosignProjector
+      - BalloonPopper
   - type: ItemMapper
     mapLayers:
       flashbang:
@@ -534,6 +532,13 @@
           - SmokeOnTrigger
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
+  - type: EmitsSoundOnMove
+    soundCollection:
+      collection: FootstepTacticalWebbing
+      params:
+        volume: -10
+    distanceWalking: 2
+    distanceSprinting: 3
 
 - type: entity
   parent: [ClothingBeltBase, ClothingSlotBase]
@@ -547,7 +552,7 @@
   - type: Clothing
     sprite: Clothing/Belt/sheath.rsi
   - type: Item
-    size: Large
+    size: Ginormous
   - type: ItemSlots
     slots:
       item:
@@ -654,27 +659,8 @@
     distanceWalking: 2
     distanceSprinting: 3
 
-# WWDP base webbing
 - type: entity
-  abstract: true
-  id: ClothingBaseWebbing
-  components:
-  - type: Storage
-    grid: # 2x 3x2 pouches & 4x2 in the middle
-    - 0,0,2,1
-    - 4,0,7,1
-    - 9,0,11,1
-  - type: EmitsSoundOnMove
-    soundCollection:
-      collection: FootstepTacticalWebbing
-      params:
-        volume: -10
-    distanceWalking: 2
-    distanceSprinting: 3
-
-
-- type: entity
-  parent: [ClothingBaseWebbing, ClothingBeltSecurity] # WWDP
+  parent: ClothingBeltSecurity
   id: ClothingBeltSecurityWebbing
   name: security webbing
   description: Unique and versatile chest rig, can hold security gear.
@@ -683,6 +669,13 @@
     sprite: Clothing/Belt/securitywebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/securitywebbing.rsi
+  - type: EmitsSoundOnMove
+    soundCollection:
+      collection: FootstepTacticalWebbing
+      params:
+        volume: -10
+    distanceWalking: 2
+    distanceSprinting: 3
 
 - type: entity
   parent: ClothingBeltSecurityWebbing
@@ -699,7 +692,7 @@
     - id: Handcuffs
 
 - type: entity
-  parent: [ClothingBaseWebbing, ClothingBeltStorageBase] # WWDP
+  parent: ClothingBeltStorageBase
   id: ClothingBeltMercWebbing
   name: mercenary webbing
   description: Ideal for storing everything from ammo to weapons and combat essentials.
@@ -708,6 +701,13 @@
     sprite: Clothing/Belt/mercwebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/mercwebbing.rsi
+  - type: EmitsSoundOnMove
+    soundCollection:
+      collection: FootstepTacticalWebbing
+      params:
+        volume: -10
+    distanceWalking: 2
+    distanceSprinting: 3
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -728,7 +728,7 @@
     distanceSprinting: 3
 
 - type: entity
-  parent: [ClothingBaseWebbing, ClothingBeltStorageBase, ContentsExplosionResistanceBase] # WWDP
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltMilitaryWebbing
   name: chest rig
   description: A set of tactical webbing worn by boarding parties.
@@ -739,6 +739,13 @@
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.5
+  - type: EmitsSoundOnMove
+    soundCollection:
+      collection: FootstepTacticalWebbing
+      params:
+        volume: -10
+    distanceWalking: 2
+    distanceSprinting: 3
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing
@@ -754,6 +761,13 @@
     size: Huge
   - type: ExplosionResistance
     damageCoefficient: 0.1
+  - type: EmitsSoundOnMove
+    soundCollection:
+      collection: FootstepTacticalWebbing
+      params:
+        volume: -10
+    distanceWalking: 2
+    distanceSprinting: 3
 
 - type: entity
   parent: ClothingBeltBase
