@@ -2037,3 +2037,10 @@ Entries:
   id: 213
   time: '2025-03-15T09:46:56.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/288
+- author: vanx
+  changes:
+    - type: Add
+      message: Добавлены переводы принтера документов и его содержимого.
+  id: 214
+  time: '2025-03-15T09:47:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/345
