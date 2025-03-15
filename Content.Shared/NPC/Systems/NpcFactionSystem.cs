@@ -30,6 +30,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnProtoReload);
 
         InitializeException();
+        InitializeItems(); // WWDP
         RefreshFactions();
     }
 
