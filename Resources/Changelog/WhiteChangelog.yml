@@ -2024,3 +2024,16 @@ Entries:
   id: 212
   time: '2025-03-14T19:58:37.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/342
+- author: vanx
+  changes:
+    - type: Remove
+      message: >-
+        Убрана возможность взаимодействовать с предметами внутри контейнеров,
+        внутри карманов и на персонаже (кроме одежды).
+    - type: Tweak
+      message: Рюкзаки и вещмешки теперь необходимо снять чтобы открыть.
+    - type: Tweak
+      message: Больше нельзя вставить предмет в заполненный слот другого предмета.
+  id: 213
+  time: '2025-03-15T09:46:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/288
