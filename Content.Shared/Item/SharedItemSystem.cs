@@ -2,10 +2,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
 using Content.Shared.Examine;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.Popups;
 using Content.Shared.Storage;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
@@ -19,8 +16,6 @@ public abstract class SharedItemSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private   readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!; // WWDP
-    [Dependency] private readonly SharedPopupSystem _popup = default!; // WWDP
     [Dependency] protected readonly SharedContainerSystem Container = default!;
 
     public override void Initialize()
@@ -29,7 +24,6 @@ public abstract class SharedItemSystem : EntitySystem
         SubscribeLocalEvent<ItemComponent, GetVerbsEvent<InteractionVerb>>(AddPickupVerb);
         SubscribeLocalEvent<ItemComponent, InteractHandEvent>(OnHandInteract);
         SubscribeLocalEvent<ItemComponent, AfterAutoHandleStateEvent>(OnItemAutoState);
-        SubscribeLocalEvent<ItemComponent, GettingInteractedWithAttemptEvent>(OnItemInteracted); // WWDP
 
         SubscribeLocalEvent<ItemComponent, ExaminedEvent>(OnExamine);
 
@@ -98,28 +92,6 @@ public abstract class SharedItemSystem : EntitySystem
             return;
 
         args.Handled = _handsSystem.TryPickup(args.User, uid, animateUser: false);
-    }
-
-    /// <summary>
-    /// WWDP - Handle attempt to interact with this item
-    /// Block interactions if it is equipped unless CanBeUsedWhileWorn
-    /// </summary>
-    private void OnItemInteracted(EntityUid uid, ItemComponent component, ref GettingInteractedWithAttemptEvent args)
-    {
-        if (uid != args.Target || args.Handled)
-            return;
-
-        if (!_inventory.TryGetContainingSlot(uid, out _))
-            return;
-
-        if (component.CanBeUsedWhileWorn)
-            return;
-
-        if (args.ShowFailedPopup)
-            _popup.PopupClient(Loc.GetString("must-be-in-hand"), args.Uid);
-
-        args.Cancelled = true;
-        args.Handled = true;
     }
 
     private void AddPickupVerb(EntityUid uid, ItemComponent component, GetVerbsEvent<InteractionVerb> args)

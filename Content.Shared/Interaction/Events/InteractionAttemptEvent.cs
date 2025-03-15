@@ -26,11 +26,9 @@
     ///     generic interaction.
     /// </summary>
     [ByRefEvent]
-    public struct GettingInteractedWithAttemptEvent(EntityUid uid, EntityUid? target, bool showFailedPopup = false)
+    public struct GettingInteractedWithAttemptEvent(EntityUid uid, EntityUid? target)
     {
         public bool Cancelled;
-        public bool Handled;
-        public bool ShowFailedPopup = showFailedPopup;
         public readonly EntityUid Uid = uid;
         public readonly EntityUid? Target = target;
     }

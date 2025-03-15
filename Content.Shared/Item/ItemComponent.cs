@@ -30,12 +30,6 @@ public sealed partial class ItemComponent : Component
     public string? HeldPrefix;
 
     /// <summary>
-    /// WWDP - Can this item be used while equipped in someone's inventory, including pockets
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool CanBeUsedWhileWorn;
-
-    /// <summary>
     ///     Rsi of the sprite shown on the player when this item is in their hands. Used to generate a default entry for <see cref="InhandVisuals"/>
     /// </summary>
     [Access(typeof(SharedItemSystem))]

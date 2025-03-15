@@ -28,9 +28,6 @@
   - type: Item
     size: Normal
     sprite: Nyanotrasen/Objects/Weapons/Melee/wakizashi.rsi
-    storedRotation: 45 # WWDP
-    shape:
-    - 0,0,3,0
   - type: Tool
     qualities:
       - Slicing

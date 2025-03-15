@@ -85,7 +85,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
         RemComp<HoldingDropComponent>(uid);
         return false;
     }
-
+	
     private readonly Angle _dropRotationIncrement = Angle.FromDegrees(5);
     private bool PreciseDropMWheelUp(in PointerInputCmdHandler.PointerInputCmdArgs args)
     {
@@ -163,7 +163,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
         if (!TryComp(session?.AttachedEntity, out HandsComponent? component))
             return;
 
-        if (!_actionBlocker.CanInteract(session.AttachedEntity.Value, null, true))
+        if (!_actionBlocker.CanInteract(session.AttachedEntity.Value, null))
             return;
 
         if (component.ActiveHand == null || component.Hands.Count < 2)

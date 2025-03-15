@@ -43,10 +43,8 @@
   - type: Storage
     maxItemSize: Normal
     defaultStorageOrientation: Vertical
-    grid: # WWDP belt bags with 3x 3x2 pouches; no whitelist
-    - 0,0,2,1
-    - 4,0,6,1
-    - 8,0,10,1
+    grid:
+    - 0,0,7,1
   - type: Item
     size: Large
   - type: ContainerContainer
