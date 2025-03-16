@@ -2099,3 +2099,12 @@ Entries:
   id: 221
   time: '2025-03-15T20:51:05.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/352
+- author: vanx
+  changes:
+    - type: Fix
+      message: >-
+        Заключённый больше не может брать общее снаряжение и личное оружие СБ в
+        лодаутах.
+  id: 222
+  time: '2025-03-16T10:15:16.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/354
