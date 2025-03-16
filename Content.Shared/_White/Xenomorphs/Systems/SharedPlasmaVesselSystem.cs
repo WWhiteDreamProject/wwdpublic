@@ -61,25 +61,19 @@ public sealed class SharedPlasmaVesselSystem : EntitySystem
 
             if (alien.Plasma < alien.PlasmaRegenCap)
             {
-                ChangePlasmaAmount(uid, alien.PlasmaPerSecond, alien, regenCap: true);
+                ChangePlasmaAmount(uid, alien.PlasmaPerSecond, alien);
             }
         }
     }
 
-    public bool ChangePlasmaAmount(EntityUid uid, FixedPoint2 amount, PlasmaVesselComponent? component = null, bool regenCap = false)
+    public bool ChangePlasmaAmount(EntityUid uid, FixedPoint2 amount, PlasmaVesselComponent? component = null)
     {
-        if (!Resolve(uid, ref component))
-        {
+        if (!Resolve(uid, ref component) || component.Plasma < -amount)
             return false;
-        }
 
-        component.Plasma += amount;
+        component.Plasma = FixedPoint2.Min(component.Plasma + amount, component.PlasmaRegenCap);
 
-        if (regenCap)
-        {
-            component.Plasma = FixedPoint2.Min(component.Plasma, component.PlasmaRegenCap);
-        }
-
+        /*
         var stalk = CompOrNull<AlienStalkComponent>(uid);
         if (stalk is { IsActive: true })
         {
@@ -102,6 +96,7 @@ public sealed class SharedPlasmaVesselSystem : EntitySystem
         _alerts.ShowAlert(uid, PlasmaCounterAlert, (short)newAlertValue);
         component.AlertValue = newAlertValue;
         component.LastAlertUpdateTime = currentTime;
+        */
 
         return true;
     }

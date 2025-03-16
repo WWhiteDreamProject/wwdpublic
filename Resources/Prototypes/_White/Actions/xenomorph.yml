@@ -60,7 +60,9 @@
     priority: 2
     useDelay: 2
     icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: plant_seed_action }
-    event: !type:WeednodeActionEvent
+    event: !type:SpawnTileEntityActionEvent
+      entity: ResinWeedNode
+  - type: BasePlasmaCostAction
 
 - type: entity
   id: ActionCombatModeToggleAlien

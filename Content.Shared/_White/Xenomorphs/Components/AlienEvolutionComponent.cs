@@ -69,5 +69,4 @@ public sealed partial class AlienEvolutionComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan EvolutionCooldown;
-
 }

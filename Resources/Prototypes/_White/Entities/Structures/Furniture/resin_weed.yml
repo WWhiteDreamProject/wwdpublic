@@ -8,6 +8,7 @@
     sprite: _White/Structures/Specific/Xenomorph/resin_weed.rsi
     state: full
     drawdepth: FloorTiles
+    noRot: true
   - type: Icon
     sprite: _White/Structures/Specific/Xenomorph/resin_weed.rsi
     state: full
@@ -70,6 +71,7 @@
     sprite: _White/Structures/Specific/Xenomorph/resin_weed_node.rsi
     state: full
     drawdepth: FloorTiles
+    noRot: true
   - type: Icon
     sprite: _White/Structures/Specific/Xenomorph/resin_weed_node.rsi
     state: full
