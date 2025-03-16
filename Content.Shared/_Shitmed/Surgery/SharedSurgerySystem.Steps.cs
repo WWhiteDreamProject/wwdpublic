@@ -26,7 +26,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed.TypeParsers;
 using System.Linq;
-using Content.Shared.Aliens.Components;
+using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared.Inventory.VirtualItem;
 
 

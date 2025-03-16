@@ -1,7 +1,7 @@
 ﻿using Content.Shared.Polymorph;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Aliens.Components;
+namespace Content.Server._White.Xenomorphs.Components;
 
 /// <summary>
 /// The AlienEggHatchComponent is used to manage the hatching behavior of alien eggs.

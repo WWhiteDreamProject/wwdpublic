@@ -1,20 +1,17 @@
-﻿using Content.Server.Aliens.Components;
+﻿using Content.Server._White.Xenomorphs.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
+using Content.Shared._White.Xenomorphs.Components;
+using Content.Shared._White.Xenomorphs.Systems;
 using Content.Shared.Actions;
-using Content.Shared.Aliens.Components;
-using Content.Shared.Aliens.Systems;
 using Content.Shared.Devour.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Polymorph;
 using Robust.Server.Containers;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Aliens.Systems;
+namespace Content.Server._White.Xenomorphs.Systems;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class AlienEvolutionSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
@@ -22,6 +19,7 @@ public sealed class AlienEvolutionSystem : EntitySystem
     [Dependency] private readonly ContainerSystem _containerSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();

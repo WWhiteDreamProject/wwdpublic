@@ -1,41 +1,18 @@
-﻿using System.Linq;
-using System.Threading;
-using Content.Server.Aliens.Components;
-using Content.Server.Body.Systems;
-using Content.Server.Ghost.Roles;
-using Content.Server.Ghost.Roles.Components;
-using Content.Server.Mind;
-using Content.Server.Popups;
+﻿using Content.Server.Popups;
 using Content.Server.Jittering;
-using Content.Shared.Aliens.Components;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Events;
-using Content.Shared.Body.Part;
+using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Damage;
-using Content.Shared.Ghost.Roles;
-using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Random;
-using Robust.Shared.Player;
-using Content.Shared.StatusIcon;
-using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Containers;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using AlienInfectedComponent = Content.Shared.Aliens.Components.AlienInfectedComponent;
 
-namespace Content.Server.Aliens.Systems;
+namespace Content.Server._White.Xenomorphs.Systems;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class AlienInfectedSystem : EntitySystem
 {
-    /// <inheritdoc/>
-    [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;

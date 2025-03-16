@@ -1,28 +1,17 @@
-﻿using System.Linq;
-using Content.Server.Aliens.Components;
+﻿using Content.Server._White.Xenomorphs.Components;
 using Content.Server.Polymorph.Systems;
-using Content.Server.Speech.Components;
-using Content.Shared.Aliens.Components;
-using Content.Shared.Hands.Components;
 using Content.Shared.Ghost;
-using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
-using Content.Shared.Mobs.Components;
-using Robust.Server.GameObjects;
-using Robust.Shared.Utility;
 
-namespace Content.Server.Aliens.Systems;
+namespace Content.Server._White.Xenomorphs.Systems;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class AlienEggHatchSystem : EntitySystem
 {
-    /// <inheritdoc/>
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+
     public override void Initialize()
     {
         base.Initialize();

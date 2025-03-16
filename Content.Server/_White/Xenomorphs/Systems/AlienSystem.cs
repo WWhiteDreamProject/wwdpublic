@@ -1,43 +1,24 @@
 using System.Linq;
 using Content.Server.Actions;
-using Content.Server.Aliens.Systems;
-using Content.Server.Animals.Components;
 using Content.Server.Chat.Managers;
-using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
-using Content.Server.NPC.HTN;
 using Content.Server.Popups;
 using Content.Server.Roles;
-using Content.Shared.Aliens;
-using Content.Shared.Aliens.Components;
-using Content.Shared.Aliens.Systems;
+using Content.Shared._White.Xenomorphs.Components;
+using Content.Shared._White.Xenomorphs.Systems;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.Devour;
-using Content.Shared.Devour.Components;
-using Content.Shared.DoAfter;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Maps;
-using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
-using Content.Shared.Players;
-using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
-using AlienComponent = Content.Shared.Aliens.Components.AlienComponent;
 
-namespace Content.Server.Aliens.Systems;
+namespace Content.Server._White.Xenomorphs.Systems;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class AlienSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tag = default!;
@@ -48,11 +29,8 @@ public sealed class AlienSystem : EntitySystem
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPlasmaVesselSystem _plasmaVessel = default!;
-    [Dependency] private readonly RoleSystem _role = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly IChatManager _chatMan = default!;
 
-    /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();

@@ -1,8 +1,7 @@
 ﻿using Content.Shared.Polymorph;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Server.Aliens.Components;
+namespace Content.Server._White.Xenomorphs.Components;
 
 /// <summary>
 /// The QueenEvolutionComponent is used to manage the evolution behavior of the alien queen.

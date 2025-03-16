@@ -1,19 +1,15 @@
 ﻿using System.Linq;
-using Content.Shared.Aliens.Components;
-using Content.Shared.Mobs;
-using Content.Shared.StatusIcon;
+using Content.Client.Overlays;
+using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client.Overlays; // WWDP SYSTEM
+namespace Content.Client._White.Overlays;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class ShowInfectedIconsSystem : EquipmentHudSystem<ShowInfectedIconsComponent>
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();

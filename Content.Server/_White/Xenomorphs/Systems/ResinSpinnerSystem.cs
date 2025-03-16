@@ -1,26 +1,19 @@
 ﻿using System.Linq;
 using System.Numerics;
 using Content.Server.Popups;
-using Content.Shared.Actions;
-using Content.Shared.Alert;
+using Content.Shared._White.Xenomorphs.Systems;
 using Content.Shared.Aliens.Components;
-using Content.Shared.Aliens.Systems;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Maps;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
-using Robust.Shared.Timing;
 
-namespace Content.Server.Aliens.Systems;
+namespace Content.Server._White.Xenomorphs.Systems;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class ResinSpinnerSystem : EntitySystem
 {
-    /// <inheritdoc/>
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
@@ -100,7 +93,7 @@ public sealed class ResinSpinnerSystem : EntitySystem
         foreach (var entity in _lookupSystem.GetEntitiesInRange(coords, 0.1f))
         {
             var protoId = Prototype(entity);
-            
+
             if (protoId == null)
                 continue;
             if (protoId.ID != structurePrototype)

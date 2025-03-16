@@ -3,6 +3,7 @@ using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Language;
+using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared.Aliens.Components;
 using Content.Shared.Chat;
 using Content.Shared.Language;
@@ -12,14 +13,9 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
+namespace Content.Server._White.Xenomorphs.Systems;
 
-namespace Content.Server.Aliens.Systems;
-
-
-/// <summary>
-/// This handles...
-/// </summary>
-public sealed class XenomorphChatSystem : EntitySystem
+public sealed class XenomorphsChatSystem : EntitySystem
 {
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
@@ -63,13 +59,13 @@ public sealed class XenomorphChatSystem : EntitySystem
     private IEnumerable<INetChannel> GetClients(string languageId)
     {
         return Filter.Empty()
-            .AddWhereAttachedEntity(entity => CanHearBloodCult(entity, languageId))
+            .AddWhereAttachedEntity(entity => CanHearXenoHivemind(entity, languageId))
             .Recipients
             .Union(_adminManager.ActiveAdmins)
             .Select(p => p.Channel);
     }
 
-    private bool CanHearBloodCult(EntityUid entity, string languageId)
+    private bool CanHearXenoHivemind(EntityUid entity, string languageId)
     {
         var understood = _language.GetUnderstoodLanguages(entity);
         return understood.Any(language => language.Id == languageId);
