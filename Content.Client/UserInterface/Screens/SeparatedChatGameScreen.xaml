@@ -40,7 +40,7 @@
                             <PanelContainer.PanelOverride>
                                 <graphics:StyleBoxFlat BackgroundColor="#26262d"/>
                             </PanelContainer.PanelOverride>
-                            <alerts:AlertsUI Name="Alerts" Margin="20, 10, 0, 15" Access="Protected"/>
+                            <alerts:AlertsUI Name="Alerts" Margin="21, 10, 4, 15" Access="Protected"/>
                         </PanelContainer>
                     </BoxContainer>
                     
