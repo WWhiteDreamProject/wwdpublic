@@ -15,7 +15,6 @@ using Content.Shared.Input;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
-using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
 using Content.Shared.Lock;
 using Content.Shared.Materials;

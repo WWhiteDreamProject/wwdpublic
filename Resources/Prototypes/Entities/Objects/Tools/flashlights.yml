@@ -65,7 +65,6 @@
   - type: DamageOtherOnHit
     staminaCost: 3.5
   - type: Item
-    canBeUsedWhileWorn: true # WWDP
     sprite: Objects/Tools/flashlight.rsi
     storedRotation: -90
   - type: EtherealLight

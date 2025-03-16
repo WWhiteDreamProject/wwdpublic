@@ -16,8 +16,6 @@
     price: 5
   - type: InjectableSolution
     solution: smokable
-  - type: Item # WWDP
-    canBeUsedWhileWorn: true
 
 # Base for all cigars and cigarettes.
 - type: entity
