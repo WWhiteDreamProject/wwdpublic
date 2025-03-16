@@ -6,7 +6,7 @@
     <!-- WD Edit -->
     <GridContainer Columns="2" VerticalAlignment="Top">
         <PanelContainer >
-            <GridContainer Name="AlertContainer" Columns="6" HorizontalAlignment="Left" VerticalAlignment="Center" Access="Public" />
+            <GridContainer Name="AlertContainer" Columns="4" HorizontalAlignment="Left" VerticalAlignment="Center" Access="Public" />
         </PanelContainer>
         <partStatus:PartStatusControl HorizontalAlignment="Right" Name="PartStatus" Access="Protected"/>
     </GridContainer>
