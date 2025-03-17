@@ -501,9 +501,6 @@
   - !type:CharacterItemGroupRequirement
     group: TraitsMind
   functions:
-  - !type:TraitAddTag #wwdp edit
-    tags:
-    - SpiderCraft
   - !type:TraitAddComponent
     components:
     - type: Sericulture
@@ -511,6 +508,9 @@
       productionLength: 2
       entityProduced: MaterialWebSilk1
       hungerCost: 1
+  - !type:TraitAddTag
+    tags:
+    - SpiderCraft
 
 - type: trait
   id: BionicArm
