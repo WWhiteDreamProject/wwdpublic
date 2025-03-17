@@ -25,6 +25,7 @@ namespace Content.Client.Power.APC.UI
             RobustXamlLoader.Load(this);
 
             BreakerButton.OnPressed += _ => OnBreaker?.Invoke();
+            AppendStyleClass("Apc");
         }
 
         public void SetEntity(EntityUid entity)

@@ -5,7 +5,7 @@
     ContainerButton: "Robust.Client.UserInterface.Controls.ContainerButton"
     ProgressBar: "Robust.Client.UserInterface.Controls.ProgressBar"
   styles:
-    PanelContainer.WindowHeadingBackground:
+    PanelContainer.WindowHeadingBackground.Apc:
       panel:
         valueType: Robust.Client.Graphics.StyleBoxTexture
         value:
@@ -20,7 +20,7 @@
           expandMarginTop: 2
           textureScale: 4,4
       modulate-self: "#FFFFFF"
-    PanelContainer.WindowPanelBackground:
+    PanelContainer.AngleRect.Apc:
       panel:
         valueType: Robust.Client.Graphics.StyleBoxTexture
         value:
