@@ -5,7 +5,6 @@
   components:
   - type: Item
     size: Normal
-    canBeUsedWhileWorn: true # WWDP
   - type: Sprite
   - type: Tag
     tags:
@@ -13,8 +12,6 @@
   - type: StaticPrice
     price: 10
   - type: Clothing
-    equipDelay: 0.5 # WWDP
-    unequipDelay: 0.5 # WWDP
 
 - type: entity
   abstract: true
