@@ -73,7 +73,7 @@ public sealed partial class GunComponent : Component
     [DataField]
     [AutoNetworkedField]
     public Angle CurrentAngle;
-	
+
 	// WWDP EDIT START
     [AutoNetworkedField]
     [ViewVariables(VVAccess.ReadWrite)]
@@ -110,7 +110,7 @@ public sealed partial class GunComponent : Component
     [DataField, AutoNetworkedField]
     public Angle BonusAngleIncreaseTurn = Angle.FromDegrees(0.25);
 	// WWDP EDIT END
-	
+
     /// <summary>
     /// The base value for how much the spread increases every time the gun fires.
     /// </summary>
@@ -316,6 +316,15 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField]
     public float FireOnDropChance = 0.1f;
+
+    /// <summary>
+    ///     The amount of Force (in Newtons) to eject spent cartridges with.
+    /// </summary>
+    [DataField]
+    public float EjectionForce = 0.04f;
+
+    [DataField]
+    public float EjectionSpeed = 5f;
 
     // WD EDIT START
     [DataField]
