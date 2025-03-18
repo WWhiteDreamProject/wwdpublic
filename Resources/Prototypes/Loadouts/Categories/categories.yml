@@ -38,6 +38,7 @@
     - JobsMedical
     - JobsSecurity
     - JobsService
+    - JobsZMisc
 
 - type: loadoutCategory
   id: JobsAUncategorized
@@ -225,7 +226,7 @@
     - JobsSecuritySecurityOfficer
     - JobsSecuritySeniorOfficer
     - JobsSecurityWarden
-    
+
 - type: loadoutCategory
   id: JobsSecurityAUncategorized
 
