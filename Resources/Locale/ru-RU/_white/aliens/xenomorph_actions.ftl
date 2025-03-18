@@ -1,9 +1,3 @@
-action-toggle-xenomorph-night-vision-name = Инопланетное ночное зрение
-action-toggle-xenomorph-night-vision-desc = Глядите сквозь тьму.
-
-action-toggle-xenomorph-thermal-vision-name = Инопланетное термальное зрение
-action-toggle-xenomorph-thermal-vision-desc = Узнайте о своих жертвах больше, чем знают они.
-
 action-vomit-name = Рвота
 action-vomit-desc = Опустошить свой желудок. Помогает избавиться от тел внутри себя.
 

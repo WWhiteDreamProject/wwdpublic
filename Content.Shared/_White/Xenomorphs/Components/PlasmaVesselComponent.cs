@@ -1,6 +1,8 @@
 ﻿using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
+namespace Content.Shared._White.Xenomorphs.Components;
+
 /// <summary>
 /// This is used for the plasma vessel component in the alien entities.
 /// </summary>

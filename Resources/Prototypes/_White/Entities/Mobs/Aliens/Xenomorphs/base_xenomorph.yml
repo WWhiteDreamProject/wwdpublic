@@ -11,11 +11,9 @@
   abstract: true
   components:
     - type: ThermalVision
-      toggleAction: ActionXenomorphThermalVision
+      toggleAction: ToggleThermalVisionAlien
       color: "#7d0cc9"
-    - type: NightVision
-      toggleAction: ActionXenomorphNightVision
-      color: "#7d0cc9"
+      lightRadius: 10
     - type: ShowInfectedIcons
     - type: PlasmaTransfer
     - type: CombatMode

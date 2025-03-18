@@ -1,13 +1,8 @@
 ﻿using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Shared.Aliens.Components;
+namespace Content.Shared._White.Xenomorphs.Components;
 
-
-/// <summary>
-/// This is used for...
-/// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ResinSpinnerComponent : Component
 {
@@ -35,7 +30,7 @@ public sealed partial class ResinSpinnerComponent : Component
     public EntProtoId WallPrototype = "WallResin";
 
     [DataField]
-    public EntProtoId? ResinWallAction = "ActionAlienDroneWall";
+    public EntProtoId? ResinWallAction = "ActionSpawnAlienWall";
 
     [DataField]
     public EntityUid? ResinWallActionEntity;
@@ -61,7 +56,7 @@ public sealed partial class ResinSpinnerComponent : Component
     public EntProtoId WindowPrototype = "WindowResin";
 
     [DataField]
-    public EntProtoId? ResinWindowAction = "ActionWindowResin";
+    public EntProtoId? ResinWindowAction = "ActionSpawnAlienWindow";
 
     [DataField]
     public EntityUid? ResinWindowActionEntity;
@@ -87,7 +82,7 @@ public sealed partial class ResinSpinnerComponent : Component
     public EntProtoId NestPrototype = "AlienNest";
 
     [DataField]
-    public EntProtoId? NestAction = "ActionAlienNest";
+    public EntProtoId? NestAction = "ActionSpawnAlienNest";
 
     [DataField]
     public EntityUid? NestActionEntity;

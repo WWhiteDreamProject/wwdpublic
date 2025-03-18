@@ -1,5 +1,5 @@
-﻿using Content.Shared.Actions;
-using Content.Shared.Aliens.Components;
+﻿using Content.Shared._White.Xenomorphs.Components;
+using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Robust.Shared.Serialization;

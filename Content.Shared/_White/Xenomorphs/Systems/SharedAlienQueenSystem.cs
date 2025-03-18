@@ -1,6 +1,5 @@
 ﻿using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared.Actions;
-using Content.Shared.Aliens.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Robust.Shared.GameObjects;

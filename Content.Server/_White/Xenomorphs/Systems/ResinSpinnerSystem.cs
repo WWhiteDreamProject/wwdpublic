@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Numerics;
 using Content.Server.Popups;
+using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared._White.Xenomorphs.Systems;
-using Content.Shared.Aliens.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Maps;
 using Content.Shared.Mobs.Components;

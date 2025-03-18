@@ -1,3 +1,4 @@
+using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared._White.Xenomorphs.Systems;
 using Content.Shared.Actions.Events;
 using Content.Shared.Popups;

@@ -2,7 +2,6 @@
 using System.Numerics;
 using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared.Actions;
-using Content.Shared.Aliens.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;

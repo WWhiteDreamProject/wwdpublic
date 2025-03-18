@@ -29,7 +29,7 @@ public sealed partial class AlienComponent : Component
     /// The prototype ID for the action associated with the weed node.
     /// </summary>
     [DataField]
-    public EntProtoId? WeednodeAction = "ActionResinNode";
+    public EntProtoId? WeednodeAction = "ActionSpawnResinNode";
 
     /// <summary>
     /// The caste type of the alien.

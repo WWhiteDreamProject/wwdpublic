@@ -1,29 +1,85 @@
 ﻿# Base actions
 - type: entity
-  id: ActionXenomorphNightVision
-  name: action-toggle-xenomorph-night-vision-name
-  description: action-toggle-xenomorph-night-vision-desc
+  id: ActionCombatModeToggleAlien
+  parent: ActionCombatModeToggle
   categories: [ HideSpawnMenu ]
   components:
-    - type: InstantAction
-      icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: vision_on_action }
-      priority: -1
-      useDelay: 1
-      checkCanInteract: false
-      event: !type:ToggleNightVisionEvent
+  - type: InstantAction
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: help-alt }
+    iconOn: { sprite: _White/Interface/Actions/xenomorph.rsi, state: harm }
 
 - type: entity
-  id: ActionXenomorphThermalVision
-  name: action-toggle-xenomorph-thermal-vision-name
-  description: action-toggle-xenomorph-thermal-vision-desc
+  id: ToggleThermalVisionAlien
+  parent: ToggleThermalVision
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: vision_off_action }
-    priority: -1
-    useDelay: 1
+    iconOn: { sprite: _White/Interface/Actions/xenomorph.rsi, state: vision_on_action }
+
+# Structures
+- type: entity
+  id: ActionSpawnResinNode
+  name: action-create-weednode-name
+  description: action-create-weednode-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
     checkCanInteract: false
-    event: !type:ToggleThermalVisionEvent
+    itemIconStyle: BigAction
+    useDelay: 2
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: plant_seed_action }
+    event: !type:SpawnTileEntityActionEvent
+      entity: ResinWeedNode
+  - type: BasePlasmaCostAction
+
+- type: entity
+  id: ActionSpawnAlienWall
+  name: action-create-resin-wall-name
+  description: action-create-resin-wall-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 1
+    range: 2
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    icon: { sprite: _White/Structures/Walls/resin.rsi, state: full }
+    event: !type:PlaceTileEntityEvent
+      entity: WallResin
+  - type: BasePlasmaCostAction
+
+- type: entity
+  id: ActionSpawnAlienWindow
+  name: action-create-resin-window-name
+  description: action-create-resin-window-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 1
+    range: 2
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    icon: { sprite : _White/Structures/Windows/resin_membrane.rsi, state: full }
+    event: !type:PlaceTileEntityEvent
+      entity: WindowResin
+  - type: BasePlasmaCostAction
+
+- type: entity
+  id: ActionSpawnAlienNest
+  name: action-create-alien-nest-name
+  description: action-create-alien-nest-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 1
+    range: 2
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    icon: { sprite : _White/Structures/Windows/resin_membrane.rsi, state: full }
+    event: !type:PlaceTileEntityEvent
+      entity: AlienNest
+  - type: BasePlasmaCostAction
 
 - type: entity
   id: ActionVomit
@@ -50,71 +106,9 @@
       priority: 1
       useDelay: 5
 
-- type: entity
-  id: ActionResinNode
-  name: action-create-weednode-name
-  description: action-create-weednode-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    priority: 2
-    useDelay: 2
-    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: plant_seed_action }
-    event: !type:SpawnTileEntityActionEvent
-      entity: ResinWeedNode
-  - type: BasePlasmaCostAction
-
-- type: entity
-  id: ActionCombatModeToggleAlien
-  name: "[color=red]Боевой режим[/color]"
-  description: Войти в боевой режим.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    checkCanInteract: false
-    checkConsciousness: false
-    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: help-alt }
-    iconOn: { sprite: _White/Interface/Actions/xenomorph.rsi, state: harm }
-    event: !type:ToggleCombatActionEvent
-    priority: -100
-
 # Drone
 
-- type: entity
-  id: ActionAlienDroneWall
-  name: action-create-resin-wall-name
-  description: action-create-resin-wall-desc
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: InstantAction
-      priority: 3
-      useDelay: 1
-      icon: { sprite: _White/Structures/Walls/resin.rsi, state: full }
-      event: !type:ResinWallActionEvent
 
-- type: entity
-  id: ActionWindowResin
-  name: action-create-resin-window-name
-  description: action-create-resin-window-desc
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: InstantAction
-      priority: 4
-      useDelay: 1
-      icon: { sprite : _White/Structures/Windows/resin_membrane.rsi, state: full }
-      event: !type:ResinWindowActionEvent
-
-- type: entity
-  id: ActionAlienNest
-  name: action-create-alien-nest-name
-  description: action-create-alien-nest-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    priority: 4
-    useDelay: 1
-    icon: { sprite : _White/Structures/Specific/Xenomorph/resin_nest.rsi, state: full }
-    event: !type:AlienNestActionEvent
 
 # Evolutions
 

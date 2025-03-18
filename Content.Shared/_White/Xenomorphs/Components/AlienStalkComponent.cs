@@ -3,9 +3,6 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._White.Xenomorphs.Components;
 
-/// <summary>
-/// This is used for...
-/// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class AlienStalkComponent : Component
 {
