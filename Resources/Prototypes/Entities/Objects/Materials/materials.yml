@@ -74,6 +74,9 @@
     state: cardboard
   - type: Stack
     count: 1
+  - type: Construction
+    graph: CardboardGraph
+    node: cardboard
 
 - type: entity
   parent: MaterialBase
