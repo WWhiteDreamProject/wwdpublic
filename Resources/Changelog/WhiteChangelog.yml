@@ -2108,3 +2108,10 @@ Entries:
   id: 222
   time: '2025-03-16T10:15:16.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/354
+- author: vanx
+  changes:
+    - type: Remove
+      message: Бесплатные ящики со снаряжением синдиката со станции прослушки.
+  id: 223
+  time: '2025-03-18T15:09:11.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/355
