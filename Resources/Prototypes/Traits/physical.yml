@@ -501,6 +501,9 @@
   - !type:CharacterItemGroupRequirement
     group: TraitsMind
   functions:
+  - !type:TraitAddTag #wwdp edit
+    tags:
+    - SpiderCraft
   - !type:TraitAddComponent
     components:
     - type: Sericulture
