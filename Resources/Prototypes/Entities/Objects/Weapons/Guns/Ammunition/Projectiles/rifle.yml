@@ -44,3 +44,24 @@
         Radiation: 7
         Piercing: 12
 
+- type: entity
+  id: BulletRifleShrapnel
+  name: bullet (0.20 rifle shrapnel)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 6.325
+
+- type: entity
+  id: BulletRifleShrapnelSpread
+  categories: [ HideSpawnMenu ]
+  parent: BulletRifleShrapnel
+  components:
+  - type: ProjectileSpread
+    proto: BulletRifleShrapnel
+    count: 4
+    spread: 15
+
