@@ -21,7 +21,8 @@ namespace Content.Client.UserInterface.Controls
         public const string StyleClassWindowHelpButton = "windowHelpButton";
 
         private AnimationExtend<Vector2> OpenAnimation;
-        private AnimationExtend<Vector2> CloseAnimation = default!;
+        private AnimationExtend<float> FadeAnimation;
+        private AnimationExtend<float> UnfadeAnimation;
 
         public FancyWindow()
         {
@@ -32,52 +33,82 @@ namespace Content.Client.UserInterface.Controls
             XamlChildren = ContentsContainer.Children;
 
             OpenAnimation = new(
-                OnWindowsAnimate,
+                RecenterWindow,
                 this,
                 new()
                 {
                     InterpolationMode = AnimationInterpolationMode.Cubic,
                     KeyFrames =
                     {
-                        new(new Vector2(0f,1.2f),0f),
-                        new(new Vector2(1f,0.4f),0.25f),
-                        new(new Vector2(1f,0.5f),0.4f)
+                        new(new Vector2(0.5f,1.2f),0f),
+                        new(new Vector2(0.5f,0.4f),0.25f),
+                        new(new Vector2(0.5f,0.5f),0.4f)
                     }
                 }
                 );
+
+            FadeAnimation = new(
+                SetVisibility,
+                this,
+                new()
+                {
+                    InterpolationMode = AnimationInterpolationMode.Cubic,
+                    KeyFrames =
+                    {
+                        new(1f,0f),
+                        new(0f,0.25f),
+                        new(0f,0.4f)
+                    }
+                }
+            );
+
+            UnfadeAnimation = new(
+                SetVisibility,
+                this,
+                new()
+                {
+                    InterpolationMode = AnimationInterpolationMode.Cubic,
+                    KeyFrames =
+                    {
+                        new(0f,0f),
+                        new(1f,0.25f),
+                        new(1f,0.4f)
+                    }
+                }
+            );
         }
 
         protected override void Opened()
         {
             base.Opened();
             OpenAnimation.PlayAnimation();
+            UnfadeAnimation.PlayAnimation();
         }
 
         private void FancyClose()
         {
-            CloseAnimation = new(
-                OnWindowsAnimate,
+            var pos = (Position + DesiredSize / 2) / Parent!.Size;
+
+            new AnimationExtend<Vector2>(
+                RecenterWindow,
                 this,
                 new()
                 {
                     InterpolationMode = AnimationInterpolationMode.Cubic,
                     KeyFrames =
                     {
-                        new(new Vector2(1f,0.5f),0f),
-                        new(new Vector2(0f,0.4f),0.25f),
-                        new(new Vector2(0f,1.2f),0.4f)
+                        new(new Vector2(pos.X,pos.Y),0f),
+                        new(new Vector2(pos.X,0.4f),0.25f),
+                        new(new Vector2(pos.X,1.0f),0.4f)
                     }
                 }
-            );
-
-            CloseAnimation.PlayAnimation();
-            //CloseAnimation.AnimationIsCompleted += Close;
+            ).PlayAnimation();
+            FadeAnimation.PlayAnimation();
         }
 
-        private void OnWindowsAnimate(Vector2 position)
+        private void SetVisibility(float percent)
         {
-            RecenterWindow(new(0.5f,position.Y));
-            Modulate = new(1f,1f,1f,position.X);
+            Modulate = new(1,1,1,percent);
         }
 
         public string? Title
