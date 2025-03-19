@@ -47,6 +47,7 @@
     icon: { sprite: _White/Structures/Walls/resin.rsi, state: full }
     event: !type:PlaceTileEntityEvent
       entity: WallResin
+      length: 0.5
   - type: BasePlasmaCostAction
 
 - type: entity
@@ -63,6 +64,7 @@
     icon: { sprite : _White/Structures/Windows/resin_membrane.rsi, state: full }
     event: !type:PlaceTileEntityEvent
       entity: WindowResin
+      length: 0.5
   - type: BasePlasmaCostAction
 
 - type: entity
@@ -79,6 +81,7 @@
     icon: { sprite : _White/Structures/Windows/resin_membrane.rsi, state: full }
     event: !type:PlaceTileEntityEvent
       entity: AlienNest
+      length: 0.5
   - type: BasePlasmaCostAction
 
 - type: entity

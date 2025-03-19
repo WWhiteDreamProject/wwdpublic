@@ -1,108 +1,34 @@
-﻿using System.Linq;
-using System.Numerics;
-using Content.Server.Popups;
-using Content.Shared._White.Xenomorphs.Components;
-using Content.Shared._White.Xenomorphs.Systems;
-using Content.Shared.Coordinates.Helpers;
-using Content.Shared.Maps;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Physics;
-using Robust.Shared.Containers;
-using Robust.Shared.Map;
+﻿using Content.Server._White.Xenomorphs.Components;
+using Content.Server.Actions;
 
 namespace Content.Server._White.Xenomorphs.Systems;
 
+/// <summary>
+/// This handles resin structure production for xenomorphs, including walls, windows and nests.
+/// </summary>.
 public sealed class ResinSpinnerSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedPlasmaVesselSystem _plasmaVessel = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ResinSpinnerComponent, ResinWallDoAfterEvent>(OnWallDoAfter);
-        SubscribeLocalEvent<ResinSpinnerComponent, ResinWindowDoAfterEvent>(OnWindowDoAfter);
-        SubscribeLocalEvent<ResinSpinnerComponent, AlienNestDoAfterEvent>(OnNestDoAfter);
+        SubscribeLocalEvent<ResinSpinnerComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<ResinSpinnerComponent, ComponentShutdown>(OnComponentShutdown);
     }
 
-    private void OnWallDoAfter(EntityUid uid, ResinSpinnerComponent component, ResinWallDoAfterEvent args)
+    private void OnComponentInit(EntityUid uid, ResinSpinnerComponent component, ComponentInit args)
     {
-        if (args.Cancelled || args.Handled || component.Deleted)
-            return;
-
-        CreateStructure(uid, component, component.WallPrototype);
-        args.Handled = true;
+        _actions.AddAction(uid, ref component.ResinWallActionEntity, component.ResinWallAction, uid);
+        _actions.AddAction(uid, ref component.ResinWindowActionEntity, component.ResinWindowAction, uid);
+        _actions.AddAction(uid, ref component.NestActionEntity, component.NestAction, uid);
     }
 
-    private void OnWindowDoAfter(EntityUid uid, ResinSpinnerComponent component, ResinWindowDoAfterEvent args)
+    private void OnComponentShutdown(EntityUid uid, ResinSpinnerComponent component, ComponentShutdown args)
     {
-        if (args.Cancelled || args.Handled || component.Deleted)
-            return;
-
-        CreateStructure(uid, component, component.WindowPrototype);
-        args.Handled = true;
-    }
-
-    private void OnNestDoAfter(EntityUid uid, ResinSpinnerComponent component, AlienNestDoAfterEvent args)
-    {
-        if (args.Cancelled || args.Handled || component.Deleted)
-            return;
-
-        CreateStructure(uid, component, component.NestPrototype, false);
-        args.Handled = true;
-    }
-
-    public void CreateStructure(EntityUid uid, ResinSpinnerComponent component, string structurePrototype, bool offset = true)
-    {
-
-        if (_container.IsEntityOrParentInContainer(uid))
-            return;
-
-        var xform = Transform(uid);
-        var offsetValue = new Vector2(0, 0);
-        if (offset)
-            offsetValue = xform.LocalRotation.ToWorldVec();
-
-        var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan);
-        var tile = coords.GetTileRef(EntityManager, _mapMan);
-        if (tile == null)
-            return;
-
-        // Check there are no walls there
-        if (_turf.IsTileBlocked(tile.Value, CollisionGroup.Impassable))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("alien-create-structure-failed"), uid, uid);
-            return;
-        }
-
-        // Check there are no mobs there
-        if (offset)
-        {
-            if (_lookupSystem.GetLocalEntitiesIntersecting(tile.Value, 0f).Any(entity => HasComp<MobStateComponent>(entity) && entity != uid))
-            {
-                _popupSystem.PopupEntity(Loc.GetString("alien-create-structure-failed"), uid, uid);
-                return;
-            }
-        }
-
-        foreach (var entity in _lookupSystem.GetEntitiesInRange(coords, 0.1f))
-        {
-            var protoId = Prototype(entity);
-
-            if (protoId == null)
-                continue;
-            if (protoId.ID != structurePrototype)
-                continue;
-            _popupSystem.PopupEntity(Loc.GetString("alien-create-structure-failed"), uid, uid);
-            return;
-        }
-        // Make sure we set the invisible wall to despawn properly
-        Spawn(structurePrototype, _turf.GetTileCenter(tile.Value));
-        _plasmaVessel.ChangePlasmaAmount(uid, -component.PlasmaCostWall);
+        _actions.RemoveAction(uid, component.ResinWallActionEntity);
+        _actions.RemoveAction(uid, component.ResinWindowActionEntity);
+        _actions.RemoveAction(uid, component.NestActionEntity);
     }
 }
