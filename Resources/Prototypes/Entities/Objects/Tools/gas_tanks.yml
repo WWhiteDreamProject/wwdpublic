@@ -9,7 +9,6 @@
   - type: Item
     size: Normal
     sprite: Objects/Tanks/generic.rsi
-    canBeUsedWhileWorn: true # WWDP
   - type: Clothing
     quickEquip: false
     sprite: Objects/Tanks/generic.rsi
