@@ -971,21 +971,21 @@
     - HandheldGPSBasic
     - HandheldStationMap
     -
-    # WWDP gun bloat moved to tier 1 Arsenal research
+      # WWDP gun bloat moved to tier 1 Arsenal research
       # - MagazineNovaliteC1Empty
       # - MagazineNovaliteC1
-    # - MagazineLightRifleLowCapacityEmpty
-    # - MagazineLightRifleLowCapacity
-    # - SpeedLoaderRifleHeavy
+      # - MagazineLightRifleLowCapacityEmpty
+      # - MagazineLightRifleLowCapacity
+      # - SpeedLoaderRifleHeavy
       # - SpeedLoaderRifleHeavyEmpty
-    # - WeaponRifleNovaliteC1
-    # - WeaponRifleGestio
-    # - MagazineMagnumLeverRifle # Goobstation
-    # - MagazineMagnumLeverRifleEmpty # Goobstation
-    # - MagazineNovaliteC1Empty
-    # - MagazineNovaliteC1
-    # - WeaponRifleNovaliteC1
-    # - WeaponRifleGestio
+      # - WeaponRifleNovaliteC1
+      # - WeaponRifleGestio
+      # - MagazineMagnumLeverRifle # Goobstation
+      # - MagazineMagnumLeverRifleEmpty # Goobstation
+      # - MagazineNovaliteC1Empty
+      # - MagazineNovaliteC1
+      # - WeaponRifleNovaliteC1
+      # - WeaponRifleGestio
     # - ClothingEyesGlassesSecurity # WWDP no infinite sechuds
     - TelescopicShield
     - HoloprojectorSecurity
@@ -1140,17 +1140,22 @@
     - WeaponPistolMk58
     - WeaponPistolN1984
     # - WeaponPistolViper  # WWDP no syndicate gear
+    # - WeaponPistolCobra # WWDP no syndicate gear
     - MagazineRifleShrapnel
     - MagazinePistolShrapnel
     - MagazinePistolSubMachineGunShrapnel
     - MagazineMagnumShrapnel
     - MagazineLightRifleShrapnel
     - MagazineCaselessRifleShrapnel
+    - MagazineCaselessRifleIncendiary
+    - MagazineCaselessRifleUranium
     - MagazineBoxPistolShrapnel
     - MagazineBoxMagnumShrapnel
     - MagazineBoxLightRifleShrapnel
     - MagazineBoxRifleShrapnel
     - MagazineBoxCaselessRifleShrapnel
+    - MagazineBoxCaselessRifleIncendiary
+    - MagazineBoxCaselessRifleUranium
   - type: MaterialStorage
     whitelist:
       tags:
