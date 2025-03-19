@@ -76,7 +76,6 @@ namespace Content.Server.Entry
 
             prototypes.RegisterIgnore("parallax");
             prototypes.RegisterIgnore("guideEntry");
-            StylePrototypeIgnorance.Register(prototypes); //WD EDIT
 
             ServerContentIoC.Register();
 

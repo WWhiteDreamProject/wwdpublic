@@ -142,6 +142,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.StyleSheetify.Share
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.StyleSheetify.Client", "StyleSheetify\Content.StyleSheetify.Client\Content.StyleSheetify.Client.csproj", "{127EE7A3-F1DE-45D0-8255-D0183B4FA42E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.StyleSheetify.Server", "StyleSheetify\Content.StyleSheetify.Server\Content.StyleSheetify.Server.csproj", "{C384B0DD-381D-4495-939A-BDCC522C63C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -477,6 +479,14 @@ Global
 		{127EE7A3-F1DE-45D0-8255-D0183B4FA42E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{127EE7A3-F1DE-45D0-8255-D0183B4FA42E}.Tools|Any CPU.ActiveCfg = Debug|Any CPU
 		{127EE7A3-F1DE-45D0-8255-D0183B4FA42E}.Tools|Any CPU.Build.0 = Debug|Any CPU
+		{C384B0DD-381D-4495-939A-BDCC522C63C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C384B0DD-381D-4495-939A-BDCC522C63C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C384B0DD-381D-4495-939A-BDCC522C63C6}.DebugOpt|Any CPU.ActiveCfg = Debug|Any CPU
+		{C384B0DD-381D-4495-939A-BDCC522C63C6}.DebugOpt|Any CPU.Build.0 = Debug|Any CPU
+		{C384B0DD-381D-4495-939A-BDCC522C63C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C384B0DD-381D-4495-939A-BDCC522C63C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C384B0DD-381D-4495-939A-BDCC522C63C6}.Tools|Any CPU.ActiveCfg = Debug|Any CPU
+		{C384B0DD-381D-4495-939A-BDCC522C63C6}.Tools|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
