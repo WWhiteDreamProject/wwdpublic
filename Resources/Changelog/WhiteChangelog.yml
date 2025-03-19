@@ -2131,3 +2131,12 @@ Entries:
   id: 225
   time: '2025-03-18T15:09:58.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/357
+- author: Ligrof
+  changes:
+    - type: Add
+      message: реакция создания бумаги и коммунистической бумаги
+    - type: Add
+      message: рецепт крафта картона и революционного манифеста
+  id: 226
+  time: '2025-03-19T17:15:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/359
