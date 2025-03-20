@@ -1135,6 +1135,10 @@
     - EnergySword
     - EnergySwordDouble
     - EnergyCutlass
+    - WeaponEnergyTurretAIMachineCircuitboard
+    - WeaponEnergyTurretStationMachineCircuitboard
+    - WeaponEnergyTurretAIControlPanelElectronics
+    - WeaponEnergyTurretStationControlPanelElectronics
     # - WeaponSubMachineGunFPA90 # WWDP no syndicate gear
     - WeaponSubMachineGunBRDIR25
     - WeaponPistolMk58
