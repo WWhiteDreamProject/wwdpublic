@@ -1,7 +1,13 @@
-﻿namespace Content.Shared._White.Xenomorphs.Components;
+﻿using Content.Shared.FixedPoint;
 
-/// <summary>
-/// This is used for marking entity as plasma gaining modificator, when alien stands on it
-/// </summary>
+namespace Content.Shared._White.Xenomorphs.Components;
+
 [RegisterComponent]
-public sealed partial class PlasmaGainModifierComponent : Component;
+public sealed partial class PlasmaGainModifierComponent : Component
+{
+    /// <summary>
+    /// The amount of plasma to which plasma per second will be equal, when alien stands on weeds.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 PlasmaPerSecond = 15f;
+}

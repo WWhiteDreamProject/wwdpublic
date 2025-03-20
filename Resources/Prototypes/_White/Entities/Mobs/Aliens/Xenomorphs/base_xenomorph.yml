@@ -241,8 +241,7 @@
       entityProduced: CorrosiveAcid
     - type: ResinSpinner
     - type: PlasmaVessel
-      plasmaUnmodified: 5
-      weedModifier: 15
+      plasmaPerSecond: 5
     - type: PraetorianEvolution
     - type: Devourer
       devourTime: 3
@@ -311,8 +310,7 @@
         Base: aliens_dead
   - type: PlasmaVessel
     plasmaRegenCap: 150
-    plasmaUnmodified: 5
-    weedModifier: 15
+    plasmaPerSecond: 5
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.75
   - type: BasicEntityAmmoProvider
@@ -406,8 +404,7 @@
         Base: alienh_dead
   - type: PlasmaVessel
     plasmaRegenCap: 150
-    plasmaUnmodified: 5
-    weedModifier: 15
+    plasmaPerSecond: 5
   - type: Devourer
     devourTime: 2
     consumes:
@@ -497,8 +494,7 @@
       Dead:
         Base: alienp_dead
   - type: PlasmaVessel
-    plasmaUnmodified: 5
-    weedModifier: 15
+    plasmaPerSecond: 5
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.75
   - type: BasicEntityAmmoProvider
@@ -595,8 +591,7 @@
         Base: alienq_dead
   - type: PlasmaVessel
     plasmaRegenCap: 500
-    plasmaUnmodified: 5
-    weedModifier: 15
+    plasmaPerSecond: 5
   - type: ResinSpinner
   - type: AcidMaker
     plasmaCost: 50
@@ -673,8 +668,7 @@
   - type: Alien
     greetingText: alien-maid-greeting
   - type: PlasmaVessel
-    plasmaUnmodified: 5
-    weedModifier: 15
+    plasmaPerSecond: 5
   - type: MobThresholds
     thresholds:
       0: Alive

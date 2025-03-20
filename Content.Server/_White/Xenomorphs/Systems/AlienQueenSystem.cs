@@ -21,7 +21,7 @@ public sealed class AlienQueenSystem : EntitySystem
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedPlasmaVesselSystem _plasmaVessel = default!;
+    [Dependency] private readonly PlasmaVesselSystem _plasmaVessel = default!;
 
     public override void Initialize()
     {

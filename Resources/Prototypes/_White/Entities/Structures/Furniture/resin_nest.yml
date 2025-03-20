@@ -14,19 +14,19 @@
   - type: IconSmooth
     key: full
     base: alien_nest
-  - type: Physics
-    canCollide: false
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
           bounds: "-0.45,-0.45,0.45,0.45"
-        density: 55
         mask:
-        - TableMask
+        - SlipLayer
         layer:
-        - TableLayer
+        - Impassable
+        - MidImpassable
+        - LowImpassable
+        hard: false
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Resin
@@ -64,3 +64,8 @@
     delay: 120
     position: Down
     rotation: -90
+  - type: ItemPlacer
+    maxEntities: 5
+    whitelist:
+      components:
+      - PlasmaVessel

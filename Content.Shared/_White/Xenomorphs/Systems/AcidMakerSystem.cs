@@ -19,7 +19,6 @@ public sealed class AcidMakerSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPlasmaVesselSystem _plasmaVesselSystem = default!;
 
-
     public override void Initialize()
     {
         base.Initialize();

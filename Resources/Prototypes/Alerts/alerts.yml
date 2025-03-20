@@ -6,7 +6,6 @@
   order:
     - category: Health
     - category: Counter # WWDP
-    - alertType: PlasmaCounter # WD EDIT
     - category: Mood
     - category: Stamina
     - alertType: SuitPower

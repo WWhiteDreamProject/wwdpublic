@@ -1,102 +1,26 @@
-﻿using Content.Shared._White.Xenomorphs.Components;
+using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared.Alert;
 using Content.Shared.FixedPoint;
-using Content.Shared.Popups;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
 namespace Content.Shared._White.Xenomorphs.Systems;
 
-/// <summary>
-/// This handles the plasma vessel component.
-/// </summary>
-public sealed class SharedPlasmaVesselSystem : EntitySystem
+public abstract class SharedPlasmaVesselSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
 
-    [ValidatePrototypeId<AlertPrototype>]
-    public ProtoId<AlertPrototype> PlasmaCounterAlert = "PlasmaCounter";
-
-    public bool ChangePlasmaGain(EntityUid uid, float modifier, PlasmaVesselComponent? component = null)
+    public bool ChangePlasmaAmount(EntityUid uid, FixedPoint2 amount, PlasmaVesselComponent? component = null, bool regenCap = false)
     {
-        if (component == null)
-        {
-            return false;
-        }
-        component.PlasmaPerSecond *= modifier;
-        return true;
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-        var query = EntityQueryEnumerator<PlasmaVesselComponent>();
-
-        while (query.MoveNext(out var uid, out var alien))
-        {
-            alien.Accumulator += frameTime;
-
-            // Делаем проверку только раз в секунду
-            if (alien.Accumulator < 1)
-                continue;
-
-            alien.Accumulator -= 1;
-
-            bool weed = false;
-            foreach (var entity in _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 0.1f))
-            {
-                if (HasComp<PlasmaGainModifierComponent>(entity))
-                {
-                    alien.PlasmaPerSecond = alien.WeedModifier;
-                    weed = true;
-                }
-            }
-
-            if (!weed)
-                alien.PlasmaPerSecond = alien.PlasmaUnmodified;
-
-            if (alien.Plasma < alien.PlasmaRegenCap)
-            {
-                ChangePlasmaAmount(uid, alien.PlasmaPerSecond, alien);
-            }
-        }
-    }
-
-    public bool ChangePlasmaAmount(EntityUid uid, FixedPoint2 amount, PlasmaVesselComponent? component = null)
-    {
-        if (!Resolve(uid, ref component) || component.Plasma < -amount)
+        if (!Resolve(uid, ref component) || component.Plasma + amount < 0)
             return false;
 
-        component.Plasma = FixedPoint2.Min(component.Plasma + amount, component.PlasmaRegenCap);
+        component.Plasma += amount;
 
-        /*
-        var stalk = CompOrNull<AlienStalkComponent>(uid);
-        if (stalk is { IsActive: true })
-        {
-            return true;
-        }
+        if (regenCap)
+            component.Plasma = FixedPoint2.Min(component.Plasma, component.PlasmaRegenCap);
 
-        if (amount != component.PlasmaUnmodified && amount != component.WeedModifier)
-        {
-            _popup.PopupEntity(Loc.GetString("alien-plasma-left", ("value", component.Plasma)), uid, uid);
-        }
+        Dirty(uid, component);
 
-        var newAlertValue = (int)(component.Plasma.Float() / 50);
-
-        if (newAlertValue == component.AlertValue)
-            return true;
-        var currentTime = (float)_gameTiming.CurTime.TotalSeconds;
-
-        if (!(currentTime - component.LastAlertUpdateTime >= PlasmaVesselComponent.AlertUpdateInterval))
-            return true;
-        _alerts.ShowAlert(uid, PlasmaCounterAlert, (short)newAlertValue);
-        component.AlertValue = newAlertValue;
-        component.LastAlertUpdateTime = currentTime;
-        */
+        _alerts.ShowAlert(uid, component.PlasmaAlert);
 
         return true;
     }
