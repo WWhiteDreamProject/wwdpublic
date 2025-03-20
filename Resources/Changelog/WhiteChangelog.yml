@@ -2140,3 +2140,10 @@ Entries:
   id: 226
   time: '2025-03-19T17:15:04.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/359
+- author: SentryPrimies
+  changes:
+    - type: Tweak
+      message: Респрайт ИПЦ
+  id: 227
+  time: '2025-03-20T07:29:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/360
