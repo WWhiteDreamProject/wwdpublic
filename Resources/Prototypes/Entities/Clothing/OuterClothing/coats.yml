@@ -592,3 +592,14 @@
   parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCoatSubmariner]
   id: ClothingOuterCoatSubmarinerOpened
   name: submariner coat
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterVestCoatHop
+  name: HoP's coat
+  description: This coat was specifically designed for head of personnel.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/hopcoat.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/hopcoat.rsi
