@@ -4,8 +4,10 @@ using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._White.Action;
 
@@ -28,27 +30,8 @@ public sealed class ActionsSystem : EntitySystem
 
     private void OnSpawnTileEntityAction(SpawnTileEntityActionEvent args)
     {
-        if (args.Handled)
+        if (args.Handled || !CreationTileEntity(args.Performer.ToCoordinates(), args.TileId, args.Entity, args.Audio))
             return;
-
-        var coordinates = args.Performer.ToCoordinates();
-
-        if (args.TileId is { } tileId)
-        {
-            if (_transform.GetGrid(coordinates) is not { } grid || !TryComp(grid, out MapGridComponent? mapGrid))
-                return;
-
-            var tileDef = _tileDef[tileId];
-            var tile = new Tile(tileDef.TileId);
-
-            _mapSystem.SetTile(grid, mapGrid, coordinates, tile);
-        }
-
-        if (args.Entity is { } entProtoId)
-            Spawn(entProtoId, coordinates);
-
-        if (args.Audio is { } audio)
-            _audio.PlayPvs(audio, coordinates);
 
         args.Handled = true;
     }
@@ -81,37 +64,28 @@ public sealed class ActionsSystem : EntitySystem
             return;
         }
 
-        if (args.TileId is { } tileId)
-        {
-            if (_transform.GetGrid(args.Target) is not { } grid || !TryComp(grid, out MapGridComponent? mapGrid))
-                return;
-
-            var tileDef = _tileDef[tileId];
-            var tile = new Tile(tileDef.TileId);
-
-            _mapSystem.SetTile(grid, mapGrid, args.Target, tile);
-        }
-
-        if (args.Entity is { } entProtoId)
-            Spawn(entProtoId, args.Target);
-
-        if (args.Audio is { } audio)
-            _audio.PlayPvs(audio, args.Target);
+        if (!CreationTileEntity(args.Target, args.TileId, args.Entity, args.Audio))
+            return;
 
         args.Handled = true;
     }
 
     private void OnPlaceTileEntityDoAfter(PlaceTileEntityDoAfterEvent args)
     {
-        if (args.Handled)
+        if (args.Handled || !CreationTileEntity(GetCoordinates(args.Target), args.TileId, args.Entity, args.Audio))
             return;
 
-        var coordinates = GetCoordinates(args.Target);
+        args.Handled = true;
+    }
 
-        if (args.TileId is { } tileId)
+    #region Helpers
+
+    private bool CreationTileEntity(EntityCoordinates coordinates, string? tileId, EntProtoId? entProtoId, SoundSpecifier? audio)
+    {
+        if (tileId != null)
         {
             if (_transform.GetGrid(coordinates) is not { } grid || !TryComp(grid, out MapGridComponent? mapGrid))
-                return;
+                return false;
 
             var tileDef = _tileDef[tileId];
             var tile = new Tile(tileDef.TileId);
@@ -119,12 +93,14 @@ public sealed class ActionsSystem : EntitySystem
             _mapSystem.SetTile(grid, mapGrid, coordinates, tile);
         }
 
-        if (args.Entity is { } entProtoId)
+        if (entProtoId != null)
             Spawn(entProtoId, coordinates);
 
-        if (args.Audio is { } audio)
+        if (audio != null)
             _audio.PlayPvs(audio, coordinates);
 
-        args.Handled = true;
+        return true;
     }
+
+    #endregion
 }
