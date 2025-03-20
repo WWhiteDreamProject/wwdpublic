@@ -37,6 +37,8 @@
     fireOnDropChance: 0.5
   - type: UseDelay
     delay: 0.66
+  - type: DisarmMalus # WWDP
+    malus: 0.3
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container

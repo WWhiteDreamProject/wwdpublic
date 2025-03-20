@@ -24,6 +24,7 @@
     tags:
       - CaneBlade
   - type: DisarmMalus
+    malus: 0.5 # WWDP
 
 - type: entity
   id: CaneSheathFilledNanotrasen

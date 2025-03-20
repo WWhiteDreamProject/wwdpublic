@@ -34,9 +34,9 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
-  - type: Construction
-    graph: GlassesCorpsHUD
-    node: glassesCorps
+  # - type: Construction # WWDP
+  #   graph: GlassesCorpsHUD
+  #   node: glassesCorps
   - type: Tag
     tags:
     - HamsterWearable

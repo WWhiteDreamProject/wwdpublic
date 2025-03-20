@@ -43,11 +43,13 @@
     attackRate: 1 # WD EDIT
     angle: 60
   - type: DamageOtherOnHit
-  - type: StaminaDamageOnHit
-    damage: 35 # WD EDIT
+  - type: StaminaDamageOnHit # Stunmeta
+    damage: 15
+    overtime: 40
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
-    damage: 35
+    damage: 15
+    overtime: 40
     sound: /Audio/Weapons/egloves.ogg
   - type: Battery
     maxCharge: 750 # WD EDIT
@@ -61,7 +63,7 @@
     slots:
     - Belt
   - type: DisarmMalus
-    malus: 0.225
+    malus: 0.8 # WWDP
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -93,7 +95,6 @@
     - Security
   - type: MartialArtBlocked # Goobstation - Martial Arts
     form: CorporateJudo # Goobstation - Martial Arts
-  - type: KnockdownOnHit # WD EDIT
 
 - type: entity
   name: truncheon
@@ -128,7 +129,7 @@
     slots:
     - Belt
   - type: DisarmMalus
-    malus: 0.225
+    malus: 0.8 # WWDP
   - type: Appearance
   - type: StaticPrice
     price: 80

@@ -322,14 +322,14 @@
   - type: SurgeryStep
     tool:
     - type: Tending
-    duration: 2 # WWDP less spam
+    duration: 2
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi # WD EDIT
-    state: hemostat # WD EDIT
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
+    state: hemostat
   - type: SurgeryTendWoundsEffect
     damage:
       groups:
-        Brute: -10 # WWDP
+        Brute: -10
   - type: SurgeryRepeatableStep
 
 - type: entity
@@ -341,15 +341,15 @@
   - type: SurgeryStep
     tool:
     - type: Tending
-    duration: 2 # WWDP less spam
+    duration: 2
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi # WWDP
-    state: hemostat # WWDP
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
+    state: hemostat
   - type: SurgeryTendWoundsEffect
     mainGroup: Burn
     damage:
       groups:
-        Burn: -10 # WWDP
+        Burn: -10
   - type: SurgeryRepeatableStep
 
 - type: entity
@@ -521,15 +521,15 @@
     - type: Drill
     addOrganOnAdd:
       brain:
-      - type: OhioAccent
-      - type: RatvarianLanguage
-      - type: Clumsy
-        gunShootFailDamage:
-          types:
-            Blunt: 5
-            Piercing: 4
-          groups:
-            Burn: 3
+        - type: OhioAccent
+        - type: RatvarianLanguage
+        - type: Clumsy
+          gunShootFailDamage:
+            types:
+              Blunt: 5
+              Piercing: 4
+            groups:
+              Burn: 3
     duration: 5
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
@@ -552,12 +552,12 @@
     duration: 4
     removeOrganOnAdd:
       brain:
-      - type: OhioAccent
-      - type: RatvarianLanguage
-      - type: Clumsy
-        gunShootFailDamage:
-          types:
-            Blunt: 0
+        - type: OhioAccent
+        - type: RatvarianLanguage
+        - type: Clumsy
+          gunShootFailDamage:
+            types:
+              Blunt: 0
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat

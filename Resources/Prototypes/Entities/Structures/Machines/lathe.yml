@@ -373,7 +373,7 @@
     - SyringeBluespace
     - WeaponForceGun
     - WeaponLaserSvalinn
-    - WeaponCivilianDisabler
+    # - WeaponCivilianDisabler # WWDP disabled (xd)
     - WeaponProtoKineticAccelerator
     - WeaponTetherGun
     - WeaponGrapplingGun
@@ -403,6 +403,7 @@
     - ClothingEyesThermalVisionGoggles
     - RCDAmmo #DeltaV
     - RCD #EE
+    - RPD
     # Shitmed Change
     - EnergyScalpel
     - EnergyCautery
@@ -720,6 +721,7 @@
     - BorgModuleAdvancedTool
     - BorgModuleGPS
     - BorgModuleRCD
+    - BorgModuleRPD
     - BorgModuleJetpack
     - BorgModulePka
     - BorgModuleArtifact
@@ -892,6 +894,8 @@
     idleState: icon
     runningState: icon
     staticRecipes:
+    - Truncheon
+    - Terminus
     - BoxLethalshot
     - BoxShotgunFlare
     - BoxShotgunPractice

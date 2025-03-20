@@ -523,7 +523,7 @@
     amount: 6
     whitelist:
       components:
-      - HitscanBatteryAmmoProvider
+      - ProjectileBatteryAmmoProvider # WWDP
 
 - type: cargoBounty
   id: BountyFood

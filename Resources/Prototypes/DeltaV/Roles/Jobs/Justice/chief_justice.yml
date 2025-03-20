@@ -3,6 +3,7 @@
   name: job-name-chief-justice
   description: job-description-chief-justice
   playTimeTracker: JobChiefJustice
+  setPreference: false # WWDP disabled
   weight: 20
   startingGear: CJGear
   icon: "JobIconChiefJustice"

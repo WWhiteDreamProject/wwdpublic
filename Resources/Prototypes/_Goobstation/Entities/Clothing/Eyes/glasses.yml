@@ -1,7 +1,7 @@
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
   id: ClothingEyesGlassesMedSec
-  name: medsecglasses
+  name: medsec glasses # WWDP
   description: Sunglasses with a medical and security hud
   components:
   - type: Sprite
@@ -23,4 +23,7 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-    
+  - type: Construction # WWDP
+    graph: GlassesMedSecHUD
+    node: glassesMedSec
+

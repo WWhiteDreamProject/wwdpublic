@@ -188,13 +188,13 @@
       tags:
       - CartridgeMusket
     capacity: 1
-    proto: CartridgeMusket
+    proto: null # WWDP start empty
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Rifles/musket.rsi
     state: base
   - type: Gun #Smoothbore
-    fireRate: .125
-    resetOnHandSelected: false
+    fireRate: 0.3 # WWDP
+    #resetOnHandSelected: false # WWDP
     minAngle: 22
     maxAngle: 43
   - type: Wieldable

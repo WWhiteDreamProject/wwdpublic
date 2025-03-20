@@ -4338,7 +4338,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 9.5,-0.5
       parent: 2
-- proto: ComputerCrewMonitoring
+- proto: ComputerBroken # ComputerCrewMonitoring; WWDP disabled
   entities:
   - uid: 1239
     components:
@@ -4459,7 +4459,7 @@ entities:
     - type: Transform
       pos: 9.5,12.5
       parent: 2
-- proto: CrewMonitoringServer
+- proto: MachineFrameDestroyed # CrewMonitoringServer; WWDP disabled
   entities:
   - uid: 1269
     components:

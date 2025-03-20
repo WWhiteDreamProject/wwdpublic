@@ -50,8 +50,20 @@
                 ]
             ]
         },
+		{
+            "name": "laser"
+        },
+		{
+            "name": "laser_blue"
+        },
+		{
+            "name": "laser_short"
+        },
         {
             "name": "heavylaser"
+        },
+		{
+            "name": "xray"
         }
     ]
 }

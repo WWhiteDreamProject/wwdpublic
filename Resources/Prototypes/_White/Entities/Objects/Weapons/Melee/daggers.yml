@@ -27,7 +27,7 @@
         types:
           Slash: 20
     - type: DisarmMalus
-      malus: 0.225
+      malus: 0.5 # WWDP
     - type: BackStab
     - type: Blink
       blinkRate: 0.33
@@ -58,6 +58,7 @@
       slots:
         - back
     - type: DisarmMalus
+      malus: 0.5 # WWDP
     - type: Crit
       critChance: 0.5
       critMultiplier: 2
