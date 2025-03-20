@@ -190,3 +190,10 @@
           Blunt: 5
     - type: TimedDespawn
       lifetime: 6
+    - type: WeaponRandom
+      damageBonus:
+        types:
+          Blunt: 350
+      randomDamageChance: 0.001
+      applyBonusOnThrow: true
+      forcedThrowTargetPart: "Head"
