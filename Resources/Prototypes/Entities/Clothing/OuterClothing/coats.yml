@@ -600,6 +600,6 @@
   description: This coat was specifically designed for head of personnel.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/hopcoat.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/hopcoat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/hopcoat.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/hopcoat.rsi
