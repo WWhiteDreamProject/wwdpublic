@@ -972,22 +972,21 @@
     # - MagazinePistolSpecial
     - HandheldGPSBasic
     - HandheldStationMap
-    -
-      # WWDP gun bloat moved to tier 1 Arsenal research
-      # - MagazineNovaliteC1Empty
-      # - MagazineNovaliteC1
-      # - MagazineLightRifleLowCapacityEmpty
-      # - MagazineLightRifleLowCapacity
-      # - SpeedLoaderRifleHeavy
-      # - SpeedLoaderRifleHeavyEmpty
-      # - WeaponRifleNovaliteC1
-      # - WeaponRifleGestio
-      # - MagazineMagnumLeverRifle # Goobstation
-      # - MagazineMagnumLeverRifleEmpty # Goobstation
-      # - MagazineNovaliteC1Empty
-      # - MagazineNovaliteC1
-      # - WeaponRifleNovaliteC1
-      # - WeaponRifleGestio
+    # WWDP gun bloat moved to tier 1 Arsenal research
+    # - MagazineNovaliteC1Empty
+    # - MagazineNovaliteC1
+    # - MagazineLightRifleLowCapacityEmpty
+    # - MagazineLightRifleLowCapacity
+    # - SpeedLoaderRifleHeavy
+    # - SpeedLoaderRifleHeavyEmpty
+    # - WeaponRifleNovaliteC1
+    # - WeaponRifleGestio
+    # - MagazineMagnumLeverRifle # Goobstation
+    # - MagazineMagnumLeverRifleEmpty # Goobstation
+    # - MagazineNovaliteC1Empty
+    # - MagazineNovaliteC1
+    # - WeaponRifleNovaliteC1
+    # - WeaponRifleGestio
     # - ClothingEyesGlassesSecurity # WWDP no infinite sechuds
     - TelescopicShield
     - HoloprojectorSecurity

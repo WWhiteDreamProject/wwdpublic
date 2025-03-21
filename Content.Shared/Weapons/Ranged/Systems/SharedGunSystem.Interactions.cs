@@ -27,7 +27,7 @@ public abstract partial class SharedGunSystem
             */
 
             if (component.DamageModifier != 1f)
-                args.PushMarkup(Loc.GetString("gun-damage-modifier-examine", ("color", FireRateExamineColor),
+                args.PushMarkup(Loc.GetString("gun-damage-modifier-examine", ("color", ModeExamineColor), // WD EDIT
                     ("damage", $"{component.DamageModifier.ToString("#.##")}")));
 
             if (!component.AvailableModes.HasFlag(SelectiveFire.Burst))

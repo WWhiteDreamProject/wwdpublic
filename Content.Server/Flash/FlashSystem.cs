@@ -1,11 +1,11 @@
 using System.Linq;
-using Content.Server._White.Flash;
 using Content.Server._White.Hearing;
 using Content.Server.Flash.Components;
 using Content.Shared.Flash.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
+using Content.Shared._Goobstation.Flashbang;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Eye.Blinding.Components;
@@ -28,6 +28,7 @@ using Content.Shared.Traits.Assorted.Components;
 using Robust.Shared.Random;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Standing;
+using FlashModifierComponent = Content.Shared._White.Flash.Components.FlashModifierComponent;
 
 
 namespace Content.Server.Flash

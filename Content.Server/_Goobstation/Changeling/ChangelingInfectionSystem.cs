@@ -31,23 +31,23 @@ public sealed partial class ChangelingInfectionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ChangelingInfectionImplantComponent, ImplantImplantedEvent>(OnImplanterInjected);
+        SubscribeLocalEvent<ChangelingInfectionImplantComponent, SubdermalImplantInserted>(OnImplanterInjected);
     }
 
-    private void OnImplanterInjected(EntityUid uid, ChangelingInfectionImplantComponent comp, ImplantImplantedEvent ev)
+    private void OnImplanterInjected(EntityUid uid, ChangelingInfectionImplantComponent comp, SubdermalImplantInserted ev)
     {
-        if (!_tag.HasTag(ev.Implant, comp.ChangelingInfectionImplant) || ev.Implanted == null)
+        if (!_tag.HasTag(uid, comp.ChangelingInfectionImplant))
             return;
 
-        if (!EntityManager.TryGetComponent(ev.Implanted.Value, out AbsorbableComponent? _))
+        if (!EntityManager.TryGetComponent(ev.Target, out AbsorbableComponent? _))
         {
-            _popupSystem.PopupEntity(Loc.GetString(comp.ImplantFailPopup), ev.Implanted.Value, ev.Implanted.Value, comp.ImplantFailPopupType);
+            _popupSystem.PopupEntity(Loc.GetString(comp.ImplantFailPopup), ev.Target, ev.Target, comp.ImplantFailPopupType);
             return;
         }
 
-        EnsureComp<ChangelingInfectionComponent>(ev.Implanted.Value);
+        EnsureComp<ChangelingInfectionComponent>(ev.Target);
 
-        _popupSystem.PopupEntity(Loc.GetString(comp.ImplantPopup), ev.Implanted.Value, ev.Implanted.Value, comp.ImplantPopupType);
+        _popupSystem.PopupEntity(Loc.GetString(comp.ImplantPopup), ev.Target, ev.Target, comp.ImplantPopupType);
     }
 
     public override void Update(float frameTime)

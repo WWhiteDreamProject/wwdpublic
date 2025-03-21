@@ -9,22 +9,19 @@ public sealed class AddComponentsImplantSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<AddComponentsImplantComponent, ImplantImplantedEvent>(OnImplantImplantedEvent);
+        SubscribeLocalEvent<AddComponentsImplantComponent, SubdermalImplantInserted>(OnImplantImplantedEvent); // WD EDIT
         SubscribeLocalEvent<AddComponentsImplantComponent, EntGotRemovedFromContainerMessage>(OnRemove);
     }
 
-    private void OnImplantImplantedEvent(Entity<AddComponentsImplantComponent> ent, ref ImplantImplantedEvent args)
+    private void OnImplantImplantedEvent(Entity<AddComponentsImplantComponent> ent, ref SubdermalImplantInserted args) // WD EDIT
     {
-        if (args.Implanted is not {} target)
-            return;
-
         foreach (var component in ent.Comp.ComponentsToAdd)
         {
             // Don't add the component if it already exists
-            if (EntityManager.HasComponent(target, _factory.GetComponent(component.Key).GetType()))
+            if (EntityManager.HasComponent(args.Target, _factory.GetComponent(component.Key).GetType())) // WD EDIT
                 continue;
 
-            EntityManager.AddComponent(target, component.Value);
+            EntityManager.AddComponent(args.Target, component.Value); // WD EDIT
             ent.Comp.AddedComponents.Add(component.Key, component.Value);
         }
     }
