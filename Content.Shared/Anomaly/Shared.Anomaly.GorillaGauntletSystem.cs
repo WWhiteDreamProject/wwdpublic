@@ -14,10 +14,10 @@ public sealed class GorillaGauntlet : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<WeldbotComponent, GotEmaggedEvent>(OnEmagged);
+        SubscribeLocalEvent<GorillaGauntletComponent, GotEmaggedEvent>(OnEmagged);
     }
 
-    private void OnEmagged(EntityUid uid, WeldbotComponent comp, ref GotEmaggedEvent args)
+    private void OnEmagged(EntityUid uid, Component comp, ref GotEmaggedEvent args)
     {
         _audio.PlayPredicted(comp.EmagSparkSound, uid, args.UserUid);
 
@@ -25,3 +25,12 @@ public sealed class GorillaGauntlet : EntitySystem
         args.Handled = true;
     }
 }
+
+ private void OnGotEmagged(EntityUid uid, ref GotEmaggedEvent args)
+    {
+    
+    }
+
+        args.Repeatable = true;
+        args.Handled = true;
+    }
