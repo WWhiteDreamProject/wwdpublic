@@ -28,5 +28,8 @@
   - type: MeleeThrowOnHit
     speed: 5
     lifetime: 0.5
-  - type: KnockdownOnHit
-    duration: 0
+  - type: KnockdownOnHit # WD EDIT
+    delay: 0
+    knockdownTime: 0
+    jitterTime: 0
+    stutterTime: 0

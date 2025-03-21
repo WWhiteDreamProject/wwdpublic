@@ -17,7 +17,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemLinoWhite
   heatCapacity: 10000
-  tileRipResistance: 100
 
 - type: tile
   id: FloorLinoGrey
@@ -38,7 +37,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemLinoGrey
   heatCapacity: 10000
-  tileRipResistance: 100
 
 - type: tile
   id: FloorLinoDark
@@ -59,7 +57,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemLinoDark
   heatCapacity: 10000
-  tileRipResistance: 100
 
 - type: tile
   id: FloorSteelYellow
@@ -78,7 +75,6 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemSteelYellow
   heatCapacity: 10000
-  tileRipResistance: 100
 
 - type: tile
   id: FloorSteelRed
@@ -97,7 +93,6 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemSteelRed
   heatCapacity: 10000
-  tileRipResistance: 100
 
 - type: tile
   id: FloorSteelGreen
@@ -116,7 +111,6 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemSteelGreen
   heatCapacity: 10000
-  tileRipResistance: 100
 
 - type: tile
   id: FloorSteelBlue
@@ -135,7 +129,6 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemSteelBlue
   heatCapacity: 10000
-  tileRipResistance: 100
 
 - type: tile
   id: FloorPlasticYellow
@@ -154,7 +147,6 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemPlasticYellow
   heatCapacity: 10000
-  tileRipResistance: 100
 
 - type: tile
   id: FloorPlasticRed
@@ -173,7 +165,6 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemPlasticRed
   heatCapacity: 10000
-  tileRipResistance: 100
 
 - type: tile
   id: FloorPlasticGreen
@@ -192,7 +183,6 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemPlasticGreen
   heatCapacity: 10000
-  tileRipResistance: 100
 
 - type: tile
   id: FloorPlasticBlue
@@ -211,7 +201,6 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemPlasticBlue
   heatCapacity: 10000
-  tileRipResistance: 100
 
 - type: tile
   id: FloorShielding
@@ -230,7 +219,6 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemShielding
   heatCapacity: 10000
-  tileRipResistance: 400
 
 - type: tile
   id: FloorShieldingMono
@@ -249,7 +237,6 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemShieldingMono
   heatCapacity: 10000
-  tileRipResistance: 400
 
 - type: tile
   id: FloorReinforcedGlassFrame
@@ -268,7 +255,6 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemReinforcedGlassFrame
   heatCapacity: 10000
-  tileRipResistance: 100
 
 - type: tile
   id: FloorGlassFrame
@@ -287,7 +273,6 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemGlassFrame
   heatCapacity: 10000
-  tileRipResistance: 100
 
 # Departamental
 
@@ -308,7 +293,6 @@
     collection: FootstepHull
   itemDrop: FloorTileItemSterile
   heatCapacity: 10000
-  tileRipResistance: 100
 
 - type: tile
   id: FloorSterileDark
@@ -327,7 +311,6 @@
     collection: FootstepHull
   itemDrop: FloorTileItemSterileDark
   heatCapacity: 10000
-  tileRipResistance: 100
 
 # Shuttle
 

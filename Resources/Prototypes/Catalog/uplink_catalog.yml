@@ -595,8 +595,13 @@
   description: uplink-pistol-magazine-caseless-incendiary-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
   productEntity: MagazinePistolCaselessRifleIncendiary
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 2
+  # WD EDIT END
   categories:
   - UplinkAmmo
 
@@ -606,8 +611,13 @@
   description: uplink-pistol-magazine-caseless-shrapnel-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
   productEntity: MagazinePistolCaselessRifleShrapnel
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 2
+  # WD EDIT END
   categories:
   - UplinkAmmo
 
@@ -617,19 +627,13 @@
   description: uplink-magazine-caseless-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi, state: red }
   productEntity: MagazineCaselessRifle
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
-    Telecrystal: 2 # WD EDIT
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkMagazineCaselessRifleRubber
-  name: uplink-magazine-caseless-rubber-name
-  description: uplink-magazine-caseless-rubber-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi, state: rubber }
-  productEntity: MagazineCaselessRifleRubber
-  cost:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 2
+  # WD EDIT END
   categories:
   - UplinkAmmo
 
@@ -639,8 +643,13 @@
   description: uplink-magazine-caseless-incendiary-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi, state: rubber }
   productEntity: MagazineCaselessRifleIncendiary
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
-    Telecrystal: 3 # WD EDIT
+    Telecrystal: 3
+  # WD EDIT END
   categories:
   - UplinkAmmo
 
@@ -650,8 +659,13 @@
   description: uplink-magazine-caseless-shrapnel-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi, state: rubber }
   productEntity: MagazineCaselessRifleShrapnel
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
-    Telecrystal: 3 # WD EDIT
+    Telecrystal: 3
+  # WD EDIT END
   categories:
   - UplinkAmmo
 
