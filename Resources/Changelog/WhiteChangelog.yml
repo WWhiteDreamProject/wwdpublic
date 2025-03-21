@@ -2147,3 +2147,10 @@ Entries:
   id: 227
   time: '2025-03-20T07:29:08.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/360
+- author: NCast-Hops
+  changes:
+    - type: Add
+      message: Добавлен новый плащ ХоП-а! Искать в Снаряжениях Jobs>Head of Personel
+  id: 228
+  time: '2025-03-21T07:10:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/362
