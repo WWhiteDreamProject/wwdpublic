@@ -1,9 +1,28 @@
+- type: dynamicValue
+  id: styleButtonChat
+  value:
+    valueType: Robust.Client.Graphics.StyleBoxTexture
+    value:
+      texture: "/Textures/_White/NovaUI/Chat/button.png"
+      patchMarginLeft: 3
+      patchMarginRight: 3
+      patchMarginBottom: 5
+      patchMarginTop: 5
+      expandMarginLeft: 1
+      expandMarginRight: 1
+      expandMarginBottom: 5
+      expandMarginTop: 5
+      textureScale: 4,4
+      contentMarginVerticalOverride: 3
+
+
 - type: styleSheet
   id: nano
   typeDefinition:
     PanelContainer: "Robust.Client.UserInterface.Controls.PanelContainer"
     ContainerButton: "Robust.Client.UserInterface.Controls.ContainerButton"
     ProgressBar: "Robust.Client.UserInterface.Controls.ProgressBar"
+    MenuButton: "Content.Client.UserInterface.Controls.MenuButton"
   styles:
     PanelContainer.WindowHeadingBackground.Apc:
       panel:
@@ -117,3 +136,72 @@
            - "/Fonts/_White/LCD14/LCD14.otf"
           size: 12
       font-color: "#7CFC00"
+    PanelContainer.ChatMainPanel:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/Chat/panel.png"
+          patchMarginLeft: 3
+          patchMarginRight: 3
+          patchMarginBottom: 5
+          patchMarginTop: 5
+          expandMarginLeft: 3
+          expandMarginRight: 3
+          expandMarginBottom: 5
+          expandMarginTop: 5
+          textureScale: 4,4
+      modulate-self: "#FFFFFF"
+    MenuButton.ButtonSquare:
+      stylebox: styleButtonChat
+      modulate-self: "#FFFFFF"
+    MenuButton.OpenRight:
+      stylebox: styleButtonChat
+      modulate-self: "#FFFFFF"
+    MenuButton.OpenLeft:
+      stylebox: styleButtonChat
+      modulate-self: "#FFFFFF"
+    PanelContainer.ChatPanel:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/Chat/chat-panel.png"
+          patchMarginLeft: 8
+          patchMarginRight: 8
+          patchMarginBottom: 9
+          patchMarginTop: 9
+          expandMarginTop: -2
+          textureScale: 4,4
+      modulate-self: "#FFFFFF"
+    PanelContainer.ChatControl:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/Chat/input-container.png"
+          patchMarginLeft: 4
+          patchMarginRight: 4
+          patchMarginBottom: 5
+          patchMarginTop: 5
+          expandMarginTop: -2
+          textureScale: 4,4
+      modulate-self: "#FFFFFF"
+    .ChatSubPanel:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/Chat/input.png"
+          patchMarginLeft: 2
+          patchMarginRight: 2
+          patchMarginBottom: 4
+          patchMarginTop: 2
+          textureScale: 4,4
+    PanelContainer.TopButtonChat:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/Chat/button-container.png"
+          patchMarginLeft: 4
+          patchMarginRight: 4
+          patchMarginBottom: 5
+          patchMarginTop: 4
+          textureScale: 4,4
+      modulate-self: "#FFFFFF"
