@@ -63,7 +63,7 @@
             Clown: [ 1, 2 ]
             Mime: [ 1, 2 ]
             Musician: [ 1, 3 ]
-            Boxer: [ 2, 4 ]
+            # Boxer: [ 2, 4 ] - WD EDIT
             Reporter: [ 2, 4 ]
             Passenger: [ -1, -1 ]
             # Silicon

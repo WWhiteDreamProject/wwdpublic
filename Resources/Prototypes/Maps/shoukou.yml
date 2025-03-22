@@ -26,7 +26,7 @@
             Lawyer: [ 1, 1 ]
             Bartender: [ 1, 2 ]
             Botanist: [ 1, 2 ]
-            MartialArtist: [ 2, 3 ]
+            # MartialArtist: [ 2, 3 ] - WD EDIT
             Chef: [ 1, 2 ]
             Clown: [ 1, 1 ]
             Janitor: [ 1, 2 ]

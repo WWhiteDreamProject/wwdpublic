@@ -45,7 +45,6 @@
           Paramedic: [ 3, 3 ]
           MedicalDoctor: [ 3, 4 ]
           MedicalIntern: [ 2, 2 ]
-          Psychologist: [ 1, 1 ]
           #Cargo
           SalvageSpecialist: [ 3, 3 ]
           CargoTechnician: [ 2, 2 ]
@@ -69,7 +68,5 @@
           Clown: [ 1, 1 ]
           Musician: [ 1, 1 ]
           Reporter: [ 1, 1 ]
-          Boxer: [ 1, 1 ]
           Passenger: [ -1, -1 ]
-          Hobo: [ 1, 1 ]
 
