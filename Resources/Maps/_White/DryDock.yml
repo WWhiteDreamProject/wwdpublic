@@ -15698,8 +15698,6 @@ entities:
       pos: -199.5,8.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
   - uid: 445
@@ -15708,8 +15706,6 @@ entities:
       pos: -194.5,12.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
   - uid: 446
@@ -15718,8 +15714,6 @@ entities:
       pos: -194.5,4.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
 - proto: AltarSpawner
@@ -59205,8 +59199,6 @@ entities:
       pos: -193.5,14.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
   - uid: 8281
@@ -59215,8 +59207,6 @@ entities:
       pos: -200.5,4.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
   - uid: 8282
@@ -59225,8 +59215,6 @@ entities:
       pos: -197.5,14.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
   - uid: 8283
@@ -59235,8 +59223,6 @@ entities:
       pos: -191.5,8.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
   - uid: 8284
@@ -59424,8 +59410,6 @@ entities:
       pos: -200.5,12.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
   - uid: 8310
@@ -59467,8 +59451,6 @@ entities:
       pos: -194.5,8.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
   - uid: 8316
@@ -59477,8 +59459,6 @@ entities:
       pos: -196.5,5.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
   - uid: 8317
@@ -74273,8 +74253,6 @@ entities:
       pos: -198.5,7.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
     - type: AtmosPipeColor
@@ -74886,8 +74864,6 @@ entities:
       pos: -198.5,2.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
     - type: AtmosPipeColor
@@ -74899,8 +74875,6 @@ entities:
       pos: -193.5,12.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
     - type: AtmosPipeColor
@@ -74968,8 +74942,6 @@ entities:
       pos: -199.5,8.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
     - type: AtmosPipeColor
@@ -74981,8 +74953,6 @@ entities:
       pos: -193.5,8.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
     - type: AtmosPipeColor
@@ -74994,8 +74964,6 @@ entities:
       pos: -197.5,3.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
     - type: AtmosPipeColor
@@ -75006,8 +74974,6 @@ entities:
       pos: -196.5,12.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 76
     - type: AtmosPipeColor
