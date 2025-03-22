@@ -11,6 +11,6 @@
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-red
-  - type: ClothingGrantComponent
-    component:
-    - type: KravMaga
+  #- type: ClothingGrantComponent # wwdp edit, get fucked (until futher notice)
+  #  component:
+  #  - type: KravMaga
