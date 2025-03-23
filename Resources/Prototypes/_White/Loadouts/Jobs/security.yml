@@ -1,0 +1,55 @@
+﻿- type: loadout
+  id: LoadoutSecurityMaskGas
+  category: JobsSecurityAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityMask
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  items:
+  - ClothingMaskGasSecurity
+
+- type: loadout
+  id: LoadoutSecurityHandsGlovesEnviroglovesBlack
+  category: JobsSecurityAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityGloves
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  items:
+  - ClothingHandsGlovesEnviroglovesBlack
+
+- type: loadout
+  id: LoadoutSecurityFlashlightSeclite
+  category: JobsSecurityAUncategorized
+  cost: 1
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEquipment
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  items:
+  - FlashlightSeclite
+
+- type: loadout
+  id: LoadoutSecurityHoloprojector
+  category: JobsSecurityAUncategorized
+  cost: 2
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEquipment
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  items:
+  - HoloprojectorSecurity
