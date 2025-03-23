@@ -72,7 +72,7 @@
             # ChiefJustice: [ 1, 1 ] - WD EDIT
             # Clerk: [ 1, 1 ] - WD EDIT
             Lawyer: [ 1, 1 ]
-            Prosecutor: [ 1, 1]
+            # Prosecutor: [ 1, 1] - WD EDIT
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 3, 3 ]
