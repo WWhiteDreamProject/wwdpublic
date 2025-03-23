@@ -844,7 +844,10 @@ public sealed class PullingSystem : EntitySystem
             if (_netManager.IsServer && user != null && user.Value == pullableUid)
             {
                 var releaseAttempt = AttemptGrabRelease(pullableUid);
-                if (!releaseAttempt)
+                if (releaseAttempt is null)
+                    return false;
+
+                if (!releaseAttempt.Value)
                 {
                     _popup.PopupEntity(Loc.GetString("popup-grab-release-fail-self"),
                         pullableUid,
@@ -967,8 +970,7 @@ public sealed class PullingSystem : EntitySystem
             _ => throw new ArgumentOutOfRangeException()
         };
 
-        var massModifier = _contests.MassContest(puller, pullable);
-        pullable.Comp.GrabEscapeChance = Math.Clamp(puller.Comp.EscapeChances[stage] / massModifier, 0f, 1f);
+        pullable.Comp.GrabEscapeChance = puller.Comp.EscapeChances[stage];
 
         _alertsSystem.ShowAlert(puller, puller.Comp.PullingAlert, puller.Comp.PullingAlertSeverity[stage]);
         _alertsSystem.ShowAlert(pullable, pullable.Comp.PulledAlert, pullable.Comp.PulledAlertAlertSeverity[stage]);
@@ -1056,13 +1058,13 @@ public sealed class PullingSystem : EntitySystem
     /// </summary>
     /// <param name="playerPullable">Grabbed entity</param>
     /// <returns></returns>
-    public bool AttemptGrabRelease(Entity<PullableComponent?> pullable)
+    public bool? AttemptGrabRelease(Entity<PullableComponent?> pullable)
     {
         if (!Resolve(pullable.Owner, ref pullable.Comp))
-            return false;
+            return null;
 
         if (_timing.CurTime < pullable.Comp.NextEscapeAttempt)  // No autoclickers! Mwa-ha-ha
-            return false;
+            return null;
 
         if (_random.Prob(pullable.Comp.GrabEscapeChance))
             return true;
