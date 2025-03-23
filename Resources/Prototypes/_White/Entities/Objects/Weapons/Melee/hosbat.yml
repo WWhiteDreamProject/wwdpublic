@@ -1,12 +1,8 @@
 - type: entity
-  name: assball bat
   parent: BaseItem
-  id: HosBat
-  description: "Handle wrapped in assistant leather. Elegant and practical."
+  id: HosBatBase
+  abstract: true
   components:
-    - type: Sprite
-      sprite: _White/Objects/Weapons/Melee/Hosbat/hos_bat.rsi
-      state: icon
     - type: MeleeWeapon
       animationRotation: -45
       wideAnimationRotation: -135
@@ -31,17 +27,34 @@
       lifetime: 0.05
     - type: FlipOnHit
       applyToSelf: false
-#    - type: RadialMenuMorph
-#      morphTypes:
-#        - LaserBat
-#        - HolyMackerel
-#        - StopSign
-#        - AK47
-#        - Hammer
+
+- type: entity
+  name: assball bat
+  parent: HosBatBase
+  id: AssballBat
+  description: "Handle wrapped in assistant leather. Elegant and practical."
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Melee/Hosbat/hos_bat.rsi
+    state: icon
+  - type: RadialEntityMorph
+    entries:
+    - prototype: BatLaser
+    - prototype: BatStopSign
+    - prototype: BatAk47
+    - prototype: TacticalSledgehammer
+    - prototype: BrickSatchel
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
 
 - type: entity
   name: laser bat
-  parent: HosBat
+  parent: HosBatBase
   id: BatLaser
   description: "Elite fighter's bat. You feel empowered! Smash enemies into pieces!"
   components:
@@ -75,7 +88,7 @@
 
 - type: entity
   name: stop sign
-  parent: HosBat
+  parent: HosBatBase
   id: BatStopSign
   description: "Where did you even get this? There are no roads in space."
   components:
@@ -90,7 +103,7 @@
 
 - type: entity
   name: ak-47 bat
-  parent: HosBat
+  parent: HosBatBase
   id: BatAk47
   description: "Tears faces off in bursts. Uses 7.62 anti-tank rounds."
   components:
@@ -100,7 +113,7 @@
 
 - type: entity
   name: tactical sledgehammer
-  parent: HosBat
+  parent: HosBatBase
   id: TacticalSledgehammer
   description: "Same as regular hammer but twice as big (and twice as painful!)"
   components:
@@ -122,7 +135,7 @@
       delay: 1
 
 - type: entity
-  name: Bluespace Brick Satchel
+  name: bluespace brick satchel
   parent: BaseItem
   id: BrickSatchel
   description: "Steals bricks from Moldovans using bluespace tech. Warm to the touch."
@@ -142,7 +155,7 @@
     onlyFullRecharge: true
 
 - type: entity
-  name: brick
+  name: bluespace brick
   parent: BaseItem
   id: Brick
   description: "Unusually heavy brick. Fits comfortably in your hand."
