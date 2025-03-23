@@ -14,6 +14,7 @@ changeling-gamemode-description =
 changeling-role-greeting =
     You are a changeling who has absorbed and taken the form of {$name}!
     Your objectives are listed in the character menu.
+    You can contact your hive by adding ":g" to the beginning of your messages.
     Absorb, shapeshift and evolve to complete them!
 
 changeling-role-greeting-short =
