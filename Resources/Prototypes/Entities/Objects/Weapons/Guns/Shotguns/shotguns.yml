@@ -25,7 +25,7 @@
     bonusAngleIncreaseTurn: 0.25  # wwdp
     bonusAngleDecay: 40           # wwdp
     maxBonusAngle: 20             # wwdp
-    fireRate: 2
+    fireRate: 1 # WWDP lower fire rate
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -68,7 +68,7 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 9.5
-  - type: GunRequiresWield # WD EDIT
+  # - type: GunRequiresWield # WD EDIT # WWDP disabled
   - type: EmitSoundOnPickup # WWDP sounds
     sound:
       collection: ShotgunsPickUp
@@ -121,7 +121,7 @@
     - Back
     - suitStorage
   # - type: AmmoCounter # WWDP
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  # - type: GunRequiresWield #remove when inaccuracy on spreads is fixed # WWDP disabled
   - type: Gun
     bonusAngleIncreaseMove: 40    # wwdp
     bonusAngleIncreaseTurn: 0.25  # wwdp
@@ -199,6 +199,24 @@
       collection: ShotgunsDrop
 
 - type: entity
+  name: Bulldog
+  parent: [WeaponShotgunBulldog]
+  id: WeaponShotgunBulldogEmpty
+  description: It's a magazine-fed shotgun designed for close quarters combat. Uses .50 shotgun shells.
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: null
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineShotgun
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+
+- type: entity
   name: antique Bulldog
   parent: WeaponShotgunBulldog
   id: WeaponShotgunBulldogHoS
@@ -252,20 +270,19 @@
   name: Enforcer
   parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponShotgunEnforcer
-  description: A premium combat shotgun based on the Kammerer design, featuring an upgraded clip capacity. .50 shotgun shells.
+  description: A premium combat shotgun based on the Kammerer design, featuring a semi-automatic firing mode. Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi # WWDP
   - type: Clothing
-    sprite: DeltaV/Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi # WWDP
   - type: Item
     size: Huge # WWDP guns resize
     shape:
-    - 0,0,5,1
+    - 0,0,7,0
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: BallisticAmmoProvider
-    soundRack: # WWDP
-      path: /Audio/_White/Guns/shotgun_rack.ogg
+    autoCycle: true # WWDP semi-auto
   - type: Wieldable
   - type: MeleeWeapon
     attackRate: 1.4
@@ -299,13 +316,15 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: BallisticAmmoProvider
-    capacity: 4
+    capacity: 7 # WWDP same as enforcer
     soundRack:
       path: /Audio/_White/Guns/shotgun_rack.ogg
   - type: Tag
     tags:
     - WeaponShotgunKammerer
   - type: Wieldable
+  - type: Gun
+    shotgunSpreadMultiplier: 0.5
 
 - type: entity
   name: sawn-off shotgun
@@ -325,6 +344,8 @@
   - type: Gun
     fireRate: 4
     fireOnDropChance: 0.5
+    shotgunSpreadMultiplier: 3
+    damageModifier: 1.5
   - type: BallisticAmmoProvider
     capacity: 2
   - type: Construction
@@ -385,7 +406,7 @@
     staminaCost: 5
 
 - type: entity # WWDP
-  name: sawn-off shotgun
+  name: improvised pistol # WWDP
   parent: WeaponShotgunHandmade
   id: WeaponShotgunHandmadeEmpty
   suffix: Empty

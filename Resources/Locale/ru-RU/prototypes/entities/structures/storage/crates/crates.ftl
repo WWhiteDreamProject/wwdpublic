@@ -94,7 +94,7 @@ ent-CrateContrabandStorageSecure = ящик для хранения контра
     .desc = Закрытый на оружейный доступ ящик для хранения контрабанды, конфискованной у подозреваемых или заключенных.
     .suffix = Оружейный, Защищённый, Усиленный
 
-ent-CrateCommandSecure = ящик командывания
+ent-CrateCommandSecure = ящик командования
     .desc = { ent-CrateBaseSecure.desc }
     .suffix = { "" }
 

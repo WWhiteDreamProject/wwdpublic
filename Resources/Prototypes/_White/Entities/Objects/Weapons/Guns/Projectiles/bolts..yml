@@ -29,3 +29,88 @@
   - type: LayDownOnCollide
     behavior: AlwaysDrop
   - type: BlurOnCollide
+
+- type: entity
+  name: practice laser bolt
+  id: BulletLaserPractice
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 1
+
+- type: entity
+  name: heavy laser bolt
+  id: BulletLaserHeavy
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: heavylaser
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 28
+  - type: PointLight
+    radius: 3.0
+    energy: 1.0
+
+- type: entity
+  name: pulse bolt
+  id: BulletPulse
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: laser_blue
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectLaserBlue
+    damage:
+      types:
+        Heat: 35
+  - type: PointLight
+    color: blue
+
+- type: entity
+  name: x-ray bolt
+  id: BulletXRay
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: xray
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectLaserGreen
+    damage:
+      types:
+        Heat: 10
+        Radiation: 10
+  - type: PointLight
+    color: green
+
+- type: entity
+  name: wisp lash
+  id: BulletWispLash
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: laser_blue
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectLaserBlue
+    damage:
+      types:
+        Cold: 8
+        Shock: 8
+  - type: PointLight
+    color: blue

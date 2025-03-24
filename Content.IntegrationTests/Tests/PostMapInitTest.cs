@@ -70,7 +70,7 @@ namespace Content.IntegrationTests.Tests
             "Rad", // Maintained by Estacao Pirata
             // "Europa", // De-rotated, has significant issues.
             "Meta", // Maintained by Estacao Pirata
-            "Box", // Maintained by Estacao Pirata
+            "Cyberiad", // Maintained by Estacao Pirata
             "Lambda", // Maintained by Estacao Pirata
             "Bagel", // Maintained by Estacao Pirata
             "Northway", // Maintained by Violet

@@ -49,6 +49,8 @@
     price: 800
   - type: ResearchClient
   - type: TechnologyDatabase
+  - type: Speech # Goobstation - Lathe message on recipes update
+    speechSounds: Lathe
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -213,6 +215,7 @@
     - NekomimeticTranslator
     - DraconicTranslator
     - SolCommonTranslator
+    - NovuNedericTranslator
     - RootSpeakTranslator
     - BasicGalaticCommonTranslatorImplanter
     - MofficTranslator
@@ -243,6 +246,7 @@
     - RiotShield
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
+    - GrenadeFlashBang # Goobstation
     # .35 Caseless Pistol
     - MagazinePistolCaselessRiflePractice # EE
     - MagazinePistolCaselessRifle # EE
@@ -373,7 +377,7 @@
     - SyringeBluespace
     - WeaponForceGun
     - WeaponLaserSvalinn
-    - WeaponCivilianDisabler
+    # - WeaponCivilianDisabler # WWDP disabled (xd)
     - WeaponProtoKineticAccelerator
     - WeaponTetherGun
     - WeaponGrapplingGun
@@ -403,6 +407,7 @@
     - ClothingEyesThermalVisionGoggles
     - RCDAmmo #DeltaV
     - RCD #EE
+    - RPD
     # Shitmed Change
     - EnergyScalpel
     - EnergyCautery
@@ -720,6 +725,7 @@
     - BorgModuleAdvancedTool
     - BorgModuleGPS
     - BorgModuleRCD
+    - BorgModuleRPD
     - BorgModuleJetpack
     - BorgModulePka
     - BorgModuleArtifact
@@ -892,6 +898,8 @@
     idleState: icon
     runningState: icon
     staticRecipes:
+    - Truncheon
+    - Terminus
     - BoxLethalshot
     - BoxShotgunFlare
     - BoxShotgunPractice
@@ -922,18 +930,19 @@
     - MagazinePistolSubMachineGunEmpty
     - MagazinePistolSubMachineGunTopMounted
     - MagazinePistolSubMachineGunTopMountedEmpty
-    # .35 Caseless Pistol
-    - MagazinePistolCaselessRiflePractice # EE
-    - MagazinePistolCaselessRifle # EE
-    # .35 Caseless (Civilian) Rifle
-    - MagazineCaselessRifleShortPractice # EE
-    - MagazineCaselessRifleShort # EE
-    # .35 Caseless (Military) Rifle
-    - MagazineCaselessRiflePractice # EE
-    - MagazineCaselessRifle # EE
-    # .35 Caseless (Box Mag) Rifle
-    - MagazineBoxCaselessRiflePractice # EE
-    - MagazineBoxCaselessRifle # EE
+    # WWDP removed caseless bloat
+    # # .35 Caseless Pistol
+    # - MagazinePistolCaselessRiflePractice # EE
+    # - MagazinePistolCaselessRifle # EE
+    # # .35 Caseless (Civilian) Rifle
+    # - MagazineCaselessRifleShortPractice # EE
+    # - MagazineCaselessRifleShort # EE
+    # # .35 Caseless (Military) Rifle
+    # - MagazineCaselessRiflePractice # EE
+    # - MagazineCaselessRifle # EE
+    # # .35 Caseless (Box Mag) Rifle
+    # - MagazineBoxCaselessRiflePractice # EE
+    # - MagazineBoxCaselessRifle # EE
     - MagazineMagnum
     - MagazineMagnumEmpty
     - MagazineRifle
@@ -946,24 +955,51 @@
     - SpeedLoaderMagnumEmpty
     - Stunbaton
     - TargetClown
-    - ClothingOuterArmorPlateCarrier
-    - ClothingOuterArmorDuraVest
+    # - ClothingOuterArmorPlateCarrier # WWDP no armor printing
+    # - ClothingOuterArmorDuraVest # WWDP no armor printing
     - TargetHuman
     - TargetSyndicate
     - WeaponDisablerPractice
     - WeaponFlareGunSecurity
     - WeaponLaserCarbinePractice
     - Zipties
+    - GrenadeFlashBang # Goobstation
     - ShockCollar
-    # DeltaV - .38 special ammo - Add various .38 special ammo to security techfab
-    - MagazineBoxSpecial
-    - MagazineBoxSpecialPractice
-    - SpeedLoaderSpecial
-    - MagazinePistolSpecial
+    # # DeltaV - .38 special ammo - Add various .38 special ammo to security techfab # WWDP disable "special"
+    # - MagazineBoxSpecial
+    # - MagazineBoxSpecialPractice
+    # - SpeedLoaderSpecial
+    # - MagazinePistolSpecial
     - HandheldGPSBasic
     - HandheldStationMap
-    - MagazineNovaliteC1Empty
-    - MagazineNovaliteC1
+    # WWDP gun bloat moved to tier 1 Arsenal research
+    # - MagazineNovaliteC1Empty
+    # - MagazineNovaliteC1
+    # - MagazineLightRifleLowCapacityEmpty
+    # - MagazineLightRifleLowCapacity
+    # - SpeedLoaderRifleHeavy
+    # - SpeedLoaderRifleHeavyEmpty
+    # - WeaponRifleNovaliteC1
+    # - WeaponRifleGestio
+    # - MagazineMagnumLeverRifle # Goobstation
+    # - MagazineMagnumLeverRifleEmpty # Goobstation
+    # - MagazineNovaliteC1Empty
+    # - MagazineNovaliteC1
+    # - WeaponRifleNovaliteC1
+    # - WeaponRifleGestio
+    # - ClothingEyesGlassesSecurity # WWDP no infinite sechuds
+    - TelescopicShield
+    - HoloprojectorSecurity
+    - BolaEnergy
+    - ClothingHeadHelmetBasic
+    - MagazineShotgunBeanbag
+    - ShellTranquilizer
+    - BoxBeanbag
+    - BoxShotgunBirdshot
+    - BoxShotgun00Buckshot
+    - BoxShotgun0000Buckshot
+    dynamicRecipes:
+    # WWDP gun bloat moved to tier 1 Arsenal research
     - MagazineLightRifleLowCapacityEmpty
     - MagazineLightRifleLowCapacity
     - SpeedLoaderRifleHeavy
@@ -972,17 +1008,18 @@
     - WeaponRifleGestio
     - MagazineMagnumLeverRifle # Goobstation
     - MagazineMagnumLeverRifleEmpty # Goobstation
-    - ClothingEyesGlassesSecurity
-    - TelescopicShield
-    - HoloprojectorSecurity
-    - BolaEnergy
-    - ClothingHeadHelmetBasic
-    - MagazineShotgunBeanbag
-    - ShellTranquilizer
-    - BoxBeanbag
-    dynamicRecipes:
+    - MagazineNovaliteC1Empty
+    - MagazineNovaliteC1
+    - WeaponRifleNovaliteC1
+    - WeaponRifleGestio
+
+    # WWDP caseless ammo moved to tier 3 Arsenal research
+    - MagazineCaselessRiflePractice # EE
+    - MagazineCaselessRifle # EE
+
     - WeaponSecurityRiotLauncher # WWDP
     - Truncheon
+    - Terminus
     - BoxShotgunIncendiary
     - BoxShotgunUranium
     - EncryptionKeySyndie
@@ -1078,12 +1115,31 @@
     - EnergySword
     - EnergySwordDouble
     - EnergyCutlass
-    - WeaponSubMachineGunFPA90
+    - WeaponEnergyTurretAIMachineCircuitboard
+    - WeaponEnergyTurretStationMachineCircuitboard
+    - WeaponEnergyTurretAIControlPanelElectronics
+    - WeaponEnergyTurretStationControlPanelElectronics
+    # - WeaponSubMachineGunFPA90 # WWDP no syndicate gear
     - WeaponSubMachineGunBRDIR25
     - WeaponPistolMk58
     - WeaponPistolN1984
-    - WeaponPistolViper
-    - WeaponPistolCobra
+    # - WeaponPistolViper  # WWDP no syndicate gear
+    # - WeaponPistolCobra # WWDP no syndicate gear
+    - MagazineRifleShrapnel
+    - MagazinePistolShrapnel
+    - MagazinePistolSubMachineGunShrapnel
+    - MagazineMagnumShrapnel
+    - MagazineLightRifleShrapnel
+    - MagazineCaselessRifleShrapnel
+    - MagazineCaselessRifleIncendiary
+    - MagazineCaselessRifleUranium
+    - MagazineBoxPistolShrapnel
+    - MagazineBoxMagnumShrapnel
+    - MagazineBoxLightRifleShrapnel
+    - MagazineBoxRifleShrapnel
+    - MagazineBoxCaselessRifleShrapnel
+    - MagazineBoxCaselessRifleIncendiary
+    - MagazineBoxCaselessRifleUranium
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1133,8 +1189,8 @@
     - MagazinePistolEmpty
     - MagazineRifle
     - MagazineRifleEmpty
-    - MagazineNovaliteC1
-    - MagazineNovaliteC1Empty
+    # - MagazineNovaliteC1 # WWDP remove bloat
+    # - MagazineNovaliteC1Empty # WWDP remove bloat
     - MagazineShotgun
     - MagazineShotgunEmpty
     - MagazineShotgunSlug
@@ -1143,20 +1199,22 @@
     - SpeedLoaderMagnumEmpty
     - SpeedLoaderRifleHeavy
     - SpeedLoaderRifleHeavyEmpty
-    - CartridgeSpecial
-    - MagazineBoxSpecial
-    # .35 Caseless Pistol
-    - MagazinePistolCaselessRiflePractice # EE
-    - MagazinePistolCaselessRifle # EE
-    # .35 Caseless (Civilian) Rifle
-    - MagazineCaselessRifleShortPractice # EE
-    - MagazineCaselessRifleShort # EE
-    # .35 Caseless (Military) Rifle
-    - MagazineCaselessRiflePractice # EE
-    - MagazineCaselessRifle # EE
-    # .35 Caseless (Box Mag) Rifle
-    - MagazineBoxCaselessRiflePractice # EE
-    - MagazineBoxCaselessRifle # EE
+
+    # WWDP removed fancy ammo
+    # - CartridgeSpecial
+    # - MagazineBoxSpecial
+    # # .35 Caseless Pistol
+    # - MagazinePistolCaselessRiflePractice # EE
+    # - MagazinePistolCaselessRifle # EE
+    # # .35 Caseless (Civilian) Rifle
+    # - MagazineCaselessRifleShortPractice # EE
+    # - MagazineCaselessRifleShort # EE
+    # # .35 Caseless (Military) Rifle
+    # - MagazineCaselessRiflePractice # EE
+    # - MagazineCaselessRifle # EE
+    # # .35 Caseless (Box Mag) Rifle
+    # - MagazineBoxCaselessRiflePractice # EE
+    # - MagazineBoxCaselessRifle # EE
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1707,6 +1765,7 @@
     - CrazyGlue
     - PlushieRatvar
     - PlushieNar
+    - PlushieSanabi # WWDP edit
   - type: EmagLatheRecipes
     emagStaticRecipes:
     - PlushieGhost

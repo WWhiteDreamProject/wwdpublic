@@ -24,6 +24,9 @@
     soundHit:
       collection: MetalThud
   - type: Wieldable
+  - type: DisarmMalus # WWDP
+    malus: 0.3
+    wieldedBonus: 0.3
   - type: IncreaseDamageOnWield
     damage:
       types:

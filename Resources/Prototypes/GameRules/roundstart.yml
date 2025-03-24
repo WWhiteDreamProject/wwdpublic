@@ -205,7 +205,8 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ HeadRev ]
-      max: 2
+      min: 2 # WWDP
+      max: 3 # WWDP
       playerRatio: 20 # WD
       briefing:
         text: head-rev-role-greeting

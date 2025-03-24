@@ -1,11 +1,11 @@
 using System.Linq;
-using Content.Server._White.Flash;
 using Content.Server._White.Hearing;
 using Content.Server.Flash.Components;
 using Content.Shared.Flash.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
+using Content.Shared._Goobstation.Flashbang;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Eye.Blinding.Components;
@@ -28,6 +28,7 @@ using Content.Shared.Traits.Assorted.Components;
 using Robust.Shared.Random;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Standing;
+using FlashModifierComponent = Content.Shared._White.Flash.Components.FlashModifierComponent;
 
 
 namespace Content.Server.Flash
@@ -168,7 +169,8 @@ namespace Content.Server.Flash
 
             if (stunDuration != null)
             {
-                _stun.TryParalyze(target, stunDuration.Value, true);
+                // stunmeta
+                _stun.TryKnockdown(target, stunDuration.Value, true);
             }
             else
             {
@@ -182,38 +184,6 @@ namespace Content.Server.Flash
                     ("user", Identity.Entity(user.Value, EntityManager))), target, target);
             }
         }
-
-        // WD EDIT START
-        private void FlashStun(EntityUid target, float stunDuration, float knockdownDuration, float distance, float range)
-        {
-            if (stunDuration <= 0 && knockdownDuration <= 0)
-                return;
-
-            if (TryComp<FlashSoundSuppressionComponent>(target, out var suppression))
-                range = MathF.Min(range, suppression.MaxRange);
-
-            var ev = new FlashbangedEvent(range);
-            RaiseLocalEvent(target, ev);
-
-            range = MathF.Min(range, ev.MaxRange);
-            if (range <= 0f)
-                return;
-
-            if (distance < 0f)
-                distance = 0f;
-
-            if (distance > range)
-                return;
-
-            var knockdownTime = float.Lerp(knockdownDuration, 0f, distance / range);
-            if (knockdownTime > 0f)
-                _stun.TryKnockdown(target, TimeSpan.FromSeconds(knockdownTime), true, DropHeldItemsBehavior.DropIfStanding);
-
-            var stunTime = float.Lerp(stunDuration, 0f, distance / range);
-            if (stunTime > 0f)
-                _stun.TryStun(target, TimeSpan.FromSeconds(stunTime), true);
-        }
-        // WD EDIT END
 
         public void FlashArea(Entity<FlashComponent?> source, EntityUid? user, float range, float duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null, float stunTime = 0f, float knockdownTime = 0f) // WD EDIT
         {
@@ -236,10 +206,9 @@ namespace Content.Server.Flash
                 // They shouldn't have flash removed in between right?
                 Flash(entity, user, source, duration, slowTo, displayPopup, flashableQuery.GetComponent(entity));
 
-                // WD EDIT START
-                var distance = (mapPosition.Position - _transform.GetMapCoordinates(entity).Position).Length();
-                FlashStun(entity, stunTime, knockdownTime, distance, range);
-                // WD EDIT END
+
+                var distance = (mapPosition.Position - _transform.GetMapCoordinates(entity).Position).Length(); // Goobstation
+                RaiseLocalEvent(source, new AreaFlashEvent(range, distance, entity)); // Goobstation
             }
 
             _audio.PlayPvs(sound, source, AudioParams.Default.WithVolume(1f).WithMaxDistance(3f));

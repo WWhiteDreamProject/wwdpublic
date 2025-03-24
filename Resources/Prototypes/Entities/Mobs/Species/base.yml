@@ -19,6 +19,9 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+#     - shader: StencilClear
+#      sprite: Mobs/Species/Human/parts.rsi
+#      state: l_leg
     - map: [ "enum.HumanoidVisualLayers.Underwear" ]
     - map: [ "enum.HumanoidVisualLayers.Undershirt" ]
     - map: ["jumpsuit"]
@@ -204,6 +207,9 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      # Goobstation - changelings
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
       enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
         requireInputValidation: false
@@ -259,6 +265,7 @@
   abstract: true
   components:
   - type: Flashable
+  - type: Absorbable # Goobstation - changelings
   - type: Barotrauma
     damage:
       types:
@@ -337,7 +344,6 @@
     alternateState: Standing
   - type: OfferItem
   - type: LayingDown
-  - type: Shoving
   - type: BloodstreamAffectedByMass
     power: 0.6 # A minimum size felinid will have 30% blood, a minimum size vulp will have 60%, a maximum size oni will have ~200%
   - type: MobState # WWDP
@@ -372,6 +378,9 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+#     - shader: StencilClear
+#      sprite: Mobs/Species/Human/parts.rsi
+#      state: l_leg
     - map: [ "enum.HumanoidVisualLayers.Underwear" ]
     - map: [ "enum.HumanoidVisualLayers.Undershirt" ]
     - map: ["jumpsuit"]
@@ -410,6 +419,7 @@
   - type: Body
     prototype: Human
     requiredLegs: 2
+  - type: Absorbable # Goobstation - changelings
   - type: UserInterface
     interfaces:
       enum.HumanoidMarkingModifierKey.Key: # sure, this can go here too

@@ -4,6 +4,7 @@
   description: job-description-prosecutor
   playTimeTracker: JobProsecutor
   startingGear: ProsecutorGear
+  setPreference: false # WWDP disabled
   icon: "JobIconProsecutor"
   supervisors: job-supervisors-cj
   access:

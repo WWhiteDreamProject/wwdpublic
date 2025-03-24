@@ -280,7 +280,7 @@
 - type: latheRecipe
   id: PrintedDocumentSearchPermissionRecipe
   result: PrintedDocumentSearchPermission
-  category: Permissions
+  category: ConclusionsAndDecisions # WWDP
   completetime: 2
   applyMaterialDiscount: false
   materials:

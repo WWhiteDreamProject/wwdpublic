@@ -9,6 +9,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingHeadHatSeniorTrooper
 
@@ -23,5 +27,9 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingUniformJumpsuitSeniorTrooper

@@ -28,9 +28,13 @@
   - type: Item
     size: Normal
     sprite: Nyanotrasen/Objects/Weapons/Melee/wakizashi.rsi
+    storedRotation: 45 # WWDP
+    shape:
+    - 0,0,3,0
   - type: Tool
     qualities:
       - Slicing
     useSound:
       path: /Audio/Items/Culinary/chop.ogg
   - type: DisarmMalus
+    malus: 0.5 # WWDP

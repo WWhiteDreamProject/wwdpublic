@@ -27,10 +27,10 @@
   startingGear: MaidGear
   supervisors: job-supervisors-captain
   canBeAntag: false
-  accessGroups:
-  - Command
-  - Service
   access:
+  - Command
+  - Janitor
+  - Kitchen # woman
   - Maintenance
   - BlueshieldOfficer
   - CentralCommand # Station NTR office
