@@ -77,7 +77,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void OnEmbedActivate(EntityUid uid, EmbeddableProjectileComponent component, ActivateInWorldEvent args)
     {
-
         // Nuh uh
         if (component.RemovalTime == null)
             return;
