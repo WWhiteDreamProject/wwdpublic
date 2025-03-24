@@ -11,7 +11,7 @@
       range: 1.6
       damage:
         types:
-          Blunt: 25
+          Blunt: 20
       heavyRateModifier: 2
       angle: 60
       soundHit:
@@ -64,27 +64,9 @@
     - type: MeleeWeapon
       damage:
         types:
-          Heat: 25
+          Heat: 20
       soundHit:
         path: /Audio/Weapons/eblade1.ogg
-
-#- type: entity
-# name: holy mackerel
-#  parent: HosBat
-#  id: HolyMackerel
-#  description: "Killing with fish is the most humiliating punishment for enemies."
-#  components:
-#    - type: Sprite
-#      sprite: #path
-#      state: icon
-#    - type: MeleeWeapon
-#      damage:
-#        types:
-#          Blunt: 7
-#    - type: StatusEffectOnHit
-#      effectType: Disgust
-#      duration: 10s
-#      stackAmount: 12
 
 - type: entity
   name: stop sign
@@ -150,14 +132,14 @@
     slots:
     - belt
   - type: EntityGenerator
-    prototypeId: Brick
+    prototypeId: BluespaceBrick
     rechargeDuration: 12
     onlyFullRecharge: true
 
 - type: entity
   name: bluespace brick
   parent: BaseItem
-  id: Brick
+  id: BluespaceBrick
   description: "Unusually heavy brick. Fits comfortably in your hand."
   components:
     - type: Sprite
