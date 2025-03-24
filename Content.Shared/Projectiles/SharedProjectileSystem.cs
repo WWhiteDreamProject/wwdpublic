@@ -77,6 +77,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void OnEmbedActivate(EntityUid uid, EmbeddableProjectileComponent component, ActivateInWorldEvent args)
     {
+
         // Nuh uh
         if (component.RemovalTime == null)
             return;
@@ -164,7 +165,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void OnEmbedProjectileHit(EntityUid uid, EmbeddableProjectileComponent component, ref ProjectileHitEvent args)
     {
-        if (args.Target is { } || _standing.IsDown(args.Target)
+        if (!(args.Target is { }) || _standing.IsDown(args.Target)
             || !TryComp(uid, out ProjectileComponent? projectile)
             || !TryEmbed(uid, args.Target, args.Shooter, component))
             return;
