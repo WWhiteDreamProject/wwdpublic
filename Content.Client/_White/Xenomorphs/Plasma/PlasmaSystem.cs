@@ -1,10 +1,9 @@
 using Content.Client.Alerts;
-using Content.Shared._White.Xenomorphs.Components;
-using Content.Shared._White.Xenomorphs.Systems;
+using Content.Shared._White.Xenomorphs.Plasma;
 
-namespace Content.Client._White.Xenomorphs.Systems;
+namespace Content.Client._White.Xenomorphs.Plasma;
 
-public sealed class PlasmaVesselSystem : SharedPlasmaVesselSystem
+public sealed class PlasmaSystem : SharedPlasmaSystem
 {
     public override void Initialize() =>
         SubscribeLocalEvent<PlasmaVesselComponent, UpdateAlertSpriteEvent>(OnUpdateAlertSprite);

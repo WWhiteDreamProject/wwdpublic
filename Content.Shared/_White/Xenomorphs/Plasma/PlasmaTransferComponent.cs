@@ -2,7 +2,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._White.Xenomorphs.Components;
+namespace Content.Shared._White.Xenomorphs.Plasma;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class PlasmaTransferComponent : Component

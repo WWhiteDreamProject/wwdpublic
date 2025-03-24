@@ -263,7 +263,6 @@
   components:
   - type: EntityTargetAction
     priority: 0
-    useDelay: 1
     icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: plasma_transfer_off_action }
     iconOn: { sprite : _White/Interface/Actions/xenomorph.rsi, state: plasma_transfer_on_action }
     event: !type:TransferPlasmaActionEvent

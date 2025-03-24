@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._White.Xenomorphs.Components;
+namespace Content.Shared._White.Xenomorphs.Plasma;
 
 /// <summary>
 /// This is used for the plasma vessel component in the alien entities.

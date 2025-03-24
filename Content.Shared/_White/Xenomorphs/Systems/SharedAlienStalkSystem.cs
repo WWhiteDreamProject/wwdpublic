@@ -1,4 +1,5 @@
 ﻿using Content.Shared._White.Xenomorphs.Components;
+using Content.Shared._White.Xenomorphs.Plasma;
 using Content.Shared.Actions;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
@@ -12,7 +13,8 @@ public sealed class SharedAlienStalkSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] private readonly SharedPlasmaVesselSystem _plasmaVessel = default!;
+    [Dependency] private readonly SharedPlasmaSystem _plasma = default!;
+
     public override void Initialize()
     {
         base. Initialize();
@@ -58,7 +60,7 @@ public sealed class SharedAlienStalkSystem : EntitySystem
 
             if (!stalk.IsActive)
                 continue;
-            _plasmaVessel.ChangePlasmaAmount(uid, -stalk.PlasmaCost, alien);
+            _plasma.ChangePlasmaAmount(uid, -stalk.PlasmaCost, alien);
         }
     }
 }

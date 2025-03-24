@@ -1,25 +1,16 @@
-﻿using System;
-using System.Numerics;
-using Content.Shared._White.Xenomorphs.Components;
+﻿using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared.Actions;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Maps;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
-using Content.Shared.Pinpointer;
-using Content.Shared.StatusEffect;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
-using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared._White.Xenomorphs.Systems;
-
 
 public sealed class AlienJumpSystem : EntitySystem
 {

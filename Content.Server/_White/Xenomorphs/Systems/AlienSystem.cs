@@ -1,11 +1,10 @@
 using System.Linq;
+using Content.Server._White.Xenomorphs.Plasma;
 using Content.Server.Actions;
 using Content.Server.Chat.Managers;
-using Content.Server.Mind;
 using Content.Server.Popups;
-using Content.Server.Roles;
 using Content.Shared._White.Xenomorphs.Components;
-using Content.Shared._White.Xenomorphs.Systems;
+using Content.Shared._White.Xenomorphs.Plasma;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -28,7 +27,7 @@ public sealed class AlienSystem : EntitySystem
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly PlasmaVesselSystem _plasmaVessel = default!;
+    [Dependency] private readonly PlasmaSystem _plasma = default!;
     [Dependency] private readonly IChatManager _chatMan = default!;
 
     public override void Initialize()
@@ -102,7 +101,7 @@ public sealed class AlienSystem : EntitySystem
                 return;
         }
 
-        _plasmaVessel.ChangePlasmaAmount(uid, -component.PlasmaCostNode);
+        _plasma.ChangePlasmaAmount(uid, -component.PlasmaCostNode);
         Spawn(component.WeednodePrototype, _turf.GetTileCenter(tile.Value));
     }
 

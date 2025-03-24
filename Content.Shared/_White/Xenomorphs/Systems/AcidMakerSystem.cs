@@ -1,4 +1,5 @@
 ﻿using Content.Shared._White.Xenomorphs.Components;
+using Content.Shared._White.Xenomorphs.Plasma;
 using Content.Shared.Actions;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
@@ -17,7 +18,7 @@ public sealed class AcidMakerSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedStackSystem _stackSystem = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedPlasmaVesselSystem _plasmaVesselSystem = default!;
+    [Dependency] private readonly SharedPlasmaSystem _plasma = default!;
 
     public override void Initialize()
     {
@@ -64,7 +65,7 @@ public sealed class AcidMakerSystem : EntitySystem
         _stackSystem.TryMergeToHands(newEntity, uid);
         args.Handled = true;
 
-        _plasmaVesselSystem.ChangePlasmaAmount(uid, -comp.PlasmaCost);
+        _plasma.ChangePlasmaAmount(uid, -comp.PlasmaCost);
 
     }
 }

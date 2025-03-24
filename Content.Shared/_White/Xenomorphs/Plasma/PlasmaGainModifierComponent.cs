@@ -1,6 +1,6 @@
 ﻿using Content.Shared.FixedPoint;
 
-namespace Content.Shared._White.Xenomorphs.Components;
+namespace Content.Shared._White.Xenomorphs.Plasma;
 
 [RegisterComponent]
 public sealed partial class PlasmaGainModifierComponent : Component

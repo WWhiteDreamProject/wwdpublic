@@ -1,8 +1,9 @@
 ﻿using Content.Server._White.Xenomorphs.Components;
+using Content.Server._White.Xenomorphs.Plasma;
 using Content.Server.Actions;
 using Content.Server.Popups;
 using Content.Shared._White.Xenomorphs.Components;
-using Content.Shared._White.Xenomorphs.Systems;
+using Content.Shared._White.Xenomorphs.Plasma;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Hands.Components;
 using Content.Shared.Maps;
@@ -21,7 +22,7 @@ public sealed class AlienQueenSystem : EntitySystem
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly PlasmaVesselSystem _plasmaVessel = default!;
+    [Dependency] private readonly PlasmaSystem _plasma = default!;
 
     public override void Initialize()
     {
@@ -81,7 +82,7 @@ public sealed class AlienQueenSystem : EntitySystem
 
         }
 
-        _plasmaVessel.ChangePlasmaAmount(uid, -component.PlasmaCostEgg);
+        _plasma.ChangePlasmaAmount(uid, -component.PlasmaCostEgg);
         Spawn(component.EggPrototype, _turf.GetTileCenter(tile.Value));
     }
 
@@ -103,7 +104,7 @@ public sealed class AlienQueenSystem : EntitySystem
             return;
         }
 
-        _plasmaVessel.ChangePlasmaAmount(uid, -component.PlasmaCostRoyalLarva);
+        _plasma.ChangePlasmaAmount(uid, -component.PlasmaCostRoyalLarva);
         _evolution.Evolve(args.Target, component.PraetorianPolymorphPrototype);
         _actions.RemoveAction(component.ActionEntity);
     }

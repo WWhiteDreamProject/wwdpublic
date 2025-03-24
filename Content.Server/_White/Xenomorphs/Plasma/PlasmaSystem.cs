@@ -1,9 +1,8 @@
-﻿using Content.Shared._White.Xenomorphs.Components;
-using Content.Shared._White.Xenomorphs.Systems;
+﻿using Content.Shared._White.Xenomorphs.Plasma;
 
-namespace Content.Server._White.Xenomorphs.Systems;
+namespace Content.Server._White.Xenomorphs.Plasma;
 
-public sealed class PlasmaVesselSystem : SharedPlasmaVesselSystem
+public sealed class PlasmaSystem : SharedPlasmaSystem
 {
     public override void Update(float frameTime)
     {
