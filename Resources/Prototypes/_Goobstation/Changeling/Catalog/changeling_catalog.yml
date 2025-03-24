@@ -14,66 +14,62 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-# WD edit: comment out start
-
-#- type: listing
-#  id: EvolutionMenuCombatArmClaw
-#  name: evolutionmenu-combat-armclaw-name
-#  description: evolutionmenu-combat-armclaw-desc
-#  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: claw }
-#  productAction: ActionToggleClaw
-#  cost:
-#    EvolutionPoint: 4
-#  categories:
-#  - ChangelingAbilityCombat
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
+- type: listing
+  id: EvolutionMenuCombatArmClaw
+  name: evolutionmenu-combat-armclaw-name
+  description: evolutionmenu-combat-armclaw-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: claw }
+  productAction: ActionToggleClaw
+  cost:
+    EvolutionPoint: 4
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 
-#- type: listing
-#  id: EvolutionMenuCombatArmHammer
-#  name: evolutionmenu-combat-armhammer-name
-#  description: evolutionmenu-combat-armhammer-desc
-#  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: hammer }
-#  productAction: ActionToggleHammer
-#  cost:
-#    EvolutionPoint: 4
-#  categories:
-#  - ChangelingAbilityCombat
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
+- type: listing
+  id: EvolutionMenuCombatArmHammer
+  name: evolutionmenu-combat-armhammer-name
+  description: evolutionmenu-combat-armhammer-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: hammer }
+  productAction: ActionToggleHammer
+  cost:
+    EvolutionPoint: 2 # WD edit price 4 -> 2
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
-#- type: listing
-#  id: EvolutionMenuCombatDartGun
-#  name: evolutionmenu-combat-dartgun-name
-#  description: evolutionmenu-combat-dartgun-desc
-#  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: dartgun }
-#  productAction: ActionToggleDartGun
-#  cost:
-#    EvolutionPoint: 3
-#  categories:
-#  - ChangelingAbilityCombat
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
+- type: listing
+  id: EvolutionMenuCombatDartGun
+  name: evolutionmenu-combat-dartgun-name
+  description: evolutionmenu-combat-dartgun-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: dartgun }
+  productAction: ActionToggleDartGun
+  cost:
+    EvolutionPoint: 1 # WD edit price 3 -> 1
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
-#- type: listing
-#  id: EvolutionMenuCombatBoneShard
-#  name: evolutionmenu-combat-boneshard-name
-#  description: evolutionmenu-combat-boneshard-desc
-#  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: bone_shard }
-#  productAction: ActionCreateBoneShard
-#  cost:
-#    EvolutionPoint: 3
-#  categories:
-#  - ChangelingAbilityCombat
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
-
-# WD edit end
+- type: listing
+  id: EvolutionMenuCombatBoneShard
+  name: evolutionmenu-combat-boneshard-name
+  description: evolutionmenu-combat-boneshard-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: bone_shard }
+  productAction: ActionCreateBoneShard
+  cost:
+    EvolutionPoint: 1 # WD edit price 3 -> 1
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 - type: listing
   id: EvolutionMenuCombatChitinousArmor
@@ -284,7 +280,7 @@
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: biodegrade }
   productAction: ActionBiodegrade
   cost:
-    EvolutionPoint: 2 # WD edit price 4 - 2
+    EvolutionPoint: 2 # WD edit price 4 -> 2
   categories:
   - ChangelingAbilityUtility
   conditions:
@@ -340,7 +336,7 @@
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: last_resort }
   productAction: ActionLastResort
   cost:
-    EvolutionPoint: 2 # WD edit 2 -> 1
+    EvolutionPoint: 1 # WD edit 2 -> 1
   categories:
   - ChangelingAbilityUtility
   conditions:
@@ -354,7 +350,7 @@
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: lesser_form }
   productAction: ActionToggleLesserForm
   cost:
-    EvolutionPoint: 2 # WD edit 2 -> 1
+    EvolutionPoint: 1 # WD edit 2 -> 1
   categories:
   - ChangelingAbilityUtility
   conditions:

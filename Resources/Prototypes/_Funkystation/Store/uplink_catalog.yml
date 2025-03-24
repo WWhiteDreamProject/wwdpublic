@@ -5,6 +5,6 @@
   icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }
   productEntity: ChangelingInfectionImplanter
   cost:
-    Telecrystal: 15 # Over half the budget; WD edit: change price 75 -> 15
+    Telecrystal: 75
   categories:
     - UplinkImplants
