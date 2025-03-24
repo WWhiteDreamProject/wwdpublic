@@ -457,6 +457,9 @@
   id: WeaponLaserCannon
   description: A heavy duty, high powered laser weapon.
   components:
+  - type: Tag
+    tags:
+    - TurretCompatibleWeapon
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
     layers:
@@ -486,6 +489,7 @@
     size: Huge
     shape:
     - 0,0,7,1
+
 
 - type: entity
   name: portable particle decelerator
@@ -1022,6 +1026,7 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    uniformSpread: true
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserSpread
     fireCost: 150

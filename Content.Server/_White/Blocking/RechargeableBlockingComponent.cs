@@ -4,7 +4,10 @@ namespace Content.Server._White.Blocking;
 public sealed partial class RechargeableBlockingComponent : Component
 {
     [DataField]
-    public float RechargeDelay = 30f;
+    public float DischargedRechargeRate = 1.33f;
+
+    [DataField]
+    public float ChargedRechargeRate = 2f;
 
     [ViewVariables]
     public bool Discharged;

@@ -19,7 +19,7 @@
     - category: Piloting
     - alertType: Corporeal
     - alertType: Stun
-    - alertType: KnockedDown # WD EDIT
+    - alertType: KnockedDown # goobstation
     - category: Breathing # Vox gang not calling this oxygen
     - category: Pressure
     - alertType: Bleed
@@ -53,8 +53,8 @@
   id: LowNitrogen
   category: Breathing
   icons:
-    - sprite: /Textures/Interface/Alerts/breathing.rsi
-      state: not_enough_nitro
+  - sprite: /Textures/Interface/Alerts/breathing.rsi
+    state: not_enough_nitro
   name: alerts-low-nitrogen-name
   description: alerts-low-nitrogen-desc
 
@@ -62,8 +62,8 @@
   id: LowPlasma
   category: Breathing
   icons:
-    - sprite: /Textures/Interface/Alerts/breathing.rsi
-      state: not_enough_tox
+  - sprite: /Textures/Interface/Alerts/breathing.rsi
+    state: not_enough_tox
   name: alerts-low-plasma-name
   description: alerts-low-plasma-desc
 
@@ -71,8 +71,8 @@
   id: HighOxygen
   category: Breathing
   icons:
-    - sprite: /Textures/Interface/Alerts/breathing.rsi
-      state: too_much_oxy
+  - sprite: /Textures/Interface/Alerts/breathing.rsi
+    state: too_much_oxy
   name: alerts-high-oxygen-name
   description: alerts-high-oxygen-desc
 
@@ -552,8 +552,8 @@
   category: Mood
   onClick: !type:ShowMoodEffects { }
   icons:
-    - sprite: /Textures/Interface/Alerts/mood.rsi
-      state: mood_insane
+  - sprite: /Textures/Interface/Alerts/mood.rsi
+    state: mood_insane
   name: alerts-mood-insane-name
   description: alerts-mood-insane-desc
 
@@ -562,8 +562,8 @@
   category: Mood
   onClick: !type:ShowMoodEffects { }
   icons:
-    - sprite: /Textures/Interface/Alerts/mood.rsi
-      state: mood1
+  - sprite: /Textures/Interface/Alerts/mood.rsi
+    state: mood1
   name: alerts-mood-horrible-name
   description: alerts-mood-horrible-desc
 
@@ -572,8 +572,8 @@
   category: Mood
   onClick: !type:ShowMoodEffects { }
   icons:
-    - sprite: /Textures/Interface/Alerts/mood.rsi
-      state: mood2
+  - sprite: /Textures/Interface/Alerts/mood.rsi
+    state: mood2
   name: alerts-mood-terrible-name
   description: alerts-mood-terrible-desc
 
@@ -582,8 +582,8 @@
   category: Mood
   onClick: !type:ShowMoodEffects { }
   icons:
-    - sprite: /Textures/Interface/Alerts/mood.rsi
-      state: mood3
+  - sprite: /Textures/Interface/Alerts/mood.rsi
+    state: mood3
   name: alerts-mood-bad-name
   description: alerts-mood-bad-desc
 
@@ -592,8 +592,8 @@
   category: Mood
   onClick: !type:ShowMoodEffects { }
   icons:
-    - sprite: /Textures/Interface/Alerts/mood.rsi
-      state: mood4
+  - sprite: /Textures/Interface/Alerts/mood.rsi
+    state: mood4
   name: alerts-mood-meh-name
   description: alerts-mood-meh-desc
 
@@ -602,8 +602,8 @@
   category: Mood
   onClick: !type:ShowMoodEffects { }
   icons:
-    - sprite: /Textures/Interface/Alerts/mood.rsi
-      state: mood5
+  - sprite: /Textures/Interface/Alerts/mood.rsi
+    state: mood5
   name: alerts-mood-neutral-name
   description: alerts-mood-neutral-desc
 
@@ -612,8 +612,8 @@
   category: Mood
   onClick: !type:ShowMoodEffects { }
   icons:
-    - sprite: /Textures/Interface/Alerts/mood.rsi
-      state: mood6
+  - sprite: /Textures/Interface/Alerts/mood.rsi
+    state: mood6
   name: alerts-mood-good-name
   description: alerts-mood-good-desc
 
@@ -622,8 +622,8 @@
   category: Mood
   onClick: !type:ShowMoodEffects { }
   icons:
-    - sprite: /Textures/Interface/Alerts/mood.rsi
-      state: mood7
+  - sprite: /Textures/Interface/Alerts/mood.rsi
+    state: mood7
   name: alerts-mood-great-name
   description: alerts-mood-great-desc
 
@@ -632,8 +632,8 @@
   category: Mood
   onClick: !type:ShowMoodEffects { }
   icons:
-    - sprite: /Textures/Interface/Alerts/mood.rsi
-      state: mood8
+  - sprite: /Textures/Interface/Alerts/mood.rsi
+    state: mood8
   name: alerts-mood-exceptional-name
   description: alerts-mood-exceptional-desc
 
@@ -642,8 +642,8 @@
   category: Mood
   onClick: !type:ShowMoodEffects { }
   icons:
-    - sprite: /Textures/Interface/Alerts/mood.rsi
-      state: mood9
+  - sprite: /Textures/Interface/Alerts/mood.rsi
+    state: mood9
   name: alerts-mood-perfect-name
   description: alerts-mood-perfect-desc
 
@@ -652,8 +652,8 @@
   category: Mood
   onClick: !type:ShowMoodEffects { }
   icons:
-    - sprite: /Textures/Interface/Alerts/mood.rsi
-      state: mood_happiness_bad
+  - sprite: /Textures/Interface/Alerts/mood.rsi
+    state: mood_happiness_bad
   name: alerts-mood-dead-name
   description: alerts-mood-dead-desc
 
@@ -666,14 +666,6 @@
   description: alerts-deflecting-desc
 
 # WD EDIT START
-- type: alert
-  id: KnockedDown
-  icons:
-  - sprite: /Textures/_White/Interface/Alerts/knockdown.rsi
-    state: knockdown
-  name: alerts-knockdown-name
-  description: alerts-knockdown-desc
-
 - type: alert
   id: RecentlyBlocked
   icons:
