@@ -57,6 +57,7 @@ using Content.Shared.Jittering;
 using Content.Server.Explosion.EntitySystems;
 using System.Linq;
 using Content.Server.Flash.Components;
+using Content.Server.Radio.Components;
 // using Content.Shared.Heretic;
 using Content.Shared._Goobstation.Actions;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
@@ -754,6 +755,15 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         UpdateBiomass(uid, comp, 0);
         // make their blood unreal
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
+
+        // WD edit start: roundstart radio
+        EnsureComp<HivemindComponent>(uid);
+        var reciever = EnsureComp<IntrinsicRadioReceiverComponent>(uid);
+        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
+        var radio = EnsureComp<ActiveRadioComponent>(uid);
+        radio.Channels = new() { "Hivemind" };
+        transmitter.Channels = new() { "Hivemind" };
+        //WD edit end
 
         // Shitmed: Prevent changelings from getting their body parts severed
         foreach (var (id, part) in _bodySystem.GetBodyChildren(uid))
