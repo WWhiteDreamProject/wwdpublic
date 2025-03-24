@@ -2202,3 +2202,10 @@ Entries:
   id: 231
   time: '2025-03-24T14:12:48.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/371
+- author: Ligrof
+  changes:
+    - type: Tweak
+      message: Количество воды на выходе из центрифугирования крови 11 => 10.5
+  id: 232
+  time: '2025-03-24T14:14:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/373
