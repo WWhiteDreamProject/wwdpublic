@@ -11,6 +11,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingBackpackSecurity
 
@@ -25,6 +29,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingBackpackSatchelSecurity
 
@@ -39,6 +47,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingBackpackDuffelSecurity
 
@@ -54,6 +66,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingBeltSecurityWebbingFilled
 
@@ -68,6 +84,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingBeltSecurityFilled
 
@@ -82,6 +102,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingBeltHolster
 
@@ -106,6 +130,10 @@
       - !type:CharacterJobRequirement
         jobs:
           - BlueshieldOfficer
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - CombatKnife
 
@@ -124,6 +152,10 @@
       - !type:CharacterJobRequirement
         jobs:
           - BlueshieldOfficer
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - Flash
 
@@ -147,6 +179,10 @@
           - BlueshieldOfficer
     - !type:CharacterAgeRequirement
       min: 21
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - MagazinePistol
 
@@ -170,6 +206,10 @@
           - BlueshieldOfficer
     - !type:CharacterAgeRequirement
       min: 21
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - MagazinePistol
 
@@ -194,6 +234,10 @@
           - BlueshieldOfficer
     - !type:CharacterAgeRequirement
       min: 21
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - SpeedLoaderMagnum
 
@@ -218,6 +262,10 @@
           - BlueshieldOfficer
     - !type:CharacterAgeRequirement
       min: 21
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - SpeedLoaderMagnum
 
@@ -242,6 +290,10 @@
           - BlueshieldOfficer
     - !type:CharacterAgeRequirement
       min: 21
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - MagazineMagnum
 
@@ -266,6 +318,10 @@
           - BlueshieldOfficer
     - !type:CharacterAgeRequirement
       min: 21
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - MagazineMagnum
 
@@ -340,6 +396,10 @@
       - !type:CharacterJobRequirement
         jobs:
           - BlueshieldOfficer
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - WeaponDisabler
 
@@ -365,6 +425,10 @@
           - BlueshieldOfficer
     - !type:CharacterAgeRequirement
       min: 21
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - WeaponPistolMk58Security
 
@@ -390,6 +454,10 @@
           - BlueshieldOfficer
     - !type:CharacterAgeRequirement
       min: 21
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - WeaponRevolverInspectorSecurity
 
@@ -441,6 +509,10 @@
           - BlueshieldOfficer
     - !type:CharacterAgeRequirement
       min: 21
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - WeaponPistolN1984Security
 
@@ -518,6 +590,10 @@
     - !type:CharacterSpeciesRequirement
       species:
         - Oni
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - Truncheon
 
@@ -593,6 +669,10 @@
           - BlueshieldOfficer
     - !type:CharacterAgeRequirement
       min: 21
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - WeaponEnergyGunMiniSecurity
 
@@ -618,6 +698,10 @@
           - BlueshieldOfficer
     - !type:CharacterAgeRequirement
       min: 21
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - WeaponEnergyGunPistolSecurity
 
@@ -810,6 +894,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingEyesHudSecurity
 
@@ -824,6 +912,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingEyesGlassesSunglasses
 
@@ -838,6 +930,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingEyesEyepatchHudSecurity
 
@@ -855,6 +951,10 @@
     - !type:CharacterTraitRequirement
       traits:
         - Nearsighted
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingEyesPrescriptionHudSecurity
 
@@ -869,6 +969,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingEyesGlassesSecurity
 
@@ -883,6 +987,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingEyesGlassesSecurityAviator
 
@@ -897,6 +1005,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingEyesGlassesSecurityBig
 
@@ -911,6 +1023,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingEyesGlassesSecurityVisor
 
@@ -928,6 +1044,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingHeadHatBeretSecurity
 
@@ -942,6 +1062,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingHeadHelmetBasic
 
@@ -956,6 +1080,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingHeadHelmetInsulated
 
@@ -976,6 +1104,10 @@
       jobs:
         - Warden
         - HeadOfSecurity
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingMaskGasSwat
 
@@ -990,6 +1122,10 @@
   - !type:CharacterDepartmentRequirement
     departments:
     - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
   - ClothingOuterWinterSec
 
@@ -1005,6 +1141,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingOuterArmorPlateCarrier
 
@@ -1019,6 +1159,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingOuterArmorDuraVest
 
@@ -1033,6 +1177,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingOuterArmorBasic
 
@@ -1047,6 +1195,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingOuterArmorBasicSlim
 
@@ -1062,6 +1214,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingShoesBootsJack
 
@@ -1076,6 +1232,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingShoesBootsCombatFilled
 
@@ -1091,6 +1251,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingUniformJumpsuitSecBlue
 
@@ -1105,6 +1269,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingUniformJumpsuitSecGrey
 
@@ -1119,6 +1287,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingUniformJumpskirtSecGrey
 
@@ -1133,6 +1305,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingUniformJumpskirtSecBlue
 
@@ -1147,6 +1323,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingUniformJumpsuitSecFormal
 
@@ -1161,6 +1341,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingUniformJumpsuitSecSummer
 
@@ -1178,6 +1362,10 @@
     - !type:CharacterSpeciesRequirement
       species:
         - Plasmaman
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingUniformEnvirosuitSecBlue
     - ClothingHeadEnvirohelmSecBlue
@@ -1196,6 +1384,10 @@
     - !type:CharacterSpeciesRequirement
       species:
         - Plasmaman
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
   items:
     - ClothingUniformEnvirosuitSecGrey
     - ClothingHeadEnvirohelmSecGrey

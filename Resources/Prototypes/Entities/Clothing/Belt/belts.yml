@@ -55,6 +55,10 @@
         whitelist:
           tags:
           - Powerdrill
+      rpd:
+        whitelist:
+          tags:
+          - RPD
       cutters_red:
         whitelist:
           tags:
@@ -82,7 +86,7 @@
       multitool:
         whitelist:
           tags:
-            - Multitool
+          - Multitool
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
 
@@ -137,6 +141,10 @@
         whitelist:
           tags:
           - Powerdrill
+      rpd:
+        whitelist:
+          tags:
+          - RPD
       cutters_red:
         whitelist:
           tags:
@@ -160,7 +168,7 @@
       multitool:
         whitelist:
           tags:
-            - Multitool
+          - Multitool
       wrench:
         whitelist:
           tags:
@@ -178,7 +186,7 @@
     sprite: Clothing/Belt/assault.rsi
   - type: Clothing
     sprite: Clothing/Belt/assault.rsi
-  # - type: Storage # WWDP no belt whitelists
+    # - type: Storage # WWDP no belt whitelists
     # whitelist:
     #   tags:
     #     - CigPack
@@ -262,7 +270,7 @@
     sprite: Clothing/Belt/medical.rsi
   - type: Clothing
     sprite: Clothing/Belt/medical.rsi
-  # - type: Storage # WWDP no belt whitelists
+    # - type: Storage # WWDP no belt whitelists
     # whitelist:
     #   tags:
     #     - Wrench
@@ -353,7 +361,7 @@
     sprite: Clothing/Belt/plant.rsi
   - type: Clothing
     sprite: Clothing/Belt/plant.rsi
-  # - type: Storage # WWDP no belt whitelists
+    # - type: Storage # WWDP no belt whitelists
     # whitelist:
     #   tags:
     #     - PlantAnalyzer
@@ -409,7 +417,7 @@
     sprite: Clothing/Belt/chef.rsi
   - type: Clothing
     sprite: Clothing/Belt/chef.rsi
-  # - type: Storage # WWDP no belt whitelists
+    # - type: Storage # WWDP no belt whitelists
     # whitelist:
     #   tags:
     #     - KitchenKnife
@@ -486,7 +494,9 @@
     sprite: Clothing/Belt/security.rsi
   - type: Clothing
     sprite: Clothing/Belt/security.rsi
-  # - type: Storage # WWDP no belt whitelists
+  - type: ExplosionResistance # Goobstation
+    damageCoefficient: 0.5
+    # - type: Storage # WWDP no belt whitelists
     # whitelist:
     #   tags:
     #     - CigPack
@@ -578,7 +588,7 @@
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
     whitelist:
       tags:
-        - ShellShotgun
+      - ShellShotgun
     capacity: 14
 
 - type: entity
@@ -635,9 +645,9 @@
     - 0,0,3,3
     whitelist:
       components:
-        - Gun
-        - BallisticAmmoProvider
-        - CartridgeAmmo
+      - Gun
+      - BallisticAmmoProvider
+      - CartridgeAmmo
   - type: EmitsSoundOnMove
     soundCollection:
       collection: FootstepTacticalWebbing
@@ -684,11 +694,11 @@
   components:
   - type: StorageFill
     contents:
-      - id: GrenadeFlashBang
-      - id: TearGasGrenade
-      - id: Stunbaton
-      - id: Handcuffs
-      - id: Handcuffs
+    - id: GrenadeFlashBang
+    - id: TearGasGrenade
+    - id: Stunbaton
+    - id: Handcuffs
+    - id: Handcuffs
 
 - type: entity
   parent: [ClothingBaseWebbing, ClothingBeltStorageBase] # WWDP

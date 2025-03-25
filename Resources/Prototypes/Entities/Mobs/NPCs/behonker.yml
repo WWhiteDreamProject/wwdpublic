@@ -19,8 +19,8 @@
     - type: HTN
       rootTask:
         task: SimpleRangedHostileCompound
-    - type: HitscanBatteryAmmoProvider
-      proto: RedLaser
+    - type: ProjectileBatteryAmmoProvider # WWDP
+      proto: BulletLaser # WWDP
       fireCost: 62.5
     - type: Battery
       maxCharge: 1000

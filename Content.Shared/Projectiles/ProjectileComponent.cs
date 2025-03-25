@@ -85,4 +85,12 @@ public sealed partial class ProjectileComponent : Component
     /// </summary>
     [DataField]
     public bool DamagedEntity;
+
+    // Goobstation start
+    [DataField]
+    public bool Penetrate;
+
+    [NonSerialized]
+    public List<EntityUid> IgnoredEntities = new();
+    // Goobstation end
 }

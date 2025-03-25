@@ -16,9 +16,10 @@ namespace Content.Server.Power.EntitySystems
     [UsedImplicitly]
     public sealed class BatterySystem : EntitySystem
     {
+        [Dependency] private readonly SharedContainerSystem _containers = default!; // WD EDIT
         [Dependency] protected readonly IGameTiming Timing = default!;
 
-        [Dependency] private readonly SharedContainerSystem _containers = default!; // WD EDIT
+        private const string CellContainer = "cell_slot";
 
         public override void Initialize()
         {
@@ -238,8 +239,7 @@ namespace Content.Server.Power.EntitySystems
         }
 
         // WD EDIT START
-        public bool TryGetBatteryComponent(EntityUid uid, [NotNullWhen(true)] out BatteryComponent? battery,
-            [NotNullWhen(true)] out EntityUid? batteryUid)
+        public bool TryGetBatteryComponent(EntityUid uid, [NotNullWhen(true)] out BatteryComponent? battery,[NotNullWhen(true)] out EntityUid? batteryUid)
         {
             if (TryComp(uid, out battery))
             {
@@ -247,7 +247,7 @@ namespace Content.Server.Power.EntitySystems
                 return true;
             }
 
-            if (!_containers.TryGetContainer(uid, "cell_slot", out var container)
+            if (!_containers.TryGetContainer(uid, CellContainer, out var container)
                 || container is not ContainerSlot slot)
             {
                 battery = null;

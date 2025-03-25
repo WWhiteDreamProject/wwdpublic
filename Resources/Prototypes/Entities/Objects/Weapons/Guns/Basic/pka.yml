@@ -48,6 +48,6 @@
   #   deconstructionTarget: null #Frontier
   - type: Wieldable # Frontier
   - type: Item # WWDP guns resize
-    size: Small
+    size: Huge
     shape:
     - 0,0,5,1

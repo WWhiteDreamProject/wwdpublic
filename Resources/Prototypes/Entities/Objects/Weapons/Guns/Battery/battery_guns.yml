@@ -227,8 +227,8 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
     fireCost: 62.5
   - type: MagazineVisuals
     magState: mag
@@ -252,8 +252,8 @@
       shader: unshaded
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
     fireCost: 62.5
   - type: Battery
     maxCharge: 500
@@ -314,8 +314,8 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
     fireCost: 62.5
   - type: Item # WWDP guns resize
     size: Huge
@@ -328,8 +328,8 @@
   id: WeaponLaserCarbinePractice
   description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
   components:
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaserPractice
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaserPractice # WWDP
     fireCost: 62.5
   - type: StaticPrice
     price: 300
@@ -360,8 +360,8 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: Pulse
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletPulse # WWDP
     fireCost: 200
   - type: Battery
     maxCharge: 2000
@@ -409,8 +409,8 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: Pulse
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletPulse # WWDP
     fireCost: 200
   - type: Battery
     maxCharge: 5000
@@ -440,8 +440,8 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: Pulse
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletPulse # WWDP
     fireCost: 100
   - type: Battery
     maxCharge: 40000
@@ -457,6 +457,9 @@
   id: WeaponLaserCannon
   description: A heavy duty, high powered laser weapon.
   components:
+  - type: Tag
+    tags:
+    - TurretCompatibleWeapon
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
     layers:
@@ -471,8 +474,8 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedHeavyLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaserHeavy # WWDP
     fireCost: 100
   - type: MeleeWeapon
     attackRate: 1.4
@@ -486,6 +489,7 @@
     size: Huge
     shape:
     - 0,0,7,1
+
 
 - type: entity
   name: portable particle decelerator
@@ -553,8 +557,8 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: XrayLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletXRay # WWDP
     fireCost: 100
   - type: MagazineVisuals
     magState: mag
@@ -834,8 +838,8 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
     fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -889,9 +893,8 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
-    fireCost: 100
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 30
@@ -989,8 +992,8 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_clown.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
     fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -1023,6 +1026,7 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    uniformSpread: true
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserSpread
     fireCost: 150

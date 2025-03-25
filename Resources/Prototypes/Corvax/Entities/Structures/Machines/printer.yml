@@ -62,7 +62,7 @@
       - PrintedDocumentPrescriptionDrugAuthorizationRecipe
       - PrintedDocumentPermissionDisposeBodyRecipe
       - PrintedDocumentConstructionPermitRecipe
-      - PrintedDocumentPermissionToExtendMarriageRecipe
+      # - PrintedDocumentPermissionToExtendMarriageRecipe # WWDP
       - PrintedDocumentOrderDismissalRecipe
       - PrintedDocumentOrderDeprivationAccessRecipe
       - PrintedDocumentOrderEncouragementRecipe
@@ -107,4 +107,4 @@
       tags:
       - Document
     storage:
-      SheetPrinter: 0
+      SheetPrinter: 1000 # WWDP; 10 sheets
