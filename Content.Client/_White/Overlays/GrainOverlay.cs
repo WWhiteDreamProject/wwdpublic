@@ -35,7 +35,7 @@ public sealed class GrainOverlay : Overlay
         var worldHandle = args.WorldHandle;
 
         _shader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
-        _shader.SetParameter("strength", 75.0f);
+        _shader.SetParameter("strength", 60.0f);
 
         worldHandle.UseShader(_shader);
         worldHandle.DrawRect(args.WorldBounds, Color.White);
