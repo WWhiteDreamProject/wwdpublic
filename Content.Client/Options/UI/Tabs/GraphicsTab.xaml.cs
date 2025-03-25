@@ -80,6 +80,7 @@ namespace Content.Client.Options.UI.Tabs
             ParallaxLowQualityCheckBox.OnToggled += OnCheckBoxToggled;
             FpsCounterCheckBox.OnToggled += OnCheckBoxToggled;
             MoodVisualEffectsCheckBox.OnToggled += OnCheckBoxToggled;
+            FilmGrainCheckBox.OnToggled += OnFilmGrainCheckBoxToggled; // WD EDIT
             ApplyButton.OnPressed += OnApplyButtonPressed;
             VSyncCheckBox.Pressed = _cfg.GetCVar(CVars.DisplayVSync);
             FullscreenCheckBox.Pressed = ConfigIsFullscreen;
@@ -95,6 +96,7 @@ namespace Content.Client.Options.UI.Tabs
             FpsCounterCheckBox.Pressed = _cfg.GetCVar(CCVars.HudFpsCounterVisible);
             MoodVisualEffectsCheckBox.Pressed = _cfg.GetCVar(CCVars.MoodVisualEffects);
             ViewportWidthSlider.Value = _cfg.GetCVar(CCVars.ViewportWidth);
+            FilmGrainCheckBox.Pressed = _cfg.GetCVar(CCVars.FilmGrain); //WD EDIT
 
             _cfg.OnValueChanged(CCVars.ViewportMinimumWidth, _ => UpdateViewportWidthRange());
             _cfg.OnValueChanged(CCVars.ViewportMaximumWidth, _ => UpdateViewportWidthRange());
@@ -130,6 +132,7 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.HudFpsCounterVisible, FpsCounterCheckBox.Pressed);
             _cfg.SetCVar(CCVars.MoodVisualEffects, MoodVisualEffectsCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ViewportWidth, (int) ViewportWidthSlider.Value);
+            _cfg.SetCVar(CCVars.FilmGrain, FilmGrainCheckBox.Pressed); // WD EDIT
 
             _cfg.SaveToFile();
             UpdateApplyButton();
@@ -138,6 +141,11 @@ namespace Content.Client.Options.UI.Tabs
         private void OnCheckBoxToggled(BaseButton.ButtonToggledEventArgs args)
         {
             UpdateApplyButton();
+        }
+
+        private void OnFilmGrainCheckBoxToggled(BaseButton.ButtonToggledEventArgs obj)
+        {
+            UpdateApplyButton();  // WD EDIT
         }
 
         private void OnLightingQualityChanged(OptionButton.ItemSelectedEventArgs args)
@@ -161,6 +169,7 @@ namespace Content.Client.Options.UI.Tabs
             var isPLQSame = ParallaxLowQualityCheckBox.Pressed == _cfg.GetCVar(CCVars.ParallaxLowQuality);
             var isFpsCounterVisibleSame = FpsCounterCheckBox.Pressed == _cfg.GetCVar(CCVars.HudFpsCounterVisible);
             var isWidthSame = (int) ViewportWidthSlider.Value == _cfg.GetCVar(CCVars.ViewportWidth);
+            var isFilmGrainSame = FilmGrainCheckBox.Pressed == _cfg.GetCVar(CCVars.FilmGrain); // WD EDIT
 
             ApplyButton.Disabled = isVSyncSame &&
                                    isFullscreenSame &&
@@ -174,7 +183,8 @@ namespace Content.Client.Options.UI.Tabs
                                    isVPResSame &&
                                    isPLQSame &&
                                    isFpsCounterVisibleSame &&
-                                   isWidthSame;
+                                   isWidthSame &&
+                                   isFilmGrainSame; // WD EDIT
         }
 
         private bool ConfigIsFullscreen =>
