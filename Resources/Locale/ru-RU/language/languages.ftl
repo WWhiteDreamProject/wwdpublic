@@ -1,5 +1,5 @@
 language-Universal-name = Универсальный
-language-Universal-description = Что ты такое?
+language-Universal-description = Понимающий всех и вся, ты жив или мертв?
 
 language-Bubblish-name = Пузырчатый
 language-Bubblish-description = Язык слаймов. Поскольку он представляет собой смесь булькающих звуков и хлопков, людям очень трудно говорить на нем без использования механических приспособлений.
@@ -52,7 +52,7 @@ language-Canilunzt-description =
     состоящий из рычания, лая, тявканья и сильного использования движений ушей и хвоста. Вулканины легко говорят на этом языке.
 
 language-Moffic-name = Жужжащий
-language-Moffic-description = Язык жуков и мотыльков, граничит с полной неразборчивостью.
+language-Moffic-description = Язык жуков и мотыльков, состоит из... жужжания. Все таки они пытались нам что-то сказать.
 
 language-RobotTalk-name = Бинарный
 language-RobotTalk-description = Язык, состоящий из резких бинарных щелчков, свистов, шипения и стонов. Органические языки не могут говорить на нем без помощи специальных переводчиков.
@@ -64,7 +64,7 @@ language-Sign-name = Жестовый язык Тау-Цети
 language-Sign-description = Сокращенно ЖЯТЦ, этот жестовый язык распространен среди людей с нарушениями слуха.
 
 language-Marish-name = Мариш
-language-Marish-description = Язык, на котором говорят только тенерожденные, его невозможно воспроизвести обычными языками.
+language-Marish-description = Язык, на котором говорят только тенерожденные, его невозможно воспроизвести обычными языками, хотя... если ты из Гетто...
 
 language-ValyrianStandard-name = Стандартный Валирийский
 language-ValyrianStandard-description =
@@ -80,49 +80,49 @@ language-Chittin-description =
 # Animal Languages
 
 language-Cat-name = Кошачий
-language-Cat-description = Мяу
+language-Cat-description = Намяукай про то что все плохие.
 
 language-Dog-name = Собачий
-language-Dog-description = Гав!
+language-Dog-description = Раздражающий лай.
 
 language-Fox-name = Лисий
-language-Fox-description = Пип!
+language-Fox-description = Из-за ваших звуков собакам рядом становится не по себе.
 
 language-Xeno-name = Ксеноязык
-language-Xeno-description = Сссс!
+language-Xeno-description = Сссс, сс, Ссссс!
 
 language-Monkey-name = Обезьяний
-language-Monkey-description = Уууу!
+language-Monkey-description = Язык настоящих гениев.
 
 language-Mouse-name = Мышиный
-language-Mouse-description = Писк!
+language-Mouse-description = Ваших криков никто не поймет.
 
 language-Chicken-name = Куриный
-language-Chicken-description = Куд-кудах!
+language-Chicken-description = На нем разговаривают некоторые люди в тюрьмах.
 
 language-Duck-name = Утиный
-language-Duck-description = Кря!
+language-Duck-description = Крряясиво звучит!
 
 language-Cow-name = Коровьий
-language-Cow-description = Муу!
+language-Cow-description = Намычи себе под ухо.
 
 language-Sheep-name = Овечий
-language-Sheep-description = Беее!
+language-Sheep-description = Ваши звуки привлекают некоторых людей с определенными корнями.
 
 language-Kangaroo-name = Кенгуру
-language-Kangaroo-description = Чуу!
+language-Kangaroo-description = Какой-то... перевёрнутый язык...
 
 language-Pig-name = Свиной
-language-Pig-description = Хрю!
+language-Pig-description = Если ты его понимаешь, то скорее всего скоро из тебя сделают бекон.
 
 language-Crab-name = Крабовый
-language-Crab-description = Щелк!
+language-Crab-description = Отличный язык для того чтобы сказать секретный рецепт.
 
 language-Kobold-name = Кобольдий
-language-Kobold-description = Шип!
+language-Kobold-description = Крутой язык, но не лучше обезьянего.
 
 language-Hissing-name = Шипение
-language-Hissing-description = Шип!
+language-Hissing-description = Шшшипилявь сссколько хочешшшь
 
 language-Eldritch-name = Древний
 language-Eldritch-description =
@@ -130,4 +130,4 @@ language-Eldritch-description =
     бормотания являются последователи древнего Бога Крови.
 
 language-Penguin-name = Пингвиний
-language-Penguin-description = Бвап!
+language-Penguin-description = Лучше чем оконный.
