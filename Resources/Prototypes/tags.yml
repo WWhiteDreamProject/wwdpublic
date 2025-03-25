@@ -1,4 +1,7 @@
 - type: Tag
+  id: AiCoreBoard
+
+- type: Tag
   id: AirAlarm
 
 - type: Tag

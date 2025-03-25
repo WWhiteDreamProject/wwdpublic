@@ -1,0 +1,10 @@
+﻿- type: entity
+  id: StationAICoreCircuitboard
+  parent: BaseMachineCircuitboard
+  name: AI core
+  description: A machine printed circuit board for a station AI core.
+  components:
+  - type: Tag
+    tags:
+    - AiCoreBoard
+

@@ -1,0 +1,135 @@
+﻿- type: construction
+  name: AI Core
+  id: AICore
+  graph: AICoreGraph
+  startNode: start
+  targetNode: wired
+  category: construction-category-machines
+  description: A framework for an arificial intelligence core
+  icon:
+    sprite: Mobs\Silicon\station_ai.rsi
+    state: 0
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: AICoreGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame
+      completed:
+      - !type:SetAnchor
+        value: false
+      steps:
+      - material: Plasteel
+        amount: 4
+        doAfter: 2
+
+  - node: frame
+    entity: StationAIAssemblyFrame
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel
+        amount: 4
+      - !type:DeleteEntity {}
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+    - to: board
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tag: AiCoreBoard
+        name: AI core board
+        icon:
+          sprite: "Objects/Misc/module.rsi"
+          state: "generic"
+        completed:
+        - !type:SpawnPrototype
+          prototype: StationAIAssemblyBoard
+        - !type:DeleteEntity {}
+
+  - node: board
+    entity: StationAIAssemblyBoard
+    edges:
+    - to: frame
+      conditions:
+      - !type:EntityAnchored
+      steps:
+      - tool: Prying
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: StationAIAssemblyFrame
+      - !type:SpawnPrototype
+        prototype: StationAICoreCircuitboard
+      - !type:DeleteEntity { }
+
+    - to: screwed
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      - !type:SpawnPrototype
+        prototype: StationAIAssemblyScrewed
+      - !type:DeleteEntity { }
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Screwing
+        doAfter: 1
+
+  - node: screwed
+    entity: StationAIAssemblyScrewed
+    edges:
+    - to: board
+      conditions:
+      - !type:EntityAnchored
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      completed:
+      - !type:SpawnPrototype
+        prototype: StationAIAssemblyBoard
+      - !type:DeleteEntity { }
+
+    - to: wired
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      - !type:SpawnPrototype
+        prototype: StationAIAssemblyWired
+      - !type:DeleteEntity { }
+      conditions:
+      - !type:EntityAnchored { }
+      steps:
+      - material: Cable
+        amount: 5
+        doAfter: 2.5
+
+  - node: wired
+    entity: StationAIAssemblyWired
+    edges:
+    - to: board
+      conditions:
+      - !type:EntityAnchored
+      steps:
+      - tool: Cutting
+        doAfter: 2.5
+      completed:
+      - !type:SpawnPrototype
+        prototype: StationAIAssemblyScrewed
+      - !type:DeleteEntity { }
