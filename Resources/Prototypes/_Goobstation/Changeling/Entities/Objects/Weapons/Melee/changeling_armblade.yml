@@ -13,10 +13,11 @@
     attackRate: 0.8 # WD edit 1.5 -> 0.8
     damage:
       types:
-        Slash: 15
+        Slash: 25 # WD edit 15 -> 25
         Structural: 20
     clickPartDamageMultiplier: 2
     heavyPartDamageMultiplier: 1.5
+    resistanceBypass: true # WD edit
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
