@@ -15,14 +15,19 @@
     tags:
     - WhitelistChameleon
     - HudMedical
+    - HudSecurity
   - type: IdentityBlocker
     coverage: EYES
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    - Inorganic
+    - Silicon
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+    - Inorganic
+    - Silicon
   - type: Construction # WWDP
     graph: GlassesMedSecHUD
     node: glassesMedSec

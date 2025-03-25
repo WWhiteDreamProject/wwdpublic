@@ -82,6 +82,7 @@
     - id: ClothingHeadsetSecurity
     - id: ClothingHandsGlovesColorBlack
     - id: ClothingShoesBootsJack
+    - id: ClothingHeadsetAltSecurityRegular # Goobstation
     - id: WeaponMeleeNeedle
       prob: 0.1
     - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!

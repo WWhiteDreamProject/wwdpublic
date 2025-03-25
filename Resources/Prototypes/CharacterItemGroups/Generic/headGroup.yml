@@ -1,6 +1,8 @@
 - type: characterItemGroup
   id: LoadoutHead
   items:
+    - type: loadout #WWDP edit
+      id: LoadoutHeadHatUshanka
     - type: loadout
       id: LoadoutHeadBeaverHat
     - type: loadout
@@ -93,3 +95,7 @@
       id: LoadoutHeadHatBeanieGreen
     - type: loadout
       id: LoadoutHeadHatMountie
+    - type: loadout
+      id: ClothingHeadHatTacticalMaidHeadband
+    - type: loadout
+      id: ClothingHeadHatWitch1

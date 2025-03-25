@@ -402,6 +402,8 @@
     autoRecharge: true
     autoRechargeRate: 1
   - type: RechargeableBlocking
+    dischargedRechargeRate: 27.5
+    chargedRechargeRate: 30
   # WD EDIT END
 
 - type: entity
