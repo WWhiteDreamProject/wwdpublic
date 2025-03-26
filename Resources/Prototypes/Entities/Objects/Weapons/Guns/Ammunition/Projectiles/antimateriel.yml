@@ -10,4 +10,27 @@
         Piercing: 120 #WD edit
         Structural: 150 #WD edit
   - type: StaminaDamageOnCollide
-    damage: 35
+    damage: 35 # WD EDIT
+
+- type: entity
+  id: BulletAntiMaterielShrapnel
+  name: bullet (.60 anti-personnel shrapnel)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 3
+  - type: Sprite
+    scale: 0.5, 0.5
+
+- type: entity
+  id: BulletAntiMaterielShrapnelSpread
+  categories: [ HideSpawnMenu ]
+  parent: BulletAntiMaterielShrapnel
+  components:
+  - type: ProjectileSpread
+    proto: BulletAntiMaterielShrapnel
+    count: 30
+    spread: 15

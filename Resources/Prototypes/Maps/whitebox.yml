@@ -1,8 +1,8 @@
 - type: gameMap
   id: WhiteBox
   mapName: 'Box Station'
-  mapPath: /Maps/WhiteBox.yml
-  minPlayers: 0
+  mapPath: /Maps/_White/WhiteBox.yml
+  minPlayers: 40
   stations:
     WhiteBoxStation:
       stationProto: StandardNanotrasenStation
@@ -18,8 +18,13 @@
           overflowJobs:
             - Passenger
           availableJobs:
+            #Silicons
+            #Borg: [ 2, 2 ]
+            #MedicalBorg: [ 2, 2 ]
+            #StationAi: [ 1, 1 ]
             CargoTechnician: [ 2, 2 ]
             Prisoner: [ 1, 2 ]
+            PrisonGuard: [ 1, 1 ]
             MailCarrier: [ 1, 2 ]
             Passenger: [ -1, -1 ]
             Bartender: [ 2, 2 ]

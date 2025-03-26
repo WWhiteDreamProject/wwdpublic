@@ -45,7 +45,7 @@ public sealed class StatusIconOverlay : Overlay
         var query = _entity.AllEntityQueryEnumerator<StatusIconComponent, SpriteComponent, TransformComponent, MetaDataComponent>();
         while (query.MoveNext(out var uid, out var comp, out var sprite, out var xform, out var meta))
         {
-            if (xform.MapID != args.MapId)
+            if (xform.MapID != args.MapId || !sprite.Visible)
                 continue;
 
             var bounds = comp.Bounds ?? sprite.Bounds;
@@ -72,6 +72,8 @@ public sealed class StatusIconOverlay : Overlay
 
             foreach (var proto in icons)
             {
+                if (!_statusIcon.IsVisible((uid, meta), proto))
+                    continue;
 
                 var curTime = _timing.RealTime;
                 var texture = _sprite.GetFrame(proto.Icon, curTime);
@@ -91,8 +93,8 @@ public sealed class StatusIconOverlay : Overlay
                         accOffsetL += texture.Height;
                         countL++;
                     }
-                    yOffset = (bounds.Height + sprite.Offset.Y) / 2f - (float) accOffsetL / EyeManager.PixelsPerMeter;
-                    xOffset = -(bounds.Width + sprite.Offset.X) / 2f;
+                    xOffset = -bounds.Width / 2f + sprite.Offset.X;                                                     // WWDP EDIT // WHO THE FUCK WROTE THIS???
+                    yOffset = bounds.Height / 2f + sprite.Offset.Y - (float) accOffsetL / EyeManager.PixelsPerMeter;    // WWDP EDIT // DID THEY EVEN TEST IT???
 
                 }
                 else
@@ -104,8 +106,8 @@ public sealed class StatusIconOverlay : Overlay
                         accOffsetR += texture.Height;
                         countR++;
                     }
-                    yOffset = (bounds.Height + sprite.Offset.Y) / 2f - (float) accOffsetR / EyeManager.PixelsPerMeter;
-                    xOffset = (bounds.Width + sprite.Offset.X) / 2f - (float) texture.Width / EyeManager.PixelsPerMeter;
+                    xOffset = bounds.Width / 2f  + sprite.Offset.X - (float) texture.Width / EyeManager.PixelsPerMeter; // WWDP EDIT
+                    yOffset = bounds.Height / 2f + sprite.Offset.Y - (float) accOffsetR / EyeManager.PixelsPerMeter;    // WWDP EDIT
 
                 }
 

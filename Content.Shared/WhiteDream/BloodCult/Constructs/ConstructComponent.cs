@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.WhiteDream.BloodCult.Constructs;
 
 [RegisterComponent]
-public sealed partial class ConstructComponent : Component, IAntagStatusIconComponent
+public sealed partial class ConstructComponent : Component
 {
     [DataField]
     public List<EntProtoId> Actions = new();
@@ -18,7 +18,7 @@ public sealed partial class ConstructComponent : Component, IAntagStatusIconComp
     public float TransformDelay = 1;
 
     [DataField]
-    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "BloodCultMember";
+    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "BloodCultMember";
 
     [DataField]
     public ProtoId<LanguagePrototype> CultLanguageId { get; set; } = "Eldritch";

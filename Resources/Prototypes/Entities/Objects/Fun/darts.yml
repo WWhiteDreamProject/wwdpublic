@@ -10,6 +10,7 @@
     offset: 0.0,0.0
   - type: ThrowingAngle
     angle: 315
+  - type: LandAtCursor
   - type: Fixtures
     fixtures:
       fix1:
@@ -28,6 +29,7 @@
     sprite: Objects/Fun/Darts/dart_red.rsi
     state: icon
   - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     wideAnimationRotation: -45
     damage:
       types:

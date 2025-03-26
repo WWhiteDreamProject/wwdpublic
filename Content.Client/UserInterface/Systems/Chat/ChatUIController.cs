@@ -9,6 +9,8 @@ using Content.Client.Chat.UI;
 using Content.Client.Examine;
 using Content.Client.Gameplay;
 using Content.Client.Ghost;
+using Content.Client.Mind;
+using Content.Client.Roles;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Screens;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
@@ -21,6 +23,7 @@ using Content.Shared.Damage.ForceSay;
 using Content.Shared.Examine;
 using Content.Shared.Input;
 using Content.Shared.Radio;
+using Content.Shared.Roles.RoleCodeword;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -61,10 +64,13 @@ public sealed class ChatUIController : UIController
     [UISystemDependency] private readonly TypingIndicatorSystem? _typingIndicator = default;
     [UISystemDependency] private readonly ChatSystem? _chatSys = default;
     [UISystemDependency] private readonly PsionicChatUpdateSystem? _psionic = default!; //Nyano - Summary: makes the psionic chat available.
+    [UISystemDependency] private readonly TransformSystem? _transform = default;
+    [UISystemDependency] private readonly MindSystem? _mindSystem = default!;
+    [UISystemDependency] private readonly RoleCodewordSystem? _roleCodewordSystem = default!;
 
     [ValidatePrototypeId<ColorPalettePrototype>]
-    private const string ChatNamePalette = "ChatNames";
-    private string[] _chatNameColors = default!;
+    // private const string ChatNamePalette = "ChatNames"; // WWDP EDIT - DEFUNCT - Moved to SharedChatSystem
+    // private string[] _chatNameColors = default!; // WWDP EDIT - DEFUNCT - Moved to SharedChatSystem
     private bool _chatNameColorsEnabled;
 
     private ISawmill _sawmill = default!;
@@ -185,7 +191,6 @@ public sealed class ChatUIController : UIController
         SubscribeNetworkEvent<DamageForceSayEvent>(OnDamageForceSay);
         _config.OnValueChanged(CCVars.ChatEnableColorName, (value) => { _chatNameColorsEnabled = value; });
         _chatNameColorsEnabled = _config.GetCVar(CCVars.ChatEnableColorName);
-
         _speechBubbleRoot = new LayoutContainer();
 
         UpdateChannelPermissions();
@@ -230,13 +235,14 @@ public sealed class ChatUIController : UIController
         gameplayStateLoad.OnScreenLoad += OnScreenLoad;
         gameplayStateLoad.OnScreenUnload += OnScreenUnload;
 
+        /* // WWDP EDIT - DEFUNCT - Moved to SharedChatSystem
         var nameColors = _prototypeManager.Index<ColorPalettePrototype>(ChatNamePalette).Colors.Values.ToArray();
         _chatNameColors = new string[nameColors.Length];
         for (var i = 0; i < nameColors.Length; i++)
         {
             _chatNameColors[i] = nameColors[i].ToHex();
         }
-
+        */
         _config.OnValueChanged(CCVars.ChatWindowOpacity, OnChatWindowOpacityChanged);
 
     }
@@ -638,7 +644,7 @@ public sealed class ChatUIController : UIController
         var predicate = static (EntityUid uid, (EntityUid compOwner, EntityUid? attachedEntity) data)
             => uid == data.compOwner || uid == data.attachedEntity;
         var playerPos = player != null
-            ? EntityManager.GetComponent<TransformComponent>(player.Value).MapPosition
+            ? _transform?.GetMapCoordinates(player.Value) ?? MapCoordinates.Nullspace
             : MapCoordinates.Nullspace;
 
         var occluded = player != null && _examine.IsOccluded(player.Value);
@@ -657,7 +663,7 @@ public sealed class ChatUIController : UIController
                 continue;
             }
 
-            var otherPos = EntityManager.GetComponent<TransformComponent>(ent).MapPosition;
+            var otherPos = _transform?.GetMapCoordinates(ent) ?? MapCoordinates.Nullspace;
 
             if (occluded && !_examine.InRangeUnOccluded(
                     playerPos,
@@ -829,7 +835,23 @@ public sealed class ChatUIController : UIController
         {
             var grammar = _ent.GetComponentOrNull<GrammarComponent>(_ent.GetEntity(msg.SenderEntity));
             if (grammar != null && grammar.ProperNoun == true)
-                msg.WrappedMessage = SharedChatSystem.InjectTagInsideTag(msg, "Name", "color", GetNameColor(SharedChatSystem.GetStringInsideTag(msg, "Name")));
+            { // WWDP EDIT START
+                string hex = SharedChatSystem.GetNameColor(SharedChatSystem.GetStringInsideTag(msg, "Name"));
+                msg.WrappedMessage = SharedChatSystem.InjectTagAroundTag(msg, "Name", "color", hex);
+            } // WWDP EDIT END
+        }
+
+        // Color any codewords for minds that have roles that use them
+        if (_player.LocalUser != null && _mindSystem != null && _roleCodewordSystem != null)
+        {
+            if (_mindSystem.TryGetMind(_player.LocalUser.Value, out var mindId) && _ent.TryGetComponent(mindId, out RoleCodewordComponent? codewordComp))
+            {
+                foreach (var (_, codewordData) in codewordComp.RoleCodewords)
+                {
+                    foreach (string codeword in codewordData.Codewords)
+                        msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, codeword, "color", codewordData.Color.ToHex());
+                }
+            }
         }
 
         // Log all incoming chat to repopulate when filter is un-toggled
@@ -920,6 +942,8 @@ public sealed class ChatUIController : UIController
         }
     }
 
+    /* WWDP EDIT - DEFUNCT
+    // Moved to SharedChatSystem.GetNameColor(string).
     /// <summary>
     /// Returns the chat name color for a mob
     /// </summary>
@@ -930,6 +954,7 @@ public sealed class ChatUIController : UIController
         var colorIdx = Math.Abs(name.GetHashCode() % _chatNameColors.Length);
         return _chatNameColors[colorIdx];
     }
+    */
 
     private readonly record struct SpeechBubbleData(ChatMessage Message, SpeechBubble.SpeechType Type);
 

@@ -1,4 +1,5 @@
 - type: shader
-  id: NightVision
+  id: FlickerHologram
   kind: source
-  path: "/Textures/_White/Shaders/nightvision.swsl"
+  path: "/Textures/_White/Shaders/flickerhologram.swsl"
+  light_mode: unshaded

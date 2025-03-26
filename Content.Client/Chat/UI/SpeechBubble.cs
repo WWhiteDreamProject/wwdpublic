@@ -1,13 +1,19 @@
 using System.Numerics;
 using Content.Client.Chat.Managers;
+using Content.Client.UserInterface.Systems.Chat;
+using Content.Shared._White;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
+using Content.Shared.Speech;
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Client.UserInterface.RichText;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using YamlDotNet.Core.Tokens;
 
 namespace Content.Client.Chat.UI
 {
@@ -16,6 +22,8 @@ namespace Content.Client.Chat.UI
         [Dependency] private readonly IEyeManager _eyeManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] protected readonly IConfigurationManager ConfigManager = default!;
+
+        private readonly SharedTransformSystem _transformSystem;
 
         public enum SpeechType : byte
         {
@@ -58,18 +66,24 @@ namespace Content.Client.Chat.UI
         // man down
         public event Action<EntityUid, SpeechBubble>? OnDied;
 
+
         public static SpeechBubble CreateSpeechBubble(SpeechType type, ChatMessage message, EntityUid senderEntity)
         {
+            // WWDP EDIT START
+            Color? color = null;
+            if(IoCManager.Resolve<IConfigurationManager>().GetCVar(WhiteCVars.ColoredBubbleChat))
+                color = Color.FromHex(SharedChatSystem.GetNameColor(SharedChatSystem.GetStringInsideTag(message, "Name")));
+            // WWDP EDIT END
             switch (type)
             {
                 case SpeechType.Emote:
-                    return new TextSpeechBubble(message, senderEntity, "emoteBox");
+                    return new TextSpeechBubble(message, senderEntity, "emoteBox", color); // WWDP EDIT
 
                 case SpeechType.Say:
-                    return new FancyTextSpeechBubble(message, senderEntity, "sayBox");
+                    return new FancyTextSpeechBubble(message, senderEntity, "sayBox", color); // WWDP EDIT
 
                 case SpeechType.Whisper:
-                    return new FancyTextSpeechBubble(message, senderEntity, "whisperBox");
+                    return new FancyTextSpeechBubble(message, senderEntity, "whisperBox", color); // WWDP EDIT
 
                 case SpeechType.Looc:
                     return new TextSpeechBubble(message, senderEntity, "emoteBox", Color.FromHex("#48d1cc"));
@@ -83,6 +97,7 @@ namespace Content.Client.Chat.UI
         {
             IoCManager.InjectDependencies(this);
             _senderEntity = senderEntity;
+            _transformSystem = _entityManager.System<SharedTransformSystem>();
 
             // Use text clipping so new messages don't overlap old ones being pushed up.
             RectClipContent = true;
@@ -139,8 +154,20 @@ namespace Content.Client.Chat.UI
                 Modulate = Color.White;
             }
 
-            var offset = (-_eyeManager.CurrentEye.Rotation).ToWorldVec() * -EntityVerticalOffset;
-            var worldPos = xform.WorldPosition + offset;
+            var baseOffset = 0f;
+			
+			// WWDP EDIT START
+            var spriteOffset = Vector2.Zero;
+            if (_entityManager.TryGetComponent<SpriteComponent>(_senderEntity, out var spriteComponent))
+                spriteOffset = spriteComponent.Offset;
+			// WWDP EDIT END
+			
+            if (_entityManager.TryGetComponent<SpeechComponent>(_senderEntity, out var speech))
+                baseOffset = speech.SpeechBubbleOffset;
+
+            var offset = (-_eyeManager.CurrentEye.Rotation).ToWorldVec() * -(EntityVerticalOffset + baseOffset);
+            offset += (-_eyeManager.CurrentEye.Rotation).RotateVec(spriteOffset); // WWDP EDIT // need to account for sprite offset for pixel perfect camera
+            var worldPos = _transformSystem.GetWorldPosition(xform) + offset;
 
             var lowerCenter = _eyeManager.WorldToScreen(worldPos) / UIScale;
             var screenPos = lowerCenter - new Vector2(ContentSize.X / 2, ContentSize.Y + _verticalOffsetAchieved);
@@ -173,12 +200,22 @@ namespace Content.Client.Chat.UI
             }
         }
 
-        protected FormattedMessage FormatSpeech(string message, Color? fontColor = null)
+
+        protected FormattedMessage FormatSpeech(string message, string fontId) => FormatSpeech(message, null, fontId);                  // WWDP
+        protected FormattedMessage FormatSpeech(string message, Color? fontColor = null) => FormatSpeech(message, fontColor, null);     // WWDP
+        protected FormattedMessage FormatSpeech(string message, Color? fontColor = null, string? fontId = null)     // WWDP EDIT
         {
             var msg = new FormattedMessage();
             if (fontColor != null)
                 msg.PushColor(fontColor.Value);
-            msg.AddMarkup(message);
+            if (fontId != null) // WWDP EDIT START
+            {
+                msg.AddMarkup($"[font=\"{fontId}\"]");
+                msg.AddMarkup(message);
+                msg.AddMarkup($"[/font]");
+            }
+            else
+                msg.AddMarkup(message); // WWDP EDIT END
             return msg;
         }
 
@@ -203,7 +240,7 @@ namespace Content.Client.Chat.UI
                 MaxWidth = SpeechMaxWidth,
             };
 
-            label.SetMessage(FormatSpeech(message.WrappedMessage, fontColor));
+            label.SetMessage(FormatSpeech(message.WrappedMessage, fontColor, "Bedstead")); // WWDP EDIT
 
             var panel = new PanelContainer
             {
@@ -233,7 +270,7 @@ namespace Content.Client.Chat.UI
                     MaxWidth = SpeechMaxWidth
                 };
 
-                label.SetMessage(ExtractAndFormatSpeechSubstring(message, "BubbleContent", fontColor));
+                label.SetMessage(FormatSpeech(SharedChatSystem.GetStringInsideTag(message, "BubbleContent"), fontColor, "Bedstead")); // WWDP EDIT // LESS USELESS ONE LINER FUNCS PLS
 
                 var unfanciedPanel = new PanelContainer
                 {
@@ -255,10 +292,10 @@ namespace Content.Client.Chat.UI
                 Margin = new Thickness(2, 6, 2, 2),
                 StyleClasses = { "bubbleContent" }
             };
-
+            
             //We'll be honest. *Yes* this is hacky. Doing this in a cleaner way would require a bottom-up refactor of how saycode handles sending chat messages. -Myr
-            bubbleHeader.SetMessage(ExtractAndFormatSpeechSubstring(message, "BubbleHeader", fontColor));
-            bubbleContent.SetMessage(ExtractAndFormatSpeechSubstring(message, "BubbleContent", fontColor));
+            bubbleHeader.SetMessage(FormatSpeech(SharedChatSystem.GetStringInsideTag(message, "BubbleHeader"), fontColor, "Bedstead")); // WWDP EDIT // LESS USELESS ONE LINER FUNCS PLS
+            bubbleContent.SetMessage(FormatSpeech(SharedChatSystem.GetStringInsideTag(message, "BubbleContent"), fontColor, "Bedstead")); // WWDP EDIT
 
             //As for below: Some day this could probably be converted to xaml. But that is not today. -Myr
             var mainPanel = new PanelContainer

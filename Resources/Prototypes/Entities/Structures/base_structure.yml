@@ -30,6 +30,8 @@
       types:
         Blunt: 8
     staminaCost: 50
+    soundHit:
+      collection: MetalThud
   - type: ReflectAspectMark # WD EDIT
 
 - type: entity
@@ -38,11 +40,7 @@
   parent: BaseStructure
   abstract: true
   components:
-# These might/might not be a good idea
-#  - type: MovedByPressure
-#  - type: DamageOnHighSpeedImpact
-#  - type: TileFrictionModifier
-#    modifier: 0.5
+  - type: MovedByPressure
   - type: Transform
     anchored: false
   - type: Clickable

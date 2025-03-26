@@ -3,6 +3,16 @@
   name: chat-emote-name-sneeze
   category: Vocal
   chatMessages: [ "chat-emote-msg-sneeze" ]
+  # WD EDIT START
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatTriggers:
+    - "chat-emote-trigger-sneeze-1"
+  # WD EDIT END
 
 - type: emote
   id: Cough
@@ -15,9 +25,9 @@
     - Vocal
   blacklist:
     components:
-    - BorgChassischatMessages
+    - BorgChassis
   chatTriggers:
-    - coughs
+    - "chat-emote-trigger-cough-1" # WD EDIT
 
 - type: emote
   id: CatMeow
@@ -30,7 +40,7 @@
   name: chat-emote-name-cathisses
   category: Vocal
   chatMessages: [ "chat-emote-msg-cathisses" ]
-
+  
 - type: emote
   id: MonkeyScreeches
   name: chat-emote-name-monkeyscreeches
@@ -54,12 +64,22 @@
     - Vocal
   blacklist:
     components:
-    - BorgChassischatMessages
+    - BorgChassis
   chatTriggers:
-    - yawns
+    - "chat-emote-trigger-yawn-1" # WD EDIT
 
 - type: emote
   id: Snore
   name: chat-emote-name-snore
   category: Vocal
   chatMessages: [ "chat-emote-msg-snore" ]
+  # WD EDIT START
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatTriggers:
+    - "chat-emote-trigger-snore-1"
+  # WD EDIT END

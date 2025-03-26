@@ -7,12 +7,16 @@
   - type: Item
     size: Huge
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
   - type: AmmoCounter
+  - type: DisarmMalus # WWDP
+    malus: 0.3
+    wieldedBonus: 0.3
   - type: Gun
     fireRate: 2
     selectedMode: SemiAuto
@@ -21,7 +25,6 @@
     fireOnDropChance: 0.15
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-    doRecoil: false
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
@@ -32,18 +35,39 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
+  - type: MeleeWeapon
+    attackRate: 1.3333
+    damage:
+      types:
+        Blunt: 8.5
+    bluntStaminaDamageFactor: 1.25
+    swapKeys: true
+    disableHeavy: true
+    animation: WeaponArcThrust
+    wideAnimationRotation: 180
+    soundHit:
+      collection: MetalThud
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 2.5
+  - type: DamageOtherOnHit
+    staminaCost: 7
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: LasersPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: LasersDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: LasersDrop
+  # Shitmed Change
   - type: Cautery
     speed: 0.9
   - type: SurgeryTool
     endSound:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: MeleeWeapon # WD EDIT
-    attackRate: 0.7
-    damage:
-      types:
-        Blunt: 10
-    soundHit:
-      collection: GenericHit
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -61,7 +85,6 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-    doRecoil: false
   - type: MagazineAmmoProvider
   - type: ItemSlots
     slots:
@@ -80,18 +103,30 @@
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+  - type: MeleeWeapon
+    attackRate: 1.3333
+    damage:
+      types:
+        Blunt: 9.0
+    bluntStaminaDamageFactor: 1.25
+    swapKeys: true
+    disableHeavy: true
+    animation: WeaponArcThrust
+    wideAnimationRotation: 180
+    soundHit:
+      collection: MetalThud
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 2.5
+  - type: DamageOtherOnHit
+    staminaCost: 7
+  # Shitmed Change
   - type: Cautery
     speed: 0.9
   - type: SurgeryTool
     endSound:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: MeleeWeapon # WD EDIT
-    attackRate: 0.7
-    damage:
-      types:
-        Blunt: 10
-    soundHit:
-      collection: GenericHit
 
 - type: entity
   id: BaseWeaponBatterySmall
@@ -106,17 +141,26 @@
   - type: Tag
     tags:
     - Sidearm
+  - type: Gun
+    bonusAngleIncreaseMove: 20    # wwdp
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 80           # wwdp
+    maxBonusAngle: 10             # wwdp
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/taser.rsi
     quickEquip: false
     slots:
     - Belt
     - suitStorage
-  - type: MeleeWeapon # WD EDIT
-    attackRate: 1
+  - type: MeleeWeapon
+    attackRate: 1.2
     damage:
       types:
-        Blunt: 7
+        Blunt: 7.5
+    bluntStaminaDamageFactor: 1.0
+    wideAnimationRotation: 135
+  - type: DamageOtherOnHit
+    staminaCost: 5
 
 - type: entity
   id: BaseWeaponPowerCellSmall
@@ -133,6 +177,20 @@
     quickEquip: false
     slots:
     - Belt
+  - type: Gun
+    bonusAngleIncreaseMove: 20    # wwdp
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 80           # wwdp
+    maxBonusAngle: 10             # wwdp
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Blunt: 7.5
+    bluntStaminaDamageFactor: 1.0
+    wideAnimationRotation: 135
+  - type: DamageOtherOnHit
+    staminaCost: 5
 
 - type: entity
   name: svalinn laser pistol
@@ -169,8 +227,8 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
     fireCost: 62.5
   - type: MagazineVisuals
     magState: mag
@@ -194,8 +252,8 @@
       shader: unshaded
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
     fireCost: 62.5
   - type: Battery
     maxCharge: 500
@@ -229,6 +287,10 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,7,1
 
 - type: entity
   name: laser rifle
@@ -252,9 +314,13 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
     fireCost: 62.5
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,7,1
 
 - type: entity
   name: practice laser rifle
@@ -262,11 +328,15 @@
   id: WeaponLaserCarbinePractice
   description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
   components:
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaserPractice
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaserPractice # WWDP
     fireCost: 62.5
   - type: StaticPrice
     price: 300
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 4
 
 - type: entity
   name: pulse pistol
@@ -290,8 +360,8 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: Pulse
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletPulse # WWDP
     fireCost: 200
   - type: Battery
     maxCharge: 2000
@@ -339,12 +409,16 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: Pulse
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletPulse # WWDP
     fireCost: 200
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: pulse rifle
@@ -366,12 +440,16 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: Pulse
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletPulse # WWDP
     fireCost: 100
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: laser cannon
@@ -379,6 +457,9 @@
   id: WeaponLaserCannon
   description: A heavy duty, high powered laser weapon.
   components:
+  - type: Tag
+    tags:
+    - TurretCompatibleWeapon
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
     layers:
@@ -393,9 +474,22 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedHeavyLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaserHeavy # WWDP
     fireCost: 100
+  - type: MeleeWeapon
+    attackRate: 1.4
+    damage:
+      types:
+        Blunt: 10
+    bluntStaminaDamageFactor: 1.3333
+  - type: DamageOtherOnHit
+    staminaCost: 9.5
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,7,1
+
 
 - type: entity
   name: portable particle decelerator
@@ -427,6 +521,22 @@
     - type: Battery
       maxCharge: 10000
       startingCharge: 10000
+    - type: MeleeWeapon
+      attackRate: 1.6
+      damage: # This is super expensive, low attack rate, slows down the user and high stam cost so it can be high
+        types:
+          Blunt: 34
+          Structural: 10
+      swapKeys: false
+      disableHeavy: false
+      disableClick: true
+      bluntStaminaDamageFactor: 1.5
+      heavyRateModifier: 1.0
+      heavyDamageBaseModifier: 1.0
+      heavyStaminaCost: 21
+      wideAnimationRotation: 270
+    - type: DamageOtherOnHit
+      staminaCost: 48
 
 - type: entity
   name: x-ray cannon
@@ -447,14 +557,75 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: XrayLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletXRay # WWDP
     fireCost: 100
   - type: MagazineVisuals
     magState: mag
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Item # WWDP guns resize
+    size: Huge
+    shape:
+    - 0,0,7,1
+
+- type: entity
+  name: civilian disabler
+  parent: BaseWeaponBatterySmall
+  id: WeaponCivilianDisabler
+  description: The original prototype disablers refitted for civilian self defence use and put in a shiny new shell. It has a much lower power output than the modern disabler in use by Security, and as such requires no license to carry.
+  components:
+    - type: Tag
+      tags:
+        - Taser
+        - Sidearm
+    - type: Item
+      size: Small
+      shape:
+      - 0,0,1,1
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Battery/civilian-disabler.rsi
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-unshaded-0
+          map: ["enum.GunVisualLayers.MagUnshaded"]
+          shader: unshaded
+    - type: Clothing
+      sprite: Objects/Weapons/Guns/Battery/civilian-disabler.rsi
+      quickEquip: false
+      slots:
+        - suitStorage
+        - Belt
+    - type: Gun
+      fireRate: 2
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+    - type: ProjectileBatteryAmmoProvider
+      proto: BulletCivilianDisabler
+      fireCost: 100
+    - type: MagazineVisuals
+      magState: mag
+      steps: 5
+      zeroVisible: true
+    - type: Appearance
+    - type: ExtendDescription
+      descriptionList:
+      - description: "civiliandisabler-extenddescription-security"
+        fontSize: 12
+        color: "#ff0000"
+        requireDetailRange: true
+        requirements:
+        - !type:CharacterDepartmentRequirement
+          departments:
+            - Security
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 3.0
+      bluntStaminaDamageFactor: 2
+      wideAnimationRotation: 90
 
 - type: entity
   name: disabler
@@ -466,6 +637,7 @@
       tags:
         - Taser
         - Sidearm
+        - WeaponDisabler
     - type: Sprite
       sprite: Objects/Weapons/Guns/Battery/disabler.rsi
       layers:
@@ -495,6 +667,41 @@
     - type: GuideHelp
       guides:
       - Security
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 5.0
+      bluntStaminaDamageFactor: 2.5
+      wideAnimationRotation: 135
+
+- type: entity
+  name: CentCom disabler
+  parent: WeaponDisabler
+  id: WeaponCCDisabler
+  description: An improved self-defense weapon that exhausts organic targets, weakening them until they collapse. Only for the finest officers that we don't trust with lethals.
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20
+  - type: StealTarget
+    stealGroup: NTRepWeapon
+  - type: Gun
+    fireRate: 3
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/ccdisabler.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Taser
+    - Sidearm
 
 - type: entity
   name: disabler SMG
@@ -502,8 +709,10 @@
   id: WeaponDisablerSMG
   description: Advanced weapon that exhausts organic targets, weakening them until they collapse.
   components:
-  - type: Item
+  - type: Item # WWDP guns resize
     size: Large
+    shape:
+    - 0,0,5,1
   - type: Tag
     tags:
       - Taser
@@ -517,6 +726,10 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Gun
+    bonusAngleIncreaseMove: 20    # wwdp
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 50           # wwdp
+    maxBonusAngle: 10             # wwdp
     selectedMode: FullAuto
     fireRate: 4
     availableModes:
@@ -533,6 +746,12 @@
     zeroVisible: true
   - type: StaticPrice
     price: 260
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6.5
+    bluntStaminaDamageFactor: 2.5
+    wideAnimationRotation: 180
 
 - type: entity
   name: practice disabler
@@ -558,6 +777,11 @@
     - type: ProjectileBatteryAmmoProvider
       proto: BulletDisablerPractice
       fireCost: 100
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 3
+      bluntStaminaDamageFactor: 1.0
 
 - type: entity
   name: taser
@@ -614,8 +838,8 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
     fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -633,7 +857,20 @@
   - type: StaticPrice
     price: 750
   - type: StealTarget
-    stealGroup: WeaponCaptain
+    stealGroup: WeaponAntiqueLaser
+  - type: MeleeWeapon
+    attackRate: 1.3333
+    damage:
+      types:
+        Blunt: 9
+    bluntStaminaDamageFactor: 1.25
+    wideAnimationRotation: 135
+  - type: DamageOtherOnHit
+    staminaCost: 5
+  - type: SentienceTarget # I hope this is only the captain's gun
+    flavorKind: station-event-random-sentience-flavor-inanimate
+    weight: 0.0002 # 5,000 times less likely than 1 regular animal
+    # not putting a BlockMovement component here cause that's funny.
 
 - type: entity
   name: advanced laser pistol
@@ -656,9 +893,8 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
-    fireCost: 100
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 30
@@ -669,6 +905,12 @@
   - type: Appearance
   - type: StaticPrice
     price: 63
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+  - type: DamageOtherOnHit
+    staminaCost: 6
 
 - type: entity
   name: C.H.I.M.P. handcannon
@@ -750,8 +992,8 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_clown.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
     fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -763,3 +1005,54 @@
   - type: Appearance
   - type: StaticPrice
     price: 750
+
+- type: entity
+  name: energy shotgun
+  parent: [BaseWeaponBattery, BaseGunWieldable]
+  id: WeaponEnergyShotgun
+  description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    uniformSpread: true
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserSpread
+    fireCost: 150
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletLaserSpread
+      fireCost: 150
+    - proto: BulletLaserSpreadSlug
+      fireCost: 300
+    - proto: BulletDisablerSmgSpread
+      fireCost: 120
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,7,1
+    sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
+    heldPrefix: energy
+  - type: Tag
+    tags:
+    - HighRiskItem
+  # - type: GunRequiresWield #remove when inaccuracy on spreads is fixed # WWDP disabled
+  - type: Battery
+    maxCharge: 1210
+    startingCharge: 1210
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 48
+    autoRechargePause: true
+    autoRechargePauseTime: 5

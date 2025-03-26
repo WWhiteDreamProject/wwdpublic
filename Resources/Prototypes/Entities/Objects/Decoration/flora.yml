@@ -52,7 +52,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.35,-0.4,0.35,0.4"
+          bounds: "-0.15,-0.2,0.15,0.2" # DeltaV: make it smaller
         density: 1000
         layer:
         - WallLayer
@@ -104,7 +104,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.1,-0.3,0.1,0.3"
+          bounds: "-0.1,-0.2,0.1,0.2" # DeltaV: make it smaller
         density: 4000
         layer:
         - WallLayer
@@ -122,7 +122,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.18,-0.35,0.18,0.35"
+          bounds: "-0.18,-0.2,0.18,0.2" # DeltaV: make it smaller
         density: 2000
         layer:
         - WallLayer
@@ -140,7 +140,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.1,-0.35,0.1,0.35"
+          bounds: "-0.1,-0.2,0.1,0.2" # DeltaV: make it smaller
         density: 3500
         layer:
         - WallLayer
@@ -165,6 +165,21 @@
   components:
   - type: Sprite
     state: rocksolid03
+
+- type: entity
+  parent: BaseRock
+  id: FloraRockSolid
+  components:
+  - type: Sprite
+    layers:
+    - state: rocksolid01
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        rocksolid01: ""
+        rocksolid02: ""
+        rocksolid03: ""
 
 - type: entity
   name: stalagmite
@@ -458,16 +473,29 @@
   name: christmas tree
   components:
   - type: Sprite
-    state: treechristmas01
+    # WD EDIT START
+    noRot: true
+    sprite: _White/Objects/Decoration/Flora/christmastree.rsi
+    layers:
+    - state: christmastree
+    - state: glow
+      shader: unshaded
+    # WD EDIT END
 
 - type: entity
-  parent: BaseTreeConifer
+  parent: FloraTreeChristmas01 # WD EDIT
   id: FloraTreeChristmas02
   suffix: PresentsGiver
   name: christmas tree
   components:
   - type: Sprite
-    state: treechristmas02
+    # WD EDIT START
+    layers:
+    - state: christmastree
+    - state: glow
+      shader: unshaded
+    - state: presents
+    # WD EDIT END
   - type: Fixtures
     fixtures:
       fix1:
@@ -490,6 +518,32 @@
     receivedPopup: christmas-tree-got-gift
     deniedPopup: christmas-tree-no-gift
     requiredHoliday: FestiveSeason
+  - type: Destructible # WWDP
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/tree_fell.ogg
+          params:
+            volume: 5
+            variation: 0.05
+      # - !type:KillSignCauseBehavior # Very funny, ho-ho-ho! # WWDP not that funny tbh
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Log:
+            min: 2
+            max: 8
 
 - type: entity
   parent: BaseTreeConifer
@@ -627,113 +681,3 @@
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treeslight.rsi
     state: tree06
-
-#Autumn large tree
-- type: entity
-  parent: BaseTreeLarge
-  id: FloraTreeAutumnOrangeLarge01
-  name: large tree
-  components:
-  - type: Sprite
-    sprite: _White/Objects/Decoration/Flora/autumn_treeslarge.rsi
-    state: orangelarge01
-
-- type: entity
-  parent: BaseTreeLarge
-  id: FloraTreeAutumnOrangeLarge02
-  name: large tree
-  components:
-  - type: Sprite
-    sprite: _White/Objects/Decoration/Flora/autumn_treeslarge.rsi
-    state: orangelarge02
-
-- type: entity
-  parent: BaseTreeLarge
-  id: FloraTreeAutumnOrangeLarge03
-  name: large tree
-  components:
-  - type: Sprite
-    sprite: _White/Objects/Decoration/Flora/autumn_treeslarge.rsi
-    state: orangelarge03
-
-- type: entity
-  parent: BaseTreeLarge
-  id: FloraTreeAutumnOrangeLarge04
-  name: large tree
-  components:
-  - type: Sprite
-    sprite: _White/Objects/Decoration/Flora/autumn_treeslarge.rsi
-    state: orangelarge04
-
-- type: entity
-  parent: BaseTreeLarge
-  id: FloraTreeAutumnOrangeLarge05
-  name: large tree
-  components:
-  - type: Sprite
-    sprite: _White/Objects/Decoration/Flora/autumn_treeslarge.rsi
-    state: orangelarge05
-
-- type: entity
-  parent: BaseTreeLarge
-  id: FloraTreeAutumnOrangeLarge06
-  name: large tree
-  components:
-  - type: Sprite
-    sprite: _White/Objects/Decoration/Flora/autumn_treeslarge.rsi
-    state: orangelarge06
-
-#Autumn tree
-- type: entity
-  parent: BaseTree
-  id: FloraTreeAutumnOrange01
-  name: tree
-  components:
-  - type: Sprite
-    sprite: _White/Objects/Decoration/Flora/autumn_trees.rsi
-    state: orange01
-
-- type: entity
-  parent: BaseTree
-  id: FloraTreeAutumnOrange02
-  name: tree
-  components:
-  - type: Sprite
-    sprite: _White/Objects/Decoration/Flora/autumn_trees.rsi
-    state: orange02
-
-- type: entity
-  parent: BaseTree
-  id: FloraTreeAutumnOrange03
-  name: tree
-  components:
-  - type: Sprite
-    sprite: _White/Objects/Decoration/Flora/autumn_trees.rsi
-    state: orange03
-
-- type: entity
-  parent: BaseTree
-  id: FloraTreeAutumnOrange04
-  name: tree
-  components:
-  - type: Sprite
-    sprite: _White/Objects/Decoration/Flora/autumn_trees.rsi
-    state: orange04
-
-- type: entity
-  parent: BaseTree
-  id: FloraTreeAutumnOrange05
-  name: tree
-  components:
-  - type: Sprite
-    sprite: _White/Objects/Decoration/Flora/autumn_trees.rsi
-    state: orange05
-
-- type: entity
-  parent: BaseTree
-  id: FloraTreeAutumnOrange06
-  name: tree
-  components:
-  - type: Sprite
-    sprite: _White/Objects/Decoration/Flora/autumn_trees.rsi
-    state: orange06

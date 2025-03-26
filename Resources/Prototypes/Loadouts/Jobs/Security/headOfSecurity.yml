@@ -9,19 +9,22 @@
 # Head of Security Weapon Selection
 # Most of these mirror the unique weapons that were previously map-specific items placed in the HoS Office.
 # Or are weapons that fit a similar theme of "Rare weapons not normally seen by Security"
-- type: loadout
-  id: LoadoutCommandHoSPulsePistol
-  category: JobsSecurityHeadOfSecurity
-  cost: 0
-  canBeHeirloom: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutHeadOfSecurityWeapon
-    - !type:CharacterJobRequirement
-      jobs:
-        - HeadOfSecurity
-  items:
-    - WeaponPulsePistolHoS
+
+# - type: loadout # WWDP disabled
+#   id: LoadoutCommandHoSPulsePistol
+#   category: JobsSecurityHeadOfSecurity
+#   cost: 0
+#   canBeHeirloom: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutHeadOfSecurityWeapon
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - HeadOfSecurity
+#     - !type:CharacterAgeRequirement
+#       min: 21
+#   items:
+#     - WeaponPulsePistolHoS
 
 - type: loadout
   id: LoadoutCommandHoSWt550
@@ -34,6 +37,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - HeadOfSecurity
+    - !type:CharacterAgeRequirement
+      min: 21
   items:
     - WeaponSubMachineGunWt550HoS
 
@@ -51,47 +56,52 @@
   items:
     - ClothingBeltKatanaSheathFilledHoS
 
-- type: loadout
-  id: LoadoutCommandHoSC20r
-  category: JobsSecurityHeadOfSecurity
-  cost: 0
-  canBeHeirloom: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutHeadOfSecurityWeapon
-    - !type:CharacterJobRequirement
-      jobs:
-        - HeadOfSecurity
-  items:
-    - WeaponSubMachineGunC20rHoS
-
-- type: loadout
-  id: LoadoutCommandHoSBulldog
-  category: JobsSecurityHeadOfSecurity
-  cost: 0
-  canBeHeirloom: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutHeadOfSecurityWeapon
-    - !type:CharacterJobRequirement
-      jobs:
-        - HeadOfSecurity
-  items:
-    - WeaponShotgunBulldogHoS
-
-- type: loadout
-  id: LoadoutCommandHoSEnergySword
-  category: JobsSecurityHeadOfSecurity
-  cost: 0
-  canBeHeirloom: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutHeadOfSecurityWeapon
-    - !type:CharacterJobRequirement
-      jobs:
-        - HeadOfSecurity
-  items:
-    - EnergySwordHoS
+# WWDP no extra SEC guns
+# - type: loadout
+#   id: LoadoutCommandHoSC20r
+#   category: JobsSecurityHeadOfSecurity
+#   cost: 0
+#   canBeHeirloom: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutHeadOfSecurityWeapon
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - HeadOfSecurity
+#     - !type:CharacterAgeRequirement
+#       min: 21
+#   items:
+#     - WeaponSubMachineGunC20rHoS
+#
+# - type: loadout
+#   id: LoadoutCommandHoSBulldog
+#   category: JobsSecurityHeadOfSecurity
+#   cost: 0
+#   canBeHeirloom: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutHeadOfSecurityWeapon
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - HeadOfSecurity
+#     - !type:CharacterAgeRequirement
+#       min: 21
+#   items:
+#     - WeaponShotgunBulldogHoS
+#
+# - type: loadout
+#   id: LoadoutCommandHoSEnergySword
+#   category: JobsSecurityHeadOfSecurity
+#   cost: 0
+#   canBeHeirloom: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutHeadOfSecurityWeapon
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - HeadOfSecurity
+#   items:
+#     - EnergySwordHoS
 
 - type: loadout
   id: LoadoutCommandHoSEnergyGun
@@ -104,8 +114,27 @@
     - !type:CharacterJobRequirement
       jobs:
         - HeadOfSecurity
+    - !type:CharacterAgeRequirement
+      min: 21
   items:
     - WeaponEnergyGunMultiphase
+
+# WWDP no extra SEC guns
+# - type: loadout
+#   id: LoadoutCommandHoSBRDIR25
+#   category: JobsSecurityHeadOfSecurity
+#   cost: 0
+#   canBeHeirloom: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutHeadOfSecurityWeapon
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - HeadOfSecurity
+#     - !type:CharacterAgeRequirement
+#       min: 21
+#   items:
+#     - WeaponSubMachineGunBRDIR25HoS
 
 # Eyes
 
@@ -188,6 +217,19 @@
 # Mask
 
 # Outer
+- type: loadout
+  id: LoadoutCommandHOSOuterWinterUnarmored
+  category: JobsSecurityHeadOfSecurity
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutHeadOfSecurityOuter
+  - !type:CharacterJobRequirement
+    jobs:
+    - HeadOfSecurity
+  items:
+  - ClothingOuterWinterHoSUnarmored
+
 - type: loadout
   id: LoadoutCommandHOSOuterWinter
   category: JobsSecurityHeadOfSecurity
@@ -369,3 +411,17 @@
         - HeadOfSecurity
   items:
     - ClothingUniformJumpskirtHosFormal
+
+# Trinkets
+- type: loadout
+  id: LoadoutHoSCigarCase
+  category: JobsSecurityHeadOfSecurity
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutHeadOfSecurityTrinkets
+    - !type:CharacterJobRequirement
+      jobs:
+        - HeadOfSecurity
+  items:
+    - CigarRobustCase

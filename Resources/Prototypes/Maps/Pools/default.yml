@@ -1,22 +1,10 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
-  # - Arena
-  - Asterisk
-  # - Core
-  # - Edge
-  # - Glacier
-  # - Hammurabi
-  # - Lighthouse
-  - Pebble
-  # - Saltern
-  - Shoukou
-  # - Submarine
-  # - Tortuga
-  # - TheHive
-  # - Gax
-  # - Rad
-  - Europa
+  - Meta # Maintained by Estacao Pirata
+  # WD EDIT START - white dream maps
   - DryDock
   - Moose
   - WhiteBox
+  - Molecule
+  # WD EDIT END

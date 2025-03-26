@@ -199,6 +199,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.ActivateItemInWorld);
             AddButton(ContentKeyFunctions.AltActivateItemInWorld);
             AddButton(ContentKeyFunctions.Drop);
+            AddButton(ContentKeyFunctions.PreciseDrop); // WWDP
             AddButton(ContentKeyFunctions.ExamineEntity);
             AddButton(ContentKeyFunctions.SwapHands);
             AddButton(ContentKeyFunctions.MoveStoredItem);
@@ -254,6 +255,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.EscapeMenu);
             AddButton(ContentKeyFunctions.EscapeContext);
 
+            // Shitmed Change Start - TODO: Add groin targeting.
             AddHeader("ui-options-header-targeting");
             AddButton(ContentKeyFunctions.TargetHead);
             AddButton(ContentKeyFunctions.TargetTorso);
@@ -265,6 +267,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.TargetLeftFoot);
             AddButton(ContentKeyFunctions.TargetRightLeg);
             AddButton(ContentKeyFunctions.TargetRightFoot);
+            // Shitmed Change End
 
             AddHeader("ui-options-header-misc");
             AddButton(ContentKeyFunctions.TakeScreenshot);
@@ -273,9 +276,9 @@ namespace Content.Client.Options.UI.Tabs
 
             AddHeader("ui-options-header-hotbar");
             foreach (var boundKey in ContentKeyFunctions.GetHotbarBoundKeys())
-            {
                 AddButton(boundKey);
-            }
+            foreach (var boundKey in ContentKeyFunctions.GetLoadoutBoundKeys())
+                AddButton(boundKey);
 
             AddHeader("ui-options-header-shuttle");
             AddButton(ContentKeyFunctions.ShuttleStrafeUp);
@@ -294,6 +297,9 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.EditorRotateObject);
             AddButton(ContentKeyFunctions.EditorFlipObject);
             AddButton(ContentKeyFunctions.EditorCopyObject);
+            AddButton(ContentKeyFunctions.MappingEnablePick);
+            AddButton(ContentKeyFunctions.MappingEnableDecalPick);
+            AddButton(ContentKeyFunctions.MappingEnableDelete);
 
             AddHeader("ui-options-header-dev");
             AddButton(EngineKeyFunctions.ShowDebugConsole);

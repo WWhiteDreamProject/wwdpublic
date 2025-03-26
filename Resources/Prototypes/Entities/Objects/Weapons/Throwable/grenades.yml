@@ -35,6 +35,13 @@
         enum.ConstructionVisuals.Layer:
           Primed: { state: primed }
           Unprimed: { state: icon }
+  # WWDP edit below
+  - type: Tag
+    tags:
+    - RiotGrenade
+  - type: Ammo
+  - type: OnShotTimerTrigger
+    delayReduction: 2
 
 - type: entity
   name: explosive grenade
@@ -56,6 +63,11 @@
         volume: 5
     initialBeepDelay: 0
     beepInterval: 2 # 2 beeps total (at 0 and 2)
+  # WWDP edit below
+  - type: Tag
+    tags:
+    - RiotGrenade
+    - GrenadeTrapPart
 
 - type: entity
   name: flashbang
@@ -82,6 +94,8 @@
   - type: GuideHelp
     guides:
     - Security
+    - Antagonists
+  - type: Flashbang # Goobstation
 
 - type: entity
   id: GrenadeFlashEffect
@@ -416,6 +430,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Grenades/tear_gas.rsi
   - type: SmokeOnTrigger
+    smokePrototype: SmokeRed # WWDP
     duration: 10
     spreadAmount: 30
     solution:

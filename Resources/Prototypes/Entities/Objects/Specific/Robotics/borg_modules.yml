@@ -300,6 +300,19 @@
     items:
     - RCDRecharging
 
+- type: entity
+  id: BorgModuleRPD
+  parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
+  name: RPD cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: engineering
+    - state: icon-rpd
+  - type: ItemBorgModule
+    items:
+    - RPDRecharging
+
 # janitorial modules (this gets its own unique things because janis are epic)
 - type: entity
   id: BorgModuleLightReplacer
@@ -330,6 +343,7 @@
     - MopItem
     - Bucket
     - TrashBag
+    - Plunger
 
 - type: entity
   id: BorgModuleAdvancedCleaning
@@ -380,41 +394,6 @@
     - Bloodpack10Lingering
     - Syringe
     - Dropper
-
-- type: entity
-  id: BorgModuleSurgery
-  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: surgery cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: medical
-    - state: icon-surgery
-  - type: ItemBorgModule
-    items:
-    - Scalpel
-    - Drill
-    - Hemostat
-    - Retractor
-    - Cautery
-    - SawElectric
-    - BoneGel
-
-- type: entity
-  id: BorgModuleAdvancedSurgery
-  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: advanced surgery cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: medical
-    - state: icon-advanced-surgery
-  - type: ItemBorgModule
-    items:
-    - EnergyScalpel
-    - EnergyCautery
-    - AdvancedRetractor
-    - BoneGel
 
 - type: entity
   id: BorgModuleDefibrillator

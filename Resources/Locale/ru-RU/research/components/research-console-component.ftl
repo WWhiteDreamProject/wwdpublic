@@ -3,6 +3,7 @@
 research-console-menu-title = Консоль R&D
 research-console-menu-unlocked-technologies-label = Изученные технологии
 research-console-menu-main-discipline = Основная дисциплина: [color={ $color }]{ $name }[/color]
+research-console-menu-softcap-amount-text = Текущий множитель стоимости: [color=#ff8c00]{ $softcap }[/color]
 research-console-menu-unlockable-technologies-label = Доступные технологии
 research-console-menu-future-technologies-label = Будущие технологии
 research-console-menu-server-research-button = Исследовать

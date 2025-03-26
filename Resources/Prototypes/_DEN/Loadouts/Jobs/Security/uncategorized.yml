@@ -1,0 +1,35 @@
+- type: loadout
+  id: LoadoutSecurityHeadHatSeniorTrooper
+  category: JobsSecurityAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutSecurityHead
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
+  items:
+    - ClothingHeadHatSeniorTrooper
+
+- type: loadout
+  id: LoadoutSecurityUniformJumpsuitSeniorTrooper
+  category: JobsSecurityAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutSecurityUniforms
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Security
+    - !type:CharacterJobRequirement # WWDP
+      inverted: true
+      jobs:
+      - Prisoner
+  items:
+    - ClothingUniformJumpsuitSeniorTrooper

@@ -16,6 +16,12 @@
     damage: 55
   - type: TimedDespawn
     lifetime: 0.25
+  - type: KnockdownOnCollide # WD EDIT
+    jitterTime: 2
+    stutterTime: 2
+    delay: 0.5
+    knockdownTime: 2
+    dropHeldItemsBehavior: NoDrop
 
 - type: entity
   id: PelletClusterLethal

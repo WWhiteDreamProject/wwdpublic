@@ -23,20 +23,22 @@
   maxItems: 1
   id: LoadoutHeadOfSecurityWeapon
   items:
-    - type: loadout
-      id: LoadoutCommandHoSPulsePistol
+    #- type: loadout # WWDP disabled
+    #  id: LoadoutCommandHoSPulsePistol
     - type: loadout
       id: LoadoutCommandHoSWt550
     - type: loadout
       id: LoadoutCommandHoSKatanaSheath
-    - type: loadout
-      id: LoadoutCommandHoSC20r
-    - type: loadout
-      id: LoadoutCommandHoSBulldog
-    - type: loadout
-      id: LoadoutCommandHoSEnergySword
+    # - type: loadout # WWDP disabled
+    #   id: LoadoutCommandHoSC20r
+    # - type: loadout # WWDP disabled
+    #   id: LoadoutCommandHoSBulldog
+    # - type: loadout # WWDP disabled
+    #   id: LoadoutCommandHoSEnergySword
     - type: loadout
       id: LoadoutCommandHoSEnergyGun
+    # - type: loadout # WWDP disabled
+    #   id: LoadoutCommandHoSBRDIR25
 
 #- type: characterItemGroup
 #  id: LoadoutHeadOfSecurityEyes
@@ -86,6 +88,8 @@
       id: LoadoutCommandHOSOuterWinter
     - type: loadout
       id: LoadoutCommandHOSOuterTrench
+    - type: loadout
+      id: LoadoutCommandHOSOuterWinterUnarmored
 
 - type: characterItemGroup
   id: LoadoutHeadOfSecurityShoes
@@ -118,3 +122,11 @@
       id: LoadoutCommandHOSJumpskirtParade
     - type: loadout
       id: LoadoutCommandHOSJumpskirtFormal
+
+- type: characterItemGroup
+  id: LoadoutHeadOfSecurityTrinkets
+  maxItems: 2
+  items:
+    - type: loadout
+      id: LoadoutHoSCigarCase
+    # TBD

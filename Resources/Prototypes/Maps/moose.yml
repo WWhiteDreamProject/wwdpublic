@@ -1,7 +1,7 @@
 - type: gameMap
   id: Moose
   mapName: 'Moose Station'
-  mapPath: /Maps/Moose.yml
+  mapPath: /Maps/_White/Moose.yml
   minPlayers: 10
   maxPlayers: 50
   stations:
@@ -19,6 +19,10 @@
         overflowJobs:
         - Passenger
         availableJobs:
+          #Silicons
+          Borg: [ 2, 2 ]
+          MedicalBorg: [ 2, 2 ]
+          StationAi: [ 1, 1 ]
           #Heads
           Captain: [ 1, 1 ]
           Maid: [ 1, 1 ]
@@ -35,6 +39,7 @@
           Detective: [ 1, 1 ]
           Lawyer: [ 1, 1 ]
           Prisoner: [ 1, 2 ]
+          PrisonGuard: [ 1, 1 ]
           #Medical
           Chemist: [ 2, 2 ]
           Paramedic: [ 1, 1 ]
@@ -65,7 +70,6 @@
           Musician: [ 1, 1 ]
           Reporter: [ 1, 1 ]
           Boxer: [ 1, 1 ]
-          Borg: [ 1, 1 ]
           Passenger: [ -1, -1 ]
           Hobo: [ 1, 1 ]
 

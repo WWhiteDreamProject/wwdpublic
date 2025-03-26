@@ -34,6 +34,11 @@ public sealed partial class TraitPrototype : IPrototype
 
     [DataField(serverOnly: true)]
     public TraitFunction[] Functions { get; private set; } = Array.Empty<TraitFunction>();
+
+    // WD EDIT START
+    [DataField]
+    public bool Enable = true;
+    // WD EDIT END
 }
 
 /// This serves as a hook for trait functions to modify a player character upon spawning in.

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-4.0",
-  "copyright": "Made by WWDP Team, equipped-OUTERCLOTHING-resomi made by Pofitlo",
+  "copyright": "Made by WWDP Team, equipped-OUTERCLOTHING-resomi made by Pofitlo, reptilian made by kuro(388673708753027083)",
   "size": {
     "x": 32,
     "y": 32
@@ -22,6 +22,10 @@
       "directions": 4
     },
     {
+      "name": "equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
+    {
       "name": "equipped-OUTERCLOTHING-resomi",
       "directions": 4
     },
@@ -31,6 +35,10 @@
     },
     {
       "name": "open-equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+    {
+      "name": "open-equipped-OUTERCLOTHING-reptilian",
       "directions": 4
     },
     {

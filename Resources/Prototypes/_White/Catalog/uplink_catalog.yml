@@ -3,42 +3,49 @@
   name: uplink-experimental-syndicate-teleporter-name
   description: uplink-experimental-syndicate-teleporter-desc
   productEntity: ExperimentalSyndicateTeleporter
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
   cost:
     Telecrystal: 10
   categories:
-  - UplinkUtility
+  - UplinkDisruption
 
 - type: listing
   id: UplinkBetrayalDagger
   name: uplink-betrayal-dagger-name
   description: uplink-betrayal-dagger-desc
   productEntity: BetrayalDagger
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 2
   cost:
     Telecrystal: 10
   categories:
-  - UplinkWeapons
+  - UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1
 
 - type: listing
   id: UplinkMiniEbow
   name: uplink-ebow-name
   description: uplink-ebow-desc
   productEntity: EnergyCrossbowMini
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 3
   cost:
-    Telecrystal: 10
+    Telecrystal: 12
   categories:
-  - UplinkWeapons
+  - UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1
 
 - type: listing
   id: UplinkHardlightSpearImplanter
@@ -46,6 +53,9 @@
   description: uplink-hardlight-spear-implant-desc
   icon: { sprite: /Textures/_White/Objects/Weapons/Melee/Spear/hardlight_spear.rsi, state: spear }
   productEntity: HardlightSpearImplanter
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 3
   cost:
     Telecrystal: 12
   categories:
@@ -55,14 +65,16 @@
     blacklist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1
 
 - type: listing
   id: NeuroControlImplanter
-  name: uplink-neuro-control-name
+  name: uplink-neuro-control
   description: uplink-neuro-control-desc
   icon: { sprite: /Textures/Interface/Alerts/stamina.rsi, state: stamina5 }
   productEntity: NeuroStabilizationImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
     Telecrystal: 2
   categories:
@@ -84,69 +96,13 @@
   description: uplink-smoke-implant-desc
   icon: { sprite: /Textures/Objects/Weapons/Grenades/smoke.rsi, state: icon }
   productEntity: SmokeImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
     Telecrystal: 2
   categories:
   - UplinkImplants
-
-# Night Vision
-
-- type: listing
-  id: UplinkNightGoggles
-  name: uplink-night-vision-name
-  description: uplink-night-vision-desc
-  productEntity: ClothingEyesNightVisionGogglesSyndie
-  cost:
-    Telecrystal: 3
-  categories:
-  - UplinkArmor
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-
-- type: listing
-  id: UplinkNightGogglesNukie
-  name: uplink-night-vision-name
-  description: uplink-night-vision-desc
-  productEntity: ClothingEyesNightVisionGogglesNukie
-  cost:
-    Telecrystal: 3
-  categories:
-  - UplinkArmor
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-
-# Thermal Vision
-
-- type: listing
-  id: UplinkThermalGoggles
-  name: uplink-thermal-vision-name
-  description: uplink-thermal-vision-desc
-  productEntity: ClothingEyesThermalVisionGogglesSyndie
-  cost:
-    Telecrystal: 3
-  categories:
-  - UplinkArmor
-
-- type: listing
-  id: UplinkThermalGogglesNukie
-  name: uplink-thermal-vision-name
-  description: uplink-thermal-vision-desc
-  productEntity: ClothingEyesThermalVisionGogglesNukie
-  cost:
-    Telecrystal: 3
-  categories:
-  - UplinkArmor
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkMindSlaveImplanter
@@ -154,6 +110,9 @@
   description: uplink-mind-slave-desc
   icon: { sprite: /Textures/_White/Overlays/mindslave.rsi, state: master }
   productEntity: MindSlaveImplanter
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
   cost:
     Telecrystal: 6
   categories:
@@ -164,16 +123,18 @@
   name: uplink-blood-dagger-name
   description: uplink-blood-dagger-desc
   productEntity: BloodDagger
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
   cost:
-    Telecrystal: 8
+    Telecrystal: 6
   categories:
-  - UplinkWeapons
+  - UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1
 
 - type: listing
   id: UplinkCrateNPCGondola
@@ -181,7 +142,10 @@
   description: uplink-gondola-desc
   icon: { sprite: /Textures/_White/Mobs/Animals/gondola.rsi, state: icon }
   productEntity: CrateNPCGondola
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
     Telecrystal: 2
   categories:
-  - UplinkUtility
+  - UplinkAllies

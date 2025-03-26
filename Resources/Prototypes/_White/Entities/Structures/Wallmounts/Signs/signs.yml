@@ -50,16 +50,6 @@
 
 - type: entity
   parent: BaseSign
-  id: SignCryo
-  name: cryogenics sign
-  description: A sign indicating the cryogenics.
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
-    state: cryo
-
-- type: entity
-  parent: BaseSign
   id: SignDorms
   name: dorms sign
   description: A sign indicating the dorms.
@@ -130,16 +120,6 @@
 
 - type: entity
   parent: BaseSign
-  id: SignKitchen
-  name: kitchen sign
-  description: A sign indicating the kitchen.
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
-    state: kitchen
-
-- type: entity
-  parent: BaseSign
   id: SignCheckpoint
   name: checkpoint sign
   description: A sign indicating the checkpoint.
@@ -147,6 +127,16 @@
   - type: Sprite
     sprite: _White/Structures/Wallmounts/signs.rsi
     state: check
+
+- type: entity
+  parent: BaseSign
+  id: SignCourt
+  name: court sign
+  description: A sign indicating the court.
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/signs.rsi
+    state: court
 
 - type: entity
   parent: BaseSign

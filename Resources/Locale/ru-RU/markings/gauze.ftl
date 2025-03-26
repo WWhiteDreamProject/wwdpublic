@@ -46,6 +46,9 @@ marking-GauzeUpperLegRight = Бинт, Перевязь бедра (Правый
 marking-GauzeBlindfold-gauze_blindfold = Бинт, Повязка на оба глаза
 marking-GauzeBlindfold = Бинт, Повязка на глаза
 
+marking-GauzeHead-gauze_head = Повязка на голову из марли
+marking-GauzeHead = Повязка на голову из марли
+
 marking-GauzeLizardBlindfold-gauze_lizardblindfold = Бинт, Повязка на оба глаза
 marking-GauzeLizardBlindfold = Бинт, Повязка на глаза
 

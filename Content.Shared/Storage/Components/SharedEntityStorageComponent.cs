@@ -22,7 +22,9 @@ public abstract partial class SharedEntityStorageComponent : Component
     public readonly int MasksToRemove = (int) (
         CollisionGroup.MidImpassable |
         CollisionGroup.HighImpassable |
-        CollisionGroup.LowImpassable);
+        CollisionGroup.LowImpassable |
+        CollisionGroup.BulletImpassable | // WWDP let bullets through if open
+        CollisionGroup.Opaque); // WWDP let lasers through
 
     /// <summary>
     ///     Collision masks that were removed from ANY layer when the storage was opened;
@@ -92,7 +94,7 @@ public abstract partial class SharedEntityStorageComponent : Component
     /// Whether or not the container is sealed and traps air inside of it
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public bool Airtight = true;
+    public bool Airtight;
 
     /// <summary>
     /// Whether or not the entitystorage is open or closed

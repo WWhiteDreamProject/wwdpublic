@@ -3,7 +3,7 @@
   path: /Textures/Interface/Default/
   colors:
     whiteText: "#FFF5EE"
-    slotSelectedGold: "#e6b812"
+    slotSelectedGold: "#4C8281" # WWDP
     slotColor: "#0f1215"
     slotOutline: "#333850"
     slotText: "#333850"
@@ -19,7 +19,7 @@
   path: /Textures/Interface/Plasmafire/
   colors:
     whiteText: "#FFF5EE"
-    slotSelectedGold: "#FFF5EE"
+    slotSelectedGold: "#CE0000" # WWDP
     slotColor: "#FFF5EE"
     slotOutline: "#FFF5EE"
     slotText: "#FFF5EE"
@@ -35,7 +35,7 @@
   path: /Textures/Interface/Slimecore/
   colors:
     whiteText: "#FFF5EE"
-    slotSelectedGold: "#FFF5EE"
+    slotSelectedGold: "#518B38" # WWDP
     slotColor: "#FFF5EE"
     slotOutline: "#FFF5EE"
     slotText: "#FFF5EE"
@@ -51,7 +51,7 @@
   path: /Textures/Interface/Clockwork/
   colors:
     whiteText: "#FFF5EE"
-    slotSelectedGold: "#FFF5EE"
+    slotSelectedGold: "#CFBA47" # WWDP
     slotColor: "#FFF5EE"
     slotOutline: "#FFF5EE"
     slotText: "#FFF5EE"
@@ -67,7 +67,7 @@
   path: /Textures/Interface/Retro/
   colors:
     whiteText: "#FFF5EE"
-    slotSelectedGold: "#FFF5EE"
+    slotSelectedGold: "#FFDD6C" # WWDP
     slotColor: "#FFF5EE"
     slotOutline: "#FFF5EE"
     slotText: "#FFF5EE"
@@ -83,7 +83,7 @@
   path: /Textures/Interface/Minimalist/
   colors:
     whiteText: "#FFF5EE"
-    slotSelectedGold: "#e6b812"
+    slotSelectedGold: "#E6B812" # WWDP
     slotColor: "#0f1215"
     slotOutline: "#333850"
     slotText: "#333850"
@@ -99,7 +99,7 @@
   path: /Textures/Interface/Ashen/
   colors:
     whiteText: "#FFF5EE"
-    slotSelectedGold: "#FFF5EE"
+    slotSelectedGold: "#969696" # WWDP
     slotColor: "#FFF5EE"
     slotOutline: "#FFF5EE"
     slotText: "#FFF5EE"

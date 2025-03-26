@@ -8,6 +8,7 @@
     sprite: Objects/Weapons/Melee/baseball_bat.rsi
     state: icon
   - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     wideAnimationRotation: -135
     range: 1.6
     damage:
@@ -23,6 +24,9 @@
     soundHit:
       collection: MetalThud
   - type: Wieldable
+  - type: DisarmMalus # WWDP
+    malus: 0.3
+    wieldedBonus: 0.3
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -31,11 +35,14 @@
   - type: DamageOtherOnHit
     staminaCost: 10
   - type: Item
-    size: Normal
+    size: Huge # WWDP
+    storedRotation: 45 # WWDP
+    shape: # WWDP
+    - 0,0,7,0
   - type: Tool
     qualities:
     - Rolling
-    speed: 0.75 # a bit unwieldly but does the job
+    speedModifier: 0.75 # a bit unwieldly but does the job
   - type: Clothing
     quickEquip: false
     slots:

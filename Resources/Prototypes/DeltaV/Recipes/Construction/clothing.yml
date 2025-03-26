@@ -19,3 +19,14 @@
   description: Prescription sechud, merged glasses and sechud together by sheer luck and cables with glue.
   icon: { sprite: DeltaV/Clothing/Eyes/Hud/prescsechud.rsi, state: icon }
   objectType: Item
+
+- type: construction
+  name: medsec glasses # WWDP
+  id: ClothingEyesGlassesMedSec # WWDP
+  graph: GlassesMedSecHUD # WWDP
+  startNode: start
+  targetNode: glassesMedSec # WWDP
+  category: construction-category-clothing
+  description: A pair of sunglasses, modified to have a built-in security and medical HUD.
+  icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi, state: icon } # WWDP
+  objectType: Item

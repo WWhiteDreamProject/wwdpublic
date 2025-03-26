@@ -1,4 +1,3 @@
-marking-HumanHairAfricanPigtails = Pigtails (African)
 marking-HumanHairAfropuffdouble = Afro Puff, Double
 marking-HumanHairAfropuffleft = Afro Puff, Left
 marking-HumanHairAfropuffright = Afro Puff, Right
@@ -35,10 +34,9 @@ marking-HumanHairHalfshaveLong = Half-Shaved (Long)
 marking-HumanHairHalfshaveMessy = Half-Shaved (Messy)
 marking-HumanHairHalfshaveMessyLong = Half-Shaved (Long Messy)
 marking-HumanHairHalfshaveSnout = Half-Shaved 2 (Trimmed)
-marking-HumanHairHightight = High Tight
 marking-HumanHairHyenamane = Hyena Mane
 marking-HumanHairJessica = Jessica
-marking-HumanHairLong4 = Long 4
+marking-HumanHairLong5 = Long 5
 marking-HumanHairLongdtails = Long Tails
 marking-HumanHairLongerAlt = Long (Alt.)
 marking-HumanHairLongovereyeAlt = Long (Over Eye Alt.)

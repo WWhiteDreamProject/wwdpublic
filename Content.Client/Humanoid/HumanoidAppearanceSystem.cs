@@ -1,9 +1,11 @@
 using System.Numerics;
+using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Robust.Client.GameObjects;
+using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -52,9 +54,8 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         component.BaseLayers.Clear();
 
         // add default species layers
-        var speciesProto = _prototypeManager.Index(component.Species);
-        var baseSprites = _prototypeManager.Index<HumanoidSpeciesBaseSpritesPrototype>(speciesProto.SpriteSet);
-        foreach (var (key, id) in baseSprites.Sprites)
+        var bodyTypeProto = _prototypeManager.Index<BodyTypePrototype>(component.BodyType); // WD EDIT
+        foreach (var (key, id) in bodyTypeProto.Sprites) // WD EDIT
         {
             oldLayers.Remove(key);
             if (!component.CustomBaseLayers.ContainsKey(key))
@@ -65,7 +66,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         foreach (var (key, info) in component.CustomBaseLayers)
         {
             oldLayers.Remove(key);
-            // Shitmed modification: For whatever reason these weren't actually ignoring the skin color as advertised.
+            // Shitmed Change: For whatever reason these weren't actually ignoring the skin color as advertised.
             SetLayerData(component, sprite, key, info.Id, sexMorph: false, color: info.Color, overrideSkin: true);
         }
 
@@ -85,7 +86,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         string? protoId,
         bool sexMorph = false,
         Color? color = null,
-        bool overrideSkin = false)
+        bool overrideSkin = false) // Shitmed Change
     {
         var layerIndex = sprite.LayerMapReserveBlank(key);
         var layer = sprite[layerIndex];
@@ -103,7 +104,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         var proto = _prototypeManager.Index<HumanoidSpeciesSpriteLayer>(protoId);
         component.BaseLayers[key] = proto;
 
-        if (proto.MatchSkin && !overrideSkin)
+        if (proto.MatchSkin && !overrideSkin) // Shitmed Change
             layer.Color = component.SkinColor.WithAlpha(proto.LayerAlpha);
 
         if (proto.BaseSprite != null)
@@ -205,7 +206,11 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         humanoid.CustomBaseLayers = customBaseLayers;
         humanoid.Sex = profile.Sex;
         humanoid.Gender = profile.Gender;
+        humanoid.DisplayPronouns = profile.DisplayPronouns;
+        humanoid.StationAiName = profile.StationAiName;
+        humanoid.CyborgName = profile.CyborgName;
         humanoid.Age = profile.Age;
+        humanoid.BodyType = profile.BodyType; // WD EDIT
         humanoid.Species = profile.Species;
         humanoid.SkinColor = profile.Appearance.SkinColor;
         humanoid.EyeColor = profile.Appearance.EyeColor;

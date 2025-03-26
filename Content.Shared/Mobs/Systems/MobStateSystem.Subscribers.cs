@@ -1,5 +1,7 @@
-﻿using Content.Shared.Bed.Sleep;
+﻿using Content.Shared.ActionBlocker;
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
+using Content.Shared.CCVar;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage.ForceSay;
 using Content.Shared.Emoting;
@@ -10,26 +12,31 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Events;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Pointing;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
 using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
+using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
 
 namespace Content.Shared.Mobs.Systems;
 
 public partial class MobStateSystem
 {
+    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+
     //General purpose event subscriptions. If you can avoid it register these events inside their own systems
     private void SubscribeEvents()
     {
         SubscribeLocalEvent<MobStateComponent, BeforeGettingStrippedEvent>(OnGettingStripped);
-        SubscribeLocalEvent<MobStateComponent, ChangeDirectionAttemptEvent>(CheckAct);
+        SubscribeLocalEvent<MobStateComponent, ChangeDirectionAttemptEvent>(OnDirectionAttempt);
         SubscribeLocalEvent<MobStateComponent, UseAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, AttackAttemptEvent>(CheckAct);
-        SubscribeLocalEvent<MobStateComponent, ConsciousAttemptEvent>(CheckAct);
+        SubscribeLocalEvent<MobStateComponent, ConsciousAttemptEvent>(CheckConcious);
         SubscribeLocalEvent<MobStateComponent, ThrowAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, SpeakAttemptEvent>(OnSpeakAttempt);
         SubscribeLocalEvent<MobStateComponent, IsEquippingAttemptEvent>(OnEquipAttempt);
@@ -38,15 +45,67 @@ public partial class MobStateSystem
         SubscribeLocalEvent<MobStateComponent, DropAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, PickupAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, StartPullAttemptEvent>(CheckAct);
-        SubscribeLocalEvent<MobStateComponent, UpdateCanMoveEvent>(CheckAct);
+        SubscribeLocalEvent<MobStateComponent, PullStartedMessage>(OnPull);
+        SubscribeLocalEvent<MobStateComponent, PullStoppedMessage>(OnPull);
+        SubscribeLocalEvent<MobStateComponent, UpdateCanMoveEvent>(OnMoveAttempt);
         SubscribeLocalEvent<MobStateComponent, StandAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, PointAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, TryingToSleepEvent>(OnSleepAttempt);
         SubscribeLocalEvent<MobStateComponent, CombatModeShouldHandInteractEvent>(OnCombatModeShouldHandInteract);
         SubscribeLocalEvent<MobStateComponent, AttemptPacifiedAttackEvent>(OnAttemptPacifiedAttack);
-
         SubscribeLocalEvent<MobStateComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
     }
+
+    private void OnDirectionAttempt(Entity<MobStateComponent> ent, ref ChangeDirectionAttemptEvent args)
+    {
+        if (ent.Comp.CurrentState is MobState.Alive
+            || ent.Comp.CurrentState is MobState.Critical
+            && ent.Comp.AllowMovementWhileCrit
+            && _configurationManager.GetCVar(CCVars.AllowMovementWhileCrit)
+            || ent.Comp.CurrentState is MobState.SoftCritical
+            && ent.Comp.AllowMovementWhileSoftCrit
+            || ent.Comp.CurrentState is MobState.Dead
+            && ent.Comp.AllowMovementWhileDead)
+            return;
+
+        args.Cancel();
+    }
+
+    private void OnMoveAttempt(Entity<MobStateComponent> ent, ref UpdateCanMoveEvent args)
+    {
+        // WWDP edit; no breaking pulling while in crit
+        if (EntityManager.TryGetComponent(ent, out PullableComponent? pullable) && pullable.BeingPulled)
+        {
+            if (ent.Comp.CurrentState is MobState.Critical && !ent.Comp.AllowBreakingPullingWhileCrit
+                && !_configurationManager.GetCVar(CCVars.AllowBreakingPullingWhileCrit)
+                || ent.Comp.CurrentState is MobState.SoftCritical && !ent.Comp.AllowBreakingPullingWhileSoftCrit
+                || ent.Comp.CurrentState is MobState.Dead && !ent.Comp.AllowBreakingPullingWhileDead)
+            {
+                args.Cancel();
+                return;
+            }
+        }
+        // WWDP edit end
+
+        if (ent.Comp.CurrentState is MobState.Alive
+            || ent.Comp.CurrentState is MobState.Critical
+            && ent.Comp.AllowMovementWhileCrit
+            && _configurationManager.GetCVar(CCVars.AllowMovementWhileCrit)
+            || ent.Comp.CurrentState is MobState.SoftCritical
+            && ent.Comp.AllowMovementWhileSoftCrit
+            || ent.Comp.CurrentState is MobState.Dead
+            && ent.Comp.AllowMovementWhileDead)
+            return;
+
+        args.Cancel();
+    }
+
+    // WWDP edit; no breaking pulling while in crit
+    private void OnPull(EntityUid uid, MobStateComponent component, PullMessage args)
+    {
+        _blocker.UpdateCanMove(uid);
+    }
+    // WWDP edit end
 
     private void OnUnbuckleAttempt(Entity<MobStateComponent> ent, ref UnbuckleAttemptEvent args)
     {
@@ -54,6 +113,17 @@ public partial class MobStateSystem
         // Shouldn't the interaction have already been blocked by a general interaction check?
         if (args.User == ent.Owner && IsIncapacitated(ent))
             args.Cancelled = true;
+    }
+
+    private void CheckConcious(Entity<MobStateComponent> ent, ref ConsciousAttemptEvent args)
+    {
+        switch (ent.Comp.CurrentState)
+        {
+            case MobState.Dead:
+            case MobState.Critical:
+                args.Cancelled = true;
+                break;
+        }
     }
 
     private void OnStateExitSubscribers(EntityUid target, MobStateComponent component, MobState state)
@@ -64,15 +134,22 @@ public partial class MobStateSystem
                 //unused
                 break;
             case MobState.Critical:
+                if (component.CurrentState is not MobState.Alive)
+                    break;
+                _standing.Stand(target);
+                break;
+            case MobState.SoftCritical:
+                if (component.CurrentState is not MobState.Alive)
+                    break;
                 _standing.Stand(target);
                 break;
             case MobState.Dead:
                 RemComp<CollisionWakeComponent>(target);
-                _standing.Stand(target);
+                if (component.CurrentState is MobState.Alive)
+                    _standing.Stand(target);
+
                 if (!_standing.IsDown(target) && TryComp<PhysicsComponent>(target, out var physics))
-                {
                     _physics.SetCanCollide(target, true, body: physics);
-                }
 
                 break;
             case MobState.Invalid:
@@ -98,17 +175,22 @@ public partial class MobStateSystem
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
                 break;
             case MobState.Critical:
-                _standing.Down(target, dropHeldItems:true);
+                if (component.DownWhenCrit)
+                    _standing.Down(target);
+                _appearance.SetData(target, MobStateVisuals.State, MobState.Critical);
+                break;
+            case MobState.SoftCritical:
+                if (component.DownWhenSoftCrit)
+                    _standing.Down(target);
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Critical);
                 break;
             case MobState.Dead:
                 EnsureComp<CollisionWakeComponent>(target);
-                _standing.Down(target, dropHeldItems:true);
+                if (component.DownWhenDead)
+                    _standing.Down(target);
 
                 if (_standing.IsDown(target) && TryComp<PhysicsComponent>(target, out var physics))
-                {
                     _physics.SetCanCollide(target, false, body: physics);
-                }
 
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Dead);
                 break;
@@ -124,8 +206,10 @@ public partial class MobStateSystem
 
     private void OnSleepAttempt(EntityUid target, MobStateComponent component, ref TryingToSleepEvent args)
     {
-        if (IsDead(target, component))
-            args.Cancelled = true;
+        if (component.CurrentState is MobState.Alive)
+            return;
+
+        args.Cancelled = true;
     }
 
     private void OnGettingStripped(EntityUid target, MobStateComponent component, BeforeGettingStrippedEvent args)
@@ -145,7 +229,17 @@ public partial class MobStateSystem
             return;
         }
 
-        CheckAct(uid, component, args);
+        if (component.CurrentState is MobState.Alive
+            || component.CurrentState is MobState.Critical
+            && component.AllowTalkingWhileCrit
+            && _configurationManager.GetCVar(CCVars.AllowTalkingWhileCrit)
+            || component.CurrentState is MobState.SoftCritical
+            && component.AllowTalkingWhileSoftCrit
+            || component.CurrentState is MobState.Dead
+            && component.AllowTalkingWhileDead)
+            return;
+
+        args.Cancel();
     }
 
     private void CheckAct(EntityUid target, MobStateComponent component, CancellableEntityEventArgs args)
@@ -153,6 +247,7 @@ public partial class MobStateSystem
         switch (component.CurrentState)
         {
             case MobState.Dead:
+            case MobState.SoftCritical:
             case MobState.Critical:
                 args.Cancel();
                 break;
@@ -175,10 +270,16 @@ public partial class MobStateSystem
 
     private void OnCombatModeShouldHandInteract(EntityUid uid, MobStateComponent component, ref CombatModeShouldHandInteractEvent args)
     {
-        // Disallow empty-hand-interacting in combat mode
-        // for non-dead mobs
-        if (!IsDead(uid, component))
-            args.Cancelled = true;
+        if (component.CurrentState is MobState.Alive
+            || component.CurrentState is MobState.Critical
+            && component.AllowHandInteractWhileCrit
+            || component.CurrentState is MobState.SoftCritical
+            && component.AllowHandInteractWhileSoftCrit
+            || component.CurrentState is MobState.Dead
+            && component.AllowHandInteractWhileDead)
+            return;
+
+        args.Cancelled = true;
     }
 
     private void OnAttemptPacifiedAttack(Entity<MobStateComponent> ent, ref AttemptPacifiedAttackEvent args)

@@ -1,14 +1,16 @@
-﻿<DefaultWindow xmlns="https://spacestation14.io"
+<DefaultWindow xmlns="https://spacestation14.io"
             Title="{Loc 'crayon-window-title'}"
-            MinSize="250 300"
-            SetSize="250 300">
+            MinSize="450 500"
+            SetSize="450 500">
     <BoxContainer Orientation="Vertical">
         <ColorSelectorSliders Name="ColorSelector" Visible="False" />
-        <LineEdit Name="Search" />
+        <BoxContainer Orientation="Horizontal"> <!-- wwdp edit start -->
+            <LineEdit Name="Search" Access="Public" Margin="0 0 0 0" HorizontalExpand="True" VerticalAlignment="Center" PlaceHolder="{Loc 'crayon-window-placeholder'}" />
+            <TextureButton Name="ClearButton" StyleClasses="windowCloseButton" VerticalAlignment="Center" />
+        </BoxContainer> <!-- wwdp edit end -->
         <ScrollContainer VerticalExpand="True">
-            <GridContainer Name="Grid" Columns="6">
-                <!-- Crayon decals get added here by code -->
-            </GridContainer>
+            <BoxContainer Name="Grids" Orientation="Vertical">
+            </BoxContainer>
         </ScrollContainer>
     </BoxContainer>
 </DefaultWindow>

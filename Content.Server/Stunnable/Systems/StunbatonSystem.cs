@@ -2,6 +2,7 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Power.Events;
 using Content.Server.Stunnable.Components;
+using Content.Shared._Goobstation.MartialArts;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
@@ -22,7 +23,8 @@ namespace Content.Server.Stunnable.Systems
         [Dependency] private readonly RiggableSystem _riggableSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly BatterySystem _battery = default!;
-        [Dependency] private readonly SharedItemToggleSystem _itemToggle = default!;
+        [Dependency] private readonly ItemToggleSystem _itemToggle = default!;
+
         public override void Initialize()
         {
             base.Initialize();

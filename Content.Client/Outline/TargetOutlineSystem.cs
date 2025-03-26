@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared.Interaction;
+using Content.Shared._White.RenderOrderSystem;
 using Content.Shared.Whitelist;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -22,6 +23,8 @@ public sealed class TargetOutlineSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly SharedRenderOrderSystem _renderOrder = default!; // WWDP
 
     private bool _enabled = false;
 
@@ -137,7 +140,7 @@ public sealed class TargetOutlineSystem : EntitySystem
 
             // check the entity whitelist
             if (valid && Whitelist != null)
-                valid = Whitelist.IsValid(entity);
+                valid = _whitelistSystem.IsWhitelistPass(Whitelist, entity);
 
             // and check the cancellable event
             if (valid && ValidationEvent != null)
@@ -153,7 +156,7 @@ public sealed class TargetOutlineSystem : EntitySystem
                 if (_highlightedSprites.Remove(sprite) && (sprite.PostShader == _shaderTargetValid || sprite.PostShader == _shaderTargetInvalid))
                 {
                     sprite.PostShader = null;
-                    sprite.RenderOrder = 0;
+                    _renderOrder.UnsetRenderOrder(sprite.Owner, nameof(TargetOutlineSystem)); // WWDP
                 }
 
                 continue;
@@ -176,7 +179,7 @@ public sealed class TargetOutlineSystem : EntitySystem
 
             // highlight depending on whether its in or out of range
             sprite.PostShader = valid ? _shaderTargetValid : _shaderTargetInvalid;
-            sprite.RenderOrder = EntityManager.CurrentTick.Value;
+            _renderOrder.MoveToTop(sprite.Owner, nameof(TargetOutlineSystem)); // WWDP
             _highlightedSprites.Add(sprite);
         }
     }
@@ -189,7 +192,7 @@ public sealed class TargetOutlineSystem : EntitySystem
                 continue;
 
             sprite.PostShader = null;
-            sprite.RenderOrder = 0;
+            _renderOrder.UnsetRenderOrder(sprite.Owner, nameof(TargetOutlineSystem));
         }
 
         _highlightedSprites.Clear();

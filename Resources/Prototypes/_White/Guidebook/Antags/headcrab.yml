@@ -1,0 +1,14 @@
+- type: guideEntry
+  id: Headcrab
+  name: antagonist-name-headcrab
+  text: "/ServerInfo/_White/Guidebook/Antagonist/Headcrab/Headcrabs/Headcrab.xml"
+
+- type: guideEntry
+  id: HeadcrabFast
+  name: antagonist-name-headcrab-fast
+  text: "/ServerInfo/_White/Guidebook/Antagonist/Headcrab/Headcrabs/HeadcrabFast.xml"
+
+- type: guideEntry
+  id: HeadcrabPoison
+  name: antagonist-name-headcrab-poison
+  text: "/ServerInfo/_White/Guidebook/Antagonist/Headcrab/Headcrabs/HeadcrabPoison.xml"

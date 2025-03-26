@@ -1,11 +1,17 @@
 - type: emote
   id: WagTail
   name: chat-emote-name-tailwag
-  chatMessages: [wags their tail]
+  whitelist:
+    tags:
+    - VulpEmotes
+    - UnathiEmotes
+  # WD EDIT START
+  chatMessages: ["chat-emote-msg-tailwag"]
   chatTriggers:
-    - wags tail
-    - wags his tail
-    - wags her tail
-    - wags their tail
-    - wags its tail
-    - wags its' tail
+    - "chat-emote-trigger-tailwag-1"
+    - "chat-emote-trigger-tailwag-2"
+    - "chat-emote-trigger-tailwag-3"
+    - "chat-emote-trigger-tailwag-4"
+    - "chat-emote-trigger-tailwag-5"
+    - "chat-emote-trigger-tailwag-6"
+  # WD EDIT END

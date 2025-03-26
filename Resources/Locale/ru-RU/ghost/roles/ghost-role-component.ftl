@@ -10,6 +10,15 @@ ghost-role-information-mouse-description = Голодная и озорная м
 ghost-role-information-mothroach-name = Таракамоль
 ghost-role-information-mothroach-description = Милая озорная таракамоль.
 
+ghost-role-information-snail-name = Улитка
+ghost-role-information-snail-description = Маленькая улитка, которая не против немного побыть на свободе. Только не убегай за пределы клетки!
+
+ghost-role-information-snailspeed-name = Улитка
+ghost-role-information-snailspeed-description = Маленькая улитка с турбоулиточными ускорителями.
+
+ghost-role-information-snoth-name = Молитка
+ghost-role-information-snoth-description = Маленькая молитка, которая не против немного побыть на свободе. Только не убегай за пределы клетки!
+
 ghost-role-information-giant-spider-name = Гигантский паук
 ghost-role-information-giant-spider-description = Устройте хаос обитателям станции!
 
@@ -20,6 +29,12 @@ ghost-role-information-hamster-description = Маленький ворчливы
 
 ghost-role-information-hamlet-name = Хомяк Гамлет
 ghost-role-information-hamlet-description = Живёт на капитанском мостике, немного вспыльчив и всегда голоден.
+
+ghost-role-information-Laika-name = Лайка
+ghost-role-information-Laika-description = Постоянная обитательница службы безопасности. Требуйте ласки у офицеров и кусайте за пятки нарушителей.
+
+ghost-role-information-Shiva-name = Шива
+ghost-role-information-Shiva-description = Вы - паук-защитник. Защищайте же станцию до самого конца!
 
 ghost-role-information-slimes-name = Слайм
 ghost-role-information-slimes-description = Обычный слайм без особых потребностей или интересов. Он просто живет.
@@ -130,8 +145,12 @@ ghost-role-information-holoparasite-description = Слушайте своего 
 ghost-role-information-holoclown-name = Голоклоун
 ghost-role-information-holoclown-description = Слушайте своего хозяина. Используйте свои карманы и руку, чтобы ему помочь.
 
-ghost-role-information-ifrit-name = Ифрит
-ghost-role-information-ifrit-description = Слушай своего хозяина. Не принимайте урон. Сильно бей людей.
+ghost-role-information-ifrit-name = Ифриты
+ghost-role-information-ifrit-description = Слуга мистика.
+ghost-role-information-ifrit-rules = Огненный дух, родом из Геенны, ты был призван мистиком. Следуй за ним и не причиняй никаких проблем, если он не скажет тебе.
+
+ghost-role-information-ifrit-wizard-name = Ифриты (Призыв мага)
+ghost-role-information-ifrit-wizard-description = Слушайся своего хозяина. Не танкуй урон. Сильно бей людей.
 
 ghost-role-information-space-dragon-name = Космический дракон
 ghost-role-information-space-dragon-description = Вызовите 3 карповых переката и захватите этот сектор! У вас есть всего 5 минут между каждым разрывом, прежде чем вы исчезнете.

@@ -3,6 +3,11 @@
   abstract: true
   id: MobSiliconBase
   components:
+  - type: Renamable
+  - type: UserInterface
+    interfaces:
+      enum.SharedRenamableInterfaceKey.Key:
+        type: RenamableBoundUserInterface
   - type: LagCompensation
   - type: Reactive
     groups:
@@ -31,6 +36,9 @@
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
+  - type: Access
+    tags:
+    - BasicSilicon
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
@@ -66,6 +74,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+    - SiliconMob
   - type: MobState
     allowedStates:
       - Alive
@@ -129,7 +138,10 @@
       collection: BikeHorn
   - type: Sprite
     sprite: Mobs/Silicon/Bots/honkbot.rsi
-    state: honkbot
+    layers:
+    - state: honkbot
+    - state: honk_face # WWDP edit
+      shader: unshaded
   - type: HTN
     rootTask:
       task: HonkbotCompound
@@ -165,6 +177,9 @@
     makeSentient: true
     name: ghost-role-information-honkbot-name
     description: ghost-role-information-honkbot-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -184,7 +199,10 @@
     sound:
       collection: CluwneHorn
   - type: Sprite
-    state: jonkbot
+    layers:
+    - state: jonkbot
+    - state: jonk_face # WWDP edit
+      shader: unshaded
   - type: Construction
     graph: JonkBot
     node: bot
@@ -192,6 +210,9 @@
     makeSentient: true
     name: ghost-role-information-jonkbot-name
     description: ghost-role-information-jonkbot-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
   - type: InteractionPopup
@@ -216,7 +237,10 @@
   components:
   - type: Sprite
     sprite: Mobs/Silicon/Bots/cleanbot.rsi
-    state: cleanbot
+    layers:
+      - state: cleanbot
+      - state: face # WWDP edit
+        shader: unshaded
   - type: Construction
     graph: CleanBot
     node: bot
@@ -284,7 +308,10 @@
         quantity: 25
   - type: Sprite
     sprite: Mobs/Silicon/Bots/medibot.rsi
-    state: medibot
+    layers:
+    - state: medibot
+    - state: face # WWDP edit
+      shader: unshaded
   - type: HTN
     rootTask:
       task: MedibotCompound
@@ -292,6 +319,8 @@
     graph: MediBot
     node: bot
   - type: NoSlip
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-mechanical
   - type: Anchorable
   - type: InteractionPopup
     interactSuccessString: petting-success-medibot
@@ -318,10 +347,12 @@
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
   - type: Sprite
+    sprite: Mobs/Silicon/Bots/mimebot.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: mimebot
-      sprite: Mobs/Silicon/Bots/mimebot.rsi
+    - state: face # WWDP edit
+      shader: unshaded
   - type: MimePowers
   - type: Construction
     graph: MimeBot
@@ -330,6 +361,9 @@
     makeSentient: true
     name: ghost-role-information-mimebot-name
     description: ghost-role-information-mimebot-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
   - type: GhostTakeoverAvailable

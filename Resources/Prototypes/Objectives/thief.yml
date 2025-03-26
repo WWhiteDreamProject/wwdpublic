@@ -7,7 +7,7 @@
     issuer: thief
   - type: RoleRequirement
     roles:
-      components:
+      mindRoles:
       - ThiefRole
 
 - type: entity
@@ -554,6 +554,8 @@
   description: You don't want your illegal activities to be discovered by anyone, do you?
   components:
   - type: Objective
+    title: objective-condition-escape-shuttle-title # WWDP Localization
+    description: objective-condition-escape-shuttle-description
     difficulty: 1.3
     icon:
       sprite: Structures/Furniture/chairs.rsi

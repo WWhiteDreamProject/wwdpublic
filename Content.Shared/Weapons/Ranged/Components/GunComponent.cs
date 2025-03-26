@@ -1,17 +1,17 @@
-using Content.Shared.Damage;
+using System.Numerics;
 using Content.Shared.Nyanotrasen.Abilities.Oni;
-using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Content.Shared._Goobstation.Weapons.Multishot;
 
 namespace Content.Shared.Weapons.Ranged.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
-[Access(typeof(SharedGunSystem), typeof(SharedOniSystem))] // DeltaV - I didn't feel like rewriting big chunks of code
+[Access(typeof(SharedGunSystem), typeof(SharedMultishotSystem), typeof(SharedOniSystem))] // DeltaV - I didn't feel like rewriting big chunks of code
 public sealed partial class GunComponent : Component
 {
     #region Sound
@@ -61,9 +61,11 @@ public sealed partial class GunComponent : Component
     /// <summary>
     /// Last time the gun fired.
     /// Used for recoil purposes.
+    /// WWDP rename: formely "LastFire".
     /// </summary>
     [DataField]
-    public TimeSpan LastFire = TimeSpan.Zero;
+    [AutoNetworkedField]
+    public TimeSpan CurrentAngleLastUpdate = TimeSpan.Zero;
 
     /// <summary>
     /// What the current spread is for shooting. This gets changed every time the gun fires.
@@ -71,6 +73,43 @@ public sealed partial class GunComponent : Component
     [DataField]
     [AutoNetworkedField]
     public Angle CurrentAngle;
+
+	// WWDP EDIT START
+    [AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public Angle BonusAngle;
+
+    [AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan BonusAngleLastUpdate;
+
+    [DataField]
+    [AutoNetworkedField]
+    public Angle BonusAngleDecay = Angle.FromDegrees(40);
+
+    [DataField]
+    [AutoNetworkedField]
+    public Angle MaxBonusAngle = Angle.FromDegrees(30);
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
+    public Angle BonusAngleDecayModified;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
+    public Angle MaxBonusAngleModified;
+
+    /// <summary>
+    /// Bonus spread angle increase per tile traversed (assuming zero travel time)
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Angle BonusAngleIncreaseMove = Angle.FromDegrees(20);
+
+    /// <summary>
+    /// Bonus spread angle increase per angle turned (assuming instantaneous turn)
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Angle BonusAngleIncreaseTurn = Angle.FromDegrees(0.25);
+	// WWDP EDIT END
 
     /// <summary>
     /// The base value for how much the spread increases every time the gun fires.
@@ -160,6 +199,30 @@ public sealed partial class GunComponent : Component
     public int ShotsPerBurstModified = 3;
 
     /// <summary>
+    /// How long time must pass between burstfire shots.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float BurstCooldown = 0.25f;
+
+    /// <summary>
+    /// The fire rate of the weapon in burst fire mode.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float BurstFireRate = 8f;
+
+    /// <summary>
+    /// Whether the burst fire mode has been activated.
+    /// </summary>
+    [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public bool BurstActivated = false;
+
+    /// <summary>
+    /// The burst fire bullet count.
+    /// </summary>
+    [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public int BurstShotsCount = 0;
+
+    /// <summary>
     /// Used for tracking semi-auto / burst
     /// </summary>
     [ViewVariables]
@@ -209,6 +272,12 @@ public sealed partial class GunComponent : Component
     public TimeSpan NextFire = TimeSpan.Zero;
 
     /// <summary>
+    ///   After dealing a melee attack with this gun, the minimum cooldown in seconds before the gun can shoot again.
+    /// </summary>
+    [DataField]
+    public float MeleeCooldown = 0.528f;
+
+    /// <summary>
     /// What firemodes can be selected.
     /// </summary>
     [DataField]
@@ -237,21 +306,57 @@ public sealed partial class GunComponent : Component
     public bool ClumsyProof = false;
 
     /// <summary>
+    /// Firing direction for an item not being held (e.g. shuttle cannons, thrown guns still firing).
+    /// </summary>
+    [DataField]
+    public Vector2 DefaultDirection = new Vector2(0, -1);
+
+    /// <summary>
     ///     The percentage chance of a given gun to accidentally discharge if violently thrown into a wall or person
     /// </summary>
     [DataField]
     public float FireOnDropChance = 0.1f;
 
     /// <summary>
-    ///     Whether or not this gun is truly Recoilless, such as Lasers, and therefore shouldn't move the user.
+    ///     If this weapon is using any kind of "Shotgun-like" ammunition, this applies as a multiplier on the spread arc.
+    //      EG: 1.5 with standard buckshot gives a shotgun arc of 22.5 degrees.
     /// </summary>
     [DataField]
-    public bool DoRecoil = true;
+    public float ShotgunSpreadMultiplier = 1f;
+
+    /// <summary>
+    ///     This multiplier will apply per projectile fired by the weapon.
+    /// </summary>
+    [DataField]
+    public float DamageModifier = 1f;
+
+    /// <summary>
+    ///     This multiplier increases the amount of projectiles fired by a shotgun.
+    /// </summary>
+    [DataField]
+    public float ShotgunProjectileCountModifier = 1f;
+
+    /// <summary>
+    ///     If this weapon is using any kind of "Shotgun-like" ammunition, setting this to true makes it use the
+    ///     classic style of "uniform" spread. Whereas when left off, each pellet fires in a uniform arc.
+    /// </summary>
+    [DataField]
+    public bool UniformSpread;
+
+    /// <summary>
+    ///     The amount of Force (in Newtons) to eject spent cartridges with.
+    /// </summary>
+    [DataField]
+    public float EjectionForce = 0.04f;
+
+    [DataField]
+    public float EjectionSpeed = 5f;
 
     // WD EDIT START
     [DataField]
     public Angle? ThrowAngle;
     // WD EDIT END
+
 }
 
 [Flags]

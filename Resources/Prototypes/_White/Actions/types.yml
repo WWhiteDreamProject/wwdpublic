@@ -12,7 +12,7 @@
       sprite: _White/Objects/Weapons/Melee/Spear/hardlight_spear.rsi
       state: spear
     event: !type:ActivateSpawnImplantEvent
-    
+
 - type: entity
   id: ActivateSmokeImplant
   name: Release a cloud of smoke
@@ -29,29 +29,18 @@
     event: !type:ActivateImplantEvent
 
 - type: entity
-  id: ToggleNightVision
-  name: Switch night vision
-  description: Switches night vision.
+  id: ActionHeadcrabJump
+  name: Jump
+  description: Do super jump.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
-    itemIconStyle: BigAction
-    priority: -20
+  - type: WorldTargetAction
     icon:
-      sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
-      state: icon
-    event: !type:ToggleNightVisionEvent
-
-- type: entity
-  id: ToggleThermalVision
-  name: Switch Thermal vision
-  description: Switches Thermal vision.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    itemIconStyle: BigAction
-    priority: -20
-    icon:
-      sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
-      state: icon
-    event: !type:ToggleThermalVisionEvent
+      sprite: _White/Interface/Actions/headcrab.rsi
+      state: jump-off
+    iconOn:
+      sprite: _White/Interface/Actions/headcrab.rsi
+      state: jump-on
+    event: !type:JumpActionEvent
+    useDelay: 6
+    range: 160

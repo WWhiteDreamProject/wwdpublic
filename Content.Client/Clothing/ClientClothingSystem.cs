@@ -3,6 +3,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.DisplacementMap;
 using Content.Client.Inventory;
+using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
@@ -11,9 +12,11 @@ using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
+using Content.Shared.Tag;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Utility;
@@ -24,7 +27,6 @@ namespace Content.Client.Clothing;
 public sealed class ClientClothingSystem : ClothingSystem
 {
     public const string Jumpsuit = "jumpsuit";
-
     /// <summary>
     /// This is a shitty hotfix written by me (Paul) to save me from renaming all files.
     /// For some context, im currently refactoring inventory. Part of that is slots not being indexed by a massive enum anymore, but by strings.
@@ -53,6 +55,9 @@ public sealed class ClientClothingSystem : ClothingSystem
     [Dependency] private readonly ISerializationManager _serialization = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly DisplacementMapSystem _displacement = default!;
+
+    [Dependency] private readonly IPrototypeManager _prototype = default!; // WD EDIT
+    [Dependency] private readonly TagSystem _tag = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -92,6 +97,15 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         List<PrototypeLayerData>? layers = null;
 
+        // WD EDIT START
+        // body type specific
+        if (TryComp(args.Equipee, out HumanoidAppearanceComponent? humanoid))
+        {
+            var bodyTypeName = _prototype.Index<BodyTypePrototype>(humanoid.BodyType).Name;
+            item.ClothingVisuals.TryGetValue($"{args.Slot}-{bodyTypeName}", out layers);
+        }
+        // WD EDIT END
+
         // first attempt to get species specific data.
         if (inventory.SpeciesId != null)
             item.ClothingVisuals.TryGetValue($"{args.Slot}-{inventory.SpeciesId}", out layers);
@@ -100,7 +114,7 @@ public sealed class ClientClothingSystem : ClothingSystem
         if (layers == null && !item.ClothingVisuals.TryGetValue(args.Slot, out layers))
         {
             // No generic data either. Attempt to generate defaults from the item's RSI & item-prefixes
-            if (!TryGetDefaultVisuals(uid, item, args.Slot, inventory.SpeciesId, out layers))
+            if (!TryGetDefaultVisuals(uid, item, args.Slot, inventory.SpeciesId, args.Equipee, out layers)) // WD EDIT
                 return;
         }
 
@@ -116,6 +130,11 @@ public sealed class ClientClothingSystem : ClothingSystem
                 i++;
             }
 
+            if (inventory.SpeciesId != null && item.Sprite != null
+                && _cache.TryGetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / item.Sprite, out var rsi)
+                && rsi.RSI.TryGetState($"{layer.State}-{inventory.SpeciesId}", out _))
+                layer.State = $"{layer.State}-{inventory.SpeciesId}";
+
             args.Layers.Add((key, layer));
         }
     }
@@ -127,14 +146,14 @@ public sealed class ClientClothingSystem : ClothingSystem
     ///     Useful for lazily adding clothing sprites without modifying yaml. And for backwards compatibility.
     /// </remarks>
     private bool TryGetDefaultVisuals(EntityUid uid, ClothingComponent clothing, string slot, string? speciesId,
-        [NotNullWhen(true)] out List<PrototypeLayerData>? layers)
+        EntityUid target, [NotNullWhen(true)] out List<PrototypeLayerData>? layers) // WD EDIT
     {
         layers = null;
 
         RSI? rsi = null;
 
-        if (clothing.RsiPath != null)
-            rsi = _cache.GetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / clothing.RsiPath).RSI;
+        if (clothing.Sprite != null)
+            rsi = _cache.GetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / clothing.Sprite).RSI;
         else if (TryComp(uid, out SpriteComponent? sprite))
             rsi = sprite.BaseRSI;
 
@@ -153,6 +172,16 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         if (clothing.EquippedState != null)
             state = $"{clothing.EquippedState}";
+
+        // WD EDIT START
+        // body type specific
+        if (TryComp(target, out HumanoidAppearanceComponent? humanoid))
+        {
+            var bodyTypeName = _prototype.Index<BodyTypePrototype>(humanoid.BodyType).Name;
+            if (rsi.TryGetState($"{state}-{bodyTypeName}", out _))
+                state = $"{state}-{bodyTypeName}";
+        }
+        // WD EDIT END
 
         // species specific
         if (speciesId != null && rsi.TryGetState($"{state}-{speciesId}", out _))
@@ -189,6 +218,20 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         if (!inventorySlots.VisualLayerKeys.TryGetValue(args.Slot, out var revealedLayers))
             return;
+
+        if (TryComp<HideLayerClothingComponent>(args.Equipment, out var hideLayer) &&
+            hideLayer.ClothingSlots != null)
+        {
+            foreach (var clothingSlot in hideLayer.ClothingSlots)
+            {
+                if (!inventorySlots.VisualLayerKeys.TryGetValue(clothingSlot, out var revealedLayersToShow))
+                    continue;
+
+                foreach (var layerToShow in revealedLayersToShow)
+                    component.LayerSetVisible(layerToShow, true);
+            }
+            inventorySlots.HiddenSlots.ExceptWith(hideLayer.ClothingSlots);
+        }
 
         // Remove old layers. We could also just set them to invisible, but as items may add arbitrary layers, this
         // may eventually bloat the player with lots of invisible layers.
@@ -256,6 +299,23 @@ public sealed class ClientClothingSystem : ClothingSystem
             return;
         }
 
+        if (TryComp<HideLayerClothingComponent>(equipment, out var hideLayer) &&
+            hideLayer.ClothingSlots != null)
+        {
+            foreach (var clothingSlot in hideLayer.ClothingSlots)
+            {
+                if (!inventorySlots.VisualLayerKeys.TryGetValue(clothingSlot, out var revealedLayersToHide))
+                    continue;
+
+                foreach (var layerToHide in revealedLayersToHide)
+                    sprite.LayerSetVisible(layerToHide, false);
+            }
+            inventorySlots.HiddenSlots.UnionWith(hideLayer.ClothingSlots);
+        }
+
+        if (clothingComponent.RenderLayer != null)
+            slot = clothingComponent.RenderLayer;
+
         // temporary, until layer draw depths get added. Basically: a layer with the key "slot" is being used as a
         // bookmark to determine where in the list of layers we should insert the clothing layers.
         bool slotLayerExists = sprite.LayerMapTryGet(slot, out var index);
@@ -263,21 +323,47 @@ public sealed class ClientClothingSystem : ClothingSystem
         // Select displacement maps
         var displacementData = inventory.Displacements.GetValueOrDefault(slot); //Default unsexed map
 
-        var equipeeSex = CompOrNull<HumanoidAppearanceComponent>(equipee)?.Sex;
-        if (equipeeSex != null)
+        // WD EDIT START
+        string? bodyTypeName = null;
+        if (TryComp(equipee, out HumanoidAppearanceComponent? humanoid))
         {
-            switch (equipeeSex)
+            bodyTypeName = _prototype.Index(humanoid.BodyType).Name;
+            switch (humanoid.Sex)
             {
                 case Sex.Male:
                     if (inventory.MaleDisplacements.Count > 0)
-                        displacementData = inventory.MaleDisplacements.GetValueOrDefault(slot);
+                    {
+                        if (!string.IsNullOrEmpty(clothingComponent.ClothingType))
+                        {
+                            displacementData = inventory.MaleDisplacements.GetValueOrDefault($"{clothingComponent.ClothingType}-{bodyTypeName}")
+                                ?? inventory.MaleDisplacements.GetValueOrDefault(clothingComponent.ClothingType)
+                                ?? inventory.MaleDisplacements.GetValueOrDefault(slot);
+                            break;
+                        }
+
+                        displacementData = inventory.MaleDisplacements.GetValueOrDefault($"{slot}-{bodyTypeName}")
+                            ?? inventory.MaleDisplacements.GetValueOrDefault(slot);
+                    }
+
                     break;
                 case Sex.Female:
                     if (inventory.FemaleDisplacements.Count > 0)
-                        displacementData = inventory.FemaleDisplacements.GetValueOrDefault(slot);
+                    {
+                        if (!string.IsNullOrEmpty(clothingComponent.ClothingType))
+                        {
+                            displacementData = inventory.FemaleDisplacements.GetValueOrDefault($"{clothingComponent.ClothingType}-{bodyTypeName}")
+                                ?? inventory.FemaleDisplacements.GetValueOrDefault(clothingComponent.ClothingType);
+                            break;
+                        }
+
+                        displacementData = inventory.FemaleDisplacements.GetValueOrDefault($"{slot}-{bodyTypeName}")
+                            ?? inventory.FemaleDisplacements.GetValueOrDefault(slot);
+                    }
+
                     break;
             }
         }
+        // WD EDIT END
 
         // add the new layers
         foreach (var (key, layerData) in ev.Layers)
@@ -313,13 +399,23 @@ public sealed class ClientClothingSystem : ClothingSystem
                 layer.SetRsi(clothingSprite.BaseRSI);
             }
 
+            // Another "temporary" fix for clothing stencil masks.
+            // Sprite layer redactor when
+            // Sprite "redactor" just a week away.
+            if (slot == Jumpsuit)
+                layerData.Shader ??= "StencilDraw";
+
+            if (inventorySlots.HiddenSlots.Contains(slot))
+                layerData.Visible = false;
+
             sprite.LayerSetData(index, layerData);
             layer.Offset += slotDef.Offset;
 
             if (displacementData is not null)
             {
                 //Checking that the state is not tied to the current race. In this case we don't need to use the displacement maps.
-                if (layerData.State is not null && inventory.SpeciesId is not null && layerData.State.EndsWith(inventory.SpeciesId))
+                if (layerData.State is not null && (inventory.SpeciesId is not null && layerData.State.EndsWith(inventory.SpeciesId)
+                    || bodyTypeName is not null && layerData.State.EndsWith(bodyTypeName))) // WD EDIT
                     continue;
 
                 if (_displacement.TryAddDisplacement(displacementData, sprite, index, key, revealedLayers))

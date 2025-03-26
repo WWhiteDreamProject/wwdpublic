@@ -22,14 +22,22 @@
       id: LoadoutServiceBartenderBoxBeanbags
     - type: loadout
       id: LoadoutServiceBartenderBoxLightRifleRubber
+    - type: loadout
+      id: LoadoutServiceBartenderBoxRifleRubber
+    - type: loadout
+      id: LoadoutServiceBartenderBoxMagnumRubber
 
 - type: characterItemGroup
   id: LoadoutBartenderWeapon
   items:
     - type: loadout
-      id: LoadoutServiceBartenderShotgunDoubleBarreledRubber
+      id: LoadoutServiceBartenderShotgunDoubleBarreled
     - type: loadout
-      id: LoadoutServiceBartenderMosinRubber
+      id: LoadoutServiceBartenderMosin
+    - type: loadout
+      id: LoadoutServiceBartenderArgenti
+    - type: loadout
+      id: LoadoutServiceBartenderRepeater
 
 #- type: characterItemGroup
 #  id: LoadoutBartenderEyes
@@ -69,6 +77,8 @@
 - type: characterItemGroup
   id: LoadoutBartenderOuter
   items:
+    - type: loadout
+      id: LoadoutServiceBartenderWinterCoat
     - type: loadout
       id: LoadoutServiceBartenderArmorDuraVest
     - type: loadout

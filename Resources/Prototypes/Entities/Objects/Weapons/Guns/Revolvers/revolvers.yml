@@ -16,6 +16,7 @@
     tags:
     - Sidearm
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle2.ogg # WWDP
     sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
     quickEquip: false
     slots:
@@ -23,6 +24,10 @@
     - Belt
   - type: AmmoCounter
   - type: Gun
+    bonusAngleIncreaseMove: 20    # wwdp
+    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleDecay: 45           # wwdp
+    maxBonusAngle: 10             # wwdp
     selectedMode: SemiAuto
     fireRate: 1.5
     availableModes:
@@ -32,6 +37,8 @@
     fireOnDropChance: 0.5
   - type: UseDelay
     delay: 0.66
+  - type: DisarmMalus # WWDP
+    malus: 0.3
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container
@@ -50,12 +57,28 @@
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
   - type: StaticPrice
     price: 500
-  - type: MeleeWeapon # WD EDIT
+  - type: MeleeWeapon
+    attackRate: 1.2
     damage:
       types:
         Blunt: 7
+    swapKeys: true
+    disableHeavy: true
+    animation: WeaponArcThrust
+    wideAnimationRotation: 135
     soundHit:
-      collection: GenericHit
+      collection: MetalThud
+  - type: DamageOtherOnHit
+    staminaCost: 5
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: RevolversPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: RevolversDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: RevolversDrop
 
 - type: entity
   name: Deckard
@@ -96,22 +119,6 @@
     guides: [ SecurityWeapons ]
 
 - type: entity
-  name: Deckard
-  parent: WeaponRevolverDeckardSecurity
-  id: WeaponRevolverDeckardNonLethalSecurity
-  description: A rare, custom-built revolver. Use when you need to spare the Replicants. Comes with .45 magnum rubber.
-               The serial number on the handguard marks this gun as belonging to an NT Security Officer.
-  components:
-  - type: RevolverAmmoProvider
-    whitelist:
-      tags:
-        - CartridgeMagnum
-        - SpeedLoaderMagnum
-    proto: CartridgeMagnumRubber
-  - type: GuideHelp
-    guides: [ SecurityWeapons ]
-
-- type: entity
   name: Inspector
   parent: BaseWeaponRevolver
   id: WeaponRevolverInspector
@@ -133,22 +140,6 @@
   description: A detective's best friend. Uses .45 magnum ammo.
                The serial number on the handguard marks this gun as belonging to an NT Security Officer.
   components:
-  - type: GuideHelp
-    guides: [ SecurityWeapons ]
-
-- type: entity
-  name: Inspector
-  parent: WeaponRevolverInspectorSecurity
-  id: WeaponRevolverInspectorNonLethalSecurity
-  description: A detective's best friend. Comes loaded with .45 magnum rubber.
-               The serial number on the handguard marks this gun as belonging to an NT Security Officer.
-  components:
-  - type: RevolverAmmoProvider
-    whitelist:
-      tags:
-        - CartridgeMagnum
-        - SpeedLoaderMagnum
-    proto: CartridgeMagnumRubber
   - type: GuideHelp
     guides: [ SecurityWeapons ]
 
@@ -200,27 +191,6 @@
 
 - type: entity
   name: Python
-  parent: WeaponRevolverPythonSecurity
-  id: WeaponRevolverPythonNonlethalSecurity
-  components:
-  - type: RevolverAmmoProvider
-    whitelist:
-      tags:
-        - CartridgeMagnum
-        - SpeedLoaderMagnum
-    proto: CartridgeMagnumRubber
-    capacity: 6
-    chambers: [ True, True, True, True, True, True ]
-    ammoSlots: [ null, null, null, null, null, null ]
-    soundEject:
-      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
-  - type: GuideHelp
-    guides: [ SecurityWeapons ]
-
-- type: entity
-  name: Python
   parent: WeaponRevolverPython
   id: WeaponRevolverPythonAP # For the uplink.
   suffix: armor-piercing
@@ -254,3 +224,12 @@
     capacity: 5
     chambers: [ True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null ]
+
+- type: entity
+  parent: WeaponRevolverArgenti
+  id: WeaponRevolverArgentiSecurity
+  description: The military grade Argenti Type 20 revolver. Manufactured by Silver Industries. While the design with expanded cylinder is quite ancient, the right gunslinger will know how to utilise it well. Uses .20 rifle ammo.
+               The serial number on the handguard marks this gun as belonging to an NT Security Officer.
+  components:
+  - type: GuideHelp
+    guides: [ SecurityWeapons ]

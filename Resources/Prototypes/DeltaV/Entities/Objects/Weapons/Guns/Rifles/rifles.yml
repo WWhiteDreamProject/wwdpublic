@@ -56,6 +56,8 @@
   components:
   - type: Item
     size: Large
+    shape: # WWDP guns resize
+    - 0,0,5,1 # bullpup
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Rifles/jackdaw.rsi
     layers:
@@ -173,3 +175,34 @@
     sprite: DeltaV/Objects/Weapons/Guns/Rifles/carbinenogl.rsi
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/Rifles/carbinenogl.rsi
+
+- type: entity
+  name: musket
+  id: WeaponRifleMusket
+  parent: Musket
+  suffix: "craftable"
+  description: An old flintlock musket. Uses musket cartridges.
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeMusket
+    capacity: 1
+    proto: null # WWDP start empty
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Rifles/musket.rsi
+    state: base
+  - type: Gun #Smoothbore
+    fireRate: 0.3 # WWDP
+    #resetOnHandSelected: false # WWDP
+    minAngle: 22
+    maxAngle: 43
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -40
+  - type: Construction
+    graph: WeaponRifleMusketGraph
+    node: musket
+  - type: UseDelay
+    delay: 0 #Straight up doesn't work for guns

@@ -82,6 +82,8 @@
         orGroup: GiftPool
       - id: PlushieRatvar
         orGroup: GiftPool
+      - id: PlushieSanabi #WWDP edit
+        orGroup: GiftPool
       - id: PlushieSpaceLizard
         orGroup: GiftPool
       - id: PlushieSharkBlue
@@ -103,6 +105,8 @@
       - id: PlushieMothMusician # Nyanotrasen Moth Musician Plushie
         orGroup: GiftPool
       - id: PlushieArachind
+        orGroup: GiftPool
+      - id: PlushieShadowkin
         orGroup: GiftPool
       - id: ClothingNeckCloakMoth
         orGroup: GiftPool

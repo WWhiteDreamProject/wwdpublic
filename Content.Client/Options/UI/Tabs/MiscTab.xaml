@@ -1,4 +1,4 @@
-﻿<tabs:MiscTab xmlns="https://spacestation14.io"
+<tabs:MiscTab xmlns="https://spacestation14.io"
                   xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                   xmlns:tabs="clr-namespace:Content.Client.Options.UI.Tabs"
                   xmlns:xNamespace="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -19,6 +19,13 @@
                     <Control MinSize="4 0" />
                     <OptionButton Name="HudLayoutOption" />
                 </BoxContainer>
+                <!--WD EDIT START-->
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="{Loc 'ui-options-emotes-menu'}" />
+                    <Control MinSize="4 0" />
+                    <OptionButton Name="EmotesMenuType" />
+                </BoxContainer>
+                <!--WD EDIT END-->
                 <Label Text="{Loc 'ui-options-general-accessibility'}"
                        FontColorOverride="{xNamespace:Static s:StyleNano.NanoGold}"
                        StyleClasses="LabelKeyText"/>
@@ -26,6 +33,11 @@
                 <CheckBox Name="EnableColorNameCheckBox" Text="{Loc 'ui-options-enable-color-name'}" />
                 <CheckBox Name="ColorblindFriendlyCheckBox" Text="{Loc 'ui-options-colorblind-friendly'}" />
                 <CheckBox Name="DisableFiltersCheckBox" Text="{Loc 'ui-options-no-filters'}" />
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="{Loc 'ui-options-chatstack'}" />
+                    <Control MinSize="4 0" />
+                    <OptionButton Name="ChatStackOption" />
+                </BoxContainer>
                 <BoxContainer Orientation="Horizontal">
                     <Label Text="{Loc 'ui-options-chat-window-opacity'}" Margin="8 0" />
                     <Slider Name="ChatWindowOpacitySlider"
@@ -53,6 +65,8 @@
                 <CheckBox Name="ShowOocPatronColor" Text="{Loc 'ui-options-show-ooc-patron-color'}" />
                 <CheckBox Name="ShowLoocAboveHeadCheckBox" Text="{Loc 'ui-options-show-looc-on-head'}" />
                 <CheckBox Name="FancySpeechBubblesCheckBox" Text="{Loc 'ui-options-fancy-speech'}" />
+                <CheckBox Name="EnableColorBubbleChatCheckBox" Text="{Loc 'ui-options-enable-color-in-bubble-chat'}" /> <!-- WD EDIT -->
+                <CheckBox Name="EnableChatFancyFontCheckBox" Text="{Loc 'ui-options-enable-chat-fancy-font'}" /> <!-- WD EDIT -->
                 <CheckBox Name="FancyNameBackgroundsCheckBox" Text="{Loc 'ui-options-fancy-name-background'}" />
                 <CheckBox Name="LogInChatCheckBox" Text="{Loc 'ui-options-log-in-chat'}" /> <!-- WD EDIT -->
                 <Label Text="{Loc 'ui-options-general-cursor'}"
@@ -66,6 +80,10 @@
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="OpaqueStorageWindowCheckBox" Text="{Loc 'ui-options-opaque-storage-window'}" />
                 <CheckBox Name="StaticStorageUI" Text="{Loc 'ui-options-static-storage-ui'}" />
+                <Label Text="{Loc 'ui-options-general-other'}"
+                       FontColorOverride="{xNamespace:Static s:StyleNano.NanoGold}"
+                       StyleClasses="LabelKeyText"/>
+                <CheckBox Name="ModernProgressBar" Text="{Loc 'ui-options-modern-progress-bar'}" />
                 <!-- <CheckBox Name="ToggleWalk" Text="{Loc 'ui-options-hotkey-toggle-walk'}" /> -->
             </BoxContainer>
         </ScrollContainer>

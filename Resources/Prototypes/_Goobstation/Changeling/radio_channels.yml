@@ -1,0 +1,9 @@
+- type: radioChannel
+  id: Hivemind
+  name: chat-radio-hivemind
+  keycodes: # WD EDIT
+    - 'g'
+    - 'г'
+  frequency: 19840
+  color: "#e36b00"
+  longRange: true

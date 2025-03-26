@@ -1,25 +1,31 @@
+# WD edit. Changed behavior to getting Structural damage, so it's now StructuralInorganic
+# Was Inorganic and gatherable by pickaxe (removed).
+# OreChance increased from 0.33 to 0.5 and from 0.2 to 0.25
+
 - type: entity
-  id: AsteroidAltRock #It's 1994
+  id: AsteroidAltRock #It was 1994. Now it's 2024.
   parent: BaseStructure
   name: asteroid rock
   suffix: Low Ore Yield
   description: A rocky asteroid.
   components:
+  # WD EDIT START
   - type: Gatherable
     toolWhitelist:
       tags:
         - Pickaxe
+  # WD EDIT END
   - type: Sprite
     sprite: DeltaV/Structures/Walls/asteroid_rock.rsi
     state: full
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic
+    damageModifierSet: RockStrong
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 100
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -40,7 +46,7 @@
     key: walls
     base: rock_
   - type: OreVein
-    oreChance: 0.2
+    oreChance: 0.25
     oreRarityPrototypeId: RandomOreDistributionStandard
 
 - type: entity
@@ -57,35 +63,24 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 200
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: OreVein
-    oreChance: 0.20
+    oreChance: 0.25
     oreRarityPrototypeId: RandomOreDistributionHigh
 
 - type: entity
   id: MountainRock
   parent: BaseStructure
   name: mountain rock
-  suffix: Un-mineable
+  suffix: Un-destructible
   description: A craggy mountain wall. It is too hard to mine.
   components:
   - type: Sprite
     sprite: DeltaV/Structures/Walls/mountain_rock.rsi
     state: full
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: StrongMetallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 1500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
   - type: Occluder
   - type: Airtight
   - type: Fixtures
@@ -110,12 +105,14 @@
   suffix: Higher Ore Yield
   description: A rocky asteroid.
   components:
+  # WD EDIT START
   - type: Gatherable
     toolWhitelist:
       tags:
         - Pickaxe
+  #WD EDIT END
   - type: OreVein
-    oreChance: 0.33
+    oreChance: 0.5
     oreRarityPrototypeId: RandomOreDistributionStandard
 
 - type: entity
@@ -126,5 +123,5 @@
   description: A rocky asteroid.
   components:
   - type: OreVein
-    oreChance: 0.33
+    oreChance: 0.5
     oreRarityPrototypeId: OreCrab

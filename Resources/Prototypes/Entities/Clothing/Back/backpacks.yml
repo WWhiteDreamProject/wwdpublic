@@ -10,9 +10,12 @@
   - type: Item
     size: Huge
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     quickEquip: false
     slots:
     - back
+  - type: EmitSoundOnPickup # WWDP
+    sound: /Audio/_White/Equip/clothingrustle2.ogg
   - type: Storage
     grid:
     - 0,0,6,3
@@ -276,6 +279,16 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertchaplain.rsi
+
+- type: entity
+  parent: ClothingBackpackERTSecurity
+  id: ClothingBackpackDeathSquad
+  name: death squad backpack
+  description: Holds the kit of CentComm's most feared agents.
+  components:
+    - type: Storage
+      grid:
+      - 0,0,7,6
 
 #Syndicate
 - type: entity

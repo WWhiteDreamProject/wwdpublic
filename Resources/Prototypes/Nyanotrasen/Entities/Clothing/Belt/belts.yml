@@ -8,13 +8,19 @@
     sprite: Nyanotrasen/Clothing/Belt/mantis_belt.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Belt/mantis_belt.rsi
-  - type: Storage
-    whitelist:
-      tags:
-        - Document
-        - Flashlight
-        - ForensicBeltEquip
-        - HandLabeler
+  # - type: Storage # WWDP no belt whitelists
+  #   whitelist:
+  #     tags:
+  #       - Document
+  #       - Flashlight
+  #       - ForensicBeltEquip
+  #       - HandLabeler
+  #       - Sidearm
+  #       - Folder
+  #     components:
+  #       - AnomalyScanner
+  #       - NodeScanner
+  #       - Flash
 
 - type: entity
   parent: ClothingBeltBase
@@ -49,7 +55,8 @@
     sprite: Nyanotrasen/Clothing/Belt/katanasheath.rsi
   - type: Storage
     grid:
-      - 0,0,3,1
+      - 0,0,4,0 # WWDP
+      - 0,1,3,1 # WWDP
     whitelist:
       tags:
         - Katana
@@ -65,7 +72,7 @@
       - BeltSlotNotBelt
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ClothingBaseWebbing, ClothingBeltStorageBase] # WWDP
   id: ClothingBeltMilitaryWebbingCMO
   name: chief medical officer's chest rig
   description: A medical chest rig with deep pockets, for use by paramedics and health professionals.
@@ -76,10 +83,6 @@
     sprite: Nyanotrasen/Clothing/Belt/cmowebbing.rsi
   - type: Item
     size: Large
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-      - 0,0,6,2
   - type: Tag
     tags:
       - BeltSlotNotBelt

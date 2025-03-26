@@ -18,7 +18,7 @@ public sealed partial class MeleeWeaponSystem
     /// <summary>
     /// Does all of the melee effects for a player that are predicted, i.e. character lunge and weapon animation.
     /// </summary>
-    public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, bool predicted = true)
+    public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation, bool predicted = true)
     {
         if (!Timing.IsFirstTimePredicted)
             return;
@@ -43,15 +43,12 @@ public sealed partial class MeleeWeaponSystem
             return;
         }
 
-        var spriteRotation = Angle.Zero;
         if (arcComponent.Animation != WeaponArcAnimation.None
             && TryComp(weapon, out MeleeWeaponComponent? meleeWeaponComponent))
         {
             if (user != weapon
                 && TryComp(weapon, out SpriteComponent? weaponSpriteComponent))
                 sprite.CopyFrom(weaponSpriteComponent);
-
-            spriteRotation = meleeWeaponComponent.WideAnimationRotation;
 
             if (meleeWeaponComponent.SwingLeft)
                 angle *= -1;
@@ -136,6 +133,7 @@ public sealed partial class MeleeWeaponSystem
     {
         const float thrustEnd = 0.05f;
         const float length = 0.15f;
+        var rotation = sprite.Rotation + spriteRotation;
         var startOffset = sprite.Rotation.RotateVec(new Vector2(0f, -distance / 5f));
         var endOffset = sprite.Rotation.RotateVec(new Vector2(0f, -distance));
 
@@ -144,6 +142,15 @@ public sealed partial class MeleeWeaponSystem
             Length = TimeSpan.FromSeconds(length),
             AnimationTracks =
             {
+                new AnimationTrackComponentProperty()
+                {
+                    ComponentType = typeof(SpriteComponent),
+                    Property = nameof(SpriteComponent.Rotation),
+                    KeyFrames =
+                    {
+                        new AnimationTrackProperty.KeyFrame(rotation, 0f),
+                    }
+                },
                 new AnimationTrackComponentProperty()
                 {
                     ComponentType = typeof(SpriteComponent),

@@ -22,9 +22,9 @@
 - type: htnCompound
   id: MouseCompound
   branches:
-    - tasks:
-        - !type:HTNCompoundTask
-          task: FoodCompound
+#    - tasks: # WWDP-Edit
+#        - !type:HTNCompoundTask
+#          task: FoodCompound
     - tasks:
         - !type:HTNCompoundTask
           task: IdleCompound

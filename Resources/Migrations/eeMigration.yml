@@ -28,7 +28,7 @@ HyperlinkBookAtmos: BookAtmosDistro
 HyperlinkBookBartending: BookBartendersManual
 HyperlinkBookBotany: BookLeafLoversSecret
 HyperlinkBookChemistry: BookChemicalCompendium
-HyperlinkBookCooking: BookChefGaming
+HyperlinkBookCooking: BookHowToCookForFortySpaceman
 HyperlinkBookGlimmer: BookScientistsGuidebook
 HyperlinkBookHacking: BookEngineersHandbook
 HyperlinkBookMedical: BookMedicalReferenceBook
@@ -116,4 +116,7 @@ Oracle: OracleSpawner
 SophicScribe: SophicScribeSpawner
 
 # 2024-11-16
-GlassBoxLaser: null #Captain's Laser was moved to Loadouts.
+# GlassBoxLaser: null #Captain's Laser was moved to Loadouts. # WWDP moved back to maps
+
+# 2024-12-22
+VendingMachineRestockSalvageEquipment: null

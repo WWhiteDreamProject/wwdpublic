@@ -109,12 +109,25 @@ namespace Content.Shared.Examine
             if (EntityManager.GetComponent<TransformComponent>(examiner).MapID != target.MapId)
                 return false;
 
-            return InRangeUnOccluded(
-                _transform.GetMapCoordinates(examiner),
-                target,
-                GetExaminerRange(examiner),
-                predicate: predicate,
-                ignoreInsideBlocker: true);
+            // Do target InRangeUnoccluded which has different checks.
+            if (examined != null)
+            {
+                return InRangeUnOccluded(
+                    examiner,
+                    examined.Value,
+                    GetExaminerRange(examiner),
+                    predicate: predicate,
+                    ignoreInsideBlocker: true);
+            }
+            else
+            {
+                return InRangeUnOccluded(
+                    examiner,
+                    target,
+                    GetExaminerRange(examiner),
+                    predicate: predicate,
+                    ignoreInsideBlocker: true);
+            }
         }
 
         /// <summary>
@@ -209,7 +222,14 @@ namespace Content.Shared.Examine
 
         public bool InRangeUnOccluded(EntityUid origin, EntityUid other, float range = ExamineRange, Ignored? predicate = null, bool ignoreInsideBlocker = true)
         {
-            var entMan = IoCManager.Resolve<IEntityManager>();
+            var ev = new InRangeOverrideEvent(origin, other);
+            RaiseLocalEvent(origin, ref ev);
+
+            if (ev.Handled)
+            {
+                return ev.InRange;
+            }
+
             var originPos = _transform.GetMapCoordinates(origin);
             var otherPos = _transform.GetMapCoordinates(other);
 
@@ -247,7 +267,12 @@ namespace Content.Shared.Examine
             //Add an entity description if one is declared
             if (!string.IsNullOrEmpty(EntityManager.GetComponent<MetaDataComponent>(entity).EntityDescription))
             {
-                message.AddText(EntityManager.GetComponent<MetaDataComponent>(entity).EntityDescription);
+                // WWDP edit
+                var description = EntityManager.GetComponent<MetaDataComponent>(entity).EntityDescription;
+                var descriptionWrapped = Loc.GetString("examine-entity-description-wrapper", ("description", description));
+
+                message.AddMarkup(descriptionWrapped);
+                // WWDP edit end
                 hasDescription = true;
             }
 

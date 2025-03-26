@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Numerics;
+using Content.Client._White.UI.Emotes;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
@@ -14,14 +15,11 @@ using Robust.Shared.Prototypes;
 namespace Content.Client.Chat.UI;
 
 [GenerateTypedNameReferences]
-public sealed partial class EmotesMenu : RadialMenu
+public sealed partial class EmotesMenu : RadialMenu, IBaseEmoteMenu // WD EDIT
 {
     [Dependency] private readonly EntityManager _entManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-
-    private readonly SpriteSystem _spriteSystem;
-    private readonly EntityWhitelistSystem _whitelistSystem;
 
     public event Action<ProtoId<EmotePrototype>>? OnPlayEmote;
 
@@ -30,8 +28,8 @@ public sealed partial class EmotesMenu : RadialMenu
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
 
-        _spriteSystem = _entManager.System<SpriteSystem>();
-        _whitelistSystem = _entManager.System<EntityWhitelistSystem>();
+        var spriteSystem = _entManager.System<SpriteSystem>();
+        var whitelistSystem = _entManager.System<EntityWhitelistSystem>();
 
         var main = FindControl<RadialContainer>("Main");
 
@@ -41,8 +39,8 @@ public sealed partial class EmotesMenu : RadialMenu
             var player = _playerManager.LocalSession?.AttachedEntity;
             if (emote.Category == EmoteCategory.Invalid ||
                 emote.ChatTriggers.Count == 0 ||
-                !(player.HasValue && _whitelistSystem.IsWhitelistPassOrNull(emote.Whitelist, player.Value)) ||
-                _whitelistSystem.IsBlacklistPass(emote.Blacklist, player.Value))
+                !(player.HasValue && whitelistSystem.IsWhitelistPassOrNull(emote.Whitelist, player.Value)) ||
+                whitelistSystem.IsBlacklistPass(emote.Blacklist, player.Value))
                 continue;
 
             if (!emote.Available &&
@@ -64,7 +62,7 @@ public sealed partial class EmotesMenu : RadialMenu
             {
                 VerticalAlignment = VAlignment.Center,
                 HorizontalAlignment = HAlignment.Center,
-                Texture = _spriteSystem.Frame0(emote.Icon),
+                Texture = spriteSystem.Frame0(emote.Icon),
                 TextureScale = new Vector2(2f, 2f),
             };
 

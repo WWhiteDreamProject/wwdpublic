@@ -50,6 +50,7 @@ station-beacon-telecoms = Телекоммуникации
 station-beacon-atmos = Атмосия
 station-beacon-teg = ТЕГ
 station-beacon-tech-vault = Хранилище технологий
+station-beacon-anchor = Якорь
 
 station-beacon-service = Сервисный отдел
 station-beacon-kitchen = Кухня

@@ -301,3 +301,28 @@ reagent-effect-guidebook-missing =
         [1] Causes
        *[other] cause
     } an unknown effect as nobody has written this effect yet
+
+reagent-effect-guidebook-plant-diethylamine =
+    { $chance ->
+        [1] Увеличивает
+        *[other] увеличивает
+    } продолжительность жизни и/или базовое здоровье растения с вероятностью 10% для каждой.
+
+reagent-effect-guidebook-plant-robust-harvest =
+    { $chance ->
+        [1] Увеличивает
+        *[other] увеличивает
+    } потенцию растения на {$increase} вплоть до максимума {$limit}. Приводит к потере растением семян, когда потенция достигает {$seedlesstreshold}. Попытка добавить потенцию свыше {$limit} может привести к снижению урожайности с вероятностью 10%.
+
+reagent-effect-guidebook-plant-seeds-add =
+    { $chance ->
+        [1] Восстанавливает
+        *[other] восстанавливают
+    } семена растения.
+
+reagent-effect-guidebook-plant-seeds-remove =
+    { $chance ->
+        [1] Удаляет
+        *[other] удаляют
+    } семена растения.
+

@@ -6,17 +6,24 @@
   abstract: true
   components:
   - type: Sprite
-  - type: Item
+  - type: Item # WWDP guns resize
     size: Huge
+    shape:
+    - 0,0,7,1
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/Rifles/ak.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
   - type: Wieldable
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: Gun
+    bonusAngleIncreaseMove: 40    # wwdp
+    bonusAngleIncreaseTurn: 0.25  # wwdp
+    bonusAngleDecay: 40           # wwdp
+    maxBonusAngle: 20             # wwdp
     fireRate: 5
     selectedMode: FullAuto
     availableModes:
@@ -50,13 +57,25 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
-  - type: MeleeWeapon # WD EDIT
-    attackRate: 0.7
+  - type: Execution
+  - type: MeleeWeapon
+    attackRate: 1.3333
     damage:
       types:
-        Blunt: 10
+        Blunt: 8.5
+    bluntStaminaDamageFactor: 1.25
+    swapKeys: true
+    disableHeavy: true
+    animation: WeaponArcThrust
+    wideAnimationRotation: 180
     soundHit:
-      collection: GenericHit
+      collection: MetalThud
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 2.5
+  - type: DamageOtherOnHit
+    staminaCost: 7.5
 
 - type: entity
   name: AKMS
@@ -77,6 +96,7 @@
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
     fireOnDropChance: 0.5
   - type: ChamberMagazineAmmoProvider
+    boltCatch: false # WWDP no zatvornaya zaderzhka kak u m-16
     soundRack:
       path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
   - type: ItemSlots
@@ -106,10 +126,15 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: MeleeWeapon # WD EDIT
-    damage:
-      types:
-        Blunt: 10
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: RiflesDrop
 
 - type: entity
   name: M-90gl
@@ -202,26 +227,45 @@
   - type: Appearance
 
 - type: entity
-  name: Lecter
-  parent: WeaponRifleLecter
-  id: WeaponRifleLecterRubber
-  suffix: Non-lethal
+  name: Foam Force Astro Ace
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
+  id: WeaponRifleFoam
+  description: A premium foam rifle of the highest quality. Its plastic feels rugged, and its mechanisms sturdy.
   components:
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazineRifleRubber
-        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-            - MagazineRifle
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgeRifleRubber
-        priority: 1
-        whitelist:
-          tags:
-            - CartridgeRifle
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Rifles/foam_rifle.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Rifles/foam_rifle.rsi
+  - type: Item
+    shape: # WWDP guns resize
+    - 0,0,5,0 # Toy size
+    sprite: Objects/Weapons/Guns/Rifles/foam_rifle_inhand_64x.rsi
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - BulletFoam
+    capacity: 10
+    proto: BulletFoam
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Effects/thunk.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    clumsyProof: true
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0 # Krillions must bubble-wrap the foam rifle
+    soundHit:
+      collection: ToySqueak
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 0
+  - type: DamageOtherOnHit
+    staminaCost: 3.5

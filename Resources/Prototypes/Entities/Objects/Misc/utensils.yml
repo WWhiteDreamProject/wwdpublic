@@ -8,13 +8,14 @@
   - type: Item # TODO add inhand sprites for all utensils
     sprite: Objects/Misc/utensils.rsi
   - type: SpaceGarbage
+  # Shitmed Change
   - type: Tweezers # Any utensil can poorly remove organs
     speed: 0.2
   - type: SurgeryTool
     startSound:
-      path: /Audio/Medical/Surgery/retractor1.ogg
+      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
     endSound:
-      path: /Audio/Medical/Surgery/hemostat1.ogg
+      path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
 
 - type: entity
   parent: UtensilBase
@@ -30,6 +31,7 @@
     - Plastic
     - Trash
   - type: MeleeWeapon
+    animationRotation: 180 # WWDP
     wideAnimationRotation: 180
     attackRate: .6666
     damage:
@@ -52,11 +54,13 @@
     types:
     - Fork
   - type: MeleeWeapon
+    animationRotation: 180 # WWDP
     wideAnimationRotation: 180
     attackRate: .6666
     damage:
       types:
         Piercing: 5
+  # Shitmed Change
   - type: Tweezers # Forks are better than spoons
     speed: 0.35
   - type: DamageOtherOnHit
@@ -79,6 +83,7 @@
   - type: Utensil
     types:
     - Fork
+  # Shitmed Change
   - type: Tweezers # Forks are better than spoons
     speed: 0.35
 
@@ -99,6 +104,7 @@
     types:
     - Spoon
   - type: MeleeWeapon
+    animationRotation: 180 # WWDP
     wideAnimationRotation: 180
     attackRate: .6666
     damage:
@@ -109,6 +115,11 @@
     angle: 180
   - type: Shovel
     speedModifier: 0.1 # you can try
+  - type: ReactionMixer
+    mixMessage: "spoon-mixing-success"
+    timeToMix: 0.5
+    reactionTypes:
+    - Stir
 
 - type: entity
   parent: UtensilBasePlastic
@@ -125,6 +136,11 @@
     - Spoon
   - type: Shovel
     speedModifier: 0.1 # you can try
+  - type: ReactionMixer
+    mixMessage: "spoon-mixing-success"
+    timeToMix: 0.5
+    reactionTypes:
+    - Stir
 
 - type: entity
   parent: UtensilBasePlastic
@@ -159,7 +175,13 @@
   - type: Utensil
     types:
     - Spoon
+  - type: ReactionMixer
+    mixMessage: "spoon-mixing-success"
+    timeToMix: 0.5
+    reactionTypes:
+    - Stir
   - type: MeleeWeapon
+    animationRotation: 180 # WWDP
     wideAnimationRotation: 180
     attackRate: .5
     damage:

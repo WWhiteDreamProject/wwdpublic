@@ -27,11 +27,16 @@
       inverted: true
       species:
         - Oni
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
         - Shadowkin
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
         - LowPotential
+    - !type:CharacterItemGroupRequirement
+      group: TraitsMachine
   functions:
     - !type:TraitReplaceComponent
       components:
@@ -67,11 +72,16 @@
       inverted: true
       species:
         - Oni
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
         - Shadowkin
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
         - HighPotential
+    - !type:CharacterItemGroupRequirement
+      group: TraitsMachine
   functions:
     - !type:TraitReplaceComponent
       components:
@@ -103,17 +113,17 @@
         - !type:CharacterTraitRequirement
           traits:
             - AnomalousPositronics
-    - !type:CharacterLogicOrRequirement
-      requirements:
-        - !type:CharacterSpeciesRequirement
-          inverted: true
-          species:
-            - Shadowkin
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Shadowkin
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
         - HighAmplification
         - PowerOverwhelming
+    - !type:CharacterItemGroupRequirement
+      group: TraitsMachine
   functions:
     - !type:TraitAddPsionics
       psionicPowers:
@@ -144,17 +154,13 @@
         - !type:CharacterTraitRequirement
           traits:
             - AnomalousPositronics
-    - !type:CharacterLogicOrRequirement
-      requirements:
-        - !type:CharacterSpeciesRequirement
-          inverted: true
-          species:
-            - Shadowkin
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
         - LowAmplification
         - PowerOverwhelming
+    - !type:CharacterItemGroupRequirement
+      group: TraitsMachine
   functions:
     - !type:TraitAddPsionics
       psionicPowers:
@@ -185,17 +191,13 @@
         - !type:CharacterTraitRequirement
           traits:
             - AnomalousPositronics
-    - !type:CharacterLogicOrRequirement
-      requirements:
-        - !type:CharacterSpeciesRequirement
-          inverted: true
-          species:
-            - Shadowkin
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
         - LowAmplification
         - HighAmplification
+    - !type:CharacterItemGroupRequirement
+      group: TraitsMachine
   functions:
     - !type:TraitAddPsionics
       psionicPowers:
@@ -226,16 +228,12 @@
         - !type:CharacterTraitRequirement
           traits:
             - AnomalousPositronics
-    - !type:CharacterLogicOrRequirement
-      requirements:
-        - !type:CharacterSpeciesRequirement
-          inverted: true
-          species:
-            - Shadowkin
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
         - HighDampening
+    - !type:CharacterItemGroupRequirement
+      group: TraitsMachine
   functions:
     - !type:TraitAddPsionics
       psionicPowers:
@@ -266,17 +264,180 @@
         - !type:CharacterTraitRequirement
           traits:
             - AnomalousPositronics
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - LowDampening
+    - !type:CharacterItemGroupRequirement
+      group: TraitsMachine
+  functions:
+    - !type:TraitAddPsionics
+      psionicPowers:
+        - HighDampening
+
+- type: trait
+  id: DispelPower
+  category: Mental
+  points: -6
+  requirements:
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          species:
+            - Shadowkin # Innate Psionics
+        - !type:CharacterTraitRequirement
+          traits:
+            - LatentPsychic
+        - !type:CharacterJobRequirement
+          jobs:
+            - Chaplain
+            - Librarian
+            - ForensicMantis
     - !type:CharacterLogicOrRequirement
       requirements:
         - !type:CharacterSpeciesRequirement
           inverted: true
           species:
-            - Shadowkin
+            - IPC
+        - !type:CharacterTraitRequirement
+          traits:
+            - AnomalousPositronics
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
-        - LowDampening
+        - ShadowkinBlackeye
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - ResearchDirector
+    - !type:CharacterItemGroupRequirement
+      group: TraitsMachine
   functions:
     - !type:TraitAddPsionics
       psionicPowers:
-        - HighDampening
+        - DispelPower
+
+- type: trait
+  id: MetapsionicPower
+  category: Mental
+  points: -4
+  requirements:
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          species:
+            - Shadowkin # Innate Psionics
+        - !type:CharacterTraitRequirement
+          traits:
+            - LatentPsychic
+        - !type:CharacterJobRequirement
+          jobs:
+            - Chaplain
+            - Librarian
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          inverted: true
+          species:
+            - IPC
+        - !type:CharacterTraitRequirement
+          traits:
+            - AnomalousPositronics
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - ShadowkinBlackeye
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - ResearchDirector
+        - ForensicMantis
+    - !type:CharacterItemGroupRequirement
+      group: TraitsMachine
+  functions:
+    - !type:TraitAddPsionics
+      psionicPowers:
+        - MetapsionicPower
+
+- type: trait
+  id: XenoglossyPower
+  category: Mental
+  points: -10
+  requirements:
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          species:
+            - Shadowkin # Innate Psionics
+        - !type:CharacterTraitRequirement
+          traits:
+            - LatentPsychic
+            - NaturalTelepath
+        - !type:CharacterJobRequirement
+          jobs:
+            - Chaplain
+            - ResearchDirector
+            - ForensicMantis
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          inverted: true
+          species:
+            - IPC
+        - !type:CharacterTraitRequirement
+          traits:
+            - AnomalousPositronics
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - ShadowkinBlackeye
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Librarian
+    - !type:CharacterItemGroupRequirement
+      group: TraitsMachine
+  functions:
+    - !type:TraitAddPsionics
+      psionicPowers:
+        - XenoglossyPower
+
+- type: trait
+  id: PsychognomyPower
+  category: Mental
+  points: -3
+  requirements:
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          species:
+            - Shadowkin # Innate Psionics
+        - !type:CharacterTraitRequirement
+          traits:
+            - LatentPsychic
+            - NaturalTelepath
+        - !type:CharacterJobRequirement
+          jobs:
+            - Chaplain
+            - ResearchDirector
+            - ForensicMantis
+            - Librarian
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          inverted: true
+          species:
+            - IPC
+        - !type:CharacterTraitRequirement
+          traits:
+            - AnomalousPositronics
+    - !type:CharacterItemGroupRequirement
+      group: TraitsMachine
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - ShadowkinBlackeye
+  functions:
+    - !type:TraitAddPsionics
+      psionicPowers:
+        - PsychognomyPower

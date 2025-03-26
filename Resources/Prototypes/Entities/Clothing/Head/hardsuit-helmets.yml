@@ -63,6 +63,36 @@
 
 #Engineering Hardsuit
 - type: entity
+  parent: ClothingHeadHelmetHardsuitEngineering
+  id: ClothingHeadHelmetHardsuitEngineeringUnpainted
+  name: engineering hardsuit helmet
+  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/engineering-base.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/engineering-base.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
+
+- type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitEngineering
   name: engineering hardsuit helmet
@@ -199,9 +229,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
-  
+  - type: FlashImmunity # Goobstation
+  - type: FlashSoundSuppression # Goobstation
 
 #Brigmedic Hardsuit
 - type: entity
@@ -229,8 +258,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
+  - type: FlashImmunity # Goobstation
+  - type: FlashSoundSuppression # Goobstation
 
 #Warden's Hardsuit
 - type: entity
@@ -256,8 +285,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
+  - type: FlashImmunity # Goobstation
+  - type: FlashSoundSuppression # Goobstation
 
 #Captain's Hardsuit
 - type: entity
@@ -274,10 +303,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
-  - type: PointLight
-    color: "#9CF4FF"
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
+  - type: FlashImmunity # Goobstation
+  - type: FlashSoundSuppression # Goobstation
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -357,8 +384,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
+  - type: FlashImmunity # Goobstation
+  - type: FlashSoundSuppression # Goobstation
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -382,6 +409,35 @@
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
 - type: entity
+  parent: ClothingHeadHelmetHardsuitSyndie
+  id: ClothingHeadHelmetHardsuitShanlinUnpainted
+  name: Cybersun tacsuit helmet
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/syndicate-base.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/syndicate-base.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
+
+- type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndie
   name: blood-red hardsuit helmet
@@ -404,9 +460,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FlashImmunity # Goobstation
+  - type: FlashSoundSuppression # Goobstation
   - type: EyeProtection # WD EDIT
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
 
 #Blood-red Medic Hardsuit
 - type: entity
@@ -432,11 +488,40 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FlashImmunity # Goobstation
+  - type: FlashSoundSuppression # Goobstation
   - type: EyeProtection # WD EDIT
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
 
 #Syndicate Elite Hardsuit
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSyndieElite
+  id: ClothingHeadHelmetHardsuitShiweiUnpainted
+  name: Cybersun elite tacsuit helmet
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/syndicate-elite-base.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/syndicate-elite-base.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
+
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndieElite
@@ -464,9 +549,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FlashImmunity # Goobstation
+  - type: FlashSoundSuppression # Goobstation
   - type: EyeProtection # WD EDIT
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -492,9 +577,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FlashImmunity # Goobstation
+  - type: FlashSoundSuppression # Goobstation
   - type: EyeProtection # WD EDIT
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -518,9 +603,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FlashImmunity # Goobstation
+  - type: FlashSoundSuppression # Goobstation
   - type: EyeProtection # WD EDIT
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
 
 #Wizard Hardsuit
 - type: entity
@@ -546,6 +631,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FlashImmunity # Goobstation
+  - type: FlashSoundSuppression # Goobstation
 
 #Organic Space Suit
 - type: entity
@@ -596,6 +683,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
+  - type: FlashImmunity # Goobstation
+  - type: FlashSoundSuppression # Goobstation
 
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
@@ -619,9 +708,6 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: EyeProtection # WD EDIT
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -637,9 +723,6 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertchaplain.rsi
   - type: PointLight
     color: "#ffffff"
-  - type: EyeProtection # WD EDIT
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -662,9 +745,6 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: EyeProtection # WD EDIT
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
 
 #ERT Medical Hardsuit
 - type: entity
@@ -680,9 +760,6 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
   - type: PointLight
     color: "#adffec"
-  - type: EyeProtection # WD EDIT
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
 
 #ERT Security Hardsuit
 - type: entity
@@ -705,9 +782,6 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: EyeProtection # WD EDIT
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -723,9 +797,6 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
-  - type: EyeProtection # WD EDIT
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
 
 #CBURN Hardsuit
 - type: entity
@@ -765,9 +836,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FlashImmunity # Goobstation
+  - type: FlashSoundSuppression # Goobstation
   - type: EyeProtection # WD EDIT
-  - type: FlashImmunity # WD EDIT
-  - type: FlashSoundSuppression # WD EDIT
 
 #Deathsquad Hardsuit
 - type: entity
@@ -793,16 +864,14 @@
         Heat: 0.80
         Radiation: 0.80
         Caustic: 0.95
-  # WD EDIT START
-  - type: ClothingGrantComponent
-    component:
-    - type: ThermalVision
-    - type: NightVision
-  - type: EyeProtection
-  - type: FlashImmunity
-  - type: FlashSoundSuppression
-    maxRange: 0
-  # WD EDIT END
+  - type: ThermalVision
+    isEquipment: true
+    color: "#98EEFB"
+    lightRadius: 15
+  - type: FlashImmunity # Goobstation
+  - type: FlashSoundSuppression # Goobstation
+    protectionRange: 0
+  - type: EyeProtection # WD EDIT
 
 #MISC. HARDSUITS
 #Clown Hardsuit

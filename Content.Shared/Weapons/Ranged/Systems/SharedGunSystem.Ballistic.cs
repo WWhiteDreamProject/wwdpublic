@@ -1,5 +1,6 @@
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Stacks;
@@ -8,6 +9,7 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
@@ -15,16 +17,22 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 public abstract partial class SharedGunSystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!; // WWDP
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!; // WWDP
+
 
     protected virtual void InitializeBallistic()
     {
         SubscribeLocalEvent<BallisticAmmoProviderComponent, ComponentInit>(OnBallisticInit);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, MapInitEvent>(OnBallisticMapInit);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, TakeAmmoEvent>(OnBallisticTakeAmmo);
+        SubscribeLocalEvent<BallisticAmmoProviderComponent, ForceSpawnAmmoEvent>(OnForceSpawnAmmo); // WD EDIT
+
         SubscribeLocalEvent<BallisticAmmoProviderComponent, GetAmmoCountEvent>(OnBallisticAmmoCount);
 
         SubscribeLocalEvent<BallisticAmmoProviderComponent, ExaminedEvent>(OnBallisticExamine);
-        SubscribeLocalEvent<BallisticAmmoProviderComponent, GetVerbsEvent<Verb>>(OnBallisticVerb);
+        SubscribeLocalEvent<BallisticAmmoProviderComponent, GetVerbsEvent<InteractionVerb>>(AddInteractionVerb); // WWDP
+        SubscribeLocalEvent<BallisticAmmoProviderComponent, GetVerbsEvent<AlternativeVerb>>(AddAlternativeVerb); // WWDP
         SubscribeLocalEvent<BallisticAmmoProviderComponent, InteractUsingEvent>(OnBallisticInteractUsing);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, AfterInteractEvent>(OnBallisticAfterInteract);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, AmmoFillDoAfterEvent>(OnBallisticAmmoFillDoAfter);
@@ -36,7 +44,7 @@ public abstract partial class SharedGunSystem
         if (args.Handled)
             return;
 
-        ManualCycle(uid, component, Transform(uid).MapPosition, args.User);
+        ManualCycle(uid, component, TransformSystem.GetMapCoordinates(uid), args.User);
         args.Handled = true;
     }
 
@@ -47,9 +55,16 @@ public abstract partial class SharedGunSystem
 
         if (_whitelistSystem.IsWhitelistFailOrNull(component.Whitelist, args.Used))
             return;
+        // WWDP EDIT
+        if (HasComp<BallisticAmmoProviderComponent>(args.Used)) // Ammo providers use the doafter
+            return;
 
         if (GetBallisticShots(component) >= component.Capacity)
+        {
+            Popup(Loc.GetString("gun-ballistic-full"), uid, args.User);
             return;
+        }
+        // WWDP EDIT END
 
         // WD EDIT START
         var entity = args.Used;
@@ -89,8 +104,7 @@ public abstract partial class SharedGunSystem
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, component.FillDelay, new AmmoFillDoAfterEvent(), used: uid, target: args.Target, eventTarget: uid)
         {
-            BreakOnTargetMove = true,
-            BreakOnUserMove = true,
+            BreakOnMove = true,
             BreakOnDamage = false,
             NeedHand = true
         });
@@ -98,6 +112,9 @@ public abstract partial class SharedGunSystem
 
     private void OnBallisticAmmoFillDoAfter(EntityUid uid, BallisticAmmoProviderComponent component, AmmoFillDoAfterEvent args)
     {
+        if (args.Handled || args.Cancelled) // WWDP
+            return;
+
         if (Deleted(args.Target) ||
             !TryComp<BallisticAmmoProviderComponent>(args.Target, out var target) ||
             target.Whitelist == null)
@@ -138,7 +155,7 @@ public abstract partial class SharedGunSystem
             if (ent == null)
                 continue;
 
-            if (!target.Whitelist.IsValid(ent.Value))
+            if (_whitelistSystem.IsWhitelistFail(target.Whitelist, ent.Value))
             {
                 Popup(
                     Loc.GetString("gun-ballistic-transfer-invalid",
@@ -166,30 +183,113 @@ public abstract partial class SharedGunSystem
         args.Repeat = moreSpace && moreAmmo;
     }
 
-    private void OnBallisticVerb(EntityUid uid, BallisticAmmoProviderComponent component, GetVerbsEvent<Verb> args)
+    private void AddInteractionVerb(EntityUid uid, BallisticAmmoProviderComponent component, GetVerbsEvent<InteractionVerb> args) // WWDP
     {
-        if (!args.CanAccess || !args.CanInteract || args.Hands == null || !component.Cycleable)
+        if (!args.CanAccess || !args.CanInteract || args.Hands == null) // WWDP
             return;
 
         if (component.Cycleable)
         {
-            args.Verbs.Add(new Verb()
+            args.Verbs.Add(new InteractionVerb() // WWDP
             {
                 Text = Loc.GetString("gun-ballistic-cycle"),
                 Disabled = GetBallisticShots(component) == 0,
-                Act = () => ManualCycle(uid, component, Transform(uid).MapPosition, args.User),
+                Act = () => ManualCycle(uid, component, TransformSystem.GetMapCoordinates(uid), args.User),
             });
 
         }
     }
+
+    // WWDP edit alt-verb to extract ammunition
+    private void AddAlternativeVerb(EntityUid uid, BallisticAmmoProviderComponent component, GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || args.Hands == null)
+            return;
+
+        args.Verbs.Add(new AlternativeVerb()
+        {
+            Text =  Loc.GetString("gun-ballistic-extract"),
+            Disabled = GetBallisticShots(component) == 0,
+            Act = () => ExtractAction(uid, Transform(uid).MapPosition, component, args.User),
+        });
+    }
+    // WWDP edit end
 
     private void OnBallisticExamine(EntityUid uid, BallisticAmmoProviderComponent component, ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
             return;
 
-        args.PushMarkup(Loc.GetString("gun-magazine-examine", ("color", AmmoExamineColor), ("count", GetBallisticShots(component))));
+        // WWDP edit; better examine, no ammo count on guns
+
+        if (!HasComp<GunComponent>(uid)) // Magazines & Ammo boxes
+        {
+            args.PushMarkup(Loc.GetString("gun-ammocount-examine", ("color", AmmoExamineColor), ("count", GetBallisticShots(component))));
+
+            // Show top round
+            if (component.Entities.Count > 0)
+            {
+                var round = Name(component.Entities[-1]);
+
+                args.PushMarkup(
+                    Loc.GetString("ammo-top-round-examine", ("color", ModeExamineColor), ("round", round)));
+            }
+            else if (component.UnspawnedCount > 0)
+            {
+                if (!_proto.TryIndex(component.Proto, out var round))
+                    return;
+
+                args.PushMarkup(
+                    Loc.GetString("ammo-top-round-examine", ("color", ModeExamineColor), ("round", round.Name)));
+            }
+
+            return;
+        }
+
+        if (component.Entities.Count > 0 && TryComp<MetaDataComponent>(component.Entities[^1], out var cartridgeMetaData))
+        {
+            args.PushMarkup(Loc.GetString("gun-chamber-examine", ("color", ModeExamineColor),
+                ("cartridge", cartridgeMetaData.EntityName)), -1);
+        }
+        else if (component.UnspawnedCount > 0 && component.Proto != null)
+        {
+            var cartridge = _proto.Index<EntityPrototype>(component.Proto);
+            args.PushMarkup(Loc.GetString("gun-chamber-examine", ("color", ModeExamineColor),
+                ("cartridge", cartridge.Name)), -1);
+        }
+        else
+        {
+            args.PushMarkup(Loc.GetString("gun-chamber-examine-empty", ("color", ModeExamineBadColor)), -1);
+        }
+
+        if (!component.AutoCycle)
+        {
+            if (component.Racked)
+            {
+                args.PushMarkup(Loc.GetString("gun-racked-examine", ("color", ModeExamineColor)), -1);
+            }
+            else
+            {
+                args.PushMarkup(Loc.GetString("gun-racked-examine-not", ("color", ModeExamineBadColor)), -1);
+            }
+        }
+
+        // WWDP edit end
     }
+
+    // WWDP manual ammo extraction
+    private void ExtractAction(EntityUid uid, MapCoordinates coordinates, BallisticAmmoProviderComponent component, EntityUid user)
+    {
+        Extract(uid, coordinates, component, user);
+
+        Audio.PlayPredicted(component.SoundInsert, uid, user);
+        UpdateBallisticAppearance(uid, component);
+        UpdateAmmoCount(uid);
+    }
+    // WWDP edit end
+
+    protected abstract void Extract(EntityUid uid, MapCoordinates coordinates, BallisticAmmoProviderComponent component,
+        EntityUid user); // WWDP
 
     private void ManualCycle(EntityUid uid, BallisticAmmoProviderComponent component, MapCoordinates coordinates, EntityUid? user = null, GunComponent? gunComp = null)
     {
@@ -211,6 +311,8 @@ public abstract partial class SharedGunSystem
         Cycle(uid, component, coordinates);
 
         var text = Loc.GetString(shots == 0 ? "gun-ballistic-cycled-empty" : "gun-ballistic-cycled");
+
+        component.Racked = true; // WWDP
 
         Popup(text, uid, user);
         UpdateBallisticAppearance(uid, component);
@@ -261,8 +363,19 @@ public abstract partial class SharedGunSystem
                     component.Entities.RemoveAt(component.Entities.Count - 1);
                     Containers.Remove(entity, component.Container);
                 }
-                else
+                // WWDP edit; support internal caseless ammo in hand-cycled guns
+                else if (TryComp<CartridgeAmmoComponent>(entity, out var cartridge) && cartridge.DeleteOnSpawn)
+                {
+                    component.Entities.RemoveAt(component.Entities.Count - 1);
+                    Containers.Remove(entity, component.Container);
+                    component.Racked = false;
                     break;
+                } // WWDP edit end
+                else
+                {
+                    component.Racked = false; // WWDP
+                    break;
+                }
             }
             else if (component.UnspawnedCount > 0)
             {
@@ -271,10 +384,14 @@ public abstract partial class SharedGunSystem
                 args.Ammo.Add((entity, EnsureShootable(entity)));
 
                  // WD EDIT START
-                if (!component.AutoCycle && HasComp<CartridgeAmmoComponent>(entity))
+                if (!component.AutoCycle && TryComp<CartridgeAmmoComponent>(entity, out var cartridge))
                 {
-                    component.Entities.Add(entity);
-                    Containers.Insert(entity, component.Container);
+                    component.Racked = false;
+                    if (!cartridge.DeleteOnSpawn)
+                    {
+                        component.Entities.Add(entity);
+                        Containers.Insert(entity, component.Container);
+                    }
                     break;
                 }
                 // WD EDIT END
@@ -285,6 +402,19 @@ public abstract partial class SharedGunSystem
         Dirty(uid, component);
     }
 
+    // WD EDIT START
+    private void OnForceSpawnAmmo(EntityUid uid, BallisticAmmoProviderComponent component, ForceSpawnAmmoEvent args)
+    {
+        while(component.UnspawnedCount > 0)
+        {
+            var ent = Spawn(component.Proto, MapCoordinates.Nullspace);
+            component.Entities.Add(ent);
+            Containers.Insert(ent, component.Container);
+            component.UnspawnedCount--;
+        }
+        Dirty(uid, component);
+    }
+    // WD EDIT END
     private void OnBallisticAmmoCount(EntityUid uid, BallisticAmmoProviderComponent component, ref GetAmmoCountEvent args)
     {
         args.Count = GetBallisticShots(component);

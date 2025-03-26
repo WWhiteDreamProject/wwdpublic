@@ -9,7 +9,6 @@
     scale: 0.8, 0.8
   - type: HumanoidAppearance
     species: Felinid
-    initial: Felinid
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -28,8 +27,8 @@
     damageModifierSet: Felinid
   - type: SlowOnDamage
     speedModifierThresholds:
-      60: 0.85  # 0.7 is base speed.
-      80: 0.75  # 0.5 is base speed.
+      60: 0.75  # 0.7 is base speed. # WWDP who buffed these lol
+      80: 0.55  # 0.5 is base speed. # WWDP reverted both back to same as humans
   - type: MeleeWeapon
     soundHit:
       collection: Punch
@@ -49,6 +48,7 @@
         Blunt: 1
   - type: Stamina
     critThreshold: 85
+    decay: 2.55 # 3 base decay multiplied by 0.85 = 2.55
   - type: TypingIndicator
     proto: felinid
   - type: PseudoItem
@@ -77,13 +77,47 @@
     stealth: Subtle
     stripTimeReduction: 0
     stripTimeMultiplier: 0.667
-  - type: StepTriggerImmune
-    whitelist:
-      types:
-        - Shard
-        - Landmine
-        - Mousetrap
-        - SlipEntity
+  # - type: StepTriggerImmune # WWDP no free noslips/ignoring traps
+  #   whitelist:
+  #     types:
+  #       - Shard
+  #       - Landmine
+  #       - Mousetrap
+  #       - SlipEntity
+  # WD EDIT START
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: jumpsuit
+      shoes-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: shoes
+      gloves-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: gloves
+      outerClothing-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: outer
+      hardsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: hardsuit
+      suit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: suit
+  # WD EDIT END
 
 - type: entity
   save: false
@@ -95,3 +129,37 @@
   components:
   - type: HumanoidAppearance
     species: Felinid
+  # WD EDIT START
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: jumpsuit
+      shoes-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: shoes
+      gloves-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: gloves
+      outerClothing-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: outer
+      hardsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: hardsuit
+      suit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: suit
+  # WD EDIT END

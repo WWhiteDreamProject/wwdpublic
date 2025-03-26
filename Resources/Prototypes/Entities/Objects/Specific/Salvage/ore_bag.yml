@@ -17,7 +17,9 @@
     - belt
   - type: Item
     heldPrefix: off
-    size: Ginormous
+    size: Huge # DeltaV: Was Ginormous, lets it fit in conscription bag
+    shape: # WWDP; lets it fit in conscription bag
+    - 0,0,3,2
   - type: Storage
     maxItemSize: Normal
     grid:

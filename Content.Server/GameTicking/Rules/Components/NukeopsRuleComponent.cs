@@ -1,7 +1,7 @@
 using Content.Server.Maps;
-using Content.Server.NPC.Components;
 using Content.Server.RoundEnd;
 using Content.Shared.Dataset;
+using Content.Shared.NPC.Prototypes;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -76,7 +76,7 @@ public sealed partial class NukeopsRuleComponent : Component
     ///     Minimal operatives count for war declaration
     /// </summary>
     [DataField]
-    public int WarDeclarationMinOps = 2; // WD EDIT
+    public int WarDeclarationMinOps = 4; // WD EDIT
 
     [DataField]
     public WinType WinType = WinType.Neutral;

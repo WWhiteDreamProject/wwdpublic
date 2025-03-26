@@ -132,3 +132,6 @@ ent-PortableGeneratorPacmanMachineCircuitboard = плата портативно
 ent-PortableGeneratorSuperPacmanMachineCircuitboard = плата портативной генераторной машины типа S.U.P.E.R.P.A.C.M.A.N.
     .desc = Печатная плата портативного генератора S.U.P.E.R.P.A.C.M.A.N.
     .suffix = { "" }
+ent-MaterialSiloCircuitboard = плата хранилища материалов
+    .desc = Печатная плата хранилища материалов
+    .suffix = { "" }

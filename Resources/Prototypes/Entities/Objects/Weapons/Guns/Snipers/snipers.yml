@@ -12,15 +12,23 @@
   - type: Item
     size: Huge
   - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
-  - type: AmmoCounter
+  # - type: AmmoCounter # WWDP
   - type: Wieldable
   - type: GunRequiresWield
+  - type: DisarmMalus # WWDP
+    malus: 0.3
+    wieldedBonus: 0.3
   - type: Gun
+    bonusAngleIncreaseMove: 30  # wwdp
+    bonusAngleIncreaseTurn: 0.4 # wwdp
+    bonusAngleDecay: 30         # wwdp
+    maxBonusAngle: 30           # wwdp
     fireRate: 0.75
     selectedMode: SemiAuto
     availableModes:
@@ -28,6 +36,8 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: BallisticAmmoProvider
+    soundRack: # WWDP
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
     capacity: 10
     proto: CartridgeLightRifle
     whitelist:
@@ -40,19 +50,40 @@
         ents: []
   - type: StaticPrice
     price: 500
-  - type: MeleeWeapon # WD EDIT
-    attackRate: 0.5
+  - type: Execution
+  - type: MeleeWeapon
+    attackRate: 1.3333
     damage:
       types:
-        Blunt: 8
+        Blunt: 8.0
+    bluntStaminaDamageFactor: 1.25
+    swapKeys: true
+    disableHeavy: true
+    wideAnimationRotation: 135
+    animation: WeaponArcThrust
     soundHit:
-      collection: GenericHit
+      collection: MetalThud
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 2.5
+  - type: DamageOtherOnHit
+    staminaCost: 7.5
+  - type: EmitSoundOnPickup # WWDP sounds
+    sound:
+      collection: SnipersPickUp
+  - type: EmitSoundOnDrop # WWDP sounds
+    sound:
+      collection: SnipersDrop
+  - type: EmitSoundOnLand # WWDP sounds
+    sound:
+      collection: SnipersDrop
 
 - type: entity
   name: Kardashev-Mosin
   parent: [BaseWeaponSniper, BaseGunWieldable]
   id: WeaponSniperMosin
-  description: A weapon for hunting, or endless trench warfare. Uses .30 rifle ammo.
+  description: A weapon for hunting, or endless trench warfare, with a bayonet attached at the barrel. Uses .30 rifle ammo.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
@@ -64,23 +95,51 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
     fireOnDropChance: 1
-  - type: MeleeWeapon # WD EDIT
+  - type: MeleeWeapon
+    range: 1.75
     damage:
       types:
-        Piercing: 10
-        Slash: 5
+        Piercing: 5
+        Slash: 3.5
+    animationRotation: -135 # WWDP
+    wideAnimationRotation: -135
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 4
+        Slash: 2
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 8
+        Slash: 3
+  - type: EmbeddableProjectile
+    removalTime: 3.5
+  - type: EmbedPassiveDamage
+  - type: ThrowingAngle
+    angle: 225
+  - type: Item # WWDP guns resize
+    storedRotation: 45
+    shape:
+    - 0,0,7,0
 
 - type: entity
   name: Kardashev-Mosin
   parent: WeaponSniperMosin
-  id: WeaponSniperMosinRubber
-  description: A weapon for hunting, or endless trench warfare. Uses .30 rifle rubber ammo.
-  suffix: Non-Lethal
+  id: WeaponSniperMosinEmpty
+  description: A weapon for hunting, or endless trench warfare. Uses .30 rifle ammo.
+  suffix: Empty
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleRubber
+    proto: null
+  - type: ExtendDescription
+    descriptionList:
+    - description: "gun-legality-salvage"
+      fontSize: 12
+      color: "#ff4f00"
+      requireDetailRange: false
 
 - type: entity
   name: Hristov
@@ -99,8 +158,13 @@
   - type: Clothing
     sprite: _White/Objects/Weapons/Guns/Snipers/hristov-inhands.rsi
   - type: Item
+    size: Huge # WWDP guns resize
+    shape:
+    - 0,0,6,1 # needs to fit in a briefcase, collapsible stock or something
     sprite: _White/Objects/Weapons/Guns/Snipers/hristov-inhands.rsi
   - type: BallisticAmmoProvider
+    soundRack: # WWDP
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
     soundInsert: /Audio/_White/Guns/insert.ogg
     whitelist:
       tags:
@@ -122,11 +186,14 @@
   name: musket
   parent: BaseWeaponSniper
   id: Musket
-  description: This should've been in a museum long before you were born. Uses .60 anti-materiel ammo.
+  description: This should've been in a museum long before you were born. Uses musket catridges. # Delta V - swapping to our crafted musket ammo
   components:
   - type: Sharp
   - type: Item
     size: Large
+    storedRotation: 45 # WWDP
+    shape: # WWDP
+    - 0,0,7,0
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/musket.rsi
     state: base
@@ -141,48 +208,81 @@
   - type: UseDelay
     delay: 8 #it's a musket
   - type: BallisticAmmoProvider
+    autoCycle: true # WWDP
     whitelist:
       tags:
-      - CartridgeAntiMateriel
+      - CartridgeMusket # DeltaV - musket instead of anti materiel ammo
     capacity: 1
-    proto: CartridgeAntiMateriel
+    proto: CartridgeMusket # DeltaV
   - type: MeleeWeapon
-    wideAnimationRotation: -135
+    range: 1.75
     damage:
       types:
-        Piercing: 15 #you fucking stab em
-        Bloodloss: 2 #no way to apply bleed, triangular bayonet wounds are hard to fix(source:that one copypasta)
-    angle: 0
-    animation: WeaponArcThrust
+        Piercing: 5
+        Slash: 3.5
+    animationRotation: -135 # WWDP
+    wideAnimationRotation: -135
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 4
+        Slash: 2
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 8
+        Slash: 3
+  - type: EmbeddableProjectile
+    removalTime: 3.5
+  - type: EmbedPassiveDamage
+  - type: ThrowingAngle
+    angle: 225
 
 - type: entity
   name: flintlock pistol
-  parent: BaseWeaponSniper
+  parent: BaseWeaponShotgunSmall # WWDP
   id: WeaponPistolFlintlock
-  description: A pirate's companion. Yarrr! Uses .60 anti-materiel ammo.
+  description: A pirate's companion. Yarrr! Uses musket cartridges. # Delta V - Ditto the above
   components:
   - type: Gun
+    bonusAngleIncreaseMove: 30  # wwdp
+    bonusAngleIncreaseTurn: 0.4 # wwdp
+    bonusAngleDecay: 30         # wwdp
+    maxBonusAngle: 30           # wwdp
     minAngle: 0
     maxAngle: 30 #miss him entirely because the barrel is smoothbore
     fireOnDropChance: 1
   - type: Item
     size: Small
-    storedRotation: 90
+    shape: # WWDP guns resize
+    - 0,0,3,0
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
+    layers: # WWDP
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 8 #it's a flintlock
   - type: BallisticAmmoProvider
+    autoCycle: true # WWDP
     whitelist:
       tags:
-        - CartridgeAntiMateriel
+      - CartridgeMusket # DeltaV - musket instead of anti materiel ammo
     capacity: 1
-    proto: CartridgeAntiMateriel
+    proto: CartridgeMusket # DeltaV
   - type: StaticPrice
     price: 0
-
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Blunt: 7.5
+    bluntStaminaDamageFactor: 1.0
+    wideAnimationRotation: 135
+  - type: DamageOtherOnHit
+    staminaCost: 5

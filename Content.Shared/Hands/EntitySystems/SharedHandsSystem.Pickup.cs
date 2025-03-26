@@ -1,3 +1,4 @@
+using Content.Shared._White.Light.Components;
 using Content.Shared.Database;
 using Content.Shared.Hands.Components;
 using Content.Shared.Item;
@@ -10,6 +11,8 @@ namespace Content.Shared.Hands.EntitySystems;
 
 public abstract partial class SharedHandsSystem : EntitySystem
 {
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // WWDP
+
     private void InitializePickup()
     {
         SubscribeLocalEvent<HandsComponent, EntInsertedIntoContainerMessage>(HandleEntityInserted);
@@ -108,10 +111,10 @@ public abstract partial class SharedHandsSystem : EntitySystem
             var xform = Transform(uid);
             var coordinateEntity = xform.ParentUid.IsValid() ? xform.ParentUid : uid;
             var itemXform = Transform(entity);
-            var itemPos = itemXform.MapPosition;
+            var itemPos = TransformSystem.GetMapCoordinates(entity, xform: itemXform);
 
             if (itemPos.MapId == xform.MapID
-                && (itemPos.Position - xform.MapPosition.Position).Length() <= MaxAnimationRange
+                && (itemPos.Position - TransformSystem.GetMapCoordinates(uid, xform: xform).Position).Length() <= MaxAnimationRange
                 && MetaData(entity).VisibilityMask == MetaData(uid).VisibilityMask) // Don't animate aghost pickups.
             {
                 var initialPosition = EntityCoordinates.FromMap(coordinateEntity, itemPos, TransformSystem, EntityManager);
@@ -227,6 +230,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
 
         Dirty(uid, hands);
 
+        RaiseLocalEvent(entity, new ItemPickedUpEvent(uid)); // WWDP EDIT
         if (hand == hands.ActiveHand)
             RaiseLocalEvent(entity, new HandSelectedEvent(uid), false);
     }

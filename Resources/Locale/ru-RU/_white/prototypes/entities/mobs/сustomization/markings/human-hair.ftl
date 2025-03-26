@@ -1,4 +1,3 @@
-marking-HumanHairAfricanPigtails = Хвостики (Африканские)
 marking-HumanHairAfropuffdouble = Aфро-пуф, Двойной
 marking-HumanHairAfropuffleft = Aфро-пуф, Левый
 marking-HumanHairAfropuffright = Aфро-пуф, Правый
@@ -35,10 +34,9 @@ marking-HumanHairHalfshaveLong = Наполовину выбритая (Длин
 marking-HumanHairHalfshaveMessy = Наполовину выбритая (Растрёпанная)
 marking-HumanHairHalfshaveMessyLong = Наполовину выбритая (Длинная растрёпанная)
 marking-HumanHairHalfshaveSnout = Наполовину выбритая 2 (Обрезанная)
-marking-HumanHairHightight = Хай-тайт
 marking-HumanHairHyenamane = Грива гиены
 marking-HumanHairJessica = Джессика
-marking-HumanHairLong4 = Длинная 4
+marking-HumanHairLong5 = Длинная 5
 marking-HumanHairLongdtails = Длинные хвосты
 marking-HumanHairLongerAlt = Длинная (Альт.)
 marking-HumanHairLongovereyeAlt = Длинная (Через глаз альт.)

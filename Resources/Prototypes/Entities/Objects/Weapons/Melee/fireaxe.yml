@@ -8,10 +8,16 @@
     tags:
     - FireAxe
   - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
   - type: Sprite
     sprite: Objects/Weapons/Melee/fireaxe.rsi
     state: icon
+  - type: DisarmMalus # WWDP
+    malus: 0.3
+    wieldedBonus: 0.3
   - type: MeleeWeapon
+    animationRotation: 45 # WWDP
     wideAnimationRotation: 135
     swingLeft: true
     attackRate: 1.3333
@@ -55,6 +61,7 @@
     stealGroup: FireAxe
   - type: IgniteOnMeleeHit
     fireStacks: -4
+  # Shitmed Change
   - type: Scalpel
     speed: 0.3
   - type: BoneSaw

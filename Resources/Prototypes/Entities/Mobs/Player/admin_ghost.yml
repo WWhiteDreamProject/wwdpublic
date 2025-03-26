@@ -6,11 +6,11 @@
   components:
   - type: Eye
     visMask:
-      - TelegnosticProjection
-      - PsionicInvisibility
-      - Ghost
-      - Normal
-      - Ethereal
+    - TelegnosticProjection
+    - PsionicInvisibility
+    - Ghost
+    - Normal
+    - Ethereal
   - type: ContentEye
     maxZoom: 10, 10
   - type: MovementSpeedModifier
@@ -22,6 +22,7 @@
     - CanPilot
     - BypassInteractionRangeChecks
     - BypassDropChecks
+    - NoConsoleSound
   - type: Input
     context: "aghost"
   - type: Ghost
@@ -30,6 +31,7 @@
   - type: Hands
   - type: ComplexInteraction
   - type: Puller
+    needsHands: false # Tail Drag
     pushAcceleration: 1000000 # Will still be capped in max speed
     maxPushRange: 20
   - type: CombatMode
@@ -38,10 +40,11 @@
     bodyType: Kinematic
   - type: Body
     prototype: Aghost
-    thermalVisibility: false # WD EDIT
+    thermalVisibility: false
   - type: Access
     groups:
     - AllAccess
+    - Silicon
     tags:
     - NuclearOperative
     - SyndicateAgent
@@ -59,7 +62,7 @@
       enum.CrewMonitoringUIKey.Key:
         type: CrewMonitoringBoundUserInterface
       enum.GeneralStationRecordConsoleKey.Key:
-      # who the fuck named this bruh
+        # who the fuck named this bruh
         type: GeneralStationRecordConsoleBoundUserInterface
   - type: IntrinsicUI
     uis:
@@ -82,11 +85,14 @@
   - type: RadarConsole
     followEntity: true
   - type: CargoOrderConsole
+  - type: BankClient
   - type: CrewMonitoringConsole
   - type: GeneralStationRecordConsole
+    canDeleteEntries: true
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor
+    transmitFrequencyId: ShuttleTimer
   - type: WirelessNetworkConnection
     range: 500
   - type: StationLimitedNetwork
@@ -96,8 +102,7 @@
   - type: Stripping
   - type: SolutionScanner
   - type: IgnoreUIRange
-  - type: ShowRevIcons
-  - type: ShowZombieIcons
+  - type: ShowAntagIcons
   - type: Inventory
     templateId: aghost
   - type: InventorySlots
@@ -114,7 +119,6 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-  - type: ShowSyndicateIcons
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
   - type: ShowCriminalRecordIcons

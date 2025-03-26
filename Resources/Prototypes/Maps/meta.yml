@@ -1,0 +1,75 @@
+- type: gameMap
+  id: Meta
+  mapName: 'Meta Station'
+  mapPath: /Maps/meta.yml
+  minPlayers: 10
+  maxPlayers: 60
+  stations:
+    Meta:
+      stationProto: StandardNanotrasenStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: '{0} Meta Station {1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: 'WWDP'
+      - type: StationEmergencyShuttle
+        emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Delta.yml
+      - type: StationJobs
+        overflowJobs:
+        - Passenger
+        availableJobs:
+          #Silicons
+          Borg: [ 2, 2 ]
+          MedicalBorg: [ 2, 2 ]
+          StationAi: [ 1, 1 ]
+          #Heads
+          Captain: [ 1, 1 ]
+          Maid: [ 1, 1 ]
+          HeadOfSecurity: [ 1, 1 ]
+          HeadOfPersonnel: [ 1, 1 ]
+          ChiefEngineer: [ 1, 1 ]
+          ChiefMedicalOfficer: [ 1, 1 ]
+          ResearchDirector: [ 1, 1 ]
+          Quartermaster: [ 1, 1 ]
+          #Security
+          Warden: [ 1, 1 ]
+          SecurityOfficer: [ 5, 6 ]
+          SecurityCadet: [ 3, 3 ]
+          Detective: [ 1, 1 ]
+          Lawyer: [ 1, 1 ]
+          Prisoner: [ 2, 2 ]
+          PrisonGuard: [ 1, 1 ]
+          #Medical
+          Chemist: [ 3, 3 ]
+          Paramedic: [ 3, 3 ]
+          MedicalDoctor: [ 3, 4 ]
+          MedicalIntern: [ 2, 2 ]
+          Psychologist: [ 1, 1 ]
+          #Cargo
+          SalvageSpecialist: [ 3, 3 ]
+          CargoTechnician: [ 2, 2 ]
+          MailCarrier: [ 1, 2 ]
+          #Engineering
+          AtmosphericTechnician: [ 3, 3 ]
+          StationEngineer: [ 4, 6 ]
+          TechnicalAssistant: [ 2, 3 ]
+          #Science
+          Scientist: [ 3, 4 ]
+          ResearchAssistant: [ 1, 2 ]
+          #Other
+          Bartender: [ 2, 2 ]
+          Chef: [ 2, 2 ]
+          Botanist: [ 2, 3 ]
+          ServiceWorker: [ 2, 2 ]
+          Librarian: [ 1, 1 ]
+          Janitor: [ 2, 2 ]
+          Chaplain: [ 1, 1 ]
+          Mime: [ 1, 1 ]
+          Clown: [ 1, 1 ]
+          Musician: [ 1, 1 ]
+          Reporter: [ 1, 1 ]
+          Boxer: [ 1, 1 ]
+          Passenger: [ -1, -1 ]
+          Hobo: [ 1, 1 ]
+
