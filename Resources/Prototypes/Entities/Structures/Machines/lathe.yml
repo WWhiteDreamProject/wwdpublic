@@ -49,6 +49,8 @@
     price: 800
   - type: ResearchClient
   - type: TechnologyDatabase
+  - type: Speech # Goobstation - Lathe message on recipes update
+    speechSounds: Lathe
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -213,6 +215,7 @@
     - NekomimeticTranslator
     - DraconicTranslator
     - SolCommonTranslator
+    - NovuNedericTranslator
     - RootSpeakTranslator
     - BasicGalaticCommonTranslatorImplanter
     - MofficTranslator
@@ -243,6 +246,7 @@
     - RiotShield
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
+    - GrenadeFlashBang # Goobstation
     # .35 Caseless Pistol
     - MagazinePistolCaselessRiflePractice # EE
     - MagazinePistolCaselessRifle # EE
@@ -959,6 +963,7 @@
     - WeaponFlareGunSecurity
     - WeaponLaserCarbinePractice
     - Zipties
+    - GrenadeFlashBang # Goobstation
     - ShockCollar
     # # DeltaV - .38 special ammo - Add various .38 special ammo to security techfab # WWDP disable "special"
     # - MagazineBoxSpecial
@@ -968,10 +973,14 @@
     - HandheldGPSBasic
     - HandheldStationMap
     # WWDP gun bloat moved to tier 1 Arsenal research
+    # - MagazineNovaliteC1Empty
+    # - MagazineNovaliteC1
     # - MagazineLightRifleLowCapacityEmpty
     # - MagazineLightRifleLowCapacity
     # - SpeedLoaderRifleHeavy
     # - SpeedLoaderRifleHeavyEmpty
+    # - WeaponRifleNovaliteC1
+    # - WeaponRifleGestio
     # - MagazineMagnumLeverRifle # Goobstation
     # - MagazineMagnumLeverRifleEmpty # Goobstation
     # - MagazineNovaliteC1Empty
@@ -986,12 +995,17 @@
     - MagazineShotgunBeanbag
     - ShellTranquilizer
     - BoxBeanbag
+    - BoxShotgunBirdshot
+    - BoxShotgun00Buckshot
+    - BoxShotgun0000Buckshot
     dynamicRecipes:
     # WWDP gun bloat moved to tier 1 Arsenal research
     - MagazineLightRifleLowCapacityEmpty
     - MagazineLightRifleLowCapacity
     - SpeedLoaderRifleHeavy
     - SpeedLoaderRifleHeavyEmpty
+    - WeaponRifleNovaliteC1
+    - WeaponRifleGestio
     - MagazineMagnumLeverRifle # Goobstation
     - MagazineMagnumLeverRifleEmpty # Goobstation
     - MagazineNovaliteC1Empty
@@ -1005,6 +1019,7 @@
 
     - WeaponSecurityRiotLauncher # WWDP
     - Truncheon
+    - Terminus
     - BoxShotgunIncendiary
     - BoxShotgunUranium
     - EncryptionKeySyndie
@@ -1100,12 +1115,31 @@
     - EnergySword
     - EnergySwordDouble
     - EnergyCutlass
+    - WeaponEnergyTurretAIMachineCircuitboard
+    - WeaponEnergyTurretStationMachineCircuitboard
+    - WeaponEnergyTurretAIControlPanelElectronics
+    - WeaponEnergyTurretStationControlPanelElectronics
     # - WeaponSubMachineGunFPA90 # WWDP no syndicate gear
     - WeaponSubMachineGunBRDIR25
     - WeaponPistolMk58
     - WeaponPistolN1984
     # - WeaponPistolViper  # WWDP no syndicate gear
-    # - WeaponPistolCobra  # WWDP no syndicate gear
+    # - WeaponPistolCobra # WWDP no syndicate gear
+    - MagazineRifleShrapnel
+    - MagazinePistolShrapnel
+    - MagazinePistolSubMachineGunShrapnel
+    - MagazineMagnumShrapnel
+    - MagazineLightRifleShrapnel
+    - MagazineCaselessRifleShrapnel
+    - MagazineCaselessRifleIncendiary
+    - MagazineCaselessRifleUranium
+    - MagazineBoxPistolShrapnel
+    - MagazineBoxMagnumShrapnel
+    - MagazineBoxLightRifleShrapnel
+    - MagazineBoxRifleShrapnel
+    - MagazineBoxCaselessRifleShrapnel
+    - MagazineBoxCaselessRifleIncendiary
+    - MagazineBoxCaselessRifleUranium
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1731,6 +1765,7 @@
     - CrazyGlue
     - PlushieRatvar
     - PlushieNar
+    - PlushieSanabi # WWDP edit
   - type: EmagLatheRecipes
     emagStaticRecipes:
     - PlushieGhost

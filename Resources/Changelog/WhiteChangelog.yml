@@ -2154,3 +2154,67 @@ Entries:
   id: 228
   time: '2025-03-21T07:10:08.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/362
+- author: Spatison
+  changes:
+    - type: Add
+      message: Upstream 03.15 - 03.22
+  id: 229
+  time: '2025-03-22T07:09:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/364
+- author: Kai518
+  changes:
+    - type: Add
+      message: >-
+        Security loadouts now include holoprojector, flashlight, gas mask,
+        envirogloves. / В лоадауты для СБ добавлены голопроектор, фонарик,
+        маска, перчатки.
+    - type: Add
+      message: >-
+        All personnel now has ushanka in loadouts. / В лоадауты для всего
+        персонала добавлена ушанка.
+    - type: Add
+      message: >-
+        General brigadier plushie from SANABI was added. / Добавлена плюшевая
+        игрушка генерала бригадира из SANABI.
+  id: 230
+  time: '2025-03-23T20:38:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/240
+- author: Kai518
+  changes:
+    - type: Add
+      message: Жало трансформации возвращено в магазин генокрада!
+    - type: Tweak
+      message: Раундстартовое количество очков эволюции у генокрада 16 -> 10
+    - type: Tweak
+      message: Изменены вообще все цены в магазине генокрада под новый баланс.
+    - type: Tweak
+      message: Скорость атаки руки-меча увеличена 1.5 -> 0.8
+    - type: Tweak
+      message: >-
+        Теперь генокрад с самого своего появления имеет доступ к разуму улья на
+        :g
+    - type: Fix
+      message: Исправлен крик генокрада.
+    - type: Remove
+      message: >-
+        Удалена необходимость поглощать кого-либо для использования способностей
+        генокрада.
+  id: 231
+  time: '2025-03-24T14:12:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/371
+- author: Ligrof
+  changes:
+    - type: Tweak
+      message: Количество воды на выходе из центрифугирования крови 11 => 10.5
+  id: 232
+  time: '2025-03-24T14:14:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/373
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Soulless респрайт Бригмедика
+    - type: Remove
+      message: Душа из спрайтов бригмеда
+  id: 233
+  time: '2025-03-26T15:18:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/377
