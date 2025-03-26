@@ -46,7 +46,7 @@
     sprite: DeltaV/Clothing/Ears/Headsets/syndicate_listening.rsi
 
 - type: entity
-  parent: ClothingHeadsetAltSyndicateEmpty
+  parent: ClothingHeadsetAltSyndicate
   id: ClothingHeadsetAltSyndicateListeningEmpty
   name: blood-red over-ear interception headset
   description: An advanced, modular syndicate interception intercom that fits over the head.
