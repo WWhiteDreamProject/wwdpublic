@@ -252,3 +252,12 @@
   components:
     - type: Implanter
       implant: MindShieldImplant
+
+# Example component implant
+- type: entity
+  id: ComponentImplanter
+  suffix: DEBUG
+  parent: BaseImplantOnlyImplanter
+  components:
+    - type: Implanter
+      implant: ComponentImplant

@@ -266,16 +266,21 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         var chance = 1 - disarmerComp.BaseDisarmFailChance;
 
+        // WWDP edit, disarm based on health & stamina
+        chance *= Math.Clamp(
+            _contests.StaminaContest(disarmer, disarmed)
+            * _contests.HealthContest(disarmer, disarmed),
+            0f,
+            1f);
+
         if (inTargetHand != null && TryComp<DisarmMalusComponent>(inTargetHand, out var malus))
-            chance -= malus.Malus;
+            chance *= 1 - malus.CurrentMalus; // WWDP edit
 
         if (TryComp<ShovingComponent>(disarmer, out var shoving))
-            chance += shoving.DisarmBonus;
+            chance *= 1 + shoving.DisarmBonus; // WWDP edit
 
-        return Math.Clamp(chance // WWDP disarm based on health & stamina
-                        * _contests.StaminaContest(disarmer, disarmed)
-                        * _contests.HealthContest(disarmer, disarmed),
-                        0f, 1f);
+        return chance;
+        // WWDP edit end
     }
 
     // WWDP shove stamina damage based on mass

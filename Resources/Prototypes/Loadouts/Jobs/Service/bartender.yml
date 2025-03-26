@@ -68,7 +68,7 @@
     - !type:CharacterAgeRequirement
       min: 21
   items:
-    - WeaponShotgunDoubleBarreled
+    - WeaponShotgunDoubleBarreledRubber # WWDP
 
 - type: loadout
   id: LoadoutServiceBartenderMosin

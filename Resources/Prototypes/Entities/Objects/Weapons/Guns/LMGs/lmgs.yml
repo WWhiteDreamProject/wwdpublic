@@ -17,6 +17,9 @@
   - type: Wieldable
     unwieldOnUse: false
   - type: GunRequiresWield
+  - type: DisarmMalus # WWDP
+    malus: 0.3
+    wieldedBonus: 0.3
   - type: GunWieldBonus
     minAngle: -20
     maxAngle: -20
@@ -27,7 +30,7 @@
     maxBonusAngle: 30             # wwdp
     minAngle: 24
     maxAngle: 45
-    angleIncrease: 4
+    angleIncrease: 1 # WWDP
     angleDecay: 16
     fireRate: 8
     selectedMode: FullAuto

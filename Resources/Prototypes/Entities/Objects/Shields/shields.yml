@@ -335,7 +335,7 @@
   - type: ComponentToggler
     components:
     - type: DisarmMalus
-      malus: 0.6
+      malus: 0.9 # WWDP
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_shield.rsi
     layers:
@@ -402,6 +402,8 @@
     autoRecharge: true
     autoRechargeRate: 1
   - type: RechargeableBlocking
+    dischargedRechargeRate: 27.5
+    chargedRechargeRate: 30
   # WD EDIT END
 
 - type: entity
@@ -436,7 +438,7 @@
   - type: ComponentToggler
     components:
     - type: DisarmMalus
-      malus: 0.6
+      malus: 0.9 # WWDP
   - type: ItemToggleSize
     activatedSize: Huge
   - type: Sprite

@@ -33,8 +33,8 @@
   - type: Appearance
   - type: PowerCellVisuals
   - type: Riggable
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLightLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletEnergyGunLaser # WWDP
     fireCost: 50
 
 - type: entity
@@ -330,8 +330,8 @@
   - type: Tag
     tags:
       - PowerCage
-  - type: HitscanBatteryAmmoProvider
-    proto: RedShuttleLaser
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
     fireCost: 150
   - type: ClothingSpeedModifier
     walkModifier: 0.8
