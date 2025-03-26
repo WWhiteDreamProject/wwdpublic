@@ -1,7 +1,4 @@
 ﻿using Content.Shared.Damage;
-using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server._White.Headcrab;
 
@@ -9,12 +6,6 @@ namespace Content.Server._White.Headcrab;
 [RegisterComponent]
 public sealed partial class HeadcrabComponent : Component
 {
-    /// <summary>
-    /// WorldTargetAction
-    /// </summary>
-    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string JumpAction = "ActionHeadcrabJump";
-
     [DataField]
     public float ParalyzeTime = 3f;
 
@@ -31,8 +22,4 @@ public sealed partial class HeadcrabComponent : Component
 
     [DataField]
     public float DamageFrequency = 5;
-
-    [DataField]
-    public SoundSpecifier? JumpSound = new SoundPathSpecifier("/Audio/_White/Misc/Headcrab/headcrab_jump.ogg");
-
 }

@@ -202,7 +202,7 @@
     range: 10
     icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_off }
     iconOn: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_on }
-    event: !type:AlienJumpActionEvent
+    event: !type:JumpActionEvent
 
 - type: entity
   id: ActionStalkAlien

@@ -4,7 +4,7 @@ using Content.Server.Actions;
 using Content.Server.Chat.Managers;
 using Content.Server.Popups;
 using Content.Shared._White.Xenomorphs.Components;
-using Content.Shared._White.Xenomorphs.Plasma;
+using Content.Shared._White.Xenomorphs.Plasma.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;

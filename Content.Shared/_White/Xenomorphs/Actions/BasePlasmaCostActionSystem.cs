@@ -1,4 +1,5 @@
 using Content.Shared._White.Xenomorphs.Plasma;
+using Content.Shared._White.Xenomorphs.Plasma.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Popups;
 

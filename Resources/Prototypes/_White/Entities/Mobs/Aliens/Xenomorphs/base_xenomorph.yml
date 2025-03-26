@@ -414,10 +414,8 @@
     baseWalkSpeed: 3
     baseSprintSpeed: 5.8
   - type: AlienStalk
-  - type: JumpVisuals
-    baseState: alienh
-  - type: AlienJump
-    sprite: _White/Mobs/Aliens/Xenomorphs/hunter_jump.rsi
+  - type: Jump
+    jumpAction: ActionJumpAlien
   - type: GuideHelp
     guides:
     - XenomorphHunter

@@ -3,6 +3,7 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared._White.Xenomorphs.Plasma;
+using Content.Shared._White.Xenomorphs.Plasma.Components;
 using Content.Shared._White.Xenomorphs.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Devour.Components;

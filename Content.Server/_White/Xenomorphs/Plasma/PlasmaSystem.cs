@@ -1,4 +1,5 @@
 ﻿using Content.Shared._White.Xenomorphs.Plasma;
+using Content.Shared._White.Xenomorphs.Plasma.Components;
 
 namespace Content.Server._White.Xenomorphs.Plasma;
 

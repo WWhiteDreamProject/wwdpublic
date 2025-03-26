@@ -1,5 +1,6 @@
 using Content.Client.Alerts;
 using Content.Shared._White.Xenomorphs.Plasma;
+using Content.Shared._White.Xenomorphs.Plasma.Components;
 
 namespace Content.Client._White.Xenomorphs.Plasma;
 

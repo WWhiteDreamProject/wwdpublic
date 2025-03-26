@@ -17,7 +17,7 @@
   - type: GhostRole
     allowSpeech: false
     name: ghost-role-information-headcrab-name
-    description: ghost-role-information-headcrab-description 
+    description: ghost-role-information-headcrab-description
     raffle:
       settings: short
   - type: Sprite
@@ -35,7 +35,9 @@
     damage:
       types:
         Piercing: 2
-    jumpAction: ActionHeadcrabJump
+  - type: Jump
+    jumpAction: ActionJumpHeadcrab
+    jumpSound: "/Audio/_White/Misc/Headcrab/headcrab_jump.ogg"
   - type: DamageStateVisuals
     states:
       Alive:
