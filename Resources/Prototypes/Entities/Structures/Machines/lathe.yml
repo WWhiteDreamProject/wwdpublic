@@ -720,7 +720,6 @@
     - PowerCageSmall # Goobstation - Powercell to exosuit fab
     dynamicRecipes:
     - ProximitySensor
-    - Drone
     - BorgModuleLightReplacer
     - BorgModuleAdvancedCleaning
     - BorgModuleMining
