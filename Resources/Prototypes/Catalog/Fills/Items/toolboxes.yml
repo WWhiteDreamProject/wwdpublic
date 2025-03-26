@@ -124,7 +124,7 @@
     - id: Multitool
     - id: ClothingHandsGlovesCombat
     - id: ClothingMaskGasSyndicate
-
+    - id: ClothingHeadsetAltSyndicateListeningEmpty
 - type: entity
   id: ToolboxGoldFilled
   name: golden toolbox
