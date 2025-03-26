@@ -15,7 +15,9 @@
       heavyRateModifier: 2
       angle: 60
       soundHit:
-        path: /Audio/Nyanotrasen/Weapons/club.ogg
+        collection: MetalThud
+    - type: DisarmMalus
+      malus: 0.3
     - type: Item
       size: Ginormous
     - type: Clothing
@@ -27,6 +29,8 @@
       lifetime: 0.05
     - type: FlipOnHit
       applyToSelf: false
+    - type: MeleeBlock
+      delay: 12.1
 
 - type: entity
   name: assball bat
@@ -60,7 +64,25 @@
   components:
     - type: Sprite
       sprite: _White/Objects/Weapons/Melee/Hosbat/laser_bat.rsi
-      state: icon
+      layers:
+      - state: bat_laser_handle
+      - state: bat_laser
+        shader: unshaded
+    - type: Item
+      size: Normal
+      inhandVisuals:
+        left:
+        - state: inhand-left
+        - state: inhand-left-unshaded
+          shader: unshaded
+        right:
+        - state: inhand-right
+        - state: inhand-right-unshaded
+          shader: unshaded
+    - type: PointLight
+      enabled: true
+      color: "#ff0000"
+      radius: 1.5
     - type: MeleeWeapon
       damage:
         types:
@@ -78,6 +100,8 @@
       sprite: _White/Objects/Weapons/Melee/Hosbat/stop_sign.rsi
       state: icon
     - type: MeleeWeapon
+      soundHit:
+        path: /Audio/SimpleStation14/Weapons/Melee/rapierhit.ogg
       damage:
         types:
           Slash: 17
@@ -103,6 +127,8 @@
       sprite: _White/Objects/Weapons/Melee/Hosbat/tactical_sledgehammer.rsi
       state: icon
     - type: MeleeWeapon
+      soundHit:
+        path: /Audio/Nyanotrasen/Weapons/club.ogg
       damage:
         types:
           Blunt: 17
@@ -153,7 +179,7 @@
         types:
           Blunt: 5
       soundHit:
-        path: /Audio/Nyanotrasen/Weapons/club.ogg
+        collection: MetalThud
     - type: ThrowingAngle
       angle: 225
     - type: DamageOtherOnHit

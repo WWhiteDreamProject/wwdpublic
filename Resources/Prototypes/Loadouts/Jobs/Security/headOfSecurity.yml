@@ -136,6 +136,22 @@
 #   items:
 #     - WeaponSubMachineGunBRDIR25HoS
 
+#WWDP EDIT START
+- type: loadout
+  id: LoadoutCommandHoSBat
+  category: JobsSecurityHeadOfSecurity
+  cost: 0
+  canBeHeirloom: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutHeadOfSecurityWeapon
+  - !type:CharacterJobRequirement
+    jobs:
+    - HeadOfSecurity
+  items:
+  - AssballBat
+#WWDP EDIT END
+
 # Eyes
 
 # Gloves
