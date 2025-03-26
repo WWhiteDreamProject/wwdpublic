@@ -8,9 +8,6 @@
     state: rods
   - type: Item
     sprite: Objects/Materials/parts.rsi
-  - type: Tag
-    tags:
-      - DroneUsable # Goobstation
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: FlimsyMetallic
@@ -130,7 +127,6 @@
     tags:
     - CrossbowBolt # WD EDIT
     - RodMetal1
-    - DroneUsable # Goobstation
   - type: Sprite
     state: rods
   - type: Stack
@@ -146,7 +142,6 @@
     tags:
     - CrossbowBolt # WD EDIT
     - RodMetal1
-    - DroneUsable # Goobstation
   - type: Sprite
     state: rods
   - type: Stack
