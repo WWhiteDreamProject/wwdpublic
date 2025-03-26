@@ -1,4 +1,5 @@
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Standing;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Serialization;
@@ -36,7 +37,7 @@ public abstract class SharedFlipOnHitSystem : EntitySystem
         if (_standingState.IsDown(args.User))
             return;
 
-        if (!_standingState.Stand(target) && !_standingState.IsDown(target))
+        if (!TryComp<MobStateComponent>(target, out _))
             return;
 
         PlayAnimation(args.User, target);
