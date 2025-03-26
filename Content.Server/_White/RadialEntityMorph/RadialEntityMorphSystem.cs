@@ -26,7 +26,6 @@ public sealed class RadialEntityMorphSystem : EntitySystem
         _ui.SetUiState(entity.Owner, RadialSelectorUiKey.Key, new RadialSelectorState(entity.Comp.Entries));
     }
 
-
     private void OnPrototypeSelected(EntityUid uid, RadialEntityMorphComponent component, RadialSelectorSelectedMessage args)
     {
         if (args.UiKey is not RadialSelectorUiKey.Key)
