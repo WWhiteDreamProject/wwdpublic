@@ -6,6 +6,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.ViewVariables;
+using Robust.Shared.Configuration;
+using Content.Shared._White;
 
 namespace Content.Client.Parallax;
 
@@ -18,6 +20,7 @@ public sealed class ParallaxControl : Control
     [Dependency] private readonly IParallaxManager _parallaxManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     //WD EDIT START
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IClyde _clyde = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
@@ -91,7 +94,7 @@ public sealed class ParallaxControl : Control
         }
         //WD EDIT START
         _grainShader.SetParameter("SCREEN_TEXTURE", _buffer!.Texture);
-        _grainShader.SetParameter("strength", 100.0f);
+        _grainShader.SetParameter("strength", _cfg.GetCVar(WhiteCVars.FilmGrainStrength) + 50.0f);
         handle.UseShader(_grainShader);
         handle.DrawTextureRect(_buffer.Texture, PixelSizeBox);
         handle.UseShader(null);

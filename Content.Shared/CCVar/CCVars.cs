@@ -26,9 +26,4 @@ public sealed partial class CCVars : CVars
     public static readonly CVarDef<bool> DebugPow3rDisableParallel =
         CVarDef.Create("debug.pow3r_disable_parallel", true, CVar.SERVERONLY);
 
-    /// <summary>
-    /// Film grain turn on/off
-    /// </summary>
-    public static readonly CVarDef<bool> FilmGrain =
-            CVarDef.Create("graphics.film_grain", true, CVar.CLIENTONLY | CVar.ARCHIVE); // WD EDIT
 }

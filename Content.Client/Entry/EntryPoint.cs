@@ -38,7 +38,7 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
-using Content.Client._White.Overlays; // WD EDIT
+using Content.Client._White.Overlays;
 
 namespace Content.Client.Entry
 {

@@ -1,8 +1,8 @@
-using Content.Shared.CCVar;
 using Robust.Client.Graphics;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
+using Content.Shared._White;
 
 namespace Content.Client._White.Overlays;
 
@@ -24,7 +24,7 @@ public sealed class GrainOverlay : Overlay
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        return base.BeforeDraw(in args) && _cfg.GetCVar(CCVars.FilmGrain);
+        return base.BeforeDraw(in args) && _cfg.GetCVar(WhiteCVars.FilmGrain);
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -35,7 +35,7 @@ public sealed class GrainOverlay : Overlay
         var worldHandle = args.WorldHandle;
 
         _shader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
-        _shader.SetParameter("strength", 60.0f);
+        _shader.SetParameter("strength", _cfg.GetCVar(WhiteCVars.FilmGrainStrength));
 
         worldHandle.UseShader(_shader);
         worldHandle.DrawRect(args.WorldBounds, Color.White);
