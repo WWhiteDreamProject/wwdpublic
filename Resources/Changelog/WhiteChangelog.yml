@@ -2218,3 +2218,12 @@ Entries:
   id: 233
   time: '2025-03-26T15:18:20.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/377
+- author: HSKveez
+  changes:
+    - type: Add
+      message: Добавлено 6 бит хосу
+    - type: Fix
+      message: Радиальные меню строительства и культа должны работать лучше
+  id: 234
+  time: '2025-03-27T14:24:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/378
