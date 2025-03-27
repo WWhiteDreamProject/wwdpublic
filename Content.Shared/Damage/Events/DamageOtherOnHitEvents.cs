@@ -8,7 +8,7 @@ namespace Content.Shared.Damage.Events;
 ///   Raised on a throwing weapon to calculate potential damage bonuses or decreases.
 /// </summary>
 [ByRefEvent]
-public record struct GetThrowingDamageEvent(EntityUid Weapon, DamageSpecifier Damage, List<DamageModifierSet> Modifiers, EntityUid? User);
+public record struct GetThrowingDamageEvent(EntityUid Weapon, DamageSpecifier Damage, List<DamageModifierSet> Modifiers, EntityUid? User, bool IsExaminingDamage); //WWDP - Summary: Added bool isExaminingDamage to prevent WeaponRandom from triggering during GetDamage.
 
 /// <summary>
 ///   Raised on a throwing weapon when DamageOtherOnHit has been successfully initialized.
