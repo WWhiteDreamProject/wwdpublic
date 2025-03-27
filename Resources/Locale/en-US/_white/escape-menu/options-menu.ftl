@@ -9,3 +9,4 @@ ui-options-tts-volume = TTS Volume:
 ui-options-hud-theme-operative = Operative
 
 ui-options-film-grain = Grain
+ui-options-film-grain-strength = Grain intensity: { $strength }
