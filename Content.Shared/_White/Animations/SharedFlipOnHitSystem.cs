@@ -37,7 +37,7 @@ public abstract class SharedFlipOnHitSystem : EntitySystem
         if (_standingState.IsDown(args.User))
             return;
 
-        if (!TryComp<MobStateComponent>(target, out _))
+        if (!HasComp<MobStateComponent>(target))
             return;
 
         PlayAnimation(args.User, target);
