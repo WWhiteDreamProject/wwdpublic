@@ -50,7 +50,7 @@
                 <Control MinSize="4 0" />
                 <Slider Name="FilmGrainSlider"
                         MinValue="25"
-                        MaxValue="250"
+                        MaxValue="125"
                         Rounded="True"
                         MinWidth="500" />
             </BoxContainer>
