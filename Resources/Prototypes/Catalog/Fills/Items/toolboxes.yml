@@ -124,6 +124,7 @@
     - id: Multitool
     - id: ClothingHandsGlovesCombat
     - id: ClothingMaskGasSyndicate
+    - id: ClothingHeadsetAltSyndicateListeningEmpty # WWDP edit
 
 - type: entity
   id: ToolboxGoldFilled
