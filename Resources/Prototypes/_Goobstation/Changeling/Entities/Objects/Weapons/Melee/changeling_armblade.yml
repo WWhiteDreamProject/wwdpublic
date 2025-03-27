@@ -17,7 +17,6 @@
         Structural: 20
     clickPartDamageMultiplier: 2
     heavyPartDamageMultiplier: 1.5
-    resistanceBypass: true # WD edit
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
