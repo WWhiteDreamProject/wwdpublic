@@ -1,3 +1,0 @@
-ent-ClothingHeadsetAltSyndicateEmpty = кроваво-красная полноразмерная гарнитура синдиката
-    .desc = { ent-ClothingHeadsetAlt.desc }
-    .suffix = { "" }
