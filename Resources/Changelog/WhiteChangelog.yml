@@ -2272,3 +2272,10 @@ Entries:
   id: 239
   time: '2025-03-28T22:02:25.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/386
+- author: islambrosgood
+  changes:
+    - type: Tweak
+      message: Перенос уведомлений и куклы в чат
+  id: 240
+  time: '2025-03-28T22:05:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/353
