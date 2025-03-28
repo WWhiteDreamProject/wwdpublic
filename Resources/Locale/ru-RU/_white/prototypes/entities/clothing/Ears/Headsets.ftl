@@ -1,3 +1,3 @@
-ent-ClothingHeadsetAltSyndicateEmpty = полноразмерная гарнитура синдиката
-    .desc = { ent-ClothingHeadsetAlt.desc }
+ent-ClothingHeadsetAltSyndicateEmpty = { ent-ClothingHeadsetAltSyndicate }
+    .desc = { ent-ClothingHeadsetAltSyndicate.desc }
     .suffix = { "" }
