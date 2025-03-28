@@ -2279,3 +2279,12 @@ Entries:
   id: 240
   time: '2025-03-28T22:05:58.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/353
+- author: Boevi4ok
+  changes:
+    - type: Add
+      message: Пустой синди боумен
+    - type: Tweak
+      message: Урон сусси тулбокса 11.5 > 20
+  id: 241
+  time: '2025-03-28T22:41:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/385
