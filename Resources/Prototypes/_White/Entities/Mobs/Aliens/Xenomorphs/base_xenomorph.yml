@@ -726,10 +726,7 @@
   components:
     - type: Buckle
     - type: ThermalVision
-      toggleAction: ActionXenomorphThermalVision
-      color: "#7d0cc9"
-    - type: NightVision
-      toggleAction: ActionXenomorphNightVision
+      toggleAction: ToggleThermalVisionAlien
       color: "#7d0cc9"
     - type: ShowInfectedIcons
     - type: Body
@@ -846,6 +843,10 @@
     - type: GuideHelp
       guides:
       - XenomorphLarva
+    - type: UserInterface
+      interfaces:
+        enum.RadialSelectorUiKey.Key:
+          type: RadialSelectorMenuBUI
 
 # BASE FACEHUGGER
 

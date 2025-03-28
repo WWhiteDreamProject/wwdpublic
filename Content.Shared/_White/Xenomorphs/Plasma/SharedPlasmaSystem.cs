@@ -14,7 +14,7 @@ public abstract class SharedPlasmaSystem : EntitySystem
     public override void Initialize()
     {
         // PlasmaTransfer
-        SubscribeLocalEvent<PlasmaTransferComponent, ComponentStartup>(OnPlasmaTransferStartup);
+        SubscribeLocalEvent<PlasmaTransferComponent, MapInitEvent>(OnPlasmaTransferStartup);
         SubscribeLocalEvent<PlasmaTransferComponent, ComponentShutdown>(OnPlasmaTransferShutdown);
         SubscribeLocalEvent<PlasmaTransferComponent, TransferPlasmaActionEvent>(OnPlasmaTransfer);
 
@@ -23,7 +23,7 @@ public abstract class SharedPlasmaSystem : EntitySystem
         SubscribeLocalEvent<PlasmaGainModifierComponent, ItemRemovedEvent>(OnItemRemoved);
     }
 
-    private void OnPlasmaTransferStartup(EntityUid uid, PlasmaTransferComponent comp, ComponentStartup args) =>
+    private void OnPlasmaTransferStartup(EntityUid uid, PlasmaTransferComponent comp, MapInitEvent args) =>
         _actions.AddAction(uid, ref comp.ActionEntity, comp.Action);
 
     private void OnPlasmaTransferShutdown(EntityUid uid, PlasmaTransferComponent comp, ComponentShutdown args) =>

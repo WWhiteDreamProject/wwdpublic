@@ -3,7 +3,6 @@ using Content.Server._White.Xenomorphs.Plasma;
 using Content.Server.Actions;
 using Content.Server.Popups;
 using Content.Shared._White.Xenomorphs.Components;
-using Content.Shared._White.Xenomorphs.Plasma;
 using Content.Shared._White.Xenomorphs.Plasma.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Hands.Components;
@@ -16,7 +15,7 @@ namespace Content.Server._White.Xenomorphs.Systems;
 
 public sealed class AlienQueenSystem : EntitySystem
 {
-    [Dependency] private readonly AlienEvolutionSystem _evolution = default!;
+    /*[Dependency] private readonly AlienEvolutionSystem _evolution = default!;*/
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
@@ -106,7 +105,7 @@ public sealed class AlienQueenSystem : EntitySystem
         }
 
         _plasma.ChangePlasmaAmount(uid, -component.PlasmaCostRoyalLarva);
-        _evolution.Evolve(args.Target, component.PraetorianPolymorphPrototype);
+        /*_evolution.Evolve(args.Target, component.PraetorianPolymorphPrototype);*/
         _actions.RemoveAction(component.ActionEntity);
     }
 }

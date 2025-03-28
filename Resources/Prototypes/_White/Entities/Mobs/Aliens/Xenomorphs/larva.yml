@@ -96,7 +96,11 @@
     - type: TimedPolymorph
       enabled: false
     - type: AlienEvolution
-      evolutionCooldown: 50
+      max: 200
+      evolvesTo:
+      - prototype: MobXenomorphDrone
+      - prototype: MobXenomorphSentinel
+      - prototype: MobXenomorphHunter
 
 - type: entity
   parent: MobAlienLarvaGrowStageThreeBase

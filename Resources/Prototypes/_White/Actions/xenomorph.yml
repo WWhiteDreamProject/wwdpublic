@@ -17,6 +17,20 @@
     icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: vision_off_action }
     iconOn: { sprite: _White/Interface/Actions/xenomorph.rsi, state: vision_on_action }
 
+# Evolution action
+- type: entity
+  id: ActionEvolution
+  name: Evolve
+  description: Become the best version of yourself
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    useDelay: 0
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolution }
+    event: !type:OpenEvolutionsActionEvent
+
 # Structures
 - type: entity
   id: ActionSpawnResinNode
@@ -108,84 +122,6 @@
       event: !type:AcidMakeActionEvent
       priority: 1
       useDelay: 5
-
-# Drone
-
-
-
-# Evolutions
-
-- type: entity
-  id: ActionEvolveDrone
-  name: action-evolve-alien-drone
-  description: action-evolve-alien-drone-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    priority: 9
-    useDelay: 5
-    icon: { sprite : _White/Mobs/Aliens/Xenomorphs/drone.rsi, state: aliend }
-    event: !type:AlienDroneEvolveActionEvent
-
-- type: entity
-  id: ActionEvolveSentinel
-  name: action-evolve-alien-sentinel
-  description: action-evolve-alien-sentinel-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    priority: 11
-    useDelay: 5
-    icon: { sprite : _White/Mobs/Aliens/Xenomorphs/sentinel.rsi, state: aliens }
-    event: !type:AlienSentinelEvolveActionEvent
-
-- type: entity
-  id: ActionEvolvePraetorian
-  name: action-evolve-alien-praetorian
-  description: action-evolve-alien-praetorian-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    priority: 10
-    useDelay: 0
-    icon: { sprite : _White/Mobs/Aliens/Xenomorphs/praetorian.rsi, state: alienp }
-    event: !type:AlienPraetorianEvolveActionEvent
-
-- type: entity
-  id: ActionEvolveHunter
-  name: action-evolve-alien-hunter
-  description: action-evolve-alien-hunter-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    priority: 10
-    useDelay: 0
-    icon: { sprite : _White/Mobs/Aliens/Xenomorphs/hunter.rsi, state: alienh }
-    event: !type:AlienHunterEvolveActionEvent
-
-- type: entity
-  id: ActionEvolveQueen
-  name: action-evolve-alien-queen
-  description: action-evolve-alien-queen-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    priority: 10
-    useDelay: 0
-    icon: { sprite : _White/Mobs/Aliens/Xenomorphs/queen.rsi, state: alienq }
-    event: !type:AlienQueenEvolveActionEvent
-
-- type: entity
-  id: ActionLarvaGrow
-  name: action-larva-grow
-  description: action-larva-grow-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    priority: 10
-    useDelay: 0
-    icon: { sprite : _White/Mobs/Aliens/Xenomorphs/larva.rsi, state: larva0 }
-    event: !type:AlienLarvaGrowActionEvent
 
 # Hunter
 
