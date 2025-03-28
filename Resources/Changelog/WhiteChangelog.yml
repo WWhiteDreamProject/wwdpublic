@@ -2263,3 +2263,12 @@ Entries:
   id: 238
   time: '2025-03-28T21:58:52.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/384
+- author: Ligrof
+  changes:
+    - type: Add
+      message: Рецепт биомассы, разложения сахара и разложения универсального фермента
+    - type: Tweak
+      message: макс емкость таблеток 20 -> 50
+  id: 239
+  time: '2025-03-28T22:02:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/386
