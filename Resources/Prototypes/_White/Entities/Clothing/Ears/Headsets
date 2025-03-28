@@ -1,14 +1,17 @@
 - type: entity
   parent: ClothingHeadsetAltSyndicate
   id: ClothingHeadsetAltSyndicateEmpty
-  name: blood-red over-ear interception headset
-  description: An advanced, modular syndicate interception intercom that fits over the head.
+  name: blood-red over-ear headset
+  description: An updated, modular syndicate intercom that fits over the head and takes encryption keys (there are 5 key slots.).
   components:
+  - type: Headset
+  - type: EncryptionKeyHolder
+    keySlots: 5
   - type: ContainerFill
     containers:
       key_slots:
       - EncryptionKeyCommon
   - type: Sprite
-    sprite: DeltaV/Clothing/Ears/Headsets/syndicate_listening.rsi
+    sprite: Clothing/Ears/Headsets/syndicate.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/Ears/Headsets/syndicate_listening.rsi
+    sprite: Clothing/Ears/Headsets/syndicate.rsi
