@@ -2234,3 +2234,10 @@ Entries:
   id: 235
   time: '2025-03-28T21:55:21.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/376
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: Урон руки-клинка 15 -> 25
+  id: 236
+  time: '2025-03-28T21:56:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/375
