@@ -2256,3 +2256,10 @@ Entries:
   id: 237
   time: '2025-03-28T21:57:36.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/383
+- author: vanx
+  changes:
+    - type: Fix
+      message: Исправлены недоработки системы глухоты.
+  id: 238
+  time: '2025-03-28T21:58:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/384
