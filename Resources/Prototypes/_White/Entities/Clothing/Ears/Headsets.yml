@@ -1,8 +1,6 @@
 - type: entity
   parent: ClothingHeadsetAltSyndicate
   id: ClothingHeadsetAltSyndicateEmpty
-  name: blood-red over-ear headset
-  description: An advanced, modular syndicate intercom that fits over the head.
   components:
   - type: ContainerFill
     containers:
