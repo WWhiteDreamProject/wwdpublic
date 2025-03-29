@@ -12,7 +12,6 @@
   - !type:TraitAddComponent
     components:
     - type: Deaf
-      alwaysDeaf: true
   - !type:TraitModifyLanguages
     languagesSpoken:
     - Sign
