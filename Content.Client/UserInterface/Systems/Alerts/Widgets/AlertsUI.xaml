@@ -1,14 +1,13 @@
-<widgets:AlertsUI xmlns="https://spacestation14.io"
+﻿<widgets:AlertsUI xmlns="https://spacestation14.io"
                   xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Alerts.Widgets"
                   xmlns:partStatus="clr-namespace:Content.Client._Shitmed.UserInterface.Systems.PartStatus.Widgets"
                   MinSize="64 64">
     <!-- Shitmed Change Start - TODO: Refactor this godforsaken abomination -->
-    <!-- WD Edit -->
-    <GridContainer Columns="2" VerticalAlignment="Top">
+    <GridContainer Columns="1" HorizontalAlignment="Right" VerticalAlignment="Top">
         <PanelContainer >
-            <GridContainer Name="AlertContainer" Columns="4" HorizontalAlignment="Left" VerticalAlignment="Center" Access="Public" />
+            <GridContainer Name="AlertContainer" Columns="1" HorizontalAlignment="Right" VerticalAlignment="Center" Access="Public" />
         </PanelContainer>
-        <partStatus:PartStatusControl HorizontalAlignment="Right" Name="PartStatus" Access="Protected"/>
+        <partStatus:PartStatusControl Name="PartStatus" Access="Protected"/>
     </GridContainer>
     <!-- Shitmed Change End -->
 </widgets:AlertsUI>
