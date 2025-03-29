@@ -808,7 +808,7 @@ public sealed partial class ChangelingSystem
 
         var newUid = TransformEntity(
             uid,
-            protoId: "MobHeadcrabChangeling", // WD EDIT
+            protoId: "Headslug", // WD EDIT
             comp: comp,
             dropInventory: true,
             transferDamage: false);
