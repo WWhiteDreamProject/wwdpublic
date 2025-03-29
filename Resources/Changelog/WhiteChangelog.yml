@@ -2304,3 +2304,10 @@ Entries:
   id: 243
   time: '2025-03-29T17:01:12.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/391
+- author: Ligrof
+  changes:
+    - type: Tweak
+      message: количество слотов под пробирки в центрифуге 1 -> 6
+  id: 244
+  time: '2025-03-29T21:42:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/393
