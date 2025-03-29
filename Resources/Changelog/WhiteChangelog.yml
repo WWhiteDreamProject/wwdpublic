@@ -2295,3 +2295,12 @@ Entries:
   id: 242
   time: '2025-03-29T10:07:26.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/388
+- author: Ligrof
+  changes:
+    - type: Add
+      message: Разложение муки
+    - type: Tweak
+      message: Рецепты биомассы и разложения универсального фермента
+  id: 243
+  time: '2025-03-29T17:01:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/391
