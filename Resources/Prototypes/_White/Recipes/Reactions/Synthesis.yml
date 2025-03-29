@@ -37,6 +37,8 @@
       amount: 0.5
     Protein:
       amount: 2
+    Blood:
+      amount: 2
   effects:
   - !type:CreateEntityReactionEffect
     entity: MaterialBiomass1

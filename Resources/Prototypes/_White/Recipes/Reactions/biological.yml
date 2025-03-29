@@ -36,7 +36,19 @@
     Enzyme:
       amount: 5
   products:
-    Carbon: 1
-    Water: 3
-    Nitrogen: 1
+    Carbon: 2
+    Oxygen: 1
+    Nitrogen: 2
 
+- type: reaction
+  id: FlourBreakdown
+  source: true
+  requiredMixerCategories:
+  - Electrolysis
+  reactants:
+    Flour:
+      amount: 5
+  products:
+    Carbon: 2
+    Sugar: 2
+    Nutriment: 1
