@@ -36,7 +36,7 @@
     Enzyme:
       amount: 5
   products:
-    Carbon: 1
-    Water: 3
-    Nitrogen: 1
+    Carbon: 2
+    Oxygen: 3
+    Nitrogen: 2
 
