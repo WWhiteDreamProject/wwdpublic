@@ -16,6 +16,10 @@
   - type: Gun
     resetOnHandSelected: false
     fireRate: 0.4
+    bonusAngleIncreaseMove: 20
+    bonusAngleIncreaseTurn: 0.4
+    bonusAngleDecay: 80
+    maxBonusAngle: 10
     soundGunshot:
       path: /Audio/Weapons/click.ogg
   - type: RechargeBasicEntityAmmo
