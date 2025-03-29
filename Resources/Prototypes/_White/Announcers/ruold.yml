@@ -1,6 +1,6 @@
 - type: announcer
   id: RuOld
-  basePath: /Audio/Announcers/RuOld
+  basePath: /Audio/_White/Announcers/RuOld
   announcements:
   # Communications
   - id: announce # Communications console
