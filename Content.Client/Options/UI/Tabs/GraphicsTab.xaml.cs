@@ -74,12 +74,27 @@ namespace Content.Client.Options.UI.Tabs
                 UpdateApplyButton();
             };
 
+            // WD EDIT START
+            FilmGrainSlider.OnValueChanged += _ =>
+            {
+                UpdateFilmGrainDisplay();
+                UpdateApplyButton();
+            };
+
+            FilmGrainCheckBox.OnToggled += _ =>
+            {
+                UpdateFilmGrainScale();
+                UpdateApplyButton();
+            };
+            //WD EDIT END
+
             IntegerScalingCheckBox.OnToggled += OnCheckBoxToggled;
             ViewportLowResCheckBox.OnToggled += OnCheckBoxToggled;
             PixelSnapCameraCheckBox.OnToggled += OnCheckBoxToggled; // WWDP EDIT
             ParallaxLowQualityCheckBox.OnToggled += OnCheckBoxToggled;
             FpsCounterCheckBox.OnToggled += OnCheckBoxToggled;
             MoodVisualEffectsCheckBox.OnToggled += OnCheckBoxToggled;
+            FilmGrainCheckBox.OnToggled += OnFilmGrainCheckBoxToggled; // WD EDIT
             ApplyButton.OnPressed += OnApplyButtonPressed;
             VSyncCheckBox.Pressed = _cfg.GetCVar(CVars.DisplayVSync);
             FullscreenCheckBox.Pressed = ConfigIsFullscreen;
@@ -95,6 +110,8 @@ namespace Content.Client.Options.UI.Tabs
             FpsCounterCheckBox.Pressed = _cfg.GetCVar(CCVars.HudFpsCounterVisible);
             MoodVisualEffectsCheckBox.Pressed = _cfg.GetCVar(CCVars.MoodVisualEffects);
             ViewportWidthSlider.Value = _cfg.GetCVar(CCVars.ViewportWidth);
+            FilmGrainCheckBox.Pressed = _cfg.GetCVar(WhiteCVars.FilmGrain); //WD EDIT
+            FilmGrainSlider.Value = _cfg.GetCVar(WhiteCVars.FilmGrainStrength); // WD EDIT
 
             _cfg.OnValueChanged(CCVars.ViewportMinimumWidth, _ => UpdateViewportWidthRange());
             _cfg.OnValueChanged(CCVars.ViewportMaximumWidth, _ => UpdateViewportWidthRange());
@@ -130,6 +147,8 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.HudFpsCounterVisible, FpsCounterCheckBox.Pressed);
             _cfg.SetCVar(CCVars.MoodVisualEffects, MoodVisualEffectsCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ViewportWidth, (int) ViewportWidthSlider.Value);
+            _cfg.SetCVar(WhiteCVars.FilmGrain, FilmGrainCheckBox.Pressed); // WD EDIT
+            _cfg.SetCVar(WhiteCVars.FilmGrainStrength, (int) FilmGrainSlider.Value); // WD EDIT
 
             _cfg.SaveToFile();
             UpdateApplyButton();
@@ -138,6 +157,11 @@ namespace Content.Client.Options.UI.Tabs
         private void OnCheckBoxToggled(BaseButton.ButtonToggledEventArgs args)
         {
             UpdateApplyButton();
+        }
+
+        private void OnFilmGrainCheckBoxToggled(BaseButton.ButtonToggledEventArgs obj)
+        {
+            UpdateApplyButton();  // WD EDIT
         }
 
         private void OnLightingQualityChanged(OptionButton.ItemSelectedEventArgs args)
@@ -161,6 +185,8 @@ namespace Content.Client.Options.UI.Tabs
             var isPLQSame = ParallaxLowQualityCheckBox.Pressed == _cfg.GetCVar(CCVars.ParallaxLowQuality);
             var isFpsCounterVisibleSame = FpsCounterCheckBox.Pressed == _cfg.GetCVar(CCVars.HudFpsCounterVisible);
             var isWidthSame = (int) ViewportWidthSlider.Value == _cfg.GetCVar(CCVars.ViewportWidth);
+            var isFilmGrainSame = FilmGrainCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.FilmGrain); // WD EDIT
+            var isFilmGrainStrengthSame = (float) FilmGrainSlider.Value == _cfg.GetCVar(WhiteCVars.FilmGrainStrength); // WD EDIT
 
             ApplyButton.Disabled = isVSyncSame &&
                                    isFullscreenSame &&
@@ -174,7 +200,9 @@ namespace Content.Client.Options.UI.Tabs
                                    isVPResSame &&
                                    isPLQSame &&
                                    isFpsCounterVisibleSame &&
-                                   isWidthSame;
+                                   isWidthSame &&
+                                   isFilmGrainSame &&       // WD EDIT
+                                   isFilmGrainStrengthSame; // WD EDIT
         }
 
         private bool ConfigIsFullscreen =>
@@ -272,5 +300,20 @@ namespace Content.Client.Options.UI.Tabs
         {
             ViewportWidthSliderDisplay.Text = Loc.GetString("ui-options-vp-width", ("width", (int) ViewportWidthSlider.Value));
         }
+
+        // WD EDIT START
+
+        private void UpdateFilmGrainScale()
+        {
+            FilmGrainBox.Visible = FilmGrainCheckBox.Pressed;
+            FilmGrainText.Text = Loc.GetString("ui-options-film-grain-strength", ("strength", FilmGrainSlider.Value));
+        }
+
+        private void UpdateFilmGrainDisplay()
+        {
+            FilmGrainText.Text = Loc.GetString("ui-options-film-grain-strength", ("strength", FilmGrainSlider.Value));
+        }
+
+        // WD EDIT END
     }
 }

@@ -1,10 +1,13 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Client.Parallax.Managers;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.ViewVariables;
+using Robust.Shared.Configuration;
+using Content.Shared._White;
 
 namespace Content.Client.Parallax;
 
@@ -16,7 +19,14 @@ public sealed class ParallaxControl : Control
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IParallaxManager _parallaxManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    //WD EDIT START
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IClyde _clyde = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
+    private IRenderTexture? _buffer;
+    private ShaderInstance _grainShader;
+    //WD EDIT END
     [ViewVariables(VVAccess.ReadWrite)] public Vector2 Offset { get; set; }
 
     public ParallaxControl()
@@ -26,8 +36,25 @@ public sealed class ParallaxControl : Control
         Offset = new Vector2(_random.Next(0, 1000), _random.Next(0, 1000));
         RectClipContent = true;
         _parallaxManager.LoadParallaxByName("FastSpace");
+    //WD EDIT START
+        _grainShader = _prototype.Index<ShaderPrototype>("Grain").Instance().Duplicate();
     }
 
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+
+        _buffer?.Dispose();
+    }
+
+    protected override void Resized()
+    {
+        base.Resized();
+
+        _buffer?.Dispose();
+        _buffer = _clyde.CreateRenderTarget(PixelSize, RenderTargetColorFormat.Rgba8Srgb, default, "parallax");
+    }
+    //WD EDIT END
     protected override void Draw(DrawingHandleScreen handle)
     {
         foreach (var layer in _parallaxManager.GetParallaxLayers("FastSpace"))
@@ -65,6 +92,13 @@ public sealed class ParallaxControl : Control
                 handle.DrawTextureRect(tex, UIBox2.FromDimensions(origin, texSize));
             }
         }
+        //WD EDIT START
+        _grainShader.SetParameter("SCREEN_TEXTURE", _buffer!.Texture);
+        _grainShader.SetParameter("strength", _cfg.GetCVar(WhiteCVars.FilmGrainStrength) + 50.0f);
+        handle.UseShader(_grainShader);
+        handle.DrawTextureRect(_buffer.Texture, PixelSizeBox);
+        handle.UseShader(null);
+        //WD EDIT END
     }
 }
 
