@@ -21,38 +21,22 @@
             <widgets:GhostGui Name="Ghost" Access="Protected" />
             <inventory:InventoryGui Name="Inventory" Access="Protected"/>
             <hotbar:HotbarGui Name="Hotbar" Access="Protected"/>
+            <targeting:TargetingControl Name="Targeting" Access="Protected"/> <!-- Shitmed Change -->
             <BoxContainer Name="TopLeftContainer" Orientation="Vertical">
                 <actions:ActionsBar Name="Actions" Access="Protected" />
                 <BoxContainer Name="VoteMenu" Access="Public" Orientation="Vertical"/>
             </BoxContainer>
+            <alerts:AlertsUI Name="Alerts" Access="Protected" />
         </LayoutContainer>
         <PanelContainer HorizontalExpand="True" MinWidth="300">
             <PanelContainer.PanelOverride>
                 <graphics:StyleBoxFlat BackgroundColor="#2B2C3B" />
             </PanelContainer.PanelOverride>
-            
+
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="10" Margin="10">
                 <menuBar:GameTopMenuBar Name="TopBar" HorizontalExpand="True" Access="Protected" />
-                <!-- WD Edit Start -->
-                <BoxContainer HorizontalExpand="True" VerticalAlignment="Center" Access="Protected">
-                    <BoxContainer HorizontalExpand="True" VerticalAlignment="Center" HorizontalAlignment="Left" Access="Protected">
-                        <PanelContainer HorizontalAlignment="Left">
-                            <PanelContainer.PanelOverride>
-                                <graphics:StyleBoxFlat BackgroundColor="#26262d"/>
-                            </PanelContainer.PanelOverride>
-                            <alerts:AlertsUI Name="Alerts" Margin="21, 10, 4, 15" Access="Protected"/>
-                        </PanelContainer>
-                    </BoxContainer>
-                    
-                    <BoxContainer VerticalAlignment="Center" HorizontalAlignment="Right" Access="Protected">
-                        <targeting:TargetingControl Name="Targeting" Access="Protected"/>
-                        <!-- Shitmed Change -->
-                    </BoxContainer>
-                </BoxContainer>
-                <!-- WD Edit End -->
                 <chat:ChatBox VerticalExpand="True" HorizontalExpand="True" Name="Chat" Access="Protected" MinSize="0 0"/>
             </BoxContainer>
-            
         </PanelContainer>
     </controls:RecordedSplitContainer>
 </screens:SeparatedChatGameScreen>
