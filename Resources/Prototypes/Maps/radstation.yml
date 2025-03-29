@@ -69,10 +69,10 @@
             Reporter: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
             #justice
-            ChiefJustice: [ 1, 1 ]
-            Clerk: [ 1, 1 ]
+            # ChiefJustice: [ 1, 1 ] - WD EDIT
+            # Clerk: [ 1, 1 ] - WD EDIT
             Lawyer: [ 1, 1 ]
-            Prosecutor: [ 1, 1]
+            # Prosecutor: [ 1, 1] - WD EDIT
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 3, 3 ]

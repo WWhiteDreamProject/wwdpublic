@@ -18,8 +18,6 @@
   reactants:
     Cellulose:
       amount: 5
-    Water:
-      amount: 5
     Vodka:
       amount: 5
   effects:
@@ -36,6 +34,8 @@
     Vitamin:
       amount: 0.5
     Protein:
+      amount: 2
+    Blood:
       amount: 2
   effects:
   - !type:CreateEntityReactionEffect

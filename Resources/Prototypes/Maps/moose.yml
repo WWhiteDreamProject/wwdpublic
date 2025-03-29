@@ -69,7 +69,7 @@
           Clown: [ 1, 1 ]
           Musician: [ 1, 1 ]
           Reporter: [ 1, 1 ]
-          Boxer: [ 1, 1 ]
+          # Boxer: [ 1, 1 ]
           Passenger: [ -1, -1 ]
           Hobo: [ 1, 1 ]
 
