@@ -5,7 +5,40 @@
   name: guide-entry-antagonist
   text: "/ServerInfo/_White/Guidebook/Antagonist/Antagonist.xml"
   children:
+    - Xenomorphs
     - Headcrabs
+
+# Xenomorph
+
+- type: guideEntry
+  id: Xenomorphs
+  name: antagonist-name-xenomorphs
+  text: "/ServerInfo/_White/Guidebook/Antagonist/Xenomorphs/Xenomorphs.xml"
+  children:
+    - XenomorphsEvolutions
+    - XenomorphsHowToPlay
+
+- type: guideEntry
+  id: XenomorphsEvolutions
+  name: antagonist-name-xenomorphs-evolutions
+  text: "/ServerInfo/_White/Guidebook/Antagonist/Xenomorphs/Xenomorphs/Evolutions.xml"
+  children:
+    - XenomorphQueen
+    - XenomorphPraetorian
+    - XenomorphDrone
+    - XenomorphHunter
+    - XenomorphSentinel
+    - XenomorphMaid
+    - XenomorphFacehugger
+    - XenomorphLarva
+
+- type: guideEntry
+  id: XenomorphsHowToPlay
+  name: antagonist-name-xenomorphs-howtoplay
+  text: "/ServerInfo/_White/Guidebook/Antagonist/Xenomorphs/Xenomorphs/HowToPlay.xml"
+  children:
+    - XenomorphHowToPlayCrew
+    - XenomorphHowToPlayXenomorph
 
 # Headcrab
 

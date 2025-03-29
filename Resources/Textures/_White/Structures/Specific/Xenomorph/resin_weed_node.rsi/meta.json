@@ -1,0 +1,15 @@
+{
+	"version": 1,
+	"size": {
+		"x": 40,
+		"y": 40
+	},
+        "license": "CC-BY-SA-3.0",
+        "copyright": "Taken from tgstation",
+	"states": [
+		{
+			"name": "full",
+			"directions": 1
+		}
+	]
+}

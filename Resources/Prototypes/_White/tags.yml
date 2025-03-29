@@ -17,6 +17,12 @@
   id: GlassesNearsight
 
 - type: Tag
+  id: AlienItem
+
+- type: Tag
+  id: Facehugger
+  
+- type: Tag
   id: RiotGrenade
 
 - type: Tag
@@ -24,4 +30,3 @@
 
 - type: Tag
   id: PaperWrittenCommunist
-
