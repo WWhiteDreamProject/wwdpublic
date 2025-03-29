@@ -76,6 +76,30 @@
                                     <OptionButton Name="CBodyTypesButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
                                 <!--WD EDIT END-->
+                                <!-- Nationality -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-nationality-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <TextureButton Name="NationalityInfoButton" Scale="0.3 0.3" VerticalAlignment="Center"
+                                                   ToolTip="{Loc 'humanoid-profile-editor-guidebook-button-tooltip'}"/>
+                                    <OptionButton Name="NationalityButton" HorizontalAlignment="Right" />
+                                </BoxContainer>
+                                <!-- Employer -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-employer-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <TextureButton Name="EmployerInfoButton" Scale="0.3 0.3" VerticalAlignment="Center"
+                                                   ToolTip="{Loc 'humanoid-profile-editor-guidebook-button-tooltip'}"/>
+                                    <OptionButton Name="EmployerButton" HorizontalAlignment="Right" />
+                                </BoxContainer>
+                                <!-- Lifepath -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-lifepath-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <TextureButton Name="LifepathInfoButton" Scale="0.3 0.3" VerticalAlignment="Center"
+                                                   ToolTip="{Loc 'humanoid-profile-editor-guidebook-button-tooltip'}"/>
+                                    <OptionButton Name="LifepathButton" HorizontalAlignment="Right" />
+                                </BoxContainer>
                                 <!-- Age -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-age-label'}" />
