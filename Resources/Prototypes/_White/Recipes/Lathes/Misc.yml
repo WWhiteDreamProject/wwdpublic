@@ -4,3 +4,11 @@
   completetime: 2
   materials:
     Plastic: 200
+
+- type: latheRecipe
+  id: PlushieSanabi
+  result: PlushieSanabi
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 50

@@ -200,12 +200,12 @@ namespace Content.Shared.Damage.Systems
         /// <summary>
         ///   Gets the total damage a throwing weapon does.
         /// </summary>
-        public DamageSpecifier GetDamage(EntityUid uid, DamageOtherOnHitComponent? component = null, EntityUid? user = null)
+        public DamageSpecifier GetDamage(EntityUid uid, DamageOtherOnHitComponent? component = null, EntityUid? user = null, bool isExaminingDamage = false) //WWDP EDIT
         {
             if (!Resolve(uid, ref component, false))
                 return new DamageSpecifier();
 
-            var ev = new GetThrowingDamageEvent(uid, component.Damage, new(), user);
+            var ev = new GetThrowingDamageEvent(uid, component.Damage, new(), user, isExaminingDamage); //WWDP EDIT
             RaiseLocalEvent(uid, ref ev);
 
             if (component.ContestArgs is not null && user is EntityUid userUid)

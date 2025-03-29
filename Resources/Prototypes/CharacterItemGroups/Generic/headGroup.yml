@@ -1,6 +1,8 @@
 - type: characterItemGroup
   id: LoadoutHead
   items:
+    - type: loadout #WWDP edit
+      id: LoadoutHeadHatUshanka
     - type: loadout
       id: LoadoutHeadBeaverHat
     - type: loadout

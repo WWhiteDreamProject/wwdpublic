@@ -48,6 +48,7 @@ namespace Content.Server.Flash
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly BlindableSystem _blindingSystem = default!;
+        [Dependency] private readonly HearingSystem _hearingSystem = default!;
 
         public override void Initialize()
         {
@@ -156,11 +157,16 @@ namespace Content.Server.Flash
             flashable.Duration = flashDuration / 1000f; // TODO: Make this sane...
             Dirty(target, flashable);
 
-            if (HasComp<HearingComponent>(target))
+            // WWDP deafness on flash
+            if (TryComp<HearingComponent>(target, out var hearing))
             {
-                var deafen = new HearingChangedEvent(target, false, false, flashDuration / 1000f, "deaf-chat-message-flashbanged");
-                RaiseLocalEvent(target, deafen);
+                var timer = _timing.CurTime + TimeSpan.FromSeconds(flashDuration / 1000f);
+                var source = new DeafnessSource("flashed", "deaf-chat-message-flashbanged", false, timer);
+
+                hearing.DeafnessSources.Add(source);
+                _hearingSystem.UpdateDeafnessState(target, hearing);
             }
+            // WWDP edit end
 
             if (TryComp<BlindableComponent>(target, out var blindable)
                 && !blindable.IsBlind
