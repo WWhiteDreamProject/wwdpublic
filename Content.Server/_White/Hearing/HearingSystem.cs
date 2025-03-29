@@ -48,7 +48,7 @@ public sealed class HearingSystem : EntitySystem
 
         if (args.NewMobState == MobState.Alive)
         {
-            component.DeafnessSources.Remove(source);
+            RemoveDeafnessSource(component, source.Id);
             UpdateDeafnessState(uid, component);
             return;
         }
@@ -63,7 +63,7 @@ public sealed class HearingSystem : EntitySystem
 
         if (!args.FellAsleep)
         {
-            component.DeafnessSources.Remove(source);
+            RemoveDeafnessSource(component, source.Id);
             UpdateDeafnessState(uid, component);
             return;
         }
@@ -88,6 +88,19 @@ public sealed class HearingSystem : EntitySystem
 
         EnsureComp<DeafComponent>(uid, out var deafComponent);
         deafComponent.DeafChatMessage = message;
+    }
+
+    private void RemoveDeafnessSource(HearingComponent component, string id)
+    {
+        if (component.DeafnessSources.Count <= 0)
+            return;
+
+        foreach (var source in component.DeafnessSources.ToList())
+            if (source.Id == id)
+            {
+                component.DeafnessSources.Remove(source);
+                return;
+            }
     }
 
     // Public API
