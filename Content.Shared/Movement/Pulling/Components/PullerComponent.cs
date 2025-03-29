@@ -1,4 +1,4 @@
-﻿using Content.Shared._Goobstation.TableSlam; // Goobstation - Table Slam
+using Content.Shared._Goobstation.TableSlam; // Goobstation - Table Slam
 using Content.Shared.Alert;
 using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.GameStates;
@@ -107,8 +107,8 @@ public sealed partial class PullerComponent : Component
     public Dictionary<GrabStage, float> EscapeChances = new()
     {
         { GrabStage.No, 1f },
-        { GrabStage.Soft, 0.7f },
-        { GrabStage.Hard, 0.4f },
+        { GrabStage.Soft, 1f },
+        { GrabStage.Hard, 0.5f },
         { GrabStage.Suffocate, 0.1f },
     };
 
