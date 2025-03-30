@@ -170,8 +170,13 @@
   description: uplink-hardsuit-cybersun-dreadnought-desc
   icon: { sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi, state: icon }
   productEntity: CrateSyndicateDreadnought
+  # WD EDIT START
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 4
   cost:
-    Telecrystal: 100
+    Telecrystal: 20
+  # WD EDIT END
   categories:
   - UplinkWearables
 
