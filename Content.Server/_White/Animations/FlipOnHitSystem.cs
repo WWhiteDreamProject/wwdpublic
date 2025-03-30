@@ -5,13 +5,13 @@ namespace Content.Server._White.Animations;
 
 public sealed class FlipOnHitSystem : SharedFlipOnHitSystem
 {
-    protected override void PlayAnimation(EntityUid user)
+    protected override void PlayAnimation(EntityUid user, EntityUid target)
     {
         var filter = Filter.Pvs(user, entityManager: EntityManager);
 
         if (TryComp<ActorComponent>(user, out var actor))
             filter.RemovePlayer(actor.PlayerSession);
 
-        RaiseNetworkEvent(new FlipOnHitEvent(GetNetEntity(user)), filter);
+        RaiseNetworkEvent(new FlipOnHitEvent(GetNetEntity(user), GetNetEntity(target)), filter);
     }
 }

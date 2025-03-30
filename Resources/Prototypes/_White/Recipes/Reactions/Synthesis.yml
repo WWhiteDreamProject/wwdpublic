@@ -26,6 +26,22 @@
   - !type:CreateEntityReactionEffect
     entity: PaperWrittenCommunist
 
+- type: reaction
+  id: CreateBiomass
+  impact: Low
+  quantized: true
+  reactants:
+    Nutriment:
+      amount: 3.5
+    Vitamin:
+      amount: 0.5
+    Protein:
+      amount: 2
+    Blood:
+      amount: 2
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MaterialBiomass1
 
 
 

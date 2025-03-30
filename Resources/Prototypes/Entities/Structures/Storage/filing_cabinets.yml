@@ -88,7 +88,7 @@
 
 - type: entity
   name: chest drawer
-  parent: BaseStructureDynamic
+  parent: [ BaseStructureDynamic, BaseBagOpenClose ] ##wwdp fix
   id: filingCabinetDrawer
   suffix: Empty
   description: A small drawer for all your filing needs, Now with wheels!

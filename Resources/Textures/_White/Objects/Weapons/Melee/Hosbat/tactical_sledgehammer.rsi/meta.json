@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from white at commit https://github.com/GesuArchive/white/commit/ab3ad5b68039699ff20e3b53d8129538b0dc9877/white/RedFoxIV/icons/obj/weapons/melee/hosbat/hosbat.dmi . Resprited by hskveez (discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-left",
+      "directions": 4
+    },
+	  {
+      "name": "wielded-inhand-right",
+      "directions": 4
+    }
+  ]
+}

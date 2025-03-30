@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._EE.Contractors.Prototypes;
 using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared._White.TTS;
 using Content.Shared.Decals;
@@ -46,6 +47,15 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
     [ValidatePrototypeId<SpeciesPrototype>]
     public const string DefaultSpecies = "Human";
+
+    [ValidatePrototypeId<EmployerPrototype>]
+    public const string DefaultEmployer = "NanoTrasen";
+
+    [ValidatePrototypeId<NationalityPrototype>]
+    public const string DefaultNationality = "Bieselite";
+
+    [ValidatePrototypeId<LifepathPrototype>]
+    public const string DefaultLifepath = "Spacer";
 
     // WD EDIT START
     [ValidatePrototypeId<BodyTypePrototype>]
