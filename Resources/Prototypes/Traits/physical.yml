@@ -517,6 +517,7 @@
   id: BionicArm
   category: Physical
   points: -10
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -730,6 +731,7 @@
   id: CyberEyesOmni
   category: Physical
   points: -3
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -818,6 +820,7 @@
   id: LightAmplification
   category: Physical
   points: -4
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -835,6 +838,7 @@
   id: ThermographicVision
   category: Physical
   points: -4
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -888,6 +892,7 @@
   id: BionicLeg
   category: Physical
   points: -8
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -1041,6 +1046,7 @@
   id: OmniEyesModule
   category: Physical
   points: -3
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -1086,6 +1092,7 @@
   id: LightAmplificationModule
   category: Physical
   points: -4
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -1111,6 +1118,7 @@
   id: ThermographicVisionModule
   category: Physical
   points: -4
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
