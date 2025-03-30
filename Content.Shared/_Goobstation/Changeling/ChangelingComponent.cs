@@ -79,7 +79,7 @@ public sealed partial class ChangelingComponent : Component
     ///     How much biomass should be removed per cycle.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float BiomassDrain = 1f;
+    public float BiomassDrain;
 
     /// <summary>
     ///     Current amount of chemicals changeling currently has.
