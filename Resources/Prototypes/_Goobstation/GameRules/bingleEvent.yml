@@ -3,9 +3,7 @@
    parent: BaseStationEventShortDelay
    components:
    - type: StationEvent
-     startAnnouncement: bingle-station-announcement
-     startAudio:
-      path: /Audio/Announcements/attention.ogg
+     startAnnouncement: true
      earliestStart: 20
      weight: 6
      duration: 50
