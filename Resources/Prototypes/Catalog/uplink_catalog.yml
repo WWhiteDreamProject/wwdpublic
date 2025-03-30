@@ -913,11 +913,13 @@
   name: uplink-stimpack-name
   description: uplink-stimpack-desc
   productEntity: Stimpack
-  discountCategory: usualDiscounts
+  # WD EDIT START
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 1 # WD EDIT
+    Telecrystal: 2
   cost:
-    Telecrystal: 4 # WD EDIT
+    Telecrystal: 10
+    # WD EDIT END
   categories:
   - UplinkChemicals
 
@@ -930,7 +932,7 @@
   discountDownTo:
     Telecrystal: 3 # WD EDIT
   cost:
-    Telecrystal: 12 # WD EDIT
+    Telecrystal: 14 # WD EDIT
   categories:
   - UplinkChemicals
 

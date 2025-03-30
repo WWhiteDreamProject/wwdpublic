@@ -239,7 +239,7 @@
 - type: trait
   id: Steadfast
   category: Physical
-  points: -6
+  points: -4
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -517,6 +517,7 @@
   id: BionicArm
   category: Physical
   points: -10
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -526,11 +527,16 @@
     - !type:CharacterItemGroupRequirement
       group: TraitsMind
   functions:
-    - !type:TraitAddComponent
-      components:
-        - type: Prying
-          speedModifier: 1
-          pryPowered: true
+    - !type:TraitCyberneticLimbReplacement
+      removeBodyPart: Arm
+      partSymmetry: Left
+      protoId: JawsOfLifeLeftArm
+      slotId: "left arm"
+    - !type:TraitCyberneticLimbReplacement
+      removeBodyPart: Arm
+      partSymmetry: Right
+      protoId: JawsOfLifeRightArm
+      slotId: "right arm"
     - !type:TraitPushDescription
       descriptionExtensions:
         - description: examine-bionic-arm-message
@@ -651,6 +657,8 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+        - Command
+#        - Dignitary
     - !type:CharacterTraitRequirement
       traits:
         - CyberEyes
@@ -723,6 +731,7 @@
   id: CyberEyesOmni
   category: Physical
   points: -3
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -732,6 +741,7 @@
       departments:
         - Security
         - Command
+#        - Dignitary
     - !type:CharacterTraitRequirement
       traits:
         - CyberEyes
@@ -810,6 +820,7 @@
   id: LightAmplification
   category: Physical
   points: -4
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -827,6 +838,7 @@
   id: ThermographicVision
   category: Physical
   points: -4
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -874,11 +886,13 @@
             groups:
               Brute: -0.6
               Burn: -0.6
+              Electronic : -0.6
 
 - type: trait
   id: BionicLeg
   category: Physical
   points: -8
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -887,16 +901,22 @@
     - !type:CharacterItemGroupRequirement
       group: TraitsMind
   functions:
-    - !type:TraitReplaceComponent
-      components:
-      - type: TraitSpeedModifier
-        sprintModifier: 1.300
-        walkModifier: 1.125
     - !type:TraitPushDescription
       descriptionExtensions:
         - description: examine-bionic-leg-message
           fontSize: 12
           requireDetailRange: true
+    - !type:TraitCyberneticLimbReplacement
+      removeBodyPart: Leg
+      partSymmetry: Left
+      protoId: SpeedLeftLeg
+      slotId: "left leg"
+    - !type:TraitCyberneticLimbReplacement
+      removeBodyPart: Leg
+      partSymmetry: Right
+      protoId: SpeedRightLeg
+      slotId: "right leg"
+
 
 # - type: trait
 #  id: FlareShieldingModule
@@ -937,6 +957,8 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Security
+        - Command
+#        - Dignitary
     - !type:CharacterSpeciesRequirement
       species:
         - IPC
@@ -1024,6 +1046,7 @@
   id: OmniEyesModule
   category: Physical
   points: -3
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -1033,6 +1056,7 @@
       departments:
         - Security
         - Command
+#        - Dignitary
     - !type:CharacterSpeciesRequirement
       species:
         - IPC
@@ -1068,6 +1092,7 @@
   id: LightAmplificationModule
   category: Physical
   points: -4
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -1093,6 +1118,7 @@
   id: ThermographicVisionModule
   category: Physical
   points: -4
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -1118,6 +1144,92 @@
     - !type:TraitPushDescription
       descriptionExtensions:
         - description: examine-thermal-vision-message
+          fontSize: 12
+          requireDetailRange: true
+
+- type: trait
+  id: Bulky
+  category: Physical
+  points: -6
+  requirements:
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Featherweight
+  functions:
+    - !type:TraitModifyDensity
+      densityModifier: 55
+      multiply: false
+    - !type:TraitPushDescription
+      descriptionExtensions:
+        - description: examine-bulky-message
+          fontSize: 12
+          requireDetailRange: true
+
+- type: trait
+  id: Featherweight
+  category: Physical
+  points: 3
+  requirements:
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Bulky
+  functions:
+    - !type:TraitModifyDensity
+      densityModifier: 0.5
+      multiply: true
+    - !type:TraitPushDescription
+      descriptionExtensions:
+        - description: examine-featherweight-message
+          fontSize: 12
+          requireDetailRange: true
+
+- type: trait
+  id: Bodybuilder
+  category: Physical
+  points: -6
+  requirements:
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Weakling
+  functions:
+    - !type:TraitReplaceComponent
+      components:
+        - type: Puller
+          walkSpeedModifier: 0.975
+          sprintSpeedModifier: 0.975
+          softGrabSpeedModifier: 0.95
+          hardGrabSpeedModifier: 0.85
+          chokeGrabSpeedModifier: 0.7
+    - !type:TraitPushDescription
+      descriptionExtensions:
+        - description: examine-bodybuilder-message
+          fontSize: 12
+          requireDetailRange: true
+
+- type: trait
+  id: Weakling
+  category: Physical
+  points: 3
+  requirements:
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Bodybuilder
+  functions:
+    - !type:TraitReplaceComponent
+      components:
+        - type: Puller
+          walkSpeedModifier: 0.9
+          sprintSpeedModifier: 0.9
+          softGrabSpeedModifier: 0.8
+          hardGrabSpeedModifier: 0.4
+          chokeGrabSpeedModifier: 0.2
+    - !type:TraitPushDescription
+      descriptionExtensions:
+        - description: examine-weakling-message
           fontSize: 12
           requireDetailRange: true
 

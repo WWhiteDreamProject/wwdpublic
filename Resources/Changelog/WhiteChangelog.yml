@@ -2295,3 +2295,33 @@ Entries:
   id: 242
   time: '2025-03-29T10:07:26.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/388
+- author: Ligrof
+  changes:
+    - type: Add
+      message: Разложение муки
+    - type: Tweak
+      message: Рецепты биомассы и разложения универсального фермента
+  id: 243
+  time: '2025-03-29T17:01:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/391
+- author: Ligrof
+  changes:
+    - type: Tweak
+      message: количество слотов под пробирки в центрифуге 1 -> 6
+  id: 244
+  time: '2025-03-29T21:42:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/393
+- author: Spatison
+  changes:
+    - type: Add
+      message: Upstream 03.22-03.29
+  id: 245
+  time: '2025-03-30T07:52:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/392
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Огонь снова работает нормально
+  id: 246
+  time: '2025-03-30T07:57:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/366
