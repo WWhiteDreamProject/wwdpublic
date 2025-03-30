@@ -149,3 +149,16 @@
     Telecrystal: 2
   categories:
   - UplinkAllies
+
+- type: listing
+  id: UplinkRifleAK220
+  name: uplink-Rifle-AK220-name
+  description: uplink-Rifle-AK220-desc
+  productEntity: WeaponRifleAK220
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  cost:
+    Telecrystal: 16
+  categories:
+  - UplinkWeaponry
