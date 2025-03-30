@@ -97,10 +97,7 @@ public sealed class HearingSystem : EntitySystem
 
         foreach (var source in component.DeafnessSources.ToList())
             if (source.Id == id)
-            {
                 component.DeafnessSources.Remove(source);
-                return;
-            }
     }
 
     // Public API
