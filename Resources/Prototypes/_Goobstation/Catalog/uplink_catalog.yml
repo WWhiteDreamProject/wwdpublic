@@ -38,6 +38,7 @@
       - NukeOpsUplink
 
 # Martial Arts
+
 - type: listing
   id: UplinkCQCManual
   name: uplink-cqc-name
@@ -84,6 +85,8 @@
 #   categories:
 #   - UplinkWeaponry
 
+# Weapons
+
 - type: listing
   id: UplinkBowHardlight
   name: uplink-hardlight-bow-name
@@ -102,6 +105,44 @@
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkM90
+  name: uplink-m90-name
+  description: uplink-m90-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
+  productEntity: WeaponRifleM90
+  cost:
+    Telecrystal: 50 #same as c20r until I add the underbarrel grenade launcher
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkWSPR
+  name: uplink-WSPR-name
+  description: uplink-WSPR-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledWSPR
+  cost:
+    Telecrystal: 85
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkWeaponRifleBurner
+  name: uplink-weapon-burner-name
+  description: uplink-weapon-burner-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
+  productEntity: WeaponRifleBurner
+  cost:
+    Telecrystal: 125 # don't kill me piras
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
       tags:
       - NukeOpsUplink
 
@@ -129,7 +170,106 @@
   description: uplink-hardsuit-cybersun-dreadnought-desc
   icon: { sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi, state: icon }
   productEntity: CrateSyndicateDreadnought
+  # WD EDIT START
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 4
   cost:
-    Telecrystal: 100
+    Telecrystal: 20
+  # WD EDIT END
   categories:
   - UplinkWearables
+
+# Ammo
+
+- type: listing
+  id: UplinkLightRifleSubsonicMag
+  name: uplink-rifle-subsonic-mag-name
+  description: uplink-rifle-subsonic-mag-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: rubber }
+  productEntity: MagazineLightRifleSubsonic
+  # WD EDIT START
+  cost:
+    Telecrystal: 1
+  # WD EDIT END
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkRifleMag
+  name: uplink-rifle-mag-name
+  description: uplink-rifle-mag-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: red }
+  productEntity: MagazineRifle
+  # WD EDIT START
+  cost:
+    Telecrystal: 1
+  # WD EDIT END
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineHighCaliberExplosive
+  name: uplink-high-caliber-explosive-magazine-name
+  description: uplink-high-caliber-explosive-magazine-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
+  productEntity: MagazineHighCaliberExplosive
+  # WD EDIT START
+  cost:
+    Telecrystal: 1
+  # WD EDIT END
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineHighCaliber
+  name: uplink-high-caliber-magazine-name
+  description: uplink-high-caliber-magazine-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
+  productEntity: MagazineHighCaliber
+  # WD EDIT START
+  cost:
+    Telecrystal: 1
+  # WD EDIT END
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineLightRifleBox
+  name: uplink-l6-box-name
+  description: uplink-l6-box-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_box.rsi, state: base }
+  productEntity: MagazineLightRifleBox
+  # WD EDIT START
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 5
+  # WD EDIT END
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkSyndicateSegwayCrate
+  name: uplink-syndicate-segway-crate-name # Funnily enough these localizations weren't removed when wiz removed vehicles
+  description: uplink-syndicate-segway-crate-desc
+  icon: { sprite: /Textures/Objects/Vehicles/syndicatesegway.rsi, state: icon }
+  productEntity: CrateFunSyndicateSegway
+  # WD EDIT START
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 5
+  # WD EDIT END
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
