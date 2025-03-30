@@ -78,6 +78,7 @@ namespace Content.IntegrationTests.Tests
             "DryDock", //WWDP
             "Moose", //WWDP
             "WhiteBox", //WWDP
+            "Molecule", //WWDP
         };
 
         /// <summary>

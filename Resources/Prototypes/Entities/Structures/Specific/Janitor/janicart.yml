@@ -327,6 +327,10 @@
       interfaces:
         enum.StorageUiKey.Key:
           type: StorageBoundUserInterface
+        enum.ItemSlotPickerKey.Key: # WD EDIT
+          type: ItemSlotPickerBoundUserInterface
+          requireInputValidation: True
+          interactionRange: 1.5
     - type: Drink
       solution: bucket
     - type: ContainerContainer
