@@ -1,0 +1,2 @@
+reagent-name-experimental-stimulants = experimental stimulants
+reagent-desc-experimental-stimulants = A prototype version of the stimulant chemical mixture. Usage grants virtual immunity to stun weaponry, rapid tissue regeneration, extreme running speed by reducing lactic acid buildup, and a general feeling of euphoria. Side effects may include extreme levels of anticoagulation, tunnel vision, extreme toxin buildup in the bloodstream, and rapid liver death. Do not give to animals.

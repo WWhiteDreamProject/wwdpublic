@@ -20,7 +20,7 @@ namespace Content.Server.CombatMode.Disarm // WWDP moved to shared
         public float WieldedBonus = 0f;
 
         // WWDP
-        [DataField, ViewVariables(VVAccess.ReadOnly)]
+        [ViewVariables(VVAccess.ReadOnly)]
         public float CurrentMalus;
     }
 }
