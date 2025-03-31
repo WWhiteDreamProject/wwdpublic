@@ -1,9 +1,7 @@
 using Content.Server.GameTicking;
 using Content.Shared.Damage;
 using Content.Shared.Database;
-using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Item;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -18,7 +16,6 @@ namespace Content.Server.Chat;
 
 public sealed class SuicideSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -31,7 +28,6 @@ public sealed class SuicideSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<DamageableComponent, SuicideEvent>(OnDamageableSuicide);
-        SubscribeLocalEvent<MobStateComponent, SuicideEvent>(OnEnvironmentalSuicide);
         SubscribeLocalEvent<MindContainerComponent, SuicideGhostEvent>(OnSuicideGhost);
     }
 
@@ -84,46 +80,6 @@ public sealed class SuicideSystem : EntitySystem
 
         if (_gameTicker.OnGhostAttempt(victim.Comp.Mind.Value, args.CanReturnToBody, mind: mindComponent))
             args.Handled = true;
-    }
-
-    /// <summary>
-    /// Raise event to attempt to use held item, or surrounding entities to attempt to commit suicide
-    /// </summary>
-    private void OnEnvironmentalSuicide(Entity<MobStateComponent> victim, ref SuicideEvent args)
-    {
-        if (args.Handled || _mobState.IsCritical(victim))
-            return;
-
-        var suicideByEnvironmentEvent = new SuicideByEnvironmentEvent(victim);
-
-        // Try to suicide by raising an event on the held item
-        if (EntityManager.TryGetComponent(victim, out HandsComponent? handsComponent)
-            && handsComponent.ActiveHandEntity is { } item)
-        {
-            RaiseLocalEvent(item, suicideByEnvironmentEvent);
-            if (suicideByEnvironmentEvent.Handled)
-            {
-                args.Handled = suicideByEnvironmentEvent.Handled;
-                return;
-            }
-        }
-
-        // Try to suicide by nearby entities, like Microwaves or Crematoriums, by raising an event on it
-        // Returns upon being handled by any entity
-        var itemQuery = GetEntityQuery<ItemComponent>();
-        foreach (var entity in _entityLookupSystem.GetEntitiesInRange(victim, 1, LookupFlags.Approximate | LookupFlags.Static))
-        {
-            // Skip any nearby items that can be picked up, we already checked the active held item above
-            if (itemQuery.HasComponent(entity))
-                continue;
-
-            RaiseLocalEvent(entity, suicideByEnvironmentEvent);
-            if (!suicideByEnvironmentEvent.Handled)
-                continue;
-
-            args.Handled = suicideByEnvironmentEvent.Handled;
-            return;
-        }
     }
 
     /// <summary>
