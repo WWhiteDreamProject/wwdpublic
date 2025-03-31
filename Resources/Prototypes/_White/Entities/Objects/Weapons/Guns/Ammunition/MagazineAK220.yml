@@ -1,0 +1,23 @@
+﻿- type: entity
+  id: MagazineLightRifleAK220
+  name: "AK220 Magazine"
+  suffix: ".30 Magazine special for AK220. but can used for previous versions of rifles"
+  parent: MagazineLightRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifle
+    capacity: 40
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Ammunition/AK220mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+  magState: mag
+  steps: 5
+  zeroVisible: false
+

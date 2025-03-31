@@ -180,3 +180,13 @@
     whitelist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: uplinkLightRIflemagazineAK220
+  name: uplink-Light-RIfle-magazine-AK220-name
+  description: uplink-Light-RIfle-magazine-AK220-desc
+  productEntity: MagazineLightRifleAK220
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkAmmo
