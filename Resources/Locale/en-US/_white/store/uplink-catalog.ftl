@@ -13,7 +13,7 @@ uplink-hardlight-spear-implant-desc = An implant injected into the body, and lat
 uplink-neuro-control = Neuro stabilization implanter
 uplink-neuro-control-desc = Blocks all of the incoming stamina damage while dealing shock damage instead.
 
-uplink-implanter-name = Имплантер
+uplink-implanter-name = implant
 uplink-implanter-desc = An advanced implant that allows you to quickly insert and remove implants.
 
 uplink-smoke-implant-name = Smoke implant
@@ -27,3 +27,6 @@ uplink-blood-dagger-desc = A dagger of pain and blood. It has deadly accuracy, a
 
 uplink-gondola-name = Gondola crate
 uplink-gondola-desc = A crate containing a single Gondola. The meat of the Gondola contains tranquility reagent.
+
+uplink-experimental-stimpack-name = Experimental stimpack
+uplink-experimental-stimpack-desc = A prototype version of the stimulant chemical mixture. Usage grants virtual immunity to stun weaponry, rapid tissue regeneration, extreme running speed by reducing lactic acid buildup, and a general feeling of euphoria. Side effects may include extreme levels of anticoagulation, tunnel vision, extreme toxin buildup in the bloodstream, and rapid liver death. Do not give to animals.

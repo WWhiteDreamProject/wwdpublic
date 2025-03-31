@@ -1,0 +1,220 @@
+- type: entity
+  parent: BaseItem
+  id: HosBatBase
+  abstract: true
+  components:
+    - type: MeleeWeapon
+      animationRotation: -45
+      wideAnimationRotation: -135
+      attackRate: 2
+      canHeavyAttack: false
+      range: 1.6
+      damage:
+        types:
+          Blunt: 20
+      heavyRateModifier: 2
+      angle: 60
+      soundHit:
+        collection: MetalThud
+    - type: DisarmMalus
+      malus: 0.3
+    - type: Item
+      size: Ginormous
+    - type: Clothing
+      quickEquip: false
+      slots:
+      - belt
+    - type: MeleeThrowOnHit
+      speed: 10
+      lifetime: 0.05
+    - type: FlipOnHit
+      applyToSelf: false
+    - type: MeleeBlock
+      delay: 12.1
+
+- type: entity
+  name: assball bat
+  parent: HosBatBase
+  id: AssballBat
+  description: "Handle wrapped in assistant leather. Elegant and practical."
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Melee/Hosbat/hos_bat.rsi
+    state: icon
+  - type: RadialEntityMorph
+    entries:
+    - prototype: BatLaser
+    - prototype: BatStopSign
+    - prototype: BatAk47
+    - prototype: TacticalSledgehammer
+    - prototype: BrickSatchel
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+
+- type: entity
+  name: laser bat
+  parent: HosBatBase
+  id: BatLaser
+  description: "Elite fighter's bat. You feel empowered! Smash enemies into pieces!"
+  components:
+    - type: Sprite
+      sprite: _White/Objects/Weapons/Melee/Hosbat/laser_bat.rsi
+      layers:
+      - state: bat_laser_handle
+      - state: bat_laser
+        shader: unshaded
+    - type: Item
+      size: Normal
+      inhandVisuals:
+        left:
+        - state: inhand-left
+        - state: inhand-left-unshaded
+          shader: unshaded
+        right:
+        - state: inhand-right
+        - state: inhand-right-unshaded
+          shader: unshaded
+    - type: PointLight
+      enabled: true
+      color: "#ff0000"
+      radius: 1.5
+    - type: MeleeWeapon
+      damage:
+        types:
+          Heat: 20
+      soundHit:
+        path: /Audio/Weapons/eblade1.ogg
+
+- type: entity
+  name: stop sign
+  parent: HosBatBase
+  id: BatStopSign
+  description: "Where did you even get this? There are no roads in space."
+  components:
+    - type: Sprite
+      sprite: _White/Objects/Weapons/Melee/Hosbat/stop_sign.rsi
+      state: icon
+    - type: MeleeWeapon
+      soundHit:
+        path: /Audio/SimpleStation14/Weapons/Melee/rapierhit.ogg
+      damage:
+        types:
+          Slash: 17
+    - type: Sharp
+
+- type: entity
+  name: ak-47 bat
+  parent: HosBatBase
+  id: BatAk47
+  description: "Tears faces off in bursts. Uses 7.62 anti-tank rounds."
+  components:
+    - type: Sprite
+      sprite: _White/Objects/Weapons/Melee/Hosbat/74ka.rsi
+      state: icon
+
+- type: entity
+  name: tactical sledgehammer
+  parent: HosBatBase
+  id: TacticalSledgehammer
+  description: "Same as regular hammer but twice as big (and twice as painful!)"
+  components:
+    - type: Sprite
+      sprite: _White/Objects/Weapons/Melee/Hosbat/tactical_sledgehammer.rsi
+      state: icon
+    - type: MeleeWeapon
+      soundHit:
+        path: /Audio/Nyanotrasen/Weapons/club.ogg
+      damage:
+        types:
+          Blunt: 17
+          Structural: 5
+    - type: Wieldable
+    - type: IncreaseDamageOnWield
+      damage:
+        types:
+          Blunt: 13
+          Structural: 15
+    - type: UseDelay
+      delay: 1
+
+- type: entity
+  name: bluespace brick satchel
+  parent: BaseItem
+  id: BrickSatchel
+  description: "Steals bricks from Moldovans using bluespace tech. Warm to the touch."
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Melee/Hosbat/brick_bag.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - belt
+  - type: EntityGenerator
+    prototypeId: BluespaceBrick
+    rechargeDuration: 12
+    onlyFullRecharge: true
+
+- type: entity
+  name: bluespace brick
+  parent: BaseItem
+  id: BluespaceBrick
+  description: "Unusually heavy brick. Fits comfortably in your hand."
+  components:
+    - type: Sprite
+      sprite: _White/Objects/Weapons/Melee/Hosbat/brick.rsi
+      state: icon
+    - type: MeleeWeapon
+      animationRotation: -45
+      wideAnimationRotation: -135
+      range: 1.6
+      damage:
+        types:
+          Blunt: 5
+      soundHit:
+        collection: MetalThud
+    - type: ThrowingAngle
+      angle: 225
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Blunt: 20
+      staminaCost: 20
+    - type: KnockdownOnCollide
+      delay: 1
+      knockdownTime: 5
+      jitterTime: 1
+      stutterTime: 0
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 3
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/Effects/break_stone.ogg
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - type: DamageOnLand
+      damage:
+        types:
+          Blunt: 5
+    - type: TimedDespawn
+      lifetime: 6
+    - type: WeaponRandom
+      damageBonus:
+        types:
+          Blunt: 350
+      randomDamageChance: 0.001
+      applyBonusOnThrow: true
+      forcedThrowTargetPart: "Head"

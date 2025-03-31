@@ -43,6 +43,18 @@
             <CheckBox Name="PixelSnapCameraCheckBox" Text="{Loc 'ui-options-pixel-snap-camera-experimental'}" /> <!-- wwdp edit -->
             <CheckBox Name="ParallaxLowQualityCheckBox" Text="{Loc 'ui-options-parallax-low-quality'}" />
             <CheckBox Name="FpsCounterCheckBox" Text="{Loc 'ui-options-fps-counter'}" />
+            <!-- WD EDIT START -->
+            <CheckBox Name="FilmGrainCheckBox" Text="{Loc 'ui-options-film-grain'}" />
+            <BoxContainer Name="FilmGrainBox" Orientation="Horizontal">
+                <Label Name="FilmGrainText"/>
+                <Control MinSize="4 0" />
+                <Slider Name="FilmGrainSlider"
+                        MinValue="25"
+                        MaxValue="125"
+                        Rounded="True"
+                        MinWidth="500" />
+            </BoxContainer>
+            <!-- WD EDIT END -->
             <CheckBox Name="MoodVisualEffectsCheckBox" Text="{Loc 'ui-options-mood-visual-effects'}" />
         </BoxContainer>
         <controls:StripeBack HasBottomEdge="False" HasMargins="False">

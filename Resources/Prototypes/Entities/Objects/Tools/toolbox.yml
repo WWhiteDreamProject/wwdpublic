@@ -143,11 +143,11 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 11.5
+        Blunt: 20 #WWDP edit
   - type: DamageOtherOnHit
     damage:
       types:
-        Blunt: 15
+        Blunt: 20 #WWDP edit
 
 - type: entity
   name: golden toolbox
