@@ -39,6 +39,8 @@
       id: LoadoutCommandHoSEnergyGun
     # - type: loadout # WWDP disabled
     #   id: LoadoutCommandHoSBRDIR25
+    - type: loadout #WWDP EDIT
+      id: LoadoutCommandHoSBat
 
 #- type: characterItemGroup
 #  id: LoadoutHeadOfSecurityEyes
