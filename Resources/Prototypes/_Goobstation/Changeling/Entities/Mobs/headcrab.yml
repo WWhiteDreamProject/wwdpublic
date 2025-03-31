@@ -1,7 +1,7 @@
 - type: entity
   name: head slug
   parent: [SimpleSpaceMobBase] # no dying in space
-  id: MobHeadcrabChangeling // WD EDIT
+  id: Headslug # WD EDIT
   description: You don't want to touch it.
   components:
   - type: Sprite

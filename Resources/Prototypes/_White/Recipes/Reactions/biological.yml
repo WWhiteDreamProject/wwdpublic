@@ -13,3 +13,42 @@
     Nitrogen: 4
     CarbonDioxide: 3
     Protein: 4
+
+- type: reaction
+  id: SugarBreakdown
+  source: true
+  reactants:
+    Sugar:
+      amount: 5
+    SulfuricAcid:
+      amount: 1
+      catalyst: true
+  products:
+    Water: 2
+    Carbon: 3
+
+- type: reaction
+  id: EnzymeBreakdown
+  source: true
+  requiredMixerCategories:
+  - Electrolysis
+  reactants:
+    Enzyme:
+      amount: 5
+  products:
+    Carbon: 2
+    Oxygen: 1
+    Nitrogen: 2
+
+- type: reaction
+  id: FlourBreakdown
+  source: true
+  requiredMixerCategories:
+  - Electrolysis
+  reactants:
+    Flour:
+      amount: 5
+  products:
+    Carbon: 2
+    Sugar: 2
+    Nutriment: 1

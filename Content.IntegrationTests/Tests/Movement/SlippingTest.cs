@@ -45,14 +45,14 @@ public sealed class SlippingTest : MovementTest
         Assert.That(sys.Slipped, Does.Not.Contain(SEntMan.GetEntity(Player)));
 
         // Walking over the banana slowly does not trigger a slip.
-        await SetKey(EngineKeyFunctions.Walk, sprintWalks ? BoundKeyState.Up : BoundKeyState.Down);
+        await SetKey(EngineKeyFunctions.Walk, sprintWalks ? BoundKeyState.Down : BoundKeyState.Up); // WD EDIT
         await Move(DirectionFlag.East, 1f);
         Assert.That(Delta(), Is.LessThan(0.5f));
         Assert.That(sys.Slipped, Does.Not.Contain(SEntMan.GetEntity(Player)));
         AssertComp<KnockedDownComponent>(false, Player);
 
         // Moving at normal speeds does trigger a slip.
-        await SetKey(EngineKeyFunctions.Walk, sprintWalks ? BoundKeyState.Down : BoundKeyState.Up);
+        await SetKey(EngineKeyFunctions.Walk, sprintWalks ? BoundKeyState.Up : BoundKeyState.Down); // WD EDIT
         await Move(DirectionFlag.West, 1f);
         Assert.That(sys.Slipped, Does.Contain(SEntMan.GetEntity(Player)));
         AssertComp<KnockedDownComponent>(true, Player);
