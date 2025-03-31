@@ -1,7 +1,7 @@
 ﻿- type: entity
   id: MagazineLightRifleAK220
-  name: "AK220 Magazine"
-  suffix: ".30 Magazine special for AK220. but can used for previous versions of rifles"
+  name: "increased .30 Magazine"
+  suffix: "increased magazine .30"
   parent: MagazineLightRifle
   components:
   - type: BallisticAmmoProvider
@@ -17,7 +17,7 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
-  magState: mag
-  steps: 5
-  zeroVisible: false
-
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance

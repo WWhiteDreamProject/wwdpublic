@@ -1,7 +1,7 @@
 ﻿- type: entity
   name: AK-220
   parent: WeaponRifleAk
-  id: WeaponRifleAK220
+  id: WeaponLightRifleAK220
   description: Updated version of iconic weapon. Uses .30 rifle ammo.
   components:
   - type: Sprite
@@ -16,11 +16,11 @@
   - type: ItemSlots
     slots:
       gun_magazine:
-        startingItem: MagazineRifleAK220
+        startingItem: MagazineLightRifleAK220
         whitelist:
           tags:
-          - MagazineLightRifle
+          - MagazineLightRifleAK220
   - type: MagazineVisuals
     magState: mag
-    steps: 3
+    steps: 4
     zeroVisible: false

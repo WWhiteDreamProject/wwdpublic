@@ -152,14 +152,14 @@
 
 - type: listing
   id: UplinkRifleAK220
-  name: uplink-Rifle-AK220-name
-  description: uplink-Rifle-AK220-desc
-  productEntity: WeaponRifleAK220
+  name: uplink-Light-Rifle-AK220-name
+  description: uplink-Light-Rifle-AK220-desc
+  productEntity: WeaponLightRifleAK220
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 6
+    Telecrystal: 4
   cost:
-    Telecrystal: 16
+    Telecrystal: 14
   categories:
   - UplinkWeaponry
 
@@ -182,9 +182,9 @@
       - NukeOpsUplink
 
 - type: listing
-  id: uplinkLightRIflemagazineAK220
-  name: uplink-Light-RIfle-magazine-AK220-name
-  description: uplink-Light-RIfle-magazine-AK220-desc
+  id: uplinkmagazineLightRIfleAK220
+  name: uplink-magazine-Light-RIfle-AK220-name
+  description: uplink-magazine-Light-RIfle-AK220-desc
   productEntity: MagazineLightRifleAK220
   cost:
     Telecrystal: 1
