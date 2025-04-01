@@ -133,3 +133,10 @@
       - !type:SpawnPrototype
         prototype: StationAIAssemblyScrewed
       - !type:DeleteEntity { }
+
+    - to: wired
+      conditions:
+      - !type:EntityAnchored
+      steps:
+      - tool: Screwing
+        doAfter: 10

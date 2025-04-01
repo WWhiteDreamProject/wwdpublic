@@ -76,7 +76,27 @@
   components:
   - type: Sprite
     sprite: Mobs\Silicon\station_ai.rsi
-    state: 3
+    layers:
+    - state: 3
+    - state: 3b
+      map: [ "enum.StationAIAssemblyVisualLayers.Brain" ]
+      visible: false
   - type: Construction
     graph: AICoreGraph
     node: wired
+  - type: StationAIAssembly
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StationAIAssemblyVisuals.HasBrain:
+        enum.StationAIAssemblyVisualLayers.Brain:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ItemSlots
+    slots:
+      brain_slot:
+        name: positronic-brain-slot-component-slot-name-brain
+        whitelist:
+          components:
+          - BorgBrain
+

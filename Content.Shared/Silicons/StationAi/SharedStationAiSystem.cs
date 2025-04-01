@@ -69,7 +69,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     private EntityQuery<MapGridComponent> _gridQuery;
 
     [ValidatePrototypeId<EntityPrototype>]
-    private static readonly EntProtoId DefaultAi = "StationAiBrain";
+    public readonly EntProtoId DefaultAi = "StationAiBrain";
 
     private const float MaxVisionMultiplier = 5f;
 

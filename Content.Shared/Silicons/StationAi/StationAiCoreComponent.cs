@@ -38,5 +38,13 @@ public sealed partial class StationAiCoreComponent : Component
     [DataField(readOnly: true)]
     public EntProtoId? PhysicalEntityProto = "StationAiHoloLocal";
 
+    // WD edit start
+    /// <summary>
+    /// This is the prototype of brain, inserted in AI, while assembling it
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntProtoId InsertedBrain = "MMI";
+    // WD edit end
+
     public const string Container = "station_ai_mind_slot";
 }
