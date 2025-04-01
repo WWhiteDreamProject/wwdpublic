@@ -1,3 +1,4 @@
+using Content.Shared._White.RadialSelector;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -51,7 +52,7 @@ public abstract class SharedAlienEvolutionSystem : EntitySystem
         args.Handled = true;
 
         _ui.TryToggleUi(uid, RadialSelectorUiKey.Key, uid);
-        _ui.SetUiState(uid, RadialSelectorUiKey.Key, new RadialSelectorState(component.EvolvesTo, true));
+        _ui.SetUiState(uid, RadialSelectorUiKey.Key, new TrackedRadialSelectorState(component.EvolvesTo));
     }
 
     private void OnEvolutionRecieved(EntityUid uid, AlienEvolutionComponent component, RadialSelectorSelectedMessage args)

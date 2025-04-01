@@ -846,7 +846,7 @@
     - type: UserInterface
       interfaces:
         enum.RadialSelectorUiKey.Key:
-          type: RadialSelectorMenuBUI
+          type: TrackedRadialSelectorMenuBUI
 
 # BASE FACEHUGGER
 
