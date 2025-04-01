@@ -60,6 +60,11 @@
                                 ButtonText="{Loc 'lobby-character-preview-panel-character-setup-button'}"
                                 Margin="0 10 0 10" />
                             <buttons:WhiteLobbyTextButton
+                                Name="ManifestButton"
+                                Access="Public"
+                                ButtonText="Manifest"
+                                Margin="0 10 0 10" />
+                            <buttons:WhiteLobbyTextButton
                                 Name="OptionsButton"
                                 Access="Public"
                                 ButtonText="{Loc 'ui-lobby-options-button'}"
