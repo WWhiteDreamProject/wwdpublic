@@ -5,7 +5,9 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Lock;
 using Content.Shared.Mind;
+using Content.Shared.Prying.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Stacks;
 using Content.Shared.Tools.Components;
@@ -27,6 +29,7 @@ public sealed class StationAIAssemblySystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStationAiSystem _stationAi = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
@@ -37,6 +40,9 @@ public sealed class StationAIAssemblySystem : EntitySystem
 
         SubscribeLocalEvent<StationAIAssemblyComponent, InteractUsingEvent>(OnInteract);
         SubscribeLocalEvent<StationAIAssemblyComponent, StationAIAssemblyDoAfterEvent>(OnDoAfter);
+
+        SubscribeLocalEvent<StationAiCoreComponent, InteractUsingEvent>(OnDisassemble);
+        SubscribeLocalEvent<StationAiCoreComponent, StationAIDisassembleDoAfterEvent>(OnDisassembleDoAfter);
     }
 
     private void OnContainerModified(EntityUid uid, StationAIAssemblyComponent component, ContainerModifiedMessage args)
@@ -79,6 +85,50 @@ public sealed class StationAIAssemblySystem : EntitySystem
 
         QueueDel(ent.Owner);
     }
+
+    private void OnDisassemble(Entity<StationAiCoreComponent> ent, ref InteractUsingEvent args)
+    {
+        if (TryComp(ent.Owner, out LockComponent? lockComponent)
+            && lockComponent.Locked
+            || !HasComp<PryingComponent>(args.Used))
+            return;
+
+        var ev = new StationAIDisassembleDoAfterEvent();
+        _doAfter.TryStartDoAfter(
+            new(EntityManager, args.User, TimeSpan.FromSeconds(5), ev, ent.Owner)
+            {
+                BreakOnMove = true,
+                NeedHand = true,
+                BlockDuplicate = true
+            });
+    }
+
+    private void OnDisassembleDoAfter(Entity<StationAiCoreComponent> ent, ref StationAIDisassembleDoAfterEvent args)
+    {
+        if (!_net.IsServer)
+            return;
+
+        var assembly = Spawn(ent.Comp.AssemblyProto, Transform(ent.Owner).Coordinates);
+        var assemblyComp = EnsureComp<StationAIAssemblyComponent>(assembly);
+        var aiBrainsInContainer = _container.GetContainer(ent.Owner, StationAiCoreComponent.Container).ContainedEntities;
+
+        var cover = Spawn(assemblyComp.CoverMaterialPrototype, Transform(assembly).Coordinates);
+        _stack.SetCount(cover, assemblyComp.CoverMaterialStackSize);
+
+        if (aiBrainsInContainer.Count == 0)
+        {
+            QueueDel(ent.Owner);
+            return;
+        }
+
+        var aiBrain = aiBrainsInContainer[0];
+        var assemblyBrain = SpawnInContainerOrDrop(ent.Comp.InsertedBrain, assembly, assemblyComp.BrainSlotId);
+
+        if (_mind.TryGetMind(aiBrain, out var mindId, out var mind))
+            _mind.TransferTo(mindId, assemblyBrain, mind: mind);
+
+        QueueDel(ent.Owner);
+    }
 }
 
 [Serializable, NetSerializable]
@@ -86,3 +136,6 @@ public sealed partial class StationAIAssemblyDoAfterEvent : SimpleDoAfterEvent
 {
     public NetEntity InteractedWith;
 }
+
+[Serializable, NetSerializable]
+public sealed partial class StationAIDisassembleDoAfterEvent : SimpleDoAfterEvent { }

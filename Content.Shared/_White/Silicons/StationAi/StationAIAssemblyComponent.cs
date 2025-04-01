@@ -21,6 +21,9 @@ public sealed partial class StationAIAssemblyComponent : Component
     public string CoverMaterialStackPrototype = "ReinforcedGlass";
 
     [DataField, ViewVariables]
+    public string CoverMaterialPrototype = "SheetRGlass";
+
+    [DataField, ViewVariables]
     public int CoverMaterialStackSize = 2;
 }
 

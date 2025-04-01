@@ -43,7 +43,13 @@ public sealed partial class StationAiCoreComponent : Component
     /// This is the prototype of brain, inserted in AI, while assembling it
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntProtoId InsertedBrain = "MMI";
+    public EntProtoId InsertedBrain = "MMIFilled";
+
+    /// <summary>
+    /// Prototype that represents assembly of an ai
+    /// </summary>
+    [DataField(readOnly: true)]
+    public EntProtoId? AssemblyProto = "StationAIAssemblyWired";
     // WD edit end
 
     public const string Container = "station_ai_mind_slot";
