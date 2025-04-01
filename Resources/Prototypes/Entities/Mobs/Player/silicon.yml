@@ -509,7 +509,7 @@
 - type: entity
   id: PlayerStationAiEmpty
   name: AI Core
-  description: The latest in Artificial Intelligences.
+  description: The latest in Artificial Intelligences. It has maintenance panel, which can be opened to pry screen out with a crowbar.
   parent:
   - BaseStructure
   - AiHolder
@@ -524,7 +524,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 400
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -605,9 +605,13 @@
           type: HolopadBoundUserInterface
         enum.HolopadUiKey.AiActionWindow:
           type: HolopadBoundUserInterface
-  - type: AccessReader # WD edit start
+  # WD edit start
+  - type: AccessReader
     access: [ [ "Command" ], [ "Research" ] ]
-  - type: Lock # WD edit end
+  - type: Lock
+  - type: WiresPanel
+  - type: LockedWiresPanel
+  # WD edit end
 
 # The job-ready version of an AI spawn.
 - type: entity
