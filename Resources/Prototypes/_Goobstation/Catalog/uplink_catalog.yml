@@ -161,6 +161,53 @@
       tags:
       - NukeOpsUplink
 
+- type: listing
+  id: UplinkDualettaBundle
+  name: uplink-dualetta-bundle-name
+  description: uplink-dualetta-bundle-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
+  productEntity: BriefcaseSyndieDualettaBundleFilled
+  # WD EDIT START
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 10
+  # WD EDIT END
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkDualettaKit
+  name: uplink-dualetta-kit-name
+  description: uplink-dualetta-kit-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
+  productEntity: BoxDualettaKit
+  # WD EDIT START
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 6
+  # WD EDIT END
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkPistolAnaconda
+  name: uplink-anaconda-name
+  description: uplink-anaconda-desc
+  productEntity: WeaponPistolAnaconda
+  # WD EDIT START
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 8
+  # WD EDIT END
+  categories:
+  - UplinkWeaponry
+
 # Wearables
 
 - type: listing
@@ -194,6 +241,26 @@
   # WD EDIT END
   categories:
   - UplinkWearables
+
+- type: listing
+  id: UplinkSyndicateSegwayCrate
+  name: uplink-syndicate-segway-crate-name # Funnily enough these localizations weren't removed when wiz removed vehicles
+  description: uplink-syndicate-segway-crate-desc
+  icon: { sprite: /Textures/Objects/Vehicles/syndicatesegway.rsi, state: icon }
+  productEntity: CrateFunSyndicateSegway
+  # WD EDIT START
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 5
+  # WD EDIT END
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 # Ammo
 
@@ -270,21 +337,31 @@
   - UplinkAmmo
 
 - type: listing
-  id: UplinkSyndicateSegwayCrate
-  name: uplink-syndicate-segway-crate-name # Funnily enough these localizations weren't removed when wiz removed vehicles
-  description: uplink-syndicate-segway-crate-desc
-  icon: { sprite: /Textures/Objects/Vehicles/syndicatesegway.rsi, state: icon }
-  productEntity: CrateFunSyndicateSegway
+  id: UplinkHighCapacityMagazinePistol
+  name: uplink-highcap-pistol-mag-name
+  description: uplink-highcap-pistol-mag-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_high_capacity_mag.rsi, state: red }
+  productEntity: MagazinePistolHighCapacity
   # WD EDIT START
-  discountDownTo:
-    Telecrystal: 1
   cost:
-    Telecrystal: 5
+    Telecrystal: 1
   # WD EDIT END
   categories:
-  - UplinkDisruption
-  conditions:
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+  - UplinkAmmo
+
+# Misc
+
+- type: listing
+  id: UplinkDimensionPot
+  name: uplink-dimension-pot-name
+  description: uplink-dimension-pot-desc
+  productEntity: DimensionPot
+  # WD EDIT START
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 14
+  # WD EDIT END
+  categories:
+  - UplinkDeception
