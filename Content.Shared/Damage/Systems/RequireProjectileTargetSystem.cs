@@ -1,3 +1,5 @@
+using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Standing;
@@ -21,6 +23,12 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
 
         if (!ent.Comp.Active)
             return;
+
+        // WWDP edit no bullets passing if you move
+        if (TryComp<InputMoverComponent>(ent, out var mover) && mover.CanMove &&
+            (mover.HeldMoveButtons & MoveButtons.AnyDirection) != MoveButtons.None)
+            return;
+        // WWDP edit end
 
         var other = args.OtherEntity;
         if (HasComp<ProjectileComponent>(other) &&
