@@ -2350,3 +2350,10 @@ Entries:
   id: 249
   time: '2025-04-02T23:14:49.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/398
+- author: kekoven1
+  changes:
+    - type: Fix
+      message: Анализ теперь адекватно сканирует все сканируемые умения
+  id: 250
+  time: '2025-04-02T23:18:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/400
