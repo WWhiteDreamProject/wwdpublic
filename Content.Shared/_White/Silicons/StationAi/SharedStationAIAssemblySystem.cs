@@ -79,7 +79,7 @@ public sealed class SharedStationAIAssemblySystem : EntitySystem
             return;
 
         var brain = _itemSlots.GetItemOrNull(ent.Owner, ent.Comp.BrainSlotId);
-        if (!_mind.TryGetMind(brain!.Value, out var mindId, out var mind))
+        if (brain == null || !_mind.TryGetMind(brain!.Value, out var mindId, out var mind))
         {
             _popup.PopupEntity(Loc.GetString("ai-assembly-fail-no-mind"), args.User, args.User);
             return;
