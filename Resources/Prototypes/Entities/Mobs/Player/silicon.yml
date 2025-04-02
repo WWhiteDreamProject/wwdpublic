@@ -509,7 +509,7 @@
 - type: entity
   id: PlayerStationAiEmpty
   name: AI Core
-  description: The latest in Artificial Intelligences. It has maintenance panel, which can be opened to pry screen out with a crowbar.
+  description: The latest in Artificial Intelligences. It has a maintenance panel, which can be opened to pry screen out with a crowbar.
   parent:
   - BaseStructure
   - AiHolder
