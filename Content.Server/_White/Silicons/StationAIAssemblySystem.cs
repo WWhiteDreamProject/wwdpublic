@@ -56,7 +56,7 @@ public sealed class StationAIAssemblySystem : EntitySystem
         }
 
         var aiBrain = aiBrainsInContainer[0];
-        var assemblyBrain = SpawnInContainerOrDrop(ent.Comp.InsertedBrain, assembly, assemblyComp.BrainSlotId);
+        var assemblyBrain = ent.Comp.InsertedBrain == "MMI" ? SpawnInContainerOrDrop("MMIFilled", assembly, assemblyComp.BrainSlotId) : SpawnInContainerOrDrop(ent.Comp.InsertedBrain, assembly, assemblyComp.BrainSlotId);
 
         if (_mind.TryGetMind(aiBrain, out var mindId, out var mind))
             _mind.TransferTo(mindId, assemblyBrain, mind: mind);
