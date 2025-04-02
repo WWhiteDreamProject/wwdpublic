@@ -80,7 +80,7 @@ public sealed class SharedStationAIAssemblySystem : EntitySystem
         var brain = _itemSlots.GetItemOrNull(ent.Owner, ent.Comp.BrainSlotId);
         if (!_net.IsServer || !_mind.TryGetMind(brain!.Value, out var mindId, out var mind))
             return;
-        
+
         _stack.SetCount(GetEntity(args.InteractedWith), _stack.GetCount(GetEntity(args.InteractedWith)) - ent.Comp.CoverMaterialStackSize);
 
         var ai = SpawnAtPosition(ent.Comp.StationAIPrototype, Transform(ent.Owner).Coordinates);

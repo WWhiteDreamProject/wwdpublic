@@ -524,7 +524,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 400
+        damage: 100
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -542,9 +542,6 @@
         layer:
         - WallLayer
         density: 1000
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
   - type: Physics
     bodyType: Static
   - type: ApcPowerReceiver
