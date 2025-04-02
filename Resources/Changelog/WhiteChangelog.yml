@@ -2341,3 +2341,12 @@ Entries:
   id: 248
   time: '2025-04-02T23:14:03.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/397
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: >-
+        Яма будет расти! Бинглы теперь могут появиться в раунде без педального
+        вмешательства.
+  id: 249
+  time: '2025-04-02T23:14:49.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/398
