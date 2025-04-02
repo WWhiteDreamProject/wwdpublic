@@ -245,7 +245,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         comp.Biomass += amt;
         comp.Biomass = Math.Clamp(comp.Biomass, 0, comp.MaxBiomass);
         Dirty(uid, comp);
-        _alerts.ShowAlert(uid, "ChangelingBiomass");
+        // _alerts.ShowAlert(uid, "ChangelingBiomass");
 
         var random = (int) _rand.Next(1, 3);
 
