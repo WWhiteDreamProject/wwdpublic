@@ -18,8 +18,6 @@
   reactants:
     Cellulose:
       amount: 5
-    Water:
-      amount: 5
     Vodka:
       amount: 5
   effects:

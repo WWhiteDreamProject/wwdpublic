@@ -31,7 +31,8 @@
   components:
   - type: RevolverAmmoProvider
     capacity: 8
-    chambers: [ False, False, False, False, False, False, False, False ]
+    proto: null # WD EDIT - no empty WeaponRevolverArgentiEmpty?
+    chambers: [ null, null, null, null, null, null, null, null ]
     ammoSlots: [ null, null, null, null, null, null, null, null ]
   - type: ExtendDescription
     descriptionList:

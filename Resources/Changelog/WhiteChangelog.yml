@@ -2325,3 +2325,10 @@ Entries:
   id: 246
   time: '2025-03-30T07:57:06.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/366
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Активирование предмета больше не заставляет его упасть на пол
+  id: 247
+  time: '2025-03-30T18:48:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/365
