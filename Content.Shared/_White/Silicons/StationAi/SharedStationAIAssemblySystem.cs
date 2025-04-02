@@ -7,6 +7,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Lock;
 using Content.Shared.Mind;
+using Content.Shared.Popups;
 using Content.Shared.Prying.Components;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Silicons.StationAi;
@@ -31,7 +32,7 @@ public sealed class SharedStationAIAssemblySystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStationAiSystem _stationAi = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -74,12 +75,15 @@ public sealed class SharedStationAIAssemblySystem : EntitySystem
 
     private void OnDoAfter(Entity<StationAIAssemblyComponent> ent, ref StationAIAssemblyDoAfterEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled || !_net.IsServer)
             return;
 
         var brain = _itemSlots.GetItemOrNull(ent.Owner, ent.Comp.BrainSlotId);
-        if (!_net.IsServer || !_mind.TryGetMind(brain!.Value, out var mindId, out var mind))
+        if (!_mind.TryGetMind(brain!.Value, out var mindId, out var mind))
+        {
+            _popup.PopupEntity(Loc.GetString("ai-assembly-fail-no-mind"), args.User, args.User);
             return;
+        }
 
         _stack.SetCount(GetEntity(args.InteractedWith), _stack.GetCount(GetEntity(args.InteractedWith)) - ent.Comp.CoverMaterialStackSize);
 
