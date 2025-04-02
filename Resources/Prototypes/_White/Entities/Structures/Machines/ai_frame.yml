@@ -1,9 +1,8 @@
 ﻿- type: entity
   id: StationAIAssemblyFrame
-  name: AI core
+  name: AI core frame
   parent: BaseStructure
   description: A metal frame for station AI
-  categories: [ HideSpawnMenu ]
   components:
   - type: Clickable
   - type: InteractionOutline
@@ -71,8 +70,8 @@
 
 - type: entity
   id: StationAIAssemblyWired
+  description: A wired metal frame for station AI. To complete the construction you should insert MMI or positronic brain and cover it with two reinforced glass plates.
   parent: StationAIAssemblyFrame
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: Mobs\Silicon\station_ai.rsi

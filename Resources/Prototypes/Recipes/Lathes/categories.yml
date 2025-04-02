@@ -1,3 +1,7 @@
+- type: latheCategory # WD edit start
+  id: AI
+  name: lathe-category-ai # WD edit end
+
 - type: latheCategory
   id: Ammo
   name: lathe-category-ammo
