@@ -285,7 +285,7 @@ namespace Content.Server.Atmos.EntitySystems
                 Extinguish(uid, flammable);
             else
             {
-                flammable.OnFire = ignite;
+                flammable.OnFire = flammable.OnFire ? flammable.OnFire : ignite; // WD EDIT
                 UpdateAppearance(uid, flammable);
             }
         }
