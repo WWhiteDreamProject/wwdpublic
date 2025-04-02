@@ -2357,3 +2357,10 @@ Entries:
   id: 250
   time: '2025-04-02T23:18:12.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/400
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Лежачие персонажи больше не уклоняются от пуль при движении
+  id: 251
+  time: '2025-04-02T23:22:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/403
