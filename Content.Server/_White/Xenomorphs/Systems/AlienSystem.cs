@@ -1,19 +1,11 @@
-using System.Linq;
-using Content.Server._White.Xenomorphs.Plasma;
-using Content.Server.Actions;
 using Content.Server.Chat.Managers;
 using Content.Server.Popups;
 using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared._White.Xenomorphs.Plasma.Components;
-using Content.Shared.Coordinates.Helpers;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
 using Content.Shared.Item;
-using Content.Shared.Maps;
-using Content.Shared.Physics;
 using Content.Shared.Tag;
-using Robust.Shared.Containers;
-using Robust.Shared.Map;
+using Robust.Server.GameObjects;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 
 namespace Content.Server._White.Xenomorphs.Systems;
@@ -22,12 +14,7 @@ public sealed class AlienSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly PlasmaSystem _plasma = default!;
+    [Dependency] private readonly PhysicsSystem _physics = default!;
     [Dependency] private readonly IChatManager _chatMan = default!;
 
     public override void Initialize()
@@ -35,15 +22,10 @@ public sealed class AlienSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<AlienComponent, PickupAttemptEvent>(OnPickup);
-        SubscribeLocalEvent<AlienComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<AlienComponent, WeednodeActionEvent>(OnNode);
         SubscribeLocalEvent<AlienComponent, PlayerAttachedEvent>(OnTakeRole);
-    }
 
-    private void OnMapInit(EntityUid uid, AlienComponent component, MapInitEvent args)
-    {
-        _actions.AddAction(uid, ref component.WeednodeActionEntity, component.WeednodeAction);
-
+        SubscribeLocalEvent<AlienComponent, StartCollideEvent>(OnAlienStartCollide);
+        SubscribeLocalEvent<AlienComponent, EndCollideEvent>(OnAlienEndCollide);
     }
 
     private void OnTakeRole(EntityUid uid, AlienComponent component, PlayerAttachedEvent args)
@@ -53,80 +35,34 @@ public sealed class AlienSystem : EntitySystem
 
     private void OnPickup(EntityUid uid, AlienComponent component, PickupAttemptEvent args)
     {
-        if (!_tag.HasTag(args.Item, "AlienItem"))
-        {
-            args.Cancel();
-            _popup.PopupEntity(Loc.GetString("alien-pickup-item-fail"), uid, uid);
-        }
+        if (_tag.HasTag(args.Item, "AlienItem"))
+            return;
+
+        args.Cancel();
+        _popup.PopupEntity(Loc.GetString("alien-pickup-item-fail"), uid, uid);
     }
 
-    private void OnNode(EntityUid uid, AlienComponent component, WeednodeActionEvent args)
+    private void OnAlienStartCollide(EntityUid uid, AlienComponent component, StartCollideEvent args)
     {
-        if (TryComp<PlasmaVesselComponent>(uid, out var plasmaComp)
-            && plasmaComp.Plasma < component.PlasmaCostNode)
-        {
-            _popup.PopupEntity(Loc.GetString(Loc.GetString("alien-action-fail-plasma")), uid, uid);
+        if (component.OnWeed || !HasComp<PlasmaGainModifierComponent>(args.OtherEntity))
             return;
-        }
-        CreateStructure(uid, component);
-        args.Handled = true;
+
+        component.OnWeed = true;
     }
 
-    public void CreateStructure(EntityUid uid, AlienComponent component)
+    private void OnAlienEndCollide(EntityUid uid, AlienComponent component, EndCollideEvent args)
     {
-
-        if (_container.IsEntityOrParentInContainer(uid))
+        if (!component.OnWeed || !HasComp<PlasmaGainModifierComponent>(args.OtherEntity))
             return;
 
-        var xform = Transform(uid);
-        // Get the tile in front of the drone
-        var coords = xform.Coordinates.SnapToGrid(EntityManager, _mapMan);
-        var tile = coords.GetTileRef(EntityManager, _mapMan);
-        if (tile == null)
-            return;
-
-        // Check there are no walls there
-        if (_turf.IsTileBlocked(tile.Value, CollisionGroup.Impassable))
+        foreach (var contact in _physics.GetContactingEntities(uid))
         {
-            _popup.PopupEntity(Loc.GetString("alien-create-structure-failed"), uid, uid);
-            return;
-        }
-
-        foreach (var entity in _lookup.GetEntitiesInRange(coords, 0.1f))
-        {
-            if (Prototype(entity) == null)
+            if (contact == args.OtherEntity || !HasComp<PlasmaGainModifierComponent>(contact))
                 continue;
 
-            if (Prototype(entity)!.ID == component.WeednodePrototype)
-                return;
+            return;
         }
 
-        _plasma.ChangePlasmaAmount(uid, -component.PlasmaCostNode);
-        Spawn(component.WeednodePrototype, _turf.GetTileCenter(tile.Value));
+        component.OnWeed = false;
     }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<AlienComponent>();
-
-        while (query.MoveNext(out var uid, out var alien))
-        {
-            var weed = false;
-            var passiveDamageComponent = EnsureComp<PassiveDamageComponent>(uid);
-            foreach (var entity in _lookup.GetEntitiesInRange(
-                    Transform(uid).Coordinates,
-                    0.1f)
-                .Where(entity => HasComp<PlasmaGainModifierComponent>(entity) && passiveDamageComponent.Damage.Empty))
-            {
-                passiveDamageComponent.Damage = alien.WeedHeal;
-                weed = true;
-            }
-
-            if (!weed)
-                passiveDamageComponent.Damage = new DamageSpecifier();
-        }
-    }
-
 }

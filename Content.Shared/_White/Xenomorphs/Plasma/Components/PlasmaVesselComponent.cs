@@ -15,30 +15,29 @@ public sealed partial class PlasmaVesselComponent : Component
     /// <summary>
     /// The total amount of plasma the alien has.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public FixedPoint2 Plasma = 0;
 
-    /// <summary>
-    /// The entity's current max amount of essence. Can be increased
-    /// through harvesting player souls.
-    /// </summary>
     [DataField]
-    public FixedPoint2 PlasmaRegenCap = 500;
+    public FixedPoint2 MaxPlasma = 500;
 
     /// <summary>
     /// The amount of plasma passively generated per second.
     /// </summary>
     [DataField]
-    public FixedPoint2 PlasmaPerSecond = 0.2f;
+    public FixedPoint2 PlasmaPerSecondOffWeed = 0.2f;
+
+    /// <summary>
+    /// The amount of plasma to which plasma per second will be equal, when alien stands on weeds.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 PlasmaPerSecondOnWeed = 15f;
 
     [DataField]
     public ProtoId<AlertPrototype> PlasmaAlert = "Plasma";
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 PlasmaUnmodified = 0.2f;
-
-    public float Accumulator = 0;
-
+    [ViewVariables]
+    public TimeSpan LastPointsAt;
 }
 
 [NetSerializable, Serializable]

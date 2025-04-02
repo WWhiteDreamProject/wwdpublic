@@ -1,73 +1,41 @@
+using Content.Shared._White.Xenomorphs.Actions;
 using Content.Shared._White.Xenomorphs.Plasma.Components;
-using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.FixedPoint;
-using Content.Shared.Placeable;
 
 namespace Content.Shared._White.Xenomorphs.Plasma;
 
 public abstract class SharedPlasmaSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {
-        // PlasmaTransfer
-        SubscribeLocalEvent<PlasmaTransferComponent, MapInitEvent>(OnPlasmaTransferStartup);
-        SubscribeLocalEvent<PlasmaTransferComponent, ComponentShutdown>(OnPlasmaTransferShutdown);
-        SubscribeLocalEvent<PlasmaTransferComponent, TransferPlasmaActionEvent>(OnPlasmaTransfer);
-
-        // PlasmaGainModifier
-        SubscribeLocalEvent<PlasmaGainModifierComponent, ItemPlacedEvent>(OnItemPlaced);
-        SubscribeLocalEvent<PlasmaGainModifierComponent, ItemRemovedEvent>(OnItemRemoved);
+        SubscribeLocalEvent<PlasmaVesselComponent, ComponentShutdown>(OnPlasmaVesselShutdown);
+        SubscribeLocalEvent<PlasmaVesselComponent, TransferPlasmaActionEvent>(OnPlasmaTransfer);
     }
 
-    private void OnPlasmaTransferStartup(EntityUid uid, PlasmaTransferComponent comp, MapInitEvent args) =>
-        _actions.AddAction(uid, ref comp.ActionEntity, comp.Action);
+    private void OnPlasmaVesselShutdown(EntityUid uid, PlasmaVesselComponent component, ComponentShutdown args) =>
+        _alerts.ClearAlert(uid, component.PlasmaAlert);
 
-    private void OnPlasmaTransferShutdown(EntityUid uid, PlasmaTransferComponent comp, ComponentShutdown args) =>
-        _actions.RemoveAction(uid, comp.ActionEntity);
-
-    private void OnPlasmaTransfer(EntityUid uid, PlasmaTransferComponent component, TransferPlasmaActionEvent args)
+    private void OnPlasmaTransfer(EntityUid uid, PlasmaVesselComponent component, TransferPlasmaActionEvent args)
     {
         if (args.Handled
             || !TryComp(args.Target, out PlasmaVesselComponent? plasmaVesselTarget)
-            || !ChangePlasmaAmount(uid, -component.Amount))
+            || !ChangePlasmaAmount(uid, -args.Amount, component))
             return;
 
-        ChangePlasmaAmount(args.Target, component.Amount, plasmaVesselTarget);
+        ChangePlasmaAmount(args.Target, args.Amount, plasmaVesselTarget);
 
         args.Handled = true;
     }
 
-    private void OnItemPlaced(EntityUid uid, PlasmaGainModifierComponent component, ItemPlacedEvent args)
-    {
-        if (!TryComp<PlasmaVesselComponent>(args.OtherEntity, out var plasmaVessel)
-            || plasmaVessel.PlasmaPerSecond == component.PlasmaPerSecond)
-            return;
-
-        plasmaVessel.PlasmaUnmodified = plasmaVessel.PlasmaPerSecond;
-        plasmaVessel.PlasmaPerSecond = component.PlasmaPerSecond;
-    }
-
-    private void OnItemRemoved(EntityUid uid, PlasmaGainModifierComponent component, ItemRemovedEvent args)
-    {
-        if (!TryComp<PlasmaVesselComponent>(args.OtherEntity, out var plasmaVessel))
-            return;
-
-        plasmaVessel.PlasmaPerSecond = plasmaVessel.PlasmaUnmodified;
-    }
-
-    public bool ChangePlasmaAmount(EntityUid uid, FixedPoint2 amount, PlasmaVesselComponent? component = null, bool regenCap = false)
+    public bool ChangePlasmaAmount(EntityUid uid, FixedPoint2 amount, PlasmaVesselComponent? component = null)
     {
         if (!Resolve(uid, ref component) || component.Plasma + amount < 0)
             return false;
 
-        component.Plasma += amount;
-
-        if (regenCap)
-            component.Plasma = FixedPoint2.Min(component.Plasma, component.PlasmaRegenCap);
+        component.Plasma = FixedPoint2.Min(component.Plasma + amount, component.MaxPlasma);
 
         Dirty(uid, component);
 

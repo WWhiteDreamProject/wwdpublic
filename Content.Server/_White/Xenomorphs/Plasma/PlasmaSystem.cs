@@ -1,26 +1,34 @@
-﻿using Content.Shared._White.Xenomorphs.Plasma;
+﻿using Content.Shared._White.Xenomorphs.Components;
+using Content.Shared._White.Xenomorphs.Plasma;
 using Content.Shared._White.Xenomorphs.Plasma.Components;
+using Robust.Shared.Timing;
 
 namespace Content.Server._White.Xenomorphs.Plasma;
 
 public sealed class PlasmaSystem : SharedPlasmaSystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
+        var time = _timing.CurTime;
+
         var query = EntityQueryEnumerator<PlasmaVesselComponent>();
         while (query.MoveNext(out var uid, out var plasmaVessel))
         {
-            plasmaVessel.Accumulator += frameTime;
-
-            if (plasmaVessel.Accumulator <= 1)
+            if (plasmaVessel.Plasma == plasmaVessel.MaxPlasma
+                || time < plasmaVessel.LastPointsAt + TimeSpan.FromSeconds(1))
                 continue;
 
-            plasmaVessel.Accumulator -= 1;
+            plasmaVessel.LastPointsAt = time;
 
-            if (plasmaVessel.Plasma < plasmaVessel.PlasmaRegenCap)
-                ChangePlasmaAmount(uid, plasmaVessel.PlasmaPerSecond, plasmaVessel, true);
+            var plasmaPerSecond = plasmaVessel.PlasmaPerSecondOffWeed;
+            if (TryComp<AlienComponent>(uid, out var alien) && alien.OnWeed)
+                plasmaPerSecond = plasmaVessel.PlasmaPerSecondOnWeed;
+
+            ChangePlasmaAmount(uid, plasmaPerSecond, plasmaVessel);
         }
     }
 }
