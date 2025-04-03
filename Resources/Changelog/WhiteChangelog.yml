@@ -2364,3 +2364,13 @@ Entries:
   id: 251
   time: '2025-04-02T23:22:31.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/403
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        Режим совместимости теперь работает. Если у вас есть какие-то проблемы с
+        белизной экрана при использовании режима совместимости, то отключите
+        зернистость в настройках графики.
+  id: 252
+  time: '2025-04-03T06:03:16.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/406
