@@ -31,9 +31,6 @@ public sealed class ChangelingSystem : SharedChangelingSystem
                 stateNormalized = (int) (comp.Chemicals / comp.MaxChemicals * MaxChemicalsNormalizer);
                 break;
 
-            case "ChangelingBiomass":
-                stateNormalized = (int) (comp.Biomass / comp.MaxBiomass * MaxBiomassNormalizer);
-                break;
             default:
                 return;
         }
