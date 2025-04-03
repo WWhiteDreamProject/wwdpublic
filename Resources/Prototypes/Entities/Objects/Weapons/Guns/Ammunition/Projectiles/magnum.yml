@@ -41,7 +41,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 25
+        Piercing: 20 #WWDP edit tungsten core you know?
     ignoreResistances: true
 
 - type: entity

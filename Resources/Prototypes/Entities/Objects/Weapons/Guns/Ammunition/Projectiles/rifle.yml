@@ -7,7 +7,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 23
+        Piercing: 19 #WWDP edit
 
 - type: entity
   id: BulletRiflePractice
@@ -30,7 +30,7 @@
     damage:
       types:
         Blunt: 2
-        Heat: 15
+        Heat: 17 #WWDP edit
 
 - type: entity
   id: BulletRifleUranium
