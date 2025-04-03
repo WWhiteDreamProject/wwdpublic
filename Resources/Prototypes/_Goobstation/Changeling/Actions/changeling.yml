@@ -136,6 +136,7 @@
       state: stasis_enter
     event: !type:EnterStasisEvent {}
   - type: ChangelingAction
+    # biomassCost: 1 # WD edit no ling biomass
     useInLesserForm: true
     useInLastResort: true
 
