@@ -25,6 +25,8 @@
   - type: Icon
     sprite: Structures/Windows/window.rsi
     state: full
+  - type: Physics
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:

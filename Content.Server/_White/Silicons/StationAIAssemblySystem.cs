@@ -13,10 +13,6 @@ using Robust.Shared.Network;
 
 namespace Content.Server._White.Silicons;
 
-
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class StationAIAssemblySystem : EntitySystem
 {
     [Dependency] private readonly SharedStackSystem _stack = default!;

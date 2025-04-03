@@ -1,1 +1,1 @@
-﻿ research-technology-basic-artificial-intelligence = Artificial Intelligence
+﻿research-technology-basic-artificial-intelligence = Artificial Intelligence
