@@ -149,9 +149,20 @@
       gun_magazine:
         name: Magazine
         startingItem: null
+        # WD EDIT START
+        whitelist:
+          tags:
+          - MagazinePistol
+          - MagazinePistolHighCapacity
+        # WD EDIT END
       gun_chamber:
         name: Chamber
         startingItem: null
+        # WD EDIT START
+        whitelist:
+          tags:
+          - CartridgePistol
+        # WD EDIT END
 
 - type: entity
   name: viper
@@ -224,9 +235,19 @@
       gun_magazine:
         name: Magazine
         startingItem: null
+        # WD EDIT START
+        whitelist:
+          tags:
+          - MagazinePistolCaselessRifle
+        # WD EDIT END
       gun_chamber:
         name: Chamber
         startingItem: null
+        # WD EDIT START
+        whitelist:
+          tags:
+          - CartridgeCaselessRifle
+        # WD EDIT END
 
 - type: entity
   name: mk 58
@@ -262,9 +283,19 @@
       gun_magazine:
         name: Magazine
         startingItem: null
+        # WD EDIT START
+        whitelist:
+          tags:
+          - MagazinePistol
+        # WD EDIT END
       gun_chamber:
         name: Chamber
         startingItem: null
+        # WD EDIT START
+        whitelist:
+          tags:
+          - CartridgePistol
+        # WD EDIT END
 
 - type: entity
   name: mk 58
@@ -333,9 +364,19 @@
       gun_magazine:
         name: Magazine
         startingItem: null
+        # WD EDIT START
+        whitelist:
+          tags:
+          - MagazineMagnum
+        # WD EDIT END
       gun_chamber:
         name: Chamber
         startingItem: null
+        # WD EDIT START
+        whitelist:
+          tags:
+          - CartridgeMagnum
+        # WD EDIT END
 
 - type: entity
   name: N1984
