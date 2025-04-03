@@ -151,6 +151,19 @@
   - UplinkAllies
 
 - type: listing
+  id: UplinkRifleAK220
+  name: uplink-Light-Rifle-AK220-name
+  description: uplink-Light-Rifle-AK220-desc
+  productEntity: WeaponLightRifleAK220
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 14
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkStimpackExperimental
   name: uplink-experimental-stimpack-name
   description: uplink-experimental-stimpack-desc
@@ -167,3 +180,13 @@
     whitelist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: uplinkmagazineLightRIfleAK220
+  name: uplink-magazine-Light-RIfle-AK220-name
+  description: uplink-magazine-Light-RIfle-AK220-desc
+  productEntity: MagazineLightRifleAK220
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkAmmo

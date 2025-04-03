@@ -2381,3 +2381,10 @@ Entries:
   id: 253
   time: '2025-04-03T06:03:30.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/407
+- author: 89Eblan
+  changes:
+    - type: Add
+      message: В аплинк добавлена AK220 за 14 телекристалов
+  id: 254
+  time: '2025-04-03T21:45:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/405
