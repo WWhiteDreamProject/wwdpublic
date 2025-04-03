@@ -157,7 +157,7 @@
   productEntity: WeaponLightRifleAK220
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 3
   cost:
     Telecrystal: 14
   categories:
