@@ -7,7 +7,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 15 #WWDP edit
+        Piercing: 16
 
 - type: entity
   id: BulletPistolPractice
@@ -29,7 +29,7 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 1 #WWDP edit
+        Blunt: 2
         Heat: 14
 
 - type: entity
@@ -41,7 +41,7 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 5 #WWDP edit
+        Radiation: 6
         Piercing: 10
 
 - type: entity

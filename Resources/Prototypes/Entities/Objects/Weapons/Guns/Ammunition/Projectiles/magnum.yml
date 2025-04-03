@@ -18,7 +18,7 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 4 #WWDP edit
+        Blunt: 1
 
 - type: entity
   id: BulletMagnumIncendiary
@@ -41,7 +41,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 20 #WWDP edit tungsten core you know?
+        Piercing: 35 #WWDP edit
     ignoreResistances: true
 
 - type: entity
