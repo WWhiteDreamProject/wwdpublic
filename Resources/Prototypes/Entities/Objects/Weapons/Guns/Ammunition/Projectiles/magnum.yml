@@ -18,7 +18,7 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 5 #WWDP edit
+        Blunt: 4 #WWDP edit
 
 - type: entity
   id: BulletMagnumIncendiary
