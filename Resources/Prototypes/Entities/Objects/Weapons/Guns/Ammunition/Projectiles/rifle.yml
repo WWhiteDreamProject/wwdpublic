@@ -30,7 +30,7 @@
     damage:
       types:
         Blunt: 2
-        Heat: 17 #WWDP edit
+        Heat: 15
 
 - type: entity
   id: BulletRifleUranium
