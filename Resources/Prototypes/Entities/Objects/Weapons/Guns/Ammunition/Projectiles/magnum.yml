@@ -7,7 +7,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 25
+        Piercing: 35 #WWDP edit upstream cancer bruh
 
 - type: entity
   id: BulletMagnumPractice
@@ -18,7 +18,7 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 1
+        Blunt: 5 #WWDP edit
 
 - type: entity
   id: BulletMagnumIncendiary
@@ -29,8 +29,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
-        Heat: 22
+        Blunt: 5 #WWDP edit
+        Heat: 30 #WWDP edit
 
 - type: entity
   id: BulletMagnumAP
@@ -53,8 +53,8 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 15
-        Piercing: 10
+        Radiation: 20 #WWDP edit
+        Piercing: 15 #WWDP edit
 
 - type: entity
   id: BulletMagnumShrapnel
