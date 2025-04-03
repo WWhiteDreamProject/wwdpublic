@@ -2374,3 +2374,10 @@ Entries:
   id: 252
   time: '2025-04-03T06:03:16.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/406
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Жидкости больше не поджигают цель напрямую
+  id: 253
+  time: '2025-04-03T06:03:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/407
