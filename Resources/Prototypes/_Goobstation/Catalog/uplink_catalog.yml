@@ -114,8 +114,13 @@
   description: uplink-m90-desc
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
   productEntity: WeaponRifleM90
+  # WD EDIT START
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
   cost:
-    Telecrystal: 50 #same as c20r until I add the underbarrel grenade launcher
+    Telecrystal: 10
+  # WD EDIT END
   categories:
   - UplinkWeaponry
 
@@ -125,8 +130,13 @@
   description: uplink-WSPR-desc
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledWSPR
+  # WD EDIT START
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 4
   cost:
-    Telecrystal: 85
+    Telecrystal: 17
+  # WD EDIT END
   categories:
   - UplinkWeaponry
 
@@ -136,8 +146,13 @@
   description: uplink-weapon-burner-desc
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
   productEntity: WeaponRifleBurner
+  # WD EDIT START
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
-    Telecrystal: 125 # don't kill me piras
+    Telecrystal: 25
+  # WD EDIT END
   categories:
   - UplinkWeaponry
   conditions:

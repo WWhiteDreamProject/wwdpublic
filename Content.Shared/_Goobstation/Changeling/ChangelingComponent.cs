@@ -63,7 +63,6 @@ public sealed partial class ChangelingComponent : Component
 
     public Dictionary<string, EntityUid?> Equipment = new();
 
-    /// <summary>
     ///     Current amount of chemicals changeling currently has.
     /// </summary>
     [DataField, AutoNetworkedField]
