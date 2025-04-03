@@ -59,7 +59,6 @@
     event: !type:ChangelingInfectTargetEvent {}
   - type: ChangelingAction
     chemicalCost: 60
-    requireBiomass: true
     useInLesserForm: false
 
 - type: entity
