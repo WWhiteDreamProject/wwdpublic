@@ -89,7 +89,6 @@
   id: LoadoutCaptainSwordSheath
   category: JobsCommandCaptain
   cost: 0
-  default: true # WWDP edit
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutCaptainBelt
