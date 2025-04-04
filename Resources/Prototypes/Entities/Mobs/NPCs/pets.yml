@@ -758,7 +758,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      200: Dead
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Effects/Footsteps/slime1.ogg
