@@ -1,0 +1,316 @@
+# Thats for testing. Need better body prototypes.
+
+- type: body
+  id: XenomorphTiny
+  name: xenomorph
+  root: torso
+  slots:
+    head:
+      part: HeadHuman
+      connections:
+        - torso
+      organs:
+        brain: OrganXenomorphBrain
+        eyes: OrganXenomorphEyes
+    torso:
+      part: TorsoXenomorph
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed
+      organs:
+        heart: OrganXenomorphHeart
+        stomach: OrganXenomorphStomach
+        liver: OrganXenomorphLiver
+        kidneys: OrganXenomorphKidneys
+        plasmaVessel: OrganXenomorphPlasmaVesselTiny
+        hivenode: OrganXenomorphHivenode
+    right arm:
+      part: RightArmHuman
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmHuman
+      connections:
+      - left hand
+    right hand:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
+    right leg:
+      part: RightLegHuman
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegHuman
+      connections:
+      - left foot
+    right foot:
+      part: RightFootHuman
+    left foot:
+      part: LeftFootHuman
+
+- type: body
+  id: XenomorphSmall
+  name: xenomorph
+  root: torso
+  slots:
+    head:
+      part: HeadHuman
+      connections:
+        - torso
+      organs:
+        brain: OrganXenomorphBrain
+        eyes: OrganXenomorphEyes
+    torso:
+      part: TorsoXenomorph
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed
+      organs:
+        heart: OrganXenomorphHeart
+        stomach: OrganXenomorphStomach
+        liver: OrganXenomorphLiver
+        kidneys: OrganXenomorphKidneys
+        plasmaVessel: OrganXenomorphPlasmaVesselSmall
+        hivenode: OrganXenomorphHivenode
+    right arm:
+      part: RightArmHuman
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmHuman
+      connections:
+      - left hand
+    right hand:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
+    right leg:
+      part: RightLegHuman
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegHuman
+      connections:
+      - left foot
+    right foot:
+      part: RightFootHuman
+    left foot:
+      part: LeftFootHuman
+
+- type: body
+  id: XenomorphMedium
+  name: xenomorph
+  root: torso
+  slots:
+    head:
+      part: HeadHuman
+      connections:
+        - torso
+      organs:
+        brain: OrganXenomorphBrain
+        eyes: OrganXenomorphEyes
+    torso:
+      part: TorsoXenomorph
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed
+      organs:
+        heart: OrganXenomorphHeart
+        stomach: OrganXenomorphStomach
+        liver: OrganXenomorphLiver
+        kidneys: OrganXenomorphKidneys
+        plasmaVessel: OrganXenomorphPlasmaVesselMedium
+        hivenode: OrganXenomorphHivenode
+    right arm:
+      part: RightArmHuman
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmHuman
+      connections:
+      - left hand
+    right hand:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
+    right leg:
+      part: RightLegHuman
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegHuman
+      connections:
+      - left foot
+    right foot:
+      part: RightFootHuman
+    left foot:
+      part: LeftFootHuman
+
+- type: body
+  id: XenomorphLarge
+  name: xenomorph
+  root: torso
+  slots:
+    head:
+      part: HeadHuman
+      connections:
+        - torso
+      organs:
+        brain: OrganXenomorphBrain
+        eyes: OrganXenomorphEyes
+    torso:
+      part: TorsoXenomorph
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed
+      organs:
+        heart: OrganXenomorphHeart
+        stomach: OrganXenomorphStomach
+        liver: OrganXenomorphLiver
+        kidneys: OrganXenomorphKidneys
+        plasmaVessel: OrganXenomorphPlasmaVesselLarge
+        hivenode: OrganXenomorphHivenode
+    right arm:
+      part: RightArmHuman
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmHuman
+      connections:
+      - left hand
+    right hand:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
+    right leg:
+      part: RightLegHuman
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegHuman
+      connections:
+      - left foot
+    right foot:
+      part: RightFootHuman
+    left foot:
+      part: LeftFootHuman
+
+- type: body
+  id: XenomorphLargeSentinel
+  name: xenomorph
+  root: torso
+  slots:
+    head:
+      part: HeadHuman
+      connections:
+        - torso
+      organs:
+        brain: OrganXenomorphBrain
+        eyes: OrganXenomorphEyes
+    torso:
+      part: TorsoXenomorph
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed
+      organs:
+        heart: OrganXenomorphHeart
+        stomach: OrganXenomorphStomach
+        liver: OrganXenomorphLiver
+        kidneys: OrganXenomorphKidneys
+        plasmaVessel: OrganXenomorphPlasmaVesselLarge
+        acidGland: OrganXenomorphAcidGland
+        hivenode: OrganXenomorphHivenode
+    right arm:
+      part: RightArmHuman
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmHuman
+      connections:
+      - left hand
+    right hand:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
+    right leg:
+      part: RightLegHuman
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegHuman
+      connections:
+      - left foot
+    right foot:
+      part: RightFootHuman
+    left foot:
+      part: LeftFootHuman
+
+- type: body
+  id: XenomorphQueen
+  name: xenomorph
+  root: torso
+  slots:
+    head:
+      part: HeadHuman
+      connections:
+        - torso
+      organs:
+        brain: OrganXenomorphBrain
+        eyes: OrganXenomorphEyes
+    torso:
+      part: TorsoXenomorph
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed
+      organs:
+        heart: OrganXenomorphHeart
+        stomach: OrganXenomorphStomach
+        liver: OrganXenomorphLiver
+        kidneys: OrganXenomorphKidneys
+        plasmaVessel: OrganXenomorphPlasmaVesselLarge
+        acidGland: OrganXenomorphAcidGland
+        hivenode: OrganXenomorphHivenode
+        groin: OrganXenomorphEggsac
+    right arm:
+      part: RightArmHuman
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmHuman
+      connections:
+      - left hand
+    right hand:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
+    right leg:
+      part: RightLegHuman
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegHuman
+      connections:
+      - left foot
+    right foot:
+      part: RightFootHuman
+    left foot:
+      part: LeftFootHuman

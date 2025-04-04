@@ -102,6 +102,7 @@
   - type: Stripping
   - type: SolutionScanner
   - type: IgnoreUIRange
+  - type: ShowInfectedIcons # WWDP
   - type: ShowAntagIcons
   - type: Inventory
     templateId: aghost

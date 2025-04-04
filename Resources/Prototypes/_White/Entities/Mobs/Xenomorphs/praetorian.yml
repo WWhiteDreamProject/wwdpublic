@@ -1,0 +1,126 @@
+- type: entity
+  parent: BaseMobXenomorph
+  id: BaseMobXenomorphPraetorian
+  name: alien praetorian
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorphs/praetorian.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alienp
+      offset: 0, 0.6
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+  - type: PlasmaVessel
+    maxPlasma: 750
+    plasmaPerSecondOffWeed: 12.5
+  - type: HTN
+    rootTask:
+      task: XenomorphRangeCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+      FreeHands: !type:Bool
+        false
+      ActiveHandFree: !type:Bool
+        false
+      Inventory: !type:Bool
+        false
+  - type: Body
+    prototype: XenomorphLargeSentinel
+  - type: Inventory
+    templateId: alien_praetorian
+    speciesId: alien_praetorian
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      420: Critical
+      430: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      350: 0.9
+      380: 0.7
+      400: 0.6
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 30
+      types:
+        Structural: 10
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.75
+  - type: BasicEntityAmmoProvider
+    proto: BulletAcidSentinel
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 0.3
+    useKey: false
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
+  - type: GuideHelp
+    guides:
+    - XenomorphPraetorian
+
+- type: entity
+  parent: BaseMobXenomorphPraetorian
+  id: MobXenomorphPraetorian
+  components:
+  - type: Xenomorph
+    greetingText: alien-praetorian-greeting
+  - type: AcidMaker
+    action: ActionMakeAcid
+    entityProduced: CorrosiveAcid
+    plasmaCost: 100
+  - type: TailLash
+  - type: ActionGrant
+    actions:
+    - ActionAlienTransferPlasma
+    - ActionSpawnResinNode
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-mob-alien-name
+    description: ghost-role-mob-alien-description
+    rules: ghost-role-information-xeno-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: BaseMobXenomorphPraetorian
+  id: MobXenomorphPraetorianDungeon
+  suffix: Dungeon
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 3.8
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      350: 0.7
+      380: 0.6
+      400: 0.5
+  - type: Damageable
+    damageModifierSet: XenomorphDungeon

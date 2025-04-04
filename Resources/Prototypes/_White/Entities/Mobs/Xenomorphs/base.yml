@@ -1,0 +1,372 @@
+- type: entity
+  parent: SimpleSpaceMobBase
+  id: BaseMobXenomorph
+  abstract: true
+  suffix: ""
+  components:
+  - type: Xenomorph
+    weedHeal:
+      groups:
+        Burn: -5
+        Toxin: -5
+        Airloss: -10
+        Brute: -5
+  - type: PlasmaVessel
+  - type: ShowInfectedIcons
+  - type: VomitAction
+    thirstAdded: 5.0
+    hungerAdded: 5.0
+  - type: Devourer
+    devourTime: 3
+    consumes:
+    - Alive
+    - Critical
+  - type: ThermalVision
+    toggleAction: ToggleThermalVisionAlien
+    color: "#7d0cc9"
+    lightRadius: 10
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: CombatMode
+    combatToggleAction: ActionCombatModeToggleAlien
+    canDisarm: true
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 4.5
+  - type: Tool
+    speedModifier: 1.5
+    qualities:
+    - Prying
+  - type: Prying
+    pryPowered: true
+  - type: NpcFactionMember
+    factions:
+      - Xeno
+  - type: Deathgasp
+    prototype: XenomorphDeathgasp
+  - type: Hands
+  - type: ComplexInteraction
+  - type: Puller
+    needsHands: false
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: aliens
+      Critical:
+        Base: aliens_unconscious
+      Dead:
+        Base: aliens_dead
+  - type: IdExaminable
+  - type: InventorySlots
+  - type: Stripping
+  - type: Strippable
+  - type: SurgeryTarget
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 1000
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      190: Critical
+      200: Dead
+    stateAlertDict:
+      Alive: AlienHealth
+      Critical: AlienCrit
+      Dead: AlienDead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      100: 0.9
+      130: 0.7
+      160: 0.6
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Xenomorph
+  - type: Stamina
+    critThreshold: 500
+  - type: Bloodstream
+    bloodReagent: FluorosulfuricAcid
+    bloodMaxVolume: 250
+    bloodlossDamage:
+      types:
+        Bloodloss: 0.05
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -1
+  - type: MeleeWeapon
+    altDisarm: true
+    angle: 0
+    soundHit:
+      collection: AlienClaw
+    animation: WeaponArcBite
+    damage:
+      groups:
+        Brute: 20
+      types:
+        Structural: 20
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: TypingIndicator
+    proto: alien
+  - type: Temperature
+    heatDamageThreshold: 360
+    coldDamageThreshold: -150
+    currentTemperature: 310.15
+  - type: ZombieImmune
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+  - type: NoSlip
+  - type: Perishable
+    molsPerSecondPerUnitMass: 0.0005
+  - type: Body
+    prototype: XenomorphLarge
+  - type: Inventory
+    templateId: alien
+  - type: LizardAccent
+  - type: Speech
+    speechSounds: Xenomorph
+    speechVerb: SmallMob
+  - type: Vocal
+    sounds:
+      Male: Xenomorph
+      Female: Xenomorph
+      Unsexed: Xenomorph
+  - type: LanguageKnowledge
+    speaks:
+    - Xeno
+    - XenoHivemind
+    understands:
+    - Xeno
+    - XenoHivemind
+    - Hissing
+    - Draconic
+  - type: SSDIndicator
+  - type: Dna
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - FootstepSound
+  - type: GuideHelp
+    guides:
+    - Xenomorphs
+
+# BASE LARVA
+
+- type: entity
+  parent: SimpleSpaceMobBase
+  id: MobAlienLarva
+  name: alien larva
+  description: Little and harmless alien
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: larva0
+    - type: ShowInfectedIcons
+    - type: Body
+      prototype: XenomorphTiny
+    - type: Speech
+      speechVerb: SmallMob
+    - type: LanguageKnowledge
+      speaks:
+      - Xeno
+      - XenoHivemind
+      understands:
+      - Xeno
+      - XenoHivemind
+      - Hissing
+      - Draconic
+    - type: Vocal
+      sounds:
+        Male: Xenomorph
+        Female: Xenomorph
+        Unsexed: Xenomorph
+    - type: Emoting
+    - type: BodyEmotes
+      soundsId: GeneralBodyEmotes
+    - type: Inventory
+      templateId: larva
+    - type: LizardAccent
+    - type: ZombieImmune
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: larva0
+      noMovementLayers:
+        movement:
+          state: larva0_idle
+    - type: NpcFactionMember
+      factions:
+        - Xeno
+    - type: HTN
+      rootTask:
+        task: MouseCompound
+    - type: Physics
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.2
+          density: 100
+          mask:
+            - SmallMobMask
+          layer:
+            - SmallMobLayer
+    - type: Deathgasp
+      prototype: LarvaDeathgasp
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        25: Dead
+      stateAlertDict:
+        Alive: AlienHealth
+        Dead: AlienDead
+    - type: MovementSpeedModifier
+      baseWalkSpeed : 2
+      baseSprintSpeed : 5
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: larva0
+        Dead:
+          Base: larva0_dead
+    - type: CombatMode
+      combatToggleAction: ActionCombatModeToggleAlien
+    - type: MeleeWeapon
+      soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
+      angle: 0
+      animation: WeaponArcBite
+      damage:
+        types:
+          Blunt: 2
+    - type: Bloodstream
+      bloodMaxVolume: 50
+      bloodReagent: FluorosulfuricAcid
+    - type: MobPrice
+      price: 250
+    - type: TypingIndicator
+      proto: alien
+    - type: Xenomorph
+      greetingText: alien-larva-greeting
+      weedHeal:
+        groups:
+          Burn: -5
+          Toxin: -5
+          Airloss: -10
+          Brute: -5
+    - type: PlasmaVessel
+      maxPlasma: 30
+    - type: TimedPolymorph
+      polymorphPrototype: AlienEvolutionGrowStageTwo
+      polymorphTime: 50
+    - type: GuideHelp
+      guides:
+      - XenomorphLarva
+    - type: UserInterface
+      interfaces:
+        enum.RadialSelectorUiKey.Key:
+          type: TrackedRadialSelectorMenuBUI
+
+# BASE FACEHUGGER
+
+- type: entity
+  parent:
+  - BaseItem
+  - BaseMob
+  - MobDamageable
+  - MobFlammable
+  id: BaseFacehugger
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: facehugger
+  - type: Xenomorph
+    greetingText: alien-facehugger-greeting
+    weedHeal:
+      groups:
+        Burn: -0.5
+        Toxin: -0.5
+        Airloss: -0.10
+        Brute: -0.5
+  - type: Item
+    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger_inhands.rsi
+    size: Small
+  - type: Buckle
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Xenomorph
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      25: Dead
+    stateAlertDict:
+      Alive: AlienHealth
+      Dead: AlienDead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: facehugger
+      Dead:
+        Base: facehugger_impregnated
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - BulletImpassable
+  - type: Tag
+    tags:
+    - AlienItem
+    - WhitelistChameleon
+    - MonkeyWearable
+    - PetWearable
+    - Facehugger
+  - type: StaticPrice
+    price: 1000
+  - type: Clothing
+    sprite: _White/Clothing/Mask/facehugger.rsi
+    slots:
+    - Mask
+  - type: BreathMask
+  - type: Blindfold
+  - type: GuideHelp
+    guides:
+    - XenomorphFacehugger

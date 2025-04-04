@@ -1,0 +1,115 @@
+- type: entity
+  parent: BaseMobXenomorph
+  id: BaseMobXenomorphSentinel
+  name: alien sentinel
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorphs/sentinel.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: aliens
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: _White/Effects/cuffs.rsi
+      state: aliencuff
+      visible: false
+  - type: PlasmaVessel
+    maxPlasma: 200
+    plasmaPerSecondOffWeed: 5
+  - type: HTN
+    rootTask:
+      task: XenomorphRangeCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+      FreeHands: !type:Bool
+        false
+      ActiveHandFree: !type:Bool
+        false
+      Inventory: !type:Bool
+        false
+  - type: Cuffable
+  - type: Body
+    prototype: XenomorphLargeSentinel
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      250: Critical
+      260: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      170: 0.9
+      200: 0.7
+      220: 0.6
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 25
+      types:
+        Structural: 5
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.75
+  - type: BasicEntityAmmoProvider
+    proto: BulletAcidSentinel
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 0.25
+    useKey: false
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
+  - type: GuideHelp
+    guides:
+    - XenomorphSentinel
+
+- type: entity
+  parent: BaseMobXenomorphSentinel
+  id: MobXenomorphSentinel
+  components:
+  - type: Xenomorph
+    greetingText: alien-sentinel-greeting
+  - type: AcidMaker
+    action: ActionMakeAcid
+    entityProduced: CorrosiveAcid
+  - type: ActionGrant
+    actions:
+    - ActionAlienTransferPlasma
+    - ActionSpawnResinNode
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-mob-alien-name
+    description: ghost-role-mob-alien-description
+    rules: ghost-role-information-xeno-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: BaseMobXenomorphSentinel
+  id: MobXenomorphSentinelDungeon
+  suffix: Dungeon
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 3.2
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      170: 0.7
+      200: 0.6
+      220: 0.5
+  - type: Damageable
+    damageModifierSet: XenomorphDungeon

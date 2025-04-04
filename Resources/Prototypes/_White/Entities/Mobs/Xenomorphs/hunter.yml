@@ -1,0 +1,123 @@
+- type: entity
+  parent: BaseMobXenomorph
+  id: BaseMobXenomorphHunter
+  name: alien hunter
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorphs/hunter.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alienh
+    - map: [ "enum.JumpLayers.Jumping" ]
+      sprite: _White/Mobs/Aliens/Xenomorphs/hunter_jump.rsi
+      state: icon
+      visible: false
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: _White/Effects/cuffs.rsi
+      state: aliencuff
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.JumpVisuals.Jumping:
+        enum.JumpLayers.Jumping:
+          True: { visible: true }
+          False: { visible: false }
+        enum.DamageStateVisualLayers.Base:
+          True: { visible: false}
+          False: { visible: true}
+  - type: PlasmaVessel
+    maxPlasma: 150
+    plasmaPerSecondOffWeed: 5
+  - type: HTN
+    rootTask:
+      task: XenomorphCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+      FreeHands: !type:Bool
+        false
+      ActiveHandFree: !type:Bool
+        false
+      Inventory: !type:Bool
+        false
+  - type: Devourer
+    devourTime: 2
+    consumes:
+    - Alive
+    - Critical
+  - type: Cuffable
+  - type: Body
+    prototype: XenomorphMedium
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      205: Critical
+      215: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      140: 0.9
+      170: 0.7
+      190: 0.6
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 20
+      types:
+        Structural: 5
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5.8
+  - type: GuideHelp
+    guides:
+    - XenomorphHunter
+
+- type: entity
+  parent: BaseMobXenomorphHunter
+  id: MobXenomorphHunter
+  components:
+  - type: Xenomorph
+    greetingText: alien-hunter-greeting
+  - type: XenomorphStalk
+  - type: Jump
+    jumpAction: ActionJumpAlien
+  - type: ActionGrant
+    actions:
+    - ActionAlienTransferPlasma
+    - ActionSpawnResinNode
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-mob-alien-name
+    description: ghost-role-mob-alien-description
+    rules: ghost-role-information-xeno-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: BaseMobXenomorphHunter
+  id: MobXenomorphHunterDungeon
+  suffix: Dungeon
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 4.8
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      140: 0.7
+      170: 0.6
+      190: 0.5
+  - type: Damageable
+    damageModifierSet: XenomorphDungeon
