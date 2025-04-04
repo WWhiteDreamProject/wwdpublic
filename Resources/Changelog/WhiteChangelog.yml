@@ -2418,3 +2418,14 @@ Entries:
   id: 258
   time: '2025-04-04T21:30:51.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/415
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Новый шаттл эвакуации, спасибо Дарки
+    - type: Tweak
+      message: >-
+        Станции обновлены. На коробке пофикшены некоторые моменты, например
+        кнопки и ставни. Везде добавлены турельки ИИ в сам спутник и аплоад
+  id: 259
+  time: '2025-04-04T21:38:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/419
