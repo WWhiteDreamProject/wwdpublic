@@ -144,9 +144,9 @@
   description: Grants full immunity from denying others basic human rights, dignity, or respect.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Clothing/Head/Hats/prisonguard.rsi
+    sprite: _White/Clothing/Head/Hats/prisonguard.rsi ##WWDP
   - type: Clothing
-    sprite: Nyanotrasen/Clothing/Head/Hats/prisonguard.rsi
+    sprite: _White/Clothing/Head/Hats/prisonguard.rsi ##WWDP
 
 - type: entity
   parent: ClothingHeadBase
