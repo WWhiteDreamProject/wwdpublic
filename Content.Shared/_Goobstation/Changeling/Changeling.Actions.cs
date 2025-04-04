@@ -7,11 +7,7 @@ namespace Content.Shared.Changeling;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ChangelingActionComponent : Component
 {
-    [DataField] public bool RequireBiomass = true;
-
     [DataField] public float ChemicalCost;
-
-    [DataField] public float BiomassCost;
 
     [DataField] public bool UseInLastResort;
 
