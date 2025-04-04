@@ -38,6 +38,7 @@ using Content.Shared.Projectiles;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech; // Goobstation
 using Content.Shared.Standing;
+using Content.Shared.StatusEffect;
 using Content.Shared.Throwing; // Goobstation
 using Content.Shared.Verbs;
 using Robust.Shared.Audio; // Goobstation
@@ -87,6 +88,7 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly ContestsSystem _contests = default!; // Goobstation - Grab Intent
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -1075,6 +1077,11 @@ public sealed class PullingSystem : EntitySystem
 
         if (_timing.CurTime < pullable.Comp.NextEscapeAttempt)  // No autoclickers! Mwa-ha-ha
             return false;
+
+        // WD EDIT START
+        if (_statusEffects.HasStatusEffect(pullable, "Stun"))
+            return false;
+        // WD EDIT END
 
         if (_random.Prob(pullable.Comp.GrabEscapeChance))
             return true;
