@@ -8,7 +8,7 @@ public sealed partial class DualWieldComponent : Component
     /// <summary>
     /// EntityUid of the linked dual-wielded weapon
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public EntityUid? LinkedWeapon;
 
     /// <summary>
@@ -21,5 +21,5 @@ public sealed partial class DualWieldComponent : Component
     /// Multiplier applied to weapon spread when dual-wielding
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float SpreadMultiplier = 3f;
+    public float SpreadMultiplier = 7f;
 }

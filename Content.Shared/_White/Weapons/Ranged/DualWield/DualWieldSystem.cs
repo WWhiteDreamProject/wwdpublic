@@ -25,111 +25,110 @@ public sealed class DualWieldSystem : EntitySystem
         SubscribeLocalEvent<DualWieldComponent, GunRefreshModifiersEvent>(OnRefreshModifiers);
     }
 
-    private void OnShutdown(Entity<DualWieldComponent> dualWieldEntity, ref ComponentShutdown args)
+    private void OnShutdown(Entity<DualWieldComponent> entity, ref ComponentShutdown args)
     {
-        if (dualWieldEntity.Comp.LinkedWeapon is { } linked &&
-            TryComp<DualWieldComponent>(linked, out var dual))
-            dual.LinkedWeapon = null;
+        if (entity.Comp.LinkedWeapon is { } linked && TryComp<DualWieldComponent>(linked, out var linkedDual))
+            linkedDual.LinkedWeapon = null;
     }
 
-    private void OnGunShot(Entity<DualWieldComponent> dualWieldEntity, ref ShotAttemptedEvent args)
+    private void OnGunShot(Entity<DualWieldComponent> entity, ref ShotAttemptedEvent args)
     {
-        if(!_timing.IsFirstTimePredicted || args.Cancelled)
+        if (!_timing.IsFirstTimePredicted || args.Cancelled)
             return;
 
-        var comp = dualWieldEntity.Comp;
+        var comp = entity.Comp;
 
-        if (comp.LinkedWeapon == null ||
-            !HasComp<DualWieldComponent>(dualWieldEntity.Comp.LinkedWeapon) ||
-            !TryComp<GunComponent>(dualWieldEntity, out var mainGun) ||
-            !TryComp<GunComponent>(comp.LinkedWeapon.Value, out var linkedGun))
+        if (comp.LinkedWeapon is not { } linkedWeapon
+            || !HasComp<DualWieldComponent>(linkedWeapon)
+            || !TryComp<GunComponent>(entity, out var mainGun)
+            || !TryComp<GunComponent>(linkedWeapon, out var linkedGun))
             return;
 
-        if (_hands.GetActiveItem(args.User) != dualWieldEntity)
+        if (_hands.GetActiveItem(args.User) != entity.Owner)
             return;
 
         if (mainGun.ShootCoordinates == null)
             return;
 
-        linkedGun.Target = mainGun.Target; // Lock the values at runtime to prevent issues later
+        // Synchronize targeting data at runtime to prevent issues later
+        linkedGun.Target = mainGun.Target;
         var user = args.User;
-        var linkedGunUid = comp.LinkedWeapon.Value;
         var shootCoordinates = mainGun.ShootCoordinates.Value;
 
-        Timer.Spawn(
-            duration: TimeSpan.FromSeconds(comp.FireDelay),
-            onFired: () =>
+        if (linkedGun.SelectedMode == SelectiveFire.FullAuto)
+        {
+            _gunSystem.AttemptShoot(user, linkedWeapon, linkedGun, shootCoordinates);
+        }
+        else
+        {
+            if (mainGun.ShotCounter >= 1)
+                return;
+
+            Timer.Spawn(
+                duration: TimeSpan.FromSeconds(comp.FireDelay),
+                onFired: () =>
             {
-                if (!Exists(linkedGunUid))
+
+                if (!Exists(linkedWeapon) || !Exists(user))
                     return;
 
-                // Fire the linked weapon with same coordinates
-                _gunSystem.AttemptShoot(
-                    user: user,
-                    gunUid: linkedGunUid,
-                    gun: linkedGun,
-                    toCoordinates: shootCoordinates);
+                if (!TryComp<GunComponent>(linkedWeapon, out var currentLinkedGun))
+                    return;
+
+                _gunSystem.AttemptShoot(user, linkedWeapon, currentLinkedGun, shootCoordinates);
             });
+        }
     }
 
-    private void OnEquip(Entity<DualWieldComponent> dualWieldEntity, ref GotEquippedHandEvent args)
+    private void OnEquip(Entity<DualWieldComponent> entity, ref GotEquippedHandEvent args)
     {
-        var comp = dualWieldEntity.Comp;
-
-        if (!TryComp<HandsComponent>(args.User, out var hands))
+        if (!TryComp<HandsComponent>(args.User, out var hands) || hands.Count != 2)
             return;
 
-        if (hands.Count != 2)
-            return;
-
-        foreach (var held in _hands.EnumerateHeld(args.User, hands))
+        foreach (var heldEntity in _hands.EnumerateHeld(args.User, hands))
         {
-            if (held == dualWieldEntity.Owner || !TryComp<DualWieldComponent>(held, out var dual))
+            if (heldEntity == entity.Owner || !TryComp<DualWieldComponent>(heldEntity, out var otherDualComp))
                 continue;
 
-            if (dualWieldEntity.Comp.LinkedWeapon != null || dual.LinkedWeapon != null)
+            if (entity.Comp.LinkedWeapon != null || otherDualComp.LinkedWeapon != null)
                 continue;
 
-            comp.LinkedWeapon = held;
-            dual.LinkedWeapon = dualWieldEntity.Owner;
+            entity.Comp.LinkedWeapon = heldEntity;
+            otherDualComp.LinkedWeapon = entity.Owner;
 
-            Dirty(held, dual);
-            Dirty(dualWieldEntity.Owner, comp);
+            Dirty(heldEntity, otherDualComp);
+            Dirty(entity, entity.Comp);
 
-            _gunSystem.RefreshModifiers(dualWieldEntity.Owner);
-            _gunSystem.RefreshModifiers(held);
+            _gunSystem.RefreshModifiers(entity.Owner);
+            _gunSystem.RefreshModifiers(heldEntity);
 
             break;
         }
     }
 
-    private void OnUnequip(Entity<DualWieldComponent> dualWieldEntity, ref GotUnequippedHandEvent args)
+    private void OnUnequip(Entity<DualWieldComponent> entity, ref GotUnequippedHandEvent args)
     {
-        var comp = dualWieldEntity.Comp;
-
-        if (comp.LinkedWeapon is not { } linked || !TryComp<DualWieldComponent>(linked, out var dual))
+        var comp = entity.Comp;
+        if (comp.LinkedWeapon is not { } linked || !TryComp<DualWieldComponent>(linked, out var linkedDual))
             return;
-
-        var tempLinked = comp.LinkedWeapon.Value;
 
         comp.LinkedWeapon = null;
-        dual.LinkedWeapon = null;
+        linkedDual.LinkedWeapon = null;
 
-        _gunSystem.RefreshModifiers(tempLinked);
-        _gunSystem.RefreshModifiers(dualWieldEntity.Owner);
+        _gunSystem.RefreshModifiers(linked);
+        _gunSystem.RefreshModifiers(entity.Owner);
 
-        Dirty(tempLinked, dual);
-        Dirty(dualWieldEntity, comp);
+        Dirty(linked, linkedDual);
+        Dirty(entity, comp);
     }
 
-    private void OnRefreshModifiers(Entity<DualWieldComponent> dualWieldEntity, ref GunRefreshModifiersEvent args)
+    private void OnRefreshModifiers(Entity<DualWieldComponent> entity, ref GunRefreshModifiersEvent args)
     {
-        var comp = dualWieldEntity.Comp;
-
-        if (comp.LinkedWeapon == null)
-            return;
-
-        args.MaxAngle *= comp.SpreadMultiplier;
-        args.MinAngle *= comp.SpreadMultiplier;
+        var comp = entity.Comp;
+        if (comp.LinkedWeapon != null)
+        {
+            args.MaxAngle *= comp.SpreadMultiplier;
+            args.MinAngle *= comp.SpreadMultiplier;
+        }
     }
 }
