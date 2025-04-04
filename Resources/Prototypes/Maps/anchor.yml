@@ -36,7 +36,7 @@
             Reporter: [ 2, 2 ]
             Musician: [ 1, 1 ]
             Mime: [ 1, 1 ]
-            Zookeeper: [ 1, 2 ]
+            # Zookeeper: [ 1, 2 ] - WD EDIT
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 3 ]

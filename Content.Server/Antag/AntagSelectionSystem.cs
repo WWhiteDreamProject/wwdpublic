@@ -334,7 +334,6 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         if (antagEnt is not { } player)
         {
-            Log.Error($"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
             if (session != null)
                 ent.Comp.SelectedSessions.Remove(session);
             return;
