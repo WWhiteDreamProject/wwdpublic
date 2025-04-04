@@ -24,9 +24,6 @@ public sealed partial class StoreDiscountComponent : Component
 
     [DataField]
     public int MaxItems = 8;
-
-    [DataField]
-    public bool OnSpawn;
     // WD EDIT END
 }
 
