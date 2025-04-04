@@ -375,7 +375,7 @@ public abstract partial class SharedSurgerySystem
 
     private void OnCutLarvaRootsStep(Entity<SurgeryCutLarvaRootsStepComponent> ent, ref SurgeryStepEvent args)
     {
-        if (TryComp(args.Body, out AlienInfectedComponent? infected) &&
+        if (TryComp(args.Body, out XenomorphInfectedComponent? infected) &&
             infected.SpawnedLarva == null)
         {
             infected.RootsCut = true;
@@ -384,7 +384,7 @@ public abstract partial class SharedSurgerySystem
 
     private void OnCutLarvaRootsCheck(Entity<SurgeryCutLarvaRootsStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
     {
-        if (!TryComp(args.Body, out AlienInfectedComponent? infected))
+        if (!TryComp(args.Body, out XenomorphInfectedComponent? infected))
             args.Cancelled = true;
 
         // The larva has fully developed and surgery is now impossible

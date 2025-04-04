@@ -7,7 +7,7 @@ namespace Content.Server._White.Xenomorphs.Components;
 /// The AlienEggHatchComponent is used to manage the hatching behavior of alien eggs.
 /// </summary>
 [RegisterComponent]
-public sealed partial class AlienEggHatchComponent : Component
+public sealed partial class XenomorphEggHatchComponent : Component
 {
     /// <summary>
     /// Prototype ID for the polymorph effect.

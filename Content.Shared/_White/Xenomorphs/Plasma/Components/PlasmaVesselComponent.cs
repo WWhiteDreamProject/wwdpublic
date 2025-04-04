@@ -19,7 +19,7 @@ public sealed partial class PlasmaVesselComponent : Component
     public FixedPoint2 Plasma = 0;
 
     [DataField]
-    public FixedPoint2 MaxPlasma = 500;
+    public FixedPoint2 MaxPlasma = 300;
 
     /// <summary>
     /// The amount of plasma passively generated per second.

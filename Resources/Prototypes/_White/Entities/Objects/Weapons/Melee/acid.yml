@@ -58,7 +58,7 @@
         types:
           Blunt: 100
     - type: Unremoveable
-    - type: AlienAcid
+    - type: XenomorphAcid
     - type: Tag
       tags:
         - AlienItem
@@ -72,5 +72,5 @@
   - type: Sprite
     sprite: _White/Interface/Actions/xenomorph.rsi
     state: acid
-  - type: AlienAcid
+  - type: XenomorphAcid
 

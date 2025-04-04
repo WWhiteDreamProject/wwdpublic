@@ -13,7 +13,7 @@ using Robust.Shared.Player;
 
 namespace Content.Shared._White.Xenomorphs.Evolution;
 
-public abstract class SharedAlienEvolutionSystem : EntitySystem
+public abstract class SharedXenomorphEvolutionSystem : EntitySystem
 {
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
@@ -31,20 +31,20 @@ public abstract class SharedAlienEvolutionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AlienEvolutionComponent, MapInitEvent>(OnAlienEvolutionMapInit);
-        SubscribeLocalEvent<AlienEvolutionComponent, ComponentShutdown>(OnAlienEvolutionShutdown);
-        SubscribeLocalEvent<AlienEvolutionComponent, OpenEvolutionsActionEvent>(OnOpenEvolutionsAction);
-        SubscribeLocalEvent<AlienEvolutionComponent, RadialSelectorSelectedMessage>(OnEvolutionRecieved);
-        SubscribeLocalEvent<AlienEvolutionComponent, AlienEvolutionDoAfterEvent>(OnAlienEvolutionDoAfter);
+        SubscribeLocalEvent<XenomorphEvolutionComponent, MapInitEvent>(OnXenomorphEvolutionMapInit);
+        SubscribeLocalEvent<XenomorphEvolutionComponent, ComponentShutdown>(OnXenomorphEvolutionShutdown);
+        SubscribeLocalEvent<XenomorphEvolutionComponent, OpenEvolutionsActionEvent>(OnOpenEvolutionsAction);
+        SubscribeLocalEvent<XenomorphEvolutionComponent, RadialSelectorSelectedMessage>(OnEvolutionRecieved);
+        SubscribeLocalEvent<XenomorphEvolutionComponent, XenomorphEvolutionDoAfterEvent>(OnXenomorphEvolutionDoAfter);
     }
 
-    private void OnAlienEvolutionMapInit(EntityUid uid, AlienEvolutionComponent component, ref MapInitEvent args) =>
+    private void OnXenomorphEvolutionMapInit(EntityUid uid, XenomorphEvolutionComponent component, ref MapInitEvent args) =>
         _actions.AddAction(uid, ref component.EvolutionAction, component.EvolutionActionId);
 
-    private void OnAlienEvolutionShutdown(EntityUid uid, AlienEvolutionComponent component, ComponentShutdown args) =>
+    private void OnXenomorphEvolutionShutdown(EntityUid uid, XenomorphEvolutionComponent component, ComponentShutdown args) =>
         _actions.RemoveAction(uid, component.EvolutionAction);
 
-    private void OnOpenEvolutionsAction(EntityUid uid, AlienEvolutionComponent component, ref OpenEvolutionsActionEvent args)
+    private void OnOpenEvolutionsAction(EntityUid uid, XenomorphEvolutionComponent component, ref OpenEvolutionsActionEvent args)
     {
         if (args.Handled)
             return;
@@ -55,7 +55,7 @@ public abstract class SharedAlienEvolutionSystem : EntitySystem
         _ui.SetUiState(uid, RadialSelectorUiKey.Key, new TrackedRadialSelectorState(component.EvolvesTo));
     }
 
-    private void OnEvolutionRecieved(EntityUid uid, AlienEvolutionComponent component, RadialSelectorSelectedMessage args)
+    private void OnEvolutionRecieved(EntityUid uid, XenomorphEvolutionComponent component, RadialSelectorSelectedMessage args)
     {
         if (component.Points < component.Max)
         {
@@ -66,7 +66,7 @@ public abstract class SharedAlienEvolutionSystem : EntitySystem
         var actor = args.Actor;
         _ui.CloseUi(uid, RadialSelectorUiKey.Key, actor);
 
-        var ev = new AlienEvolutionDoAfterEvent(args.SelectedItem);
+        var ev = new XenomorphEvolutionDoAfterEvent(args.SelectedItem);
         var doAfter = new DoAfterArgs(EntityManager, uid, component.EvolutionDelay, ev, uid);
 
         if (!_doAfter.TryStartDoAfter(doAfter))
@@ -81,7 +81,7 @@ public abstract class SharedAlienEvolutionSystem : EntitySystem
         Popup.PopupClient(popupSelf, uid, uid, PopupType.Medium);
     }
 
-    private void OnAlienEvolutionDoAfter(EntityUid uid, AlienEvolutionComponent component, ref AlienEvolutionDoAfterEvent args)
+    private void OnXenomorphEvolutionDoAfter(EntityUid uid, XenomorphEvolutionComponent component, ref XenomorphEvolutionDoAfterEvent args)
     {
         if (_net.IsClient || args.Handled || args.Cancelled || !_mind.TryGetMind(uid, out var mindId, out _))
             return;

@@ -6,7 +6,7 @@ namespace Content.Server._White.Xenomorphs.Components;
 /// The AlienAcidComponent is used for managing alien acid behavior and properties.
 /// </summary>
 [RegisterComponent]
-public sealed partial class AlienAcidComponent : Component
+public sealed partial class XenomorphAcidComponent : Component
 {
     /// <summary>
     /// Prototype ID for the acid.

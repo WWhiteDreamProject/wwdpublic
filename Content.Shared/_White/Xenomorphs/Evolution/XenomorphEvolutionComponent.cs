@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._White.Xenomorphs.Evolution;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class AlienEvolutionComponent : Component
+public sealed partial class XenomorphEvolutionComponent : Component
 {
     [DataField(required: true)]
     public List<RadialSelectorEntry> EvolvesTo = new();

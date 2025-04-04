@@ -13,7 +13,7 @@ using Robust.Shared.Map;
 
 namespace Content.Server._White.Xenomorphs.Systems;
 
-public sealed class AlienQueenSystem : EntitySystem
+public sealed class XenomorphQueenSystem : EntitySystem
 {
     /*[Dependency] private readonly AlienEvolutionSystem _evolution = default!;*/
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -28,17 +28,17 @@ public sealed class AlienQueenSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AlienQueenComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<AlienQueenComponent, AlienEggActionEvent>(OnEgg);
-        SubscribeLocalEvent<AlienQueenComponent, RoyalLarvaActionEvent>(OnRoyalLarva);
+        SubscribeLocalEvent<XenomorphQueenComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<XenomorphQueenComponent, AlienEggActionEvent>(OnEgg);
+        SubscribeLocalEvent<XenomorphQueenComponent, RoyalLarvaActionEvent>(OnRoyalLarva);
     }
 
-    private void OnMapInit(EntityUid uid, AlienQueenComponent component, MapInitEvent args)
+    private void OnMapInit(EntityUid uid, XenomorphQueenComponent component, MapInitEvent args)
     {
         _actions.AddAction(uid, ref component.EggActionEntity, component.EggAction);
     }
 
-    private void OnEgg(EntityUid uid, AlienQueenComponent component, AlienEggActionEvent args)
+    private void OnEgg(EntityUid uid, XenomorphQueenComponent component, AlienEggActionEvent args)
     {
         if (TryComp<PlasmaVesselComponent>(uid, out var plasmaComp)
             && plasmaComp.Plasma < component.PlasmaCostEgg)
@@ -50,7 +50,7 @@ public sealed class AlienQueenSystem : EntitySystem
         args.Handled = true;
     }
 
-    public void CreateStructure(EntityUid uid, AlienQueenComponent component)
+    public void CreateStructure(EntityUid uid, XenomorphQueenComponent component)
     {
 
         if (_container.IsEntityOrParentInContainer(uid))
@@ -86,7 +86,7 @@ public sealed class AlienQueenSystem : EntitySystem
         Spawn(component.EggPrototype, _turf.GetTileCenter(tile.Value));
     }
 
-    public void OnRoyalLarva(EntityUid uid, AlienQueenComponent component, RoyalLarvaActionEvent args)
+    public void OnRoyalLarva(EntityUid uid, XenomorphQueenComponent component, RoyalLarvaActionEvent args)
     {
         if (TryComp<PlasmaVesselComponent>(uid, out var plasmaComp)
             && plasmaComp.Plasma < component.PlasmaCostRoyalLarva)
@@ -95,10 +95,10 @@ public sealed class AlienQueenSystem : EntitySystem
             return;
         }
 
-        if (!HasComp<AlienComponent>(args.Target) ||
+        if (!HasComp<XenomorphComponent>(args.Target) ||
             !HasComp<HandsComponent>(args.Target) ||
             HasComp<QueenEvolutionComponent>(args.Target) ||
-            HasComp<AlienQueenComponent>(args.Target))
+            HasComp<XenomorphQueenComponent>(args.Target))
         {
             _popup.PopupEntity(Loc.GetString("alien-promotion-fail"), uid, uid);
             return;

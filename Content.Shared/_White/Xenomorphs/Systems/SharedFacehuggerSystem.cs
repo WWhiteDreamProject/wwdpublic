@@ -34,9 +34,9 @@ public sealed class SharedFacehuggerSystem : EntitySystem
                     continue;
                 if(!HasComp<MobStateComponent>(entity) || Comp<MobStateComponent>(entity).CurrentState == MobState.Dead)
                     continue;
-                if(HasComp<AlienInfectedComponent>(entity))
+                if(HasComp<XenomorphInfectedComponent>(entity))
                     continue;
-                if(HasComp<AlienComponent>(entity))
+                if(HasComp<XenomorphComponent>(entity))
                     continue;
                 if(!alien.Active)
                     continue;

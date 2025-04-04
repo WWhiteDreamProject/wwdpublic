@@ -95,7 +95,7 @@
           Base: larva2_dead
     - type: TimedPolymorph
       enabled: false
-    - type: AlienEvolution
+    - type: XenomorphEvolution
       max: 200
       evolvesTo:
       - prototype: MobXenomorphDrone

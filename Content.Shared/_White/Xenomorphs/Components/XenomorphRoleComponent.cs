@@ -6,4 +6,4 @@ namespace Content.Shared._White.Xenomorphs.Components;
 ///     Added to mind role entities to tag that they are an alien.
 /// </summary>
 [RegisterComponent]
-public sealed partial class AlienRoleComponent : BaseMindRoleComponent;
+public sealed partial class XenomorphRoleComponent : BaseMindRoleComponent;

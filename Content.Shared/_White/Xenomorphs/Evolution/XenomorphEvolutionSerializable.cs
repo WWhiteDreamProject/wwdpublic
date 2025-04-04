@@ -6,12 +6,12 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._White.Xenomorphs.Evolution;
 
 [Serializable, NetSerializable]
-public sealed partial class AlienEvolutionDoAfterEvent : DoAfterEvent
+public sealed partial class XenomorphEvolutionDoAfterEvent : DoAfterEvent
 {
     [DataField]
     public EntProtoId Choice;
 
-    public AlienEvolutionDoAfterEvent(EntProtoId choice)
+    public XenomorphEvolutionDoAfterEvent(EntProtoId choice)
     {
         Choice = choice;
     }

@@ -9,7 +9,7 @@ using Content.Shared.Stealth.Components;
 
 namespace Content.Shared._White.Xenomorphs.Systems;
 
-public sealed class SharedAlienStalkSystem : EntitySystem
+public sealed class SharedXenomorphStalkSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
@@ -20,18 +20,18 @@ public sealed class SharedAlienStalkSystem : EntitySystem
     {
         base. Initialize();
 
-        SubscribeLocalEvent<AlienStalkComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<AlienStalkComponent, AlienStalkActionEvent>(OnStalk);
+        SubscribeLocalEvent<XenomorphStalkComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<XenomorphStalkComponent, AlienStalkActionEvent>(OnStalk);
     }
 
-    private void OnComponentInit(EntityUid uid, AlienStalkComponent component, ComponentInit args)
+    private void OnComponentInit(EntityUid uid, XenomorphStalkComponent component, ComponentInit args)
     {
         _actionsSystem.AddAction(uid, ref component.StalkActionEntity, component.StalkAction, uid);
 
         component.Sprint = EnsureComp<MovementSpeedModifierComponent>(uid).BaseWalkSpeed;
     }
 
-    private void OnStalk(EntityUid uid, AlienStalkComponent component, AlienStalkActionEvent args)
+    private void OnStalk(EntityUid uid, XenomorphStalkComponent component, AlienStalkActionEvent args)
     {
         var stealth = EnsureComp<StealthComponent>(uid);
         var movementSpeedMofifier = EnsureComp<MovementSpeedModifierComponent>(uid);
@@ -53,7 +53,7 @@ public sealed class SharedAlienStalkSystem : EntitySystem
         var query = EntityQueryEnumerator<PlasmaVesselComponent>();
         while (query.MoveNext(out var uid, out var alien))
         {
-            if (!TryComp<AlienStalkComponent>(uid, out var stalk))
+            if (!TryComp<XenomorphStalkComponent>(uid, out var stalk))
                 continue;
 
             if (alien.Plasma < stalk.PlasmaCost)

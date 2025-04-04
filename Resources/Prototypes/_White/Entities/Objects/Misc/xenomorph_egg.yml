@@ -96,7 +96,7 @@
       state: egg
     - type: Sprite
       state: egg
-    - type: AlienEggHatch
+    - type: XenomorphEggHatch
       polymorphPrototype: AlienEggHatch
 
 - type: entity

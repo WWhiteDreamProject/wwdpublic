@@ -1,0 +1,83 @@
+- type: entity
+  parent: BaseMobXenomorph
+  id: BaseMobXenomorphDrone
+  name: alien drone
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorphs/drone.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: aliend
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: _White/Effects/cuffs.rsi
+      state: aliencuff
+      visible: false
+  - type: PlasmaVessel
+    plasmaPerSecondOffWeed: 5
+  - type: HTN
+    rootTask:
+      task: XenomorphCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+      FreeHands: !type:Bool
+        false
+      ActiveHandFree: !type:Bool
+        false
+      Inventory: !type:Bool
+        false
+  - type: Cuffable
+  - type: GuideHelp
+    guides:
+    - XenomorphDrone
+
+- type: entity
+  parent: BaseMobXenomorphDrone
+  id: MobXenomorphDrone
+  components:
+  - type: Xenomorph
+    greetingText: alien-drone-greeting
+  - type: ActionGrant
+    actions:
+    - ActionAlienTransferPlasma
+    - ActionSpawnAlienWall
+    - ActionSpawnAlienWindow
+    - ActionSpawnAlienNest
+    - ActionSpawnResinNode
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-mob-alien-name
+    description: ghost-role-mob-alien-description
+    rules: ghost-role-information-xeno-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: BaseMobXenomorphDrone
+  id: MobXenomorphDroneDungeon
+  suffix: Dungeon
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 4
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      100: 0.7
+      130: 0.6
+      160: 0.5
+  - type: Damageable
+    damageModifierSet: XenomorphDungeon

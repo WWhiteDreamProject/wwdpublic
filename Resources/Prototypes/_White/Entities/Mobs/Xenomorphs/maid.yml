@@ -1,0 +1,109 @@
+- type: entity
+  parent: BaseMobXenomorph
+  id: BaseMobXenomorphMaid
+  name: lusty alien maid
+  description: Don't ask it to lay eggs in you.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorphs/maid.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: maid
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: _White/Effects/cuffs.rsi
+      state: aliencuff
+      visible: false
+  - type: PlasmaVessel
+    plasmaPerSecondOffWeed: 5
+  - type: HTN
+    rootTask:
+      task: XenomorphCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+      FreeHands: !type:Bool
+        false
+      ActiveHandFree: !type:Bool
+        false
+      Inventory: !type:Bool
+        false
+  - type: Cuffable
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      150: 0.9
+      170: 0.7
+      190: 0.6
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 10
+      types:
+        Structural: 5
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: maid
+      Dead:
+        Base: maid_dead
+  - type: OwOAccent
+  - type: Pacified
+  - type: LanguageKnowledge
+    speaks:
+    - Xeno
+    - XenoHivemind
+    - TauCetiBasic # Smart thing
+    understands:
+    - Xeno
+    - XenoHivemind
+    - Hissing
+    - Draconic
+    - TauCetiBasic
+  - type: GuideHelp
+    guides:
+    - XenomorphMaid
+
+- type: entity
+  parent: BaseMobXenomorphMaid
+  id: MobXenomorphMaid
+  components:
+  - type: Xenomorph
+    greetingText: alien-maid-greeting
+  - type: ActionGrant
+    actions:
+    - ActionAlienTransferPlasma
+    - ActionSpawnResinNode
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-mob-alien-name
+    description: ghost-role-mob-alien-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: BaseMobXenomorphMaid
+  id: MobXenomorphMaidDungeon
+  suffix: Dungeon
+  components:
+  - type: Damageable
+    damageModifierSet: XenomorphDungeon

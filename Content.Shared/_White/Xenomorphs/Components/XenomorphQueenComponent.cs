@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._White.Xenomorphs.Components;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class AlienQueenComponent : Component
+public sealed partial class XenomorphQueenComponent : Component
 {
     [DataField]
     public float PlasmaCostEgg = 100f;

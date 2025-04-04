@@ -10,7 +10,7 @@ namespace Content.Shared._White.Xenomorphs.Components;
 /// The AlienInfectedComponent is used to manage the infection process and growth stages of alien larvae inside a host.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class AlienInfectedComponent : Component
+public sealed partial class XenomorphInfectedComponent : Component
 {
     /// <summary>
     /// The time required for the alien larva to grow.

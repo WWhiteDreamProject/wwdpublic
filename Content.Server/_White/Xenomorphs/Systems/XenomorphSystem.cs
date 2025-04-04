@@ -10,7 +10,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server._White.Xenomorphs.Systems;
 
-public sealed class AlienSystem : EntitySystem
+public sealed class XenomorphSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -21,19 +21,22 @@ public sealed class AlienSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AlienComponent, PickupAttemptEvent>(OnPickup);
-        SubscribeLocalEvent<AlienComponent, PlayerAttachedEvent>(OnTakeRole);
+        SubscribeLocalEvent<XenomorphComponent, PickupAttemptEvent>(OnPickup);
+        SubscribeLocalEvent<XenomorphComponent, PlayerAttachedEvent>(OnTakeRole);
 
-        SubscribeLocalEvent<AlienComponent, StartCollideEvent>(OnAlienStartCollide);
-        SubscribeLocalEvent<AlienComponent, EndCollideEvent>(OnAlienEndCollide);
+        SubscribeLocalEvent<XenomorphComponent, StartCollideEvent>(OnAlienStartCollide);
+        SubscribeLocalEvent<XenomorphComponent, EndCollideEvent>(OnAlienEndCollide);
     }
 
-    private void OnTakeRole(EntityUid uid, AlienComponent component, PlayerAttachedEvent args)
+    private void OnTakeRole(EntityUid uid, XenomorphComponent component, PlayerAttachedEvent args)
     {
+        if (string.IsNullOrEmpty(component.GreetingText))
+            return;
+
         _chatMan.DispatchServerMessage(args.Player, Loc.GetString(component.GreetingText));
     }
 
-    private void OnPickup(EntityUid uid, AlienComponent component, PickupAttemptEvent args)
+    private void OnPickup(EntityUid uid, XenomorphComponent component, PickupAttemptEvent args)
     {
         if (_tag.HasTag(args.Item, "AlienItem"))
             return;
@@ -42,7 +45,7 @@ public sealed class AlienSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("alien-pickup-item-fail"), uid, uid);
     }
 
-    private void OnAlienStartCollide(EntityUid uid, AlienComponent component, StartCollideEvent args)
+    private void OnAlienStartCollide(EntityUid uid, XenomorphComponent component, StartCollideEvent args)
     {
         if (component.OnWeed || !HasComp<PlasmaGainModifierComponent>(args.OtherEntity))
             return;
@@ -50,7 +53,7 @@ public sealed class AlienSystem : EntitySystem
         component.OnWeed = true;
     }
 
-    private void OnAlienEndCollide(EntityUid uid, AlienComponent component, EndCollideEvent args)
+    private void OnAlienEndCollide(EntityUid uid, XenomorphComponent component, EndCollideEvent args)
     {
         if (!component.OnWeed || !HasComp<PlasmaGainModifierComponent>(args.OtherEntity))
             return;

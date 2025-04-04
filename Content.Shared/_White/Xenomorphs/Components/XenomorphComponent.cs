@@ -9,13 +9,13 @@ namespace Content.Shared._White.Xenomorphs.Components;
 /// The AlienComponent is used to manage the abilities and properties of alien entities.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class AlienComponent : Component
+public sealed partial class XenomorphComponent : Component
 {
     /// <summary>
     /// The caste type of the alien.
     /// </summary>
     [DataField]
-    public string GreetingText;
+    public string? GreetingText;
 
     /// <summary>
     /// Required damage specifier for healing provided by the weed.

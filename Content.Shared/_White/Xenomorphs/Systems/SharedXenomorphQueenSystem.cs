@@ -7,7 +7,7 @@ using Robust.Shared.Network;
 
 namespace Content.Shared._White.Xenomorphs.Systems;
 
-public sealed class SharedAlienQueenSystem : EntitySystem
+public sealed class SharedXenomorphQueenSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
 
@@ -15,15 +15,15 @@ public sealed class SharedAlienQueenSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AlienQueenComponent, ComponentStartup>(OnCompInit);
-        SubscribeLocalEvent<AlienQueenComponent, ComponentShutdown>(OnCompRemove);
+        SubscribeLocalEvent<XenomorphQueenComponent, ComponentStartup>(OnCompInit);
+        SubscribeLocalEvent<XenomorphQueenComponent, ComponentShutdown>(OnCompRemove);
 
     }
 
     /// <summary>
     /// Giveths the action to preform making acid on the entity
     /// </summary>
-    private void OnCompInit(EntityUid uid, AlienQueenComponent comp, ComponentStartup args)
+    private void OnCompInit(EntityUid uid, XenomorphQueenComponent comp, ComponentStartup args)
     {
         _actionsSystem.AddAction(uid, ref comp.ActionEntity, comp.Action);
     }
@@ -31,7 +31,7 @@ public sealed class SharedAlienQueenSystem : EntitySystem
     /// <summary>
     /// Takeths away the action to preform making acid from the entity.
     /// </summary>
-    private void OnCompRemove(EntityUid uid, AlienQueenComponent comp, ComponentShutdown args)
+    private void OnCompRemove(EntityUid uid, XenomorphQueenComponent comp, ComponentShutdown args)
     {
         _actionsSystem.RemoveAction(uid, comp.ActionEntity);
     }

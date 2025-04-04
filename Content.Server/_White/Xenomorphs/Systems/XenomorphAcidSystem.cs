@@ -6,17 +6,17 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._White.Xenomorphs.Systems;
 
-public sealed class AlienAcidSystem : EntitySystem
+public sealed class XenomorphAcidSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<AlienAcidComponent, MeleeHitEvent>(OnHit);
+        SubscribeLocalEvent<XenomorphAcidComponent, MeleeHitEvent>(OnHit);
     }
 
-    private void OnHit(EntityUid uid, AlienAcidComponent component, MeleeHitEvent args)
+    private void OnHit(EntityUid uid, XenomorphAcidComponent component, MeleeHitEvent args)
     {
         foreach (var hitEntity in args.HitEntities)
         {
@@ -24,7 +24,7 @@ public sealed class AlienAcidSystem : EntitySystem
                 continue;
 
             var acid = Spawn(component.AcidPrototype, hitEntity.ToCoordinates());
-            var acidComp = EnsureComp<AlienAcidComponent>(acid);
+            var acidComp = EnsureComp<XenomorphAcidComponent>(acid);
             acidComp.MeltTimeSpan = _timing.CurTime + TimeSpan.FromSeconds(component.MeltTime);
             acidComp.WallUid = hitEntity;
         }
@@ -32,7 +32,7 @@ public sealed class AlienAcidSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        var query = EntityQueryEnumerator<AlienAcidComponent>();
+        var query = EntityQueryEnumerator<XenomorphAcidComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
             if (component.WallUid == null || _timing.CurTime < component.MeltTimeSpan)

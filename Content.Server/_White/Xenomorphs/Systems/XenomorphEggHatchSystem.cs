@@ -6,7 +6,7 @@ using Content.Shared.Inventory;
 
 namespace Content.Server._White.Xenomorphs.Systems;
 
-public sealed class AlienEggHatchSystem : EntitySystem
+public sealed class XenomorphEggHatchSystem : EntitySystem
 {
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -16,10 +16,10 @@ public sealed class AlienEggHatchSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AlienEggHatchComponent, InteractHandEvent>(OnInteract);
+        SubscribeLocalEvent<XenomorphEggHatchComponent, InteractHandEvent>(OnInteract);
     }
 
-    private void OnInteract(EntityUid uid, AlienEggHatchComponent component, InteractHandEvent args)
+    private void OnInteract(EntityUid uid, XenomorphEggHatchComponent component, InteractHandEvent args)
     {
         _polymorph.PolymorphEntity(uid, component.PolymorphPrototype);
     }
@@ -28,7 +28,7 @@ public sealed class AlienEggHatchSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<AlienEggHatchComponent>();
+        var query = EntityQueryEnumerator<XenomorphEggHatchComponent>();
         while (query.MoveNext(out var uid, out var alienEgg))
         {
             bool hasMaskEntityNearby = false;

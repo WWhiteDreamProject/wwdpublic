@@ -70,7 +70,7 @@ public sealed class FacehuggerSystem : EntitySystem
             var uid = facehugger.Key;
             var component = facehugger.Value;
 
-            EnsureComp<AlienInfectedComponent>(component.Equipee);
+            EnsureComp<XenomorphInfectedComponent>(component.Equipee);
             _polymorph.PolymorphEntity(uid, component.FacehuggerPolymorphPrototype);
         }
     }

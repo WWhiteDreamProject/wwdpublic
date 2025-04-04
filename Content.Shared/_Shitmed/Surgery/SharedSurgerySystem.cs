@@ -151,7 +151,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
 
      private void OnLarvaValid(Entity<SurgeryLarvaConditionComponent> ent, ref SurgeryValidEvent args)
      {
-         if (!TryComp(args.Body, out AlienInfectedComponent? infected))
+         if (!TryComp(args.Body, out XenomorphInfectedComponent? infected))
              args.Cancelled = true;
 
          // The larva has fully developed and surgery is now impossible
@@ -310,7 +310,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
 
     private void OnRemoveLarva(Entity<SurgeryRemoveLarvaComponent> ent, ref SurgeryCompletedEvent args)
     {
-        RemCompDeferred<AlienInfectedComponent>(ent);
+        RemCompDeferred<XenomorphInfectedComponent>(ent);
     }
 
     protected bool IsSurgeryValid(EntityUid body, EntityUid targetPart, EntProtoId surgery, EntProtoId stepId,

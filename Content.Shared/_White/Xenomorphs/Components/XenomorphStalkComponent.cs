@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._White.Xenomorphs.Components;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class AlienStalkComponent : Component
+public sealed partial class XenomorphStalkComponent : Component
 {
     [DataField]
     public EntProtoId? StalkAction = "ActionStalkAlien";

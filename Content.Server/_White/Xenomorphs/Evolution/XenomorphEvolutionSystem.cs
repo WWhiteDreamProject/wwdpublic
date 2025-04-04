@@ -4,7 +4,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._White.Xenomorphs.Evolution;
 
-public sealed class AlienEvolutionSystem : SharedAlienEvolutionSystem
+public sealed class XenomorphEvolutionSystem : SharedXenomorphEvolutionSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -14,7 +14,7 @@ public sealed class AlienEvolutionSystem : SharedAlienEvolutionSystem
 
         var time = _timing.CurTime;
 
-        var query = EntityQueryEnumerator<AlienEvolutionComponent>();
+        var query = EntityQueryEnumerator<XenomorphEvolutionComponent>();
         while (query.MoveNext(out var uid, out var alienEvolution))
         {
             if (alienEvolution.Points == alienEvolution.Max

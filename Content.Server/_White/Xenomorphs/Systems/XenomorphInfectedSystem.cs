@@ -11,7 +11,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._White.Xenomorphs.Systems;
 
-public sealed class AlienInfectedSystem : EntitySystem
+public sealed class XenomorphInfectedSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -24,10 +24,10 @@ public sealed class AlienInfectedSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<AlienInfectedComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<XenomorphInfectedComponent, ComponentInit>(OnComponentInit);
     }
 
-    private void OnComponentInit(EntityUid uid, AlienInfectedComponent component, ComponentInit args)
+    private void OnComponentInit(EntityUid uid, XenomorphInfectedComponent component, ComponentInit args)
     {
         // var torsoPart = Comp<BodyComponent>(uid).RootContainer.ContainedEntities[0];
         // _body.TryCreateOrganSlot(torsoPart, "alienLarvaOrgan", out _);
@@ -40,7 +40,7 @@ public sealed class AlienInfectedSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<AlienInfectedComponent>();
+        var query = EntityQueryEnumerator<XenomorphInfectedComponent>();
         while (query.MoveNext(out var uid, out var infected))
         {
             if (_timing.CurTime < infected.NextGrowRoll)
@@ -49,7 +49,7 @@ public sealed class AlienInfectedSystem : EntitySystem
             if (TryComp<InsideAlienLarvaComponent>(infected.SpawnedLarva, out var insideAlienLarvaComponent) && insideAlienLarvaComponent.IsGrown)
             {
                 _container.EmptyContainer(infected.Stomach);
-                RemComp<AlienInfectedComponent>(uid);
+                RemComp<XenomorphInfectedComponent>(uid);
                 _mobStateSystem.ChangeMobState(uid, MobState.Dead);
                 _damageable.TryChangeDamage(uid, infected.BurstDamage, true, false); // TODO: Only torso damage
                 _popup.PopupEntity(Loc.GetString("larva-burst-entity"),

@@ -23,10 +23,10 @@ public sealed class XenomorphsChatSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AlienComponent, EntitySpokeEvent>(OnAlienSpeak);
+        SubscribeLocalEvent<XenomorphComponent, EntitySpokeEvent>(OnAlienSpeak);
     }
 
-    private void OnAlienSpeak(EntityUid uid, AlienComponent component, EntitySpokeEvent args)
+    private void OnAlienSpeak(EntityUid uid, XenomorphComponent component, EntitySpokeEvent args)
     {
         if (args.Source != uid || args.Language.ID != component.XenoLanguageId || args.IsWhisper)
             return;

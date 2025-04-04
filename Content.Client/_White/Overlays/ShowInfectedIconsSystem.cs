@@ -14,10 +14,10 @@ public sealed class ShowInfectedIconsSystem : EquipmentHudSystem<ShowInfectedIco
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AlienInfectedComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent);
+        SubscribeLocalEvent<XenomorphInfectedComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent);
     }
 
-    private void OnGetStatusIconsEvent(EntityUid uid, AlienInfectedComponent component, ref GetStatusIconsEvent ev)
+    private void OnGetStatusIconsEvent(EntityUid uid, XenomorphInfectedComponent component, ref GetStatusIconsEvent ev)
     {
         if (!IsActive)
             return;

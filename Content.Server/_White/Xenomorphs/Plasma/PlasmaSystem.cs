@@ -25,7 +25,7 @@ public sealed class PlasmaSystem : SharedPlasmaSystem
             plasmaVessel.LastPointsAt = time;
 
             var plasmaPerSecond = plasmaVessel.PlasmaPerSecondOffWeed;
-            if (TryComp<AlienComponent>(uid, out var alien) && alien.OnWeed)
+            if (TryComp<XenomorphComponent>(uid, out var alien) && alien.OnWeed)
                 plasmaPerSecond = plasmaVessel.PlasmaPerSecondOnWeed;
 
             ChangePlasmaAmount(uid, plasmaPerSecond, plasmaVessel);
