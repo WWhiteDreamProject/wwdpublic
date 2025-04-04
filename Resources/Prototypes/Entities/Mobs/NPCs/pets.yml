@@ -757,8 +757,8 @@
       shader: unshaded
   - type: MobThresholds
     thresholds:
-      0: Alive 
-      100: Dead # WWDP edit
+      0: Alive
+      100: Dead
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Effects/Footsteps/slime1.ogg
@@ -783,13 +783,11 @@
     bloodReagent: Nothing
     bloodMaxVolume: 50
   - type: Temperature
-    # WWDP edit
     heatDamageThreshold: 1000
     coldDamageThreshold: -100
   - type: Damageable
     damageContainer: Biological
-    # WWDP edit
-    damageModifierSet: SlimePet
+    damageModifierSet: Smile
   - type: Puller
     needsHands: false
   - type: MeleeWeapon
