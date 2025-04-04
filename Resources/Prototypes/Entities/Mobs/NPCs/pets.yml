@@ -787,7 +787,7 @@
     coldDamageThreshold: -100
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: SmilePet
+    damageModifierSet: SlimePet
   - type: Puller
     needsHands: false
   - type: MeleeWeapon
