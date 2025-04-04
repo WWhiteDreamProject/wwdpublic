@@ -190,3 +190,16 @@
     Telecrystal: 1
   categories:
   - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineSyndicateSWATHelmet
+  name: uplink-Syndicate-SWAT-Helmet-name
+  description: uplink-Syndicate-SWAT-Helmet-desc
+  productEntity: ClothingHeadHelmetSwatSyndicate
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWearables

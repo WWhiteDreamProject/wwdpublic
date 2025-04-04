@@ -79,10 +79,10 @@
     sprite: Clothing/Eyes/Goggles/thermal.rsi
   - type: ThermalVision
     isEquipment: true
-    pulseTime: 2
-    toggleAction: PulseThermalVision
+    toggleAction: ToggleThermalVision #WWDP edit
   - type: IdentityBlocker
     coverage: EYES
+
 
 - type: entity
   parent: ClothingEyesThermalVisionGoggles
