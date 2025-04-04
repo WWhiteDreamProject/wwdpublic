@@ -10,14 +10,14 @@
 - type: damageModifierSet
   id: Smile
   coefficients:
-    Blunt: 1
-    Slash: 1
-    Piercing: 1
-    Heat: 1
-    Shock: 1
-    Cold: 1
-    Bloodloss: 1
-    Poison: 1
+    Blunt: 0
+    Slash: 0
+    Piercing: 0
+    Heat: 0
+    Shock: 0
+    Cold: 0
+    Bloodloss: 0
+    Poison: 0
     Radiation : 0
     Cellular: 0
 
