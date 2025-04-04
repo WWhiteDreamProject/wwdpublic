@@ -132,24 +132,26 @@
     - MagazinePistol
 
 # .35 Magazine Rubber
-- type: loadout
-  id: LoadoutSecurityRestrictedGearMagazinePistolRubber
-  category: JobsSecurityAUncategorized
-  cost: 2
-  requirements:
-    - !type:CharacterTraitRequirement
-      traits:
-        - RestrictedGear
-    - !type:OverallTimeRequirement
-      min: 72000 # 20 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEquipment
-    - !type:CharacterDepartmentRequirement
-      inverted: true
-      departments:
-        - Security
-  items:
-    - MagazinePistolRubber
+# WD EDIT START
+#- type: loadout
+#  id: LoadoutSecurityRestrictedGearMagazinePistolRubber
+#  category: JobsSecurityAUncategorized
+#  cost: 2
+#  requirements:
+#    - !type:CharacterTraitRequirement
+#      traits:
+#        - RestrictedGear
+#    - !type:OverallTimeRequirement
+#      min: 72000 # 20 hours
+#    - !type:CharacterItemGroupRequirement
+#      group: LoadoutSecurityEquipment
+#    - !type:CharacterDepartmentRequirement
+#      inverted: true
+#      departments:
+#        - Security
+#  items:
+#    - MagazinePistolRubber
+# WD EDIT END
 
 # .45 Speedloader
 - type: loadout
@@ -173,25 +175,27 @@
     - SpeedLoaderMagnum
 
 # .45 Speedloader Rubber
-- type: loadout
-  id: LoadoutSecurityRestrictedGearSpeedLoaderMagnumRubber
-  category: JobsSecurityAUncategorized
-  cost: 4
-  exclusive: true
-  requirements:
-    - !type:CharacterTraitRequirement
-      traits:
-        - RestrictedGear
-    - !type:OverallTimeRequirement
-      min: 72000 # 20 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEquipment
-    - !type:CharacterDepartmentRequirement
-      inverted: true
-      departments:
-        - Security
-  items:
-    - SpeedLoaderMagnumRubber
+# WD EDIT START
+#- type: loadout
+#  id: LoadoutSecurityRestrictedGearSpeedLoaderMagnumRubber
+#  category: JobsSecurityAUncategorized
+#  cost: 4
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterTraitRequirement
+#      traits:
+#        - RestrictedGear
+#    - !type:OverallTimeRequirement
+#      min: 72000 # 20 hours
+#    - !type:CharacterItemGroupRequirement
+#      group: LoadoutSecurityEquipment
+#    - !type:CharacterDepartmentRequirement
+#      inverted: true
+#      departments:
+#        - Security
+#  items:
+#    - SpeedLoaderMagnumRubber
+# WD EDIT END
 
 # .45 Magazine
 - type: loadout
@@ -215,26 +219,27 @@
     - MagazineMagnum
 
 # .45 Magazine Rubber
-- type: loadout
-  id: LoadoutSecurityRestrictedGearMagazineMagnumRubber
-  category: JobsSecurityAUncategorized
-  cost: 4
-  exclusive: true
-  requirements:
-    - !type:CharacterTraitRequirement
-      traits:
-        - RestrictedGear
-    - !type:OverallTimeRequirement
-      min: 72000 # 20 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEquipment
-    - !type:CharacterDepartmentRequirement
-      inverted: true
-      departments:
-        - Security
-  items:
-    - MagazineMagnumRubber
-
+# WD EDIT START
+#- type: loadout
+#  id: LoadoutSecurityRestrictedGearMagazineMagnumRubber
+#  category: JobsSecurityAUncategorized
+#  cost: 4
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterTraitRequirement
+#      traits:
+#        - RestrictedGear
+#    - !type:OverallTimeRequirement
+#      min: 72000 # 20 hours
+#    - !type:CharacterItemGroupRequirement
+#      group: LoadoutSecurityEquipment
+#    - !type:CharacterDepartmentRequirement
+#      inverted: true
+#      departments:
+#        - Security
+#  items:
+#    - MagazineMagnumRubber
+# WD EDIT END
 ## Weapons
 - type: loadout
   id: LoadoutSecurityRestrictedGearEquipmentTruncheon

@@ -20,45 +20,47 @@
   items:
     - BoxBeanbag
 
-- type: loadout
-  id: LoadoutServiceRestrictedGearBoxLightRifleRubber
-  category: JobsServiceBartender
-  cost: 4
-  exclusive: true
-  requirements:
-    - !type:CharacterTraitRequirement
-      traits:
-        - RestrictedGear
-    - !type:OverallTimeRequirement
-      min: 72000 # 20 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutBartenderAmmo
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Bartender
-  items:
-    - MagazineBoxLightRifleRubber
+# WD EDIT START
+#- type: loadout
+#  id: LoadoutServiceRestrictedGearBoxLightRifleRubber
+#  category: JobsServiceBartender
+#  cost: 4
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterTraitRequirement
+#      traits:
+#        - RestrictedGear
+#    - !type:OverallTimeRequirement
+#      min: 72000 # 20 hours
+#    - !type:CharacterItemGroupRequirement
+#      group: LoadoutBartenderAmmo
+#    - !type:CharacterJobRequirement
+#      inverted: true
+#      jobs:
+#        - Bartender
+#  items:
+#    - MagazineBoxLightRifleRubber
 
-- type: loadout
-  id: LoadoutServiceRestrictedGearBartenderBoxMagnumRubber
-  category: JobsServiceBartender
-  cost: 4
-  exclusive: true
-  requirements:
-    - !type:CharacterTraitRequirement
-      traits:
-        - RestrictedGear
-    - !type:OverallTimeRequirement
-      min: 72000 # 20 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutBartenderAmmo
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Bartender
-  items:
-    - MagazineBoxMagnumRubber
+#- type: loadout
+#  id: LoadoutServiceRestrictedGearBartenderBoxMagnumRubber
+#  category: JobsServiceBartender
+#  cost: 4
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterTraitRequirement
+#      traits:
+#        - RestrictedGear
+#    - !type:OverallTimeRequirement
+#      min: 72000 # 20 hours
+#    - !type:CharacterItemGroupRequirement
+#      group: LoadoutBartenderAmmo
+#    - !type:CharacterJobRequirement
+#      inverted: true
+#      jobs:
+#        - Bartender
+#  items:
+#    - MagazineBoxMagnumRubber
+# WD EDIT END
 
 - type: loadout
   id: LoadoutServiceRestrictedGearBartenderShotgunDoubleBarreledRubber
@@ -103,7 +105,7 @@
     - WeaponShotgunSawn
 
 - type: loadout
-  id: LoadoutServiceRestrictedGearBartenderMosinRubber
+  id: LoadoutServiceRestrictedGearBartenderMosin # WD EDIT
   category: JobsServiceBartender
   cost: 6
   exclusive: true
@@ -121,10 +123,10 @@
       jobs:
         - Bartender
   items:
-    - WeaponSniperMosinRubber
+    - WeaponSniperMosin # WD EDIT
 
 - type: loadout
-  id: LoadoutServiceRestrictedGearBartenderRepeaterNonlethal
+  id: LoadoutServiceRestrictedGearBartenderRepeater # WD EDIT
   category: JobsServiceBartender
   cost: 6
   exclusive: true
@@ -141,7 +143,7 @@
       jobs:
         - Bartender
   items:
-    - WeaponSniperRepeaterNonlethal
+    - WeaponSniperRepeater # WD EDIT
 
 ### Botanist
 ## Equipment
@@ -187,7 +189,7 @@
         - RestrictedGear
     - !type:CharacterJobRequirement
       inverted: true
-      jobs: 
+      jobs:
         - Botanist
   items:
     - HydroponicsToolScythe
