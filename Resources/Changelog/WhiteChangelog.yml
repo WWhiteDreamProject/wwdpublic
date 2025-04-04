@@ -2397,3 +2397,10 @@ Entries:
   id: 255
   time: '2025-04-04T09:18:39.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/409
+- author: 89Eblan
+  changes:
+    - type: Fix
+      message: возвращен до апстримный урон патронам
+  id: 256
+  time: '2025-04-04T09:22:10.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/412
