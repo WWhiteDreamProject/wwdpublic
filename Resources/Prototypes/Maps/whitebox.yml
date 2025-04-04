@@ -13,15 +13,15 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'TG'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Delta.yml
+          emergencyShuttlePath: /Maps/_White/Shuttles/emergency_turtle.yml
         - type: StationJobs
           overflowJobs:
             - Passenger
           availableJobs:
             #Silicons
-            #Borg: [ 2, 2 ]
-            #MedicalBorg: [ 2, 2 ]
-            #StationAi: [ 1, 1 ]
+            Borg: [ 2, 2 ]
+            MedicalBorg: [ 2, 2 ]
+            StationAi: [ 1, 1 ]
             CargoTechnician: [ 2, 2 ]
             Prisoner: [ 1, 2 ]
             PrisonGuard: [ 1, 1 ]
@@ -61,5 +61,4 @@
             Detective: [ 1, 1 ]
             ResearchAssistant: [ 4, 4 ]
             Paramedic: [ 2, 2 ]
-            Borg: [ 2, 2 ]
             Brigmedic: [ 1, 1 ]
