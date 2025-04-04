@@ -196,7 +196,7 @@
   name: uplink-Syndicate-SWAT-Helmet-name
   description: uplink-Syndicate-SWAT-Helmet-desc
   productEntity: ClothingHeadHelmetSwatSyndicate
-  discountCategory: rareDiscounts
+  discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 1
   cost:
