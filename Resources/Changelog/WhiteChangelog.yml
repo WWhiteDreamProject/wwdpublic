@@ -2388,3 +2388,12 @@ Entries:
   id: 254
   time: '2025-04-03T21:45:02.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/405
+- author: Kai518
+  changes:
+    - type: Remove
+      message: Биомасса генокрада уничтожена, вырезана с корнями.
+    - type: Tweak
+      message: Задание генокрада на кражу генокрада заменено заданием на поглощение.
+  id: 255
+  time: '2025-04-04T09:18:39.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/409
