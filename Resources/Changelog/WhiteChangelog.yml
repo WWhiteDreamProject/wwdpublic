@@ -2429,3 +2429,12 @@ Entries:
   id: 259
   time: '2025-04-04T21:38:19.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/419
+- author: Boevi4ok
+  changes:
+    - type: Add
+      message: В аплинк предателя теперь входит энергетический щит
+    - type: Add
+      message: Добавлен шлем спецназа в аплинке за 2 телекристала
+  id: 260
+  time: '2025-04-04T21:47:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/418
