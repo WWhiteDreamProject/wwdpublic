@@ -80,6 +80,57 @@
     - sprite: Mobs/Silicon/station_ai.rsi
       state: default
   - type: ShowJobIcons
+  # WD EDIT START
+  - type: BlockMovement
+    blockInteraction: false
+  - type: SiliconLawProvider
+    laws: Asimov
+  - type: SiliconLawBound
+  - type: ComplexInteraction
+  - type: Eye
+    drawFov: false
+  - type: InputMover
+  - type: IonStormTarget
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Borg
+  - type: Access
+    groups:
+    - AllAccess
+    - Silicon
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - SolCommon
+    - Tradeband
+    - Freespeak
+    - Elyran
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - SolCommon
+    - Tradeband
+    - Freespeak
+    - Elyran
+    - RobotTalk
+    - Sign
+  - type: LanguageSpeaker
+    spokenLanguages:
+    - TauCetiBasic
+    - SolCommon
+    - Tradeband
+    - Freespeak
+    - Elyran
+    - RobotTalk
+    understoodLanguages:
+    - TauCetiBasic
+    - SolCommon
+    - Tradeband
+    - Freespeak
+    - Elyran
+    - RobotTalk
+    - Sign
+  # WD EDIT END
 
 - type: entity
   id: AiHeldIntellicard
@@ -115,8 +166,10 @@
       locked: false
       disableEject: true
       whitelist:
-        tags:
-        - StationAi
+        # WD EDiT START
+        components:
+        - BorgBrain
+        # WD EDIT END
   - type: ContainerContainer
     containers:
       station_ai_mind_slot: !type:ContainerSlot
@@ -595,6 +648,12 @@
   - type: Lock
   - type: WiresPanel
   - type: LockedWiresPanel
+  - type: Construction
+    graph: AICoreGraph
+    node: aiCore
+    containers:
+    - board
+    - station_ai_mind_slot
   # WD edit end
 
 # The job-ready version of an AI spawn.
@@ -612,67 +671,6 @@
     - state: base
     - state: ai
       shader: unshaded
-
-# The actual brain inside the core
-- type: entity
-  id: StationAiBrain
-  parent: PositronicBrain
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
-  components:
-  - type: Sprite
-    # Once it's in a core it's pretty much an abstract entity at that point.
-    visible: false
-  - type: BlockMovement
-    blockInteraction: false
-  - type: SiliconLawProvider
-    laws: Asimov
-  - type: SiliconLawBound
-  - type: ActionGrant
-    actions:
-    - ActionViewLaws
-  - type: UserInterface
-    interfaces:
-      enum.SiliconLawsUiKey.Key:
-        type: SiliconLawBoundUserInterface
-  - type: ComplexInteraction
-  - type: Actions
-  - type: Access
-    groups:
-    - AllAccess
-    - Silicon
-  - type: Eye
-    drawFov: false
-  - type: Examiner
-  - type: InputMover
-  - type: IonStormTarget
-  - type: Speech
-    speechVerb: Robotic
-    speechSounds: Borg
-  - type: Tag
-    tags:
-    - HideContextMenu
-    - StationAi
-    - NoConsoleSound
-  - type: LanguageKnowledge
-    speaks:
-    - TauCetiBasic
-    - SolCommon
-    - Tradeband
-    - Freespeak
-    - Elyran
-    - RobotTalk
-    understands:
-    - TauCetiBasic
-    - SolCommon
-    - Tradeband
-    - Freespeak
-    - Elyran
-    - RobotTalk
-    - Sign # It's intentional that they don't "Speak" sign language.
-  - type: StartingMindRole
-    mindRole: "MindRoleSiliconBrain"
-    silent: true
 
 # Hologram projection that the AI's eye tracks.
 - type: entity

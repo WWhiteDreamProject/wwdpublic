@@ -3,7 +3,7 @@
   id: AICore
   graph: AICoreGraph
   startNode: start
-  targetNode: wired
+  targetNode: aiCore
   category: construction-category-machines
   description: A framework for an artificial intelligence core
   icon:
@@ -21,7 +21,7 @@
   graph:
   - node: start
     edges:
-    - to: frame
+    - to: frameUnsecured
       completed:
       - !type:SetAnchor
         value: false
@@ -30,106 +30,141 @@
         amount: 4
         doAfter: 2
 
-  - node: frame
-    entity: StationAIAssemblyFrame
+  - node: frameUnsecured
+    actions:
+    - !type:AppearanceChange
+    entity: StationAIFrame
     edges:
+    - to: boardUnsecured
+      conditions:
+      - !type:EntityAnchored { }
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - tag: AiCoreBoard
+        name: AI core board
+        icon:
+          sprite: Objects/Misc/module.rsi
+          state: generic
+
     - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
       completed:
       - !type:SpawnPrototype
         prototype: SheetPlasteel
         amount: 4
       - !type:DeleteEntity {}
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
       steps:
       - tool: Welding
         doAfter: 2
 
-    - to: board
+  - node: boardUnsecured
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: screwedUnsecured
+      conditions:
+      - !type:EntityAnchored { }
       completed:
       - !type:SnapToGrid
         southRotation: true
-      conditions:
-      - !type:EntityAnchored {}
       steps:
-      - tag: AiCoreBoard
-        name: AI core board
-        icon:
-          sprite: "Objects/Misc/module.rsi"
-          state: "generic"
-        completed:
-        - !type:SpawnPrototype
-          prototype: StationAIAssemblyBoard
-        - !type:DeleteEntity {}
+      - tool: Screwing
+        doAfter: 1
 
-  - node: board
-    entity: StationAIAssemblyBoard
-    edges:
-    - to: frame
+    - to: frameUnsecured
       conditions:
       - !type:EntityAnchored
+      completed:
+      - !type:SpawnPrototype
+        prototype: StationAICoreCircuitboard
       steps:
       - tool: Prying
         doAfter: 2
-      completed:
-      - !type:SpawnPrototype
-        prototype: StationAIAssemblyFrame
-      - !type:SpawnPrototype
-        prototype: StationAICoreCircuitboard
-      - !type:DeleteEntity { }
 
-    - to: screwed
-      completed:
-      - !type:SnapToGrid
-        southRotation: true
-      - !type:SpawnPrototype
-        prototype: StationAIAssemblyScrewed
-      - !type:DeleteEntity { }
-      conditions:
-      - !type:EntityAnchored {}
-      steps:
-      - tool: Screwing
-        doAfter: 1
-
-  - node: screwed
-    entity: StationAIAssemblyScrewed
+  - node: screwedUnsecured
+    actions:
+    - !type:AppearanceChange
     edges:
-    - to: board
-      conditions:
-      - !type:EntityAnchored
-      steps:
-      - tool: Screwing
-        doAfter: 1
-      completed:
-      - !type:SpawnPrototype
-        prototype: StationAIAssemblyBoard
-      - !type:DeleteEntity { }
-
-    - to: wired
-      completed:
-      - !type:SnapToGrid
-        southRotation: true
-      - !type:SpawnPrototype
-        prototype: StationAIAssemblyWired
-      - !type:DeleteEntity { }
+    - to: missingWires
       conditions:
       - !type:EntityAnchored { }
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
       steps:
       - material: Cable
         amount: 5
         doAfter: 2.5
 
-  - node: wired
-    entity: StationAIAssemblyWired
-    edges:
-    - to: board
+    - to: boardUnsecured
       conditions:
       - !type:EntityAnchored
       steps:
-      - tool: Cutting
-        doAfter: 2.5
+      - tool: Screwing
+        doAfter: 1
+
+  - node: missingWires
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: missingBrain
+      conditions:
+      - !type:EntityAnchored
+      steps:
+      - component: BorgBrain
+        store: station_ai_mind_slot
+        name: positronic-brain-slot-component-slot-name-brain
+        icon:
+          sprite: Objects/Specific/Robotics/mmi.rsi
+          state: posibrain
+
+    - to: screwedUnsecured
+      conditions:
+      - !type:EntityAnchored
       completed:
       - !type:SpawnPrototype
-        prototype: StationAIAssemblyScrewed
-      - !type:DeleteEntity { }
+        prototype: CableApcStack1
+        amount: 5
+      steps:
+      - tool: Cutting
+        doAfter: 2.5
+
+  - node: missingBrain
+    actions:
+    - !type:AppearanceChange
+    entity: StationAIFrame
+    edges:
+    - to: aiCore
+      conditions:
+      - !type:EntityAnchored
+      steps:
+      - material: ReinforcedGlass
+        amount: 2
+        doAfter: 2
+
+    - to: missingWires
+      conditions:
+      - !type:EntityAnchored
+      completed:
+      - !type:EmptyContainer
+        container: station_ai_mind_slot
+      steps:
+      - tool: Prying
+        doAfter: 2
+
+  - node: aiCore
+    actions:
+    - !type:AppearanceChange
+    entity: PlayerStationAiEmpty
+    edges:
+    - to: missingBrain
+      conditions:
+      - !type:EntityAnchored
+      - !type:WirePanel
+      steps:
+      - tool: Prying
+        doAfter: 5

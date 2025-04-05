@@ -29,6 +29,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Containers;
 
 namespace Content.Shared.Silicons.StationAi;
 
@@ -69,7 +70,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     private EntityQuery<MapGridComponent> _gridQuery;
 
     [ValidatePrototypeId<EntityPrototype>]
-    public readonly EntProtoId DefaultAi = "StationAiBrain"; // WD edit - make public
+    private static EntProtoId DefaultAi = "PositronicBrain"; // WD edit
 
     private const float MaxVisionMultiplier = 5f;
 
@@ -94,11 +95,11 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         SubscribeLocalEvent<StationAiHolderComponent, ComponentRemove>(OnHolderRemove);
         SubscribeLocalEvent<StationAiHolderComponent, AfterInteractEvent>(OnHolderInteract);
         SubscribeLocalEvent<StationAiHolderComponent, MapInitEvent>(OnHolderMapInit);
-        SubscribeLocalEvent<StationAiHolderComponent, EntInsertedIntoContainerMessage>(OnHolderConInsert);
+        SubscribeLocalEvent<StationAiHolderComponent, EntInsertedIntoContainerMessage>(OnHolderConInsert, after: new []{typeof(ContainerCompSystem)}); // WD EDIT
         SubscribeLocalEvent<StationAiHolderComponent, EntRemovedFromContainerMessage>(OnHolderConRemove);
         SubscribeLocalEvent<StationAiHolderComponent, IntellicardDoAfterEvent>(OnIntellicardDoAfter);
 
-        SubscribeLocalEvent<StationAiCoreComponent, EntInsertedIntoContainerMessage>(OnAiInsert);
+        SubscribeLocalEvent<StationAiCoreComponent, EntInsertedIntoContainerMessage>(OnAiInsert, after: new []{typeof(ContainerCompSystem)}); // WD EDIT
         SubscribeLocalEvent<StationAiCoreComponent, EntRemovedFromContainerMessage>(OnAiRemove);
         SubscribeLocalEvent<StationAiCoreComponent, MapInitEvent>(OnAiMapInit);
         SubscribeLocalEvent<StationAiCoreComponent, ComponentShutdown>(OnAiShutdown);
@@ -122,7 +123,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             Category = VerbCategory.Debug,
             Act = () =>
             {
-                if (!_containers.TryGetContainer(ent, StationAiCoreComponent.Container, out _))
+                if (!_containers.TryGetContainer(ent, StationAiCoreComponent.Container, out _) || _net.IsClient) // WD EDIT
                     return;
 
                 var brain = SpawnInContainerOrDrop(DefaultAi, ent.Owner, StationAiCoreComponent.Container);

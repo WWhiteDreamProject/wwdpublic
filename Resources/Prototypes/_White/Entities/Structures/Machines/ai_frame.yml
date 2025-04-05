@@ -1,15 +1,27 @@
 ﻿- type: entity
-  id: StationAIAssemblyFrame
+  id: StationAIFrame
   name: AI core frame
   parent: BaseStructure
   description: A metal frame for station AI
   components:
-  - type: Clickable
-  - type: InteractionOutline
   - type: Sprite
     sprite: Mobs/Silicon/station_ai.rsi
-    state: 0
+    layers:
+    - state: 0
+      map: [ "enum.ConstructionVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ConstructionVisuals.Key:
+        enum.ConstructionVisuals.Layer:
+          frameUnsecured: { state: 0 }
+          boardUnsecured: { state: 1 }
+          screwedUnsecured: { state: 2 }
+          missingWires: { state: 3 }
+          missingBrain: { state: 3b }
+  - type: InteractionOutline
   - type: Physics
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -23,10 +35,11 @@
         - HumanoidBlockLayer
   - type: Anchorable
     delay: 2
-  - type: Pullable
-  - type: Transform
-    anchored: true
-    noRot: true
+  - type: Construction
+    graph: AICoreGraph
+    node: frameUnsecured
+    placement:
+      mode: SnapgridCenter
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -38,64 +51,6 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  - type: Construction
-    graph: AICoreGraph
-    node: frame
-  placement:
-    mode: SnapgridCenter
-
-- type: entity
-  id: StationAIAssemblyBoard
-  parent: StationAIAssemblyFrame
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
-    state: 1
-  - type: Construction
-    graph: AICoreGraph
-    node: board
-
-- type: entity
-  id: StationAIAssemblyScrewed
-  parent: StationAIAssemblyFrame
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
-    state: 2
-  - type: Construction
-    graph: AICoreGraph
-    node: screwed
-
-- type: entity
-  id: StationAIAssemblyWired
-  description: A wired metal frame for station AI. To complete the construction you should insert MMI or positronic brain and cover it with two reinforced glass plates.
-  parent: StationAIAssemblyFrame
-  components:
-  - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
-    layers:
-    - state: 3
-    - state: 3b
-      map: [ "enum.StationAIAssemblyVisualLayers.Brain" ]
-      visible: false
-  - type: Construction
-    graph: AICoreGraph
-    node: wired
-  - type: StationAIAssembly
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.StationAIAssemblyVisuals.HasBrain:
-        enum.StationAIAssemblyVisualLayers.Brain:
-          True: { visible: true }
-          False: { visible: false }
-  - type: ItemSlots
-    slots:
-      brain_slot:
-        name: positronic-brain-slot-component-slot-name-brain
-        whitelist:
-          components:
-          - BorgBrain
-
+  - type: InteractionVerbs
+    allowedVerbs:
+    - KnockOn
