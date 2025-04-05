@@ -29,7 +29,6 @@ using Content.Shared.Mobs.Components; // Goobstation
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
@@ -88,7 +87,6 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly ContestsSystem _contests = default!; // Goobstation - Grab Intent
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -455,9 +453,6 @@ public sealed class PullingSystem : EntitySystem
             return;
 
         var entity = args.Entity;
-
-        if (ent.Comp.GrabStage == GrabStage.Soft)
-            TryStopPull(ent, ent, ent);
 
         if (!_blocker.CanMove(entity))
             return;
@@ -1077,11 +1072,6 @@ public sealed class PullingSystem : EntitySystem
 
         if (_timing.CurTime < pullable.Comp.NextEscapeAttempt)  // No autoclickers! Mwa-ha-ha
             return false;
-
-        // WD EDIT START
-        if (_statusEffects.HasStatusEffect(pullable, "Stun"))
-            return false;
-        // WD EDIT END
 
         if (_random.Prob(pullable.Comp.GrabEscapeChance))
             return true;
