@@ -4,6 +4,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._White.Weapons.Ranged.DualWield;
@@ -55,18 +56,19 @@ public sealed class DualWieldSystem : EntitySystem
         var user = args.User;
         var shootCoordinates = mainGun.ShootCoordinates.Value;
 
-        if (linkedGun.SelectedMode == SelectiveFire.FullAuto)
-        {
-            _gunSystem.AttemptShoot(user, linkedWeapon, linkedGun, shootCoordinates);
-        }
-        else
+        if (linkedGun.SelectedMode != SelectiveFire.FullAuto || mainGun.SelectedMode != SelectiveFire.FullAuto)
         {
             if (mainGun.ShotCounter >= 1)
                 return;
+        }
+        FireLinkedShot(comp.FireDelay, user, linkedWeapon, shootCoordinates);
+    }
 
-            Timer.Spawn(
-                duration: TimeSpan.FromSeconds(comp.FireDelay),
-                onFired: () =>
+    private void FireLinkedShot(float delay, EntityUid user, EntityUid linkedWeapon, EntityCoordinates shootCoordinates)
+    {
+        Timer.Spawn(
+            duration: TimeSpan.FromSeconds(delay),
+            onFired: () =>
             {
 
                 if (!Exists(linkedWeapon) || !Exists(user))
@@ -77,7 +79,6 @@ public sealed class DualWieldSystem : EntitySystem
 
                 _gunSystem.AttemptShoot(user, linkedWeapon, currentLinkedGun, shootCoordinates);
             });
-        }
     }
 
     private void OnEquip(Entity<DualWieldComponent> entity, ref GotEquippedHandEvent args)
