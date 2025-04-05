@@ -79,6 +79,7 @@
   - type: EmitSoundOnLand # WWDP sounds
     sound:
       collection: RevolversDrop
+  - type: DualWield # WWDP
 
 - type: entity
   name: Deckard
