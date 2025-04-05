@@ -117,5 +117,6 @@ public enum LogType
     AspectStarted = 201,
     AspectStopped = 202,
     BecameAntagonist = 228,
+    Trait = 229, // Логирование выдачи трейтов
     // WD EDIT
 }
