@@ -11,6 +11,7 @@ namespace Content.Shared.PDA
         public bool FlashlightEnabled;
         public bool HasPen;
         public bool HasPai;
+        public bool HasPassport;
         public PdaIdInfoText PdaOwnerInfo;
         public string? StationName;
         public bool HasUplink;
@@ -23,6 +24,7 @@ namespace Content.Shared.PDA
             bool flashlightEnabled,
             bool hasPen,
             bool hasPai,
+            bool hasPassport,
             PdaIdInfoText pdaOwnerInfo,
             string? stationName,
             bool hasUplink = false,
@@ -33,6 +35,7 @@ namespace Content.Shared.PDA
             FlashlightEnabled = flashlightEnabled;
             HasPen = hasPen;
             HasPai = hasPai;
+            HasPassport = hasPassport;
             PdaOwnerInfo = pdaOwnerInfo;
             HasUplink = hasUplink;
             CanPlayMusic = canPlayMusic;
