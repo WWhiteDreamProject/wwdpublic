@@ -21,6 +21,7 @@ comp-pda-ui-menu-title = ПДА
 comp-pda-ui-station = Станция: [color=white]{ $station }[/color]
 comp-pda-ui-eject-id-button = Извлечь ID
 comp-pda-ui-eject-pen-button = Извлечь ручку
+comp-pda-ui-eject-passport-button = Извлечь паспорт
 comp-pda-ui-ringtone-button-description = Измените рингтон вашего ПДА
 comp-pda-ui-ringtone-button = Рингтон
 comp-pda-ui-toggle-flashlight-button = Переключить фонарик
