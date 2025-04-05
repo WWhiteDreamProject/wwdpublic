@@ -4,7 +4,6 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
-using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._White.Weapons.Ranged.DualWield;
@@ -71,6 +70,16 @@ public sealed class DualWieldSystem : EntitySystem
                     return;
 
                 if (!TryComp<GunComponent>(linkedWeapon, out var currentLinkedGun))
+                    return;
+
+                if (_hands.GetActiveItem(user) != entity.Owner
+                    || !_hands.IsHolding(user, linkedWeapon))
+                    return;
+
+                if (!TryComp<DualWieldComponent>(linkedWeapon, out var linkedDual)
+                    || linkedDual.LinkedWeapon != entity.Owner
+                    || !TryComp<DualWieldComponent>(entity.Owner, out var mainDual)
+                    || mainDual.LinkedWeapon != linkedWeapon)
                     return;
 
                 _gunSystem.AttemptShoot(user, linkedWeapon, currentLinkedGun, shootCoordinates);
