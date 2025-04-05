@@ -21,5 +21,5 @@ public sealed partial class DualWieldComponent : Component
     /// Multiplier applied to weapon spread when dual-wielding
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float SpreadMultiplier = 7f;
+    public float SpreadMultiplier = 6f;
 }

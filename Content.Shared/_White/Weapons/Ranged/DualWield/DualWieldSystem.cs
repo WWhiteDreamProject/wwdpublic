@@ -61,13 +61,9 @@ public sealed class DualWieldSystem : EntitySystem
             if (mainGun.ShotCounter >= 1)
                 return;
         }
-        FireLinkedShot(comp.FireDelay, user, linkedWeapon, shootCoordinates);
-    }
 
-    private void FireLinkedShot(float delay, EntityUid user, EntityUid linkedWeapon, EntityCoordinates shootCoordinates)
-    {
         Timer.Spawn(
-            duration: TimeSpan.FromSeconds(delay),
+            duration: TimeSpan.FromSeconds(comp.FireDelay),
             onFired: () =>
             {
 
@@ -79,6 +75,9 @@ public sealed class DualWieldSystem : EntitySystem
 
                 _gunSystem.AttemptShoot(user, linkedWeapon, currentLinkedGun, shootCoordinates);
             });
+
+        var reloadDelta = linkedGun.CurrentAngleLastUpdate - mainGun.CurrentAngleLastUpdate;
+        linkedGun.NextFire -= reloadDelta.Duration();
     }
 
     private void OnEquip(Entity<DualWieldComponent> entity, ref GotEquippedHandEvent args)
