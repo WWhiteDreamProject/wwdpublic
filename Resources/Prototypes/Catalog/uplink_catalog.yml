@@ -141,9 +141,6 @@
   - UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkSniperBundle
