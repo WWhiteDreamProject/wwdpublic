@@ -11,6 +11,7 @@ using Content.Shared.Item;
 using Content.Shared.Preferences;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
+using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -65,6 +66,10 @@ public class SharedPassportSystem : EntitySystem
     private void OnPlayerLoadoutApplied(PlayerLoadoutAppliedEvent ev)
     {
         if (Deleted(ev.Mob) || !Exists(ev.Mob))
+            return;
+
+        // WWDP fix
+        if (HasComp<BorgBrainComponent>(ev.Mob))
             return;
 
         if (!_prototypeManager.TryIndex(
