@@ -1,5 +1,5 @@
 
-#wwdp fun removed PsionicAvaiblePower
+#wwdp fun removed PsionicAvaiblePower no telepathy no removed
 
 - type: psionicPower
   id: DispelPower
@@ -334,12 +334,22 @@
       feedbackMessage: telepathy-power-initialization-feedback
     - !type:AddPsionicAssayFeedback
       assayFeedback: psionic-language-power-feedback
+    - !type:PsionicAddAvailablePowers
+      powerPrototype: XenoglossyPower
+      weight: 0.75
+    - !type:PsionicAddAvailablePowers
+      powerPrototype: PsychognomyPower
+      weight: 0.75
   removalFunctions:
     - !type:RemovePsionicPowerComponents
       components:
         - type: Telepathy
     - !type:RemoveAssayFeedback
       assayFeedback: psionic-language-power-feedback
+    - !type:PsionicRemoveAvailablePowers
+      powerPrototype: XenoglossyPower
+    - !type:PsionicRemoveAvailablePowers
+      powerPrototype: PsychognomyPower
   powerSlotCost: 0
 
 - type: psionicPower

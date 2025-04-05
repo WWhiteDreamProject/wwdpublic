@@ -1,24 +1,22 @@
-- type: weightedRandom #wwdp edit
-  id: RandomPsionicPowerPool #wwdp edit
-  weights: #wwdp edit
-    MetapsionicPower: 1 #wwdp edit
-    AnoigoPower: 1 #wwdp edit
-    DispelPower: 1 #wwdp edit
-    #TelegnosisPower: 1 #wwdp edit
-    PsionicRegenerationPower: 1 #wwdp edit
-    TelepathyPower: 1  #wwdp edit
-    HealingWordPower: 0.9 #wwdp edit
-    XenoglossyPower: 0.75 #wwdp edit #wwdp edit
-    PsychognomyPower: 0.75 #wwdp edit #wwdp edit
-    PyrokineticFlare: 0.5 #wwdp edit
-    NoosphericZapPower: 0.5 #wwdp edit
-    MassSleepPower: 0.3 #wwdp edit
-    RevivifyPower: 0.3 #wwdp edit #wwdp edit
-    SummonImpPower: 0.3 #wwdp edit #wwdp edit
-    TelekineticPulsePower: 0.15 #wwdp edit
-    #PsionicInvisibilityPower: 0.15 #wwdp edit
-    AssayPower: 0.1 #wwdp edit #wwdp edit #wwdp edit
-    PyrokinesisPower: 0.1 #wwdp edit #wwdp edit #wwdp edit
-    DarkSwapPower: 0.1 #wwdp edit #wwdp edit #wwdp edit
-    MindSwapPower: 0.1 #wwdp edit
-    ShadeskipPower: 0.1 #wwdp edit
+- type: weightedRandom
+  id: RandomPsionicPowerPool
+  weights:
+    MetapsionicPower: 1
+    AnoigoPower: 1
+    DispelPower: 1
+    #TelegnosisPower: 1
+    PsionicRegenerationPower: 1
+    TelepathyPower: 1
+    HealingWordPower: 0.9
+    PyrokineticFlare: 0.5
+    NoosphericZapPower: 0.5
+    MassSleepPower: 0.3
+    TelekineticPulsePower: 0.15
+    #PsionicInvisibilityPower: 0.15
+    MindSwapPower: 0.1
+    ShadeskipPower: 0.1
+    RevivifyPower: 0.3 #wwdp edit start
+    SummonImpPower: 0.3
+    AssayPower: 0.1
+    PyrokinesisPower: 0.1
+    DarkSwapPower: 0.1 #wwdp edit end
