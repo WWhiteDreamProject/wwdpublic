@@ -12,6 +12,7 @@ using Content.Shared.Players;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
+using Content.Shared.Silicons.Borgs.Components;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Content.Shared.Whitelist;
@@ -56,6 +57,10 @@ public sealed class TraitSystem : EntitySystem
     public void ApplyTraits(EntityUid uid, ProtoId<JobPrototype>? jobId, HumanoidCharacterProfile profile,
         Dictionary<string, TimeSpan> playTimes, bool whitelisted, bool punishCheater = true)
     {
+        // WWDP fix: Don't apply traits to positronic brains
+        if (HasComp<BorgBrainComponent>(uid))
+            return;
+
         var pointsTotal = _configuration.GetCVar(CCVars.GameTraitsDefaultPoints);
         var traitSelections = _configuration.GetCVar(CCVars.GameTraitsMax);
         if (jobId is not null && !_prototype.TryIndex(jobId, out var jobPrototype)
