@@ -57,7 +57,7 @@ public sealed class TraitSystem : EntitySystem
     public void ApplyTraits(EntityUid uid, ProtoId<JobPrototype>? jobId, HumanoidCharacterProfile profile,
         Dictionary<string, TimeSpan> playTimes, bool whitelisted, bool punishCheater = true)
     {
-        // WWDP fix: Don't apply traits to positronic brains
+        // WWDP fix
         if (HasComp<BorgBrainComponent>(uid))
             return;
 
