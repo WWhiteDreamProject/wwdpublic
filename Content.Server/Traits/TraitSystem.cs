@@ -98,7 +98,7 @@ public sealed class TraitSystem : EntitySystem
     public void AddTrait(EntityUid uid, TraitPrototype traitPrototype)
     {
         _adminLog.Add(LogType.Trait, LogImpact.Low,
-            $"Trait {traitPrototype.ID} was added to {ToPrettyString(uid)}");
+            $"Trait {traitPrototype.ID} was added to {ToPrettyString(uid)}"); // WWDP ADD
 
         foreach (var function in traitPrototype.Functions)
             function.OnPlayerSpawn(uid, _componentFactory, EntityManager, _serialization);
