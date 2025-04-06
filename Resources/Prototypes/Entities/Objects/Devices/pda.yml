@@ -43,6 +43,7 @@
         - IdCard
     # WD EDIT START
     # WD EDIT START
+    # WD EDIT START
     passportSlot:
       priority: -1
       ejectSound: /Audio/Machines/id_swipe.ogg
@@ -50,6 +51,7 @@
       whitelist:
         components:
         - Passport
+    # WD EDIT END
     # WD EDIT END
     # WD EDIT END
   - type: Item
