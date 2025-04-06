@@ -12,6 +12,7 @@ public sealed class LizardAccentSystem : EntitySystem
     private static readonly Regex RegexLowerEndX = new(@"\bx([\-|r|R]|\b)");
     private static readonly Regex RegexUpperEndX = new(@"\bX([\-|r|R]|\b)");
     
+    // WD EDIT START
     // Russian letters
     private static readonly Regex RegexLowerZ = new("з");
     private static readonly Regex RegexUpperZ = new("З");
@@ -23,6 +24,7 @@ public sealed class LizardAccentSystem : EntitySystem
     private static readonly Regex RegexUpperSch = new("Щ");
     private static readonly Regex RegexLowerTs = new("ц");
     private static readonly Regex RegexUpperTs = new("Ц");
+    // WD EDIT END
 
     public override void Initialize()
     {
@@ -46,6 +48,7 @@ public sealed class LizardAccentSystem : EntitySystem
         // eckS
         message = RegexUpperEndX.Replace(message, "ECKS$1");
 
+        // WD EDIT START
         // Russian replacements
         // З -> С
         message = RegexLowerZ.Replace(message, "с");
@@ -62,6 +65,7 @@ public sealed class LizardAccentSystem : EntitySystem
         // Ц -> СС
         message = RegexLowerTs.Replace(message, "сс");
         message = RegexUpperTs.Replace(message, "СС");
+        // WD EDIT END
 
         args.Message = message;
     }
