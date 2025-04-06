@@ -1,0 +1,57 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseNukeopsRule
+  id: MidRoundNukeops
+  components:
+  - type: LoadMapRule
+    gameMap: NukieOutpost
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointNukeopsCommander
+      max: 1
+      pickPlayer: false
+      playerRatio: 10
+      startingGear: SyndicateCommanderGearFull
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - nukeops-role-commander
+        - SyndicateNamesElite
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleNukeopsCommander
+    - spawnerPrototype: SpawnPointNukeopsMedic
+      max: 1
+      pickPlayer: false
+      playerRatio: 10
+      startingGear: SyndicateOperativeMedicFull
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - nukeops-role-agent
+        - SyndicateNamesNormal
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleNukeopsMedic
+    - spawnerPrototype: SpawnPointNukeopsOperative
+      max: 3
+      pickPlayer: false
+      playerRatio: 10
+      startingGear: SyndicateOperativeGearFull
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - nukeops-role-operator
+        - SyndicateNamesNormal
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleNukeops
