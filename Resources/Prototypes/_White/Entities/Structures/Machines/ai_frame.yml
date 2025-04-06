@@ -38,8 +38,6 @@
   - type: Construction
     graph: AICoreGraph
     node: frameUnsecured
-    placement:
-      mode: SnapgridCenter
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
