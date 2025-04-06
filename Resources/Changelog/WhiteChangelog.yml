@@ -2438,3 +2438,10 @@ Entries:
   id: 260
   time: '2025-04-04T21:47:22.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/418
+- author: Kutos
+  changes:
+    - type: Add
+      message: Добавлено логгирование трейтов.
+  id: 261
+  time: '2025-04-06T09:41:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/426
