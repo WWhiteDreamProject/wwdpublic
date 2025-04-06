@@ -111,9 +111,20 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
 
     private void OnShutdown(Entity<ContainerSpawnPointComponent> ent, ref ComponentShutdown args)
     {
-        _jobs.TryAdjustJobSlot(
-            _station.GetStationInMap(Transform(_roundEnd.GetStation()!.Value).MapID)!.Value,
-            ent.Comp.Job!,
-            -1);
+           if (ent.Comp.Job == null)
+                   return;
+
+           var station = _roundEnd.GetStation();
+           if (!station.HasValue)
+                   return;
+
+           var stationInMap = _station.GetStationInMap(Transform(station.Value).MapID);
+           if (!stationInMap.HasValue)
+                   return;
+
+           _jobs.TryAdjustJobSlot(
+               stationInMap.Value,
+               ent.Comp.Job!,
+               -1);
     }
 }
