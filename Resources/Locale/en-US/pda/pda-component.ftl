@@ -38,8 +38,6 @@ comp-pda-ui-eject-id-button = Eject ID
 
 comp-pda-ui-eject-pen-button = Eject Pen
 
-comp-pda-ui-eject-passport-button = Eject Passport
-
 comp-pda-ui-ringtone-button = Ringtone
 
 comp-pda-ui-ringtone-button-description = Change your PDA's ringtone
