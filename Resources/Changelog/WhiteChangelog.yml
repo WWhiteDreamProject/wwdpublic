@@ -2481,3 +2481,10 @@ Entries:
   id: 265
   time: '2025-04-07T18:44:04.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/431
+- author: HSKveez
+  changes:
+    - type: Fix
+      message: Фелиниды снова умеют мяукать
+  id: 266
+  time: '2025-04-07T18:44:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/432
