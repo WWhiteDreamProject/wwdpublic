@@ -84,6 +84,7 @@
   - type: IdentityBlocker
     coverage: EYES
 
+
 - type: entity
   parent: ClothingEyesThermalVisionGoggles
   id: ClothingEyesThermalVisionMonocle

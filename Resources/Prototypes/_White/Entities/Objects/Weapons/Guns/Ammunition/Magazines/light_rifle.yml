@@ -1,0 +1,23 @@
+﻿- type: entity
+  id: MagazineLightRifleAK220
+  name: "increased .30 Magazine"
+  suffix: "increased magazine .30"
+  parent: MagazineLightRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifle
+    capacity: 40
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Ammunition/Magazines/magazineAK220.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance

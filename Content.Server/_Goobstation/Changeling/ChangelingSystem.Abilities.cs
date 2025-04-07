@@ -167,7 +167,6 @@ public sealed partial class ChangelingSystem
         _blood.ChangeBloodReagent(target, comp.AbsorbedBloodReagent);
         _blood.SpillAllSolutions(target);
         PlayMeatySound(args.User, comp);
-        UpdateBiomass(uid, comp, comp.MaxBiomass - comp.TotalAbsorbedEntities);
 
         EnsureComp<AbsorbedComponent>(target);
 
@@ -179,7 +178,6 @@ public sealed partial class ChangelingSystem
         {
             bonusChemicals += targetComp.MaxChemicals / 2;
             bonusEvolutionPoints += targetComp.TotalEvolutionPoints; // SURVIVAL OF THE FITTEST.
-            comp.MaxBiomass += targetComp.MaxBiomass / 2;
             comp.TotalEvolutionPoints += targetComp.TotalEvolutionPoints + massToSucc;
         }
         else
