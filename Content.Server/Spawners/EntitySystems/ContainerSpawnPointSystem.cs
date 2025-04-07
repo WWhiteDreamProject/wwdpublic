@@ -20,14 +20,14 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
-    [Dependency] private readonly StationJobsSystem _jobs = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly StationJobsSystem _jobs = default!; // WD edit
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!; // WD edit
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<PlayerSpawningEvent>(HandlePlayerSpawning, before: new[] { typeof(SpawnPointSystem) });
-        SubscribeLocalEvent<ContainerSpawnPointComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ContainerSpawnPointComponent, ComponentShutdown>(OnShutdown); // WD edit
     }
 
     public void HandlePlayerSpawning(PlayerSpawningEvent args)
@@ -109,6 +109,7 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
         args.SpawnResult = null;
     }
 
+    // WD edit start - constructible AI
     private void OnShutdown(Entity<ContainerSpawnPointComponent> ent, ref ComponentShutdown args)
     {
            if (ent.Comp.Job == null)
@@ -127,4 +128,5 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
                ent.Comp.Job!,
                -1);
     }
+    // WD edit end
 }
