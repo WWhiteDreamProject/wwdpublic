@@ -2332,3 +2332,116 @@ Entries:
   id: 247
   time: '2025-03-30T18:48:18.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/365
+- author: Kai518
+  changes:
+    - type: Remove
+      message: >-
+        Отключена биомасса у генокрада. (Фактически она все еще есть в коде, а
+        её значение может редактироваться педалями через VV)
+  id: 248
+  time: '2025-04-02T23:14:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/397
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: >-
+        Яма будет расти! Бинглы теперь могут появиться в раунде без педального
+        вмешательства.
+  id: 249
+  time: '2025-04-02T23:14:49.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/398
+- author: kekoven1
+  changes:
+    - type: Fix
+      message: Анализ теперь адекватно сканирует все сканируемые умения
+  id: 250
+  time: '2025-04-02T23:18:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/400
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Лежачие персонажи больше не уклоняются от пуль при движении
+  id: 251
+  time: '2025-04-02T23:22:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/403
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        Режим совместимости теперь работает. Если у вас есть какие-то проблемы с
+        белизной экрана при использовании режима совместимости, то отключите
+        зернистость в настройках графики.
+  id: 252
+  time: '2025-04-03T06:03:16.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/406
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Жидкости больше не поджигают цель напрямую
+  id: 253
+  time: '2025-04-03T06:03:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/407
+- author: 89Eblan
+  changes:
+    - type: Add
+      message: В аплинк добавлена AK220 за 14 телекристалов
+  id: 254
+  time: '2025-04-03T21:45:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/405
+- author: Kai518
+  changes:
+    - type: Remove
+      message: Биомасса генокрада уничтожена, вырезана с корнями.
+    - type: Tweak
+      message: Задание генокрада на кражу генокрада заменено заданием на поглощение.
+  id: 255
+  time: '2025-04-04T09:18:39.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/409
+- author: 89Eblan
+  changes:
+    - type: Fix
+      message: возвращен до апстримный урон патронам
+  id: 256
+  time: '2025-04-04T09:22:10.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/412
+- author: Kutos
+  changes:
+    - type: Tweak
+      message: 'Убрано бессмертие улыбкина. '
+  id: 257
+  time: '2025-04-04T13:36:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/413
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Респрайт Надзирателя
+  id: 258
+  time: '2025-04-04T21:30:51.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/415
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Новый шаттл эвакуации, спасибо Дарки
+    - type: Tweak
+      message: >-
+        Станции обновлены. На коробке пофикшены некоторые моменты, например
+        кнопки и ставни. Везде добавлены турельки ИИ в сам спутник и аплоад
+  id: 259
+  time: '2025-04-04T21:38:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/419
+- author: Boevi4ok
+  changes:
+    - type: Add
+      message: В аплинк предателя теперь входит энергетический щит
+    - type: Add
+      message: Добавлен шлем спецназа в аплинке за 2 телекристала
+  id: 260
+  time: '2025-04-04T21:47:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/418
+- author: Kutos
+  changes:
+    - type: Add
+      message: Добавлено логгирование трейтов.
+  id: 261
+  time: '2025-04-06T09:41:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/426

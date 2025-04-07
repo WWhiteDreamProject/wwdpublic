@@ -63,25 +63,6 @@ public sealed partial class ChangelingComponent : Component
 
     public Dictionary<string, EntityUid?> Equipment = new();
 
-    /// <summary>
-    ///     Amount of biomass changeling currently has.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float Biomass = 60f;
-
-    /// <summary>
-    ///     Maximum amount of biomass a changeling can have.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float MaxBiomass = 30f;
-
-    /// <summary>
-    ///     How much biomass should be removed per cycle.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float BiomassDrain = 1f;
-
-    /// <summary>
     ///     Current amount of chemicals changeling currently has.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -104,9 +85,6 @@ public sealed partial class ChangelingComponent : Component
     /// </summary>
     public TimeSpan UpdateTimer = TimeSpan.Zero;
     public float UpdateCooldown = 1f;
-
-    public float BiomassUpdateTimer;
-    public float BiomassUpdateCooldown = 60f;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public List<TransformData> AbsorbedDNA = new();
