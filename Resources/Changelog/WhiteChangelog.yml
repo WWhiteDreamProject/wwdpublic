@@ -2461,3 +2461,10 @@ Entries:
   id: 263
   time: '2025-04-07T18:36:42.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/422
+- author: Kutossssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+  changes:
+    - type: Add
+      message: 'Добавлен русский акцент ящеров. '
+  id: 264
+  time: '2025-04-07T18:42:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/425
