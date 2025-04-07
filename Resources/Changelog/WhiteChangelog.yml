@@ -2468,3 +2468,16 @@ Entries:
   id: 264
   time: '2025-04-07T18:42:14.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/425
+- author: Kai518
+  changes:
+    - type: Fix
+      message: Все жала генокрада теперь должны работать.
+    - type: Add
+      message: Ослепляющий токсин (доступен только для жал генокрада и педалей).
+    - type: Add
+      message: >-
+        Тиризен - вызывает урон по стамине (доступен только для жал генокрада и
+        педалей).
+  id: 265
+  time: '2025-04-07T18:44:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/431
