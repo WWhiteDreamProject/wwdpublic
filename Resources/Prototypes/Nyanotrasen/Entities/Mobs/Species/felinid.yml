@@ -72,6 +72,11 @@
     understands:
     - TauCetiBasic
     - Nekomimetic
+  #WWDP EDIT START
+  - type: Tag
+    tags:
+    - FelinidEmotes
+  #WWDP EDIT END
   - type: Thieving
     ignoreStripHidden: true
     stealth: Subtle
