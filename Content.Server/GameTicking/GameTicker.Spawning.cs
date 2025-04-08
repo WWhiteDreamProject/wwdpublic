@@ -270,7 +270,7 @@ namespace Content.Server.GameTicking
                 _metaData.SetEntityName(mob, character.CyborgName);
             }
 
-            // WD EDIT
+            // WD EDIT START
             // Setting the clown nickname if player chooses the clown profession
             if (jobPrototype.ID == "Clown" && character.ClownName != null)
             {
@@ -278,7 +278,7 @@ namespace Content.Server.GameTicking
                 EnsureComp<RandomMetadataExcludedComponent>(mob);
                 _metaData.SetEntityName(mob, character.ClownName);
             }
-            // WD EDIT
+            // WD EDIT END
 
             _mind.TransferTo(newMind, mob);
 
