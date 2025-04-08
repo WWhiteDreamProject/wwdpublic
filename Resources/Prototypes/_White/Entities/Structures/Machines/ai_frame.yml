@@ -19,6 +19,7 @@
           screwedUnsecured: { state: 2 }
           missingWires: { state: 3 }
           missingBrain: { state: 3b }
+          frameUnscrewed: { state: 4 }
   - type: InteractionOutline
   - type: Physics
     bodyType: Static

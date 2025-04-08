@@ -121,7 +121,7 @@
     - !type:AppearanceChange
     entity: StationAIFrame
     edges:
-    - to: aiCore
+    - to: frameUnscrewed
       conditions:
       - !type:EntityAnchored
       steps:
@@ -139,12 +139,34 @@
       - tool: Prying
         doAfter: 2
 
+
+  - node: frameUnscrewed
+    actions:
+    - !type:AppearanceChange
+    entity: StationAIFrame
+    edges:
+    - to: aiCore
+      conditions:
+      - !type:EntityAnchored
+      steps:
+      - tool: Screwing
+        doAfter: 2
+
+    - to: missingBrain
+      conditions:
+      - !type:EntityAnchored
+      - !type:WirePanel
+      steps:
+      - tool: Prying
+        doAfter: 5
+
+
   - node: aiCore
     actions:
     - !type:AppearanceChange
     entity: PlayerStationAiEmpty
     edges:
-    - to: missingBrain
+    - to: frameUnscrewed
       conditions:
       - !type:EntityAnchored
       - !type:WirePanel
