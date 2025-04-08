@@ -598,11 +598,11 @@ namespace Content.Client.Lobby.UI
             ReloadPreview();
             IsDirty = false;
 
-            // WD EDIT
+            // WD EDIT START
             ClownNameRandomize.OnPressed += _ => RandomizeClownName();
-            // WD EDIT
+
             ClownNameEdit.OnTextChanged += args => { SetClownName(args.Text); };
-            // WD EDIT
+            // WD EDIT END
         }
 
         /// Refreshes the flavor text editor status
@@ -650,13 +650,13 @@ namespace Content.Client.Lobby.UI
             UpdateCyborgControls();
         }
         
-        // WD EDIT
+        // WD EDIT START
         private void OnChangedClownNameCustomizationValue(bool newValue)
         {
             _customizeClownName = newValue;
             UpdateClownControls();
         }
-        // WD EDIT
+        // WD EDIT END
 
         /// Refreshes the species selector
         public void RefreshSpecies()
@@ -899,9 +899,7 @@ namespace Content.Client.Lobby.UI
             UpdateDisplayPronounsControls();
             UpdateStationAiControls();
             UpdateCyborgControls();
-            // WD EDIT
-            UpdateClownControls();
-            // WD EDIT
+            UpdateClownControls(); // WD EDIT
             UpdateSkinColor();
             UpdateSpawnPriorityControls();
             UpdateFlavorTextEdit();
@@ -1471,7 +1469,7 @@ namespace Content.Client.Lobby.UI
             IsDirty = true;
         }
         
-        // WD EDIT
+        // WD EDIT START
         private void SetClownName(string? clownName)
         {
             Profile = Profile?.WithClownName(clownName);
@@ -1483,7 +1481,7 @@ namespace Content.Client.Lobby.UI
             SetClownName(HumanoidCharacterProfile.GetClownName());
             UpdateClownControls();
         }
-        // WD EDIT
+        // WD EDIT END
 
         private string GetFormattedPronounsFromGender()
         {
@@ -1820,7 +1818,7 @@ namespace Content.Client.Lobby.UI
             CyborgNameEdit.PlaceHolder = Loc.GetString(randomName);
         }
 
-        // WD EDIT
+        // WD EDIT START
         private void UpdateClownControls()
         {
             if (Profile == null)
@@ -1829,7 +1827,7 @@ namespace Content.Client.Lobby.UI
             _clownNameContainer.Visible = true;
             _clownNameEdit.Text = Profile.ClownName ?? "";
         }
-        // WD EDIT
+        // WD EDIT END
 
         private void UpdateSpawnPriorityControls()
         {
