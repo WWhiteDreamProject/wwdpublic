@@ -145,6 +145,17 @@
                                     <Control HorizontalExpand="True"/>
                                     <LineEdit Name="CyborgNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
                                 </BoxContainer>
+                                
+                                <!-- WD EDIT START -->
+                                <!-- Clown name -->
+                                <BoxContainer Name="ClownNameContainer" HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-clown-name-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <LineEdit Name="ClownNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
+                                    <Button Name="ClownNameRandomize" Text="{Loc 'humanoid-profile-editor-name-random-button'}" />
+                                </BoxContainer>
+                                <!-- WD EDIT END -->
+                                
                                 <!-- Show clothing -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-clothing'}" />

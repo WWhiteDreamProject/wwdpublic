@@ -110,6 +110,11 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     [DataField]
     public string? CyborgName { get; set; }
 
+    // WD EDIT
+    [DataField]
+    public string? ClownName { get; set; }
+    // WD EDIT
+
     /// <see cref="Appearance"/>
     public ICharacterAppearance CharacterAppearance => Appearance;
 
@@ -160,6 +165,9 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         string? displayPronouns,
         string? stationAiName,
         string? cyborgName,
+        // WD EDIT
+        string? clownName,
+        // WD EDIT
         HumanoidCharacterAppearance appearance,
         SpawnPriorityPreference spawnPriority,
         Dictionary<string, JobPriority> jobPriorities,
@@ -189,6 +197,9 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         DisplayPronouns = displayPronouns;
         StationAiName = stationAiName;
         CyborgName = cyborgName;
+        // WD EDIT
+        ClownName = clownName;
+        // WD EDIT
         Appearance = appearance;
         SpawnPriority = spawnPriority;
         _jobPriorities = jobPriorities;
@@ -222,6 +233,9 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             other.DisplayPronouns,
             other.StationAiName,
             other.CyborgName,
+            // WD EDIT
+            other.ClownName,
+            // WD EDIT
             other.Appearance.Clone(),
             other.SpawnPriority,
             new Dictionary<string, JobPriority>(other.JobPriorities),
@@ -241,6 +255,9 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     /// <returns></returns>
     public HumanoidCharacterProfile()
     {
+        // WD EDIT
+        ClownName = "HONK";
+        // WD EDIT
     }
 
     /// <summary>
@@ -321,6 +338,11 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
         var name = GetName(species, gender);
 
+        // WD EDIT
+        var namingSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<NamingSystem>();
+        var clownName = namingSystem.GetClownName();
+        // WD EDIT
+
         return new HumanoidCharacterProfile()
         {
             Name = name,
@@ -330,6 +352,9 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             Voice = voiceId, // WD EDIT
             BodyType = bodyType, // WD EDIT
             Species = species,
+            // WD EDIT
+            ClownName = clownName,
+            // WD EDIT
             Appearance = HumanoidCharacterAppearance.Random(species, sex),
             Nationality = SharedHumanoidAppearanceSystem.DefaultNationality,
             Employer = SharedHumanoidAppearanceSystem.DefaultEmployer,
@@ -352,6 +377,9 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     public HumanoidCharacterProfile WithDisplayPronouns(string? displayPronouns) => new(this) { DisplayPronouns = displayPronouns };
     public HumanoidCharacterProfile WithStationAiName(string? stationAiName) => new(this) { StationAiName = stationAiName };
     public HumanoidCharacterProfile WithCyborgName(string? cyborgName) => new(this) { CyborgName = cyborgName };
+    // WD EDIT
+    public HumanoidCharacterProfile WithClownName(string? clownName) => new(this) { ClownName = clownName };
+    // WD EDIT
     public HumanoidCharacterProfile WithSpecies(string species) => new(this) { Species = species };
     public HumanoidCharacterProfile WithCustomSpeciesName(string customspeciename) => new(this) { Customspeciename = customspeciename };
     public HumanoidCharacterProfile WithHeight(float height) => new(this) { Height = height };
@@ -643,6 +671,14 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         var namingSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<NamingSystem>();
         return namingSystem.GetName(species, gender);
     }
+
+    // WD EDIT
+    public static string GetClownName()
+    {
+        var namingSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<NamingSystem>();
+        return namingSystem.GetClownName();
+    }
+    // WD EDIT
 
     public override bool Equals(object? obj)
     {
