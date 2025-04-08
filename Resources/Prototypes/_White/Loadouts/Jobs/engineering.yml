@@ -27,7 +27,7 @@
     - ClothingUniformJumpsuitOldEngineerCasual
     
 - type: loadout
-  id: ClothingUniformJumpsuitOldEngineerWorker
+  id: LoadoutClothingUniformJumpsuitOldEngineerWorker
   category: JobsEngineeringAAUncategorized
   cost: 0
   exclusive: true
@@ -41,7 +41,7 @@
     - ClothingUniformJumpsuitOldEngineerWorker
 
 - type: loadout
-  id: ClothingUniformJumpsuitEngineerPolar
+  id: LoadoutClothingUniformJumpsuitEngineerPolar
   category: JobsEngineeringAAUncategorized
   cost: 0
   exclusive: true
