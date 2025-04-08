@@ -8,6 +8,6 @@
       icon: 
         sprite: _White/Interface/Actions/shadowsprint.rsi
         state: shadowsprint
-      useDelay: 60
+      useDelay: 20
       checkCanInteract: false
       event: !type:ShadowSprintActionEvent
