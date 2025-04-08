@@ -29,6 +29,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+    - Flare
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
     soundEmpty:
@@ -223,8 +224,8 @@
   id: WeaponShotgunBulldogHoS
   description: This is a seemingly ordinary shotgun, no different from those issued as standard in the Republic of Biesel Navy. A close inspection reveals that this weapon's serial number is 000000013.
   components:
-    - type: StealTarget
-      stealGroup: HoSAntiqueWeapon
+  - type: StealTarget
+    stealGroup: HoSAntiqueWeapon
 
 - type: entity
   name: double-barreled shotgun
@@ -360,6 +361,16 @@
         Blunt: 7.5
   - type: DamageOtherOnHit
     staminaCost: 6
+
+- type: entity
+  parent: WeaponShotgunSawn
+  id: WeaponShotgunSawnLumen
+  suffix: Lumenblast
+  description: Groovy! Uses .50 shotgun shells.
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 2
+    proto: ShellShotgunLumen
 
 - type: entity
   name: sawn-off shotgun

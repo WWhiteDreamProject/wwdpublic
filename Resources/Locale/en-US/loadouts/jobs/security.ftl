@@ -21,6 +21,9 @@ loadout-name-LoadoutSecurityRevolverK38Master = K-38 Master
 loadout-name-LoadoutSecurityRevolverFitz = Fitz
 loadout-name-LoadoutSecurityRevolverPython = Python
 loadout-name-LoadoutSecurityPistolEnergyRevolver = EG-4 Energy Revolver
+loadout-name-LoadoutSecurityArgenti = Argenti (lethal)
+loadout-name-LoadoutSecurityArgentiNonLethal = Argenti (non-lethal)
+loadout-name-LoadoutSecurityShotgunSawnLumen = Sawn-off Shotgun (Lumenblast)
 
 # Duty Melee
 loadout-name-LoadoutSecurityEquipmentTruncheon = Truncheon
