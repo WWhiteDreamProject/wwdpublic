@@ -1,0 +1,13 @@
+- type: entity
+  id: ActionShadowSprint
+  name: action-name-shadow-sprint
+  description: action-description-shadow-sprint
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: 
+        sprite: _White/Interface/Actions/shadowsprint.rsi
+        state: shadowsprint
+      useDelay: 60
+      checkCanInteract: false
+      event: !type:ShadowSprintActionEvent

@@ -1,0 +1,27 @@
+- type: psionicPower
+  id: ShadowSprintPower
+  name: ShadowSprint
+  powerCategories:
+    - Anomalist
+    - Shadow
+  initializeFunctions:
+    - !type:AddPsionicActions
+      actions:
+        - ActionShadowSprint
+    - !type:PsionicFeedbackPopup
+    - !type:PsionicFeedbackSelfChat
+      feedbackMessage: shadow-sprint-power-initialization-feedback
+    - !type:PsionicModifyGlimmer
+      glimmerModifier: 5
+    - !type:AddPsionicAssayFeedback
+      assayFeedback: shadow-sprint-power-metapsionic-feedback
+    - !type:AddPsionicPsychognomicDescriptors
+      psychognomicDescriptor: tenebrous
+  removalFunctions:
+    - !type:RemovePsionicActions
+    - !type:RemovePsionicStatSources
+    - !type:RemoveAssayFeedback
+      assayFeedback: shadow-sprint-power-metapsionic-feedback
+    - !type:RemovePsionicPsychognomicDescriptors
+      psychognomicDescriptor: tenebrous
+  powerSlotCost: 1
