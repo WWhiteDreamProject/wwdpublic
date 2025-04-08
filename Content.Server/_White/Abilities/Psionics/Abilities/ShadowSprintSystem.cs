@@ -1,4 +1,5 @@
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.Psionics;
 using Content.Shared.Shadowkin;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
@@ -21,16 +22,26 @@ namespace Content.Server._White.Abilities.Psionics
 
         private void OnPowerUsed(ShadowSprintActionEvent args)
         {
+
+            if (args.Performer == null)
+                return;
+            
+            if (!TryComp<PsionicComponent>(args.Performer, out var comp))
+                return;
+
             if (!TryComp<MovementSpeedModifierComponent>(args.Performer, out var movement))
             return;
+
+            var time = 1 + (comp.CurrentAmplification * 0.9f);
             var bW = movement.BaseWalkSpeed;
             var bS = movement.BaseSprintSpeed;
             var ac = movement.Acceleration;
             _speedModifier.ChangeBaseSpeed(args.Performer, bW * 1.5f, bS * 1.5f, ac * 1.2f, movement);
-            EnsureComp<EtherealComponent>(args.Performer);
+            var ethereal = EnsureComp<EtherealComponent>(args.Performer);
+            ethereal.Darken = true;
             SpawnAtPosition("ShadowkinShadow", Transform(args.Performer).Coordinates);  
             SpawnAtPosition("EffectFlashShadowkinDarkSwapOn", Transform(args.Performer).Coordinates);  
-            args.Performer.SpawnTimer(TimeSpan.FromSeconds(2), () =>  
+            args.Performer.SpawnTimer(TimeSpan.FromSeconds(time), () =>  
             {
                 if (TryComp<MovementSpeedModifierComponent>(args.Performer, out var Cmovement))
             {
