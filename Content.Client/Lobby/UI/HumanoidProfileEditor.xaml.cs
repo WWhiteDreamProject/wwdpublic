@@ -1469,14 +1469,14 @@ namespace Content.Client.Lobby.UI
         private void SetCyborgName(string? cyborgName)
         {
             Profile = Profile?.WithCyborgName(cyborgName);
-            SetDirty();
+            IsDirty = true;
         }
         
         // WD EDIT
         private void SetClownName(string? clownName)
         {
             Profile = Profile?.WithClownName(clownName);
-            SetDirty();
+            IsDirty = true;
         }
         
         private void RandomizeClownName()
@@ -1812,6 +1812,13 @@ namespace Content.Client.Lobby.UI
 
             _cyborgNameContainer.Visible = true;
             _cyborgNameEdit.Text = Profile.CyborgName ?? "";
+
+            if (CyborgNameEdit.Text != string.Empty)
+                return;
+
+            var borgNames = _prototypeManager.Index<DatasetPrototype>(CyborgNames);
+            var randomName = _random.Pick(borgNames.Values);
+            CyborgNameEdit.PlaceHolder = Loc.GetString(randomName);
         }
 
         // WD EDIT
