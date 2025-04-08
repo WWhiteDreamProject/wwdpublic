@@ -1824,8 +1824,13 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            _clownNameContainer.Visible = true;
+            _clownNameContainer.Visible = _customizeClownName;
             _clownNameEdit.Text = Profile.ClownName ?? "";
+
+            if (_clownNameEdit.Text != string.Empty)
+                return;
+
+            _clownNameEdit.PlaceHolder = HumanoidCharacterProfile.GetClownName();
         }
         // WD EDIT END
 
