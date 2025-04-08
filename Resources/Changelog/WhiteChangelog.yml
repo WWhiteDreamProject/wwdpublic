@@ -2488,3 +2488,10 @@ Entries:
   id: 266
   time: '2025-04-07T18:44:42.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/432
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: Зомби теперь видят нулевых пациентов.
+  id: 267
+  time: '2025-04-08T07:01:38.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/430
