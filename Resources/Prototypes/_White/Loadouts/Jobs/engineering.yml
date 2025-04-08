@@ -1,0 +1,55 @@
+- type: loadout
+  id: LoadoutClothingUniformJumpsuitOldEngineer
+  category: JobsEngineeringAAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutEngineeringUniforms
+    - !type:CharacterJobRequirement
+      jobs:
+        - StationEngineer
+  items:
+    - ClothingUniformJumpsuitOldEngineer
+
+- type: loadout
+  id: LoadoutClothingUniformJumpsuitOldEngineerCasual
+  category: JobsEngineeringAAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutEngineeringUniforms
+    - !type:CharacterJobRequirement
+      jobs:
+        - StationEngineer
+  items:
+    - ClothingUniformJumpsuitOldEngineerCasual
+    
+- type: loadout
+  id: ClothingUniformJumpsuitOldEngineerWorker
+  category: JobsEngineeringAAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutEngineeringUniforms
+    - !type:CharacterJobRequirement
+      jobs:
+        - StationEngineer
+  items:
+    - ClothingUniformJumpsuitOldEngineerWorker
+
+- type: loadout
+  id: ClothingUniformJumpsuitEngineerPolar
+  category: JobsEngineeringAAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutEngineeringUniforms
+    - !type:CharacterJobRequirement
+      jobs:
+        - StationEngineer
+  items:
+    - ClothingUniformJumpsuitEngineerPolar

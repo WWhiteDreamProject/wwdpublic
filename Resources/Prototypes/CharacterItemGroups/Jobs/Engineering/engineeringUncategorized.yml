@@ -96,10 +96,10 @@
     - type: loadout
       id: LoadoutEngineeringUniformHazard
     - type: loadout
-      id: ClothingUniformJumpsuitOldEngineer ##wd edit start
+      id: LoadoutClothingUniformJumpsuitOldEngineer ##wd edit start
     - type: loadout
-      id: ClothingUniformJumpsuitOldEngineerCasual
+      id: LoadoutClothingUniformJumpsuitOldEngineerCasual
     - type: loadout
-      id: ClothingUniformJumpsuitOldEngineerWorker
+      id: LoadoutClothingUniformJumpsuitOldEngineerWorker
     - type: loadout
-      id: ClothingUniformJumpsuitEngineerPolar ##end
+      id: LoadoutClothingUniformJumpsuitEngineerPolar ##end
