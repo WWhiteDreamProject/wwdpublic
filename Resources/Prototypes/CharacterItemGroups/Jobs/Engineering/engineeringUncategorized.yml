@@ -95,3 +95,11 @@
       id: LoadoutEngineeringUniformSkirt
     - type: loadout
       id: LoadoutEngineeringUniformHazard
+    - type: loadout
+      id: ClothingUniformJumpsuitOldEngineer ##wd edit start
+    - type: loadout
+      id: ClothingUniformJumpsuitOldEngineerCasual
+    - type: loadout
+      id: ClothingUniformJumpsuitOldEngineerWorker
+    - type: loadout
+      id: ClothingUniformJumpsuitEngineerPolar ##end
