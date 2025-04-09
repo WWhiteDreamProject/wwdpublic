@@ -93,6 +93,9 @@
     entityProduced: CorrosiveAcid
     plasmaCost: 100
   - type: TailLash
+    tailDamage:
+      groups:
+        Brute: 30
   - type: ActionGrant
     actions:
     - ActionAlienTransferPlasma

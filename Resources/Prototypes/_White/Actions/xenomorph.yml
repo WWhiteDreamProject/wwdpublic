@@ -31,7 +31,7 @@
     icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolution }
     event: !type:OpenEvolutionsActionEvent
 
-# Structures
+# Structures action
 - type: entity
   id: ActionSpawnResinNode
   name: action-create-weednode-name
@@ -97,6 +97,21 @@
       entity: AlienNest
       length: 0.5
   - type: BasePlasmaCostAction
+
+# Tail lash action
+- type: entity
+  id: ActionTailLash
+  name: action-tail-lash
+  description: action-tail-lash-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 11
+    range: 10
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: tail_attack_action }
+    event: !type:TailLashActionEvent
 
 - type: entity
   id: ActionVomit
@@ -178,18 +193,6 @@
     useDelay: 1
     icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: promote_action }
     event: !type:RoyalLarvaActionEvent
-
-- type: entity
-  id: ActionTailLash
-  name: action-tail-lash
-  description: action-tail-lash-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    priority: 0
-    useDelay: 11
-    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: tail_attack_action }
-    event: !type:TailLashActionEvent
 
 - type: entity
   id: ActionAlienTransferPlasma

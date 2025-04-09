@@ -38,7 +38,7 @@ public abstract class SharedXenomorphEvolutionSystem : EntitySystem
         SubscribeLocalEvent<XenomorphEvolutionComponent, XenomorphEvolutionDoAfterEvent>(OnXenomorphEvolutionDoAfter);
     }
 
-    private void OnXenomorphEvolutionMapInit(EntityUid uid, XenomorphEvolutionComponent component, ref MapInitEvent args) =>
+    private void OnXenomorphEvolutionMapInit(EntityUid uid, XenomorphEvolutionComponent component, MapInitEvent args) =>
         _actions.AddAction(uid, ref component.EvolutionAction, component.EvolutionActionId);
 
     private void OnXenomorphEvolutionShutdown(EntityUid uid, XenomorphEvolutionComponent component, ComponentShutdown args) =>

@@ -111,6 +111,9 @@
   - type: Xenomorph
     greetingText: alien-queen-greeting
   - type: TailLash
+    tailDamage:
+      groups:
+        Brute: 30
   - type: AcidMaker
     plasmaCost: 50
     entityProduced: CorrosiveAcid
