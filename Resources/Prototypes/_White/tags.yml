@@ -21,7 +21,7 @@
 
 - type: Tag
   id: Facehugger
-  
+
 - type: Tag
   id: RiotGrenade
 
@@ -30,3 +30,6 @@
 
 - type: Tag
   id: PaperWrittenCommunist
+
+- type: Tag
+  id: AiCoreBoard

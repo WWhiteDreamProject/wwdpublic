@@ -1,5 +1,6 @@
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Containers;
 
@@ -9,6 +10,7 @@ namespace Content.Shared.Containers;
 public sealed class ContainerCompSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -19,21 +21,20 @@ public sealed class ContainerCompSystem : EntitySystem
 
     private void OnConRemove(Entity<ContainerCompComponent> ent, ref EntRemovedFromContainerMessage args)
     {
-        if (args.Container.ID != ent.Comp.Container)
+        if (args.Container.ID != ent.Comp.Container || _timing.ApplyingState) // WD EDIT
             return;
 
-        if (_proto.TryIndex(ent.Comp.Container, out var entProto))
+        // WD EDIT START
+        if (_proto.TryIndex(ent.Comp.Proto, out var entProto))
         {
-            foreach (var entry in entProto.Components.Values)
-            {
-                RemComp(args.Entity, entry.Component);
-            }
+            EntityManager.RemoveComponents(args.Entity, entProto.Components);
         }
+        // WD EDIT END
     }
 
     private void OnConInsert(Entity<ContainerCompComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
-        if (args.Container.ID != ent.Comp.Container)
+        if (args.Container.ID != ent.Comp.Container || _timing.ApplyingState) // WD EDIT
             return;
 
         if (_proto.TryIndex(ent.Comp.Proto, out var entProto))

@@ -1,0 +1,55 @@
+﻿- type: entity
+  id: StationAIFrame
+  name: AI core frame
+  parent: BaseStructure
+  description: A metal frame for station AI
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+    - state: 0
+      map: [ "enum.ConstructionVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ConstructionVisuals.Key:
+        enum.ConstructionVisuals.Layer:
+          frameUnsecured: { state: 0 }
+          boardUnsecured: { state: 1 }
+          screwedUnsecured: { state: 2 }
+          missingWires: { state: 3 }
+          missingBrain: { state: 3b }
+          frameUnscrewed: { state: 4 }
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 110
+        mask:
+        - FullTileMask
+        layer:
+        - HumanoidBlockLayer
+  - type: Anchorable
+    delay: 2
+  - type: Construction
+    graph: AICoreGraph
+    node: frameUnsecured
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: InteractionVerbs
+    allowedVerbs:
+    - KnockOn

@@ -6,7 +6,6 @@
   id: Circuitry
   name: lathe-category-circuitry
 
-
 - type: latheCategory
   id: Books
   name: lathe-category-books

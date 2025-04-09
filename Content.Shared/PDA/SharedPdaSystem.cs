@@ -29,6 +29,7 @@ namespace Content.Shared.PDA
             ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaIdSlotId, pda.IdSlot);
             ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaPenSlotId, pda.PenSlot);
             ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaPaiSlotId, pda.PaiSlot);
+            ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaPassportSlotId, pda.PassportSlot); // WD EDIT
 
             UpdatePdaAppearance(uid, pda);
         }
@@ -38,6 +39,7 @@ namespace Content.Shared.PDA
             ItemSlotsSystem.RemoveItemSlot(uid, pda.IdSlot);
             ItemSlotsSystem.RemoveItemSlot(uid, pda.PenSlot);
             ItemSlotsSystem.RemoveItemSlot(uid, pda.PaiSlot);
+            ItemSlotsSystem.RemoveItemSlot(uid, pda.PassportSlot); // WD EDIT
         }
 
         protected virtual void OnItemInserted(EntityUid uid, PdaComponent pda, EntInsertedIntoContainerMessage args)

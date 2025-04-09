@@ -7,7 +7,7 @@
   canBeAntag: false
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
-  jobEntity: StationAiBrain
+  jobEntity: PositronicBrain # WD EDIT
   nameDataset: NamesAI
   spawnLoadout: false
   applyTraits: false

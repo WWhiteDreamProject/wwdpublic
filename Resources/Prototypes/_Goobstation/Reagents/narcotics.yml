@@ -1,0 +1,18 @@
+﻿- type: reagent
+  id: BlindToxin
+  name: reagent-name-blind-toxin
+  group: Narcotics
+  desc: reagent-desc-blind-toxin
+  physicalDesc: reagent-physical-desc-syrupy
+  color: "#000000"
+  boilingPoint: 255.0
+  meltingPoint: 36.0
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        type: Add
+        time: 3
+        refresh: false
