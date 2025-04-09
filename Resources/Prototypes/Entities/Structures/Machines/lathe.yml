@@ -336,6 +336,8 @@
     - SyringeCryostasis
     - Syringe
     - DisposableSyringe
+    - MiniSyringe
+    - SyringeGun
     - Implanter
     - PillCanister
     - ChemistryEmptyBottle01
@@ -936,8 +938,6 @@
     - MagazinePistolEmpty
     - MagazinePistolSubMachineGun
     - MagazinePistolSubMachineGunEmpty
-    - MagazinePistolSubMachineGunTopMounted
-    - MagazinePistolSubMachineGunTopMountedEmpty
     # WWDP removed caseless bloat
     # # .35 Caseless Pistol
     # - MagazinePistolCaselessRiflePractice # EE
@@ -1273,6 +1273,8 @@
     - Jug
     - Syringe
     - DisposableSyringe
+    - MiniSyringe
+    - SyringeGun
     - Implanter
     - PillCanister
     - BodyBag

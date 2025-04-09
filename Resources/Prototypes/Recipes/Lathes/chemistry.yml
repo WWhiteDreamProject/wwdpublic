@@ -4,6 +4,8 @@
   completetime: 2
   materials:
     Glass: 100
+  categories:
+  - MedicalLaThe
 
 - type: latheRecipe
   id: LargeBeaker
@@ -11,6 +13,8 @@
   completetime: 2
   materials:
     Glass: 200
+  categories:
+  - MedicalLaThe
 
 - type: latheRecipe
   id: CryostasisBeaker
@@ -19,6 +23,8 @@
   materials:
     Steel: 250
     Plastic: 50
+  categories:
+  - MedicalLaThe
 
 - type: latheRecipe
   id: SyringeCryostasis
@@ -27,6 +33,8 @@
   materials:
     Steel: 200
     Plastic: 50
+  categories:
+  - MedicalLaThe
 
 - type: latheRecipe
   id: Dropper
@@ -35,6 +43,8 @@
   materials:
     Glass: 200
     Plastic: 100
+  categories:
+  - MedicalLaThe
 
 - type: latheRecipe
   id: Syringe
@@ -43,6 +53,18 @@
   materials:
     Plastic: 100
     Steel: 25
+  categories:
+  - MedicalLaThe
+
+- type: latheRecipe
+  id: MiniSyringe
+  result: MiniSyringe
+  completetime: 2
+  materials:
+    Plastic: 75
+    Steel: 20
+  categories:
+  - MedicalLaThe
 
 - type: latheRecipe
   id: DisposableSyringe
@@ -51,6 +73,8 @@
   materials:
     Plastic: 10
     Steel: 2
+  categories:
+  - MedicalLaThe
 
 - type: latheRecipe
   id: BluespaceBeaker
@@ -62,6 +86,8 @@
     Plasma: 50
     Silver: 50
     Bluespace: 100 #DeltaV: Bluespace
+  categories:
+  - MedicalLaThe
 
 - type: latheRecipe
   id: SyringeBluespace
@@ -74,6 +100,8 @@
     Plasma: 50
     Bluespace: 100 #DeltaV: Bluespace
    #Silver: 50
+  categories:
+  - MedicalLaThe
 
 - type: latheRecipe
   id: PillCanister
@@ -81,6 +109,8 @@
   completetime: 2
   materials:
     Plastic: 100
+  categories:
+  - MedicalLaThe
 
 - type: latheRecipe
   id: ChemistryEmptyBottle01
@@ -88,6 +118,8 @@
   completetime: 2
   materials:
     Glass: 50
+  categories:
+  - MedicalLaThe
 
 # - type: latheRecipe # DeltaV - Disable the Vape
 #   id: Vape
@@ -108,3 +140,5 @@
     Steel: 200
     Plastic: 300
     Glass: 500
+  categories:
+  - MedicalLaThe

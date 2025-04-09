@@ -270,3 +270,16 @@
   materials:
     Steel: 200
     Plasma: 50
+
+- type: latheRecipe
+  id: SyringeGun
+  result: SyringeGun
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 500
+    Gold: 100
+    Plasma: 100
+  categories:
+  - MedicalLaThe
