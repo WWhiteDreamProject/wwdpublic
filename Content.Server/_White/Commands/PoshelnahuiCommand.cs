@@ -6,7 +6,7 @@ using Robust.Shared.Console;
 
 namespace Content.Server._White.Commands;
 
-[AdminCommand(AdminFlags.Admin)]
+[AdminCommand(AdminFlags.Ban)]
 public sealed class PoshelnahuiCommand : IConsoleCommand
 {
     public string Command => "poshelnahui";
