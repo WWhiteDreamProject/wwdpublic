@@ -2495,3 +2495,16 @@ Entries:
   id: 267
   time: '2025-04-08T07:01:38.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/430
+- author: Kai5
+  changes:
+    - type: Add
+      message: Теперь ИИ станции можно собрать, используя меню создания.
+    - type: Add
+      message: >-
+        Добавлена новая Т1 технология, открывающая создание платы ядра ИИ,
+        аплоуда, интелликарты, а также некоторых наборов законов
+    - type: Add
+      message: 'Теперь ИИ станции можно разобрать. '
+  id: 268
+  time: '2025-04-09T20:04:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/404
