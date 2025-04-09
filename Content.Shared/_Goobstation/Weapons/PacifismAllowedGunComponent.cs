@@ -1,8 +1,8 @@
 namespace Content.Shared._Goobstation.Weapons;
 
 /// <summary>
-/// Этот компонент позволяет пацифистам использовать данное оружие.
-/// В основном используется для оружия неопасного типа, например, шприцемётов.
+/// This component allows pacifists to use this weapon.
+/// Mainly used for non-lethal weapon types, such as syringe guns.
 /// </summary>
 [RegisterComponent]
 public sealed partial class PacifismAllowedGunComponent : Component
