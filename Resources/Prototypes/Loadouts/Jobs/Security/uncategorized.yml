@@ -6,17 +6,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityBackpacks
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityBackpacks
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingBackpackSecurity
+  - ClothingBackpackSecurity
 
 - type: loadout
   id: LoadoutClothingBackSecuritySatchel
@@ -24,17 +24,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityBackpacks
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityBackpacks
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingBackpackSatchelSecurity
+  - ClothingBackpackSatchelSecurity
 
 - type: loadout
   id: LoadoutClothingBackSecurityDuffel
@@ -42,17 +42,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityBackpacks
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityBackpacks
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingBackpackDuffelSecurity
+  - ClothingBackpackDuffelSecurity
 
 # Belt
 - type: loadout
@@ -61,17 +61,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityBelt
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityBelt
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingBeltSecurityWebbingFilled
+  - ClothingBeltSecurityWebbingFilled
 
 - type: loadout
   id: LoadoutClothingBeltSecurity
@@ -79,17 +79,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityBelt
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityBelt
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingBeltSecurityFilled
+  - ClothingBeltSecurityFilled
 
 - type: loadout
   id: LoadoutClothingBeltHolster
@@ -97,17 +97,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityBelt
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityBelt
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingBeltHolster
+  - ClothingBeltHolster
 
 # Ears
 
@@ -120,98 +120,98 @@
   category: JobsSecurityAUncategorized
   cost: 0
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEquipment
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEquipment
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+    - !type:CharacterJobRequirement
       jobs:
-      - Prisoner
+      - BlueshieldOfficer
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - CombatKnife
+  - CombatKnife
 
 - type: loadout
   id: LoadoutSecurityFlash
   category: JobsSecurityAUncategorized
   cost: 0
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEquipment
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEquipment
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+    - !type:CharacterJobRequirement
       jobs:
-      - Prisoner
+      - BlueshieldOfficer
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - Flash
+  - Flash
 
 - type: loadout
   id: LoadoutMagazinePistol
   category: JobsSecurityAUncategorized
   cost: 0
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
-      min: 3600 # 1 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEquipment
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterAgeRequirement
-      min: 21
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
+  - !type:CharacterDepartmentTimeRequirement
+    department: Security
+    min: 3600 # 1 hours
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEquipment
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+    - !type:CharacterJobRequirement
       jobs:
-      - Prisoner
+      - BlueshieldOfficer
+  - !type:CharacterAgeRequirement
+    min: 21
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - MagazinePistol
+  - MagazinePistol
 
 - type: loadout
   id: LoadoutMagazinePistolSpare
   category: JobsSecurityAUncategorized
   cost: 2
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
-      min: 3600 # 1 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEquipment
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterAgeRequirement
-      min: 21
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
+  - !type:CharacterDepartmentTimeRequirement
+    department: Security
+    min: 3600 # 1 hours
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEquipment
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+    - !type:CharacterJobRequirement
       jobs:
-      - Prisoner
+      - BlueshieldOfficer
+  - !type:CharacterAgeRequirement
+    min: 21
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - MagazinePistol
+  - MagazinePistol
 
 - type: loadout
   id: LoadoutSpeedLoaderMagnum
@@ -219,27 +219,27 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
-      min: 3600 # 1 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEquipment
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterAgeRequirement
-      min: 21
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
+  - !type:CharacterDepartmentTimeRequirement
+    department: Security
+    min: 3600 # 1 hours
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEquipment
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+    - !type:CharacterJobRequirement
       jobs:
-      - Prisoner
+      - BlueshieldOfficer
+  - !type:CharacterAgeRequirement
+    min: 21
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - SpeedLoaderMagnum
+  - SpeedLoaderMagnum
 
 - type: loadout
   id: LoadoutSpeedLoaderMagnumSpare
@@ -247,27 +247,27 @@
   cost: 4
   exclusive: true
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
-      min: 3600 # 1 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEquipment
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterAgeRequirement
-      min: 21
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
+  - !type:CharacterDepartmentTimeRequirement
+    department: Security
+    min: 3600 # 1 hours
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEquipment
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+    - !type:CharacterJobRequirement
       jobs:
-      - Prisoner
+      - BlueshieldOfficer
+  - !type:CharacterAgeRequirement
+    min: 21
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - SpeedLoaderMagnum
+  - SpeedLoaderMagnum
 
 - type: loadout
   id: LoadoutMagazineMagnum
@@ -275,27 +275,27 @@
   cost: 4
   exclusive: true
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
-      min: 3600 # 1 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEquipment
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterAgeRequirement
-      min: 21
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
+  - !type:CharacterDepartmentTimeRequirement
+    department: Security
+    min: 3600 # 1 hours
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEquipment
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+    - !type:CharacterJobRequirement
       jobs:
-      - Prisoner
+      - BlueshieldOfficer
+  - !type:CharacterAgeRequirement
+    min: 21
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - MagazineMagnum
+  - MagazineMagnum
 
 - type: loadout
   id: LoadoutMagazineMagnumSpare
@@ -303,27 +303,27 @@
   cost: 4
   exclusive: true
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
-      min: 3600 # 1 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEquipment
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterAgeRequirement
-      min: 21
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
+  - !type:CharacterDepartmentTimeRequirement
+    department: Security
+    min: 3600 # 1 hours
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEquipment
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+    - !type:CharacterJobRequirement
       jobs:
-      - Prisoner
+      - BlueshieldOfficer
+  - !type:CharacterAgeRequirement
+    min: 21
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - MagazineMagnum
+  - MagazineMagnum
 
 # WWDP no extra SEC guns
 # - type: loadout
@@ -386,22 +386,22 @@
   canBeHeirloom: true
   guideEntry: SecurityWeapons
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityWeapons
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityWeapons
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+    - !type:CharacterJobRequirement
       jobs:
-      - Prisoner
+      - BlueshieldOfficer
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - WeaponDisabler
+  - WeaponDisabler
 
 - type: loadout
   id: LoadoutSecurityMk58
@@ -410,27 +410,27 @@
   canBeHeirloom: true
   guideEntry: SecurityWeapons
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
-      min: 3600 # 1 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityWeapons
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterAgeRequirement
-      min: 21
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
+  - !type:CharacterDepartmentTimeRequirement
+    department: Security
+    min: 3600 # 1 hours
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityWeapons
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+    - !type:CharacterJobRequirement
       jobs:
-      - Prisoner
+      - BlueshieldOfficer
+  - !type:CharacterAgeRequirement
+    min: 21
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - WeaponPistolMk58Security
+  - WeaponPistolMk58Security
 
 - type: loadout
   id: LoadoutSecurityRevolver
@@ -439,27 +439,27 @@
   canBeHeirloom: true
   guideEntry: SecurityWeapons
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
-      min: 3600 # 1 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityWeapons
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterAgeRequirement
-      min: 21
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
+  - !type:CharacterDepartmentTimeRequirement
+    department: Security
+    min: 3600 # 1 hours
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityWeapons
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+    - !type:CharacterJobRequirement
       jobs:
-      - Prisoner
+      - BlueshieldOfficer
+  - !type:CharacterAgeRequirement
+    min: 21
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - WeaponRevolverInspectorSecurity
+  - WeaponRevolverInspectorSecurity
 
 # WWDP no extra SEC guns
 # - type: loadout
@@ -494,27 +494,27 @@
   canBeHeirloom: true
   guideEntry: SecurityWeapons
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
-      min: 3600 # 1 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityWeapons
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterAgeRequirement
-      min: 21
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
+  - !type:CharacterDepartmentTimeRequirement
+    department: Security
+    min: 3600 # 1 hours
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityWeapons
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+    - !type:CharacterJobRequirement
       jobs:
-      - Prisoner
+      - BlueshieldOfficer
+  - !type:CharacterAgeRequirement
+    min: 21
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - WeaponPistolN1984Security
+  - WeaponPistolN1984Security
 
 # WWDP no extra SEC guns
 # - type: loadout
@@ -574,28 +574,28 @@
   canBeHeirloom: true
   guideEntry: SecurityWeapons
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
-      min: 3600 # 1 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityWeapons
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterSpeciesRequirement
-      species:
-        - Oni
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
+  - !type:CharacterDepartmentTimeRequirement
+    department: Security
+    min: 3600 # 1 hours
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityWeapons
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+    - !type:CharacterJobRequirement
       jobs:
-      - Prisoner
+      - BlueshieldOfficer
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Oni
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - Truncheon
+  - Truncheon
 
 # WWDP removed
 # - type: loadout
@@ -654,27 +654,27 @@
   canBeHeirloom: true
   guideEntry: SecurityWeapons
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
-      min: 3600 # 1 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityWeapons
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterAgeRequirement
-      min: 21
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
+  - !type:CharacterDepartmentTimeRequirement
+    department: Security
+    min: 3600 # 1 hours
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityWeapons
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+    - !type:CharacterJobRequirement
       jobs:
-      - Prisoner
+      - BlueshieldOfficer
+  - !type:CharacterAgeRequirement
+    min: 21
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - WeaponEnergyGunMiniSecurity
+  - WeaponEnergyGunMiniSecurity
 
 - type: loadout
   id: LoadoutSecurityEnergyGunPistol
@@ -683,27 +683,27 @@
   canBeHeirloom: true
   guideEntry: SecurityWeapons
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
-      min: 3600 # 1 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityWeapons
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterAgeRequirement
-      min: 21
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
+  - !type:CharacterDepartmentTimeRequirement
+    department: Security
+    min: 3600 # 1 hours
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityWeapons
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+    - !type:CharacterJobRequirement
       jobs:
-      - Prisoner
+      - BlueshieldOfficer
+  - !type:CharacterAgeRequirement
+    min: 21
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - WeaponEnergyGunPistolSecurity
+  - WeaponEnergyGunPistolSecurity
 
 # WWDP no extra SEC guns
 #- type: loadout
@@ -889,22 +889,22 @@
   canBeHeirloom: true
   guideEntry: SecurityWeapons
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityWeapons
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterDepartmentRequirement
-        departments:
-          - Security
-      - !type:CharacterJobRequirement
-        jobs:
-          - BlueshieldOfficer
-    - !type:CharacterAgeRequirement
-      min: 21
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityWeapons
+  - !type:CharacterLogicOrRequirement
+    requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - Security
+    - !type:CharacterJobRequirement
+      jobs:
+      - BlueshieldOfficer
+  - !type:CharacterAgeRequirement
+    min: 21
   items:
-    - WeaponShotgunSawnLumen
-    - ShellShotgunLumen
-    - ShellShotgunLumen
+  - WeaponShotgunSawnLumen
+  - ShellShotgunLumen
+  - ShellShotgunLumen
 
 # Eyes
 - type: loadout
@@ -913,17 +913,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEyes
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEyes
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingEyesHudSecurity
+  - ClothingEyesHudSecurity
 
 - type: loadout
   id: ClothingEyesGlassesSunglasses
@@ -931,17 +931,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEyes
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEyes
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingEyesGlassesSunglasses
+  - ClothingEyesGlassesSunglasses
 
 - type: loadout
   id: LoadoutSecurityEyesEyepatchHudSecurity
@@ -949,17 +949,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEyes
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEyes
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingEyesEyepatchHudSecurity
+  - ClothingEyesEyepatchHudSecurity
 
 - type: loadout
   id: LoadoutSecurityEyesHudSecurityPrescription
@@ -967,20 +967,20 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEyes
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterTraitRequirement
-      traits:
-        - Nearsighted
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEyes
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterTraitRequirement
+    traits:
+    - Nearsighted
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingEyesPrescriptionHudSecurity
+  - ClothingEyesPrescriptionHudSecurity
 
 - type: loadout
   id: LoadoutClothingEyesGlassesSecurity
@@ -988,17 +988,17 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEyes
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEyes
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingEyesGlassesSecurity
+  - ClothingEyesGlassesSecurity
 
 - type: loadout
   id: LoadoutClothingEyesGlassesSecurityAviator
@@ -1006,17 +1006,17 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEyes
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEyes
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingEyesGlassesSecurityAviator
+  - ClothingEyesGlassesSecurityAviator
 
 - type: loadout
   id: LoadoutClothingEyesGlassesSecurityBig
@@ -1024,17 +1024,17 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEyes
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEyes
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingEyesGlassesSecurityBig
+  - ClothingEyesGlassesSecurityBig
 
 - type: loadout
   id: LoadoutClothingEyesGlassesSecurityVisor
@@ -1042,19 +1042,37 @@
   cost: 2
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEyes
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityEyes
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingEyesGlassesSecurityVisor
+  - ClothingEyesGlassesSecurityVisor
 
 # Gloves
+
+- type: loadout
+  id: LoadoutSecurityCombatGloves
+  category: JobsSecurityAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityGloves
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
+  items:
+  - ClothingHandsGlovesCombat
 
 # Head
 - type: loadout
@@ -1063,17 +1081,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityHead
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityHead
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingHeadHatBeretSecurity
+  - ClothingHeadHatBeretSecurity
 
 - type: loadout
   id: LoadoutClothingHeadHelmetBasic
@@ -1081,17 +1099,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityHead
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityHead
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingHeadHelmetBasic
+  - ClothingHeadHelmetBasic
 
 - type: loadout
   id: LoadoutSecurityHeadHelmetInsulated
@@ -1099,17 +1117,17 @@
   cost: 1
   guideEntry: PsionicInsulation
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityHead
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityHead
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingHeadHelmetInsulated
+  - ClothingHeadHelmetInsulated
 
 - type: loadout
   id: ClothingHeadHelmetTCFLHeavy
@@ -1118,19 +1136,19 @@
   exclusive: true
   guideEntry: TCFLInfo
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityHead
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterNationalityRequirement
-      nationalities:
-        - Bieselite
-    - !type:CharacterLifepathRequirement
-      lifepaths:
-        - WarVet
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityHead
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterNationalityRequirement
+    nationalities:
+    - Bieselite
+  - !type:CharacterLifepathRequirement
+    lifepaths:
+    - WarVet
   items:
-    - ClothingHeadHelmetTCFLHeavy
+  - ClothingHeadHelmetTCFLHeavy
 
 # Id
 
@@ -1143,18 +1161,33 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityMask
-    - !type:CharacterJobRequirement
-      jobs:
-        - Warden
-        - HeadOfSecurity
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityMask
+  - !type:CharacterJobRequirement
+    jobs:
+    - Warden
+    - HeadOfSecurity
   items:
-    - ClothingMaskGasSwat
+  - ClothingMaskGasSwat
+
+
+- type: loadout
+  id: LoadoutSecurityMaskGasSwatPaid
+  category: JobsSecurityAUncategorized
+  cost: 4
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityMask
+  - !type:CharacterJobRequirement
+    jobs:
+    - SecurityOfficer
+    - Detective
+    - Brigmedic
+    - PrisonGuard
+    - SecurityCadet
+  items:
+  - ClothingMaskGasSwat
 
 # Outer
 - type: loadout
@@ -1181,17 +1214,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityOuter
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityOuter
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingOuterArmorPlateCarrier
+  - ClothingOuterArmorPlateCarrier
 
 - type: loadout
   id: LoadoutClothingOuterArmorDuraVest
@@ -1199,17 +1232,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityOuter
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityOuter
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingOuterArmorDuraVest
+  - ClothingOuterArmorDuraVest
 
 - type: loadout
   id: LoadoutClothingOuterArmorBasic
@@ -1217,17 +1250,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityOuter
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityOuter
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingOuterArmorBasic
+  - ClothingOuterArmorBasic
 
 - type: loadout
   id: LoadoutClothingOuterArmorSlim
@@ -1235,17 +1268,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityOuter
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityOuter
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingOuterArmorBasicSlim
+  - ClothingOuterArmorBasicSlim
 
 - type: loadout
   id: ClothingOuterArmorTCFLHeavy
@@ -1254,19 +1287,19 @@
   exclusive: true
   guideEntry: TCFLInfo
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityOuter
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterNationalityRequirement
-      nationalities:
-        - Bieselite
-    - !type:CharacterLifepathRequirement
-      lifepaths:
-        - WarVet
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityOuter
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterNationalityRequirement
+    nationalities:
+    - Bieselite
+  - !type:CharacterLifepathRequirement
+    lifepaths:
+    - WarVet
   items:
-    - ClothingOuterArmorTCFLHeavy
+  - ClothingOuterArmorTCFLHeavy
 
 # Shoes
 - type: loadout
@@ -1275,17 +1308,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityShoes
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityShoes
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingShoesBootsJack
+  - ClothingShoesBootsJack
 
 - type: loadout
   id: LoadoutClothingShoesBootsCombat
@@ -1293,17 +1326,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityShoes
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityShoes
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingShoesBootsCombatFilled
+  - ClothingShoesBootsCombatFilled
 
 # Uniforms
 - type: loadout
@@ -1312,17 +1345,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityUniforms
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityUniforms
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingUniformJumpsuitSecBlue
+  - ClothingUniformJumpsuitSecBlue
 
 - type: loadout
   id: LoadoutSecurityUniformJumpsuitGrey
@@ -1330,17 +1363,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityUniforms
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityUniforms
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingUniformJumpsuitSecGrey
+  - ClothingUniformJumpsuitSecGrey
 
 - type: loadout
   id: LoadoutSecurityUniformJumpskirtGrey
@@ -1348,17 +1381,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityUniforms
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityUniforms
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingUniformJumpskirtSecGrey
+  - ClothingUniformJumpskirtSecGrey
 
 - type: loadout
   id: LoadoutSecurityUniformJumpskirtBlue
@@ -1366,17 +1399,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityUniforms
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityUniforms
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingUniformJumpskirtSecBlue
+  - ClothingUniformJumpskirtSecBlue
 
 - type: loadout
   id: LoadoutUniformJumpsuitSecFormal
@@ -1384,17 +1417,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityUniforms
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityUniforms
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingUniformJumpsuitSecFormal
+  - ClothingUniformJumpsuitSecFormal
 
 - type: loadout
   id: LoadoutUniformJumpsuitSecSummer
@@ -1402,17 +1435,17 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityUniforms
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityUniforms
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingUniformJumpsuitSecSummer
+  - ClothingUniformJumpsuitSecSummer
 
 - type: loadout
   id: LoadoutSecurityUniformEnvirosuitBlue
@@ -1420,21 +1453,21 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityUniforms
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterSpeciesRequirement
-      species:
-        - Plasmaman
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityUniforms
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Plasmaman
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingUniformEnvirosuitSecBlue
-    - ClothingHeadEnvirohelmSecBlue
+  - ClothingUniformEnvirosuitSecBlue
+  - ClothingHeadEnvirohelmSecBlue
 
 - type: loadout
   id: LoadoutSecurityUniformEnvirosuitGrey
@@ -1442,18 +1475,18 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityUniforms
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Security
-    - !type:CharacterSpeciesRequirement
-      species:
-        - Plasmaman
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityUniforms
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Plasmaman
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
-    - ClothingUniformEnvirosuitSecGrey
-    - ClothingHeadEnvirohelmSecGrey
+  - ClothingUniformEnvirosuitSecGrey
+  - ClothingHeadEnvirohelmSecGrey
