@@ -95,7 +95,9 @@
   - type: TailLash
     tailDamage:
       groups:
-        Brute: 30
+        Brute: 12
+    inject:
+      Tirizene: 5
   - type: ActionGrant
     actions:
     - ActionAlienTransferPlasma

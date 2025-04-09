@@ -113,7 +113,9 @@
   - type: TailLash
     tailDamage:
       groups:
-        Brute: 30
+        Brute: 17
+    inject:
+      Tirizene: 5
   - type: AcidMaker
     plasmaCost: 50
     entityProduced: CorrosiveAcid
