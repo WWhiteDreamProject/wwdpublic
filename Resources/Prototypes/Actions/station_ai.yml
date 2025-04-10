@@ -71,7 +71,7 @@
 # WD edit start
 - type: entity
   id: ActionAIToggleBolts
-  name: Toggle floor bots
+  name: Toggle floor bolts
   description: Toggle bolts, that keep you wrenched to the floor.
   components:
   - type: InstantAction
