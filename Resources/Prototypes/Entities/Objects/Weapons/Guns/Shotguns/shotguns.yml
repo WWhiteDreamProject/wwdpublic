@@ -284,7 +284,7 @@
     - 0,0,7,0
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: BallisticAmmoProvider
-    autoCycle: true # WWDP semi-auto
+    capacity: 7
   - type: Wieldable
   - type: MeleeWeapon
     attackRate: 1.4
@@ -327,6 +327,12 @@
   - type: Wieldable
   - type: Gun
     shotgunSpreadMultiplier: 0.5
+  - type: ExtendDescription
+    descriptionList:
+    - description: "gun-modifier-choke"
+      fontSize: 12
+      color: "#ff4f00"
+      requireDetailRange: false
 
 - type: entity
   name: sawn-off shotgun
