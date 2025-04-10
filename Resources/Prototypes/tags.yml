@@ -1522,3 +1522,9 @@
 
 - type: Tag
   id: UnathiEmotes
+
+- type: Tag
+  id: Gun
+
+- type: Tag
+  id: Weapon
