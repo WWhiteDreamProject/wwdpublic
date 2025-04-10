@@ -29,7 +29,11 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Chat;
+using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Containers;
+using Content.Shared.Movement.Pulling.Systems;
+
 
 namespace Content.Shared.Silicons.StationAi;
 
@@ -58,6 +62,8 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     [Dependency] private readonly   SharedTransformSystem _xforms = default!;
     [Dependency] private readonly   SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly   StationAiVisionSystem _vision = default!;
+    [Dependency] private readonly   AnchorableSystem _anchorable = default!; // WD edit
+    [Dependency] private readonly   PullingSystem _pulling = default!; // WD edit
 
     // StationAiHeld is added to anything inside of an AI core.
     // StationAiHolder indicates it can hold an AI positronic brain (e.g. holocard / core).
@@ -564,10 +570,9 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     }
 }
 
-public sealed partial class JumpToCoreEvent : InstantActionEvent
-{
+public sealed partial class JumpToCoreEvent : InstantActionEvent;
 
-}
+public sealed partial class AiToggleBoltsEvent : InstantActionEvent; // WD edit
 
 [Serializable, NetSerializable]
 public sealed partial class IntellicardDoAfterEvent : SimpleDoAfterEvent;
