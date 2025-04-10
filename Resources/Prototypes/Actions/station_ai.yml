@@ -26,7 +26,7 @@
     event: !type:ActionComponentChangeEvent
       components:
       - type: ShowJobIcons
-      - type: ShowSecurityIcons # WD edit
+      - type: ShowCriminalRecordIcons # WD edit
 
 - type: entity
   id: ActionSurvCameraLights
@@ -71,7 +71,7 @@
 # WD edit start
 - type: entity
   id: ActionAIToggleBolts
-  name: Toggle bots
+  name: Toggle floor bots
   description: Toggle bolts, that keep you wrenched to the floor.
   components:
   - type: InstantAction
