@@ -31,19 +31,27 @@
       storagebase: !type:Container
         ents: []
   - type: SyringeGun
+  - type: Tag
+    tags:
+    - Gun
+    - Weapon
 
 - type: entity
-  name: syringe gun
-  parent: [ BaseSyringeGun, BaseMedicalContraband ]
+  parent: [ BaseSyringeGun, BaseGrandTheftContraband ]
   id: SyringeGun
+  name: syringe gun
   description: A gun that allows you to fire syringes to slowly inject their contents on a target.
   components:
-  - type: Clothing
+  - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
-    slots:
-    - back
-    - suitStorage
-    quickEquip: false
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+  - type: Tag
+    tags:
+    - Gun
+    - Weapon
+    - SyringeGunAmmo
 
 - type: entity
   name: rapid syringe gun
@@ -77,20 +85,22 @@
     - HighRiskItem
 
 - type: entity
-  name: dart syringe gun
   parent: [ BaseSyringeGun, BaseSyndicateContraband ]
   id: DartSyringeGun
+  name: dart syringe gun
   description: An illegally modified version of the syringe gun that allows projectiles to pierce through armor. Also pierces skin better, resulting in faster injection.
   components:
   - type: Sprite
-    layers:
-    - state: icon-dart
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    state: icon-dart
   - type: Item
-    size: Small
-    shape:
-    - 0,0,1,0
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
   - type: SyringeGun
     pierceArmor: true
-    injectionSpeedMultiplier: 2
+  - type: Tag
+    tags:
+    - Gun
+    - Weapon
+    - SyringeGunAmmo
 
 # TODO: Add the proper dart gun that regenerates every 25s, and draws from a 100u reservoir 
