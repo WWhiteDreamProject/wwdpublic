@@ -938,6 +938,8 @@
     - MagazinePistolEmpty
     - MagazinePistolSubMachineGun
     - MagazinePistolSubMachineGunEmpty
+    - MagazinePistolSubMachineGunTopMounted
+    - MagazinePistolSubMachineGunTopMountedEmpty
     # WWDP removed caseless bloat
     # # .35 Caseless Pistol
     # - MagazinePistolCaselessRiflePractice # EE
