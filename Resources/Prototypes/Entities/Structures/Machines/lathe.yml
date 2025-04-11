@@ -336,6 +336,8 @@
     - SyringeCryostasis
     - Syringe
     - DisposableSyringe
+    - MiniSyringe
+    - SyringeGun
     - Implanter
     - PillCanister
     - ChemistryEmptyBottle01
@@ -1286,6 +1288,8 @@
     - Jug
     - Syringe
     - DisposableSyringe
+    - MiniSyringe
+    - SyringeGun
     - Implanter
     - PillCanister
     - BodyBag

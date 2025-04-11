@@ -202,6 +202,7 @@
     - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
       prob: 0.3
     - id: MedicalBiofabMachineBoard # Shitmed Change
+    - id: RapidSyringeGun
     - id: PrinterDocFlatpack  # Corvax-Printer
 
 - type: entity
@@ -229,6 +230,7 @@
     - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
       prob: 0.3
     - id: MedicalBiofabMachineBoard # Shitmed Change
+    - id: RapidSyringeGun
     - id: PrinterDocFlatpack  # Corvax-Printer
 
 - type: entity
