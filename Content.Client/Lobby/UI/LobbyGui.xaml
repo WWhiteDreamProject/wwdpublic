@@ -47,7 +47,7 @@
                                 Access="Public"
                                 ToggleMode="True"
                                 ButtonText="{Loc 'lobby-state-player-status-not-ready'}"
-                                Margin="0 30 0 10" />
+                                Margin="0 50 0 10" />
                             <buttons:WhiteUICommandButton
                                 Name="ObserveButton"
                                 WindowType="{x:Type lobbyUi:ObserveWarningWindow}"
@@ -60,15 +60,15 @@
                                 ButtonText="{Loc 'lobby-character-preview-panel-character-setup-button'}"
                                 Margin="0 10 0 10" />
                             <buttons:WhiteLobbyTextButton
+                                Name="ManifestButton"
+                                Access="Public"
+                                ButtonText="{Loc 'ui-lobby-manifest-button'}"
+                                Margin="0 10 0 10" />
+                            <buttons:WhiteLobbyTextButton
                                 Name="OptionsButton"
                                 Access="Public"
                                 ButtonText="{Loc 'ui-lobby-options-button'}"
                                 Margin="0 10 0 10" />
-                            <!--<buttons:WhiteLobbyTextButton
-                                Name="DiscordButton"
-                                Access="Public"
-                                ButtonText="Привязать Discord"
-                                Margin="0 10 0 10" />-->
                             <buttons:WhiteLobbyTextButton
                                 Name="AHelpButton"
                                 Access="Public"
