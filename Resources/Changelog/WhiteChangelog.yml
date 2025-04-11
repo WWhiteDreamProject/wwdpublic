@@ -2523,3 +2523,16 @@ Entries:
   id: 269
   time: '2025-04-11T21:30:22.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/434
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: >-
+        Теперь если в яму бинглов закинуть любой контейнер - очки будут
+        прибавляться за каждую сущность, содержащуюся в этом контейнере. 
+    - type: Tweak
+      message: >-
+        Теперь если в яме бинглов окажется стак чего-либо, то количество
+        прибавленных очков будет равно количеству предметов в стаке.
+  id: 270
+  time: '2025-04-11T21:31:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/437
