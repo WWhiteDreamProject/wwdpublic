@@ -2536,3 +2536,10 @@ Entries:
   id: 270
   time: '2025-04-11T21:31:28.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/437
+- author: HSKveez
+  changes:
+    - type: Tweak
+      message: Перенесено разоружение из Pressure в Restrain
+  id: 271
+  time: '2025-04-11T21:48:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/441
