@@ -3,6 +3,7 @@ using Content.Shared.Dataset;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Enums;
+using System.Collections.Generic;
 
 namespace Content.Shared.Humanoid
 {
@@ -72,6 +73,49 @@ namespace Content.Shared.Humanoid
         public string GetLastName(SpeciesPrototype speciesProto)
         {
             return _random.Pick(_prototypeManager.Index<DatasetPrototype>(speciesProto.LastNames).Values);
+        }
+
+        /// <summary>
+        /// Generates a random clown name.
+        /// </summary>
+        /// <returns>A random clown name.</returns>
+        public string GetClownName()
+        {
+            var options = new List<string>
+            {
+                "Хонкер",
+                "Бубенчик",
+                "Хихикс",
+                "Смешинка",
+                "Весельчак",
+                "Потешник",
+                "Клоунада",
+                "Балагур",
+                "Чудик",
+                "Прыгунок",
+                "Пузырик",
+                "Смешарик",
+                "Забавник",
+                "Озорник",
+                "Клёпа",
+                "Шут",
+                "Дурашка",
+                "Хохотун",
+                "Скоморох",
+                "Петрушка",
+                "Веселяндия",
+                "Дудочка",
+                "Затейник",
+                "Шалун",
+                "Потеха",
+                "Клоуняша",
+                "Бананчик",
+                "Колпачок",
+                "Носик",
+                "Гримасса"
+            };
+
+            return _random.Pick(options);
         }
     }
 }

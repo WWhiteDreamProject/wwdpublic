@@ -98,6 +98,14 @@ namespace Content.Client.Lobby.UI
         private bool _customizePronouns;
         private bool _customizeStationAiName;
         private bool _customizeBorgName;
+        // WD EDIT START
+        private bool _customizeClownName;
+        private LineEdit _cyborgNameEdit => CyborgNameEdit;
+        private BoxContainer _cyborgNameContainer => CyborgNameContainer;
+        private LineEdit _clownNameEdit => ClownNameEdit;
+        private BoxContainer _clownNameContainer => ClownNameContainer;
+        private Button _clownNameRandomButton => ClownNameRandomize;
+        // WD EDIT END
 
         public event Action<HumanoidCharacterProfile, int>? OnProfileChanged;
 
@@ -589,6 +597,12 @@ namespace Content.Client.Lobby.UI
 
             ReloadPreview();
             IsDirty = false;
+
+            // WD EDIT START
+            ClownNameRandomize.OnPressed += _ => RandomizeClownName();
+
+            ClownNameEdit.OnTextChanged += args => { SetClownName(args.Text); };
+            // WD EDIT END
         }
 
         /// Refreshes the flavor text editor status
@@ -633,8 +647,16 @@ namespace Content.Client.Lobby.UI
         private void OnChangedCyborgNameCustomizationValue(bool newValue)
         {
             _customizeBorgName = newValue;
-            CyborgNameContainer.Visible = newValue;
+            UpdateCyborgControls();
         }
+        
+        // WD EDIT START
+        private void OnChangedClownNameCustomizationValue(bool newValue)
+        {
+            _customizeClownName = newValue;
+            UpdateClownControls();
+        }
+        // WD EDIT END
 
         /// Refreshes the species selector
         public void RefreshSpecies()
@@ -877,6 +899,7 @@ namespace Content.Client.Lobby.UI
             UpdateDisplayPronounsControls();
             UpdateStationAiControls();
             UpdateCyborgControls();
+            UpdateClownControls(); // WD EDIT
             UpdateSkinColor();
             UpdateSpawnPriorityControls();
             UpdateFlavorTextEdit();
@@ -1443,9 +1466,22 @@ namespace Content.Client.Lobby.UI
         private void SetCyborgName(string? cyborgName)
         {
             Profile = Profile?.WithCyborgName(cyborgName);
-            ReloadPreview();
             IsDirty = true;
         }
+        
+        // WD EDIT START
+        private void SetClownName(string? clownName)
+        {
+            Profile = Profile?.WithClownName(clownName);
+            IsDirty = true;
+        }
+        
+        private void RandomizeClownName()
+        {
+            SetClownName(HumanoidCharacterProfile.GetClownName());
+            UpdateClownControls();
+        }
+        // WD EDIT END
 
         private string GetFormattedPronounsFromGender()
         {
@@ -1771,7 +1807,8 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            CyborgNameEdit.Text = Profile.CyborgName ?? string.Empty;
+            _cyborgNameContainer.Visible = _customizeBorgName;
+            _cyborgNameEdit.Text = Profile.CyborgName ?? "";
 
             if (CyborgNameEdit.Text != string.Empty)
                 return;
@@ -1780,6 +1817,22 @@ namespace Content.Client.Lobby.UI
             var randomName = _random.Pick(borgNames.Values);
             CyborgNameEdit.PlaceHolder = Loc.GetString(randomName);
         }
+
+        // WD EDIT START
+        private void UpdateClownControls()
+        {
+            if (Profile == null)
+                return;
+
+            _clownNameContainer.Visible = _customizeClownName;
+            _clownNameEdit.Text = Profile.ClownName ?? "";
+
+            if (_clownNameEdit.Text != string.Empty)
+                return;
+
+            _clownNameEdit.PlaceHolder = HumanoidCharacterProfile.GetClownName();
+        }
+        // WD EDIT END
 
         private void UpdateSpawnPriorityControls()
         {
