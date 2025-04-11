@@ -16,22 +16,22 @@ public sealed partial class PlasmaVesselComponent : Component
     /// The total amount of plasma the alien has.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public FixedPoint2 Plasma = 0;
+    public FixedPoint2 Plasma = 200;
 
     [DataField]
-    public FixedPoint2 MaxPlasma = 300;
+    public FixedPoint2 MaxPlasma = 500;
 
     /// <summary>
     /// The amount of plasma passively generated per second.
     /// </summary>
     [DataField]
-    public FixedPoint2 PlasmaPerSecondOffWeed = 0.2f;
+    public FixedPoint2 PlasmaPerSecondOffWeed = 0.75f;
 
     /// <summary>
     /// The amount of plasma to which plasma per second will be equal, when alien stands on weeds.
     /// </summary>
     [DataField]
-    public FixedPoint2 PlasmaPerSecondOnWeed = 15f;
+    public FixedPoint2 PlasmaPerSecondOnWeed = 7.5f;
 
     [DataField]
     public ProtoId<AlertPrototype> PlasmaAlert = "Plasma";

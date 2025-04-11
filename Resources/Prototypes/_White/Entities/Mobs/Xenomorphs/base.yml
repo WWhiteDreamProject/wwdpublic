@@ -1,8 +1,9 @@
 - type: entity
   parent: SimpleSpaceMobBase
   id: BaseMobXenomorph
-  abstract: true
+  name: alien
   suffix: ""
+  abstract: true
   components:
   - type: Xenomorph
     weedHeal:
@@ -85,17 +86,17 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      190: Critical
-      200: Dead
+      125: Critical
+      135: Dead
     stateAlertDict:
       Alive: AlienHealth
       Critical: AlienCrit
       Dead: AlienDead
   - type: SlowOnDamage
     speedModifierThresholds:
-      100: 0.9
-      130: 0.7
-      160: 0.6
+      70: 0.9
+      85: 0.7
+      100: 0.6
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Xenomorph

@@ -13,8 +13,8 @@
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
   - type: PlasmaVessel
-    maxPlasma: 750
-    plasmaPerSecondOffWeed: 12.5
+    plasmaPerSecondOffWeed: 1
+    plasmaPerSecondOnWeed: 10
   - type: HTN
     rootTask:
       task: XenomorphCompound
@@ -54,19 +54,19 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      640: Critical
-      650: Dead
+      490: Critical
+      500: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      540: 0.9
-      580: 0.7
-      610: 0.6
+      410: 0.9
+      430: 0.7
+      460: 0.6
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 30
+        Brute: 50
       types:
-        Structural: 30
+        Structural: 20
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.75
   - type: BasicEntityAmmoProvider
@@ -151,8 +151,8 @@
     baseSprintSpeed: 3.8
   - type: SlowOnDamage
     speedModifierThresholds:
-      540: 0.7
-      580: 0.6
-      610: 0.5
+      410: 0.7
+      430: 0.6
+      460: 0.5
   - type: Damageable
     damageModifierSet: XenomorphDungeon

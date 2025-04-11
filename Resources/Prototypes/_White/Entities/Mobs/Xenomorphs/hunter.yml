@@ -31,7 +31,9 @@
           False: { visible: true}
   - type: PlasmaVessel
     maxPlasma: 150
-    plasmaPerSecondOffWeed: 5
+    plasma: 100
+    plasmaPerSecondOffWeed: 0.25
+    plasmaPerSecondOnWeed: 2.5
   - type: HTN
     rootTask:
       task: XenomorphCompound
@@ -58,22 +60,6 @@
   - type: Cuffable
   - type: Body
     prototype: XenomorphMedium
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      205: Critical
-      215: Dead
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      140: 0.9
-      170: 0.7
-      190: 0.6
-  - type: MeleeWeapon
-    damage:
-      groups:
-        Brute: 20
-      types:
-        Structural: 5
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 5.8
@@ -116,8 +102,8 @@
     baseSprintSpeed: 4.8
   - type: SlowOnDamage
     speedModifierThresholds:
-      140: 0.7
-      170: 0.6
-      190: 0.5
+      70: 0.7
+      85: 0.6
+      100: 0.5
   - type: Damageable
     damageModifierSet: XenomorphDungeon

@@ -17,8 +17,10 @@
       state: aliencuff
       visible: false
   - type: PlasmaVessel
-    maxPlasma: 200
-    plasmaPerSecondOffWeed: 5
+    maxPlasma: 250
+    plasma: 100
+    plasmaPerSecondOffWeed: 0.5
+    plasmaPerSecondOnWeed: 5
   - type: HTN
     rootTask:
       task: XenomorphRangeCompound
@@ -43,19 +45,13 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      250: Critical
-      260: Dead
+      150: Critical
+      160: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      170: 0.9
-      200: 0.7
-      220: 0.6
-  - type: MeleeWeapon
-    damage:
-      groups:
-        Brute: 25
-      types:
-        Structural: 5
+      100: 0.9
+      115: 0.7
+      130: 0.6
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.75
   - type: BasicEntityAmmoProvider
@@ -108,8 +104,8 @@
     baseSprintSpeed: 3.2
   - type: SlowOnDamage
     speedModifierThresholds:
-      170: 0.7
-      200: 0.6
-      220: 0.5
+      100: 0.7
+      115: 0.6
+      130: 0.5
   - type: Damageable
     damageModifierSet: XenomorphDungeon

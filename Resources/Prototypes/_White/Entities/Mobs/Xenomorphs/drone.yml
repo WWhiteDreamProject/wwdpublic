@@ -76,8 +76,8 @@
     baseSprintSpeed: 4
   - type: SlowOnDamage
     speedModifierThresholds:
-      100: 0.7
-      130: 0.6
-      160: 0.5
+      70: 0.7
+      85: 0.6
+      100: 0.5
   - type: Damageable
     damageModifierSet: XenomorphDungeon
