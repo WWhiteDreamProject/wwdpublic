@@ -27,8 +27,20 @@ public sealed partial class OverlayChatGameScreen : InGameScreen
         Chat.OnResized += ChatOnResized;
         Chat.OnChatResizeFinish += ChatOnResizeFinish;
         MainViewport.OnResized += ResizeAlertsContainer; // Shitmed Change
-        Actions.ActionsContainer.Columns = 1;
+
+        // WD EDIT START
+        MainViewport.OnResized += ResizeActionContainer;
+        Inventory.OnResized += ResizeActionContainer;
+        // WD EDIT END
     }
+
+    // WD EDIT START
+    private void ResizeActionContainer()
+    {
+        float indent = Inventory.Size.Y + TopBar.Size.Y + 40;
+        Actions.ActionsContainer.MaxGridHeight = MainViewport.Size.Y - indent;
+    }
+    // WD EDIT END
 
     private void ResizeAlertsContainer()
     {
