@@ -11,6 +11,7 @@
     - Ghost
     - Normal
     - Ethereal
+    - AGhost # WD EDIT
   - type: ContentEye
     maxZoom: 10, 10
   - type: MovementSpeedModifier
