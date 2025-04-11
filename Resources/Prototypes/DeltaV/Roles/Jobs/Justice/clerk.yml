@@ -17,6 +17,7 @@
     - !type:CharacterEmployerRequirement
       employers:
       - IdrisIncorporated
+      - NanoTrasen
 
 
   startingGear: ClerkGear
