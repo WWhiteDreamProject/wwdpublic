@@ -11,7 +11,6 @@ namespace Content.Server._White.Abilities.Psionics
 {
     public sealed class ShadowSprintSystem : EntitySystem
     {
-        [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = default!;
 
         public override void Initialize()
@@ -22,7 +21,6 @@ namespace Content.Server._White.Abilities.Psionics
 
         private void OnPowerUsed(ShadowSprintActionEvent args)
         {
-
             if (args.Performer == null)
                 return;
             
@@ -30,7 +28,7 @@ namespace Content.Server._White.Abilities.Psionics
                 return;
 
             if (!TryComp<MovementSpeedModifierComponent>(args.Performer, out var movement))
-            return;
+                return;
 
             var time = 1 + (comp.CurrentAmplification * 0.9f);
             var bW = movement.BaseWalkSpeed;
@@ -44,9 +42,9 @@ namespace Content.Server._White.Abilities.Psionics
             args.Performer.SpawnTimer(TimeSpan.FromSeconds(time), () =>  
             {
                 if (TryComp<MovementSpeedModifierComponent>(args.Performer, out var Cmovement))
-            {
-                _speedModifier.ChangeBaseSpeed(args.Performer, bW, bS, ac, Cmovement);
-            }
+                {
+                    _speedModifier.ChangeBaseSpeed(args.Performer, bW, bS, ac, Cmovement);
+                }
 
                 if (HasComp<EtherealComponent>(args.Performer))   
                 {  

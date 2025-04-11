@@ -5,7 +5,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: InstantAction
-      icon: 
+      icon:
         sprite: _White/Interface/Actions/shadowsprint.rsi
         state: shadowsprint
       useDelay: 20
