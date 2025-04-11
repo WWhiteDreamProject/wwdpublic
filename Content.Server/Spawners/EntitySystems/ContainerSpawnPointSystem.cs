@@ -1,4 +1,5 @@
 ﻿using Content.Server.GameTicking;
+using Content.Server.RoundEnd;
 using Content.Server.Spawners.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Preferences;
@@ -10,6 +11,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Spawners.EntitySystems;
 
+
 public sealed class ContainerSpawnPointSystem : EntitySystem
 {
     [Dependency] private readonly ContainerSystem _container = default!;
@@ -18,11 +20,14 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
+    [Dependency] private readonly StationJobsSystem _jobs = default!; // WD edit
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!; // WD edit
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<PlayerSpawningEvent>(HandlePlayerSpawning, before: new []{ typeof(SpawnPointSystem) });
+        SubscribeLocalEvent<PlayerSpawningEvent>(HandlePlayerSpawning, before: new[] { typeof(SpawnPointSystem) });
+        SubscribeLocalEvent<ContainerSpawnPointComponent, ComponentShutdown>(OnShutdown); // WD edit
     }
 
     public void HandlePlayerSpawning(PlayerSpawningEvent args)
@@ -39,8 +44,10 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
             (!_proto.TryIndex(args.Job, out var jobProto) || jobProto.JobEntity == null))
             return;
 
-        var query = EntityQueryEnumerator<ContainerSpawnPointComponent, ContainerManagerComponent, TransformComponent>();
-        var possibleContainers = new List<Entity<ContainerSpawnPointComponent, ContainerManagerComponent, TransformComponent>>();
+        var query =
+            EntityQueryEnumerator<ContainerSpawnPointComponent, ContainerManagerComponent, TransformComponent>();
+        var possibleContainers =
+            new List<Entity<ContainerSpawnPointComponent, ContainerManagerComponent, TransformComponent>>();
 
         while (query.MoveNext(out var uid, out var spawnPoint, out var container, out var xform))
         {
@@ -101,4 +108,25 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
         Del(args.SpawnResult);
         args.SpawnResult = null;
     }
+
+    // WD edit start - constructible AI
+    private void OnShutdown(Entity<ContainerSpawnPointComponent> ent, ref ComponentShutdown args)
+    {
+           if (ent.Comp.Job == null)
+                   return;
+
+           var station = _roundEnd.GetStation();
+           if (!station.HasValue)
+                   return;
+
+           var stationInMap = _station.GetStationInMap(Transform(station.Value).MapID);
+           if (!stationInMap.HasValue)
+                   return;
+
+           _jobs.TryAdjustJobSlot(
+               stationInMap.Value,
+               ent.Comp.Job!,
+               -1);
+    }
+    // WD edit end
 }

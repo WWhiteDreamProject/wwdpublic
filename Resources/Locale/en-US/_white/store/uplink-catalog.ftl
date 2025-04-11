@@ -36,3 +36,6 @@ uplink-Light-Rifle-AK220-desc = An updated version of the iconic weapon. Uses 30
 
 uplink-magazine-Light-RIfle-AK220-name = extended AK magazine (.30)
 uplink-magazine-Light-RIfle-AK220-desc = extended magazine .30, for AK
+
+uplink-Syndicate-SWAT-Helmet-name = Spetsnaz helmet
+uplink-Syndicate-SWAT-Helmet-desc = An extremely robust helmet, commonly used by paramilitary forces. It is adorned in a nefarious red and black stripe pattern.

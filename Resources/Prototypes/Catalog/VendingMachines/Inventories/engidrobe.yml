@@ -4,6 +4,10 @@
     ClothingBackpackDuffelEngineering: 3
     ClothingBackpackSatchelEngineering: 3
     ClothingBackpackEngineering: 3
+    ClothingUniformJumpsuitEngineerPolar: 3 ##wwdp edit start
+    ClothingUniformJumpsuitOldEngineerWorker: 3
+    ClothingUniformJumpsuitOldEngineerCasual: 3
+    ClothingUniformJumpsuitOldEngineer: 3 #wwdp edit end
     ClothingUniformJumpsuitEngineering: 3
     ClothingUniformJumpskirtEngineering: 3
     ClothingUniformJumpsuitEngineeringHazard: 3

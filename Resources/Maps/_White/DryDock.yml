@@ -183,7 +183,7 @@ entities:
           version: 6
         -3,1:
           ind: -3,1
-          tiles: OwAAAAACOwAAAAADAQAAAAAAPwAAAAAAOwAAAAABPwAAAAAAPwAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAiwAAAAAAiwAAAAAAPgAAAAACPgAAAAACAQAAAAAAAQAAAAAAPwAAAAAAPwAAAAAAOwAAAAADAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAiwAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAASgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAAAAAAAAAAQAAAAAAAQAAAAAASgAAAAAASgAAAAAASgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAAQAAAAAASgAAAAAADgAAAAAASgAAAAAADgAAAAAASgAAAAAAAQAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAADgAAAAAADgAAAAAADgAAAAAADgAAAAAADgAAAAAAAQAAAAAAAQAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAASgAAAAAASgAAAAAASgAAAAAASgAAAAAASgAAAAAASgAAAAAASgAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAADgAAAAAADgAAAAAASgAAAAAADgAAAAAADgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAASgAAAAAADgAAAAAASgAAAAAADgAAAAAASgAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAASgAAAAAASgAAAAAASgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAASgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+          tiles: OwAAAAACOwAAAAADAQAAAAAAPwAAAAAAOwAAAAABPwAAAAAAPwAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAiwAAAAAAiwAAAAAAPgAAAAACPgAAAAACAQAAAAAAAQAAAAAAPwAAAAAAPwAAAAAAOwAAAAADAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAiwAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAAQAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAAQAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAASgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAAAAAAAAAAQAAAAAAAQAAAAAASgAAAAAASgAAAAAASgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAiwAAAAAAAQAAAAAASgAAAAAADgAAAAAASgAAAAAADgAAAAAASgAAAAAAAQAAAAAAiwAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAADgAAAAAADgAAAAAADgAAAAAADgAAAAAADgAAAAAAAQAAAAAAAQAAAAAAiwAAAAAAiwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAASgAAAAAASgAAAAAASgAAAAAASgAAAAAASgAAAAAASgAAAAAASgAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAADgAAAAAADgAAAAAASgAAAAAADgAAAAAADgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAASgAAAAAADgAAAAAASgAAAAAADgAAAAAASgAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAASgAAAAAASgAAAAAASgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAASgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
           version: 6
         -2,1:
           ind: -2,1
@@ -49079,196 +49079,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -190.5,-15.5
       parent: 2
-- proto: ChairOfficeDark
-  entities:
-  - uid: 6825
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -147.38953,5.6317034
-      parent: 2
-  - uid: 6826
-    components:
-    - type: Transform
-      pos: -15.4427805,-16.437407
-      parent: 2
-  - uid: 6827
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -9.452566,-10.346932
-      parent: 2
-  - uid: 6828
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -47.484055,-18.664692
-      parent: 2
-  - uid: 6829
-    components:
-    - type: Transform
-      pos: -142.51674,2.547929
-      parent: 2
-  - uid: 6830
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -167.37854,-12.301772
-      parent: 2
-  - uid: 6831
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -57.5,-4.5
-      parent: 2
-  - uid: 6832
-    components:
-    - type: Transform
-      pos: -164.51363,7.6244984
-      parent: 2
-  - uid: 6833
-    components:
-    - type: Transform
-      pos: -167.46057,0.6048427
-      parent: 2
-  - uid: 6834
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -160.40448,-0.20660853
-      parent: 2
-  - uid: 6835
-    components:
-    - type: Transform
-      pos: -155.47432,16.500141
-      parent: 2
-  - uid: 6836
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -175.44298,6.59674
-      parent: 2
-  - uid: 6837
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -178.42735,5.612365
-      parent: 2
-  - uid: 6838
-    components:
-    - type: Transform
-      pos: -157.53036,10.601954
-      parent: 2
-  - uid: 6839
-    components:
-    - type: Transform
-      pos: -153.38974,10.601954
-      parent: 2
-  - uid: 6840
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -59.5,-4.5
-      parent: 2
-  - uid: 6841
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -57.5,-3.5
-      parent: 2
-  - uid: 6842
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -59.5,-3.5
-      parent: 2
-  - uid: 6843
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -64.5,-18.5
-      parent: 2
-  - uid: 6844
-    components:
-    - type: Transform
-      pos: -2.4867084,-6.538404
-      parent: 2
-  - uid: 6845
-    components:
-    - type: Transform
-      pos: 0.49988866,-6.538404
-      parent: 2
-  - uid: 6846
-    components:
-    - type: Transform
-      pos: 3.5490305,-6.444654
-      parent: 2
-  - uid: 6847
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 3.533394,-0.335279
-      parent: 2
-  - uid: 6848
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.4842522,-0.382154
-      parent: 2
-  - uid: 6849
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.5023448,-0.429029
-      parent: 2
-  - uid: 6850
-    components:
-    - type: Transform
-      pos: -64.45874,-26.454014
-      parent: 2
-  - uid: 6851
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -222.56087,-26.519817
-      parent: 2
-  - uid: 6852
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -222.45435,-23.468872
-      parent: 2
-  - uid: 6853
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -220.5281,-25.426067
-      parent: 2
-  - uid: 6854
-    components:
-    - type: Transform
-      pos: -75.201324,-20.433207
-      parent: 2
-- proto: ChairOfficeLight
-  entities:
-  - uid: 6855
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -17.479475,0.5546675
-      parent: 2
-  - uid: 6856
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -75.38146,-18.520706
-      parent: 2
-  - uid: 6857
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -189.44528,-27.22284
-      parent: 2
 - proto: ChairPilotSeat
   entities:
   - uid: 6858
@@ -59976,7 +59786,7 @@ entities:
       pos: -28.5,-16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -14809.691
+      secondsUntilStateChange: -14940.836
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -75947,6 +75757,21 @@ entities:
       parent: 17716
 - proto: Grille
   entities:
+  - uid: 6827
+    components:
+    - type: Transform
+      pos: -41.5,27.5
+      parent: 2
+  - uid: 6828
+    components:
+    - type: Transform
+      pos: -42.5,28.5
+      parent: 2
+  - uid: 6829
+    components:
+    - type: Transform
+      pos: -43.5,27.5
+      parent: 2
   - uid: 10499
     components:
     - type: Transform
@@ -83974,32 +83799,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -29.5,-9.5
       parent: 2
-    - type: UserInterface
-      interfaces:
-        enum.StorageUiKey.Key:
-          type: StorageBoundUserInterface
-          requireInputValidation: True
-          interactionRange: 2
-        enum.ItemSlotPickerKey.Key:
-          type: ItemSlotPickerBoundUserInterface
-          requireInputValidation: True
-          interactionRange: 1.5
   - uid: 11927
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -29.5,-12.5
       parent: 2
-    - type: UserInterface
-      interfaces:
-        enum.StorageUiKey.Key:
-          type: StorageBoundUserInterface
-          requireInputValidation: True
-          interactionRange: 2
-        enum.ItemSlotPickerKey.Key:
-          type: ItemSlotPickerBoundUserInterface
-          requireInputValidation: True
-          interactionRange: 1.5
 - proto: JawsOfLife
   entities:
   - uid: 11928
@@ -94831,20 +94636,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -5.5,-2.5
-      parent: 2
-- proto: ShowcaseRobotAntique
-  entities:
-  - uid: 13557
-    components:
-    - type: Transform
-      pos: -44.5,25.5
-      parent: 2
-- proto: ShowcaseRobotWhite
-  entities:
-  - uid: 13558
-    components:
-    - type: Transform
-      pos: -40.5,25.5
       parent: 2
 - proto: Shower
   entities:
@@ -117823,6 +117614,58 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -151.61838,-0.5181184
       parent: 2
+- proto: WeaponEnergyTurretAI
+  entities:
+  - uid: 6825
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -40.5,25.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 6830
+  - uid: 6826
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -44.5,25.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 6830
+  - uid: 6831
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -43.5,28.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 6830
+  - uid: 6832
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -41.5,28.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 6830
+- proto: WeaponEnergyTurretAIControlPanel
+  entities:
+  - uid: 6830
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -39.5,26.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 6826
+      - 6831
+      - 6832
+      - 6825
 - proto: WeaponLaserCarbinePractice
   entities:
   - uid: 17371

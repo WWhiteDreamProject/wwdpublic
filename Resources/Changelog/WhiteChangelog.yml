@@ -2404,3 +2404,142 @@ Entries:
   id: 256
   time: '2025-04-04T09:22:10.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/412
+- author: Kutos
+  changes:
+    - type: Tweak
+      message: 'Убрано бессмертие улыбкина. '
+  id: 257
+  time: '2025-04-04T13:36:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/413
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Респрайт Надзирателя
+  id: 258
+  time: '2025-04-04T21:30:51.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/415
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Новый шаттл эвакуации, спасибо Дарки
+    - type: Tweak
+      message: >-
+        Станции обновлены. На коробке пофикшены некоторые моменты, например
+        кнопки и ставни. Везде добавлены турельки ИИ в сам спутник и аплоад
+  id: 259
+  time: '2025-04-04T21:38:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/419
+- author: Boevi4ok
+  changes:
+    - type: Add
+      message: В аплинк предателя теперь входит энергетический щит
+    - type: Add
+      message: Добавлен шлем спецназа в аплинке за 2 телекристала
+  id: 260
+  time: '2025-04-04T21:47:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/418
+- author: Kutos
+  changes:
+    - type: Add
+      message: Добавлено логгирование трейтов.
+  id: 261
+  time: '2025-04-06T09:41:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/426
+- author: Kutos
+  changes:
+    - type: Add
+      message: Паспорт можно сувать в ПДА.
+  id: 262
+  time: '2025-04-07T18:34:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/423
+- author: HSKveez
+  changes:
+    - type: Add
+      message: >-
+        Добавлена возможность комбинировать легкое одноручное оружие в пару —
+        теперь можно вести огонь с двух рук!
+  id: 263
+  time: '2025-04-07T18:36:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/422
+- author: Kutossssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+  changes:
+    - type: Add
+      message: 'Добавлен русский акцент ящеров. '
+  id: 264
+  time: '2025-04-07T18:42:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/425
+- author: Kai518
+  changes:
+    - type: Fix
+      message: Все жала генокрада теперь должны работать.
+    - type: Add
+      message: Ослепляющий токсин (доступен только для жал генокрада и педалей).
+    - type: Add
+      message: >-
+        Тиризен - вызывает урон по стамине (доступен только для жал генокрада и
+        педалей).
+  id: 265
+  time: '2025-04-07T18:44:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/431
+- author: HSKveez
+  changes:
+    - type: Fix
+      message: Фелиниды снова умеют мяукать
+  id: 266
+  time: '2025-04-07T18:44:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/432
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: Зомби теперь видят нулевых пациентов.
+  id: 267
+  time: '2025-04-08T07:01:38.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/430
+- author: Kai5
+  changes:
+    - type: Add
+      message: Теперь ИИ станции можно собрать, используя меню создания.
+    - type: Add
+      message: >-
+        Добавлена новая Т1 технология, открывающая создание платы ядра ИИ,
+        аплоуда, интелликарты, а также некоторых наборов законов
+    - type: Add
+      message: 'Теперь ИИ станции можно разобрать. '
+  id: 268
+  time: '2025-04-09T20:04:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/404
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Добавлен Старый Комбинезон Инженера
+    - type: Add
+      message: Добавлен Повседневный Комбинезон Инженера
+    - type: Add
+      message: >-
+        Добавлен Полярный Комбинезон Инженера ( не защищает от холода. Он просто
+        пузатый . )
+    - type: Add
+      message: Добавлен Старый Рабочий Инженерный Комбинезон
+  id: 269
+  time: '2025-04-11T21:30:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/434
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: >-
+        Теперь если в яму бинглов закинуть любой контейнер - очки будут
+        прибавляться за каждую сущность, содержащуюся в этом контейнере. 
+    - type: Tweak
+      message: >-
+        Теперь если в яме бинглов окажется стак чего-либо, то количество
+        прибавленных очков будет равно количеству предметов в стаке.
+  id: 270
+  time: '2025-04-11T21:31:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/437
+- author: HSKveez
+  changes:
+    - type: Tweak
+      message: Перенесено разоружение из Pressure в Restrain
+  id: 271
+  time: '2025-04-11T21:48:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/441

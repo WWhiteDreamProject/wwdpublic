@@ -1,0 +1,77 @@
+﻿- type: latheRecipe
+  id: StationAICoreCircuitboard
+  result: StationAICoreCircuitboard
+  category: AI
+  completetime: 5
+  materials:
+    Glass: 50
+
+- type: latheRecipe
+  id: Intellicard
+  result: Intellicard
+  category: AI
+  completetime: 5
+  materials:
+    Glass: 50
+    Gold: 20
+
+- type: latheRecipe
+  id: StationAiUploadCircuitboard
+  result: StationAiUploadCircuitboard
+  category: Circuitry
+  completetime: 5
+  materials:
+    Glass: 50
+    Gold: 100
+    Diamond: 100
+    Bluespace: 100
+
+- type: latheRecipe
+  id: AsimovCircuitBoard
+  result: AsimovCircuitBoard
+  category: AI
+  completetime: 5
+  materials:
+    Glass: 50
+    Diamond: 100
+    Bluespace: 50
+
+- type: latheRecipe
+  parent: AsimovCircuitBoard
+  id: CorporateCircuitBoard
+  result: CorporateCircuitBoard
+
+- type: latheRecipe
+  parent: AsimovCircuitBoard
+  id: NTDefaultCircuitBoard
+  result: NTDefaultCircuitBoard
+
+- type: latheRecipe
+  parent: AsimovCircuitBoard
+  id: MotherDroneCircuitBoard
+  result: MotherDroneCircuitBoard
+
+- type: latheRecipe
+  parent: AsimovCircuitBoard
+  id: NutimovCircuitBoard
+  result: NutimovCircuitBoard
+
+- type: latheRecipe
+  parent: AsimovCircuitBoard
+  id: PaladinCircuitBoard
+  result: PaladinCircuitBoard
+
+- type: latheRecipe
+  parent: AsimovCircuitBoard
+  id: RobocopCircuitBoard
+  result: RobocopCircuitBoard
+
+- type: latheRecipe
+  id: QuarantineCircuitBoard
+  result: QuarantineCircuitBoard
+  category: AI
+  completetime: 5
+  materials:
+    Glass: 50
+    Gold: 100
+    Bluespace: 50

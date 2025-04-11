@@ -23,6 +23,8 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
+using Content.Shared.Stacks;
+using Robust.Server.Containers;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Bingle;
@@ -43,6 +45,7 @@ public sealed class BinglePitSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
     [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private readonly ContainerSystem _container = default!; // WD edit
 
 
     public override void Initialize()
@@ -100,11 +103,23 @@ public sealed class BinglePitSystem : EntitySystem
 
         StartFalling(uid, component, args.Tripper);
 
-        if (component.BinglePoints >=( component.SpawnNewAt * component.Level))
+        // WD edit start
+
+        // if (component.BinglePoints >=( component.SpawnNewAt * component.Level))
+        // {
+        //     SpawnBingle(uid, component);
+        //     component.BinglePoints -= ( component.SpawnNewAt * component.Level);
+        // }
+
+        var binglesToSpawn = (int) Math.Floor(component.BinglePoints / component.SpawnNewAt);
+
+        for (var i = 0; i < binglesToSpawn; i++)
         {
             SpawnBingle(uid, component);
             component.BinglePoints -= ( component.SpawnNewAt * component.Level);
         }
+
+        // WD edit end
     }
 
     private void StartFalling(EntityUid uid, BinglePitComponent component, EntityUid tripper, bool playSound = true)
@@ -113,14 +128,33 @@ public sealed class BinglePitSystem : EntitySystem
             component.BinglePoints += component.PointsForAlive;
         else
             component.BinglePoints++;
-        if (HasComp<HumanoidAppearanceComponent>(tripper))
-            component.BinglePoints += component.SpawnNewAt * component.Level; // trowing a humanoid in the pit  will spawn a new bingle
+        // WD edit - comment out
+        // if (HasComp<HumanoidAppearanceComponent>(tripper))
+        //     component.BinglePoints += component.SpawnNewAt * component.Level; // trowing a humanoid in the pit  will spawn a new bingle
 
         if (HasComp<BingleComponent>(tripper))
             component.BinglePoints += (component.SpawnNewAt * component.Level) / 4; //recycling a bingle returns a quarter bingle.
 
         if (TryComp<PullableComponent>(tripper, out var pullable) && pullable.BeingPulled)
             _pulling.TryStopPull(tripper, pullable);
+
+        // WD edit start
+        if (HasComp<ContainerManagerComponent>(tripper))
+        {
+            foreach (var container in _container.GetAllContainers(tripper))
+            {
+                component.BinglePoints += container.Count;
+                foreach (var entity in container.ContainedEntities)
+                    if (TryComp(entity, out StackComponent? stackComponent))
+                        component.BinglePoints += stackComponent.Count;
+                    else
+                        component.BinglePoints++;
+            }
+        }
+
+        if (TryComp(tripper, out StackComponent? stack))
+            component.BinglePoints += stack.Count;
+        // WD edit end
 
         var fall = EnsureComp<BinglePitFallingComponent>(tripper);
         fall.Pit = component;

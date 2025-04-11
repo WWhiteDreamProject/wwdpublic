@@ -96,6 +96,7 @@
       collection: PistolsDrop
   - type: DisarmMalus # WWDP
     malus: 0.3
+  - type: DualWield # WWDP
 
 - type: entity
   name: viper
