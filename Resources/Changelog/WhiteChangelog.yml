@@ -2564,3 +2564,12 @@ Entries:
   id: 274
   time: '2025-04-12T05:50:47.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/416
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Шанс выбраться при софт грабе теперь равен 100%
+    - type: Fix
+      message: Застаненый человек больше не может сопротивляться при грабе
+  id: 275
+  time: '2025-04-12T05:51:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/420
