@@ -150,20 +150,20 @@
       gun_magazine:
         name: Magazine
         startingItem: null
-        # WD EDIT START
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
         whitelist:
           tags:
-          - MagazinePistol
-          - MagazinePistolHighCapacity
-        # WD EDIT END
+            - MagazinePistol
+            - MagazinePistolHighCapacity
       gun_chamber:
         name: Chamber
         startingItem: null
-        # WD EDIT START
+        priority: 1
         whitelist:
           tags:
-          - CartridgePistol
-        # WD EDIT END
+            - CartridgePistol
 
 - type: entity
   name: viper
@@ -236,19 +236,19 @@
       gun_magazine:
         name: Magazine
         startingItem: null
-        # WD EDIT START
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
         whitelist:
           tags:
-          - MagazinePistolCaselessRifle
-        # WD EDIT END
+            - MagazinePistolCaselessRifle
       gun_chamber:
         name: Chamber
         startingItem: null
-        # WD EDIT START
+        priority: 1
         whitelist:
           tags:
-          - CartridgeCaselessRifle
-        # WD EDIT END
+            - CartridgeCaselessRifle
 
 - type: entity
   name: mk 58
@@ -284,19 +284,19 @@
       gun_magazine:
         name: Magazine
         startingItem: null
-        # WD EDIT START
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
         whitelist:
           tags:
-          - MagazinePistol
-        # WD EDIT END
+            - MagazinePistol
       gun_chamber:
         name: Chamber
         startingItem: null
-        # WD EDIT START
+        priority: 1
         whitelist:
           tags:
-          - CartridgePistol
-        # WD EDIT END
+            - CartridgePistol
 
 - type: entity
   name: mk 58
@@ -365,19 +365,19 @@
       gun_magazine:
         name: Magazine
         startingItem: null
-        # WD EDIT START
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
         whitelist:
           tags:
-          - MagazineMagnum
-        # WD EDIT END
+            - MagazineMagnum
       gun_chamber:
         name: Chamber
         startingItem: null
-        # WD EDIT START
+        priority: 1
         whitelist:
           tags:
-          - CartridgeMagnum
-        # WD EDIT END
+            - CartridgeMagnum
 
 - type: entity
   name: N1984
