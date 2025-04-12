@@ -2573,3 +2573,10 @@ Entries:
   id: 275
   time: '2025-04-12T05:51:50.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/420
+- author: Port from GoobStation
+  changes:
+    - type: Add
+      message: Шприцемёты
+  id: 276
+  time: '2025-04-12T05:55:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/439
