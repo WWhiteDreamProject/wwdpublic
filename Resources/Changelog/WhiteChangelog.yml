@@ -2580,3 +2580,14 @@ Entries:
   id: 276
   time: '2025-04-12T05:55:59.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/439
+- author: Kai518
+  changes:
+    - type: Add
+      message: ИИ добавлено действие, позволяющее открутить себя от пола.
+    - type: Add
+      message: >-
+        Действие ИИ, показывающее профессии экипажа теперь также показывает их
+        криминальный статус.
+  id: 277
+  time: '2025-04-12T05:56:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/440
