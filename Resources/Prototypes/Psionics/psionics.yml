@@ -1,6 +1,3 @@
-
-#wwdp fun removed PsionicAvaiblePower no telepathy no removed
-
 - type: psionicPower
   id: DispelPower
   name: Dispel
@@ -48,7 +45,7 @@
     - !type:PsionicModifyGlimmer
       glimmerModifier: 5
     - !type:AddPsionicAssayFeedback
-      assayFeedback: mass-sleep-power-metapsionic-feedback
+      assayFeedback: mass-sleep-metapsionic-feedback
     - !type:AddPsionicStatSources
       amplificationModifier: 0.5
       dampeningModifier: 0.5
@@ -59,7 +56,7 @@
         - type: MassSleepPower
     - !type:RemovePsionicStatSources
     - !type:RemoveAssayFeedback
-      assayFeedback: mass-sleep-power-metapsionic-feedback
+      assayFeedback: mass-sleep-metapsionic-feedback
 
 - type: psionicPower
   id: MindSwapPower
@@ -174,6 +171,9 @@
     - !type:AddPsionicStatSources
       amplificationModifier: 0.5
       dampeningModifier: 0.5
+    - !type:PsionicAddAvailablePowers
+      powerPrototype: AssayPower
+      weight: 0.1
   removalFunctions:
     - !type:RemovePsionicActions
     - !type:RemovePsionicPowerComponents
@@ -182,6 +182,8 @@
     - !type:RemovePsionicStatSources
     - !type:RemoveAssayFeedback
       assayFeedback: metapsionic-power-metapsionic-feedback
+    - !type:PsionicRemoveAvailablePowers
+      powerPrototype: AssayPower
 
 - type: psionicPower
   id: PsionicRegenerationPower
@@ -289,13 +291,13 @@
     - !type:PsionicFeedbackSelfChat
       feedbackMessage: xenoglossy-power-initialization-feedback
     - !type:AddPsionicAssayFeedback
-      assayFeedback: psionic-language-power-feedback
+      assayFeedback: psionic-language-power-metapsionic-feedback
   removalFunctions:
     - !type:RemovePsionicPowerComponents
       components:
         - type: Telepathy
     - !type:RemoveAssayFeedback
-      assayFeedback: psionic-language-power-feedback
+      assayFeedback: psionic-language-power-metapsionic-feedback
   powerSlotCost: 0
 
 - type: psionicPower
@@ -311,13 +313,13 @@
     - !type:PsionicFeedbackSelfChat
       feedbackMessage: psychognomy-power-initialization-feedback
     - !type:AddPsionicAssayFeedback
-      assayFeedback: psionic-language-power-feedback
+      assayFeedback: psychognomy-power-metapsionic-feedback
   removalFunctions:
     - !type:RemovePsionicPowerComponents
       components:
         - type: Psychognomist
     - !type:RemoveAssayFeedback
-      assayFeedback: psionic-language-power-feedback
+      assayFeedback: psychognomy-power-metapsionic-feedback
   powerSlotCost: 0
 
 - type: psionicPower
@@ -333,7 +335,7 @@
     - !type:PsionicFeedbackSelfChat
       feedbackMessage: telepathy-power-initialization-feedback
     - !type:AddPsionicAssayFeedback
-      assayFeedback: psionic-language-power-feedback
+      assayFeedback: telepathy-power-metapsionic-feedback
     - !type:PsionicAddAvailablePowers
       powerPrototype: XenoglossyPower
       weight: 0.75
@@ -345,7 +347,7 @@
       components:
         - type: Telepathy
     - !type:RemoveAssayFeedback
-      assayFeedback: psionic-language-power-feedback
+      assayFeedback: telepathy-power-metapsionic-feedback
     - !type:PsionicRemoveAvailablePowers
       powerPrototype: XenoglossyPower
     - !type:PsionicRemoveAvailablePowers
@@ -368,15 +370,20 @@
     - !type:PsionicModifyGlimmer
       glimmerModifier: 4
     - !type:AddPsionicAssayFeedback
-      assayFeedback: healing-word-power-feedback
+      assayFeedback: healing-word-power-metapsionic-feedback
     - !type:AddPsionicStatSources
       amplificationModifier: 1
       dampeningModifier: 0.5
+    - !type:PsionicAddAvailablePowers
+      powerPrototype: RevivifyPower
+      weight: 0.3
   removalFunctions:
     - !type:RemovePsionicActions
     - !type:RemovePsionicStatSources
     - !type:RemoveAssayFeedback
-      assayFeedback: healing-word-power-feedback
+      assayFeedback: healing-word-power-metapsionic-feedback
+    - !type:PsionicRemoveAvailablePowers
+      powerPrototype: RevivifyPower
 
 - type: psionicPower
   id: RevivifyPower
@@ -395,14 +402,14 @@
     - !type:PsionicModifyGlimmer
       glimmerModifier: 15
     - !type:AddPsionicAssayFeedback
-      assayFeedback: revivify-power-feedback
+      assayFeedback: revivify-power-metapsionic-feedback
     - !type:AddPsionicStatSources
       amplificationModifier: 2.5
   removalFunctions:
     - !type:RemovePsionicActions
     - !type:RemovePsionicStatSources
     - !type:RemoveAssayFeedback
-      assayFeedback: revivify-power-feedback
+      assayFeedback: revivify-power-metapsionic-feedback
 
 - type: psionicPower
   id: LowAmplification
@@ -494,6 +501,9 @@
       amplificationModifier: 1
     - !type:AddPsionicPsychognomicDescriptors
       psychognomicDescriptor: tenebrous
+    - !type:PsionicAddAvailablePowers
+      powerPrototype: DarkSwapPower
+      weight: 0.1
   removalFunctions:
     - !type:RemovePsionicActions
     - !type:RemovePsionicStatSources
@@ -501,6 +511,8 @@
       assayFeedback: shadeskip-power-metapsionic-feedback
     - !type:RemovePsionicPsychognomicDescriptors
       psychognomicDescriptor: tenebrous
+    - !type:PsionicRemoveAvailablePowers
+      powerPrototype: DarkSwapPower
 
 - type: psionicPower
   id: TelekineticPulsePower
@@ -583,6 +595,12 @@
       assayFeedback: pyrokinetic-flare-power-metapsionic-feedback
     - !type:AddPsionicStatSources
       amplificationModifier: 0.25
+    - !type:PsionicAddAvailablePowers
+      powerPrototype: SummonImpPower
+      weight: 0.3
+    - !type:PsionicAddAvailablePowers
+      powerPrototype: PyrokinesisPower
+      weight: 0.1
     - !type:AddPsionicPsychognomicDescriptors
       psychognomicDescriptor: pyre
   removalFunctions:
@@ -590,6 +608,10 @@
     - !type:RemovePsionicStatSources
     - !type:RemoveAssayFeedback
       assayFeedback: pyrokinetic-flare-power-metapsionic-feedback
+    - !type:PsionicRemoveAvailablePowers
+      powerPrototype: SummonImpPower
+    - !type:PsionicRemoveAvailablePowers
+      powerPrototype: PyrokinesisPower
     - !type:RemovePsionicPsychognomicDescriptors
       psychognomicDescriptor: pyre
   powerSlotCost: 1
@@ -693,4 +715,3 @@
     assayFeedback: anoigo-power-metapsionic-feedback
   - !type:RemovePsionicPsychognomicDescriptors
     psychognomicDescriptor: kinetic
-
