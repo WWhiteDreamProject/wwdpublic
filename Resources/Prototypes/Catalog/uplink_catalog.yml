@@ -694,7 +694,6 @@
   categories:
   - UplinkAmmo
 
-# for the hristov
 - type: listing
   id: UplinkHristovAmmo
   name: uplink-sniper-ammo-name
@@ -1102,7 +1101,7 @@
     - Plasmaman
 
 # - type: listing
-#   id: UplinkGigacancerScanner
+#   id: UplinkGigacancer Scanner
 #   name: Ultragigacancer Health Analyzer
 #   description: Works like a normal health analyzer, other than giving everyone it scans ultragigacancer.
 #   productEntity: HandheldHealthAnalyzerGigacancer
@@ -2261,3 +2260,18 @@
     Telecrystal: 1
   categories:
   - UplinkWearables
+
+- type: listing
+  id: UplinkDartSyringeGun
+  name: uplink-dart-syringe-gun-name
+  description: uplink-dart-syringe-gun-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi, state: icon-dart }
+  productEntity: DartSyringeGun
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Medical

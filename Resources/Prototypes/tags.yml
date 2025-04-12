@@ -1360,6 +1360,9 @@
   id: Syringe
 
 - type: Tag
+  id: SyringeGunAmmo
+
+- type: Tag
   id: Spellbook
 
 - type: Tag
@@ -1525,3 +1528,9 @@
 
 - type: Tag
   id: UnathiEmotes
+
+- type: Tag
+  id: Gun
+
+- type: Tag
+  id: Weapon

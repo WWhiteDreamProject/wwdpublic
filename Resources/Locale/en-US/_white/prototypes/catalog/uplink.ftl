@@ -1,0 +1,2 @@
+uplink-dart-syringe-gun-name = dart syringe gun
+uplink-dart-syringe-gun-desc = An illegally modified version of the syringe gun that allows projectiles to pierce through armor. Also pierces skin better, resulting in faster injection. 

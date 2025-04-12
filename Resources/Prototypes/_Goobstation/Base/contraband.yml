@@ -1,0 +1,26 @@
+- type: entity
+  id: BaseMedicalContraband
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - ContraItem
+    - MedicalContraItem
+
+- type: entity
+  id: BaseSyndicateContraband
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - ContraItem
+    - SyndicateContraItem
+
+- type: entity
+  id: BaseGrandTheftContraband
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - ContraItem
+    - GrandTheftContraItem 
