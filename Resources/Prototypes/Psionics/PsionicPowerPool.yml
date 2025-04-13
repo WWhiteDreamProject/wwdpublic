@@ -1,8 +1,6 @@
 - type: weightedRandom
   id: RandomPsionicPowerPool
   weights:
-    MetapsionicPower: 1
-    AnoigoPower: 1
     DispelPower: 1
     #TelegnosisPower: 1
     PsionicRegenerationPower: 1
@@ -15,3 +13,10 @@
     TelekineticPulsePower: 0.15
     PyrokineticFlare: 0.5
     NoosphericZapPower: 0.5
+    # wwdp edit start
+    SummonImpPower: 0.3
+    AssayPower: 0.1
+    PyrokinesisPower: 0.1
+    DarkSwapPower: 0.1
+    RevivifyPower: 0.3
+    #wwdp edit end
