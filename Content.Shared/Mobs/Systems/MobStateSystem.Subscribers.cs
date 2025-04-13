@@ -176,18 +176,18 @@ public partial class MobStateSystem
                 break;
             case MobState.Critical:
                 if (component.DownWhenCrit)
-                    _standing.Down(target);
+                    _layingDown.TryLieDown(target, behavior:DropHeldItemsBehavior.AlwaysDrop); // WD EDIT
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Critical);
                 break;
             case MobState.SoftCritical:
                 if (component.DownWhenSoftCrit)
-                    _standing.Down(target);
+                    _layingDown.TryLieDown(target, behavior:DropHeldItemsBehavior.AlwaysDrop); // WD EDIT
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Critical);
                 break;
             case MobState.Dead:
                 EnsureComp<CollisionWakeComponent>(target);
                 if (component.DownWhenDead)
-                    _standing.Down(target);
+                    _layingDown.TryLieDown(target, behavior:DropHeldItemsBehavior.AlwaysDrop); // WD EDIT
 
                 if (_standing.IsDown(target) && TryComp<PhysicsComponent>(target, out var physics))
                     _physics.SetCanCollide(target, false, body: physics);
