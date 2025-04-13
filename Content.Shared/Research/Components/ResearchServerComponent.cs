@@ -44,7 +44,7 @@ public sealed partial class ResearchServerComponent : Component
     public TimeSpan ResearchConsoleUpdateTime = TimeSpan.FromSeconds(1);
 
     [DataField, AutoNetworkedField]
-    public float CurrentSoftCapMultiplier = 1;
+    public float SoftCapMultiplier = 1; // WD EDIT
 }
 
 /// <summary>

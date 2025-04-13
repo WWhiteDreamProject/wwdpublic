@@ -14,7 +14,7 @@ public sealed partial class TechnologyCardControl : Control
 {
     public Action? OnPressed;
 
-    public TechnologyCardControl(TechnologyPrototype technology, IPrototypeManager prototypeManager, SpriteSystem spriteSys, FormattedMessage description, int points, bool hasAccess, TechnologyDatabaseComponent database)
+    public TechnologyCardControl(TechnologyPrototype technology, IPrototypeManager prototypeManager, SpriteSystem spriteSys, FormattedMessage description, int points, float softCapMultiplier, bool hasAccess) // WD EDIT
     {
         RobustXamlLoader.Load(this);
 
@@ -34,7 +34,7 @@ public sealed partial class TechnologyCardControl : Control
         if (!hasAccess)
             ResearchButton.ToolTip = Loc.GetString("research-console-no-access-popup");
 
-        ResearchButton.Disabled = points < technology.Cost * database.SoftCapMultiplier || !hasAccess;
+        ResearchButton.Disabled = points < technology.Cost * softCapMultiplier || !hasAccess; // WD EDIT
         ResearchButton.OnPressed += _ => OnPressed?.Invoke();
     }
 }
