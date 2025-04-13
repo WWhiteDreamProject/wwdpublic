@@ -52,3 +52,47 @@
       sprite: _White/Clothing/Uniforms/Jumpsuit/sheriff.rsi
     - type: Clothing
       sprite: _White/Clothing/Uniforms/Jumpsuit/sheriff.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitOldEngineer
+  name: Old Engineer Jumpsuit
+  description: A variant of the Engineer Jumpsuit used by NanoTrasen in the early days of space exploration.
+  components:
+    - type: Sprite
+      sprite: _White/Clothing/Uniforms/Jumpsuit/old_engineer.rsi
+    - type: Clothing
+      sprite: _White/Clothing/Uniforms/Jumpsuit/old_engineer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitOldEngineerCasual
+  name: Casual Engineer Jumpsuit
+  description: A jumpsuit repainted black to blend with station walls.
+  components:
+    - type: Sprite
+      sprite: _White/Clothing/Uniforms/Jumpsuit/old_engineer_casual.rsi
+    - type: Clothing
+      sprite: _White/Clothing/Uniforms/Jumpsuit/old_engineer_casual.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitOldEngineerWorker
+  name: Old Engineer Working Jumpsuit
+  description: Another variation of old engineering jumpsuits.
+  components:
+    - type: Sprite
+      sprite: _White/Clothing/Uniforms/Jumpsuit/old_engineer_worker.rsi
+    - type: Clothing
+      sprite: _White/Clothing/Uniforms/Jumpsuit/old_engineer_worker.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineerPolar
+  name: Cold Environment Old Engineer Jumpsuit
+  description: Warm Engineer Jumpsuit.
+  components:
+    - type: Sprite
+      sprite: _White/Clothing/Uniforms/Jumpsuit/engineer_polar.rsi
+    - type: Clothing
+      sprite: _White/Clothing/Uniforms/Jumpsuit/engineer_polar.rsi

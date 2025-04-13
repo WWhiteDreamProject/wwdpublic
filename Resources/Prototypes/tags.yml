@@ -1050,6 +1050,9 @@
   id: Ore
 
 - type: Tag
+  id: Organ
+
+- type: Tag
   id: Packet
 
 - type: Tag
@@ -1193,6 +1196,9 @@
 
 - type: Tag
   id: RifleStock
+
+- type: Tag
+  id: Ring
 
 - type: Tag
   id: RipleyCentralControlModule
@@ -1352,6 +1358,9 @@
 
 - type: Tag
   id: Syringe
+
+- type: Tag
+  id: SyringeGunAmmo
 
 - type: Tag
   id: Spellbook
@@ -1519,3 +1528,9 @@
 
 - type: Tag
   id: UnathiEmotes
+
+- type: Tag
+  id: Gun
+
+- type: Tag
+  id: Weapon

@@ -29,7 +29,6 @@ using Content.Shared.Mobs.Components; // Goobstation
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
@@ -38,6 +37,7 @@ using Content.Shared.Projectiles;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech; // Goobstation
 using Content.Shared.Standing;
+using Content.Shared.StatusEffect;
 using Content.Shared.Throwing; // Goobstation
 using Content.Shared.Verbs;
 using Robust.Shared.Audio; // Goobstation
@@ -453,9 +453,6 @@ public sealed class PullingSystem : EntitySystem
             return;
 
         var entity = args.Entity;
-
-        if (ent.Comp.GrabStage == GrabStage.Soft)
-            TryStopPull(ent, ent, ent);
 
         if (!_blocker.CanMove(entity))
             return;

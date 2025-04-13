@@ -130,7 +130,7 @@ public partial class SharedMartialArtsSystem
         {
             if (TryComp<StaminaComponent>(target, out var stamina) && stamina.Critical)
                 _status.TryAddStatusEffect<ForcedSleepingComponent>(target, "ForcedSleep", TimeSpan.FromSeconds(10), true);
-                
+
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Head);
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage * 2 + 5, source: ent);
         }
@@ -152,6 +152,14 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
             return;
 
+        //WWDP EDIT START
+        if (_hands.TryGetActiveItem(target, out var activeItem)
+            && _hands.TryDrop(target, activeItem.Value)
+            && _hands.TryGetEmptyHand(target, out var emptyHand)
+            && _hands.TryPickupAnyHand(ent, activeItem.Value))
+            _hands.SetActiveHand(ent, emptyHand);
+        //WWDP EDIT END
+
         _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
         ComboPopup(ent, target, proto.Name);
@@ -163,11 +171,13 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
             return;
 
-        if (_hands.TryGetActiveItem(target, out var activeItem) // I know this looks horrible, but the disarm should happen BEFORE the stam dmg, and the popup should always show.
-            && _hands.TryDrop(target, activeItem.Value)
-            && _hands.TryGetEmptyHand(target, out var emptyHand)
-            && _hands.TryPickupAnyHand(ent, activeItem.Value))
-                _hands.SetActiveHand(ent, emptyHand);
+        //WWDP EDIT START
+        // if (_hands.TryGetActiveItem(target, out var activeItem) // I know this looks horrible, but the disarm should happen BEFORE the stam dmg, and the popup should always show.
+        //     && _hands.TryDrop(target, activeItem.Value)
+        //     && _hands.TryGetEmptyHand(target, out var emptyHand)
+        //     && _hands.TryPickupAnyHand(ent, activeItem.Value))
+        //         _hands.SetActiveHand(ent, emptyHand);
+        //WWDP EDIT END
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
         ComboPopup(ent, target, proto.Name);

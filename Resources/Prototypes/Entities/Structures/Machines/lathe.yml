@@ -336,6 +336,8 @@
     - SyringeCryostasis
     - Syringe
     - DisposableSyringe
+    - MiniSyringe
+    - SyringeGun
     - Implanter
     - PillCanister
     - ChemistryEmptyBottle01
@@ -415,6 +417,7 @@
     - EnergyCautery
     - AdvancedRetractor
     - VehicleWheelchairFolded # Goobstation
+    - Intellicard # WD
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - BoxBeanbag
@@ -618,6 +621,18 @@
     - SMESAdvancedMachineCircuitboard
     - BaseComputerModularCircuitBoard # Arcadis - Modular Computer System
     - DiskBurnerMachineCircuitboard # Arcadis - Modular Computer System
+    # WD edit start - constructible AI
+    - StationAICoreCircuitboard
+    - StationAiUploadCircuitboard
+    - AsimovCircuitBoard
+    - CorporateCircuitBoard
+    - NTDefaultCircuitBoard
+    - MotherDroneCircuitBoard
+    - NutimovCircuitBoard
+    - PaladinCircuitBoard
+    - RobocopCircuitBoard
+    - QuarantineCircuitBoard
+    # WD edit end
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - ShuttleGunDusterCircuitboard
@@ -729,7 +744,6 @@
     - BorgModuleAdvancedTool
     - BorgModuleGPS
     - BorgModuleRCD
-    - BorgModuleRPD
     - BorgModuleJetpack
     - BorgModulePka
     - BorgModuleArtifact
@@ -1273,6 +1287,8 @@
     - Jug
     - Syringe
     - DisposableSyringe
+    - MiniSyringe
+    - SyringeGun
     - Implanter
     - PillCanister
     - BodyBag
