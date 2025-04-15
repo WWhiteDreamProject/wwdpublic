@@ -600,9 +600,10 @@
     removalTime: 0.25
     embedOnThrow: true
   - type: SolutionInjectWhileEmbedded
-    transferAmount: 1
+    transferAmount: 0.5
     solution: injector
     updateInterval: 2
+    injections: 10
     pierceArmor: false
   - type: SolutionInjectOnEmbed
     transferAmount: 2
