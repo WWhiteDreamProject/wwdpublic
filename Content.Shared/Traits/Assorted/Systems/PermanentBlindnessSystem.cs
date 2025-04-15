@@ -22,7 +22,7 @@ public sealed class PermanentBlindnessSystem : EntitySystem
         SubscribeLocalEvent<PermanentBlindnessComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<PermanentBlindnessComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<PermanentBlindnessComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<PermanentBlindnessComponent, EyeDamageChangedEvent>(OnEyeDamageChanged);
+        SubscribeLocalEvent<PermanentBlindnessComponent, EyeDamageChangedEvent>(OnEyeDamageChanged); // WD ADD
     }
 
     private void OnExamined(Entity<Components.PermanentBlindnessComponent> blindness, ref ExaminedEvent args)
@@ -52,6 +52,8 @@ public sealed class PermanentBlindnessSystem : EntitySystem
         }
     }
     
+
+// WD EDIT START
     /// <summary>
     /// Handles eye healing attempts to ensure blindness from the trait cannot be cured
     /// </summary>
@@ -75,4 +77,5 @@ public sealed class PermanentBlindnessSystem : EntitySystem
         // Update blindness state after parameter changes
         _blinding.UpdateIsBlind(blindness.Owner);
     }
+// WD EDIT END
 }
