@@ -4,7 +4,8 @@ using Content.Shared.Clumsy;
 using Content.Shared.Interaction.Components;
 using Robust.Shared.Network;
 
-namespace Content.Server.Chat;
+-namespace Content.Server.Chat;
++namespace Content.Server._White.Chat;
 
 public sealed class FunnyFontsChatSystem : EntitySystem
 {
