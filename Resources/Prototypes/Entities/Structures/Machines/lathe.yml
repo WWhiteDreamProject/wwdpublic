@@ -1021,6 +1021,8 @@
     - BoxShotgunBirdshot
     - BoxShotgun00Buckshot
     - BoxShotgun0000Buckshot
+    - MagazineUniversalMagnumEmpty
+    - MagazineUniversalMagnum
     dynamicRecipes:
     # WWDP gun bloat moved to tier 1 Arsenal research
     - MagazineLightRifleLowCapacityEmpty
@@ -1163,6 +1165,10 @@
     - MagazineBoxCaselessRifleShrapnel
     - MagazineBoxCaselessRifleIncendiary
     - MagazineBoxCaselessRifleUranium
+    - MagazineUniversalMagnumUranium
+    - MagazineUniversalMagnumIncendiary
+    - MagazineUniversalMagnumShrapnel
+    - WeaponPistolUniversal
   - type: MaterialStorage
     whitelist:
       tags:
