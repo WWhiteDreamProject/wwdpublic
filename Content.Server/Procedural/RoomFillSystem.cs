@@ -35,8 +35,10 @@ public sealed class RoomFillSystem : EntitySystem
                     _maps.LocalToTile(xform.GridUid.Value, mapGrid, xform.Coordinates),
                     room,
                     random,
-                    clearExisting: component.ClearExisting,
-                    rotation: component.Rotation);
+                    null,
+                    xform.LocalRotation,
+                    component.ClearExisting,
+                    component.Rotation);
             }
             else
             {
