@@ -2605,3 +2605,10 @@ Entries:
   id: 279
   time: '2025-04-16T05:04:14.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/442
+- author: Kutos
+  changes:
+    - type: Tweak
+      message: Замедление скафандра бригмедика 35% -> 25%
+  id: 280
+  time: '2025-04-16T05:08:29.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/453
