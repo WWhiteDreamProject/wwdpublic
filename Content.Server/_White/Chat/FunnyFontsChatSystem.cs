@@ -4,8 +4,7 @@ using Content.Shared.Clumsy;
 using Content.Shared.Interaction.Components;
 using Robust.Shared.Network;
 
--namespace Content.Server.Chat;
-+namespace Content.Server._White.Chat;
+namespace Content.Server.Chat;
 
 public sealed class FunnyFontsChatSystem : EntitySystem
 {
@@ -17,7 +16,7 @@ public sealed class FunnyFontsChatSystem : EntitySystem
 
     private void OnTransformSpeech(TransformSpeechEvent ev)
     {
-        if(TryComp(ev.Sender, out VoiceMaskComponent? mask) && mask.VoiceMaskName != null) 
+        if (TryComp(ev.Sender, out VoiceMaskComponent? mask) && mask.VoiceMaskName != null)
             return;
 
         if (TryComp<ClumsyComponent>(ev.Sender, out _))
@@ -25,4 +24,4 @@ public sealed class FunnyFontsChatSystem : EntitySystem
             ev.Message = $"[font=\"ComicSansMS\"]{ev.Message}[/font]";
         }
     }
-} 
+}
