@@ -2598,3 +2598,10 @@ Entries:
   id: 278
   time: '2025-04-13T09:56:07.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/401
+- author: HSKveez
+  changes:
+    - type: Fix
+      message: Фелиниды снова открывают шлюзы при касании и могут пилотировать
+  id: 279
+  time: '2025-04-16T05:04:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/442
