@@ -2612,3 +2612,10 @@ Entries:
   id: 280
   time: '2025-04-16T05:08:29.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/453
+- author: Kutos
+  changes:
+    - type: Fix
+      message: Рецепт для головы сервисного борга
+  id: 281
+  time: '2025-04-17T20:20:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/457
