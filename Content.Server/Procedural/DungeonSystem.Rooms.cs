@@ -72,7 +72,7 @@ public sealed partial class DungeonSystem
         bool rotation = false)
     {
         var originTransform = Matrix3Helpers.CreateTranslation(origin.X, origin.Y);
-        var roomRotation = roomRot;
+        var roomRotation = roomRot; // WD EDIT
 
         if (rotation && roomRot == Angle.Zero)
         {
