@@ -109,3 +109,5 @@ humanoid-profile-editor-loadouts-heirloom-tooltip = Whichever loadouts you choos
 
 humanoid-profile-editor-markings-tab = Markings
 humanoid-profile-editor-flavortext-tab = Description
+
+humanoid-profile-editor-clown-name-label = Clown Nickname:

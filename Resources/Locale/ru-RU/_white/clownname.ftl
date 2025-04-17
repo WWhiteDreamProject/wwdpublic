@@ -1,1 +1,0 @@
-humanoid-profile-editor-clown-name-label = Кличка клоуна: 

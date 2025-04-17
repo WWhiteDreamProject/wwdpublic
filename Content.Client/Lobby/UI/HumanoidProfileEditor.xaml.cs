@@ -113,6 +113,9 @@ namespace Content.Client.Lobby.UI
         [ValidatePrototypeId<DatasetPrototype>]
         private const string CyborgNames = "names_borg";
 
+        [ValidatePrototypeId<LocalizedDatasetPrototype>]
+        private const string ClownNames = "ClownNames";
+
         public HumanoidProfileEditor(
             IClientPreferencesManager preferencesManager,
             IConfigurationManager cfgManager,
@@ -245,18 +248,24 @@ namespace Content.Client.Lobby.UI
 
             _customizeStationAiName = _cfgManager.GetCVar(CCVars.AllowCustomStationAiName);
             _customizeBorgName = _cfgManager.GetCVar(CCVars.AllowCustomCyborgName);
+            _customizeClownName = _cfgManager.GetCVar(CCVars.AllowCustomClownName);
 
             _cfgManager.OnValueChanged(CCVars.AllowCustomStationAiName, OnChangedStationAiNameCustomizationValue);
             _cfgManager.OnValueChanged(CCVars.AllowCustomCyborgName, OnChangedCyborgNameCustomizationValue);
+            _cfgManager.OnValueChanged(CCVars.AllowCustomClownName, OnChangedClownNameCustomizationValue);
 
             StationAINameEdit.OnTextChanged += args => { SetStationAiName(args.Text); };
             CyborgNameEdit.OnTextChanged += args => { SetCyborgName(args.Text); };
+            ClownNameEdit.OnTextChanged += args => { SetClownName(args.Text); };
 
             if (StationAiNameContainer.Visible != _customizeStationAiName)
                 StationAiNameContainer.Visible = _customizeStationAiName;
 
             if (CyborgNameContainer.Visible != _customizeBorgName)
                 CyborgNameContainer.Visible = _customizeBorgName;
+                
+            if (ClownNameContainer.Visible != _customizeClownName)
+                ClownNameContainer.Visible = _customizeClownName;
 
             #endregion
 
