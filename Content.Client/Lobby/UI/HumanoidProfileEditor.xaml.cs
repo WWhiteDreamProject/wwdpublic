@@ -98,14 +98,7 @@ namespace Content.Client.Lobby.UI
         private bool _customizePronouns;
         private bool _customizeStationAiName;
         private bool _customizeBorgName;
-        // WD EDIT START
-        private bool _customizeClownName;
-        private LineEdit _cyborgNameEdit => CyborgNameEdit;
-        private BoxContainer _cyborgNameContainer => CyborgNameContainer;
-        private LineEdit _clownNameEdit => ClownNameEdit;
-        private BoxContainer _clownNameContainer => ClownNameContainer;
-        private Button _clownNameRandomButton => ClownNameRandomize;
-        // WD EDIT END
+        private bool _customizeClownName; // WD EDIT
 
         public event Action<HumanoidCharacterProfile, int>? OnProfileChanged;
 
