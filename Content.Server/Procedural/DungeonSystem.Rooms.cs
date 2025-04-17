@@ -212,8 +212,10 @@ public sealed partial class DungeonSystem
                 var position = Vector2.Transform(decal.Coordinates + Vector2Helpers.Half - roomCenter, roomTransform);
                 position -= Vector2Helpers.Half;
 
+                // WD EDIT START
                 if (!clearExisting && reservedTiles?.Contains(position.Floored()) == true)
                     continue;
+                // WD EDI END
 
                 // Umm uhh I love decals so uhhhh idk what to do about this
                 var angle = (decal.Angle + finalRoomRotation).Reduced();
