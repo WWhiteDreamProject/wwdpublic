@@ -343,7 +343,6 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             Voice = voiceId, // WD EDIT
             BodyType = bodyType, // WD EDIT
             Species = species,
-            ClownName = clownName, // WD EDIT
             Appearance = HumanoidCharacterAppearance.Random(species, sex),
             Nationality = SharedHumanoidAppearanceSystem.DefaultNationality,
             Employer = SharedHumanoidAppearanceSystem.DefaultEmployer,
