@@ -249,7 +249,6 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     /// <returns></returns>
     public HumanoidCharacterProfile()
     {
-        ClownName = "HONK"; // WD EDIT
     }
 
     /// <summary>
