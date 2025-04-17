@@ -1804,8 +1804,7 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            _clownNameContainer.Visible = _customizeClownName;
-            _clownNameEdit.Text = Profile.ClownName ?? "";
+            ClownNameEdit.Text = Profile.ClownName ?? string.Empty;
 
             if (_clownNameEdit.Text != string.Empty)
                 return;
