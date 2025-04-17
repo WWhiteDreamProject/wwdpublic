@@ -1788,8 +1788,7 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            _cyborgNameContainer.Visible = _customizeBorgName;
-            _cyborgNameEdit.Text = Profile.CyborgName ?? "";
+            CyborgNameEdit.Text = Profile.CyborgName ?? string.Empty;
 
             if (CyborgNameEdit.Text != string.Empty)
                 return;
