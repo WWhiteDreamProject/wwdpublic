@@ -217,6 +217,7 @@
   result: RightLegBorgService
 
 - type: latheRecipe
+  parent: BaseBorgLimbRecipe
   id: HeadBorgService
   result: HeadBorgService
 
