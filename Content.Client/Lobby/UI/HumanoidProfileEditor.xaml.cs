@@ -113,8 +113,10 @@ namespace Content.Client.Lobby.UI
         [ValidatePrototypeId<DatasetPrototype>]
         private const string CyborgNames = "names_borg";
 
+        // WD EDIT START
         [ValidatePrototypeId<LocalizedDatasetPrototype>]
         private const string ClownNames = "ClownNames";
+        // WD EDIT END
 
         public HumanoidProfileEditor(
             IClientPreferencesManager preferencesManager,
