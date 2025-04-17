@@ -329,11 +329,6 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
         var name = GetName(species, gender);
 
-        // WD EDIT START
-        var namingSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<NamingSystem>();
-        var clownName = namingSystem.GetClownName();
-        // WD EDIT END
-
         return new HumanoidCharacterProfile()
         {
             Name = name,
