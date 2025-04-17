@@ -254,7 +254,7 @@ namespace Content.Client.Lobby.UI
 
             _cfgManager.OnValueChanged(CCVars.AllowCustomStationAiName, OnChangedStationAiNameCustomizationValue);
             _cfgManager.OnValueChanged(CCVars.AllowCustomCyborgName, OnChangedCyborgNameCustomizationValue);
-            _cfgManager.OnValueChanged(CCVars.AllowCustomClownName, OnChangedClownNameCustomizationValue);
+            _cfgManager.OnValueChanged(WhiteCVars.AllowCustomClownName, OnChangedClownNameCustomizationValue); // WD EDIT
 
             StationAINameEdit.OnTextChanged += args => { SetStationAiName(args.Text); };
             CyborgNameEdit.OnTextChanged += args => { SetCyborgName(args.Text); };
