@@ -25,9 +25,9 @@
     granularLayersRendering: true
     layers:
     - state: red
-    - sprite: _white/SpawnMarkers/genmarks.rsi
+    - sprite: _White/SpawnMarkers/genmarks.rsi
       state: gen5x5
-    - sprite: _white/SpawnMarkers/Marklines/green/mark_line5x5.rsi
+    - sprite: _White/SpawnMarkers/Marklines/green/mark_line5x5.rsi
       state: 5x5
       offset: 2, 2
       renderingStrategy: NoRotation
