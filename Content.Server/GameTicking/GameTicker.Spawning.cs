@@ -46,6 +46,9 @@ namespace Content.Server.GameTicking
         [ValidatePrototypeId<JobPrototype>]
         public const string CyborgJobPrototypeName = "Borg";
 
+        [ValidatePrototypeId<JobPrototype>]
+        public const string ClownJobPrototypeName = "Clown";
+
         /// <summary>
         /// How many players have joined the round through normal methods.
         /// Useful for game rules to look at. Doesn't count observers, people in lobby, etc.

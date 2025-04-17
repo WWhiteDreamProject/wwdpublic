@@ -9,6 +9,7 @@ using Content.Client.Players.PlayTimeTracking;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared._EE.Contractors.Prototypes;
+using Content.Shared._White;
 using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Components;
