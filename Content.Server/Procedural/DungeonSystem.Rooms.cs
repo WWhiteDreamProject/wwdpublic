@@ -65,8 +65,10 @@ public sealed partial class DungeonSystem
         DungeonRoomPrototype room,
         Random random,
         // WD EDIT START
+        // WD EDIT START
         HashSet<Vector2i>? reservedTiles = null,
         Angle roomRot = default,
+        // WD EDIT END
         // WD EDIT END
         bool clearExisting = false,
         bool rotation = false)
