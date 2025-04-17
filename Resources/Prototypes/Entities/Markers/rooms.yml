@@ -10,4 +10,4 @@
     layers:
       - state: red
       - sprite: Mobs/Aliens/elemental.rsi
-        state: alive 
+        state: alive
