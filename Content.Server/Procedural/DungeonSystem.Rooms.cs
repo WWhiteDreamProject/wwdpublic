@@ -84,7 +84,7 @@ public sealed partial class DungeonSystem
         var roomTransform = Matrix3Helpers.CreateTransform((Vector2) room.Size / 2f, roomRotation);
         var finalTransform = Matrix3x2.Multiply(roomTransform, originTransform);
 
-        SpawnRoom(gridUid, grid, finalTransform, room, reservedTiles, clearExisting);
+        SpawnRoom(gridUid, grid, finalTransform, room, reservedTiles, clearExisting); // WD EDIT - reservedTiles
     }
 
     public Angle GetRoomRotation(DungeonRoomPrototype room, Random random)
