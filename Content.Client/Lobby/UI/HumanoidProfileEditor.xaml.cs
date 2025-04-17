@@ -1806,7 +1806,7 @@ namespace Content.Client.Lobby.UI
 
             ClownNameEdit.Text = Profile.ClownName ?? string.Empty;
 
-            if (_clownNameEdit.Text != string.Empty)
+            if (ClownNameEdit.Text != string.Empty)
                 return;
 
             _clownNameEdit.PlaceHolder = HumanoidCharacterProfile.GetClownName();
