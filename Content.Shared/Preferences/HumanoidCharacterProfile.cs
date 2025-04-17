@@ -660,14 +660,6 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         return namingSystem.GetName(species, gender);
     }
 
-    // WD EDIT START
-    public static string GetClownName()
-    {
-        var namingSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<NamingSystem>();
-        return namingSystem.GetClownName();
-    }
-    // WD EDIT END
-
     public override bool Equals(object? obj)
     {
         return ReferenceEquals(this, obj) || obj is HumanoidCharacterProfile other && MemberwiseEquals(other);
