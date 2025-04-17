@@ -258,7 +258,7 @@ namespace Content.Client.Lobby.UI
 
             StationAINameEdit.OnTextChanged += args => { SetStationAiName(args.Text); };
             CyborgNameEdit.OnTextChanged += args => { SetCyborgName(args.Text); };
-            ClownNameEdit.OnTextChanged += args => { SetClownName(args.Text); };
+            ClownNameEdit.OnTextChanged += args => { SetClownName(args.Text); }; // WD EDIT
 
             if (StationAiNameContainer.Visible != _customizeStationAiName)
                 StationAiNameContainer.Visible = _customizeStationAiName;
