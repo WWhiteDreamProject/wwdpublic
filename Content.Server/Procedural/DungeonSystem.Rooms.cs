@@ -109,7 +109,7 @@ public sealed partial class DungeonSystem
         MapGridComponent grid,
         Matrix3x2 roomTransform,
         DungeonRoomPrototype room,
-        HashSet<Vector2i>? reservedTiles = null,
+        HashSet<Vector2i>? reservedTiles = null, // WD EDIT
         bool clearExisting = false)
     {
         // Ensure the underlying template exists.
