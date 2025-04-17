@@ -294,7 +294,7 @@ namespace Content.Server.Database
             profile.DisplayPronouns = humanoid.DisplayPronouns;
             profile.StationAiName = humanoid.StationAiName;
             profile.CyborgName = humanoid.CyborgName;
-            profile.ClownName = humanoid.ClownName;
+            profile.ClownName = humanoid.ClownName; // WD EDIT
             profile.Height = humanoid.Height;
             profile.Width = humanoid.Width;
             profile.HairName = appearance.HairStyleId;
