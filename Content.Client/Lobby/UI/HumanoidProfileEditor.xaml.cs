@@ -266,8 +266,10 @@ namespace Content.Client.Lobby.UI
             if (CyborgNameContainer.Visible != _customizeBorgName)
                 CyborgNameContainer.Visible = _customizeBorgName;
                 
+            // WD EDIT START
             if (ClownNameContainer.Visible != _customizeClownName)
                 ClownNameContainer.Visible = _customizeClownName;
+            // WD EDIT END
 
             #endregion
 
