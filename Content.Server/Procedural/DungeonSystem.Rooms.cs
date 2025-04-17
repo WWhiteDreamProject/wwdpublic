@@ -158,8 +158,10 @@ public sealed partial class DungeonSystem
                 var tilePos = Vector2.Transform(indices + tileOffset, roomTransform);
                 var rounded = tilePos.Floored();
 
+                // WD EDIT START
                 if (!clearExisting && reservedTiles?.Contains(rounded) == true)
                     continue;
+                // WD EDIT END
 
                 _tiles.Add((rounded, tileRef.Tile));
             }
