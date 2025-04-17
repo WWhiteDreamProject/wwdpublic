@@ -1462,12 +1462,6 @@ namespace Content.Client.Lobby.UI
             Profile = Profile?.WithClownName(clownName);
             IsDirty = true;
         }
-        
-        private void RandomizeClownName()
-        {
-            SetClownName(HumanoidCharacterProfile.GetClownName());
-            UpdateClownControls();
-        }
         // WD EDIT END
 
         private string GetFormattedPronounsFromGender()
