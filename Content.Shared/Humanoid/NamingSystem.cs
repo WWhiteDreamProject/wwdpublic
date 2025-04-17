@@ -3,7 +3,6 @@ using Content.Shared.Dataset;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Enums;
-using System.Collections.Generic;
 
 namespace Content.Shared.Humanoid
 {
