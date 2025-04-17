@@ -243,7 +243,7 @@ namespace Content.Server.Database
                 profile.DisplayPronouns,
                 profile.StationAiName,
                 profile.CyborgName,
-                profile.ClownName,
+                profile.ClownName, // WD EDIT
                 new HumanoidCharacterAppearance(
                     profile.HairName,
                     Color.FromHex(profile.HairColor),
