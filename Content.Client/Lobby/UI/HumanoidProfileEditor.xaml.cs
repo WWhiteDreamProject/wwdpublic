@@ -590,12 +590,6 @@ namespace Content.Client.Lobby.UI
 
             ReloadPreview();
             IsDirty = false;
-
-            // WD EDIT START
-            ClownNameRandomize.OnPressed += _ => RandomizeClownName();
-
-            ClownNameEdit.OnTextChanged += args => { SetClownName(args.Text); };
-            // WD EDIT END
         }
 
         /// Refreshes the flavor text editor status
