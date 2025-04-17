@@ -634,7 +634,7 @@ namespace Content.Client.Lobby.UI
         private void OnChangedCyborgNameCustomizationValue(bool newValue)
         {
             _customizeBorgName = newValue;
-            UpdateCyborgControls();
+            CyborgNameContainer.Visible = newValue;
         }
         
         // WD EDIT START
