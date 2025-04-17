@@ -76,7 +76,7 @@ public sealed partial class DungeonSystem
         var originTransform = Matrix3Helpers.CreateTranslation(origin.X, origin.Y);
         var roomRotation = roomRot; // WD EDIT
 
-        if (rotation && roomRot == Angle.Zero)
+        if (rotation && roomRot == Angle.Zero) // WD EDIT
         {
             roomRotation = GetRoomRotation(room, random);
         }
