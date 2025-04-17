@@ -2,19 +2,21 @@
 # Backpacks
 
 # Belt
-- type: loadout
-  id: LoadoutClothingBeltJudo
-  category: JobsSecuritySeniorOfficer
-  cost: 2
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityBelt
-  - !type:CharacterJobRequirement
-    jobs:
-    - SeniorOfficer
-  items:
-  - ClothingBeltCorporateJudoFilled
+# WD EDIT START
+# - type: loadout
+#   id: LoadoutClothingBeltJudo
+#   category: JobsSecuritySeniorOfficer
+#   cost: 2
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityBelt
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - SeniorOfficer
+#   items:
+#   - ClothingBeltCorporateJudoFilled
+# WD EDIT END
 # Ears
 
 # Equipment
@@ -54,24 +56,26 @@
   items:
   - WeaponPistolUniversalSecurity
 
-- type: loadout
-  id: LoadoutSecurityPistolUniversalNonLethal
-  category: JobsSecuritySeniorOfficer
-  cost: 6
-  canBeHeirloom: true
-  guideEntry: SecurityWeapons
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityWeapons
-  - !type:CharacterJobRequirement
-    jobs:
-    - SeniorOfficer
-    - HeadOfSecurity
-    - BlueshieldOfficer
-  - !type:CharacterAgeRequirement
-    min: 21
-  items:
-  - WeaponPistolUniversalSecurityNonLethal
+# WD EDIT START
+# - type: loadout
+#   id: LoadoutSecurityPistolUniversalNonLethal
+#   category: JobsSecuritySeniorOfficer
+#   cost: 6
+#   canBeHeirloom: true
+#   guideEntry: SecurityWeapons
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityWeapons
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - SeniorOfficer
+#     - HeadOfSecurity
+#     - BlueshieldOfficer
+#   - !type:CharacterAgeRequirement
+#     min: 21
+#   items:
+#   - WeaponPistolUniversalSecurityNonLethal
+# WD EDIT END
 
 - type: loadout
   id: LoadoutMagazineUniversalMagnum
@@ -111,43 +115,45 @@
   items:
   - MagazineUniversalMagnum
 
-- type: loadout
-  id: LoadoutMagazineUniversalMagnumRubber
-  category: JobsSecuritySeniorOfficer
-  cost: 4
-  canBeHeirloom: true
-  guideEntry: SecurityWeapons
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityEquipment
-  - !type:CharacterJobRequirement
-    jobs:
-    - SeniorOfficer
-    - HeadOfSecurity
-    - BlueshieldOfficer
-  - !type:CharacterAgeRequirement
-    min: 21
-  items:
-  - MagazineUniversalMagnumRubber
+# WD EDIT START
+# - type: loadout
+#   id: LoadoutMagazineUniversalMagnumRubber
+#   category: JobsSecuritySeniorOfficer
+#   cost: 4
+#   canBeHeirloom: true
+#   guideEntry: SecurityWeapons
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityEquipment
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - SeniorOfficer
+#     - HeadOfSecurity
+#     - BlueshieldOfficer
+#   - !type:CharacterAgeRequirement
+#     min: 21
+#   items:
+#   - MagazineUniversalMagnumRubber
 
-- type: loadout
-  id: LoadoutMagazineUniversalMagnumRubberSpare
-  category: JobsSecuritySeniorOfficer
-  cost: 4
-  canBeHeirloom: true
-  guideEntry: SecurityWeapons
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityEquipment
-  - !type:CharacterJobRequirement
-    jobs:
-    - SeniorOfficer
-    - HeadOfSecurity
-    - BlueshieldOfficer
-  - !type:CharacterAgeRequirement
-    min: 21
-  items:
-  - MagazineUniversalMagnumRubber
+# - type: loadout
+#   id: LoadoutMagazineUniversalMagnumRubberSpare
+#   category: JobsSecuritySeniorOfficer
+#   cost: 4
+#   canBeHeirloom: true
+#   guideEntry: SecurityWeapons
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityEquipment
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - SeniorOfficer
+#     - HeadOfSecurity
+#     - BlueshieldOfficer
+#   - !type:CharacterAgeRequirement
+#     min: 21
+#   items:
+#   - MagazineUniversalMagnumRubber
+# WD EDIT END
 
 # Eyes
 

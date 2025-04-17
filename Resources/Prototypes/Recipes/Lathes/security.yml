@@ -624,14 +624,16 @@
   materials:
     Steel: 200
 
-- type: latheRecipe
-  id: MagazineUniversalMagnumRubber
-  result: MagazineUniversalMagnumRubber
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 70
-    Plastic: 170
+# WD EDIT START
+# - type: latheRecipe
+#   id: MagazineUniversalMagnumRubber
+#   result: MagazineUniversalMagnumRubber
+#   category: Ammo
+#   completetime: 5
+#   materials:
+#     Steel: 70
+#     Plastic: 170
+# WD EDIT END
 
 - type: latheRecipe
   id: MagazineUniversalMagnumUranium
