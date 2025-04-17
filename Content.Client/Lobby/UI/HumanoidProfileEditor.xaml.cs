@@ -1809,7 +1809,9 @@ namespace Content.Client.Lobby.UI
             if (ClownNameEdit.Text != string.Empty)
                 return;
 
-            _clownNameEdit.PlaceHolder = HumanoidCharacterProfile.GetClownName();
+            var clownNames = _prototypeManager.Index<LocalizedDatasetPrototype>(ClownNames);
+            var randomName = _random.Pick(clownNames.Values);
+            ClownNameEdit.PlaceHolder = Loc.GetString(randomName);
         }
         // WD EDIT END
 
