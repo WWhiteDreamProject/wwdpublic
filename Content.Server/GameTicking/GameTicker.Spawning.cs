@@ -272,7 +272,7 @@ namespace Content.Server.GameTicking
 
             // WD EDIT START
             // Setting the clown nickname if player chooses the clown profession
-            if (jobPrototype.ID == "Clown" && character.ClownName != null)
+            if (jobPrototype.ID == ClownJobPrototypeName && character.ClownName != null)
             {
                 // Simply set the nickname as the clown's name
                 EnsureComp<RandomMetadataExcludedComponent>(mob);
