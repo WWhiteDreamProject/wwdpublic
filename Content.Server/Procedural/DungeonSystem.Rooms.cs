@@ -179,8 +179,11 @@ public sealed partial class DungeonSystem
             var templateXform = _xformQuery.GetComponent(templateEnt);
             var childPos = Vector2.Transform(templateXform.LocalPosition - roomCenter, roomTransform);
 
+            // WD EDIT START
             if (!clearExisting && reservedTiles?.Contains(childPos.Floored()) == true)
                 continue;
+            // WD EDIT END
+                
 
             var childRot = templateXform.LocalRotation + finalRoomRotation;
             var protoId = _metaQuery.GetComponent(templateEnt).EntityPrototype?.ID;
