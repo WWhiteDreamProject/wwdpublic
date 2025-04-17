@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Warete",
+    "size": {
+        "x": 320,
+        "y": 160
+    },
+    "states": [
+	    {
+            "name": "10x5"
+        }
+    ]
+}
