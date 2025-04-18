@@ -772,6 +772,7 @@
   id: RestrictedGear
   category: Physical
   points: -10
+  enable: false # WD EDIT
   requirements:
   - !type:CVarRequirement
     cvar: trait.restrictedgear_enabled
