@@ -35,6 +35,16 @@ public sealed class WhiteCVars
 
     #endregion
 
+    #region Character Customization
+    
+    /// <summary>
+    /// Players to set their own clown names.
+    /// </summary>
+    public static readonly CVarDef<bool> AllowCustomClownName =
+        CVarDef.Create("customize.allow_custom_clown_name", true, CVar.REPLICATED);
+    
+    #endregion
+
     #region TTS
 
         /// <summary>

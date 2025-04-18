@@ -9,6 +9,7 @@ using Content.Client.Players.PlayTimeTracking;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared._EE.Contractors.Prototypes;
+using Content.Shared._White;
 using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Components;
@@ -99,6 +100,7 @@ namespace Content.Client.Lobby.UI
         private bool _customizePronouns;
         private bool _customizeStationAiName;
         private bool _customizeBorgName;
+        private bool _customizeClownName; // WD EDIT
 
         public event Action<HumanoidCharacterProfile, int>? OnProfileChanged;
 
@@ -112,6 +114,11 @@ namespace Content.Client.Lobby.UI
 
         [ValidatePrototypeId<DatasetPrototype>]
         private const string CyborgNames = "names_borg";
+
+        // WD EDIT START
+        [ValidatePrototypeId<LocalizedDatasetPrototype>]
+        private const string ClownNames = "ClownNames";
+        // WD EDIT END
 
         public HumanoidProfileEditor(
             IClientPreferencesManager preferencesManager,
@@ -245,18 +252,26 @@ namespace Content.Client.Lobby.UI
 
             _customizeStationAiName = _cfgManager.GetCVar(CCVars.AllowCustomStationAiName);
             _customizeBorgName = _cfgManager.GetCVar(CCVars.AllowCustomCyborgName);
+            _customizeClownName = _cfgManager.GetCVar(WhiteCVars.AllowCustomClownName); // WD EDIT
 
             _cfgManager.OnValueChanged(CCVars.AllowCustomStationAiName, OnChangedStationAiNameCustomizationValue);
             _cfgManager.OnValueChanged(CCVars.AllowCustomCyborgName, OnChangedCyborgNameCustomizationValue);
+            _cfgManager.OnValueChanged(WhiteCVars.AllowCustomClownName, OnChangedClownNameCustomizationValue); // WD EDIT
 
             StationAINameEdit.OnTextChanged += args => { SetStationAiName(args.Text); };
             CyborgNameEdit.OnTextChanged += args => { SetCyborgName(args.Text); };
+            ClownNameEdit.OnTextChanged += args => { SetClownName(args.Text); }; // WD EDIT
 
             if (StationAiNameContainer.Visible != _customizeStationAiName)
                 StationAiNameContainer.Visible = _customizeStationAiName;
 
             if (CyborgNameContainer.Visible != _customizeBorgName)
                 CyborgNameContainer.Visible = _customizeBorgName;
+                
+            // WD EDIT START
+            if (ClownNameContainer.Visible != _customizeClownName)
+                ClownNameContainer.Visible = _customizeClownName;
+            // WD EDIT END
 
             #endregion
 
@@ -646,6 +661,14 @@ namespace Content.Client.Lobby.UI
             _customizeBorgName = newValue;
             CyborgNameContainer.Visible = newValue;
         }
+        
+        // WD EDIT START
+        private void OnChangedClownNameCustomizationValue(bool newValue)
+        {
+            _customizeClownName = newValue;
+            UpdateClownControls();
+        }
+        // WD EDIT END
 
         /// Refreshes the species selector
         public void RefreshSpecies()
@@ -915,6 +938,7 @@ namespace Content.Client.Lobby.UI
             UpdateDisplayPronounsControls();
             UpdateStationAiControls();
             UpdateCyborgControls();
+            UpdateClownControls(); // WD EDIT
             UpdateSkinColor();
             UpdateSpawnPriorityControls();
             UpdateFlavorTextEdit();
@@ -1481,9 +1505,16 @@ namespace Content.Client.Lobby.UI
         private void SetCyborgName(string? cyborgName)
         {
             Profile = Profile?.WithCyborgName(cyborgName);
-            ReloadPreview();
             IsDirty = true;
         }
+        
+        // WD EDIT START
+        private void SetClownName(string? clownName)
+        {
+            Profile = Profile?.WithClownName(clownName);
+            IsDirty = true;
+        }
+        // WD EDIT END
 
         private string GetFormattedPronounsFromGender()
         {
@@ -1821,6 +1852,23 @@ namespace Content.Client.Lobby.UI
             var randomName = _random.Pick(borgNames.Values);
             CyborgNameEdit.PlaceHolder = Loc.GetString(randomName);
         }
+
+        // WD EDIT START
+        private void UpdateClownControls()
+        {
+            if (Profile == null)
+                return;
+
+            ClownNameEdit.Text = Profile.ClownName ?? string.Empty;
+
+            if (ClownNameEdit.Text != string.Empty)
+                return;
+
+            var clownNames = _prototypeManager.Index<LocalizedDatasetPrototype>(ClownNames);
+            var randomName = _random.Pick(clownNames.Values);
+            ClownNameEdit.PlaceHolder = Loc.GetString(randomName);
+        }
+        // WD EDIT END
 
         private void UpdateSpawnPriorityControls()
         {
