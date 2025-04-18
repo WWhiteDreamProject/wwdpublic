@@ -2633,3 +2633,10 @@ Entries:
   id: 283
   time: '2025-04-18T05:18:57.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/433
+- author: Kutos
+  changes:
+    - type: Tweak
+      message: 'Усиление шприцеметов '
+  id: 284
+  time: '2025-04-18T05:19:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/450
