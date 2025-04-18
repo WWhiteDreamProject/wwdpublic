@@ -8,7 +8,7 @@
   id: MultiWand
   name: wizard wand
   description: Apparently a wand used by the wizard.
-  parent: [BaseItem, BaseMagicContraband]
+  parent: [BaseItem]
   suffix: DO NOT MAP
   categories: [ DoNotMap ]
   components:
@@ -84,7 +84,7 @@
     onActivate: false
     onUse: false
     wieldToggle: false
-  - type: ItemToggleColor
+#  - type: ItemToggleColor UNCOMMENT WHEN PORTED
   - type: PointLight
     enabled: true
     radius: 1.5

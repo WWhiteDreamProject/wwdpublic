@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Beam;
 using Content.Server.Beam.Components;
+using Content.Server.Kitchen.Components;
 using Content.Server.Lightning.Components;
 using Content.Shared.Lightning;
 using Content.Shared.Physics;
@@ -49,25 +50,6 @@ public sealed class LightningSystem : SharedLightningSystem
         }
 
         beamController.CreatedBeams.Remove(uid);
-    }
-
-    /// <summary>
-    /// Fires lightning from user to target
-    /// </summary>
-    /// <param name="user">Where the lightning fires from</param>
-    /// <param name="target">Where the lightning fires to</param>
-    /// <param name="lightningPrototype">The prototype for the lightning to be created</param>
-    /// <param name="triggerLightningEvents">if the lightnings being fired should trigger lightning events.</param>
-    public void ShootLightning(EntityUid user, EntityUid target, string lightningPrototype = "Lightning", bool triggerLightningEvents = true)
-    {
-        var spriteState = LightningRandomizer();
-        _beam.TryCreateBeam(user, target, lightningPrototype, spriteState);
-
-        if (triggerLightningEvents) // we don't want certain prototypes to trigger lightning level events
-        {
-            var ev = new HitByLightningEvent(user, target);
-            RaiseLocalEvent(target, ref ev);
-        }
     }
 
         /// <summary>
@@ -314,6 +296,7 @@ public sealed class LightningSystem : SharedLightningSystem
 
         _beam.AccumulateIndex(); // Goobstation
     }
+
 }
 
 /// <summary>

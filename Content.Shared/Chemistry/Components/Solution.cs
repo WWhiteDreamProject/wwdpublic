@@ -486,17 +486,6 @@ namespace Content.Shared.Chemistry.Components
             return RemoveReagent(new ReagentQuantity(prototype, quantity, data));
         }
 
-        /// <summary>
-        ///     Attempts to remove an amount of reagent from the solution.
-        /// </summary>
-        /// <param name="reagentId">The reagent to be removed.</param>
-        /// <param name="quantity">The amount of reagent to remove.</param>
-        /// <returns>How much reagent was actually removed. Zero if the reagent is not present on the solution.</returns>
-        public FixedPoint2 RemoveReagent(ReagentId reagentId, FixedPoint2 quantity, bool preserveOrder = false)
-        {
-            return RemoveReagent(new ReagentQuantity(reagentId, quantity), preserveOrder);
-        }
-
         public void RemoveAllSolution()
         {
             Contents.Clear();

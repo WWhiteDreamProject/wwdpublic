@@ -32,7 +32,7 @@ public sealed partial class CanWieldPrecondition : HTNPrecondition
             return false ^ Invert;
 
         var beforeWieldEv = new BeforeWieldEvent();
-        _entManager.EventBus.RaiseLocalEvent(item.Value, ref beforeWieldEv);
+        _entManager.EventBus.RaiseLocalEvent(item.Value, beforeWieldEv);
 
         return !beforeWieldEv.Cancelled ^ Invert;
     }
