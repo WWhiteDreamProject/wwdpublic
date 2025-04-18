@@ -111,6 +111,12 @@ public sealed partial class TraitPreferenceSelector : Control
                     requirement.IsValid(
                         highJob, profile, new(), jobRequirementsManager.IsWhitelisted(), trait,
                         entityManager, prototypeManager, configManager, out var reason);
+
+                    // WD EDIT START
+                    if (!trait.Enable)
+                        reason = Loc.GetString("trait-disable");
+                    // WD EDIT END
+
                     box.AddChild(new RichTextLabel { Text = reason?.Split("\n")[0], Margin = new(8, 2), });
                     var newBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, };
                     box.AddChild(new PanelContainer
@@ -131,6 +137,12 @@ public sealed partial class TraitPreferenceSelector : Control
                     requirement.IsValid(
                         highJob, profile, new(), jobRequirementsManager.IsWhitelisted(), trait,
                         entityManager, prototypeManager, configManager, out var reason);
+
+                    // WD EDIT START
+                    if (!trait.Enable)
+                        reason = Loc.GetString("trait-disable");
+                    // WD EDIT END
+
                     box.AddChild(new RichTextLabel
                     {
                         Text = reason,
