@@ -15,6 +15,7 @@ public partial class MobStateSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly SharedLayingDownSystem _layingDown = default!; // WD EDIT
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;

@@ -31,6 +31,6 @@ public sealed class LayDownOnCollideSystem : EntitySystem
         if (!Exists(target))
             return;
 
-        _layingDown.TryLieDown(target, null, null, component.Behavior);
+        _layingDown.TryLieDown(target, null, component.Behavior); // WD EDIT
     }
 }
