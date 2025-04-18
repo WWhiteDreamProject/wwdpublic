@@ -2228,7 +2228,7 @@
   productEntity: ClothingBackpackSatchelSmugglerUnanchored
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 1
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 2
   categories:
