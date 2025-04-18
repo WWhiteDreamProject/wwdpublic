@@ -64,13 +64,17 @@ public sealed partial class DungeonSystem
         Vector2i origin,
         DungeonRoomPrototype room,
         Random random,
+        // WD EDIT START
+        HashSet<Vector2i>? reservedTiles = null,
+        Angle roomRot = default,
+        // WD EDIT END
         bool clearExisting = false,
         bool rotation = false)
     {
         var originTransform = Matrix3Helpers.CreateTranslation(origin.X, origin.Y);
-        var roomRotation = Angle.Zero;
+        var roomRotation = roomRot; // WD EDIT
 
-        if (rotation)
+        if (rotation && roomRot == Angle.Zero) // WD EDIT
         {
             roomRotation = GetRoomRotation(room, random);
         }
@@ -78,7 +82,7 @@ public sealed partial class DungeonSystem
         var roomTransform = Matrix3Helpers.CreateTransform((Vector2) room.Size / 2f, roomRotation);
         var finalTransform = Matrix3x2.Multiply(roomTransform, originTransform);
 
-        SpawnRoom(gridUid, grid, finalTransform, room, clearExisting);
+        SpawnRoom(gridUid, grid, finalTransform, room, reservedTiles, clearExisting); // WD EDIT - reservedTiles
     }
 
     public Angle GetRoomRotation(DungeonRoomPrototype room, Random random)
@@ -103,6 +107,7 @@ public sealed partial class DungeonSystem
         MapGridComponent grid,
         Matrix3x2 roomTransform,
         DungeonRoomPrototype room,
+        HashSet<Vector2i>? reservedTiles = null, // WD EDIT
         bool clearExisting = false)
     {
         // Ensure the underlying template exists.
@@ -150,6 +155,12 @@ public sealed partial class DungeonSystem
 
                 var tilePos = Vector2.Transform(indices + tileOffset, roomTransform);
                 var rounded = tilePos.Floored();
+
+                // WD EDIT START
+                if (!clearExisting && reservedTiles?.Contains(rounded) == true)
+                    continue;
+                // WD EDIT END
+
                 _tiles.Add((rounded, tileRef.Tile));
             }
         }
@@ -165,6 +176,13 @@ public sealed partial class DungeonSystem
         {
             var templateXform = _xformQuery.GetComponent(templateEnt);
             var childPos = Vector2.Transform(templateXform.LocalPosition - roomCenter, roomTransform);
+
+            // WD EDIT START
+            if (!clearExisting && reservedTiles?.Contains(childPos.Floored()) == true)
+                continue;
+            // WD EDIT END
+                
+
             var childRot = templateXform.LocalRotation + finalRoomRotation;
             var protoId = _metaQuery.GetComponent(templateEnt).EntityPrototype?.ID;
 
@@ -194,6 +212,11 @@ public sealed partial class DungeonSystem
                 // Do these shenanigans because 32x32 decals assume as they are centered on bottom-left of tiles.
                 var position = Vector2.Transform(decal.Coordinates + Vector2Helpers.Half - roomCenter, roomTransform);
                 position -= Vector2Helpers.Half;
+
+                // WD EDIT START
+                if (!clearExisting && reservedTiles?.Contains(position.Floored()) == true)
+                    continue;
+                // WD EDI END
 
                 // Umm uhh I love decals so uhhhh idk what to do about this
                 var angle = (decal.Angle + finalRoomRotation).Reduced();
