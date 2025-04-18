@@ -1,3 +1,4 @@
+clown-name-dataset-0 = Клоуни
 clown-name-dataset-1 = Хонкер
 clown-name-dataset-2 = Бубенчик
 clown-name-dataset-3 = Хихикс
