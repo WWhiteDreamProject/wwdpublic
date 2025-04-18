@@ -2619,3 +2619,10 @@ Entries:
   id: 281
   time: '2025-04-17T20:20:06.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/457
+- author: Kutos
+  changes:
+    - type: Add
+      message: Добавлена возможность поворота комнат при генерации, для мапперов.
+  id: 282
+  time: '2025-04-18T05:14:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/456
