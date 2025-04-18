@@ -251,6 +251,15 @@ public abstract class SharedStunSystem : EntitySystem
     }
 
     /// <summary>
+    ///     Goobstation.
+    ///     Try knockdown, if it fails - stun.
+    /// </summary>
+    public bool KnockdownOrStun(EntityUid uid, TimeSpan time, bool refresh, StatusEffectsComponent? status = null)
+    {
+        return TryKnockdown(uid, time, refresh, status) || TryStun(uid, time, refresh, status);
+    }
+
+    /// <summary>
     ///     Applies knockdown and stun to the entity temporarily.
     /// </summary>
     public bool TryParalyze(EntityUid uid, TimeSpan time, bool refresh,

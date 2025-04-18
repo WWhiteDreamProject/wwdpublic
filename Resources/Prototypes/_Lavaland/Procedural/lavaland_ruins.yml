@@ -9,6 +9,8 @@
   name: lavaland-ruin-syndicate
   path: Maps/_Lavaland/Lavaland/ruin_syndicate_base.yml
   priority: -1 # highest priority
+  componentsToGrant:
+  - type: HierophantBeat
 
 - type: lavalandRuin
   id: BiodomeSnow
@@ -120,7 +122,7 @@
 
 # TODO: remove this shitcode thing
 - type: lavalandRuin
-  id: CommonRuin5x5 
+  id: CommonRuin5x5
   name: lavaland-ruin-unknown
   path: Maps/_Lavaland/Lavaland/common_ruin_5x5.yml
   priority: 20 # lowest possible

@@ -870,6 +870,50 @@ public sealed class PullingSystem : EntitySystem
         return true;
     }
 
+    private bool TryGrabRelease(EntityUid pullableUid, EntityUid? user, EntityUid pullerUid)
+    {
+        if (user == null || user.Value != pullableUid)
+            return true;
+
+        var releaseAttempt = AttemptGrabRelease(pullableUid);
+
+        if (!_netManager.IsServer)
+            return false;
+
+        if (!releaseAttempt)
+        {
+            _popup.PopupEntity(Loc.GetString("popup-grab-release-fail-self"),
+                pullableUid,
+                pullableUid,
+                PopupType.SmallCaution);
+            return false;
+        }
+
+        _popup.PopupEntity(Loc.GetString("popup-grab-release-success-self"),
+            pullableUid,
+            pullableUid,
+            PopupType.SmallCaution);
+
+        _popup.PopupEntity(
+            Loc.GetString("popup-grab-release-success-puller",
+                ("target", Identity.Entity(pullableUid, EntityManager))),
+            pullerUid,
+            pullerUid,
+            PopupType.MediumCaution);
+
+        return true;
+    }
+    public void StopAllPulls(EntityUid uid, bool stopPullable = true, bool stopPuller = true) // Goobstation
+    {
+        if (stopPullable && TryComp<PullableComponent>(uid, out var pullable) && IsPulled(uid, pullable))
+            TryStopPull(uid, pullable);
+
+        if (stopPuller && TryComp<PullerComponent>(uid, out var puller) &&
+            TryComp(puller.Pulling, out PullableComponent? pullableEnt))
+            TryStopPull(puller.Pulling.Value, pullableEnt);
+    }
+
+
     /// <summary>
     /// Trying to grab the target
     /// </summary>

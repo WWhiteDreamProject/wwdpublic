@@ -81,4 +81,12 @@ public sealed partial class EmbeddableProjectileComponent : Component
     [DataField]
     public bool PreventCollide;
     // WD EDIT END
+
+    // Goobstation edit start
+    /// <summary>
+    /// Uid of the entity the projectile is embed into.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? EmbeddedIntoUid;
+    // Goobstation edit end
 }
