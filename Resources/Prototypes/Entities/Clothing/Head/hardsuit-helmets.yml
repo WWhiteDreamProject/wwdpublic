@@ -445,14 +445,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _Impstation/Clothing/Head/Hardsuits/syndicate.rsi
+    sprite: Clothing/Head/Hardsuits/syndicate.rsi # WD EDIT - WD nuke sprite
   - type: Clothing
-    sprite: _Impstation/Clothing/Head/Hardsuits/syndicate.rsi
-    clothingVisuals:
-      head:
-      - state: off-equipped-head
-      - state: off-equipped-HELMET-glow
-        shader: unshaded
+    sprite: Clothing/Head/Hardsuits/syndicate.rsi # WD EDIT - WD nuke sprite
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -548,14 +543,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _Impstation/Clothing/Head/Hardsuits/syndicate_elite.rsi
+    sprite: Clothing/Head/Hardsuits/syndieelite.rsi # WD EDIT - WD nuke sprite
   - type: Clothing
-    sprite: _Impstation/Clothing/Head/Hardsuits/syndicate_elite.rsi
-    clothingVisuals:
-      head:
-      - state: off-equipped-HELMET
-      - state: off-equipped-HELMET-glow
-        shader: unshaded
+    sprite: Clothing/Head/Hardsuits/syndieelite.rsi # WD EDIT - WD nuke sprite
   - type: PointLight
     color: red
   - type: PressureProtection
@@ -589,14 +579,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _Impstation/Clothing/Head/Hardsuits/syndicate_commander.rsi
+    sprite: Clothing/Head/Hardsuits/syndiecommander.rsi # WD EDIT - WD nuke sprite
   - type: Clothing
-    sprite: _Impstation/Clothing/Head/Hardsuits/syndicate_commander.rsi
-    clothingVisuals:
-      head:
-      - state: off-equipped-HELMET
-      - state: off-equipped-HELMET-glow
-        shader: unshaded
+    sprite: Clothing/Head/Hardsuits/syndiecommander.rsi # WD EDIT - WD nuke sprite
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -626,14 +611,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _Impstation/Clothing/Head/Hardsuits/syndicate_juggernaut.rsi
+    sprite: Clothing/Head/Hardsuits/cybersun.rsi # WD EDIT - WD nuke sprite
   - type: Clothing
-    sprite: _Impstation/Clothing/Head/Hardsuits/syndicate_juggernaut.rsi
-    clothingVisuals:
-      head:
-      - state: equipped-HELMET
-      - state: equipped-HELMET-glow
-        shader: unshaded
+    sprite: Clothing/Head/Hardsuits/cybersun.rsi # WD EDIT - WD nuke sprite
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
