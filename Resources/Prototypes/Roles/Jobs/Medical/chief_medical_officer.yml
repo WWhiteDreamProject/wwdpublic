@@ -14,6 +14,8 @@
     - !type:CharacterEmployerRequirement
       employers:
       - NanoTrasen
+    - !type:CharacterOverallTimeRequirement # WWDP
+      min: 7200
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
