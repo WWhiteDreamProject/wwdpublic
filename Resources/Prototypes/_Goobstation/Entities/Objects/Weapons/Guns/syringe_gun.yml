@@ -95,6 +95,9 @@
     state: icon-dart
   - type: Item
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+  - type: Storage
+    grid:
+    - 0,0,3,0
   - type: SyringeGun
     pierceArmor: true
   - type: Tag
