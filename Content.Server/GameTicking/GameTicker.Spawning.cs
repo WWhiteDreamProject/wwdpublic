@@ -46,8 +46,10 @@ namespace Content.Server.GameTicking
         [ValidatePrototypeId<JobPrototype>]
         public const string CyborgJobPrototypeName = "Borg";
 
+        // WD EDIT START
         [ValidatePrototypeId<JobPrototype>]
         public const string ClownJobPrototypeName = "Clown";
+        // WD EDIT END
 
         /// <summary>
         /// How many players have joined the round through normal methods.
