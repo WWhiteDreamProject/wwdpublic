@@ -1,3 +1,4 @@
+using Content.Shared.Random;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 
@@ -126,6 +127,52 @@ public sealed partial record PolymorphConfiguration
         "LanguageSpeaker",
         "Grammar"
     };
+
+    /// <summary>
+    /// Goobstation.
+    /// If <see cref="Entity"/> is null, entity will be picked from this weighted random.
+    /// Doesn't support polymorph actions.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public ProtoId<WeightedRandomEntityPrototype>? Entities;
+
+    /// <summary>
+    /// Goobstation.
+    /// If <see cref="Entity"/> and <see cref="Entities"/>> is null,
+    /// weighted entity random will be picked from this weighted random.
+    /// Doesn't support polymorph actions.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public ProtoId<WeightedRandomPrototype>? Groups;
+
+    /// <summary>
+    /// Goobstation.
+    /// Transfers these components on polymorph.
+    /// Does nothing on revert.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public HashSet<ComponentTransferData> ComponentsToTransfer = new();
+
+    /// <summary>
+    ///     Goobstation
+    ///     Whether polymorphed entity should be able to move.
+    /// </summary>
+    [DataField]
+    public bool AllowMovement = true;
+
+    /// <summary>
+    ///     Goobstation
+    ///     Whether to show popup on polymorph revert.
+    /// </summary>
+    [DataField]
+    public bool ShowPopup = true;
+
+    /// <summary>
+    ///     Goobstation
+    ///     Whether to insert polymorphed entity into container or attach to grid or map.
+    /// </summary>
+    [DataField]
+    public bool AttachToGridOrMap;
 }
 
 public enum PolymorphInventoryChange : byte
@@ -133,4 +180,22 @@ public enum PolymorphInventoryChange : byte
     None,
     Drop,
     Transfer,
+}
+
+[DataDefinition]
+public sealed partial class ComponentTransferData(string component, bool @override = true, bool mirror = false)
+{
+    [DataField(required: true)]
+    public string Component = component;
+
+    [DataField]
+    public bool Override = @override;
+
+    /// <summary>
+    /// Whether we should copy the component data if false or just ensure it on a new entity if true
+    /// </summary>
+    [DataField]
+    public bool Mirror = mirror;
+
+    public ComponentTransferData() : this(string.Empty, true, false) { }
 }

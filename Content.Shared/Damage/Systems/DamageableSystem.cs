@@ -32,6 +32,18 @@ namespace Content.Shared.Damage
         private EntityQuery<DamageableComponent> _damageableQuery;
         private EntityQuery<MindContainerComponent> _mindContainerQuery;
 
+
+        public float UniversalAllDamageModifier { get; private set; } = 1f;
+        public float UniversalAllHealModifier { get; private set; } = 1f;
+        public float UniversalMeleeDamageModifier { get; private set; } = 1f;
+        public float UniversalProjectileDamageModifier { get; private set; } = 1f;
+        public float UniversalHitscanDamageModifier { get; private set; } = 1f;
+        public float UniversalReagentDamageModifier { get; private set; } = 1f;
+        public float UniversalReagentHealModifier { get; private set; } = 1f;
+        public float UniversalExplosionDamageModifier { get; private set; } = 1f;
+        public float UniversalThrownDamageModifier { get; private set; } = 1f;
+        public float UniversalTopicalsHealModifier { get; private set; } = 1f;
+
         public override void Initialize()
         {
             SubscribeLocalEvent<DamageableComponent, ComponentInit>(DamageableInit);
@@ -133,7 +145,10 @@ namespace Content.Shared.Damage
         public DamageSpecifier? TryChangeDamage(EntityUid? uid, DamageSpecifier damage, bool ignoreResistances = false,
             bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null,
             // Shitmed Change
-            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null, bool doPartDamage = true)
+            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null,
+            float armorPenetration = 0f,
+            // Goobstation
+            bool heavyAttack = false)
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
             {
@@ -146,21 +161,18 @@ namespace Content.Shared.Damage
                 return damage;
             }
 
-            var before = new BeforeDamageChangedEvent(damage, origin, targetPart, canEvade ?? false); // Shitmed Change
+            var before = new BeforeDamageChangedEvent(damage, origin, targetPart, canEvade ?? false, heavyAttack); // Shitmed Change // Goobstation
             RaiseLocalEvent(uid.Value, ref before);
 
             if (before.Cancelled)
                 return null;
 
             // Shitmed Change Start
-            if (doPartDamage)
-            {
-                var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
-                RaiseLocalEvent(uid.Value, ref partDamage);
+            var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, armorPenetration, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
+            RaiseLocalEvent(uid.Value, ref partDamage);
 
-                if (partDamage.Evaded || partDamage.Cancelled)
-                    return null;
-            }
+            if (partDamage.Evaded || partDamage.Cancelled)
+                return null;
 
             // Shitmed Change End
 
@@ -173,16 +185,11 @@ namespace Content.Shared.Damage
                     // TODO DAMAGE PERFORMANCE
                     // use a local private field instead of creating a new dictionary here..
                     // TODO: We need to add a check to see if the given armor covers the targeted part (if any) to modify or not.
-                    damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
+                    damage = DamageSpecifier.ApplyModifierSet(damage,
+                        DamageSpecifier.PenetrateArmor(modifierSet, armorPenetration)); // Goob edit
                 }
 
-                // From Solidus: If you are reading this, I owe you a more comprehensive refactor of this entire system.
-                if (damageable.DamageModifierSets.Count > 0)
-                    foreach (var enumerableModifierSet in damageable.DamageModifierSets)
-                        if (_prototypeManager.TryIndex<DamageModifierSetPrototype>(enumerableModifierSet, out var enumerableModifier))
-                            damage = DamageSpecifier.ApplyModifierSet(damage, enumerableModifier);
-
-                var ev = new DamageModifyEvent(damage, origin, targetPart); // Shitmed Change
+                var ev = new DamageModifyEvent(uid.Value, damage, origin, targetPart, armorPenetration); // Shitmed + Goobstation Change
                 RaiseLocalEvent(uid.Value, ev);
                 damage = ev.Damage;
 
@@ -191,6 +198,8 @@ namespace Content.Shared.Damage
                     return damage;
                 }
             }
+
+            damage = ApplyUniversalAllModifiers(damage);
 
             // TODO DAMAGE PERFORMANCE
             // Consider using a local private field instead of creating a new dictionary here.
@@ -325,6 +334,37 @@ namespace Content.Shared.Damage
             TryChangeDamage(uid, damage, interruptsDoAfters: false);
         }
 
+        /// <summary>
+        /// Applies the two univeral "All" modifiers, if set.
+        /// Individual damage source modifiers are set in their respective code.
+        /// </summary>
+        /// <param name="damage">The damage to be changed.</param>
+        public DamageSpecifier ApplyUniversalAllModifiers(DamageSpecifier damage)
+        {
+            // Checks for changes first since they're unlikely in normal play.
+            if (UniversalAllDamageModifier == 1f && UniversalAllHealModifier == 1f)
+                return damage;
+
+            foreach (var (key, value) in damage.DamageDict)
+            {
+                if (value == 0)
+                    continue;
+
+                if (value > 0)
+                {
+                    damage.DamageDict[key] *= UniversalAllDamageModifier;
+                    continue;
+                }
+
+                if (value < 0)
+                {
+                    damage.DamageDict[key] *= UniversalAllHealModifier;
+                }
+            }
+
+            return damage;
+        }
+
         private void OnRejuvenate(EntityUid uid, DamageableComponent component, RejuvenateEvent args)
         {
             TryComp<MobThresholdsComponent>(uid, out var thresholds);
@@ -375,6 +415,7 @@ namespace Content.Shared.Damage
         EntityUid? Origin = null,
         TargetBodyPart? TargetPart = null,
         bool IgnoreResistances = false,
+        float ArmorPenetration = 0f,
         bool CanSever = true,
         bool CanEvade = false,
         float PartMultiplier = 1.00f,
@@ -392,17 +433,22 @@ namespace Content.Shared.Damage
     {
         // Whenever locational damage is a thing, this should just check only that bit of armour.
         public SlotFlags TargetSlots { get; } = ~SlotFlags.POCKET;
+
+        public readonly EntityUid Target; // Goobstation
         public readonly DamageSpecifier OriginalDamage;
         public DamageSpecifier Damage;
         public EntityUid? Origin;
         public readonly TargetBodyPart? TargetPart; // Shitmed Change
+        public float ArmorPenetration; // Goobstation
 
-        public DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null) // Shitmed Change
+        public DamageModifyEvent(EntityUid target, DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null, float armorPenetration = 0) // Shitmed + Goobstation Change
         {
+            Target = target; // Goobstation
             OriginalDamage = damage;
             Damage = damage;
             Origin = origin;
             TargetPart = targetPart; // Shitmed Change
+            ArmorPenetration = armorPenetration; // Goobstation
         }
     }
 

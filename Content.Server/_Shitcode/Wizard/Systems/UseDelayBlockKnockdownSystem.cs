@@ -7,8 +7,8 @@
 
 using System.Linq;
 using Content.Server._Goobstation.Wizard.Components;
-using Content.Shared._EinsteinEngines.TelescopicBaton;
 using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Shared.Stunnable.Events;
 using Content.Shared.Timing;
 using Robust.Server.Audio;
 

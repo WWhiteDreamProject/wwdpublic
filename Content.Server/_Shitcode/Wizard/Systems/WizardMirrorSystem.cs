@@ -79,7 +79,7 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
 
             var config = new PolymorphConfiguration
             {
-                Entity = speciesProto.Prototype,
+                Entity = speciesProto.ID,
                 TransferName = true,
                 TransferDamage = true,
                 Forced = true,

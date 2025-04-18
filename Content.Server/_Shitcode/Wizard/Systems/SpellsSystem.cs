@@ -9,7 +9,7 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Common.Actions;
+using Content.Shared._Goobstation.Actions;
 using Content.Goobstation.Common.Bloodstream;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Abilities.Mime;
@@ -133,8 +133,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
             if (!Tag.HasTag(action, args.MaxLevelTag))
                 continue;
 
-            if (TryComp(action, out StoreRefundComponent? refund))
-                StoreSystem.DisableListingRefund(refund.Data);
+            // if (TryComp(action, out StoreRefundComponent? refund))
+            //     StoreSystem.DisableListingRefund(refund.Data); TODO: Uncomment, when goob's refund gets ported
 
             hasMaxLevelSimians = true;
         }
@@ -191,8 +191,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
             tileRef.Tile.IsEmpty)
             return;
 
-        if (_spreader.RequiresFloorToSpread(ev.Proto.ToString()) && tileRef.Tile.IsSpace())
-            return;
+        // if (_spreader.RequiresFloorToSpread(ev.Proto.ToString()) && tileRef.Tile.IsSpace())
+        //     return; TODO: Uncomment, when goob's spread gets ported
 
         var coords = Map.MapToGrid(gridUid, mapCoords);
         var ent = Spawn(ev.Proto, coords.SnapToGrid());
@@ -614,8 +614,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         _chat.TrySendInGameICMessage(speakerUid,
             speech,
             InGameICChatType.Speak,
-            false,
-            wrappedMessagePostfix: postfix);
+            false);
     }
 
     protected override bool ChargeItem(EntityUid uid, ChargeMagicEvent ev)

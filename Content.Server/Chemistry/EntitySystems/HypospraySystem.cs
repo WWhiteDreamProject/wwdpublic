@@ -1,4 +1,3 @@
-using Content.Shared._White.Blocking;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -37,8 +36,7 @@ public sealed class HypospraySystem : SharedHypospraySystem
         base.Initialize();
 
         SubscribeLocalEvent<HyposprayComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<HyposprayComponent, MeleeHitEvent>(OnAttack,
-            after: new[] {typeof(MeleeBlockSystem)}); // WD EDIT
+        SubscribeLocalEvent<HyposprayComponent, MeleeHitEvent>(OnAttack);
         SubscribeLocalEvent<HyposprayComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<HyposprayComponent, HyposprayDoAfterEvent>(OnDoAfter);
     }
