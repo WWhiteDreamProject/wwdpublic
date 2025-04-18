@@ -5,7 +5,6 @@
   description: It's a space carp.
   abstract: true
   components:
-    - type: Absorbable
     - type: InputMover
     - type: MobMover
     - type: HTN
@@ -97,7 +96,6 @@
   id: BaseMobCarp
   abstract: true
   components:
-    - type: Absorbable
     - type: InteractionPopup
       successChance: 0.25 # not very nice
       interactSuccessString: petting-success-carp
@@ -129,7 +127,6 @@
   id: MobCarpMagic
   description: Looks like some kind of fish. Might be magical.
   components:
-    - type: Absorbable
     - type: Sprite
       sprite: Mobs/Aliens/Carps/magic.rsi
     - type: TypingIndicator
@@ -141,7 +138,6 @@
   id: MobCarpHolo
   description: Carp made out of holographic energies. Sadly for you, it is very much real.
   components:
-    - type: Absorbable
     - type: Sprite
       sprite: Mobs/Aliens/Carps/holo.rsi
     - type: Physics
@@ -165,7 +161,6 @@
   name: rainbow carp
   description: Wow such a shiny fishie!
   components:
-  - type: Absorbable
   - type: PointLight
     radius: 1.5
     energy: 0.5
@@ -177,7 +172,6 @@
   parent: MobCarp
   suffix: "Salvage Ruleset"
   components:
-    - type: Absorbable
     - type: SalvageMobRestrictions
 
 - type: entity
@@ -186,7 +180,6 @@
   suffix: DragonBrood
   parent: MobCarp
   components:
-    - type: Absorbable
     - type: GhostRole
       allowMovement: true
       allowSpeech: true
@@ -208,7 +201,6 @@
   parent: MobCarp
   suffix: Dungeon
   components:
-  - type: Absorbable
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -227,7 +219,6 @@
   id: MobShark
   description: A dangerous shark from the blackness of endless space, who loves to drink blood.
   components:
-    - type: Absorbable
     - type: Sprite
       sprite: Mobs/Aliens/Carps/sharkminnow.rsi
       layers:
@@ -284,5 +275,4 @@
   parent: MobShark
   suffix: "Salvage Ruleset"
   components:
-    - type: Absorbable
     - type: SalvageMobRestrictions

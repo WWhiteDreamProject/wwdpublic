@@ -9,7 +9,6 @@
   - type: CombatMode
   - type: InputMover
   - type: MobMover
-  - type: Absorbable
   - type: HTN
     rootTask:
       task: XenoCompound
@@ -163,7 +162,6 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
-  - type: Absorbable
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -198,7 +196,6 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
-  - type: Absorbable
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -237,7 +234,6 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
-  - type: Absorbable
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -278,7 +274,6 @@
   parent: MobXeno
   id: MobXenoRavagerNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
-  - type: Absorbable
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/Xenos/ravager.rsi
@@ -317,7 +312,6 @@
   parent: MobXeno
   id: MobXenoRunnerNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
-  - type: Absorbable
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/Xenos/runner.rsi
@@ -364,7 +358,6 @@
   parent: MobXeno
   id: MobXenoSpitterNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
-  - type: Absorbable
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/Xenos/spitter.rsi
@@ -413,7 +406,6 @@
   id: MobPurpleSnake
   description: A menacing purple snake from Kepler-283c.
   components:
-  - type: Absorbable
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/Xenos/purple_snake.rsi
@@ -480,7 +472,6 @@
   suffix: small
   description: A smaller version of the menacing purple snake from Kepler-283c.
   components:
-  - type: Absorbable
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/Xenos/purple_snake.rsi

@@ -190,7 +190,6 @@
   id: MobDragonDungeon
   suffix: Dungeon
   components:
-  - type: Absorbable
   - type: GhostRole
     description: ghost-role-information-space-dragon-dungeon-description
     raffle:
