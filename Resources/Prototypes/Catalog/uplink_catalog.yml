@@ -2230,7 +2230,7 @@
   discountDownTo:
     Telecrystal: 1 # WD EDIT
   cost:
-    Telecrystal: 2
+    Telecrystal: 2 # WD EDIT
   categories:
   - UplinkDeception
 
