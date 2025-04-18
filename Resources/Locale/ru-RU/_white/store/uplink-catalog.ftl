@@ -39,6 +39,3 @@ uplink-experimental-stimpack-desc = Прототип химической сме
 
 uplink-Syndicate-SWAT-Helmet-name = Подозрительный шлем спецназа
 uplink-Syndicate-SWAT-Helmet-desc = Чрезвычайно прочный шлем, обычно используемый военизированными формированиями. Он украшен зловещим рисунком.
-
-uplink-smuggler-satchel-name = Сумка контрабандиста
-uplink-smuggler-satchel-desc = Удобная, подозрительная на вид сумка. Достаточно плоская, чтобы поместиться под напольной плиткой.
