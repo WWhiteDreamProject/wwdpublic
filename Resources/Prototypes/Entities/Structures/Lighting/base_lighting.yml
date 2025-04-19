@@ -60,7 +60,6 @@
         !type:DamageTrigger
         damage: 50
       behaviors:
-      - !type:EmptyAllContainersBehaviour
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
@@ -118,6 +117,34 @@
       on: base
       broken: broken
       burned: burned
+  # WD EDIT START
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors: #excess damage, don't spawn entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+  # WD EDIT END
 
 - type: entity
   id: Poweredlight
@@ -258,7 +285,6 @@
           !type:DamageTrigger
           damage: 25
         behaviors:
-        - !type:EmptyAllContainersBehaviour
         - !type:SpawnEntitiesBehavior
           spawn:
             SheetSteel1:
@@ -313,6 +339,28 @@
       - On
       - Off
       - Toggle
+  # WD EDIT START
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage, don't spawn entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  # WD EDIT END
 
 - type: entity
   id: PoweredLEDSmallLight
