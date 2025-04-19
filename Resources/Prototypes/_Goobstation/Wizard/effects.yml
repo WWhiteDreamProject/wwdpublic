@@ -76,7 +76,6 @@
         - HighImpassable
         - LowImpassable
         - BulletImpassable
-        - BlobImpassable
 
 - type: entity
   id: ActionTargetMark

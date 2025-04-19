@@ -246,6 +246,8 @@
       - state: cover-inhand-right
         color: "#007FFF"
   - type: Clothing
+    slots:
+    - Belt
     clothingVisuals:
       belt:
       - state: equipped-BELT
