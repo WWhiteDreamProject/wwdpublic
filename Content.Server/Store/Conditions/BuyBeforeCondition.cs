@@ -9,7 +9,7 @@ public sealed partial class BuyBeforeCondition : ListingCondition
     /// <summary>
     ///     Required listing(s) needed to purchase before this listing is available
     /// </summary>
-    [DataField(required: true)]
+    // [DataField(required: true)] WD edit
     public HashSet<ProtoId<ListingPrototype>> Whitelist;
 
     /// <summary>

@@ -34,8 +34,8 @@
   setPreference: true
   objective: roles-antag-wizard-description
   requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 126000 # 35h
+#  - !type:OverallPlaytimeRequirementng
+#    time: 126000 # 35h
   guides: [ Wizard ]
 
 - type: antag
