@@ -30,6 +30,7 @@
         - ForeignerLight
     - !type:CharacterEmployerRequirement
       employers:
+      - IdrisIncorporated
       - NanoTrasen
   startingGear: AdminAssistantGear
   icon: "JobIconAdminAssitant"

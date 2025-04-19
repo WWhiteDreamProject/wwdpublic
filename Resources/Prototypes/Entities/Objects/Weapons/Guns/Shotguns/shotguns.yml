@@ -38,6 +38,7 @@
     whitelist:
       tags:
       - ShellShotgun
+      - Flare
     capacity: 7
     proto: ShellShotgun
     autoCycle: false # WD EDIT
@@ -223,8 +224,8 @@
   id: WeaponShotgunBulldogHoS
   description: This is a seemingly ordinary shotgun, no different from those issued as standard in the Republic of Biesel Navy. A close inspection reveals that this weapon's serial number is 000000013.
   components:
-    - type: StealTarget
-      stealGroup: HoSAntiqueWeapon
+  - type: StealTarget
+    stealGroup: HoSAntiqueWeapon
 
 - type: entity
   name: double-barreled shotgun
@@ -283,7 +284,7 @@
     - 0,0,7,0
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: BallisticAmmoProvider
-    autoCycle: true # WWDP semi-auto
+    capacity: 7
   - type: Wieldable
   - type: MeleeWeapon
     attackRate: 1.4
@@ -326,6 +327,12 @@
   - type: Wieldable
   - type: Gun
     shotgunSpreadMultiplier: 0.5
+  - type: ExtendDescription
+    descriptionList:
+    - description: "gun-modifier-choke"
+      fontSize: 12
+      color: "#ff4f00"
+      requireDetailRange: false
 
 - type: entity
   name: sawn-off shotgun
@@ -360,6 +367,16 @@
         Blunt: 7.5
   - type: DamageOtherOnHit
     staminaCost: 6
+
+- type: entity
+  parent: WeaponShotgunSawn
+  id: WeaponShotgunSawnLumen
+  suffix: Lumenblast
+  description: Groovy! Uses .50 shotgun shells.
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 2
+    proto: ShellShotgunLumen
 
 - type: entity
   name: sawn-off shotgun

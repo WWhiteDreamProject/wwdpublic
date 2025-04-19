@@ -2,7 +2,21 @@
 # Backpacks
 
 # Belt
-
+# WD EDIT START
+# - type: loadout
+#   id: LoadoutClothingBeltJudoHoS
+#   category: JobsSecurityHeadOfSecurity
+#   cost: 2
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityBelt
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - HeadOfSecurity
+#   items:
+#   - ClothingBeltCorporateJudoHoS
+# WD EDIT END
 # Ears
 
 # Equipment

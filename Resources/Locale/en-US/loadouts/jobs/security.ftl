@@ -5,6 +5,7 @@ loadout-description-LoadoutSecurityShoesJackboots = A really nice, heavy, pair o
 loadout-name-LoadoutMagazinePistolSpare = pistol magazine (.35 auto, spare)
 loadout-name-LoadoutSpeedLoaderMagnumSpare = speed loader (.45 magnum, spare)
 loadout-name-LoadoutMagazineMagnumSpare = pistol magazine (.45 magnum, spare)
+loadout-name-LoadoutMagazineUniversalMagnumSpare = mk 32 'Universal' magazine (.45 magnum, spare)
 
 # Duty Weapons
 loadout-name-LoadoutSecurityMk58 = Mk58
@@ -21,6 +22,9 @@ loadout-name-LoadoutSecurityRevolverK38Master = K-38 Master
 loadout-name-LoadoutSecurityRevolverFitz = Fitz
 loadout-name-LoadoutSecurityRevolverPython = Python
 loadout-name-LoadoutSecurityPistolEnergyRevolver = EG-4 Energy Revolver
+loadout-name-LoadoutSecurityArgenti = Argenti
+loadout-name-LoadoutSecurityShotgunSawnLumen = Sawn-off Shotgun (Lumenblast)
+loadout-name-LoadoutSecurityPistolUniversal = mk 32 "Universal"
 
 # Duty Melee
 loadout-name-LoadoutSecurityEquipmentTruncheon = Truncheon

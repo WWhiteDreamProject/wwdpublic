@@ -226,6 +226,7 @@
   - type: EmagLatheRecipes
     emagStaticRecipes:
     - BoxLethalshot
+    - BoxShotgunLumen
     - BoxShotgunFlare
     - BoxShotgunSlug
     - MagazineBoxLightRifle
@@ -371,7 +372,7 @@
     - WeaponGauntletGorilla
     - SynthesizerInstrument
     - RPED
-    - ClothingShoesBootsMagSci
+    - ClothingShoesBootsMag
     - ClothingShoesBootsMoon
     - ClothingShoesBootsSpeed
     - ClothingShoesBootsMagAdv
@@ -818,6 +819,7 @@
     - ModsuitShell
     - ModsuitPlatingExternal
     - PowerCageHigh # Goobstation - Powercell to exosuit fab
+    - ReverseMMI # IPCMMI
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - WeaponMechCombatImmolationGun
@@ -920,9 +922,8 @@
     idleState: icon
     runningState: icon
     staticRecipes:
-    - Truncheon
-    - Terminus
     - BoxLethalshot
+    - BoxShotgunLumen
     - BoxShotgunFlare
     - BoxShotgunPractice
     - BoxShotgunSlug
@@ -933,6 +934,7 @@
     - Handcuffs
     - ShellShotgun
     - ShellShotgunSlug
+    - ShellShotgunLumen
     - ShellShotgunFlare
     - ShellTranquilizer
     - MagazineBoxLightRifle
@@ -1020,6 +1022,8 @@
     - BoxShotgunBirdshot
     - BoxShotgun00Buckshot
     - BoxShotgun0000Buckshot
+    - MagazineUniversalMagnumEmpty
+    - MagazineUniversalMagnum
     dynamicRecipes:
     # WWDP gun bloat moved to tier 1 Arsenal research
     - MagazineLightRifleLowCapacityEmpty
@@ -1162,6 +1166,10 @@
     - MagazineBoxCaselessRifleShrapnel
     - MagazineBoxCaselessRifleIncendiary
     - MagazineBoxCaselessRifleUranium
+    - MagazineUniversalMagnumUranium
+    - MagazineUniversalMagnumIncendiary
+    - MagazineUniversalMagnumShrapnel
+    - WeaponPistolUniversal
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1199,6 +1207,7 @@
     runningState: icon
     staticRecipes:
     - BoxLethalshot
+    - BoxShotgunLumen
     - BoxShotgunFlare
     - BoxShotgunSlug
     - MagazineBoxLightRifle
@@ -1314,6 +1323,7 @@
     - BoneGel # Shitmed Change
     - AACTablet # DeltaV
     - VehicleWheelchairFolded # Goobstation - Vehicles
+    - SyringeCase # Morphine
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker
