@@ -15,8 +15,8 @@ using NpgsqlTypes;
 namespace Content.Server.Database.Migrations.Postgres
 {
     [DbContext(typeof(PostgresServerDbContext))]
-    [Migration("20241220195443_AddBodyType")]
-    partial class AddBodyType
+    [Migration("20241220195443_BodyType")]
+    partial class BodyType
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -782,11 +782,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("clothing");
-
-                    b.Property<string>("ClownName")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("clown_name");
 
                     b.Property<string>("EyeColor")
                         .IsRequired()
