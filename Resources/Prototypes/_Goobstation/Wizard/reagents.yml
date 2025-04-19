@@ -15,9 +15,9 @@
       effects:
       - !type:Emote
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+#        - !type:OrganType # Goobstation - Yowie
+#          type: Yowie
+#          shouldHave: false
         - !type:HasComponentCondition
           components:
             - Wizard
@@ -29,9 +29,9 @@
         probability: 0.2
       - !type:DropItemsEntityEffect
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+#        - !type:OrganType # Goobstation - Yowie
+#          type: Yowie
+#          shouldHave: false
         - !type:HasComponentCondition
           components:
             - Wizard
