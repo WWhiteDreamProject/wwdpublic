@@ -118,7 +118,7 @@ public sealed class HulkSystem : SharedHulkSystem
         _gun.SetClumsyProof(gun, true);
         _gun.SetSoundGunshot(gun, comp.SoundGunshot);
         _gun.RefreshModifiers((uid, gun));
-        var hitscan = EntityManager.ComponentFactory.GetComponent<BasicHitscanAmmoProviderComponent>();
+        var hitscan = EntityManager.ComponentFactory.GetComponent<BasicEntityAmmoProviderComponent>();
         hitscan.Proto = comp.ShotProto;
         AddComp(uid, hitscan, true);
     }

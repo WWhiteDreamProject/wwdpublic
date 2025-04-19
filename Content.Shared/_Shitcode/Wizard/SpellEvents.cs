@@ -74,7 +74,7 @@ public sealed partial class MimeMalaiseEvent : EntityTargetActionEvent, ISpeakSp
     {
         {"mask", "ClothingMaskMime"},
         {"jumpsuit", "ClothingUniformJumpsuitMime"},
-        {"belt", "ClothingBeltSuspendersRed"},
+        {"belt", "ClothingBeltSuspenders"},
         {"id", "MimePDA"},
     };
 
