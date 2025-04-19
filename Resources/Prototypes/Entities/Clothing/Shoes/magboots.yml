@@ -201,7 +201,7 @@
     staminaCost: 15
 
 - type: entity
-  parent: ClothingShoesBootsMag
+  parent: [ClothingShoesBootsMag, ClothingSlotBase] # WD EDIT - ClothingSlotBase
   id: ClothingShoesBootsMagSec
   name: combat magboots
   description: Heavy-duty magboots with added protection and a convenient sidearm strap.
