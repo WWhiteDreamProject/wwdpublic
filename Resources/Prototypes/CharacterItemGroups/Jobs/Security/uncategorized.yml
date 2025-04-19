@@ -159,7 +159,7 @@
     - type: loadout
       id: LoadoutClothingHeadHelmetBasic
     - type: loadout
-     id: LoadoutSecurityHeadHelmetInsulated
+      id: LoadoutSecurityHeadHelmetInsulated
     - type: loadout
       id: ClothingHeadHelmetTCFLHeavy
 

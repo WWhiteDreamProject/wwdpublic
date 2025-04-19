@@ -29,7 +29,6 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-    - Flare
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
     soundEmpty:
@@ -39,6 +38,7 @@
     whitelist:
       tags:
       - ShellShotgun
+      - Flare
     capacity: 7
     proto: ShellShotgun
     autoCycle: false # WD EDIT

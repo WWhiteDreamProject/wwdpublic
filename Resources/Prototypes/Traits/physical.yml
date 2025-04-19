@@ -528,7 +528,7 @@
       departments:
       - Security
       - Command
-      - Dignitary
+#       - Dignitary - WD EDIT
   - !type:CharacterItemGroupRequirement
     group: TraitsMind
   - !type:CharacterTraitRequirement

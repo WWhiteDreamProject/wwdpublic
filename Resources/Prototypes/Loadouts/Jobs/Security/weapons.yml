@@ -24,10 +24,10 @@
     - !type:CharacterJobRequirement
       jobs:
       - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
   - CombatKnife
 
@@ -46,10 +46,10 @@
     - !type:CharacterJobRequirement
       jobs:
       - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
   - Flash
 
@@ -71,10 +71,10 @@
     - !type:CharacterJobRequirement
       jobs:
       - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   - !type:CharacterAgeRequirement
     min: 21
   items:
@@ -98,62 +98,64 @@
     - !type:CharacterJobRequirement
       jobs:
       - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   - !type:CharacterAgeRequirement
     min: 21
   items:
   - MagazinePistol
 
-- type: loadout
-  id: LoadoutMagazinePistolRubber
-  category: JobsSecurityWeapons
-  cost: 0
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityEquipment
-  - !type:CharacterLogicOrRequirement
-    requirements:
-    - !type:CharacterDepartmentRequirement
-      departments:
-      - Security
-    - !type:CharacterJobRequirement
-      jobs:
-      - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
-  - !type:CharacterAgeRequirement
-    min: 21
-  items:
-  - MagazinePistolRubber
+# WD EDIT START
+# - type: loadout
+#   id: LoadoutMagazinePistolRubber
+#   category: JobsSecurityWeapons
+#   cost: 0
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityEquipment
+#   - !type:CharacterLogicOrRequirement
+#     requirements:
+#     - !type:CharacterDepartmentRequirement
+#       departments:
+#       - Security
+#     - !type:CharacterJobRequirement
+#       jobs:
+#       - BlueshieldOfficer
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   - !type:CharacterAgeRequirement
+#     min: 21
+#   items:
+#   - MagazinePistolRubber
 
-- type: loadout
-  id: LoadoutMagazinePistolRubberSpare
-  category: JobsSecurityWeapons
-  cost: 2
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityEquipment
-  - !type:CharacterLogicOrRequirement
-    requirements:
-    - !type:CharacterDepartmentRequirement
-      departments:
-      - Security
-    - !type:CharacterJobRequirement
-      jobs:
-      - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
-  - !type:CharacterAgeRequirement
-    min: 21
-  items:
-  - MagazinePistolRubber
+# - type: loadout
+#   id: LoadoutMagazinePistolRubberSpare
+#   category: JobsSecurityWeapons
+#   cost: 2
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityEquipment
+#   - !type:CharacterLogicOrRequirement
+#     requirements:
+#     - !type:CharacterDepartmentRequirement
+#       departments:
+#       - Security
+#     - !type:CharacterJobRequirement
+#       jobs:
+#       - BlueshieldOfficer
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   - !type:CharacterAgeRequirement
+#     min: 21
+#   items:
+#   - MagazinePistolRubber
+# WD EDIT END
 
 - type: loadout
   id: LoadoutSpeedLoaderMagnum
@@ -174,10 +176,10 @@
     - !type:CharacterJobRequirement
       jobs:
       - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   - !type:CharacterAgeRequirement
     min: 21
   items:
@@ -202,64 +204,66 @@
     - !type:CharacterJobRequirement
       jobs:
       - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   - !type:CharacterAgeRequirement
     min: 21
   items:
   - SpeedLoaderMagnum
 
-- type: loadout
-  id: LoadoutSpeedLoaderMagnumRubber
-  category: JobsSecurityWeapons
-  cost: 2
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityEquipment
-  - !type:CharacterLogicOrRequirement
-    requirements:
-    - !type:CharacterDepartmentRequirement
-      departments:
-      - Security
-    - !type:CharacterJobRequirement
-      jobs:
-      - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
-  - !type:CharacterAgeRequirement
-    min: 21
-  items:
-  - SpeedLoaderMagnumRubber
+# WD EDIT START
+# - type: loadout
+#   id: LoadoutSpeedLoaderMagnumRubber
+#   category: JobsSecurityWeapons
+#   cost: 2
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityEquipment
+#   - !type:CharacterLogicOrRequirement
+#     requirements:
+#     - !type:CharacterDepartmentRequirement
+#       departments:
+#       - Security
+#     - !type:CharacterJobRequirement
+#       jobs:
+#       - BlueshieldOfficer
+#    - !type:CharacterJobRequirement # WWDP
+#      inverted: true
+#      jobs:
+#      - Prisoner
+#  - !type:CharacterAgeRequirement
+#     min: 21
+#   items:
+#   - SpeedLoaderMagnumRubber
 
-- type: loadout
-  id: LoadoutSpeedLoaderMagnumRubberSpare
-  category: JobsSecurityWeapons
-  cost: 4
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityEquipment
-  - !type:CharacterLogicOrRequirement
-    requirements:
-    - !type:CharacterDepartmentRequirement
-      departments:
-      - Security
-    - !type:CharacterJobRequirement
-      jobs:
-      - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
-  - !type:CharacterAgeRequirement
-    min: 21
-  items:
-  - SpeedLoaderMagnumRubber
+# - type: loadout
+#   id: LoadoutSpeedLoaderMagnumRubberSpare
+#   category: JobsSecurityWeapons
+#   cost: 4
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityEquipment
+#   - !type:CharacterLogicOrRequirement
+#     requirements:
+#     - !type:CharacterDepartmentRequirement
+#       departments:
+#       - Security
+#     - !type:CharacterJobRequirement
+#       jobs:
+#       - BlueshieldOfficer
+#    - !type:CharacterJobRequirement # WWDP
+#      inverted: true
+#      jobs:
+#      - Prisoner
+#   - !type:CharacterAgeRequirement
+#     min: 21
+#   items:
+#   - SpeedLoaderMagnumRubber
+# WD EDIT END
 
 - type: loadout
   id: LoadoutMagazineMagnum
@@ -280,42 +284,44 @@
     - !type:CharacterJobRequirement
       jobs:
       - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   - !type:CharacterAgeRequirement
     min: 21
   items:
   - MagazineMagnum
 
-- type: loadout
-  id: LoadoutMagazineMagnumRubber
-  category: JobsSecurityWeapons
-  cost: 4
-  exclusive: true
-  requirements:
-  - !type:CharacterDepartmentTimeRequirement
-    department: Security
-    min: 3600 # 1 hours
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityEquipment
-  - !type:CharacterLogicOrRequirement
-    requirements:
-    - !type:CharacterDepartmentRequirement
-      departments:
-      - Security
-    - !type:CharacterJobRequirement
-      jobs:
-      - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
-  - !type:CharacterAgeRequirement
-    min: 21
-  items:
-  - MagazineMagnumRubber
+# WD EDIT START
+# - type: loadout
+#   id: LoadoutMagazineMagnumRubber
+#   category: JobsSecurityWeapons
+#   cost: 4
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterDepartmentTimeRequirement
+#     department: Security
+#     min: 3600 # 1 hours
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityEquipment
+#   - !type:CharacterLogicOrRequirement
+#     requirements:
+#     - !type:CharacterDepartmentRequirement
+#       departments:
+#       - Security
+#     - !type:CharacterJobRequirement
+#       jobs:
+#       - BlueshieldOfficer
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   - !type:CharacterAgeRequirement
+#     min: 21
+#   items:
+#   - MagazineMagnumRubber
+# WD EDIT END
 
 - type: loadout
   id: LoadoutMagazineMagnumSpare
@@ -336,44 +342,44 @@
     - !type:CharacterJobRequirement
       jobs:
       - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   - !type:CharacterAgeRequirement
     min: 21
   items:
   - MagazineMagnum
 
-- type: loadout
-  id: LoadoutMagazineMagnumRubberSpare
-  category: JobsSecurityWeapons
-  cost: 4
-  exclusive: true
-  requirements:
-  - !type:CharacterDepartmentTimeRequirement
-    department: Security
-    min: 3600 # 1 hours
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityEquipment
-  - !type:CharacterLogicOrRequirement
-    requirements:
-    - !type:CharacterDepartmentRequirement
-      departments:
-      - Security
-    - !type:CharacterJobRequirement
-      jobs:
-      - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
-  - !type:CharacterAgeRequirement
-    min: 21
-  items:
-  - MagazineMagnumRubber
-
 # WD EDIT START
+# - type: loadout
+#   id: LoadoutMagazineMagnumRubberSpare
+#   category: JobsSecurityWeapons
+#   cost: 4
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterDepartmentTimeRequirement
+#     department: Security
+#     min: 3600 # 1 hours
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityEquipment
+#   - !type:CharacterLogicOrRequirement
+#     requirements:
+#     - !type:CharacterDepartmentRequirement
+#       departments:
+#       - Security
+#     - !type:CharacterJobRequirement
+#       jobs:
+#       - BlueshieldOfficer
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   - !type:CharacterAgeRequirement
+#     min: 21
+#   items:
+#   - MagazineMagnumRubber
+
 # - type: loadout
 #   id: LoadoutSpeedLoaderRifleHeavy
 #   category: JobsSecurityWeapons
@@ -393,10 +399,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -421,10 +427,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -446,10 +452,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -471,10 +477,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -502,10 +508,10 @@
     - !type:CharacterJobRequirement
       jobs:
       - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   items:
   - WeaponDisabler
 
@@ -529,40 +535,42 @@
     - !type:CharacterJobRequirement
       jobs:
       - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   - !type:CharacterAgeRequirement
     min: 21
   items:
   - WeaponPistolMk58Security
 
-- type: loadout
-  id: LoadoutSecurityMk58NonLethal
-  category: JobsSecurityWeapons
-  cost: 0
-  canBeHeirloom: true
-  guideEntry: SecurityWeapons
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityWeapons
-  - !type:CharacterLogicOrRequirement
-    requirements:
-    - !type:CharacterDepartmentRequirement
-      departments:
-      - Security
-    - !type:CharacterJobRequirement
-      jobs:
-      - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
-  - !type:CharacterAgeRequirement
-    min: 21
-  items:
-  - WeaponPistolMk58SecurityNonlethal
+# WD EDIT START
+# - type: loadout
+#   id: LoadoutSecurityMk58NonLethal
+#   category: JobsSecurityWeapons
+#   cost: 0
+#   canBeHeirloom: true
+#   guideEntry: SecurityWeapons
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityWeapons
+#   - !type:CharacterLogicOrRequirement
+#     requirements:
+#     - !type:CharacterDepartmentRequirement
+#       departments:
+#       - Security
+#     - !type:CharacterJobRequirement
+#       jobs:
+#       - BlueshieldOfficer
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   - !type:CharacterAgeRequirement
+#     min: 21
+#   items:
+#   - WeaponPistolMk58SecurityNonlethal
+# WD EDIT END
 
 - type: loadout
   id: LoadoutSecurityRevolver
@@ -584,42 +592,42 @@
     - !type:CharacterJobRequirement
       jobs:
       - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   - !type:CharacterAgeRequirement
     min: 21
   items:
   - WeaponRevolverInspectorSecurity
 
-- type: loadout
-  id: LoadoutSecurityRevolverNonLethal
-  category: JobsSecurityWeapons
-  cost: 0
-  canBeHeirloom: true
-  guideEntry: SecurityWeapons
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityWeapons
-  - !type:CharacterLogicOrRequirement
-    requirements:
-    - !type:CharacterDepartmentRequirement
-      departments:
-      - Security
-    - !type:CharacterJobRequirement
-      jobs:
-      - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
-  - !type:CharacterAgeRequirement
-    min: 21
-  items:
-  - WeaponRevolverInspectorNonLethalSecurity
-
 # WD EDIT START
+# - type: loadout
+#   id: LoadoutSecurityRevolverNonLethal
+#   category: JobsSecurityWeapons
+#   cost: 0
+#   canBeHeirloom: true
+#   guideEntry: SecurityWeapons
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityWeapons
+#   - !type:CharacterLogicOrRequirement
+#     requirements:
+#     - !type:CharacterDepartmentRequirement
+#       departments:
+#       - Security
+#     - !type:CharacterJobRequirement
+#       jobs:
+#       - BlueshieldOfficer
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   - !type:CharacterAgeRequirement
+#     min: 21
+#   items:
+#   - WeaponRevolverInspectorNonLethalSecurity
+
 # - type: loadout
 #   id: LoadoutSecurityRevolverDeckard
 #   category: JobsSecurityWeapons
@@ -640,10 +648,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -666,10 +674,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -696,42 +704,42 @@
     - !type:CharacterJobRequirement
       jobs:
       - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   - !type:CharacterAgeRequirement
     min: 21
   items:
   - WeaponPistolN1984Security
 
-- type: loadout
-  id: LoadoutSecurityPistolN1984NonLethal
-  category: JobsSecurityWeapons
-  cost: 5
-  canBeHeirloom: true
-  guideEntry: SecurityWeapons
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityWeapons
-  - !type:CharacterLogicOrRequirement
-    requirements:
-    - !type:CharacterDepartmentRequirement
-      departments:
-      - Security
-    - !type:CharacterJobRequirement
-      jobs:
-      - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
-  - !type:CharacterAgeRequirement
-    min: 21
-  items:
-  - WeaponPistolN1984SecurityNonLethal
-
 # WD EDIT START
+# - type: loadout
+#   id: LoadoutSecurityPistolN1984NonLethal
+#   category: JobsSecurityWeapons
+#   cost: 5
+#   canBeHeirloom: true
+#   guideEntry: SecurityWeapons
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityWeapons
+#   - !type:CharacterLogicOrRequirement
+#     requirements:
+#     - !type:CharacterDepartmentRequirement
+#       departments:
+#       - Security
+#     - !type:CharacterJobRequirement
+#       jobs:
+#       - BlueshieldOfficer
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   - !type:CharacterAgeRequirement
+#     min: 21
+#   items:
+#   - WeaponPistolN1984SecurityNonLethal
+
 # - type: loadout
 #   id: LoadoutSecurityPistolViper
 #   category: JobsSecurityWeapons
@@ -752,10 +760,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -778,10 +786,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -807,10 +815,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -837,10 +845,10 @@
     - !type:CharacterJobRequirement
       jobs:
       - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   - !type:CharacterSpeciesRequirement
     species:
     - Oni
@@ -868,10 +876,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   items:
 #   - EnergyCutlassSecurity
 
@@ -895,10 +903,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -925,10 +933,10 @@
     - !type:CharacterJobRequirement
       jobs:
       - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   - !type:CharacterAgeRequirement
     min: 21
   items:
@@ -954,10 +962,10 @@
     - !type:CharacterJobRequirement
       jobs:
       - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   - !type:CharacterAgeRequirement
     min: 21
   items:
@@ -984,10 +992,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -1010,10 +1018,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#      jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -1040,10 +1048,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -1066,10 +1074,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -1095,10 +1103,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -1121,10 +1129,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -1150,10 +1158,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #    min: 21
 #   items:
@@ -1176,10 +1184,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -1205,10 +1213,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -1231,10 +1239,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -1260,10 +1268,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -1286,10 +1294,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -1315,10 +1323,10 @@
 #     - !type:CharacterJobRequirement
 #       jobs:
 #       - BlueshieldOfficer
-#     - !type:CharacterJobRequirement # WWDP
-#       inverted: true
-#       jobs:
-#       - Prisoner
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
 #   - !type:CharacterAgeRequirement
 #     min: 21
 #   items:
@@ -1342,10 +1350,10 @@
     - !type:CharacterJobRequirement
       jobs:
       - BlueshieldOfficer
-    - !type:CharacterJobRequirement # WWDP
-      inverted: true
-      jobs:
-      - Prisoner
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
   - !type:CharacterAgeRequirement
     min: 21
   items:

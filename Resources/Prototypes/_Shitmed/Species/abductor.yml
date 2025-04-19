@@ -3,14 +3,20 @@
   name: species-name-abductor
   roundStart: false
   prototype: MobAbductor
-  sprites: MobAbductorSprites
+  # WD EDIT START
+  bodyTypes:
+  - AbductorNormal
+  # WD EDIT END
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobAbductorDummy
   skinColoration: HumanToned
   defaultSkinTone: "#BFC2C7"
 
-- type: speciesBaseSprites
-  id: MobAbductorSprites
+# WD EDIT START
+- type: bodyType
+  id: AbductorNormal
+  name: body-normal
+  # WD EDIT END
   sprites:
     Head: MobAbductorHead
     HeadTop: MobHumanoidAnyMarking
