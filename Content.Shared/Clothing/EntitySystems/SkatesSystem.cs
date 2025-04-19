@@ -29,7 +29,7 @@ public sealed class SkatesSystem : EntitySystem
         if (!TryComp(args.Wearer, out MovementSpeedModifierComponent? speedModifier))
             return;
 
-        _move.ChangeFriction(args.Wearer, MovementSpeedModifierComponent.DefaultFriction, MovementSpeedModifierComponent.DefaultFrictionNoInput, MovementSpeedModifierComponent.DefaultAcceleration, speedModifier);
+        _move.ChangeFriction(args.Wearer, MovementSpeedModifierComponent.DefaultFriction, null, MovementSpeedModifierComponent.DefaultAcceleration, speedModifier); // WD EDIT
         _impact.ChangeCollide(args.Wearer, component.DefaultMinimumSpeed, component.DefaultStunSeconds, component.DefaultDamageCooldown, component.DefaultSpeedDamage);
     }
 
