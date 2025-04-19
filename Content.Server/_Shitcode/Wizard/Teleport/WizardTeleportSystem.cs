@@ -173,7 +173,7 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
         if (!TryComp(uid, out TransformComponent? xform))
             return;
 
-        if (_wizard.GetWizardTargetStationGrids().Where(x => x != null).All(x => xform.ParentUid != x))
+        if (_wizard.GetWizardTargetStationGrids().Where(x => x != null).Any(x => xform.ParentUid == x))
             return;
 
         if (!CanTeleportTo(xform))

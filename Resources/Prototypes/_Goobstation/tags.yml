@@ -1,4 +1,7 @@
 - type: Tag
+  id: BindSoulAction
+
+- type: Tag
   id: CartridgeLightRifleSubsonic
 
 - type: Tag
