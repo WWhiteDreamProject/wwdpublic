@@ -849,6 +849,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("clothing");
 
+                    b.Property<string>("ClownName")
+                        .HasColumnType("text")
+                        .HasColumnName("clown_name");
+
                     b.Property<string>("CustomSpecieName")
                         .IsRequired()
                         .HasColumnType("text")
