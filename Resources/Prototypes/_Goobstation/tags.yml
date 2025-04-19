@@ -62,6 +62,9 @@
   id: DurandTargetingControlModule
 
 - type: Tag
+  id: GrimoireGhost
+
+- type: Tag
   id: Gygax
 
 - type: Tag

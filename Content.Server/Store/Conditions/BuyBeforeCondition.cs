@@ -38,18 +38,20 @@ public sealed partial class BuyBeforeCondition : ListingCondition
             }
         }
 
-        foreach (var requiredListing in Whitelist)
+        if (Whitelist != null)
         {
-            foreach (var listing in allListings)
+            foreach (var requiredListing in Whitelist)
             {
-                if (listing.ID == requiredListing.Id)
+                foreach (var listing in allListings)
                 {
-                    purchasesFound = listing.PurchaseAmount > 0;
-                    break;
+                    if (listing.ID == requiredListing.Id)
+                    {
+                        purchasesFound = listing.PurchaseAmount > 0;
+                        break;
+                    }
                 }
             }
         }
-
         return purchasesFound;
     }
 }
