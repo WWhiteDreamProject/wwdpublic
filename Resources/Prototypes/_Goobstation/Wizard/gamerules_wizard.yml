@@ -173,7 +173,7 @@
     - Wizard
     - SleepersOnWizardDeath
     - BasicStationEventScheduler
-    - SpaceTrafficControlEventScheduler
+#    - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - SubGamemodesRule
     - LavalandStormScheduler # Lavaland Change
