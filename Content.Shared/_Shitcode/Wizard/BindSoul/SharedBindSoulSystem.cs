@@ -83,7 +83,8 @@ public abstract class SharedBindSoulSystem : EntitySystem
             !ItemExistsAndOnSamePlane(soulBound.Item, mapUid, out _))
             return;
 
-        Mind.TransferTo(mind, null, mind: mindComponent);
+        Resurrect(mind, soulBound.Item.Value, mindComponent, soulBound); // WD edit
+        // Mind.TransferTo(mind, null, mind: mindComponent);
     }
 
     private void OnMindGetRemoved(Entity<SoulBoundComponent> ent, ref MindGotRemovedEvent args)

@@ -77,7 +77,7 @@
     key: enum.StoreUiKey.Key
   - type: Store
     refundAllowed: true
-    ownerOnly: true # get your own tome!
+#    ownerOnly: true WD edit - comment out
     balance:
       WizCoin: 10 # prices are balanced around this 10 point maximum and how strong the spells are
   - type: GuideHelp # Goobstation
