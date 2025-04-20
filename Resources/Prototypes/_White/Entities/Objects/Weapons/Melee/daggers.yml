@@ -30,7 +30,7 @@
       malus: 0.5 # WWDP
     - type: BackStab
     - type: Blink
-      blinkRate: 0.33
+#      blinkRate: 0.33
 
 - type: entity
   name: blood dagger

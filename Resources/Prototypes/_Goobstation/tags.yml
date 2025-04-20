@@ -41,6 +41,9 @@
   id: CombatMech
 
 - type: Tag
+  id: CursedAnimalMask
+
+- type: Tag
   id: Durand
 
 - type: Tag
@@ -122,6 +125,9 @@
   id: IgnoreBindSoul
 
 - type: Tag
+  id: IgnoreImmovableRod
+
+- type: Tag
   id: MagazineHighCaliber
 
 - type: Tag
@@ -173,10 +179,16 @@
   id: RoundstartAntag
 
 - type: Tag
+  id: ShowWizardIcons
+
+- type: Tag
   id: SoulTapped
 
 - type: Tag
   id: SpecialMech
+
+- type: Tag
+  id: SummonSimiansMaxLevelAction
 
 - type: Tag
   id: SyringeArmor

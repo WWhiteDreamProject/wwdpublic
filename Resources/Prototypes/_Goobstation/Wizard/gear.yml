@@ -109,7 +109,7 @@
   id: ApprenticeGearRobeless
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorDarkBlue
-    outerClothing: ClothingOuterVestTank
+#    outerClothing: ClothingOuterVestTank
     shoes: ClothingShoesWizard
     back: ClothingBackpack
     belt: ScrollTeleportApprentice

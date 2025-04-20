@@ -21,7 +21,7 @@
     objectives:
     - WizardSurviveObjective
   - type: AntagSelection
-    useCharacterNames: true
+#    useCharacterNames: true
     selectionTime: PrePlayerSpawn
     agentName: wizard-roundend-name
     definitions:
@@ -33,9 +33,9 @@
       mindRoles:
       - MindRoleWizard
       startingGear: WizardGear
-      unequipOldGear: true
-      roleLoadout:
-      - RoleSurvivalEVA
+#      unequipOldGear: true
+#      roleLoadout:
+#      - RoleSurvivalEVA
       components:
       - type: Wizard
       - type: RandomMetadata
@@ -46,7 +46,7 @@
         factions:
         - Wizard
   - type: AntagLoadProfileRule
-    speciesOverride: Human
+#    speciesOverride: Human
 #    speciesOverrideBlacklist:
 #    - Yowie # Penalized by wearing robes, still should be possible to select them in magic mirror.
   - type: RuleGrids
@@ -69,13 +69,13 @@
     weight: 5.5
     minimumPlayers: 20
     duration: 1
-    chaos: # Goobstation
-      Hostile: 200
-      Friend: 40
-      Medical: 200
-      Death: 200
+#    chaos: # Goobstation
+#      Hostile: 200
+#      Friend: 40
+#      Medical: 200
+#      Death: 200
   - type: AntagSelection
-    useCharacterNames: true
+#    useCharacterNames: true
     selectionTime: PostPlayerSpawn
     definitions:
     - spawnerPrototype: SpawnPointWizard
@@ -86,9 +86,9 @@
       mindRoles:
       - MindRoleWizard
       startingGear: WizardGear
-      unequipOldGear: true
-      roleLoadout:
-      - RoleSurvivalEVA
+#      unequipOldGear: true
+#      roleLoadout:
+#      - RoleSurvivalEVA
       components:
       - type: Wizard
       - type: RandomMetadata
@@ -108,7 +108,7 @@
   components:
   - type: GameRule
   - type: AntagSelection
-    useCharacterNames: true
+#    useCharacterNames: true
     selectionTime: PostPlayerSpawn
     agentName: apprentice-roundend-name
     definitions:

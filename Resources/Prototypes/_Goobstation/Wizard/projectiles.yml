@@ -95,7 +95,7 @@
   - type: HomingProjectile
     homingSpeed: 1080
   - type: KnockdownOnCollide
-    behavior: DropIfStanding
+#    behavior: DropIfStanding
   - type: Ammo
     muzzleFlash: null
 
@@ -633,7 +633,7 @@
     proto: BlindingTrapFlashEffect
   - type: BlurOnCollide
     blurTime: 15
-    blindTime: 10
+#    blindTime: 10
   - type: PointLight
     color: white
     radius: 2.0
@@ -744,7 +744,7 @@
     - state: icon
   - type: SlipOnCollide
   - type: Slippery
-    slipOnStep: false
+#    slipOnStep: false
     paralyzeTime: 10
     launchForwardsMultiplier: 1
   - type: ProjectileHitShooterAfterDelay

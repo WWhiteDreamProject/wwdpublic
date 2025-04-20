@@ -70,7 +70,7 @@
       tags:
       - CartridgeMagicBullet
   - type: Gun
-    muzzleFlashRotationOffset: 45
+#    muzzleFlashRotationOffset: 45
     minAngle: 20
     maxAngle: 30
     fireRate: 2
@@ -130,7 +130,7 @@
       knockdown:
         length: 4
   - type: KnockdownOnHit
-    duration: 4
+#    duration: 4
     dropHeldItemsBehavior: DropIfStanding
     knockdownOnHeavyAttack: false
   - type: UseDelayBlockKnockdown
@@ -235,8 +235,8 @@
       - state: equipped-BACKPACK
   - type: Reflect
     reflectProb: .3
-    slotFlags:
-      - NONE
+#    slotFlags:
+#      - NONE
   - type: LightAttackDamageMultiplier
     multiplier: 3
     extraSound:

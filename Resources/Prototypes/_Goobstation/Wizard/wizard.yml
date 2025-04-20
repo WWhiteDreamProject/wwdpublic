@@ -83,8 +83,8 @@
     - Zombie
     - Revolutionary
     - Changeling
-    - Heretic
-    - Blob
+#    - Heretic
+#    - Blob
   friendly:
     - Dragon
     - SimpleHostile

@@ -86,6 +86,12 @@ public sealed partial class StoreComponent : Component
     [DataField]
     public EntityUid? StartingMap;
 
+    /// <summary>
+    /// All listings, including those that aren't available to the buyer
+    /// </summary>
+    [DataField]
+    public HashSet<ListingData> Listings = new();
+
     #region audio
     /// <summary>
     /// The sound played to the buyer when a purchase is succesfully made.

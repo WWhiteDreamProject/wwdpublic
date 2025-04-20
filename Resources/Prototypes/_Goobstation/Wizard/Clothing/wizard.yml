@@ -76,8 +76,8 @@
   - type: FireProtection
     reduction: 1
   - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
+#    heatingCoefficient: 0.1
+#    coolingCoefficient: 0.1
 #  - type: ModifyDelayedKnockdown UNCOMMENT WHEN PORTED
 #    delayDelta: 3
 #    knockdownTimeDelta: -3
@@ -184,7 +184,7 @@
     actions:
     - ActionSummonStickmen
   - type: ItemActionGrant
-    restrictSlots: true
+#    restrictSlots: true
     restrictedSlots:
     - OUTERCLOTHING
     actions:

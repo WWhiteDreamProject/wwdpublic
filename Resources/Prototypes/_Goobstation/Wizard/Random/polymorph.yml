@@ -51,18 +51,18 @@
     PlayerBorgJanitor: 30
     PlayerBorgMedical: 30
     PlayerBorgService: 30
-    MobFireBot: 20
+#    MobFireBot: 20
     MobHonkBot: 20
     MobJonkBot: 20
     MobCleanBot: 20
     MobMedibot: 20
     MobMimeBot: 20
     MobSupplyBot: 20
-    PlayerBorgDerelict: 10
+#    PlayerBorgDerelict: 10
     PlayerBorgSyndicateAssaultBattery: 1
     PlayerBorgSyndicateMedicalBattery: 1
-    PlayerBorgSyndicateSaboteurBattery: 1
-    PlayerBorgDerelictSyndicateAssaultBattery: 1
+#    PlayerBorgSyndicateSaboteurBattery: 1
+#    PlayerBorgDerelictSyndicateAssaultBattery: 1
 
 - type: weightedRandomEntity
   id: WabbajackSlime
@@ -96,7 +96,7 @@
     MobGingerbreadRandom: 1
     MobVoxRandom: 1
     MobDwarfRandom: 1
-    MobBananaMen: 1
+#    MobBananaMen: 1
 #    MobYowieRandom: 1
     MobHarpyRandom: 1
 #    MobRodentiaRandom: 1
@@ -156,8 +156,8 @@
     MobFerret: 1
     MobHamster: 1
     MobPig: 1
-    MobReindeerBuck: 0.5
-    MobReindeerDoe: 0.5
+#    MobReindeerBuck: 0.5
+#    MobReindeerDoe: 0.5
     MobCarp: 0.2
     MobCarpMagic: 0.2
     MobCarpHolo: 0.2

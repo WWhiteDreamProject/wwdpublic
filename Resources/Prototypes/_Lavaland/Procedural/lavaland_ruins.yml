@@ -9,8 +9,8 @@
   name: lavaland-ruin-syndicate
   path: Maps/_Lavaland/Lavaland/ruin_syndicate_base.yml
   priority: -1 # highest priority
-  componentsToGrant:
-  - type: HierophantBeat
+#  componentsToGrant:
+#  - type: HierophantBeat
 
 - type: lavalandRuin
   id: BiodomeSnow

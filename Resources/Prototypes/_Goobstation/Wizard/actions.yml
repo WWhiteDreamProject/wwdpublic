@@ -310,7 +310,7 @@
     raiseOnUser: true
     checkCanInteract: false
     checkConsciousness: false
-    allowGhostAction: true
+#    allowGhostAction: true
     useDelay: 1
     itemIconStyle: BigAction
     icon:
@@ -650,7 +650,7 @@
   - type: InstantSummonsAction
   - type: ConfirmableAction
     popup: instant-summons-confirm-popup
-    shouldCancel: false
+#    shouldCancel: false
 
 - type: entity
   id: ActionTeleportWizard

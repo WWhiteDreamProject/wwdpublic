@@ -78,7 +78,7 @@
       - id: ClothingUniformJumpsuitAncient
       - id: ClothingMaskGas
       - id: ClothingHandsGlovesColorYellow
-      - id: ClothingNeckMantle
-      - id: ClothingOuterWinterColorGray
+#      - id: ClothingNeckMantle
+#      - id: ClothingOuterWinterColorGray
       - id: ClothingShoesColorBlack
       - id: PassengerPDA

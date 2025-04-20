@@ -42,7 +42,7 @@
   description: A weapon worthy of a god, able to strike with the force of a lightning bolt. It crackles with barely contained energy.
   components:
   - type: Wieldable
-    useDelayOnWield: false # GoobStation Edit
+#    useDelayOnWield: false # GoobStation Edit
   - type: LandAtCursor
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/mjollnir.rsi # GoobStation Edit
@@ -86,7 +86,7 @@
   description: The pinnacle of close combat technology, the hammer harnesses the power of a miniaturized singularity to deal crushing blows.
   components:
   - type: Wieldable
-    useDelayOnWield: false
+#    useDelayOnWield: false
   - type: MeleeRequiresWield
   - type: Sprite
     sprite: Objects/Weapons/Melee/singularityhammer.rsi
