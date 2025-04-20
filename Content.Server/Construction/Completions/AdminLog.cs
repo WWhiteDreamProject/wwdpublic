@@ -20,6 +20,8 @@ public sealed partial class AdminLog : IGraphAction
     [DataField("message", required: true)]
     public string Message = string.Empty;
 
+    private IGraphAction _graphActionImplementation;
+
     public void PerformAction(EntityUid uid, EntityUid? userUid, IEntityManager entityManager)
     {
         var logManager = IoCManager.Resolve<IAdminLogManager>();
