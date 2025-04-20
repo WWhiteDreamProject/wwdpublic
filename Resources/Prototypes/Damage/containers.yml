@@ -56,7 +56,7 @@
 - type: damageContainer
   id: ManifestedSpirit
   supportedGroups:
-  - Metaphysical
+#  - Metaphysical
   - Brute
   supportedTypes:
   - Heat

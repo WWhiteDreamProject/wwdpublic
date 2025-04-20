@@ -132,7 +132,7 @@
   - type: KnockdownOnHit
 #    duration: 4
     dropHeldItemsBehavior: DropIfStanding
-    knockdownOnHeavyAttack: false
+#    knockdownOnHeavyAttack: false
   - type: UseDelayBlockKnockdown
     delay: knockdown
   - type: SupermatterHalberd
