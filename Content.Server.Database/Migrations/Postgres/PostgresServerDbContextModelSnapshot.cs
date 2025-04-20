@@ -839,11 +839,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("backpack");
 
-                    b.Property<string>("BodyType")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("body_type");
-
                     b.Property<string>("CharacterName")
                         .IsRequired()
                         .HasColumnType("text")
@@ -855,7 +850,7 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnName("clothing");
 
                     b.Property<string>("ClownName")
-                        .HasColumnType("TEXT")
+                        .HasColumnType("text")
                         .HasColumnName("clown_name");
 
                     b.Property<string>("CustomSpecieName")
@@ -942,6 +937,18 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("sex");
 
+                    // WD EDIT START
+                    b.Property<string>("Voice")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("voice");
+
+                    b.Property<string>("BodyType")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("body_type");
+                    // WD EDIT END
+
                     b.Property<string>("SkinColor")
                         .IsRequired()
                         .HasColumnType("text")
@@ -963,11 +970,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Property<string>("StationAiName")
                         .HasColumnType("text")
                         .HasColumnName("station_ai_name");
-
-                    b.Property<string>("Voice")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("voice");
 
                     b.Property<float>("Width")
                         .HasColumnType("real")

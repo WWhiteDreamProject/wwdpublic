@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -13,7 +13,7 @@ namespace Content.Server.Database.Migrations.Postgres
             migrationBuilder.AddColumn<string>(
                 name: "clown_name",
                 table: "profile",
-                type: "TEXT",
+                type: "text",
                 nullable: true);
         }
 
