@@ -123,8 +123,13 @@ namespace Content.Server.Guardian
                 return;
 
             // Ensure held items are dropped before deleting guardian.
-            if (HasComp<HandsComponent>(guardian))
-                _bodySystem.GibBody(component.HostedGuardian.Value);
+            // WD EDIT
+            if (TryComp<HandsComponent>(guardian, out var hands))
+            {
+                foreach (var hand in hands.Hands.Values)
+                    _handsSystem.TryDrop(guardian, hand, checkActionBlocker:false, handsComp:hands);
+            }
+            // WD EDIT END
 
             QueueDel(guardian);
             QueueDel(component.ActionEntity);
