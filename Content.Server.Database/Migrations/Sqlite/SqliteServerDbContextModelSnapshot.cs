@@ -883,6 +883,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnName("sex");
 
                     // WD EDIT START
+                    b.Property<string>("ClownName")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("clown_name");
+                    
                     b.Property<string>("Voice")
                         .IsRequired()
                         .HasColumnType("TEXT")

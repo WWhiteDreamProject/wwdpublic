@@ -934,6 +934,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnName("sex");
 
                     // WD EDIT START
+                    b.Property<string>("ClownName")
+                        .HasColumnType("text")
+                        .HasColumnName("clown_name");
+
                     b.Property<string>("Voice")
                         .IsRequired()
                         .HasColumnType("text")
