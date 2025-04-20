@@ -2647,3 +2647,14 @@ Entries:
   id: 285
   time: '2025-04-18T05:23:10.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/452
+- author: Spatison
+  changes:
+    - type: Add
+      message: Добавлено веселье :D
+    - type: Tweak
+      message: Изменено веселье~
+    - type: Fix
+      message: Граб теперь сбрасывается при попытку движения
+  id: 286
+  time: '2025-04-20T03:18:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/443
