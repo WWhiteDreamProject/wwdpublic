@@ -2665,3 +2665,10 @@ Entries:
   id: 287
   time: '2025-04-20T03:18:52.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/444
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Трупы теперь не могут таскать вещи
+  id: 288
+  time: '2025-04-20T03:19:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/446
