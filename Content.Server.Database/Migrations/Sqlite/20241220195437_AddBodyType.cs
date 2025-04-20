@@ -2,10 +2,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Content.Server.Database.Migrations.Postgres
+namespace Content.Server.Database.Migrations.Sqlite
 {
     /// <inheritdoc />
-    public partial class BodyType : Migration
+    public partial class AddBodyType : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -13,7 +13,7 @@ namespace Content.Server.Database.Migrations.Postgres
             migrationBuilder.AddColumn<string>(
                 name: "body_type",
                 table: "profile",
-                type: "text",
+                type: "TEXT",
                 nullable: false,
                 defaultValue: "");
         }

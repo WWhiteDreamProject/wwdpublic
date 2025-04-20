@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    [Migration("20241220195437_BodyType")]
-    partial class BodyType
+    [Migration("20241220195437_AddBodyType")]
+    partial class AddBodyType
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -733,6 +733,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("clothing");
+
+                    b.Property<string>("ClownName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("clown_name");
 
                     b.Property<string>("EyeColor")
                         .IsRequired()
