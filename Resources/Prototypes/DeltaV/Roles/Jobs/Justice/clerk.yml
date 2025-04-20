@@ -14,6 +14,10 @@
     - !type:CharacterPlaytimeRequirement
       tracker: JobProsecutor
       min: 36000 # 10 hours
+    - !type:CharacterEmployerRequirement
+      employers:
+      - IdrisIncorporated
+      - NanoTrasen
 
 
   startingGear: ClerkGear

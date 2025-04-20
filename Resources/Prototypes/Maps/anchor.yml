@@ -6,7 +6,7 @@
   maxPlayers: 120
   fallback: true
   stations:
-    Anchor:
+    AnchorStation: # WD EDIT
       stationProto: StandardNanotrasenStationNoShuttles
       components:
         - type: StationNameSetup

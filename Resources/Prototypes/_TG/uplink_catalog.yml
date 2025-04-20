@@ -1,0 +1,33 @@
+# Wearables
+
+- type: listing
+  id: UplinkHardsuitBloodRedModsuit
+  name: uplink-modsuit-bloodred-name
+  description: uplink-modsuit-bloodred-desc
+  icon: { sprite: /Textures/_TG/Clothing/Modsuit/bloodredmodsuit.rsi, state: chestplate }
+  productEntity: BloodredModsuitBackpack
+  discountCategory: rareDiscounts
+  # WD EDIT START
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 5
+  # WD EDIT END
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkHardsuitSyndicateEliteModsuit
+  name: uplink-modsuit-elitemodsuit-name
+  description: uplink-modsuit-elitemodsuit-desc
+  icon: { sprite: /Textures/_TG/Clothing/Modsuit/syndicateelitemodsuit.rsi, state: chestplate }
+  productEntity: EliteModsuitBackpack
+  discountCategory: rareDiscounts
+  # WD EDIT START
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 14
+  # WD EDIT END
+  categories:
+  - UplinkWearables
