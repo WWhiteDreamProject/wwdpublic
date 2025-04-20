@@ -1,4 +1,4 @@
-﻿# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
 # SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
@@ -22,6 +22,6 @@
     checkCanAccess: false
     repeat: false
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: Objects/Magic/magicactions.rsi
       state: blink
     event: !type:TeleportSpellEvent

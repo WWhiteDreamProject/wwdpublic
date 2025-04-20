@@ -1,4 +1,4 @@
-﻿# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
 # SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
@@ -74,19 +74,19 @@
   name: Fireball III
   description: The fastest fireball in the west!
   components:
-  - type: EntityWorldTargetAction # Goob edit
-    useDelay: 2 # Goob edit
-    checkCanInteract: false # Goobstation
-    renewCharges: true
-    itemIconStyle: BigAction
-    checkCanAccess: false
-    raiseOnUser: true
-    range: 60
-    sound: !type:SoundPathSpecifier
-      path: /Audio/Magic/fireball.ogg
-    icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-      state: fireball # Goob edit
-    event: !type:ProjectileSpellEvent
-      prototype: ProjectileFireball
-      speech: action-speech-spell-fireball
+    - type: EntityWorldTargetAction # Goob edit
+      useDelay: 2 # Goob edit
+      checkCanInteract: false # Goobstation
+      renewCharges: true
+      itemIconStyle: BigAction
+      checkCanAccess: false
+      raiseOnUser: true
+      range: 60
+      sound: !type:SoundPathSpecifier
+        path: /Audio/Magic/fireball.ogg
+      icon:
+        sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+        state: fireball # Goob edit
+      event: !type:ProjectileSpellEvent
+        prototype: ProjectileFireball
+        speech: action-speech-spell-fireball

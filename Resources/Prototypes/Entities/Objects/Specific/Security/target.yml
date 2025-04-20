@@ -3,6 +3,7 @@
   parent: BaseStructureDynamic
   abstract: true
   components:
+  - type: Animateable # Goobstation
   - type: Sprite
     sprite: Objects/Specific/Security/target.rsi
     state: target_stake

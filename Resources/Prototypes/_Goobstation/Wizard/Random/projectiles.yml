@@ -17,7 +17,7 @@
     ProjectileHealingBolt: 1
     ProjectileSpellCardRedSpread: 0.5
     ProjectileSpellCardPurpleSpread: 0.5
-    BulletStasis: 1
+#    BulletStasis: 1
     ProjectileBananaPeel: 1
     TeslaGunBullet: 1
     ProjectileTeleBolt: 1
