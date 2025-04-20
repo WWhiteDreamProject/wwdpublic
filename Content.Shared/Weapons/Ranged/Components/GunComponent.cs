@@ -351,7 +351,10 @@ public sealed partial class GunComponent : Component
     public float EjectionForce = 0.04f;
 
     [DataField]
-    public float EjectionSpeed = 5f;
+    public float EjectionSpeed = 20f;
+
+    [DataField]
+    public float EjectAngleOffset = 3.7f;
 
     // WD EDIT START
     [DataField]
