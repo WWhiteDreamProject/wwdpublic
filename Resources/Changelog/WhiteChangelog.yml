@@ -2647,3 +2647,42 @@ Entries:
   id: 285
   time: '2025-04-18T05:23:10.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/452
+- author: Spatison
+  changes:
+    - type: Add
+      message: Добавлено веселье :D
+    - type: Tweak
+      message: Изменено веселье~
+    - type: Fix
+      message: Граб теперь сбрасывается при попытку движения
+  id: 286
+  time: '2025-04-20T03:18:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/443
+- author: Spatison
+  changes:
+    - type: Remove
+      message: Убран Restricted Gear трейт
+  id: 287
+  time: '2025-04-20T03:18:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/444
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Трупы теперь не могут таскать вещи
+  id: 288
+  time: '2025-04-20T03:19:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/446
+- author: Kutos
+  changes:
+    - type: Add
+      message: Шрифт для клоуна
+  id: 289
+  time: '2025-04-20T03:21:57.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/454
+- author: Spatison
+  changes:
+    - type: Add
+      message: Апстрим 04.04 - 18.04 :D
+  id: 290
+  time: '2025-04-20T03:24:57.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/460

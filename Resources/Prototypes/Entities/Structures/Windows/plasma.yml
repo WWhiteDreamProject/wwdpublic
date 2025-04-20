@@ -51,7 +51,9 @@
   - type: StaticPrice
     price: 60
   - type: RadiationBlocker
-    resistance: 2
+    resistance: 4
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
 
 - type: entity
   id: PlasmaWindowDirectional
