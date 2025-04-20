@@ -519,27 +519,27 @@
     - SpellbookFullRandom
     - SpellbookSemiRandom
 
-- type: listing
-  id: SpellbookTeleport
-  productUpgradeId: SpellbookTeleportUpgrade
-  name: spellbook-teleport-name
-  description: spellbook-teleport-desc
-  productAction: ActionTeleportWizard
-  cost:
-    WizCoin: 2
-  categories:
-  - SpellbookUtility
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:BuyBeforeCondition
-    blacklist:
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - GrimoireGhost
+#- type: listing WD edit - comment out, because no functionality was codded
+#  id: SpellbookTeleport
+#  productUpgradeId: SpellbookTeleportUpgrade
+#  name: spellbook-teleport-name
+#  description: spellbook-teleport-desc
+#  productAction: ActionTeleportWizard
+#  cost:
+#    WizCoin: 2
+#  categories:
+#  - SpellbookUtility
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  - !type:BuyBeforeCondition
+#    blacklist:
+#    - SpellbookFullRandom
+#    - SpellbookSemiRandom
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - GrimoireGhost
 
 - type: listing
   id: SpellbookSwap

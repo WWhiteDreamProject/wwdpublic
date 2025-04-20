@@ -179,6 +179,9 @@
   id: SpecialMech
 
 - type: Tag
+  id: SyringeArmor
+
+- type: Tag
   id: Undead
 
 - type: Tag

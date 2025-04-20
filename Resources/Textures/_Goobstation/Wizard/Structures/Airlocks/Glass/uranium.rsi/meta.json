@@ -182,6 +182,9 @@
     {
       "name": "welded"
     },
+      {
+          "name": "open_unlit"
+      },
     {
       "name": "emergency_unlit",
       "delays": [

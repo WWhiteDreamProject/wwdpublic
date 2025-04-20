@@ -204,10 +204,36 @@
 
 - type: entity
   name: passenger ID card
-  parent: AgentIDCard
+  parent: IDCardStandard
   id: WizardIDCard
   suffix: Wizard
   components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: department
+      color: "#878787"
+    - state: subdepartment
+      color: "#878787"
+    - state: passenger
+  - type: AgentIDCard
+  - type: ActivatableUI
+    key: enum.AgentIDCardUiKey.Key
+    inHandsOnly: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: ChameleonClothing
+    slot: [idcard]
+    default: PassengerIDCard
+  - type: UserInterface
+    interfaces:
+      enum.AgentIDCardUiKey.Key:
+        type: AgentIDCardBoundUserInterface
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: NanoChatCard # DeltaV
+    listNumber: false
   - type: Access
     tags:
     - Wizard
