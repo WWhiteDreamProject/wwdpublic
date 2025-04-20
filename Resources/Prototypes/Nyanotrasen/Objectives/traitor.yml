@@ -1,3 +1,14 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseTraitorStealObjective
+  id: MantisKnifeStealObjective
+  components:
+  - type: NotJobRequirement
+    job: ForensicMantis
+  - type: StealCondition
+    stealGroup: AntiPsychicKnife
+    owner: job-name-mantis
+
 #- type: entity
 #  id: BecomeGolemObjective
 #  parent: BaseTraitorObjective

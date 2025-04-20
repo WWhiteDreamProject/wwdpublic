@@ -54,12 +54,6 @@
   - type: Item
     size: Ginormous
   - type: DisarmMalus
-  - type: Clothing
-    sprite: Objects/Weapons/Melee/terminus.rsi
-    quickEquip: false
-    slots:
-    - back
-    - suitStorage
   - type: Tool
     qualities:
     - Prying

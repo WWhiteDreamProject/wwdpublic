@@ -68,9 +68,6 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutSmokes
-    - !type:CharacterEmployerRequirement
-      employers:
-      - Interdyne
 
 - type: loadout
   id: LoadoutItemLighter
@@ -577,7 +574,7 @@
     - MedkitFilled
   requirements:
     - !type:CharacterItemGroupRequirement
-      group: LoadoutMedkits
+      group: LoadoutBoxKits
 
 - type: loadout
   id: LoadoutMedkitBruteFilled
@@ -594,7 +591,7 @@
         - MedicalIntern
         - Brigmedic
     - !type:CharacterItemGroupRequirement
-      group: LoadoutMedkits
+      group: LoadoutBoxKits
 
 - type: loadout
   id: LoadoutMedkitBurnFilled
@@ -611,7 +608,7 @@
         - MedicalIntern
         - Brigmedic
     - !type:CharacterItemGroupRequirement
-      group: LoadoutMedkits
+      group: LoadoutBoxKits
 
 - type: loadout
   id: LoadoutMedkitToxinFilled
@@ -628,7 +625,7 @@
         - MedicalIntern
         - Brigmedic
     - !type:CharacterItemGroupRequirement
-      group: LoadoutMedkits
+      group: LoadoutBoxKits
 
 - type: loadout
   id: LoadoutMedkitOxygenFilled
@@ -645,7 +642,7 @@
         - MedicalIntern
         - Brigmedic
     - !type:CharacterItemGroupRequirement
-      group: LoadoutMedkits
+      group: LoadoutBoxKits
 
 - type: loadout
   id: LoadoutMedkitRadiationFilled
@@ -662,7 +659,7 @@
         - MedicalIntern
         - Brigmedic
     - !type:CharacterItemGroupRequirement
-      group: LoadoutMedkits
+      group: LoadoutBoxKits
 
 - type: loadout
   id: LoadoutMedkitAdvancedFilled
@@ -679,7 +676,7 @@
         - MedicalIntern
         - Brigmedic
     - !type:CharacterItemGroupRequirement
-      group: LoadoutMedkits
+      group: LoadoutBoxKits
 
 - type: loadout
   id: LoadoutMedkitCombatFilled
@@ -693,7 +690,7 @@
          - ChiefMedicalOfficer
          - Brigmedic
     - !type:CharacterItemGroupRequirement
-      group: LoadoutMedkits
+      group: LoadoutBoxKits
 
 #Misc Items
 # - type: loadout # WWDP disabled (xd)
@@ -879,20 +876,6 @@
   customColorTint: true
   items:
     - MobCockroachPet
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutPets
-  functions:
-    - !type:LoadoutMakeFollower
-
-- type: loadout
-  id: LoadoutItemPetGoldfish
-  category: Items
-  cost: 2
-  canBeHeirloom: true
-  customColorTint: true
-  items:
-    - MobCarpGoldfishPet
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutPets

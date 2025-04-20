@@ -104,7 +104,7 @@
   - type: Vehicle
     requiredHands: 0
     engineRunning: true
-    renderOver: South, SouthEast, SouthWest
+    renderOver: North, NorthEast, NorthWest
   - type: MovementSpeedModifier
     acceleration: 10
     friction: 3.5

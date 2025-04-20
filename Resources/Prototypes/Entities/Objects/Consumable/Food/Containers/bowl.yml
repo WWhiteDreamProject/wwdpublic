@@ -59,7 +59,6 @@
   - type: Tag
     tags:
     - Trash
-    - FoodBowlBig
 
 - type: entity
   name: broken bowl

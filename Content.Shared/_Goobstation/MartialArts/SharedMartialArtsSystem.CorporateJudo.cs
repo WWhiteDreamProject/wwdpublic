@@ -2,10 +2,8 @@ using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 
@@ -46,7 +44,8 @@ public partial class SharedMartialArtsSystem
         if (martialArtsKnowledge.MartialArtsForm != MartialArtsForms.CorporateJudo)
             return;
 
-        TryRemove(ent.Comp, user);
+        RemComp<MartialArtsKnowledgeComponent>(user);
+        RemComp<CanPerformComboComponent>(user);
     }
 
     #endregion
@@ -57,8 +56,9 @@ public partial class SharedMartialArtsSystem
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed)
-            || downed || IsBeingGrabbed(ent, target) < 1)
+            || downed)
             return;
+
         _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
         if (TryComp<PullableComponent>(target, out var pullable))
@@ -94,18 +94,22 @@ public partial class SharedMartialArtsSystem
     private void OnJudoArmbar(Entity<CanPerformComboComponent> ent, ref JudoArmbarPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed)
-            || !TryComp<RequireProjectileTargetComponent>(ent, out var standing) || !downed)
+            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
             return;
 
-        if (!standing.Active)
+        switch (downed)
         {
-            var item = _hands.GetActiveItem(target);
-            if (item != null)
-                _hands.TryDrop(target, item.Value);
+            case false:
+                var item = _hands.GetActiveItem(target);
+                if (item != null)
+                    _hands.TryDrop(target, item.Value);
+                break;
+            case true:
+                _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
+                _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
+                break;
         }
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
+
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.Name);
     }

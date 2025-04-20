@@ -408,16 +408,9 @@ public sealed partial class CharacterItemGroupRequirement : CharacterRequirement
             .ToList();
         var count = items.Count;
 
-        // If prototype is selected, decrease the count. Or increase it via negative number. Not my monkey, not my circus.
+        // If prototype is selected, remove one from the count
         if (items.ToList().Contains(prototype.ID))
-        {
-            // This disgusting ELIF nest requires an engine PR to make less terrible.
-            if (prototypeManager.TryIndex<LoadoutPrototype>(prototype.ID, out var loadoutPrototype))
-                count -= loadoutPrototype.Slots;
-            else if (prototypeManager.TryIndex<TraitPrototype>(prototype.ID, out var traitPrototype))
-                count -= traitPrototype.ItemGroupSlots;
-            else count--;
-        }
+            count--;
 
         reason = Loc.GetString(
             "character-item-group-requirement",
@@ -425,6 +418,6 @@ public sealed partial class CharacterItemGroupRequirement : CharacterRequirement
             ("group", Loc.GetString($"character-item-group-{Group}")),
             ("max", group.MaxItems));
 
-        return !Inverted ? count < group.MaxItems : count >= group.MaxItems - 1;
+        return count < group.MaxItems;
     }
 }

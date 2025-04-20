@@ -9,7 +9,7 @@ namespace Content.Shared.Abilities.Psionics
     public sealed partial class TelegnosisPowerComponent : Component
     {
         [DataField("prototype")]
-        public string Prototype = "MobTelegnosisObserver";
+        public string Prototype = "MobObserverTelegnostic";
         public InstantActionComponent? TelegnosisPowerAction = null;
         [ValidatePrototypeId<EntityPrototype>]
         public const string TelegnosisActionPrototype = "ActionTelegnosis";

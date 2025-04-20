@@ -161,8 +161,6 @@ public sealed class SharedLoadoutSystem : EntitySystem
                 if (!_inventory.TryEquip(uid, item, slot, true, !string.IsNullOrEmpty(slot), true))
                     failedLoadouts.Add(item);
 
-                RaiseLocalEvent(item, new SpawnedViaLoadoutEvent(uid, job.ID, profile));
-
                 i++;
             }
         }
@@ -247,25 +245,5 @@ public sealed class PlayerLoadoutAppliedEvent : EntityEventArgs
         Station = station;
         Profile = profile;
         JoinOrder = joinOrder;
-    }
-}
-
-/// <summary>
-///     Event raised when a player's loadout item is spawned on said item.
-/// </summary>
-[PublicAPI]
-public sealed class SpawnedViaLoadoutEvent : EntityEventArgs
-{
-    public EntityUid Mob { get; }
-    public string? JobId { get; }
-    public HumanoidCharacterProfile Profile { get; }
-
-    public SpawnedViaLoadoutEvent(EntityUid mob,
-        string? jobId,
-        HumanoidCharacterProfile profile)
-    {
-        Mob = mob;
-        JobId = jobId;
-        Profile = profile;
     }
 }

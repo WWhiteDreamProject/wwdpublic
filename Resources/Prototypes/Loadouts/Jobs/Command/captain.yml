@@ -155,8 +155,7 @@
   items:
     - CigarGoldCase
 
-# WD EDIT START - disabled
-# - type: loadout
+# - type: loadout # WWDP disabled, laser is now back on maps
 #   id: LoadoutCaptainAntiqueLaserPistol
 #   category: JobsCommandCaptain
 #   cost: 0
@@ -172,6 +171,7 @@
 #   items:
 #     - WeaponAntiqueLaser
 
+# WWDP disabled
 # - type: loadout
 #   id: LoadoutCaptainPulsePistol
 #   category: JobsCommandCaptain
@@ -188,6 +188,7 @@
 #   items:
 #     - WeaponPulsePistolCaptain
 
+# WWDP disabled
 #- type: loadout
 #  id: LoadoutCaptainTerminus
 #  category: JobsCommandCaptain
@@ -207,23 +208,6 @@
 #      - Oni
 #  items:
 #    - Terminus
-
-# - type: loadout
-#   id: LoadoutCaptainRevolverShotgun
-#   category: JobsCommandCaptain
-#   cost: 0
-#   canBeHeirloom: true
-#   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: LoadoutCaptainWeapon
-#     - !type:CharacterJobRequirement
-#       jobs:
-#         - Captain
-#     - !type:CharacterAgeRequirement
-#       min: 21
-#   items:
-#     - WeaponCaptainRevolverShotgun
-# WD EDIT END
 
 # Eyes
 - type: loadout

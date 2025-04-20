@@ -89,7 +89,6 @@
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
   - type: Gun
     fireRate: 0.75
-    damageModifier: 1.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -100,7 +99,7 @@
     range: 1.75
     damage:
       types:
-        Piercing: 7
+        Piercing: 5
         Slash: 3.5
     animationRotation: -135 # WWDP
     wideAnimationRotation: -135

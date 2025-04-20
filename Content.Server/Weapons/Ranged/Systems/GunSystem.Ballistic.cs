@@ -1,5 +1,5 @@
 using Content.Server.Stack;
-using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Hands.EntitySystems; // WWDP
 using Content.Shared.Stacks;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -12,11 +12,9 @@ public sealed partial class GunSystem
     [Dependency] private readonly StackSystem _stack = default!; // WD EDIT
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!; // WWDP
 
-    protected override void Cycle(EntityUid uid, BallisticAmmoProviderComponent component, MapCoordinates coordinates, GunComponent? gunComponent)
+    protected override void Cycle(EntityUid uid, BallisticAmmoProviderComponent component, MapCoordinates coordinates)
     {
         EntityUid? ent = null;
-        if (!Resolve(uid, ref gunComponent, false))
-            return;
 
         // TODO: Combine with TakeAmmo
         if (component.Entities.Count > 0)
@@ -26,7 +24,6 @@ public sealed partial class GunSystem
 
             Containers.Remove(existing, component.Container);
             EnsureShootable(existing);
-            EjectCartridge(existing, gunComp: gunComponent);
         }
         else if (component.UnspawnedCount > 0)
         {
@@ -36,7 +33,7 @@ public sealed partial class GunSystem
         }
 
         if (ent != null)
-            EjectCartridge(ent.Value, gunComp: gunComponent);
+            EjectCartridge(ent.Value);
 
         var cycledEvent = new GunCycledEvent();
         RaiseLocalEvent(uid, ref cycledEvent);

@@ -12,21 +12,16 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Customization.Systems;
 
 
-[ImplicitDataDefinitionForInheritors, MeansImplicitUse]
-[Serializable, NetSerializable]
-public abstract partial class CharacterLogicRequirement : CharacterRequirement
-{
-    [DataField]
-    public List<CharacterRequirement> Requirements { get; private set; } = new();
-}
-
 /// <summary>
 ///    Requires all of the requirements to be true
 /// </summary>
 [UsedImplicitly]
 [Serializable, NetSerializable]
-public sealed partial class CharacterLogicAndRequirement : CharacterLogicRequirement
+public sealed partial class CharacterLogicAndRequirement : CharacterRequirement
 {
+    [DataField]
+    public List<CharacterRequirement> Requirements { get; private set; } = new();
+
     public override bool IsValid(JobPrototype job,
         HumanoidCharacterProfile profile,
         Dictionary<string, TimeSpan> playTimes,
@@ -65,8 +60,11 @@ public sealed partial class CharacterLogicAndRequirement : CharacterLogicRequire
 /// </summary>
 [UsedImplicitly]
 [Serializable, NetSerializable]
-public sealed partial class CharacterLogicOrRequirement : CharacterLogicRequirement
+public sealed partial class CharacterLogicOrRequirement : CharacterRequirement
 {
+    [DataField]
+    public List<CharacterRequirement> Requirements { get; private set; } = new();
+
     public override bool IsValid(JobPrototype job,
         HumanoidCharacterProfile profile,
         Dictionary<string, TimeSpan> playTimes,
@@ -118,8 +116,11 @@ public sealed partial class CharacterLogicOrRequirement : CharacterLogicRequirem
 /// </summary>
 [UsedImplicitly]
 [Serializable, NetSerializable]
-public sealed partial class CharacterLogicXorRequirement : CharacterLogicRequirement
+public sealed partial class CharacterLogicXorRequirement : CharacterRequirement
 {
+    [DataField]
+    public List<CharacterRequirement> Requirements { get; private set; } = new();
+
     public override bool IsValid(JobPrototype job,
         HumanoidCharacterProfile profile,
         Dictionary<string, TimeSpan> playTimes,

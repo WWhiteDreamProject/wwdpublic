@@ -39,7 +39,7 @@
       brain_slot:
         name: positronic-brain-slot-component-slot-name-brain
         whitelist:
-          tags:
+          components:
           - Brain
   - type: ContainerContainer
     containers:
@@ -52,10 +52,6 @@
   - type: LanguageKnowledge
     speaks: [TauCetiBasic, RobotTalk]
     understands: [TauCetiBasic, RobotTalk]
-  - type: Brain # IPCMMI
-    active: false
-  - type: Organ
-    slotId: posibrain
 
 - type: entity
   parent: MMI
@@ -68,7 +64,7 @@
         name: "Brain"
         startingItem: OrganHumanBrain
         whitelist:
-          tags: # IPCMMI - changed component requirement to a tag bc you'd be able to infinitely stack regular + reverse MMIs otherwise
+          components:
             - Brain
 
 - type: entity
@@ -101,7 +97,6 @@
     - type: BlockMovement
     - type: Examiner
     - type: Brain # hopefully this doesn't break everything
-      active: false
     - type: BorgBrain
     - type: IntrinsicRadioReceiver
     - type: IntrinsicRadioTransmitter
@@ -126,7 +121,6 @@
     - type: Tag
       tags:
       - CannotSuicide
-      - Posibrain # IPCMMI - added posibrain tag
     - type: GenericVisualizer
       visuals:
         enum.ToggleableGhostRoleVisuals.Status:

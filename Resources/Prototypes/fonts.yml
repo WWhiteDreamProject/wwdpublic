@@ -93,11 +93,6 @@
 - type: font
   id: Megrim
   path: /Fonts/Megrim/Megrim.ttf
-  
-- type: font
-  id: YoureGone
-  path: /Fonts/YoureGone.otf
-  
 # WD ADD:
 - type: font
   id: ComicSansMS

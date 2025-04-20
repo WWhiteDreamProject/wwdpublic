@@ -1138,8 +1138,3 @@
   id: plasma
   flavorType: Complex
   description: flavor-complex-plasma
-
-- type: flavor
-  id: supernova
-  flavorType: Complex
-  description: flavor-complex-supernova

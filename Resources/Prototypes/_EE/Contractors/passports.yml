@@ -6,6 +6,8 @@
   description: A passport denoting an individual's nationality and identity.
   components:
     - type: Passport
+    - type: UseDelay
+      delay: 0.5
     - type: Sprite
       sprite: _EE/Contractors/Passport.rsi
       layers:

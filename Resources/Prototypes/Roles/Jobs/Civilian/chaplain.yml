@@ -16,12 +16,19 @@
         - !type:CharacterTraitRequirement
           traits:
             - AnomalousPositronics
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          species:
+            - Shadowkin
+        - !type:CharacterTraitRequirement
+          inverted: true
+          traits:
+            - ShadowkinBlackeye
     - !type:CharacterEmployerRequirement
       inverted: true
       employers:
       - Unemployed
-    - !type:CharacterItemGroupRequirement
-      group: TraitsCasterType
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
   supervisors: job-supervisors-rd
@@ -35,11 +42,9 @@
     - type: BibleUser
     - type: Psionic
       powerRollMultiplier: 3
-      baselinePowerCost: 150
-      nextPowerCost: 150
-      powerPool: ElementalistPowerPool
     - type: InnatePsionicPowers
       powersToAdd:
+        - TelepathyPower
         - HealingWordPower
         - SummonRemiliaPower
 

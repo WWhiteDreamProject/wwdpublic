@@ -31,8 +31,6 @@
     - ChangelingSting
     - CogChamp
     - JuiceThatMakesYouWeh
-    # Goobstation - Start
-    - Genecide
   - quantity: 5
     weight: 2
     reagents:
@@ -59,7 +57,6 @@
     - Cola
     - Diphenhydramine
     - Iron
-    - Ibuprofen
   - quantity: 10
     weight: 3
     reagents:
@@ -93,9 +90,6 @@
     - Potassium
     - Fluorine
     - Aluminium
-    # Goobstation - Start
-    - Tirimol
-    - Probital
   - quantity: 10
     weight: 3.5
     reagents:

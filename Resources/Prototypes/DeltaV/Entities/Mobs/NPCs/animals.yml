@@ -82,7 +82,6 @@
     description: "Help out the security team by biting the baddies and barking at everything that moves."
   - type: GhostTakeoverAvailable
   - type: CombatMode
-  - type: ScentTracker
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
     baseSprintSpeed : 5.0
@@ -185,8 +184,3 @@
     understands:
     - Dog
     - TauCetiBasic
-  - type: Access
-    tags:
-    - Security
-    - Brig
-
