@@ -4,10 +4,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Content.Server.Database.Migrations.Sqlite
 {
-    /// <inheritdoc />
-    public partial class ClownName : Migration
+    /// <summary>
+    /// Adds ClownName field to the Profile table
+    /// </summary>
+    public partial class AddClownName : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
@@ -17,7 +18,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                 nullable: true);
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
@@ -25,4 +25,4 @@ namespace Content.Server.Database.Migrations.Sqlite
                 table: "profile");
         }
     }
-}
+} 

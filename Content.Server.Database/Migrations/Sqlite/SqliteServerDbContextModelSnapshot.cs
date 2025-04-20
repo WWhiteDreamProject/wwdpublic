@@ -798,10 +798,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("clothing");
 
-                    b.Property<string>("ClownName")
-                        .HasColumnType("text")
-                        .HasColumnName("clown_name");
-
                     b.Property<string>("CustomSpecieName")
                         .IsRequired()
                         .HasColumnType("TEXT")
