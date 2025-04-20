@@ -2672,3 +2672,10 @@ Entries:
   id: 288
   time: '2025-04-20T03:19:33.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/446
+- author: Kutos
+  changes:
+    - type: Add
+      message: Шрифт для клоуна
+  id: 289
+  time: '2025-04-20T03:21:57.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/454
