@@ -33,6 +33,7 @@
     - type: CanEnterCryostorage
     - type: DoAfter
     - type: RotationVisuals
+      defaultRotation: 90 # WD EDIT
       horizontalRotation: 90
     - type: Examiner
     # - type: Recyclable
@@ -334,7 +335,7 @@
     - type: Carriable
     - type: LayingDown
     - type: ExaminableCharacter # WWDP
-
+    - type: TTS # WD EDIT
 
 - type: damageModifierSet
   id: IPC
