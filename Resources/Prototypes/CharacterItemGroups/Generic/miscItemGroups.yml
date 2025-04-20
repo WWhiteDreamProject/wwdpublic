@@ -92,6 +92,22 @@
       id: LoadoutItemBoxSurvivalMedical
     - type: loadout
       id: LoadoutItemBoxHug
+    - type: loadout
+      id: LoadoutMedkitFilled
+    - type: loadout
+      id: LoadoutMedkitBruteFilled
+    - type: loadout
+      id: LoadoutMedkitBurnFilled
+    - type: loadout
+      id: LoadoutMedkitToxinFilled
+    - type: loadout
+      id: LoadoutMedkitOxygenFilled
+    - type: loadout
+      id: LoadoutMedkitRadiationFilled
+    - type: loadout
+      id: LoadoutMedkitAdvancedFilled
+    - type: loadout
+      id: LoadoutMedkitCombatFilled
 
 - type: characterItemGroup
   id: LoadoutWritables
@@ -122,8 +138,6 @@
       id: LoadoutItemPetSquackroach
     - type: loadout
       id: LoadoutItemPetCockroach
-    - type: loadout
-      id: LoadoutItemPetGoldfish
 
 - type: characterItemGroup
   id: LoadoutCards
@@ -167,22 +181,3 @@
     - type: loadout
       id: PlushieShadowkin
 
-- type: characterItemGroup
-  id: LoadoutMedkits
-  items:
-    - type: loadout
-      id: LoadoutMedkitFilled
-    - type: loadout
-      id: LoadoutMedkitBruteFilled
-    - type: loadout
-      id: LoadoutMedkitBurnFilled
-    - type: loadout
-      id: LoadoutMedkitToxinFilled
-    - type: loadout
-      id: LoadoutMedkitOxygenFilled
-    - type: loadout
-      id: LoadoutMedkitRadiationFilled
-    - type: loadout
-      id: LoadoutMedkitAdvancedFilled
-    - type: loadout
-      id: LoadoutMedkitCombatFilled

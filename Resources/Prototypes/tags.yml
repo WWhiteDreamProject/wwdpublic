@@ -1509,9 +1509,6 @@
 - type: Tag
   id: WriteIgnoreStamps
 
-- type: Tag
-  id: FoodBowlBig
-
 # ALPHABETICAL
 
 - type: Tag

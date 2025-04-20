@@ -810,7 +810,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var target = GetEntity(ev.Target);
 
         if (Deleted(target) ||
-            user == target || !CanDoLightAttack(user, target, component, out var targetXform, session))
+            user == target)
         {
             return false;
         }

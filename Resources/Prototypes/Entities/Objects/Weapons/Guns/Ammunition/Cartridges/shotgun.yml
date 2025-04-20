@@ -18,16 +18,6 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: Appearance
   - type: SpentAmmoVisuals
-  - type: EmitSoundOnLand
-    sound:
-      collection: ShellLand
-      params:
-        volume: -5
-  - type: EmitSoundOnCollide
-    sound:
-      collection: ShellLand
-      params:
-        volume: -5
 
 - type: entity
   id: ShellShotgunBeanbag
@@ -63,22 +53,23 @@
     state: "slug"
 
 - type: entity
-  id: ShellShotgunLumen
-  name: shell (.50 Lumenblast)
+  id: ShellShotgunFlare
+  name: shell (.50 flare)
   parent: BaseShellShotgun
   components:
   - type: Tag
     tags:
     - Cartridge
     - ShellShotgun
+    - ShellShotgunLight
   - type: Sprite
     layers:
-      - state: lumen
+      - state: flare
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
-    proto: PelletShotgunLumen
+    proto: PelletShotgunFlare
   - type: SpentAmmoVisuals
-    state: "lumen"
+    state: "flare"
 
 - type: entity
   id: ShellShotgun
@@ -220,22 +211,3 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: PelletShotgunSpread0000Buckshot
-
-- type: entity
-  id: ShellShotgunFlare
-  name: shell (.50 flare)
-  parent: BaseShellShotgun
-  components:
-  - type: Tag
-    tags:
-    - Cartridge
-    - ShellShotgun
-    - ShellShotgunLight
-  - type: Sprite
-    layers:
-      - state: flare
-        map: [ "enum.AmmoVisualLayers.Base" ]
-  - type: CartridgeAmmo
-    proto: PelletShotgunFlare
-  - type: SpentAmmoVisuals
-    state: "flare"

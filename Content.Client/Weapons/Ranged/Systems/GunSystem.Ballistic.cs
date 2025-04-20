@@ -20,7 +20,7 @@ public sealed partial class GunSystem
         }
     }
 
-    protected override void Cycle(EntityUid uid, BallisticAmmoProviderComponent component, MapCoordinates coordinates, GunComponent? gunComponent)
+    protected override void Cycle(EntityUid uid, BallisticAmmoProviderComponent component, MapCoordinates coordinates)
     {
         if (!Timing.IsFirstTimePredicted)
             return;

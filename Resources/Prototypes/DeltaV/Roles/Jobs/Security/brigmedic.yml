@@ -20,11 +20,9 @@
         - Pacifist
         - BrittleBoneDisease
     - !type:CharacterEmployerRequirement
+      inverted: true
       employers:
-      - ZavodskoiInterstellar
-      - Interdyne
-      - PMCG
-      - NanoTrasen
+      - Unemployed
   startingGear: CorpsmanGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos

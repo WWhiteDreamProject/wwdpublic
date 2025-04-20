@@ -3,7 +3,7 @@ using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Chemistry;
+namespace Content.Goobstation.Server.Chemistry;
 
 [UsedImplicitly]
 public sealed partial class TakeStaminaDamage : EntityEffect
@@ -15,7 +15,7 @@ public sealed partial class TakeStaminaDamage : EntityEffect
     public int Amount = 10;
 
     /// <summary>
-    /// Whether stamina damage should be applied immediately.
+    /// Whether stamina damage should be applied immediately
     /// </summary>
     [DataField]
     public bool Immediate;
@@ -29,14 +29,13 @@ public sealed partial class TakeStaminaDamage : EntityEffect
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        int scaledAmount = Amount;
-
         if (args is EntityEffectReagentArgs reagentArgs)
         {
-            scaledAmount = (int)(Amount * reagentArgs.Scale);
+            if (reagentArgs.Scale != 1f)
+                return;
         }
 
         args.EntityManager.System<StaminaSystem>()
-            .TakeStaminaDamage(args.TargetEntity, scaledAmount, visual: false, immediate: Immediate);
+            .TakeStaminaDamage(args.TargetEntity, Amount, visual: false, immediate: Immediate);
     }
 }

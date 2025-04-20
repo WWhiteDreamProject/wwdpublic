@@ -20,12 +20,6 @@
       id: LoadoutClothingBeltSecurity
     - type: loadout
       id: LoadoutClothingBeltHolster
-    # WD EDIT START
-    # - type: loadout
-    #   id: LoadoutClothingBeltJudo
-    # - type: loadout
-    #   id: LoadoutClothingBeltJudoHoS
-    # WD EDIT END
 
 #- type: characterItemGroup
 #  id: LoadoutSecurityEars
@@ -56,10 +50,6 @@
       id: LoadoutSpeedLoaderRifleHeavy
     - type: loadout
       id: LoadoutSpeedLoaderRifleHeavySpare
-    - type: loadout
-      id: LoadoutMagazineUniversalMagnum
-    - type: loadout
-      id: LoadoutMagazineUniversalMagnumSpare
 
 - type: characterItemGroup
   maxItems: 1
@@ -81,10 +71,8 @@
       id: LoadoutSecurityPistolViperWood
     - type: loadout
       id: LoadoutSecurityEquipmentTruncheon
-    # WD EDIT START
-    # - type: loadout
-    #   id: LoadoutSecurityEquipmentEnergySword
-    # WD EDIT END
+    #- type: loadout # WWDP removed
+    #  id: LoadoutSecurityEquipmentEnergySword
     - type: loadout
       id: LoadoutSecurityPistolSvalin
     - type: loadout
@@ -103,20 +91,12 @@
       id: LoadoutSecurityRevolverPython
     - type: loadout
       id: LoadoutSecurityArgenti
-    # WD EDIT START
-    # - type: loadout
-    #   id: LoadoutSecurityPistolEnergyRevolver
-    # WD EDIT END
+    #- type: loadout # WWDP removed
+    #  id: LoadoutSecurityPistolEnergyRevolver
     - type: loadout
       id: LoadoutBSOEnergyRevolver
     - type: loadout
       id: LoadoutBSORifleChester
-    - type: loadout
-      id: LoadoutSecurityShotgunSawnLumen
-    - type: loadout
-      id: LoadoutSecurityDisablerSMG
-    - type: loadout
-      id: LoadoutSecurityPistolUniversal
 
 - type: characterItemGroup
   id: LoadoutSecurityEyes
@@ -141,15 +121,13 @@
     - type: loadout
       id: LoadoutClothingEyesGlassesCorpsman
 
-- type: characterItemGroup
+- type: characterItemGroup #WWDP edit
   id: LoadoutSecurityGloves
   maxItems: 1
   items:
-    - type: loadout
-      id: LoadoutSecurityCombatGloves
-    - type: loadout #WWDP edit
-      id: LoadoutSecurityHandsGlovesEnviroglovesBlack
-
+  - type: loadout
+    id: LoadoutSecurityHandsGlovesEnviroglovesBlack
+#
 - type: characterItemGroup
   id: LoadoutSecurityHead
   maxItems: 1
@@ -161,7 +139,7 @@
     - type: loadout
       id: LoadoutSecurityHeadHelmetInsulated
     - type: loadout
-      id: ClothingHeadHelmetTCFLHeavy
+      id: LoadoutSecurityHeadHatSeniorTrooper
 
 #- type: characterItemGroup
 #  id: LoadoutSecurityId
@@ -179,8 +157,6 @@
   items:
     - type: loadout
       id: LoadoutSecurityMaskGasSwat
-    - type: loadout
-      id: LoadoutSecurityMaskGasSwatPaid
     - type: loadout #WWDP edit
       id: LoadoutSecurityMaskGas
 
@@ -198,8 +174,6 @@
       id: LoadoutClothingOuterArmorBasic
     - type: loadout
       id: LoadoutClothingOuterArmorSlim
-    - type: loadout
-      id: ClothingOuterArmorTCFLHeavy
 
 - type: characterItemGroup
   id: LoadoutSecurityShoes
@@ -223,7 +197,11 @@
     - type: loadout
       id: LoadoutSecurityUniformJumpskirtBlue
     - type: loadout
+      id: LoadoutUniformJumpsuitSecFormal
+    - type: loadout
       id: LoadoutUniformJumpsuitSecSummer
+    - type: loadout
+      id: LoadoutSecurityUniformJumpsuitSeniorTrooper
     - type: loadout
       id: LoadoutSecurityUniformEnvirosuitBlue
     - type: loadout

@@ -30,3 +30,6 @@
   - type: Tag
     tags:
     - ForensicBeltEquip
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: AntiPsychicKnife

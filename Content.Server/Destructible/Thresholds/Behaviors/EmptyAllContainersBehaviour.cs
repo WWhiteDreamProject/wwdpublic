@@ -1,22 +1,22 @@
-using Robust.Server.Containers;
 using Robust.Shared.Containers;
 
-namespace Content.Server.Destructible.Thresholds.Behaviors;
-
-/// <summary>
-///     Drop all items from all containers
-/// </summary>
-[DataDefinition]
-public sealed partial class EmptyAllContainersBehaviour : IThresholdBehavior
+namespace Content.Server.Destructible.Thresholds.Behaviors
 {
-    public void Execute(EntityUid owner, DestructibleSystem destructibleSystem, EntityUid? cause = null)
+    /// <summary>
+    ///     Drop all items from all containers
+    /// </summary>
+    [DataDefinition]
+    public sealed partial class EmptyAllContainersBehaviour : IThresholdBehavior
     {
-        var entityManager = destructibleSystem.EntityManager;
-        if (!entityManager.EntitySysManager.TryGetEntitySystem<ContainerSystem>(out var containerSystem)
-            || !entityManager.HasComponent<ContainerManagerComponent>(owner))
-            return;
+        public void Execute(EntityUid owner, DestructibleSystem system, EntityUid? cause = null)
+        {
+            if (!system.EntityManager.TryGetComponent<ContainerManagerComponent>(owner, out var containerManager))
+                return;
 
-        foreach (var container in containerSystem.GetAllContainers(owner))
-            destructibleSystem.ContainerSystem.EmptyContainer(container, true, entityManager.GetComponent<TransformComponent>(owner).Coordinates);
+            foreach (var container in containerManager.GetAllContainers())
+            {
+                system.ContainerSystem.EmptyContainer(container, true, system.EntityManager.GetComponent<TransformComponent>(owner).Coordinates);
+            }
+        }
     }
 }

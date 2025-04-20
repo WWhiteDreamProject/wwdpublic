@@ -1,9 +1,13 @@
 using Content.Shared.Administration.Logs;
 using Content.Shared.Contests;
 using Content.Shared.Popups;
+using Content.Shared.Psionics;
 using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.FixedPoint;
+using Content.Shared.Rejuvenate;
 
 namespace Content.Shared.Abilities.Psionics
 {
@@ -15,6 +19,7 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
         [Dependency] private readonly ContestsSystem _contests = default!;
+        [Dependency] private readonly MobStateSystem _mobState = default!;
 
         public override void Initialize()
         {
@@ -27,30 +32,7 @@ namespace Content.Shared.Abilities.Psionics
             if (!TryComp<PsionicComponent>(uid, out var component)
                 || HasComp<MindbrokenComponent>(uid)
                 || checkInsulation
-                && TryComp(uid, out PsionicInsulationComponent? insul) && !insul.Passthrough)
-                return false;
-
-            var tev = new OnAttemptPowerUseEvent(uid, power);
-            RaiseLocalEvent(uid, tev);
-
-            if (tev.Cancelled)
-                return false;
-
-            if (component.DoAfter is not null)
-            {
-                _popups.PopupEntity(Loc.GetString(component.AlreadyCasting), uid, uid, PopupType.LargeCaution);
-                return false;
-            }
-
-            return true;
-        }
-
-        public bool OnAttemptPowerUse(EntityUid uid, EntityUid target, string power, bool checkInsulation = true)
-        {
-            if (!TryComp<PsionicComponent>(uid, out var component)
-                || HasComp<MindbrokenComponent>(uid) || HasComp<MindbrokenComponent>(target)
-                || checkInsulation
-                && (TryComp(uid, out PsionicInsulationComponent? insul) && !insul.Passthrough || HasComp<PsionicInsulationComponent>(target)))
+                && HasComp<PsionicInsulationComponent>(uid))
                 return false;
 
             var tev = new OnAttemptPowerUseEvent(uid, power);

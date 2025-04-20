@@ -122,9 +122,9 @@ public sealed class PenLightSystem : EntitySystem
 
         // EyeDamage
         var eyeDamage = false;
-        if (TryComp<BlindableComponent>(target, out var blindable))
+        if (TryComp<BlindableComponent>(target, out var eyeDam))
         {
-            eyeDamage = blindable.EyeDamage > 0;
+            eyeDamage = eyeDam.EyeDamage > 0 && eyeDam.EyeDamage < 6; //6 means perma-blind
         }
 
         // Hallucinating

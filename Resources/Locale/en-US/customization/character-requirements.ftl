@@ -1,5 +1,3 @@
-character-requirement-desc = Requirements:
-
 ## Job
 character-job-requirement = You must{$inverted ->
     [true]{" "}not

@@ -1,4 +1,4 @@
--create-3rd-person =
+﻿-create-3rd-person =
     { $chance ->
         [1] Creates
         *[other] create
@@ -120,10 +120,7 @@ reagent-effect-guidebook-adjust-solution-temperature-effect =
                 [1] add
                 *[-1] remove
             }
-    } heat { $deltasign ->
-                [1] to
-                *[-1] from
-           } the solution until it reaches { $deltasign ->
+    } heat from the solution until it reaches { $deltasign ->
                 [1] at most {NATURALFIXED($maxtemp, 2)}k
                 *[-1] at least {NATURALFIXED($mintemp, 2)}k
             }
@@ -373,7 +370,7 @@ reagent-effect-guidebook-chem-reroll-psionic =
     } a chance to get a different psionic power
 
 reagent-effect-guidebook-add-moodlet =
-    Modifies mood by {$amount}
+    modifies mood by {$amount}
     { $timeout ->
         [0] indefinitely
         *[other] for {$timeout} seconds
@@ -415,26 +412,3 @@ reagent-effect-guidebook-stamina-change =
                     *[1] decrease
                  }
     } stamina by {$amount} points
-
-reagent-effect-guidebook-add-to-chemicals =
-    { $chance ->
-        [1] { $deltasign ->
-                [1] Adds
-                *[-1] Removes
-            }
-        *[other]
-            { $deltasign ->
-                [1] add
-                *[-1] remove
-            }
-    } {NATURALFIXED($amount, 2)}u of {$reagent} { $deltasign ->
-        [1] to
-        *[-1] from
-    } the solution
-
-reagent-effect-guidebook-chem-restorereroll-psionic =
-    { $chance ->
-        [1] Restores
-        *[other] restore
-    } one's ability to gain benefit from mind opening reagents
-

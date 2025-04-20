@@ -20,7 +20,6 @@ public sealed class ParallaxOverlay : Overlay
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IParallaxManager _manager = default!;
     private readonly ParallaxSystem _parallax;
-    private Dictionary<ParallaxLayerPrepared, ShaderInstance?> _layerShaders;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowWorld;
 
@@ -29,7 +28,6 @@ public sealed class ParallaxOverlay : Overlay
         ZIndex = ParallaxSystem.ParallaxZIndex;
         IoCManager.InjectDependencies(this);
         _parallax = _entManager.System<ParallaxSystem>();
-        _layerShaders = new();
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
@@ -56,23 +54,12 @@ public sealed class ParallaxOverlay : Overlay
 
         foreach (var layer in layers)
         {
-            ShaderInstance? shader = null;
+            ShaderInstance? shader;
+
             if (!string.IsNullOrEmpty(layer.Config.Shader))
-            {
-                if (_layerShaders.TryGetValue(layer, out var shaderInstance))
-                {
-                    shader = shaderInstance;
-                }
-                else
-                {
-                    shader = _prototypeManager.Index<ShaderPrototype>(layer.Config.Shader).Instance();
-                    _layerShaders.Add(layer, shader);
-                }
-            }
+                shader = _prototypeManager.Index<ShaderPrototype>(layer.Config.Shader).Instance();
             else
                 shader = null;
-
-
 
             worldHandle.UseShader(shader);
             var tex = layer.Texture;
@@ -126,19 +113,6 @@ public sealed class ParallaxOverlay : Overlay
         }
 
         worldHandle.UseShader(null);
-    }
-
-    protected override void DisposeBehavior()
-    {
-        foreach (var pair in _layerShaders)
-        {
-            if (pair.Value != null)
-            {
-                pair.Value.Dispose();
-            }
-        }
-        _layerShaders.Clear();
-        base.DisposeBehavior();
     }
 }
 

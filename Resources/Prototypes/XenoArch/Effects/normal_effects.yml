@@ -503,9 +503,6 @@
     - Desoxyephedrine
     - Pax
     - Siderlac
-    # Goobstation - Start
-    - Ibuprofen
-    - Tirimol
 
 - type: artifactEffect
   id: EffectEmp
@@ -625,9 +622,6 @@
     - ChloralHydrate
     - Mold
     - Amatoxin
-    # Goobstation - Start
-    - Triclor
-    - Cyanide
 
 - type: artifactEffect
   id: EffectIgnite

@@ -8,10 +8,9 @@
       department: Logistics # DeltaV - Logistics Department replacing Cargo
       min: 21600 #DeltaV 6 hrs
     - !type:CharacterEmployerRequirement
+      inverted: true
       employers:
-      - OrionExpress
-      - PMCG
-      - NanoTrasen
+      - Unemployed
   #  - !type:OverallPlaytimeRequirement #DeltaV
   #    time: 36000 #10 hrs
   icon: "JobIconShaftMiner"
@@ -33,7 +32,6 @@
     shoes: ClothingShoesBootsSalvage
     id: SalvagePDA
     ears: ClothingHeadsetCargo
-    pocket1: MiningVoucher
   satchel: ClothingBackpackSatchelSalvageFilled
   duffelbag: ClothingBackpackDuffelSalvageFilled
 
@@ -45,4 +43,3 @@
     head: ClothingHeadEnvirohelmSalvage
     gloves: ClothingHandsGlovesEnviroglovesSalvage
     mask: ClothingMaskGasExplorer
-    pocket1: MiningVoucher

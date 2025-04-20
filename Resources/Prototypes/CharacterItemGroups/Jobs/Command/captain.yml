@@ -45,18 +45,17 @@
     - type: loadout
       id: LoadoutCaptainCigarCase
 
-#- type: characterItemGroup
-#  id: LoadoutCaptainWeapon
-#  maxItems: 1
-#  items:
-#  - type: loadout
-#    id: LoadoutCaptainAntiqueLaserPistol
-#  - type: loadout
-#    id: LoadoutCaptainPulsePistol
-#  - type: loadout
-#    id: LoadoutCaptainTerminus
-#  - type: loadout
-#    id: LoadoutCaptainRevolverShotgun
+# - type: characterItemGroup # WWDP disabled
+#   id: LoadoutCaptainWeapon
+#   maxItems: 1
+#   items:
+#     - type: loadout
+#       id: LoadoutCaptainAntiqueLaserPistol
+#     - type: loadout
+#       id: LoadoutCaptainPulsePistol
+#     - type: loadout
+#       id: LoadoutCaptainTerminus
+
 
 - type: characterItemGroup
   id: LoadoutCaptainEyes
