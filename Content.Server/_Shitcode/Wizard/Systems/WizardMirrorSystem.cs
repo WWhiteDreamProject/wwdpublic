@@ -17,6 +17,7 @@ using Content.Shared._Goobstation.Wizard.MagicMirror;
 using Content.Shared._Shitmed.Humanoid.Events;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Polymorph;
 using Content.Shared.Preferences;
@@ -69,7 +70,7 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
     {
         var age = humanoid.Age;
         if (humanoid.Species != profile.Species && component.AllowedSpecies.Contains(profile.Species) &&
-            _proto.TryIndex(profile.Species, out var speciesProto))
+            _proto.TryIndex<SpeciesPrototype>(profile.Species, out var speciesProto)) // WD edit
         {
             if (HasComp<GuardianHostComponent>(target))
             {
@@ -79,7 +80,7 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
 
             var config = new PolymorphConfiguration
             {
-                Entity = speciesProto.ID,
+                Entity = speciesProto.Prototype, // WD edit
                 TransferName = true,
                 TransferDamage = true,
                 Forced = true,

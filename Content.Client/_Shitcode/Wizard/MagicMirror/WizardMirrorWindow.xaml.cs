@@ -379,7 +379,7 @@ public sealed partial class WizardMirrorWindow : DefaultWindow
 
         PreviewDummy = _controller.LoadProfileEntity(Profile, false, false); // WD edit
         SpriteView.SetEntity(PreviewDummy);
-        _entManager.System<MetaDataSystem>().SetEntityName(PreviewDummy, Profile.Name);
+        // _entManager.System<MetaDataSystem>().SetEntityName(PreviewDummy, Profile.Name); WD edit
 
         // Check and set the dirty flag to enable the save/reset buttons as appropriate.
         SetDirty();
@@ -511,7 +511,7 @@ public sealed partial class WizardMirrorWindow : DefaultWindow
         if (!IsDirty)
             return;
 
-        _entManager.System<MetaDataSystem>().SetEntityName(PreviewDummy, newName);
+        // _entManager.System<MetaDataSystem>().SetEntityName(PreviewDummy, newName); WD edit
     }
 
     public bool IsDirty
