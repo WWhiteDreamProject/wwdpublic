@@ -101,7 +101,6 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullableComponent, GetVerbsEvent<Verb>>(AddPullVerbs);
         SubscribeLocalEvent<PullableComponent, EntGotInsertedIntoContainerMessage>(OnPullableContainerInsert);
         SubscribeLocalEvent<PullableComponent, StartCollideEvent>(OnPullableCollide);
-        SubscribeLocalEvent<PullableComponent, UpdateCanMoveEvent>(OnGrabbedMoveAttempt); // Goobstation
         SubscribeLocalEvent<PullableComponent, SpeakAttemptEvent>(OnGrabbedSpeakAttempt); // Goobstation
 
         SubscribeLocalEvent<PullerComponent, MoveInputEvent>(OnPullerMoveInput);
@@ -1079,15 +1078,6 @@ public sealed class PullingSystem : EntitySystem
         pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(3));
         Dirty(pullable.Owner, pullable.Comp);
         return false;
-    }
-
-    private void OnGrabbedMoveAttempt(EntityUid uid, PullableComponent component, UpdateCanMoveEvent args)
-    {
-        if (component.GrabStage == GrabStage.No)
-            return;
-
-        args.Cancel();
-
     }
 
     private void OnGrabbedSpeakAttempt(EntityUid uid, PullableComponent component, SpeakAttemptEvent args)
