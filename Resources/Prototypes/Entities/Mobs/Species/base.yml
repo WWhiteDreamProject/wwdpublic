@@ -219,6 +219,9 @@
         type: ListViewSelectorBUI
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
+      enum.WizardTeleportUiKey.Key: # Goobstation - wizard
+        type: WizardTeleportBoundUserInterface
+        requireInputValidation: false
   - type: Puller
   - type: Speech
     speechSounds: Alto

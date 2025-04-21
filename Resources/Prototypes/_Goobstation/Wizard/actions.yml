@@ -654,7 +654,7 @@
 
 - type: entity
   id: ActionTeleportWizard
-  name: Teleport
+  Tname: Teleport
   description: This spell teleports you to an area of your selection.
   components:
   - type: InstantAction
@@ -670,6 +670,8 @@
     requiresSpeech: true
     requiresClothes: true
     school: Translocation
+  - type: ActivatableUI # WD edit
+    key: enum.WizardTeleportUiKey.Key
   - type: ActionUpgrade
     effectedLevels:
       2: ActionTeleportII
