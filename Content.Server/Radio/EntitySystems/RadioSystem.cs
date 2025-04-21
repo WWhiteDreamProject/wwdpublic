@@ -102,7 +102,7 @@ public sealed class RadioSystem : EntitySystem
         EntityUid radioSource,
         int? frequency = null,
         LanguagePrototype? language = null,
-        bool escapeMarkup = true
+        bool escapeMarkup = false // WD edit
         ) =>
         SendRadioMessage(messageSource, message, _prototype.Index(channel), radioSource, escapeMarkup: escapeMarkup, frequency: frequency, language: language);
 
@@ -116,7 +116,7 @@ public sealed class RadioSystem : EntitySystem
         EntityUid radioSource,
         LanguagePrototype? language = null,
         int? frequency = null,
-        bool escapeMarkup = true)
+        bool escapeMarkup = false) // WD edit
     {
         if (language == null)
             language = _language.GetLanguage(messageSource);
