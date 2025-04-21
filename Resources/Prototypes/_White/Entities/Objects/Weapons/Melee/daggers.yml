@@ -31,6 +31,11 @@
     - type: BackStab
     - type: Blink
 #      blinkRate: 0.33
+    - type: UseDelay
+      useDelay: 1
+      delays:
+        blink:
+          length: 1
 
 - type: entity
   name: blood dagger
