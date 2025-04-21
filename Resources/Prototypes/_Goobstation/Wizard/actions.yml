@@ -654,7 +654,7 @@
 
 - type: entity
   id: ActionTeleportWizard
-  Tname: Teleport
+  name: Teleport
   description: This spell teleports you to an area of your selection.
   components:
   - type: InstantAction
