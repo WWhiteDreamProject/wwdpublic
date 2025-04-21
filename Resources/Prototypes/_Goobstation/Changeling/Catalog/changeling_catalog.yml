@@ -399,16 +399,16 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-- type: listing
-  id: EvolutionMenuUtilityInfectTarget
-  name: evolutionmenu-utility-infecttarget-name
-  description: evolutionmenu-utility-infecttarget-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: lay_egg }
-  productAction: ActionInfectTarget
-  cost:
-    EvolutionPoint: 5 # WD edit 8 -> 5
-  categories:
-  - ChangelingAbilityUtility
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
+#- type: listing WD edit: comment out
+#  id: EvolutionMenuUtilityInfectTarget
+#  name: evolutionmenu-utility-infecttarget-name
+#  description: evolutionmenu-utility-infecttarget-desc
+#  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: lay_egg }
+#  productAction: ActionInfectTarget
+#  cost:
+#    EvolutionPoint: 5 # WD edit 8 -> 5
+#  categories:
+#  - ChangelingAbilityUtility
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
