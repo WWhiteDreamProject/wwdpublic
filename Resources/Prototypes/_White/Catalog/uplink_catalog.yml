@@ -128,7 +128,7 @@
   id: UplinkGunCaseWSPR
   name: uplink-gun-case-wspr-name
   description: uplink-gun-case-wspr-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi, state: icon }
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi, state: icon }
   productEntity: GunCaseSyndicateFilledWSPR
   discountCategory: veryRareDiscounts
   discountDownTo:

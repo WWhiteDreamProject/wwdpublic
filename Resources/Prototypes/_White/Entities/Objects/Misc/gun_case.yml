@@ -3,7 +3,7 @@
   id: GunCaseSyndicate
   name: gun case
   description: A weapon's case. Has a blood-red 'S' stamped on the cover..
-  Suffix: Syndicate
+  suffix: Syndicate
   components:
   - type: Sprite
     sprite: _White/Objects/Misc/gun_case_syndicate.rsi
@@ -31,7 +31,7 @@
 - type: entity
   parent: GunCaseSyndicate
   id: GunCasePistolSyndicate
-  Suffix: Syndicate, Pistol
+  suffix: Syndicate, Pistol
   components:
   - type: Sprite
     sprite: _White/Objects/Misc/pistol_case_syndicate.rsi

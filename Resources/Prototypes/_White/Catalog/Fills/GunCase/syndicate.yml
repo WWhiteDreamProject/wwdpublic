@@ -114,7 +114,7 @@
 - type: entity
   parent: GunCaseSyndicate
   id: GunCaseSyndicateFilledChinaLake
-  suffix: Syndicate, China Lake
+  suffix: Syndicate, China-Lake
   components:
   - type: Item
     shape:
