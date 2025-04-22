@@ -66,6 +66,7 @@
   id: PsychoHistorian
   category: TraitsPsionicsCasterTypes
   points: -4
+  enable: false #WWDP EDIT
   functions:
     - !type:TraitAddComponent
       components:
@@ -106,6 +107,7 @@
   id: Elementalist
   category: TraitsPsionicsCasterTypes
   points: -5
+  enable: false #WWDP EDIT
   functions:
     - !type:TraitAddComponent
       components:
