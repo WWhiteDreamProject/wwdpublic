@@ -5,11 +5,15 @@
   icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }
   productEntity: ChangelingInfectionImplanter
   # WD EDIT START
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 3
   cost:
-    Telecrystal: 15
+    Telecrystal: 20
   # WD EDIT END
   categories:
     - UplinkImplants
+  # WD EDIT START
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  # WD EDIT END

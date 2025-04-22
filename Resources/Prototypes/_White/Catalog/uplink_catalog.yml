@@ -1,4 +1,242 @@
-﻿- type: listing
+﻿# Weaponry
+
+- type: listing
+  id: UplinkGunCaseDualetta
+  name: uplink-gun-case-dualetta-name
+  description: uplink-gun-case-dualetta-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledDualetta
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkBloodDagger
+  name: uplink-blood-dagger-name
+  description: uplink-blood-dagger-desc
+  productEntity: BloodDagger
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkGunCaseM90
+  name: uplink-gun-case-m90-name
+  description: uplink-gun-case-m90-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledM90
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkBetrayalDagger
+  name: uplink-betrayal-dagger-name
+  description: uplink-betrayal-dagger-desc
+  productEntity: BetrayalDagger
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkGunCaseFPA90
+  name: uplink-gun-case-fpa-90-name
+  description: uplink-gun-case-fpa-90-desc
+  icon: { sprite: /Textures/_EE/Objects/Weapons/Guns/SMGs/FPA90.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledFPA90
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkMiniEnergyCrossbow
+  name: uplink-energy-crossbow-name
+  description: uplink-energy-crossbow-desc
+  productEntity: EnergyCrossbowMini
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkC20RBundle
+  name: uplink-gun-case-c20r-name
+  description: uplink-gun-case-c20r-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledC20r
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 13
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkGunCaseAK220
+  name: uplink-gun-case-ak220-name
+  description: uplink-gun-case-ak220-desc
+  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/Rifles/AK220.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledAK220
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 16
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkGunCaseWSPR
+  name: uplink-gun-case-wspr-name
+  description: uplink-gun-case-wspr-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledWSPR
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 17
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkGunCaseBulldog
+  name: uplink-gun-case-bulldog-name
+  description: uplink-gun-case-bulldog-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledBulldog
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkGunCaseChinaLake
+  name: uplink-gun-case-china-lake-name
+  description: uplink-gun-case-china-lake-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledChinaLake
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 5
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkGunCaseL6Saw
+  name: uplink-gun-case-l6-saw-name
+  description: uplink-gun-case-l6-saw-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledL6Saw
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 6 # WD EDIT
+  cost:
+    Telecrystal: 30 # WD EDIT
+  categories:
+  - UplinkWeaponry
+
+# Ammo
+
+- type: listing
+  id: UplinkMagazineLightRifleAK220
+  name: uplink-magazine-light-rifle-ak220-name
+  description: uplink-magazine-light-rifle-ak220-desc
+  productEntity: MagazineLightRifleAK220
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+
+# Explosives
+
+# Wearables
+
+- type: listing
+  id: UplinkMagazineSyndicateSwatHelmet
+  name: uplink-syndicate-swat-helmet-name
+  description: uplink-syndicate-swat-helmet-desc
+  productEntity: ClothingHeadHelmetSwatSyndicate
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWearables
+
+# Chemicals
+
+- type: listing
+  id: UplinkStimpackExperimental
+  name: uplink-experimental-stimpack-name
+  description: uplink-experimental-stimpack-desc
+  productEntity: StimpackExperimental
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+# Deception
+
+# Disruption
+
+- type: listing
   id: UplinkExperimentalSyndicateTeleporter
   name: uplink-experimental-syndicate-teleporter-name
   description: uplink-experimental-syndicate-teleporter-desc
@@ -11,74 +249,7 @@
   categories:
   - UplinkDisruption
 
-- type: listing
-  id: UplinkBetrayalDagger
-  name: uplink-betrayal-dagger-name
-  description: uplink-betrayal-dagger-desc
-  productEntity: BetrayalDagger
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 2
-  cost:
-    Telecrystal: 10
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-
-- type: listing
-  id: UplinkMiniEbow
-  name: uplink-ebow-name
-  description: uplink-ebow-desc
-  productEntity: EnergyCrossbowMini
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 3
-  cost:
-    Telecrystal: 12
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-
-- type: listing
-  id: UplinkHardlightSpearImplanter
-  name: uplink-hardlight-spear-implant-name
-  description: uplink-hardlight-spear-implant-desc
-  icon: { sprite: /Textures/_White/Objects/Weapons/Melee/Spear/hardlight_spear.rsi, state: spear }
-  productEntity: HardlightSpearImplanter
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 3
-  cost:
-    Telecrystal: 12
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-
-- type: listing
-  id: NeuroControlImplanter
-  name: uplink-neuro-control
-  description: uplink-neuro-control-desc
-  icon: { sprite: /Textures/Interface/Alerts/stamina.rsi, state: stamina5 }
-  productEntity: NeuroStabilizationImplanter
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkImplants
+# Implants
 
 - type: listing
   id: UplinkImplanterSyndi
@@ -105,6 +276,20 @@
   - UplinkImplants
 
 - type: listing
+  id: NeuroControlImplanter
+  name: uplink-neuro-control
+  description: uplink-neuro-control-desc
+  icon: { sprite: /Textures/Interface/Alerts/stamina.rsi, state: stamina5 }
+  productEntity: NeuroStabilizationImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkImplants
+
+- type: listing
   id: UplinkMindSlaveImplanter
   name: uplink-mind-slave
   description: uplink-mind-slave-desc
@@ -119,22 +304,25 @@
   - UplinkImplants
 
 - type: listing
-  id: UplinkBloodDagger
-  name: uplink-blood-dagger-name
-  description: uplink-blood-dagger-desc
-  productEntity: BloodDagger
+  id: UplinkHardlightSpearImplanter
+  name: uplink-hardlight-spear-implant-name
+  description: uplink-hardlight-spear-implant-desc
+  icon: { sprite: /Textures/_White/Objects/Weapons/Melee/Spear/hardlight_spear.rsi, state: spear }
+  productEntity: HardlightSpearImplanter
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 3
   cost:
-    Telecrystal: 6
+    Telecrystal: 12
   categories:
-  - UplinkWeaponry
+  - UplinkImplants
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
       - NukeOpsUplink
+
+# Allies
 
 - type: listing
   id: UplinkCrateNPCGondola
@@ -150,56 +338,6 @@
   categories:
   - UplinkAllies
 
-- type: listing
-  id: UplinkRifleAK220
-  name: uplink-Light-Rifle-AK220-name
-  description: uplink-Light-Rifle-AK220-desc
-  productEntity: WeaponLightRifleAK220
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 3
-  cost:
-    Telecrystal: 14
-  categories:
-  - UplinkWeaponry
+# Pointless
 
-- type: listing
-  id: UplinkStimpackExperimental
-  name: uplink-experimental-stimpack-name
-  description: uplink-experimental-stimpack-desc
-  productEntity: StimpackExperimental
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 3
-  cost:
-    Telecrystal: 12
-  categories:
-  - UplinkChemicals
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-
-- type: listing
-  id: uplinkmagazineLightRIfleAK220
-  name: uplink-magazine-Light-RIfle-AK220-name
-  description: uplink-magazine-Light-RIfle-AK220-desc
-  productEntity: MagazineLightRifleAK220
-  cost:
-    Telecrystal: 1
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkMagazineSyndicateSWATHelmet
-  name: uplink-Syndicate-SWAT-Helmet-name
-  description: uplink-Syndicate-SWAT-Helmet-desc
-  productEntity: ClothingHeadHelmetSwatSyndicate
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkWearables
+# Job Specific
