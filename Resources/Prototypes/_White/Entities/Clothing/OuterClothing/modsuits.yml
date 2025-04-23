@@ -2,7 +2,7 @@
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateInfiltrator
   name: infiltrator modsuit chestplate
-  description: A special modular suit cover designed for compact folding inside modular suit control.
+  description: A purpose-built suit cover that can be neatly folded and store in the infiltrator suit's main unit.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance

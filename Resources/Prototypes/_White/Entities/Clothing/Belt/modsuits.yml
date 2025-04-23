@@ -2,7 +2,7 @@
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitInfiltrator
   name: infiltrator modsuit control
-  description: specialized modular suit for infiltration on station.
+  description: Specialized modular suit for covert ops.
   components:
   - type: Appearance
   - type: Sprite
@@ -53,7 +53,7 @@
   - type: SealableClothingVisuals
     visualLayers:
       belt:
-      - state: equipped-BELT-sealed
+        - state: equipped-BELT-sealed
     node: infiltrator
   - type: WiresPanel
   - type: ItemSlots

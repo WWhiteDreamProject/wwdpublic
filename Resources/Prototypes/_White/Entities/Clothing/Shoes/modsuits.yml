@@ -2,7 +2,7 @@
   parent: ClothingShoesBase
   id: ClothingModsuitBootsInfiltrator
   name: infiltrator modsuit boots
-  description: A special modular suit boots designed for compact folding inside modular suit control.
+  description: Purpose-built boots that can be neatly folded and store in the infiltrator suit's main unit.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance

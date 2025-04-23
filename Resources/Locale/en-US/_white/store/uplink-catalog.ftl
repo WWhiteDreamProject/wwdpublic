@@ -41,5 +41,5 @@ uplink-Syndicate-SWAT-Helmet-name = Spetsnaz helmet
 uplink-Syndicate-SWAT-Helmet-desc = An extremely robust helmet, commonly used by paramilitary forces. It is adorned in a nefarious red and black stripe pattern.
 
 uplink-modsuit-infiltrator-name = infiltrator modsuit
-uplink-modsuit-infiltrator-desc = specialized modular suit for infiltration on station.
+uplink-modsuit-infiltrator-desc = Specialized modular suit for covert ops.
 
