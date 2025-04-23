@@ -17,7 +17,8 @@
       state: aliencuff
       visible: false
   - type: PlasmaVessel
-    plasmaPerSecondOffWeed: 5
+    plasmaPerSecondOffWeed: 1
+    plasmaPerSecondOnWeed: 10
   - type: HTN
     rootTask:
       task: XenomorphCompound

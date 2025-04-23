@@ -80,9 +80,7 @@
     sprite: _White/Structures/Specific/Xenomorph/resin_weed_node.rsi
     state: full
   - type: AreaSpawner
-    radius: 3
     spawnPrototype: ResinWeed
-    intervalSeconds: 20
   - type: PointLight
     radius: 2.5
     energy: 2
