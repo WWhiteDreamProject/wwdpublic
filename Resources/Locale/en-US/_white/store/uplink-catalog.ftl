@@ -39,3 +39,7 @@ uplink-magazine-Light-RIfle-AK220-desc = extended magazine .30, for AK
 
 uplink-Syndicate-SWAT-Helmet-name = Spetsnaz helmet
 uplink-Syndicate-SWAT-Helmet-desc = An extremely robust helmet, commonly used by paramilitary forces. It is adorned in a nefarious red and black stripe pattern.
+
+uplink-modsuit-infiltrator-name = infiltrator modsuit
+uplink-modsuit-infiltrator-desc = specialized modular suit for infiltration on station.
+

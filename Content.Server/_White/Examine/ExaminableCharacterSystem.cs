@@ -78,6 +78,9 @@ namespace Content.Server._White.Examine
                 if (!_inventorySystem.TryGetSlotEntity(uid, slotName, out var slotEntity))
                     continue;
 
+                if (HasComp<ExaminableCharacterHideComponent>(slotEntity.Value))
+                    continue;
+
                 if (_entityManager.TryGetComponent<MetaDataComponent>(slotEntity, out var metaData))
                 {
                     var item = Loc.GetString(slotLabel, ("item", metaData.EntityName), ("ent", uid));

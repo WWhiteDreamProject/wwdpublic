@@ -1,0 +1,48 @@
+﻿- type: entity
+  parent: ClothingOuterBase
+  id: ClothingModsuitChestplateInfiltrator
+  name: infiltrator modsuit chestplate
+  description: A special modular suit cover designed for compact folding inside modular suit control.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: AllowSuitStorage
+  - type: Sprite
+    sprite: _White/Clothing/OuterClothing/modsuits/infiltrator.rsi
+    layers:
+    - state: chestplate
+    - state: chestplate-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ outerClothing ]
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-chestplate
+    sealDownPopup: sealable-clothing-seal-down-chestplate
+  - type: SealableClothingVisuals
+    visualLayers:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING-sealed
+  - type: ComponentToggler
+    components:
+    - type: PressureProtection
+      highPressureMultiplier: 0
+      lowPressureMultiplier: 0
+    - type: TemperatureProtection
+      coefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: StaminaDamageResistance
+    coefficient: 0.5

@@ -226,25 +226,52 @@ namespace Content.Client.Inventory
 
         private void UpdateEntityIcon(SlotControl button, EntityUid? entity)
         {
-            // Hovering, highlighting & storage are features of general hands & inv GUIs. This UI just re-uses these because I'm lazy.
             button.ClearHover();
             button.StorageButton.Visible = false;
-
-            if (entity == null)
+                //WWDP edit start
+            if (entity == null || !EntMan.EntityExists(entity.Value))
             {
                 button.SetEntity(null);
                 return;
             }
 
-            EntityUid? viewEnt;
-            if (EntMan.TryGetComponent<VirtualItemComponent>(entity, out var virt))
-                viewEnt = EntMan.HasComponent<SpriteComponent>(virt.BlockingEntity) ? virt.BlockingEntity : null;
-            else if (EntMan.HasComponent<SpriteComponent>(entity))
-                viewEnt = entity;
-            else
-                return;
+            if (EntMan.TryGetComponent<HideIconComponent>(entity.Value, out var hideComp))
+            {
+                if (!hideComp.RequiresStripHiddenComponent ||
+                    EntMan.HasComponent<StripMenuHiddenComponent>(entity.Value))
+                {
+                    button.SetEntity(null);
+                    button.MouseFilter = hideComp.Clickable ? MouseFilterMode.Pass : MouseFilterMode.Ignore;
+                    return;
+                }
+            }
+            EntityUid? viewEnt = null;
+            bool blocked = false;
+
+            if (EntMan.TryGetComponent<VirtualItemComponent>(entity, out var virt) &&
+                virt.BlockingEntity is { } blockingEntity)
+            {
+                if (EntMan.HasComponent<SpriteComponent>(blockingEntity))
+                {
+                    viewEnt = blockingEntity;
+                    blocked = true;
+
+                    if (EntMan.TryGetComponent<CuffableComponent>(Owner, out var cuff) &&
+                        _cuffable.GetAllCuffs(cuff).Contains(blockingEntity))
+                    {
+                        button.BlockedRect.MouseFilter = MouseFilterMode.Ignore;
+                    }
+                }
+            }
+            else if (EntMan.HasComponent<SpriteComponent>(entity.Value))
+            {
+                viewEnt = entity.Value;
+            }
 
             button.SetEntity(viewEnt);
+            button.Blocked = blocked;
+            button.MouseFilter = viewEnt != null ? MouseFilterMode.Pass : MouseFilterMode.Ignore;
+            //WWDP edit end
         }
     }
 }

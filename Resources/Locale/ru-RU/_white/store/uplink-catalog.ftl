@@ -39,3 +39,6 @@ uplink-experimental-stimpack-desc = Прототип химической сме
 
 uplink-Syndicate-SWAT-Helmet-name = Подозрительный шлем спецназа
 uplink-Syndicate-SWAT-Helmet-desc = Чрезвычайно прочный шлем, обычно используемый военизированными формированиями. Он украшен зловещим рисунком.
+
+uplink-modsuit-infiltrator-name = Диверсионный модульный костюм
+uplink-modsuit-infiltrator-desc = Чтобы тихо нашуметь. ВНИМАНИЕ не герметичен!
