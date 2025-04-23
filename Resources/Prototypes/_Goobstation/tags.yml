@@ -1,4 +1,10 @@
 - type: Tag
+  id: BlobMind
+
+- type: Tag
+  id: Blobbernaut
+
+- type: Tag
   id: CartridgeLightRifleSubsonic
 
 - type: Tag
