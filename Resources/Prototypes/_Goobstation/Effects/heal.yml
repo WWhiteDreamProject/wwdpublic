@@ -1,4 +1,33 @@
 ﻿- type: entity
+  id: EffectHealPlusBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.6
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    sprite: _Goobstation/Blob/heals.rsi
+    state: single
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: AnimationPlayer
+
+# triple
+
+- type: entity
+  id: EffectHealPlusTripleBase
+  categories: [ HideSpawnMenu ]
+  parent: EffectHealPlusBase
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Sprite
+    state: triple
+
+- type: entity
   id: EffectHealPlusTripleYellow
   parent: EffectHealPlusTripleBase
   categories: [ HideSpawnMenu ]
