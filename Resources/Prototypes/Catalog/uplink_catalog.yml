@@ -1699,8 +1699,8 @@
 
 - type: listing
   id: UplinkClothingHandsChameleonThief  #WWDP EDIT
-  name: uplink-clothing-thieving-gloves-name
-  description: uplink-clothing-thieving-gloves-desc
+  name: uplink-clothing-hands-chameleon-thief-name
+  description: uplink-clothing-hands-chameleon-thief-desc
   productEntity: ClothingHandsChameleonThief  #WWDP EDIT
   discountCategory: usualDiscounts # WD EDIT
   discountDownTo:
