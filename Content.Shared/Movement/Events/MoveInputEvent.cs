@@ -20,3 +20,13 @@ public readonly struct MoveInputEvent
         OldMovement = oldMovement;
     }
 }
+
+// WD EDIT START
+/// <summary>
+/// Raised on an entity whenever it has a sprinting input change.
+/// </summary>
+public readonly struct SprintingInputEvent(Entity<InputMoverComponent> entity)
+{
+    public readonly Entity<InputMoverComponent> Entity = entity;
+}
+// WD EDIT END

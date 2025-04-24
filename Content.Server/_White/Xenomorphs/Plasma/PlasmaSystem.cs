@@ -1,4 +1,5 @@
-﻿using Content.Shared._White.Xenomorphs.Components;
+﻿using Content.Shared._White.Stealth;
+using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared._White.Xenomorphs.Plasma;
 using Content.Shared._White.Xenomorphs.Plasma.Components;
 using Robust.Shared.Timing;
@@ -18,17 +19,19 @@ public sealed class PlasmaSystem : SharedPlasmaSystem
         var query = EntityQueryEnumerator<PlasmaVesselComponent>();
         while (query.MoveNext(out var uid, out var plasmaVessel))
         {
-            if (plasmaVessel.Plasma == plasmaVessel.MaxPlasma
-                || time < plasmaVessel.LastPointsAt + TimeSpan.FromSeconds(1))
+            if (time < plasmaVessel.LastPointsAt + TimeSpan.FromSeconds(1))
                 continue;
 
             plasmaVessel.LastPointsAt = time;
 
-            var plasmaPerSecond = plasmaVessel.PlasmaPerSecondOffWeed;
-            if (TryComp<XenomorphComponent>(uid, out var alien) && alien.OnWeed)
-                plasmaPerSecond = plasmaVessel.PlasmaPerSecondOnWeed;
+            var plasma = plasmaVessel.PlasmaPerSecondOffWeed;
+            if (TryComp<XenomorphComponent>(uid, out var xenomorph) && xenomorph.OnWeed)
+                plasma = plasmaVessel.PlasmaPerSecondOnWeed;
 
-            ChangePlasmaAmount(uid, plasmaPerSecond, plasmaVessel);
+            if (TryComp<StealthOnWalkComponent>(uid, out var stealthOnWalk) && stealthOnWalk.Stealth)
+                plasma -= stealthOnWalk.PlasmaCost;
+
+            ChangePlasmaAmount(uid, plasma, plasmaVessel);
         }
     }
 }

@@ -73,7 +73,11 @@
   components:
   - type: Xenomorph
     greetingText: alien-hunter-greeting
-  - type: XenomorphStalk
+  - type: StealthOnWalk
+    plasmaCost: 2.5
+  - type: Stealth
+    enabled: false
+    lastVisibility: 0.2
   - type: Jump
     jumpAction: ActionJumpAlien
   - type: ActionGrant
