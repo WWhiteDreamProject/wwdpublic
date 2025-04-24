@@ -12,8 +12,8 @@
 //using Content.Server.Language.Events;
 
 using Content.Goobstation.Common.Blob;
-using Content.Goobstation.Shared.Blob;
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Language;
@@ -30,7 +30,7 @@ using Content.Shared.Speech;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 
-namespace Content.Goobstation.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class BlobMobSystem : SharedBlobMobSystem
 {

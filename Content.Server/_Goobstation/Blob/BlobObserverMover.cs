@@ -10,13 +10,13 @@
 
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.ActionBlocker;
 using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class BlobObserverMover : Job<object>
 {

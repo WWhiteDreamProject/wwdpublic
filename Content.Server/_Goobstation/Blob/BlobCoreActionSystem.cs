@@ -11,8 +11,8 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Goobstation.Shared.Blob;
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Destructible;
@@ -38,7 +38,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
 {

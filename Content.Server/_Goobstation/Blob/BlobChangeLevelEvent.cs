@@ -4,10 +4,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Blob.GameTicking;
+using Content.Server._Goobstation.Blob.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 
-namespace Content.Goobstation.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class BlobChangeLevelEvent : EntityEventArgs
 {

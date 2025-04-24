@@ -6,7 +6,7 @@
 
 using Content.Shared.Actions;
 
-namespace Content.Goobstation.Shared.Blob.Events;
+namespace Content.Shared._Goobstation.Blob.Events;
 
 public sealed partial class TransformToBlobActionEvent : InstantActionEvent
 {

@@ -12,10 +12,10 @@ using System.Linq;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Goobstation.Server.Blob.Components;
-using Content.Goobstation.Server.Blob.GameTicking;
-using Content.Goobstation.Shared.Blob.Components;
-using Content.Goobstation.Shared.Blob.Events;
+using Content.Server._Goobstation.Blob.Components;
+using Content.Server._Goobstation.Blob.GameTicking;
+using Content.Shared._Goobstation.Blob.Components;
+using Content.Shared._Goobstation.Blob.Events;
 using Content.Server.Actions;
 using Content.Server.AlertLevel;
 using Content.Server.Explosion.Components;
@@ -44,7 +44,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 
-namespace Content.Goobstation.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class BlobCoreSystem : EntitySystem
 {

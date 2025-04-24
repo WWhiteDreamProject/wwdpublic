@@ -7,10 +7,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Verbs;
 
-namespace Content.Goobstation.Shared.Blob;
+namespace Content.Shared._Goobstation.Blob;
 
 public abstract class SharedBlobTileSystem : EntitySystem
 {

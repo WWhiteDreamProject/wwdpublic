@@ -21,7 +21,7 @@ using Robust.Server.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.Blob.StationEvents;
+namespace Content.Server._Goobstation.Blob.StationEvents;
 
 public sealed class BlobSpawnRule : StationEventSystem<BlobSpawnRuleComponent>
 {

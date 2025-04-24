@@ -9,10 +9,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Server.Blob.Components;
-using Content.Goobstation.Shared.Blob;
-using Content.Goobstation.Shared.Blob.Components;
-using Content.Goobstation.Shared.Blob.Events;
+using Content.Server._Goobstation.Blob.Components;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
+using Content.Shared._Goobstation.Blob.Events;
 using Content.Server.Actions;
 using Content.Server.Chat.Managers;
 using Content.Server.Hands.Systems;
@@ -32,7 +32,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class BlobObserverSystem : SharedBlobObserverSystem
 {

@@ -16,7 +16,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 
-namespace Content.Goobstation.Shared.Blob.Components;
+namespace Content.Shared._Goobstation.Blob.Components;
 
 //[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [RegisterComponent, NetworkedComponent]

@@ -8,8 +8,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Blob.Components;
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Server._Goobstation.Blob.Components;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -20,7 +20,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class BlobFactorySystem : EntitySystem
 {

@@ -7,7 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Shared.Blob;
+namespace Content.Shared._Goobstation.Blob;
 
 public abstract class SharedBlobCoreActionSystem : EntitySystem
 {

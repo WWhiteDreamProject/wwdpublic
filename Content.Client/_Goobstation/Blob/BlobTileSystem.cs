@@ -9,11 +9,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.DamageState;
-using Content.Goobstation.Shared.Blob;
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 using Robust.Client.GameObjects;
 
-namespace Content.Goobstation.Client.Blob;
+namespace Content.Client._Goobstation.Blob;
 
 public sealed class BlobTileSystem : SharedBlobTileSystem
 {
