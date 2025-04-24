@@ -125,3 +125,13 @@
     Piercing: 0.8
     Heat: 0.8
     Shock: 2.0 # double damage from shock
+
+# Goobstation - Blob
+- type: damageModifierSet
+  id: BaseBlob # ReactiveSpines
+  coefficients:
+    Blunt: 0.25
+    Slash: 0.25
+    Piercing: 0.25
+    Heat: 2.00
+  ignoreArmorPierceFlags: All # Goobstation
