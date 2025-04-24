@@ -155,19 +155,6 @@
     iconOn: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_on }
     event: !type:JumpActionEvent
 
-- type: entity
-  id: ActionStalkAlien
-  name: action-stalk-alien-hunter
-  description: action-stalk-alien-hunter-desc
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    priority: 0
-    useDelay: 0
-    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: stalk_off }
-    iconOn: { sprite : _White/Interface/Actions/xenomorph.rsi, state: stalk_on }
-    event: !type:AlienStalkActionEvent
-
 # Queen
 
 - type: entity
