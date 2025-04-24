@@ -20,8 +20,8 @@
     - Dragon
     - Revolutionary
     - Changeling
-    - Heretic
-    - Wizard
+#    - Heretic
+#    - Wizard
 
 - type: explosion
   id: Blob
