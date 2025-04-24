@@ -149,3 +149,6 @@ language-Penguin-description = Bwaap!
 
 language-DroneTalk-name = Drone
 language-DroneTalk-description = Incomprehensible to most non-drones!
+
+language-Blob-name = Blob
+language-Blob-description = Blob! Bleb! Blab!

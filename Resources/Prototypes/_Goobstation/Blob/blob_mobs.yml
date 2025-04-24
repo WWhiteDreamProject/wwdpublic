@@ -43,8 +43,8 @@
         - HidesHair
         - BlobMob
         - BlobMind
-    - type: CollectiveMind
-      defaultChannel: Blobmind
+#    - type: CollectiveMind WD edit
+#      defaultChannel: Blobmind
     - type: IngestionBlocker
     - type: IdentityBlocker
     - type: BlobPod
@@ -64,7 +64,7 @@
         NavBlob: !type:Bool
           true
     - type: BlobMob
-    #- type: BlobSpeak
+    - type: BlobSpeak
     - type: CombatMode
     - type: NpcFactionMember
       factions:
@@ -124,6 +124,7 @@
   parent: SimpleSpaceMobBase
   categories: [ HideSpawnMenu ]
   components:
+    - type: BlobSpeak # WD edit
     - type: ZombieImmune
     - type: Damageable
       damageContainer: Blob
@@ -133,8 +134,8 @@
         - Blobbernaut
         - BlobMob
         - BlobMind
-    - type: CollectiveMind
-      defaultChannel: Blobmind
+#    - type: CollectiveMind
+#      defaultChannel: Blobmind
     - type: GhostRole
       name: ghost-role-information-blobbernaut-name
       description: ghost-role-information-blobbernaut-description
@@ -149,8 +150,8 @@
     - type: InputMover
     - type: MobMover
     - type: BlobMob
-    - type: ReplacementAccent
-      accent: genericAggressive
+#    - type: ReplacementAccent
+#      accent: genericAggressive
     - type: CombatMode
     - type: HTN
       rootTask:
@@ -223,14 +224,15 @@
   categories: [ HideSpawnMenu ]
   save: false
   components:
+    - type: BlobSpeak # WD edit
     - type: UserInterface
       interfaces:
         enum.BlobChemSwapUiKey.Key:
           type: BlobChemSwapBoundUserInterface
     - type: Actions
     - type: Alerts
-    - type: ReplacementAccent
-      accent: genericAggressive
+#    - type: ReplacementAccent
+#      accent: genericAggressive
     - type: Hands
       showInHands: true
     - type: BlobObserver
@@ -281,5 +283,5 @@
       tags:
       - BypassInteractionRangeChecks
       - BlobMind
-    - type: CollectiveMind
-      defaultChannel: Blobmind
+#    - type: CollectiveMind
+#      defaultChannel: Blobmind

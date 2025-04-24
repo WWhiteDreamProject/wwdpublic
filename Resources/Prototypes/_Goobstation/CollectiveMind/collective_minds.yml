@@ -1,7 +1,0 @@
-﻿- type: collectiveMind
-  id: Blobmind
-  name: collective-mind-blobmind
-  keycode: 'e'
-  color: "#637b19"
-  requiredTags:
-  - BlobMind

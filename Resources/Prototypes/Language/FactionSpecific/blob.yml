@@ -1,0 +1,14 @@
+﻿# Used by blob mobs
+- type: language
+  id: Blob
+  speech:
+    color: "#637b19"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 3
+    replacement:
+    - Blob
+    - Bleb
+    - Blab
+    - Blep

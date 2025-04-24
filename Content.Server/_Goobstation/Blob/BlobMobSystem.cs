@@ -11,19 +11,30 @@
 //using Content.Server.Language;
 //using Content.Server.Language.Events;
 
+using Content.Goobstation.Common.Blob;
 using Content.Goobstation.Shared.Blob;
 using Content.Goobstation.Shared.Blob.Components;
+using Content.Server.Chat.Systems;
+using Content.Server.Explosion.EntitySystems;
+using Content.Server.Language;
+using Content.Server.Radio;
+using Content.Server.Radio.Components;
 using Content.Server.Radio.EntitySystems;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Chat;
 using Content.Shared.Damage;
+using Content.Shared.Explosion.Components;
+using Content.Shared.Language.Components;
+using Content.Shared.Language.Events;
+using Content.Shared.Speech;
 using Robust.Shared.Network;
-//using Content.Shared.Language;
-//using Content.Shared.Targeting;
+using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Blob;
 
 public sealed class BlobMobSystem : SharedBlobMobSystem
 {
-    //[Dependency] private readonly LanguageSystem _language = default!;
+    [Dependency] private readonly LanguageSystem _language = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly RadioSystem _radioSystem = default!;
@@ -35,23 +46,23 @@ public sealed class BlobMobSystem : SharedBlobMobSystem
 
         SubscribeLocalEvent<BlobMobComponent, BlobMobGetPulseEvent>(OnPulsed);
 
-       // SubscribeLocalEvent<BlobSpeakComponent, DetermineEntityLanguagesEvent>(OnLanguageApply);
-       // SubscribeLocalEvent<BlobSpeakComponent, ComponentStartup>(OnSpokeAdd);
-       // SubscribeLocalEvent<BlobSpeakComponent, ComponentShutdown>(OnSpokeRemove);
-       // SubscribeLocalEvent<BlobSpeakComponent, TransformSpeakerNameEvent>(OnSpokeName);
-       // SubscribeLocalEvent<BlobSpeakComponent, SpeakAttemptEvent>(OnSpokeCan, after: new []{ typeof(SpeechSystem) });
-       // SubscribeLocalEvent<BlobSpeakComponent, EntitySpokeEvent>(OnSpoke, before: new []{ typeof(RadioSystem), typeof(HeadsetSystem) });
-       // SubscribeLocalEvent<BlobSpeakComponent, RadioReceiveEvent>(OnIntrinsicReceive);
-        //SubscribeLocalEvent<SmokeOnTriggerComponent, TriggerEvent>(HandleSmokeTrigger);
+        SubscribeLocalEvent<BlobSpeakComponent, DetermineEntityLanguagesEvent>(OnLanguageApply);
+        SubscribeLocalEvent<BlobSpeakComponent, ComponentStartup>(OnSpokeAdd);
+        SubscribeLocalEvent<BlobSpeakComponent, ComponentShutdown>(OnSpokeRemove);
+        SubscribeLocalEvent<BlobSpeakComponent, TransformSpeakerNameEvent>(OnSpokeName);
+        SubscribeLocalEvent<BlobSpeakComponent, SpeakAttemptEvent>(OnSpokeCan, after: new []{ typeof(SpeechSystem) });
+        SubscribeLocalEvent<BlobSpeakComponent, EntitySpokeEvent>(OnSpoke, before: new []{ typeof(RadioSystem), typeof(HeadsetSystem) });
+        SubscribeLocalEvent<BlobSpeakComponent, RadioReceiveEvent>(OnIntrinsicReceive);
+        // SubscribeLocalEvent<SmokeOnTriggerComponent, TriggerEvent>(HandleSmokeTrigger);
 
         _activeBSpeak = GetEntityQuery<BlobSpeakComponent>();
     }
 
-   /* private void OnIntrinsicReceive(Entity<BlobSpeakComponent> ent, ref RadioReceiveEvent args)
+   private void OnIntrinsicReceive(Entity<BlobSpeakComponent> ent, ref RadioReceiveEvent args)
     {
         if (TryComp(ent, out ActorComponent? actor) && args.Channel.ID == ent.Comp.Channel)
         {
-            _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
+            _netMan.ServerSendMessage(new MsgChatMessage{ Message = args.OriginalChatMsg }, actor.PlayerSession.Channel); // WD edit
         }
     }
 
@@ -114,11 +125,11 @@ public sealed class BlobMobSystem : SharedBlobMobSystem
 
         var radio = EnsureComp<ActiveRadioComponent>(ent);
         radio.Channels.Add(ent.Comp.Channel);
-    }*/
+    }
 
     private void OnPulsed(EntityUid uid, BlobMobComponent component, BlobMobGetPulseEvent args)
     {
-        //_damageableSystem.TryChangeDamage(uid, component.HealthOfPulse, targetPart: TargetBodyPart.All);
+        _damageableSystem.TryChangeDamage(uid, component.HealthOfPulse, targetPart: TargetBodyPart.All);
         _damageableSystem.TryChangeDamage(uid, component.HealthOfPulse);
     }
 

@@ -19,6 +19,7 @@ using Content.Server.Destructible;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
+using Content.Shared._Goobstation.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
@@ -72,7 +73,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         SubscribeLocalEvent<BlobObserverControllerComponent, AfterInteractEvent>(OnInteractController);
         SubscribeLocalEvent<BlobObserverComponent, UserActivateInWorldEvent>(OnInteractTarget);
 
-        Subs.CVar(_cfg,CVars.BlobCanGrowInSpace, value => _canGrowInSpace = value, true);
+        Subs.CVar(_cfg, GoobCVars.BlobCanGrowInSpace, value => _canGrowInSpace = value, true);
         _tileQuery = GetEntityQuery<BlobTileComponent>();
         _blobCoreQuery = GetEntityQuery<BlobCoreComponent>();
     }
