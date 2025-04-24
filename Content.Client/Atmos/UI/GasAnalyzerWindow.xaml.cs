@@ -101,7 +101,8 @@ namespace Content.Client.Atmos.UI
 
                     GenerateGasDisplay(msg.NodeGasMixes[1], LeftPanel);
                     GenerateGasDisplay(msg.NodeGasMixes[2], RightPanel);
-
+                    CDeviceGrid.InvalidateMeasure();                // WWDP EDIT  // Crutch. Without calling Measure() the CDeviceGrid.DesiredSize doesn't update
+                    CDeviceGrid.Measure(Vector2Helpers.Infinity);   // WWDP EDIT // and minSize ends up having desired control size for when CDeviceGrid is empty, which is never.
                     minSize = new Vector2(CDeviceGrid.DesiredSize.X + 40, MinSize.Y);
                 }
                 else if (msg.NodeGasMixes.Length == 4)
