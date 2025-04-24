@@ -10,7 +10,7 @@ using Content.Shared.Magic.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Wizard.Chuuni;
+namespace Content.Shared._Shitcode.Wizard.Chuuni;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ChuuniEyepatchComponent : Component

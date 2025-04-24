@@ -21,7 +21,7 @@ using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.Spellblade;
+namespace Content.Shared._Shitcode.Wizard.Spellblade;
 
 public abstract class SharedSpellbladeSystem : EntitySystem
 {

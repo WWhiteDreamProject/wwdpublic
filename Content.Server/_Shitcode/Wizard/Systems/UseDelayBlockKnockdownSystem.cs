@@ -6,13 +6,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server._Goobstation.Wizard.Components;
-using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Server._Shitcode.Wizard.Components;
+using Content.Shared._Shitcode.Wizard.Traps;
 using Content.Shared.Stunnable.Events;
 using Content.Shared.Timing;
 using Robust.Server.Audio;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Shitcode.Wizard.Systems;
 
 public sealed class UseDelayBlockKnockdownSystem : EntitySystem
 {

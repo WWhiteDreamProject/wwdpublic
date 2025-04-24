@@ -6,14 +6,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server._Goobstation.Wizard.Systems;
+using Content.Server._Shitcode.Wizard.Systems;
 using Content.Server.Actions;
 using Content.Server.Chat.Systems;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
 using Content.Server.Warps;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
-using Content.Shared._Goobstation.Wizard.Teleport;
+using Content.Shared._Shitcode.Wizard.FadingTimedDespawn;
+using Content.Shared._Shitcode.Wizard.Teleport;
 using Content.Shared.Actions;
 using Content.Shared.Magic.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -26,7 +26,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Wizard.Teleport;
+namespace Content.Server._Shitcode.Wizard.Teleport;
 
 public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
 {

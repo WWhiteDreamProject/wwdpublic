@@ -7,7 +7,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wizard.TimeStop;
+namespace Content.Shared._Shitcode.Wizard.TimeStop;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class FreezeContactsComponent : Component

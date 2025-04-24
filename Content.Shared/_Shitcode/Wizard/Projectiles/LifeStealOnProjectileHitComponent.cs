@@ -10,7 +10,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.Projectiles;
+namespace Content.Shared._Shitcode.Wizard.Projectiles;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class LifeStealOnProjectileHitComponent : Component

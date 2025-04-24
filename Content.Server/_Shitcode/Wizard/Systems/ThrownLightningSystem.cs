@@ -5,16 +5,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Wizard.Components;
+using Content.Server._Shitcode.Wizard.Components;
 using Content.Server.Electrocution;
-using Content.Shared._Goobstation.Wizard.Projectiles;
-using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Shared._Shitcode.Wizard.Projectiles;
+using Content.Shared._Shitcode.Wizard.Traps;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Magic.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Shitcode.Wizard.Systems;
 
 public sealed class ThrownLightningSystem : EntitySystem
 {

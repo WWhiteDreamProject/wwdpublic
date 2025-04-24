@@ -7,7 +7,7 @@
 
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Wizard.ForceWall;
+namespace Content.Shared._Shitcode.Wizard.ForceWall;
 
 [RegisterComponent]
 public sealed partial class SpawnAnimationComponent : Component

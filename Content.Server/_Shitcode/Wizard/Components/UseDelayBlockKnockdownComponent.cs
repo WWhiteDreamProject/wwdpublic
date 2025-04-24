@@ -7,7 +7,7 @@
 
 using Robust.Shared.Audio;
 
-namespace Content.Server._Goobstation.Wizard.Components;
+namespace Content.Server._Shitcode.Wizard.Components;
 
 [RegisterComponent]
 public sealed partial class UseDelayBlockKnockdownComponent : Component

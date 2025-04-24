@@ -10,7 +10,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 
-namespace Content.Shared._Goobstation.Wizard.SupermatterHalberd;
+namespace Content.Shared._Shitcode.Wizard.SupermatterHalberd;
 
 public sealed class RaysSystem : EntitySystem
 {

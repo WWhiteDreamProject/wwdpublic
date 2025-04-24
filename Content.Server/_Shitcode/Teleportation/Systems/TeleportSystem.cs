@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Server._Shitcode.Teleportation.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Stack;
 using Content.Shared.Database;
@@ -25,7 +26,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Server.Teleportation;
+namespace Content.Server._Shitcode.Teleportation.Systems;
 
 public sealed class TeleportSystem : EntitySystem
 {

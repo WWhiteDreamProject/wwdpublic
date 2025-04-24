@@ -9,7 +9,7 @@ using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Goobstation.Wizard.Spellblade;
+namespace Content.Shared._Shitcode.Wizard.Spellblade;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShieldedComponent : Component

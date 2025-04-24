@@ -6,12 +6,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Server._Goobstation.Wizard.Components;
+using Content.Server._Shitcode.Wizard.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Humanoid;
 using Content.Server.Popups;
 using Content.Server.Weapons.Ranged.Systems;
-using Content.Shared._Goobstation.Wizard.Mutate;
+using Content.Shared._Shitcode.Wizard.Mutate;
 using Content.Shared.Chat;
 using Content.Shared.Humanoid;
 using Content.Shared.Weapons.Ranged.Components;
@@ -22,7 +22,7 @@ using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Shitcode.Wizard.Systems;
 
 public sealed class HulkSystem : SharedHulkSystem
 {

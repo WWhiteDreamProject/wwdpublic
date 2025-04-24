@@ -7,7 +7,7 @@
 
 using Content.Shared.Examine;
 
-namespace Content.Shared._Goobstation.Wizard.ArcaneBarrage;
+namespace Content.Shared._Shitcode.Wizard.ArcaneBarrage;
 
 public sealed class DeleteOnDropAttemptSystem : EntitySystem
 {

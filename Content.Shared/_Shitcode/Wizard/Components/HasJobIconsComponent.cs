@@ -7,7 +7,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wizard.Components;
+namespace Content.Shared._Shitcode.Wizard.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HasJobIconsComponent : Component

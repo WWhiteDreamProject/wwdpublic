@@ -7,7 +7,7 @@
 
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.Spellblade;
+namespace Content.Shared._Shitcode.Wizard.Spellblade;
 
 [RegisterComponent]
 public sealed partial class LightningSpellbladeEnchantmentComponent : Component

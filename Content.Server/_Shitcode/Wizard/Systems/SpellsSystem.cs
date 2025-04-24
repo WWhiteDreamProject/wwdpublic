@@ -11,7 +11,8 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared._Goobstation.Actions;
 using Content.Goobstation.Common.Bloodstream;
-using Content.Server._Goobstation.Wizard.Components;
+using Content.Server._Shitcode.Teleportation.Systems;
+using Content.Server._Shitcode.Wizard.Components;
 using Content.Server.Abilities.Mime;
 using Content.Server.Antag;
 using Content.Server.Body.Components;
@@ -32,11 +33,11 @@ using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Server.Teleportation;
 using Content.Server.Weapons.Ranged.Systems;
-using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.BindSoul;
-using Content.Shared._Goobstation.Wizard.Chuuni;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
-using Content.Shared._Goobstation.Wizard.SpellCards;
+using Content.Shared._Shitcode.Wizard;
+using Content.Shared._Shitcode.Wizard.BindSoul;
+using Content.Shared._Shitcode.Wizard.Chuuni;
+using Content.Shared._Shitcode.Wizard.FadingTimedDespawn;
+using Content.Shared._Shitcode.Wizard.SpellCards;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
@@ -69,7 +70,7 @@ using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Shitcode.Wizard.Systems;
 
 public sealed class SpellsSystem : SharedSpellsSystem
 {

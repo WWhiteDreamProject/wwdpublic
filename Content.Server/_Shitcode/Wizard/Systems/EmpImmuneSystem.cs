@@ -5,17 +5,17 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Wizard.Components;
+using Content.Server._Shitcode.Wizard.Components;
 using Content.Server.Emp;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Shitcode.Wizard.Systems;
 
 public sealed class EmpImmuneSystem : EntitySystem
 {
     public override void Initialize()
     {
         base.Initialize();
-        
+
         SubscribeLocalEvent<EmpImmuneComponent, EmpAttemptEvent>(OnAttempt);
     }
 

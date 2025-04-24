@@ -8,7 +8,7 @@
 using Content.Server.Speech;
 using Robust.Shared.Random;
 
-namespace Content.Server._Goobstation.Wizard.Accents;
+namespace Content.Server._Shitcode.Wizard.Accents;
 
 public sealed class AnimalAccentSystem : EntitySystem
 {

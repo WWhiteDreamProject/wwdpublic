@@ -7,7 +7,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wizard.BindSoul;
+namespace Content.Shared._Shitcode.Wizard.BindSoul;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class PhylacteryComponent : Component

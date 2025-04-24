@@ -7,7 +7,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wizard.Guardian;
+namespace Content.Shared._Shitcode.Wizard.Guardian;
 
 // I hate server components I hate server components I hate server components
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]

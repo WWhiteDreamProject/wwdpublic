@@ -7,8 +7,8 @@
 
 using System.Numerics;
 using Content.Client.Animations;
-using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.SupermatterHalberd;
+using Content.Shared._Shitcode.Wizard;
+using Content.Shared._Shitcode.Wizard.SupermatterHalberd;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.Player;
 

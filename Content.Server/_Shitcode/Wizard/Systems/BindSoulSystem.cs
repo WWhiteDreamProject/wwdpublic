@@ -12,15 +12,15 @@ using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Server.Destructible.Thresholds.Triggers;
 using Content.Server.IdentityManagement;
 using Content.Server.Respawn;
-using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Shitcode.Wizard;
+using Content.Shared._Shitcode.Wizard.BindSoul;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Shared.GameObjects.Components.Localization;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Shitcode.Wizard.Systems;
 
 public sealed class BindSoulSystem : SharedBindSoulSystem
 {

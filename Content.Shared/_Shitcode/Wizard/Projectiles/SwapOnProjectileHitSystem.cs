@@ -8,7 +8,7 @@
 using Content.Shared.Projectiles;
 using Content.Shared.Whitelist;
 
-namespace Content.Shared._Goobstation.Wizard.Projectiles;
+namespace Content.Shared._Shitcode.Wizard.Projectiles;
 
 public sealed class SwapOnProjectileHitSystem : EntitySystem
 {

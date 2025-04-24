@@ -101,7 +101,7 @@ using Content.Server.Humanoid;
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
 using Content.Server.Polymorph.Components;
-using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Shitcode.Wizard.BindSoul;
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;

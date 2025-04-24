@@ -7,7 +7,7 @@
 
 using Robust.Shared.Network;
 
-namespace Content.Shared._Goobstation.Wizard.ForceWall;
+namespace Content.Shared._Shitcode.Wizard.ForceWall;
 
 public sealed class SpawnAnimationSystem : EntitySystem
 {

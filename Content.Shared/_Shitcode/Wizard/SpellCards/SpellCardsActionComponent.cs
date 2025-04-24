@@ -10,7 +10,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wizard.SpellCards;
+namespace Content.Shared._Shitcode.Wizard.SpellCards;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SpellCardsActionComponent : Component

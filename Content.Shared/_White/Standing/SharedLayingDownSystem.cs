@@ -13,8 +13,8 @@
 
 using Content.Shared.CCVar;
 using Content.Shared.Standing;
-using Content.Shared._Goobstation.Wizard.TimeStop;
-using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Shared._Shitcode.Wizard.TimeStop;
+using Content.Shared._Shitcode.Wizard.Traps;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Administration;
 using Content.Shared.Body.Components;

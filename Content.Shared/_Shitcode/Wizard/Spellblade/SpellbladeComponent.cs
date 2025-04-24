@@ -10,7 +10,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Wizard.Spellblade;
+namespace Content.Shared._Shitcode.Wizard.Spellblade;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SpellbladeComponent : Component

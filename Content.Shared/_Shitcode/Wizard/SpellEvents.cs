@@ -29,7 +29,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._Goobstation.Wizard;
+namespace Content.Shared._Shitcode.Wizard;
 
 public sealed partial class CluwneCurseEvent : EntityTargetActionEvent, ISpeakSpell
 {

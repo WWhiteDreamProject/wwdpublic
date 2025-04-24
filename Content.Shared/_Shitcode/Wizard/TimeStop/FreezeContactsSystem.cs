@@ -7,8 +7,8 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
-using Content.Shared._Goobstation.Wizard.Guardian;
+using Content.Shared._Shitcode.Wizard.FadingTimedDespawn;
+using Content.Shared._Shitcode.Wizard.Guardian;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Emoting;
@@ -28,7 +28,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 
-namespace Content.Shared._Goobstation.Wizard.TimeStop;
+namespace Content.Shared._Shitcode.Wizard.TimeStop;
 
 public sealed class FreezeContactsSystem : EntitySystem
 {

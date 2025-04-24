@@ -84,10 +84,10 @@
 using System.Linq;
 using System.Numerics;
 using Content.Shared.Changeling;
-using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.BindSoul;
-using Content.Shared._Goobstation.Wizard.Chuuni;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Shared._Shitcode.Wizard;
+using Content.Shared._Shitcode.Wizard.BindSoul;
+using Content.Shared._Shitcode.Wizard.Chuuni;
+using Content.Shared._Shitcode.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;

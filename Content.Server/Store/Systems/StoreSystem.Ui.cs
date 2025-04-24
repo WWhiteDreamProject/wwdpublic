@@ -4,7 +4,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.PDA.Ringer;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
-using Content.Shared._Goobstation.Wizard.Refund;
+using Content.Shared._Shitcode.Wizard.Refund;
 using Content.Shared.Actions;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;

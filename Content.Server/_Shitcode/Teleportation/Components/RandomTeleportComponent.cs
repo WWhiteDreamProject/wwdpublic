@@ -10,7 +10,7 @@
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.Audio;
 
-namespace Content.Server.Teleportation;
+namespace Content.Server._Shitcode.Teleportation.Components;
 
 /// <summary>
 ///     Component to store parameters for entities that teleport randomly.

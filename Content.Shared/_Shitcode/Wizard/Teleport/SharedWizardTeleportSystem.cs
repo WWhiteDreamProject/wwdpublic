@@ -8,7 +8,7 @@
 using Content.Shared.Examine;
 using Content.Shared.UserInterface;
 
-namespace Content.Shared._Goobstation.Wizard.Teleport;
+namespace Content.Shared._Shitcode.Wizard.Teleport;
 
 public abstract class SharedWizardTeleportSystem : EntitySystem
 {

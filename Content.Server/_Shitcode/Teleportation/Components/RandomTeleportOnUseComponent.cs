@@ -7,7 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Server.Teleportation;
+namespace Content.Server._Shitcode.Teleportation.Components;
 
 /// <summary>
 ///     Entity that will randomly teleport the user when used in hand.
