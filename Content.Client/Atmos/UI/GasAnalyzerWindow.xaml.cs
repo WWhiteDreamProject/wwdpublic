@@ -85,9 +85,6 @@ namespace Content.Client.Atmos.UI
                     RightPanel.Visible = false;
 
                     GenerateGasDisplay(msg.NodeGasMixes[1], MiddlePanel);
-                    CDeviceGrid.InvalidateMeasure();                // WWDP EDIT  // Crutch. Without calling Measure() the CDeviceGrid.DesiredSize doesn't update
-                    CDeviceGrid.Measure(Vector2Helpers.Infinity);   // WWDP EDIT // and minSize ends up having desired control size for when CDeviceGrid is empty, which is never.
-                    minSize = new Vector2(CDeviceGrid.DesiredSize.X + 40, MinSize.Y);
                 }
                 else if (msg.NodeGasMixes.Length == 3)
                 {
@@ -102,9 +99,6 @@ namespace Content.Client.Atmos.UI
 
                     GenerateGasDisplay(msg.NodeGasMixes[1], LeftPanel);
                     GenerateGasDisplay(msg.NodeGasMixes[2], RightPanel);
-                    CDeviceGrid.InvalidateMeasure();                // WWDP EDIT  // Crutch. Without calling Measure() the CDeviceGrid.DesiredSize doesn't update
-                    CDeviceGrid.Measure(Vector2Helpers.Infinity);   // WWDP EDIT // and minSize ends up having desired control size for when CDeviceGrid is empty, which is never.
-                    minSize = new Vector2(CDeviceGrid.DesiredSize.X + 40, MinSize.Y);
                 }
                 else if (msg.NodeGasMixes.Length == 4)
                 {
@@ -123,9 +117,6 @@ namespace Content.Client.Atmos.UI
                     GenerateGasDisplay(msg.DeviceFlipped ? msg.NodeGasMixes[1] : msg.NodeGasMixes[3], LeftPanel);
                     GenerateGasDisplay(msg.NodeGasMixes[2], MiddlePanel);
                     GenerateGasDisplay(msg.DeviceFlipped ? msg.NodeGasMixes[3] : msg.NodeGasMixes[1], RightPanel);
-                    CDeviceGrid.InvalidateMeasure();                // WWDP EDIT  // Crutch. Without calling Measure() the CDeviceGrid.DesiredSize doesn't update
-                    CDeviceGrid.Measure(Vector2Helpers.Infinity);   // WWDP EDIT // and minSize ends up having desired control size for when CDeviceGrid is empty, which is never.
-                    minSize = new Vector2(CDeviceGrid.DesiredSize.X + 40, MinSize.Y);
                 }
                 else
                 {
@@ -137,9 +128,6 @@ namespace Content.Client.Atmos.UI
                     LeftPanel.Visible = false;
                     MiddlePanel.Visible = false;
                     RightPanel.Visible = false;
-                    CDeviceGrid.InvalidateMeasure();                // WWDP EDIT  // Crutch. Without calling Measure() the CDeviceGrid.DesiredSize doesn't update
-                    CDeviceGrid.Measure(Vector2Helpers.Infinity);   // WWDP EDIT // and minSize ends up having desired control size for when CDeviceGrid is empty, which is never.
-                    minSize = new Vector2(CDeviceMixes.DesiredSize.X + 40, MinSize.Y);
                 }
             }
             else
@@ -147,9 +135,11 @@ namespace Content.Client.Atmos.UI
                 // Hide device tab, no device selected
                 CTabContainer.SetTabVisible(0, false);
                 CTabContainer.CurrentTab = 1;
-                minSize = new Vector2(CEnvironmentMix.DesiredSize.X + 40, MinSize.Y);
             }
 
+            CDeviceGrid.InvalidateMeasure();                // WWDP EDIT  // Crutch. Without calling Measure() the CDeviceGrid.DesiredSize doesn't update
+            CDeviceGrid.Measure(Vector2Helpers.Infinity);   // WWDP EDIT // and minSize ends up having desired control size for when CDeviceGrid is empty, which is never.
+            minSize = new Vector2(CDeviceGrid.DesiredSize.X + 40, MinSize.Y);
             MinSize = minSize;
         }
 
