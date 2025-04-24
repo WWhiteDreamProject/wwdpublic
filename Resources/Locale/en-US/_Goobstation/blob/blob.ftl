@@ -48,6 +48,10 @@ roles-antag-blob-objective = Reach critical mass.
 
 guide-entry-blob = Blob
 
+blob-title = Blob
+
+speak-vv-blob = Blob hivemind
+
 # Popups
 blob-target-normal-blob-invalid = Wrong blob type, select a normal blob.
 blob-target-factory-blob-invalid = Wrong blob type, select a factory blob.
@@ -189,5 +193,3 @@ objective-condition-fail = { $condition } | [color={ $markupColor }]Failure![/co
 
 admin-verb-make-blob = Make the target into a blob carrier.
 admin-verb-text-make-blob = Make Blob Carrier
-
-blob-title = Blob

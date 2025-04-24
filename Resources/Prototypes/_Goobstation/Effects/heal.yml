@@ -1,0 +1,7 @@
+﻿- type: entity
+  id: EffectHealPlusTripleYellow
+  parent: EffectHealPlusTripleBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: yellow
