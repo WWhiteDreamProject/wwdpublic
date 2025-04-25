@@ -2686,3 +2686,10 @@ Entries:
   id: 290
   time: '2025-04-20T03:24:57.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/460
+- author: RedFoxIV
+  changes:
+    - type: Fix
+      message: Теперь окно газоанализатора сразу открывается с правильной шириной.
+  id: 291
+  time: '2025-04-25T08:40:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/474
