@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server._White.Hearing;
 using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
 using Content.Server.Language;
@@ -37,6 +38,7 @@ public sealed class RadioDeviceSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
+    [Dependency] private readonly HearingSystem _hearing = default!;
 
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private HashSet<(string, EntityUid)> _recentlySent = new();
@@ -232,6 +234,11 @@ public sealed class RadioDeviceSystem : EntitySystem
         var parent = Transform(uid).ParentUid;
         if (TryComp(parent, out ActorComponent? actor))
         {
+            // WWDP Deafening
+            if (_hearing.IsBlockedByDeafness(actor.PlayerSession, ChatChannel.Radio, args.Language))
+                return;
+            // WWDP end
+
             var canUnderstand = _language.CanUnderstand(parent, args.Language.ID);
             var msg = new MsgChatMessage
             {
@@ -301,7 +308,7 @@ public sealed class RadioDeviceSystem : EntitySystem
         {
             mic.BroadcastChannel = channel;
             if(_protoMan.TryIndex<RadioChannelPrototype>(channel, out var channelProto)) // Frontier
-                mic.Frequency = _radio.GetFrequency(ent, channelProto); // Frontier
+                mic.Frequency = channelProto.Frequency; // Frontier
         }
         if (TryComp<RadioSpeakerComponent>(ent, out var speaker))
             speaker.Channels = new(){ channel };

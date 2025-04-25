@@ -6,8 +6,7 @@
     - HumanoidAppearance
   chatMessages: ["chat-emote-msg-flip"]
   chatTriggers:
-  - flip
-  - flips
+  - "chat-emote-trigger-flip-1" # WD EDIT
   event: !type:AnimationFlipEmoteEvent
 
 - type: emote
@@ -18,8 +17,7 @@
     - HumanoidAppearance
   chatMessages: ["chat-emote-msg-spin"]
   chatTriggers:
-  - spin
-  - spins
+  - "chat-emote-trigger-spin-1" # WD EDIT
   event: !type:AnimationSpinEmoteEvent
 
 - type: emote
@@ -30,8 +28,8 @@
     - HumanoidAppearance
   chatMessages: ["chat-emote-msg-jump"]
   chatTriggers:
-  - jump
-  - jumps
-  - hop # TheDen
-  - hops # TheDen
+  # WD EDIT START
+  - "chat-emote-trigger-jump-1"
+  - "chat-emote-trigger-jump-2"
+  # WD EDIT END
   event: !type:AnimationJumpEmoteEvent

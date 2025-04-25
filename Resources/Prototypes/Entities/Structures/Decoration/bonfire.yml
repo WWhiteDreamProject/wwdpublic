@@ -31,12 +31,12 @@
     sound:
       path: /Audio/Ambience/Objects/fireplace.ogg
   - type: AlwaysHot
+  - type: Construction # Frontier
+    graph: FiresGraph # Frontier
+    node: BonfireNode # Frontier
   - type: Tag
     tags:
       - NoPaint
-  - type: Construction # WWDP
-    graph: Bonfires
-    node: Bonfire
 
 - type: entity
   id: LegionnaireBonfire
@@ -49,6 +49,3 @@
       - state: legionnaire_bonfire
   - type: PointLight
     color: "#FF5601"
-  - type: Construction # WWDP
-    graph: Bonfires
-    node: LegionnaireBonfire

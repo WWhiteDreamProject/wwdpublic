@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Miro Haverinen",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+   {
+      "name": "animated",
+      "delays": [
+        [
+          0.7,
+          0.7,
+          0.7,
+          0.7
+        ]
+      ]
+    },
+    {
+      "name": "icon"
+    }
+  ]
+}

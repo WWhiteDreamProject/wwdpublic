@@ -22,6 +22,7 @@ public sealed class PermanentBlindnessSystem : EntitySystem
         SubscribeLocalEvent<PermanentBlindnessComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<PermanentBlindnessComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<PermanentBlindnessComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<PermanentBlindnessComponent, EyeDamageChangedEvent>(OnEyeDamageChanged); // WD ADD
     }
 
     private void OnExamined(Entity<Components.PermanentBlindnessComponent> blindness, ref ExaminedEvent args)
@@ -50,4 +51,31 @@ public sealed class PermanentBlindnessSystem : EntitySystem
             _blinding.SetMinDamage(new Entity<BlindableComponent?>(blindness.Owner, blindable), maxMagnitudeInt);
         }
     }
+    
+
+// WD EDIT START
+    /// <summary>
+    /// Handles eye healing attempts to ensure blindness from the trait cannot be cured
+    /// </summary>
+    private void OnEyeDamageChanged(Entity<Components.PermanentBlindnessComponent> blindness, ref EyeDamageChangedEvent args)
+    {
+        if (!_entityManager.TryGetComponent<BlindableComponent>(blindness, out var blindable))
+            return;
+
+        if (blindness.Comp.Blindness != 0)
+        {
+            // Set minimum eye damage to the trait value
+            _blinding.SetMinDamage(new Entity<BlindableComponent?>(blindness.Owner, blindable), blindness.Comp.Blindness);
+        }
+        else
+        {
+            // Set maximum possible eye damage
+            var maxMagnitudeInt = (int) BlurryVisionComponent.MaxMagnitude;
+            _blinding.SetMinDamage(new Entity<BlindableComponent?>(blindness.Owner, blindable), maxMagnitudeInt);
+        }
+        
+        // Update blindness state after parameter changes
+        _blinding.UpdateIsBlind(blindness.Owner);
+    }
+// WD EDIT END
 }

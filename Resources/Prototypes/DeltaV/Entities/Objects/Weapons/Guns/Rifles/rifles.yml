@@ -56,6 +56,8 @@
   components:
   - type: Item
     size: Large
+    shape: # WWDP guns resize
+    - 0,0,5,1 # bullpup
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Rifles/jackdaw.rsi
     layers:
@@ -164,17 +166,6 @@
     sprite: DeltaV/Objects/Weapons/Guns/Rifles/tenebra.rsi
 
 - type: entity
-  name: M-90
-  id: WeaponRifleM90
-  parent: WeaponRifleM90GrenadeLauncher
-  description: An older bullpup carbine model. Uses .20 rifle ammo.
-  components:
-  - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Rifles/carbinenogl.rsi
-  - type: Clothing
-    sprite: DeltaV/Objects/Weapons/Guns/Rifles/carbinenogl.rsi
-
-- type: entity
   name: musket
   id: WeaponRifleMusket
   parent: Musket
@@ -183,16 +174,16 @@
   components:
   - type: BallisticAmmoProvider
     whitelist:
-      tags: 
+      tags:
       - CartridgeMusket
     capacity: 1
-    proto: CartridgeMusket
+    proto: null # WWDP start empty
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Rifles/musket.rsi
     state: base
   - type: Gun #Smoothbore
-    fireRate: .125
-    resetOnHandSelected: false
+    fireRate: 0.3 # WWDP
+    #resetOnHandSelected: false # WWDP
     minAngle: 22
     maxAngle: 43
   - type: Wieldable

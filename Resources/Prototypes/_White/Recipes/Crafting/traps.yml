@@ -1,0 +1,72 @@
+﻿- type: construction
+  name: booby trap
+  id: GrenadeTrap
+  graph: GrenadeTrapGraph
+  startNode: start
+  targetNode: trap_full
+  category: construction-category-furniture
+  description: An explosive surprise.
+  icon:
+    sprite: _White/Structures/Other/grenadetrap.rsi
+    #offset: 0.5, 0
+    state: trap
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: GrenadeTrapGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: trap_poles
+      completed:
+      - !type:SnapToGrid { }
+      steps:
+      - material: WoodPlank
+        amount: 2
+        doAfter: 5
+  - node: trap_poles
+    entity: GrenadeTrapPoles
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank1
+        amount: 2
+      steps:
+      - tool: Cutting
+        doAfter: 5
+    - to: trap_grenade
+      steps:
+      - tag: GrenadeTrapPart
+        doAfter: 5
+        name: "explosive grenade"
+        icon:
+          sprite: Objects/Weapons/Grenades/grenade.rsi
+          state: icon
+  - node: trap_grenade
+    entity: GrenadeTrapGrenade
+    edges:
+    - to: trap_poles
+      completed:
+      - !type:SpawnPrototype
+        prototype: ExGrenade
+      steps:
+      - tool: Cutting
+        doAfter: 5
+    - to: trap_full
+      steps:
+      - material: Cloth
+        amount: 1
+        doAfter: 5
+  - node: trap_full
+    edges:
+    - to: trap_grenade
+      steps:
+      - tool: Cutting
+        doAfter: 5
+    entity: GrenadeTrap

@@ -41,6 +41,15 @@
       whitelist:
         components:
         - IdCard
+    # WD EDIT START
+    passportSlot:
+      priority: -1
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+        - Passport
+    # WD EDIT END
   - type: Item
     size: Small
   - type: ContainerContainer
@@ -48,6 +57,7 @@
       PDA-id: !type:ContainerSlot {}
       PDA-pen: !type:ContainerSlot {}
       PDA-pai: !type:ContainerSlot {}
+      PDA-passport: !type:ContainerSlot {} # WD EDIT
       Cartridge-Slot: !type:ContainerSlot {}
       program-container: !type:Container
   - type: ItemSlots

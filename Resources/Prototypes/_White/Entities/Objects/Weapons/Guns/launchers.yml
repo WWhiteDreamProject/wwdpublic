@@ -5,13 +5,15 @@
   description: A compact, single-shot launcher that fires grenades.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Launchers/riot_launcher.rsi
+    sprite: _White/Objects/Weapons/Guns/Launchers/riot_launcher.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
   - type: Item
     size: Large
-    sprite: Objects/Weapons/Guns/Launchers/riot_launcher.rsi
+    shape:
+    - 0,0,4,1
+    sprite: _White/Objects/Weapons/Guns/Launchers/riot_launcher.rsi
   - type: ItemSlots
     slots:
       gun_chamber:
@@ -26,14 +28,12 @@
     containers:
       gun_chamber: !type:ContainerSlot
   - type: ChamberMagazineAmmoProvider
-    autoCycle: false
+    autoCycle: true
     boltClosed: true
     canRack: false
     soundBoltClosed: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
     soundBoltOpened: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
-    soundRack: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Launchers/riot_launcher.rsi
     quickEquip: false
     slots:
     - Back
@@ -49,6 +49,3 @@
   - type: Tag
     tags:
     - Sidearm
-
-- type: Tag
-  id: RiotGrenade

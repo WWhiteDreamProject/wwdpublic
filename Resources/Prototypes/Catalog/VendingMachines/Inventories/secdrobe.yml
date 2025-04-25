@@ -4,12 +4,12 @@
     ClothingBackpackSecurity: 3
     ClothingBackpackSatchelSecurity: 3
     ClothingBackpackDuffelSecurity: 3
-##    ClothingHeadHatSecsoft: 3 # DeltaV - removed from SecDrobe due to inconsistency with art direction
+    ClothingHeadsetAltSecurityRegular: 3 # Goobstation
+    ##    ClothingHeadHatSecsoft: 3 # DeltaV - removed from SecDrobe due to inconsistency with art direction
 # WD edit start - moved clothes from SecTech & sorted by type
     ClothingHeadsetSecurity: 3
     ClothingHeadHelmetBasic: 2
-    ClothingHeadHelmetInsulated: 2
-    ClothingHeadCage: 2
+    # ClothingHeadHelmetInsulated: 2 # WWDP - all sec helmets are insulated now
     ClothingHeadHatBeretSecurity: 3
     ClothingHeadBandRed: 3
     ClothingHeadHatCowboyBlack: 1

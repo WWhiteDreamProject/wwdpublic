@@ -85,11 +85,17 @@ uplink-shrapnel-grenade-desc = Launches a spray of sharp fragments dealing great
 uplink-pistol-magazine-name = Pistol Magazine (.35 auto)
 uplink-pistol-magazine-desc = Pistol magazine with 10 catridges. Compatible with the Viper.
 
+uplink-pistol-magazine-rubber-name = Pistol Magazine (.35 auto, rubber)
+uplink-pistol-magazine-rubber-desc = Pistol magazine with 10 cartridges. For when you need to take someone alive.
+
 uplink-pistol-magazine-incendiary-name = Pistol Magazine (.35 auto, incendiary)
 uplink-pistol-magazine-incendiary-desc = A premium magazine for putting burning holes in both your wallet, and your victims.
 
 uplink-pistol-magazine-c20r-name = SMG magazine (.35 auto)
 uplink-pistol-magazine-c20r-desc = Rifle magazine with 30 catridges. Compatible with C-20r.
+
+uplink-pistol-magazine-c20r-rubber-name = SMG magazine (.35 auto, rubber)
+uplink-pistol-magazine-c20r-rubber-desc = Rifle magazine with 30 catridges. For when you need to take many hostages.
 
 uplink-pistol-magazine-c20r-incendiary-name = SMG magazine (.35 auto, incendiary)
 uplink-pistol-magazine-c20r-incendiary-desc = WAKE THE FUCK UP SAMURAI, WE GOT A STATION TO BURN!
@@ -97,8 +103,14 @@ uplink-pistol-magazine-c20r-incendiary-desc = WAKE THE FUCK UP SAMURAI, WE GOT A
 uplink-pistol-magazine-caseless-name = Pistol Magazine (.25 caseless)
 uplink-pistol-magazine-caseless-desc = Pistol magazine with 10 catridges. Compatible with the Cobra.
 
+uplink-pistol-magazine-caseless-rubber-name = Pistol Magazine (.25 caseless, rubber)
+uplink-pistol-magazine-caseless-rubber-desc = Pistol magazine with 10 catridges. For when you need to (quietly) take someone alive.
+
 uplink-magazine-caseless-name = SMG magazine (.25 caseless)
 uplink-magazine-caseless-desc = Rifle magazine with 30 cartridges. Compatible with the FPA-90.
+
+uplink-magazine-caseless-rubber-name = SMG magazine (.25 caseless, rubber)
+uplink-magazine-caseless-rubber-desc = Rifle magazine with 30 cartridges. For when you need to (quietly) take many hostages.
 
 uplink-speedloader-magnum-name = Speedloader (.45 magnum AP)
 uplink-speedloader-magnu-desc = Revolver speedloader with 6 armor-piercing catridges, capable of ignoring armor entirely. Compatible with the Python.
@@ -472,3 +484,6 @@ uplink-home-run-bat-desc = Rigged bat pre-coated in blood for Syndicate tee-ball
 
 uplink-combat-bakery-name = Combat Bakery Kit
 uplink-combat-bakery-desc = A kit of clandestine baked weapons. Contains a baguette sword, a pair of throwing croissants, and a syndicate microwave board for making more. Once the job is done, eat the evidence.
+
+uplink-smuggler-satchel-name = Smuggler's Satchel
+uplink-smuggler-satchel-desc = A handy, suspicious looking satchel. Just flat enough to fit underneath floor tiles.

@@ -1,3 +1,3 @@
-ent-FloorLavaEntity = lava floor
+ent-FloorLavaEntity = лава
     .desc = { "" }
     .suffix = { "" }

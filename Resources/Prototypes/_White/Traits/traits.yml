@@ -1,0 +1,20 @@
+﻿- type: trait
+  id: Deaf
+  category: Auditory
+  points: 4
+  requirements:
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - Borg
+    - MedicalBorg
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: Deaf
+      alwaysDeaf: true
+  - !type:TraitModifyLanguages
+    languagesSpoken:
+    - Sign
+    languagesUnderstood:
+    - Sign

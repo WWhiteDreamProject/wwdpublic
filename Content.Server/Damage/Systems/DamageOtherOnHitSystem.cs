@@ -53,7 +53,7 @@ namespace Content.Server.Damage.Systems
 
         private void OnDamageExamine(EntityUid uid, DamageOtherOnHitComponent component, ref DamageExamineEvent args)
         {
-            _damageExamine.AddDamageExamine(args.Message, GetDamage(uid, component, args.User), Loc.GetString("damage-throw"));
+            _damageExamine.AddDamageExamine(args.Message, GetDamage(uid, component, args.User, true), Loc.GetString("damage-throw"));//WWDP EDIT
 
             if (component.StaminaCost == 0)
                 return;

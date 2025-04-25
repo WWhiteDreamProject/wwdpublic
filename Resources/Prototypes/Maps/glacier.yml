@@ -23,15 +23,12 @@
         availableJobs:
           Passenger: [ -1, -1 ]
           Captain: [ 1, 1 ]
-          BlueshieldOfficer: [ 0, 0 ] # WWDP no roundstart CC roles
-          NanotrasenRepresentative: [ 0, 0 ] # WWDP no roundstart CC roles
-          Magistrate: [ 0, 0 ] # WWDP no roundstart CC roles
-          AdministrativeAssistant: [ 1, 1 ]
+          Maid: [ 1, 1 ] # WWDP Combat Maid instead of CC roles
         #service
           HeadOfPersonnel: [ 1, 1 ]
           Bartender: [ 2, 2 ]
           Botanist: [ 2, 3 ]
-          Boxer: [ 1, 2 ]
+          # Boxer: [ 1, 2 ] - WD EDIT
           Chef: [ 2, 3 ]
           Clown: [ 1, 2 ]
           Reporter: [ 2, 2 ]

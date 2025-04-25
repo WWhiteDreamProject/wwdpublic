@@ -87,7 +87,7 @@ entities:
             5: -2,-1
         - node:
             color: '#79150096'
-            id: questionmark
+            id: qmark
           decals:
             4: -2,4
         - node:
@@ -205,6 +205,7 @@ entities:
             98: 0.07043332,-3.7724159
             99: -0.11706668,-3.7099159
     - type: GridAtmosphere
+      simulatedTurf: false
       version: 2
       data:
         tiles:

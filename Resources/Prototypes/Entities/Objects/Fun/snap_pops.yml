@@ -33,6 +33,9 @@
     maxIntensity: 0.01
     intensitySlope: 1
     totalIntensity: 0.01
+  - type: Construction # WWDP
+    graph: SnapPopGraph
+    node: snappop
 
 - type: entity
   parent: BaseStorageItem

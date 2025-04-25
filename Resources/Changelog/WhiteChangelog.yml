@@ -1512,3 +1512,1184 @@ Entries:
   id: 161
   time: '2025-03-03T16:04:57.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/252
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: >-
+        Красивые шрифты для облачков и чата. Красивый шрифт в чате выключается в
+        настройках - Общие - Речь, Красивый шрифт в облачках выключить нельзя,
+        превозмогайте.
+    - type: Add
+      message: >-
+        Цветной текст в облачках. По умолчанию включено, можно выключить в
+        настройках - Общие - Речь.
+  id: 162
+  time: '2025-03-03T18:26:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/257
+- author: vanx
+  changes:
+    - type: Fix
+      message: Окна шаттлов перекрывают решётки не давая им биться током
+  id: 163
+  time: '2025-03-04T13:28:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/271
+- author: vanx
+  changes:
+    - type: Add
+      message: 'Новая черта персонажа: Глухой. Даёт глухоту и язык жестов.'
+    - type: Fix
+      message: Глухие персонажи теперь видят эмоции и OOC-чаты.
+    - type: Fix
+      message: Глухие персонажи теперь видят сообщения на языке жестов.
+  id: 164
+  time: '2025-03-04T13:30:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/270
+- author: islambrosgood
+  changes:
+    - type: Tweak
+      message: мало переводов
+  id: 165
+  time: '2025-03-04T18:25:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/275
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: Возможность поворачивать рисунки при использовании мелков.
+    - type: Tweak
+      message: Теперь мелков хватает на вдвое больше рисунков
+    - type: Fix
+      message: >-
+        Значимый рефактор системы рисования мелками. Знаете, какое сейчас время?
+        Время нестабильных фич! По поводу любых багов, связанных с рисованием
+        мелками, просба обратиться в канал #bugreporting в дискорде.
+  id: 166
+  time: '2025-03-05T14:03:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/279
+- author: vanx
+  changes:
+    - type: Fix
+      message: КПБ теперь оставляют на предметах следы перчаток
+  id: 167
+  time: '2025-03-05T14:36:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/281
+- author: vanx
+  changes:
+    - type: Fix
+      message: Застрявшие предметы теперь выпадают при разрушении или разборке.
+  id: 168
+  time: '2025-03-06T07:58:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/278
+- author: '3189'
+  changes:
+    - type: Tweak
+      message: Перевод меню призраков
+  id: 169
+  time: '2025-03-06T08:01:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/283
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Большая часть оружия занимает больше места в инвентаре. Длинные
+        дробовики и винтовки теперь помещаются только в вещмешок.
+  id: 170
+  time: '2025-03-06T20:03:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/284
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        Lizard people's clothing is now displayed correctly again / Одежда на
+        ящерах вновь отображается нормально
+    - type: Fix
+      message: >-
+        Character breakage is now prevented / Теперь нельзя сломать себе
+        персонажа
+  id: 171
+  time: '2025-03-07T04:22:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/276
+- author: vanx
+  changes:
+    - type: Fix
+      message: Баги системы ближнего боя
+  id: 172
+  time: '2025-03-07T04:25:23.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/273
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: 'Тип меню эмоций теперь можно менять в настройках '
+    - type: Tweak
+      message: Теперь у всех отдельный пул эмоций
+  id: 173
+  time: '2025-03-07T06:05:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/215
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Изменены толчки руками на пкм - теперь они всегда попадают, отталкивают
+        и вдобавок имеют шанс обезоружить. Урон по стамине и расстояние
+        отталкивания зависит от веса персонажей. Шанс обезоружить зависит от
+        стамины и здоровья персонажей и предметах в их руках.
+  id: 174
+  time: '2025-03-07T06:54:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/280
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Большинство шлемов и скафандров теперь защищают от псионических атак при
+        ношении.
+    - type: Fix
+      message: Майндсвап больше не пробивает пси-защиту.
+  id: 175
+  time: '2025-03-08T08:34:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/253
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Изменен шрифт описания при осмотре.
+    - type: Tweak
+      message: Изменено меню осмотра огнестрельного оружия.
+    - type: Tweak
+      message: >-
+        Теперь чтобы увидеть точное количество патронов в магазине оружия нужно
+        достать магазин и осмотреть его.
+    - type: Add
+      message: >-
+        Возможность доставать патроны из дробовиков, бандольер, магазинов и
+        коробок на Alt+Клик
+    - type: Tweak
+      message: Уменьшена визуальная отдача при стрельбе.
+  id: 176
+  time: '2025-03-08T08:35:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/285
+- author: Vaaankas
+  changes:
+    - type: Fix
+      message: Исправлено отображение урона ближнего боя.
+  id: 177
+  time: '2025-03-08T08:35:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/286
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Лимит длины оповещений увеличен до 1000 символов.
+  id: 178
+  time: '2025-03-08T18:46:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/290
+- author: vanx
+  changes:
+    - type: Add
+      message: Теперь можно толкать не только космонавтиков но и любые предметы.
+    - type: Fix
+      message: Удалены техники бесконтактного боя.
+  id: 179
+  time: '2025-03-08T19:11:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/295
+- author: Spatison
+  changes:
+    - type: Add
+      message: Upstream 03.03-08.03
+  id: 180
+  time: '2025-03-08T19:12:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/291
+- author: RedFoxIV
+  changes:
+    - type: Fix
+      message: Мелкофикс оверлея для мелков.
+  id: 181
+  time: '2025-03-08T19:20:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/297
+- author: islambrosgood
+  changes:
+    - type: Tweak
+      message: мало переводов 2 🤏
+  id: 182
+  time: '2025-03-09T11:21:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/287
+- author: Spatison
+  changes:
+    - type: Add
+      message: Upstream 08.03-09.03
+  id: 183
+  time: '2025-03-09T12:01:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/299
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Чисто бот теперь работает
+    - type: Fix
+      message: Меньше лагов из-за следов
+  id: 184
+  time: '2025-03-09T12:01:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/298
+- author: vanx
+  changes:
+    - type: Fix
+      message: Мобы и турели теперь попадают по лежачим персонажам.
+    - type: Fix
+      message: Зеркала теперь работают на стене.
+    - type: Tweak
+      message: Теперь можно вернуться в раунд независимо от количества игроков.
+  id: 185
+  time: '2025-03-09T18:11:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/303
+- author: Vaaankas
+  changes:
+    - type: Tweak
+      message: Обновлены рецепты самодельного оружия и патронов.
+  id: 186
+  time: '2025-03-09T18:12:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/293
+- author: vanx
+  changes:
+    - type: Add
+      message: Локализация эмоций
+  id: 187
+  time: '2025-03-09T18:14:00.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/274
+- author: Purka581
+  changes:
+    - type: Add
+      message: Мыши-оперативники получили свой акцент
+  id: 188
+  time: '2025-03-10T05:40:13.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/294
+- author: vanx
+  changes:
+    - type: Add
+      message: Возможность снарядить Служанку как секретного (или не очень) агента ЦК.
+    - type: Remove
+      message: Роли ЦК и адъютанта.
+  id: 189
+  time: '2025-03-10T11:24:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/307
+- author: Vaaankas
+  changes:
+    - type: Add
+      message: Добавлен крафт растяжки с гранатой
+  id: 190
+  time: '2025-03-10T11:25:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/305
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        Теперь очки с защитой от вспышек могут брать только главы или сотрудники
+        СБ
+    - type: Tweak
+      message: 'Ускорение от трейта на бионические ноги: 30 -> 10'
+    - type: Remove
+      message: >-
+        Удалены все трейты что давали ночное, термальное зрение, защиту от
+        вспышек или полный набор худов
+  id: 191
+  time: '2025-03-10T18:58:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/292
+- author: vanx
+  changes:
+    - type: Fix
+      message: Исправлены кулдауны броска грабом (4 секунды).
+    - type: Remove
+      message: Пояса дзюдо из шкафов СБ.
+  id: 192
+  time: '2025-03-11T05:10:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/313
+- author: vanx
+  changes:
+    - type: Remove
+      message: Оружие синдиката у СБ и в изучениях РНД.
+    - type: Fix
+      message: Печать денег с помощью безгильзовых патронов.
+  id: 193
+  time: '2025-03-11T05:13:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/312
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Изменены инвентари поясов, разгрузок, поясных сумок и внешней одежды.
+        Теперь в пояса можно класть что угодно.
+    - type: Add
+      message: В ботинки утилизатора теперь можно спрятать нож.
+  id: 194
+  time: '2025-03-11T07:30:09.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/289
+- author: vanx
+  changes:
+    - type: Fix
+      message: Открытые шкафы теперь не ловят пули и лазеры.
+  id: 195
+  time: '2025-03-11T14:22:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/316
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: 'Изначальное количество очков черт: 10 -> 0'
+  id: 196
+  time: '2025-03-11T16:23:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/319
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Трейт на бионическую ногу теперь позволяет игнорировать часть замедления
+        от полученного урона.
+    - type: Tweak
+      message: >-
+        Фелиниды больше не игнорируют подскальзывания и ловушки и замеляются от
+        урона также как люди.
+  id: 197
+  time: '2025-03-11T16:24:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/314
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Ядерные оперативники могут обьявить войну только начиная с 4 человек.
+    - type: Tweak
+      message: Защита скафандров синдиката.
+    - type: Tweak
+      message: Скафандр Джаггернаут получил защиу от замедления от урона.
+  id: 198
+  time: '2025-03-11T16:25:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/318
+- author: vanx
+  changes:
+    - type: Fix
+      message: Бег в мехах теперь работает по умолчанию и показывается на интерфейсе.
+  id: 199
+  time: '2025-03-11T17:37:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/317
+- author: vanx
+  changes:
+    - type: Add
+      message: Победа революции теперь сопровождается оповещением и вызовом шаттла.
+  id: 200
+  time: '2025-03-12T13:45:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/323
+- author: Gersoon
+  changes:
+    - type: Remove
+      message: Удален Бокс.
+    - type: Add
+      message: Добавлена новая станция - Молекула (Спасибо Mr_Darky)
+    - type: Tweak
+      message: >-
+        Изменен пул карт. Теперь у нас в пуле Мус, ДрайДок, Мета, Молекула и
+        ?????
+    - type: Fix
+      message: Мус и Мета снова работают!
+    - type: Add
+      message: >-
+        Добавлены на все станции всякие штуки из апстрима. Якорь, ИИ, голопады,
+        консоли для полета на лаваленд и так далее
+    - type: Tweak
+      message: Сильно изменены шаблоны в маптуле
+    - type: Add
+      message: >-
+        Новые текстурки для чистбота, медибота, хонкбота, йонкбота, мимбота (А
+        ОСТАЛЬНЫЕ ПОТОМ). Ещё добавлены анимации лиц
+    - type: Tweak
+      message: >-
+        Изменены тексутры эмиттеров, генераторов поля и самого поля на старые
+        (Красивое)
+    - type: Tweak
+      message: >-
+        Изменены спрайты почти всей синей одежды, плащей, рюкзаков и так далее
+        капитана и ХОПа. Теперь у них нормальная палитра (Потом переделаю для
+        остального, что появилось после апстрима)
+    - type: Tweak
+      message: Изменены спрайты барьерной гранаты и антикварного лазера
+    - type: Tweak
+      message: Изменены спрайты почтового ящика, писем и почты в коробках
+    - type: Tweak
+      message: >-
+        Декали предупреждения снова желтенькие! А белые вынесены в отдельную
+        категорию
+    - type: Add
+      message: Весенние декальки и деревья. Уже стоят на станциях в пуле
+    - type: Tweak
+      message: Больше никакого "командЫвание". Починены некоторые переводы
+    - type: Tweak
+      message: Теперь у лавочек и диванов не перепутаны "Право" и "Лево"
+  id: 201
+  time: '2025-03-12T14:59:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/321
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Свиток спящего карпа теперь доступен только агентам
+    - type: Tweak
+      message: >-
+        Набор модьюсютов в аплинке теперь стоит адекватное количество
+        телекристалов
+    - type: Tweak
+      message: 'Цена свитка спящего карпа в аплинке: 14 -> 18'
+    - type: Tweak
+      message: 'Цена hуководства по CQC теперь в аплинке: 12 -> 16'
+    - type: Tweak
+      message: 'Цена енерго арбалета в аплинке: 14 -> 12'
+    - type: Tweak
+      message: 'Цена кровавого кинжала в аплинке: 8 -> 6'
+  id: 202
+  time: '2025-03-12T16:14:36.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/328
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Теперь из дробовиков можно стрелять одной рукой с крайне низкой
+        точностью
+  id: 203
+  time: '2025-03-12T16:55:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/330
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Каммерер теперь имеет боезапас в 7 патронов, а Силовик стреляет в
+        полуавтоматическом режиме.
+  id: 204
+  time: '2025-03-12T16:56:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/325
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Кремневый пистолет теперь не занимает две руки.
+    - type: Fix
+      message: Мушкет и кремневый пистолет теперь спавнятся без патрона после крафта.
+  id: 205
+  time: '2025-03-12T16:56:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/329
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Режим революции теперь начинается минимум с двумя главами революции.
+  id: 206
+  time: '2025-03-13T08:23:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/331
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Лазер капитана снова появляется в стеклянном сейфе на станции.
+  id: 207
+  time: '2025-03-13T12:04:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/333
+- author: vanx
+  changes:
+    - type: Remove
+      message: Из меню выбора ролей убраны неиспользуемые.
+    - type: Fix
+      message: >-
+        Название фона лобби, трека, и голосования теперь не перекрывают меню
+        редактирования персонажа.
+  id: 208
+  time: '2025-03-13T12:06:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/334
+- author: vanx
+  changes:
+    - type: Fix
+      message: >-
+        Снижение шанса на дизарм теперь работает корректно и отображается при
+        осмотре.
+    - type: Add
+      message: >-
+        Добавлено снижение шанса на дизарм оружию, увеличенное при держании в
+        двух руках.
+  id: 209
+  time: '2025-03-13T12:38:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/335
+- author: vanx
+  changes:
+    - type: Fix
+      message: Мониторинг датчиков экипажа станции снова работает
+  id: 210
+  time: '2025-03-14T19:40:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/340
+- author: vanx
+  changes:
+    - type: Fix
+      message: Коллизии унитазов и возможность интерактировать с ними.
+  id: 211
+  time: '2025-03-14T19:48:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/341
+- author: vanx
+  changes:
+    - type: Fix
+      message: Очки бригмедика теперь показывают здоровье.
+    - type: Fix
+      message: Крафт очков бригмедика заменён на (работающий) крафт очков медсек.
+  id: 212
+  time: '2025-03-14T19:58:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/342
+- author: vanx
+  changes:
+    - type: Remove
+      message: >-
+        Убрана возможность взаимодействовать с предметами внутри контейнеров,
+        внутри карманов и на персонаже (кроме одежды).
+    - type: Tweak
+      message: Рюкзаки и вещмешки теперь необходимо снять чтобы открыть.
+    - type: Tweak
+      message: Больше нельзя вставить предмет в заполненный слот другого предмета.
+  id: 213
+  time: '2025-03-15T09:46:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/288
+- author: vanx
+  changes:
+    - type: Add
+      message: Добавлены переводы принтера документов и его содержимого.
+  id: 214
+  time: '2025-03-15T09:47:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/345
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Пулемёт L6 SAW теперь не теряет точность при стрельбе без движения.
+  id: 215
+  time: '2025-03-15T09:59:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/344
+- author: vanx
+  changes:
+    - type: Remove
+      message: Моментальный хард граб у владельцев рукопашного боя.
+  id: 216
+  time: '2025-03-15T14:05:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/347
+- author: Spatison
+  changes:
+    - type: Add
+      message: Upstream 09.03-15.03
+  id: 217
+  time: '2025-03-15T14:05:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/349
+- author: Ligrof
+  changes:
+    - type: Add
+      message: Самодельные протезы ног
+  id: 218
+  time: '2025-03-15T16:43:38.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/309
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Все лазеры теперь стреляют проджектайлами.
+    - type: Remove
+      message: Гражданские дисейблеры
+  id: 219
+  time: '2025-03-15T17:14:36.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/336
+- author: vanx
+  changes:
+    - type: Fix
+      message: Надетые сумки теперь открываются.
+    - type: Fix
+      message: >-
+        Также можно интерактировать с надетыми сигаретами, фонариками и
+        баллонами.
+  id: 220
+  time: '2025-03-15T17:24:57.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/351
+- author: vanx
+  changes:
+    - type: Fix
+      message: Шахтёрский ускоритель частиц больше не помещается в карман.
+  id: 221
+  time: '2025-03-15T20:51:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/352
+- author: vanx
+  changes:
+    - type: Fix
+      message: >-
+        Заключённый больше не может брать общее снаряжение и личное оружие СБ в
+        лодаутах.
+  id: 222
+  time: '2025-03-16T10:15:16.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/354
+- author: vanx
+  changes:
+    - type: Remove
+      message: Бесплатные ящики со снаряжением синдиката со станции прослушки.
+  id: 223
+  time: '2025-03-18T15:09:11.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/355
+- author: vanx
+  changes:
+    - type: Fix
+      message: >-
+        Двустволка из лодаутов бармена теперь спавнится с нелетальными
+        патронами.
+  id: 224
+  time: '2025-03-18T15:09:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/356
+- author: kekoven1
+  changes:
+    - type: Add
+      message: Трейт на спинаретку полезное
+  id: 225
+  time: '2025-03-18T15:09:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/357
+- author: Ligrof
+  changes:
+    - type: Add
+      message: реакция создания бумаги и коммунистической бумаги
+    - type: Add
+      message: рецепт крафта картона и революционного манифеста
+  id: 226
+  time: '2025-03-19T17:15:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/359
+- author: SentryPrimies
+  changes:
+    - type: Tweak
+      message: Респрайт ИПЦ
+  id: 227
+  time: '2025-03-20T07:29:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/360
+- author: NCast-Hops
+  changes:
+    - type: Add
+      message: Добавлен новый плащ ХоП-а! Искать в Снаряжениях Jobs>Head of Personel
+  id: 228
+  time: '2025-03-21T07:10:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/362
+- author: Spatison
+  changes:
+    - type: Add
+      message: Upstream 03.15 - 03.22
+  id: 229
+  time: '2025-03-22T07:09:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/364
+- author: Kai518
+  changes:
+    - type: Add
+      message: >-
+        Security loadouts now include holoprojector, flashlight, gas mask,
+        envirogloves. / В лоадауты для СБ добавлены голопроектор, фонарик,
+        маска, перчатки.
+    - type: Add
+      message: >-
+        All personnel now has ushanka in loadouts. / В лоадауты для всего
+        персонала добавлена ушанка.
+    - type: Add
+      message: >-
+        General brigadier plushie from SANABI was added. / Добавлена плюшевая
+        игрушка генерала бригадира из SANABI.
+  id: 230
+  time: '2025-03-23T20:38:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/240
+- author: Kai518
+  changes:
+    - type: Add
+      message: Жало трансформации возвращено в магазин генокрада!
+    - type: Tweak
+      message: Раундстартовое количество очков эволюции у генокрада 16 -> 10
+    - type: Tweak
+      message: Изменены вообще все цены в магазине генокрада под новый баланс.
+    - type: Tweak
+      message: Скорость атаки руки-меча увеличена 1.5 -> 0.8
+    - type: Tweak
+      message: >-
+        Теперь генокрад с самого своего появления имеет доступ к разуму улья на
+        :g
+    - type: Fix
+      message: Исправлен крик генокрада.
+    - type: Remove
+      message: >-
+        Удалена необходимость поглощать кого-либо для использования способностей
+        генокрада.
+  id: 231
+  time: '2025-03-24T14:12:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/371
+- author: Ligrof
+  changes:
+    - type: Tweak
+      message: Количество воды на выходе из центрифугирования крови 11 => 10.5
+  id: 232
+  time: '2025-03-24T14:14:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/373
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Soulless респрайт Бригмедика
+    - type: Remove
+      message: Душа из спрайтов бригмеда
+  id: 233
+  time: '2025-03-26T15:18:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/377
+- author: HSKveez
+  changes:
+    - type: Add
+      message: Добавлено 6 бит хосу
+    - type: Fix
+      message: Радиальные меню строительства и культа должны работать лучше
+  id: 234
+  time: '2025-03-27T14:24:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/378
+- author: islambrosgood
+  changes:
+    - type: Add
+      message: Шум со старовд
+  id: 235
+  time: '2025-03-28T21:55:21.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/376
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: Урон руки-клинка 15 -> 25
+  id: 236
+  time: '2025-03-28T21:56:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/375
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Добавлен новый спрайт для Бюрократического Комода
+    - type: Add
+      message: Добавлен новый спрайт для Бюрократического Высокого Шкафа
+    - type: Add
+      message: Добавлен новый спрайт для Бюрократического Шкафа
+    - type: Fix
+      message: >-
+        Бюрократический комод теперь имеет исправно работающее состояние
+        открытия и закрытия
+  id: 237
+  time: '2025-03-28T21:57:36.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/383
+- author: vanx
+  changes:
+    - type: Fix
+      message: Исправлены недоработки системы глухоты.
+  id: 238
+  time: '2025-03-28T21:58:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/384
+- author: Ligrof
+  changes:
+    - type: Add
+      message: Рецепт биомассы, разложения сахара и разложения универсального фермента
+    - type: Tweak
+      message: макс емкость таблеток 20 -> 50
+  id: 239
+  time: '2025-03-28T22:02:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/386
+- author: islambrosgood
+  changes:
+    - type: Tweak
+      message: Перенос уведомлений и куклы в чат
+  id: 240
+  time: '2025-03-28T22:05:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/353
+- author: Boevi4ok
+  changes:
+    - type: Add
+      message: Пустой синди боумен
+    - type: Tweak
+      message: Урон сусси тулбокса 11.5 > 20
+  id: 241
+  time: '2025-03-28T22:41:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/385
+- author: islambrosgood
+  changes:
+    - type: Remove
+      message: юи в порядке
+  id: 242
+  time: '2025-03-29T10:07:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/388
+- author: Ligrof
+  changes:
+    - type: Add
+      message: Разложение муки
+    - type: Tweak
+      message: Рецепты биомассы и разложения универсального фермента
+  id: 243
+  time: '2025-03-29T17:01:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/391
+- author: Ligrof
+  changes:
+    - type: Tweak
+      message: количество слотов под пробирки в центрифуге 1 -> 6
+  id: 244
+  time: '2025-03-29T21:42:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/393
+- author: Spatison
+  changes:
+    - type: Add
+      message: Upstream 03.22-03.29
+  id: 245
+  time: '2025-03-30T07:52:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/392
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Огонь снова работает нормально
+  id: 246
+  time: '2025-03-30T07:57:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/366
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Активирование предмета больше не заставляет его упасть на пол
+  id: 247
+  time: '2025-03-30T18:48:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/365
+- author: Kai518
+  changes:
+    - type: Remove
+      message: >-
+        Отключена биомасса у генокрада. (Фактически она все еще есть в коде, а
+        её значение может редактироваться педалями через VV)
+  id: 248
+  time: '2025-04-02T23:14:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/397
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: >-
+        Яма будет расти! Бинглы теперь могут появиться в раунде без педального
+        вмешательства.
+  id: 249
+  time: '2025-04-02T23:14:49.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/398
+- author: kekoven1
+  changes:
+    - type: Fix
+      message: Анализ теперь адекватно сканирует все сканируемые умения
+  id: 250
+  time: '2025-04-02T23:18:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/400
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Лежачие персонажи больше не уклоняются от пуль при движении
+  id: 251
+  time: '2025-04-02T23:22:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/403
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        Режим совместимости теперь работает. Если у вас есть какие-то проблемы с
+        белизной экрана при использовании режима совместимости, то отключите
+        зернистость в настройках графики.
+  id: 252
+  time: '2025-04-03T06:03:16.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/406
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Жидкости больше не поджигают цель напрямую
+  id: 253
+  time: '2025-04-03T06:03:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/407
+- author: 89Eblan
+  changes:
+    - type: Add
+      message: В аплинк добавлена AK220 за 14 телекристалов
+  id: 254
+  time: '2025-04-03T21:45:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/405
+- author: Kai518
+  changes:
+    - type: Remove
+      message: Биомасса генокрада уничтожена, вырезана с корнями.
+    - type: Tweak
+      message: Задание генокрада на кражу генокрада заменено заданием на поглощение.
+  id: 255
+  time: '2025-04-04T09:18:39.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/409
+- author: 89Eblan
+  changes:
+    - type: Fix
+      message: возвращен до апстримный урон патронам
+  id: 256
+  time: '2025-04-04T09:22:10.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/412
+- author: Kutos
+  changes:
+    - type: Tweak
+      message: 'Убрано бессмертие улыбкина. '
+  id: 257
+  time: '2025-04-04T13:36:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/413
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Респрайт Надзирателя
+  id: 258
+  time: '2025-04-04T21:30:51.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/415
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Новый шаттл эвакуации, спасибо Дарки
+    - type: Tweak
+      message: >-
+        Станции обновлены. На коробке пофикшены некоторые моменты, например
+        кнопки и ставни. Везде добавлены турельки ИИ в сам спутник и аплоад
+  id: 259
+  time: '2025-04-04T21:38:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/419
+- author: Boevi4ok
+  changes:
+    - type: Add
+      message: В аплинк предателя теперь входит энергетический щит
+    - type: Add
+      message: Добавлен шлем спецназа в аплинке за 2 телекристала
+  id: 260
+  time: '2025-04-04T21:47:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/418
+- author: Kutos
+  changes:
+    - type: Add
+      message: Добавлено логгирование трейтов.
+  id: 261
+  time: '2025-04-06T09:41:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/426
+- author: Kutos
+  changes:
+    - type: Add
+      message: Паспорт можно сувать в ПДА.
+  id: 262
+  time: '2025-04-07T18:34:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/423
+- author: HSKveez
+  changes:
+    - type: Add
+      message: >-
+        Добавлена возможность комбинировать легкое одноручное оружие в пару —
+        теперь можно вести огонь с двух рук!
+  id: 263
+  time: '2025-04-07T18:36:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/422
+- author: Kutossssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+  changes:
+    - type: Add
+      message: 'Добавлен русский акцент ящеров. '
+  id: 264
+  time: '2025-04-07T18:42:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/425
+- author: Kai518
+  changes:
+    - type: Fix
+      message: Все жала генокрада теперь должны работать.
+    - type: Add
+      message: Ослепляющий токсин (доступен только для жал генокрада и педалей).
+    - type: Add
+      message: >-
+        Тиризен - вызывает урон по стамине (доступен только для жал генокрада и
+        педалей).
+  id: 265
+  time: '2025-04-07T18:44:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/431
+- author: HSKveez
+  changes:
+    - type: Fix
+      message: Фелиниды снова умеют мяукать
+  id: 266
+  time: '2025-04-07T18:44:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/432
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: Зомби теперь видят нулевых пациентов.
+  id: 267
+  time: '2025-04-08T07:01:38.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/430
+- author: Kai5
+  changes:
+    - type: Add
+      message: Теперь ИИ станции можно собрать, используя меню создания.
+    - type: Add
+      message: >-
+        Добавлена новая Т1 технология, открывающая создание платы ядра ИИ,
+        аплоуда, интелликарты, а также некоторых наборов законов
+    - type: Add
+      message: 'Теперь ИИ станции можно разобрать. '
+  id: 268
+  time: '2025-04-09T20:04:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/404
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Добавлен Старый Комбинезон Инженера
+    - type: Add
+      message: Добавлен Повседневный Комбинезон Инженера
+    - type: Add
+      message: >-
+        Добавлен Полярный Комбинезон Инженера ( не защищает от холода. Он просто
+        пузатый . )
+    - type: Add
+      message: Добавлен Старый Рабочий Инженерный Комбинезон
+  id: 269
+  time: '2025-04-11T21:30:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/434
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: >-
+        Теперь если в яму бинглов закинуть любой контейнер - очки будут
+        прибавляться за каждую сущность, содержащуюся в этом контейнере. 
+    - type: Tweak
+      message: >-
+        Теперь если в яме бинглов окажется стак чего-либо, то количество
+        прибавленных очков будет равно количеству предметов в стаке.
+  id: 270
+  time: '2025-04-11T21:31:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/437
+- author: HSKveez
+  changes:
+    - type: Tweak
+      message: Перенесено разоружение из Pressure в Restrain
+  id: 271
+  time: '2025-04-11T21:48:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/441
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Исправлены отсутствующие вайтлисты на оружия
+  id: 272
+  time: '2025-04-12T05:39:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/408
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Текстура у шлюзов робототехников теперь не сломана
+  id: 273
+  time: '2025-04-12T05:40:13.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/414
+- author: Spatison
+  changes:
+    - type: Add
+      message: Upstream 03.29-04.04 :D
+  id: 274
+  time: '2025-04-12T05:50:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/416
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Шанс выбраться при софт грабе теперь равен 100%
+    - type: Fix
+      message: Застаненый человек больше не может сопротивляться при грабе
+  id: 275
+  time: '2025-04-12T05:51:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/420
+- author: Port from GoobStation
+  changes:
+    - type: Add
+      message: Шприцемёты
+  id: 276
+  time: '2025-04-12T05:55:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/439
+- author: Kai518
+  changes:
+    - type: Add
+      message: ИИ добавлено действие, позволяющее открутить себя от пола.
+    - type: Add
+      message: >-
+        Действие ИИ, показывающее профессии экипажа теперь также показывает их
+        криминальный статус.
+  id: 277
+  time: '2025-04-12T05:56:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/440
+- author: kekoven1
+  changes:
+    - type: Tweak
+      message: Псионики стали опаснее
+  id: 278
+  time: '2025-04-13T09:56:07.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/401
+- author: HSKveez
+  changes:
+    - type: Fix
+      message: Фелиниды снова открывают шлюзы при касании и могут пилотировать
+  id: 279
+  time: '2025-04-16T05:04:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/442
+- author: Kutos
+  changes:
+    - type: Tweak
+      message: Замедление скафандра бригмедика 35% -> 25%
+  id: 280
+  time: '2025-04-16T05:08:29.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/453
+- author: Kutos
+  changes:
+    - type: Fix
+      message: Рецепт для головы сервисного борга
+  id: 281
+  time: '2025-04-17T20:20:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/457
+- author: Kutos
+  changes:
+    - type: Add
+      message: Добавлена возможность поворота комнат при генерации, для мапперов.
+  id: 282
+  time: '2025-04-18T05:14:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/456
+- author: Kutos
+  changes:
+    - type: Add
+      message: Добавлены клоунские клички :D
+  id: 283
+  time: '2025-04-18T05:18:57.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/433
+- author: Kutos
+  changes:
+    - type: Tweak
+      message: 'Усиление шприцеметов '
+  id: 284
+  time: '2025-04-18T05:19:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/450
+- author: Kutos
+  changes:
+    - type: Add
+      message: Weh!
+  id: 285
+  time: '2025-04-18T05:23:10.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/452
+- author: Spatison
+  changes:
+    - type: Add
+      message: Добавлено веселье :D
+    - type: Tweak
+      message: Изменено веселье~
+    - type: Fix
+      message: Граб теперь сбрасывается при попытку движения
+  id: 286
+  time: '2025-04-20T03:18:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/443
+- author: Spatison
+  changes:
+    - type: Remove
+      message: Убран Restricted Gear трейт
+  id: 287
+  time: '2025-04-20T03:18:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/444
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Трупы теперь не могут таскать вещи
+  id: 288
+  time: '2025-04-20T03:19:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/446
+- author: Kutos
+  changes:
+    - type: Add
+      message: Шрифт для клоуна
+  id: 289
+  time: '2025-04-20T03:21:57.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/454
+- author: Spatison
+  changes:
+    - type: Add
+      message: Апстрим 04.04 - 18.04 :D
+  id: 290
+  time: '2025-04-20T03:24:57.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/460
+- author: RedFoxIV
+  changes:
+    - type: Fix
+      message: Теперь окно газоанализатора сразу открывается с правильной шириной.
+  id: 291
+  time: '2025-04-25T08:40:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/474

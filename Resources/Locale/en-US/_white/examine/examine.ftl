@@ -45,3 +45,7 @@ comp-hands-examine-empty-selfaware = You are not holding anything.
 comp-hands-examine-selfaware = You are holding { $items }.
 
 humanoid-appearance-component-examine-selfaware = You are { INDEFINITE($age) } { $age } { $species }.
+
+# Description examine wrapper
+
+examine-entity-description-wrapper = [font size=11][italic]{ $description }[/italic][/font]

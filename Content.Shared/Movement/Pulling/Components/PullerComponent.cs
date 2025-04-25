@@ -1,4 +1,6 @@
-﻿using Content.Shared.Alert;
+﻿using Content.Shared._Goobstation.MartialArts;
+using Content.Shared._Goobstation.TableSlam; // Goobstation - Table Slam
+using Content.Shared.Alert;
 using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
@@ -10,8 +12,8 @@ namespace Content.Shared.Movement.Pulling.Components;
 /// <summary>
 /// Specifies an entity as being able to pull another entity with <see cref="PullableComponent"/>
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(PullingSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+[Access(typeof(PullingSystem), typeof(TableSlamSystem), typeof(SharedMartialArtsSystem))] // Goobstation - Table Slam
 public sealed partial class PullerComponent : Component
 {
     /// <summary>
@@ -93,12 +95,21 @@ public sealed partial class PullerComponent : Component
     [DataField]
     public TimeSpan StageChangeCooldown = TimeSpan.FromSeconds(1.5f);
 
+    [AutoNetworkedField]
+    public TimeSpan WhenCanThrow;
+
+    /// <summary>
+    ///     After initiating / upgrading to a hard combat grab, how long should you have to keep somebody grabbed to be able to throw them.
+    /// </summary>
+    [DataField]
+    public TimeSpan ThrowDelayOnGrab = TimeSpan.FromSeconds(2f);
+
     [DataField]
     public Dictionary<GrabStage, float> EscapeChances = new()
     {
         { GrabStage.No, 1f },
-        { GrabStage.Soft, 0.7f },
-        { GrabStage.Hard, 0.4f },
+        { GrabStage.Soft, 1f }, // WD EDIT
+        { GrabStage.Hard, 0.5f }, // WD EDIT
         { GrabStage.Suffocate, 0.1f },
     };
 
@@ -106,7 +117,7 @@ public sealed partial class PullerComponent : Component
     public float SuffocateGrabStaminaDamage = 10f;
 
     [DataField]
-    public float GrabThrowDamageModifier = 1f;
+    public float GrabThrowDamageModifier = 2f;
 
     [ViewVariables]
     public List<EntityUid> GrabVirtualItems = new();
@@ -118,7 +129,7 @@ public sealed partial class PullerComponent : Component
     };
 
     [DataField]
-    public float StaminaDamageOnThrown = 120f;
+    public float StaminaDamageOnThrown = 100f;
 
     [DataField]
     public float GrabThrownSpeed = 7f;

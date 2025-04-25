@@ -3,6 +3,7 @@ using Content.Shared.Crayon;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 
+/* // WWDP EDIT - DEFUNCT - Merged into one shared CrayonComponent.
 namespace Content.Server.Crayon
 {
     [RegisterComponent]
@@ -26,3 +27,4 @@ namespace Content.Server.Crayon
         public bool DeleteEmpty = true;
     }
 }
+*/

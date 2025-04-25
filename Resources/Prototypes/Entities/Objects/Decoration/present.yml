@@ -82,6 +82,8 @@
         orGroup: GiftPool
       - id: PlushieRatvar
         orGroup: GiftPool
+      - id: PlushieSanabi #WWDP edit
+        orGroup: GiftPool
       - id: PlushieSpaceLizard
         orGroup: GiftPool
       - id: PlushieSharkBlue

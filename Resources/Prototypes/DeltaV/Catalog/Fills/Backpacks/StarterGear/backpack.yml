@@ -1,11 +1,11 @@
 - type: entity
-  parent: ClothingBackpackSatchelLeather
+  parent: ClothingBackpackDuffel # WWDP
   id: ClothingBackpackMafiaFilled
   suffix: Filled, Mafia
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvival
+      - id: DrinkWhiskeyBottleFull # WWDP
       - id: WeaponSubMachineGunTypewriter
       - id: WeaponPistolViperWood
       - id: MagazinePistol

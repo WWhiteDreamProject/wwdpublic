@@ -7,11 +7,12 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Content.Shared._Goobstation.Weapons.Multishot;
+using Content.Shared._White.Weapons.Ranged.DualWield;
 
 namespace Content.Shared.Weapons.Ranged.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
-[Access(typeof(SharedGunSystem), typeof(SharedMultishotSystem), typeof(SharedOniSystem))] // DeltaV - I didn't feel like rewriting big chunks of code
+[Access(typeof(SharedGunSystem), typeof(SharedMultishotSystem), typeof(SharedOniSystem), typeof(DualWieldSystem))] // WWDP EDIT
 public sealed partial class GunComponent : Component
 {
     #region Sound
@@ -73,7 +74,7 @@ public sealed partial class GunComponent : Component
     [DataField]
     [AutoNetworkedField]
     public Angle CurrentAngle;
-	
+
 	// WWDP EDIT START
     [AutoNetworkedField]
     [ViewVariables(VVAccess.ReadWrite)]
@@ -110,7 +111,7 @@ public sealed partial class GunComponent : Component
     [DataField, AutoNetworkedField]
     public Angle BonusAngleIncreaseTurn = Angle.FromDegrees(0.25);
 	// WWDP EDIT END
-	
+
     /// <summary>
     /// The base value for how much the spread increases every time the gun fires.
     /// </summary>
@@ -316,6 +317,44 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField]
     public float FireOnDropChance = 0.1f;
+
+    /// <summary>
+    ///     If this weapon is using any kind of "Shotgun-like" ammunition, this applies as a multiplier on the spread arc.
+    //      EG: 1.5 with standard buckshot gives a shotgun arc of 22.5 degrees.
+    /// </summary>
+    [DataField]
+    public float ShotgunSpreadMultiplier = 1f;
+
+    /// <summary>
+    ///     This multiplier will apply per projectile fired by the weapon.
+    /// </summary>
+    [DataField]
+    public float DamageModifier = 1f;
+
+    /// <summary>
+    ///     This multiplier increases the amount of projectiles fired by a shotgun.
+    /// </summary>
+    [DataField]
+    public float ShotgunProjectileCountModifier = 1f;
+
+    /// <summary>
+    ///     If this weapon is using any kind of "Shotgun-like" ammunition, setting this to true makes it use the
+    ///     classic style of "uniform" spread. Whereas when left off, each pellet fires in a uniform arc.
+    /// </summary>
+    [DataField]
+    public bool UniformSpread;
+
+    /// <summary>
+    ///     The amount of Force (in Newtons) to eject spent cartridges with.
+    /// </summary>
+    [DataField]
+    public float EjectionForce = 0.04f;
+
+    [DataField]
+    public float EjectionSpeed = 20f;
+
+    [DataField]
+    public float EjectAngleOffset = 3.7f;
 
     // WD EDIT START
     [DataField]

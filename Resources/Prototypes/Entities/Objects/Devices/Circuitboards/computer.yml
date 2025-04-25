@@ -21,7 +21,6 @@
       tags:
         - ComputerBoard
 
-
 - type: entity
   parent: BaseComputerCircuitboard
   id: AlertsComputerCircuitboard
@@ -470,3 +469,8 @@
       state: cpu_science
     - type: ComputerBoard
       prototype: StationAiUploadComputer
+    - type: PhysicalComposition # WD edit start
+      materialComposition:
+        Glass: 31
+      chemicalComposition:
+        Silicon: 20 # WD edit end

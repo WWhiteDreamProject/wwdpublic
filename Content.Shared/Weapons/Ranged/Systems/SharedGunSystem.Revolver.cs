@@ -8,6 +8,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using System;
 using System.Linq;
+using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using JetBrains.Annotations;
 
@@ -21,13 +22,33 @@ public partial class SharedGunSystem
     {
         SubscribeLocalEvent<RevolverAmmoProviderComponent, ComponentGetState>(OnRevolverGetState);
         SubscribeLocalEvent<RevolverAmmoProviderComponent, ComponentHandleState>(OnRevolverHandleState);
-        SubscribeLocalEvent<RevolverAmmoProviderComponent, MapInitEvent>(OnRevolverInit);
+        SubscribeLocalEvent<RevolverAmmoProviderComponent, ComponentInit>(OnRevolverInit); // WWDP
         SubscribeLocalEvent<RevolverAmmoProviderComponent, TakeAmmoEvent>(OnRevolverTakeAmmo);
         SubscribeLocalEvent<RevolverAmmoProviderComponent, GetVerbsEvent<AlternativeVerb>>(OnRevolverVerbs);
         SubscribeLocalEvent<RevolverAmmoProviderComponent, InteractUsingEvent>(OnRevolverInteractUsing);
         SubscribeLocalEvent<RevolverAmmoProviderComponent, GetAmmoCountEvent>(OnRevolverGetAmmoCount);
         SubscribeLocalEvent<RevolverAmmoProviderComponent, UseInHandEvent>(OnRevolverUse);
+        SubscribeLocalEvent<RevolverAmmoProviderComponent, ExaminedEvent>(OnRevolverExamine); // WWDP
     }
+
+    // WWDP examine
+    private void OnRevolverExamine(EntityUid uid, RevolverAmmoProviderComponent component, ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        var loadedCount = 0;
+
+        foreach (var chamber in component.Chambers)
+        {
+            if (chamber != null)
+                loadedCount++;
+        }
+
+        args.PushMarkup(Loc.GetString("gun-revolver-examine", ("color", ModeExamineColor),
+            ("count", loadedCount)), -1);
+    }
+    // WWDP edit end
 
     private void OnRevolverUse(EntityUid uid, RevolverAmmoProviderComponent component, UseInHandEvent args)
     {
@@ -418,7 +439,7 @@ public partial class SharedGunSystem
         component.CurrentIndex = (component.CurrentIndex + count) % component.Capacity;
     }
 
-    private void OnRevolverInit(EntityUid uid, RevolverAmmoProviderComponent component, MapInitEvent args)
+    private void OnRevolverInit(EntityUid uid, RevolverAmmoProviderComponent component, ComponentInit args) // WWDP
     {
         component.AmmoContainer = Containers.EnsureContainer<Container>(uid, RevolverContainer);
         component.AmmoSlots.EnsureCapacity(component.Capacity);

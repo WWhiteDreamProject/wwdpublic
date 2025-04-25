@@ -34,7 +34,6 @@ marking-HumanHairHalfshaveLong = Half-Shaved (Long)
 marking-HumanHairHalfshaveMessy = Half-Shaved (Messy)
 marking-HumanHairHalfshaveMessyLong = Half-Shaved (Long Messy)
 marking-HumanHairHalfshaveSnout = Half-Shaved 2 (Trimmed)
-marking-HumanHairHightight = High Tight
 marking-HumanHairHyenamane = Hyena Mane
 marking-HumanHairJessica = Jessica
 marking-HumanHairLong5 = Long 5

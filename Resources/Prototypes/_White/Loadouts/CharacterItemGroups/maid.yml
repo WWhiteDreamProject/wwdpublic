@@ -1,0 +1,82 @@
+- type: characterItemGroup
+  id: LoadoutMaidPrimary
+  maxItems: 1
+  items:
+    - type: loadout
+      id: LoadoutMaidRifleChester
+    - type: loadout
+      id: LoadoutMaidMusket
+    - type: loadout
+      id: LoadoutMaidFlintlock
+    - type: loadout
+      id: LoadoutMaidRevolverArgenti
+    - type: loadout
+      id: LoadoutMaidSniperRepeater
+    - type: loadout
+      id: WeaponRifleSVT
+    - type: loadout
+      id: LoadoutMaidSniperGrand
+    - type: loadout
+      id: LoadoutPistolUniversal
+    - type: loadout
+      id: LoadoutMaidSniperMosin
+    - type: loadout
+      id: LoadoutMaidRevolverSnub
+    - type: loadout
+      id: LoadoutMaidCQCManual
+
+- type: characterItemGroup
+  id: LoadoutMaidSecondary
+  maxItems: 1
+  items:
+  - type: loadout
+    id: LoadoutMaidCombatKnife
+  - type: loadout
+    id: ThrowingKnivesKit
+  - type: loadout
+    id: LoadoutMaidThrowingStars
+  - type: loadout
+    id: LoadoutMaidKatanaSheath
+  - type: loadout
+    id: LoadoutMaidClaymore
+
+- type: characterItemGroup
+  id: LoadoutMaidHats
+  maxItems: 1
+  items:
+    - type: loadout
+      id: LoadoutHeadHatMobCap
+    - type: loadout
+      id: LoadoutClothingHeadHatShrineMaidenWig
+    - type: loadout
+      id: LoadoutClothingHeadHatTacticalMaidHeadband
+
+- type: characterItemGroup
+  id: LoadoutMaidShoes
+  maxItems: 1
+  items:
+    - type: loadout
+      id: LoadoutMaidShoesBootsLaceup
+    - type: loadout
+      id: LoadoutMaidShoesSwat
+    - type: loadout
+      id: LoadoutShoesMaid
+
+- type: characterItemGroup
+  id: LoadoutMaidUniforms
+  maxItems: 1
+  items:
+    - type: loadout
+      id: LoadoutUniformJumpskirtMaid
+    - type: loadout
+      id: LoadoutUniformJumpskirtMaidMini
+    - type: loadout
+      id: LoadoutUniformMaid
+    - type: loadout
+      id: LoadoutClothingOuterSuitShrineMaiden
+    - type: loadout
+      id: LoadoutClothingUniformJumpskirtTacticalMaid
+    - type: loadout
+      id: LoadoutClothingUniformJumpskirtJanimaid
+    - type: loadout
+      id: ClothingUniformJumpskirtJanimaidmini

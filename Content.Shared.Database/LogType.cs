@@ -116,5 +116,7 @@ public enum LogType
     AspectAnnounced = 200,
     AspectStarted = 201,
     AspectStopped = 202,
+    BecameAntagonist = 228,
+    Trait = 229,
     // WD EDIT
 }

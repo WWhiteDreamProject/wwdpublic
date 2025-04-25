@@ -1,0 +1,86 @@
+﻿- type: soundCollection
+  id: RiflesPickUp
+  files:
+  - /Audio/_White/Equip/Rifle/pickup1.ogg
+  - /Audio/_White/Equip/Rifle/pickup2.ogg
+  - /Audio/_White/Equip/Rifle/pickup3.ogg
+
+- type: soundCollection
+  id: RiflesDrop
+  files:
+  - /Audio/_White/Equip/Rifle/drop1.ogg
+  - /Audio/_White/Equip/Rifle/drop2.ogg
+
+- type: soundCollection
+  id: PistolsPickUp
+  files:
+  - /Audio/_White/Equip/Pistol/pickup1.ogg
+  - /Audio/_White/Equip/Pistol/pickup2.ogg
+  - /Audio/_White/Equip/Pistol/pickup3.ogg
+  - /Audio/_White/Equip/Pistol/pickup4.ogg
+
+- type: soundCollection
+  id: PistolsDrop
+  files:
+  - /Audio/_White/Equip/Pistol/drop1.ogg
+  - /Audio/_White/Equip/Pistol/drop2.ogg
+  - /Audio/_White/Equip/Pistol/drop3.ogg
+
+- type: soundCollection
+  id: LasersPickUp
+  files:
+  - /Audio/_White/Equip/Laser/pickup1.ogg
+  - /Audio/_White/Equip/Laser/pickup2.ogg
+
+- type: soundCollection
+  id: LasersDrop
+  files:
+  - /Audio/_White/Equip/Laser/drop1.ogg
+
+- type: soundCollection
+  id: PulsePickUp
+  files:
+  - /Audio/_White/Equip/Pulse/pickup1.ogg
+
+- type: soundCollection
+  id: PulseDrop
+  files:
+  - /Audio/_White/Equip/Pulse/drop1.ogg
+
+- type: soundCollection
+  id: SnipersPickUp
+  files:
+  - /Audio/_White/Equip/Sniper/pickup1.ogg
+  - /Audio/_White/Equip/Sniper/pickup2.ogg
+
+- type: soundCollection
+  id: SnipersDrop
+  files:
+  - /Audio/_White/Equip/Sniper/drop1.ogg
+  - /Audio/_White/Equip/Sniper/drop2.ogg
+  - /Audio/_White/Equip/Sniper/drop3.ogg
+
+- type: soundCollection
+  id: ShotgunsPickUp
+  files:
+  - /Audio/_White/Equip/Shotgun/pickup1.ogg
+  - /Audio/_White/Equip/Shotgun/pickup2.ogg
+  - /Audio/_White/Equip/Shotgun/pickup3.ogg
+
+- type: soundCollection
+  id: ShotgunsDrop
+  files:
+  - /Audio/_White/Equip/Shotgun/drop1.ogg
+  - /Audio/_White/Equip/Shotgun/drop2.ogg
+
+- type: soundCollection
+  id: RevolversPickUp
+  files:
+  - /Audio/_White/Equip/Revolver/pickup1.ogg
+  - /Audio/_White/Equip/Revolver/pickup2.ogg
+
+- type: soundCollection
+  id: RevolversDrop
+  files:
+  - /Audio/_White/Equip/Revolver/drop1.ogg
+  - /Audio/_White/Equip/Revolver/drop2.ogg

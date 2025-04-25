@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.Administration.Logs;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
@@ -13,6 +14,7 @@ using Content.Server.Roles.Jobs;
 using Content.Server.Station.Systems;
 using Content.Server.Shuttles.Components;
 using Content.Shared.Antag;
+using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Ghost;
@@ -45,6 +47,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!; // WWDP
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
@@ -221,28 +224,68 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         var playerPool = GetPlayerPool(ent, pool, def);
         var count = GetTargetAntagCount(ent, GetTotalPlayerCount(pool), def);
 
-        // if there is both a spawner and players getting picked, let it fall back to a spawner.
-        var noSpawner = def.SpawnerPrototype == null;
-        for (var i = 0; i < count; i++)
+        ///// Einstein Engines changes /////
+        //
+        // Fixes issues caused by failures in making someone antag while
+        // not breaking any API on this system.
+        //
+        // This will either allocate `count` slots from the player pool,
+        // or will call MakeAntag with null sessions to fill up the slots.
+        //
+        if (def.PickPlayer)
         {
-            var session = (ICommonSession?) null;
-            if (def.PickPlayer)
+            // Tries multiple times to assign antags.
+            // When any number of assignments fail, next iteration
+            // gets new items to replace those.
+            // Already selected or failed sessions are avoided.
+            // It retries until it ends with no failures or up
+            // to maxRetries attempts.
+
+            const int maxRetries = 4;
+            var retry = 0;
+            var failed = new List<ICommonSession>();
+
+            while (ent.Comp.SelectedSessions.Count < count && retry < maxRetries)
             {
-                if (!playerPool.TryPickAndTake(RobustRandom, out session) && noSpawner)
+                var sessions = (ICommonSession[]?) null;
+                if (!playerPool.TryGetItems(RobustRandom,
+                                            out sessions,
+                                            count - ent.Comp.SelectedSessions.Count,
+                                            false))
+                    break; // Ends early if there are no eligible sessions
+
+                foreach (var session in sessions)
                 {
-                    Log.Warning($"Couldn't pick a player for {ToPrettyString(ent):rule}, no longer choosing antags for this definition");
+                    MakeAntag(ent, session, def);
+                    if (!ent.Comp.SelectedSessions.Contains(session))
+                    {
+                        failed.Add(session);
+                    }
+                }
+                // In case we're done
+                if (ent.Comp.SelectedSessions.Count >= count)
                     break;
-                }
 
-                if (session != null && ent.Comp.SelectedSessions.Contains(session))
+                playerPool = playerPool.Where((session_) =>
                 {
-                    Log.Warning($"Somehow picked {session} for an antag when this rule already selected them previously");
-                    continue;
-                }
+                    return !ent.Comp.SelectedSessions.Contains(session_) &&
+                        !failed.Contains(session_);
+                });
+                retry++;
             }
-
-            MakeAntag(ent, session, def);
         }
+
+        // This preserves previous behavior for when def.PickPlayer
+        // was not satisfied. This behavior is not that obvious to
+        // read from the previous code.
+        // It may otherwise process leftover slots if maxRetries have
+        // been reached.
+
+        for (var i = ent.Comp.SelectedSessions.Count; i < count; ++i)
+        {
+            MakeAntag(ent, null, def);
+        }
+        ///// End of Einstein Engines changes /////
     }
 
     /// <summary>
@@ -291,7 +334,6 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         if (antagEnt is not { } player)
         {
-            Log.Error($"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
             if (session != null)
                 ent.Comp.SelectedSessions.Remove(session);
             return;
@@ -306,6 +348,8 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             _transform.SetMapCoordinates((player, playerXform), pos);
         }
 
+        // If we want to just do a ghost role spawner, set up data here and then return early.
+        // This could probably be an event in the future if we want to be more refined about it.
         if (isSpawner)
         {
             if (!TryComp<GhostRoleAntagSpawnerComponent>(player, out var spawnerComp))
@@ -340,6 +384,9 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             _role.MindAddRoles(curMind.Value, def.MindRoles, null, true);
             ent.Comp.SelectedMinds.Add((curMind.Value, Name(player)));
             SendBriefing(session, def.Briefing);
+            // WWDP antag logging
+            _adminLogger.Add(LogType.BecameAntagonist, LogImpact.High,
+                $"{ToPrettyString(player)} became an antagonist{ToPrettyString(ent)}");
         }
 
         var afterEv = new AfterAntagEntitySelectedEvent(session, player, ent, def);

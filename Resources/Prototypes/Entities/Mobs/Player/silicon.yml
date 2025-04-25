@@ -41,6 +41,7 @@
     - ActionShowJobIcons
     - ActionSurvCameraLights
     - ActionAIViewLaws
+    - ActionAIToggleBolts # WD edit
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
@@ -80,6 +81,57 @@
     - sprite: Mobs/Silicon/station_ai.rsi
       state: default
   - type: ShowJobIcons
+  # WD EDIT START
+  - type: BlockMovement
+    blockInteraction: false
+  - type: SiliconLawProvider
+    laws: Asimov
+  - type: SiliconLawBound
+  - type: ComplexInteraction
+  - type: Eye
+    drawFov: false
+  - type: InputMover
+  - type: IonStormTarget
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Borg
+  - type: Access
+    groups:
+    - AllAccess
+    - Silicon
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - SolCommon
+    - Tradeband
+    - Freespeak
+    - Elyran
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - SolCommon
+    - Tradeband
+    - Freespeak
+    - Elyran
+    - RobotTalk
+    - Sign
+  - type: LanguageSpeaker
+    spokenLanguages:
+    - TauCetiBasic
+    - SolCommon
+    - Tradeband
+    - Freespeak
+    - Elyran
+    - RobotTalk
+    understoodLanguages:
+    - TauCetiBasic
+    - SolCommon
+    - Tradeband
+    - Freespeak
+    - Elyran
+    - RobotTalk
+    - Sign
+  # WD EDIT END
 
 - type: entity
   id: AiHeldIntellicard
@@ -115,8 +167,10 @@
       locked: false
       disableEject: true
       whitelist:
-        tags:
-        - StationAi
+        # WD EDiT START
+        components:
+        - BorgBrain
+        # WD EDIT END
   - type: ContainerContainer
     containers:
       station_ai_mind_slot: !type:ContainerSlot
@@ -138,6 +192,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: Asimov
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: AugustineCircuitBoard
@@ -150,6 +209,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: Augustine
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: CrewsimovCircuitBoard
@@ -162,6 +226,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: Crewsimov
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: CorporateCircuitBoard
@@ -174,6 +243,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: Corporate
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: NTDefaultCircuitBoard
@@ -186,6 +260,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: NTDefault
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: PlasmaFloodCircuitBoard
@@ -198,6 +277,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: PlasmaFlood
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: MotherDroneCircuitBoard
@@ -210,6 +294,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: MotherDrone
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: DruidCircuitBoard
@@ -222,6 +311,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: Druid
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: CowboyCircuitBoard
@@ -234,6 +328,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: Cowboy
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: ChaplainCircuitBoard
@@ -246,6 +345,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: Chaplain
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: ClownCircuitBoard
@@ -258,6 +362,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: Clown
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: JanitorCircuitBoard
@@ -270,6 +379,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: Janitor
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: EngineerCircuitBoard
@@ -282,6 +396,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: Engineer
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: ResearchCircuitBoard
@@ -294,6 +413,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: Research
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: MedicalCircuitBoard
@@ -306,6 +430,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: Medical
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: TyrantCircuitBoard
@@ -318,6 +447,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: TYRANT
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: NTAgressiveCircuitBoard
@@ -330,6 +464,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: NTAgressive
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: CCTVCircuitBoard
@@ -342,6 +481,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: CCTV
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: QuarantineCircuitBoard
@@ -354,6 +498,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: Quarantine
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: CommandmentCircuitBoard
@@ -366,6 +515,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: CommandmentsLawset
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: PaladinCircuitBoard
@@ -378,6 +532,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: PaladinLawset
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: LiveLetLiveCircuitBoard
@@ -390,6 +549,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: LiveLetLiveLaws
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: StationEfficiencyCircuitBoard
@@ -402,6 +566,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: EfficiencyLawset
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: RobocopCircuitBoard
@@ -414,6 +583,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: RobocopLawset
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: OverlordCircuitBoard
@@ -426,6 +600,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: OverlordLawset
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: DungeonMasterCircuitBoard
@@ -438,6 +617,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: DungeonMasterLawset
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: ArtistCircuitBoard
@@ -450,6 +634,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: PainterLawset
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: AntimovCircuitBoard
@@ -464,6 +653,11 @@
     laws: AntimovLawset
     lawUploadSound: /Audio/Ambience/Antag/silicon_lawboard_antimov.ogg
     unRemovable: true
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 - type: entity
   id: NutimovCircuitBoard
@@ -476,6 +670,11 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: NutimovLawset
+  - type: PhysicalComposition # WD edit start
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20 # WD edit end
 
 # Items
 - type: entity
@@ -509,7 +708,7 @@
 - type: entity
   id: PlayerStationAiEmpty
   name: AI Core
-  description: The latest in Artificial Intelligences.
+  description: The latest in Artificial Intelligences. It has a maintenance panel, which can be opened to pry screen out with a crowbar.
   parent:
   - BaseStructure
   - AiHolder
@@ -589,6 +788,19 @@
           type: HolopadBoundUserInterface
         enum.HolopadUiKey.AiActionWindow:
           type: HolopadBoundUserInterface
+  # WD edit start
+  - type: AccessReader
+    access: [ [ "Command" ], [ "Research" ] ]
+  - type: Lock
+  - type: WiresPanel
+  - type: LockedWiresPanel
+  - type: Construction
+    graph: AICoreGraph
+    node: aiCore
+    containers:
+    - board
+    - station_ai_mind_slot
+  # WD edit end
 
 # The job-ready version of an AI spawn.
 - type: entity
@@ -605,66 +817,6 @@
     - state: base
     - state: ai
       shader: unshaded
-
-# The actual brain inside the core
-- type: entity
-  id: StationAiBrain
-  parent: PositronicBrain
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
-  components:
-  - type: Sprite
-    # Once it's in a core it's pretty much an abstract entity at that point.
-    visible: false
-  - type: BlockMovement
-    blockInteraction: false
-  - type: SiliconLawProvider
-    laws: Asimov
-  - type: SiliconLawBound
-  - type: ActionGrant
-    actions:
-    - ActionViewLaws
-  - type: UserInterface
-    interfaces:
-      enum.SiliconLawsUiKey.Key:
-        type: SiliconLawBoundUserInterface
-  - type: ComplexInteraction
-  - type: Actions
-  - type: Access
-    groups:
-    - AllAccess
-  - type: Eye
-    drawFov: false
-  - type: Examiner
-  - type: InputMover
-  - type: IonStormTarget
-  - type: Speech
-    speechVerb: Robotic
-    speechSounds: Borg
-  - type: Tag
-    tags:
-    - HideContextMenu
-    - StationAi
-    - NoConsoleSound
-  - type: LanguageKnowledge
-    speaks:
-    - TauCetiBasic
-    - SolCommon
-    - Tradeband
-    - Freespeak
-    - Elyran
-    - RobotTalk
-    understands:
-    - TauCetiBasic
-    - SolCommon
-    - Tradeband
-    - Freespeak
-    - Elyran
-    - RobotTalk
-    - Sign # It's intentional that they don't "Speak" sign language.
-  - type: StartingMindRole
-    mindRole: "MindRoleSiliconBrain"
-    silent: true
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
@@ -694,6 +846,7 @@
     speaks:
     - TauCetiBasic
     - SolCommon
+    - NovuNederic
     - Tradeband
     - Freespeak
     - Elyran
@@ -701,6 +854,7 @@
     understands:
     - TauCetiBasic
     - SolCommon
+    - NovuNederic
     - Tradeband
     - Freespeak
     - Elyran
@@ -731,43 +885,20 @@
 
 # Borgs
 - type: entity
-  id: PlayerBorgGeneric
-  parent: BorgChassisGeneric
-  suffix: Battery, Tools
-  components:
-  - type: StationAiVision
-  - type: ContainerFill
-    containers:
-      borg_brain:
-        - PositronicBrain
-      borg_module:
-        - BorgModuleTool
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
-  - type: RandomMetadata
-    nameSegments: [names_borg]
-
-- type: entity
   id: PlayerBorgBattery
-  parent: BorgChassisGeneric
+  parent: BorgChassisSelectable
   suffix: Battery
   components:
   - type: StationAiVision
   - type: ContainerFill
     containers:
       borg_brain:
-        - MMIFilled
+        - PositronicBrain
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
-  - type: StartingMindRole
-    mindRole: "MindRoleSiliconBrain"
-    silent: true
 
 - type: entity
   id: PlayerBorgSyndicateAssaultBattery

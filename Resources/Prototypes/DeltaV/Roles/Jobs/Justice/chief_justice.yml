@@ -3,12 +3,18 @@
   name: job-name-chief-justice
   description: job-description-chief-justice
   playTimeTracker: JobChiefJustice
+  setPreference: false # WWDP disabled
   weight: 20
   startingGear: CJGear
   icon: "JobIconChiefJustice"
   requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
+  requirements:
+    - !type:CharacterEmployerRequirement
+      employers:
+      - IdrisIncorporated
+      - NanoTrasen
   access:
   - Command
   - ChiefJustice

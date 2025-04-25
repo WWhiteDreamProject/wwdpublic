@@ -1,5 +1,6 @@
 ﻿- type: decal
   id: WoodTrimThin
+  parent: A_StationDecal # WWDP edit
   abstract: true
 
 - type: decal

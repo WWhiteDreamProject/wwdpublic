@@ -1,4 +1,5 @@
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Standing;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Serialization;
@@ -29,17 +30,25 @@ public abstract class SharedFlipOnHitSystem : EntitySystem
         if (TryComp(ent, out ItemToggleComponent? itemToggle) && !itemToggle.Activated)
             return;
 
+        var target = ent.Comp.ApplyToSelf
+            ? args.User
+            : args.HitEntities[0];
+
         if (_standingState.IsDown(args.User))
             return;
 
-        PlayAnimation(args.User);
+        if (!HasComp<MobStateComponent>(target))
+            return;
+
+        PlayAnimation(args.User, target);
     }
 
-    protected abstract void PlayAnimation(EntityUid user);
+    protected abstract void PlayAnimation(EntityUid user, EntityUid target);
 }
 
 [Serializable, NetSerializable]
-public sealed class FlipOnHitEvent(NetEntity user) : EntityEventArgs
+public sealed class FlipOnHitEvent(NetEntity user, NetEntity target) : EntityEventArgs
 {
     public NetEntity User = user;
+    public NetEntity Target = target;
 }

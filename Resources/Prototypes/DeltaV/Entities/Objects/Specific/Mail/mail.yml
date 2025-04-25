@@ -771,6 +771,8 @@
       orGroup: Plushie
     - id: PlushieMothRandom
       orGroup: Plushie
+    - id: PlushieSanabi # WWDP edit
+      orGroup: Plushie
     - id: PlushieMoth
       prob: 0.5
       orGroup: Plushie

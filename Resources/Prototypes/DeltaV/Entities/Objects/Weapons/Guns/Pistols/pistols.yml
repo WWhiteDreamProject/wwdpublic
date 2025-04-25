@@ -141,12 +141,12 @@
       tags:
       - CartridgeMusket
     capacity: 1
-    proto: CartridgeMusket
+    proto: null # WWDP start empty
   - type: Gun #Smoothbore
     minAngle: 0
     maxAngle: 30
-    fireRate: .125 #slow firerate
-    resetOnHandSelected: false #Dual Wielding Muskets
+    fireRate: 0.3 #slow firerate # WWDP
+    # resetOnHandSelected: false #Dual Wielding Muskets # WWDP: no
   - type: Construction
     graph: WeaponPistolFlintlockCraftedGraph
     node: flintlock

@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Coordinates;
 using Content.Shared.Fluids;
 using Content.Shared.FootPrint;
 
@@ -30,7 +29,7 @@ public sealed partial class AbsorbentSystem
         var processed = 0;
         foreach (var (uid, footprintComp) in cleaned)
         {
-            if (TryPuddleInteract(user, used.Owner, used.Comp, useDelay: null, absorbentSoln, EntityCoordinatesExtensions.ToCoordinates(uid)))
+            if (TryPuddleInteract(user, used.Owner, uid, used.Comp, useDelay: null, absorbentSoln))
                 processed++;
 
             if (processed >= used.Comp.MaxCleanedFootprints)

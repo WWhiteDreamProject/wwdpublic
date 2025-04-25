@@ -1,23 +1,19 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Numerics;
 using Content.Client.DisplacementMap;
 using Content.Client.Inventory;
 using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
-using Content.Shared.DisplacementMap;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
-using Content.Shared.Tag;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Utility;
 using static Robust.Client.GameObjects.SpriteComponent;
@@ -52,18 +48,17 @@ public sealed class ClientClothingSystem : ClothingSystem
     };
 
     [Dependency] private readonly IResourceCache _cache = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly DisplacementMapSystem _displacement = default!;
 
     [Dependency] private readonly IPrototypeManager _prototype = default!; // WD EDIT
-    [Dependency] private readonly TagSystem _tag = default!; // WD EDIT
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ClothingComponent, GetEquipmentVisualsEvent>(OnGetVisuals);
+        SubscribeLocalEvent<ClothingComponent, InventoryTemplateUpdated>(OnInventoryTemplateUpdated);
 
         SubscribeLocalEvent<InventoryComponent, VisualsChangedEvent>(OnVisualsChanged);
         SubscribeLocalEvent<SpriteComponent, DidUnequipEvent>(OnDidUnequip);
@@ -76,17 +71,30 @@ public sealed class ClientClothingSystem : ClothingSystem
         if (args.Sprite == null)
             return;
 
-        var enumerator = _inventorySystem.GetSlotEnumerator((uid, component));
-        while (enumerator.NextItem(out var item, out var slot))
-        {
-            RenderEquipment(uid, item, slot.Name, component);
-        }
+        UpdateAllSlots(uid, component);
 
         // No clothing equipped -> make sure the layer is hidden, though this should already be handled by on-unequip.
         if (args.Sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out var layer))
         {
             DebugTools.Assert(!args.Sprite[layer].Visible);
             args.Sprite.LayerSetVisible(layer, false);
+        }
+    }
+
+    private void OnInventoryTemplateUpdated(Entity<ClothingComponent> ent, ref InventoryTemplateUpdated args)
+    {
+        UpdateAllSlots(ent.Owner, clothing: ent.Comp);
+    }
+
+    private void UpdateAllSlots(
+        EntityUid uid,
+        InventoryComponent? inventoryComponent = null,
+        ClothingComponent? clothing = null)
+    {
+        var enumerator = _inventorySystem.GetSlotEnumerator((uid, inventoryComponent));
+        while (enumerator.NextItem(out var item, out var slot))
+        {
+            RenderEquipment(uid, item, slot.Name, inventoryComponent, clothingComponent: clothing);
         }
     }
 
@@ -129,11 +137,6 @@ public sealed class ClientClothingSystem : ClothingSystem
                 key = $"{args.Slot}-{i}";
                 i++;
             }
-
-            if (inventory.SpeciesId != null && item.Sprite != null
-                && _cache.TryGetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / item.Sprite, out var rsi)
-                && rsi.RSI.TryGetState($"{layer.State}-{inventory.SpeciesId}", out _))
-                layer.State = $"{layer.State}-{inventory.SpeciesId}";
 
             args.Layers.Add((key, layer));
         }
@@ -219,20 +222,6 @@ public sealed class ClientClothingSystem : ClothingSystem
         if (!inventorySlots.VisualLayerKeys.TryGetValue(args.Slot, out var revealedLayers))
             return;
 
-        if (TryComp<HideLayerClothingComponent>(args.Equipment, out var hideLayer) &&
-            hideLayer.ClothingSlots != null)
-        {
-            foreach (var clothingSlot in hideLayer.ClothingSlots)
-            {
-                if (!inventorySlots.VisualLayerKeys.TryGetValue(clothingSlot, out var revealedLayersToShow))
-                    continue;
-
-                foreach (var layerToShow in revealedLayersToShow)
-                    component.LayerSetVisible(layerToShow, true);
-            }
-            inventorySlots.HiddenSlots.ExceptWith(hideLayer.ClothingSlots);
-        }
-
         // Remove old layers. We could also just set them to invisible, but as items may add arbitrary layers, this
         // may eventually bloat the player with lots of invisible layers.
         foreach (var layer in revealedLayers)
@@ -298,23 +287,6 @@ public sealed class ClientClothingSystem : ClothingSystem
             RaiseLocalEvent(equipment, new EquipmentVisualsUpdatedEvent(equipee, slot, revealedLayers), true);
             return;
         }
-
-        if (TryComp<HideLayerClothingComponent>(equipment, out var hideLayer) &&
-            hideLayer.ClothingSlots != null)
-        {
-            foreach (var clothingSlot in hideLayer.ClothingSlots)
-            {
-                if (!inventorySlots.VisualLayerKeys.TryGetValue(clothingSlot, out var revealedLayersToHide))
-                    continue;
-
-                foreach (var layerToHide in revealedLayersToHide)
-                    sprite.LayerSetVisible(layerToHide, false);
-            }
-            inventorySlots.HiddenSlots.UnionWith(hideLayer.ClothingSlots);
-        }
-
-        if (clothingComponent.RenderLayer != null)
-            slot = clothingComponent.RenderLayer;
 
         // temporary, until layer draw depths get added. Basically: a layer with the key "slot" is being used as a
         // bookmark to determine where in the list of layers we should insert the clothing layers.
@@ -383,12 +355,14 @@ public sealed class ClientClothingSystem : ClothingSystem
 
                 if (layerData.Color != null)
                     sprite.LayerSetColor(key, layerData.Color.Value);
+                if (layerData.Scale != null)
+                    sprite.LayerSetScale(key, layerData.Scale.Value);
             }
             else
                 index = sprite.LayerMapReserveBlank(key);
 
             if (sprite[index] is not Layer layer)
-                continue;
+                return;
 
             // In case no RSI is given, use the item's base RSI as a default. This cuts down on a lot of unnecessary yaml entries.
             if (layerData.RsiPath == null
@@ -399,19 +373,10 @@ public sealed class ClientClothingSystem : ClothingSystem
                 layer.SetRsi(clothingSprite.BaseRSI);
             }
 
-            // Another "temporary" fix for clothing stencil masks.
-            // Sprite layer redactor when
-            // Sprite "redactor" just a week away.
-            if (slot == Jumpsuit)
-                layerData.Shader ??= "StencilDraw";
-
-            if (inventorySlots.HiddenSlots.Contains(slot))
-                layerData.Visible = false;
-
             sprite.LayerSetData(index, layerData);
             layer.Offset += slotDef.Offset;
 
-            if (displacementData is not null)
+            if (displacementData != null)
             {
                 //Checking that the state is not tied to the current race. In this case we don't need to use the displacement maps.
                 if (layerData.State is not null && (inventory.SpeciesId is not null && layerData.State.EndsWith(inventory.SpeciesId)

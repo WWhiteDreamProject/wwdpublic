@@ -7,7 +7,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 35
+        Piercing: 35 #WWDP edit upstream cancer bruh
 
 - type: entity
   id: BulletMagnumPractice
@@ -29,8 +29,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
-        Heat: 32
+        Blunt: 3 #WWDP edit
+        Heat: 32 #WWDP edit
 
 - type: entity
   id: BulletMagnumAP
@@ -41,7 +41,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 26 # 20% decrease
+        Piercing: 35 #WWDP edit
     ignoreResistances: true
 
 - type: entity
@@ -53,5 +53,28 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 15
-        Piercing: 20
+        Radiation: 15 #WWDP edit
+        Piercing: 20 #WWDP edit
+
+- type: entity
+  id: BulletMagnumShrapnel
+  name: bullet (.45 magnum shrapnel)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 4.7916
+  - type: Sprite
+    scale: 0.5, 0.5
+
+- type: entity
+  id: BulletMagnumShrapnelSpread
+  categories: [ HideSpawnMenu ]
+  parent: BulletMagnumShrapnel
+  components:
+  - type: ProjectileSpread
+    proto: BulletMagnumShrapnel
+    count: 6
+    spread: 15

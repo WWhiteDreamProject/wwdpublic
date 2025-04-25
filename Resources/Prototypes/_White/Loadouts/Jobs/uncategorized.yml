@@ -1,0 +1,17 @@
+﻿- type: loadout
+  id: LoadoutPetRock
+  category: Items
+  cost: 2
+  items:
+  - PetRock
+
+- type: loadout
+  id: LoadoutHeadHatUshanka
+  category: Head
+  cost: 1
+  exclusive: true
+  items:
+  - ClothingHeadHatUshanka
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutHead

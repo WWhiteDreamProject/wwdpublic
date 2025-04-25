@@ -38,7 +38,7 @@
   discountDownTo:
     Telecrystal: 3
   cost:
-    Telecrystal: 14
+    Telecrystal: 12
   categories:
   - UplinkWeaponry
   conditions:
@@ -127,7 +127,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 8
+    Telecrystal: 6
   categories:
   - UplinkWeaponry
   conditions:
@@ -149,3 +149,57 @@
     Telecrystal: 2
   categories:
   - UplinkAllies
+
+- type: listing
+  id: UplinkRifleAK220
+  name: uplink-Light-Rifle-AK220-name
+  description: uplink-Light-Rifle-AK220-desc
+  productEntity: WeaponLightRifleAK220
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 14
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkStimpackExperimental
+  name: uplink-experimental-stimpack-name
+  description: uplink-experimental-stimpack-desc
+  productEntity: StimpackExperimental
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: uplinkmagazineLightRIfleAK220
+  name: uplink-magazine-Light-RIfle-AK220-name
+  description: uplink-magazine-Light-RIfle-AK220-desc
+  productEntity: MagazineLightRifleAK220
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineSyndicateSWATHelmet
+  name: uplink-Syndicate-SWAT-Helmet-name
+  description: uplink-Syndicate-SWAT-Helmet-desc
+  productEntity: ClothingHeadHelmetSwatSyndicate
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWearables

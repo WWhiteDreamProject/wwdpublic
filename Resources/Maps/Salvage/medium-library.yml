@@ -105,13 +105,13 @@ entities:
         - node:
             angle: -1.5707963267948966 rad
             color: '#DE3A3A1B'
-            id: exclamationmark
+            id: emark
           decals:
             59: -2.0519302,2.6656694
             60: -1.2394302,2.9469194
         - node:
             color: '#DE3A3A1B'
-            id: exclamationmark
+            id: emark
           decals:
             52: -3.2550552,-1.8968306
             53: -2.9581802,-1.0999556

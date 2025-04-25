@@ -1,5 +1,5 @@
 # Chat window radio wrap (prefix and postfix)
-chat-radio-message-wrap = [color={ $color }]{ $channel } { $name } говорит, "{ $message }"[/color]
+chat-radio-message-wrap = [color={ $color }]{ $channel } [bold][Name]{ $name }[/Name][/bold] говорит, "{ $message }"[/color]
 headset-encryption-key-successfully-installed = Вы вставляете ключ в гарнитуру.
 headset-encryption-key-slots-already-full = Здесь нет места для другого ключа.
 headset-encryption-keys-all-extracted = Вы вытаскиваете ключи шифрования из гарнитуры!
@@ -15,7 +15,7 @@ examine-default-channel = Используй { $prefix } для стандарт
 chat-radio-handheld = Портативный
 examine-headset-chat-prefix = Используй { $prefix } для частоты своего отдела.
 examine-headset-default-channel =
-    Это указывает на то, что канал по умолчанию этой гарнитуры - [color={ $color }]{ $channel ->
+    Канал, использующийся этой гарнитурой по умолчанию - [color={ $color }]{ $channel ->
         [Syndicate] Синдикат
         [Supply] Снабжение
         [Command] Командование

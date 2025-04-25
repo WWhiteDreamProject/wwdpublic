@@ -126,7 +126,7 @@ public sealed class WieldableSystem : EntitySystem
 
         TryUnwield(uid, component, args.User);
     }
-    
+
 	// WWDP EDIT START
     private void OnSelectWieldable(EntityUid uid, WieldableComponent component, HandSelectedEvent args)
     {
@@ -137,7 +137,7 @@ public sealed class WieldableSystem : EntitySystem
         TryWield(uid, component, args.User, false, true);
     }
 	// WWDP EDIT END
-	
+
     private void OnGunRefreshModifiers(Entity<GunWieldBonusComponent> bonus, ref GunRefreshModifiersEvent args)
     {
         if (TryComp(bonus, out WieldableComponent? wield) &&
@@ -152,6 +152,9 @@ public sealed class WieldableSystem : EntitySystem
 
     private void OnExamineRequires(Entity<GunRequiresWieldComponent> entity, ref ExaminedEvent args)
     {
+        if (!HasComp<WieldableComponent>(entity)) // WWDP
+            return;
+
         if(entity.Comp.WieldRequiresExamineMessage != null)
             args.PushText(Loc.GetString(entity.Comp.WieldRequiresExamineMessage));
     }
@@ -325,10 +328,6 @@ public sealed class WieldableSystem : EntitySystem
         component.Wielded = true;
         component.User = user; // WWDP
 
-        var targEv = new ItemWieldedEvent();
-        RaiseLocalEvent(used, ref targEv);
-        Dirty(used, component);
-
         // WWDP EDIT START
         if (!wieldPopup)
             return true;
@@ -337,6 +336,14 @@ public sealed class WieldableSystem : EntitySystem
         var othersMessage = Loc.GetString("wieldable-component-successful-wield-other", ("user", Identity.Entity(user, EntityManager)), ("item", used));
         _popupSystem.PopupPredicted(selfMessage, othersMessage, user, user);
         // WWDP EDIT END
+
+        _appearance.SetData(used, WieldableVisuals.Wielded, true); // Goobstation
+
+        var targEv = new ItemWieldedEvent();
+        RaiseLocalEvent(used, ref targEv);
+
+        Dirty(used, component);
+
         return true;
     }
 
@@ -344,7 +351,7 @@ public sealed class WieldableSystem : EntitySystem
     ///     Attempts to unwield an item, with no DoAfter.
     /// </summary>
     /// <returns>True if the attempt wasn't blocked.</returns>
-    public bool TryUnwield(EntityUid used, WieldableComponent component, EntityUid user)
+    public bool TryUnwield(EntityUid used, WieldableComponent component, EntityUid user, bool force = false) // Goobstation edit
     {
         // WD EDIT START
         if (!component.Wielded)
@@ -364,7 +371,7 @@ public sealed class WieldableSystem : EntitySystem
             return false;
 
         component.Wielded = false;
-        var targEv = new ItemUnwieldedEvent(user);
+        var targEv = new ItemUnwieldedEvent(user, force);
 
         RaiseLocalEvent(used, targEv);
         return true;

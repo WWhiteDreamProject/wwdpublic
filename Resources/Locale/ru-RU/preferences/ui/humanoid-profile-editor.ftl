@@ -88,3 +88,5 @@ humanoid-profile-editor-loadouts-no-loadouts = Снаряжение не най�
 
 humanoid-profile-editor-markings-tab = Черты внешности
 humanoid-profile-editor-flavortext-tab = Описание
+
+humanoid-profile-editor-clown-name-label = Кличка клоуна:

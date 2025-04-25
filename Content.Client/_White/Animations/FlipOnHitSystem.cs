@@ -16,7 +16,7 @@ public sealed class FlipOnHitSystem : SharedFlipOnHitSystem
         base.Initialize();
 
         SubscribeLocalEvent<FlippingComponent, AnimationCompletedEvent>(OnAnimationComplete);
-        SubscribeAllEvent<FlipOnHitEvent>(ev => PlayAnimation(GetEntity(ev.User)));
+        SubscribeAllEvent<FlipOnHitEvent>(ev => PlayAnimation(GetEntity(ev.User), GetEntity(ev.Target)));
     }
 
     private void OnAnimationComplete(Entity<FlippingComponent> ent, ref AnimationCompletedEvent args)
@@ -24,27 +24,27 @@ public sealed class FlipOnHitSystem : SharedFlipOnHitSystem
         if (args.Key != FlippingComponent.AnimationKey)
             return;
 
-        PlayAnimation(ent);
+        PlayAnimation(args.Uid, ent);
     }
 
-    protected override void PlayAnimation(EntityUid user)
+    protected override void PlayAnimation(EntityUid user, EntityUid target)
     {
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        if (TerminatingOrDeleted(user))
+        if (TerminatingOrDeleted(target))
             return;
 
-        if (_animationSystem.HasRunningAnimation(user, FlippingComponent.AnimationKey))
+        if (_animationSystem.HasRunningAnimation(target, FlippingComponent.AnimationKey))
         {
-            EnsureComp<FlippingComponent>(user);
+            EnsureComp<FlippingComponent>(target);
             return;
         }
 
-        RemComp<FlippingComponent>(user);
+        RemComp<FlippingComponent>(target);
 
         var baseAngle = Angle.Zero;
-        if (EntityManager.TryGetComponent(user, out SpriteComponent? sprite))
+        if (EntityManager.TryGetComponent(target, out SpriteComponent? sprite))
             baseAngle = sprite.Rotation;
 
         var degrees = baseAngle.Degrees;
@@ -70,6 +70,6 @@ public sealed class FlipOnHitSystem : SharedFlipOnHitSystem
             }
         };
 
-        _animationSystem.Play(user, animation, FlippingComponent.AnimationKey);
+        _animationSystem.Play(target, animation, FlippingComponent.AnimationKey);
     }
 }

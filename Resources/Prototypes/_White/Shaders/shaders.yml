@@ -3,3 +3,10 @@
   kind: source
   path: "/Textures/_White/Shaders/flickerhologram.swsl"
   light_mode: unshaded
+
+- type: shader
+  id: Grain
+  kind: source
+  path: "/Textures/_White/Shaders/grain.swsl"
+  params:
+    strength: 100.0

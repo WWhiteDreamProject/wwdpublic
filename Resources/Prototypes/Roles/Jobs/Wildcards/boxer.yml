@@ -4,6 +4,7 @@
   description: job-description-boxer
   playTimeTracker: JobBoxer
   startingGear: BoxerGear
+  setPreference: false # WWDP disabled
   icon: "JobIconBoxer"
   supervisors: job-supervisors-hop
   access:

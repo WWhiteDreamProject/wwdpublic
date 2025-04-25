@@ -1,0 +1,31 @@
+- type: font
+  id: Chat
+  path: /Fonts/_White/NK-57-Monospace/NK57-Monospace-Cd-Rg.otf
+
+- type: font
+  id: ChatItalic
+  path: /Fonts/_White/NK-57-Monospace/NK57-Monospace-Cd-Rg-It.otf
+
+- type: font
+  id: ChatBold
+  path: /Fonts/_White/NK-57-Monospace/NK57-Monospace-Cd-Bd.otf
+
+- type: font
+  id: ChatBoldItalic
+  path: /Fonts/_White/NK-57-Monospace/NK57-Monospace-Cd-Bd-It.otf
+
+- type: font
+  id: Bedstead
+  path: /Fonts/_White/Bedstead/Bedstead.otf
+
+- type: font
+  id: BedsteadBold
+  path: /Fonts/_White/Bedstead/Bedstead-bold.otf
+
+- type: font
+  id: BedsteadItalic
+  path: /Fonts/_White/Bedstead/Bedstead-italic.ttf
+
+- type: font
+  id: BedsteadBoldItalic
+  path: /Fonts/_White/Bedstead/Bedstead-bold-italic.ttf

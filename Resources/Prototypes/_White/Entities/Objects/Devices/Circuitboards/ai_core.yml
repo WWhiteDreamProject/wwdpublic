@@ -1,0 +1,23 @@
+﻿- type: entity
+  id: StationAICoreCircuitboard
+  parent: BaseItem
+  name: AI core
+  suffix: AI core board
+  description: A machine printed circuit board for a station AI core.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: generic
+  - type: Item
+    storedRotation: -90
+  - type: StaticPrice
+    price: 100
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20
+  - type: Tag
+    tags:
+    - AiCoreBoard
+

@@ -20,7 +20,8 @@ namespace Content.Server.Entry
             "LightFade",
             "HolidayRsiSwap",
             "OptionsVisualizer",
-            "PixelSnapEye" // WWDP EDIT
+            "ToggleableLightWieldable", // Goobstation
+            "PixelSnapEye", // WWDP EDIT
         };
     }
 }

@@ -6,12 +6,12 @@
   components:
   - type: Tag
     tags:
-      - MagazineCaselessRifle
+    - MagazineCaselessRifle
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
-        - CartridgeCaselessRifle
+      - CartridgeCaselessRifle
     proto: CartridgeCaselessRifle
     capacity: 30
   - type: Item
@@ -59,11 +59,11 @@
   components:
   - type: Tag
     tags:
-      - MagazinePistolCaselessRifle
+    - MagazinePistolCaselessRifle
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - CartridgeCaselessRifle
+      - CartridgeCaselessRifle
     proto: CartridgeCaselessRifle
     capacity: 10
   - type: Item
@@ -133,6 +133,30 @@
   - type: Appearance
 
 - type: entity
+  id: MagazinePistolCaselessRifleIncendiary
+  name: "pistol magazine (.25 caseless incendiary)"
+  parent: BaseMagazinePistolCaselessRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifleIncendiary
+
+- type: entity
+  id: MagazinePistolCaselessRifleUranium
+  name: "pistol magazine (.25 caseless uranium)"
+  parent: BaseMagazinePistolCaselessRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifleUranium
+
+- type: entity
+  id: MagazinePistolCaselessRifleShrapnel
+  name: "pistol magazine (.25 caseless shrapnel)"
+  parent: BaseMagazinePistolCaselessRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifleShrapnel
+
+- type: entity
   id: MagazineCaselessRifle
   name: "magazine (.25 caseless)"
   parent: BaseMagazineCaselessRifle
@@ -189,3 +213,27 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineCaselessRifleIncendiary
+  name: "magazine (.25 caseless incendiary)"
+  parent: MagazineCaselessRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifleIncendiary
+
+- type: entity
+  id: MagazineCaselessRifleUranium
+  name: "magazine (.25 caseless uranium)"
+  parent: MagazineCaselessRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifleUranium
+
+- type: entity
+  id: MagazineCaselessRifleShrapnel
+  name: "magazine (.25 caseless shrapnel)"
+  parent: MagazineCaselessRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifleShrapnel

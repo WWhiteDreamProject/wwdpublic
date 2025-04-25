@@ -14,7 +14,7 @@ public sealed partial class CCVars
     ///     Optionally force set an announcer
     /// </summary>
     public static readonly CVarDef<string> Announcer =
-        CVarDef.Create("announcer.announcer", "", CVar.SERVERONLY);
+        CVarDef.Create("announcer.announcer", "RuOld", CVar.SERVERONLY); // WD EDIT
 
     /// <summary>
     ///     Optionally blacklist announcers

@@ -7,9 +7,11 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net;
 using System.Text.Json;
+using Content.Shared._EE.Contractors.Prototypes;
 using Content.Shared.Database;
 using Microsoft.EntityFrameworkCore;
 using NpgsqlTypes;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager.Attributes;
 
 
@@ -389,6 +391,9 @@ namespace Content.Server.Database
         [Column("char_name")] public string CharacterName { get; set; } = null!;
         public string FlavorText { get; set; } = null!;
         public string CustomSpecieName { get; set; } = null!;
+        public string Nationality { get; set; } = null!;
+        public string Employer { get; set; } = null!;
+        public string Lifepath { get; set; } = null!;
         public int Age { get; set; }
         public string Sex { get; set; } = null!;
         public string BodyType { get; set; } = null!; // WD EDIT
@@ -397,6 +402,7 @@ namespace Content.Server.Database
         public string? DisplayPronouns { get; set; }
         public string? StationAiName { get; set; }
         public string? CyborgName { get; set; }
+        public string? ClownName { get; set; } // WD EDIT
         public string Species { get; set; } = null!;
         public float Height { get; set; } = 1f;
         public float Width { get; set; } = 1f;

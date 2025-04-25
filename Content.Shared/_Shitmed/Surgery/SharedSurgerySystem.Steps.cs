@@ -17,7 +17,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
 using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
-//using Content.Shared.Mood;
+using Content.Shared.Mood;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared._Shitmed.Body.Organ;
@@ -26,6 +26,8 @@ using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed.TypeParsers;
 using System.Linq;
+using Content.Shared.Inventory.VirtualItem;
+
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 
@@ -165,9 +167,9 @@ public abstract partial class SharedSurgerySystem
         }
 
 
-        //if (!HasComp<ForcedSleepingComponent>(args.Body))
-        //    //RaiseLocalEvent(args.Body, new MoodEffectEvent("SurgeryPain"));
-        // No mood on Goob :(
+        if (!HasComp<ForcedSleepingComponent>(args.Body) || !HasComp<NoScreamComponent>(args.Body))
+            RaiseLocalEvent(args.Body, new MoodEffectEvent("SurgeryPain"));
+        // Morphine - reenable this :)
         if (!_inventory.TryGetSlotEntity(args.User, "gloves", out var _)
             || !_inventory.TryGetSlotEntity(args.User, "mask", out var _))
         {
@@ -278,6 +280,9 @@ public abstract partial class SharedSurgerySystem
 
         if (_inventory.TryGetContainerSlotEnumerator(args.Body, out var containerSlotEnumerator, args.TargetSlots))
         {
+            if (HasComp<SurgeryIgnoreClothingComponent>(args.User))
+                return;
+
             while (containerSlotEnumerator.MoveNext(out var containerSlot))
             {
                 if (!containerSlot.ContainedEntity.HasValue)
@@ -396,15 +401,20 @@ public abstract partial class SharedSurgerySystem
         if (!TryComp(args.Part, out BodyPartComponent? partComp) || partComp.PartType != BodyPartType.Torso)
             return;
 
+        _itemSlotsSystem.SetLock(args.Part, partComp.ItemInsertionSlot, false); // WWDP prevent inserting items into torsos without surgery
+
         var activeHandEntity = _hands.EnumerateHeld(args.User).FirstOrDefault();
         if (activeHandEntity != default
             && ent.Comp.Action == "Insert"
+            && !HasComp<VirtualItemComponent>(activeHandEntity) // WWDP prevent trying to insert virtual items
             && TryComp(activeHandEntity, out ItemComponent? itemComp)
             && (itemComp.Size.Id == "Tiny"
             || itemComp.Size.Id == "Small"))
             _itemSlotsSystem.TryInsert(ent, partComp.ItemInsertionSlot, activeHandEntity, args.User);
         else if (ent.Comp.Action == "Remove")
             _itemSlotsSystem.TryEjectToHands(ent, partComp.ItemInsertionSlot, args.User);
+
+        _itemSlotsSystem.SetLock(args.Part, partComp.ItemInsertionSlot, true); // WWDP prevent inserting items into torsos without surgery
     }
 
     private void OnCavityCheck(Entity<SurgeryStepCavityEffectComponent> ent, ref SurgeryStepCompleteCheckEvent args)
@@ -525,6 +535,7 @@ public abstract partial class SharedSurgerySystem
                 {
                     var ev = new SurgeryStepDamageChangeEvent(args.User, args.Body, args.Part, ent);
                     RaiseLocalEvent(ent, ref ev);
+                    args.Complete = true;
                 }
                 break;
             }

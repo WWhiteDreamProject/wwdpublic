@@ -1,8 +1,13 @@
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
@@ -26,6 +31,7 @@ public abstract partial class SharedStationAiSystem
         SubscribeLocalEvent<StationAiHeldComponent, InteractionAttemptEvent>(OnHeldInteraction);
         SubscribeLocalEvent<StationAiHeldComponent, AttemptRelayActionComponentChangeEvent>(OnHeldRelay);
         SubscribeLocalEvent<StationAiHeldComponent, JumpToCoreEvent>(OnCoreJump);
+        SubscribeLocalEvent<StationAiHeldComponent, AiToggleBoltsEvent>(OnToggleBolts);
         SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
     }
 
@@ -51,6 +57,41 @@ public abstract partial class SharedStationAiSystem
 
         _xforms.DropNextTo(core.Comp.RemoteEntity.Value, core.Owner) ;
     }
+
+    // WD edit start
+
+    private void OnToggleBolts(Entity<StationAiHeldComponent> ent, ref AiToggleBoltsEvent args)
+    {
+        if (!TryGetCore(ent.Owner, out var core) || core.Comp?.RemoteEntity == null)
+            return;
+
+        var xform = Transform(core);
+
+        if (!xform.Anchored)
+        {
+            if (TryComp<PhysicsComponent>(core, out var anchorBody) &&
+                !_anchorable.TileFree(xform.Coordinates, anchorBody))
+            {
+                _popup.PopupClient(Loc.GetString("anchorable-occupied"), ent.Owner, core.Comp.RemoteEntity);
+                return;
+            }
+
+            var rot = xform.LocalRotation;
+            xform.LocalRotation = Math.Round(rot / (Math.PI / 2)) * (Math.PI / 2);
+
+            if (TryComp<PullableComponent>(core, out var pullable) && pullable.Puller != null)
+                _pulling.TryStopPull(core, pullable, ignoreGrab: true);
+
+            _xforms.AnchorEntity(core, xform);
+            _audio.PlayEntity(ent.Comp.CoreBoltsDisabled, Filter.Pvs(xform.Coordinates), core.Owner, true);
+        }
+        else
+        {
+            _xforms.Unanchor(core, xform);
+            _audio.PlayEntity(ent.Comp.CoreBoltsEnabled, Filter.Pvs(xform.Coordinates), core.Owner, true);
+        }
+    }
+    // WD edit end
 
     /// <summary>
     /// Tries to get the entity held in the AI core using StationAiCore.

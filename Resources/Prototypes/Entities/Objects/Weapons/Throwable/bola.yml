@@ -1,3 +1,5 @@
+# Goob edit - energy bola
+
 - type: entity
   name: bola
   abstract: true
@@ -82,5 +84,7 @@
   - type: Tag
     tags:
     - SecBeltEquip
+    - RiotGrenade
   # WD EDIT END
   - type: LandAtCursor
+  - type: Ammo # WWDP

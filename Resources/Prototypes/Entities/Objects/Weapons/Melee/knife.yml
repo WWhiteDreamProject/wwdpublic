@@ -136,7 +136,7 @@
   - type: Item
     sprite: Objects/Weapons/Melee/combat_knife.rsi
   - type: DisarmMalus
-    malus: 0.225
+    malus: 0.5 # WWDP
 
 - type: entity
   name: survival knife
@@ -247,7 +247,7 @@
   - type: Item
     sprite: Objects/Weapons/Melee/shiv.rsi
   - type: DisarmMalus
-    malus: 0.225
+    malus: 0.5 # WWDP
 
 - type: entity
   name: reinforced shiv

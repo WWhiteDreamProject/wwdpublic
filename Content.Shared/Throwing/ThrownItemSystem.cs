@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Systems;
 using Content.Shared.Database;
@@ -103,7 +104,7 @@ namespace Content.Shared.Throwing
                 _physics.SetBodyStatus(uid, physics, BodyStatus.OnGround);
 
                 if (physics.Awake)
-                    _broadphase.RegenerateContacts(uid, physics);
+                    _broadphase.RegenerateContacts((uid, physics));
             }
 
             if (EntityManager.TryGetComponent(uid, out FixturesComponent? manager))
@@ -132,7 +133,7 @@ namespace Content.Shared.Throwing
             if (thrownItem.Thrower is not null)
                 _adminLogger.Add(LogType.Landed, LogImpact.Low, $"{ToPrettyString(uid):entity} thrown by {ToPrettyString(thrownItem.Thrower.Value):thrower} landed.");
 
-            _broadphase.RegenerateContacts(uid, physics);
+            _broadphase.RegenerateContacts((uid, physics));
             var landEvent = new LandEvent(thrownItem.Thrower, playSound);
             RaiseLocalEvent(uid, ref landEvent);
         }
@@ -149,7 +150,11 @@ namespace Content.Shared.Throwing
                 _adminLogger.Add(LogType.ThrowHit, LogImpact.Low,
                     $"{ToPrettyString(thrown):thrown} thrown by {ToPrettyString(component.Thrower.Value):thrower} hit {ToPrettyString(target):target}.");
 
-            var targetPart = _body.GetRandomBodyPart(target);
+            //WWDP EDIT START
+            TryComp<TargetingComponent>(component.Thrower, out var targetingComponent);
+
+            var targetPart =  targetingComponent?.Target ?? _body.GetRandomBodyPart(target);
+            //WWDP EDIT END
 
             if (component.Thrower is not null)// Nyano - Summary: Gotta check if there was a thrower.
                 RaiseLocalEvent(target, new ThrowHitByEvent(component.Thrower.Value, thrown, target, component, targetPart), true); // Nyano - Summary: Gotta update for who threw it.

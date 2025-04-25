@@ -40,3 +40,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 275
+  - type: Item # WWDP guns resize
+    storedRotation: -45
+    shape:
+    - 0,0,5,0 # Toy size

@@ -1,0 +1,42 @@
+- type: storeCategory
+  id: UplinkFaction
+  name: store-category-faction
+  priority: 12
+
+# Faction Gear Loadouts
+# Solarian Alliance
+- type: listing
+  id: UplinkFactionSolAllianceAsset
+  name: uplink-faction-san-asset-name
+  description: uplink-faction-san-asset-desc
+  icon: { sprite: /Textures/Structures/Storage/Crates/aluminiumcrate.rsi, state: icon }
+  productEntity: CrateSANModsuit
+  # WD EDIT START
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 10
+  # WD EDIT END
+  categories:
+  - UplinkFaction
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist: [ Human ]
+
+- type: listing
+  id: UplinkFactionSolAllianceAssetGroup
+  name: uplink-faction-san-asset-group-name
+  description: uplink-faction-san-asset-group-desc
+  icon: { sprite: /Textures/Structures/Storage/Crates/aluminiumcrate.rsi, state: icon }
+  productEntity: CrateSANModsuitGroup
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 8 # WD EDIT
+  cost:
+    Telecrystal: 40 # WD EDIT
+  categories:
+  - UplinkFaction
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist: [ Human ]

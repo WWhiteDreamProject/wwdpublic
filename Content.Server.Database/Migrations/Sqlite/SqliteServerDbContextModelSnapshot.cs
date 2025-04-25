@@ -788,6 +788,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("backpack");
 
+                    b.Property<string>("BodyType")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("body_type");
+
                     b.Property<string>("CharacterName")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -797,6 +802,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("clothing");
+
+                    b.Property<string>("ClownName")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("clown_name");
 
                     b.Property<string>("CustomSpecieName")
                         .IsRequired()
@@ -810,6 +819,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<string>("DisplayPronouns")
                         .HasColumnType("TEXT")
                         .HasColumnName("display_pronouns");
+
+                    b.Property<string>("Employer")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("employer");
 
                     b.Property<string>("EyeColor")
                         .IsRequired()
@@ -850,9 +864,19 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("REAL")
                         .HasColumnName("height");
 
+                    b.Property<string>("Lifepath")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("lifepath");
+
                     b.Property<byte[]>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
+
+                    b.Property<string>("Nationality")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("nationality");
 
                     b.Property<int>("PreferenceId")
                         .HasColumnType("INTEGER")
@@ -866,18 +890,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("sex");
-
-                    // WD EDIT START
-                    b.Property<string>("Voice")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("voice");
-
-                    b.Property<string>("BodyType")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("body_type");
-                    // WD EDIT END
 
                     b.Property<string>("SkinColor")
                         .IsRequired()
@@ -900,6 +912,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<string>("StationAiName")
                         .HasColumnType("TEXT")
                         .HasColumnName("station_ai_name");
+
+                    b.Property<string>("Voice")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("voice");
 
                     b.Property<float>("Width")
                         .HasColumnType("REAL")

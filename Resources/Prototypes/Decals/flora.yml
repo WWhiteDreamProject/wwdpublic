@@ -1151,4 +1151,44 @@
   sprite:
     sprite: Decals/Flora/flora_flowers.rsi
     state: flowersy4
+# WWDP edit start
+- type: decal
+  id: Flowersp1
+  parent: Flower
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Decals/Flora/spring_flowers.rsi
+    state: flowersp1
 
+- type: decal
+  id: Flowersp2
+  parent: Flower
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Decals/Flora/spring_flowers.rsi
+    state: flowersp2
+
+- type: decal
+  id: Flowersp3
+  parent: Flower
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Decals/Flora/spring_flowers.rsi
+    state: flowersp3
+
+- type: decal
+  id: Flowersp4
+  parent: Flower
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Decals/Flora/spring_flowers.rsi
+    state: flowersp4
+# WWDP edit end

@@ -14,13 +14,13 @@
 
 # Brick
 - type: decal
-  id: Brick
-  parent: Overlays
+  id: BrickOverlay
+  parent: BrickTile
   abstract: true
 
 - type: decal
   id: BrickBoxOverlay
-  parent: Brick
+  parent: BrickOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
   sprite:
@@ -29,7 +29,7 @@
 
 - type: decal
   id: BrickCornerOverlayNE
-  parent: Brick
+  parent: BrickOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
   sprite:
@@ -38,7 +38,7 @@
 
 - type: decal
   id: BrickCornerOverlayNW
-  parent: Brick
+  parent: BrickOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
   sprite:
@@ -47,7 +47,7 @@
 
 - type: decal
   id: BrickCornerOverlaySE
-  parent: Brick
+  parent: BrickOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
   sprite:
@@ -56,7 +56,7 @@
 
 - type: decal
   id: BrickCornerOverlaySW
-  parent: Brick
+  parent: BrickOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
   sprite:
@@ -65,7 +65,7 @@
 
 - type: decal
   id: BrickEndOverlayE
-  parent: Brick
+  parent: BrickOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
   sprite:
@@ -74,7 +74,7 @@
 
 - type: decal
   id: BrickEndOverlayN
-  parent: Brick
+  parent: BrickOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
   sprite:
@@ -83,7 +83,7 @@
 
 - type: decal
   id: BrickEndOverlayS
-  parent: Brick
+  parent: BrickOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
   sprite:
@@ -92,7 +92,7 @@
 
 - type: decal
   id: BrickEndOverlayW
-  parent: Brick
+  parent: BrickOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
   sprite:
@@ -101,7 +101,7 @@
 
 - type: decal
   id: BrickLineOverlayE
-  parent: Brick
+  parent: BrickOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
   sprite:
@@ -110,7 +110,7 @@
 
 - type: decal
   id: BrickLineOverlayN
-  parent: Brick
+  parent: BrickOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
   sprite:
@@ -119,7 +119,7 @@
 
 - type: decal
   id: BrickLineOverlayS
-  parent: Brick
+  parent: BrickOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
   sprite:
@@ -128,7 +128,7 @@
 
 - type: decal
   id: BrickLineOverlayW
-  parent: Brick
+  parent: BrickOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
   sprite:
@@ -331,17 +331,28 @@
     sprite: Decals/Overlays/greyscale.rsi
     state: herringbone
 
+# STATION (WWDP EDIT)
+
+- type: decal # WWDP edit
+  id: A_StationDecal
+  abstract: true
+
 # MiniTile
-- type: decal
-  id: MiniTile
-  parent: Overlays
+- type: decal # WWDP edit
+  id: MiniTile 
+  parent: A_StationDecal
+  abstract: true
+
+- type: decal # WWDP edit
+  id: MiniOverlay
+  parent: MiniTile
   abstract: true
 
 - type: decal
   id: MiniTileOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile
@@ -350,7 +361,7 @@
   id: MiniTileCheckerAOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_checker_a
@@ -359,7 +370,7 @@
   id: MiniTileCheckerBOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_checker_b
@@ -368,7 +379,7 @@
   id: MiniTileDiagonalOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_diagonal
@@ -377,7 +388,7 @@
   id: MiniTileDiagonalCheckerAOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_diagonal_a
@@ -386,7 +397,7 @@
   id: MiniTileDiagonalCheckerBOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_diagonal_b
@@ -395,7 +406,7 @@
   id: MiniTileBoxOverlay
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_box
@@ -404,7 +415,7 @@
   id: MiniTileCornerOverlayNE
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_corner_ne
@@ -413,7 +424,7 @@
   id: MiniTileCornerOverlayNW
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_corner_nw
@@ -422,7 +433,7 @@
   id: MiniTileCornerOverlaySE
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_corner_se
@@ -431,7 +442,7 @@
   id: MiniTileCornerOverlaySW
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_corner_sw
@@ -440,7 +451,7 @@
   id: MiniTileEndOverlayE
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_end_e
@@ -449,7 +460,7 @@
   id: MiniTileEndOverlayN
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_end_n
@@ -458,7 +469,7 @@
   id: MiniTileEndOverlayS
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_end_s
@@ -467,7 +478,7 @@
   id: MiniTileEndOverlayW
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_end_w
@@ -476,7 +487,7 @@
   id: MiniTileInnerOverlayNE
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_inner_ne
@@ -485,7 +496,7 @@
   id: MiniTileInnerOverlayNW
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_inner_nw
@@ -494,7 +505,7 @@
   id: MiniTileInnerOverlaySE
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_inner_se
@@ -503,7 +514,7 @@
   id: MiniTileInnerOverlaySW
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_inner_sw
@@ -512,7 +523,7 @@
   id: MiniTileLineOverlayE
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_line_e
@@ -521,7 +532,7 @@
   id: MiniTileLineOverlayN
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_line_n
@@ -530,7 +541,7 @@
   id: MiniTileLineOverlayS
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_line_s
@@ -539,7 +550,7 @@
   id: MiniTileLineOverlayW
   tags: ["station", "overlay"]
   defaultCustomColor: true
-  parent: MiniTile
+  parent: MiniOverlay
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: minitile_line_w

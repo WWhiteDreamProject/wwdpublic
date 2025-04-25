@@ -86,12 +86,12 @@
     speciesId: reptilian
     # WWDP-Edit-Start
     femaleDisplacements:
-      jumpsuit-body-digitigrade:
+      jumpsuit:
         sizeMaps:
           32:
             sprite: _White/Mobs/Species/Reptilian/displacement.rsi
             state: jumpsuit-female-digi
-      shoes-body-digitigrade:
+      shoes:
         sizeMaps:
           32:
             sprite: _White/Mobs/Species/Reptilian/displacement.rsi
@@ -155,12 +155,12 @@
     speciesId: reptilian
     # WWDP-Edit-Start
     femaleDisplacements:
-      jumpsuit-body-digitigrade:
+      jumpsuit:
         sizeMaps:
           32:
             sprite: _White/Mobs/Species/Reptilian/displacement.rsi
             state: jumpsuit-female-digi
-      shoes-body-digitigrade:
+      shoes:
         sizeMaps:
           32:
             sprite: _White/Mobs/Species/Reptilian/displacement.rsi

@@ -21,6 +21,12 @@ public sealed partial class ChamberMagazineAmmoProviderComponent : MagazineAmmoP
     public bool AutoCycle = true;
 
     /// <summary>
+    /// WWDP - If true, the gun will lock the bolt open once the mag is empty.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("boltCatch"), AutoNetworkedField]
+    public bool BoltCatch = true;
+
+    /// <summary>
     /// Can the gun be racked, which opens and then instantly closes the bolt to cycle a round.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("canRack"), AutoNetworkedField]

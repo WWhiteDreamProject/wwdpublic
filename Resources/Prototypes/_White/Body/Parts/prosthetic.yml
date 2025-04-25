@@ -1,0 +1,87 @@
+﻿- type: entity
+  parent: RightLegCybernetic
+  id: MakeshiftRightLeg
+  name: Right leg prosthetic
+  description: Poorly made leg from what was nearby
+  components:
+  - type: MovementBodyPart
+    walkSpeed: 1.8
+    sprintSpeed: 2.25 #you cant sprint fast on this
+  - type: Construction
+    graph: MakeshiftRightLegGraph
+    node: makeshiftrightleg
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 400
+      Cloth: 300
+      Wood: 300
+      Copper: 300
+    chemicalComposition:
+      Iron: 36
+      Carbon: 4
+      Copper: 30
+      Fiber: 60
+
+- type: entity
+  parent: LeftLegCybernetic
+  id: MakeshiftLeftLeg
+  name: Left leg prosthetic
+  description: Poorly made leg from what was nearby
+  components:
+  - type: MovementBodyPart
+    walkSpeed: 1.8
+    sprintSpeed: 2.25 #you cant sprint fast on this
+  - type: Construction
+    graph: MakeshiftLeftLegGraph
+    node: makeshiftleftleg
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 400
+      Cloth: 300
+      Wood: 300
+      Copper: 300
+    chemicalComposition:
+      Iron: 36
+      Carbon: 4
+      Copper: 30
+      Fiber: 60
+
+- type: entity
+  parent: RightArmCybernetic
+  id: MakeshiftRightArm
+  name: Right arm prosthetic
+  description: Primitive mechanic manipulator. Looks dieselpank-y
+  components:
+  - type: Construction
+    graph: MakeshiftRightArmGraph
+    node: makeshiftrightarm
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 600
+      Cloth: 500
+      Copper: 450
+    chemicalComposition:
+      Iron: 54
+      Carbon: 6
+      Copper: 45
+      Fiber: 50
+
+- type: entity
+  parent: LeftArmCybernetic
+  id: MakeshiftLeftArm
+  name: Left arm prosthetic
+  description: Primitive mechanic manipulator. Looks dieselpank-y
+  components:
+  - type: Construction
+    graph: MakeshiftLeftArmGraph
+    node: makeshiftleftarm
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 600
+      Cloth: 500
+      Copper: 450
+    chemicalComposition:
+      Iron: 54
+      Carbon: 6
+      Copper: 45
+      Fiber: 50

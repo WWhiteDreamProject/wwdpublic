@@ -8,16 +8,13 @@ using Content.Shared._Lavaland.Shuttles;
 using Content.Shared.Body.Components;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CCVar;
-using Content.Shared.Clothing;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
-using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Maps;
 using Content.Shared.Parallax;
 using Content.Shared.SegmentedEntity;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
-using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Timing;
 using Content.Shared.Whitelist;
@@ -635,7 +632,11 @@ public sealed partial class ShuttleSystem
         {
             foreach (var child in toKnock)
             {
-                _layingDown.TryLieDown(child, behavior: DropHeldItemsBehavior.DropIfStanding); // WD EDIT
+                if (!_statusQuery.TryGetComponent(child, out var status))
+                    continue;
+
+                // Stunmeta
+                _stuns.TryKnockdown(child, _hyperspaceKnockdownTime, true, status);
 
                 // If the guy we knocked down is on a spaced tile, throw them too
                 if (grid != null)
@@ -679,14 +680,6 @@ public sealed partial class ShuttleSystem
             || HasComp<SegmentedEntityComponent>(child)
             || HasComp<SegmentedEntitySegmentComponent>(child))
                 continue;
-
-            // WD EDIT START
-            if (_inventory.TryGetSlotEntity(child, "shoes", out var shoes)
-                && HasComp<MagbootsComponent>(shoes)
-                && TryComp<ItemToggleComponent>(shoes, out var toggle)
-                && toggle.Activated)
-                continue;
-            // WD EDIT END
 
             toKnock.Add(child);
         }

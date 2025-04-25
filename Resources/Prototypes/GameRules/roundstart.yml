@@ -14,7 +14,7 @@
     rules:
     - id: Thief
       prob: 0.5
-
+      
 - type: entity
   id: DeathMatch31
   parent: BaseGameRule
@@ -205,7 +205,8 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ HeadRev ]
-      max: 2
+      min: 2 # WWDP
+      max: 3 # WWDP
       playerRatio: 20 # WD
       briefing:
         text: head-rev-role-greeting
@@ -285,8 +286,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: RampingStationEventScheduler
-    chaosModifier: 4 # By default, one event each 30-10 seconds after two hours. Changing CVars will cause this to deviate.
-    startingChaosRatio: 0.025 # Starts as slow as survival, but quickly ramps up
+    chaosModifier: 5 # By default, one event each 30-10 seconds after two hours. Changing CVars will cause this to deviate.
+    startingChaosRatio: 0.1 
     shiftLengthModifier: 2.5
 
 - type: entity
@@ -334,3 +335,6 @@
 #    - id: BloodbathPuddleMessVariationPass
 #      prob: 0.01
 #      orGroup: puddleMess
+    - id: SmugglerStashVariationPass
+      prob: 0.90
+      

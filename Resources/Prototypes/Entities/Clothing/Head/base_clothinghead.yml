@@ -22,8 +22,8 @@
           Quantity: 10
   - type: Tag
     tags:
-      - ClothMade
-      - WhitelistChameleon
+    - ClothMade
+    - WhitelistChameleon
 
 - type: entity
   abstract: true
@@ -37,8 +37,8 @@
       amount: 1
   - type: Tag
     tags:
-      - ClothMade
-      - WhitelistChameleon
+    - ClothMade
+    - WhitelistChameleon
 
 - type: entity
   abstract: true
@@ -52,7 +52,7 @@
     state: icon
   - type: Tag
     tags:
-      - WhitelistChameleon
+    - WhitelistChameleon
 
 - type: entity
   abstract: true
@@ -87,21 +87,21 @@
     radiatingBehaviourId: radiating
   - type: LightBehaviour
     behaviours:
-      - !type:FadeBehaviour
-        id: radiating
-        interpolate: Linear
-        maxDuration: 2.0
-        startValue: 3.0
-        endValue: 2.0
-        isLooped: true
-        reverseWhenFinished: true
-      - !type:PulseBehaviour
-        id: blinking
-        interpolate: Nearest
-        maxDuration: 1.0
-        minValue: 0.1
-        maxValue: 2.0
-        isLooped: true
+    - !type:FadeBehaviour
+      id: radiating
+      interpolate: Linear
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      minValue: 0.1
+      maxValue: 2.0
+      isLooped: true
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: ItemSlots
@@ -130,6 +130,37 @@
     parts:
     - Head
   - type: IngestionBlocker
+  - type: Clothing
+    #Copies ClothingHeadHardsuitBase behavior
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HelmetEVA
+    - PlasmamanSafe
+  - type: IdentityBlocker
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+
+- type: entity
+  abstract: true
+  parent: ClothingHeadBase
+  id: ClothingHeadEVAHelmetNoIngestionBlocker
+  name: base space helmet
+  components:
+  - type: Item
+    size: Normal
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.2
+  - type: IgniteFromGasImmunity
+    parts:
+    - Head
   - type: Clothing
     #Copies ClothingHeadHardsuitBase behavior
     equipSound: /Audio/Mecha/mechmove03.ogg
@@ -191,6 +222,17 @@
     slots:
     - Hair
     - Snout
+  # WD EDIT START
+  #- type: Reflect
+  #  spread: 270
+  #  reflectProb: 0.01
+  #  innate: true
+  #  reflects:
+  #  - Energy
+  #  - NonEnergy
+  # WD EDIT END
+  - type: TinfoilHat # WWDP
+    destroyOnFry: false
 
 - type: entity
   abstract: true
@@ -215,6 +257,7 @@
     clothingVisuals:
       head:
       - state: equipped-HELMET
+      - state: on-equipped-HELMET
   - type: IgniteFromGasImmunity
     parts:
     - Head
@@ -261,21 +304,21 @@
     radiatingBehaviourId: radiating
   - type: LightBehaviour
     behaviours:
-      - !type:FadeBehaviour
-        id: radiating
-        interpolate: Linear
-        maxDuration: 2.0
-        startValue: 3.0
-        endValue: 2.0
-        isLooped: true
-        reverseWhenFinished: true
-      - !type:PulseBehaviour
-        id: blinking
-        interpolate: Nearest
-        maxDuration: 1.0
-        minValue: 0.1
-        maxValue: 2.0
-        isLooped: true
+    - !type:FadeBehaviour
+      id: radiating
+      interpolate: Linear
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      minValue: 0.1
+      maxValue: 2.0
+      isLooped: true
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: ItemSlots
@@ -383,27 +426,29 @@
     radiatingBehaviourId: radiating
   - type: LightBehaviour
     behaviours:
-      - !type:FadeBehaviour
-        id: radiating
-        interpolate: Linear
-        maxDuration: 2.0
-        startValue: 3.0
-        endValue: 2.0
-        isLooped: true
-        reverseWhenFinished: true
-      - !type:PulseBehaviour
-        id: blinking
-        interpolate: Nearest
-        maxDuration: 1.0
-        minValue: 0.1
-        maxValue: 2.0
-        isLooped: true
+    - !type:FadeBehaviour
+      id: radiating
+      interpolate: Linear
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      minValue: 0.1
+      maxValue: 2.0
+      isLooped: true
   - type: Battery
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
     startingCharge: 600
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2 #recharge of 2 makes total drain 1w / s so max charge is 1:1 with time. Time to fully charge should be 5 minutes. Having recharge gives light an extended flicker period which gives you some warning to return to light area.
+  - type: TinfoilHat # WWDP
+    destroyOnFry: false
 
 - type: entity
   abstract: true

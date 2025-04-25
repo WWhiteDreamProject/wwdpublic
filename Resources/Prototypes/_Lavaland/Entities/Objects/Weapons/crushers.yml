@@ -26,6 +26,7 @@
     capacity: 1
     count: 1
   - type: DisarmMalus
+    malus: 0.5 # WWDP
   - type: MegafaunaWeaponLooter
 
 - type: entity
@@ -73,6 +74,8 @@
     size: Ginormous
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_spear-inhands.rsi
   - type: DisarmMalus
+    malus: 0.4 # WWDP
+    wieldedBonus: 0.4 # WWDP
   - type: Wieldable
   - type: Sharp
   - type: MeleeRequiresWield

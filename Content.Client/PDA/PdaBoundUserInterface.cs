@@ -28,8 +28,7 @@ namespace Content.Client.PDA
 
         private void CreateMenu()
         {
-            _menu = this.CreateWindow<PdaMenu>();
-            _menu.OpenCenteredLeft();
+            _menu = this.CreateWindowCenteredLeft<PdaMenu>();
 
             _menu.FlashLightToggleButton.OnToggled += _ =>
             {
@@ -51,6 +50,12 @@ namespace Content.Client.PDA
                 SendPredictedMessage(new ItemSlotButtonPressedEvent(PdaComponent.PdaPaiSlotId));
             };
 
+            // WD EDIT START
+            _menu.EjectPassportButton.OnPressed += _ =>
+            {
+                SendPredictedMessage(new ItemSlotButtonPressedEvent(PdaComponent.PdaPassportSlotId));
+            };
+            // WD EDIT END
             _menu.ActivateMusicButton.OnPressed += _ =>
             {
                 SendMessage(new PdaShowMusicMessage());

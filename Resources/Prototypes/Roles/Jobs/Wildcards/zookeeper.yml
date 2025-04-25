@@ -4,12 +4,18 @@
   description: job-description-zookeeper
   playTimeTracker: JobZookeeper
   startingGear: ZookeeperGear
+  setPreference: false # WWDP disabled
   icon: "JobIconZookeeper"
   supervisors: job-supervisors-hop
   access:
   - Service
   - Maintenance
   - Zookeeper # DeltaV - Add Zookeeper access
+  requirements:
+    - !type:CharacterEmployerRequirement
+      inverted: true
+      employers:
+      - Unemployed
 
 - type: startingGear
   id: ZookeeperGear

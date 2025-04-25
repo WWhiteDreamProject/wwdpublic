@@ -3,6 +3,7 @@
   name: Magistrate
   description: "Ensure Space Law is being followed, Uphold Justice and Legality, Hold Hearings and Trials, Follow SOP, Ensure Command is Following Space Law."
   playTimeTracker: JobMagistrate
+  setPreference: false # WWDP disabled
   requirements:
     - !type:CharacterDepartmentTimeRequirement
       department: Command
@@ -15,6 +16,11 @@
       traits:
         - Foreigner
         - ForeignerLight
+        - Muted
+    - !type:CharacterEmployerRequirement
+      employers:
+      - IdrisIncorporated
+      - NanoTrasen
   weight: 20
   startingGear: MagistrateGear
   icon: "JobIconMagistrate"

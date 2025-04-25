@@ -57,6 +57,9 @@ namespace Content.Server.Forensics
 
         private void OnFingerprintInit(EntityUid uid, FingerprintComponent component, MapInitEvent args)
         {
+            if (component.NotLeavingFingerprints) // WWDP
+                return;
+
             component.Fingerprint = GenerateFingerprint();
         }
 
@@ -254,7 +257,7 @@ namespace Content.Server.Forensics
                     return;
                 }
             }
-            if (TryComp<FingerprintComponent>(user, out var fingerprint))
+            if (TryComp<FingerprintComponent>(user, out var fingerprint) && !fingerprint.NotLeavingFingerprints) // WWDP
             {
                 component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
                 Dirty(target, component);

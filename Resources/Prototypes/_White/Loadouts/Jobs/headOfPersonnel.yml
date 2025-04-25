@@ -1,0 +1,15 @@
+# Head Of Personnel
+
+- type: loadout
+  id: LoadoutHeadOfPersonnelOuterDuraCoatVest
+  category: JobsCommandHeadOfPersonnel
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutHeadOfPersonnelOuter
+    - !type:CharacterJobRequirement
+      jobs:
+        - HeadOfPersonnel
+  items:
+    - ClothingOuterVestCoatHop

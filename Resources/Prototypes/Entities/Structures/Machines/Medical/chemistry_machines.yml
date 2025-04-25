@@ -115,9 +115,45 @@
           False: { visible: False }
   - type: ItemSlots
     slots:
-      mixer:
+      mixer1:
         whitelist:
           tags:
             - CentrifugeCompatible
+        swap: false #start of WWDP edit
+      mixer2:
+        whitelist:
+          tags:
+          - CentrifugeCompatible
+        swap: false
+      mixer3:
+        whitelist:
+          tags:
+          - CentrifugeCompatible
+        swap: false
+      mixer4:
+        whitelist:
+          tags:
+          - CentrifugeCompatible
+        swap: false
+      mixer5:
+        whitelist:
+          tags:
+          - CentrifugeCompatible
+        swap: false
+      mixer6:
+        whitelist:
+          tags:
+          - CentrifugeCompatible
+        swap: false
   - type: Machine
     board: CentrifugeMachineCircuitboard
+  - type: ContainerContainer
+    containers:
+      mixer1: !type:ContainerSlot
+      mixer2: !type:ContainerSlot
+      mixer3: !type:ContainerSlot
+      mixer4: !type:ContainerSlot
+      mixer5: !type:ContainerSlot
+      mixer6: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container #end of WWDP edit

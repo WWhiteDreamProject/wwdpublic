@@ -37,29 +37,29 @@ highp vec3 blend(highp vec3 base, highp vec3 color, highp float factor){
 // quick and simple okay-ish looking shader because i don't like the deltaV one.
 // todo make an excuse to use this somewhere besides event dispensers so i have to make it more customizable (at least its color)
 void fragment() {
-	
+
 	highp float hue = 0.48;
 	highp float hue2 = hue-0.01;
-	
+
 	// absolutely unreadable, introduces random noise in the X coord of the UV, seeded by Y
 	// produces scanline-like effect, with each line of pixels being randomly displaced left or right
 	// makes the item jitter a bit
 	highp float dispfloat = rng(vec2(UV.y*TIME, 0));
-	
+
 	//highp vec2 displacement = vec2(rng(vec2(UV.y*TIME, 0))*length(TEXTURE_PIXEL_SIZE)*0.25);
-	
+
     highp vec4 tex = zTexture(UV + vec2(dispfloat*TEXTURE_PIXEL_SIZE.x*0.5, 0));
-	
+
 	highp vec3 col = rgb2hsv(tex.rgb);
 	col.x = hue;
-	col.z = (log(col.z)+4)/4; // increase the value in hsv color, helps with highlighting detail
-	
+	col.z = (log(col.z)+4.0)/4.0; // increase the value in hsv color, helps with highlighting detail
+
 	// this produces a color which randomly flashes from hue2 (at max value) to white
 	// mixed in with sprite color down below
 	highp vec3 col2 = hsv2rgb(vec3(hue2, rng(vec2(TIME*0.001, 0))*0.4+0.6, 1.0));
 	col = hsv2rgb(col);
 
-	COLOR = vec4(mix(col, col2, 0.3), max(tex.w*(sin(TIME * sin(TIME)))*0.25, 0)+0.45*tex.w);
+	COLOR = vec4(mix(col, col2, 0.3), max(tex.w*(sin(TIME * sin(TIME)))*0.25, 0.0)+0.45*tex.w);
 	// another scanline-like effect, but with transparensy this time
 	// "*=" instead of proper construction because it's an afterthought
 	COLOR.w *= rng(vec2(0, 1.09248882*TIME*UV.y))*0.5+0.5;

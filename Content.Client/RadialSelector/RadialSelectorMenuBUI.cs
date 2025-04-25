@@ -49,6 +49,7 @@ public sealed class RadialSelectorMenuBUI : BoundUserInterface
 
     protected override void Open()
     {
+        base.Open(); //WWDP EDIT - Summary: Overriders MUST ALWAYS call base function
         _menu.OnClose += Close;
 
         if (_openCentered)

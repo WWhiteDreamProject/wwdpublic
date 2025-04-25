@@ -1,0 +1,18 @@
+// https://www.shadertoy.com/view/4sXSWs
+
+light_mode unshaded;
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float strength;
+
+void fragment()
+{
+	highp vec2 uv = UV;
+    highp vec4 color = texture(SCREEN_TEXTURE, uv);
+
+    highp float x = (uv.x + 4.0 ) * (uv.y + 4.0 ) * (TIME * 10.0);
+	highp vec4 grain = vec4(mod((mod(x, 13.0) + 1.0) * (mod(x, 123.0) + 1.0), 0.01) - 0.005) * strength;
+
+    grain = color * (1.0 - grain);
+
+    COLOR = grain;
+}

@@ -1,8 +1,4 @@
- namespace Content.Shared.Flash.Components;
-
-/// <summary>
-/// WWDP
-/// </summary>
+ namespace Content.Shared._White.Flash.Components;
 
 [RegisterComponent]
 public sealed partial class FlashModifierComponent : Component

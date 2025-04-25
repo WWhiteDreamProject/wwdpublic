@@ -279,14 +279,6 @@
       state: halfshave_snout
 
 - type: marking
-  id: HumanHairHightight
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _White/Mobs/Customization/human_hair.rsi
-      state: hightight
-
-- type: marking
   id: HumanHairHyenamane
   bodyPart: Hair
   markingCategory: Hair

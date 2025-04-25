@@ -3,7 +3,12 @@
   name: job-name-prosecutor
   description: job-description-prosecutor
   playTimeTracker: JobProsecutor
+  requirements:
+    - !type:CharacterEmployerRequirement
+      employers:
+      - NanoTrasen
   startingGear: ProsecutorGear
+  setPreference: false # WWDP disabled
   icon: "JobIconProsecutor"
   supervisors: job-supervisors-cj
   access:

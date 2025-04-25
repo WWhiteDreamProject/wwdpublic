@@ -26,6 +26,7 @@
     slots:
     - back
   - type: DisarmMalus
+    malus: 0.5 # WWDP
   - type: CultItem
   - type: RuneDrawer
   - type: ActivatableUI
@@ -74,6 +75,7 @@
     slots:
     - back
   - type: DisarmMalus
+    malus: 0.8 # WWDP
   - type: CultItem
   - type: PointLight
     color: Red
@@ -142,5 +144,7 @@
         Piercing: 10
   - type: UseDelay
   - type: DisarmMalus
+    malus: 0.4 # WWDP
+    wieldedBonus: 0.4 # WWDP
   - type: CultItem
   - type: BloodSpear

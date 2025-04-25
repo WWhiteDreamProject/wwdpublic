@@ -1,3 +1,4 @@
+using Content.Server._White.Hearing;
 using Content.Server.Chat.Systems;
 using Content.Server.Emp;
 using Content.Server.Language;
@@ -17,6 +18,7 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 {
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly HearingSystem _hearing = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
 
     public override void Initialize()
@@ -106,6 +108,11 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
         var parent = Transform(uid).ParentUid;
         if (TryComp(parent, out ActorComponent? actor))
         {
+            // WWDP Deafening
+            if (_hearing.IsBlockedByDeafness(actor.PlayerSession, ChatChannel.Radio, args.Language))
+                return;
+            // WWDP end
+
             var canUnderstand = _language.CanUnderstand(parent, args.Language.ID);
             var msg = new MsgChatMessage
             {

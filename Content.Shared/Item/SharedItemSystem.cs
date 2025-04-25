@@ -2,8 +2,10 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
 using Content.Shared.Examine;
+using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Storage;
+using Content.Shared.Storage.EntitySystems;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -14,6 +16,9 @@ namespace Content.Shared.Item;
 
 public abstract class SharedItemSystem : EntitySystem
 {
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goobstation
+    [Dependency] private readonly SharedStorageSystem _storage = default!; // Goobstation
+    [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private   readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] protected readonly SharedContainerSystem Container = default!;

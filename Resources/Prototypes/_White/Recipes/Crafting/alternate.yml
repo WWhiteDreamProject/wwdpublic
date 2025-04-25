@@ -1,0 +1,42 @@
+﻿- type: constructionGraph
+  id: CardboardGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: unglued
+      steps:
+      - tag: Paper
+        name: paper
+      - tag: Paper
+        name: paper
+      - tag: Paper
+        name: paper
+        doAfter: 2
+  - node: unglued
+    entity: UngluedCardboard
+    edges:
+    - to: cardboard
+      conditions:
+      - !type:MinSolution
+        solution: drink
+        reagent:
+          ReagentId: SpaceGlue
+        quantity: 3
+      steps:
+      - tool: Slicing
+        doAfter: 1
+  - node: cardboard
+    entity: MaterialCardboard1
+
+- type: construction
+  name: cardboard
+  id: Cardboard
+  graph: CardboardGraph
+  startNode: start
+  targetNode: cardboard
+  category: construction-category-materials
+  description: Just some home-made cardboard
+  icon: {     sprite: Objects/Materials/materials.rsi , state: cardboard}
+  objectType: Item
+

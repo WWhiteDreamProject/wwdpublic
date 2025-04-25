@@ -71,22 +71,18 @@ public sealed partial class ResearchSystem
         TechnologyDatabaseComponent? clientDatabase = null)
     {
         if (!Resolve(client, ref component, ref clientDatabase, false)
-            || !TryGetClientServer(client, out var serverEnt, out _, component)
+            || !TryGetClientServer(client, out var serverEnt, out var researchServer, component) // WD EDIT
             || !CanServerUnlockTechnology(client, prototype, clientDatabase, component)
             || !PrototypeManager.TryIndex(prototype.Discipline, out var disciplinePrototype)
-            || !TryComp<ResearchServerComponent>(serverEnt.Value, out var researchServer)
-            || prototype.Cost * clientDatabase.SoftCapMultiplier > researchServer.Points)
+            || prototype.Cost * researchServer.SoftCapMultiplier > researchServer.Points) // WD EDIT
             return false;
 
         if (prototype.Tier >= disciplinePrototype.LockoutTier)
-        {
-            clientDatabase.SoftCapMultiplier *= prototype.SoftCapContribution;
-            researchServer.CurrentSoftCapMultiplier *= prototype.SoftCapContribution;
-        }
+            researchServer.SoftCapMultiplier *= prototype.SoftCapContribution; // WD EDIT
 
         AddTechnology(serverEnt.Value, prototype);
         TrySetMainDiscipline(prototype, serverEnt.Value);
-        ModifyServerPoints(serverEnt.Value, -(int) (prototype.Cost * clientDatabase.SoftCapMultiplier));
+        ModifyServerPoints(serverEnt.Value, -(int) (prototype.Cost * researchServer.SoftCapMultiplier)); // WD EDIT
         UpdateTechnologyCards(serverEnt.Value);
 
         _adminLog.Add(LogType.Action, LogImpact.Medium,
@@ -132,7 +128,7 @@ public sealed partial class ResearchSystem
         }
         Dirty(uid, component);
 
-        var ev = new TechnologyDatabaseModifiedEvent();
+        var ev = new TechnologyDatabaseModifiedEvent(technology.RecipeUnlocks); // Goobstation - Lathe message on recipes update
         RaiseLocalEvent(uid, ref ev);
     }
 
@@ -156,7 +152,7 @@ public sealed partial class ResearchSystem
         if (!IsTechnologyAvailable(database, technology))
             return false;
 
-        if (technology.Cost * database.SoftCapMultiplier > serverComp.Points)
+        if (technology.Cost * serverComp.SoftCapMultiplier > serverComp.Points) // WD EDIT
             return false;
 
         return true;

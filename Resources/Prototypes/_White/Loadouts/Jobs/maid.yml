@@ -1,0 +1,492 @@
+# Uniform
+- type: loadout
+  id: LoadoutUniformJumpskirtMaid
+  category: JobsCommandMaid
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidUniforms
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingUniformJumpskirtMaid
+
+- type: loadout
+  id: LoadoutUniformJumpskirtMaidMini
+  category: JobsCommandMaid
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidUniforms
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingUniformJumpskirtMaidMini
+
+- type: loadout
+  id: LoadoutUniformMaid
+  category: JobsCommandMaid
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidUniforms
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - UniformMaid
+
+- type: loadout
+  id: LoadoutClothingOuterSuitShrineMaiden
+  category: JobsCommandMaid
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidUniforms
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingOuterSuitShrineMaiden
+
+- type: loadout
+  id: LoadoutClothingUniformJumpskirtTacticalMaid
+  category: JobsCommandMaid
+  cost: 1
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidUniforms
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingUniformJumpskirtTacticalMaid
+
+- type: loadout
+  id: LoadoutClothingUniformJumpskirtJanimaid
+  category: JobsCommandMaid
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidUniforms
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingUniformJumpskirtJanimaid
+
+- type: loadout
+  id: LoadoutClothingUniformJumpskirtJanimaidmini
+  category: JobsCommandMaid
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidUniforms
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingUniformJumpskirtJanimaidmini
+
+# Head
+
+- type: loadout
+  id: LoadoutHeadHatMobCap
+  category: JobsCommandMaid
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidHats
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingHeadHatMobCap
+
+- type: loadout
+  id: LoadoutClothingHeadHatShrineMaidenWig
+  category: JobsCommandMaid
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidHats
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingHeadHatShrineMaidenWig
+
+- type: loadout
+  id: LoadoutClothingHeadHatTacticalMaidHeadband
+  category: JobsCommandMaid
+  cost: 1
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidHats
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingHeadHatTacticalMaidHeadband
+
+# Shoes
+
+- type: loadout
+  id: LoadoutShoesMaid
+  category: JobsCommandMaid
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidShoes
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingShoesMaid
+
+- type: loadout
+  id: LoadoutMaidShoesBootsLaceup
+  category: JobsCommandMaid
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidShoes
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingShoesBootsLaceup
+
+- type: loadout
+  id: LoadoutMaidShoesSwat
+  category: JobsCommandMaid
+  cost: 3
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidShoes
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingShoesSwat
+
+# Gloves
+
+- type: loadout
+  id: LoadoutMaidHandsTacticalMaidGloves
+  category: JobsCommandMaid
+  cost: 3
+  exclusive: true
+  requirements:
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingHandsTacticalMaidGloves
+
+# Glasses
+
+- type: loadout
+  id: LoadoutEyesGlassesMaid
+  category: JobsCommandMaid
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingEyesGlassesMaid
+
+# Weapons
+
+- type: loadout
+  id: LoadoutMaidRifleChester
+  category: JobsCommandMaid
+  cost: 4
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidPrimary
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - WeaponLeverChester
+  - MagazineMagnumLeverRifle
+  - MagazineMagnumLeverRifle
+
+- type: loadout
+  id: LoadoutMaidMusket
+  category: JobsCommandMaid
+  cost: 3
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidPrimary
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - Musket
+  - CartridgeMusket
+  - CartridgeMusket
+  - CartridgeMusket
+  - CartridgeMusket
+  - CartridgeMusket
+  - CartridgeMusket
+  - CartridgeMusket
+  - CartridgeMusket
+
+- type: loadout
+  id: LoadoutMaidFlintlock
+  category: JobsCommandMaid
+  cost: 3
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidPrimary
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - WeaponPistolFlintlock
+  - CartridgeMusket
+  - CartridgeMusket
+  - CartridgeMusket
+  - CartridgeMusket
+  - CartridgeMusket
+  - CartridgeMusket
+  - CartridgeMusket
+  - CartridgeMusket
+
+- type: loadout
+  id: LoadoutMaidRevolverArgenti
+  category: JobsCommandMaid
+  cost: 3
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidPrimary
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - WeaponRevolverArgenti
+  - SpeedLoaderRifleHeavy
+  - SpeedLoaderRifleHeavy
+
+- type: loadout
+  id: LoadoutMaidSniperRepeater
+  category: JobsCommandMaid
+  cost: 3
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidPrimary
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - WeaponSniperRepeater
+  - MagazineBoxMagnum
+
+- type: loadout
+  id: LoadoutMaidRifleSVT
+  category: JobsCommandMaid
+  cost: 5
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidPrimary
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - WeaponRifleSVT
+  - MagazineLightRifleLowCapacity
+  - MagazineLightRifleLowCapacity
+
+- type: loadout
+  id: LoadoutMaidSniperGrand
+  category: JobsCommandMaid
+  cost: 2
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidPrimary
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - WeaponSniperGrand
+  - SpeedLoaderLightRifle
+  - SpeedLoaderLightRifle
+
+- type: loadout
+  id: LoadoutPistolUniversal
+  category: JobsCommandMaid
+  cost: 6
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidPrimary
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - WeaponPistolUniversal
+  - MagazineUniversalMagnum
+  - MagazineUniversalMagnum
+
+- type: loadout
+  id: LoadoutMaidSniperMosin
+  category: JobsCommandMaid
+  cost: 2
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidPrimary
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - WeaponSniperMosin
+  - SpeedLoaderLightRifle
+  - SpeedLoaderLightRifle
+
+- type: loadout
+  id: LoadoutMaidRevolverSnub
+  category: JobsCommandMaid
+  cost: 3
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidPrimary
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - WeaponRevolverSnub
+  - SpeedLoaderMagnum
+  - SpeedLoaderMagnum
+
+- type: loadout
+  id: LoadoutMaidCQCManual
+  category: JobsCommandMaid
+  cost: 6
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidPrimary
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - BSOManual
+
+# Secondary
+
+- type: loadout
+  id: LoadoutMaidCombatKnife
+  category: JobsCommandMaid
+  cost: 1
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidSecondary
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - CombatKnife
+
+- type: loadout
+  id: LoadoutMaidThrowingKnivesKit
+  category: JobsCommandMaid
+  cost: 2
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidSecondary
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ThrowingKnivesKit
+
+- type: loadout
+  id: LoadoutMaidThrowingStars
+  category: JobsCommandMaid
+  cost: 2
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidSecondary
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ThrowingStar
+  - ThrowingStar
+  - ThrowingStar
+  - ThrowingStar
+  - ThrowingStar
+  - ThrowingStar
+
+- type: loadout
+  id: LoadoutMaidClaymore
+  category: JobsCommandMaid
+  cost: 5
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidSecondary
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - Claymore
+
+- type: loadout
+  id: LoadoutMaidKatanaSheath
+  category: JobsCommandMaid
+  cost: 5
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutMaidSecondary
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - ClothingBeltKatanaSheathFilled
+
+
+# Equipment
+
+- type: loadout
+  id: LoadoutMaidMedkitCombatFilled
+  category: JobsCommandMaid
+  cost: 3
+  requirements:
+  - !type:CharacterJobRequirement
+    jobs:
+    - Maid
+  items:
+  - MedkitCombatFilled

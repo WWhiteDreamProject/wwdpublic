@@ -218,6 +218,7 @@
       key: enum.ThermomachineUiKey.Key
     - type: WiresPanel
     - type: WiresVisuals
+    #- type: PipeRestrictOverlap  Allow for pipe stacking
     - type: NodeContainer
       nodes:
         pipe:
@@ -396,6 +397,7 @@
   - type: GasCondenser
   - type: AtmosPipeColor
   - type: AtmosDevice
+  #- type: PipeRestrictOverlap # Allow pipe stacking on device.
   - type: ApcPowerReceiver
     powerLoad: 10000
   - type: Machine

@@ -3,7 +3,7 @@
   path: /Textures/_White/Interface/Operative/
   colors:
     whiteText: "#FFF5EE"
-    slotSelectedGold: "#e6b812"
+    slotSelectedGold: "#B01232"
     slotColor: "#0f1215"
     slotOutline: "#333850"
     slotText: "#333850"
@@ -20,7 +20,7 @@
   path: /Textures/_White/Interface/Halloween/
   colors:
     whiteText: "#FFF5EE"
-    slotSelectedGold: "#e6b812"
+    slotSelectedGold: "#E99613"
     slotColor: "#0f1215"
     slotOutline: "#333850"
     slotText: "#333850"

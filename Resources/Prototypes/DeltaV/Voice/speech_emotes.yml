@@ -9,9 +9,11 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ rings ]
+  # WD EDIT START
+  chatMessages: ["chat-emote-msg-ring"]
   chatTriggers:
-    - rings
+    - "chat-emote-trigger-ring-1"
+  # WD EDIT END
 
 - type: emote
   id: HarpyPew
@@ -24,10 +26,12 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ pews ]
+  # WD EDIT START
+  chatMessages: ["chat-emote-msg-pew"]
   chatTriggers:
-    - pews
-    - pewpews
+    - "chat-emote-trigger-pew-1"
+    - "chat-emote-trigger-pew-2"
+  # WD EDIT END
 
 - type: emote
   id: HarpyBang
@@ -40,9 +44,11 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ bangs ]
+  # WD EDIT START
+  chatMessages: ["chat-emote-msg-bang"]
   chatTriggers:
-    - bangs
+    - "chat-emote-trigger-bang-1"
+  # WD EDIT END
 
 - type: emote
   id: HarpyRev
@@ -55,9 +61,11 @@
     components:
     - BorgChassis
   category: Vocal
-  chatMessages: [ revs ]
+  # WD EDIT START
+  chatMessages: ["chat-emote-msg-rev"]
   chatTriggers:
-    - revs
+    - "chat-emote-trigger-rev-1"
+  # WD EDIT END
 
 - type: emote
   id: HarpyCaw
@@ -70,9 +78,11 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ caws ]
+  # WD EDIT START
+  chatMessages: ["chat-emote-msg-caw"]
   chatTriggers:
-    - caws
+    - "chat-emote-trigger-caw-1"
+  # WD EDIT END
 
 - type: emote
   id: HarpyHoot
@@ -85,9 +95,9 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ hoots ]
+  chatMessages: ["chat-emote-msg-hoot"]
   chatTriggers:
-    - hoots
+    - "chat-emote-trigger-hoot-1"
 
 #Vulpkanin
 - type: emote
@@ -102,9 +112,11 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ barks ]
+  # WD EDIT START
+  chatMessages: ["chat-emote-msg-bark"]
   chatTriggers:
-    - barks
+    - "chat-emote-trigger-bark-1"
+  # WD EDIT END
 
 - type: emote
   id: Snarl
@@ -118,9 +130,11 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ snarls ]
+  # WD EDIT START
+  chatMessages: ["chat-emote-msg-snarl"]
   chatTriggers:
-    - snarls
+    - "chat-emote-trigger-snarl-1"
+  # WD EDIT END
 
 - type: emote
   id: Whine
@@ -134,9 +148,11 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ whines ]
+  # WD EDIT START
+  chatMessages: ["chat-emote-msg-whine"]
   chatTriggers:
-    - whines
+    - "chat-emote-trigger-whine-1"
+  # WD EDIT END
 
 - type: emote
   id: Howl
@@ -150,9 +166,11 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ howls ]
+  # WD EDIT START
+  chatMessages: ["chat-emote-msg-howl"]
   chatTriggers:
-    - howls
+    - "chat-emote-trigger-howl-1"
+  # WD EDIT END
 
 - type: emote
   id: Awoo
@@ -165,6 +183,8 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [awoos.]
+  # WD EDIT START
+  chatMessages: ["chat-emote-msg-awoo"]
   chatTriggers:
-    - awoos
+    - "chat-emote-trigger-awoo-1"
+  # WD EDIT END

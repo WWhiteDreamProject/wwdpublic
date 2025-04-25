@@ -18,6 +18,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
 using Robust.Client.State;
+using Robust.Client.UserInterface;
 using Robust.Shared.Animations;
 using Robust.Shared.Input;
 using Robust.Shared.Map;
@@ -43,6 +44,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly ContestsSystem _contest = default!; 		// WWDP
     [Dependency] private readonly SpriteSystem _sprite = default!;			// WWDP
     [Dependency] private readonly CombatModeSystem _combatMode = default!;	// WWDP
+    [Dependency] private readonly IUserInterfaceManager _userInterface = default!;	// WWDP
 
     [ValidatePrototypeId<EntityPrototype>]
     public const string HitscanProto = "HitscanEffect";
@@ -96,6 +98,7 @@ public sealed partial class GunSystem : SharedGunSystem
                 Timing,
                 _inputManager,
                 _player,
+                _userInterface,
                 this,
                 TransformSystem,
                 _contest,
@@ -110,6 +113,7 @@ public sealed partial class GunSystem : SharedGunSystem
                 Timing,
                 _inputManager,
                 _player,
+                _userInterface,
                 this,
                 TransformSystem,
                 _contest));
@@ -133,7 +137,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
         _combatMode.LocalPlayerCombatModeUpdated += OnCombatModeUpdated; // WWDP EDIT
     }
-    
+
 	// WWDP EDIT START
     private void OnCombatModeUpdated(bool enabled)
     {
@@ -141,7 +145,7 @@ public sealed partial class GunSystem : SharedGunSystem
             SpreadOverlay = enabled ? GunSpreadOverlayEnum.Partial : GunSpreadOverlayEnum.Off;
     }
 	// WWDP EDIT END
-	
+
     private void OnUpdateClientAmmo(EntityUid uid, AmmoCounterComponent ammoComp, ref UpdateClientAmmoEvent args)
     {
         UpdateAmmoCount(uid, ammoComp);

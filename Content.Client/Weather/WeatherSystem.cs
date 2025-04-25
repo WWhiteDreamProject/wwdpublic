@@ -48,11 +48,9 @@ public sealed class WeatherSystem : SharedWeatherSystem
             || weather.Stream is not null) // Don't ever generate more than one weather sound.
             return;
 
-        // WD EDIT START
         weather.Stream ??= _audio.PlayGlobal(weatherProto.Sound, Filter.Local(), true)?.Entity;
         if (!TryComp(weather.Stream, out AudioComponent? comp))
             return;
-        // WD EDIT END
 
         var occlusion = 0f;
 
@@ -105,7 +103,7 @@ public sealed class WeatherSystem : SharedWeatherSystem
             if (nearestNode != null)
             {
                 var entPos = _transform.GetMapCoordinates(entXform);
-                var nodePosition = nearestNode.Value.ToMap(EntityManager, _transform).Position;
+                var nodePosition = _transform.ToMapCoordinates(nearestNode.Value).Position;
                 var delta = nodePosition - entPos.Position;
                 var distance = delta.Length();
                 occlusion = _audio.GetOcclusion(entPos, delta, distance);
@@ -118,7 +116,7 @@ public sealed class WeatherSystem : SharedWeatherSystem
 
         var alpha = GetPercent(weather, uid);
         alpha *= SharedAudioSystem.VolumeToGain(weatherProto.Sound.Params.Volume);
-        _audio.SetGain(weather.Stream, alpha, comp); // WD EDIR
+        _audio.SetGain(weather.Stream, alpha, comp);
         comp.Occlusion = occlusion;
     }
 

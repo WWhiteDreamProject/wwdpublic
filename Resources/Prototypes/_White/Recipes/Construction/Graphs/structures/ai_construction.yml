@@ -1,0 +1,175 @@
+﻿- type: constructionGraph
+  id: AICoreGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frameUnsecured
+      completed:
+      - !type:SetAnchor
+        value: false
+      steps:
+      - material: Plasteel
+        amount: 4
+        doAfter: 2
+
+  - node: frameUnsecured
+    actions:
+    - !type:AppearanceChange
+    entity: StationAIFrame
+    edges:
+    - to: boardUnsecured
+      conditions:
+      - !type:EntityAnchored { }
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - tag: AiCoreBoard
+        name: AI core board
+        icon:
+          sprite: Objects/Misc/module.rsi
+          state: generic
+
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel
+        amount: 4
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: boardUnsecured
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: screwedUnsecured
+      conditions:
+      - !type:EntityAnchored { }
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - tool: Screwing
+        doAfter: 1
+
+    - to: frameUnsecured
+      conditions:
+      - !type:EntityAnchored
+      completed:
+      - !type:SpawnPrototype
+        prototype: StationAICoreCircuitboard
+      steps:
+      - tool: Prying
+        doAfter: 2
+
+  - node: screwedUnsecured
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: missingWires
+      conditions:
+      - !type:EntityAnchored { }
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: Cable
+        amount: 5
+        doAfter: 2.5
+
+    - to: boardUnsecured
+      conditions:
+      - !type:EntityAnchored
+      steps:
+      - tool: Screwing
+        doAfter: 1
+
+  - node: missingWires
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: missingBrain
+      conditions:
+      - !type:EntityAnchored
+      steps:
+      - component: BorgBrain
+        store: station_ai_mind_slot
+        name: positronic-brain-slot-component-slot-name-brain
+        icon:
+          sprite: Objects/Specific/Robotics/mmi.rsi
+          state: posibrain
+
+    - to: screwedUnsecured
+      conditions:
+      - !type:EntityAnchored
+      completed:
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 5
+      steps:
+      - tool: Cutting
+        doAfter: 2.5
+
+  - node: missingBrain
+    actions:
+    - !type:AppearanceChange
+    entity: StationAIFrame
+    edges:
+    - to: frameUnscrewed
+      conditions:
+      - !type:EntityAnchored
+      steps:
+      - material: ReinforcedGlass
+        amount: 2
+        doAfter: 2
+
+    - to: missingWires
+      conditions:
+      - !type:EntityAnchored
+      completed:
+      - !type:EmptyContainer
+        container: station_ai_mind_slot
+      steps:
+      - tool: Prying
+        doAfter: 2
+
+
+  - node: frameUnscrewed
+    actions:
+    - !type:AppearanceChange
+    entity: StationAIFrame
+    edges:
+    - to: aiCore
+      conditions:
+      - !type:EntityAnchored
+      steps:
+      - tool: Screwing
+        doAfter: 2
+
+    - to: missingBrain
+      conditions:
+      - !type:EntityAnchored
+      - !type:WirePanel
+      steps:
+      - tool: Prying
+        doAfter: 5
+
+
+  - node: aiCore
+    actions:
+    - !type:AppearanceChange
+    entity: PlayerStationAiEmpty
+    edges:
+    - to: frameUnscrewed
+      conditions:
+      - !type:EntityAnchored
+      - !type:WirePanel
+      steps:
+      - tool: Prying
+        doAfter: 5

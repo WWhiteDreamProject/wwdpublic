@@ -75,7 +75,6 @@
       Telecrystal: 0
   # WD EDIT START
   - type: StoreDiscount
-    onSpawn: true
   - type: GiftIgnore
   # WD EDIT END
 

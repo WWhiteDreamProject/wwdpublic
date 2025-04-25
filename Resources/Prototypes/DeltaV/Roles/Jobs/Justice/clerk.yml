@@ -3,6 +3,7 @@
   name: job-name-clerk
   description: job-description-clerk
   playTimeTracker: JobClerk
+  setPreference: false # WWDP disabled
   requirements:
     - !type:CharacterDepartmentTimeRequirement
       department: Security
@@ -13,6 +14,10 @@
     - !type:CharacterPlaytimeRequirement
       tracker: JobProsecutor
       min: 36000 # 10 hours
+    - !type:CharacterEmployerRequirement
+      employers:
+      - IdrisIncorporated
+      - NanoTrasen
 
 
   startingGear: ClerkGear

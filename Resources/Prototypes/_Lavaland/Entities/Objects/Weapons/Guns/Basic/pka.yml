@@ -1,7 +1,7 @@
 - type: entity
   name: proto-kinetic shotgun
   id: WeaponProtoKineticShotgun
-  parent: [WeaponProtoKineticAcceleratorBase]
+  parent: [WeaponProtoKineticAcceleratorBase, BaseGunWieldable] # WWDP
   description: Fires a spread of low-damage kinetic bolts.
   components:
   - type: Sprite
@@ -35,13 +35,14 @@
       tags:
       - PKAUpgrade
   - type: Item
+    size: Huge # WWDP guns resize
     shape:
-    - 0,0,4,0
+    - 0,0,7,0 # WWDP
 
 - type: entity
   name: proto-kinetic repeater
   id: WeaponProtoKineticRepeater
-  parent: [WeaponProtoKineticAcceleratorBase]
+  parent: [WeaponProtoKineticAcceleratorBase, BaseGunWieldable] # WWDP
   description: Fires a barrage of kinetic bolts at a short range.
   components:
   - type: Sprite
@@ -85,8 +86,9 @@
       tags:
       - PKAUpgrade
   - type: Item
+    size: Large # WWDP guns resize
     shape:
-    - 0,0,2,1
+    - 0,0,5,1 # WWDP
 
 - type: entity
   name: proto-kinetic pistol

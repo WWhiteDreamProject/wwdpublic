@@ -16,6 +16,7 @@ using Robust.Shared.Utility;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.BodyEffects;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Random;
@@ -52,6 +53,9 @@ public partial class SharedBodySystem
             // This seems to be an issue due to wiz-merge, on my old branch it was properly instantiating
             // ItemInsertionSlot's container on both ends. It does show up properly on ItemSlotsComponent though.
             _slots.AddItemSlot(ent, ent.Comp.ContainerName, ent.Comp.ItemInsertionSlot);
+
+            _slots.SetLock(ent.Owner, ent.Comp.ItemInsertionSlot, true); // WWDP prevent inserting items into torsos without surgery
+
             Dirty(ent, ent.Comp);
         }
 

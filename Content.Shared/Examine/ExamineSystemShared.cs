@@ -267,7 +267,12 @@ namespace Content.Shared.Examine
             //Add an entity description if one is declared
             if (!string.IsNullOrEmpty(EntityManager.GetComponent<MetaDataComponent>(entity).EntityDescription))
             {
-                message.AddText(EntityManager.GetComponent<MetaDataComponent>(entity).EntityDescription);
+                // WWDP edit
+                var description = EntityManager.GetComponent<MetaDataComponent>(entity).EntityDescription;
+                var descriptionWrapped = Loc.GetString("examine-entity-description-wrapper", ("description", description));
+
+                message.AddMarkup(descriptionWrapped);
+                // WWDP edit end
                 hasDescription = true;
             }
 

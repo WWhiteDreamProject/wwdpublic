@@ -1,0 +1,36 @@
+﻿- type: entity
+  name: Commie propaganda
+  description: A piece of white paper with communist slogans written on it.
+  id: PaperWrittenCommunist
+  parent: Paper
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
+      color: "#e6e6fa"
+    - state: paper_words
+      map: [ "enum.PaperVisualLayers.Writing" ]
+      color: "#e6e6fa"
+      visible: true
+  - type: Tag
+    tags:
+    - PaperWrittenCommunist
+
+- type: entity
+  name: unglued cardboard
+  description: 3 pieces of white paper bent to be in the form of cardboard.
+  id: UngluedCardboard
+  parent: Paper
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 3
+  - type: InjectableSolution
+    solution: drink
+  - type: RefillableSolution
+    solution: drink
+  - type: Construction
+    graph: CardboardGraph
+    node: unglued

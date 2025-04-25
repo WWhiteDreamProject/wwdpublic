@@ -1,0 +1,108 @@
+﻿- type: construction
+  name: improvised pistol
+  id: improvisedpistol
+  graph: ImprovisedShotgunSawnGraph
+  startNode: start
+  targetNode: shotgunsawn
+  category: construction-category-weapons
+  objectType: Item
+  description: A shitty, single-shot .50 caliber pistol made from salvaged and hand-crafted gun parts. Ammo not included.
+  icon:
+    sprite: Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
+    state: icon
+
+- type: constructionGraph
+  id: ImprovisedShotgunSawnGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: shotgunsawn
+      steps:
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - tag: ModularReceiver
+        icon:
+          sprite: Objects/Misc/modular_receiver.rsi
+          state: icon
+        name: modular receiver
+      - material: WoodPlank
+        amount: 4
+        doAfter: 10
+  - node: shotgunsawn
+    entity: WeaponShotgunHandmadeEmpty
+
+- type: construction
+  name: gunpowder
+  id: MaterialGunpowder
+  graph: MaterialGunpowderGraph
+  startNode: start
+  targetNode: gunpowder
+  category: construction-category-weapons
+  objectType: Item
+  description: Gunpowder used for crafting handmade ammunition.
+  icon:
+    sprite: Objects/Misc/reagent_fillings.rsi
+    state: powderpile
+
+- type: constructionGraph
+  id: MaterialGunpowderGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: gunpowder
+      steps:
+      - tag: Matchstick
+        icon:
+          sprite: Objects/Tools/matches.rsi
+          state: match_unlit
+        name: matchstick
+      - tag: Matchstick
+        icon:
+          sprite: Objects/Tools/matches.rsi
+          state: match_unlit
+        name: matchstick
+      - tag: Matchstick
+        icon:
+          sprite: Objects/Tools/matches.rsi
+          state: match_unlit
+        name: matchstick
+        doAfter: 4
+  - node: gunpowder
+    entity: MaterialGunpowder
+
+- type: construction
+  name: snap pop
+  id: snappop
+  graph: SnapPopGraph
+  startNode: start
+  targetNode: snappop
+  category: construction-category-weapons
+  objectType: Item
+  description: Throw it at the floor and listen to it POP!
+  icon:
+    sprite: Objects/Fun/toys.rsi
+    state: snappop
+
+- type: constructionGraph
+  id: SnapPopGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: snappop
+      steps:
+      - tag: Paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        name: paper
+      - material: Gunpowder
+        amount: 1
+        doAfter: 3
+  - node: snappop
+    entity: SnapPop

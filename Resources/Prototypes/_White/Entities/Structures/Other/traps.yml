@@ -1,0 +1,87 @@
+﻿- type: entity
+  id: GrenadeTrap
+  parent: GrenadeTrapGrenade
+  name: booby trap
+  description: An explosive surprise.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Other/grenadetrap.rsi
+    layers:
+    - state: trap
+  - type: Construction
+    graph: GrenadeTrapGraph
+    node: trap_full
+  - type: Slippery
+    slipSound:
+      path: /Audio/Effects/packetrip.ogg
+    launchForwardsMultiplier: 0
+    paralyzeTime: 0
+  - type: StepTrigger
+    triggerGroups:
+      types:
+      - Landmine
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+  - type: TriggerOnStepTrigger
+
+- type: entity
+  id: GrenadeTrapGrenade
+  parent: GrenadeTrapPoles
+  name: booby trap
+  categories: [ HideSpawnMenu ]
+  description: An explosive surprise.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Other/grenadetrap.rsi
+    layers:
+    - state: trap_grenade
+  - type: Construction
+    graph: GrenadeTrapGraph
+    node: trap_grenade
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 10
+    intensitySlope: 3
+    totalIntensity: 120
+    canCreateVacuum: false
+
+
+- type: entity
+  id: GrenadeTrapPoles
+  parent: BaseStructure
+  name: booby trap
+  categories: [ HideSpawnMenu ]
+  description: An explosive surprise.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Other/grenadetrap.rsi
+    layers:
+    - state: poles
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.9,-0.1,1.9,0.1"
+        density: 60
+        hard: false
+        mask:
+        - MachineMask
+        layer:
+        - LowImpassable
+  - type: Construction
+    graph: GrenadeTrapGraph
+    node: trap_poles
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:DoActsBehavior
+        acts: Destruction
+      - !type:ExplodeBehavior

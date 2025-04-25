@@ -1,15 +1,20 @@
 ﻿- type: decal
+  id: BaseConcreteTrim # WWDP edit
+  abstract: true
+
+- type: decal # WWDP edit
   id: ConcreteTrim
+  parent: BaseConcreteTrim
   abstract: true
 
 - type: decal
   id: GrayConcreteTrim
-  parent: ConcreteTrim
+  parent: BaseConcreteTrim # WWDP edit
   abstract: true
 
 - type: decal
   id: OldConcreteTrim
-  parent: ConcreteTrim
+  parent: BaseConcreteTrim # WWDP edit
   abstract: true
 
 - type: decal

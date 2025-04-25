@@ -43,10 +43,12 @@
   - type: Storage
     maxItemSize: Normal
     defaultStorageOrientation: Vertical
-    grid:
-    - 0,0,7,1
+    grid: # WWDP belt bags with 3x 3x2 pouches; no whitelist
+    - 0,0,2,1
+    - 4,0,6,1
+    - 8,0,10,1
   - type: Item
-    size: Ginormous
+    size: Large
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -64,7 +66,7 @@
   - type: BallisticAmmoProvider
     mayTransfer: true
   - type: Item
-    size: Ginormous
+    size: Large
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container

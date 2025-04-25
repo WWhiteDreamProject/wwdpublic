@@ -19,9 +19,9 @@
     components:
     - type: Sharp
     - type: DisarmMalus
-      malus: 0.6
+      malus: 0.8 # WWDP
   - type: ItemToggleSize
-    activatedSize: Huge
+    activatedSize: Ginormous # it would just cut through the bag
   - type: ItemTogglePointLight
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
@@ -197,7 +197,7 @@
     components:
     - type: Sharp
     - type: DisarmMalus
-      malus: 0.4
+      malus: 0.6 # WWDP
   - type: MeleeWeapon
     animationRotation: 135 # WWDP
     wideAnimationRotation: 135 # WWDP
@@ -290,9 +290,9 @@
     attackRate: 0.6666
   - type: ItemToggleMeleeWeapon
     activatedDamage:
-        types:
-            Slash: 6
-            Heat: 12
+      types:
+        Slash: 6
+        Heat: 12
   - type: GuideHelp
     guides: [ SecurityWeapons ]
 

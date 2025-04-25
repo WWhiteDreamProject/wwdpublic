@@ -42,7 +42,7 @@
       absorbed:
         maxVol: 100
   - type: UseDelay
-    delay: 1
+    delay: 0.75
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50

@@ -11,9 +11,12 @@
         map: ["enum.GunVisualLayers.Base"]
   - type: Item
     size: Small
+    shape:
+    - 0,0,1,0 # WWDP guns resize
+    - 0,1,0,1
     sprite: Objects/Weapons/Guns/Shotguns/flaregun.rsi
   - type: Gun
-    bonusAngleIncreaseMove: 20    # wwdp 
+    bonusAngleIncreaseMove: 20    # wwdp
     bonusAngleIncreaseTurn: 0.4   # wwdp
     bonusAngleDecay: 80           # wwdp
     maxBonusAngle: 10             # wwdp
@@ -26,12 +29,13 @@
     slots:
       gun_chamber:
         name: Chamber
-        startingItem: ShellShotgunFlare
+        startingItem: Flare
         priority: 1
         whitelist:
           tags: ## TODO: Add a risk of the gun blowing up if using non-light shotgun shells, and then re-enable them.
             ## - ShellShotgun
             - ShellShotgunLight
+            - Flare
   - type: ContainerContainer
     containers:
       gun_chamber: !type:ContainerSlot
@@ -76,3 +80,4 @@
   - type: Tag
     tags:
     - Sidearm
+  - type: DualWield # WWDP

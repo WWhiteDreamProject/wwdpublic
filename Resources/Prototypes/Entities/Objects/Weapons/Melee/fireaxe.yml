@@ -13,7 +13,11 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/fireaxe.rsi
     state: icon
+  - type: DisarmMalus # WWDP
+    malus: 0.3
+    wieldedBonus: 0.3
   - type: MeleeWeapon
+    animationRotation: 45 # WWDP
     wideAnimationRotation: 135
     swingLeft: true
     attackRate: 1.3333

@@ -120,16 +120,20 @@
 - type: entity
   id: ClothingBeltMedicalEMTFilled
   parent: ClothingBeltMedicalEMT
-  suffix: Paramedic,Filled
+  suffix: Filled
   components:
   - type: StorageFill
     contents:
-      - id: Brutepack
-      - id: Ointment
+      - id: MedicatedSuture
+        amount: 2
+      - id: RegenerativeMesh
+        amount: 1
       - id: Bloodpack
+        amount: 1
       - id: Gauze
-      - id: EmergencyMedipen #You never know what people are going to latejoin into
-        amount: 3
+      - id: EmergencyMedipen
+      - id: BruteAutoInjector
+      - id: BurnAutoInjector
 
 - type: entity
   id: ClothingBeltPlantFilled
@@ -158,16 +162,14 @@
   name: grenadier chest rig
   suffix: Filled
   components:
-  - type: Item
-    size: Ginormous
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-    - 0,0,7,1
-  - type: StorageFill
+  - type: StorageFill # WWDP
     contents:
       - id: ExGrenade
-        amount: 4
+        amount: 2
+      - id: GrenadeShrapnel
+        amount: 2
+      - id: GrenadeIncendiary
+        amount: 2
       - id: SyndieMiniBomb
         amount: 2
       - id: EmpGrenade

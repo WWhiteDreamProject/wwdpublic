@@ -1,0 +1,12 @@
+ - type: entity
+   id: BingleSpawn
+   parent: BaseStationEventShortDelay
+   components:
+   - type: StationEvent
+     startAnnouncement: true
+     earliestStart: 20
+     weight: 6
+     duration: 50
+     minimumPlayers: 15
+   - type: RandomSpawnRule
+     prototype: SpawnPointGhostBinglePrime

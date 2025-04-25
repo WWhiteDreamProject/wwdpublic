@@ -7,7 +7,7 @@
     Blood:
       amount: 20
   products:
-    Water: 11
+    Water: 10.5 #WWDP edit
     Iron: 0.5
     Sugar: 2
     CarbonDioxide: 3
@@ -47,7 +47,7 @@
     CopperBlood:
       amount: 20
   products:
-    Water: 11
+    Water: 10.5 #WWDP edit
     Copper: 0.5
     Sugar: 2
     CarbonDioxide: 3

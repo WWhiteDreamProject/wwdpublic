@@ -287,7 +287,7 @@
   description: A sign indicating the xenoarchaeology lab.
   components:
   - type: Sprite
-    state: xenoarch
+    state: anomaly # WWDP edit
 
 - type: entity
   parent: BaseSign
@@ -296,7 +296,7 @@
   description: A sign indicating the anomalous research lab.
   components:
   - type: Sprite
-    state: anomaly
+    state: anomaly2 # WWDP edit
 
 - type: entity
   parent: BaseSign
@@ -421,7 +421,7 @@
   description: A sign indicating the chapel.
   components:
   - type: Sprite
-    sprite: DeltaV/Structures/Wallmounts/signs.rsi # DeltaV: Epi-themed chapel sprite
+    sprite: Structures/Wallmounts/signs.rsi # WWDP edit
     state: chapel
 
 - type: entity
@@ -522,7 +522,7 @@
   description: A sign indicating the escape pods.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Structures/Wallmounts/signs.rsi # Nyanotrasen - Give pods sign directional sprites
+    sprite: Structures/Wallmounts/signs.rsi # WWDP edit
     state: pods
     snapCardinals: false
 
@@ -776,7 +776,7 @@
   description: A sign warning that the area ahead is nothing but cold, empty space.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Structures/Wallmounts/signs.rsi # Nyanotrasen - Give space sign directional sprites
+    sprite: Structures/Wallmounts/signs.rsi # WWDP edit
     state: space
     snapCardinals: false
 

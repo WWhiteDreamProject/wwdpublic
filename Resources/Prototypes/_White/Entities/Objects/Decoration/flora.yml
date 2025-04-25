@@ -1,0 +1,164 @@
+#Autumn large tree
+- type: entity
+  parent: BaseTreeLarge
+  id: FloraTreeAutumnOrangeLarge01
+  name: large tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/autumn_treeslarge.rsi
+    state: orangelarge01
+
+- type: entity
+  parent: BaseTreeLarge
+  id: FloraTreeAutumnOrangeLarge02
+  name: large tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/autumn_treeslarge.rsi
+    state: orangelarge02
+
+- type: entity
+  parent: BaseTreeLarge
+  id: FloraTreeAutumnOrangeLarge03
+  name: large tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/autumn_treeslarge.rsi
+    state: orangelarge03
+
+- type: entity
+  parent: BaseTreeLarge
+  id: FloraTreeAutumnOrangeLarge04
+  name: large tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/autumn_treeslarge.rsi
+    state: orangelarge04
+
+- type: entity
+  parent: BaseTreeLarge
+  id: FloraTreeAutumnOrangeLarge05
+  name: large tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/autumn_treeslarge.rsi
+    state: orangelarge05
+
+- type: entity
+  parent: BaseTreeLarge
+  id: FloraTreeAutumnOrangeLarge06
+  name: large tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/autumn_treeslarge.rsi
+    state: orangelarge06
+
+#Autumn tree
+- type: entity
+  parent: BaseTree
+  id: FloraTreeAutumnOrange01
+  name: tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/autumn_trees.rsi
+    state: orange01
+
+- type: entity
+  parent: BaseTree
+  id: FloraTreeAutumnOrange02
+  name: tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/autumn_trees.rsi
+    state: orange02
+
+- type: entity
+  parent: BaseTree
+  id: FloraTreeAutumnOrange03
+  name: tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/autumn_trees.rsi
+    state: orange03
+
+- type: entity
+  parent: BaseTree
+  id: FloraTreeAutumnOrange04
+  name: tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/autumn_trees.rsi
+    state: orange04
+
+- type: entity
+  parent: BaseTree
+  id: FloraTreeAutumnOrange05
+  name: tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/autumn_trees.rsi
+    state: orange05
+
+- type: entity
+  parent: BaseTree
+  id: FloraTreeAutumnOrange06
+  name: tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/autumn_trees.rsi
+    state: orange06
+
+#Spring large tree
+- type: entity
+  parent: BaseTreeLarge
+  id: FloraTreeSpringPinkLarge01
+  name: large tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/spring_treeslarge.rsi
+    state: pinklarge01
+
+- type: entity
+  parent: BaseTreeLarge
+  id: FloraTreeSpringPinkLarge02
+  name: large tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/spring_treeslarge.rsi
+    state: pinklarge02
+
+- type: entity
+  parent: BaseTreeLarge
+  id: FloraTreeSpringPinkLarge03
+  name: large tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/spring_treeslarge.rsi
+    state: pinklarge03
+
+- type: entity
+  parent: BaseTreeLarge
+  id: FloraTreeSpringPinkLarge04
+  name: large tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/spring_treeslarge.rsi
+    state: pinklarge04
+
+- type: entity
+  parent: BaseTreeLarge
+  id: FloraTreeSpringPinkLarge05
+  name: large tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/spring_treeslarge.rsi
+    state: pinklarge05
+
+- type: entity
+  parent: BaseTreeLarge
+  id: FloraTreeSpringPinkLarge06
+  name: large tree
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Decoration/Flora/spring_treeslarge.rsi
+    state: pinklarge06

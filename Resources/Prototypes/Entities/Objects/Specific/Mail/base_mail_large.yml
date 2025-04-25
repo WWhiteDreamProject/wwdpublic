@@ -7,9 +7,10 @@
   components:
   - type: Item
     size: Ginormous
+    # WWDP edit start
   - type: Sprite
-    scale: 0.8, 0.8
-    sprite: Objects/Specific/Mail/mail_large.rsi
+    # scale: 0.8, 0.8
+    sprite: Objects/Specific/Mail/mail_large.rsi # Sprites edited by WWDP
     layers:
     - state: icon
       map: ["enum.MailVisualLayers.Icon"]
@@ -17,8 +18,8 @@
       map: ["enum.MailVisualLayers.FragileStamp"]
       visible: false
     - map: ["enum.MailVisualLayers.JobStamp"]
-      scale: 0.8, 0.8
-      offset: 0.235, -0.01
+      # scale: 0.8, 0.8
+      offset: 0.21875, -0.1875
     - state: locked
       map: ["enum.MailVisualLayers.Lock"]
     - state: priority
@@ -28,6 +29,7 @@
     - state: broken
       map: ["enum.MailVisualLayers.Breakage"]
       visible: false
+      # WWDP edit end*
   - type: GenericVisualizer
     visuals:
       enum.MailVisuals.IsTrash:

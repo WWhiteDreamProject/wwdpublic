@@ -38,8 +38,13 @@
         Structural: 4
   - type: Item
     size: Normal
+    storedRotation: 45 # WWDP
+    shape: # WWDP
+    - 0,0,4,1
     sprite: Objects/Weapons/Melee/chainsaw.rsi
   - type: DisarmMalus
+    malus: 0.4 # WWDP
+    wieldedBonus: 0.4 # WWDP
   - type: RefillableSolution
     solution: Welder
   - type: SolutionContainerManager
