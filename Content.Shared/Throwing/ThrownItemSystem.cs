@@ -122,9 +122,9 @@ namespace Content.Shared.Throwing
             thrownItemComponent.Processed.Clear(); // WD EDIT
         }
 
-        public void LandComponent(EntityUid uid, ThrownItemComponent thrownItem, PhysicsComponent physics, bool playSound)
+        public void LandComponent(EntityUid uid, ThrownItemComponent thrownItem, PhysicsComponent physics, bool playSound, bool forceLand = false)
         {
-            if (thrownItem.Landed || thrownItem.Deleted || _gravity.IsWeightless(uid) || Deleted(uid))
+            if (thrownItem.Landed || thrownItem.Deleted || _gravity.IsWeightless(uid) && !forceLand || Deleted(uid))
                 return;
 
             thrownItem.Landed = true;
