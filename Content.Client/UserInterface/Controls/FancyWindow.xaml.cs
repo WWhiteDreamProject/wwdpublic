@@ -37,45 +37,36 @@ namespace Content.Client.UserInterface.Controls
             OpenAnimation = new(
                 RecenterWindow,
                 this,
-                new()
+                AnimationInterpolationMode.Cubic,
+                new List<AnimationTrackProperty.KeyFrame>()
                 {
-                    InterpolationMode = AnimationInterpolationMode.Cubic,
-                    KeyFrames =
-                    {
-                        new(new Vector2(0.5f,1.2f),0f),
-                        new(new Vector2(0.5f,0.4f),0.25f),
-                        new(new Vector2(0.5f,0.5f),0.4f)
-                    }
+                    new(new Vector2(0.5f, 1.2f), 0f),
+                    new(new Vector2(0.5f, 0.4f), 0.25f),
+                    new(new Vector2(0.5f, 0.5f), 0.4f)
                 }
-                );
+            );
 
             FadeAnimation = new(
                 SetVisibility,
                 this,
-                new()
+                AnimationInterpolationMode.Cubic,
+                new List<AnimationTrackProperty.KeyFrame>()
                 {
-                    InterpolationMode = AnimationInterpolationMode.Cubic,
-                    KeyFrames =
-                    {
-                        new(1f,0f),
-                        new(0f,0.25f),
-                        new(0f,0.4f)
-                    }
+                    new(1f,0f),
+                    new(0f,0.25f),
+                    new(0f,0.4f)
                 }
             );
 
             UnfadeAnimation = new(
                 SetVisibility,
                 this,
-                new()
+                AnimationInterpolationMode.Cubic,
+                new List<AnimationTrackProperty.KeyFrame>()
                 {
-                    InterpolationMode = AnimationInterpolationMode.Cubic,
-                    KeyFrames =
-                    {
-                        new(0f,0f),
-                        new(1f,0.25f),
-                        new(1f,0.4f)
-                    }
+                    new(0f,0f),
+                    new(1f,0.25f),
+                    new(1f,0.4f)
                 }
             );
         }
@@ -94,15 +85,12 @@ namespace Content.Client.UserInterface.Controls
             new AnimationExtend<Vector2>(
                 RecenterWindow,
                 this,
-                new()
+                AnimationInterpolationMode.Cubic,
+                new List<AnimationTrackProperty.KeyFrame>()
                 {
-                    InterpolationMode = AnimationInterpolationMode.Cubic,
-                    KeyFrames =
-                    {
-                        new(new Vector2(pos.X,pos.Y),0f),
-                        new(new Vector2(pos.X,0.4f),0.25f),
-                        new(new Vector2(pos.X,1.0f),0.4f)
-                    }
+                    new(new Vector2(pos.X,pos.Y),0f),
+                    new(new Vector2(pos.X,0.4f),0.25f),
+                    new(new Vector2(pos.X,1.0f),0.4f)
                 }
             ).PlayAnimation();
             FadeAnimation.PlayAnimation();
