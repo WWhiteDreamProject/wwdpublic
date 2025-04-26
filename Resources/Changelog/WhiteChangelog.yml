@@ -2693,3 +2693,14 @@ Entries:
   id: 291
   time: '2025-04-25T08:40:27.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/474
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Боевые перчатки теперь не доступны всем членам службы безопасности
+    - type: Remove
+      message: Удалены боевые перчатки ТСФА из лодаутов
+    - type: Remove
+      message: Удалена броня ТСФА из лодаутов службы безопасности
+  id: 292
+  time: '2025-04-26T07:18:13.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/464
