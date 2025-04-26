@@ -9,7 +9,9 @@ public sealed partial class TTSSystem
 {
     private void OnTransformSpeech(TransformSpeechEvent args)
     {
-        if (!_isEnabled) return;
+        if (!_isEnabled)
+            return;
+
         args.Message = args.Message.Replace("+", "");
     }
 
@@ -30,6 +32,7 @@ public sealed partial class TTSSystem
     {
         if (ReverseTranslit.TryGetValue(oneChar.Value.ToLower(), out var replace))
             return replace;
+
         return oneChar.Value;
     }
 
@@ -37,6 +40,7 @@ public sealed partial class TTSSystem
     {
         if (WordReplacement.TryGetValue(word.Value.ToLower(), out var replace))
             return replace;
+
         return word.Value;
     }
 
@@ -44,6 +48,7 @@ public sealed partial class TTSSystem
     {
         if (!long.TryParse(word.Value, out var number))
             return word.Value;
+
         return NumberConverter.NumberToText(number);
     }
 
@@ -285,28 +290,21 @@ public static class NumberConverter
         bool male,
 		string valueDeclensionFor1,
 		string valueDeclensionFor2,
-		string valueDeclensionFor5)
-	{
-		return
-            NumberToText(value, male)
-			+ " "
-			+ GetDeclension((int)(value % 10), valueDeclensionFor1, valueDeclensionFor2, valueDeclensionFor5);
-	}
+		string valueDeclensionFor5
+        ) =>
+        NumberToText(value, male)
+        + " "
+        + GetDeclension((int)(value % 10), valueDeclensionFor1, valueDeclensionFor2, valueDeclensionFor5);
 
-	private static string GetDeclension(int val, string one, string two, string five)
-	{
-		var t = (val % 100 > 20) ? val % 10 : val % 20;
+    private static string GetDeclension(int val, string one, string two, string five)
+    {
+        var t = (val % 100 > 20) ? val % 10 : val % 20;
 
-		switch (t)
-		{
-			case 1:
-				return one;
-			case 2:
-			case 3:
-			case 4:
-				return two;
-			default:
-				return five;
-		}
-	}
+        return t switch
+        {
+            1 => one,
+            2 or 3 or 4 => two,
+            _ => five
+        };
+    }
 }

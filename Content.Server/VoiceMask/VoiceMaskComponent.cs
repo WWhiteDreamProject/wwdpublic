@@ -35,7 +35,6 @@ public sealed partial class VoiceMaskComponent : Component
 
     // WD EDIT START
     [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
     public string VoiceId = SharedHumanoidAppearanceSystem.DefaultVoice;
     // WD EDIT END
 

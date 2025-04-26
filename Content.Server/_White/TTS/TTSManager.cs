@@ -38,21 +38,21 @@ public sealed class TTSManager
     private readonly HttpClient _httpClient = new();
 
     private ISawmill _sawmill = default!;
-    // ReSharper disable once InconsistentNaming
-    public readonly Dictionary<string, byte[]> _cache = new();
-    // ReSharper disable once InconsistentNaming
-    public readonly HashSet<string> _cacheKeysSeq = new();
-    // ReSharper disable once InconsistentNaming
-    public int _maxCachedCount = 200;
+
+    public readonly Dictionary<string, byte[]> Cache = new();
+    public readonly HashSet<string> CacheKeysSeq = new();
+    public int MaxCachedCount = 200;
+
     private string _apiUrl = string.Empty;
     private string _apiToken = string.Empty;
 
     public void Initialize()
     {
         _sawmill = Logger.GetSawmill("tts");
+
         _cfg.OnValueChanged(WhiteCVars.TTSMaxCache, val =>
         {
-            _maxCachedCount = val;
+            MaxCachedCount = val;
             ResetCache();
         }, true);
         _cfg.OnValueChanged(WhiteCVars.TTSApiUrl, v => _apiUrl = v, true);
@@ -69,7 +69,7 @@ public sealed class TTSManager
     {
         WantedCount.Inc();
         var cacheKey = GenerateCacheKey(speaker, text);
-        if (_cache.TryGetValue(cacheKey, out var data))
+        if (Cache.TryGetValue(cacheKey, out var data))
         {
             ReusedCount.Inc();
             _sawmill.Verbose($"Use cached sound for '{text}' speech by '{speaker}' speaker");
@@ -107,13 +107,10 @@ public sealed class TTSManager
             var soundData = Convert.FromBase64String(json.Results.First().Audio);
 
 
-            _cache.TryAdd(cacheKey, soundData);
-            _cacheKeysSeq.Add(cacheKey);
-            if (_cache.Count > _maxCachedCount)
+            if (Cache.Count <= MaxCachedCount)
             {
-                var firstKey = _cacheKeysSeq.First();
-                _cache.Remove(firstKey);
-                _cacheKeysSeq.Remove(firstKey);
+                Cache.TryAdd(cacheKey, soundData);
+                CacheKeysSeq.Add(cacheKey);
             }
 
             _sawmill.Debug($"Generated new audio for '{text}' speech by '{speaker}' speaker ({soundData.Length} bytes)");
@@ -137,8 +134,8 @@ public sealed class TTSManager
 
     public void ResetCache()
     {
-        _cache.Clear();
-        _cacheKeysSeq.Clear();
+        Cache.Clear();
+        CacheKeysSeq.Clear();
     }
 
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
