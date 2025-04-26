@@ -54,24 +54,6 @@
   name: store-category-wearables
   priority: 3
 
-# Goobstation
-- type: storeCategory
-  id: SpellbookSummons
-  name: store-caregory-spellbook-summons
-  priority: 5
-
-# Goobstation
-- type: storeCategory
-  id: SpellbookSpecial
-  name: store-caregory-spellbook-special
-  priority: 6
-
-# Goobstation
-- type: storeCategory
-  id: SpellbookBundles
-  name: store-caregory-spellbook-bundles
-  priority: 7
-
 - type: storeCategory
   id: UplinkChemicals
   name: store-category-chemicals

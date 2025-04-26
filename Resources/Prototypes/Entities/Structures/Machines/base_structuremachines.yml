@@ -3,7 +3,6 @@
   parent: BaseStructure
   id: BaseMachine
   components:
-  - type: Animateable # Goobstation
   - type: InteractionOutline
   - type: Anchorable
     delay: 2
@@ -61,7 +60,6 @@
   abstract: true
   id: ConstructibleMachine
   components:
-  - type: Animateable # Goobstation
   - type: Machine
   - type: ContainerContainer
     containers:

@@ -64,7 +64,6 @@
   - type: ActiveRadio
     receiveAllChannels: true
     globalReceive: true
-  - type: Spectral # GoobStation - Spectral Component
   - type: Tag
     tags:
     - BypassInteractionRangeChecks

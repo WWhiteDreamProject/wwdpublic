@@ -140,8 +140,7 @@ public sealed class PsionicsSystem : EntitySystem
         foreach (var id in pool.Weights)
         {
             if (!_protoMan.TryIndex<PsionicPowerPrototype>(id.Key, out var power)
-                || component.ActivePowers.Contains(power)
-                || component.AvailablePowers.ContainsKey(id.Key))
+                || component.ActivePowers.Contains(power))
                 continue;
 
             component.AvailablePowers.TryAdd(id.Key, id.Value);

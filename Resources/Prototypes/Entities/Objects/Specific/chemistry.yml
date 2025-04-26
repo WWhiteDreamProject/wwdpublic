@@ -603,7 +603,7 @@
     transferAmount: 0.5
     solution: injector
     updateInterval: 2
-#    injections: 10
+    injections: 10
     pierceArmor: false
   - type: SolutionInjectOnEmbed
     transferAmount: 2

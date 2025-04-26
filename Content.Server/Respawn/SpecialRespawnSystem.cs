@@ -23,7 +23,6 @@ public sealed class SpecialRespawnSystem : SharedSpecialRespawnSystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
 
     public override void Initialize()
     {
@@ -142,9 +141,8 @@ public sealed class SpecialRespawnSystem : SharedSpecialRespawnSystem
     /// <param name="targetMap">The map that you're looking for a safe tile on</param>
     /// <param name="maxAttempts">The maximum amount of attempts it should try before it gives up</param>
     /// <param name="targetCoords">If successful, the coordinates of the safe tile</param>
-    /// <param name="checkTileMixture">Whether to skip tiles with unsafe air mixture</param>
     /// <returns></returns>
-    public bool TryFindRandomTile(EntityUid targetGrid, EntityUid targetMap, int maxAttempts, out EntityCoordinates targetCoords, bool checkTileMixture = true) // Goob edit
+    public bool TryFindRandomTile(EntityUid targetGrid, EntityUid targetMap, int maxAttempts, out EntityCoordinates targetCoords)
     {
         targetCoords = EntityCoordinates.Invalid;
 
@@ -159,7 +157,7 @@ public sealed class SpecialRespawnSystem : SharedSpecialRespawnSystem
         var tile = tileRef.GridIndices;
 
         var found = false;
-        var (gridPos, _, gridMatrix) = _transform.GetWorldPositionRotationMatrix(xform);
+        var (gridPos, _, gridMatrix) = xform.GetWorldPositionRotationMatrix();
         var gridBounds = gridMatrix.TransformBox(grid.LocalAABB);
 
         //Obviously don't put anything ridiculous in here
@@ -173,9 +171,9 @@ public sealed class SpecialRespawnSystem : SharedSpecialRespawnSystem
             var mapTarget = grid.WorldToTile(mapPos);
             var circle = new Circle(mapPos, 2);
 
-            foreach (var newTileRef in _map.GetTilesIntersecting(targetGrid, grid, circle))
+            foreach (var newTileRef in grid.GetTilesIntersecting(circle))
             {
-                if (newTileRef.IsSpace(_tileDefinitionManager) || _turf.IsTileBlocked(newTileRef, CollisionGroup.MobMask) || checkTileMixture && !_atmosphere.IsTileMixtureProbablySafe(targetGrid, targetMap, mapTarget)) // Goob edit
+                if (newTileRef.IsSpace(_tileDefinitionManager) || newTileRef.IsBlockedTurf(true) || !_atmosphere.IsTileMixtureProbablySafe(targetGrid, targetMap, mapTarget))
                     continue;
 
                 found = true;

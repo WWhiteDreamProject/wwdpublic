@@ -348,7 +348,7 @@
   description: Channels energy into your gauntlet - firing its essence forward in a slow moving, yet devastating, attack
   categories: [ HideSpawnMenu ]
   components:
-  - type: EntityWorldTargetAction
+  - type: WorldTargetAction
     useDelay: 30
     itemIconStyle: BigAction
     checkCanAccess: false

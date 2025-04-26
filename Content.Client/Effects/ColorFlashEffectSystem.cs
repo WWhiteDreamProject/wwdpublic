@@ -111,7 +111,7 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
 
             var animation = GetDamageAnimation(ent, color, sprite, ev.AnimationLength);
 
-            if (animation == null)
+            if (animation == null)  
                 continue;
 
             var comp = EnsureComp<ColorFlashEffectComponent>(ent);
@@ -121,9 +121,3 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
         }
     }
 }
-
-/// <summary>
-/// Raised on an entity to change the target for a color flash effect.
-/// </summary>
-[ByRefEvent]
-public record struct GetFlashEffectTargetEvent(EntityUid Target);
