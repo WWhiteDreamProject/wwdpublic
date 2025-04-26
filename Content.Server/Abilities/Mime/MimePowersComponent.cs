@@ -55,5 +55,10 @@ namespace Content.Server.Abilities.Mime
         [DataField]
         public ProtoId<AlertPrototype> VowBrokenAlert = "VowBroken";
 
+        /// Goobstation
+        /// Whether this mime is able to break vow
+        /// </summary>
+        [DataField]
+        public bool CanBreakVow = true;
     }
 }

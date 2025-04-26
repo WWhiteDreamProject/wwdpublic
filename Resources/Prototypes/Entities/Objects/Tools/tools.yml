@@ -292,7 +292,10 @@
     - Crowbar
     - CrowbarRed
   - type: Sprite
-    state: red-icon
+    layers:
+    - state: icon
+    - state: cover-icon
+      color: "#ff0000"
   - type: Item
     heldPrefix: red
     storedSprite:

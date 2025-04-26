@@ -1,4 +1,40 @@
 - type: entity
+  parent: MobHuman
+  id: MobHumanRandom
+  name: Urist McHuman
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_first
+    - names_last
+
+- type: entity
+  parent: MobDiona
+  id: MobDionaRandom
+  name: Urist McPlants
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - DionaFirst
+    - DionaLast
+
+- type: entity
+  parent: MobFelinid
+  id: MobFelinidRandom
+  name: Urist McFelinid
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_first
+    - names_last
+
+- type: entity
   parent: MobTajaran
   id: MobTajaranRandom
   name: Urist McTajaran
@@ -7,8 +43,80 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_tajaran_first
-    - names_tajaran_last
+    - NamesTajaranFirst
+    - NamesTajaranLast
+
+
+- type: entity
+  parent: MobGingerbread
+  id: MobGingerbreadRandom
+  name: Urist McCookie
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_first
+    - names_last
+
+- type: entity
+  parent: MobMoth
+  id: MobMothRandom
+  name: Urist McFluff
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_moth_first_female
+    - names_moth_last
+
+- type: entity
+  parent: MobDwarf
+  id: MobDwarfRandom
+  name: Urist McDwarf
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_first
+    - names_last
+
+- type: entity
+  parent: MobHarpy
+  id: MobHarpyRandom
+  name: Urist McHarpy
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_first
+    - names_last
+
+#- type: entity
+#  parent: MobRodentia
+#  id: MobRodentiaRandom
+#  name: Urist McRat
+#  suffix: Random Appearance
+#  components:
+#  - type: RandomHumanoidAppearance
+#  - type: RandomMetadata
+#    nameSegments:
+#    - NamesRodentiaMale
+#    - NamesRodentiaLast
+
+- type: entity
+  parent: MobReptilian
+  id: MobReptilianRandom
+  name: Urist McScales
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_reptilian_male
 
 - type: entity
   parent: MobVulpkanin
@@ -19,5 +127,39 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_vulpkanin_male
-    - names_vulpkanin_last
+    - NamesVulpakinMale
+    - NamesVulpakinLast
+
+- type: entity
+  parent: MobSlimePerson
+  id: MobSlimePersonRandom
+  name: Urist McSlime
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_first
+    - names_last
+
+#- type: entity
+#  parent: MobYowie
+#  id: MobYowieRandom
+#  name: Urist McYow
+#  suffix: Random Appearance
+#  components:
+#  - type: RandomHumanoidAppearance
+#  - type: RandomMetadata
+#    nameSegments:
+#    - NamesYowieMale
+
+- type: entity
+  parent: MobVox
+  id: MobVoxRandom
+  name: Uristiti McVox
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_vox

@@ -3,6 +3,7 @@
   id: BaseItem
   abstract: true
   components:
+  - type: Animateable # Goobstation
   - type: Item
     size: Small
   - type: Clickable

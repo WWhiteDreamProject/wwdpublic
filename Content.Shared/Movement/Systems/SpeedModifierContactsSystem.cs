@@ -1,4 +1,25 @@
+// SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Events;
+using Content.Shared.Slippery;
 using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
@@ -85,16 +106,37 @@ public sealed class SpeedModifierContactsSystem : EntitySystem
         var entries = 0;
         foreach (var ent in _physics.GetContactingEntities(uid, physicsComponent))
         {
-            if (!TryComp<SpeedModifierContactsComponent>(ent, out var slowContactsComponent))
-                continue;
+            bool speedModified = false;
 
-            if (_whitelistSystem.IsWhitelistPass(slowContactsComponent.IgnoreWhitelist, uid))
-                continue;
+            if (TryComp<SpeedModifierContactsComponent>(ent, out var slowContactsComponent))
+            {
+                if (_whitelistSystem.IsWhitelistPass(slowContactsComponent.IgnoreWhitelist, uid))
+                    continue;
 
-            walkSpeed += slowContactsComponent.WalkSpeedModifier;
-            sprintSpeed += slowContactsComponent.SprintSpeedModifier;
-            remove = false;
-            entries++;
+                walkSpeed += slowContactsComponent.WalkSpeedModifier;
+                sprintSpeed += slowContactsComponent.SprintSpeedModifier;
+                speedModified = true;
+            }
+
+            // SpeedModifierContactsComponent takes priority over SlowedOverSlipperyComponent, effectively overriding the slippery slow.
+            if (TryComp<SlipperyComponent>(ent, out var slipperyComponent) && speedModified == false)
+            {
+                var evSlippery = new GetSlowedOverSlipperyModifierEvent();
+                RaiseLocalEvent(uid, ref evSlippery);
+
+                if (evSlippery.SlowdownModifier != 1)
+                {
+                    walkSpeed += evSlippery.SlowdownModifier;
+                    sprintSpeed += evSlippery.SlowdownModifier;
+                    speedModified = true;
+                }
+            }
+
+            if (speedModified)
+            {
+                remove = false;
+                entries++;
+            }
         }
 
         if (entries > 0)
@@ -102,15 +144,11 @@ public sealed class SpeedModifierContactsSystem : EntitySystem
             walkSpeed /= entries;
             sprintSpeed /= entries;
 
-            if (TryComp<SpeedModifiedByContactModifierComponent>(uid, out var modifier))
-            {
-                walkSpeed = Math.Max(Math.Min(modifier.MinWalkMultiplier, walkSpeed),
-                    // Similar to the formula for movement slow resist in Deadlock
-                    1 - (1 - walkSpeed) * modifier.WalkModifierEffectiveness);
+            var evMax = new GetSpeedModifierContactCapEvent();
+            RaiseLocalEvent(uid, ref evMax);
 
-                sprintSpeed = Math.Max(Math.Min(modifier.MinSprintMultiplier, sprintSpeed),
-                    1 - (1 - sprintSpeed) * modifier.SprintModifierEffectiveness);
-            }
+            walkSpeed = MathF.Max(walkSpeed, evMax.MaxWalkSlowdown);
+            sprintSpeed = MathF.Max(sprintSpeed, evMax.MaxSprintSlowdown);
 
             args.ModifySpeed(walkSpeed, sprintSpeed);
         }
@@ -128,11 +166,19 @@ public sealed class SpeedModifierContactsSystem : EntitySystem
 
     private void OnEntityEnter(EntityUid uid, SpeedModifierContactsComponent component, ref StartCollideEvent args)
     {
-        var otherUid = args.OtherEntity;
-        if (!HasComp<MovementSpeedModifierComponent>(otherUid))
+        AddModifiedEntity(args.OtherEntity);
+    }
+
+    /// <summary>
+    /// Add an entity to be checked for speed modification from contact with another entity.
+    /// </summary>
+    /// <param name="uid">The entity to be added.</param>
+    public void AddModifiedEntity(EntityUid uid)
+    {
+        if (!HasComp<MovementSpeedModifierComponent>(uid))
             return;
 
-        EnsureComp<SpeedModifiedByContactComponent>(otherUid);
-        _toUpdate.Add(otherUid);
+        EnsureComp<SpeedModifiedByContactComponent>(uid);
+        _toUpdate.Add(uid);
     }
 }

@@ -115,6 +115,9 @@ namespace Content.Server.Abilities.Mime
             if (mimePowers.VowBroken)
                 return;
 
+            if (!mimePowers.CanBreakVow) // Goobstation
+                return;
+
             mimePowers.Enabled = false;
             mimePowers.VowBroken = true;
             mimePowers.VowRepentTime = _timing.CurTime + mimePowers.VowCooldown;

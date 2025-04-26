@@ -1,4 +1,11 @@
-﻿using Robust.Shared.GameStates;
+// SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
+// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.Magic.Components;
 
@@ -36,4 +43,25 @@ public sealed partial class MagicComponent : Component
 
     // TODO: FreeHand - should check if toggleable action
     //  Check which hand is free to toggle action in
+
+    // Goobstation
+    [DataField]
+    public MagicSchool School = MagicSchool.Unset;
+}
+
+public enum MagicSchool : byte // Goobstation
+{
+    Unset,
+    Holy,
+    Psychic,
+    Mime,
+    Restoration,
+    Evocation,
+    Transmutation,
+    Translocation,
+    Conjuration,
+    Necromancy,
+    Forbidden,
+    Sanguine,
+    Chuuni, // Specifically for chuuni invocations spell
 }

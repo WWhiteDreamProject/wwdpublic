@@ -203,7 +203,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         TryDoElectrifiedAct(uid, args.User, siemens, electrified);
     }
 
-    public bool TryDoElectrifiedAct(EntityUid uid, EntityUid targetUid,
+        public bool TryDoElectrifiedAct(EntityUid uid, EntityUid targetUid,
         float siemens = 1,
         ElectrifiedComponent? electrified = null,
         NodeContainerComponent? nodeContainer = null,
@@ -222,7 +222,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         _appearance.SetData(uid, ElectrifiedVisuals.ShowSparks, true);
 
         siemens *= electrified.SiemensCoefficient;
-        if (!DoCommonElectrocutionAttempt(targetUid, uid, ref siemens) || siemens <= 0)
+        if (!DoCommonElectrocutionAttempt(targetUid, uid, ref siemens, electrified.IgnoreInsulation) || siemens <= 0) // Goob edit
             return false; // If electrocution would fail, do nothing.
 
         var targets = new List<(EntityUid entity, int depth)>();
@@ -233,13 +233,18 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             for (var i = targets.Count - 1; i >= 0; i--)
             {
                 var (entity, depth) = targets[i];
+
+                if (entity == electrified.IgnoredEntity) // Goobstation
+                    continue;
+
                 lastRet = TryDoElectrocution(
                     entity,
                     uid,
                     (int) (electrified.ShockDamage * MathF.Pow(RecursiveDamageMultiplier, depth)),
                     TimeSpan.FromSeconds(electrified.ShockTime * MathF.Pow(RecursiveTimeMultiplier, depth)),
                     true,
-                    electrified.SiemensCoefficient
+                    electrified.SiemensCoefficient,
+                    ignoreInsulation: electrified.IgnoreInsulation // Goobstation
                 );
             }
             return lastRet;
@@ -261,6 +266,10 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             for (var i = targets.Count - 1; i >= 0; i--)
             {
                 var (entity, depth) = targets[i];
+
+                if (entity == electrified.IgnoredEntity) // Goobstation
+                    continue;
+
                 lastRet = TryDoElectrocutionPowered(
                     entity,
                     uid,
@@ -268,7 +277,8 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
                     (int) (electrified.ShockDamage * MathF.Pow(RecursiveDamageMultiplier, depth) * damageScalar),
                     TimeSpan.FromSeconds(electrified.ShockTime * MathF.Pow(RecursiveTimeMultiplier, depth) * timeScalar),
                     true,
-                    electrified.SiemensCoefficient);
+                    electrified.SiemensCoefficient,
+                    electrified.IgnoreInsulation); // Goob edit
             }
             return lastRet;
         }
@@ -314,6 +324,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         TimeSpan time,
         bool refresh,
         float siemensCoefficient = 1f,
+        bool ignoreInsulation = false, // Goobstation
         StatusEffectsComponent? statusEffects = null,
         TransformComponent? sourceTransform = null)
     {

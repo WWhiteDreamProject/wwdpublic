@@ -187,7 +187,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
             return false;
         }
 
-        _standing.Down(uid, true, behavior != DropHeldItemsBehavior.NoDrop, standingState);
+        _standing.Down(uid, true, behavior != DropHeldItemsBehavior.NoDrop, false, standingState);
         return true;
     }
 
