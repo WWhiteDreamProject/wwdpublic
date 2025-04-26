@@ -48,9 +48,6 @@ uplink-magazine-light-rifle-ak220-desc = Magazine equipped with 40 rounds of .30
 uplink-syndicate-swat-helmet-name = Suspicious SWAT helmet
 uplink-syndicate-swat-helmet-desc = An extremely durable helmet commonly used by paramilitary forces. It is decorated with an ominous design.
 
-uplink-modsuit-infiltrator-name = infiltrator modsuit
-uplink-modsuit-infiltrator-desc = Specialized modular suit for covert ops.
-
 # Chemicals
 
 uplink-experimental-stimpack-name = Experimental stimpack
@@ -88,3 +85,7 @@ uplink-gondola-desc = A crate containing a single Gondola. The meat of the Gondo
 # Pointless
 
 # Job Specific
+
+#мерж кокфликт
+uplink-modsuit-infiltrator-name = infiltrator modsuit
+uplink-modsuit-infiltrator-desc = Specialized modular suit for covert ops.

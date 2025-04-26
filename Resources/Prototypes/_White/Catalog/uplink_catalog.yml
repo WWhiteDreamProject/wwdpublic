@@ -212,20 +212,6 @@
   categories:
   - UplinkWearables
 
-- type: listing
-  id: UplinkModsuitInfiltrator
-  name: uplink-modsuit-infiltrator-name
-  description: uplink-modsuit-infiltrator-desc
-  icon: { sprite: /Textures/_White/Clothing/Belt/Modsuits/Infiltrator.rsi, state: control-sealed }
-  productEntity: ClothingModsuitInfiltrator
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 2
-  cost:
-    Telecrystal: 6
-  categories:
-  - UplinkWearables
-
 # Chemicals
 
 - type: listing
@@ -355,3 +341,18 @@
 # Pointless
 
 # Job Specific
+
+# красиво вся хуйня но мержконфликт
+- type: listing
+  id: UplinkModsuitInfiltrator
+  name: uplink-modsuit-infiltrator-name
+  description: uplink-modsuit-infiltrator-desc
+  icon: { sprite: /Textures/_White/Clothing/Belt/Modsuits/Infiltrator.rsi, state: control-sealed }
+  productEntity: ClothingModsuitInfiltrator
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkWearables
