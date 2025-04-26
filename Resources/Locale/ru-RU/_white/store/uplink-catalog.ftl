@@ -85,3 +85,7 @@ uplink-gondola-desc = Ящик, содержащий одну стандартн
 # Бесполезное
 
 # Для определенных профессий
+
+# merge cockflickt
+uplink-modsuit-infiltrator-name = Диверсионный модульный костюм
+uplink-modsuit-infiltrator-desc = Создан для наведения шухера инкогнито. ВНИМАНИЕ: не герметичен!
