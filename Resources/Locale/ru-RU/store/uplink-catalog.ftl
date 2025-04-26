@@ -355,8 +355,8 @@ uplink-chameleon-desc = Рюкзак, полный предметов-хамел
 uplink-clothing-no-slips-shoes-name = Нескользящая обувь
 uplink-clothing-no-slips-shoes-desc = Обувь-хамелеон, которая защищает вас от скольжения.
 
-uplink-clothing-thieving-gloves-name = Воровские перчатки [Хамелеон]
-uplink-clothing-thieving-gloves-desc = Незаметно воруйте из карманов и повышайте навык воровства с помощью этих новых модных перчаток, которые выглядят совсем как обычные! Обладают технологией хамелеона.
+uplink-clothing-hands-chameleon-thief-name = Воровские перчатки [Хамелеон]
+uplink-clothing-hands-chameleon-thief-desc = Незаметно воруйте из карманов и повышайте навык воровства с помощью этих новых модных перчаток, которые выглядят совсем как обычные! Обладают технологией хамелеона.
 
 uplink-clothing-outer-vest-web-name = Тактический жилет
 uplink-clothing-outer-vest-web-desc = Синтетический бронежилет. У него есть дополнительные ремни из паутины и баллистические пластины.

@@ -1722,10 +1722,12 @@
   - UplinkWearables
 
 - type: listing
-  id: UplinkgClothingThievingGloves
-  name: uplink-clothing-thieving-gloves-name
-  description: uplink-clothing-thieving-gloves-desc
-  productEntity: ThievingGloves
+  #WWDP EDIT START
+  id: UplinkClothingHandsChameleonThief
+  name: uplink-clothing-hands-chameleon-thief-name
+  description: uplink-clothing-hands-chameleon-thief-desc
+  productEntity: ClothingHandsChameleonThief
+  #WWDP EDIT END
   discountCategory: usualDiscounts # WD EDIT
   discountDownTo:
     Telecrystal: 1 # WD EDIT
