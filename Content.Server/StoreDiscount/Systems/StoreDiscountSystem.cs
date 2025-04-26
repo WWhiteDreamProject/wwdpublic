@@ -76,7 +76,7 @@ public sealed class StoreDiscountSystem : EntitySystem
     // WD EDIT START
     private void OnMapInit(EntityUid uid, StoreDiscountComponent component, MapInitEvent args)
     {
-        if (!TryComp<StoreComponent>(uid, out var store))
+        if (!component.OnSpawn || !TryComp<StoreComponent>(uid, out var store))
             return;
 
         var uplinkInitializedEvent = new StoreInitializedEvent(

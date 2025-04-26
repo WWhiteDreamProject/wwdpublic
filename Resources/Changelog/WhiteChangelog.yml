@@ -2686,3 +2686,35 @@ Entries:
   id: 290
   time: '2025-04-20T03:24:57.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/460
+- author: RedFoxIV
+  changes:
+    - type: Fix
+      message: Теперь окно газоанализатора сразу открывается с правильной шириной.
+  id: 291
+  time: '2025-04-25T08:40:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/474
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Боевые перчатки теперь не доступны всем членам службы безопасности
+    - type: Remove
+      message: Удалены боевые перчатки ТСФА из лодаутов
+    - type: Remove
+      message: Удалена броня ТСФА из лодаутов службы безопасности
+  id: 292
+  time: '2025-04-26T07:18:13.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/464
+- author: HSKveez
+  changes:
+    - type: Fix
+      message: 'В аплинк возвращены старые воровские перчатки '
+  id: 293
+  time: '2025-04-26T07:21:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/473
+- author: Spatison
+  changes:
+    - type: Remove
+      message: Удалено веселье :(
+  id: 294
+  time: '2025-04-26T07:50:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/475
