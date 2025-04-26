@@ -16,7 +16,7 @@ public partial class PolymorphSystem
     /// Need to do this so we don't get a collection enumeration error in physics by polymorphing
     /// an entity we're colliding with
     /// </summary>
-    private Queue<PolymorphQueuedData> _queuedPolymorphUpdatesCollide = new();
+    private Queue<PolymorphQueuedData> _queuedPolymorphUpdates = new();
 
     private void InitializeCollide()
     {
@@ -25,7 +25,7 @@ public partial class PolymorphSystem
 
     public void UpdateCollide()
     {
-        while (_queuedPolymorphUpdatesCollide.TryDequeue(out var data))
+        while (_queuedPolymorphUpdates.TryDequeue(out var data))
         {
             if (Deleted(data.Ent))
                 continue;
@@ -46,7 +46,7 @@ public partial class PolymorphSystem
             _whitelistSystem.IsBlacklistPass(component.Blacklist, other))
             return;
 
-        _queuedPolymorphUpdatesCollide.Enqueue(new (other, component.Sound, component.Polymorph));
+        _queuedPolymorphUpdates.Enqueue(new (other, component.Sound, component.Polymorph));
     }
 }
 

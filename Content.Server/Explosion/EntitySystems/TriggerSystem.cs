@@ -32,7 +32,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Player;
 using Content.Shared.Coordinates;
-using Content.Shared.Whitelist;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Explosion.EntitySystems
@@ -46,23 +45,6 @@ namespace Content.Server.Explosion.EntitySystems
         public EntityUid? User { get; }
 
         public TriggerEvent(EntityUid triggered, EntityUid? user = null)
-        {
-            Triggered = triggered;
-            User = user;
-        }
-    }
-
-    /// <summary>
-    /// Raised before a trigger is activated.
-    /// Goobstation: cancellableEEA instead of w/e abomination was there
-    /// </summary>
-    [ByRefEvent]
-    public sealed class BeforeTriggerEvent : CancellableEntityEventArgs
-    {
-        public EntityUid Triggered { get; }
-        public EntityUid? User { get; }
-
-        public BeforeTriggerEvent(EntityUid triggered, EntityUid? user = null)
         {
             Triggered = triggered;
             User = user;
@@ -93,7 +75,6 @@ namespace Content.Server.Explosion.EntitySystems
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
-        [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
         public override void Initialize()
         {
@@ -124,17 +105,8 @@ namespace Content.Server.Explosion.EntitySystems
             SubscribeLocalEvent<AnchorOnTriggerComponent, TriggerEvent>(OnAnchorTrigger);
             SubscribeLocalEvent<SoundOnTriggerComponent, TriggerEvent>(OnSoundTrigger);
             SubscribeLocalEvent<RattleComponent, TriggerEvent>(HandleRattleTrigger);
-
-            SubscribeLocalEvent<TriggerWhitelistComponent, BeforeTriggerEvent>(HandleWhitelist);
         }
 
-
-        private void HandleWhitelist(Entity<TriggerWhitelistComponent> ent, ref BeforeTriggerEvent args)
-        {
-            // Goobedit
-            if (!_whitelist.CheckBoth(args.User, ent.Comp.Blacklist, ent.Comp.Whitelist))
-                args.Cancel();
-        }
         private void OnSoundTrigger(EntityUid uid, SoundOnTriggerComponent component, TriggerEvent args)
         {
             if (component.RemoveOnTrigger) // if the component gets removed when it's triggered

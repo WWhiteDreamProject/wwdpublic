@@ -21,8 +21,6 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
 using System.Numerics;
-using Content.Shared.Throwing;
-
 
 namespace Content.Shared.Anomaly;
 
@@ -47,7 +45,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         SubscribeLocalEvent<AnomalyComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<AnomalyComponent, AttackedEvent>(OnAttacked);
         SubscribeLocalEvent<AnomalyComponent, MeleeThrowOnHitStartEvent>(OnAnomalyThrowStart);
-        SubscribeLocalEvent<AnomalyComponent, LandEvent>(OnLand);
+        SubscribeLocalEvent<AnomalyComponent, MeleeThrowOnHitEndEvent>(OnAnomalyThrowEnd);
     }
 
     private void OnInteractHand(EntityUid uid, AnomalyComponent component, InteractHandEvent args)
@@ -66,17 +64,14 @@ public abstract class SharedAnomalySystem : EntitySystem
 
     private void OnAnomalyThrowStart(Entity<AnomalyComponent> ent, ref MeleeThrowOnHitStartEvent args)
     {
-        if (!TryComp<CorePoweredThrowerComponent>(args.Weapon, out var corePowered) || !TryComp<PhysicsComponent>(ent, out var body))
+        if (!TryComp<CorePoweredThrowerComponent>(args.Used, out var corePowered) || !TryComp<PhysicsComponent>(ent, out var body))
             return;
-
-        // anomalies are static by default, so we have set them to dynamic to be throwable
         _physics.SetBodyType(ent, BodyType.Dynamic, body: body);
         ChangeAnomalyStability(ent, Random.NextFloat(corePowered.StabilityPerThrow.X, corePowered.StabilityPerThrow.Y), ent.Comp);
     }
 
-    private void OnLand(Entity<AnomalyComponent> ent, ref LandEvent args)
+    private void OnAnomalyThrowEnd(Entity<AnomalyComponent> ent, ref MeleeThrowOnHitEndEvent args)
     {
-        // revert back to static
         _physics.SetBodyType(ent, BodyType.Static);
     }
 

@@ -64,7 +64,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         }
 
         Gui.Visible = _system?.IsGhost ?? false;
-        Gui.Update(_system?.AvailableGhostRoleCount, _system?.Player?.CanReturnToBody, _system?.Player?.CanEnterGhostBar, _system?.Player?.CanTakeGhostRoles); // Goob edit
+        Gui.Update(_system?.AvailableGhostRoleCount, _system?.Player?.CanReturnToBody);
     }
 
     private void OnPlayerRemoved(GhostComponent component)

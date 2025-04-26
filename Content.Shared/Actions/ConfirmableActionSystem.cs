@@ -61,7 +61,7 @@ public sealed class ConfirmableActionSystem : EntitySystem
         Unprime(ent);
     }
 
-    public void Prime(Entity<ConfirmableActionComponent> ent, EntityUid user) // Goob edit
+    private void Prime(Entity<ConfirmableActionComponent> ent, EntityUid user)
     {
         var (uid, comp) = ent;
         comp.NextConfirm = _timing.CurTime + comp.ConfirmDelay;
@@ -76,7 +76,7 @@ public sealed class ConfirmableActionSystem : EntitySystem
         // Goobstation - Confirmable action with changed icon - End
     }
 
-    public void Unprime(Entity<ConfirmableActionComponent> ent) // Goob edit
+    private void Unprime(Entity<ConfirmableActionComponent> ent)
     {
         var (uid, comp) = ent;
         comp.NextConfirm = null;

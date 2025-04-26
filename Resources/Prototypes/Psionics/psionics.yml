@@ -66,7 +66,7 @@
   initializeFunctions:
     - !type:AddPsionicActions
       actions:
-        - ActionMindSwapPsionics
+        - ActionMindSwap
     - !type:AddPsionicPowerComponents
       components:
         - type: MindSwapPower

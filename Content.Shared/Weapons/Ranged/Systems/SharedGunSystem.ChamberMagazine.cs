@@ -329,7 +329,7 @@ public abstract partial class SharedGunSystem
         return true;
     }
 
-    public EntityUid? GetChamberEntity(EntityUid uid) // goobstation
+    protected EntityUid? GetChamberEntity(EntityUid uid)
     {
         if (!Containers.TryGetContainer(uid, ChamberSlot, out var container) ||
             container is not ContainerSlot slot)

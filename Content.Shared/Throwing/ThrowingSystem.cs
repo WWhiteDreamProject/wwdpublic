@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Shared._Lavaland.Chasm;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;
@@ -88,8 +87,10 @@ public sealed class ThrowingSystem : EntitySystem
     /// <param name="friction">friction value used for the distance calculation. If set to null this defaults to the standard tile values</param>
     /// <param name="compensateFriction">True will adjust the throw so the item stops at the target coordinates. False means it will land at the target and keep sliding.</param>
     /// <param name="doSpin">Whether spin will be applied to the thrown entity.</param>
-    /// <param name="unanchor">If true and the thrown entity has <see cref="AnchorableComponent"/>, unanchor the thrown entity</param>
     /// <param name="throwInAir">WWDP - Whether the thrown entity status will be set to InAir during flight.</param>
+    /// <remarks>
+    ///     If you are foreaching every entity, go get a ProjectileQuery and use TryThrow with EntityQuery<ProjectileComponent> instead.
+    /// </remarks>
     public void TryThrow(EntityUid uid,
         Vector2 direction,
         float baseThrowSpeed = 10.0f,
@@ -101,8 +102,7 @@ public sealed class ThrowingSystem : EntitySystem
         bool animated = true,
         bool playSound = true,
         bool doSpin = true,
-        bool unanchor = false,
-        bool throwInAir = true) // WWDP throwInAir
+        bool throwInAir = true) // WWDP
     {
         var physicsQuery = GetEntityQuery<PhysicsComponent>();
         if (!physicsQuery.TryGetComponent(uid, out var physics))
@@ -119,8 +119,7 @@ public sealed class ThrowingSystem : EntitySystem
             baseThrowSpeed,
             user,
             pushbackRatio,
-            friction, compensateFriction: compensateFriction, recoil: recoil, animated: animated, playSound: playSound, doSpin: doSpin, throwInAir: throwInAir);
-
+            friction, compensateFriction: compensateFriction, recoil: recoil, animated: animated, playSound: playSound, doSpin: doSpin, throwInAir: throwInAir); // WWDP throwInAir
     }
 
     /// <summary>

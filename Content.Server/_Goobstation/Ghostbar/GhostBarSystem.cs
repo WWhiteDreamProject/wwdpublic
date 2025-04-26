@@ -70,15 +70,9 @@ public sealed class GhostBarSystem : EntitySystem
             return;
         }
 
-        if (!_entityManager.TryGetComponent<GhostComponent>(player.AttachedEntity, out var ghost))
+        if (!_entityManager.HasComponent<GhostComponent>(player.AttachedEntity))
         {
             Log.Warning($"User {player.Name} tried to spawn at ghost bar without being a ghost.");
-            return;
-        }
-
-        if (!ghost.CanEnterGhostBar)
-        {
-            Log.Warning($"User {player.Name} tried to enter ghost bar while they cannot enter it.");
             return;
         }
 
@@ -141,7 +135,7 @@ public sealed class GhostBarSystem : EntitySystem
     private void OnPlayerGhosted(EntityUid uid, GhostBarPlayerComponent component, MindRemovedMessage args)
     {
         // wwdp start
-        _entityManager.GetComponent<MindComponent>(args.Mind).TimeOfDeath = _entityManager.GetComponent<GhostBarPlayerComponent>(uid).TimeOfDeath;
+        _entityManager.GetComponent<MindComponent>(args.Mind).TimeOfDeath = _entityManager.GetComponent<GhostBarPlayerComponent>(uid).TimeOfDeath;    
         // wwdp end
         _entityManager.DeleteEntity(uid);
     }

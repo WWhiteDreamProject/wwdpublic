@@ -366,7 +366,7 @@ public sealed partial class GunSystem : SharedGunSystem
     /// <param name="start">Start angle in degrees</param>
     /// <param name="end">End angle in degrees</param>
     /// <param name="intervals">How many shots there are</param>
-    public Angle[] LinearSpread(Angle start, Angle end, int intervals) // Goobstation
+    private Angle[] LinearSpread(Angle start, Angle end, int intervals)
     {
         var angles = new Angle[intervals];
         DebugTools.Assert(intervals > 1);

@@ -819,7 +819,7 @@
 
 #Wizard Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBase, ClothingOuterWizardBaseArmor ] # Goob edit
+  parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitWizard
   name: wizard hardsuit
   description: A bizarre gem-encrusted suit that radiates magical energies.
@@ -831,32 +831,25 @@
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
-  - type: Armor # Goob edit
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
+        Blunt: 0.6
+        Slash: 0.6
         Piercing: 0.4
-        Heat: 0.4
-        Radiation: 0.1
-        Caustic: 0.1
+        Heat: 0.25
+        Radiation: 0.25
+        Caustic: 0.75
   - type: ClothingSpeedModifier
-    walkModifier: 0.9 # Goob edit
-    sprintModifier: 0.9 # Goob edit
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: HeldSpeedModifier
-  - type: WizardClothes # Goobstation
-  - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes:
-      head: ClothingHeadHelmetHardsuitWizard
-#  - type: ModifyDelayedKnockdown # Goobstation
-#    cancel: true
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.2
-  - type: Tag # Goobstation
-    tags:
-    - Hardsuit
-    - WhitelistChameleon
-    - SyringeArmor
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitWizard
+  - type: StaminaDamageResistance
+    coefficient: 0.5 # 50%
 
 #Ling Space Suit
 - type: entity

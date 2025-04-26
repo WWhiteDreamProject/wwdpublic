@@ -1,10 +1,4 @@
 - type: Tag
-  id: BindSoulAction
-
-- type: Tag
-  id: BlockLightning
-
-- type: Tag
   id: CartridgeLightRifleSubsonic
 
 - type: Tag
@@ -12,9 +6,6 @@
 
 - type: Tag
   id: CartridgeHighCaliberExplosive
-
-- type: Tag
-  id: CartridgeMagicBullet
 
 - type: Tag
   id: Clarke
@@ -39,9 +30,6 @@
 
 - type: Tag
   id: CombatMech
-
-- type: Tag
-  id: CursedAnimalMask
 
 - type: Tag
   id: Durand
@@ -72,21 +60,6 @@
 
 - type: Tag
   id: DurandTargetingControlModule
-
-- type: Tag
-  id: FlashIgnoreResistances
-
-- type: Tag
-  id: FrozenIgnoreMindAction
-
-- type: Tag
-  id: GorillaFormAction
-
-- type: Tag
-  id: GrimoireGhost
-
-- type: Tag
-  id: GunCanAimShooter
 
 - type: Tag
   id: Gygax
@@ -122,12 +95,6 @@
   id: IndustrialMech
 
 - type: Tag
-  id: IgnoreBindSoul
-
-- type: Tag
-  id: IgnoreImmovableRod
-
-- type: Tag
   id: MagazineHighCaliber
 
 - type: Tag
@@ -141,9 +108,6 @@
 
 - type: Tag
   id: MechThruster
-
-- type: Tag
-  id: MidroundAntag
 
 - type: Tag
   id: ModsuitBoots
@@ -176,28 +140,7 @@
   id: RipleyMkII
 
 - type: Tag
-  id: RoundstartAntag
-
-- type: Tag
-  id: ShowWizardIcons
-
-- type: Tag
-  id: SoulTapped
-
-- type: Tag
   id: SpecialMech
 
 - type: Tag
-  id: SummonSimiansMaxLevelAction
-
-- type: Tag
-  id: SyringeArmor
-
-- type: Tag
-  id: Undead
-
-- type: Tag
   id: WeaponPistolDualetta
-
-- type: Tag
-  id: WizardHat

@@ -57,20 +57,4 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
     /// </summary>
     [DataField]
     public SlotFlags BlockSlots = SlotFlags.NONE;
-
-    // <Goobstation>
-    /// <summary>
-    /// State: for the next embed, override whether this pierces armor.
-    /// For setting from other code.
-    /// </summary>
-    [ViewVariables]
-    public bool? PierceArmorOverride;
-
-    /// <summary>
-    /// State: for the next embed, divide injection time by this.
-    /// For setting from other code.
-    /// </summary>
-    [ViewVariables]
-    public float SpeedMultiplier = 1f;
-    // </Goobstation>
 }

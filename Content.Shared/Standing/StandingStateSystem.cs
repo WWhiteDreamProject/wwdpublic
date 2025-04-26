@@ -34,14 +34,11 @@ public sealed class StandingStateSystem : EntitySystem
         return standingState.CurrentState is StandingState.Lying or StandingState.GettingUp;
     }
 
-
-    public bool Down(EntityUid uid,
-        bool playSound = true,
-        bool dropHeldItems = true,
-        bool force = true,
+    public bool Down(EntityUid uid, bool playSound = true, bool dropHeldItems = true,
         StandingStateComponent? standingState = null,
         AppearanceComponent? appearance = null,
-        HandsComponent? hands = null)
+        HandsComponent? hands = null,
+        bool setDrawDepth = false)
     {
         // TODO: This should actually log missing comps...
         if (!Resolve(uid, ref standingState, false))
@@ -58,18 +55,16 @@ public sealed class StandingStateSystem : EntitySystem
         // We do this BEFORE downing because something like buckle may be blocking downing but we want to drop hand items anyway
         // and ultimately this is just to avoid boilerplate in Down callers + keep their behavior consistent.
         if (dropHeldItems && hands != null)
-        {
             RaiseLocalEvent(uid, new DropHandItemsEvent(), false);
-        }
 
-        if (!force)
-        {
-            var msg = new DownAttemptEvent();
-            RaiseLocalEvent(uid, msg, false);
+        if (TryComp(uid, out BuckleComponent? buckle) && buckle.Buckled && !_buckle.TryUnbuckle(uid, uid, buckle))
+            return false;
 
-            if (msg.Cancelled)
-                return false;
-        }
+        var msg = new DownAttemptEvent();
+        RaiseLocalEvent(uid, msg, false);
+
+        if (msg.Cancelled)
+            return false;
 
         standingState.CurrentState = StandingState.Lying;
         Dirty(uid, standingState);
@@ -80,7 +75,6 @@ public sealed class StandingStateSystem : EntitySystem
 
         // Change collision masks to allow going under certain entities like flaps and tables
         if (TryComp(uid, out FixturesComponent? fixtureComponent))
-        {
             foreach (var (key, fixture) in fixtureComponent.Fixtures)
             {
                 if ((fixture.CollisionMask & StandingCollisionLayer) == 0)
@@ -89,18 +83,19 @@ public sealed class StandingStateSystem : EntitySystem
                 standingState.ChangedFixtures.Add(key);
                 _physics.SetCollisionMask(uid, key, fixture, fixture.CollisionMask & ~StandingCollisionLayer, manager: fixtureComponent);
             }
-        }
+
         // check if component was just added or streamed to client
         // if true, no need to play sound - mob was down before player could seen that
         if (standingState.LifeStage <= ComponentLifeStage.Starting)
             return true;
 
         if (playSound)
-        {
             _audio.PlayPredicted(standingState.DownSound, uid, null);
-        }
 
-        _movement.RefreshMovementSpeedModifiers(uid); // WD EDIT
+        _movement.RefreshMovementSpeedModifiers(uid);
+
+        Climb(uid);
+
         return true;
     }
 

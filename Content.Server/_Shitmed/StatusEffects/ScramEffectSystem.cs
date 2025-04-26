@@ -1,5 +1,3 @@
-using Content.Server._Shitcode.Teleportation.Components;
-using Content.Server._Shitcode.Teleportation.Systems;
 using Content.Shared._Shitmed.StatusEffects;
 using Content.Server.Teleportation;
 
