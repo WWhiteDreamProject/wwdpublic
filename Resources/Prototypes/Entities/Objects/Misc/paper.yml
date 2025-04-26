@@ -405,7 +405,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 15
+        Piercing: 8 # WD EDIT
   - type: EmbeddableProjectile
     removalTime: 2
   - type: EmbedPassiveDamage
