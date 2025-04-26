@@ -17,6 +17,10 @@
       "name": "equipped-OUTERCLOTHING",
       "directions": 4
     },
+      {
+          "directions": 4,
+          "name": "equipped-OUTERCLOTHING-resomi"
+      },
     {
       "name": "equipped-OUTERCLOTHING-unshaded",
       "directions": 4
