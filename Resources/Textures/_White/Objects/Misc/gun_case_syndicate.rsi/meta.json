@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "icon from https://github.com/tgstation/tgstation/blob/icons/obj/storage/case.dmi. inhand-left from https://github.com/tgstation/tgstation/blob/icons/mob/inhands/equipment/toolbox_lefthand.dmi. inhand-right from https://github.com/tgstation/tgstation/blob/icons/mob/inhands/equipment/toolbox_righthand.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

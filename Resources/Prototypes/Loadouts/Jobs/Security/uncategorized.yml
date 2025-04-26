@@ -326,36 +326,41 @@
   requirements:
   - !type:CharacterItemGroupRequirement
     group: LoadoutSecurityHead
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-  - !type:CharacterJobRequirement # WWDP
-    inverted: true
+  # WD EDIT START
+  - !type:CharacterJobRequirement
     jobs:
-    - Prisoner
+    - Warden
+    - HeadOfSecurity
+    # WD EDIT END
   items:
   - ClothingHeadHelmetInsulated
 
-- type: loadout
-  id: ClothingHeadHelmetTCFLHeavy
-  category: JobsSecurityAUncategorized
-  cost: 3 # This is a notable upgrade over a standard security helmet.
-  exclusive: true
-  guideEntry: TCFLInfo
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityHead
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-  - !type:CharacterNationalityRequirement
-    nationalities:
-    - Bieselite
-  - !type:CharacterLifepathRequirement
-    lifepaths:
-    - WarVet
-  items:
-  - ClothingHeadHelmetTCFLHeavy
+# WD EDIT START
+# - type: loadout
+#   id: ClothingHeadHelmetTCFLHeavy
+#   category: JobsSecurityAUncategorized
+#   cost: 3 # This is a notable upgrade over a standard security helmet.
+#   exclusive: true
+#   guideEntry: TCFLInfo
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityHead
+#   - !type:CharacterDepartmentRequirement
+#     departments:
+#     - Security
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   - !type:CharacterNationalityRequirement
+#     nationalities:
+#     - Bieselite
+#   - !type:CharacterLifepathRequirement
+#     lifepaths:
+#     - WarVet
+#   items:
+#   - ClothingHeadHelmetTCFLHeavy
+# WD EDIT END
 
 # Id
 
@@ -487,26 +492,32 @@
   items:
   - ClothingOuterArmorBasicSlim
 
-- type: loadout
-  id: ClothingOuterArmorTCFLHeavy
-  category: JobsSecurityAUncategorized
-  cost: 3 # Notable upgrade
-  exclusive: true
-  guideEntry: TCFLInfo
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityOuter
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-  - !type:CharacterNationalityRequirement
-    nationalities:
-    - Bieselite
-  - !type:CharacterLifepathRequirement
-    lifepaths:
-    - WarVet
-  items:
-  - ClothingOuterArmorTCFLHeavy
+# WD EDIT START
+# - type: loadout
+#   id: ClothingOuterArmorTCFLHeavy
+#   category: JobsSecurityAUncategorized
+#   cost: 3 # Notable upgrade
+#   exclusive: true
+#   guideEntry: TCFLInfo
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityOuter
+#   - !type:CharacterDepartmentRequirement
+#     departments:
+#     - Security
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   - !type:CharacterNationalityRequirement
+#     nationalities:
+#     - Bieselite
+#   - !type:CharacterLifepathRequirement
+#     lifepaths:
+#     - WarVet
+#   items:
+#   - ClothingOuterArmorTCFLHeavy
+# WD EDIT END
 
 # Shoes
 - type: loadout

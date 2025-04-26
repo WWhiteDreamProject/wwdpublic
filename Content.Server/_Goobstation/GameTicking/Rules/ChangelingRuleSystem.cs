@@ -76,12 +76,18 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         // make sure it's initial chems are set to max
         EnsureComp<ChangelingComponent>(target);
 
+        // WD EDIT START
+        var balance = 10;
+        if (HasComp<ChangelingInfectionComponent>(target))
+            balance = 0;
+        // WD EDIT END
+
         // add store
         var store = EnsureComp<StoreComponent>(target);
         foreach (var category in rule.StoreCategories)
             store.Categories.Add(category);
         store.CurrencyWhitelist.Add(Currency);
-        store.Balance.Add(Currency, 10); // WD edit: roundstart balance 16 -> 10
+        store.Balance.Add(Currency, balance); // WD edit: roundstart balance 16 -> 10
 
         rule.ChangelingMinds.Add(mindId);
 

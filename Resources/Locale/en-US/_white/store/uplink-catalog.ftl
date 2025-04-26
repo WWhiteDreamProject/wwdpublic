@@ -85,7 +85,3 @@ uplink-gondola-desc = A crate containing a single Gondola. The meat of the Gondo
 # Pointless
 
 # Job Specific
-
-#мерж кокфликт
-uplink-modsuit-infiltrator-name = infiltrator modsuit
-uplink-modsuit-infiltrator-desc = Specialized modular suit for covert ops.
