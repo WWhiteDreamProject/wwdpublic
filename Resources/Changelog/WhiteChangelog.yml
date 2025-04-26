@@ -2711,3 +2711,10 @@ Entries:
   id: 293
   time: '2025-04-26T07:21:48.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/473
+- author: Spatison
+  changes:
+    - type: Remove
+      message: Удалено веселье :(
+  id: 294
+  time: '2025-04-26T07:50:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/475
