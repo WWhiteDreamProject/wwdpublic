@@ -46,8 +46,8 @@
 #       reflects:
 #         - Energy
 #         - NonEnergy
-#     - type: ClothingSpeedModifier
 # WD EDIT END
+    - type: ClothingSpeedModifier
       walkModifier: 0.7
       sprintModifier: 0.7
 

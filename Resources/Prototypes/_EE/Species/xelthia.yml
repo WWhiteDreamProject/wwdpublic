@@ -3,7 +3,6 @@
   name: species-name-xelthia
   roundStart: false # WD EDIT
   prototype: MobXelthia
-  sprites: MobXelthiaSprites
   # WD EDIT START
   bodyTypes:
   - XelthiaNormal
