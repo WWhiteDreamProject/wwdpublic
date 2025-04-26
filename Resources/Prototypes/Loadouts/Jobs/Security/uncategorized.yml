@@ -628,51 +628,51 @@
 #     - Prisoner
 #   items:
 #   - ClothingOuterArmorStandardHeavy
-
-# - type: loadout
-#   id: LoadoutClothingOuterJacketZavSecurity
-#   category: JobsSecurityAUncategorized
-#   cost: 0
-#   exclusive: true
-#   guideEntry: ZavodskoiInterstellar
-#   requirements:
-#   - !type:CharacterItemGroupRequirement
-#     group: LoadoutSecurityOuter
-#   - !type:CharacterDepartmentRequirement
-#     departments:
-#     - Security
-#   - !type:CharacterJobRequirement # WWDP
-#     inverted: true
-#     jobs:
-#     - Prisoner
-#   - !type:CharacterEmployerRequirement
-#     employers:
-#     - ZavodskoiInterstellar
-#   items:
-#   - ClothingOuterJacketZavSecurity
-
-# - type: loadout
-#   id: LoadoutClothingOuterJacketZavSecurityAlt
-#   category: JobsSecurityAUncategorized
-#   cost: 0
-#   exclusive: true
-#   guideEntry: ZavodskoiInterstellar
-#   requirements:
-#   - !type:CharacterItemGroupRequirement
-#     group: LoadoutSecurityOuter
-#   - !type:CharacterDepartmentRequirement
-#     departments:
-#     - Security
-#   - !type:CharacterJobRequirement # WWDP
-#     inverted: true
-#     jobs:
-#     - Prisoner
-#   - !type:CharacterEmployerRequirement
-#     employers:
-#     - ZavodskoiInterstellar
-#   items:
-#   - ClothingOuterJacketZavSecurityAlt
 # WD EDIT END
+
+- type: loadout
+  id: LoadoutClothingOuterJacketZavSecurity
+  category: JobsSecurityAUncategorized
+  cost: 0
+  exclusive: true
+  guideEntry: ZavodskoiInterstellar
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityOuter
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
+  - !type:CharacterEmployerRequirement
+    employers:
+    - ZavodskoiInterstellar
+  items:
+  - ClothingOuterJacketZavSecurity
+
+- type: loadout
+  id: LoadoutClothingOuterJacketZavSecurityAlt
+  category: JobsSecurityAUncategorized
+  cost: 0
+  exclusive: true
+  guideEntry: ZavodskoiInterstellar
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityOuter
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
+  - !type:CharacterEmployerRequirement
+    employers:
+    - ZavodskoiInterstellar
+  items:
+  - ClothingOuterJacketZavSecurityAlt
 
 # Shoes
 - type: loadout
@@ -846,88 +846,86 @@
   - ClothingUniformEnvirosuitSecGrey
   - ClothingHeadEnvirohelmSecGrey
 
-# WD EDIT START
-# - type: loadout
-#   id: LoadoutSecurityUniformZavodSecurityOfficer
-#   category: JobsSecurityAUncategorized
-#   cost: 0
-#   exclusive: true
-#   guideEntry: ZavodskoiInterstellar
-#   requirements:
-#   - !type:CharacterItemGroupRequirement
-#     group: LoadoutSecurityUniforms
-#   - !type:CharacterDepartmentRequirement
-#     departments:
-#     - Security
-#   - !type:CharacterJobRequirement # WWDP
-#     inverted: true
-#     jobs:
-#     - Prisoner
-#   - !type:CharacterEmployerRequirement
-#     employers:
-#     - ZavodskoiInterstellar
-#   items:
-#   - ClothingUniformJumpsuitZavodSecurityOfficer
+- type: loadout
+  id: LoadoutSecurityUniformZavodSecurityOfficer
+  category: JobsSecurityAUncategorized
+  cost: 0
+  exclusive: true
+  guideEntry: ZavodskoiInterstellar
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityUniforms
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
+  - !type:CharacterEmployerRequirement
+    employers:
+     - ZavodskoiInterstellar
+  items:
+  - ClothingUniformJumpsuitZavodSecurityOfficer
 
-# - type: loadout
-#   id: LoadoutSecurityUniformZavodSecurityOfficerAlt1
-#   category: JobsSecurityAUncategorized
-#   cost: 0
-#   exclusive: true
-#   guideEntry: ZavodskoiInterstellar
-#   requirements:
-#   - !type:CharacterItemGroupRequirement
-#     group: LoadoutSecurityUniforms
-#   - !type:CharacterDepartmentRequirement
-#     departments:
-#     - Security
-#   - !type:CharacterJobRequirement # WWDP
-#     inverted: true
-#     jobs:
-#     - Prisoner
-#   - !type:CharacterEmployerRequirement
-#     employers:
-#     - ZavodskoiInterstellar
-#   items:
-#   - ClothingUniformJumpsuitZavodSecurityOfficerAlt1
+- type: loadout
+  id: LoadoutSecurityUniformZavodSecurityOfficerAlt1
+  category: JobsSecurityAUncategorized
+  cost: 0
+  exclusive: true
+  guideEntry: ZavodskoiInterstellar
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityUniforms
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
+  - !type:CharacterEmployerRequirement
+    employers:
+    - ZavodskoiInterstellar
+  items:
+  - ClothingUniformJumpsuitZavodSecurityOfficerAlt1
 
-# - type: loadout
-#   id: LoadoutSecurityUniformZavodSecurityOfficerAlt2
-#   category: JobsSecurityAUncategorized
-#   cost: 0
-#   exclusive: true
-#   guideEntry: ZavodskoiInterstellar
-#   requirements:
-#   - !type:CharacterItemGroupRequirement
-#     group: LoadoutSecurityUniforms
-#   - !type:CharacterDepartmentRequirement
-#     departments:
-#     - Security
-#   - !type:CharacterJobRequirement # WWDP
-#     inverted: true
-#     jobs:
-#     - Prisoner
-#   - !type:CharacterEmployerRequirement
-#     employers:
-#     - ZavodskoiInterstellar
-#   items:
-#   - ClothingUniformJumpsuitZavodSecurityOfficerAlt2
+- type: loadout
+  id: LoadoutSecurityUniformZavodSecurityOfficerAlt2
+  category: JobsSecurityAUncategorized
+  cost: 0
+  exclusive: true
+  guideEntry: ZavodskoiInterstellar
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityUniforms
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  - !type:CharacterJobRequirement # WWDP
+    inverted: true
+    jobs:
+    - Prisoner
+  - !type:CharacterEmployerRequirement
+    employers:
+    - ZavodskoiInterstellar
+  items:
+  - ClothingUniformJumpsuitZavodSecurityOfficerAlt2
 
-# - type: loadout
-#   id: LoadoutSecurityUniformZavodCadet
-#   category: JobsSecurityAUncategorized
-#   cost: 0
-#   exclusive: true
-#   guideEntry: ZavodskoiInterstellar
-#   requirements:
-#   - !type:CharacterItemGroupRequirement
-#     group: LoadoutDetectiveUniforms
-#   - !type:CharacterJobRequirement
-#     jobs:
-#     - Detective
-#   - !type:CharacterEmployerRequirement
-#     employers:
-#     - ZavodskoiInterstellar
-#   items:
-#   - ClothingUniformJumpsuitZavodCadet
-# WD EDIT END
+- type: loadout
+  id: LoadoutSecurityUniformZavodCadet
+  category: JobsSecurityAUncategorized
+  cost: 0
+  exclusive: true
+  guideEntry: ZavodskoiInterstellar
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutDetectiveUniforms
+  - !type:CharacterJobRequirement
+    jobs:
+    - Detective
+  - !type:CharacterEmployerRequirement
+    employers:
+    - ZavodskoiInterstellar
+  items:
+  - ClothingUniformJumpsuitZavodCadet

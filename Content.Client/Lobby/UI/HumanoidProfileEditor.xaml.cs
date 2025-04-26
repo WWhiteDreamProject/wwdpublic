@@ -93,7 +93,6 @@ namespace Content.Client.Lobby.UI
         private int _traitCount;
         private HashSet<LoadoutPreferenceSelector> _loadoutPreferences = new();
 
-        private Direction _previewRotation = Direction.North;
         private ColorSelectorSliders _rgbSkinColorSelector;
 
         private bool _customizePronouns;
@@ -162,7 +161,6 @@ namespace Content.Client.Lobby.UI
             NameEdit.OnTextChanged += args => { SetName(args.Text); };
             NameRandomize.OnPressed += _ => RandomizeName();
             RandomizeEverything.OnPressed += _ => { RandomizeProfile(); };
-            WarningLabel.SetMarkup($"[color=red]{Loc.GetString("humanoid-profile-editor-naming-rules-warning")}[/color]");
 
             #endregion Name
 
@@ -589,21 +587,6 @@ namespace Content.Client.Lobby.UI
 
             RefreshFlavorText();
 
-            #region Dummy
-
-            SpriteRotateLeft.OnPressed += _ =>
-            {
-                _previewRotation = _previewRotation.TurnCw();
-                SetPreviewRotation(_previewRotation);
-            };
-            SpriteRotateRight.OnPressed += _ =>
-            {
-                _previewRotation = _previewRotation.TurnCcw();
-                SetPreviewRotation(_previewRotation);
-            };
-
-            #endregion Dummy
-
             #endregion Left
 
             ShowClothes.OnToggled += _ => { SetProfile(Profile, CharacterSlot); };
@@ -989,7 +972,6 @@ namespace Content.Client.Lobby.UI
                 appearanceSystem.SetLayersVisibility(PreviewDummy, hiddenLayers, false, humanoid: humanoid);
             }
 
-            SetPreviewRotation(_previewRotation);
             TraitsTabs.UpdateTabMerging();
             LoadoutsTabs.UpdateTabMerging();
         }
@@ -1027,7 +1009,6 @@ namespace Content.Client.Lobby.UI
             JobList.DisposeAllChildren();
             _jobCategories.Clear();
             _jobPriorities.Clear();
-            var firstCategory = true;
 
             // Get all displayed departments
             var departments = new List<DepartmentPrototype>();
@@ -1063,16 +1044,6 @@ namespace Content.Client.Lobby.UI
                         ToolTip = Loc.GetString("humanoid-profile-editor-jobs-amount-in-department-tooltip",
                             ("departmentName", departmentName)),
                         Margin = new(0, firstCategory ? 0 : 20, 0, 0),
-                    };
-
-                    if (firstCategory)
-                        firstCategory = false;
-                    else
-                        category.AddChild(new Control { MinSize = new Vector2(0, 23) });
-
-                    category.AddChild(new PanelContainer
-                    {
-                        PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#232323")}, // WD EDIT
                         Children =
                         {
                             new Label
@@ -2078,11 +2049,6 @@ namespace Content.Client.Lobby.UI
             Profile = HumanoidCharacterProfile.Random();
             SetProfile(Profile, CharacterSlot);
             SetDirty();
-        }
-
-        private void SetPreviewRotation(Direction direction)
-        {
-            SpriteView.OverrideDirection = (Direction) ((int) direction % 4 * 2);
         }
 
         private void RandomizeName()

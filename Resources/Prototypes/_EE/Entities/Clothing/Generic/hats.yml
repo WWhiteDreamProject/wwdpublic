@@ -17,13 +17,15 @@
           Piercing: 0.975
           Heat: 0.8
           Caustic: 0.9
-    - type: Reflect
-      reflectProb: 0.03
-      spread: 270
-      innate: true
-      reflects:
-        - Energy
-        - NonEnergy
+# WD EDIT START
+#     - type: Reflect
+#       reflectProb: 0.03
+#       spread: 270
+#       innate: true
+#       reflects:
+#         - Energy
+#         - NonEnergy
+# WD EDIT END
     - type: ClothingSpeedModifier
       walkModifier: 0.95
       sprintModifier: 0.95
@@ -46,13 +48,15 @@
           Piercing: 0.8
           Heat: 0.975
           Caustic: 0.975
-    - type: Reflect
-      reflectProb: 0.03
-      spread: 270
-      innate: true
-      reflects:
-        - Energy
-        - NonEnergy
+# WD EDIT START
+#     - type: Reflect
+#       reflectProb: 0.03
+#       spread: 270
+#       innate: true
+#       reflects:
+#         - Energy
+#         - NonEnergy
+# WD EDIT END
     - type: ClothingSpeedModifier
       walkModifier: 0.95
       sprintModifier: 0.95
@@ -75,13 +79,15 @@
           Piercing: 0.975
           Heat: 0.975
           Caustic: 0.975
-    - type: Reflect
-      reflectProb: 0.03
-      spread: 270
-      innate: true
-      reflects:
-        - Energy
-        - NonEnergy
+# WD EDIT START
+#     - type: Reflect
+#       reflectProb: 0.03
+#       spread: 270
+#       innate: true
+#       reflects:
+#         - Energy
+#         - NonEnergy
+# WD EDIT END
     - type: ClothingSpeedModifier
       walkModifier: 0.95
       sprintModifier: 0.95
@@ -104,13 +110,15 @@
           Piercing: 0.875
           Heat: 0.875
           Caustic: 0.875
-    - type: Reflect
-      reflectProb: 0.03
-      spread: 270
-      innate: true
-      reflects:
-        - Energy
-        - NonEnergy
+# WD EDIT START
+#     - type: Reflect
+#       reflectProb: 0.03
+#       spread: 270
+#       innate: true
+#       reflects:
+#         - Energy
+#         - NonEnergy
+# WD EDIT END
     - type: ClothingSpeedModifier
       walkModifier: 0.95
       sprintModifier: 0.95

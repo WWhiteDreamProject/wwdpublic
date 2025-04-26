@@ -4,6 +4,10 @@
   roundStart: false # WD EDIT
   prototype: MobXelthia
   sprites: MobXelthiaSprites
+  # WD EDIT START
+  bodyTypes:
+  - XelthiaNormal
+  # WD EDIT END
   defaultSkinTone: "#56a2de"
   markingLimits: MobXelthiaMarkingLimits
   dollPrototype: MobXelthiaDummy
@@ -18,8 +22,11 @@
   defaultWidth: 0.95
   maxWidth: 1.3
 
-- type: speciesBaseSprites
-  id: MobXelthiaSprites
+# WD EDIT START
+- type: bodyType
+  id: XelthiaNormal
+  name: body-normal
+  # WD EDIT END
   sprites:
     Head: MobXelthiaHead
     Face: MobHumanoidAnyMarking

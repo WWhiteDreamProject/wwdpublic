@@ -14,17 +14,19 @@
           Blunt: 0.85
           Slash: 0.85
           Piercing: 0.85
-          Heat: 0.3
+          Heat: 0.4 # WD EDIT
           Caustic: 0.5
     - type: ExplosionResistance
       damageCoefficient: 0.5
-    - type: Reflect
-      reflectProb: 0.05
-      spread: 270
-      innate: true
-      reflects:
-        - Energy
-        - NonEnergy
+# WD EDIT START
+#     - type: Reflect
+#       reflectProb: 0.05
+#       spread: 270
+#       innate: true
+#       reflects:
+#         - Energy
+#         - NonEnergy
+# WD EDIT END
     - type: ClothingSpeedModifier
       walkModifier: 0.7
       sprintModifier: 0.7
@@ -44,18 +46,20 @@
         coefficients:
           Blunt: 0.85
           Slash: 0.5
-          Piercing: 0.3
+          Piercing: 0.4 # WD EDIT
           Heat: 0.85
           Caustic: 0.85
     - type: ExplosionResistance
       damageCoefficient: 0.5
-    - type: Reflect
-      reflectProb: 0.05
-      spread: 270
-      innate: true
-      reflects:
-        - Energy
-        - NonEnergy
+# WD EDIT START
+#     - type: Reflect
+#       reflectProb: 0.05
+#       spread: 270
+#       innate: true
+#       reflects:
+#         - Energy
+#         - NonEnergy
+# WD EDIT END
     - type: ClothingSpeedModifier
       walkModifier: 0.7
       sprintModifier: 0.7
@@ -73,20 +77,22 @@
     - type: Armor
       modifiers:
         coefficients:
-          Blunt: 0.3
+          Blunt: 0.4 # WD EDIT
           Slash: 0.5
           Piercing: 0.85
           Heat: 0.85
           Caustic: 0.85
     - type: ExplosionResistance
       damageCoefficient: 0.5
-    - type: Reflect
-      reflectProb: 0.05
-      spread: 270
-      innate: true
-      reflects:
-        - Energy
-        - NonEnergy
+# WD EDIT START
+#     - type: Reflect
+#       reflectProb: 0.05
+#       spread: 270
+#       innate: true
+#       reflects:
+#         - Energy
+#         - NonEnergy
+# WD EDIT END
     - type: ClothingSpeedModifier
       walkModifier: 0.7
       sprintModifier: 0.7
@@ -116,13 +122,15 @@
           Caustic: 0.5
     - type: ExplosionResistance
       damageCoefficient: 0.5
-    - type: Reflect
-      reflectProb: 0.05
-      spread: 270
-      innate: true
-      reflects:
-        - Energy
-        - NonEnergy
+# WD EDIT START
+#     - type: Reflect
+#       reflectProb: 0.05
+#       spread: 270
+#       innate: true
+#       reflects:
+#         - Energy
+#         - NonEnergy
+# WD EDIT END
     - type: ClothingSpeedModifier
       walkModifier: 0.7
       sprintModifier: 0.7
