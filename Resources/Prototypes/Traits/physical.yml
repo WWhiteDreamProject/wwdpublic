@@ -477,8 +477,6 @@
       traits:
         - Claws
         - Talons
-    - !type:CharacterItemGroupRequirement
-      group: TraitsMind
     - !type:CharacterSpeciesRequirement
       inverted: true
       species:
@@ -506,8 +504,6 @@
         - Shadowkin
         - IPC
         - Xelthia # this would fall off
-    - !type:CharacterItemGroupRequirement
-      group: TraitsMind
   functions:
     - !type:TraitAddComponent
       components:
@@ -519,7 +515,6 @@
     - !type:TraitAddTag
       tags:
         - SpiderCraft
-
 
 - type: trait
   id: BionicArm
@@ -537,8 +532,6 @@
           - Security
           - Command
   #       - Dignitary - WD EDIT
-    - !type:CharacterItemGroupRequirement
-      group: TraitsMind
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
@@ -577,8 +570,6 @@
       inverted: true
       species:
         - IPC
-    - !type:CharacterItemGroupRequirement
-      group: TraitsMind
   functions: # TODO: Code Platelet factories as an actual obtainable implant, and replace this with TraitAddImplant
     - !type:TraitReplaceComponent
       components:
@@ -604,8 +595,6 @@
       inverted: true
       jobs:
         - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-    - !type:CharacterItemGroupRequirement
-      group: TraitsMind
   functions:
     - !type:TraitAddArmor
       damageModifierSets:
@@ -635,8 +624,6 @@
         - Photophobia
         - Blindness
         - Nearsighted
-    - !type:CharacterItemGroupRequirement
-      group: TraitsMind
   functions:
     - !type:TraitPushDescription
       descriptionExtensions:
@@ -825,7 +812,7 @@
     - !type:TraitReplaceComponent
       components:
         - type: DeadModifier
-          deadThresholdModifier: -100
+          deadThresholdModifier: -99
 
 - type: trait
   id: BrittleBoneDisease
@@ -906,21 +893,19 @@
     - !type:CharacterSpeciesRequirement
       species:
         - IPC
-    - !type:CharacterItemGroupRequirement
-      group: TraitsMind
   functions: # TODO: Code Platelet factories as an actual obtainable implant, and replace this with TraitAddImplant
     - !type:TraitReplaceComponent
       components:
-      - type: PassiveDamage
-        allowedStates:
-        - Alive
-        - Critical
-        - Dead
-        damageCap: 250
-        damage:
-          groups:
-            Brute: -0.5
-            Burn: -0.5
+        - type: PassiveDamage
+          allowedStates:
+          - Alive
+          - Critical
+          - Dead
+          damageCap: 250
+          damage:
+            groups:
+              Brute: -0.5
+              Burn: -0.5
 
 # - type: trait
 #   id: BionicLeg
@@ -932,8 +917,6 @@
 #       inverted: true
 #       jobs:
 #         - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-#     - !type:CharacterItemGroupRequirement
-#       group: TraitsMind
 #   functions:
 #     - !type:TraitPushDescription
 #       descriptionExtensions:
@@ -970,8 +953,6 @@
 #       - Photophobia
 #        - Blindness
 #        - Nearsighted
-#    - !type:CharacterItemGroupRequirement
-#      group: TraitsMind
 #  functions:
 #    - !type:TraitAddComponent
 #      components:
@@ -1003,8 +984,6 @@
         - Photophobia
         - Blindness
         - Nearsighted
-    - !type:CharacterItemGroupRequirement
-      group: TraitsMind
   functions:
     - !type:TraitAddComponent
       components:
@@ -1032,8 +1011,6 @@
         - Photophobia
         - Blindness
         - Nearsighted
-    - !type:CharacterItemGroupRequirement
-      group: TraitsMind
   functions:
     - !type:TraitAddComponent
       components:
@@ -1065,8 +1042,6 @@
         - Photophobia
         - Blindness
         - Nearsighted
-    - !type:CharacterItemGroupRequirement
-      group: TraitsMind
   functions:
     - !type:TraitAddComponent
       components:
@@ -1103,8 +1078,6 @@
         - MedicalEyesModule
         - DiagnosticEyesModule
         - SecurityEyesModule
-    - !type:CharacterItemGroupRequirement
-      group: TraitsMind
   functions:
     - !type:TraitAddComponent
       components:
@@ -1141,8 +1114,6 @@
         - Photophobia
         - Blindness
         - Nearsighted
-    - !type:CharacterItemGroupRequirement
-      group: TraitsMind
   functions:
     - !type:TraitAddComponent
       components:
@@ -1167,8 +1138,6 @@
         - Photophobia
         - Blindness
         - Nearsighted
-    - !type:CharacterItemGroupRequirement
-      group: TraitsMind
   functions:
     - !type:TraitAddComponent
       components:
@@ -1254,8 +1223,6 @@
       inverted: true
       jobs:
         - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-    - !type:CharacterItemGroupRequirement
-      group: TraitsMind
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
