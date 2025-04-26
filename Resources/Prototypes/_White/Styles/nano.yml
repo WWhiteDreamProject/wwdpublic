@@ -175,7 +175,7 @@
           texture: "/Textures/_White/NovaUI/Chat/button.png"
           patchMargin: 3,5,3,5
           expandMargin: 1,8,1,5
-          textureScale: 3,3
+          textureScale: 2,2
           padding: 3,5,3,5
           contentMarginVerticalOverride: 3
       modulate-self: "#FFFFFF"
@@ -202,7 +202,7 @@
           font:
           - "/Fonts/_White/LCD14/LCD14.otf"
           size: 12
-      font-color: "#7CFC00"
+      font-color: "#FFFFFF"
     .DisplayLabel8:
       font:
         valueType: Content.StyleSheetify.Client.Font.FontSpecifier
@@ -210,7 +210,7 @@
           font:
           - "/Fonts/_White/LCD14/LCD14.otf"
           size: 8
-      font-color: "#7CFC00"
+      font-color: "#FFFFFF"
     .DisplayLabel10:
       font:
         valueType: Content.StyleSheetify.Client.Font.FontSpecifier
@@ -218,7 +218,7 @@
           font:
           - "/Fonts/_White/LCD14/LCD14.otf"
           size: 10
-      font-color: "#7CFC00"
+      font-color: "#FFFFFF"
     .MachineLabel15:
       font:
         valueType: Content.StyleSheetify.Client.Font.FontSpecifier
@@ -231,6 +231,7 @@
       panel:
         valueType: Robust.Client.Graphics.StyleBoxTexture
         value:
-          texture: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
-          patchMargin: 16,16,16,16
+          texture: "/Textures/Interface/Paper/paper_background_dotmatrix.svg.96dpi.png"
+          patchMargin: 37.0, 0.0, 37.0, 0.0
+          stretchMode: Tile
       modulate-self: "#FFFFFF"
