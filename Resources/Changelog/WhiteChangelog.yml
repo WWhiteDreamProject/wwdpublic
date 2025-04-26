@@ -2704,3 +2704,10 @@ Entries:
   id: 292
   time: '2025-04-26T07:18:13.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/464
+- author: HSKveez
+  changes:
+    - type: Fix
+      message: 'В аплинк возвращены старые воровские перчатки '
+  id: 293
+  time: '2025-04-26T07:21:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/473
