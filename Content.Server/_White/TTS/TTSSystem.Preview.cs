@@ -29,10 +29,10 @@ public sealed partial class TTSSystem
     /// Вообще не понимаю на какой хрен позволять пользователяем ддосить сервер ттса да и еще своим любым текстом -_-
     /// </summary>
     /// <param name="ev"></param>
+    /// <param name="args"></param>
     private async void OnRequestPreviewTTS(RequestPreviewTTSEvent ev, EntitySessionEventArgs args)
     {
-        if (!_isEnabled ||
-            !_prototypeManager.TryIndex<TTSVoicePrototype>(ev.VoiceId, out var protoVoice))
+        if (!_isEnabled || !_prototypeManager.TryIndex<TTSVoicePrototype>(ev.VoiceId, out var protoVoice))
             return;
 
         var txt = _robustRandom.Pick(_sampleText);
