@@ -19,9 +19,7 @@ public sealed partial class TTSSystem
     private async Task<byte[]?> GetFromCache(ResPath resPath)
     {
         if (!_resourceManager.UserData.Exists(resPath))
-        {
             return null;
-        }
 
         await using var reader = _resourceManager.UserData.OpenRead(resPath);
         return reader.CopyToArray();
@@ -32,6 +30,4 @@ public sealed partial class TTSSystem
         await using var writer = _resourceManager.UserData.OpenWrite(resPath);
         await writer.WriteAsync(data);
     }
-
-
 }

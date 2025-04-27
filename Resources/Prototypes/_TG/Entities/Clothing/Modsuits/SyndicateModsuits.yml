@@ -102,9 +102,11 @@
       coefficient: 0.01
     - type: ClothingModifyStunTime
       modifier: 0.5
-    - type: Reflect
-      spread: 270
-      reflectProb: 0.04
+# WD EDIT START
+#     - type: Reflect
+#       spread: 270
+#       reflectProb: 0.04
+# WD EDIT END
     - type: EmitsSoundOnMove
       soundCollection:
         collection: FootstepHardsuitMedium
@@ -243,9 +245,11 @@
       coefficient: 0.01
     - type: ClothingModifyStunTime
       modifier: 0.5
-    - type: Reflect
-      spread: 270
-      reflectProb: 0.2
+# WD EDIT START
+#     - type: Reflect
+#       spread: 270
+#       reflectProb: 0.2
+# WD EDIT END
     - type: EmitsSoundOnMove
       soundCollection:
         collection: FootstepHardsuitMedium

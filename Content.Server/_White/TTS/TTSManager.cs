@@ -38,18 +38,30 @@ public sealed class TTSManager
     private readonly HttpClient _httpClient = new();
 
     private ISawmill _sawmill = default!;
-    // ReSharper disable once InconsistentNaming
-    public readonly Dictionary<string, byte[]> _cache = new();
-    // ReSharper disable once InconsistentNaming
-    public readonly HashSet<string> _cacheKeysSeq = new();
-    // ReSharper disable once InconsistentNaming
-    public int _maxCachedCount = 200;
+
+    private readonly Dictionary<string, byte[]> _cache = new();
+    private readonly HashSet<string> _cacheKeysSeq = new();
+    private int _maxCachedCount = 200;
+
+    public IReadOnlyDictionary<string, byte[]> Cache => _cache;
+    public IReadOnlyCollection<string> CacheKeysSeq => _cacheKeysSeq;
+    public int MaxCachedCount
+    {
+        get => _maxCachedCount;
+        set
+        {
+            _maxCachedCount = value;
+            ResetCache();
+        }
+    }
+
     private string _apiUrl = string.Empty;
     private string _apiToken = string.Empty;
 
     public void Initialize()
     {
         _sawmill = Logger.GetSawmill("tts");
+
         _cfg.OnValueChanged(WhiteCVars.TTSMaxCache, val =>
         {
             _maxCachedCount = val;
@@ -106,14 +118,14 @@ public sealed class TTSManager
             var json = await response.Content.ReadFromJsonAsync<GenerateVoiceResponse>(cancellationToken: cts.Token);
             var soundData = Convert.FromBase64String(json.Results.First().Audio);
 
-
             _cache.TryAdd(cacheKey, soundData);
             _cacheKeysSeq.Add(cacheKey);
-            if (_cache.Count > _maxCachedCount)
+
+            while (_cache.Count > _maxCachedCount && _cacheKeysSeq.Count > 0)
             {
-                var firstKey = _cacheKeysSeq.First();
-                _cache.Remove(firstKey);
-                _cacheKeysSeq.Remove(firstKey);
+                var oldestKey = _cacheKeysSeq.First();
+                _cache.Remove(oldestKey);
+                _cacheKeysSeq.Remove(oldestKey);
             }
 
             _sawmill.Debug($"Generated new audio for '{text}' speech by '{speaker}' speaker ({soundData.Length} bytes)");
