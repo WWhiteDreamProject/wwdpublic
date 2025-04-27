@@ -5,6 +5,7 @@ using Content.Client.Administration.UI;
 using Content.Client.Humanoid;
 using Content.Client.Message;
 using Content.Client.Players.PlayTimeTracking;
+using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared._EE.Contractors.Prototypes;
@@ -92,7 +93,6 @@ namespace Content.Client.Lobby.UI
         private int _traitCount;
         private HashSet<LoadoutPreferenceSelector> _loadoutPreferences = new();
 
-        private Direction _previewRotation = Direction.North;
         private ColorSelectorSliders _rgbSkinColorSelector;
 
         private bool _customizePronouns;
@@ -161,7 +161,6 @@ namespace Content.Client.Lobby.UI
             NameEdit.OnTextChanged += args => { SetName(args.Text); };
             NameRandomize.OnPressed += _ => RandomizeName();
             RandomizeEverything.OnPressed += _ => { RandomizeProfile(); };
-            WarningLabel.SetMarkup($"[color=red]{Loc.GetString("humanoid-profile-editor-naming-rules-warning")}[/color]");
 
             #endregion Name
 
@@ -265,7 +264,7 @@ namespace Content.Client.Lobby.UI
 
             if (CyborgNameContainer.Visible != _customizeBorgName)
                 CyborgNameContainer.Visible = _customizeBorgName;
-                
+
             // WD EDIT START
             if (ClownNameContainer.Visible != _customizeClownName)
                 ClownNameContainer.Visible = _customizeClownName;
@@ -588,21 +587,6 @@ namespace Content.Client.Lobby.UI
 
             RefreshFlavorText();
 
-            #region Dummy
-
-            SpriteRotateLeft.OnPressed += _ =>
-            {
-                _previewRotation = _previewRotation.TurnCw();
-                SetPreviewRotation(_previewRotation);
-            };
-            SpriteRotateRight.OnPressed += _ =>
-            {
-                _previewRotation = _previewRotation.TurnCcw();
-                SetPreviewRotation(_previewRotation);
-            };
-
-            #endregion Dummy
-
             #endregion Left
 
             ShowClothes.OnToggled += _ => { SetProfile(Profile, CharacterSlot); };
@@ -659,7 +643,7 @@ namespace Content.Client.Lobby.UI
             _customizeBorgName = newValue;
             CyborgNameContainer.Visible = newValue;
         }
-        
+
         // WD EDIT START
         private void OnChangedClownNameCustomizationValue(bool newValue)
         {
@@ -818,6 +802,9 @@ namespace Content.Client.Lobby.UI
                 ("humanoid-profile-editor-antag-preference-yes-button", 0),
                 ("humanoid-profile-editor-antag-preference-no-button", 1)
             };
+            // Causes a weird error if I just replace AntagList so whatever, have a child
+            var alt = new AlternatingBGContainer { Orientation = LayoutOrientation.Vertical, };
+            AntagList.AddChild(alt);
 
             foreach (var antag in _prototypeManager.EnumeratePrototypes<AntagPrototype>().OrderBy(a => Loc.GetString(a.Name)))
             {
@@ -827,11 +814,13 @@ namespace Content.Client.Lobby.UI
                 var antagContainer = new BoxContainer()
                 {
                     Orientation = LayoutOrientation.Horizontal,
+                    HorizontalExpand = true,
                 };
 
                 var selector = new RequirementsSelector()
                 {
-                    Margin = new Thickness(3f, 3f, 3f, 0f),
+                    Margin = new(3f, 3f, 3f, 0f),
+                    HorizontalExpand = true,
                 };
                 selector.OnOpenGuidebook += OnOpenGuidebook;
 
@@ -867,7 +856,7 @@ namespace Content.Client.Lobby.UI
                 };
 
                 antagContainer.AddChild(selector);
-                AntagList.AddChild(antagContainer);
+                alt.AddChild(antagContainer);
             }
         }
 
@@ -895,7 +884,10 @@ namespace Content.Client.Lobby.UI
                 return;
 
             PreviewDummy = _controller.LoadProfileEntity(Profile, ShowClothes.Pressed, ShowLoadouts.Pressed);
-            SpriteView.SetEntity(PreviewDummy);
+            SpriteViewS.SetEntity(PreviewDummy);
+            SpriteViewN.SetEntity(PreviewDummy);
+            SpriteViewE.SetEntity(PreviewDummy);
+            SpriteViewW.SetEntity(PreviewDummy);
         }
 
         /// Reloads the dummy entity's clothes for preview
@@ -980,7 +972,6 @@ namespace Content.Client.Lobby.UI
                 appearanceSystem.SetLayersVisibility(PreviewDummy, hiddenLayers, false, humanoid: humanoid);
             }
 
-            SetPreviewRotation(_previewRotation);
             TraitsTabs.UpdateTabMerging();
             LoadoutsTabs.UpdateTabMerging();
         }
@@ -1018,7 +1009,6 @@ namespace Content.Client.Lobby.UI
             JobList.DisposeAllChildren();
             _jobCategories.Clear();
             _jobPriorities.Clear();
-            var firstCategory = true;
 
             // Get all displayed departments
             var departments = new List<DepartmentPrototype>();
@@ -1040,39 +1030,33 @@ namespace Content.Client.Lobby.UI
                 ("humanoid-profile-editor-job-priority-high-button", (int) JobPriority.High),
             };
 
+            var firstCategory = true;
             foreach (var department in departments)
             {
                 var departmentName = Loc.GetString($"department-{department.ID}");
 
                 if (!_jobCategories.TryGetValue(department.ID, out var category))
                 {
-                    category = new BoxContainer
+                    category = new AlternatingBGContainer
                     {
                         Orientation = LayoutOrientation.Vertical,
                         Name = department.ID,
                         ToolTip = Loc.GetString("humanoid-profile-editor-jobs-amount-in-department-tooltip",
-                            ("departmentName", departmentName))
-                    };
-
-                    if (firstCategory)
-                        firstCategory = false;
-                    else
-                        category.AddChild(new Control { MinSize = new Vector2(0, 23) });
-
-                    category.AddChild(new PanelContainer
-                    {
-                        PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#232323")}, // WD EDIT
+                            ("departmentName", departmentName)),
+                        Margin = new(0, firstCategory ? 0 : 20, 0, 0),
                         Children =
                         {
                             new Label
                             {
                                 Text = Loc.GetString("humanoid-profile-editor-department-jobs-label",
                                     ("departmentName", departmentName)),
-                                Margin = new Thickness(5f, 0, 0, 0),
+                                StyleClasses = { StyleBase.StyleClassLabelHeading, },
+                                Margin = new(5f, 0, 0, 0),
                             },
                         },
-                    });
+                    };
 
+                    firstCategory = false;
                     _jobCategories[department.ID] = category;
                     JobList.AddChild(category);
                 }
@@ -1505,7 +1489,7 @@ namespace Content.Client.Lobby.UI
             Profile = Profile?.WithCyborgName(cyborgName);
             IsDirty = true;
         }
-        
+
         // WD EDIT START
         private void SetClownName(string? clownName)
         {
@@ -1964,7 +1948,10 @@ namespace Content.Client.Lobby.UI
             else // Whelp, the fixture doesn't exist, guesstimate it instead
                 WeightLabel.Text = Loc.GetString("humanoid-profile-editor-weight-label", ("weight", (int) 71));
 
-            SpriteView.InvalidateMeasure();
+            SpriteViewS.InvalidateMeasure();
+            SpriteViewN.InvalidateMeasure();
+            SpriteViewE.InvalidateMeasure();
+            SpriteViewW.InvalidateMeasure();
         }
 
         private void UpdateHairPickers()
@@ -2062,11 +2049,6 @@ namespace Content.Client.Lobby.UI
             Profile = HumanoidCharacterProfile.Random();
             SetProfile(Profile, CharacterSlot);
             SetDirty();
-        }
-
-        private void SetPreviewRotation(Direction direction)
-        {
-            SpriteView.OverrideDirection = (Direction) ((int) direction % 4 * 2);
         }
 
         private void RandomizeName()

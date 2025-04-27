@@ -24,6 +24,7 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Overlays.Switchable;
 
 using Content.Shared.Stunnable;
+using Content.Shared.Movement.Events;
 
 namespace Content.Shared.Inventory;
 
@@ -47,6 +48,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, TargetBeforeHyposprayInjectsEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, SelfBeforeGunShotEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, SelfBeforeClimbEvent>(RelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, MakeFootstepSoundEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, FlashbangedEvent>(RelayInventoryEvent); // WD EDIT
 
         // by-ref events

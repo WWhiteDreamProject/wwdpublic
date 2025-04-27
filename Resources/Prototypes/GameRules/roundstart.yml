@@ -14,7 +14,7 @@
     rules:
     - id: Thief
       prob: 0.5
-      
+
 - type: entity
   id: DeathMatch31
   parent: BaseGameRule
@@ -68,7 +68,6 @@
   parent: BaseGameRule
   id: BaseNukeopsRule
   components:
-  - type: GameRule
   - type: RandomMetadata #this generates the random operation name cuz it's cool.
     nameSegments:
     - operationPrefix
@@ -93,8 +92,6 @@
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsCommander
-      max: 1
-      playerRatio: 10
       startingGear: SyndicateCommanderGearFull
       components:
       - type: NukeOperative
@@ -110,8 +107,6 @@
     - prefRoles: [ NukeopsMedic ]
       fallbackRoles: [ Nukeops, NukeopsCommander ]
       spawnerPrototype: SpawnPointNukeopsMedic
-      max: 1
-      playerRatio: 10
       startingGear: SyndicateOperativeMedicFull
       components:
       - type: NukeOperative
@@ -167,7 +162,6 @@
     delay:
       min: 240
       max: 420
-  - type: TraitorRule
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
@@ -287,7 +281,7 @@
   components:
   - type: RampingStationEventScheduler
     chaosModifier: 5 # By default, one event each 30-10 seconds after two hours. Changing CVars will cause this to deviate.
-    startingChaosRatio: 0.1 
+    startingChaosRatio: 0.1
     shiftLengthModifier: 2.5
 
 - type: entity
@@ -325,16 +319,16 @@
   components:
   - type: RoundstartStationVariationRule
     rules:
-#    - id: BasicPoweredLightVariationPass
+    #    - id: BasicPoweredLightVariationPass
     - id: BasicTrashVariationPass
-#    - id: SolidWallRustingVariationPass
-#    - id: ReinforcedWallRustingVariationPass
+    #    - id: SolidWallRustingVariationPass
+    #    - id: ReinforcedWallRustingVariationPass
     - id: BasicPuddleMessVariationPass
       prob: 0.99
       orGroup: puddleMess
-#    - id: BloodbathPuddleMessVariationPass
-#      prob: 0.01
-#      orGroup: puddleMess
+    #    - id: BloodbathPuddleMessVariationPass
+    #      prob: 0.01
+    #      orGroup: puddleMess
     - id: SmugglerStashVariationPass
       prob: 0.90
-      
+
