@@ -93,12 +93,11 @@
 - type: font
   id: Megrim
   path: /Fonts/Megrim/Megrim.ttf
-  
+
 - type: font
   id: YoureGone
   path: /Fonts/YoureGone.otf
-  
-# WD ADD:
+
 - type: font
-  id: ComicSansMS
-  path: /Fonts/_White/Comic Sans MS/Comic Sans MS.ttf
+  id: NovaFlat
+  path: /Fonts/NovaFlat/NovaFlat-Regular.ttf
