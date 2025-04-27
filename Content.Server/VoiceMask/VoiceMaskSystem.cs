@@ -83,6 +83,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
             return;
 
         entity.Comp.VoiceId = msg.Voice;
+        _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(msg.Actor):player} set voice ID of {ToPrettyString(entity):mask}: {entity.Comp.VoiceId}");
 
         _popupSystem.PopupEntity(Loc.GetString("voice-mask-voice-popup-success"), entity);
 

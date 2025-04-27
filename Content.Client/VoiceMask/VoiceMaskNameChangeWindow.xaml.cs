@@ -11,8 +11,6 @@ namespace Content.Client.VoiceMask;
 [GenerateTypedNameReferences]
 public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-
     public Action<string>? OnNameChange;
     public Action<string>? OnVoiceChange; // WD EDIT
     public Action<string?>? OnVerbChange;
@@ -36,7 +34,7 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
         {
             VoiceSelector.SelectId(args.Id);
             if (VoiceSelector.SelectedMetadata != null)
-                OnVoiceChange!((string) VoiceSelector.SelectedMetadata);
+                OnVoiceChange?.Invoke((string) VoiceSelector.SelectedMetadata);
         };
         // WD EDIT END
 
