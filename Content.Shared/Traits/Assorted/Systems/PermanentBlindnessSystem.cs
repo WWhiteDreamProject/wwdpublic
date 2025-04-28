@@ -48,8 +48,9 @@ public sealed class PermanentBlindnessSystem : EntitySystem
         else
         {
             var maxMagnitudeInt = (int) BlurryVisionComponent.MaxMagnitude;
-            _blinding.SetMinDamage(new Entity<BlindableComponent?>(blindness.Owner, blindable), maxMagnitudeInt);
+            _blinding.SetMinDamage(new Entity<BlindableComponent?>(blindness.Owner, blindable), maxMagnitudeInt + 2);
         }
+        _blinding.SetIncurable(new Entity<BlindableComponent?>(blindness.Owner, blindable), blindness.Comp.Incurable);
     }
     
 
