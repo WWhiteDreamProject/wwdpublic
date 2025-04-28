@@ -1,8 +1,11 @@
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
+using Content.Shared.ListViewSelector;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
+using Content.Shared.StationAi;
+using Content.Shared.SurveillanceCamera.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -31,7 +34,9 @@ public abstract partial class SharedStationAiSystem
         SubscribeLocalEvent<StationAiHeldComponent, InteractionAttemptEvent>(OnHeldInteraction);
         SubscribeLocalEvent<StationAiHeldComponent, AttemptRelayActionComponentChangeEvent>(OnHeldRelay);
         SubscribeLocalEvent<StationAiHeldComponent, JumpToCoreEvent>(OnCoreJump);
-        SubscribeLocalEvent<StationAiHeldComponent, AiToggleBoltsEvent>(OnToggleBolts);
+        SubscribeLocalEvent<StationAiHeldComponent, AiToggleBoltsEvent>(OnToggleBolts); // WD edit start
+        SubscribeLocalEvent<StationAiHeldComponent, AiCameraListEvent>(OnCameraList);
+        SubscribeLocalEvent<StationAiHeldComponent, ListViewItemSelectedMessage>(OnCameraListSelected); // WD edit end
         SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
     }
 
@@ -90,6 +95,41 @@ public abstract partial class SharedStationAiSystem
             _xforms.Unanchor(core, xform);
             _audio.PlayEntity(ent.Comp.CoreBoltsEnabled, Filter.Pvs(xform.Coordinates), core.Owner, true);
         }
+    }
+
+    private void OnCameraList(Entity<StationAiHeldComponent> ent, ref AiCameraListEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        var cameraQuery = EntityQueryEnumerator<StationAiVisionComponent>();
+        var cameras = new List<ListViewSelectorEntry>();
+        while (cameraQuery.MoveNext(out var cameraUid, out var cameraComponent))
+        {
+            if (Transform(cameraUid).MapID != Transform(ent.Owner).MapID)
+                continue;
+            
+            var name = Name(cameraUid);
+            if (TryComp(cameraUid, out SurveillanceCameraComponent? survCameraComponent))
+                name = survCameraComponent.CameraId;
+            var entry = new ListViewSelectorEntry(cameraUid.ToString(), name);
+            cameras.Add(entry);
+        }
+
+        if (cameras.Count == 0)
+            return;
+
+        _ui.SetUiState(args.Performer, ListViewSelectorUiKey.Key, new ListViewSelectorState(cameras));
+        _ui.TryToggleUi(args.Performer, ListViewSelectorUiKey.Key, args.Performer);
+        args.Handled = true;
+    }
+
+    private void OnCameraListSelected(Entity<StationAiHeldComponent> ent, ref ListViewItemSelectedMessage args)
+    {
+        if (!TryGetCore(ent.Owner, out var core) || core.Comp?.RemoteEntity == null)
+            return;
+
+        _xforms.DropNextTo(core.Comp.RemoteEntity.Value, EntityUid.Parse(args.SelectedItem.Id));
     }
     // WD edit end
 

@@ -1,6 +1,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Speech;
 using Content.Server.Speech.Components;
+using Content.Shared.SurveillanceCamera.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Player;
 using static Content.Server.Chat.Systems.ChatSystem;
@@ -27,7 +28,7 @@ public sealed class SurveillanceCameraMicrophoneSystem : EntitySystem
         var sourcePos = _xforms.GetWorldPosition(sourceXform, xformQuery);
 
         // This function ensures that chat popups appear on camera views that have connected microphones.
-        foreach (var (_, __, camera, xform) in EntityQuery<SurveillanceCameraMicrophoneComponent, ActiveListenerComponent, SurveillanceCameraComponent, TransformComponent>())
+        foreach (var (_, __, camera, xform) in EntityQuery<SurveillanceCameraMicrophoneComponent, ActiveListenerComponent,  SurveillanceCameraComponent, TransformComponent>())
         {
             if (camera.ActiveViewers.Count == 0)
                 continue;
@@ -67,7 +68,7 @@ public sealed class SurveillanceCameraMicrophoneSystem : EntitySystem
 
     public void RelayEntityMessage(EntityUid uid, SurveillanceCameraMicrophoneComponent component, ListenEvent args)
     {
-        if (!TryComp(uid, out SurveillanceCameraComponent? camera))
+        if (!TryComp(uid, out  SurveillanceCameraComponent? camera))
             return;
 
         var ev = new SurveillanceCameraSpeechSendEvent(args.Source, args.Message);
