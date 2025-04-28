@@ -7,6 +7,7 @@ using Content.Shared.Popups;
 using Content.Shared.StationAi;
 using Content.Shared.SurveillanceCamera.Components;
 using Content.Shared.Verbs;
+using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
@@ -67,8 +68,10 @@ public abstract partial class SharedStationAiSystem
 
     private void OnToggleBolts(Entity<StationAiHeldComponent> ent, ref AiToggleBoltsEvent args)
     {
-        if (!TryGetCore(ent.Owner, out var core) || core.Comp?.RemoteEntity == null)
+        if (!TryGetCore(ent.Owner, out var core) || core.Comp?.RemoteEntity == null || args.Handled)
             return;
+
+        args.Handled = true;
 
         var xform = Transform(core);
 
@@ -95,6 +98,7 @@ public abstract partial class SharedStationAiSystem
             _xforms.Unanchor(core, xform);
             _audio.PlayEntity(ent.Comp.CoreBoltsEnabled, Filter.Pvs(xform.Coordinates), core.Owner, true);
         }
+
     }
 
     private void OnCameraList(Entity<StationAiHeldComponent> ent, ref AiCameraListEvent args)
