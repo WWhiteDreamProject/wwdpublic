@@ -75,7 +75,7 @@
   description: Toggle bolts, that keep you wrenched to the floor.
   components:
   - type: InstantAction
-    priority: -15
+    priority: -1
     itemIconStyle: NoItem
     icon:
       sprite: _White/Interface/Actions/actions_ai.rsi
@@ -89,7 +89,7 @@
   description: Show available cameras for you to follow.
   components:
   - type: InstantAction
-    priority: -2
+    priority: -5
     itemIconStyle: NoItem
     icon:
       sprite: _White/Interface/Actions/actions_ai.rsi

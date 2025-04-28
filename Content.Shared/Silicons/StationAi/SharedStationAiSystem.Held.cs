@@ -108,7 +108,7 @@ public abstract partial class SharedStationAiSystem
         {
             if (Transform(cameraUid).MapID != Transform(ent.Owner).MapID)
                 continue;
-            
+
             var name = Name(cameraUid);
             if (TryComp(cameraUid, out SurveillanceCameraComponent? survCameraComponent))
                 name = survCameraComponent.CameraId;
