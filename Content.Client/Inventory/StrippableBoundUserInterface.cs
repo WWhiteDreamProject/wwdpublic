@@ -235,7 +235,7 @@ namespace Content.Client.Inventory
                 return;
             }
             //WWDP edit start
-            if (EntMan.TryGetComponent<HideIconComponent>(entity.Value, out var hideComp))
+            if (EntMan.TryGetComponent<StripMenuHideIconComponent>(entity.Value, out var hideComp))
             {
                 {
                     button.SetEntity(null);
@@ -252,7 +252,6 @@ namespace Content.Client.Inventory
                 return;
 
             button.SetEntity(viewEnt);
-            button.MouseFilter = viewEnt != null ? MouseFilterMode.Pass : MouseFilterMode.Ignore; // WWDP edit ; чтобы c убитыми иконками взаимодействовать
         }
     }
 }

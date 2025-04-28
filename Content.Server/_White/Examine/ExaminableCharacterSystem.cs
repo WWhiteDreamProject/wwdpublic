@@ -78,7 +78,7 @@ namespace Content.Server._White.Examine
                 if (!_inventorySystem.TryGetSlotEntity(uid, slotName, out var slotEntity))
                     continue;
 
-                if (HasComp<ExaminableCharacterHideComponent>(slotEntity.Value))
+                if (HasComp<ExaminableCharacterHideIconComponent>(slotEntity.Value))
                     continue;
 
                 if (_entityManager.TryGetComponent<MetaDataComponent>(slotEntity, out var metaData))

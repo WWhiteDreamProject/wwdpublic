@@ -4,4 +4,4 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Strip.Components;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class HideIconComponent : Component {}
+public sealed partial class StripMenuHideIconComponent : Component {}

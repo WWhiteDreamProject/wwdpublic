@@ -75,6 +75,6 @@
   - type: DoAfter
   - type: SealableClothingControl
   - type: SealableClothingRequiresPower
-  - type: HideIcon
-  - type: ExaminableCharacterHide
+  - type: StripMenuHideIcon
+  - type: ExaminableCharacterHideIcon
 
