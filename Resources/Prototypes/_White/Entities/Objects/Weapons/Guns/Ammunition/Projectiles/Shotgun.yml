@@ -1,0 +1,14 @@
+﻿- type: entity
+  id: PelletShotgunMeteor
+  name: Meteor slug (.50 meteor )
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: meteor
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 69
+        construction: 150

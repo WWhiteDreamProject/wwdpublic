@@ -66,6 +66,9 @@
         },
         {
             "name": "depleted-uranium-spent"
+        },
+        {
+            "name": "meteor"
         }
     ]
 }

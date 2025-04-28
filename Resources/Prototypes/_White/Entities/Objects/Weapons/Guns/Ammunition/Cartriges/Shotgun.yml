@@ -1,0 +1,13 @@
+﻿- type: entity
+  id: ShellShotgunMeteor
+  name: shell (.50 meteor)
+  parent: BaseShellShotgun
+  components:
+  - type: Sprite
+    layers:
+    - state: meteor
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: PelletShotgunMeteor
+  - type: SpentAmmoVisuals
+    state: "meteor"
