@@ -1,9 +1,13 @@
+using Content.Shared._White.Silicons.StationAi.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.ListViewSelector;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.StationAi;
 using Content.Shared.SurveillanceCamera.Components;
 using Content.Shared.Verbs;
@@ -36,6 +40,7 @@ public abstract partial class SharedStationAiSystem
         SubscribeLocalEvent<StationAiHeldComponent, AttemptRelayActionComponentChangeEvent>(OnHeldRelay);
         SubscribeLocalEvent<StationAiHeldComponent, JumpToCoreEvent>(OnCoreJump);
         SubscribeLocalEvent<StationAiHeldComponent, AiToggleBoltsEvent>(OnToggleBolts); // WD edit start
+        SubscribeLocalEvent<StationAiHeldComponent, AiDeployEvent>(OnDeploy);
         SubscribeLocalEvent<StationAiHeldComponent, AiCameraListEvent>(OnCameraList);
         SubscribeLocalEvent<StationAiHeldComponent, ListViewItemSelectedMessage>(OnCameraListSelected); // WD edit end
         SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
@@ -131,10 +136,49 @@ public abstract partial class SharedStationAiSystem
 
     private void OnCameraListSelected(Entity<StationAiHeldComponent> ent, ref ListViewItemSelectedMessage args)
     {
-        if (!TryGetCore(ent.Owner, out var core) || core.Comp?.RemoteEntity == null)
+        if (!TryGetCore(ent.Owner, out var core) ||
+            core.Comp?.RemoteEntity == null)
             return;
 
-        _xforms.DropNextTo(core.Comp.RemoteEntity.Value, EntityUid.Parse(args.SelectedItem.Id));
+        _ui.CloseUi(ent.Owner, ListViewSelectorUiKey.Key);
+
+        var selectedEntity = EntityUid.Parse(args.SelectedItem.Id);
+        if (TryComp(selectedEntity, out BorisModuleComponent? module))
+        {
+            module.OriginalBrain = ent.Owner;
+            _mind.ControlMob(ent.Owner, selectedEntity);
+        }
+
+        _xforms.DropNextTo(core.Comp.RemoteEntity.Value, selectedEntity);
+    }
+
+    private void OnDeploy(Entity<StationAiHeldComponent> ent, ref AiDeployEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        var moduleQuery = EntityQueryEnumerator<BorisModuleComponent>();
+        var modules = new List<ListViewSelectorEntry>();
+        while (moduleQuery.MoveNext(out var moduleUid, out var moduleComponent))
+        {
+            if (moduleComponent.OriginalBrain != null ||
+                !_containers.TryGetContainingContainer(moduleUid, out var container) ||
+                container.ID != BorgBrainSlotId)
+                continue;
+
+            if (TryComp(container.Owner, out MobStateComponent? mobState) && mobState.CurrentState is MobState.Dead or MobState.Critical)
+                continue;
+
+            var entry = new ListViewSelectorEntry(moduleUid.ToString(), Name(container.Owner));
+            modules.Add(entry);
+        }
+
+        if (modules.Count == 0)
+            return;
+
+        _ui.SetUiState(args.Performer, ListViewSelectorUiKey.Key, new ListViewSelectorState(modules));
+        _ui.TryToggleUi(args.Performer, ListViewSelectorUiKey.Key, args.Performer);
+        args.Handled = true;
     }
     // WD edit end
 

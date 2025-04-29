@@ -25,3 +25,31 @@
       state: camera
     event: !type:AiCameraListEvent
     useDelay: 0.5
+
+- type: entity
+  id: ActionAIDeploy
+  name: Deploy
+  description: Start controlling one of your shells
+  components:
+  - type: InstantAction
+    priority: -15
+    itemIconStyle: NoItem
+    icon:
+      sprite: _White/Interface/Actions/actions_ai.rsi
+      state: ai_shell
+    event: !type:AiDeployEvent
+    useDelay: 0.5
+
+- type: entity
+  id: ActionAIReturnToCore
+  name: Return to core
+  description: Stop controlling shell
+  components:
+  - type: InstantAction
+    priority: -15
+    itemIconStyle: NoItem
+    icon:
+      sprite: _White/Interface/Actions/actions_ai.rsi
+      state: ai_core
+    event: !type:AiReturnToCoreEvent
+    useDelay: 0.5

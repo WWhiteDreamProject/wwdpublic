@@ -1,0 +1,39 @@
+﻿- type: entity
+  parent: BaseItem
+  id: BorisModule
+  name: B.O.R.I.S. module
+  description: This module allows AI to control borg, inserted in it's brain slot.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: boris
+  - type: BorgBrain
+  - type: BorisModule
+  - type: GuideHelp
+    guides:
+    - Cyborgs
+  - type: LanguageSpeaker
+  - type: LanguageKnowledge
+    speaks: [ RobotTalk ]
+    understands: [ RobotTalk ]
+  - type: Actions
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechSounds: Pai
+  - type: MobState
+    allowedStates:
+    - Alive
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+  - type: BlockMovement
+  - type: Examiner
+  - type: Input
+    context: human

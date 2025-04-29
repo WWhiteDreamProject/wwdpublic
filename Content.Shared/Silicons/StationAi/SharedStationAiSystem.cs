@@ -79,6 +79,8 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     [ValidatePrototypeId<EntityPrototype>]
     private static EntProtoId DefaultAi = "PositronicBrain"; // WD edit
 
+    public string BorgBrainSlotId = "borg_brain"; // WD edit
+
     private const float MaxVisionMultiplier = 5f;
 
     public override void Initialize()
@@ -580,9 +582,11 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
 public sealed partial class JumpToCoreEvent : InstantActionEvent;
 
-public sealed partial class AiToggleBoltsEvent : InstantActionEvent; // WD edit
+public sealed partial class AiToggleBoltsEvent : InstantActionEvent; // WD edit start
 
-public sealed partial class AiCameraListEvent: InstantActionEvent; // WD edit
+public sealed partial class AiCameraListEvent: InstantActionEvent;
+
+public sealed partial class AiDeployEvent: InstantActionEvent; // WD edit end
 
 [Serializable, NetSerializable]
 public sealed partial class IntellicardDoAfterEvent : SimpleDoAfterEvent;
