@@ -26,6 +26,8 @@ namespace Content.Client.UserInterface.Controls
         private AnimationExtend<float> FadeAnimation;
         private AnimationExtend<float> UnfadeAnimation;
 
+        private static readonly float[] KeyFrames = [0f, 0.15f, 0.25f,];
+
         public FancyWindow()
         {
             RobustXamlLoader.Load(this);
@@ -40,9 +42,9 @@ namespace Content.Client.UserInterface.Controls
                 AnimationInterpolationMode.Cubic,
                 new List<AnimationTrackProperty.KeyFrame>()
                 {
-                    new(new Vector2(0.5f, 1.2f), 0f),
-                    new(new Vector2(0.5f, 0.4f), 0.25f),
-                    new(new Vector2(0.5f, 0.5f), 0.4f)
+                    new(new Vector2(0.5f, 1.2f), KeyFrames[0]),
+                    new(new Vector2(0.5f, 0.4f), KeyFrames[1]),
+                    new(new Vector2(0.5f, 0.5f), KeyFrames[2])
                 }
             );
 
@@ -52,9 +54,9 @@ namespace Content.Client.UserInterface.Controls
                 AnimationInterpolationMode.Cubic,
                 new List<AnimationTrackProperty.KeyFrame>()
                 {
-                    new(1f,0f),
-                    new(0f,0.25f),
-                    new(0f,0.4f)
+                    new(1f,KeyFrames[0]),
+                    new(0f,KeyFrames[1]),
+                    new(0f,KeyFrames[2])
                 }
             );
 
@@ -64,9 +66,9 @@ namespace Content.Client.UserInterface.Controls
                 AnimationInterpolationMode.Cubic,
                 new List<AnimationTrackProperty.KeyFrame>()
                 {
-                    new(0f,0f),
-                    new(1f,0.25f),
-                    new(1f,0.4f)
+                    new(0f,KeyFrames[0]),
+                    new(1f,KeyFrames[1]),
+                    new(1f,KeyFrames[2])
                 }
             );
         }
@@ -88,9 +90,9 @@ namespace Content.Client.UserInterface.Controls
                 AnimationInterpolationMode.Cubic,
                 new List<AnimationTrackProperty.KeyFrame>()
                 {
-                    new(new Vector2(pos.X,pos.Y),0f),
-                    new(new Vector2(pos.X,0.4f),0.25f),
-                    new(new Vector2(pos.X,1.0f),0.4f)
+                    new(new Vector2(pos.X,pos.Y),KeyFrames[0]),
+                    new(new Vector2(pos.X,0.4f),KeyFrames[1]),
+                    new(new Vector2(pos.X,1.0f),KeyFrames[2])
                 }
             ).PlayAnimation();
             FadeAnimation.PlayAnimation();

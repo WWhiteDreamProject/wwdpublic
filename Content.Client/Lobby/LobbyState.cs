@@ -71,7 +71,7 @@ namespace Content.Client.Lobby
             _gameTicker.LobbyStatusUpdated += LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated += LobbyLateJoinStatusUpdated;
 
-            PopulateChangelog(); // WD EDIT
+            //PopulateChangelog(); // WD EDIT
         }
 
         protected override void Shutdown()
@@ -202,7 +202,7 @@ namespace Content.Client.Lobby
                 Lobby!.ServerInfo.SetInfoBlob(_gameTicker.ServerInfoBlob);
 
             Lobby!.LabelName.SetMarkup("[font=\"Bedstead\" size=20] White Dream [/font]"); // WD EDIT
-            Lobby!.ChangelogLabel.SetMarkup(Loc.GetString("ui-lobby-changelog")); // WD EDIT
+            //Lobby!.ChangelogLabel.SetMarkup(Loc.GetString("ui-lobby-changelog")); // WD EDIT
         }
 
         private void UpdateLobbySoundtrackInfo(LobbySoundtrackChangedEvent ev)
@@ -266,71 +266,6 @@ namespace Content.Client.Lobby
                 return;
 
             _consoleHost.ExecuteCommand($"toggleready {newReady}");
-        }
-
-        private async void PopulateChangelog()
-        {
-            if (Lobby?.ChangelogContainer?.Children is null)
-                return;
-
-            Lobby.ChangelogContainer.Children.Clear();
-
-            var changelogs = await _changelog.LoadChangelog();
-            var whiteChangelog = changelogs.Find(cl => cl.Name == "WhiteChangelog");
-
-            if (whiteChangelog is null)
-            {
-                Lobby.ChangelogContainer.Children.Add(
-                    new RichTextLabel().SetMarkup(Loc.GetString("ui-lobby-changelog-not-found")));
-
-                return;
-            }
-
-            var entries = whiteChangelog.Entries
-                .OrderByDescending(c => c.Time)
-                .Take(3);
-
-            foreach (var entry in entries)
-            {
-                var box = new BoxContainer
-                {
-                    Orientation = BoxContainer.LayoutOrientation.Vertical,
-                    HorizontalAlignment = Control.HAlignment.Left,
-                    Children =
-                    {
-                        new Label
-                        {
-                            Align = Label.AlignMode.Left,
-                            Text = $"{entry.Author} {entry.Time.ToShortDateString()}",
-                            FontColorOverride = Color.FromHex("#888"),
-                            Margin = new Thickness(0, 10)
-                        }
-                    }
-                };
-
-                foreach (var change in entry.Changes)
-                {
-                    var container = new BoxContainer
-                    {
-                        Orientation = BoxContainer.LayoutOrientation.Horizontal,
-                        HorizontalAlignment = Control.HAlignment.Left
-                    };
-
-                    var text = new RichTextLabel();
-                    text.SetMessage(FormattedMessage.FromMarkup(change.Message));
-                    text.MaxWidth = 350;
-
-                    container.AddChild(GetIcon(change.Type));
-                    container.AddChild(text);
-
-                    box.AddChild(container);
-                }
-
-                if (Lobby?.ChangelogContainer is null)
-                    return;
-
-                Lobby.ChangelogContainer.AddChild(box);
-            }
         }
 
         private TextureRect GetIcon(ChangelogManager.ChangelogLineType type)

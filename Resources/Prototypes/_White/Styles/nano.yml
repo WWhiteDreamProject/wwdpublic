@@ -150,6 +150,31 @@
           patchMargin: 4,4,4,5
           textureScale: 2,2
       modulate-self: "#FFFFFF"
+    PanelContainer.StickerBackground:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/Paper/sticker.png"
+          patchMargin: 2,4,2,4
+          expandMargin: 2,4,2,4
+          textureScale: 2,2
+      modulate-self: "#FFFFFF"
+    PanelContainer.PaperBackground:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/Interface/Paper/paper_background_dotmatrix.svg.96dpi.png"
+          patchMargin: 37.0, 0.0, 37.0, 0.0
+          stretchMode: Tile
+      modulate-self: "#EEE8AA"
+    .MenuLabel15:
+      font:
+        valueType: Content.StyleSheetify.Client.Font.FontSpecifier
+        value:
+          font:
+          - "/Fonts/_White/Bedstead/Bedstead.otf"
+          size: 13
+      font-color: "#2f2f2f"
 
 
 - type: styleSheet
