@@ -1,0 +1,27 @@
+﻿- type: entity
+  id: ActionAIToggleBolts
+  name: Toggle floor bolts
+  description: Toggle bolts, that keep you wrenched to the floor.
+  components:
+  - type: InstantAction
+    priority: -1
+    itemIconStyle: NoItem
+    icon:
+      sprite: _White/Interface/Actions/actions_ai.rsi
+      state: toggle_bolts
+    event: !type:AiToggleBoltsEvent
+    useDelay: 0.5
+
+- type: entity
+  id: ActionAICameraList
+  name: Show camera list
+  description: Show available cameras for you to follow.
+  components:
+  - type: InstantAction
+    priority: -5
+    itemIconStyle: NoItem
+    icon:
+      sprite: _White/Interface/Actions/actions_ai.rsi
+      state: camera
+    event: !type:AiCameraListEvent
+    useDelay: 0.5

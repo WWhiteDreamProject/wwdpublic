@@ -98,8 +98,9 @@ public abstract partial class SharedStationAiSystem
             _xforms.Unanchor(core, xform);
             _audio.PlayEntity(ent.Comp.CoreBoltsEnabled, Filter.Pvs(xform.Coordinates), core.Owner, true);
         }
-
     }
+
+    // TODO: Rework camera list interface
 
     private void OnCameraList(Entity<StationAiHeldComponent> ent, ref AiCameraListEvent args)
     {
