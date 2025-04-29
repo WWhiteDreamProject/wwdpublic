@@ -68,7 +68,7 @@ public abstract partial class SharedStationAiSystem
 
     private void OnToggleBolts(Entity<StationAiHeldComponent> ent, ref AiToggleBoltsEvent args)
     {
-        if (!TryGetCore(ent.Owner, out var core) || core.Comp?.RemoteEntity == null || args.Handled)
+        if (args.Handled || !TryGetCore(ent.Owner, out var core) || core.Comp?.RemoteEntity == null)
             return;
 
         args.Handled = true;
