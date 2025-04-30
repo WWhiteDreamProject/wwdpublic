@@ -1,8 +1,8 @@
 ﻿- type: entity
   parent: BaseItem
   id: BorisModule
-  name: B.O.R.I.S. module
-  description: This module allows AI to control borg, inserted in it's brain slot.
+  name: B.O.R.I.S. AI-cyborg remote control
+  description: Bluespace Optimized Remote Intelligence Synchronization. An uplink device which takes the place of an MMI in cyborg endoskeletons, creating a robotic shell controlled by an AI.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

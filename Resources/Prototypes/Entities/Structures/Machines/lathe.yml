@@ -820,6 +820,7 @@
     - ModsuitPlatingExternal
     - PowerCageHigh # Goobstation - Powercell to exosuit fab
     - ReverseMMI # IPCMMI
+    - BorisModule # WD - Boris modules
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - WeaponMechCombatImmolationGun
