@@ -136,13 +136,16 @@ public abstract partial class SharedStationAiSystem
 
     private void OnCameraListSelected(Entity<StationAiHeldComponent> ent, ref ListViewItemSelectedMessage args)
     {
+        var selectedEntity = EntityUid.Parse(args.SelectedItem.Id);
+
         if (!TryGetCore(ent.Owner, out var core) ||
-            core.Comp?.RemoteEntity == null)
+            core.Comp?.RemoteEntity == null ||
+            Deleted(selectedEntity))
             return;
 
         _ui.CloseUi(ent.Owner, ListViewSelectorUiKey.Key);
 
-        var selectedEntity = EntityUid.Parse(args.SelectedItem.Id);
+
         if (TryComp(selectedEntity, out BorisModuleComponent? module))
         {
             module.OriginalBrain = ent.Owner;

@@ -54,7 +54,7 @@ public sealed class BorisModuleSystem : EntitySystem
 
     public bool TryReturnToCore(EntityUid uid, BorisModuleComponent component)
     {
-        if (component.OriginalBrain == null)
+        if (component.OriginalBrain == null || Deleted(component.OriginalBrain))
         {
             _popup.PopupEntity("Your original brain no longer exists", uid, uid, PopupType.LargeCaution);
             return false;
