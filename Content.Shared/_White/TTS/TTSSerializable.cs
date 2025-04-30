@@ -33,12 +33,6 @@ public sealed class RequestPreviewTTSEvent(string voiceId) : EntityEventArgs
     public string VoiceId { get; } = voiceId;
 }
 
-[Serializable, NetSerializable]
-public sealed class VoiceMaskChangeVoiceMessage(string voice) : BoundUserInterfaceMessage
-{
-    public string Voice = voice;
-}
-
 // ReSharper disable once InconsistentNaming
 [Serializable, NetSerializable]
 public sealed class AnnounceTTSEvent(byte[] data, string announcementSound, AudioParams announcementParams) : EntityEventArgs
