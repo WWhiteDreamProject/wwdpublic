@@ -108,6 +108,10 @@
   components:
   - type: Xenomorph
     greetingText: alien-queen-greeting
+  - type: XenomorphAcid
+    damagePerSecond:
+      types:
+        Caustic: 10
   - type: TailLash
     tailDamage:
       groups:

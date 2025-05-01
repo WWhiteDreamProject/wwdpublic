@@ -75,6 +75,10 @@
   components:
   - type: Xenomorph
     greetingText: alien-sentinel-greeting
+  - type: XenomorphAcid
+    damagePerSecond:
+      types:
+        Caustic: 5
   - type: ActionGrant
     actions:
     - ActionAlienTransferPlasma

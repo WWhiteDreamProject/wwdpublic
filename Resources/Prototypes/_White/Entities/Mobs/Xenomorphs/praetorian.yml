@@ -89,6 +89,10 @@
         Brute: 12
     inject:
       Tirizene: 5
+  - type: XenomorphAcid
+    damagePerSecond:
+      types:
+        Caustic: 7.5
   - type: ActionGrant
     actions:
     - ActionAlienTransferPlasma

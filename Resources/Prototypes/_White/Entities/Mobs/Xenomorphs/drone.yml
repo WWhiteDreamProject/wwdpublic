@@ -48,6 +48,10 @@
   components:
   - type: Xenomorph
     greetingText: alien-drone-greeting
+  - type: XenomorphAcid
+    damagePerSecond:
+      types:
+        Caustic: 5
   - type: ActionGrant
     actions:
     - ActionAlienTransferPlasma
@@ -55,10 +59,6 @@
     - ActionSpawnAlienWindow
     - ActionSpawnAlienNest
     - ActionSpawnResinNode
-  - type: XenomorphAcid
-    damagePerSecond:
-      types:
-        Caustic: 5
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
