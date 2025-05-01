@@ -113,6 +113,20 @@
     icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: tail_attack_action }
     event: !type:TailLashActionEvent
 
+# Acid action
+- type: entity
+  id: ActionAcid
+  name: action-make-acid-name
+  description: action-make-acid-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    useDelay: 11
+    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: acid_action }
+    event: !type:AcidActionEvent
+  - type: BasePlasmaCostAction
+    plasmaCost: 200
+    
 - type: entity
   id: ActionVomit
   name: action-vomit-name
@@ -125,18 +139,6 @@
       priority: 0
       useDelay: 15
       event: !type:VomitActionEvent
-
-- type: entity
-  id: ActionMakeAcid
-  name: action-make-acid-name
-  description: action-make-acid-desc
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: InstantAction
-      icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: acid_action }
-      event: !type:AcidMakeActionEvent
-      priority: 1
-      useDelay: 5
 
 # Hunter
 

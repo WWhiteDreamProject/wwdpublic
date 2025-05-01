@@ -51,8 +51,6 @@
     damage:
       groups:
         Brute: 10
-      types:
-        Structural: 5
   - type: DamageStateVisuals
     rotate: true
     states:

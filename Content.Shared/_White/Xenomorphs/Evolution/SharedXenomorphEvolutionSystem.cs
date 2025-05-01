@@ -1,5 +1,4 @@
 using Content.Shared._White.RadialSelector;
-using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -25,24 +24,15 @@ public abstract class SharedXenomorphEvolutionSystem : EntitySystem
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<XenomorphEvolutionComponent, MapInitEvent>(OnXenomorphEvolutionMapInit);
-        SubscribeLocalEvent<XenomorphEvolutionComponent, ComponentShutdown>(OnXenomorphEvolutionShutdown);
         SubscribeLocalEvent<XenomorphEvolutionComponent, OpenEvolutionsActionEvent>(OnOpenEvolutionsAction);
         SubscribeLocalEvent<XenomorphEvolutionComponent, RadialSelectorSelectedMessage>(OnEvolutionRecieved);
         SubscribeLocalEvent<XenomorphEvolutionComponent, XenomorphEvolutionDoAfterEvent>(OnXenomorphEvolutionDoAfter);
     }
-
-    private void OnXenomorphEvolutionMapInit(EntityUid uid, XenomorphEvolutionComponent component, MapInitEvent args) =>
-        _actions.AddAction(uid, ref component.EvolutionAction, component.EvolutionActionId);
-
-    private void OnXenomorphEvolutionShutdown(EntityUid uid, XenomorphEvolutionComponent component, ComponentShutdown args) =>
-        _actions.RemoveAction(uid, component.EvolutionAction);
 
     private void OnOpenEvolutionsAction(EntityUid uid, XenomorphEvolutionComponent component, ref OpenEvolutionsActionEvent args)
     {

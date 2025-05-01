@@ -120,8 +120,6 @@
     damage:
       groups:
         Brute: 20
-      types:
-        Structural: 20
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90

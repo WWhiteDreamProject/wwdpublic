@@ -60,8 +60,6 @@
     damage:
       groups:
         Brute: 30
-      types:
-        Structural: 10
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.75
   - type: BasicEntityAmmoProvider
@@ -85,10 +83,6 @@
   components:
   - type: Xenomorph
     greetingText: alien-praetorian-greeting
-  - type: AcidMaker
-    action: ActionMakeAcid
-    entityProduced: CorrosiveAcid
-    plasmaCost: 100
   - type: TailLash
     tailDamage:
       groups:

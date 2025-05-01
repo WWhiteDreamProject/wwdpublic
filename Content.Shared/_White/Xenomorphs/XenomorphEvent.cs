@@ -1,9 +1,10 @@
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._White.Xenomorphs.Evolution;
+namespace Content.Shared._White.Xenomorphs;
 
 [Serializable, NetSerializable]
 public sealed partial class XenomorphEvolutionDoAfterEvent : DoAfterEvent
@@ -19,4 +20,14 @@ public sealed partial class XenomorphEvolutionDoAfterEvent : DoAfterEvent
     public override DoAfterEvent Clone() => this;
 }
 
+public sealed partial class TransferPlasmaActionEvent : EntityTargetActionEvent
+{
+    [DataField]
+    public FixedPoint2 Amount = 50;
+}
+
 public sealed partial class OpenEvolutionsActionEvent : InstantActionEvent;
+
+public sealed partial class TailLashActionEvent : WorldTargetActionEvent;
+
+public sealed partial class AcidActionEvent : EntityTargetActionEvent;

@@ -55,6 +55,10 @@
     - ActionSpawnAlienWindow
     - ActionSpawnAlienNest
     - ActionSpawnResinNode
+  - type: XenomorphAcid
+    damagePerSecond:
+      types:
+        Caustic: 5
   - type: GhostRole
     allowMovement: true
     allowSpeech: true

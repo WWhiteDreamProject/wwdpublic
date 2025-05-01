@@ -37,7 +37,7 @@ public sealed partial class PlasmaVesselComponent : Component
     public ProtoId<AlertPrototype> PlasmaAlert = "Plasma";
 
     [ViewVariables]
-    public TimeSpan LastPointsAt;
+    public TimeSpan NextPointsAt;
 }
 
 [NetSerializable, Serializable]

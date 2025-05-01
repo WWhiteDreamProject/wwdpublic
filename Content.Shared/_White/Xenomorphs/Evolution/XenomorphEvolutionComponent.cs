@@ -34,5 +34,5 @@ public sealed partial class XenomorphEvolutionComponent : Component
     public EntityUid? EvolutionAction;
 
     [ViewVariables]
-    public TimeSpan LastPointsAt;
+    public TimeSpan NextPointsAt;
 }

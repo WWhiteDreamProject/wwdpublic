@@ -32,5 +32,3 @@ public sealed partial class TailLashComponent : Component
     [ViewVariables]
     public EntityUid? TailLashAction;
 }
-
-public sealed partial class TailLashActionEvent : WorldTargetActionEvent;

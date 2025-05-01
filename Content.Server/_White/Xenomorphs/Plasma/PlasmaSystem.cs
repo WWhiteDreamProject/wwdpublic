@@ -19,10 +19,10 @@ public sealed class PlasmaSystem : SharedPlasmaSystem
         var query = EntityQueryEnumerator<PlasmaVesselComponent>();
         while (query.MoveNext(out var uid, out var plasmaVessel))
         {
-            if (time < plasmaVessel.LastPointsAt + TimeSpan.FromSeconds(1))
+            if (time < plasmaVessel.NextPointsAt)
                 continue;
 
-            plasmaVessel.LastPointsAt = time;
+            plasmaVessel.NextPointsAt = time + TimeSpan.FromSeconds(1);
 
             var plasma = plasmaVessel.PlasmaPerSecondOffWeed;
             if (TryComp<XenomorphComponent>(uid, out var xenomorph) && xenomorph.OnWeed)

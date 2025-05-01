@@ -65,8 +65,6 @@
     damage:
       groups:
         Brute: 50
-      types:
-        Structural: 20
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.75
   - type: BasicEntityAmmoProvider
@@ -116,10 +114,6 @@
         Brute: 17
     inject:
       Tirizene: 5
-  - type: AcidMaker
-    plasmaCost: 50
-    entityProduced: CorrosiveAcid
-    action: ActionMakeAcid
   - type: XenomorphQueen
     action: ActionAlienRoyalLarva
   - type: ActionGrant
