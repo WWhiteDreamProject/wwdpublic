@@ -15,7 +15,7 @@ public sealed class BorisModuleSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStationAiSystem _stationAi = default!;
-    
+
     public override void Initialize()
     {
         base.Initialize();
@@ -55,7 +55,7 @@ public sealed class BorisModuleSystem : EntitySystem
     {
         if (component.OriginalBrain == null || Deleted(component.OriginalBrain))
         {
-            _popup.PopupEntity("Your original brain no longer exists", uid, uid, PopupType.LargeCaution);
+            _popup.PopupEntity(Loc.GetString("boris-module-no-original-brain"), uid, uid, PopupType.LargeCaution);
             return false;
         }
 
