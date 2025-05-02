@@ -51,14 +51,23 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: StationEvent
-      startAnnouncement: true
       weight: 5
       duration: 5
-      minimumPlayers: 30
-      earliestStart: 25
+      minimumPlayers: 20
+      earliestStart: 35
       reoccurrenceDelay: 50
-    - type: RandomSpawnRule
-      prototype: SpawnPointGhostAlienLarva
+    - type: VentSpawnRule
+    - type: AntagSpawner
+      prototype: MobAlienLarvaGrowStageThreeBase
+    - type: AntagSelection
+      agentName: dragon-round-end-agent-name
+      definitions:
+      - spawnerPrototype: SpawnPointGhostAlienLarva
+        min: 1
+        max: 4
+        pickPlayer: false
+        mindRoles:
+        - MindRoleXenomorph
 
 - type: entity
   parent: BaseGameRule

@@ -1,0 +1,11 @@
+# Xenomorph
+- type: Xenomorph
+  parent: BaseMindRoleAntag
+  id: MindRoleXenomorph
+  name: Xenomorph Role
+  components:
+  - type: MindRole
+    antagPrototype: Xenomorph
+    roleType: TeamAntagonist
+    exclusiveAntag: true
+  - type: XenomorphRole
