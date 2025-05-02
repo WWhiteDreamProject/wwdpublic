@@ -5,10 +5,11 @@
   parent: BaseBullet
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: meteor
+    sprite: _White/Objects/Weapons/Guns/Projectiles/meteor-slug.rsi
+    state: Bullet
   - type: Projectile
     damage:
       types:
         Piercing: 69
-        construction: 150
+        Structural: 140
+

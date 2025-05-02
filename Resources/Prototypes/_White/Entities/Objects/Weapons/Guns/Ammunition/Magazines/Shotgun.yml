@@ -4,8 +4,9 @@
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
-    proto: ShellShotgunSlug
+    proto: ShellShotgunMeteor
   - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Ammunition/Magazine/meteor-mag.rsi
     layers:
     - state: meteor
       map: ["enum.GunVisualLayers.Base"]

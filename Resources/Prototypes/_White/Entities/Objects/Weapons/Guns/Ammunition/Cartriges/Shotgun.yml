@@ -4,6 +4,7 @@
   parent: BaseShellShotgun
   components:
   - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Ammunition/Casings/meteor-shell.rsi
     layers:
     - state: meteor
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -11,3 +12,18 @@
     proto: PelletShotgunMeteor
   - type: SpentAmmoVisuals
     state: "meteor"
+
+- type: entity
+  id: ShellShotgunLaser
+  name: shell (.50 laser)
+  parent: BaseShellShotgun
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Ammunition/Casings/laser-shell.rsi
+    layers:
+    - state: laser
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: BulletLaserSpread
+  - type: SpentAmmoVisuals
+    state: "laser"
