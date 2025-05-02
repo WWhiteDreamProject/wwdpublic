@@ -61,7 +61,7 @@ public sealed class BorisModuleSystem : EntitySystem
             return false;
         }
 
-        _mind.ControlMob(uid, component.OriginalBrain!.Value);
+        _mind.ControlMob(uid, component.OriginalBrain.Value);
         component.OriginalBrain = null;
         return true;
     }
