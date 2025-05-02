@@ -582,11 +582,13 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
 public sealed partial class JumpToCoreEvent : InstantActionEvent;
 
-public sealed partial class AiToggleBoltsEvent : InstantActionEvent; // WD edit start
+// WD edit start
+public sealed partial class AiToggleBoltsEvent : InstantActionEvent;
 
 public sealed partial class AiCameraListEvent: InstantActionEvent;
 
-public sealed partial class AiDeployEvent: InstantActionEvent; // WD edit end
+public sealed partial class AiDeployEvent: InstantActionEvent;
+// WD edit end
 
 [Serializable, NetSerializable]
 public sealed partial class IntellicardDoAfterEvent : SimpleDoAfterEvent;
