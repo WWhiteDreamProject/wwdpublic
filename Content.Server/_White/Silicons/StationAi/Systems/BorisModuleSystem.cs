@@ -7,9 +7,7 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.StationAi;
 using Robust.Shared.Containers;
 
-
 namespace Content.Server._White.Silicons.StationAi.Systems;
-
 
 public sealed class BorisModuleSystem : EntitySystem
 {
