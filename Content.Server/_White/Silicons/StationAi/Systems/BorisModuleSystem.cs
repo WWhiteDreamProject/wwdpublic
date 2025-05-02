@@ -17,6 +17,7 @@ public sealed class BorisModuleSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStationAiSystem _stationAi = default!;
+    
     public override void Initialize()
     {
         base.Initialize();
