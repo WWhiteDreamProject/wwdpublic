@@ -1272,11 +1272,21 @@
   parent: BulletLaser
   categories: [ HideSpawnMenu ]
   components:
+  # WD EDIT START
+  - type: Sprite
+    layers:
+    - state: heavylaser
+      shader: unshaded
+  # WD EDIT EDN
   - type: Projectile
     damage:
       types:
-        Heat: 15
-        Blunt: 5
+        Heat: 28 # WD EDIT
+  # WD EDIT START
+  - type: PointLight
+    radius: 3.0
+    energy: 1.0
+  # WD EDIT END
 
 - type: entity
   name: narrow laser barrage

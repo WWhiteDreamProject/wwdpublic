@@ -42,24 +42,6 @@
         Heat: 1
 
 - type: entity
-  name: heavy laser bolt
-  id: BulletLaserHeavy
-  parent: BulletLaser
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    layers:
-    - state: heavylaser
-      shader: unshaded
-  - type: Projectile
-    damage:
-      types:
-        Heat: 28
-  - type: PointLight
-    radius: 3.0
-    energy: 1.0
-
-- type: entity
   name: pulse bolt
   id: BulletPulse
   parent: BulletLaser
