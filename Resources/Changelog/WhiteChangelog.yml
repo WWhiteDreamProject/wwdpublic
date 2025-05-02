@@ -2734,3 +2734,12 @@ Entries:
   id: 296
   time: '2025-04-27T14:00:07.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/479
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: >-
+        Изменён шрифт абдукторов на BoxFont Round. Он должен корректно
+        отображаться в чате.
+  id: 297
+  time: '2025-05-02T11:10:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/482
