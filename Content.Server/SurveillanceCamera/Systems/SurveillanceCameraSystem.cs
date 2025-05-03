@@ -145,7 +145,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
 
 
 
-    private void OnPowerChanged(EntityUid camera,  SurveillanceCameraComponent component, ref PowerChangedEvent args)
+    private void OnPowerChanged(EntityUid camera, SurveillanceCameraComponent component, ref PowerChangedEvent args)
     {
         SetActive(camera, args.Powered, component);
     }
