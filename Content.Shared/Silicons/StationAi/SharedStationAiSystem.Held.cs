@@ -35,9 +35,11 @@ public abstract partial class SharedStationAiSystem
         SubscribeLocalEvent<StationAiHeldComponent, InteractionAttemptEvent>(OnHeldInteraction);
         SubscribeLocalEvent<StationAiHeldComponent, AttemptRelayActionComponentChangeEvent>(OnHeldRelay);
         SubscribeLocalEvent<StationAiHeldComponent, JumpToCoreEvent>(OnCoreJump);
-        SubscribeLocalEvent<StationAiHeldComponent, AiToggleBoltsEvent>(OnToggleBolts); // WD edit start
+        // WD edit start
+        SubscribeLocalEvent<StationAiHeldComponent, AiToggleBoltsEvent>(OnToggleBolts);
         SubscribeLocalEvent<StationAiHeldComponent, AiCameraListEvent>(OnCameraList);
-        SubscribeLocalEvent<StationAiHeldComponent, ListViewItemSelectedMessage>(OnCameraListSelected); // WD edit end
+        SubscribeLocalEvent<StationAiHeldComponent, ListViewItemSelectedMessage>(OnCameraListSelected);
+        // WD edit end
         SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
     }
 
