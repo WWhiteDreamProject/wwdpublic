@@ -43,8 +43,6 @@
       types:
         Piercing: 7
         Slash: 1
-    heavyRateModifier: 1.3
-    heavyRangeModifier: 1.25
     maxTargets: 3
     angle: 20
     animation: WeaponArcThrust
@@ -243,10 +241,6 @@
       types:
         Piercing: 10
         Slash: 2
-    heavyRateModifier: 1.3
-    heavyRangeModifier: 1.25
-    heavyDamageBaseModifier: 1.0
-    heavyStaminaCost: 5
     maxTargets: 3
     angle: 20
     animation: WeaponArcThrust
