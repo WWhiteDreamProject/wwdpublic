@@ -264,7 +264,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
         UpdateVisuals(camera, component);
     }
 
-    public void SetActive(EntityUid camera, bool setting,  SurveillanceCameraComponent? component = null)
+    public void SetActive(EntityUid camera, bool setting, SurveillanceCameraComponent? component = null)
     {
         if (!Resolve(camera, ref component))
         {
