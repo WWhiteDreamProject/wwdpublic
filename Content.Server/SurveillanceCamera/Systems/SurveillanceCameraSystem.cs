@@ -62,7 +62,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
         SubscribeLocalEvent<SurveillanceCameraComponent, GetVerbsEvent<AlternativeVerb>>(AddVerbs);
     }
 
-    private void OnPacketReceived(EntityUid uid,  SurveillanceCameraComponent component, DeviceNetworkPacketEvent args)
+    private void OnPacketReceived(EntityUid uid, SurveillanceCameraComponent component, DeviceNetworkPacketEvent args)
     {
         if (!component.Active)
         {
