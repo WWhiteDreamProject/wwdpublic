@@ -170,7 +170,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
         UpdateSetupInterface(uid, component);
     }
 
-    private void OnSetNetwork(EntityUid uid,  SurveillanceCameraComponent component,
+    private void OnSetNetwork(EntityUid uid, SurveillanceCameraComponent component,
         SurveillanceCameraSetupSetNetwork args)
     {
         if (args.UiKey is not SurveillanceCameraSetupUiKey key
