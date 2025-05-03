@@ -54,12 +54,12 @@ public sealed class SurveillanceCameraSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<Shared.SurveillanceCamera.Components.SurveillanceCameraComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<Shared.SurveillanceCamera.Components.SurveillanceCameraComponent, PowerChangedEvent>(OnPowerChanged);
-        SubscribeLocalEvent<Shared.SurveillanceCamera.Components.SurveillanceCameraComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
-        SubscribeLocalEvent<Shared.SurveillanceCamera.Components.SurveillanceCameraComponent, SurveillanceCameraSetupSetName>(OnSetName);
-        SubscribeLocalEvent<Shared.SurveillanceCamera.Components.SurveillanceCameraComponent, SurveillanceCameraSetupSetNetwork>(OnSetNetwork);
-        SubscribeLocalEvent<Shared.SurveillanceCamera.Components.SurveillanceCameraComponent, GetVerbsEvent<AlternativeVerb>>(AddVerbs);
+        SubscribeLocalEvent<SurveillanceCameraComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<SurveillanceCameraComponent, PowerChangedEvent>(OnPowerChanged);
+        SubscribeLocalEvent<SurveillanceCameraComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
+        SubscribeLocalEvent<SurveillanceCameraComponent, SurveillanceCameraSetupSetName>(OnSetName);
+        SubscribeLocalEvent<SurveillanceCameraComponent, SurveillanceCameraSetupSetNetwork>(OnSetNetwork);
+        SubscribeLocalEvent<SurveillanceCameraComponent, GetVerbsEvent<AlternativeVerb>>(AddVerbs);
     }
 
     private void OnPacketReceived(EntityUid uid,  SurveillanceCameraComponent component, DeviceNetworkPacketEvent args)
