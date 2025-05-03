@@ -238,7 +238,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
 
     // If the camera deactivates for any reason, it must have all viewers removed,
     // and the relevant event broadcast to all systems.
-    private void Deactivate(EntityUid camera,  SurveillanceCameraComponent? component = null)
+    private void Deactivate(EntityUid camera, SurveillanceCameraComponent? component = null)
     {
         if (!Resolve(camera, ref component))
         {
