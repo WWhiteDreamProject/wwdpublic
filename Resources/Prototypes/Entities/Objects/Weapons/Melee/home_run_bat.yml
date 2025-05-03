@@ -13,7 +13,6 @@
         Blunt: 11
     bluntStaminaDamageFactor: 2.0
     heavyRateModifier: 2 # WWDP
-    maxTargets: 2
     angle: 60 # WWDP
     soundHit:
       collection: ExplosionSmall
