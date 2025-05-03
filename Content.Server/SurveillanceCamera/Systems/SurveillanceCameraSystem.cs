@@ -376,7 +376,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
         }
     }
 
-    private void UpdateVisuals(EntityUid uid,  SurveillanceCameraComponent? component = null, AppearanceComponent? appearance = null)
+    private void UpdateVisuals(EntityUid uid, SurveillanceCameraComponent? component = null, AppearanceComponent? appearance = null)
     {
         // Don't log missing, because otherwise tests fail.
         if (!Resolve(uid, ref component, ref appearance, false))
