@@ -344,7 +344,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
         }
     }
 
-    public void RemoveActiveViewer(EntityUid camera, EntityUid player, EntityUid? monitor = null,  SurveillanceCameraComponent? component = null, ActorComponent? actor = null)
+    public void RemoveActiveViewer(EntityUid camera, EntityUid player, EntityUid? monitor = null, SurveillanceCameraComponent? component = null, ActorComponent? actor = null)
     {
         if (!Resolve(camera, ref component)
             || !Resolve(player, ref actor))
