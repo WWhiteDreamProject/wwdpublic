@@ -1,8 +1,8 @@
 ﻿- type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitInfiltrator
-  name: infiltrator modsuit control
-  description: Specialized modular suit for covert ops.
+  name: infiltrator modsuit control unit
+  description: The control unit of a Modular Outerwear Device, a powered suit that protects against various environments.
   components:
   - type: Appearance
   - type: Sprite

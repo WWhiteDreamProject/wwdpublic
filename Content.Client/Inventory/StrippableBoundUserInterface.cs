@@ -229,13 +229,8 @@ namespace Content.Client.Inventory
             // Hovering, highlighting & storage are features of general hands & inv GUIs. This UI just re-uses these because I'm lazy.
             button.ClearHover();
             button.StorageButton.Visible = false;
-            if (entity == null)
-            {
-                button.SetEntity(null);
-                return;
-            }
             //WWDP edit start
-            if (EntMan.TryGetComponent<StripMenuHideIconComponent>(entity.Value, out var hideComp))
+            if (entity == null || EntMan.HasComponent<StripMenuHideIconComponent>(entity.Value))
             {
                 {
                     button.SetEntity(null);

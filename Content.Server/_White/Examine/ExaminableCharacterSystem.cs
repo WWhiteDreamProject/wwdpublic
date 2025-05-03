@@ -75,10 +75,8 @@ namespace Content.Server._White.Examine
                 if (selfaware)
                     slotLabel += "-selfaware";
 
-                if (!_inventorySystem.TryGetSlotEntity(uid, slotName, out var slotEntity))
-                    continue;
-
-                if (HasComp<ExaminableCharacterHideIconComponent>(slotEntity.Value))
+                if (!_inventorySystem.TryGetSlotEntity(uid, slotName, out var slotEntity)
+                    || HasComp<ExaminableCharacterHideIconComponent>(slotEntity.Value))
                     continue;
 
                 if (_entityManager.TryGetComponent<MetaDataComponent>(slotEntity, out var metaData))

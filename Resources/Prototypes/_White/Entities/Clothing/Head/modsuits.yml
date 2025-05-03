@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: BaseClothingModsuitHelmet
+  parent: ClothingModsuitHelmetStandard
   id: ClothingModsuitHelmetInfiltrator
   name: infiltrator modsuit helmet
   description: A purpose-built helmet that can be neatly folded and store in the infiltrator suit's main unit.
@@ -8,24 +8,12 @@
   - type: Appearance
   - type: Sprite
     sprite: _White/Clothing/Head/modsuits/Infiltrator.rsi
-    layers:
-    - state: helmet
-    - state: helmet-sealed
-      visible: false
-      map: [ "sealed" ]
   - type: HideLayerClothing
     slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
-    visualLayers:
-      head:
-      - state: equipped-HEAD-sealed
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
   - type: Armor
     modifiers:
       coefficients:
@@ -43,40 +31,5 @@
       coefficient: 0.1
     - type: IdentityBlocker
     - type: IngestionBlocker
-  - type: VoiceMask
-  - type: ToggleableLightVisuals
-  - type: PointLight
-    enabled: false
-    radius: 3
-    energy: 2
-    mask: /Textures/Effects/LightMasks/cone.png
-    autoRot: true
-    netsync: false
-  - type: HandheldLight
-    addPrefix: true
-    blinkingBehaviourId: blinking
-    radiatingBehaviourId: radiating
-  - type: LightBehaviour
-    behaviours:
-    - !type:FadeBehaviour
-      id: radiating
-      interpolate: Linear
-      maxDuration: 2.0
-      startValue: 3.0
-      endValue: 2.0
-      isLooped: true
-      reverseWhenFinished: true
-    - !type:PulseBehaviour
-      id: blinking
-      interpolate: Nearest
-      maxDuration: 1.0
-      minValue: 0.1
-      maxValue: 2.0
-      isLooped: true
-  - type: Battery
-    maxCharge: 600
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 2
-
+    - type: VoiceMask
+      action: null

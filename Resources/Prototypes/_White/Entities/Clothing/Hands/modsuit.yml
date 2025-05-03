@@ -1,28 +1,9 @@
 ﻿- type: entity
-  parent: ClothingHandsBase
+  parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsInfiltrator
   name: infiltrator modsuit gauntlets
-  description: A special modular suit gloves that protect wearer from electric shock.
+  description: A pair of gauntlets for a modsuit.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _White/Clothing/Hands/modsuits/infiltrator.rsi
-    layers:
-    - state: gauntlets
-    - state: gauntlets-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: Clothing
-    equipSound: /Audio/Mecha/mechmove03.ogg
-    unequipSound: /Audio/Mecha/mechmove03.ogg
-    slots: [ gloves ]
-  - type: Insulated
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-gauntlets
-    sealDownPopup: sealable-clothing-seal-down-gauntlets
-  - type: SealableClothingVisuals
-    visualLayers:
-      gloves:
-      - state: equipped-HAND-sealed
-        shader: unshaded
