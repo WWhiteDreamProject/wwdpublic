@@ -205,7 +205,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
         UpdateSetupInterface(uid, camera);
     }
 
-    private void UpdateSetupInterface(EntityUid uid,  SurveillanceCameraComponent? camera = null, DeviceNetworkComponent? deviceNet = null)
+    private void UpdateSetupInterface(EntityUid uid, SurveillanceCameraComponent? camera = null, DeviceNetworkComponent? deviceNet = null)
     {
         if (!Resolve(uid, ref camera, ref deviceNet))
         {
