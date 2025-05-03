@@ -13,10 +13,8 @@
       types:
         Blunt: 2
     bluntStaminaDamageFactor: 3
-    heavyRateModifier: 1.25
-    heavyRangeModifier: 1.25
-    maxTargets: 2
-    angle: 180
+    maxTargets: 7
+    angle: 160
     soundHit:
       collection: MetalThud
   - type: DamageOtherOnHit
@@ -42,7 +40,7 @@
       absorbed:
         maxVol: 100
   - type: UseDelay
-    delay: 0.75
+    delay: 1
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50
@@ -69,10 +67,8 @@
         types:
           Blunt: 2
       bluntStaminaDamageFactor: 3
-      heavyRateModifier: 1.25
-      heavyRangeModifier: 1.25
-      maxTargets: 2
-      angle: 180
+      maxTargets: 7
+      angle: 160
       soundHit:
          collection: MetalThud
     - type: DamageOtherOnHit

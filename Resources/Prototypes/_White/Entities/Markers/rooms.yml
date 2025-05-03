@@ -1,12 +1,11 @@
 - type: entity
-  id: RoomMarkerWithRotation
-  name: Room marker
-  parent: MarkerBase
-  suffix: With Rotation
+  id: RoomMarker5X5
+  parent: BaseRoomMarker
+  suffix: 5 x 5
   components:
   - type: RoomFill
-    size: 5,5
-    rotation: true
+    minSize: 5,5
+    maxSize: 5,5
   - type: Sprite
     granularLayersRendering: true
     layers:
@@ -15,5 +14,4 @@
       state: gen5x5
     - sprite: _White/SpawnMarkers/Marklines/green/mark_line5x5.rsi
       state: 5x5
-      offset: 2, 2
       renderingStrategy: NoRotation
