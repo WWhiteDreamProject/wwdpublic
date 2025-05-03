@@ -28,7 +28,7 @@ public sealed class SurveillanceCameraMicrophoneSystem : EntitySystem
         var sourcePos = _xforms.GetWorldPosition(sourceXform, xformQuery);
 
         // This function ensures that chat popups appear on camera views that have connected microphones.
-        foreach (var (_, __, camera, xform) in EntityQuery<SurveillanceCameraMicrophoneComponent, ActiveListenerComponent,  SurveillanceCameraComponent, TransformComponent>())
+        foreach (var (_, __, camera, xform) in EntityQuery<SurveillanceCameraMicrophoneComponent, ActiveListenerComponent, SurveillanceCameraComponent, TransformComponent>())
         {
             if (camera.ActiveViewers.Count == 0)
                 continue;
