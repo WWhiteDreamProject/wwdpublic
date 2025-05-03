@@ -125,7 +125,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
         }
     }
 
-    private void AddVerbs(EntityUid uid,  SurveillanceCameraComponent component, GetVerbsEvent<AlternativeVerb> verbs)
+    private void AddVerbs(EntityUid uid, SurveillanceCameraComponent component, GetVerbsEvent<AlternativeVerb> verbs)
     {
         if (!_actionBlocker.CanInteract(verbs.User, uid))
         {
