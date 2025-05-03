@@ -68,7 +68,7 @@ public sealed class SurveillanceCameraMicrophoneSystem : EntitySystem
 
     public void RelayEntityMessage(EntityUid uid, SurveillanceCameraMicrophoneComponent component, ListenEvent args)
     {
-        if (!TryComp(uid, out  SurveillanceCameraComponent? camera))
+        if (!TryComp(uid, out SurveillanceCameraComponent? camera))
             return;
 
         var ev = new SurveillanceCameraSpeechSendEvent(args.Source, args.Message);
