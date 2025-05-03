@@ -12,7 +12,7 @@
   - type: SealableClothingVisuals
     visualLayers:
       outerClothing:
-      - state: equipped-OUTERCLOTHING-sealed
+        - state: equipped-OUTERCLOTHING-sealed
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1
