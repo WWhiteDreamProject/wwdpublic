@@ -321,7 +321,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
     }
 
     // Switch the set of active viewers from one camera to another.
-    public void SwitchActiveViewers(EntityUid oldCamera, EntityUid newCamera, HashSet<EntityUid> players, EntityUid? monitor = null,  SurveillanceCameraComponent? oldCameraComponent = null,  SurveillanceCameraComponent? newCameraComponent = null)
+    public void SwitchActiveViewers(EntityUid oldCamera, EntityUid newCamera, HashSet<EntityUid> players, EntityUid? monitor = null, SurveillanceCameraComponent? oldCameraComponent = null, SurveillanceCameraComponent? newCameraComponent = null)
     {
         if (!Resolve(oldCamera, ref oldCameraComponent)
             || !Resolve(newCamera, ref newCameraComponent)
