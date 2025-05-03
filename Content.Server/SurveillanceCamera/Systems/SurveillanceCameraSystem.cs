@@ -155,7 +155,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
         Deactivate(camera, component);
     }
 
-    private void OnSetName(EntityUid uid,  SurveillanceCameraComponent component, SurveillanceCameraSetupSetName args)
+    private void OnSetName(EntityUid uid, SurveillanceCameraComponent component, SurveillanceCameraSetupSetName args)
     {
         if (args.UiKey is not SurveillanceCameraSetupUiKey key
             || key != SurveillanceCameraSetupUiKey.Camera
