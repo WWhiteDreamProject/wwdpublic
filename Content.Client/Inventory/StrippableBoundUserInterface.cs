@@ -232,10 +232,8 @@ namespace Content.Client.Inventory
             //WWDP edit start
             if (entity == null || EntMan.HasComponent<StripMenuHideIconComponent>(entity.Value))
             {
-                {
-                    button.SetEntity(null);
-                    return;
-                }
+                button.SetEntity(null);
+                return;
             }
             //WWDP edit end
             EntityUid? viewEnt;
