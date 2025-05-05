@@ -234,7 +234,6 @@ namespace Content.Client.Inventory
                 button.SetEntity(null);
                 return;
             }
-            //WWDP edit end
             EntityUid? viewEnt;
             if (EntMan.TryGetComponent<VirtualItemComponent>(entity, out var virt))
                 viewEnt = EntMan.HasComponent<SpriteComponent>(virt.BlockingEntity) ? virt.BlockingEntity : null;
