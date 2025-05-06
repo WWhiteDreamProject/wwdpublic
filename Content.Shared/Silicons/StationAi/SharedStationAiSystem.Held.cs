@@ -3,10 +3,13 @@ using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.ListViewSelector;
+using Content.Shared.ListViewSelector;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
+using Content.Shared.StationAi;
+using Content.Shared.SurveillanceCamera.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.StationAi;
 using Content.Shared.SurveillanceCamera.Components;
@@ -39,10 +42,11 @@ public abstract partial class SharedStationAiSystem
         SubscribeLocalEvent<StationAiHeldComponent, InteractionAttemptEvent>(OnHeldInteraction);
         SubscribeLocalEvent<StationAiHeldComponent, AttemptRelayActionComponentChangeEvent>(OnHeldRelay);
         SubscribeLocalEvent<StationAiHeldComponent, JumpToCoreEvent>(OnCoreJump);
-        SubscribeLocalEvent<StationAiHeldComponent, AiToggleBoltsEvent>(OnToggleBolts); // WD edit start
-        SubscribeLocalEvent<StationAiHeldComponent, AiDeployEvent>(OnDeploy);
+        // WD edit start
+        SubscribeLocalEvent<StationAiHeldComponent, AiToggleBoltsEvent>(OnToggleBolts);
         SubscribeLocalEvent<StationAiHeldComponent, AiCameraListEvent>(OnCameraList);
-        SubscribeLocalEvent<StationAiHeldComponent, ListViewItemSelectedMessage>(OnCameraListSelected); // WD edit end
+        SubscribeLocalEvent<StationAiHeldComponent, ListViewItemSelectedMessage>(OnCameraListSelected);
+        // WD edit end
         SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
     }
 
@@ -73,7 +77,7 @@ public abstract partial class SharedStationAiSystem
 
     private void OnToggleBolts(Entity<StationAiHeldComponent> ent, ref AiToggleBoltsEvent args)
     {
-        if (args.Handled || !TryGetCore(ent.Owner, out var core) || core.Comp?.RemoteEntity == null)
+        if (args.Handled || !TryGetCore(ent.Owner, out var core) || core.Comp?.RemoteEntity == null || !_net.IsServer)
             return;
 
         args.Handled = true;

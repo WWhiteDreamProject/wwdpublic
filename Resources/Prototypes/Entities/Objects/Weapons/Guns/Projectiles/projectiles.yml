@@ -14,7 +14,7 @@
   - type: EffectVisuals
   - type: Tag
     tags:
-    - HideContextMenu
+      - HideContextMenu
   - type: AnimationPlayer
 
 - type: entity
@@ -132,6 +132,30 @@
       types:
         Blunt: 1
 
+# WD EDIT START
+# - type: entity
+#   id: BaseBulletRubber
+#   name: base bullet rubber
+#   parent: BaseBullet
+#   categories: [ HideSpawnMenu ]
+#   components:
+#   - type: Sprite
+#     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+#     layers:
+#     - state: rubber
+#   - type: Projectile
+#     damage:
+#       types:
+#         Blunt: 3
+#     soundHit:
+#       path: /Audio/Weapons/Guns/Hits/snap.ogg
+#   - type: StaminaDamageOnCollide
+#     damage: 22 # 5 hits to stun sounds reasonable
+#   - type: Tag
+#     tags:
+#     - BulletRubber
+# WD EDIT END
+
 - type: entity
   id: BaseBulletIncendiary
   name: base bullet incendiary
@@ -209,15 +233,15 @@
           bounds: "-0.15,-0.45,0.15,0.15"
         hard: false
         mask:
-        - Impassable
-        - BulletImpassable
+          - Impassable
+          - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
     muzzleFlash: null # WWDP
   - type: Projectile
     damage:
       types:
-        Heat: 5
+        Shock: 5
     soundHit:
       path: "/Audio/Weapons/Guns/Hits/taser_hit.ogg"
     forceSound: true
@@ -287,7 +311,7 @@
   - type: Projectile
     damage:
       types:
-        Heat: 0.3
+        Shock: 0.3
 
 - type: entity
   name : disabler bolt practice
@@ -300,11 +324,7 @@
   - type: Projectile
     damage:
       types:
-        Heat: 1
-    soundHit:
-      collection: WeakHit
-    forceSound: true
-
+        Shock: 1
 
 - type: entity
   name: emitter bolt
@@ -315,8 +335,8 @@
   - type: Sprite
     sprite: Structures/Power/Generation/Singularity/emitter.rsi
     layers:
-    - state: projectile
-      shader: unshaded
+      - state: projectile
+        shader: unshaded
   - type: Ammo
     muzzleFlash: null
   - type: Physics
@@ -331,10 +351,10 @@
         - Opaque
       fly-by: *flybyfixture
   - type: Projectile
-    #   soundHit:  Waiting on serv3
+#   soundHit:  Waiting on serv3
     damage:
       types:
-        Heat: 14
+        Shock: 14
   # mining laser real
   - type: GatheringProjectile
   - type: Tag
@@ -411,7 +431,7 @@
   components:
   - type: Reflective
     reflective:
-    - NonEnergy
+      - NonEnergy
   - type: Sprite
     noRot: false
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
@@ -469,14 +489,14 @@
     noRot: false
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
-    - state: chronobolt
-      shader: unshaded
+      - state: chronobolt
+        shader: unshaded
   - type: GatheringProjectile
   - type: DamageMarkerOnCollide
     onlyWorkOnFauna: true # Lavaland Change
     whitelist:
       components:
-      - MobState
+        - MobState
     damage:
       types:
         Blunt: 20
@@ -506,8 +526,8 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
-    - state: magicm_red
-      shader: unshaded
+      - state: magicm_red
+        shader: unshaded
   - type: Ammo
     muzzleFlash: null
   - type: Physics
@@ -557,8 +577,8 @@
     energy: 7.0
   - type: Sprite
     layers:
-    - state: magicm_cyan
-      shader: unshaded
+      - state: magicm_cyan
+        shader: unshaded
   - type: AnomalousParticle
     particleType: Epsilon
 
@@ -587,8 +607,8 @@
     energy: 7.0
   - type: Sprite
     layers:
-    - state: magicm_yellow
-      shader: unshaded
+      - state: magicm_yellow
+        shader: unshaded
   - type: AnomalousParticle
     particleType: Zeta
 
@@ -618,8 +638,8 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
-    - state: magicm_green
-      shader: unshaded
+      - state: magicm_green
+        shader: unshaded
   - type: AnomalousParticle
     particleType: Default
     severityOverride: true
@@ -646,8 +666,8 @@
     energy: 7.0
   - type: Sprite
     layers:
-    - state: magicm
-      shader: unshaded
+      - state: magicm
+        shader: unshaded
   - type: AnomalousParticle
     particleType: Sigma
 
@@ -670,7 +690,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-    - state: frag
+      - state: frag
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
@@ -692,7 +712,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-    - state: frag
+      - state: frag
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
@@ -714,7 +734,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-    - state: grenade
+      - state: grenade
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -734,7 +754,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-    - state: grenade
+      - state: grenade
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
@@ -751,7 +771,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-    - state: grenade
+      - state: grenade
   - type: FlashOnTrigger
     range: 7
     stunTime: 2 # WD EDIT
@@ -772,7 +792,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-    - state: grenade
+      - state: grenade
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
@@ -789,7 +809,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-    - state: frag
+      - state: frag
   - type: EmpOnTrigger
     range: 5
     energyConsumption: 50000
@@ -864,7 +884,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-    - state: grenade
+      - state: grenade
   - type: Projectile
     damage:
       types:
@@ -885,7 +905,7 @@
   - type: Sprite
     sprite: Objects/Fun/toys.rsi
     layers:
-    - state: capbullet
+      - state: capbullet
   - type: Projectile
     deleteOnCollide: true
     damage:
@@ -898,16 +918,16 @@
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
-  - type: Projectile
-    damage:
-      types:
-        Caustic: 5
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
-    layers:
-    - state: xeno_toxic
-  - type: Ammo
-    muzzleFlash: null
+    - type: Projectile
+      damage:
+        types:
+          Caustic: 5
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
+      layers:
+        - state: xeno_toxic
+    - type: Ammo
+      muzzleFlash: null
 
 - type: entity
   id: BulletWaterShot
@@ -960,7 +980,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-    - state: ball
+      - state: ball
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: DemolitionCharge
@@ -973,40 +993,40 @@
     color: orange
     energy: 0.5
 
-- type: entity
-  id: GrapplingHook
-  name: grappling hook
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: EmbeddableProjectile
-    deleteOnRemove: true
-  - type: Clickable
-  - type: InteractionOutline
-  - type: Sprite
-    noRot: false
-    sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
-    layers:
-    - state: hook
-  - type: Physics
-    bodyType: Dynamic
-    linearDamping: 0
-    angularDamping: 0
-  - type: Projectile
-    deleteOnCollide: false
-    damage:
-      types:
-        Blunt: 0
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.1,-0.1,0.1,0.1"
-        hard: false
-        mask:
-        - Impassable
-        - HighImpassable
-  - type: GrapplingProjectile
+# - type: entity
+#   id: GrapplingHook
+#   name: grappling hook
+#   categories: [ HideSpawnMenu ]
+#   components:
+#     - type: EmbeddableProjectile
+#       deleteOnRemove: true
+#     - type: Clickable
+#     - type: InteractionOutline
+#     - type: Sprite
+#       noRot: false
+#       sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
+#       layers:
+#         - state: hook
+#     - type: Physics
+#       bodyType: Dynamic
+#       linearDamping: 0
+#       angularDamping: 0
+#     - type: Projectile
+#       deleteOnCollide: false
+#       damage:
+#         types:
+#           Blunt: 0
+#     - type: Fixtures
+#       fixtures:
+#         projectile:
+#           shape:
+#             !type:PhysShapeAabb
+#             bounds: "-0.1,-0.1,0.1,0.1"
+#           hard: false
+#           mask:
+#             - Impassable
+#             - HighImpassable
+#    - type: GrapplingProjectile
 
 - type: entity
   name : disabler bolt smg
@@ -1019,7 +1039,7 @@
   - type: Projectile
     damage:
       types:
-        Heat: 2
+        Shock: 2
 
 - type: entity
   name : energy bolt
@@ -1091,7 +1111,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 0
+        Shock: 0
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -1127,7 +1147,7 @@
     requirePower: false
   - type: Tag
     tags:
-    - HideContextMenu
+      - HideContextMenu
 
 # DeltaV projectiles
 # For whatever magical reasons, I cannot put those in the DeltaV folders without having errors.
@@ -1211,7 +1231,7 @@
   - type: Ammo
     muzzleFlash: null # WWDP
   - type: Projectile
-    impactEffect: BulletImpactEffectLaserRed
+    impactEffect: BulletImpactEffectLaserRed # WD EDIT
     damage:
       types:
         Heat: 17 # WWDP
@@ -1238,7 +1258,7 @@
 - type: entity
   name: laser slug
   id: BulletLaserSpreadSlug
-  parent: BulletLaserShotgunHeavy
+  parent: BulletLaserHeavy
   categories: [ HideSpawnMenu ]
   components:
   - type: ProjectileSpread
@@ -1248,19 +1268,29 @@
 
 - type: entity
   name : heavy laser bolt
-  id: BulletLaserShotgunHeavy
+  id: BulletLaserHeavy
   parent: BulletLaser
   categories: [ HideSpawnMenu ]
   components:
+  # WD EDIT START
+  - type: Sprite
+    layers:
+    - state: heavylaser
+      shader: unshaded
+  # WD EDIT EDN
   - type: Projectile
     damage:
       types:
-        Heat: 15
-        Blunt: 5
+        Heat: 28 # WD EDIT
+  # WD EDIT START
+  - type: PointLight
+    radius: 3.0
+    energy: 1.0
+  # WD EDIT END
 
 - type: entity
   name: narrow laser barrage
-  id: BulletLaserShotgunSpread
+  id: BulletLaserHeavySpread
   parent: BulletLaser
   categories: [ HideSpawnMenu ]
   components:

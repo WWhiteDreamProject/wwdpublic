@@ -25,9 +25,10 @@
   - type: Stunbaton
     energyPerUse: 120
   - type: MeleeWeapon
-    attackRate: 1 # WWDP
     animationRotation: -45 # WWDP
-    range: 1.4
+    wideAnimationRotation: -135
+    attackRate: 1.1
+    range: 1.6
     damage:
       types:
         Blunt: 7.5

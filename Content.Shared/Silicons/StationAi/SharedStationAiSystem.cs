@@ -590,6 +590,8 @@ public sealed partial class AiCameraListEvent: InstantActionEvent;
 public sealed partial class AiDeployEvent: InstantActionEvent;
 // WD edit end
 
+public sealed partial class AiCameraListEvent: InstantActionEvent; // WD edit
+
 [Serializable, NetSerializable]
 public sealed partial class IntellicardDoAfterEvent : SimpleDoAfterEvent;
 

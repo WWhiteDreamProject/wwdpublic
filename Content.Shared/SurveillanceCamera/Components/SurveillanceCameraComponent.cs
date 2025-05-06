@@ -1,7 +1,6 @@
 using Content.Shared.DeviceNetwork;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
-
 namespace Content.Shared.SurveillanceCamera.Components;
 
 [RegisterComponent]

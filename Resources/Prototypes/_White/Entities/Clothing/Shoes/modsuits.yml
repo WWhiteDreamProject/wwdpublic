@@ -1,0 +1,30 @@
+﻿- type: entity
+  parent: ClothingShoesBase
+  id: ClothingModsuitBootsInfiltrator
+  name: infiltrator modsuit boots
+  description: Purpose-built boots that can be neatly folded and store in the infiltrator suit's main unit.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _White/Clothing/Shoes/modsuits/infiltrator.rsi
+    layers:
+    - state: boots
+    - state: boots-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: NoSlip
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ feet ]
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-boots
+    sealDownPopup: sealable-clothing-seal-down-boots
+  - type: SealableClothingVisuals
+    visualLayers:
+      shoes:
+      - state: equipped-FEET-sealed
