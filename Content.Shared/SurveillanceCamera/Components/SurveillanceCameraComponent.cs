@@ -1,10 +1,9 @@
 using Content.Shared.DeviceNetwork;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
-namespace Content.Server.SurveillanceCamera;
+namespace Content.Shared.SurveillanceCamera.Components;
 
 [RegisterComponent]
-[Access(typeof(SurveillanceCameraSystem))]
 public sealed partial class SurveillanceCameraComponent : Component
 {
     // List of active viewers. This is for bookkeeping purposes,

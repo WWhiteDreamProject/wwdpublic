@@ -94,6 +94,11 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     #region UI
     private void OnEquip(EntityUid uid, VoiceMaskComponent component, ClothingGotEquippedEvent args)
     {
+        // WD EDIT START
+        if (component.Action == null)
+            return;
+        // WD EDIT END
+        
         _actions.AddAction(args.Wearer, ref component.ActionEntity, component.Action, uid);
     }
 

@@ -1,0 +1,29 @@
+﻿- type: entity
+  parent: ClothingModsuitChestplateStandard
+  id: ClothingModsuitChestplateInfiltrator
+  name: infiltrator modsuit chestplate
+  description: A purpose-built suit cover that can be neatly folded and store in the infiltrator suit's main unit.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: AllowSuitStorage
+  - type: Sprite
+    sprite: _White/Clothing/OuterClothing/modsuits/infiltrator.rsi
+  - type: SealableClothingVisuals
+    visualLayers:
+      outerClothing:
+        - state: equipped-OUTERCLOTHING-sealed
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: StaminaDamageResistance
+    coefficient: 0.5
