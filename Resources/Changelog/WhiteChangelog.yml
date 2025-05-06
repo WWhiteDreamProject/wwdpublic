@@ -2764,3 +2764,10 @@ Entries:
   id: 299
   time: '2025-05-05T20:44:59.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/480
+- author: Bol4onok
+  changes:
+    - type: Add
+      message: Добавлен веселый мод в аплинк
+  id: 300
+  time: '2025-05-06T05:22:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/478
