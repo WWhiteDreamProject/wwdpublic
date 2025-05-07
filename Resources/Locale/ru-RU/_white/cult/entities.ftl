@@ -74,3 +74,5 @@ ent-BloodBoilRune = руна кипящей крови
 
 ent-ApocalypseRune = ритуал пространственного разрыва
     .desc = Руна призыва Нар'Си.
+
+returnable-cult-item-pickup-fail = Вы недостойны владеть этим священным предметом.

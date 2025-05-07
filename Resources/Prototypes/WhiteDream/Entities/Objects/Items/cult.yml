@@ -158,6 +158,7 @@
   - type: Item
     size: Ginormous
   - type: CultItem
+  - type: ReturnableThrowing
   - type: StunOnCollide
     blacklist:
       components:

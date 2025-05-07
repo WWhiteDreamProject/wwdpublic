@@ -33,6 +33,9 @@ public sealed class CultItemSystem : EntitySystem
 
     private void OnActivate(Entity<CultItemComponent> item, ref ActivateInWorldEvent args)
     {
+        if (args.Handled)
+            return;
+            
         if (CanUse(args.User, item))
             return;
 
@@ -42,6 +45,9 @@ public sealed class CultItemSystem : EntitySystem
 
     private void OnUseInHand(Entity<CultItemComponent> item, ref UseInHandEvent args)
     {
+        if (args.Handled)
+            return;
+            
         if (CanUse(args.User, item) ||
             // Allow non-cultists to remove embedded cultist weapons and getting knocked down afterwards on pickup
             (TryComp<EmbeddableProjectileComponent>(item.Owner, out var embeddable) && embeddable.Target != null))
@@ -95,7 +101,12 @@ public sealed class CultItemSystem : EntitySystem
             _popup.PopupEntity(message, item, user);
         else
             _popup.PopupPredicted(message, item, user);
-        _stun.TryKnockdown(user, item.Comp.KnockdownDuration, true);
+        
+        if (!HasComp<ReturnableThrowingComponent>(item))
+        {
+            _stun.TryKnockdown(user, item.Comp.KnockdownDuration, true);
+        }
+        
         _hands.TryDrop(user);
     }
 
