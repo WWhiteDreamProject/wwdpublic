@@ -28,7 +28,7 @@ public sealed partial class LobbyCharacterPreviewPanel : Control
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
-        BackgroundTexture = _resourceCache.GetResource<TextureResource>("/Textures/_White/NovaUI/Paper/photo.png").Texture; //WWDP EDIT
+        BackgroundTexture = _resourceCache.GetResource<TextureResource>("/Textures/_White/NovaUI/Paper/photo_ugol.png").Texture; //WWDP EDIT
     }
 
     public void SetLoaded(bool value)

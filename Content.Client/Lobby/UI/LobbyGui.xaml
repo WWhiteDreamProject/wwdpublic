@@ -94,14 +94,16 @@
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True">
                     <!-- Top row -->
                     <BoxContainer Orientation="Horizontal" MinSize="0 40" Name="HeaderContainer" Access="Public"
-                                  SeparationOverride="4">
+                                  SeparationOverride="4" Margin="5">
                         <Label Name="ServerName" Access="Public" StyleClasses="LabelHeadingBigger" VAlign="Center"
-                               HorizontalExpand="True" HorizontalAlignment="Center" />
+                               HorizontalExpand="True" HorizontalAlignment="Left" />
+                        <TextureRect TexturePath="/Textures/_White/NovaUI/Logo/NTLogoPixel.png" TextureScale="2 2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     </BoxContainer>
                     <controls:HSpacer Spacing="10" />
-                    <PanelContainer StyleClasses="PaperBackground" Margin="5">
-                        <BoxContainer Orientation="Horizontal">
-                                <BoxContainer Orientation="Vertical" Margin="5,10,5,5">
+                    <Control Margin="0,3,0,0">
+                        <PanelContainer StyleClasses="PaperBackground" Margin="5,10,5,5">
+                            <BoxContainer Orientation="Horizontal">
+                                <BoxContainer Orientation="Vertical" Margin="5,12,5,5">
                                     <!-- Server info -->
                                     <Label Text="{Loc 'ui-lobby-server-info-block'}" StyleClasses="MenuLabel15" Align="Center"/>
                                     <info:ServerInfo Name="ServerInfo" Access="Public" MinSize="0 100" VerticalExpand="false"
@@ -111,10 +113,12 @@
                                     <Label Name="StartTime" Access="Public" FontColorOverride="{x:Static maths:Color.MediumVioletRed}"
                                            Margin="3 3 3 3" StyleClasses="MenuLabel15" HorizontalExpand="True" />
                                 </BoxContainer>
-                            <controls:VSpacer Spacing="10"/>
-                            <lobbyUi:LobbyCharacterPreviewPanel Name="CharacterPreview" Access="Public" />
-                    </BoxContainer>
-                    </PanelContainer>
+                                <controls:VSpacer Spacing="10"/>
+                                <lobbyUi:LobbyCharacterPreviewPanel Name="CharacterPreview" Access="Public" />
+                            </BoxContainer>
+                        </PanelContainer>
+                        <TextureRect TextureScale="2 2" TexturePath="/Textures/_White/NovaUI/Details/screpka.png" HorizontalAlignment="Right" Margin="0,0,20,0"/>
+                    </Control>
                     <controls:HSpacer Spacing="10" />
                     <widgets:ChatBox Name="Chat" Access="Public" VerticalExpand="True" Margin="3 3 3 3" MinHeight="50" />
                 </BoxContainer>
