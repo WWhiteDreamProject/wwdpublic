@@ -1,0 +1,54 @@
+﻿- type: entity
+  id: PelletShotgunFRAG
+  name: Bullet FRAG
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: smallfrag
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 4
+    intensitySlope: 1
+    totalIntensity: 6
+    maxTileBreak: 1
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+
+- type: entity
+  id: PelletShotgunMeteor
+  name: Bullet Meteor
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Projectiles/meteor-shell.rsi
+    state: Bullet
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 69
+        Structural: 89
+  - type: StunOnCollide
+    stunAmount: 1
+    knockdownAmount: 4
+
+- type: entity
+  id: PelletShotgunBreach
+  name: Bullet Breach
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Projectiles/breach-shell.rsi
+    state: Bullet
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 10
+        Structural: 124

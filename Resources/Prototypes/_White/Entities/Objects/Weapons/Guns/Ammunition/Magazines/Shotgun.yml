@@ -1,6 +1,7 @@
 ﻿- type: entity
   id: MagazineShotgunMeteor
-  name: ammo drum (.50 Meteor)
+  name: drum (.50 Meteor)
+  description: drum with 8 charges.
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
@@ -9,6 +10,54 @@
     sprite: _White/Objects/Weapons/Guns/Ammunition/Magazine/meteor-mag.rsi
     layers:
     - state: meteor
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineShotgunLaser
+  name: drum (.50 Laser)
+  description: drum with 8 charges.
+  parent: BaseMagazineShotgun
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunLaser
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Ammunition/Magazine/laser-mag.rsi
+    layers:
+    - state: laser
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineShotgunFRAG
+  name: drum (.50 FRAG)
+  description: drum with 8 charges.
+  parent: BaseMagazineShotgun
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunFRAG
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Ammunition/Magazine/FRAG-mag.rsi
+    layers:
+    - state: FRAG
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineShotgunBreach
+  name: drum (.50 Breach)
+  description: drum with 8 charges.
+  parent: BaseMagazineShotgun
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunBreach
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Ammunition/Magazine/breach-mag.rsi
+    layers:
+    - state: breach
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]

@@ -1304,3 +1304,89 @@
   materials:
     Steel: 1500
     Plastic: 750
+
+# WWDP new ammo
+
+- type: latheRecipe
+  id: ShellShotgunBreach
+  result: ShellShotgunBreach
+  category: Ammo
+  completetime: 2
+  materials:
+    Plasteel: 25
+
+- type: latheRecipe
+  id: BoxBreach
+  result: BoxBreach
+  category: Ammo
+  completetime: 5
+  materials:
+    Plasteel: 450
+    steel: 30
+
+- type: latheRecipe
+  id: MagazineShotgunBreach
+  result: MagazineShotgunBreach
+  category: Ammo
+  completetime: 5
+  materials:
+    Plasteel: 250
+    steel: 20
+
+- type: latheRecipe
+  id: ShellShotgunFRAG
+  result: ShellShotgunFRAG
+  category: Ammo
+  completetime: 2
+  materials:
+    Plasma: 5
+    steel: 15
+
+- type: latheRecipe
+  id: BoxFRAG
+  result: BoxFRAG
+  category: Ammo
+  completetime: 5
+  materials:
+    Plasma: 100
+    steel: 430
+
+- type: latheRecipe
+  id: MagazineShotgunFRAG
+  result: MagazineShotgunFRAG
+  category: Ammo
+  completetime: 5
+  materials:
+    Plasma: 50
+    steel: 240
+
+- type: latheRecipe
+  id: ShellShotgunLaser
+  result: ShellShotgunLaser
+  category: Ammo
+  completetime: 2
+  materials:
+    Plasma: 5
+    silver: 5
+    Gold: 5
+    steel: 10
+- type: latheRecipe
+  id: BoxLaser
+  result: BoxLaser
+  category: Ammo
+  completetime: 5
+  materials:
+    Plasma: 80
+    silver: 80
+    Gold: 80
+    steel: 450
+- type: latheRecipe
+  id: MagazineShotgunFRAG
+  result: MagazineShotgunFRAG
+  category: Ammo
+  completetime: 5
+  materials:
+    Plasma: 40
+    silver: 40
+    Gold: 40
+    steel: 80

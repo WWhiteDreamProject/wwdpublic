@@ -27,3 +27,34 @@
     proto: BulletLaserSpread
   - type: SpentAmmoVisuals
     state: "laser"
+
+- type: entity
+  id: ShellShotgunFRAG
+  name: shell (.50 FRAG)
+  parent: BaseShellShotgun
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Ammunition/Casings/FRAG-shell.rsi
+    layers:
+    - state: FRAG
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: BulletShotgunFRAG
+  - type: SpentAmmoVisuals
+    state: "FRAG"
+
+- type: entity
+  id: ShellShotgunBreach
+  name: shell (.50 Breach)
+  parent: BaseShellShotgun
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Ammunition/Casings/breach-shell.rsi
+    layers:
+    - state: breach
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: PelletShotgunBreach
+  - type: SpentAmmoVisuals
+    state: "breach"
+
