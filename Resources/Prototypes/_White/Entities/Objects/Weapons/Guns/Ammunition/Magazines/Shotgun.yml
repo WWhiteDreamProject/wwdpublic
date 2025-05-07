@@ -31,17 +31,17 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: MagazineShotgunFRAG
+  id: MagazineShotgunFrag
   name: drum (.50 FRAG)
   description: drum with 8 charges.
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
-    proto: ShellShotgunFRAG
+    proto: ShellShotgunFrag
   - type: Sprite
-    sprite: _White/Objects/Weapons/Guns/Ammunition/Magazine/FRAG-mag.rsi
+    sprite: _White/Objects/Weapons/Guns/Ammunition/Magazine/frag-mag.rsi
     layers:
-    - state: FRAG
+    - state: frag
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]

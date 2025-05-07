@@ -1343,8 +1343,8 @@
     steel: 15
 
 - type: latheRecipe
-  id: BoxFRAG
-  result: BoxFRAG
+  id: Boxfrag
+  result: Boxfrag
   category: Ammo
   completetime: 5
   materials:

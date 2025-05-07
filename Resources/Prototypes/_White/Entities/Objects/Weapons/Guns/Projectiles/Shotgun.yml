@@ -1,13 +1,12 @@
 ﻿- type: entity
-  id: PelletShotgunFRAG
+  id: PelletShotgunFrag
   name: Bullet FRAG
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    layers:
-    - state: smallfrag
+    state: smallfrag
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default

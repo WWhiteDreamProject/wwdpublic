@@ -140,7 +140,7 @@
   #WWDP new ammo
   - MagazineShotgunFRAG
   - ShellShotgunFRAG
-  - BoxFRAG
+  - Boxfrag
   # TODO: Add "Explosive Ammunition" to this tech to make it waaaay more interesting.
 
 - type: technology

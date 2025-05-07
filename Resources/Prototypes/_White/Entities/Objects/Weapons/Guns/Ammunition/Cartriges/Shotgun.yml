@@ -29,19 +29,19 @@
     state: "laser"
 
 - type: entity
-  id: ShellShotgunFRAG
+  id: ShellShotgunFrag
   name: shell (.50 FRAG)
   parent: BaseShellShotgun
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Ammunition/Casings/FRAG-shell.rsi
     layers:
-    - state: FRAG
+    - state: frag
       map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
-    proto: PelletShotgunFRAG
+    proto: PelletShotgunFrag
   - type: SpentAmmoVisuals
-    state: "FRAG"
+    state: "frag"
 
 - type: entity
   id: ShellShotgunBreach

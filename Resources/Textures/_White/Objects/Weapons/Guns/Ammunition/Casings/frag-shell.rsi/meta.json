@@ -8,10 +8,10 @@
     "copyright": "By boevi4ok",
     "states": [
         {
-            "name": "FRAG"
+            "name": "frag"
         },
         {
-            "name": "FRAG-spent"
+            "name": "frag-spent"
         }
     ]
 }

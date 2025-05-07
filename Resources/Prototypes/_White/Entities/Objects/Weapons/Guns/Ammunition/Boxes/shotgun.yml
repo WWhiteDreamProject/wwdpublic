@@ -15,7 +15,7 @@
 - type: entity
   name: shotgun FRAG cartridges dispenser
   parent: AmmoProviderShotgunShell
-  id: BoxFRAG
+  id: Boxfrag
   description: A dispenser box full of FRAG shots.
   components:
   - type: BallisticAmmoProvider
@@ -24,7 +24,7 @@
     sprite: _White/Objects/Storage/Boxes.rsi
     layers:
     - state: boxwide
-    - state: shellFRAG
+    - state: shellfrag
 
 - type: entity
   name: shotgun laser cartridges dispenser
