@@ -32,6 +32,7 @@ public sealed class BloodSpearSystem : EntitySystem
         SubscribeLocalEvent<BloodSpearComponent, EmbedEvent>(OnEmbed);
 
         SubscribeLocalEvent<BloodSpearComponent, GettingPickedUpAttemptEvent>(OnPickedUp);
+        SubscribeLocalEvent<BloodSpearComponent, ItemPickedUpEvent>(OnPickedUpActual);
         SubscribeLocalEvent<BloodCultistComponent, BloodSpearRecalledEvent>(OnSpearRecalled);
 
         SubscribeLocalEvent<BloodSpearComponent, ComponentShutdown>(OnComponentShutdown);
@@ -65,6 +66,21 @@ public sealed class BloodSpearSystem : EntitySystem
         var action = _actions.AddAction(args.User, spear.Comp.RecallActionId);
         spear.Comp.RecallAction = action;
         bloodCultist.BloodSpear = spear;
+    }
+
+    private void OnPickedUpActual(EntityUid uid, BloodSpearComponent component, ItemPickedUpEvent args)
+    {
+        if (!HasComp<BloodCultistComponent>(args.User))
+        {
+            Timer.Spawn(TimeSpan.FromMilliseconds(50), () => 
+            {
+                if (!Deleted(uid) && !Deleted(args.User))
+                {
+                    _hands.TryDrop(args.User, uid);
+                    _popup.PopupEntity(Loc.GetString("cult-item-component-pickup-fail"), args.User, args.User);
+                }
+            });
+        }
     }
 
     private void OnSpearRecalled(Entity<BloodCultistComponent> cultist, ref BloodSpearRecalledEvent args)

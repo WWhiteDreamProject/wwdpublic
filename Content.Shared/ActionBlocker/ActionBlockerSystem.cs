@@ -151,6 +151,10 @@ namespace Content.Shared.ActionBlocker
 
         public bool CanThrow(EntityUid user, EntityUid itemUid)
         {
+            // Check for cult item restrictions
+            if (!_cultItemSystem.CanUseRestrictedItem(user, itemUid))
+                return false;
+
             var ev = new ThrowAttemptEvent(user, itemUid);
             RaiseLocalEvent(user, ev);
 

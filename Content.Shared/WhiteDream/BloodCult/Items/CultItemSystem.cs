@@ -94,7 +94,7 @@ public sealed class CultItemSystem : EntitySystem
             return;
 
         args.Cancel();
-        KnockdownAndDropItem(item, args.User, Loc.GetString("cult-item-component-generic"));
+        KnockdownAndDropItem(item, args.User, Loc.GetString("cult-item-component-block-fail"));
     }
 
     // serverOnly is a very rough hack to make sure OnBeforeGettingThrown (that is only run server-side) can
@@ -125,7 +125,7 @@ public sealed class CultItemSystem : EntitySystem
     {
         // Check only specific items we know should be restricted
         var itemId = MetaData(itemUid).EntityPrototype?.ID;
-        if (itemId != "CultBola" && itemId != "MirrorShieldCult" && !itemId?.StartsWith("BloodSpear") == true)
+        if (itemId != "CultBola" && itemId != "MirrorShieldCult")
             return true;
             
         // If the user is a cultist - allow use
@@ -135,9 +135,7 @@ public sealed class CultItemSystem : EntitySystem
         // Non-cultists can't use the item - show message and stun
         var messageKey = itemId == "CultBola" 
             ? "cult-item-component-throw-bola-fail" 
-            : itemId?.StartsWith("BloodSpear") == true
-                ? "cult-item-component-throw-spear-fail"
-                : "cult-item-component-throw-shield-fail";
+            : "cult-item-component-throw-shield-fail";
             
         _popup.PopupEntity(Loc.GetString(messageKey), user, user);
         
