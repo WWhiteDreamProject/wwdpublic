@@ -5,6 +5,7 @@ using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.PowerCell;
+using Content.Shared.PowerCell.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -20,7 +21,7 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly SharedPowerCellSystem _powerCell = default!;
+    [Dependency] private readonly SharedPowerCellSystem _cell = default!;
 
     public override void Initialize()
     {
@@ -61,6 +62,13 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
     {
         if (component.RequiresToggle && !_toggle.IsActivated(uid))
             return;
+
+        if (TryComp<PowerCellDrawComponent>(uid, out var powerDraw) && 
+            TryComp<ToggleCellDrawComponent>(uid, out _))
+        {
+            if (!powerDraw.Enabled || !_cell.HasDrawCharge(uid))
+                return;
+        }
 
         args.Args.ModifySpeed(component.WalkModifier, component.SprintModifier);
     }
