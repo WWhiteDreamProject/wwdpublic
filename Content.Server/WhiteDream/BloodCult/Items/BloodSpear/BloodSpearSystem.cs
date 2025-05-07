@@ -70,17 +70,8 @@ public sealed class BloodSpearSystem : EntitySystem
 
     private void OnPickedUpActual(EntityUid uid, BloodSpearComponent component, ItemPickedUpEvent args)
     {
-        if (!HasComp<BloodCultistComponent>(args.User))
-        {
-            Timer.Spawn(TimeSpan.FromMilliseconds(50), () => 
-            {
-                if (!Deleted(uid) && !Deleted(args.User))
-                {
-                    _hands.TryDrop(args.User, uid);
-                    _popup.PopupEntity(Loc.GetString("cult-item-component-pickup-fail"), args.User, args.User);
-                }
-            });
-        }
+        // No additional checks here since CultItemSystem and ReturnableThrowingSystem 
+        // already handle restrictions for non-cultists
     }
 
     private void OnSpearRecalled(Entity<BloodCultistComponent> cultist, ref BloodSpearRecalledEvent args)

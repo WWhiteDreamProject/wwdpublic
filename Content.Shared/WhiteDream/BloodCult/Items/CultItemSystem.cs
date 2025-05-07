@@ -125,7 +125,7 @@ public sealed class CultItemSystem : EntitySystem
     {
         // Check only specific items we know should be restricted
         var itemId = MetaData(itemUid).EntityPrototype?.ID;
-        if (itemId != "CultBola" && itemId != "MirrorShieldCult")
+        if (itemId != "CultBola" && itemId != "MirrorShieldCult" && itemId != "BloodSpear" && itemId != "UnholyHalberd")
             return true;
             
         // If the user is a cultist - allow use
@@ -133,9 +133,13 @@ public sealed class CultItemSystem : EntitySystem
             return true;
             
         // Non-cultists can't use the item - show message and stun
-        var messageKey = itemId == "CultBola" 
-            ? "cult-item-component-throw-bola-fail" 
-            : "cult-item-component-throw-shield-fail";
+        var messageKey = itemId switch
+        {
+            "CultBola" => "cult-item-component-throw-bola-fail",
+            "BloodSpear" => "cult-item-component-throw-spear-fail",
+            "UnholyHalberd" => "cult-item-component-throw-halberd-fail",
+            _ => "cult-item-component-throw-shield-fail"
+        };
             
         _popup.PopupEntity(Loc.GetString(messageKey), user, user);
         

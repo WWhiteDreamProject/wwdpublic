@@ -148,3 +148,4 @@
     wieldedBonus: 0.4 # WWDP
   - type: CultItem
   - type: BloodSpear
+  - type: ReturnableThrowing

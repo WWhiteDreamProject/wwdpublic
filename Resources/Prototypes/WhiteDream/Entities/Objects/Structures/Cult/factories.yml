@@ -86,6 +86,7 @@
     - prototype: EldritchLongsword
     - prototype: ClothingOuterCultArmor
     - prototype: ClothingOuterRobesCultTrue
+    - prototype: UnholyHalberd
   - type: Construction
     graph: CultFactoryForge
     node: forge

@@ -47,3 +47,5 @@
     - back
   - type: UseDelay
     delay: 1
+  - type: CultItem
+    knockdownDuration: 3
