@@ -1381,8 +1381,8 @@
     Gold: 80
     steel: 450
 - type: latheRecipe
-  id: MagazineShotgunFRAG
-  result: MagazineShotgunFRAG
+  id: MagazineShotgunLaser
+  result: MagazineShotgunLaser
   category: Ammo
   completetime: 5
   materials:

@@ -39,7 +39,7 @@
     - state: FRAG
       map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
-    proto: BulletShotgunFRAG
+    proto: PelletShotgunFRAG
   - type: SpentAmmoVisuals
     state: "FRAG"
 
