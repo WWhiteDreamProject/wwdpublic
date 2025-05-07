@@ -60,6 +60,8 @@
       id: LoadoutCommandHOSHatBeret
     - type: loadout
       id: LoadoutCommandHOSHatHoshat
+    - type: loadout
+      id: LoadoutCommandHOSHelmet
 
 - type: characterItemGroup
   id: LoadoutHeadOfSecurityId
@@ -76,6 +78,8 @@
       id: LoadoutCommandHOSNeckMantle
     - type: loadout
       id: LoadoutCommandHOSNeckCloak
+    - type: loadout
+      id: LoadoutCommandHOSNeckCloakFur
 
 #- type: characterItemGroup
 #  id: LoadoutHeadOfSecurityMask
@@ -92,6 +96,8 @@
       id: LoadoutCommandHOSOuterTrench
     - type: loadout
       id: LoadoutCommandHOSOuterWinterUnarmored
+    - type: loadout
+      id: LoadoutCommandHOSOuterHeavyArmor
 
 - type: characterItemGroup
   id: LoadoutHeadOfSecurityShoes

@@ -54,9 +54,10 @@
     animationRotation: -45 # WWDP
     wideAnimationRotation: -135
     attackRate: .8
+    range: 1.6
     damage:
       types:
-        Blunt: 4.5
+        Blunt: 2.5
   - type: DamageOtherOnHit
   - type: EmbeddableProjectile
     embedOnThrow: false

@@ -1,5 +1,8 @@
 # Chat window radio wrap (prefix and postfix)
-chat-radio-message-wrap = [color={ $color }]{ $channel } [bold][Name]{ $name }[/Name][/bold] говорит, "{ $message }"[/color]
+# WD edit start
+chat-radio-message-wrap = [color={$color}]{$channel} [font size=11][color={$languageColor}][bold]{$language}[/bold][/color][/font][bold]{$name}[/bold] {$verb}, [font="{$fontType}" size={$fontSize}][color={$messageColor}]"{$message}"[/color][/font][/color]
+chat-radio-message-wrap-bold = [color={$color}]{$channel} [font size=11][color={$languageColor}][bold]{$language}[/bold][/color][/font][bold]{$name}[/bold] {$verb}, [font="{$fontType}" size={$fontSize}][color={$messageColor}][bold]"{$message}"[/bold][/color][/font][/color]
+# WD edit end
 headset-encryption-key-successfully-installed = Вы вставляете ключ в гарнитуру.
 headset-encryption-key-slots-already-full = Здесь нет места для другого ключа.
 headset-encryption-keys-all-extracted = Вы вытаскиваете ключи шифрования из гарнитуры!

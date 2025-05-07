@@ -1,0 +1,35 @@
+﻿- type: entity
+  parent: ClothingModsuitHelmetStandard
+  id: ClothingModsuitHelmetInfiltrator
+  name: infiltrator modsuit helmet
+  description: A purpose-built helmet that can be neatly folded and store in the infiltrator suit's main unit.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _White/Clothing/Head/modsuits/Infiltrator.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.85
+        Heat: 0.9
+  - type: ComponentToggler
+    components:
+    - type: BreathMask
+    - type: PressureProtection
+      highPressureMultiplier: 0
+      lowPressureMultiplier: 0
+    - type: TemperatureProtection
+      coefficient: 0.1
+    - type: IdentityBlocker
+    - type: IngestionBlocker
+    - type: VoiceMask
+      action: null

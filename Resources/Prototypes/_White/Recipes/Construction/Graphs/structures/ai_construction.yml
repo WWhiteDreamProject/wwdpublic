@@ -156,6 +156,10 @@
       conditions:
       - !type:EntityAnchored
       - !type:WirePanel
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetRGlass1
+        amount: 2
       steps:
       - tool: Prying
         doAfter: 5
@@ -173,3 +177,4 @@
       steps:
       - tool: Prying
         doAfter: 5
+

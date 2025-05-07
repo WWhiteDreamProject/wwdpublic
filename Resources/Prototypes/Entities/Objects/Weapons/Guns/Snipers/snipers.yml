@@ -26,7 +26,7 @@
     wieldedBonus: 0.3
   - type: Gun
     bonusAngleIncreaseMove: 30  # wwdp
-    bonusAngleIncreaseTurn: 0.4 # wwdp
+    bonusAngleIncreaseTurn: 0   # wwdp
     bonusAngleDecay: 30         # wwdp
     maxBonusAngle: 30           # wwdp
     fireRate: 0.75
@@ -159,12 +159,12 @@
   - type: Clothing
     sprite: _White/Objects/Weapons/Guns/Snipers/hristov-inhands.rsi
   - type: Item
-    size: Huge # WWDP guns resize
+    size: Huge
     shape:
     - 0,0,6,1 # needs to fit in a briefcase, collapsible stock or something
     sprite: _White/Objects/Weapons/Guns/Snipers/hristov-inhands.rsi
   - type: BallisticAmmoProvider
-    soundRack: # WWDP
+    soundRack:
       path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
     soundInsert: /Audio/_White/Guns/insert.ogg
     whitelist:

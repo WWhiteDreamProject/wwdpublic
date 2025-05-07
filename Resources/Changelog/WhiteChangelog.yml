@@ -2693,3 +2693,81 @@ Entries:
   id: 291
   time: '2025-04-25T08:40:27.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/474
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Боевые перчатки теперь не доступны всем членам службы безопасности
+    - type: Remove
+      message: Удалены боевые перчатки ТСФА из лодаутов
+    - type: Remove
+      message: Удалена броня ТСФА из лодаутов службы безопасности
+  id: 292
+  time: '2025-04-26T07:18:13.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/464
+- author: HSKveez
+  changes:
+    - type: Fix
+      message: 'В аплинк возвращены старые воровские перчатки '
+  id: 293
+  time: '2025-04-26T07:21:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/473
+- author: Spatison
+  changes:
+    - type: Remove
+      message: Удалено веселье :(
+  id: 294
+  time: '2025-04-26T07:50:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/475
+- author: Spatison
+  changes:
+    - type: Add
+      message: Апстрим 04.19-04.26 :D
+  id: 295
+  time: '2025-04-27T13:59:29.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/477
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: В голосовой маске теперь можно менять голос
+    - type: Fix
+      message: Шёпот теперь слышно
+  id: 296
+  time: '2025-04-27T14:00:07.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/479
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: >-
+        Изменён шрифт абдукторов на BoxFont Round. Он должен корректно
+        отображаться в чате.
+  id: 297
+  time: '2025-05-02T11:10:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/482
+- author: Spatison
+  changes:
+    - type: Add
+      message: Апстрим 26.04-03.05 :D
+  id: 298
+  time: '2025-05-03T09:52:39.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/484
+- author: Kai518
+  changes:
+    - type: Add
+      message: ИИ добавлено действие, открывающее интерфейс телепорта ко всем камерам.
+    - type: Tweak
+      message: >-
+        Теперь глаз ИИ видит не на том гриде, где находится ядро, а на том, где
+        находится сам глаз. Иными словами, если он залетит на шаттл - будет
+        видеть камерами шаттла, а если залетит на станцию - будет видеть
+        камерами станции. Из-за этого отрезать его ядро от станции теперь
+        бесполезно.
+  id: 299
+  time: '2025-05-05T20:44:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/480
+- author: Bol4onok
+  changes:
+    - type: Add
+      message: Добавлен веселый мод в аплинк
+  id: 300
+  time: '2025-05-06T05:22:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/478
