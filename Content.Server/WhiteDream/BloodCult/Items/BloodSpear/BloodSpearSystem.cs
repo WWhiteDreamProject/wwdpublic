@@ -1,14 +1,19 @@
 ﻿using Content.Server.Actions;
 using Content.Server.Hands.Systems;
+using Content.Server.Popups;
 using Content.Server.Projectiles;
 using Content.Server.Stunnable;
+using Content.Shared.Hands;
+using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Item;
+using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.WhiteDream.BloodCult.BloodCultist;
 using Content.Shared.WhiteDream.BloodCult.Spells;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Shared.Timing;
 
 namespace Content.Server.WhiteDream.BloodCult.Items.BloodSpear;
 
@@ -20,6 +25,7 @@ public sealed class BloodSpearSystem : EntitySystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly ProjectileSystem _projectile = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     public override void Initialize()
     {

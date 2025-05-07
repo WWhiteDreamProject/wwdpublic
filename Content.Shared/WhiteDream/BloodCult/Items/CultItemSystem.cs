@@ -1,4 +1,5 @@
-﻿using Content.Shared.Blocking;
+﻿using Content.Shared.ActionBlocker;
+using Content.Shared.Blocking;
 using Content.Shared.Ghost;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -29,6 +30,9 @@ public sealed class CultItemSystem : EntitySystem
         SubscribeLocalEvent<CultItemComponent, BeingEquippedAttemptEvent>(OnEquipAttempt);
         SubscribeLocalEvent<CultItemComponent, AttemptMeleeEvent>(OnMeleeAttempt);
         SubscribeLocalEvent<CultItemComponent, BeforeBlockingEvent>(OnBeforeBlocking);
+        
+        // Subscribe to ThrowAttemptEvent for all entities
+        SubscribeLocalEvent<ThrowAttemptEvent>(OnGlobalThrowAttempt, before: new []{ typeof(ActionBlockerSystem) });
     }
 
     private void OnActivate(Entity<CultItemComponent> item, ref ActivateInWorldEvent args)
@@ -90,7 +94,7 @@ public sealed class CultItemSystem : EntitySystem
             return;
 
         args.Cancel();
-        KnockdownAndDropItem(item, args.User, Loc.GetString("cult-item-component-block-fail"));
+        KnockdownAndDropItem(item, args.User, Loc.GetString("cult-item-component-generic"));
     }
 
     // serverOnly is a very rough hack to make sure OnBeforeGettingThrown (that is only run server-side) can
@@ -98,9 +102,9 @@ public sealed class CultItemSystem : EntitySystem
     private void KnockdownAndDropItem(Entity<CultItemComponent> item, EntityUid user, string message, bool serverOnly = false)
     {
         if (serverOnly)
-            _popup.PopupEntity(message, item, user);
+            _popup.PopupEntity(message, user, user);
         else
-            _popup.PopupPredicted(message, item, user);
+            _popup.PopupEntity(message, user, user);
         
         if (!HasComp<ReturnableThrowingComponent>(item))
         {
@@ -112,4 +116,54 @@ public sealed class CultItemSystem : EntitySystem
 
     private bool CanUse(EntityUid? uid, Entity<CultItemComponent> item) =>
         item.Comp.AllowUseToEveryone || HasComp<BloodCultistComponent>(uid) || HasComp<GhostComponent>(uid);
+        
+    /// <summary>
+    /// Checks if a user can use a restricted cult item without CultItemComponent
+    /// </summary>
+    /// <returns>true if there are no restrictions (can be used)</returns>
+    public bool CanUseRestrictedItem(EntityUid user, EntityUid itemUid)
+    {
+        // Check only specific items we know should be restricted
+        var itemId = MetaData(itemUid).EntityPrototype?.ID;
+        if (itemId != "CultBola" && itemId != "MirrorShieldCult" && !itemId?.StartsWith("BloodSpear") == true)
+            return true;
+            
+        // If the user is a cultist - allow use
+        if (HasComp<BloodCultistComponent>(user) || HasComp<GhostComponent>(user))
+            return true;
+            
+        // Non-cultists can't use the item - show message and stun
+        var messageKey = itemId == "CultBola" 
+            ? "cult-item-component-throw-bola-fail" 
+            : itemId?.StartsWith("BloodSpear") == true
+                ? "cult-item-component-throw-spear-fail"
+                : "cult-item-component-throw-shield-fail";
+            
+        _popup.PopupEntity(Loc.GetString(messageKey), user, user);
+        
+        // Stun the player when they try to use a cult item
+        _stun.TryParalyze(user, TimeSpan.FromSeconds(3), true);
+        
+        return false;
+    }
+
+    /// <summary>
+    /// Handles throw attempts for any item, including special cult items with or without CultItemComponent
+    /// </summary>
+    private void OnGlobalThrowAttempt(ThrowAttemptEvent ev)
+    {
+        // First, handle special restricted items without CultItemComponent
+        if (!CanUseRestrictedItem(ev.Uid, ev.ItemUid))
+        {
+            ev.Cancel();
+            return;
+        }
+        
+        // Then handle items with CultItemComponent
+        if (TryComp<CultItemComponent>(ev.ItemUid, out var cultItem))
+        {
+            if (!CanUse(ev.Uid, (ev.ItemUid, cultItem)))
+                ev.Cancel();
+        }
+    }
 }

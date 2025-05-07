@@ -15,6 +15,10 @@ using Robust.Shared.Physics.Systems;
 using System.Linq;
 using Robust.Shared.Physics.Components;
 using Content.Shared.Item;
+using System.Numerics;
+using Robust.Shared.Timing;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Mobs;
 
 namespace Content.Server.WhiteDream.BloodCult.Items;
 
@@ -30,84 +34,95 @@ public sealed class ReturnableThrowingSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
 
-    private const string MessageKey = "returnable-cult-shield-pickup-fail";
     private const string MessageReturnedToHands = "returnable-cult-item-returned-to-hands";
     private const string MessageReturnedToFeet = "returnable-cult-item-returned-to-feet";
+    
+    // Return speed of the shield to its owner (units per second)
+    private const float ReturnSpeed = 15.0f;
 
     public override void Initialize()
     {
         base.Initialize();
         
-        SubscribeLocalEvent<ReturnableThrowingComponent, BeforeGettingThrownEvent>(OnThrow);
         SubscribeLocalEvent<ReturnableThrowingComponent, ThrownEvent>(OnThrown);
         SubscribeLocalEvent<ReturnableThrowingComponent, ThrowDoHitEvent>(OnHit);
         SubscribeLocalEvent<ReturnableThrowingComponent, GettingPickedUpAttemptEvent>(OnPickupAttempt);
-        SubscribeLocalEvent<ReturnableThrowingComponent, ActivateInWorldEvent>(OnActivateInWorldAttempt);
-        SubscribeLocalEvent<ReturnableThrowingComponent, UseInHandEvent>(OnUseInHand);
-        SubscribeLocalEvent<ReturnableThrowingComponent, BeingEquippedAttemptEvent>(OnEquipAttempt);
     }
-
-    private void OnActivateInWorldAttempt(EntityUid uid, ReturnableThrowingComponent component, ActivateInWorldEvent args)
+    
+    public override void Update(float frameTime)
     {
-        if (args.Handled)
-            return;
-
-        if (!TryComp<CultItemComponent>(uid, out var cultItem))
-            return;
-
-        if (!HasComp<BloodCultistComponent>(args.User) && !cultItem.AllowUseToEveryone)
+        base.Update(frameTime);
+        
+        // Update positions of all returning items
+        var query = EntityQueryEnumerator<ReturnableThrowingComponent>();
+        while (query.MoveNext(out var uid, out var component))
         {
-            args.Handled = true;
-            var message = Loc.GetString(MessageKey, ("item", uid));
-            _popup.PopupEntity(message, uid, args.User);
+            if (!component.IsReturning || component.TargetEntity == null)
+                continue;
+                
+            if (!_entityManager.EntityExists(component.TargetEntity.Value))
+            {
+                component.IsReturning = false;
+                component.TargetEntity = null;
+                continue;
+            }
+            
+            // Get current shield position and target position
+            var currentPos = _transform.GetWorldPosition(uid);
+            var targetPos = _transform.GetWorldPosition(component.TargetEntity.Value);
+            
+            // Calculate direction and distance
+            var direction = targetPos - currentPos;
+            var distance = direction.Length();
+            
+            // If shield is close enough to target, finish movement
+            if (distance < 0.2f)
+            {
+                FinishShieldReturn(uid, component);
+                continue;
+            }
+            
+            // Normalize direction and calculate new position
+            direction = Vector2.Normalize(direction);
+            var movement = direction * ReturnSpeed * frameTime;
+            
+            // If shield would move further than target in one frame, place it directly in hands
+            if (movement.Length() >= distance)
+            {
+                FinishShieldReturn(uid, component);
+                continue;
+            }
+            
+            // Move shield to new position
+            var newPos = currentPos + movement;
+            _transform.SetWorldPosition(uid, newPos);
+            
+            // Rotate shield in direction of movement
+            var angle = direction.ToWorldAngle();
+            _transform.SetWorldRotation(uid, angle);
+            
+            // Disable physics while returning
+            if (TryComp<PhysicsComponent>(uid, out var physics))
+            {
+                _physics.SetCanCollide(uid, false, body: physics);
+            }
         }
-    }
-    
-    private void OnUseInHand(EntityUid uid, ReturnableThrowingComponent component, UseInHandEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (!TryComp<CultItemComponent>(uid, out var cultItem))
-            return;
-            
-        if (HasComp<BloodCultistComponent>(args.User) || cultItem.AllowUseToEveryone)
-            return;
-            
-        args.Handled = true;
-        var message = Loc.GetString(MessageKey, ("item", uid));
-        _popup.PopupEntity(message, uid, args.User);
-    }
-    
-    private void OnEquipAttempt(EntityUid uid, ReturnableThrowingComponent component, BeingEquippedAttemptEvent args)
-    {
-        if (!TryComp<CultItemComponent>(uid, out var cultItem))
-            return;
-            
-        if (HasComp<BloodCultistComponent>(args.EquipTarget) || cultItem.AllowUseToEveryone)
-            return;
-            
-        args.Cancel();
-        var message = Loc.GetString(MessageKey, ("item", uid));
-        _popup.PopupEntity(message, uid, args.Equipee);
-    }
-
-    private void OnThrow(EntityUid uid, ReturnableThrowingComponent component, BeforeGettingThrownEvent args)
-    {
-        component.LastThrower = args.PlayerUid;
     }
     
     private void OnThrown(EntityUid uid, ReturnableThrowingComponent component, ThrownEvent args)
     {
-        component.LastThrower = args.User;
+        if (args.User == null)
+            return;
+            
+        // Save information about who threw the item
+        component.LastThrower = args.User.Value;
     }
-
+    
     private void OnHit(EntityUid uid, ReturnableThrowingComponent component, ThrowDoHitEvent args)
     {
-        if (!TryComp<CultItemComponent>(uid, out var cultItem))
-            return;
-
         EntityUid? thrower = component.LastThrower;
         if (thrower == null && TryComp<ThrownItemComponent>(uid, out var thrownComp))
         {
@@ -119,56 +134,120 @@ public sealed class ReturnableThrowingSystem : EntitySystem
         
         if (!HasComp<BloodCultistComponent>(thrower.Value))
             return;
-
-        // Stop the movement of the shield on any hit
-        if (TryComp<ThrownItemComponent>(uid, out var thrown) && TryComp<PhysicsComponent>(uid, out var physics))
+            
+        // Check if owner is alive
+        if (TryComp<MobStateComponent>(thrower.Value, out var mobState) && 
+            _mobStateSystem.IsDead(thrower.Value, mobState))
         {
-            _thrownSystem.LandComponent(uid, thrown, physics, false, false);
+            // If owner is dead, shield doesn't return
+            return;
         }
 
-        // Check that the target is a creature and not a cultist
+        // Stop item flight on hit
+        if (TryComp<ThrownItemComponent>(uid, out var thrown) && TryComp<PhysicsComponent>(uid, out var physics))
+        {
+            _thrownSystem.LandComponent(uid, thrown, physics, false);
+        }
+
         bool isValidTarget = HasComp<MobStateComponent>(args.Target) && !HasComp<BloodCultistComponent>(args.Target);
         
-        // If the target is not a non-cultist creature, do not return the shield
         if (!isValidTarget)
             return;
 
         // Stun the target
         _stun.TryParalyze(args.Target, TimeSpan.FromSeconds(1f), true);
 
-        // Return the shield to the cultist
-        if (!TryComp<HandsComponent>(thrower.Value, out var hands))
+        // Get owner name
+        string ownerName = MetaData(thrower.Value).EntityName;
+        
+        // Show return message only to owner
+        var message = Loc.GetString(MessageReturnedToHands, ("name", ownerName));
+        _popup.PopupEntity(message, thrower.Value, thrower.Value);
+        
+        // Initiate visual shield return
+        StartReturnAnimation(uid, thrower.Value, component);
+    }
+    
+    /// <summary>
+    /// Starts animation of shield return directly to owner
+    /// </summary>
+    private void StartReturnAnimation(EntityUid uid, EntityUid thrower, ReturnableThrowingComponent component)
+    {        
+        // Set flag that shield is returning
+        component.IsReturning = true;
+        component.TargetEntity = thrower;
+        
+        // Disable physics components during animation
+        if (TryComp<PhysicsComponent>(uid, out var physics))
+        {
+            _physics.SetCanCollide(uid, false, body: physics);
+        }
+        
+        // Remove thrown item component so it doesn't interact with other objects
+        if (HasComp<ThrownItemComponent>(uid))
+        {
+            RemComp<ThrownItemComponent>(uid);
+        }
+    }
+    
+    /// <summary>
+    /// Completes shield return by placing it in owner's hands
+    /// </summary>
+    private void FinishShieldReturn(EntityUid uid, ReturnableThrowingComponent component)
+    {
+        if (component.TargetEntity == null || !_entityManager.EntityExists(component.TargetEntity.Value))
+        {
+            component.IsReturning = false;
+            component.TargetEntity = null;
             return;
-
-        var freeHand = _hands.EnumerateHands(thrower.Value)
+        }
+        
+        var thrower = component.TargetEntity.Value;
+        
+        // Reset return flags
+        component.IsReturning = false;
+        component.TargetEntity = null;
+        
+        // Check if owner has free hands
+        if (!TryComp<HandsComponent>(thrower, out var hands))
+            return;
+            
+        // Restore item physics
+        if (TryComp<PhysicsComponent>(uid, out var physics))
+        {
+            _physics.SetCanCollide(uid, true, body: physics);
+        }
+        
+        // Get owner name
+        string ownerName = MetaData(thrower).EntityName;
+            
+        var freeHand = _hands.EnumerateHands(thrower)
             .FirstOrDefault(hand => hand.IsEmpty);
 
         if (freeHand != null)
         {
-            _transform.SetParent(uid, thrower.Value);
-            _hands.TryPickup(thrower.Value, uid, freeHand.Name);
-            var message = Loc.GetString(MessageReturnedToHands);
-            _popup.PopupEntity(message, thrower.Value, thrower.Value);
+            // Try to pick up shield
+            _transform.SetParent(uid, thrower);
+            _hands.TryPickup(thrower, uid, freeHand.Name);
         }
         else
         {
-            var throwerPos = Transform(thrower.Value).Coordinates;
-            _transform.SetCoordinates(uid, throwerPos);
-            var message = Loc.GetString(MessageReturnedToFeet);
-            _popup.PopupEntity(message, thrower.Value, thrower.Value);
+            // If no free hands, place shield at owner's feet
+            var throwerCoords = Transform(thrower).Coordinates;
+            _transform.SetCoordinates(uid, throwerCoords);
+            var dropMessage = Loc.GetString(MessageReturnedToFeet, ("name", ownerName));
+            _popup.PopupEntity(dropMessage, thrower, thrower);
         }
     }
 
     private void OnPickupAttempt(EntityUid uid, ReturnableThrowingComponent component, GettingPickedUpAttemptEvent args)
     {
-        if (!TryComp<CultItemComponent>(uid, out var cultItem))
-            return;
-
-        if (!HasComp<BloodCultistComponent>(args.User) && !cultItem.AllowUseToEveryone)
+        // If shield is returning to owner, don't allow it to be picked up
+        if (component.IsReturning)
         {
             args.Cancel();
-            var message = Loc.GetString(MessageKey, ("item", uid));
-            _popup.PopupEntity(message, args.Item, args.User);
+            return;
         }
+        
     }
 } 

@@ -157,6 +157,7 @@
     state: icon
   - type: Item
     size: Ginormous
+    heldPrefix: mirror
   - type: CultItem
   - type: ReturnableThrowing
   - type: StunOnCollide
