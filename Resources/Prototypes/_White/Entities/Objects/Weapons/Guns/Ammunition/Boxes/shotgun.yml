@@ -1,7 +1,7 @@
 ﻿- type: entity
   name: shotgun meteor cartridges dispenser
   parent: AmmoProviderShotgunShell
-  id: Boxmeteor
+  id: BoxMeteor
   description: A dispenser box full of meteor shots.
   components:
   - type: BallisticAmmoProvider
@@ -15,7 +15,7 @@
 - type: entity
   name: shotgun FRAG cartridges dispenser
   parent: AmmoProviderShotgunShell
-  id: Boxfrag
+  id: BoxFrag
   description: A dispenser box full of FRAG shots.
   components:
   - type: BallisticAmmoProvider

@@ -1322,7 +1322,7 @@
   completetime: 5
   materials:
     Plasteel: 450
-    steel: 30
+    Steel: 30
 
 - type: latheRecipe
   id: MagazineShotgunBreach
@@ -1331,34 +1331,34 @@
   completetime: 5
   materials:
     Plasteel: 250
-    steel: 20
+    Steel: 20
 
 - type: latheRecipe
-  id: ShellShotgunFRAG
-  result: ShellShotgunFRAG
+  id: ShellShotgunFrag
+  result: ShellShotgunFrag
   category: Ammo
   completetime: 2
   materials:
     Plasma: 5
-    steel: 15
+    Steel: 15
 
 - type: latheRecipe
-  id: Boxfrag
-  result: Boxfrag
+  id: BoxFrag
+  result: BoxFrag
   category: Ammo
   completetime: 5
   materials:
     Plasma: 100
-    steel: 430
+    Steel: 430
 
 - type: latheRecipe
-  id: MagazineShotgunFRAG
-  result: MagazineShotgunFRAG
+  id: MagazineShotgunFrag
+  result: MagazineShotgunFrag
   category: Ammo
   completetime: 5
   materials:
     Plasma: 50
-    steel: 240
+    Steel: 240
 
 - type: latheRecipe
   id: ShellShotgunLaser
@@ -1369,7 +1369,7 @@
     Plasma: 5
     Silver: 5
     Gold: 5
-    steel: 10
+    Steel: 10
 - type: latheRecipe
   id: BoxLaser
   result: BoxLaser
@@ -1379,7 +1379,7 @@
     Plasma: 80
     Silver: 80
     Gold: 80
-    steel: 450
+    Steel: 450
 - type: latheRecipe
   id: MagazineShotgunLaser
   result: MagazineShotgunLaser
@@ -1389,4 +1389,4 @@
     Plasma: 40
     Silver: 40
     Gold: 40
-    steel: 80
+    Steel: 80
