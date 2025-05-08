@@ -138,9 +138,9 @@
   - ExplosivePayload
   - ChemicalPayload
   #WWDP new ammo
-  - MagazineShotgunfrag
-  - ShellShotgunfrag
-  - Boxfrag
+  - MagazineShotgunFrag
+  - ShellShotgunFrag
+  - BoxFrag
   # TODO: Add "Explosive Ammunition" to this tech to make it waaaay more interesting.
 
 - type: technology

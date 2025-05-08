@@ -19,7 +19,7 @@
   description: A dispenser box full of FRAG shots.
   components:
   - type: BallisticAmmoProvider
-    proto: ShellShotgunFRAG
+    proto: ShellShotgunFrag
   - type: Sprite
     sprite: _White/Objects/Storage/Boxes.rsi
     layers:
