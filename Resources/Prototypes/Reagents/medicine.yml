@@ -208,7 +208,7 @@
         - !type:ModifyBloodLevel
           amount: 5
         - !type:MobStateCondition
-          mobstate: Dead
+          mobstate: Dead #WWDP edit
 
 - type: reagent
   id: Doxarubixadone
@@ -228,11 +228,12 @@
             max: 213.0
           damage:
             types:
-             Cellular: -4
+              Radiation: -4 #WWDP edit
+              Cellular: -4
             groups:
-                Brute: 1
+              Brute: 1
         - !type:MobStateCondition
-          mobstate: Dead
+          mobstate: Dead #WWDP edit
 
 - type: reagent
   id: Dermaline
@@ -1172,7 +1173,7 @@
           - !type:Temperature
             max: 213 #WWDP edit
           - !type:MobStateCondition
-            mobstate: Dead
+            mobstate: Dead #WWDP edit
 
 - type: reagent
   id: Necrosol
@@ -1203,7 +1204,7 @@
             types:
               Poison: -2
         - !type:MobStateCondition
-          mobstate: Dead
+          mobstate: Dead #WWDP edit
 
 - type: reagent
   id : Aloxadone
