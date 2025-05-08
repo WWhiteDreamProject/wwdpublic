@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobXenomorph
+  parent: BaseMobXenomorphAdult
   id: BaseMobXenomorphPraetorian
   name: alien praetorian
   abstract: true
@@ -93,6 +93,7 @@
     damagePerSecond:
       types:
         Caustic: 7.5
+  - type: ReproducingXenomorph
   - type: ActionGrant
     actions:
     - ActionAlienTransferPlasma

@@ -20,6 +20,7 @@
       anchored: true
       noRot: true
     - type: InteractionOutline
+    - type: ReproducingXenomorph
     - type: Physics
     - type: Buckle
     - type: Fixtures

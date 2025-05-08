@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobXenomorph
+  parent: BaseMobXenomorphAdult
   id: BaseMobXenomorphDrone
   name: alien drone
   abstract: true
@@ -52,6 +52,7 @@
     damagePerSecond:
       types:
         Caustic: 5
+  - type: ReproducingXenomorph
   - type: ActionGrant
     actions:
     - ActionAlienTransferPlasma

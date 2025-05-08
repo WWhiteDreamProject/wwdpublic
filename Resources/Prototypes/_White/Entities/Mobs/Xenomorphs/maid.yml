@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobXenomorph
+  parent: BaseMobXenomorphAdult
   id: BaseMobXenomorphMaid
   name: lusty alien maid
   description: Don't ask it to lay eggs in you.

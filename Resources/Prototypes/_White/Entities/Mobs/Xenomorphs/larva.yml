@@ -1,4 +1,74 @@
 - type: entity
+  parent: BaseMobXenomorph
+  id: BaseMobXenomorphLarva
+  name: alien larva
+  description: Little and harmless alien
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: larva0
+  - type: Body
+    prototype: XenomorphTiny
+  - type: PlasmaVessel
+    maxPlasma: 30
+  - type: Inventory
+    templateId: larva
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: larva0
+    noMovementLayers:
+      movement:
+        state: larva0_idle
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - FlyingMobMask
+        layer:
+        - SmallMobLayer
+  - type: Deathgasp
+    prototype: LarvaDeathgasp
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      25: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 5
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: larva0
+      Dead:
+        Base: larva0_dead
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
+    damage:
+      types:
+        Blunt: 2
+  - type: Bloodstream
+    bloodMaxVolume: 50
+  - type: MobPrice
+    price: 250
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: GuideHelp
+    guides:
+    - XenomorphLarva
+
+- type: entity
   id: MobAlienLarvaInside # Larva that is inside of it's owner
   categories: [ HideSpawnMenu ]
   components:
@@ -26,97 +96,38 @@
       settings: default
 
 - type: entity
-  parent: MobAlienLarva
-  id: MobAlienLarvaGrowStageTwo # Larva that bursted owner tors
+  parent: BaseMobXenomorphLarva
+  id: MobXenomorphLarva
   components:
-    - type: Sprite
-      drawdepth: SmallMobs
-      sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
-      layers:
-        - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
-          state: larva1
-    - type: SpriteMovement
-      movementLayers:
-        movement:
-          state: larva1
-      noMovementLayers:
-        movement:
-          state: larva1_idle
-    - type: DamageStateVisuals
-      states:
-        Alive:
-          Base: larva1
-        Critical:
-          Base: larva1_stun
-        Dead:
-          Base: larva1_dead
-    - type: TimedPolymorph
-      polymorphPrototype: AlienEvolutionGrowStageThree
-      polymorphTime: 50
-    - type: EmitSoundOnSpawn
-      sound:
-        collection:
-          LarvaBurst
-    - type: GhostTakeoverAvailable
-    - type: GhostRole
-      makeSentient: true
-      allowSpeech: true
-      allowMovement: true
-      name: ghost-role-information-alien-larva-name
-      description: ghost-role-information-alien-larva-description
-      raffle:
-        settings: default
+  - type: Xenomorph
+    greetingText: alien-larva-greeting
+  - type: XenomorphEvolution
+    max: 200
+    evolvesTo:
+    - prototype: MobXenomorphDrone
+    - prototype: MobXenomorphSentinel
+    - prototype: MobXenomorphHunter
+  - type: ReproducingXenomorph
+  - type: ActionGrant
+    actions:
+    - ActionAlienTransferPlasma
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-mob-alien-name
+    description: ghost-role-mob-alien-description
+    rules: ghost-role-information-xeno-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
 
 - type: entity
-  parent: MobAlienLarva
-  id: MobAlienLarvaGrowStageThreeBase
-  abstract: true
+  parent: BaseMobXenomorphLarva
+  id: MobXenomorphLarvaDungeon
+  suffix: Dungeon
   components:
-    - type: Sprite
-      drawdepth: SmallMobs
-      sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
-      layers:
-        - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
-          state: larva2
-    - type: SpriteMovement
-      movementLayers:
-        movement:
-          state: larva2
-      noMovementLayers:
-        movement:
-          state: larva2_idle
-    - type: DamageStateVisuals
-      states:
-        Alive:
-          Base: larva2
-        Critical:
-          Base: larva2_stun
-        Dead:
-          Base: larva2_dead
-    - type: TimedPolymorph
-      enabled: false
-    - type: XenomorphEvolution
-      max: 200
-      evolvesTo:
-      - prototype: MobXenomorphDrone
-      - prototype: MobXenomorphSentinel
-      - prototype: MobXenomorphHunter
-
-- type: entity
-  parent: MobAlienLarvaGrowStageThreeBase
-  id: MobAlienLarvaGrowStageThree
-  components:
-    - type: GhostTakeoverAvailable
-    - type: GhostRole
-      makeSentient: true
-      allowSpeech: true
-      allowMovement: true
-      name: ghost-role-information-alien-larva-name
-      description: ghost-role-information-alien-larva-description
-      raffle:
-        settings: default
-
-- type: entity
-  parent: MobAlienLarvaGrowStageThreeBase
-  id: MobAlienLarvaGrowStageThreeDummy
-  suffix: Без гост роли
+  - type: Damageable
+    damageModifierSet: XenomorphDungeon

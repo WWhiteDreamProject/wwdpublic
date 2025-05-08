@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobXenomorph
+  parent: BaseMobXenomorphAdult
   id: BaseMobXenomorphQueen
   name: alien queen
   abstract: true
@@ -120,6 +120,7 @@
       Tirizene: 5
   - type: XenomorphQueen
     action: ActionAlienRoyalLarva
+  - type: ReproducingXenomorph
   - type: ActionGrant
     actions:
     - ActionAlienTransferPlasma

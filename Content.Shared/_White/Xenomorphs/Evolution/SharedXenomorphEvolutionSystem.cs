@@ -73,7 +73,7 @@ public abstract class SharedXenomorphEvolutionSystem : EntitySystem
 
     private void OnXenomorphEvolutionDoAfter(EntityUid uid, XenomorphEvolutionComponent component, ref XenomorphEvolutionDoAfterEvent args)
     {
-        if (_net.IsClient || args.Handled || args.Cancelled || !_mind.TryGetMind(uid, out var mindId, out _))
+        if (_net.IsClient || args.Handled || args.Cancelled || !_mind.TryGetMind(uid, out var mindId, out var mind))
             return;
 
         args.Handled = true;
@@ -85,6 +85,7 @@ public abstract class SharedXenomorphEvolutionSystem : EntitySystem
         _mind.UnVisit(mindId);
 
         RaiseLocalEvent(uid, new DropHandItemsEvent());
+        RaiseLocalEvent(uid, new AfterXenomorphEvolutionEvent(newXeno, uid, mind.Session?.Name));
 
         _adminLog.Add(LogType.Mind, $"{ToPrettyString(uid)} evolved into {ToPrettyString(newXeno)}");
 
