@@ -154,7 +154,7 @@
         conditions:
           - !type:ReagentThreshold
             reagent: Nitrium
-            min: 10
+            min: 15 #WWDP edit some buff
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -191,9 +191,11 @@
         ignoreResistances: true
         damage:
           groups:
-            Brute: -0.5
-            Burn: -0.5
-            Toxin: -1.25
+            #WWDP edit start some duff because useless
+            Brute: -1.5
+            Burn: -1.5
+            Toxin: -2
+            #WWDP edit end
 
 - type: reagent
   id: Hyper-Noblium
@@ -231,29 +233,29 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Zauker
-          min: 0.25
-          max: 8
+          min: 0.25 #WWDP edit delete max
         scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
-            Slash: 0.75
-            Heat: 0.25
-            Poison: 0.25
-            Bloodloss: 0.25
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Zauker
-          min: 8
-        scaleByQuantity: true
-        ignoreResistances: true
-        damage:
-          types:
-            Slash: 0.015
-            Heat: 0.005
-            Poison: 0.005
-            Bloodloss: 0.005
+            Slash: 1 #WWDP edit
+            Heat: 0.5 #WWDP edit
+            Poison: 0.5 #WWDP edit
+            Bloodloss: 0.5 #WWDP edit
+## WWDP edit zauker need buff because now it suck
+#      - !type:HealthChange
+#        conditions:
+#        - !type:ReagentThreshold
+#          reagent: Zauker
+#          min: 8
+#        scaleByQuantity: true
+#        ignoreResistances: true
+#        damage:
+#          types:
+#            Slash: 0.015
+#            Heat: 0.005
+#            Poison: 0.005
+#            Bloodloss: 0.005
 
 - type: reagent
   id: Halon
