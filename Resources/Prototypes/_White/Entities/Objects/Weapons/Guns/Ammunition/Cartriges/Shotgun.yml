@@ -34,7 +34,7 @@
   parent: BaseShellShotgun
   components:
   - type: Sprite
-    sprite: _White/Objects/Weapons/Guns/Ammunition/Casings/FRAG-shell.rsi
+    sprite: _White/Objects/Weapons/Guns/Ammunition/Casings/frag-shell.rsi
     layers:
     - state: frag
       map: [ "enum.AmmoVisualLayers.Base" ]
