@@ -1367,7 +1367,7 @@
   completetime: 2
   materials:
     Plasma: 5
-    silver: 5
+    Silver: 5
     Gold: 5
     steel: 10
 - type: latheRecipe
@@ -1377,7 +1377,7 @@
   completetime: 5
   materials:
     Plasma: 80
-    silver: 80
+    Silver: 80
     Gold: 80
     steel: 450
 - type: latheRecipe
@@ -1387,6 +1387,6 @@
   completetime: 5
   materials:
     Plasma: 40
-    silver: 40
+    Silver: 40
     Gold: 40
     steel: 80
