@@ -29,15 +29,17 @@
                     <RichTextLabel Name="LabelName" Access="Public" HorizontalAlignment="Left"
                                    VerticalAlignment="Center" Margin="20 0 0 420" />
                     <!-- Left Bot Panel -->
-                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" SeparationOverride="4">
-                        <info:DevInfoBanner Name="DevInfoBanner" VerticalExpand="false" Margin="3 3 3 3" />
-                        <PanelContainer StyleClasses="AngleRect">
-                            <RichTextLabel Name="LobbySong" Access="Public" HorizontalAlignment="Center" />
-                        </PanelContainer>
-                        <PanelContainer StyleClasses="AngleRect">
-                            <RichTextLabel Name="LobbyBackground" Access="Public" HorizontalAlignment="Center" />
-                        </PanelContainer>
-                    </BoxContainer>
+                    <PanelContainer HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                        <BoxContainer Orientation="Horizontal" SeparationOverride="4" Margin="2">
+                            <info:DevInfoBanner Name="DevInfoBanner" VerticalExpand="false" Margin="6,8,6,8" />
+                            <PanelContainer StyleClasses="ChatPanel">
+                                <BoxContainer Orientation="Vertical">
+                                    <RichTextLabel Name="LobbySong" Access="Public" HorizontalAlignment="Center" />
+                                    <RichTextLabel Name="LobbyBackground" Access="Public" HorizontalAlignment="Center" />
+                                </BoxContainer>
+                            </PanelContainer>
+                        </BoxContainer>
+                    </PanelContainer>
                     <!-- Left Panel -->
                     <PanelContainer HorizontalAlignment="Left" Name="Center" VerticalAlignment="Center">
                         <BoxContainer Orientation="Vertical" HorizontalAlignment="Center"
@@ -93,11 +95,10 @@
                             VerticalAlignment="Stretch">
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True">
                     <!-- Top row -->
-                    <BoxContainer Orientation="Horizontal" MinSize="0 40" Name="HeaderContainer" Access="Public"
+                    <BoxContainer Orientation="Horizontal" MinSize="0 40" Name="HeaderContainer" Access="Public" Visible="False"
                                   SeparationOverride="4" Margin="5">
                         <Label Name="ServerName" Access="Public" StyleClasses="LabelHeadingBigger" VAlign="Center"
                                HorizontalExpand="True" HorizontalAlignment="Left" />
-                        <TextureRect TexturePath="/Textures/_White/NovaUI/Logo/NTLogoPixel.png" TextureScale="2 2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     </BoxContainer>
                     <controls:HSpacer Spacing="10" />
                     <Control Margin="0,3,0,0">

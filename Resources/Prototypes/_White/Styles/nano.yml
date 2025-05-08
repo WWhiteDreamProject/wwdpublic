@@ -6,7 +6,7 @@
       texture: "/Textures/_White/NovaUI/Chat/button.png"
       patchMargin: 3,5,3,5
       expandMargin: 1,5,1,5
-      textureScale: 2,2
+      textureScale: 3,3
       contentMarginVerticalOverride: 3
 
 - type: styleSheet
@@ -167,6 +167,9 @@
           - "/Fonts/_White/Bedstead/Bedstead.otf"
           size: 13
       font-color: "#2f2f2f"
+    ContainerButton.NovaButton:
+      stylebox: styleButtonChat
+      modulate-self: "#FFFFFF"
 
 
 - type: styleSheet
