@@ -24,7 +24,6 @@ namespace Content.Server._White.VPN
     {
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IChatManager _chat = default!;
-        [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         private readonly HttpClient _httpClient = new HttpClient();
@@ -52,14 +51,14 @@ namespace Content.Server._White.VPN
             // Checking IP on initial connection
             if (e.NewStatus == SessionStatus.Connected)
             {
-                CheckPlayerIP(e.Session);
+                _ = CheckPlayerIPAsync(e.Session);
             }
         }
 
         /// <summary>
         /// Gets the IP and checks it for signs of a VPN
         /// </summary>
-        private async void CheckPlayerIP(ICommonSession session)
+        private async Task CheckPlayerIPAsync(ICommonSession session)
         {
             try
             {

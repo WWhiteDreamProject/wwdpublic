@@ -88,6 +88,11 @@ namespace Content.Server._White.VPN
             }
 
             var testIp = args[0];
+            if (!System.Net.IPAddress.TryParse(testIp, out _))
+            {
+                shell.WriteError(Loc.GetString("Ошибка: Некорректный IP адрес"));
+                return;
+            }
             
             var cfg = IoCManager.Resolve<IConfigurationManager>();
             cfg.SetCVar(VPNDetectionCVars.VPNTestIP, testIp);
