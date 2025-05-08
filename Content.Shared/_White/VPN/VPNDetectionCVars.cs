@@ -9,7 +9,7 @@ namespace Content.Shared._White.VPN;
 public sealed class VPNDetectionCVars
 {
     /// <summary>
-    /// URL прокси-сервера VPN
+    /// VPN proxy server URL
     /// </summary>
     public const string ProxyServerUrl = "http://localhost:3000/api/vpn/";
     
