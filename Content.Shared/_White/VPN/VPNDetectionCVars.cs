@@ -11,7 +11,8 @@ public sealed class VPNDetectionCVars
     /// <summary>
     /// VPN proxy server URL
     /// </summary>
-    public const string ProxyServerUrl = "http://localhost:3000/api/vpn/";
+    public static readonly CVarDef<string> VPNProxyUrl =
+        CVarDef.Create("vpn.proxy_url", "http://localhost:3000/api/vpn/", CVar.SERVERONLY);
     
     /// <summary>
     /// Enable or disable VPN discovery.

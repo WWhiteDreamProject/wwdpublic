@@ -14,6 +14,8 @@ using Robust.Shared.IoC;
 using Robust.Shared.Timing;
 using Robust.Shared.Player;
 using Robust.Shared.Enums;
+using Robust.Shared.Log;
+using Robust.Shared.Localization;
 
 namespace Content.Server._White.VPN
 {
@@ -101,8 +103,19 @@ namespace Content.Server._White.VPN
                     }
                 }
 
-                var url = $"{VPNDetectionCVars.ProxyServerUrl}{testIp}";
-                var response = await _httpClient.GetStringAsync(url);
+                var proxyUrl = _cfg.GetCVar(VPNDetectionCVars.VPNProxyUrl);
+                var url = $"{proxyUrl}{testIp}";
+                
+                var httpResponse = await _httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
+                if (!httpResponse.IsSuccessStatusCode)
+                {
+                    return new VpnApiResponse { 
+                        IP = ipAddress, 
+                        ErrorMessage = $"HTTP {(int)httpResponse.StatusCode}" 
+                    };
+                }
+                
+                var response = await httpResponse.Content.ReadAsStringAsync();
 
                 using (var doc = JsonDocument.Parse(response))
                 {
@@ -151,11 +164,15 @@ namespace Content.Server._White.VPN
         /// </summary>
         private void NotifyAdmins(ICommonSession session, string ipAddress, VpnApiResponse result)
         {
-            var message = $"ВНИМАНИЕ: Игрок {session.Name} ({ipAddress}) скрывается под маской VPN/Proxy.";
+            var message = Loc.GetString("vpn-warning",
+                ("player", session.Name),
+                ("ip", ipAddress));
             
             if (_cfg.GetCVar(VPNDetectionCVars.VPNTestMode))
             {
-                 message += $"\n(Тестовый режим: проверялся IP {_cfg.GetCVar(VPNDetectionCVars.VPNTestIP)} вместо локального {ipAddress})";
+                message += Loc.GetString("vpn-warning-test-mode",
+                    ("testip", _cfg.GetCVar(VPNDetectionCVars.VPNTestIP)),
+                    ("localip", ipAddress));
             }
             _chat.SendAdminAnnouncement(message);
         }
