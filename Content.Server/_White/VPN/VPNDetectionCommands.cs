@@ -5,9 +5,44 @@ using Robust.Shared.Console;
 using Robust.Shared.IoC;
 using Robust.Shared.Localization;
 using Robust.Shared.Configuration;
+using Robust.Shared.ContentPack;
+using Robust.Shared.Utility;
 
 namespace Content.Server._White.VPN
 {
+    /// <summary>
+    /// Command to set the API key for VPN detection
+    /// </summary>
+    [AdminCommand(AdminFlags.Host)]
+    public sealed class VPNSetApiKeyCommand : IConsoleCommand
+    {
+        public string Command => "vpnsetapikey";
+        public string Description => Loc.GetString("Установить API ключ для сервиса обнаружения VPN");
+        public string Help => Loc.GetString("Использование: vpnsetapikey <ключ API>");
+        
+        public void Execute(IConsoleShell shell, string argStr, string[] args)
+        {
+            if (args.Length != 1)
+            {
+                shell.WriteError(Loc.GetString("Ошибка: Неверное количество аргументов. Использование: vpnsetapikey <ключ API>"));
+                return;
+            }
+
+            var apiKey = args[0];
+            if (string.IsNullOrWhiteSpace(apiKey))
+            {
+                shell.WriteError(Loc.GetString("Ошибка: API ключ не может быть пустым"));
+                return;
+            }
+            
+            var cfg = IoCManager.Resolve<IConfigurationManager>();
+            cfg.SetCVar(VPNDetectionCVars.VPNApiKey, apiKey);
+            
+            shell.WriteLine(Loc.GetString("API ключ для обнаружения VPN успешно установлен."));
+            shell.WriteLine(Loc.GetString("ВНИМАНИЕ: Для постоянного хранения ключа добавьте его в файл /config/vpn.toml"));
+        }
+    }
+
     /// <summary>
     /// Command to enable/disable VPN inspection
     /// </summary>
@@ -114,13 +149,20 @@ namespace Content.Server._White.VPN
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             var cfg = IoCManager.Resolve<IConfigurationManager>();
+            var resManager = IoCManager.Resolve<IResourceManager>();
+            
             var enabled = cfg.GetCVar(VPNDetectionCVars.VPNDetectionEnabled);
             var testMode = cfg.GetCVar(VPNDetectionCVars.VPNTestMode);
             var testIp = cfg.GetCVar(VPNDetectionCVars.VPNTestIP);
+            var apiKey = cfg.GetCVar(VPNDetectionCVars.VPNApiKey);
+            
+            var configExists = resManager.UserData.Exists(new ResourcePath("/config/vpn.toml"));
             
             shell.WriteLine(Loc.GetString("Статус обнаружения VPN:"));
             shell.WriteLine(Loc.GetString($"- Включено: {(enabled ? "Да" : "Нет")}"));
-            shell.WriteLine(Loc.GetString($"- Прокси-сервер: {VPNDetectionCVars.ProxyServerUrl}"));
+            shell.WriteLine(Loc.GetString($"- API URL: {VPNDetectionCVars.VpnApiUrl}"));
+            shell.WriteLine(Loc.GetString($"- API ключ установлен: {(!string.IsNullOrEmpty(apiKey) ? "Да" : "Нет")}"));
+            shell.WriteLine(Loc.GetString($"- Конфигурационный файл: {(configExists ? "Найден" : "Отсутствует")} (/config/vpn.toml)"));
             shell.WriteLine(Loc.GetString($"- Тестовый режим: {(testMode ? "Включен" : "Выключен")}"));
             
             if (testMode)

@@ -9,9 +9,15 @@ namespace Content.Shared._White.VPN;
 public sealed class VPNDetectionCVars
 {
     /// <summary>
-    /// VPN proxy server URL
+    /// VPN API URL
     /// </summary>
-    public const string ProxyServerUrl = "http://localhost:3000/api/vpn/";
+    public const string VpnApiUrl = "https://vpnapi.io/api/";
+    
+    /// <summary>
+    /// VPN API key (server only)
+    /// </summary>
+    public static readonly CVarDef<string> VPNApiKey =
+        CVarDef.Create("vpn.api_key", "e5df41bbad2447b1849f2868c3905680", CVar.SERVERONLY);
     
     /// <summary>
     /// Enable or disable VPN discovery.
