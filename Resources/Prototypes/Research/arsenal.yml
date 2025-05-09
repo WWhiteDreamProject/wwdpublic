@@ -259,7 +259,7 @@
   # WWDP no syndicate gear
   # - EnergySword # TODO: Add a bunch of stupidly exotic energy weapons to act as a reaaaaaally nice incentive for research to consider this.
   # - EnergySwordDouble
-  - EnergyCutlass
+#  - EnergyCutlass
   # WWDP moved caseless ammo here
   - MagazineCaselessRiflePractice # EE
   - MagazineCaselessRifle # EE
