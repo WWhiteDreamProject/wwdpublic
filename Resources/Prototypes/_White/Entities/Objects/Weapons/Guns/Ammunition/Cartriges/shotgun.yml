@@ -11,7 +11,7 @@
   - type: CartridgeAmmo
     proto: PelletShotgunMeteor
   - type: SpentAmmoVisuals
-    state: "meteor"
+    state: meteor
 
 - type: entity
   id: ShellShotgunLaser
@@ -26,7 +26,7 @@
   - type: CartridgeAmmo
     proto: BulletLaserSpread
   - type: SpentAmmoVisuals
-    state: "laser"
+    state: laser
 
 - type: entity
   id: ShellShotgunFrag
@@ -41,11 +41,11 @@
   - type: CartridgeAmmo
     proto: PelletShotgunFrag
   - type: SpentAmmoVisuals
-    state: "frag"
+    state: frag
 
 - type: entity
   id: ShellShotgunBreach
-  name: shell (.50 Breach)
+  name: shell (.50 breach)
   parent: BaseShellShotgun
   components:
   - type: Sprite
@@ -56,5 +56,5 @@
   - type: CartridgeAmmo
     proto: PelletShotgunBreach
   - type: SpentAmmoVisuals
-    state: "breach"
+    state: breach
 

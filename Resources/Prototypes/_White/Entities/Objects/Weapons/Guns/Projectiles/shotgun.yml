@@ -1,6 +1,6 @@
 ﻿- type: entity
   id: PelletShotgunFrag
-  name: Bullet FRAG
+  name: frag (.50)
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -13,7 +13,7 @@
     maxIntensity: 4
     intensitySlope: 1
     totalIntensity: 6
-    maxTileBreak: 1
+    maxTileBreak: 0
   - type: PointLight
     radius: 3.5
     color: orange
@@ -21,7 +21,7 @@
 
 - type: entity
   id: PelletShotgunMeteor
-  name: Bullet Meteor
+  name: meteor (.50)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -39,7 +39,7 @@
 
 - type: entity
   id: PelletShotgunBreach
-  name: Bullet Breach
+  name: breach (.50)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:

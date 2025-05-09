@@ -1170,6 +1170,15 @@
     - MagazineUniversalMagnumIncendiary
     - MagazineUniversalMagnumShrapnel
     - WeaponPistolUniversal
+    - MagazineShotgunLaser
+    - BoxLaser
+    - ShellShotgunLaser
+    - MagazineShotgunFrag
+    - BoxFrag
+    - ShellShotgunFrag
+    - MagazineShotgunBreach
+    - BoxBreach
+    - ShellShotgunBreach
   - type: MaterialStorage
     whitelist:
       tags:
