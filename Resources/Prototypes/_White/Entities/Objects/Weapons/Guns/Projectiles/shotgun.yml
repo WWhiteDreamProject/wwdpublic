@@ -51,3 +51,25 @@
       types:
         Blunt: 10
         Structural: 124
+
+- type: entity
+  name: laser barrage (.50)
+  id: PelletShellLaserSpread
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileSpread
+    proto: ShellLaserBolt
+    count: 6
+    spread: 25
+
+- type: entity
+  name: laser (.50)
+  id: ShellLaserBolt
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 10
