@@ -2771,3 +2771,20 @@ Entries:
   id: 300
   time: '2025-05-06T05:22:27.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/478
+- author: Kutos
+  changes:
+    - type: Add
+      message: Зеркальный щит теперь возвращается после попадания в цель
+    - type: Add
+      message: Культисты теперь могут ковать нечестивую алебарду
+    - type: Fix
+      message: Зеркальный щит теперь отображается в руках
+    - type: Fix
+      message: Экипаж больше не может пользоваться метательным оружием культа
+    - type: Fix
+      message: >-
+        Исправлен баг с отсутствием нимба у культистов, конвертнутных после
+        наступления активной стадии
+  id: 301
+  time: '2025-05-09T22:34:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/488
