@@ -3,7 +3,10 @@
   name: species-name-synth-human
   roundStart: false
   prototype: MobSynthHuman
-  sprites: MobHumanSprites
+  # WD EDIT START
+  bodyTypes:
+  - HumanNormal
+  # WD EDIT END
   defaultSkinTone: "#FFFFFFFF"
   markingLimits: MobHumanMarkingLimits
   dollPrototype: BioSynthTorso

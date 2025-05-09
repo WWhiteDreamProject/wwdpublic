@@ -1494,13 +1494,3 @@
   completetime: 2
   materials:
     Steel: 200
-
-# WWDP riot lanucher
-- type: latheRecipe
-  id: WeaponSecurityRiotLauncher
-  result: WeaponSecurityRiotLauncher
-  category: Weapons
-  completetime: 6
-  materials:
-    Steel: 1500
-    Plastic: 750
