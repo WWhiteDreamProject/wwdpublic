@@ -377,19 +377,18 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
         _mind.TryAddObjective(mindId, mind, "KillTargetCultObjective");
         
-        // Apply effects based on current cult stage
-        if (TryComp<BloodCultistComponent>(cultist, out var cultistComp))
+        if (rule.Comp.Stage == CultStage.Start || !TryComp<BloodCultistComponent>(cultist, out var cultistComp))
+            return;
+
+        if (TryComp<HumanoidAppearanceComponent>(cultist, out var appearanceComponent))
         {
-            if (rule.Comp.Stage >= CultStage.RedEyes && TryComp<HumanoidAppearanceComponent>(cultist, out var appearanceComponent))
-            {
-                cultistComp.OriginalEyeColor = appearanceComponent.EyeColor;
-                appearanceComponent.EyeColor = rule.Comp.EyeColor;
-                Dirty(cultist, appearanceComponent);
-            }
-            
-            if (rule.Comp.Stage == CultStage.Pentagram)
-                EnsureComp<PentagramComponent>(cultist);
+            cultistComp.OriginalEyeColor = appearanceComponent.EyeColor;
+            appearanceComponent.EyeColor = rule.Comp.EyeColor;
+            Dirty(cultist, appearanceComponent);
         }
+
+        if (rule.Comp.Stage == CultStage.Pentagram)
+            EnsureComp<PentagramComponent>(cultist);
     }
 
     private void GetRandomRunePlacements(BloodCultRuleComponent component)
