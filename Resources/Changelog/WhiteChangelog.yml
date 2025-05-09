@@ -2788,3 +2788,10 @@ Entries:
   id: 301
   time: '2025-05-09T22:34:03.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/488
+- author: Boevi4ok
+  changes:
+    - type: Add
+      message: Добавлены ну очень смешные боеприпасы для дробовиков
+  id: 302
+  time: '2025-05-09T23:38:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/490
