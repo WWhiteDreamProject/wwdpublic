@@ -195,6 +195,19 @@
   categories:
   - UplinkAmmo
 
+- type: listing
+  id: UplinkMagazineShotgunMeteor
+  name: uplink-magazine-shotgun-meteor-name
+  description: uplink-magazine-shotgun-meteor-desc
+  productEntity: MagazineShotgunMeteor
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkAmmo
+
 # Explosives
 
 # Wearables
