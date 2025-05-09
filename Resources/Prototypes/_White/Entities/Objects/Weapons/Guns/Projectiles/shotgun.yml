@@ -1,0 +1,75 @@
+﻿- type: entity
+  id: PelletShotgunFrag
+  name: frag (.50)
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: smallfrag
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 4
+    intensitySlope: 1
+    totalIntensity: 6
+    maxTileBreak: 0
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+
+- type: entity
+  id: PelletShotgunMeteor
+  name: meteor (.50)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Projectiles/meteor-shell.rsi
+    state: Bullet
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 69
+        Structural: 89
+  - type: StunOnCollide
+    stunAmount: 1
+    knockdownAmount: 4
+
+- type: entity
+  id: PelletShotgunBreach
+  name: breach (.50)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Projectiles/breach-shell.rsi
+    state: Bullet
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 10
+        Structural: 124
+
+- type: entity
+  name: laser barrage (.50)
+  id: PelletShellLaserSpread
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileSpread
+    proto: ShellLaserBolt
+    count: 6
+    spread: 25
+
+- type: entity
+  name: laser (.50)
+  id: ShellLaserBolt
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 10
