@@ -42,8 +42,6 @@ namespace Content.Server._White.VPN
             _playerManager.PlayerStatusChanged += OnPlayerStatusChanged;
             _cfg.OnValueChanged(VPNDetectionCVars.VPNDetectionEnabled, enabled => _enabled = enabled, true);
             _cfg.OnValueChanged(VPNDetectionCVars.VPNApiKey, apiKey => _apiKey = apiKey, true);
-            
-            // Loading API key from configuration file at startup
             LoadApiKeyFromConfig();
         }
         
@@ -54,7 +52,7 @@ namespace Content.Server._White.VPN
         {
             try 
             {
-                var configPath = new ResourcePath(ConfigFileName);
+                var configPath = new ResPath(ConfigFileName);
                 
                 if (!_resourceManager.UserData.Exists(configPath))
                 {

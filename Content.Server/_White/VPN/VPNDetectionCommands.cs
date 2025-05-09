@@ -7,6 +7,8 @@ using Robust.Shared.Localization;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Utility;
+using System.IO;
+using System.Text;
 
 namespace Content.Server._White.VPN
 {
@@ -19,6 +21,8 @@ namespace Content.Server._White.VPN
         public string Command => "vpnsetapikey";
         public string Description => Loc.GetString("Установить API ключ для сервиса обнаружения VPN");
         public string Help => Loc.GetString("Использование: vpnsetapikey <ключ API>");
+        
+        private const string ConfigFileName = "/config/vpn.toml";
         
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
@@ -36,10 +40,35 @@ namespace Content.Server._White.VPN
             }
             
             var cfg = IoCManager.Resolve<IConfigurationManager>();
+            var resManager = IoCManager.Resolve<IResourceManager>();
             cfg.SetCVar(VPNDetectionCVars.VPNApiKey, apiKey);
             
-            shell.WriteLine(Loc.GetString("API ключ для обнаружения VPN успешно установлен."));
-            shell.WriteLine(Loc.GetString("ВНИМАНИЕ: Для постоянного хранения ключа добавьте его в файл /config/vpn.toml"));
+            try
+            {
+                var configPath = new ResPath(ConfigFileName);
+                var configDir = new ResPath("/config");
+                if (!resManager.UserData.Exists(configDir))
+                {
+                    resManager.UserData.CreateDir(configDir);
+                }
+                
+                var fileContent = new StringBuilder();
+                fileContent.AppendLine("# Конфигурация системы обнаружения VPN");
+                fileContent.AppendLine();
+                fileContent.AppendLine("# API ключ для vpnapi.io");
+                fileContent.AppendLine($"api_key = \"{apiKey}\"");
+                
+                using var writer = resManager.UserData.OpenWriteText(configPath);
+                writer.Write(fileContent.ToString());
+                
+                shell.WriteLine(Loc.GetString("API ключ для обнаружения VPN успешно установлен."));
+                shell.WriteLine(Loc.GetString($"Ключ сохранен в конфигурационный файл: {ConfigFileName}"));
+            }
+            catch (System.Exception ex)
+            {
+                shell.WriteError(Loc.GetString($"Ошибка при сохранении конфигурации: {ex.Message}"));
+                shell.WriteLine(Loc.GetString("API ключ установлен только для текущей сессии."));
+            }
         }
     }
 
@@ -156,7 +185,7 @@ namespace Content.Server._White.VPN
             var testIp = cfg.GetCVar(VPNDetectionCVars.VPNTestIP);
             var apiKey = cfg.GetCVar(VPNDetectionCVars.VPNApiKey);
             
-            var configExists = resManager.UserData.Exists(new ResourcePath("/config/vpn.toml"));
+            var configExists = resManager.UserData.Exists(new ResPath("/config/vpn.toml"));
             
             shell.WriteLine(Loc.GetString("Статус обнаружения VPN:"));
             shell.WriteLine(Loc.GetString($"- Включено: {(enabled ? "Да" : "Нет")}"));
