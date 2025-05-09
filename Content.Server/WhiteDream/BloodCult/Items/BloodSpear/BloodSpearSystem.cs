@@ -32,7 +32,6 @@ public sealed class BloodSpearSystem : EntitySystem
         SubscribeLocalEvent<BloodSpearComponent, EmbedEvent>(OnEmbed);
 
         SubscribeLocalEvent<BloodSpearComponent, GettingPickedUpAttemptEvent>(OnPickedUp);
-        SubscribeLocalEvent<BloodSpearComponent, ItemPickedUpEvent>(OnPickedUpActual);
         SubscribeLocalEvent<BloodCultistComponent, BloodSpearRecalledEvent>(OnSpearRecalled);
 
         SubscribeLocalEvent<BloodSpearComponent, ComponentShutdown>(OnComponentShutdown);
@@ -66,12 +65,6 @@ public sealed class BloodSpearSystem : EntitySystem
         var action = _actions.AddAction(args.User, spear.Comp.RecallActionId);
         spear.Comp.RecallAction = action;
         bloodCultist.BloodSpear = spear;
-    }
-
-    private void OnPickedUpActual(EntityUid uid, BloodSpearComponent component, ItemPickedUpEvent args)
-    {
-        // No additional checks here since CultItemSystem and ReturnableThrowingSystem 
-        // already handle restrictions for non-cultists
     }
 
     private void OnSpearRecalled(Entity<BloodCultistComponent> cultist, ref BloodSpearRecalledEvent args)

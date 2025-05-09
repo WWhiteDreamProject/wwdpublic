@@ -147,5 +147,6 @@
     malus: 0.4 # WWDP
     wieldedBonus: 0.4 # WWDP
   - type: CultItem
+    knockdownDuration: 3
   - type: BloodSpear
   - type: ReturnableThrowing

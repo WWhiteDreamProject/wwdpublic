@@ -159,7 +159,16 @@
     size: Ginormous
     heldPrefix: mirror
   - type: CultItem
-  - type: ReturnableThrowing
+  - type: ReturnItemOnThrow
+    throwerWhitelist:
+      components:
+      - BloodCultist
+    targetWhitelist:
+      components:
+      - MobState
+    targetBlacklist:
+      components:
+      - BloodCultist
   - type: StunOnCollide
     blacklist:
       components:

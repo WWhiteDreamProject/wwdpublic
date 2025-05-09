@@ -154,18 +154,15 @@ public sealed class CultItemSystem : EntitySystem
     /// </summary>
     private void OnGlobalThrowAttempt(ThrowAttemptEvent ev)
     {
-        // First, handle special restricted items without CultItemComponent
-        if (!CanUseRestrictedItem(ev.Uid, ev.ItemUid))
-        {
-            ev.Cancel();
-            return;
-        }
-        
-        // Then handle items with CultItemComponent
+        // Handle items with CultItemComponent
         if (TryComp<CultItemComponent>(ev.ItemUid, out var cultItem))
         {
             if (!CanUse(ev.Uid, (ev.ItemUid, cultItem)))
+            {
+                _popup.PopupEntity(Loc.GetString("cult-item-component-throw-fail"), ev.Uid, ev.Uid);
+                _stun.TryParalyze(ev.Uid, TimeSpan.FromSeconds(3), true);
                 ev.Cancel();
+            }
         }
     }
 }
