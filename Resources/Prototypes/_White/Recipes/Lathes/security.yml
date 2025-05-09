@@ -7,7 +7,7 @@
     Steel: 1500
     Plastic: 750
 
-﻿- type: latheRecipe
+- type: latheRecipe
   id: ShellShotgunBreach
   result: ShellShotgunBreach
   category: Ammo
