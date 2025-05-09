@@ -18,17 +18,10 @@ public sealed class ChannelSelectorButton : ChatPopupButton<ChannelSelectorPopup
 
     private const int SelectorDropdownOffset = 38;
 
-    private TextureRect _textureRect;
-
     public ChannelSelectorButton()
     {
         IoCManager.InjectDependencies(this);
         Name = "ChannelSelector";
-
-        _textureRect = new TextureRect();
-        _textureRect.Visible = false;
-        _textureRect.TextureScale = Vector2.One * 2f;
-        AddChild(_textureRect);
 
         Popup.Selected += OnChannelSelected;
 
@@ -84,36 +77,10 @@ public sealed class ChannelSelectorButton : ChatPopupButton<ChannelSelectorPopup
         };
     }
 
-    public bool TryFindImage(string channel,[NotNullWhen(true)] out Texture? texture)
-    {
-        if (!_resourceCache.TryGetResource<TextureResource>("/Textures/_White/NovaUI/Light/"+channel+".png", out var textureResource))
-        {
-            Logger.Debug("Failed /Textures/_White/NovaUI/Light/"+channel+".png");
-            texture = null;
-            return false;
-        }
-        Logger.Debug("Success /Textures/_White/NovaUI/Light/"+channel+".png");
-        texture = textureResource.Texture;
-
-        return true;
-    }
-
     public void UpdateChannelSelectButton(ChatSelectChannel channel, Shared.Radio.RadioChannelPrototype? radio)
     {
-        if (TryFindImage(radio != null ? radio.ID.ToLower() : channel.ToString().ToLower(), out var image))
-        {
-            Label.Visible = false;
-            _textureRect.Visible = true;
-            _textureRect.Texture = image;
-            StyleBoxOverride = new StyleBoxEmpty();
-            return;
-        }
-
-        _textureRect.Visible = false;
-        Label.Visible = true;
-        StyleBoxOverride = null;
-
-        Text = radio != null ? Loc.GetString(radio.Name) : ChannelSelectorName(channel);
+        var text = radio != null ? Loc.GetString(radio.Name) : ChannelSelectorName(channel);
+        Text = $"[{text}]";
         Modulate = radio?.Color ?? ChannelSelectColor(channel);
     }
 }

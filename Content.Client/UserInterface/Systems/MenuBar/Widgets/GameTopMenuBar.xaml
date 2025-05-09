@@ -16,12 +16,13 @@
     <ui:MenuButton
         Name="EscapeButton"
         Access="Internal"
-        Icon="{xe:Tex '/Textures/Interface/hamburger.svg.192dpi.png'}"
+        Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/menu.png'}"
         BoundKey = "{x:Static ic:EngineKeyFunctions.EscapeMenu}"
         ToolTip="{Loc 'game-hud-open-escape-menu-button-tooltip'}"
         MinSize="42 64"
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonOpenRight}"
+        IconScale="2,2"
         /> <!-- WD EDIT -->
     <ui:MenuButton
         Name="GuidebookButton"
@@ -48,7 +49,7 @@
     <ui:MenuButton
         Name="EmotesButton"
         Access="Internal"
-        Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/emotions.png'}"
+        Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/emotion.png'}"
         ToolTip="{Loc 'game-hud-open-emotions-menu-button-tooltip'}"
         BoundKey = "{x:Static is:ContentKeyFunctions.OpenEmotesMenu}"
         MinSize="42 64"
@@ -70,7 +71,7 @@
     <ui:MenuButton
         Name="ActionButton"
         Access="Internal"
-        Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/actions.png'}"
+        Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/fist.png'}"
         BoundKey = "{x:Static is:ContentKeyFunctions.OpenActionsMenu}"
         ToolTip="{Loc 'game-hud-open-actions-menu-button-tooltip'}"
         MinSize="42 64"
@@ -81,7 +82,7 @@
     <ui:MenuButton
         Name="LanguageButton"
         Access="Internal"
-        Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/lang.png'}"
+        Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/language.png'}"
         BoundKey = "{x:Static is:ContentKeyFunctions.OpenLanguageMenu}"
         ToolTip="Open the Language Menu"
         MinSize="42 64"
