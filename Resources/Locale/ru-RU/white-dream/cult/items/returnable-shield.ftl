@@ -1,11 +1,3 @@
-returnable-cult-shield-pickup-fail = Вы пытаетесь поднять {$item}, но чувствуете, что в нём есть что-то... неправильное.
-returnable-cult-item-returned-to-hands = Зеркальный щит возвращается в руку {$name}!
-returnable-cult-item-returned-to-feet = Зеркальный щит возвращается к ногам {$name}!
-returnable-cult-shield-throw-fail = Вы пытаетесь бросить щит, но тёмная сила внутри него останавливает вас, временно парализуя!
-cult-item-component-throw-spear-fail = Кровавая алебарда вырывается из ваших рук!
-returnable-cult-item-pickup-fail = Вы недостойны владеть этим священным предметом.
-cult-item-component-throw-bola-fail = Бола Нар'Си вырывается из ваших рук!
-cult-item-component-throw-shield-fail = Зеркальный щит сопротивляется вашей попытке бросить его!
 cult-item-component-block-fail = Щит предаёт вас!
 cult-item-component-attack-fail = Оружие отказывается подчиняться вашей воле. Вы не можете им атаковать.
 cult-item-component-generic = Предмет отказывается подчиняться вашей воле. Вы не можете использовать его.

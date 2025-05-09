@@ -16,15 +16,11 @@ using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
-using Robust.Shared.Timing;
 
 // Shitmed Change
 using Content.Shared._Shitmed.Antags.Abductor;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Body.Events;
-using Content.Shared.Stunnable;
-using Content.Shared.Popups;
-using Content.Shared.WhiteDream.BloodCult.Items;
 
 namespace Content.Shared.ActionBlocker
 {
@@ -35,8 +31,6 @@ namespace Content.Shared.ActionBlocker
     public sealed class ActionBlockerSystem : EntitySystem
     {
         [Dependency] private readonly SharedContainerSystem _container = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly CultItemSystem _cultItemSystem = default!;
 
         private EntityQuery<ComplexInteractionComponent> _complexInteractionQuery;
 
@@ -151,10 +145,6 @@ namespace Content.Shared.ActionBlocker
 
         public bool CanThrow(EntityUid user, EntityUid itemUid)
         {
-            // Check for cult item restrictions
-            if (!_cultItemSystem.CanUseRestrictedItem(user, itemUid))
-                return false;
-
             var ev = new ThrowAttemptEvent(user, itemUid);
             RaiseLocalEvent(user, ev);
 
