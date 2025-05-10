@@ -397,6 +397,14 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         return !ev.Cancelled;
     }
 
+    public bool IsOpen(EntityUid target, SharedEntityStorageComponent? component = null)
+    {
+        if (!ResolveStorage(target, ref component))
+            return false;
+
+        return component.Open;
+    }
+
     public bool AddToContents(EntityUid toAdd, EntityUid container, SharedEntityStorageComponent? component = null)
     {
         if (!ResolveStorage(container, ref component))
