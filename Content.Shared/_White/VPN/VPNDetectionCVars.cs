@@ -14,10 +14,10 @@ public sealed class VPNDetectionCVars
     public const string VpnApiUrl = "https://vpnapi.io/api/";
     
     /// <summary>
-    /// VPN API key (server only)
+    /// VPN API key
     /// </summary>
     public static readonly CVarDef<string> VPNApiKey =
-        CVarDef.Create("vpn.api_key", "e5df41bbad2447b1849f2868c3905680", CVar.SERVERONLY);
+        CVarDef.Create("vpn.api_key", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
     
     /// <summary>
     /// Enable or disable VPN discovery.

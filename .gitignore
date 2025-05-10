@@ -309,6 +309,3 @@ Resources/MapImages
 
 # Changelog package lock
 package-lock.json
-
-# VPN Configuration
-config/vpn.toml

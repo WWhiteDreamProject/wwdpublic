@@ -2,7 +2,6 @@ using System;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.IO;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Shared.Chat;
@@ -15,8 +14,6 @@ using Robust.Shared.IoC;
 using Robust.Shared.Timing;
 using Robust.Shared.Player;
 using Robust.Shared.Enums;
-using Robust.Shared.ContentPack;
-using Robust.Shared.Utility;
 
 namespace Content.Server._White.VPN
 {
@@ -28,72 +25,35 @@ namespace Content.Server._White.VPN
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IChatManager _chat = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly IResourceManager _resourceManager = default!;
 
         private readonly HttpClient _httpClient = new HttpClient();
         private bool _enabled = false;
         private string _apiKey = string.Empty;
-        
-        private const string ConfigFileName = "/config/vpn.toml";
 
         public override void Initialize()
         {
             base.Initialize();
             _playerManager.PlayerStatusChanged += OnPlayerStatusChanged;
             _cfg.OnValueChanged(VPNDetectionCVars.VPNDetectionEnabled, enabled => _enabled = enabled, true);
-            _cfg.OnValueChanged(VPNDetectionCVars.VPNApiKey, apiKey => _apiKey = apiKey, true);
-            LoadApiKeyFromConfig();
-        }
-        
-        /// <summary>
-        /// Loads the API key from the configuration file
-        /// </summary>
-        private void LoadApiKeyFromConfig()
-        {
-            try 
-            {
-                var configPath = new ResPath(ConfigFileName);
-                
-                if (!_resourceManager.UserData.Exists(configPath))
-                {
-                    Logger.InfoS("vpn", $"Конфигурационный файл {ConfigFileName} не найден, используется значение по умолчанию.");
-                    return;
-                }
-                
-                using var reader = _resourceManager.UserData.OpenText(configPath);
-                var configContent = reader.ReadToEnd();
-                
-                foreach (var line in configContent.Split('\n'))
-                {
-                    if (line.Trim().StartsWith("#") || string.IsNullOrWhiteSpace(line))
-                        continue;
-                    
-                    if (line.Contains("api_key"))
-                    {
-                        var parts = line.Split('=');
-                        if (parts.Length == 2)
-                        {
-                            var key = parts[1].Trim().Trim('"');
-                            if (!string.IsNullOrEmpty(key))
-                            {
-                                _cfg.SetCVar(VPNDetectionCVars.VPNApiKey, key);
-                                Logger.InfoS("vpn", "API ключ успешно загружен из конфигурационного файла.");
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.ErrorS("vpn", $"Ошибка при загрузке API ключа из конфигурации: {ex}");
-            }
+            _cfg.OnValueChanged(VPNDetectionCVars.VPNApiKey, UpdateApiKey, true);
         }
 
         public override void Shutdown()
         {
             base.Shutdown();
             _playerManager.PlayerStatusChanged -= OnPlayerStatusChanged;
+            _cfg.UnsubValueChanged(VPNDetectionCVars.VPNDetectionEnabled, enabled => _enabled = enabled);
+            _cfg.UnsubValueChanged(VPNDetectionCVars.VPNApiKey, UpdateApiKey);
             _httpClient.Dispose();
+        }
+
+        /// <summary>
+        /// Updates API key when CVar is changed
+        /// </summary>
+        private void UpdateApiKey(string apiKey)
+        {
+            _apiKey = apiKey;
+            Logger.InfoS("vpn", "API ключ обновлен." + (!string.IsNullOrEmpty(apiKey) ? " Ключ установлен." : " Ключ не установлен."));
         }
 
         private void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
@@ -117,6 +77,12 @@ namespace Content.Server._White.VPN
             {
                 if (session.Channel == null)
                     return;
+
+                if (string.IsNullOrEmpty(_apiKey))
+                {
+                    Logger.ErrorS("vpn", "Проверка VPN невозможна: API ключ не установлен. Используйте vpnsetapikey для установки ключа.");
+                    return;
+                }
 
                 var endPoint = session.Channel.RemoteEndPoint;
                 var ipAddress = endPoint.Address.ToString();
