@@ -74,6 +74,7 @@
     fitsInCharger: false
   - type: DoAfter
   - type: SealableClothingControl
+    requiredSlot: belt
   - type: SealableClothingRequiresPower
   - type: StripMenuHideIcon
   - type: ExaminableCharacterHideIcon

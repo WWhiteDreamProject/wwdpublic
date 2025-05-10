@@ -133,9 +133,12 @@ namespace Content.Shared.Damage.Systems
         private void LandAfterImpact(EntityUid thrown, ThrownItemComponent thrownComp, PhysicsComponent physics)
         {
             _thrownItem.LandComponent(thrown, thrownComp, physics, false, true);
-            _thrownItem.StopThrow(thrown, thrownComp);
-            _physics.SetBodyStatus(thrown, physics, BodyStatus.OnGround);
-            _physics.SetSleepingAllowed(thrown, physics, true);
+            // WD EDIT START
+            var newVelocity = physics.LinearVelocity;
+            newVelocity.X = -newVelocity.X / 8;
+            newVelocity.Y = -newVelocity.Y / 8;
+            _physics.SetLinearVelocity(thrown, newVelocity, body: physics);
+            // WD EDIT END
         }
 
         /// <summary>

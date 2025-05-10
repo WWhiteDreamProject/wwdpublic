@@ -125,15 +125,18 @@ public sealed class ReturnItemOnThrowSystem : EntitySystem
         if (TryComp<PhysicsComponent>(uid, out var physicsComponent))
             _physics.SetCanCollide(uid, true, body: physicsComponent);
 
+        var returningTo = component.ReturningTo.Value;
+        component.ReturningTo = null;
+
         var message = Loc.GetString(
             "return-item-to-hands",
             ("item", Identity.Entity(uid, EntityManager)));
         var messageToOther = Loc.GetString(
             "return-item-to-hands-other",
             ("item", Identity.Entity(uid, EntityManager)),
-            ("user", Identity.Entity(component.ReturningTo.Value, EntityManager)));
+            ("user", Identity.Entity(returningTo, EntityManager)));
 
-        if (!_hands.TryPickupAnyHand(component.ReturningTo.Value, uid))
+        if (!_hands.TryPickupAnyHand(returningTo, uid))
         {
             message = Loc.GetString(
                 "return-item-to-feet",
@@ -141,12 +144,11 @@ public sealed class ReturnItemOnThrowSystem : EntitySystem
             messageToOther = Loc.GetString(
                 "return-item-to-feet-other",
                 ("item", Identity.Entity(uid, EntityManager)),
-                ("user", Identity.Entity(component.ReturningTo.Value, EntityManager)));
-            _transform.SetWorldPosition(uid,  _transform.GetWorldPosition(component.ReturningTo.Value));
+                ("user", Identity.Entity(returningTo, EntityManager)));
+            _transform.SetWorldPosition(uid,  _transform.GetWorldPosition(returningTo));
         }
 
-        _popup.PopupEntity(message, uid, component.ReturningTo.Value);
-        _popup.PopupEntity(messageToOther, uid, Filter.PvsExcept(component.ReturningTo.Value, entityManager: EntityManager), true);
-        component.ReturningTo = null;
+        _popup.PopupEntity(message, uid, returningTo);
+        _popup.PopupEntity(messageToOther, uid, Filter.PvsExcept(returningTo, entityManager: EntityManager), true);
     }
-} 
+}
