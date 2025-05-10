@@ -2795,3 +2795,10 @@ Entries:
   id: 302
   time: '2025-05-09T23:38:04.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/490
+- author: Spatison
+  changes:
+    - type: Add
+      message: Апстрим 02.05-09.05
+  id: 303
+  time: '2025-05-10T07:44:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/493
