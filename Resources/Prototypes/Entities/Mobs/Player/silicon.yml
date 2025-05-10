@@ -41,8 +41,9 @@
     - ActionShowJobIcons
     - ActionSurvCameraLights
     - ActionAIViewLaws
-    - ActionAIToggleBolts # WD edit
-    - ActionAICameraList # WD edit
+    - ActionAIToggleBolts # WD edit start
+    - ActionAICameraList
+    - ActionAIDeploy # WD edit end
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:

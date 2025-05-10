@@ -12,6 +12,12 @@
 		},
 		{
 			"name": "camera"
+		},
+		{
+			"name": "ai_core"
+		},
+		{
+			"name": "ai_shell"
 		}
 	]
 }

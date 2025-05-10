@@ -16,6 +16,16 @@
     Gold: 20
 
 - type: latheRecipe
+  id: BorisModule
+  result: BorisModule
+  category: Robotics
+  completetime: 5
+  materials:
+    Glass: 75
+    Gold: 20
+    Steel: 60
+
+- type: latheRecipe
   id: StationAiUploadCircuitboard
   result: StationAiUploadCircuitboard
   category: Circuitry

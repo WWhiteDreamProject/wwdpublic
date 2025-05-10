@@ -1,3 +1,4 @@
+using Content.Server._White.Silicons.StationAi.Systems;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -5,6 +6,7 @@ using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.PowerCell;
+using Content.Shared._White.Silicons.StationAi.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Database;
@@ -31,6 +33,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
+
 namespace Content.Server.Silicons.Borgs;
 
 /// <inheritdoc/>
@@ -56,6 +59,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly BorisModuleSystem _borisModule = default!; // WD edit
 
 
     [ValidatePrototypeId<JobPrototype>]
@@ -175,11 +179,17 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
     private void OnMindAdded(EntityUid uid, BorgChassisComponent component, MindAddedMessage args)
     {
+        if (TryComp(component.BrainEntity, out BorisModuleComponent? moduleComponent)) // WD edit
+            _borisModule.AddReturnAction(uid, moduleComponent);
+
         BorgActivate(uid, component);
     }
 
     private void OnMindRemoved(EntityUid uid, BorgChassisComponent component, MindRemovedMessage args)
     {
+        if (TryComp(component.BrainEntity, out BorisModuleComponent? moduleComponent)) // WD edit
+            _borisModule.RemoveReturnAction(uid, moduleComponent);
+
         BorgDeactivate(uid, component);
     }
 
@@ -193,6 +203,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
         else
         {
             _powerCell.SetDrawEnabled(uid, false);
+            if (TryComp(component.BrainEntity, out BorisModuleComponent? moduleComponent)) // WD edit
+                _borisModule.TryReturnToCore(uid, moduleComponent);
         }
     }
 
