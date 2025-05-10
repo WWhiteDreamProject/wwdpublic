@@ -1,4 +1,13 @@
-﻿- type: latheRecipe
+- type: latheRecipe
+  id: WeaponSecurityRiotLauncher
+  result: WeaponSecurityRiotLauncher
+  category: Weapons
+  completetime: 6
+  materials:
+    Steel: 1500
+    Plastic: 750
+
+- type: latheRecipe
   id: ShellShotgunBreach
   result: ShellShotgunBreach
   category: Ammo
