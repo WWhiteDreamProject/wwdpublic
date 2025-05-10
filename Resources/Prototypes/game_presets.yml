@@ -58,6 +58,7 @@
     - Zombie
     - Changeling
     - BloodCult
+    - BlobGameMode
     - RampingStationEventScheduler
     - LavalandStormScheduler # Lavaland Change
 

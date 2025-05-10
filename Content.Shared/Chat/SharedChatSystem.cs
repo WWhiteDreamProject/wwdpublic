@@ -385,7 +385,8 @@ public enum InGameICChatType : byte
     Speak,
     Emote,
     Whisper,
-    Telepathic
+    Telepathic,
+    CollectiveMind // Goobstation - Starlight collective mind port
 }
 
 /// <summary>
