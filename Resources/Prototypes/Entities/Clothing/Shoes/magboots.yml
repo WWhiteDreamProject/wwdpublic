@@ -226,8 +226,10 @@
     staminaCost: 15
   - type: ClothingSlowOnDamageModifier
     modifier: 0.8
-  - type: ClothingModifyStunTime # Goobstation
-    modifier: 0.8
+# WD EDIT START
+#  - type: ClothingModifyStunTime # Goobstation
+#    modifier: 0.8
+# WD EDIT END
   - type: Matchbox
   - type: ItemSlots
     slots:
