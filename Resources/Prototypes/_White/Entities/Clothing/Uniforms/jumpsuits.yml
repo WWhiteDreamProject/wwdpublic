@@ -108,10 +108,10 @@
     - type: Clothing
       sprite: _White/Clothing/Uniforms/Jumpsuit/med_uniform.rsi
 
-- type: entity  # Было: " - type: entity" (лишний пробел)
+- type: entity 
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMedicalUniformGreen
-  name: Green Medical Uniform  # Исправлено: добавлен пробел
+  name: Green Medical Uniform
   description: NanoTrasen variation of Medical Uniform. It's green.
   components:
     - type: Sprite
@@ -130,13 +130,13 @@
     - type: Clothing
       sprite: _White/Clothing/Uniforms/Jumpsuit/med_chem_uniform.rsi
 
-- type: entity  # Было: " - type: entity" (лишний пробел)
+- type: entity 
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitParamedicUniform
-  name: Paramedic Uniform  # Исправлено: убраны лишние пробелы
+  name: Paramedic Uniform 
   description: Tacticool NanoTrasen Paramedic Uniform
   components:
-    - type: Sprite  # Опечатка: должно быть "Sprite" (возможно, это тоже ошибка)
+    - type: Sprite 
       sprite: _White/Clothing/Uniforms/Jumpsuit/med_para_uniform.rsi
     - type: Clothing
       sprite: _White/Clothing/Uniforms/Jumpsuit/med_para_uniform.rsi

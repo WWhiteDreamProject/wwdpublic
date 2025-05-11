@@ -19,3 +19,25 @@
     sprite: _White/Clothing/Hands/sheriff_gloves.rsi
   - type: Clothing
     sprite: _White/Clothing/Hands/sheriff_gloves.rsi
+
+- type: entity
+  parent: ClothingHandsGlovesLatex
+  id: ClothingHandsGlovesVinilDark
+  name: sheriff gloves
+  description: Vinil Gloves.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Hands/dark_vinile_gloves.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Hands/dark_vinile_gloves.rsi
+
+- type: entity
+  parent: ClothingHandsGlovesLatex
+  id: ClothingHandsGlovesVinilOrange
+  name: sheriff gloves
+  description: Gloves with an ergonomic shape designed to hold a beaker.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Hands/orange_vinile_glover.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Hands/orange_vinile_glover.rsi
