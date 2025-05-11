@@ -180,7 +180,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         var thermalVision = _compFactory.GetComponent<ThermalVisionComponent>();
         thermalVision.Color = Color.FromHex("#FB9898");
-        thermalVision.PulseTime = 0f; // WD EDIT
         thermalVision.LightRadius = 15f;
         thermalVision.FlashDurationMultiplier = 2f;
         thermalVision.ActivateSound = null;
