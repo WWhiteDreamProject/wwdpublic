@@ -85,7 +85,7 @@ public sealed partial class CCVars
     ///     unless we truncate it somewhere.
     /// </summary>
     public static readonly CVarDef<float> AtmosSpacingMinGas =
-        CVarDef.Create("atmos.mmos_min_gas", 25f, CVar.SERVERONLY); // WD EDIT
+        CVarDef.Create("atmos.mmos_min_gas", 2f, CVar.SERVERONLY);
 
     /// <summary>
     ///     How much wind can go through a single tile before that tile doesn't depressurize itself
