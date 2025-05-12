@@ -29,7 +29,6 @@ using Content.Shared.Mobs.Components; // Goobstation
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
@@ -38,6 +37,7 @@ using Content.Shared.Projectiles;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech; // Goobstation
 using Content.Shared.Standing;
+using Content.Shared.StatusEffect;
 using Content.Shared.Throwing; // Goobstation
 using Content.Shared.Verbs;
 using Robust.Shared.Audio; // Goobstation
@@ -101,7 +101,6 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullableComponent, GetVerbsEvent<Verb>>(AddPullVerbs);
         SubscribeLocalEvent<PullableComponent, EntGotInsertedIntoContainerMessage>(OnPullableContainerInsert);
         SubscribeLocalEvent<PullableComponent, StartCollideEvent>(OnPullableCollide);
-        SubscribeLocalEvent<PullableComponent, UpdateCanMoveEvent>(OnGrabbedMoveAttempt); // Goobstation
         SubscribeLocalEvent<PullableComponent, SpeakAttemptEvent>(OnGrabbedSpeakAttempt); // Goobstation
 
         SubscribeLocalEvent<PullerComponent, MoveInputEvent>(OnPullerMoveInput);
@@ -453,9 +452,6 @@ public sealed class PullingSystem : EntitySystem
             return;
 
         var entity = args.Entity;
-
-        if (ent.Comp.GrabStage == GrabStage.Soft)
-            TryStopPull(ent, ent, ent);
 
         if (!_blocker.CanMove(entity))
             return;
@@ -1082,15 +1078,6 @@ public sealed class PullingSystem : EntitySystem
         pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(3));
         Dirty(pullable.Owner, pullable.Comp);
         return false;
-    }
-
-    private void OnGrabbedMoveAttempt(EntityUid uid, PullableComponent component, UpdateCanMoveEvent args)
-    {
-        if (component.GrabStage == GrabStage.No)
-            return;
-
-        args.Cancel();
-
     }
 
     private void OnGrabbedSpeakAttempt(EntityUid uid, PullableComponent component, SpeakAttemptEvent args)

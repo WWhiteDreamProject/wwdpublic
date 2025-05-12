@@ -1,0 +1,60 @@
+﻿- type: entity
+  id: ShellShotgunMeteor
+  name: shell (.50 meteor)
+  parent: BaseShellShotgun
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Ammunition/Casings/meteor-shell.rsi
+    layers:
+    - state: meteor
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: PelletShotgunMeteor
+  - type: SpentAmmoVisuals
+    state: meteor
+
+- type: entity
+  id: ShellShotgunLaser
+  name: shell (.50 laser)
+  parent: BaseShellShotgun
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Ammunition/Casings/laser-shell.rsi
+    layers:
+    - state: laser
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: BulletLaserSpread
+  - type: SpentAmmoVisuals
+    state: laser
+
+- type: entity
+  id: ShellShotgunFrag
+  name: shell (.50 FRAG)
+  parent: BaseShellShotgun
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Ammunition/Casings/frag-shell.rsi
+    layers:
+    - state: frag
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: PelletShotgunFrag
+  - type: SpentAmmoVisuals
+    state: frag
+
+- type: entity
+  id: ShellShotgunBreach
+  name: shell (.50 breach)
+  parent: BaseShellShotgun
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Ammunition/Casings/breach-shell.rsi
+    layers:
+    - state: breach
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: PelletShotgunBreach
+  - type: SpentAmmoVisuals
+    state: breach
+

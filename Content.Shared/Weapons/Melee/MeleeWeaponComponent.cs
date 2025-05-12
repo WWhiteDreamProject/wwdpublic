@@ -142,7 +142,7 @@ public sealed partial class MeleeWeaponComponent : Component
     ///     Weapon damage is multiplied by this amount for heavy swings
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float HeavyDamageBaseModifier = 1f; // WD EDIT
+    public float HeavyDamageBaseModifier = 0.8f; // WD EDIT
 
     /// <summary>
     ///     Part damage is multiplied by this amount for heavy swings
@@ -154,7 +154,7 @@ public sealed partial class MeleeWeaponComponent : Component
     /// Total width of the angle for wide attacks.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public Angle Angle = Angle.FromDegrees(60);
+    public Angle Angle = Angle.FromDegrees(70);
 
     [DataField, AutoNetworkedField]
     public EntProtoId Animation = "WeaponArcThrust";
@@ -188,10 +188,10 @@ public sealed partial class MeleeWeaponComponent : Component
     public bool SwingLeft;
 
     [DataField, AutoNetworkedField]
-    public float HeavyStaminaCost = 20f; // WD EDIT
+    public float HeavyStaminaCost = 12f; // WD EDIT
 
     [DataField, AutoNetworkedField]
-    public int MaxTargets = 5;
+    public int MaxTargets = 3;
 
     // Sounds
 

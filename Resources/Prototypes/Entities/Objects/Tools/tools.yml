@@ -37,7 +37,7 @@
     damage:
       types:
         Blunt: 6.5
-    heavyRateModifier: 0.9
+    heavyRateModifier: 1.4
     heavyDamageBaseModifier: 1.2
     maxTargets: 4
     soundHit:
@@ -80,6 +80,17 @@
       path: /Audio/Items/wirecutter.ogg
       params:
         variation: 0.125
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 18
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   name: screwdriver
@@ -117,11 +128,11 @@
   - type: MeleeWeapon
     animationRotation: -90 # WWDP
     wideAnimationRotation: -90
-    attackRate: .74
+    attackRate: .8
     damage:
       types:
         Piercing: 6
-    heavyRateModifier: 0.75
+    heavyRateModifier: 1.75
     heavyDamageBaseModifier: 1.5
     maxTargets: 1
     angle: 20
@@ -159,6 +170,17 @@
       collection: Screwdriver
     endSound:
       path: /Audio/Medical/Surgery/retractor2.ogg
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 12
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   name: wrench
@@ -195,14 +217,14 @@
   - type: MeleeWeapon
     animationRotation: 225 # WWDP
     wideAnimationRotation: 135
-    attackRate: 1.1
+    attackRate: 1.25
     range: 1.6
     damage:
       types:
         Blunt: 6.5
     bluntStaminaDamageFactor: 1.5
-    heavyRateModifier: 0.75
-    heavyDamageBaseModifier: 1.75
+    heavyRateModifier: 1.5
+    heavyDamageBaseModifier: 1.5
     angle: 100
     soundHit:
       collection: MetalThud
@@ -217,6 +239,17 @@
       Steel: 100
   - type: StaticPrice
     price: 22
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 17
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   name: crowbar
@@ -259,7 +292,7 @@
       types:
         Blunt: 6
     bluntStaminaDamageFactor: 2
-    heavyStaminaCost: 5
+    heavyStaminaCost: 2.5
     soundHit:
       collection: MetalThud
   - type: DamageOtherOnHit
@@ -281,6 +314,17 @@
     speed: 0.55
   - type: SurgeryTool
     startSound: /Audio/Items/crowbar.ogg
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 28
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   parent: Crowbar
@@ -319,14 +363,15 @@
     - state: green-unlit
       shader: unshaded
   - type: MeleeWeapon
-    attackRate: 1.3333
+    attackRate: 1.3
     damage:
       types:
-        Shock: 2
-    heavyRateModifier: 0.9
-    heavyDamageBaseModifier: 1.2
+        Shock: 3
+    heavyRateModifier: 3
+    heavyRangeModifier: 1.25
+    heavyDamageBaseModifier: 3
     maxTargets: 1
-    angle: 20
+    angle: 10
   - type: DamageOtherOnHit
   - type: Item
     size: Small
@@ -361,6 +406,17 @@
       Circuitry: 25
   - type: StaticPrice
     price: 56
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 11
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   name: network configurator
@@ -412,6 +468,17 @@
     - type: GuideHelp
       guides:
         - NetworkConfigurator
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.25,-0.25,0.25,0.25"
+          density: 12
+          mask:
+          - ItemMask
+          restitution: 0.3
+          friction: 0.2
 
 #Power tools
 #Later on these should switch probably switch damage when changing the tool behavior.
@@ -471,7 +538,7 @@
     damage:
       types:
         Piercing: 8
-    heavyRateModifier: 0.9
+    heavyRateModifier: 1.1
     heavyDamageBaseModifier: 1.2
     maxTargets: 1
     angle: 20
@@ -488,6 +555,17 @@
     difficulty: 2
     recipes:
       - PowerDrill
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 45
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   id: RCD
@@ -547,6 +625,17 @@
     difficulty: 3
     recipes:
       - RCD
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 65
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   id: RPD
@@ -595,6 +684,17 @@
     difficulty: 3
     recipes:
       - RPD
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 65
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   id: RCDEmpty
@@ -806,11 +906,11 @@
     damage:
       types:
         Blunt: 8
-    bluntStaminaDamageFactor: 1.5
-    heavyRateModifier: 0.9
+    bluntStaminaDamageFactor: 2
+    heavyRateModifier: 1.75
     heavyDamageBaseModifier: 1.5
-    heavyStaminaCost: 7.5
-    angle: 100
+    heavyStaminaCost: 2.5
+    angle: 120
     soundHit:
       collection: MetalThud
   - type: DamageOtherOnHit
@@ -860,8 +960,8 @@
       types:
         Blunt: 7
     bluntStaminaDamageFactor: 2.0
-    heavyRateModifier: 0.8
-    heavyDamageBaseModifier: 1.5
+    heavyRateModifier: 2.5
+    heavyDamageBaseModifier: 2
     maxTargets: 2
     angle: 20
     soundHit:

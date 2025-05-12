@@ -75,6 +75,9 @@
   #WWDP EDIT START
   - type: Tag
     tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
     - FelinidEmotes
   #WWDP EDIT END
   - type: Thieving

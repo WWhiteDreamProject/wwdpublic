@@ -1050,6 +1050,9 @@
   id: Ore
 
 - type: Tag
+  id: Organ
+
+- type: Tag
   id: Packet
 
 - type: Tag
@@ -1111,6 +1114,9 @@
 
 - type: Tag
   id: PlantSampleTaker
+
+- type: Tag
+  id: PlantSampleTakerHighQuality
 
 - type: Tag
   id: HydroponicsToolClippers
@@ -1193,6 +1199,9 @@
 
 - type: Tag
   id: RifleStock
+
+- type: Tag
+  id: Ring
 
 - type: Tag
   id: RipleyCentralControlModule
@@ -1354,6 +1363,9 @@
   id: Syringe
 
 - type: Tag
+  id: SyringeGunAmmo
+
+- type: Tag
   id: Spellbook
 
 - type: Tag
@@ -1500,6 +1512,9 @@
 - type: Tag
   id: WriteIgnoreStamps
 
+- type: Tag
+  id: FoodBowlBig
+
 # ALPHABETICAL
 
 - type: Tag
@@ -1518,4 +1533,13 @@
   id: SiliconEmotes
 
 - type: Tag
+  id: MagazineMarkOne
+
+- type: Tag
   id: UnathiEmotes
+
+- type: Tag
+  id: Gun
+
+- type: Tag
+  id: Weapon

@@ -9,32 +9,34 @@ using Robust.Shared.Audio;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Prototypes;
 using System.Numerics;
 
 namespace Content.Server.Atmos.EntitySystems;
 
 public sealed partial class AtmosphereSystem
 {
+    private EntProtoId _spaceWindProto = "SpaceWindVisual";
+    private readonly HashSet<Entity<MovedByPressureComponent>> _activePressures = new();
     private void UpdateHighPressure(float frameTime)
     {
-        base.Update(frameTime);
-        var pressureQuery = EntityQueryEnumerator<MovedByPressureComponent, PhysicsComponent>();
-
-        while (pressureQuery.MoveNext(out var uid, out var pressure, out var physics))
+        foreach (var ent in _activePressures)
         {
-            if (!pressure.Throwing || _gameTiming.CurTime < pressure.ThrowingCutoffTarget)
+            if (!ent.Comp.Throwing || _gameTiming.CurTime < ent.Comp.ThrowingCutoffTarget
+                || !TryComp(ent.Owner, out PhysicsComponent? physics))
                 continue;
 
-            if (TryComp(uid, out ThrownItemComponent? thrown))
+            if (TryComp(ent.Owner, out ThrownItemComponent? thrown))
             {
-                _thrown.LandComponent(uid, thrown, physics, true);
-                _thrown.StopThrow(uid, thrown);
+                _thrown.LandComponent(ent.Owner, thrown, physics, true);
+                _thrown.StopThrow(ent.Owner, thrown);
             }
 
-            _physics.SetBodyStatus(uid, physics, BodyStatus.OnGround);
-            _physics.SetSleepingAllowed(uid, physics, true);
+            _physics.SetBodyStatus(ent.Owner, physics, BodyStatus.OnGround);
+            _physics.SetSleepingAllowed(ent.Owner, physics, true);
 
-            pressure.Throwing = false;
+            ent.Comp.Throwing = false;
+            _activePressures.Remove(ent);
         }
     }
 
@@ -65,7 +67,7 @@ public sealed partial class AtmosphereSystem
         if (!tileDef.SimulatedTurf)
             return;
 
-        var partialFrictionComposition = gravity * tileDef.MobFrictionNoInput;
+        var partialFrictionComposition = gravity * tileDef.MobFrictionNoInput ?? 0.2f;
 
         var pressureVector = GetPressureVectorFromTile(gridAtmosphere, tile);
         if (!pressureVector.IsValid())
@@ -78,6 +80,13 @@ public sealed partial class AtmosphereSystem
             return;
 
         pressureVector *= SpaceWindStrengthMultiplier;
+
+        if (SpaceWindVisuals && atmosComp.SpaceWindSoundCooldown == 0)
+        {
+            var location = _mapSystem.GridTileToLocal(gridAtmosphere.Owner, mapGrid, tile.GridIndices);
+            var visualEnt = SpawnAtPosition(_spaceWindProto, location);
+            _transformSystem.SetLocalRotation(visualEnt, pressureVector.ToAngle() - MathF.PI / 2);
+        }
 
         if (pVecLength > 15 && !tile.Hotspot.Valid && atmosComp.SpaceWindSoundCooldown == 0)
         {
@@ -145,8 +154,21 @@ public sealed partial class AtmosphereSystem
         var coefficientOfFriction = partialFrictionComposition * physics.Mass;
         coefficientOfFriction *= _standingSystem.IsDown(uid) ? 3 : 1;
 
-        if (HasComp<HumanoidAppearanceComponent>(ent))
+        if (TryComp(ent.Owner, out HumanoidAppearanceComponent? humanoidAppearance))
+        {
             pressureVector *= HumanoidThrowMultiplier;
+
+            if (SpaceWindAllowKnockdown)
+            {
+                // Torque threshold for a humanoid shaped object is 1/3rd mass * height squared. Ignore the 3, it's not a magic number in this context.
+                // Same with 1.75f, we're quick and dirty shorthanding for the standard height of a human (in meters).
+                var heightSquared = MathF.Pow(humanoidAppearance.Height * 1.75f, 2);
+                var knockdownThreshold = heightSquared / 3;
+                if (knockdownThreshold <= pVecLength)
+                    _sharedStunSystem.TryKnockdown(uid, TimeSpan.FromSeconds(SpaceWindKnockdownTime), true);
+            }
+        }
+
         if (!alwaysThrow && pVecLength < coefficientOfFriction)
             return;
 
@@ -154,12 +176,12 @@ public sealed partial class AtmosphereSystem
         // ThrowingSystem increments linear velocity by a given vector, but we have to do this anyways because reasons.
         var velocity = _transformSystem.GetWorldRotation(uid).ToWorldVec() + pressureVector;
 
-        _sharedStunSystem.TryKnockdown(uid, TimeSpan.FromSeconds(SpaceWindKnockdownTime), false);
         _throwing.TryThrow(uid, velocity, physics, xform, projectileQuery,
             1, doSpin: physics.AngularVelocity < SpaceWindMaxAngularVelocity);
 
         component.LastHighPressureMovementAirCycle = cycle;
         component.Throwing = true;
         component.ThrowingCutoffTarget = _gameTiming.CurTime + component.CutoffTime;
+        _activePressures.Add(ent);
     }
 }

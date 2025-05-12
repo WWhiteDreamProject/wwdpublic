@@ -42,6 +42,10 @@
   - MagazineNovaliteC1
   - WeaponRifleNovaliteC1
   - WeaponRifleGestio
+  # WWDP new ammo
+  - ShellShotgunBreach
+  - MagazineShotgunBreach
+  - BoxBreach
 
 - type: technology
   id: DraconicMunitions
@@ -70,6 +74,7 @@
   - MagazineBoxCaselessRifleIncendiary
   - CartridgeSpecialIncendiary
   - MagazineBoxSpecialIncendiary
+  - MagazineUniversalMagnumIncendiary
 
 - type: technology
   id: UraniumMunitions
@@ -97,6 +102,7 @@
   - BoxShotgunUranium
   - CartridgeSpecialUranium
   - MagazineBoxSpecialUranium
+  - MagazineUniversalMagnumUranium
 
 # Tier 2
 
@@ -131,6 +137,10 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+  #WWDP new ammo
+  - MagazineShotgunFrag
+  - ShellShotgunFrag
+  - BoxFrag
   # TODO: Add "Explosive Ammunition" to this tech to make it waaaay more interesting.
 
 - type: technology
@@ -154,6 +164,7 @@
   - MagazineBoxLightRifleShrapnel
   - MagazineBoxRifleShrapnel
   - MagazineBoxCaselessRifleShrapnel
+  - MagazineUniversalMagnumShrapnel
 
 - type: technology
   id: AdvancedWeapons
@@ -183,6 +194,7 @@
   # - WeaponPistolViper # WWDP no syndicate guns
   # - WeaponPistolCobra # WWDP no syndicate guns
   - Terminus
+  - WeaponPistolUniversal
   technologyPrerequisites:
   - BasicWeapons
 
@@ -240,13 +252,14 @@
   - PowerCageHigh
   - ShuttleGunDusterCircuitboard
   - WeaponMechCombatImmolationGun # Goobstation
-
+  # WWDP new ammo
+  - MagazineShotgunLaser
+  - ShellShotgunLaser
+  - BoxLaser
   # WWDP no syndicate gear
   # - EnergySword # TODO: Add a bunch of stupidly exotic energy weapons to act as a reaaaaaally nice incentive for research to consider this.
   # - EnergySwordDouble
-
-  - EnergyCutlass
-
+#  - EnergyCutlass
   # WWDP moved caseless ammo here
   - MagazineCaselessRiflePractice # EE
   - MagazineCaselessRifle # EE

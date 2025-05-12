@@ -304,6 +304,8 @@
     - Borg
   - type: AccessReader
     access: [["Command"], ["Research"]]
+  - type: SlavedBorg # DeltaV: NT borgs are enslaved to the AI by default
+    law: ObeyAI
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
   - type: InteractionPopup
@@ -344,7 +346,7 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
-  - type: Damageable #Goobstation - Ion Damage
+  - type: Damageable 
     damageContainer: Silicon
     damageModifierSet: SiliconProtected 
   - type: ExplosionResistance

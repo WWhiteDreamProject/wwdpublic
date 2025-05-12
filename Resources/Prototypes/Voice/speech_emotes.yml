@@ -257,7 +257,16 @@
   name: chat-emote-name-weh
   category: Vocal
   icon: Interface/Emotes/weh.png
+  # WD EDIT START
+  whitelist:
+    tags:
+    - UnathiEmotes
+  # WD EDIT END
   chatMessages: ["chat-emote-msg-weh"]
+  # WD EDIT START
+  chatTriggers:
+  - "chat-emote-trigger-weh-1"
+  # WD EDIT END
 
 - type: emote
   id: Chirp

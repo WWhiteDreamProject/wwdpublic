@@ -1,8 +1,17 @@
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
+using Content.Shared.ListViewSelector;
+using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
+using Content.Shared.StationAi;
+using Content.Shared.SurveillanceCamera.Components;
 using Content.Shared.Verbs;
+using Robust.Shared.Audio;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
@@ -26,6 +35,11 @@ public abstract partial class SharedStationAiSystem
         SubscribeLocalEvent<StationAiHeldComponent, InteractionAttemptEvent>(OnHeldInteraction);
         SubscribeLocalEvent<StationAiHeldComponent, AttemptRelayActionComponentChangeEvent>(OnHeldRelay);
         SubscribeLocalEvent<StationAiHeldComponent, JumpToCoreEvent>(OnCoreJump);
+        // WD edit start
+        SubscribeLocalEvent<StationAiHeldComponent, AiToggleBoltsEvent>(OnToggleBolts);
+        SubscribeLocalEvent<StationAiHeldComponent, AiCameraListEvent>(OnCameraList);
+        SubscribeLocalEvent<StationAiHeldComponent, ListViewItemSelectedMessage>(OnCameraListSelected);
+        // WD edit end
         SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
     }
 
@@ -51,6 +65,80 @@ public abstract partial class SharedStationAiSystem
 
         _xforms.DropNextTo(core.Comp.RemoteEntity.Value, core.Owner) ;
     }
+
+    // WD edit start
+
+    private void OnToggleBolts(Entity<StationAiHeldComponent> ent, ref AiToggleBoltsEvent args)
+    {
+        if (args.Handled || !TryGetCore(ent.Owner, out var core) || core.Comp?.RemoteEntity == null || !_net.IsServer)
+            return;
+
+        args.Handled = true;
+
+        var xform = Transform(core);
+
+        if (!xform.Anchored)
+        {
+            if (TryComp<PhysicsComponent>(core, out var anchorBody) &&
+                !_anchorable.TileFree(xform.Coordinates, anchorBody))
+            {
+                _popup.PopupClient(Loc.GetString("anchorable-occupied"), ent.Owner, core.Comp.RemoteEntity);
+                return;
+            }
+
+            var rot = xform.LocalRotation;
+            xform.LocalRotation = Math.Round(rot / (Math.PI / 2)) * (Math.PI / 2);
+
+            if (TryComp<PullableComponent>(core, out var pullable) && pullable.Puller != null)
+                _pulling.TryStopPull(core, pullable, ignoreGrab: true);
+
+            _xforms.AnchorEntity(core, xform);
+            _audio.PlayEntity(ent.Comp.CoreBoltsDisabled, Filter.Pvs(xform.Coordinates), core.Owner, true);
+        }
+        else
+        {
+            _xforms.Unanchor(core, xform);
+            _audio.PlayEntity(ent.Comp.CoreBoltsEnabled, Filter.Pvs(xform.Coordinates), core.Owner, true);
+        }
+    }
+
+    // TODO: Rework camera list interface
+
+    private void OnCameraList(Entity<StationAiHeldComponent> ent, ref AiCameraListEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        var cameraQuery = EntityQueryEnumerator<StationAiVisionComponent>();
+        var cameras = new List<ListViewSelectorEntry>();
+        while (cameraQuery.MoveNext(out var cameraUid, out var cameraComponent))
+        {
+            if (Transform(cameraUid).MapID != Transform(ent.Owner).MapID)
+                continue;
+
+            var name = Name(cameraUid);
+            if (TryComp(cameraUid, out SurveillanceCameraComponent? survCameraComponent))
+                name = survCameraComponent.CameraId;
+            var entry = new ListViewSelectorEntry(cameraUid.ToString(), name);
+            cameras.Add(entry);
+        }
+
+        if (cameras.Count == 0)
+            return;
+
+        _ui.SetUiState(args.Performer, ListViewSelectorUiKey.Key, new ListViewSelectorState(cameras));
+        _ui.TryToggleUi(args.Performer, ListViewSelectorUiKey.Key, args.Performer);
+        args.Handled = true;
+    }
+
+    private void OnCameraListSelected(Entity<StationAiHeldComponent> ent, ref ListViewItemSelectedMessage args)
+    {
+        if (!TryGetCore(ent.Owner, out var core) || core.Comp?.RemoteEntity == null)
+            return;
+
+        _xforms.DropNextTo(core.Comp.RemoteEntity.Value, EntityUid.Parse(args.SelectedItem.Id));
+    }
+    // WD edit end
 
     /// <summary>
     /// Tries to get the entity held in the AI core using StationAiCore.
