@@ -38,6 +38,6 @@
   description: Gloves with an ergonomic shape designed to hold a beaker.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Hands/orange_vinile_glover.rsi
+    sprite: _White/Clothing/Hands/orange_vinile_gloves.rsi
   - type: Clothing
-    sprite: _White/Clothing/Hands/orange_vinile_glover.rsi
+    sprite: _White/Clothing/Hands/orange_vinile_gloves.rsi

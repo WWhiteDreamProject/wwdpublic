@@ -129,7 +129,7 @@
       sprite: _White/Clothing/Uniforms/Jumpsuit/med_chem_uniform.rsi
     - type: Clothing
       sprite: _White/Clothing/Uniforms/Jumpsuit/med_chem_uniform.rsi
-
+    
 - type: entity 
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitParamedicUniform

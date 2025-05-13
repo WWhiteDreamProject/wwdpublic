@@ -1,0 +1,13 @@
+- type: loadout
+  id: LoadoutBackpackDuffelGenetics
+  category: JobsMedicalAUncategorized
+  cost: 0
+  exclusive: true
+  items:
+    - ClothingBackpackDuffelGenetics
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutMedicalBackpacks
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Medical
