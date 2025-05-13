@@ -5,6 +5,7 @@ using Content.Client.Resources;
 using Content.Client.Stylesheets;
 using Content.Client.Weapons.Ranged.Components;
 using Content.Client.Weapons.Ranged.ItemStatus;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Client.Animations;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
@@ -113,46 +114,99 @@ public sealed partial class GunSystem
             _bulletRender.Type = capacity > 50 ? BulletRender.BulletType.Tiny : BulletRender.BulletType.Normal;
         }
     }
-
+	// WWDP - UNDER CONSTRUCTION - TO BE REFACTORED
     public sealed class BoxesStatusControl : Control
     {
         private readonly BatteryBulletRenderer _bullets;
-        private readonly Label _ammoCount;
+        private readonly BulletRender _bullets2;
+        private readonly Label _ammoLabel;
+        private readonly Label _heatLabel;
+        private readonly BatteryAmmoProviderComponent _component;
+        private int _ammoCount = 0;
+        private float _heat = 0;
 
-        public BoxesStatusControl()
+
+        public BoxesStatusControl(BatteryAmmoProviderComponent comp)
         {
+            _component = comp;
+            _ammoCount = comp.Shots;
             MinHeight = 15;
             HorizontalExpand = true;
             VerticalAlignment = Control.VAlignment.Center;
 
             AddChild(new BoxContainer
             {
-                Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                Orientation = BoxContainer.LayoutOrientation.Vertical,
                 Children =
                 {
-                    (_bullets = new BatteryBulletRenderer
-                    {
-                        Margin = new Thickness(0, 0, 5, 0),
-                        HorizontalExpand = true
-                    }),
-                    (_ammoCount = new Label
+                    (_heatLabel = new Label
                     {
                         StyleClasses = { StyleNano.StyleClassItemStatus },
                         HorizontalAlignment = HAlignment.Right,
-                        VerticalAlignment = VAlignment.Bottom
+                        VerticalAlignment = VAlignment.Bottom,
+                        Text = $"{_heat-273.15:0.00} °C"
                     }),
+                    (new BoxContainer
+                    {
+                        Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                        Children =
+                        {
+
+                            (new BoxContainer
+                            {
+                                Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                                Children =
+                                {
+                                    (_bullets2 = new BulletRender
+                                    {
+                                        Margin = new Thickness(0, 0, 5, 0),
+                                        HorizontalExpand = true,
+                                        Rows = 1
+                                    }),
+                                    (_ammoLabel = new Label
+                                    {
+                                        StyleClasses = { StyleNano.StyleClassItemStatus },
+                                        HorizontalAlignment = HAlignment.Right,
+                                        VerticalAlignment = VAlignment.Bottom,
+                                        Text = $"x{_ammoCount:00}"
+                                    }),
+                                }
+                            })
+                        }
+                    })
                 }
             });
         }
 
-        public void Update(int count, int max)
+        private void UpdateTemp(float T)
         {
-            _ammoCount.Visible = true;
+            _heatLabel.Text = $"{T - 273.15:0.00} °C";
+            float hue = 0; // full red
+            if (T < _component.HeatLimit)
+                hue = 0.66f - (T + 273.15f) / (_component.HeatLimit + 273.15f) * 0.55f;
+            _heatLabel.FontColorOverride = Color.FromHsv(new Robust.Shared.Maths.Vector4(hue, 1, 1, 1));
+        }
 
-            _ammoCount.Text = $"x{count:00}";
+        protected override void PreRenderChildren(ref ControlRenderArguments args)
+        {
+            if (_bullets2.Capacity != _component.Capacity)
+                _bullets2.Capacity = _component.Capacity;
 
-            _bullets.Capacity = max;
-            _bullets.Count = count;
+            if (_bullets2.Count != _component.Shots)
+                _bullets2.Count = _component.Shots;
+
+            if(_ammoCount != _component.Shots)
+            {
+                _ammoCount = _component.Shots;
+                _ammoLabel.Text = $"x{_ammoCount:00}";
+            }
+
+            if(_heat != _component.CurrentTemperature)
+            {
+                _heat = _component.CurrentTemperature;
+                UpdateTemp(_heat);
+            }
+            base.PreRenderChildren(ref args);
         }
     }
 
