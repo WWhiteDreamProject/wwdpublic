@@ -114,7 +114,7 @@ public abstract partial class SharedGunSystem
     /// Update the battery (server-only) whenever fired.
     /// </summary>
     protected virtual void TakeCharge(EntityUid uid, BatteryAmmoProviderComponent component) {}
-    protected virtual void TryHeatUp(EntityUid uid, BatteryAmmoProviderComponent component) {} // WWDP EDIT
+    protected virtual void TryHeatUp(EntityUid uid, BatteryAmmoProviderComponent component) { component.CurrentTemperature += component.HeatFireCost; } // WWDP EDIT
 
     protected void UpdateBatteryAppearance(EntityUid uid, BatteryAmmoProviderComponent component)
     {

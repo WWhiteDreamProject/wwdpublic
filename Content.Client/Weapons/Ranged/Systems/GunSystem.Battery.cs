@@ -1,4 +1,5 @@
 using Content.Shared.Weapons.Ranged.Components;
+using Robust.Shared.Timing;
 
 namespace Content.Client.Weapons.Ranged.Systems;
 
@@ -26,6 +27,6 @@ public sealed partial class GunSystem
 
     private void OnControl(EntityUid uid, BatteryAmmoProviderComponent component, AmmoCounterControlEvent args)
     {
-        args.Control = new BoxesStatusControl(component); // WWDP EDIT
+        args.Control = new EnergyGunBatteryStatusControl(component); // WWDP EDIT
     }
 }

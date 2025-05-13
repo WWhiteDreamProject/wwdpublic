@@ -1,10 +1,12 @@
 using System.Numerics;
+using Content.Client._White.UI;
 using Content.Client.IoC;
 using Content.Client.Items;
 using Content.Client.Resources;
 using Content.Client.Stylesheets;
 using Content.Client.Weapons.Ranged.Components;
 using Content.Client.Weapons.Ranged.ItemStatus;
+using Content.Shared._White.Guns;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Client.Animations;
 using Robust.Client.Graphics;
@@ -115,67 +117,86 @@ public sealed partial class GunSystem
         }
     }
 	// WWDP - UNDER CONSTRUCTION - TO BE REFACTORED
-    public sealed class BoxesStatusControl : Control
+    public sealed class EnergyGunBatteryStatusControl : Control
     {
-        private readonly BatteryBulletRenderer _bullets;
-        private readonly BulletRender _bullets2;
+        private readonly EntityUid _gun;
+        private readonly BaseBulletRenderer _bullets2;
         private readonly Label _ammoLabel;
         private readonly Label _heatLabel;
+        private readonly Label _lampLabel;
         private readonly BatteryAmmoProviderComponent _component;
+        private readonly GunTemperatureRegulatorComponent? _regcomp;
+        private readonly GunTemperatureRegulatorSystem _regSys;
+
         private int _ammoCount = 0;
         private float _heat = 0;
 
 
-        public BoxesStatusControl(BatteryAmmoProviderComponent comp)
+        public EnergyGunBatteryStatusControl(BatteryAmmoProviderComponent comp)
         {
+            _gun = comp.Owner;
             _component = comp;
             _ammoCount = comp.Shots;
             MinHeight = 15;
             HorizontalExpand = true;
             VerticalAlignment = Control.VAlignment.Center;
-
+            _regSys = IoCManager.Resolve<IEntityManager>().System<GunTemperatureRegulatorSystem>();
             AddChild(new BoxContainer
             {
                 Orientation = BoxContainer.LayoutOrientation.Vertical,
                 Children =
                 {
-                    (_heatLabel = new Label
+                    (new BoxContainer
                     {
-                        StyleClasses = { StyleNano.StyleClassItemStatus },
-                        HorizontalAlignment = HAlignment.Right,
-                        VerticalAlignment = VAlignment.Bottom,
-                        Text = $"{_heat-273.15:0.00} °C"
+                        Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                        Children =
+                        {
+                            (_lampLabel = new Label
+                            {
+                                StyleClasses = { StyleNano.StyleClassItemStatus },
+                                HorizontalAlignment = HAlignment.Left,
+                                VerticalAlignment = VAlignment.Bottom,
+                                Text = $" ●"
+                            }),
+                            (_heatLabel = new Label
+                            {
+                                StyleClasses = { StyleNano.StyleClassItemStatus },
+                                HorizontalAlignment = HAlignment.Right,
+                                HorizontalExpand = true,
+                                VerticalAlignment = VAlignment.Bottom,
+                                Text = $"{_heat-273.15:0.00} °C"
+                            }),
+                        }
                     }),
                     (new BoxContainer
                     {
                         Orientation = BoxContainer.LayoutOrientation.Horizontal,
                         Children =
                         {
-
-                            (new BoxContainer
+                            (_bullets2 = new BarBulletRenderer
                             {
-                                Orientation = BoxContainer.LayoutOrientation.Horizontal,
-                                Children =
-                                {
-                                    (_bullets2 = new BulletRender
-                                    {
-                                        Margin = new Thickness(0, 0, 5, 0),
-                                        HorizontalExpand = true,
-                                        Rows = 1
-                                    }),
-                                    (_ammoLabel = new Label
-                                    {
-                                        StyleClasses = { StyleNano.StyleClassItemStatus },
-                                        HorizontalAlignment = HAlignment.Right,
-                                        VerticalAlignment = VAlignment.Bottom,
-                                        Text = $"x{_ammoCount:00}"
-                                    }),
-                                }
-                            })
+                                Rows = 4,
+                                MaxWidth = 75
+                            }),
+                            (_ammoLabel = new Label
+                            {
+                                StyleClasses = { StyleNano.StyleClassItemStatus },
+                                HorizontalExpand = true,
+                                HorizontalAlignment = HAlignment.Right,
+                                VerticalAlignment = VAlignment.Top,
+                                Text = $"x{_ammoCount:00}"
+                            }),
                         }
                     })
                 }
             });
+            if(!IoCManager.Resolve<IEntityManager>().TryGetComponent<GunTemperatureRegulatorComponent>(comp.Owner, out _regcomp))
+            {
+                _heatLabel.Visible = false;
+                _lampLabel.Visible = false;
+                return;
+            }
+            _lampLabel.Visible = _regcomp.RequiresLamp;
         }
 
         private void UpdateTemp(float T)
@@ -184,7 +205,9 @@ public sealed partial class GunSystem
             float hue = 0; // full red
             if (T < _component.HeatLimit)
                 hue = 0.66f - (T + 273.15f) / (_component.HeatLimit + 273.15f) * 0.55f;
-            _heatLabel.FontColorOverride = Color.FromHsv(new Robust.Shared.Maths.Vector4(hue, 1, 1, 1));
+            var tempColor = Color.FromHsv(new Robust.Shared.Maths.Vector4(hue, 1, 1, 1));
+            _heatLabel.FontColorOverride = tempColor;
+            _lampLabel.FontColorOverride = tempColor;
         }
 
         protected override void PreRenderChildren(ref ControlRenderArguments args)
@@ -200,6 +223,9 @@ public sealed partial class GunSystem
                 _ammoCount = _component.Shots;
                 _ammoLabel.Text = $"x{_ammoCount:00}";
             }
+
+            if (_regcomp is not null && _regSys.GetLampState(_gun, out var broken, out var missing, _regcomp))
+                _lampLabel.Text = $"{(missing.Value ? " ◌" : (broken.Value ? " ○" : " ●"))}";
 
             if(_heat != _component.CurrentTemperature)
             {

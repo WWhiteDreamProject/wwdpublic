@@ -68,6 +68,22 @@
   - type: SurgeryTool
     endSound:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: Temperature # WWDP
+  - type: AtmosExposed # WWDP
+  - type: GunTemperatureRegulator # WWDP
+  - type: ItemSlotPicker # WWDP
+    itemSlots: 
+    - gun-regulator-lamp-slot
+  - type: ItemSlots # WWDP
+    slots:
+      gun-regulator-lamp-slot:
+        name: Regulator Lamp
+        startingItem: BasicRegulatorLamp
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          components:
+            - GunRegulatorLamp
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -317,7 +333,7 @@
     - SemiAuto
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletLaser # WWDP
-    fireCost: 62.5
+    fireCost: 10
   - type: Item # WWDP guns resize
     size: Huge
     shape:
