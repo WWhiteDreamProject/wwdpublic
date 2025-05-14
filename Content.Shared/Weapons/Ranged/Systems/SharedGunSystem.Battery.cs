@@ -20,7 +20,6 @@ public abstract partial class SharedGunSystem
         SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, TakeAmmoEvent>(OnBatteryTakeAmmo);
         SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, GetAmmoCountEvent>(OnBatteryAmmoCount);
         SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, ExaminedEvent>(OnBatteryExamine);
-        SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, OnTemperatureChangeEvent>(OnTemperatureChange); // WWDP EDIT
 
         // Projectile
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, ComponentGetState>(OnBatteryGetState);
@@ -28,7 +27,6 @@ public abstract partial class SharedGunSystem
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, TakeAmmoEvent>(OnBatteryTakeAmmo);
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, GetAmmoCountEvent>(OnBatteryAmmoCount);
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, ExaminedEvent>(OnBatteryExamine);
-        SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, OnTemperatureChangeEvent>(OnTemperatureChange); // WWDP EDIT
     }
 
     private void OnBatteryHandleState(EntityUid uid, BatteryAmmoProviderComponent component, ref ComponentHandleState args)
@@ -38,9 +36,6 @@ public abstract partial class SharedGunSystem
 
         component.Shots = state.Shots;
         component.Capacity = state.MaxShots;
-        component.HeatFireCost = state.HeatCost; // WWDP EDIT START
-        component.HeatLimit = state.HeatLimit;
-        component.CurrentTemperature = state.CurrentTemp; // WWDP EDIT END
         component.FireCost = state.FireCost;
 
         if (component is HitscanBatteryAmmoProviderComponent hitscan && state.Prototype != null) // Shitmed Change
@@ -53,9 +48,6 @@ public abstract partial class SharedGunSystem
         {
             Shots = component.Shots,
             MaxShots = component.Capacity,
-            HeatCost = component.HeatFireCost, // WWDP EDIT START
-            HeatLimit = component.HeatLimit,
-            CurrentTemp = component.CurrentTemperature, // WWDP EDIT END
             FireCost = component.FireCost,
         };
 
@@ -78,12 +70,6 @@ public abstract partial class SharedGunSystem
         if (shots == 0)
             return;
 
-        // WWDP EDIT START
-        // TODO: offload this to a component which will handle the heat limit, safety mode and lamp bs.
-        if (component.CurrentTemperature > component.HeatLimit && component.HeatSafety)
-            return;
-        // WWDP EDIT END
-
         for (var i = 0; i < shots; i++)
         {
             args.Ammo.Add(GetShootable(component, args.Coordinates));
@@ -91,18 +77,10 @@ public abstract partial class SharedGunSystem
         }
 
         TakeCharge(uid, component);
-        TryHeatUp(uid, component); // WWDP EDIT
         UpdateBatteryAppearance(uid, component);
         Dirty(uid, component);
     }
 
-    // WWDP EDIT START
-    private void OnTemperatureChange(EntityUid uid, BatteryAmmoProviderComponent component, OnTemperatureChangeEvent args)
-    {
-        component.CurrentTemperature = args.CurrentTemperature;
-        Dirty(uid, component); // TODO: consider implementing IComponentDelta on component.CurrentTemperature. Manually. // TODO: consider getting professional help.
-    }
-    // WWDP EDIT END
 
     private void OnBatteryAmmoCount(EntityUid uid, BatteryAmmoProviderComponent component, ref GetAmmoCountEvent args)
     {
@@ -114,7 +92,6 @@ public abstract partial class SharedGunSystem
     /// Update the battery (server-only) whenever fired.
     /// </summary>
     protected virtual void TakeCharge(EntityUid uid, BatteryAmmoProviderComponent component) {}
-    protected virtual void TryHeatUp(EntityUid uid, BatteryAmmoProviderComponent component) { component.CurrentTemperature += component.HeatFireCost; } // WWDP EDIT
 
     protected void UpdateBatteryAppearance(EntityUid uid, BatteryAmmoProviderComponent component)
     {

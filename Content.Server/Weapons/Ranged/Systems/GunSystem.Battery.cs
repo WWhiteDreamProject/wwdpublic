@@ -111,11 +111,4 @@ public sealed partial class GunSystem
         // Will raise ChargeChangedEvent
         _battery.UseCharge(uid, component.FireCost);
     }
-    // WWDP EDIT START
-    protected override void TryHeatUp(EntityUid uid, BatteryAmmoProviderComponent component)
-    {
-        if (TryComp<TemperatureComponent>(uid, out var temp))
-            _temp.ForceChangeTemperature(uid, temp.CurrentTemperature + component.HeatFireCost, temp);
-    }
-    // WWDP EDIT END
 }

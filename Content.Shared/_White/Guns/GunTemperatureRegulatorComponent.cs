@@ -1,3 +1,4 @@
+using Content.Shared.Atmos;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Destructible;
 using Content.Shared.Weapons.Ranged.Components;
@@ -9,6 +10,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -18,7 +20,7 @@ using System.Threading.Tasks;
 
 namespace Content.Shared._White.Guns;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class GunTemperatureRegulatorComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
@@ -36,7 +38,12 @@ public sealed partial class GunTemperatureRegulatorComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float LampBreakChanceMultiplier = 1;
 
-
+    // prediction n' shiet
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public float CurrentTemperature = Atmospherics.T20C;
+    
+    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public float HeatCost = 50;
 }
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
@@ -63,13 +70,12 @@ public sealed partial class GunRegulatorLampComponent : Component
 
 }
 
-public sealed class GunTemperatureRegulatorSystem : EntitySystem
+public abstract class SharedGunTemperatureRegulatorSystem : EntitySystem
 {
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private readonly IRobustRandom _rng = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] protected readonly ItemSlotsSystem _slots = default!;
+    [Dependency] protected readonly IRobustRandom _rng = default!;
+    [Dependency] protected readonly SharedAudioSystem _audio = default!;
+    [Dependency] protected readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -90,10 +96,10 @@ public sealed class GunTemperatureRegulatorSystem : EntitySystem
         // instead of implementing SharedTemperatureComponent and being forced to copy this code to both server- and client-side separately,
         // i'll just pull the temperature value off of BatteryAmmoProvider, where it is replicated by server and used for prediction purposes.
         // Yes, this is awful. No, i will not take blame. Blame whoever thought it was a good idea to make temperature fully server-sided.
-        if (args.Cancelled || !GetCurrentTemperature(uid, out var currentTemperature))
+        if (args.Cancelled)
             return;
 
-        if (currentTemperature >= comp.TemperatureLimit && comp.SafetyEnabled)
+        if (comp.CurrentTemperature >= comp.TemperatureLimit && comp.SafetyEnabled)
         {
             args.Cancelled = true;
             return;
@@ -111,68 +117,30 @@ public sealed class GunTemperatureRegulatorSystem : EntitySystem
         }
     }
 
-    private void OnGunShot(EntityUid uid, GunTemperatureRegulatorComponent comp, ref GunShotEvent args)
+    protected virtual void OnGunShot(EntityUid uid, GunTemperatureRegulatorComponent comp, ref GunShotEvent args)
     {
-        if (_net.IsClient) // i am moderately sick of spreading small system over three separate files
-            return;
-
-        if (!_slots.TryGetSlot(uid, comp.LampSlot, out var slot) ||
-            !TryComp<GunRegulatorLampComponent>(slot.Item, out var lampComp) ||
-            !GetCurrentTemperature(uid, out var currentTemperature) ||
-            !lampComp.Intact)
-            return;
-
-        float breakChance = (currentTemperature.Value - lampComp.SafeTemperature) / lampComp.UnsafeTemperature * comp.LampBreakChanceMultiplier;
-        if (breakChance <= 0)
-            return;
-        if (breakChance >= 1 || _rng.Prob(breakChance))
-        {
-            BurnoutLamp(lampComp, args.User);
-        }
-
+        if(IoCManager.Resolve<IGameTiming>().IsFirstTimePredicted)
+            comp.CurrentTemperature += comp.HeatCost;
     }
 
-    public bool GetLampState(EntityUid gun, [NotNullWhen(true)] out bool? broken, [NotNullWhen(true)] out bool? missing, GunTemperatureRegulatorComponent? comp = null)
+    public bool GetLamp(EntityUid gunUid,  out GunRegulatorLampComponent? lampComp, GunTemperatureRegulatorComponent? comp = null)
     {
-        broken = null;
-        missing = null;
-        if (!Resolve(gun, ref comp))
+        lampComp = null;
+        if (!Resolve(gunUid, ref comp))
             return false;
 
-        if(_slots.TryGetSlot(gun, comp.LampSlot, out var slot) && TryComp<GunRegulatorLampComponent>(slot.Item, out var lampComp))
-        {
-            broken = !lampComp.Intact;
-            missing = false;
-            return true;
-        }
-        missing = true;
-        broken = false;
+        if (_slots.TryGetSlot(gunUid, comp.LampSlot, out var slot))
+            TryComp<GunRegulatorLampComponent>(slot.Item, out lampComp);
         return true;
     }
 
-    private void BurnoutLamp(GunRegulatorLampComponent comp, EntityUid? shooter = null)
+    protected void BurnoutLamp(GunRegulatorLampComponent comp, EntityUid? shooter = null)
     {
         var lampUid = comp.Owner;
         _audio.PlayEntity(comp.BreakSound, Filter.Pvs(lampUid), lampUid, true);
         _appearance.SetData(lampUid, RegulatorLampVisuals.Shtuka, RegulatorLampState.Broken);
         comp.Intact = false;
         Dirty(lampUid, comp);
-    }
-
-    private bool GetCurrentTemperature(EntityUid uid, [NotNullWhen(true)] out float? temperature)
-    {
-        temperature = null;
-        if(TryComp<ProjectileBatteryAmmoProviderComponent>(uid, out var pAmmoProvider))
-        {
-            temperature = pAmmoProvider.CurrentTemperature;
-            return true;
-        }
-        if(TryComp<HitscanBatteryAmmoProviderComponent>(uid, out var hAmmoProvider))
-        {
-            temperature = hAmmoProvider.CurrentTemperature;
-            return true;
-        }
-        return false;
     }
 }
 

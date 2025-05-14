@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client._White.Guns;
 using Content.Client._White.UI;
 using Content.Client.IoC;
 using Content.Client.Items;
@@ -127,6 +128,7 @@ public sealed partial class GunSystem
         private readonly BatteryAmmoProviderComponent _component;
         private readonly GunTemperatureRegulatorComponent? _regcomp;
         private readonly GunTemperatureRegulatorSystem _regSys;
+        private readonly IEntityManager _entMan;
 
         private int _ammoCount = 0;
         private float _heat = 0;
@@ -134,13 +136,14 @@ public sealed partial class GunSystem
 
         public EnergyGunBatteryStatusControl(BatteryAmmoProviderComponent comp)
         {
+            _entMan = IoCManager.Resolve<IEntityManager>();
+            _regSys = _entMan.System<GunTemperatureRegulatorSystem>();
             _gun = comp.Owner;
             _component = comp;
             _ammoCount = comp.Shots;
             MinHeight = 15;
             HorizontalExpand = true;
             VerticalAlignment = Control.VAlignment.Center;
-            _regSys = IoCManager.Resolve<IEntityManager>().System<GunTemperatureRegulatorSystem>();
             AddChild(new BoxContainer
             {
                 Orientation = BoxContainer.LayoutOrientation.Vertical,
@@ -190,7 +193,10 @@ public sealed partial class GunSystem
                     })
                 }
             });
-            if(!IoCManager.Resolve<IEntityManager>().TryGetComponent<GunTemperatureRegulatorComponent>(comp.Owner, out _regcomp))
+
+            // if temp regulator component is missing on the gun, hide the temperature gauge and lamp display
+            // since they won't matter anyways
+            if(!_entMan.TryGetComponent(comp.Owner, out _regcomp))
             {
                 _heatLabel.Visible = false;
                 _lampLabel.Visible = false;
@@ -203,8 +209,9 @@ public sealed partial class GunSystem
         {
             _heatLabel.Text = $"{T - 273.15:0.00} °C";
             float hue = 0; // full red
-            if (T < _component.HeatLimit)
-                hue = 0.66f - (T + 273.15f) / (_component.HeatLimit + 273.15f) * 0.55f;
+            if (T < _regcomp!.TemperatureLimit) // assume _regcomp is not null since we'll check for it before calling this method
+                hue = 0.66f - (T) / (_regcomp.TemperatureLimit) * 0.55f;
+            // cyan at near 0K, orange at just below the safe temperature threshold, full red above threshold
             var tempColor = Color.FromHsv(new Robust.Shared.Maths.Vector4(hue, 1, 1, 1));
             _heatLabel.FontColorOverride = tempColor;
             _lampLabel.FontColorOverride = tempColor;
@@ -224,15 +231,33 @@ public sealed partial class GunSystem
                 _ammoLabel.Text = $"x{_ammoCount:00}";
             }
 
-            if (_regcomp is not null && _regSys.GetLampState(_gun, out var broken, out var missing, _regcomp))
-                _lampLabel.Text = $"{(missing.Value ? " ◌" : (broken.Value ? " ○" : " ●"))}";
-
-            if(_heat != _component.CurrentTemperature)
+            // skip all the temperature stuff if the related component is not present;
+            if(_regcomp is null)
             {
-                _heat = _component.CurrentTemperature;
+                return;
+            }
+
+            if (_regSys.GetLamp(_gun, out var lampComp, _regcomp))
+            {
+                if (lampComp is null || !lampComp.Intact)
+                {
+                    _lampLabel.Text = " ◌";
+                }
+                else
+                {
+                    const int divisions = 7;
+                    const float divisions_reverse = 1f / divisions;
+                    float howFucked = MathHelper.Clamp01((_regcomp.CurrentTemperature - lampComp.SafeTemperature) / (lampComp.UnsafeTemperature - lampComp.SafeTemperature));
+                    int howFuckedInt = Math.Min((int) (howFucked / divisions_reverse + 0.999), divisions); // instead of futher complicating the line above i'll just plop a min function here - i just need to offset the graph to the left
+                    _lampLabel.Text = $"{(lampComp.Intact ? " ●" : " ○")} {new string('!', howFuckedInt)}{new string('.', divisions - howFuckedInt)}";
+                }
+            }
+
+            if(_heat != _regcomp.CurrentTemperature)
+            {
+                _heat = _regcomp.CurrentTemperature;
                 UpdateTemp(_heat);
             }
-            base.PreRenderChildren(ref args);
         }
     }
 

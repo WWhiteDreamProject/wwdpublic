@@ -6,11 +6,13 @@
   description: A 90s looking lamp.
   components:
   - type: Sprite
-    sprite: _White/Objects/Weapons/Guns/crossbow.rsi
+    sprite: _White/Objects/Weapons/Guns/regulator_lamp.rsi
     layers:
-    - state: crossbow
-    - state: unstrung
-      map: [ "enum.StretchedVisuals.Layer" ]
+    - state: base
+    - state: internals
+      map: [ "Internals" ]
+    - state: glass
+      map: [ "Glass" ]
   - type: GunRegulatorLamp
   - type: Damageable
     damageContainer: Inorganic
@@ -58,6 +60,16 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.RegulatorLampVisuals.Glass:
+        Glass:
+          Intact: { state: glass }
+          Broken: { state: glassbroken }
+      enum.RegulatorLampVisuals.Shtuka:
+        Internals:
+          Intact: { state: internals }
+          Broken: { state: internalsburned }
 
 - type: entity
   parent: BaseRegulatorLamp
