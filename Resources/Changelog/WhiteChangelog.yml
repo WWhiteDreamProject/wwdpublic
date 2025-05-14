@@ -2750,3 +2750,55 @@ Entries:
   id: 298
   time: '2025-05-03T09:52:39.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/484
+- author: Kai518
+  changes:
+    - type: Add
+      message: ИИ добавлено действие, открывающее интерфейс телепорта ко всем камерам.
+    - type: Tweak
+      message: >-
+        Теперь глаз ИИ видит не на том гриде, где находится ядро, а на том, где
+        находится сам глаз. Иными словами, если он залетит на шаттл - будет
+        видеть камерами шаттла, а если залетит на станцию - будет видеть
+        камерами станции. Из-за этого отрезать его ядро от станции теперь
+        бесполезно.
+  id: 299
+  time: '2025-05-05T20:44:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/480
+- author: Bol4onok
+  changes:
+    - type: Add
+      message: Добавлен веселый мод в аплинк
+  id: 300
+  time: '2025-05-06T05:22:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/478
+- author: Kutos
+  changes:
+    - type: Add
+      message: Зеркальный щит теперь возвращается после попадания в цель
+    - type: Add
+      message: Культисты теперь могут ковать нечестивую алебарду
+    - type: Fix
+      message: Зеркальный щит теперь отображается в руках
+    - type: Fix
+      message: Экипаж больше не может пользоваться метательным оружием культа
+    - type: Fix
+      message: >-
+        Исправлен баг с отсутствием нимба у культистов, конвертнутных после
+        наступления активной стадии
+  id: 301
+  time: '2025-05-09T22:34:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/488
+- author: Boevi4ok
+  changes:
+    - type: Add
+      message: Добавлены ну очень смешные боеприпасы для дробовиков
+  id: 302
+  time: '2025-05-09T23:38:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/490
+- author: Spatison
+  changes:
+    - type: Add
+      message: Апстрим 02.05-09.05
+  id: 303
+  time: '2025-05-10T07:44:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/493

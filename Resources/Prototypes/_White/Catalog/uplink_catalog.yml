@@ -195,6 +195,19 @@
   categories:
   - UplinkAmmo
 
+- type: listing
+  id: UplinkMagazineShotgunMeteor
+  name: uplink-magazine-shotgun-meteor-name
+  description: uplink-magazine-shotgun-meteor-desc
+  productEntity: MagazineShotgunMeteor
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkAmmo
+
 # Explosives
 
 # Wearables
@@ -212,6 +225,19 @@
   categories:
   - UplinkWearables
 
+- type: listing
+  id: UplinkModsuitInfiltrator
+  name: uplink-infiltrator-modsuit-name
+  description: uplink-infiltrator-modsuit-desc
+  icon: { sprite: /Textures/_White/Clothing/Belt/Modsuits/Infiltrator.rsi, state: control-sealed }
+  productEntity: ClothingModsuitInfiltrator
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkWearables
 # Chemicals
 
 - type: listing

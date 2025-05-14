@@ -67,19 +67,3 @@
       state: state_laws
     event: !type:ToggleLawsScreenEvent
     useDelay: 0.5
-
-# WD edit start
-- type: entity
-  id: ActionAIToggleBolts
-  name: Toggle floor bolts
-  description: Toggle bolts, that keep you wrenched to the floor.
-  components:
-  - type: InstantAction
-    priority: -3
-    itemIconStyle: NoItem
-    icon:
-      sprite: _White/Interface/Actions/actions_ai.rsi
-      state: toggle_bolts
-    event: !type:AiToggleBoltsEvent
-    useDelay: 0.5
-# WD edit end

@@ -47,3 +47,7 @@
     - back
   - type: UseDelay
     delay: 1
+  # WD EDIT START
+  - type: CultItem
+    knockdownDuration: 3
+  # WD EDIT END

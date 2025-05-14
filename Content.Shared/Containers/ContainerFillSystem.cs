@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared.EntityTable;
+using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -72,12 +73,16 @@ public sealed class ContainerFillSystem : EntitySystem
             foreach (var proto in spawns)
             {
                 var spawn = Spawn(proto, coords);
-                if (!_storage.Insert(ent, spawn, out _, out _, playSound: false)) // WD EDIT
-                {
-                    Log.Error($"Entity {ToPrettyString(ent)} with a {nameof(EntityTableContainerFillComponent)} failed to insert an entity: {ToPrettyString(spawn)}.");
-                    _transform.AttachToGridOrMap(spawn);
-                    break;
-                }
+                // WD EDIT START
+                if (TryComp<StorageComponent>(ent, out var storage)
+                    && _storage.Insert(ent, spawn, out _, out _, storageComp: storage, playSound: false)
+                    || _containerSystem.Insert(spawn, container, containerXform: xform))
+                    continue;
+                // WD EDIT END
+
+                Log.Error($"Entity {ToPrettyString(ent)} with a {nameof(EntityTableContainerFillComponent)} failed to insert an entity: {ToPrettyString(spawn)}.");
+                _transform.AttachToGridOrMap(spawn);
+                break;
             }
         }
     }

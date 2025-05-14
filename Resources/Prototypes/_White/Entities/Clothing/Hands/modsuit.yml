@@ -1,0 +1,9 @@
+﻿- type: entity
+  parent: ClothingModsuitGauntletsStandard
+  id: ClothingModsuitGauntletsInfiltrator
+  name: infiltrator modsuit gauntlets
+  description: A pair of gauntlets for a modsuit.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Hands/modsuits/infiltrator.rsi

@@ -1,4 +1,4 @@
-﻿using Content.Shared.Blocking;
+using Content.Shared.Blocking;
 using Content.Shared.Ghost;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
