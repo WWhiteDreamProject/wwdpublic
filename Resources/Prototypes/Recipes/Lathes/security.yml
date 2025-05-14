@@ -37,6 +37,16 @@
     Steel: 300
     Plastic: 300
 
+# WWDP
+- type: latheRecipe
+  id: BasicRegulatorLamp
+  result: BasicRegulatorLamp
+  category: Weapons
+  completetime: 60
+  materials:
+    Steel: 600
+    Glass: 300
+
 - type: latheRecipe
   id: Truncheon
   result: Truncheon

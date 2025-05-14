@@ -167,7 +167,7 @@ public sealed partial class GunSystem
                                 HorizontalAlignment = HAlignment.Right,
                                 HorizontalExpand = true,
                                 VerticalAlignment = VAlignment.Bottom,
-                                Text = $"{_heat-273.15:0.00} °C"
+                                Text = $"{_heat-273.15:0.00} °C "
                             }),
                         }
                     }),
@@ -207,7 +207,7 @@ public sealed partial class GunSystem
 
         private void UpdateTemp(float T)
         {
-            _heatLabel.Text = $"{T - 273.15:0.00} °C";
+            _heatLabel.Text = $"{T - 273.15:0.00} °C ";
             float hue = 0; // full red
             if (T < _regcomp!.TemperatureLimit) // assume _regcomp is not null since we'll check for it before calling this method
                 hue = 0.66f - (T) / (_regcomp.TemperatureLimit) * 0.55f;
@@ -245,7 +245,7 @@ public sealed partial class GunSystem
                 }
                 else
                 {
-                    const int divisions = 7;
+                    const int divisions = 4;
                     const float divisions_reverse = 1f / divisions;
                     float howFucked = MathHelper.Clamp01((_regcomp.CurrentTemperature - lampComp.SafeTemperature) / (lampComp.UnsafeTemperature - lampComp.SafeTemperature));
                     int howFuckedInt = Math.Min((int) (howFucked / divisions_reverse + 0.999), divisions); // instead of futher complicating the line above i'll just plop a min function here - i just need to offset the graph to the left
