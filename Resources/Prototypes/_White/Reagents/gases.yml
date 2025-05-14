@@ -190,10 +190,10 @@
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          groups:
-            Brute: -0.5
-            Burn: -0.5
-            Toxin: -1.25
+          groups: # small buff
+            Brute: -2.0
+            Burn: -2.0
+            Toxin: -1.0
 
 - type: reagent
   id: Hyper-Noblium
