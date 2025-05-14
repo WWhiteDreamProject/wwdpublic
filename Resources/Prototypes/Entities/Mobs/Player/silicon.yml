@@ -42,6 +42,7 @@
     - ActionSurvCameraLights
     - ActionAIViewLaws
     - ActionAIToggleBolts # WD edit
+    - ActionAICameraList # WD edit
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
@@ -54,6 +55,8 @@
         type: SiliconLawBoundUserInterface
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
+      enum.ListViewSelectorUiKey.Key: # WD edit
+        type: ListViewSelectorBUI
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:

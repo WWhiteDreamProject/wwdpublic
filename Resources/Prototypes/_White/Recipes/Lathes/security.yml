@@ -1,0 +1,94 @@
+- type: latheRecipe
+  id: WeaponSecurityRiotLauncher
+  result: WeaponSecurityRiotLauncher
+  category: Weapons
+  completetime: 6
+  materials:
+    Steel: 1500
+    Plastic: 750
+
+- type: latheRecipe
+  id: ShellShotgunBreach
+  result: ShellShotgunBreach
+  category: Ammo
+  completetime: 2
+  materials:
+    Plasteel: 25
+
+- type: latheRecipe
+  id: BoxBreach
+  result: BoxBreach
+  category: Ammo
+  completetime: 5
+  materials:
+    Plasteel: 450
+    Steel: 30
+
+- type: latheRecipe
+  id: MagazineShotgunBreach
+  result: MagazineShotgunBreach
+  category: Ammo
+  completetime: 5
+  materials:
+    Plasteel: 250
+    Steel: 20
+
+- type: latheRecipe
+  id: ShellShotgunFrag
+  result: ShellShotgunFrag
+  category: Ammo
+  completetime: 2
+  materials:
+    Plasma: 5
+    Steel: 15
+
+- type: latheRecipe
+  id: BoxFrag
+  result: BoxFrag
+  category: Ammo
+  completetime: 5
+  materials:
+    Plasma: 100
+    Steel: 430
+
+- type: latheRecipe
+  id: MagazineShotgunFrag
+  result: MagazineShotgunFrag
+  category: Ammo
+  completetime: 5
+  materials:
+    Plasma: 50
+    Steel: 240
+
+- type: latheRecipe
+  id: ShellShotgunLaser
+  result: ShellShotgunLaser
+  category: Ammo
+  completetime: 2
+  materials:
+    Plasma: 5
+    Silver: 5
+    Gold: 5
+    Steel: 10
+
+- type: latheRecipe
+  id: BoxLaser
+  result: BoxLaser
+  category: Ammo
+  completetime: 5
+  materials:
+    Plasma: 80
+    Silver: 80
+    Gold: 80
+    Steel: 450
+
+- type: latheRecipe
+  id: MagazineShotgunLaser
+  result: MagazineShotgunLaser
+  category: Ammo
+  completetime: 5
+  materials:
+    Plasma: 40
+    Silver: 40
+    Gold: 40
+    Steel: 80

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "From tgstation https://github.com/tgstation/tgstation/pull/82909, small resprite by Boevi4ok",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "control"
+    },
+		{
+		  "name": "control-sealed",
+		  "delays": [[ 0.1, 0.1, 0.1, 0.1 ]]
+		},
+		{
+			"name": "equipped-BELT",
+			"directions": 4
+		},
+		{
+			"name": "equipped-BELT-sealed",
+			"directions": 4
+		}
+  ]
+}

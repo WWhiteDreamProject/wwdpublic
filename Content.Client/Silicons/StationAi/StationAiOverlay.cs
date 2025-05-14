@@ -62,6 +62,15 @@ public sealed class StationAiOverlay : Overlay
         _entManager.TryGetComponent(playerEnt, out TransformComponent? playerXform);
         var gridUid = playerXform?.GridUid ?? EntityUid.Invalid;
         _entManager.TryGetComponent(gridUid, out MapGridComponent? grid);
+        if (grid == null && playerEnt != _player.LocalEntity) // WD edit start
+        {
+            playerEnt = _player.LocalEntity;
+            _entManager.TryGetComponent(playerEnt, out TransformComponent? newPlayerXform);
+            gridUid = newPlayerXform?.GridUid ?? EntityUid.Invalid;
+            _entManager.TryGetComponent(gridUid, out MapGridComponent? newGrid);
+            grid = newGrid;
+        } // WD edit end
+
         _entManager.TryGetComponent(gridUid, out BroadphaseComponent? broadphase);
 
         var invMatrix = args.Viewport.GetWorldToLocalMatrix();

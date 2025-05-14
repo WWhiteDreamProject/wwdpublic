@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: WeaponRifleAk
+  parent: BaseWeaponRifle
   id: WeaponLightRifleAK220
   name: AK-220
   description: Updated version of iconic weapon. Uses .30 rifle ammo.
@@ -11,11 +11,20 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _White/Objects/Weapons/Guns/Rifles/AK220.rsi
   - type: Gun
+    shotsPerBurst: 3
+    availableModes:
+    - SemiAuto
+    - Burst
+    - FullAuto
+    fireRate: 6
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
-    fireRate: 6
+    fireOnDropChance: 0.5
   - type: ChamberMagazineAmmoProvider
+    boltCatch: false
     soundRack:
       path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
   - type: ItemSlots
@@ -29,10 +38,21 @@
         whitelist:
           tags:
           - MagazineLightRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLightRifle
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeLightRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag
     steps: 5
-    zeroVisible: false
+    zeroVisible: true
   - type: Appearance
   - type: EmitSoundOnPickup
     sound:

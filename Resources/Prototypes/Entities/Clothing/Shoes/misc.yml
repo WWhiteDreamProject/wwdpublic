@@ -105,6 +105,7 @@
   - type: ClothingSpeedModifier
     walkModifier: 1.5
     sprintModifier: 1.5
+    requiresToggle: true # WD EDIT
   - type: Appearance
   - type: GenericVisualizer
     visuals:
