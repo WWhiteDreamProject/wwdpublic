@@ -14,7 +14,7 @@
     - state: glass
       map: [ "Glass" ]
   - type: RegulatorLamp
-    safeTemp: 200
+    safeTemp: 240
     unsafeTemp: 650
   - type: Damageable
     damageContainer: Inorganic

@@ -272,7 +272,7 @@
   name: IK-60 energy carbine
   parent: [BaseWeaponBattery, BaseWeaponOverheatLamp] # wwdp edit - overheating
   id: WeaponGunLaserCarbineAutomatic
-  description: "A 750 round semi-automatic energy carbine. Unstable power supply leads to increased load on regulator lamps, making them more prone to burning out."
+  description: "A 150 round semi-automatic energy carbine. Unstable power supply leads to increased load on regulator lamps, making them more prone to burning out."
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/energygun_carbine.rsi
@@ -300,7 +300,7 @@
     startingCharge: 3750 # wwdp edit
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunLaser
-    fireCost: 50 # wwdp edit
+    fireCost: 25 # wwdp edit
   - type: MagazineVisuals
     magState: mag
     steps: 5
