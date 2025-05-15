@@ -39,7 +39,6 @@ public partial class ChatBox : UIWidget
 
     private bool _chatFontEnabled; // WWDP EDIT
 
-
     public ChatBox()
     {
         RobustXamlLoader.Load(this);
@@ -67,7 +66,6 @@ public partial class ChatBox : UIWidget
 
     }
 
-
     private void UpdateChatStack(int value)
     {
         _chatStackAmount = value >= 0 ? value : 0;
@@ -93,7 +91,6 @@ public partial class ChatBox : UIWidget
         msg.Read = true;
 
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
-
 
         if (msg.IgnoreChatStack)
         {

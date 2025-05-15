@@ -275,7 +275,7 @@ public sealed class ChatUIController : UIController
         if (panel is null)
             return;
 
-        panel.Modulate = panel.Modulate.WithAlpha(opacity);
+        panel.Modulate = panel.Modulate.WithAlpha(opacity); // WWDP EDIT
     }
 
     public void SetMainChat(bool setting)

@@ -79,8 +79,10 @@ public sealed class ChannelSelectorButton : ChatPopupButton<ChannelSelectorPopup
 
     public void UpdateChannelSelectButton(ChatSelectChannel channel, Shared.Radio.RadioChannelPrototype? radio)
     {
+        // WWDP EDIT START
         var text = radio != null ? Loc.GetString(radio.Name) : ChannelSelectorName(channel);
         Text = $"[{text}]";
         Modulate = radio?.Color ?? ChannelSelectColor(channel);
+        // WWDP EDIT END
     }
 }

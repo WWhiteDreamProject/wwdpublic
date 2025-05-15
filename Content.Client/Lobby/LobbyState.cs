@@ -61,7 +61,7 @@ namespace Content.Client.Lobby
 
             UpdateLobbyUi();
 
-            // Lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed;
+            // Lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed; //WD EDIT
             Lobby.ManifestButton.OnPressed += OnManifestPressed;
             Lobby.ReadyButton.OnPressed += OnReadyPressed;
             Lobby.ReadyButton.OnToggled += OnReadyToggled;
@@ -70,8 +70,6 @@ namespace Content.Client.Lobby
             _gameTicker.InfoBlobUpdated += UpdateLobbyUi;
             _gameTicker.LobbyStatusUpdated += LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated += LobbyLateJoinStatusUpdated;
-
-            //PopulateChangelog(); // WD EDIT
         }
 
         protected override void Shutdown()

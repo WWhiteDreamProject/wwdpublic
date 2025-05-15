@@ -36,6 +36,7 @@ namespace Content.Client.UserInterface.Controls
             HelpButton.OnPressed += _ => Help();
             XamlChildren = ContentsContainer.Children;
 
+            // WWDP EDIT START
             OpenAnimation = new(
                 RecenterWindow,
                 this,
@@ -73,13 +74,16 @@ namespace Content.Client.UserInterface.Controls
             );
         }
 
+        // WWDP EDIT END
+
         protected override void Opened()
         {
             base.Opened();
-            OpenAnimation.PlayAnimation();
-            UnfadeAnimation.PlayAnimation();
+            OpenAnimation.PlayAnimation(); // WWDP EDIT
+            UnfadeAnimation.PlayAnimation(); // WWDP EDIT
         }
-
+        // WWDP EDIT START
+        // TODO: make FancyClose when not shitty timer appears
         private void FancyClose()
         {
             var pos = (Position + DesiredSize / 2) / Parent!.Size;
@@ -100,9 +104,9 @@ namespace Content.Client.UserInterface.Controls
 
         private void SetVisibility(float percent)
         {
-            Modulate = new(1,1,1,percent);
+            Modulate = new(1,1,1,Math.Clamp(percent,0,1));
         }
-
+        // WWDP EDIT END
         public string? Title
         {
             get => WindowTitle.Text;
@@ -120,7 +124,7 @@ namespace Content.Client.UserInterface.Controls
                 HelpButton.Visible = !HelpButton.Disabled;
             }
         }
-
+        // WWDP EDIT
         public void AppendStyleClass(string styleClass)
         {
             WindowsHeadingBackground.StyleClasses.Add(styleClass);

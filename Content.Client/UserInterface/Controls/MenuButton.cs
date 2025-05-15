@@ -32,6 +32,7 @@ public sealed class MenuButton : ContainerButton
 
     public string AppendStyleClass { set => AddStyleClass(value); }
     public Texture? Icon { get => _buttonIcon!.Texture; set => _buttonIcon!.Texture = value; }
+    // WWDP EDIT START
     public Vector2? IconScale
     {
         get => _buttonIcon?.TextureScale;
@@ -43,6 +44,7 @@ public sealed class MenuButton : ContainerButton
             _buttonIcon.TextureScale = value.Value;
         }
     }
+    // WWDP EDIT END
 
     public BoundKeyFunction BoundKey
     {

@@ -25,12 +25,12 @@ namespace Content.Client.Info
             var bugReport = cfg.GetCVar(CCVars.InfoLinksBugReport);
             if (bugReport != "")
             {
-                var reportButton = new Button {Text = Loc.GetString("server-info-report-button"), StyleClasses = { "NovaButton", }};
+                var reportButton = new Button {Text = Loc.GetString("server-info-report-button"), StyleClasses = { "NovaButton", }}; // WWDP EDIT
                 reportButton.OnPressed += args => uriOpener.OpenUri(bugReport);
                 buttons.AddChild(reportButton);
             }
 
-            var creditsButton = new Button {Text = Loc.GetString("server-info-credits-button"), StyleClasses = { "NovaButton", }};
+            var creditsButton = new Button {Text = Loc.GetString("server-info-credits-button"), StyleClasses = { "NovaButton", }}; // WWDP EDIT
             creditsButton.OnPressed += args => new CreditsWindow().Open();
             buttons.AddChild(creditsButton);
         }

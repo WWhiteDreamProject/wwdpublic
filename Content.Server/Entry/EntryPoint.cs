@@ -27,7 +27,6 @@ using Content.Server.Voting.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Kitchen;
 using Content.Shared.Localizations;
-using Content.StyleSheetify.Shared;
 using Robust.Server;
 using Robust.Server.ServerStatus;
 using Robust.Shared.Configuration;

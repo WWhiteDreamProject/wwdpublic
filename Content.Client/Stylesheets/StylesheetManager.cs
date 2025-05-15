@@ -15,11 +15,15 @@ namespace Content.Client.Stylesheets
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IContentStyleSheetManager _contentStyleSheetManager = default!;
 
+        private ISawmill _sawmill = default!;
+
         public Stylesheet SheetNano { get; private set; } = default!;
         public Stylesheet SheetSpace { get; private set; } = default!;
 
+        // WWDP EDIT START
         public void Initialize()
         {
+            _sawmill = Logger.GetSawmill("StylesheetManager");
             LoadStyles();
             _prototypeManager.PrototypesReloaded += OnPrototypesReloaded;
         }
@@ -71,9 +75,11 @@ namespace Content.Client.Stylesheets
                 }
             }
 
-            Logger.Debug($"Successfully merged style {prefix}: {mergedPropsCount} props merged and {mergedStylesCount} styles merged and {addedStylesCount} styles added!");
+            _sawmill.Debug($"Successfully merged style {prefix}: {mergedPropsCount} props merged and {mergedStylesCount} styles merged and {addedStylesCount} styles added!");
 
             return new(rules.Values.ToList());
         }
+
+        // WWDP EDIT END
     }
 }

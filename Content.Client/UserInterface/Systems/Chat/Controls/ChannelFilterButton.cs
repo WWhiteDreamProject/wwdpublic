@@ -21,6 +21,7 @@ public sealed class ChannelFilterButton : ChatPopupButton<ChannelFilterPopup>
         var filterTexture = IoCManager.Resolve<IResourceCache>()
             .GetTexture("/Textures/Interface/Nano/filter.svg.96dpi.png");
 
+        // WWDP EDIT START
         var boxContainer = new BoxContainer()
         {
             Orientation = BoxContainer.LayoutOrientation.Horizontal,
@@ -48,6 +49,8 @@ public sealed class ChannelFilterButton : ChatPopupButton<ChannelFilterPopup>
 
 
         AddChild(boxContainer);
+
+        // WWDP EDIT END
 
         _chatUIController.FilterableChannelsChanged += Popup.SetChannels;
         _chatUIController.UnreadMessageCountsUpdated += Popup.UpdateUnread;

@@ -1428,7 +1428,7 @@ namespace Content.Client.Stylesheets
                 // chat channel option selector
                 new StyleRule(new SelectorElement(typeof(Button), new[] {StyleClassChatChannelSelectorButton}, null, null), new[]
                 {
-                    new StyleProperty(Button.StylePropertyStyleBox, new StyleBoxEmpty()),
+                    new StyleProperty(Button.StylePropertyStyleBox, new StyleBoxEmpty()), // WWDP EDIT
                 }),
                 // chat filter button
                 new StyleRule(new SelectorElement(typeof(ContainerButton), new[] {StyleClassChatFilterOptionButton}, null, null), new[]
