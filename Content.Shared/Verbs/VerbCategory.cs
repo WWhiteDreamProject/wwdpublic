@@ -77,6 +77,9 @@ namespace Content.Shared.Verbs
             new("verb-categories-rotate", "/Textures/Interface/VerbIcons/refresh.svg.192dpi.png", iconsOnly: true)
                 { Columns = 5 };
 
+        public static readonly VerbCategory Safety =                                                     // WWDP EDIT
+            new("verb-categories-safety", "/Textures/_White/Interface/VerbIcons/fireselector.192dpi.png"); // WWDP EDIT
+
         public static readonly VerbCategory Smite =
             new("verb-categories-smite", "/Textures/Interface/VerbIcons/smite.svg.192dpi.png", iconsOnly: true)
                 { Columns = 6 };

@@ -117,147 +117,47 @@ public sealed partial class GunSystem
             _bulletRender.Type = capacity > 50 ? BulletRender.BulletType.Tiny : BulletRender.BulletType.Normal;
         }
     }
-	// WWDP - UNDER CONSTRUCTION - TO BE REFACTORED
-    public sealed class EnergyGunBatteryStatusControl : Control
+
+    // WWDP - DEFUNCT - Left just in case for upstream compatibility
+    public sealed class BoxesStatusControl : Control
     {
-        private readonly EntityUid _gun;
-        private readonly BaseBulletRenderer _bullets2;
-        private readonly Label _ammoLabel;
-        private readonly Label _heatLabel;
-        private readonly Label _lampLabel;
-        private readonly BatteryAmmoProviderComponent _component;
-        private readonly GunTemperatureRegulatorComponent? _regcomp;
-        private readonly GunTemperatureRegulatorSystem _regSys;
-        private readonly IEntityManager _entMan;
+        private readonly BatteryBulletRenderer _bullets;
+        private readonly Label _ammoCount;
 
-        private int _ammoCount = 0;
-        private float _heat = 0;
-
-
-        public EnergyGunBatteryStatusControl(BatteryAmmoProviderComponent comp)
+        public BoxesStatusControl()
         {
-            _entMan = IoCManager.Resolve<IEntityManager>();
-            _regSys = _entMan.System<GunTemperatureRegulatorSystem>();
-            _gun = comp.Owner;
-            _component = comp;
-            _ammoCount = comp.Shots;
             MinHeight = 15;
             HorizontalExpand = true;
             VerticalAlignment = Control.VAlignment.Center;
+
             AddChild(new BoxContainer
             {
-                Orientation = BoxContainer.LayoutOrientation.Vertical,
+                Orientation = BoxContainer.LayoutOrientation.Horizontal,
                 Children =
                 {
-                    (new BoxContainer
+                    (_bullets = new BatteryBulletRenderer
                     {
-                        Orientation = BoxContainer.LayoutOrientation.Horizontal,
-                        Children =
-                        {
-                            (_lampLabel = new Label
-                            {
-                                StyleClasses = { StyleNano.StyleClassItemStatus },
-                                HorizontalAlignment = HAlignment.Left,
-                                VerticalAlignment = VAlignment.Bottom,
-                                Text = $" ●"
-                            }),
-                            (_heatLabel = new Label
-                            {
-                                StyleClasses = { StyleNano.StyleClassItemStatus },
-                                HorizontalAlignment = HAlignment.Right,
-                                HorizontalExpand = true,
-                                VerticalAlignment = VAlignment.Bottom,
-                                Text = $"{_heat-273.15:0.00} °C "
-                            }),
-                        }
+                        Margin = new Thickness(0, 0, 5, 0),
+                        HorizontalExpand = true
                     }),
-                    (new BoxContainer
+                    (_ammoCount = new Label
                     {
-                        Orientation = BoxContainer.LayoutOrientation.Horizontal,
-                        Children =
-                        {
-                            (_bullets2 = new BarBulletRenderer
-                            {
-                                Rows = 4,
-                                MaxWidth = 75
-                            }),
-                            (_ammoLabel = new Label
-                            {
-                                StyleClasses = { StyleNano.StyleClassItemStatus },
-                                HorizontalExpand = true,
-                                HorizontalAlignment = HAlignment.Right,
-                                VerticalAlignment = VAlignment.Top,
-                                Text = $"x{_ammoCount:00}"
-                            }),
-                        }
-                    })
+                        StyleClasses = { StyleNano.StyleClassItemStatus },
+                        HorizontalAlignment = HAlignment.Right,
+                        VerticalAlignment = VAlignment.Bottom
+                    }),
                 }
             });
-
-            // if temp regulator component is missing on the gun, hide the temperature gauge and lamp display
-            // since they won't matter anyways
-            if(!_entMan.TryGetComponent(comp.Owner, out _regcomp))
-            {
-                _heatLabel.Visible = false;
-                _lampLabel.Visible = false;
-                return;
-            }
-            _lampLabel.Visible = _regcomp.RequiresLamp;
         }
 
-        private void UpdateTemp(float T)
+        public void Update(int count, int max)
         {
-            _heatLabel.Text = $"{T - 273.15:0.00} °C ";
-            float hue = 0; // full red
-            if (T < _regcomp!.TemperatureLimit) // assume _regcomp is not null since we'll check for it before calling this method
-                hue = 0.66f - (T) / (_regcomp.TemperatureLimit) * 0.55f;
-            // cyan at near 0K, orange at just below the safe temperature threshold, full red above threshold
-            var tempColor = Color.FromHsv(new Robust.Shared.Maths.Vector4(hue, 1, 1, 1));
-            _heatLabel.FontColorOverride = tempColor;
-            _lampLabel.FontColorOverride = tempColor;
-        }
+            _ammoCount.Visible = true;
 
-        protected override void PreRenderChildren(ref ControlRenderArguments args)
-        {
-            if (_bullets2.Capacity != _component.Capacity)
-                _bullets2.Capacity = _component.Capacity;
+            _ammoCount.Text = $"x{count:00}";
 
-            if (_bullets2.Count != _component.Shots)
-                _bullets2.Count = _component.Shots;
-
-            if(_ammoCount != _component.Shots)
-            {
-                _ammoCount = _component.Shots;
-                _ammoLabel.Text = $"x{_ammoCount:00}";
-            }
-
-            // skip all the temperature stuff if the related component is not present;
-            if(_regcomp is null)
-            {
-                return;
-            }
-
-            if (_regSys.GetLamp(_gun, out var lampComp, _regcomp))
-            {
-                if (lampComp is null || !lampComp.Intact)
-                {
-                    _lampLabel.Text = " ◌";
-                }
-                else
-                {
-                    const int divisions = 4;
-                    const float divisions_reverse = 1f / divisions;
-                    float howFucked = MathHelper.Clamp01((_regcomp.CurrentTemperature - lampComp.SafeTemperature) / (lampComp.UnsafeTemperature - lampComp.SafeTemperature));
-                    int howFuckedInt = Math.Min((int) (howFucked / divisions_reverse + 0.999), divisions); // instead of futher complicating the line above i'll just plop a min function here - i just need to offset the graph to the left
-                    _lampLabel.Text = $"{(lampComp.Intact ? " ●" : " ○")} {new string('!', howFuckedInt)}{new string('.', divisions - howFuckedInt)}";
-                }
-            }
-
-            if(_heat != _regcomp.CurrentTemperature)
-            {
-                _heat = _regcomp.CurrentTemperature;
-                UpdateTemp(_heat);
-            }
+            _bullets.Capacity = max;
+            _bullets.Count = count;
         }
     }
 
@@ -457,5 +357,160 @@ public sealed partial class GunSystem
         }
     }
 
+    // WWDP EDIT START
+    // here be shitcode
+    public sealed class EnergyGunBatteryStatusControl : Control
+    {
+        private readonly EntityUid _gun;
+        private readonly BarControl _ammoBar;
+        private readonly Label _ammoLabel;
+        private readonly Label _heatLabel;
+        private readonly Label _lampLabel;
+        private readonly BatteryAmmoProviderComponent _ammoProvider;
+        private readonly GunOverheatComponent? _regulator;
+        private readonly GunTemperatureRegulatorSystem _regSys;
+        private readonly IEntityManager _entMan;
+
+        private int _ammoCount = 0;
+        private bool _heatLimitEnabled = true;
+        private float _heatLimit = 0;
+        private float _heat = 0; // caching temperature and ammo counts so that the labels don't end up having their measures invalidated every frame
+                                // not sure if this makes any difference performance-wise, but it just seems like a good idea
+        public EnergyGunBatteryStatusControl(BatteryAmmoProviderComponent comp)
+        {
+            _entMan = IoCManager.Resolve<IEntityManager>();
+            _regSys = _entMan.System<GunTemperatureRegulatorSystem>();
+            _gun = comp.Owner;
+            _ammoProvider = comp;
+            _ammoCount = comp.Shots;
+            MinHeight = 15;
+            HorizontalExpand = true;
+            VerticalAlignment = Control.VAlignment.Center;
+            AddChild(new BoxContainer // outer box
+            {
+                Orientation = BoxContainer.LayoutOrientation.Vertical,
+                Children =
+                {
+                    (new BoxContainer // inner upper box, lamp indicator and temp gauge
+                    {
+                        Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                        Children =
+                        {
+                            (_lampLabel = new Label
+                            {
+                                StyleClasses = { StyleNano.StyleClassItemStatus },
+                                HorizontalAlignment = HAlignment.Left,
+                                VerticalAlignment = VAlignment.Bottom,
+                                Text = $" ●"
+                            }),
+                            (_heatLabel = new Label
+                            {
+                                StyleClasses = { StyleNano.StyleClassItemStatus },
+                                HorizontalAlignment = HAlignment.Right,
+                                HorizontalExpand = true,
+                                VerticalAlignment = VAlignment.Bottom,
+                                Text = $"{_heat-273.15:0.00} °C "
+                            }),
+                        }
+                    }),
+                    (new BoxContainer // inner lower box, the ammo display and counter
+                    {
+                        Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                        Children =
+                        {
+                            (_ammoBar = new BarControl
+                            {
+                                Rows = 4,
+                                MaxWidth = 75
+                            }),
+                            (_ammoLabel = new Label
+                            {
+                                StyleClasses = { StyleNano.StyleClassItemStatus },
+                                HorizontalExpand = true,
+                                HorizontalAlignment = HAlignment.Right,
+                                VerticalAlignment = VAlignment.Top,
+                                Text = $"x{_ammoCount:00}"
+                            }),
+                        }
+                    })
+                }
+            });
+
+            // if temp regulator component is missing on the gun, hide the temperature gauge and lamp display
+            // since they won't matter anyways
+            if (!_entMan.TryGetComponent(comp.Owner, out _regulator))
+            {
+                _heatLabel.Visible = false;
+                _lampLabel.Visible = false;
+                return;
+            }
+            _lampLabel.Visible = _regulator.RequiresLamp;
+        }
+
+        private void UpdateTemp(float K)
+        {
+            float celcius = K - 273.15f;
+            // we assume _regulator is not null since we'll check for it before calling this method
+            float maxTemp = _regulator!.MaxSafetyTemperature - 273.15f;
+            // if we can't change the safety limit, then there is no use in limiting the display
+            string currentTemp = _regulator.CanChangeSafety && celcius > maxTemp ? $"{maxTemp:0}+ °C" : $"{celcius:0} °C";
+            if(_regulator.SafetyEnabled)
+                _heatLabel.Text = $"{currentTemp}/{_regulator.TemperatureLimit - 273.15f:0} °C "; // MathF.Min to conserve a single digit for space in an otherwise overly cramped piece of UI.
+            else
+                _heatLabel.Text = currentTemp;
+            float hue = 0; // full red
+            const float hueoffset = 0.07f;
+            if (K < _regulator.TemperatureLimit)
+                hue = 0.66f - ((K) / (_regulator.TemperatureLimit) * 0.55f * (1f-hueoffset) + hueoffset);
+            // dark blue at 0K, green at 20 celcius, orange at just below the safe temperature threshold, full on red at and above threshold
+            var tempColor = Color.FromHsv(new Robust.Shared.Maths.Vector4(hue, 1, 1, 1));
+            _heatLabel.FontColorOverride = tempColor;
+            _lampLabel.FontColorOverride = tempColor;
+        }
+
+        protected override void PreRenderChildren(ref ControlRenderArguments args)
+        {
+            _ammoBar.Fill = (float)_ammoProvider.Shots / _ammoProvider.Capacity;
+
+            if (_ammoCount != _ammoProvider.Shots)
+            {
+                _ammoCount = _ammoProvider.Shots;
+                _ammoLabel.Text = $"x{_ammoCount:00}";
+            }
+
+            // skip all the temperature stuff if the related component is not present;
+            if (_regulator is null)
+            {
+                return;
+            }
+
+            if (_regSys.GetLamp(_gun, out var lampComp, _regulator))
+            {
+                _lampLabel.Text = lampComp is null || !lampComp.Intact ? " ◌" : " ●";
+                // the below just takes too much of already very limited space
+                //if (lampComp is null || !lampComp.Intact)
+                //{
+                //    _lampLabel.Text = " ◌";
+                //}
+                //else
+                //{
+                //    const int divisions = 4;
+                //    const float divisions_reverse = 1f / divisions;
+                //    float howFucked = _regSys.GetLampBreakChance(_regulator.CurrentTemperature, lampComp) * _regulator.LampBreakChanceMultiplier;
+                //    int howFuckedInt = Math.Min((int) (howFucked / divisions_reverse + 0.999), divisions);
+                //    _lampLabel.Text = $"{(lampComp.Intact ? " ●" : " ○")}{new string('|', howFuckedInt)}{new string('.', divisions - howFuckedInt)}";
+                //}
+            }
+
+            if (_heat != _regulator.CurrentTemperature || _heatLimit != _regulator.TemperatureLimit || _heatLimitEnabled != _regulator.SafetyEnabled)
+            {
+                _heatLimit = _regulator.TemperatureLimit;
+                _heat = _regulator.CurrentTemperature;
+                _heatLimitEnabled = _regulator.SafetyEnabled;
+                UpdateTemp(_heat);
+            }
+        }
+    }
+    // WWDP EDIT END
     #endregion
 }

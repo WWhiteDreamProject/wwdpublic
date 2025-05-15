@@ -1038,7 +1038,7 @@
     - MagazineNovaliteC1
     - WeaponRifleNovaliteC1
     - WeaponRifleGestio
-
+    - BasicRegulatorLamp
     # WWDP caseless ammo moved to tier 3 Arsenal research
     - MagazineCaselessRiflePractice # EE
     - MagazineCaselessRifle # EE

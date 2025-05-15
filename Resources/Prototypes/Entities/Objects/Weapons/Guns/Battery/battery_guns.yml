@@ -68,22 +68,39 @@
   - type: SurgeryTool
     endSound:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+
+# WWDP prototype
+- type: entity
+  id: BaseWeaponOverheat
+  abstract: True
+  components:
   - type: Temperature # WWDP
   - type: AtmosExposed # WWDP
-  - type: GunTemperatureRegulator # WWDP
-  - type: ItemSlotPicker # WWDP
-    itemSlots: 
-    - gun-regulator-lamp-slot
+  - type: GunOverheat # WWDP
+    temperatureLimit: 150
+
+# WWDP prototype
+- type: entity
+  id: BaseWeaponOverheatLamp
+  parent: BaseWeaponOverheat
+  abstract: True
+  components:
+  - type: GunOverheat
+    requiresLamp: true
+    canChangeSafety: true
+    temperatureLimit: 200
   - type: ItemSlots # WWDP
     slots:
       gun-regulator-lamp-slot:
         name: Regulator Lamp
+        swap: false
+        priority: 20
         startingItem: BasicRegulatorLamp
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
           components:
-            - GunRegulatorLamp
+            - RegulatorLamp
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -146,7 +163,7 @@
 
 - type: entity
   id: BaseWeaponBatterySmall
-  parent: BaseWeaponBattery
+  parent: [BaseWeaponBattery, BaseWeaponOverheat]
   abstract: true
   components:
   - type: Item
@@ -162,6 +179,8 @@
     bonusAngleIncreaseTurn: 0.4   # wwdp
     bonusAngleDecay: 80           # wwdp
     maxBonusAngle: 10             # wwdp
+  - type: Temperature # wwdp
+    AtmosTemperatureTransferEfficiency: 0.15 # default 0.1
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/taser.rsi
     quickEquip: false
@@ -234,7 +253,7 @@
   name: retro laser blaster
   parent: BaseWeaponBatterySmall
   id: WeaponLaserGun
-  description: A weapon using light amplified by the stimulated emission of radiation.
+  description: A weapon using light amplified by the stimulated emission of radiation. Bad design choices have lead to this model having subpar cooling capabilities.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
@@ -244,9 +263,13 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: GunOverheat # w wdp
+    temperatureLimit: 100
+  - type: Temperature # wwdp
+    AtmosTemperatureTransferEfficiency: 0.05
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletLaser # WWDP
-    fireCost: 62.5
+    fireCost: 15
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -267,11 +290,15 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: GunOverheat
+    requiresLamp: false
+    canChangeSafety: false
+    temperatureLimit: 125
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletLaser # WWDP
-    fireCost: 62.5
+    fireCost: 32.25
   - type: Battery
     maxCharge: 500
     startingCharge: 500
@@ -311,7 +338,7 @@
 
 - type: entity
   name: laser rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponOverheatLamp]
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:
@@ -333,7 +360,7 @@
     - SemiAuto
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletLaser # WWDP
-    fireCost: 10
+    fireCost: 12.5 # wwdp edit
   - type: Item # WWDP guns resize
     size: Huge
     shape:
@@ -345,9 +372,11 @@
   id: WeaponLaserCarbinePractice
   description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
   components:
+  - type: GunOverheat
+    heatCost: 2.5
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletLaserPractice # WWDP
-    fireCost: 62.5
+    fireCost: 6.25
   - type: StaticPrice
     price: 300
   - type: MeleeWeapon
@@ -404,7 +433,7 @@
 
 - type: entity
   name: pulse carbine
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponOverheat]
   id: WeaponPulseCarbine
   description: A high tech energy carbine favoured by the NT-ERT operatives.
   components:
@@ -416,6 +445,9 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: GunOverheat
+    temperatureLimit: 1000
+    heatCost: 100
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
   - type: Gun
@@ -428,7 +460,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletPulse # WWDP
-    fireCost: 200
+    fireCost: 100 # wwdp edit
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
@@ -439,7 +471,7 @@
 
 - type: entity
   name: pulse rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponOverheat]
   id: WeaponPulseRifle
   description: A weapon that is almost as infamous as its users.
   components:
@@ -457,9 +489,12 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: GunOverheat
+    temperatureLimit: 4500
+    heatCost: 100
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletPulse # WWDP
-    fireCost: 100
+    fireCost: 75 # wwdp edit
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
@@ -557,7 +592,7 @@
 
 - type: entity
   name: x-ray cannon
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponOverheat]
   id: WeaponXrayCannon
   description: An experimental weapon that uses concentrated x-ray energy against its target.
   components:
@@ -574,9 +609,12 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: GunOverheat
+    temperatureLimit: 650
+    heatCost: 100
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletXRay # WWDP
-    fireCost: 100
+    fireCost: 25 # wwdp edit
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -722,7 +760,7 @@
 
 - type: entity
   name: disabler SMG
-  parent: BaseWeaponBattery
+  parent: [BaseWeaponBattery, BaseWeaponOverheatLamp]
   id: WeaponDisablerSMG
   description: Advanced weapon that exhausts organic targets, weakening them until they collapse.
   components:
@@ -742,6 +780,8 @@
       - state: mag-unshaded-0
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
+  - type: GunOverheat
+    heatCost: 20
   - type: Gun
     bonusAngleIncreaseMove: 20    # wwdp
     bonusAngleIncreaseTurn: 0.4   # wwdp
@@ -838,7 +878,7 @@
 
 - type: entity
   name: antique laser pistol
-  parent: BaseWeaponBatterySmall
+  parent: [BaseWeaponBatterySmall, BaseWeaponOverheatLamp]
   id: WeaponAntiqueLaser
   description: This is an antique laser pistol. All craftsmanship is of the highest quality. It is decorated with assistant leather and chrome. The object menaces with spikes of energy.
   components:
@@ -852,15 +892,18 @@
       shader: unshaded
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
+  - type: GunOverheat
+    temperatureLimit: 200
+    heatCost: 35
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletLaser # WWDP
-    fireCost: 100
+    fireCost: 25 # wwdp edit
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 40
+    autoRechargeRate: 15
   - type: MagazineVisuals
     magState: mag
     steps: 5

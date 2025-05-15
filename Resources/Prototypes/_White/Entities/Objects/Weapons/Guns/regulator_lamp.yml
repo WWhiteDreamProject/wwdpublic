@@ -13,7 +13,9 @@
       map: [ "Internals" ]
     - state: glass
       map: [ "Glass" ]
-  - type: GunRegulatorLamp
+  - type: RegulatorLamp
+    safeTemp: 200
+    unsafeTemp: 650
   - type: Damageable
     damageContainer: Inorganic
   - type: DamageOnLand
@@ -74,5 +76,40 @@
 - type: entity
   parent: BaseRegulatorLamp
   id: BasicRegulatorLamp
-  name: basic regulator lamp
-  description: A 90s looking lamp. You're not sure what it really does, but it is required for operation by most energy weaponry.
+  name: standard-issue regulator lamp
+  description: A 90s looking lamp. You're not sure what it's really for, but without it most energy weapons will not work.
+
+- type: entity
+  name: regulator lamp box
+  parent: BoxCardboard
+  id: BoxBasicRegulatorLamp
+  description: The saviour of incompetent security officers sector-wide. Holds 6 spare regulator lamps.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BasicRegulatorLamp
+        amount: 6
+  - type: Storage
+    grid:
+    - 0,0,5,1
+    whitelist:
+      components:
+      - RegulatorLamp
+
+- type: entity
+  name: big regulator lamp box
+  parent: BoxCardboard
+  id: BoxBasicRegulatorLampBig
+  description: The saviour of incompetent security officers sector-wide. Holds 12 spare regulator lamps.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BasicRegulatorLamp
+        amount: 12
+  - type: Storage
+    grid:
+    - 0,0,5,3
+    whitelist:
+      components:
+      - RegulatorLamp
+      

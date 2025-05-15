@@ -18,32 +18,30 @@ public sealed class GunTemperatureRegulatorSystem : SharedGunTemperatureRegulato
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<GunTemperatureRegulatorComponent, OnTemperatureChangeEvent>(OnTemperatureChange);
+        SubscribeLocalEvent<GunOverheatComponent, OnTemperatureChangeEvent>(OnTemperatureChange);
     }
 
-    private void OnTemperatureChange(EntityUid uid, GunTemperatureRegulatorComponent comp, OnTemperatureChangeEvent args)
+    private void OnTemperatureChange(EntityUid uid, GunOverheatComponent comp, OnTemperatureChangeEvent args)
     {
         comp.CurrentTemperature = args.CurrentTemperature;
-        DirtyField<GunTemperatureRegulatorComponent>(uid, nameof(GunTemperatureRegulatorComponent.CurrentTemperature));
+        DirtyField<GunOverheatComponent>(uid, nameof(GunOverheatComponent.CurrentTemperature));
     }
 
-    protected override void OnGunShot(EntityUid uid, GunTemperatureRegulatorComponent comp, ref GunShotEvent args)
+    protected override void OnGunShot(EntityUid uid, GunOverheatComponent comp, ref GunShotEvent args)
     {
         CheckForBurnout(uid, comp, args.User);
         _temp.ForceChangeTemperature(uid, comp.CurrentTemperature + comp.HeatCost);
     }
 
-    private void CheckForBurnout(EntityUid uid, GunTemperatureRegulatorComponent comp, EntityUid shooter)
+    private void CheckForBurnout(EntityUid uid, GunOverheatComponent comp, EntityUid shooter)
     {
         if (!_slots.TryGetSlot(uid, comp.LampSlot, out var slot) ||
-            !TryComp<GunRegulatorLampComponent>(slot.Item, out var lampComp) ||
+            !TryComp<RegulatorLampComponent>(slot.Item, out var lampComp) ||
             !lampComp.Intact)
             return;
 
-        float breakChance = (comp.CurrentTemperature - lampComp.SafeTemperature) / lampComp.UnsafeTemperature * comp.LampBreakChanceMultiplier;
-        if (breakChance <= 0)
-            return;
-        if (breakChance >= 1 || _rng.Prob(breakChance))
+        float breakChance = GetLampBreakChance(comp.CurrentTemperature, lampComp) * comp.LampBreakChanceMultiplier;
+        if (_rng.Prob(breakChance))
         {
             BurnoutLamp(lampComp, shooter);
         }

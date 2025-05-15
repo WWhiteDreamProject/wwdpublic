@@ -41,11 +41,11 @@
 - type: latheRecipe
   id: BasicRegulatorLamp
   result: BasicRegulatorLamp
-  category: Weapons
-  completetime: 60
+  category: Ammo
+  completetime: 15
   materials:
-    Steel: 600
-    Glass: 300
+    Steel: 400
+    Glass: 400
 
 - type: latheRecipe
   id: Truncheon
