@@ -733,20 +733,21 @@
   categories:
   - UplinkAmmo
 
-- type: listing
-  id: UplinkHristovAmmoShrapnel
-  name: uplink-sniper-ammo-shrapnel-name
-  description: uplink-sniper-ammo-shrapnel-desc
-  productEntity: MagazineBoxAntiMaterielShrapnel
-  # WD EDIT START
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 2
-  cost:
-    Telecrystal: 7
-  # WD EDIT END
-  categories:
-  - UplinkAmmo
+#WWDP edit start - disable upstream shit
+#- type: listing
+#  id: UplinkHristovAmmoShrapnel
+#  name: uplink-sniper-ammo-shrapnel-name
+#  description: uplink-sniper-ammo-shrapnel-desc
+# productEntity: MagazineBoxAntiMaterielShrapnel
+#  # WD EDIT START
+#  discountCategory: usualDiscounts
+#  discountDownTo:
+#    Telecrystal: 2
+#  cost:
+#    Telecrystal: 7
+#  # WD EDIT END
+#  categories:
+#  - UplinkAmmo
 
 - type: listing
   id: UplinkAmmoBundle
@@ -1834,11 +1835,11 @@
   description: uplink-hardsuit-syndieelite-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
-  discountCategory: rareDiscounts
+  discountCategory: veryRareDiscounts #WWDP edit because buffed
   discountDownTo:
-    Telecrystal: 3 # WD EDIT
+    Telecrystal: 4 # WD EDIT
   cost:
-    Telecrystal: 12 # WD EDIT
+    Telecrystal: 16 # WD EDIT
   categories:
   - UplinkWearables
 

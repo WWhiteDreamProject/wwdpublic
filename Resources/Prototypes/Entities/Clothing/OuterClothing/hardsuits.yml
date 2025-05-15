@@ -185,7 +185,7 @@
       coefficients:
         Blunt: 0.7
         Slash: 0.7
-        Piercing: 0.5
+        Piercing: 0.7 #WWDP edit wtf going on here?
         Radiation: 0.3
         Caustic: 0.7
   - type: ClothingSpeedModifier # White Dream: Make almost all hardsuits slow a bit less
@@ -717,12 +717,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.2
-        Radiation: 0.01
-        Caustic: 0.5
+        Blunt: 0.4 #WWDP edit start like commander suit
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.5
+        Radiation: 0.1
+        Caustic: 0.4 #WWDP edit end
   - type: Item
     size: Huge
   - type: ClothingSpeedModifier
@@ -749,7 +749,9 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.2 #WWDP edit
+  - type: FireProtection
+    reduction: 1 #WWDP edit
   - type: Armor
     modifiers:
       coefficients:
@@ -994,9 +996,7 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
   - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
-  - type: StaminaDamageResistance
-    coefficient: 0.5 # 50%
+    clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer   #WWDP edit delete StaminaDamageResistance
   - type: TemperatureProtection
     coefficient: 0.001
   - type: FireProtection
@@ -1047,8 +1047,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
-  - type: StaminaDamageResistance
-    coefficient: 0.5 # 50%
+  #WWDP edit delete StaminaDamageResistance
 
 #Deathsquad
 - type: entity
@@ -1102,20 +1101,20 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.001
+    coefficient: 0.001 #WWDP edit
   - type: ExplosionResistance
-    damageCoefficient: 0.7
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.6
+        Blunt: 0.5 #WWDP edit start
+        Slash: 0.5
+        Piercing: 0.4
         Heat: 0.1
         Cold: 0.1
         Shock: 0.1
         Radiation: 0.1
-        Caustic: 0.1
+        Caustic: 0.1 #WWDP edit end
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
