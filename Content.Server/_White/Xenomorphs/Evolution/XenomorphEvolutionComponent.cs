@@ -1,30 +1,29 @@
 using Content.Shared.Actions;
 using Content.Shared.FixedPoint;
 using Content.Shared.RadialSelector;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._White.Xenomorphs.Evolution;
+namespace Content.Server._White.Xenomorphs.Evolution;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class XenomorphEvolutionComponent : Component
 {
     [DataField(required: true)]
     public List<RadialSelectorEntry> EvolvesTo = new();
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan EvolutionDelay = TimeSpan.FromSeconds(3);
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public FixedPoint2 Points;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public FixedPoint2 Max;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public FixedPoint2 PointsPerSecond = 0.5;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan EvolutionJitterDuration = TimeSpan.FromSeconds(10);
 
     [DataField]

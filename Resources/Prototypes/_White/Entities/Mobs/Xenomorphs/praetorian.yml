@@ -12,6 +12,8 @@
       offset: 0, 0.6
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
+  - type: Xenomorph
+    caste: Praetorian
   - type: HTN
     rootTask:
       task: XenomorphRangeCompound
@@ -81,8 +83,6 @@
   parent: BaseMobXenomorphPraetorian
   id: MobXenomorphPraetorian
   components:
-  - type: Xenomorph
-    greetingText: alien-praetorian-greeting
   - type: TailLash
     tailDamage:
       groups:
@@ -94,6 +94,10 @@
       types:
         Caustic: 7.5
   - type: ReproducingXenomorph
+  - type: XenomorphEvolution
+    evolutionActionId: ActionEvolutionQueen
+    evolvesTo:
+    - prototype: MobXenomorphQueen
   - type: ActionGrant
     actions:
     - ActionAlienTransferPlasma

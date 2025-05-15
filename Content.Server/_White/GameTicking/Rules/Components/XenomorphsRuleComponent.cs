@@ -4,7 +4,7 @@ namespace Content.Server._White.GameTicking.Rules.Components;
 public sealed partial class XenomorphsRuleComponent : Component
 {
     [ViewVariables]
-    public Dictionary<EntityUid, (string UserName, string EntityName)> Xenomorphs = new ();
+    public List<EntityUid> Xenomorphs = new ();
 
     #region Check
 

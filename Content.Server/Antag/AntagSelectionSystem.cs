@@ -350,7 +350,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
             _mind.TransferTo(curMind.Value, antagEnt, ghostCheckOverride: true);
             _role.MindAddRoles(curMind.Value, def.MindRoles, null, true);
-            ent.Comp.SelectedMinds.Add((curMind.Value, Name(player)));
+            ent.Comp.SelectedMinds.Add(curMind.Value, Name(player)); // WD EDIT
             SendBriefing(session, def.Briefing);
             // WWDP antag logging
             _adminLogger.Add(LogType.BecameAntagonist, LogImpact.High,
@@ -469,7 +469,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         if (ent.Comp.AgentName is not { } name)
             return;
 
-        args.Minds = ent.Comp.SelectedMinds;
+        args.Minds = ent.Comp.SelectedMinds.Select(kvp => (kvp.Key, kvp.Value)).ToList(); // WD EDIT
         args.AgentName = Loc.GetString(name);
     }
 }

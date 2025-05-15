@@ -22,18 +22,9 @@ public sealed class XenomorphSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<XenomorphComponent, PickupAttemptEvent>(OnPickup);
-        SubscribeLocalEvent<XenomorphComponent, PlayerAttachedEvent>(OnTakeRole);
 
         SubscribeLocalEvent<XenomorphComponent, StartCollideEvent>(OnAlienStartCollide);
         SubscribeLocalEvent<XenomorphComponent, EndCollideEvent>(OnAlienEndCollide);
-    }
-
-    private void OnTakeRole(EntityUid uid, XenomorphComponent component, PlayerAttachedEvent args)
-    {
-        if (string.IsNullOrEmpty(component.GreetingText))
-            return;
-
-        _chatMan.DispatchServerMessage(args.Player, Loc.GetString(component.GreetingText));
     }
 
     private void OnPickup(EntityUid uid, XenomorphComponent component, PickupAttemptEvent args)

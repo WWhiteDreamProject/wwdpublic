@@ -99,6 +99,24 @@
         },
         {
             "name": "whisper"
+        },
+        {
+            "name": "evolve"
+        },
+        {
+            "name": "evolve_action"
+        },
+        {
+            "name": "evolve_praetorian"
+        },
+        {
+            "name": "evolve_praetorian_action"
+        },
+        {
+            "name": "evolve_quean"
+        },
+        {
+            "name": "evolve_quean_action"
         }
     ]
 }

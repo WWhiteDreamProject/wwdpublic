@@ -16,6 +16,8 @@
       sprite: _White/Effects/cuffs.rsi
       state: aliencuff
       visible: false
+  - type: Xenomorph
+    caste: Sentinel
   - type: PlasmaVessel
     maxPlasma: 250
     plasma: 100
@@ -73,8 +75,6 @@
   parent: BaseMobXenomorphSentinel
   id: MobXenomorphSentinel
   components:
-  - type: Xenomorph
-    greetingText: alien-sentinel-greeting
   - type: XenomorphAcid
     damagePerSecond:
       types:

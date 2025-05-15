@@ -21,15 +21,37 @@
 - type: entity
   id: ActionEvolution
   name: Evolve
-  description: Become the best version of yourself
+  description: Evolve into a higher alien caste
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
     itemIconStyle: BigAction
     useDelay: 0
-    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolution }
-    event: !type:OpenEvolutionsActionEvent
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolve_action }
+    event: !type:EvolutionsActionEvent
+
+- type: entity
+  id: ActionEvolutionPraetorian
+  parent: ActionEvolution
+  name: Evolve to Praetorian
+  description: Evolve into the main defender of the hive
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolve_preatorian_action }
+  - type: BasePlasmaCostAction
+    plasmaCost: 500
+
+- type: entity
+  id: ActionEvolutionQueen
+  parent: ActionEvolutionPraetorian
+  name: Evolve to Queen
+  description: Produce an internal egg sac capable of spawning children. Only one queen can exist at a time.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolve_queen_action }
 
 # Structures action
 - type: entity
@@ -126,7 +148,7 @@
     event: !type:AcidActionEvent
   - type: BasePlasmaCostAction
     plasmaCost: 200
-    
+
 - type: entity
   id: ActionVomit
   name: action-vomit-name

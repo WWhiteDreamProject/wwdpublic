@@ -29,6 +29,8 @@
         enum.DamageStateVisualLayers.Base:
           True: { visible: false}
           False: { visible: true}
+  - type: Xenomorph
+    caste: Hunter
   - type: PlasmaVessel
     maxPlasma: 150
     plasma: 100
@@ -71,8 +73,6 @@
   parent: BaseMobXenomorphHunter
   id: MobXenomorphHunter
   components:
-  - type: Xenomorph
-    greetingText: alien-hunter-greeting
   - type: StealthOnWalk
     plasmaCost: 2.5
   - type: Stealth

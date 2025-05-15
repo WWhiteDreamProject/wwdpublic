@@ -13,6 +13,8 @@
       state: larva0
   - type: Body
     prototype: XenomorphTiny
+  - type: Xenomorph
+    caste: Larva
   - type: PlasmaVessel
     maxPlasma: 30
   - type: Inventory
@@ -99,8 +101,6 @@
   parent: BaseMobXenomorphLarva
   id: MobXenomorphLarva
   components:
-  - type: Xenomorph
-    greetingText: alien-larva-greeting
   - type: XenomorphEvolution
     max: 200
     evolvesTo:

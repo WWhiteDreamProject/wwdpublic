@@ -1,3 +1,4 @@
+using Content.Shared._White.Xenomorphs.Cast;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
@@ -12,9 +13,13 @@ public sealed partial class XenomorphEvolutionDoAfterEvent : DoAfterEvent
     [DataField]
     public EntProtoId Choice;
 
-    public XenomorphEvolutionDoAfterEvent(EntProtoId choice)
+    [DataField]
+    public ProtoId<XenomorphCastePrototype> Caste;
+
+    public XenomorphEvolutionDoAfterEvent(EntProtoId choice, ProtoId<XenomorphCastePrototype> caste)
     {
         Choice = choice;
+        Caste = caste;
     }
 
     public override DoAfterEvent Clone() => this;
@@ -26,15 +31,20 @@ public sealed partial class TransferPlasmaActionEvent : EntityTargetActionEvent
     public FixedPoint2 Amount = 50;
 }
 
-public sealed partial class OpenEvolutionsActionEvent : InstantActionEvent;
+public sealed partial class EvolutionsActionEvent : InstantActionEvent;
 
 public sealed partial class TailLashActionEvent : WorldTargetActionEvent;
 
 public sealed partial class AcidActionEvent : EntityTargetActionEvent;
 
-public sealed partial class AfterXenomorphEvolutionEvent(EntityUid evolvedInto, EntityUid evolvedFrom, string? userName)
+public sealed partial class AfterXenomorphEvolutionEvent(EntityUid evolvedInto, EntityUid mindUid, ProtoId<XenomorphCastePrototype> caste)
 {
     public EntityUid EvolvedInto = evolvedInto;
-    public EntityUid EvolvedFrom = evolvedFrom;
-    public string? UserName = userName;
+    public EntityUid MindUid = mindUid;
+    public ProtoId<XenomorphCastePrototype> Caste = caste;
+}
+
+public sealed partial class BeforeXenomorphEvolutionEvent(ProtoId<XenomorphCastePrototype> caste) : CancellableEntityEventArgs
+{
+    public ProtoId<XenomorphCastePrototype> Caste = caste;
 }

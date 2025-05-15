@@ -2,21 +2,24 @@ using Content.Server._White.GameTicking.Rules.Components;
 using Content.Server._White.Xenomorphs.Components;
 using Content.Server.Announcements.Systems;
 using Content.Server.Antag;
+using Content.Server.Antag.Components;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Nuke;
+using Content.Server.Popups;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._White.Xenomorphs;
+using Content.Shared._White.Xenomorphs.Cast;
 using Content.Shared._White.Xenomorphs.Components;
-using Content.Shared._White.Xenomorphs.Evolution;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -27,12 +30,15 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
 {
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AntagSelectionSystem _antagSelection = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NukeCodePaperSystem _nukeCodePaper = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly StationSystem _station = default!;
 
@@ -42,7 +48,8 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
 
         SubscribeLocalEvent<XenomorphsRuleComponent, AfterAntagEntitySelectedEvent>(AfterAntagEntitySelected);
 
-        SubscribeLocalEvent<XenomorphEvolutionComponent, AfterXenomorphEvolutionEvent>(AfterXenomorphEvolution);
+        SubscribeLocalEvent<XenomorphComponent, BeforeXenomorphEvolutionEvent>(BeforeXenomorphEvolution);
+        SubscribeLocalEvent<XenomorphComponent, AfterXenomorphEvolutionEvent>(AfterXenomorphEvolution);
 
         SubscribeLocalEvent<NukeExplodedEvent>(OnNukeExploded);
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnGameRunLevelChanged);
@@ -57,26 +64,53 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
         if (args.Session == null || !Exists(args.EntityUid))
             return;
 
-        component.Xenomorphs.Add(args.EntityUid, (args.Session.Name, MetaData(args.EntityUid).EntityName));
+        component.Xenomorphs.Add(args.EntityUid);
         component.AnnouncementTime ??= _timing.CurTime + _random.Next(component.MinTimeToAnnouncement, component.MaxTimeToAnnouncement);
     }
 
-    private void AfterXenomorphEvolution(
+    private void BeforeXenomorphEvolution(
         EntityUid uid,
-        XenomorphEvolutionComponent component,
-        AfterXenomorphEvolutionEvent args
+        XenomorphComponent component,
+        BeforeXenomorphEvolutionEvent args
     )
     {
-        if (string.IsNullOrEmpty(args.UserName) || !Exists(args.EvolvedInto))
+        if (!_protoManager.TryIndex(args.Caste, out var cast) || cast.MaxCount == 0)
             return;
-
-        var entityName = MetaData(args.EvolvedInto).EntityName;
 
         var query = QueryActiveRules();
         while (query.MoveNext(out _, out _, out var xenomorphsRule, out _))
         {
-            if (xenomorphsRule.Xenomorphs.ContainsKey(args.EvolvedFrom))
-                xenomorphsRule.Xenomorphs[args.EvolvedFrom] = (args.UserName, entityName);
+            if (!xenomorphsRule.Xenomorphs.Contains(uid)
+                || GetXenomorphs(xenomorphsRule.Xenomorphs, args.Caste).Count >= cast.MaxCount
+                || cast.NeedCasteDeath != null && GetXenomorphs(xenomorphsRule.Xenomorphs, cast.NeedCasteDeath).Count > 0)
+                continue;
+
+            return;
+        }
+
+        _popup.PopupEntity(Loc.GetString("xenomorphs-evolution-no-cast-slot", ("caste", Loc.GetString(cast.Name))), uid, uid);
+        args.Cancel();
+    }
+
+    private void AfterXenomorphEvolution(
+        EntityUid uid,
+        XenomorphComponent component,
+        AfterXenomorphEvolutionEvent args
+    )
+    {
+        var entityName = Name(args.EvolvedInto);
+
+        var query = QueryActiveRules();
+        while (query.MoveNext(out var ruleUid, out _, out var xenomorphsRule, out _))
+        {
+            if (xenomorphsRule.Xenomorphs.Remove(uid))
+                xenomorphsRule.Xenomorphs.Add(args.EvolvedInto);
+
+            if (!TryComp<AntagSelectionComponent>(ruleUid, out var antagSelection))
+                return;
+
+            if (antagSelection.SelectedMinds.ContainsKey(args.MindUid))
+                antagSelection.SelectedMinds[args.MindUid] = entityName;
         }
     }
 
@@ -169,9 +203,10 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
 
         args.AddLine(Loc.GetString("xenomorphs-list-start"));
 
-        foreach (var (userName, entityName) in component.Xenomorphs.Values)
+        var sessionData = _antagSelection.GetAntagIdentifiers(uid);
+        foreach (var (_, data, name) in sessionData)
         {
-            args.AddLine(Loc.GetString("xenomorphs-list-name-user", ("name", entityName), ("user", userName)));
+            args.AddLine(Loc.GetString("xenomorphs-list-name-user", ("name", name), ("user", data.UserName)));
         }
     }
 
@@ -226,7 +261,7 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
         var stationGrids = GetStationGrids();
 
         var humans = GetHumans(stationGrids);
-        var xenomorphs = GetXenomorphs();
+        var xenomorphs = GetXenomorphs(component.Xenomorphs);
 
         if (GetReproducingXenomorphs().Count == 0)
         {
@@ -258,7 +293,7 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
             return;
         }
 
-        if (component.WinType == WinType.XenoMinor
+        if (!component.Announced || component.WinType == WinType.XenoMinor
             || xenomorphs.Count / (float) (xenomorphs.Count + humans.Count) < component.XenomorphsShuttleCallPercentage)
             return;
 
@@ -288,7 +323,7 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
         var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent, MobStateComponent, TransformComponent>();
         while (players.MoveNext(out var uid, out _, out _, out var mobStateComponent, out var xform))
         {
-            if (!_mobState.IsAlive(uid, mobStateComponent)
+            if (_mobState.IsDead(uid, mobStateComponent)
                 || !includeOffStation && !stationGrids.Contains(xform.GridUid ?? EntityUid.Invalid))
                 continue;
 
@@ -298,15 +333,18 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
         return humans;
     }
 
-    private List<EntityUid> GetXenomorphs()
+    private List<EntityUid> GetXenomorphs(List<EntityUid> ruleXenomorphs, ProtoId<XenomorphCastePrototype>? cast = null)
     {
         var xenomorphs = new List<EntityUid>();
 
-        var players = AllEntityQuery<XenomorphComponent, ActorComponent, MobStateComponent>();
-        while (players.MoveNext(out var uid, out _, out _, out var mobStateComponent))
+        foreach(var xenomorph in ruleXenomorphs)
         {
-            if (_mobState.IsAlive(uid, mobStateComponent))
-                xenomorphs.Add(uid);
+            if (!TryComp<XenomorphComponent>(xenomorph, out var xenomorphComponent)
+                || _mobState.IsDead(xenomorph)
+                || cast.HasValue && xenomorphComponent.Caste != cast)
+                continue;
+
+            xenomorphs.Add(xenomorph);
         }
 
         return xenomorphs;

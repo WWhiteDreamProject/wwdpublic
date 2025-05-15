@@ -17,6 +17,8 @@
       sprite: _White/Effects/cuffs.rsi
       state: aliencuff
       visible: false
+  - type: Xenomorph
+    caste: Maid
   - type: PlasmaVessel
     plasmaPerSecondOffWeed: 5
   - type: HTN
@@ -79,8 +81,6 @@
   parent: BaseMobXenomorphMaid
   id: MobXenomorphMaid
   components:
-  - type: Xenomorph
-    greetingText: alien-maid-greeting
   - type: ActionGrant
     actions:
     - ActionAlienTransferPlasma

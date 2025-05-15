@@ -12,6 +12,8 @@
       offset: 0, 0.6
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
+  - type: Xenomorph
+    caste: Queen
   - type: PlasmaVessel
     plasmaPerSecondOffWeed: 1
     plasmaPerSecondOnWeed: 10
@@ -106,8 +108,6 @@
   parent: BaseMobXenomorphQueen
   id: MobXenomorphQueen
   components:
-  - type: Xenomorph
-    greetingText: alien-queen-greeting
   - type: XenomorphAcid
     damagePerSecond:
       types:
