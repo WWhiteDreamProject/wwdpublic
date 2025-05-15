@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Server._White.Xenomorphs.Plasma;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.DoAfter;
@@ -32,7 +31,6 @@ public sealed class XenomorphEvolutionSystem : EntitySystem
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly JitteringSystem _jitter = default!;
     [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly PlasmaSystem _plasma = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
