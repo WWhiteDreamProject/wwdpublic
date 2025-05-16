@@ -1,22 +1,7 @@
 using Content.Shared.Atmos;
-using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Destructible;
-using Content.Shared.Weapons.Ranged.Components;
-using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Maths;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
-using Robust.Shared.Network;
-using Robust.Shared.Player;
-using Robust.Shared.Random;
-using Robust.Shared.Serialization;
-using Robust.Shared.Timing;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Content.Shared._White.Guns;
 
@@ -26,17 +11,17 @@ public sealed partial class GunOverheatComponent : Component
     /// <summary>
     /// The user will not be able to set the safety above this value.
     /// Also limits the status control's current temperature display.
-    /// Increased by 273.15f upon component init.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public float MaxSafetyTemperature = 2000;
+    [DataField("maxSafetyTemperature"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public float MaxSafetyTemperatureCelcius { get => MaxSafetyTemperature - 273.15f; set => MaxSafetyTemperature = value + 273.15f; }
+    public float MaxSafetyTemperature = 2000 + 273.15f;
 
     /// <summary>
     /// If <see cref="SafetyEnabled"/> is true, prevents gun from shooting when above this temperature
-    /// Increased by 273.15f upon component init.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public float TemperatureLimit = 100;
+    [DataField("temperatureLimit"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public float TemperatureLimitCelcius { get => TemperatureLimit - 273.15f; set => TemperatureLimit = value + 273.15f; }
+    public float TemperatureLimit = 100 + 273.15f;
 
     /// <summary>
     /// If enabled, prevents the gun from shooting if its hotter than <see cref="TemperatureLimit"/>
@@ -74,4 +59,13 @@ public sealed partial class GunOverheatComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float HeatCost = 50;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public SoundSpecifier clickUpSound = new SoundPathSpecifier("/Audio/Machines/button.ogg", AudioParams.Default.WithPitchScale(1.25f));
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public SoundSpecifier clickSound = new SoundPathSpecifier("/Audio/Machines/button.ogg", AudioParams.Default);
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public SoundSpecifier clickDownSound = new SoundPathSpecifier("/Audio/Machines/button.ogg", AudioParams.Default.WithPitchScale(0.75f));
 }

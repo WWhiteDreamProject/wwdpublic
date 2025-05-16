@@ -1,22 +1,5 @@
-using Content.Shared.Atmos;
-using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Destructible;
-using Content.Shared.Weapons.Ranged.Components;
-using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
-using Robust.Shared.Network;
-using Robust.Shared.Player;
-using Robust.Shared.Random;
-using Robust.Shared.Serialization;
-using Robust.Shared.Timing;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Content.Shared._White.Guns;
 
@@ -28,13 +11,14 @@ public sealed partial class RegulatorLampComponent : Component
     /// Increased by 273.15f upon component init.
     /// </summary>
     [DataField("safeTemp", required: true), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public float SafeTemperatureCelcius { get => SafeTemperature - 273.15f; set => SafeTemperature = value + 273.15f; }
     public float SafeTemperature;
-
     /// <summary>
     /// Temperature at or above which the lamp is guaranteed to break immediately after shooting
     /// Increased by 273.15f upon component init.
     /// </summary>
     [DataField("unsafeTemp", required: true), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public float UnsafeTemperatureCelcius { get => UnsafeTemperature - 273.15f; set => UnsafeTemperature = value + 273.15f; }
     public float UnsafeTemperature;
 
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]

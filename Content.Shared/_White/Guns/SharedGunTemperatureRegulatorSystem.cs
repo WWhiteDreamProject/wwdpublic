@@ -1,28 +1,14 @@
-using Content.Shared.Atmos;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
-using Content.Shared.Maths;
-using Content.Shared.Temperature;
 using Content.Shared.Verbs;
-using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.GameStates;
-using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Content.Shared._White.Guns;
 
@@ -58,9 +44,11 @@ public abstract class SharedGunTemperatureRegulatorSystem : EntitySystem
     private void OnLampExamined(EntityUid uid, RegulatorLampComponent comp, ExaminedEvent args)
     {
         args.PushMarkup(Loc.GetString("gun-regulator-lamp-examine-intact", ("intact", comp.Intact)));
-        if (!args.IsInDetailsRange)
+
+        if (args.IsInDetailsRange)
             return;
-        args.PushMarkup(Loc.GetString("gun-regulator-lamp-examine-temperature-range", ("safetemp", MathF.Round(comp.SafeTemperature-273.15f)), ("unsafetemp", MathF.Round(comp.UnsafeTemperature-273.15f))));
+
+        args.PushMarkup(Loc.GetString("gun-regulator-lamp-examine-temperature-range", ("safetemp", MathF.Round(comp.SafeTemperature - 273.15f)), ("unsafetemp", MathF.Round(comp.UnsafeTemperature - 273.15f))));
     }
 
     private void OnGunExamined(EntityUid uid, GunOverheatComponent comp, ExaminedEvent args)
@@ -69,10 +57,10 @@ public abstract class SharedGunTemperatureRegulatorSystem : EntitySystem
             return;
 
         args.PushMarkup(Loc.GetString($"gun-regulator-examine-safety{(comp.CanChangeSafety ? "-toggleable" : "")}", ("enabled", comp.SafetyEnabled), ("limit", MathF.Round(comp.TemperatureLimit - 273.15f))));
-        if(comp.RequiresLamp)
+        if (comp.RequiresLamp)
         {
             int lampStatus = 0; // missing
-            if(GetLamp(uid, out var lamp, comp) && lamp is not null)
+            if (GetLamp(uid, out var lamp, comp) && lamp is not null)
                 lampStatus = lamp.Intact ? 2 : 1; // present : broken
             args.PushMarkup(Loc.GetString($"gun-regulator-examine-lamp", ("lampstatus", lampStatus)));
         }
@@ -97,47 +85,45 @@ public abstract class SharedGunTemperatureRegulatorSystem : EntitySystem
             return;
         }
 
-        if (comp.RequiresLamp)
-        {
-            if (GetLamp(uid, out var lampComp, comp) && lampComp is not null)
-            {
-                if (lampComp.Intact)
-                    return;
+        if (!comp.RequiresLamp)
+            return;
 
-                args.Cancelled = true;
-                args.Message = Loc.GetString($"gun-regulator-lamp-broken-popup");
+        if (GetLamp(uid, out var lampComp, comp) && lampComp is not null)
+        {
+            if (lampComp.Intact)
                 return;
-            }
+
             args.Cancelled = true;
-            args.Message = Loc.GetString($"gun-regulator-lamp-missing-popup");
+            args.Message = Loc.GetString($"gun-regulator-lamp-broken-popup");
             return;
         }
+
+        args.Cancelled = true;
+        args.Message = Loc.GetString($"gun-regulator-lamp-missing-popup");
+        return;
     }
 
     protected virtual void OnGunShot(EntityUid uid, GunOverheatComponent comp, ref GunShotEvent args)
     {
-        if(_timing.IsFirstTimePredicted)
+        if (_timing.IsFirstTimePredicted)
             comp.CurrentTemperature += comp.HeatCost;
     }
 
     public void AdjustTemperatureLimit(GunOverheatComponent comp, float tempChange)
     {
-        comp.TemperatureLimit = MathHelper.Clamp(comp.TemperatureLimit + tempChange, -250f + 273.15f , comp.MaxSafetyTemperature); // from -250C to MaxSafetyTemperature 
+        comp.TemperatureLimit = MathHelper.Clamp(comp.TemperatureLimit + tempChange, -250f + 273.15f, comp.MaxSafetyTemperature); // from -250C to MaxSafetyTemperature 
     }
 
-    private static SoundSpecifier clickUpSound = new SoundPathSpecifier("/Audio/Machines/button.ogg", AudioParams.Default.WithPitchScale(1.25f));
-    private static SoundSpecifier clickSound = new SoundPathSpecifier("/Audio/Machines/button.ogg", AudioParams.Default);
-    private static SoundSpecifier clickDownSound = new SoundPathSpecifier("/Audio/Machines/button.ogg", AudioParams.Default.WithPitchScale(0.75f));
     private void OnAltVerbs(EntityUid uid, GunOverheatComponent comp, GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanInteract || !args.CanComplexInteract || !args.CanAccess || !comp.CanChangeSafety)
             return;
 
-        AddVerb(-1, "fireselector-100up-verb", () => { if(!_timing.IsFirstTimePredicted) return; _audio.PlayPredicted(clickUpSound, uid, args.User); AdjustTemperatureLimit(comp, 100); });
-        AddVerb(-2, "fireselector-10up-verb", () => { if(!_timing.IsFirstTimePredicted) return; _audio.PlayPredicted(clickUpSound, uid, args.User); AdjustTemperatureLimit(comp, 10); });
-        AddVerb(-3, "fireselector-toggle-verb", () => { if(!_timing.IsFirstTimePredicted) return; _audio.PlayPredicted(clickSound, uid, args.User); comp.SafetyEnabled = !comp.SafetyEnabled; });
-        AddVerb(-4, "fireselector-10down-verb", () => { if(!_timing.IsFirstTimePredicted) return; _audio.PlayPredicted(clickDownSound, uid, args.User); AdjustTemperatureLimit(comp, -10); });
-        AddVerb(-5, "fireselector-100down-verb", () => { if (!_timing.IsFirstTimePredicted) return; _audio.PlayPredicted(clickDownSound, uid, args.User); AdjustTemperatureLimit(comp, -100); });
+        AddVerb(-1, "fireselector-100up-verb", () => _adjustSafety(comp, 100));
+        AddVerb(-2, "fireselector-10up-verb", () => _adjustSafety(comp, 10));
+        AddVerb(-3, "fireselector-toggle-verb", () => _toggleSafety(comp));
+        AddVerb(-4, "fireselector-10down-verb", () => _adjustSafety(comp, -10));
+        AddVerb(-5, "fireselector-100down-verb", () => _adjustSafety(comp, -100));
 
         void AddVerb(int priority, string text, Action act)
         {
@@ -152,13 +138,28 @@ public abstract class SharedGunTemperatureRegulatorSystem : EntitySystem
             });
         }
 
+        void _adjustSafety(GunOverheatComponent comp, float T)
+        {
+            if (!_timing.IsFirstTimePredicted)
+                return;
+            _audio.PlayPredicted(T >= 0 ? comp.clickUpSound : comp.clickDownSound, uid, args.User);
+            AdjustTemperatureLimit(comp, T);
+        }
+
+        void _toggleSafety(GunOverheatComponent comp)
+        {
+            if (!_timing.IsFirstTimePredicted)
+                return;
+            _audio.PlayPredicted(comp.clickSound, uid, args.User);
+            comp.SafetyEnabled = !comp.SafetyEnabled;
+        }
     }
 
     /// <summary>
     /// Returns false if called on something without GunTemperatureRegulatorComponent.
     /// Otherwise returns true.
     /// </summary>
-    public bool GetLamp(EntityUid gunUid,  out RegulatorLampComponent? lampComp, GunOverheatComponent? comp = null)
+    public bool GetLamp(EntityUid gunUid, out RegulatorLampComponent? lampComp, GunOverheatComponent? comp = null)
     {
         lampComp = null;
         if (!Resolve(gunUid, ref comp))
@@ -178,8 +179,7 @@ public abstract class SharedGunTemperatureRegulatorSystem : EntitySystem
         Dirty(lampUid, comp);
     }
 
-    public float GetLampBreakChance(float temp, RegulatorLampComponent comp) => MathHelper.Clamp01((temp - comp.SafeTemperature) / (comp.UnsafeTemperature - comp.SafeTemperature));
-    public float GetLampBreakChance(float temp, float multiplier, RegulatorLampComponent comp) => MathHelper.Clamp01((temp - comp.SafeTemperature) / (comp.UnsafeTemperature - comp.SafeTemperature) * multiplier);
+    public float GetLampBreakChance(float temp, RegulatorLampComponent comp, float multiplier = 1) => MathHelper.Clamp01((temp - comp.SafeTemperature) / (comp.UnsafeTemperature - comp.SafeTemperature) * multiplier);
 }
 
 

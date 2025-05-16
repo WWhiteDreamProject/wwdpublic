@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Client._White.Guns;
 using Content.Client._White.UI;
 using Content.Client.IoC;
@@ -13,6 +12,7 @@ using Robust.Client.Animations;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using System.Numerics;
 
 namespace Content.Client.Weapons.Ranged.Systems;
 
@@ -375,7 +375,7 @@ public sealed partial class GunSystem
         private bool _heatLimitEnabled = true;
         private float _heatLimit = 0;
         private float _heat = 0; // caching temperature and ammo counts so that the labels don't end up having their measures invalidated every frame
-                                // not sure if this makes any difference performance-wise, but it just seems like a good idea
+                                 // not sure if this makes any difference performance-wise, but it just seems like a good idea
         public EnergyGunBatteryStatusControl(BatteryAmmoProviderComponent comp)
         {
             _entMan = IoCManager.Resolve<IEntityManager>();
@@ -391,7 +391,7 @@ public sealed partial class GunSystem
                 Orientation = BoxContainer.LayoutOrientation.Vertical,
                 Children =
                 {
-                    (new BoxContainer // inner upper box, lamp indicator and temp gauge
+                    new BoxContainer // inner upper box, lamp indicator and temp gauge
                     {
                         Orientation = BoxContainer.LayoutOrientation.Horizontal,
                         Children =
@@ -412,8 +412,8 @@ public sealed partial class GunSystem
                                 Text = $"{_heat-273.15:0.00} °C "
                             }),
                         }
-                    }),
-                    (new BoxContainer // inner lower box, the ammo display and counter
+                    },
+                    new BoxContainer // inner lower box, the ammo display and counter
                     {
                         Orientation = BoxContainer.LayoutOrientation.Horizontal,
                         Children =
@@ -432,13 +432,13 @@ public sealed partial class GunSystem
                                 Text = $"x{_ammoCount:00}"
                             }),
                         }
-                    })
+                    }
                 }
             });
 
             // if temp regulator component is missing on the gun, hide the temperature gauge and lamp display
             // since they won't matter anyways
-            if (!_entMan.TryGetComponent(comp.Owner, out _regulator))
+            if (!_entMan.TryGetComponent(_gun, out _regulator))
             {
                 _heatLabel.Visible = false;
                 _lampLabel.Visible = false;
@@ -454,14 +454,14 @@ public sealed partial class GunSystem
             float maxTemp = _regulator!.MaxSafetyTemperature - 273.15f;
             // if we can't change the safety limit, then there is no use in limiting the display
             string currentTemp = _regulator.CanChangeSafety && celcius > maxTemp ? $"{maxTemp:0}+ °C" : $"{celcius:0} °C";
-            if(_regulator.SafetyEnabled)
+            if (_regulator.SafetyEnabled)
                 _heatLabel.Text = $"{currentTemp}/{_regulator.TemperatureLimit - 273.15f:0} °C "; // MathF.Min to conserve a single digit for space in an otherwise overly cramped piece of UI.
             else
                 _heatLabel.Text = currentTemp;
             float hue = 0; // full red
             const float hueoffset = 0.07f;
             if (K < _regulator.TemperatureLimit)
-                hue = 0.66f - ((K) / (_regulator.TemperatureLimit) * 0.55f * (1f-hueoffset) + hueoffset);
+                hue = 0.66f - ((K) / (_regulator.TemperatureLimit) * 0.55f * (1f - hueoffset) + hueoffset);
             // dark blue at 0K, green at 20 celcius, orange at just below the safe temperature threshold, full on red at and above threshold
             var tempColor = Color.FromHsv(new Robust.Shared.Maths.Vector4(hue, 1, 1, 1));
             _heatLabel.FontColorOverride = tempColor;
@@ -472,7 +472,7 @@ public sealed partial class GunSystem
         {
             _ammoBar.Fill = 0;
             if (_ammoProvider.Capacity > 0)
-                _ammoBar.Fill = (float)_ammoProvider.Shots / _ammoProvider.Capacity;
+                _ammoBar.Fill = (float) _ammoProvider.Shots / _ammoProvider.Capacity;
 
             if (_ammoCount != _ammoProvider.Shots)
             {
@@ -482,26 +482,11 @@ public sealed partial class GunSystem
 
             // skip all the temperature stuff if the related component is not present;
             if (_regulator is null)
-            {
                 return;
-            }
 
             if (_regSys.GetLamp(_gun, out var lampComp, _regulator))
             {
                 _lampLabel.Text = lampComp is null || !lampComp.Intact ? " ◌" : " ●";
-                // the below just takes too much of already very limited space
-                //if (lampComp is null || !lampComp.Intact)
-                //{
-                //    _lampLabel.Text = " ◌";
-                //}
-                //else
-                //{
-                //    const int divisions = 4;
-                //    const float divisions_reverse = 1f / divisions;
-                //    float howFucked = _regSys.GetLampBreakChance(_regulator.CurrentTemperature, lampComp) * _regulator.LampBreakChanceMultiplier;
-                //    int howFuckedInt = Math.Min((int) (howFucked / divisions_reverse + 0.999), divisions);
-                //    _lampLabel.Text = $"{(lampComp.Intact ? " ●" : " ○")}{new string('|', howFuckedInt)}{new string('.', divisions - howFuckedInt)}";
-                //}
             }
 
             if (_heat != _regulator.CurrentTemperature || _heatLimit != _regulator.TemperatureLimit || _heatLimitEnabled != _regulator.SafetyEnabled)

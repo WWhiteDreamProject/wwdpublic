@@ -14,8 +14,20 @@ namespace Content.Client._White.UI;
 public sealed class BarControl : Control
 {
     private float _fill;
-    public float Fill { get => _fill; set { DebugTools.Assert(value >= 0 && value <= 1); _fill = value; } }
-    public float Percentage { get => _fill*100f; set { Fill = value / 100; } }
+    public float Fill
+    {
+        get => _fill;
+        set
+        {
+            DebugTools.Assert(value is >= 0 and <= 1);
+            _fill = value;
+        }
+    }
+    public float Percentage
+    {
+        get => _fill * 100f;
+        set => Fill = value / 100;
+    }
     private int _rows = 1;
     public int Rows { get => _rows; set { DebugTools.Assert(value > 0); _rows = value; } }
 
@@ -34,9 +46,7 @@ public sealed class BarControl : Control
 
 
         float fillLeft = _fill * _rows;
-        float width = Size.X;
-        float height = Size.Y;
-        float rowHeight = height / _rows;
+        float rowHeight = Size.Y / _rows;
         // Draw by rows, bottom to top.
         bool alt = false;
         for (var row = _rows - 1; row >= 0; row--)
