@@ -373,8 +373,8 @@ uplink-hardsuit-carp-desc = Выглядит как обычный костюм 
 uplink-hardsuit-syndie-name = Скафандр Синдиката
 uplink-hardsuit-syndie-desc = Хорошо известный бронированный кроваво-красный костюм Синдиката, позволяющий выходить в открытый космос и устойчивый к пулям.
 
-uplink-hardsuit-syndieelite-name = Элитный скафандр Синдиката
-uplink-hardsuit-syndieelite-desc = Элитная версия кроваво-красного скафандра, отличающаяся повышенной мобильностью и огнеупорностью. Собственность Мародёров Горлекса.
+uplink-hardsuit-syndieelite-name = Скафандр Огнеметчика Синдиката
+uplink-hardsuit-syndieelite-desc = Огне и взрыво упроная версия кроваво-красного скафандра, отличающаяся повышенной мобильностью. Собственность Мародёров Горлекса.
 
 uplink-clothing-outer-hardsuit-juggernaut-name = Костюм джаггернаута Cybersun
 uplink-clothing-outer-hardsuit-juggernaut-desc = Сверхпрочная броня из материалов, испытанных в хромосферном комплексе Тау. Единственное, что будет замедлять вас - это сам костюм... и тазеры.

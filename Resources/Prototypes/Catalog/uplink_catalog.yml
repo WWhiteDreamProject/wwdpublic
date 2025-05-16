@@ -748,6 +748,7 @@
 #  # WD EDIT END
 #  categories:
 #  - UplinkAmmo
+#WWDP edit end
 
 - type: listing
   id: UplinkAmmoBundle
@@ -1835,13 +1836,20 @@
   description: uplink-hardsuit-syndieelite-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
-  discountCategory: veryRareDiscounts #WWDP edit because buffed
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4 # WD EDIT
+    Telecrystal: 3 # WD EDIT
   cost:
-    Telecrystal: 16 # WD EDIT
+    Telecrystal: 12 # WD EDIT
   categories:
   - UplinkWearables
+  #WWDP edit start
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  #WWDP edit end
 
 - type: listing
   id: UplinkClothingOuterHardsuitJuggernaut
