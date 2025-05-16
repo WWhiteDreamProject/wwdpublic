@@ -562,19 +562,22 @@
 - type: reaction
   id: Opporozidone
   minTemp: 400 #Maybe if a method of reducing reagent temp exists one day, this could be -50
-  reactants: #WWDP edit start
+  reactants:
+  #WWDP edit start
     Necrosol:
       amount: 2
     Doxarubixadone:
       amount: 2
   products:
-    Opporozidone: 2 #WWDP edit end
+    Opporozidone: 2
+  #WWDP edit end
 
 - type: reaction
   id: Necrosol
   impact: Medium
   minTemp: 370
-  reactants: #WWDP edit start
+  reactants:
+  #WWDP edit start
     Bicaridine:
       amount: 2
     Iron:
@@ -582,20 +585,23 @@
     Cryoxadone:
       amount: 1
   products:
-    Necrosol: 4 #WWDP edit end
+    Necrosol: 4
+  #WWDP edit end
 
 - type: reaction
   id: Aloxadone
   impact: Medium
   reactants:
-    Cryoxadone: #WWDP edit start
+    #WWDP edit start
+    Cryoxadone:
       amount: 1
     Dermaline:
       amount: 2
     Hydrogen:
       amount: 1
   products:
-      Aloxadone: 4 #WWDP edit end
+    Aloxadone: 4
+  #WWDP edit end
 
 - type: reaction
   id: Psicodine
