@@ -208,14 +208,6 @@
             ]
         },
         {
-            "name": "anomaly2",
-            "delays": [
-                [
-                    1
-                ]
-            ]
-        },
-        {
             "name": "miner_dock",
             "delays": [
                 [
