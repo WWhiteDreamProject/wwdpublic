@@ -15,4 +15,4 @@ SignTVRNeonOn = { ent-SignTVRNeon }
 
 SignTVRNeonOff = { ent-SignTVRNeon }
     .desc = { ent-SignTVRNeon.desc }
-    .suffix = Выклчен
+    .suffix = Выключен
