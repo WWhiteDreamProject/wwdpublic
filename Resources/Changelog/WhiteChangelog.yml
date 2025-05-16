@@ -2802,3 +2802,10 @@ Entries:
   id: 303
   time: '2025-05-10T07:44:48.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/493
+- author: Boevi4ok
+  changes:
+    - type: Tweak
+      message: сильно изменены характеристики препаратов для криогеники
+  id: 304
+  time: '2025-05-16T20:47:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/498
