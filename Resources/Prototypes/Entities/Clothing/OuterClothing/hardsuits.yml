@@ -711,9 +711,7 @@
   - type: TemperatureProtection
     coefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.2
-  - type: FireProtection
-    reduction: 1 # perfect protection like atmos firesuit for pyro tf2 ops
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
@@ -721,7 +719,7 @@
         Blunt: 0.5
         Slash: 0.5
         Piercing: 0.5
-        Heat: 0.2
+        Heat: 0.4
         Radiation: 0.01
         Caustic: 0.5
         #WWDP edit end
@@ -1130,15 +1128,15 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.001  # WWDP edit
+    coefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.7
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.6
         Heat: 0.1
         Cold: 0.1
         Shock: 0.1
