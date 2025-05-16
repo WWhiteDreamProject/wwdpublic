@@ -135,7 +135,7 @@
   description: A sign indicating the court.
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/Signs/32x32.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: court
 
 - type: entity

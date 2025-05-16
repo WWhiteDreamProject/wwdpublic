@@ -182,6 +182,62 @@
                     1
                 ]
             ]
+        },
+        {
+            "name": "court",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "shield",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "drones",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "anomaly2",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "miner_dock",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "toxins2",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "xenolab",
+            "delays": [
+                [
+                    1
+                ]
+            ]
         }
     ]
 }
