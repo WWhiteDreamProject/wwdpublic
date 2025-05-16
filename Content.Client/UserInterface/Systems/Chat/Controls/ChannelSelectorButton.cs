@@ -22,6 +22,7 @@ public sealed class ChannelSelectorButton : ChatPopupButton<ChannelSelectorPopup
     {
         IoCManager.InjectDependencies(this);
         Name = "ChannelSelector";
+        StyleBoxOverride = new StyleBoxEmpty();
 
         Popup.Selected += OnChannelSelected;
 
