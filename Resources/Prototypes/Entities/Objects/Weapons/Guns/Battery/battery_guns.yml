@@ -82,13 +82,20 @@
 # WWDP prototype
 - type: entity
   id: BaseWeaponOverheatLamp
-  parent: BaseWeaponOverheat
+  parent: [BaseWeaponOverheat, BaseWeaponOverheatLampSlot]
   abstract: True
   components:
   - type: GunOverheat
     requiresLamp: true
     canChangeSafety: true
     temperatureLimit: 240
+
+# WWDP prototype
+- type: entity
+  id: BaseWeaponOverheatLampSlot
+  parent: BaseWeaponOverheat
+  abstract: True
+  components:
   - type: ItemSlots
     slots:
       gun-regulator-lamp-slot:
@@ -180,7 +187,7 @@
     bonusAngleDecay: 80           # wwdp
     maxBonusAngle: 10             # wwdp
   - type: Temperature # wwdp
-    AtmosTemperatureTransferEfficiency: 0.15 # default 0.1
+    atmosTemperatureTransferEfficiency: 0.2 # default 0.1
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/taser.rsi
     quickEquip: false
@@ -264,9 +271,9 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: GunOverheat # wwdp
-    temperatureLimit: 100
+    temperatureLimit: 150
   - type: Temperature # wwdp
-    AtmosTemperatureTransferEfficiency: 0.05
+    atmosTemperatureTransferEfficiency: 0.05
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletLaser # WWDP
     fireCost: 15
@@ -358,6 +365,8 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+  - type: GunOverheat
+    heatCost: 35
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletLaser # WWDP
     fireCost: 12.5 # wwdp edit
@@ -713,7 +722,9 @@
         path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
     - type: ProjectileBatteryAmmoProvider
       proto: BulletDisabler
-      fireCost: 100
+      fireCost: 20
+    - type: GunOverheat
+      heatCost: 20
     - type: MagazineVisuals
       magState: mag
       steps: 5

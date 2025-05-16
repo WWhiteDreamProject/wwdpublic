@@ -26,6 +26,30 @@ public sealed class GunTemperatureRegulatorSystem : SharedGunTemperatureRegulato
         comp.CurrentTemperature = args.CurrentTemperature;
         DirtyField<GunOverheatComponent>(uid, nameof(GunOverheatComponent.CurrentTemperature));
     }
+    protected override void OnLampInit(EntityUid uid, RegulatorLampComponent comp, ComponentInit args)
+    {
+        comp.SafeTemperature += 273.15f; // celcius in prototypes, kelvin at runtime
+        comp.UnsafeTemperature += 273.15f; // celcius in prototypes, kelvin at runtime
+        if (comp.SafeTemperature > comp.UnsafeTemperature)
+        {
+            Log.Warning($"Entity {ToPrettyString(uid)} has SafeTemperature bigger than UnsafeTemperature. (s={comp.SafeTemperature}, u={comp.UnsafeTemperature}) Resolving by swapping them around.");
+            (comp.SafeTemperature, comp.UnsafeTemperature) = (comp.UnsafeTemperature, comp.SafeTemperature);
+        }
+
+        if (comp.SafeTemperature == comp.UnsafeTemperature)
+        {
+            Log.Error($"Entity {ToPrettyString(uid)} has equal SafeTemperature and UnsafeTemperature. (s={comp.SafeTemperature}, u={comp.UnsafeTemperature}) Resolving by increasing UnsafeTemperature by 0.01f.");
+            comp.UnsafeTemperature += 0.01f;
+        }
+        Dirty(uid, comp);
+    }
+
+    protected override void OnGunInit(EntityUid uid, GunOverheatComponent comp, ComponentInit args)
+    {
+        comp.TemperatureLimit += 273.15f; // celcius in prototypes, kelvin at runtime
+        comp.MaxSafetyTemperature += 273.15f; // celcius in prototypes, kelvin at runtime
+        Dirty(uid, comp);
+    }
 
     protected override void OnGunShot(EntityUid uid, GunOverheatComponent comp, ref GunShotEvent args)
     {
@@ -35,9 +59,7 @@ public sealed class GunTemperatureRegulatorSystem : SharedGunTemperatureRegulato
 
     private void CheckForBurnout(EntityUid uid, GunOverheatComponent comp, EntityUid shooter)
     {
-        if (!_slots.TryGetSlot(uid, comp.LampSlot, out var slot) ||
-            !TryComp<RegulatorLampComponent>(slot.Item, out var lampComp) ||
-            !lampComp.Intact)
+        if (!GetLamp(uid, out var lampComp, comp) || lampComp is null)
             return;
 
         float breakChance = GetLampBreakChance(comp.CurrentTemperature, comp.LampBreakChanceMultiplier, lampComp);

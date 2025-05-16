@@ -40,7 +40,7 @@ public sealed partial class GunSystem
         UpdateShots(uid, component, args.Charge, args.MaxCharge);
     }
 
-    private void UpdateShots(EntityUid uid, BatteryAmmoProviderComponent component)
+    public void UpdateShots(EntityUid uid, BatteryAmmoProviderComponent component) // WWDP EDIT - private -> public
     {
         if (!TryComp<BatteryComponent>(uid, out var battery))
             return;

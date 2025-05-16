@@ -44,6 +44,12 @@ public sealed partial class EnergyWeaponFireMode
     public float FireCost = 100;
 
     /// <summary>
+    /// The battery cost to fire the projectile associated with this firing mode
+    /// </summary>
+    [DataField]
+    public float HeatCost = 50;
+
+    /// <summary>
     /// The name of the selected firemode
     /// </summary>
     [DataField("name")]

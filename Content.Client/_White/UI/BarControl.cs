@@ -16,10 +16,13 @@ public sealed class BarControl : Control
     private float _fill;
     public float Fill { get => _fill; set { DebugTools.Assert(value >= 0 && value <= 1); _fill = value; } }
     public float Percentage { get => _fill*100f; set { Fill = value / 100; } }
-    public int Rows = 1;
+    private int _rows = 1;
+    public int Rows { get => _rows; set { DebugTools.Assert(value > 0); _rows = value; } }
 
-
-
+    public Color FillColor = Color.Red;
+    public Color EmptyColor = Color.DarkRed;
+    public Color AltFillColor = Color.InterpolateBetween(Color.Red, Color.Black, 0.125f);
+    public Color AltEmptyColor = Color.InterpolateBetween(Color.DarkRed, Color.Black, 0.075f);
 
     protected override void Draw(DrawingHandleScreen handle)
     {
@@ -29,26 +32,21 @@ public sealed class BarControl : Control
 
         //var countPerRow = CountPerRow(Size.X);
 
-        Color FillColor = Color.Red;
-        Color EmptyColor = Color.DarkRed;
-        Color AltFillColor = Color.InterpolateBetween(Color.Red, Color.Black, 0.125f);
-        Color AltEmptyColor = Color.InterpolateBetween(Color.DarkRed, Color.Black, 0.075f);
 
-        var pos = new Vector2();
-        float fillLeft = _fill * Rows;
+        float fillLeft = _fill * _rows;
         float width = Size.X;
         float height = Size.Y;
-        float rowHeight = height / Rows;
+        float rowHeight = height / _rows;
         // Draw by rows, bottom to top.
         bool alt = false;
-        for (var row = Rows-1; row >= 0; row--)
+        for (var row = _rows - 1; row >= 0; row--)
         {
             Color fill = alt ? FillColor : AltFillColor;
             Color empty = alt ? EmptyColor : AltEmptyColor;
             float rowFill = MathF.Min(fillLeft, 1);
             fillLeft -= 1;
             Vector2 topLeft = Position + new Vector2(0, rowHeight * row);
-            Vector2 bottomRight = topLeft + new Vector2(Size.X, Size.Y / Rows);
+            Vector2 bottomRight = topLeft + new Vector2(Size.X, Size.Y / _rows);
             
             handle.DrawRect(new UIBox2(topLeft, bottomRight), empty);
             if(rowFill > 0)

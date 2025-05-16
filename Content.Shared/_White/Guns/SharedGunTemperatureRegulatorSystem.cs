@@ -12,6 +12,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
@@ -50,17 +51,9 @@ public abstract class SharedGunTemperatureRegulatorSystem : EntitySystem
         SubscribeLocalEvent<GunOverheatComponent, ComponentInit>(OnGunInit);
     }
 
-    private void OnLampInit(EntityUid uid, RegulatorLampComponent comp, ComponentInit args)
-    {
-        comp.SafeTemperature += 273.15f; // celcius in prototypes, kelvin at runtime
-        comp.UnsafeTemperature += 273.15f; // celcius in prototypes, kelvin at runtime
-    }
+    protected virtual void OnLampInit(EntityUid uid, RegulatorLampComponent comp, ComponentInit args) { }
 
-    private void OnGunInit(EntityUid uid, GunOverheatComponent comp, ComponentInit args)
-    {
-        comp.TemperatureLimit += 273.15f; // celcius in prototypes, kelvin at runtime
-        comp.MaxSafetyTemperature += 273.15f; // celcius in prototypes, kelvin at runtime
-    }
+    protected virtual void OnGunInit(EntityUid uid, GunOverheatComponent comp, ComponentInit args) { }
 
     private void OnLampExamined(EntityUid uid, RegulatorLampComponent comp, ExaminedEvent args)
     {

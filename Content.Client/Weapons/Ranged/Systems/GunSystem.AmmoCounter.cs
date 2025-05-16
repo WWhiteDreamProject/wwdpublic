@@ -470,7 +470,9 @@ public sealed partial class GunSystem
 
         protected override void PreRenderChildren(ref ControlRenderArguments args)
         {
-            _ammoBar.Fill = (float)_ammoProvider.Shots / _ammoProvider.Capacity;
+            _ammoBar.Fill = 0;
+            if (_ammoProvider.Capacity > 0)
+                _ammoBar.Fill = (float)_ammoProvider.Shots / _ammoProvider.Capacity;
 
             if (_ammoCount != _ammoProvider.Shots)
             {

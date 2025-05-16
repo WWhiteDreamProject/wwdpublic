@@ -38,15 +38,17 @@
     startingCharge: 1000
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 5 # wwdp edit
+    fireCost: 16 # wwdp edit
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 5 # wwdp edit
+      fireCost: 16 # wwdp edit
+      heatCost: 20 # WWDP
       name: disable
       state: disabler
     - proto: BulletLaser # WWDP
       fireCost: 25 # wwdp edit
+      heatCost: 70 # WWDP
       name: lethal
       state: lethal
   - type: MagazineVisuals
@@ -64,7 +66,7 @@
 
 - type: entity
   name: x-01 multiphase energy gun
-  parent: BaseWeaponBatterySmall
+  parent: [BaseWeaponBatterySmall, BaseWeaponOverheat]
   id: WeaponEnergyGunMultiphase
   description: This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
   components:
@@ -91,15 +93,17 @@
     startingCharge: 1000
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 50
+    fireCost: 15
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 50
+      fireCost: 20
+      heatCost: 25
       name: disable
       state: disabler
     - proto: BulletLaser # WWDP
-      fireCost: 100
+      fireCost: 25
+      heatCost: 60
       name: lethal
       state: lethal
   - type: MagazineVisuals
@@ -149,15 +153,17 @@
     startingCharge: 500
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 50
+    fireCost: 30
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 50
+      fireCost: 25
+      heatCost: 20
       name: disable
       state: disabler
     - proto: BulletEnergyGunLaser
-      fireCost: 100
+      fireCost: 31.25
+      heatCost: 50
       name: lethal
       state: lethal
   - type: MagazineVisuals
@@ -225,11 +231,13 @@
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 50
+      fireCost: 25
+      heatCost: 20
       name: disable
       state: disabler
     - proto: BulletEnergyGunLaser
-      fireCost: 100
+      fireCost: 31.25
+      heatCost: 50
       name: lethal
       state: lethal
   - type: MagazineVisuals
