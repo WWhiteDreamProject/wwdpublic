@@ -123,9 +123,6 @@ public abstract partial class SharedGunSystem
         public int Shots;
         public int MaxShots;
         public float FireCost;
-        public float HeatCost; // WWDP EDIT
-        public float HeatLimit; // WWDP EDIT
-        public float CurrentTemp; // WWDP EDIT
         public string? Prototype; // Shitmed Change
     }
 }

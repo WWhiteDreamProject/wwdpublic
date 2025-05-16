@@ -186,6 +186,7 @@ public abstract class SharedGunTemperatureRegulatorSystem : EntitySystem
     }
 
     public float GetLampBreakChance(float temp, RegulatorLampComponent comp) => MathHelper.Clamp01((temp - comp.SafeTemperature) / (comp.UnsafeTemperature - comp.SafeTemperature));
+    public float GetLampBreakChance(float temp, float multiplier, RegulatorLampComponent comp) => MathHelper.Clamp01((temp - comp.SafeTemperature) / (comp.UnsafeTemperature - comp.SafeTemperature) * multiplier);
 }
 
 

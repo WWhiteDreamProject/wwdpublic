@@ -28,14 +28,14 @@ public sealed partial class RegulatorLampComponent : Component
     /// Increased by 273.15f upon component init.
     /// </summary>
     [DataField("safeTemp", required: true), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public float SafeTemperature = 450;
+    public float SafeTemperature;
 
     /// <summary>
     /// Temperature at or above which the lamp is guaranteed to break immediately after shooting
     /// Increased by 273.15f upon component init.
     /// </summary>
     [DataField("unsafeTemp", required: true), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public float UnsafeTemperature = 750;
+    public float UnsafeTemperature;
 
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool Intact = true;

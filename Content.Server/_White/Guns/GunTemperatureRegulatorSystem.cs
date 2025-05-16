@@ -40,7 +40,7 @@ public sealed class GunTemperatureRegulatorSystem : SharedGunTemperatureRegulato
             !lampComp.Intact)
             return;
 
-        float breakChance = GetLampBreakChance(comp.CurrentTemperature, lampComp) * comp.LampBreakChanceMultiplier;
+        float breakChance = GetLampBreakChance(comp.CurrentTemperature, comp.LampBreakChanceMultiplier, lampComp);
         if (_rng.Prob(breakChance))
         {
             BurnoutLamp(lampComp, shooter);
