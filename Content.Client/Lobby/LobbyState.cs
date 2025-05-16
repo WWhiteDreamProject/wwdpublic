@@ -1,13 +1,9 @@
-using System.Linq;
-using System.Numerics;
 using Content.Client.Audio;
-using Content.Client.Changelog;
 using Content.Client.GameTicking.Managers;
 using Content.Client.LateJoin;
 using Content.Client.Lobby.UI;
 using Content.Client.Message;
 using Content.Client.ReadyManifest;
-using Content.Client.Resources;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Client.Voting;
 using Robust.Client;
@@ -16,7 +12,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
+
 
 namespace Content.Client.Lobby
 {
@@ -29,7 +25,6 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
-        [Dependency] private readonly ChangelogManager _changelog = default!; // WD EDIT
 
         private ISawmill _sawmill = default!;
         private ClientGameTicker _gameTicker = default!;
@@ -265,27 +260,7 @@ namespace Content.Client.Lobby
 
             _consoleHost.ExecuteCommand($"toggleready {newReady}");
         }
-
-        private TextureRect GetIcon(ChangelogManager.ChangelogLineType type)
-        {
-            var (file, color) = type switch
-            {
-                ChangelogManager.ChangelogLineType.Add => ("plus.svg.192dpi.png", "#6ED18D"),
-                ChangelogManager.ChangelogLineType.Remove => ("minus.svg.192dpi.png", "#D16E6E"),
-                ChangelogManager.ChangelogLineType.Fix => ("bug.svg.192dpi.png", "#D1BA6E"),
-                ChangelogManager.ChangelogLineType.Tweak => ("wrench.svg.192dpi.png", "#6E96D1"),
-                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
-            };
-
-            return new TextureRect
-            {
-                Texture = _resourceCache.GetTexture(new ResPath($"/Textures/Interface/Changelog/{file}")),
-                VerticalAlignment = Control.VAlignment.Top,
-                TextureScale = new Vector2(0.5f, 0.5f),
-                Margin = new Thickness(2, 4, 6, 2),
-                ModulateSelfOverride = Color.FromHex(color)
-            };
-        }
+        // Removed some function for icon. If needed then get it from git version
         // WD EDIT END
     }
 }
