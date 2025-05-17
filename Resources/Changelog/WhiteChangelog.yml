@@ -2822,3 +2822,14 @@ Entries:
   id: 305
   time: '2025-05-17T11:27:25.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/494
+- author: Spatison
+  changes:
+    - type: Remove
+      message: В скафандрах больше нету встроенных магнитных ботинок и джетпака
+    - type: Remove
+      message: Удален магнитный плащ
+    - type: Remove
+      message: Боевые магнитные ботинки больше не дают уменьшение время стана
+  id: 306
+  time: '2025-05-17T11:27:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/495
