@@ -63,7 +63,7 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
             || bateria.CurrentCharge <= 0)
             return;
 
-        _lightning.ShootRandomLightnings(uid, 2, 4);
+        _lightning.ShootRandomLightnings(uid, 2, 4, hitCoordsChance: 0);
         _powerCell.TryUseCharge(uid, bateria.CurrentCharge);
 
     }

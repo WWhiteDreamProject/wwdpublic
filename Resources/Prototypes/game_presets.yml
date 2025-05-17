@@ -60,6 +60,7 @@
     - BloodCult
     - RampingStationEventScheduler
     - LavalandStormScheduler # Lavaland Change
+    - Wizard
 
 - type: gamePreset
   id: Extended
