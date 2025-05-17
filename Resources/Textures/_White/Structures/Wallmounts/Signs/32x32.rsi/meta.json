@@ -5,7 +5,7 @@
     "y": 32
   },
   "license": "CC-BY-SA-4.0",
-  "copyright": "Taken from CEV-Eris and edited by Gersoon. Directional taken from ss13",
+  "copyright": "Taken from CEV-Eris and edited by Gersoon. Directional taken from ss13. tvr_sign1 by @purplepigeon580 (Discord)",
     "states": [
         {
             "name": "ame",
@@ -161,6 +161,70 @@
         },
         {
             "name": "toilet",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "tvr_sign1",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "tvr_sign2",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "court",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "shield",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "drones",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "miner_dock",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "toxins2",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "xenolab",
             "delays": [
                 [
                     1
