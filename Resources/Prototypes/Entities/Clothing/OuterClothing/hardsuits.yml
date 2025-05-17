@@ -711,7 +711,7 @@
   - type: TemperatureProtection
     coefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.2
   - type: Armor
     modifiers:
       coefficients:

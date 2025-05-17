@@ -68,7 +68,7 @@
     slots:
       cell_slot: true
   - type: PowerCellDraw
-    drawRate: 0
+    drawRate: 1
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: false
