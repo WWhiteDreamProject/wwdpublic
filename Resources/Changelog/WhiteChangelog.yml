@@ -2809,3 +2809,16 @@ Entries:
   id: 304
   time: '2025-05-16T20:47:43.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/498
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Космический ветер должен стать лучше
+    - type: Tweak
+      message: Вещи снова отскакивают при попадании
+    - type: Fix
+      message: Модсьют инфилтрятор теперь можно активировать
+    - type: Fix
+      message: Втыкаемые снаряды вновь наносят урон при попадании
+  id: 305
+  time: '2025-05-17T11:27:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/494
