@@ -2833,3 +2833,10 @@ Entries:
   id: 306
   time: '2025-05-17T11:27:53.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/495
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Зрение генокрада вновь работает так должно
+  id: 307
+  time: '2025-05-17T11:29:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/496
