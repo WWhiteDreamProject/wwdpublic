@@ -1,0 +1,11 @@
+﻿- type: inventoryTemplate
+  id: alien
+
+- type: inventoryTemplate
+  id: alien_praetorian
+
+- type: inventoryTemplate
+  id: alien_queen
+
+- type: inventoryTemplate
+  id: larva

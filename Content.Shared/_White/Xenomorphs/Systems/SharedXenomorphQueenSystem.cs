@@ -1,0 +1,39 @@
+﻿using Content.Shared._White.Xenomorphs.Components;
+using Content.Shared.Actions;
+using Content.Shared.Popups;
+using Content.Shared.Stacks;
+using Robust.Shared.GameObjects;
+using Robust.Shared.Network;
+
+namespace Content.Shared._White.Xenomorphs.Systems;
+
+public sealed class SharedXenomorphQueenSystem : EntitySystem
+{
+    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<XenomorphQueenComponent, ComponentStartup>(OnCompInit);
+        SubscribeLocalEvent<XenomorphQueenComponent, ComponentShutdown>(OnCompRemove);
+
+    }
+
+    /// <summary>
+    /// Giveths the action to preform making acid on the entity
+    /// </summary>
+    private void OnCompInit(EntityUid uid, XenomorphQueenComponent comp, ComponentStartup args)
+    {
+        _actionsSystem.AddAction(uid, ref comp.ActionEntity, comp.Action);
+    }
+
+    /// <summary>
+    /// Takeths away the action to preform making acid from the entity.
+    /// </summary>
+    private void OnCompRemove(EntityUid uid, XenomorphQueenComponent comp, ComponentShutdown args)
+    {
+        _actionsSystem.RemoveAction(uid, comp.ActionEntity);
+    }
+}
+
