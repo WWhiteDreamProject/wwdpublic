@@ -65,7 +65,7 @@
     ContainerButton.APCControlButton:normal:
       modulate-self: "#FFFFFF"
     # ProgressBar
-    ProgressBar:
+    ProgressBar.ApcBar:
       background:
         valueType: Robust.Client.Graphics.StyleBoxTexture
         value:
