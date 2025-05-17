@@ -2847,3 +2847,10 @@ Entries:
   id: 308
   time: '2025-05-17T11:31:49.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/502
+- author: Cinkafox
+  changes:
+    - type: Fix
+      message: new ui
+  id: 309
+  time: '2025-05-17T12:32:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/504
