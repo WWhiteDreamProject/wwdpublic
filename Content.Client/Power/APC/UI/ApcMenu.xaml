@@ -26,6 +26,7 @@
                     <!-- Charge Progress Bar-->
                     <Label Name="ChargePercentage" StyleClasses="APCLabel" Margin="10 15 0 0" Text="0 %" />
                     <ProgressBar Name="ChargeBar"
+                                 StyleClasses="ApcBar"
                                  HorizontalExpand="True"
                                  MinValue="0"
                                  MaxValue="1"
