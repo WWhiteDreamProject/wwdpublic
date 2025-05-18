@@ -6,17 +6,19 @@
   components:
   - type: Eye
     visMask:
-    - TelegnosticProjection
-    - PsionicInvisibility
-    - Ghost
-    - Normal
-    - Ethereal
-    - AGhost # WD EDIT
+      - TelegnosticProjection
+      - PsionicInvisibility
+      - Ghost
+      - Normal
+      - Ethereal
+      - AGhost # WD EDIT
   - type: ContentEye
-    maxZoom: 10, 10
+    maxZoom: 10, 10 # WD EDIT
+  # WD EDIT START
   - type: MovementSpeedModifier
     baseSprintSpeed: 20
     baseWalkSpeed: 10
+  # WD EDIT END
   - type: Tag
     tags:
     - InstantDoAfters
@@ -63,7 +65,7 @@
       enum.CrewMonitoringUIKey.Key:
         type: CrewMonitoringBoundUserInterface
       enum.GeneralStationRecordConsoleKey.Key:
-        # who the fuck named this bruh
+      # who the fuck named this bruh
         type: GeneralStationRecordConsoleBoundUserInterface
   - type: IntrinsicUI
     uis:
@@ -111,6 +113,7 @@
     prototypes: [ MobAghostGear ]
   - type: SupermatterImmune
   - type: BypassInteractionChecks
+  - type: PsionicInsulation
   # WD EDIT START
   - type: ShowHealthBars
     damageContainers:
@@ -148,7 +151,7 @@
     icon: { sprite: _White/Interface/Actions/consoles.rsi, state: communication } # WWDP-Edit
     iconOn: _White/Interface/Actions/consoles.rsi/communication.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
-    priority: -10
+    priority: -4
     event: !type:ToggleIntrinsicUIEvent { key: enum.CommunicationsConsoleUiKey.Key }
 
 - type: entity
@@ -161,7 +164,7 @@
     icon: { sprite: _White/Interface/Actions/consoles.rsi, state: radar } # WWDP-Edit
     iconOn: _White/Interface/Actions/consoles.rsi/radar.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
-    priority: -10
+    priority: -7
     event: !type:ToggleIntrinsicUIEvent { key: enum.RadarConsoleUiKey.Key }
 
 - type: entity
@@ -187,7 +190,7 @@
     icon: { sprite: _White/Interface/Actions/consoles.rsi, state: crew } # WWDP-Edit
     iconOn: _White/Interface/Actions/consoles.rsi/crew.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
-    priority: -10
+    priority: -9
     event: !type:ToggleIntrinsicUIEvent { key: enum.CrewMonitoringUIKey.Key }
 
 - type: entity
@@ -200,5 +203,5 @@
     icon: { sprite: _White/Interface/Actions/consoles.rsi, state: records } # WWDP-Edit
     iconOn: _White/Interface/Actions/consoles.rsi/records.png # WWDP-Edit
     keywords: [ "AI", "console", "interface" ]
-    priority: -10
+    priority: -8
     event: !type:ToggleIntrinsicUIEvent { key: enum.GeneralStationRecordConsoleKey.Key }

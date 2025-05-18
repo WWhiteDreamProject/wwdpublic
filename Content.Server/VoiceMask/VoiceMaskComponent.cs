@@ -31,7 +31,7 @@ public sealed partial class VoiceMaskComponent : Component
     ///     The action that gets displayed when the voice mask is equipped.
     /// </summary>
     [DataField]
-    public EntProtoId Action = "ActionChangeVoiceMask";
+    public EntProtoId? Action = "ActionChangeVoiceMask"; // WD EDIT
 
     // WD EDIT START
     [DataField]

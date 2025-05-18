@@ -3,7 +3,7 @@
   id: Xeeplian
   speech:
     color: "#a4bb98"
-    fontId: YoureGone
+    fontId: BoxRound # WD edit
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

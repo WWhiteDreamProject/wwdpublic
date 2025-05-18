@@ -41,7 +41,7 @@
   - type: MeleeWeapon
     animationRotation: 45 # WWDP
     wideAnimationRotation: 45 # WWDP
-    attackRate: .6666
+    attackRate: .8
     damage:
       types:
         Slash: 14

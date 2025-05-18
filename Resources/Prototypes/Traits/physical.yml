@@ -1,288 +1,288 @@
 - type: trait
   id: WillToLive
   category: Physical
-  points: -3
+  points: -1
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - IPC
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Redshirt
-    - WillToDie
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Redshirt
+        - WillToDie
   functions:
-  - !type:TraitReplaceComponent
-    components:
-    - type: DeadModifier
-      deadThresholdModifier: 10
+    - !type:TraitReplaceComponent
+      components:
+        - type: DeadModifier
+          deadThresholdModifier: 10
 
 - type: trait
   id: WillToDie
   category: Physical
-  points: 2
+  points: 1
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - IPC
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - WillToLive
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - WillToLive
   functions:
-  - !type:TraitReplaceComponent
-    components:
-    - type: DeadModifier
-      deadThresholdModifier: -15
+    - !type:TraitReplaceComponent
+      components:
+        - type: DeadModifier
+          deadThresholdModifier: -15
 
 - type: trait
   id: Tenacity
   category: Physical
-  points: -4
+  points: -1
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - IPC
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - GlassJaw
-    - BrittleBoneDisease
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - GlassJaw
+        - BrittleBoneDisease
   functions:
-  - !type:TraitReplaceComponent
-    components:
-    - type: CritModifier
-      critThresholdModifier: 5
+    - !type:TraitReplaceComponent
+      components:
+        - type: CritModifier
+          critThresholdModifier: 5
 
 - type: trait
   id: GlassJaw
   category: Physical
   points: 2
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - IPC
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Tenacity
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Tenacity
   functions:
-  - !type:TraitReplaceComponent
-    components:
-    - type: CritModifier
-      critThresholdModifier: -10
+    - !type:TraitReplaceComponent
+      components:
+        - type: CritModifier
+          critThresholdModifier: -10
 
 - type: trait
   id: Vigor
   category: Physical
   points: -6
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Lethargy
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - Oni
-    - IPC
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Lethargy
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Oni
+        - IPC
   functions:
-  - !type:TraitModifyStamina
-    staminaModifier: 10
-    decayModifier: 0.6
-    cooldownModifier: -0.75
+    - !type:TraitModifyStamina
+      staminaModifier: 10
+      decayModifier: 0.6
+      cooldownModifier: -0.75
 
 - type: trait
   id: Lethargy
   category: Physical
   points: 4
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Vigor
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - Felinid
-    - Tajaran
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Vigor
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Felinid
+        - Tajaran
   functions:
-  - !type:TraitModifyStamina
-    staminaModifier: -15
-    decayModifier: -0.6
-    cooldownModifier: 0.75
+    - !type:TraitModifyStamina
+      staminaModifier: -15
+      decayModifier: -0.6
+      cooldownModifier: 0.75
 
 - type: trait
   id: HighAdrenaline
   category: Physical
-  points: -5
+  points: -2
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - IPC
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - AdrenalDysfunction
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - AdrenalDysfunction
   functions:
-  - !type:TraitReplaceComponent
-    components:
-    - type: Adrenaline
-      rangeModifier: 0.4
-      inverse: true
+    - !type:TraitReplaceComponent
+      components:
+        - type: Adrenaline
+          rangeModifier: 0.4
+          inverse: true
 
 - type: trait
   id: AdrenalDysfunction
   category: Physical
-  points: 3
+  points: 2
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - IPC
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - HighAdrenaline
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - HighAdrenaline
   functions:
-  - !type:TraitReplaceComponent
-    components:
-    - type: Adrenaline
-      rangeModifier: 0.8
+    - !type:TraitReplaceComponent
+      components:
+        - type: Adrenaline
+          rangeModifier: 0.8
 
 - type: trait
   id: Masochism
   category: Physical
-  points: -5
+  points: -2
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - LowPainTolerance
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - LowPainTolerance
   functions:
-  - !type:TraitReplaceComponent
-    components:
-    - type: PainTolerance
-      rangeModifier: 0.4
-      inverse: true
+    - !type:TraitReplaceComponent
+      components:
+        - type: PainTolerance
+          rangeModifier: 0.4
+          inverse: true
 
 - type: trait
   id: LowPainTolerance
   category: Physical
   points: 3
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Masochism
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Masochism
   functions:
-  - !type:TraitReplaceComponent
-    components:
-    - type: PainTolerance
-      rangeModifier: 0.6
+    - !type:TraitReplaceComponent
+      components:
+        - type: PainTolerance
+          rangeModifier: 0.6
 
 - type: trait
   id: Steadfast
   category: Physical
-  points: -4
+  points: -3
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - Felinid
-    - Tajaran
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Feeble
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Felinid
+        - Tajaran
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Feeble
   functions:
-  - !type:TraitModifySlowOnDamage
-    damageThresholdsModifier: 10
-    speedModifierMultiplier: 0.68
+    - !type:TraitModifySlowOnDamage
+      damageThresholdsModifier: 10
+      speedModifierMultiplier: 0.68
 
 - type: trait
   id: Feeble
   category: Physical
-  points: 3
+  points: 4
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - Felinid
-    - Tajaran
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Steadfast
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Felinid
+        - Tajaran
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Steadfast
   functions:
-  - !type:TraitModifySlowOnDamage
-    damageThresholdsModifier: -15
-    speedModifierMultiplier: 1.2
+    - !type:TraitModifySlowOnDamage
+      damageThresholdsModifier: -15
+      speedModifierMultiplier: 1.2
 
 - type: trait
   id: MartialArtist
@@ -292,70 +292,70 @@
   - !type:CharacterJobRequirement
     inverted: true
     jobs:
-    - Borg
-    - MedicalBorg
-    - Boxer
-    - MartialArtist
-    - Gladiator
+      - Borg
+      - MedicalBorg
+      - Boxer
+      - MartialArtist
+      - Gladiator
   functions:
-  - !type:TraitModifyUnarmed
-    heavyOnLightMiss: true
-    attackRateModifier: 0.8
-    rangeModifier: 1.1
-  - !type:TraitReplaceComponent
-    components:     # Keep BoxerComponent for now until we have After/Before on traits prototypes
-    - type: Boxer # for potential conflicts with other traits that replace unarmed damage
-      modifiers:
-        coefficients:
-          Blunt: 1.2
-          Slash: 1.2
-          Piercing: 1.2
-          Heat: 1.2
-          Poison: 1.2
-          Asphyxiation: 1.2
-    # An attack rate of 1.25 hits per second (1 / 0.8 = 1.25) multiplied by 20% extra damage
-    # effectively means 50% more overall DPS, same DPS bonus as before (1 * 1.25 * 1.2 = 1.5)
-    # but the extra attack rate makes it visually apparent that it's Martial Artist.
+    - !type:TraitModifyUnarmed
+      heavyOnLightMiss: true
+      attackRateModifier: 0.8
+      rangeModifier: 1.1
+    - !type:TraitReplaceComponent
+      components:     # Keep BoxerComponent for now until we have After/Before on traits prototypes
+        - type: Boxer # for potential conflicts with other traits that replace unarmed damage
+          modifiers:
+            coefficients:
+              Blunt: 1.2
+              Slash: 1.2
+              Piercing: 1.2
+              Heat: 1.2
+              Poison: 1.2
+              Asphyxiation: 1.2
+      # An attack rate of 1.25 hits per second (1 / 0.8 = 1.25) multiplied by 20% extra damage
+      # effectively means 50% more overall DPS, same DPS bonus as before (1 * 1.25 * 1.2 = 1.5)
+      # but the extra attack rate makes it visually apparent that it's Martial Artist.
 
 - type: trait
   id: Small
   category: Physical
-  points: -2
+  points: 0
   requirements:
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - Felinid # Felinids/Tajaran already have this feature by default.
-    - Tajaran
-  - !type:CharacterHeightRequirement
-    max: 150
-  - !type:CharacterWidthRequirement
-    max: 32
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Felinid # Felinids/Tajaran already have this feature by default.
+        - Tajaran
+    - !type:CharacterHeightRequirement
+      max: 150
+    - !type:CharacterWidthRequirement
+      max: 32
   functions:
-  - !type:TraitAddComponent
-    components:
-    - type: PseudoItem
-      storedOffset: 0,17
-      shape:
-      - 0,0,1,4
-      - 0,2,3,4
-      - 4,0,5,4
+    - !type:TraitAddComponent
+      components:
+        - type: PseudoItem
+          storedOffset: 0,17
+          shape:
+            - 0,0,1,4
+            - 0,2,3,4
+            - 4,0,5,4
 
 - type: trait
   id: TemperatureTolerance
   category: Physical
   points: -1
   requirements:
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - Vulpkanin # This trait functions exactly as-is for the Vulpkanin trait.
-    - Plasmaman # Plasmamen have cold immunity so this trait is unnecessary
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Vulpkanin # This trait functions exactly as-is for the Vulpkanin trait.
+        - Plasmaman # Plasmamen have cold immunity so this trait is unnecessary
   functions:
-  - !type:TraitReplaceComponent
-    components:
-    - type: TemperatureProtection
-      coefficient: 0.1 # Enough resistance to walk into the chef's freezer, or tolerate daytime temperatures on Glacier without a jacket.
+    - !type:TraitReplaceComponent
+      components:
+        - type: TemperatureProtection
+          coefficient: 0.1 # Enough resistance to walk into the chef's freezer, or tolerate daytime temperatures on Glacier without a jacket.
 
 # These traits largely exist to demonstrate more of the "Component Removals" functionality. This way contributors
 # can get used to seeing that they can "Remove and Replace" a pre-existing component.
@@ -363,33 +363,33 @@
 - type: trait
   id: Talons
   category: Physical
-  points: -1
+  points: 0
   requirements:
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - Harpy # Harpies already have talons
-    - Arachnid # Apparently they have a "piercing" bite
-    - Xelthia # Talons don't make sense on tentacle arms
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Claws
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Harpy # Harpies already have talons
+        - Arachnid # Apparently they have a "piercing" bite
+        - Xelthia # Talons don't make sense on tentacle arms
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Claws
   functions:
-  - !type:TraitModifyUnarmed
-    soundHit:
-      collection: AlienClaw
-    animation: WeaponArcClaw
-    damage:
-      types:
-        Piercing: 5 # No, this isn't "OP", this is literally the worst brute damage type in the game.
-        # Same deal as Slash, except that a majority of all armor provides Piercing resistance.
-  - !type:TraitRemoveComponent # Plasmamen have self-damage on melee attacks
-    components:
-    - type: DamageOnHit
+    - !type:TraitModifyUnarmed
+      soundHit:
+        collection: AlienClaw
+      animation: WeaponArcClaw
       damage:
         types:
-          Blunt: 0
+          Piercing: 5 # No, this isn't "OP", this is literally the worst brute damage type in the game.
+                      # Same deal as Slash, except that a majority of all armor provides Piercing resistance.
+    - !type:TraitRemoveComponent # Plasmamen have self-damage on melee attacks
+      components:
+        - type: DamageOnHit
+          damage:
+            types:
+              Blunt: 0
 
 
 - type: trait
@@ -397,129 +397,124 @@
   category: Physical
   points: -1
   requirements:
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - Felinid # Felinids already have cat claws.
-    - Tajaran # Tajaran also have cat claws
-    - Reptilian # Reptilians also have cat claws.
-    - Shadowkin # Shadowkins also have claws.
-    - Xelthia # Claws don't make sense on tentacle arms
-    # - Vulpkanin # Vulpkanin have "Blunt" claws. One could argue this trait "Sharpens" their claws.
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Talons
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Felinid # Felinids already have cat claws.
+        - Tajaran # Tajaran also have cat claws
+        - Reptilian # Reptilians also have cat claws.
+        - Shadowkin # Shadowkins also have claws.
+        - Xelthia # Claws don't make sense on tentacle arms
+        # - Vulpkanin # Vulpkanin have "Blunt" claws. One could argue this trait "Sharpens" their claws.
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Talons
   functions:
-  - !type:TraitModifyUnarmed
-    soundHit:
-      collection: AlienClaw
-    animation: WeaponArcClaw
-    damage:
-      types:
-        Slash: 5 # Trade stamina damage on hit for a very minor amount of extra bleed.
-        # Blunt also deals bleed damage, so this is more of a sidegrade.
-  - !type:TraitRemoveComponent
-    components:
-    - type: DamageOnHit
+    - !type:TraitModifyUnarmed
+      soundHit:
+        collection: AlienClaw
+      animation: WeaponArcClaw
       damage:
         types:
-          Blunt: 0
+          Slash: 5 # Trade stamina damage on hit for a very minor amount of extra bleed.
+                  # Blunt also deals bleed damage, so this is more of a sidegrade.
+    - !type:TraitRemoveComponent
+      components:
+        - type: DamageOnHit
+          damage:
+            types:
+              Blunt: 0
 
 - type: trait
   id: NaturalWeaponRemoval
   category: Physical
   points: 0
   requirements:
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - Human
-    - Oni
-    - SlimePerson
-    - Diona
-    - Dwarf
-    - Arachne
-    - IPC # Other species could justify getting this trait for Blunt stamina damage,
-    # but 6 blunt -> 5 blunt is a straight up downgrade.
-    - Xelthia # Their tentacles aren't really weapons probably
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Talons
-    - Claws
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Human
+        - Oni
+        - SlimePerson
+        - Diona
+        - Dwarf
+        - Arachne
+        - IPC # Other species could justify getting this trait for Blunt stamina damage,
+              # but 6 blunt -> 5 blunt is a straight up downgrade.
+        - Xelthia # Their tentacles aren't really weapons probably
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Talons
+        - Claws
   functions:
-  - !type:TraitModifyUnarmed
-    soundHit:
-      collection: Punch
-    animation: WeaponArcFist
-    damage:
-      types:
-        Blunt: 5
-  - !type:TraitRemoveComponent
-    components:
-    - type: DamageOnHit
+    - !type:TraitModifyUnarmed
+      soundHit:
+        collection: Punch
+      animation: WeaponArcFist
       damage:
         types:
-          Blunt: 0
+          Blunt: 5
+    - !type:TraitRemoveComponent
+      components:
+        - type: DamageOnHit
+          damage:
+            types:
+              Blunt: 0
 
 - type: trait
   id: StrikingCalluses
   category: Physical
-  points: -3
+  points: -2
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Claws
-    - Talons
-  - !type:CharacterItemGroupRequirement
-    group: TraitsMind
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - Xelthia # this would fall off
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Claws
+        - Talons
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Xelthia # this would fall off
   functions:
-  - !type:TraitModifyUnarmed
-    flatDamageIncrease:
-      types:
-        Blunt: 2
+    - !type:TraitModifyUnarmed
+      flatDamageIncrease:
+        types:
+          Blunt: 2
 
 - type: trait
   id: Spinarette
   category: Physical
-  points: -3
+  points: -2
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - Arachnid
-    - Arachne
-    - Shadowkin
-    - IPC
-    - Xelthia # this would fall off
-  - !type:CharacterItemGroupRequirement
-    group: TraitsMind
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Arachnid
+        - Arachne
+        - Shadowkin
+        - IPC
+        - Xelthia # this would fall off
   functions:
-  - !type:TraitAddComponent
-    components:
-    - type: Sericulture
-      action: ActionSericulture
-      productionLength: 2
-      entityProduced: MaterialWebSilk1
-      hungerCost: 1
-  - !type:TraitAddTag
-    tags:
-    - SpiderCraft
-
+    - !type:TraitAddComponent
+      components:
+        - type: Sericulture
+          action: ActionSericulture
+          productionLength: 2
+          entityProduced: MaterialWebSilk1
+          hungerCost: 1
+    - !type:TraitAddTag
+      tags:
+        - SpiderCraft
 
 - type: trait
   id: BionicArm
@@ -527,125 +522,123 @@
   points: -8
   enable: false # WD EDIT
   requirements:
-  - !type:CharacterLogicOrRequirement
-    requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-      - Paramedic
-    - !type:CharacterDepartmentRequirement
-      departments:
-      - Security
-      - Command
-#       - Dignitary - WD EDIT
-  - !type:CharacterItemGroupRequirement
-    group: TraitsMind
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - BionicPryArm
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - Xelthia # this would fall off
+    - !type:CharacterLogicOrRequirement
+      requirements:
+      - !type:CharacterJobRequirement
+        jobs:
+         - Paramedic
+      - !type:CharacterDepartmentRequirement
+          departments:
+          - Security
+          - Command
+  #       - Dignitary - WD EDIT
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - BionicPryArm
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Xelthia # this would fall off
   functions:
-  - !type:TraitCyberneticLimbReplacement
-    removeBodyPart: Arm
-    partSymmetry: Left
-    protoId: JawsOfLifeLeftArm
-    slotId: "left arm"
-  - !type:TraitCyberneticLimbReplacement
-    removeBodyPart: Arm
-    partSymmetry: Right
-    protoId: JawsOfLifeRightArm
-    slotId: "right arm"
-  - !type:TraitPushDescription
-    descriptionExtensions:
-    - description: examine-bionic-arm-message
-      fontSize: 12
-      requireDetailRange: true
+    - !type:TraitCyberneticLimbReplacement
+      removeBodyPart: Arm
+      partSymmetry: Left
+      protoId: JawsOfLifeLeftArm
+      slotId: "left arm"
+    - !type:TraitCyberneticLimbReplacement
+      removeBodyPart: Arm
+      partSymmetry: Right
+      protoId: JawsOfLifeRightArm
+      slotId: "right arm"
+    - !type:TraitPushDescription
+      descriptionExtensions:
+        - description: examine-bionic-arm-message
+          fontSize: 12
+          requireDetailRange: true
 
 - type: trait
   id: PlateletFactories
   category: Physical
   points: -10
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - IPC
-  - !type:CharacterItemGroupRequirement
-    group: TraitsMind
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - BloodDeficiency
   functions: # TODO: Code Platelet factories as an actual obtainable implant, and replace this with TraitAddImplant
-  - !type:TraitReplaceComponent
-    components:
-    - type: PassiveDamage
-      allowedStates:
-      - Alive
-      - Critical
-      damageCap: 400
-      damage:
-        groups:
-          Brute: -0.35
-          Burn: -0.35
-          Airloss: -0.25
-          Toxin: -0.35
-          Genetic: -0.35
+    - !type:TraitReplaceComponent
+      components:
+        - type: PassiveDamage
+          allowedStates:
+          - Alive
+          - Critical
+          damageCap: 400
+          damage:
+            groups:
+              Brute: -0.35
+              Burn: -0.35
+              Airloss: -0.25
+              Toxin: -0.35
+              Genetic: -0.35
+        - type: BloodDeficiency # Incredibly actually works
+          bloodLossPercentage: -0.025
 
 - type: trait
   id: DermalArmor
   category: Physical
   points: -6
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterItemGroupRequirement
-    group: TraitsMind
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
   functions:
-  - !type:TraitAddArmor
-    damageModifierSets:
-    - DermalArmor
-  - !type:TraitPushDescription
-    descriptionExtensions:
-    - description: examine-dermal-armor-message
-      fontSize: 12
-      requireDetailRange: true
+    - !type:TraitAddArmor
+      damageModifierSets:
+        - DermalArmor
+    - !type:TraitPushDescription
+      descriptionExtensions:
+        - description: examine-dermal-armor-message
+          fontSize: 12
+          requireDetailRange: true
 
 - type: trait
   id: CyberEyes
   category: Physical
-  points: -4
+  points: -3
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - IPC
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Photophobia
-    - Blindness
-    - Nearsighted
-  - !type:CharacterItemGroupRequirement
-    group: TraitsMind
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterSpeciesRequirement
+        inverted: true
+        species:
+          - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Photophobia
+        - Blindness
+        - Nearsighted
   functions:
-  - !type:TraitPushDescription
-    descriptionExtensions:
-    - description: examine-cybereyes-message
-      fontSize: 12
-      requireDetailRange: true
-  - !type:TraitReplaceComponent
-    components:
-    - type: Flashable # Effectively, removes any flash-vulnerability species traits.
+    - !type:TraitPushDescription
+      descriptionExtensions:
+        - description: examine-cybereyes-message
+          fontSize: 12
+          requireDetailRange: true
+    - !type:TraitReplaceComponent
+      components:
+        - type: Flashable # Effectively, removes any flash-vulnerability species traits.
 
 
 # - type: trait
@@ -671,82 +664,82 @@
   category: Physical
   points: -1
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-    - Command
-#     - Dignitary # WD EDIT
-  - !type:CharacterTraitRequirement
-    traits:
-    - CyberEyes
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - CyberEyesOmni
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Security
+        - Command
+  #     - Dignitary # WD EDIT
+    - !type:CharacterTraitRequirement
+      traits:
+        - CyberEyes
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - CyberEyesOmni
   functions:
-  - !type:TraitAddComponent
-    components:
-    - type: ShowJobIcons
-    - type: ShowMindShieldIcons
-    - type: ShowCriminalRecordIcons
+    - !type:TraitAddComponent
+      components:
+        - type: ShowJobIcons
+        - type: ShowMindShieldIcons
+        - type: ShowCriminalRecordIcons
 
 - type: trait
   id: CyberEyesMedical
   category: Physical
   points: -2
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterTraitRequirement
-    traits:
-    - CyberEyes
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - CyberEyesDiagnostic
-    - CyberEyesOmni
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterTraitRequirement
+      traits:
+        - CyberEyes
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - CyberEyesDiagnostic
+        - CyberEyesOmni
   functions:
-  - !type:TraitAddComponent
-    components:
-    - type: SolutionScanner
-    - type: ShowHealthBars
-      damageContainers:
-      - Biological
-    - type: ShowHealthIcons
-      damageContainers:
-      - Biological
+    - !type:TraitAddComponent
+      components:
+        - type: SolutionScanner
+        - type: ShowHealthBars
+          damageContainers:
+          - Biological
+        - type: ShowHealthIcons
+          damageContainers:
+          - Biological
 
 - type: trait
   id: CyberEyesDiagnostic
   category: Physical
   points: -2
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterTraitRequirement
-    traits:
-    - CyberEyes
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - CyberEyesMedical
-    - CyberEyesOmni
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterTraitRequirement
+      traits:
+        - CyberEyes
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - CyberEyesMedical
+        - CyberEyesOmni
   functions:
-  - !type:TraitAddComponent
-    components:
-    - type: EyeProtection
-    - type: ShowHealthBars
-      damageContainers:
-      - Inorganic
-      - Silicon
+    - !type:TraitAddComponent
+      components:
+        - type: EyeProtection
+        - type: ShowHealthBars
+          damageContainers:
+          - Inorganic
+          - Silicon
 
 - type: trait
   id: CyberEyesOmni
@@ -754,40 +747,40 @@
   points: -3
   enable: false # WD EDIT
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-    - Command
-#     - Dignitary # WD EDIT
-  - !type:CharacterTraitRequirement
-    traits:
-    - CyberEyes
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - CyberEyesMedical
-    - CyberEyesDiagnostic
-    - CyberEyesSecurity
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Security
+        - Command
+#         - Dignitary - WD EDIT
+    - !type:CharacterTraitRequirement
+      traits:
+        - CyberEyes
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - CyberEyesMedical
+        - CyberEyesDiagnostic
+        - CyberEyesSecurity
   functions:
-  - !type:TraitAddComponent
-    components:
-    - type: SolutionScanner
-    - type: EyeProtection
-    - type: ShowJobIcons
-    - type: ShowMindShieldIcons
-    - type: ShowCriminalRecordIcons
-    - type: ShowHealthIcons
-      damageContainers:
-      - Biological
-    - type: ShowHealthBars
-      damageContainers:
-      - Biological
-      - Inorganic
-      - Silicon
+    - !type:TraitAddComponent
+      components:
+        - type: SolutionScanner
+        - type: EyeProtection
+        - type: ShowJobIcons
+        - type: ShowMindShieldIcons
+        - type: ShowCriminalRecordIcons
+        - type: ShowHealthIcons
+          damageContainers:
+          - Biological
+        - type: ShowHealthBars
+          damageContainers:
+          - Biological
+          - Inorganic
+          - Silicon
 
 - type: trait
   id: RestrictedGear
@@ -801,55 +794,55 @@
   - !type:CharacterJobRequirement
     inverted: true
     jobs:
-    - Prisoner # Smuggling for prisoners = immediate jailbreak.
+      - Prisoner # Smuggling for prisoners = immediate jailbreak.
 
 - type: trait
   id: Redshirt
   category: Physical
   points: 8
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - IPC
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - WillToLive
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - WillToLive
   functions:
-  - !type:TraitReplaceComponent
-    components:
-    - type: DeadModifier
-      deadThresholdModifier: -100
+    - !type:TraitReplaceComponent
+      components:
+        - type: DeadModifier
+          deadThresholdModifier: -99
 
 - type: trait
   id: BrittleBoneDisease
   category: Physical
-  points: 10
+  points: 6
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - IPC
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Tenacity
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Tenacity
   functions:
-  - !type:TraitReplaceComponent
-    components:
-    - type: CritModifier
-      critThresholdModifier: -50
+    - !type:TraitReplaceComponent
+      components:
+        - type: CritModifier
+          critThresholdModifier: -50
 
 - type: trait
   id: LightAmplification
@@ -857,17 +850,17 @@
   points: -4
   enable: false # WD EDIT
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterTraitRequirement
-    traits:
-    - CyberEyes
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterTraitRequirement
+      traits:
+        - CyberEyes
   functions:
-  - !type:TraitAddComponent
-    components:
-    - type: NightVision
+    - !type:TraitAddComponent
+      components:
+        - type: NightVision
 
 - type: trait
   id: ThermographicVision
@@ -875,52 +868,50 @@
   points: -4
   enable: false # WD EDIT
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterTraitRequirement
-    traits:
-    - CyberEyes
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterTraitRequirement
+      traits:
+        - CyberEyes
   functions:
-  - !type:TraitAddComponent
-    components:
-    - type: ThermalVision
-      pulseTime: 2
-      toggleAction: PulseThermalVision
-  - !type:TraitPushDescription
-    descriptionExtensions:
-    - description: examine-thermal-vision-message
-      fontSize: 12
-      requireDetailRange: true
+    - !type:TraitAddComponent
+      components:
+        - type: ThermalVision
+          pulseTime: 2
+          toggleAction: PulseThermalVision
+    - !type:TraitPushDescription
+      descriptionExtensions:
+        - description: examine-thermal-vision-message
+          fontSize: 12
+          requireDetailRange: true
 
 - type: trait
   id: NaniteAutoRepairBots
   category: Physical
   points: -10
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterSpeciesRequirement
-    species:
-    - IPC
-  - !type:CharacterItemGroupRequirement
-    group: TraitsMind
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterSpeciesRequirement
+      species:
+        - IPC
   functions: # TODO: Code Platelet factories as an actual obtainable implant, and replace this with TraitAddImplant
-  - !type:TraitReplaceComponent
-    components:
-    - type: PassiveDamage
-      allowedStates:
-      - Alive
-      - Critical
-      - Dead
-      damageCap: 250
-      damage:
-        groups:
-          Brute: -0.6
-          Burn: -0.6
+    - !type:TraitReplaceComponent
+      components:
+        - type: PassiveDamage
+          allowedStates:
+          - Alive
+          - Critical
+          - Dead
+          damageCap: 250
+          damage:
+            groups:
+              Brute: -0.5
+              Burn: -0.5
 
 # - type: trait
 #   id: BionicLeg
@@ -932,8 +923,6 @@
 #       inverted: true
 #       jobs:
 #         - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-#     - !type:CharacterItemGroupRequirement
-#       group: TraitsMind
 #   functions:
 #     - !type:TraitPushDescription
 #       descriptionExtensions:
@@ -970,8 +959,6 @@
 #       - Photophobia
 #        - Blindness
 #        - Nearsighted
-#    - !type:CharacterItemGroupRequirement
-#      group: TraitsMind
 #  functions:
 #    - !type:TraitAddComponent
 #      components:
@@ -984,97 +971,91 @@
   category: Physical
   points: -1
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-    - Command
-#     - Dignitary # WD EDIT
-  - !type:CharacterSpeciesRequirement
-    species:
-    - IPC
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - OmniEyesModule
-    - Photophobia
-    - Blindness
-    - Nearsighted
-  - !type:CharacterItemGroupRequirement
-    group: TraitsMind
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Security
+        - Command
+  #     - Dignitary # WD EDIT
+    - !type:CharacterSpeciesRequirement
+      species:
+        - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - OmniEyesModule
+        - Photophobia
+        - Blindness
+        - Nearsighted
   functions:
-  - !type:TraitAddComponent
-    components:
-    - type: ShowJobIcons
-    - type: ShowMindShieldIcons
-    - type: ShowCriminalRecordIcons
+    - !type:TraitAddComponent
+      components:
+        - type: ShowJobIcons
+        - type: ShowMindShieldIcons
+        - type: ShowCriminalRecordIcons
 
 - type: trait
   id: MedicalEyesModule
   category: Physical
   points: -2
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterSpeciesRequirement
-    species:
-    - IPC
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - DiagnosticEyesModule
-    - OmniEyesModule
-    - Photophobia
-    - Blindness
-    - Nearsighted
-  - !type:CharacterItemGroupRequirement
-    group: TraitsMind
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterSpeciesRequirement
+      species:
+        - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - DiagnosticEyesModule
+        - OmniEyesModule
+        - Photophobia
+        - Blindness
+        - Nearsighted
   functions:
-  - !type:TraitAddComponent
-    components:
-    - type: SolutionScanner
-    - type: ShowHealthBars
-      damageContainers:
-      - Biological
-    - type: ShowHealthIcons
-      damageContainers:
-      - Biological
+    - !type:TraitAddComponent
+      components:
+        - type: SolutionScanner
+        - type: ShowHealthBars
+          damageContainers:
+          - Biological
+        - type: ShowHealthIcons
+          damageContainers:
+          - Biological
 
 - type: trait
   id: DiagnosticEyesModule
   category: Physical
   points: -2
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterSpeciesRequirement
-    species:
-    - IPC
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - MedicalEyesModule
-    - OmniEyesModule
-    - Photophobia
-    - Blindness
-    - Nearsighted
-  - !type:CharacterItemGroupRequirement
-    group: TraitsMind
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterSpeciesRequirement
+      species:
+        - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - MedicalEyesModule
+        - OmniEyesModule
+        - Photophobia
+        - Blindness
+        - Nearsighted
   functions:
-  - !type:TraitAddComponent
-    components:
-    - type: EyeProtection
-    - type: ShowHealthBars
-      damageContainers:
-      - Inorganic
-      - Silicon
+    - !type:TraitAddComponent
+      components:
+        - type: EyeProtection
+        - type: ShowHealthBars
+          damageContainers:
+          - Inorganic
+          - Silicon
 
 - type: trait
   id: OmniEyesModule
@@ -1082,45 +1063,43 @@
   points: -3
   enable: false # WD EDIT
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-    - Command
-#     - Dignitary # WD EDIT
-  - !type:CharacterSpeciesRequirement
-    species:
-    - IPC
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Photophobia
-    - Blindness
-    - Nearsighted
-    - MedicalEyesModule
-    - DiagnosticEyesModule
-    - SecurityEyesModule
-  - !type:CharacterItemGroupRequirement
-    group: TraitsMind
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Security
+        - Command
+#         - Dignitary - WD EDIT
+    - !type:CharacterSpeciesRequirement
+      species:
+        - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Photophobia
+        - Blindness
+        - Nearsighted
+        - MedicalEyesModule
+        - DiagnosticEyesModule
+        - SecurityEyesModule
   functions:
-  - !type:TraitAddComponent
-    components:
-    - type: SolutionScanner
-    - type: EyeProtection
-    - type: ShowJobIcons
-    - type: ShowMindShieldIcons
-    - type: ShowCriminalRecordIcons
-    - type: ShowHealthIcons
-      damageContainers:
-      - Biological
-    - type: ShowHealthBars
-      damageContainers:
-      - Biological
-      - Inorganic
-      - Silicon
+    - !type:TraitAddComponent
+      components:
+        - type: SolutionScanner
+        - type: EyeProtection
+        - type: ShowJobIcons
+        - type: ShowMindShieldIcons
+        - type: ShowCriminalRecordIcons
+        - type: ShowHealthIcons
+          damageContainers:
+          - Biological
+        - type: ShowHealthBars
+          damageContainers:
+          - Biological
+          - Inorganic
+          - Silicon
 
 - type: trait
   id: LightAmplificationModule
@@ -1128,25 +1107,23 @@
   points: -4
   enable: false # WD EDIT
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterSpeciesRequirement
-    species:
-    - IPC
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Photophobia
-    - Blindness
-    - Nearsighted
-  - !type:CharacterItemGroupRequirement
-    group: TraitsMind
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterSpeciesRequirement
+      species:
+        - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Photophobia
+        - Blindness
+        - Nearsighted
   functions:
-  - !type:TraitAddComponent
-    components:
-    - type: NightVision
+    - !type:TraitAddComponent
+      components:
+        - type: NightVision
 
 - type: trait
   id: ThermographicVisionModule
@@ -1154,128 +1131,125 @@
   points: -4
   enable: false # WD EDIT
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterSpeciesRequirement
-    species:
-    - IPC
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Photophobia
-    - Blindness
-    - Nearsighted
-  - !type:CharacterItemGroupRequirement
-    group: TraitsMind
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterSpeciesRequirement
+      species:
+        - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Photophobia
+        - Blindness
+        - Nearsighted
   functions:
-  - !type:TraitAddComponent
-    components:
-    - type: ThermalVision
-      pulseTime: 2
-      toggleAction: PulseThermalVision
-  - !type:TraitPushDescription
-    descriptionExtensions:
-    - description: examine-thermal-vision-message
-      fontSize: 12
-      requireDetailRange: true
+    - !type:TraitAddComponent
+      components:
+        - type: ThermalVision
+          pulseTime: 2
+          toggleAction: PulseThermalVision
+    - !type:TraitPushDescription
+      descriptionExtensions:
+        - description: examine-thermal-vision-message
+          fontSize: 12
+          requireDetailRange: true
 
 - type: trait
   id: Bodybuilder
   category: Physical
-  points: -6
+  points: -4
   requirements:
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Featherweight
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Featherweight
   functions:
-  - !type:TraitModifyDensity
-    densityModifier: 55
-    multiply: false
-  - !type:TraitPushDescription
-    descriptionExtensions:
-    - description: examine-bodybuilder-message
-      fontSize: 12
-      requireDetailRange: true
+    - !type:TraitModifyDensity
+      densityModifier: 55
+      multiply: false
+    - !type:TraitPushDescription
+      descriptionExtensions:
+        - description: examine-bodybuilder-message
+          fontSize: 12
+          requireDetailRange: true
 
 - type: trait
   id: Featherweight
   category: Physical
-  points: 3
+  points: 4
   requirements:
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Bodybuilder
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Bodybuilder
   functions:
-  - !type:TraitModifyDensity
-    densityModifier: 0.5
-    multiply: true
-  - !type:TraitPushDescription
-    descriptionExtensions:
-    - description: examine-featherweight-message
-      fontSize: 12
-      requireDetailRange: true
+    - !type:TraitModifyDensity
+      densityModifier: 0.5
+      multiply: true
+    - !type:TraitPushDescription
+      descriptionExtensions:
+        - description: examine-featherweight-message
+          fontSize: 12
+          requireDetailRange: true
 
 - type: trait
   id: Vampirism # You may port this to EE, you have my permission!
   category: Physical
-  points: -3
+  points: -5
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - IPC
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - IPC
   functions:
   - !type:TraitAddComponent
     components:
-    - type: Vampirism
-      succDelay: 3
-      specialDigestible: # Vampires cannot eat food chat is that real
-        tags:
-        - Pill
-        - Crayon
-        - Paper
+      - type: Vampirism
+        succDelay: 3
+        specialDigestible: # Vampires cannot eat food chat is that real
+          tags:
+          - Pill
+          - Crayon
+          - Paper
 
 - type: trait
   id: BionicPryArm
   category: Physical
-  points: -3
+  points: -2
+  enable: false # WD EDIT
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-  - !type:CharacterItemGroupRequirement
-    group: TraitsMind
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - BionicArm
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - Xelthia # this would fall off
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - BionicArm
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Xelthia # this would fall off
   functions:
-  - !type:TraitCyberneticLimbReplacement
-    removeBodyPart: Arm
-    partSymmetry: Left
-    protoId: CrowbarLeftArm
-    slotId: "left arm"
-  - !type:TraitCyberneticLimbReplacement
-    removeBodyPart: Arm
-    partSymmetry: Right
-    protoId: CrowbarRightArm
-    slotId: "right arm"
-  - !type:TraitPushDescription
-    descriptionExtensions:
-    - description: examine-bionic-pryarm-message
-      fontSize: 12
-      requireDetailRange: true
+    - !type:TraitCyberneticLimbReplacement
+      removeBodyPart: Arm
+      partSymmetry: Left
+      protoId: CrowbarLeftArm
+      slotId: "left arm"
+    - !type:TraitCyberneticLimbReplacement
+      removeBodyPart: Arm
+      partSymmetry: Right
+      protoId: CrowbarRightArm
+      slotId: "right arm"
+    - !type:TraitPushDescription
+      descriptionExtensions:
+        - description: examine-bionic-pryarm-message
+          fontSize: 12
+          requireDetailRange: true

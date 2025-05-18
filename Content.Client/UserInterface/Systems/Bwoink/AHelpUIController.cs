@@ -123,7 +123,7 @@ public sealed class AHelpUIController : UIController, IOnSystemChanged<BwoinkSys
 
     private void ReceivedBwoink(object? sender, SharedBwoinkSystem.BwoinkTextMessage message)
     {
-        Logger.InfoS("c.s.go.es.bwoink", $"@{message.UserId}: {message.Text}");
+        Logger.GetSawmill("c.s.go.es.bwoink").Info($"@{message.UserId}: {message.Text}");
         var localPlayer = _playerManager.LocalSession;
         if (localPlayer == null)
             return;

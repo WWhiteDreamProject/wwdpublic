@@ -2734,3 +2734,123 @@ Entries:
   id: 296
   time: '2025-04-27T14:00:07.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/479
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: >-
+        Изменён шрифт абдукторов на BoxFont Round. Он должен корректно
+        отображаться в чате.
+  id: 297
+  time: '2025-05-02T11:10:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/482
+- author: Spatison
+  changes:
+    - type: Add
+      message: Апстрим 26.04-03.05 :D
+  id: 298
+  time: '2025-05-03T09:52:39.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/484
+- author: Kai518
+  changes:
+    - type: Add
+      message: ИИ добавлено действие, открывающее интерфейс телепорта ко всем камерам.
+    - type: Tweak
+      message: >-
+        Теперь глаз ИИ видит не на том гриде, где находится ядро, а на том, где
+        находится сам глаз. Иными словами, если он залетит на шаттл - будет
+        видеть камерами шаттла, а если залетит на станцию - будет видеть
+        камерами станции. Из-за этого отрезать его ядро от станции теперь
+        бесполезно.
+  id: 299
+  time: '2025-05-05T20:44:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/480
+- author: Bol4onok
+  changes:
+    - type: Add
+      message: Добавлен веселый мод в аплинк
+  id: 300
+  time: '2025-05-06T05:22:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/478
+- author: Kutos
+  changes:
+    - type: Add
+      message: Зеркальный щит теперь возвращается после попадания в цель
+    - type: Add
+      message: Культисты теперь могут ковать нечестивую алебарду
+    - type: Fix
+      message: Зеркальный щит теперь отображается в руках
+    - type: Fix
+      message: Экипаж больше не может пользоваться метательным оружием культа
+    - type: Fix
+      message: >-
+        Исправлен баг с отсутствием нимба у культистов, конвертнутных после
+        наступления активной стадии
+  id: 301
+  time: '2025-05-09T22:34:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/488
+- author: Boevi4ok
+  changes:
+    - type: Add
+      message: Добавлены ну очень смешные боеприпасы для дробовиков
+  id: 302
+  time: '2025-05-09T23:38:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/490
+- author: Spatison
+  changes:
+    - type: Add
+      message: Апстрим 02.05-09.05
+  id: 303
+  time: '2025-05-10T07:44:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/493
+- author: Boevi4ok
+  changes:
+    - type: Tweak
+      message: сильно изменены характеристики препаратов для криогеники
+  id: 304
+  time: '2025-05-16T20:47:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/498
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Космический ветер должен стать лучше
+    - type: Tweak
+      message: Вещи снова отскакивают при попадании
+    - type: Fix
+      message: Модсьют инфилтрятор теперь можно активировать
+    - type: Fix
+      message: Втыкаемые снаряды вновь наносят урон при попадании
+  id: 305
+  time: '2025-05-17T11:27:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/494
+- author: Spatison
+  changes:
+    - type: Remove
+      message: В скафандрах больше нету встроенных магнитных ботинок и джетпака
+    - type: Remove
+      message: Удален магнитный плащ
+    - type: Remove
+      message: Боевые магнитные ботинки больше не дают уменьшение время стана
+  id: 306
+  time: '2025-05-17T11:27:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/495
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Зрение генокрада вновь работает так должно
+  id: 307
+  time: '2025-05-17T11:29:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/496
+- author: Spatison
+  changes:
+    - type: Add
+      message: Апстрим 09.05-16.05
+  id: 308
+  time: '2025-05-17T11:31:49.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/502
+- author: Cinkafox
+  changes:
+    - type: Fix
+      message: new ui
+  id: 309
+  time: '2025-05-17T12:32:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/504

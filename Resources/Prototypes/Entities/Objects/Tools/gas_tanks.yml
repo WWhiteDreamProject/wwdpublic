@@ -40,9 +40,9 @@
       types:
         Blunt: 8
     bluntStaminaDamageFactor: 2.5
-    heavyRateModifier: 1.25
+    heavyRateModifier: 1.5
     heavyDamageBaseModifier: 1.5
-    heavyStaminaCost: 10
+    heavyStaminaCost: 2.5
     maxTargets: 3
     angle: 60 # WWDP
     soundHit:
@@ -64,6 +64,17 @@
     qualities:
     - Rolling
     speedModifier: 0.6 # fairly unwieldly but nice round surface
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 105
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   parent: GasTankRoundBase
@@ -121,6 +132,17 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 45
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   parent: EmergencyOxygenTank
@@ -164,6 +186,17 @@
       temperature: 293.15
   - type: Clothing
     sprite: Objects/Tanks/emergency_extended.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 65
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   parent: ExtendedEmergencyOxygenTank
@@ -214,6 +247,17 @@
         Blunt: 7.5
   - type: DamageOtherOnHit
     staminaCost: 5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 90
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   parent: DoubleEmergencyOxygenTank

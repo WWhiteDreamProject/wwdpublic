@@ -491,27 +491,6 @@
             "name": "survival"
         },
         {
-            "name": "court"
-        },
-        {
-            "name": "shield"
-        },
-        {
-            "name": "drones"
-        },
-        {
-            "name": "anomaly2"
-        },
-        {
-            "name": "miner_dock"
-        },
-        {
-            "name": "toxins2"
-        },
-        {
-            "name": "xenolab"
-        },
-        {
             "name": "ntmining"
         }
     ]

@@ -1,0 +1,57 @@
+- type: styleSheet
+  id: space
+  parents: [shared]
+  typeDefinition:
+    PanelContainer: "Robust.Client.UserInterface.Controls.PanelContainer"
+    ContainerButton: "Robust.Client.UserInterface.Controls.ContainerButton"
+    ProgressBar: "Robust.Client.UserInterface.Controls.ProgressBar"
+    MenuButton: "Content.Client.UserInterface.Controls.MenuButton"
+  styles:
+    PanelContainer.MainPanel:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/Chat/panel.png"
+          patchMargin: 3,5,3,5
+          expandMargin: 3,5,3,5
+          textureScale: 2,2
+    PanelContainer.DisplayPanel:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/Chat/chat-panel.png"
+          patchMargin: 8,9,8,9
+          textureScale: 2,2
+      modulate-self: "#FFFFFF"
+    .DisplayLabel12:
+      font:
+        valueType: Content.StyleSheetify.Client.Font.FontSpecifier
+        value:
+          font:
+          - "/Fonts/_White/LCD14/LCD14.otf"
+          size: 12
+      font-color: "#FFFFFF"
+    .DisplayLabel8:
+      font:
+        valueType: Content.StyleSheetify.Client.Font.FontSpecifier
+        value:
+          font:
+          - "/Fonts/_White/LCD14/LCD14.otf"
+          size: 8
+      font-color: "#FFFFFF"
+    .DisplayLabel10:
+      font:
+        valueType: Content.StyleSheetify.Client.Font.FontSpecifier
+        value:
+          font:
+          - "/Fonts/_White/LCD14/LCD14.otf"
+          size: 10
+      font-color: "#FFFFFF"
+    .MachineLabel15:
+      font:
+        valueType: Content.StyleSheetify.Client.Font.FontSpecifier
+        value:
+          font:
+          - "/Fonts/Boxfont-round/Boxfont Round.ttf"
+          size: 15
+      font-color: "#949493"

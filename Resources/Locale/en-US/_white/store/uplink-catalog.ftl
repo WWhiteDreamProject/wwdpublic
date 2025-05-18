@@ -41,12 +41,18 @@ uplink-gun-case-l6-saw-desc = The iconic L6 light machine gun, bundled with two 
 uplink-magazine-light-rifle-ak220-name = AK magazine (.30)
 uplink-magazine-light-rifle-ak220-desc = Magazine equipped with 40 rounds of .30 caliber ammunition. Compatible with AK series weapons.
 
+uplink-magazine-shotgun-meteor-name = Ammo drum (.50 meteor)
+uplink-magazine-shotgun-meteor-desc = Drum is equipped with 8 powerful projectiles capable of knocking down targets.
+
 # Explosives
 
 # Wearables
 
 uplink-syndicate-swat-helmet-name = Suspicious SWAT helmet
 uplink-syndicate-swat-helmet-desc = An extremely durable helmet commonly used by paramilitary forces. It is decorated with an ominous design.
+
+uplink-infiltrator-modsuit-name = Infiltrator modsuit
+uplink-infiltrator-modsuit-desc = Developed by the Roseus Galactic Actors Guild in conjunction with the Gorlex Marauders to produce a functional suit for urban operations, this suit proves to be cheaper than your standard issue modsuit, with none of the movement restrictions of the space suits employed by the company. However, this greater mobility comes at a cost, and the suit is ineffective at protecting the wearer from the vacuum of space. The suit does come pre-equipped with a special psi-emitter stealth module that makes it impossible to recognize the wearer.
 
 # Chemicals
 

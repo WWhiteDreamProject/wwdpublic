@@ -12,5 +12,5 @@ public sealed partial class StationAiOverlayComponent : Component
     ///     Shitmed Change - Starlight Abductors: Whether the station AI overlay should be allowed to cross grids.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool AllowCrossGrid;
+    public bool AllowCrossGrid = true; // WD edit
 }

@@ -274,15 +274,10 @@ namespace Content.Server.Hands.Systems
 
             var throwSpeed = hands.BaseThrowspeed;
 
-            // WD EDIT START
-            if (TryComp<ThrowingItemModifierComponent>(throwEnt, out var throwingItemModifier))
-                throwSpeed *= throwingItemModifier.ThrowingMultiplier;
-            // WD EDIT END
-
             // Let other systems change the thrown entity (useful for virtual items)
             // or the throw strength.
             var itemEv = new BeforeGettingThrownEvent(throwEnt, direction, throwSpeed, player);
-            RaiseLocalEvent(player, ref itemEv);
+            RaiseLocalEvent(throwEnt, ref itemEv); // WD EDIT - We don't need two identical events.
 
             if (itemEv.Cancelled)
                 return true;

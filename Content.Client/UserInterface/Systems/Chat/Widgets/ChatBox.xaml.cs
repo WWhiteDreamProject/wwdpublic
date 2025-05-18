@@ -32,13 +32,12 @@ public partial class ChatBox : UIWidget
     public bool Main { get; set; }
 
     public ChatSelectChannel SelectedChannel => ChatInput.ChannelSelector.SelectedChannel;
-   
+
     private int _chatStackAmount = 0;
     private bool _chatStackEnabled => _chatStackAmount > 0;
     private List<ChatStackData> _chatStackList;
 
     private bool _chatFontEnabled; // WWDP EDIT
-   
 
     public ChatBox()
     {
@@ -56,7 +55,7 @@ public partial class ChatBox : UIWidget
         _controller.MessageAdded += OnMessageAdded;
         _controller.RegisterChat(this);
 
-       
+
         _cfg = IoCManager.Resolve<IConfigurationManager>();
         //_chatStackAmount = _cfg.GetCVar(CCVars.ChatStackLastLines);
         //if (_chatStackAmount < 0) // anti-idiot protection
@@ -64,10 +63,9 @@ public partial class ChatBox : UIWidget
         _chatStackList = new(_chatStackAmount);
         _cfg.OnValueChanged(CCVars.ChatStackLastLines, UpdateChatStack, true);
         _cfg.OnValueChanged(WhiteCVars.ChatFancyFont, value => { _chatFontEnabled = value; Repopulate(); }, true); // WWDP EDIT
-       
+
     }
 
-   
     private void UpdateChatStack(int value)
     {
         _chatStackAmount = value >= 0 ? value : 0;
@@ -81,7 +79,7 @@ public partial class ChatBox : UIWidget
 
     private void OnMessageAdded(ChatMessage msg)
     {
-        Logger.DebugS("chat", $"{msg.Channel}: {msg.Message}");
+        Logger.GetSawmill("chat").Debug($"{msg.Channel}: {msg.Message}");
         if (!ChatInput.FilterButton.Popup.IsActive(msg.Channel))
         {
             return;
@@ -94,7 +92,6 @@ public partial class ChatBox : UIWidget
 
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
-       
         if (msg.IgnoreChatStack)
         {
             TrackNewMessage(msg.WrappedMessage, color, true);
@@ -144,7 +141,7 @@ public partial class ChatBox : UIWidget
         if(_chatStackList.Count == _chatStackList.Capacity)
             _chatStackList.RemoveAt(_chatStackList.Capacity - 1);
 
-        _chatStackList.Insert(0, new ChatStackData(wrappedMessage, colorOverride, ignoresChatstack)); 
+        _chatStackList.Insert(0, new ChatStackData(wrappedMessage, colorOverride, ignoresChatstack));
     }
 
     private void OnChannelSelect(ChatSelectChannel channel)
@@ -191,7 +188,7 @@ public partial class ChatBox : UIWidget
             message = message.Replace("[/italic]", "[/ci]");
         }
         // WWDP EDIT END
-        var formatted = new FormattedMessage(4); 
+        var formatted = new FormattedMessage(4);
         formatted.PushColor(color);
         formatted.AddMarkup(message);
         formatted.Pop();
