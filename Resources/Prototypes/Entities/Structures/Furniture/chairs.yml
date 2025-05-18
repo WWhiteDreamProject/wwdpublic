@@ -19,9 +19,11 @@
         density: 100
         mask:
         - TableMask
+# WWDP edit start
         layer:
         - TableLayer
         - BulletImpassable
+# WWDP edit end
   - type: Sprite
     sprite: Structures/Furniture/chairs.rsi
     noRot: true
