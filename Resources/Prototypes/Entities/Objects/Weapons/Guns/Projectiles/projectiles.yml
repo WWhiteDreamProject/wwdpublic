@@ -1227,6 +1227,7 @@
         hard: false
         mask:
         - Opaque # WWDP allow shooting through windows
+        - BulletImpassable # WWDP edit
       fly-by: *flybyfixture
   - type: Ammo
     muzzleFlash: null # WWDP
