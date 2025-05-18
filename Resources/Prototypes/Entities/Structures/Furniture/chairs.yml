@@ -19,6 +19,9 @@
         density: 100
         mask:
         - TableMask
+        layer:
+        - TableLayer
+        - BulletImpassable
   - type: Sprite
     sprite: Structures/Furniture/chairs.rsi
     noRot: true
