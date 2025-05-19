@@ -252,6 +252,7 @@
         mask:
         - FullTileMask
         layer:
+        - BulletImpassable
   - type: Airtight
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:
