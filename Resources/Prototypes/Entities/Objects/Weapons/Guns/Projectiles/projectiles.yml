@@ -74,7 +74,8 @@
         hard: false
         mask:
         - Impassable
-        - BulletImpassable
+        - BulletImpassable # WWDP edit
+        - TableLayer # WWDP allow hitting tables
       fly-by: &flybyfixture
         shape: !type:PhysShapeCircle
           radius: 1.5
@@ -114,7 +115,8 @@
         hard: false
         mask:
         - Impassable
-        - BulletImpassable
+        - BulletImpassable # WWDP edit
+        - TableLayer # WWDP allow hitting tables
       fly-by: *flybyfixture
 
 - type: entity
@@ -234,7 +236,8 @@
         hard: false
         mask:
           - Impassable
-          - BulletImpassable
+          - BulletImpassable # WWDP edit
+          - TableLayer # WWDP allow hitting tables
       fly-by: *flybyfixture
   - type: Ammo
     muzzleFlash: null # WWDP
@@ -276,6 +279,9 @@
         hard: false
         mask:
         - Opaque # WWDP allow shooting through windows
+        - Impassable # WWDP edit
+        layer:
+        - BulletImpassable # WWDP edit
       fly-by: *flybyfixture
   - type: Ammo
     muzzleFlash: null # WWDP
@@ -349,6 +355,8 @@
         hard: false
         mask:
         - Opaque
+        layer:
+        - BulletImpassable # WWDP edit
       fly-by: *flybyfixture
   - type: Projectile
 #   soundHit:  Waiting on serv3
@@ -391,6 +399,8 @@
         hard: false
         mask:
         - Opaque
+        layer:
+        - BulletImpassable # WWDP edit
       fly-by: *flybyfixture
   - type: StaminaDamageOnCollide
     damage: 40
@@ -540,6 +550,9 @@
         hard: false
         mask:
         - Opaque
+        - TableLayer # WWDP allow projectiles to interact with tables
+        layer:
+        - BulletImpassable # WWDP edit
       fly-by: *flybyfixture
   - type: Projectile
     damage:
@@ -965,7 +978,9 @@
         hard: false
         mask:
         - Impassable
-        - BulletImpassable
+        - BulletImpassable # WWDP edit
+        - TableLayer # WWDP allow hitting tables
+      fly-by: *flybyfixture
   - type: Vapor
     active: true
   - type: Appearance
@@ -1011,7 +1026,7 @@
 #       bodyType: Dynamic
 #       linearDamping: 0
 #       angularDamping: 0
-#     - type: Projectile
+#    - type: Projectile
 #       deleteOnCollide: false
 #       damage:
 #         types:
@@ -1070,6 +1085,10 @@
         hard: false
         mask:
         - Opaque
+        - Impassable
+        - TableLayer # WWDP allow hitting tables
+        layer:
+        - BulletImpassable # WWDP edit
       fly-by: *flybyfixture
   - type: Ammo
 
@@ -1184,6 +1203,10 @@
         hard: false
         mask:
         - Opaque
+        - Impassable
+        - TableLayer # WWDP allow hitting tables
+        layer:
+        - BulletImpassable # WWDP edit
       fly-by: *flybyfixture
   - type: Projectile
     impactEffect: BulletImpactEffectLaserRed # WWDP
@@ -1227,6 +1250,9 @@
         hard: false
         mask:
         - Opaque # WWDP allow shooting through windows
+        - Impassable # WWDP edit
+        - TableLayer # WWDP allow hitting tables
+        layer:
         - BulletImpassable # WWDP edit
       fly-by: *flybyfixture
   - type: Ammo
@@ -1342,6 +1368,9 @@
         hard: false
         mask:
         - Opaque
+        layer:
+        - BulletImpassable # WWDP edit
+      fly-by: *flybyfixture
   - type: Projectile
     impactEffect: BulletImpactEffectRedDisabler
     damage:
@@ -1382,6 +1411,9 @@
         hard: false
         mask:
         - Opaque
+        layer:
+        - BulletImpassable # WWDP edit
+      fly-by: *flybyfixture
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:

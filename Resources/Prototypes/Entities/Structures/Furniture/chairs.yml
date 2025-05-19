@@ -19,11 +19,9 @@
         density: 100
         mask:
         - TableMask
-# WWDP edit start
         layer:
         - TableLayer
         - BulletImpassable
-# WWDP edit end
   - type: Sprite
     sprite: Structures/Furniture/chairs.rsi
     noRot: true
@@ -53,7 +51,7 @@
           collection: MetalBreak
   - type: StaticPrice
     price: 25
-  - type: RequireProjectileTarget
+  - type: RequireProjectileTarget # WWDP allow projectiles to hit chairs
 
 #Starts unanchored, cannot be rotated while anchored
 - type: entity
@@ -245,6 +243,16 @@
   components:
   - type: Sprite
     state: comfy
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        layer:
+        - TableLayer
+        - BulletImpassable
+  - type: RequireProjectileTarget
   - type: Construction
     graph: Seat
     node: chairComfy
@@ -436,6 +444,16 @@
   components:
   - type: Sprite
     state: steel-bench
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        layer:
+        - TableLayer
+        - BulletImpassable
+  - type: RequireProjectileTarget
   - type: Construction
     graph: Seat
     node: chairSteelBench
@@ -448,6 +466,16 @@
   components:
   - type: Sprite
     state: wooden-bench
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        layer:
+        - TableLayer
+        - BulletImpassable
+  - type: RequireProjectileTarget
   - type: Construction
     graph: Seat
     node: chairWoodBench
