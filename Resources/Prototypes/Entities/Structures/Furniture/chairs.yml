@@ -249,6 +249,8 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-0.45,-0.45,0.45,0.45"
+        mask:
+        - TableMask
         layer:
         - TableLayer
         - BulletImpassable
@@ -450,6 +452,8 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-0.45,-0.45,0.45,0.45"
+        mask:
+        - TableMask
         layer:
         - TableLayer
         - BulletImpassable
@@ -472,6 +476,8 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-0.45,-0.45,0.45,0.45"
+        mask:
+        - TableMask
         layer:
         - TableLayer
         - BulletImpassable
