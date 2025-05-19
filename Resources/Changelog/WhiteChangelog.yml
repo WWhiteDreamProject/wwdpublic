@@ -2854,3 +2854,12 @@ Entries:
   id: 309
   time: '2025-05-17T12:32:02.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/504
+- author: Boevi4ok
+  changes:
+    - type: Tweak
+      message: скафандры злых красных человесков теперь еще опаснее
+    - type: Tweak
+      message: скрыт с глаз долой ненужный мусор с апстримов
+  id: 310
+  time: '2025-05-19T10:02:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/499
