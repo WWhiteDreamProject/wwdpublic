@@ -35,13 +35,13 @@
     damageModifierSet: StructuralMetallic # WWDP EDIT
   - type: Destructible
     thresholds:
-# WWDP EDIT START
-#    - trigger:
-#        !type:DamageTrigger
-#        damage: 25
-#      behaviors:
-#        - !type:DoActsBehavior
-#          acts: [ "Destruction" ] # WWDP - This is broke next trigger and sound
+    # WWDP EDIT START
+    #    - trigger:
+    #        !type:DamageTrigger
+    #        damage: 25
+    #      behaviors:
+    #        - !type:DoActsBehavior
+    #          acts: [ "Destruction" ] # WWDP - This is broke next trigger and sound
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -52,7 +52,7 @@
         sound:
           collection: MetalBreak
           volume: -3
-# WWDP EDIT END
+  # WWDP EDIT END
   - type: StaticPrice
     price: 25
   - type: RequireProjectileTarget
@@ -126,8 +126,8 @@
         !type:DamageTrigger
         damage: 100
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -220,13 +220,17 @@
 - type: entity
   name: white office chair
   id: ChairOfficeLight
-  parent: OfficeChairBase # Goobstation - make the rolly chairs roll!    # WWDP edit Съебись в страхе чудище кривозубое со своими ебаными блять стульями на колесиках гондон ты драный
+  parent: OfficeChairBase
   components:
   - type: Sprite
     state: office-white
   - type: Construction
     graph: Seat
     node: chairOffice
+  - type: SpawnItemsAtLocationOnUse
+    spawnItemsVerbText: disable-wheel-locks
+    items:
+    - id: ChairOfficeLightRolling
 
 - type: entity
   name: dark office chair
@@ -238,6 +242,46 @@
   - type: Construction
     graph: Seat
     node: chairOfficeDark
+  - type: SpawnItemsAtLocationOnUse
+    spawnItemsVerbText: disable-wheel-locks
+    items:
+    - id: ChairOfficeDarkRolling
+
+# EE start
+
+- type: entity
+  name: white office chair
+  suffix: No mapping
+  id: ChairOfficeLightRolling
+  parent: RollingOfficeChairBase
+  components:
+  - type: Sprite
+    state: office-white
+  - type: Construction
+    graph: Seat
+    node: chairOffice
+  - type: SpawnItemsAtLocationOnUse
+    spawnItemsVerbText: activate-wheel-locks
+    items:
+    - id: ChairOfficeLight
+
+- type: entity
+  name: dark office chair
+  suffix: No mapping
+  id: ChairOfficeDarkRolling
+  parent: ChairOfficeLightRolling
+  components:
+  - type: Sprite
+    state: office-dark
+  - type: Construction
+    graph: Seat
+    node: chairOfficeDark
+  - type: SpawnItemsAtLocationOnUse
+    spawnItemsVerbText: activate-wheel-locks
+    items:
+    - id: ChairOfficeDark
+
+# EE end
 
 - type: entity
   name: comfy chair
