@@ -110,6 +110,8 @@
     - type: loadout
       id: LoadoutMedicalUniformJumpsuitChemShirt
     - type: loadout
+      id: LoadoutClothingUniformJumpsuitMedicalUniformChemistry ##WWDP
+    - type: loadout
       id: LoadoutMedicalUniformJumpsuitChemistry
     - type: loadout
       id: LoadoutMedicalUniformJumpskirtChemistry

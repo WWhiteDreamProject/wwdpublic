@@ -110,11 +110,13 @@
     - type: loadout
       id: LoadoutMedicalOuterCybersunWindbreaker
 
-#- type: characterItemGroup
-#  id: LoadoutMedicalShoes
-#  maxItems: 1
-#  items:
-#
+- type: characterItemGroup
+  id: LoadoutMedicalShoes
+  maxItems: 1
+  items:
+    - type: loadout
+      id: ClothingShoesMedicalBlue  ##WWDP  EDIT
+ 
 - type: characterItemGroup
   id: LoadoutMedicalUniforms
   maxItems: 1
@@ -134,4 +136,8 @@
     - type: loadout
       id: LoadoutMedicalUniformScrubsCybersun
     - type: loadout
-      id: LoadoutMedicalUniformScrubsWhite
+      id: LoadoutMedicalUniformScrubsWhite ##wwdp  edit starts
+    - type: loadout
+      id: LoadoutClothingUniformJumpsuitMedicalBlue
+    - type: loadout
+      id: LoadoutClothingUniformJumpsuitMedicalGreen ##end

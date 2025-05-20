@@ -69,3 +69,5 @@
       id: LoadoutMedicalUniformParamedicJumpsuit
     - type: loadout
       id: LoadoutMedicalUniformParamedicJumpskirt
+    - type: loadout
+      id: LoadoutClothingUniformJumpsuitParamedicUniform ##Wwdp
