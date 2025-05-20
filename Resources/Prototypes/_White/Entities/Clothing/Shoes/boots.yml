@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesMedicalBlue
+  name: Medical Blue Shoes
+  description: Medical Shoes. Cool.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Shoes/Boots/medical.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Shoes/Boots/medical.rsi
