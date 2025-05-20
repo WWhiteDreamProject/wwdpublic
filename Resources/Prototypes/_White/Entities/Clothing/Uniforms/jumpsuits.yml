@@ -133,8 +133,8 @@
 - type: entity 
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitParamedicUniform
-  name: Paramedic Uniform 
-  description: Tacticool NanoTrasen Paramedic Uniform
+  name: paramedic uniform 
+  description: The uniform features numerous pockets of various sizes and is also equipped with white stripes for enhanced visibility. A medical cross is visible on the chest, and NanoTrasen logos are displayed on the shoulders.
   components:
     - type: Sprite 
       sprite: _White/Clothing/Uniforms/Jumpsuit/med_para_uniform.rsi
