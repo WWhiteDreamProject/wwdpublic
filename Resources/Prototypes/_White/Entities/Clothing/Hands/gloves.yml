@@ -23,8 +23,8 @@
 - type: entity
   parent: ClothingHandsGlovesLatex
   id: ClothingHandsGlovesVinilDark
-  name: sheriff gloves
-  description: Vinil Gloves.
+  name: dark vinyl gloves
+  description: Dark vinyl gloves that make your hands sweat even more than latex and nitrile gloves! But fortunately, due to the hygiene issues of most crew members, no one will notice. Especially if you're a synthetic.
   components:
   - type: Sprite
     sprite: _White/Clothing/Hands/dark_vinile_gloves.rsi
