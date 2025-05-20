@@ -136,8 +136,10 @@
     - type: loadout
       id: LoadoutMedicalUniformScrubsCybersun
     - type: loadout
-      id: LoadoutMedicalUniformScrubsWhite ##wwdp  edit starts
+      id: LoadoutMedicalUniformScrubsWhite
+    # WD EDIT START
     - type: loadout
       id: LoadoutClothingUniformJumpsuitMedicalBlue
     - type: loadout
-      id: LoadoutClothingUniformJumpsuitMedicalGreen ##end
+      id: LoadoutClothingUniformJumpsuitMedicalGreen
+    # WD EDIT END
