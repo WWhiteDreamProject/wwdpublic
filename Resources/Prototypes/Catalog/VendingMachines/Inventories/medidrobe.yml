@@ -6,11 +6,17 @@
     ClothingBackpackSatchelMedical: 4
     ClothingUniformJumpsuitMedicalDoctor: 4
     ClothingUniformJumpskirtMedicalDoctor: 4
+    ClothingUniformJumpsuitMedicalBlue: 4 ##WWDP EDIT
+    ClothingUniformJumpsuitMedicalUniformGreen: 4 ##WWDP EDIT
+    ClothingUniformJumpsuitParamedicUniform: 4 ##WWDP EDIT
     ClothingHeadHatBeretMedic: 4
     ClothingHeadNurseHat: 4
     ClothingOuterCoatLab: 4
     ClothingShoesColorWhite: 4
+    ClothingShoesMedicalBlue: 4 ##WWDP EDIT
     ClothingHandsGlovesLatex: 4
+    ClothingHandsGlovesVinilDark: 4 ##WWDP EDIT
+    ClothingHandsGlovesVinilOrange: 4 ##WWDP EDIT
     ClothingHandsGlovesNitrile: 2
     ClothingHeadsetMedical: 4
     ClothingOuterWinterMed: 2
