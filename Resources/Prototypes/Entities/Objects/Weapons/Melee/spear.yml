@@ -43,6 +43,7 @@
       types:
         Piercing: 7
         Slash: 1
+    heavyRangeModifier: 1.35
     maxTargets: 3
     angle: 20
     animation: WeaponArcThrust
@@ -84,9 +85,6 @@
       types:
         Piercing: 3
         Slash: 3
-  - type: DisarmMalus # WWDP
-    malus: 0.3
-    wieldedBonus: 0.3
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -118,6 +116,11 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     fillBaseName: spear
+  # WD EDIT START
+  - type: DisarmMalus
+    malus: 0.3
+    wieldedBonus: 0.3
+  # WD EDIT END
 
 - type: entity
   name: reinforced spear
@@ -241,6 +244,7 @@
       types:
         Piercing: 10
         Slash: 2
+    heavyRangeModifier: 1.35
     maxTargets: 3
     angle: 20
     animation: WeaponArcThrust
