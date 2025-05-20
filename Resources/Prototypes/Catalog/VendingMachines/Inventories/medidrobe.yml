@@ -6,9 +6,9 @@
     ClothingBackpackSatchelMedical: 4
     ClothingUniformJumpsuitMedicalDoctor: 4
     ClothingUniformJumpskirtMedicalDoctor: 4
-    ClothingUniformJumpsuitMedicalBlue: 4 ##WWDP EDIT
-    ClothingUniformJumpsuitMedicalUniformGreen: 4 ##WWDP EDIT
-    ClothingUniformJumpsuitParamedicUniform: 4 ##WWDP EDIT
+    ClothingUniformJumpsuitMedicalBlue: 4 ##WWDP EDIT STARTS
+    ClothingUniformJumpsuitMedicalGreen: 4
+    ClothingUniformJumpsuitParamedicUniform: 4 ##WWDP EDIT ENDS
     ClothingHeadHatBeretMedic: 4
     ClothingHeadNurseHat: 4
     ClothingOuterCoatLab: 4
