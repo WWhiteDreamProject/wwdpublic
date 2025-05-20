@@ -110,13 +110,14 @@
     - type: loadout
       id: LoadoutMedicalOuterCybersunWindbreaker
 
+# WD EDIT START - uncommented
 - type: characterItemGroup
   id: LoadoutMedicalShoes
   maxItems: 1
   items:
-    - type: loadout
-      id: ClothingShoesMedicalBlue  ##WWDP  EDIT
- 
+  - type: loadout
+    id: ClothingShoesMedicalBlue
+ # WD EDIT END
 - type: characterItemGroup
   id: LoadoutMedicalUniforms
   maxItems: 1
