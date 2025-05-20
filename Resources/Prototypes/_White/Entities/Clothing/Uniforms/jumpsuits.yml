@@ -110,7 +110,7 @@
 
 - type: entity 
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitMedicalUniformGreen
+  id: ClothingUniformJumpsuitMedicalGreen
   name: Green Medical Uniform
   description: NanoTrasen variation of Medical Uniform. It's green.
   components:

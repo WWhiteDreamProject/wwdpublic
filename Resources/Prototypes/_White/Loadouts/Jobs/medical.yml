@@ -37,6 +37,34 @@
   items:
     - ClothingShoesMedicalBlue
 
+- type: loadout
+  id: LoadoutClothingHandsGlovesVinilOrange
+  category: JobsMedicalAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutMedicalGloves
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Medical
+  items:
+    - ClothingHandsGlovesVinilOrange
+
+- type: loadout
+  id: ClothingHandsGlovesVinilDark
+  category: JobsMedicalAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutMedicalGloves
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Medical
+  items:
+    - ClothingHandsGlovesVinilDark
+
 #Paramedic
 - type: loadout
   id: LoadoutClothingUniformJumpsuitParamedicUniform
