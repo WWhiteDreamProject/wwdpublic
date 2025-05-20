@@ -111,8 +111,8 @@
 - type: entity 
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMedicalGreen
-  name: Green Medical Uniform
-  description: NanoTrasen variation of Medical Uniform. It's green.
+  name: green medical uniform
+  description: The green shade significantly contrasts with blood and reduces visual tension from the bright lamp light.
   components:
     - type: Sprite
       sprite: _White/Clothing/Uniforms/Jumpsuit/med_green_uniform.rsi
