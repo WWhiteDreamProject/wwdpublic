@@ -2,12 +2,6 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Utility;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Robust.Client.Graphics.RSI;
 
 namespace Content.Client._White.DollyMixture;
 
@@ -27,7 +21,7 @@ public sealed class DollyMixtureSystem : EntitySystem
     public override void FrameUpdate(float frameTime)
     {
         var query = EntityQueryEnumerator<DollyMixtureComponent, SpriteComponent, TransformComponent>();
-        while(query.MoveNext(out var uid, out var dollymix, out var sprite, out var xform))
+        while (query.MoveNext(out var uid, out var dollymix, out var sprite, out var xform))
         {
             Angle angle = xform.LocalRotation + _eye.CurrentEye.Rotation;
             for (int i = 0; i < dollymix.LayerIndices.Count; i++)
@@ -40,8 +34,9 @@ public sealed class DollyMixtureSystem : EntitySystem
         DebugTools.Assert(TryComp<SpriteComponent>(uid, out var sprite));
 
         RSIResource? RSIres = null;
-        if(!string.IsNullOrEmpty(comp.RSIPath) && !_res.TryGetResource($"/Textures/{comp.RSIPath}", out RSIres))
+        if (!string.IsNullOrEmpty(comp.RSIPath) && !_res.TryGetResource($"/Textures/{comp.RSIPath}", out RSIres))
         {
+            Log.Error($"Failed to get RSI {$"/Textures/{comp.RSIPath}"} for dolly mixture component. Removing component.");
             RemComp<DollyMixtureComponent>(uid);
             return;
         }
@@ -53,26 +48,23 @@ public sealed class DollyMixtureSystem : EntitySystem
         for (int i = 0; i < comp.States.Count; i++)
         {
             string stateId = comp.States[i];
-            
+
             int layerIndex = sprite.AddBlankLayer();
             sprite.LayerSetRSI(layerIndex, RSI);
             sprite.LayerSetState(layerIndex, stateId);
-            //sprite.LayerSetRenderingStrategy(layerIndex, LayerRenderingStrategy.NoRotation);
             sprite.LayerSetOffset(layerIndex, comp.Offset / EyeManager.PixelsPerMeter + comp.LayerOffset / EyeManager.PixelsPerMeter * i);
             comp.LayerIndices.Add(layerIndex);
 
-            if(sprite.BaseRSI?.TryGetState($"{stateId}-unshaded", out var unshadedState) ?? false)
+            if (sprite.BaseRSI?.TryGetState($"{stateId}-unshaded", out var unshadedState) ?? false) // todo: this is retarded
             {
                 layerIndex = sprite.AddBlankLayer();
                 sprite.LayerSetRSI(layerIndex, RSI);
                 sprite.LayerSetState(layerIndex, $"{stateId}-unshaded");
-                //sprite.LayerSetRenderingStrategy(layerIndex, LayerRenderingStrategy.NoRotation);
                 sprite.LayerSetShader(layerIndex, "unshaded");
                 sprite.LayerSetOffset(layerIndex, comp.Offset / EyeManager.PixelsPerMeter + comp.LayerOffset / EyeManager.PixelsPerMeter * i);
                 comp.LayerIndices.Add(layerIndex);
             }
         }
         sprite.GranularLayersRendering = true;
-        //sprite.NoRotation = true;
     }
 }
