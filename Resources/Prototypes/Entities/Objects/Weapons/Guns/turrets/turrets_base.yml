@@ -87,6 +87,11 @@
   name: ballistic turret
   abstract: true
   components:
+    - type: Sprite
+      noRot: true
+      drawdepth: Mobs
+      layers:
+        - state: syndie_base
     - type: ContainerContainer
       containers:
         ballistic-ammo: !type:Container
@@ -102,6 +107,14 @@
     - type: BallisticAmmoProvider
       proto: CartridgeCaselessRifle
       capacity: 200
+    - type: DollyMixture
+      states:
+      - newererdm5
+      - newererdm4
+      - newererdm3
+      - newererdm2
+      - newererdm1
+      layerOffset: 0,1
 
 - type: entity
   parent: BaseWeaponBallisticTurret
