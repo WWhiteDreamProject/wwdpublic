@@ -6,7 +6,6 @@ using Content.Server.Disposal.Tube;
 using Content.Server.Disposal.Tube.Components;
 using Content.Server.Disposal.Unit.Components;
 using Content.Server.Popups;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Atmos;
@@ -209,10 +208,10 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<DisposalUnitComponent, MetaDataComponent>();
-        while (query.MoveNext(out var uid, out var unit, out var metadata))
+        var query = EntityQueryEnumerator<DisposalUnitComponent>();
+        while (query.MoveNext(out var uid, out var unit))
         {
-            Update(uid, unit, metadata, frameTime);
+            Update(uid, unit);
         }
     }
 
@@ -394,8 +393,9 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
     /// <summary>
     /// Work out if we can stop updating this disposals component i.e. full pressure and nothing colliding.
     /// </summary>
-    private void Update(EntityUid uid, SharedDisposalUnitComponent component, MetaDataComponent metadata, float frameTime)
+    private void Update(EntityUid uid, SharedDisposalUnitComponent component)
     {
+        var metadata = MetaData(uid);
         var state = GetState(uid, component, metadata);
 
         // Pressurizing, just check if we need a state update.
