@@ -87,11 +87,6 @@
   name: ballistic turret
   abstract: true
   components:
-    - type: Sprite
-      noRot: true
-      drawdepth: Mobs
-      layers:
-        - state: syndie_base
     - type: ContainerContainer
       containers:
         ballistic-ammo: !type:Container
@@ -107,17 +102,30 @@
     - type: BallisticAmmoProvider
       proto: CartridgeCaselessRifle
       capacity: 200
-    - type: DollyMixture
-      states:
-      - newererdm5
-      - newererdm4
-      - newererdm3
-      - newererdm2
-      - newererdm1
-      layerOffset: 0,1
 
 - type: entity
   parent: BaseWeaponBallisticTurret
+  id: BaseWeaponBallisticTurret3D
+  description: A ballistic machine gun auto-turret.
+  name: ballistic turret
+  abstract: true
+  components:
+    - type: Sprite
+      noRot: true
+      drawdepth: Mobs
+      layers:
+        - state: syndie_base
+    - type: DollyMixture
+      states:
+      - dm5
+      - dm4
+      - dm3
+      - dm2
+      - dm1
+      layerOffset: 0,0.75
+
+- type: entity
+  parent: BaseWeaponBallisticTurret3D
   id: BaseWeaponTurretMinigun
   name: minigun turret
   abstract: true

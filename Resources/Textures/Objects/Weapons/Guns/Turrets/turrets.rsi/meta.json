@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/42e0275d860551197687c571c689c270ff423288",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/42e0275d860551197687c571c689c270ff423288; dm slices from WWDP",
   "size": {
     "x": 32,
     "y": 32
@@ -22,22 +22,22 @@
       "name": "syndie_base"
     },
     {
-      "name": "newererdm1"
+      "name": "dm1"
     },
     {
-      "name": "newererdm2"
+      "name": "dm2"
     },
     {
-      "name": "newererdm3"
+      "name": "dm3"
     },
     {
-      "name": "newererdm4"
+      "name": "dm4"
     },
     {
-      "name": "newererdm5"
+      "name": "dm5"
     },
     {
-      "name": "newererdm3-unshaded"
+      "name": "dm3-unshaded"
     },
     {
       "name": "syndie_stun",
