@@ -302,7 +302,7 @@
     availableModes:
       - SemiAuto
   - type: GunOverheat # wwdp
-    LampBreakChanceMultiplier: 4
+    lampBreakChanceMultiplier: 4
   - type: Battery
     maxCharge: 3750 # wwdp edit
     startingCharge: 3750 # wwdp edit
