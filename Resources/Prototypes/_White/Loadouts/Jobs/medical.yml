@@ -90,7 +90,7 @@
     - !type:CharacterItemGroupRequirement
       group: LoadoutChemistUniforms
     - !type:CharacterJobRequirement
-       jobs:
-         - Chemist
+      jobs:
+        - Chemist
   items:
     - ClothingUniformJumpsuitMedicalUniformChemistry
