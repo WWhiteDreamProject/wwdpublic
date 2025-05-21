@@ -103,6 +103,7 @@
       proto: CartridgeCaselessRifle
       capacity: 200
 
+# WWDP prototype
 - type: entity
   parent: BaseWeaponBallisticTurret
   id: BaseWeaponBallisticTurret3D
