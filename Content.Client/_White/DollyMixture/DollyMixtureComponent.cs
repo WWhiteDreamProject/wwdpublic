@@ -25,9 +25,5 @@ public sealed partial class DollyMixtureComponent : Component
     [DataField]
     public Vector2 Offset;
 
-    [DataField]
-    public float AngleSnapFactor;
-
     public List<int> LayerIndices;
-
 }

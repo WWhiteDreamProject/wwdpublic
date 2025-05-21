@@ -29,12 +29,7 @@ public sealed class DollyMixtureSystem : EntitySystem
         var query = EntityQueryEnumerator<DollyMixtureComponent, SpriteComponent, TransformComponent>();
         while(query.MoveNext(out var uid, out var dollymix, out var sprite, out var xform))
         {
-            Angle angle;
-            if (dollymix.AngleSnapFactor > 0)
-                angle = Math.Round((xform.LocalRotation + _eye.CurrentEye.Rotation) * dollymix.AngleSnapFactor) / dollymix.AngleSnapFactor;
-            else
-                angle = xform.LocalRotation + _eye.CurrentEye.Rotation;
-
+            Angle angle = xform.LocalRotation + _eye.CurrentEye.Rotation;
             for (int i = 0; i < dollymix.LayerIndices.Count; i++)
                 sprite.LayerSetRotation(dollymix.LayerIndices[i], angle);
         }
