@@ -107,8 +107,6 @@
 - type: entity
   parent: BaseWeaponBallisticTurret
   id: BaseWeaponBallisticTurret3D
-  description: A ballistic machine gun auto-turret.
-  name: ballistic turret
   abstract: true
   components:
     - type: Sprite
