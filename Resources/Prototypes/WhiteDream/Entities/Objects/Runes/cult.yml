@@ -21,6 +21,7 @@
   - type: Sprite
     sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
     state: "offering"
+    color: "#FF0000FF"
   - type: CultRuneBase
   - type: Appearance
 
