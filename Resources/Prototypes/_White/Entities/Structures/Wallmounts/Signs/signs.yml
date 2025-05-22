@@ -5,7 +5,7 @@
   description: A sign indicating the AME.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: ame
 
 - type: entity
@@ -15,7 +15,7 @@
   description: A sign indicating the arrivals.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: arrivals
 
 - type: entity
@@ -25,7 +25,7 @@
   description: A sign indicating the boxing.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: boxing
 
 - type: entity
@@ -35,7 +35,7 @@
   description: A sign indicating the brig.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: brig
 
 - type: entity
@@ -45,7 +45,7 @@
   description: A sign indicating the captain office.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: captain
 
 - type: entity
@@ -55,7 +55,7 @@
   description: A sign indicating the dorms.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: dorms
 
 - type: entity
@@ -65,7 +65,7 @@
   description: A sign indicating the equipment.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: equip
 
 - type: entity
@@ -75,7 +75,7 @@
   description: A sign indicating the evacuation.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: evac
 
 - type: entity
@@ -85,7 +85,7 @@
   description: A sign indicating the gate.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: gate
 
 - type: entity
@@ -95,7 +95,7 @@
   description: A sign indicating the genetics.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: genetics
 
 - type: entity
@@ -105,7 +105,7 @@
   description: A sign indicating the hydroponics area.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: hydro
 
 - type: entity
@@ -115,7 +115,7 @@
   description: A sign indicating the HOP office.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: hop
 
 - type: entity
@@ -125,7 +125,7 @@
   description: A sign indicating the checkpoint.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: check
 
 - type: entity
@@ -135,7 +135,7 @@
   description: A sign indicating the court.
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: court
 
 - type: entity
@@ -145,7 +145,7 @@
   description: A sign indicating the nuclear.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: nukevault
 
 - type: entity
@@ -155,7 +155,7 @@
   description: A sign indicating the PA.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: pa
 
 - type: entity
@@ -165,7 +165,7 @@
   description: A sign indicating the SMES room.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: smes
 
 - type: entity
@@ -175,7 +175,7 @@
   description: A sign indicating the solar pannels.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: solar
 
 - type: entity
@@ -185,7 +185,7 @@
   description: A sign indicating the storage.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: storage
 
 - type: entity
@@ -195,7 +195,7 @@
   description: A sign indicating the theatre.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: theatre
 
 - type: entity
@@ -205,5 +205,53 @@
   description: A sign indicating the toilet.
   components:
   - type: Sprite
-    sprite: _White/Structures/Wallmounts/signs.rsi
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
     state: toilet
+
+- type: entity
+  parent: BaseSign
+  id: SignTVR1
+  name: TVR sign
+  description: A sign indicating the TVR.
+  suffix: part 1
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
+    state: tvr_sign1
+
+- type: entity
+  parent: SignTVR1
+  id: SignTVR2
+  suffix: part 2
+  components:
+  - type: Sprite
+    state: tvr_sign2
+
+- type: entity
+  parent: SignTVR1
+  id: SignTVRNeonOff
+  suffix: Off
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/64x32.rsi
+    state: tvr_sign_neon_off
+
+- type: entity
+  parent: SignTVRNeonOff
+  id: SignTVRNeon
+  suffix: ""
+  components:
+  - type: Sprite
+    state: tvr_sign_neon
+  - type: PointLight
+    radius: 3
+    energy: 1
+    color: '#f997ff'
+
+- type: entity
+  parent: SignTVRNeon
+  id: SignTVRNeonOn
+  suffix: On
+  components:
+  - type: Sprite
+    state: tvr_sign_neon_on

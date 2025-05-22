@@ -5,66 +5,88 @@
          xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls">
     <parallax:ParallaxControl />
     <Control HorizontalAlignment="Center" VerticalAlignment="Center">
-        <PanelContainer StyleClasses="AngleRect" />
-        <BoxContainer Orientation="Vertical" MinSize="300 200">
-            <BoxContainer Orientation="Horizontal">
-                <Label Margin="8 0 0 0" Text="{Loc 'connecting-title'}"
-                       StyleClasses="LabelHeading" VAlign="Center" />
-                <Button Name="ExitButton" Text="{Loc 'connecting-exit'}"
-                        HorizontalAlignment="Right" HorizontalExpand="True" />
-            </BoxContainer>
-            <controls:HighDivider />
-            <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="4 4 4 0">
-                <Control VerticalExpand="True" Margin="0 0 0 8">
-                    <BoxContainer Orientation="Vertical" Name="ConnectingStatus">
-                        <Label Text="{Loc 'connecting-in-progress'}" Align="Center" />
-                        <!-- Who the fuck named these cont- oh wait I did -->
-                        <Label Name="ConnectStatus" StyleClasses="LabelSubText" Align="Center" />
-                    </BoxContainer>
-                    <BoxContainer Orientation="Vertical" Name="ConnectFail" Visible="False">
-                        <RichTextLabel Name="ConnectFailReason" VerticalAlignment="Stretch"/>
-                        <Button Name="RetryButton" Text="{Loc 'connecting-retry'}"
-                                HorizontalAlignment="Center"
-                                VerticalExpand="True" VerticalAlignment="Bottom" />
-                    </BoxContainer>
-                    <BoxContainer Orientation="Vertical" Name="Disconnected">
-                        <Label Text="{Loc 'connecting-disconnected'}" Align="Center" />
-                        <Label Name="DisconnectReason" Align="Center" />
-                        <Button Name="ReconnectButton" Text="{Loc 'connecting-reconnect'}"
-                                HorizontalAlignment="Center"
-                                VerticalExpand="True" VerticalAlignment="Bottom" />
-                        <Button Name="RedialButton" Text="{Loc 'connecting-redial'}"
-                                Disabled="True"
-                                HorizontalAlignment="Center"
-                                VerticalExpand="True" VerticalAlignment="Bottom" />
-                    </BoxContainer>
-                </Control>
-                <Label Name="ConnectingAddress" StyleClasses="LabelSubText" HorizontalAlignment="Center" />
-            </BoxContainer>
-            <PanelContainer>
-                <PanelContainer.PanelOverride>
-                    <gfx:StyleBoxFlat BackgroundColor="#444" ContentMarginTopOverride="2" />
-                </PanelContainer.PanelOverride>
-            </PanelContainer>
+        <PanelContainer StyleClasses="MainPanel" />
+            <BoxContainer Orientation="Horizontal" MinSize="300 200" Margin="10">
+                <BoxContainer Orientation="Vertical" Margin="0,0,5,0">
+                    <BoxContainer Orientation="Horizontal" Margin="0 5 0 8">
+                    <Label Margin="8 0 0 0" Text="{Loc 'connecting-title'}"
+                           StyleClasses="MachineLabel15" VAlign="Center" />
+                    <ContainerButton Name="ExitButton"  StyleClasses="NovaButton" Margin="5"
+                            HorizontalAlignment="Right" HorizontalExpand="True" VerticalExpand="True" >
+                        <Label HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Loc 'connecting-exit'}" StyleClasses="NovaButtonLabel"/>
+                    </ContainerButton>
+                </BoxContainer>
 
-            <BoxContainer Orientation="Horizontal" Margin="12 0 4 0" VerticalAlignment="Bottom">
-                <Label Text="{Loc 'connecting-tip'}" StyleClasses="LabelSubText" />
-                <Label Text="{Loc 'connecting-version'}" StyleClasses="LabelSubText"
-                       HorizontalAlignment="Right" HorizontalExpand="True" />
+                <PanelContainer StyleClasses="DisplayPanel" MinHeight="200" MinWidth="400" Margin="0">
+                    <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="10">
+                        <Control VerticalExpand="True" Margin="0 0 0 8">
+                            <BoxContainer Orientation="Vertical" Name="ConnectingStatus">
+                                <Label Text="{Loc 'connecting-in-progress'}" Align="Left" StyleClasses="DisplayLabel12" />
+                                <!-- Who the fuck named these cont- oh wait I did -->
+                                <Label Name="ConnectStatus" StyleClasses="DisplayLabel10" Align="Left" />
+                            </BoxContainer>
+                            <BoxContainer Orientation="Vertical" Name="ConnectFail" Visible="False">
+                                <RichTextLabel Name="ConnectFailReason" StyleClasses="DisplayLabel12" VerticalAlignment="Stretch"/>
+                                <Button Name="RetryButton" StyleClasses="DisplayLabel12" Text="{Loc 'connecting-retry'}"
+                                        HorizontalAlignment="Left"
+                                        VerticalExpand="True" VerticalAlignment="Bottom" />
+                            </BoxContainer>
+                            <BoxContainer Orientation="Vertical" Name="Disconnected">
+                                <Label Text="{Loc 'connecting-disconnected'}" Align="Left" StyleClasses="DisplayLabel12" />
+                                <Label Name="DisconnectReason" Align="Left" StyleClasses="DisplayLabel12" />
+                                <Button Name="ReconnectButton" Text="{Loc 'connecting-reconnect'}"
+                                        HorizontalAlignment="Left" StyleClasses="DisplayLabel12"
+                                        VerticalExpand="True" VerticalAlignment="Bottom" />
+                                <Button Name="RedialButton" Text="{Loc 'connecting-redial'}"
+                                        Disabled="True" StyleClasses="DisplayLabel12"
+                                        HorizontalAlignment="Left"
+                                        VerticalExpand="True" VerticalAlignment="Bottom" />
+                            </BoxContainer>
+                        </Control>
+                        <BoxContainer Orientation="Horizontal">
+                            <Label Text="Точка доступа:" StyleClasses="DisplayLabel8"/>
+                            <Label Name="ConnectingAddress" StyleClasses="DisplayLabel8" />
+                        </BoxContainer>
+                    </BoxContainer>
+                </PanelContainer>
+
+                <BoxContainer Orientation="Horizontal" Margin="15 0 4 0" VerticalAlignment="Bottom">
+                    <Label Text="{Loc 'connecting-tip'}" StyleClasses="LabelSubText" />
+                    <Label Text="{Loc 'connecting-version'}" StyleClasses="LabelSubText"
+                           HorizontalAlignment="Right" HorizontalExpand="True" />
+                </BoxContainer>
             </BoxContainer>
+                <BoxContainer Orientation="Horizontal" Margin="5,0,15,0">
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#444" ContentMarginLeftOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#666" ContentMarginLeftOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+                </BoxContainer>
+            <PanelContainer Name="LoginTips" StyleClasses="PaperBackground" Margin="0 10" MaxWidth="400" VerticalExpand="True" VerticalAlignment="Stretch">
+                <BoxContainer Orientation="Vertical" VerticalExpand="True">
+                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
+                        <Label Name="LoginTipTitle" Text="Tip" StyleClasses="MachineLabel15" Align="Left"/>
+                    </BoxContainer>
+
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#666" ContentMarginTopOverride="2" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
+                    <BoxContainer Orientation="Vertical" Margin="5 5 5 5" >
+                        <RichTextLabel Name="LoginTip" VerticalExpand="True" />
+                    </BoxContainer>
+                </BoxContainer>
+            </PanelContainer>
         </BoxContainer>
     </Control>
     <!-- Bottom window for tips -->
-    <PanelContainer Name="LoginTips" StyleClasses="AngleRect" Margin="0 10" MaxWidth="600" VerticalExpand="True" VerticalAlignment="Bottom">
-        <BoxContainer Orientation="Vertical" VerticalExpand="True">
-            <controls:StripeBack>
-                <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Label Name="LoginTipTitle" Text="Tip" StyleClasses="LabelHeading" Align="Center"/>
-                </BoxContainer>
-            </controls:StripeBack>
-            <BoxContainer Orientation="Vertical" Margin="5 5 5 5" >
-                <RichTextLabel Name="LoginTip" VerticalExpand="True" />
-            </BoxContainer>
-        </BoxContainer>
-    </PanelContainer>
+
 </Control>

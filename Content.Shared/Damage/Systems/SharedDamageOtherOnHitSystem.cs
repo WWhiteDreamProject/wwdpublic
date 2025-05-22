@@ -40,7 +40,7 @@ namespace Content.Shared.Damage.Systems
         public override void Initialize()
         {
             SubscribeLocalEvent<DamageOtherOnHitComponent, MapInitEvent>(OnMapInit);
-            SubscribeLocalEvent<DamageOtherOnHitComponent, ThrowDoHitEvent>(OnDoHit);
+            SubscribeLocalEvent<DamageOtherOnHitComponent, ThrowDoHitEvent>(OnDoHit, before: new[] { typeof(SharedProjectileSystem), }); // WD EDIT
             SubscribeLocalEvent<DamageOtherOnHitComponent, ThrownEvent>(OnThrown);
             SubscribeLocalEvent<DamageOtherOnHitComponent, AttemptPacifiedThrowEvent>(OnAttemptPacifiedThrow);
 
@@ -133,9 +133,15 @@ namespace Content.Shared.Damage.Systems
         private void LandAfterImpact(EntityUid thrown, ThrownItemComponent thrownComp, PhysicsComponent physics)
         {
             _thrownItem.LandComponent(thrown, thrownComp, physics, false, true);
-            _thrownItem.StopThrow(thrown, thrownComp);
-            _physics.SetBodyStatus(thrown, physics, BodyStatus.OnGround);
-            _physics.SetSleepingAllowed(thrown, physics, true);
+            // WD EDIT START
+            if (HasComp<EmbeddableProjectileComponent>(thrown))
+                return;
+
+            var newVelocity = physics.LinearVelocity;
+            newVelocity.X = -newVelocity.X / 8;
+            newVelocity.Y = -newVelocity.Y / 8;
+            _physics.SetLinearVelocity(thrown, newVelocity, body: physics);
+            // WD EDIT END
         }
 
         /// <summary>

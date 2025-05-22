@@ -53,6 +53,16 @@ namespace Content.Client.UserInterface.Controls
             _guidebookSystem.OpenHelp(HelpGuidebookIds);
         }
 
+        // WWDP EDIT
+        public void AppendStyleClass(string styleClass)
+        {
+            WindowsHeadingBackground.StyleClasses.Add(styleClass);
+            WindowsPanelBackground.StyleClasses.Add(styleClass);
+            WindowTitle.StyleClasses.Add(styleClass);
+            CloseButton.StyleClasses.Add(styleClass);
+            HelpButton.StyleClasses.Add(styleClass);
+        }
+
         protected override DragMode GetDragModeFor(Vector2 relativeMousePos)
         {
             var mode = DragMode.Move;

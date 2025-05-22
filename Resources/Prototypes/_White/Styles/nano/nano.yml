@@ -1,0 +1,43 @@
+- type: styleSheet
+  id: nano
+  parents: [apc, shared]
+  typeDefinition:
+    PanelContainer: "Robust.Client.UserInterface.Controls.PanelContainer"
+    ContainerButton: "Robust.Client.UserInterface.Controls.ContainerButton"
+    ProgressBar: "Robust.Client.UserInterface.Controls.ProgressBar"
+    MenuButton: "Content.Client.UserInterface.Controls.MenuButton"
+  styles:
+    MenuButton.ButtonSquare:
+      stylebox: styleButtonChat
+      modulate-self: "#FFFFFF"
+    MenuButton.OpenRight:
+      stylebox: styleButtonChat
+      modulate-self: "#FFFFFF"
+    MenuButton.OpenLeft:
+      stylebox: styleButtonChat
+      modulate-self: "#FFFFFF"
+    .ChatSubPanel:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/Chat/input.png"
+          patchMargin: 2,2,2,4
+          textureScale: 2,2
+    PanelContainer.TopButtonChat:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/Chat/button-container.png"
+          patchMargin: 4,4,4,5
+          textureScale: 2,2
+      modulate-self: "#FFFFFF"
+    .MenuLabel15:
+      font:
+        valueType: Content.StyleSheetify.Client.Font.FontSpecifier
+        value:
+          font:
+          - "/Fonts/_White/Bedstead/Bedstead.otf"
+          size: 13
+      font-color: "#2f2f2f"
+
+
