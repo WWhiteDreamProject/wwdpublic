@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "size": {
+    "x": 64,
+    "y": 32
+  },
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Made by @purplepigeon580 (Discord)",
+    "states": [
+        {
+            "name": "tvr_sign_neon",
+            "delays": [
+                [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "tvr_sign_neon_on",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "tvr_sign_neon_off",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        }
+    ]
+}

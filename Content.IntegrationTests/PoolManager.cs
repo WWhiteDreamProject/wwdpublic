@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using Content.Client.IoC;
 using Content.Client.Parallax.Managers;
+using Content.Client.Stylesheets;
 using Content.IntegrationTests.Pair;
 using Content.IntegrationTests.Tests;
 using Content.IntegrationTests.Tests.Destructible;
@@ -56,7 +57,10 @@ public static partial class PoolManager
             {
                 typeof(Shared.Entry.EntryPoint).Assembly,
                 typeof(Server.Entry.EntryPoint).Assembly,
-                typeof(PoolManager).Assembly
+                typeof(PoolManager).Assembly,
+
+                typeof(Content.StyleSheetify.Server.EntryPoint).Assembly, //WWDP EDIT
+                typeof(Content.StyleSheetify.Shared.StylePrototypeIgnorance).Assembly //WWDP EDIT
             }
         };
 
@@ -138,7 +142,10 @@ public static partial class PoolManager
             {
                 typeof(Shared.Entry.EntryPoint).Assembly,
                 typeof(Client.Entry.EntryPoint).Assembly,
-                typeof(PoolManager).Assembly
+                typeof(PoolManager).Assembly,
+
+                typeof(Content.StyleSheetify.Client.EntryPoint).Assembly, //WWDP EDIT
+                typeof(Content.StyleSheetify.Shared.StylePrototypeIgnorance).Assembly //WWDP EDIT
             }
         };
 
@@ -166,6 +173,7 @@ public static partial class PoolManager
                     // do not register extra systems or components here -- they will get cleared when the client is
                     // disconnected. just use reflection.
                     IoCManager.Register<IParallaxManager, DummyParallaxManager>(true);
+                    IoCManager.Register<IStylesheetManager, DummyStylesheetManager>(true); //WWDP EDIT
                     IoCManager.Resolve<ILogManager>().GetSawmill("loc").Level = LogLevel.Error;
                     IoCManager.Resolve<IConfigurationManager>()
                         .OnValueChanged(RTCVars.FailureLogLevel, value => logHandler.FailureLevel = value, true);

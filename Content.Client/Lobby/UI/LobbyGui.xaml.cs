@@ -41,7 +41,6 @@ namespace Content.Client.Lobby.UI
                     CharacterSetupState.Visible = false;
                     Center.Visible = true;
                     LabelName.Visible = true;
-                    Changelog.Visible = true;
                     LobbySong.Visible = true;
                     LobbyBackground.Visible = true;
                     DevInfoBanner.Visible = true;
@@ -54,7 +53,6 @@ namespace Content.Client.Lobby.UI
                     Center.Visible = false;
                     RightSide.Visible = false;
                     LabelName.Visible = false;
-                    Changelog.Visible = false;
                     LobbySong.Visible = false;
                     LobbyBackground.Visible = false;
                     DevInfoBanner.Visible = false;

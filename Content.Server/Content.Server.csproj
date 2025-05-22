@@ -26,6 +26,8 @@
     <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
     <ProjectReference Include="..\RobustToolbox\Robust.Server\Robust.Server.csproj" />
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
+    <ProjectReference Include="..\StyleSheetify\Content.StyleSheetify.Server\Content.StyleSheetify.Server.csproj" />
+    <ProjectReference Include="..\StyleSheetify\Content.StyleSheetify.Shared\Content.StyleSheetify.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Objectives\Interfaces\" />

@@ -733,20 +733,22 @@
   categories:
   - UplinkAmmo
 
-- type: listing
-  id: UplinkHristovAmmoShrapnel
-  name: uplink-sniper-ammo-shrapnel-name
-  description: uplink-sniper-ammo-shrapnel-desc
-  productEntity: MagazineBoxAntiMaterielShrapnel
-  # WD EDIT START
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 2
-  cost:
-    Telecrystal: 7
-  # WD EDIT END
-  categories:
-  - UplinkAmmo
+#WWDP edit start - disable upstream shit
+#- type: listing
+#  id: UplinkHristovAmmoShrapnel
+#  name: uplink-sniper-ammo-shrapnel-name
+#  description: uplink-sniper-ammo-shrapnel-desc
+# productEntity: MagazineBoxAntiMaterielShrapnel
+#  # WD EDIT START
+#  discountCategory: usualDiscounts
+#  discountDownTo:
+#    Telecrystal: 2
+#  cost:
+#    Telecrystal: 7
+#  # WD EDIT END
+#  categories:
+#  - UplinkAmmo
+#WWDP edit end
 
 - type: listing
   id: UplinkAmmoBundle
@@ -1841,6 +1843,13 @@
     Telecrystal: 12 # WD EDIT
   categories:
   - UplinkWearables
+  #WWDP edit start
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  #WWDP edit end
 
 - type: listing
   id: UplinkClothingOuterHardsuitJuggernaut

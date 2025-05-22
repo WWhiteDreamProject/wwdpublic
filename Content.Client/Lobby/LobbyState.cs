@@ -1,13 +1,9 @@
-using System.Linq;
-using System.Numerics;
 using Content.Client.Audio;
-using Content.Client.Changelog;
 using Content.Client.GameTicking.Managers;
 using Content.Client.LateJoin;
 using Content.Client.Lobby.UI;
 using Content.Client.Message;
 using Content.Client.ReadyManifest;
-using Content.Client.Resources;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Client.Voting;
 using Robust.Client;
@@ -16,7 +12,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
+
 
 namespace Content.Client.Lobby
 {
@@ -29,7 +25,6 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
-        [Dependency] private readonly ChangelogManager _changelog = default!; // WD EDIT
 
         private ISawmill _sawmill = default!;
         private ClientGameTicker _gameTicker = default!;
@@ -61,7 +56,7 @@ namespace Content.Client.Lobby
 
             UpdateLobbyUi();
 
-            // Lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed;
+            // Lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed; //WD EDIT
             Lobby.ManifestButton.OnPressed += OnManifestPressed;
             Lobby.ReadyButton.OnPressed += OnReadyPressed;
             Lobby.ReadyButton.OnToggled += OnReadyToggled;
@@ -70,8 +65,6 @@ namespace Content.Client.Lobby
             _gameTicker.InfoBlobUpdated += UpdateLobbyUi;
             _gameTicker.LobbyStatusUpdated += LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated += LobbyLateJoinStatusUpdated;
-
-            PopulateChangelog(); // WD EDIT
         }
 
         protected override void Shutdown()
@@ -202,7 +195,7 @@ namespace Content.Client.Lobby
                 Lobby!.ServerInfo.SetInfoBlob(_gameTicker.ServerInfoBlob);
 
             Lobby!.LabelName.SetMarkup("[font=\"Bedstead\" size=20] White Dream [/font]"); // WD EDIT
-            Lobby!.ChangelogLabel.SetMarkup(Loc.GetString("ui-lobby-changelog")); // WD EDIT
+            //Lobby!.ChangelogLabel.SetMarkup(Loc.GetString("ui-lobby-changelog")); // WD EDIT
         }
 
         private void UpdateLobbySoundtrackInfo(LobbySoundtrackChangedEvent ev)
@@ -267,92 +260,7 @@ namespace Content.Client.Lobby
 
             _consoleHost.ExecuteCommand($"toggleready {newReady}");
         }
-
-        private async void PopulateChangelog()
-        {
-            if (Lobby?.ChangelogContainer?.Children is null)
-                return;
-
-            Lobby.ChangelogContainer.Children.Clear();
-
-            var changelogs = await _changelog.LoadChangelog();
-            var whiteChangelog = changelogs.Find(cl => cl.Name == "WhiteChangelog");
-
-            if (whiteChangelog is null)
-            {
-                Lobby.ChangelogContainer.Children.Add(
-                    new RichTextLabel().SetMarkup(Loc.GetString("ui-lobby-changelog-not-found")));
-
-                return;
-            }
-
-            var entries = whiteChangelog.Entries
-                .OrderByDescending(c => c.Time)
-                .Take(3);
-
-            foreach (var entry in entries)
-            {
-                var box = new BoxContainer
-                {
-                    Orientation = BoxContainer.LayoutOrientation.Vertical,
-                    HorizontalAlignment = Control.HAlignment.Left,
-                    Children =
-                    {
-                        new Label
-                        {
-                            Align = Label.AlignMode.Left,
-                            Text = $"{entry.Author} {entry.Time.ToShortDateString()}",
-                            FontColorOverride = Color.FromHex("#888"),
-                            Margin = new Thickness(0, 10)
-                        }
-                    }
-                };
-
-                foreach (var change in entry.Changes)
-                {
-                    var container = new BoxContainer
-                    {
-                        Orientation = BoxContainer.LayoutOrientation.Horizontal,
-                        HorizontalAlignment = Control.HAlignment.Left
-                    };
-
-                    var text = new RichTextLabel();
-                    text.SetMessage(FormattedMessage.FromMarkup(change.Message));
-                    text.MaxWidth = 350;
-
-                    container.AddChild(GetIcon(change.Type));
-                    container.AddChild(text);
-
-                    box.AddChild(container);
-                }
-
-                if (Lobby?.ChangelogContainer is null)
-                    return;
-
-                Lobby.ChangelogContainer.AddChild(box);
-            }
-        }
-
-        private TextureRect GetIcon(ChangelogManager.ChangelogLineType type)
-        {
-            var (file, color) = type switch
-            {
-                ChangelogManager.ChangelogLineType.Add => ("plus.svg.192dpi.png", "#6ED18D"),
-                ChangelogManager.ChangelogLineType.Remove => ("minus.svg.192dpi.png", "#D16E6E"),
-                ChangelogManager.ChangelogLineType.Fix => ("bug.svg.192dpi.png", "#D1BA6E"),
-                ChangelogManager.ChangelogLineType.Tweak => ("wrench.svg.192dpi.png", "#6E96D1"),
-                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
-            };
-
-            return new TextureRect
-            {
-                Texture = _resourceCache.GetTexture(new ResPath($"/Textures/Interface/Changelog/{file}")),
-                VerticalAlignment = Control.VAlignment.Top,
-                TextureScale = new Vector2(0.5f, 0.5f),
-                Margin = new Thickness(2, 4, 6, 2),
-                ModulateSelfOverride = Color.FromHex(color)
-            };
-        }
+        // Removed some function for icon. If needed then get it from git version
         // WD EDIT END
     }
 }

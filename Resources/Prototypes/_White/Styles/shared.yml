@@ -1,0 +1,63 @@
+- type: styleSheet
+  id: shared
+  typeDefinition:
+    PanelContainer: "Robust.Client.UserInterface.Controls.PanelContainer"
+    ContainerButton: "Robust.Client.UserInterface.Controls.ContainerButton"
+    ProgressBar: "Robust.Client.UserInterface.Controls.ProgressBar"
+    MenuButton: "Content.Client.UserInterface.Controls.MenuButton"
+  styles:
+    PanelContainer.ChatMainPanel:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/Chat/panel.png"
+          patchMargin: 3,5,3,5
+          expandMargin: 3,5,3,5
+          textureScale: 2,2
+      modulate-self: "#FFFFFF"
+    PanelContainer.ChatPanel:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/Chat/chat-panel.png"
+          patchMargin: 8,9,8,9
+          expandMarginTop: -2
+          textureScale: 2,2
+      modulate-self: "#FFFFFF"
+    PanelContainer.ChatControl:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/Chat/input-container.png"
+          patchMargin: 4,5,4,5
+          expandMarginTop: -2
+          textureScale: 2,2
+      modulate-self: "#FFFFFF"
+    PanelContainer.PaperBackground:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/Paper/print.png"
+          patchMargin: 9.0, 0.0, 9.0, 0.0
+          stretchMode: Tile
+          textureScale: 2, 2
+      modulate-self: "#FFFFFF"
+    ContainerButton.NovaButton:
+      stylebox:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/Chat/button.png"
+          patchMargin: 3,5,3,5
+          expandMargin: 1,8,1,5
+          textureScale: 2,2
+          padding: 3,5,3,5
+          contentMarginVerticalOverride: 3
+      modulate-self: "#FFFFFF"
+    .NovaButtonLabel:
+      font:
+        valueType: Content.StyleSheetify.Client.Font.FontSpecifier
+        value:
+          font:
+          - "/Fonts/Boxfont-round/Boxfont Round.ttf"
+          size: 10
+      font-color: "#949494"
