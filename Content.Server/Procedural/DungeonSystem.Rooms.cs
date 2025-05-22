@@ -4,8 +4,10 @@ using Content.Shared.Maps;
 using Content.Shared.Procedural;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Whitelist;
+using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Procedural;
@@ -184,8 +186,34 @@ public sealed partial class DungeonSystem
             var childRot = templateXform.LocalRotation + finalRoomRotation;
             var protoId = _metaQuery.GetComponent(templateEnt).EntityPrototype?.ID;
 
-            // TODO: Copy the templated entity as is with serv
             var ent = Spawn(protoId, new EntityCoordinates(gridUid, childPos));
+
+            // WD EDIT START - kill me pls
+            foreach (var comp in EntityManager.GetComponents(ent))
+            {
+                if (comp is TransformComponent or ContainerManagerComponent or MetaDataComponent or FixturesComponent)
+                    continue;
+
+                RemComp(ent, comp);
+            }
+            foreach (var comp in EntityManager.GetComponents(templateEnt))
+            {
+                if (comp is TransformComponent or ContainerManagerComponent or FixturesComponent)
+                    continue;
+
+                if (comp is MetaDataComponent templateMetaData)
+                {
+                    var copyMetaData = MetaData(ent);
+                    _metaData.SetEntityName(ent, templateMetaData.EntityName, copyMetaData);
+                    _metaData.SetEntityDescription(ent, templateMetaData.EntityDescription, copyMetaData);
+                    continue;
+                }
+
+                var copy = _serializationManager.CreateCopy(comp, notNullableOverride: true);
+                copy.Owner = ent;
+                AddComp(ent, copy, true);
+            }
+            // WD EDIT END
 
             var childXform = _xformQuery.GetComponent(ent);
             var anchored = templateXform.Anchored;
