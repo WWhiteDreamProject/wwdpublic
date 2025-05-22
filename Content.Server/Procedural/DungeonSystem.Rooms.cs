@@ -3,6 +3,7 @@ using Content.Shared.Decals;
 using Content.Shared.Maps;
 using Content.Shared.Procedural;
 using Content.Shared.Random.Helpers;
+using Content.Shared.Storage;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -191,22 +192,31 @@ public sealed partial class DungeonSystem
             // WD EDIT START - kill me pls
             foreach (var comp in EntityManager.GetComponents(ent))
             {
-                if (comp is TransformComponent or ContainerManagerComponent or MetaDataComponent or FixturesComponent)
+                if (comp is TransformComponent
+                    or ContainerManagerComponent
+                    or MetaDataComponent
+                    or FixturesComponent
+                    or StorageComponent)
                     continue;
 
                 RemComp(ent, comp);
             }
             foreach (var comp in EntityManager.GetComponents(templateEnt))
             {
-                if (comp is TransformComponent or ContainerManagerComponent or FixturesComponent)
-                    continue;
-
-                if (comp is MetaDataComponent templateMetaData)
+                switch (comp)
                 {
-                    var copyMetaData = MetaData(ent);
-                    _metaData.SetEntityName(ent, templateMetaData.EntityName, copyMetaData);
-                    _metaData.SetEntityDescription(ent, templateMetaData.EntityDescription, copyMetaData);
-                    continue;
+                    case TransformComponent
+                        or ContainerManagerComponent
+                        or FixturesComponent
+                        or StorageComponent:
+                        continue;
+                    case MetaDataComponent templateMetaData:
+                    {
+                        var copyMetaData = MetaData(ent);
+                        _metaData.SetEntityName(ent, templateMetaData.EntityName, copyMetaData);
+                        _metaData.SetEntityDescription(ent, templateMetaData.EntityDescription, copyMetaData);
+                        continue;
+                    }
                 }
 
                 var copy = _serializationManager.CreateCopy(comp, notNullableOverride: true);
