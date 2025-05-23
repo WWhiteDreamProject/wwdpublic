@@ -76,7 +76,7 @@
   components:
   - type: Temperature
   - type: AtmosExposed
-  - type: GunOverheat
+  - type: GunOverheat # wwdp
     temperatureLimit: 150
 
 # WWDP prototype
@@ -85,7 +85,7 @@
   parent: [BaseWeaponOverheat, BaseWeaponOverheatLampSlot]
   abstract: True
   components:
-  - type: GunOverheat
+  - type: GunOverheat # wwdp
     requiresLamp: true
     canChangeSafety: true
     temperatureLimit: 240
@@ -365,7 +365,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: GunOverheat
+  - type: GunOverheat # wwdp
     heatCost: 35
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletLaser # WWDP
@@ -723,7 +723,7 @@
     - type: ProjectileBatteryAmmoProvider
       proto: BulletDisabler
       fireCost: 20
-    - type: GunOverheat
+    - type: GunOverheat # wwdp
       heatCost: 20
     - type: MagazineVisuals
       magState: mag
@@ -914,7 +914,7 @@
     fireCost: 25 # wwdp edit
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 15
+    autoRechargeRate: 15 # wwdp edit
   - type: MagazineVisuals
     magState: mag
     steps: 5

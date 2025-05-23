@@ -1,6 +1,4 @@
 using Content.Shared.Examine;
-using Content.Shared.Temperature;
-using Content.Shared.Temperature.Systems;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.GameStates;
@@ -52,7 +50,7 @@ public abstract partial class SharedGunSystem
         };
 
         if (TryComp<HitscanBatteryAmmoProviderComponent>(uid, out var hitscan)) // Shitmed Change
-           state.Prototype = hitscan.Prototype;
+            state.Prototype = hitscan.Prototype;
 
         args.State = state; // Shitmed Change
     }
@@ -81,7 +79,6 @@ public abstract partial class SharedGunSystem
         Dirty(uid, component);
     }
 
-
     private void OnBatteryAmmoCount(EntityUid uid, BatteryAmmoProviderComponent component, ref GetAmmoCountEvent args)
     {
         args.Count = component.Shots;
@@ -91,7 +88,7 @@ public abstract partial class SharedGunSystem
     /// <summary>
     /// Update the battery (server-only) whenever fired.
     /// </summary>
-    protected virtual void TakeCharge(EntityUid uid, BatteryAmmoProviderComponent component) {}
+    protected virtual void TakeCharge(EntityUid uid, BatteryAmmoProviderComponent component) { }
 
     protected void UpdateBatteryAppearance(EntityUid uid, BatteryAmmoProviderComponent component)
     {
