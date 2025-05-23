@@ -52,7 +52,7 @@
     - ClothingHandsGlovesVinylOrange
 
 - type: loadout
-  id: LoadoutClothingHandsGlovesVinilDark
+  id: LoadoutClothingHandsGlovesVinylDark
   category: JobsMedicalAUncategorized
   cost: 0
   exclusive: true
