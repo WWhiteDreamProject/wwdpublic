@@ -49,7 +49,7 @@
       departments:
         - Medical
   items:
-    - ClothingHandsGlovesVinilOrange
+    - ClothingHandsGlovesVinylOrange
 
 - type: loadout
   id: LoadoutClothingHandsGlovesVinilDark
