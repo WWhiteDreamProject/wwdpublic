@@ -1,10 +1,7 @@
 ﻿- type: entity
   id: giber
   name: giber
-  description: na nahui!
   components:
-  - type: Transform
-    anchored: True
   - type: InteractionOutline
   - type: Physics
     bodyType: Static
