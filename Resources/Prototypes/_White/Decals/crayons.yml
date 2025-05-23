@@ -1,0 +1,76 @@
+﻿- type: decal
+  id: CultRuneOfferingCrayon
+  parent: Graffiti
+  tags: ["crayon", "crayon-5-graffiti"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
+    state: offering
+
+- type: decal
+  id: CultRuneEmpowerCrayon
+  parent: Graffiti
+  tags: ["crayon", "crayon-5-graffiti"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
+    state: empower
+
+- type: decal
+  id: CultRuneTeleportCrayon
+  parent: Graffiti
+  tags: ["crayon", "crayon-5-graffiti"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
+    state: teleport
+
+- type: decal
+  id: CultRuneReviveCrayon
+  parent: Graffiti
+  tags: ["crayon", "crayon-5-graffiti"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
+    state: revive
+
+- type: decal
+  id: CultRuneBarrierCrayon
+  parent: Graffiti
+  tags: ["crayon", "crayon-5-graffiti"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
+    state: barrier
+
+- type: decal
+  id: CultRuneSummoningCrayon
+  parent: Graffiti
+  tags: ["crayon", "crayon-5-graffiti"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
+    state: summon
+
+- type: decal
+  id: CultRuneBloodBoilCrayon
+  parent: Graffiti
+  tags: ["crayon", "crayon-5-graffiti"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
+    state: blood_boil
