@@ -38,7 +38,7 @@
     - ClothingShoesMedicalBlue
 
 - type: loadout
-  id: LoadoutClothingHandsGlovesVinilOrange
+  id: LoadoutClothingHandsGlovesVinylOrange
   category: JobsMedicalAUncategorized
   cost: 0
   exclusive: true
