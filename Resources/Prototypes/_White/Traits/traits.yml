@@ -22,7 +22,7 @@
 - type: trait
   id: Contract
   category: Psionics
-  points: 10
+  points: 13
   functions:
   - !type:TraitAddComponent
     components:
