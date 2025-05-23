@@ -63,7 +63,7 @@
       departments:
         - Medical
   items:
-    - ClothingHandsGlovesVinilDark
+    - ClothingHandsGlovesVinylDark
 
 #Paramedic
 - type: loadout
