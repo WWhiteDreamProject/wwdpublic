@@ -80,6 +80,24 @@
   description: A 90s looking lamp. You're not sure what it's really for, but without it most energy weapons will not work.
 
 - type: entity
+  parent: BaseRegulatorLamp
+  id: AdvancedRegulatorLamp
+  name: advanced regulator lamp
+  description: A 00s looking lamp.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/regulator_lamp.rsi
+    layers:
+    - state: adv
+    - state: internals
+      map: [ "Internals" ]
+    - state: glass
+      map: [ "Glass" ]
+  - type: RegulatorLamp
+    safeTemp: 480
+    unsafeTemp: 840
+
+- type: entity
   name: regulator lamp box
   parent: BoxCardboard
   id: BoxBasicRegulatorLamp
@@ -112,4 +130,3 @@
     whitelist:
       components:
       - RegulatorLamp
-      

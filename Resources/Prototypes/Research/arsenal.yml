@@ -196,6 +196,7 @@
   # - WeaponPistolCobra # WWDP no syndicate guns
   - Terminus
   - WeaponPistolUniversal
+  - AdvancedRegulatorLamp #WWDP edit
   technologyPrerequisites:
   - BasicWeapons
 

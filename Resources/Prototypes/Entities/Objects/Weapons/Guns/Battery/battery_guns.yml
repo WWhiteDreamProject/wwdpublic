@@ -312,7 +312,7 @@
 
 - type: entity
   name: tesla gun
-  parent: BaseWeaponBattery
+  parent: [BaseWeaponBattery, BaseWeaponOverheat]
   id: WeaponTeslaGun
   description: The power of the primordial element of lightning in your hands.
   components:
@@ -601,7 +601,7 @@
 
 - type: entity
   name: x-ray cannon
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponOverheat] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponOverheatLamp] # wwdp edit - overheat
   id: WeaponXrayCannon
   description: An experimental weapon that uses concentrated x-ray energy against its target.
   components:
@@ -945,7 +945,7 @@
 
 - type: entity
   name: advanced laser pistol
-  parent: BaseWeaponBatterySmall
+  parent: [BaseWeaponBatterySmall, BaseWeaponOverheatLamp] # wwdp edit - overheat
   id: WeaponAdvancedLaser
   description: An experimental high-energy laser pistol with a self-charging nuclear battery.
   components:
@@ -1079,7 +1079,7 @@
 
 - type: entity
   name: energy shotgun
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBatterySmall, BaseWeaponOverheatLamp, BaseGunWieldable] # wwdp edit - overheat
   id: WeaponEnergyShotgun
   description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
   components:
@@ -1120,8 +1120,8 @@
     - HighRiskItem
   # - type: GunRequiresWield #remove when inaccuracy on spreads is fixed # WWDP disabled
   - type: Battery
-    maxCharge: 1210
-    startingCharge: 1210
+    maxCharge: 1820 #WWDP edit
+    startingCharge: 1820 #WWDP edit
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 48
