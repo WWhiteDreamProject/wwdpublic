@@ -2863,3 +2863,10 @@ Entries:
   id: 310
   time: '2025-05-19T10:02:43.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/499
+- author: Kai518
+  changes:
+    - type: Add
+      message: Теперь копии всех рун культа размером 1х1 можно рисовать мелками.
+  id: 311
+  time: '2025-05-23T21:59:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/510
