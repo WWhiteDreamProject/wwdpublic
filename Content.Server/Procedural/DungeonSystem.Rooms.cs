@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Server.Storage.Components;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
 using Content.Shared.Procedural;
@@ -9,6 +10,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Procedural;
@@ -196,7 +198,9 @@ public sealed partial class DungeonSystem
                     or ContainerManagerComponent
                     or MetaDataComponent
                     or FixturesComponent
-                    or StorageComponent)
+                    or PhysicsComponent
+                    or StorageComponent
+                    or EntityStorageComponent)
                     continue;
 
                 RemComp(ent, comp);
@@ -208,7 +212,9 @@ public sealed partial class DungeonSystem
                     case TransformComponent
                         or ContainerManagerComponent
                         or FixturesComponent
-                        or StorageComponent:
+                        or PhysicsComponent
+                        or StorageComponent
+                        or EntityStorageComponent:
                         continue;
                     case MetaDataComponent templateMetaData:
                     {
