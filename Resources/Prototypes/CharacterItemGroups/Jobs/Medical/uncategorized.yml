@@ -116,7 +116,7 @@
   maxItems: 1
   items:
   - type: loadout
-    id: ClothingShoesMedicalBlue
+    id: LoadoutClothingShoesMedicalBlue
  # WD EDIT END
 - type: characterItemGroup
   id: LoadoutMedicalUniforms
