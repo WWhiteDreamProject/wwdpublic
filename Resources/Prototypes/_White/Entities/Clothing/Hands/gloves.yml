@@ -33,7 +33,7 @@
 
 - type: entity
   parent: ClothingHandsGlovesLatex
-  id: ClothingHandsGlovesVinilOrange
+  id: ClothingHandsGlovesVinylOrange
   name: orange vinyl gloves
   description: Orange vinyl gloves that make your hands sweat even more than latex and nitrile gloves! But fortunately, due to the hygiene issues of most crew members, no one will notice. Especially if you're a synthetic.
   components:
