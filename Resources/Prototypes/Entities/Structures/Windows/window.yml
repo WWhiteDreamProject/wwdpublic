@@ -35,7 +35,7 @@
         mask:
         - FullTileMask
         layer:
-        - BulletImpassable # WWDP allow lasers to pass through windows
+        - GlassLayer
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Glass
@@ -139,7 +139,7 @@
         mask:
         - FullTileMask
         layer:
-        - BulletImpassable # WWDP allow lasers to pass through windows
+        - GlassLayer
   - type: Repairable
   - type: Damageable
     damageContainer: Inorganic
@@ -252,7 +252,7 @@
         mask:
         - FullTileMask
         layer:
-        - BulletImpassable
+        - GlassLayer
   - type: Airtight
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:
