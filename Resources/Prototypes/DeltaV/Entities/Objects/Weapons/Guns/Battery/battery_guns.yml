@@ -100,7 +100,7 @@
     proto: BulletDisabler
     fireCost: 20
   - type: GunOverheat # wwdp
-    heatCost: 25	
+    heatCost: 25
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
