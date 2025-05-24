@@ -31,8 +31,6 @@ gun-regulator-temperature-limit-exceeded-popup = Оружие перегрело
 gun-regulator-lamp-missing-popup = Регуляторная лампа отсутствует!
 gun-regulator-lamp-broken-popup = Регуляторная лампа сломана!
 
-
-
 ent-BasicRegulatorLamp = регуляторная лампа
     .desc = Внешняя регуляторная лампа. Некоторое лазерное оружие полагается на эти лампы при регулировании лазерного потока.
 
