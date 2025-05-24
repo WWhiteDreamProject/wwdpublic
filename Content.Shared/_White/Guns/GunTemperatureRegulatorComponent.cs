@@ -46,7 +46,7 @@ public sealed partial class GunOverheatComponent : Component
     [DataField, AutoNetworkedField, AlwaysPushInheritance]
     public bool RequiresLamp = false;
 
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public string LampSlot = "gun-regulator-lamp-slot";
 
     /// <summary>
@@ -65,12 +65,12 @@ public sealed partial class GunOverheatComponent : Component
     [DataField, AutoNetworkedField]
     public float HeatCost = 50;
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public SoundSpecifier clickUpSound = new SoundPathSpecifier("/Audio/Machines/button.ogg", AudioParams.Default.WithPitchScale(1.25f));
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public SoundSpecifier clickSound = new SoundPathSpecifier("/Audio/Machines/button.ogg", AudioParams.Default);
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public SoundSpecifier clickDownSound = new SoundPathSpecifier("/Audio/Machines/button.ogg", AudioParams.Default.WithPitchScale(0.75f));
 }

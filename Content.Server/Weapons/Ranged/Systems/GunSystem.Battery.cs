@@ -13,7 +13,7 @@ namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem
 {
-    [Dependency] private readonly TemperatureSystem _temp = default!;
+    [Dependency] private readonly TemperatureSystem _temp = default!; // WWDP EDIT
 
     protected override void InitializeBattery()
     {

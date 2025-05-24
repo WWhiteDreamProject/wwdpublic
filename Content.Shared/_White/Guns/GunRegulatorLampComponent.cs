@@ -10,7 +10,7 @@ public sealed partial class RegulatorLampComponent : Component
     /// Temperature below which the lamp is guaranteed to work
     /// Increased by 273.15f upon component init.
     /// </summary>
-    [DataField("safeTemp", required: true), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField("safeTemp", required: true), AutoNetworkedField]
     public float SafeTemperatureCelcius { get => SafeTemperature - 273.15f; set => SafeTemperature = value + 273.15f; }
     public float SafeTemperature = 0; // unit test bs
     /// <summary>
@@ -24,6 +24,6 @@ public sealed partial class RegulatorLampComponent : Component
     [DataField, AutoNetworkedField]
     public bool Intact = true;
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public SoundSpecifier BreakSound = new SoundCollectionSpecifier("GlassBreak");
 }
