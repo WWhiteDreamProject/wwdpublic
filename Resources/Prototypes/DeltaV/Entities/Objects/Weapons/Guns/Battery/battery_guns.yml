@@ -104,8 +104,8 @@
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 20
-      heatCost: 25
+      fireCost: 20 # wwdp
+      heatCost: 25 # wwdp
       name: disable
       state: disabler
     - proto: BulletLaser # WWDP
