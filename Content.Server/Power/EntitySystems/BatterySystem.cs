@@ -238,6 +238,18 @@ namespace Content.Server.Power.EntitySystems
             return battery.CurrentCharge / battery.MaxCharge >= 0.99f;
         }
 
+        public float AddCharge(EntityUid uid, float value, BatteryComponent? battery = null)
+        {
+            if (value <= 0 || !Resolve(uid, ref battery))
+                return 0;
+
+            var newValue = Math.Clamp(battery.CurrentCharge + value, 0, battery.MaxCharge);
+            battery.CurrentCharge = newValue;
+            var ev = new ChargeChangedEvent(battery.CurrentCharge, battery.MaxCharge);
+            RaiseLocalEvent(uid, ref ev);
+            return newValue;
+        }
+
         // WD EDIT START
         public bool TryGetBatteryComponent(EntityUid uid, [NotNullWhen(true)] out BatteryComponent? battery,[NotNullWhen(true)] out EntityUid? batteryUid)
         {
