@@ -22,6 +22,7 @@ namespace Content.Server.Entry
             "OptionsVisualizer",
             "ToggleableLightWieldable", // Goobstation
             "PixelSnapEye", // WWDP EDIT
+            "ItemSlotRenderer", // WWDP EDIT
         };
     }
 }
