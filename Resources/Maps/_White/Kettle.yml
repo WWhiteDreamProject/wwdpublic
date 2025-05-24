@@ -12835,16 +12835,6 @@ entities:
     - type: RadiationGridResistance
     - type: GasTileOverlay
     - type: SpreaderGrid
-    - type: Joint
-      joints:
-        docking6173: !type:WeldJoint
-          bodyB: 24645
-          bodyA: 82
-          id: docking6173
-          localAnchorB: 0.49999997,0
-          localAnchorA: -53.5,61
-          damping: 162.23444
-          stiffness: 1456.213
   - uid: 84
     components:
     - type: MetaData
@@ -12860,54 +12850,6 @@ entities:
     - type: Parallax
       parallax: KettleStation
     - type: LoadedMap
-  - uid: 24645
-    components:
-    - type: MetaData
-      name: grid
-    - type: Transform
-      pos: -57.066467,65.66319
-      parent: 84
-    - type: MapGrid
-      chunks:
-        0,0:
-          ind: 0,0
-          tiles: cAAAAAAAcAAAAAAAbwAAAAAAbwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAbwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbwAAAAAAAAAAAAAAbwAAAAAAbwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-          version: 6
-        -1,0:
-          ind: -1,0
-          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbwAAAAAAbwAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbwAAAAAAbwAAAAAAbwAAAAAAbwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-          version: 6
-    - type: Broadphase
-    - type: Physics
-      bodyStatus: InAir
-      angularDamping: 0.05
-      linearDamping: 0.05
-      fixedRotation: False
-      bodyType: Dynamic
-    - type: Fixtures
-      fixtures: {}
-    - type: OccluderTree
-    - type: SpreaderGrid
-    - type: Shuttle
-    - type: GridPathfinding
-    - type: Gravity
-      gravityShakeSound: !type:SoundPathSpecifier
-        path: /Audio/Effects/alert.ogg
-    - type: DecalGrid
-      chunkCollection:
-        version: 2
-        nodes: []
-    - type: RadiationGridResistance
-    - type: Joint
-      joints:
-        docking6173: !type:WeldJoint
-          bodyB: 24645
-          bodyA: 82
-          id: docking6173
-          localAnchorB: 0.49999997,0
-          localAnchorA: -53.5,61
-          damping: 162.23425
-          stiffness: 1456.2113
 - proto: AccordionInstrument
   entities:
   - uid: 21533
@@ -15373,25 +15315,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -53.5,60.5
       parent: 82
-    - type: Docking
-      dockJointId: docking6173
-      dockedWith: 24661
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: False
-        DockStatus: True
-  - uid: 24661
-    components:
-    - type: Transform
-      pos: 0.5,0.5
-      parent: 24645
-    - type: Docking
-      dockJointId: docking6173
-      dockedWith: 20110
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: False
-        DockStatus: True
 - proto: AirlockExternalGlassShuttleMining
   entities:
   - uid: 7130
@@ -15565,7 +15488,7 @@ entities:
       pos: 16.5,-3.5
       parent: 82
     - type: Door
-      secondsUntilStateChange: -77936.31
+      secondsUntilStateChange: -79095.555
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17812,11 +17735,6 @@ entities:
     - type: Transform
       pos: -4.5,-66.5
       parent: 82
-  - uid: 24666
-    components:
-    - type: Transform
-      pos: 0.5,0.5
-      parent: 24645
   - uid: 25252
     components:
     - type: Transform
@@ -40069,16 +39987,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -62.513184,-39.496777
       parent: 82
-  - uid: 24659
-    components:
-    - type: Transform
-      pos: -0.47409058,0.47394562
-      parent: 24645
-  - uid: 24660
-    components:
-    - type: Transform
-      pos: 2.5259094,2.458641
-      parent: 24645
 - proto: CableHV
   entities:
   - uid: 353
@@ -64116,6 +64024,8 @@ entities:
     - type: Transform
       pos: 51.430733,52.408886
       parent: 82
+    - type: TimedDespawn
+      lifetime: 900
 - proto: ClosetBombFilled
   entities:
   - uid: 4314
@@ -107413,16 +107323,6 @@ entities:
     - type: Transform
       pos: -45.5,47.5
       parent: 82
-  - uid: 24647
-    components:
-    - type: Transform
-      pos: -1.5,2.5
-      parent: 24645
-  - uid: 24648
-    components:
-    - type: Transform
-      pos: -1.5,1.5
-      parent: 24645
   - uid: 25735
     components:
     - type: Transform
@@ -115747,29 +115647,6 @@ entities:
     - type: Transform
       pos: -18.5,-47.5
       parent: 82
-  - uid: 24651
-    components:
-    - type: Transform
-      pos: -1.5,0.5
-      parent: 24645
-  - uid: 24653
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,1.5
-      parent: 24645
-  - uid: 24654
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,0.5
-      parent: 24645
-  - uid: 24655
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,0.5
-      parent: 24645
   - uid: 25160
     components:
     - type: Transform
@@ -116775,28 +116652,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -36.5,44.5
       parent: 82
-  - uid: 24646
-    components:
-    - type: Transform
-      pos: 0.5,2.5
-      parent: 24645
-  - uid: 24652
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.5,0.5
-      parent: 24645
-  - uid: 24656
-    components:
-    - type: Transform
-      pos: 2.5,1.5
-      parent: 24645
-  - uid: 24657
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,0.5
-      parent: 24645
   - uid: 25164
     components:
     - type: Transform
@@ -128101,6 +127956,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 15.5,41.5
+      parent: 82
+- proto: PresentHalloweenBaseTrash
+  entities:
+  - uid: 24645
+    components:
+    - type: Transform
+      pos: 47.44394,49.113487
       parent: 82
 - proto: PrinterDoc
   entities:
@@ -139532,13 +139394,6 @@ entities:
     - type: Transform
       pos: 46.473396,62.53585
       parent: 82
-- proto: SheetSteel1
-  entities:
-  - uid: 24658
-    components:
-    - type: Transform
-      pos: -1.5011177,3.5387497
-      parent: 24645
 - proto: SheetUranium
   entities:
   - uid: 5567
@@ -145393,6 +145248,48 @@ entities:
     components:
     - type: Transform
       pos: -34.5,-18.5
+      parent: 82
+- proto: SpawnPointBoxer
+  entities:
+  - uid: 26763
+    components:
+    - type: Transform
+      pos: 27.5,-40.5
+      parent: 82
+  - uid: 26764
+    components:
+    - type: Transform
+      pos: 24.5,-39.5
+      parent: 82
+  - uid: 26765
+    components:
+    - type: Transform
+      pos: 24.5,-36.5
+      parent: 82
+  - uid: 26766
+    components:
+    - type: Transform
+      pos: 28.5,-37.5
+      parent: 82
+  - uid: 26767
+    components:
+    - type: Transform
+      pos: 30.5,-39.5
+      parent: 82
+  - uid: 26770
+    components:
+    - type: Transform
+      pos: 27.5,-44.5
+      parent: 82
+  - uid: 26771
+    components:
+    - type: Transform
+      pos: 24.5,-43.5
+      parent: 82
+  - uid: 26772
+    components:
+    - type: Transform
+      pos: 23.5,-44.5
       parent: 82
 - proto: SpawnPointCaptain
   entities:

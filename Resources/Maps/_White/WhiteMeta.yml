@@ -10535,7 +10535,7 @@ entities:
       pos: -53.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -23988.686
+      secondsUntilStateChange: -24149.621
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -76135,7 +76135,7 @@ entities:
       pos: -3.5,-52.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -52014.223
+      secondsUntilStateChange: -52175.16
       state: Closing
   - uid: 11944
     components:
@@ -143203,6 +143203,16 @@ entities:
       parent: 2
 - proto: SpawnPointBoxer
   entities:
+  - uid: 9471
+    components:
+    - type: Transform
+      pos: 28.5,41.5
+      parent: 2
+  - uid: 9472
+    components:
+    - type: Transform
+      pos: 32.5,44.5
+      parent: 2
   - uid: 20727
     components:
     - type: Transform

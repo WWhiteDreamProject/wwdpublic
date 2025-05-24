@@ -213,7 +213,7 @@
 - type: entity
   name: white office chair
   id: ChairOfficeLight
-  parent: OfficeChairBase # Goobstation - make the rolly chairs roll!    # WWDP edit Съебись в страхе чудище кривозубое со своими ебаными блять стилями на колесиках гондон ты драный
+  parent: OfficeChairBase # Goobstation - make the rolly chairs roll!    # WWDP edit Съебись в страхе чудище кривозубое со своими ебаными блять стульями на колесиках гондон ты драный
   components:
   - type: Sprite
     state: office-white

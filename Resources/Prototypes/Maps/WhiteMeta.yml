@@ -2,24 +2,22 @@
   id: WhiteMeta
   mapName: 'WhiteMeta Station'
   mapPath: /Maps/_White/WhiteMeta.yml
-  minPlayers: 10 #
-  maxPlayers: 85 #
+  minPlayers: 10
+  maxPlayers: 85
   stations:
     WhiteMeta:
-      stationProto: StandardNanotrasenStation # WD EDIT
+      stationProto: StandardNanotrasenStation
       components:
       - type: StationNameSetup
         mapNameTemplate: '{0} WhiteMeta Station {1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
-          prefixCreator: 'WWDP' # WD EDIT
+          prefixCreator: 'WWDP'
       - type: StationEmergencyShuttle
-        emergencyShuttlePath: /Maps/_White/Shuttles/emergency_turtle.yml # WD EDIT
+        emergencyShuttlePath: /Maps/_White/Shuttles/emergency_turtle.yml
       - type: StationJobs
-        # WD EDIT START
         overflowJobs:
         - Passenger
-        # WD EDIT END
         availableJobs:
           #Silicons
           Borg: [ 2, 2 ]
@@ -72,6 +70,5 @@
           Clown: [ 1, 1 ]
           Musician: [ 1, 1 ]
           Reporter: [ 1, 1 ]
-          Boxer: [ 1, 1 ]
           Passenger: [ -1, -1 ]
           Hobo: [ 1, 1 ]
