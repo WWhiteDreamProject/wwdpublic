@@ -162,8 +162,8 @@
     startingCharge: 500
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 25
-  - type: GunOverheat
+    fireCost: 25 # wwdp
+  - type: GunOverheat # wwdp
     heatCost: 20
   - type: EnergyGun
     fireModes:
