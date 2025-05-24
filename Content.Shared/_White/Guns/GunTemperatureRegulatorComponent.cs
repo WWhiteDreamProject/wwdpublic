@@ -10,40 +10,40 @@ public sealed partial class GunOverheatComponent : Component
     /// <summary>
     /// The user will not be able to set the safety above this value.
     /// </summary>
-    [DataField("maxSafetyTemperature"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField("maxSafetyTemperature"), AutoNetworkedField]
     public float MaxSafetyTemperatureCelcius { get => MaxSafetyTemperature - 273.15f; set => MaxSafetyTemperature = value + 273.15f; }
     public float MaxSafetyTemperature = 2000 + 273.15f;
 
     /// <summary>
     /// Limits the temperature displayed in the weapon's status control. (next to the hand slot)
     /// </summary>
-    [DataField("maxDisplayTemperature"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField("maxDisplayTemperature"), AutoNetworkedField]
     public float MaxDisplayTemperatureCelcius { get => MaxDisplayTemperature - 273.15f; set => MaxDisplayTemperature = value + 273.15f; }
     public float MaxDisplayTemperature = 9999 + 273.15f;
 
     /// <summary>
     /// If <see cref="SafetyEnabled"/> is true, prevents gun from shooting when above this temperature
     /// </summary>
-    [DataField("temperatureLimit"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField("temperatureLimit"), AutoNetworkedField]
     public float TemperatureLimitCelcius { get => TemperatureLimit - 273.15f; set => TemperatureLimit = value + 273.15f; }
     public float TemperatureLimit = 100 + 273.15f;
 
     /// <summary>
     /// If enabled, prevents the gun from shooting if its hotter than <see cref="TemperatureLimit"/>
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool SafetyEnabled = true;
 
     /// <summary>
     /// If enabled, allows the user to change <see cref="TemperatureLimit"/> and <see cref="SafetyEnabled"/> via altverbs.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool CanChangeSafety = false;
 
     /// <summary>
     /// Will require an intact lamp in <see cref="LampSlot"/> slot to fire. Will also enable lamp breaking when firing while overheated.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField, AlwaysPushInheritance]
+    [DataField, AutoNetworkedField, AlwaysPushInheritance]
     public bool RequiresLamp = false;
 
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
@@ -52,7 +52,7 @@ public sealed partial class GunOverheatComponent : Component
     /// <summary>
     /// Multiplies lamp breaking chance by this value. Each lamp can have it's own safe operating mode, while this value is set per-gun.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float LampBreakChanceMultiplier = 1;
 
     // prediction n' shiet
@@ -62,7 +62,7 @@ public sealed partial class GunOverheatComponent : Component
     /// <summary>
     /// How much the gun will heat up (in kelvin, not joules, so the weapon's mass is irrelevant)
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float HeatCost = 50;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]

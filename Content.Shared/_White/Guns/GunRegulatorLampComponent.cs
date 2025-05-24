@@ -17,11 +17,11 @@ public sealed partial class RegulatorLampComponent : Component
     /// Temperature at or above which the lamp is guaranteed to break immediately after shooting
     /// Increased by 273.15f upon component init.
     /// </summary>
-    [DataField("unsafeTemp", required: true), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField("unsafeTemp", required: true), AutoNetworkedField]
     public float UnsafeTemperatureCelcius { get => UnsafeTemperature - 273.15f; set => UnsafeTemperature = value + 273.15f; }
     public float UnsafeTemperature = 1; // unit test bs
 
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool Intact = true;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
