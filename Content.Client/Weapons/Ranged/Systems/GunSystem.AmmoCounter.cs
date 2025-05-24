@@ -368,7 +368,7 @@ public sealed partial class GunSystem
         private readonly Label _lampLabel;
         private readonly BatteryAmmoProviderComponent _ammoProvider;
         private readonly GunOverheatComponent? _regulator;
-        private readonly GunTemperatureRegulatorSystem _regSys;
+        private readonly GunOverheatSystem _regSys;
         private readonly IEntityManager _entMan;
 
         private int _ammoCount = 0;
@@ -379,7 +379,7 @@ public sealed partial class GunSystem
         public EnergyGunBatteryStatusControl(BatteryAmmoProviderComponent comp)
         {
             _entMan = IoCManager.Resolve<IEntityManager>();
-            _regSys = _entMan.System<GunTemperatureRegulatorSystem>();
+            _regSys = _entMan.System<GunOverheatSystem>();
             _gun = comp.Owner;
             _ammoProvider = comp;
             _ammoCount = comp.Shots;
@@ -447,22 +447,24 @@ public sealed partial class GunSystem
             _lampLabel.Visible = _regulator.RequiresLamp;
         }
 
+        // still using kelvin because having temperature go from 0 to +inf is much nicer than from -273.15 to +inf
         private void UpdateTemp(float K)
         {
             float celcius = K - 273.15f;
             // we assume _regulator is not null since we'll check for it before calling this method
-            float maxTemp = _regulator!.MaxSafetyTemperature - 273.15f;
-            // if we can't change the safety limit, then there is no use in limiting the display
-            string currentTemp = _regulator.CanChangeSafety && celcius > maxTemp ? $"{maxTemp:0}+ °C" : $"{celcius:0} °C";
+            float maxTemp = _regulator!.MaxDisplayTemperatureCelcius;
+            string currentTemp = celcius > maxTemp ? $"{maxTemp:0}+°C" : $"{celcius:0} °C";
             if (_regulator.SafetyEnabled)
                 _heatLabel.Text = $"{currentTemp}/{_regulator.TemperatureLimit - 273.15f:0} °C "; // MathF.Min to conserve a single digit for space in an otherwise overly cramped piece of UI.
             else
                 _heatLabel.Text = currentTemp;
+
             float hue = 0; // full red
-            const float hueoffset = 0.07f;
+            const float hueoffset = 0.07f; // raises the 0K color from dark blue to a brighter tone
+
             if (K < _regulator.TemperatureLimit)
                 hue = 0.66f - ((K) / (_regulator.TemperatureLimit) * 0.55f * (1f - hueoffset) + hueoffset);
-            // dark blue at 0K, green at 20 celcius, orange at just below the safe temperature threshold, full on red at and above threshold
+
             var tempColor = Color.FromHsv(new Robust.Shared.Maths.Vector4(hue, 1, 1, 1));
             _heatLabel.FontColorOverride = tempColor;
             _lampLabel.FontColorOverride = tempColor;

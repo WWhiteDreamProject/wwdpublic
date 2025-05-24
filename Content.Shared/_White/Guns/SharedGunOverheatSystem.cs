@@ -3,7 +3,6 @@ using Content.Shared.Destructible;
 using Content.Shared.Examine;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Systems;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -16,7 +15,7 @@ namespace Content.Shared._White.Guns;
 /// Handles gun overheating mechanics.
 /// TODO - decide whether or not i should separate lamp handling into a different system or is it good enough as it is
 /// </summary>
-public abstract class SharedGunTemperatureRegulatorSystem : EntitySystem
+public abstract class SharedGunOverheatSystem : EntitySystem
 {
     [Dependency] protected readonly ItemSlotsSystem _slots = default!;
     [Dependency] protected readonly IRobustRandom _rng = default!;
@@ -32,20 +31,13 @@ public abstract class SharedGunTemperatureRegulatorSystem : EntitySystem
         SubscribeLocalEvent<RegulatorLampComponent, ExaminedEvent>(OnLampExamined);
         SubscribeLocalEvent<GunOverheatComponent, ExaminedEvent>(OnGunExamined);
         SubscribeLocalEvent<GunOverheatComponent, GetVerbsEvent<AlternativeVerb>>(OnAltVerbs);
-
-        SubscribeLocalEvent<RegulatorLampComponent, ComponentInit>(OnLampInit);
-        SubscribeLocalEvent<GunOverheatComponent, ComponentInit>(OnGunInit);
     }
-
-    protected virtual void OnLampInit(EntityUid uid, RegulatorLampComponent comp, ComponentInit args) { }
-
-    protected virtual void OnGunInit(EntityUid uid, GunOverheatComponent comp, ComponentInit args) { }
 
     private void OnLampExamined(EntityUid uid, RegulatorLampComponent comp, ExaminedEvent args)
     {
         args.PushMarkup(Loc.GetString("gun-regulator-lamp-examine-intact", ("intact", comp.Intact)));
 
-        if (args.IsInDetailsRange)
+        if (!args.IsInDetailsRange)
             return;
 
         args.PushMarkup(Loc.GetString("gun-regulator-lamp-examine-temperature-range", ("safetemp", MathF.Round(comp.SafeTemperature - 273.15f)), ("unsafetemp", MathF.Round(comp.UnsafeTemperature - 273.15f))));

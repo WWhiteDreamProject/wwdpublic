@@ -17,6 +17,7 @@
       shader: unshaded
   # WD EDIT START
   - type: Item
+    heldPrefix: disabler # i hate uninitializedsavetest, all my homies hate uninitializedsavetest
     size: Large
     shape:
     - 0, 0, 7, 1 # WWDP weapons resize
@@ -39,6 +40,8 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 16 # wwdp edit
+  - type: GunOverheat # wwdp
+    heatCost: 20
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
@@ -70,6 +73,8 @@
   id: WeaponEnergyGunMultiphase
   description: This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
   components:
+  - type: Item # wwdp edit # i fucking hate this test
+    heldPrefix: disabler
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
     layers:
@@ -93,7 +98,9 @@
     startingCharge: 1000
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 15
+    fireCost: 20
+  - type: GunOverheat # wwdp
+    heatCost: 25	
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
@@ -133,6 +140,8 @@
   id: WeaponEnergyGunMini
   description: A light version of the Energy gun with a smaller capacity.
   components:
+  - type: Item # wwdp # I HATE UNIT TESTS I HATE UNIT TESTS I HATE UNIT TESTS
+    heldPrefix: disabler
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/mini_energygun.rsi
     layers:
@@ -153,7 +162,9 @@
     startingCharge: 500
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 30
+    fireCost: 25
+  - type: GunOverheat
+    heatCost: 20
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
@@ -204,6 +215,8 @@
   id: WeaponEnergyGunPistol
   description: A military grade sidearm, used by many militia forces throughout the local sector.
   components:
+  - type: Item # wwdp # i am putting this first in the comp list as a sign of protest against the tyranny of uninitsavetest
+    heldPrefix: disabler
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/energygun_pistol.rsi
     layers:
@@ -227,7 +240,9 @@
     startingCharge: 800
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 50
+    fireCost: 25
+  - type: GunOverheat
+    heatCost: 20
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler

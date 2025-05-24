@@ -1,5 +1,4 @@
 using Content.Shared.Atmos;
-using Content.Shared.Maths;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -10,11 +9,17 @@ public sealed partial class GunOverheatComponent : Component
 {
     /// <summary>
     /// The user will not be able to set the safety above this value.
-    /// Also limits the status control's current temperature display.
     /// </summary>
     [DataField("maxSafetyTemperature"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float MaxSafetyTemperatureCelcius { get => MaxSafetyTemperature - 273.15f; set => MaxSafetyTemperature = value + 273.15f; }
     public float MaxSafetyTemperature = 2000 + 273.15f;
+
+    /// <summary>
+    /// Limits the temperature displayed in the weapon's status control. (next to the hand slot)
+    /// </summary>
+    [DataField("maxDisplayTemperature"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public float MaxDisplayTemperatureCelcius { get => MaxDisplayTemperature - 273.15f; set => MaxDisplayTemperature = value + 273.15f; }
+    public float MaxDisplayTemperature = 9999 + 273.15f;
 
     /// <summary>
     /// If <see cref="SafetyEnabled"/> is true, prevents gun from shooting when above this temperature
