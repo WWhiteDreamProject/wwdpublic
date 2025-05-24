@@ -69,3 +69,7 @@
       id: LoadoutMedicalUniformParamedicJumpsuit
     - type: loadout
       id: LoadoutMedicalUniformParamedicJumpskirt
+    # WD EDIT START
+    - type: loadout
+      id: LoadoutClothingUniformJumpsuitParamedicUniform
+    # WD EDIT END
