@@ -1,0 +1,167 @@
+# XENOMORPHS
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenomorphDrone
+  name: spawn alien drone
+  suffix: Без гост роли
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorphs/drone.rsi
+        state: aliend
+  - type: ConditionalSpawner
+    prototypes:
+      - MobXenomorphDroneDummy
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenomorphSentinel
+  name: spawn alien sentinel
+  suffix: Без гост роли
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorphs/sentinel.rsi
+        state: aliens
+  - type: ConditionalSpawner
+    prototypes:
+      - MobXenomorphSentinelDummy
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenomorphHunter
+  name: spawn alien hunter
+  suffix: Без гост роли
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorphs/hunter.rsi
+        state: alienh
+  - type: ConditionalSpawner
+    prototypes:
+      - MobXenomorphHunterDummy
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenomorphPraetorian
+  name: spawn alien praetorian
+  suffix: Без гост роли
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorphs/praetorian.rsi
+        state: alienp
+  - type: ConditionalSpawner
+    prototypes:
+      - MobXenomorphPraetorianDummy
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenomorphQueen
+  name: spawn alien queen
+  suffix: Без гост роли
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorphs/queen.rsi
+        state: alienq
+  - type: ConditionalSpawner
+    prototypes:
+      - MobXenomorphQueenDummy
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenomorphMaid
+  name: spawn alien maid
+  suffix: Без гост роли
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorphs/maid.rsi
+        state: maid
+  - type: ConditionalSpawner
+    prototypes:
+      - MobXenomorphMaidDummy
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobAlienLarva
+  name: spawn alien larva
+  suffix: Без гост роли
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
+        state: larva2
+  - type: ConditionalSpawner
+    prototypes:
+      - MobAlienLarvaGrowStageThreeDummy
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobFacehugger
+  name: spawn facehugger
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+        state: facehugger
+  - type: ConditionalSpawner
+    prototypes:
+      - Facehugger
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobLamarr
+  name: spawn Lamarr
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+        state: facehugger
+  - type: ConditionalSpawner
+    prototypes:
+      - FacehuggerLamarr
+
+# EGGS
+
+- type: entity
+  parent: MarkerBase
+  id: AlienEggSpawner
+  name: alien egg spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
+      state: egg
+  - type: RandomSpawner
+    prototypes:
+    - AlienEgg
+    chance: 1
+
+- type: entity
+  id: AlienEggSpawnerRandom
+  name: alien egg spawner
+  suffix: 20%
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _White/Structures/Specific/Xenomorph/xenomorph_egg.rsi
+      state: egg
+  - type: RandomSpawner
+    prototypes:
+    - AlienEgg
+    chance: 0.2

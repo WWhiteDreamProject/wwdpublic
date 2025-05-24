@@ -1,0 +1,133 @@
+- type: entity
+  parent: BaseMobXenomorph
+  id: BaseMobXenomorphLarva
+  name: alien larva
+  description: Little and harmless alien
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: larva0
+  - type: Body
+    prototype: XenomorphTiny
+  - type: Xenomorph
+    caste: Larva
+  - type: PlasmaVessel
+    maxPlasma: 30
+  - type: Inventory
+    templateId: larva
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: larva0
+    noMovementLayers:
+      movement:
+        state: larva0_idle
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - FlyingMobMask
+        layer:
+        - SmallMobLayer
+  - type: Deathgasp
+    prototype: LarvaDeathgasp
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      25: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 5
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: larva0
+      Dead:
+        Base: larva0_dead
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
+    damage:
+      types:
+        Blunt: 2
+  - type: Bloodstream
+    bloodMaxVolume: 50
+  - type: MobPrice
+    price: 250
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: GuideHelp
+    guides:
+    - XenomorphLarva
+
+- type: entity
+  id: MobAlienLarvaInside # Larva that is inside of it's owner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Buckle
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: larva0
+  - type: NpcFactionMember
+    factions:
+      - Xeno
+  - type: TimedPolymorph
+    polymorphPrototype: AlienEvolutionGrowStageTwo
+    enabled: false
+  - type: InsideAlienLarva
+    evolutionCooldown: 5
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    allowSpeech: false
+    name: ghost-role-information-alien-larva-name
+    description: ghost-role-information-alien-larva-inside-description
+    raffle:
+      settings: default
+
+- type: entity
+  parent: BaseMobXenomorphLarva
+  id: MobXenomorphLarva
+  components:
+  - type: XenomorphEvolution
+    max: 200
+    evolvesTo:
+    - prototype: MobXenomorphDrone
+    - prototype: MobXenomorphSentinel
+    - prototype: MobXenomorphHunter
+  - type: ReproducingXenomorph
+  - type: ActionGrant
+    actions:
+    - ActionAlienTransferPlasma
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-mob-alien-name
+    description: ghost-role-mob-alien-description
+    rules: ghost-role-information-xeno-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: BaseMobXenomorphLarva
+  id: MobXenomorphLarvaDungeon
+  suffix: Dungeon
+  components:
+  - type: Damageable
+    damageModifierSet: XenomorphDungeon

@@ -1,7 +1,7 @@
 using System.Linq;
-using Content.Server.Actions;
 using Content.Server.NPC.Components;
 using Content.Server.Popups;
+using Content.Shared._White.Jump;
 using Content.Shared.Zombies;
 using Content.Shared.CombatMode;
 using Content.Shared.Ghost;
@@ -11,7 +11,6 @@ using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.Nutrition.Components;
-using Content.Shared._White.Headcrab;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Systems;
@@ -20,7 +19,6 @@ using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 
@@ -28,7 +26,6 @@ namespace Content.Server._White.Headcrab;
 
 public sealed partial class HeadcrabSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -37,31 +34,26 @@ public sealed partial class HeadcrabSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<HeadcrabComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<HeadcrabComponent, MeleeHitEvent>(OnMeleeHit);
-        SubscribeLocalEvent<HeadcrabComponent, ThrowDoHitEvent>(OnThrowDoHit);
+        SubscribeLocalEvent<HeadcrabComponent, ThrowDoHitEvent>(OnThrowDoHit, before: new[] {typeof(JumpSystem)});
         SubscribeLocalEvent<HeadcrabComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<HeadcrabComponent, GotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<HeadcrabComponent, GotEquippedHandEvent>(OnGotEquippedHand);
         SubscribeLocalEvent<HeadcrabComponent, BeingUnequippedAttemptEvent>(OnUnequipAttempt);
-        SubscribeLocalEvent<HeadcrabComponent, JumpActionEvent>(OnJump);
-    }
-
-    private void OnStartup(EntityUid uid, HeadcrabComponent component, ComponentStartup args)
-    {
-        _action.AddAction(uid, component.JumpAction);
     }
 
     private void OnThrowDoHit(EntityUid uid, HeadcrabComponent component, ThrowDoHitEvent args)
     {
+        if (args.Handled)
+            return;
+
         TryEquipHeadcrab(uid, args.Target, component);
+
+        args.Handled = true;
     }
 
     private void OnGotEquipped(EntityUid uid, HeadcrabComponent component, GotEquippedEvent args)
@@ -136,21 +128,6 @@ public sealed partial class HeadcrabSystem : EntitySystem
         TryEquipHeadcrab(uid, args.HitEntities.First(), component);
     }
 
-    private void OnJump(EntityUid uid, HeadcrabComponent component, JumpActionEvent args)
-    {
-        if (args.Handled || component.EquippedOn is { Valid: true })
-            return;
-
-        args.Handled = true;
-        var xform = Transform(uid);
-        var mapCoords = _transform.ToMapCoordinates(args.Target);
-        var direction = mapCoords.Position - _transform.GetMapCoordinates(xform).Position;
-
-        _throwing.TryThrow(uid, direction, 7F, uid, 10F);
-        if (component.JumpSound != null)
-            _audioSystem.PlayPvs(component.JumpSound, uid, component.JumpSound.Params);
-    }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -185,7 +162,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
         }
     }
 
-        private bool TryEquipHeadcrab(EntityUid uid, EntityUid target, HeadcrabComponent component)
+    private bool TryEquipHeadcrab(EntityUid uid, EntityUid target, HeadcrabComponent component)
     {
         if (_mobState.IsDead(uid)
             || !_mobState.IsAlive(target)
@@ -195,6 +172,6 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
         _inventory.TryGetSlotEntity(target, "head", out var headItem);
         return !HasComp<IngestionBlockerComponent>(headItem)
-            && !_inventory.TryEquip(target, uid, "mask", true);
+            && !_inventory.TryEquip(target, uid, "mask", true, true);
     }
 }

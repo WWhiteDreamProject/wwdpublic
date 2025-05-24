@@ -154,7 +154,7 @@ public sealed partial class AntagSelectionSystem
         if (!Resolve(ent, ref ent.Comp, false))
             return new();
 
-        return ent.Comp.SelectedMinds.Select(p => p.Item1).ToList();
+        return ent.Comp.SelectedMinds.Keys.ToList(); // WD EDIT
     }
 
     /// <summary>

@@ -37,3 +37,4 @@ chat-language-Penguin-name = Пингвиний
 chat-language-Pig-name = Свиной
 chat-language-Sheep-name = Овечий
 chat-language-Xeno-name = Ксеноязык
+chat-language-XenoHivemind-name = Разум Улья

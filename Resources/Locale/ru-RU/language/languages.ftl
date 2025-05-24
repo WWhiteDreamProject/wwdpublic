@@ -91,6 +91,9 @@ language-Fox-description = Пип!
 language-Xeno-name = Ксеноязык
 language-Xeno-description = Сссс!
 
+language-XenoHivemind-name = Разум Роя
+language-XenoHivemind-description = Ксеноморфы обладают способностью общаться, используя псионический разум роя.
+
 language-Monkey-name = Обезьяний
 language-Monkey-description = Уууу!
 

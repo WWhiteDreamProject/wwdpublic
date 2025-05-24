@@ -1,0 +1,21 @@
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostXenomorph
+  suffix: alien larva
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _White/Mobs/Aliens/Xenomorphs/larva.rsi
+      state: larva1
+  - type: GhostRole
+    name: ghost-role-information-alien-larva-name
+    description: ghost-role-information-alien-larva-description
+    rules: ghost-role-information-xeno-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+  - type: GhostRoleMobSpawner
+    prototype: MobXenomorphLarva
+  - type: GhostRoleAntagSpawner
+  - type: ReproducingXenomorph
