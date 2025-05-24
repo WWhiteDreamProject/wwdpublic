@@ -9,7 +9,7 @@
     sprite: _White/Objects/Weapons/Guns/regulator_lamp.rsi
     layers:
     - state: base
-    - state: internals
+    - state: filament
       map: [ "Internals" ]
     - state: glass
       map: [ "Glass" ]
@@ -68,10 +68,10 @@
         Glass:
           Intact: { state: glass }
           Broken: { state: glassbroken }
-      enum.RegulatorLampVisuals.Shtuka:
+      enum.RegulatorLampVisuals.Filament:
         Internals:
-          Intact: { state: internals }
-          Broken: { state: internalsburned }
+          Intact: { state: filament }
+          Broken: { state: filamentburned }
 
 - type: entity
   parent: BaseRegulatorLamp

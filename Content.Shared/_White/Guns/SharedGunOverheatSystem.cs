@@ -166,7 +166,7 @@ public abstract class SharedGunOverheatSystem : EntitySystem
     {
         var lampUid = comp.Owner;
         _audio.PlayEntity(comp.BreakSound, Filter.Pvs(lampUid), lampUid, true);
-        _appearance.SetData(lampUid, RegulatorLampVisuals.Shtuka, RegulatorLampState.Broken);
+        _appearance.SetData(lampUid, RegulatorLampVisuals.Filament, RegulatorLampState.Broken);
         comp.Intact = false;
         Dirty(lampUid, comp);
     }
@@ -179,7 +179,7 @@ public abstract class SharedGunOverheatSystem : EntitySystem
 public enum RegulatorLampVisuals
 {
     Glass,
-    Shtuka
+    Filament
 }
 
 [Serializable, NetSerializable]
