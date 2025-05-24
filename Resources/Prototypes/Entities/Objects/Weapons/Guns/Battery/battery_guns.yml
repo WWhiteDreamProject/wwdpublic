@@ -279,7 +279,7 @@
     atmosTemperatureTransferEfficiency: 0.05
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletLaser # WWDP
-    fireCost: 15
+    fireCost: 15 # wwdp
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -308,14 +308,14 @@
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletLaser # WWDP
-    fireCost: 32.25
+    fireCost: 32.25 # wwd
   - type: Battery
     maxCharge: 500
     startingCharge: 500
 
 - type: entity
   name: tesla gun
-  parent: [BaseWeaponBattery, BaseWeaponOverheat]
+  parent: [BaseWeaponBattery, BaseWeaponOverheat] # wwdp
   id: WeaponTeslaGun
   description: The power of the primordial element of lightning in your hands.
   components:
@@ -388,7 +388,7 @@
     heatCost: 2.5
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletLaserPractice # WWDP
-    fireCost: 6.25
+    fireCost: 6.25 # wwdp
   - type: StaticPrice
     price: 300
   - type: MeleeWeapon

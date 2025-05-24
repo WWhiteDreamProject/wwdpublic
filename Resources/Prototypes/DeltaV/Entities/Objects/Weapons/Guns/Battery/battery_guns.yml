@@ -168,13 +168,13 @@
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 25
-      heatCost: 20
+      fireCost: 25 # wwdp
+      heatCost: 20 # wwdp
       name: disable
       state: disabler
     - proto: BulletEnergyGunLaser
-      fireCost: 31.25
-      heatCost: 50
+      fireCost: 31.25 # wwdp
+      heatCost: 50 # wwdp
       name: lethal
       state: lethal
   - type: MagazineVisuals
@@ -240,19 +240,19 @@
     startingCharge: 800
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 25
-  - type: GunOverheat
+    fireCost: 25 # wwdp
+  - type: GunOverheat # wwdp
     heatCost: 20
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 25
-      heatCost: 20
+      fireCost: 25 # wwdp
+      heatCost: 20 # wwdp
       name: disable
       state: disabler
     - proto: BulletEnergyGunLaser
-      fireCost: 31.25
-      heatCost: 50
+      fireCost: 31.25 # wwdp
+      heatCost: 50 # wwdp
       name: lethal
       state: lethal
   - type: MagazineVisuals
