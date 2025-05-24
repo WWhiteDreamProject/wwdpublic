@@ -103,28 +103,8 @@
       proto: CartridgeCaselessRifle
       capacity: 200
 
-# WWDP prototype
 - type: entity
-  parent: BaseWeaponBallisticTurret
-  id: BaseWeaponBallisticTurret3D
-  abstract: true
-  components:
-    - type: Sprite
-      noRot: true
-      drawdepth: Mobs
-      layers:
-        - state: syndie_base
-    - type: DollyMixture
-      states:
-      - dm5
-      - dm4
-      - dm3
-      - dm2
-      - dm1
-      layerOffset: 0,0.75
-
-- type: entity
-  parent: BaseWeaponBallisticTurret3D
+  parent: BaseWeaponBallisticTurret3D # wwdp edit
   id: BaseWeaponTurretMinigun
   name: minigun turret
   abstract: true

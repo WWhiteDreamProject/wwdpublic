@@ -25,5 +25,6 @@ public sealed partial class DollyMixtureComponent : Component
     [DataField]
     public Vector2 Offset;
 
-    public List<int> LayerIndices;
+    public Angle LastAngle;
+    public List<int> LayerIndices = new();
 }
