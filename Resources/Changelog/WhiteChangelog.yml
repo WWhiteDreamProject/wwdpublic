@@ -2909,3 +2909,10 @@ Entries:
   id: 314
   time: '2025-05-24T20:43:28.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/508
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: Заменитель 3Д рендера идентичный натуральному.
+  id: 315
+  time: '2025-05-24T21:54:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/509
