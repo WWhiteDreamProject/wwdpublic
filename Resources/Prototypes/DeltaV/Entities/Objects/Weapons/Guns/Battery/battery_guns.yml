@@ -109,8 +109,8 @@
       name: disable
       state: disabler
     - proto: BulletLaser # WWDP
-      fireCost: 25
-      heatCost: 60
+      fireCost: 25 # wwdp
+      heatCost: 60 # wwdp
       name: lethal
       state: lethal
   - type: MagazineVisuals
