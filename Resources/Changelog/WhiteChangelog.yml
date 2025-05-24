@@ -2902,3 +2902,10 @@ Entries:
   id: 313
   time: '2025-05-24T09:49:22.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/503
+- author: Kutos
+  changes:
+    - type: Tweak
+      message: Стойки и диваны теперь расстреливаются
+  id: 314
+  time: '2025-05-24T20:43:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/508
