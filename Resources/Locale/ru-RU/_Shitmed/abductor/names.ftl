@@ -1,0 +1,54 @@
+# Имена абдукторов
+abductor-name-0 = Ннарп
+abductor-name-1 = Нларп
+abductor-name-2 = Нлорп
+abductor-name-3 = Нлиб
+abductor-name-4 = Норп
+abductor-name-5 = Норпл
+abductor-name-6 = Нип
+abductor-name-7 = Ноп
+abductor-name-8 = Нигл
+abductor-name-9 = Кснарп
+abductor-name-10 = Ксларп
+abductor-name-11 = Кслорп
+abductor-name-12 = Кслиб
+abductor-name-13 = Ксорп
+abductor-name-14 = Ксорпл
+abductor-name-15 = Ксип
+abductor-name-16 = Ксоп
+abductor-name-17 = Ксигл
+abductor-name-18 = Знарп
+abductor-name-19 = Зларп
+abductor-name-20 = Злорп
+abductor-name-21 = Злиб
+abductor-name-22 = Зорп
+abductor-name-23 = Зорпл
+abductor-name-24 = Зип
+abductor-name-25 = Зоп
+abductor-name-26 = Зигл
+abductor-name-27 = Внарп
+abductor-name-28 = Вларп
+abductor-name-29 = Влорп
+abductor-name-30 = Влиб
+abductor-name-31 = Ворп
+abductor-name-32 = Ворпл
+abductor-name-33 = Вип
+abductor-name-34 = Воп
+abductor-name-35 = Вигл
+abductor-name-36 = Гнарп
+abductor-name-37 = Гларп
+abductor-name-38 = Глорп
+abductor-name-39 = Глиб
+abductor-name-40 = Горп
+abductor-name-41 = Горпл
+abductor-name-42 = Гип
+abductor-name-43 = Гоп
+abductor-name-44 = Гигл
+
+# Префиксы для учёных
+abductor-prefix-Dr = Доктор
+abductor-prefix-Professor = Профессор
+
+# Префиксы для агентов
+abductor-prefix-Assistant = Ассистент
+abductor-prefix-Officer = Офицер 
