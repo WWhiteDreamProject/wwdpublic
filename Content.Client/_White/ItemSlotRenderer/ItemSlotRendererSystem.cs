@@ -21,12 +21,16 @@ using System.Threading.Tasks;
 
 namespace Content.Client._White.ItemSlotRenderer;
 
+/// <summary>
+/// I can feel my grip on reality slowly slipping.
+/// </summary>
 public sealed class ItemSlotRendererSystem : EntitySystem
 {
     [Dependency] private readonly IReflectionManager _reflection = default!;
     [Dependency] private readonly ItemSlotsSystem _slot = default!;
+    [Dependency] private readonly IClyde _clyde = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
-    private IGameTiming? _timing = null;
     public override void Initialize()
     {
         SubscribeLocalEvent<ItemSlotRendererComponent, ComponentStartup>(OnStartup);
@@ -37,7 +41,6 @@ public sealed class ItemSlotRendererSystem : EntitySystem
     }
     private void OnInsertIntoContainer(EntityUid uid, ItemSlotRendererComponent comp, ContainerIsInsertingAttemptEvent args)
     {
-        _timing ??= IoCManager.Resolve<IGameTiming>();
         if (args.Container is not ContainerSlot || !_timing.IsFirstTimePredicted)
             return;
 
@@ -46,7 +49,6 @@ public sealed class ItemSlotRendererSystem : EntitySystem
 
     private void OnRemoveFromContainer(EntityUid uid, ItemSlotRendererComponent comp, ContainerIsRemovingAttemptEvent args)
     {
-        _timing ??= IoCManager.Resolve<IGameTiming>();
         if (args.Container is not ContainerSlot || !_timing.IsFirstTimePredicted)
             return;
 
@@ -90,43 +92,21 @@ public sealed class ItemSlotRendererSystem : EntitySystem
             comp.CachedRT.Add(slotId, _clyde.CreateRenderTarget(comp.RenderTargetSize, new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), new TextureSampleParameters { Filter = false }, $"{slotId}-itemrender-rendertarget"));
         }
     }
-
-    [Dependency] private readonly IClyde _clyde = default!;
-
-    //public override void FrameUpdate(float frameTime)
-    //{
-    //    var query = EntityQueryEnumerator<ItemSlotRendererComponent, SpriteComponent>();
-    //    while(query.MoveNext(out var uid, out var comp, out var sprite))
-    //    {
-    //        for(int i = 0; i < comp.LayerMappings.Count; i++)
-    //        {
-    //            var (key, slotId) = comp.LayerMappings[i];
-    //            if (comp.CachedEntities[slotId] is not EntityUid item ||
-    //                !TryComp<SpriteComponent>(item, out var itemSprite))
-    //                continue;
-    //
-    //        }
-    //    }
-    //}
 }
 
-
-
+/// <summary>
+/// Doesn't actually render anything by itself. I'd place this code in a system's FrameUpdate,
+/// but I need to somehow acquire a draw handle to draw an entity to a texture.
+/// </summary>
 public sealed class SpriteToLayerBullshitOverlay : Overlay
 {
-    [Dependency] private readonly IInputManager _input = default!;
-    [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly IEyeManager _eye = default!;
     [Dependency] private readonly EntityManager _entMan = default!;
 
-
     public override OverlaySpace Space => OverlaySpace.ScreenSpaceBelowWorld;
-    //private readonly Font _font;
 
     public SpriteToLayerBullshitOverlay()
     {
         IoCManager.InjectDependencies(this);
-        //ZIndex = int.MinValue;
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -137,41 +117,29 @@ public sealed class SpriteToLayerBullshitOverlay : Overlay
         {
             for (int i = 0; i < comp.LayerMappings.Count; i++)
             {
-                var (key, slotId) = comp.LayerMappings[i];
-                if (!comp.CachedRT.TryGetValue(slotId, out var renderTarget) ||
-                    !comp.CachedEntities.TryGetValue(slotId, out var _item) ||
-                    _item is not EntityUid item ||
+                var (layerKey, slotId) = comp.LayerMappings[i];
+                if (!sprite.LayerMapTryGet(layerKey, out int layerIndex) ||
+                    !sprite.TryGetLayer(layerIndex, out var layer)) // verify that the layer actually exists
+                    continue;
+
+                if (!comp.CachedEntities.TryGetValue(slotId, out var _item) || _item is not EntityUid item ||
+                    !comp.CachedRT.TryGetValue(slotId, out var renderTarget) ||
                     !_entMan.TryGetComponent<SpriteComponent>(item, out var itemSprite))
                 {
-                    sprite.LayerSetTexture(sprite.LayerMapGet(key), Texture.Transparent);
+                    if (layer.Texture != Texture.Transparent)
+                        sprite.LayerSetTexture(layerIndex, Texture.Transparent);
+                        //layer.Texture = Texture.Transparent;
                     continue;
                 }
 
                 handle.RenderInRenderTarget(renderTarget, () =>
                 {
-                    //sprite.Render(handle, 0, 0, null, _renderBackbuffer.Size / 2);
                     handle.DrawEntity(item, renderTarget.Size / 2, Vector2.One, 0);
                 }, Color.Transparent);
 
-                sprite.LayerSetTexture(sprite.LayerMapGet(key), renderTarget.Texture);
+                //layer.Texture = renderTarget.Texture;
+                sprite.LayerSetTexture(layerIndex, renderTarget.Texture);
             }
         }
-
-        /*
-        var mouseScreenPos = _input.MouseScreenPosition.Position;
-
-        var mouseMapPos = _eye.ScreenToMap(mouseScreenPos);
-        // Why do i have to do so much to simply convert Vector2 from screenspace to worldspace and back?
-        var finalMapPos = _hands.GetFinalDropCoordinates(player, _transform.GetMapCoordinates(player), mouseMapPos);
-        var finalScreenPos = _eye.MapToScreen(new MapCoordinates(finalMapPos, mouseMapPos.MapId)).Position;
-
-        var adjustedAngle = dropcomp.Angle;
-        handle.RenderInRenderTarget(_renderBackbuffer, () =>
-        {
-            handle.DrawEntity(held, _renderBackbuffer.Size / 2, new Vector2(2), adjustedAngle);
-        }, Color.Transparent);
-
-        handle.DrawTexture(_renderBackbuffer.Texture, finalScreenPos - _renderBackbuffer.Size / 2, Color.GreenYellow.WithAlpha(0.75f));
-        */
     }
 }
