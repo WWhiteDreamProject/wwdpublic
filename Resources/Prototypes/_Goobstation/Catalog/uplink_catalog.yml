@@ -74,6 +74,22 @@
       tags:
       - NukeOpsUplink
 
+- type: listing
+  id: UplinkTelecrystalMiner
+  name: uplink-tcminer-name
+  description: uplink-tcminer-desc
+  icon: { sprite: _Goobstation/Structures/Machines/tc_printer.rsi, state: icon }
+  productEntity: TCminerFlatpack
+  cost:
+    Telecrystal: 15
+  categories:
+    - UplinkDisruption
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4 # WWDP no infinite farm but more than 1
+
+# Weaponry
+
 # - type: listing
 #   id: UplinkMiniatureEnergyCrossbow
 #   name: uplink-miniature-energy-crossbow-name

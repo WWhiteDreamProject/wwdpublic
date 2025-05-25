@@ -16,7 +16,7 @@ public sealed class StockTradingUiState(
 
 // No structure, zero fucks given
 [DataDefinition, Serializable]
-public partial struct StockCompany
+public sealed partial class StockCompany // WWDP made it a class
 {
     /// <summary>
     /// The displayed name of the company shown in the UI.

@@ -30,3 +30,6 @@
 
 - type: Tag
   id: LightBulb
+
+- type: Tag
+  id: NTCoin
