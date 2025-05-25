@@ -6,5 +6,5 @@ department-Medical = Медицинский отдел
 department-Security = Служба безопасности
 department-Science = Научный отдел
 department-Silicon = Синтетики
-department-Specific = На определённых станциях
+department-Specific = Другие
 department-Dignitary = Высокопоставленные
