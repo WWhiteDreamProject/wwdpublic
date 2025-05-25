@@ -257,5 +257,50 @@
       },
       {
           "name": "pen_red"
+      },
+      {
+          "name": "paper_stamp-mantis"
+      },
+      {
+          "name": "paper_stamp-corporate-pmcg"
+      },
+      {
+          "name": "paper_stamp-corporate-orionexpress"
+      },
+      {
+          "name": "pen-inhand-right"
+      },
+      {
+          "name": "paper_stamp-corporate-zenghupharmaceuticals"
+      },
+      {
+          "name": "paper_stamp-corporate-idrisincorporated"
+      },
+      {
+          "name": "paper_stamp-corporate-einsteinengines"
+      },
+      {
+          "name": "pen-inhand-left"
+      },
+      {
+          "name": "paper_stamp-corporate-nanotrasen"
+      },
+      {
+          "name": "paper_stamp-corporate-eastorioncompany"
+      },
+      {
+          "name": "paper_stamp-corporate-hephaestusindustries"
+      },
+      {
+          "name": "paper_stamp-magistrate"
+      },
+      {
+          "name": "paper_stamp-corporate-interdyne"
+      },
+      {
+          "name": "paper_stamp-notary"
+      },
+      {
+          "name": "paper_stamp-corporate-zavodskoiinterstellar"
       }
   ]}
