@@ -119,6 +119,8 @@
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
   - type: Fauna # Lavaland Change
+  - type: GlobalAntagonist # WWDP
+    antagonistPrototype: globalAntagonistSlime
 
 - type: entity
   name: basic slime

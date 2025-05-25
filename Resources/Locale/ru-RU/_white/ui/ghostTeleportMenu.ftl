@@ -1,29 +1,53 @@
 ﻿global-antagonist-wizard-name = Волшебник
-global-antagonist-wizard-description = Старый сумашедший из Федерации Магов, обученный смертельным заклинаниям
+global-antagonist-wizard-description = Старый сумашедший из Федерации Магов, обученный смертельным заклинаниям.
+
 global-antagonist-nukeops-name = Ядерный оперативник
-global-antagonist-nukeops-description = Элитный наемник Синдиката
+global-antagonist-nukeops-description = Элитный наемник Синдиката.
+
 global-antagonist-loneops-name = Одинокий оперативник
-global-antagonist-loneops-description = Элитный наемник Синдиката, один против всей станции
+global-antagonist-loneops-description = Элитный наемник Синдиката, один против всей станции.
+
 global-antagonist-cult-name = Кровавый культист
-global-antagonist-cult-description = Демонопоклонники, использующие магию крови
+global-antagonist-cult-description = Демонопоклонники, использующие магию крови.
+
 global-antagonist-ninja-name = Ниндзя
-global-antagonist-ninja-description = Напичканный высокими технологиями элитный боец
+global-antagonist-ninja-description = Напичканный высокими технологиями элитный боец.
+
 global-antagonist-zombie-name = Зомби
-global-antagonist-zombie-description = Восставший из мертвых под действием вируса
+global-antagonist-zombie-description = Восставший из мертвых под действием вируса.
+
 global-antagonist-dragon-name = Космический дракон
 global-antagonist-dragon-description = Дракон! Я видела дракона!!
-global-antagonist-revenant-name = Мстительный дух
-global-antagonist-revenant-description = Призрачное существо питающееся жизненной силой
+
+global-antagonist-revenant-name = Ревенант
+global-antagonist-revenant-description = Призрачное существо питающееся жизненной силой.
+
 global-antagonist-slime-name = Слизень
-global-antagonist-slime-description = Голодный сгусток чего-то одновременно твердого и жидкого
+global-antagonist-slime-description = Голодный сгусток чего-то одновременно твердого и жидкого.
+
 global-antagonist-spider-name = Гигансткий паук
-global-antagonist-spider-description = Соразмерный с человеком агрессивный паук
+global-antagonist-spider-description = Соразмерный с человеком агрессивный паук.
+
 global-antagonist-spider-clown-name = Гигантский хонк-паук
 global-antagonist-spider-clown-description = Соразмерный с человеком агрессивный клоун-паук. ХОНК!
-global-antagonist-rats-name = Гигантская крыса
-global-antagonist-rats-description = Вечноголодная и агрессивная крыса
+
+global-antagonist-rats-name = Крыса
+global-antagonist-rats-description = Вечноголодные и агрессивные крысы.
+
+global-antagonist-blob-name = Блоб
+global-antagonist-blob-description = Поедает ваши дормы.. кто-то вообще собирается его останавливать!?
+
+global-antagonist-xenomorph-name = Ксеноморф
+global-antagonist-xenomorph-description = Они пришли из космоса!
+
+global-antagonist-bingle-name = Бингл
+global-antagonist-bingle-description = Бингл-Бингл!
+
+global-antagonist-ghost-role-name = Вне станционный
+global-antagonist-ghost-role-description = Роли для призраков, чаще всего не несут никакого влияния на станцию.
+
 global-antagonist-unknown-name = Неизвестно
-global-antagonist-unknown-description = Подозрительно!!
+global-antagonist-unknown-description = Подозрительно!!!
 
 ghost-teleport-menu-antagonists-label = Антагонисты
 ghost-teleport-menu-alive-label = Живые

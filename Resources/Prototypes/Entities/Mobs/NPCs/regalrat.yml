@@ -140,6 +140,8 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: GlobalAntagonist
+    antagonistPrototype: globalAntagonistRats
 
 - type: entity
   id: MobRatKingBuff
@@ -332,6 +334,8 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: GlobalAntagonist
+    antagonistPrototype: globalAntagonistRats
 
 - type: weightedRandomEntity
   id: RatKingLoot

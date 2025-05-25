@@ -185,6 +185,8 @@
         nameSegments:
         - names_ninja_title
         - names_ninja
+      - type: GlobalAntagonist # WWDP
+        antagonistPrototype: globalAntagonistNinja
       mindRoles:
       - MindRoleNinja
 
@@ -490,6 +492,8 @@
       - type: ZombifyOnDeath
       - type: IncurableZombie
       - type: InitialInfected
+      - type: GlobalAntagonist # WWDP
+        antagonistPrototype: globalAntagonistZombie
       mindRoles:
       - MindRoleInitialInfected
 

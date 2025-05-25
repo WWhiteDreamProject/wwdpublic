@@ -9,6 +9,12 @@ public sealed partial class DepartmentPrototype : IPrototype
     public string ID { get; } = string.Empty;
 
     /// <summary>
+    /// The name LocId of the department that will be displayed in the various menus.
+    /// </summary>
+    [DataField(required: true)]
+    public LocId Name = string.Empty;
+
+    /// <summary>
     /// A description string to display in the character menu as an explanation of the department's function.
     /// </summary>
     [DataField(required: true)]
@@ -35,6 +41,12 @@ public sealed partial class DepartmentPrototype : IPrototype
     /// </summary>
     [DataField]
     public int Weight { get; private set; }
+
+    /// <summary>
+    /// A style string references to style in StyleNano.cs
+    /// </summary>
+    [DataField]
+    public string ButtonStyle = default!;
 
     /// <summary>
     /// Toggles the display of the department in the priority setting menu in the character editor.

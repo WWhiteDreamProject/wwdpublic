@@ -21,6 +21,20 @@ public sealed partial class AccessLevelControl : GridContainer
 
     public void Populate(List<ProtoId<AccessLevelPrototype>> accessLevels, IPrototypeManager prototypeManager)
     {
+        var departmentColors = new List<String> // WWDP | Colors from StyleNano.cs
+        {
+            "ButtonColorCentralCommandDepartment",
+            "ButtonColorCommandDepartment",
+            "ButtonColorSecurityDepartment",
+            "ButtonColorMedicalDepartment",
+            "ButtonColorEngineeringDepartment",
+            "ButtonColorScienceDepartment",
+            "ButtonColorSiliconDepartment",
+            "ButtonColorCargoDepartment",
+            "ButtonColorCivilianDepartment"
+        };
+        var currentColorIndex = 0;
+
         foreach (var access in accessLevels)
         {
             if (!prototypeManager.TryIndex(access, out var accessLevel))

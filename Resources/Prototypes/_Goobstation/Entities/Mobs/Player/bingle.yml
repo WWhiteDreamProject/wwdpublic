@@ -5,6 +5,8 @@
   description: bingle
   components:
   - type: Bingle
+  - type: GlobalAntagonist # WWDP
+    antagonistPrototype: globalAntagonistBingle
   - type: GhostTakeoverAvailable
   - type: GhostRole
     name: ghost-role-information-bingle-name

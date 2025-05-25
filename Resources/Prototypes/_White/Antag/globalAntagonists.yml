@@ -1,0 +1,113 @@
+﻿- type: antagonist
+  id: globalAntagonistWizard
+  name: global-antagonist-wizard-name
+  description: global-antagonist-wizard-description
+  weight: 0
+
+- type: antagonist
+  id: globalAntagonistNukeops
+  name: global-antagonist-nukeops-name
+  description: global-antagonist-nukeops-description
+  weight: 1
+
+- type: antagonist
+  id: globalAntagonistLoneops
+  name: global-antagonist-loneops-name
+  description: global-antagonist-loneops-description
+  weight: 2
+
+- type: antagonist
+  id: globalAntagonistCult
+  name: global-antagonist-cult-name
+  description: global-antagonist-cult-description
+  weight: 3
+
+- type: antagonist
+  id: globalAntagonistNinja
+  name: global-antagonist-ninja-name
+  description: global-antagonist-ninja-description
+  weight: 4
+
+- type: antagonist
+  id: globalAntagonistZombie
+  name: global-antagonist-zombie-name
+  description: global-antagonist-zombie-description
+  weight: 5
+
+- type: antagonist
+  id: globalAntagonistDragon
+  name: global-antagonist-dragon-name
+  description: global-antagonist-dragon-description
+  weight: 6
+
+- type: antagonist
+  id: globalAntagonistRevenant
+  name: global-antagonist-revenant-name
+  description: global-antagonist-revenant-description
+  weight: 7
+
+- type: antagonist
+  id: globalAntagonistSlime
+  name: global-antagonist-slime-name
+  description: global-antagonist-slime-description
+  weight: 8
+
+- type: antagonist
+  id: globalAntagonistSpider
+  name: global-antagonist-spider-name
+  description: global-antagonist-spider-description
+  weight: 9
+
+- type: antagonist
+  id: globalAntagonistSpiderClown
+  name: global-antagonist-spider-clown-name
+  description: global-antagonist-spider-clown-description
+  weight: 10
+
+- type: antagonist
+  id: globalAntagonistRats
+  name: global-antagonist-rats-name
+  description: global-antagonist-rats-description
+  weight: 11
+
+- type: antagonist
+  id: globalAntagonistInteQ
+  name: global-antagonist-inteq-name
+  description: global-antagonist-inteq-description
+  weight: 12
+
+- type: antagonist
+  id: globalAntagonistBlob
+  name: global-antagonist-blob-name
+  description: global-antagonist-blob-description
+  weight: 13
+
+- type: antagonist
+  id: globalAntagonistFleshCult
+  name: global-antagonist-flesh-cult-name
+  description: global-antagonist-flesh-cult-description
+  weight: 14
+
+- type: antagonist
+  id: globalAntagonistXenomorph
+  name: global-antagonist-xenomorph-name
+  description: global-antagonist-xenomorph-description
+  weight: 15
+
+- type: antagonist
+  id: globalAntagonistBingle
+  name: global-antagonist-bingle-name
+  description: global-antagonist-bingle-description
+  weight: 16
+
+- type: antagonist
+  id: globalAntagonistGhostRole
+  name: global-antagonist-ghost-role-name
+  description: global-antagonist-ghost-role-description
+  weight: 41
+
+- type: antagonist
+  id: globalAntagonistUnknown
+  name: global-antagonist-unknown-name
+  description: global-antagonist-unknown-description
+  weight: 42

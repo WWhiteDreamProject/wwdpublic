@@ -3,6 +3,8 @@
   id: Changeling
   components:
   - type: ChangelingRule
+#  - type: GlobalAntagonist # WWDP
+#    antagonistPrototype: globalAntagonistChangeling
   - type: GameRule
     minPlayers: 15
   - type: AntagObjectives
