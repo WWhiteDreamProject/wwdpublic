@@ -1,5 +1,6 @@
 - type: department
   id: Justice
+  name: department-Justice
   description: department-justice-description
   color: "#701442"
   roles:
@@ -7,5 +8,5 @@
   - Clerk
   - Prosecutor
   - Lawyer
-
-
+  weight: -9 # WWDP
+  buttonStyle: ButtonColorJusticeDepartment # WWDP
