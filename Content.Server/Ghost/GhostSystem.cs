@@ -60,8 +60,6 @@ namespace Content.Server.Ghost
         [Dependency] private readonly MetaDataSystem _metaData = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // WWDP
 
-        private static readonly ProtoId<TagPrototype> AllowGhostShownByEventTag = "AllowGhostShownByEvent";
-
         public override void Initialize()
         {
             base.Initialize();
