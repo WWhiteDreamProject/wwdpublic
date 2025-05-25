@@ -73,14 +73,16 @@ public sealed class ItemSlotRendererSystem : EntitySystem
         foreach (var kvp in comp.PrototypeLayerMappings)
         {
 
-            (object mapKey, string slotId) = kvp;
-
-            if (_reflection.TryParseEnumReference(kvp.Key, out var e, false))
-                mapKey = e;
-
-            if (sprite.LayerMapTryGet(mapKey, out _) && !comp.IgnoreMissing)
+            (string slotId, object mapKey) = kvp;
+            bool isEnum = false;
+            if (_reflection.TryParseEnumReference((string)mapKey, out var e))
             {
-                Log.Warning($"ItemSlotRenderer: Tried to add a missing layer under the key {mapKey}. Skipping missing layer. If this is unwanted, set component's AddMissingLayers to true.");
+                mapKey = e;
+                isEnum = true;
+            }
+            if (!sprite.LayerMapTryGet(mapKey, out _) && comp.ErrorOnMissing)
+            {
+                Log.Warning($"ItemSlotRenderer: Tried to add a missing layer under the {(isEnum ? "enum" : "string")} key {mapKey}. Skipping missing layer. If this is unwanted, set component's AddMissingLayers to true.");
                 continue;
             }
 
@@ -122,22 +124,20 @@ public sealed class SpriteToLayerBullshitOverlay : Overlay
                     !sprite.TryGetLayer(layerIndex, out var layer)) // verify that the layer actually exists
                     continue;
 
+                // if for some reason we can't render the item to a texture (or there is no item to render),
+                // assign an "empty" texture to the layer
                 if (!comp.CachedEntities.TryGetValue(slotId, out var _item) || _item is not EntityUid item ||
-                    !comp.CachedRT.TryGetValue(slotId, out var renderTarget) ||
-                    !_entMan.TryGetComponent<SpriteComponent>(item, out var itemSprite))
+                    !comp.CachedRT.TryGetValue(slotId, out var renderTarget))
                 {
                     if (layer.Texture != Texture.Transparent)
                         sprite.LayerSetTexture(layerIndex, Texture.Transparent);
-                        //layer.Texture = Texture.Transparent;
                     continue;
                 }
 
                 handle.RenderInRenderTarget(renderTarget, () =>
                 {
-                    handle.DrawEntity(item, renderTarget.Size / 2, Vector2.One, 0);
+                    handle.DrawEntity(item, renderTarget.Size / 2, Vector2.One, 0); // If this throws due to a missing spritecomp, it's your fault.
                 }, Color.Transparent);
-
-                //layer.Texture = renderTarget.Texture;
                 sprite.LayerSetTexture(layerIndex, renderTarget.Texture);
             }
         }

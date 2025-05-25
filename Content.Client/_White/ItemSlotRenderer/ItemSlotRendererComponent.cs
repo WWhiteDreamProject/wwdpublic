@@ -11,8 +11,8 @@ namespace Content.Client._White.ItemSlotRenderer;
 [RegisterComponent]
 public sealed partial class ItemSlotRendererComponent : Component
 {
-    // string layer mappings to slot ids
-    [DataField]
+    // [slotId] = layer mapping (in string form)
+    [DataField("mapping")]
     public Dictionary<string, string> PrototypeLayerMappings = new();
 
     // [mapkey] = slotId
@@ -28,7 +28,7 @@ public sealed partial class ItemSlotRendererComponent : Component
     public Dictionary<string, IRenderTexture> CachedRT = new();
 
     [DataField]
-    public bool IgnoreMissing = false;
+    public bool ErrorOnMissing = true;
 
     [DataField]
     public Vector2i RenderTargetSize = new Vector2i(32, 32);

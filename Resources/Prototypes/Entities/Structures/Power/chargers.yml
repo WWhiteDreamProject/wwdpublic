@@ -159,7 +159,7 @@
     - map: ["enum.PowerChargerVisualLayers.Light"]
       state: "light-off"
       shader: "unshaded"
-    - map: [ "bullshit" ] 
+    - map: ["enum.PowerChargerVisualLayers.ItemDisplay"]
       shader: "FlickerHologram"
       color: "#ffffffaa"
       offset: 0,0.45
@@ -177,9 +177,8 @@
           - ProjectileBatteryAmmoProvider
           - Stunbaton
   - type: ItemSlotRenderer
-    ignoreMissing: true
-    prototypeLayerMappings:
-      bullshit: charger_slot
+    mapping:
+      charger_slot: enum.PowerChargerVisualLayers.ItemDisplay
 
 - type: entity
   parent: BaseItemRecharger
