@@ -27,4 +27,10 @@ public sealed partial class DollyMixtureComponent : Component
 
     public Angle LastAngle;
     public List<int> LayerIndices = new();
+
+    [DataField]
+    public int RepeatLayers = 1;
+
+    [DataField]
+    public Vector2 Scale = Vector2.One;
 }

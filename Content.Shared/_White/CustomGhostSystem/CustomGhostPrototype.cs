@@ -31,6 +31,9 @@ public sealed class CustomGhostPrototype : IPrototype
 
     [DataField("size")]
     public Vector2 SizeOverride = Vector2.One;
+
+    [DataField]
+    public ComponentRegistry Components = new();
 }
 
 [Serializable, NetSerializable]
@@ -38,5 +41,6 @@ public enum CustomGhostAppearance
 {
     Sprite,
     AlphaOverride,
-    SizeOverride
+    SizeOverride,
+    YAMLKOSTIL,
 }
