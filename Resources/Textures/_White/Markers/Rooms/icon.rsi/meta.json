@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Made by Gersoon (discord gersoon458)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "10x10_maint_wonder_1"
+    },
+    {
+      "name": "6x7_maint_wonder_1"
+    },
+    {
+      "name": "7x7_maint_wonder_1"
+    },
+    {
+      "name": "8x6_maint_wonder_1"
+    },
+    {
+      "name": "5x6_maint_wonder_1"
+    },
+    {
+      "name": "8x7_maint_wonder_1"
+    },
+    {
+      "name": "10x6_maint_wonder_1"
+    },
+    {
+      "name": "10x8_maint_wonder_1"
+    },
+    {
+      "name": "4x4_maint_wonder_1"
+    },
+    {
+      "name": "7x6_maint_wonder_1"
+    },
+    {
+      "name": "6x8_maint_wonder_1"
+    },
+    {
+      "name": "5x5_maint_wonder_1"
+    },
+    {
+      "name": "4x5_maint_wonder_1"
+    },
+    {
+      "name": "6x10_maint_wonder_1"
+    },
+    {
+      "name": "4x6_maint_wonder_1"
+    },
+    {
+      "name": "5x4_maint_wonder_1"
+    },
+    {
+      "name": "6x5_maint_wonder_1"
+    }
+  ]
+}

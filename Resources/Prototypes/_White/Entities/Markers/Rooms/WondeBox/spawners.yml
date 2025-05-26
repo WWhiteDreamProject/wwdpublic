@@ -1,0 +1,651 @@
+# Base
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintBase1
+  name: Room marker WONDER
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, Base1
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 50,40
+    maxSize: 50,40
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintBase1
+    rotation: false
+  - type: Sprite # NADO SPRITY SDELAT
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/5x5.rsi
+      state: maint_wonder_1
+      offset: 2, 2
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 5x5_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintBase2
+  name: Room marker WONDER
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, Base2
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 40,50
+    maxSize: 40,50
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintBase1
+    rotation: false
+  - type: Sprite # NADO SPRITY SDELAT
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/5x5.rsi
+      state: maint_wonder_1
+      offset: 2, 2
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 5x5_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintBase3
+  name: Room marker WONDER
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, Base3
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 40,60
+    maxSize: 40,60
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintBase1
+    rotation: false
+  - type: Sprite # NADO SPRITY SDELAT
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/5x5.rsi
+      state: maint_wonder_1
+      offset: 2, 2
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 5x5_maint_wonder_1
+# Solar
+- type: entity
+  id: RoomSpawnerRoomsWonderboxSolar
+  name: Room marker WONDER SOLAR
+  parent: BaseRoomMarker
+  suffix: WonderBox, Solar
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 17,19
+    maxSize: 17,19
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxSolar
+    rotation: false
+  - type: Sprite # NADO SPRITY SDELAT
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/5x5.rsi
+      state: maint_wonder_1
+      offset: 2, 2
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 5x5_maint_wonder_1
+
+# Rooms
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom1_10x10
+  name: Room marker WONDER1 10x10
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 10x10
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 10,10
+    maxSize: 10,10
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/10x10.rsi
+      state: maint_wonder_1
+      offset: 4.5, 4.5
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 10x10_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom2_10x10
+  name: Room marker WONDER2 10x10
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 10x10, 2
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 10,10
+    maxSize: 10,10
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom2
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/10x10.rsi
+      state: maint_wonder_2
+      offset: 4.5, 4.5
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 10x10_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom1_6x7
+  name: Room marker WONDER1 6x7
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 6x7
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 6,7
+    maxSize: 6,7
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/6x7.rsi
+      state: maint_wonder_1
+      offset: 2.5, 3
+      scale: 2,2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 6x7_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom2_6x7
+  name: Room marker WONDER2 6x7
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 6x7, 2
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 6,7
+    maxSize: 6,7
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom2
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/6x7.rsi
+      state: maint_wonder_2
+      offset: 2.5, 3
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 6x7_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom1_7x7
+  name: Room marker WONDER2 7x7
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 7x7
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 7,7
+    maxSize: 7,7
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/7x7.rsi
+      state: maint_wonder_1
+      offset: 3, 3
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 7x7_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom2_7x7
+  name: Room marker WONDER2 7x7
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 7x7, 2
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 7,7
+    maxSize: 7,7
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom2
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/7x7.rsi
+      state: maint_wonder_2
+      offset: 3, 3
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 7x7_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom1_8x6
+  name: Room marker WONDER2 8x6
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 8x6
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 8,6
+    maxSize: 8,6
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/8x6.rsi
+      state: maint_wonder_1
+      offset: 3.5, 2.5
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 8x6_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom2_5x6
+  name: Room marker WONDER2 5x6
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 5x6, 2
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 5,6
+    maxSize: 5,6
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom2
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/5x6.rsi
+      state: maint_wonder_2
+      offset: 2, 2.5
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 5x6_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom3_5x6
+  name: Room marker WONDER3 5x6
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 5x6, 3
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 5,6
+    maxSize: 5,6
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom3
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/5x6.rsi
+      state: maint_wonder_3
+      offset: 2, 2.5
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 5x6_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom1_8x7
+  name: Room marker WONDER1 8x7
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 8x7
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 8,7
+    maxSize: 8,7
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/8x7.rsi
+      state: maint_wonder_1
+      offset: 3.5, 3
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 8x7_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom1_10x6
+  name: Room marker WONDER1 10x6
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 10x6
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 10,6
+    maxSize: 10,6
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/10x6.rsi
+      state: maint_wonder_1
+      offset: 4.5, 2.5
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 10x6_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom1_10x8
+  name: Room marker WONDER1 10x8
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 10x8
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 10,8
+    maxSize: 10,8
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/10x8.rsi
+      state: maint_wonder_1
+      offset: 4.5, 3.5
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 10x8_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom1_4x4
+  name: Room marker WONDER1 4x4
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 4x4
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 4,4
+    maxSize: 4,4
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/4x4.rsi
+      state: maint_wonder_1
+      offset: 1.5, 1.5
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 4x4_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom1_7x6
+  name: Room marker WONDER1 7x6
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 7x6
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 7,6
+    maxSize: 7,6
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/7x6.rsi
+      state: maint_wonder_1
+      offset: 3, 2.5
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 7x6_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom2_7x6
+  name: Room marker WONDER1 7x6
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 7x6, 2
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 7,6
+    maxSize: 7,6
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom2
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/7x6.rsi
+      state: maint_wonder_2
+      offset: 3, 2.5
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 7x6_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom1_6x8
+  name: Room marker WONDER1 6x8
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 6x8
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 6,8
+    maxSize: 6,8
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/6x8.rsi
+      state: maint_wonder_1
+      offset: 2.5, 3.5
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 6x8_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom1_5x5
+  name: Room marker WONDER1 5x5
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 5x5
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 5,5
+    maxSize: 5,5
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/5x5.rsi
+      state: maint_wonder_1
+      offset: 2, 2
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 5x5_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom1_4x5
+  name: Room marker WONDER1 4x5
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 4x5
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 4,5
+    maxSize: 4,5
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/4x5.rsi
+      state: maint_wonder_1
+      offset: 1.5, 2
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 4x5_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom1_6x10
+  name: Room marker WONDER1 6x10
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 6x10
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 6,10
+    maxSize: 6,10
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/6x10.rsi
+      state: maint_wonder_1
+      offset: 2.5, 4.5
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 6x10_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom1_4x6
+  name: Room marker WONDER1 4x6
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 4x6
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 4,6
+    maxSize: 4,6
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/4x6.rsi
+      state: maint_wonder_1
+      offset: 1.5, 2.5
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 4x6_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom1_5x4
+  name: Room marker WONDER1 5x4
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 5x4
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 5,4
+    maxSize: 5,4
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/5x4.rsi
+      state: maint_wonder_1
+      offset: 2, 1.5
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 5x4_maint_wonder_1
+
+- type: entity
+  id: RoomSpawnerRoomsWonderboxMaintRoom1_6x5
+  name: Room marker WONDER1 6x5
+  parent: BaseRoomMarker
+  suffix: WonderBox, Maint, 6x5
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 6,5
+    maxSize: 6,5
+    roomWhitelist:
+      tags:
+      - RoomsWonderboxMaintRoom1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/6x5.rsi
+      state: maint_wonder_1
+      offset: 2.5, 2
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 6x5_maint_wonder_1
