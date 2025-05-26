@@ -1,5 +1,8 @@
+using System.Linq;
 using System.Numerics;
 using Content.Server.Storage.Components;
+using Content.Shared.Cabinet;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
 using Content.Shared.Procedural;
@@ -192,42 +195,33 @@ public sealed partial class DungeonSystem
             var ent = Spawn(protoId, new EntityCoordinates(gridUid, childPos));
 
             // WD EDIT START - kill me pls
-            foreach (var comp in EntityManager.GetComponents(ent))
+            var entComponents = EntityManager.GetComponents(ent).ToList();
+            var templateEntComponents = EntityManager.GetComponents(templateEnt).ToList();
+
+            foreach (var comp in entComponents)
             {
-                if (comp is TransformComponent
-                    or ContainerManagerComponent
-                    or MetaDataComponent
-                    or FixturesComponent
-                    or PhysicsComponent
-                    or StorageComponent
-                    or EntityStorageComponent)
+                if (!templateEntComponents.Contains(comp))
+                {
+                    RemComp(ent, comp);
+                    continue;
+                }
+
+                if (comp is not MetaDataComponent entMetaData)
                     continue;
 
-                RemComp(ent, comp);
+                var templateMetaData = MetaData(ent);
+                _metaData.SetEntityName(ent, templateMetaData.EntityName, entMetaData);
+                _metaData.SetEntityDescription(ent, templateMetaData.EntityDescription, entMetaData);
             }
-            foreach (var comp in EntityManager.GetComponents(templateEnt))
+
+            foreach (var comp in templateEntComponents)
             {
-                switch (comp)
-                {
-                    case TransformComponent
-                        or ContainerManagerComponent
-                        or FixturesComponent
-                        or PhysicsComponent
-                        or StorageComponent
-                        or EntityStorageComponent:
-                        continue;
-                    case MetaDataComponent templateMetaData:
-                    {
-                        var copyMetaData = MetaData(ent);
-                        _metaData.SetEntityName(ent, templateMetaData.EntityName, copyMetaData);
-                        _metaData.SetEntityDescription(ent, templateMetaData.EntityDescription, copyMetaData);
-                        continue;
-                    }
-                }
+                if (entComponents.Contains(comp))
+                    continue;
 
                 var copy = _serializationManager.CreateCopy(comp, notNullableOverride: true);
                 copy.Owner = ent;
-                AddComp(ent, copy, true);
+                AddComp(ent, copy);
             }
             // WD EDIT END
 
