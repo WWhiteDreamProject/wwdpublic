@@ -2909,3 +2909,30 @@ Entries:
   id: 314
   time: '2025-05-24T20:43:28.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/508
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: Заменитель 3Д рендера идентичный натуральному.
+  id: 315
+  time: '2025-05-24T21:54:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/509
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: >-
+        Информация о недавно произошедшем сценарии класса СК - миф и попытка
+        агентов Синдиката посеять панику среди сотрудников НТ. Энергетическое
+        оружие всегда нагревалось при стрельбе. Энергетическое оружие всегда
+        требовало регуляторные лампы для штатной работы. Докладывайте о любом
+        случае отрицания этих фактов в #feedback-канале для обратной связи; наш
+        представитель НТ свяжется с вами в кратчайшие сроки.
+  id: 316
+  time: '2025-05-24T23:26:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/500
+- author: Kutos
+  changes:
+    - type: Add
+      message: Переводы для абдукторов
+  id: 317
+  time: '2025-05-25T05:12:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/515
