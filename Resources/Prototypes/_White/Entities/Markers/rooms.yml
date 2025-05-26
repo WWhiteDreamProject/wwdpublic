@@ -13,5 +13,6 @@
     - sprite: _White/SpawnMarkers/genmarks.rsi
       state: gen5x5
     - sprite: _White/SpawnMarkers/Marklines/green/mark_line5x5.rsi
+      offset: 2, 2
       state: 5x5
       renderingStrategy: NoRotation
