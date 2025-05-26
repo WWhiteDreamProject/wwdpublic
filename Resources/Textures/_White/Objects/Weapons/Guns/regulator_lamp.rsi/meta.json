@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "WWDP @not_a_femb0y",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base"
+    },
+    {
+      "name": "glass"
+    },
+    {
+      "name": "filament"
+    },
+    {
+      "name": "glassbroken"
+    },
+    {
+      "name": "filamentburned"
+    },
+    {
+        "name": "adv"
+    }
+  ]
+}
