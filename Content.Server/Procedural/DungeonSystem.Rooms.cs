@@ -200,7 +200,7 @@ public sealed partial class DungeonSystem
 
             foreach (var comp in entComponents)
             {
-                if (!templateEntComponents.Contains(comp))
+                if (templateEntComponents.All(p => comp.GetType() != p.GetType()))
                 {
                     RemComp(ent, comp);
                     continue;
@@ -216,7 +216,7 @@ public sealed partial class DungeonSystem
 
             foreach (var comp in templateEntComponents)
             {
-                if (entComponents.Contains(comp))
+                if (entComponents.Any(p => comp.GetType() == p.GetType()))
                     continue;
 
                 var copy = _serializationManager.CreateCopy(comp, notNullableOverride: true);
