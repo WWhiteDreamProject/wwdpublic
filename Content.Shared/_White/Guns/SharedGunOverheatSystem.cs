@@ -60,7 +60,7 @@ public abstract class SharedGunOverheatSystem : EntitySystem
 
     private void OnBreak(EntityUid uid, RegulatorLampComponent comp, BreakageEventArgs args)
     {
-        _appearance.SetData(uid, RegulatorLampVisuals.Glass, RegulatorLampState.Broken);
+        /*_appearance.SetData(uid, RegulatorLampVisuals.Glass, RegulatorLampState.Broken);*/
         comp.Intact = false;
         Dirty(uid, comp);
     }
@@ -103,7 +103,7 @@ public abstract class SharedGunOverheatSystem : EntitySystem
 
     public void AdjustTemperatureLimit(GunOverheatComponent comp, float tempChange)
     {
-        comp.TemperatureLimit = MathHelper.Clamp(comp.TemperatureLimit + tempChange, -250f + 273.15f, comp.MaxSafetyTemperature); // from -250C to MaxSafetyTemperature 
+        comp.TemperatureLimit = MathHelper.Clamp(comp.TemperatureLimit + tempChange, -250f + 273.15f, comp.MaxSafetyTemperature); // from -250C to MaxSafetyTemperature
     }
 
     private void OnAltVerbs(EntityUid uid, GunOverheatComponent comp, GetVerbsEvent<AlternativeVerb> args)
@@ -166,7 +166,7 @@ public abstract class SharedGunOverheatSystem : EntitySystem
     {
         var lampUid = comp.Owner;
         _audio.PlayEntity(comp.BreakSound, Filter.Pvs(lampUid), lampUid, true);
-        _appearance.SetData(lampUid, RegulatorLampVisuals.Filament, RegulatorLampState.Broken);
+        /*_appearance.SetData(lampUid, RegulatorLampVisuals.Filament, RegulatorLampState.Broken);*/
         comp.Intact = false;
         Dirty(lampUid, comp);
     }
@@ -175,6 +175,8 @@ public abstract class SharedGunOverheatSystem : EntitySystem
 }
 
 
+// I do not know why, but it refuses to work on the server. TODO: return it
+/*
 [Serializable, NetSerializable]
 public enum RegulatorLampVisuals
 {
@@ -188,3 +190,4 @@ public enum RegulatorLampState
     Intact,
     Broken
 }
+*/
