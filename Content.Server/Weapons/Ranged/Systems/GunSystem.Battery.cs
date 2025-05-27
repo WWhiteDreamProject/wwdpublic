@@ -1,4 +1,6 @@
 using Content.Server.Power.Components;
+using Content.Server.Temperature.Components;
+using Content.Server.Temperature.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.FixedPoint;
@@ -11,6 +13,8 @@ namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem
 {
+    [Dependency] private readonly TemperatureSystem _temp = default!; // WWDP EDIT
+
     protected override void InitializeBattery()
     {
         base.InitializeBattery();
@@ -36,7 +40,7 @@ public sealed partial class GunSystem
         UpdateShots(uid, component, args.Charge, args.MaxCharge);
     }
 
-    private void UpdateShots(EntityUid uid, BatteryAmmoProviderComponent component)
+    public void UpdateShots(EntityUid uid, BatteryAmmoProviderComponent component) // WWDP EDIT - private -> public
     {
         if (!TryComp<BatteryComponent>(uid, out var battery))
             return;

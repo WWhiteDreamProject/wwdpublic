@@ -1076,6 +1076,8 @@
       - WeaponRifleNovaliteC1
       - WeaponRifleGestio
       # WD EDIT END
+      - BasicRegulatorLamp # WWDP EDIT - energy weaponry overheating mechanic
+      - AdvancedRegulatorLamp
       # WD EDIT START - caseless ammo moved to tier 3 Arsenal research
       - MagazineCaselessRiflePractice # EE
       - MagazineCaselessRifle # EE

@@ -304,6 +304,7 @@
   components:
   - type: StorageFill
     contents:
+      - id: BoxBasicRegulatorLamp # wwdp edit
       - id: ClothingEyesHudSecurity
     # - id: WeaponDisabler # WWDP
       - id: ClothingOuterCoatHoSTrench
@@ -336,6 +337,7 @@
   components:
   - type: StorageFill
     contents:
+      - id: BoxBasicRegulatorLamp # wwdp edit
       - id: ClothingEyesHudSecurity
     # - id: WeaponDisabler # WWDP
       - id: ClothingOuterCoatHoSTrench
