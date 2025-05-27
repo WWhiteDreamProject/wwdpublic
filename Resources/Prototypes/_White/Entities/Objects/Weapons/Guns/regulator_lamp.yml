@@ -10,9 +10,9 @@
     layers:
     - state: base
     - state: filament
-      map: [ "enum.RegulatorLampLayers.Filament" ]
+      map: [ "Filament" ]
     - state: glass
-      map: [ "enum.RegulatorLampLayers.Glass" ]
+      map: [ "Glass" ]
   - type: RegulatorLamp
     safeTemp: 240
     unsafeTemp: 650
@@ -65,11 +65,11 @@
   - type: GenericVisualizer
     visuals:
       enum.RegulatorLampVisuals.Glass:
-        enum.RegulatorLampLayers.Glass:
+        Glass:
           Intact: { state: glass }
           Broken: { state: glassbroken }
       enum.RegulatorLampVisuals.Filament:
-        enum.RegulatorLampLayers.Filament:
+        Filament:
           Intact: { state: filament }
           Broken: { state: filamentburned }
 
