@@ -103,7 +103,7 @@ public abstract class SharedGunOverheatSystem : EntitySystem
 
     public void AdjustTemperatureLimit(GunOverheatComponent comp, float tempChange)
     {
-        comp.TemperatureLimit = MathHelper.Clamp(comp.TemperatureLimit + tempChange, -250f + 273.15f, comp.MaxSafetyTemperature); // from -250C to MaxSafetyTemperature
+        comp.TemperatureLimit = MathHelper.Clamp(comp.TemperatureLimit + tempChange, -250f + 273.15f, comp.MaxSafetyTemperature); // from -250C to MaxSafetyTemperature 
     }
 
     private void OnAltVerbs(EntityUid uid, GunOverheatComponent comp, GetVerbsEvent<AlternativeVerb> args)
@@ -176,14 +176,14 @@ public abstract class SharedGunOverheatSystem : EntitySystem
 
 
 [Serializable, NetSerializable]
-public enum RegulatorLampVisuals : byte
+public enum RegulatorLampVisuals
 {
     Glass,
     Filament
 }
 
 [Serializable, NetSerializable]
-public enum RegulatorLampState : byte
+public enum RegulatorLampState
 {
     Intact,
     Broken
