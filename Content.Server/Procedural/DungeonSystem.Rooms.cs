@@ -209,7 +209,7 @@ public sealed partial class DungeonSystem
                 if (comp is not MetaDataComponent entMetaData)
                     continue;
 
-                var templateMetaData = MetaData(ent);
+                var templateMetaData = MetaData(templateEnt);
                 _metaData.SetEntityName(ent, templateMetaData.EntityName, entMetaData);
                 _metaData.SetEntityDescription(ent, templateMetaData.EntityDescription, entMetaData);
             }
