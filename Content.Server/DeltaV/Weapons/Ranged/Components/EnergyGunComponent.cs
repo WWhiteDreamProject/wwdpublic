@@ -23,7 +23,7 @@ public sealed partial class EnergyGunComponent : Component
     /// <summary>
     /// The currently selected firing mode
     /// </summary>
-    [DataField("currentFireMode")]
+    //[DataField("currentFireMode")] // WWDP EDIT - It just doesn't make much sense to make this a datafield. Just put the default firemode first in the FireModes list.
     [AutoNetworkedField]
     public EnergyWeaponFireMode? CurrentFireMode = default!;
 }
@@ -42,6 +42,14 @@ public sealed partial class EnergyWeaponFireMode
     /// </summary>
     [DataField("fireCost")]
     public float FireCost = 100;
+
+    // WWDP EDIT START
+    /// <summary>
+    /// The battery cost to fire the projectile associated with this firing mode
+    /// </summary>
+    [DataField]
+    public float HeatCost = 50;
+    // WWDP EDIT END
 
     /// <summary>
     /// The name of the selected firemode
