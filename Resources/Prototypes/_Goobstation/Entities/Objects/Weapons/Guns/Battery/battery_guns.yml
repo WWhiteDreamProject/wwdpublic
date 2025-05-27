@@ -4,6 +4,8 @@
   id: WeaponEnergyRevolver
   description: A highly advanced energy revolver capable of firing both lethal and disabling bullets.
   components:
+  - type: Item # wwdp
+    heldPrefix: disabler
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
     layers:
