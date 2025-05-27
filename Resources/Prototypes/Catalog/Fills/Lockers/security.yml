@@ -8,7 +8,6 @@
     - id: FlashlightSeclite
     # - id: WeaponDisabler # WWDP
     #  prob: 0.3
-    - id: BoxBasicRegulatorLampBig # wwdp edit
     - id: ClothingBeltSecurityFilled
     - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
     - id: Flash
@@ -42,7 +41,6 @@
     - id: FlashlightSeclite
     #- id: WeaponDisabler # WWDP
     #  prob: 0.3
-    - id: BoxBasicRegulatorLampBig # wwdp edit
     - id: ClothingBeltSecurityFilled
     - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
     - id: Flash
