@@ -102,7 +102,7 @@ public sealed partial class GunSystem
             MinHeight = 15;
             HorizontalExpand = true;
             VerticalAlignment = VAlignment.Center;
-            AddChild(_bulletRender = new BulletRender
+            AddChild(_bulletRender = new()
             {
                 HorizontalAlignment = HAlignment.Right,
                 VerticalAlignment = VAlignment.Bottom
@@ -135,12 +135,12 @@ public sealed partial class GunSystem
                 Orientation = BoxContainer.LayoutOrientation.Horizontal,
                 Children =
                 {
-                    (_bullets = new BatteryBulletRenderer
+                    (_bullets = new()
                     {
-                        Margin = new Thickness(0, 0, 5, 0),
+                        Margin = new(0, 0, 5, 0),
                         HorizontalExpand = true
                     }),
-                    (_ammoCount = new Label
+                    (_ammoCount = new()
                     {
                         StyleClasses = { StyleNano.StyleClassItemStatus },
                         HorizontalAlignment = HAlignment.Right,
@@ -183,15 +183,15 @@ public sealed partial class GunSystem
                     new Control
                     {
                         HorizontalExpand = true,
-                        Margin = new Thickness(0, 0, 5, 0),
+                        Margin = new(0, 0, 5, 0),
                         Children =
                         {
-                            (_bulletRender = new BulletRender
+                            (_bulletRender = new()
                             {
                                 HorizontalAlignment = HAlignment.Right,
                                 VerticalAlignment = VAlignment.Bottom
                             }),
-                            (_noMagazineLabel = new Label
+                            (_noMagazineLabel = new()
                             {
                                 Text = "No Magazine!",
                                 StyleClasses = {StyleNano.StyleClassItemStatus}
@@ -202,15 +202,15 @@ public sealed partial class GunSystem
                     {
                         Orientation = BoxContainer.LayoutOrientation.Vertical,
                         VerticalAlignment = VAlignment.Bottom,
-                        Margin = new Thickness(0, 0, 0, 2),
+                        Margin = new(0, 0, 0, 2),
                         Children =
                         {
-                            (_ammoCount = new Label
+                            (_ammoCount = new()
                             {
                                 StyleClasses = {StyleNano.StyleClassItemStatus},
                                 HorizontalAlignment = HAlignment.Right,
                             }),
-                            (_chamberedBullet = new TextureRect
+                            (_chamberedBullet = new()
                             {
                                 Texture = StaticIoC.ResC.GetTexture("/Textures/Interface/ItemStatus/Bullets/chambered.png"),
                                 HorizontalAlignment = HAlignment.Left,
@@ -261,13 +261,13 @@ public sealed partial class GunSystem
             MinHeight = 15;
             HorizontalExpand = true;
             VerticalAlignment = Control.VAlignment.Center;
-            AddChild((_bulletsList = new BoxContainer
+            AddChild(_bulletsList = new()
             {
                 Orientation = BoxContainer.LayoutOrientation.Horizontal,
                 HorizontalExpand = true,
                 VerticalAlignment = VAlignment.Center,
                 SeparationOverride = 0
-            }));
+            });
         }
 
         public void Update(int currentIndex, bool?[] bullets)
@@ -321,7 +321,7 @@ public sealed partial class GunSystem
                     box.AddChild(new TextureRect
                     {
                         Texture = texture,
-                        TextureScale = new Vector2(scale, scale),
+                        TextureScale = new(scale, scale),
                         ModulateSelfOverride = Color.LimeGreen,
                     });
                 }
@@ -369,23 +369,22 @@ public sealed partial class GunSystem
         private readonly BatteryAmmoProviderComponent _ammoProvider;
         private readonly GunOverheatComponent? _regulator;
         private readonly GunOverheatSystem _regSys;
-        private readonly IEntityManager _entMan;
 
-        private int _ammoCount = 0;
+        private int _ammoCount;
         private bool _heatLimitEnabled = true;
-        private float _heatLimit = 0;
-        private float _heat = 0; // caching temperature and ammo counts so that the labels don't end up having their measures invalidated every frame
+        private float _heatLimit;
+        private float _heat; // caching temperature and ammo counts so that the labels don't end up having their measures invalidated every frame
                                  // not sure if this makes any difference performance-wise, but it just seems like a good idea
-        public EnergyGunBatteryStatusControl(BatteryAmmoProviderComponent comp)
+        public EnergyGunBatteryStatusControl(EntityUid uid, BatteryAmmoProviderComponent comp)
         {
-            _entMan = IoCManager.Resolve<IEntityManager>();
-            _regSys = _entMan.System<GunOverheatSystem>();
-            _gun = comp.Owner;
+            var entMan = IoCManager.Resolve<IEntityManager>();
+            _regSys = entMan.System<GunOverheatSystem>();
+            _gun = uid;
             _ammoProvider = comp;
             _ammoCount = comp.Shots;
             MinHeight = 15;
             HorizontalExpand = true;
-            VerticalAlignment = Control.VAlignment.Center;
+            VerticalAlignment = VAlignment.Center;
             AddChild(new BoxContainer // outer box
             {
                 Orientation = BoxContainer.LayoutOrientation.Vertical,
@@ -396,14 +395,14 @@ public sealed partial class GunSystem
                         Orientation = BoxContainer.LayoutOrientation.Horizontal,
                         Children =
                         {
-                            (_lampLabel = new Label
+                            (_lampLabel = new()
                             {
                                 StyleClasses = { StyleNano.StyleClassItemStatus },
                                 HorizontalAlignment = HAlignment.Left,
                                 VerticalAlignment = VAlignment.Bottom,
-                                Text = $" ●"
+                                Text = " \u25cf"
                             }),
-                            (_heatLabel = new Label
+                            (_heatLabel = new()
                             {
                                 StyleClasses = { StyleNano.StyleClassItemStatus },
                                 HorizontalAlignment = HAlignment.Right,
@@ -418,12 +417,12 @@ public sealed partial class GunSystem
                         Orientation = BoxContainer.LayoutOrientation.Horizontal,
                         Children =
                         {
-                            (_ammoBar = new BarControl
+                            (_ammoBar = new()
                             {
                                 Rows = 4,
                                 MaxWidth = 75
                             }),
-                            (_ammoLabel = new Label
+                            (_ammoLabel = new()
                             {
                                 StyleClasses = { StyleNano.StyleClassItemStatus },
                                 HorizontalExpand = true,
@@ -438,7 +437,7 @@ public sealed partial class GunSystem
 
             // if temp regulator component is missing on the gun, hide the temperature gauge and lamp display
             // since they won't matter anyways
-            if (!_entMan.TryGetComponent(_gun, out _regulator))
+            if (!entMan.TryGetComponent(_gun, out _regulator))
             {
                 _heatLabel.Visible = false;
                 _lampLabel.Visible = false;
@@ -450,22 +449,21 @@ public sealed partial class GunSystem
         // still using kelvin because having temperature go from 0 to +inf is much nicer than from -273.15 to +inf
         private void UpdateTemp(float K)
         {
-            float celcius = K - 273.15f;
+            var celcius = K - 273.15f;
             // we assume _regulator is not null since we'll check for it before calling this method
-            float maxTemp = _regulator!.MaxDisplayTemperatureCelcius;
-            string currentTemp = celcius > maxTemp ? $"{maxTemp:0}+°C" : $"{celcius:0} °C";
-            if (_regulator.SafetyEnabled)
-                _heatLabel.Text = $"{currentTemp}/{_regulator.TemperatureLimit - 273.15f:0} °C "; // MathF.Min to conserve a single digit for space in an otherwise overly cramped piece of UI.
-            else
-                _heatLabel.Text = currentTemp;
+            var maxTemp = _regulator!.MaxDisplayTemperatureCelcius;
+            var currentTemp = celcius > maxTemp ? $"{maxTemp:0}+°C" : $"{celcius:0} °C";
+            _heatLabel.Text = _regulator.SafetyEnabled 
+                ? $"{currentTemp}/{_regulator.TemperatureLimit - 273.15f:0} °C " 
+                : currentTemp;
 
             float hue = 0; // full red
             const float hueoffset = 0.07f; // raises the 0K color from dark blue to a brighter tone
 
             if (K < _regulator.TemperatureLimit)
-                hue = 0.66f - ((K) / (_regulator.TemperatureLimit) * 0.55f * (1f - hueoffset) + hueoffset);
+                hue = 0.66f - (K / _regulator.TemperatureLimit * 0.55f * (1f - hueoffset) + hueoffset);
 
-            var tempColor = Color.FromHsv(new Robust.Shared.Maths.Vector4(hue, 1, 1, 1));
+            var tempColor = Color.FromHsv(new(hue, 1, 1, 1));
             _heatLabel.FontColorOverride = tempColor;
             _lampLabel.FontColorOverride = tempColor;
         }
@@ -486,10 +484,8 @@ public sealed partial class GunSystem
             if (_regulator is null)
                 return;
 
-            if (_regSys.GetLamp(_gun, out var lampComp, _regulator))
-            {
-                _lampLabel.Text = lampComp is null || !lampComp.Intact ? " ◌" : " ●";
-            }
+            if (_regSys.GetLamp((_gun,_regulator), out var lamp))
+                _lampLabel.Text = !lamp.Value.Comp.Intact ? " ◌" : " ●";
 
             if (_heat != _regulator.CurrentTemperature || _heatLimit != _regulator.TemperatureLimit || _heatLimitEnabled != _regulator.SafetyEnabled)
             {
