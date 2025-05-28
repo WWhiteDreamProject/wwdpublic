@@ -27,6 +27,6 @@ public sealed partial class GunSystem
 
     private void OnControl(EntityUid uid, BatteryAmmoProviderComponent component, AmmoCounterControlEvent args)
     {
-        args.Control = new EnergyGunBatteryStatusControl(component); // WWDP EDIT
+        args.Control = new EnergyGunBatteryStatusControl(uid, component); // WWDP EDIT
     }
 }

@@ -10,9 +10,9 @@
     layers:
     - state: base
     - state: filament
-      map: [ "Filament" ]
+      map: [ "enum.RegulatorLampFilament.Layer" ]
     - state: glass
-      map: [ "Glass" ]
+      map: [ "enum.RegulatorLampGlass.Layer" ]
   - type: RegulatorLamp
     safeTemp: 240
     unsafeTemp: 650
@@ -61,17 +61,17 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  # - type: Appearance
-  # - type: GenericVisualizer
-  #   visuals:
-  #     enum.RegulatorLampVisuals.Glass:
-  #       Glass:
-  #         Intact: { state: glass }
-  #         Broken: { state: glassbroken }
-  #     enum.RegulatorLampVisuals.Filament:
-  #       Filament:
-  #         Intact: { state: filament }
-  #         Broken: { state: filamentburned }
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.RegulatorLampGlass.Intact:
+        enum.RegulatorLampGlass.Layer:
+          True: { state: glass }
+          False: { state: glassbroken }
+      enum.RegulatorLampFilament.Intact:
+        enum.RegulatorLampFilament.Layer:
+          True: { state: filament }
+          False: { state: filamentburned }
 
 - type: entity
   parent: BaseRegulatorLamp
@@ -90,9 +90,9 @@
     layers:
     - state: adv
     - state: filament
-      map: [ "Filament" ]
+      map: [ "enum.RegulatorLampFilament.Layer" ]
     - state: glass
-      map: [ "Glass" ]
+      map: [ "enum.RegulatorLampGlass.Layer" ]
   - type: RegulatorLamp
     safeTemp: 480
     unsafeTemp: 840
