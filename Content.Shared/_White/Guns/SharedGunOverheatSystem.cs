@@ -60,7 +60,7 @@ public abstract class SharedGunOverheatSystem : EntitySystem
 
     private void OnBreak(EntityUid uid, RegulatorLampComponent comp, BreakageEventArgs args)
     {
-        /*_appearance.SetData(uid, RegulatorLampVisuals.Glass, RegulatorLampState.Broken);*/
+        _appearance.SetData(uid, RegulatorLampGlass.Intact, false);
         comp.Intact = false;
         Dirty(uid, comp);
     }
@@ -166,7 +166,7 @@ public abstract class SharedGunOverheatSystem : EntitySystem
     {
         var lampUid = comp.Owner;
         _audio.PlayEntity(comp.BreakSound, Filter.Pvs(lampUid), lampUid, true);
-        /*_appearance.SetData(lampUid, RegulatorLampVisuals.Filament, RegulatorLampState.Broken);*/
+        _appearance.SetData(lampUid, RegulatorLampFilament.Intact, false);
         comp.Intact = false;
         Dirty(lampUid, comp);
     }
@@ -174,27 +174,16 @@ public abstract class SharedGunOverheatSystem : EntitySystem
     public float GetLampBreakChance(float temp, RegulatorLampComponent comp, float multiplier = 1) => MathHelper.Clamp01((temp - comp.SafeTemperature) / (comp.UnsafeTemperature - comp.SafeTemperature) * multiplier);
 }
 
-
-// I do not know why, but it refuses to work on the server. TODO: return it
-/*
 [Serializable, NetSerializable]
-public enum RegulatorLampVisuals : byte
+public enum RegulatorLampGlass : byte
 {
-    Glass,
-    Filament
+    Layer,
+    Intact
 }
 
 [Serializable, NetSerializable]
-public enum RegulatorLampLayers : byte
+public enum RegulatorLampFilament : byte
 {
-    Glass,
-    Filament
+    Layer,
+    Intact
 }
-
-[Serializable, NetSerializable]
-public enum RegulatorLampState : byte
-{
-    Intact,
-    Broken
-}
-*/
