@@ -1,0 +1,12 @@
+using Robust.Shared.GameStates;
+
+namespace Content.Server.FelinidWeapons;
+
+/// <summary>
+/// Делает моба феленида способным быть использованным как оружие.
+/// </summary>
+[RegisterComponent]
+[NetworkedComponent]
+public sealed partial class FelinidWeaponizableComponent : Component
+{
+}
