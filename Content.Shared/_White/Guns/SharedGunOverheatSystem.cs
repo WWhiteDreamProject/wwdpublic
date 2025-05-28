@@ -178,14 +178,14 @@ public abstract class SharedGunOverheatSystem : EntitySystem
 // I do not know why, but it refuses to work on the server. TODO: return it
 /*
 [Serializable, NetSerializable]
-public enum RegulatorLampVisuals
+public enum RegulatorLampVisuals : byte
 {
     Glass,
     Filament
 }
 
 [Serializable, NetSerializable]
-public enum RegulatorLampState
+public enum RegulatorLampState : byte
 {
     Intact,
     Broken
