@@ -90,9 +90,9 @@
     layers:
     - state: adv
     - state: filament
-      map: [ "Filament" ]
+      map: [ "enum.RegulatorLampFilament.Layer" ]
     - state: glass
-      map: [ "Glass" ]
+      map: [ "enum.RegulatorLampGlass.Layer" ]
   - type: RegulatorLamp
     safeTemp: 480
     unsafeTemp: 840
