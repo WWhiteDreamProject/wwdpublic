@@ -185,6 +185,13 @@ public enum RegulatorLampVisuals : byte
 }
 
 [Serializable, NetSerializable]
+public enum RegulatorLampLayers : byte
+{
+    Glass,
+    Filament
+}
+
+[Serializable, NetSerializable]
 public enum RegulatorLampState : byte
 {
     Intact,
