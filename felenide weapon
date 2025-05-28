@@ -1,0 +1,49 @@
+using Content.Shared.Damage;
+using Content.Shared.Interaction.Events;
+using Robust.Shared.Audio;
+using Robust.Shared.Random;
+
+namespace Content.Server.FelinidWeapons;
+
+public sealed class FelinidWeaponSystem : EntitySystem
+{
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+
+    public override void Initialize()
+    {
+        SubscribeEvent<InteractUsingEvent>(OnInteractUsing);
+    }
+
+    private void OnInteractUsing(EntityUid uid, FelinidWeaponizableComponent comp, InteractUsingEvent args)
+    {
+        if (!HasComp<HandsComponent>(args.User))
+            return;
+
+        // Проверка: пользователь держит феленида в руке
+        if (!TryComp<HandsComponent>(args.User, out var hands) || !hands.Hands.Any(h => h.HeldEntity == uid))
+            return;
+
+        if (args.Target == null || args.Target == uid)
+            return;
+
+        
+        var damage = new DamageSpecifier(DamageTypeGroups.Slash, 25);
+        _damageable.TryChangeDamage(args.Target.Value, damage, true);
+
+        
+        var selfDamage = new DamageSpecifier(DamageTypeGroups.Blunt, 10);
+        _damageable.TryChangeDamage(uid, selfDamage, true);
+
+        // Мяуканье и крик
+        var sounds = new[]
+        {
+            "/Audio/Voice/Felinid/felinid_meow1.ogg",
+            "/Audio/Voice/Felinid/felinid_pain1.ogg"
+        };
+
+        var chosen = _random.Pick(sounds);
+        _audio.PlayPvs(chosen, uid);
+    }
+}
