@@ -1,0 +1,38 @@
+- type: entity
+  parent: ClothingShoesBase
+  id: ExplodingClownShoes
+  name: Клуньские тапки
+  description: Самые обычные клуньские тапки. Честно!!!
+  components:
+    - type: Sprite
+      sprite:Clothing/Shoes/Specific/clown.rsi
+      state: icon
+    - type: Item
+      size: Small
+    - type: Explosive
+      explosionType: Default
+      maxIntensity: 5000
+      totalIntensity: 8000
+      intensitySlope: 1.5
+    - type: TimedExplosive
+      beepInterval: 60
+      beepSound: /Audio/Effects/beep.ogg
+      minDelay: 1984
+      maxDelay: 3000
+    - type: UseDelay
+      delay: 1
+    - type: ActivatableUI
+      key: enum.ActivatableUIKey.Explosive
+    - type: UserInterface
+      interfaces:
+        - key: enum.ActivatableUIKey.Explosive
+          type: ExplosiveUI
+    - type: Appearance
+    - type: Tag
+      tags:
+        - Explosive
+        - NoStick
+        - FunSlippers
+        - JaPidoras
+
+
