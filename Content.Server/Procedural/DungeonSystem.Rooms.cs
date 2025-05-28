@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Storage.Components;
 using Content.Shared.Cabinet;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
@@ -200,6 +201,9 @@ public sealed partial class DungeonSystem
 
             foreach (var comp in entComponents)
             {
+                if (comp is ContainerManagerComponent)
+                    continue;
+
                 if (templateEntComponents.All(p => comp.GetType() != p.GetType()))
                 {
                     RemComp(ent, comp);
