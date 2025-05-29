@@ -64,7 +64,12 @@ public sealed class MappingVisibilityUIController : UIController
             return;
 
         _window = UIManager.CreateWindow<MappingVisibilityWindow>();
-        _mappingScreen = (MappingScreen)UIManager.ActiveScreen!;
+        _mappingScreen = UIManager.ActiveScreen as MappingScreen;
+        if (_mappingScreen == null)
+        {
+            Logger.Warning("Active screen is not a MappingScreen, panel visibility controls will not function.");
+            return;
+        }
 
         // Инициализация спинбокса поворота
         if (_mappingScreen.DecalSpinBoxContainer != null)
