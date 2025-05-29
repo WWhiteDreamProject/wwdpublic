@@ -21,7 +21,7 @@
   # WD EDIT END
   components:
   - type: MindShield
-  - type: InitialInfectedExempt
+  - type: AntagImmune
 
 ## Death Squad
 
