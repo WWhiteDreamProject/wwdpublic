@@ -590,4 +590,7 @@ binds:
   type: State
   key: MouseRight
   canFocus: true
+- function: ToggleMappingState
+  type: State
+  key: F9
 

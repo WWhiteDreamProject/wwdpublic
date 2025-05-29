@@ -19,6 +19,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Placement;
 using Robust.Client.ResourceManagement;
+using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Enums;
@@ -56,6 +57,8 @@ public sealed class MappingState : GameplayStateBase
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
     [Dependency] private readonly ILocalizationManager _locale = default!;
+    [Dependency] private readonly IStateManager _stateManager = default!;
+    [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
 
     private EntityMenuUIController _entityMenuController = default!;
 
@@ -656,6 +659,13 @@ public sealed class MappingState : GameplayStateBase
 
     protected override void OnKeyBindStateChanged(ViewportBoundKeyEventArgs args)
     {
+        if (args.KeyEventArgs.Function == ContentKeyFunctions.ToggleMappingState)
+        {
+            _stateManager.RequestStateChange<GameplayState>();
+            args.KeyEventArgs.Handle();
+            return;
+        }
+        
         if (args.Viewport == null)
             base.OnKeyBindStateChanged(new ViewportBoundKeyEventArgs(args.KeyEventArgs, Viewport.Viewport));
         else
