@@ -36,6 +36,14 @@ public sealed class MappingVisibilityUIController : UIController
     private bool _tilesVisible = true;
     private bool _decalsVisible = true;
 
+    private float _decalRotation;
+    private bool _decalAuto;
+    private bool _decalEnableColor;
+    private bool _decalSnap;
+    private bool _decalCleanable;
+    private int _decalZIndex;
+    private string? _id;
+
     public void ToggleWindow()
     {
         EnsureWindow();
@@ -57,6 +65,66 @@ public sealed class MappingVisibilityUIController : UIController
 
         _window = UIManager.CreateWindow<MappingVisibilityWindow>();
         _mappingScreen = (MappingScreen)UIManager.ActiveScreen!;
+
+        // Инициализация спинбокса поворота
+        if (_mappingScreen.DecalSpinBoxContainer != null)
+        {
+            var rotationSpinBox = new FloatSpinBox(90.0f, 0)
+            {
+                HorizontalExpand = true
+            };
+            _mappingScreen.DecalSpinBoxContainer.AddChild(rotationSpinBox);
+
+            // Привязка обработчиков событий для элементов управления декалями
+            if (_mappingScreen.DecalColorPicker != null)
+                _mappingScreen.DecalColorPicker.OnColorChanged += OnDecalColorPicked;
+
+            if (_mappingScreen.DecalPickerOpen != null)
+                _mappingScreen.DecalPickerOpen.OnPressed += OnDecalPickerOpenPressed;
+
+            rotationSpinBox.OnValueChanged += args =>
+            {
+                _decalRotation = args.Value;
+                UpdateDecal();
+            };
+
+            if (_mappingScreen.DecalEnableAuto != null)
+                _mappingScreen.DecalEnableAuto.OnToggled += args =>
+                {
+                    _decalAuto = args.Pressed;
+                    if (_id is { } id)
+                        SelectDecal(id);
+                };
+
+            if (_mappingScreen.DecalEnableColor != null)
+                _mappingScreen.DecalEnableColor.OnToggled += args =>
+                {
+                    _decalEnableColor = args.Pressed;
+                    UpdateDecal();
+                    RefreshDecalList();
+                };
+
+            if (_mappingScreen.DecalEnableSnap != null)
+                _mappingScreen.DecalEnableSnap.OnToggled += args =>
+                {
+                    _decalSnap = args.Pressed;
+                    UpdateDecal();
+                };
+
+            if (_mappingScreen.DecalEnableCleanable != null)
+                _mappingScreen.DecalEnableCleanable.OnToggled += args =>
+                {
+                    _decalCleanable = args.Pressed;
+                    UpdateDecal();
+                };
+
+            if (_mappingScreen.DecalZIndexSpinBox != null)
+                _mappingScreen.DecalZIndexSpinBox.ValueChanged += args =>
+                {
+                    _decalZIndex = args.Value;
+                    UpdateDecal();
+                };
+        }
 
         // Панели
         _window.EntitiesPanel.Pressed = _entitiesVisible;
@@ -335,5 +403,30 @@ public sealed class MappingVisibilityUIController : UIController
             if (tagSystem.HasTag(uid, tag))
                 sprite.Visible = args.Button.Pressed;
         }
+    }
+
+    private void OnDecalColorPicked(Color color)
+    {
+        // Implement color picking logic
+    }
+
+    private void OnDecalPickerOpenPressed(BaseButton.ButtonEventArgs args)
+    {
+        // Implement color picker opening logic
+    }
+
+    private void UpdateDecal()
+    {
+        // Implement decal update logic
+    }
+
+    private void RefreshDecalList()
+    {
+        // Implement decal list refresh logic
+    }
+
+    private void SelectDecal(string id)
+    {
+        // Implement decal selection logic
     }
 }
