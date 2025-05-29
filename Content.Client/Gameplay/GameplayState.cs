@@ -1,18 +1,14 @@
 using Content.Client.Hands;
-using Content.Client.Mapping;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Screens;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Client.Viewport;
 using Content.Shared.CCVar;
-using Content.Shared.Input;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
-using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Configuration;
-using Robust.Shared.Input;
 using Robust.Shared.Timing;
 
 namespace Content.Client.Gameplay
@@ -25,7 +21,6 @@ namespace Content.Client.Gameplay
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
         [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-        [Dependency] private readonly IStateManager _stateManager = default!;
 
         private FpsCounter _fpsCounter = default!;
 
@@ -116,13 +111,6 @@ namespace Content.Client.Gameplay
 
         protected override void OnKeyBindStateChanged(ViewportBoundKeyEventArgs args)
         {
-            if (args.KeyEventArgs.Function == ContentKeyFunctions.ToggleMappingState)
-            {
-                _stateManager.RequestStateChange<MappingState>();
-                args.KeyEventArgs.Handle();
-                return;
-            }
-            
             if (args.Viewport == null)
                 base.OnKeyBindStateChanged(new ViewportBoundKeyEventArgs(args.KeyEventArgs, Viewport.Viewport));
             else
