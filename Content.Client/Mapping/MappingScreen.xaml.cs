@@ -145,7 +145,7 @@ public sealed partial class MappingScreen : InGameScreen
     {
         DecalColor = color;
         if (_decalEnableColor)
-            UpdateDecal();
+        UpdateDecal();
     }
 
     private void OnDecalPickerPressed(ButtonEventArgs args)
