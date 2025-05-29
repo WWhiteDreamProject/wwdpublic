@@ -25,37 +25,36 @@ public sealed class GunOverheatSystem : SharedGunOverheatSystem
 
     private void OnLampInit(EntityUid uid, RegulatorLampComponent comp, ComponentInit args)
     {
-
         if (comp.SafeTemperature > comp.UnsafeTemperature)
         {
-            Log.Warning($"Entity {ToPrettyString(uid)} has SafeTemperature bigger than UnsafeTemperature. (s={comp.SafeTemperature}, u={comp.UnsafeTemperature}) Resolving by swapping them around.");
+            Log.Warning(
+                $"Entity {ToPrettyString(uid)} has SafeTemperature bigger than UnsafeTemperature. (s={comp.SafeTemperature}, u={comp.UnsafeTemperature}) Resolving by swapping them around.");
             (comp.SafeTemperature, comp.UnsafeTemperature) = (comp.UnsafeTemperature, comp.SafeTemperature);
             Dirty(uid, comp);
         }
 
-        if (comp.SafeTemperature == comp.UnsafeTemperature)
-        {
-            Log.Error($"Entity {ToPrettyString(uid)} has equal SafeTemperature and UnsafeTemperature. (s={comp.SafeTemperature}, u={comp.UnsafeTemperature}) Resolving by increasing UnsafeTemperature by 0.01f.");
-            comp.UnsafeTemperature += 0.01f;
-            Dirty(uid, comp);
-        }
-    }
-
-    protected override void OnGunShot(EntityUid uid, GunOverheatComponent comp, ref GunShotEvent args)
-    {
-        CheckForBurnout(uid, comp, args.User);
-        _temp.ForceChangeTemperature(uid, comp.CurrentTemperature + comp.HeatCost);
-    }
-
-    private void CheckForBurnout(EntityUid uid, GunOverheatComponent comp, EntityUid shooter)
-    {
-        if (!GetLamp(uid, out var lampComp, comp) || lampComp is null)
+        if (comp.SafeTemperature != comp.UnsafeTemperature)
             return;
 
-        float breakChance = GetLampBreakChance(comp.CurrentTemperature, lampComp, comp.LampBreakChanceMultiplier);
-        if (_rng.Prob(breakChance))
-        {
-            BurnoutLamp(lampComp, shooter);
-        }
+        Log.Error(
+            $"Entity {ToPrettyString(uid)} has equal SafeTemperature and UnsafeTemperature. (s={comp.SafeTemperature}, u={comp.UnsafeTemperature}) Resolving by increasing UnsafeTemperature by 0.01f.");
+        comp.UnsafeTemperature += 0.01f;
+        Dirty(uid, comp);
+    }
+
+    protected override void OnGunShot(Entity<GunOverheatComponent> gun, ref GunShotEvent args)
+    {
+        CheckForBurnout(gun, args.User);
+        _temp.ForceChangeTemperature(gun, gun.Comp.CurrentTemperature + gun.Comp.HeatCost);
+    }
+
+    private void CheckForBurnout(Entity<GunOverheatComponent> gun, EntityUid shooter)
+    {
+        if (!GetLamp(gun, out var lamp))
+            return;
+
+        var breakChance = GetLampBreakChance(gun.Comp.CurrentTemperature, lamp, gun.Comp.LampBreakChanceMultiplier);
+        if (Rng.Prob(breakChance))
+            BurnoutLamp(lamp.Value, shooter);
     }
 }

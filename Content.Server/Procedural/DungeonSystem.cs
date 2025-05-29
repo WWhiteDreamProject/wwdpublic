@@ -20,7 +20,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 
-
 namespace Content.Server.Procedural;
 
 public sealed partial class DungeonSystem : SharedDungeonSystem
