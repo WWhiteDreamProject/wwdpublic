@@ -5,6 +5,7 @@ using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.PowerCell;
+using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Database;
@@ -22,6 +23,8 @@ using Content.Shared.PowerCell.Components;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.StationAi;
 using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
 using Content.Shared.Wires;
@@ -99,6 +102,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
         var used = args.Used;
         TryComp<BorgBrainComponent>(used, out var brain);
         TryComp<BorgModuleComponent>(used, out var module);
+        TryComp<AiRemoteBrainComponent>(used, out var aiBrain); // Corvax-Next-AiRemoteControl
 
         if (TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open)
         {
@@ -136,6 +140,21 @@ public sealed partial class BorgSystem : SharedBorgSystem
             args.Handled = true;
             UpdateUI(uid, component);
         }
+
+        // Corvax-Next-AiRemoteControl-Start
+        if (component.BrainEntity == null && aiBrain != null &&
+    _whitelistSystem.IsWhitelistPassOrNull(component.BrainWhitelist, used))
+        {
+            AddComp<AiRemoteControllerComponent>(uid);
+            _container.Insert(used, component.BrainContainer);
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
+                $"{ToPrettyString(args.User):player} installed ai remote brain {ToPrettyString(used)} into borg {ToPrettyString(uid)}");
+            args.Handled = true;
+            BorgActivate(uid, component);
+
+            UpdateUI(uid, component);
+        }
+        // Corvax-Next-AiRemoteControl-End
     }
 
     /// <summary>
@@ -171,6 +190,15 @@ public sealed partial class BorgSystem : SharedBorgSystem
         {
             _mind.TransferTo(mindId, args.Entity, mind: mind);
         }
+
+        // Corvax-Next-AiRemoteControl-Start
+        if (HasComp<AiRemoteBrainComponent>(args.Entity))
+        {
+            BorgDeactivate(uid, component);
+            RemComp<AiRemoteControllerComponent>(uid);
+            RemComp<StationAiVisionComponent>(uid);
+        }
+        // Corvax-Next-AiRemoteControl-End
     }
 
     private void OnMindAdded(EntityUid uid, BorgChassisComponent component, MindAddedMessage args)
@@ -295,8 +323,11 @@ public sealed partial class BorgSystem : SharedBorgSystem
     public void BorgActivate(EntityUid uid, BorgChassisComponent component)
     {
         Popup.PopupEntity(Loc.GetString("borg-mind-added", ("name", Identity.Name(uid, EntityManager))), uid);
-        Toggle.TryActivate(uid);
-        _powerCell.SetDrawEnabled(uid, _mobState.IsAlive(uid));
+        if (_powerCell.HasDrawCharge(uid))
+        {
+            Toggle.TryActivate(uid);
+            _powerCell.SetDrawEnabled(uid, _mobState.IsAlive(uid));
+        }
         _appearance.SetData(uid, BorgVisuals.HasPlayer, true);
     }
 

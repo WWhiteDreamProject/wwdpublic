@@ -11,11 +11,16 @@ using Content.Server.Explosion.Components;
 using Robust.Shared.Utility;
 using Content.Server._Imp.Drone; //Goobstation drone
 using Robust.Shared.Player; //Goobstation drone
+using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
+
 namespace Content.Server.Silicons.Borgs;
 
 /// <inheritdoc/>
 public sealed partial class BorgSystem
 {
+    [Dependency] private readonly SiliconLawSystem _law = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
+
     private void InitializeTransponder()
     {
         SubscribeLocalEvent<BorgTransponderComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
@@ -48,7 +53,8 @@ public sealed partial class BorgSystem
                 charge,
                 chassis.ModuleCount,
                 hasBrain,
-                canDisable);
+                canDisable,
+                HasComp<AiRemoteControllerComponent>(uid)); // Corvax-Next-AiRemoteControl
 
             var payload = new NetworkPayload()
             {
