@@ -48,10 +48,12 @@ public sealed partial class MappingScreen : InGameScreen
             HorizontalExpand = true
         };
 
-        RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
         var visibilityUIController = UserInterfaceManager.GetUIController<MappingVisibilityUIController>();
+        var decalController = UserInterfaceManager.GetUIController<MappingDecalController>();
+
+        RobustXamlLoader.Load(this);
 
         AutoscaleMaxResolution = new Vector2i(1080, 770);
 
@@ -64,6 +66,10 @@ public sealed partial class MappingScreen : InGameScreen
 
         LeftContainer.OnSplitResizeFinished += () =>
             OnChatResized?.Invoke(new Vector2(LeftContainer.SplitFraction, 0));
+
+        OnResized += HandleResize;
+
+        decalController.Initialize(this);
 
         DecalSpinBoxContainer.AddChild(_rotationSpinBox);
         _rotationSpinBox.OnValueChanged += OnRotationChanged;
@@ -81,18 +87,61 @@ public sealed partial class MappingScreen : InGameScreen
             EntityPlacementMode.AddItem(EntitySpawnWindow.InitOpts[i], i);
         }
 
+        InitializeButtons(visibilityUIController);
+    }
+
+    private void InitializeButtons(MappingVisibilityUIController visibilityController)
+    {
         Pick.Texture.TexturePath = "/Textures/Interface/eyedropper.svg.png";
         PickDecal.Texture.TexturePath = "/Textures/Interface/VerbIcons/wand-magic-sparkles-solid.svg.192dpi.png";
         Flip.Texture.TexturePath = "/Textures/Interface/VerbIcons/rotate_cw.svg.192dpi.png";
         Flip.OnPressed += _ => FlipSides();
         Visibility.Texture.TexturePath = "/Textures/Interface/VerbIcons/layer-group-solid.svg.192dpi.png";
-        Visibility.OnPressed += _ => visibilityUIController.ToggleWindow();
+        Visibility.OnPressed += _ => visibilityController.ToggleWindow();
         FixGridAtmos.Texture.TexturePath = "/Textures/Interface/VerbIcons/oxygen.svg.192dpi.png";
         RemoveGrid.Texture.TexturePath = "/Textures/Interface/VerbIcons/delete_transparent.svg.192dpi.png";
         MoveGrid.Texture.TexturePath = "/Textures/Interface/VerbIcons/point.svg.192dpi.png";
         GridVV.Texture.TexturePath = "/Textures/Interface/VerbIcons/vv.svg.192dpi.png";
         PipesColor.Texture.TexturePath = "/Textures/Interface/VerbIcons/paint-roller-solid.svg.192dpi.png";
         ChatButton.Texture.TexturePath = "/Textures/Interface/VerbIcons/comment-dots-regular.svg.192dpi.png";
+    }
+
+    private void HandleResize()
+    {
+        if (!LeftContainer.Visible)
+        {
+            ViewportContainer.SetSize = new Vector2(Size.X, Size.Y);
+            ViewportContainer.InvalidateArrange();
+        }
+        
+        if (!RightContainer.Visible)
+        {
+            ViewportContainer.SetSize = new Vector2(Size.X, Size.Y);
+            ViewportContainer.InvalidateArrange();
+        }
+    }
+
+    public override void SetChatSize(Vector2 size)
+    {
+        LeftContainer.ResizeMode = SplitContainer.SplitResizeMode.RespectChildrenMinSize;
+        
+        InvalidateArrange();
+        LeftContainer.InvalidateArrange();
+        RightContainer.InvalidateArrange();
+        ViewportContainer.InvalidateArrange();
+
+        HandleResize();
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        if (disposing)
+        {
+            OnResized -= HandleResize;
+            var decalController = UserInterfaceManager.GetUIController<MappingDecalController>();
+            decalController.Cleanup();
+        }
     }
 
     private void FlipSides()
@@ -108,6 +157,11 @@ public sealed partial class MappingScreen : InGameScreen
         {
             Flip.Texture.TexturePath = "/Textures/Interface/VerbIcons/rotate_ccw.svg.192dpi.png";
         }
+
+        InvalidateArrange();
+        LeftContainer.InvalidateArrange();
+        RightContainer.InvalidateArrange();
+        ViewportContainer.InvalidateArrange();
     }
 
     private void OnRotationChanged(FloatSpinBox.FloatSpinBoxEventArgs args)
@@ -262,11 +316,6 @@ public sealed partial class MappingScreen : InGameScreen
 
             RefreshDecalButton(childButton);
         }
-    }
-
-    public override void SetChatSize(Vector2 size)
-    {
-        LeftContainer.ResizeMode = SplitContainer.SplitResizeMode.RespectChildrenMinSize;
     }
 
     public void UnPressActionsExcept(Control except)
