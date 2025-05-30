@@ -36,7 +36,7 @@ public sealed class RadarConsoleSystem : SharedRadarConsoleSystem
         if (component.FollowEntity)
         {
             coordinates = new EntityCoordinates(uid, Vector2.Zero);
-            angle = Angle.Zero;
+            angle = Math.PI; // WWDP EDIT 0->Pi - Flips handheld mass scanners around so that they're less annoying to use
         }
 
         if (_uiSystem.HasUi(uid, RadarConsoleUiKey.Key))

@@ -1,5 +1,7 @@
+using System;
 using System.Numerics;
 using Content.Client.Station; // Frontier
+using Content.Shared.Projectiles;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
@@ -24,6 +26,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     private readonly StationSystem _station; // Frontier
     private readonly SharedShuttleSystem _shuttles;
     private readonly SharedTransformSystem _transform;
+    private readonly EntityLookupSystem _lookup;
 
     /// <summary>
     /// Used to transform all of the radar objects. Typically is a shuttle console parented to a grid.
@@ -50,6 +53,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         _shuttles = EntManager.System<SharedShuttleSystem>();
         _transform = EntManager.System<SharedTransformSystem>();
         _station = EntManager.System<StationSystem>(); // Frontier
+        _lookup = EntManager.System<EntityLookupSystem>(); // WWDP EDIT
     }
 
     public void SetMatrix(EntityCoordinates? coordinates, Angle? angle)
@@ -225,10 +229,10 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
                 // The actual position in the UI. We offset the matrix position to render it off by half its width
                 // plus by the offset.
-                var uiPosition = ScalePosition(gridCentre)- new Vector2(labelDimensions.X / 2f, -yOffset);
+                var uiPosition = ScalePosition(gridCentre) - new Vector2(labelDimensions.X / 2f, -yOffset);
 
                 // Look this is uggo so feel free to cleanup. We just need to clamp the UI position to within the viewport.
-                uiPosition = new Vector2(Math.Clamp(uiPosition.X, 0f, PixelWidth - labelDimensions.X ),
+                uiPosition = new Vector2(Math.Clamp(uiPosition.X, 0f, PixelWidth - labelDimensions.X),
                     Math.Clamp(uiPosition.Y, 0f, PixelHeight - labelDimensions.Y));
 
                 handle.DrawString(Font, uiPosition, labelText, color);
@@ -244,6 +248,24 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             DrawGrid(handle, matty, grid, color);
             DrawDocks(handle, gUid, matty);
         }
+        // WWDP EDIT START
+        var wtf = Matrix3x2.Multiply(ourWorldMatrixInvert, Matrix3x2.CreateScale(new Vector2(1,-1)));
+        var projectiles = _lookup.GetEntitiesInRange<ProjectileComponent>(_coordinates.Value, 256f, LookupFlags.All);
+        Vector2[] verts = new Vector2[projectiles.Count*4];
+        int i = 0;
+        foreach (var proj in projectiles)
+        {
+            if (EntManager.TryGetComponent<MapGridComponent>(_transform.GetParent(proj).Owner, out _))
+                continue;
+            var pos = ScalePosition(Vector2.Transform(_transform.GetWorldPosition(proj), wtf));
+            verts[i * 4] = pos + new Vector2(2, 2);
+            verts[i * 4+1] = pos + new Vector2(-2, -2);
+            verts[i * 4+2] = pos + new Vector2(2, -2);
+            verts[i * 4+3] = pos + new Vector2(-2, 2);
+            i++;
+        }
+        handle.DrawPrimitives(DrawPrimitiveTopology.LineList, verts, Color.Silver);
+        // WWDP EDIT END
     }
 
     private void DrawDocks(DrawingHandleScreen handle, EntityUid uid, Matrix3x2 matrix)

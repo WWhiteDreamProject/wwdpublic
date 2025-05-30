@@ -359,6 +359,13 @@ public sealed partial class GunComponent : Component
     // WD EDIT START
     [DataField]
     public Angle? ThrowAngle;
+
+    /// <summary>
+    /// Designates this weapon a naval cannon. All projectiles shot from this weapon will be added to PVS ignore list (see Server.PvsOverrideSystem)
+    /// to ensure their visibility on clients.
+    /// </summary>
+    [DataField]
+    public bool ShipWeapon = false;
     // WD EDIT END
 
 }

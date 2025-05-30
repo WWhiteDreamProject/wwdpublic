@@ -25,7 +25,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
 using Content.Shared._Lavaland.Weapons.Ranged.Events;
-using ProjectileShotEvent = Content.Shared._Lavaland.Weapons.Ranged.Events.ProjectileShotEvent; // Lavaland Change
+using ProjectileShotEvent = Content.Shared._Lavaland.Weapons.Ranged.Events.ProjectileShotEvent;
+using Robust.Server.GameStates; // Lavaland Change
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -40,6 +41,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly ContestsSystem _contests = default!;
+    [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
 
     private const float DamagePitchVariation = 0.05f;
 
@@ -357,6 +359,8 @@ public sealed partial class GunSystem : SharedGunSystem
         }
 
         projectileComp.Damage *= gun.DamageModifier;
+        if(gun.ShipWeapon) // WWDP EDIT
+            _pvsOverride.AddGlobalOverride(uid); // WWDP EDIT
         ShootProjectile(uid, mapDirection, gunVelocity, gunUid, user, gun.ProjectileSpeedModified);
     }
 
