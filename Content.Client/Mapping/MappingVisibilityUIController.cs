@@ -13,7 +13,7 @@ using Robust.Client.UserInterface;
 
 namespace Content.Client.Mapping;
 
-public sealed partial class MappingVisibilityUIController : UIController
+public sealed class MappingVisibilityUIController : UIController
 {
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
@@ -32,7 +32,17 @@ public sealed partial class MappingVisibilityUIController : UIController
     [ValidatePrototypeId<TagPrototype>]
     private const string DisposalTag = "Disposal";
 
-    private readonly MappingVisibilityState _state = new();
+    private bool _entitiesVisible = true;
+    private bool _tilesVisible = true;
+    private bool _decalsVisible = true;
+
+    private float _decalRotation;
+    private bool _decalAuto;
+    private bool _decalEnableColor;
+    private bool _decalSnap;
+    private bool _decalCleanable;
+    private int _decalZIndex;
+    private string? _id;
 
     public void ToggleWindow()
     {
@@ -55,63 +65,78 @@ public sealed partial class MappingVisibilityUIController : UIController
 
         _window = UIManager.CreateWindow<MappingVisibilityWindow>();
         _mappingScreen = UIManager.ActiveScreen as MappingScreen;
-        
         if (_mappingScreen == null)
         {
             Logger.Warning("Active screen is not a MappingScreen, panel visibility controls will not function.");
-            DisableAllControls();
             return;
         }
 
-        InitializeWindowControls();
-    }
+        if (_mappingScreen.DecalSpinBoxContainer != null)
+        {
+            var rotationSpinBox = new FloatSpinBox(90.0f, 0)
+            {
+                HorizontalExpand = true
+            };
+            _mappingScreen.DecalSpinBoxContainer.AddChild(rotationSpinBox);
 
-    private void DisableAllControls()
-    {
-        if (_window == null) return;
-        
-        _window.EntitiesPanel.Disabled = true;
-        _window.TilesPanel.Disabled = true;
-        _window.DecalsPanel.Disabled = true;
-        _window.Light.Disabled = true;
-        _window.Fov.Disabled = true;
-        _window.Shadows.Disabled = true;
-        _window.Entities.Disabled = true;
-        _window.Markers.Disabled = true;
-        _window.Walls.Disabled = true;
-        _window.Airlocks.Disabled = true;
-        _window.Decals.Disabled = true;
-        _window.SubFloor.Disabled = true;
-        _window.Cables.Disabled = true;
-        _window.Disposal.Disabled = true;
-        _window.Atmos.Disabled = true;
-    }
+            if (_mappingScreen.DecalColorPicker != null)
+                _mappingScreen.DecalColorPicker.OnColorChanged += OnDecalColorPicked;
 
-    private void InitializeWindowControls()
-    {
-        if (_window == null || _mappingScreen == null) return;
+            if (_mappingScreen.DecalPickerOpen != null)
+                _mappingScreen.DecalPickerOpen.OnPressed += OnDecalPickerOpenPressed;
 
-        InitializePanelControls();
-        InitializeLayerControls();
-    }
+            rotationSpinBox.OnValueChanged += args =>
+            {
+                _decalRotation = args.Value;
+                UpdateDecal();
+            };
 
-    private void InitializePanelControls()
-    {
-        if (_window == null || _mappingScreen == null) return;
+            if (_mappingScreen.DecalEnableAuto != null)
+                _mappingScreen.DecalEnableAuto.OnToggled += args =>
+                {
+                    _decalAuto = args.Pressed;
+                    if (_id is { } id)
+                        SelectDecal(id);
+                };
 
-        _window.EntitiesPanel.Pressed = _state.EntitiesVisible;
+            if (_mappingScreen.DecalEnableColor != null)
+                _mappingScreen.DecalEnableColor.OnToggled += args =>
+                {
+                    _decalEnableColor = args.Pressed;
+                    UpdateDecal();
+                    RefreshDecalList();
+                };
+
+            if (_mappingScreen.DecalEnableSnap != null)
+                _mappingScreen.DecalEnableSnap.OnToggled += args =>
+                {
+                    _decalSnap = args.Pressed;
+                    UpdateDecal();
+                };
+
+            if (_mappingScreen.DecalEnableCleanable != null)
+                _mappingScreen.DecalEnableCleanable.OnToggled += args =>
+                {
+                    _decalCleanable = args.Pressed;
+                    UpdateDecal();
+                };
+
+            if (_mappingScreen.DecalZIndexSpinBox != null)
+                _mappingScreen.DecalZIndexSpinBox.ValueChanged += args =>
+                {
+                    _decalZIndex = args.Value;
+                    UpdateDecal();
+                };
+        }
+
+        _window.EntitiesPanel.Pressed = _entitiesVisible;
         _window.EntitiesPanel.OnPressed += OnToggleEntitiesPanelPressed;
 
-        _window.TilesPanel.Pressed = _state.TilesVisible;
+        _window.TilesPanel.Pressed = _tilesVisible;
         _window.TilesPanel.OnPressed += OnToggleTilesPanelPressed;
 
-        _window.DecalsPanel.Pressed = _state.DecalsVisible;
+        _window.DecalsPanel.Pressed = _decalsVisible;
         _window.DecalsPanel.OnPressed += OnToggleDecalsPanelPressed;
-    }
-
-    private void InitializeLayerControls()
-    {
-        if (_window == null) return;
 
         _window.Light.Pressed = _lightManager.Enabled;
         _window.Light.OnPressed += args => _lightManager.Enabled = args.Button.Pressed;
@@ -122,7 +147,7 @@ public sealed partial class MappingVisibilityUIController : UIController
         _window.Shadows.Pressed = _lightManager.DrawShadows;
         _window.Shadows.OnPressed += args => _lightManager.DrawShadows = args.Button.Pressed;
 
-        _window.Entities.Pressed = _state.EntitiesVisible;
+        _window.Entities.Pressed = _entitiesVisible;
         _window.Entities.OnPressed += OnToggleEntitiesLayerPressed;
 
         _window.Markers.Pressed = _entitySystemManager.GetEntitySystem<MarkerSystem>().MarkersVisible;
@@ -137,7 +162,7 @@ public sealed partial class MappingVisibilityUIController : UIController
         _window.Airlocks.Pressed = true;
         _window.Airlocks.OnPressed += ToggleWithComp<AirlockComponent>;
 
-        _window.Decals.Pressed = _state.DecalsVisible;
+        _window.Decals.Pressed = _decalsVisible;
         _window.Decals.OnPressed += OnToggleDecalsLayerPressed;
 
         _window.SubFloor.Pressed = _entitySystemManager.GetEntitySystem<SubFloorHideSystem>().ShowAll;
@@ -151,27 +176,38 @@ public sealed partial class MappingVisibilityUIController : UIController
 
         _window.Atmos.Pressed = true;
         _window.Atmos.OnPressed += ToggleWithComp<PipeAppearanceComponent>;
+
+        LayoutContainer.SetAnchorPreset(_window, LayoutContainer.LayoutPreset.CenterTop);
     }
 
     private void OnToggleEntitiesPanelPressed(BaseButton.ButtonEventArgs args)
     {
-        _state.EntitiesVisible = args.Button.Pressed;
-        if (_mappingScreen?.SpawnContainer != null)
+        _entitiesVisible = args.Button.Pressed;
+        if (_mappingScreen != null)
         {
-            _mappingScreen.SpawnContainer.Visible = args.Button.Pressed;
+            if (_mappingScreen.SpawnContainer != null)
+            {
+                _mappingScreen.SpawnContainer.Visible = args.Button.Pressed;
+            }
         }
     }
 
     private void OnToggleTilesPanelPressed(BaseButton.ButtonEventArgs args)
     {
-        _state.TilesVisible = args.Button.Pressed;
-        UpdatePanelsVisibility();
+        _tilesVisible = args.Button.Pressed;
+        if (_mappingScreen != null)
+        {
+            UpdatePanelsVisibility();
+        }
     }
 
     private void OnToggleDecalsPanelPressed(BaseButton.ButtonEventArgs args)
     {
-        _state.DecalsVisible = args.Button.Pressed;
-        UpdatePanelsVisibility();
+        _decalsVisible = args.Button.Pressed;
+        if (_mappingScreen != null)
+        {
+            UpdatePanelsVisibility();
+        }
     }
 
     private void UpdatePanelsVisibility()
@@ -182,7 +218,7 @@ public sealed partial class MappingVisibilityUIController : UIController
         var panelsContainer = rightContainer.GetChild(1) as BoxContainer;
         if (panelsContainer == null) return;
 
-        bool anyVisible = _state.TilesVisible || _state.DecalsVisible;
+        bool anyVisible = _tilesVisible || _decalsVisible;
         panelsContainer.Visible = anyVisible;
 
         if (!anyVisible)
@@ -200,14 +236,14 @@ public sealed partial class MappingVisibilityUIController : UIController
             switch (child)
             {
                 case PanelContainer panel when panel.Name == "TilesPanel":
-                    panel.Visible = _state.TilesVisible;
-                    panel.VerticalExpand = _state.TilesVisible && !_state.DecalsVisible;
+                    panel.Visible = _tilesVisible;
+                    panel.VerticalExpand = _tilesVisible && !_decalsVisible;
                     tilesPanel = panel;
                     break;
 
                 case PanelContainer panel when panel.Name == "DecalsPanel":
-                    panel.Visible = _state.DecalsVisible;
-                    if (_state.TilesVisible && tilesPanel != null)
+                    panel.Visible = _decalsVisible;
+                    if (_tilesVisible && tilesPanel != null)
                     {
                         panel.VerticalExpand = true;
                         tilesPanel.VerticalExpand = true;
@@ -219,16 +255,16 @@ public sealed partial class MappingVisibilityUIController : UIController
                     break;
 
                 case BoxContainer box when box.Name == "DecalSettings":
-                    box.Visible = _state.DecalsVisible;
+                    box.Visible = _decalsVisible;
                     for (int j = 0; j < box.ChildCount; j++)
                     {
                         var settingChild = box.GetChild(j);
                         if (settingChild == null) continue;
                         
-                        settingChild.Visible = _state.DecalsVisible;
+                        settingChild.Visible = _decalsVisible;
                         if (settingChild is PanelContainer settingPanel)
                         {
-                            settingPanel.VerticalExpand = _state.DecalsVisible;
+                            settingPanel.VerticalExpand = _decalsVisible;
                         }
                     }
                     break;
@@ -236,15 +272,15 @@ public sealed partial class MappingVisibilityUIController : UIController
                 case Control line when line.GetType().Name.Contains("HLine"):
                     if (i == 1)
                     {
-                        line.Visible = _state.TilesVisible && _state.DecalsVisible;
+                        line.Visible = _tilesVisible && _decalsVisible;
                     }
                     else if (i == 3)
                     {
-                        line.Visible = _state.DecalsVisible;
+                        line.Visible = _decalsVisible;
                     }
                     else if (i == 5)
                     {
-                        line.Visible = _state.DecalsVisible;
+                        line.Visible = _decalsVisible;
                     }
                     break;
 
@@ -255,18 +291,18 @@ public sealed partial class MappingVisibilityUIController : UIController
                     
                     if (eraseTileButton is Button tileButton)
                     {
-                        tileButton.Visible = _state.TilesVisible;
+                        tileButton.Visible = _tilesVisible;
                     }
                     
                     if (eraseDecalButton is Button decalButton)
                     {
-                        decalButton.Visible = _state.DecalsVisible;
+                        decalButton.Visible = _decalsVisible;
                     }
                     break;
             }
         }
 
-        if (_state.DecalsVisible)
+        if (_decalsVisible)
         {
             for (int i = 0; i < panelsContainer.ChildCount; i++)
             {
@@ -352,5 +388,30 @@ public sealed partial class MappingVisibilityUIController : UIController
             if (tagSystem.HasTag(uid, tag))
                 sprite.Visible = args.Button.Pressed;
         }
+    }
+
+    private void OnDecalColorPicked(Color color)
+    {
+        // Implement color picking logic
+    }
+
+    private void OnDecalPickerOpenPressed(BaseButton.ButtonEventArgs args)
+    {
+        // Implement color picker opening logic
+    }
+
+    private void UpdateDecal()
+    {
+        // Implement decal update logic
+    }
+
+    private void RefreshDecalList()
+    {
+        // Implement decal list refresh logic
+    }
+
+    private void SelectDecal(string id)
+    {
+        // Implement decal selection logic
     }
 }
