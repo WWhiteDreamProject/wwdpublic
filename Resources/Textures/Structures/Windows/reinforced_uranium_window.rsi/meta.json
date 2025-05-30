@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise/ and modified by FoxxoTrystan",
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Made by Purka (Discord - purplepigeon580)",
   "size": {
     "x": 32,
-    "y": 32
+    "y": 64
   },
   "states": [
     {

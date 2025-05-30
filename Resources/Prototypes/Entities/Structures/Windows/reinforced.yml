@@ -4,7 +4,7 @@
   parent: Window
   components:
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: OverMobs # WWDP edit
     sprite: Structures/Windows/reinforced_window.rsi
   - type: Icon
     sprite: Structures/Windows/reinforced_window.rsi
@@ -62,7 +62,7 @@
   name: tinted window
   components:
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: OverMobs # WWDP edit
     sprite: Structures/Windows/tinted_window.rsi
   - type: Icon
     sprite: Structures/Windows/tinted_window.rsi
@@ -145,7 +145,7 @@
     - Window
   components:
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: OverMobs # WWDP edit
     sprite: Structures/Windows/reinforced_window_diagonal.rsi
     state: state0
   - type: IconSmooth

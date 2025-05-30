@@ -61,6 +61,7 @@
     mask: /Textures/Effects/LightMasks/cone.png # WWDP
     enabled: false
     radius: 1.8 # WWDP-Edit
+    color: "#D6E9FF" # WWDP edit
     softness: 5
     autoRot: true
   - type: Ringer

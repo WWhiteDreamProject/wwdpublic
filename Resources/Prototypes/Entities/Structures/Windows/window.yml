@@ -20,7 +20,7 @@
       - Window
       - WeldbotFixableStructure
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: OverMobs # WWDP edit
     sprite: Structures/Windows/window.rsi
   - type: Icon
     sprite: Structures/Windows/window.rsi
@@ -73,7 +73,7 @@
         acts: [ "Destruction" ]
   - type: Airtight
   - type: IconSmooth
-    key: walls
+    key: window
     base: window
   - type: Construction
     graph: Window
@@ -122,7 +122,7 @@
       Brute:
         collection: GlassSmack
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: OverMobs
     sprite: Structures/Windows/directional.rsi
     state: window
   - type: Icon
@@ -230,12 +230,12 @@
     - Window
   components:
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: OverMobs # WWDP edit
     sprite: Structures/Windows/window_diagonal.rsi
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    key: walls
+    key: window
     base: state
   - type: Icon
     sprite: Structures/Windows/window_diagonal.rsi

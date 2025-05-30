@@ -21,8 +21,9 @@
   - type: Tag
     tags:
     - Wall
+  - type: SpriteFade
   - type: Sprite
-    drawdepth: Walls
+    drawdepth: Mobs # WWDP edit
   - type: Icon
     state: full
   - type: PlacementReplacement
@@ -500,8 +501,9 @@
     snap:
     - Wall
   components:
+  - type: SpriteFade
   - type: Sprite
-    drawdepth: Walls
+    drawdepth: Mobs # WWDP edit
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
   - type: IconSmooth
@@ -550,8 +552,9 @@
   - type: Tag
     tags:
     - Wall
+  - type: SpriteFade
   - type: Sprite
-    drawdepth: Walls
+    drawdepth: Mobs # WWDP edit
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
   - type: IconSmooth
@@ -651,9 +654,9 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid_rust.rsi 
+    sprite: Structures/Walls/solid_rust.rsi
   - type: Icon
-    sprite: Structures/Walls/solid_rust.rsi 
+    sprite: Structures/Walls/solid_rust.rsi
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -672,8 +675,9 @@
     snap:
     - Wall
   components:
+  - type: SpriteFade
   - type: Sprite
-    drawdepth: Walls
+    drawdepth: Mobs # WWDP edit
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
   - type: IconSmooth
@@ -813,8 +817,9 @@
   - type: Tag
     tags:
     - Wall
+  - type: SpriteFade
   - type: Sprite
-    drawdepth: Walls
+    drawdepth: Mobs # WWDP edit
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0
   - type: IconSmooth
@@ -891,9 +896,9 @@
     tags:
       - Wall
   - type: Sprite
-    sprite: Structures/Walls/shuttle.rsi 
+    sprite: Structures/Walls/shuttle.rsi
   - type: Icon
-    sprite: Structures/Walls/shuttle.rsi 
+    sprite: Structures/Walls/shuttle.rsi
     state: full
 #  - type: Destructible
 #    thresholds:
@@ -932,13 +937,13 @@
     tags:
       - Wall
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi 
+    sprite: Structures/Walls/solid.rsi
   - type: WallReplacementMarker
   - type: Construction
     graph: Girder
     node: wall
   - type: Icon
-    sprite: Structures/Walls/solid.rsi 
+    sprite: Structures/Walls/solid.rsi
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -979,16 +984,17 @@
     snap:
     - Wall
   components:
+  - type: SpriteFade
   - type: Sprite
-    drawdepth: Walls
-    sprite: Structures/Walls/solid_diagonal.rsi 
+    drawdepth: Mobs # WWDP edit
+    sprite: Structures/Walls/solid_diagonal.rsi
     state: state0
   - type: IconSmooth
     mode: Diagonal
     key: walls
     base: state
   - type: Icon
-    sprite: Structures/Walls/solid_diagonal.rsi 
+    sprite: Structures/Walls/solid_diagonal.rsi
     state: state0
 
 - type: entity
@@ -998,9 +1004,9 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid_rust.rsi 
+    sprite: Structures/Walls/solid_rust.rsi
   - type: Icon
-    sprite: Structures/Walls/solid_rust.rsi 
+    sprite: Structures/Walls/solid_rust.rsi
     state: full
   - type: Construction
     graph: Girder
@@ -1192,8 +1198,9 @@
     snap:
     - Wall
   components:
+  - type: SpriteFade
   - type: Sprite
-    drawdepth: Walls
+    drawdepth: Mobs # WWDP edit
     sprite: Structures/Walls/mining_diagonal.rsi
     state: state0
   - type: IconSmooth

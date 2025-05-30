@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/blob/f64e687250f028359d811b2c7e9d4974b2e7ffeb/icons/effects/clockwork.dmi",
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Made by Gersoon (Discord gersoon458)",
   "size": {
     "x": 32,
-    "y": 32
+    "y": 64
   },
   "states": [
     {
@@ -13,8 +13,40 @@
     {
       "name": "brokenratvargrille"
     },
-	{
-	  "name": "ratvargrille_diagonal"
-	}
+    {
+      "name": "ratvargrille_diagonal"
+    },
+    {
+      "name": "grille0",
+      "directions": 4
+    },
+    {
+      "name": "grille1",
+      "directions": 4
+    },
+    {
+      "name": "grille2",
+      "directions": 4
+    },
+    {
+      "name": "grille3",
+      "directions": 4
+    },
+    {
+      "name": "grille4",
+      "directions": 4
+    },
+    {
+      "name": "grille5",
+      "directions": 4
+    },
+    {
+      "name": "grille6",
+      "directions": 4
+    },
+    {
+      "name": "grille7",
+      "directions": 4
+    }
   ]
 }

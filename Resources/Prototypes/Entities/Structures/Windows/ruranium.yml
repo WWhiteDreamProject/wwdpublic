@@ -4,7 +4,7 @@
   parent: WindowRCDResistant
   components:
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: OverMobs # WWDP edit
     sprite: Structures/Windows/reinforced_uranium_window.rsi
   - type: Icon
     sprite: Structures/Windows/reinforced_uranium_window.rsi
@@ -111,7 +111,7 @@
     - Window
   components:
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: OverMobs # WWDP edit
     sprite: Structures/Windows/reinforced_uranium_diagonal.rsi
     state: state0
   - type: IconSmooth

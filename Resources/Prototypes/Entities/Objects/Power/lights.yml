@@ -122,9 +122,9 @@
   components:
   - type: LightBulb
     bulb: Bulb
-    color: "#FFD1A3" # 4000K color temp
+    color: "#BFA156" # WWDP edit
     lightEnergy: 1.0
-    lightRadius: 6
+    lightRadius: 5 # WWDP edit
     lightSoftness: 1.1
 
 - type: entity
@@ -186,7 +186,7 @@
   description: A light fixture.
   components:
   - type: LightBulb
-    color: "#FFE4CE" # 5000K color temp
+    color: "#D2DCF2" # WWDP edit
     lightEnergy: 0.8
     lightRadius: 10
     lightSoftness: 1
