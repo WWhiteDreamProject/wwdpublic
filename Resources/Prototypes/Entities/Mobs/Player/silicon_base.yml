@@ -173,7 +173,6 @@
     #  bloodlossHealDamage:
     #    types:
     #      Burn: 0
-    - type: Flashable
     - type: Flammable
       fireSpread: true
       canResistFire: true
@@ -323,6 +322,7 @@
         # - ForcedSleep
         - TemporaryBlindness
         - Pacified
+        - Flashed
         # - PsionicsDisabled
         # - PsionicallyInsulated
     - type: Blindable
