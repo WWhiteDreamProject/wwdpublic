@@ -1,0 +1,16 @@
+﻿- type: construction
+  name: AI Core
+  id: AICore
+  graph: AICoreGraph
+  startNode: start
+  targetNode: aiCore
+  category: construction-category-machines
+  description: A framework for an artificial intelligence core
+  icon:
+    sprite: Mobs/Silicon/station_ai.rsi
+    state: 0
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

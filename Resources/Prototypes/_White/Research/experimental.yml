@@ -1,0 +1,25 @@
+﻿# Tier 1
+
+
+- type: technology
+  id: BasicArtificialIntelligence
+  name: research-technology-basic-artificial-intelligence
+  icon:
+    sprite: Mobs/Silicon/station_ai.rsi
+    state: 0
+  discipline: Experimental
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - StationAICoreCircuitboard
+  - StationAiUploadCircuitboard
+  - AsimovCircuitBoard
+  - CorporateCircuitBoard
+  - NTDefaultCircuitBoard
+  - MotherDroneCircuitBoard
+  - NutimovCircuitBoard
+  - PaladinCircuitBoard
+  - RobocopCircuitBoard
+  - QuarantineCircuitBoard
+  - Intellicard
+

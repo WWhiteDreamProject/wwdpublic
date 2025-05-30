@@ -17,6 +17,7 @@
     components:
     - ShowAntagIcons
     - InitialInfected
+    - Zombie # WD edit
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: InitialInfected

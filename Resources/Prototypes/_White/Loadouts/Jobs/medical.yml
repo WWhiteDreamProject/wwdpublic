@@ -1,0 +1,99 @@
+- type: loadout
+  id: LoadoutClothingUniformJumpsuitMedicalBlue #Common>Medic only>Paramedic only>Chemist only> CMO only. Follow this hierarchy
+  category: JobsMedicalAUncategorized
+  cost: 0
+  exclusive: true
+  items:
+    - ClothingUniformJumpsuitMedicalBlue
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutMedicalUniforms
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Medical
+
+- type: loadout
+  id: LoadoutClothingUniformJumpsuitMedicalGreen
+  category: JobsMedicalAUncategorized
+  cost: 0
+  exclusive: true
+  items:
+    - ClothingUniformJumpsuitMedicalGreen
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutMedicalUniforms
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Medical
+
+- type: loadout
+  id: LoadoutClothingShoesMedicalBlue
+  category: JobsMedicalAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutMedicalShoes
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Medical
+  items:
+    - ClothingShoesMedicalBlue
+
+- type: loadout
+  id: LoadoutClothingHandsGlovesVinylOrange
+  category: JobsMedicalAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutMedicalGloves
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Medical
+  items:
+    - ClothingHandsGlovesVinylOrange
+
+- type: loadout
+  id: LoadoutClothingHandsGlovesVinylDark
+  category: JobsMedicalAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutMedicalGloves
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Medical
+  items:
+    - ClothingHandsGlovesVinylDark
+
+#Paramedic
+- type: loadout
+  id: LoadoutClothingUniformJumpsuitParamedicUniform
+  category: JobsMedicalParamedic
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutParamedicUniforms
+    - !type:CharacterJobRequirement
+      jobs:
+        - Paramedic
+  items:
+    - ClothingUniformJumpsuitParamedicUniform
+
+#Chemist
+- type: loadout
+  id: LoadoutClothingUniformJumpsuitMedicalUniformChemistry
+  category: JobsMedicalChemist
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutChemistUniforms
+    - !type:CharacterJobRequirement
+      jobs:
+        - Chemist
+  items:
+    - ClothingUniformJumpsuitMedicalUniformChemistry

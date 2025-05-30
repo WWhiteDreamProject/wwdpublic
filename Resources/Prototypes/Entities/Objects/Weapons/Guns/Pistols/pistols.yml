@@ -96,6 +96,7 @@
       collection: PistolsDrop
   - type: DisarmMalus # WWDP
     malus: 0.3
+  - type: DualWield # WWDP
 
 - type: entity
   name: viper
@@ -149,9 +150,20 @@
       gun_magazine:
         name: Magazine
         startingItem: null
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+            - MagazinePistolHighCapacity
       gun_chamber:
         name: Chamber
         startingItem: null
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
 
 - type: entity
   name: viper
@@ -182,6 +194,7 @@
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
+    damageModifier: 1.25 # "Extra Robust" despite having an underpowered cartridge.
     fireRate: 4
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
@@ -224,9 +237,19 @@
       gun_magazine:
         name: Magazine
         startingItem: null
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolCaselessRifle
       gun_chamber:
         name: Chamber
         startingItem: null
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeCaselessRifle
 
 - type: entity
   name: mk 58
@@ -262,9 +285,19 @@
       gun_magazine:
         name: Magazine
         startingItem: null
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
       gun_chamber:
         name: Chamber
         startingItem: null
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
 
 - type: entity
   name: mk 58
@@ -333,9 +366,19 @@
       gun_magazine:
         name: Magazine
         startingItem: null
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineMagnum
       gun_chamber:
         name: Chamber
         startingItem: null
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeMagnum
 
 - type: entity
   name: N1984

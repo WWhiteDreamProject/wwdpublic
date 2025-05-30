@@ -16,6 +16,7 @@ using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
+using Content.Shared.Movement.Components;
 
 namespace Content.Shared.Standing;
 
@@ -109,7 +110,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
         if (_standing.IsDown(uid, standing))
             TryStandUp(uid, layingDown, standing);
         else
-            TryLieDown(uid, layingDown, standing);
+            TryLieDown(uid, standing);
     }
 
     private void OnStandingUpDoAfter(EntityUid uid, StandingStateComponent component, StandingUpDoAfterEvent args)
@@ -157,7 +158,8 @@ public abstract class SharedLayingDownSystem : EntitySystem
             || TerminatingOrDeleted(uid)
             || !TryComp<BodyComponent>(uid, out var body)
             || body.LegEntities.Count < body.RequiredLegs
-            || HasComp<DebrainedComponent>(uid))
+            || HasComp<DebrainedComponent>(uid)
+            || TryComp<MovementSpeedModifierComponent>(uid, out var movement) && movement.CurrentWalkSpeed == 0)
             return false;
 
         var args = new DoAfterArgs(EntityManager, uid, layingDown.StandingUpTime, new StandingUpDoAfterEvent(), uid)
@@ -175,12 +177,10 @@ public abstract class SharedLayingDownSystem : EntitySystem
     }
 
     public bool TryLieDown(EntityUid uid,
-        LayingDownComponent? layingDown = null,
         StandingStateComponent? standingState = null,
         DropHeldItemsBehavior behavior = DropHeldItemsBehavior.NoDrop)
     {
         if (!Resolve(uid, ref standingState, false)
-            || !Resolve(uid, ref layingDown, false)
             || standingState.CurrentState is not StandingState.Standing)
         {
             if (behavior == DropHeldItemsBehavior.AlwaysDrop)

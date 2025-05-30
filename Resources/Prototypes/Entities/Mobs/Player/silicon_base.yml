@@ -33,6 +33,7 @@
     - type: CanEnterCryostorage
     - type: DoAfter
     - type: RotationVisuals
+      defaultRotation: 90 # WD EDIT
       horizontalRotation: 90
     - type: Examiner
     # - type: Recyclable
@@ -334,12 +335,15 @@
     - type: Carriable
     - type: LayingDown
     - type: ExaminableCharacter # WWDP
-
+    - type: TTS # WD EDIT
 
 - type: damageModifierSet
   id: IPC
   coefficients:
     Poison: 0
     Cold: 0.2
-    Heat: 2
-    Shock: 2.5
+    Heat: 1
+    Shock: 3 # Ion merged with shock, they lost their heat damage weakness, they should be extremely weak to this rare damage type considering its shocking electronics
+    Blunt: 1
+    Slash: 1
+    Piercing: 1

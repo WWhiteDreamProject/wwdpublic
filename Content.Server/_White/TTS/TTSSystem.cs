@@ -1,11 +1,12 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Chat.Systems;
-using Content.Server._White.Chat.Systems;
+using Content.Server.Language;
 using Content.Shared._White;
 using Content.Shared._White.TTS;
 using Content.Shared.GameTicking;
-using Content.Shared.Radio;
+using Content.Shared.Language;
+using Content.Shared.Language.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -19,134 +20,108 @@ public sealed partial class TTSSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly TTSManager _ttsManager = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
+    [Dependency] private readonly LanguageSystem _language = default!;
 
     private const int MaxMessageChars = 100 * 2; // same as SingleBubbleCharLimit * 2
-    private bool _isEnabled = false;
+    private bool _isEnabled;
 
     public override void Initialize()
     {
         _cfg.OnValueChanged(WhiteCVars.TTSEnabled, v => _isEnabled = v, true);
-        _cfg.OnValueChanged(WhiteCVars.TTSAnnounceVoiceId, v => _voiceId = v, true);
+
+        SubscribeLocalEvent<TTSComponent, EntitySpokeEvent>(OnEntitySpoke);
 
         SubscribeLocalEvent<TransformSpeechEvent>(OnTransformSpeech);
-        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(_ => _ttsManager.ResetCache());
 
-        SubscribeLocalEvent<AnnouncementSpokeEvent>(OnAnnouncementSpoke);
         SubscribeNetworkEvent<RequestPreviewTTSEvent>(OnRequestPreviewTTS);
-        SubscribeLocalEvent<TTSComponent, MapInitEvent>(OnTtsInitialized);
-        SubscribeLocalEvent<TTSComponent, EntitySpokeLanguageEvent>(OnEntitySpoke);
     }
 
-    private void OnTtsInitialized(Entity<TTSComponent> ent, ref MapInitEvent args)
+    private async void OnEntitySpoke(EntityUid uid, TTSComponent component, EntitySpokeEvent args)
     {
-        if (ent.Comp.VoicePrototypeId == null && _prototypeManager.TryGetRandom<TTSVoicePrototype>(_robustRandom, out var newTtsVoice))
-        {
-            ent.Comp.VoicePrototypeId = newTtsVoice.ID;
-        }
-    }
-
-
-    private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
-    {
-        _ttsManager.ResetCache();
-    }
-
-    private async void OnEntitySpoke(EntityUid uid, TTSComponent component, EntitySpokeLanguageEvent args)
-    {
-        var voiceId = component.VoicePrototypeId;
-        if (!_isEnabled ||
-            args.Message.Length > MaxMessageChars ||
-            voiceId == null)
+        if (!_isEnabled || args.Message.Length > MaxMessageChars)
             return;
 
+        var voiceId = component.VoicePrototypeId;
         var voiceEv = new TransformSpeakerVoiceEvent(uid, voiceId);
         RaiseLocalEvent(uid, voiceEv);
         voiceId = voiceEv.VoiceId;
 
-        if (voiceId == null || !_prototypeManager.TryIndex(voiceId.Value, out var protoVoice))
+        if (!_prototypeManager.TryIndex(voiceId, out var protoVoice))
             return;
 
         if (args.IsWhisper)
         {
-            if (args.OrgMsg.Count > 0 || args.ObsMsg.Count > 0)
-            {
-                if(args.OrgMsg.Count > 0)
-                    HandleWhisper(uid, args.Message, args.ObfuscatedMessage!, protoVoice.Speaker, args.OrgMsg);
-                if(args.ObsMsg.Count > 0 && args is { LangMessage: not null, ObfuscatedLangMessage: not null })
-                    HandleWhisper(uid, args.LangMessage, args.ObfuscatedLangMessage, protoVoice.Speaker, args.ObsMsg);
-
-                return;
-            }
-            HandleWhisper(uid, args.Message, args.ObfuscatedMessage, protoVoice.Speaker, null);
-
+            HandleWhisper(uid, args.Message, args.Language, protoVoice.Speaker);
             return;
         }
 
-        if (args.OrgMsg.Count > 0 || args.ObsMsg.Count > 0)
-        {
-            if(args.OrgMsg.Count > 0)
-                HandleSay(uid, args.Message, protoVoice.Speaker, args.OrgMsg);
-            if(args.ObsMsg.Count > 0)
-                HandleSay(uid, args.ObfuscatedMessage, protoVoice.Speaker, args.ObsMsg);
+        HandleSay(uid, args.Message, args.Language, protoVoice.Speaker);
+    }
+
+    private async void HandleSay(EntityUid uid, string message, LanguagePrototype language, string speaker)
+    {
+        var normal = await GenerateTTS(message, speaker);
+        if (normal is null)
             return;
-        }
-        HandleSay(uid, args.Message, protoVoice.Speaker, null);
-    }
 
-    private async void HandleSay(EntityUid uid, string message, string speaker, Filter? filter)
-    {
-        var soundData = await GenerateTTS(message, speaker);
-        if (soundData is null) return;
-        RaiseNetworkEvent(new PlayTTSEvent(soundData, GetNetEntity(uid)), filter ?? Filter.Pvs(uid));
-    }
+        var obfuscated = await GenerateTTS(_language.ObfuscateSpeech(message, language), speaker);
+        if (obfuscated is null)
+            return;
 
-    private async void HandleWhisper(EntityUid uid, string message, string obfMessage, string speaker, Filter? filter)
-    {
-        var netEntity = GetNetEntity(uid);
-
-        PlayTTSEvent fullTtsEvent;
-        PlayTTSEvent? obfTtsEvent = null;
-
+        var nilter = Filter.Empty();
+        var lilter = Filter.Empty();
+        foreach (var session in Filter.Pvs(uid).Recipients)
         {
-            var fullSoundData = await GenerateTTS(message, speaker, true);
-            if (fullSoundData is null)
-                return;
+            if (!session.AttachedEntity.HasValue)
+                continue;
 
-            fullTtsEvent = new PlayTTSEvent(fullSoundData, netEntity, true);
-            if (message == obfMessage)
-            {
-                obfTtsEvent = fullTtsEvent;
-            }
+            EntityManager.TryGetComponent(session.AttachedEntity.Value, out LanguageSpeakerComponent? lang);
+            if (_language.CanUnderstand(new(session.AttachedEntity.Value, lang), language.ID))
+                nilter.AddPlayer(session);
             else
-            {
-                var obfSoundData = await GenerateTTS(obfMessage, speaker, true);
-                if (obfSoundData is not null)
-                {
-                    obfTtsEvent = new PlayTTSEvent(obfSoundData, netEntity, true);
-                }
-            }
+                lilter.AddPlayer(session);
         }
+
+        RaiseNetworkEvent(new PlayTTSEvent(normal, GetNetEntity(uid)), nilter);
+        RaiseNetworkEvent(new PlayTTSEvent(obfuscated, GetNetEntity(uid)), lilter, false);
+    }
+
+    private async void HandleWhisper(EntityUid uid, string message, LanguagePrototype language, string speaker)
+    {
+        var normal = await GenerateTTS(message, speaker, true);
+        if (normal is null)
+            return;
+
+        var obfuscated = await GenerateTTS(_language.ObfuscateSpeech(message, language), speaker, true);
+        if (obfuscated is null)
+            return;
 
         // TODO: Check obstacles
         var xformQuery = GetEntityQuery<TransformComponent>();
         var sourcePos = _xforms.GetWorldPosition(xformQuery.GetComponent(uid), xformQuery);
-        var receptions = (filter ?? Filter.Pvs(uid)).Recipients;
-        foreach (var session in receptions)
+        var nilter = Filter.Empty();
+        var lilter = Filter.Empty();
+        foreach (var session in Filter.Pvs(uid).Recipients)
         {
-            if (!xformQuery.TryComp(session.AttachedEntity, out var xform))
+            if (!session.AttachedEntity.HasValue)
                 continue;
 
+            var xform = xformQuery.GetComponent(session.AttachedEntity.Value);
             var distance = (sourcePos - _xforms.GetWorldPosition(xform, xformQuery)).Length();
             if (distance > ChatSystem.VoiceRange * ChatSystem.VoiceRange)
                 continue;
 
-            if(distance <= ChatSystem.WhisperClearRange)
-                RaiseNetworkEvent(fullTtsEvent, session);
-            else if(obfTtsEvent!= null)
-                RaiseNetworkEvent(obfTtsEvent, session);
+            EntityManager.TryGetComponent(session.AttachedEntity.Value, out LanguageSpeakerComponent? lang);
+            if (_language.CanUnderstand(new(session.AttachedEntity.Value, lang), language.ID))
+                nilter.AddPlayer(session);
+            else
+                lilter.AddPlayer(session);
         }
-    }
 
+        RaiseNetworkEvent(new PlayTTSEvent(normal, GetNetEntity(uid), true), nilter);
+        RaiseNetworkEvent(new PlayTTSEvent(obfuscated, GetNetEntity(uid), true), lilter, false);
+    }
 
     private readonly Dictionary<string, Task<byte[]?>> _ttsTasks = new();
     private readonly SemaphoreSlim _lock = new(1, 1);
@@ -155,13 +130,16 @@ public sealed partial class TTSSystem : EntitySystem
     private async Task<byte[]?> GenerateTTS(string text, string speaker, bool isWhisper = false)
     {
         var textSanitized = Sanitize(text);
-        if (textSanitized == "") return null;
+        if (string.IsNullOrEmpty(textSanitized))
+            return null;
+
         if (char.IsLetter(textSanitized[^1]))
             textSanitized += ".";
 
         var ssmlTraits = SoundTraits.RateFast;
         if (isWhisper)
             ssmlTraits = SoundTraits.PitchVerylow;
+
         var textSsml = ToSsmlText(textSanitized, ssmlTraits);
 
         // Создаем уникальный ключ на основе всех аргументов
@@ -173,9 +151,7 @@ public sealed partial class TTSSystem : EntitySystem
         {
             // Если задача уже выполняется для этого набора аргументов, ждем её завершения
             if (_ttsTasks.TryGetValue(taskKey, out var existingTask))
-            {
                 return await existingTask;
-            }
 
             // Создаем задачу и сохраняем её в словарь
             var newTask = _ttsManager.ConvertTextToSpeech(speaker, textSsml);
@@ -207,57 +183,8 @@ public sealed partial class TTSSystem : EntitySystem
     }
 }
 
-public sealed class EntitySpokeLanguageEvent: EntityEventArgs
+public sealed class TransformSpeakerVoiceEvent(EntityUid sender, string voiceId) : EntityEventArgs
 {
-    public readonly string? ObfuscatedLangMessage;
-    public readonly string? LangMessage;
-    public readonly bool IsWhisper;
-    public readonly Filter OrgMsg;
-    public readonly Filter ObsMsg;
-    public readonly EntityUid Source;
-    public readonly string Message;
-    public readonly string OriginalMessage;
-    public readonly string ObfuscatedMessage; // not null if this was a whisper
-
-    /// <summary>
-    ///     If the entity was trying to speak into a radio, this was the channel they were trying to access. If a radio
-    ///     message gets sent on this channel, this should be set to null to prevent duplicate messages.
-    /// </summary>
-    public RadioChannelPrototype? Channel;
-
-    public EntitySpokeLanguageEvent(
-        Filter orgMsg,
-        Filter obsMsg,
-        EntityUid source,
-        string message,
-        string originalMessage,
-        RadioChannelPrototype? channel,
-        bool isWhisper,
-        string obfuscatedMessage,
-        string? langMessage = null,
-        string? obfuscatedLangMessage = null)
-    {
-        ObfuscatedLangMessage = obfuscatedLangMessage;
-        LangMessage = langMessage;
-        IsWhisper = isWhisper;
-        OrgMsg = orgMsg;
-        ObsMsg = obsMsg;
-        Source = source;
-        Message = message;
-        OriginalMessage = originalMessage;
-        Channel = channel;
-        ObfuscatedMessage = obfuscatedMessage;
-    }
-}
-
-public sealed class TransformSpeakerVoiceEvent : EntityEventArgs
-{
-    public EntityUid Sender;
-    public string VoiceId;
-
-    public TransformSpeakerVoiceEvent(EntityUid sender, string voiceId)
-    {
-        Sender = sender;
-        VoiceId = voiceId;
-    }
+    public EntityUid Sender = sender;
+    public string VoiceId = voiceId;
 }

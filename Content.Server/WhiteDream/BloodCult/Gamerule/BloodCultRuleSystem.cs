@@ -376,6 +376,19 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         _faction.AddFaction(cultist, rule.Comp.BloodCultFaction);
 
         _mind.TryAddObjective(mindId, mind, "KillTargetCultObjective");
+        
+        if (rule.Comp.Stage == CultStage.Start || !TryComp<BloodCultistComponent>(cultist, out var cultistComp))
+            return;
+
+        if (TryComp<HumanoidAppearanceComponent>(cultist, out var appearanceComponent))
+        {
+            cultistComp.OriginalEyeColor = appearanceComponent.EyeColor;
+            appearanceComponent.EyeColor = rule.Comp.EyeColor;
+            Dirty(cultist, appearanceComponent);
+        }
+
+        if (rule.Comp.Stage == CultStage.Pentagram)
+            EnsureComp<PentagramComponent>(cultist);
     }
 
     private void GetRandomRunePlacements(BloodCultRuleComponent component)

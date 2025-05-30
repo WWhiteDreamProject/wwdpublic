@@ -21,7 +21,19 @@ public sealed class ChannelFilterButton : ChatPopupButton<ChannelFilterPopup>
         var filterTexture = IoCManager.Resolve<IResourceCache>()
             .GetTexture("/Textures/Interface/Nano/filter.svg.96dpi.png");
 
-        AddChild(
+        // WWDP EDIT START
+        var boxContainer = new BoxContainer()
+        {
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            SeparationOverride = 4
+        };
+
+        boxContainer.AddChild(new Label()
+        {
+            Text = "["
+        });
+
+        boxContainer.AddChild(
             (_textureRect = new TextureRect
             {
                 Texture = filterTexture,
@@ -29,6 +41,16 @@ public sealed class ChannelFilterButton : ChatPopupButton<ChannelFilterPopup>
                 VerticalAlignment = VAlignment.Center
             })
         );
+
+        boxContainer.AddChild(new Label()
+        {
+            Text = "]"
+        });
+
+
+        AddChild(boxContainer);
+
+        // WWDP EDIT END
 
         _chatUIController.FilterableChannelsChanged += Popup.SetChannels;
         _chatUIController.UnreadMessageCountsUpdated += Popup.UpdateUnread;

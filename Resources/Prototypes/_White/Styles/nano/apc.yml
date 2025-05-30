@@ -1,0 +1,90 @@
+- type: styleSheet
+  id: apc
+  typeDefinition:
+    PanelContainer: "Robust.Client.UserInterface.Controls.PanelContainer"
+    ContainerButton: "Robust.Client.UserInterface.Controls.ContainerButton"
+    ProgressBar: "Robust.Client.UserInterface.Controls.ProgressBar"
+    MenuButton: "Content.Client.UserInterface.Controls.MenuButton"
+  styles:
+    PanelContainer.WindowHeadingBackground.Apc:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/APC/panel-header.png"
+          patchMargin: 1,2,1,2
+          expandMargin: 1,2,1,2
+          textureScale: 4,4
+      modulate-self: "#FFFFFF"
+    PanelContainer.AngleRect.Apc:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/APC/panel.png"
+          patchMarginAll: 1
+          expandMarginAll: 1
+          textureScale: 4,4
+      modulate-self: "#FFFFFF"
+    PanelContainer.APCScreen:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/APC/display-panel.png"
+          patchMargin: 2,4,2,4
+          expandMargin: 2,2,2,4
+          textureScale: 4,4
+      modulate-self: "#FFFFFF"
+    PanelContainer.APCControlPanel:
+      panel:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/APC/action-panel.png"
+          patchMargin: 1,3,1,1
+          expandMargin: 1,14,1,1
+          textureScale: 4,4
+      modulate-self: "#FFFFFF"
+    ContainerButton.APCControlButton:
+      stylebox:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/APC/button-panel-inactive.png"
+          patchMargin: 1,3,1,1
+          expandMargin: 1,1,1,3
+          textureScale: 4,4
+      modulate-self: "#FFFFFF"
+    ContainerButton.APCControlButton:pressed:
+      stylebox:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/APC/button-panel-active.png"
+          patchMargin: 1,3,1,1
+          expandMargin: 1,3,1,1
+          textureScale: 4,4
+      modulate-self: "#FFFFFF"
+    ContainerButton.APCControlButton:hover:
+      modulate-self: "#FFFFFF"
+    ContainerButton.APCControlButton:normal:
+      modulate-self: "#FFFFFF"
+    # ProgressBar
+    ProgressBar.ApcBar:
+      background:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/APC/progress-background.png"
+          patchMarginAll: 1
+          expandMarginAll: 1
+          textureScale: 4,4
+      foreground:
+        valueType: Robust.Client.Graphics.StyleBoxTexture
+        value:
+          texture: "/Textures/_White/NovaUI/APC/progress-foreground.png"
+          patchMarginAll: 1
+          expandMarginAll: 1
+          textureScale: 4,4
+    .APCLabel:
+      font:
+        valueType: Content.StyleSheetify.Client.Font.FontSpecifier
+        value:
+          font:
+          - "/Fonts/_White/LCD14/LCD14.otf"
+          size: 12
+      font-color: "#7CFC00"

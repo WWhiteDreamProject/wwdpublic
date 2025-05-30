@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Taken from CEV-Eris and edited by Gersoon. Directional taken from ss13. tvr_sign1 by @purplepigeon580 (Discord)",
+    "states": [
+        {
+            "name": "ame",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "arrivals",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "boxing",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "brig",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "captain",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "dorms",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "equip",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "evac",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "genetics",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "gate",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "hop",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "hydro",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "check",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "nukevault",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "pa",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "smes",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "solar",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "storage",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "theatre",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "toilet",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "tvr_sign1",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "tvr_sign2",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "court",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "shield",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "drones",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "miner_dock",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "toxins2",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        },
+        {
+            "name": "xenolab",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        }
+    ]
+}

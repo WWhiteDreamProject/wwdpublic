@@ -1,0 +1,10 @@
+- type: dynamicValue
+  id: styleButtonChat
+  value:
+    valueType: Robust.Client.Graphics.StyleBoxTexture
+    value:
+      texture: "/Textures/_White/NovaUI/Chat/button.png"
+      patchMargin: 3,5,3,5
+      expandMargin: 1,5,1,5
+      textureScale: 3,3
+      contentMarginVerticalOverride: 3

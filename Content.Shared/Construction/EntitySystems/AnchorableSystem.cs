@@ -264,7 +264,7 @@ public sealed partial class AnchorableSystem : EntitySystem
         return !attempt.Cancelled;
     }
 
-    private bool TileFree(EntityCoordinates coordinates, PhysicsComponent anchorBody)
+    public bool TileFree(EntityCoordinates coordinates, PhysicsComponent anchorBody) // WD edit - make public
     {
         // Probably ignore CanCollide on the anchoring body?
         var gridUid = coordinates.GetGridUid(EntityManager);

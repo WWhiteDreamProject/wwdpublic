@@ -287,7 +287,7 @@
   description: A sign indicating the xenoarchaeology lab.
   components:
   - type: Sprite
-    state: anomaly # WWDP edit
+    state: xenoarch
 
 - type: entity
   parent: BaseSign
@@ -296,7 +296,7 @@
   description: A sign indicating the anomalous research lab.
   components:
   - type: Sprite
-    state: anomaly2 # WWDP edit
+    state: anomaly
 
 - type: entity
   parent: BaseSign

@@ -1,0 +1,18 @@
+- type: entity
+  id: RoomMarker5X5
+  parent: BaseRoomMarker
+  suffix: 5 x 5
+  components:
+  - type: RoomFill
+    minSize: 5,5
+    maxSize: 5,5
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - state: red
+    - sprite: _White/SpawnMarkers/genmarks.rsi
+      state: gen5x5
+    - sprite: _White/SpawnMarkers/Marklines/green/mark_line5x5.rsi
+      offset: 2, 2
+      state: 5x5
+      renderingStrategy: NoRotation

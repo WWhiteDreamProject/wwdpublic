@@ -26,6 +26,7 @@
     event: !type:ActionComponentChangeEvent
       components:
       - type: ShowJobIcons
+      - type: ShowCriminalRecordIcons # WD edit
 
 - type: entity
   id: ActionSurvCameraLights

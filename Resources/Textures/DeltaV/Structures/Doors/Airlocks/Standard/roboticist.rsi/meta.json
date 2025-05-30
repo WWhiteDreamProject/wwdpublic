@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Original Science Airlock taken from https://github.com/ParadiseSS13/Paradise/, Roboticist Resprite done by Unkn0wn_Gh0st333 on github",
+  "copyright": "Original Science Airlock taken from https://github.com/ParadiseSS13/Paradise/, Roboticist Resprite done by Unkn0wn_Gh0st333 on github. Modified by WD team",
   "size": {
     "x": 32,
     "y": 32
@@ -18,6 +18,15 @@
     },
     {
       "name": "closed_unlit"
+    },
+    {
+      "name": "open_unlit"
+    },
+    {
+      "name": "bolted_open_unlit"
+    },
+    {
+      "name": "emergency_open_unlit"
     },
     {
       "name": "closing",

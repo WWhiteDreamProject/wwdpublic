@@ -20,9 +20,9 @@
         Blunt: 2
         Slash: 13
         Structural: 5
-    heavyRateModifier: 0.9
+    heavyRateModifier: 1.25
     heavyDamageBaseModifier: 1.2
-    heavyStaminaCost: 7.5
+    heavyStaminaCost: 2.5
     angle: 100
     soundHit:
       collection: MetalThud
@@ -47,3 +47,7 @@
     - back
   - type: UseDelay
     delay: 1
+  # WD EDIT START
+  - type: CultItem
+    knockdownDuration: 3
+  # WD EDIT END

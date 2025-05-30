@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesMedicalBlue
+  name: medical blue shoes
+  description: Boots painted in the colors of the medical department. Some might say their design is too soulless, but we assure you -- Minimalism is back in style!
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Shoes/Boots/medical.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Shoes/Boots/medical.rsi

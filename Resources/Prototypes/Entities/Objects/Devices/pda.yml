@@ -41,6 +41,15 @@
       whitelist:
         components:
         - IdCard
+    # WD EDIT START
+    passportSlot:
+      priority: -1
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+        - Passport
+    # WD EDIT END
   - type: Item
     size: Small
   - type: ContainerContainer
@@ -48,6 +57,7 @@
       PDA-id: !type:ContainerSlot {}
       PDA-pen: !type:ContainerSlot {}
       PDA-pai: !type:ContainerSlot {}
+      PDA-passport: !type:ContainerSlot {} # WD EDIT
       Cartridge-Slot: !type:ContainerSlot {}
       program-container: !type:Container
   - type: ItemSlots
@@ -799,7 +809,7 @@
     state: pda-chemistry
 
 - type: entity
-  parent: BasePDA
+  parent: SciencePDA
   id: RnDPDA
   name: mystagogue PDA # DeltaV - Epistemics Department replacing Science
   description: It appears surprisingly ordinary.
@@ -1388,7 +1398,7 @@
     state: pda-seniorengineer
 
 - type: entity
-  parent: BasePDA
+  parent: SciencePDA
   id: SeniorResearcherPDA
   name: senior researcher PDA
   description: Looks like it's been through years of chemical burns and explosions.
@@ -1402,9 +1412,6 @@
     accentVColor: "#8900c9"
   - type: Icon
     state: pda-seniorresearcher
-  - type: CartridgeLoader
-    preinstalled:
-    - PsiWatchCartridge
 
 - type: entity
   parent: BaseMedicalPDA

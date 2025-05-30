@@ -1,30 +1,53 @@
 # Weapons
-uplink-pistol-viper-name = Viper
-uplink-pistol-viper-desc = A small, easily concealable, but somewhat underpowered gun. Retrofitted with a fully automatic receiver. Uses pistol magazines (.35 auto).
-
-uplink-revolver-python-name = Python
-uplink-revolver-python-desc = A brutally simple, effective, and loud Syndicate revolver. Comes loaded with armor-piercing rounds. Uses .45 magnum.
-
-uplink-pistol-cobra-name = Cobra
-uplink-pistol-cobra-desc = A rugged, robust operator handgun with inbuilt silencer. Uses pistol magazines (.25 caseless).
-
 uplink-rifle-mosin-name = Surplus Rifle
 uplink-rifle-mosin-desc = A bolt action service rifle that has seen many wars. Not modern by any standard, hand loaded, and terrible recoil, but it is cheap. The attached bayonet allows it to be used as an improvised spear.
-
-uplink-esword-name = Energy Sword
-uplink-esword-desc = A very dangerous energy sword that can reflect shots. Can be stored in pockets when turned off. Makes a lot of noise when used or turned on.
-
-uplink-esword-double-name = Double Bladed Energy Sword
-uplink-esword-double-desc = A much more expensive counter part to the normal energy sword: with a much higher reflection chance, larger attack angle, higher structural damage, and faster swing. Makes a lot of noise when used or turned on.
 
 uplink-edagger-name = Energy Dagger
 uplink-edagger-desc = A small energy blade conveniently disguised in the form of a pen.
 
-uplink-fire-axe-flaming-name = Fire Axe
-uplink-fire-axe-flaming-desc = A classic-style weapon infused with advanced atmos technology to allow it to set targets on fire. Now with rugged rubberized handle!
+uplink-pistol-viper-name = Viper
+uplink-pistol-viper-desc = A small, easily concealable, but somewhat underpowered gun. Retrofitted with a fully automatic receiver. Uses pistol magazines (.35 auto).
+
+uplink-pistol-cobra-name = Cobra
+uplink-pistol-cobra-desc = A rugged, robust operator handgun with inbuilt silencer. Uses pistol magazines (.25 caseless).
+
+uplink-disposable-turret-name = Disposable Ballistic Turret
+uplink-disposable-turret-desc =
+    Looks and functions like a normal electrical toolbox. Upon hitting the toolbox it will transform into a ballistic turret, theoretically shooting at anyone except members of the syndicate.
+    Can be turned back into a toolbox using a screwdriver and repaired using a wrench. IF YOU DO NOT HAVE AN AGENT ID IN YOUR ID SLOT, OR SYNDICATE PDA, IT WILL FIRE UPON YOU.
+
+uplink-knives-kit-name = Throwing Knives Kit
+uplink-knives-kit-desc = A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims.
+
+uplink-eshield-name = Energy Shield
+uplink-eshield-desc = Exotic energy shield that reflects almost all laser beams, as well as a little protection from bullets and other physical attacks.
 
 uplink-gloves-north-star-name = Gloves of the North Star
 uplink-gloves-north-star-desc = A pair of gloves that reduce your punching cooldown drastically, allowing you to beat people to death in a flurry of punches.
+
+uplink-esword-name = Energy Sword
+uplink-esword-desc = A very dangerous energy sword that can reflect energy shots. Can be stored in pockets when turned off. Makes a lot of noise when used or turned on.
+
+uplink-revolver-python-name = Python
+uplink-revolver-python-desc = A brutally simple, effective, and loud Syndicate revolver. Comes loaded with armor-piercing rounds. Uses .45 magnum.
+
+uplink-fpa-90-bundle-name = FPA-90 Bundle
+uplink-fpa-90-bundle-desc = A cheap integrally suppressed SMG. Comes bundled with three .25 caseless magazines.
+
+uplink-c20r-bundle-name = C-20r Bundle
+uplink-c20r-bundle-desc = Old faithful: The classic C-20r Submachine Gun, bundled with three magazines.
+
+uplink-sniper-bundle-name = Sniper Bundle
+uplink-sniper-bundle-desc = An inconspicuous briefcase that contains a Hristov, 10 spare bullets and a convenient disguise.
+
+uplink-buldog-bundle-name = Bulldog Bundle
+uplink-buldog-bundle-desc = Lean and mean: Contains the popular Bulldog Shotgun, a 12g beanbag drum and three 12g buckshot drums.
+
+uplink-grenade-launcher-bundle-name = China-Lake Bundle
+uplink-grenade-launcher-bundle-desc = An old China-Lake grenade launcher bundled with 11 rounds of various destruction capability.
+
+uplink-l6-saw-bundle-name = L6 Saw Bundle
+uplink-l6-saw-bundle-desc = More dakka: The iconic L6 light machine gun, bundled with 2 box magazines.
 
 uplink-emp-flashlight-name = Emp Flashlight
 uplink-emp-flashlight-desc = A rechargeable device disguised as a flashlight designed to disrupt electronic systems. Useful for disrupting communications, security's energy weapons, and APCs when you're in a tight spot.
@@ -91,6 +114,9 @@ uplink-pistol-magazine-rubber-desc = Pistol magazine with 10 cartridges. For whe
 uplink-pistol-magazine-incendiary-name = Pistol Magazine (.35 auto, incendiary)
 uplink-pistol-magazine-incendiary-desc = A premium magazine for putting burning holes in both your wallet, and your victims.
 
+uplink-pistol-magazine-shrapnel-name = Pistol Magazine (.35 auto, shrapnel)
+uplink-pistol-magazine-shrapnel-desc = Pistol magazine with 10 cartridges. For those cases when the enemy is in the vicinity.
+
 uplink-pistol-magazine-c20r-name = SMG magazine (.35 auto)
 uplink-pistol-magazine-c20r-desc = Rifle magazine with 30 catridges. Compatible with C-20r.
 
@@ -100,17 +126,32 @@ uplink-pistol-magazine-c20r-rubber-desc = Rifle magazine with 30 catridges. For 
 uplink-pistol-magazine-c20r-incendiary-name = SMG magazine (.35 auto, incendiary)
 uplink-pistol-magazine-c20r-incendiary-desc = WAKE THE FUCK UP SAMURAI, WE GOT A STATION TO BURN!
 
+uplink-pistol-magazine-c20r-shrapnel-name = SMG magazine (.35 auto, shrapnel)
+uplink-pistol-magazine-c20r-shrapnel-desc = Rifle magazine with 30 catridges. For those cases when the enemies is in the vicinity.
+
 uplink-pistol-magazine-caseless-name = Pistol Magazine (.25 caseless)
 uplink-pistol-magazine-caseless-desc = Pistol magazine with 10 catridges. Compatible with the Cobra.
 
 uplink-pistol-magazine-caseless-rubber-name = Pistol Magazine (.25 caseless, rubber)
 uplink-pistol-magazine-caseless-rubber-desc = Pistol magazine with 10 catridges. For when you need to (quietly) take someone alive.
 
+uplink-pistol-magazine-caseless-incendiary-name = Pistol Magazine (.25 caseless, incendiary)
+uplink-pistol-magazine-caseless-incendiary-desc = Pistol magazine with 10 catridges. For when you need to (quietly) putting burning holes in both your wallet, and your victims.
+
+uplink-pistol-magazine-caseless-shrapnel-name = Pistol Magazine (.25 caseless, shrapnel)
+uplink-pistol-magazine-caseless-shrapnel-desc = Pistol magazine with 10 catridges. For those cases when the enemies is in the vicinity.
+
 uplink-magazine-caseless-name = SMG magazine (.25 caseless)
 uplink-magazine-caseless-desc = Rifle magazine with 30 cartridges. Compatible with the FPA-90.
 
 uplink-magazine-caseless-rubber-name = SMG magazine (.25 caseless, rubber)
 uplink-magazine-caseless-rubber-desc = Rifle magazine with 30 cartridges. For when you need to (quietly) take many hostages.
+
+uplink-magazine-caseless-incendiary-name = SMG magazine (.25 caseless, incendiary)
+uplink-magazine-caseless-incendiary-desc = Rifle magazine with 30 cartridges. For when you need to (quietly) putting burning holes in both your wallet, and your victims.
+
+uplink-magazine-caseless-shrapnel-name = SMG magazine (.25 caseless, shrapnel)
+uplink-magazine-caseless-shrapnel-desc = Rifle magazine with 30 cartridges. For those cases when the enemies is in the vicinity.
 
 uplink-speedloader-magnum-name = Speedloader (.45 magnum AP)
 uplink-speedloader-magnu-desc = Revolver speedloader with 6 armor-piercing catridges, capable of ignoring armor entirely. Compatible with the Python.
@@ -120,6 +161,9 @@ uplink-mosin-ammo-desc = A box of 50 cartridges for the surplus rifle.
 
 uplink-sniper-ammo-name = Ammunition box (.60 antimateriel)
 uplink-sniper-ammo-desc = A box of 10 cartridges for the Hristov sniper rifle.
+
+uplink-sniper-ammo-shrapnel-name = Ammunition box (.60 shrapnel)
+uplink-sniper-ammo-shrapnel-desc = A box of 10 cartridges for the Hristov sniper rifle. For those cases when the enemies is in the vicinity.
 
 # Utility
 uplink-holopara-kit-name = Holoparasite Kit
@@ -232,29 +276,17 @@ uplink-decoy-kit-desc = State-of-the-art distraction technology straight from RN
 uplink-chemistry-kit-name = Chemical Synthesis Kit
 uplink-chemistry-kit-desc = A starter kit for the aspiring chemist, includes toxin and vestine for all your criminal needs!
 
-uplink-knives-kit-name = Throwing Knives Kit
-uplink-knives-kit-desc = A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims.
-
 uplink-meds-bundle-name = Interdyne Medical Bundle
 uplink-meds-bundle-desc = An assortment of autoinjectors and premium medical equipment to cover for every possible situation. Contains an elite compact defibrillator that can be used as a weapon.
 
 uplink-ammo-bundle-name = Ammo Bundle
 uplink-ammo-bundle-desc = Reloading! Contains 4 magazines for the C-20r, 4 drums for the Bulldog, and 2 ammo boxes for the L6 SAW.
 
-uplink-sniper-bundle-name = Sniper Bundle
-uplink-sniper-bundle-desc = An inconspicuous briefcase that contains a Hristov, 10 spare bullets and a convenient disguise.
+uplink-ammo-bundle-incendiary-name = Ammo Bundle (incendiary)
+uplink-ammo-bundle-incendiary-desc = Reloading! Contains 4 magazines for the C-20r, 4 drums for the Bulldog, and 2 ammo boxes for the L6 SAW.
 
-uplink-c20r-bundle-name = C-20r Bundle
-uplink-c20r-bundle-desc = Old faithful: The classic C-20r Submachine Gun, bundled with three magazines.
-
-uplink-buldog-bundle-name = Bulldog Bundle
-uplink-buldog-bundle-desc = Lean and mean: Contains the popular Bulldog Shotgun, a 12g beanbag drum and three 12g buckshot drums.
-
-uplink-grenade-launcher-bundle-name = China-Lake Bundle
-uplink-grenade-launcher-bundle-desc = An old China-Lake grenade launcher bundled with 11 rounds of various destruction capability.
-
-uplink-l6-saw-bundle-name = L6 Saw Bundle
-uplink-l6-saw-bundle-desc = More dakka: The iconic L6 light machine gun, bundled with 2 box magazines.
+uplink-ammo-bundle-shrapnel-name = Ammo Bundle (shrapnel)
+uplink-ammo-bundle-shrapnel-desc = Reloading! Contains 4 magazines for the C-20r, 4 drums for the Bulldog, and 2 ammo boxes for the L6 SAW.
 
 uplink-zombie-bundle-name = Syndicate Zombie Bundle
 uplink-zombie-bundle-desc = An all-in-one kit for unleashing the undead upon a station.
@@ -264,9 +296,6 @@ uplink-surplus-bundle-desc = Contains 50 telecrystals worth of completely random
 
 uplink-super-surplus-bundle-name = Super Surplus Crate
 uplink-super-surplus-bundle-desc = Contains 125 telecrystals worth of completely random Syndicate items.
-
-uplink-fpa-90-bundle-name = FPA-90 Bundle
-uplink-fpa-90-bundle-desc = A cheap integrally suppressed SMG. Comes bundled with three .25 caseless magazines.
 
 # Tools
 uplink-toolbox-name = Toolbox
@@ -312,11 +341,6 @@ uplink-chimp-upgrade-kit-desc = Insert this chip into a standard C.H.I.M.P. hand
 uplink-proximity-mine-name = Proximity Mine
 uplink-proximity-mine-desc = A mine disguised as a wet floor sign.
 
-uplink-disposable-turret-name = Disposable Ballistic Turret
-uplink-disposable-turret-desc =
-    Looks and functions like a normal electrical toolbox. Upon hitting the toolbox it will transform into a ballistic turret, theoretically shooting at anyone except members of the syndicate.
-    Can be turned back into a toolbox using a screwdriver and repaired using a wrench. IF YOU DO NOT HAVE AN AGENT ID IN YOUR ID SLOT, OR SYNDICATE PDA, IT WILL FIRE UPON YOU.
-
 uplink-cluster-banana-peel-name = Cluster Banana
 uplink-cluster-banana-peel-desc = Splits into 6 explosive banana peels after being thrown, the peels detonate automatically after 20 seconds if nobody slips on them.
 
@@ -330,8 +354,8 @@ uplink-chameleon-desc = A backpack full of items that contain chameleon technolo
 uplink-clothing-no-slips-shoes-name = No-slip Shoes
 uplink-clothing-no-slips-shoes-desc = Chameleon shoes that protect you from slips.
 
-uplink-clothing-thieving-gloves-name = Thieving Gloves
-uplink-clothing-thieving-gloves-desc = Discretely steal from pockets and increase your thieving technique with these fancy new gloves, all while looking like normal gloves!
+uplink-clothing-hands-chameleon-thief-name = Thieving Gloves
+uplink-clothing-hands-chameleon-thief-desc = Discretely steal from pockets and increase your thieving technique with these fancy new gloves, all while looking like normal gloves!
 
 uplink-clothing-outer-vest-web-name = Web Vest
 uplink-clothing-outer-vest-web-desc = A synthetic armor vest. This one has added webbing and ballistic plates.
@@ -381,9 +405,6 @@ uplink-clothing-conducting-gloves-desc = Looks exactly like insulated gloves, bu
 
 uplink-snack-box-name = Syndicate Snack Box
 uplink-snack-box-desc = A box of delicious snacks and drinks to eat alone or with your team. Includes 1 toy you didn't want.
-
-uplink-eshield-name = Energy Shield
-uplink-eshield-desc = Exotic energy shield that reflects almost all laser beams, as well as a little protection from bullets and other physical attacks.
 
 uplink-soap-name = Soap
 uplink-soap-desc = An untrustworthy bar of soap. Smells of fear.
@@ -484,3 +505,6 @@ uplink-home-run-bat-desc = Rigged bat pre-coated in blood for Syndicate tee-ball
 
 uplink-combat-bakery-name = Combat Bakery Kit
 uplink-combat-bakery-desc = A kit of clandestine baked weapons. Contains a baguette sword, a pair of throwing croissants, and a syndicate microwave board for making more. Once the job is done, eat the evidence.
+
+uplink-smuggler-satchel-name = Smuggler's Satchel
+uplink-smuggler-satchel-desc = A handy, suspicious looking satchel. Just flat enough to fit underneath floor tiles.

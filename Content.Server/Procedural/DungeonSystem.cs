@@ -18,6 +18,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Serialization.Manager;
 
 namespace Content.Server.Procedural;
 
@@ -37,6 +38,10 @@ public sealed partial class DungeonSystem : SharedDungeonSystem
     [Dependency] private readonly MapLoaderSystem _loader = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    // WD EDIT START
+    [Dependency] private readonly ISerializationManager _serializationManager = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    // WD EDIT END
 
     private readonly List<(Vector2i, Tile)> _tiles = new();
 

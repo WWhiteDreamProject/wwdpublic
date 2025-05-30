@@ -29,3 +29,7 @@
 - type: font
   id: BedsteadBoldItalic
   path: /Fonts/_White/Bedstead/Bedstead-bold-italic.ttf
+
+- type: font
+  id: ComicSansMS
+  path: /Fonts/_White/Comic Sans MS/Comic Sans MS.ttf
