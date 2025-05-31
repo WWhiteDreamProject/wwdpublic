@@ -14,6 +14,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
 
 - type: loadout
   id: LoadoutSalvageBackpackSatchel
@@ -29,6 +30,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
 
 - type: loadout
   id: LoadoutSalvageBackpackDuffel
@@ -44,6 +46,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
 
 # Belt
 - type: loadout
@@ -56,6 +59,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - ClothingBeltMercWebbing
 
@@ -69,6 +73,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - ClothingBeltSalvageWebbing
 
@@ -83,6 +88,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - ClothingBeltMilitaryWebbing
 
@@ -100,6 +106,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - WeaponCrusherDagger
 
@@ -115,6 +122,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - CombatKnife
 
@@ -130,6 +138,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - KitchenKnife
 
@@ -145,6 +154,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - SurvivalKnife
 
@@ -160,6 +170,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - KukriKnife
 
@@ -175,6 +186,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - ButchCleaver
 
@@ -190,6 +202,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - ThrowingKnife
     - ThrowingKnife
@@ -207,6 +220,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - Machete
 
@@ -222,6 +236,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - Cutlass
 
@@ -237,6 +252,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - Katana
 
@@ -252,6 +268,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - Wakizashi
 
@@ -294,6 +311,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - ClothingNeckCloakMiner
 
@@ -311,6 +329,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - ClothingOuterWinterMiner
 
@@ -328,6 +347,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
   items:
     - ClothingUniformJumpsuitSalvageSpecialist
 
@@ -361,6 +381,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - SalvageSpecialist
+        - Quartermaster
     - !type:CharacterEmployerRequirement
       employers:
         - NanoTrasen
