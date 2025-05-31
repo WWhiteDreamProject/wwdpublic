@@ -112,3 +112,5 @@
   - type: Tag
     tags:
       - NoPaint
+  - type: GlobalAntagonist # WWDP
+    antagonistPrototype: globalAntagonistRevenant
