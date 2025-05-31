@@ -224,6 +224,10 @@ namespace Content.Server.Chemistry.EntitySystems
             if (message.Number == 0 || !_storageSystem.HasSpace((container, storage)))
                 return;
 
+            // quick fix until we get a proper one from EE
+            if (message.Number > 50)
+                return;
+
             // Ensure the amount is valid.
             if (message.Dosage == 0 || message.Dosage > chemMaster.Comp.PillDosageLimit)
                 return;
