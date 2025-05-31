@@ -8,11 +8,13 @@ public sealed partial class DepartmentPrototype : IPrototype
     [IdDataField]
     public string ID { get; } = string.Empty;
 
+    // WWDP-START
     /// <summary>
     /// The name LocId of the department that will be displayed in the various menus.
     /// </summary>
     [DataField(required: true)]
     public LocId Name = string.Empty;
+    // WWDP-END
 
     /// <summary>
     /// A description string to display in the character menu as an explanation of the department's function.
@@ -42,11 +44,13 @@ public sealed partial class DepartmentPrototype : IPrototype
     [DataField]
     public int Weight { get; private set; }
 
+    // WWDP-START
     /// <summary>
-    /// A style string references to style in StyleNano.cs
+    /// Color.
     /// </summary>
     [DataField]
-    public string ButtonStyle = default!;
+    public Color Color { get; private set; } = Color.Gray;
+    // WWDP-END
 
     /// <summary>
     /// Toggles the display of the department in the priority setting menu in the character editor.

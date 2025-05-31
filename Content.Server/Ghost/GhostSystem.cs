@@ -59,10 +59,15 @@ namespace Content.Server.Ghost
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
         [Dependency] private readonly MetaDataSystem _metaData = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // WWDP
+        [Dependency] private EntityQuery<GhostComponent> _ghostQuery;
+        [Dependency] private EntityQuery<PhysicsComponent> _physicsQuery;
 
         public override void Initialize()
         {
             base.Initialize();
+
+            _ghostQuery = GetEntityQuery<GhostComponent>();
+            _physicsQuery = GetEntityQuery<PhysicsComponent>();
 
             SubscribeLocalEvent<GhostComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<GhostComponent, ComponentShutdown>(OnGhostShutdown);
@@ -248,7 +253,7 @@ namespace Content.Server.Ghost
         private void OnGhostReturnToBodyRequest(GhostReturnToBodyRequest msg, EntitySessionEventArgs args)
         {
             if (args.SenderSession.AttachedEntity is not {Valid: true} attached
-                || !TryComp(attached, out GhostComponent? ghost)
+                || !_ghostQuery.TryComp(attached, out var ghost)
                 || !ghost.CanReturnToBody
                 || !TryComp(attached, out ActorComponent? actor))
             {
@@ -264,20 +269,20 @@ namespace Content.Server.Ghost
         private void OnGhostWarpsRequest(GhostWarpsRequestEvent msg, EntitySessionEventArgs args)
         {
             if (args.SenderSession.AttachedEntity is not {Valid: true} entity
-                || !HasComp<GhostComponent>(entity))
+                || !_ghostQuery.HasComp(entity))
             {
                 Log.Warning($"User {args.SenderSession.Name} sent a {nameof(GhostWarpsRequestEvent)} without being a ghost.");
                 return;
             }
 
-            var response = new GhostWarpsResponseEvent(GetPlayerWarps(), GetLocationWarps(), GetAntagonistWarps());
+            var response = new GhostWarpsResponseEvent(GetPlayerWarps(), GetLocationWarps(), GetAntagonistWarps()); // WWDP-EDIT
             RaiseNetworkEvent(response, args.SenderSession.Channel);
         }
 
         private void OnGhostWarpToTargetRequest(GhostWarpToTargetRequestEvent msg, EntitySessionEventArgs args)
         {
             if (args.SenderSession.AttachedEntity is not {Valid: true} attached
-                || !TryComp(attached, out GhostComponent? _))
+                || !_ghostQuery.HasComp(attached))
             {
                 Log.Warning($"User {args.SenderSession.Name} tried to warp to {msg.Target} without being a ghost.");
                 return;
@@ -291,6 +296,7 @@ namespace Content.Server.Ghost
                 return;
             }
 
+            // WWDP-EDIT-START
             if ((TryComp(target, out WarpPointComponent? warp) && warp.Follow) || HasComp<MobStateComponent>(target))
             {
                 _followerSystem.StartFollowingEntity(attached, target);
@@ -300,112 +306,87 @@ namespace Content.Server.Ghost
             var xform = Transform(attached);
             _transformSystem.SetCoordinates(attached, xform, Transform(target).Coordinates);
             _transformSystem.AttachToGridOrMap(attached, xform);
-            if (TryComp(attached, out PhysicsComponent? physics))
+            if (_physicsQuery.TryComp(attached, out var physics))
                 _physics.SetLinearVelocity(attached, Vector2.Zero, body: physics);
+            // WWDP-EDIT-END
         }
 
-        private List<GhostWarpPlace> GetLocationWarps()
+        private IEnumerable<GhostWarpPlace> GetLocationWarps() // WWDP-EDIT
         {
-            var warps = new List<GhostWarpPlace> { };
             var allQuery = AllEntityQuery<WarpPointComponent>();
 
             while (allQuery.MoveNext(out var uid, out var warp))
             {
-                var newWarp =  new GhostWarpPlace(GetNetEntity(uid), warp.Location ?? Name(uid), warp.Location ?? Description(uid));
-                warps.Add(newWarp);
+                // WWDP-EDIT-START
+                var name = warp.Location ?? Name(uid);
+                var description = warp.Location ?? Description(uid);
+                yield return new GhostWarpPlace(GetNetEntity(uid), name, description);
+                // WWDP-EDIT-END
             }
-
-            return warps;
         }
 
-        private List<GhostWarpPlayer> GetPlayerWarps()
+        private IEnumerable<GhostWarpPlayer> GetPlayerWarps() // WWDP-EDIT
         {
-            var warps = new List<GhostWarpPlayer> { };
-
-            foreach (var mindContainer in EntityQuery<MindContainerComponent>())
+            // WWDP-EDIT-START
+            var query = EntityQueryEnumerator<MindContainerComponent>();
+            while (query.MoveNext(out var uid, out var mindContainer))
             {
-                var entity = mindContainer.Owner;
-                var meta = Comp<MetaDataComponent>(entity);
-
-                if (HasComp<GlobalAntagonistComponent>(entity) || IsRandomCorpse(meta.EntityPrototype?.ID))
+                var mind = mindContainer.Mind ?? mindContainer.LastMindStored;
+                if (_mind.MindHasRole<GlobalAntagonistComponent>(mind, out var globalAntagonist) && globalAntagonist.Show && _mobState.IsAlive(uid))
                     continue;
 
                 var playerDepartmentId = _prototypeManager.Index<DepartmentPrototype>("Specific").ID;
                 var playerJobName = Loc.GetString("generic-unknown-title");
 
-                if (_jobs.MindTryGetJob(mindContainer.Mind ?? mindContainer.LastMindStored,
-                        out var jobPrototype))
+                if (_jobs.MindTryGetJob(mind, out var jobPrototype))
                 {
                     playerJobName = Loc.GetString(jobPrototype.Name);
 
                     if (_jobs.TryGetDepartment(jobPrototype.ID, out var departmentPrototype))
-                    {
                         playerDepartmentId = departmentPrototype.ID;
-                    }
                 }
 
                 var hasAnyMind = (mindContainer.Mind ?? mindContainer.LastMindStored) != null;
-                var isDead = _mobState.IsDead(entity);
-                var isLeft = TryComp<SSDIndicatorComponent>(entity, out var indicator) && indicator.IsSSD && !isDead &&
+                var isDead = _mobState.IsDead(uid);
+                var isLeft = TryComp<SSDIndicatorComponent>(uid, out var indicator) && indicator.IsSSD && !isDead &&
                              hasAnyMind;
 
                 var warp = new GhostWarpPlayer(
-                    GetNetEntity(entity),
-                    Comp<MetaDataComponent>(entity).EntityName,
+                    GetNetEntity(uid),
+                    Comp<MetaDataComponent>(uid).EntityName,
                     playerJobName,
                     playerDepartmentId,
-                    HasComp<GhostComponent>(entity),
+                    HasComp<GhostComponent>(uid),
                     isLeft,
                     isDead,
-                    _mobState.IsAlive(entity)
+                    _mobState.IsAlive(uid)
                 );
 
-                warps.Add(warp);
+                yield return warp;
             }
-
-            return warps;
+            // WWDP-EDIT-END
         }
 
-        private bool IsRandomCorpse(string? entityId)
+        // WWDP-EDIT-START
+        private IEnumerable<GhostWarpGlobalAntagonist> GetAntagonistWarps()
         {
-            if (entityId == null)
-                return false;
-
-            return entityId switch
+            foreach (var antagonist in _playerManager.Sessions)
             {
-                "SalvageHumanCorpse" => true,
-                "MobRandomServiceCorpse" => true,
-                "MobRandomEngineerCorpse" => true,
-                "MobRandomCargoCorpse" => true,
-                "MobRandomMedicCorpse" => true,
-                "MobRandomScienceCorpse" => true,
-                "MobRandomSecurityCorpse" => true,
-                "MobRandomCommandCorpse" => true,
-                _ => false
-            };
-        }
-
-        private List<GhostWarpGlobalAntagonist> GetAntagonistWarps()
-        {
-            var warps = new List<GhostWarpGlobalAntagonist> { };
-
-            foreach (var antagonist in EntityQuery<GlobalAntagonistComponent>())
-            {
-                var entity = antagonist.Owner;
-                var prototype = _prototypeManager.Index<AntagonistPrototype>(antagonist.AntagonistPrototype ?? "globalAntagonistUnknown");
+                if (player.AttachedEntity is not {Valid: true} uid)
+                    continue;
+                if (!_mind.MindHasRole<GlobalAntagonistComponent>(mind, out var globalAntagonist) || !globalAntagonist.Show || _mobState.IsDead(uid))
+                    continue;
 
                 var warp = new GhostWarpGlobalAntagonist(
-                    GetNetEntity(entity),
-                    Comp<MetaDataComponent>(entity).EntityName,
-                    prototype.Name,
-                    prototype.Description,
-                    prototype.ID
+                    GetNetEntity(uid),
+                    Comp<MetaDataComponent>(uid).EntityName,
+                    globalAntagonist.Name,
+                    globalAntagonist.Description,
+                    globalAntagonist.ID
                 );
 
-                warps.Add(warp);
+                yield return warp;
             }
-
-            return warps;
         }
 
         #endregion

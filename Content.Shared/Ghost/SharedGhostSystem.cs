@@ -71,24 +71,22 @@ namespace Content.Shared.Ghost
     {
     }
 
-        /// <summary>
+     // WWDP-START
+     /// <summary>
      /// An player body a ghost can warp to.
      /// This is used as part of <see cref="GhostWarpsResponseEvent"/>
      /// </summary>
      [Serializable, NetSerializable]
      public struct GhostWarpPlayer
      {
-         public GhostWarpPlayer(NetEntity entity, string playerName, string playerJobName, string playerDepartmentID, bool isGhost, bool isLeft, bool isDead, bool isAlive)
+         public GhostWarpPlayer(NetEntity entity, string playerName, string playerJobName, string playerDepartmentID, PlayerState playerState)
          {
              Entity = entity;
              Name = playerName;
              JobName = playerJobName;
              DepartmentID = playerDepartmentID;
 
-             IsGhost = isGhost;
-             IsLeft = isLeft;
-             IsDead = isDead;
-             IsAlive = isAlive;
+             PlayerState = playerState:
          }
 
          /// <summary>
@@ -114,24 +112,9 @@ namespace Content.Shared.Ghost
          public string DepartmentID { get; set; }
 
          /// <summary>
-         /// Is player is ghost
+         /// The current state of the player
          /// </summary>
-         public bool IsGhost { get;  }
-
-         /// <summary>
-         /// Is player body alive
-         /// </summary>
-         public bool IsAlive { get;  }
-
-         /// <summary>
-         /// Is player body dead
-         /// </summary>
-         public bool IsDead { get;  }
-
-         /// <summary>
-         /// Is player left from body
-         /// </summary>
-         public bool IsLeft { get;  }
+         public PlayerState PlayerState { get; }
      }
 
      [Serializable, NetSerializable]
@@ -173,6 +156,7 @@ namespace Content.Shared.Ghost
          public string PrototypeID { get; }
 
      }
+    // WWDP-END
 
     /// <summary>
     /// Goobstation - A server to client request for them to spawn at the ghost bar
@@ -182,12 +166,13 @@ namespace Content.Shared.Ghost
     {
     }
 
+    // WWDP-EDIT-START
     /// <summary>
     /// An individual place a ghost can warp to.
     /// This is used as part of <see cref="GhostWarpsResponseEvent"/>
     /// </summary>
     [Serializable, NetSerializable]
-    public struct GhostWarpPlace
+    public struct GhostWarpPlace // WWDP - rename GhostWarp to GhostWarpPlace
     {
         public GhostWarpPlace(NetEntity entity, string name, string description)
         {
@@ -212,6 +197,7 @@ namespace Content.Shared.Ghost
         /// </summary>
         public string Description { get; }
     }
+    // WWDP-EDIT-END
 
     /// <summary>
     /// A server to client response for a <see cref="GhostWarpsRequestEvent"/>.
@@ -220,27 +206,33 @@ namespace Content.Shared.Ghost
     [Serializable, NetSerializable]
     public sealed class GhostWarpsResponseEvent : EntityEventArgs
     {
+        // WWDP-EDIT-START
         public GhostWarpsResponseEvent(List<GhostWarpPlayer> players, List<GhostWarpPlace> places, List<GhostWarpGlobalAntagonist> antagonists)
         {
             Players = players;
             Places = places;
             Antagonists = antagonists;
         }
+        // WWDP-EDIT-END
 
+        // WWDP-START
         /// <summary>
         /// A list of players to teleport.
         /// </summary>
         public List<GhostWarpPlayer> Players { get; }
+        // WWDP-END
 
         /// <summary>
         /// A list of warp points.
         /// </summary>
         public List<GhostWarpPlace> Places { get; }
 
+        // WWDP-START
         /// <summary>
         /// A list of antagonists to teleport.
         /// </summary>
         public List<GhostWarpGlobalAntagonist> Antagonists { get; }
+        // WWDP-END
     }
 
     /// <summary>
