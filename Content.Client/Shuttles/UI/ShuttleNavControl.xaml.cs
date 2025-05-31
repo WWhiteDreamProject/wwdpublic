@@ -255,7 +255,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         int i = 0;
         foreach (var proj in projectiles)
         {
-            if (EntManager.TryGetComponent<MapGridComponent>(_transform.GetParent(proj).Owner, out _))
+            if (EntManager.TryGetComponent<MapGridComponent>(_transform.GetParent(proj)?.Owner, out _))
                 continue;
             var pos = ScalePosition(Vector2.Transform(_transform.GetWorldPosition(proj), wtf));
             verts[i * 4] = pos + new Vector2(2, 2);
