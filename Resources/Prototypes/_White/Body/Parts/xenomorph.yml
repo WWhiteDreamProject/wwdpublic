@@ -1,0 +1,5 @@
+- type: entity
+  parent: [BaseXenomorphOrgan, BaseTorso]
+  categories: [ HideSpawnMenu ]
+  id: TorsoXenomorph
+  name: "alien torso"

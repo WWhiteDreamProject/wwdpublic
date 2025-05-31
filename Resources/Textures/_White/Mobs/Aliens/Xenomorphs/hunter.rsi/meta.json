@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation: https://github.com/tgstation/tgstation/blob/master/icons/mob/nonhuman-player/alien.dmi | Edited by PuroSlavKing (Github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [ 
+    {
+      "name": "alienh",
+      "directions": 4
+    },
+    {
+      "name": "alienh_pounce",
+      "directions": 4
+    },
+    {
+      "name": "alienh_sleep",
+      "directions": 4
+    },
+    {
+      "name": "alienh_unconscious"
+    },
+    {
+      "name": "alienh_dead"
+    },
+    {
+      "name": "Hunter_Stalking",
+      "directions": 4
+    },
+    {
+      "name": "Hunter_Front_Half",
+      "directions": 4
+    },
+    {
+      "name": "Hunter_Back_Half",
+      "directions": 4
+    },
+    {
+      "name": "alienh_husked"
+    }
+  ]
+}

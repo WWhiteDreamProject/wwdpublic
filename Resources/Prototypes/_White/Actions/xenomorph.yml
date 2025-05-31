@@ -1,0 +1,218 @@
+﻿# Base actions
+- type: entity
+  id: ActionCombatModeToggleAlien
+  parent: ActionCombatModeToggle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: help-alt }
+    iconOn: { sprite: _White/Interface/Actions/xenomorph.rsi, state: harm }
+
+- type: entity
+  id: ToggleThermalVisionAlien
+  parent: ToggleThermalVision
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: vision_off_action }
+    iconOn: { sprite: _White/Interface/Actions/xenomorph.rsi, state: vision_on_action }
+
+# Evolution action
+- type: entity
+  id: ActionEvolution
+  name: Evolve
+  description: Evolve into a higher alien caste
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    useDelay: 0
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolve_action }
+    event: !type:EvolutionsActionEvent
+
+- type: entity
+  id: ActionEvolutionPraetorian
+  parent: ActionEvolution
+  name: Evolve to Praetorian
+  description: Evolve into the main defender of the hive
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolve_praetorian_action }
+  - type: BasePlasmaCostAction
+    plasmaCost: 500
+
+- type: entity
+  id: ActionEvolutionQueen
+  parent: ActionEvolutionPraetorian
+  name: Evolve to Queen
+  description: Produce an internal egg sac capable of spawning children. Only one queen can exist at a time.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolve_queen_action }
+
+# Structures action
+- type: entity
+  id: ActionSpawnResinNode
+  name: action-create-weednode-name
+  description: action-create-weednode-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    useDelay: 2
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: plant_seed_action }
+    event: !type:SpawnTileEntityActionEvent
+      entity: ResinWeedNode
+  - type: BasePlasmaCostAction
+
+- type: entity
+  id: ActionSpawnAlienWall
+  name: action-create-resin-wall-name
+  description: action-create-resin-wall-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 1
+    range: 2
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    icon: { sprite: _White/Structures/Walls/resin.rsi, state: full }
+    event: !type:PlaceTileEntityEvent
+      entity: WallResin
+      length: 0.5
+  - type: BasePlasmaCostAction
+
+- type: entity
+  id: ActionSpawnAlienWindow
+  name: action-create-resin-window-name
+  description: action-create-resin-window-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 1
+    range: 2
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    icon: { sprite : _White/Structures/Windows/resin_membrane.rsi, state: full }
+    event: !type:PlaceTileEntityEvent
+      entity: WindowResin
+      length: 0.5
+  - type: BasePlasmaCostAction
+
+- type: entity
+  id: ActionSpawnAlienNest
+  name: action-create-alien-nest-name
+  description: action-create-alien-nest-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 1
+    range: 2
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    icon: { sprite : _White/Structures/Windows/resin_membrane.rsi, state: full }
+    event: !type:PlaceTileEntityEvent
+      entity: AlienNest
+      length: 0.5
+  - type: BasePlasmaCostAction
+
+# Tail lash action
+- type: entity
+  id: ActionTailLash
+  name: action-tail-lash
+  description: action-tail-lash-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 11
+    range: 10
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: tail_attack_action }
+    event: !type:TailLashActionEvent
+
+# Acid action
+- type: entity
+  id: ActionAcid
+  name: action-make-acid-name
+  description: action-make-acid-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    useDelay: 11
+    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: acid_action }
+    event: !type:AcidActionEvent
+  - type: BasePlasmaCostAction
+    plasmaCost: 200
+
+- type: entity
+  id: ActionVomit
+  name: action-vomit-name
+  description: action-vomit-desc
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: { sprite : Fluids/vomit.rsi, state: vomit-0 }
+      checkCanInteract: false
+      priority: 0
+      useDelay: 15
+      event: !type:VomitActionEvent
+
+# Hunter
+
+- type: entity
+  id: ActionJumpAlien
+  name: action-alien-jump
+  description: action-alien-jump-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    priority: 0
+    useDelay: 3
+    checkCanAccess: false
+    range: 10
+    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_off }
+    iconOn: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_on }
+    event: !type:JumpActionEvent
+
+# Queen
+
+- type: entity
+  id: ActionAlienEgg
+  name: action-egg-alien
+  description: action-egg-alien-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    priority: 0
+    useDelay: 2
+    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: egg_action }
+    event: !type:AlienEggActionEvent
+
+- type: entity
+  id: ActionAlienRoyalLarva
+  name: action-promotion-alien
+  description: action-promotion-alien-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    priority: 0
+    useDelay: 1
+    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: promote_action }
+    event: !type:RoyalLarvaActionEvent
+
+- type: entity
+  id: ActionAlienTransferPlasma
+  name: action-transfer-plasma-alien
+  description: action-transfer-plasma-alien-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    priority: 0
+    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: plasma_transfer_off_action }
+    iconOn: { sprite : _White/Interface/Actions/xenomorph.rsi, state: plasma_transfer_on_action }
+    event: !type:TransferPlasmaActionEvent
