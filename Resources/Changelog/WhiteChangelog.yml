@@ -2936,3 +2936,10 @@ Entries:
   id: 317
   time: '2025-05-25T05:12:22.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/515
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Световое копье больше не наносит урона после удаления
+  id: 318
+  time: '2025-05-31T06:01:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/532
