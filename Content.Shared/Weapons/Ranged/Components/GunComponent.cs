@@ -366,6 +366,9 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField]
     public bool ShipWeapon = false;
+
+    [DataField]
+    public bool ForceShootForward = false;
     // WD EDIT END
 
 }

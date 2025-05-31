@@ -1,0 +1,93 @@
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerRemoteControl
+  name: remote control console
+  description: A computer equipped with a joystick. Has a faint cheetos smell around it.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: solar_screen
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: Computer
+    board: RemoteControlConsoleCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#e6e227"
+  - type: RemoteControlConsole
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: RemoteControlConsoleCircuitboard
+  name: remote control console computer board
+  components:
+  - type: ComputerBoard
+    prototype: ComputerRemoteControl
+  #- type: ReverseEngineering # Nyano
+  #  difficulty: 2
+  #  recipes:
+  #     - RadarConsoleCircuitboard
+
+- type: entity
+  id: ActionEndRemoteControl
+  name: End remote control
+  description: Ends remote control
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_eject
+    event: !type:RemoteControlExitActionEvent
+
+- type: entity
+  id: RemoteControlConsoleSwitchToNextAction
+  name: Next
+  description: Switch to next controllable
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_cycle_equip_off
+    event: !type:RemoteControlConsoleSwitchNextActionEvent
+
+
+- type: sourcePort
+  id: RemoteControlPort
+  name: signal-port-name-remote-control
+  description: signal-port-description-remote-control
+  defaultLinks: [ RemoteControlInputPort ]
+
+- type: sinkPort
+  id: RemoteControlInputPort
+  name: signal-port-name-remote-control-input
+  description: signal-port-description-remote-control-input
+
+- type: entity
+  parent: BaseWeaponBallisticTurret3D
+  id: WeaponTurretRC
+  suffix: Remote-Controlled
+  components:
+  - type: RemoteControllable
+  - type: HTN
+    enabled: false
+
+- type: entity
+  parent: BaseWeaponEnergyTurret
+  id: WeaponEnergyTurretRC
+  suffix: Remote-Controlled
+  components:
+  - type: RemoteControllable
+  - type: HTN
+    enabled: false

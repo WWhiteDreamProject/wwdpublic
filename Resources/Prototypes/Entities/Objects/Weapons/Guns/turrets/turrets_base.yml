@@ -79,6 +79,8 @@
     - type: NoRotateOnMove
     - type: Input
       context: "human"
+    - type: Gun # wwdp edit
+      forceShootForward: true
 
 - type: entity
   parent: BaseWeaponTurret
