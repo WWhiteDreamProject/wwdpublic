@@ -1,4 +1,6 @@
-﻿using Content.Shared.Weapons.Ranged.Components;
+﻿using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.GameStates;
 
@@ -26,6 +28,13 @@ public abstract partial class SharedGunSystem
 
     private void OnBasicEntityTakeAmmo(EntityUid uid, BasicEntityAmmoProviderComponent component, TakeAmmoEvent args)
     {
+        // Goobstation start
+        WeightedRandomEntityPrototype? prototypes = null;
+        if (component.Proto == null && (!ProtoManager.TryIndex(component.Prototypes, out prototypes) ||
+            prototypes.Weights.Count == 0))
+            return;
+        // Goobstation end
+
         for (var i = 0; i < args.Shots; i++)
         {
             if (component.Count <= 0)
@@ -36,7 +45,10 @@ public abstract partial class SharedGunSystem
                 component.Count--;
             }
 
-            var ent = Spawn(component.Proto, args.Coordinates);
+            // Goob edit start
+            var proto = component.Proto ?? prototypes!.Pick(Random);
+            var ent = Spawn(proto, args.Coordinates);
+            // Goob edit end
             args.Ammo.Add((ent, EnsureShootable(ent)));
         }
 
