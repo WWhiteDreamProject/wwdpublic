@@ -124,16 +124,16 @@
     children:
       - !type:NestedSelector
         tableId: BasicFishingLootTable
-        weight: 30
+        weight: 35 # WD EDIT
       - !type:NestedSelector
         tableId: WaterFishTable
-        weight: 45
+        weight: 45 # WD EDIT
       - !type:NestedSelector
         tableId: RareFishTable
-        weight: 15
+        weight: 15 # WD EDIT
       - !type:NestedSelector
         tableId: LegendaryFishTable
-        weight: 10
+        weight: 5 # WD EDIT
 
 # Items from Lava
 - type: entityTable
