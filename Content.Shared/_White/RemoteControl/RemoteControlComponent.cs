@@ -23,6 +23,12 @@ public sealed partial class RemoteControllableComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public EntityUid? ControllingEntity;
+
+    [DataField]
+    public string EndRemoteControlAction = "ActionEndRemoteControl";
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? EndRemoteControlActionEntity;
 }
 
 [NetworkedComponent]

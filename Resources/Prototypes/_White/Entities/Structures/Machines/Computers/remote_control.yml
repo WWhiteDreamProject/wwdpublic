@@ -79,6 +79,7 @@
   id: WeaponTurretRC
   suffix: Remote-Controlled
   components:
+  - type: Actions
   - type: RemoteControllable
   - type: HTN
     enabled: false

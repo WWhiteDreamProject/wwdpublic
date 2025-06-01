@@ -23,15 +23,18 @@ namespace Content.Server._White.RemoteControl;
 public sealed class RemoteControlSystem : SharedRemoteControlSystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private readonly SharedDeviceLinkSystem _link = default!;
 
 
     public override void Initialize()
     {
         SubscribeLocalEvent<RemoteControllableComponent, ComponentInit>(OnCompInit);
+        SubscribeLocalEvent<RemoteControllableComponent, MapInitEvent>(OnCompStartup);
         SubscribeLocalEvent<RemoteControllableComponent, RemoteControlExitActionEvent>(OnEndRC);
     }
 
@@ -42,7 +45,7 @@ public sealed class RemoteControlSystem : SharedRemoteControlSystem
         {
             if (!_actionBlocker.CanConsciouslyPerformAction(uid) ||
                !_actionBlocker.CanComplexInteract(uid) ||
-               //!_actionBlocker.CanInteract(uid) || // seems to block AI
+               !_actionBlocker.CanInteract(uid, comp.UsedInterface) || // seems to block AI
                (
                comp.UsedInterface.HasValue &&
                !_interactionSystem.InRangeAndAccessible(uid, comp.UsedInterface.Value)
@@ -58,11 +61,15 @@ public sealed class RemoteControlSystem : SharedRemoteControlSystem
 
     private void OnCompInit(EntityUid uid, RemoteControllableComponent comp, ComponentInit args)
     {
-        _action.AddAction(uid, "ActionEndRemoteControl");
-        EntityManager.System<SharedDeviceLinkSystem>().EnsureSinkPorts(uid, "RemoteControlInputPort");
+        _link.EnsureSinkPorts(uid, "RemoteControlInputPort");
     }
 
-    public void RemoteControl(EntityUid user, EntityUid target, EntityUid interfaceEntity, params EntityUid[] interfaceActions)
+    private void OnCompStartup(EntityUid uid, RemoteControllableComponent comp, MapInitEvent args)
+    {
+        _action.AddAction(uid, ref comp.EndRemoteControlActionEntity, comp.EndRemoteControlAction);
+    }
+
+    public void RemoteControl(EntityUid user, EntityUid target, EntityUid interfaceEntity/*, params EntityUid[] interfaceActions*/)
     {
         if (HasComp<RemoteControllingComponent>(user))
             return;
@@ -80,15 +87,15 @@ public sealed class RemoteControlSystem : SharedRemoteControlSystem
         rc.ControllingEntity = user;
         rc.ControllingMind = userMind;
 
-        foreach(var action in interfaceActions)
-            _action.AddAction(target, action, interfaceEntity);
-
-        //var ev = new RemoteControlInterfaceGetActionsEvent(user, target);
-        //RaiseLocalEvent(interfaceEntity, ev);
-        //if (ev.Actions.Count == 0)
-        //    return;
-        //foreach (var action in ev.Actions)
+        //foreach(var action in interfaceActions)
         //    _action.AddAction(target, action, interfaceEntity);
+
+        var ev = new RemoteControlInterfaceGetActionsEvent(user, target);
+        RaiseLocalEvent(interfaceEntity, ev);
+        if (ev.Actions.Count == 0)
+            return;
+        foreach (var action in ev.Actions)
+            _action.AddAction(target, action, interfaceEntity);
 
         var mindComp = Comp<MindComponent>(userMind);
         _mind.Visit(userMind, target, mindComp);
@@ -132,6 +139,7 @@ public sealed class RemoteControlConsoleSystem : EntitySystem
         SubscribeLocalEvent<RemoteControlConsoleComponent, RemoteControlConsoleSwitchNextActionEvent>(OnNextAction);
         SubscribeLocalEvent<RemoteControlConsoleComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<RemoteControlConsoleComponent, RemoteControlInterfaceEndEvent>(OnRemoteControlEnd);
+        SubscribeLocalEvent<RemoteControlConsoleComponent, RemoteControlInterfaceGetActionsEvent>(OnRCGetActionsEvent);
         SubscribeLocalEvent<RemoteControlConsoleComponent, PowerChangedEvent>(OnPowerChanged);
     }
 
@@ -148,7 +156,6 @@ public sealed class RemoteControlConsoleSystem : EntitySystem
 
     private void OnInit(EntityUid uid, RemoteControlConsoleComponent comp, ComponentInit args)
     {
-        comp.SwitchToNextActionEntity = _actionContainer.AddAction(uid, comp.SwitchToNextAction);
         _link.EnsureSourcePorts(uid, comp.ConnectionPortId);
     }
 
@@ -178,7 +185,8 @@ public sealed class RemoteControlConsoleSystem : EntitySystem
         comp.LastIndex = comp.LinkedEntities.IndexOf(target);
 
         _rc.EndRemoteControl(comp.CurrentUser.Value, false);
-        _rc.RemoteControl(comp.CurrentUser.Value, target, uid, comp.SwitchToNextActionEntity!.Value);
+        //_rc.RemoteControl(comp.CurrentUser.Value, target, uid, comp.SwitchToNextActionEntity!.Value);
+        _rc.RemoteControl(comp.CurrentUser.Value, target, uid);
     }
 
     private void OnActivateInWorld(EntityUid uid, RemoteControlConsoleComponent comp, ActivateInWorldEvent args)
@@ -201,9 +209,18 @@ public sealed class RemoteControlConsoleSystem : EntitySystem
         comp.CurrentUser = args.User;
         comp.LastIndex = comp.LinkedEntities.IndexOf(target);
 
-        _rc.RemoteControl(args.User, target, uid, comp.SwitchToNextActionEntity!.Value);
+        //_rc.RemoteControl(args.User, target, uid, comp.SwitchToNextActionEntity!.Value);
+        _rc.RemoteControl(args.User, target, uid);
     }
 
+    private void OnRCGetActionsEvent(EntityUid uid, RemoteControlConsoleComponent comp, RemoteControlInterfaceGetActionsEvent args)
+    {
+        if (comp.LinkedEntities.Count > 1)
+        {
+            _actionContainer.EnsureAction(uid, ref comp.SwitchToNextActionEntity, comp.SwitchToNextAction);
+            args.Actions.Add(comp.S);
+        }
+    }
 
 
     private EntityUid? GetFirstValid(List<EntityUid> list, int startIndex, EntityUid? exclude = null)
