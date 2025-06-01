@@ -131,7 +131,7 @@ public sealed class MappingVisibilityUIController : UIController
             return;
 
         _mappingScreen.TilesPanel.Visible = args.Button.Pressed;
-        _mappingScreen.PanelContainer.Visible = _decalsVisible || _tilesVisible;
+        UpdatePanelContainerVisibility();
     }
 
     private void OnToggleDecalsPanelPressed(BaseButton.ButtonEventArgs args)
@@ -143,7 +143,24 @@ public sealed class MappingVisibilityUIController : UIController
 
         _mappingScreen.DecalsPanel.Visible = args.Button.Pressed;
         _mappingScreen.DecalSettings.Visible = args.Button.Pressed;
-        _mappingScreen.PanelContainer.Visible = _decalsVisible || _tilesVisible;
+        // WD EDIT START
+        UpdatePanelContainerVisibility();
+    }
+
+    private void UpdatePanelContainerVisibility()
+    {
+        if (_mappingScreen == null)
+            return;
+
+        var isVisible = _decalsVisible || _tilesVisible;
+        _mappingScreen.PanelContainer.Visible = isVisible;
+
+        // dividing line management
+        if (_mappingScreen.TileDecalSeparator != null)
+        {
+            _mappingScreen.TileDecalSeparator.Visible = _tilesVisible && _decalsVisible;
+        }
+         // WD EDIT END
     }
 
     private void OnToggleEntitiesLayerPressed(BaseButton.ButtonEventArgs args)  // WD EDIT - OnToggleEntitiesPressed -> OnToggleEntitiesLayerPressed
