@@ -76,7 +76,7 @@ public sealed class DollyMixtureSystem : EntitySystem
             for (int repeat = 0; repeat < comp.RepeatLayers; repeat++)
             {
                 Vector2 layerOffset = comp.Offset / EyeManager.PixelsPerMeter + comp.LayerOffset / EyeManager.PixelsPerMeter * i;
-                layerOffset += comp.LayerOffset * (repeat / comp.RepeatLayers);
+                layerOffset += comp.LayerOffset * ((float)repeat / comp.RepeatLayers);
 
                 int layerIndex = sprite.AddBlankLayer();
                 sprite.LayerSetRSI(layerIndex, RSI);
