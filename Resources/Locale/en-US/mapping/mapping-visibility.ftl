@@ -11,4 +11,9 @@ mapping-visibility-subfloor = Subfloor
 mapping-visibility-cables = Cables
 mapping-visibility-disposal = Disposal
 mapping-visibility-atmos = Atmos
+mapping-visibility-panels-header = Panels
+mapping-visibility-layers-header = Layers
+mapping-visibility-entities-panel = Entities Panel
+mapping-visibility-tiles-panel = Tiles Panel
+mapping-visibility-decals-panel = Decals Panel
 
