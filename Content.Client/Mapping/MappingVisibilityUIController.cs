@@ -21,7 +21,7 @@ public sealed class MappingVisibilityUIController : UIController
     [Dependency] private readonly ILightManager _lightManager = default!;
 
     private MappingVisibilityWindow? _window;
-    private MappingScreen? _mappingScreen;
+    private MappingScreen? _mappingScreen; // WD EDIT
 
     [ValidatePrototypeId<TagPrototype>]
     private const string WallTag = "Wall";

@@ -110,7 +110,7 @@
                             <graphics:StyleBoxFlat BackgroundColor="#222222AA" />
                         </PanelContainer.PanelOverride>
                         <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="3 3">
-                            <CheckBox Name="DecalEnableAuto" Access="Public" Margin="0 0 0 10"
+                            <CheckBox Name="DecalEnableAuto" Margin="0 0 0 10"
                                       Text="{Loc 'decal-placer-window-enable-auto'}" />
                             <CheckBox Name="DecalEnableColor"
                                       Text="{Loc 'decal-placer-window-use-color'}" />
