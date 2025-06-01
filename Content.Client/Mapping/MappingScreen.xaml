@@ -103,6 +103,15 @@
                         </PanelContainer.PanelOverride>
                         <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="3 3">
                             <ColorSelectorSliders Name="DecalColorPicker" IsAlphaVisible="True" />
+                            <BoxContainer Orientation="Horizontal" Margin="0 5">
+                                <Label Text="HEX:" VerticalAlignment="Center" />
+                                <LineEdit Name="DecalHexInput" MinSize="80 0" PlaceHolder="#FFFFFF" />
+                                <PanelContainer Name="DecalHexPreview" MinSize="20 20" Margin="5 0 0 0">
+                                    <PanelContainer.PanelOverride>
+                                        <graphics:StyleBoxFlat BackgroundColor="#FFFFFF" />
+                                    </PanelContainer.PanelOverride>
+                                </PanelContainer>
+                            </BoxContainer>
                             <Button Name="DecalPickerOpen" Text="{Loc 'decal-placer-window-palette'}" />
                         </BoxContainer>
                     </PanelContainer>
