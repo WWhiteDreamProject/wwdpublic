@@ -154,31 +154,32 @@ public sealed partial class MappingScreen : InGameScreen
             return;
 
         if (text.Length == 6)
-            text += "FF"; 
+            text += "FF";
 
-        byte ParseHexByte(string hex)
+        bool TryParseHexByte(string inputText, int startIndex, out byte result)
         {
-            byte result = 0;
+            result = 0;
+            if (startIndex + 1 >= inputText.Length)
+                return false;
+
             for (int i = 0; i < 2; i++)
             {
-                result *= 16;
-                var c = char.ToUpper(hex[i]);
+                result = (byte)(result * 16);
+                var c = char.ToUpper(inputText[startIndex + i]);
                 if (c >= '0' && c <= '9')
                     result += (byte)(c - '0');
                 else if (c >= 'A' && c <= 'F')
                     result += (byte)(c - 'A' + 10);
                 else
-                    return 0; 
+                    return false;
             }
-            return result;
+            return true;
         }
 
-        var r = ParseHexByte(text[..2]);
-        var g = ParseHexByte(text[2..4]);
-        var b = ParseHexByte(text[4..6]);
-        var a = ParseHexByte(text[6..8]);
-
-        if (r > 0 || g > 0 || b > 0 || a > 0)
+        if (TryParseHexByte(text, 0, out var r) &&
+            TryParseHexByte(text, 2, out var g) &&
+            TryParseHexByte(text, 4, out var b) &&
+            TryParseHexByte(text, 6, out var a))
         {
             var color = new Color(r, g, b, a);
             DecalColor = color;
