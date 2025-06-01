@@ -16,5 +16,7 @@
     ClothingBackpackDuffelRobotics: 2
   contrabandInventory:
     ClothingEyesGlassesMeson: 1 # WWDP
+  #WWDP edit start
   emaggedInventory:
-    EncryptionKeySyndie: 1 # WWDP
+    EncryptionKeyBinarySyndicate: 1
+  #WWDP edit end

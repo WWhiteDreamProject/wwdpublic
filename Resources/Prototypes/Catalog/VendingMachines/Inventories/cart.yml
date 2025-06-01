@@ -43,3 +43,9 @@
     EncryptionKeyScience: 2
     EncryptionKeySecurity: 2
     EncryptionKeyService: 4
+  #WWDP edit start
+  emaggedInventory:
+    EncryptionKeySyndie: 2
+    RubberStampSyndicate: 1
+    SyndiPDA: 2
+  #WWDP edit end

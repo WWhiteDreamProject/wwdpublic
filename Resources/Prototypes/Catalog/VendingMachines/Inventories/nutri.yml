@@ -17,8 +17,6 @@
     EZNutrientChemistryBottle: 3
     Bucket: 3
     DiseaseSwab: 20
-    #TO DO:
-    #plant analyzer
   contrabandInventory:
     UnstableMutagenChemistryBottle: 1
     Joint: 1
