@@ -2943,3 +2943,10 @@ Entries:
   id: 318
   time: '2025-05-31T06:01:06.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/532
+- author: Boevi4ok
+  changes:
+    - type: Remove
+      message: недо антаг УБИТ
+  id: 319
+  time: '2025-06-01T09:42:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/531
