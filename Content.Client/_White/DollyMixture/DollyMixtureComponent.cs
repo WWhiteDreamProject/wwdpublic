@@ -32,5 +32,8 @@ public sealed partial class DollyMixtureComponent : Component
     public int RepeatLayers = 1;
 
     [DataField]
-    public Vector2 Scale = Vector2.One;
+    public Vector2 LayerScale = Vector2.One;
+
+    [DataField]
+    public string? DefaultShader;
 }
