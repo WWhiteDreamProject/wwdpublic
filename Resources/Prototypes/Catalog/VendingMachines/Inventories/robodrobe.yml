@@ -14,9 +14,9 @@
     ClothingBackpackRobotics: 2
     ClothingBackpackSatchelRobotics: 2
     ClothingBackpackDuffelRobotics: 2
-  contrabandInventory:
-    ClothingEyesGlassesMeson: 1 # WWDP
   #WWDP edit start
+  contrabandInventory:
+    ClothingEyesGlassesMeson: 1
   emaggedInventory:
-    EncryptionKeyBinarySyndicate: 1
+    Intellicard: 1
   #WWDP edit end
