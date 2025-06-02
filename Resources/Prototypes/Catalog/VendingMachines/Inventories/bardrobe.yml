@@ -16,4 +16,9 @@
     ClothingOuterVest: 2
     ClothingBeltBandolier: 2
     ClothingEyesGlassesSunglasses: 2
-
+    #WWDP edit start
+    emaggedInventory:
+      WeaponRevolverPython: 1
+      ClothingHeadHatOutlawHat: 1
+      ClothingOuterCoatSyndieCapArmored: 1
+    #WWDP edit end
