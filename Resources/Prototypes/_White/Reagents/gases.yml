@@ -191,9 +191,11 @@
         ignoreResistances: true
         damage:
           groups:
-            Brute: -0.5
-            Burn: -0.5
-            Toxin: -1.25
+            # WD EDIT START - small buff
+            Brute: -2.0
+            Burn: -2.0
+            Toxin: -1.0
+            # WD EDIT END
 
 - type: reagent
   id: Hyper-Noblium

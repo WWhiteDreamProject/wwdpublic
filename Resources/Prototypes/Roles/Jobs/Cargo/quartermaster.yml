@@ -9,8 +9,11 @@
       traits:
         - Foreigner
         - ForeignerLight
+        - Muted
     - !type:CharacterEmployerRequirement
       employers:
+      - OrionExpress
+      - IdrisIncorporated
       - NanoTrasen
     - !type:CharacterOverallTimeRequirement # WWDP
       min: 7200

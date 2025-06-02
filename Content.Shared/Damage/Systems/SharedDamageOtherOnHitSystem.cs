@@ -40,7 +40,7 @@ namespace Content.Shared.Damage.Systems
         public override void Initialize()
         {
             SubscribeLocalEvent<DamageOtherOnHitComponent, MapInitEvent>(OnMapInit);
-            SubscribeLocalEvent<DamageOtherOnHitComponent, ThrowDoHitEvent>(OnDoHit);
+            SubscribeLocalEvent<DamageOtherOnHitComponent, ThrowDoHitEvent>(OnDoHit, before: new[] { typeof(SharedProjectileSystem), }); // WD EDIT
             SubscribeLocalEvent<DamageOtherOnHitComponent, ThrownEvent>(OnThrown);
             SubscribeLocalEvent<DamageOtherOnHitComponent, AttemptPacifiedThrowEvent>(OnAttemptPacifiedThrow);
 
@@ -94,8 +94,16 @@ namespace Content.Shared.Damage.Systems
         {
             if (TerminatingOrDeleted(args.Target)
                 || component.HitQuantity >= component.MaxHitQuantity
-                || _standing.IsDown(args.Target))
+                || _standing.IsDown(args.Target)
+                || !TryComp(args.Thrown, out PhysicsComponent? physics))
                 return;
+
+            var thrown = args.Thrown;
+            if (physics.LinearVelocity.Length() < component.MinimumSpeed)
+            {
+                LandAfterImpact(thrown, args.Component, physics);
+                return;
+            }
 
             var modifiedDamage = _damageable.TryChangeDamage(args.Target, GetDamage(uid, component, args.Component.Thrower),
                 component.IgnoreResistances, origin: args.Component.Thrower, targetPart: args.TargetPart);
@@ -113,27 +121,27 @@ namespace Content.Shared.Damage.Systems
             if (modifiedDamage is { Empty: false })
                 _color.RaiseEffect(Color.Red, new List<EntityUid>() { args.Target }, Filter.Pvs(args.Target, entityManager: EntityManager));
 
-            if (TryComp<PhysicsComponent>(uid, out var body) && body.LinearVelocity.LengthSquared() > 0f)
-            {
-                var direction = body.LinearVelocity.Normalized();
-                _sharedCameraRecoil.KickCamera(args.Target, direction);
-            }
+            var direction = physics.LinearVelocity.Normalized();
+            _sharedCameraRecoil.KickCamera(args.Target, direction);
 
             // TODO: If more stuff touches this then handle it after.
-            if (TryComp<PhysicsComponent>(uid, out var physics))
-            {
-                _thrownItem.LandComponent(args.Thrown, args.Component, physics, false);
 
-                if (!HasComp<EmbeddableProjectileComponent>(args.Thrown))
-                {
-                    var newVelocity = physics.LinearVelocity;
-                    newVelocity.X = -newVelocity.X / 4;
-                    newVelocity.Y = -newVelocity.Y / 4;
-                    _physics.SetLinearVelocity(uid, newVelocity, body: physics);
-                }
-            }
-
+            LandAfterImpact(thrown, args.Component, physics);
             component.HitQuantity += 1;
+        }
+
+        private void LandAfterImpact(EntityUid thrown, ThrownItemComponent thrownComp, PhysicsComponent physics)
+        {
+            _thrownItem.LandComponent(thrown, thrownComp, physics, false, true);
+            // WD EDIT START
+            if (HasComp<EmbeddableProjectileComponent>(thrown))
+                return;
+
+            var newVelocity = physics.LinearVelocity;
+            newVelocity.X = -newVelocity.X / 8;
+            newVelocity.Y = -newVelocity.Y / 8;
+            _physics.SetLinearVelocity(thrown, newVelocity, body: physics);
+            // WD EDIT END
         }
 
         /// <summary>

@@ -1,46 +1,6 @@
 # TODO: make more categories
 # Guns
 
-- type: listing
-  id: UplinkPistolViper
-  name: uplink-pistol-viper-name
-  description: uplink-pistol-viper-desc
-  productEntity: WeaponPistolViperEmpty
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1 # WD EDIT
-  cost:
-    Telecrystal: 2 # WD EDIT
-  categories:
-  - UplinkWeaponry
-
-- type: listing
-  id: UplinkRevolverPython
-  name: uplink-revolver-python-name
-  description: uplink-revolver-python-desc
-  productEntity: WeaponRevolverPythonAP
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 2 # WD EDIT
-  cost:
-    Telecrystal: 8 # WD EDIT
-  categories:
-  - UplinkWeaponry
-
-# Inbuilt suppressor so it's sneaky + more expensive.
-- type: listing
-  id: UplinkPistolCobra
-  name: uplink-pistol-cobra-name
-  description: uplink-pistol-cobra-desc
-  productEntity: WeaponPistolCobraEmpty
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1 # WD EDIT
-  cost:
-    Telecrystal: 3 # WD EDIT
-  categories:
-  - UplinkWeaponry
-
 # Poor accuracy, slow to fire, cheap option
 - type: listing
   id: UplinkRifleMosin
@@ -53,26 +13,27 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkEsword
-  name: uplink-esword-name
-  description: uplink-esword-desc
-  icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword.rsi, state: icon }
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 2 # WD EDIT
-  productEntity: EnergySword
-  cost:
-    Telecrystal: 8 # WD EDIT
-  categories:
-  - UplinkWeaponry
-
-- type: listing
   id: UplinkEnergyDagger
   name: uplink-edagger-name
   description: uplink-edagger-desc
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_dagger.rsi, state: icon }
   productEntity: EnergyDaggerBox
-  discountCategory: rareDiscounts
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  # WD EDIT END
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkPistolViper
+  name: uplink-pistol-viper-name
+  description: uplink-pistol-viper-desc
+  productEntity: WeaponPistolViperEmpty
+  discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 1 # WD EDIT
   cost:
@@ -80,31 +41,17 @@
   categories:
   - UplinkWeaponry
 
+# Inbuilt suppressor so it's sneaky + more expensive.
 - type: listing
-  id: UplinkThrowingKnivesKit
-  name: uplink-knives-kit-name
-  description: uplink-knives-kit-desc
-  icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: throwing_knives }
-  productEntity: ThrowingKnivesKit
-  discountCategory: rareDiscounts
+  id: UplinkPistolCobra
+  name: uplink-pistol-cobra-name
+  description: uplink-pistol-cobra-desc
+  productEntity: WeaponPistolCobraEmpty
+  discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 1 # WD EDIT
   cost:
-    Telecrystal: 6 # WD EDIT
-  categories:
-  - UplinkWeaponry
-
-
-- type: listing
-  id: UplinkGlovesNorthStar
-  name: uplink-gloves-north-star-name
-  description: uplink-gloves-north-star-desc
-  productEntity: ClothingHandsGlovesNorthStar
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 2 # WD EDIT
-  cost:
-    Telecrystal: 8 # WD EDIT
+    Telecrystal: 3 # WD EDIT
   categories:
   - UplinkWeaponry
 
@@ -115,16 +62,27 @@
   productEntity: ToolboxElectricalTurretFilled
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 1 # WD EDIT
   cost:
-    Telecrystal: 6 # WD EDIT
+    Telecrystal: 4 # WD EDIT
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
+
+- type: listing
+  id: UplinkThrowingKnivesKit
+  name: uplink-knives-kit-name
+  description: uplink-knives-kit-desc
+  icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: throwing_knives }
+  productEntity: ThrowingKnivesKit
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 5
+  # WD EDIT END
+  categories:
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkEshield
@@ -132,15 +90,93 @@
   description: uplink-eshield-desc
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
   productEntity: EnergyShield
-  discountCategory: veryRareDiscounts
+  # WD EDIT START
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 2
   cost:
-    Telecrystal: 6 # WD EDIT
+    Telecrystal: 6
+  # WD EDIT END
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
+
+- type: listing
+  id: UplinkGlovesNorthStar
+  name: uplink-gloves-north-star-name
+  description: uplink-gloves-north-star-desc
+  productEntity: ClothingHandsGlovesNorthStar
+  # WD EDIT START
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 7
+  # WD EDIT END
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkEsword
+  name: uplink-esword-name
+  description: uplink-esword-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword.rsi, state: icon }
+  # WD EDIT START
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  productEntity: EnergySword
+  cost:
+    Telecrystal: 8
+  # WD EDIT END
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkRevolverPython
+  name: uplink-revolver-python-name
+  description: uplink-revolver-python-desc
+  productEntity: WeaponRevolverPythonAP
+  # WD EDIT START
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 8
+  # WD EDIT END
+  categories:
+  - UplinkWeaponry
+
+# WD EDIT START - Replacement with a gun case. View in the _White
+# - type: listing
+#   id: UplinkFPA90Bundle
+#   name: uplink-fpa-90-bundle-name
+#   description: uplink-fpa-90-bundle-desc
+#   icon: { sprite: /Textures/_EE/Objects/Weapons/Guns/SMGs/FPA90.rsi, state: icon }
+#   productEntity: ClothingBackpackDuffelSyndicateFilledFPA90
+#   discountCategory: rareDiscounts
+#   discountDownTo:
+#     Telecrystal: 2 # WD EDIT
+#   cost:
+#     Telecrystal: 10 # WD EDIT
+#   categories:
+#   - UplinkWeaponry
+
+# - type: listing
+#   id: UplinkC20RBundle
+#   name: uplink-c20r-bundle-name
+#   description: uplink-c20r-bundle-desc
+#   icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
+#   productEntity: ClothingBackpackDuffelSyndicateFilledSMG
+#  discountCategory: rareDiscounts
+#   discountDownTo:
+#   # WD EDIT START
+#     Telecrystal: 3
+#   cost:
+#     Telecrystal: 11
+#   # WD EDIT END
+#   categories:
+#   - UplinkWeaponry
+# WD EDIT END
 
 - type: listing
   id: UplinkSniperBundle
@@ -148,83 +184,59 @@
   description: uplink-sniper-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base }
   productEntity: BriefcaseSyndieSniperBundleFilled
-  discountCategory: veryRareDiscounts # WD EDIT
+  # WD EDIT START
+  discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 4 # WD EDIT
+    Telecrystal: 4
   cost:
-    Telecrystal: 18 # WD EDIT
+    Telecrystal: 18
+  # WD EDIT END
   categories:
   - UplinkWeaponry
 
-- type: listing
-  id: UplinkC20RBundle
-  name: uplink-c20r-bundle-name
-  description: uplink-c20r-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledSMG
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 3 # WD EDIT
-  cost:
-    Telecrystal: 11 # WD EDIT
-  categories:
-  - UplinkWeaponry
+# WD EDIT START - Replacement with a gun case. View in the _White
+# - type: listing
+#   id: UplinkBulldogBundle
+#   name: uplink-buldog-bundle-name
+#   description: uplink-buldog-bundle-desc
+#   icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+#   productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
+#   discountCategory: veryRareDiscounts
+#   discountDownTo:
+#     Telecrystal: 4 # WD EDIT
+#   cost:
+#     Telecrystal: 20 # WD EDIT
+#   categories:
+#   - UplinkWeaponry
 
-- type: listing
-  id: UplinkBulldogBundle
-  name: uplink-buldog-bundle-name
-  description: uplink-buldog-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 4 # WD EDIT
-  cost:
-    Telecrystal: 20 # WD EDIT
-  categories:
-  - UplinkWeaponry
+# - type: listing
+#   id: UplinkGrenadeLauncherBundle
+#   name: uplink-grenade-launcher-bundle-name
+#   description: uplink-grenade-launcher-bundle-desc
+#   icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+#   productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+#   discountCategory: veryRareDiscounts
+#   discountDownTo:
+#     Telecrystal: 5 # WD EDIT
+#   cost:
+#     Telecrystal: 25 # WD EDIT
+#   categories:
+#   - UplinkWeaponry
 
-- type: listing
-  id: UplinkGrenadeLauncherBundle
-  name: uplink-grenade-launcher-bundle-name
-  description: uplink-grenade-launcher-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 5 # WD EDIT
-  cost:
-    Telecrystal: 25 # WD EDIT
-  categories:
-  - UplinkWeaponry
-
-- type: listing
-  id: UplinkL6SawBundle
-  name: uplink-l6-saw-bundle-name
-  description: uplink-l6-saw-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledLMG
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 6 # WD EDIT
-  cost:
-    Telecrystal: 30 # WD EDIT
-  categories:
-  - UplinkWeaponry
-
-- type: listing
-  id: UplinkFPA90Bundle
-  name: uplink-fpa-90-bundle-name
-  description: uplink-fpa-90-bundle-desc
-  icon: { sprite: /Textures/_EE/Objects/Weapons/Guns/SMGs/FPA90.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledFPA90
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 2 # WD EDIT
-  cost:
-    Telecrystal: 10 # WD EDIT
-  categories:
-  - UplinkWeaponry
+# - type: listing
+#   id: UplinkL6SawBundle
+#   name: uplink-l6-saw-bundle-name
+#   description: uplink-l6-saw-bundle-desc
+#   icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+#   productEntity: ClothingBackpackDuffelSyndicateFilledLMG
+#   discountCategory: veryRareDiscounts
+#   discountDownTo:
+#     Telecrystal: 6 # WD EDIT
+#   cost:
+#     Telecrystal: 30 # WD EDIT
+#   categories:
+#   - UplinkWeaponry
+# WD EDIT END
 
 # Explosives
 
@@ -266,11 +278,13 @@
   name: uplink-mini-bomb-name
   description: uplink-mini-bomb-desc
   productEntity: SyndieMiniBomb
-  discountCategory: veryRareDiscounts
+  # WD EDIT START
+  discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 2
   cost:
-    Telecrystal: 6 # WD EDIT
+    Telecrystal: 6
+  # WD EDIT END
   categories:
   - UplinkExplosives
 
@@ -323,11 +337,13 @@
   name: uplink-c4-name
   description: uplink-c4-desc
   productEntity: C4
-  discountCategory: veryRareDiscounts
+  # WD EDIT START
+  discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 1
   cost:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 2
+  # WD EDIT END
   categories:
   - UplinkExplosives
 
@@ -336,11 +352,13 @@
   name: uplink-grenadier-rig-name
   description: uplink-grenadier-rig-desc
   productEntity: ClothingBeltMilitaryWebbingGrenadeFilled
-  discountCategory: veryRareDiscounts
+  # WD EDIT START
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 3 # WD EDIT
+    Telecrystal: 3
   cost:
-    Telecrystal: 12 # WD EDIT
+    Telecrystal: 12
+  # WD EDIT END
   categories:
   - UplinkExplosives
   conditions:
@@ -354,11 +372,13 @@
   name: uplink-c4-bundle-name
   description: uplink-c4-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateC4tBundle
-  discountCategory: veryRareDiscounts
+  # WD EDIT START
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 3 # WD EDIT
+    Telecrystal: 3
   cost:
-    Telecrystal: 12 # WD EDIT
+    Telecrystal: 12
+  # WD EDIT END
   categories:
   - UplinkExplosives
 
@@ -395,6 +415,7 @@
   description: uplink-exploding-syndicate-bomb-desc
   productEntity: SyndicateBomb
   # WD EDIT START
+  discountCategory: rareDiscounts
   discountDownTo:
     Telecrystal: 3
   cost:
@@ -415,6 +436,7 @@
   description: uplink-exploding-syndicate-bomb-desc
   productEntity: SyndicateBomb
   # WD EDIT START
+  discountCategory: rareDiscounts
   discountDownTo:
     Telecrystal: 3
   cost:
@@ -433,11 +455,13 @@
   name: uplink-cluster-grenade-name
   description: uplink-cluster-grenade-desc
   productEntity: ClusterGrenade
-  discountCategory: usualDiscounts
+  # WD EDIT START
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 2
   cost:
-    Telecrystal: 8 # WD EDIT
+    Telecrystal: 8
+  # WD EDIT END
   categories:
   - UplinkExplosives
 
@@ -709,20 +733,22 @@
   categories:
   - UplinkAmmo
 
-- type: listing
-  id: UplinkHristovAmmoShrapnel
-  name: uplink-sniper-ammo-shrapnel-name
-  description: uplink-sniper-ammo-shrapnel-desc
-  productEntity: MagazineBoxAntiMaterielShrapnel
-  # WD EDIT START
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 2
-  cost:
-    Telecrystal: 7
-  # WD EDIT END
-  categories:
-  - UplinkAmmo
+#WWDP edit start - disable upstream shit
+#- type: listing
+#  id: UplinkHristovAmmoShrapnel
+#  name: uplink-sniper-ammo-shrapnel-name
+#  description: uplink-sniper-ammo-shrapnel-desc
+# productEntity: MagazineBoxAntiMaterielShrapnel
+#  # WD EDIT START
+#  discountCategory: usualDiscounts
+#  discountDownTo:
+#    Telecrystal: 2
+#  cost:
+#    Telecrystal: 7
+#  # WD EDIT END
+#  categories:
+#  - UplinkAmmo
+#WWDP edit end
 
 - type: listing
   id: UplinkAmmoBundle
@@ -1698,10 +1724,12 @@
   - UplinkWearables
 
 - type: listing
-  id: UplinkgClothingThievingGloves
-  name: uplink-clothing-thieving-gloves-name
-  description: uplink-clothing-thieving-gloves-desc
-  productEntity: ThievingGloves
+  #WWDP EDIT START
+  id: UplinkClothingHandsChameleonThief
+  name: uplink-clothing-hands-chameleon-thief-name
+  description: uplink-clothing-hands-chameleon-thief-desc
+  productEntity: ClothingHandsChameleonThief
+  #WWDP EDIT END
   discountCategory: usualDiscounts # WD EDIT
   discountDownTo:
     Telecrystal: 1 # WD EDIT
@@ -1815,6 +1843,13 @@
     Telecrystal: 12 # WD EDIT
   categories:
   - UplinkWearables
+  #WWDP edit start
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  #WWDP edit end
 
 - type: listing
   id: UplinkClothingOuterHardsuitJuggernaut
@@ -2226,11 +2261,8 @@
   name: uplink-smuggler-satchel-name
   description: uplink-smuggler-satchel-desc
   productEntity: ClothingBackpackSatchelSmugglerUnanchored
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 15
   cost:
-    Telecrystal: 30
+    Telecrystal: 1 # WD EDIT
   categories:
   - UplinkDeception
 
@@ -2247,7 +2279,7 @@
     Telecrystal: 3
   # WD EDIT END
   categories:
-  - UplinkAllies
+  - UplinkDisruption # WD EDIT
 
 # Armor
 

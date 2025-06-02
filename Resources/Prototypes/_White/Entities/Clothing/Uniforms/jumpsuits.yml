@@ -96,3 +96,47 @@
       sprite: _White/Clothing/Uniforms/Jumpsuit/engineer_polar.rsi
     - type: Clothing
       sprite: _White/Clothing/Uniforms/Jumpsuit/engineer_polar.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMedicalBlue
+  name: blue medical uniform
+  description: A medical uniform, painted in a calming azure rather than blue, directly contradicting the label. Soft, breathable fabrics are designed to provide comfort throughout a long workday.
+  components:
+    - type: Sprite
+      sprite: _White/Clothing/Uniforms/Jumpsuit/med_uniform.rsi
+    - type: Clothing
+      sprite: _White/Clothing/Uniforms/Jumpsuit/med_uniform.rsi
+
+- type: entity 
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMedicalGreen
+  name: green medical uniform
+  description: The green shade significantly contrasts with blood and reduces visual tension from the bright lamp light.
+  components:
+    - type: Sprite
+      sprite: _White/Clothing/Uniforms/Jumpsuit/med_green_uniform.rsi
+    - type: Clothing
+      sprite: _White/Clothing/Uniforms/Jumpsuit/med_green_uniform.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMedicalUniformChemistry
+  name: orange chemistry uniform
+  description: A uniform for chemists on NanoTrasen station facilities. Durable, water-repellent fabrics offer, on average, a 0.3% better protection against corrosive chemicals compared to standard medical attire.
+  components:
+    - type: Sprite
+      sprite: _White/Clothing/Uniforms/Jumpsuit/med_chem_uniform.rsi
+    - type: Clothing
+      sprite: _White/Clothing/Uniforms/Jumpsuit/med_chem_uniform.rsi
+    
+- type: entity 
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitParamedicUniform
+  name: paramedic uniform 
+  description: The uniform features numerous pockets of various sizes and is also equipped with white stripes for enhanced visibility. A medical cross is visible on the chest, and NanoTrasen logos are displayed on the shoulders.
+  components:
+    - type: Sprite 
+      sprite: _White/Clothing/Uniforms/Jumpsuit/med_para_uniform.rsi
+    - type: Clothing
+      sprite: _White/Clothing/Uniforms/Jumpsuit/med_para_uniform.rsi

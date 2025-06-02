@@ -46,15 +46,6 @@ public sealed partial class BallisticAmmoProviderComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public bool Cycleable = true;
 
-    // WD EDIT START
-    /// <summary>
-    /// Automatically cycles the firearm after firing a round
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField]
-    [AutoNetworkedField]
-    public bool AutoCycle = true;
-    // WD EDIT END
-
     /// <summary>
     /// Is it okay for this entity to directly transfer its valid ammunition into another provider?
     /// </summary>
@@ -66,4 +57,16 @@ public sealed partial class BallisticAmmoProviderComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan FillDelay = TimeSpan.FromSeconds(0.5);
+
+    /// <summary>
+    /// Is ammo ejected after each shot, or not.
+    /// </summary>
+    [DataField]
+    public bool AutoCycle = true;
+
+    /// <summary>
+    /// Is the gun ready to shoot; if AutoCycle is true then this will always stay true and not need to be manually done.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Cycled = true;
 }

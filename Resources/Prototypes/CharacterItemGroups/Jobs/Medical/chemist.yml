@@ -109,6 +109,10 @@
   items:
     - type: loadout
       id: LoadoutMedicalUniformJumpsuitChemShirt
+    # WD EDIT START
+    - type: loadout
+      id: LoadoutClothingUniformJumpsuitMedicalUniformChemistry
+    # WD EDIT END
     - type: loadout
       id: LoadoutMedicalUniformJumpsuitChemistry
     - type: loadout

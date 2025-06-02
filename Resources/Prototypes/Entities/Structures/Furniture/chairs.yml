@@ -19,6 +19,10 @@
         density: 100
         mask:
         - TableMask
+        # WD EDIT START
+        layer:
+        - BulletImpassable
+        # WD EDIT END
   - type: Sprite
     sprite: Structures/Furniture/chairs.rsi
     noRot: true
@@ -104,7 +108,7 @@
   - type: Vehicle
     requiredHands: 0
     engineRunning: true
-    renderOver: North, NorthEast, NorthWest
+    renderOver: South, SouthEast, SouthWest
   - type: MovementSpeedModifier
     acceleration: 10
     friction: 3.5

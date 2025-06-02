@@ -36,13 +36,13 @@ public sealed class WhiteCVars
     #endregion
 
     #region Character Customization
-    
+
     /// <summary>
     /// Players to set their own clown names.
     /// </summary>
     public static readonly CVarDef<bool> AllowCustomClownName =
         CVarDef.Create("customize.allow_custom_clown_name", true, CVar.REPLICATED);
-    
+
     #endregion
 
     #region TTS
@@ -82,12 +82,6 @@ public sealed class WhiteCVars
     /// </summary>
     public static readonly CVarDef<int> TTSMaxCache =
         CVarDef.Create("tts.max_cache", 250, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// VoiceId for Announcement TTS
-    /// </summary>
-    public static readonly CVarDef<string> TTSAnnounceVoiceId =
-        CVarDef.Create("tts.announce_voice", "Announcer", CVar.SERVERONLY | CVar.ARCHIVE);
 
     #endregion
 

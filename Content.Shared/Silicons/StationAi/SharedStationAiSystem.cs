@@ -64,6 +64,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     [Dependency] private readonly   StationAiVisionSystem _vision = default!;
     [Dependency] private readonly   AnchorableSystem _anchorable = default!; // WD edit
     [Dependency] private readonly   PullingSystem _pulling = default!; // WD edit
+    [Dependency] private readonly   SharedUserInterfaceSystem _ui = default!; // WD edit
 
     // StationAiHeld is added to anything inside of an AI core.
     // StationAiHolder indicates it can hold an AI positronic brain (e.g. holocard / core).
@@ -197,10 +198,17 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     private void OnAiInRange(Entity<StationAiOverlayComponent> ent, ref InRangeOverrideEvent args)
     {
         args.Handled = true;
-        var targetXform = Transform(args.Target);
+
+        // Shitmed - Starlight Abductors Change Start
+        var target = args.Target;
+        if (ent.Comp.AllowCrossGrid && TryComp(ent, out RelayInputMoverComponent? relay))
+            target = relay.RelayEntity;
+        // Shitmed Change End
+
+        var targetXform = Transform(target);
 
         // No cross-grid
-        if (targetXform.GridUid != Transform(args.User).GridUid)
+        if (targetXform.GridUid != Transform(args.User).GridUid && !ent.Comp.AllowCrossGrid) // Shitmed Change
         {
             return;
         }
@@ -573,6 +581,8 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 public sealed partial class JumpToCoreEvent : InstantActionEvent;
 
 public sealed partial class AiToggleBoltsEvent : InstantActionEvent; // WD edit
+
+public sealed partial class AiCameraListEvent: InstantActionEvent; // WD edit
 
 [Serializable, NetSerializable]
 public sealed partial class IntellicardDoAfterEvent : SimpleDoAfterEvent;

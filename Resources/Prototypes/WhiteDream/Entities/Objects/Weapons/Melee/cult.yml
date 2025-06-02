@@ -26,7 +26,7 @@
     slots:
     - back
   - type: DisarmMalus
-    malus: 0.5 # WWDP
+    malus: 0.5
   - type: CultItem
   - type: RuneDrawer
   - type: ActivatableUI
@@ -75,7 +75,7 @@
     slots:
     - back
   - type: DisarmMalus
-    malus: 0.8 # WWDP
+    malus: 0.8
   - type: CultItem
   - type: PointLight
     color: Red
@@ -122,6 +122,7 @@
       path: /Audio/Weapons/bladeslice.ogg
     range: 2
     attackRate: 1.42
+  - type: ThrowingItemModifier
   - type: DamageOtherOnHit
     damage:
       types:
@@ -144,7 +145,8 @@
         Piercing: 10
   - type: UseDelay
   - type: DisarmMalus
-    malus: 0.4 # WWDP
-    wieldedBonus: 0.4 # WWDP
+    malus: 0.4
+    wieldedBonus: 0.4
   - type: CultItem
+    knockdownDuration: 3
   - type: BloodSpear

@@ -6,6 +6,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.Power;
 using Content.Shared.SurveillanceCamera;
+using Content.Shared.SurveillanceCamera.Components;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;

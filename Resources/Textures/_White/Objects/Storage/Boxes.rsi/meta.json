@@ -1,0 +1,26 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "https://github.com/WWhiteDreamProject/wwdpublic/pull/490, by boevi4ok",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "boxwide"
+        },
+        {
+            "name": "shellmeteor"
+        },
+        {
+            "name": "shellfrag"
+        },
+        {
+            "name": "shelllaser"
+        },
+        {
+            "name": "shellbreach"
+        }
+    ]
+}

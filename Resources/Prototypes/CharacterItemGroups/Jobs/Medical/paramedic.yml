@@ -14,11 +14,13 @@
 #  maxItems: 1
 #  items:
 #
-#- type: characterItemGroup
-#  id: LoadoutParamedicEquipment
-#  maxItems: 1
-#  items:
-#
+- type: characterItemGroup
+  id: LoadoutParamedicEquipment
+  maxItems: 1
+  items:
+    - type: loadout
+      id: LoadoutParamedicPortafib
+      
 #- type: characterItemGroup
 #  id: LoadoutParamedicEyes
 #  maxItems: 1
@@ -67,3 +69,7 @@
       id: LoadoutMedicalUniformParamedicJumpsuit
     - type: loadout
       id: LoadoutMedicalUniformParamedicJumpskirt
+    # WD EDIT START
+    - type: loadout
+      id: LoadoutClothingUniformJumpsuitParamedicUniform
+    # WD EDIT END

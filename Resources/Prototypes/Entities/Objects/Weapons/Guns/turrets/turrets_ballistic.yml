@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseWeaponBallisticTurret
+  parent: BaseWeaponBallisticTurret3D # wwdp edit
   id: WeaponTurretSyndicate
   suffix: Syndicate
   components:
@@ -8,7 +8,7 @@
         - Syndicate
 
 - type: entity
-  parent: BaseWeaponBallisticTurret
+  parent: BaseWeaponBallisticTurret3D # wwdp edit
   id: WeaponTurretSAN
   suffix: Sol Alliance Navy
   description: A turret designed to provide protection for Sol Marines during combat drops. It menaces targets with a twin-linked C-20r, although its cheap fire controller lends to poor accuracy.
@@ -28,7 +28,7 @@
       capacity: 200
 
 - type: entity
-  parent: BaseWeaponBallisticTurret
+  parent: BaseWeaponBallisticTurret3D # wwdp edit
   name: disposable ballistic turret
   id: WeaponTurretSyndicateDisposable
   suffix: Syndicate, Disposable
@@ -62,7 +62,7 @@
       canCreateVacuum: false
 
 - type: entity
-  parent: BaseWeaponBallisticTurret
+  parent: BaseWeaponBallisticTurret3D # wwdp edit
   id: WeaponTurretNanoTrasen
   suffix: NanoTrasen
   components:
@@ -71,7 +71,7 @@
     - NanoTrasen
 
 - type: entity
-  parent: BaseWeaponBallisticTurret
+  parent: BaseWeaponBallisticTurret3D # wwdp edit
   id: WeaponTurretHostile
   suffix: Hostile
   components:

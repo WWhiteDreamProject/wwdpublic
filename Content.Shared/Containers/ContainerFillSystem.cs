@@ -1,5 +1,7 @@
 using System.Numerics;
 using Content.Shared.EntityTable;
+using Content.Shared.Storage;
+using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 
@@ -10,6 +12,7 @@ public sealed class ContainerFillSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly EntityTableSystem _entityTable = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedStorageSystem _storage = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -70,12 +73,16 @@ public sealed class ContainerFillSystem : EntitySystem
             foreach (var proto in spawns)
             {
                 var spawn = Spawn(proto, coords);
-                if (!_containerSystem.Insert(spawn, container, containerXform: xform))
-                {
-                    Log.Error($"Entity {ToPrettyString(ent)} with a {nameof(EntityTableContainerFillComponent)} failed to insert an entity: {ToPrettyString(spawn)}.");
-                    _transform.AttachToGridOrMap(spawn);
-                    break;
-                }
+                // WD EDIT START
+                if (TryComp<StorageComponent>(ent, out var storage)
+                    && _storage.Insert(ent, spawn, out _, out _, storageComp: storage, playSound: false)
+                    || _containerSystem.Insert(spawn, container, containerXform: xform))
+                    continue;
+                // WD EDIT END
+
+                Log.Error($"Entity {ToPrettyString(ent)} with a {nameof(EntityTableContainerFillComponent)} failed to insert an entity: {ToPrettyString(spawn)}.");
+                _transform.AttachToGridOrMap(spawn);
+                break;
             }
         }
     }

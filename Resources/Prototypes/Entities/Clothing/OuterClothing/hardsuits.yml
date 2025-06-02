@@ -185,7 +185,7 @@
       coefficients:
         Blunt: 0.7
         Slash: 0.7
-        Piercing: 0.5
+        Piercing: 0.7 #WWDP edit wtf going on here?
         Radiation: 0.3
         Caustic: 0.7
   - type: ClothingSpeedModifier # White Dream: Make almost all hardsuits slow a bit less
@@ -309,6 +309,11 @@
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/brigmedic.rsi
   - type: Clothing
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-glow
+        shader: unshaded
     sprite: Clothing/OuterClothing/Hardsuits/brigmedic.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.3
@@ -611,11 +616,11 @@
   description: A heavily armored hardsuit designed for work in special operations. Property of Gorlex Marauders.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
+    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi # WD EDIT - WD nuke sprite
   - type: Item
     size: Huge
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
+    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi # WD EDIT - WD nuke sprite
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -653,9 +658,14 @@
   description: A heavily armored and agile advanced hardsuit specifically designed for field medic operations.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_agent.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_agent.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-glow
+        shader: unshaded
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieMedic
   - type: Tag
@@ -692,9 +702,9 @@
   description: An elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Gorlex Marauders.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
+    sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi # WD EDIT - WD nuke sprite
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
+    sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi # WD EDIT - WD nuke sprite
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -702,17 +712,17 @@
     coefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.2
-  - type: FireProtection
-    reduction: 1 # perfect protection like atmos firesuit for pyro tf2 ops
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.2
+        #WWDP edit start
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.4
         Radiation: 0.01
         Caustic: 0.5
+        #WWDP edit end
   - type: Item
     size: Huge
   - type: ClothingSpeedModifier
@@ -732,9 +742,9 @@
   description: A bulked up version of the blood-red hardsuit, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
+    sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi # WD EDIT - WD nuke sprite
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
+    sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi # WD EDIT - WD nuke sprite
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -768,9 +778,9 @@
   description: A suit made by the cutting edge R&D department at cybersun to be hyper resilient.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi
+    sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi # WD EDIT - WD nuke sprite
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi
+    sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi # WD EDIT - WD nuke sprite
   - type: PressureProtection
     highPressureMultiplier: 0.2
     lowPressureMultiplier: 1000
@@ -944,9 +954,53 @@
     coefficient: 0.75 # 25%
 
 #CENTCOMM / ERT HARDSUITS
+
+# WWDP EDIT START - ERT FIX
+
+#ERT Security Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBaseMedium
+  id: ClothingOuterHardsuitERTSecurity
+  name: ERT security's hardsuit
+  description: A protective hardsuit worn by the security officers of an emergency response team.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.4
+        Heat: 0.3
+        Cold: 0.3
+        Shock: 0.3
+        Radiation: 0.3
+        Caustic: 0.3
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: StaminaDamageResistance
+    coefficient: 0.5
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTSecurity
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+# WWDP EDIT END
+
 #ERT Leader Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitSyndieCommander
+  parent: ClothingOuterHardsuitERTSecurity # WWDP EDIT
   id: ClothingOuterHardsuitERTLeader
   name: ERT leader's hardsuit
   description: A protective hardsuit worn by the leader of an emergency response team.
@@ -960,7 +1014,7 @@
 
 #ERT Chaplain Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitJuggernaut
+  parent: ClothingOuterHardsuitERTSecurity # WWDP EDIT
   id: ClothingOuterHardsuitERTChaplain
   name: ERT chaplain's hardsuit
   description: A protective hardsuit worn by the chaplains of an Emergency Response Team.
@@ -974,7 +1028,7 @@
 
 #ERT Engineer Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitCBURN
+  parent: ClothingOuterHardsuitERTSecurity  # WWDP EDIT
   id: ClothingOuterHardsuitERTEngineer
   name: ERT engineer's hardsuit
   description: A protective hardsuit worn by the engineers of an emergency response team.
@@ -985,16 +1039,15 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
-  - type: StaminaDamageResistance
-    coefficient: 0.5 # 50%
   - type: TemperatureProtection
     coefficient: 0.001
   - type: FireProtection
     reduction: 1
+    #WWDP edit delete StaminaDamageResistance
 
 #ERT Medic Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitSyndieMedic
+  parent: ClothingOuterHardsuitERTSecurity  # WWDP edit
   id: ClothingOuterHardsuitERTMedical
   name: ERT medic's hardsuit
   description: A protective hardsuit worn by the medics of an emergency response team.
@@ -1006,27 +1059,9 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTMedical
 
-#ERT Security Hardsuit
-- type: entity
-  parent: ClothingOuterHardsuitSyndie
-  id: ClothingOuterHardsuitERTSecurity
-  name: ERT security's hardsuit
-  description: A protective hardsuit worn by the security officers of an emergency response team.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitERTSecurity
-  - type: Tag
-    tags:
-    - Hardsuit
-    - WhitelistChameleon
-
 #ERT Janitor Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitCBURN
+  parent: ClothingOuterHardsuitERTSecurity  # WWDP edit
   id: ClothingOuterHardsuitERTJanitor
   name: ERT janitor's hardsuit
   description: A protective hardsuit worn by the janitors of an emergency response team.
@@ -1037,8 +1072,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
-  - type: StaminaDamageResistance
-    coefficient: 0.5 # 50%
+    #WWDP edit delete StaminaDamageResistance
 
 #Deathsquad
 - type: entity
