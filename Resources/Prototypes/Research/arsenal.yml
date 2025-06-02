@@ -20,7 +20,6 @@
   - WeaponEnergyGun
   - WeaponEnergyGunMini
   - WeaponLaserSvalinn
-  - BasicRegulatorLamp # WWDP EDIT
   - WeaponEnergyGunPistol
   - WeaponDisablerSMG
   - Truncheon
@@ -196,7 +195,6 @@
   # - WeaponPistolCobra # WWDP no syndicate guns
   - Terminus
   - WeaponPistolUniversal
-  - AdvancedRegulatorLamp #WWDP edit
   technologyPrerequisites:
   - BasicWeapons
 
