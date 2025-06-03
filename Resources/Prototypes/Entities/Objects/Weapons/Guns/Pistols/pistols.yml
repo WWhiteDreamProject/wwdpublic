@@ -331,6 +331,7 @@
     angleIncrease: 8
     angleDecay: 9
     fireRate: 4
+    damageModifier: 0.74 # WWDP; 35 -> 25.9 dmg
     availableModes:
     - SemiAuto
     soundGunshot:
