@@ -73,8 +73,8 @@
     impactEffect: BulletImpactEffectLaserGreen
     damage:
       types:
-        Heat: 15 # WWDP
-        Radiation: 15 # WWDP
+        Heat: 15
+        Radiation: 15
   - type: PointLight
     color: green
 

@@ -1189,7 +1189,7 @@
     impactEffect: BulletImpactEffectLaserRed # WWDP
     damage:
       types:
-        Heat: 20 # WWDP less powerful laser
+        Heat: 20 # WWDP
     soundHit:
       collection: MeatLaserImpact
   - type: PointLight # WWDP
