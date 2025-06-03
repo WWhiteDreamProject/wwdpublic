@@ -2950,3 +2950,19 @@ Entries:
   id: 319
   time: '2025-06-01T09:42:19.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/531
+- author: Aposto2
+  changes:
+    - type: Tweak
+      message: >-
+        Изменение шансов выпадения лута в рыбалке. Теперь мусор - 35%, обычная
+        рыба - 45%, редкая рыба - 15%, легендарная рыба - 5%
+  id: 320
+  time: '2025-06-02T11:27:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/533
+- author: Kutos
+  changes:
+    - type: Add
+      message: Добавлена возможность настроить маптул немного под себя
+  id: 321
+  time: '2025-06-03T14:56:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/534
