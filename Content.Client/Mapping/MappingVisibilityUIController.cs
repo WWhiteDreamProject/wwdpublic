@@ -113,6 +113,7 @@ public sealed class MappingVisibilityUIController : UIController
         LayoutContainer.SetAnchorPreset(_window, LayoutContainer.LayoutPreset.CenterTop);
     }
 
+    // WD EDIT START
     private void OnToggleEntitiesPanelPressed(BaseButton.ButtonEventArgs args)
     {
         _entitiesVisible = args.Button.Pressed;
@@ -143,7 +144,6 @@ public sealed class MappingVisibilityUIController : UIController
 
         _mappingScreen.DecalsPanel.Visible = args.Button.Pressed;
         _mappingScreen.DecalSettings.Visible = args.Button.Pressed;
-        // WD EDIT START
         UpdatePanelContainerVisibility();
     }
 
