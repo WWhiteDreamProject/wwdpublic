@@ -2966,3 +2966,14 @@ Entries:
   id: 321
   time: '2025-06-03T14:56:05.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/534
+- author: vanx
+  changes:
+    - type: Tweak
+      message: 'Урон пистолета N1984: 35 -> 26.'
+    - type: Tweak
+      message: Лазерные пистолеты теперь дольше не перегреваются.
+    - type: Tweak
+      message: 'Повышен урон лазеров, было: 12-17-28, стало: 20-25-30.'
+  id: 322
+  time: '2025-06-03T17:24:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/539
