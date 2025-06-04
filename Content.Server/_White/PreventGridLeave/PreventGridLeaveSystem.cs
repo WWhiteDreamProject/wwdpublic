@@ -39,7 +39,7 @@ public sealed class PreventGridLeaveSystem : EntitySystem
             if (component.GridId == null || _transform.GetGrid(uid) == component.GridId)
             {
                 component.IsTimerOn = false; // Turn off the timer if on the correct grid
-                return;
+                continue;
             }
 
             if (!component.IsTimerOn)
