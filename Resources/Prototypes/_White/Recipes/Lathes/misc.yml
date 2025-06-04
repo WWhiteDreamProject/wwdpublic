@@ -4,3 +4,11 @@
   completetime: 2
   materials:
     Plastic: 200
+
+- type: latheRecipe
+  id: Matchbox
+  result: Matchbox
+  completetime: 2
+  materials:
+    Plasma: 100
+    Wood: 100
