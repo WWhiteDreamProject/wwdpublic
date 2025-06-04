@@ -16,31 +16,47 @@ public abstract partial class SharedGunSystem
 
         using (args.PushGroup(nameof(GunComponent)))
         {
-            if (component.SelectedMode == component.AvailableModes) // WWDP IF THERE IS ONLY ONE MODE DONT WRITE IT
-                return;
+            if (component.SelectedMode != component.AvailableModes) // WWDP cleanup
+            {
+                args.PushMarkup(Loc.GetString(
+                        "gun-selected-mode-examine",
+                        ("color", ModeExamineColor),
+                        ("mode", GetLocSelector(component.SelectedMode))));
+            }
 
-            args.PushMarkup(Loc.GetString("gun-selected-mode-examine", ("color", ModeExamineColor),
-                ("mode", GetLocSelector(component.SelectedMode))));
             /* WWDP no firerate on examine
              args.PushMarkup(Loc.GetString("gun-fire-rate-examine", ("color", FireRateExamineColor),
                 ("fireRate", $"{(int) (component.FireRate * 60)}")));
             */
 
-            if (component.DamageModifier != 1f)
-                args.PushMarkup(Loc.GetString("gun-damage-modifier-examine", ("color", ModeExamineColor), // WD EDIT
-                    ("damage", $"{component.DamageModifier.ToString("#.##")}")));
+            if (component.DamageModifier != 1f) // WWDP cleanup
+            {
+                var modifier = component.DamageModifier.ToString("#.##");
 
-            if (!component.AvailableModes.HasFlag(SelectiveFire.Burst))
-                return;
+                if (component.DamageModifier < 1f)
+                    modifier = "0" + modifier;
 
-            /* WWDP no firerate on examine
-            if (component.FireRate != component.BurstFireRate)
-                args.PushMarkup(Loc.GetString("gun-burst-fire-rate-examine", ("color", FireRateExamineColor),
-                    ("fireRate", $"{(int) (component.BurstFireRate * 60)}")));
-            */
+                args.PushMarkup(
+                    Loc.GetString(
+                        "gun-damage-modifier-examine",
+                        ("color", ModeExamineColor), // WD EDIT
+                        ("damage", modifier)));
+            }
 
-            args.PushMarkup(Loc.GetString("gun-burst-fire-burst-count", ("color", ModeExamineColor),
-                ("burstcount", $"{component.ShotsPerBurst}")));
+            if (component.AvailableModes.HasFlag(SelectiveFire.Burst)) // WWDP cleanup
+            {
+                /* WWDP no firerate on examine
+                if (component.FireRate != component.BurstFireRate)
+                    args.PushMarkup(Loc.GetString("gun-burst-fire-rate-examine", ("color", FireRateExamineColor),
+                        ("fireRate", $"{(int) (component.BurstFireRate * 60)}")));
+                */
+
+                args.PushMarkup(
+                    Loc.GetString(
+                        "gun-burst-fire-burst-count",
+                        ("color", ModeExamineColor),
+                        ("burstcount", $"{component.ShotsPerBurst}")));
+            }
         }
     }
 
