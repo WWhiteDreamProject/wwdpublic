@@ -1,6 +1,6 @@
 # Base
 - type: dungeonRoom
-  id: RoomsWonderboxMaintBase1_1
+  id: RoomsWonderboxMaintBase1_1a
   size: 50,40
   atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
   offset: 2,2
@@ -8,7 +8,7 @@
   tags: [ RoomsWonderboxMaintBase1 ]
 
 - type: dungeonRoom
-  id: RoomsWonderboxMaintBase2_2
+  id: RoomsWonderboxMaintBase1_1b
   size: 40,50
   atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
   offset: 43,43
@@ -16,69 +16,165 @@
   tags: [ RoomsWonderboxMaintBase1 ]
 
 - type: dungeonRoom
-  id: RoomsWonderboxMaintBase3_1
+  id: RoomsWonderboxMaintBase1_1c
   size: 40,60
   atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
   offset: 2,94
   ignoreTile: FloorShuttleOrange
   tags: [ RoomsWonderboxMaintBase1 ]
-
-# Solar
+# Engine
 - type: dungeonRoom
-  id: RoomsWonderboxSolar_1
+  id: RoomsWonderboxEngineBase1_1a
+  size: 30,47
+  atlas: /Maps/_White/Atlases/WonderBoxEngine.yml
+  offset: 1,1
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxEngineBase1 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxEngineBase1_1b
+  size: 30,47
+  atlas: /Maps/_White/Atlases/WonderBoxEngine.yml
+  offset: 34,1
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxEngineBase1 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxEngineBase1_1c
+  size: 30,47
+  atlas: /Maps/_White/Atlases/WonderBoxEngine.yml
+  offset: 100,1
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxEngineBase1 ]
+
+#- type: dungeonRoom
+#  id: RoomsWonderboxEngineBase1_1d
+#  size: 30,47
+#  atlas: /Maps/_White/Atlases/WonderBoxEngine.yml
+#  offset: 133,1
+#  ignoreTile: FloorShuttleOrange
+#  tags: [ RoomsWonderboxEngineBase1 ]
+# Solar
+#N
+- type: dungeonRoom
+  id: RoomsWonderboxSolar_N_1
   size: 17,19
   atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
   offset: 2,155
   ignoreTile: FloorShuttleOrange
-  tags: [ RoomsWonderboxSolar ]
+  tags: [ RoomsWonderboxSolar1 ]
 
 - type: dungeonRoom
-  id: RoomsWonderboxSolar_2
+  id: RoomsWonderboxSolar_N_2
   size: 17,19
   atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
   offset: 20,155
   ignoreTile: FloorShuttleOrange
-  tags: [ RoomsWonderboxSolar ]
+  tags: [ RoomsWonderboxSolar1 ]
 
 - type: dungeonRoom
-  id: RoomsWonderboxSolar_3
+  id: RoomsWonderboxSolar_N_3
   size: 17,19
   atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
   offset: 38,155
   ignoreTile: FloorShuttleOrange
-  tags: [ RoomsWonderboxSolar ]
+  tags: [ RoomsWonderboxSolar1 ]
 
 - type: dungeonRoom
-  id: RoomsWonderboxSolar_4
+  id: RoomsWonderboxSolar_N_4
   size: 17,19
   atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
   offset: 56,155
   ignoreTile: FloorShuttleOrange
-  tags: [ RoomsWonderboxSolar ]
+  tags: [ RoomsWonderboxSolar1 ]
 
 - type: dungeonRoom
-  id: RoomsWonderboxSolar_5
+  id: RoomsWonderboxSolar_N_5
   size: 17,19
   atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
   offset: 74,155
   ignoreTile: FloorShuttleOrange
-  tags: [ RoomsWonderboxSolar ]
+  tags: [ RoomsWonderboxSolar1 ]
 
 - type: dungeonRoom
-  id: RoomsWonderboxSolar_6
+  id: RoomsWonderboxSolar_N_6
   size: 17,19
   atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
   offset: 92,155
   ignoreTile: FloorShuttleOrange
-  tags: [ RoomsWonderboxSolar ]
+  tags: [ RoomsWonderboxSolar1 ]
 
 - type: dungeonRoom
-  id: RoomsWonderboxSolar_7
+  id: RoomsWonderboxSolar_N_7
   size: 17,19
   atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
   offset: 110,155
   ignoreTile: FloorShuttleOrange
-  tags: [ RoomsWonderboxSolar ]
+  tags: [ RoomsWonderboxSolar1 ]
+#S
+- type: dungeonRoom
+  id: RoomsWonderboxSolar_S_1
+  size: 17,19
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: -36,173
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxSolar2 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxSolar_S_2
+  size: 17,19
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: -54,173
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxSolar2 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxSolar_S_3
+  size: 17,19
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: -72,173
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxSolar2 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxSolar_S_4
+  size: 17,19
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: -90,173
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxSolar2 ]
+#W
+- type: dungeonRoom
+  id: RoomsWonderboxSolar_W_1
+  size: 19,17
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: -38,155
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxSolar1 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxSolar_W_2
+  size: 19,17
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: -58,155
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxSolar1 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxSolar_W_3
+  size: 19,17
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: -78,155
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxSolar1 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxSolar_W_4
+  size: 19,17
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: -98,155
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxSolar1 ]
 
 # Rooms
 # 10x10
@@ -361,6 +457,22 @@
   offset: 20,224
   ignoreTile: FloorShuttleOrange
   tags: [ RoomsWonderboxMaintRoom1 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxMaintRoom1_7x8_1d
+  size: 8,7
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: 29,224
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxMaintRoom1 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxMaintRoom1_7x8_1e
+  size: 8,7
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: 38,224
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxMaintRoom1 ]
 #10x6
 - type: dungeonRoom
   id: RoomsWonderboxMaintRoom1_10x6_1a
@@ -484,6 +596,30 @@
   offset: 18,279
   ignoreTile: FloorShuttleOrange
   tags: [ RoomsWonderboxMaintRoom2 ]
+#3
+- type: dungeonRoom
+  id: RoomsWonderboxMaintRoom3_7x6_1a
+  size: 7,6
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: 2,357
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxMaintRoom3 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxMaintRoom3_7x6_1b
+  size: 7,6
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: 10,357
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxMaintRoom3 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxMaintRoom3_7x6_1c
+  size: 7,6
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: 18,357
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxMaintRoom3 ]
 #6x8
 - type: dungeonRoom
   id: RoomsWonderboxMaintRoom1_6x8_1a
@@ -509,6 +645,7 @@
   ignoreTile: FloorShuttleOrange
   tags: [ RoomsWonderboxMaintRoom1 ]
 #5x5
+#1
 - type: dungeonRoom
   id: RoomsWonderboxMaintRoom1_5x5_1a
   size: 5,5
@@ -564,6 +701,54 @@
   offset: 38,295
   ignoreTile: FloorShuttleOrange
   tags: [ RoomsWonderboxMaintRoom1 ]
+  #2
+- type: dungeonRoom
+  id: RoomsWonderboxMaintRoom2_5x5_1a
+  size: 5,5
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: 2,351
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxMaintRoom2 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxMaintRoom2_5x5_1b
+  size: 5,5
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: 8,351
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxMaintRoom2 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxMaintRoom2_5x5_1c
+  size: 5,5
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: 14,351
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxMaintRoom2 ]
+  #3
+- type: dungeonRoom
+  id: RoomsWonderboxMaintRoom3_5x5_1a
+  size: 5,5
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: 2,372
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxMaintRoom3 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxMaintRoom3_5x5_1b
+  size: 5,5
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: 8,372
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxMaintRoom3 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxMaintRoom3_5x5_1c
+  size: 5,5
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: 14,372
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxMaintRoom3 ]
 #4x5
 - type: dungeonRoom
   id: RoomsWonderboxMaintRoom1_4x5_1a
@@ -682,5 +867,29 @@
   size: 6,5
   atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
   offset: 16,337
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxMaintRoom1 ]
+#9x7
+- type: dungeonRoom
+  id: RoomsWonderboxMaintRoom1_9x7_1a
+  size: 9,7
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: 2,364
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxMaintRoom1 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxMaintRoom1_9x7_1b
+  size: 9,7
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: 12,364
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxMaintRoom1 ]
+
+- type: dungeonRoom
+  id: RoomsWonderboxMaintRoom1_9x7_1c
+  size: 9,7
+  atlas: /Maps/_White/Atlases/WonderBoxMaint.yml
+  offset: 22,364
   ignoreTile: FloorShuttleOrange
   tags: [ RoomsWonderboxMaintRoom1 ]

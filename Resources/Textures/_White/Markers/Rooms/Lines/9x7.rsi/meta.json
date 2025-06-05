@@ -3,18 +3,12 @@
   "license": "CC-BY-SA-4.0",
   "copyright": "Made by Gersoon (discord gersoon458)",
   "size": {
-    "x": 80,
-    "y": 80
+    "x": 144,
+    "y": 112
   },
   "states": [
     {
       "name": "maint_wonder_1"
-    },
-    {
-      "name": "maint_wonder_2"
-    },
-    {
-      "name": "maint_wonder_3"
     }
   ]
 }

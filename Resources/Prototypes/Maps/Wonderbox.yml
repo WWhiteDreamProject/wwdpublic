@@ -1,14 +1,14 @@
 - type: gameMap
-  id: WhiteBox
-  mapName: 'Box Station'
-  mapPath: /Maps/_White/WhiteBox.yml
+  id: WonderBox
+  mapName: 'WonderBox Station'
+  mapPath: /Maps/_White/WonderBox.yml
   minPlayers: 40
   stations:
     WonderBoxStation:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Box Station {1}'
+          mapNameTemplate: '{0} WonderBox Station {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'TG'
@@ -61,4 +61,4 @@
             Detective: [ 1, 1 ]
             ResearchAssistant: [ 4, 4 ]
             Paramedic: [ 2, 2 ]
-            Brigmedic: [ 1, 1 ]
+
