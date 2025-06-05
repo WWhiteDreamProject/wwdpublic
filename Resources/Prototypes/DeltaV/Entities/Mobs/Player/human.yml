@@ -12,4 +12,4 @@
     - type: AutoImplant
       implants:
       - DeathAcidifierImplant
-    - type: PreventGridLeave
+    - type: PreventGridLeave # WWDP
