@@ -5,7 +5,7 @@
   description: You're going to sharpen kitchen knives with it, right?
   components:
   - type: Sprite
-    sprite: _White\Objects\Devices\whetstone.rsi
+    sprite: _White/Objects/Devices/whetstone.rsi
     layers:
     - state: icon
       map: [ "enum.GenericCultVisuals.Layer" ]
