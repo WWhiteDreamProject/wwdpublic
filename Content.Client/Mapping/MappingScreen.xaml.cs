@@ -65,7 +65,7 @@ public sealed partial class MappingScreen : InGameScreen
 
         DecalColorPicker.OnColorChanged += OnDecalColorPicked;
         DecalPickerOpen.OnPressed += OnDecalPickerOpenPressed;
-        DecalHexInput.OnTextChanged += OnDecalHexChanged;
+        DecalHexColorInput.OnTextEntered += OnDecalHexColorInput; // WD EDIT
         _rotationSpinBox.OnValueChanged += args =>
         {
             _decalRotation = args.Value;
@@ -137,66 +137,30 @@ public sealed partial class MappingScreen : InGameScreen
     {
         DecalColor = color;
         DecalColorPicker.Color = color;
-        DecalHexInput.Text = $"#{color.RByte:X2}{color.GByte:X2}{color.BByte:X2}{color.AByte:X2}";
-        UpdateHexPreview(color);
+        // WD EDIT START
+        DecalHexColorInput.Text = color.ToHex();
+        UpdateHexColorPreview(color);
+        // WD EDIT END
         UpdateDecal();
         RefreshDecalList();
     }
 
-    private void OnDecalHexChanged(LineEdit.LineEditEventArgs args)
+    // WD EDIT START
+    private void OnDecalHexColorInput(LineEdit.LineEditEventArgs args)
     {
-        var text = args.Text;
-        if (string.IsNullOrWhiteSpace(text))
+        var color = Color.TryFromHex(args.Text);
+        if (!color.HasValue)
             return;
 
-        text = text.TrimStart('#');
-        if (text.Length != 6 && text.Length != 8)
-            return;
-
-        if (text.Length == 6)
-            text += "FF";
-
-        bool TryParseHexByte(string inputText, int startIndex, out byte result)
-        {
-            result = 0;
-            if (startIndex + 1 >= inputText.Length)
-                return false;
-
-            for (int i = 0; i < 2; i++)
-            {
-                result = (byte)(result * 16);
-                var c = char.ToUpper(inputText[startIndex + i]);
-                if (c >= '0' && c <= '9')
-                    result += (byte)(c - '0');
-                else if (c >= 'A' && c <= 'F')
-                    result += (byte)(c - 'A' + 10);
-                else
-                    return false;
-            }
-            return true;
-        }
-
-        if (TryParseHexByte(text, 0, out var r) &&
-            TryParseHexByte(text, 2, out var g) &&
-            TryParseHexByte(text, 4, out var b) &&
-            TryParseHexByte(text, 6, out var a))
-        {
-            var color = new Color(r, g, b, a);
-            DecalColor = color;
-            DecalColorPicker.Color = color;
-            UpdateHexPreview(color);
-            UpdateDecal();
-            RefreshDecalList();
-        }
+        OnDecalColorPicked(color.Value);
     }
 
-    private void UpdateHexPreview(Color color)
+    private void UpdateHexColorPreview(Color color)
     {
-        if (DecalHexPreview.PanelOverride is StyleBoxFlat styleBox)
-        {
+        if (DecalHexColorPreview.PanelOverride is StyleBoxFlat styleBox)
             styleBox.BackgroundColor = color;
-        }
     }
+    // WD EDIT END
 
     private void OnDecalPickerOpenPressed(ButtonEventArgs obj)
     {
