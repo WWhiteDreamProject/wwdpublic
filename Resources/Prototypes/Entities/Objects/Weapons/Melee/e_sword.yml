@@ -39,10 +39,8 @@
         variation: 0.125
     activatedDamage:
       types:
-        #WWDP edit start
-        Slash: 20
-        Heat: 20
-        #WWDP edit end
+        Slash: 15
+        Heat: 15
         Structural: 20
     clickPartDamageMultiplier: 1.5 #WWDP edit
   - type: ItemToggleDamageOtherOnHit
@@ -128,7 +126,6 @@
     sprite: DeltaV/Objects/Weapons/Melee/e_sword.rsi # Delta-V
   - type: Reflect # WD EDIT
     reflectProb: .5
-    #minReflectProb: 0.25 #WWDP edit - for what?
     spread: 75
     reflects:
     - Energy #DeltaV:
@@ -322,13 +319,10 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        #WWDP edit start
-        Slash: 20
-        Heat: 20
-        #WWDP edit end
+        Slash: 15
+        Heat: 15
   - type: Reflect # WD EDIT
     reflectProb: 1
-    #minReflectProb: 0.65 #WWDP edit - for what?
     spread: 75
     reflects:
     - Energy
