@@ -14,6 +14,8 @@
       - NanoTrasen
       - ZavodskoiInterstellar
       - HephaestusIndustries
+    - !type:CharacterOverallTimeRequirement # WWDP
+      min: 7200
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
