@@ -2984,3 +2984,10 @@ Entries:
   id: 323
   time: '2025-06-05T16:18:18.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/545
+- author: vanx
+  changes:
+    - type: Tweak
+      message: 'Урон пистолета Universal: 35 -> 26.'
+  id: 324
+  time: '2025-06-05T16:23:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/547
