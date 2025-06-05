@@ -2977,3 +2977,10 @@ Entries:
   id: 322
   time: '2025-06-03T17:24:04.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/539
+- author: vanx
+  changes:
+    - type: Fix
+      message: Силовик снова стреляет в полуавтоматическом режиме
+  id: 323
+  time: '2025-06-05T16:18:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/545
