@@ -16,7 +16,8 @@ public abstract partial class SharedGunSystem
 
         using (args.PushGroup(nameof(GunComponent)))
         {
-            if (component.SelectedMode != component.AvailableModes) // WWDP cleanup
+            // WWDP edit start
+            if (component.SelectedMode != component.AvailableModes)
             {
                 args.PushMarkup(Loc.GetString(
                         "gun-selected-mode-examine",
@@ -24,12 +25,7 @@ public abstract partial class SharedGunSystem
                         ("mode", GetLocSelector(component.SelectedMode))));
             }
 
-            /* WWDP no firerate on examine
-             args.PushMarkup(Loc.GetString("gun-fire-rate-examine", ("color", FireRateExamineColor),
-                ("fireRate", $"{(int) (component.FireRate * 60)}")));
-            */
-
-            if (component.DamageModifier != 1f) // WWDP cleanup
+            if (component.DamageModifier != 1f)
             {
                 var modifier = component.DamageModifier.ToString("#.##");
 
@@ -39,24 +35,19 @@ public abstract partial class SharedGunSystem
                 args.PushMarkup(
                     Loc.GetString(
                         "gun-damage-modifier-examine",
-                        ("color", ModeExamineColor), // WD EDIT
+                        ("color", ModeExamineColor),
                         ("damage", modifier)));
             }
 
-            if (component.AvailableModes.HasFlag(SelectiveFire.Burst)) // WWDP cleanup
+            if (component.AvailableModes.HasFlag(SelectiveFire.Burst))
             {
-                /* WWDP no firerate on examine
-                if (component.FireRate != component.BurstFireRate)
-                    args.PushMarkup(Loc.GetString("gun-burst-fire-rate-examine", ("color", FireRateExamineColor),
-                        ("fireRate", $"{(int) (component.BurstFireRate * 60)}")));
-                */
-
                 args.PushMarkup(
                     Loc.GetString(
                         "gun-burst-fire-burst-count",
                         ("color", ModeExamineColor),
                         ("burstcount", $"{component.ShotsPerBurst}")));
             }
+            // WWDP edit end
         }
     }
 
