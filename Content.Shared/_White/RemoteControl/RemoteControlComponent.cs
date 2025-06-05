@@ -13,12 +13,6 @@ namespace Content.Shared._White.RemoteControl;
 [RegisterComponent, AutoGenerateComponentState]
 public sealed partial class RemoteControllableComponent : Component
 {
-    //[DataField, AutoNetworkedField]
-    //public bool ControllableViaVerb = false;
-
-    [DataField, AutoNetworkedField]
-    public bool ControllableViaConnection = true;
-
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public EntityUid? ControllingMind;
 
@@ -69,16 +63,7 @@ public sealed partial class RemoteControlConsoleComponent : Component
     [DataField]
     public EntProtoId SwitchToNextAction = "RemoteControlConsoleSwitchToNextAction";
     [DataField]
-    public EntProtoId SwitchToPreviousAction = "RemoteControlConsoleSwitchToPreviousAction";
-
-    [DataField]
     public EntityUid? SwitchToNextActionEntity;
-    [DataField]
-    public EntityUid? SwitchToPreviousActionEntity;
-
-
-    //[ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    //public EntityUid? ControlledEntity;
 
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public EntityUid? ControllingEntity;

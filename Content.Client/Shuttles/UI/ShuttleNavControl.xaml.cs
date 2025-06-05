@@ -1,5 +1,3 @@
-#define EXCEPTION_TOLERANCE // go fuck yourself
-
 using System;
 using System.Numerics;
 using Content.Client.Station; // Frontier
@@ -273,7 +271,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             {
                 // This entire fucking draw method was written by a schizophrenic, i hate it here
                 var gridCenterWorld = Vector2.Transform(gridBody.LocalCenter, gridMatrix);
-
+                // https://math.stackexchange.com/a/1346509
                 var u1 = gridBody.LinearVelocity.Length();
                 var u2 = gun.ProjectileSpeedModified;
                 float dirToGrid = (float)Angle.FromWorldVec(gridCenterWorld - ourWorldPos).Theta;

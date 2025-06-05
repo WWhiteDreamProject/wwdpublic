@@ -1,3 +1,4 @@
+using Content.Server.Chat.Systems;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Power.EntitySystems;
@@ -10,11 +11,15 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Power;
 using Content.Shared.Whitelist;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using static Content.Server.Chat.Systems.ChatSystem;
 
 namespace Content.Server._White.RemoteControl;
 
@@ -28,6 +33,7 @@ public sealed class RemoteControlSystem : SharedRemoteControlSystem
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly SharedDeviceLinkSystem _link = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
 
     public override void Initialize()
@@ -36,6 +42,9 @@ public sealed class RemoteControlSystem : SharedRemoteControlSystem
         SubscribeLocalEvent<RemoteControllableComponent, GhostAttemptHandleEvent>(OnGhostAttempt);
         SubscribeLocalEvent<RemoteControllableComponent, MapInitEvent>(OnCompMapInit);
         SubscribeLocalEvent<RemoteControllableComponent, RemoteControlExitActionEvent>(OnEndRC);
+        SubscribeLocalEvent<RemoteControllableComponent, SpeechSourceOverrideEvent>(OnSpeechSourceOverride);
+        SubscribeLocalEvent<RemoteControllableComponent, MobStateChangedEvent>(OnControllableMobStateChanged);
+        SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnExpandICChatRecipients);
     }
 
     public override void Update(float frameTime)
@@ -62,12 +71,44 @@ public sealed class RemoteControlSystem : SharedRemoteControlSystem
         }
     }
 
+    private void OnControllableMobStateChanged(EntityUid uid, RemoteControllableComponent comp, MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Alive && comp.ControllingEntity is EntityUid controller)
+            EndRemoteControl(controller);
+    }
+
     private void OnGhostAttempt(EntityUid uid, RemoteControllableComponent comp, GhostAttemptHandleEvent args)
     {
         if (comp.ControllingMind is not null)
         {
             args.Handled = true;
             args.Result = false;
+        }
+    }
+
+    private void OnSpeechSourceOverride(EntityUid uid, RemoteControllableComponent comp, SpeechSourceOverrideEvent args)
+    {
+        if (comp.ControllingEntity is EntityUid controller)
+            args.Override = controller;
+    }
+
+    private void OnExpandICChatRecipients(ExpandICChatRecipientsEvent args)
+    {
+        var query = EntityQueryEnumerator<RemoteControllingComponent, TransformComponent>();
+        var sourceXform = Transform(args.Source);
+        while (query.MoveNext(out var uid, out var comp, out var xform))
+        {
+            var range = (xform.MapID != sourceXform.MapID)
+            ? -1
+            : (_transform.GetWorldPosition(sourceXform) - _transform.GetWorldPosition(xform)).Length();
+
+            if (range < 0 || range > args.VoiceRange)
+                continue;
+
+            if (TryComp<ActorComponent>(comp.ControlledEntity, out var actor))
+            {
+                args.Recipients.TryAdd(actor.PlayerSession, new ICChatRecipientData(range, false, false));
+            }
         }
     }
 
@@ -195,6 +236,14 @@ public sealed class RemoteControlConsoleSystem : EntitySystem
     {
         if (args.Port == comp.ConnectionPortId)
             comp.LinkedEntities.Remove(args.RemovedPortUid);
+
+        // the device link got severed while the turret was in use; either relink to another turret or kick the user out of the console.
+        if(comp.CurrentUser is EntityUid user && TryComp<RemoteControllingComponent>(user, out var controlling) && controlling.ControlledEntity == args.RemovedPortUid)
+        {
+            _rc.EndRemoteControl(user);
+            if (GetFirstValid(comp.LinkedEntities, comp.LastIndex) is EntityUid newTarget)
+                _rc.RemoteControl(user, newTarget, uid);
+        }
     }
 
     private void OnNextAction(EntityUid uid, RemoteControlConsoleComponent comp, RemoteControlConsoleSwitchNextActionEvent args)
