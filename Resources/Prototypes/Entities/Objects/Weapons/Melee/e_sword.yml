@@ -42,7 +42,6 @@
         Slash: 15
         Heat: 15
         Structural: 20
-    clickPartDamageMultiplier: 1.5 #WWDP edit
   - type: ItemToggleDamageOtherOnHit
     activatedStaminaCost: 6
   - type: ItemToggleEmbedPassiveDamage
@@ -59,6 +58,7 @@
     damage:
       types:
         Blunt: 2.5
+    clickPartDamageMultiplier: 1.5 #WWDP edit
   - type: DamageOtherOnHit
   - type: EmbeddableProjectile
     embedOnThrow: false
