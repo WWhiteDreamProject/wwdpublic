@@ -1,4 +1,5 @@
 using Content.Shared.DeviceLinking;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using System;
@@ -36,17 +37,7 @@ public sealed partial class RemoteControllableComponent : Component
 public sealed partial class RemoteControllingComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public List<EntityUid> InteractionTargets = new();
-
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public int CurrentTargetIndex;
-
-
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public EntityUid? InteractionTarget;
-
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public EntityUid? ControlledEntity;
+    public EntityUid ControlledEntity;
 
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public EntityUid? UsedInterface;
@@ -62,6 +53,12 @@ public sealed partial class RemoteControlConsoleComponent : Component
 
     [DataField]
     public List<EntityUid> LinkedEntities = new();
+
+    [DataField]
+    public EntityWhitelist? Whitelist;
+
+    [DataField]
+    public EntityWhitelist? Blacklist;
 
     [DataField]
     public int LastIndex;

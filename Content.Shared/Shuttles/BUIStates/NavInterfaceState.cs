@@ -26,18 +26,27 @@ public sealed class NavInterfaceState
     /// </summary>
     public InertiaDampeningMode DampeningMode;
 
+    // WWDP EDIT START
+    /// <summary>
+    /// Limits radar FOV.
+    /// </summary>
+    public float FieldOfView;
+    // WWDP EDIT END
+
     public NavInterfaceState(
         float maxRange,
         NetCoordinates? coordinates,
         Angle? angle,
         Dictionary<NetEntity, List<DockingPortState>> docks,
-        InertiaDampeningMode dampeningMode) // Frontier: add dampeningMode
+        InertiaDampeningMode dampeningMode, // Frontier: add dampeningMode
+        float visibilityConeAngle) // WWDP EDIT
     {
         MaxRange = maxRange;
         Coordinates = coordinates;
         Angle = angle;
         Docks = docks;
         DampeningMode = dampeningMode; // Frontier
+        FieldOfView = visibilityConeAngle; // WWDP EDIT
     }
 }
 

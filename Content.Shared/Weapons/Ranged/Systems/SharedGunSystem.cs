@@ -191,7 +191,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (ent != GetEntity(msg.Gun))
             return;
 
-        gun.ShootCoordinates = gun.ForceShootForward ? new EntityCoordinates(user.Value, new Vector2(0, -1)) : GetCoordinates(msg.Coordinates);
+        gun.ShootCoordinates = GetCoordinates(msg.Coordinates);
         gun.Target = GetEntity(msg.Target);
         AttemptShoot(user.Value, ent, gun);
     }
@@ -296,8 +296,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (gun.FireRateModified <= 0f ||
             !_actionBlockerSystem.CanAttack(user))
             return;
-
-        var toCoordinates = gun.ShootCoordinates;
+        var userXform = Transform(user); // WWDP EDIT
+        var toCoordinates = gun.ForceShootForward ? new EntityCoordinates(user, new Vector2(0, -1)) : gun.ShootCoordinates; // WWDP EDIT
 
         if (toCoordinates == null)
             return;
@@ -380,7 +380,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             return;
         }
 
-        var fromCoordinates = Transform(user).Coordinates;
+        var fromCoordinates = userXform.Coordinates; // WWDP EDIT
         // Remove ammo
         var ev = new TakeAmmoEvent(shots, new List<(EntityUid? Entity, IShootable Shootable)>(), fromCoordinates, user);
 

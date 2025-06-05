@@ -104,7 +104,10 @@ public class GunSpreadOverlay : Overlay
         var direction = (mousePos.Position - mapPos.Position);
 
         Vector2 from = mapPos.Position;
-        Vector2 to = mousePos.Position + direction;
+
+        if (gun.ForceShootForward)
+            direction = new Angle(_transform.GetWorldRotation(gunUid) - direction.ToWorldAngle()).RotateVec(direction);
+            
 
         DrawSpread(worldHandle, gun, from, direction, timeSinceLastFire, maxBonusSpread, bonusSpread, maxSpread, minSpread, currentAngle);
     }

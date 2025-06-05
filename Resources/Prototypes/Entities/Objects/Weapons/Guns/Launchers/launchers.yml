@@ -24,6 +24,7 @@
     bonusAngleIncreaseTurn: 0.75   # wwdp
     bonusAngleDecay: 35           # wwdp
     maxBonusAngle: 30             # wwdp
+    defaultDirection: 1, 0 # wwdp
   - type: MeleeWeapon
     attackRate: 1.5
     damage:
