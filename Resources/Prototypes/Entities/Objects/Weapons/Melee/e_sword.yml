@@ -58,7 +58,7 @@
     damage:
       types:
         Blunt: 2.5
-    clickPartDamageMultiplier: 1.5 #WWDP edit
+    clickPartDamageMultiplier: 1.75 #WWDP edit
   - type: DamageOtherOnHit
   - type: EmbeddableProjectile
     embedOnThrow: false
