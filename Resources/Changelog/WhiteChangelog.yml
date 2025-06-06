@@ -3012,3 +3012,16 @@ Entries:
   id: 327
   time: '2025-06-06T15:12:06.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/543
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Добавлен старый добрый Kettle
+    - type: Tweak
+      message: Офисным стульям оторвали колесики
+    - type: Fix
+      message: Мета теперь не будет откатываться при апстриме (В ТЕОРИИ)
+    - type: Remove
+      message: Вырезаны из пула Молекула и ДрайДок на переработку
+  id: 328
+  time: '2025-06-06T17:05:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/513
