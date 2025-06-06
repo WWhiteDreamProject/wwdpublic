@@ -2998,3 +2998,10 @@ Entries:
   id: 325
   time: '2025-06-06T15:09:59.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/538
+- author: 89Eblan
+  changes:
+    - type: Tweak
+      message: Есворд и деса чуть менее шутки
+  id: 326
+  time: '2025-06-06T15:10:49.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/542
