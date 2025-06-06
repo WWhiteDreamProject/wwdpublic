@@ -9,6 +9,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Prototypes;
+using Robust.Client.UserInterface;
 
 namespace Content.Client.Mapping;
 
@@ -20,6 +21,7 @@ public sealed class MappingVisibilityUIController : UIController
     [Dependency] private readonly ILightManager _lightManager = default!;
 
     private MappingVisibilityWindow? _window;
+    private MappingScreen? _mappingScreen; // WD EDIT
 
     [ValidatePrototypeId<TagPrototype>]
     private const string WallTag = "Wall";
@@ -29,6 +31,12 @@ public sealed class MappingVisibilityUIController : UIController
 
     [ValidatePrototypeId<TagPrototype>]
     private const string DisposalTag = "Disposal";
+
+    // WD EDIT START
+    private bool _entitiesVisible = true;
+    private bool _tilesVisible = true;
+    private bool _decalsVisible = true;
+    // WD EDIT END
 
     public void ToggleWindow()
     {
@@ -50,6 +58,18 @@ public sealed class MappingVisibilityUIController : UIController
             return;
 
         _window = UIManager.CreateWindow<MappingVisibilityWindow>();
+        // WD EDIT START
+        _mappingScreen = UIManager.ActiveScreen as MappingScreen;
+
+        _window.EntitiesPanel.Pressed = _entitiesVisible;
+        _window.EntitiesPanel.OnPressed += OnToggleEntitiesPanelPressed;
+
+        _window.TilesPanel.Pressed = _tilesVisible;
+        _window.TilesPanel.OnPressed += OnToggleTilesPanelPressed;
+
+        _window.DecalsPanel.Pressed = _decalsVisible;
+        _window.DecalsPanel.OnPressed += OnToggleDecalsPanelPressed;
+        // WD EDIT END
 
         _window.Light.Pressed = _lightManager.Enabled;
         _window.Light.OnPressed += args => _lightManager.Enabled = args.Button.Pressed;
@@ -61,7 +81,7 @@ public sealed class MappingVisibilityUIController : UIController
         _window.Shadows.OnPressed += args => _lightManager.DrawShadows = args.Button.Pressed;
 
         _window.Entities.Pressed = true;
-        _window.Entities.OnPressed += OnToggleEntitiesPressed;
+        _window.Entities.OnPressed += OnToggleEntitiesLayerPressed; // WD EDIT - OnToggleEntitiesPressed -> OnToggleEntitiesLayerPressed
 
         _window.Markers.Pressed = _entitySystemManager.GetEntitySystem<MarkerSystem>().MarkersVisible;
         _window.Markers.OnPressed += args =>
@@ -76,10 +96,7 @@ public sealed class MappingVisibilityUIController : UIController
         _window.Airlocks.OnPressed += ToggleWithComp<AirlockComponent>;
 
         _window.Decals.Pressed = true;
-        _window.Decals.OnPressed += _ =>
-        {
-            _entitySystemManager.GetEntitySystem<DecalSystem>().ToggleOverlay();
-        };
+        _window.Decals.OnPressed += OnToggleDecalsLayerPressed; // WD EDIT
 
         _window.SubFloor.Pressed = _entitySystemManager.GetEntitySystem<SubFloorHideSystem>().ShowAll;
         _window.SubFloor.OnPressed += OnToggleSubfloorPressed;
@@ -96,7 +113,57 @@ public sealed class MappingVisibilityUIController : UIController
         LayoutContainer.SetAnchorPreset(_window, LayoutContainer.LayoutPreset.CenterTop);
     }
 
-    private void OnToggleEntitiesPressed(BaseButton.ButtonEventArgs args)
+    // WD EDIT START
+    private void OnToggleEntitiesPanelPressed(BaseButton.ButtonEventArgs args)
+    {
+        _entitiesVisible = args.Button.Pressed;
+
+        if (_mappingScreen == null)
+            return;
+
+        _mappingScreen.SpawnContainer.Visible = args.Button.Pressed;
+    }
+
+    private void OnToggleTilesPanelPressed(BaseButton.ButtonEventArgs args)
+    {
+        _tilesVisible = args.Button.Pressed;
+
+        if (_mappingScreen == null)
+            return;
+
+        _mappingScreen.TilesPanel.Visible = args.Button.Pressed;
+        UpdatePanelContainerVisibility();
+    }
+
+    private void OnToggleDecalsPanelPressed(BaseButton.ButtonEventArgs args)
+    {
+        _decalsVisible = args.Button.Pressed;
+
+        if (_mappingScreen == null)
+            return;
+
+        _mappingScreen.DecalsPanel.Visible = args.Button.Pressed;
+        _mappingScreen.DecalSettings.Visible = args.Button.Pressed;
+        UpdatePanelContainerVisibility();
+    }
+
+    private void UpdatePanelContainerVisibility()
+    {
+        if (_mappingScreen == null)
+            return;
+
+        var isVisible = _decalsVisible || _tilesVisible;
+        _mappingScreen.PanelContainer.Visible = isVisible;
+
+        // dividing line management
+        if (_mappingScreen.TileDecalSeparator != null)
+        {
+            _mappingScreen.TileDecalSeparator.Visible = _tilesVisible && _decalsVisible;
+        }
+         // WD EDIT END
+    }
+
+    private void OnToggleEntitiesLayerPressed(BaseButton.ButtonEventArgs args)  // WD EDIT - OnToggleEntitiesPressed -> OnToggleEntitiesLayerPressed
     {
         var query = _entityManager.AllEntityQueryEnumerator<SpriteComponent>();
 
@@ -118,6 +185,13 @@ public sealed class MappingVisibilityUIController : UIController
             sprite.Visible = args.Button.Pressed;
         }
     }
+
+    // WD EDIT START
+    private void OnToggleDecalsLayerPressed(BaseButton.ButtonEventArgs args)
+    {
+        _entitySystemManager.GetEntitySystem<DecalSystem>().ToggleOverlay();
+    }
+    // WD EDIT END
 
     private void OnToggleSubfloorPressed(BaseButton.ButtonEventArgs args)
     {

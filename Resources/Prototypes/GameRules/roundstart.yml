@@ -9,11 +9,13 @@
   categories: [ HideSpawnMenu ]
   parent: BaseGameRule
   id: SubGamemodesRule
-  components:
-  - type: SubGamemodes
-    rules:
-    - id: Thief
-      prob: 0.5
+#WWDP edit start - Order 66
+#  components:
+#  - type: SubGamemodes
+#    rules:
+#    - id: Theif
+#      prob: 0.5
+#WWDP edit end
 
 - type: entity
   id: DeathMatch31

@@ -1,6 +1,6 @@
 - type: entity
   name: energy gun
-  parent: BaseWeaponBattery
+  parent: [BaseWeaponBattery, BaseWeaponOverheatLamp] # wwdp edit - overheating
   id: WeaponEnergyGun
   description: "A basic hybrid energy gun with two settings: disable and kill."
   components:
@@ -17,6 +17,7 @@
       shader: unshaded
   # WD EDIT START
   - type: Item
+    heldPrefix: disabler # i hate uninitializedsavetest, all my homies hate uninitializedsavetest
     size: Large
     shape:
     - 0, 0, 7, 1 # WWDP weapons resize
@@ -38,15 +39,19 @@
     startingCharge: 1000
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 50
+    fireCost: 16 # wwdp edit
+  - type: GunOverheat # wwdp
+    heatCost: 20
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 50
+      fireCost: 16 # wwdp edit
+      heatCost: 20 # WWDP
       name: disable
       state: disabler
     - proto: BulletLaser # WWDP
-      fireCost: 100
+      fireCost: 25 # wwdp edit
+      heatCost: 70 # WWDP
       name: lethal
       state: lethal
   - type: MagazineVisuals
@@ -64,10 +69,12 @@
 
 - type: entity
   name: x-01 multiphase energy gun
-  parent: BaseWeaponBatterySmall
+  parent: [BaseWeaponBatterySmall, BaseWeaponOverheat, BaseWeaponOverheatLamp] # wwdp edit - overheat
   id: WeaponEnergyGunMultiphase
   description: This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
   components:
+  - type: Item # wwdp edit # i fucking hate this test
+    heldPrefix: disabler
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
     layers:
@@ -91,15 +98,19 @@
     startingCharge: 1000
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 50
+    fireCost: 20 # wwdp
+  - type: GunOverheat # wwdp
+    heatCost: 25
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 50
+      fireCost: 20 # wwdp
+      heatCost: 25 # wwdp
       name: disable
       state: disabler
     - proto: BulletLaser # WWDP
-      fireCost: 100
+      fireCost: 25 # wwdp
+      heatCost: 60 # wwdp
       name: lethal
       state: lethal
   - type: MagazineVisuals
@@ -129,6 +140,8 @@
   id: WeaponEnergyGunMini
   description: A light version of the Energy gun with a smaller capacity.
   components:
+  - type: Item # wwdp # I HATE UNIT TESTS I HATE UNIT TESTS I HATE UNIT TESTS
+    heldPrefix: disabler
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/mini_energygun.rsi
     layers:
@@ -149,15 +162,20 @@
     startingCharge: 500
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 50
+    fireCost: 25 # wwdp
+  - type: GunOverheat # wwdp
+    heatCost: 20
+    temperatureLimit: 240 # WD EDIT
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 50
+      fireCost: 25 # wwdp
+      heatCost: 20 # wwdp
       name: disable
       state: disabler
     - proto: BulletEnergyGunLaser
-      fireCost: 100
+      fireCost: 31.25 # wwdp
+      heatCost: 50 # wwdp
       name: lethal
       state: lethal
   - type: MagazineVisuals
@@ -198,6 +216,8 @@
   id: WeaponEnergyGunPistol
   description: A military grade sidearm, used by many militia forces throughout the local sector.
   components:
+  - type: Item # wwdp # i am putting this first in the comp list as a sign of protest against the tyranny of uninitsavetest
+    heldPrefix: disabler
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/energygun_pistol.rsi
     layers:
@@ -221,15 +241,20 @@
     startingCharge: 800
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 50
+    fireCost: 25 # wwdp
+  - type: GunOverheat # wwdp
+    heatCost: 20
+    temperatureLimit: 240 # WD EDIT
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 50
+      fireCost: 25 # wwdp
+      heatCost: 20 # wwdp
       name: disable
       state: disabler
     - proto: BulletEnergyGunLaser
-      fireCost: 100
+      fireCost: 31.25 # wwdp
+      heatCost: 50 # wwdp
       name: lethal
       state: lethal
   - type: MagazineVisuals
@@ -270,9 +295,9 @@
 
 - type: entity
   name: IK-60 energy carbine
-  parent: BaseWeaponBattery
+  parent: [BaseWeaponBattery, BaseWeaponOverheatLamp] # wwdp edit - overheating
   id: WeaponGunLaserCarbineAutomatic
-  description: "A 20 round semi-automatic energy carbine."
+  description: "A 150 round semi-automatic energy carbine. Unstable power supply leads to increased load on regulator lamps, making them more prone to burning out."
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/energygun_carbine.rsi
@@ -293,12 +318,14 @@
     fireRate: 3
     availableModes:
       - SemiAuto
+  - type: GunOverheat # wwdp
+    lampBreakChanceMultiplier: 4
   - type: Battery
-    maxCharge: 2000
-    startingCharge: 2000
+    maxCharge: 3750 # wwdp edit
+    startingCharge: 3750 # wwdp edit
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunLaser
-    fireCost: 100
+    fireCost: 25 # wwdp edit
   - type: MagazineVisuals
     magState: mag
     steps: 5

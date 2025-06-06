@@ -50,7 +50,7 @@ public abstract partial class SharedGunSystem
         };
 
         if (TryComp<HitscanBatteryAmmoProviderComponent>(uid, out var hitscan)) // Shitmed Change
-           state.Prototype = hitscan.Prototype;
+            state.Prototype = hitscan.Prototype;
 
         args.State = state; // Shitmed Change
     }
@@ -88,7 +88,7 @@ public abstract partial class SharedGunSystem
     /// <summary>
     /// Update the battery (server-only) whenever fired.
     /// </summary>
-    protected virtual void TakeCharge(EntityUid uid, BatteryAmmoProviderComponent component) {}
+    protected virtual void TakeCharge(EntityUid uid, BatteryAmmoProviderComponent component) { }
 
     protected void UpdateBatteryAppearance(EntityUid uid, BatteryAmmoProviderComponent component)
     {

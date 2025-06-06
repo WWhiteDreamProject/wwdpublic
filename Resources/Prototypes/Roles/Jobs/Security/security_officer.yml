@@ -22,6 +22,8 @@
       - PMCG
       - NanoTrasen
       - EastOrionCompany
+    - !type:CharacterOverallTimeRequirement # WWDP
+      min: 3600
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos

@@ -199,7 +199,7 @@
     sprite: Objects/Weapons/Guns/Snipers/musket.rsi
     state: base
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Snipers/musket.rsi
+    sprite: DeltaV/Objects/Weapons/Guns/Rifles/musket.rsi # WWDP fix
   - type: Gun
     selectedMode: SemiAuto
     availableModes:

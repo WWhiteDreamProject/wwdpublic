@@ -2863,3 +2863,131 @@ Entries:
   id: 310
   time: '2025-05-19T10:02:43.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/499
+- author: Kai518
+  changes:
+    - type: Add
+      message: Теперь копии всех рун культа размером 1х1 можно рисовать мелками.
+  id: 311
+  time: '2025-05-23T21:59:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/510
+- author: Boevi4ok
+  changes:
+    - type: Add
+      message: Добавлен веселый трейт!
+  id: 312
+  time: '2025-05-23T22:52:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/512
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Было добавлено 4 новой униформы медбею в лоадауты и вендинг автомат
+    - type: Add
+      message: >-
+        Новые спрайты химическому оборудованию, а именно: Раздатчик реагентов,
+        ХимМастер, штука для электролиза, центрифуга
+    - type: Add
+      message: >-
+        Новые перчатки -- Оранжевые и чёрные виниловые перчатки. Доступны в
+        лоадауте медбея и их вендинг автомате с одеждой
+    - type: Add
+      message: >-
+        Новые спрайты "утилитарным" перчаткам -- Латексным, Нитриловым, и,
+        соответственно, изолированным
+    - type: Add
+      message: Химическое оборудование при наличии электричества испускает слабый  свет
+    - type: Fix
+      message: Исправлены неработающие состояния заполнения Раздатчика Реагентов
+    - type: Remove
+      message: Pudge был удалён из игры
+  id: 313
+  time: '2025-05-24T09:49:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/503
+- author: Kutos
+  changes:
+    - type: Tweak
+      message: Стойки и диваны теперь расстреливаются
+  id: 314
+  time: '2025-05-24T20:43:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/508
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: Заменитель 3Д рендера идентичный натуральному.
+  id: 315
+  time: '2025-05-24T21:54:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/509
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: >-
+        Информация о недавно произошедшем сценарии класса СК - миф и попытка
+        агентов Синдиката посеять панику среди сотрудников НТ. Энергетическое
+        оружие всегда нагревалось при стрельбе. Энергетическое оружие всегда
+        требовало регуляторные лампы для штатной работы. Докладывайте о любом
+        случае отрицания этих фактов в #feedback-канале для обратной связи; наш
+        представитель НТ свяжется с вами в кратчайшие сроки.
+  id: 316
+  time: '2025-05-24T23:26:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/500
+- author: Kutos
+  changes:
+    - type: Add
+      message: Переводы для абдукторов
+  id: 317
+  time: '2025-05-25T05:12:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/515
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Световое копье больше не наносит урона после удаления
+  id: 318
+  time: '2025-05-31T06:01:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/532
+- author: Boevi4ok
+  changes:
+    - type: Remove
+      message: недо антаг УБИТ
+  id: 319
+  time: '2025-06-01T09:42:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/531
+- author: Aposto2
+  changes:
+    - type: Tweak
+      message: >-
+        Изменение шансов выпадения лута в рыбалке. Теперь мусор - 35%, обычная
+        рыба - 45%, редкая рыба - 15%, легендарная рыба - 5%
+  id: 320
+  time: '2025-06-02T11:27:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/533
+- author: Kutos
+  changes:
+    - type: Add
+      message: Добавлена возможность настроить маптул немного под себя
+  id: 321
+  time: '2025-06-03T14:56:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/534
+- author: vanx
+  changes:
+    - type: Tweak
+      message: 'Урон пистолета N1984: 35 -> 26.'
+    - type: Tweak
+      message: Лазерные пистолеты теперь дольше не перегреваются.
+    - type: Tweak
+      message: 'Повышен урон лазеров, было: 12-17-28, стало: 20-25-30.'
+  id: 322
+  time: '2025-06-03T17:24:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/539
+- author: vanx
+  changes:
+    - type: Fix
+      message: Силовик снова стреляет в полуавтоматическом режиме
+  id: 323
+  time: '2025-06-05T16:18:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/545
+- author: vanx
+  changes:
+    - type: Tweak
+      message: 'Урон пистолета Universal: 35 -> 26.'
+  id: 324
+  time: '2025-06-05T16:23:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/547

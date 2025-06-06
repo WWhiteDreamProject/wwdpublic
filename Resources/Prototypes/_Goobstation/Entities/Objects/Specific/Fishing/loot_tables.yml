@@ -117,23 +117,23 @@
     - id: FishMatthewfish
     - id: FishSacabambaspis
 
-# Items from Water
+# Items from Water (fishing loot chances)
 - type: entityTable
   id: WaterFishingLootTable
   table: !type:GroupSelector
     children:
       - !type:NestedSelector
         tableId: BasicFishingLootTable
-        weight: 60
+        weight: 35 # WD EDIT
       - !type:NestedSelector
         tableId: WaterFishTable
-        weight: 25
+        weight: 45 # WD EDIT
       - !type:NestedSelector
         tableId: RareFishTable
-        weight: 10
+        weight: 15 # WD EDIT
       - !type:NestedSelector
         tableId: LegendaryFishTable
-        weight: 5
+        weight: 5 # WD EDIT
 
 # Items from Lava
 - type: entityTable

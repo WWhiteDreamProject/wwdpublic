@@ -23,6 +23,8 @@
     damage:
       types:
         Slash: 3.5
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg # WWDP fix
   - type: Item
     sprite: Objects/Materials/Shards/shard.rsi
     size: Tiny

@@ -18,3 +18,17 @@
     - Sign
     languagesUnderstood:
     - Sign
+
+- type: trait
+  id: Contract
+  category: Psionics
+  points: 13
+  functions:
+  - !type:TraitAddComponent
+    components:
+      - type: TriggerOnMobstateChange
+        mobState:
+        - Dead
+      - type: DeleteOnTrigger
+      - type: SpawnOnTrigger
+        proto: giber

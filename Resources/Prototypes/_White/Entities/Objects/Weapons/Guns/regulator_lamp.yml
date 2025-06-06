@@ -1,0 +1,132 @@
+- type: entity
+  parent: BaseItem
+  abstract: true
+  id: BaseRegulatorLamp
+  name: regulator lamp
+  description: A 90s looking lamp.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/regulator_lamp.rsi
+    layers:
+    - state: base
+    - state: filament
+      map: [ "enum.RegulatorLampFilament.Layer" ]
+    - state: glass
+      map: [ "enum.RegulatorLampGlass.Layer" ]
+  - type: RegulatorLamp
+    safeTemp: 240
+    unsafeTemp: 650
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -8
+      - !type:DoActsBehavior
+        acts: [ "Breakage" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -8
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.RegulatorLampGlass.Intact:
+        enum.RegulatorLampGlass.Layer:
+          True: { state: glass }
+          False: { state: glassbroken }
+      enum.RegulatorLampFilament.Intact:
+        enum.RegulatorLampFilament.Layer:
+          True: { state: filament }
+          False: { state: filamentburned }
+
+- type: entity
+  parent: BaseRegulatorLamp
+  id: BasicRegulatorLamp
+  name: standard-issue regulator lamp
+  description: A 90s looking lamp. You're not sure what it's really for, but without it most energy weapons will not work.
+
+- type: entity
+  parent: BaseRegulatorLamp
+  id: AdvancedRegulatorLamp
+  name: advanced regulator lamp
+  description: A 00s looking lamp.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/regulator_lamp.rsi
+    layers:
+    - state: adv
+    - state: filament
+      map: [ "enum.RegulatorLampFilament.Layer" ]
+    - state: glass
+      map: [ "enum.RegulatorLampGlass.Layer" ]
+  - type: RegulatorLamp
+    safeTemp: 480
+    unsafeTemp: 840
+
+- type: entity
+  name: regulator lamp box
+  parent: BoxCardboard
+  id: BoxBasicRegulatorLamp
+  description: The saviour of incompetent security officers sector-wide. Holds 6 spare regulator lamps.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BasicRegulatorLamp
+        amount: 6
+  - type: Storage
+    grid:
+    - 0,0,5,1
+    whitelist:
+      components:
+      - RegulatorLamp
+
+- type: entity
+  name: big regulator lamp box
+  parent: BoxCardboard
+  id: BoxBasicRegulatorLampBig
+  description: The saviour of incompetent security officers sector-wide. Holds 12 spare regulator lamps.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BasicRegulatorLamp
+        amount: 12
+  - type: Storage
+    grid:
+    - 0,0,5,3
+    whitelist:
+      components:
+      - RegulatorLamp

@@ -9,6 +9,9 @@ using Content.Shared.DeltaV.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared.Weapons.Ranged.Systems;
+using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._White.Guns;
 
 namespace Content.Server.DeltaV.Weapons.Ranged.Systems;
 
@@ -18,11 +21,13 @@ public sealed class EnergyGunSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedItemSystem _item = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly GunSystem _gun = default!; // WWDP EDIT
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<EnergyGunComponent, ComponentInit>(OnComponentInit); // WWDP EDIT
         SubscribeLocalEvent<EnergyGunComponent, ActivateInWorldEvent>(OnInteractHandEvent);
         SubscribeLocalEvent<EnergyGunComponent, GetVerbsEvent<Verb>>(OnGetVerb);
         SubscribeLocalEvent<EnergyGunComponent, ExaminedEvent>(OnExamined);
@@ -82,6 +87,14 @@ public sealed class EnergyGunSystem : EntitySystem
         }
     }
 
+    // WWDP EDIT START
+    private void OnComponentInit(EntityUid uid, EnergyGunComponent component, ComponentInit args)
+    {
+        if(component.FireModes.Count > 0)
+            SetFireMode(uid, component, component.FireModes[0]);
+    }
+    // WWDP EDIT END
+
     private void OnInteractHandEvent(EntityUid uid, EnergyGunComponent component, ActivateInWorldEvent args)
     {
         if (component.FireModes == null || component.FireModes.Count < 2)
@@ -124,6 +137,14 @@ public sealed class EnergyGunSystem : EntitySystem
 
             projectileBatteryAmmoProvider.Prototype = fireMode.Prototype;
             projectileBatteryAmmoProvider.FireCost = fireMode.FireCost;
+            // WWDP EDIT START
+            if (TryComp<GunOverheatComponent>(uid, out var overheat))
+            {
+                overheat.HeatCost = fireMode.HeatCost;
+                Dirty(uid, overheat);
+            }
+            _gun.UpdateShots(uid, projectileBatteryAmmoProvider);
+            // WWDP EDIT END
 
             if (user != null)
             {

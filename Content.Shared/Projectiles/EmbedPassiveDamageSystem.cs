@@ -25,6 +25,7 @@ public sealed class EmbedPassiveDamageSystem : EntitySystem
         SubscribeLocalEvent<EmbedPassiveDamageComponent, RemoveEmbedEvent>(OnRemoveEmbed);
         SubscribeLocalEvent<EmbedPassiveDamageComponent, ItemToggledEvent>(OnItemToggle);
         SubscribeLocalEvent<EmbedPassiveDamageComponent, AttemptPacifiedThrowEvent>(OnAttemptPacifiedThrow);
+        SubscribeLocalEvent<EmbedPassiveDamageComponent, ComponentShutdown>(OnShutdown); // WD EDIT
     }
 
     /// <summary>
@@ -104,6 +105,11 @@ public sealed class EmbedPassiveDamageSystem : EntitySystem
         if (comp.Damage.AnyPositive())
             args.Cancel("pacified-cannot-throw");
     }
+
+    // WD EDIT START
+    private void OnShutdown(EntityUid uid, EmbedPassiveDamageComponent component, ComponentShutdown args) =>
+        _activeEmbeds.Remove(component);
+    // WD EDIT END
 
     public override void Update(float frameTime)
     {
