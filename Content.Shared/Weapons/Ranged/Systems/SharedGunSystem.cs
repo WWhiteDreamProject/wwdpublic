@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._White.Guns;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
@@ -247,6 +248,16 @@ public abstract partial class SharedGunSystem : EntitySystem
             gunComp = gun;
             return true;
         }
+
+        // WWDP EDIT START
+        if(TryComp<GunSlotComponent>(entity, out var gunSlot) &&
+           _slots.TryGetSlot(entity, gunSlot.Slot, out var itemSlot) &&
+           TryComp(itemSlot.Item, out gunComp))
+        {
+            gunEntity = itemSlot.Item!.Value;
+            return true;
+        }
+        // WWDP EDIT END
 
         // Last resort is check if the entity itself is a gun.
         if (TryComp(entity, out gun))

@@ -31,6 +31,7 @@
       interactSuccessSound:
         path: /Audio/Effects/double_beep.ogg
     - type: CombatMode
+      isInCombatMode: true
       toggleMouseRotator: false
     - type: Damageable
       damageContainer: Inorganic
