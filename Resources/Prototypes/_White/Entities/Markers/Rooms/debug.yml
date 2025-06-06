@@ -16,13 +16,16 @@
       scale: 4, 4
       renderingStrategy: NoRotation
   - type: TimedDespawn
-    lifetime: 0.1
+    lifetime: 0.1 # Idiot protection
 
 # What the fuck is this? It's a debug entity that is needed to display the room spawner on map renders
 # Что это за нахуй такое? Это дебаг энтити, которое нужно для отображения спавнера комнат на рендерах карт
 
 # How to work with it? Some room spawners have a spawner component, like the same mobs
 # Как с ним работать? В некоторых спавнерах комнат прописан компонент спавнера, как у тех же мобов
+
+# Well this game is absolute crap and it doesn't work as it should(((
+# Что ж эта игра абсолютное говно и оно не работает как надо(((
 
 # Wonder
 - type: entity

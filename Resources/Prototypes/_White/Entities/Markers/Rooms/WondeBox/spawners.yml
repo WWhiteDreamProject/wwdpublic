@@ -24,9 +24,9 @@
       renderingStrategy: NoRotation
     - sprite: _White/Markers/Rooms/icon.rsi
       state: 50x40_base_maint_wonder_1
-  - type: ConditionalSpawner
-    prototypes:
-    - DebugMaprendererRoomsWonderboxMaintBase1
+#  - type: ConditionalSpawner
+#    prototypes:
+#    - DebugMaprendererRoomsWonderboxMaintBase1
 
 - type: entity
   id: RoomSpawnerRoomsWonderboxMaintBase2
@@ -53,9 +53,9 @@
       renderingStrategy: NoRotation
     - sprite: _White/Markers/Rooms/icon.rsi
       state: 40x50_base_maint_wonder_1
-  - type: ConditionalSpawner
-    prototypes:
-    - DebugMaprendererRoomsWonderboxMaintBase2
+#  - type: ConditionalSpawner
+#    prototypes:
+#    - DebugMaprendererRoomsWonderboxMaintBase2
 
 - type: entity
   id: RoomSpawnerRoomsWonderboxMaintBase3
@@ -82,9 +82,9 @@
       renderingStrategy: NoRotation
     - sprite: _White/Markers/Rooms/icon.rsi
       state: 40x60_base_maint_wonder_1
-  - type: ConditionalSpawner
-    prototypes:
-    - DebugMaprendererRoomsWonderboxMaintBase3
+#  - type: ConditionalSpawner
+#    prototypes:
+#    - DebugMaprendererRoomsWonderboxMaintBase3
 # Engine
 - type: entity
   id: RoomSpawnerRoomsWonderboxEngineBase1
@@ -111,9 +111,9 @@
       renderingStrategy: NoRotation
     - sprite: _White/Markers/Rooms/icon.rsi
       state: 30x47_engine_wonder_1
-  - type: ConditionalSpawner
-    prototypes:
-    - DebugMaprendererRoomsWonderboxEngineBase1
+#  - type: ConditionalSpawner
+#    prototypes:
+#    - DebugMaprendererRoomsWonderboxEngineBase1
 # Solar
 - type: entity
   id: RoomSpawnerRoomsWonderboxSolarN
