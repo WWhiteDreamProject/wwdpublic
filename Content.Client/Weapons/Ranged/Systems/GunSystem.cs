@@ -52,9 +52,9 @@ public sealed partial class GunSystem : SharedGunSystem
 	// WWDP EDIT START
 	public enum GunSpreadOverlayEnum
     {
-        Off,
-        Partial,
-        Full
+        Off, // not really meant to be used, but it's there if it's needed
+        Normal,
+        Debug
     }
 
     private GunSpreadOverlayEnum _spreadOverlay;
@@ -80,11 +80,12 @@ public sealed partial class GunSystem : SharedGunSystem
 
         switch (_spreadOverlay)
         {
-            case GunSpreadOverlayEnum.Off: // the overlay now checks if combat mode is enabled, so this whole update overlay thing is to be removed&reworked.
-            case GunSpreadOverlayEnum.Partial:
+            case GunSpreadOverlayEnum.Off:
+                return;
+            case GunSpreadOverlayEnum.Normal:
                 AddPartialSpreadOverlay(overlayManager);
                 return;
-            case GunSpreadOverlayEnum.Full:
+            case GunSpreadOverlayEnum.Debug:
                 AddFullSpreadOverlay(overlayManager);
                 return;
         }
@@ -133,17 +134,8 @@ public sealed partial class GunSystem : SharedGunSystem
 
         InitializeMagazineVisuals();
         InitializeSpentAmmo();
-
-        _combatMode.LocalPlayerCombatModeUpdated += OnCombatModeUpdated; // WWDP EDIT
+        SpreadOverlay = GunSpreadOverlayEnum.Normal;
     }
-
-	// WWDP EDIT START
-    private void OnCombatModeUpdated(bool enabled)
-    {
-        if(SpreadOverlay != GunSpreadOverlayEnum.Full)
-            SpreadOverlay = enabled ? GunSpreadOverlayEnum.Partial : GunSpreadOverlayEnum.Off;
-    }
-	// WWDP EDIT END
 
     private void OnUpdateClientAmmo(EntityUid uid, AmmoCounterComponent ammoComp, ref UpdateClientAmmoEvent args)
     {
