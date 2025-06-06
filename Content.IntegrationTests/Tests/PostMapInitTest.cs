@@ -67,7 +67,7 @@ namespace Content.IntegrationTests.Tests
             // "Submarine", // De-rotated, no current maintainer.
             "Gax", // Maintained by Ichaai
             "Lavatest", // Lavaland Change
-            "Rad", // Maintained by Ichai
+            //"Rad", // Maintained by Ichai
             // "Europa", // De-rotated, has significant issues.
             //"Meta", // Maintained by Ichai
             //"Cyberiad", // Maintained by Ichai

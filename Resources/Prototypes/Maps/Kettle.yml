@@ -39,7 +39,6 @@
           Detective: [ 1, 1 ]
           Lawyer: [ 2, 2 ]
           Prisoner: [ 1, 2 ]
-          PrisonGuard: [ 1, 1 ]
           #Medical
           Chemist: [ 3, 3 ]
           Paramedic: [ 2, 3 ]
