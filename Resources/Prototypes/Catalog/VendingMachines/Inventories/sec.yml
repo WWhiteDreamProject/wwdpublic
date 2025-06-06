@@ -32,3 +32,8 @@
     FoodDonutHomer: 12
     FoodBoxDonut: 2
     #box evidence
+  #WWDP edit start
+  emaggedInventory:
+    GrenadeShrapnel: 1
+    EmpGrenade: 1
+  #WWDP edit end

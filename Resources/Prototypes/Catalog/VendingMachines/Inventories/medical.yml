@@ -14,3 +14,8 @@
     #ClothingEyesEyepatchHudMedical: 2
     # WD EDIT END
     VehicleWheelchairFolded: 3 # Goobstation - Vehicles
+    ClothingShoesBootsWinterAtmos: 2 #Delta V: Add departmental winter boots
+  #WWDP edit start
+  emaggedInventory:
+    StimpackMini: 1
+  #WWDP edit end
