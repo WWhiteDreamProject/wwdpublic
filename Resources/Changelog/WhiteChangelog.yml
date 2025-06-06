@@ -2991,3 +2991,10 @@ Entries:
   id: 324
   time: '2025-06-05T16:23:20.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/547
+- author: 89Eblan
+  changes:
+    - type: Add
+      message: Синдикат расширил свои закладки в вендорматах
+  id: 325
+  time: '2025-06-06T15:09:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/538
