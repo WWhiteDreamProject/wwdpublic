@@ -80,8 +80,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
         switch (_spreadOverlay)
         {
-            case GunSpreadOverlayEnum.Off:
-                return;
+            case GunSpreadOverlayEnum.Off: // the overlay now checks if combat mode is enabled, so this whole update overlay thing is to be removed&reworked.
             case GunSpreadOverlayEnum.Partial:
                 AddPartialSpreadOverlay(overlayManager);
                 return;

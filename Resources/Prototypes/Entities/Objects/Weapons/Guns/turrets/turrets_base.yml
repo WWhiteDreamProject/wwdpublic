@@ -82,6 +82,7 @@
       context: "human"
     - type: Gun # wwdp edit
       forceShootForward: true
+    - type: GunFireAngleRestriction # wwdp edit
 
 - type: entity
   parent: BaseWeaponTurret

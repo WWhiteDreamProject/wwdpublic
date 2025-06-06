@@ -90,7 +90,7 @@
   parent: [BaseWeaponEnergyTurret, InnateMassScanner90]
   id: BaseWeaponEnergyTurretShip
   abstract: true
-  suffix: Remote-Controlled
+  suffix: Remote Controlled
   components:
   - type: RemoteControllable
   - type: HTN # since there is no functionality to discard inherited components, we just disable HTN instead
@@ -157,9 +157,10 @@
 
 - type: entity
   parent: BaseStructure
-  id: BaseWeaponTurret
-  name: turret
-  abstract: true
+  id: WeaponTurretModular
+  suffix: Remote Controlled
+  name: modular turret
+  description: A remotely-operated turret designed to accept standard hand-held weapons. Being a simple gimbal mount, it is unable to recharge energy weapons.
   components:
   - type: Clickable
   - type: InteractionOutline
@@ -176,10 +177,15 @@
         layer:
           - MachineLayer
   - type: Sprite
+    granularLayersRendering: true
     sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
     drawdepth: Mobs
     layers:
       - state: syndie_base
+        renderingStrategy: NoRotation
+      - map: [ "assblaster" ]
+        renderingStrategy: Default
+        rotation: -90
   - type: InteractionPopup
     interactDelay: 0.2
     successChance: 0.8
@@ -221,6 +227,7 @@
           - !type:PlaySoundBehavior
             sound:
               collection: MetalGlassBreak
+  - type: GunFireAngleRestriction
   - type: MouseRotator
     angleTolerance: 0.5
     rotationSpeed: 90
@@ -232,8 +239,39 @@
   - type: ContainerContainer
     containers:
       weapon_slot: !type:ContainerSlot
+  - type: GunSlot
+    slot: weapon_slot
   - type: ItemSlots
     slots:
       weapon_slot:
         ejectOnInteract: false
+        ejectOnBreak: true
+        swap: false
         name: Weapon slot
+        whitelist:
+          components:
+          - Gun
+  - type: ItemSlotRenderer
+    mapping:
+      weapon_slot: assblaster
+  - type: RemoteControllable
+  - type: Machine
+    board: WeaponTurretModularCircuitBoard
+
+- type: entity
+  id: WeaponTurretModularCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: modular turret machine board
+  description: Looks like you could use a screwdriver to change the board type.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: WeaponTurretModular
+    requirements:
+      MatterBin: 2
+      Manipulator: 3
+      Capacitor: 1
+    materialRequirements:
+      Cable: 5
+      Steel: 5

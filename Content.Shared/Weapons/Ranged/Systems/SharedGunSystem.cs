@@ -302,13 +302,26 @@ public abstract partial class SharedGunSystem : EntitySystem
         gun.ShotCounter = 0;
     }
 
+    public bool IsRestrictedFire(EntityUid gunUid, EntityUid user) => TryComp<GunFireAngleRestrictionComponent>(user, out var restr) && restr.Enabled ||
+                                                                      IsRestrictedFire(gunUid);
+
+    public bool IsRestrictedFire(EntityUid gunUid) => Transform(gunUid).ParentUid is { Valid: true } gunParent &&
+                                                      TryComp<GunFireAngleRestrictionComponent>(gunUid, out var restr) && restr.Enabled;
+
     private void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun)
     {
         if (gun.FireRateModified <= 0f ||
             !_actionBlockerSystem.CanAttack(user))
             return;
         var userXform = Transform(user); // WWDP EDIT
-        var toCoordinates = gun.ForceShootForward ? new EntityCoordinates(user, new Vector2(0, -1)) : gun.ShootCoordinates; // WWDP EDIT
+
+        // WWDP EDIT START
+        EntityCoordinates? toCoordinates;
+        if (IsRestrictedFire(gunUid, user))
+            toCoordinates = new EntityCoordinates(user, new Vector2(0, -1));
+        else
+            toCoordinates = gun.ShootCoordinates;
+        // WWDP EDIT END
 
         if (toCoordinates == null)
             return;
