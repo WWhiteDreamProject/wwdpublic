@@ -7589,6 +7589,18 @@ entities:
     - type: Transform
       pos: 141.5,37.5
       parent: 1
+- proto: DefaultStationBeaconSingularity
+  entities:
+  - uid: 154
+    components:
+    - type: Transform
+      pos: 48.5,33.5
+      parent: 1
+  - uid: 155
+    components:
+    - type: Transform
+      pos: 114.5,40.5
+      parent: 1
 - proto: DrinkSingulo
   entities:
   - uid: 1294
@@ -10624,7 +10636,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 144.5,25.5
       parent: 1
-- proto: PoweredlightExterior
+- proto: PoweredLightBlueInterior
   entities:
   - uid: 118
     components:
@@ -12781,6 +12793,28 @@ entities:
       parent: 1
 - proto: SurveillanceCameraEngineering
   entities:
+  - uid: 156
+    components:
+    - type: Transform
+      pos: 17.5,26.5
+      parent: 1
+  - uid: 157
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 45.5,27.5
+      parent: 1
+  - uid: 158
+    components:
+    - type: Transform
+      pos: 114.5,19.5
+      parent: 1
+  - uid: 159
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 114.5,35.5
+      parent: 1
   - uid: 2665
     components:
     - type: Transform
@@ -12792,12 +12826,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 149.5,33.5
-      parent: 1
-  - uid: 2717
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 107.5,36.5
       parent: 1
   - uid: 2751
     components:

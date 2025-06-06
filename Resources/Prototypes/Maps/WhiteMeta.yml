@@ -1,15 +1,15 @@
 - type: gameMap
-  id: Moose
-  mapName: 'Moose Station'
-  mapPath: /Maps/_White/Moose.yml
+  id: WhiteMeta
+  mapName: 'WhiteMeta Station'
+  mapPath: /Maps/_White/WhiteMeta.yml
   minPlayers: 10
-  maxPlayers: 50
+  maxPlayers: 85
   stations:
-    MooseStation:
+    WhiteMeta:
       stationProto: StandardNanotrasenStation
       components:
       - type: StationNameSetup
-        mapNameTemplate: '{0} Moose Station {1}'
+        mapNameTemplate: '{0} WhiteMeta Station {1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: 'WWDP'
@@ -34,41 +34,40 @@
           Quartermaster: [ 1, 1 ]
           #Security
           Warden: [ 1, 1 ]
-          SecurityOfficer: [ 3, 3 ]
-          SecurityCadet: [ 3, 3 ]
+          SecurityOfficer: [ 5, 6 ]
+          SecurityCadet: [ 2, 2 ]
           Detective: [ 1, 1 ]
-          Lawyer: [ 1, 1 ]
+          Lawyer: [ 2, 2 ]
           Prisoner: [ 1, 2 ]
           #Medical
-          Chemist: [ 2, 2 ]
-          Paramedic: [ 1, 1 ]
-          MedicalDoctor: [ 3, 3 ]
+          Chemist: [ 3, 3 ]
+          Paramedic: [ 2, 3 ]
+          MedicalDoctor: [ 4, 5 ]
           MedicalIntern: [ 2, 2 ]
           Psychologist: [ 1, 1 ]
           #Cargo
           SalvageSpecialist: [ 3, 3 ]
-          CargoTechnician: [ 2, 2 ]
+          CargoTechnician: [ 3, 4 ]
           MailCarrier: [ 1, 2 ]
           #Engineering
-          AtmosphericTechnician: [ 2, 2 ]
-          StationEngineer: [ 3, 3 ]
+          AtmosphericTechnician: [ 3, 3 ]
+          StationEngineer: [ 5, 6 ]
           TechnicalAssistant: [ 2, 2 ]
           #Science
-          Scientist: [ 3, 3 ]
-          ResearchAssistant: [ 1, 1 ]
+          Scientist: [ 3, 4 ]
+          ResearchAssistant: [ 2, 2 ]
+          ForensicMantis: [ 1, 1 ]
           #Other
-          Bartender: [ 1, 1 ]
-          Chef: [ 1, 1 ]
-          Botanist: [ 2, 2 ]
-          ServiceWorker: [ 2, 2 ]
+          Bartender: [ 2, 2 ]
+          Chef: [ 2, 2 ]
+          Botanist: [ 2, 3 ]
+          ServiceWorker: [ 2, 3 ]
           Librarian: [ 1, 1 ]
-          Janitor: [ 1, 1 ]
+          Janitor: [ 1, 3 ]
           Chaplain: [ 1, 1 ]
           Mime: [ 1, 1 ]
           Clown: [ 1, 1 ]
           Musician: [ 1, 1 ]
           Reporter: [ 1, 1 ]
-          # Boxer: [ 1, 1 ]
           Passenger: [ -1, -1 ]
           Hobo: [ 1, 1 ]
-
