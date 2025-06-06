@@ -556,9 +556,9 @@
       Alive:
         Base: spacesnail
       Critical:
-        Base: spacesnaildead
+        Base: spacedead # WWDP fix
       Dead:
-        Base: spacesnaildead
+        Base: spacedead # WWDP fix
   - type: MovementSpeedModifier
     baseWalkSpeed : 5 #he go fast, also they cant slip so its probably fine.
     baseSprintSpeed : 7

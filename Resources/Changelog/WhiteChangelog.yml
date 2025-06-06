@@ -2936,3 +2936,79 @@ Entries:
   id: 317
   time: '2025-05-25T05:12:22.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/515
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Световое копье больше не наносит урона после удаления
+  id: 318
+  time: '2025-05-31T06:01:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/532
+- author: Boevi4ok
+  changes:
+    - type: Remove
+      message: недо антаг УБИТ
+  id: 319
+  time: '2025-06-01T09:42:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/531
+- author: Aposto2
+  changes:
+    - type: Tweak
+      message: >-
+        Изменение шансов выпадения лута в рыбалке. Теперь мусор - 35%, обычная
+        рыба - 45%, редкая рыба - 15%, легендарная рыба - 5%
+  id: 320
+  time: '2025-06-02T11:27:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/533
+- author: Kutos
+  changes:
+    - type: Add
+      message: Добавлена возможность настроить маптул немного под себя
+  id: 321
+  time: '2025-06-03T14:56:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/534
+- author: vanx
+  changes:
+    - type: Tweak
+      message: 'Урон пистолета N1984: 35 -> 26.'
+    - type: Tweak
+      message: Лазерные пистолеты теперь дольше не перегреваются.
+    - type: Tweak
+      message: 'Повышен урон лазеров, было: 12-17-28, стало: 20-25-30.'
+  id: 322
+  time: '2025-06-03T17:24:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/539
+- author: vanx
+  changes:
+    - type: Fix
+      message: Силовик снова стреляет в полуавтоматическом режиме
+  id: 323
+  time: '2025-06-05T16:18:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/545
+- author: vanx
+  changes:
+    - type: Tweak
+      message: 'Урон пистолета Universal: 35 -> 26.'
+  id: 324
+  time: '2025-06-05T16:23:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/547
+- author: 89Eblan
+  changes:
+    - type: Add
+      message: Синдикат расширил свои закладки в вендорматах
+  id: 325
+  time: '2025-06-06T15:09:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/538
+- author: 89Eblan
+  changes:
+    - type: Tweak
+      message: Есворд и деса чуть менее шутки
+  id: 326
+  time: '2025-06-06T15:10:49.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/542
+- author: vanx
+  changes:
+    - type: Add
+      message: Крафт коробка спичек в автолате
+  id: 327
+  time: '2025-06-06T15:12:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/543

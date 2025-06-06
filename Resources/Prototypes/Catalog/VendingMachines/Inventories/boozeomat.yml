@@ -48,3 +48,7 @@
     DrinkWineCan: 5
   emaggedInventory:
     DrinkPoisonWinebottleFull: 2
+    #WWDP edit start
+    DrinkNukieCan: 4
+    DrinkChangelingStingCan: 4
+    #WWDP edit end

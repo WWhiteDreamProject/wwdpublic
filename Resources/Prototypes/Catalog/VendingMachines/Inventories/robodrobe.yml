@@ -14,7 +14,9 @@
     ClothingBackpackRobotics: 2
     ClothingBackpackSatchelRobotics: 2
     ClothingBackpackDuffelRobotics: 2
+  #WWDP edit start
   contrabandInventory:
-    ClothingEyesGlassesMeson: 1 # WWDP
+    ClothingEyesGlassesMeson: 1
   emaggedInventory:
-    EncryptionKeySyndie: 1 # WWDP
+    BorgModuleMartyr: 1
+  #WWDP edit end

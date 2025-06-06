@@ -15,8 +15,13 @@
     SpoonPlastic: 3
     KnifePlastic: 3
   emaggedInventory:
-    KitchenKnife: 2
-    SpaceMedipen: 3
-    ClothingMaskBreath: 3
-    EmergencyOxygenTankFilled: 3
-    DrinkNukieCan: 2
+    #WWDP edit start
+    EnergyDagger: 2
+    ClothingOuterHardsuitSyndicate: 2
+    ClothingHeadHelmetSyndicate: 2
+    NitrogenTankFilled: 2
+    OxygenTankFilled: 2
+    DoubleEmergencyPlasmaTankFilled: 2
+    SpaceMedipen: 2
+    HappyHonkNukie: 2
+    #WWDP edit end

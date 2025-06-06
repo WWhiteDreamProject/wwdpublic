@@ -18,3 +18,9 @@
     Welder: 1
     Screwdriver: 2
     Crowbar: 2
+  #WWDP edit start
+  emaggedInventory:
+    SawAdvanced: 1
+    ScalpelAdvanced: 1
+    EncryptionKeyBinarySyndicate: 1
+  #WWDP edit end

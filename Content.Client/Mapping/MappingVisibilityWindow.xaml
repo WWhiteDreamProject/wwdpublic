@@ -5,6 +5,15 @@
     Resizable="False"
     MinWidth="250">
     <BoxContainer Orientation="Vertical">
+        <!--WD EDIT START-->
+        <Label Text="{Loc 'mapping-visibility-panels-header'}" StyleClasses="LabelHeading"/>
+        <mapping:MappingVisibilityGroupButton Name="EntitiesPanel" Text="{Loc 'mapping-visibility-entities-panel'}" Access="Public"/>
+        <mapping:MappingVisibilityGroupButton Name="TilesPanel" Text="{Loc 'mapping-visibility-tiles-panel'}" Access="Public"/>
+        <mapping:MappingVisibilityGroupButton Name="DecalsPanel" Text="{Loc 'mapping-visibility-decals-panel'}" Access="Public"/>
+        
+        <Control MinHeight="10"/>
+        <Label Text="{Loc 'mapping-visibility-layers-header'}" StyleClasses="LabelHeading"/>
+        <!--WD EDIT END-->
         <mapping:MappingVisibilityGroupButton Name="Light" Text="{Loc 'mapping-visibility-light'}" Access="Public"/>
         <mapping:MappingVisibilityButton Name="Fov" Text="{Loc 'mapping-visibility-fov'}" Access="Public"/>
         <mapping:MappingVisibilityButton Name="Shadows" Text="{Loc 'mapping-visibility-shadows'}" Access="Public"/>

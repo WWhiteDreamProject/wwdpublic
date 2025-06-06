@@ -17,5 +17,8 @@
   # Night operations
   contrabandInventory:
     ClothingEyesNightVisionGoggles : 1 # WWDP
+  #WWDP edit start
   emaggedInventory:
-    AntiPoisonMedipen: 1 # WWDP
+    AntiPoisonMedipen: 1
+    CombatMedipen: 1
+  #WWDP edit end
