@@ -1,4 +1,3 @@
-using Content.Server.Administration.Systems;
 using Content.Shared.Antag;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Roles;
@@ -9,7 +8,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Antag.Components;
 
-[RegisterComponent, Access(typeof(AntagSelectionSystem), typeof(AdminVerbSystem))]
+[RegisterComponent] // WD EDIT
 public sealed partial class AntagSelectionComponent : Component
 {
     /// <summary>
@@ -28,7 +27,7 @@ public sealed partial class AntagSelectionComponent : Component
     /// The minds and original names of the players selected to be antagonists.
     /// </summary>
     [DataField]
-    public List<(EntityUid, string)> SelectedMinds = new();
+    public Dictionary<EntityUid, string> SelectedMinds = new(); // WD EDIT
 
     /// <summary>
     /// When the antag selection will occur.
