@@ -32,6 +32,7 @@
     bonusAngleDecay: 80           # wwdp
     maxBonusAngle: 10             # wwdp
     fireRate: 6
+    defaultDirection: 1, 0 # wwdp
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto

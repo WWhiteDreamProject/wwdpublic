@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._White.Guns;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
@@ -248,6 +249,16 @@ public abstract partial class SharedGunSystem : EntitySystem
             return true;
         }
 
+        // WWDP EDIT START
+        if(TryComp<GunSlotComponent>(entity, out var gunSlot) &&
+           _slots.TryGetSlot(entity, gunSlot.Slot, out var itemSlot) &&
+           TryComp(itemSlot.Item, out gunComp))
+        {
+            gunEntity = itemSlot.Item!.Value;
+            return true;
+        }
+        // WWDP EDIT END
+
         // Last resort is check if the entity itself is a gun.
         if (TryComp(entity, out gun))
         {
@@ -273,9 +284,9 @@ public abstract partial class SharedGunSystem : EntitySystem
     /// <summary>
     /// Attempts to shoot at the target coordinates. Resets the shot counter after every shot.
     /// </summary>
-    public void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates toCoordinates)
+    public void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates? toCoordinates = null) // WWDP EDIT
     {
-        gun.ShootCoordinates = toCoordinates;
+        gun.ShootCoordinates = toCoordinates ?? new EntityCoordinates(gunUid, gun.DefaultDirection);
         AttemptShoot(user, gunUid, gun);
         gun.ShotCounter = 0;
     }
@@ -291,13 +302,26 @@ public abstract partial class SharedGunSystem : EntitySystem
         gun.ShotCounter = 0;
     }
 
+    public bool IsRestrictedFire(EntityUid gunUid, EntityUid user) => TryComp<GunFireAngleRestrictionComponent>(user, out var restr) && restr.Enabled ||
+                                                                      IsRestrictedFire(gunUid);
+
+    public bool IsRestrictedFire(EntityUid gunUid) => Transform(gunUid).ParentUid is { Valid: true } gunParent &&
+                                                      TryComp<GunFireAngleRestrictionComponent>(gunUid, out var restr) && restr.Enabled;
+
     private void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun)
     {
         if (gun.FireRateModified <= 0f ||
             !_actionBlockerSystem.CanAttack(user))
             return;
+        var userXform = Transform(user); // WWDP EDIT
 
-        var toCoordinates = gun.ShootCoordinates;
+        // WWDP EDIT START
+        EntityCoordinates? toCoordinates;
+        if (IsRestrictedFire(gunUid, user))
+            toCoordinates = new EntityCoordinates(user, new Vector2(0, -1));
+        else
+            toCoordinates = gun.ShootCoordinates;
+        // WWDP EDIT END
 
         if (toCoordinates == null)
             return;
@@ -380,7 +404,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             return;
         }
 
-        var fromCoordinates = Transform(user).Coordinates;
+        var fromCoordinates = userXform.Coordinates; // WWDP EDIT
         // Remove ammo
         var ev = new TakeAmmoEvent(shots, new List<(EntityUid? Entity, IShootable Shootable)>(), fromCoordinates, user);
 

@@ -20,7 +20,7 @@ public partial class MapGridControl : LayoutContainer
     [Dependency] protected readonly IEntityManager EntManager = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
 
-    protected static readonly Color BackingColor = new Color(0.08f, 0.08f, 0.08f);
+    protected static readonly Color BackingColor = new Color(0.08f, 0.02f, 0.08f);
 
     private Font _largerFont;
 
@@ -161,6 +161,20 @@ public partial class MapGridControl : LayoutContainer
         return value * minimapScale + midpointVector;
     }
 
+    //WWDP EDIT START
+    // due to some insane reason the gridControl doesn't flip Y and instead just works with it as is.
+    // everything relating to this control and its inheritors is written by a mentally ill person.
+    protected Vector2 ScalePositionFlipY(Vector2 value)
+    {
+        return ScalePositionFlipY(value, MinimapScale, MidPointVector);
+    }
+
+    protected static Vector2 ScalePositionFlipY(Vector2 value, float minimapScale, Vector2 midpointVector)
+    {
+        return value with { Y = -value.Y } * minimapScale + midpointVector;
+    }
+    // WWDP EDIT END
+
     /// <summary>
     /// Converts local coordinates on the control to map coordinates.
     /// </summary>
@@ -202,8 +216,7 @@ public partial class MapGridControl : LayoutContainer
 
     protected void DrawBacking(DrawingHandleScreen handle)
     {
-        var backing = BackingColor;
-        handle.DrawRect(PixelSizeBox, backing);
+        handle.DrawRect(PixelSizeBox, BackingColor);
     }
 
     protected void DrawNoSignal(DrawingHandleScreen handle)

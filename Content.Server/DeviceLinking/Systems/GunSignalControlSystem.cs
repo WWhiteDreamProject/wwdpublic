@@ -23,24 +23,25 @@ public sealed partial class GunSignalControlSystem : EntitySystem
         _signalSystem.EnsureSinkPorts(gunControl, gunControl.Comp.TriggerPort, gunControl.Comp.TogglePort, gunControl.Comp.OnPort, gunControl.Comp.OffPort);
     }
 
+    // WWDP EDIT START
     private void OnSignalReceived(Entity<GunSignalControlComponent> gunControl, ref SignalReceivedEvent args)
     {
-        if (!TryComp<GunComponent>(gunControl, out var gun))
+        if (!_gun.TryGetGun(gunControl, out var gunUid, out var gun)) 
             return;
 
         if (args.Port == gunControl.Comp.TriggerPort)
-            _gun.AttemptShoot(gunControl, gun);
+            _gun.AttemptShoot(gunControl.Owner, gunUid, gun);
 
-        if (!TryComp<AutoShootGunComponent>(gunControl, out var autoShoot))
-            return;
+        var autoShoot = EnsureComp<AutoShootGunComponent>(gunControl);
 
         if (args.Port == gunControl.Comp.TogglePort)
-           _gun.SetEnabled(gunControl, autoShoot, !autoShoot.Enabled);
+            _gun.SetEnabled(gunUid, autoShoot, !autoShoot.Enabled);
 
         if (args.Port == gunControl.Comp.OnPort)
-            _gun.SetEnabled(gunControl, autoShoot, true);
+            _gun.SetEnabled(gunUid, autoShoot, true);
 
         if (args.Port == gunControl.Comp.OffPort)
-            _gun.SetEnabled(gunControl, autoShoot, false);
+            _gun.SetEnabled(gunUid, autoShoot, false);
     }
+    // WWDP EDIT END
 }

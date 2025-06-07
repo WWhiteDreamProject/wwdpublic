@@ -20,6 +20,19 @@ public sealed partial class RadarConsoleComponent : Component
     [DataField, AutoNetworkedField]
     public float MaxRange = 256f;
 
+    // WWDP EDIT START
+
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public float FieldOfView = MathF.Tau;
+
+    [DataField("fieldOfVision")]
+    public float FieldOfViewDegrees
+    {
+        get => FieldOfView / MathF.PI * 180;
+        set { FieldOfView = value / 180 * MathF.PI; }
+    }
+    // WWDP EDIT END
+
     /// <summary>
     /// If true, the radar will be centered on the entity. If not - on the grid on which it is located.
     /// </summary>

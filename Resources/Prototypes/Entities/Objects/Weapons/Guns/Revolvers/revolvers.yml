@@ -30,6 +30,7 @@
     maxBonusAngle: 10             # wwdp
     selectedMode: SemiAuto
     fireRate: 1.5
+    defaultDirection: 1, 0 # wwdp
     availableModes:
     - SemiAuto
     soundGunshot:

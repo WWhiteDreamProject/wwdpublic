@@ -38,4 +38,5 @@ enum PowerChargerVisualLayers : byte
 {
     Base,
     Light,
+    ItemDisplay,
 }

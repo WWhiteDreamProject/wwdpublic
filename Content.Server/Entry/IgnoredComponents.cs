@@ -23,6 +23,7 @@ namespace Content.Server.Entry
             "ToggleableLightWieldable", // Goobstation
             "PixelSnapEye", // WWDP EDIT
             "DollyMixture", // WWDP EDIT
+            "ItemSlotRenderer", // WWDP EDIT
         };
     }
 }
