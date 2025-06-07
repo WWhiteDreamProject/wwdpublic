@@ -198,7 +198,7 @@ public sealed class BloodCultSpellsSystem : EntitySystem
                 continue;
 
             if (ev.Speech is not null)
-                _magicSystem.Speak(ev.Performer, ev.Speech, ev.InvokeChatType);
+                _magicSystem.Speak(ev);
         }
 
         ev.Handled = true;
