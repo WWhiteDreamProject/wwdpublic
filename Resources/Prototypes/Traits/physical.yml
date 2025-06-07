@@ -66,6 +66,7 @@
       traits:
         - GlassJaw
         - BrittleBoneDisease
+        - Redshirt
   functions:
     - !type:TraitReplaceComponent
       components:
@@ -814,6 +815,7 @@
       inverted: true
       traits:
         - WillToLive
+        - Tenacity
   functions:
     - !type:TraitReplaceComponent
       components:

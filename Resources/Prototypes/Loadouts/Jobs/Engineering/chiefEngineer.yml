@@ -421,22 +421,24 @@
 # Head
 
 # Id
-- type: loadout
-  id: LoadoutChiefEngineerNTPDA
-  category: JobsEngineeringChiefEngineer
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobChiefEngineer
-      min: 36000 # 10 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChiefEngineerId
-    - !type:CharacterJobRequirement
-      jobs:
-        - ChiefEngineer
-  items:
-    - CENTPDA
+# WWDP EDIT START - disabled
+# - type: loadout
+#   id: LoadoutChiefEngineerNTPDA
+#   category: JobsEngineeringChiefEngineer
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterPlaytimeRequirement
+#       tracker: JobChiefEngineer
+#       min: 36000 # 10 hours
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChiefEngineerId
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - ChiefEngineer
+#   items:
+#     - CENTPDA
+# WWDP EDIT END
 
 # Neck
 - type: loadout

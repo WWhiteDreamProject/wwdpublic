@@ -52,11 +52,11 @@
   category: JobsMedicalChiefMedicalOfficer
   cost: 0
   exclusive: true
-  requirements: 
+  requirements:
   - !type:CharacterItemGroupRequirement
       group: LoadoutChiefMedicalOfficerEquipment
   - !type:CharacterJobRequirement
-    jobs: 
+    jobs:
       - ChiefMedicalOfficer
   items:
     - OmnimedToolLite
@@ -93,22 +93,24 @@
     - ClothingHeadMirror
 
 # Id
-- type: loadout
-  id: LoadoutChiefMedicalOfficerNTPDA
-  category: JobsMedicalChiefMedicalOfficer
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobChiefMedicalOfficer
-      min: 36000 # 10 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChiefMedicalOfficerId
-    - !type:CharacterJobRequirement
-      jobs:
-        - ChiefMedicalOfficer
-  items:
-    - CMONTPDA
+# WWDP EDIT START - disabled
+# - type: loadout
+#   id: LoadoutChiefMedicalOfficerNTPDA
+#   category: JobsMedicalChiefMedicalOfficer
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterPlaytimeRequirement
+#       tracker: JobChiefMedicalOfficer
+#       min: 36000 # 10 hours
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChiefMedicalOfficerId
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - ChiefMedicalOfficer
+#   items:
+#     - CMONTPDA
+# WWDP EDIT END
 
 # Neck
 - type: loadout

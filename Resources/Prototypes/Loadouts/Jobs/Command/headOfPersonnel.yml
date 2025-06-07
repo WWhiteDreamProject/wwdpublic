@@ -165,22 +165,24 @@
     - ClothingHeadHatHopcap
 
 # Id
-- type: loadout
-  id: LoadoutHeadOfPersonnelNTPDA
-  category: JobsCommandHeadOfPersonnel
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobHeadOfPersonnel
-      min: 36000 # 10 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutHeadOfPersonnelId
-    - !type:CharacterJobRequirement
-      jobs:
-        - HeadOfPersonnel
-  items:
-    - HoPNTPDA
+# WWDP EDIT START - disabled
+# - type: loadout
+#   id: LoadoutHeadOfPersonnelNTPDA
+#   category: JobsCommandHeadOfPersonnel
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterPlaytimeRequirement
+#       tracker: JobHeadOfPersonnel
+#       min: 36000 # 10 hours
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutHeadOfPersonnelId
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - HeadOfPersonnel
+#   items:
+#     - HoPNTPDA
+# WWDP edit end
 
 # Neck
 - type: loadout
