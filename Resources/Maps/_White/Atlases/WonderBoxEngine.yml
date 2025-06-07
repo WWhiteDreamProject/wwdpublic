@@ -2523,12 +2523,11 @@ entities:
   - uid: 1045
     components:
     - type: Transform
-      parent: 1044
+      pos: 46.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 1053
     components:
     - type: Transform
@@ -5338,12 +5337,11 @@ entities:
   - uid: 1161
     components:
     - type: Transform
-      parent: 1160
+      pos: 50.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 1165
     components:
     - type: Transform
@@ -7498,78 +7496,6 @@ entities:
     - type: Transform
       pos: 143.5,37.5
       parent: 1
-- proto: CrateEngineeringSecure
-  entities:
-  - uid: 1044
-    components:
-    - type: Transform
-      pos: 46.5,39.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1045
-          - 1050
-          - 1046
-          - 1052
-          - 1048
-          - 1051
-          - 1049
-          - 1047
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 1160
-    components:
-    - type: Transform
-      pos: 50.5,39.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1163
-          - 1164
-          - 1162
-          - 1161
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 1279
-    components:
-    - type: Transform
-      pos: 47.5,39.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1290
-          - 1289
-          - 1288
-          - 1287
-          - 1286
-          - 1281
-          - 1280
-          - 1282
-          - 1283
-          - 1284
-          - 1291
-          - 1292
-          - 1285
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: CrateEngineeringTEGKit
   entities:
   - uid: 2812
@@ -7715,21 +7641,19 @@ entities:
   - uid: 1162
     components:
     - type: Transform
-      parent: 1160
+      pos: 50.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 1163
     components:
     - type: Transform
-      parent: 1160
+      pos: 50.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 1295
     components:
     - type: Transform
@@ -9989,13 +9913,12 @@ entities:
   - uid: 1046
     components:
     - type: Transform
-      parent: 1044
+      pos: 46.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
     - type: RenderOrder
-    - type: InsideEntityStorage
   - uid: 1361
     components:
     - type: Transform
@@ -10015,13 +9938,12 @@ entities:
   - uid: 1047
     components:
     - type: Transform
-      parent: 1044
+      pos: 46.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
     - type: RenderOrder
-    - type: InsideEntityStorage
   - uid: 1362
     components:
     - type: Transform
@@ -10041,13 +9963,12 @@ entities:
   - uid: 1048
     components:
     - type: Transform
-      parent: 1044
+      pos: 46.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
     - type: RenderOrder
-    - type: InsideEntityStorage
   - uid: 1363
     components:
     - type: Transform
@@ -10067,13 +9988,12 @@ entities:
   - uid: 1049
     components:
     - type: Transform
-      parent: 1044
+      pos: 46.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
     - type: RenderOrder
-    - type: InsideEntityStorage
   - uid: 1364
     components:
     - type: Transform
@@ -10091,13 +10011,12 @@ entities:
   - uid: 1050
     components:
     - type: Transform
-      parent: 1044
+      pos: 46.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
     - type: RenderOrder
-    - type: InsideEntityStorage
   - uid: 1365
     components:
     - type: Transform
@@ -10117,13 +10036,12 @@ entities:
   - uid: 1051
     components:
     - type: Transform
-      parent: 1044
+      pos: 46.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
     - type: RenderOrder
-    - type: InsideEntityStorage
   - uid: 1366
     components:
     - type: Transform
@@ -10237,13 +10155,12 @@ entities:
   - uid: 1052
     components:
     - type: Transform
-      parent: 1044
+      pos: 46.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
     - type: RenderOrder
-    - type: InsideEntityStorage
   - uid: 1369
     components:
     - type: Transform
@@ -10332,57 +10249,51 @@ entities:
   - uid: 1280
     components:
     - type: Transform
-      parent: 1279
+      pos: 47.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 1281
     components:
     - type: Transform
-      parent: 1279
+      pos: 47.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 1282
     components:
     - type: Transform
-      parent: 1279
+      pos: 47.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 1283
     components:
     - type: Transform
-      parent: 1279
+      pos: 47.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 1284
     components:
     - type: Transform
-      parent: 1279
+      pos: 47.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 1285
     components:
     - type: Transform
-      parent: 1279
+      pos: 47.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 1373
     components:
     - type: Transform
@@ -10685,6 +10596,26 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 147.5,22.5
       parent: 1
+- proto: Rack
+  entities:
+  - uid: 160
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 47.5,39.5
+      parent: 1
+  - uid: 161
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 46.5,39.5
+      parent: 1
+  - uid: 162
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 50.5,39.5
+      parent: 1
 - proto: RadiationCollector
   entities:
   - uid: 849
@@ -10747,72 +10678,65 @@ entities:
   - uid: 1286
     components:
     - type: Transform
-      parent: 1279
+      pos: 47.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
     - type: RenderOrder
-    - type: InsideEntityStorage
   - uid: 1287
     components:
     - type: Transform
-      parent: 1279
+      pos: 47.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
     - type: RenderOrder
-    - type: InsideEntityStorage
   - uid: 1288
     components:
     - type: Transform
-      parent: 1279
+      pos: 47.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
     - type: RenderOrder
-    - type: InsideEntityStorage
   - uid: 1289
     components:
     - type: Transform
-      parent: 1279
+      pos: 47.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
     - type: RenderOrder
-    - type: InsideEntityStorage
   - uid: 1290
     components:
     - type: Transform
-      parent: 1279
+      pos: 47.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
     - type: RenderOrder
-    - type: InsideEntityStorage
   - uid: 1291
     components:
     - type: Transform
-      parent: 1279
+      pos: 47.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 1292
     components:
     - type: Transform
-      parent: 1279
+      pos: 47.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
     - type: RenderOrder
-    - type: InsideEntityStorage
 - proto: RadioHandheld
   entities:
   - uid: 1659
@@ -12141,12 +12065,11 @@ entities:
   - uid: 1164
     components:
     - type: Transform
-      parent: 1160
+      pos: 50.5,39.5
+      parent: 1
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 1423
     components:
     - type: Transform
