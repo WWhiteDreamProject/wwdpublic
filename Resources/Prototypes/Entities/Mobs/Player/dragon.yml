@@ -148,6 +148,8 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: GlobalAntagonist # WWDP
+    antagonistPrototype: globalAntagonistDragon
   - type: Puller
     needsHands: false
 
