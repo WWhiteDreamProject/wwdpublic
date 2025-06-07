@@ -148,22 +148,24 @@
     - ClothingHeadHoodMysta
 
 # Id
-- type: loadout
-  id: LoadoutMystagogueNTPDA
-  category: JobsEpistemicsMystagogue
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobResearchDirector
-      min: 36000 # 10 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMystagogueId
-    - !type:CharacterJobRequirement
-      jobs:
-        - ResearchDirector
-  items:
-    - RnDNTPDA
+# WWDP EDIT START - disabled
+# - type: loadout
+#   id: LoadoutMystagogueNTPDA
+#   category: JobsEpistemicsMystagogue
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterPlaytimeRequirement
+#       tracker: JobResearchDirector
+#       min: 36000 # 10 hours
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMystagogueId
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - ResearchDirector
+#   items:
+#     - RnDNTPDA
+# WWDP EDIT END
 
 # Neck
 - type: loadout
