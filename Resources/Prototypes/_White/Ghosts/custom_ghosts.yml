@@ -185,6 +185,125 @@
   ghostDescription: Премудрый царь, право имеющий, в подвале мапперов держащий, лороведов не спрашивающий, спрайтеров принижающий, кокерами повелевающий, космонавтиков травящий глава Викиводов.
   size: 0.8, 0.8
 
+#just look at the ckey field you dumbass
+- type: customGhost
+  id: redfoxiv-ghost
+  ckey: RedFoxIV
+  sprite: _White/Ghosts/empty.rsi
+  alpha: 1
+  ghostName: яицевозка
+  ghostDescription: ДЕРЖИСЬ,    ЛЕТАЮЩАЯ    КРЕПОСТЬ!                                     МОЁ    СОЗДАНИЕ,    ЯИЦЕНОСЕЦ.
+  size: 0.5, 0.5
+  components:
+  - type: MouseRotator
+    angleTolerance: 1
+    simple4DirMode: false
+  - type: DollyMixture
+    sprite: _White/Ghosts/redfoxiv-3Dghost.rsi
+    offset: 0,-16
+    layerOffset: 0,0.675
+    repeatLayers: 1
+    defaultShader: unshaded
+    states:
+    - hqyaitca97
+    - hqyaitca96
+    - hqyaitca95
+    - hqyaitca94
+    - hqyaitca93
+    - hqyaitca92
+    - hqyaitca91
+    - hqyaitca90
+    - hqyaitca89
+    - hqyaitca88
+    - hqyaitca87
+    - hqyaitca86
+    - hqyaitca85
+    - hqyaitca84
+    - hqyaitca83
+    - hqyaitca82
+    - hqyaitca81
+    - hqyaitca80
+    - hqyaitca79
+    - hqyaitca78
+    - hqyaitca77
+    - hqyaitca76
+    - hqyaitca75
+    - hqyaitca74
+    - hqyaitca73
+    - hqyaitca72
+    - hqyaitca71
+    - hqyaitca70
+    - hqyaitca69
+    - hqyaitca68
+    - hqyaitca67
+    - hqyaitca66
+    - hqyaitca65
+    - hqyaitca64
+    - hqyaitca63
+    - hqyaitca62
+    - hqyaitca61
+    - hqyaitca60
+    - hqyaitca59
+    - hqyaitca58
+    - hqyaitca57
+    - hqyaitca56
+    - hqyaitca55
+    - hqyaitca54
+    - hqyaitca53
+    - hqyaitca52
+    - hqyaitca51
+    - hqyaitca50
+    - hqyaitca49
+    - hqyaitca48
+    - hqyaitca47
+    - hqyaitca46
+    - hqyaitca45
+    - hqyaitca44
+    - hqyaitca43
+    - hqyaitca42
+    - hqyaitca41
+    - hqyaitca40
+    - hqyaitca39
+    - hqyaitca38
+    - hqyaitca37
+    - hqyaitca36
+    - hqyaitca35
+    - hqyaitca34
+    - hqyaitca33
+    - hqyaitca32
+    - hqyaitca31
+    - hqyaitca30
+    - hqyaitca29
+    - hqyaitca28
+    - hqyaitca27
+    - hqyaitca26
+    - hqyaitca25
+    - hqyaitca24
+    - hqyaitca23
+    - hqyaitca22
+    - hqyaitca21
+    - hqyaitca20
+    - hqyaitca19
+    - hqyaitca18
+    - hqyaitca17
+    - hqyaitca16
+    - hqyaitca15
+    - hqyaitca14
+    - hqyaitca13
+    - hqyaitca12
+    - hqyaitca11
+    - hqyaitca10
+    - hqyaitca9
+    - hqyaitca8
+    - hqyaitca7
+    - hqyaitca6
+    - hqyaitca5
+    - hqyaitca4
+    - hqyaitca3
+    - hqyaitca2
+    - hqyaitca1
+
+
 ##xivi
 #- type: customGhost
 #  id: xivi-ghost
