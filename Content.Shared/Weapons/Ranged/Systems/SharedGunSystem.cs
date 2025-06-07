@@ -284,9 +284,9 @@ public abstract partial class SharedGunSystem : EntitySystem
     /// <summary>
     /// Attempts to shoot at the target coordinates. Resets the shot counter after every shot.
     /// </summary>
-    public void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates toCoordinates)
+    public void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates? toCoordinates = null) // WWDP EDIT
     {
-        gun.ShootCoordinates = toCoordinates;
+        gun.ShootCoordinates = toCoordinates ?? new EntityCoordinates(gunUid, gun.DefaultDirection);
         AttemptShoot(user, gunUid, gun);
         gun.ShotCounter = 0;
     }

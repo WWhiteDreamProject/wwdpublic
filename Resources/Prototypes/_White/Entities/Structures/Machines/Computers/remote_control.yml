@@ -64,15 +64,15 @@
 
 
 - type: sourcePort
-  id: RemoteControlPort
-  name: signal-port-name-remote-control
-  description: signal-port-description-remote-control
+  id: RemoteControlSourcePort
+  name: signal-port-name-remote-control-source
+  description: signal-port-description-remote-control-source
   defaultLinks: [ RemoteControlInputPort ]
 
 - type: sinkPort
-  id: RemoteControlInputPort
-  name: signal-port-name-remote-control-input
-  description: signal-port-description-remote-control-input
+  id: RemoteControlSinkPort
+  name: signal-port-name-remote-control-sink
+  description: signal-port-description-remote-control-sink
 
 #- type: entity
 #  parent: BaseWeaponBallisticTurret3D
@@ -138,25 +138,7 @@
     fieldOfVision: 90
 
 - type: entity
-  name: ship laser turret
-  description: A burst fire heavy laser weapon mounted to a simple actuator rig with a camera. Its weapon will recharge while connected to an active power grid.
-  parent: BaseWeaponEnergyTurretShip
-  id: WeaponEnergyTurretShip
-  components:
-  - type: Gun
-    shipWeapon: true
-    burstCooldown: 0.4
-    projectileSpeed: 50
-    angleIncrease: 1.25
-    maxAngle: 5
-    selectedMode: Burst
-    availableModes:
-    - Burst
-
-
-
-- type: entity
-  parent: BaseStructure
+  parent: [BaseStructure, ConstructibleMachine]
   id: WeaponTurretModular
   suffix: Remote Controlled
   name: modular turret
@@ -248,6 +230,7 @@
         ejectOnBreak: true
         swap: false
         name: Weapon slot
+        priority: 1
         whitelist:
           components:
           - Gun
@@ -255,21 +238,34 @@
     mapping:
       weapon_slot: assblaster
   - type: RemoteControllable
+  - type: ManuallyControllable
   - type: Machine
     board: WeaponTurretModularCircuitBoard
-
+  - type: Lock
+    locked: false
+    lockTime: 3
+    unlockTime: 10
+  - type: ItemSlotsLock
+    slots:
+    - weapon_slot
+  - type: GunSignalControl
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WiredNetworkConnection
+    
 - type: entity
   id: WeaponTurretModularCircuitBoard
   parent: BaseMachineCircuitboard
   name: modular turret machine board
-  description: Looks like you could use a screwdriver to change the board type.
+  description: Circuitboard for a modular turret, which is a fancy way of saying "a servomotor tied to a gun's trigger with a string".
   components:
   - type: Sprite
     state: engineering
   - type: MachineBoard
     prototype: WeaponTurretModular
     requirements:
-      MatterBin: 2
+      MatterBin: 1
       Manipulator: 3
       Capacitor: 1
     materialRequirements:

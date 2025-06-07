@@ -1,3 +1,4 @@
+using Content.Shared.Actions;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
@@ -19,6 +20,9 @@ public sealed partial class RemoteControllableComponent : Component
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public EntityUid? ControllingEntity;
 
+    [DataField]
+    public bool EnsureSinkPort = true;
+    
     [DataField]
     public string EndRemoteControlAction = "ActionEndRemoteControl";
 
@@ -43,9 +47,6 @@ public sealed partial class RemoteControllingComponent : Component
 public sealed partial class RemoteControlConsoleComponent : Component
 {
     [DataField]
-    public ProtoId<SourcePortPrototype> ConnectionPortId = "RemoteControlPort";
-
-    [DataField]
     public List<EntityUid> LinkedEntities = new();
 
     [DataField]
@@ -60,6 +61,9 @@ public sealed partial class RemoteControlConsoleComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? CurrentUser;
 
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? CurrentEntity;
+
     [DataField]
     public EntProtoId SwitchToNextAction = "RemoteControlConsoleSwitchToNextAction";
     [DataField]
@@ -68,3 +72,15 @@ public sealed partial class RemoteControlConsoleComponent : Component
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public EntityUid? ControllingEntity;
 }
+
+[NetworkedComponent]
+[RegisterComponent]
+public sealed partial class ManuallyControllableComponent : Component
+{
+    [DataField]
+    public bool Enabled = true;
+    public EntityUid? CurrentUser;
+}
+
+public sealed partial class RemoteControlConsoleSwitchNextActionEvent : InstantActionEvent;
+public sealed partial class RemoteControlExitActionEvent : InstantActionEvent;
