@@ -308,10 +308,13 @@
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletLaser # WWDP
-    fireCost: 32.25 # wwd
+    fireCost: 25 # wwd
   - type: Battery
     maxCharge: 500
     startingCharge: 500
+  - type: Construction #WWDP
+    graph: MakeshiftLaserGraph
+    node: laser
 
 - type: entity
   name: tesla gun
