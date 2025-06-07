@@ -3025,3 +3025,22 @@ Entries:
   id: 328
   time: '2025-06-06T17:05:43.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/513
+- author: Gersoon
+  changes:
+    - type: Remove
+      message: Удален Бокс
+    - type: Add
+      message: Добавлено нечто в пул
+    - type: Remove
+      message: >-
+        Некоторые стнации были взорваны ядерными оперативники и/или их захватили
+        революционеры. Теперь нельзя запустить с ними раунд
+    - type: Remove
+      message: >-
+        Удален бригмедик, но пока что не решили что делать с его шкафом, поэтому
+        он будет на месте. Решалось это ещё 2 года назад, увы
+    - type: Remove
+      message: Удален тюремный охранник, увы
+  id: 329
+  time: '2025-06-07T07:20:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/550
