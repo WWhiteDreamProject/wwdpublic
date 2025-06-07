@@ -11643,7 +11643,7 @@ entities:
       pos: 23.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -47497.727
+      secondsUntilStateChange: -47679.42
       state: Opening
 - proto: AirlockExternalGlassShuttleEmergencyLocked
   entities:
@@ -50954,29 +50954,26 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -26.824606,26.725382
       parent: 2
-- proto: FloraTreeSpringPinkLarge01
-  entities:
-  - uid: 11558
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -28.359482,6.5557575
-      parent: 2
-- proto: FloraTreeSpringPinkLarge03
+- proto: FloraTreeLarge01
   entities:
   - uid: 4904
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -28.400023,2.4783494
+      pos: -26.888363,4.1317215
       parent: 2
-- proto: FloraTreeSpringPinkLarge05
+- proto: FloraTreeLarge02
+  entities:
+  - uid: 1579
+    components:
+    - type: Transform
+      pos: -28.172146,6.3594437
+      parent: 2
+- proto: FloraTreeLarge03
   entities:
   - uid: 4852
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -26.521643,4.0040016
+      pos: -28.158632,2.6641245
       parent: 2
 - proto: FoamBlade
   entities:
@@ -82520,6 +82517,11 @@ entities:
       parent: 2
 - proto: RendingRunePlacementMarker
   entities:
+  - uid: 5715
+    components:
+    - type: Transform
+      pos: -42.5,-40.5
+      parent: 2
   - uid: 16611
     components:
     - type: Transform
@@ -87055,35 +87057,8 @@ entities:
     - type: Transform
       pos: -18.5,-5.5
       parent: 2
-- proto: SpawnPointBoxer
-  entities:
-  - uid: 1579
-    components:
-    - type: Transform
-      pos: -16.5,-25.5
-      parent: 2
-  - uid: 13389
-    components:
-    - type: Transform
-      pos: -18.5,-21.5
-      parent: 2
-  - uid: 13392
-    components:
-    - type: Transform
-      pos: -15.5,-22.5
-      parent: 2
 - proto: SpawnPointBrigmedic
   entities:
-  - uid: 5715
-    components:
-    - type: Transform
-      pos: 4.5,6.5
-      parent: 2
-  - uid: 9587
-    components:
-    - type: Transform
-      pos: 0.5,7.5
-      parent: 2
   - uid: 12551
     components:
     - type: Transform
@@ -87241,6 +87216,63 @@ entities:
     components:
     - type: Transform
       pos: 17.5,14.5
+      parent: 2
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 9587
+    components:
+    - type: Transform
+      pos: 21.5,6.5
+      parent: 2
+  - uid: 11558
+    components:
+    - type: Transform
+      pos: 21.5,13.5
+      parent: 2
+  - uid: 13389
+    components:
+    - type: Transform
+      pos: 22.5,20.5
+      parent: 2
+  - uid: 13392
+    components:
+    - type: Transform
+      pos: 32.5,0.5
+      parent: 2
+  - uid: 15028
+    components:
+    - type: Transform
+      pos: 35.5,13.5
+      parent: 2
+  - uid: 15029
+    components:
+    - type: Transform
+      pos: 35.5,6.5
+      parent: 2
+  - uid: 15037
+    components:
+    - type: Transform
+      pos: 31.5,0.5
+      parent: 2
+  - uid: 15040
+    components:
+    - type: Transform
+      pos: 30.5,0.5
+      parent: 2
+  - uid: 15041
+    components:
+    - type: Transform
+      pos: 26.5,0.5
+      parent: 2
+  - uid: 15167
+    components:
+    - type: Transform
+      pos: 25.5,0.5
+      parent: 2
+  - uid: 15418
+    components:
+    - type: Transform
+      pos: 24.5,0.5
       parent: 2
 - proto: SpawnPointLawyer
   entities:
@@ -108309,14 +108341,6 @@ entities:
     - type: Transform
       pos: 8.550114,4.5684986
       parent: 2
-    - type: EnergyGun
-      currentFireMode:
-        state: disabler
-        name: disable
-        fireCost: 50
-        proto: BulletDisabler
-    - type: Item
-      heldPrefix: disabler
     - type: Physics
       angularDamping: 0
       linearDamping: 0

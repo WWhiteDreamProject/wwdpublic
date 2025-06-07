@@ -15488,7 +15488,7 @@ entities:
       pos: 16.5,-3.5
       parent: 82
     - type: Door
-      secondsUntilStateChange: -79095.555
+      secondsUntilStateChange: -78978.98
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -63423,275 +63423,6 @@ entities:
     - type: Transform
       pos: -49.5,54.5
       parent: 82
-- proto: ChairOfficeDark
-  entities:
-  - uid: 9706
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 19.5,-98.5
-      parent: 82
-  - uid: 9736
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 25.5,-96.5
-      parent: 82
-  - uid: 9737
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 26.5,-93.5
-      parent: 82
-  - uid: 9935
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 21.5,-98.5
-      parent: 82
-  - uid: 14457
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 47.373386,16.010572
-      parent: 82
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PhysShapeCircle
-            radius: 0.2
-            position: 0,0
-          mask:
-          - Impassable
-          - TableLayer
-          layer: []
-          density: 75
-          hard: True
-          restitution: 0
-          friction: 0.4
-    - type: Destructible
-      thresholds:
-      - trigger: !type:DamageTrigger
-          damage: 100
-        triggersOnce: False
-        triggered: False
-        behaviors:
-        - !type:DoActsBehavior
-          acts: Destruction
-      - trigger: !type:DamageTrigger
-          damage: 50
-        triggersOnce: False
-        triggered: False
-        behaviors:
-        - !type:DoActsBehavior
-          acts: Destruction
-        - !type:PlaySoundBehavior
-          sound: !type:SoundCollectionSpecifier
-            params:
-              variation: null
-              playOffsetSeconds: 0
-              loop: False
-              referenceDistance: 1
-              rolloffFactor: 1
-              maxDistance: 15
-              pitch: 1
-              volume: 0
-            collection: MetalBreak
-    - type: StaticPrice
-      price: 50
-    - type: ContainerContainer
-      containers:
-        key_slot: !type:ContainerSlot {}
-  - uid: 14475
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 36.5,21.5
-      parent: 82
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PhysShapeCircle
-            radius: 0.2
-            position: 0,0
-          mask:
-          - Impassable
-          - TableLayer
-          layer: []
-          density: 75
-          hard: True
-          restitution: 0
-          friction: 0.4
-    - type: Destructible
-      thresholds:
-      - trigger: !type:DamageTrigger
-          damage: 100
-        triggersOnce: False
-        triggered: False
-        behaviors:
-        - !type:DoActsBehavior
-          acts: Destruction
-      - trigger: !type:DamageTrigger
-          damage: 50
-        triggersOnce: False
-        triggered: False
-        behaviors:
-        - !type:DoActsBehavior
-          acts: Destruction
-        - !type:PlaySoundBehavior
-          sound: !type:SoundCollectionSpecifier
-            params:
-              variation: null
-              playOffsetSeconds: 0
-              loop: False
-              referenceDistance: 1
-              rolloffFactor: 1
-              maxDistance: 15
-              pitch: 1
-              volume: 0
-            collection: MetalBreak
-    - type: StaticPrice
-      price: 50
-    - type: ContainerContainer
-      containers:
-        key_slot: !type:ContainerSlot {}
-  - uid: 14599
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 39.5,30.5
-      parent: 82
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PhysShapeCircle
-            radius: 0.2
-            position: 0,0
-          mask:
-          - Impassable
-          - TableLayer
-          layer: []
-          density: 75
-          hard: True
-          restitution: 0
-          friction: 0.4
-    - type: Destructible
-      thresholds:
-      - trigger: !type:DamageTrigger
-          damage: 100
-        triggersOnce: False
-        triggered: False
-        behaviors:
-        - !type:DoActsBehavior
-          acts: Destruction
-      - trigger: !type:DamageTrigger
-          damage: 50
-        triggersOnce: False
-        triggered: False
-        behaviors:
-        - !type:DoActsBehavior
-          acts: Destruction
-        - !type:PlaySoundBehavior
-          sound: !type:SoundCollectionSpecifier
-            params:
-              variation: null
-              playOffsetSeconds: 0
-              loop: False
-              referenceDistance: 1
-              rolloffFactor: 1
-              maxDistance: 15
-              pitch: 1
-              volume: 0
-            collection: MetalBreak
-    - type: StaticPrice
-      price: 50
-    - type: ContainerContainer
-      containers:
-        key_slot: !type:ContainerSlot {}
-  - uid: 14732
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -13.5,-29.5
-      parent: 82
-  - uid: 15070
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -21.5,-38.5
-      parent: 82
-  - uid: 15072
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 12.5,-14.5
-      parent: 82
-  - uid: 15935
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -54.5,1.5
-      parent: 82
-  - uid: 15936
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 35.5,51.5
-      parent: 82
-- proto: ChairOfficeLight
-  entities:
-  - uid: 14730
-    components:
-    - type: Transform
-      pos: 27.5,58.5
-      parent: 82
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PhysShapeCircle
-            radius: 0.2
-            position: 0,0
-          mask:
-          - Impassable
-          - TableLayer
-          layer: []
-          density: 75
-          hard: True
-          restitution: 0
-          friction: 0.4
-    - type: Destructible
-      thresholds:
-      - trigger: !type:DamageTrigger
-          damage: 100
-        triggersOnce: False
-        triggered: False
-        behaviors:
-        - !type:DoActsBehavior
-          acts: Destruction
-      - trigger: !type:DamageTrigger
-          damage: 50
-        triggersOnce: False
-        triggered: False
-        behaviors:
-        - !type:DoActsBehavior
-          acts: Destruction
-        - !type:PlaySoundBehavior
-          sound: !type:SoundCollectionSpecifier
-            params:
-              variation: null
-              playOffsetSeconds: 0
-              loop: False
-              referenceDistance: 1
-              rolloffFactor: 1
-              maxDistance: 15
-              pitch: 1
-              volume: 0
-            collection: MetalBreak
-    - type: StaticPrice
-      price: 50
-    - type: ContainerContainer
-      containers:
-        key_slot: !type:ContainerSlot {}
 - proto: ChairWood
   entities:
   - uid: 2082
@@ -64022,10 +63753,21 @@ entities:
   - uid: 8444
     components:
     - type: Transform
-      pos: 51.430733,52.408886
+      pos: 51.44136,52.483948
       parent: 82
-    - type: TimedDespawn
-      lifetime: 900
+    - type: MeleeWeapon
+      range: 2
+      attackRate: 0.5
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+    - type: RenderOrder
+    - type: ClothingSpeedModifier
+      sprintModifier: 0.6
+      walkModifier: 0.6
+    - type: HeldSpeedModifier
+      sprintModifier: 0.6
+      walkModifier: 0.6
 - proto: ClosetBombFilled
   entities:
   - uid: 4314
@@ -127956,13 +127698,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 15.5,41.5
-      parent: 82
-- proto: PresentHalloweenBaseTrash
-  entities:
-  - uid: 24645
-    components:
-    - type: Transform
-      pos: 47.44394,49.113487
       parent: 82
 - proto: PrinterDoc
   entities:

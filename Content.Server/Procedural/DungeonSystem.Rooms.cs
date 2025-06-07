@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Storage.Components;
+using Content.Shared.Actions;
 using Content.Shared.Cabinet;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Containers.ItemSlots;
@@ -195,37 +196,44 @@ public sealed partial class DungeonSystem
 
             var ent = Spawn(protoId, new EntityCoordinates(gridUid, childPos));
 
-            // WD EDIT START - kill me pls
+            // WD EDIT START - kill me pls + BIG KOSTYL
             var entComponents = EntityManager.GetComponents(ent).ToList();
             var templateEntComponents = EntityManager.GetComponents(templateEnt).ToList();
 
+            var entMetaData = MetaData(ent);
+            var templateMetaData = MetaData(templateEnt);
+
+            _metaData.SetEntityName(ent, templateMetaData.EntityName, entMetaData);
+            _metaData.SetEntityDescription(ent, templateMetaData.EntityDescription, entMetaData);
+
             foreach (var comp in entComponents)
             {
-                if (comp is ContainerManagerComponent)
+                if (comp is MetaDataComponent or TransformComponent or ContainerManagerComponent)
                     continue;
 
                 if (templateEntComponents.All(p => comp.GetType() != p.GetType()))
                 {
                     RemComp(ent, comp);
-                    continue;
                 }
-
-                if (comp is not MetaDataComponent entMetaData)
-                    continue;
-
-                var templateMetaData = MetaData(templateEnt);
-                _metaData.SetEntityName(ent, templateMetaData.EntityName, entMetaData);
-                _metaData.SetEntityDescription(ent, templateMetaData.EntityDescription, entMetaData);
             }
 
             foreach (var comp in templateEntComponents)
             {
-                if (entComponents.Any(p => comp.GetType() == p.GetType()))
+                if (comp is MetaDataComponent or TransformComponent or ContainerManagerComponent)
+                    continue;
+                if (entComponents.Any(p => p.GetType() == comp.GetType()))
                     continue;
 
-                var copy = _serializationManager.CreateCopy(comp, notNullableOverride: true);
-                copy.Owner = ent;
-                AddComp(ent, copy);
+                try
+                {
+                    var copy = _serializationManager.CreateCopy(comp, notNullableOverride: true);
+                    copy.Owner = ent;
+                    AddComp(ent, copy);
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error($"Failed to copy component {comp.GetType()} from template entity {templateEnt} to {ent}: {ex}");
+                }
             }
             // WD EDIT END
 
