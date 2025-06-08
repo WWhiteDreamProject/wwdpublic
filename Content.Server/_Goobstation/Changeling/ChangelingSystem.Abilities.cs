@@ -34,7 +34,9 @@ public sealed partial class ChangelingSystem
     {
         SubscribeLocalEvent<ChangelingComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
         SubscribeLocalEvent<ChangelingComponent, AbsorbDNAEvent>(OnAbsorb);
-        SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterEvent>(OnAbsorbDoAfter);
+        SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterFirstEvent>(OnFirstAbsorbDoAfter);
+        SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterSecondEvent>(OnSecondAbsorbDoAfter);
+        SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterThirdEvent>(OnThirdAbsorbDoAfter);
         SubscribeLocalEvent<ChangelingComponent, ChangelingInfectTargetEvent>(OnInfect);
         SubscribeLocalEvent<ChangelingComponent, ChangelingInfectTargetDoAfterEvent>(OnInfectDoAfter);
         SubscribeLocalEvent<ChangelingComponent, StingExtractDNAEvent>(OnStingExtractDNA);
@@ -113,13 +115,12 @@ public sealed partial class ChangelingSystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        var popupOthers = Loc.GetString(comp.AbsorbPopup, ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
-        _popup.PopupEntity(popupOthers, uid, comp.AbsorbPopupType);
-        PlayMeatySound(uid, comp);
-        var dargs = new DoAfterArgs(EntityManager, uid, comp.AbsorbTime, new AbsorbDNADoAfterEvent(), uid, target)
+        _popup.PopupEntity(Loc.GetString(comp.AbsorbStart), uid, uid);
+        //PlayMeatySound(uid, comp); // WWDP EDIT
+        var dargs = new DoAfterArgs(EntityManager, uid, comp.AbsorbTime, new AbsorbDNADoAfterFirstEvent(), uid, target)
         {
             DistanceThreshold = 1.5f,
-            BreakOnDamage = true,
+            BreakOnDamage = false, // WWDP EDIT
             BreakOnHandChange = false,
             BreakOnMove = true,
             BreakOnWeightlessMove = true,
@@ -140,7 +141,75 @@ public sealed partial class ChangelingSystem
     ///     should give the same number of chemicals as before (7 points).
     /// </summary>
     private const float SuccChemicalsRatio = 7f;
-    private void OnAbsorbDoAfter(EntityUid uid, ChangelingComponent comp, ref AbsorbDNADoAfterEvent args)
+
+    // WWDP EDIT START
+    // todo: consider moving this bullshit to a whole another system just for handling chained doafters like these.
+    private void OnFirstAbsorbDoAfter(EntityUid uid, ChangelingComponent comp, ref AbsorbDNADoAfterFirstEvent args)
+    {
+        if (args.Cancelled || args.Args.Target is not EntityUid target
+            || !_proto.TryIndex<DamageTypePrototype>(comp.AbsorbedDamageType, out var damageProto))
+            return;
+
+        if (!IsIncapacitated(target))
+        {
+            _popup.PopupEntity(Loc.GetString(comp.AbsorbFailIncapacitated), uid, uid);
+            return;
+        }
+        if (HasComp<AbsorbedComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString(comp.AbsorbFailAbsorbed), uid, uid);
+            return;
+        }
+
+        var dargs = new DoAfterArgs(EntityManager, uid, comp.AbsorbTime, new AbsorbDNADoAfterSecondEvent(), uid, target)
+        {
+            DistanceThreshold = 1.5f,
+            BreakOnDamage = false,
+            BreakOnHandChange = false,
+            BreakOnMove = true,
+            BreakOnWeightlessMove = true,
+            AttemptFrequency = AttemptFrequency.StartAndEnd,
+            MultiplyDelay = false,
+        };
+        var popupOthers = Loc.GetString(comp.AbsorbPopupFirst, ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
+        _popup.PopupEntity(popupOthers, uid, comp.AbsorbPopupType);
+        _doAfter.TryStartDoAfter(dargs);
+    }
+
+    private void OnSecondAbsorbDoAfter(EntityUid uid, ChangelingComponent comp, ref AbsorbDNADoAfterSecondEvent args)
+    {
+        if (args.Cancelled || args.Args.Target is not EntityUid target
+            || !_proto.TryIndex<DamageTypePrototype>(comp.AbsorbedDamageType, out var damageProto))
+            return;
+
+        if (!IsIncapacitated(target))
+        {
+            _popup.PopupEntity(Loc.GetString(comp.AbsorbFailIncapacitated), uid, uid);
+            return;
+        }
+        if (HasComp<AbsorbedComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString(comp.AbsorbFailAbsorbed), uid, uid);
+            return;
+        }
+
+        var dargs = new DoAfterArgs(EntityManager, uid, comp.AbsorbTime, new AbsorbDNADoAfterThirdEvent(), uid, target)
+        {
+            DistanceThreshold = 1.5f,
+            BreakOnDamage = false,
+            BreakOnHandChange = false,
+            BreakOnMove = true,
+            BreakOnWeightlessMove = true,
+            AttemptFrequency = AttemptFrequency.StartAndEnd,
+            MultiplyDelay = false,
+        };
+        var popupOthers = Loc.GetString(comp.AbsorbPopupSecond, ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
+        _popup.PopupEntity(popupOthers, uid, comp.AbsorbPopupType);
+        _doAfter.TryStartDoAfter(dargs);
+    }
+    // WWDP EDIT END
+
+    private void OnThirdAbsorbDoAfter(EntityUid uid, ChangelingComponent comp, ref AbsorbDNADoAfterThirdEvent args) // WWDP EDIT
     {
         if (args.Args.Target is null
             || !_proto.TryIndex<DamageTypePrototype>(comp.AbsorbedDamageType, out var damageProto))
@@ -189,7 +258,8 @@ public sealed partial class ChangelingSystem
         }
         TryStealDNA(uid, target, comp, true);
         comp.TotalAbsorbedEntities++;
-
+        var popupOthers = Loc.GetString(comp.AbsorbPopupThird, ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
+        _popup.PopupEntity(popupOthers, uid, comp.AbsorbPopupType);
         _popup.PopupEntity(popup, args.User, args.User);
         comp.MaxChemicals += bonusChemicals;
 
