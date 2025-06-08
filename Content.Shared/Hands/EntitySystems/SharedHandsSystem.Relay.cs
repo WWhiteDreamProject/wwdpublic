@@ -1,3 +1,4 @@
+using Content.Shared._White;
 using Content.Shared.Hands.Components;
 using Content.Shared.MouseRotator;
 using Content.Shared.Movement.Systems;
@@ -9,7 +10,7 @@ public abstract partial class SharedHandsSystem
     private void InitializeRelay()
     {
         SubscribeLocalEvent<HandsComponent, RefreshMovementSpeedModifiersEvent>(RelayEvent);
-        SubscribeLocalEvent<HandsComponent, MoveEvent>(RelayMoveEvent); // WWDP EDIT
+        SubscribeLocalEvent<HandsComponent, MoveEventProxy>(RelayMoveEvent); // WWDP EDIT
     }
 
     private void RelayEvent<T>(Entity<HandsComponent> entity, ref T args) where T : EntityEventArgs
@@ -22,7 +23,7 @@ public abstract partial class SharedHandsSystem
     }
 
     //WWDP EDIT START
-    private void RelayMoveEvent(EntityUid uid, HandsComponent comp, ref MoveEvent args)
+    private void RelayMoveEvent(EntityUid uid, HandsComponent comp, ref MoveEventProxy args)
     {
         var ev = new HolderMoveEvent(args);
         foreach (var itemUid in EnumerateHeld(uid, comp))
@@ -36,7 +37,7 @@ public abstract partial class SharedHandsSystem
 
 // WWDP STUFF I GUESS
 [ByRefEvent]
-public readonly struct HolderMoveEvent(MoveEvent ev)
+public readonly struct HolderMoveEvent(MoveEventProxy ev)
 {
-    public readonly MoveEvent Ev = ev;
+    public readonly MoveEventProxy Ev = ev;
 }

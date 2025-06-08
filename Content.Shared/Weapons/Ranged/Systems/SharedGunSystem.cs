@@ -111,7 +111,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         if (Timing.ApplyingState)
             return;
-        MoveEvent args = _args.Ev;
+        var args = _args.Ev;
         double posDiff = 0;
         if (!args.ParentChanged)
             posDiff = (args.OldPosition.Position - args.NewPosition.Position).Length();
