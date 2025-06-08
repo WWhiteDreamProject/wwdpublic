@@ -201,7 +201,7 @@
 
 - type: loadout
   id: LoadoutChiefMedicalOfficerShoesLaceup
-  category: JobsCommandCaptain
+  category: JobsMedicalChiefMedicalOfficer
   cost: 0
   exclusive: true
   requirements:
@@ -215,7 +215,7 @@
 
 - type: loadout
   id: LoadoutChiefMedicalOfficerShoesLeather
-  category: JobsCommandCaptain
+  category: JobsMedicalChiefMedicalOfficer
   cost: 0
   exclusive: true
   requirements:

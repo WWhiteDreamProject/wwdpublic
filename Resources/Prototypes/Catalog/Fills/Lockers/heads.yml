@@ -34,7 +34,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterCoatCapTrench
+      - id: ClothingBeltSheathFilled # WWDP
+    # - id: ClothingOuterCoatCapTrench # WWDP
       - id: NukeDisk
       - id: PinpointerNuclear
       - id: CaptainIDCard
@@ -57,9 +58,11 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterArmorCaptainCarapace # WWDP
+      # - id: ClothingOuterCoatCapTrench # WWDP
+      - id: ClothingBeltSheathFilled # WWDP
       - id: NukeDisk
       - id: PinpointerNuclear
+      - id: WeaponAntiqueLaser # WWDP
       - id: CaptainIDCard
       - id: CommsComputerCircuitboard
       - id: ClothingHeadsetAltCommand
@@ -79,7 +82,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterArmorCaptainCarapace # WWDP
+      # - id: ClothingOuterCoatCapTrench # WWDP
       - id: NukeDisk
       - id: PinpointerNuclear
       - id: CaptainIDCard
