@@ -40,8 +40,8 @@
     back: ClothingBackpackEngineeringFilled
     shoes: ClothingShoesBootsWork
     id: SeniorEngineerPDA
-    eyes: ClothingEyesGlassesMeson
-    belt: ClothingBeltUtilityEngineering
+    # eyes: ClothingEyesGlassesMeson # WWDP
+    # belt: ClothingBeltUtilityEngineering # WWDP
     ears: ClothingHeadsetEngineering
   innerClothingSkirt: ClothingUniformJumpskirtSeniorEngineer
   satchel: ClothingBackpackSatchelEngineeringFilled

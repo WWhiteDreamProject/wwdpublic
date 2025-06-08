@@ -129,6 +129,7 @@
   - type: StorageFill
     contents:
       - id: ClothingOuterHardsuitEngineeringWhite
+      - id: ClothingBeltChiefEngineerFilled # WWDP
       - id: ClothingMaskBreath
       - id: ClothingEyesGlassesMeson
       - id: ClothingShoesBootsMagAdv
