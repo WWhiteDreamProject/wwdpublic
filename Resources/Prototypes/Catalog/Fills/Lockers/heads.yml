@@ -57,7 +57,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterCoatCapTrench
+      - id: ClothingOuterArmorCaptainCarapace # WWDP
       - id: NukeDisk
       - id: PinpointerNuclear
       - id: CaptainIDCard
@@ -79,7 +79,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterCoatCapTrench
+      - id: ClothingOuterArmorCaptainCarapace # WWDP
       - id: NukeDisk
       - id: PinpointerNuclear
       - id: CaptainIDCard
