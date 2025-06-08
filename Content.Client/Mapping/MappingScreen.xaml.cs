@@ -65,7 +65,7 @@ public sealed partial class MappingScreen : InGameScreen
 
         DecalColorPicker.OnColorChanged += OnDecalColorPicked;
         DecalPickerOpen.OnPressed += OnDecalPickerOpenPressed;
-        DecalHexColorInput.OnTextEntered += OnDecalHexColorInput; // WD EDIT
+        DecalHexColorInput.OnTextChanged += OnDecalHexColorInput; // WD EDIT
         _rotationSpinBox.OnValueChanged += args =>
         {
             _decalRotation = args.Value;
