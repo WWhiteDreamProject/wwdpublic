@@ -8,8 +8,9 @@ using Robust.Client.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Reflection;
-using System.Linq;
 using System.Numerics;
+using System.Runtime.CompilerServices;
+using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
 
 namespace Content.Client._White.AntiParkinsons;
 
@@ -26,14 +27,10 @@ public sealed class AntiParkinsonsSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
 
-    public bool Enabled = false;
-    [Access(typeof(AntiParkinsonsSystem), typeof(AntiParkinsonsRevertSystem))]
-    public bool DoingShit = false;
-    [Access(typeof(AntiParkinsonsSystem), typeof(AntiParkinsonsRevertSystem))]
-    public Vector2 SavedWorldPos;
-    public Vector2 ModifiedWorldPos;
-    [Access(typeof(AntiParkinsonsSystem), typeof(AntiParkinsonsRevertSystem))]
-    public EntityUid LastParent = EntityUid.Invalid;
+    bool Enabled = false;
+    bool DoingShit = false;
+    Vector2 SavedLocalPos;
+    Vector2 ModifiedLocalPos;
 
     public delegate void MoveEventHandlerProxy(ref MoveEventProxy ev);
     public event MoveEventHandlerProxy? OnGlobalMoveEvent;
@@ -76,7 +73,7 @@ public sealed class AntiParkinsonsSystem : EntitySystem
 
     private void OnPlayerAttached(EntityUid ent)
     {
-        LastParent = Transform(ent).ParentUid;
+
     }
 
     private void OnPlayerDetached(EntityUid ent)
@@ -95,18 +92,17 @@ public sealed class AntiParkinsonsSystem : EntitySystem
         if (_player.LocalEntity is not EntityUid localEnt || !TryComp<TransformComponent>(localEnt, out var xform))
             return;
 
-        if (!HasComp<MapComponent>(xform.ParentUid))
-            LastParent = xform.ParentUid;
-
-        SavedWorldPos = _transform.GetWorldPosition(localEnt);
-        ModifiedWorldPos = SavedWorldPos;
+        SavedLocalPos = xform.LocalPosition;
+        ModifiedLocalPos = SavedLocalPos;
         if (!Enabled)
             return;
 
-
         DoingShit = true;
-        ModifiedWorldPos = PPCamHelper.WorldPosPixelRoundToParent(SavedWorldPos, LastParent, _transform);
-        _transform.SetWorldPosition(localEnt, ModifiedWorldPos);
+        const int roundFactor = EyeManager.PixelsPerMeter;
+        ModifiedLocalPos = RoundVec(SavedLocalPos);
+        xform.LocalPosition = ModifiedLocalPos;
+        _eye.CurrentEye.Offset = RoundVec(_eye.CurrentEye.Offset);
+
         DoingShit = false;
     }
 
@@ -115,13 +111,16 @@ public sealed class AntiParkinsonsSystem : EntitySystem
         if (!Enabled || _player.LocalEntity is not EntityUid localEnt || !TryComp<TransformComponent>(localEnt, out var xform))
             return;
 
-        if (_transform.GetWorldPosition(localEnt) != ModifiedWorldPos)
+        if (_transform.GetWorldPosition(localEnt) != ModifiedLocalPos)
             return;
 
         DoingShit = true;
-        _transform.SetWorldPosition(localEnt, SavedWorldPos);
+        xform.LocalPosition = SavedLocalPos;
         DoingShit = false;
     }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private Vector2 RoundVec(Vector2 vec) => Vector2.Round((vec) * EyeManager.PixelsPerMeter) / EyeManager.PixelsPerMeter;
 }
 
 
