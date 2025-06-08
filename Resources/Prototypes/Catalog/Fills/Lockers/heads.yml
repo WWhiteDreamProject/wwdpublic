@@ -20,7 +20,7 @@
       - id: ClothingHeadsetAltCargo
       - id: BoxEncryptionKeyCargo
       - id: SpaceCashLuckyBill # DeltaV - LO steal objective, see Resources/Prototypes/DeltaV/Entities/Objects/Misc/first_bill.yml
-      - id: BoxPDACargo # Delta-V
+      # - id: BoxPDACargo # Delta-V # WWDP disabled
       - id: QuartermasterIDCard # Delta-V
       - id: AstroNavCartridge
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
@@ -143,7 +143,7 @@
       - id: ClothingHeadsetAltEngineering
       - id: BoxEncryptionKeyEngineering
       - id: AccessConfigurator
-      - id: BoxPDAEngineering # Delta-V
+      # - id: BoxPDAEngineering # Delta-V # WWDP disabled
       - id: RCD
       - id: RCDAmmo
       - id: RPD
@@ -171,7 +171,7 @@
       - id: ClothingHeadsetAltEngineering
       - id: BoxEncryptionKeyEngineering
       - id: AccessConfigurator
-      - id: BoxPDAEngineering # Delta-V
+      # - id: BoxPDAEngineering # Delta-V # WWDP
       - id: CEIDCard # Delta-V
       - id: RCD
       - id: RCDAmmo
@@ -258,7 +258,7 @@
       - id: ClothingBeltUtilityFilled
       - id: RubberStampRd
       - id: BoxEncryptionKeyScience
-      - id: BoxPDAScience # Delta-V
+      # - id: BoxPDAScience # Delta-V # WWDP
       - id: RDIDCard # Delta-V
       - id: ClothingHeadsetAltScience
       - id: EncryptionKeyBinary
@@ -289,7 +289,7 @@
       - id: ClothingBeltUtilityFilled
       - id: RubberStampRd
       - id: BoxEncryptionKeyScience
-      - id: BoxPDAScience # Delta-V
+      # - id: BoxPDAScience # Delta-V # WWDP
       - id: RDIDCard # Delta-V
       - id: ClothingHeadsetAltScience
       - id: EncryptionKeyBinary
@@ -333,7 +333,7 @@
       - id: JetpackSecurityFilled
       - id: BoxEncryptionKeySecurity
       - id: HoloprojectorSecurity
-      - id: BoxPDASecurity # Delta-V
+      # - id: BoxPDASecurity # Delta-V # WWDP
       - id: HoSIDCard # Delta-V
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
@@ -364,7 +364,7 @@
       - id: SecurityTechFabCircuitboard
       - id: BoxEncryptionKeySecurity
       - id: HoloprojectorSecurity
-      - id: BoxPDASecurity # Delta-V
+      # - id: BoxPDASecurity # Delta-V # WWDP
       - id: HoSIDCard # Delta-V
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3

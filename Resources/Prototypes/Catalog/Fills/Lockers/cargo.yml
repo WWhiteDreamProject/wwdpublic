@@ -12,7 +12,8 @@
       - id: SurvivalKnife
       - id: HandheldGPSBasic
       - id: RadioHandheld
-      - id: FlashlightSeclite
+      - id: FlashlightLantern # WWDP
+      - id: ClothingHandsGlovesColorBrown # WWDP
       - id: Pickaxe
       - id: ClothingShoesBootsWinterMiner #Delta V: Add departmental winter boots
       - id: JetpackMiniFilled # DeltaV - Salv lost their shuttle
@@ -29,12 +30,12 @@
         prob: 0.3
       # Lavaland Change Start
       - id: WeaponProtoKineticAccelerator
-      - id: OreBag
-      - id: Pickaxe
-      - id: LavalandEquipmentExplorerSuit
+      # - id: OreBag # WWDP remove duplicate
+      # - id: Pickaxe # WWDP remove duplicate
+      # - id: LavalandEquipmentExplorerSuit # WWDP disabled, buy in salvage vend
       - id: ShelterCapsule
-      - id: ClothingMaskGasExplorer
-      - id: FlashlightSeclite
+      # - id: ClothingMaskGasExplorer # WWDP remove duplicate
+      # - id: FlashlightSeclite # WWDP remove duplicate
       - id: ClothingEyesGlassesGarMeson
       # Lavaland Change End
 
@@ -50,7 +51,8 @@
       - id: SurvivalKnife
       - id: HandheldGPSBasic
       - id: RadioHandheld
-      - id: FlashlightSeclite
+      - id: FlashlightLantern # WWDP
+      - id: ClothingHandsGlovesColorBrown # WWDP
       - id: Pickaxe
       - id: ClothingShoesBootsWinterMiner #Delta V: Add departmental winter boots
       - id: JetpackMiniFilled # DeltaV - Salv lost their shuttle
