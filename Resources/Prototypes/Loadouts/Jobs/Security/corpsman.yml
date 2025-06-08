@@ -43,48 +43,53 @@
         - Brigmedic
 
 # Belt
-- type: loadout
-  id: LoadoutClothingBeltCorpsmanWebbing
-  category: JobsSecurityCorpsman
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutCorpsmanBelt
-    - !type:CharacterJobRequirement
-      jobs:
-        - Brigmedic
-  items:
-    - ClothingBeltCorpsmanWebbingFilled
+# WWDP edit start - moved to locker
+# - type: loadout
+#   id: LoadoutClothingBeltCorpsmanWebbing
+#   category: JobsSecurityCorpsman
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutCorpsmanBelt
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Brigmedic
+#   items:
+#     - ClothingBeltCorpsmanWebbingFilled
 
 # Ears
 
 # Equipment
-- type: loadout
-  id: LoadoutCrewMonitor
-  category: JobsSecurityCorpsman
-  cost: 6
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - Brigmedic
-  items:
-    - HandheldCrewMonitor
+
+# - type: loadout
+#   id: LoadoutCrewMonitor
+#   category: JobsSecurityCorpsman
+#   cost: 6
+#   requirements:
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Brigmedic
+#   items:
+#     - HandheldCrewMonitor
 
 # Eyes
-- type: loadout
-  id: LoadoutClothingEyesGlassesCorpsman
-  category: JobsSecurityAUncategorized
-  cost: 2
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutSecurityEyes
-    - !type:CharacterJobRequirement
-      jobs:
-        - Brigmedic
-  items:
-    - ClothingEyesGlassesCorpsman
+
+# - type: loadout
+#   id: LoadoutClothingEyesGlassesCorpsman
+#   category: JobsSecurityAUncategorized
+#   cost: 2
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutSecurityEyes
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Brigmedic
+#   items:
+#     - ClothingEyesGlassesCorpsman
+#
+# WWDP edit end
 
 # Gloves
 - type: loadout

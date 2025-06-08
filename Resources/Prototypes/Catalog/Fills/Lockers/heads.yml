@@ -312,8 +312,10 @@
   - type: StorageFill
     contents:
       - id: BoxBasicRegulatorLamp # wwdp edit
-      - id: ClothingEyesHudSecurity
+      - id: ClothingEyesGlassesSecurity # WWDP
     # - id: WeaponDisabler # WWDP
+      - id: AssballBat # WWDP
+      - id: ClothingHandsGlovesCombat # WWDP
       - id: ClothingOuterCoatHoSTrench
       - id: ClothingMaskNeckGaiter
       - id: ClothingOuterHardsuitSecurityRed # WWDP edit
@@ -321,7 +323,7 @@
       - id: OxygenTankFilled # WWDP edit
       - id: ClothingBeltSecurityFilled
       - id: ClothingHeadsetAltSecurity
-      - id: ClothingEyesGlassesSunglasses
+      # - id: ClothingEyesGlassesSunglasses # WWDP
       - id: ClothingShoesBootsJack
       - id: CigarRobustCase
         prob: 0.50
@@ -345,13 +347,15 @@
   - type: StorageFill
     contents:
       - id: BoxBasicRegulatorLamp # wwdp edit
-      - id: ClothingEyesHudSecurity
+      - id: ClothingEyesGlassesSecurity # WWDP
     # - id: WeaponDisabler # WWDP
+      - id: AssballBat # WWDP
+      - id: ClothingHandsGlovesCombat # WWDP
       - id: ClothingOuterCoatHoSTrench
       - id: ClothingMaskNeckGaiter
       - id: ClothingBeltSecurityFilled
       - id: ClothingHeadsetAltSecurity
-      - id: ClothingEyesGlassesSunglasses
+      # - id: ClothingEyesGlassesSunglasses # WWDP
       - id: ClothingShoesBootsJack
       - id: CigarGoldCase
         prob: 0.50

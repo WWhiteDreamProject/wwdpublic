@@ -15,10 +15,11 @@
     HoloprojectorSecurity: 5 # WD - moved from Sec lockers
     ClothingEyesGlassesSunglasses: 2
     ClothingEyesGlassesSecurity: 2 # WD - SecHuds
-    ClothingEyesHudSecurity: 2
-    ClothingEyesEyepatchHudSecurity: 2
+    # ClothingEyesHudSecurity: 2 # WWDP remove bloat
+    # ClothingEyesEyepatchHudSecurity: 2
     ClothingBeltSecurityWebbing: 5
     CombatKnife: 3
+    Truncheon: 2 # WWDP
     Zipties: 12
     BolaEnergy: 6
     RiotShield: 2
@@ -26,7 +27,7 @@
     RiotBulletShield: 2
     RadioHandheldSecurity: 5
     # WD - armor moved to SecDrobe
-    BreachingCharge: 8
+    BreachingCharge: 4 # WWDP less boom boom
   # security officers need to follow a diet regimen!
   contrabandInventory:
     FoodDonutHomer: 12
