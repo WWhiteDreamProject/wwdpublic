@@ -14,10 +14,6 @@ using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
 
 namespace Content.Client._White.AntiParkinsons;
 
-// The following code is slightly esoteric and higly schizophrenic. You have been warned.
-
-#pragma warning disable RA0002
-
 public sealed class AntiParkinsonsSystem : EntitySystem
 {
     [Dependency] private readonly IReflectionManager _refl = default!;
@@ -27,10 +23,10 @@ public sealed class AntiParkinsonsSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
 
-    bool Enabled = false;
-    bool DoingShit = false;
-    Vector2 SavedLocalPos;
-    Vector2 ModifiedLocalPos;
+    bool _enabled = false;
+    bool _doingShit = false;
+    Vector2 _savedLocalPos;
+    Vector2 _modifiedLocalPos;
 
     public delegate void MoveEventHandlerProxy(ref MoveEventProxy ev);
     public event MoveEventHandlerProxy? OnGlobalMoveEvent;
@@ -40,13 +36,12 @@ public sealed class AntiParkinsonsSystem : EntitySystem
     {
         UpdatesOutsidePrediction = true;
         _cfg.OnValueChanged(WhiteCVars.PixelSnapCamera, OnEnabledDisabled, true);
-        UpdatesBefore.Add(typeof(EyeSystem));
-        UpdatesBefore.Add(typeof(AudioSystem));
-        UpdatesBefore.Add(typeof(MidiSystem));
+        UpdatesBefore.Add(typeof(EyeSystem));   // so that EyeSystem moves the eye to the spessman insead of moving it ourselves
+        UpdatesBefore.Add(typeof(AudioSystem)); // the rest is stuff that also updates after EyeSystem. 
+        UpdatesBefore.Add(typeof(MidiSystem));  // Without this, the system update order fails to resolve.
         UpdatesBefore.Add(typeof(InteractionOutlineSystem));
         UpdatesBefore.Add(typeof(DragDropSystem));
 
-        // eat sand
         foreach (Type sys in _refl.GetAllChildren<EntitySystem>())
         {
             if (sys.IsAbstract || sys == typeof(AntiParkinsonsSystem) || UpdatesBefore.Contains(sys))
@@ -63,7 +58,7 @@ public sealed class AntiParkinsonsSystem : EntitySystem
 
     private void OnMoveEventGlobal(ref MoveEvent ev)
     {
-        if (!Enabled || !DoingShit)
+        if (!_enabled || !_doingShit)
         {
             var evproxy = new MoveEventProxy(ev.Entity, ev.OldPosition, ev.NewPosition, ev.OldRotation, ev.NewRotation);
             RaiseLocalEvent(ev.Sender, ref evproxy);
@@ -83,7 +78,7 @@ public sealed class AntiParkinsonsSystem : EntitySystem
 
     private void OnEnabledDisabled(bool val)
     {
-        Enabled = val;
+        _enabled = val;
     }
 
     public override void FrameUpdate(float frameTime)
@@ -92,53 +87,65 @@ public sealed class AntiParkinsonsSystem : EntitySystem
         if (_player.LocalEntity is not EntityUid localEnt || !TryComp<TransformComponent>(localEnt, out var xform))
             return;
 
-        SavedLocalPos = xform.LocalPosition;
-        ModifiedLocalPos = SavedLocalPos;
-        if (!Enabled)
+        _savedLocalPos = xform.LocalPosition;
+        _modifiedLocalPos = _savedLocalPos;
+        if (!_enabled)
             return;
 
-        DoingShit = true;
-        const int roundFactor = EyeManager.PixelsPerMeter;
-        ModifiedLocalPos = RoundVec(SavedLocalPos);
-        xform.LocalPosition = ModifiedLocalPos;
-        _eye.CurrentEye.Offset = RoundVec(_eye.CurrentEye.Offset);
-
-        DoingShit = false;
+        _doingShit = true;
+        // i really want to make sure that _doingShit doesn't get stuck on true for even a single frame,
+        // as that would result in ALL moveEvents being dropped on client.
+        try
+        {
+            const int roundFactor = EyeManager.PixelsPerMeter;
+            _modifiedLocalPos = RoundVec(_savedLocalPos);
+            xform.LocalPosition = _modifiedLocalPos;
+            _eye.CurrentEye.Offset = RoundVec(_eye.CurrentEye.Offset);
+        }
+        catch (Exception e) { throw; }
+        finally
+        {
+            _doingShit = false;
+        }
     }
 
     public void FrameUpdateRevert()
     {
-        if (!Enabled || _player.LocalEntity is not EntityUid localEnt || !TryComp<TransformComponent>(localEnt, out var xform))
+        if (!_enabled || _player.LocalEntity is not EntityUid localEnt || !TryComp<TransformComponent>(localEnt, out var xform))
             return;
 
-        if (_transform.GetWorldPosition(localEnt) != ModifiedLocalPos)
+        // if this is true, then our localpos was updated outside the system Update() loop,
+        // probably after a server state was applied. In that case, keep the new value
+        // instead of reverting to the old one.
+        if (xform.LocalPosition != _modifiedLocalPos)
             return;
 
-        DoingShit = true;
-        xform.LocalPosition = SavedLocalPos;
-        DoingShit = false;
+        _doingShit = true;
+        try
+        {
+            xform.LocalPosition = _savedLocalPos;
+        }
+        catch (Exception e) { throw; }
+        finally
+        {
+            _doingShit = false;
+        }
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private Vector2 RoundVec(Vector2 vec) => Vector2.Round((vec) * EyeManager.PixelsPerMeter) / EyeManager.PixelsPerMeter;
 }
 
-
-
 public sealed class AntiParkinsonsRevertSystem : EntitySystem
 {
     [Dependency] private readonly IReflectionManager _refl = default!;
-    [Dependency] private readonly IEyeManager _eye = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly AntiParkinsonsSystem _parkinsons = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
 
     public override void Initialize()
     {
         UpdatesOutsidePrediction = true;
 
-        // dnas tae
         foreach (Type sys in _refl.GetAllChildren<EntitySystem>())
         {
             if (sys.IsAbstract || sys == typeof(AntiParkinsonsRevertSystem))
@@ -148,11 +155,8 @@ public sealed class AntiParkinsonsRevertSystem : EntitySystem
         }
     }
 
-    // dnas tae
     public override void FrameUpdate(float frameTime)
     {
         _parkinsons.FrameUpdateRevert();
     }
 }
-
-#pragma warning restore RA0002
