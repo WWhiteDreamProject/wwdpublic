@@ -43,4 +43,9 @@ public sealed partial class EmagSiliconLawComponent : Component
     [DataField]
     public SoundSpecifier EmaggedSound = new SoundPathSpecifier("/Audio/Ambience/Antag/emagged_borg.ogg");
 
+    /// <summary>
+    /// WD edit. Determines whether should we make emagged laws unremovable (like antimov lawset), or not.
+    /// </summary>
+    [DataField]
+    public bool UnRemovable;
 }
