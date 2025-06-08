@@ -63,7 +63,7 @@
         enum.TelescopicBatonVisuals.Layer:
           True: { state: icon }
           False: { state: icon-off }
-  - type: Clothing
+  - type: Clothing # WWDP
     quickEquip: false
     slots:
     - Belt
