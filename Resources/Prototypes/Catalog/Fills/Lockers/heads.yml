@@ -83,6 +83,7 @@
   - type: StorageFill
     contents:
       # - id: ClothingOuterCoatCapTrench # WWDP
+      - id: ClothingBeltSheathFilled # WWDP
       - id: NukeDisk
       - id: PinpointerNuclear
       - id: CaptainIDCard
