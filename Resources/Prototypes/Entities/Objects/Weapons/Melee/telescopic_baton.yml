@@ -63,6 +63,10 @@
         enum.TelescopicBatonVisuals.Layer:
           True: { state: icon }
           False: { state: icon-off }
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
 
 - type: entity
   parent: TelescopicBaton
