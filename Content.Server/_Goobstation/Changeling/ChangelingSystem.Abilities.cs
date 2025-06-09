@@ -25,11 +25,17 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Overlays.Switchable;
 using Robust.Shared.Utility;
 using Robust.Shared.Physics.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Server.Chat;
+using Content.Shared.Chat;
+using Content.Server.GameTicking;
 
 namespace Content.Server.Changeling;
 
 public sealed partial class ChangelingSystem
 {
+    [Dependency] private SharedSuicideSystem _suicide = default!;
+
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<ChangelingComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
@@ -43,6 +49,7 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingComponent, ChangelingTransformCycleEvent>(OnTransformCycle);
         SubscribeLocalEvent<ChangelingComponent, ChangelingTransformEvent>(OnTransform);
         SubscribeLocalEvent<ChangelingComponent, EnterStasisEvent>(OnEnterStasis);
+        SubscribeLocalEvent<GhostAttemptHandleEvent>(OnGhostAttempt); // WWDP EDIT
         SubscribeLocalEvent<ChangelingComponent, ExitStasisEvent>(OnExitStasis);
 
         SubscribeLocalEvent<ChangelingComponent, ToggleArmbladeEvent>(OnToggleArmblade);
@@ -454,7 +461,7 @@ public sealed partial class ChangelingSystem
 
     private void OnEnterStasis(EntityUid uid, ChangelingComponent comp, ref EnterStasisEvent args)
     {
-        if (comp.IsInStasis || HasComp<AbsorbedComponent>(uid))
+        if (comp.IsInStasis || HasComp<AbsorbedComponent>(uid) || !TryComp<DamageableComponent>(uid, out var damageable)) // WWDP EDIT
         {
             _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-fail"), uid, uid);
             return;
@@ -475,11 +482,21 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(selfMessage, uid, uid);
         }
 
-        if (!_mobState.IsDead(uid))
-            _mobState.ChangeMobState(uid, MobState.Dead);
-
         comp.IsInStasis = true;
+        _suicide.ApplyLethalDamage(new(uid, damageable), "Asphyxiation"); // WWDP EDIT
     }
+    
+    // WWDP EDIT START
+    private void OnGhostAttempt(GhostAttemptHandleEvent args)
+    {
+        if(TryComp<ChangelingComponent>(args.Mind.CurrentEntity, out var comp) && comp.IsInStasis)
+        {
+            args.Handled = true;
+            args.Result = false;
+        }
+    }
+    // WWDP EDIT END
+    
     private void OnExitStasis(EntityUid uid, ChangelingComponent comp, ref ExitStasisEvent args)
     {
         if (!comp.IsInStasis)
