@@ -9,7 +9,7 @@
       - id: ClothingEyesHudBeer
       - id: WeaponShotgunDoubleBarreledRubber # WWDP its so back
       - id: BoxBeanbag # WWDP
-      - id: SpaceCash5000 # WWDP
+      - id: SpaceCash1000 # WWDP
       - id: HandLabeler
         amount: 1
       - id: DrinkBottleBeer
@@ -34,7 +34,7 @@
       - id: ClothingEyesHudBeer
       - id: WeaponShotgunDoubleBarreledRubber # WWDP its so back
       - id: BoxBeanbag # WWDP
-      - id: SpaceCash5000 # WWDP
+      - id: SpaceCash1000 # WWDP
       - id: HandLabeler
         amount: 1
       - id: DrinkBottleBeer

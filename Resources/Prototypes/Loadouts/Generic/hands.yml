@@ -107,19 +107,19 @@
       group: LoadoutGloves
   items:
     - ClothingClothWrap
-
-- type: loadout
-  id: ClothingHandsTacticalMaidGlovesLoadout
-  category: Hands
-  cost: 0
-  exclusive: true
-  items:
-    - ClothingHandsTacticalMaidGlovesLoadout
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutGloves
-
-# WD EDIT START
+    -
+# WWDP EDIT START
+# - type: loadout
+#   id: ClothingHandsTacticalMaidGlovesLoadout
+#   category: Hands
+#   cost: 0
+#   exclusive: true
+#   items:
+#     - ClothingHandsTacticalMaidGlovesLoadout
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutGloves
+#
 # - type: loadout
 #   id: ClothingHandsGlovesCombatTCAF
 #   category: Hands
@@ -137,4 +137,4 @@
 #         - WarVet
 #   items:
 #     - ClothingHandsGlovesCombatTCAF
-# WD EDIT END
+# WWDP EDIT END
