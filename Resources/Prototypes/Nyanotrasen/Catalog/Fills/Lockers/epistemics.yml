@@ -15,12 +15,13 @@
       # Spare change of clothes
       # - id: ClothingUniformJumpsuitMantis
       # - id: ClothingUniformSkirtMantis
-      # - id: ClothingBeltMantis
+      - id: ClothingBeltMantis # WWDP
       # - id: ClothingShoesBootsMantis
       # - id: ClothingHandsGlovesForensic # Deltav - Detective is in charge of investigating crimes.
       - id: ClothingHeadHatFezMantis
-      # - id: ClothingOuterCoatMantis
+      - id: ClothingOuterCoatMantis # WWDP
       - id: ClothingOuterWinterCoatMantis
+      - id: ClothingEyesHudEpistemics # WWDP
       # - id: ClothingEyesGlassesSunglasses
       # Insulative headgear
       - id: ClothingHeadTinfoil

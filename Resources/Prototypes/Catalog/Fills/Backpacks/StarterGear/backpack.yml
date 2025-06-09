@@ -179,6 +179,11 @@
   categories: [ HideSpawnMenu ]
   parent: ClothingBackpack
   id: ClothingBackpackChaplainFilled
+  components: # WWDP filled
+  - type: StorageFill
+    contents:
+    - id: Bible
+    - id: RubberStampChaplain
 
 - type: entity
   categories: [ HideSpawnMenu ]

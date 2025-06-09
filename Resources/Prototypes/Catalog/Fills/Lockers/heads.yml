@@ -270,7 +270,8 @@
       - id: AsimovCircuitBoard
       - id: AugustineCircuitBoard
       - id: CrewsimovCircuitBoard
-      - id: AntimovCircuitBoard
+      # - id: AntimovCircuitBoard # WWDP disabled
+      - id: ClothingEyesGlassesEpistemics # WWDP
       - id: BoxBodyBagRadiation # WD
       - id: PrinterDocFlatpack  # Corvax-Printer
 
@@ -296,12 +297,14 @@
       - id: LunchboxCommandFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
       - id: PsiWatchCartridge
+      - id: Intellicard # WWDP
       - id: StationAiUploadCircuitboard
       - id: AsimovCircuitBoard
       - id: AugustineCircuitBoard
       - id: CrewsimovCircuitBoard
-      - id: AntimovCircuitBoard
+      # - id: AntimovCircuitBoard # WWDP removed
       - id: BoxBodyBagRadiation # WD
+      - id: ClothingEyesGlassesEpistemics # WWDP
       - id: PrinterDocFlatpack  # Corvax-Printer
 
 - type: entity
