@@ -289,10 +289,10 @@ public sealed class GlimmerReactiveSystem : EntitySystem
         args.Cancelled = true;
         args.Handled = true;
 
-        _lightning.ShootRandomLightnings(ent, 10, 2, "SuperchargedLightning", 2, false);
+        _lightning.ShootRandomLightnings(ent, 10, 2, "SuperchargedLightning", 2, false, hitCoordsChance: 0);
 
         // Check if the parent of the user is alive, which will be the case if the user is an item and is being held.
-        var zapTarget = _transformSystem.GetParentUid(args.User);
+        var zapTarget = _transformSystem.GetParentUid(args.User!.Value);
         if (TryComp<MindContainerComponent>(zapTarget, out _))
             _electrocutionSystem.TryDoElectrocution(zapTarget, ent, 5, TimeSpan.FromSeconds(3), true,
                 ignoreInsulation: true);

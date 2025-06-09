@@ -1,3 +1,26 @@
+// SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@gmail.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Bakke <luringens@protonmail.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Random;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 
@@ -36,8 +59,8 @@ public sealed partial record PolymorphConfiguration
     /// What entity the polymorph will turn the target into
     /// must be in here because it makes no sense if it isn't
     /// </summary>
-    [DataField(required: true, serverOnly: true)]
-    public EntProtoId Entity;
+    [DataField(serverOnly: true)] // Goob edit
+    public EntProtoId? Entity;
 
     /// <summary>
     /// The delay between the polymorph's uses in seconds
@@ -117,15 +140,74 @@ public sealed partial record PolymorphConfiguration
     public TimeSpan Cooldown = TimeSpan.Zero;
 
     /// <summary>
-    /// The exact names of components to copy over when this polymorph is applied.
+    ///     If not null, this sound will be played when being polymorphed into something.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? PolymorphSound;
+
+    /// <summary>
+    ///     If not null, this sound will be played when being reverted from a polymorph.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? ExitPolymorphSound;
+
+    /// <summary>
+    ///     If not null, this popup will be displayed when being polymorphed into something.
+    /// </summary>
+    [DataField]
+    public LocId? PolymorphPopup = "polymorph-popup-generic";
+
+    /// <summary>
+    ///     If not null, this popup will be displayed when when being reverted from a polymorph.
+    /// </summary>
+    [DataField]
+    public LocId? ExitPolymorphPopup = "polymorph-revert-popup-generic";
+
+    /// <summary>
+    /// Goobstation.
+    /// If <see cref="Entity"/> is null, entity will be picked from this weighted random.
+    /// Doesn't support polymorph actions.
     /// </summary>
     [DataField(serverOnly: true)]
-    public HashSet<string> CopiedComponents = new()
-    {
-        "LanguageKnowledge",
-        "LanguageSpeaker",
-        "Grammar"
-    };
+    public ProtoId<WeightedRandomEntityPrototype>? Entities;
+
+    /// <summary>
+    /// Goobstation.
+    /// If <see cref="Entity"/> and <see cref="Entities"/>> is null,
+    /// weighted entity random will be picked from this weighted random.
+    /// Doesn't support polymorph actions.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public ProtoId<WeightedRandomPrototype>? Groups;
+
+    /// <summary>
+    /// Goobstation.
+    /// Transfers these components on polymorph.
+    /// Does nothing on revert.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public HashSet<ComponentTransferData> ComponentsToTransfer = new();
+
+    /// <summary>
+    ///     Goobstation
+    ///     Whether polymorphed entity should be able to move.
+    /// </summary>
+    [DataField]
+    public bool AllowMovement = true;
+
+    /// <summary>
+    ///     Goobstation
+    ///     Whether to show popup on polymorph revert.
+    /// </summary>
+    [DataField]
+    public bool ShowPopup = true;
+
+    /// <summary>
+    ///     Goobstation
+    ///     Whether to insert polymorphed entity into container or attach to grid or map.
+    /// </summary>
+    [DataField]
+    public bool AttachToGridOrMap;
 }
 
 public enum PolymorphInventoryChange : byte
@@ -133,4 +215,22 @@ public enum PolymorphInventoryChange : byte
     None,
     Drop,
     Transfer,
+}
+
+[DataDefinition]
+public sealed partial class ComponentTransferData(string component, bool @override = true, bool mirror = false)
+{
+    [DataField(required: true)]
+    public string Component = component;
+
+    [DataField]
+    public bool Override = @override;
+
+    /// <summary>
+    /// Whether we should copy the component data if false or just ensure it on a new entity if true
+    /// </summary>
+    [DataField]
+    public bool Mirror = mirror;
+
+    public ComponentTransferData() : this(string.Empty, true, false) { }
 }

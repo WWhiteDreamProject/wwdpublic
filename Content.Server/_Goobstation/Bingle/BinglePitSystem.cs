@@ -18,6 +18,7 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
+using Content.Shared.Ghost.Roles.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;

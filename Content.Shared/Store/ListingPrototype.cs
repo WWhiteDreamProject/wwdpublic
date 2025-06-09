@@ -39,7 +39,9 @@ public partial class ListingData : IEquatable<ListingData>
         other.Categories,
         other.OriginalCost,
         other.RestockTime,
-        other.DiscountDownTo
+        other.DiscountDownTo,
+        other.DisableRefund,
+        other.BlockRefundListings
     )
     {
 
@@ -63,7 +65,9 @@ public partial class ListingData : IEquatable<ListingData>
         HashSet<ProtoId<StoreCategoryPrototype>> categories,
         IReadOnlyDictionary<ProtoId<CurrencyPrototype>, FixedPoint2> originalCost,
         TimeSpan restockTime,
-        Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> dataDiscountDownTo
+        Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> dataDiscountDownTo,
+        bool disableRefund,
+        HashSet<ProtoId<ListingPrototype>> BlockRefundListings
     )
     {
         Name = name;
@@ -84,6 +88,8 @@ public partial class ListingData : IEquatable<ListingData>
         OriginalCost = originalCost;
         RestockTime = restockTime;
         DiscountDownTo = new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>(dataDiscountDownTo);
+        DisableRefund = false;
+        BlockRefundListings = new HashSet<ProtoId<ListingPrototype>>();
     }
 
     [ViewVariables]
@@ -189,6 +195,20 @@ public partial class ListingData : IEquatable<ListingData>
     public TimeSpan RestockTime = TimeSpan.Zero;
 
     /// <summary>
+    /// Whether or not to disable refunding for the store when the listing is purchased from it.
+    /// Goob edit: This won't disable refund, but instead you won't be able to refund this listing.
+    /// </summary>
+    [DataField]
+    public bool DisableRefund = false;
+
+    /// <summary>
+    /// Goobstation.
+    /// When purchased, it will block refunds of these listings.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<ListingPrototype>> BlockRefundListings = new();
+
+    /// <summary>
     /// Options for discount - from max amount down to how much item costs can be cut by discount, absolute value.
     /// </summary>
     [DataField]
@@ -287,7 +307,9 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.Categories,
             listingData.OriginalCost,
             listingData.RestockTime,
-            listingData.DiscountDownTo
+            listingData.DiscountDownTo,
+            listingData.DisableRefund,
+            listingData.BlockRefundListings
         )
     {
     }
@@ -296,13 +318,13 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
     public bool IsCostModified => CostModifiersBySourceId.Count > 0;
 
     /// <summary> Cost of listing item after applying all available modifiers. </summary>
-    public IReadOnlyDictionary<ProtoId<CurrencyPrototype>, FixedPoint2> Cost
+    public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> Cost
     {
         get
         {
-            return _costModified ??= CostModifiersBySourceId.Count == 0
+            return (Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>)(_costModified ??= CostModifiersBySourceId.Count == 0
                 ? new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>(OriginalCost)
-                : ApplyAllModifiers();
+                : ApplyAllModifiers());
         }
     }
 
