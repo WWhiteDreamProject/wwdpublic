@@ -218,42 +218,51 @@ namespace Content.Client.Construction.UI
             _constructionView.Categories = array;
         }
 
+        private static (string displayName, string displayDesc) GetLocalizedStrings(ConstructionPrototype prototype)
+        {
+            // WWDP edit start
+            var name = $"ent-{prototype.ID}";
+            var desc = $"ent-{prototype.ID}.desc";
+
+            string displayName;
+            string displayDesc;
+
+            try
+            {
+                displayName = Loc.GetString(name);
+                if (displayName == name)
+                    displayName = prototype.Name;
+            }
+            catch
+            {
+                displayName = prototype.Name;
+            }
+
+            try
+            {
+                displayDesc = Loc.GetString(desc);
+                if (displayDesc == desc)
+                    displayDesc = prototype.Description;
+            }
+            catch
+            {
+                displayDesc = prototype.Description;
+            }
+
+            return (displayName, displayDesc);
+            // WWDP edit end
+        }
+
         private void PopulateInfo(ConstructionPrototype prototype)
         {
-                var spriteSys = _systemManager.GetEntitySystem<SpriteSystem>();
-    _constructionView.ClearRecipeInfo(); // WWDP edit
+            var spriteSys = _systemManager.GetEntitySystem<SpriteSystem>();
+            _constructionView.ClearRecipeInfo(); // WWDP edit
 
-    // WWDP edit start
-    var name = $"ent-{prototype.ID}";
-    var desc = $"ent-{prototype.ID}.desc";
+            // WWDP edit start
+            var (displayName, displayDesc) = GetLocalizedStrings(prototype);
+            // WWDP edit end
 
-    string displayName;
-    string displayDesc;
-
-    try
-    {
-        displayName = Loc.GetString(name);
-        if (displayName == name)
-            displayName = prototype.Name;
-    }
-    catch
-    {
-        displayName = prototype.Name;
-    }
-
-    try
-    {
-        displayDesc = Loc.GetString(desc);
-        if (displayDesc == desc)
-            displayDesc = prototype.Description;
-    }
-    catch
-    {
-        displayDesc = prototype.Description;
-    }
-    // WWDP edit end
-
-    _constructionView.SetRecipeInfo(displayName, displayDesc, spriteSys.Frame0(prototype.Icon), prototype.Type != ConstructionType.Item);
+            _constructionView.SetRecipeInfo(displayName, displayDesc, spriteSys.Frame0(prototype.Icon), prototype.Type != ConstructionType.Item);
 
             var stepList = _constructionView.RecipeStepList;
             GenerateStepList(prototype, stepList);
@@ -286,38 +295,12 @@ namespace Content.Client.Construction.UI
         }
 
         private static ItemList.Item GetItem(ConstructionPrototype recipe, ItemList itemList)
-{
-    // WWDP edit start
-    var name = $"ent-{recipe.ID}";
-    var desc = $"ent-{recipe.ID}.desc";
+        {
+            // WWDP edit start
+            var (displayName, displayDesc) = GetLocalizedStrings(recipe);
+            // WWDP edit end
 
-    string displayName;
-    string displayDesc;
-
-    try
-    {
-        displayName = Loc.GetString(name);
-        if (displayName == name)
-            displayName = recipe.Name;
-    }
-    catch
-    {
-        displayName = recipe.Name;
-    }
-
-    try
-    {
-        displayDesc = Loc.GetString(desc);
-        if (displayDesc == desc)
-            displayDesc = recipe.Description;
-    }
-    catch
-    {
-        displayDesc = recipe.Description;
-    }
-    // WWDP edit end
-
-    return new(itemList)
+            return new(itemList)
             {
                 Metadata = recipe,
                 Text = displayName, // WWDP edit
