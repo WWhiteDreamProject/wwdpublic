@@ -196,11 +196,11 @@
 # Ammo
 
 - type: listing
-  id: UplinkBoxLethal
+  id: UplinkBoxLethalshot
   name: uplink-shotgun-shells-name
   description: uplink-shotgun-shells-desc
   icon: { sprite: /Textures/Objects/Storage/boxes.rsi, state: shelllethal}
-  productEntity: BoxLethal
+  productEntity: BoxLethalshot
   discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 1
