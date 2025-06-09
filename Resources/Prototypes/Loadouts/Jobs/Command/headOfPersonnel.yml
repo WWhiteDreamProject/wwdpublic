@@ -313,7 +313,7 @@
       group: LoadoutHeadOfPersonnelShoes
     - !type:CharacterJobRequirement
       jobs:
-        - Captain
+        - HeadOfPersonnel # WWDP
   items:
     - ClothingShoesBootsLaceup
 
@@ -327,7 +327,7 @@
       group: LoadoutHeadOfPersonnelShoes
     - !type:CharacterJobRequirement
       jobs:
-        - Captain
+        - HeadOfPersonnel # WWDP
   items:
     - ClothingShoesLeather
 

@@ -13,7 +13,7 @@
       - id: HandheldGPSBasic
       - id: RadioHandheld
       - id: FlashlightLantern # WWDP
-      - id: ClothingHandsGlovesColorBrown # WWDP
+      - id: ClothingHandsGlovesColorBlack # WWDP
       - id: Pickaxe
       - id: ClothingShoesBootsWinterMiner #Delta V: Add departmental winter boots
       - id: JetpackMiniFilled # DeltaV - Salv lost their shuttle
@@ -52,7 +52,7 @@
       - id: HandheldGPSBasic
       - id: RadioHandheld
       - id: FlashlightLantern # WWDP
-      - id: ClothingHandsGlovesColorBrown # WWDP
+      - id: ClothingHandsGlovesColorBlack # WWDP
       - id: Pickaxe
       - id: ClothingShoesBootsWinterMiner #Delta V: Add departmental winter boots
       - id: JetpackMiniFilled # DeltaV - Salv lost their shuttle
