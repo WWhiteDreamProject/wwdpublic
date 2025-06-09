@@ -3051,3 +3051,12 @@ Entries:
   id: 330
   time: '2025-06-09T17:05:39.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/536
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Имплант самоуничтожения активируется если агенты прослушки покидают свою
+        станцию
+  id: 331
+  time: '2025-06-09T17:06:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/544
