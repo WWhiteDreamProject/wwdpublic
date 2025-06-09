@@ -218,51 +218,25 @@ namespace Content.Client.Construction.UI
             _constructionView.Categories = array;
         }
 
+        // WWDP edit start - TODO: Delete when porting the normal localization of the crafting menu
         private static (string displayName, string displayDesc) GetLocalizedStrings(ConstructionPrototype prototype)
         {
-            // WWDP edit start
-            var name = $"ent-{prototype.ID}";
-            var desc = $"ent-{prototype.ID}.desc";
-
-            string displayName;
-            string displayDesc;
-
-            try
-            {
-                displayName = Loc.GetString(name);
-                if (displayName == name)
-                    displayName = prototype.Name;
-            }
-            catch
-            {
-                displayName = prototype.Name;
-            }
-
-            try
-            {
-                displayDesc = Loc.GetString(desc);
-                if (displayDesc == desc)
-                    displayDesc = prototype.Description;
-            }
-            catch
-            {
-                displayDesc = prototype.Description;
-            }
-
+            string displayName = Loc.TryGetString($"ent-{prototype.ID}", out var name) ? name : prototype.Name;
+            string displayDesc = Loc.TryGetString($"ent-{prototype.ID}.desc", out var desc) ? desc : prototype.Description;
             return (displayName, displayDesc);
-            // WWDP edit end
         }
+        // WWDP edit end
 
         private void PopulateInfo(ConstructionPrototype prototype)
         {
             var spriteSys = _systemManager.GetEntitySystem<SpriteSystem>();
-            _constructionView.ClearRecipeInfo(); // WWDP edit
+            _constructionView.ClearRecipeInfo();
 
             // WWDP edit start
             var (displayName, displayDesc) = GetLocalizedStrings(prototype);
             // WWDP edit end
 
-            _constructionView.SetRecipeInfo(displayName, displayDesc, spriteSys.Frame0(prototype.Icon), prototype.Type != ConstructionType.Item);
+            _constructionView.SetRecipeInfo(displayName, displayDesc, spriteSys.Frame0(prototype.Icon), prototype.Type != ConstructionType.Item); // WWDP edit
 
             var stepList = _constructionView.RecipeStepList;
             GenerateStepList(prototype, stepList);
