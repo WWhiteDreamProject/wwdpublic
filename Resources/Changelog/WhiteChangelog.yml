@@ -3060,3 +3060,12 @@ Entries:
   id: 331
   time: '2025-06-09T17:06:18.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/544
+- author: vanx
+  changes:
+    - type: Remove
+      message: Убрана стрельба с двух рук у всех пистолетов кроме дуалетт
+    - type: Tweak
+      message: 'Скорострельность дуалетт: 8 -> 3 (умножай на два)'
+  id: 332
+  time: '2025-06-09T17:21:10.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/562
