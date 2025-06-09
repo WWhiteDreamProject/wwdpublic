@@ -15,7 +15,7 @@
       - id: FlashlightLantern # WWDP
       - id: ClothingHandsGlovesColorBlack # WWDP
       - id: Pickaxe
-      - id: ClothingShoesBootsWinterMiner #Delta V: Add departmental winter boots
+      #- id: ClothingShoesBootsWinterMiner #Delta V: Add departmental winter boots # WWDP no
       - id: JetpackMiniFilled # DeltaV - Salv lost their shuttle
       - id: OreBag
       - id: Flare
@@ -54,7 +54,7 @@
       - id: FlashlightLantern # WWDP
       - id: ClothingHandsGlovesColorBlack # WWDP
       - id: Pickaxe
-      - id: ClothingShoesBootsWinterMiner #Delta V: Add departmental winter boots
+      #- id: ClothingShoesBootsWinterMiner #Delta V: Add departmental winter boots # WWDP no
       - id: JetpackMiniFilled # DeltaV - Salv lost their shuttle
       - id: OreBag
       - id: Flare
