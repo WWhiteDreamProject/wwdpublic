@@ -6,5 +6,5 @@ ai-remote-control = Take control
 # Ents
 ent-PlayerBorgAiRemote = cyborg
     .suffix = Battery, AI controllable
-    .desc = { ent-BorgChassisSelectable.desc }
+    .desc = A man-machine hybrid that assists in station activity. They love being asked to state their laws over and over.
 
