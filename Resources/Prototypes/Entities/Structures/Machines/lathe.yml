@@ -829,6 +829,7 @@
     - ModsuitPlatingExternal
     - PowerCageHigh # Goobstation - Powercell to exosuit fab
     - ReverseMMI # IPCMMI
+    - AiRemoteBrain # Corvax Next - AI remote
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - WeaponMechCombatImmolationGun

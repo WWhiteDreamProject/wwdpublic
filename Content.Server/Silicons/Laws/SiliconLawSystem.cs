@@ -22,6 +22,7 @@ using Content.Shared.Silicons.StationAi;
 using Content.Shared.Tag;
 using Content.Shared.Wires;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -144,9 +145,6 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         if (HasComp<AiRemoteControllerComponent>(uid)) // You can't emag controllable entities
             return;
         // Corvax-Next-AiRemoteControl-End
-
-        // Show the silicon has been subverted.
-        component.Subverted = true;
 
         // Add the first emag law before the others
         var name = CompOrNull<EmagSiliconLawComponent>(uid)?.OwnerName ?? Name(args.UserUid); // DeltaV: Reuse emagger name if possible
@@ -333,12 +331,12 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         while (query.MoveNext(out var update))
         {
-            SetLaws(lawset, update, provider.LawUploadSound);
+            SetLaws(lawset, update);
 
             // Corvax-Next-AiRemoteControl-Start
             if (TryComp<StationAiHeldComponent>(update, out var stationAiHeldComp) && stationAiHeldComp.CurrentConnectedEntity != null && HasComp<SiliconLawProviderComponent>(stationAiHeldComp.CurrentConnectedEntity))
             {
-                SetLaws(lawset, stationAiHeldComp.CurrentConnectedEntity.Value, provider.LawUploadSound);
+                SetLaws(lawset, stationAiHeldComp.CurrentConnectedEntity.Value);
             }
             // Corvax-Next-AiRemoteControl-End
             if (!SetLaws(lawset, update, provider.UnRemovable))

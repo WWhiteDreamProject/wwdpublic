@@ -2,6 +2,7 @@
 - type: latheRecipe
   id: AiRemoteBrain
   result: AiRemoteBrain
+  category: AI # WD edit
   completetime: 4
   materials:
     Steel: 300

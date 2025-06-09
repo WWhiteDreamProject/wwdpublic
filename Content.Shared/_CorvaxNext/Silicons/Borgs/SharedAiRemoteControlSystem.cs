@@ -35,7 +35,7 @@ namespace Content.Shared._CorvaxNext.Silicons.Borgs
 
             _mind.TransferTo(remoteComp.LinkedMind.Value, remoteComp.AiHolder);
 
-            _stationAiSystem.SwitchRemoteEntityMode(stationAiCore, true);
+            _stationAiSystem.SwitchRemoteEntityMode(stationAiCore!, true);
             remoteComp.AiHolder = null;
             remoteComp.LinkedMind = null;
 

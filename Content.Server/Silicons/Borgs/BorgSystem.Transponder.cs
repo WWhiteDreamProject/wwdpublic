@@ -9,9 +9,12 @@ using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.Components;
 using Robust.Shared.Utility;
-using Content.Server._Imp.Drone; //Goobstation drone
+using Content.Server._Imp.Drone;
+using Content.Server.Silicons.Laws; //Goobstation drone
 using Robust.Shared.Player; //Goobstation drone
 using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
+using Content.Shared.Emag.Systems;
+
 
 namespace Content.Server.Silicons.Borgs;
 
@@ -79,6 +82,7 @@ public sealed partial class BorgSystem
                 1f,
                 0,
                 hasBrain,
+                false,
                 false);
 
             var payload = new NetworkPayload()

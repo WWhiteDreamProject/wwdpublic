@@ -37,7 +37,7 @@ namespace Content.Server._CorvaxNext.Silicons.Borgs
 
         private void OnMapInit(Entity<AiRemoteControllerComponent> entity, ref MapInitEvent args)
         {
-            var visionComp = AddComp<StationAiVisionComponent>(entity.Owner);
+            var visionComp = EnsureComp<StationAiVisionComponent>(entity.Owner);
             EntityUid? actionEnt = null;
 
             _actions.AddAction(entity.Owner, ref actionEnt, entity.Comp.BackToAiAction);
@@ -119,7 +119,7 @@ namespace Content.Server._CorvaxNext.Silicons.Borgs
             if (!_stationAiSystem.TryGetCore(ai, out var stationAiCore))
                 return;
 
-            _stationAiSystem.SwitchRemoteEntityMode(stationAiCore, false);
+            _stationAiSystem.SwitchRemoteEntityMode(stationAiCore!, false);
 
             RewriteLaws(ai, entity);
         }

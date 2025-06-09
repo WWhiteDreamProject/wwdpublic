@@ -4,6 +4,4 @@ ai-remote-ui-menu-moveto = Move to
 ai-remote-control = Take control
 
 # Ents
-ent-PlayerBorgAiRemote = { ent-BorgChassisSelectable }
-    .suffix = Battery, AI controllable
-    .desc = { ent-BorgChassisSelectable.desc }
+ent-PlayerBorgAiRemote.suffix = Battery, AI controllable

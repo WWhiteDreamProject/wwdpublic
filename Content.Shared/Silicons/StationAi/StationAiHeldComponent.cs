@@ -17,11 +17,10 @@ public sealed partial class StationAiHeldComponent : Component
     [DataField]
     public SoundPathSpecifier CoreBoltsEnabled = new("/Audio/Machines/boltsup.ogg");
     // WD edit end
-};
-// Corvax-Next-AiRemoteControl-Start
-public sealed partial class StationAiHeldComponent : Component
-{
+
+    // Corvax-Next-AiRemoteControl-Start
     [DataField]
     public EntityUid? CurrentConnectedEntity;
+    // Corvax-Next-AiRemoteControl-End
 }
-// Corvax-Next-AiRemoteControl-End
+
