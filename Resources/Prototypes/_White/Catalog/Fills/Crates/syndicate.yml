@@ -1,15 +1,4 @@
 ﻿- type: entity
-  parent: ClothingBeltSyndieHolster
-  id: ClothingBeltSyndieHolsterFilledPython
-  suffix: Python, AP
-  components:
-  - type: StorageFill
-    contents:
-    - id: WeaponRevolverPythonAP
-    - id: SpeedLoaderMagnumAP
-      amount: 2
-
-- type: entity
   parent: CrateSyndicate
   id: CrateSyndicateFilledSymbolics
   suffix: Symbolics
@@ -33,18 +22,3 @@
       amount: 2
     - id: ClothingUniformJumpskirtSyndieFormalDress
       amount: 2
-
-- type: entity
-  id: ToolboxMechanicalFilledGreytide
-  parent: ToolboxMechanical
-  components:
-  - type: StorageFill
-    contents:
-    - id: Crowbar
-    - id: Wrench
-    - id: Screwdriver
-    - id: Wirecutter
-    - id: Welder
-    - id: ClothingHandsGlovesColorYellow
-    - id: ClothingUniformJumpsuitColorGrey
-    - id: ClothingMaskGas

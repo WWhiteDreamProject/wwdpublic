@@ -28,34 +28,34 @@
   categories:
   - UplinkWeaponry
 
-- type: listing
-  id: UplinkPistolViper
-  name: uplink-pistol-viper-name
-  description: uplink-pistol-viper-desc
-  productEntity: GunCaseSyndicateFilledViper # WWDP
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Pistols/viper.rsi, state: icon }
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1 # WD EDIT
-  cost:
-    Telecrystal: 2 # WD EDIT
-  categories:
-  - UplinkWeaponry
-
-# Inbuilt suppressor so it's sneaky + more expensive.
-- type: listing
-  id: UplinkPistolCobra
-  name: uplink-pistol-cobra-name
-  description: uplink-pistol-cobra-desc
-  productEntity: GunCaseSyndicateFilledCobra # WWDP
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Pistols/cobra.rsi, state: icon } # WWDP
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1 # WD EDIT
-  cost:
-    Telecrystal: 3 # WD EDIT
-  categories:
-  - UplinkWeaponry
+# WWDP EDIT START - moved to _White
+# - type: listing
+#   id: UplinkPistolViper
+#   name: uplink-pistol-viper-name
+#   description: uplink-pistol-viper-desc
+#   productEntity: WeaponPistolViperEmpty
+#   discountCategory: usualDiscounts
+#   discountDownTo:
+#     Telecrystal: 1 # WD EDIT
+#   cost:
+#     Telecrystal: 2 # WD EDIT
+#   categories:
+#   - UplinkWeaponry
+#
+# # Inbuilt suppressor so it's sneaky + more expensive.
+# - type: listing
+#   id: UplinkPistolCobra
+#   name: uplink-pistol-cobra-name
+#   description: uplink-pistol-cobra-desc
+#   productEntity: WeaponPistolCobraEmpty
+#   discountCategory: usualDiscounts
+#   discountDownTo:
+#     Telecrystal: 1 # WD EDIT
+#   cost:
+#     Telecrystal: 3 # WD EDIT
+#   categories:
+#   - UplinkWeaponry
+# WWDP edit end
 
 - type: listing
   id: UplinkDisposableTurret
@@ -79,7 +79,7 @@
   # WD EDIT START
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1
   cost:
     Telecrystal: 4
   # WD EDIT END
@@ -110,7 +110,7 @@
   # WD EDIT START
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1
   cost:
     Telecrystal: 5
   # WD EDIT END
@@ -133,23 +133,22 @@
   categories:
   - UplinkWeaponry
 
-- type: listing
-  id: UplinkRevolverPython
-  name: uplink-revolver-python-name
-  description: uplink-revolver-python-desc
-  # WWDP EDIT START
-  productEntity: ClothingBeltSyndieHolsterFilledPython
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Revolvers/python.rsi, state: icon }
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 2
-  cost:
-    Telecrystal: 6
-  # WWDP EDIT END
-  categories:
-  - UplinkWeaponry
-
-# WD EDIT START - Replacement with a gun case. View in the _White
+# WWDP EDIT START - Moved to _White
+# - type: listing
+#   id: UplinkRevolverPython
+#   name: uplink-revolver-python-name
+#   description: uplink-revolver-python-desc
+#   productEntity: WeaponRevolverPythonAP
+#   # WD EDIT START
+#   discountCategory: rareDiscounts
+#   discountDownTo:
+#     Telecrystal: 2
+#   cost:
+#     Telecrystal: 8
+#   # WD EDIT END
+#   categories:
+#   - UplinkWeaponry
+#
 # - type: listing
 #   id: UplinkFPA90Bundle
 #   name: uplink-fpa-90-bundle-name
@@ -179,7 +178,7 @@
 #   # WD EDIT END
 #   categories:
 #   - UplinkWeaponry
-# WD EDIT END
+# WWDP EDIT END
 
 - type: listing
   id: UplinkSniperBundle
@@ -358,7 +357,7 @@
   # WD EDIT START
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2
   cost:
     Telecrystal: 10
   # WD EDIT END
@@ -390,9 +389,6 @@
   name: uplink-emp-grenade-name
   description: uplink-emp-grenade-desc
   productEntity: EmpGrenade
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 1 # WD EDIT
   categories:
@@ -916,7 +912,7 @@
   productEntity: NocturineChemistryBottle
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4 # WD EDIT
   categories:
@@ -996,7 +992,7 @@
   productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 4 # WD EDIT
+    Telecrystal: 5 # WD EDIT
   cost:
     Telecrystal: 20 # WD EDIT
   categories:
@@ -1375,7 +1371,7 @@
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
   discountCategory: veryRareDiscounts # WD EDIT
   discountDownTo:
-    Telecrystal: 4 # WD EDIT
+    Telecrystal: 3 # WD EDIT
   cost:
     Telecrystal: 11 # WD EDIT
   categories:
@@ -1416,7 +1412,7 @@
   # WD EDIT START
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 13
+    Telecrystal: 10
   cost:
     Telecrystal: 50
   # WD EDIT END
@@ -1487,7 +1483,7 @@
   productEntity: ReinforcementRadioSyndicateSyndiCat
   discountCategory: rareDiscounts # WD EDIT
   discountDownTo:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 5 # WD EDIT
   categories:
@@ -1536,7 +1532,7 @@
   productEntity: ScramImplanter
   discountCategory: rareDiscounts # WD EDIT
   discountDownTo:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 5 # WD EDIT
   categories:
@@ -1604,7 +1600,7 @@
   # WD EDIT START
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2
   cost:
     Telecrystal: 10
   # WD EDIT END
@@ -1706,7 +1702,7 @@
   productEntity: ClothingMaskGasVoiceChameleon
   discountCategory: rareDiscounts # WD EDIT
   discountDownTo:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 5 # WD EDIT
   categories:
@@ -2000,7 +1996,7 @@
   productEntity: GatfruitSeeds
   discountCategory: rareDiscounts # WD EDIT
   discountDownTo:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4 # WD EDIT
   categories:
@@ -2017,7 +2013,7 @@
   productEntity: ClothingHandsGlovesBoxingRigged
   discountCategory: rareDiscounts # WD EDIT
   discountDownTo:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4 # WD EDIT
   categories:
@@ -2089,7 +2085,7 @@
   productEntity: RevolverCapGunFake
   discountCategory: rareDiscounts # WD EDIT
   discountDownTo:
-    Telecrystal: 2 # WD EDIT
+    Telecrystal: 1 # WD EDIT
   cost:
     Telecrystal: 4 # WD EDIT
   categories:

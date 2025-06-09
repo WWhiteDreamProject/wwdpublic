@@ -1,6 +1,49 @@
 ﻿# Weaponry
 
 - type: listing
+  id: UplinkPistolViper
+  name: uplink-pistol-viper-name
+  description: uplink-pistol-viper-desc
+  productEntity: GunCaseSyndicateFilledViper
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Pistols/viper.rsi, state: icon }
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWeaponry
+
+# Inbuilt suppressor so it's sneaky + more expensive.
+- type: listing
+  id: UplinkPistolCobra
+  name: uplink-pistol-cobra-name
+  description: uplink-pistol-cobra-desc
+  productEntity: GunCaseSyndicateFilledCobra
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Pistols/cobra.rsi, state: icon }
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkRevolverPython
+  name: uplink-revolver-python-name
+  description: uplink-revolver-python-desc
+  productEntity: ClothingBeltSyndieHolsterFilledPython
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Revolvers/python.rsi, state: icon }
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkGunCaseDualetta
   name: uplink-gun-case-dualetta-name
   description: uplink-gun-case-dualetta-desc
@@ -8,7 +51,7 @@
   productEntity: GunCaseSyndicateFilledDualetta
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1
   cost:
     Telecrystal: 4
   categories:
@@ -21,7 +64,7 @@
   productEntity: BloodDagger
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1
   cost:
     Telecrystal: 5
   categories:
@@ -100,7 +143,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 6
+    Telecrystal: 10
   categories:
   - UplinkWeaponry
   conditions:
@@ -187,9 +230,9 @@
   productEntity: GunCaseSyndicateFilledL6Saw
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 6 # WD EDIT
+    Telecrystal: 6
   cost:
-    Telecrystal: 30 # WD EDIT
+    Telecrystal: 30
   categories:
   - UplinkWeaponry
 
@@ -410,7 +453,7 @@
   description: uplink-radio-desc
   productEntity: BaseUplinkRadio
   cost:
-    Telecrystal: 1 # WD EDIT
+    Telecrystal: 1
   categories:
   - UplinkPointless
 
@@ -420,7 +463,7 @@
   description: uplink-symbolics-crate-desc
   productEntity: CrateSyndicateFilledSymbolics
   cost:
-    Telecrystal: 4 # WD EDIT
+    Telecrystal: 4
   categories:
   - UplinkPointless
 
@@ -447,15 +490,15 @@
   productEntity: PlasmaFloodCircuitBoard
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 4 # WD EDIT
+    Telecrystal: 4
   cost:
-    Telecrystal: 16 # WD EDIT
+    Telecrystal: 16
   categories:
   - UplinkJob
   conditions:
   - !type:BuyerDepartmentCondition
     whitelist:
-    - Epistemics # DeltaV - Epistemics Department replacing Science
+    - Epistemics
 
 - type: listing
   id: UplinkAntimovCircuitBoard
@@ -464,12 +507,12 @@
   productEntity: AntimovCircuitBoard
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 4 # WD EDIT
+    Telecrystal: 4
   cost:
-    Telecrystal: 16 # WD EDIT
+    Telecrystal: 16
   categories:
   - UplinkJob
   conditions:
   - !type:BuyerDepartmentCondition
     whitelist:
-    - Epistemics # DeltaV - Epistemics Department replacing Science
+    - Epistemics
