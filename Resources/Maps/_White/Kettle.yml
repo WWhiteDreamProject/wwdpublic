@@ -15488,7 +15488,7 @@ entities:
       pos: 16.5,-3.5
       parent: 82
     - type: Door
-      secondsUntilStateChange: -78978.98
+      secondsUntilStateChange: -79224.29
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -63768,6 +63768,8 @@ entities:
     - type: HeldSpeedModifier
       sprintModifier: 0.6
       walkModifier: 0.6
+    - type: TimedDespawn
+      lifetime: 1500
 - proto: ClosetBombFilled
   entities:
   - uid: 4314
