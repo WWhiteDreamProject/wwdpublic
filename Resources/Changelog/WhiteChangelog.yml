@@ -3105,3 +3105,10 @@ Entries:
   id: 336
   time: '2025-06-09T18:42:34.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/560
+- author: Kutosss
+  changes:
+    - type: Add
+      message: Добавлена локализация для меню крафтов.
+  id: 337
+  time: '2025-06-09T19:26:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/563
