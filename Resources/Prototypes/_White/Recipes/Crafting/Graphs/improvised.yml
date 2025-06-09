@@ -106,3 +106,46 @@
         doAfter: 3
   - node: snappop
     entity: SnapPop
+
+- type: constructionGraph
+  id: MakeshiftLaserGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: laser
+      steps:
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - material: Steel
+        amount: 2
+      - material: Cable
+        amount: 2
+      - tag: CapacitorStockPart
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: medium
+        name: capacitor
+      - tag: PowerCell
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: medium
+        name: a powercell
+      - tag: Igniter
+        icon:
+          sprite: Objects/Devices/igniter.rsi
+          state: icon
+        name: igniter
+      - tag: LightBulb
+        icon:
+          sprite: Objects/Power/light_bulb.rsi
+          state: normal
+        name: light bulb
+      - material: Glass
+        amount: 2
+        doAfter: 10
+  - node: laser
+    entity: WeaponMakeshiftLaser
