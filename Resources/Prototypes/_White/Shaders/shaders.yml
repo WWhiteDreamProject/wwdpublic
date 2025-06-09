@@ -26,3 +26,9 @@
   path: "/Textures/_White/Shaders/grain.swsl"
   params:
     strength: 100.0
+
+
+- type: shader
+  id: RemoteControl
+  kind: source
+  path: "/Textures/_White/Shaders/remotecontrol.swsl"

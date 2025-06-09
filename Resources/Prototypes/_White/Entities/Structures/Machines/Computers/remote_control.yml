@@ -86,13 +86,13 @@
 
 - type: entity
   name: ship laser turret
-  description: A burst fire heavy laser weapon mounted to a simple actuator rig with a camera. Its weapon will recharge while connected to an active power grid.
   parent: [BaseWeaponEnergyTurret, InnateMassScanner90]
   id: BaseWeaponEnergyTurretShip
   abstract: true
   suffix: Remote Controlled
   components:
   - type: RemoteControllable
+  - type: RemoteControlOverlay
   - type: HTN # since there is no functionality to discard inherited components, we just disable HTN instead
     enabled: false
   - type: MouseRotator
@@ -239,6 +239,7 @@
       weapon_slot: assblaster
   - type: RemoteControllable
   - type: ManuallyControllable
+  - type: RemoteControlOverlay
   - type: Machine
     board: WeaponTurretModularCircuitBoard
   - type: Lock

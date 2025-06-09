@@ -2,6 +2,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Power.EntitySystems;
+using Content.Shared._White.Overlays;
 using Content.Shared._White.RemoteControl;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -179,7 +180,7 @@ public sealed class RemoteControlSystem : EntitySystem
             args.Cancel();
     }
 
-    public bool RemoteControl(EntityUid user, EntityUid target, EntityUid interfaceEntity, RemoteControllableComponent? controllable = null)
+    public bool RemoteControl(EntityUid user, EntityUid target, EntityUid interfaceEntity, bool overlay = false, RemoteControllableComponent? controllable = null)
     {
         if (!Resolve(target, ref controllable))
             return false;
@@ -213,7 +214,13 @@ public sealed class RemoteControlSystem : EntitySystem
         _mind.Visit(userMind, target, mindComp);
         DebugTools.Assert(mindComp.VisitingEntity == target);
         RaiseLocalEvent(interfaceEntity, new RemoteControlInterfaceStartEvent(user, target));
-        return true;
+
+        if (overlay)
+            EnsureComp<RemoteControlOverlayComponent>(target);
+        else if (TryComp<RemoteControlOverlayComponent>(target, out var overlayComp))
+            RemComp(target, overlayComp);
+
+            return true;
     }
 
     public void EndRemoteControlNoEv(EntityUid user) => EndRemoteControl(user, out _);
@@ -352,7 +359,7 @@ public sealed class RemoteControlConsoleSystem : EntitySystem
         if (GetFirstValid(comp) is not EntityUid target)
             return; // none available
 
-        _rc.RemoteControl(user, target, uid);
+        _rc.RemoteControl(user, target, uid, true);
     }
 
     private bool TrySwitchToNextAvailable(EntityUid console, RemoteControlConsoleComponent comp)
@@ -366,7 +373,7 @@ public sealed class RemoteControlConsoleSystem : EntitySystem
         comp.LastIndex = comp.LinkedEntities.IndexOf(target);
 
         _rc.EndRemoteControl(user, false);
-        return _rc.RemoteControl(user, target, console);
+        return _rc.RemoteControl(user, target, console, true);
     }
 
     private void OnRCGetActionsEvent(EntityUid uid, RemoteControlConsoleComponent comp, RemoteControlInterfaceGetActionsEvent args)
