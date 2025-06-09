@@ -15,7 +15,7 @@
     - type: Scalpel
     add:
     - type: IncisionOpen
-    duration: 2
+    duration: 20 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
@@ -37,7 +37,7 @@
     - type: Hemostat
     add:
     - type: BleedersClamped
-    duration: 2
+    duration: 20 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
@@ -58,7 +58,7 @@
     - type: Retractor
     add:
     - type: SkinRetracted
-    duration: 2
+    duration: 20 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     state: retractor
@@ -74,7 +74,7 @@
     - type: BoneSaw
     add:
     - type: RibcageSawed
-    duration: 4
+    duration: 40 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
     state: circular-saw
@@ -91,7 +91,7 @@
     - type: Retractor
     add:
     - type: RibcageOpen
-    duration: 2
+    duration: 20 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     state: retractor
@@ -142,7 +142,7 @@
     - type: Retractor
     remove:
     - type: RibcageOpen
-    duration: 2
+    duration: 20 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     state: retractor
@@ -158,7 +158,7 @@
     - type: BoneGel
     remove:
     - type: RibcageSawed
-    duration: 2
+    duration: 20 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
     state: bone-gel
@@ -180,7 +180,7 @@
     - type: IncisionOpen
     - type: BodyPartReattached
     - type: InternalBleedersClamped
-    duration: 2
+    duration: 20 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
@@ -202,7 +202,7 @@
   - type: SurgeryStep
     tool:
     - type: BodyPart
-    duration: 6
+    duration: 60 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
     state: insertion
@@ -222,7 +222,7 @@
     - type: BleedersClamped
     - type: IncisionOpen
     - type: InternalBleedersClamped
-    duration: 2
+    duration: 20 # WWDP
   - type: SurgeryAffixPartStep
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
@@ -247,7 +247,7 @@
     - type: BoneSaw
     add:
     - type: BodyPartSawed
-    duration: 4
+    duration: 40 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
     state: circular-saw
@@ -264,7 +264,7 @@
     - type: Hemostat
     add:
     - type: InternalBleedersClamped
-    duration: 2
+    duration: 20 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
@@ -289,7 +289,7 @@
     - type: BleedersClamped
     - type: InternalBleedersClamped
     - type: IncisionOpen
-    duration: 8
+    duration: 80 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
     state: circular-saw
@@ -309,7 +309,7 @@
     - type: Scalpel
     add:
     - type: IncisionOpen
-    duration: 3
+    duration: 30 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
@@ -324,7 +324,7 @@
   - type: SurgeryStep
     tool:
     - type: Tending
-    duration: 2
+    duration: 20 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
@@ -343,7 +343,7 @@
   - type: SurgeryStep
     tool:
     - type: Tending
-    duration: 2
+    duration: 20 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
@@ -365,7 +365,7 @@
     - type: Cautery
     remove:
     - type: IncisionOpen
-    duration: 2
+    duration: 20 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
@@ -385,7 +385,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
-    duration: 4
+    duration: 40 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
     state: insertion
@@ -400,7 +400,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
-    duration: 4
+    duration: 40 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
     state: insertion
@@ -419,7 +419,7 @@
   - type: SurgeryStep
     tool:
     - type: Tweezers
-    duration: 8
+    duration: 80 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
@@ -435,7 +435,7 @@
   - type: SurgeryStep
     tool:
     - type: Organ
-    duration: 6
+    duration: 60 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
     state: insertion
@@ -500,7 +500,7 @@
   - type: SurgeryStep
     tool:
     - type: Cautery
-    duration: 2
+    duration: 20 # WWDP
   - type: SurgeryAffixOrganStep
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
@@ -532,7 +532,7 @@
               Piercing: 4
             groups:
               Burn: 3
-    duration: 5
+    duration: 50 # WWDP
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
     state: drill
@@ -551,7 +551,7 @@
   - type: SurgeryStep
     tool:
     - type: Hemostat
-    duration: 4
+    duration: 40 # WWDP
     removeOrganOnAdd:
       brain:
         - type: OhioAccent

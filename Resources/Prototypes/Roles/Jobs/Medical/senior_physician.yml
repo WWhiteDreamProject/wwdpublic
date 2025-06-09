@@ -30,7 +30,7 @@
     components:
     - type: CPRTraining
     - type: SurgerySpeedModifier
-      speedModifier: 2.0
+      speedModifier: 5 # WWDP
 
 - type: startingGear
   id: SeniorPhysicianGear
