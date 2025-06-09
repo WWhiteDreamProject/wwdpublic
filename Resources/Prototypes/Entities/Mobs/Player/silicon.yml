@@ -134,6 +134,8 @@
     - Elyran
     - RobotTalk
     - Sign
+  - type: EmagSiliconLaw
+    unRemovable: true
   # WD EDIT END
 
 - type: entity

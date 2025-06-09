@@ -5,10 +5,12 @@ using Content.Shared.GameTicking;
 using Content.Server.Radio.Components;
 using Content.Server.Roles;
 using Content.Server.Station.Systems;
+using Content.Shared.Access.Components;
 using Content.Shared.Administration;
 using Content.Shared.Chat;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
+using Content.Shared.Lock;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles;
@@ -49,6 +51,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         SubscribeLocalEvent<SiliconLawProviderComponent, GetSiliconLawsEvent>(OnDirectedGetLaws);
         SubscribeLocalEvent<SiliconLawProviderComponent, IonStormLawsEvent>(OnIonStormLaws);
         SubscribeLocalEvent<SiliconLawProviderComponent, GotEmaggedEvent>(OnEmagLawsAdded);
+        SubscribeLocalEvent<SiliconLawUpdaterComponent, GotEmaggedEvent>(OnAiSubvert); // WD edit - AI subvert
         SubscribeLocalEvent<EmagSiliconLawComponent, MindAddedMessage>(OnEmagMindAdded);
         SubscribeLocalEvent<EmagSiliconLawComponent, MindRemovedMessage>(OnEmagMindRemoved);
     }
@@ -124,7 +127,6 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
     private void OnEmagLawsAdded(EntityUid uid, SiliconLawProviderComponent component, ref GotEmaggedEvent args)
     {
-
         if (component.Lawset == null)
             component.Lawset = GetLawset(component.Laws);
 
@@ -142,6 +144,9 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             LawString = Loc.GetString("law-emag-secrecy", ("faction", Loc.GetString(component.Lawset.ObeysTo))),
             Order = component.Lawset.Laws.Max(law => law.Order) + 1
         });
+
+        if (TryComp<EmagSiliconLawComponent>(uid, out var emagSiliconLaw)) // WD edit - make emagged AI laws unremovable
+            component.UnRemovable = emagSiliconLaw.UnRemovable;
     }
 
     protected override void OnGotEmagged(EntityUid uid, EmagSiliconLawComponent component, ref GotEmaggedEvent args)
@@ -156,6 +161,23 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         _stunSystem.TryParalyze(uid, component.StunTime, true);
 
     }
+
+    // WD edit start - AI subvert
+    private void OnAiSubvert(Entity<SiliconLawUpdaterComponent> ent, ref GotEmaggedEvent args)
+    {
+        var query = EntityManager.CompRegistryQueryEnumerator(ent.Comp.Components);
+
+        while (query.MoveNext(out var update))
+        {
+            if (!TryComp<EmagSiliconLawComponent>(update, out var emagSiliconLaw)
+               || !TryComp<SiliconLawProviderComponent>(update, out var siliconLawProvider))
+                continue;
+
+            OnGotEmagged(update, emagSiliconLaw, ref args);
+            OnEmagLawsAdded(update, siliconLawProvider, ref args);
+        }
+    }
+    // WD edit end
 
     private void OnEmagMindAdded(EntityUid uid, EmagSiliconLawComponent component, MindAddedMessage args)
     {

@@ -1414,7 +1414,7 @@
         whitelist:
           components:
           - SiliconLawProvider
-          - Item
+#          - Item          WD edit - comment out
   - type: ContainerContainer
     containers:
       circuit_holder: !type:ContainerSlot
