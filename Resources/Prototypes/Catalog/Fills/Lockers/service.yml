@@ -7,6 +7,9 @@
     contents:
       - id: DrinkShaker
       - id: ClothingEyesHudBeer
+      - id: WeaponShotgunDoubleBarreledRubber # WWDP its so back
+      - id: BoxBeanbag # WWDP
+      - id: SpaceCash5000 # WWDP
       - id: HandLabeler
         amount: 1
       - id: DrinkBottleBeer
@@ -29,6 +32,9 @@
     contents:
       - id: DrinkShaker
       - id: ClothingEyesHudBeer
+      - id: WeaponShotgunDoubleBarreledRubber # WWDP its so back
+      - id: BoxBeanbag # WWDP
+      - id: SpaceCash5000 # WWDP
       - id: HandLabeler
         amount: 1
       - id: DrinkBottleBeer

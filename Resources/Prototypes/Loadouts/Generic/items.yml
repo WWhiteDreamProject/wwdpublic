@@ -496,6 +496,7 @@
        inverted: true
        jobs:
          - Clown
+         - Prisoner # WWDP
     - !type:CharacterItemGroupRequirement
       group: LoadoutBoxKits
 
@@ -526,6 +527,7 @@
        inverted: true
        jobs:
          - Brigmedic
+         - Prisoner # WWDP
     - !type:CharacterItemGroupRequirement
       group: LoadoutBoxKits
 
@@ -722,6 +724,7 @@
     - !type:CharacterJobRequirement
        jobs:
          - Brigmedic
+         - Prisoner # WWDP
 
  # 5 zillion ghostroles, more people will take them if theyre less common.
  # - type: loadout
