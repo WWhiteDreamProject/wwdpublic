@@ -33,6 +33,8 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Item;
 using Content.Shared.Throwing;
 using Robust.Shared.Configuration;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 
 
 namespace Content.Server.Weapons.Melee;
@@ -133,9 +135,10 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 !status.AllowedEffects.Contains("KnockedDown"))
             {
                 // WWDP edit; shoving items costs their throw stamina cost
-                if (HasComp<ItemComponent>(target)
-                    && TryComp<DamageOtherOnHitComponent>(target, out var throwComp)
-                    && throwComp.StaminaCost > 0)
+                if (TryComp<PhysicsComponent>(target, out var physComp) &&
+                    physComp.BodyType != BodyType.Static &&
+                    TryComp<DamageOtherOnHitComponent>(target, out var throwComp) &&
+                    throwComp.StaminaCost > 0)
                 {
                     _stamina.TakeStaminaDamage(user, throwComp.StaminaCost);
                 }

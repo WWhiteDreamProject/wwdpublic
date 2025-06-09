@@ -29,7 +29,7 @@
     damage:
       types:
         Blunt: 8
-    staminaCost: 50
+    staminaCost: 20 # WWDP shoving cost
     soundHit:
       collection: MetalThud
   - type: ReflectAspectMark # WD EDIT
