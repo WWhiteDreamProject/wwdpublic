@@ -3069,3 +3069,12 @@ Entries:
   id: 332
   time: '2025-06-09T17:21:10.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/562
+- author: b1mba
+  changes:
+    - type: Add
+      message: Добавлен крафт самодельного лазерного пистолета
+    - type: Tweak
+      message: Боезапас самодельного лазерного пистолета увеличен 15 -> 20
+  id: 333
+  time: '2025-06-09T17:59:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/555
