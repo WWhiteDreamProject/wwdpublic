@@ -3044,3 +3044,10 @@ Entries:
   id: 329
   time: '2025-06-07T07:20:59.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/550
+- author: Kutos
+  changes:
+    - type: Add
+      message: Добавлена возможность использовать HEX цвета в маптуле.
+  id: 330
+  time: '2025-06-09T17:05:39.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/536
