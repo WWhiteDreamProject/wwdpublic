@@ -1419,4 +1419,3 @@
     containers:
       circuit_holder: !type:ContainerSlot
       board: !type:Container
-  - type: EmagSiliconLaw # WD edit - AI subvert
