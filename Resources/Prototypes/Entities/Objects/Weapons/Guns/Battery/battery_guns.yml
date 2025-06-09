@@ -206,7 +206,6 @@
     wideAnimationRotation: 135
   - type: DamageOtherOnHit
     staminaCost: 5
-  - type: DualWield # WWDP
 
 - type: entity
   id: BaseWeaponPowerCellSmall

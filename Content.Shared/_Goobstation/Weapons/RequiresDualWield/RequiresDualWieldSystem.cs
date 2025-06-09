@@ -10,6 +10,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Timing;
 using Content.Shared._Goobstation.Weapons.RequiresDualWield;
 using Content.Shared._Goobstation.Weapons.Multishot;
+using Content.Shared._White.Weapons.Ranged.DualWield; // WWDP
 using Content.Shared.Research.Components;
 using Content.Shared.Whitelist;
 
@@ -54,7 +55,7 @@ public sealed class RequiresDualWieldSystem : EntitySystem
             if (held == uid)
                 continue;
 
-            if (HasComp<MultishotComponent>(held))
+            if (HasComp<DualWieldComponent>(held)) // WWDP dual wielding
             {
                 if (CheckGun(held,component.Whitelist))
                     continue;
