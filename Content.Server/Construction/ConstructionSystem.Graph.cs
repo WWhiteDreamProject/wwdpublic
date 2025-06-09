@@ -15,8 +15,6 @@ namespace Content.Server.Construction
 {
     public sealed partial class ConstructionSystem
     {
-        [Dependency] private readonly SharedUserInterfaceSystem _interface = default!; // WWDP
-
         private void InitializeGraphs()
         {
         }
