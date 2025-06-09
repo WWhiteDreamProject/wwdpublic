@@ -169,8 +169,9 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         while (query.MoveNext(out var update))
         {
-            if (!TryComp<EmagSiliconLawComponent>(update, out var emagSiliconLaw) || !TryComp<SiliconLawProviderComponent>(update, out var siliconLawProvider))
-                return;
+            if (!TryComp<EmagSiliconLawComponent>(update, out var emagSiliconLaw)
+               || !TryComp<SiliconLawProviderComponent>(update, out var siliconLawProvider))
+                continue;
 
             OnGotEmagged(update, emagSiliconLaw, ref args);
             OnEmagLawsAdded(update, siliconLawProvider, ref args);
