@@ -34,7 +34,7 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Slash
-        damage: 100
+        damage: 150
       behaviors:
       - !type:GibPartBehavior { }
     - trigger:
