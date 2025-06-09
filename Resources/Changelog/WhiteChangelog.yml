@@ -3096,3 +3096,12 @@ Entries:
   id: 335
   time: '2025-06-09T18:23:28.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/565
+- author: Kai518
+  changes:
+    - type: Add
+      message: >-
+        Добавлен взлом аплоуда ЕМАГом, что заставляет ИИ подчиняться вам.
+        Взломанные законы невозможно сменить. Have fun!
+  id: 336
+  time: '2025-06-09T18:42:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/560
