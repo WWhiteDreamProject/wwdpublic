@@ -107,7 +107,7 @@
       group: LoadoutGloves
   items:
     - ClothingClothWrap
-    -
+
 # WWDP EDIT START
 # - type: loadout
 #   id: ClothingHandsTacticalMaidGlovesLoadout
