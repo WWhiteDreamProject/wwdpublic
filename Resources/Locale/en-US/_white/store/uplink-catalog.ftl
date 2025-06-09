@@ -6,6 +6,9 @@ uplink-gun-case-dualetta-desc = Two dualettas for a cheap price.
 uplink-blood-dagger-name = Blood dagger
 uplink-blood-dagger-desc = A dagger of pain and blood. It has deadly accuracy, allowing you to deal critical damage and extract blood from opponents, treating the owner in proportion to the sucked blood. When absorbing the owner's blood, it briefly enhances his valuable profuse bleeding.
 
+uplink-fire-axe-name = Fire axe
+uplink-fire-axe-desc = Fight fire with fire, setting flame to targets you hit.
+
 uplink-gun-case-m90-name = M-90
 uplink-gun-case-m90-desc = An M-90 combat rifle bundled with two extra magazines (.30).
 
@@ -43,6 +46,9 @@ uplink-magazine-light-rifle-ak220-desc = Magazine equipped with 40 rounds of .30
 
 uplink-magazine-shotgun-meteor-name = Ammo drum (.50 meteor)
 uplink-magazine-shotgun-meteor-desc = Drum is equipped with 8 powerful projectiles capable of knocking down targets.
+
+uplink-shotgun-shells-name = Shotgun shells (.50 lethal)
+uplink-shotgun-shells-desc = A box of lethal shotgun ammunition.
 
 # Explosives
 
@@ -90,4 +96,19 @@ uplink-gondola-desc = A crate containing a single Gondola. The meat of the Gondo
 
 # Pointless
 
+uplink-radio-name = Old-fashioned uplink
+uplink-radio-desc = Suspiciously looking old radio, no telecrystals included
+
+uplink-symbolics-crate-name = syndicate symbolics crate
+uplink-symbolics-crate-desc = Everything you need to designate an area to be under syndicate control
+
 # Job Specific
+
+uplink-greytide-name = tider's toolbox
+uplink-greytide-desc = A classic blue toolbox. Inside are some basic tools, insulated gloves and a gas mask.
+
+uplink-plasmaflood-lawboard-name = law board (Plasma Flood)
+uplink-plasmaflood-lawboard-desc = A dangerous set of laws, that makes the station AI replace the station atmosphere with plasma.
+
+uplink-antimov-lawboard-name = law board (Antimov)
+uplink-antimov-lawboard-desc = A dangerous set of laws, that makes the station AI harm the crew.

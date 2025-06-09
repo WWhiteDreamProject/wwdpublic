@@ -10,7 +10,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 6
+    Telecrystal: 4
   categories:
   - UplinkWeaponry
 
@@ -23,7 +23,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 6
+    Telecrystal: 5
   categories:
   - UplinkWeaponry
   conditions:
@@ -31,6 +31,19 @@
     blacklist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkFireAxeFlaming
+  name: uplink-fire-axe-name
+  description: uplink-fire-axe-desc
+  productEntity: FireAxeFlaming
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkGunCaseM90
@@ -55,7 +68,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 10
+    Telecrystal: 6
   categories:
   - UplinkWeaponry
   conditions:
@@ -72,9 +85,9 @@
   productEntity: GunCaseSyndicateFilledFPA90
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2
   cost:
-    Telecrystal: 12
+    Telecrystal: 8
   categories:
   - UplinkWeaponry
 
@@ -85,9 +98,9 @@
   productEntity: EnergyCrossbowMini
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2
   cost:
-    Telecrystal: 12
+    Telecrystal: 6
   categories:
   - UplinkWeaponry
   conditions:
@@ -183,6 +196,20 @@
 # Ammo
 
 - type: listing
+  id: UplinkBoxLethal
+  name: uplink-shotgun-shells-name
+  description: uplink-shotgun-shells-desc
+  icon: { sprite: /Textures/Objects/Storage/boxes.rsi, state: shelllethal}
+  productEntity: BoxLethal
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+
+- type: listing
   id: UplinkMagazineLightRifleAK220
   name: uplink-magazine-light-rifle-ak220-name
   description: uplink-magazine-light-rifle-ak220-desc
@@ -195,22 +222,33 @@
   categories:
   - UplinkAmmo
 
-- type: listing
-  id: UplinkMagazineShotgunMeteor
-  name: uplink-magazine-shotgun-meteor-name
-  description: uplink-magazine-shotgun-meteor-desc
-  productEntity: MagazineShotgunMeteor
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 5
-  categories:
-  - UplinkAmmo
+# Disabled dumb bloat
+# - type: listing
+#   id: UplinkMagazineShotgunMeteor
+#   name: uplink-magazine-shotgun-meteor-name
+#   description: uplink-magazine-shotgun-meteor-desc
+#   productEntity: MagazineShotgunMeteor
+#   discountCategory: usualDiscounts
+#   discountDownTo:
+#     Telecrystal: 1
+#   cost:
+#     Telecrystal: 5
+#   categories:
+#   - UplinkAmmo
 
 # Explosives
 
 # Wearables
+
+- type: listing
+  id: UplinkSyndieHolster
+  name: uplink-holster-name
+  description: uplink-holster-desc
+  productEntity: ClothingBeltSyndieHolster
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkWearables
 
 - type: listing
   id: UplinkMagazineSyndicateSwatHelmet
@@ -249,7 +287,7 @@
   discountDownTo:
     Telecrystal: 3
   cost:
-    Telecrystal: 12
+    Telecrystal: 8
   categories:
   - UplinkChemicals
   conditions:
@@ -271,7 +309,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 10
+    Telecrystal: 6
   categories:
   - UplinkDisruption
 
@@ -366,4 +404,72 @@
 
 # Pointless
 
+- type: listing
+  id: UplinkBaseUplinkRadio
+  name: uplink-radio-name
+  description: uplink-radio-desc
+  productEntity: BaseUplinkRadio
+  cost:
+    Telecrystal: 1 # WD EDIT
+  categories:
+  - UplinkPointless
+
+- type: listing
+  id: UplinkCrateSyndicateFilledSymbolics
+  name: uplink-symbolics-crate-name
+  description: uplink-symbolics-crate-desc
+  productEntity: CrateSyndicateFilledSymbolics
+  cost:
+    Telecrystal: 4 # WD EDIT
+  categories:
+  - UplinkPointless
+
 # Job Specific
+
+- type: listing
+  id: UplinkGreytideKit
+  name: uplink-greytide-name
+  description: uplink-greytide-desc
+  productEntity: ToolboxMechanicalFilledGreytide
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Passenger
+
+- type: listing
+  id: UplinkPlasmaFloodCircuitBoard
+  name: uplink-plasmaflood-lawboard-name
+  description: uplink-plasmaflood-lawboard-desc
+  productEntity: PlasmaFloodCircuitBoard
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 4 # WD EDIT
+  cost:
+    Telecrystal: 16 # WD EDIT
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Epistemics # DeltaV - Epistemics Department replacing Science
+
+- type: listing
+  id: UplinkAntimovCircuitBoard
+  name: uplink-antimov-lawboard-name
+  description: uplink-antimov-lawboard-desc
+  productEntity: AntimovCircuitBoard
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 4 # WD EDIT
+  cost:
+    Telecrystal: 16 # WD EDIT
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Epistemics # DeltaV - Epistemics Department replacing Science
