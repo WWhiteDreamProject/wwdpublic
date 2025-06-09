@@ -3078,3 +3078,12 @@ Entries:
   id: 333
   time: '2025-06-09T17:59:30.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/555
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Хирургические операции теперь занимают дольше для неквалифицированного
+        персонала
+  id: 334
+  time: '2025-06-09T18:21:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/564
