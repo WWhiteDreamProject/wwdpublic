@@ -67,10 +67,19 @@ uplink-experimental-stimpack-desc = A prototype version of the stimulant chemica
 
 # Deception
 
+uplink-encryption-master-key-name = Encryption master key
+uplink-encryption-master-key-desc = An encryption key with access to all station radio channels.
+
+uplink-spy-crew-monitor-name = Spy crew monitor
+uplink-spy-crew-monitor-desc = A spy device capable of connecting to crew monitoring servers.
+
 # Disruption
 
-uplink-betrayal-knife-name = Experimental syndicate teleporter
-uplink-betrayal-knife-desc = Syndicate teleporter, when used, moves 3-8 meters forward. In case of teleportation into a wall, uses emergency teleportation. Has 4 charge.
+uplink-experimental-syndicate-teleporter-name = Experimental syndicate teleporter
+uplink-experimental-syndicate-teleporter-desc = Syndicate teleporter, when used, moves 3-8 meters forward. In case of teleportation into a wall, uses emergency teleportation. Has 4 charge.
+
+uplink-fulton-name = Fulton
+uplink-fulton-desc = Used to extract containers, items, or forcibly recruit people into your base of operations. Comes in a large cardboard box.
 
 # Implants
 

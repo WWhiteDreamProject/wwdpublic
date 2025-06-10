@@ -22,3 +22,13 @@
       amount: 2
     - id: ClothingUniformJumpskirtSyndieFormalDress
       amount: 2
+
+- type: entity
+  parent: BigBox
+  id: BigBoxFilledFulton
+  suffix: Fulton
+  components:
+  - type: StorageFill
+    contents:
+    - id: FultonBeacon
+    - id: Fulton

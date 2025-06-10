@@ -341,6 +341,32 @@
 
 # Deception
 
+- type: listing
+  id: UplinkEncryptionKeyStationMaster
+  name: uplink-encryption-master-key-name
+  description: uplink-encryption-master-key-desc
+  productEntity: EncryptionKeyStationMaster
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkDeception
+
+- type: listing
+  id: UplinkSpyCrewMonitor
+  name: uplink-spy-crew-monitor-name
+  description: uplink-spy-crew-monitor-desc
+  productEntity: SpyCrewMonitor
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkDeception
+
 # Disruption
 
 - type: listing
@@ -353,6 +379,20 @@
     Telecrystal: 2
   cost:
     Telecrystal: 6
+  categories:
+  - UplinkDisruption
+
+- type: listing
+  id: UplinkFulton
+  name: uplink-fulton-name
+  description: uplink-fulton-desc
+  icon: { sprite: /Textures/Objects/Tools/fulton.rsi, state: extraction_point }
+  productEntity: BigBoxFilledFulton
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 4
   categories:
   - UplinkDisruption
 

@@ -67,10 +67,19 @@ uplink-experimental-stimpack-desc = Прототип химической сме
 
 # Обман
 
+uplink-encryption-master-key-name = Мастер ключ шифрования
+uplink-encryption-master-key-desc = Ключ шифрования, дающий доступ ко всем радиоканалам станции.
+
+uplink-spy-crew-monitor-name = Шпионский монитор экипажа
+uplink-spy-crew-monitor-desc = Устройство, подключающееся к сети отслеживания датчиков экипажа.
+
 # Саботаж
 
 uplink-experimental-syndicate-teleporter-name = Экспериментальный телепортер синдиката
 uplink-experimental-syndicate-teleporter-desc = Телепортер синдиката, при использовании перемещает на 3-8 метров вперед. В случае телепортации в стену, использует экстренную телепортацию. Имеет 4 заряда и автоматически заряжается.
+
+uplink-fulton-name = Фултон
+uplink-fulton-desc = Средство для перемещения контейнеров, вещей или людей в определённую точку. Поставляется в большой картонной коробке.
 
 # Импланты
 
@@ -96,19 +105,19 @@ uplink-gondola-desc = Ящик, содержащий одну стандартн
 
 # Бесполезное
 
-uplink-radio-name = старомодный аплинк
+uplink-radio-name = Старомодный аплинк
 uplink-radio-desc = Подозрительно выглядящее старое радио, телекристаллы в комплект не входят
 
-uplink-symbolics-crate-name = ящик с символикой синдиката
+uplink-symbolics-crate-name = Ящик с символикой синдиката
 uplink-symbolics-crate-desc = Ящик, полный вещей для обозначения контроля синдиката над территорией
 
 # Для определенных профессий
 
-uplink-greytide-name = набор грейтайда
+uplink-greytide-name = Набор грейтайда
 uplink-greytide-desc = Старый добрый синий тулбокс. Внутри лежат набор инструментов, изолированные перчатки и противогаз.
 
-uplink-plasmaflood-lawboard-name = набор законов ИИ (Плазмафлуд)
+uplink-plasmaflood-lawboard-name = Набор законов ИИ (Плазмафлуд)
 uplink-plasmaflood-lawboard-desc = Опасный набор законов, настраивающий ИИ станции на замену всей атмосферы на плазму.
 
-uplink-antimov-lawboard-name = набор законов ИИ (Antimov)
+uplink-antimov-lawboard-name = Набор законов ИИ (Antimov)
 uplink-antimov-lawboard-desc = Опасный набор законов, настраивающий ИИ станции на нанесение вреда всему экипажу.
