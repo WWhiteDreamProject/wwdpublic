@@ -3119,3 +3119,10 @@ Entries:
   id: 338
   time: '2025-06-10T20:17:03.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/568
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Структурный урон снова эффективен по структурам
+  id: 339
+  time: '2025-06-10T20:20:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/566
