@@ -3133,3 +3133,12 @@ Entries:
   id: 340
   time: '2025-06-10T20:49:55.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/570
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: >-
+        Изменён крафт потайной двери. Теперь требуется создать каркас, открутить
+        его от пола и нажать по нему двумя листами стали.
+  id: 341
+  time: '2025-06-10T20:59:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/571
