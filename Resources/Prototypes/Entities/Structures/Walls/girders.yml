@@ -54,6 +54,8 @@
           collection: MetalBreak
   - type: StaticPrice
     price: 10
+  - type: Rotatable # WD edit - new secret door recipe
+    rotateWhileAnchored: true
 
 - type: entity
   id: ReinforcedGirder
