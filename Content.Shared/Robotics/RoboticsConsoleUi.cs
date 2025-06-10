@@ -125,7 +125,7 @@ public record struct CyborgControlData
         ModuleCount = moduleCount;
         HasBrain = hasBrain;
         CanDisable = canDisable;
-        IsAiControllable = isAiControllable; // Corvax-Next-AiRemoteControl
+        IsAiControllable = isAiControllable; // WD EDIT
     }
 }
 
