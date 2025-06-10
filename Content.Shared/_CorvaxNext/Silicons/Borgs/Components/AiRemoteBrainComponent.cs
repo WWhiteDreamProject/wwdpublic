@@ -1,7 +1,4 @@
-namespace Content.Shared._CorvaxNext.Silicons.Borgs.Components
-{
-    [RegisterComponent]
-    public sealed partial class AiRemoteBrainComponent : Component
-    {
-    }
-}
+namespace Content.Shared._White.Silicons.Borgs.Components;
+
+[RegisterComponent]
+public sealed partial class AiRemoteBrainComponent : Component;
