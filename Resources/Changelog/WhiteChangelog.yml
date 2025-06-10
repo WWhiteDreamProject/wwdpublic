@@ -3126,3 +3126,10 @@ Entries:
   id: 339
   time: '2025-06-10T20:20:19.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/566
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Дионы больше не игнорируют абсолютно все замедления
+  id: 340
+  time: '2025-06-10T20:49:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/570
