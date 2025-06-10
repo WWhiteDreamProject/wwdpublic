@@ -619,13 +619,7 @@
   - type: Storage
     grid:
     - 0,0,3,1
-  - type: EmitsSoundOnMove
-    soundCollection:
-      collection: FootstepTacticalWebbing
-      params:
-        volume: -10
-    distanceWalking: 2
-    distanceSprinting: 3
+  #WWDP edit - FUCK YOURSELF 
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -648,13 +642,7 @@
       - Gun
       - BallisticAmmoProvider
       - CartridgeAmmo
-  - type: EmitsSoundOnMove
-    soundCollection:
-      collection: FootstepTacticalWebbing
-      params:
-        volume: -10
-    distanceWalking: 2
-    distanceSprinting: 3
+  #WWDP edit - FUCK YOURSELF
 
 # WWDP base webbing
 - type: entity
@@ -666,14 +654,7 @@
     - 0,0,2,1
     - 4,0,7,1
     - 9,0,11,1
-  - type: EmitsSoundOnMove
-    soundCollection:
-      collection: FootstepTacticalWebbing
-      params:
-        volume: -10
-    distanceWalking: 2
-    distanceSprinting: 3
-
+  #WWDP edit - FUCK YOURSELF
 
 - type: entity
   parent: [ClothingBaseWebbing, ClothingBeltSecurity] # WWDP
@@ -721,7 +702,7 @@
     sprite: Clothing/Belt/salvagewebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/salvagewebbing.rsi
-  #WWDP edit - FUCK YOURSELF YOU KILLED MY EARS
+  #WWDP edit - FUCK YOURSELF
 
 - type: entity
   parent: [ClothingBaseWebbing, ClothingBeltStorageBase, ContentsExplosionResistanceBase] # WWDP
