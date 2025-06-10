@@ -1,14 +1,14 @@
-using Content.Server._White.Chemistry.Components;
+using Content.Server._White.Chemistry.Components; //WWDP edit
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.Containers.EntitySystems;
-using Content.Server.Explosion.Components;
+using Content.Server.Explosion.Components; //WWDP edit
 using Content.Shared._White.Blocking;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
-using Content.Shared.StepTrigger.Systems;
+using Content.Shared.StepTrigger.Systems; //WWDP edit
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Collections;
@@ -32,8 +32,10 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<SolutionInjectOnProjectileHitComponent, ProjectileHitEvent>(HandleProjectileHit);
         SubscribeLocalEvent<SolutionInjectOnEmbedComponent, EmbedEvent>(HandleEmbed);
+        //WWDP edit start
         SubscribeLocalEvent<MeleeChemicalInjectorComponent, MeleeHitEvent>(HandleMeleeHit,
-            after: new[] {typeof(MeleeBlockSystem)}); // WD EDIT
+            after: new[] {typeof(MeleeBlockSystem)});
+        //WWDP edit end
         SubscribeLocalEvent<SolutionInjectOnTriggerComponent, StepTriggerAttemptEvent>(HandleTrigger);
     }
 
