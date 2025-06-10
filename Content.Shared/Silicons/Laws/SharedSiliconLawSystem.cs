@@ -2,8 +2,6 @@
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Wires;
-using Robust.Shared.Audio;
-using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 
 namespace Content.Shared.Silicons.Laws;
 
