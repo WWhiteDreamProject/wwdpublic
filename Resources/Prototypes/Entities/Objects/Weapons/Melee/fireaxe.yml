@@ -80,6 +80,7 @@
   components:
   - type: MeleeWeapon
     wideAnimationRotation: 90
+    animationRotation: 0 # WWDP
   - type: IgniteOnMeleeHit
     fireStacks: 1
   - type: Sprite
