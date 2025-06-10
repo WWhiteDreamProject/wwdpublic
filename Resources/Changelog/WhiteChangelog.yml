@@ -3112,3 +3112,10 @@ Entries:
   id: 337
   time: '2025-06-09T19:26:32.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/563
+- author: vanx
+  changes:
+    - type: Remove
+      message: Отключена возможность прятаться под столами
+  id: 338
+  time: '2025-06-10T20:17:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/568
