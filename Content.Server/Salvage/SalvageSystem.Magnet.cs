@@ -380,7 +380,7 @@ public sealed partial class SalvageSystem
         RaiseLocalEvent(ref active);
     }
 
-    private bool TryGetSalvagePlacementLocation(MapId mapId, Box2Rotated attachedBounds, Box2 bounds, Angle worldAngle, out MapCoordinates coords, out Angle angle)
+    public bool TryGetSalvagePlacementLocation(MapId mapId, Box2Rotated attachedBounds, Box2 bounds, Angle worldAngle, out MapCoordinates coords, out Angle angle, int iter = 20, float step = 0.25f) // WWDP EDIT
     {
         // Grid intersection only does AABB atm.
         var attachedAABB = attachedBounds.CalcBoundingBox();
@@ -389,10 +389,10 @@ public sealed partial class SalvageSystem
         var minActualDistance = bounds.Height < bounds.Width ? minDistance + bounds.Width / 2f : minDistance + bounds.Height / 2f;
 
         var attachedCenter = attachedAABB.Center;
-        var fraction = 0.25f;
+        var fraction = step; // WWDP EDIT
 
         // Thanks 20kdc
-        for (var i = 0; i < 20; i++)
+        for (var i = 0; i < iter; i++) // WWDP EDIT
         {
             var randomPos = attachedCenter +
                             worldAngle.ToVec() * (minActualDistance * fraction);
@@ -407,7 +407,7 @@ public sealed partial class SalvageSystem
             if (_mapManager.FindGridsIntersecting(finalCoords.MapId, box2Rot).Any())
             {
                 // Bump it further and further just in case.
-                fraction += 0.25f;
+                fraction += step; // WWDP EDIT
                 continue;
             }
 
