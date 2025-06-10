@@ -586,18 +586,3 @@
         - Captain
   items:
     - ClothingUniformJumpskirtCapFormalDress
-
-# WWDP added
-- type: loadout
-  id: LoadoutCommandCapJumpsuitCommand
-  category: JobsCommandCaptain
-  cost: 0
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutCaptainUniforms
-  - !type:CharacterJobRequirement
-    jobs:
-    - Captain
-  items:
-  - ClothingUniformJumpsuitCommandCaptain

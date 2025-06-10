@@ -17,14 +17,3 @@
     containers:
       item:
       - KukriKnife
-
-# WWDP
-- type: entity
-  id: ClothingShoesBootsSalvageFilled
-  parent: ClothingShoesBootsSalvage
-  suffix: Filled
-  components:
-  - type: ContainerFill
-    containers:
-      item:
-      - SurvivalKnife
