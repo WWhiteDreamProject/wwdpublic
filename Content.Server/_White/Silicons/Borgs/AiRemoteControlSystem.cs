@@ -1,7 +1,7 @@
 using Content.Server.Radio.Components;
 using Content.Server.Silicons.Laws;
-using Content.Shared._CorvaxNext.Silicons.Borgs;
-using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
+using Content.Shared._White.Silicons.Borgs;
+using Content.Shared._White.Silicons.Borgs.Components;
 using Content.Shared.Actions;
 using Content.Shared.Mind;
 using Content.Shared.Silicons.Laws.Components;
@@ -11,7 +11,8 @@ using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 
-namespace Content.Server._CorvaxNext.Silicons.Borgs
+
+namespace Content.Server._White.Silicons.Borgs
 {
     public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
     {

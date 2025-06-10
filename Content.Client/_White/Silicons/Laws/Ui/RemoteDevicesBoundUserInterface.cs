@@ -1,8 +1,8 @@
-using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
+using Content.Shared._White.Silicons.Borgs.Components;
 using Robust.Client.UserInterface;
-using static Content.Shared._CorvaxNext.Silicons.Borgs.Components.AiRemoteControllerComponent;
+using static Content.Shared._White.Silicons.Borgs.Components.AiRemoteControllerComponent;
 
-namespace Content.Client._CorvaxNext.Silicons.Laws.Ui
+namespace Content.Client._White.Silicons.Laws.Ui
 {
     public sealed class RemoteDevicesBoundUserInterface : BoundUserInterface
     {

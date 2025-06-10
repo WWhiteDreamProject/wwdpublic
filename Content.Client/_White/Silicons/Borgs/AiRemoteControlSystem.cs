@@ -1,6 +1,7 @@
-using Content.Shared._CorvaxNext.Silicons.Borgs;
+using Content.Shared._White.Silicons.Borgs;
 
-namespace Content.Client._CorvaxNext.Silicons.Borgs
+
+namespace Content.Client._White.Silicons.Borgs
 {
     public sealed partial class AiRemoteControlSystem : SharedAiRemoteControlSystem
     {

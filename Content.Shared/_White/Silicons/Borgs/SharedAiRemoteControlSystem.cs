@@ -1,10 +1,11 @@
-using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
+using Content.Shared._White.Silicons.Borgs.Components;
 using Content.Shared.Actions;
 using Content.Shared.Mind;
 using Content.Shared.Silicons.StationAi;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._CorvaxNext.Silicons.Borgs
+
+namespace Content.Shared._White.Silicons.Borgs
 {
     public abstract class SharedAiRemoteControlSystem : EntitySystem
     {

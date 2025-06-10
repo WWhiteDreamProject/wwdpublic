@@ -10,9 +10,9 @@ using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.Components;
 using Robust.Shared.Utility;
 using Content.Server._Imp.Drone;
-using Content.Server.Silicons.Laws; //Goobstation drone
+using Content.Server.Silicons.Laws;
+using Content.Shared._White.Silicons.Borgs.Components; //Goobstation drone
 using Robust.Shared.Player; //Goobstation drone
-using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Content.Shared.Emag.Systems;
 
 
@@ -57,7 +57,7 @@ public sealed partial class BorgSystem
                 chassis.ModuleCount,
                 hasBrain,
                 canDisable,
-                HasComp<AiRemoteControllerComponent>(uid)); // Corvax-Next-AiRemoteControl
+                HasComp<AiRemoteControllerComponent>(uid)); // WD edit - AiRemoteControl
 
             var payload = new NetworkPayload()
             {

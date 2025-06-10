@@ -41,7 +41,7 @@
     - ActionShowJobIcons
     - ActionSurvCameraLights
     - ActionAIViewLaws
-    - ActionOpenRemoteDevicesMenu # Corvax-Next-AiRemoteControl
+    - ActionOpenRemoteDevicesMenu # WD edit - AiRemoteControl
     - ActionAIToggleBolts # WD edit
     - ActionAICameraList # WD edit
   - type: UserInterface
@@ -56,7 +56,7 @@
         type: SiliconLawBoundUserInterface
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
-      enum.RemoteDeviceUiKey.Key: # Corvax-Next-AiRemoteControl
+      enum.RemoteDeviceUiKey.Key: # WD edit - AiRemoteControl
         type: RemoteDevicesBoundUserInterface
       enum.ListViewSelectorUiKey.Key: # WD edit
         type: ListViewSelectorBUI

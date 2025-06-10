@@ -77,7 +77,7 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
         if (_selected is {} selected && !_cyborgs.ContainsKey(selected))
             _selected = null;
 
-        // Corvax-Next-AiRemoteControl-Start
+        // WD edit - AiRemoteControl-Start
         var isAiControllable = false;
 
         if (_selected != null)
@@ -85,7 +85,7 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
             _cyborgs.TryGetValue(_selected, out var data);
             isAiControllable = data.IsAiControllable;
         }
-        // Corvax-Next-AiRemoteControl-End
+        // WD edit - AiRemoteControl-End
 
         var hasCyborgs = _cyborgs.Count > 0;
         NoCyborgs.Visible = !hasCyborgs;

@@ -1,7 +1,8 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._CorvaxNext.Silicons.Borgs.Components
+
+namespace Content.Shared._White.Silicons.Borgs.Components
 {
     [RegisterComponent]
     public sealed partial class AiRemoteControllerComponent : Component
