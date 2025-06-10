@@ -5,6 +5,14 @@ uplink-gun-case-dualetta-desc = Two dualettas for a cheap price.
 
 uplink-blood-dagger-name = Blood dagger
 uplink-blood-dagger-desc = A dagger of pain and blood. It has deadly accuracy, allowing you to deal critical damage and extract blood from opponents, treating the owner in proportion to the sucked blood. When absorbing the owner's blood, it briefly enhances his valuable profuse bleeding.
+uplink-gun-case-viper-name = Viper
+uplink-gun-case-viper-desc = An easily concealed pistol with a switchable automatic mode. Comes in a case with two magazines (.35 auto).
+
+uplink-gun-case-cobra-name = Cobra
+uplink-gun-case-cobra-desc = A reliable pistol with an integrated suppressor. Comes in a case with two magazines (.25 caseless).
+
+uplink-syndie-holster-python-name = Python
+uplink-syndie-holster-python-desc = A brutally simple, effective, and loud Syndicate revolver. Includes a holster and 2 speedloaders with .45 armor-piercing rounds.
 
 uplink-fire-axe-name = Fire axe
 uplink-fire-axe-desc = Fight fire with fire, setting flame to targets you hit.

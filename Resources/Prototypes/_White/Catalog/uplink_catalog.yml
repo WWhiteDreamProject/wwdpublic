@@ -1,9 +1,9 @@
 ﻿# Weaponry
 
 - type: listing
-  id: UplinkPistolViper
-  name: uplink-pistol-viper-name
-  description: uplink-pistol-viper-desc
+  id: UplinkGunCaseViper
+  name: uplink-gun-case-viper-name
+  description: uplink-gun-casel-viper-desc
   productEntity: GunCaseSyndicateFilledViper
   icon: { sprite: /Textures/Objects/Weapons/Guns/Pistols/viper.rsi, state: icon }
   discountCategory: usualDiscounts
@@ -16,9 +16,9 @@
 
 # Inbuilt suppressor so it's sneaky + more expensive.
 - type: listing
-  id: UplinkPistolCobra
-  name: uplink-pistol-cobra-name
-  description: uplink-pistol-cobra-desc
+  id: UplinkGunCaseCobra
+  name: uplink-gun-case-cobra-name
+  description: uplink-gun-case-cobra-desc
   productEntity: GunCaseSyndicateFilledCobra
   icon: { sprite: /Textures/Objects/Weapons/Guns/Pistols/cobra.rsi, state: icon }
   discountCategory: usualDiscounts
@@ -30,9 +30,9 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkRevolverPython
-  name: uplink-revolver-python-name
-  description: uplink-revolver-python-desc
+  id: UplinkSyndieHolsterPython
+  name: uplink-syndie-holster-python-name
+  description: uplink-syndie-holster-python-desc
   productEntity: ClothingBeltSyndieHolsterFilledPython
   icon: { sprite: /Textures/Objects/Weapons/Guns/Revolvers/python.rsi, state: icon }
   discountCategory: rareDiscounts
