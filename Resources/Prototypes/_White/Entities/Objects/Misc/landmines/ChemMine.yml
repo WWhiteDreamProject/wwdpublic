@@ -1,0 +1,13 @@
+﻿- type: entity
+  name: vietcong mine
+  parent: BaseLandMine
+  id: VietcongMine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 10
+  - type: SolutionInjectOnTrigger
+    transferAmount: 10
+    solution: melee
+    blockSlots: NONE
