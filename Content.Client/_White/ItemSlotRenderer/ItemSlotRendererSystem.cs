@@ -1,7 +1,6 @@
 using Content.Client.Hands;
 using Content.Shared._White.Hands.Components;
 using Content.Shared.Containers.ItemSlots;
-using Microsoft.CodeAnalysis.Elfie.Serialization;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;

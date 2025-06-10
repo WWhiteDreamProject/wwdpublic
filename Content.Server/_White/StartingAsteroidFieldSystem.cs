@@ -1,13 +1,19 @@
 using Content.Server.GameTicking;
 using Content.Server.Gravity;
 using Content.Server.Procedural;
+using Content.Server.RequiresGrid;
 using Content.Server.Salvage;
 using Content.Server.Salvage.Magnet;
+using Content.Server.Shuttles.Systems;
+using Content.Shared._White;
+using Content.Shared.Procedural;
 using Content.Shared.Salvage.Magnet;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
+using Robust.Server.Console.Commands;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
@@ -26,128 +32,170 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
     [Dependency] private readonly GravitySystem _gravity = default!;
     [Dependency] private readonly MapLoaderSystem _map = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedShuttleSystem _shittle = default!;
+    [Dependency] private readonly ShuttleSystem _shittle = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<PostGameMapLoad>(OnPostGameMapLoad);
+       
     }
 
-    const float spawningBoxSize = 500;
+    const float spawningBoxSize = 1000;
 
     private void OnPostGameMapLoad(PostGameMapLoad ev)
     {
+        if (!_config.GetCVar(WhiteCVars.AsteroidFieldEnabled))
+        {
+            Log.Info("Asteroid field disabled. Skipping generation.");
+            return;
+        }
+        float min = _config.GetCVar(WhiteCVars.AsteroidFieldDistanceMin);
+        float max = _config.GetCVar(WhiteCVars.AsteroidFieldDistanceMax);
+        int asteroids = _config.GetCVar(WhiteCVars.AsteroidFieldAsteroidCount);
+        int derelicts = _config.GetCVar(WhiteCVars.AsteroidFieldDerelictCount);
 
-        const int amount = 50;
-        const double ruinPercentage = 0.13;
-        bool[] parameters = new bool[amount];
-        Array.Fill(parameters, true, 0, (int) Math.Round(amount * ruinPercentage));
-        parameters = parameters.OrderBy(_ => _random.Next()).ToArray();
-        for (int i = 0; i < amount; i++)
-            SpawnAsteroid(ev.Map, new Vector2(2000, 2000), parameters[i]).Wait();
+        Vector2 worldPos = _random.NextAngle().ToWorldVec() * _random.NextFloat(min, max);
 
+        if (!_config.GetCVar(WhiteCVars.AsteroidFieldSpawnBeacon))
+            Log.Info($"Asteroid beacon spawning disabled. Skipping.");
+        else
+        {
+            string path = _config.GetCVar(WhiteCVars.AsteroidFieldBeaconGridPath);
+
+            var mapParams = new MapLoadOptions();
+            mapParams.TransformMatrix = Matrix3Helpers.CreateTranslation(worldPos);
+            mapParams.TransformMatrix = Matrix3x2.Multiply(Matrix3Helpers.CreateRotation(_random.NextAngle()), mapParams.TransformMatrix);
+
+            if (!_map.TryLoad(ev.Map, path, out var grids, mapParams))
+                Log.Info($"Failed to load asteroid beacon ({path}).");
+            else
+            {
+                string beaconName = Loc.GetString(_config.GetCVar(WhiteCVars.AsteroidFieldBeaconName));
+                _metaData.SetEntityName(grids[0], beaconName);
+                Log.Info($"Successfully loaded asteroid beacon and named it \"{beaconName}\".");
+            }
+        }
+
+        Log.Info($"Starting asteroid field generation at position {worldPos}...");
+        SpawnAsteroidField(ev.Map, worldPos, asteroids, derelicts);
     }
 
-    private async Task SpawnAsteroid(MapId mapId, Vector2 worldPos, bool ruin)
+    // todo: rewrite grid spawn logic instead of copypasting salvage magnet code?
+    private async Task SpawnAsteroidField(MapId mapId, Vector2 worldPos, int asteroidAmount, int derelictAmount)
     {
-        var seed = _random.Next();
-        seed -= seed % 2; // asteroid map
-        if (ruin)
-            seed++; // space ruin map
+        List<MapId> maps = new();
+        List<Task> dungeonTasks = new();
+        int c = 1;
+        int total = asteroidAmount + derelictAmount;
 
-        var offering = _salvage.GetSalvageOffering(seed);
-
-        var salvMap = _mapManager.CreateMap();
-
-        switch (offering)
+        Log.Debug($"Queuing generation of {asteroidAmount} asteroids.");
+        for(int i = 0; i < asteroidAmount; i++)
         {
-            case AsteroidOffering asteroid:
-                var grid = _mapManager.CreateGrid(salvMap);
-                await _dungeon.GenerateDungeonAsync(asteroid.DungeonConfig, grid.Owner, grid, Vector2i.Zero, seed);
-                break;
-            case SalvageOffering wreck:
-                var salvageProto = wreck.SalvageMap;
+            var salvMap = _mapManager.CreateMap();
+            var seed = _random.Next();
+            seed = seed - seed % 2; // asteroid map
+            var asteroid = (AsteroidOffering) _salvage.GetSalvageOffering(seed);
+            var grid = _mapManager.CreateGrid(salvMap);
+            Log.Debug($"Queuing asteroid generation. ({i+1}/{asteroidAmount})");
+            var task = _dungeon.GenerateDungeonAsync(asteroid.DungeonConfig, grid.Owner, grid, Vector2i.Zero, seed);
+            var finishtask = task.ContinueWith(_ => { Log.Info($"Finished generating asteroid {c}/{asteroidAmount}."); c++; });
+            dungeonTasks.Add(finishtask);
+            maps.Add(salvMap);
+        }
 
-                var opts = new MapLoadOptions
-                {
-                    Offset = new Vector2(0, 0)
-                };
+        await Task.WhenAll(dungeonTasks);
+        Log.Info($"Asteroids generated. Now generating derelicts for asteroid field.");
 
-                if (!_map.TryLoad(salvMap, salvageProto.MapPath.ToString(), out var roots, opts))
+        for (int i = 0; i < derelictAmount; i++)
+        {
+            var salvMap = _mapManager.CreateMap();
+            var seed = _random.Next();
+            seed = seed - seed % 2 + 1; // derelict map
+            var salvage = (SalvageOffering) _salvage.GetSalvageOffering(seed);
+            var opts = new MapLoadOptions
+            {
+                Offset = new Vector2(0, 0)
+            };
+            Log.Debug($"Generating derelict... ({i+1}/{derelictAmount})");
+            _map.TryLoad(salvMap, salvage.SalvageMap.MapPath.ToString(), out var roots, opts);
+            maps.Add(salvMap);
+        }
+        Log.Info($"Derelicts generated.");
+        Log.Debug($"Total asteroid field counts: {asteroidAmount} asteroids, {derelictAmount} derelicts, {total} total.");
+
+        maps.OrderBy(_ => _random.Next());
+
+        foreach (var map in maps)
+        {
+            Box2? bounds = null;
+            var mapXform = Transform(_mapManager.GetMapEntityId(map));
+
+            if (mapXform.ChildCount == 0)
+            {
+                Log.Error($"Map {map} used for asteroid field generation had zero children. Skipping.");
+                continue;
+            }
+
+            var mapChildren = mapXform.ChildEnumerator;
+
+            while (mapChildren.MoveNext(out var mapChild))
+            {
+                // If something went awry in dungen.
+                if (!TryComp<MapGridComponent>(mapChild, out var childGrid))
                 {
-                    _mapManager.DeleteMap(salvMap);
-                    return;
+                    Log.Error($"Map child {ToPrettyString(mapChild)} of map {map} used for asteroid field generation had no MapGridComponent. Skipping.");
+                    continue;
                 }
 
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
+                var childAABB = _transform.GetWorldMatrix(mapChild).TransformBox(childGrid.LocalAABB);
+                bounds = bounds?.Union(childAABB) ?? childAABB;
 
-        Box2? bounds = null;
-        var mapXform = Transform(_mapManager.GetMapEntityId(salvMap));
+                //// Update mass scanner names as relevant.
+                //if (offering is AsteroidOffering)
+                //{
+                //    //_metaData.SetEntityName(mapChild, Loc.GetString("salvage-asteroid-name"));
+                //    _gravity.EnableGravity(mapChild);
+                //}
+            }
 
-        if (mapXform.ChildCount == 0)
-        {
-            return;
-        }
+            var attachedBounds = new Box2Rotated(Box2.CenteredAround(worldPos, new(spawningBoxSize)));
+            Angle worldAngle = _random.NextAngle();
 
-        var mapChildren = mapXform.ChildEnumerator;
-
-        while (mapChildren.MoveNext(out var mapChild))
-        {
-            // If something went awry in dungen.
-            if (!TryComp<MapGridComponent>(mapChild, out var childGrid))
+            if (!_salvage.TryGetSalvagePlacementLocation(mapId, attachedBounds, bounds!.Value, worldAngle, out var spawnLocation, out var spawnAngle, 200, 0.10f))
+            {
+                Log.Error("Failed to find place to put grid in the asteroid field.");
+                _mapManager.DeleteMap(map);
                 continue;
-
-            var childAABB = _transform.GetWorldMatrix(mapChild).TransformBox(childGrid.LocalAABB);
-            bounds = bounds?.Union(childAABB) ?? childAABB;
-
-            // Update mass scanner names as relevant.
-            if (offering is AsteroidOffering)
-            {
-                //_metaData.SetEntityName(mapChild, Loc.GetString("salvage-asteroid-name"));
-                _gravity.EnableGravity(mapChild);
             }
-        }
 
-        var attachedBounds = new Box2Rotated(Box2.CenteredAround(worldPos, new(spawningBoxSize)));
-        Angle worldAngle = _random.NextAngle();
+            mapChildren = mapXform.ChildEnumerator;
 
-        if (!_salvage.TryGetSalvagePlacementLocation(mapId, attachedBounds, bounds!.Value, worldAngle, out var spawnLocation, out var spawnAngle, 200, 0.10f))
-        {
-            Log.Error("Failed to find place to put grid in the asteroid field.");
-            _mapManager.DeleteMap(salvMap);
-            return;
-        }
-
-        mapChildren = mapXform.ChildEnumerator;
-
-        // It worked, move it into position and cleanup values.
-        while (mapChildren.MoveNext(out var mapChild))
-        {
-            var salvXForm = Transform(mapChild);
-            var localPos = salvXForm.LocalPosition;
-            _transform.SetParent(mapChild, salvXForm, _mapManager.GetMapEntityId(spawnLocation.MapId));
-            _transform.SetWorldPositionRotation(mapChild, spawnLocation.Position + localPos, spawnAngle, salvXForm);
-            var iff = EnsureComp<IFFComponent>(mapChild);
-#pragma warning disable RA0002 // go fuck yourself
-            iff.Flags = IFFFlags.HideLabel;
-#pragma warning restore RA0002
-
-            // Handle mob restrictions
-            var children = salvXForm.ChildEnumerator;
-
-            while (children.MoveNext(out var child))
+            while (mapChildren.MoveNext(out var mapChild))
             {
-                if (!TryComp<SalvageMobRestrictionsComponent>(child, out var salvMob))
-                    continue;
+                var childXform = Transform(mapChild);
+                var localPos = childXform.LocalPosition;
+                _transform.SetParent(mapChild, childXform, _mapManager.GetMapEntityId(spawnLocation.MapId));
+                _transform.SetWorldPositionRotation(mapChild, spawnLocation.Position + localPos, spawnAngle, childXform);
+                if (HasComp<MapGridComponent>(mapChild))
+                {
+                    _shittle.Disable(mapChild);
+                    _shittle.SetIFFFlag(mapChild, IFFFlags.HideLabel);
+                }
 
-                salvMob.LinkedEntity = mapChild;
+                // Handle mob restrictions
+                var children = childXform.ChildEnumerator;
+
+                while (children.MoveNext(out var child))
+                {
+                    if (!TryComp<SalvageMobRestrictionsComponent>(child, out var salvMob))
+                        continue;
+
+                    salvMob.LinkedEntity = mapChild;
+                }
             }
+            _mapManager.DeleteMap(map);
         }
-        _mapManager.DeleteMap(salvMap);
-
     }
 }

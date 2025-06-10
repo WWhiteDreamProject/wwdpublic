@@ -1,7 +1,9 @@
 using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
+using Content.Server.Popups;
 using Content.Server.Salvage.Magnet;
+using Content.Shared._White;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Radio;
@@ -13,6 +15,8 @@ namespace Content.Server.Salvage;
 
 public sealed partial class SalvageSystem
 {
+    [Dependency] private readonly PopupSystem _popup = default!;
+
     [ValidatePrototypeId<RadioChannelPrototype>]
     private const string MagnetChannel = "Supply";
 
@@ -40,6 +44,13 @@ public sealed partial class SalvageSystem
         if (!TryComp(station, out SalvageMagnetDataComponent? dataComp) ||
             dataComp.EndTime != null)
         {
+            return;
+        }
+
+        if(!_configurationManager.GetCVar(WhiteCVars.SalvageMagnetEnabled))
+        {
+            bool asteroidFieldPresent = _configurationManager.GetCVar(WhiteCVars.AsteroidFieldEnabled);
+            _popup.PopupEntity(Loc.GetString($"salvage-magnet-disabled{(asteroidFieldPresent ? "-consider-asteroid-field" : "")}"), uid);
             return;
         }
 
