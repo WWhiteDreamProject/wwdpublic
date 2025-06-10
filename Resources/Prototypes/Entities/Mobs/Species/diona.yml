@@ -112,7 +112,11 @@
   - type: TraitSpeedModifier
     sprintModifier: 0.75
     walkModifier: 0.75
-  - type: SpeedModifierImmunity
+  # - type: SpeedModifierImmunity # WWDP disabled
+  - type: SlowOnDamage # WWDP less slow on damage instead
+    speedModifierThresholds:
+      60: 0.9
+      80: 0.75
   - type: NoSlip
   - type: StepTriggerImmune
     whitelist:
