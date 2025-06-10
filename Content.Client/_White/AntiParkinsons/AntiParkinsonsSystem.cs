@@ -26,6 +26,7 @@ public sealed class AntiParkinsonsSystem : EntitySystem
     bool _enabled = false;
     bool _doingShit = false;
     Vector2 _savedLocalPos;
+    EntityUid _modifiedEntity = EntityUid.Invalid;
     Vector2 _modifiedLocalPos;
 
     public delegate void MoveEventHandlerProxy(ref MoveEventProxy ev);
@@ -87,10 +88,19 @@ public sealed class AntiParkinsonsSystem : EntitySystem
         if (_player.LocalEntity is not EntityUid localEnt || !TryComp<TransformComponent>(localEnt, out var xform))
             return;
 
-        _savedLocalPos = xform.LocalPosition;
-        _modifiedLocalPos = _savedLocalPos;
         if (!_enabled)
             return;
+
+        _modifiedEntity = localEnt;
+        var iterXform = xform;
+        while (!TerminatingOrDeleted(xform.ParentUid) &&
+            !HasComp<MapGridComponent>(xform.ParentUid) &&
+            !HasComp<MapComponent>(xform.ParentUid))
+            xform = Transform(xform.ParentUid);
+
+        _modifiedEntity = xform.Owner;
+        _savedLocalPos = xform.LocalPosition;
+        _modifiedLocalPos = _savedLocalPos;
 
         _doingShit = true;
         // i really want to make sure that _doingShit doesn't get stuck on true for even a single frame,
@@ -111,19 +121,19 @@ public sealed class AntiParkinsonsSystem : EntitySystem
 
     public void FrameUpdateRevert()
     {
-        if (!_enabled || _player.LocalEntity is not EntityUid localEnt || !TryComp<TransformComponent>(localEnt, out var xform))
+        if (!_enabled || _player.LocalEntity is not EntityUid localEnt || !TryComp<TransformComponent>(_modifiedEntity, out var modifiedXform))
             return;
 
         // if this is true, then our localpos was updated outside the system Update() loop,
         // probably after a server state was applied. In that case, keep the new value
         // instead of reverting to the old one.
-        if (xform.LocalPosition != _modifiedLocalPos)
+        if (modifiedXform.LocalPosition != _modifiedLocalPos)
             return;
 
         _doingShit = true;
         try
         {
-            xform.LocalPosition = _savedLocalPos;
+            modifiedXform.LocalPosition = _savedLocalPos;
         }
         catch (Exception e) { throw; }
         finally
