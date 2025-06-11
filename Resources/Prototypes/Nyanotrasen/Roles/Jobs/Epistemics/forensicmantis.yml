@@ -63,11 +63,11 @@
     shoes: ClothingShoesBootsMantis
     head: ClothingHeadHatFezMantis
     id: ForensicMantisPDA
-    eyes: ClothingEyesGlassesSunglasses
+    # eyes: ClothingEyesGlassesSunglasses # WWDP disable
     ears: ClothingHeadsetScience # DeltaV - Mantis is part of Epistemics
     gloves: ClothingHandsGlovesColorWhite
-    outerClothing: ClothingOuterCoatMantis
-    belt: ClothingBeltMantis
+    # outerClothing: ClothingOuterCoatMantis # WWDP moved to locker
+    # belt: ClothingBeltMantis # WWDP moved to locker
     pocket1: BookPsionicsGuidebook
   innerClothingSkirt: ClothingUniformSkirtMantis
   satchel: ClothingBackpackSatchelMantisFilled

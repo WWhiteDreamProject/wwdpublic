@@ -51,7 +51,7 @@
     jumpsuit: ClothingUniformJumpsuitLibrarian
     back: ClothingBackpackLibrarianFilled
     shoes: ClothingShoesBootsLaceup
-    outerClothing: ClothingOuterCoatRnd
+    # outerClothing: ClothingOuterCoatRnd # WWDP disabled
     id: LibrarianPDA
     ears: ClothingHeadsetScience
     pocket1: BookPsionicsGuidebook

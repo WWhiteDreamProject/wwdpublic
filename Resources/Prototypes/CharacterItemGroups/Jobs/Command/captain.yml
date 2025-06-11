@@ -152,3 +152,5 @@
       id: LoadoutCommandCapJumpsuitFormal
     - type: loadout
       id: LoadoutCommandCapJumpskirtFormal
+    - type: loadout
+      id: LoadoutCommandCapJumpsuitCommand

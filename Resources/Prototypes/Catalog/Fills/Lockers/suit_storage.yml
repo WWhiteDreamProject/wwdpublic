@@ -145,7 +145,7 @@
     - id: ClothingMaskBreath
       amount: 1 #Delta-V Double the masks # WWDP - no
     - id: ClothingShoesBootsMagSec
-      amount: 2
+      amount: 1 # WWDP
   - type: AccessReader
     access: [["Security"]]
 
