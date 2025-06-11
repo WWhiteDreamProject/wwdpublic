@@ -3142,3 +3142,16 @@ Entries:
   id: 341
   time: '2025-06-10T20:59:01.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/571
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: >-
+        Всякое разное для шаттлов и шаттлобоёвки. Пока что существует только для
+        мапперов.
+    - type: Add
+      message: >-
+        Модульная турель, использующая обычное ручное оружие. Глупая, поэтому
+        для наведения требуется помощь человека, в той или иной форме. 
+  id: 342
+  time: '2025-06-11T08:04:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/551
