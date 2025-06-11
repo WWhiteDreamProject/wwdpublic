@@ -3198,3 +3198,10 @@ Entries:
   id: 346
   time: '2025-06-11T13:27:04.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/561
+- author: islambrosgood
+  changes:
+    - type: Fix
+      message: Режим совместимости не крашит игру
+  id: 347
+  time: '2025-06-11T18:18:24.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/577
