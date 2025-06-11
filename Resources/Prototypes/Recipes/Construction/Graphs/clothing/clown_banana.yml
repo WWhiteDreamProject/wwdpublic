@@ -81,7 +81,7 @@
           amount: 1
           doAfter: 1
     - node: sexymask
-      entity: ClothingMaskClown
+      entity: ClothingMaskSexyClown
       edges:
       - to: mask
         steps:

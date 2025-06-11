@@ -105,7 +105,7 @@
       - to: jointRainbow
         steps:
         - material: GroundCannabisRainbow
-          oAfter: 1
+          doAfter: 1
         - material: CigaretteFilter
           doAfter: 1
     - node: cigarette
