@@ -1,6 +1,5 @@
 ﻿- type: entity
   name: vietcong mine
-  parent: BaseLandMine
   id: VietcongMine
   components:
   - type: Clickable
