@@ -3176,3 +3176,10 @@ Entries:
   id: 344
   time: '2025-06-11T08:06:04.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/557
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Консоль супер материи теперь работает
+  id: 345
+  time: '2025-06-11T08:07:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/559
