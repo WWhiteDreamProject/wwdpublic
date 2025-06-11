@@ -11,6 +11,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared._White;
 
 namespace Content.Server.FootPrint;
 
@@ -37,7 +38,7 @@ public sealed class FootPrintsSystem : EntitySystem
         _standingStateQuery = GetEntityQuery<StandingStateComponent>();
 
         SubscribeLocalEvent<FootPrintsComponent, ComponentStartup>(OnStartupComponent);
-        SubscribeLocalEvent<FootPrintsComponent, MoveEvent>(OnMove);
+        SubscribeLocalEvent<FootPrintsComponent, MoveEventProxy>(OnMove);
         SubscribeLocalEvent<FootPrintComponent, ComponentGetState>(OnGetState);
     }
 
@@ -51,7 +52,7 @@ public sealed class FootPrintsSystem : EntitySystem
         component.StepSize = Math.Max(0f, component.StepSize + _random.NextFloat(-0.05f, 0.05f));
     }
 
-    private void OnMove(EntityUid uid, FootPrintsComponent component, ref MoveEvent args)
+    private void OnMove(EntityUid uid, FootPrintsComponent component, ref MoveEventProxy args)
     {
         if (TerminatingOrDeleted(uid)
             || component.ContainedSolution.Volume <= 0

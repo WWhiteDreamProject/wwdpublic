@@ -240,7 +240,7 @@ namespace Content.Server.Administration.Systems
                             var mobUid = _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid);
                             var targetMind = _mindSystem.GetMind(args.Target);
 
-                            if (targetMind != null)
+                            if (targetMind != null) // AGHOSTS DON'T HAVE A FUCKING MINDDDDD
                             {
                                 _mindSystem.TransferTo(targetMind.Value, mobUid);
                             }

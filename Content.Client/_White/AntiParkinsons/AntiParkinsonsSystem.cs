@@ -1,24 +1,18 @@
+using Content.Client.Interaction;
+using Content.Client.Outline;
 using Content.Shared._White;
-using Content.Shared.CCVar;
+using Robust.Client.Audio;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
-using Robust.Shared.Map;
-using Robust.Shared.Player;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Reflection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
+using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
 
 namespace Content.Client._White.AntiParkinsons;
-
-// The following code is slightly esoteric and higly schizophrenic. You have been warned.
-
-#pragma warning disable RA0002
 
 public sealed class AntiParkinsonsSystem : EntitySystem
 {
@@ -29,135 +23,150 @@ public sealed class AntiParkinsonsSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
 
-    private bool _enabled = false;
+    bool _enabled = false;
+    bool _doingShit = false;
+    Vector2 _savedLocalPos;
+    EntityUid _modifiedEntity = EntityUid.Invalid;
+    Vector2 _modifiedLocalPos;
+
+    public delegate void MoveEventHandlerProxy(ref MoveEventProxy ev);
+    public event MoveEventHandlerProxy? OnGlobalMoveEvent;
+
 
     public override void Initialize()
     {
         UpdatesOutsidePrediction = true;
         _cfg.OnValueChanged(WhiteCVars.PixelSnapCamera, OnEnabledDisabled, true);
-        // eat sand
-        foreach(Type sys in _refl.GetAllChildren<EntitySystem>())
+        UpdatesBefore.Add(typeof(EyeSystem));   // so that EyeSystem moves the eye to the spessman insead of moving it ourselves
+        UpdatesBefore.Add(typeof(AudioSystem)); // the rest is stuff that also updates after EyeSystem. 
+        UpdatesBefore.Add(typeof(MidiSystem));  // Without this, the system update order fails to resolve.
+        UpdatesBefore.Add(typeof(InteractionOutlineSystem));
+        UpdatesBefore.Add(typeof(DragDropSystem));
+
+        foreach (Type sys in _refl.GetAllChildren<EntitySystem>())
         {
-            if (sys.IsAbstract || sys == typeof(AntiParkinsonsSystem))
+            if (sys.IsAbstract || sys == typeof(AntiParkinsonsSystem) || UpdatesBefore.Contains(sys))
                 continue;
 
             UpdatesAfter.Add(sys);
         }
 
-        SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnAttached);
-        SubscribeLocalEvent<PixelSnapEyeComponent, LocalPlayerDetachedEvent>(OnDetached);
+
+        _player.LocalPlayerAttached += OnPlayerAttached;
+        _player.LocalPlayerDetached += OnPlayerDetached;
+        _transform.OnGlobalMoveEvent += OnMoveEventGlobal;
+    }
+
+    private void OnMoveEventGlobal(ref MoveEvent ev)
+    {
+        if (!_enabled || !_doingShit)
+        {
+            var evproxy = new MoveEventProxy(ev.Entity, ev.OldPosition, ev.NewPosition, ev.OldRotation, ev.NewRotation);
+            RaiseLocalEvent(ev.Sender, ref evproxy);
+            OnGlobalMoveEvent?.Invoke(ref evproxy);
+        }
+    }
+
+    private void OnPlayerAttached(EntityUid ent)
+    {
+
+    }
+
+    private void OnPlayerDetached(EntityUid ent)
+    {
+
     }
 
     private void OnEnabledDisabled(bool val)
     {
         _enabled = val;
-        if (_enabled)
-        {
-            if (_player.LocalEntity is not EntityUid player)
-                return;
-
-            var ppComp = EnsureComp<PixelSnapEyeComponent>(player);
-            if (TryComp<EyeComponent>(player, out var eyeComp) && eyeComp.Eye != null)
-            {
-                ppComp.EyePosition = eyeComp.Eye.Position;
-                ppComp.EyePositionModified = eyeComp.Eye.Position;
-                ppComp.EyeOffset = eyeComp.Eye.Offset;
-                ppComp.EyeOffsetModified = eyeComp.Eye.Offset;
-            }
-            if (TryComp<SpriteComponent>(player, out var sprite))
-                ppComp.SpriteOffset = sprite.Offset;
-
-        }
-        else
-        {
-            if (_player.LocalEntity is not EntityUid player || !TryComp<PixelSnapEyeComponent>(player, out var ppComp))
-                return;
-
-            if (TryComp<EyeComponent>(player, out var eyeComp) && eyeComp.Eye != null)
-            {
-                eyeComp.Eye.Position = ppComp.EyePosition;
-                eyeComp.Eye.Offset = ppComp.EyeOffset;
-                eyeComp.Offset = ppComp.EyeOffset;
-            }
-
-            if (TryComp<SpriteComponent>(player, out var sprite) && ppComp.SpriteOffset is System.Numerics.Vector2 orig)
-                sprite.Offset = orig;
-
-            RemComp<PixelSnapEyeComponent>(player);
-        }
-    }
-
-    private void OnAttached(LocalPlayerAttachedEvent args)
-    {
-        if (!_enabled)
-            return;
-
-        EnsureComp<PixelSnapEyeComponent>(args.Entity);
-    }
-
-    private void OnDetached(EntityUid uid, PixelSnapEyeComponent comp, LocalPlayerDetachedEvent args)
-    {
-        if (!_enabled)
-            return;
-
-        if (TryComp<EyeComponent>(uid, out var eyeComp) && eyeComp.Eye != null)
-        {
-            eyeComp.Eye.Position = comp.EyePosition;
-            eyeComp.Eye.Offset = comp.EyeOffset;
-            eyeComp.Offset = comp.EyeOffset;
-        }
-
-        if (TryComp<SpriteComponent>(uid, out var sprite) && comp.SpriteOffset is System.Numerics.Vector2 orig)
-            sprite.Offset = orig;
-
-        RemComp<PixelSnapEyeComponent>(uid);
     }
 
     public override void FrameUpdate(float frameTime)
     {
-        var query = AllEntityQuery<PixelSnapEyeComponent>();
 
-        while (query.MoveNext(out var uid, out var ppComp))
+        if (_player.LocalEntity is not EntityUid localEnt || !TryComp<TransformComponent>(localEnt, out var xform))
+            return;
+
+        if (!_enabled)
+            return;
+
+        _modifiedEntity = localEnt;
+        var iterXform = xform;
+        while (!TerminatingOrDeleted(xform.ParentUid) &&
+            !HasComp<MapGridComponent>(xform.ParentUid) &&
+            !HasComp<MapComponent>(xform.ParentUid))
+            xform = Transform(xform.ParentUid);
+
+        _modifiedEntity = xform.Owner;
+        _savedLocalPos = xform.LocalPosition;
+        _modifiedLocalPos = _savedLocalPos;
+
+        _doingShit = true;
+        // i really want to make sure that _doingShit doesn't get stuck on true for even a single frame,
+        // as that would result in ALL moveEvents being dropped on client.
+        try
         {
-            if (!TryComp<EyeComponent>(uid, out var eyeComp) || eyeComp.Eye == null)
-                continue;
-
-            if (!TryComp<TransformComponent>(eyeComp.Target, out var xform))
-                xform = Transform(uid);
-
-            if (xform.GridUid.HasValue && xform.GridUid.Value.IsValid())
-                ppComp.LastParent = xform.GridUid.Value;
-            else
-                if (!ppComp.LastParent.IsValid())
-                ppComp.LastParent = xform.ParentUid; // fallback to whatever parent we have (in this case this will probably end up being the map)
-
-            var vec = xform.LocalPosition;
-            var offset = Vector2.Zero;
-
-            ppComp.EyePosition = eyeComp.Eye.Position;
-            ppComp.EyeOffset = eyeComp.Eye.Offset;
-
-            var eyePos = PPCamHelper.WorldPosPixelRoundToParent(eyeComp.Eye.Position.Position, ppComp.LastParent, _transform);
-            var eyeOffset = PPCamHelper.WorldPosPixelRoundToParent(eyeComp.Eye.Offset, ppComp.LastParent, _transform);
-            //var eyePosDiff = eyePos - eyeComp.Eye.Position.Position;
-
-            eyeComp.Eye.Position = new(eyePos, xform.MapID);
-            eyeComp.Eye.Offset = eyeOffset;
-            eyeComp.Offset = eyeOffset;
-
-            ppComp.EyePositionModified = eyeComp.Eye.Position;
-            ppComp.EyeOffsetModified = eyeComp.Eye.Offset;
-
-            if (!TryComp<SpriteComponent>(uid, out var sprite))
-                continue;
-
-            ppComp.SpriteOffset = sprite.Offset;
-
-            var (_, diff) = PPCamHelper.WorldPosPixelRoundToParentWithDiff(xform.WorldPosition, ppComp.LastParent, _transform);
-            sprite.Offset += diff;
-            ppComp.SpriteOffsetModified = sprite.Offset;
+            const int roundFactor = EyeManager.PixelsPerMeter;
+            _modifiedLocalPos = RoundVec(_savedLocalPos);
+            xform.LocalPosition = _modifiedLocalPos;
+            _eye.CurrentEye.Offset = RoundVec(_eye.CurrentEye.Offset);
+        }
+        catch (Exception e) { throw; }
+        finally
+        {
+            _doingShit = false;
         }
     }
+
+    public void FrameUpdateRevert()
+    {
+        if (!_enabled || _player.LocalEntity is not EntityUid localEnt || !TryComp<TransformComponent>(_modifiedEntity, out var modifiedXform))
+            return;
+
+        // if this is true, then our localpos was updated outside the system Update() loop,
+        // probably after a server state was applied. In that case, keep the new value
+        // instead of reverting to the old one.
+        if (modifiedXform.LocalPosition != _modifiedLocalPos)
+            return;
+
+        _doingShit = true;
+        try
+        {
+            modifiedXform.LocalPosition = _savedLocalPos;
+        }
+        catch (Exception e) { throw; }
+        finally
+        {
+            _doingShit = false;
+        }
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private Vector2 RoundVec(Vector2 vec) => Vector2.Round((vec) * EyeManager.PixelsPerMeter) / EyeManager.PixelsPerMeter;
 }
 
-#pragma warning restore RA0002
+public sealed class AntiParkinsonsRevertSystem : EntitySystem
+{
+    [Dependency] private readonly IReflectionManager _refl = default!;
+    [Dependency] private readonly AntiParkinsonsSystem _parkinsons = default!;
+
+
+    public override void Initialize()
+    {
+        UpdatesOutsidePrediction = true;
+
+        foreach (Type sys in _refl.GetAllChildren<EntitySystem>())
+        {
+            if (sys.IsAbstract || sys == typeof(AntiParkinsonsRevertSystem))
+                continue;
+
+            UpdatesBefore.Add(sys);
+        }
+    }
+
+    public override void FrameUpdate(float frameTime)
+    {
+        _parkinsons.FrameUpdateRevert();
+    }
+}
