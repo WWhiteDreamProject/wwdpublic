@@ -6,34 +6,37 @@
 # Ears
 
 # Equipment
-- type: loadout
-  id: LoadoutCommandTelescopicBaton
-  category: JobsCommandAUncategorized
-  cost: 3
-  exclusive: true
-  canBeHeirloom: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutCommandSelfDefense
-    - !type:CharacterDepartmentRequirement
-      departments:
-      - Command
-  items:
-  - TelescopicBaton
 
-- type: loadout
-  id: LoadoutCommandDisabler
-  category: JobsCommandAUncategorized
-  cost: 2
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutCommandSelfDefense
-    - !type:CharacterDepartmentRequirement
-      departments:
-      - Command
-  items:
-  - WeaponDisabler
+# WWDP disabled, moved to starting kits
+# - type: loadout
+#   id: LoadoutCommandTelescopicBaton
+#   category: JobsCommandAUncategorized
+#   cost: 3
+#   exclusive: true
+#   canBeHeirloom: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutCommandSelfDefense
+#     - !type:CharacterDepartmentRequirement
+#       departments:
+#       - Command
+#   items:
+#   - TelescopicBaton
+
+# WWDP disabled
+# - type: loadout
+#   id: LoadoutCommandDisabler
+#   category: JobsCommandAUncategorized
+#   cost: 2
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutCommandSelfDefense
+#     - !type:CharacterDepartmentRequirement
+#       departments:
+#       - Command
+#   items:
+#   - WeaponDisabler
 
 # WWDP removed (cringe)
 # - type: loadout
@@ -50,19 +53,20 @@
 #   items:
 #   - Stunbaton
 
-- type: loadout
-  id: LoadoutCommandFlash
-  category: JobsCommandAUncategorized
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutCommandSelfDefense
-    - !type:CharacterDepartmentRequirement
-      departments:
-      - Command
-  items:
-  - Flash
+# WWDP disabled
+# - type: loadout
+#   id: LoadoutCommandFlash
+#   category: JobsCommandAUncategorized
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutCommandSelfDefense
+#     - !type:CharacterDepartmentRequirement
+#       departments:
+#       - Command
+#   items:
+#   - Flash
 
 # Eyes
 

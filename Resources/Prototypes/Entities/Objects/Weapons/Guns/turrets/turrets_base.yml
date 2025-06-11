@@ -31,9 +31,10 @@
       interactSuccessSound:
         path: /Audio/Effects/double_beep.ogg
     - type: CombatMode
+      isInCombatMode: true
       toggleMouseRotator: false
     - type: Damageable
-      damageContainer: Inorganic
+      damageContainer: StructuralInorganic # WWDP
     - type: Destructible
       thresholds:
         - trigger:
@@ -79,6 +80,9 @@
     - type: NoRotateOnMove
     - type: Input
       context: "human"
+    - type: Gun # wwdp edit
+      forceShootForward: true
+    - type: GunFireAngleRestriction # wwdp edit
 
 - type: entity
   parent: BaseWeaponTurret

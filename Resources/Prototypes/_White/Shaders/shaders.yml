@@ -3,6 +3,22 @@
   kind: source
   path: "/Textures/_White/Shaders/flickerhologram.swsl"
   light_mode: unshaded
+  params:
+    jitter: 0.5
+    colorJitter: 0.4
+    alphaJitter: 0.5
+    hue: 0.48
+
+- type: shader
+  id: FlickerHologramGlitch
+  kind: source
+  path: "/Textures/_White/Shaders/flickerhologram.swsl"
+  light_mode: unshaded
+  params:
+    jitter: 5
+    colorJitter: 0.8
+    alphaJitter: 1
+    hue: 0.48
 
 - type: shader
   id: Grain
@@ -10,3 +26,9 @@
   path: "/Textures/_White/Shaders/grain.swsl"
   params:
     strength: 100.0
+
+
+- type: shader
+  id: RemoteControl
+  kind: source
+  path: "/Textures/_White/Shaders/remotecontrol.swsl"

@@ -21,7 +21,7 @@
         layer:
         - FullTileMask
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic # WWDP
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:

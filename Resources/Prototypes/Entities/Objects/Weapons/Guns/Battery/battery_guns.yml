@@ -19,6 +19,7 @@
     wieldedBonus: 0.3
   - type: Gun
     fireRate: 2
+    defaultDirection: 1, 0 # wwdp
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

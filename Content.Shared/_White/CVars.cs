@@ -132,4 +132,34 @@ public sealed class WhiteCVars
             CVarDef.Create("graphics.film_grain", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     #endregion
+
+    #region Asteroid field generation
+
+    public static readonly CVarDef<bool> SalvageMagnetEnabled =
+        CVarDef.Create("white.salvage_magnet_enabled", false, CVar.SERVER | CVar.ARCHIVE);
+
+    public static readonly CVarDef<bool> AsteroidFieldEnabled =
+        CVarDef.Create("asteroidfield.enabled", true, CVar.SERVER | CVar.ARCHIVE);
+
+    public static readonly CVarDef<bool> AsteroidFieldSpawnBeacon =
+        CVarDef.Create("asteroidfield.beacon_enabled", true, CVar.SERVER | CVar.ARCHIVE);
+
+    public static readonly CVarDef<string> AsteroidFieldBeaconGridPath =
+        CVarDef.Create("asteroidfield.beacon_grid_path", "/Maps/_White/Shuttles/asteroid_beacon.yml", CVar.SERVER | CVar.ARCHIVE);
+
+    public static readonly CVarDef<string> AsteroidFieldBeaconName =
+        CVarDef.Create("asteroidfield.beacon_name", "asteroid-beacon-name", CVar.SERVER | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> AsteroidFieldDistanceMin =
+        CVarDef.Create("asteroidfield.min_distance", 2000f, CVar.SERVER | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> AsteroidFieldDistanceMax =
+        CVarDef.Create("asteroidfield.max_distance", 2000f, CVar.SERVER | CVar.ARCHIVE);
+
+    public static readonly CVarDef<int> AsteroidFieldAsteroidCount =
+        CVarDef.Create("asteroidfield.asteroid_count", 15, CVar.SERVER | CVar.ARCHIVE);
+
+    public static readonly CVarDef<int> AsteroidFieldDerelictCount =
+        CVarDef.Create("asteroidfield.derelict.count", 5, CVar.SERVER | CVar.ARCHIVE);
+    #endregion
 }

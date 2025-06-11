@@ -208,6 +208,9 @@
     node: windoorSecure
   - type: StaticPrice
     price: 200
+  - type: Damageable # WWDP
+    damageContainer: StructuralInorganic
+    damageModifierSet: RGlass
 
 #Plasma Windoors
 - type: entity

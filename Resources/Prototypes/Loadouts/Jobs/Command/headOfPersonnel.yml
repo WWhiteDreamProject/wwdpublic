@@ -272,33 +272,35 @@
   items:
     - ClothingOuterWinterHoP
 
-- type: loadout
-  id: LoadoutHeadOfPersonnelOuterArmoredCoat
-  category: JobsCommandHeadOfPersonnel
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutHeadOfPersonnelOuter
-    - !type:CharacterJobRequirement
-      jobs:
-        - HeadOfPersonnel
-  items:
-    - ClothingOuterCoatHoPArmored
-
-- type: loadout
-  id: LoadoutHeadOfPersonnelOuterDuraVest
-  category: JobsCommandHeadOfPersonnel
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutHeadOfPersonnelOuter
-    - !type:CharacterJobRequirement
-      jobs:
-        - HeadOfPersonnel
-  items:
-    - ClothingOuterArmorDuraVest
+# WWDP EDIT START - disabled
+# - type: loadout
+#   id: LoadoutHeadOfPersonnelOuterArmoredCoat
+#   category: JobsCommandHeadOfPersonnel
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutHeadOfPersonnelOuter
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - HeadOfPersonnel
+#   items:
+#     - ClothingOuterCoatHoPArmored
+#
+# - type: loadout
+#   id: LoadoutHeadOfPersonnelOuterDuraVest
+#   category: JobsCommandHeadOfPersonnel
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutHeadOfPersonnelOuter
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - HeadOfPersonnel
+#   items:
+#     - ClothingOuterArmorDuraVest
+# WWDP EDIT END
 
 # Shoes
 - type: loadout
@@ -311,7 +313,7 @@
       group: LoadoutHeadOfPersonnelShoes
     - !type:CharacterJobRequirement
       jobs:
-        - Captain
+        - HeadOfPersonnel # WWDP
   items:
     - ClothingShoesBootsLaceup
 
@@ -325,7 +327,7 @@
       group: LoadoutHeadOfPersonnelShoes
     - !type:CharacterJobRequirement
       jobs:
-        - Captain
+        - HeadOfPersonnel # WWDP
   items:
     - ClothingShoesLeather
 

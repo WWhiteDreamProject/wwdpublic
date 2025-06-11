@@ -222,10 +222,10 @@ public sealed partial class MeleeWeaponSystem
         var query = EntityQueryEnumerator<TrackUserComponent, TransformComponent>();
         while (query.MoveNext(out var arcComponent, out var xform))
         {
-            if (arcComponent.User == null)
+            if (arcComponent.User is not EntityUid user || TerminatingOrDeleted(user)) // wwdp edit
                 continue;
 
-            Vector2 targetPos = TransformSystem.GetWorldPosition(arcComponent.User.Value);
+            Vector2 targetPos = TransformSystem.GetWorldPosition(user);
 
             if (arcComponent.Offset != Vector2.Zero)
             {

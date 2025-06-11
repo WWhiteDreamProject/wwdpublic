@@ -129,8 +129,16 @@ public sealed partial class ChangelingComponent : Component
     [DataField]
     public string AbsorbFailNoGrab = "changeling-absorb-fail-nograb";
 
+    // WWDP EDIT START
     [DataField]
-    public string AbsorbPopup = "changeling-absorb-start";
+    public string AbsorbStart = "changeling-absorb-start";
+    [DataField]
+    public string AbsorbPopupFirst = "changeling-absorb-first";
+    [DataField]
+    public string AbsorbPopupSecond = "changeling-absorb-second";
+    [DataField]
+    public string AbsorbPopupThird = "changeling-absorb-third";
+    // WWDP EDIT END
 
     [DataField]
     public PopupType AbsorbPopupType = PopupType.LargeCaution;

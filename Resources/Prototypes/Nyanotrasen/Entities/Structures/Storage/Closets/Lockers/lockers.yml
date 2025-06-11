@@ -8,7 +8,7 @@
   # Because it holds a traitor objective, StrongMetallic,
   # but not as much HP as LockerBaseSecure, because it's not a Head's locker.
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic # WWDP
     damageModifierSet: StrongMetallic
   - type: AccessReader
     access: [["Mantis"]]

@@ -33,6 +33,7 @@
     angleIncrease: 1 # WWDP
     angleDecay: 16
     fireRate: 8
+    defaultDirection: 1, 0 # wwdp
     selectedMode: FullAuto
     availableModes:
       - FullAuto

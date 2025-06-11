@@ -52,10 +52,10 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitDetective
     back: ClothingBackpackSecurity
-    shoes: ClothingShoesBootsCombatFilled
-    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesBootsJack # WWDP
+    # eyes: ClothingEyesGlassesSunglasses # WWDP
     head: ClothingHeadHatFedoraBrown
-    outerClothing: ClothingOuterVestDetective
+    # outerClothing: ClothingOuterVestDetective # WWDP
     id: DetectivePDA
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     belt: ClothingBeltHolsterFilled
