@@ -40,28 +40,23 @@ highp vec3 blend(highp vec3 base, highp vec3 color, highp float factor){
 
 // quick and simple okay-ish looking shader because i don't like the deltaV one.
 void fragment() {
-
-
-	highp float hue2 = hue-0.01;
-
-	// introduces random noise in the X coord of the UV, seeded by Y
-	// produces scanline-like effect, with each line of pixels being randomly displaced left or right
-	// makes the item jitter a bit
-	highp float dispfloat = rng(vec2(UV.y*TIME, 0)) * jitter;
-
-    highp vec4 tex = zTexture(UV + vec2(dispfloat*TEXTURE_PIXEL_SIZE.x*0.5, 0));
-	highp vec3 col = rgb2hsv(tex.rgb);
-	col.x = hue;
-	col.z = (log(col.z) + 4.0) / 4.0; // increase the value in hsv color, helps with highlighting detail
-
-	// this produces a color which randomly flashes from hue2 (at max value) to white
-	// mixed in with sprite color down below
-	highp vec3 col2 = hsv2rgb(vec3(hue2, rng(vec2(TIME*0.001, 0)) * colorJitter + (1.0 - colorJitter), 1.0));
-	col = hsv2rgb(col);
-
-	COLOR = vec4(mix(col, col2, 0.3), max(tex.w*(sin(TIME * sin(TIME)))*0.25, 0.0)+0.45*tex.w);
-	// another scanline-like effect, but with transparensy this time
-	// "*=" instead of proper construction because it's an afterthought
-	COLOR.w *= rng(vec2(0, 1.09248882*TIME*UV.y)) * alphaJitter + (1.0 - alphaJitter);
-	lightSample = vec3(1.0);
+	////highp vec3 baseColor = vec3(0.0, 1.0, 0.0);
+	//highp float c = 1.0/(15.0*8);
+	//highp float stripe = mod(UV.y + TIME*c, c);
+	//highp float stripes = step(stripe, c/2.0);
+	////baseColor += vec3(0.4*diff, 0, 0.4*diff);
+	////COLOR = vec4(baseColor, 0.05);
+	//
+	//highp float dist = length(UV - vec2(0.5,0.5)) * 2;
+	//dist -= 0.5;
+	//highp vec4 color = vec4(0.0, 0.5, 0.0, 0.05*dist*0.2);
+	////color = vec4(0.0);
+	//color += vec4(0.2*(1-stripes), 0.8, 0.2*(1-stripes), 0.05*stripes*dist);
+	//COLOR = color;
+	
+	highp float c = 1.0/(15.0*16);
+	highp float stripe = mod(UV.y + TIME*c, c);
+	highp float stripes = step(stripe, c/2.0);
+	
+	COLOR = vec4(0.0, 0.0, 0.0, 0.2*stripes);
 }
