@@ -5,18 +5,18 @@
   graph:
     - node: start
       edges:
-        - tag: CrystalCyan
-          name: cyan crystal shard
-          icon:
-            sprite: Objects/Materials/Shards/crystal.rsi
-            state: shard1
-            color: #52ff39
-          doAfter: 1
-        - to: icon
-          steps:
-            - material: Glass
-              amount: 1
-              doAfter: 1
+      - to: icon
+        steps:
+          - tag: CrystalCyan
+            name: cyan crystal shard
+            icon:
+              sprite: Objects/Materials/Shards/crystal.rsi
+              state: shard1
+              color: #52ff39
+            doAfter: 1
+          - material: Glass
+            amount: 1
+            doAfter: 1
     - node: crystalshard
       entity: ShardCrystalCyan
       edges:
@@ -34,17 +34,17 @@
   graph:
     - node: start
       edges:
-        - to: icon
-          steps:
-            - tag: CrystalBlue
-              name: blue crystal shard
-              icon:
-                sprite: Objects/Materials/Shards/crystal.rsi
-                state: shard1
-              doAfter: 1
-            - material: Glass
-              amount: 1
-              doAfter: 1
+      - to: icon
+        steps:
+          - tag: CrystalBlue
+            name: blue crystal shard
+            icon:
+              sprite: Objects/Materials/Shards/crystal.rsi
+              state: shard1
+            doAfter: 1
+          - material: Glass
+            amount: 1
+            doAfter: 1
     - node: crystalshard
       entity: ShardCrystalBlue
       edges:
@@ -62,17 +62,17 @@
   graph:
     - node: start
       edges:
-        - to: icon
-          steps:
-            - tag: CrystalPink
-              name: pink crystal shard
-              icon:
-                sprite: Objects/Materials/Shards/crystal.rsi
-                state: shard1
-              doAfter: 1
-            - material: Glass
-              amount: 1
-              doAfter: 1
+      - to: icon
+        steps:
+          - tag: CrystalPink
+            name: pink crystal shard
+            icon:
+              sprite: Objects/Materials/Shards/crystal.rsi
+              state: shard1
+            doAfter: 1
+          - material: Glass
+            amount: 1
+            doAfter: 1
     - node: crystalshard
       entity: ShardCrystalPink
       edges:
@@ -90,17 +90,17 @@
   graph:
     - node: start
       edges:
-        - to: icon
-          steps:
-            - tag: CrystalOrange
-              name: orange crystal shard
-              icon:
-                sprite: Objects/Materials/Shards/crystal.rsi
-                state: shard1
-              doAfter: 1
-            - material: Glass
-              amount: 1
-              doAfter: 1
+      - to: icon
+        steps:
+          - tag: CrystalOrange
+            name: orange crystal shard
+            icon:
+              sprite: Objects/Materials/Shards/crystal.rsi
+              state: shard1
+            doAfter: 1
+          - material: Glass
+            amount: 1
+            doAfter: 1
     - node: crystalshard
       entity: ShardCrystalOrange
       edges:
@@ -118,17 +118,17 @@
   graph:
     - node: start
       edges:
-        - to: icon
-          steps:
-            - tag: CrystalRed
-              name: red crystal shard
-              icon:
-                sprite: Objects/Materials/Shards/crystal.rsi
-                state: shard1
-              doAfter: 1
-            - material: Glass
-              amount: 1
-              doAfter: 1
+      - to: icon
+        steps:
+          - tag: CrystalRed
+            name: red crystal shard
+            icon:
+              sprite: Objects/Materials/Shards/crystal.rsi
+              state: shard1
+            doAfter: 1
+          - material: Glass
+            amount: 1
+            doAfter: 1
     - node: crystalshard
       entity: ShardCrystalRed
       edges:
@@ -146,17 +146,17 @@
   graph:
     - node: start
       edges:
-        - to: icon
-          steps:
-            - tag: CrystalGreen
-              name: green crystal shard
-              icon:
-                sprite: Objects/Materials/Shards/crystal.rsi
-                state: shard1
-              doAfter: 1
-            - material: Glass
-              amount: 2
-              doAfter: 1
+      - to: icon
+        steps:
+          - tag: CrystalGreen
+            name: green crystal shard
+            icon:
+              sprite: Objects/Materials/Shards/crystal.rsi
+              state: shard1
+            doAfter: 1
+          - material: Glass
+            amount: 2
+            doAfter: 1
     - node: crystalshard
       entity: ShardCrystalGreen
       edges:
