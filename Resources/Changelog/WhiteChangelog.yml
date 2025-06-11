@@ -3183,3 +3183,18 @@ Entries:
   id: 345
   time: '2025-06-11T08:07:27.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/559
+- author: vanx
+  changes:
+    - type: Add
+      message: В аплинк добавлены новые опции и возвращены некоторые старые
+    - type: Tweak
+      message: Снижены цены некоторых вещей в аплинке
+    - type: Add
+      message: Гадюка, Кобра и Питон из аплинка теперь поставляются с боезапасом
+    - type: Tweak
+      message: 'Урон винтовки мосина: 28,5 -> 57'
+    - type: Tweak
+      message: 'Урон энергоручки: 12 -> 20 + 10 структурного'
+  id: 346
+  time: '2025-06-11T13:27:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/561
