@@ -17,5 +17,15 @@
           state: carpplush
         name: carp plushie
         doAfter: 2
+  - node: labeler
+    edges:
+    - to: fishlabeler
+      steps:
+      - tag: PlushieCarp
+        icon:
+          sprite: Objects/Fun/toys.rsi
+          state: carpplush
+        name: carp plushie
+        doAfter: 2
   - node: fishlabeler
     entity: FishLabeler

@@ -131,8 +131,8 @@
             - material: Bananium
               amount: 2
               doAfter: 2
-            - tool: Welding
-              doAfter: 20
+            # - tool: Welding # WWDP edit
+            #   doAfter: 20
 
         - to: meatWall
           completed:

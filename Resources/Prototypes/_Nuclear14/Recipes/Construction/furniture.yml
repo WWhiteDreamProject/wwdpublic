@@ -35,23 +35,23 @@
     - !type:TileNotBlocked
   hide: false
 
-- type: construction
-  id: N14MedicalBed
-  name: medical bed
-  description: A hospital bed for patients to recover in. Resting here provides fairly slow healing.
-  graph: bed
-  startNode: start
-  targetNode: medicalbed
-  category: construction-category-furniture
-  icon:
-    sprite: Structures/Furniture/furniture.rsi
-    state: bed-MED
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
-  hide: false
+# - type: construction # WWDP disabled duplicate
+#   id: N14MedicalBed
+#   name: medical bed
+#   description: A hospital bed for patients to recover in. Resting here provides fairly slow healing.
+#   graph: bed
+#   startNode: start
+#   targetNode: medicalbed
+#   category: construction-category-furniture
+#   icon:
+#     sprite: Structures/Furniture/furniture.rsi
+#     state: bed-MED
+#   objectType: Structure
+#   placementMode: SnapgridCenter
+#   canBuildInImpassable: false
+#   conditions:
+#     - !type:TileNotBlocked
+#   hide: false
 
 - type: construction
   id: N14Bedroll

@@ -83,6 +83,9 @@
     materialComposition:
       SheetPrinter: 100
 # Corvax-Printer-End
+  - type: Construction # WWDP
+    graph: PaperGraph
+    node: start
 
 - type: entity
   name: paper scrap

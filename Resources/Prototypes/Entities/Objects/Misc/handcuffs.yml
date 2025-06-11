@@ -56,7 +56,7 @@
     uncuffEasierWhenLarge: true
   - type: Construction # WD EDIT
     deconstructionTarget: cuffs
-    graph: StunprodGraph
+    graph: CuffsGraph
     node: cuffs
   - type: Item
     inhandVisuals:

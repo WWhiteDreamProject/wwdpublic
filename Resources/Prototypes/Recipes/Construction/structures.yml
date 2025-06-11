@@ -1573,7 +1573,7 @@
     state: closed
 
 - type: construction
-  name: plastic flaps
+  name: plastic flaps (clear) # WWDP
   id: PlasticFlapsClear
   graph: PlasticFlapsGraph
   startNode: start

@@ -24,5 +24,29 @@
                 sprite: Objects/Fun/crayons.rsi
                 state: blue
               doAfter: 5
+    # WWDP edit quick crafts
+    - node: bluespace
+      edges:
+      - to: magicCrayon
+        steps:
+        - tag: CrayonRed
+          name: red crayon
+          icon:
+            sprite: Objects/Fun/crayons.rsi
+            state: red
+          doAfter: 2
+        - tag: CrayonGreen
+          name: green crayon
+          icon:
+            sprite: Objects/Fun/crayons.rsi
+            state: green
+          doAfter: 2
+        - tag: CrayonBlue
+          name: blue crayon
+          icon:
+            sprite: Objects/Fun/crayons.rsi
+            state: blue
+          doAfter: 2
+    # WWDP edit end
     - node: magicCrayon
       entity: CrayonMagic

@@ -1,3 +1,4 @@
+# WWDP edit start - diegetic crafting
 - type: constructionGraph
   id: CyanLight
   start: start
@@ -16,6 +17,14 @@
                 state: shard1
                 color: #52ff39
               doAfter: 1
+    - node: crystalshard
+      entity: ShardCrystalCyan
+      edges:
+      - to: icon
+        steps:
+        - material: Glass
+          amount: 1
+          doAfter: 1
     - node: icon
       entity: LightTubeCrystalCyan
 
@@ -28,7 +37,7 @@
         - to: icon
           steps:
             - material: Glass
-              amount: 2
+              amount: 1
               doAfter: 1
             - tag: CrystalBlue
               name: blue crystal shard
@@ -36,6 +45,14 @@
                 sprite: Objects/Materials/Shards/crystal.rsi
                 state: shard1
               doAfter: 1
+    - node: crystalshard
+      entity: ShardCrystalBlue
+      edges:
+      - to: icon
+        steps:
+        - material: Glass
+          amount: 1
+          doAfter: 1
     - node: icon
       entity: LightTubeCrystalBlue
 
@@ -48,7 +65,7 @@
         - to: icon
           steps:
             - material: Glass
-              amount: 2
+              amount: 1
               doAfter: 1
             - tag: CrystalPink
               name: pink crystal shard
@@ -56,6 +73,14 @@
                 sprite: Objects/Materials/Shards/crystal.rsi
                 state: shard1
               doAfter: 1
+    - node: crystalshard
+      entity: ShardCrystalPink
+      edges:
+      - to: icon
+        steps:
+        - material: Glass
+          amount: 1
+          doAfter: 1
     - node: icon
       entity: LightTubeCrystalPink
 
@@ -68,7 +93,7 @@
         - to: icon
           steps:
             - material: Glass
-              amount: 2
+              amount: 1
               doAfter: 1
             - tag: CrystalOrange
               name: orange crystal shard
@@ -76,6 +101,14 @@
                 sprite: Objects/Materials/Shards/crystal.rsi
                 state: shard1
               doAfter: 1
+    - node: crystalshard
+      entity: ShardCrystalOrange
+      edges:
+      - to: icon
+        steps:
+        - material: Glass
+          amount: 1
+          doAfter: 1
     - node: icon
       entity: LightTubeCrystalOrange
 
@@ -88,7 +121,7 @@
         - to: icon
           steps:
             - material: Glass
-              amount: 2
+              amount: 1
               doAfter: 1
             - tag: CrystalRed
               name: red crystal shard
@@ -96,6 +129,14 @@
                 sprite: Objects/Materials/Shards/crystal.rsi
                 state: shard1
               doAfter: 1
+    - node: crystalshard
+      entity: ShardCrystalRed
+      edges:
+      - to: icon
+        steps:
+        - material: Glass
+          amount: 1
+          doAfter: 1
     - node: icon
       entity: LightTubeCrystalRed
 
@@ -116,5 +157,15 @@
                 sprite: Objects/Materials/Shards/crystal.rsi
                 state: shard1
               doAfter: 1
+    - node: crystalshard
+      entity: ShardCrystalGreen
+      edges:
+      - to: icon
+        steps:
+        - material: Glass
+          amount: 1
+          doAfter: 1
     - node: icon
       entity: LightTubeCrystalGreen
+
+# WWDP edit end

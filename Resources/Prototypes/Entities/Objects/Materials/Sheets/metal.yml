@@ -70,6 +70,7 @@
           Quantity: 9
         - ReagentId: Carbon
           Quantity: 1
+  # WWDP edit - quick crafting
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
@@ -83,6 +84,19 @@
     - prototype: Girder
     - prototype: MetalRod
     - category:
+        name: Weapons
+        icon:
+          sprite: Objects/Weapons/Melee/shields.rsi
+          state: makeshift-icon
+        entries:
+        - prototype: Bayonet
+        - prototype: ModularBreech
+        - prototype: MakeshiftShield
+        - prototype: ModularGrenadeRecipe
+        - prototype: ModularMineRecipe
+        - prototype: pipebomb
+        - prototype: tinfoilhat
+    - category:
         name: Tiles
         icon:
           sprite: Objects/Tiles/tile.rsi
@@ -92,19 +106,115 @@
         - prototype: TileWhite
         - prototype: TileDark
     - category:
+        name: Furniture
+        icon:
+          sprite: Structures/Furniture/chairs.rsi
+          state: chair
+        entries:
+        - prototype: Chair
+        - prototype: ChairComfy
+        - prototype: ChairOfficeLight
+        - prototype: ChairOfficeDark
+        - prototype: chairPilotSeat
+        - prototype: Stool
+        - prototype: StoolBar
+        - prototype: N14ChairMetalBlue
+        - prototype: N14ChairMetalGreen
+        - prototype: N14ChairStoolBarTan
+        - prototype: N14ChairStoolBarBlack
+        - prototype: N14ChairOfficeBlue
+        - prototype: N14ChairOfficeGreen
+        - prototype: N14ChairOfficeErgonomic
+        - prototype: ChairSteelBench
+        - prototype: BlueComfBench
+        - prototype: RedComfBench
+        - prototype: Bed
+        - prototype: N14Bed
+    - category:
+        name: Storage
+        icon:
+          sprite: Structures/Storage/Crates/generic.rsi
+          state: icon
+        entries:
+        - prototype: filingCabinetDrawer
+        - prototype: TallCabinet
+        - prototype: ClosetSteelSecure
+        - prototype: ClosetSteel
+        - prototype: CrateSecure
+        - prototype: CrateGenericSteel
+        - prototype: ClosetWall
+        - prototype: Rack
+        - prototype: ShelfKitchen
+        - prototype: ShelfGlass
+        - prototype: ShelfMetal
+        - prototype: ShelfRMetal
+    - category:
         name: Electronics
         icon:
           sprite: Structures/Machines/computers.rsi
-          state: computer-datatheory
+          state: avionics-systems
         entries:
-        - prototype: MachineFrame
-        - prototype: Computer
-        - prototype: Windoor
-        - prototype: LightTubeFixture
-        - prototype: APC
+        - prototype: StationMap
+        - prototype: WeaponEnergyTurretControlPanel
+        - prototype: WallmountTelescreen
+        - prototype: camera
         - prototype: AirAlarmFixture
         - prototype: AirSensor
         - prototype: FireAlarm
+        - prototype: BrigTimer
+        - prototype: ScreenTimer
+        - prototype: MachineFrame
+        - prototype: Computer
+        - prototype: APC
+        - prototype: IntercomAssembly
+        - prototype: AiAdapter
+        - prototype: WallmountGenerator
+        - prototype: WallmountGeneratorAPU
+        - prototype: PotatoAIChip
+    - category:
+        name: Logical
+        icon:
+          sprite: Structures/Wallmounts/Lighting/light_tube.rsi
+          state: base
+        entries:
+        - prototype: TwoWayLeverRecipe
+        - prototype: SignalButtonRecipe
+        - prototype: SignalButtonDirectionalRecipe
+        - prototype: SignalSwitchRecipe
+        - prototype: SignalSwitchDirectionalRecipe
+        - prototype: LightSwitchRecipe
+        - prototype: LightSwitchDirectionalRecipe
+        - prototype: LightStrobeFixture
+        - prototype: LightGroundFixture
+        - prototype: LightSmallFixture
+        - prototype: LightTubeFixture
+        - prototype: SignalTimer
+        - prototype: EdgeDetector
+        - prototype: LogicGateOr
+        - prototype: PowerSensor
+    - category:
+        name: Utilities
+        icon:
+          sprite: Structures/Doors/Airlocks/Glass/glass.rsi
+          state: closed
+        entries:
+        - prototype: TableCounterMetal
+        - prototype: N14TableMetalGrate
+        - prototype: MetalDoor
+        - prototype: MeatSpike
+        - prototype: TinyFan
+        - prototype: Shower
+        - prototype: FloorDrain
+        - prototype: Airlock
+        - prototype: AirlockGlass
+        - prototype: Windoor
+        - prototype: Firelock
+        - prototype: FirelockGlass
+        - prototype: FirelockEdge
+        - prototype: Shutters
+        - prototype: ShuttersWindow
+        - prototype: ShuttersRadiation
+        - prototype: OperatingTable
     - category:
         name: Atmospherics
         icon:
@@ -116,17 +226,15 @@
         - prototype: GasVentScrubber
         - prototype: GasPassiveVent
         - prototype: GasVentPump
+        - prototype: GasDualPortVentPump
         - prototype: GasMixer
         - prototype: GasFilter
         - prototype: GasVolumePump
         - prototype: GasPressurePump
+        - prototype: GasPassiveGate
         - prototype: GasValve
-    - category:
-        name: Piping
-        icon:
-          sprite: Structures/Piping/Atmospherics/pipe.rsi
-          state: pipeFourway
-        entries:
+        - prototype: PressureControlledValve
+        - prototype: SignalControlledValve
         - prototype: HeatExchanger
         - prototype: GasPipeBend
         - prototype: GasPipeFourway
@@ -147,7 +255,9 @@
         - prototype: DisposalTagger
         - prototype: DisposalTrunk
         - prototype: DisposalUnit
-    - prototype: CrateGenericSteel
+        - prototype: MailingUnit
+        - prototype: DisposalSignalRouter
+        - prototype: ToiletEmpty
 
 - type: entity
   parent: SheetSteel
@@ -221,6 +331,26 @@
           Quantity: 3.3
         - ReagentId: Copper
           Quantity: 6.7
+  # WWDP short crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: ClockworkGirder
+    - prototype: WallClock
+    - prototype: ChairBrass
+    - prototype: TableBrass
+    - prototype: SheetClockworkGlass
+    - prototype: ClockworkWindoor
+    - prototype: TileBrassFilled
+    - prototype: TileBrassReebe
+    - prototype: PinionAirlock
 
 - type: entity
   parent: SheetBrass
@@ -284,6 +414,7 @@
         - ReagentId: Carbon
           Quantity: 1
         canReact: false
+  # WWDP quick crafting
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
@@ -294,7 +425,40 @@
     requireActiveHand: false
   - type: ShortConstruction
     entries:
+    - prototype: ReinforcedWall
+    - prototype: TableReinforced
+    - prototype: MedicalBed
     - prototype: SecureWindoor
+    - prototype: AirlockShuttle
+    - prototype: AICore
+    - prototype: BlastDoor
+    - prototype: ShelfChemistry
+    - prototype: GlimmerDrain
+    - prototype: GlimmerProber
+    - category:
+        name: Altars
+        icon:
+          sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
+          state: nanotrasen
+        entries:
+        - prototype: AltarNanotrasen
+        - prototype: AltarChaos
+        - prototype: AltarDruid
+        - prototype: AltarToolbox
+        - prototype: AltarSpaceChristian
+        - prototype: AltarSatana
+        - prototype: AltarTechnology
+        - prototype: AltarConvertFestival
+        - prototype: AltarConvertMaint
+        - prototype: AltarConvertBlue
+        - prototype: AltarConvertBurden
+        - prototype: AltarConvert
+        - prototype: AltarConvertOrange
+        - prototype: AltarConvertRed
+        - prototype: AltarConvertWhite
+        - prototype: AltarConvertYellow
+        - prototype: AltarHeaven
+        - prototype: AltarFangs
   - type: TwistedConstructionTarget
     replacementProto: RunedMetal1
 

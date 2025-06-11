@@ -256,6 +256,19 @@
         - ItemMask
         restitution: 0.3
         friction: 0.2
+  # WWDP short crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: makeshifthandcuffs
+    - prototype: CableTerminal
 
 - type: entity
   parent: CableApcStack

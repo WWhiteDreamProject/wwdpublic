@@ -1,18 +1,18 @@
 - type: construction
   name: joint
   id: smokeableJoint
-  graph: smokeableJoint
+  graph: smokeable
   startNode: start
   targetNode: joint
   category: construction-category-misc
   description: "A roll of dried plant matter wrapped in thin paper."
   icon: { sprite: Objects/Consumable/Smokeables/Cannabis/joint.rsi, state: unlit-icon }
   objectType: Item
-  
+
 - type: construction
   name: rainbow joint
   id: smokeableJointRainbow
-  graph: smokeableJointRainbow
+  graph: smokeable
   startNode: start
   targetNode: jointRainbow
   category: construction-category-misc
@@ -34,7 +34,7 @@
 - type: construction
   name: rainbow blunt
   id: smokeableBluntRainbow
-  graph: smokeableBluntRainbow
+  graph: smokeableBlunt # WWDP
   startNode: start
   targetNode: bluntRainbow
   category: construction-category-misc
@@ -44,8 +44,8 @@
 
 - type: construction
   name: cigarette
-  id: smokeableCigarette
-  graph: smokeableCigarette
+  id: smokeable
+  graph: smokeable
   startNode: start
   targetNode: cigarette
   category: construction-category-misc

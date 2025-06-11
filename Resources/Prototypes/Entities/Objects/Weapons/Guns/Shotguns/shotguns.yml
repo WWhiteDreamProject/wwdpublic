@@ -432,7 +432,7 @@
   - type: BallisticAmmoProvider
     proto: null
   - type: Construction
-    graph: ImprovisedShotgunSawnGraph
+    graph: ImprovisedShotgunGraph
     node: shotgunsawn
     deconstructionTarget: null
 
@@ -481,7 +481,7 @@
     proto: null
   - type: Construction
     graph: ImprovisedShotgunGraph
-    node: shotgun
+    node: shotgunstart
   - type: StaticPrice
     price: 20
 
