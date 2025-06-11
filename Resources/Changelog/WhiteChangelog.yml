@@ -3155,3 +3155,13 @@ Entries:
   id: 342
   time: '2025-06-11T08:04:48.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/551
+- author: RedFoxIV
+  changes:
+    - type: Tweak
+      message: >-
+        Изменён алгоритм работы камеры в режиме Pixel-Perfect. Если что-то
+        сломалось - попробуйте сначала выключить PP-камеру в настройках графики,
+        и если вам помогло - пожаловаться в #bugreporting.
+  id: 343
+  time: '2025-06-11T08:05:17.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/556
