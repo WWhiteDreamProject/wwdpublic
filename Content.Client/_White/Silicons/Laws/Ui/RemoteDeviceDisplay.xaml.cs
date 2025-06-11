@@ -18,12 +18,12 @@ namespace Content.Client._White.Silicons.Laws.Ui
 
             MoveButton.OnPressed += _ =>
             {
-                OnRemoteDeviceAction?.Invoke(new RemoteDeviceActionEvent(RemoteDeviceActionEvent.RemoteDeviceActionType.MoveToDevice, netEntityUid));
+                OnRemoteDeviceAction?.Invoke(new RemoteDeviceActionEvent(RemoteDeviceActionType.MoveToDevice, netEntityUid));
             };
 
             TakeControlButton.OnPressed += _ =>
             {
-                OnRemoteDeviceAction?.Invoke(new RemoteDeviceActionEvent(RemoteDeviceActionEvent.RemoteDeviceActionType.TakeControl, netEntityUid));
+                OnRemoteDeviceAction?.Invoke(new RemoteDeviceActionEvent(RemoteDeviceActionType.TakeControl, netEntityUid));
             };
         }
     }

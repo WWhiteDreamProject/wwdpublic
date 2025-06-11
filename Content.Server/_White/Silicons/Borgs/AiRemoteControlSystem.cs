@@ -31,7 +31,7 @@ namespace Content.Server._White.Silicons.Borgs
             SubscribeLocalEvent<AiRemoteControllerComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<AiRemoteControllerComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<AiRemoteControllerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
-            SubscribeLocalEvent<StationAiHeldComponent, AiRemoteControllerComponent.RemoteDeviceActionMessage>(OnUiRemoteAction);
+            SubscribeLocalEvent<StationAiHeldComponent, RemoteDeviceActionMessage>(OnUiRemoteAction);
 
             SubscribeLocalEvent<StationAiHeldComponent, ToggleRemoteDevicesScreenEvent>(OnToggleRemoteDevicesScreen);
         }
@@ -153,7 +153,7 @@ namespace Content.Server._White.Silicons.Borgs
             _userInterface.SetUiState(uid, RemoteDeviceUiKey.Key, state);
         }
 
-        private void OnUiRemoteAction(EntityUid uid, StationAiHeldComponent component, AiRemoteControllerComponent.RemoteDeviceActionMessage msg)
+        private void OnUiRemoteAction(EntityUid uid, StationAiHeldComponent component, RemoteDeviceActionMessage msg)
         {
             if (msg.RemoteAction == null)
                 return;
@@ -163,14 +163,14 @@ namespace Content.Server._White.Silicons.Borgs
             if (!HasComp<AiRemoteControllerComponent>(target))
                 return;
 
-            if (msg.RemoteAction?.ActionType == RemoteDeviceActionEvent.RemoteDeviceActionType.MoveToDevice)
+            if (msg.RemoteAction?.ActionType == RemoteDeviceActionType.MoveToDevice)
             {
                 if (!_stationAiSystem.TryGetCore(uid, out var stationAiCore) || stationAiCore.Comp?.RemoteEntity == null)
                     return;
                 _xformSystem.SetCoordinates(stationAiCore.Comp.RemoteEntity.Value, Transform(target.Value).Coordinates);
             }
 
-            if (msg.RemoteAction?.ActionType == RemoteDeviceActionEvent.RemoteDeviceActionType.TakeControl)
+            if (msg.RemoteAction?.ActionType == RemoteDeviceActionType.TakeControl)
             {
                 AiTakeControl(uid, target.Value);
             }
