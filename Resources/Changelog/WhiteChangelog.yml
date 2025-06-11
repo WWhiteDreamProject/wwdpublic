@@ -3165,3 +3165,14 @@ Entries:
   id: 343
   time: '2025-06-11T08:05:17.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/556
+- author: RedFoxIV
+  changes:
+    - type: Tweak
+      message: Генокраду теперь нужно в три раза больше времени на поглощение ДНК.
+    - type: Remove
+      message: Имплантер с генокрадом за 20тк.
+    - type: Remove
+      message: Стингер-инфектор за 5 очков эволюции.
+  id: 344
+  time: '2025-06-11T08:06:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/557
