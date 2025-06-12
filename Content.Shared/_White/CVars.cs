@@ -102,7 +102,7 @@ public sealed class WhiteCVars
     /// Arbitrary shove range multiplier. Does not affect entities with ItemComponent.
     /// </summary>
     public static readonly CVarDef<float> ShoveRange =
-        CVarDef.Create("game.shove_range", 10f, CVar.SERVER | CVar.ARCHIVE);
+        CVarDef.Create("game.shove_range", 8f, CVar.SERVER | CVar.ARCHIVE);
 
     /// <summary>
     /// Arbitrary shove speed multiplier, does not affect range.
