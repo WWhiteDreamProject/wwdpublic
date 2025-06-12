@@ -43,6 +43,6 @@ ent-ActionForceWallCult = Щит
 ent-ActionPhaseShift = Фазовый Сдвиг
     .desc = Позволяет проходить сквозь стены.
 
-ent-ActionGauntletEcho = Резонатор
+ent-ActionGauntletEcho = Карающая Длань
     .desc = Накапливает в руке огромное количество энергии, позволяя выпустить её в форме медленного и смертоносного снаряда.
 
