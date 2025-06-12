@@ -2,10 +2,6 @@ soul-shard-name = Душа { $soul }
 soul-shard-description = В этом камне заключена душа { $soul }
 cult-too-much-empowers = Слишком много способностей
 
-ghost-role-information-soul-shard-name = Осколок Души
-ghost-role-information-soul-shard-description = Станьте слугой кровавого культа!
-ghost-role-information-soul-shard-rules = Примите форму одной из конструкций культа и помогите вашим Хозяевам вернуть Нар'Си в этот мир!
-
 cult-started-drawing-rune-end = Культ начал рисовать руну призыва!
 cult-started-erasing-rune = Вы начали стирать руну.
 cult-erased-rune = Вы стёрли руну.
@@ -13,7 +9,6 @@ not-enough-cultists = Недостаточно культистов.
 cult-convert-not-enough-cultists = Невозможно обратить, недостаточно культистов.
 cult-sacrifice-not-enough-cultists = Недостаточно культистов для пожертвования.
 cult-offering-rune-not-enough = Недостаточно культистов для обращения! Необходимо минимум 2.
-cult-buff-already-buffed = Уже усилен!
 cult-teleport-rune-not-found = Руна телепортации не обнаружена.
 cult-narsie-not-completed-tasks = Выполните все задания. Необходимо минимум 10 культистов.
 cult-narsie-summon-not-enough = Необходимо минимум 10 культистов.
@@ -23,8 +18,6 @@ cult-stay-still = Вам нужно стоять на месте!
 cult-ritual-started = Культисты приступили к ритуалу! У вас есть 40 секунд, чтобы предотвратить это.
 cult-ritual-prevented = Кто-то прервал ритуал.
 cult-narsie-summoned = НАР'СИ ВОССТАЛ!
-cult-revive-rune-already-alive = Он уже живой.
-cult-revive-rune-no-charges = У рун воскрешения кончились заряды.
 cult-revive-rune-too-damaged = Его ранения несовместимы с жизнью.
 cult-summon-rune-need-minimum-cultists = Необходимо минимум 2 культиста.
 cult-cultists-not-found = Культисты не обнаружены.

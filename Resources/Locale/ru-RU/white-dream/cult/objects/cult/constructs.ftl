@@ -19,7 +19,6 @@ ent-ConstructHarvester = жнец
 
 ent-ShadeCult = тень
     .desc = Скованная душа.
-    .suffix = Святой
 
 ent-ConstructJuggernautHoly = джаггернаут
     .desc = Гигантский тяжелобронированный конструкт созданный для проламывания вражеских линий и принятия огна на себя.
