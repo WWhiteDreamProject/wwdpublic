@@ -1184,9 +1184,9 @@
   productEntity: Emag
   discountCategory: rareDiscounts # WD EDIT
   discountDownTo:
-    Telecrystal: 1 # WD EDIT
+    Telecrystal: 2 # WD EDIT
   cost:
-    Telecrystal: 4 # WD EDIT
+    Telecrystal: 8 # WD EDIT
   categories:
   - UplinkDisruption
 
