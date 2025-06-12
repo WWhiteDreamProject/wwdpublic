@@ -23,5 +23,5 @@ public sealed partial class KnockedDownComponent : Component
     /// WWDP - friction modifier for being unconscious, slipped etc.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float FrictionMultiplier;
+    public float FrictionMultiplier = 1f;
 }

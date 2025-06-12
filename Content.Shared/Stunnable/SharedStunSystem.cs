@@ -241,6 +241,8 @@ public abstract class SharedStunSystem : EntitySystem
         StatusEffectsComponent? status = null, float frictionMultiplier = KnockDownFrictionModifier) // WWDP
     {
         // WWDP edit start
+        time *= _modify.GetModifier(uid); // Goobstation
+
         if (time <= TimeSpan.Zero || !Resolve(uid, ref status, false))
             return false;
 
