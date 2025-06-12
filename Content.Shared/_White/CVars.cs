@@ -105,7 +105,7 @@ public sealed class WhiteCVars
         CVarDef.Create("game.shove_range", 8f, CVar.SERVER | CVar.ARCHIVE);
 
     /// <summary>
-    /// Arbitrary shove speed multiplier, does not affect range.
+    /// Arbitrary shove speed multiplier, does not affect range (unless you put it too high).
     /// </summary>
     public static readonly CVarDef<float> ShoveSpeed =
         CVarDef.Create("game.shove_speed", 3f, CVar.SERVER | CVar.ARCHIVE);
