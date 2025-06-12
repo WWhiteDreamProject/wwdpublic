@@ -1,1 +1,1 @@
-﻿timed-factory-cooldown = Кузница ещё заряжается. Осталось: {$cooldown} секунд.
+﻿timed-factory-cooldown = Кузня ещё заряжается. Осталось: {$cooldown} секунд.
