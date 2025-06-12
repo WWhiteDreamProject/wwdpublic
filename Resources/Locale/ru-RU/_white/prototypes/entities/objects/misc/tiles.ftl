@@ -10,5 +10,5 @@ ent-FloorTileItemAstroSnow = космо-снег
 ent-FloorTileItemJungleAstroGrass = космо-трава джунглей
     .desc = Искуственная трава, способная закрыть обшивку и провода.
 
-ent-FloorTileItemMowedAstroGrass = подстриженная космо-трав
+ent-FloorTileItemMowedAstroGrass = подстриженная космо-трава
     .desc = Искуственная трава, способная закрыть обшивку и провода.
