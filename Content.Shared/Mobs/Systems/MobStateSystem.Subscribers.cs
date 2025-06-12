@@ -1,4 +1,4 @@
-﻿using Content.Shared.ActionBlocker;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CCVar;

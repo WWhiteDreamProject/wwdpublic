@@ -1,0 +1,14 @@
+﻿- type: entity
+  id: ToolboxMechanicalFilledGreytide
+  parent: ToolboxMechanical
+  components:
+  - type: StorageFill
+    contents:
+    - id: Crowbar
+    - id: Wrench
+    - id: Screwdriver
+    - id: Wirecutter
+    - id: Welder
+    - id: ClothingHandsGlovesColorYellow
+    - id: ClothingUniformJumpsuitColorGrey
+    - id: ClothingMaskGas

@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._White;
 using Content.Shared.Vehicles;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -15,7 +16,7 @@ public sealed class VehicleSystem : SharedVehicleSystem
     {
         base.Initialize();
         SubscribeLocalEvent<VehicleComponent, AppearanceChangeEvent>(OnAppearanceChange);
-        SubscribeLocalEvent<VehicleComponent, MoveEvent>(OnMove);
+        SubscribeLocalEvent<VehicleComponent, MoveEventProxy>(OnMove);
     }
 
     private void OnAppearanceChange(EntityUid uid, VehicleComponent comp, ref AppearanceChangeEvent args)
@@ -27,7 +28,7 @@ public sealed class VehicleSystem : SharedVehicleSystem
         spriteComp.LayerSetAutoAnimated(0, animated);
     }
 
-    private void OnMove(EntityUid uid, VehicleComponent component, ref MoveEvent args)
+    private void OnMove(EntityUid uid, VehicleComponent component, ref MoveEventProxy args)
     {
         SpritePos(uid, component);
     }

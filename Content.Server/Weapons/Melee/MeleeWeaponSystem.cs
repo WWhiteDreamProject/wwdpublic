@@ -70,12 +70,12 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
 
         if (!component.DisableClick)
-            _damageExamine.AddDamageExamine(args.Message, damageSpec * component.HeavyDamageBaseModifier, Loc.GetString("damage-melee")); // WWDP; "heavy" attacks are actually LMB and "light" are RMB swings, fucking EE man
+            _damageExamine.AddDamageExamine(args.Message, damageSpec, Loc.GetString("damage-melee")); // WWDP
 
         if (!component.DisableHeavy)
         {
             if (damageSpec.GetTotal() * component.HeavyDamageBaseModifier != damageSpec.GetTotal()) // WWDP
-                _damageExamine.AddDamageExamine(args.Message, damageSpec, Loc.GetString("damage-melee-heavy")); // WWDP
+                _damageExamine.AddDamageExamine(args.Message, damageSpec * component.HeavyDamageBaseModifier, Loc.GetString("damage-melee-heavy")); // WWDP
 
             if (component.HeavyStaminaCost != 0)
             {

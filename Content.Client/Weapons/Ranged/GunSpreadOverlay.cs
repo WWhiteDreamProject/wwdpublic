@@ -3,6 +3,7 @@ using Content.Client.Resources;
 using Content.Client.Stylesheets;
 using Content.Client.Viewport;
 using Content.Client.Weapons.Ranged.Systems;
+using Content.Shared.CombatMode;
 using Content.Shared.Contests;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Client.GameObjects;
@@ -58,6 +59,17 @@ public class GunSpreadOverlay : Overlay
         var worldHandle = args.WorldHandle;
 
         var player = _player.LocalEntity;
+        if(player is null)
+        {
+            Reset();
+            return;
+        }
+
+        if(!_entManager.TryGetComponent<CombatModeComponent>(player, out var combatMode) || !combatMode.IsInCombatMode)
+        {
+            Reset();
+            return;
+        }
 
         if (player == null ||
             !_entManager.TryGetComponent<TransformComponent>(player, out var xform))
@@ -104,7 +116,10 @@ public class GunSpreadOverlay : Overlay
         var direction = (mousePos.Position - mapPos.Position);
 
         Vector2 from = mapPos.Position;
-        Vector2 to = mousePos.Position + direction;
+
+        if (_guns.IsRestrictedFire(gunUid, player.Value))
+            direction = new Angle(_transform.GetWorldRotation(gunUid) - direction.ToWorldAngle()).RotateVec(direction);
+            
 
         DrawSpread(worldHandle, gun, from, direction, timeSinceLastFire, maxBonusSpread, bonusSpread, maxSpread, minSpread, currentAngle);
     }

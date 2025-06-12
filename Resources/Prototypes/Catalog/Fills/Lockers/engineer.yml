@@ -103,7 +103,8 @@
       - id: RCDAmmo # Extra Compressed matter for the RPD
       - id: LunchboxEngineeringFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
-      - id: AccessConfigurator
+      - id: ClothingBeltUtilityAtmos # WWDP
+      # - id: AccessConfigurator # WWDP
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -125,7 +126,8 @@
       - id: RCDAmmo # Extra Compressed matter for the RPD
       - id: LunchboxEngineeringFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
-      - id: AccessConfigurator
+      - id: ClothingBeltUtilityAtmos # WWDP
+      # - id: AccessConfigurator # WWDP
 
 - type: entity
   id: LockerEngineerFilledHardsuit
@@ -142,7 +144,8 @@
       - id: RCDAmmo
       - id: LunchboxEngineeringFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
-      - id: AccessConfigurator
+      - id: ClothingBeltUtilityEngineering # WWDP
+      # - id: AccessConfigurator # WWDP
 
 - type: entity
   id: LockerEngineerFilled
@@ -159,7 +162,8 @@
       - id: RCDAmmo
       - id: LunchboxEngineeringFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
-      - id: AccessConfigurator
+      - id: ClothingBeltUtilityEngineering # WWDP
+      # - id: AccessConfigurator # WWDP
 
 - type: entity
   id: ClosetRadiationSuitFilled

@@ -60,13 +60,13 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorOfficer
     back: ClothingBackpackSecurity
-    shoes: ClothingShoesBootsCombatFilled
-    eyes: ClothingEyesGlassesSecurity
+    shoes: ClothingShoesBootsJack # WWDP
+    # eyes: ClothingEyesGlassesSecurity # WWDP
     head: ClothingHeadHatBeretSecurity
-    outerClothing: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier
+    # outerClothing: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier # WWDP
     id: SeniorOfficerPDA
     ears: ClothingHeadsetSecurity
-    belt: ClothingBeltSecurityFilled
+    belt: WeaponEnergyGunPistolSecurity  # WWDP
   innerClothingSkirt: ClothingUniformJumpskirtSeniorOfficer
   satchel: ClothingBackpackSatchelSecurity
   duffelbag: ClothingBackpackDuffelSecurity

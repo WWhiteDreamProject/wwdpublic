@@ -51,13 +51,13 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSec
     back: ClothingBackpackSecurity
-    shoes: ClothingShoesBootsCombatFilled
-    eyes: ClothingEyesGlassesSunglasses
-    head: ClothingHeadHelmetBasic
-    outerClothing: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier
+    shoes: ClothingShoesBootsJack # WWDP
+    # eyes: ClothingEyesGlassesSunglasses # WWDP moved everything to lockers
+    # head: ClothingHeadHelmetBasic # WWDP
+    # outerClothing: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier # WWDP
     id: SecurityPDA
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    belt: ClothingBeltSecurityFilled
+    belt: WeaponEnergyGunPistolSecurity  # WWDP
   innerClothingSkirt: ClothingUniformJumpskirtSec
   satchel: ClothingBackpackSatchelSecurity
   duffelbag: ClothingBackpackDuffelSecurity

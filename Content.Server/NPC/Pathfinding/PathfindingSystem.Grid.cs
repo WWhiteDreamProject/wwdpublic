@@ -2,7 +2,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server._White;
 using Content.Server.Destructible;
+using Content.Shared._White;
 using Content.Shared.Access.Components;
 using Content.Shared.Climbing.Components;
 using Content.Shared.Doors.Components;
@@ -49,7 +51,7 @@ public sealed partial class PathfindingSystem
         SubscribeLocalEvent<CollisionLayerChangeEvent>(OnCollisionLayerChange);
         SubscribeLocalEvent<PhysicsBodyTypeChangedEvent>(OnBodyTypeChange);
         SubscribeLocalEvent<TileChangedEvent>(OnTileChange);
-        _transform.OnGlobalMoveEvent += OnMoveEvent;
+        _stab.OnGlobalMoveEvent += OnMoveEvent;
     }
 
     private void OnTileChange(ref TileChangedEvent ev)
@@ -269,7 +271,7 @@ public sealed partial class PathfindingSystem
         }
     }
 
-    private void OnMoveEvent(ref MoveEvent ev)
+    private void OnMoveEvent(ref MoveEventProxy ev)
     {
         if (!_fixturesQuery.TryGetComponent(ev.Sender, out var fixtures) ||
             !IsBodyRelevant(fixtures) ||

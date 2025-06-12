@@ -49,7 +49,7 @@
   - ChaplainPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitChaplain
-    back: ClothingBackpack
+    back: ClothingBackpackChaplainFilled
     shoes: ClothingShoesColorBlack
     id: ChaplainPDA
     ears: ClothingHeadsetScience

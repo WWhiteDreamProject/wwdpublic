@@ -1,0 +1,10 @@
+﻿- type: entity
+  parent: ClothingBeltSyndieHolster
+  id: ClothingBeltSyndieHolsterFilledPython
+  suffix: Python, AP
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRevolverPythonAP
+    - id: SpeedLoaderMagnumAP
+      amount: 2

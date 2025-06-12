@@ -28,6 +28,11 @@
     activatedDamage:
       types:
         Blunt: 6 # WWDP EDIT
+    activatedSoundOnHit: # WWDP
+      path: /Audio/Effects/snap.ogg
+      params:
+        pitch: 0.2
+        variation: 0.5
   - type: ItemToggleDamageOtherOnHit
   - type: ItemToggleSize
     activatedSize: Normal
@@ -43,6 +48,7 @@
   - type: MeleeWeapon
     attackRate: 1 # WWDP
     bluntStaminaDamageFactor: 4.5 # WWDP, 4 hits to stun
+    animationRotation: -45 # WWDP
     maxTargets: 1
     canHeavyAttack: false
     damage:
@@ -57,6 +63,10 @@
         enum.TelescopicBatonVisuals.Layer:
           True: { state: icon }
           False: { state: icon-off }
+  - type: Clothing # WWDP
+    quickEquip: false
+    slots:
+    - Belt
 
 - type: entity
   parent: TelescopicBaton

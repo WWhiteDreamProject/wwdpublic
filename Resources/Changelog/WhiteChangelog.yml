@@ -3112,3 +3112,96 @@ Entries:
   id: 337
   time: '2025-06-09T19:26:32.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/563
+- author: vanx
+  changes:
+    - type: Remove
+      message: Отключена возможность прятаться под столами
+  id: 338
+  time: '2025-06-10T20:17:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/568
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Структурный урон снова эффективен по структурам
+  id: 339
+  time: '2025-06-10T20:20:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/566
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Дионы больше не игнорируют абсолютно все замедления
+  id: 340
+  time: '2025-06-10T20:49:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/570
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: >-
+        Изменён крафт потайной двери. Теперь требуется создать каркас, открутить
+        его от пола и нажать по нему двумя листами стали.
+  id: 341
+  time: '2025-06-10T20:59:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/571
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: >-
+        Всякое разное для шаттлов и шаттлобоёвки. Пока что существует только для
+        мапперов.
+    - type: Add
+      message: >-
+        Модульная турель, использующая обычное ручное оружие. Глупая, поэтому
+        для наведения требуется помощь человека, в той или иной форме. 
+  id: 342
+  time: '2025-06-11T08:04:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/551
+- author: RedFoxIV
+  changes:
+    - type: Tweak
+      message: >-
+        Изменён алгоритм работы камеры в режиме Pixel-Perfect. Если что-то
+        сломалось - попробуйте сначала выключить PP-камеру в настройках графики,
+        и если вам помогло - пожаловаться в #bugreporting.
+  id: 343
+  time: '2025-06-11T08:05:17.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/556
+- author: RedFoxIV
+  changes:
+    - type: Tweak
+      message: Генокраду теперь нужно в три раза больше времени на поглощение ДНК.
+    - type: Remove
+      message: Имплантер с генокрадом за 20тк.
+    - type: Remove
+      message: Стингер-инфектор за 5 очков эволюции.
+  id: 344
+  time: '2025-06-11T08:06:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/557
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Консоль супер материи теперь работает
+  id: 345
+  time: '2025-06-11T08:07:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/559
+- author: vanx
+  changes:
+    - type: Add
+      message: В аплинк добавлены новые опции и возвращены некоторые старые
+    - type: Tweak
+      message: Снижены цены некоторых вещей в аплинке
+    - type: Add
+      message: Гадюка, Кобра и Питон из аплинка теперь поставляются с боезапасом
+    - type: Tweak
+      message: 'Урон винтовки мосина: 28,5 -> 57'
+    - type: Tweak
+      message: 'Урон энергоручки: 12 -> 20 + 10 структурного'
+  id: 346
+  time: '2025-06-11T13:27:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/561
+- author: islambrosgood
+  changes:
+    - type: Fix
+      message: Режим совместимости не крашит игру
+  id: 347
+  time: '2025-06-11T18:18:24.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/577

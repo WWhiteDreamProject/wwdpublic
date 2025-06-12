@@ -26,7 +26,7 @@
     jumpsuit: ClothingUniformJumpsuitScientist
     back: ClothingBackpackScienceFilled
     shoes: ClothingShoesColorWhite
-    outerClothing: ClothingOuterCoatRnd
+    # outerClothing: ClothingOuterCoatRnd # WWDP disabled
     id: SciencePDA
     ears: ClothingHeadsetScience
     pocket1: BookPsionicsGuidebook

@@ -1,6 +1,7 @@
 using Content.Server.Atmos;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.NodeGroups;
+using Content.Shared._White;
 using Content.Shared.Atmos;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -113,7 +114,7 @@ namespace Content.Server.NodeContainer.Nodes
             CurrentPipeDirection = OriginalPipeDirection.RotatePipeDirection(xform.LocalRotation);
         }
 
-        bool IRotatableNode.RotateNode(in MoveEvent ev)
+        bool IRotatableNode.RotateNode(in MoveEventProxy ev)
         {
             if (OriginalPipeDirection == PipeDirection.Fourway)
                 return false;

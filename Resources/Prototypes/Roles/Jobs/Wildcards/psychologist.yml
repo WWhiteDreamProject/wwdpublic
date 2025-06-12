@@ -28,7 +28,7 @@
     shoes: ClothingShoesLeather
     id: PsychologistPDA
     ears: ClothingHeadsetMedical
-    pocket2: CandyBucket
+    # pocket2: CandyBucket # WWDP
   innerClothingSkirt: ClothingUniformJumpsuitPsychologist
   satchel: ClothingBackpackSatchelPsychologistFilled #DeltaV - stamp included
   duffelbag: ClothingBackpackDuffelPsychologistFilled #DeltaV - stamp included
