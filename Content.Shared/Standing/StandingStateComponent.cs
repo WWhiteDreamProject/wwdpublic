@@ -21,6 +21,12 @@ public sealed partial class StandingStateComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public List<string> ChangedFixtures = new();
+
+    /// <summary>
+    /// WWDP - How much should the floor friction change if not standing
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float LayingFrictionMultiplier = 3f;
 }
 
 public enum StandingState
