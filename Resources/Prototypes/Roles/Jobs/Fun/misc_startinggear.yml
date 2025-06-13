@@ -63,17 +63,17 @@
     jumpsuit: ClothingUniformJumpsuitDeathSquad
     back: ClothingBackpackDeathSquadFilled
     mask: ClothingMaskGasDeathSquad
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesGlassesMedSec # WWDP
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitDeathsquad
-    suitstorage: AirTankFilled
-    shoes: ClothingShoesBootsMagAdv
+    suitstorage: OxygenTankFilled # WWDP
+    shoes: ClothingShoesBootsMagSecAdv # WWDP
     id: DeathsquadPDA
     pocket1: EnergySword
     pocket2: EnergyShield
-    belt: ClothingBeltMilitaryWebbingMedFilled
-  innerClothingSkirt: ClothingUniformJumpskirtColorBlack
+    belt: ClothingBeltMilitaryWebbingDeathsquadFilled # WWDP
+  innerClothingSkirt: ClothingUniformJumpsuitDeathSquad # WWDP
 
 #Syndicate Operative Outfit - Full Kit
 - type: startingGear
@@ -332,3 +332,12 @@
     shoes: ClothingShoesClownBanana
     jumpsuit: ClothingUniformJumpsuitClownBanana
     mask: ClothingMaskClownBanana
+  # WWDP edit start
+    back: ClothingBackpackClownFilled
+    pocket1: BikeHorn
+    pocket2: ClownRecorder
+    id: ClownPDA
+    ears: ClothingHeadsetService
+  satchel: ClothingBackpackSatchelClownFilled
+  duffelbag: ClothingBackpackDuffelClownFilled
+  # WWDP edit end

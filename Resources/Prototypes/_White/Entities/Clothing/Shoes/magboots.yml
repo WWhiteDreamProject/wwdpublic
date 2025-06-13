@@ -1,0 +1,34 @@
+﻿- type: entity
+  parent: ClothingShoesBootsMagAdv
+  id: ClothingShoesBootsMagSecAdv
+  name: advanced combat magboots
+  description: Heavy-duty magboots with added protection and a convenient sidearm strap.
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/magboots-combat.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/magboots-combat.rsi
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 13
+    staminaCost: 15
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.8
+  - type: Matchbox
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
