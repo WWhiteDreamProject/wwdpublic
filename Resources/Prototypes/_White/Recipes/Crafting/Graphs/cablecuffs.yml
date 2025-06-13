@@ -1,0 +1,98 @@
+﻿- type: constructionGraph
+  id: CuffsGraph
+  start: cuffs
+  graph:
+  - node: cuffs
+    edges:
+    - to: unfinished
+      steps:
+      - material: MetalRod
+        amount: 1
+        doAfter: 1
+    - to: bola
+      steps:
+      - material: Steel
+        amount: 6
+        doAfter: 2
+  - node: unfinished
+    entity: ProdUnfinished
+    edges:
+    - to: Igniter
+      steps:
+      - tag: Igniter
+        doAfter: 1
+    - to: cuffs
+      steps:
+      - tool: Cutting
+        doAfter: 5
+      completed:
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+      - !type:DeleteEntity
+  - node: Igniter
+    edges:
+    - to: snatcherprod
+      steps:
+      - material: Telecrystal
+        doAfter: 1
+    - to: stunprod
+      steps:
+      - tag: CapacitorStockPart
+        doAfter: 1
+    - to: cuffs
+      steps:
+      - tool: Cutting
+        doAfter: 5
+      completed:
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+      - !type:SpawnPrototype
+        prototype: Igniter
+      - !type:DeleteEntity
+  - node: snatcherprod
+    entity: Snatcherprod
+    edges:
+    - to: cuffs
+      steps:
+      - tool: Cutting
+        doAfter: 5
+      completed:
+      - !type:SpawnPrototype
+        prototype: Telecrystal1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+      - !type:SpawnPrototype
+        prototype: Igniter
+      - !type:EmptyAllContainers
+      - !type:DeleteEntity
+  - node: stunprod
+    entity: Stunprod
+    edges:
+    - to: cuffs
+      steps:
+      - tool: Cutting
+        doAfter: 5
+      completed:
+      - !type:SpawnPrototype
+        prototype: CapacitorStockPart
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+      - !type:SpawnPrototype
+        prototype: Igniter
+      - !type:EmptyAllContainers
+      - !type:DeleteEntity
+  - node: bolastart
+    edges:
+    - to: bola
+      steps:
+      - tag: Handcuffs
+        icon:
+          sprite: Objects/Misc/cablecuffs.rsi
+          state: cuff
+          color: red
+        name: cuffs
+      - material: Steel
+        amount: 6
+        doAfter: 2
+  - node: bola
+    entity: Bola

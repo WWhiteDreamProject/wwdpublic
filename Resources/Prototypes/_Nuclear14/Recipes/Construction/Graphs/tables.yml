@@ -8,8 +8,6 @@
           completed:
             - !type:SnapToGrid
               southRotation: true
-          conditions:
-            - !type:EntityAnchored {}
           steps:
             - material: WoodPlank
               amount: 2
@@ -28,8 +26,6 @@
           completed:
             - !type:SnapToGrid
               southRotation: true
-          conditions:
-            - !type:EntityAnchored {}
           steps:
             - material: Steel
               amount: 2
@@ -48,8 +44,6 @@
           completed:
             - !type:SnapToGrid
               southRotation: true
-          conditions:
-            - !type:EntityAnchored {}
           steps:
             - material: WoodPlank
               amount: 2

@@ -30,6 +30,12 @@ public sealed partial class RandomHumanoidSettingsPrototype : IPrototype, IInher
     public HashSet<string> SpeciesBlacklist { get; private set; } = new();
 
     /// <summary>
+    ///    WWDP - Species that the randomizer will choose from. Overrides speciesBlacklist.
+    /// </summary>
+    [DataField("speciesWhitelist")]
+    public HashSet<string> SpeciesWhitelist { get; private set; } = new();
+
+    /// <summary>
     ///     Extra components to add to this entity.
     /// </summary>
     [DataField("components")]

@@ -3205,3 +3205,44 @@ Entries:
   id: 347
   time: '2025-06-11T18:18:24.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/577
+- author: vanx
+  changes:
+    - type: Add
+      message: >-
+        ВСЕ рецепты крафтов и строительства в игре теперь доступны без
+        использования меню крафта. Для этого используйте стак материалов в руке
+        на Z либо применяйте предметы один к другому в том же порядке как они
+        указаны в меню крафта.
+  id: 348
+  time: '2025-06-13T19:46:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/578
+- author: vanx
+  changes:
+    - type: Add
+      message: Переводы культа и не только
+  id: 349
+  time: '2025-06-13T19:47:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/580
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Емагу возвращён полный функционал.
+    - type: Tweak
+      message: Стоимость емага в аплинке 4 -> 8 ТК.
+    - type: Tweak
+      message: >-
+        Doorjack переименован в "дешифратор шлюзов". Теперь это бюджетная версия
+        емага,  всё так же может только открывать шлюзы.
+  id: 350
+  time: '2025-06-13T19:48:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/581
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Лежачие тела теперь не скользят по полу, а наоборот замедляются. Можете
+        брать их на руки, катать на каталках, или сопротивляться таким образом
+        когда СБ тащат вас в бриг.
+  id: 351
+  time: '2025-06-13T19:49:38.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/583

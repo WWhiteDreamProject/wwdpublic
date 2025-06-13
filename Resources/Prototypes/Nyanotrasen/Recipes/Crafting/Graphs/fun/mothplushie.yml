@@ -14,5 +14,12 @@
       - material: Cloth
         amount: 3
         doAfter: 5
+  - node: mothroachhide
+    edges:
+    - to: plush
+      steps:
+      - material: Cloth
+        amount: 3
+        doAfter: 5
   - node: plush
     entity: PlushieMoth

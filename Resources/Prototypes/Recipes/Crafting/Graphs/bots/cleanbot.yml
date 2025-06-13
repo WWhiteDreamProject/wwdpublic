@@ -6,17 +6,17 @@
     edges:
     - to: bot
       steps:
-      - tag: Bucket
-        icon:
-          sprite: Objects/Tools/bucket.rsi
-          state: icon
-        name: bucket
       - tag: ProximitySensor
         icon:
           sprite: Objects/Misc/proximity_sensor.rsi
           state: icon
         name: proximity sensor
         doAfter: 2
+      - tag: Bucket
+        icon:
+          sprite: Objects/Tools/bucket.rsi
+          state: icon
+        name: bucket
       - tag: BorgArm
         icon:
           sprite: Mobs/Silicon/drone.rsi

@@ -66,6 +66,21 @@
         reagents:
         - ReagentId: Cellulose
           Quantity: 3
+  # WWDP short crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: PaperDoor
+    - prototype: PaperWall
+    - prototype: tatamimat
+    - prototype: tatamisingle
 
 
 - type: entity
@@ -130,6 +145,7 @@
     - prototype: SheetPGlass
     - prototype: SheetRPGlass
     - prototype: SheetRPGlass1
+    - prototype: PlasmaDoor # WWDP
 
 - type: entity
   parent: SheetPlasma
@@ -205,6 +221,17 @@
   - type: ShortConstruction
     entries:
     - prototype: CratePlastic
+    - prototype: ShelfRGlass # WWDP
+    - prototype: MaterialDurathread # WWDP
+    - prototype: PlasticFlapsClear # WWDP
+    - prototype: ChairFolding # WWDP
+    - prototype: N14ChairMetalFolding # WWDP
+    - prototype: makeshiftHydroTray # WWDP
+    - prototype: PlasticWall # WWDP
+  # WWDP quick crafts
+  - type: Construction
+    graph: ImprovisedShotgunShellGraph
+    node: plastic
 
 - type: entity
   parent: SheetPlastic
@@ -280,6 +307,7 @@
     - prototype: SheetUGlass
     - prototype: SheetRUGlass
     - prototype: SheetRUGlass1
+    - prototype: WallUranium # WWDP
 
 - type: entity
   parent: SheetUranium
@@ -329,6 +357,20 @@
           - ReagentId: Fat
             Quantity: 3
           canReact: false
+  # WWDP edit - quick crafting
+    - type: UserInterface
+      interfaces:
+        enum.RadialSelectorUiKey.Key:
+          type: RadialSelectorMenuBUI
+    - type: ActivatableUI
+      key: enum.RadialSelectorUiKey.Key
+      inHandsOnly: true
+      requireActiveHand: false
+    - type: ShortConstruction
+      entries:
+      - prototype: TileFlesh
+      - prototype: ChairMeat
+      - prototype: MeatWall
 
 - type: entity
   parent: MaterialSheetMeat

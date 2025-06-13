@@ -55,6 +55,18 @@
   - type: Tag
     tags:
     - Wheat
+  # WWDP quick crafts
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: strawHat
 
 - type: entity
   name: meatwheat bushel
@@ -276,7 +288,7 @@
     flavors:
       - banana
   - type: Food
-    trash: 
+    trash:
     - TrashBananaPeel
   - type: SolutionContainerManager
     solutions:
@@ -316,7 +328,7 @@
       - banana
       - nothing
   - type: Food
-    trash: 
+    trash:
     - TrashMimanaPeel
   - type: SolutionContainerManager
     solutions:
@@ -793,6 +805,9 @@
     entries:
       Burger: Potato
       Taco: Potato
+  - type: Construction # WWDP quick crafts
+    graph: PowerCellPotato
+    node: potato
 
 
 - type: entity
@@ -1097,7 +1112,7 @@
     flavors:
       - corn
   - type: Food
-    trash: 
+    trash:
     - FoodCornTrash
   - type: SolutionContainerManager
     solutions:
@@ -1587,6 +1602,10 @@
     entries:
       Taco: AmbrosiaVulgaris
       Burger: AmbrosiaVulgarisBurger
+  # WWDP quick crafts
+  - type: Construction
+    graph: flowerwreath
+    node: ambrosia
 
 - type: entity
   name: ambrosia deus
@@ -1664,12 +1683,12 @@
   name: glasstle
   parent: FoodProduceBase
   id: FoodGlasstle
-  description: A fragile crystal plant with lot of spiky thorns. 
+  description: A fragile crystal plant with lot of spiky thorns.
   components:
   - type: Item
     size: Small
     sprite: Objects/Specific/Hydroponics/glasstle.rsi
-    heldPrefix: produce  
+    heldPrefix: produce
   - type: FlavorProfile
     flavors:
       - sharp
@@ -1686,7 +1705,7 @@
     seedId: glasstle
   - type: Extractable
     grindableSolutionName: food
-  - type: Damageable 
+  - type: Damageable
     damageContainer: Inorganic
   - type: ToolRefinable
     refineResult:
@@ -1709,7 +1728,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: DamageOnHit 
+  - type: DamageOnHit
     damage:
       types:
         Blunt: 10
@@ -1781,7 +1800,7 @@
   - type: Produce
     seedId: gatfruit
   - type: Food
-    trash: 
+    trash:
     - WeaponRevolverPython
   - type: Tag
     tags:
@@ -2227,7 +2246,7 @@
     flavors:
       - bungo
   - type: Food
-    trash: 
+    trash:
     - FoodBungoPit
   - type: SolutionContainerManager
     solutions:

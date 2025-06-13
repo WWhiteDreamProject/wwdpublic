@@ -53,10 +53,12 @@
 - type: randomHumanoidSettings
   id: DeathSquad
   randomizeName: false
-  speciesBlacklist:
-    - Shadowkin
-    - Monkey # Shitmed Change
-    - Kobold # Shitmed Change
+  speciesWhitelist: # WWDP humans only
+    - Human
+  # speciesBlacklist:
+  #   - Shadowkin
+  #   - Monkey # Shitmed Change
+  #   - Kobold # Shitmed Change
   components:
     - type: MindShield
     - type: GhostRole
@@ -94,10 +96,12 @@
 - type: randomHumanoidSettings
   id: ERTLeader
   randomizeName: false
-  speciesBlacklist:
-    - Shadowkin
-    - Monkey # Shitmed Change
-    - Kobold # Shitmed Change
+  speciesWhitelist: # WWDP humans only
+    - Human
+  # speciesBlacklist:
+  #   - Shadowkin
+  #   - Monkey # Shitmed Change
+  #   - Kobold # Shitmed Change
   components:
     - type: MindShield
     - type: GhostRole
@@ -520,10 +524,12 @@
 
 - type: randomHumanoidSettings
   id: CBURNAgent
-  speciesBlacklist:
-    - Shadowkin
-    - Monkey # Shitmed Change
-    - Kobold # Shitmed Change
+  speciesWhitelist: # WWDP humans only
+    - Human
+  # speciesBlacklist:
+  #   - Shadowkin
+  #   - Monkey # Shitmed Change
+  #   - Kobold # Shitmed Change
   components:
     - type: MindShield
     - type: Loadout
@@ -555,10 +561,12 @@
 
 - type: randomHumanoidSettings
   id: CentcomOfficial
-  speciesBlacklist:
-    - Shadowkin
-    - Monkey # Shitmed Change
-    - Kobold # Shitmed Change
+  speciesWhitelist: # WWDP humans only
+    - Human
+  # speciesBlacklist:
+  #   - Shadowkin
+  #   - Monkey # Shitmed Change
+  #   - Kobold # Shitmed Change
   components:
     - type: MindShield
     - type: GhostRole
@@ -645,10 +653,10 @@
 
 - type: randomHumanoidSettings
   id: Cluwne
-  speciesBlacklist:
-    - Shadowkin
-    - Monkey # Shitmed Change
-    - Kobold # Shitmed Change
+  # speciesBlacklist: # WWDP not needed anymore
+  #   - Shadowkin
+  #   - Monkey # Shitmed Change
+  #   - Kobold # Shitmed Change
   randomizeName: false
   components:
     - type: GhostRole
@@ -871,6 +879,8 @@
   speciesWhitelist: # WWDP
   - Human
   randomizeName: false
+  speciesWhitelist: # WWDP humans only
+    - Human
   components:
     - type: GhostRole
       name: ghost-role-information-disaster-victim-name

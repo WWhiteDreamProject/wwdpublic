@@ -58,6 +58,19 @@
         reagents:
         - ReagentId: Cellulose
           Quantity: 6
+  # WWDP edit - quick crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: BoxCardboard
+    - prototype: BigBox
 
 - type: entity
   parent: MaterialCardboard
@@ -79,8 +92,8 @@
   - type: Stack
     count: 1
   - type: Construction #WWDP edit
-    graph: CardboardGraph
-    node: cardboard
+    graph: PaperGraph
+    node: startcardboard
 
 - type: entity
   parent: MaterialBase
@@ -142,6 +155,58 @@
   - type: Construction
     graph: WebObjects # not sure if I should either keep this here or just make another prototype. Will keep it here just in case.
     node: cloth
+  # WWDP short crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: gauze
+    - prototype: MaterialDurathread
+    - prototype: blindfold
+    - prototype: muzzle
+    - prototype: rag
+    - prototype: N14Bedroll
+    - category:
+        name: Prothetics
+        icon:
+          sprite: Mobs/Customization/cyberlimbs/bishop/bishop_main.rsi
+          state: l_arm-combined
+        entries:
+        - prototype: MakeshiftLeftArm
+        - prototype: MakeshiftRightArm
+        - prototype: MakeshiftLeftLeg
+        - prototype: MakeshiftRightLeg
+    - category:
+        name: Clothing
+        icon:
+          sprite: Clothing/Shoes/Misc/clothWrap.rsi
+          state: icon
+        entries:
+        - prototype: ClothingClothWrap
+        - prototype: ghost_sheet
+    - category:
+        name: Curtains
+        icon:
+          sprite: Structures/Decoration/Curtains/hospital.rsi
+          state: closed
+        entries:
+        - prototype: HospitalCurtains
+        - prototype: Curtains
+        - prototype: CurtainsBlack
+        - prototype: CurtainsBlue
+        - prototype: CurtainsCyan
+        - prototype: CurtainsGreen
+        - prototype: CurtainsOrange
+        - prototype: CurtainsPink
+        - prototype: CurtainsPurple
+        - prototype: CurtainsRed
+        - prototype: CurtainsWhite
 
 - type: entity
   parent: MaterialCloth
@@ -259,6 +324,110 @@
         reagents:
         - ReagentId: Cellulose
           Quantity: 10
+  # WWDP short crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: LightTorch
+    - prototype: FishingRodMakeshift
+    - category:
+        name: Weapons
+        icon:
+          sprite: Objects/Weapons/Melee/baseball_bat.rsi
+          state: icon
+        entries:
+        - prototype: bat
+        - prototype: ImprovisedBow
+        - prototype: ClothingBeltQuiver
+        - prototype: GrenadeTrap
+        - prototype: riflestock
+        - prototype: WoodenBuckler
+    - category:
+        name: Tiles
+        icon:
+          sprite: Objects/Tiles/tile.rsi
+          state: wood
+        entries:
+        - prototype: TileWood
+        - prototype: TileWoodLarge
+    - category:
+        name: Fences
+        icon:
+          sprite: Structures/Walls/wooden_fence.rsi
+          state: door_closed
+        entries:
+        - prototype: FenceWood
+        - prototype: FenceWoodEnd
+        - prototype: FenceWoodCorner
+        - prototype: FenceWoodTJunction
+        - prototype: FenceWoodGate
+        - prototype: FenceWoodSmall
+        - prototype: FenceWoodEndSmall
+        - prototype: FenceWoodCornerSmall
+        - prototype: FenceWoodTJunctionSmall
+        - prototype: FenceWoodGateSmall
+    - category:
+        name: Structural
+        icon:
+          sprite: Structures/Doors/MineralDoors/wood_door.rsi
+          state: closed
+        entries:
+        - prototype: WoodDoor
+        - prototype: N14DoorWood
+        - prototype: Barricade
+        - prototype: BarricadeDirectional
+        - prototype: N14WoodWallLog
+        - prototype: WoodWall
+    - category:
+        name: Furniture
+        icon:
+          sprite: Structures/Furniture/furniture.rsi
+          state: dresser
+        entries:
+        - prototype: WallTorch
+        - prototype: Bookshelf
+        - prototype: ShelfBar
+        - prototype: ShelfWood
+        - prototype: ShelfRWood
+        - prototype: DogBed
+        - prototype: Dresser
+        - prototype: NoticeBoard
+        - prototype: N14BedWood
+        - prototype: CrateCoffin
+        - prototype: CrateLivestock
+        - prototype: ShowCase
+    - category:
+        name: Chairs
+        icon:
+          sprite: Structures/Furniture/chairs.rsi
+          state: wooden
+        entries:
+        - prototype: ChairWood
+        - prototype: N14ChairArmchair
+        - prototype: N14ChairWoodPadded
+        - prototype: N14ChairWoodSettler
+        - prototype: N14ChairWood
+        - prototype: N14ChairWood1
+        - prototype: ChairRitual
+        - prototype: ChairWoodBench
+    - category:
+        name: Tables
+        icon:
+          sprite: _Nuclear14/Structures/Furniture/Tables/table_settler.rsi
+          state: full
+        entries:
+        - prototype: N14TableWoodSettler
+        - prototype: TableCounterWood
+        - prototype: N14TableCounterBar
+        - prototype: TableWood
+        - prototype: TableWoodReinforced
 
 - type: entity
   parent: MaterialWoodPlank
@@ -353,6 +522,10 @@
   - type: Tag
     tags:
     - HideCorgi
+  # WWDP quick crafts
+  - type: Construction
+    graph: ClothingOuterSuitIan
+    node: corgihide
 
 - type: entity
   parent: MaterialBase
@@ -438,6 +611,18 @@
       - RawMaterial
   - type: Item
     heldPrefix: cotton
+  # WWDP edit - quick crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: CottonWovenCloth
 
 - type: entity
   parent: MaterialCotton
@@ -551,6 +736,26 @@
       - ReagentId: Honk
         Quantity: 5
   - type: Appearance
+  # WWDP short crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: BananiumAltar
+    - prototype: BananiumClownStatue
+    - prototype: BananiumDoor
+    - prototype: ClownWall
+    - prototype: FloorBananium
+    - prototype: HornBananium
+    - prototype: BananaClownMask
+    - prototype: BananaClownJumpsuit
+    - prototype: BananaClownShoes
 
 - type: entity
   parent: MaterialBananium
@@ -647,6 +852,20 @@
         reagents:
         - ReagentId: Vitamin
           Quantity: 3
+  # WWDP short crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: BoneHelmet
+    - prototype: BoneArmor
+    - prototype: SpearBone
 
 - type: entity
   parent: MaterialBones

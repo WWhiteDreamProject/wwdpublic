@@ -9,7 +9,7 @@
   - type: Clothing
     sprite: DeltaV/Clothing/Eyes/Hud/prescmedhud.rsi
   - type: Construction
-    graph: PrescriptionMedHud
+    graph: PrescriptionHud # WWDP
     node: prescmedhud
   - type: VisionCorrection
   - type: ShowHealthBars
@@ -34,7 +34,7 @@
     sprite: DeltaV/Clothing/Eyes/Hud/prescsechud.rsi
   - type: VisionCorrection
   - type: Construction
-    graph: PrescriptionSecHud
+    graph: PrescriptionHud # WWDP
     node: prescsechud
   - type: Tag
     tags:

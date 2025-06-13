@@ -27,6 +27,8 @@ public sealed class SlipperySystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
+    public const float SlippedFrictionModifier = 0.13f; // WWDP, lower to account for StandingStateComponent/LayingFrictionMultiplier
+
     public override void Initialize()
     {
         base.Initialize();
@@ -109,7 +111,7 @@ public sealed class SlipperySystem : EntitySystem
 
         var playSound = !_statusEffects.HasStatusEffect(other, "KnockedDown");
 
-        _stun.TryParalyze(other, TimeSpan.FromSeconds(slippedEv.ParalyzeTime), true);
+        _stun.TryParalyze(other, TimeSpan.FromSeconds(slippedEv.ParalyzeTime), true, frictionMultiplier: SlippedFrictionModifier); // WWDP friction
 
         RaiseLocalEvent(other, new MoodEffectEvent("MobSlipped"));
 

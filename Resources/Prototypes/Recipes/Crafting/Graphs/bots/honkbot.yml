@@ -6,6 +6,11 @@
     edges:
     - to: bot
       steps:
+      - tag: ProximitySensor # WWDP edit moved sensor up
+        icon:
+          sprite: Objects/Misc/proximity_sensor.rsi
+          state: icon
+        name: proximity sensor
       - tag: HappyHonk
         icon:
           sprite: Objects/Storage/Happyhonk/clown.rsi
@@ -17,11 +22,6 @@
             state: icon
         name: bike horn
         doAfter: 2
-      - tag: ProximitySensor
-        icon:
-          sprite: Objects/Misc/proximity_sensor.rsi
-          state: icon
-        name: proximity sensor
       - tag: BorgArm
         icon:
           sprite: Mobs/Silicon/drone.rsi
@@ -39,6 +39,11 @@
     edges:
     - to: bot
       steps:
+      - tag: ProximitySensor # WWDP moved sensor up
+        icon:
+          sprite: Objects/Misc/proximity_sensor.rsi
+          state: icon
+        name: proximity sensor
       - tag: CluwneHappyHonk
         icon:
           sprite: Objects/Storage/Happyhonk/cluwne.rsi
@@ -50,11 +55,6 @@
           state: icon
         name: broken bike horn
         doAfter: 2
-      - tag: ProximitySensor
-        icon:
-          sprite: Objects/Misc/proximity_sensor.rsi
-          state: icon
-        name: proximity sensor
       - tag: BorgArm
         icon:
           sprite: Mobs/Silicon/drone.rsi

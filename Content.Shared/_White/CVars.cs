@@ -99,13 +99,13 @@ public sealed class WhiteCVars
 
     #region Shoving
     /// <summary>
-    /// Shove range multiplier.
+    /// Arbitrary shove range multiplier. Does not affect entities with ItemComponent.
     /// </summary>
     public static readonly CVarDef<float> ShoveRange =
-        CVarDef.Create("game.shove_range", 1f, CVar.SERVER | CVar.ARCHIVE);
+        CVarDef.Create("game.shove_range", 8f, CVar.SERVER | CVar.ARCHIVE);
 
     /// <summary>
-    /// Shove speed multiplier, does not affect range.
+    /// Arbitrary shove speed multiplier, does not affect range (unless you put it too high).
     /// </summary>
     public static readonly CVarDef<float> ShoveSpeed =
         CVarDef.Create("game.shove_speed", 3f, CVar.SERVER | CVar.ARCHIVE);
@@ -114,7 +114,7 @@ public sealed class WhiteCVars
     /// How much should the mass difference affect shove range & speed.
     /// </summary>
     public static readonly CVarDef<float> ShoveMassFactor =
-        CVarDef.Create("game.shove_mass_factor", 5f, CVar.SERVER | CVar.ARCHIVE);
+        CVarDef.Create("game.shove_mass_factor", 3f, CVar.SERVER | CVar.ARCHIVE);
     #endregion
 
     #region Graphics

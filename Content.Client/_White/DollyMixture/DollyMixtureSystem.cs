@@ -28,7 +28,9 @@ public sealed class DollyMixtureSystem : EntitySystem
 
             dollymix.LastAngle = angle;
             for (int i = 0; i < dollymix.LayerIndices.Count; i++)
+            {
                 sprite.LayerSetRotation(dollymix.LayerIndices[i], angle);
+            }
         }
     }
 
@@ -71,24 +73,32 @@ public sealed class DollyMixtureSystem : EntitySystem
         for (int i = 0; i < comp.States.Count; i++)
         {
             string stateId = comp.States[i];
-            Vector2 layerOffset = comp.Offset / EyeManager.PixelsPerMeter + comp.LayerOffset / EyeManager.PixelsPerMeter * i;
-
-            int layerIndex = sprite.AddBlankLayer();
-            sprite.LayerSetRSI(layerIndex, RSI);
-            sprite.LayerSetState(layerIndex, stateId);
-            sprite.LayerSetOffset(layerIndex, layerOffset);
-            sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
-            comp.LayerIndices.Add(layerIndex);
-
-            if (sprite.BaseRSI?.TryGetState($"{stateId}-unshaded", out var unshadedState) ?? false) // todo: this is retarded
+            for (int repeat = 0; repeat < comp.RepeatLayers; repeat++)
             {
-                layerIndex = sprite.AddBlankLayer();
+                Vector2 layerOffset = comp.Offset / EyeManager.PixelsPerMeter + comp.LayerOffset / EyeManager.PixelsPerMeter * i;
+                layerOffset += comp.LayerOffset * ((float)repeat / comp.RepeatLayers);
+
+                int layerIndex = sprite.AddBlankLayer();
                 sprite.LayerSetRSI(layerIndex, RSI);
-                sprite.LayerSetState(layerIndex, $"{stateId}-unshaded");
-                sprite.LayerSetShader(layerIndex, "unshaded");
+                sprite.LayerSetState(layerIndex, stateId);
                 sprite.LayerSetOffset(layerIndex, layerOffset);
+                sprite.LayerSetScale(layerIndex, comp.LayerScale);
                 sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
+                if (comp.DefaultShader is not null)
+                    sprite.LayerSetShader(layerIndex, comp.DefaultShader); // crutch, need to assign a proper datadef for each dollymix layer instead of this.
                 comp.LayerIndices.Add(layerIndex);
+
+                if (sprite.BaseRSI?.TryGetState($"{stateId}-unshaded", out var unshadedState) ?? false) // todo: assign a proper datadef for each dollymix layer instead of this.
+                {
+                    layerIndex = sprite.AddBlankLayer();
+                    sprite.LayerSetRSI(layerIndex, RSI);
+                    sprite.LayerSetState(layerIndex, $"{stateId}-unshaded");
+                    sprite.LayerSetShader(layerIndex, "unshaded");
+                    sprite.LayerSetOffset(layerIndex, layerOffset);
+                    sprite.LayerSetScale(layerIndex, comp.LayerScale);
+                    sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
+                    comp.LayerIndices.Add(layerIndex);
+                }
             }
         }
         //sprite.GranularLayersRendering = true;

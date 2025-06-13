@@ -46,6 +46,9 @@
     - Honking
     useSound:
       collection: BikeHorn
+  - type: Construction # WWDP
+    graph: BananiumHorn
+    node: basehorn
 
 - type: entity
   parent: BaseItem

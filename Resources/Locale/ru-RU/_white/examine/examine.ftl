@@ -25,6 +25,7 @@ examine-can-see-selfaware = Осмотрев себя, вы можете уви�
 examine-can-see-nothing-selfaware = На вас вообще ничего нет!
 
 id-examine-selfaware = - [bold]{$item}[/bold] на вашем поясе.
+head-examine-selfaware = - [bold]{$item}[/bold] на вашей голове.
 eyes-examine-selfaware = - [bold]{$item}[/bold] на ваших глазах.
 mask-examine-selfaware = - [bold]{$item}[/bold] на вашем лице.
 neck-examine-selfaware = - [bold]{$item}[/bold] на вашей шее.
