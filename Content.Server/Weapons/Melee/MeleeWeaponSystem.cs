@@ -221,12 +221,6 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         float shovespeed = _config.GetCVar(WhiteCVars.ShoveSpeed);
         float shovemass = _config.GetCVar(WhiteCVars.ShoveMassFactor);
 
-        var force = shoverange * _contests.MassContest(user, target, rangeFactor: shovemass);
-
-        var userPos = user.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
-        var targetPos = target.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
-        var pushVector = (targetPos - userPos).Normalized() * force;
-
         var animated = false;
         var throwInAir = false;
 
@@ -234,7 +228,14 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         {
             animated = true;
             throwInAir = true;
+            shoverange = 1.2f; // Constant range, approximately the same as the regular throw
         }
+
+        var force = shoverange * _contests.MassContest(user, target, rangeFactor: shovemass);
+
+        var userPos = user.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
+        var targetPos = target.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
+        var pushVector = (targetPos - userPos).Normalized() * force;
 
         _throwing.TryThrow(target, pushVector, force * shovespeed, user, animated: animated, throwInAir: throwInAir);
     }
@@ -289,11 +290,10 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     // WWDP shove stamina damage based on mass
     private float CalculateShoveStaminaDamage(EntityUid disarmer, EntityUid disarmed)
     {
+        float shovemass = _config.GetCVar(WhiteCVars.ShoveMassFactor);
         var baseStaminaDamage = TryComp<ShovingComponent>(disarmer, out var shoving) ? shoving.StaminaDamage : ShovingComponent.DefaultStaminaDamage;
 
-        return
-            baseStaminaDamage
-            * _contests.MassContest(disarmer, disarmed, false, 4f);
+        return baseStaminaDamage * _contests.MassContest(disarmer, disarmed, false, shovemass);
     }
 
     public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation, bool predicted = true)
