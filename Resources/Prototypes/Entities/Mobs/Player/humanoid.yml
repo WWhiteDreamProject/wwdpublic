@@ -646,10 +646,10 @@
 
 - type: randomHumanoidSettings
   id: Cluwne
-  speciesBlacklist:
-    - Shadowkin
-    - Monkey # Shitmed Change
-    - Kobold # Shitmed Change
+  # speciesBlacklist: # WWDP not needed anymore
+  #   - Shadowkin
+  #   - Monkey # Shitmed Change
+  #   - Kobold # Shitmed Change
   randomizeName: false
   components:
     - type: GhostRole

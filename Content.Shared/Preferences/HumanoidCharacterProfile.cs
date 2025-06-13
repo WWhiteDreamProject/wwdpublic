@@ -285,7 +285,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
         var species = random.Pick(prototypeManager
             .EnumeratePrototypes<SpeciesPrototype>()
-            .Where(x => ignoredSpecies == null ? x.RoundStart : x.RoundStart && !ignoredSpecies.Contains(x.ID))
+            .Where(x => !ignoredSpecies?.Contains(x.ID) ?? true) // WWDP
             .ToArray()
         ).ID;
 

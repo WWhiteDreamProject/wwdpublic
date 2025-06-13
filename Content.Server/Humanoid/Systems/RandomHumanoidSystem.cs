@@ -69,7 +69,7 @@ public sealed class RandomHumanoidSystem : EntitySystem
         if (whitelist.Any())
             ignoredspecies = ignoredspecies.Except(whitelist).ToHashSet();
         else if (blacklist.Any())
-            ignoredspecies = blacklist;
+            ignoredspecies = blacklist.Union(_notRoundStartSpecies).ToHashSet();
         else
             ignoredspecies = _notRoundStartSpecies;
 
