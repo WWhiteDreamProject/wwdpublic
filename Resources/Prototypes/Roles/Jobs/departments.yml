@@ -1,5 +1,6 @@
 - type: department
   id: Logistics # DeltaV - Logistics Department replacing Cargo
+  name: department-Logistics
   description: department-Cargo-description
   color: "#A46106"
   roles:
@@ -7,12 +8,15 @@
   - Quartermaster
   - SalvageSpecialist
   - MailCarrier # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
+  weight: -4 # WWDP
+  buttonStyle: ButtonColorCargoDepartment # WWDP
 
 - type: department
   id: Civilian
+  name: department-Civilian
   description: department-Civilian-description
   color: "#9FED58"
-  weight: -10
+  weight: -3 # WWDP
   roles:
   - Bartender
   - Botanist
@@ -34,9 +38,11 @@
   # - Prisoner # WWDP moved to Security
   - Gladiator # Nyanotrasen - Gladiator, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
   - Hobo # White Dream
+  buttonStyle: ButtonColorCivilianDepartment # WWDP
 
 - type: department
   id: Command
+  name: department-Command
   description: department-Command-description
   color: "#334E6D"
   roles:
@@ -61,10 +67,12 @@
   - DeathSquad
   - AdministrativeAssistant # Delta V - Administrative Assistant, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Command/admin_assistant.yml
   primary: false
-  weight: 100
+  weight: -1 # WWDP
+  buttonStyle: ButtonColorCommandDepartment # WWDP
 
 # - type: department # WWDP disabled
 #   id: Dignitary
+#   name: department-Dignitary
 #   description: department-Dignitary-description
 #   color: "#33FE6D"
 #   roles:
@@ -76,6 +84,7 @@
 
 - type: department
   id: Engineering
+  name: department-Engineering
   description: department-Engineering-description
   color: "#EFB341"
   roles:
@@ -84,9 +93,12 @@
   - SeniorEngineer
   - StationEngineer
   - TechnicalAssistant
+  weight: -5 # WWDP
+  buttonStyle: ButtonColorEngineeringDepartment # WWDP
 
 - type: department
   id: Medical
+  name: department-Medical
   description: department-Medical-description
   color: "#52B4E9"
   roles:
@@ -98,12 +110,15 @@
   - Paramedic
   - SeniorPhysician
   - MedicalBorg  # Delta V - Medical Borg, see Resources/Prototypes/DeltaV/Roles/Jobs/Medical/medicalborg.yml
+  weight: -6 # WWDP
+  buttonStyle: ButtonColorMedicalDepartment # WWDP
 
 - type: department
   id: Security
+  name: department-Security
   description: department-Security-description
   color: "#DE3A3A"
-  weight: 20
+  weight: -2 # WWDP
   roles:
   - HeadOfSecurity
   - SecurityCadet
@@ -114,9 +129,11 @@
   - PrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
   - Brigmedic # DeltaV - Brigmedic, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
   - Prisoner # Nyanotrasen - Prisoner, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/prisoner.yml # WWDP moved to SEC
+  buttonStyle: ButtonColorSecurityDepartment # WWDP
 
 - type: department
   id: Epistemics # DeltaV - Epistemics Department replacing Science
+  name: department-Epistemics
   description: department-Science-description
   color: "#D381C9"
   roles:
@@ -128,21 +145,27 @@
   - ForensicMantis # Nyanotrasen - ForensicMantis, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Epistemics/forensicmantis.yml
   - Librarian
   - Roboticist
+  weight: -7 # WWDP
+  buttonStyle: ButtonColorScienceDepartment # WWDP
 
 - type: department
   id: Silicon
+  name: department-Silicon
   description: department-Silicon-description
   color: "#D381C9"
   roles:
   - Borg
   - StationAi
+  weight: -8 # WWDP
+  buttonStyle: ButtonColorSiliconDepartment # WWDP
 
-# - type: department # WWDP disabled
-#   id: Specific
-#   description: department-Specific-description
-#   color: "#9FED58"
-#   weight: 10
-#   roles:
+- type: department
+  id: Specific
+  name: department-Specific
+  description: department-Specific-description
+  color: "#9FED58"
+  weight: -42 # WWDP
+#   roles: # WWDP disabled
 #   - Boxer
 #   - Reporter
 #   - Zookeeper
@@ -152,3 +175,4 @@
 #   - Prisoner # Nyanotrasen - Prisoner, see Resrouces/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/prisoner.yml
 #   - Brigmedic # DeltaV - Corpsman, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
 #   primary: false
+  buttonStyle: ButtonColorSpecificDepartment # WWDP
