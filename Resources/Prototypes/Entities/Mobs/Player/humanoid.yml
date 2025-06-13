@@ -70,6 +70,7 @@
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ DeathSquadGear ]
+    - type: RandomHumanoidAppearance # WWDP
     - type: RandomMetadata
       nameSegments:
         - NamesFirstMilitaryLeader
@@ -112,6 +113,7 @@
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ ERTLeaderGear ]
+    - type: RandomHumanoidAppearance # WWDP
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitaryLeader
@@ -539,6 +541,7 @@
       raffle:
         settings: short
     - type: GhostTakeoverAvailable
+    - type: RandomHumanoidAppearance # WWDP
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -572,6 +575,7 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: default
+    - type: RandomHumanoidAppearance # WWDP
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ CentcomGear ]
@@ -592,9 +596,9 @@
 
 - type: randomHumanoidSettings
   id: SyndicateAgent
-  speciesWhitelist: # WWDP humans only
-    - Human
-  # speciesBlacklist:
+  speciesWhitelist: # WWDP
+  - Human
+  # speciesBlacklist: # WWDP
   #   - Shadowkin
   #   - Monkey # Shitmed Change
   #   - Kobold # Shitmed Change
@@ -616,9 +620,9 @@
 
 - type: randomHumanoidSettings
   id: NukeOp
-  speciesWhitelist: # WWDP humans only
+  speciesWhitelist: # WWDP
     - Human
-  # speciesBlacklist:
+  # speciesBlacklist: # WWDP
   #   - Shadowkin
   #   - Monkey # Shitmed Change
   #   - Kobold # Shitmed Change
@@ -628,6 +632,8 @@
     - type: NukeOperative
     - type: Psionic
       powerRollMultiplier: 7
+    - type: Loadout # WWDP
+      prototypes: [ SyndicateOperativeGearFull ]
 
 - type: entity
   id: RandomHumanoidSpawnerCluwne
@@ -639,6 +645,7 @@
       state: cluwne
     - type: RandomHumanoidSpawner
       settings: Cluwne
+    - type: RandomHumanoidAppearance # WWDP
     - type: RandomMetadata
       nameSegments:
       - names_first
@@ -700,6 +707,7 @@
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ CargoTechGear ]
+    - type: RandomHumanoidAppearance # WWDP
     - type: RandomMetadata
       nameSegments:
       - names_first
@@ -715,8 +723,8 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Fun/bikehorn.rsi
-          state: icon
+        - sprite: Markers/jobs.rsi # WWDP
+          state: clown # WWDP
     - type: RandomSpawner
       prototypes:
       - RandomHumanoidClownTroupe
@@ -729,8 +737,8 @@
   name: clown troupe ghost role
   components:
     - type: Sprite
-      sprite: Objects/Tools/appraisal-tool.rsi
-      state: icon
+      sprite: Markers/jobs.rsi # WWDP
+      state: clown # WWDP
     - type: RandomHumanoidSpawner
       settings: ClownTroupe
 
@@ -755,6 +763,7 @@
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ ClownGear ]
+    - type: RandomHumanoidAppearance # WWDP
     - type: RandomMetadata
       nameSegments:
       - names_clown
@@ -770,6 +779,7 @@
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ BananaClown ]
+    - type: RandomHumanoidAppearance # WWDP
     - type: RandomMetadata
       nameSegments:
       - names_clown
@@ -813,6 +823,7 @@
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ ChefGear ]
+    - type: RandomHumanoidAppearance # WWDP
     - type: RandomMetadata
       nameSegments:
       - names_first
@@ -865,9 +876,9 @@
 
 - type: randomHumanoidSettings
   id: DisasterVictimResearchDirector
+  speciesWhitelist: # WWDP
+  - Human
   randomizeName: false
-  speciesWhitelist: # WWDP humans only
-    - Human
   components:
     - type: GhostRole
       name: ghost-role-information-disaster-victim-name
@@ -878,6 +889,7 @@
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ ResearchDirectorGear ]
+    - type: RandomHumanoidAppearance # WWDP
     - type: RandomMetadata
       nameSegments:
       - names_first
@@ -886,8 +898,8 @@
 - type: randomHumanoidSettings
   id: DisasterVictimCMO
   randomizeName: false
-  speciesWhitelist: # WWDP humans only
-    - Human
+  speciesWhitelist: # WWDP
+  - Human
   components:
     - type: GhostRole
       name: ghost-role-information-disaster-victim-name
@@ -898,6 +910,7 @@
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ CMOGear ]
+    - type: RandomHumanoidAppearance # WWDP
     - type: RandomMetadata
       nameSegments:
       - names_first
@@ -906,8 +919,8 @@
 - type: randomHumanoidSettings
   id: DisasterVictimCaptain
   randomizeName: false
-  speciesWhitelist: # WWDP humans only
-    - Human
+  speciesWhitelist: # WWDP
+  - Human
   components:
     - type: GhostRole
       name: ghost-role-information-disaster-victim-name
@@ -918,6 +931,7 @@
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ CaptainGear ]
+    - type: RandomHumanoidAppearance # WWDP
     - type: RandomMetadata
       nameSegments:
       - names_first
@@ -952,7 +966,7 @@
 - type: randomHumanoidSettings
   id: SyndieDisasterVictim
   randomizeName: false
-  speciesWhitelist: # WWDP humans only
+  speciesWhitelist: # WWDP
     - Human
   components:
     - type: NpcFactionMember
@@ -964,6 +978,7 @@
       rules: ghost-role-information-syndie-disaster-victim-rules
       raffle:
         settings: short
+    - type: RandomHumanoidAppearance # WWDP
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ SyndicateOperativeGearCivilian ]

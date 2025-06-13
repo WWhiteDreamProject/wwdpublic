@@ -10,13 +10,16 @@
 
 - type: randomHumanoidSettings
   id: SyndicateListener
-  speciesBlacklist:
-    - Shadowkin
-    - Monkey # Shitmed Change
-    - Kobold # Shitmed Change
+  speciesWhitelist: # WWDP
+  - Human
+  # speciesBlacklist:
+  #   - Shadowkin
+  #   - Monkey # Shitmed Change
+  #   - Kobold # Shitmed Change
   components:
     - type: Loadout
       prototypes: [SyndicateListenerGear]
+    - type: RandomHumanoidAppearance # WWDP
 
 # Mobsters
 
@@ -38,10 +41,12 @@
 - type: randomHumanoidSettings
   id: Mobster
   randomizeName: false
-  speciesBlacklist:
-    - Shadowkin
-    - Monkey # Shitmed Change
-    - Kobold # Shitmed Change
+  speciesWhitelist: # WWDP
+    - Human
+  # speciesBlacklist: # WWDP
+  #   - Shadowkin
+  #   - Monkey # Shitmed Change
+  #   - Kobold # Shitmed Change
   components:
     - type: GhostRole
       name: Mobster
@@ -49,6 +54,7 @@
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ MobsterGear ]
+    - type: RandomHumanoidAppearance # WWDP
     - type: RandomMetadata
       nameSegments:
       - fake_human_first
@@ -73,10 +79,12 @@
 - type: randomHumanoidSettings
   id: MobsterAlt
   randomizeName: false
-  speciesBlacklist:
-    - Shadowkin
-    - Monkey # Shitmed Change
-    - Kobold # Shitmed Change
+  speciesWhitelist: # WWDP
+  - Human
+  # speciesBlacklist: # WWDP
+  #   - Shadowkin
+  #   - Monkey # Shitmed Change
+  #   - Kobold # Shitmed Change
   components:
     - type: GhostRole
       name: Mobster
@@ -84,6 +92,7 @@
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ MobsterGearAlt ]
+    - type: RandomHumanoidAppearance # WWDP
     - type: RandomMetadata
       nameSegments:
       - fake_human_first

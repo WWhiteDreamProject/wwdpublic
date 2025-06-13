@@ -423,10 +423,13 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletPulse # WWDP
-    fireCost: 200
+    fireCost: 100 # WWDP
   - type: Battery
-    maxCharge: 2000
-    startingCharge: 2000
+    maxCharge: 3000 # WWDP
+    startingCharge: 3000 # WWDP
+  - type: GunOverheat # WWDP
+    temperatureLimit: 500
+    heatCost: 100
 
 - type: entity
   name: antique pulse pistol

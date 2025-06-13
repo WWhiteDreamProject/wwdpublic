@@ -1,0 +1,3 @@
+﻿ent-ClothingBeltMilitaryWebbingDeathsquadFilled = { ent-ClothingBeltMilitaryWebbing }
+  .suffix = Заполненный, Эскадрон Смерти
+  .desc = { ent-ClothingBeltMilitaryWebbing.desc }
