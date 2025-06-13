@@ -3223,3 +3223,16 @@ Entries:
   id: 349
   time: '2025-06-13T19:47:27.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/580
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Емагу возвращён полный функционал.
+    - type: Tweak
+      message: Стоимость емага в аплинке 4 -> 8 ТК.
+    - type: Tweak
+      message: >-
+        Doorjack переименован в "дешифратор шлюзов". Теперь это бюджетная версия
+        емага,  всё так же может только открывать шлюзы.
+  id: 350
+  time: '2025-06-13T19:48:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/581
