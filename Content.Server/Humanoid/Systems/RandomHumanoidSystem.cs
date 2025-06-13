@@ -34,7 +34,10 @@ public sealed class RandomHumanoidSystem : EntitySystem
     {
         // WWDP edit start
         if (component.SettingsPrototypeId == null)
+        {
+            QueueDel(uid);
             return;
+        }
 
         var speciesList = _prototypeManager.EnumeratePrototypes<SpeciesPrototype>()
             .Where(x => !x.RoundStart)
