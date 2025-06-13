@@ -3236,3 +3236,13 @@ Entries:
   id: 350
   time: '2025-06-13T19:48:06.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/581
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Лежачие тела теперь не скользят по полу, а наоборот замедляются. Можете
+        брать их на руки, катать на каталках, или сопротивляться таким образом
+        когда СБ тащат вас в бриг.
+  id: 351
+  time: '2025-06-13T19:49:38.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/583
