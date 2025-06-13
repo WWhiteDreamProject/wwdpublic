@@ -3216,3 +3216,10 @@ Entries:
   id: 348
   time: '2025-06-13T19:46:47.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/578
+- author: vanx
+  changes:
+    - type: Add
+      message: Переводы культа и не только
+  id: 349
+  time: '2025-06-13T19:47:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/580
