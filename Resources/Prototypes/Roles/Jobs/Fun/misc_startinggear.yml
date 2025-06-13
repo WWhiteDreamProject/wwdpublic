@@ -218,7 +218,7 @@
     pocket1: RadioHandheld
     pocket2: WeaponLaserGun
     suitstorage: OxygenTankFilled
-    belt: ClothingBeltBandolier
+    belt: ClothingBeltMilitaryWebbingCBURNFilled
   innerClothingSkirt: ClothingUniformJumpsuitColorBrown
   satchel: ClothingBackpackDuffelCBURNFilled
   duffelbag: ClothingBackpackDuffelCBURNFilled

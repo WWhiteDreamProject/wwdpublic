@@ -36,3 +36,14 @@
     contents:
     - id: MagazineRifle
       amount: 5
+
+- type: entity
+  id: ClothingBeltMilitaryWebbingCBURNFilled
+  parent: ClothingBeltMilitaryWebbing
+  suffix: Filled
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineShotgunIncendiary
+      amount: 5
