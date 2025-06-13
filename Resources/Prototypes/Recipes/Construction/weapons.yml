@@ -111,8 +111,8 @@
 - type: construction
   name: makeshift bola
   id: Bola
-  graph: Bola
-  startNode: start
+  graph: CuffsGraph # WWDP
+  startNode: bolastart # WWDP
   targetNode: bola
   category: construction-category-weapons
   description: A simple weapon for tripping someone at a distance.
@@ -144,8 +144,8 @@
 - type: construction
   name: glass shard arrow
   id: ImprovisedArrow
-  graph: ImprovisedArrow
-  startNode: start
+  graph: MetalRod
+  startNode: arrowstart
   targetNode: ImprovisedArrow
   category: construction-category-weapons
   description: An arrow tipped with pieces of a glass shard, for use with a bow.

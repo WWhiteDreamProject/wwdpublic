@@ -1,7 +1,7 @@
 ﻿- type: construction
   name: improvised pistol
   id: improvisedpistol
-  graph: ImprovisedShotgunSawnGraph
+  graph: ImprovisedShotgunGraph
   startNode: start
   targetNode: shotgunsawn
   category: construction-category-weapons
@@ -12,10 +12,27 @@
     state: icon
 
 - type: constructionGraph
-  id: ImprovisedShotgunSawnGraph
+  id: ImprovisedShotgunGraph
   start: start
   graph:
   - node: start
+    edges:
+    - to: shotgunsawn
+      steps:
+      - tag: ModularReceiver
+        icon:
+          sprite: Objects/Misc/modular_receiver.rsi
+          state: icon
+        name: modular receiver
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - material: WoodPlank
+        amount: 4
+        doAfter: 10
+  - node: receiver
     edges:
     - to: shotgunsawn
       steps:
@@ -23,17 +40,54 @@
         icon:
           sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeStraight
+          doAfter: 5
         name: pipe
+      - material: WoodPlank
+        amount: 4
+        doAfter: 5
+    - to: shotgun
+      steps:
+      - tag: RifleStock
+        icon:
+          sprite: Objects/Misc/rifle_stock.rsi
+          state: icon
+        name: rifle stock
+        doAfter: 3
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+        doAfter: 3
+      - material: Cloth
+        amount: 3
+        doAfter: 3
+  - node: shotgunsawn
+    entity: WeaponShotgunHandmadeEmpty
+  - node: shotgunstart
+    edges:
+    - to: shotgun
+      steps:
       - tag: ModularReceiver
         icon:
           sprite: Objects/Misc/modular_receiver.rsi
           state: icon
         name: modular receiver
-      - material: WoodPlank
-        amount: 4
+      - tag: RifleStock
+        icon:
+          sprite: Objects/Misc/rifle_stock.rsi
+          state: icon
+        name: rifle stock
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - material: Cloth
+        amount: 3
         doAfter: 10
-  - node: shotgunsawn
-    entity: WeaponShotgunHandmadeEmpty
+  - node: shotgun
+    entity: WeaponShotgunImprovised
 
 - type: construction
   name: gunpowder
@@ -72,14 +126,24 @@
           state: match_unlit
         name: matchstick
         doAfter: 4
+  - node: matchstick
+    edges:
+    - to: gunpowder
+      steps:
+      - tag: Matchstick
+        name: matchstick
+        doAfter: 2
+      - tag: Matchstick
+        name: matchstick
+        doAfter: 2
   - node: gunpowder
     entity: MaterialGunpowder
 
 - type: construction
   name: snap pop
   id: snappop
-  graph: SnapPopGraph
-  startNode: start
+  graph: PaperGraph
+  startNode: startsnappop
   targetNode: snappop
   category: construction-category-weapons
   objectType: Item
@@ -89,25 +153,6 @@
     state: snappop
 
 - type: constructionGraph
-  id: SnapPopGraph
-  start: start
-  graph:
-  - node: start
-    edges:
-    - to: snappop
-      steps:
-      - tag: Paper
-        icon:
-          sprite: Objects/Misc/bureaucracy.rsi
-          state: paper
-        name: paper
-      - material: Gunpowder
-        amount: 1
-        doAfter: 3
-  - node: snappop
-    entity: SnapPop
-
-- type: constructionGraph
   id: MakeshiftLaserGraph
   start: start
   graph:
@@ -115,25 +160,11 @@
     edges:
     - to: laser
       steps:
-      - tag: Pipe
-        icon:
-          sprite: Structures/Piping/Atmospherics/pipe.rsi
-          state: pipeStraight
-        name: pipe
-      - material: Steel
-        amount: 2
-      - material: Cable
-        amount: 2
       - tag: CapacitorStockPart
         icon:
-          sprite: Objects/Power/power_cells.rsi
-          state: medium
+          sprite: Objects/Misc/stock_parts.rsi
+          state: capacitor
         name: capacitor
-      - tag: PowerCell
-        icon:
-          sprite: Objects/Power/power_cells.rsi
-          state: medium
-        name: a powercell
       - tag: Igniter
         icon:
           sprite: Objects/Devices/igniter.rsi
@@ -147,5 +178,100 @@
       - material: Glass
         amount: 2
         doAfter: 10
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - material: Steel
+        amount: 2
+      - material: Cable
+        amount: 2
+      - tag: PowerCell
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: medium
+        name: a powercell
+  - node: capacitor
+    edges:
+    - to: laser
+      steps:
+      - tag: Igniter
+        icon:
+          sprite: Objects/Devices/igniter.rsi
+          state: icon
+        name: igniter
+        doAfter: 1
+      - tag: LightBulb
+        icon:
+          sprite: Objects/Power/light_bulb.rsi
+          state: normal
+        name: light bulb
+        doAfter: 1
+      - material: Glass
+        amount: 2
+        doAfter: 2
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+        doAfter: 2
+      - material: Steel
+        amount: 2
+        doAfter: 1
+      - material: Cable
+        amount: 2
+        doAfter: 2
+      - tag: PowerCell
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: medium
+        name: a powercell
+        doAfter: 1
   - node: laser
     entity: WeaponMakeshiftLaser
+
+- type: constructionGraph
+  id: WeaponFlintlocksGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: flintlock
+      steps:
+      - tag: ModularBreech
+        icon:
+          sprite: DeltaV/Objects/Misc/modular_breech.rsi
+          state: base
+        name: modular breech
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - material: WoodPlank
+        amount: 2
+        doAfter: 10
+  - node: flintlock
+    entity: WeaponPistolFlintlockCrafted
+    edges:
+    - to: musket
+      steps:
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - tag: RifleStock
+        icon:
+          sprite: Objects/Misc/rifle_stock.rsi
+          state: icon
+        name: rifle stock
+      - tag: Bayonet
+        icon:
+          sprite: DeltaV/Objects/Misc/bayonet.rsi
+          state: base
+        name: bayonet
+  - node: musket
+    entity: WeaponRifleMusket

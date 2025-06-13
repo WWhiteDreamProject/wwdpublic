@@ -148,7 +148,7 @@
     fireRate: 0.3 #slow firerate # WWDP
     # resetOnHandSelected: false #Dual Wielding Muskets # WWDP: no
   - type: Construction
-    graph: WeaponPistolFlintlockCraftedGraph
+    graph: WeaponFlintlocksGraph # WWDP
     node: flintlock
   - type: UseDelay
     delay: 0 #Straight up doesn't work for guns

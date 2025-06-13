@@ -1,20 +1,23 @@
-- type: constructionGraph
-  id: Bola
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: bola
-          steps:
-            - tag: Handcuffs
-              icon:
-                sprite: Objects/Misc/cablecuffs.rsi
-                state: cuff
-                color: red
-              name: cuffs
-            - material: Steel
-              amount: 6
-              doAfter: 2
-
-    - node: bola
-      entity: Bola
+# WWDP; moved to _White/Recipes/Construction/Graphs/cablecuffs.yml
+#
+# - type: constructionGraph
+#   id: Bola
+#   start: start
+#   graph:
+#     - node: start
+#       edges:
+#         - to: bola
+#           steps:
+#             - tag: Handcuffs
+#               icon:
+#                 sprite: Objects/Misc/cablecuffs.rsi
+#                 state: cuff
+#                 color: red
+#               name: cuffs
+#             - material: Steel
+#               amount: 6
+#               doAfter: 2
+#
+#     - node: bola
+#       entity: Bola
+#

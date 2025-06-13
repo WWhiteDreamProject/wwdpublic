@@ -307,7 +307,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
   - type: ProjectileBatteryAmmoProvider # WWDP
-    proto: BulletLaser # WWDP
+    proto: BulletEnergyGunLaser # WWDP
     fireCost: 25 # wwd
   - type: Battery
     maxCharge: 500

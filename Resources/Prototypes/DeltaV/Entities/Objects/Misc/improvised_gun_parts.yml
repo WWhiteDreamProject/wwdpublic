@@ -17,24 +17,24 @@
       - Metal
       - ModularBreech
 
-- type: entity
-  parent: BaseItem
-  id: ModularTrigger
-  name: modular trigger
-  description: Makes gun go pew when activated. Used in the creation of guns.
-  components:
-    - type: Item
-      size: Small
-    - type: Sprite
-      sprite: DeltaV/Objects/Misc/modular_trigger.rsi
-      state: base
-    - type: Construction
-      graph: ModularTriggerGraph
-      node: modulartrigger
-    - type: Tag
-      tags:
-      - Metal
-      - ModularTrigger
+# - type: entity # WWDP disabled
+#   parent: BaseItem
+#   id: ModularTrigger
+#   name: modular trigger
+#   description: Makes gun go pew when activated. Used in the creation of guns.
+#   components:
+#     - type: Item
+#       size: Small
+#     - type: Sprite
+#       sprite: DeltaV/Objects/Misc/modular_trigger.rsi
+#       state: base
+#     - type: Construction
+#       graph: ModularTriggerGraph
+#       node: modulartrigger
+#     - type: Tag
+#       tags:
+#       - Metal
+#       - ModularTrigger
 
 - type: entity
   parent: BaseItem
@@ -54,3 +54,11 @@
       tags:
       - Metal
       - Bayonet
+    - type: MeleeWeapon # WWDP
+      animationRotation: -135
+      wideAnimationRotation: -135
+      damage:
+        types:
+          Slash: 5
+      soundHit:
+        path: /Audio/Weapons/bladeslice.ogg

@@ -37,6 +37,19 @@
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/tobacco.rsi
     state: dried
+  # WWDP quick crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: smokeableGroundCannabis
+    - prototype: smokeableGroundCannabisRainbow
 
 - type: entity
   name: ground cannabis
@@ -65,7 +78,19 @@
       - Smokable
   - type: Item
     size: Tiny
-    
+  # WWDP short crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: smokeableBlunt
+
 - type: entity
   name: rainbow cannabis leaves
   parent: LeavesCannabis
@@ -190,6 +215,23 @@
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/tobacco.rsi
     state: dried
+  # WWDP short crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: smokeableGroundTobacco
+    - prototype: smokeableBlunt
+    - prototype: smokeableBluntRainbow
+  - type: Construction
+    graph: smokeableBlunt
+    node: tobacco
 
 - type: entity
   name: ground tobacco

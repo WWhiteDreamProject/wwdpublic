@@ -232,6 +232,9 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: Construction # WWDP
+    graph: BananaClownMask
+    node: basemask
 
 - type: entity
   parent: ClothingMaskClown
@@ -609,6 +612,9 @@
     sprite: Clothing/Mask/sexyclown.rsi
   - type: Clothing
     sprite: Clothing/Mask/sexyclown.rsi
+  - type: Construction # WWDP
+    graph: BananaClownMask
+    node: sexymask
 
 - type: entity
   parent: ClothingMaskMime

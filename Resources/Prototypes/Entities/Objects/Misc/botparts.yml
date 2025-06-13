@@ -12,3 +12,29 @@
       - ProximitySensor
   - type: StaticPrice
     price: 40
+  # WWDP short crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: drone
+    - prototype: medibot
+    - prototype: batonbot
+    - prototype: cleanbot
+    - prototype: disablerbot
+    - prototype: fillbot
+    - prototype: gladiabot
+    - prototype: honkbot
+    - prototype: jonkbot
+    - prototype: mimebot
+    - prototype: minebot
+    - prototype: PlantBot
+    - prototype: supplybot
+    - prototype: weldbot
+
