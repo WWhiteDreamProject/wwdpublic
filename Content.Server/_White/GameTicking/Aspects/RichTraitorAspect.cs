@@ -23,7 +23,7 @@ public sealed class RichTraitorAspect : AspectSystem<RichTraitorAspectComponent>
     {
         base.Started(uid, component, gameRule, args);
 
-        if (!_gameTicker.IsGameRuleActive<TraitorRuleComponent>())
+        if (!_gameTicker.IsGameRuleAdded<TraitorRuleComponent>())
         {
             _whiteGameTicker.RunRandomAspect();
             ForceEndSelf(uid, gameRule);
