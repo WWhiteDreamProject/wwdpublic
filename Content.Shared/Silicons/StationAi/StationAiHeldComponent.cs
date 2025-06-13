@@ -16,11 +16,9 @@ public sealed partial class StationAiHeldComponent : Component
 
     [DataField]
     public SoundPathSpecifier CoreBoltsEnabled = new("/Audio/Machines/boltsup.ogg");
-    // WD edit end
 
-    // WD edit - AiRemoteControl-Start
     [DataField]
     public EntityUid? CurrentConnectedEntity;
-    // WD edit - AiRemoteControl-End
+    // WD edit end
 }
 

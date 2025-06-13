@@ -9,21 +9,15 @@ using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.Components;
 using Robust.Shared.Utility;
-using Content.Server._Imp.Drone;
-using Content.Server.Silicons.Laws;
-using Content.Shared._White.Silicons.Borgs.Components; //Goobstation drone
+using Content.Server._Imp.Drone;//Goobstation drone
+using Content.Shared._White.Silicons.Borgs.Components;
 using Robust.Shared.Player; //Goobstation drone
-using Content.Shared.Emag.Systems;
-
 
 namespace Content.Server.Silicons.Borgs;
 
 /// <inheritdoc/>
 public sealed partial class BorgSystem
 {
-    [Dependency] private readonly SiliconLawSystem _law = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-
     private void InitializeTransponder()
     {
         SubscribeLocalEvent<BorgTransponderComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
@@ -83,7 +77,7 @@ public sealed partial class BorgSystem
                 0,
                 hasBrain,
                 false,
-                false);
+                false); // WD EDIT
 
             var payload = new NetworkPayload()
             {

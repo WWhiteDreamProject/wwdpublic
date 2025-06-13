@@ -38,14 +38,14 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
         {
             if (TryComp(aiRemoteComp.AiHolder, out IntrinsicRadioTransmitterComponent? stationAiTransmitter) && transmitter != null)
             {
-                aiRemoteComp.PreviouslyTransmitterChannels = [.. radioChannels];
-                transmitter.Channels = [.. stationAiTransmitter.Channels];
+                aiRemoteComp.PreviouslyTransmitterChannels = [.. radioChannels, ];
+                transmitter.Channels = [.. stationAiTransmitter.Channels, ];
             }
 
             if (TryComp(aiRemoteComp.AiHolder, out ActiveRadioComponent? stationAiActiveRadio) && activeRadio != null)
             {
-                aiRemoteComp.PreviouslyActiveRadioChannels = [.. radioChannels];
-                activeRadio.Channels = [.. stationAiActiveRadio.Channels];
+                aiRemoteComp.PreviouslyActiveRadioChannels = [.. radioChannels, ];
+                activeRadio.Channels = [.. stationAiActiveRadio.Channels, ];
             }
         }
         // WD edit - AiRemoteControl-End

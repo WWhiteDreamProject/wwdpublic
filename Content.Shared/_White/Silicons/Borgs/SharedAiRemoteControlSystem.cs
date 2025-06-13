@@ -4,7 +4,6 @@ using Content.Shared.Mind;
 using Content.Shared.Silicons.StationAi;
 using Robust.Shared.Serialization;
 
-
 namespace Content.Shared._White.Silicons.Borgs;
 
 public abstract class SharedAiRemoteControlSystem : EntitySystem
@@ -13,23 +12,14 @@ public abstract class SharedAiRemoteControlSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
-
     public void ReturnMindIntoAi(EntityUid entity)
     {
-        if (!TryComp<AiRemoteControllerComponent>(entity, out var remoteComp))
-            return;
-
-        if (remoteComp?.AiHolder == null || !_stationAiSystem.TryGetCore(remoteComp.AiHolder.Value, out var stationAiCore) || stationAiCore.Comp?.RemoteEntity == null)
-            return;
-
-        if (remoteComp.LinkedMind == null)
-            return;
-
-        if (!TryComp<StationAiHeldComponent>(remoteComp.AiHolder.Value, out var stationAiHeldComp))
+        if (!TryComp<AiRemoteControllerComponent>(entity, out var remoteComp)
+            || remoteComp.AiHolder == null
+            || !_stationAiSystem.TryGetCore(remoteComp.AiHolder.Value, out var stationAiCore)
+            || stationAiCore.Comp?.RemoteEntity == null
+            || remoteComp.LinkedMind == null
+            || !TryComp<StationAiHeldComponent>(remoteComp.AiHolder.Value, out var stationAiHeldComp))
             return;
 
         stationAiHeldComp.CurrentConnectedEntity = null;

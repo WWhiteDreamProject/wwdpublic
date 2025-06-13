@@ -11,7 +11,6 @@ using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 
-
 namespace Content.Server._White.Silicons.Borgs;
 
 public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
@@ -31,14 +30,14 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         SubscribeLocalEvent<AiRemoteControllerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<AiRemoteControllerComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<AiRemoteControllerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
-        SubscribeLocalEvent<StationAiHeldComponent, RemoteDeviceActionMessage>(OnUiRemoteAction);
 
+        SubscribeLocalEvent<StationAiHeldComponent, RemoteDeviceActionMessage>(OnUiRemoteAction);
         SubscribeLocalEvent<StationAiHeldComponent, ToggleRemoteDevicesScreenEvent>(OnToggleRemoteDevicesScreen);
     }
 
     private void OnMapInit(Entity<AiRemoteControllerComponent> entity, ref MapInitEvent args)
     {
-        var visionComp = EnsureComp<StationAiVisionComponent>(entity.Owner);
+        EnsureComp<StationAiVisionComponent>(entity.Owner);
         EntityUid? actionEnt = null;
 
         _actions.AddAction(entity.Owner, ref actionEnt, entity.Comp.BackToAiAction);
@@ -46,6 +45,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         if (actionEnt != null)
             entity.Comp.BackToAiActionEntity = actionEnt.Value;
     }
+
     private void OnShutdown(Entity<AiRemoteControllerComponent> entity, ref ComponentShutdown args)
     {
         _actions.RemoveAction(entity.Owner, entity.Comp.BackToAiActionEntity);
@@ -54,10 +54,10 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         backArgs.Performer = entity;
 
         if (TryComp(entity, out IntrinsicRadioTransmitterComponent? transmitter) && entity.Comp.PreviouslyTransmitterChannels != null)
-            transmitter.Channels = [.. entity.Comp.PreviouslyTransmitterChannels];
+            transmitter.Channels = [.. entity.Comp.PreviouslyTransmitterChannels, ];
 
         if (TryComp(entity, out ActiveRadioComponent? activeRadio) && entity.Comp.PreviouslyActiveRadioChannels != null)
-            activeRadio.Channels = [.. entity.Comp.PreviouslyActiveRadioChannels];
+            activeRadio.Channels = [.. entity.Comp.PreviouslyActiveRadioChannels, ];
 
         ReturnMindIntoAi(entity);
     }
@@ -66,7 +66,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
     {
         var user = args.User;
 
-        if (!TryComp<StationAiHeldComponent>(user, out var stationAiHeldComp))
+        if (!HasComp<StationAiHeldComponent>(user))
             return;
 
         var verb = new AlternativeVerb
@@ -84,9 +84,10 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
     {
         ReturnMindIntoAi(entity);
     }
+
     public void AiTakeControl(EntityUid ai, EntityUid entity)
     {
-        if (!_mind.TryGetMind(ai, out var mindId, out var mind))
+        if (!_mind.TryGetMind(ai, out var mindId, out _))
             return;
 
         if (!TryComp<StationAiHeldComponent>(ai, out var stationAiHeldComp))
@@ -97,18 +98,18 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
         if (TryComp(entity, out IntrinsicRadioTransmitterComponent? transmitter))
         {
-            aiRemoteComp.PreviouslyTransmitterChannels = [.. transmitter.Channels];
+            aiRemoteComp.PreviouslyTransmitterChannels = [.. transmitter.Channels, ];
 
             if (TryComp(ai, out IntrinsicRadioTransmitterComponent? stationAiTransmitter))
-                transmitter.Channels = [.. stationAiTransmitter.Channels];
+                transmitter.Channels = [.. stationAiTransmitter.Channels, ];
         }
 
         if (TryComp(entity, out ActiveRadioComponent? activeRadio))
         {
-            aiRemoteComp.PreviouslyActiveRadioChannels = [.. activeRadio.Channels];
+            aiRemoteComp.PreviouslyActiveRadioChannels = [.. activeRadio.Channels, ];
 
             if (TryComp(ai, out ActiveRadioComponent? stationAiActiveRadio))
-                activeRadio.Channels = [.. stationAiActiveRadio.Channels];
+                activeRadio.Channels = [.. stationAiActiveRadio.Channels, ];
         }
 
         _mind.ControlMob(ai, entity);
@@ -137,7 +138,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
         var remoteDevices = new List<RemoteDevicesData>();
 
-        while (query.MoveNext(out var queryUid, out var comp))
+        while (query.MoveNext(out var queryUid, out _))
         {
             var data = new RemoteDevicesData
             {
@@ -171,9 +172,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         }
 
         if (msg.RemoteAction?.ActionType == RemoteDeviceActionType.TakeControl)
-        {
             AiTakeControl(uid, target.Value);
-        }
     }
 
     private void RewriteLaws(EntityUid from, EntityUid to)
@@ -181,7 +180,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         if (!TryComp<SiliconLawProviderComponent>(from, out var fromLawsComp))
             return;
 
-        if (!TryComp<SiliconLawProviderComponent>(to, out var toLawsComp))
+        if (!HasComp<SiliconLawProviderComponent>(to))
             return;
 
         if (fromLawsComp.Lawset == null)
