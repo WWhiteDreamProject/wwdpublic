@@ -5,13 +5,13 @@ namespace Content.Shared._White.CCVar;
 public sealed partial class WhiteCVars
 {
     /// <summary>
-    /// Shove range multiplier.
+    /// Arbitrary shove range multiplier. Does not affect entities with ItemComponent.
     /// </summary>
     public static readonly CVarDef<float> ShoveRange =
-        CVarDef.Create("shoving.range", 1f, CVar.SERVER | CVar.ARCHIVE);
+        CVarDef.Create("shoving.range", 8f, CVar.SERVER | CVar.ARCHIVE);
 
     /// <summary>
-    /// Shove speed multiplier, does not affect range.
+    /// Arbitrary shove speed multiplier, does not affect range (unless you put it too high).
     /// </summary>
     public static readonly CVarDef<float> ShoveSpeed =
         CVarDef.Create("shoving.speed", 3f, CVar.SERVER | CVar.ARCHIVE);
