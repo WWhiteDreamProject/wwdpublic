@@ -1,0 +1,99 @@
+- type: entity
+  id: BaseAspect
+  parent: BaseGameRule
+  abstract: true
+  components:
+  - type: Aspect
+
+- type: entity
+  id: LandmineAspect
+  parent: BaseAspect
+  name: Landmine
+  description: Someone laid mines at the station!
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Aspect
+      startAudio:
+        path: /Audio/_White/Aspects/accent.ogg
+    - type: SpawnAspect
+      prototype: LandMineExplosive
+      max: 60
+      min: 40
+
+- type: entity
+  id: TraitoredAspect
+  parent: BaseAspect
+  name: Traitored
+  description: Someone has turned in all the traitors!
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Aspect
+      requires: "Traitors"
+      hidden: true
+    - type: TraitoredAspect
+
+- type: entity
+  id: PresentAspect
+  parent: BaseAspect
+  name: Presents
+  description: Do you believe in Santa Claus?
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Aspect
+      weight: 2
+      startAudio:
+        path: /Audio/_White/Aspects/accent.ogg
+    - type: SpawnAspect
+      prototype: PresentRandomUnsafe
+
+- type: entity
+  id: ReflectAspect
+  parent: BaseAspect
+  name: Reflect
+  description: Your reflection is everywhere.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Aspect
+      weight: 2
+      startAudio:
+        path: /Audio/_White/Aspects/accent.ogg
+    - type: ReflectAspect
+
+- type: entity
+  id: NothingAspect
+  parent: BaseAspect
+  name: Nothing
+  description: Nothing.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Aspect
+      weight: 3
+      forbidden: true
+      hidden: true
+    - type: NothingAspect
+
+- type: entity
+  id: RichTraitorAspect
+  parent: BaseAspect
+  name: Rich Traitor
+  description: The syndicate has allocated 10 additional telecrystals for the traitors.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Aspect
+      requires: "Traitors"
+      weight: 2
+      hidden: true
+    - type: RichTraitorAspect
+
+- type: entity
+  id: ImmersiveAspect
+  parent: BaseAspect
+  name: Immersive
+  description: Due to the recent tragic events, the station's crew became immersed in themselves.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Aspect
+    weight: 3
+    startAudio:
+      path: /Audio/_White/Aspects/accent.ogg
+  - type: ImmersiveAspect

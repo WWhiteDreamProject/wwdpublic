@@ -26,7 +26,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
 using System.Numerics;
-using Content.Shared._White;
+using Content.Shared._White.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage.Components;

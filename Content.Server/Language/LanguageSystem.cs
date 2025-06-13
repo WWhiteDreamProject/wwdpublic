@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared._White.RemoteControl;
+using Content.Shared._White.RemoteControl.Components;
 using Content.Shared.Language;
 using Content.Shared.Language.Components;
 using Content.Shared.Language.Events;
@@ -75,7 +76,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         // WWDP EDIT START
         // quick fix
         // todo: reimplement as an event handler on RemoteControllableComponent.
-        if(TryComp<RemoteControllableComponent>(ent.Owner, out var controllable) && controllable.ControllingEntity is EntityUid controller)
+        if(TryComp<RemoteControlTargetComponent>(ent.Owner, out var remoteControlTarget) && remoteControlTarget.User is { } controller)
             return CanUnderstand(controller, language);
         // WWDP EDIT END
         return Resolve(ent, ref ent.Comp, logMissing: false) && ent.Comp.UnderstoodLanguages.Contains(language);
@@ -88,7 +89,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         // WWDP EDIT START
         // quick fix
         // todo: reimplement as an event handler on RemoteControllableComponent.
-        if (TryComp<RemoteControllableComponent>(ent.Owner, out var controllable) && controllable.ControllingEntity is EntityUid controller)
+        if (TryComp<RemoteControlTargetComponent>(ent.Owner, out var remoteControlTarget) && remoteControlTarget.User is { } controller)
             return CanSpeak(controller, language);
         // WWDP EDIT END
         return ent.Comp.SpokenLanguages.Contains(language);

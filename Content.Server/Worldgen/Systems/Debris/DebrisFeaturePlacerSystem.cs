@@ -3,7 +3,6 @@ using System.Numerics;
 using Content.Server.Worldgen.Components;
 using Content.Server.Worldgen.Components.Debris;
 using Content.Server.Worldgen.Tools;
-using Content.Shared._White;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
@@ -34,7 +33,7 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
         SubscribeLocalEvent<DebrisFeaturePlacerControllerComponent, WorldChunkLoadedEvent>(OnChunkLoaded);
         SubscribeLocalEvent<DebrisFeaturePlacerControllerComponent, WorldChunkUnloadedEvent>(OnChunkUnloaded);
         SubscribeLocalEvent<OwnedDebrisComponent, ComponentShutdown>(OnDebrisShutdown);
-        SubscribeLocalEvent<OwnedDebrisComponent, MoveEventProxy>(OnDebrisMove);
+        SubscribeLocalEvent<OwnedDebrisComponent, MoveEvent>(OnDebrisMove);
         SubscribeLocalEvent<SimpleDebrisSelectorComponent, TryGetPlaceableDebrisFeatureEvent>(
             OnTryGetPlacableDebrisEvent);
     }
@@ -42,7 +41,7 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
     /// <summary>
     ///     Handles debris moving, and making sure it stays parented to a chunk for loading purposes.
     /// </summary>
-    private void OnDebrisMove(EntityUid uid, OwnedDebrisComponent component, ref MoveEventProxy args)
+    private void OnDebrisMove(EntityUid uid, OwnedDebrisComponent component, ref MoveEvent args)
     {
         if (!HasComp<WorldChunkComponent>(component.OwningController))
             return; // Redundant logic, prolly needs it's own handler for your custom system.
