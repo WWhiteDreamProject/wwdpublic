@@ -112,6 +112,7 @@
       - !type:GenericStatusEffect # WWDP
         key: NoScream
         component: NoScream
+        time: 5
       - !type:PopupMessage # WWDP
         visualType: Medium
         messages: [ "morphine-wear-off" ]
@@ -120,8 +121,8 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Ephedrine
-          max: 2.1
-          min: 1.91
+          max: 1.1
+          min: 1
     Medicine:
       effects:
       - !type:ResetNarcolepsy
