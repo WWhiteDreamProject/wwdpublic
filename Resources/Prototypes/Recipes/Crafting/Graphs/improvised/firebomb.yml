@@ -6,18 +6,28 @@
     edges:
     - to: empty
       steps:
-      - tag: DrinkCan
-        name: an empty can
-        icon:
-          sprite: Objects/Consumable/Drinks/cola.rsi
-          state: icon_open
-        doAfter: 1
+# WWDP edit start; quick crafts
       - tag: Igniter
         name: an igniter
         icon:
           sprite: Objects/Devices/igniter.rsi
           state: icon
         doAfter: 1
+      - tag: DrinkCan
+        name: an empty can
+        icon:
+          sprite: Objects/Consumable/Drinks/cola.rsi
+          state: icon_open
+        doAfter: 1
+  - node: igniter
+    entity: Igniter
+    edges:
+    - to: empty
+      steps:
+      - tag: DrinkCan
+        name: an empty can
+        doAfter: 2
+# WWDP edit end
   - node: empty
     entity: FireBombEmpty
     edges:

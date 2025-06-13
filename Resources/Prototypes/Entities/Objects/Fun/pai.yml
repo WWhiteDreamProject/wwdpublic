@@ -163,7 +163,7 @@
           Searching: { state: potato-searching-overlay }
           On: { state: potato-on-overlay }
   - type: Construction
-    graph: PotatoAI
+    graph: PowerCellPotato
     node: potatoai
 
 - type: entity

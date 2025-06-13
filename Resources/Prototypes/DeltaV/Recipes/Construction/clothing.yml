@@ -1,8 +1,8 @@
 - type: construction
   name: prescription medhud
   id: PrescriptionMedHud
-  graph: PrescriptionMedHud
-  startNode: start
+  graph: PrescriptionHud # WWDP
+  startNode: startmedhud
   targetNode: prescmedhud
   category: construction-category-clothing
   description: Prescription medhud, merged glasses and medhud together by sheer luck and cables with glue.
@@ -12,8 +12,8 @@
 - type: construction
   name: prescription sechud
   id: PrescriptionHudSecurity
-  graph: PrescriptionSecHud
-  startNode: start
+  graph: PrescriptionHud # WWDP
+  startNode: startsechud
   targetNode: prescsechud
   category: construction-category-clothing
   description: Prescription sechud, merged glasses and sechud together by sheer luck and cables with glue.

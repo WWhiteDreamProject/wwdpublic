@@ -60,6 +60,9 @@
   - type: Tag
     tags:
     - HudMedical
+  - type: Construction # WWDP
+    graph: HudMedSec
+    node: medhud
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons]
@@ -74,6 +77,9 @@
   - type: Tag
     tags:
     - HudSecurity
+  - type: Construction # WWDP
+    graph: HudMedSec
+    node: sechud
 
 - type: entity
   parent: [ClothingEyesBase, ShowPsionicsIcons]

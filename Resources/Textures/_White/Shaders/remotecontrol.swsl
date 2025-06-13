@@ -54,9 +54,9 @@ void fragment() {
 	//color += vec4(0.2*(1-stripes), 0.8, 0.2*(1-stripes), 0.05*stripes*dist);
 	//COLOR = color;
 	
-	highp float c = 1.0/(15.0*16);
+	highp float c = 1.0/(15.0*16.0);
 	highp float stripe = mod(UV.y + TIME*c, c);
 	highp float stripes = step(stripe, c/2.0);
-	
+
 	COLOR = vec4(0.0, 0.0, 0.0, 0.2*stripes);
 }

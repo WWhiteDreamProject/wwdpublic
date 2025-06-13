@@ -53,10 +53,12 @@
 - type: randomHumanoidSettings
   id: DeathSquad
   randomizeName: false
-  speciesBlacklist:
-    - Shadowkin
-    - Monkey # Shitmed Change
-    - Kobold # Shitmed Change
+  speciesWhitelist: # WWDP humans only
+    - Human
+  # speciesBlacklist:
+  #   - Shadowkin
+  #   - Monkey # Shitmed Change
+  #   - Kobold # Shitmed Change
   components:
     - type: MindShield
     - type: GhostRole
@@ -93,10 +95,12 @@
 - type: randomHumanoidSettings
   id: ERTLeader
   randomizeName: false
-  speciesBlacklist:
-    - Shadowkin
-    - Monkey # Shitmed Change
-    - Kobold # Shitmed Change
+  speciesWhitelist: # WWDP humans only
+    - Human
+  # speciesBlacklist:
+  #   - Shadowkin
+  #   - Monkey # Shitmed Change
+  #   - Kobold # Shitmed Change
   components:
     - type: MindShield
     - type: GhostRole
@@ -518,10 +522,12 @@
 
 - type: randomHumanoidSettings
   id: CBURNAgent
-  speciesBlacklist:
-    - Shadowkin
-    - Monkey # Shitmed Change
-    - Kobold # Shitmed Change
+  speciesWhitelist: # WWDP humans only
+    - Human
+  # speciesBlacklist:
+  #   - Shadowkin
+  #   - Monkey # Shitmed Change
+  #   - Kobold # Shitmed Change
   components:
     - type: MindShield
     - type: Loadout
@@ -552,10 +558,12 @@
 
 - type: randomHumanoidSettings
   id: CentcomOfficial
-  speciesBlacklist:
-    - Shadowkin
-    - Monkey # Shitmed Change
-    - Kobold # Shitmed Change
+  speciesWhitelist: # WWDP humans only
+    - Human
+  # speciesBlacklist:
+  #   - Shadowkin
+  #   - Monkey # Shitmed Change
+  #   - Kobold # Shitmed Change
   components:
     - type: MindShield
     - type: GhostRole
@@ -584,10 +592,12 @@
 
 - type: randomHumanoidSettings
   id: SyndicateAgent
-  speciesBlacklist:
-    - Shadowkin
-    - Monkey # Shitmed Change
-    - Kobold # Shitmed Change
+  speciesWhitelist: # WWDP humans only
+    - Human
+  # speciesBlacklist:
+  #   - Shadowkin
+  #   - Monkey # Shitmed Change
+  #   - Kobold # Shitmed Change
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
@@ -606,10 +616,12 @@
 
 - type: randomHumanoidSettings
   id: NukeOp
-  speciesBlacklist:
-    - Shadowkin
-    - Monkey # Shitmed Change
-    - Kobold # Shitmed Change
+  speciesWhitelist: # WWDP humans only
+    - Human
+  # speciesBlacklist:
+  #   - Shadowkin
+  #   - Monkey # Shitmed Change
+  #   - Kobold # Shitmed Change
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
@@ -634,10 +646,10 @@
 
 - type: randomHumanoidSettings
   id: Cluwne
-  speciesBlacklist:
-    - Shadowkin
-    - Monkey # Shitmed Change
-    - Kobold # Shitmed Change
+  # speciesBlacklist: # WWDP not needed anymore
+  #   - Shadowkin
+  #   - Monkey # Shitmed Change
+  #   - Kobold # Shitmed Change
   randomizeName: false
   components:
     - type: GhostRole
@@ -854,6 +866,8 @@
 - type: randomHumanoidSettings
   id: DisasterVictimResearchDirector
   randomizeName: false
+  speciesWhitelist: # WWDP humans only
+    - Human
   components:
     - type: GhostRole
       name: ghost-role-information-disaster-victim-name
@@ -872,6 +886,8 @@
 - type: randomHumanoidSettings
   id: DisasterVictimCMO
   randomizeName: false
+  speciesWhitelist: # WWDP humans only
+    - Human
   components:
     - type: GhostRole
       name: ghost-role-information-disaster-victim-name
@@ -890,6 +906,8 @@
 - type: randomHumanoidSettings
   id: DisasterVictimCaptain
   randomizeName: false
+  speciesWhitelist: # WWDP humans only
+    - Human
   components:
     - type: GhostRole
       name: ghost-role-information-disaster-victim-name
@@ -934,6 +952,8 @@
 - type: randomHumanoidSettings
   id: SyndieDisasterVictim
   randomizeName: false
+  speciesWhitelist: # WWDP humans only
+    - Human
   components:
     - type: NpcFactionMember
       factions:

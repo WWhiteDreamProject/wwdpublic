@@ -11,6 +11,36 @@
           steps:
             - material: Steel
               amount: 1
-
     - node: MetalRod
       entity: PartRodMetal
+      # WWDP edit start
+      edges:
+      - to: ImprovisedArrow
+        steps:
+        - material: Cloth
+          amount: 1
+          doAfter: 1
+        - tag: GlassShard
+          name: glass shard
+          doAfter: 1
+
+    - node: arrowstart
+      edges:
+      - to: ImprovisedArrow
+        steps:
+        - material: MetalRod
+          amount: 1
+        - material: Cloth
+          amount: 1
+          doAfter: 1
+        - tag: GlassShard
+          name: Glass Shard
+          icon:
+            sprite: Objects/Materials/Shards/shard.rsi
+            state: shard1
+          doAfter: 1
+
+    - node: ImprovisedArrow
+      entity: ArrowImprovised
+
+  # WWDP edit end

@@ -19,7 +19,7 @@
   - type: Item
     size: Tiny
   - type: Construction
-    graph: smokeableCigarette
+    graph: smokeable
     node: cigarette
 
 - type: entity
@@ -44,7 +44,7 @@
   - type: Item
     size: Tiny
   - type: Construction
-    graph: smokeableCigarette
+    graph: smokeable
     node: cigarette
 
 - type: entity

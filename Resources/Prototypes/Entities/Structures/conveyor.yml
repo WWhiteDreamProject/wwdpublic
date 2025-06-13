@@ -82,4 +82,16 @@
     node: item
   - type: StaticPrice
     price: 40
+  # WWDP edit - quick crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: ConveyorBelt
 

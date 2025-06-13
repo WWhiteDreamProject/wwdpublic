@@ -21,6 +21,7 @@ public sealed class RandomHumanoidSystem : EntitySystem
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
 
     private HashSet<string> _notRoundStartSpecies = new();
+    private HashSet<string> _allSpecies = new(); // WWDP
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -31,16 +32,27 @@ public sealed class RandomHumanoidSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, RandomHumanoidSpawnerComponent component, MapInitEvent args)
     {
-        QueueDel(uid);
-        if (component.SettingsPrototypeId != null)
-            SpawnRandomHumanoid(component.SettingsPrototypeId, Transform(uid).Coordinates, MetaData(uid).EntityName);
+        // WWDP edit start
+        if (component.SettingsPrototypeId == null)
+        {
+            QueueDel(uid);
+            return;
+        }
 
         var speciesList = _prototypeManager.EnumeratePrototypes<SpeciesPrototype>()
             .Where(x => !x.RoundStart)
-            .Select(x => x.Prototype.Id)
+            .Select(x => x.ID)
+            .ToHashSet();
+        var allSpeciesList = _prototypeManager.EnumeratePrototypes<SpeciesPrototype>()
+            .Select(x => x.ID)
             .ToHashSet();
 
         _notRoundStartSpecies = speciesList;
+        _allSpecies = allSpeciesList;
+
+        QueueDel(uid);
+        SpawnRandomHumanoid(component.SettingsPrototypeId, Transform(uid).Coordinates, MetaData(uid).EntityName);
+        // WWDP edit end
     }
 
     public EntityUid SpawnRandomHumanoid(string prototypeId, EntityCoordinates coordinates, string name)
@@ -48,12 +60,21 @@ public sealed class RandomHumanoidSystem : EntitySystem
         if (!_prototypeManager.TryIndex<RandomHumanoidSettingsPrototype>(prototypeId, out var prototype))
             throw new ArgumentException("Could not get random humanoid settings");
 
+        // WWDP edit start - added whitelist
+        var whitelist = prototype.SpeciesWhitelist;
         var blacklist = prototype.SpeciesBlacklist;
 
-        if (!prototype.SpeciesBlacklist.Any())
-            blacklist = _notRoundStartSpecies;
+        var ignoredspecies = _allSpecies;
 
-        var profile = HumanoidCharacterProfile.Random(blacklist);
+        if (whitelist.Any())
+            ignoredspecies = ignoredspecies.Except(whitelist).ToHashSet();
+        else if (blacklist.Any())
+            ignoredspecies = blacklist.Union(_notRoundStartSpecies).ToHashSet();
+        else
+            ignoredspecies = _notRoundStartSpecies;
+
+        var profile = HumanoidCharacterProfile.Random(ignoredspecies);
+        // WWDP edit end
         var speciesProto = _prototypeManager.Index<SpeciesPrototype>(profile.Species);
         var humanoid = EntityManager.CreateEntityUninitialized(speciesProto.Prototype, coordinates);
 

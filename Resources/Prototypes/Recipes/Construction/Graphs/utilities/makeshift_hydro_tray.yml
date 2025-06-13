@@ -11,11 +11,11 @@
             - !type:SnapToGrid
               southRotation: true
           steps:
+            - material: Plastic # WWDP edit switched materials places
+              amount: 5
+              doAfter: 3
             - material: MetalRod
               amount: 6
-              doAfter: 3
-            - material: Plastic
-              amount: 5
               doAfter: 3
     - node: makeshiftHydroTray
       entity: hydroponicsMakeshiftTray

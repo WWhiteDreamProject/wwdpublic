@@ -2,6 +2,7 @@ humanoid-profile-editor-randomize-everything-button = Сгенерировать
 humanoid-profile-editor-name-label = Имя:
 humanoid-profile-editor-name-random-button = Случайно
 humanoid-profile-editor-appearance-tab = Внешность
+humanoid-profile-editor-background-tab = Предыстория
 humanoid-profile-editor-clothing = Показать одежду:
 humanoid-profile-editor-loadouts = Показать снаряжение:
 humanoid-profile-editor-clothing-show = Показать

@@ -83,6 +83,9 @@
     - HamsterWearable
     - WhitelistChameleon
     - GlassesNearsight
+  - type: Construction
+    graph: PrescriptionHud
+    node: start
 
 - type: entity
   parent: ClothingEyesBase
@@ -208,6 +211,10 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
+  # WWDP quick crafts
+  - type: Construction
+    graph: GlassesMedSecHUD
+    node: sunglasses
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons] # WD EDIT
@@ -232,6 +239,9 @@
     - Security
   - type: IdentityBlocker
     coverage: EYES
+  - type: Construction # WWDP
+    graph: GlassesMedSecHUD
+    node: sechudglasses
 
 - type: entity
   parent: [ClothingEyesBase, ShowPsionicsIcons]

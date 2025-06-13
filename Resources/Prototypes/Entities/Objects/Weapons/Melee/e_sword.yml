@@ -186,8 +186,9 @@
         variation: 0.250
     activatedDamage:
       types:
-        Slash: 4
-        Heat: 8
+        Slash: 10 # WWDP
+        Heat: 10 # WWDP
+        Structural: 10 # WWDP
     deactivatedSecret: true
   - type: ItemToggleActiveSound
     activeSound:
