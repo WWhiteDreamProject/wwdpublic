@@ -45,7 +45,7 @@
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial
   weights:
-    RandomTraitorAliveObjective: 1
+    # RandomTraitorAliveObjective: 1 # WWDP - disabled because it was very boring
     RandomTraitorProgressObjective: 1
     # RaiseGlimmerObjective: 0.5 # Nyanotrasen - Raise glimmer to a target amount, see Resources/Prototypes/Nyanotrasen/Objectives/traitor.yml
 
