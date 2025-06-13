@@ -879,8 +879,6 @@
   speciesWhitelist: # WWDP
   - Human
   randomizeName: false
-  speciesWhitelist: # WWDP humans only
-    - Human
   components:
     - type: GhostRole
       name: ghost-role-information-disaster-victim-name
