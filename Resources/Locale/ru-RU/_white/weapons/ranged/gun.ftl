@@ -23,3 +23,9 @@ gun-ballistic-full = Полон!
 gun-ballistic-empty = Пуст!
 
 ammo-top-round-examine = Сверху заряжен [color={$color}]{ $round }[/color].
+
+gunwieldbonus-component-examine = Это оружие стреляет точнее в двух руках.
+
+energygun-examine-fire-mode = Установлен режим [color={$color}]{$mode}[/color].
+battery-fire-mode-disable = "обезвредить"
+battery-fire-mode-lethal = "убить"
