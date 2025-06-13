@@ -4,27 +4,27 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 
 
-namespace Content.Client._White.Silicons.Laws.Ui
+namespace Content.Client._White.Silicons.Laws.Ui;
+
+[GenerateTypedNameReferences]
+public sealed partial class RemoteDeviceDisplay : Control
 {
-    [GenerateTypedNameReferences]
-    public sealed partial class RemoteDeviceDisplay : Control
+    public event Action<RemoteDeviceActionEvent>? OnRemoteDeviceAction;
+    public RemoteDeviceDisplay(NetEntity netEntityUid, string displayName)
     {
-        public event Action<RemoteDeviceActionEvent>? OnRemoteDeviceAction;
-        public RemoteDeviceDisplay(NetEntity netEntityUid, string displayName)
+        RobustXamlLoader.Load(this);
+
+        DeviceName.SetMessage(displayName);
+
+        MoveButton.OnPressed += _ =>
         {
-            RobustXamlLoader.Load(this);
+            OnRemoteDeviceAction?.Invoke(new RemoteDeviceActionEvent(RemoteDeviceActionType.MoveToDevice, netEntityUid));
+        };
 
-            DeviceName.SetMessage(displayName);
-
-            MoveButton.OnPressed += _ =>
-            {
-                OnRemoteDeviceAction?.Invoke(new RemoteDeviceActionEvent(RemoteDeviceActionType.MoveToDevice, netEntityUid));
-            };
-
-            TakeControlButton.OnPressed += _ =>
-            {
-                OnRemoteDeviceAction?.Invoke(new RemoteDeviceActionEvent(RemoteDeviceActionType.TakeControl, netEntityUid));
-            };
-        }
+        TakeControlButton.OnPressed += _ =>
+        {
+            OnRemoteDeviceAction?.Invoke(new RemoteDeviceActionEvent(RemoteDeviceActionType.TakeControl, netEntityUid));
+        };
     }
 }
+
