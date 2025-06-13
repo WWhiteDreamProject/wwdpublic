@@ -65,14 +65,10 @@ public sealed class RandomHumanoidSystem : EntitySystem
 
         if (whitelist.Any())
             ignoredspecies = ignoredspecies.Except(whitelist).ToHashSet();
-        else if (!blacklist.Any())
+        else if (blacklist.Any())
+            ignoredspecies = blacklist;
+        else
             ignoredspecies = _notRoundStartSpecies;
-
-        Log.Debug("Trying to create a list of ignored species");
-        foreach (var i in ignoredspecies)
-        {
-            Log.Debug(i);
-        }
 
         var profile = HumanoidCharacterProfile.Random(ignoredspecies);
         // WWDP edit end
