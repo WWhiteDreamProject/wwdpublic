@@ -410,6 +410,16 @@ public abstract partial class SharedBuckleSystem
         if (!CanUnbuckle(buckle, user, popup, out var strap))
             return false;
 
+    // WWDP START
+        if (_gameTiming.CurTime < buckle.Comp.BuckleTime + TimeSpan.FromSeconds(strap.Comp.Delay) && user == buckle.Owner)
+        {
+            _popup.PopupEntity(
+                Loc.GetString("buckle-component-unbuckle-delay", ("time", Math.Ceiling((buckle.Comp.BuckleTime + TimeSpan.FromSeconds(strap.Comp.Delay) - _gameTiming.CurTime)!.Value.TotalSeconds))),
+                user!.Value);
+            return false;
+        }
+    // WWDP END
+
         Unbuckle(buckle!, strap, user);
         return true;
     }

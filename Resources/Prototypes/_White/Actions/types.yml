@@ -29,12 +29,16 @@
     event: !type:ActivateImplantEvent
 
 - type: entity
-  id: ActionHeadcrabJump
+  id: ActionJumpHeadcrab
   name: Jump
   description: Do super jump.
   categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
+    priority: 0
+    useDelay: 3
+    checkCanAccess: false
+    range: 10
     icon:
       sprite: _White/Interface/Actions/headcrab.rsi
       state: jump-off
@@ -42,5 +46,3 @@
       sprite: _White/Interface/Actions/headcrab.rsi
       state: jump-on
     event: !type:JumpActionEvent
-    useDelay: 6
-    range: 160
