@@ -1,8 +1,8 @@
 - type: construction
   name: clown vacsuit
   id: ClownHardsuit
-  graph: SuitEVA
-  startNode: startclownHardsuit
+  graph: SuitEVA # WD EDIT
+  startNode: startclownHardsuit # WD EDIT
   targetNode: clownHardsuit
   category: construction-category-clothing
   description: A modified vacsuit fit for a clown.
@@ -12,8 +12,8 @@
 - type: construction
   name: mime vacsuit
   id: MimeHardsuit
-  graph: SuitEVA
-  startNode: startmimeHardsuit
+  graph: SuitEVA # WD EDIT
+  startNode: startmimeHardsuit # WD EDIT
   targetNode: mimeHardsuit
   category: construction-category-clothing
   description: A modified vacsuit fit for a mime.
