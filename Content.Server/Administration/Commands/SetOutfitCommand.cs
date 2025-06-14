@@ -14,8 +14,12 @@ using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Server.Silicon.IPC;
+using Content.Server.Storage.EntitySystems;
 using Content.Shared.Radio.Components;
 using Content.Shared.Cluwne;
+using Content.Shared.Storage;
+using Robust.Shared.Collections;
+
 
 namespace Content.Server.Administration.Commands
 {
@@ -133,6 +137,36 @@ namespace Content.Server.Administration.Commands
                     handsSystem.TryPickup(target, inhandEntity, checkActionBlocker: false, handsComp: handsComponent);
                 }
             }
+
+            // WWDP edit start - apply storage
+            var storageSystem = entityManager.System<StorageSystem>();
+            if (startingGear.Storage.Count > 0)
+            {
+                var coords = entityManager.GetComponent<TransformComponent>(target).Coordinates;
+                var ents = new ValueList<EntityUid>();
+
+                foreach (var (slot, entProtos) in startingGear.Storage)
+                {
+                    if (entProtos.Count == 0)
+                        continue;
+
+                    foreach (var ent in entProtos)
+                    {
+                        ents.Add(entityManager.SpawnEntity(ent, coords));
+                    }
+
+                    if (inventoryComponent != null &&
+                        invSystem.TryGetSlotEntity(target, slot, out var slotEnt, inventoryComponent: inventoryComponent) &&
+                        entityManager.TryGetComponent(slotEnt, out StorageComponent? storage))
+                    {
+                        foreach (var ent in ents)
+                        {
+                            storageSystem.Insert(slotEnt.Value, ent, out _, storageComp: storage, playSound: false);
+                        }
+                    }
+                }
+            }
+            // wWDP edit end
 
             if (entityManager.HasComponent<CluwneComponent>(target))
                 return true; //Fuck it, nuclear option for not Cluwning an IPC because that causes a crash that SOMEHOW ignores null checks.
