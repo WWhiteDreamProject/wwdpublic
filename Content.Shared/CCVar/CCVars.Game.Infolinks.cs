@@ -50,5 +50,5 @@ public sealed partial class CCVars
     ///     Link to site handling ban appeals. Shown in ban disconnect messages.
     /// </summary>
     public static readonly CVarDef<string> InfoLinksAppeal =
-        CVarDef.Create("infolinks.appeal", "", CVar.SERVER | CVar.REPLICATD);
+        CVarDef.Create("infolinks.appeal", "", CVar.SERVER | CVar.REPLICATED);
 }
