@@ -142,14 +142,9 @@ namespace Content.Server.Explosion.EntitySystems
             if (!coords.IsValid(EntityManager))
                 return;
             // WWDP EDIT START
-            if(component.Offsets is not null)
-            {
-                foreach(var offset in component.Offsets)
-                    Spawn(component.Proto, new Robust.Shared.Map.EntityCoordinates(uid, offset));
-                return;
-            }
+            foreach(var offset in component.Offsets)
+                Spawn(component.Proto, new Robust.Shared.Map.EntityCoordinates(uid, offset));
             // WWDP EDIT END
-            Spawn(component.Proto, coords);
         }
 
         private void HandleExplodeTrigger(EntityUid uid, ExplodeOnTriggerComponent component, TriggerEvent args)

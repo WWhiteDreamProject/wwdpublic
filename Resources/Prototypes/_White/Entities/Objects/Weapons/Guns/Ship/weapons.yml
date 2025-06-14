@@ -1,0 +1,218 @@
+- type: entity
+  parent: BaseItem
+  id: BaseWeaponShip
+  abstract: True
+  components:
+  - type: Appearance
+  - type: StaticPrice
+    price: 1
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.5
+    sprintModifier: 0.5
+  - type: HeldSpeedModifier
+  - type: ModularTurretWeapon
+    onlyUsableByTurret: true
+  - type: Gun
+    fireOnDropChance: 0
+
+- type: entity
+  id: BaseWeaponShipLight
+  parent: BaseWeaponShip
+  abstract: True
+  components:
+  - type: ModularTurretWeapon
+    weaponClass:
+    - Light
+
+
+- type: entity
+  parent: BaseWeaponShipLight
+  id: WeaponShipLightIR
+  name: IR Pulse Laser
+  description: A power-efficient, albeit weak infrared pulse laser. Being essentially a scaled-up version of a regular laser carbine, this cannon trades damage for extreme power efficiency.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/IR_laser.rsi
+    state: icon
+  - type: Gun
+    fireRate: 3.5
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      params:
+        volume: -5
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BulletLaser
+    fireCost: 15
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/IR_laser.rsi
+
+
+- type: entity
+  parent: BaseWeaponShipLight
+  id: WeaponShipLightAnnihilator
+  name: Annihilator Rocket Launcher
+  description: Fires a spread of unguided flash-printed microrockets that cover a wide arc. Despite the low damage output, it should not be underestimated, as it can still deal a devastating blow in hands of a skilled fighter pilot.  
+  components:
+  - type: Sprite
+    sprite: _White\Objects\Weapons\Guns\Turrets\annihilator.rsi
+    state: icon
+  - type: Gun
+    selectedMode: Burst
+    availableModes:
+      - Burst
+    burstFireRate: 10
+    burstCooldown: 3
+    shotsPerBurst: 10
+    minAngle: 15
+    maxAngle: 15
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+      params:
+        volume: -5
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BulletWeakRocket
+    fireCost: 100
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\annihilator.rsi
+
+
+- type: entity
+  parent: BaseWeaponShipLight
+  id: WeaponShipLightMiningLaser
+  name: Mining Laser
+  description: A cheap utility laser, excels at melting loose rock and cutting various salvage into pieces, but performs poorly against softer targets. Has a rather short focus range, making it ill-suited for combat use. 
+  components:
+  - type: Sprite
+    sprite: _White\Objects\Weapons\Guns\Turrets\mining_laser.rsi
+    state: icon
+  - type: Gun
+    fireRate: 5
+    angleDecay: -12
+    angleIncrease: -6
+    maxAngle: 40
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      params:
+        volume: -10
+  - type: HitscanContainerBatteryAmmoProvider
+    proto: RedMiningLaser
+    fireCost: 35
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\mining_laser.rsi
+  - type: Telescope
+    lerpAmount: 0.25
+    #divisor: 0.05
+
+# I'll put the mining beam prototype right after the mining laser itself to
+# make it obvious what it does.
+- type: hitscan
+  id: RedMiningLaser
+  maxLength: 30
+  damage:
+    types:
+      Heat: 3
+      Structural: 15
+  muzzleFlash:
+    sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_mining_laser
+  travelFlash:
+    sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: mining_laser
+  impactFlash:
+    sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_mining_laser
+
+- type: entity
+  parent: BaseWeaponShipLight
+  id: WeaponShipLightRiftLance
+  name: Rift lance
+  description: We commit this body to the holy vaccuum, dust to dust, stars to stars, that the Creator may renew our us in the cycle of eternal life. - Luddic funereal prayer, traditional.
+  components:
+  - type: Sprite
+    sprite: _White\Objects\Weapons\Guns\Turrets\rift_lance.rsi
+    state: icon
+  - type: Gun
+    fireRate: 0.1
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: HitscanContainerBatteryAmmoProvider
+    proto: RiftLanceBeam
+    fireCost: 800
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\rift_lance.rsi
+  - type: Telescope
+    lerpAmount: 0.25
+    #divisor: 0.05
+
+# I'll put the rift lance beam prototype right after the rift lance itself to
+# make it obvious why it should *not* be given to players.
+- type: hitscan
+  id: RiftLanceBeam
+  maxLength: 800 # fuck it we ballin'
+  damage:
+    types:
+      Blunt: 2000 # oh yeah
+  spawnAtImpact: OmegaBlastPierce # extra funny
+  muzzleFlash:
+    sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_fast
+  travelFlash:
+    sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: fast
+  impactFlash:
+    sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_fast
+
+- type: entity
+  id: OmegaBlastPierce
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: SpawnOnTrigger
+    proto: AdminInstantEffectExplosionSmall
+    offsets:
+    - 0,0
+    - 0,2
+    - 0,4
+    - 0,6
+    - 0,8
+    - 0,10    
+  - type: TimedDespawn
+    lifetime: 1
+
+
+
+
+#- type: entity
+#  parent: BaseWeaponShipLight
+#  id: WeaponShipLightAutopulse
+#  name: Autopulse Laser Cannon 
+#  description: 	Numerous built-in capacitors are at the core of this extremely inefficient, yet potent energy weapon.
+#  components:
+#  - type: Sprite
+#    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+#    layers:
+#    - map: [ "icon" ]
+#      state: mecha_pulse
+#  - type: Gun
+#    fireRate: 5
+#    selectedMode: FullAuto
+#    availableModes:
+#      - FullAuto
+#    soundGunshot:
+#      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+#  - type: ProjectileContainerBatteryAmmoProvider
+#    proto: BulletPulse
+#    fireCost: 150

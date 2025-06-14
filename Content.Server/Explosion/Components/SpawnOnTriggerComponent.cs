@@ -13,6 +13,6 @@ public sealed partial class SpawnOnTriggerComponent : Component
 
     // WWDP EDIT START
     [DataField]
-    public List<Vector2>? Offsets;
+    public List<Vector2> Offsets = new() { Vector2.Zero };
     // WWDP EDIT END
 }
