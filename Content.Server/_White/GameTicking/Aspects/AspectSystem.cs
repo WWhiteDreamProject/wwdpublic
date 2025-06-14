@@ -37,10 +37,10 @@ public abstract class AspectSystem<T> : GameRuleSystem<T> where T : Component
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<AspectComponent, GameRuleComponent>();
-        while (query.MoveNext(out var uid, out _, out var ruleData))
+        var query = EntityQueryEnumerator<GameRuleComponent>();
+        while (query.MoveNext(out var uid, out var ruleData))
         {
-            if (!GameTicker.IsGameRuleAdded(uid, ruleData))
+            if (!HasComp<AspectComponent>(uid) || !GameTicker.IsGameRuleAdded(uid, ruleData))
                 continue;
 
             if (!GameTicker.IsGameRuleActive(uid, ruleData) && _timing.CurTime >= ruleData.ActivatedAt)

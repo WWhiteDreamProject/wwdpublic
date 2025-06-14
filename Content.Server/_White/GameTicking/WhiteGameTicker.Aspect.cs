@@ -252,7 +252,7 @@ public sealed partial class WhiteGameTicker
     /// </summary>
     public EntityUid? RunRandomAspect()
     {
-        if (PickRandomAspect() is not { } randomAspect)
+        if (!AspectsEnabled || PickRandomAspect() is not { } randomAspect)
             return null;
 
         return _gameTicker.AddGameRule(randomAspect);
