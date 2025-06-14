@@ -52,6 +52,7 @@
     soundHit:
       path: /Audio/Weapons/smash.ogg
   - type: DamageOtherOnHit
+    meleeDamageMultiplier: 1.5 # WWDP
     staminaCost: 9
   - type: Tool
     qualities:
