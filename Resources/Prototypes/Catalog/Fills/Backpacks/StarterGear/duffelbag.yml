@@ -68,7 +68,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: Flash # WWDP
+      # - id: Flash # WWDP
       #- name: StationCharter
       - id: TelescopicBaton # WWDP
 
