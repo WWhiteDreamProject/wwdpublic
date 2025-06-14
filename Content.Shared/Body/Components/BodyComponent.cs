@@ -44,4 +44,10 @@ public sealed partial class BodyComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool ThermalVisibility = true;
+
+    /// <summary>
+    /// WWDP; Minimal move speed regardless of any bodyparts
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float MinimumMovementSpeed = 1f;
 }
