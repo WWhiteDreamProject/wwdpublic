@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared._White;
+using Content.Shared._White.GameTicking.Prototypes;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface.Controls;

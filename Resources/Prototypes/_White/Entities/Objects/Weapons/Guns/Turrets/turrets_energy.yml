@@ -1,0 +1,36 @@
+- type: entity
+  parent: BaseWeaponEnergyTurret
+  id: WeaponEnergyTurretShip
+  name: ship laser turret
+  description: A burst fire heavy laser weapon mounted to a simple actuator rig with a camera. Its weapon will recharge while connected to an active power grid.
+  suffix: Remote Controlled
+  components:
+  - type: DeviceLinkSink
+    ports:
+    - RemoteControlOutputPort
+  - type: Gun
+    shipWeapon: true
+    burstCooldown: 0.4
+    projectileSpeed: 50
+    angleIncrease: 1.25
+    maxAngle: 5
+    selectedMode: Burst
+    availableModes:
+    - Burst
+  - type: HTN # since there is no functionality to discard inherited components, we just disable HTN instead
+    enabled: false
+  - type: IntrinsicUI
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionAGhostShowRadar
+  - type: MouseRotator
+    angleTolerance: 0.5
+  - type: RadarConsole
+    followEntity: true
+    fieldOfVision: 90
+  - type: RemoteControlTarget
+  - type: RemoteControlOverlay
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface

@@ -1,11 +1,10 @@
-using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Humanoid;
-using Content.Shared._White;
 using Content.Shared.EntityList;
 using Content.Shared.Hands.EntitySystems;
 using Content.Server.GameTicking;
+using Content.Shared._White.CCVar;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -20,9 +19,9 @@ public sealed class PostManifestMassacreSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    
+
     private ProtoId<EntityListPrototype> _weaponsPrototypeId = "PostManifestMassacreWeapons";
-    
+
     public override void Initialize()
     {
         base.Initialize();
@@ -34,7 +33,7 @@ public sealed class PostManifestMassacreSystem : EntitySystem
     {
         if(!_cfg.GetCVar(WhiteCVars.PMMEnabled) || !_prototypeManager.TryIndex(_weaponsPrototypeId , out EntityListPrototype? prototype))
             return;
-            
+
         var weapons = prototype.EntityIds;
 
         var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent, MobStateComponent>();
@@ -43,7 +42,7 @@ public sealed class PostManifestMassacreSystem : EntitySystem
         {
             if (!_mobState.IsAlive(uid, mob))
                 continue;
-            
+
             var weapon = Spawn(_robustRandom.Pick(weapons), Transform(uid).Coordinates);
             _hands.TryPickup(uid, weapon);
         }

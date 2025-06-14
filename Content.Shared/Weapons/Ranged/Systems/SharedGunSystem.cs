@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared._White.Guns;
+using Content.Shared._White.Move;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
@@ -104,19 +105,23 @@ public abstract partial class SharedGunSystem : EntitySystem
         SubscribeLocalEvent<GunComponent, CycleModeEvent>(OnCycleMode);
         SubscribeLocalEvent<GunComponent, HandSelectedEvent>(OnGunSelected);
         SubscribeLocalEvent<GunComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<GunComponent, HolderMoveEvent>(OnHolderMove); // WWDP
+        SubscribeLocalEvent<GunComponent, HeldRelayedEvent<MoveEventProxy>>(OnHolderMove); // WWDP
     }
 
 	// WWDP EDIT START
-    private void OnHolderMove(EntityUid uid, GunComponent comp, ref HolderMoveEvent _args)
+    private void OnHolderMove(EntityUid uid, GunComponent comp, ref HeldRelayedEvent<MoveEventProxy> args)
     {
         if (Timing.ApplyingState)
             return;
-        var args = _args.Ev;
+
+        var moveEvent = args.Args;
+
         double posDiff = 0;
-        if (!args.ParentChanged)
-            posDiff = (args.OldPosition.Position - args.NewPosition.Position).Length();
-        double rotDiff = Math.Abs(Angle.ShortestDistance(args.NewRotation, args.OldRotation).Degrees);
+
+        if (!moveEvent.ParentChanged)
+            posDiff = (moveEvent.OldPosition.Position - moveEvent.NewPosition.Position).Length();
+
+        var rotDiff = Math.Abs(Angle.ShortestDistance(moveEvent.NewRotation, moveEvent.OldRotation).Degrees);
 
         UpdateBonusAngles(Timing.CurTime, comp, posDiff * comp.BonusAngleIncreaseMove + rotDiff * comp.BonusAngleIncreaseTurn);
         Dirty(uid, comp);
@@ -250,11 +255,11 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
 
         // WWDP EDIT START
-        if(TryComp<GunSlotComponent>(entity, out var gunSlot) &&
-           _slots.TryGetSlot(entity, gunSlot.Slot, out var itemSlot) &&
-           TryComp(itemSlot.Item, out gunComp))
+        if(TryComp<GunSlotComponent>(entity, out var gunSlot)
+            && _slots.TryGetSlot(entity, gunSlot.Slot, out var itemSlot)
+            && TryComp(itemSlot.Item, out gunComp))
         {
-            gunEntity = itemSlot.Item!.Value;
+            gunEntity = itemSlot.Item.Value;
             return true;
         }
         // WWDP EDIT END
@@ -315,12 +320,11 @@ public abstract partial class SharedGunSystem : EntitySystem
             return;
         var userXform = Transform(user); // WWDP EDIT
 
+        var toCoordinates = gun.ShootCoordinates;
+
         // WWDP EDIT START
-        EntityCoordinates? toCoordinates;
         if (IsRestrictedFire(gunUid, user))
             toCoordinates = new EntityCoordinates(user, new Vector2(0, -1));
-        else
-            toCoordinates = gun.ShootCoordinates;
         // WWDP EDIT END
 
         if (toCoordinates == null)

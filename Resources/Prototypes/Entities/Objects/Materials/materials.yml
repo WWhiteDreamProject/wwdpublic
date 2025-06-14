@@ -92,8 +92,9 @@
   - type: Stack
     count: 1
   - type: Construction #WWDP edit
+    deconstructionTarget: null
     graph: PaperGraph
-    node: startcardboard
+    node: cardboard
 
 - type: entity
   parent: MaterialBase

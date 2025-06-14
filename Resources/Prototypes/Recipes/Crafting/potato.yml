@@ -12,8 +12,8 @@
 - type: construction
   name: potato artificial intelligence
   id: PotatoAI
-  graph: PowerCellPotato
-  startNode: potatoaistart
+  graph: PowerCellPotato # WD EDIT
+  startNode: potatoaistart # WD EDIT
   targetNode: potatoai
   category: construction-category-misc
   description: The potato happens to be the perfect power source for this chip.

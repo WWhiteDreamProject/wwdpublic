@@ -1,17 +1,9 @@
-using Content.Client.Eye.Blinding;
 using Content.Shared._White.Overlays;
-using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.GameTicking;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Content.Client._White.Overlays;
 

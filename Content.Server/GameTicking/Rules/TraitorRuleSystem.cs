@@ -216,42 +216,14 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     }
 
     // WD EDIT START
-    public List<(EntityUid Id, MindComponent Mind)> GetAllLivingConnectedTraitors()
+    public List<Entity<MindComponent>> GetAllLivingConnectedTraitors()
     {
-        var traitors = new List<(EntityUid Id, MindComponent Mind)>();
+        var traitors = new List<Entity<MindComponent>>();
 
-        var traitorRules = EntityQuery<TraitorRuleComponent>();
-
-        foreach (var traitorRule in traitorRules)
+        var query = EntityQueryEnumerator<TraitorRuleComponent>();
+        while (query.MoveNext(out var uid, out _))
         {
-            traitors.AddRange(GetLivingConnectedTraitors(traitorRule));
-        }
-
-        return traitors;
-    }
-
-    private List<(EntityUid Id, MindComponent Mind)> GetLivingConnectedTraitors(TraitorRuleComponent traitorRule)
-    {
-        var traitors = new List<(EntityUid Id, MindComponent Mind)>();
-
-        foreach (var traitor in traitorRule.TraitorMinds)
-        {
-            if (!TryComp(traitor, out MindComponent? mind))
-                continue;
-
-            if (mind.OwnedEntity == null)
-                continue;
-
-            if (mind.Session == null)
-                continue;
-
-            if (!_mobStateSystem.IsAlive(mind.OwnedEntity.Value))
-                continue;
-
-            if (mind.CurrentEntity != mind.OwnedEntity)
-                continue;
-
-            traitors.Add((traitor, mind));
+            traitors.AddRange(_antag.GetAntagMinds(uid));
         }
 
         return traitors;
