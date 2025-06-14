@@ -20,6 +20,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Random;
+using Content.Shared.Traits.Assorted.Components;
 
 
 namespace Content.Shared.Body.Systems;
@@ -707,9 +708,17 @@ public partial class SharedBodySystem
             return;
         }
 
-        var walkSpeed = 0f;
-        var sprintSpeed = 0f;
-        var acceleration = 0f;
+        // WWDP edit - minimal movement speed
+        var walkSpeed = body.MinimumMovementSpeed;
+        var sprintSpeed = body.MinimumMovementSpeed;
+        var acceleration = MovementSpeedModifierComponent.DefaultAcceleration;
+
+        if (HasComp<LegsParalyzedComponent>(bodyId))
+        {
+            Movement.ChangeBaseSpeed(bodyId, walkSpeed, sprintSpeed, acceleration, movement);
+            return;
+        }
+
         foreach (var legEntity in body.LegEntities)
         {
             if (!TryComp<MovementBodyPartComponent>(legEntity, out var legModifier))
@@ -719,8 +728,9 @@ public partial class SharedBodySystem
             sprintSpeed += legModifier.SprintSpeed;
             acceleration += legModifier.Acceleration;
         }
-        walkSpeed /= body.RequiredLegs;
-        sprintSpeed /= body.RequiredLegs;
+        walkSpeed = Math.Max(body.MinimumMovementSpeed, walkSpeed / body.RequiredLegs);
+        sprintSpeed = Math.Max(body.MinimumMovementSpeed, sprintSpeed / body.RequiredLegs);
+        // WWDP edit end
         acceleration /= body.RequiredLegs;
         Movement.ChangeBaseSpeed(bodyId, walkSpeed, sprintSpeed, acceleration, movement);
     }
