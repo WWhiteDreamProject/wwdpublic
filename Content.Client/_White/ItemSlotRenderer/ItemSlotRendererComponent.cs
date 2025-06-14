@@ -15,6 +15,9 @@ public sealed partial class ItemSlotRendererComponent : Component
     [DataField("mapping")]
     public Dictionary<string, string> PrototypeLayerMappings = new();
 
+    [DataField("noRot")]
+    public bool NoRotation = true;
+
     // [mapkey] = slotId
     [ViewVariables(VVAccess.ReadWrite)]
     public List<(object, string)> LayerMappings = new();

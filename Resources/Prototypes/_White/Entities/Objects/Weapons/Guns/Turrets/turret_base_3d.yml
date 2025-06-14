@@ -9,10 +9,4 @@
       layers:
         - state: syndie_base
     - type: DollyMixture
-      states:
-      - dm1
-      - dm2
-      - dm3
-      - dm4
-      - dm5
       layerOffset: 0,0.75

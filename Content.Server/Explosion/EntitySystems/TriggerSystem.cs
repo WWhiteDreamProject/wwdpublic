@@ -141,7 +141,14 @@ namespace Content.Server.Explosion.EntitySystems
 
             if (!coords.IsValid(EntityManager))
                 return;
-
+            // WWDP EDIT START
+            if(component.Offsets is not null)
+            {
+                foreach(var offset in component.Offsets)
+                    Spawn(component.Proto, new Robust.Shared.Map.EntityCoordinates(uid, offset));
+                return;
+            }
+            // WWDP EDIT END
             Spawn(component.Proto, coords);
         }
 

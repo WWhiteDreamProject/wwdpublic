@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "WWDP",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    { "name": "dollymix1"},
+    { "name": "dollymix2"},
+    { "name": "dollymix3"},
+    { "name": "dollymix3-unshaded", "delays": [[0.2, 0.2, 0.2, 0.2]]},
+    { "name": "dollymix4"},
+	{ "name": "dollymix5"},
+    { "name": "dollymix5-unshaded", "delays": [[0.2, 0.2, 0.2, 0.2]]},
+	{ "name": "dollymix6"},
+	{ "name": "dollymix7"},
+    { "name": "dollymix7-unshaded", "delays": [[0.2, 0.2, 0.2, 0.2]]},
+	{ "name": "dollymix8"},
+	{ "name": "dollymix9"},
+    { "name": "dollymix9-unshaded", "delays": [[0.2, 0.2, 0.2, 0.2]]},
+	{ "name": "icon"}
+  ]
+}

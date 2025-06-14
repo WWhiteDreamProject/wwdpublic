@@ -703,7 +703,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Serializable, NetSerializable]
     public sealed class HitscanEvent : EntityEventArgs
     {
-        public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)> Sprites = new();
+        public List<(MapCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)> Sprites = new(); // WWDP EDIT
     }
 }
 

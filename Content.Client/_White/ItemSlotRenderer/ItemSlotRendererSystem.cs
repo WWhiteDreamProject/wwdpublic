@@ -101,7 +101,8 @@ public sealed class ItemSlotRendererSystem : EntitySystem
 /// </summary>
 public sealed class SpriteToLayerBullshitOverlay : Overlay
 {
-    [Dependency] private readonly EntityManager _entMan = default!;
+    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private readonly IEyeManager _eye = default!;
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpaceBelowWorld;
 
@@ -135,7 +136,10 @@ public sealed class SpriteToLayerBullshitOverlay : Overlay
 
                 handle.RenderInRenderTarget(renderTarget, () =>
                 {
-                    handle.DrawEntity(item, renderTarget.Size / 2, Vector2.One, 0); // If this throws due to a missing spritecomp, it's your fault.
+                    if (comp.NoRotation)
+                        handle.DrawEntity(item, renderTarget.Size / 2, Vector2.One, 0); // If this throws due to a missing spritecomp, it's your fault.
+                    else
+                        handle.DrawEntity(item, renderTarget.Size / 2, Vector2.One, null, _eye.CurrentEye.Rotation);
                 }, Color.Transparent);
                 sprite.LayerSetTexture(layerIndex, renderTarget.Texture);
             }
