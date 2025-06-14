@@ -52,8 +52,8 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.25
-        density: 1000
+          radius: 0.45 # WWDP
+        density: 500 # WWDP
         mask:
         - MobMask
         layer:
@@ -178,7 +178,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.45
-        density: 400
+        density: 600 # WWDP
         mask:
         - MobMask
         layer:
@@ -253,7 +253,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.45
-        density: 15500
+        density: 750 # WWDP
         mask:
         - MobMask
         layer:
@@ -301,7 +301,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.45
-        density: 1350
+        density: 1000 # WWDP
         mask:
         - MobMask
         layer:
