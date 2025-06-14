@@ -75,3 +75,13 @@
     Glass: 50
     Gold: 100
     Bluespace: 50
+
+- type: latheRecipe
+  id: AiRemoteBrain
+  result: AiRemoteBrain
+  category: AI
+  completetime: 4
+  materials:
+    Steel: 300
+    Glass: 400
+    Gold: 400
