@@ -619,16 +619,16 @@
   - type: Storage
     grid:
     - 0,0,3,1
-  - type: EmitsSoundOnMove
-    soundCollection:
-      collection: FootstepTacticalWebbing
-      params:
-        volume: -10
-    distanceWalking: 2
-    distanceSprinting: 3
+  # - type: EmitsSoundOnMove # WWDP
+  #   soundCollection:
+  #     collection: FootstepTacticalWebbing
+  #     params:
+  #       volume: -10
+  #   distanceWalking: 2
+  #   distanceSprinting: 3
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: ClothingBeltHolster # WWDP
   id: ClothingBeltSyndieHolster
   name: syndicate shoulder holster
   description: A deep shoulder holster capable of holding many types of ballistics.
@@ -640,21 +640,22 @@
   - type: Item
     size: Ginormous
   - type: Storage
-    maxItemSize: Huge
+    # maxItemSize: Huge # WWDP
     grid:
-    - 0,0,3,3
-    whitelist:
-      components:
-      - Gun
-      - BallisticAmmoProvider
-      - CartridgeAmmo
-  - type: EmitsSoundOnMove
-    soundCollection:
-      collection: FootstepTacticalWebbing
-      params:
-        volume: -10
-    distanceWalking: 2
-    distanceSprinting: 3
+    - 0,0,3,1 # WWDP
+    - 5,0,8,1
+  #   whitelist: # WWDP
+  #     components:
+  #     - Gun
+  #     - BallisticAmmoProvider
+  #     - CartridgeAmmo
+  # - type: EmitsSoundOnMove
+  #   soundCollection:
+  #     collection: FootstepTacticalWebbing
+  #     params:
+  #       volume: -10
+  #   distanceWalking: 2
+  #   distanceSprinting: 3
 
 # WWDP base webbing
 - type: entity
@@ -670,9 +671,7 @@
     soundCollection:
       collection: FootstepTacticalWebbing
       params:
-        volume: -10
-    distanceWalking: 2
-    distanceSprinting: 3
+        volume: -15 # WWDP
 
 
 - type: entity
@@ -721,13 +720,13 @@
     sprite: Clothing/Belt/salvagewebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/salvagewebbing.rsi
-  - type: EmitsSoundOnMove
-    soundCollection:
-      collection: FootstepTacticalWebbing
-      params:
-        volume: -10
-    distanceWalking: 2
-    distanceSprinting: 3
+  # - type: EmitsSoundOnMove # WWDP
+  #   soundCollection:
+  #     collection: FootstepTacticalWebbing
+  #     params:
+  #       volume: -10
+  #   distanceWalking: 2
+  #   distanceSprinting: 3
 
 - type: entity
   parent: [ClothingBaseWebbing, ClothingBeltStorageBase, ContentsExplosionResistanceBase] # WWDP
