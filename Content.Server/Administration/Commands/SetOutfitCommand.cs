@@ -143,12 +143,13 @@ namespace Content.Server.Administration.Commands
             if (startingGear.Storage.Count > 0)
             {
                 var coords = entityManager.GetComponent<TransformComponent>(target).Coordinates;
-                var ents = new ValueList<EntityUid>();
 
                 foreach (var (slot, entProtos) in startingGear.Storage)
                 {
                     if (entProtos.Count == 0)
                         continue;
+
+                    var ents = new ValueList<EntityUid>(); // WWDP
 
                     foreach (var ent in entProtos)
                     {
