@@ -429,7 +429,7 @@ public partial class SharedBodySystem
             // Todo: Kill this in favor of husking.
             // WWDP edit start
             // DropSlotContents((partId, part));
-            // RemovePartChildren((partId, part), bodyEnt);
+            RemovePartChildren((partId, part), bodyEnt, dropChildren: false);
             foreach (var organ in GetPartOrgans(partId, part))
             {
                 // _gibbingSystem.TryGibEntityWithRef(bodyEnt, organ.Id, GibType.Drop, GibContentsOption.Skip,

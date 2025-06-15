@@ -175,7 +175,7 @@ public partial class SharedBodySystem
         RemovePartChildren(partEnt, bodyEnt, bodyEnt.Comp);
     }
 
-    protected void RemovePartChildren(Entity<BodyPartComponent> partEnt, EntityUid bodyEnt, BodyComponent? body = null)
+    protected void RemovePartChildren(Entity<BodyPartComponent> partEnt, EntityUid bodyEnt, BodyComponent? body = null, bool dropChildren = true) // WWDp edit
     {
         if (!Resolve(bodyEnt, ref body, logMissing: false))
             return;
@@ -191,7 +191,12 @@ public partial class SharedBodySystem
                 {
                     var ev = new BodyPartEnableChangedEvent(false);
                     RaiseLocalEvent(childEntity, ref ev);
-                    DropPart((childEntity, childPart));
+                    // WWDP edit start
+                    if (dropChildren)
+                        DropPart((childEntity, childPart));
+                    else
+                        QueueDel(childEntity);
+                    // WWDP edit end
                 }
             }
 
