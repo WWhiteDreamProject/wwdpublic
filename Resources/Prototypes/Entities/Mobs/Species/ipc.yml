@@ -1,0 +1,13 @@
+- type: entity
+  id: MobIPCSpecies
+  parent: BaseMob
+  name: ipc
+  description: A synthetic man-made lifeform.
+  components:
+  - type: CRTVision
+  - type: Respirator
+    damage:
+      excess: 0
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0

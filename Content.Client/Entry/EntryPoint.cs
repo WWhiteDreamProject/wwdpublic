@@ -128,6 +128,11 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("stationGoal");
             _prototypeManager.RegisterIgnore("ghostRoleRaffleDecider");
 
+            // Vision effects
+            _componentFactory.RegisterIgnore("UltraVisionSystem");
+            _componentFactory.RegisterIgnore("DogVisionSystem");
+            _componentFactory.RegisterIgnore("CRTVisionSystem");
+
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
             _screenshotHook.Initialize();
