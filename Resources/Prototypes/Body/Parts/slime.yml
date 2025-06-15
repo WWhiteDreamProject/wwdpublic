@@ -17,12 +17,12 @@
 - type: entity
   id: HeadSlime
   name: "slime head"
-  parent: [PartSlime, BaseHead]
+  parent: [BaseHead, PartSlime] # WWDP
   components:
     - type: Sprite
       sprite: Mobs/Species/Slime/parts.rsi
       state: "head_m"
-  
+
 - type: entity
   id: LeftArmSlime
   name: "left slime arm"

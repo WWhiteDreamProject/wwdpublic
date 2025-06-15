@@ -33,7 +33,7 @@
 - type: entity
   id: HeadArachnid
   name: "arachnid head"
-  parent: [PartArachnid, BaseHead]
+  parent: [BaseHead, PartArachnid] # WWDP
   components:
   - type: Sprite
     sprite: Mobs/Species/Arachnid/parts.rsi

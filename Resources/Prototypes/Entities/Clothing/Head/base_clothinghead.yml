@@ -197,7 +197,7 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.1
+    coefficient: 0.2 # WWDP
   - type: FireProtection
     reduction: 0.2
   - type: IgniteFromGasImmunity
