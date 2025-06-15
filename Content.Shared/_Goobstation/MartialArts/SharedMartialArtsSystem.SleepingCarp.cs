@@ -88,10 +88,15 @@ public partial class SharedMartialArtsSystem
     private void OnSleepingCarpGnashing(Entity<CanPerformComboComponent> ent,
         ref SleepingCarpGnashingTeethPerformedEvent args)
     {
+        // WWDP edit fix
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !_proto.TryIndex<MartialArtPrototype>(ent.Comp.BeingPerformed.ToString(), out var martialArtProto)
             || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
             return;
+
+        if (!TryComp<MartialArtsKnowledgeComponent>(ent.Owner, out var knowledge)
+            || !_proto.TryIndex<MartialArtPrototype>(knowledge.MartialArtsForm.ToString(), out var martialArtProto))
+            return;
+        // WWDP edit end
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage + ent.Comp.ConsecutiveGnashes * 5, out _);
         ent.Comp.ConsecutiveGnashes++;
