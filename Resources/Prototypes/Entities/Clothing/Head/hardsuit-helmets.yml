@@ -59,7 +59,7 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.005
+    coefficient: 0.1 # WWDP
   - type: FireProtection # WWDP
     reduction: 1
 
@@ -574,7 +574,7 @@
     - Snout
     - Hair
   - type: TemperatureProtection
-    coefficient: 0.005
+    coefficient: 0.1 # WWDP
   - type: FireProtection
     reduction: 0.2
   - type: Armor
@@ -945,7 +945,7 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.005
+    coefficient: 0.1 # WWDP
   - type: Armor
     modifiers:
       coefficients:

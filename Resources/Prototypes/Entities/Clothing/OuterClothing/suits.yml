@@ -68,7 +68,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.04
   - type: TemperatureProtection
-    coefficient: 0.005
+    coefficient: 0.1 # WWDP
   - type: FireProtection
     reduction: 0.65 # doesnt have a full seal so not as good
   - type: Armor
@@ -104,7 +104,7 @@
       highPressureMultiplier: 0.02
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coefficient: 0.001
+      coefficient: 0.1 # WWDP
     - type: FireProtection
       reduction: 0.85 # WWDP
     - type: Armor
@@ -173,7 +173,7 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.01
+    coefficient: 0.1 # WWDP
   - type: Armor
     modifiers:
       coefficients:
@@ -319,7 +319,7 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.01
+    coefficient: 0.1 # WWDP
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCarp
 
