@@ -60,6 +60,8 @@
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
     coefficient: 0.005
+  - type: FireProtection # WWDP
+    reduction: 1
 
 #Engineering Hardsuit
 - type: entity
