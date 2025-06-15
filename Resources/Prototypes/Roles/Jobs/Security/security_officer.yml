@@ -50,14 +50,13 @@
   - SecurityOfficerPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSec
-    back: ClothingBackpackSecurity
+    back: ClothingBackpackSecurityFilled # WWDP
     shoes: ClothingShoesBootsJack # WWDP
     # eyes: ClothingEyesGlassesSunglasses # WWDP moved everything to lockers
     # head: ClothingHeadHelmetBasic # WWDP
     # outerClothing: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier # WWDP
     id: SecurityPDA
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    belt: WeaponEnergyGunPistolSecurity  # WWDP
   innerClothingSkirt: ClothingUniformJumpskirtSec
   satchel: ClothingBackpackSatchelSecurity
   duffelbag: ClothingBackpackDuffelSecurity

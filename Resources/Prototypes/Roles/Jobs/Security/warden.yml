@@ -56,13 +56,12 @@
   equipment:
     head: ClothingHeadHatWarden
     jumpsuit: ClothingUniformJumpsuitWarden
-    back: ClothingBackpackSecurity
+    back: ClothingBackpackSecurityFilled # WWDP
     shoes: ClothingShoesBootsJack # WWDP
     # eyes: ClothingEyesGlassesSunglasses # WWDP
     # outerClothing: ClothingOuterCoatWarden # WWDP
     id: WardenPDA
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    belt: WeaponEnergyGunPistolSecurity  # WWDP
   innerClothingSkirt: ClothingUniformJumpskirtWarden
   satchel: ClothingBackpackSatchelSecurity
   duffelbag: ClothingBackpackDuffelSecurity

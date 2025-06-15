@@ -21,7 +21,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: MagazinePistol
+      - id: WeaponEnergyGunPistolSecurity # WWDP Standard NT Security personal weapon
 
 - type: entity
   categories: [ HideSpawnMenu ]
