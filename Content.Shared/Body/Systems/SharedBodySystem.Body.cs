@@ -427,11 +427,17 @@ public partial class SharedBodySystem
 
             var gibs = new HashSet<EntityUid>();
             // Todo: Kill this in favor of husking.
-            DropSlotContents((partId, part));
-            RemovePartChildren((partId, part), bodyEnt);
+            // WWDP edit start
+            // DropSlotContents((partId, part));
+            // RemovePartChildren((partId, part), bodyEnt);
             foreach (var organ in GetPartOrgans(partId, part))
-                _gibbingSystem.TryGibEntityWithRef(bodyEnt, organ.Id, GibType.Drop, GibContentsOption.Skip,
-                    ref gibs, playAudio: false, launchImpulse: GibletLaunchImpulse, launchImpulseVariance: GibletLaunchImpulseVariance);
+            {
+                // _gibbingSystem.TryGibEntityWithRef(bodyEnt, organ.Id, GibType.Drop, GibContentsOption.Skip,
+                //     ref gibs, playAudio: false, launchImpulse: GibletLaunchImpulse, launchImpulseVariance: GibletLaunchImpulseVariance);
+
+                QueueDel(organ.Id);
+            }
+            // WWDP edit end
 
             _gibbingSystem.TryGibEntityWithRef(partId, partId, GibType.Gib, GibContentsOption.Gib, ref gibs,
                 playAudio: false, launchGibs: true, launchImpulse: GibletLaunchImpulse, launchImpulseVariance: GibletLaunchImpulseVariance);

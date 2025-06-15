@@ -20,7 +20,7 @@
 - type: entity
   id: HeadThaven
   name: "thaven head"
-  parent: [PartThaven, BaseHead]
+  parent: [BaseHead, PartThaven] # WWDP
   components:
   - type: Sprite
     state: "head"
