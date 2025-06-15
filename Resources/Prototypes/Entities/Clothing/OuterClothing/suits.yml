@@ -106,7 +106,7 @@
     - type: TemperatureProtection
       coefficient: 0.001
     - type: FireProtection
-      reduction: 1 # WWDP
+      reduction: 0.85 # WWDP
     - type: Armor
       modifiers:
         coefficients:
