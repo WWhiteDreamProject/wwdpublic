@@ -50,7 +50,7 @@
   - type: TemperatureProtection
     coefficient: 0.001
   - type: FireProtection
-    reduction: 1
+    reduction: 0.5 # WWDP, most protection is on the helmet
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
@@ -131,7 +131,7 @@
   - type: TemperatureProtection
     coefficient: 0.001
   - type: FireProtection
-    reduction: 1
+    reduction: 0.5 # WWDP, most protection is on the helmet
 
 #Spationaut Hardsuit
 - type: entity
@@ -260,7 +260,7 @@
   - type: TemperatureProtection
     coefficient: 0.001
   - type: FireProtection
-    reduction: 1
+    reduction: 0.5 # WWDP, most protection is on the helmet
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMaxim
   - type: GuideHelp
@@ -445,7 +445,7 @@
   - type: TemperatureProtection
     coefficient: 0.001
   - type: FireProtection
-    reduction: 1
+    reduction: 0.5 # WWDP, most protection is on the helmet
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -1042,7 +1042,7 @@
   - type: TemperatureProtection
     coefficient: 0.001
   - type: FireProtection
-    reduction: 1
+    reduction: 0.5 # WWDP, most protection is on the helmet
     #WWDP edit delete StaminaDamageResistance
 
 #ERT Medic Hardsuit

@@ -28,6 +28,6 @@ public sealed class GetFireProtectionEvent : EntityEventArgs, IInventoryRelayEve
     /// </summary>
     public void Reduce(float by)
     {
-        Multiplier -= by;
+        Multiplier *= 1 - by; // WWDP
     }
 }

@@ -108,6 +108,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.1
     lowPressureMultiplier: 1000
+  - type: FireProtection  # WWDP
+    reduction: 1
 
 #Spationaut Hardsuit
 - type: entity
@@ -178,6 +180,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
+  - type: FireProtection # WWDP
+    reduction: 1
   - type: Armor
     modifiers:
       coefficients:
@@ -818,6 +822,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FireProtection # WWDP
+    reduction: 1
 
 #ERT Medical Hardsuit
 - type: entity

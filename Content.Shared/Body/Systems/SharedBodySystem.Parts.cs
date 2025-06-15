@@ -175,7 +175,7 @@ public partial class SharedBodySystem
         RemovePartChildren(partEnt, bodyEnt, bodyEnt.Comp);
     }
 
-    protected void RemovePartChildren(Entity<BodyPartComponent> partEnt, EntityUid bodyEnt, BodyComponent? body = null, bool dropChildren = true) // WWDp edit
+    protected void RemovePartChildren(Entity<BodyPartComponent> partEnt, EntityUid bodyEnt, BodyComponent? body = null, bool dropChildren = true) // WWDP edit
     {
         if (!Resolve(bodyEnt, ref body, logMissing: false))
             return;

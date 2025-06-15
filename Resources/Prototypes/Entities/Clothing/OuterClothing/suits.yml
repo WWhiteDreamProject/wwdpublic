@@ -106,7 +106,7 @@
     - type: TemperatureProtection
       coefficient: 0.001
     - type: FireProtection
-      reduction: 0.8 # atmos firesuit offers best protection, hardsuits are a little vulnerable
+      reduction: 1 # WWDP
     - type: Armor
       modifiers:
         coefficients:

@@ -136,7 +136,7 @@
   - type: TemperatureProtection
     coefficient: 0.01
   - type: FireProtection
-    reduction: 0.75 # almost perfectly sealed, atmos firesuit is better
+    reduction: 0.5 # WWDP
   - type: IgniteFromGasImmunity
     parts:
     - Torso
