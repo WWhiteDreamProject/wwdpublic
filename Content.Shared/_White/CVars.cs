@@ -115,7 +115,7 @@ public sealed class WhiteCVars
     /// </summary>
     public static readonly CVarDef<float> ShoveMassFactor =
         CVarDef.Create("game.shove_mass_factor", 3f, CVar.SERVER | CVar.ARCHIVE);
-    #endregion
+
 
     #region Graphics
 
@@ -161,5 +161,15 @@ public sealed class WhiteCVars
 
     public static readonly CVarDef<int> AsteroidFieldDerelictCount =
         CVarDef.Create("asteroidfield.derelict.count", 5, CVar.SERVER | CVar.ARCHIVE);
+    #endregion
+
+    #region Shuttles
+
+    /// <summary>
+    /// WWDP - Can emergency shuttle's early launch authorizations be recalled.
+    /// </summary>
+    public static readonly CVarDef<bool> EmergencyAuthRecallAllowed =
+        CVarDef.Create("shuttle.emergency_auth_recall_allowed", false, CVar.SERVERONLY);
+
     #endregion
 }
