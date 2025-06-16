@@ -1,5 +1,5 @@
 using Content.Client.Rotation;
-using Content.Shared._White;
+using Content.Shared._White.Move;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Rotation;
@@ -17,7 +17,7 @@ internal sealed class BuckleSystem : SharedBuckleSystem
         base.Initialize();
 
         SubscribeLocalEvent<BuckleComponent, AppearanceChangeEvent>(OnAppearanceChange);
-        SubscribeLocalEvent<StrapComponent, MoveEventProxy>(OnStrapMoveEvent);
+        SubscribeLocalEvent<StrapComponent, MoveEventProxy>(OnStrapMoveEvent); // WD EDIT
         SubscribeLocalEvent<BuckleComponent, BuckledEvent>(OnBuckledEvent);
         SubscribeLocalEvent<BuckleComponent, UnbuckledEvent>(OnUnbuckledEvent);
     }
@@ -53,7 +53,7 @@ internal sealed class BuckleSystem : SharedBuckleSystem
         }
     }
 
-    private void OnStrapMoveEvent(EntityUid uid, StrapComponent component, ref MoveEventProxy args)
+    private void OnStrapMoveEvent(EntityUid uid, StrapComponent component, ref MoveEventProxy args) // WD EDIT
     {
         // I'm moving this to the client-side system, but for the sake of posterity let's keep this comment:
         // > This is mega cursed. Please somebody save me from Mr Buckle's wild ride

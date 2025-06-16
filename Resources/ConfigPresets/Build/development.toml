@@ -30,3 +30,11 @@ see_own_notes = true
 
 [lavaland] # Lavaland Change
 enabled = false # WWDP disbled in debug
+
+# WD EDIT START
+[aspects]
+enabled = false
+
+[asteroid_field]
+enabled = false
+# WD EDIT END

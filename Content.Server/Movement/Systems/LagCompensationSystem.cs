@@ -1,5 +1,4 @@
 using Content.Server.Movement.Components;
-using Content.Shared._White;
 using Robust.Server.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
@@ -23,7 +22,7 @@ public sealed class LagCompensationSystem : EntitySystem
     {
         base.Initialize();
         Log.Level = LogLevel.Info;
-        SubscribeLocalEvent<LagCompensationComponent, MoveEventProxy>(OnLagMove);
+        SubscribeLocalEvent<LagCompensationComponent, MoveEvent>(OnLagMove);
     }
 
     public override void Update(float frameTime)
@@ -52,7 +51,7 @@ public sealed class LagCompensationSystem : EntitySystem
         }
     }
 
-    private void OnLagMove(EntityUid uid, LagCompensationComponent component, ref MoveEventProxy args)
+    private void OnLagMove(EntityUid uid, LagCompensationComponent component, ref MoveEvent args)
     {
         if (!args.NewPosition.EntityId.IsValid())
             return; // probably being sent to nullspace for deletion.
