@@ -20,7 +20,7 @@ public partial class MapGridControl : LayoutContainer
     [Dependency] protected readonly IEntityManager EntManager = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
 
-    protected static readonly Color BackingColor = new Color(0.08f, 0.02f, 0.08f);
+    protected static readonly Color BackingColor = new Color(0.08f, 0.02f, 0.08f); // WD EDIT
 
     private Font _largerFont;
 
@@ -171,7 +171,7 @@ public partial class MapGridControl : LayoutContainer
 
     protected static Vector2 ScalePositionFlipY(Vector2 value, float minimapScale, Vector2 midpointVector)
     {
-        return value with { Y = -value.Y } * minimapScale + midpointVector;
+        return value with { Y = -value.Y, } * minimapScale + midpointVector;
     }
     // WWDP EDIT END
 
@@ -216,7 +216,7 @@ public partial class MapGridControl : LayoutContainer
 
     protected void DrawBacking(DrawingHandleScreen handle)
     {
-        handle.DrawRect(PixelSizeBox, BackingColor);
+        handle.DrawRect(PixelSizeBox, BackingColor); // WD EDIT
     }
 
     protected void DrawNoSignal(DrawingHandleScreen handle)

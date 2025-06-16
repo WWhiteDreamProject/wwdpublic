@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.NodeContainer.Nodes;
-using Content.Shared._White;
 using Content.Shared.Examine;
 using JetBrains.Annotations;
 
@@ -26,7 +25,7 @@ namespace Content.Server.NodeContainer.EntitySystems
             SubscribeLocalEvent<NodeContainerComponent, ComponentShutdown>(OnShutdownEvent);
             SubscribeLocalEvent<NodeContainerComponent, AnchorStateChangedEvent>(OnAnchorStateChanged);
             SubscribeLocalEvent<NodeContainerComponent, ReAnchorEvent>(OnReAnchor);
-            SubscribeLocalEvent<NodeContainerComponent, MoveEventProxy>(OnMoveEvent);
+            SubscribeLocalEvent<NodeContainerComponent, MoveEvent>(OnMoveEvent);
             SubscribeLocalEvent<NodeContainerComponent, ExaminedEvent>(OnExamine);
 
             _query = GetEntityQuery<NodeContainerComponent>();
@@ -175,7 +174,7 @@ namespace Content.Server.NodeContainer.EntitySystems
             }
         }
 
-        private void OnMoveEvent(EntityUid uid, NodeContainerComponent container, ref MoveEventProxy ev)
+        private void OnMoveEvent(EntityUid uid, NodeContainerComponent container, ref MoveEvent ev)
         {
             if (ev.NewRotation == ev.OldRotation)
             {

@@ -17,6 +17,7 @@
           state: carpplush
         name: carp plushie
         doAfter: 2
+  # WD EDIT START
   - node: labeler
     edges:
     - to: fishlabeler
@@ -27,5 +28,6 @@
           state: carpplush
         name: carp plushie
         doAfter: 2
+  # WD EDIT END
   - node: fishlabeler
     entity: FishLabeler
