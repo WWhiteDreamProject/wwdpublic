@@ -708,14 +708,15 @@ public partial class SharedBodySystem
             return;
         }
 
+        var walkSpeed = 0f;
+        var sprintSpeed= 0f;
+        var acceleration = 0f;
         // WWDP edit - minimal movement speed
-        var walkSpeed = body.MinimumMovementSpeed;
-        var sprintSpeed = body.MinimumMovementSpeed;
-        var acceleration = MovementSpeedModifierComponent.DefaultAcceleration;
+        var minspeed = body.MinimumMovementSpeed;
 
         if (HasComp<LegsParalyzedComponent>(bodyId))
         {
-            Movement.ChangeBaseSpeed(bodyId, walkSpeed, sprintSpeed, acceleration, movement);
+            Movement.ChangeBaseSpeed(bodyId, minspeed, minspeed, MovementSpeedModifierComponent.DefaultAcceleration, movement);
             return;
         }
 
@@ -728,8 +729,8 @@ public partial class SharedBodySystem
             sprintSpeed += legModifier.SprintSpeed;
             acceleration += legModifier.Acceleration;
         }
-        walkSpeed = Math.Max(body.MinimumMovementSpeed, walkSpeed / body.RequiredLegs);
-        sprintSpeed = Math.Max(body.MinimumMovementSpeed, sprintSpeed / body.RequiredLegs);
+        walkSpeed = Math.Max(minspeed, walkSpeed / body.RequiredLegs);
+        sprintSpeed = Math.Max(minspeed, sprintSpeed / body.RequiredLegs);
         // WWDP edit end
         acceleration /= body.RequiredLegs;
         Movement.ChangeBaseSpeed(bodyId, walkSpeed, sprintSpeed, acceleration, movement);
