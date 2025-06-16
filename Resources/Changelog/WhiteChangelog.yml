@@ -3293,3 +3293,10 @@ Entries:
   id: 356
   time: '2025-06-16T17:35:48.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/587
+- author: vanx
+  changes:
+    - type: Add
+      message: Мультифаз ХОСа получил ионный режим с болтами на 20 шокового урона.
+  id: 357
+  time: '2025-06-16T17:42:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/597
