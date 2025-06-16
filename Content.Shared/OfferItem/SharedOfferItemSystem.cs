@@ -1,7 +1,7 @@
 using Content.Shared.Interaction;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Hands.Components;
-using Content.Shared._White;
+using Content.Shared._White.Move;
 
 namespace Content.Shared.OfferItem;
 
@@ -12,7 +12,7 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<OfferItemComponent, InteractUsingEvent>(SetInReceiveMode);
-        SubscribeLocalEvent<OfferItemComponent, MoveEventProxy>(OnMove);
+        SubscribeLocalEvent<OfferItemComponent, MoveEventProxy>(OnMove); // WD EDIT
 
         InitializeInteractions();
     }
@@ -49,7 +49,7 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnMove(EntityUid uid, OfferItemComponent component, MoveEventProxy args)
+    private void OnMove(EntityUid uid, OfferItemComponent component, MoveEventProxy args) // WD EDIT
     {
         if (component.Target == null ||
             args.NewPosition.InRange(EntityManager, _transform,

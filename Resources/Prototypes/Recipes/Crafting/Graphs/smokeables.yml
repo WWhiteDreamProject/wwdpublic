@@ -1,33 +1,37 @@
-- type: constructionGraph
-  id: smokeableJoint
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: joint
-          steps:
-            - material: PaperRolling
-            - material: CigaretteFilter
-            - material: GroundCannabis
-              doAfter: 2
-    - node: joint
-      entity: Joint
-      
-- type: constructionGraph
-  id: smokeableJointRainbow
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: jointRainbow
-          steps:
-            - material: PaperRolling
-            - material: CigaretteFilter
-            - material: GroundCannabisRainbow
-              doAfter: 2
-    - node: jointRainbow
-      entity: JointRainbow
+# WWDP edit start
+# WWDP moved to id: smokeable
+#
+# - type: constructionGraph
+#   id: smokeableJoint
+#   start: start
+#   graph:
+#     - node: start
+#       edges:
+#         - to: joint
+#           steps:
+#             - material: PaperRolling
+#             - material: CigaretteFilter
+#             - material: GroundCannabis
+#               doAfter: 2
+#     - node: joint
+#       entity: Joint
+#
+# - type: constructionGraph
+#   id: smokeableJointRainbow
+#   start: start
+#   graph:
+#     - node: start
+#       edges:
+#         - to: jointRainbow
+#           steps:
+#             - material: PaperRolling
+#             - material: CigaretteFilter
+#             - material: GroundCannabisRainbow
+#               doAfter: 2
+#     - node: jointRainbow
+#       entity: JointRainbow
 
+# WWDP combined smokeableBlunt & smokeableBluntRainbow
 - type: constructionGraph
   id: smokeableBlunt
   start: start
@@ -39,25 +43,28 @@
             - material: LeavesTobaccoDried
             - material: GroundCannabis
               doAfter: 2
-    - node: blunt
-      entity: Blunt
-
-- type: constructionGraph
-  id: smokeableBluntRainbow
-  start: start
-  graph:
-    - node: start
-      edges:
         - to: bluntRainbow
           steps:
-            - material: LeavesTobaccoDried
-            - material: GroundCannabisRainbow
-              doAfter: 2
+          - material: LeavesTobaccoDried
+          - material: GroundCannabisRainbow
+            doAfter: 2
+    - node: tobacco
+      edges:
+      - to: blunt
+        steps:
+        - material: GroundCannabis
+          doAfter: 2
+      - to: bluntRainbow
+        steps:
+        - material: GroundCannabisRainbow
+          doAfter: 2
+    - node: blunt
+      entity: Blunt
     - node: bluntRainbow
       entity: BluntRainbow
 
 - type: constructionGraph
-  id: smokeableCigarette
+  id: smokeable
   start: start
   graph:
     - node: start
@@ -65,11 +72,49 @@
         - to: cigarette
           steps:
             - material: PaperRolling
-            - material: CigaretteFilter
             - material: GroundTobacco
+            - material: CigaretteFilter
               doAfter: 2
+        - to: joint
+          steps:
+          - material: PaperRolling
+          - material: GroundCannabis
+          - material: CigaretteFilter
+            doAfter: 2
+        - to: jointRainbow
+          steps:
+          - material: PaperRolling
+          - material: GroundCannabisRainbow
+          - material: CigaretteFilter
+            doAfter: 2
+    - node: paperRolling
+      entity: PaperRolling
+      edges:
+      - to: cigarette
+        steps:
+        - material: GroundTobacco
+          doAfter: 1
+        - material: CigaretteFilter
+          doAfter: 1
+      - to: joint
+        steps:
+        - material: GroundCannabis
+          doAfter: 1
+        - material: CigaretteFilter
+          doAfter: 1
+      - to: jointRainbow
+        steps:
+        - material: GroundCannabisRainbow
+          doAfter: 1
+        - material: CigaretteFilter
+          doAfter: 1
     - node: cigarette
       entity: Cigarette
+    - node: joint
+      entity: Joint
+    - node: jointRainbow
+      entity: JointRainbow
+# WWDP edit end
 
 - type: constructionGraph
   id: smokeableGroundCannabis

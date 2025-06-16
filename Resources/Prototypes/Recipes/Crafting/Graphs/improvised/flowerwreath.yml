@@ -1,3 +1,4 @@
+# WWDP edit start
 - type: constructionGraph
   id: flowerwreath
   start: start
@@ -6,21 +7,32 @@
       edges:
         - to: flowerwreath
           steps:
-            - tag: Flower
-              name: flower
-              icon:
-                sprite: Objects/Specific/Hydroponics/poppy.rsi
-                state: produce
-            - tag: Flower
-              name: flower
-              icon:
-                sprite: Objects/Specific/Hydroponics/poppy.rsi
-                state: produce
             - tag: Ambrosia
               name: ambrosia
               icon:
                 sprite: Objects/Specific/Hydroponics/ambrosia_vulgaris.rsi
                 state: produce
               doAfter: 10
+            - tag: Flower
+              name: flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Flower
+              name: flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+    - node: ambrosia
+      edges:
+      - to: flowerwreath
+        steps:
+        - tag: Flower
+          name: flower
+          doAfter: 5
+        - tag: Flower
+          name: flower
+          doAfter: 5
     - node: flowerwreath
       entity: ClothingHeadHatFlowerWreath
+# WWDP edit end

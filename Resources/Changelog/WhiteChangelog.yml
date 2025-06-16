@@ -3205,3 +3205,105 @@ Entries:
   id: 347
   time: '2025-06-11T18:18:24.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/577
+- author: vanx
+  changes:
+    - type: Add
+      message: >-
+        ВСЕ рецепты крафтов и строительства в игре теперь доступны без
+        использования меню крафта. Для этого используйте стак материалов в руке
+        на Z либо применяйте предметы один к другому в том же порядке как они
+        указаны в меню крафта.
+  id: 348
+  time: '2025-06-13T19:46:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/578
+- author: vanx
+  changes:
+    - type: Add
+      message: Переводы культа и не только
+  id: 349
+  time: '2025-06-13T19:47:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/580
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Емагу возвращён полный функционал.
+    - type: Tweak
+      message: Стоимость емага в аплинке 4 -> 8 ТК.
+    - type: Tweak
+      message: >-
+        Doorjack переименован в "дешифратор шлюзов". Теперь это бюджетная версия
+        емага,  всё так же может только открывать шлюзы.
+  id: 350
+  time: '2025-06-13T19:48:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/581
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Лежачие тела теперь не скользят по полу, а наоборот замедляются. Можете
+        брать их на руки, катать на каталках, или сопротивляться таким образом
+        когда СБ тащат вас в бриг.
+  id: 351
+  time: '2025-06-13T19:49:38.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/583
+- author: vanx
+  changes:
+    - type: Remove
+      message: Убрана цель агента на сохранение кого-то в живых
+  id: 352
+  time: '2025-06-16T17:17:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/576
+- author: vanx
+  changes:
+    - type: Add
+      message: >-
+        Обезболивающие (морфин) теперь позволяют игнорировать дебафф настроения
+        от урона.
+    - type: Add
+      message: Эфедрин теперь обезболивает.
+  id: 353
+  time: '2025-06-16T17:29:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/586
+- author: vanx
+  changes:
+    - type: Tweak
+      message: 'Масса королевы ксеноморфов: 9861 -> 477.'
+    - type: Fix
+      message: >-
+        Бросок королевой ксеноморфов больше не гибает и не уничтожает стены при
+        попадании.
+  id: 354
+  time: '2025-06-16T17:33:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/590
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Тактические разгрузки теперь звучат тише при ходьбе
+    - type: Remove
+      message: Убран звук при ходьбе у кобуры и разгрузки утилизаторов.
+  id: 355
+  time: '2025-06-16T17:34:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/591
+- author: Spatison
+  changes:
+    - type: Add
+      message: Аспекты были включены
+    - type: Fix
+      message: Центрифуга теперь работает
+  id: 356
+  time: '2025-06-16T17:35:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/587
+- author: vanx
+  changes:
+    - type: Add
+      message: Мультифаз ХОСа получил ионный режим с болтами на 20 шокового урона.
+  id: 357
+  time: '2025-06-16T17:42:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/597
+- author: Kai518
+  changes:
+    - type: Add
+      message: Портирован модуль дистанционного управления боргами Б.О.Р.И.С.
+  id: 358
+  time: '2025-06-16T18:12:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/567

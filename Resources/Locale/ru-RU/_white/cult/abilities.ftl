@@ -1,8 +1,8 @@
 artificer-create-soul-stone-action-name = Создать камень души.
-artificer-create-soul-stone-action-description = Это заклинание проникает в царство Нар-Си, вызывая один из легендарных фрагментов через время и пространство.
+artificer-create-soul-stone-action-description = Это заклинание проникает в царство Нар'Си, вызывая один из легендарных фрагментов через время и пространство.
 
 artificer-create-construct-shell-action-name = Создать оболочку конструкта.
-artificer-create-construct-shell-action-description = Это заклинание проникает в царство Нар-Си, вызывая один из легендарных фрагментов через время и пространство.
+artificer-create-construct-shell-action-description = Это заклинание проникает в царство Нар'Си, вызывая один из легендарных фрагментов через время и пространство.
 
 artificer-convert-cultist-floor-action-name = Создать пол культа.
 artificer-convert-cultist-floor-action-description = Это заклинание возводит под вами пол культа.

@@ -282,12 +282,17 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     {
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
         var random = IoCManager.Resolve<IRobustRandom>();
-
-        var species = random.Pick(prototypeManager
+        // WWDP edit start
+        var specieslist = prototypeManager
             .EnumeratePrototypes<SpeciesPrototype>()
-            .Where(x => ignoredSpecies == null ? x.RoundStart : x.RoundStart && !ignoredSpecies.Contains(x.ID))
-            .ToArray()
-        ).ID;
+            .Where(x => !ignoredSpecies?.Contains(x.ID) ?? true) // WWDP
+            .ToArray();
+
+        if (specieslist.Length == 0) // Fallback
+            specieslist = [prototypeManager.Index<SpeciesPrototype>(SharedHumanoidAppearanceSystem.DefaultSpecies)];
+
+        var species = random.Pick(specieslist).ID;
+        // WWDP edit end
 
         return RandomWithSpecies(species);
     }

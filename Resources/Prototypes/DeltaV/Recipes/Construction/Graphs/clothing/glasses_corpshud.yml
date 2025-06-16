@@ -1,12 +1,13 @@
+# WWDP edit start
 - type: constructionGraph
-  id: GlassesMedSecHUD # WWDP
+  id: GlassesMedSecHUD
   start: start
   graph:
     - node: start
       edges:
-        - to: glassesMedSec # WWDP
+        - to: glassesMedSec
           steps:
-            - component: FlashImmunity # WWDP
+            - component: FlashImmunity
               name: sun glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/sunglasses.rsi
@@ -21,5 +22,26 @@
             - material: Cable
               amount: 5
               doAfter: 5
-    - node: glassesMedSec # WWDP
-      entity: ClothingEyesGlassesMedSec # WWDP
+    - node: sunglasses
+      edges:
+        - to: glassesMedSec
+          steps:
+          - tag: HudMedicalSecurity
+            name: medsec hud
+            doAfter: 5
+          - material: Cable
+            amount: 5
+            doAfter: 5
+    - node: sechudglasses
+      edges:
+      - to: glassesMedSec
+        steps:
+        - tag: HudMedicalSecurity
+          name: medsec hud
+          doAfter: 5
+        - material: Cable
+          amount: 5
+          doAfter: 5
+    - node: glassesMedSec
+      entity: ClothingEyesGlassesMedSec
+# WWDP edit end

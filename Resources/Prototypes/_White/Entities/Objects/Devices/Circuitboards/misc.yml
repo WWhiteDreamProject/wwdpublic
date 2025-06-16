@@ -1,0 +1,32 @@
+﻿- type: entity
+  id: StationAICoreCircuitboard
+  parent: BaseElectronics
+  name: AI core machine board
+  description: A machine printed circuit board for a station AI core.
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 31
+    chemicalComposition:
+      Silicon: 20
+  - type: Tag
+    tags:
+    - AiCoreBoard
+
+- type: entity
+  id: WeaponTurretModularCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: modular turret machine board
+  description: Circuitboard for a modular turret, which is a fancy way of saying "a servomotor tied to a gun's trigger with a string".
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: WeaponTurretModular
+    requirements:
+      MatterBin: 1
+      Manipulator: 3
+      Capacitor: 1
+    materialRequirements:
+      Cable: 5
+      Steel: 5

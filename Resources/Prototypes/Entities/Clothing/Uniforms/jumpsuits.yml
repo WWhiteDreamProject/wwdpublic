@@ -290,6 +290,9 @@
   - type: Tag
     tags:
     - ClownSuit
+  - type: Construction # WWDP
+    graph: BananaClownJumpsuit
+    node: basesuit
 
 - type: entity
   parent: ClothingUniformJumpsuitClown

@@ -1,0 +1,16 @@
+﻿- type: construction
+  name: table frame
+  id: TableFrame
+  graph: Table
+  startNode: start
+  targetNode: TableFrame
+  category: construction-category-furniture
+  description: Pieces of metal that make the frame of a table.
+  icon:
+    sprite: Structures/Furniture/Tables/frame.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

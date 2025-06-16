@@ -1,5 +1,3 @@
-using Content.Shared._White;
-
 namespace Content.Server.NodeContainer.Nodes
 {
     /// <summary>
@@ -11,6 +9,6 @@ namespace Content.Server.NodeContainer.Nodes
         /// <summary>
         ///     Rotates this <see cref="Node"/>. Returns true if the node's connections need to be updated.
         /// </summary>
-        bool RotateNode(in MoveEventProxy ev);
+        bool RotateNode(in MoveEvent ev);
     }
 }

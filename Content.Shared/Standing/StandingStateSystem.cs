@@ -10,6 +10,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using System.Linq;
+using Content.Shared.Movement.Events; // WWDP
 
 namespace Content.Shared.Standing;
 
@@ -25,6 +26,21 @@ public sealed class StandingStateSystem : EntitySystem
 
     // If StandingCollisionLayer value is ever changed to more than one layer, the logic needs to be edited.
     private const int StandingCollisionLayer = (int) CollisionGroup.MidImpassable;
+
+    // WWDP edit start - increased friction when prone
+    public override void Initialize()
+    {
+        SubscribeLocalEvent<StandingStateComponent, TileFrictionEvent>(OnProneTileFriction);
+    }
+
+    private void OnProneTileFriction(EntityUid uid, StandingStateComponent component, ref TileFrictionEvent args)
+    {
+        if (component.CurrentState == StandingState.Standing)
+            return;
+
+        args.Modifier *= component.LayingFrictionMultiplier;
+    }
+    // WWDP edit end
 
     public bool IsDown(EntityUid uid, StandingStateComponent? standingState = null)
     {

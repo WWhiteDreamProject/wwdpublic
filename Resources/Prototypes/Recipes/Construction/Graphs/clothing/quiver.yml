@@ -6,14 +6,14 @@
     edges:
     - to: Quiver
       steps:
+      - material: WoodPlank # WWDP moved planks up
+        amount: 1
+        doAfter: 2
       - material: Cable
         amount: 2
         doAfter: 1
       - material: Cloth
         amount: 5
-        doAfter: 2
-      - material: WoodPlank
-        amount: 1
         doAfter: 2
   - node: Quiver
     entity: ClothingBeltQuiver

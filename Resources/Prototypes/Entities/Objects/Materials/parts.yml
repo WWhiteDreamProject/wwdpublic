@@ -80,6 +80,32 @@
     entries:
     - prototype: Grille
     - prototype: GrilleDiagonal
+    # WWDP edit start
+    - prototype: Catwalk
+    - prototype: ClockGrille
+    - prototype: ClockworkGrilleDiagonal
+    - prototype: TableFrame
+    - category:
+        name: Fences
+        icon:
+          sprite: Structures/Walls/fence.rsi
+          state: door_closed
+        entries:
+        - prototype: FenceMetalStraight
+        - prototype: FenceMetalEnd
+        - prototype: FenceMetalCorner
+        - prototype: FenceMetalGate
+    - category:
+        name: Spears
+        icon:
+          sprite: Objects/Weapons/Melee/spear.rsi
+          state: spear
+        entries:
+        - prototype: Spear
+        - prototype: SpearReinforced
+        - prototype: SpearPlasma
+        - prototype: SpearUranium
+    # WWDP edit end
     - category:
         name: Railings
         icon:

@@ -1,4 +1,4 @@
-using Content.Shared._White;
+using Content.Shared._White.Move;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
@@ -21,7 +21,7 @@ public abstract class SharedStealthSystem : EntitySystem
 
         SubscribeLocalEvent<StealthComponent, ComponentGetState>(OnStealthGetState);
         SubscribeLocalEvent<StealthComponent, ComponentHandleState>(OnStealthHandleState);
-        SubscribeLocalEvent<StealthOnMoveComponent, MoveEventProxy>(OnMove);
+        SubscribeLocalEvent<StealthOnMoveComponent, MoveEventProxy>(OnMove); // WD EDIT
         SubscribeLocalEvent<StealthOnMoveComponent, GetVisibilityModifiersEvent>(OnGetVisibilityModifiers);
         SubscribeLocalEvent<StealthComponent, EntityPausedEvent>(OnPaused);
         SubscribeLocalEvent<StealthComponent, EntityUnpausedEvent>(OnUnpaused);
@@ -119,7 +119,7 @@ public abstract class SharedStealthSystem : EntitySystem
         component.MaxVisibility = cast.MaxVisibility; // Shitmed Change
     }
 
-    private void OnMove(EntityUid uid, StealthOnMoveComponent component, ref MoveEventProxy args)
+    private void OnMove(EntityUid uid, StealthOnMoveComponent component, ref MoveEventProxy args) // WD EDIT
     {
         if (_timing.ApplyingState)
             return;

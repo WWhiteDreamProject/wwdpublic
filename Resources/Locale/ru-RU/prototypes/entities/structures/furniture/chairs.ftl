@@ -1,5 +1,5 @@
 ent-SeatBase = стул
-    .desc = Вы сидите в нём. Либо по вашей воле, либо по принуждению.
+    .desc = Вы сидите на нём. Либо по своей воле, либо по принуждению.
     .suffix = { "" }
 ent-UnanchoredChairBase = { ent-SeatBase }
     .desc = { ent-SeatBase.desc }
