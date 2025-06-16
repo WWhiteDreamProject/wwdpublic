@@ -12,3 +12,19 @@
     - !type:TraitAddComponent
       components:
         - type: CRTVision
+
+- type: trait
+  id: StudioVisor
+  name: trait-name-StudioVisor
+  desc: trait-desc-StudioVisor
+  icon: Interface/VerbIcons/eye.svg.192dpi.png
+  category: Visual
+  points: -1
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - IPC
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: StudioVisor

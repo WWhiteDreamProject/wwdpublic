@@ -32,6 +32,10 @@ public sealed partial class CRTVisionSystem : EntitySystem
 
     // For health tracking
     private float _healthPercentage = 1.0f;
+    
+    // For studio visor
+    private bool _hasStudioVisor = false;
+    private const float StudioVisorGlitchReduction = 0.7f; // Reduce glitch intensity by 70% with studio visor
 
     public override void Initialize()
     {
@@ -41,6 +45,12 @@ public sealed partial class CRTVisionSystem : EntitySystem
         SubscribeLocalEvent<CRTVisionComponent, ComponentShutdown>(OnCRTVisionShutdown);
         SubscribeLocalEvent<CRTVisionComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<CRTVisionComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
+
+        // Subscribe to studio visor events
+        SubscribeLocalEvent<StudioVisorComponent, ComponentInit>(OnStudioVisorInit);
+        SubscribeLocalEvent<StudioVisorComponent, ComponentShutdown>(OnStudioVisorShutdown);
+        SubscribeLocalEvent<StudioVisorComponent, LocalPlayerAttachedEvent>(OnStudioVisorAttached);
+        SubscribeLocalEvent<StudioVisorComponent, LocalPlayerDetachedEvent>(OnStudioVisorDetached);
 
         // Subscribe to damage events
         SubscribeLocalEvent<CRTVisionComponent, DamageChangedEvent>(OnDamageChanged);
@@ -65,7 +75,11 @@ public sealed partial class CRTVisionSystem : EntitySystem
         if (uid != _playerMan.LocalEntity)
             return;
 
-        if (!_cfg.GetCVar(CCVars.NoVisionFilters) && !_overlayMan.HasOverlay<CRTVisionOverlay>())
+        // Check if player has studio visor
+        _hasStudioVisor = _entityManager.HasComponent<StudioVisorComponent>(uid);
+
+        // Only add full CRT overlay if player doesn't have studio visor
+        if (!_hasStudioVisor && !_cfg.GetCVar(CCVars.NoVisionFilters) && !_overlayMan.HasOverlay<CRTVisionOverlay>())
             _overlayMan.AddOverlay(_overlay);
 
         // Initialize health percentage
@@ -79,11 +93,17 @@ public sealed partial class CRTVisionSystem : EntitySystem
 
         if (_overlayMan.HasOverlay<CRTVisionOverlay>())
             _overlayMan.RemoveOverlay(_overlay);
+
+        _hasStudioVisor = false;
     }
 
     private void OnPlayerAttached(EntityUid uid, CRTVisionComponent component, LocalPlayerAttachedEvent args)
     {
-        if (!_cfg.GetCVar(CCVars.NoVisionFilters) && !_overlayMan.HasOverlay<CRTVisionOverlay>())
+        // Check if player has studio visor
+        _hasStudioVisor = _entityManager.HasComponent<StudioVisorComponent>(uid);
+
+        // Only add full CRT overlay if player doesn't have studio visor
+        if (!_hasStudioVisor && !_cfg.GetCVar(CCVars.NoVisionFilters) && !_overlayMan.HasOverlay<CRTVisionOverlay>())
             _overlayMan.AddOverlay(_overlay);
 
         // Initialize health percentage
@@ -94,6 +114,59 @@ public sealed partial class CRTVisionSystem : EntitySystem
     {
         if (_overlayMan.HasOverlay<CRTVisionOverlay>())
             _overlayMan.RemoveOverlay(_overlay);
+        
+        _hasStudioVisor = false;
+    }
+
+    // Studio Visor event handlers
+    private void OnStudioVisorInit(EntityUid uid, StudioVisorComponent component, ComponentInit args)
+    {
+        if (uid != _playerMan.LocalEntity)
+            return;
+
+        _hasStudioVisor = true;
+
+        // Remove CRT overlay if it exists, as studio visor disables the base effect
+        if (_overlayMan.HasOverlay<CRTVisionOverlay>())
+            _overlayMan.RemoveOverlay(_overlay);
+    }
+
+    private void OnStudioVisorShutdown(EntityUid uid, StudioVisorComponent component, ComponentShutdown args)
+    {
+        if (uid != _playerMan.LocalEntity)
+            return;
+
+        _hasStudioVisor = false;
+
+        // Re-add CRT overlay if player still has CRT vision component
+        if (_entityManager.HasComponent<CRTVisionComponent>(uid) && 
+            !_cfg.GetCVar(CCVars.NoVisionFilters) && 
+            !_overlayMan.HasOverlay<CRTVisionOverlay>())
+        {
+            _overlayMan.AddOverlay(_overlay);
+        }
+    }
+
+    private void OnStudioVisorAttached(EntityUid uid, StudioVisorComponent component, LocalPlayerAttachedEvent args)
+    {
+        _hasStudioVisor = true;
+
+        // Remove CRT overlay if it exists, as studio visor disables the base effect
+        if (_overlayMan.HasOverlay<CRTVisionOverlay>())
+            _overlayMan.RemoveOverlay(_overlay);
+    }
+
+    private void OnStudioVisorDetached(EntityUid uid, StudioVisorComponent component, LocalPlayerDetachedEvent args)
+    {
+        _hasStudioVisor = false;
+
+        // Re-add CRT overlay if player still has CRT vision component
+        if (_entityManager.HasComponent<CRTVisionComponent>(uid) && 
+            !_cfg.GetCVar(CCVars.NoVisionFilters) && 
+            !_overlayMan.HasOverlay<CRTVisionOverlay>())
+        {
+            _overlayMan.AddOverlay(_overlay);
+        }
     }
 
     private void OnNoVisionFiltersChanged(bool enabled)
@@ -105,9 +178,14 @@ public sealed partial class CRTVisionSystem : EntitySystem
         }
         else
         {
-            if (!_overlayMan.HasOverlay<CRTVisionOverlay>() && _playerMan.LocalEntity is { Valid: true } player &&
+            // Only add overlay if player doesn't have studio visor
+            if (!_hasStudioVisor && 
+                !_overlayMan.HasOverlay<CRTVisionOverlay>() && 
+                _playerMan.LocalEntity is { Valid: true } player &&
                 EntityManager.HasComponent<CRTVisionComponent>(player))
+            {
                 _overlayMan.AddOverlay(_overlay);
+            }
         }
     }
 
@@ -148,6 +226,21 @@ public sealed partial class CRTVisionSystem : EntitySystem
 
         // Pass health percentage to shader
         _overlay.SetHealthPercentage(_healthPercentage);
+        
+        // If player has studio visor, we still want to show glitches at low health
+        // but only if health is very low or on impact
+        if (_hasStudioVisor && _healthPercentage < 0.3f)
+        {
+            // Add temporary overlay for low health with studio visor
+            if (!_overlayMan.HasOverlay<CRTVisionOverlay>())
+                _overlayMan.AddOverlay(_overlay);
+        }
+        else if (_hasStudioVisor && _healthPercentage >= 0.3f && _impactDarkness <= 0.01f)
+        {
+            // Remove overlay when health is restored and no impact effects
+            if (_overlayMan.HasOverlay<CRTVisionOverlay>())
+                _overlayMan.RemoveOverlay(_overlay);
+        }
     }
 
     // Handle mob state change (e.g., transition from Normal to Critical)
@@ -204,13 +297,23 @@ public sealed partial class CRTVisionSystem : EntitySystem
     {
         // Set last impact time and darkness intensity
         _lastImpactTime = _gameTiming.CurTime;
-        _impactDarkness = Math.Min(MaxImpactDarkness, intensity / 30.0f);
+        
+        // Reduce impact effect intensity if player has studio visor
+        float effectiveIntensity = _hasStudioVisor ? intensity * (1.0f - StudioVisorGlitchReduction) : intensity;
+        _impactDarkness = Math.Min(MaxImpactDarkness, effectiveIntensity / 30.0f);
 
         // Apply temporary glitch effect on damage
-        _overlay.SetTemporaryGlitchEffect(Math.Min(0.7f, intensity / 20.0f), 0.25f);
+        float glitchIntensity = Math.Min(0.7f, effectiveIntensity / 20.0f);
+        _overlay.SetTemporaryGlitchEffect(glitchIntensity, 0.25f);
 
         // Update shader parameter
         _overlay.SetImpactDarkness(_impactDarkness);
+        
+        // If player has studio visor, temporarily add overlay for impact effect
+        if (_hasStudioVisor && !_overlayMan.HasOverlay<CRTVisionOverlay>())
+        {
+            _overlayMan.AddOverlay(_overlay);
+        }
     }
 
     public override void Update(float frameTime)
@@ -226,6 +329,12 @@ public sealed partial class CRTVisionSystem : EntitySystem
             {
                 // Effect time expired, reset darkness
                 _impactDarkness = 0.0f;
+                
+                // If player has studio visor and health is good, remove overlay when impact effect ends
+                if (_hasStudioVisor && _healthPercentage >= 0.3f && _overlayMan.HasOverlay<CRTVisionOverlay>())
+                {
+                    _overlayMan.RemoveOverlay(_overlay);
+                }
             }
             else
             {
@@ -238,3 +347,4 @@ public sealed partial class CRTVisionSystem : EntitySystem
         }
     }
 }
+ 

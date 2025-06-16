@@ -666,8 +666,5 @@ trait-description-IPCFragileCircuits =
     You immediately shut down any time you take [color=orange]Shock[/color] damage and must be rebooted.
 fragileCircuits-kill-popup = {$name}'s circuits shut down from short-circuiting!
 
-# CRT Vision
-trait-name-CRTVision = CRT Vision
-trait-description-CRTVision =
-    Your vision is displayed through a CRT-like display, giving everything a slightly distorted, scanline-filled appearance.
-    This is a visual effect only and does not affect your actual vision capabilities.
+trait-name-StudioVisor = Studio Visor
+trait-desc-StudioVisor = Your IPC visual system has been upgraded with a studio-quality visor that reduces most CRT effects while maintaining some minimal glitching during damage or low power.

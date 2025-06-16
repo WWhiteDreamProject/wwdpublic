@@ -16,6 +16,7 @@ public sealed class CRTVisionOverlay : Overlay
 
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
+    
     private readonly ShaderInstance _crtVisionShader;
 
     // Shader parameters
@@ -40,6 +41,7 @@ public sealed class CRTVisionOverlay : Overlay
     public CRTVisionOverlay()
     {
         IoCManager.InjectDependencies(this);
+        ZIndex = -100;
         _crtVisionShader = _prototypeManager.Index<ShaderPrototype>("CRTVision").Instance().Duplicate();
         _crtVisionShader.SetParameter("SCANLINE_INTENSITY", ScanlineIntensity);
         _crtVisionShader.SetParameter("DISTORTION", Distortion);
