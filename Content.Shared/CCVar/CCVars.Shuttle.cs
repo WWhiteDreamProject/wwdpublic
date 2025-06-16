@@ -137,6 +137,12 @@ public sealed partial class CCVars
         CVarDef.Create("shuttle.emergency_early_launch_allowed", true, CVar.SERVERONLY);
 
     /// <summary>
+    /// WWDP - Can early launch authorizations be recalled.
+    /// </summary>
+    public static readonly CVarDef<bool> EmergencyAuthRecallAllowed =
+        CVarDef.Create("shuttle.emergency_auth_recall_allowed", false, CVar.SERVERONLY);
+
+    /// <summary>
     /// How long the emergency shuttle remains docked with the station, in seconds.
     /// </summary>
     public static readonly CVarDef<float> EmergencyShuttleDockTime =

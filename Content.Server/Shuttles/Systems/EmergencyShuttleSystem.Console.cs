@@ -261,6 +261,14 @@ public sealed partial class EmergencyShuttleSystem
         if (component.AuthorizedEntities.Count == 0)
             return;
 
+        // WWDP edit start - no taking back authorizations
+        if (!_configManager.GetCVar(CCVars.EmergencyAuthRecallAllowed))
+        {
+            _popup.PopupEntity(Loc.GetString("emergency-shuttle-console-denied"), uid, args.Actor);
+            return;
+        }
+        // WWDP edit end
+
         _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle early launch REPEAL ALL by {args.Actor:user}");
         _announcer.SendAnnouncement(
             _announcer.GetAnnouncementId("ShuttleAuthRevoked"),
@@ -282,6 +290,14 @@ public sealed partial class EmergencyShuttleSystem
             _popup.PopupCursor(Loc.GetString("emergency-shuttle-console-denied"), player, PopupType.Medium);
             return;
         }
+
+        // WWDP edit start - no taking back authorizations
+        if (!_configManager.GetCVar(CCVars.EmergencyAuthRecallAllowed))
+        {
+            _popup.PopupEntity(Loc.GetString("emergency-shuttle-console-denied"), uid, args.Actor);
+            return;
+        }
+        // WWDP edit end
 
         // TODO: This is fucking bad
         if (!component.AuthorizedEntities.Remove(MetaData(idCard).EntityName))
