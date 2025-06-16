@@ -253,8 +253,8 @@
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMilitaryWebbingERTLecterFilled # WWDP
-    pocket1: WeaponPistolMk58
-    pocket2: FlashlightSeclite
+    pocket1: WeaponPistolMk58 # WWDP
+    pocket2: FlashlightSeclite # WWDP
 
 # Medical
 - type: job
