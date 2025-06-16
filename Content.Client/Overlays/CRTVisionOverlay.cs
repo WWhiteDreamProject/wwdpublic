@@ -18,24 +18,20 @@ public sealed class CRTVisionOverlay : Overlay
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
     private readonly ShaderInstance _crtVisionShader;
 
-    // Parameters for the CRT shader
+    // Shader parameters
     private const float ScanlineIntensity = 0.15f;
     private const float Distortion = 0.008f;
-    private const float TimeCoefficient = 0.0f; // Статичные сканлайны без движения
+    private const float TimeCoefficient = 0.0f; // Static scanlines
 
-    // Store current time for animation
+    // Time for animation
     private float _currentTime;
 
-    // Параметр затемнения при ударе
+    // Effect parameters
     private float _impactDarkness = 0.0f;
-
-    // Параметр для отслеживания здоровья (1.0 = полное здоровье, 0.0 = критическое состояние)
     private float _healthPercentage = 1.0f;
-
-    // Параметры для глитч-эффектов
     private float _glitchIntensity = 0.0f;
 
-    // Параметры для временного эффекта глитча при ударе
+    // Temporary glitch effect parameters
     private float _temporaryGlitchIntensity = 0.0f;
     private float _temporaryGlitchDuration = 0.0f;
     private float _temporaryGlitchTimer = 0.0f;
@@ -61,22 +57,20 @@ public sealed class CRTVisionOverlay : Overlay
         return base.BeforeDraw(in args);
     }
 
-    // Update time for animation
     protected override void FrameUpdate(FrameEventArgs args)
     {
         _currentTime += args.DeltaSeconds;
 
-        // Обновляем интенсивность глитчей на основе здоровья
+        // Update glitch intensity
         UpdateGlitchIntensity();
 
-        // Обработка временного эффекта глитча
+        // Process temporary glitch effect
         if (_hasTemporaryGlitch)
         {
             _temporaryGlitchTimer += args.DeltaSeconds;
 
             if (_temporaryGlitchTimer >= _temporaryGlitchDuration)
             {
-                // Время эффекта истекло
                 _temporaryGlitchTimer = 0.0f;
                 _hasTemporaryGlitch = false;
                 _temporaryGlitchIntensity = 0.0f;
@@ -93,15 +87,12 @@ public sealed class CRTVisionOverlay : Overlay
         _crtVisionShader.SetParameter("TIME", _currentTime);
         _crtVisionShader.SetParameter("IMPACT_DARKNESS", _impactDarkness);
 
-        // Применяем временный эффект глитча, если он активен
+        // Apply temporary glitch effect if active
         float effectiveGlitchIntensity = _glitchIntensity;
         if (_hasTemporaryGlitch)
         {
-            // Для удара - эффект начинается сильным и постепенно затухает
             float remainingFactor = 1.0f - (_temporaryGlitchTimer / _temporaryGlitchDuration);
             float tempIntensity = _temporaryGlitchIntensity * remainingFactor;
-
-            // Берем максимум из базовой интенсивности и временной
             effectiveGlitchIntensity = Math.Max(effectiveGlitchIntensity, tempIntensity);
         }
 
@@ -115,67 +106,56 @@ public sealed class CRTVisionOverlay : Overlay
     }
 
     /// <summary>
-    /// Устанавливает интенсивность затемнения при получении урона
+    /// Sets the darkness intensity when taking damage
     /// </summary>
-    /// <param name="darkness">Значение от 0.0 до 1.0</param>
     public void SetImpactDarkness(float darkness)
     {
         _impactDarkness = darkness;
     }
 
     /// <summary>
-    /// Устанавливает процент здоровья для определения интенсивности глитч-эффектов
+    /// Sets the health percentage to determine glitch effect intensity
     /// </summary>
-    /// <param name="percentage">Значение от 0.0 (критическое) до 1.0 (полное здоровье)</param>
     public void SetHealthPercentage(float percentage)
     {
         _healthPercentage = percentage;
     }
 
     /// <summary>
-    /// Обновляет интенсивность глитч-эффектов на основе текущего здоровья
+    /// Updates glitch effect intensity based on current health
     /// </summary>
     private void UpdateGlitchIntensity()
     {
-        // При полном здоровье - никаких глитч эффектов
         _glitchIntensity = 0.0f;
 
-        // Глитч эффекты появляются только когда здоровье ниже 70%
+        // Glitch effects appear only when health is below 70%
         if (_healthPercentage < 0.7f)
         {
-            // Нормализуем шкалу от 0.7 до 0.0 в диапазон от 0.0 до 1.0
+            // Normalize scale from 0.7 to 0.0 into range from 0.0 to 1.0
             float normalizedHealth = 1.0f - (_healthPercentage / 0.7f);
 
-            // Более мягкая кривая для нарастания эффектов
-            // Используем квадратичную функцию с меньшим коэффициентом
+            // Quadratic function for smooth effect increase
             _glitchIntensity = normalizedHealth * normalizedHealth * 0.5f;
 
-            // Добавляем небольшие случайные колебания для более естественного эффекта
+            // Add oscillation for natural effect
             _glitchIntensity += (float)Math.Sin(_currentTime * 2.5f) * 0.03f;
 
-            // Ограничиваем максимальную интенсивность
+            // Limit maximum intensity
             _glitchIntensity = Math.Min(_glitchIntensity, 0.75f);
         }
 
-        // При очень низком заряде (ниже 20%) усиливаем эффекты глитчей
+        // At low charge (below 20%) enhance effects
         if (_healthPercentage < 0.2f)
         {
-            // Усиливаем глитч-эффекты при низком заряде
             float lowChargeFactor = 1.0f - (_healthPercentage / 0.2f);
-
-            // Добавляем пульсацию для эффекта нестабильной работы
             float pulsation = (float)Math.Sin(_currentTime * 3.0f) * 0.08f;
-
-            // Комбинируем базовую интенсивность с эффектами низкого заряда
             _glitchIntensity = Math.Max(_glitchIntensity, lowChargeFactor * 0.6f + pulsation);
         }
     }
 
     /// <summary>
-    /// Устанавливает временный эффект глитча при получении урона
+    /// Sets temporary glitch effect when taking damage
     /// </summary>
-    /// <param name="intensity">Интенсивность эффекта (0.0 - 1.0)</param>
-    /// <param name="duration">Продолжительность эффекта в секундах</param>
     public void SetTemporaryGlitchEffect(float intensity, float duration)
     {
         _temporaryGlitchIntensity = intensity;

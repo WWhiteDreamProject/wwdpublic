@@ -3,7 +3,7 @@ uniform highp float SCANLINE_INTENSITY; // 0.0 - 1.0, intensity of scanline effe
 uniform highp float DISTORTION; // 0.0 - 0.1, amount of CRT-like distortion
 uniform highp float TIME_COEFFICIENT; // Speed of scanline movement
 uniform highp float GLITCH_INTENSITY; // 0.0 - 1.0, intensity of glitch effects
-uniform highp float IMPACT_DARKNESS; // 0.0 - 1.0, intensity of impact darkness
+uniform highp float IMPACT_DARKNESS; // 0.0 - 1.0, darkness from impacts
 
 // Noise function
 highp float rand(highp vec2 co) {
@@ -39,7 +39,6 @@ bool isUIElement(highp vec4 color) {
     }
 
     // Check for specific UI colors (like reticle colors)
-    // Assuming reticle might be bright red, green, blue, or white
     if ((color.r > 0.9 && color.g < 0.3 && color.b < 0.3) || // Red
         (color.r < 0.3 && color.g > 0.9 && color.b < 0.3) || // Green
         (color.r < 0.3 && color.g < 0.3 && color.b > 0.9) || // Blue
@@ -57,7 +56,6 @@ void fragment() {
     // Check if this pixel might be part of a UI element like crosshair
     if (isUIElement(originalColor)) {
         // Preserve UI elements with minimal effect
-        // Add just a subtle neon glow to UI elements to make them more visible
         COLOR = vec4(neonGlow(originalColor.rgb, 0.3), originalColor.a);
         return;
     }
@@ -70,39 +68,29 @@ void fragment() {
 
     // Apply glitch effect based on GLITCH_INTENSITY
     if (GLITCH_INTENSITY > 0.0) {
-        // Силуэт двоится только при сильных глитчах или ударах
+        // Silhouette doubling only at high glitch levels
         if (GLITCH_INTENSITY > 0.6) {
-            // Subtle image doubling effect (силуэт двоится)
             if (rand(vec2(TIME * 2.0, 0.0)) < 0.3) {
-                // Смещение силуэта в случайном направлении
+                // Shift silhouette in random direction
                 highp float offsetX = (rand(vec2(TIME, 0.0)) * 2.0 - 1.0) * 0.003 * GLITCH_INTENSITY;
                 highp float offsetY = (rand(vec2(0.0, TIME)) * 2.0 - 1.0) * 0.002 * GLITCH_INTENSITY;
 
-                // Смешиваем оригинальное изображение со смещенным
+                // Mix original image with shifted one
                 highp vec4 shiftedColor = texture2D(SCREEN_TEXTURE, uv + vec2(offsetX, offsetY));
                 originalColor = mix(originalColor, shiftedColor, 0.3);
             }
         }
 
-        // Горизонтальные глитч-линии
+        // Horizontal glitch lines
         if (rand(vec2(TIME * 5.0, floor(uv.y * 50.0))) < GLITCH_INTENSITY * 0.15) {
             uv.x += (rand(vec2(TIME, floor(uv.y * 50.0))) * 2.0 - 1.0) * 0.02 * GLITCH_INTENSITY;
         }
 
         // Color channel shifting based on glitch intensity
-        if (GLITCH_INTENSITY > 0.5) {
-            // RGB channel shift
-            highp float rgbIntensity = GLITCH_INTENSITY * 0.005;
-
-            // Apply RGB shift during glitches
-            aberration += rgbIntensity;
-        }
-
-        // Add extra aberration based on GLITCH_INTENSITY
         aberration += GLITCH_INTENSITY * 0.005;
     }
 
-    // Very minimal distortion
+    // Apply barrel distortion
     highp float barrelFactor = dot(dist, dist) * (DISTORTION * 0.1);
     uv = uv + dist * barrelFactor;
 
@@ -115,60 +103,48 @@ void fragment() {
     // Apply RGB shifts with calculated aberration
     highp vec4 r = texture2D(SCREEN_TEXTURE, uv + vec2(aberration, 0.0));
     highp vec4 g = texture2D(SCREEN_TEXTURE, uv);
-    highp vec4 b = texture2D(SCREEN_TEXTURE, uv - vec2(aberration, -aberration * 0.5)); // Shift blue diagonally
+    highp vec4 b = texture2D(SCREEN_TEXTURE, uv - vec2(aberration, -aberration * 0.5));
 
-    // Combine the color channels with balanced brightness - slightly brighter
+    // Combine the color channels
     highp vec4 color = vec4(r.r * 1.06, g.g * 1.18, b.b * 1.28, g.a);
 
-    // Create horizontal scanlines instead of vertical
-    highp float scanY = uv.y * 1200.0; // Dense horizontal lines
-    highp float scanline = 1.0;
-
-    // Hard-edged horizontal scanlines with moderate contrast
-    if (mod(floor(scanY), 2.0) == 0.0) {
-        scanline = 0.83; // Moderate darkness for scanlines
-    }
-
-    // Apply scanlines
+    // Create horizontal scanlines
+    highp float scanY = uv.y * 1200.0;
+    highp float scanline = mod(floor(scanY), 2.0) == 0.0 ? 0.83 : 1.0;
     color.rgb *= scanline;
 
-    // Medium vignette effect
+    // Apply vignette effect
     highp float vignette = 1.0 - dot(dist, dist) * 1.35;
     color.rgb *= vignette;
 
-    // Apply cyberpunk-inspired color grading - balanced but brighter
-    highp vec3 tint = vec3(0.78, 1.08, 1.28); // Cyan-blue dominant
+    // Apply color tint - cyan-blue dominant
+    highp vec3 tint = vec3(0.78, 1.08, 1.28);
     color.rgb = mix(color.rgb, color.rgb * tint, 0.75);
-
-    // Moderate brightness adjustment - slightly reduced
     color.rgb *= 1.14;
 
-    // Add neon glow effect - balanced
+    // Add neon glow effect
     color.rgb = neonGlow(color.rgb, 0.82);
 
-    // Add subtle glitch effects based on GLITCH_INTENSITY
+    // Add glitch artifacts
     if (GLITCH_INTENSITY > 0.0) {
-        // Вместо случайного шума - более структурированные артефакты
-        // Редкие вертикальные полосы
+        // Vertical lines
         if (rand(vec2(floor(uv.x * 10.0), TIME)) < GLITCH_INTENSITY * 0.07) {
-            // Эффект вертикальной полосы
             highp float lineIntensity = sin(uv.x * 50.0) * 0.02 * GLITCH_INTENSITY;
             color.rgb += vec3(lineIntensity, lineIntensity * 0.8, lineIntensity * 1.2);
         }
 
-        // Небольшое искажение цветовых каналов при низком заряде
+        // Color channel distortion at low charge
         if (GLITCH_INTENSITY > 0.7) {
-            // Небольшое искажение цветовых каналов
             color.r *= (1.0 - GLITCH_INTENSITY * 0.05);
             color.g *= (1.0 - GLITCH_INTENSITY * 0.02);
         }
     }
 
-    // Add subtle flicker - less dark
+    // Add subtle flicker
     highp float flicker = 0.98 + 0.03 * sin(TIME * 2.5);
     color.rgb *= flicker;
 
-    // Boost contrast for more vibrant look but maintain balanced brightness - slightly darker
+    // Boost contrast
     color.rgb = (color.rgb - 0.42) * 1.16 + 0.48;
 
     // Apply impact darkness
@@ -176,6 +152,5 @@ void fragment() {
         color.rgb *= (1.0 - IMPACT_DARKNESS);
     }
 
-    // Ensure alpha is preserved
     COLOR = vec4(color.rgb, color.a);
 }
