@@ -143,20 +143,18 @@ public sealed class SharedLoadoutSystem : EntitySystem
                             if (!_inventory.TryGetSlotEntity(uid, curSlot.Name, out var slotItem))
                                 continue;
 
-                            // WWDP edit start - move stored items into the new container or save as failed if not possible
+                            // WWDP edit start - save stored items
                             if (TryComp<StorageComponent>(slotItem, out var storage))
                             {
                                 foreach (var storeditem in storage.Container.ContainedEntities.ToArray())
-                                {
-                                    if (TryComp<StorageComponent>(item, out var newStorage))
+
+                                    // try to insert into the new container; drop and save as failed if not possible
+                                    if (TryComp<StorageComponent>(item, out var newStorage)
+                                        && !_storage.Insert(item, storeditem, out _, storageComp: newStorage, playSound: false))
                                     {
-                                        if (!_storage.Insert(item, storeditem, out _, storageComp: newStorage, playSound: false))
-                                        {
-                                            _sharedTransformSystem.DropNextTo(storeditem, uid);
-                                            failedLoadouts.Add(storeditem);
-                                        }
+                                        _sharedTransformSystem.DropNextTo(storeditem, uid);
+                                        failedLoadouts.Add(storeditem);
                                     }
-                                }
                             }
                             // WWDP edit end
 
