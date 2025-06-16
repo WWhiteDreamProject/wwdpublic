@@ -8,7 +8,6 @@ marking-BunnyEarsAlt-bunnyearsalt = Кроличьи уши (альтернат�
 marking-BullishHorns = Бычьи рога
 marking-BullishHorns-bullishhorns = Рога
 
-marking-FoxEars = Лисьи уши
 marking-FoxEars-foxears = Уши
 
 marking-GoatHorns = Козьи уши и рога
