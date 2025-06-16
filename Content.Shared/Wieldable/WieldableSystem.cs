@@ -278,7 +278,7 @@ public sealed class WieldableSystem : EntitySystem
     ///     Attempts to wield an item, starting a UseDelay after.
     /// </summary>
     /// <returns>True if the attempt wasn't blocked.</returns>
-    public bool TryWield(EntityUid used, WieldableComponent component, EntityUid user, bool dropOthers = false, bool quietFail = false, bool wieldPopup = true) // WWDP EDIT
+    public bool TryWield(EntityUid used, WieldableComponent component, EntityUid user, bool dropOthers = false, bool quietFail = false, bool wieldPopup = false) // WWDP EDIT
     {
         if (!CanWield(used, component, user, quietFail, dropOthers)) // WWDP EDIT
             return false;
@@ -392,9 +392,10 @@ public sealed class WieldableSystem : EntitySystem
             if (component.UnwieldSound != null)
                 _audioSystem.PlayPredicted(component.UnwieldSound, uid, args.User);
 
-            var selfMessage = Loc.GetString("wieldable-component-failed-wield", ("item", uid));
-            var othersMessage = Loc.GetString("wieldable-component-failed-wield-other", ("user", Identity.Entity(args.User.Value, EntityManager)), ("item", uid));
-            _popupSystem.PopupPredicted(selfMessage, othersMessage, args.User.Value, args.User.Value);
+            // WWDP disable popups
+            //var selfMessage = Loc.GetString("wieldable-component-failed-wield", ("item", uid));
+            //var othersMessage = Loc.GetString("wieldable-component-failed-wield-other", ("user", Identity.Entity(args.User.Value, EntityManager)), ("item", uid));
+            //_popupSystem.PopupPredicted(selfMessage, othersMessage, args.User.Value, args.User.Value);
         }
 
         _appearance.SetData(uid, WieldableVisuals.Wielded, false);
