@@ -1,6 +1,5 @@
 using Content.Client.Interaction;
 using Content.Client.Outline;
-using Content.Shared._White;
 using Robust.Client.Audio;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -10,6 +9,8 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Reflection;
 using System.Numerics;
 using System.Runtime.CompilerServices;
+using Content.Shared._White.CCVar;
+using Content.Shared._White.Move;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
 
 namespace Content.Client._White.AntiParkinsons;
@@ -38,7 +39,7 @@ public sealed class AntiParkinsonsSystem : EntitySystem
         UpdatesOutsidePrediction = true;
         _cfg.OnValueChanged(WhiteCVars.PixelSnapCamera, OnEnabledDisabled, true);
         UpdatesBefore.Add(typeof(EyeSystem));   // so that EyeSystem moves the eye to the spessman insead of moving it ourselves
-        UpdatesBefore.Add(typeof(AudioSystem)); // the rest is stuff that also updates after EyeSystem. 
+        UpdatesBefore.Add(typeof(AudioSystem)); // the rest is stuff that also updates after EyeSystem.
         UpdatesBefore.Add(typeof(MidiSystem));  // Without this, the system update order fails to resolve.
         UpdatesBefore.Add(typeof(InteractionOutlineSystem));
         UpdatesBefore.Add(typeof(DragDropSystem));

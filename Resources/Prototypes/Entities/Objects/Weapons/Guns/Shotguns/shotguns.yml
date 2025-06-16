@@ -424,19 +424,6 @@
   - type: DamageOtherOnHit
     staminaCost: 5
 
-- type: entity # WWDP
-  name: improvised pistol # WWDP
-  parent: WeaponShotgunHandmade
-  id: WeaponShotgunHandmadeEmpty
-  suffix: Empty
-  components:
-  - type: BallisticAmmoProvider
-    proto: null
-  - type: Construction
-    graph: ImprovisedShotgunGraph
-    node: shotgunsawn
-    deconstructionTarget: null
-
 - type: entity
   name: blunderbuss
   parent: [BaseWeaponShotgun, BaseGunWieldable]

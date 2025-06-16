@@ -55,6 +55,7 @@
       path: /Audio/Items/Handcuffs/rope_takeoff.ogg
     uncuffEasierWhenLarge: true
   - type: Construction # WD EDIT
+    deconstructionTarget: null
     graph: CuffsGraph
     node: cuffs
   - type: Item

@@ -9,8 +9,10 @@ using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.Components;
 using Robust.Shared.Utility;
-using Content.Server._Imp.Drone; //Goobstation drone
+using Content.Server._Imp.Drone;//Goobstation drone
+using Content.Shared._White.Silicons.Borgs.Components;
 using Robust.Shared.Player; //Goobstation drone
+
 namespace Content.Server.Silicons.Borgs;
 
 /// <inheritdoc/>
@@ -48,7 +50,8 @@ public sealed partial class BorgSystem
                 charge,
                 chassis.ModuleCount,
                 hasBrain,
-                canDisable);
+                canDisable,
+                HasComp<AiRemoteControllerComponent>(uid)); // WD edit - AiRemoteControl
 
             var payload = new NetworkPayload()
             {
@@ -73,7 +76,8 @@ public sealed partial class BorgSystem
                 1f,
                 0,
                 hasBrain,
-                false);
+                false,
+                false); // WD EDIT
 
             var payload = new NetworkPayload()
             {

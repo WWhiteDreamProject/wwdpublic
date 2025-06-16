@@ -1,4 +1,4 @@
-using Content.Shared._White;
+using Content.Shared._White.CCVar;
 using Content.Shared.Chat;
 using Content.Shared._White.TTS;
 using Content.Shared.GameTicking;
