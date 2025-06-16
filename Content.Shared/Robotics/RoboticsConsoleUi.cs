@@ -111,7 +111,12 @@ public record struct CyborgControlData
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan Timeout = TimeSpan.Zero;
 
-    public CyborgControlData(SpriteSpecifier? chassisSprite, string chassisName, string name, float charge, int moduleCount, bool hasBrain, bool canDisable)
+    // WD EDIT START
+    [DataField]
+    public bool IsAiControllable;
+    // WD EDIT END
+
+    public CyborgControlData(SpriteSpecifier? chassisSprite, string chassisName, string name, float charge, int moduleCount, bool hasBrain, bool canDisable, bool isAiControllable) // WD EDIT
     {
         ChassisSprite = chassisSprite;
         ChassisName = chassisName;
@@ -120,6 +125,7 @@ public record struct CyborgControlData
         ModuleCount = moduleCount;
         HasBrain = hasBrain;
         CanDisable = canDisable;
+        IsAiControllable = isAiControllable; // WD EDIT
     }
 }
 
