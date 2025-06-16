@@ -3275,3 +3275,12 @@ Entries:
   id: 354
   time: '2025-06-16T17:33:14.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/590
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Тактические разгрузки теперь звучат тише при ходьбе
+    - type: Remove
+      message: Убран звук при ходьбе у кобуры и разгрузки утилизаторов.
+  id: 355
+  time: '2025-06-16T17:34:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/591
