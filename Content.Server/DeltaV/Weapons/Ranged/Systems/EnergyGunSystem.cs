@@ -60,6 +60,9 @@ public sealed class EnergyGunSystem : EntitySystem
         if (component.CurrentFireMode.Name == "disable")
             color = "lightblue";
 
+        if (component.CurrentFireMode.Name == "ion")
+            color = "blue";
+
         args.PushMarkup(Loc.GetString("energygun-examine-fire-mode", ("mode", mode), ("color", color)));
         // WWDP edit end
     }
