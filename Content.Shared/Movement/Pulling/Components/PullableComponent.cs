@@ -50,6 +50,14 @@ public sealed partial class PullableComponent : Component
         { GrabStage.Suffocate, 3 },
     };
 
+    // WWDP edit start
+    [AutoNetworkedField, DataField]
+    public float EscapeAttemptCooldown = 1; // In seconds
+
+    [AutoNetworkedField]
+    public bool DisplayedCooldownPopup = true;
+    // WWDP edit end
+
     [AutoNetworkedField, DataField]
     public GrabStage GrabStage = GrabStage.No;
 
