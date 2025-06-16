@@ -22,3 +22,5 @@ ent-PuddleVomitToxin = рвотные токсины
 ent-PuddleWriting = пишущий
     .desc = Немного жидкости.
     .suffix = { "" }
+ent-Footstep = след
+    .desc = след жидкости
