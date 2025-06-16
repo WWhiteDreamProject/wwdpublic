@@ -1,4 +1,4 @@
-ent-BaseProgramDisk = программный диск
+ent-BaseProgramDisk = программная дискета
     .desc = { "" }
     .suffix = { "" }
 ent-ProgramDiskCommunications = { ent-BaseProgramDisk }

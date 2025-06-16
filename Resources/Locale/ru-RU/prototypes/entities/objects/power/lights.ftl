@@ -16,6 +16,6 @@ ent-ExteriorLightTube = экстерьерная лампа-трубка
 ent-SodiumLightTube = натриевая лампа-трубка
     .desc = Мощная энергосберегающая лампа для космических глубин. Солёная.
     .suffix = { "" }
-ent-LedLightBulb = led лампа
+ent-LedLightBulb = светодиодная лампа
     .desc = Энергоэффективная лампочка.
     .suffix = { "" }
