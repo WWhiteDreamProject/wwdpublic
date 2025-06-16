@@ -3,6 +3,8 @@
   kind: source
   path: "/Textures/Nyanotrasen/Shaders/crt_vision.swsl"
   params:
-    SCANLINE_INTENSITY: 0.5
-    DISTORTION: 0.03
-    TIME_COEFFICIENT: 1.0
+    SCANLINE_INTENSITY: 0.15
+    DISTORTION: 0.008
+    TIME_COEFFICIENT: 0.0
+    GLITCH_INTENSITY: 0.0
+    IMPACT_DARKNESS: 0.0

@@ -51,6 +51,7 @@
       Alive: BorgHealth
       Critical: BorgCrit
       Dead: BorgDead
+    showOverlays: false
   - type: TypingIndicator
     proto: robot
   - type: Destructible

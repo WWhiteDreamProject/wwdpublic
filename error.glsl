@@ -4,7 +4,7 @@
 #define HAS_FLOAT_TEXTURES
 #define HAS_SRGB
 #define HAS_UNIFORM_BUFFERS
-#define FRAGMENT_SHADER
+#define VERTEX_SHADER
 
 // -- Utilities Start --
 
@@ -211,50 +211,135 @@ highp float zCircleGradient(highp vec2 ps, highp vec2 coord, highp float maxi, h
 
 // -- Utilities End --
 
-varying highp vec2 UV;
-varying highp vec2 UV2;
-varying highp vec2 Pos;
-varying highp vec4 VtxModulate;
+// Vertex position.
+/*layout (location = 0)*/ attribute vec2 aPos;
+// Texture coordinates.
+/*layout (location = 1)*/ attribute vec2 tCoord;
+/*layout (location = 2)*/ attribute vec2 tCoord2;
+// Colour modulation.
+/*layout (location = 3)*/ attribute vec4 modulate;
 
-uniform sampler2D lightMap;
+varying vec2 UV;
+varying vec2 UV2;
+varying vec2 Pos;
+varying vec4 VtxModulate;
+
+// Maybe we should merge these CPU side.
+// idk yet.
+uniform mat3 modelMatrix;
+
+// Allows us to do texture atlassing with texture coordinates 0->1
+// Input texture coordinates get mapped to this range.
+uniform vec4 modifyUV;
 
 uniform sampler2D SCREEN_TEXTURE;
 uniform ARRAY_HIGHP float SCANLINE_INTENSITY;
 uniform ARRAY_HIGHP float DISTORTION;
 uniform ARRAY_HIGHP float TIME_COEFFICIENT;
+uniform ARRAY_HIGHP float GLITCH_INTENSITY;
+uniform ARRAY_HIGHP float IMPACT_DARKNESS;
+uniform ARRAY_HIGHP float DEATH_EFFECT;
 
 
+ARRAY_HIGHP float rand( ARRAY_HIGHP vec2 co) {
+ return fract ( sin ( dot ( co . xy , vec2 ( 12.9898 , 78.233 ) ) ) * 43758.5453 ) ;
+
+}
+ARRAY_HIGHP vec3 neonGlow( ARRAY_HIGHP vec3 color,  ARRAY_HIGHP float intensity) {
+ highp float brightness = dot ( color , vec3 ( 0.299 , 0.587 , 0.114 ) ) ;
+ highp vec3 neon = vec3 ( 0.0 ) ;
+ if ( brightness > 0.65 ) {
+ neon += vec3 ( 0.0 , 1.0 , 1.0 ) * ( brightness - 0.65 ) * 2.5 ;
+ }
+ if ( brightness > 0.45 && brightness < 0.75 ) {
+ neon += vec3 ( 1.0 , 0.0 , 0.8 ) * ( brightness - 0.45 ) * 1.8 ;
+ }
+ return color + neon * intensity ;
+
+}
+bool isUIElement( ARRAY_HIGHP vec4 color) {
+ highp float brightness = dot ( color . rgb , vec3 ( 0.299 , 0.587 , 0.114 ) ) ;
+ if ( brightness > 0.9 && color . a > 0.9 ) {
+ return true ;
+ }
+ if ( ( color . r > 0.9 && color . g < 0.3 && color . b < 0.3 ) || ( color . r < 0.3 && color . g > 0.9 && color . b < 0.3 ) || ( color . r < 0.3 && color . g < 0.3 && color . b > 0.9 ) || ( color . r > 0.9 && color . g > 0.9 && color . b > 0.9 ) ) {
+ return true ;
+ }
+ return false ;
+
+}
+bool drawChar( ARRAY_HIGHP vec2 pos,  ARRAY_HIGHP vec2 size,  ARRAY_HIGHP int charIndex,  ARRAY_HIGHP vec2 uv) {
+ highp vec2 charPos = ( uv - pos ) / size ;
+ if ( charPos . x >= 0.0 && charPos . x < 1.0 && charPos . y >= 0.0 && charPos . y < 1.0 ) {
+ highp int x = highp int ( charPos . x * 5.0 ) ;
+ highp int y = highp int ( charPos . y * 7.0 ) ;
+ if ( charIndex == highp int ( 0 ) ) {
+ bool pixels [ 35 ] = bool [ 35 ] ( false , true , true , true , false , true , false , false , false , false , true , false , false , false , false , false , true , true , true , false , false , false , false , false , true , false , false , false , false , true , false , true , true , true , false ) ;
+ return pixels [ y * highp int ( 5 ) + x ] ;
+ }
+ else if ( charIndex == highp int ( 1 ) ) {
+ bool pixels [ 35 ] = bool [ 35 ] ( true , false , false , false , true , true , false , false , false , true , false , true , false , true , false , false , false , true , false , false , false , false , true , false , false , false , false , true , false , false , false , false , true , false , false ) ;
+ return pixels [ y * highp int ( 5 ) + x ] ;
+ }
+ else if ( charIndex == highp int ( 2 ) ) {
+ bool pixels [ 35 ] = bool [ 35 ] ( false , true , true , true , false , true , false , false , false , false , true , false , false , false , false , false , true , true , true , false , false , false , false , false , true , false , false , false , false , true , false , true , true , true , false ) ;
+ return pixels [ y * highp int ( 5 ) + x ] ;
+ }
+ else if ( charIndex == highp int ( 3 ) ) {
+ bool pixels [ 35 ] = bool [ 35 ] ( true , true , true , true , true , false , false , true , false , false , false , false , true , false , false , false , false , true , false , false , false , false , true , false , false , false , false , true , false , false , false , false , true , false , false ) ;
+ return pixels [ y * highp int ( 5 ) + x ] ;
+ }
+ else if ( charIndex == highp int ( 4 ) ) {
+ bool pixels [ 35 ] = bool [ 35 ] ( true , true , true , true , true , true , false , false , false , false , true , false , false , false , false , true , true , true , true , false , true , false , false , false , false , true , false , false , false , false , true , true , true , true , true ) ;
+ return pixels [ y * highp int ( 5 ) + x ] ;
+ }
+ else if ( charIndex == highp int ( 5 ) ) {
+ bool pixels [ 35 ] = bool [ 35 ] ( true , false , false , false , true , true , true , false , true , true , true , false , true , false , true , true , false , false , false , true , true , false , false , false , true , true , false , false , false , true , true , false , false , false , true ) ;
+ return pixels [ y * highp int ( 5 ) + x ] ;
+ }
+ else if ( charIndex == highp int ( 6 ) ) {
+ bool pixels [ 35 ] = bool [ 35 ] ( true , true , true , true , false , true , false , false , false , true , true , false , false , false , true , true , true , true , true , false , true , false , true , false , false , true , false , false , true , false , true , false , false , false , true ) ;
+ return pixels [ y * highp int ( 5 ) + x ] ;
+ }
+ else if ( charIndex == highp int ( 7 ) ) {
+ bool pixels [ 35 ] = bool [ 35 ] ( true , true , true , true , false , true , false , false , false , true , true , false , false , false , true , true , true , true , true , false , true , false , true , false , false , true , false , false , true , false , true , false , false , false , true ) ;
+ return pixels [ y * highp int ( 5 ) + x ] ;
+ }
+ else if ( charIndex == highp int ( 8 ) ) {
+ bool pixels [ 35 ] = bool [ 35 ] ( false , true , true , true , false , true , false , false , false , true , true , false , false , false , true , true , false , false , false , true , true , false , false , false , true , true , false , false , false , true , false , true , true , true , false ) ;
+ return pixels [ y * highp int ( 5 ) + x ] ;
+ }
+ else if ( charIndex == highp int ( 9 ) ) {
+ bool pixels [ 35 ] = bool [ 35 ] ( true , true , true , true , false , true , false , false , false , true , true , false , false , false , true , true , true , true , true , false , true , false , true , false , false , true , false , false , true , false , true , false , false , false , true ) ;
+ return pixels [ y * highp int ( 5 ) + x ] ;
+ }
+ else if ( charIndex == highp int ( 10 ) ) {
+ bool pixels [ 35 ] = bool [ 35 ] ( true , true , true , true , false , true , false , false , false , true , true , false , false , false , true , true , true , true , true , false , true , false , true , false , false , true , false , false , true , false , true , false , false , false , true ) ;
+ return pixels [ y * highp int ( 5 ) + x ] ;
+ }
+ }
+ return false ;
+
+}
 
 
 void main()
 {
-    highp vec4 FRAGCOORD = gl_FragCoord;
+    vec3 transformed = projectionMatrix * viewMatrix * modelMatrix * vec3(aPos, 1.0);
+    vec2 VERTEX = transformed.xy;
 
-    lowp vec4 COLOR;
+    // [SHADER_CODE]
 
-    lowp vec3 lightSample = texture2D(lightMap, Pos).rgb;
+    // Pixel snapping to avoid sampling issues on nvidia.
+    VERTEX += 1.0;
+    VERTEX /= SCREEN_PIXEL_SIZE*2.0;
+    VERTEX = floor(VERTEX + 0.5);
+    VERTEX *= SCREEN_PIXEL_SIZE*2.0;
+    VERTEX -= 1.0;
 
-     highp vec2 uv = UV ;
- highp vec2 cc = uv - 0.5 ;
- highp float dist = dot ( cc , cc ) * DISTORTION ;
- uv = uv + cc * ( 1.0 + dist ) * dist ;
- if ( uv . x < 0.0 || uv . x > 1.0 || uv . y < 0.0 || uv . y > 1.0 ) {
- COLOR = vec4 ( 0.0 , 0.0 , 0.0 , 1.0 ) ;
- return ;
- }
- highp vec4 color = zTextureSpec ( SCREEN_TEXTURE , uv ) ;
- highp float offset = DISTORTION * 0.5 ;
- color . r = zTexture ( SCREEN_TEXTURE , vec2 ( uv . x + offset , uv . y ) ) . r ;
- color . b = zTexture ( SCREEN_TEXTURE , vec2 ( uv . x - offset , uv . y ) ) . b ;
- highp float scanline = sin ( uv . y * 100.0 + TIME * TIME_COEFFICIENT ) * 0.5 + 0.5 ;
- scanline = pow ( scanline , 1.0 ) * SCANLINE_INTENSITY ;
- color . rgb -= scanline ;
- highp vec3 tint = vec3 ( 0.8 , 1.0 , 0.8 ) ;
- color . rgb *= tint ;
- highp float vignette = 1.0 - dot ( cc , cc ) * 1.0 ;
- color . rgb *= vignette ;
- COLOR = color ;
-
-
-    gl_FragColor = zAdjustResult(COLOR * VtxModulate * vec4(lightSample, 1.0));
+    gl_Position = vec4(VERTEX, 0.0, 1.0);
+    Pos = (VERTEX + 1.0) / 2.0;
+    UV = mix(modifyUV.xy, modifyUV.zw, tCoord);
+    UV2 = tCoord2;
+    VtxModulate = zFromSrgb(modulate);
 }
