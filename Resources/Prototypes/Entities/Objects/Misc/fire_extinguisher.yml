@@ -45,13 +45,14 @@
     damage:
       types:
         Blunt: 8
-    heavyRateModifier: 1.5
-    heavyDamageBaseModifier: 2
+    # heavyRateModifier: 1.5 # WWDP
+    # heavyDamageBaseModifier: 2 # WWDP
     heavyStaminaCost: 5
     maxTargets: 6
     soundHit:
       path: /Audio/Weapons/smash.ogg
   - type: DamageOtherOnHit
+    meleeDamageMultiplier: 1.5 # WWDP
     staminaCost: 9
   - type: Tool
     qualities:

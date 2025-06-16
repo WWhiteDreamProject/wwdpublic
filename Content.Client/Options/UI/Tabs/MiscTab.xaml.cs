@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Client.UserInterface.Screens;
-using Content.Shared._White;
+using Content.Shared._White.CCVar;
 using Content.Shared._White.UI.Emotes;
 using Content.Shared.CCVar;
 using Content.Shared.HUD;

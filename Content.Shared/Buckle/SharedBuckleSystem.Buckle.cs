@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
-using Content.Shared._White;
+using Content.Shared._White.Move;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs.Components;
@@ -37,7 +37,7 @@ public abstract partial class SharedBuckleSystem
     private void InitializeBuckle()
     {
         SubscribeLocalEvent<BuckleComponent, ComponentShutdown>(OnBuckleComponentShutdown);
-        SubscribeLocalEvent<BuckleComponent, MoveEventProxy>(OnBuckleMove);
+        SubscribeLocalEvent<BuckleComponent, MoveEventProxy>(OnBuckleMove); // WD EDIT
         SubscribeLocalEvent<BuckleComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<BuckleComponent, EntGotInsertedIntoContainerMessage>(OnInserted);
 
@@ -94,7 +94,7 @@ public abstract partial class SharedBuckleSystem
         BuckleTransformCheck(ent, Transform(ent));
     }
 
-    private void OnBuckleMove(Entity<BuckleComponent> ent, ref MoveEventProxy ev)
+    private void OnBuckleMove(Entity<BuckleComponent> ent, ref MoveEventProxy ev) // WD EDIT
     {
         BuckleTransformCheck(ent, ev.Component);
     }

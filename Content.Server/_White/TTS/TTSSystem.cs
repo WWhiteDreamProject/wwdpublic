@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Content.Server.Chat.Systems;
 using Content.Server.Language;
-using Content.Shared._White;
+using Content.Shared._White.CCVar;
 using Content.Shared._White.TTS;
 using Content.Shared.GameTicking;
 using Content.Shared.Language;
