@@ -1,5 +1,6 @@
 ﻿using Content.Server.Chat.Managers;
 using Content.Server.Popups;
+using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Alert;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
@@ -218,7 +219,7 @@ public sealed class MoodSystem : EntitySystem
     // <summary>
     //      Recalculate the mood level of an entity by summing up all moodlets.
     // </summary>
-    private void RefreshMood(EntityUid uid, MoodComponent component)
+    public void RefreshMood(EntityUid uid, MoodComponent component) // WWDP made public
     {
         var amount = 0f;
 
@@ -374,9 +375,13 @@ public sealed class MoodSystem : EntitySystem
             _ => 0,
         };
 
-    private void OnDamageChange(EntityUid uid, MoodComponent component, DamageChangedEvent args)
+    // WWDP edit start
+    public void UpdateDamageState(EntityUid uid, MoodComponent component)
     {
-        if (!_mobThreshold.TryGetPercentageForState(uid, MobState.Critical, args.Damageable.TotalDamage, out var damage))
+        if (!TryComp<DamageableComponent>(uid, out var damageable))
+            return;
+
+        if (!_mobThreshold.TryGetPercentageForState(uid, MobState.Critical, damageable.TotalDamage, out var damage))
             return;
 
         var protoId = "HealthNoDamage";
@@ -389,9 +394,16 @@ public sealed class MoodSystem : EntitySystem
                 value = threshold.Value;
             }
 
+        if (HasComp<NoScreamComponent>(uid)) // WWDP painkillers
+            protoId = "HealthNoDamage";
+
         var ev = new MoodEffectEvent(protoId);
         RaiseLocalEvent(uid, ev);
     }
+
+    private void OnDamageChange(EntityUid uid, MoodComponent component, DamageChangedEvent args) =>
+        UpdateDamageState(uid, component);
+    // WWDP edit end
 }
 
 [UsedImplicitly, DataDefinition]

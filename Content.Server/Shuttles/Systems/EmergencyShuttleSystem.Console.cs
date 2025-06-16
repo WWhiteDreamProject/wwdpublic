@@ -3,7 +3,7 @@ using Content.Server.DeviceNetwork.Components;
 using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
-using Content.Shared._White;
+using Content.Shared._White.CCVar;
 using Content.Shared.Access;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -263,7 +263,7 @@ public sealed partial class EmergencyShuttleSystem
             return;
 
         // WWDP edit start - no taking back authorizations
-        if (!_configManager.GetCVar(CCVars.EmergencyAuthRecallAllowed))
+        if (!_configManager.GetCVar(WhiteCVars.EmergencyAuthRecallAllowed))
         {
             _popup.PopupEntity(Loc.GetString("emergency-shuttle-console-denied"), uid, args.Actor);
             return;

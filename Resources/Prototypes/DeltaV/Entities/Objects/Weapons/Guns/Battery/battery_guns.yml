@@ -113,6 +113,11 @@
       heatCost: 60 # wwdp
       name: lethal
       state: lethal
+    - proto: BulletEnergyGunIon # WWDP
+      fireCost: 40
+      heatCost: 60
+      name: ion
+      state: special
   - type: MagazineVisuals
     magState: mag
     steps: 5

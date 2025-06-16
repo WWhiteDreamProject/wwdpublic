@@ -21,7 +21,6 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Localizations;
 using Content.Shared.Power;
-using Content.Shared._White;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -48,7 +47,7 @@ public sealed class ThrusterSystem : EntitySystem
         SubscribeLocalEvent<ThrusterComponent, ComponentShutdown>(OnThrusterShutdown);
         SubscribeLocalEvent<ThrusterComponent, PowerChangedEvent>(OnPowerChange);
         SubscribeLocalEvent<ThrusterComponent, AnchorStateChangedEvent>(OnAnchorChange);
-        SubscribeLocalEvent<ThrusterComponent, MoveEventProxy>(OnRotate);
+        SubscribeLocalEvent<ThrusterComponent, MoveEvent>(OnRotate);
         SubscribeLocalEvent<ThrusterComponent, IsHotEvent>(OnIsHotEvent);
         SubscribeLocalEvent<ThrusterComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<ThrusterComponent, EndCollideEvent>(OnEndCollide);
@@ -155,7 +154,7 @@ public sealed class ThrusterSystem : EntitySystem
     /// <summary>
     /// If the thruster rotates change the direction where the linear thrust is applied
     /// </summary>
-    private void OnRotate(EntityUid uid, ThrusterComponent component, ref MoveEventProxy args)
+    private void OnRotate(EntityUid uid, ThrusterComponent component, ref MoveEvent args)
     {
         // TODO: Disable visualizer for old direction
         // TODO: Don't make them rotatable and make it require anchoring.
