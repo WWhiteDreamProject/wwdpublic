@@ -3253,3 +3253,14 @@ Entries:
   id: 352
   time: '2025-06-16T17:17:50.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/576
+- author: vanx
+  changes:
+    - type: Add
+      message: >-
+        Обезболивающие (морфин) теперь позволяют игнорировать дебафф настроения
+        от урона.
+    - type: Add
+      message: Эфедрин теперь обезболивает.
+  id: 353
+  time: '2025-06-16T17:29:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/586
