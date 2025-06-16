@@ -12,6 +12,7 @@
           state: bowl
         name: bowl
         doAfter: 2
+  # WD EDIT STARTR
       - material: Bluespace
         amount: 1
       - material: Normality
@@ -34,5 +35,6 @@
       - material: Bluespace
         amount: 1
         doAfter: 2
+  # WD EDIT END
   - node: ousianadustbowl
     entity: FoodOusianaDustBowl

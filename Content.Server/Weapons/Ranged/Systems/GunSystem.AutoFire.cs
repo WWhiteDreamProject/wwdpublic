@@ -17,13 +17,12 @@ public sealed partial class GunSystem
         // Automatic firing without stopping if the AutoShootGunComponent component is exist and enabled
 
         // WWDP EDIT START
-        var query2 = EntityQueryEnumerator<AutoShootGunComponent>();
-        while (query2.MoveNext(out var uid, out var autoShoot))
+        var autoShootGunQuery = EntityQueryEnumerator<AutoShootGunComponent>();
+        while (autoShootGunQuery.MoveNext(out var uid, out var autoShoot))
         {
-
-            if (!autoShoot.Enabled ||
-                !TryGetGun(uid, out var gunUid, out var gun) ||
-                gun.NextFire > Timing.CurTime)
+            if (!autoShoot.Enabled
+                || !TryGetGun(uid, out var gunUid, out var gun)
+                || gun.NextFire > Timing.CurTime)
                 return;
 
             // uid will either be same as gunUid, or it will be something that is holding (and shooting) the gun.

@@ -87,7 +87,6 @@ public abstract partial class SharedShuttleSystem
         UpdateIFFInterfaces(gridUid, component);
     }
 
-
     [PublicAPI]
     public void RemoveIFFFlag(EntityUid gridUid, IFFFlags flags, IFFComponent? component = null)
     {
