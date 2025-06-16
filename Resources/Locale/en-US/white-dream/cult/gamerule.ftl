@@ -18,3 +18,6 @@ blood-cult-condition-failure = The crew have managed to stop the rending of real
 
 blood-cultists-list-start = Members of Geometer of Blood were:
 blood-cultists-list-name = [color=White]{ $name }[/color] ([color=gray]{ $user }[/color])
+
+blood-cult-the-geometer-of-blood = [color=darkred]The Geometer of Blood[/color]
+blood-cult-wall = Cult Wall

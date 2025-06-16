@@ -1,24 +1,27 @@
-reagent-name-gunmetal = "пушечный металл"
-reagent-desc-gunmetal = Спорный коктейль, впервые смешанный Солусом Кримом — первым барменом, которому удалось подать топливо для сварки в бокале и при этом сохранить лицензию.
+reagent-name-kvass = kvass
+reagent-desc-kvass = A cool refreshing drink with a taste of socialism.
 
-reagent-name-lemondrop = "лимонная капля"
-reagent-desc-lemondrop = Простой и освежающий коктейль с яркой кислинкой: лимон, водка и сахарный сироп. Классика, бодрящая душу.
+reagent-name-gunmetal = gunmetal
+reagent-desc-gunmetal = A controversial drink first mixed by Solus Cream, renowned as the first bartender to serve welding fuel in a cocktail - without losing their liquor license.
 
-reagent-name-greengrass = "зелёная трава"
-reagent-desc-greengrass = Зелёная трава, или *grüne Wiese*, — причудливый зелёный коктейль родом из ныне несуществующей ГДР. Любимец среди разочарованных и лицемеров.
+reagent-name-lemondrop = lemon drop
+reagent-desc-lemondrop = A simple, tangy, and tasty drink consisting of lemon, vodka, and simple syrup. Refreshing!
 
-reagent-name-daiquiri = "современный дайкири"
-reagent-desc-daiquiri = Сладкий микс из мёртвого рома и лайма. Любимец писателей, политиков и тех, кто утопает в риторике.
+reagent-name-greengrass = green grass
+reagent-desc-greengrass = Green grass, or grüne wiese, is a peculiar green cocktail hailing from the now dissolved GDR. Popular amongst the disillusioned and disingenuous alike.
 
-reagent-name-arsonistsbrew = "зелье поджигателя"
-reagent-desc-arsonistsbrew = Отпей глоток и рассмейся — ты уже не сможешь отвести взгляд, пока вокруг всё пылает.
+reagent-name-daiquiri = modern daiquiri
+reagent-desc-daiquiri = A sweet mix of deadrum and lime, a favourite of writers and politicians.
 
-reagent-name-healthviolation = "нарушение санитарных норм"
-reagent-desc-healthviolation = Говорят, это коктейль. Но предупреждающий конус на этикетке — это не шутка.
+reagent-name-arsonistsbrew = arsonist's brew
+reagent-desc-arsonistsbrew = Take a sip and laugh, while you watch your world burn.
 
-reagent-name-mothamphetamine = "мольфетамин"
-reagent-desc-mothamphetamine = Странно... пушистый напиток. Исходит от него какая-то хаотичная дрожь.
+reagent-name-healthviolation = health code violation
+reagent-desc-healthviolation = Allegedly it's a cocktail. The warning cone motif seems apt.
 
-reagent-name-double-ice-cream = "двойное мороженое"
-reagent-desc-double-ice-cream = Мороженое на мороженом. Слаще просто некуда!
+reagent-name-mothamphetamine = mothamphetamine
+reagent-desc-mothamphetamine = A strangely... fuzzy drink. It has a chaotic aura.
+
+reagent-name-double-ice-cream = Double Ice Cream
+reagent-desc-double-ice-cream = Ice cream, but now with even more ice cream on top. It doesn't get any sweeter than this!
 
