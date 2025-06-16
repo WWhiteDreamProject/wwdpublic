@@ -329,12 +329,12 @@ public sealed class WieldableSystem : EntitySystem
         component.User = user; // WWDP
 
         // WWDP EDIT START
-        if (!wieldPopup)
-            return true;
-
-        var selfMessage = Loc.GetString("wieldable-component-successful-wield", ("item", used));
-        var othersMessage = Loc.GetString("wieldable-component-successful-wield-other", ("user", Identity.Entity(user, EntityManager)), ("item", used));
-        _popupSystem.PopupPredicted(selfMessage, othersMessage, user, user);
+        if (wieldPopup)
+        {
+            var selfMessage = Loc.GetString("wieldable-component-successful-wield", ("item", used));
+            var othersMessage = Loc.GetString("wieldable-component-successful-wield-other", ("user", Identity.Entity(user, EntityManager)), ("item", used));
+            _popupSystem.PopupPredicted(selfMessage, othersMessage, user, user);
+        }
         // WWDP EDIT END
 
         _appearance.SetData(used, WieldableVisuals.Wielded, true); // Goobstation
