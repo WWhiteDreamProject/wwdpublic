@@ -3300,3 +3300,10 @@ Entries:
   id: 357
   time: '2025-06-16T17:42:52.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/597
+- author: Kai518
+  changes:
+    - type: Add
+      message: Портирован модуль дистанционного управления боргами Б.О.Р.И.С.
+  id: 358
+  time: '2025-06-16T18:12:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/567
