@@ -3264,3 +3264,14 @@ Entries:
   id: 353
   time: '2025-06-16T17:29:41.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/586
+- author: vanx
+  changes:
+    - type: Tweak
+      message: 'Масса королевы ксеноморфов: 9861 -> 477.'
+    - type: Fix
+      message: >-
+        Бросок королевой ксеноморфов больше не гибает и не уничтожает стены при
+        попадании.
+  id: 354
+  time: '2025-06-16T17:33:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/590
