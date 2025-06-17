@@ -57,7 +57,8 @@ public sealed class ItemMinerSystem : EntitySystem
 
         if (ent.Comp.ItemSlotId == null
             || !TryComp<ContainerManagerComponent>(ent.Owner, out var container)
-            || container.Containers["mining_slot"].ContainedEntities.Count <= 0)
+            || !container.Containers.TryGetValue("mining_slot", out var mining)
+            || mining.ContainedEntities.Count <= 0)
             return;
 
         var amount = container.Containers["mining_slot"].ContainedEntities.Count;
