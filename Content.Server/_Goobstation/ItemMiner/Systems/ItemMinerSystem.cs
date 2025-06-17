@@ -87,7 +87,8 @@ public sealed class ItemMinerSystem : EntitySystem
                 || miner.NeedsAnchored && !xform.Anchored)
             {
                 miner.NextAt += TimeSpan.FromSeconds(frameTime);
-                QueueDel(miner.AudioUid);
+                if (miner.AudioUid != null)
+                    QueueDel(miner.AudioUid);
                 continue;
             }
 

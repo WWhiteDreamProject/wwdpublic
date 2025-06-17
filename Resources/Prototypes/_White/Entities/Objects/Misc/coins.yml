@@ -15,13 +15,13 @@
     - NTCoin
   - type: Stack
     count: 20
-    stackType: Telecrystal
+    stackType: NTCoin
   - type: StaticPrice
     price: 0
   - type: StackPrice
     price: 1
   - type: StocksPrice
-    stock: stock-trading-company-NTcoin
+    stock: stock-trading-company-ntcoin
     multiplier: 1
 
 - type: entity

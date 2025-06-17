@@ -7,7 +7,7 @@
     - displayName: stock-trading-company-nanotrasen
       basePrice: 100
       currentPrice: 100
-    - displayName: stock-trading-company-NTcoin # WWDP
+    - displayName: stock-trading-company-ntcoin # WWDP
       basePrice: 500
       currentPrice: 500
     - displayName: stock-trading-company-gorlex

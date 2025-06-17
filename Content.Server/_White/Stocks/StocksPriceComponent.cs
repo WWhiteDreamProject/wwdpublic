@@ -9,7 +9,7 @@ public sealed partial class StocksPriceComponent : Component
     /// <summary>
     /// LocId of the stock to use.
     /// </summary>
-    [DataField]
+    [DataField (required: true)]
     public LocId Stock;
 
     /// <summary>
