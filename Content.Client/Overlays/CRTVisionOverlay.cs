@@ -3,7 +3,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
-using Content.Shared.Traits.Assorted.Components;
+using Content.Shared._White.Traits.Assorted.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Client.Overlays;

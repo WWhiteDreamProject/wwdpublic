@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Traits.Assorted.Components;
+namespace Content.Shared._White.Traits.Assorted.Components;
 
 /// <summary>
 /// This is used for IPCs with studio visor that reduces CRT vision effects.

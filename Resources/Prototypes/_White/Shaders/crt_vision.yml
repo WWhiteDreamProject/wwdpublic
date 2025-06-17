@@ -1,7 +1,7 @@
 - type: shader
   id: CRTVision
   kind: source
-  path: "/Textures/Nyanotrasen/Shaders/crt_vision.swsl"
+  path: "/Textures/_White/Shaders/crt_vision.swsl"
   params:
     SCANLINE_INTENSITY: 0.15
     DISTORTION: 0.008

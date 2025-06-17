@@ -1,4 +1,4 @@
-using Content.Shared.Traits.Assorted.Components;
+using Content.Shared._White.Traits.Assorted.Components;
 using Content.Shared.CCVar;
 using Robust.Client.Graphics;
 using Robust.Shared.Configuration;
