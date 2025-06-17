@@ -163,7 +163,6 @@ highp float zGrayscale(highp vec3 col) {
 
 // -- noise --
 
-//zRandom, zNoise, and zFBM are derived from https://godotshaders.com/snippet/2d-noise/ and https://godotshaders.com/snippet/fractal-brownian-motion-fbm/
 highp vec2 zRandom(highp vec2 uv){
     uv = vec2( dot(uv, vec2(127.1,311.7) ),
                dot(uv, vec2(269.5,183.3) ) );
