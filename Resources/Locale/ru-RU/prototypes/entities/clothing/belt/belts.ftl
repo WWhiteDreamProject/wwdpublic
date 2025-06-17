@@ -60,4 +60,12 @@ ent-ClothingBeltMedicalEMTFilled = { ent-ClothingBeltMedicalEMT }
 ent-ClothingBeltQuiver = колчан
     .desc = Вмещает до 15 стрел и плотно прилегает к талии.
     .suffix = { "" }
-
+ent-ClothingBeltUtility = пояс для инструментов
+    .desc = Может держать всякое-разное.
+    .suffix = { "" }
+ent-ClothingBeltUtilityEngineering = { ent-ClothingBeltUtility }
+    .desc = { ent-ClothingBeltUtility.desc }
+    .suffix = Инженерный
+ent-ClothingBeltUtilityAtmos = { ent-ClothingBeltUtility }
+    .desc = { ent-ClothingBeltUtility.desc }
+    .suffix = Атмос

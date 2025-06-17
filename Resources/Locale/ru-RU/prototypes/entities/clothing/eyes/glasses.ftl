@@ -30,3 +30,7 @@ ent-ClothingEyesGlassesInspector = очки инспектора
     .suffix = { "" }
 ent-ClothingEyesGlassesChemical = химические очки
     .desc = Очки, которые могут сканировать химический состав раствора.
+    .suffix = { "" }
+ent-ClothingEyesGlassesChemist = защитные очки
+    .desc = Очки для химиков и других работников, имеющих дело с едкими реагентами.
+    .suffix = { "" }
