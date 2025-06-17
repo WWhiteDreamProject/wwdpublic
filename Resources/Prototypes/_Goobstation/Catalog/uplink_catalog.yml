@@ -87,6 +87,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4 # WWDP no infinite farm but more than 1
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 # Weaponry
 
