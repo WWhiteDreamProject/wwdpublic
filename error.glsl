@@ -210,13 +210,10 @@ highp float zCircleGradient(highp vec2 ps, highp vec2 coord, highp float maxi, h
 
 // -- Utilities End --
 
-// Vertex position.
-/*layout (location = 0)*/ attribute vec2 aPos;
-// Texture coordinates.
-/*layout (location = 1)*/ attribute vec2 tCoord;
-/*layout (location = 2)*/ attribute vec2 tCoord2;
-// Colour modulation.
-/*layout (location = 3)*/ attribute vec4 modulate;
+attribute vec2 aPos;
+attribute vec2 tCoord;
+attribute vec2 tCoord2;
+attribute vec4 modulate;
 
 varying vec2 UV;
 varying vec2 UV2;
