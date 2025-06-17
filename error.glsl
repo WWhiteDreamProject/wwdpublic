@@ -146,7 +146,6 @@ highp vec4 zTexture(highp vec2 uv)
 
 // -- color --
 
-// Grayscale function for the ITU's Rec BT-709. Primarily intended for HDTVs, but standard sRGB monitors are coincidentally extremely close.
 highp float zGrayscale_BT709(highp vec3 col) {
     return dot(col, vec3(0.2126, 0.7152, 0.0722));
 }
