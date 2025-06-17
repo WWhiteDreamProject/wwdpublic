@@ -38,11 +38,6 @@ out highp vec4 colourOutput;
 
 // -- shadow depth --
 
-// If float textures are supported, puts the values in the R/G fields.
-// This assumes RG32F format.
-// If float textures are NOT supported.
-// This assumes RGBA8 format.
-// Operational range is "whatever works for FOV depth"
 highp vec4 zClydeShadowDepthPack(highp vec2 val) {
 #ifdef HAS_FLOAT_TEXTURES
     return vec4(val, 0.0, 1.0);
