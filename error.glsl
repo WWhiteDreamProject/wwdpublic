@@ -155,7 +155,6 @@ highp float zGrayscale_BT601(highp vec3 col) {
     return dot(col, vec3(0.299, 0.587, 0.114));
 }
 
-// If you don't have any reason to be specifically using the above grayscale functions, then you should default to this.
 highp float zGrayscale(highp vec3 col) {
     return zGrayscale_BT709(col);
 }
