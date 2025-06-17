@@ -26,7 +26,7 @@ public sealed partial class CRTVisionSystem : EntitySystem
 
     // For health tracking
     private float _healthPercentage = 1.0f;
-    
+
     // For studio visor
     private const float StudioVisorGlitchReduction = 0.7f; // Reduce glitch intensity by 70% with studio visor
     private const float StudioVisorLowHealthThreshold = 0.3f;
@@ -84,7 +84,7 @@ public sealed partial class CRTVisionSystem : EntitySystem
 
         UpdateHealthPercentage(player.Value);
 
-        var hasStudioVisor = _entityManager.HasComponent<StudioVisorComponent>(player);
+        var hasStudioVisor = _entityManager.HasComponent<StudioVisorComponent>(player.Value);
         var noVisionFilters = _cfg.GetCVar(CCVars.NoVisionFilters);
 
         // The overlay is active if filters are enabled, and the user either doesn't have a studio visor,
@@ -214,7 +214,7 @@ public sealed partial class CRTVisionSystem : EntitySystem
 
         // Reduce impact effect intensity if player has studio visor
         var effectiveIntensity = intensity;
-        if (_entityManager.HasComponent<StudioVisorComponent>(player))
+        if (_entityManager.HasComponent<StudioVisorComponent>(player.Value))
             effectiveIntensity *= (1.0f - StudioVisorGlitchReduction);
 
         // Trigger a temporary glitch effect proportional to damage
@@ -222,4 +222,3 @@ public sealed partial class CRTVisionSystem : EntitySystem
         _overlay.SetTemporaryGlitchEffect(glitchIntensity * 0.8f, 0.4f);
     }
 }
- 

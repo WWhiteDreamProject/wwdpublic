@@ -129,9 +129,9 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("ghostRoleRaffleDecider");
 
             // Vision effects
-            _componentFactory.RegisterIgnore("UltraVisionSystem");
-            _componentFactory.RegisterIgnore("DogVisionSystem");
-            _componentFactory.RegisterIgnore("CRTVisionSystem");
+            _componentFactory.RegisterIgnore("UltraVisionComponent");
+            _componentFactory.RegisterIgnore("DogVisionComponent");
+            _componentFactory.RegisterIgnore("CRTVisionComponent");
 
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();

@@ -16,7 +16,7 @@ public sealed class CRTVisionOverlay : Overlay
 
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
-    
+
     private readonly ShaderInstance _crtVisionShader;
 
     // Effect constants
@@ -33,7 +33,6 @@ public sealed class CRTVisionOverlay : Overlay
     // Shader parameters
     private const float ScanlineIntensity = 0.15f;
     private const float Distortion = 0.008f;
-    private const float TimeCoefficient = 0.0f; // Static scanlines
 
     // Time for animation
     private float _currentTime;
@@ -55,7 +54,6 @@ public sealed class CRTVisionOverlay : Overlay
         _crtVisionShader = _prototypeManager.Index<ShaderPrototype>("CRTVision").Instance().Duplicate();
         _crtVisionShader.SetParameter("SCANLINE_INTENSITY", ScanlineIntensity);
         _crtVisionShader.SetParameter("DISTORTION", Distortion);
-        _crtVisionShader.SetParameter("TIME_COEFFICIENT", TimeCoefficient);
         _crtVisionShader.SetParameter("GLITCH_INTENSITY", _glitchIntensity);
     }
 
@@ -99,7 +97,7 @@ public sealed class CRTVisionOverlay : Overlay
 
         // Apply temporary glitch effect if active
         float effectiveGlitchIntensity = _glitchIntensity;
-        if (_hasTemporaryGlitch)
+        if (_hasTemporaryGlitch && _temporaryGlitchDuration > 0f)
         {
             float remainingFactor = 1.0f - (_temporaryGlitchTimer / _temporaryGlitchDuration);
             float tempIntensity = _temporaryGlitchIntensity * remainingFactor;
@@ -153,6 +151,8 @@ public sealed class CRTVisionOverlay : Overlay
             float pulsation = (float)Math.Sin(_currentTime * LowHealthPulsationFrequency) * LowHealthPulsationAmplitude;
             _glitchIntensity = Math.Max(_glitchIntensity, lowChargeFactor * LowHealthIntensityFactor + pulsation);
         }
+
+        _glitchIntensity = Math.Max(0f, _glitchIntensity);
     }
 
     /// <summary>

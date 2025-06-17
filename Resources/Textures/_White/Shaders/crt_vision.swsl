@@ -1,7 +1,6 @@
 uniform sampler2D SCREEN_TEXTURE;
 uniform highp float SCANLINE_INTENSITY; // 0.0 - 1.0, intensity of scanline effect
 uniform highp float DISTORTION; // 0.0 - 0.1, amount of CRT-like distortion
-uniform highp float TIME_COEFFICIENT; // Speed of scanline movement
 uniform highp float GLITCH_INTENSITY; // 0.0 - 1.0, intensity of glitch effects
 
 // Noise function
@@ -109,8 +108,8 @@ void fragment() {
 
     // Create horizontal scanlines
     highp float scanY = uv.y * 1200.0;
-    highp float scanline = mod(floor(scanY), 2.0) == 0.0 ? 0.83 : 1.0;
-    color.rgb *= scanline;
+    highp float scanline = mix(1.0, 0.83, SCANLINE_INTENSITY);
+    color.rgb *= mix(1.0, scanline, float(mod(floor(scanY), 2.0)==0.0));
 
     // Apply vignette effect
     highp float vignette = 1.0 - dot(dist, dist) * 1.35;
