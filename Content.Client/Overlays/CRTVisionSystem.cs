@@ -24,12 +24,6 @@ public sealed partial class CRTVisionSystem : EntitySystem
 
     private CRTVisionOverlay _overlay = default!;
 
-    // For impact darkness effect
-    private float _impactDarkness = 0.0f;
-    private TimeSpan _lastImpactTime = TimeSpan.Zero;
-    private const float ImpactDuration = 0.3f; // Duration of darkness effect in seconds
-    private const float MaxImpactDarkness = 0.8f; // Maximum darkness intensity
-
     // For health tracking
     private float _healthPercentage = 1.0f;
     
@@ -212,12 +206,8 @@ public sealed partial class CRTVisionSystem : EntitySystem
         _overlay.SetTemporaryGlitchEffect(0.7f, 0.4f);
     }
 
-    // Method to activate darkness effect
     private void TriggerImpactEffect(float intensity)
     {
-        // Set last impact time and darkness intensity
-        _lastImpactTime = _gameTiming.CurTime;
-
         var player = _playerMan.LocalEntity;
         if (player == null)
             return;
@@ -227,33 +217,9 @@ public sealed partial class CRTVisionSystem : EntitySystem
         if (_entityManager.HasComponent<StudioVisorComponent>(player))
             effectiveIntensity *= (1.0f - StudioVisorGlitchReduction);
 
-        _impactDarkness = Math.Min(MaxImpactDarkness, effectiveIntensity / 30.0f);
-
         // Trigger a temporary glitch effect proportional to damage
         float glitchIntensity = Math.Min(effectiveIntensity / 50.0f, 1.0f);
         _overlay.SetTemporaryGlitchEffect(glitchIntensity * 0.8f, 0.4f);
-
-        // Update shader parameter
-        _overlay.SetImpactDarkness(_impactDarkness);
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        // Decrease impact darkness over time
-        if (_impactDarkness > 0.0f)
-        {
-            var elapsed = _gameTiming.CurTime - _lastImpactTime;
-            _impactDarkness = Math.Max(0.0f, MaxImpactDarkness * (1.0f - (float)elapsed.TotalSeconds / ImpactDuration));
-            _overlay.SetImpactDarkness(_impactDarkness);
-
-            // If impact effect ends, re-evaluate overlay state
-            if (_impactDarkness <= 0.0f)
-            {
-                UpdateOverlayState();
-            }
-        }
     }
 }
  

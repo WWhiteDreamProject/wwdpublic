@@ -3,7 +3,6 @@ uniform highp float SCANLINE_INTENSITY; // 0.0 - 1.0, intensity of scanline effe
 uniform highp float DISTORTION; // 0.0 - 0.1, amount of CRT-like distortion
 uniform highp float TIME_COEFFICIENT; // Speed of scanline movement
 uniform highp float GLITCH_INTENSITY; // 0.0 - 1.0, intensity of glitch effects
-uniform highp float IMPACT_DARKNESS; // 0.0 - 1.0, darkness from impacts
 
 // Noise function
 highp float rand(highp vec2 co) {
@@ -140,17 +139,12 @@ void fragment() {
         }
     }
 
-    // Add subtle flicker
+    // Flicker
     highp float flicker = 0.98 + 0.03 * sin(TIME * 2.5);
     color.rgb *= flicker;
 
-    // Boost contrast
+    // Contrast
     color.rgb = (color.rgb - 0.42) * 1.16 + 0.48;
-
-    // Apply impact darkness
-    if (IMPACT_DARKNESS > 0.0) {
-        color.rgb *= (1.0 - IMPACT_DARKNESS);
-    }
 
     COLOR = vec4(color.rgb, color.a);
 }

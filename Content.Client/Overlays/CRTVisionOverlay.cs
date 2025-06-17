@@ -39,7 +39,6 @@ public sealed class CRTVisionOverlay : Overlay
     private float _currentTime;
 
     // Effect parameters
-    private float _impactDarkness = 0.0f;
     private float _healthPercentage = 1.0f;
     private float _glitchIntensity = 0.0f;
 
@@ -57,7 +56,6 @@ public sealed class CRTVisionOverlay : Overlay
         _crtVisionShader.SetParameter("SCANLINE_INTENSITY", ScanlineIntensity);
         _crtVisionShader.SetParameter("DISTORTION", Distortion);
         _crtVisionShader.SetParameter("TIME_COEFFICIENT", TimeCoefficient);
-        _crtVisionShader.SetParameter("IMPACT_DARKNESS", _impactDarkness);
         _crtVisionShader.SetParameter("GLITCH_INTENSITY", _glitchIntensity);
     }
 
@@ -98,7 +96,6 @@ public sealed class CRTVisionOverlay : Overlay
 
         _crtVisionShader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
         _crtVisionShader.SetParameter("TIME", _currentTime);
-        _crtVisionShader.SetParameter("IMPACT_DARKNESS", _impactDarkness);
 
         // Apply temporary glitch effect if active
         float effectiveGlitchIntensity = _glitchIntensity;
@@ -116,14 +113,6 @@ public sealed class CRTVisionOverlay : Overlay
         screenHandle.UseShader(_crtVisionShader);
         screenHandle.DrawRect(viewport, Color.White);
         screenHandle.UseShader(null);
-    }
-
-    /// <summary>
-    /// Sets the darkness intensity when taking damage
-    /// </summary>
-    public void SetImpactDarkness(float darkness)
-    {
-        _impactDarkness = darkness;
     }
 
     /// <summary>
