@@ -2,4 +2,4 @@ telecrystal-miner-announcement = Cryptographic analysis has detected unsanctione
 telecrystal-miner-announcement2 = The illegal currency harvesting device has been located near {$location}.
 
 miner-examine = Generates [color=yellow]{$amount}[/color] {$item} every [color=yellow]{$seconds}[/color] seconds.
-miner-examine-stored = Current balance ({$item}): [color=yellow]{$amount}[/color].
+miner-examine-stored = Current balance: [color=yellow]{$amount}[/color].

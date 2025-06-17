@@ -2,4 +2,4 @@ telecrystal-miner-announcement = Криптографический анализ
 telecrystal-miner-announcement2 = Местоположение добытчика нелегальной валюты обнаружено, он расположен около {$location}.
 
 miner-examine = Производит [color=yellow]{$amount}[/color] {$item} каждые [color=yellow]{$seconds}[/color] секунд.
-miner-examine-stored = Текущий баланс ({$item}): [color=yellow]{$amount}[/color].
+miner-examine-stored = Текущий баланс: [color=yellow]{$amount}[/color].
