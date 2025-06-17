@@ -34,23 +34,23 @@ public sealed partial class CRTVisionSystem : EntitySystem
     private float _healthPercentage = 1.0f;
     
     // For studio visor
-    private bool _hasStudioVisor = false;
     private const float StudioVisorGlitchReduction = 0.7f; // Reduce glitch intensity by 70% with studio visor
+    private const float StudioVisorLowHealthThreshold = 0.3f;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CRTVisionComponent, ComponentInit>(OnCRTVisionInit);
-        SubscribeLocalEvent<CRTVisionComponent, ComponentShutdown>(OnCRTVisionShutdown);
-        SubscribeLocalEvent<CRTVisionComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
-        SubscribeLocalEvent<CRTVisionComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
+        _overlay = new();
+
+        SubscribeLocalEvent<CRTVisionComponent, ComponentInit>(OnComponentChange);
+        SubscribeLocalEvent<CRTVisionComponent, ComponentShutdown>(OnComponentChange);
+        SubscribeLocalEvent<CRTVisionComponent, LocalPlayerAttachedEvent>(OnPlayerStateChange);
+        SubscribeLocalEvent<CRTVisionComponent, LocalPlayerDetachedEvent>(OnPlayerStateChange);
 
         // Subscribe to studio visor events
-        SubscribeLocalEvent<StudioVisorComponent, ComponentInit>(OnStudioVisorInit);
-        SubscribeLocalEvent<StudioVisorComponent, ComponentShutdown>(OnStudioVisorShutdown);
-        SubscribeLocalEvent<StudioVisorComponent, LocalPlayerAttachedEvent>(OnStudioVisorAttached);
-        SubscribeLocalEvent<StudioVisorComponent, LocalPlayerDetachedEvent>(OnStudioVisorDetached);
+        SubscribeLocalEvent<StudioVisorComponent, ComponentInit>(OnComponentChange);
+        SubscribeLocalEvent<StudioVisorComponent, ComponentShutdown>(OnComponentChange);
 
         // Subscribe to damage events
         SubscribeLocalEvent<CRTVisionComponent, DamageChangedEvent>(OnDamageChanged);
@@ -66,127 +66,52 @@ public sealed partial class CRTVisionSystem : EntitySystem
         SubscribeLocalEvent<CRTVisionComponent, StunnedEvent>(OnStunned);
 
         Subs.CVar(_cfg, CCVars.NoVisionFilters, OnNoVisionFiltersChanged);
-
-        _overlay = new();
     }
 
-    private void OnCRTVisionInit(EntityUid uid, CRTVisionComponent component, ComponentInit args)
+    private void OnComponentChange<T>(EntityUid uid, T component, EntityEventArgs args) where T: IComponent
     {
-        if (uid != _playerMan.LocalEntity)
-            return;
-
-        // Check if player has studio visor
-        _hasStudioVisor = _entityManager.HasComponent<StudioVisorComponent>(uid);
-
-        // Only add full CRT overlay if player doesn't have studio visor
-        if (!_hasStudioVisor && !_cfg.GetCVar(CCVars.NoVisionFilters) && !_overlayMan.HasOverlay<CRTVisionOverlay>())
-            _overlayMan.AddOverlay(_overlay);
-
-        // Initialize health percentage
-        UpdateHealthPercentage(uid);
+        if (uid == _playerMan.LocalEntity)
+            UpdateOverlayState();
     }
 
-    private void OnCRTVisionShutdown(EntityUid uid, CRTVisionComponent component, ComponentShutdown args)
+    private void OnPlayerStateChange<T>(EntityUid uid, CRTVisionComponent component, T args)
     {
-        if (uid != _playerMan.LocalEntity)
-            return;
-
-        if (_overlayMan.HasOverlay<CRTVisionOverlay>())
-            _overlayMan.RemoveOverlay(_overlay);
-
-        _hasStudioVisor = false;
+        UpdateOverlayState();
     }
 
-    private void OnPlayerAttached(EntityUid uid, CRTVisionComponent component, LocalPlayerAttachedEvent args)
+    private void UpdateOverlayState()
     {
-        // Check if player has studio visor
-        _hasStudioVisor = _entityManager.HasComponent<StudioVisorComponent>(uid);
-
-        // Only add full CRT overlay if player doesn't have studio visor
-        if (!_hasStudioVisor && !_cfg.GetCVar(CCVars.NoVisionFilters) && !_overlayMan.HasOverlay<CRTVisionOverlay>())
-            _overlayMan.AddOverlay(_overlay);
-
-        // Initialize health percentage
-        UpdateHealthPercentage(uid);
-    }
-
-    private void OnPlayerDetached(EntityUid uid, CRTVisionComponent component, LocalPlayerDetachedEvent args)
-    {
-        if (_overlayMan.HasOverlay<CRTVisionOverlay>())
-            _overlayMan.RemoveOverlay(_overlay);
-        
-        _hasStudioVisor = false;
-    }
-
-    // Studio Visor event handlers
-    private void OnStudioVisorInit(EntityUid uid, StudioVisorComponent component, ComponentInit args)
-    {
-        if (uid != _playerMan.LocalEntity)
-            return;
-
-        _hasStudioVisor = true;
-
-        // Remove CRT overlay if it exists, as studio visor disables the base effect
-        if (_overlayMan.HasOverlay<CRTVisionOverlay>())
-            _overlayMan.RemoveOverlay(_overlay);
-    }
-
-    private void OnStudioVisorShutdown(EntityUid uid, StudioVisorComponent component, ComponentShutdown args)
-    {
-        if (uid != _playerMan.LocalEntity)
-            return;
-
-        _hasStudioVisor = false;
-
-        // Re-add CRT overlay if player still has CRT vision component
-        if (_entityManager.HasComponent<CRTVisionComponent>(uid) && 
-            !_cfg.GetCVar(CCVars.NoVisionFilters) && 
-            !_overlayMan.HasOverlay<CRTVisionOverlay>())
+        var player = _playerMan.LocalEntity;
+        if (player == null || !EntityManager.HasComponent<CRTVisionComponent>(player))
         {
-            _overlayMan.AddOverlay(_overlay);
+            _overlayMan.RemoveOverlay(_overlay);
+            return;
         }
-    }
 
-    private void OnStudioVisorAttached(EntityUid uid, StudioVisorComponent component, LocalPlayerAttachedEvent args)
-    {
-        _hasStudioVisor = true;
+        UpdateHealthPercentage(player.Value);
 
-        // Remove CRT overlay if it exists, as studio visor disables the base effect
-        if (_overlayMan.HasOverlay<CRTVisionOverlay>())
-            _overlayMan.RemoveOverlay(_overlay);
-    }
+        var hasStudioVisor = _entityManager.HasComponent<StudioVisorComponent>(player);
+        var noVisionFilters = _cfg.GetCVar(CCVars.NoVisionFilters);
 
-    private void OnStudioVisorDetached(EntityUid uid, StudioVisorComponent component, LocalPlayerDetachedEvent args)
-    {
-        _hasStudioVisor = false;
+        // The overlay is active if filters are enabled, and the user either doesn't have a studio visor,
+        // or has one but is at low health.
+        bool shouldShowOverlay = !noVisionFilters && (!hasStudioVisor || _healthPercentage < StudioVisorLowHealthThreshold);
 
-        // Re-add CRT overlay if player still has CRT vision component
-        if (_entityManager.HasComponent<CRTVisionComponent>(uid) && 
-            !_cfg.GetCVar(CCVars.NoVisionFilters) && 
-            !_overlayMan.HasOverlay<CRTVisionOverlay>())
+        if (shouldShowOverlay)
         {
-            _overlayMan.AddOverlay(_overlay);
+            if (!_overlayMan.HasOverlay<CRTVisionOverlay>())
+                _overlayMan.AddOverlay(_overlay);
+        }
+        else
+        {
+            if (_overlayMan.HasOverlay<CRTVisionOverlay>())
+                _overlayMan.RemoveOverlay(_overlay);
         }
     }
 
     private void OnNoVisionFiltersChanged(bool enabled)
     {
-        if (enabled)
-        {
-            if (_overlayMan.HasOverlay<CRTVisionOverlay>())
-                _overlayMan.RemoveOverlay(_overlay);
-        }
-        else
-        {
-            // Only add overlay if player doesn't have studio visor
-            if (!_hasStudioVisor && 
-                !_overlayMan.HasOverlay<CRTVisionOverlay>() && 
-                _playerMan.LocalEntity is { Valid: true } player &&
-                EntityManager.HasComponent<CRTVisionComponent>(player))
-            {
-                _overlayMan.AddOverlay(_overlay);
-            }
-        }
+        UpdateOverlayState();
     }
 
     // Process damage event
@@ -196,8 +121,9 @@ public sealed partial class CRTVisionSystem : EntitySystem
             return;
 
         // Check if damage was applied (not healing)
-        // Use a simple value for effect intensity
-        float damageAmount = 10.0f; // Fixed value for any damage
+        var damageAmount = (float?) args.DamageDelta?.GetTotal() ?? 0f;
+        if (damageAmount <= 0)
+            return;                           // healing or no-op
 
         // Check if it was damage and not healing
         if (args.DamageIncreased)
@@ -206,7 +132,7 @@ public sealed partial class CRTVisionSystem : EntitySystem
         }
 
         // Update health percentage for glitch effects
-        UpdateHealthPercentage(uid);
+        UpdateOverlayState();
     }
 
     // Update health percentage for glitch effects
@@ -226,21 +152,6 @@ public sealed partial class CRTVisionSystem : EntitySystem
 
         // Pass health percentage to shader
         _overlay.SetHealthPercentage(_healthPercentage);
-        
-        // If player has studio visor, we still want to show glitches at low health
-        // but only if health is very low or on impact
-        if (_hasStudioVisor && _healthPercentage < 0.3f)
-        {
-            // Add temporary overlay for low health with studio visor
-            if (!_overlayMan.HasOverlay<CRTVisionOverlay>())
-                _overlayMan.AddOverlay(_overlay);
-        }
-        else if (_hasStudioVisor && _healthPercentage >= 0.3f && _impactDarkness <= 0.01f)
-        {
-            // Remove overlay when health is restored and no impact effects
-            if (_overlayMan.HasOverlay<CRTVisionOverlay>())
-                _overlayMan.RemoveOverlay(_overlay);
-        }
     }
 
     // Handle mob state change (e.g., transition from Normal to Critical)
@@ -255,8 +166,14 @@ public sealed partial class CRTVisionSystem : EntitySystem
             TriggerImpactEffect(20.0f); // Stronger effect on state change
         }
 
+        // Trigger a strong glitch effect when entering critical state
+        if (args.NewMobState == MobState.Critical)
+        {
+            _overlay.SetTemporaryGlitchEffect(1.5f, 0.5f);
+        }
+
         // Update health percentage for glitch effects
-        UpdateHealthPercentage(uid);
+        UpdateOverlayState();
     }
 
     // Handle health threshold check
@@ -268,8 +185,11 @@ public sealed partial class CRTVisionSystem : EntitySystem
         // Trigger impact effect on health threshold check
         TriggerImpactEffect(15.0f);
 
+        // When crossing a new threshold, trigger a medium glitch effect
+        _overlay.SetTemporaryGlitchEffect(0.5f, 0.3f);
+
         // Update health percentage for glitch effects
-        UpdateHealthPercentage(uid);
+        UpdateOverlayState();
     }
 
     // Handle attack on player
@@ -278,8 +198,8 @@ public sealed partial class CRTVisionSystem : EntitySystem
         if (uid != _playerMan.LocalEntity)
             return;
 
-        // Trigger impact effect on attack
-        TriggerImpactEffect(12.0f);
+        // Trigger a small glitch effect on every attack
+        _overlay.SetTemporaryGlitchEffect(0.2f, 0.2f);
     }
 
     // Handle stun event
@@ -288,8 +208,8 @@ public sealed partial class CRTVisionSystem : EntitySystem
         if (uid != _playerMan.LocalEntity)
             return;
 
-        // Trigger impact effect on stun
-        TriggerImpactEffect(18.0f);
+        // Trigger a medium glitch effect on stun
+        _overlay.SetTemporaryGlitchEffect(0.7f, 0.4f);
     }
 
     // Method to activate darkness effect
@@ -297,53 +217,42 @@ public sealed partial class CRTVisionSystem : EntitySystem
     {
         // Set last impact time and darkness intensity
         _lastImpactTime = _gameTiming.CurTime;
-        
+
+        var player = _playerMan.LocalEntity;
+        if (player == null)
+            return;
+
         // Reduce impact effect intensity if player has studio visor
-        float effectiveIntensity = _hasStudioVisor ? intensity * (1.0f - StudioVisorGlitchReduction) : intensity;
+        var effectiveIntensity = intensity;
+        if (_entityManager.HasComponent<StudioVisorComponent>(player))
+            effectiveIntensity *= (1.0f - StudioVisorGlitchReduction);
+
         _impactDarkness = Math.Min(MaxImpactDarkness, effectiveIntensity / 30.0f);
 
-        // Apply temporary glitch effect on damage
-        float glitchIntensity = Math.Min(0.7f, effectiveIntensity / 20.0f);
-        _overlay.SetTemporaryGlitchEffect(glitchIntensity, 0.25f);
+        // Trigger a temporary glitch effect proportional to damage
+        float glitchIntensity = Math.Min(effectiveIntensity / 50.0f, 1.0f);
+        _overlay.SetTemporaryGlitchEffect(glitchIntensity * 0.8f, 0.4f);
 
         // Update shader parameter
         _overlay.SetImpactDarkness(_impactDarkness);
-        
-        // If player has studio visor, temporarily add overlay for impact effect
-        if (_hasStudioVisor && !_overlayMan.HasOverlay<CRTVisionOverlay>())
-        {
-            _overlayMan.AddOverlay(_overlay);
-        }
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        // If impact darkness effect is active, gradually decrease it
+        // Decrease impact darkness over time
         if (_impactDarkness > 0.0f)
         {
-            var timeSinceImpact = (_gameTiming.CurTime - _lastImpactTime).TotalSeconds;
-
-            if (timeSinceImpact >= ImpactDuration)
-            {
-                // Effect time expired, reset darkness
-                _impactDarkness = 0.0f;
-                
-                // If player has studio visor and health is good, remove overlay when impact effect ends
-                if (_hasStudioVisor && _healthPercentage >= 0.3f && _overlayMan.HasOverlay<CRTVisionOverlay>())
-                {
-                    _overlayMan.RemoveOverlay(_overlay);
-                }
-            }
-            else
-            {
-                // Linearly decrease darkness over time
-                _impactDarkness = MaxImpactDarkness * (1.0f - (float)(timeSinceImpact / ImpactDuration));
-            }
-
-            // Update shader parameter
+            var elapsed = _gameTiming.CurTime - _lastImpactTime;
+            _impactDarkness = Math.Max(0.0f, MaxImpactDarkness * (1.0f - (float)elapsed.TotalSeconds / ImpactDuration));
             _overlay.SetImpactDarkness(_impactDarkness);
+
+            // If impact effect ends, re-evaluate overlay state
+            if (_impactDarkness <= 0.0f)
+            {
+                UpdateOverlayState();
+            }
         }
     }
 }

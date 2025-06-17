@@ -1,19 +1,4 @@
 - type: trait
-  id: CRTVision
-  name: trait-name-crt-vision
-  desc: trait-desc-crt-vision
-  icon: Interface/VerbIcons/eye.svg.192dpi.png
-  category: Visual
-  requirements:
-    - !type:CharacterSpeciesRequirement
-      species:
-        - IPC
-  functions:
-    - !type:TraitAddComponent
-      components:
-        - type: CRTVision
-
-- type: trait
   id: StudioVisor
   name: trait-name-StudioVisor
   desc: trait-desc-StudioVisor

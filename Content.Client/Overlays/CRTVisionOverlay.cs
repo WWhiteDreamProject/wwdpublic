@@ -19,6 +19,17 @@ public sealed class CRTVisionOverlay : Overlay
     
     private readonly ShaderInstance _crtVisionShader;
 
+    // Effect constants
+    private const float GlitchHealthThreshold = 0.7f;
+    private const float LowHealthThreshold = 0.2f;
+    private const float GlitchIntensityMultiplier = 0.5f;
+    private const float GlitchOscillationFrequency = 2.5f;
+    private const float GlitchOscillationAmplitude = 0.03f;
+    private const float MaxGlitchIntensity = 0.75f;
+    private const float LowHealthPulsationFrequency = 3.0f;
+    private const float LowHealthPulsationAmplitude = 0.08f;
+    private const float LowHealthIntensityFactor = 0.6f;
+
     // Shader parameters
     private const float ScanlineIntensity = 0.15f;
     private const float Distortion = 0.008f;
@@ -130,28 +141,28 @@ public sealed class CRTVisionOverlay : Overlay
     {
         _glitchIntensity = 0.0f;
 
-        // Glitch effects appear only when health is below 70%
-        if (_healthPercentage < 0.7f)
+        // Glitch effects appear only when health is below a threshold
+        if (_healthPercentage < GlitchHealthThreshold)
         {
-            // Normalize scale from 0.7 to 0.0 into range from 0.0 to 1.0
-            float normalizedHealth = 1.0f - (_healthPercentage / 0.7f);
+            // Normalize scale from threshold to 0.0 into range from 0.0 to 1.0
+            float normalizedHealth = 1.0f - (_healthPercentage / GlitchHealthThreshold);
 
             // Quadratic function for smooth effect increase
-            _glitchIntensity = normalizedHealth * normalizedHealth * 0.5f;
+            _glitchIntensity = normalizedHealth * normalizedHealth * GlitchIntensityMultiplier;
 
             // Add oscillation for natural effect
-            _glitchIntensity += (float)Math.Sin(_currentTime * 2.5f) * 0.03f;
+            _glitchIntensity += (float)Math.Sin(_currentTime * GlitchOscillationFrequency) * GlitchOscillationAmplitude;
 
             // Limit maximum intensity
-            _glitchIntensity = Math.Min(_glitchIntensity, 0.75f);
+            _glitchIntensity = Math.Min(_glitchIntensity, MaxGlitchIntensity);
         }
 
-        // At low charge (below 20%) enhance effects
-        if (_healthPercentage < 0.2f)
+        // At low charge enhance effects
+        if (_healthPercentage < LowHealthThreshold)
         {
-            float lowChargeFactor = 1.0f - (_healthPercentage / 0.2f);
-            float pulsation = (float)Math.Sin(_currentTime * 3.0f) * 0.08f;
-            _glitchIntensity = Math.Max(_glitchIntensity, lowChargeFactor * 0.6f + pulsation);
+            float lowChargeFactor = 1.0f - (_healthPercentage / LowHealthThreshold);
+            float pulsation = (float)Math.Sin(_currentTime * LowHealthPulsationFrequency) * LowHealthPulsationAmplitude;
+            _glitchIntensity = Math.Max(_glitchIntensity, lowChargeFactor * LowHealthIntensityFactor + pulsation);
         }
     }
 
