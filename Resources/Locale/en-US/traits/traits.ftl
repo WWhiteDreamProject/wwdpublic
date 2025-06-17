@@ -667,4 +667,4 @@ trait-description-IPCFragileCircuits =
 fragileCircuits-kill-popup = {$name}'s circuits shut down from short-circuiting!
 
 trait-name-StudioVisor = Studio Visor
-trait-desc-StudioVisor = A studio-grade visor is installed in your vision sensors, which significantly reduces the intensity of CRT-like visual effects and glitches caused by damage or low health.
+trait-description-StudioVisor = A studio-grade visor is installed in your vision sensors, which significantly reduces the intensity of CRT-like visual effects and glitches caused by damage or low health.

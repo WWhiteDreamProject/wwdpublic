@@ -77,7 +77,7 @@ public sealed partial class CRTVisionSystem : EntitySystem
     {
         var player = _playerMan.LocalEntity;
         if (player == null || !EntityManager.HasComponent<CRTVisionComponent>(player))
-        {
+    {
             _overlayMan.RemoveOverlay(_overlay);
             return;
         }
@@ -94,12 +94,12 @@ public sealed partial class CRTVisionSystem : EntitySystem
         if (shouldShowOverlay)
         {
             if (!_overlayMan.HasOverlay<CRTVisionOverlay>())
-                _overlayMan.AddOverlay(_overlay);
+            _overlayMan.AddOverlay(_overlay);
         }
         else
-        {
-            if (_overlayMan.HasOverlay<CRTVisionOverlay>())
-                _overlayMan.RemoveOverlay(_overlay);
+    {
+        if (_overlayMan.HasOverlay<CRTVisionOverlay>())
+            _overlayMan.RemoveOverlay(_overlay);
         }
     }
 

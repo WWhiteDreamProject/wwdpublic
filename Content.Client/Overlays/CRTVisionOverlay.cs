@@ -159,9 +159,13 @@ public sealed class CRTVisionOverlay : Overlay
     /// </summary>
     public void SetTemporaryGlitchEffect(float intensity, float duration)
     {
+        // Validate parameters
+        intensity = Math.Max(0f, intensity);
+        duration = Math.Max(0f, duration);
+
         _temporaryGlitchIntensity = intensity;
         _temporaryGlitchDuration = duration;
         _temporaryGlitchTimer = 0.0f;
-        _hasTemporaryGlitch = true;
+        _hasTemporaryGlitch = intensity > 0f && duration > 0f;
     }
 }
