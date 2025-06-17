@@ -151,7 +151,6 @@ public sealed class CRTVisionOverlay : Overlay
             float pulsation = (float)Math.Sin(_currentTime * LowHealthPulsationFrequency) * LowHealthPulsationAmplitude;
             _glitchIntensity = Math.Max(_glitchIntensity, lowChargeFactor * LowHealthIntensityFactor + pulsation);
         }
-
         _glitchIntensity = Math.Max(0f, _glitchIntensity);
     }
 

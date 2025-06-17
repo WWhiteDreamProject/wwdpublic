@@ -111,17 +111,13 @@ public sealed partial class CRTVisionSystem : EntitySystem
     // Process damage event
     private void OnDamageChanged(EntityUid uid, CRTVisionComponent component, DamageChangedEvent args)
     {
-        if (uid != _playerMan.LocalEntity || args.DamageDelta == null)
+        if (uid != _playerMan.LocalEntity)
             return;
 
-        // Check if damage was applied (not healing)
-        var damageAmount = (float?) args.DamageDelta?.GetTotal() ?? 0f;
-        if (damageAmount <= 0)
-            return;                           // healing or no-op
-
         // Check if it was damage and not healing
-        if (args.DamageIncreased)
+        if (args.DamageIncreased && args.DamageDelta != null)
         {
+            var damageAmount = (float) args.DamageDelta.GetTotal();
             TriggerImpactEffect(damageAmount);
         }
 
