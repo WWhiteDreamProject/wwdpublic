@@ -145,7 +145,6 @@ highp float zGrayscale_BT709(highp vec3 col) {
     return dot(col, vec3(0.2126, 0.7152, 0.0722));
 }
 
-// Grayscale function for the ITU's Rec BT-601, primarily intended for SDTV, but amazing for a handful of niche use-cases.
 highp float zGrayscale_BT601(highp vec3 col) {
     return dot(col, vec3(0.299, 0.587, 0.114));
 }
