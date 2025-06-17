@@ -1,8 +1,5 @@
 - type: trait
   id: StudioVisor
-  name: trait-name-StudioVisor
-  desc: trait-description-StudioVisor
-  icon: Interface/VerbIcons/eye.svg.192dpi.png
   category: Visual
   points: -1
   requirements:
