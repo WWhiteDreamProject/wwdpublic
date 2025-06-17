@@ -220,8 +220,6 @@ varying vec2 UV2;
 varying vec2 Pos;
 varying vec4 VtxModulate;
 
-// Maybe we should merge these CPU side.
-// idk yet.
 uniform mat3 modelMatrix;
 
 // Allows us to do texture atlassing with texture coordinates 0->1
