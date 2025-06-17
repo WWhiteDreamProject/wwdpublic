@@ -51,7 +51,7 @@
 - type: damageModifierSet
   id: RockStrong
   coefficients:
-    Structural: 1 # WWDP
+    Structural: 5
     Blunt: 0.25
     Slash: 0.1
     Piercing: 0.25
@@ -61,7 +61,7 @@
     Slash: 10
     Piercing: 10
     Heat: 10
-    # Structural: 10 # WWDP
+    Structural: 10
 
 - type: damageModifierSet
   id: PerforatedMetallic
