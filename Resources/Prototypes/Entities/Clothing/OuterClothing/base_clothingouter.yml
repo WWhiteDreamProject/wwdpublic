@@ -379,7 +379,7 @@
         friction: 0.2
 
 - type: entity
-  parent: ClothingOuterBaseButcherable
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterBaseToggleable
   name: hoodie with hood
   abstract: True
