@@ -504,7 +504,7 @@
     sprite: Clothing/OuterClothing/Coats/expensive_coat.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase # WWDP
   id: ClothingOuterCoatModern
   name: modern coat
   description: A coat that has a nice finished feel.
@@ -515,7 +515,7 @@
     sprite: Clothing/OuterClothing/Coats/modern_coat.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase # WWDP
   id: ClothingOuterTailcoat
   name: tailcoat
   description: A fancy Victorian-style tailcoat.
@@ -526,7 +526,7 @@
     sprite: Clothing/OuterClothing/Coats/tailcoat.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase # WWDP
   id: ClothingOuterCoatVictorian
   name: black victorian coat
   description: A fancy Victorian-style coat.
@@ -537,7 +537,7 @@
     sprite: Clothing/OuterClothing/Coats/victorian_coat.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase # WWDP
   id: ClothingOuterCoatVictorianRed
   name: red victorian coat
   description: A fancy Victorian-style coat in a red hue.

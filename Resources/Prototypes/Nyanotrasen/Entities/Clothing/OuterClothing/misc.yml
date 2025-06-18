@@ -63,7 +63,7 @@
     coefficient: 0.2
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterWizardFake
   name: wizard robes
   suffix: fake

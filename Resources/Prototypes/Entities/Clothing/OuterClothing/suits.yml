@@ -219,7 +219,7 @@
   - type: Unremoveable
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterSuitChicken
   name: chicken suit
   description: Bok bok bok!
@@ -236,7 +236,7 @@
       - FullBodyOuter
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterSuitShrineMaiden
   name: shrine maiden outfit
   description: Makes you want to go deal with some troublesome youkai.
@@ -248,7 +248,7 @@
     clothingType: suit # WD EDIT
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterSuitMonkey
   name: monkey suit
   description: A suit that looks like a primate.
@@ -324,7 +324,7 @@
     clothingPrototype: ClothingHeadHelmetHardsuitCarp
 
 - type: entity # From Upstream
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase # WWDP
   id: ClothingOuterSuitWitchRobes
   name: witch robes
   description: Magic is all about the spell power, ZE!

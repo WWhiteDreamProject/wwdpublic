@@ -9,6 +9,18 @@
   - type: Sprite
     state: icon
 
+# WWDP
+- type: entity
+  abstract: true
+  parent: ClothingOuterBase
+  id: ClothingOuterBaseButcherable
+  components:
+  - type: Butcherable # WWDP
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCardboard1
+      amount: 4
+
 - type: entity
   abstract: true
   parent: ClothingOuterBase
@@ -40,7 +52,7 @@
 
 - type: entity
   abstract: true
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterStorageBase
   components:
   - type: Storage
@@ -59,7 +71,7 @@
 
 - type: entity
   abstract: true
-  parent: [ClothingOuterBase, BaseFoldable]
+  parent: [ClothingOuterBaseButcherable, BaseFoldable] # WWDP
   id: ClothingOuterFoldableBase
   components:
   - type: Appearance
@@ -367,7 +379,7 @@
         friction: 0.2
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable
   id: ClothingOuterBaseToggleable
   name: hoodie with hood
   abstract: True
