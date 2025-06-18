@@ -21,7 +21,7 @@ public sealed class DollyMixtureSystem : EntitySystem
         var query = EntityQueryEnumerator<DollyMixtureComponent, SpriteComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var dollymix, out var sprite, out var xform))
         {
-            Angle angle = xform.LocalRotation + _eye.CurrentEye.Rotation;
+            Angle angle = _xform.GetWorldRotation(xform) + _eye.CurrentEye.Rotation;
             const float MinAngleDelta = MathF.PI / 180 * 0.01f;
             if (MathHelper.CloseTo(dollymix.LastAngle, angle, MinAngleDelta))
                 continue;
