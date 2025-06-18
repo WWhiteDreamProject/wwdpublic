@@ -6,6 +6,10 @@ analysis-console-print-button = Печать
 analysis-console-print-tooltip-info = Распечатать актуальную информацию об артефакте.
 analysis-console-extract-button = Извлечь
 analysis-console-extract-button-info = Извлечение очков из артефакта на основе недавно исследованных узлов.
+analysis-console-bias-up = Вверх
+analysis-console-bias-down = Вниз
+analysis-console-bias-button-info-up = Переключает смещение, которое артефакт имеет при перемещении между своими узлами. Вверх направляется к нулевой глубине.
+analysis-console-bias-button-info-down =  Переключает смещение, которое артефакт имеет при перемещении между своими узлами. Вниз направляется к все более глубоким уровням.
 
 analysis-console-info-no-scanner = Анализатор не подключен! Пожалуйста, подключите его с помощью мультитула.
 analysis-console-info-no-artifact = Артефакт не найден! Поместите артефакт на платформу, затем просканируйте для получения данных.
