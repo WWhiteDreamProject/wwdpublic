@@ -1,8 +1,8 @@
+using Content.Shared._White.Overlays;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
-using Content.Shared._White.Traits.Assorted.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Client._White.Overlays;
@@ -60,7 +60,7 @@ public sealed class CRTVisionOverlay : Overlay
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
         if (_playerManager.LocalEntity is not { Valid: true, } player
-            || !_entityManager.HasComponent<CRTVisionComponent>(player))
+            || !_entityManager.HasComponent<CRTVisionOverlayComponent>(player))
             return false;
 
         return base.BeforeDraw(in args);

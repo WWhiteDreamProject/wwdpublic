@@ -36,7 +36,7 @@
   - type: SurgerySpeedModifier
     speedModifier: 1.5
   - type: Sanitized
-  - type: CRTVision # WD EDIT
+  - type: CRTVisionOverlay # WD EDIT
 
 - type: entity
   id: BorgChassisGeneric

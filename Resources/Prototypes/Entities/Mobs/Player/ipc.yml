@@ -136,7 +136,7 @@
     - DoorBumpOpener
     - SiliconEmotes
     - SiliconMob
-  - type: CRTVision # WD EDIT
+  - type: CRTVisionOverlay # WD EDIT
 
 - type: entity
   save: false
