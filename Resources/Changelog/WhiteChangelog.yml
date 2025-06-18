@@ -3307,3 +3307,12 @@ Entries:
   id: 358
   time: '2025-06-16T18:12:43.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/567
+- author: vanx
+  changes:
+    - type: Add
+      message: >-
+        Персонажи без ног и колясочники теперь могут передвигаться с минимальной
+        скоростью.
+  id: 359
+  time: '2025-06-18T06:22:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/593
