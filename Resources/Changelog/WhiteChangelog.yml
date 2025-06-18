@@ -3334,3 +3334,14 @@ Entries:
   id: 361
   time: '2025-06-18T06:28:51.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/596
+- author: Kutos
+  changes:
+    - type: Add
+      message: Добавлен CRT шейдер для КПБ и боргов
+    - type: Add
+      message: Добавлен трейт "Студийный визор"
+    - type: Add
+      message: Добавлена локализация для экранчиков в кастомизации КПБ
+  id: 362
+  time: '2025-06-18T06:39:11.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/600
