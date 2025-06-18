@@ -6,14 +6,14 @@
       edges:
         - to: woodenBuckler
           steps:
+            - material: WoodPlank # WWDP moved planks up
+              amount: 5
+              doAfter: 2
             - material: Cable
               amount: 5
               doAfter: 2
-            - material: WoodPlank
-              amount: 5
-              doAfter: 2
             - material: Steel
-              amount: 5
+              amount: 1 # WWDP
               doAfter: 2
 
     - node: woodenBuckler

@@ -1,10 +1,4 @@
-using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Content.Client._White.ItemSlotRenderer;
 
@@ -15,11 +9,8 @@ public sealed partial class ItemSlotRendererComponent : Component
     [DataField("mapping")]
     public Dictionary<string, string> PrototypeLayerMappings = new();
 
-    [DataField("noRot")]
-    public bool NoRotation = true;
-
     // [mapkey] = slotId
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables]
     public List<(object, string)> LayerMappings = new();
 
     // [slotId] = entity uid
@@ -36,10 +27,3 @@ public sealed partial class ItemSlotRendererComponent : Component
     [DataField]
     public Vector2i RenderTargetSize = new Vector2i(32, 32);
 }
-
-/*
-            if (reflection.TryParseEnumReference(keyString, out var @enum))
-                return @enum;
-
-            return keyString;
-*/

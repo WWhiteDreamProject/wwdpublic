@@ -18,3 +18,7 @@
     ClothingHeadHelmetInsulated: 1 # WWDP - Helmets for Sci, Sec helmets have their own protection now
     ClothingHeadCage: 2 # WWDP - moved from SecDrobe
     ClothingShoesBootsWinterSci: 2
+  #WWDP edit start
+  emaggedInventory:
+    ClothingEyesNightVisionGogglesSyndie: 1
+  #WWDP edit end

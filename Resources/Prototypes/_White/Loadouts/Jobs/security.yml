@@ -30,7 +30,7 @@
   id: LoadoutSecurityFlashlightSeclite
   category: JobsSecurityAUncategorized
   cost: 1
-  exclusive: true
+  exclusive: false # WWDP
   requirements:
   - !type:CharacterItemGroupRequirement
     group: LoadoutSecurityEquipment

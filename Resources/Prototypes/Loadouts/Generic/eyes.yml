@@ -196,8 +196,9 @@
       - Security
       - Command
     - !type:CharacterJobRequirement
+      inverted: true
       jobs:
-      - Brigmedic
+      - Prisoner
     # WD EDIT END
 
 - type: loadout
@@ -217,8 +218,9 @@
       - Security
       - Command
     - !type:CharacterJobRequirement
+      inverted: true
       jobs:
-      - Brigmedic
+      - Prisoner
   # WD EDIT END
 
 - type: loadout
@@ -237,10 +239,11 @@
       - Security
       - Command
     - !type:CharacterJobRequirement
+      inverted: true
       jobs:
-      - Brigmedic
+      - Prisoner
   # WD EDIT END
-  
+
 - type: loadout
   id: LoadoutEyesGlassesSunglassesVisor
   category: Eyes
@@ -257,10 +260,12 @@
       - Security
       - Command
     - !type:CharacterJobRequirement
+      inverted: true
       jobs:
       - Brigmedic
+      - Prisoner
   # WD EDIT END
-  
+
 - type: loadout
   id: LoadoutItemBlindfoldFake
   category: Eyes

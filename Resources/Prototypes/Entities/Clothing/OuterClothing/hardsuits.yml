@@ -1176,7 +1176,7 @@
     sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: Construction
-    graph: ClownHardsuit
+    graph: SuitEVA # WD EDIT
     node: clownHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitClown
@@ -1193,7 +1193,7 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
   - type: Construction
-    graph: MimeHardsuit
+    graph: SuitEVA # WD EDIT
     node: mimeHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMime

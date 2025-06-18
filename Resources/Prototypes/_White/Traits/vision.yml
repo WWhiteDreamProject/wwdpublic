@@ -1,0 +1,12 @@
+- type: trait
+  id: StudioVisor
+  category: Visual
+  points: -1
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - IPC
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: StudioVisor

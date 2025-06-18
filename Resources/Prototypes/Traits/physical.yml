@@ -41,6 +41,7 @@
       inverted: true
       traits:
         - WillToLive
+        - Redshirt # WWDP
   functions:
     - !type:TraitReplaceComponent
       components:
@@ -66,6 +67,7 @@
       traits:
         - GlassJaw
         - BrittleBoneDisease
+        - Redshirt
   functions:
     - !type:TraitReplaceComponent
       components:
@@ -814,6 +816,8 @@
       inverted: true
       traits:
         - WillToLive
+        - Tenacity
+        - WillToDie # WWDP
   functions:
     - !type:TraitReplaceComponent
       components:

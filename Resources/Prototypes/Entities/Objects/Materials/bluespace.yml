@@ -32,6 +32,10 @@
     count: 5
   - type: Item
     size: Small
+  # WWDP quick crafts
+  - type: Construction
+    graph: magic_crayon
+    node: bluespace
 
 - type: entity
   parent: MaterialBluespace

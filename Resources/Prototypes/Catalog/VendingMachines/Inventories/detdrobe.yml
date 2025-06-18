@@ -18,4 +18,8 @@
   contrabandInventory:
     SpaceCash2500: 1 # WWDP
   emaggedInventory:
-    WeaponShotgunDoubleBarreled: 1 # WWDP
+    #WWDP edit start
+    WeaponShotgunDoubleBarreled: 1
+    ClothingBeltSyndieHolster: 1
+    DrinkVodkaBottleFull: 1
+    #WWDP edit end

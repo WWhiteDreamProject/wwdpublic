@@ -85,7 +85,7 @@
 - type: entity
   parent: BaseItem
   id: BloodSpear
-  name: blood halberd
+  name: blood spear
   description: A sickening spear composed entirely of crystallized blood.
   components:
   - type: Sprite

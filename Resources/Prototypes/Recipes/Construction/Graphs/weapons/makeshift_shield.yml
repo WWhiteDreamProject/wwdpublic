@@ -6,12 +6,14 @@
       edges:
         - to: makeshiftShield
           steps:
-            - material: Cable
-              amount: 5
-              doAfter: 2
+# WWDP edit start
             - material: Steel
               amount: 5
               doAfter: 2
+            - material: Cable
+              amount: 5
+              doAfter: 2
+  # WWDP edit end
 
     - node: makeshiftShield
       entity: MakeshiftShield

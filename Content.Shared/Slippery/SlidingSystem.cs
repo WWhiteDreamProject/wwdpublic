@@ -55,7 +55,7 @@ public sealed class SlidingSystem : EntitySystem
             return;
 
         if (component.CollidingEntities.Count == 0)
-            component.FrictionModifier = SharedStunSystem.KnockDownModifier;
+            component.FrictionModifier = SlipperySystem.SlippedFrictionModifier; // WWDP
 
         Dirty(uid, component);
     }

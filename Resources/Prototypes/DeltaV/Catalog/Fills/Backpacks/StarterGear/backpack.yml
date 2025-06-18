@@ -30,6 +30,10 @@
   - type: StorageFill
     contents:
       - id: RubberStampPsychologist
+      - id: PillCanisterSpaceDrugs
+      - id: PillCanisterPax
+      - id: PillCanisterCryptobiolin
+      - id: PillCanisterChloralHydrate
 
 
 - type: entity

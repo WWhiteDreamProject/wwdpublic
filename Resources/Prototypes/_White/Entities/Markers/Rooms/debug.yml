@@ -1,0 +1,73 @@
+- type: entity
+  id: DebugMaprendererBase
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    drawdepth: Overdoors
+    granularLayersRendering: true
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/50x40.rsi
+      state: debug_maint_base_wonder_1
+      offset: 24.5, 19.5
+      scale: 4, 4
+      renderingStrategy: NoRotation
+  - type: TimedDespawn
+    lifetime: 0.1 # Idiot protection
+
+# What the fuck is this? It's a debug entity that is needed to display the room spawner on map renders
+# Что это за нахуй такое? Это дебаг энтити, которое нужно для отображения спавнера комнат на рендерах карт
+
+# How to work with it? Some room spawners have a spawner component, like the same mobs
+# Как с ним работать? В некоторых спавнерах комнат прописан компонент спавнера, как у тех же мобов
+
+# Well this game is absolute crap and it doesn't work as it should(((
+# Что ж эта игра абсолютное говно и оно не работает как надо(((
+
+# Wonder
+- type: entity
+  id: DebugMaprendererRoomsWonderboxMaintBase1
+  parent: DebugMaprendererBase
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/50x40.rsi
+      state: debug_maint_base_wonder_1
+      offset: 24.5, 19.5
+      scale: 4, 4
+
+- type: entity
+  id: DebugMaprendererRoomsWonderboxMaintBase2
+  parent: DebugMaprendererBase
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/40x50.rsi
+      state: debug_maint_base_wonder_1
+      offset: 19.5, 24.5
+      scale: 4, 4
+
+- type: entity
+  id: DebugMaprendererRoomsWonderboxMaintBase3
+  parent: DebugMaprendererBase
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/40x60.rsi
+      state: debug_maint_base_wonder_1
+      offset: 19.5, 29.5
+      scale: 4, 4
+
+- type: entity
+  id: DebugMaprendererRoomsWonderboxEngineBase1
+  parent: DebugMaprendererBase
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/30x47.rsi
+      state: debug_engine_wonder_1
+      offset: 14, 23.5
+      scale: 4, 4

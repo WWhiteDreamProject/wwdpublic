@@ -58,6 +58,7 @@
     damage:
       types:
         Blunt: 2.5
+    clickPartDamageMultiplier: 1.75 #WWDP edit
   - type: DamageOtherOnHit
   - type: EmbeddableProjectile
     embedOnThrow: false
@@ -125,7 +126,6 @@
     sprite: DeltaV/Objects/Weapons/Melee/e_sword.rsi # Delta-V
   - type: Reflect # WD EDIT
     reflectProb: .5
-    minReflectProb: 0.25
     spread: 75
     reflects:
     - Energy #DeltaV:
@@ -186,8 +186,9 @@
         variation: 0.250
     activatedDamage:
       types:
-        Slash: 4
-        Heat: 8
+        Slash: 10 # WWDP
+        Heat: 10 # WWDP
+        Structural: 10 # WWDP
     deactivatedSecret: true
   - type: ItemToggleActiveSound
     activeSound:
@@ -323,7 +324,6 @@
         Heat: 15
   - type: Reflect # WD EDIT
     reflectProb: 1
-    minReflectProb: .65
     spread: 75
     reflects:
     - Energy

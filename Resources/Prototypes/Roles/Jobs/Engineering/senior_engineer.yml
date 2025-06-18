@@ -19,6 +19,8 @@
       - ZavodskoiInterstellar
       - EinsteinEngines
       - NanoTrasen
+    - !type:CharacterOverallTimeRequirement # WWDP
+      min: 3600
   startingGear: SeniorEngineerGear
   icon: "JobIconSeniorEngineer"
   supervisors: job-supervisors-ce
@@ -38,8 +40,8 @@
     back: ClothingBackpackEngineeringFilled
     shoes: ClothingShoesBootsWork
     id: SeniorEngineerPDA
-    eyes: ClothingEyesGlassesMeson
-    belt: ClothingBeltUtilityEngineering
+    # eyes: ClothingEyesGlassesMeson # WWDP
+    # belt: ClothingBeltUtilityEngineering # WWDP
     ears: ClothingHeadsetEngineering
   innerClothingSkirt: ClothingUniformJumpskirtSeniorEngineer
   satchel: ClothingBackpackSatchelEngineeringFilled

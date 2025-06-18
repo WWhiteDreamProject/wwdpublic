@@ -809,17 +809,14 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     {
         var target = GetEntity(ev.Target);
 
-        if (Deleted(target) ||
-            user == target || !CanDoLightAttack(user, target, component, out var targetXform, session))
+        // WWDP edit start - allow pushing items without counting as combo
+        if (Deleted(target) || user == target)
         {
             return false;
         }
 
-        var comboEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Disarm);
-        RaiseLocalEvent(user, comboEv);
-
         if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
-            combatMode.CanDisarm == false) // WWDP
+            combatMode.CanDisarm == false)
         {
             return false;
         }
@@ -828,6 +825,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         {
             return false;
         }
+
+        if (CanDoLightAttack(user, target, component, out var targetXform, session))
+        {
+            var comboEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Disarm);
+            RaiseLocalEvent(user, comboEv);
+        }
+        // WWDP edit end
 
         // Play a sound to give instant feedback; same with playing the animations
         _meleeSound.PlaySwingSound(user, meleeUid, component);

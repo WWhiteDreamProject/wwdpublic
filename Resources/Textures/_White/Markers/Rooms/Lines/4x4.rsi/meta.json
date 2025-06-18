@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Made by Gersoon (discord gersoon458)",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "maint_wonder_1"
+    }
+  ]
+}

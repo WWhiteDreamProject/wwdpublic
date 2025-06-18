@@ -109,6 +109,9 @@
       accumulatorRatio: 0.5
       maxSpeed: 1
       minSpeed: 0.25
+    - type: Construction # WWDP quick crafts
+      graph: PlushieGhostRevenant
+      node: ghost
 
 - type: entity
   parent: PlushieGhost
@@ -705,6 +708,10 @@
   - type: Tag
     tags:
     - ToyRubberDuck
+  # WWDP quick crafts
+  - type: Construction
+    graph: ClothingShoeSlippersDuck
+    node: duck
 
 - type: entity
   parent: BasePlushie

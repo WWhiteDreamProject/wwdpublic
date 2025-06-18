@@ -16,6 +16,9 @@
     - WhitelistChameleon
     - AllowLamiaHardsuit
     - HidesHarpyWings
+  - type: Construction # WWDP
+    graph: SuitEVA
+    node: start
 
 #Syndicate EVA
 - type: entity

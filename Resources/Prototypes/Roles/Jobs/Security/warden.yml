@@ -25,6 +25,8 @@
       - ZavodskoiInterstellar
       - PMCG
       - NanoTrasen
+    - !type:CharacterOverallTimeRequirement # WWDP
+      min: 3600
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
@@ -54,13 +56,12 @@
   equipment:
     head: ClothingHeadHatWarden
     jumpsuit: ClothingUniformJumpsuitWarden
-    back: ClothingBackpackSecurity
-    shoes: ClothingShoesBootsCombatFilled
-    eyes: ClothingEyesGlassesSunglasses
-    outerClothing: ClothingOuterCoatWarden
+    back: ClothingBackpackSecurityFilled # WWDP
+    shoes: ClothingShoesBootsJack # WWDP
+    # eyes: ClothingEyesGlassesSunglasses # WWDP
+    # outerClothing: ClothingOuterCoatWarden # WWDP
     id: WardenPDA
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    belt: ClothingBeltSecurityFilled
   innerClothingSkirt: ClothingUniformJumpskirtWarden
   satchel: ClothingBackpackSatchelSecurity
   duffelbag: ClothingBackpackDuffelSecurity

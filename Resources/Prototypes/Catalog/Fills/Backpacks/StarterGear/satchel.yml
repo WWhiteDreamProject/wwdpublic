@@ -85,9 +85,9 @@
   components:
   - type: StorageFill
     contents:
-      - id: Flash
+      # - id: Flash # WWDP
       #- name: StationCharter
-      #- name: TelescopicBaton
+      - id: TelescopicBaton # WWDP
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -96,8 +96,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: Flash
-      #- id: TelescopicBaton
+      # - id: Flash # WWDP
+      - id: TelescopicBaton # WWDP
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -106,8 +106,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: Flash
-      #- id: TelescopicBaton
+      # - id: Flash # WWDP
+      - id: TelescopicBaton # WWDP
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -116,8 +116,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: Flash
-      #- id: TelescopicBaton
+      # - id: Flash # WWDP
+      - id: TelescopicBaton # WWDP
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -126,8 +126,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: Flash
-      #- id: TelescopicBaton
+      # - id: Flash # WWDP
+      - id: TelescopicBaton # WWDP
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -136,8 +136,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: Flash
-      #- id: TelescopicBaton
+      # - id: Flash # WWDP
+      - id: TelescopicBaton # WWDP
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -146,8 +146,11 @@
   components:
   - type: StorageFill
     contents:
-      - id: Flash
-      - id: MagazinePistol
+      # - id: Flash # WWDP
+      - id: TelescopicBaton # WWDP
+      # - id: MagazinePistol
+      - id: WeaponEnergyGunMultiphase # WWDP
+
 
 - type: entity
   categories: [ HideSpawnMenu ]

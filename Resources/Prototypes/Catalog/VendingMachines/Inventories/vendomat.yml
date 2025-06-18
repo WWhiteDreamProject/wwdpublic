@@ -10,3 +10,7 @@
     MatterBinStockPart: 4
     CapacitorStockPart: 4
     MicroManipulatorStockPart: 4
+  #WWDP edit start
+  emaggedInventory:
+    Snatcherprod: 1
+  #WWDP edit end

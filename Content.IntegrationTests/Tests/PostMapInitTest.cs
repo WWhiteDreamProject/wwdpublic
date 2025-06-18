@@ -69,7 +69,7 @@ namespace Content.IntegrationTests.Tests
             "Lavatest", // Lavaland Change
             "Rad", // Maintained by Ichai
             // "Europa", // De-rotated, has significant issues.
-            "Meta", // Maintained by Ichai
+            //"Meta", // Maintained by Ichai
             "Cyberiad", // Maintained by Ichai
             "Lambda", // Maintained by Ichai
             "Bagel", // Maintained by Ichai
@@ -77,7 +77,10 @@ namespace Content.IntegrationTests.Tests
             "Anchor", // Maintained by the SiN Mapping Team.
             "DryDock", //WWDP
             "Moose", //WWDP
-            "WhiteBox", //WWDP
+            //"WhiteBox", //WWDP
+            "WhiteMeta", //WWDP
+            "WonderBox", //WWDP
+            "Kettle", //WWDP
             "Molecule", //WWDP
         };
 

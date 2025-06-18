@@ -3,7 +3,7 @@ using System.Numerics;
 using System.Threading.Tasks;
 using Content.Server.Popups;
 using Content.Server.Salvage.Magnet;
-using Content.Shared._White;
+using Content.Shared._White.CCVar;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Radio;
@@ -24,6 +24,12 @@ public sealed partial class SalvageSystem
 
     private List<(Entity<TransformComponent> Entity, EntityUid MapUid, Vector2 LocalPosition)> _detachEnts = new();
 
+    // WD EDIT START
+    private bool _salvageMagnetEnabled;
+
+    private bool _asteroidFieldEnabled;
+    // WD EDIT END
+
     private void InitializeMagnet()
     {
         _salvMobQuery = GetEntityQuery<SalvageMobRestrictionsComponent>();
@@ -35,6 +41,11 @@ public sealed partial class SalvageSystem
         SubscribeLocalEvent<SalvageMagnetComponent, MagnetClaimOfferEvent>(OnMagnetClaim);
         SubscribeLocalEvent<SalvageMagnetComponent, ComponentStartup>(OnMagnetStartup);
         SubscribeLocalEvent<SalvageMagnetComponent, AnchorStateChangedEvent>(OnMagnetAnchored);
+
+        // WD EDIT START
+        Subs.CVar(_configurationManager, WhiteCVars.SalvageMagnetEnabled, value => _salvageMagnetEnabled = value, true);
+        Subs.CVar(_configurationManager, WhiteCVars.AsteroidFieldEnabled, value => _asteroidFieldEnabled = value, true);
+        // WD EDIT END
     }
 
     private void OnMagnetClaim(EntityUid uid, SalvageMagnetComponent component, ref MagnetClaimOfferEvent args)
@@ -47,12 +58,16 @@ public sealed partial class SalvageSystem
             return;
         }
 
-        if(!_configurationManager.GetCVar(WhiteCVars.SalvageMagnetEnabled))
+        // WD EDIT START
+        if (!_salvageMagnetEnabled)
         {
-            bool asteroidFieldPresent = _configurationManager.GetCVar(WhiteCVars.AsteroidFieldEnabled);
-            _popup.PopupEntity(Loc.GetString($"salvage-magnet-disabled{(asteroidFieldPresent ? "-consider-asteroid-field" : "")}"), uid);
+            var message = Loc.GetString(
+                $"salvage-magnet-disabled{(_asteroidFieldEnabled ? "-consider-asteroid-field" : "")}");
+            _popup.PopupEntity(message, uid);
+
             return;
         }
+        // WD EDIT END
 
         TakeMagnetOffer((station.Value, dataComp), args.Index, (uid, component));
     }

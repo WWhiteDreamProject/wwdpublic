@@ -73,8 +73,8 @@
     impactEffect: BulletImpactEffectLaserGreen
     damage:
       types:
-        Heat: 10
-        Radiation: 10
+        Heat: 15
+        Radiation: 15
   - type: PointLight
     color: green
 

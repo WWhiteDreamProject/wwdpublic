@@ -1,4 +1,5 @@
-﻿- type: constructionGraph
+﻿# WWDP edit start - diegetic crafting
+- type: constructionGraph
   id: BananaClownJumpsuit
   start: start
   graph:
@@ -6,33 +7,23 @@
       edges:
         - to: jumpsuit
           steps:
-            - tag: BananaPeel
-              name: A Banana Peel
-              icon:
-                sprite: Objects/Specific/Hydroponics/banana.rsi
-                state: peel
-              doAfter: 1
-            - tag: BananaPeel
-              name: A Banana Peel
-              icon:
-                sprite: Objects/Specific/Hydroponics/banana.rsi
-                state: peel
-              doAfter: 1
-            - tag: BananaPeel
-              name: A Banana Peel
-              icon:
-                sprite: Objects/Specific/Hydroponics/banana.rsi
-                state: peel
-              doAfter: 1
-            - material: Bananium
-              amount: 1
-              doAfter: 1
-            - tag: ClownSuit
-              name: A Clown Suit
-              icon:
-                sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
-                state: icon
-              doAfter: 1
+          - tag: ClownSuit
+            name: A Clown Suit
+            icon:
+              sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
+              state: icon
+            doAfter: 1
+          - material: Bananium
+            amount: 1
+            doAfter: 1
+    - node: basesuit
+      entity: ClothingUniformJumpsuitClown
+      edges:
+      - to: jumpsuit
+        steps:
+        - material: Bananium
+          amount: 1
+          doAfter: 1
     - node: jumpsuit
       entity: ClothingUniformJumpsuitClownBanana
 
@@ -44,33 +35,23 @@
       edges:
         - to: shoes
           steps:
-            - tag: BananaPeel
-              name: A Banana Peel
-              icon:
-                sprite: Objects/Specific/Hydroponics/banana.rsi
-                state: peel
-              doAfter: 1
-            - tag: BananaPeel
-              name: A Banana Peel
-              icon:
-                sprite: Objects/Specific/Hydroponics/banana.rsi
-                state: peel
-              doAfter: 1
-            - tag: BananaPeel
-              name: A Banana Peel
-              icon:
-                sprite: Objects/Specific/Hydroponics/banana.rsi
-                state: peel
-              doAfter: 1
-            - material: Bananium
-              amount: 1
-              doAfter: 1
-            - tag: ClownShoes
-              name: Clown Shoes
-              icon:
-                sprite: Clothing/Shoes/Specific/clown.rsi
-                state: icon
-              doAfter: 1
+          - tag: ClownShoes
+            name: Clown Shoes
+            icon:
+              sprite: Clothing/Shoes/Specific/clown.rsi
+              state: icon
+            doAfter: 1
+          - material: Bananium
+            amount: 1
+            doAfter: 1
+    - node: baseshoes
+      entity: ClothingShoesClown
+      edges:
+      - to: shoes
+        steps:
+        - material: Bananium
+          amount: 1
+          doAfter: 1
     - node: shoes
       entity: ClothingShoesClownBanana
 
@@ -80,34 +61,33 @@
   graph:
     - node: start
       edges:
-        - to: mask
-          steps:
-            - tag: BananaPeel
-              name: A Banana Peel
-              icon:
-                sprite: Objects/Specific/Hydroponics/banana.rsi
-                state: peel
-              doAfter: 1
-            - tag: BananaPeel
-              name: A Banana Peel
-              icon:
-                sprite: Objects/Specific/Hydroponics/banana.rsi
-                state: peel
-              doAfter: 1
-            - tag: BananaPeel
-              name: A Banana Peel
-              icon:
-                sprite: Objects/Specific/Hydroponics/banana.rsi
-                state: peel
-              doAfter: 1
-            - material: Bananium
-              amount: 1
-              doAfter: 1
-            - tag: ClownMask
-              name: A Clown Mask
-              icon:
-                sprite: Clothing/Mask/clown.rsi
-                state: icon
-              doAfter: 1
+      - to: mask
+        steps:
+        - tag: ClownMask
+          name: A Clown Mask
+          icon:
+            sprite: Clothing/Mask/clown.rsi
+            state: icon
+          doAfter: 1
+        - material: Bananium
+          amount: 1
+          doAfter: 1
+    - node: basemask
+      entity: ClothingMaskClown
+      edges:
+      - to: mask
+        steps:
+        - material: Bananium
+          amount: 1
+          doAfter: 1
+    - node: sexymask
+      entity: ClothingMaskSexyClown
+      edges:
+      - to: mask
+        steps:
+        - material: Bananium
+          amount: 1
+          doAfter: 1
     - node: mask
       entity: ClothingMaskClownBanana
+# WWDP edit end

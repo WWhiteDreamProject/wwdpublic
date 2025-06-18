@@ -30,10 +30,10 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
     back: ClothingBackpackSalvageFilled
-    shoes: ClothingShoesBootsSalvage
+    shoes: ClothingShoesBootsSalvageFilled # WWDP
     id: SalvagePDA
     ears: ClothingHeadsetCargo
-    pocket1: MiningVoucher
+    # pocket1: MiningVoucher # WWDP
   satchel: ClothingBackpackSatchelSalvageFilled
   duffelbag: ClothingBackpackDuffelSalvageFilled
 

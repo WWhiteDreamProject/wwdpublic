@@ -25,6 +25,10 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Overlays.Switchable;
 using Robust.Shared.Utility;
 using Robust.Shared.Physics.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Server.Chat;
+using Content.Shared.Chat;
+using Content.Server.GameTicking;
 
 namespace Content.Server.Changeling;
 
@@ -34,13 +38,18 @@ public sealed partial class ChangelingSystem
     {
         SubscribeLocalEvent<ChangelingComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
         SubscribeLocalEvent<ChangelingComponent, AbsorbDNAEvent>(OnAbsorb);
-        SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterEvent>(OnAbsorbDoAfter);
+        // WD EDIT START
+        SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterFirstEvent>(OnFirstAbsorbDoAfter);
+        SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterSecondEvent>(OnSecondAbsorbDoAfter);
+        SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterThirdEvent>(OnThirdAbsorbDoAfter);
+        // WD EDIT END
         SubscribeLocalEvent<ChangelingComponent, ChangelingInfectTargetEvent>(OnInfect);
         SubscribeLocalEvent<ChangelingComponent, ChangelingInfectTargetDoAfterEvent>(OnInfectDoAfter);
         SubscribeLocalEvent<ChangelingComponent, StingExtractDNAEvent>(OnStingExtractDNA);
         SubscribeLocalEvent<ChangelingComponent, ChangelingTransformCycleEvent>(OnTransformCycle);
         SubscribeLocalEvent<ChangelingComponent, ChangelingTransformEvent>(OnTransform);
         SubscribeLocalEvent<ChangelingComponent, EnterStasisEvent>(OnEnterStasis);
+        SubscribeLocalEvent<GhostAttemptHandleEvent>(OnGhostAttempt); // WWDP EDIT
         SubscribeLocalEvent<ChangelingComponent, ExitStasisEvent>(OnExitStasis);
 
         SubscribeLocalEvent<ChangelingComponent, ToggleArmbladeEvent>(OnToggleArmblade);
@@ -113,13 +122,12 @@ public sealed partial class ChangelingSystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        var popupOthers = Loc.GetString(comp.AbsorbPopup, ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
-        _popup.PopupEntity(popupOthers, uid, comp.AbsorbPopupType);
-        PlayMeatySound(uid, comp);
-        var dargs = new DoAfterArgs(EntityManager, uid, comp.AbsorbTime, new AbsorbDNADoAfterEvent(), uid, target)
+        _popup.PopupEntity(Loc.GetString(comp.AbsorbStart), uid, uid); // WD EDIT
+        //PlayMeatySound(uid, comp); // WWDP EDIT
+        var dargs = new DoAfterArgs(EntityManager, uid, comp.AbsorbTime, new AbsorbDNADoAfterFirstEvent(), uid, target)
         {
             DistanceThreshold = 1.5f,
-            BreakOnDamage = true,
+            BreakOnDamage = false, // WWDP EDIT
             BreakOnHandChange = false,
             BreakOnMove = true,
             BreakOnWeightlessMove = true,
@@ -140,7 +148,75 @@ public sealed partial class ChangelingSystem
     ///     should give the same number of chemicals as before (7 points).
     /// </summary>
     private const float SuccChemicalsRatio = 7f;
-    private void OnAbsorbDoAfter(EntityUid uid, ChangelingComponent comp, ref AbsorbDNADoAfterEvent args)
+
+    // WWDP EDIT START
+    // todo: consider moving this bullshit to a whole another system just for handling chained doafters like these.
+    private void OnFirstAbsorbDoAfter(EntityUid uid, ChangelingComponent comp, ref AbsorbDNADoAfterFirstEvent args)
+    {
+        if (args.Cancelled || args.Args.Target is not EntityUid target
+            || !_proto.TryIndex<DamageTypePrototype>(comp.AbsorbedDamageType, out var damageProto))
+            return;
+
+        if (!IsIncapacitated(target))
+        {
+            _popup.PopupEntity(Loc.GetString(comp.AbsorbFailIncapacitated), uid, uid);
+            return;
+        }
+        if (HasComp<AbsorbedComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString(comp.AbsorbFailAbsorbed), uid, uid);
+            return;
+        }
+
+        var dargs = new DoAfterArgs(EntityManager, uid, comp.AbsorbTime, new AbsorbDNADoAfterSecondEvent(), uid, target)
+        {
+            DistanceThreshold = 1.5f,
+            BreakOnDamage = false,
+            BreakOnHandChange = false,
+            BreakOnMove = true,
+            BreakOnWeightlessMove = true,
+            AttemptFrequency = AttemptFrequency.StartAndEnd,
+            MultiplyDelay = false,
+        };
+        var popupOthers = Loc.GetString(comp.AbsorbPopupFirst, ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
+        _popup.PopupEntity(popupOthers, uid, comp.AbsorbPopupType);
+        _doAfter.TryStartDoAfter(dargs);
+    }
+
+    private void OnSecondAbsorbDoAfter(EntityUid uid, ChangelingComponent comp, ref AbsorbDNADoAfterSecondEvent args)
+    {
+        if (args.Cancelled || args.Args.Target is not EntityUid target
+            || !_proto.TryIndex<DamageTypePrototype>(comp.AbsorbedDamageType, out var damageProto))
+            return;
+
+        if (!IsIncapacitated(target))
+        {
+            _popup.PopupEntity(Loc.GetString(comp.AbsorbFailIncapacitated), uid, uid);
+            return;
+        }
+        if (HasComp<AbsorbedComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString(comp.AbsorbFailAbsorbed), uid, uid);
+            return;
+        }
+
+        var dargs = new DoAfterArgs(EntityManager, uid, comp.AbsorbTime, new AbsorbDNADoAfterThirdEvent(), uid, target)
+        {
+            DistanceThreshold = 1.5f,
+            BreakOnDamage = false,
+            BreakOnHandChange = false,
+            BreakOnMove = true,
+            BreakOnWeightlessMove = true,
+            AttemptFrequency = AttemptFrequency.StartAndEnd,
+            MultiplyDelay = false,
+        };
+        var popupOthers = Loc.GetString(comp.AbsorbPopupSecond, ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
+        _popup.PopupEntity(popupOthers, uid, comp.AbsorbPopupType);
+        _doAfter.TryStartDoAfter(dargs);
+    }
+    // WWDP EDIT END
+
+    private void OnThirdAbsorbDoAfter(EntityUid uid, ChangelingComponent comp, ref AbsorbDNADoAfterThirdEvent args) // WWDP EDIT
     {
         if (args.Args.Target is null
             || !_proto.TryIndex<DamageTypePrototype>(comp.AbsorbedDamageType, out var damageProto))
@@ -189,7 +265,10 @@ public sealed partial class ChangelingSystem
         }
         TryStealDNA(uid, target, comp, true);
         comp.TotalAbsorbedEntities++;
-
+        // WD EDIT START
+        var popupOthers = Loc.GetString(comp.AbsorbPopupThird, ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
+        _popup.PopupEntity(popupOthers, uid, comp.AbsorbPopupType);
+        // WD EDIT END
         _popup.PopupEntity(popup, args.User, args.User);
         comp.MaxChemicals += bonusChemicals;
 
@@ -384,7 +463,7 @@ public sealed partial class ChangelingSystem
 
     private void OnEnterStasis(EntityUid uid, ChangelingComponent comp, ref EnterStasisEvent args)
     {
-        if (comp.IsInStasis || HasComp<AbsorbedComponent>(uid))
+        if (comp.IsInStasis || HasComp<AbsorbedComponent>(uid) || !TryComp<DamageableComponent>(uid, out var damageable)) // WWDP EDIT
         {
             _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-fail"), uid, uid);
             return;
@@ -405,11 +484,21 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(selfMessage, uid, uid);
         }
 
-        if (!_mobState.IsDead(uid))
-            _mobState.ChangeMobState(uid, MobState.Dead);
-
         comp.IsInStasis = true;
+        _suicide.ApplyLethalDamage(new(uid, damageable), "Asphyxiation"); // WWDP EDIT
     }
+
+    // WWDP EDIT START
+    private void OnGhostAttempt(GhostAttemptHandleEvent args)
+    {
+        if(TryComp<ChangelingComponent>(args.Mind.CurrentEntity, out var comp) && comp.IsInStasis)
+        {
+            args.Handled = true;
+            args.Result = false;
+        }
+    }
+    // WWDP EDIT END
+
     private void OnExitStasis(EntityUid uid, ChangelingComponent comp, ref ExitStasisEvent args)
     {
         if (!comp.IsInStasis)

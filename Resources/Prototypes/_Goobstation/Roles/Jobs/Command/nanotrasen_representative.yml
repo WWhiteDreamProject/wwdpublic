@@ -18,6 +18,8 @@
       inverted: true
       employers:
       - Unemployed
+    - !type:CharacterOverallTimeRequirement # WWDP
+      min: 7200
   weight: 20
   startingGear: NanotrasenRepresentativeGear
   icon: "JobIconNanotrasenRepresentative"

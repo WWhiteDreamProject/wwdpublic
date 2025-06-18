@@ -25,7 +25,7 @@ public sealed partial class RoomFillComponent : Component
     /// Max size of the possible selected room.
     /// </summary>
     [DataField]
-    public Vector2i MaxSize = new (10, 10);
+    public Vector2i MaxSize = new (60, 60); // WD EDIT
 
     /// <summary>
     /// Rooms allowed for the marker.

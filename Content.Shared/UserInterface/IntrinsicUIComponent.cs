@@ -21,6 +21,6 @@ public sealed partial class IntrinsicUIEntry
     /// <summary>
     /// The action used for this BUI.
     /// </summary>
-    [DataField("toggleActionEntity")]
+    [ViewVariables] // WD EDIT
     public EntityUid? ToggleActionEntity = new();
 }

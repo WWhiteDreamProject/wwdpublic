@@ -37,6 +37,10 @@
         - CapacitorStockPart
     - type: Stack
       stackType: Capacitor
+  # WWDP quick crafts
+    - type: Construction
+      graph: MakeshiftLaserGraph
+      node: capacitor
 
 - type: entity
   id: MicroManipulatorStockPart

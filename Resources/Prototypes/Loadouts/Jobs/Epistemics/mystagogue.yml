@@ -88,33 +88,35 @@
     - PillCanisterSpaceDrugs
 
 # Eyes
-- type: loadout
-  id: LoadoutMystagogueEyesEpiHUD
-  category: JobsEpistemicsMystagogue
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMystagogueEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - ResearchDirector
-  items:
-    - ClothingEyesHudEpistemics
-
-- type: loadout
-  id: LoadoutMystagogueEyesEpiGlasses
-  category: JobsEpistemicsMystagogue
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMystagogueEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - ResearchDirector
-  items:
-    - ClothingEyesGlassesEpistemics
+# WWDP edit start - moved to locker
+# - type: loadout
+#   id: LoadoutMystagogueEyesEpiHUD
+#   category: JobsEpistemicsMystagogue
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMystagogueEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - ResearchDirector
+#   items:
+#     - ClothingEyesHudEpistemics
+#
+# - type: loadout
+#   id: LoadoutMystagogueEyesEpiGlasses
+#   category: JobsEpistemicsMystagogue
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMystagogueEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - ResearchDirector
+#   items:
+#     - ClothingEyesGlassesEpistemics
+# WWDP edit end
 
 # Gloves
 
@@ -148,22 +150,24 @@
     - ClothingHeadHoodMysta
 
 # Id
-- type: loadout
-  id: LoadoutMystagogueNTPDA
-  category: JobsEpistemicsMystagogue
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobResearchDirector
-      min: 36000 # 10 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMystagogueId
-    - !type:CharacterJobRequirement
-      jobs:
-        - ResearchDirector
-  items:
-    - RnDNTPDA
+# WWDP EDIT START - disabled
+# - type: loadout
+#   id: LoadoutMystagogueNTPDA
+#   category: JobsEpistemicsMystagogue
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterPlaytimeRequirement
+#       tracker: JobResearchDirector
+#       min: 36000 # 10 hours
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMystagogueId
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - ResearchDirector
+#   items:
+#     - RnDNTPDA
+# WWDP EDIT END
 
 # Neck
 - type: loadout

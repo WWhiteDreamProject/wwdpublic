@@ -1,6 +1,5 @@
-using Content.Shared._White;
+using Content.Shared._White.GameTicking.Prototypes;
 using Content.Shared.Roles;
-using Content.Shared.GameTicking.Prototypes;
 using Robust.Shared.Network;
 using Robust.Shared.Replays;
 using Robust.Shared.Serialization;

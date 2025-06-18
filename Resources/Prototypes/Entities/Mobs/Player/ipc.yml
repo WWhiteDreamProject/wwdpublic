@@ -4,6 +4,7 @@
   name: Urist McPositronic
   description: A positronic brain in a metal body.
   components:
+  - type: CRTVision
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
@@ -50,6 +51,7 @@
       Alive: BorgHealth
       Critical: BorgCrit
       Dead: BorgDead
+    showOverlays: false
   - type: TypingIndicator
     proto: robot
   - type: Destructible

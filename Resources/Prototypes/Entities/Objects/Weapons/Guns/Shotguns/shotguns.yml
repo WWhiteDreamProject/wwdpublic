@@ -95,7 +95,6 @@
     bonusAngleDecay: 80           # wwdp
     maxBonusAngle: 10             # wwdp
     fireRate: 2
-  - type: DualWield # WWDP
 
 
 - type: entity
@@ -285,6 +284,7 @@
     - 0,0,7,0
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: BallisticAmmoProvider
+    autoCycle: true # WWDP semi-auto
     capacity: 7
   - type: Wieldable
   - type: MeleeWeapon
@@ -424,19 +424,6 @@
   - type: DamageOtherOnHit
     staminaCost: 5
 
-- type: entity # WWDP
-  name: improvised pistol # WWDP
-  parent: WeaponShotgunHandmade
-  id: WeaponShotgunHandmadeEmpty
-  suffix: Empty
-  components:
-  - type: BallisticAmmoProvider
-    proto: null
-  - type: Construction
-    graph: ImprovisedShotgunSawnGraph
-    node: shotgunsawn
-    deconstructionTarget: null
-
 - type: entity
   name: blunderbuss
   parent: [BaseWeaponShotgun, BaseGunWieldable]
@@ -482,7 +469,7 @@
     proto: null
   - type: Construction
     graph: ImprovisedShotgunGraph
-    node: shotgun
+    node: shotgunstart
   - type: StaticPrice
     price: 20
 

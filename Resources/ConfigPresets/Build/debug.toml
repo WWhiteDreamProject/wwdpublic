@@ -5,5 +5,13 @@ enabled = false
 [shuttle]
 auto_call_time = 0
 
+# WD EDIT START
 [lavaland]
 enabled = false
+
+[aspects]
+enabled = false
+
+[asteroid_field]
+enabled = false
+# WD EDIT END

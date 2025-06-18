@@ -26,13 +26,15 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
 using System.Numerics;
-using Content.Shared._White;
+using Content.Shared._White.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage.Components;
 using Content.Shared.Item;
 using Content.Shared.Throwing;
 using Robust.Shared.Configuration;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 
 
 namespace Content.Server.Weapons.Melee;
@@ -68,12 +70,12 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
 
         if (!component.DisableClick)
-            _damageExamine.AddDamageExamine(args.Message, damageSpec * component.HeavyDamageBaseModifier, Loc.GetString("damage-melee")); // WWDP; "heavy" attacks are actually LMB and "light" are RMB swings, fucking EE man
+            _damageExamine.AddDamageExamine(args.Message, damageSpec, Loc.GetString("damage-melee")); // WWDP
 
         if (!component.DisableHeavy)
         {
             if (damageSpec.GetTotal() * component.HeavyDamageBaseModifier != damageSpec.GetTotal()) // WWDP
-                _damageExamine.AddDamageExamine(args.Message, damageSpec, Loc.GetString("damage-melee-heavy")); // WWDP
+                _damageExamine.AddDamageExamine(args.Message, damageSpec * component.HeavyDamageBaseModifier, Loc.GetString("damage-melee-heavy")); // WWDP
 
             if (component.HeavyStaminaCost != 0)
             {
@@ -133,9 +135,10 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 !status.AllowedEffects.Contains("KnockedDown"))
             {
                 // WWDP edit; shoving items costs their throw stamina cost
-                if (HasComp<ItemComponent>(target)
-                    && TryComp<DamageOtherOnHitComponent>(target, out var throwComp)
-                    && throwComp.StaminaCost > 0)
+                if (TryComp<PhysicsComponent>(target, out var physComp) &&
+                    physComp.BodyType != BodyType.Static &&
+                    TryComp<DamageOtherOnHitComponent>(target, out var throwComp) &&
+                    throwComp.StaminaCost > 0)
                 {
                     _stamina.TakeStaminaDamage(user, throwComp.StaminaCost);
                 }
@@ -218,12 +221,6 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         float shovespeed = _config.GetCVar(WhiteCVars.ShoveSpeed);
         float shovemass = _config.GetCVar(WhiteCVars.ShoveMassFactor);
 
-        var force = shoverange * _contests.MassContest(user, target, rangeFactor: shovemass);
-
-        var userPos = user.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
-        var targetPos = target.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
-        var pushVector = (targetPos - userPos).Normalized() * force;
-
         var animated = false;
         var throwInAir = false;
 
@@ -231,7 +228,14 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         {
             animated = true;
             throwInAir = true;
+            shoverange = 1.2f; // Constant range, approximately the same as the regular throw
         }
+
+        var force = shoverange * _contests.MassContest(user, target, rangeFactor: shovemass);
+
+        var userPos = user.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
+        var targetPos = target.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
+        var pushVector = (targetPos - userPos).Normalized() * force;
 
         _throwing.TryThrow(target, pushVector, force * shovespeed, user, animated: animated, throwInAir: throwInAir);
     }
@@ -286,11 +290,10 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     // WWDP shove stamina damage based on mass
     private float CalculateShoveStaminaDamage(EntityUid disarmer, EntityUid disarmed)
     {
+        float shovemass = _config.GetCVar(WhiteCVars.ShoveMassFactor);
         var baseStaminaDamage = TryComp<ShovingComponent>(disarmer, out var shoving) ? shoving.StaminaDamage : ShovingComponent.DefaultStaminaDamage;
 
-        return
-            baseStaminaDamage
-            * _contests.MassContest(disarmer, disarmed, false, 4f);
+        return baseStaminaDamage * _contests.MassContest(disarmer, disarmed, false, shovemass);
     }
 
     public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation, bool predicted = true)

@@ -44,8 +44,7 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
 
     private void OnAutoState(EntityUid uid, DollyMixtureComponent comp, AfterAutoHandleStateEvent args)
     {
-        if(_timing.IsFirstTimePredicted)
-            UpdateDollyMixture(uid, comp);
+        UpdateDollyMixture(uid, comp);
     }
 
     private void UpdateDollyMixture(EntityUid uid, DollyMixtureComponent comp)
@@ -148,28 +147,31 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
         int i = 1;
         while (RSI.TryGetState($"{comp.StatePrefix}{i}", out var state))
         {
-            Vector2 layerOffset = comp.Offset / EyeManager.PixelsPerMeter + comp.LayerOffset / EyeManager.PixelsPerMeter * (i - 1);
-
-            int layerIndex = sprite.AddBlankLayer();
-            sprite.LayerSetRSI(layerIndex, RSI);
-            sprite.LayerSetState(layerIndex, state.StateId);
-            sprite.LayerSetOffset(layerIndex, layerOffset);
-            sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
-            string layerMap = $"dmm-{comp.StatePrefix}{i}";
-            sprite.LayerMapSet(layerMap, layerIndex);
-            comp.LayerMappings.Add(layerMap);
-
-            if (RSI.TryGetState($"{comp.StatePrefix}{i}-unshaded", out var unshadedState))
+            for (int repeat = 0; repeat < comp.RepeatLayers; repeat++)
             {
-                layerIndex = sprite.AddBlankLayer();
-                sprite.LayerSetRSI(layerIndex, RSI);
-                sprite.LayerSetState(layerIndex, unshadedState.StateId);
-                sprite.LayerSetOffset(layerIndex, layerOffset);
-                sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
-                layerMap = $"dmm-{comp.StatePrefix}{i}u";
-                sprite.LayerMapSet(layerMap, layerIndex);
-                comp.LayerMappings.Add(layerMap);
-            }
+				Vector2 layerOffset = comp.Offset / EyeManager.PixelsPerMeter + comp.LayerOffset / EyeManager.PixelsPerMeter * (i - 1 + (float)repeat/RepeatLayers );
+
+				int layerIndex = sprite.AddBlankLayer();
+				sprite.LayerSetRSI(layerIndex, RSI);
+				sprite.LayerSetState(layerIndex, state.StateId);
+				sprite.LayerSetOffset(layerIndex, layerOffset);
+				sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
+				string layerMap = $"dmm-{comp.StatePrefix}{i}";
+				sprite.LayerMapSet(layerMap, layerIndex);
+				comp.LayerMappings.Add(layerMap);
+
+				if (RSI.TryGetState($"{comp.StatePrefix}{i}-unshaded", out var unshadedState))
+				{
+					layerIndex = sprite.AddBlankLayer();
+					sprite.LayerSetRSI(layerIndex, RSI);
+					sprite.LayerSetState(layerIndex, unshadedState.StateId);
+					sprite.LayerSetOffset(layerIndex, layerOffset);
+					sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
+					layerMap = $"dmm-{comp.StatePrefix}{i}u";
+					sprite.LayerMapSet(layerMap, layerIndex);
+					comp.LayerMappings.Add(layerMap);
+				}
+			}
             i++;
         }
     }

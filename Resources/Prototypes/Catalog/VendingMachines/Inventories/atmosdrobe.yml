@@ -14,3 +14,7 @@
     ClothingOuterWinterAtmos: 2
     ClothingNeckScarfStripedLightBlue: 3
     ClothingShoesBootsWinterAtmos: 2 #Delta V: Add departmental winter boots
+    #WWDP edit start
+    ClothingOuterSuitAtmosFire: 1
+    ClothingHeadHelmetAtmosFire: 1
+    #WWDP edit end

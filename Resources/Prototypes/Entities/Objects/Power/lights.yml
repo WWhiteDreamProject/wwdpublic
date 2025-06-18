@@ -126,6 +126,9 @@
     lightEnergy: 1.0
     lightRadius: 6
     lightSoftness: 1.1
+  - type: Tag #WWDP EDIT
+    tags:
+    - LightBulb
 
 - type: entity
   parent: BaseLightbulb

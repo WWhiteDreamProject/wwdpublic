@@ -30,7 +30,7 @@
     components:
     - type: CPRTraining
     - type: SurgerySpeedModifier
-      speedModifier: 2.0
+      speedModifier: 5 # WWDP
 
 - type: startingGear
   id: SeniorPhysicianGear
@@ -44,7 +44,7 @@
     outerClothing: ClothingOuterCoatLabSeniorPhysician
     id: SeniorPhysicianPDA
     ears: ClothingHeadsetMedical
-    belt: ClothingBeltMedicalFilled
+    # belt: ClothingBeltMedicalFilled # WWDP moved to lockers
   innerClothingSkirt: ClothingUniformJumpskirtSeniorPhysician
   satchel: ClothingBackpackSatchelMedicalFilled
   duffelbag: ClothingBackpackDuffelMedicalFilled

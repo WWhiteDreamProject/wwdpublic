@@ -32,6 +32,8 @@
       - PMCG
       - NanoTrasen
       - EastOrionCompany
+    - !type:CharacterOverallTimeRequirement # WWDP
+      min: 3600
   startingGear: SeniorOfficerGear
   icon: "JobIconSeniorOfficer"
   supervisors: job-supervisors-hos
@@ -57,14 +59,13 @@
   - SecurityOfficerPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorOfficer
-    back: ClothingBackpackSecurity
-    shoes: ClothingShoesBootsCombatFilled
-    eyes: ClothingEyesGlassesSecurity
+    back: ClothingBackpackSecurityFilled # WWDP
+    shoes: ClothingShoesBootsJack # WWDP
+    # eyes: ClothingEyesGlassesSecurity # WWDP
     head: ClothingHeadHatBeretSecurity
-    outerClothing: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier
+    # outerClothing: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier # WWDP
     id: SeniorOfficerPDA
     ears: ClothingHeadsetSecurity
-    belt: ClothingBeltSecurityFilled
   innerClothingSkirt: ClothingUniformJumpskirtSeniorOfficer
   satchel: ClothingBackpackSatchelSecurity
   duffelbag: ClothingBackpackDuffelSecurity
