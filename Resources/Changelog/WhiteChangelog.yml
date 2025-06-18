@@ -3325,3 +3325,12 @@ Entries:
   id: 360
   time: '2025-06-18T06:23:22.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/589
+- author: vanx
+  changes:
+    - type: Remove
+      message: >-
+        Убраны всплывающие сообщения о переключении боевого режима и взятии в
+        одну-две руки.
+  id: 361
+  time: '2025-06-18T06:28:51.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/596
