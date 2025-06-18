@@ -2,7 +2,6 @@
   id: BorgChassisSelectable
   parent: BaseBorgChassisNT
   components:
-  - type: CRTVision
   - type: Sprite
     layers:
     - state: robot
@@ -37,6 +36,7 @@
   - type: SurgerySpeedModifier
     speedModifier: 1.5
   - type: Sanitized
+  - type: CRTVision # WD EDIT
 
 - type: entity
   id: BorgChassisGeneric

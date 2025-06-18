@@ -1,25 +1,23 @@
 using Content.Shared._White.Traits.Assorted.Components;
 using Content.Shared.CCVar;
+using Content.Shared.Damage;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Stunnable;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Client.Graphics;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
-using Content.Shared.Damage;
-using Robust.Shared.Timing;
-using System;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Stunnable;
-using Content.Shared.Mobs.Systems;
 
-namespace Content.Client.Overlays;
+namespace Content.Client._White.Overlays;
 
-public sealed partial class CRTVisionSystem : EntitySystem
+// ReSharper disable once InconsistentNaming
+public sealed class CRTVisionSystem : EntitySystem
 {
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly ISharedPlayerManager _playerMan = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
     private CRTVisionOverlay _overlay = default!;
@@ -30,6 +28,8 @@ public sealed partial class CRTVisionSystem : EntitySystem
     // For studio visor
     private const float StudioVisorGlitchReduction = 0.7f; // Reduce glitch intensity by 70% with studio visor
     private const float StudioVisorLowHealthThreshold = 0.3f;
+
+    private bool _noVisionFilters;
 
     public override void Initialize()
     {
@@ -59,7 +59,14 @@ public sealed partial class CRTVisionSystem : EntitySystem
         SubscribeLocalEvent<CRTVisionComponent, AttackedEvent>(OnAttacked);
         SubscribeLocalEvent<CRTVisionComponent, StunnedEvent>(OnStunned);
 
-        Subs.CVar(_cfg, CCVars.NoVisionFilters, OnNoVisionFiltersChanged);
+        Subs.CVar(
+            _cfg,
+            CCVars.NoVisionFilters,
+            v =>
+        {
+            _noVisionFilters = v;
+            UpdateOverlayState();
+        });
     }
 
     private void OnComponentChange<T>(EntityUid uid, T component, EntityEventArgs args) where T: IComponent
@@ -77,7 +84,7 @@ public sealed partial class CRTVisionSystem : EntitySystem
     {
         var player = _playerMan.LocalEntity;
         if (player == null || !EntityManager.HasComponent<CRTVisionComponent>(player))
-    {
+        {
             _overlayMan.RemoveOverlay(_overlay);
             return;
         }
@@ -85,27 +92,21 @@ public sealed partial class CRTVisionSystem : EntitySystem
         UpdateHealthPercentage(player.Value);
 
         var hasStudioVisor = _entityManager.HasComponent<StudioVisorComponent>(player.Value);
-        var noVisionFilters = _cfg.GetCVar(CCVars.NoVisionFilters);
 
         // The overlay is active if filters are enabled, and the user either doesn't have a studio visor,
         // or has one but is at low health.
-        bool shouldShowOverlay = !noVisionFilters && (!hasStudioVisor || _healthPercentage < StudioVisorLowHealthThreshold);
+        var shouldShowOverlay = !_noVisionFilters && (!hasStudioVisor || _healthPercentage < StudioVisorLowHealthThreshold);
 
         if (shouldShowOverlay)
         {
             if (!_overlayMan.HasOverlay<CRTVisionOverlay>())
-            _overlayMan.AddOverlay(_overlay);
+                _overlayMan.AddOverlay(_overlay);
         }
         else
-    {
-        if (_overlayMan.HasOverlay<CRTVisionOverlay>())
-            _overlayMan.RemoveOverlay(_overlay);
+        {
+            if (_overlayMan.HasOverlay<CRTVisionOverlay>())
+                _overlayMan.RemoveOverlay(_overlay);
         }
-    }
-
-    private void OnNoVisionFiltersChanged(bool enabled)
-    {
-        UpdateOverlayState();
     }
 
     // Process damage event
@@ -115,7 +116,7 @@ public sealed partial class CRTVisionSystem : EntitySystem
             return;
 
         // Check if it was damage and not healing
-        if (args.DamageIncreased && args.DamageDelta != null)
+        if (args is { DamageIncreased: true, DamageDelta: not null, })
         {
             var damageAmount = (float) args.DamageDelta.GetTotal();
             TriggerImpactEffect(damageAmount);
@@ -129,7 +130,7 @@ public sealed partial class CRTVisionSystem : EntitySystem
     private void UpdateHealthPercentage(EntityUid uid)
     {
         if (!_entityManager.TryGetComponent<DamageableComponent>(uid, out var damageable) ||
-            !_entityManager.TryGetComponent<MobThresholdsComponent>(uid, out var thresholds))
+            !_entityManager.HasComponent<MobThresholdsComponent>(uid))
             return;
 
         // Get critical threshold
@@ -152,15 +153,11 @@ public sealed partial class CRTVisionSystem : EntitySystem
 
         // If state worsened, show impact effect
         if (args.NewMobState > args.OldMobState)
-        {
             TriggerImpactEffect(20.0f); // Stronger effect on state change
-        }
 
         // Trigger a strong glitch effect when entering critical state
         if (args.NewMobState == MobState.Critical)
-        {
             _overlay.SetTemporaryGlitchEffect(1.5f, 0.5f);
-        }
 
         // Update health percentage for glitch effects
         UpdateOverlayState();
@@ -214,7 +211,7 @@ public sealed partial class CRTVisionSystem : EntitySystem
             effectiveIntensity *= (1.0f - StudioVisorGlitchReduction);
 
         // Trigger a temporary glitch effect proportional to damage
-        float glitchIntensity = Math.Min(effectiveIntensity / 50.0f, 1.0f);
+        var glitchIntensity = Math.Min(effectiveIntensity / 50.0f, 1.0f);
         _overlay.SetTemporaryGlitchEffect(glitchIntensity * 0.8f, 0.4f);
     }
 }
