@@ -3316,3 +3316,12 @@ Entries:
   id: 359
   time: '2025-06-18T06:22:18.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/593
+- author: vanx
+  changes:
+    - type: Fix
+      message: >-
+        Стартовые предметы ролей теперь корректно выдаются при замене содержащих
+        их вещей лодаутами.
+  id: 360
+  time: '2025-06-18T06:23:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/589
