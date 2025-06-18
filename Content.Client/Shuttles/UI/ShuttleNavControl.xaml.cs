@@ -25,13 +25,11 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 {
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IEyeManager _eye = default!; // WD EDIT
-    [Dependency] private readonly IEyeManager _eye = default!;
     [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
     private readonly StationSystem _station; // Frontier
     private readonly SharedShuttleSystem _shuttles;
     private readonly SharedTransformSystem _transform;
     private readonly EntityLookupSystem _lookup; // WD EDIT
-    private readonly EntityLookupSystem _lookup;
 
     /// <summary>
     /// Used to transform all of the radar objects. Typically is a shuttle console parented to a grid.

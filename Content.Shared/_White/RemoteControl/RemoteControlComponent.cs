@@ -41,38 +41,6 @@ public sealed partial class RemoteControllingComponent : Component
     public EntityUid? UsedInterface;
 }
 
-
-[NetworkedComponent]
-[RegisterComponent, AutoGenerateComponentState]
-public sealed partial class RemoteControlConsoleComponent : Component
-{
-    [DataField]
-    public List<EntityUid> LinkedEntities = new();
-
-    [DataField]
-    public EntityWhitelist? Whitelist;
-
-    [DataField]
-    public EntityWhitelist? Blacklist;
-
-    [DataField]
-    public int LastIndex;
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public EntityUid? CurrentUser;
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public EntityUid? CurrentEntity;
-
-    [DataField]
-    public EntProtoId SwitchToNextAction = "RemoteControlConsoleSwitchToNextAction";
-    [DataField]
-    public EntityUid? SwitchToNextActionEntity;
-
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public EntityUid? ControllingEntity;
-}
-
 [NetworkedComponent]
 [RegisterComponent]
 public sealed partial class ManuallyControllableComponent : Component
@@ -81,6 +49,3 @@ public sealed partial class ManuallyControllableComponent : Component
     public bool Enabled = true;
     public EntityUid? CurrentUser;
 }
-
-public sealed partial class RemoteControlConsoleSwitchNextActionEvent : InstantActionEvent;
-public sealed partial class RemoteControlExitActionEvent : InstantActionEvent;

@@ -6,6 +6,7 @@ using Content.Server.Salvage;
 using Content.Server.Salvage.Magnet;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._White;
+using Content.Shared._White.CCVar;
 using Content.Shared.Procedural;
 using Content.Shared.Salvage.Magnet;
 using Content.Shared.Shuttles.Components;

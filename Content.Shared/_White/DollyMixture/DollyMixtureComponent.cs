@@ -27,6 +27,9 @@ public sealed partial class DollyMixtureComponent : Component
     [DataField]
     public Vector2 Offset;
 
+    [DataField]
+    public int RepeatLayers;
+
     public Angle LastAngle;
 
     [ViewVariables(VVAccess.ReadOnly)]
