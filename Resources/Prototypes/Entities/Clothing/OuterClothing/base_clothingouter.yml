@@ -9,7 +9,7 @@
   - type: Sprite
     state: icon
 
-# WWDP
+# WWDP butcherable parent
 - type: entity
   abstract: true
   parent: ClothingOuterBase
@@ -18,7 +18,7 @@
   - type: Butcherable # WWDP
     butcheringType: Knife
     spawned:
-    - id: MaterialCardboard1
+    - id: MaterialCloth1
       amount: 4
 
 - type: entity
