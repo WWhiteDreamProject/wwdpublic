@@ -27,6 +27,7 @@
         - TabletopMachineMask
         layer:
         - TabletopMachineLayer
+        -
   - type: ActivatableUI
     key: enum.FaxUiKey.Key
   - type: ActivatableUIRequiresPower
