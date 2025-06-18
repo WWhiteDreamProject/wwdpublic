@@ -126,7 +126,11 @@ public abstract partial class SharedGunSystem
 
     private void OnMagazineTakeAmmo(EntityUid uid, MagazineAmmoProviderComponent component, TakeAmmoEvent args)
     {
-        var magEntity = GetMagazineEntity(uid);
+        EntityUid? magEntity;
+        if(component.UseParent && Transform(uid).ParentUid is EntityUid { Valid: true } parentUid)
+            magEntity = GetMagazineEntity(parentUid);
+        else
+            magEntity = GetMagazineEntity(uid);
         TryComp<AppearanceComponent>(uid, out var appearance);
 
         if (magEntity == null)
