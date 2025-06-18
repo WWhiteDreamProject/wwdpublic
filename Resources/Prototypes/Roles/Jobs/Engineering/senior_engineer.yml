@@ -3,16 +3,17 @@
   name: job-name-senior-engineer
   description: job-description-senior-engineer
   playTimeTracker: JobSeniorEngineer
+  setPreference: false # WWDP disabled role, not mapped
   requirements:
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobAtmosphericTechnician
-      min: 21600 #6 hrs
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobStationEngineer
-      min: 21600 #6 hrs
-    - !type:CharacterDepartmentTimeRequirement
-      department: Engineering
-      min: 216000 # 60 hrs
+    # - !type:CharacterPlaytimeRequirement # WWDP
+    #   tracker: JobAtmosphericTechnician
+    #   min: 21600 #6 hrs
+    # - !type:CharacterPlaytimeRequirement
+    #   tracker: JobStationEngineer
+    #   min: 21600 #6 hrs
+    # - !type:CharacterDepartmentTimeRequirement
+    #   department: Engineering
+    #   min: 216000 # 60 hrs
     - !type:CharacterEmployerRequirement
       employers:
       - HephaestusIndustries
