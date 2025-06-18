@@ -21,7 +21,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: MagazinePistol
+      - id: WeaponEnergyGunPistolSecurity # WWDP Standard NT Security personal weapon
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -135,6 +135,7 @@
       # - id: Flash # WWDP
       - id: TelescopicBaton # WWDP
       # - id: MagazinePistol # WWDP
+      - id: WeaponEnergyGunMultiphase # WWDP
 
 - type: entity
   categories: [ HideSpawnMenu ]
