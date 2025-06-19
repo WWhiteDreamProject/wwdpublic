@@ -20,7 +20,7 @@
     sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi
   - type: MagazineVisuals
     magState: mag
-    steps: 2
+    steps: 4 # WWDP
     zeroVisible: false
   - type: Appearance
 
@@ -33,17 +33,17 @@
   - type: BallisticAmmoProvider
     capacity: 30
     proto: CartridgeAntiMateriel
-  - type: Sprite
+  - type: Sprite # WWDP
     layers:
-    - state: base-b
-      map: ["enum.GunVisualLayers.Base"]
-    - state: magb-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: magb
-    steps: 2
-    zeroVisible: false
-  - type: Appearance
+     - state: base
+       map: [ "enum.GunVisualLayers.Base" ]
+     - state: mag-1
+       map: [ "enum.GunVisualLayers.Mag" ]
+  # - type: MagazineVisuals
+  #   magState: magb
+  #   steps: 4 # WWDP
+  #   zeroVisible: false
+  # - type: Appearance
 
 - type: entity
   parent: BaseMagazineBoxAntiMateriel
@@ -53,11 +53,16 @@
   - type: BallisticAmmoProvider
     proto: CartridgeAntiMateriel
   - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/caseless_rifle.rsi
     layers:
-    - state: base
+    - state: base-10x24
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
+    - state: mag-10-1
       map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag10
+    steps: 2
+    zeroVisible: false
 
 - type: entity
   parent: MagazineBoxAntiMateriel
