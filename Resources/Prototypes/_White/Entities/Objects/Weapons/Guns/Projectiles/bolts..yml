@@ -70,11 +70,11 @@
     - state: xray
       shader: unshaded
   - type: Projectile
-    impactEffect: BulletImpactEffectLaserGreen
+    deleteOnCollide: false
+    impactEffect: null
     damage:
       types:
-        Heat: 15
-        Radiation: 15
+        Radiation: 25
   - type: PointLight
     color: green
 
