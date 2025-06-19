@@ -3506,3 +3506,12 @@ Entries:
   id: 373
   time: '2025-06-19T17:46:48.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/614
+- author: vanx
+  changes:
+    - type: Remove
+      message: >-
+        Убрано уменьшение разброса дроби у каммереров и плашка об этом из
+        описания.
+  id: 374
+  time: '2025-06-19T17:47:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/612
