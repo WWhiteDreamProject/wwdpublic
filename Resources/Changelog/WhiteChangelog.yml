@@ -3472,3 +3472,14 @@ Entries:
   id: 370
   time: '2025-06-19T17:22:30.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/617
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Круговое меню крафта теперь закрывается при выборе большинства опций.
+    - type: Fix
+      message: РЦД теперь не может ставить лампы на один и тот же тайл.
+    - type: Add
+      message: Лампы теперь можно разбивать выстрелом, если навестись на них курсором.
+  id: 371
+  time: '2025-06-19T17:25:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/619
