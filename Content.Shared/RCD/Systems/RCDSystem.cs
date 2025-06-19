@@ -428,6 +428,7 @@ public class RCDSystem : EntitySystem
         // Check rule: The tile is unoccupied
         var isWindow = component.CachedPrototype.ConstructionRules.Contains(RcdConstructionRule.IsWindow);
         var isCatwalk = component.CachedPrototype.ConstructionRules.Contains(RcdConstructionRule.IsCatwalk);
+        var isWallLight = component.CachedPrototype.ConstructionRules.Contains(RcdConstructionRule.IsWallLight); // WWDP
 
         _intersectingEntities.Clear();
         _lookup.GetLocalEntitiesIntersecting(mapGridData.GridUid, mapGridData.Position, _intersectingEntities, -0.05f, LookupFlags.Uncontained);
@@ -444,6 +445,16 @@ public class RCDSystem : EntitySystem
 
                 return false;
             }
+
+            // WWDP wall light check
+            if (isWallLight && _tags.HasTag(ent, "RCDLight"))
+            {
+                if (popMsgs)
+                    _popup.PopupClient(Loc.GetString("rcd-component-cannot-build-on-occupied-tile-message"), uid, user);
+
+                return false;
+            }
+            // WWDP edit end
 
             if (component.CachedPrototype.CollisionMask != CollisionGroup.None && TryComp<FixturesComponent>(ent, out var fixtures))
             {

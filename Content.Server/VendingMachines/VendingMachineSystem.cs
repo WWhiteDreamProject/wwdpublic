@@ -383,8 +383,11 @@ namespace Content.Server.VendingMachines
                 vendComponent.ThrowNextItem = false;
                 return;
             }
-
-            var ent = Spawn(vendComponent.NextItemToEject, Transform(uid).Coordinates);
+            // WWDP edit start - added dispense offset
+            var offset = Transform(uid).LocalRotation.RotateVec(vendComponent.DispenseOffset);
+            var coords = Transform(uid).Coordinates.Offset(offset);
+            var ent = Spawn(vendComponent.NextItemToEject, coords);
+            // WWDP edit end
             if (vendComponent.ThrowNextItem)
             {
                 var range = vendComponent.NonLimitedEjectRange;

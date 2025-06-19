@@ -38,6 +38,7 @@
   - type: Sanitized
   - type: Construction # WD edit
     node: cyborg
+  - type: CRTVisionOverlay # WD EDIT
 
 - type: entity
   id: BorgChassisGeneric
