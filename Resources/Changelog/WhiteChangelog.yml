@@ -3447,3 +3447,10 @@ Entries:
   id: 367
   time: '2025-06-19T17:09:53.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/601
+- author: vanx
+  changes:
+    - type: Remove
+      message: Отключена черта "Контракт".
+  id: 368
+  time: '2025-06-19T17:14:09.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/609
