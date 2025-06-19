@@ -4,9 +4,9 @@
   description: job-description-security
   playTimeTracker: JobSecurityOfficer
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
-      min: 36000 # 10 hours
+    # - !type:CharacterDepartmentTimeRequirement # WWDP
+    #   department: Security
+    #   min: 36000 # 10 hours
     - !type:CharacterTraitRequirement
       inverted: true
       traits:

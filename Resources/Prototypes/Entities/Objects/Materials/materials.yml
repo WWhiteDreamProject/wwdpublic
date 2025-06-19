@@ -168,7 +168,9 @@
   - type: ShortConstruction
     entries:
     - prototype: gauze
+      closeUiOnSelect: false
     - prototype: MaterialDurathread
+      closeUiOnSelect: false
     - prototype: blindfold
     - prototype: muzzle
     - prototype: rag
@@ -624,6 +626,7 @@
   - type: ShortConstruction
     entries:
     - prototype: CottonWovenCloth
+      closeUiOnSelect: false
 
 - type: entity
   parent: MaterialCotton
@@ -753,6 +756,7 @@
     - prototype: BananiumDoor
     - prototype: ClownWall
     - prototype: FloorBananium
+      closeUiOnSelect: false
     - prototype: HornBananium
     - prototype: BananaClownMask
     - prototype: BananaClownJumpsuit

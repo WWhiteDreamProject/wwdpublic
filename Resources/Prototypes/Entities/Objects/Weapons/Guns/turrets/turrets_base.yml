@@ -37,7 +37,7 @@
       capacity: 200
 
 - type: entity
-  parent: [BaseWeaponBallisticTurret, BaseTurret3D] # wwdp edit
+  parent: BaseWeaponBallisticTurret
   id: BaseWeaponTurretMinigun
   name: minigun turret
   abstract: true

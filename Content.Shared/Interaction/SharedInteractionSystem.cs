@@ -722,7 +722,7 @@ namespace Content.Shared.Interaction
             var inRange = true;
             MapCoordinates originPos = default;
             var targetPos = _transform.ToMapCoordinates(otherCoordinates);
-            Angle targetRot = default;
+            Angle targetRot = otherAngle;
 
             // So essentially:
             // 1. If fixtures available check nearest point. We take in coordinates / angles because we might want to use a lag compensated position
@@ -1212,7 +1212,7 @@ namespace Content.Shared.Interaction
             if (ev.Handled)
                 return true;
 			// WD EDIT END
-			
+
             // Get list of alt-interact verbs
             var verbs = _verbSystem.GetLocalVerbs(target, user, typeof(AlternativeVerb)).Where(verb => ((AlternativeVerb) verb).InActiveHandOnly == false); // WD EDIT
 
