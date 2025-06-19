@@ -84,6 +84,9 @@
         - TabletopMachineMask
         layer:
         - BulletImpassable
+  - type: Tag # WWDP
+    tags:
+      - RCDLight
   - type: RequireProjectileTarget # WWDP
   placement:
     mode: SnapgridCenter

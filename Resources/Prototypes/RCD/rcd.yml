@@ -208,6 +208,8 @@
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
   fx: EffectRCDConstruct1
+  rules: # WWDP
+  - IsWallLight
 
 - type: rcd
   id: BulbLight
@@ -221,6 +223,8 @@
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
   fx: EffectRCDConstruct1
+  rules: # WWDP
+  - IsWallLight
 
 # Electrical
 - type: rcd
