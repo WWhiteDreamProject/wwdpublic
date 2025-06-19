@@ -3454,3 +3454,12 @@ Entries:
   id: 368
   time: '2025-06-19T17:14:09.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/609
+- author: vanx
+  changes:
+    - type: Add
+      message: >-
+        Больше вещей одежды получили возможность разделки на ткань и/или
+        инвентарь.
+  id: 369
+  time: '2025-06-19T17:18:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/613
