@@ -396,6 +396,24 @@
   categories:
   - UplinkDisruption
 
+- type: listing
+  id: UplinkRandomSyndicateKit
+  name: random-syndicate-kit-name
+  description: random-syndicate-kit-desc
+  icon: { sprite: /Textures/Objects/Storage/boxes.rsi, state: box_of_doom }
+  productEntity: RandomSyndicateKitSpawner
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Implants
 
 - type: listing
