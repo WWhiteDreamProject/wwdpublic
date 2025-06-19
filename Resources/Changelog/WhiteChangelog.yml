@@ -3438,3 +3438,12 @@ Entries:
   id: 366
   time: '2025-06-19T17:08:08.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/605
+- author: Aposto2
+  changes:
+    - type: Tweak
+      message: >-
+        Теперь у ниндзи есть имплант микробомбы вместо позорной разъедайки
+        трупов!!
+  id: 367
+  time: '2025-06-19T17:09:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/601
