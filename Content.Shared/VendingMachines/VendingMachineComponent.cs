@@ -51,6 +51,9 @@ namespace Content.Shared.VendingMachines
 
         public bool Broken;
 
+        [DataField]
+        public bool JailBreak = false; //WWDP EDIT
+
         /// <summary>
         /// When true, will forcefully throw any object it dispenses
         /// </summary>

@@ -79,6 +79,7 @@ public sealed class EmagSystem : EntitySystem
 
         if (charges != null)
             _charges.UseCharge(uid, charges);
+
         return true;
     }
 
@@ -89,7 +90,10 @@ public sealed class EmagSystem : EntitySystem
     {
         // prevent emagging twice
         if (HasComp<EmaggedComponent>(target))
+        {
+            _popup.PopupClient(Loc.GetString("emag-already-emagged"), user); // WWDP EDIT
             return false;
+        }
 
         var onAttemptEmagEvent = new OnAttemptEmagEvent(user);
         RaiseLocalEvent(target, ref onAttemptEmagEvent);
