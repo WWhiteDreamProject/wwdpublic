@@ -3463,3 +3463,12 @@ Entries:
   id: 369
   time: '2025-06-19T17:18:12.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/613
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Все противогазы теперь защищают от вдыхания газов, независимо от того,
+        включён ли баллон.
+  id: 370
+  time: '2025-06-19T17:22:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/617
