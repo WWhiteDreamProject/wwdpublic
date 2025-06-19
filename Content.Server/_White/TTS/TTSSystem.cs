@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using Content.Server._White.Hearing;
 using Content.Server.Chat.Systems;
 using Content.Server.Language;
 using Content.Shared._White.CCVar;
@@ -77,6 +78,9 @@ public sealed partial class TTSSystem : EntitySystem
         foreach (var session in Filter.Pvs(uid).Recipients)
         {
             if (!session.AttachedEntity.HasValue)
+                continue;
+
+            if (EntityManager.HasComponent<DeafComponent>(session.AttachedEntity.Value))
                 continue;
 
             EntityManager.TryGetComponent(session.AttachedEntity.Value, out LanguageSpeakerComponent? lang);
