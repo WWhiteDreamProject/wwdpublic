@@ -1,12 +1,13 @@
+using Content.Shared._White.Overlays;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
-using Content.Shared._White.Traits.Assorted.Components;
 using Robust.Shared.Timing;
 
-namespace Content.Client.Overlays;
+namespace Content.Client._White.Overlays;
 
+// ReSharper disable once InconsistentNaming
 public sealed class CRTVisionOverlay : Overlay
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -38,13 +39,13 @@ public sealed class CRTVisionOverlay : Overlay
 
     // Effect parameters
     private float _healthPercentage = 1.0f;
-    private float _glitchIntensity = 0.0f;
+    private float _glitchIntensity;
 
     // Temporary glitch effect parameters
-    private float _temporaryGlitchIntensity = 0.0f;
-    private float _temporaryGlitchDuration = 0.0f;
-    private float _temporaryGlitchTimer = 0.0f;
-    private bool _hasTemporaryGlitch = false;
+    private float _temporaryGlitchIntensity;
+    private float _temporaryGlitchDuration;
+    private float _temporaryGlitchTimer;
+    private bool _hasTemporaryGlitch;
 
     public CRTVisionOverlay()
     {
@@ -58,8 +59,8 @@ public sealed class CRTVisionOverlay : Overlay
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        if (_playerManager.LocalEntity is not { Valid: true } player
-            || !_entityManager.HasComponent<CRTVisionComponent>(player))
+        if (_playerManager.LocalEntity is not { Valid: true, } player
+            || !_entityManager.HasComponent<CRTVisionOverlayComponent>(player))
             return false;
 
         return base.BeforeDraw(in args);
@@ -95,11 +96,11 @@ public sealed class CRTVisionOverlay : Overlay
         _crtVisionShader.SetParameter("TIME", _currentTime);
 
         // Apply temporary glitch effect if active
-        float effectiveGlitchIntensity = _glitchIntensity;
+        var effectiveGlitchIntensity = _glitchIntensity;
         if (_hasTemporaryGlitch && _temporaryGlitchDuration > 0f)
         {
-            float remainingFactor = 1.0f - (_temporaryGlitchTimer / _temporaryGlitchDuration);
-            float tempIntensity = _temporaryGlitchIntensity * remainingFactor;
+            var remainingFactor = 1.0f - (_temporaryGlitchTimer / _temporaryGlitchDuration);
+            var tempIntensity = _temporaryGlitchIntensity * remainingFactor;
             effectiveGlitchIntensity = Math.Max(effectiveGlitchIntensity, tempIntensity);
         }
 
@@ -131,7 +132,7 @@ public sealed class CRTVisionOverlay : Overlay
         if (_healthPercentage < GlitchHealthThreshold)
         {
             // Normalize scale from threshold to 0.0 into range from 0.0 to 1.0
-            float normalizedHealth = 1.0f - (_healthPercentage / GlitchHealthThreshold);
+            var normalizedHealth = 1.0f - (_healthPercentage / GlitchHealthThreshold);
 
             // Quadratic function for smooth effect increase
             _glitchIntensity = normalizedHealth * normalizedHealth * GlitchIntensityMultiplier;
@@ -146,8 +147,8 @@ public sealed class CRTVisionOverlay : Overlay
         // At low charge enhance effects
         if (_healthPercentage < LowHealthThreshold)
         {
-            float lowChargeFactor = 1.0f - (_healthPercentage / LowHealthThreshold);
-            float pulsation = (float)Math.Sin(_currentTime * LowHealthPulsationFrequency) * LowHealthPulsationAmplitude;
+            var lowChargeFactor = 1.0f - (_healthPercentage / LowHealthThreshold);
+            var pulsation = (float)Math.Sin(_currentTime * LowHealthPulsationFrequency) * LowHealthPulsationAmplitude;
             _glitchIntensity = Math.Max(_glitchIntensity, lowChargeFactor * LowHealthIntensityFactor + pulsation);
         }
         _glitchIntensity = Math.Max(0f, _glitchIntensity);

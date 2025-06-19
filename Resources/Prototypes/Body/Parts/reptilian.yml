@@ -33,7 +33,7 @@
 - type: entity
   id: HeadReptilian
   name: "reptilian head"
-  parent: [PartReptilian, BaseHead]
+  parent: [BaseHead, PartReptilian] # WWDP
   components:
   - type: Sprite
     sprite: Mobs/Species/Reptilian/parts.rsi

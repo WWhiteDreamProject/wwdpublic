@@ -3,7 +3,7 @@
 - type: listing
   id: UplinkGunCaseViper
   name: uplink-gun-case-viper-name
-  description: uplink-gun-casel-viper-desc
+  description: uplink-gun-case-viper-desc
   productEntity: GunCaseSyndicateFilledViper
   icon: { sprite: /Textures/Objects/Weapons/Guns/Pistols/viper.rsi, state: icon }
   discountCategory: usualDiscounts

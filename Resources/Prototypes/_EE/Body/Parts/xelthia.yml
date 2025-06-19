@@ -31,7 +31,7 @@
 - type: entity
   id: HeadXelthia
   name: "xelthia head"
-  parent: [PartXelthia, BaseHead]
+  parent: [BaseHead, PartXelthia] # WWDP
   components:
   - type: Sprite
     sprite: _EE/Mobs/Species/Xelthia/parts.rsi
