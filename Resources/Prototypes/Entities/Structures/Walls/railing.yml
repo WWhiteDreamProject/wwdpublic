@@ -99,7 +99,7 @@
         - TableMask
         layer:
         - TableLayer
-        - BulletImmpassable # WWDP
+        - BulletImpassable # WWDP
   - type: InteractionOutline
   - type: Repairable
   - type: Damageable
@@ -165,7 +165,7 @@
         - TableMask
         layer:
         - TableLayer
-        - BulletImmpassable # WWDP
+        - BulletImpassable # WWDP
   - type: InteractionOutline
   - type: Repairable
   - type: Damageable
@@ -246,7 +246,7 @@
           - TableMask
         layer:
           - TableLayer
-          - BulletImmpassable # WWDP
+          - BulletImpassable # WWDP
   - type: InteractionOutline
   - type: Repairable
   - type: Damageable
