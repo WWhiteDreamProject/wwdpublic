@@ -3497,3 +3497,12 @@ Entries:
   id: 372
   time: '2025-06-19T17:29:34.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/611
+- author: vanx
+  changes:
+    - type: Add
+      message: >-
+        Добавлены 15 наборов снаряжения синдиката. Купить случайный из них можно
+        за 20 ТК в аплинке.
+  id: 373
+  time: '2025-06-19T17:46:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/614
