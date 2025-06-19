@@ -71,7 +71,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
-  - type: Execution
+  # - type: Execution # WWDP
   # - type: AmmoCounter # WWDP
   - type: MeleeWeapon
     attackRate: 1.2

@@ -47,6 +47,7 @@
   description: A sword humming with unholy energy. It glows with a dim red light.
   components:
   - type: Sharp
+  - type: Execution # WWDP
   - type: Sprite
     sprite: WhiteDream/BloodCult/Entities/Items/Weapons/cult_blade.rsi
     state: icon
