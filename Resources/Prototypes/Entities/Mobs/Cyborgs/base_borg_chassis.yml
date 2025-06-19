@@ -256,6 +256,7 @@
   - type: PsionicInsulation
   - type: TwistedConstructionTarget
     replacementProto: ConstructShell
+  - type: Strap # WD edit
 
 - type: entity
   abstract: true
@@ -346,8 +347,8 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
-  - type: Damageable 
+  - type: Damageable
     damageContainer: Silicon
-    damageModifierSet: SiliconProtected 
+    damageModifierSet: SiliconProtected
   - type: ExplosionResistance
     damageCoefficient: 0.5
