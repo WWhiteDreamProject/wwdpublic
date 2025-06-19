@@ -3,16 +3,17 @@
   name: job-name-senior-physician
   description: job-description-senior-physician
   playTimeTracker: JobSeniorPhysician
+  setPreference: false # WWDP disabled role, not mapped
   requirements:
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobChemist
-      min: 21600 #6 hrs
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobMedicalDoctor
-      min: 21600 #6 hrs
-    - !type:CharacterDepartmentTimeRequirement
-      department: Medical
-      min: 216000 # 60 hrs
+    # - !type:CharacterPlaytimeRequirement # WWDP
+    #   tracker: JobChemist
+    #   min: 21600 #6 hrs
+    # - !type:CharacterPlaytimeRequirement
+    #   tracker: JobMedicalDoctor
+    #   min: 21600 #6 hrs
+    # - !type:CharacterDepartmentTimeRequirement
+    #   department: Medical
+    #   min: 216000 # 60 hrs
     - !type:CharacterEmployerRequirement
       employers:
       - ZengHuPharmaceuticals

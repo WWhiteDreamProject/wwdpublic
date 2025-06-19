@@ -4,9 +4,9 @@
   description: job-description-chemist
   playTimeTracker: JobChemist
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Medical
-      min: 28800 # DeltaV - 8 hours
+    # - !type:CharacterDepartmentTimeRequirement # WWDP
+    #   department: Medical
+    #   min: 28800 # DeltaV - 8 hours
     - !type:CharacterEmployerRequirement
       employers:
       - ZengHuPharmaceuticals
