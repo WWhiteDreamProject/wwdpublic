@@ -3424,3 +3424,10 @@ Entries:
   id: 364
   time: '2025-06-19T17:04:02.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/595
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Авторизации раннего запуска шаттла теперь не отзываются.
+  id: 365
+  time: '2025-06-19T17:05:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/598
