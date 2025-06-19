@@ -71,6 +71,20 @@
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
+  - type: Physics # WWDP
+    bodyType: Static
+  - type: Fixtures # WWDP
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,0.2,0.45,0.45"
+        density: 100
+        mask:
+        - TabletopMachineMask
+        layer:
+        - BulletImpassable
+  - type: RequireProjectileTarget # WWDP
   placement:
     mode: SnapgridCenter
     snap:
