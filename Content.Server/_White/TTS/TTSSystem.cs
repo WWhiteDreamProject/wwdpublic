@@ -42,6 +42,9 @@ public sealed partial class TTSSystem : EntitySystem
         if (!_isEnabled || args.Message.Length > MaxMessageChars)
             return;
 
+        if (!args.Language.SpeechOverride.RequireSpeech) // e.g. Sign language
+            return;
+
         var voiceId = component.VoicePrototypeId;
         var voiceEv = new TransformSpeakerVoiceEvent(uid, voiceId);
         RaiseLocalEvent(uid, voiceEv);
