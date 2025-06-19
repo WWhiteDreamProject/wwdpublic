@@ -91,7 +91,7 @@
   - type: Damageable
     damageModifierSet: Vulpkanin
   - type: TemperatureProtection
-    coefficient: 0.1
+    coefficient: 0.5 # WWDP
   - type: Vocal
     sounds:
       Male: MaleVulpkanin

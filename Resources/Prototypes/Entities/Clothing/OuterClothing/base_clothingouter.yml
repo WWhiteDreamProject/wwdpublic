@@ -134,9 +134,9 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.01
+    coefficient: 0.2 # WWDP
   - type: FireProtection
-    reduction: 0.75 # almost perfectly sealed, atmos firesuit is better
+    reduction: 0.5 # WWDP
   - type: IgniteFromGasImmunity
     parts:
     - Torso
@@ -324,7 +324,7 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.01 # Not complete protection from fire
+    coefficient: 0.2 # WWDP
   - type: IgniteFromGasImmunity
     parts:
     - Torso
