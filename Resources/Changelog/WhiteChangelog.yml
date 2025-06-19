@@ -3431,3 +3431,10 @@ Entries:
   id: 365
   time: '2025-06-19T17:05:30.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/598
+- author: vanx
+  changes:
+    - type: Remove
+      message: Отключены автоматические цели по факсу
+  id: 366
+  time: '2025-06-19T17:08:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/605
