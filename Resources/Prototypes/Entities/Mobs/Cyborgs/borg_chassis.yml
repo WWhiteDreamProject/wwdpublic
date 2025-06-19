@@ -36,6 +36,8 @@
   - type: SurgerySpeedModifier
     speedModifier: 1.5
   - type: Sanitized
+  - type: Construction # WD edit
+    node: cyborg
 
 - type: entity
   id: BorgChassisGeneric
@@ -120,8 +122,8 @@
       sprite: Mobs/Silicon/chassis.rsi
       state: robot
     name: cyborg
-  - type: Construction
-    node: cyborg
+#  - type: Construction     WD edit
+#    node: cyborg
   - type: Speech
     speechVerb: Robotic
 
@@ -162,8 +164,8 @@
       sprite: Mobs/Silicon/chassis.rsi
       state: miner
     name: salvage cyborg
-  - type: Construction
-    node: mining
+#  - type: Construction     WD edit
+#    node: mining
   - type: IntrinsicRadioTransmitter
     channels:
     - Supply
@@ -210,8 +212,8 @@
       sprite: Mobs/Silicon/chassis.rsi
       state: engineer
     name: engineer cyborg
-  - type: Construction
-    node: engineer
+#  - type: Construction     WD edit
+#    node: engineer
   - type: IntrinsicRadioTransmitter
     channels:
     - Engineering
@@ -268,8 +270,8 @@
       sprite: Mobs/Silicon/chassis.rsi
       state: janitor
     name: janitor cyborg
-  - type: Construction
-    node: janitor
+#  - type: Construction
+#    node: janitor
   - type: IntrinsicRadioTransmitter
     channels:
     - Service
@@ -326,8 +328,8 @@
       sprite: Mobs/Silicon/chassis.rsi
       state: medical
     name: medical cyborg
-  - type: Construction
-    node: medical
+#  - type: Construction     WD edit
+#    node: medical
   - type: IntrinsicRadioTransmitter
     channels:
     - Medical
@@ -400,8 +402,8 @@
       sprite: Mobs/Silicon/chassis.rsi
       state: service
     name: service cyborg
-  - type: Construction
-    node: service
+#  - type: Construction     WD edit
+#    node: service
   - type: IntrinsicRadioTransmitter
     channels:
     - Service

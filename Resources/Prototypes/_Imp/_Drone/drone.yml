@@ -4,26 +4,26 @@
   root: torso
   slots:
     torso:
-      part: TorsoBorg
+      part: BaseBorgTorso # WD edit
       connections:
       - right arm
       - right arm 2
       - left arm
       - left arm 2
     right arm:
-      part: RightArmBorg
+      part: BaseBorgRightArm # WD edit
       connections:
       - right hand
     right arm 2:
-      part: RightArmBorg
+      part: BaseBorgRightArm # WD edit
       connections:
       - right hand 2
     left arm:
-      part: LeftArmBorg
+      part: BaseBorgLeftArm # WD edit
       connections:
       - left hand
     left arm 2:
-      part: LeftArmBorg
+      part: BaseBorgLeftArm # WD edit
       connections:
       - left hand 2
     right hand:

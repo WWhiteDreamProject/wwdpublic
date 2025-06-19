@@ -130342,7 +130342,7 @@ entities:
     - type: Transform
       pos: -29.222366,-43.883175
       parent: 2
-- proto: LeftArmBorg
+- proto: BaseBorgLeftArm # WD edit
   entities:
   - uid: 1168
     components:
@@ -130396,7 +130396,7 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: LeftLegBorg
+- proto: BaseLeftLegBorgBaseLeftLegBorg
   entities:
   - uid: 1169
     components:

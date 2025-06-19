@@ -15,7 +15,7 @@
       BorgArm:
         Amount: 3
         ExamineName: "Borg Arm"
-        DefaultPrototype: LeftArmBorg
+        DefaultPrototype: BaseBorgLeftArm
 
 - type: entity
   parent: AutodocCircuitboard

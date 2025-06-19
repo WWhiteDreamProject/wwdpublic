@@ -129,7 +129,7 @@
   - type: MovementBodyPart
 
 - type: entity
-  id: BaseLightHeadBorg
+  id: BaseLightHeadBorg # WD edit
   parent: PartSilicon
   name: cyborg head
   components:

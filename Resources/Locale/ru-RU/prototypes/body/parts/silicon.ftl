@@ -1,6 +1,6 @@
 ent-PartSilicon = часть тела синтетика
     .desc = { ent-BaseItem.desc }
-ent-LeftArmBorg = левая рука борга
+ent-BaseBorgLeftArm = левая рука борга
     .desc = { ent-PartSilicon.desc }
-ent-RightArmBorg = правая рука борга
+ent-BaseBorgRightArm = правая рука борга
     .desc = { ent-PartSilicon.desc }

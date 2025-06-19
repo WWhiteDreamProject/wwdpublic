@@ -65,186 +65,188 @@
 
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
-  id: LeftArmBorg
-  result: LeftArmBorg
+  id: BaseBorgLeftArm # WD edit
+  result: BaseBorgLeftArm # WD edit
 
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
-  id: RightArmBorg
-  result: RightArmBorg
+  id: BaseBorgRightArm # WD edit
+  result: BaseBorgRightArm # WD edit
 
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
-  id: LeftLegBorg
-  result: LeftLegBorg
+  id: BaseBorgLegLeft # WD edit
+  result: BaseBorgLegLeft # WD edit
 
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
-  id: RightLegBorg
-  result: RightLegBorg
+  id: BaseBorgLegRight # WD edit
+  result: BaseBorgLegRight # WD edit
 
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
-  id: LightHeadBorg
-  result: LightHeadBorg
+  id: BaseLightHeadBorg # WD edit
+  result: BaseLightHeadBorg # WD edit
 
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
-  id: TorsoBorg
-  result: TorsoBorg
+  id: BaseBorgTorso # WD edit
+  result: BaseBorgTorso # WD edit
 
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightArmBorgEngineer
-  result: RightArmBorgEngineer
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: LeftArmBorgEngineer
-  result: LeftArmBorgEngineer
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: LeftLegBorgEngineer
-  result: LeftLegBorgEngineer
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightLegBorgEngineer
-  result: RightLegBorgEngineer
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: HeadBorgEngineer
-  result: HeadBorgEngineer
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: TorsoBorgEngineer
-  result: TorsoBorgEngineer
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: LeftArmBorgMedical
-  result: LeftArmBorgMedical
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightArmBorgMedical
-  result: RightArmBorgMedical
-
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: LeftLegBorgMedical
-  result: LeftLegBorgMedical
-
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightLegBorgMedical
-  result: RightLegBorgMedical
-
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: HeadBorgMedical
-  result: HeadBorgMedical
-
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: TorsoBorgMedical
-  result: TorsoBorgMedical
-
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: LeftArmBorgMining
-  result: LeftArmBorgMining
-
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightArmBorgMining
-  result: RightArmBorgMining
-  category: Robotics
-
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: LeftLegBorgMining
-  result: LeftLegBorgMining
-  category: Robotics
-
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightLegBorgMining
-  result: RightLegBorgMining
-  category: Robotics
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: HeadBorgMining
-  result: HeadBorgMining
-  category: Robotics
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: TorsoBorgMining
-  result: TorsoBorgMining
-  category: Robotics
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: LeftArmBorgService
-  result: LeftArmBorgService
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightArmBorgService
-  result: RightArmBorgService
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: LeftLegBorgService
-  result: LeftLegBorgService
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightLegBorgService
-  result: RightLegBorgService
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: HeadBorgService
-  result: HeadBorgService
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: TorsoBorgService
-  result: TorsoBorgService
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: LeftLegBorgJanitor
-  result: LeftLegBorgJanitor
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightLegBorgJanitor
-  result: RightLegBorgJanitor
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: HeadBorgJanitor
-  result: HeadBorgJanitor
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: TorsoBorgJanitor
-  result: TorsoBorgJanitor
+#   WD edit start
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: RightArmBorgEngineer
+#  result: RightArmBorgEngineer
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: LeftArmBorgEngineer
+#  result: LeftArmBorgEngineer
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: LeftLegBorgEngineer
+#  result: LeftLegBorgEngineer
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: RightLegBorgEngineer
+#  result: RightLegBorgEngineer
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: HeadBorgEngineer
+#  result: HeadBorgEngineer
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: TorsoBorgEngineer
+#  result: TorsoBorgEngineer
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: LeftArmBorgMedical
+#  result: LeftArmBorgMedical
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: RightArmBorgMedical
+#  result: RightArmBorgMedical
+#
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: LeftLegBorgMedical
+#  result: LeftLegBorgMedical
+#
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: RightLegBorgMedical
+#  result: RightLegBorgMedical
+#
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: HeadBorgMedical
+#  result: HeadBorgMedical
+#
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: TorsoBorgMedical
+#  result: TorsoBorgMedical
+#
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: LeftArmBorgMining
+#  result: LeftArmBorgMining
+#
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: RightArmBorgMining
+#  result: RightArmBorgMining
+#  category: Robotics
+#
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: LeftLegBorgMining
+#  result: LeftLegBorgMining
+#  category: Robotics
+#
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: RightLegBorgMining
+#  result: RightLegBorgMining
+#  category: Robotics
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: HeadBorgMining
+#  result: HeadBorgMining
+#  category: Robotics
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: TorsoBorgMining
+#  result: TorsoBorgMining
+#  category: Robotics
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: LeftArmBorgService
+#  result: LeftArmBorgService
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: RightArmBorgService
+#  result: RightArmBorgService
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: LeftLegBorgService
+#  result: LeftLegBorgService
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: RightLegBorgService
+#  result: RightLegBorgService
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: HeadBorgService
+#  result: HeadBorgService
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: TorsoBorgService
+#  result: TorsoBorgService
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: LeftLegBorgJanitor
+#  result: LeftLegBorgJanitor
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: RightLegBorgJanitor
+#  result: RightLegBorgJanitor
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: HeadBorgJanitor
+#  result: HeadBorgJanitor
+#
+#- type: latheRecipe
+#  parent: BaseBorgLimbRecipe
+#  id: TorsoBorgJanitor
+#  result: TorsoBorgJanitor
+# WD edit end
 
 # Parts
 
