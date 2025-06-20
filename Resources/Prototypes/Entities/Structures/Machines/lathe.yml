@@ -707,40 +707,42 @@
     - BorgModuleSurgery
     - BorgModuleCleaning
     - CyborgEndoskeleton
-    - LeftArmBorg
-    - RightArmBorg
-    - LeftLegBorg
-    - RightLegBorg
-    - LightHeadBorg
-    - TorsoBorg
-    - LeftArmBorgEngineer
-    - RightArmBorgEngineer
-    - LeftLegBorgEngineer
-    - RightLegBorgEngineer
-    - HeadBorgEngineer
-    - TorsoBorgEngineer
-    - LeftLegBorgJanitor
-    - RightLegBorgJanitor
-    - HeadBorgJanitor
-    - TorsoBorgJanitor
-    - LeftArmBorgMedical
-    - RightArmBorgMedical
-    - LeftLegBorgMedical
-    - RightLegBorgMedical
-    - HeadBorgMedical
-    - TorsoBorgMedical
-    - LeftArmBorgMining
-    - RightArmBorgMining
-    - LeftLegBorgMining
-    - RightLegBorgMining
-    - HeadBorgMining
-    - TorsoBorgMining
-    - LeftArmBorgService
-    - RightArmBorgService
-    - LeftLegBorgService
-    - RightLegBorgService
-    - HeadBorgService
-    - TorsoBorgService
+    - BaseBorgLeftArm # WD edit
+    - BaseBorgRightArm # WD edit
+    - BaseBorgLegLeft # WD edit
+    - BaseBorgLegRight # WD edit
+    - BaseLightHeadBorg # WD edit
+    - BaseBorgTorso # WD edit
+    # WD edit - comment out start
+#    - LeftArmBorgEngineer
+#    - RightArmBorgEngineer
+#    - LeftLegBorgEngineer
+#    - RightLegBorgEngineer
+#    - HeadBorgEngineer
+#    - TorsoBorgEngineer
+#    - LeftLegBorgJanitor
+#    - RightLegBorgJanitor
+#    - HeadBorgJanitor
+#    - TorsoBorgJanitor
+#    - LeftArmBorgMedical
+#    - RightArmBorgMedical
+#    - LeftLegBorgMedical
+#    - RightLegBorgMedical
+#    - HeadBorgMedical
+#    - TorsoBorgMedical
+#    - LeftArmBorgMining
+#    - RightArmBorgMining
+#    - LeftLegBorgMining
+#    - RightLegBorgMining
+#    - HeadBorgMining
+#    - TorsoBorgMining
+#    - LeftArmBorgService
+#    - RightArmBorgService
+#    - LeftLegBorgService
+#    - RightLegBorgService
+#    - HeadBorgService
+#    - TorsoBorgService
+#   WD edit - comment out end
     - MechAirTank # Goobstation
     - MechThruster # Goobstation
     - PowerCageMedium # Goobstation - Powercell to exosuit fab

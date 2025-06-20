@@ -17,7 +17,7 @@
       tagRequirements:
         BorgArm:
           Amount: 3
-          DefaultPrototype: LeftArmBorg
+          DefaultPrototype: BaseBorgLeftArm
           ExamineName: borg arm
     - type: ReverseEngineering
       difficulty: 3

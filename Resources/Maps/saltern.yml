@@ -57189,7 +57189,7 @@ entities:
     - type: Transform
       pos: -16.29771,-39.00967
       parent: 2
-- proto: LightHeadBorg
+- proto: BaseLightHeadBorg # WD edit
   entities:
   - uid: 8781
     components:

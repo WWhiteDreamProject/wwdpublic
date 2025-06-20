@@ -131725,7 +131725,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -52.5,3.5
       parent: 2
-- proto: RightArmBorg
+- proto: BaseBorgRightArm # WD edit
   entities:
   - uid: 19885
     components:

@@ -127282,7 +127282,7 @@ entities:
     - type: Transform
       pos: 3.700615,25.672562
       parent: 1
-- proto: LeftArmBorg
+- proto: BaseBorgLeftArm # WD edit
   entities:
   - uid: 16373
     components:
@@ -145043,7 +145043,7 @@ entities:
     - type: Transform
       pos: 5.5,47.5
       parent: 1
-- proto: RightLegBorg
+- proto: BaseBorgLegRight # WD edit
   entities:
   - uid: 16372
     components:

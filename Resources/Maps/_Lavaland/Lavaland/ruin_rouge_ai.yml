@@ -2649,7 +2649,7 @@ entities:
     - type: Transform
       pos: -6.2593775,-2.7397146
       parent: 1
-- proto: LeftArmBorg
+- proto: BaseBorgLeftArm # WD edit
   entities:
   - uid: 606
     components:
@@ -2659,7 +2659,7 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
-- proto: LightHeadBorg
+- proto: BaseLightHeadBorg # WD edit
   entities:
   - uid: 605
     components:
@@ -3292,7 +3292,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -5.5,1.5
       parent: 1
-- proto: RightLegBorg
+- proto: BaseBorgLegRight # WD edit
   entities:
   - uid: 607
     components:

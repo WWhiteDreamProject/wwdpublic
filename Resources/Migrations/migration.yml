@@ -307,38 +307,38 @@ FoodMeatFiestaKebab: FoodKebabSkewer
 
 # 2024-10-09
 # Removal of separate borg chassis parts, replace them with generic borg parts.
-LeftArmBorgEngineer: LeftArmBorg
-RightArmBorgEngineer: RightArmBorg
-LeftLegBorgEngineer: LeftLegBorg
-RightLegBorgEngineer: RightLegBorg
-HeadBorgEngineer: LightHeadBorg
-TorsoBorgEngineer: TorsoBorg
+LeftArmBorgEngineer: BaseBorgLeftArm # WD edit
+RightArmBorgEngineer: BaseBorgRightArm # WD edit
+LeftLegBorgEngineer: BaseBorgLegLeft # WD edit
+RightLegBorgEngineer: BaseBorgLegRight # WD edit
+HeadBorgEngineer: BaseLightHeadBorg # WD edit
+TorsoBorgEngineer: BaseBorgTorso # WD edit
 
-LeftArmBorgMedical: LeftArmBorg
-RightArmBorgMedical: RightArmBorg
-LeftLegBorgMedical: LeftLegBorg
-RightLegBorgMedical: RightLegBorg
-HeadBorgMedical: LightHeadBorg
-TorsoBorgMedical: TorsoBorg
+LeftArmBorgMedical: BaseBorgLeftArm # WD edit
+RightArmBorgMedical: BaseBorgRightArm # WD edit
+LeftLegBorgMedical: BaseBorgLegLeft # WD edit
+RightLegBorgMedical: BaseBorgLegRight # WD edit
+HeadBorgMedical: BaseLightHeadBorg # WD edit
+TorsoBorgMedical: BaseBorgTorso # WD edit
 
-LeftArmBorgMining: LeftArmBorg
-RightArmBorgMining: RightArmBorg
-LeftLegBorgMining: LeftLegBorg
-RightLegBorgMining: RightLegBorg
-HeadBorgMining: LightHeadBorg
-TorsoBorgMining: TorsoBorg
+LeftArmBorgMining: BaseBorgLeftArm # WD edit
+RightArmBorgMining: BaseBorgRightArm # WD edit
+LeftLegBorgMining: BaseBorgLegLeft # WD edit
+RightLegBorgMining: BaseBorgLegRight # WD edit
+HeadBorgMining: BaseLightHeadBorg # WD edit
+TorsoBorgMining: BaseBorgTorso # WD edit
 
-LeftArmBorgService: LeftArmBorg
-RightArmBorgService: RightArmBorg
-LeftLegBorgService: LeftLegBorg
-RightLegBorgService: RightLegBorg
-HeadBorgService: LightHeadBorg
-TorsoBorgService: TorsoBorg
+LeftArmBorgService: BaseBorgLeftArm # WD edit
+RightArmBorgService: BaseBorgRightArm # WD edit
+LeftLegBorgService: BaseBorgLegLeft # WD edit
+RightLegBorgService: BaseBorgLegRight # WD edit
+HeadBorgService: BaseLightHeadBorg # WD edit
+TorsoBorgService: BaseBorgTorso # WD edit
 
-LeftLegBorgJanitor: LeftLegBorg
-RightLegBorgJanitor: RightLegBorg
-HeadBorgJanitor: LightHeadBorg
-TorsoBorgJanitor: TorsoBorg
+LeftLegBorgJanitor: BaseBorgLegLeft # WD edit
+RightLegBorgJanitor: BaseBorgLegRight # WD edit
+HeadBorgJanitor: BaseLightHeadBorg # WD edit
+TorsoBorgJanitor: BaseBorgTorso # WD edit
 
 # 2024-03-11
 ImprovisedExplosive: FireBomb
