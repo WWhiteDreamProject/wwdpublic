@@ -52,6 +52,7 @@ namespace Content.Shared.VendingMachines
         public bool Broken;
 
         [DataField]
+        [AutoNetworkedField]
         public bool JailBreak = false; //WWDP EDIT
 
         /// <summary>

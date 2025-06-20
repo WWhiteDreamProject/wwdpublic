@@ -91,7 +91,7 @@ public sealed class EmagSystem : EntitySystem
         // prevent emagging twice
         if (HasComp<EmaggedComponent>(target))
         {
-            _popup.PopupClient(Loc.GetString("emag-already-emagged"), user); // WWDP EDIT
+            _popup.PopupClient(Loc.GetString("emag-already-emagged"), user, user); // WWDP EDIT
             return false;
         }
 
