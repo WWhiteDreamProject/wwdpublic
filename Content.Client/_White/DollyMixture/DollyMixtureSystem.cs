@@ -75,8 +75,8 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
-        {
+        if (!TryComp<SpriteComponent>(uid, out var sprite)) // unlike OnRemove() and RemoveLayers(), this doesn't get executed when placing a prototype
+        {                                                   // i cry
             Log.Error($"Failed to get SpriteComponent for {ToPrettyString(uid)}. Removing DollyMixtureComponent.");
             RemComp<DollyMixtureComponent>(uid);
             return;
@@ -92,8 +92,7 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
 
     public override void Apply3D(EntityUid uid, string RsiPath, string? statePrefix = null, Vector2? layerOffset = null, DollyMixtureComponent? comp = null)
     {
-        if (!Resolve(uid, ref comp))
-            return;
+        comp ??= EnsureComp<DollyMixtureComponent>(uid);
 
         base.Apply3D(uid, RsiPath, statePrefix, layerOffset, comp);
         UpdateDollyMixture(uid, comp);
@@ -111,8 +110,8 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
     private void RemoveLayers(EntityUid uid, DollyMixtureComponent comp)
     {
         SpriteComponent? sprite = null;
-        if (!Resolve(uid, ref sprite))
-            return;
+        if (!Resolve(uid, ref sprite, false)) // this gets executed after simply placing a prototype with this comp
+            return;                           // i assume it is some prediction-related bullshit
         foreach (var layerMapping in comp.LayerMappings)
             sprite.RemoveLayer(layerMapping);
         comp.CurrentRSIPath = null;
@@ -127,7 +126,7 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
             return;
         }
 
-        if (!Resolve(uid, ref comp) || !Resolve(uid, ref sprite))
+        if (!Resolve(uid, ref comp) || !Resolve(uid, ref sprite, false))
             return;
 
         var xform = Transform(uid);
@@ -143,9 +142,9 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
         int i = 1;
         while (RSI.TryGetState($"{comp.StatePrefix}{i}", out var state))
         {
-            for (int repeat = 0; repeat < comp.RepeatLayers; repeat++)
+            for (int repeat = 0; repeat <= comp.RepeatLayers; repeat++)
             {
-                float fraction = (float) repeat / comp.RepeatLayers;
+                float fraction = comp.RepeatLayers > 0 ? (float) repeat / comp.RepeatLayers : 0f;
 
                 Vector2 layerOffset = comp.Offset / EyeManager.PixelsPerMeter + comp.LayerOffset / EyeManager.PixelsPerMeter * (i - 1 + fraction);
 
@@ -154,7 +153,7 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
                 sprite.LayerSetState(layerIndex, state.StateId);
                 sprite.LayerSetOffset(layerIndex, layerOffset);
                 sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
-                string layerMap = $"dmm-{comp.StatePrefix}{i + fraction}";
+                string layerMap = $"dmm-{comp.StatePrefix}{i}({repeat}/{comp.RepeatLayers})";
                 sprite.LayerMapSet(layerMap, layerIndex);
                 comp.LayerMappings.Add(layerMap);
 
@@ -165,7 +164,8 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
                     sprite.LayerSetState(layerIndex, unshadedState.StateId);
                     sprite.LayerSetOffset(layerIndex, layerOffset);
                     sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
-                    layerMap = $"dmm-{comp.StatePrefix}{i + fraction}u";
+                    sprite.LayerSetShader(layerIndex, "unshaded");
+                    layerMap = $"{layerMap}u";
                     sprite.LayerMapSet(layerMap, layerIndex);
                     comp.LayerMappings.Add(layerMap);
                 }
