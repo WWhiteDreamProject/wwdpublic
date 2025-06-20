@@ -1,24 +1,10 @@
 - type: entity
-  parent: [BaseStructure, ConstructibleMachine]
+  parent: [BaseWeaponTurretNoHTR, ConstructibleMachine]
   id: WeaponTurretUniversal
   suffix: Remote Controlled
   name: universal weapon mount
   description: A remotely-operated turret designed to accept standard hand-held weapons. Being a simple gimbal mount, it is unable to do much besides aiming a gun and firing it.
   components:
-  - type: Clickable
-  - type: InteractionOutline
-  - type: Actions
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.45"
-        density: 60
-        mask:
-          - MachineMask
-        layer:
-          - MachineLayer
   - type: Sprite
     granularLayersRendering: true
     sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
@@ -29,51 +15,10 @@
       - map: [ "assblaster" ] # layer to which the weapon is rendered by ItemSlotRenderer
         renderingStrategy: Default
         rotation: -90
-  - type: CombatMode
-    isInCombatMode: true
-    toggleMouseRotator: false
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 200 # Was 600, most players were under the impression these were indestructible. It having an Inorganic damage container did not help.
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              WeaponTurretSyndicateBroken: # Make a broken turret when destroyed.
-                min: 1
-                max: 1
-      - trigger:
-          !type:DamageTrigger
-          damage: 90 # Rather than fully smash the turret at half health, make an indication that its taking damage.
-        # TODO: Construction graph
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalGlassBreak
-      - trigger:
-          !type:DamageTrigger
-          damage: 50 # Helps indicate that the turrets arent indestructible.
-        # TODO: Construction graph
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalGlassBreak
-  - type: GunFireAngleRestriction
-  - type: MouseRotator
-    angleTolerance: 0.5
-    rotationSpeed: 90
-    simple4DirMode: false
-  - type: NoRotateOnInteract
-  - type: NoRotateOnMove
-  - type: Input
-    context: "human"
   - type: ContainerContainer
     containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
       weapon_slot: !type:ContainerSlot
   - type: GunSlot
     slot: weapon_slot
@@ -92,7 +37,7 @@
     mapping:
       weapon_slot: assblaster
   - type: RemoteControllable
-  - type: ManuallyControllable
+    manualControl: true
   - type: RemoteControlOverlay
   - type: Machine
     board: WeaponTurretModularCircuitBoard
@@ -129,19 +74,3 @@
       2: 1
       1: 1
       0: 0
-
-- type: entity
-  id: WeaponTurretModularCircuitBoard
-  parent: BaseMachineCircuitboard
-  name: modular turret machine board
-  description: Circuitboard for a modular turret, which is a fancy way of saying "a servomotor tied to a gun's trigger with a string".
-  components:
-  - type: Sprite
-    state: engineering
-  - type: MachineBoard
-    prototype: WeaponTurretModularBasic
-    requirements:
-      Manipulator: 2
-    materialRequirements:
-      Cable: 5
-      Steel: 5

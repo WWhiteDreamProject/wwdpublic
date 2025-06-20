@@ -100,6 +100,9 @@
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
   - type: WiredNetworkConnection
+  - type: DeviceLinkSink
+    ports:
+    - RemoteControlOutputPort
   - type: Battery
     maxCharge: 2000
     startingCharge: 0
@@ -123,6 +126,7 @@
       2: 1
       1: 1
       0: 1
+
 
 - type: entity
   parent: [ BaseWeaponTurretShip, InnateMassScanner150]

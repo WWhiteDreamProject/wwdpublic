@@ -17,7 +17,4 @@ public partial class MagazineAmmoProviderComponent : AmmoProviderComponent
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("autoEject")]
     public bool AutoEject = false;
-
-    [DataField]
-    public bool UseParent = false;
 }

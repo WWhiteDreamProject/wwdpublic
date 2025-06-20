@@ -1,66 +1,40 @@
-- type: entity
-  parent: BaseComputerAiAccess
-  id: ComputerRemoteControl
-  name: remote control console
-  description: A computer equipped with a joystick. Has a faint cheetos smell around it.
-  components:
-  - type: Sprite
-    layers:
-    - map: ["computerLayerBody"]
-      state: computer
-    - map: ["computerLayerKeyboard"]
-      state: generic_keyboard
-    - map: ["computerLayerScreen"]
-      state: solar_screen
-    - map: ["computerLayerKeys"]
-      state: generic_keys
-    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
-      state: generic_panel_open
-  - type: Computer
-    board: RemoteControlConsoleCircuitboard
-  - type: PointLight
-    radius: 1.5
-    energy: 1.6
-    color: "#e6e227"
-  - type: RemoteControlConsole
-
-- type: entity
-  parent: BaseComputerCircuitboard
-  id: RemoteControlConsoleCircuitboard
-  name: remote control console computer board
-  components:
-  - type: ComputerBoard
-    prototype: ComputerRemoteControl
-  #- type: ReverseEngineering # Nyano
-  #  difficulty: 2
-  #  recipes:
-  #     - RadarConsoleCircuitboard
-
-- type: entity
-  id: ActionEndRemoteControl
-  name: End remote control
-  description: Ends remote control
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    itemIconStyle: NoItem
-    icon:
-      sprite: Interface/Actions/actions_mecha.rsi
-      state: mech_eject
-    event: !type:RemoteControlExitActionEvent
-
-- type: entity
-  id: RemoteControlConsoleSwitchToNextAction
-  name: Next
-  description: Switch to next controllable
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    itemIconStyle: NoItem
-    icon:
-      sprite: Interface/Actions/actions_mecha.rsi
-      state: mech_cycle_equip_off
-    event: !type:RemoteControlConsoleSwitchNextActionEvent
+#- type: entity
+#  parent: BaseComputerCircuitboard
+#  id: RemoteControlConsoleCircuitboard
+#  name: remote control console computer board
+#  components:
+#  - type: ComputerBoard
+#    prototype: ComputerRemoteControl
+#  #- type: ReverseEngineering # Nyano
+#  #  difficulty: 2
+#  #  recipes:
+#  #     - RadarConsoleCircuitboard
+#
+#- type: entity
+#  id: ActionEndRemoteControl
+#  name: End remote control
+#  description: Ends remote control
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: InstantAction
+#    itemIconStyle: NoItem
+#    icon:
+#      sprite: Interface/Actions/actions_mecha.rsi
+#      state: mech_eject
+#    event: !type:RemoteControlExitActionEvent
+#
+#- type: entity
+#  id: RemoteControlConsoleSwitchToNextAction
+#  name: Next
+#  description: Switch to next controllable
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: InstantAction
+#    itemIconStyle: NoItem
+#    icon:
+#      sprite: Interface/Actions/actions_mecha.rsi
+#      state: mech_cycle_equip_off
+#    event: !type:RemoteControlConsoleSwitchNextActionEvent
 
 
 - type: sourcePort
@@ -97,22 +71,6 @@
     enabled: false
   - type: MouseRotator
     angleTolerance: 0.5
-
-- type: entity
-  name: ship laser turret
-  description: A burst fire heavy laser weapon mounted to a simple actuator rig with a camera. Its weapon will recharge while connected to an active power grid.
-  parent: BaseWeaponEnergyTurretShip
-  id: WeaponEnergyTurretShip
-  components:
-  - type: Gun
-    shipWeapon: true
-    burstCooldown: 0.4
-    projectileSpeed: 50
-    angleIncrease: 1.25
-    maxAngle: 5
-    selectedMode: Burst
-    availableModes:
-    - Burst
 
 - type: entity
   id: InnateMassScanner

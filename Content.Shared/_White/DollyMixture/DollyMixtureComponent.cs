@@ -28,7 +28,7 @@ public sealed partial class DollyMixtureComponent : Component
     public Vector2 Offset;
 
     [DataField]
-    public int RepeatLayers;
+    public int RepeatLayers = 1;
 
     public Angle LastAngle;
 

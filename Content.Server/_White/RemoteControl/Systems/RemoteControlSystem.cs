@@ -1,5 +1,6 @@
 using Content.Server.Actions;
 using Content.Server.Chat.Systems;
+using Content.Server.DeviceLinking.Systems;
 using Content.Server.Interaction;
 using Content.Server.Mind;
 using Content.Server.Popups;
@@ -13,11 +14,13 @@ using Content.Shared.Whitelist;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Server._White.RemoteControl.Systems;
 
 public sealed partial class RemoteControlSystem : EntitySystem
 {
+    [Dependency] private readonly DeviceLinkSystem _link = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
@@ -44,7 +47,7 @@ public sealed partial class RemoteControlSystem : EntitySystem
     {
         var sourceXform = Transform(args.Source);
 
-        var query = EntityQueryEnumerator<RemoteControlTargetComponent, TransformComponent>();
+        var query = EntityQueryEnumerator<RemoteControllableComponent, TransformComponent>();
         while (query.MoveNext(out _, out var comp, out var xform))
         {
             var range = xform.MapID != sourceXform.MapID
@@ -61,7 +64,7 @@ public sealed partial class RemoteControlSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        var query = EntityQueryEnumerator<RemoteControlUserComponent>();
+        var query = EntityQueryEnumerator<RemoteControllingComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if(!_actionBlocker.CanInteract(uid, comp.Console)
@@ -70,17 +73,17 @@ public sealed partial class RemoteControlSystem : EntitySystem
         }
     }
 
-    private bool RemoteControl(Entity<RemoteControlUserComponent?> user, Entity<RemoteControlTargetComponent?> target, Entity<RemoteControlConsoleComponent?> console, bool overlay = false)
+    private bool RemoteControl(EntityUid user, Entity<RemoteControllableComponent?> target, Entity<RemoteControlConsoleComponent?> console, bool overlay = false)
     {
         if (!Resolve(target, ref target.Comp)
-            || HasComp<RemoteControlUserComponent>(user)
+            || HasComp<RemoteControllingComponent>(user)
             || HasComp<VisitingMindComponent>(target)
             || _mind.GetMind(user) is not { } userMind)
             return false;
 
-        user.Comp = EnsureComp<RemoteControlUserComponent>(user);
-        user.Comp.Target = target;
-        user.Comp.Console = console;
+        var userComp = EnsureComp<RemoteControllingComponent>(user);
+        userComp.Target = target;
+        userComp.Console = console;
 
         target.Comp.User = user;
 
@@ -89,8 +92,8 @@ public sealed partial class RemoteControlSystem : EntitySystem
             console.Comp.User = user;
             console.Comp.Target = target;
             console.Comp.LastIndex = console.Comp.LinkedEntities.IndexOf(target);
-
-            _action.AddAction(target, console.Comp.SwitchToNextActionUid, console);
+            DebugTools.Assert(console.Comp.SwitchToNextActionUid.HasValue);
+            _action.AddAction(target, console.Comp.SwitchToNextActionUid.Value, console);
         }
 
         _mind.Visit(userMind, target);
@@ -103,7 +106,7 @@ public sealed partial class RemoteControlSystem : EntitySystem
         return true;
     }
 
-    private bool EndRemoteControl(Entity<RemoteControlUserComponent?> user, bool shouldAutoSwitch = false)
+    private bool EndRemoteControl(Entity<RemoteControllingComponent?> user, bool shouldAutoSwitch = false)
     {
         if (!Resolve(user, ref user.Comp))
             return false;
@@ -111,11 +114,7 @@ public sealed partial class RemoteControlSystem : EntitySystem
         return EndRemoteControl(user, user.Comp.Target, user.Comp.Console, shouldAutoSwitch);
     }
 
-    private bool EndRemoteControl(
-        Entity<RemoteControlUserComponent?> user,
-        Entity<RemoteControlTargetComponent?> target,
-        bool shouldAutoSwitch = false
-        )
+    private bool EndRemoteControl(Entity<RemoteControllingComponent?> user, Entity<RemoteControllableComponent?> target, bool shouldAutoSwitch = false)
     {
         if (!Resolve(user, ref user.Comp) || !Resolve(target, ref target.Comp))
             return false;
@@ -123,11 +122,7 @@ public sealed partial class RemoteControlSystem : EntitySystem
         return EndRemoteControl(user, target, user.Comp.Console, shouldAutoSwitch);
     }
 
-    private bool EndRemoteControl(
-        Entity<RemoteControlUserComponent?> user,
-        Entity<RemoteControlConsoleComponent?> console,
-        bool shouldAutoSwitch = false
-    )
+    private bool EndRemoteControl(Entity<RemoteControllingComponent?> user, Entity<RemoteControlConsoleComponent?> console, bool shouldAutoSwitch = false )
     {
         if (!Resolve(user, ref user.Comp) || !Resolve(console, ref console.Comp))
             return false;
@@ -135,12 +130,7 @@ public sealed partial class RemoteControlSystem : EntitySystem
         return EndRemoteControl(user, user.Comp.Target, console, shouldAutoSwitch);
     }
 
-    private bool EndRemoteControl(
-        Entity<RemoteControlUserComponent?> user,
-        Entity<RemoteControlTargetComponent?> target,
-        Entity<RemoteControlConsoleComponent?> console,
-        bool shouldAutoSwitch = false
-        )
+    private bool EndRemoteControl(Entity<RemoteControllingComponent?> user, Entity<RemoteControllableComponent?> target, Entity<RemoteControlConsoleComponent?> console, bool shouldAutoSwitch = false )
     {
         if (!Resolve(user, ref user.Comp)
             || !Resolve(target, ref target.Comp)

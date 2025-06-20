@@ -13,6 +13,7 @@ public partial class RemoteControlSystem
 {
     private void InitializeConsole()
     {
+        SubscribeLocalEvent<RemoteControlConsoleComponent, ComponentInit>(OnConsoleInit);
         SubscribeLocalEvent<RemoteControlConsoleComponent, MapInitEvent>(OnConsoleMapInit);
         SubscribeLocalEvent<RemoteControlConsoleComponent, ComponentShutdown>(OnConsoleShutdown);
 
@@ -27,13 +28,14 @@ public partial class RemoteControlSystem
         SubscribeLocalEvent<RemoteControlConsoleComponent, PowerChangedEvent>(OnPowerChanged);
     }
 
+    private void OnConsoleInit(EntityUid uid, RemoteControlConsoleComponent comp, ComponentInit args)
+    {
+        _link.EnsureSourcePorts(uid, SourcePortId);
+    }
+
     private void OnConsoleMapInit(EntityUid uid, RemoteControlConsoleComponent component, MapInitEvent args)
     {
-        EntityUid? actionUid = null;
-        _action.AddAction(uid, ref actionUid, component.SwitchToNextAction);
-
-        if (actionUid.HasValue)
-            component.SwitchToNextActionUid = actionUid.Value;
+        _action.AddAction(uid, ref component.SwitchToNextActionUid, component.SwitchToNextAction);
     }
 
     private void OnConsoleShutdown(EntityUid uid, RemoteControlConsoleComponent component, ComponentShutdown args)
@@ -56,7 +58,7 @@ public partial class RemoteControlSystem
             || args.Source != uid
             || args.SourcePort != SourcePortId
             || args.SinkPort != SinkPortId
-            || !HasComp<RemoteControlTargetComponent>(args.Sink))
+            || !HasComp<RemoteControllableComponent>(args.Sink))
             return;
 
         component.LinkedEntities.Add(args.Sink);
@@ -71,7 +73,7 @@ public partial class RemoteControlSystem
 
         // the device link got severed while the turret was in use; either relink to another turret or kick the user out of the console.
         if (component.User is { } user
-            && TryComp<RemoteControlUserComponent>(user, out var controlling)
+            && TryComp<RemoteControllingComponent>(user, out var controlling)
             && controlling.Target == args.RemovedPortUid)
             EndRemoteControl(user, (uid, component), true);
     }
@@ -90,7 +92,7 @@ public partial class RemoteControlSystem
     private void TryActivate(EntityUid uid, RemoteControlConsoleComponent component, EntityUid user)
     {
         if (!this.IsPowered(uid, EntityManager)
-            || HasComp<RemoteControlUserComponent>(user)
+            || HasComp<RemoteControllingComponent>(user)
             || component.User is not null
             || component.LinkedEntities.Count == 0
             || GetFirstValid(component) is not { } target)
@@ -101,7 +103,7 @@ public partial class RemoteControlSystem
 
     private bool TrySwitchToNextAvailable(EntityUid console, RemoteControlConsoleComponent component)
     {
-        if (component.User is not { } user || GetFirstValid(component, component.Target) is not {} target)
+        if (component.User is not { } user || GetFirstValid(component, component.Target) is not { } target)
             return false;
 
         component.LastIndex = component.LinkedEntities.IndexOf(target);
@@ -123,7 +125,7 @@ public partial class RemoteControlSystem
             var ent = list[index];
 
             if ((!exclude.HasValue || ent != exclude)
-                && HasComp<RemoteControlTargetComponent>(ent)
+                && HasComp<RemoteControllableComponent>(ent)
                 || TryComp<MindContainerComponent>(ent, out var mindContainer)
                 && mindContainer.HasMind)
                 return ent;

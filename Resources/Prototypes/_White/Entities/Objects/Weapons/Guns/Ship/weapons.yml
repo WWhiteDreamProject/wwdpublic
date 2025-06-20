@@ -19,17 +19,27 @@
     fireOnDropChance: 0
 
 - type: entity
-  id: BaseWeaponShipLight
+  id: BaseWeaponShipLightEnergy
   parent: BaseWeaponShip
   abstract: True
   components:
   - type: ModularTurretWeapon
     weaponClass:
-    - Light
+    - LightEnergy
+
+- type: entity
+  id: BaseWeaponShipLightBallistic
+  parent: BaseWeaponShip
+  abstract: True
+  components:
+  - type: ModularTurretWeapon
+    weaponClass:
+    - LightBallistic
+
 
 
 - type: entity
-  parent: BaseWeaponShipLight
+  parent: BaseWeaponShipLightEnergy
   id: WeaponShipLightIR
   name: IR Pulse Laser
   description: A power-efficient, albeit weak infrared pulse laser. Being essentially a scaled-up version of a regular laser carbine, this cannon trades damage for extreme power efficiency.
@@ -54,7 +64,7 @@
 
 
 - type: entity
-  parent: BaseWeaponShipLight
+  parent: BaseWeaponShipLightEnergy
   id: WeaponShipLightAnnihilator
   name: Annihilator Rocket Launcher
   description: Fires a spread of unguided flash-printed microrockets that cover a wide arc. Despite the low damage output, it should not be underestimated, as it can still deal a devastating blow in hands of a skilled fighter pilot.  
@@ -83,7 +93,7 @@
 
 
 - type: entity
-  parent: BaseWeaponShipLight
+  parent: BaseWeaponShipLightEnergy
   id: WeaponShipLightMiningLaser
   name: Mining Laser
   description: A cheap utility laser, excels at melting loose rock and cutting various salvage into pieces, but performs poorly against softer targets. Has a rather short focus range, making it ill-suited for combat use. 
@@ -108,9 +118,6 @@
     fireCost: 35
   - type: ModularTurretWeapon
     dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\mining_laser.rsi
-  - type: Telescope
-    lerpAmount: 0.25
-    #divisor: 0.05
 
 # I'll put the mining beam prototype right after the mining laser itself to
 # make it obvious what it does.
@@ -132,7 +139,7 @@
     state: impact_mining_laser
 
 - type: entity
-  parent: BaseWeaponShipLight
+  parent: BaseWeaponShipLightEnergy
   id: WeaponShipLightRiftLance
   name: Rift lance
   description: We commit this body to the holy vaccuum, dust to dust, stars to stars, that the Creator may renew our us in the cycle of eternal life. - Luddic funereal prayer, traditional.
@@ -152,9 +159,6 @@
     fireCost: 800
   - type: ModularTurretWeapon
     dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\rift_lance.rsi
-  - type: Telescope
-    lerpAmount: 0.25
-    #divisor: 0.05
 
 # I'll put the rift lance beam prototype right after the rift lance itself to
 # make it obvious why it should *not* be given to players.
@@ -193,10 +197,8 @@
     lifetime: 1
 
 
-
-
 #- type: entity
-#  parent: BaseWeaponShipLight
+#  parent: BaseWeaponShipLightEnergy
 #  id: WeaponShipLightAutopulse
 #  name: Autopulse Laser Cannon 
 #  description: 	Numerous built-in capacitors are at the core of this extremely inefficient, yet potent energy weapon.
@@ -216,3 +218,98 @@
 #  - type: ProjectileContainerBatteryAmmoProvider
 #    proto: BulletPulse
 #    fireCost: 150
+
+
+- type: entity
+  parent: BaseWeaponShipLightEnergy
+  id: WeaponShipLightHotspot
+  name: Hotspot PD
+  description: A rapid fire ballistic weapon effective against soft targets. A respectable close-in weapon system, it's effectiveness is severely limited by poor accuracy and low damage against any substantial armor. 
+  components:
+  - type: Sprite
+    sprite: _White\Objects\Weapons\Guns\Turrets\hotspot.rsi
+    state: icon
+  - type: Gun
+    fireRate: 20
+    angleDecay: 12
+    angleIncrease: 6
+    maxAngle: 40
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
+      params:
+        volume: -4
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BulletHotspot
+    fireCost: 27.5
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\hotspot.rsi
+
+- type: entity
+  id: BulletHotspot
+  name: bullet (.13 point-defense)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 4
+        Blunt: 2
+        Slash: 2
+
+
+- type: entity
+  id: BulletHotspotSpread
+  categories: [ HideSpawnMenu ]
+  parent: BulletHotspot
+  components:
+  - type: ProjectileSpread
+    proto: BulletHotspot
+    count: 3
+    spread: 4
+
+
+- type: entity
+  parent: BaseWeaponShipLightEnergy
+  id: WeaponShipLightL
+  name: Ship LMG
+  description: A staple of infantry support weaponry, this weapon is a well-rounded option for any type of job. 
+  components:
+  - type: Sprite
+    sprite: _White\Objects\Weapons\Guns\Turrets\lmg.rsi
+    state: icon
+  - type: Gun
+    fireRate: 5
+    angleDecay: 10
+    angleIncrease: 5
+    maxAngle: 25
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
+      params:
+        volume: 0
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BulletHighCaliberWeak
+    fireCost: 50
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\lmg.rsi
+
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletHighCaliberWeak
+  name: bullet (.50 flash-printed)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 25
+        Structural: 25 # weaker compared to other .50 cal bullets
+    

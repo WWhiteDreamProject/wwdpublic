@@ -1,12 +1,8 @@
 using Content.Shared._White.DollyMixture;
-using Microsoft.CodeAnalysis.Elfie.Serialization;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Timing;
-using Robust.Shared.Toolshed.Commands.Generic.Variables;
-using Robust.Shared.Utility;
-using System.Collections.Immutable;
 using System.Numerics;
 
 namespace Content.Client._White.DollyMixture;
@@ -96,7 +92,7 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
 
     public override void Apply3D(EntityUid uid, string RsiPath, string? statePrefix = null, Vector2? layerOffset = null, DollyMixtureComponent? comp = null)
     {
-        if(!Resolve(uid, ref comp))
+        if (!Resolve(uid, ref comp))
             return;
 
         base.Apply3D(uid, RsiPath, statePrefix, layerOffset, comp);
@@ -125,53 +121,55 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
 
     private void BuildLayers(EntityUid uid, string RsiPath, DollyMixtureComponent? comp = null, SpriteComponent? sprite = null)
     {
+        if (string.IsNullOrEmpty(RsiPath))
+        {
+            Log.Error($"An empty rsi path was passed to BuildLayers().");
+            return;
+        }
+
         if (!Resolve(uid, ref comp) || !Resolve(uid, ref sprite))
             return;
 
         var xform = Transform(uid);
         comp.CurrentRSIPath = RsiPath;
-        RSIResource? RSIres = null;
-        if (!string.IsNullOrEmpty(comp.RSIPath) && !_res.TryGetResource($"/Textures/{comp.RSIPath}", out RSIres))
+        if (!_res.TryGetResource($"/Textures/{comp.RSIPath}", out RSIResource? RSIres))
         {
             Log.Error($"Failed to get RSI {$"/Textures/{comp.RSIPath}"} for a dolly mixture component.");
             return;
         }
 
-        var RSI = RSIres?.RSI ?? sprite.BaseRSI;
-        if (RSI is null)
-        {
-            Log.Error($"No RSI specified for both DollyMixtureComponent and SpriteComponent.");
-            return;
-        }
+        var RSI = RSIres.RSI;
 
         int i = 1;
         while (RSI.TryGetState($"{comp.StatePrefix}{i}", out var state))
         {
             for (int repeat = 0; repeat < comp.RepeatLayers; repeat++)
             {
-				Vector2 layerOffset = comp.Offset / EyeManager.PixelsPerMeter + comp.LayerOffset / EyeManager.PixelsPerMeter * (i - 1 + (float)repeat/comp.RepeatLayers );
+                float fraction = (float) repeat / comp.RepeatLayers;
 
-				int layerIndex = sprite.AddBlankLayer();
-				sprite.LayerSetRSI(layerIndex, RSI);
-				sprite.LayerSetState(layerIndex, state.StateId);
-				sprite.LayerSetOffset(layerIndex, layerOffset);
-				sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
-				string layerMap = $"dmm-{comp.StatePrefix}{i}";
-				sprite.LayerMapSet(layerMap, layerIndex);
-				comp.LayerMappings.Add(layerMap);
+                Vector2 layerOffset = comp.Offset / EyeManager.PixelsPerMeter + comp.LayerOffset / EyeManager.PixelsPerMeter * (i - 1 + fraction);
 
-				if (RSI.TryGetState($"{comp.StatePrefix}{i}-unshaded", out var unshadedState))
-				{
-					layerIndex = sprite.AddBlankLayer();
-					sprite.LayerSetRSI(layerIndex, RSI);
-					sprite.LayerSetState(layerIndex, unshadedState.StateId);
-					sprite.LayerSetOffset(layerIndex, layerOffset);
-					sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
-					layerMap = $"dmm-{comp.StatePrefix}{i}u";
-					sprite.LayerMapSet(layerMap, layerIndex);
-					comp.LayerMappings.Add(layerMap);
-				}
-			}
+                int layerIndex = sprite.AddBlankLayer();
+                sprite.LayerSetRSI(layerIndex, RSI);
+                sprite.LayerSetState(layerIndex, state.StateId);
+                sprite.LayerSetOffset(layerIndex, layerOffset);
+                sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
+                string layerMap = $"dmm-{comp.StatePrefix}{i + fraction}";
+                sprite.LayerMapSet(layerMap, layerIndex);
+                comp.LayerMappings.Add(layerMap);
+
+                if (RSI.TryGetState($"{comp.StatePrefix}{i}-unshaded", out var unshadedState))
+                {
+                    layerIndex = sprite.AddBlankLayer();
+                    sprite.LayerSetRSI(layerIndex, RSI);
+                    sprite.LayerSetState(layerIndex, unshadedState.StateId);
+                    sprite.LayerSetOffset(layerIndex, layerOffset);
+                    sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
+                    layerMap = $"dmm-{comp.StatePrefix}{i + fraction}u";
+                    sprite.LayerMapSet(layerMap, layerIndex);
+                    comp.LayerMappings.Add(layerMap);
+                }
+            }
             i++;
         }
     }
