@@ -326,14 +326,14 @@
     tags:
     - WeaponShotgunKammerer
   - type: Wieldable
-  - type: Gun
-    shotgunSpreadMultiplier: 0.5
-  - type: ExtendDescription
-    descriptionList:
-    - description: "gun-modifier-choke"
-      fontSize: 12
-      color: "#ff4f00"
-      requireDetailRange: false
+  # - type: Gun # WWDP stop it
+  #   shotgunSpreadMultiplier: 0.5
+  # - type: ExtendDescription
+  #   descriptionList:
+  #   - description: "gun-modifier-choke"
+  #     fontSize: 12
+  #     color: "#ff4f00"
+  #     requireDetailRange: false
 
 - type: entity
   name: sawn-off shotgun

@@ -10,9 +10,9 @@
   icon: "JobIconPrisoner"
   supervisors: job-supervisors-security
   requirements:
-  - !type:CharacterDepartmentTimeRequirement
-    department: Security
-    min: 21600
+  # - !type:CharacterDepartmentTimeRequirement # WWDP
+  #   department: Security
+  #   min: 21600
   - !type:CharacterLogicOrRequirement
     requirements:
     - !type:CharacterSpeciesRequirement

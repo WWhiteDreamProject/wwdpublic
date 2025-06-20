@@ -32,4 +32,7 @@
   id: LightBulb
 
 - type: Tag
+  id: RCDLight
+
+- type: Tag
   id: NTCoin

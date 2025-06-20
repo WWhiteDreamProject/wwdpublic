@@ -8,3 +8,42 @@
     - id: WeaponRevolverPythonAP
     - id: SpeedLoaderMagnumAP
       amount: 2
+
+- type: entity
+  id: ClothingBeltMilitaryWebbingDeathsquadFilled
+  parent: ClothingBeltMilitaryWebbing
+  suffix: Filled
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: MedkitCombatFilled
+    - id: CombatMedipen
+      amount: 2
+    - id: Hypospray
+    - id: EpinephrineChemistryBottle
+      amount: 2
+    - id: EphedrineChemistryBottle
+      amount: 2
+
+- type: entity
+  id: ClothingBeltMilitaryWebbingERTLecterFilled
+  parent: ClothingBeltMilitaryWebbing
+  suffix: Filled
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineRifle
+      amount: 5
+
+- type: entity
+  id: ClothingBeltMilitaryWebbingCBURNFilled
+  parent: ClothingBeltMilitaryWebbing
+  suffix: Filled
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineShotgunIncendiary
+      amount: 5

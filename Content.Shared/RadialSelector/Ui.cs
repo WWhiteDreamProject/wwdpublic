@@ -36,6 +36,10 @@ public sealed partial class RadialSelectorEntry
 
     [DataField]
     public RadialSelectorCategory? Category { get; set; }
+
+    // WWDP should the radial UI close when this entry is selected
+    [DataField]
+    public bool CloseUiOnSelect = true;
 }
 
 [DataDefinition, Serializable, NetSerializable]

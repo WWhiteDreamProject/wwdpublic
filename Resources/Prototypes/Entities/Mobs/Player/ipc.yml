@@ -50,6 +50,7 @@
       Alive: BorgHealth
       Critical: BorgCrit
       Dead: BorgDead
+    showOverlays: false
   - type: TypingIndicator
     proto: robot
   - type: Destructible
@@ -135,6 +136,7 @@
     - DoorBumpOpener
     - SiliconEmotes
     - SiliconMob
+  - type: CRTVisionOverlay # WD EDIT
 
 - type: entity
   save: false

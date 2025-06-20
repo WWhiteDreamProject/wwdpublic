@@ -82,6 +82,7 @@
   components:
   - type: Sprite
     noRot: true
+    sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
     drawdepth: Mobs
     layers:
     - state: syndie_base

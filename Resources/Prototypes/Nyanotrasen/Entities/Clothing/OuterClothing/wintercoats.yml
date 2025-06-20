@@ -9,7 +9,7 @@
     - type: Clothing
       sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/hyenh.rsi
     - type: TemperatureProtection
-      coefficient: 0.1
+      coefficient: 0.5 # WWDP
 
 - type: entity
   parent: ClothingOuterWinterCoat
