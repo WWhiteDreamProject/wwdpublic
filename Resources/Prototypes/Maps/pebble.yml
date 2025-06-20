@@ -53,7 +53,7 @@
           ResearchDirector: [ 1, 1 ]
           Chaplain: [ 1, 1 ]
           ForensicMantis: [ 1, 1 ]
-          SeniorResearcher: [ 1, 1]
+          # SeniorResearcher: [ 1, 1] # WWDP
           Scientist: [ 2, 3 ]
           ResearchAssistant: [ 2, 2 ]
           Borg: [ 1, 1 ]
