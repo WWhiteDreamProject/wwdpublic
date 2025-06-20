@@ -38,13 +38,13 @@
           #engineering
           ChiefEngineer: [ 1, 1 ]
           AtmosphericTechnician: [ 1, 1]
-          SeniorEngineer: [ 1, 1 ]
+          # SeniorEngineer: [ 1, 1 ] # WWDP
           StationEngineer: [ 2, 3 ]
           TechnicalAssistant: [ 2, 2 ]
           #medical
           ChiefMedicalOfficer: [ 1, 1 ]
           Chemist: [ 1, 1 ]
-          SeniorPhysician: [ 1, 1 ]
+          # SeniorPhysician: [ 1, 1 ] # WWDP
           MedicalDoctor: [ 2, 3 ]
           MedicalIntern: [ 2, 2 ]
           Paramedic: [ 1, 1 ]
@@ -61,7 +61,7 @@
           HeadOfSecurity: [ 1, 1 ]
           Warden: [ 1, 1 ]
           Detective: [ 1, 1 ]
-          SeniorOfficer: [ 1, 1 ]
+          # SeniorOfficer: [ 1, 1 ] # WWDP
           SecurityOfficer: [ 2, 2 ]
           SecurityCadet: [ 1, 1 ]
           #supply
