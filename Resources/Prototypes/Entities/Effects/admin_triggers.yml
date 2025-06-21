@@ -109,4 +109,26 @@
   - type: SingularityDistortion
     intensity: 10
     falloffPower: 1.5
-      
+
+# WWDP #
+
+- type: entity
+  id: AdminInstantEffectShrapnel
+  suffix: Shrapnel
+  parent: AdminInstantEffectBase
+  components:
+  - type: ClusterGrenade
+    fillPrototype: PelletClusterLethal
+    maxGrenadesCount: 30
+    grenadeType: enum.GrenadeType.Shoot
+
+- type: entity
+  id: AdminInstantEffectExplosionSmall
+  suffix: Small Explosion
+  parent: AdminInstantEffectBase
+  components:
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    totalIntensity: 30
+    explosionType: Default
+    tileBreakScale: 5

@@ -23,7 +23,7 @@ public sealed partial class RemoteControlConsoleComponent : Component
     public EntProtoId SwitchToNextAction = "RemoteControlConsoleSwitchToNextAction";
 
     [ViewVariables]
-    public EntityUid SwitchToNextActionUid;
+    public EntityUid? SwitchToNextActionUid;
 
     [ViewVariables]
     public EntityUid? User;

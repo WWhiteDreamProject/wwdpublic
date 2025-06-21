@@ -141,8 +141,15 @@ namespace Content.Server.Explosion.EntitySystems
 
             if (!coords.IsValid(EntityManager))
                 return;
-
-            Spawn(component.Proto, coords);
+            // WWDP EDIT START
+            if(component.Offsets.Count == 0)
+            {
+                Log.Warning($"SpawnOnTriggerComponent on {ToPrettyString(uid)} has empty offsets.");
+                return;
+            }
+            foreach(var offset in component.Offsets)
+                Spawn(component.Proto, new Robust.Shared.Map.EntityCoordinates(uid, offset));
+            // WWDP EDIT END
         }
 
         private void HandleExplodeTrigger(EntityUid uid, ExplodeOnTriggerComponent component, TriggerEvent args)

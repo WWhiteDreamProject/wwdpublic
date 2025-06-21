@@ -7,18 +7,18 @@ public partial class RemoteControlSystem
 {
     private void InitializeUser()
     {
-        SubscribeLocalEvent<RemoteControlUserComponent, ComponentShutdown>(OnUserShutdown);
+        SubscribeLocalEvent<RemoteControllingComponent, ComponentShutdown>(OnUserShutdown);
 
-        SubscribeLocalEvent<RemoteControlUserComponent, MobStateChangedEvent>(OnUserMobStateChanged);
+        SubscribeLocalEvent<RemoteControllingComponent, MobStateChangedEvent>(OnUserMobStateChanged);
     }
 
-    private void OnUserShutdown(EntityUid uid, RemoteControlUserComponent comp, ComponentShutdown args)
+    private void OnUserShutdown(EntityUid uid, RemoteControllingComponent comp, ComponentShutdown args)
     {
-        if (TryComp<RemoteControlTargetComponent>(comp.Target, out var targetComp) && targetComp.User == uid)
+        if (TryComp<RemoteControllableComponent>(comp.Target, out var targetComp) && targetComp.User == uid)
             EndRemoteControl((uid, comp), (comp.Target, targetComp));
     }
 
-    private void OnUserMobStateChanged(EntityUid uid, RemoteControlUserComponent comp, MobStateChangedEvent args)
+    private void OnUserMobStateChanged(EntityUid uid, RemoteControllingComponent comp, MobStateChangedEvent args)
     {
         if (args.NewMobState != MobState.Alive)
             EndRemoteControl((uid, comp));

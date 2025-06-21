@@ -4,13 +4,13 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._White.RemoteControl.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class RemoteControlTargetComponent : Component
+public sealed partial class RemoteControllableComponent : Component
 {
     [DataField]
     public EntProtoId EndRemoteControlAction = "ActionEndRemoteControl";
 
     [DataField]
-    public bool CanManually;
+    public bool ManualControl;
 
     [ViewVariables, AutoNetworkedField]
     public EntityUid? User;

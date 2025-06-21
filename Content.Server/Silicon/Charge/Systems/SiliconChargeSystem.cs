@@ -129,7 +129,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             UpdateChargeState(silicon, chargePercent, siliconComp);
         }
     }
-
+        
     /// <summary>
     ///     Checks if anything needs to be updated, and updates it.
     /// </summary>
