@@ -48,9 +48,9 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.001
+    coefficient: 0.1 # WWDP
   - type: FireProtection
-    reduction: 1
+    reduction: 0.5 # WWDP, most protection is on the helmet
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
@@ -129,9 +129,9 @@
   - type: GuideHelp
     guides: [ HephaestusIndustries ]
   - type: TemperatureProtection
-    coefficient: 0.001
+    coefficient: 0.1 # WWDP
   - type: FireProtection
-    reduction: 1
+    reduction: 0.5 # WWDP, most protection is on the helmet
 
 #Spationaut Hardsuit
 - type: entity
@@ -209,7 +209,7 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
   - type: TemperatureProtection
-    coefficient: 0.1
+    coefficient: 0.2 # WWDP
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -258,9 +258,9 @@
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: TemperatureProtection
-    coefficient: 0.001
+    coefficient: 0.1 # WWDP
   - type: FireProtection
-    reduction: 1
+    reduction: 0.5 # WWDP, most protection is on the helmet
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMaxim
   - type: GuideHelp
@@ -443,9 +443,9 @@
   - type: GuideHelp
     guides: [ HephaestusIndustries ]
   - type: TemperatureProtection
-    coefficient: 0.001
+    coefficient: 0.1 # WWDP
   - type: FireProtection
-    reduction: 1
+    reduction: 0.5 # WWDP, most protection is on the helmet
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -709,7 +709,7 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.001
+    coefficient: 0.1 # WWDP
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: Armor
@@ -1040,9 +1040,9 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
   - type: TemperatureProtection
-    coefficient: 0.001
+    coefficient: 0.1 # WWDP
   - type: FireProtection
-    reduction: 1
+    reduction: 0.5 # WWDP, most protection is on the helmet
     #WWDP edit delete StaminaDamageResistance
 
 #ERT Medic Hardsuit
@@ -1126,7 +1126,7 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.001
+    coefficient: 0.1 # WWDP
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: Armor

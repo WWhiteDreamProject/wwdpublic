@@ -106,9 +106,13 @@
     - prototype: WindowDirectional
     - prototype: WindowDiagonal
     - prototype: SheetRGlass
+      closeUiOnSelect: false
     - prototype: SheetPGlass
+      closeUiOnSelect: false
     - prototype: SheetUGlass
+      closeUiOnSelect: false
     - prototype: SheetClockworkGlass # WWDP
+      closeUiOnSelect: false
     - category: # WWDP added category
         name: Colored Light Tubes
         icon:
@@ -116,11 +120,17 @@
           state: normal
         entries:
         - prototype: CyanLight
+          closeUiOnSelect: false
         - prototype: BlueLight
+          closeUiOnSelect: false
         - prototype: PinkLight
+          closeUiOnSelect: false
         - prototype: OrangeLight
+          closeUiOnSelect: false
         - prototype: RedLight
+          closeUiOnSelect: false
         - prototype: GreenLight
+          closeUiOnSelect: false
 
 - type: entity
   parent: SheetGlass
@@ -218,7 +228,9 @@
   - type: ShortConstruction
     entries:
     - prototype: SheetRPGlass1
+      closeUiOnSelect: false
     - prototype: SheetRUGlass1
+      closeUiOnSelect: false
     - prototype: ReinforcedWindow
     - prototype: ReinforcedWindowDiagonal
     - prototype: WindowReinforcedDirectional
@@ -324,6 +336,7 @@
   - type: ShortConstruction
     entries:
     - prototype: SheetRPGlass0
+      closeUiOnSelect: false
     - prototype: PlasmaWindow
     - prototype: PlasmaWindowDiagonal
     - prototype: PlasmaWindowDirectional
@@ -518,6 +531,7 @@
   - type: ShortConstruction
     entries:
     - prototype: SheetRUGlass0
+      closeUiOnSelect: false
     - prototype: UraniumWindow
     - prototype: UraniumWindowDiagonal
     - prototype: UraniumWindowDirectional

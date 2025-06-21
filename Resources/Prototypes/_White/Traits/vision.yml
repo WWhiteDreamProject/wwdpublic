@@ -9,4 +9,4 @@
   functions:
     - !type:TraitAddComponent
       components:
-        - type: StudioVisor
+        - type: StudioVisorOverlay

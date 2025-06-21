@@ -22,7 +22,7 @@
   - type: StorageFill
     contents:
     - id: BoxSurvivalEngineering
-    - id: WeaponShotgunDoubleBarreled
+    - id: WeaponShotgunBulldog # WWDP
     - id: BoxShotgunIncendiary
       amount: 2
     - id: GrenadeFlashBang
@@ -30,6 +30,9 @@
     - id: PillAmbuzolPlus
     - id: PillAmbuzol
       amount: 4
+    - id: MedicatedSuture # WWDP
+    - id: RegenerativeMesh # WWDP
+    - id: CrowbarRed # WWDP
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle

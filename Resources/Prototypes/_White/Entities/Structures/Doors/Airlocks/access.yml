@@ -1,0 +1,17 @@
+﻿- type: entity
+  parent: AirlockMedical
+  id: AirlockMedicalSecurityLocked
+  suffix: Medical/Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMedicalSecurity ]
+
+- type: entity
+  parent: AirlockMedicalGlass
+  id: AirlockMedicalGlassSecurityLocked
+  suffix: Medical/Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMedicalSecurity ]
