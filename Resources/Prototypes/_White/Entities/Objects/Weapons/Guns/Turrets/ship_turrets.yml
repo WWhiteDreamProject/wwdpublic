@@ -4,7 +4,7 @@
   suffix: Naval, Remote Controlled
   abstract: true
   name: ship turret
-  description:  A remotely-operated turret designed to accept light anti-ship and anti-infantry weapons. Sports a universal power interface, allowing inserted weapons to draw power from the turret instead of using their own battery.
+  description: A remotely-operated turret designed to accept anti-ship weapons.
   components:
   - type: Clickable
   - type: InteractionOutline
@@ -141,17 +141,19 @@
   - type: ModularTurret
     slot: weapon_slot
   - type: Battery
-    maxCharge: 1000
+    maxCharge: 10000
     startingCharge: 0
   - type: ApcPowerReceiverBattery
-    idleLoad: 5
-    batteryRechargeRate: 100
+    idleLoad: 50
+    batteryRechargeRate: 1000
     batteryRechargeEfficiency: 2.45
   - type: ApcPowerReceiver
-    powerLoad: 5
+    powerLoad: 50
   - type: Machine
     board: WeaponTurretShipLightCircuitBoard
-
+  - type: UpgradeBattery
+    maxChargeMultiplier: 2
+    baseMaxCharge: 10000
 - type: entity
   id: WeaponTurretShipLightCircuitBoard
   parent: BaseMachineCircuitboard
@@ -164,8 +166,8 @@
     prototype: WeaponTurretShipLight
     requirements:
       MatterBin: 1
-      Manipulator: 3
-      Capacitor: 1
+      Manipulator: 2
+      Capacitor: 3
     materialRequirements:
       Cable: 5
       Steel: 10

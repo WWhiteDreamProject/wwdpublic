@@ -58,7 +58,7 @@
         volume: -5
   - type: ProjectileContainerBatteryAmmoProvider
     proto: BulletLaser
-    fireCost: 15
+    fireCost: 80
   - type: ModularTurretWeapon
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/IR_laser.rsi
 
@@ -87,7 +87,7 @@
         volume: -5
   - type: ProjectileContainerBatteryAmmoProvider
     proto: BulletWeakRocket
-    fireCost: 100
+    fireCost: 1000
   - type: ModularTurretWeapon
     dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\annihilator.rsi
 
@@ -115,7 +115,7 @@
         volume: -10
   - type: HitscanContainerBatteryAmmoProvider
     proto: RedMiningLaser
-    fireCost: 35
+    fireCost: 350
   - type: ModularTurretWeapon
     dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\mining_laser.rsi
 
@@ -156,7 +156,7 @@
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
   - type: HitscanContainerBatteryAmmoProvider
     proto: RiftLanceBeam
-    fireCost: 800
+    fireCost: 8000
   - type: ModularTurretWeapon
     dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\rift_lance.rsi
 
@@ -243,7 +243,7 @@
         volume: -4
   - type: ProjectileContainerBatteryAmmoProvider
     proto: BulletHotspot
-    fireCost: 27.5
+    fireCost: 275
   - type: ModularTurretWeapon
     dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\hotspot.rsi
 
@@ -295,7 +295,7 @@
         volume: 0
   - type: ProjectileContainerBatteryAmmoProvider
     proto: BulletHighCaliberWeak
-    fireCost: 50
+    fireCost: 500
   - type: ModularTurretWeapon
     dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\lmg.rsi
 

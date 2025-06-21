@@ -1,41 +1,3 @@
-#- type: entity
-#  parent: BaseComputerCircuitboard
-#  id: RemoteControlConsoleCircuitboard
-#  name: remote control console computer board
-#  components:
-#  - type: ComputerBoard
-#    prototype: ComputerRemoteControl
-#  #- type: ReverseEngineering # Nyano
-#  #  difficulty: 2
-#  #  recipes:
-#  #     - RadarConsoleCircuitboard
-#
-#- type: entity
-#  id: ActionEndRemoteControl
-#  name: End remote control
-#  description: Ends remote control
-#  categories: [ HideSpawnMenu ]
-#  components:
-#  - type: InstantAction
-#    itemIconStyle: NoItem
-#    icon:
-#      sprite: Interface/Actions/actions_mecha.rsi
-#      state: mech_eject
-#    event: !type:RemoteControlExitActionEvent
-#
-#- type: entity
-#  id: RemoteControlConsoleSwitchToNextAction
-#  name: Next
-#  description: Switch to next controllable
-#  categories: [ HideSpawnMenu ]
-#  components:
-#  - type: InstantAction
-#    itemIconStyle: NoItem
-#    icon:
-#      sprite: Interface/Actions/actions_mecha.rsi
-#      state: mech_cycle_equip_off
-#    event: !type:RemoteControlConsoleSwitchNextActionEvent
-
 
 - type: sourcePort
   id: RemoteControlSourcePort
@@ -47,30 +9,6 @@
   id: RemoteControlSinkPort
   name: signal-port-name-remote-control-sink
   description: signal-port-description-remote-control-sink
-
-#- type: entity
-#  parent: BaseWeaponBallisticTurret3D
-#  id: WeaponTurretRC
-#  suffix: Remote-Controlled
-#  components:
-#  - type: RemoteControllable
-#  - type: HTN
-#    enabled: false
-#
-
-- type: entity
-  name: ship laser turret
-  parent: [BaseWeaponEnergyTurret, InnateMassScanner90]
-  id: BaseWeaponEnergyTurretShip
-  abstract: true
-  suffix: Remote Controlled
-  components:
-  - type: RemoteControllable
-  - type: RemoteControlOverlay
-  - type: HTN # since there is no functionality to discard inherited components, we just disable HTN instead
-    enabled: false
-  - type: MouseRotator
-    angleTolerance: 0.5
 
 - type: entity
   id: InnateMassScanner
