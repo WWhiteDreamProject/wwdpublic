@@ -54,6 +54,7 @@
     tags:
       - CaneBlade
   - type: DisarmMalus
+  - type: Execution # WWDP
 
 - type: entity
   parent: Cane

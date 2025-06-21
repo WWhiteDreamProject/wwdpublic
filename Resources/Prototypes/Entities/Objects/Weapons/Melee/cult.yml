@@ -8,6 +8,7 @@
     tags:
     - FireAxe
   - type: Sharp
+  - type: Execution # WWDP
   - type: Sprite
     sprite: Objects/Weapons/Melee/cult_halberd.rsi
     state: icon

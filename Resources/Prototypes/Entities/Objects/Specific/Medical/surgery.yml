@@ -136,6 +136,7 @@
   - type: EmbedPassiveDamage
   - type: ThrowingAngle
     angle: 90
+  - type: Execution # WWDP
   # Shitmed Change
   - type: SurgeryTool
     startSound:

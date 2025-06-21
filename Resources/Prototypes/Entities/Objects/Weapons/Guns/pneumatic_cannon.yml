@@ -116,7 +116,7 @@
     containers:
       storagebase: !type:Container
         ents: []
-  - type: Execution
+  # - type: Execution # WWDP
 
 - type: entity
   name: syringe gun
