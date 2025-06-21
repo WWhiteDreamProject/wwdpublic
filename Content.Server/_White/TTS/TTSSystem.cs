@@ -121,7 +121,7 @@ public sealed partial class TTSSystem : EntitySystem
 
             EntityManager.TryGetComponent(session.AttachedEntity.Value, out LanguageSpeakerComponent? lang);
             if (_language.CanUnderstand(new(session.AttachedEntity.Value, lang), language.ID)
-                && distance < ChatSystem.WhisperClearRange)
+                && distance <= ChatSystem.WhisperClearRange)
                 nilter.AddPlayer(session);
             else
                 lilter.AddPlayer(session);
