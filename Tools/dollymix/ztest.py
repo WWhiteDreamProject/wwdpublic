@@ -1,23 +1,23 @@
 from PIL import Image
 import os, sys
 
-path = os.getcwd()+"\\"
+path = os.getcwd()
 basefile = "dollymix"
 ext = ".png"
 size = int(input("size: "))
 offset = float(input("offset: "))
 repeat = int(input("repeat: "))
 
-base = Image.open(path+basefile+ext)
+base = Image.open(os.path.concat(path,basefile+ext)))
 
 reverse = size > 0
 size = abs(size)
 
 amount = base.height // size
 
-
-if not os.path.exists(path+"test"):
-    os.makedirs(path+"test")
+testfolder = os.path.concat(path, "test")
+if not os.path.exists(testfolder):
+    os.makedirs(testfolder)
 
 copies = 24
 scaleFactor = 4
@@ -33,4 +33,4 @@ for rot in range(copies):
             else:
                 out.alpha_composite(base.crop((0,size*i,base.width,size*(i+1))).resize((size*scaleFactor, size*scaleFactor), 0).rotate(angle), (0,vertOffset))
 
-    out.save(path+"test\\"+f"{angle:03}.png")
+    out.save(os.path.join(path, "test", f"{angle:03}.png"))

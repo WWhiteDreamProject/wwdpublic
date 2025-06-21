@@ -118,7 +118,7 @@
     lerpAmount: 0.25
   - type: Silicon
     entityType: enum.SiliconType.Player
-    batteryPowered: True
+    batteryPowered: true
     drainPerSecond: 2
     speedModifierThresholds:
       4: 1

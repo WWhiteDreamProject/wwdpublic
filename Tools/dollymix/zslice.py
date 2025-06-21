@@ -1,7 +1,7 @@
 from PIL import Image
 import os, sys
 
-path = os.getcwd()+"\\"
+path = os.getcwd()
 basefile = "dollymix"
 ext = ".png"
 size = int(input("size: "))
@@ -9,7 +9,7 @@ reverse = size > 0
 size = abs(size)
 
 
-base = Image.open(path+basefile+ext)
+base = Image.open(os.path.concat(path,basefile+ext))
 amount = base.height // size
 
 states = []
@@ -20,12 +20,13 @@ for i in range(amount):
     states.append(name)
     print(filename)
     if(reverse):
-        base.crop((0,size*(amount-1-i),base.width,size*(amount-i))).save(path+filename)
+        base.crop((0,size*(amount-1-i),base.width,size*(amount-i))).save(os.path.concat(path,filename))
     else:
-        base.crop((0,size*i,base.width,size*(i+1))).save(path+filename)
+        base.crop((0,size*i,base.width,size*(i+1))).save(os.path.concat(path,filename))
 
-if os.path.exists(path+basefile+"-unshaded"+ext):
-    base = Image.open(path+basefile+"-unshaded"+ext)
+unshadedfile = os.path.concat(path,basefile+"-unshaded"+ext)
+if os.path.exists(unshadedfile):
+    base = Image.open(unshadedfile)
     amount = base.height // size
 
     for i in range(amount):
@@ -34,12 +35,12 @@ if os.path.exists(path+basefile+"-unshaded"+ext):
         states.append(name)
         print(filename)
         if(reverse):
-            base.crop((0,size*(amount-1-i),base.width,size*(amount-i))).save(path+filename)
+            base.crop((0,size*(amount-1-i),base.width,size*(amount-i))).save(os.path.concat(path,filename))
         else:
-            base.crop((0,size*i,base.width,size*(i+1))).save(path+filename)
+            base.crop((0,size*i,base.width,size*(i+1))).save(os.path.concat(path,filename))
 
 if(len(states) == 0):
-    exit(0)
+    exit(1)
     
 metaheader = """{
   "version": 1,
@@ -56,9 +57,9 @@ metaterm = """
   ]
 }"""
 
-
-
-with  open(path+"meta.json", 'w') as metajson:
+states.append("icon")
+with  open(os.path.concat(path,"meta.json"), 'w') as metajson:
     metajson.write(metaheader)
     metajson.write(",\n".join([metaentry.format(state) for state in states]))
+    metajson.write()
     metajson.write(metaterm)

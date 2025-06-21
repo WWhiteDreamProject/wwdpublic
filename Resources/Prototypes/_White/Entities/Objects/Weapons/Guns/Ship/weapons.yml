@@ -51,7 +51,7 @@
     fireRate: 3.5
     selectedMode: FullAuto
     availableModes:
-      - FullAuto
+    - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
       params:
@@ -70,7 +70,7 @@
   description: Fires a spread of unguided flash-printed microrockets that cover a wide arc. Despite the low damage output, it should not be underestimated, as it can still deal a devastating blow in hands of a skilled fighter pilot.  
   components:
   - type: Sprite
-    sprite: _White\Objects\Weapons\Guns\Turrets\annihilator.rsi
+    sprite: _White/Objects/Weapons/Guns/Turrets/annihilator.rsi
     state: icon
   - type: Gun
     selectedMode: Burst
@@ -89,7 +89,7 @@
     proto: BulletWeakRocket
     fireCost: 1000
   - type: ModularTurretWeapon
-    dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\annihilator.rsi
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/annihilator.rsi
 
 
 - type: entity
@@ -99,7 +99,7 @@
   description: A cheap utility laser, excels at melting loose rock and cutting various salvage into pieces, but performs poorly against softer targets. Has a rather short focus range, making it ill-suited for combat use. 
   components:
   - type: Sprite
-    sprite: _White\Objects\Weapons\Guns\Turrets\mining_laser.rsi
+    sprite: _White/Objects/Weapons/Guns/Turrets/mining_laser.rsi
     state: icon
   - type: Gun
     fireRate: 5
@@ -108,7 +108,7 @@
     maxAngle: 40
     selectedMode: FullAuto
     availableModes:
-      - FullAuto
+    - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
       params:
@@ -117,7 +117,7 @@
     proto: RedMiningLaser
     fireCost: 350
   - type: ModularTurretWeapon
-    dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\mining_laser.rsi
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/mining_laser.rsi
 
 # I'll put the mining beam prototype right after the mining laser itself to
 # make it obvious what it does.
@@ -145,20 +145,20 @@
   description: We commit this body to the holy vaccuum, dust to dust, stars to stars, that the Creator may renew our us in the cycle of eternal life. - Luddic funereal prayer, traditional.
   components:
   - type: Sprite
-    sprite: _White\Objects\Weapons\Guns\Turrets\rift_lance.rsi
+    sprite: _White/Objects/W/apons/Guns/Turrets/rift_lance.rsi
     state: icon
   - type: Gun
     fireRate: 0.1
     selectedMode: FullAuto
     availableModes:
-      - FullAuto
+    - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
   - type: HitscanContainerBatteryAmmoProvider
     proto: RiftLanceBeam
     fireCost: 8000
   - type: ModularTurretWeapon
-    dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\rift_lance.rsi
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/rift_lance.rsi
 
 # I'll put the rift lance beam prototype right after the rift lance itself to
 # make it obvious why it should *not* be given to players.
@@ -227,7 +227,7 @@
   description: A rapid fire ballistic weapon effective against soft targets. A respectable close-in weapon system, it's effectiveness is severely limited by poor accuracy and low damage against any substantial armor. 
   components:
   - type: Sprite
-    sprite: _White\Objects\Weapons\Guns\Turrets\hotspot.rsi
+    sprite: _White/Objects/Weapons/Guns/Turrets/hotspot.rsi
     state: icon
   - type: Gun
     fireRate: 20
@@ -236,7 +236,7 @@
     maxAngle: 40
     selectedMode: FullAuto
     availableModes:
-      - FullAuto
+    - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
       params:
@@ -245,7 +245,7 @@
     proto: BulletHotspot
     fireCost: 275
   - type: ModularTurretWeapon
-    dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\hotspot.rsi
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/hotspot.rsi
 
 - type: entity
   id: BulletHotspot
@@ -279,7 +279,7 @@
   description: A staple of infantry support weaponry, this weapon is a well-rounded option for any type of job. 
   components:
   - type: Sprite
-    sprite: _White\Objects\Weapons\Guns\Turrets\lmg.rsi
+    sprite: _White/Objects/Weapons/Guns/Turrets/lmg.rsi
     state: icon
   - type: Gun
     fireRate: 5
@@ -288,7 +288,7 @@
     maxAngle: 25
     selectedMode: FullAuto
     availableModes:
-      - FullAuto
+    - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
       params:
@@ -297,7 +297,7 @@
     proto: BulletHighCaliberWeak
     fireCost: 500
   - type: ModularTurretWeapon
-    dollyMixSprite: _White\Objects\Weapons\Guns\Turrets\lmg.rsi
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/lmg.rsi
 
 
 

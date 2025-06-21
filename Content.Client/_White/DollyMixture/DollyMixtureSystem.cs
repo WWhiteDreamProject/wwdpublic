@@ -58,7 +58,6 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
             RemoveLayers(uid, comp);
 
         BuildLayers(uid, comp.RSIPath, comp);
-        comp.CurrentRSIPath = comp.RSIPath;
     }
 
     private void OnRemove(EntityUid uid, DollyMixtureComponent comp, ComponentRemove args)
@@ -130,7 +129,6 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
             return;
 
         var xform = Transform(uid);
-        comp.CurrentRSIPath = RsiPath;
         if (!_res.TryGetResource($"/Textures/{comp.RSIPath}", out RSIResource? RSIres))
         {
             Log.Error($"Failed to get RSI {$"/Textures/{comp.RSIPath}"} for a dolly mixture component.");
@@ -172,6 +170,7 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
             }
             i++;
         }
+        comp.CurrentRSIPath = RsiPath;
     }
 }
 
