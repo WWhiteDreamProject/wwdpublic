@@ -88,3 +88,6 @@ ent-DrinkMilkCarton = молоко
 ent-DrinkSoyMilkCarton = соевое молоко
     .desc = Белая и питательная соевая вкуснятина!
     .suffix = { "" }
+ent-CustomDrinkJug = кувшин для напитков
+    .desc = Кувшин для хранения напитков, приготовленных на заказ.
+    .suffix = { "" }

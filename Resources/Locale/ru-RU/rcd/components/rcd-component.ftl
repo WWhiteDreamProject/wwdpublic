@@ -52,8 +52,3 @@ rcd-category-DisposalUnits = Мусорные приборы
 rcd-component-deconstruct = демонтаж
 rcd-component-floor-steel = стальная плитка
 rcd-component-plating = лист обшивки
-
-# RPD naming
-
-ent-RapidPipeDispenser = РПД
-    .desc = Новейшее ручное строительное устройство, которое может быстро размещать трубы и атмосферные приборы.
