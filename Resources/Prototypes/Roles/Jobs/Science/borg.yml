@@ -15,6 +15,18 @@
   requirements:
   - !type:CharacterOverallTimeRequirement # WWDP
     min: 7200
+  special: # WWDP random lawset
+  - !type:AddComponentSpecial
+    components:
+    - type: RandomizeStartingLawset
+      lawsets:
+      - Asimov
+      - Augustine
+      - Crewsimov
+      - Corporate
+      - NTDefault
+      - NTAgressive
+      - EfficiencyLawset
 
 - type: job
   id: Borg

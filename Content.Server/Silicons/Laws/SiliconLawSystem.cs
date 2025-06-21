@@ -5,6 +5,7 @@ using Content.Shared.GameTicking;
 using Content.Server.Radio.Components;
 using Content.Server.Roles;
 using Content.Server.Station.Systems;
+using Content.Shared._White.Silicons.AI.Components;
 using Content.Shared._White.Silicons.Borgs.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Administration;
@@ -26,6 +27,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Toolshed;
 
 namespace Content.Server.Silicons.Laws;
@@ -42,6 +44,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!; // WD edit - AiRemoteControl
+    [Dependency] private readonly IRobustRandom _random = default!; // WWDP - random roundstart lawset
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -64,6 +67,8 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
     private void OnMapInit(EntityUid uid, SiliconLawBoundComponent component, MapInitEvent args)
     {
+        TryRandomizeLaws(uid); // WWDP
+
         GetLaws(uid, component);
     }
 
@@ -217,6 +222,18 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         if (!_roles.MindHasRole<SubvertedSiliconRoleComponent>(mindId))
             _roles.MindAddRole(mindId, "MindRoleSubvertedSilicon", silent: true);
     }
+
+    // WWDP edit start
+    public void TryRandomizeLaws(EntityUid uid)
+    {
+        if (!TryComp<SiliconLawProviderComponent>(uid, out var lawsProviderComp)
+            || !TryComp<RandomizeStartingLawsetComponent>(uid, out var randomLawsComp)
+            || randomLawsComp.Lawsets.Count == 0)
+            return;
+
+        lawsProviderComp.Laws = _random.Pick(randomLawsComp.Lawsets);
+    }
+    // WWDP edit end
 
     public SiliconLawset GetLaws(EntityUid uid, SiliconLawBoundComponent? component = null)
     {
