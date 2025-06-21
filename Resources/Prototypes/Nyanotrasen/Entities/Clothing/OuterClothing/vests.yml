@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterVestValet
   name: valet vest
   description: A goofy red vest almost certainly designed with the sole purpose of being demeaning.

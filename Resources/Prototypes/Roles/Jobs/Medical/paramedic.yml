@@ -7,9 +7,9 @@
     # - !type:RoleTimeRequirement # DeltaV - No Medical Doctor time requirement
     #   role: JobMedicalDoctor
     #   time: 14400 #4 hrs
-    - !type:CharacterDepartmentTimeRequirement # DeltaV - Medical dept time requirement
-      department: Medical
-      min: 28800 # DeltaV - 8 hours
+    # - !type:CharacterDepartmentTimeRequirement # DeltaV - Medical dept time requirement # WWDP
+    #   department: Medical
+    #   min: 28800 # DeltaV - 8 hours
     - !type:CharacterEmployerRequirement
       employers:
       - Interdyne

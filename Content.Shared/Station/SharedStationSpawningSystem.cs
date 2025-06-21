@@ -123,13 +123,14 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         if (startingGear.Storage.Count > 0)
         {
             var coords = _xformSystem.GetMapCoordinates(entity);
-            var ents = new ValueList<EntityUid>();
             _inventoryQuery.TryComp(entity, out var inventoryComp);
 
             foreach (var (slot, entProtos) in startingGear.Storage)
             {
                 if (entProtos.Count == 0)
                     continue;
+
+                var ents = new ValueList<EntityUid>(); // WWDP
 
                 foreach (var ent in entProtos)
                 {

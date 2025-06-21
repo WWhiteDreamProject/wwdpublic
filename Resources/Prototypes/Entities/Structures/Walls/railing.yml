@@ -24,6 +24,7 @@
         - TableMask
         layer:
         - TableLayer
+        - BulletImpassable # WWDP
   - type: InteractionOutline
   - type: Repairable
   - type: Damageable
@@ -60,7 +61,8 @@
   - type: RCDDeconstructable
     cost: 2
     delay: 2
-    fx: EffectRCDDeconstruct2  
+    fx: EffectRCDDeconstruct2
+  - type: RequireProjectileTarget # WWDP
 
 - type: entity
   parent: BaseStructure
@@ -97,6 +99,7 @@
         - TableMask
         layer:
         - TableLayer
+        - BulletImpassable # WWDP
   - type: InteractionOutline
   - type: Repairable
   - type: Damageable
@@ -133,7 +136,8 @@
   - type: RCDDeconstructable
     cost: 2
     delay: 2
-    fx: EffectRCDDeconstruct2  
+    fx: EffectRCDDeconstruct2
+  - type: RequireProjectileTarget # WWDP
 
 - type: entity
   parent: BaseStructure
@@ -161,6 +165,7 @@
         - TableMask
         layer:
         - TableLayer
+        - BulletImpassable # WWDP
   - type: InteractionOutline
   - type: Repairable
   - type: Damageable
@@ -197,8 +202,9 @@
   - type: RCDDeconstructable
     cost: 2
     delay: 2
-    fx: EffectRCDDeconstruct2  
-    
+    fx: EffectRCDDeconstruct2
+  - type: RequireProjectileTarget # WWDP
+
 - type: entity
   parent: BaseStructure
   id: RailingRound
@@ -240,6 +246,7 @@
           - TableMask
         layer:
           - TableLayer
+          - BulletImpassable # WWDP
   - type: InteractionOutline
   - type: Repairable
   - type: Damageable
@@ -276,4 +283,5 @@
   - type: RCDDeconstructable
     cost: 2
     delay: 2
-    fx: EffectRCDDeconstruct2  
+    fx: EffectRCDDeconstruct2
+  - type: RequireProjectileTarget # WWDP

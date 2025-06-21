@@ -22,14 +22,14 @@ public sealed partial class RadarConsoleComponent : Component
 
     // WWDP EDIT START
 
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public float FieldOfView = MathF.Tau;
 
     [DataField("fieldOfVision")]
     public float FieldOfViewDegrees
     {
         get => FieldOfView / MathF.PI * 180;
-        set { FieldOfView = value / 180 * MathF.PI; }
+        set => FieldOfView = value / 180 * MathF.PI;
     }
     // WWDP EDIT END
 

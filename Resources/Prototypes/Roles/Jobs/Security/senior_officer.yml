@@ -3,20 +3,20 @@
   name: job-name-senior-officer
   description: job-description-senior-officer
   playTimeTracker: JobSeniorOfficer
-  setPreference: true
+  setPreference: false # WWDP disabled role, not mapped
   requirements:
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobWarden
-      min: 21600 #6 hrs
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobDetective
-      min: 7200 #2 hrs
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobSecurityOfficer
-      min: 21600 #6 hrs
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
-      min: 216000 # 60 hrs
+    # - !type:CharacterPlaytimeRequirement # WWDP
+    #   tracker: JobWarden
+    #   min: 21600 #6 hrs
+    # - !type:CharacterPlaytimeRequirement
+    #   tracker: JobDetective
+    #   min: 7200 #2 hrs
+    # - !type:CharacterPlaytimeRequirement
+    #   tracker: JobSecurityOfficer
+    #   min: 21600 #6 hrs
+    # - !type:CharacterDepartmentTimeRequirement
+    #   department: Security
+    #   min: 216000 # 60 hrs
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
@@ -59,14 +59,13 @@
   - SecurityOfficerPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorOfficer
-    back: ClothingBackpackSecurity
+    back: ClothingBackpackSecurityFilled # WWDP
     shoes: ClothingShoesBootsJack # WWDP
     # eyes: ClothingEyesGlassesSecurity # WWDP
     head: ClothingHeadHatBeretSecurity
     # outerClothing: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier # WWDP
     id: SeniorOfficerPDA
     ears: ClothingHeadsetSecurity
-    belt: WeaponEnergyGunPistolSecurity  # WWDP
   innerClothingSkirt: ClothingUniformJumpskirtSeniorOfficer
   satchel: ClothingBackpackSatchelSecurity
   duffelbag: ClothingBackpackDuffelSecurity

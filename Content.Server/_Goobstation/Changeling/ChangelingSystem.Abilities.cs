@@ -34,15 +34,15 @@ namespace Content.Server.Changeling;
 
 public sealed partial class ChangelingSystem
 {
-    [Dependency] private SharedSuicideSystem _suicide = default!;
-
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<ChangelingComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
         SubscribeLocalEvent<ChangelingComponent, AbsorbDNAEvent>(OnAbsorb);
+        // WD EDIT START
         SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterFirstEvent>(OnFirstAbsorbDoAfter);
         SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterSecondEvent>(OnSecondAbsorbDoAfter);
         SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterThirdEvent>(OnThirdAbsorbDoAfter);
+        // WD EDIT END
         SubscribeLocalEvent<ChangelingComponent, ChangelingInfectTargetEvent>(OnInfect);
         SubscribeLocalEvent<ChangelingComponent, ChangelingInfectTargetDoAfterEvent>(OnInfectDoAfter);
         SubscribeLocalEvent<ChangelingComponent, StingExtractDNAEvent>(OnStingExtractDNA);
@@ -122,7 +122,7 @@ public sealed partial class ChangelingSystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        _popup.PopupEntity(Loc.GetString(comp.AbsorbStart), uid, uid);
+        _popup.PopupEntity(Loc.GetString(comp.AbsorbStart), uid, uid); // WD EDIT
         //PlayMeatySound(uid, comp); // WWDP EDIT
         var dargs = new DoAfterArgs(EntityManager, uid, comp.AbsorbTime, new AbsorbDNADoAfterFirstEvent(), uid, target)
         {
@@ -265,8 +265,10 @@ public sealed partial class ChangelingSystem
         }
         TryStealDNA(uid, target, comp, true);
         comp.TotalAbsorbedEntities++;
+        // WD EDIT START
         var popupOthers = Loc.GetString(comp.AbsorbPopupThird, ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
         _popup.PopupEntity(popupOthers, uid, comp.AbsorbPopupType);
+        // WD EDIT END
         _popup.PopupEntity(popup, args.User, args.User);
         comp.MaxChemicals += bonusChemicals;
 
@@ -485,7 +487,7 @@ public sealed partial class ChangelingSystem
         comp.IsInStasis = true;
         _suicide.ApplyLethalDamage(new(uid, damageable), "Asphyxiation"); // WWDP EDIT
     }
-    
+
     // WWDP EDIT START
     private void OnGhostAttempt(GhostAttemptHandleEvent args)
     {
@@ -496,7 +498,7 @@ public sealed partial class ChangelingSystem
         }
     }
     // WWDP EDIT END
-    
+
     private void OnExitStasis(EntityUid uid, ChangelingComponent comp, ref ExitStasisEvent args)
     {
         if (!comp.IsInStasis)

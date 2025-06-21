@@ -3,10 +3,11 @@
   name: job-name-roboticist
   description: job-description-roboticist
   playTimeTracker: JobRoboticist
+  setPreference: false # WWDP disabled role, not mapped
   requirements:
-  - !type:CharacterDepartmentTimeRequirement
-    department: Epistemics
-    min: 14400 # 4 hours - same as scientist
+  # - !type:CharacterDepartmentTimeRequirement # WWDP
+  #   department: Epistemics
+  #   min: 14400 # 4 hours - same as scientist
   - !type:CharacterEmployerRequirement
       employers:
       - ZavodskoiInterstellar

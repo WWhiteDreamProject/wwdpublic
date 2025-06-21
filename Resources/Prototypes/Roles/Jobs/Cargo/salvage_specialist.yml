@@ -4,9 +4,9 @@
   description: job-description-salvagespec
   playTimeTracker: JobSalvageSpecialist
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Logistics # DeltaV - Logistics Department replacing Cargo
-      min: 21600 #DeltaV 6 hrs
+    # - !type:CharacterDepartmentTimeRequirement # WWDP
+    #   department: Logistics # DeltaV - Logistics Department replacing Cargo
+    #   min: 21600 #DeltaV 6 hrs
     - !type:CharacterEmployerRequirement
       employers:
       - OrionExpress

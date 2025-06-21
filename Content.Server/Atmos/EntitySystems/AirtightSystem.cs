@@ -1,6 +1,5 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Explosion.EntitySystems;
-using Content.Shared._White;
 using Content.Shared.Atmos;
 using JetBrains.Annotations;
 using Robust.Shared.Map.Components;
@@ -21,7 +20,7 @@ namespace Content.Server.Atmos.EntitySystems
             SubscribeLocalEvent<AirtightComponent, ComponentShutdown>(OnAirtightShutdown);
             SubscribeLocalEvent<AirtightComponent, AnchorStateChangedEvent>(OnAirtightPositionChanged);
             SubscribeLocalEvent<AirtightComponent, ReAnchorEvent>(OnAirtightReAnchor);
-            SubscribeLocalEvent<AirtightComponent, MoveEventProxy>(OnAirtightMoved);
+            SubscribeLocalEvent<AirtightComponent, MoveEvent>(OnAirtightMoved);
         }
 
         private void OnAirtightInit(Entity<AirtightComponent> airtight, ref ComponentInit args)
@@ -82,7 +81,7 @@ namespace Content.Server.Atmos.EntitySystems
             }
         }
 
-        private void OnAirtightMoved(Entity<AirtightComponent> ent, ref MoveEventProxy ev)
+        private void OnAirtightMoved(Entity<AirtightComponent> ent, ref MoveEvent ev)
         {
             var (owner, airtight) = ent;
             airtight.CurrentAirBlockedDirection = (int) Rotate((AtmosDirection)airtight.InitialAirBlockedDirection, ev.NewRotation);

@@ -33,7 +33,7 @@
 - type: entity
   id: HeadMonkey
   name: "monkey head"
-  parent: [PartMonkey, BaseHead]
+  parent: [BaseHead, PartMonkey] # WWDP
   components:
   - type: Sprite
     sprite: Mobs/Animals/monkey.rsi

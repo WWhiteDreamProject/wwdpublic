@@ -43,7 +43,7 @@ public sealed partial class ClimbSystem : VirtualController
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
 
     private const string ClimbingFixtureName = "climb";
-    private const int ClimbingCollisionGroup = (int) (CollisionGroup.TableLayer | CollisionGroup.LowImpassable);
+    private const int ClimbingCollisionGroup = (int) CollisionGroup.MidImpassable; // WWDP same as lying down in StandingStateSystem
 
     private EntityQuery<FixturesComponent> _fixturesQuery;
     private EntityQuery<TransformComponent> _xformQuery;

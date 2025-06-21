@@ -148,7 +148,9 @@
     contents:
       # - id: Flash # WWDP
       - id: TelescopicBaton # WWDP
-      - id: MagazinePistol
+      # - id: MagazinePistol
+      - id: WeaponEnergyGunMultiphase # WWDP
+
 
 - type: entity
   categories: [ HideSpawnMenu ]

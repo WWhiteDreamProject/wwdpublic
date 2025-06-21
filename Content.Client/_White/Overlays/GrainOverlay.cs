@@ -1,8 +1,8 @@
+using Content.Shared._White.CCVar;
 using Robust.Client.Graphics;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
-using Content.Shared._White;
 
 namespace Content.Client._White.Overlays;
 

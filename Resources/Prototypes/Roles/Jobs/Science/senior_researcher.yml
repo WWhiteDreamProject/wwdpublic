@@ -3,10 +3,11 @@
   name: job-name-senior-researcher
   description: job-description-senior-researcher
   playTimeTracker: JobSeniorResearcher
+  setPreference: false # WWDP disabled role, not mapped
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Epistemics # DeltaV - Epistemics Department replacing Science
-      min: 216000 #60 hrs
+    # - !type:CharacterDepartmentTimeRequirement # WWDP
+    #   department: Epistemics # DeltaV - Epistemics Department replacing Science
+    #   min: 216000 #60 hrs
     - !type:CharacterEmployerRequirement
       employers:
       - NanoTrasen

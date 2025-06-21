@@ -21,8 +21,8 @@
     access: [["Cryogenics"]]
   - type: InteractionOutline
   - type: Cryostorage
-  - type: Physics
-    canCollide: false
+  # - type: Physics # WWDP
+  #   canCollide: false
   - type: DragInsertContainer
     containerId: storage
   - type: ExitContainerOnMove
@@ -42,6 +42,20 @@
         base:
           True: { state: sleeper_1 }
           False: { state: sleeper_0 }
+  - type: Climbable # WWDP
+  - type: Fixtures # WWDP
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable # can move through when climbing/prone
+        - BulletImpassable
+  - type: RequireProjectileTarget # WWDP
 
 # This one handles all spawns, latejoin and roundstart.
 - type: entity

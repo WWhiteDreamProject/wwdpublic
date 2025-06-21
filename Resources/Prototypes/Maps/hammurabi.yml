@@ -37,7 +37,7 @@
 #             Paramedic: [ 2, 3 ]
 #             Psychologist: [ 1, 1 ]
 #           #security
-#             Brigmedic: [ 1, 1 ]
+#             # Brigmedic: [ 1, 1 ] # WWDP
 #             Detective: [ 1, 1 ]
 #             HeadOfSecurity: [ 1, 1 ]
 #             Prisoner: [ 4, 6 ] # move back to 10, 12 when ready

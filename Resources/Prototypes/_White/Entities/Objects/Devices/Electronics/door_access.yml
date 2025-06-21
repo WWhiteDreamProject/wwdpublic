@@ -1,0 +1,7 @@
+﻿- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMedicalSecurity
+  suffix: Medical/Security, Locked
+  components:
+  - type: AccessReader
+    access: [["Medical"], ["Security"]]

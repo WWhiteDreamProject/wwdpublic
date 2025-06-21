@@ -1,6 +1,5 @@
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
-using Content.Shared._White;
 using Content.Shared.Actions;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
@@ -46,13 +45,13 @@ namespace Content.Server.Guardian
             SubscribeLocalEvent<GuardianCreatorComponent, GuardianCreatorDoAfterEvent>(OnDoAfter);
 
             SubscribeLocalEvent<GuardianComponent, ComponentShutdown>(OnGuardianShutdown);
-            SubscribeLocalEvent<GuardianComponent, MoveEventProxy>(OnGuardianMove);
+            SubscribeLocalEvent<GuardianComponent, MoveEvent>(OnGuardianMove);
             SubscribeLocalEvent<GuardianComponent, DamageChangedEvent>(OnGuardianDamaged);
             SubscribeLocalEvent<GuardianComponent, PlayerAttachedEvent>(OnGuardianPlayerAttached);
             SubscribeLocalEvent<GuardianComponent, PlayerDetachedEvent>(OnGuardianPlayerDetached);
 
             SubscribeLocalEvent<GuardianHostComponent, ComponentInit>(OnHostInit);
-            SubscribeLocalEvent<GuardianHostComponent, MoveEventProxy>(OnHostMove);
+            SubscribeLocalEvent<GuardianHostComponent, MoveEvent>(OnHostMove);
             SubscribeLocalEvent<GuardianHostComponent, MobStateChangedEvent>(OnHostStateChange);
             SubscribeLocalEvent<GuardianHostComponent, ComponentShutdown>(OnHostShutdown);
 
@@ -286,7 +285,7 @@ namespace Content.Server.Guardian
         /// <summary>
         /// Called every time the host moves, to make sure the distance between the host and the guardian isn't too far
         /// </summary>
-        private void OnHostMove(EntityUid uid, GuardianHostComponent component, ref MoveEventProxy args)
+        private void OnHostMove(EntityUid uid, GuardianHostComponent component, ref MoveEvent args)
         {
             if (!TryComp(component.HostedGuardian, out GuardianComponent? guardianComponent) ||
                 !guardianComponent.GuardianLoose)
@@ -300,7 +299,7 @@ namespace Content.Server.Guardian
         /// <summary>
         /// Called every time the guardian moves: makes sure it's not out of it's allowed distance
         /// </summary>
-        private void OnGuardianMove(EntityUid uid, GuardianComponent component, ref MoveEventProxy args)
+        private void OnGuardianMove(EntityUid uid, GuardianComponent component, ref MoveEvent args)
         {
             if (!component.GuardianLoose || component.Host == null)
                 return;

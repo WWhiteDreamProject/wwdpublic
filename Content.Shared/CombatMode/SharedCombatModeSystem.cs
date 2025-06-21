@@ -50,8 +50,9 @@ public abstract class SharedCombatModeSystem : EntitySystem
         if (!_netMan.IsClient || !Timing.IsFirstTimePredicted)
             return;
 
-        var msg = component.IsInCombatMode ? "action-popup-combat-enabled" : "action-popup-combat-disabled";
-        _popup.PopupEntity(Loc.GetString(msg), args.Performer, args.Performer);
+        // WWDP disabled popup
+        //var msg = component.IsInCombatMode ? "action-popup-combat-enabled" : "action-popup-combat-disabled";
+        //_popup.PopupEntity(Loc.GetString(msg), args.Performer, args.Performer);
     }
 
     public void SetCanDisarm(EntityUid entity, bool canDisarm, CombatModeComponent? component = null)

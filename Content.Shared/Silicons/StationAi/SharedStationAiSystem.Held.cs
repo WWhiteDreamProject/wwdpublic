@@ -176,7 +176,7 @@ public abstract partial class SharedStationAiSystem
         return true;
     }
 
-    private bool TryGetCore(EntityUid ent, out Entity<StationAiCoreComponent?> core)
+    public bool TryGetCore(EntityUid ent, out Entity<StationAiCoreComponent?> core) // WD EDIT
     {
         if (!_containers.TryGetContainingContainer((ent, null, null), out var container) ||
             container.ID != StationAiCoreComponent.Container ||

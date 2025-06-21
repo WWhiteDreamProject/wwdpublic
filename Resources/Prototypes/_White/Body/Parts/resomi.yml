@@ -32,7 +32,7 @@
 - type: entity
   id: HeadResomi
   name: "resomi head"
-  parent: [PartHuman, BaseHead]
+  parent: [BaseHead, PartHuman]
   components:
   - type: Sprite
     sprite: _White/Mobs/Species/Resomi/parts.rsi

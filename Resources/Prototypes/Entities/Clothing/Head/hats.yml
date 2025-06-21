@@ -261,6 +261,11 @@
     proto: robot
   - type: IdentityBlocker
   - type: IngestionBlocker
+  - type: Butcherable # WWDP
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCardboard1
+      amount: 2
 
 - type: entity
   parent: ClothingHeadBase

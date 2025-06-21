@@ -6,7 +6,7 @@
     edges:
     - to: bot
       steps:
-      - tag: ProximitySensor
+      - tag: ProximitySensor # WWDP edit moved sensor up
         icon:
           sprite: Objects/Misc/proximity_sensor.rsi
           state: icon

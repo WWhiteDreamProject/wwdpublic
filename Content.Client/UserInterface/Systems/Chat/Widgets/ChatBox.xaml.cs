@@ -1,5 +1,5 @@
 using Content.Client.UserInterface.Systems.Chat.Controls;
-using Content.Shared._White;
+using Content.Shared._White.CCVar;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Input;
@@ -63,7 +63,6 @@ public partial class ChatBox : UIWidget
         _chatStackList = new(_chatStackAmount);
         _cfg.OnValueChanged(CCVars.ChatStackLastLines, UpdateChatStack, true);
         _cfg.OnValueChanged(WhiteCVars.ChatFancyFont, value => { _chatFontEnabled = value; Repopulate(); }, true); // WWDP EDIT
-
     }
 
     private void UpdateChatStack(int value)

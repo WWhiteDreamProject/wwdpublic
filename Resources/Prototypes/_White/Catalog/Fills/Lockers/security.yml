@@ -1,0 +1,15 @@
+﻿- type: entity
+  id: LockerSecurityMedicineFilled
+  suffix: Filled
+  parent: LockerSecurityMedicine
+  components:
+  - type: StorageFill
+    contents:
+    - id: Brutepack
+      amount: 2
+    - id: Ointment
+      amount: 2
+    - id: Bloodpack
+      amount: 2
+    - id: Gauze
+    - id: BoxBodyBag

@@ -83,6 +83,7 @@
     entries:
     - prototype: Girder
     - prototype: MetalRod
+      closeUiOnSelect: false
     - category:
         name: Weapons
         icon:
@@ -103,8 +104,11 @@
           state: steel
         entries:
         - prototype: TileSteel
+          closeUiOnSelect: false
         - prototype: TileWhite
+          closeUiOnSelect: false
         - prototype: TileDark
+          closeUiOnSelect: false
     - category:
         name: Furniture
         icon:
@@ -347,9 +351,12 @@
     - prototype: ChairBrass
     - prototype: TableBrass
     - prototype: SheetClockworkGlass
+      closeUiOnSelect: false
     - prototype: ClockworkWindoor
     - prototype: TileBrassFilled
+      closeUiOnSelect: false
     - prototype: TileBrassReebe
+      closeUiOnSelect: false
     - prototype: PinionAirlock
 
 - type: entity

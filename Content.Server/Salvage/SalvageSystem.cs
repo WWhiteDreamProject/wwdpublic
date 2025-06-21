@@ -33,6 +33,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 using Content.Server.Labels;
+using Content.Server.Popups;
+
 
 namespace Content.Server.Salvage
 {
@@ -53,6 +55,7 @@ namespace Content.Server.Salvage
         [Dependency] private readonly LabelSystem _labelSystem = default!;
         [Dependency] private readonly MapLoaderSystem _map = default!;
         [Dependency] private readonly MetaDataSystem _metaData = default!;
+        [Dependency] private readonly PopupSystem _popup = default!; // WD EDIT
         [Dependency] private readonly RadioSystem _radioSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;

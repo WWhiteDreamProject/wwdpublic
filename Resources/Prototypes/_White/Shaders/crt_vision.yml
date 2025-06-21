@@ -1,0 +1,8 @@
+- type: shader
+  id: CRTVision
+  kind: source
+  path: "/Textures/_White/Shaders/crt_vision.swsl"
+  params:
+    SCANLINE_INTENSITY: 0.15
+    DISTORTION: 0.008
+    GLITCH_INTENSITY: 0.0

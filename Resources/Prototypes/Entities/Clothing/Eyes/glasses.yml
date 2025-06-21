@@ -83,9 +83,11 @@
     - HamsterWearable
     - WhitelistChameleon
     - GlassesNearsight
+  # WD EDIT START
   - type: Construction
     graph: PrescriptionHud
     node: start
+  # WD EDIT END
 
 - type: entity
   parent: ClothingEyesBase

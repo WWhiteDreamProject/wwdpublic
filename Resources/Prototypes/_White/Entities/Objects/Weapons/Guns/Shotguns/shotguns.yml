@@ -1,0 +1,12 @@
+- type: entity
+  name: improvised pistol
+  parent: WeaponShotgunHandmade
+  id: WeaponShotgunHandmadeEmpty
+  suffix: Empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Construction
+    graph: ImprovisedShotgunGraph
+    node: shotgunsawn
+    deconstructionTarget: null

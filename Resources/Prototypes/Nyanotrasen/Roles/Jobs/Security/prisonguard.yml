@@ -8,7 +8,7 @@
   canBeAntag: false
   icon: "JobIconPrisonGuard"
   supervisors: job-supervisors-warden
-  setPreference: true
+  setPreference: false # WWDP disabled role, not mapped
 #  whitelistRequired: true
   access:
   - Security
@@ -37,13 +37,12 @@
   - PrisonGuardPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitPrisonGuard
-    back: ClothingBackpackSecurity # WWDP
+    back: ClothingBackpackSecurityFilled # WWDP
     shoes: ClothingShoesBootsJack # WWDP
     # eyes: ClothingEyesGlassesSecurity # WWDP
     head: ClothingHeadPrisonGuard
     id: PrisonGuardPDA
     ears: ClothingHeadsetPrisonGuard #DeltaV
-    belt: WeaponEnergyGunPistolSecurity  # WWDP
   innerClothingSkirt: ClothingUniformJumpsuitPrisonGuard
   satchel: ClothingBackpackSatchelSecurity # WWDP
   duffelbag: ClothingBackpackDuffelSecurity # WWDP

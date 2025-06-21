@@ -38,7 +38,7 @@
         Heat: 0.8
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterVestCoatHop
   name: HoP's coat
   description: This coat was specifically designed for head of personnel.

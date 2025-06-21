@@ -17,19 +17,18 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 
-
 namespace Content.Client.Shuttles.UI;
 
 [GenerateTypedNameReferences]
 public sealed partial class ShuttleNavControl : BaseShuttleControl
 {
     [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IEyeManager _eye = default!;
+    [Dependency] private readonly IEyeManager _eye = default!; // WD EDIT
     [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
     private readonly StationSystem _station; // Frontier
     private readonly SharedShuttleSystem _shuttles;
     private readonly SharedTransformSystem _transform;
-    private readonly EntityLookupSystem _lookup;
+    private readonly EntityLookupSystem _lookup; // WD EDIT
 
     /// <summary>
     /// Used to transform all of the radar objects. Typically is a shuttle console parented to a grid.
@@ -142,8 +141,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         var fixturesQuery = EntManager.GetEntityQuery<FixturesComponent>();
         var bodyQuery = EntManager.GetEntityQuery<PhysicsComponent>();
 
-        GunComponent? ourGunComp = null;
-        EntManager.TryGetComponent(_coordinates.Value.EntityId, out ourGunComp);
+        EntManager.TryGetComponent<GunComponent>(_coordinates.Value.EntityId, out var ourGunComp); // WD EDIT
 
         if (!xformQuery.TryGetComponent(_coordinates.Value.EntityId, out var xform)
             || xform.MapID == MapId.Nullspace)
@@ -156,7 +154,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         var posMatrix = Matrix3Helpers.CreateTransform(offset, _rotation.Value);
         var (_, ourEntRot, ourEntMatrix) = _transform.GetWorldPositionRotationMatrix(_coordinates.Value.EntityId);
         var ourWorldMatrix = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
-        var ourWorldPos = ourWorldMatrix.Translation;
+        var ourWorldPos = ourWorldMatrix.Translation; // WD EDIT
         Matrix3x2.Invert(ourWorldMatrix, out var ourWorldMatrixInvert);
 
         // Draw our grid in detail
@@ -197,7 +195,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
         _grids.Clear();
         _mapManager.FindGridsIntersecting(xform.MapID, new Box2(mapPos.Position - MaxRadarRangeVector, mapPos.Position + MaxRadarRangeVector), ref _grids, approx: true, includeMap: false);
-        List<(Vector2, string, Color)> IFFLabels = new();
+        List<(Vector2, string, Color)> IFFLabels = new(); // WD EDIT
         // Draw other grids... differently
         foreach (var grid in _grids)
         {
@@ -212,7 +210,6 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
                 continue;
 
             var gridMatrix = _transform.GetWorldMatrix(gUid);
-            var invGridMatrix = _transform.GetInvWorldMatrix(gUid);
             var matty = Matrix3x2.Multiply(gridMatrix, ourWorldMatrixInvert);
             var color = _shuttles.GetIFFColor(grid, self: false, iff);
 
@@ -221,15 +218,17 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             // Hostile default: Color.Firebrick
             var labelName = _shuttles.GetIFFLabel(grid, self: false, iff);
 
+            // WD EDIT START
             var gridCentre = Vector2.Transform(gridBody.LocalCenter, matty);
-            bool gridInCone = Vector2.Normalize(gridCentre).Y >= MathF.Cos(FieldOfView / 2) || FieldOfView >= MathF.Tau;
+            var gridInCone = Vector2.Normalize(gridCentre).Y >= MathF.Cos(FieldOfView / 2) || FieldOfView >= MathF.Tau;
+            // WD EDITN END
 
             if (ShowIFF &&
                  labelName != null)
             {
                 var gridBounds = grid.Comp.LocalAABB;
 
-                if (gridInCone)
+                if (gridInCone) // WD EDIT
                 {
                     gridCentre.Y = -gridCentre.Y;
                     var distance = gridCentre.Length();
@@ -250,7 +249,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
                     uiPosition = new Vector2(Math.Clamp(uiPosition.X, 0f, PixelWidth - labelDimensions.X),
                         Math.Clamp(uiPosition.Y, 0f, PixelHeight - labelDimensions.Y));
 
-                    IFFLabels.Add((uiPosition, labelText, color));
+                    IFFLabels.Add((uiPosition, labelText, color)); // WD EDIT
                     //handle.DrawString(Font, uiPosition, labelText, color);
                 }
             }
@@ -267,44 +266,48 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
             // WWDP EDIT START
             // Leading pip
-            if (ourGunComp is GunComponent gun && gridInCone)
-            {
-                // This entire fucking draw method was written by a schizophrenic, i hate it here
-                var gridCenterWorld = Vector2.Transform(gridBody.LocalCenter, gridMatrix);
-                // https://math.stackexchange.com/a/1346509
-                var u1 = gridBody.LinearVelocity.Length();
-                var u2 = gun.ProjectileSpeedModified;
-                float dirToGrid = (float)Angle.FromWorldVec(gridCenterWorld - ourWorldPos).Theta;
-                var sinBeta = u1 / u2 * (float) Math.Sin(-Angle.FromWorldVec(-gridBody.LinearVelocity) + dirToGrid);
-                if (sinBeta > -1 && sinBeta < 1)
-                {
-                    float beta = MathF.Asin(sinBeta) + dirToGrid;
-                    Vector2 shootDir = new Vector2(MathF.Sin(beta), MathF.Cos(beta));
+            if (ourGunComp is not { } gun || !gridInCone)
+                continue;
 
-                    float t = (gridCenterWorld - ourWorldPos).Length() / (-gridBody.LinearVelocity + shootDir * gun.ProjectileSpeedModified).Length();
-                    if (gridBody.LinearVelocity.Length() * t <= 250) // arbitrary
-                    {
-                        var leadPosWorld = gridCenterWorld + gridBody.LinearVelocity * t;
+            // This entire fucking draw method was written by a schizophrenic, i hate it here
+            var gridCenterWorld = Vector2.Transform(gridBody.LocalCenter, gridMatrix);
+            // https://math.stackexchange.com/a/1346509
+            var u1 = gridBody.LinearVelocity.Length();
+            var u2 = gun.ProjectileSpeedModified;
 
-                        var leadPos = Vector2.Transform(leadPosWorld, ourWorldMatrixInvert);
-                        var scaledLeadPos = ScalePositionFlipY(leadPos);
-                        handle.DrawDottedLine(ScalePosition(gridCentre), scaledLeadPos, color, 0, 2, 8);
-                        handle.DrawCircle(scaledLeadPos, 4, color, false);
-                    }
-                }
-            }
+            var dirToGrid = (float)Angle.FromWorldVec(gridCenterWorld - ourWorldPos).Theta;
+            var sinBeta = u1 / u2 * (float) Math.Sin(-Angle.FromWorldVec(-gridBody.LinearVelocity) + dirToGrid);
+            if (!(sinBeta > -1) || !(sinBeta < 1))
+                continue;
+
+            var beta = MathF.Asin(sinBeta) + dirToGrid;
+            var shootDir = new Vector2(MathF.Sin(beta), MathF.Cos(beta));
+
+            var t = (gridCenterWorld - ourWorldPos).Length() / (-gridBody.LinearVelocity + shootDir * gun.ProjectileSpeedModified).Length();
+            if (!(gridBody.LinearVelocity.Length() * t <= 250)) // arbitrary
+                continue;
+
+            var leadPosWorld = gridCenterWorld + gridBody.LinearVelocity * t;
+
+            var leadPos = Vector2.Transform(leadPosWorld, ourWorldMatrixInvert);
+            var scaledLeadPos = ScalePositionFlipY(leadPos);
+            handle.DrawDottedLine(ScalePosition(gridCentre), scaledLeadPos, color, 0, 2, 8);
+            handle.DrawCircle(scaledLeadPos, 4, color, false);
             // WWDP EDIT END
         }
         // WWDP EDIT START
-        var wtf = Matrix3x2.Multiply(ourWorldMatrixInvert, Matrix3x2.CreateScale(new Vector2(1,-1)));
-        var projectiles = _lookup.GetEntitiesInRange<ProjectileComponent>(_coordinates.Value, 256f, LookupFlags.All);
-        Vector2[] verts = new Vector2[projectiles.Count*4];
-        int i = 0;
+
+        var multiply = Matrix3x2.Multiply(ourWorldMatrixInvert, Matrix3x2.CreateScale(new Vector2(1,-1)));
+        var projectiles = _lookup.GetEntitiesInRange<ProjectileComponent>(_coordinates.Value, 256f);
+        var verts = new Vector2[projectiles.Count*4];
+
+        var i = 0;
         foreach (var proj in projectiles)
         {
-            if (EntManager.TryGetComponent<MapGridComponent>(_transform.GetParent(proj)?.Owner, out _))
+            if (EntManager.TryGetComponent<MapGridComponent>(_transform.GetParentUid(proj), out _))
                 continue;
-            var pos = ScalePosition(Vector2.Transform(_transform.GetWorldPosition(proj), wtf));
+
+            var pos = ScalePosition(Vector2.Transform(_transform.GetWorldPosition(proj), multiply));
             verts[i * 4] = pos + new Vector2(2, 2);
             verts[i * 4+1] = pos + new Vector2(-2, -2);
             verts[i * 4+2] = pos + new Vector2(2, -2);
@@ -316,7 +319,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         if (FieldOfView < MathF.Tau)
         {
             const int segments = 5;
-            Vector2[] hidesey = new Vector2[segments + 2];
+            var hidesey = new Vector2[segments + 2];
             hidesey[0] = MidPointVector;
             for (i = 0; i < segments + 1; i++)
             {

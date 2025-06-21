@@ -152,9 +152,9 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: ExtendDescription
-    descriptionList:
-      - description: "gun-suppressed"
-        fontSize: 10
-        color: "#ff4f00"
-        requireDetailRange: false
+  # - type: ExtendDescription # WWDP
+  #   descriptionList:
+  #     - description: "gun-suppressed"
+  #       fontSize: 10
+  #       color: "#ff4f00"
+  #       requireDetailRange: false

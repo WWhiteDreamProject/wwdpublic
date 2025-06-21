@@ -31,7 +31,7 @@
 - type: entity
   id: HeadGingerbread
   name: "gingerbread head"
-  parent: [PartGingerbread, BaseHead]
+  parent: [BaseHead, PartGingerbread] # WWDP
   components:
   - type: Sprite
     sprite: Mobs/Species/Gingerbread/parts.rsi

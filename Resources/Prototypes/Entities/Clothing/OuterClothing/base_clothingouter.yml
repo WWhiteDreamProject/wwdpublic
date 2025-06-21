@@ -9,6 +9,18 @@
   - type: Sprite
     state: icon
 
+# WWDP butcherable parent
+- type: entity
+  abstract: true
+  parent: ClothingOuterBase
+  id: ClothingOuterBaseButcherable
+  components:
+  - type: Butcherable # WWDP
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 4
+
 - type: entity
   abstract: true
   parent: ClothingOuterBase
@@ -40,7 +52,7 @@
 
 - type: entity
   abstract: true
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterStorageBase
   components:
   - type: Storage
@@ -59,7 +71,7 @@
 
 - type: entity
   abstract: true
-  parent: [ClothingOuterBase, BaseFoldable]
+  parent: [ClothingOuterBaseButcherable, BaseFoldable] # WWDP
   id: ClothingOuterFoldableBase
   components:
   - type: Appearance
@@ -134,9 +146,9 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.01
+    coefficient: 0.2 # WWDP
   - type: FireProtection
-    reduction: 0.75 # almost perfectly sealed, atmos firesuit is better
+    reduction: 0.5 # WWDP
   - type: IgniteFromGasImmunity
     parts:
     - Torso
@@ -324,7 +336,7 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.01 # Not complete protection from fire
+    coefficient: 0.2 # WWDP
   - type: IgniteFromGasImmunity
     parts:
     - Torso
@@ -367,7 +379,7 @@
         friction: 0.2
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterBaseToggleable
   name: hoodie with hood
   abstract: True

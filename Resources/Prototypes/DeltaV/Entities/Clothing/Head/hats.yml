@@ -32,7 +32,7 @@
     sprite: DeltaV/Clothing/Head/Hats/whitefedora.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable # WWDP
   id: ClothingHeadHatFlatBlack
   name: black flat cap
   description: A black flat cap, for driving cabs and delivering the papers.
@@ -43,7 +43,7 @@
     sprite: DeltaV/Clothing/Head/Hats/flatblack.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable # WWDP
   id: ClothingHeadHatFlatBrown
   name: brown flat cap
   description: A brown flat cap, for driving cabs and delivering the papers.
@@ -54,7 +54,7 @@
     sprite: DeltaV/Clothing/Head/Hats/flatbrown.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable # WWDP
   id: ClothingHeadHatFlatSyndie
   name: black flat cap
   suffix: Weapon
@@ -71,7 +71,7 @@
         Slash: 8
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable # WWDP
   id: ClothingHeadHatSurgcapBlack
   name: surgical cap
   description: A black cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
@@ -82,7 +82,7 @@
     sprite: DeltaV/Clothing/Head/Hats/surgcap_black.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable # WWDP
   id: ClothingHeadHatSurgcapCyan
   name: surgical cap
   description: A cyan cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
@@ -93,7 +93,7 @@
     sprite: DeltaV/Clothing/Head/Hats/surgcap_cyan.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable # WWDP
   id: ClothingHeadHatSurgcapCybersun
   name: surgical cap
   description: A surgical cap worn by members of Cybersun's Biotechnology division.
@@ -104,7 +104,7 @@
     sprite: DeltaV/Clothing/Head/Hats/surgcap_cybersun.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable # WWDP
   id: ClothingHeadHatSurgcapPink
   name: surgical cap
   description: A pink cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
@@ -115,7 +115,7 @@
     sprite: DeltaV/Clothing/Head/Hats/surgcap_pink.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable # WWDP
   id: ClothingHeadHatSurgcapRainbow
   name: surgical cap
   description: A rainbow cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
@@ -126,7 +126,7 @@
     sprite: DeltaV/Clothing/Head/Hats/surgcap_rainbow.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable # WWDP
   id: ClothingHeadHatSurgcapWhite
   name: surgical cap
   description: A black cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
@@ -137,7 +137,7 @@
     sprite: DeltaV/Clothing/Head/Hats/surgcap_white.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable # WWDP
   id: ClothingHeadCourier
   name: courier's cap
   description: Special delivery.
@@ -148,7 +148,7 @@
     sprite: DeltaV/Clothing/Head/Soft/couriersoft.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable # WWDP
   id: ClothingHeadCourierFlipped
   name: courier's cap flipped
   description: Special delivery.
@@ -161,7 +161,7 @@
     equippedPrefix: flipped
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable # WWDP
   id: ClothingHeadHatDirCap
   name: director's cap
   description: A green cap with a director's rank emblem, belonging to a high-ranking member of Central Command. Whoever it is, they mean business.
@@ -172,7 +172,7 @@
     sprite: DeltaV/Clothing/Head/Hats/dircap.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable # WWDP
   id: ClothingHeadHatBeretLogi
   name: logistics beret
   description: For the intellectual and studious accountant. Definitely not a revolutionary symbol.
@@ -183,7 +183,7 @@
     sprite: DeltaV/Clothing/Head/Hats/beret_lo.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable # WWDP
   id: ClothingHeadHatBeretCorpsman
   name: corpsman beret
   description: For style-conscious combat lifesavers and medical specialists alike.
@@ -194,7 +194,7 @@
     sprite: DeltaV/Clothing/Head/Hats/beret_corpsman.rsi
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadBaseButcherable # WWDP
   id: ClothingHeadHatCJToque
   name: chief justice's toque
   description: A standard-issue judicial hat. Wigs are old-fashioned anyway.

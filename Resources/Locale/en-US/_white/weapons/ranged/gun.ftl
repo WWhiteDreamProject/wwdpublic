@@ -20,3 +20,4 @@ gun-ballistic-full = Full!
 gun-ballistic-empty = Empty!
 
 ammo-top-round-examine = It has a [color={$color}]{ $round }[/color] loaded on top.
+

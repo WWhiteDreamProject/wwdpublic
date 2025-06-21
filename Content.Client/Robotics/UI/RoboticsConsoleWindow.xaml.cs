@@ -77,6 +77,16 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
         if (_selected is {} selected && !_cyborgs.ContainsKey(selected))
             _selected = null;
 
+        // WD edit - AiRemoteControl-Start
+        var isAiControllable = false;
+
+        if (_selected != null)
+        {
+            _cyborgs.TryGetValue(_selected, out var data);
+            isAiControllable = data.IsAiControllable;
+        }
+        // WD edit - AiRemoteControl-End
+
         var hasCyborgs = _cyborgs.Count > 0;
         NoCyborgs.Visible = !hasCyborgs;
         CyborgsContainer.Visible = hasCyborgs;

@@ -126,9 +126,9 @@
     Shock: 0 #glass is an insulator!
   flatReductions:
     Slash: 5
-    Piercing: 5
+    # Piercing: 5 # WWDP fragile
     Heat: 5
-    Structural: 5
+    # Structural: 5 # WWDP
 
 - type: damageModifierSet
   id: RGlass

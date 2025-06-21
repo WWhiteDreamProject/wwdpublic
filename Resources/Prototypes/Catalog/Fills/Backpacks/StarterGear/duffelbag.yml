@@ -68,7 +68,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: Flash # WWDP
+      # - id: Flash # WWDP
       #- name: StationCharter
       - id: TelescopicBaton # WWDP
 
@@ -131,7 +131,8 @@
     contents:
       # - id: Flash # WWDP
       - id: TelescopicBaton # WWDP
-      - id: MagazinePistol
+      #- id: MagazinePistol # WWDP
+      - id: WeaponEnergyGunMultiphase # WWDP
 
 - type: entity
   categories: [ HideSpawnMenu ]

@@ -225,7 +225,7 @@ public sealed partial class MeleeWeaponSystem
             if (arcComponent.User is not EntityUid user || TerminatingOrDeleted(user)) // wwdp edit
                 continue;
 
-            Vector2 targetPos = TransformSystem.GetWorldPosition(user);
+            Vector2 targetPos = TransformSystem.GetWorldPosition(user); // WD EDIT
 
             if (arcComponent.Offset != Vector2.Zero)
             {

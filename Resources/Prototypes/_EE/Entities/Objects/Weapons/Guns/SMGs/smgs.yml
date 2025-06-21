@@ -56,12 +56,12 @@
   - type: Item
     size: Large
     shape: null
-  - type: ExtendDescription
-    descriptionList:
-      - description: "gun-suppressed"
-        fontSize: 10
-        color: "#ff4f00"
-        requireDetailRange: false
+  # - type: ExtendDescription # WWDP
+  #   descriptionList:
+  #     - description: "gun-suppressed"
+  #       fontSize: 10
+  #       color: "#ff4f00"
+  #       requireDetailRange: false
 
 - type: entity
   name: FPA-90 sub machine gun
@@ -153,12 +153,12 @@
         whitelist:
           tags:
             - CartridgeCaselessRifle
-  - type: ExtendDescription
-    descriptionList:
-      - description: "gun-suppressed"
-        fontSize: 10
-        color: "#ff4f00"
-        requireDetailRange: false
+  # - type: ExtendDescription # WWDP
+  #   descriptionList:
+  #     - description: "gun-suppressed"
+  #       fontSize: 10
+  #       color: "#ff4f00"
+  #       requireDetailRange: false
   - type: Item # WWDP guns resize
     shape:
     - 0,0,5,1 # SMG sized

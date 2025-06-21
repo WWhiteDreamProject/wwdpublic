@@ -9,7 +9,7 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
   - type: TemperatureProtection
-    coefficient: 0.1
+    coefficient: 0.5 # WWDP
   - type: Item
     size: Normal
   - type: Armor

@@ -1,0 +1,4 @@
+- type: sinkPort
+  id: RemoteControlOutputPort
+  name: signal-port-name-remote-control-output
+  description: signal-port-description-remote-control-output

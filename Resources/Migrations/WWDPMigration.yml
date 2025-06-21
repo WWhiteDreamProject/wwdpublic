@@ -63,4 +63,11 @@ UniqueLockerBlueshieldOfficerFilled: null
 UniqueLockerMagistrateFilled: null
 ClothingOuterHardsuitBlueshield: null
 AntimovCircuitBoard: null
-ClothingShoesGaloshes: null # munch begone
+
+# 14-06-2024
+ModularTrigger: null
+
+# 18-06-2025
+LockerBrigmedic: LockerSecurityMedicine
+LockerBrigmedicFilled: LockerSecurityMedicineFilled
+LockerBrigmedicFilledHardsuit: LockerSecurityMedicineFilled

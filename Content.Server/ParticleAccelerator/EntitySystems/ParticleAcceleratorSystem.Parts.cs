@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Server.ParticleAccelerator.Components;
-using Content.Shared._White;
 using JetBrains.Annotations;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Events;
@@ -15,7 +14,7 @@ public sealed partial class ParticleAcceleratorSystem
     private void InitializePartSystem()
     {
         SubscribeLocalEvent<ParticleAcceleratorPartComponent, ComponentShutdown>(OnComponentShutdown);
-        SubscribeLocalEvent<ParticleAcceleratorPartComponent, MoveEventProxy>(OnMoveEvent);
+        SubscribeLocalEvent<ParticleAcceleratorPartComponent, MoveEvent>(OnMoveEvent);
         SubscribeLocalEvent<ParticleAcceleratorPartComponent, PhysicsBodyTypeChangedEvent>(BodyTypeChanged);
     }
 
@@ -168,7 +167,7 @@ public sealed partial class ParticleAcceleratorSystem
             RescanParts(comp.Master!.Value);
     }
 
-    private void OnMoveEvent(EntityUid uid, ParticleAcceleratorPartComponent comp, ref MoveEventProxy args)
+    private void OnMoveEvent(EntityUid uid, ParticleAcceleratorPartComponent comp, ref MoveEvent args)
     {
         if (EntityManager.EntityExists(comp.Master))
             RescanParts(comp.Master!.Value);

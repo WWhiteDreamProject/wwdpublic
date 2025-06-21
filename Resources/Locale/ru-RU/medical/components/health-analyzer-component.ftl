@@ -1,8 +1,8 @@
 health-analyzer-window-no-patient-data-text = Пациент отсутствует
 health-analyzer-window-entity-unknown-text = неизвестный
-health-analyzer-window-entity-health-text = Состояние {$entityName}:
-health-analyzer-window-entity-temperature-text = Температура: {$temperature}
-health-analyzer-window-entity-blood-level-text = Уровень крови: {$bloodLevel}
+health-analyzer-window-entity-status-text = Состояние:
+health-analyzer-window-entity-temperature-text = Температура:
+health-analyzer-window-entity-blood-level-text = Уровень крови:
 health-analyzer-window-entity-bleeding-text = Пациент истекает кровью!
 health-analyzer-window-entity-damage-total-text = Общие повреждения
 health-analyzer-window-damage-group-text = {$damageGroup}: {$amount}

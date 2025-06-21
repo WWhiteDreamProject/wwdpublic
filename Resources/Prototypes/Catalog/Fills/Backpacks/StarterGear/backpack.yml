@@ -21,7 +21,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: MagazinePistol
+      - id: WeaponEnergyGunPistolSecurity # WWDP Standard NT Security personal weapon
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -135,6 +135,7 @@
       # - id: Flash # WWDP
       - id: TelescopicBaton # WWDP
       # - id: MagazinePistol # WWDP
+      - id: WeaponEnergyGunMultiphase # WWDP
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -328,15 +329,14 @@
       contents:
         - id: BoxSurvivalEngineering
         - id: WeaponPulseRifle
-        - id: WeaponPulsePistol
+        # - id: WeaponPulsePistol # WWDP
         - id: WeaponRevolverMateba
         - id: SpeedLoaderMagnumAP
         - id: SpeedLoaderMagnumAP
-        - id: BoxFlashbang
+        # - id: BoxFlashbang # WWDP
         - id: ToolDebug # spanish army knife
         - id: WelderExperimental
-        - id: Hypospray
-        - id: DeathAcidifierImplanter # crew will try to steal their amazing hardsuits
+        - id: BluespaceLifelineImplanter # WWDP
         - id: FreedomImplanter
 
 # Cargo

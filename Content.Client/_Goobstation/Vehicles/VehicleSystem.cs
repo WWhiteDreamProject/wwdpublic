@@ -1,5 +1,4 @@
-using System.Numerics;
-using Content.Shared._White;
+using Content.Shared._White.Move;
 using Content.Shared.Vehicles;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -28,7 +27,7 @@ public sealed class VehicleSystem : SharedVehicleSystem
         spriteComp.LayerSetAutoAnimated(0, animated);
     }
 
-    private void OnMove(EntityUid uid, VehicleComponent component, ref MoveEventProxy args)
+    private void OnMove(EntityUid uid, VehicleComponent component, ref MoveEventProxy args) // WD EDIT
     {
         SpritePos(uid, component);
     }

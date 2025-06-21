@@ -19,7 +19,7 @@
   - type: Item
     size: Tiny
   - type: Construction
-    graph: smokeable
+    graph: smokeable # WD EDIT
     node: joint
   - type: SolutionContainerManager
     solutions:

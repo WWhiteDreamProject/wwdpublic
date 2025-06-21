@@ -33,6 +33,7 @@
   description: Linked together with some spare cuffs and metal.
   components:
   - type: Construction
+    deconstructionTarget: null # WD EDIT
     graph: CuffsGraph # WWDP
     node: bola
   - type: Damageable

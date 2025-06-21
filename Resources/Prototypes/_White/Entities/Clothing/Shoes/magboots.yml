@@ -1,0 +1,11 @@
+﻿- type: entity
+  parent: ClothingShoesBootsMagSec
+  id: ClothingShoesBootsMagSecAdv
+  name: advanced combat magboots
+  description: Heavy-duty magboots with added protection and a convenient sidearm strap.
+  components:
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: StaticPrice
+    price: 1000

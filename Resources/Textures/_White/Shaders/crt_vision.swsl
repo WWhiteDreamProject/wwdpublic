@@ -1,0 +1,149 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float SCANLINE_INTENSITY; // 0.0 - 1.0, intensity of scanline effect
+uniform highp float DISTORTION; // 0.0 - 0.1, amount of CRT-like distortion
+uniform highp float GLITCH_INTENSITY; // 0.0 - 1.0, intensity of glitch effects
+
+// Noise function
+highp float rand(highp vec2 co) {
+    return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+// Neon glow effect
+highp vec3 neonGlow(highp vec3 color, highp float intensity) {
+    highp float brightness = dot(color, vec3(0.299, 0.587, 0.114));
+    highp vec3 neon = vec3(0.0);
+
+    // Cyan neon glow for bright areas
+    if (brightness > 0.65) {
+        neon += vec3(0.0, 1.0, 1.0) * (brightness - 0.65) * 2.5;
+    }
+
+    // Magenta neon glow for mid-bright areas
+    if (brightness > 0.45 && brightness < 0.75) {
+        neon += vec3(1.0, 0.0, 0.8) * (brightness - 0.45) * 1.8;
+    }
+
+    return color + neon * intensity;
+}
+
+// Function to detect if a pixel is likely part of a crosshair/UI element
+bool isUIElement(highp vec4 color) {
+    // Check for very bright white/light colors which are likely UI elements
+    highp float brightness = dot(color.rgb, vec3(0.299, 0.587, 0.114));
+
+    // If it's very bright and has high contrast with surroundings, likely UI
+    if (brightness > 0.9 && color.a > 0.9) {
+        return true;
+    }
+
+    // Check for specific UI colors (like reticle colors)
+    if ((color.r > 0.9 && color.g < 0.3 && color.b < 0.3) || // Red
+        (color.r < 0.3 && color.g > 0.9 && color.b < 0.3) || // Green
+        (color.r < 0.3 && color.g < 0.3 && color.b > 0.9) || // Blue
+        (color.r > 0.9 && color.g > 0.9 && color.b > 0.9)) { // White
+        return true;
+    }
+
+    return false;
+}
+
+void fragment() {
+    // Get original screen color
+    highp vec4 originalColor = texture2D(SCREEN_TEXTURE, UV);
+
+    // Check if this pixel might be part of a UI element like crosshair
+    if (isUIElement(originalColor)) {
+        // Preserve UI elements with minimal effect
+        COLOR = vec4(neonGlow(originalColor.rgb, 0.3), originalColor.a);
+        return;
+    }
+
+    // Prepare variables for effects
+    highp vec2 uv = UV;
+    highp vec2 center = vec2(0.5, 0.5);
+    highp vec2 dist = uv - center;
+    highp float aberration = DISTORTION * 0.028;
+
+    // Apply glitch effect based on GLITCH_INTENSITY
+    if (GLITCH_INTENSITY > 0.0) {
+        // Silhouette doubling only at high glitch levels
+        if (GLITCH_INTENSITY > 0.6) {
+            if (rand(vec2(TIME * 2.0, 0.0)) < 0.3) {
+                // Shift silhouette in random direction
+                highp float offsetX = (rand(vec2(TIME, 0.0)) * 2.0 - 1.0) * 0.003 * GLITCH_INTENSITY;
+                highp float offsetY = (rand(vec2(0.0, TIME)) * 2.0 - 1.0) * 0.002 * GLITCH_INTENSITY;
+
+                // Mix original image with shifted one
+                highp vec4 shiftedColor = texture2D(SCREEN_TEXTURE, uv + vec2(offsetX, offsetY));
+                originalColor = mix(originalColor, shiftedColor, 0.3);
+            }
+        }
+
+        // Horizontal glitch lines
+        if (rand(vec2(TIME * 5.0, floor(uv.y * 50.0))) < GLITCH_INTENSITY * 0.15) {
+            uv.x += (rand(vec2(TIME, floor(uv.y * 50.0))) * 2.0 - 1.0) * 0.02 * GLITCH_INTENSITY;
+        }
+
+        // Color channel shifting based on glitch intensity
+        aberration += GLITCH_INTENSITY * 0.005;
+    }
+
+    // Apply barrel distortion
+    highp float barrelFactor = dot(dist, dist) * (DISTORTION * 0.1);
+    uv = uv + dist * barrelFactor;
+
+    // If UV coordinates are outside the texture, use original color
+    if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) {
+        COLOR = originalColor;
+        return;
+    }
+
+    // Apply RGB shifts with calculated aberration
+    highp vec4 r = texture2D(SCREEN_TEXTURE, uv + vec2(aberration, 0.0));
+    highp vec4 g = texture2D(SCREEN_TEXTURE, uv);
+    highp vec4 b = texture2D(SCREEN_TEXTURE, uv - vec2(aberration, -aberration * 0.5));
+
+    // Combine the color channels
+    highp vec4 color = vec4(r.r * 1.06, g.g * 1.18, b.b * 1.28, g.a);
+
+    // Create horizontal scanlines
+    highp float scanY = uv.y * 1200.0;
+    highp float scanline = mix(1.0, 0.83, SCANLINE_INTENSITY);
+    color.rgb *= mix(1.0, scanline, float(mod(floor(scanY), 2.0)==0.0));
+
+    // Apply vignette effect
+    highp float vignette = 1.0 - dot(dist, dist) * 1.35;
+    color.rgb *= vignette;
+
+    // Apply color tint - cyan-blue dominant
+    highp vec3 tint = vec3(0.78, 1.08, 1.28);
+    color.rgb = mix(color.rgb, color.rgb * tint, 0.75);
+    color.rgb *= 1.14;
+
+    // Add neon glow effect
+    color.rgb = neonGlow(color.rgb, 0.82);
+
+    // Add glitch artifacts
+    if (GLITCH_INTENSITY > 0.0) {
+        // Vertical lines
+        if (rand(vec2(floor(uv.x * 10.0), TIME)) < GLITCH_INTENSITY * 0.07) {
+            highp float lineIntensity = sin(uv.x * 50.0) * 0.02 * GLITCH_INTENSITY;
+            color.rgb += vec3(lineIntensity, lineIntensity * 0.8, lineIntensity * 1.2);
+        }
+
+        // Color channel distortion at low charge
+        if (GLITCH_INTENSITY > 0.7) {
+            color.r *= (1.0 - GLITCH_INTENSITY * 0.05);
+            color.g *= (1.0 - GLITCH_INTENSITY * 0.02);
+        }
+    }
+
+    // Flicker
+    highp float flicker = 0.98 + 0.03 * sin(TIME * 2.5);
+    color.rgb *= flicker;
+
+    // Contrast
+    color.rgb = (color.rgb - 0.42) * 1.16 + 0.48;
+
+    COLOR = vec4(color.rgb, color.a);
+}

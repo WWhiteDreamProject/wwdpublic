@@ -123,10 +123,15 @@
           state: rglass_3
         entries:
         - prototype: SheetRPGlass
+          closeUiOnSelect: false
         - prototype: SheetRPGlass0
+          closeUiOnSelect: false
         - prototype: SheetRUGlass
+          closeUiOnSelect: false
         - prototype: SheetRUGlass0
+          closeUiOnSelect: false
         - prototype: SheetRGlass
+          closeUiOnSelect: false
   # WD EDIT START
   - type: Tag
     tags:

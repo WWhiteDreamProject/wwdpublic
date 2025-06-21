@@ -12,6 +12,7 @@
     event: !type:KravMagaActionEvent { }
   - type: KravMagaAction
     configuration: LegSweep
+    staminaDamage: 40 # WWDP
     name: Leg Sweep
 
 - type: entity

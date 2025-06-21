@@ -109,6 +109,20 @@
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
+      - !type:GenericStatusEffect # WWDP
+        key: NoScream
+        component: NoScream
+        time: 5
+      - !type:PopupMessage # WWDP
+        visualType: Medium
+        messages: [ "morphine-wear-off" ]
+        type: Local
+        probability: 1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Ephedrine
+          max: 1.1
+          min: 1
     Medicine:
       effects:
       - !type:ResetNarcolepsy

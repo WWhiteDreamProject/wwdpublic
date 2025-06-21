@@ -1,22 +1,12 @@
-using Content.Client.Hands;
-using Content.Shared._White.Hands.Components;
+using System.Numerics;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
-using Robust.Client.Input;
 using Robust.Shared.Containers;
 using Robust.Shared.Enums;
 using Robust.Shared.Graphics;
-using Robust.Shared.Map;
-using Robust.Shared.Player;
 using Robust.Shared.Reflection;
 using Robust.Shared.Timing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Content.Client._White.ItemSlotRenderer;
 
@@ -62,23 +52,24 @@ public sealed class ItemSlotRendererSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, ItemSlotRendererComponent comp, ComponentStartup args)
     {
-        if(!TryComp<SpriteComponent>(uid, out var sprite))
+        if (!TryComp<SpriteComponent>(uid, out var sprite))
         {
-            Log.Error($"ItemSlotRendererCompontn requires SpriteComponent to work, but {ToPrettyString(uid)} did not have one. Removing ItemSlotRenderer.");
+            Log.Error($"ItemSlotRendererComponent requires SpriteComponent to work, but {ToPrettyString(uid)} did not have one. Removing ItemSlotRenderer.");
             RemComp<ItemSlotRendererComponent>(uid);
             return;
         }
 
         foreach (var kvp in comp.PrototypeLayerMappings)
         {
+            (var slotId, object mapKey) = kvp;
+            var isEnum = false;
 
-            (string slotId, object mapKey) = kvp;
-            bool isEnum = false;
-            if (_reflection.TryParseEnumReference((string)mapKey, out var e))
+            if (_reflection.TryParseEnumReference((string) mapKey, out var @enum))
             {
-                mapKey = e;
+                mapKey = @enum;
                 isEnum = true;
             }
+
             if (!sprite.LayerMapTryGet(mapKey, out _) && comp.ErrorOnMissing)
             {
                 Log.Warning($"ItemSlotRenderer: Tried to add a missing layer under the {(isEnum ? "enum" : "string")} key {mapKey}. Skipping missing layer. If this is unwanted, set component's AddMissingLayers to true.");
@@ -90,7 +81,12 @@ public sealed class ItemSlotRendererSystem : EntitySystem
 
             comp.LayerMappings.Add((mapKey, slotId));
 
-            comp.CachedRT.Add(slotId, _clyde.CreateRenderTarget(comp.RenderTargetSize, new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), new TextureSampleParameters { Filter = false }, $"{slotId}-itemrender-rendertarget"));
+            comp.CachedRT.Add(
+                slotId,
+                _clyde.CreateRenderTarget(comp.RenderTargetSize,
+                    new (RenderTargetColorFormat.Rgba8Srgb),
+                    new TextureSampleParameters { Filter = false, },
+                    $"{slotId}-itemrender-rendertarget"));
         }
     }
 }
@@ -113,19 +109,21 @@ public sealed class SpriteToLayerBullshitOverlay : Overlay
     protected override void Draw(in OverlayDrawArgs args)
     {
         var handle = args.ScreenHandle;
+
         var query = _entMan.EntityQueryEnumerator<ItemSlotRendererComponent, SpriteComponent>();
         while (query.MoveNext(out var uid, out var comp, out var sprite))
         {
-            for (int i = 0; i < comp.LayerMappings.Count; i++)
+            for (var i = 0; i < comp.LayerMappings.Count; i++)
             {
                 var (layerKey, slotId) = comp.LayerMappings[i];
-                if (!sprite.LayerMapTryGet(layerKey, out int layerIndex) ||
-                    !sprite.TryGetLayer(layerIndex, out var layer)) // verify that the layer actually exists
+
+                if (!sprite.LayerMapTryGet(layerKey, out var layerIndex)
+                    || !sprite.TryGetLayer(layerIndex, out var layer)) // verify that the layer actually exists
                     continue;
 
                 // if for some reason we can't render the item to a texture (or there is no item to render),
                 // assign an "empty" texture to the layer
-                if (!comp.CachedEntities.TryGetValue(slotId, out var _item) || _item is not EntityUid item ||
+                if (!comp.CachedEntities.TryGetValue(slotId, out var item) || !item.HasValue ||
                     !comp.CachedRT.TryGetValue(slotId, out var renderTarget))
                 {
                     if (layer.Texture != Texture.Transparent)
@@ -133,10 +131,14 @@ public sealed class SpriteToLayerBullshitOverlay : Overlay
                     continue;
                 }
 
-                handle.RenderInRenderTarget(renderTarget, () =>
+                handle.RenderInRenderTarget(
+                    renderTarget,
+                    () =>
                 {
-                    handle.DrawEntity(item, renderTarget.Size / 2, Vector2.One, 0); // If this throws due to a missing spritecomp, it's your fault.
-                }, Color.Transparent);
+                    handle.DrawEntity(item.Value, renderTarget.Size / 2, Vector2.One, 0); // If this throws due to a missing spritecomp, it's your fault.
+                },
+                    Color.Transparent);
+
                 sprite.LayerSetTexture(layerIndex, renderTarget.Texture);
             }
         }

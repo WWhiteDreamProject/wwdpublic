@@ -11,6 +11,7 @@ popup-grab-hard-others = {CAPITALIZE($puller)} grabbed {CAPITALIZE($target)} fir
 popup-grab-suffocate-others = {CAPITALIZE($puller)} started to choke {CAPITALIZE($target)}!
 popup-grab-no-others = {CAPITALIZE($puller)} stopped grabbing {CAPITALIZE($target)}.
 popup-grab-release-fail-self = You are trying to escape.
+popup-grab-release-fail-cooldown = You must wait before trying to escape again.
 popup-grab-release-success-self = You escaped from grab!
 popup-grab-release-success-puller = {CAPITALIZE($target)} escaped!
 popup-grab-retake-fail = {CAPITALIZE($puller)} is not letting you to pull {CAPITALIZE($pulled)}!

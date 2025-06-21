@@ -39,7 +39,7 @@
     damageCoefficient: 0.9
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase # WWDP
   id: ClothingOuterClerkVest
   name: clerk's vest
   description: a silken magenta vest with a pocket to put your notary stamp.
@@ -48,4 +48,7 @@
     sprite: DeltaV/Clothing/OuterClothing/Vests/clerkvest.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/OuterClothing/Vests/clerkvest.rsi
+  - type: Storage
+    grid:
+    - 0,0,1,1 # WWDP true to desctiption
 

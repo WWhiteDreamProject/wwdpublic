@@ -80,7 +80,9 @@
     - prototype: PaperDoor
     - prototype: PaperWall
     - prototype: tatamimat
+      closeUiOnSelect: false
     - prototype: tatamisingle
+      closeUiOnSelect: false
 
 
 - type: entity
@@ -143,8 +145,9 @@
   - type: ShortConstruction
     entries:
     - prototype: SheetPGlass
-    - prototype: SheetRPGlass
+      closeUiOnSelect: false
     - prototype: SheetRPGlass1
+      closeUiOnSelect: false
     - prototype: PlasmaDoor # WWDP
 
 - type: entity
@@ -223,6 +226,7 @@
     - prototype: CratePlastic
     - prototype: ShelfRGlass # WWDP
     - prototype: MaterialDurathread # WWDP
+      closeUiOnSelect: false
     - prototype: PlasticFlapsClear # WWDP
     - prototype: ChairFolding # WWDP
     - prototype: N14ChairMetalFolding # WWDP
@@ -305,8 +309,9 @@
   - type: ShortConstruction
     entries:
     - prototype: SheetUGlass
-    - prototype: SheetRUGlass
+      closeUiOnSelect: false
     - prototype: SheetRUGlass1
+      closeUiOnSelect: false
     - prototype: WallUranium # WWDP
 
 - type: entity
@@ -369,6 +374,7 @@
     - type: ShortConstruction
       entries:
       - prototype: TileFlesh
+        closeUiOnSelect: false
       - prototype: ChairMeat
       - prototype: MeatWall
 
