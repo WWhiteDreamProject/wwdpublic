@@ -30,7 +30,7 @@ public sealed class AmmoProviderRedirectSystem : EntitySystem
     private void RedirectParent(EntityUid uid, ParentAmmoProviderComponent comp, TakeAmmoEvent args)
     {
         if (_transform.GetParentUid(uid) is { Valid: true } parent)
-            RaiseLocalEvent(uid, args);
+            RaiseLocalEvent(parent, args);
     }
 
     //private void OnNewLinkAttempt(EntityUid uid, AmmoProviderDeviceLinkRedirectComponent comp, LinkAttemptEvent ev)

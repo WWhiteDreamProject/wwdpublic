@@ -145,7 +145,7 @@
   description: We commit this body to the holy vaccuum, dust to dust, stars to stars, that the Creator may renew our us in the cycle of eternal life. - Luddic funereal prayer, traditional.
   components:
   - type: Sprite
-    sprite: _White/Objects/W/apons/Guns/Turrets/rift_lance.rsi
+    sprite: _White/Objects/Weapons/Guns/Turrets/rift_lance.rsi
     state: icon
   - type: Gun
     fireRate: 0.1
