@@ -41,6 +41,7 @@
       inverted: true
       traits:
         - WillToLive
+        - Redshirt # WWDP
   functions:
     - !type:TraitReplaceComponent
       components:
@@ -816,6 +817,7 @@
       traits:
         - WillToLive
         - Tenacity
+        - WillToDie # WWDP
   functions:
     - !type:TraitReplaceComponent
       components:

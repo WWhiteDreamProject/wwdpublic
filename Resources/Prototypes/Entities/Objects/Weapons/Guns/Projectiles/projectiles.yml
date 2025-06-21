@@ -444,6 +444,7 @@
       types:
         Blunt: 40 # Lavaland Change - TOTAL PKA VICTORY
         Structural: 30 # Lavaland/Eris change: Yes easy break ins
+  - type: GatheringProjectile # WWDP
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.170 # Lavaland Change

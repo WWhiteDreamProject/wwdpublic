@@ -1635,6 +1635,8 @@
   - type: Rotatable
     rotateWhileAnchored: false
     rotateWhilePulling: true
+  - type: VendingMachine # WWDP
+    dispenseOffset: 0, -0.1 # so it drops on the correct side of the wall
 
 - type: entity
   parent: VendingMachineWallmount

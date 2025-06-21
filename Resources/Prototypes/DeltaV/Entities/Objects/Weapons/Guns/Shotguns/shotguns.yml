@@ -45,5 +45,5 @@
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/pump.rsi # Delta-V
   - type: BallisticAmmoProvider
-    capacity: 4
+    # capacity: 4 # WWDP
     proto: ShellShotgunBeanbag

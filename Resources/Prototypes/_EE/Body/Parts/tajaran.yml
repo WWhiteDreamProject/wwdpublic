@@ -32,7 +32,7 @@
 - type: entity
   id: HeadTajaran
   name: "Tajaran head"
-  parent: [PartTajaran, BaseHead]
+  parent: [BaseHead, PartTajaran] # WWDP
   components:
   - type: Sprite
     sprite: _EE/Mobs/Species/Tajaran/parts.rsi
