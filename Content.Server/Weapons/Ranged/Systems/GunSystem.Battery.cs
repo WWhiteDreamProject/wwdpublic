@@ -164,23 +164,5 @@ public sealed partial class GunSystem
                 UpdateShots(gunUid, hitscanAmmoProvider, args.Charge, args.MaxCharge);
         }
     }
-    // This is from my attempts at allowing ProjectileContainerBatteryAmmoTrackerComponent to draw power from inserted power cells.
-    // The goal was to make it work with mechs and move mech weapons to this component instead of whatever bullshit they're currently doing.
-    // I do not have enough mental fortitude to deal with battery code (and, by extension, mech code, which was the main cause for my anguish)
-    // so for now this component will only work for parents with BatteryComponent.
-    /*
-    private void OnBatteryChargeChangeTracker(EntityUid uid, ProjectileContainerBatteryAmmoTrackerComponent comp, PowerCellChangedEvent args)
-    {
-        float charge = 0;
-        float maxCharge = 0;
-        if(_battery.TryGetBatteryComponent(uid, out var battery, out var batteryUid))
-        {
-            charge = battery.CurrentCharge;
-            maxCharge = battery.MaxCharge;
-        }
-        foreach (var gunUid in comp.Linked)
-            UpdateShots(gunUid, Comp<ProjectileContainerBatteryAmmoProviderComponent>(gunUid), charge, maxCharge);
-    }*/
-
     // WWDP EDIT END
 }

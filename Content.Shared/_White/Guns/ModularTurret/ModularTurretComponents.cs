@@ -15,7 +15,7 @@ public sealed partial class ModularTurretWeaponComponent : Component
     public List<string> WeaponClass = new();
 
     [DataField]
-    public bool OnlyUsableByTurret = true; // move to a separate comp?
+    public bool OnlyUsableByTurret = true;
 
     [DataField]
     public EntityUid? CurrentTurretHolder;
@@ -25,7 +25,7 @@ public sealed partial class ModularTurretWeaponComponent : Component
 }
 
 [RegisterComponent]
-public sealed partial class ModularTurretComponent : Component // ModularTurretWeaponRestrictionComponent
+public sealed partial class ModularTurretComponent : Component
 {
     [DataField]
     public string? MountClass;

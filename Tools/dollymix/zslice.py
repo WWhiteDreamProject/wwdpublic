@@ -9,7 +9,7 @@ reverse = size > 0
 size = abs(size)
 
 
-base = Image.open(os.path.concat(path,basefile+ext))
+base = Image.open(os.path.join(path,basefile+ext))
 amount = base.height // size
 
 states = []
@@ -20,11 +20,11 @@ for i in range(amount):
     states.append(name)
     print(filename)
     if(reverse):
-        base.crop((0,size*(amount-1-i),base.width,size*(amount-i))).save(os.path.concat(path,filename))
+        base.crop((0,size*(amount-1-i),base.width,size*(amount-i))).save(os.path.join(path,filename))
     else:
-        base.crop((0,size*i,base.width,size*(i+1))).save(os.path.concat(path,filename))
+        base.crop((0,size*i,base.width,size*(i+1))).save(os.path.join(path,filename))
 
-unshadedfile = os.path.concat(path,basefile+"-unshaded"+ext)
+unshadedfile = os.path.join(path,basefile+"-unshaded"+ext)
 if os.path.exists(unshadedfile):
     base = Image.open(unshadedfile)
     amount = base.height // size
@@ -35,13 +35,13 @@ if os.path.exists(unshadedfile):
         states.append(name)
         print(filename)
         if(reverse):
-            base.crop((0,size*(amount-1-i),base.width,size*(amount-i))).save(os.path.concat(path,filename))
+            base.crop((0,size*(amount-1-i),base.width,size*(amount-i))).save(os.path.join(path,filename))
         else:
-            base.crop((0,size*i,base.width,size*(i+1))).save(os.path.concat(path,filename))
+            base.crop((0,size*i,base.width,size*(i+1))).save(os.path.join(path,filename))
 
 if(len(states) == 0):
     exit(1)
-    
+
 metaheader = """{
   "version": 1,
   "license": "CC-BY-SA-3.0",
@@ -58,8 +58,7 @@ metaterm = """
 }"""
 
 states.append("icon")
-with  open(os.path.concat(path,"meta.json"), 'w') as metajson:
+with  open(os.path.join(path,"meta.json"), 'w') as metajson:
     metajson.write(metaheader)
     metajson.write(",\n".join([metaentry.format(state) for state in states]))
-    metajson.write()
     metajson.write(metaterm)

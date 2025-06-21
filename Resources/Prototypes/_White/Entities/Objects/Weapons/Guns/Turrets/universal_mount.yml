@@ -10,11 +10,11 @@
     sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
     drawdepth: Mobs
     layers:
-      - state: syndie_base
-        renderingStrategy: NoRotation
-      - map: [ "assblaster" ] # layer to which the weapon is rendered by ItemSlotRenderer
-        renderingStrategy: Default
-        rotation: -90
+    - state: syndie_base
+      renderingStrategy: NoRotation
+    - map: [ "weapon_layer" ]
+      renderingStrategy: Default
+      rotation: -90
   - type: ContainerContainer
     containers:
       machine_board: !type:Container
@@ -35,12 +35,12 @@
           - Gun
   - type: ItemSlotRenderer
     mapping:
-      weapon_slot: assblaster
+      weapon_slot: weapon_layer
   - type: RemoteControllable
     manualControl: true
   - type: RemoteControlOverlay
   - type: Machine
-    board: WeaponTurretModularCircuitBoard
+    board: WeaponTurretUniversalCircuitboard
   - type: Lock
     locked: false
     lockTime: 3

@@ -8,14 +8,14 @@ size = int(input("size: "))
 offset = float(input("offset: "))
 repeat = int(input("repeat: "))
 
-base = Image.open(os.path.concat(path,basefile+ext)))
+base = Image.open(os.path.join(path,basefile+ext)))
 
 reverse = size > 0
 size = abs(size)
 
 amount = base.height // size
 
-testfolder = os.path.concat(path, "test")
+testfolder = os.path.join(path, "test")
 if not os.path.exists(testfolder):
     os.makedirs(testfolder)
 
@@ -23,7 +23,7 @@ copies = 24
 scaleFactor = 4
 for rot in range(copies):
     angle = rot*(360/copies)
-    print(path+f"{angle:03}.png")
+    print(f"{angle:03}.png")
     out = Image.new("RGBA", (size*scaleFactor, size*scaleFactor), (0,0,0,0))
     for i in range(amount):
         for r in range(repeat):

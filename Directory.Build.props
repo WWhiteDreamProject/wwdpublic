@@ -1,0 +1,6 @@
+﻿<Project>
+    <PropertyGroup>
+        <DefineConstants>EXCEPTION_TOLERANCE_LOCAL</DefineConstants>
+		<DefineConstants>EXCEPTION_TOLERANCE</DefineConstants>
+	</PropertyGroup>
+</Project>

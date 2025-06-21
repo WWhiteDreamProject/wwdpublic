@@ -17,7 +17,6 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 
-
 namespace Content.Client.Shuttles.UI;
 
 [GenerateTypedNameReferences]
@@ -211,7 +210,6 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
                 continue;
 
             var gridMatrix = _transform.GetWorldMatrix(gUid);
-            var invGridMatrix = _transform.GetInvWorldMatrix(gUid);
             var matty = Matrix3x2.Multiply(gridMatrix, ourWorldMatrixInvert);
             var color = _shuttles.GetIFFColor(grid, self: false, iff);
 

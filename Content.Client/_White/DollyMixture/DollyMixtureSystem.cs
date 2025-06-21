@@ -57,7 +57,7 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
         if (comp.CurrentRSIPath is not null)
             RemoveLayers(uid, comp);
 
-        BuildLayers(uid, comp.RSIPath, comp);
+        BuildLayers(uid, comp);
     }
 
     private void OnRemove(EntityUid uid, DollyMixtureComponent comp, ComponentRemove args)
@@ -117,9 +117,9 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
         comp.LayerMappings.Clear();
     }
 
-    private void BuildLayers(EntityUid uid, string RsiPath, DollyMixtureComponent? comp = null, SpriteComponent? sprite = null)
+    private void BuildLayers(EntityUid uid, DollyMixtureComponent? comp = null, SpriteComponent? sprite = null)
     {
-        if (string.IsNullOrEmpty(RsiPath))
+        if (string.IsNullOrEmpty(comp.RSIPath))
         {
             Log.Error($"An empty rsi path was passed to BuildLayers().");
             return;

@@ -7,7 +7,7 @@ ext = ".png"
 size = int(input("size: "))
 offset = int(input("downward offset (in pixels): "))
 
-base = os.path.concat(path,basefile+ext)
+base = os.path.join(path,basefile+ext)
 
 reverse = size > 0
 size = abs(size)
@@ -22,4 +22,4 @@ for i in range(amount):
     else:
         out.alpha_composite(base.crop((0,size*i,base.width,size*(i+1))).rotate(90), (0,-i-offset))
 
-out.save(os.path.concat(path,"icon.png"))
+out.save(os.path.join(path,"icon.png"))
