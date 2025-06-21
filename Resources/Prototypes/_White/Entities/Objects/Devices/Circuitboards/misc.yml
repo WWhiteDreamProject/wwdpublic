@@ -30,3 +30,23 @@
     materialRequirements:
       Cable: 5
       Steel: 5
+
+- type: entity
+  id: NTCoinMinerCircuitboard
+  parent: BaseMachineCircuitboard
+  name: NTCoin miner board
+  description: A machine printed circuit board for an NTCoin miner.
+  components:
+  - type: MachineBoard
+    prototype: NTminer
+    requirements:
+      MatterBin: 2
+      Manipulator: 1
+      Capacitor: 1
+    materialRequirements:
+      Steel: 5
+      Glass: 5
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+    - NTCoinMinerCircuitboard

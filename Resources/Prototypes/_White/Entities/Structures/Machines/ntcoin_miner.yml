@@ -1,0 +1,67 @@
+﻿- type: entity
+  id: NTminer
+  name: NT coin miner
+  parent: [BaseMachinePowered, ConstructibleMachine]
+  description: A very loud machine that uses bluespace blockchain technology to generate NT coins every minute when powered.
+  components:
+  - type: ApcPowerReceiver
+    powerLoad: 20000
+  - type: ItemMiner
+    interval: 60
+    amount: 1
+    proto: NTCoin1
+    itemSlotId: mining_slot
+  - type: Sprite
+    noRot: true
+    sprite: _White/Structures/Machines/nt_miner.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: icon
+    - map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
+      state: unshaded
+      shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: True }
+          False: { visible: False }
+  - type: ItemSlots
+    slots:
+      mining_slot:
+        name: NTCoin
+        insertSound:
+          path: /Audio/Effects/box_deploy.ogg
+        ejectSound:
+          path: /Audio/Effects/kaching.ogg
+        whitelist:
+          tags:
+          - NTCoin
+  - type: ContainerContainer
+    containers:
+      mining_slot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.40,-0.40,0.40,0.40"
+        density: 90
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: PointLight
+    radius: 1.1
+    energy: 0.5
+    color: "#ffff44"
+  - type: Machine
+    board: NTCoinMinerCircuitboard

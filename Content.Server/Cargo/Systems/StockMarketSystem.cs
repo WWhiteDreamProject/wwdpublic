@@ -253,13 +253,7 @@ public sealed class StockMarketSystem : EntitySystem
         string displayName)
     {
         // Create a new company struct with the specified parameters
-        var company = new StockCompany
-        {
-            LocalizedDisplayName = displayName, // Assume there's no Loc for it
-            BasePrice = basePrice,
-            CurrentPrice = basePrice,
-            PriceHistory = [],
-        };
+        var company = new StockCompany(displayName, basePrice, basePrice, []);
 
         UpdatePriceHistory(ref company);
         stockMarket.Companies.Add(company);

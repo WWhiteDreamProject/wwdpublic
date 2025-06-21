@@ -84,3 +84,6 @@ uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bul
 
 uplink-dimension-pot-name = Dimension Pot
 uplink-dimension-pot-desc = A portal to your own pocket dimension disguised in the form of a potted plant, for when stashing one item isn't quite enough.
+
+uplink-tcminer-name = Telecrystal miner
+uplink-tcminer-desc = Contains a flatpack with telecrystal miner, A very loud machine that uses bluespace blockchain technology to generate telecrystals every minute when powered. Requires 20kW of energy and a connection to the primary station's grid. Multitool not included.

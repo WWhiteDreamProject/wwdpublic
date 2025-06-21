@@ -642,6 +642,7 @@
     - PaladinCircuitBoard
     - RobocopCircuitBoard
     - QuarantineCircuitBoard
+    - NTCoinMinerCircuitboard
     # WD edit end
   - type: EmagLatheRecipes
     emagDynamicRecipes:
