@@ -393,7 +393,7 @@ public sealed partial class GunSystem : SharedGunSystem
         var random = Random.NextFloat(-0.5f, 0.5f) / _contests.MassContest(user);
         var spread = component.CurrentAngle.Theta * random;
         var angle = new Angle(direction.Theta + (component.CurrentAngle.Theta + component.BonusAngle.Theta) * random); // WWDP EDIT
-        DebugTools.Assert(spread <= component.MaxAngleModified.Theta);
+        // DebugTools.Assert(spread <= component.MaxAngleModified.Theta); // WWDP
         return angle;
     }
 

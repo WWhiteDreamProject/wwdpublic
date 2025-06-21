@@ -21,10 +21,8 @@
     - suitStorage
   # - type: AmmoCounter # WWDP
   - type: Gun # change WeaponShotgunBulldog too if updating this
-    bonusAngleIncreaseMove: 40    # wwdp
-    bonusAngleIncreaseTurn: 0.25  # wwdp
-    bonusAngleDecay: 40           # wwdp
-    maxBonusAngle: 20             # wwdp
+    angleIncrease: 15 # WWDP
+    maxAngle: 75 # WWDP
     fireRate: 1 # WWDP lower fire rate
     defaultDirection: 1, 0 # wwdp
     selectedMode: SemiAuto
@@ -125,10 +123,9 @@
   # - type: AmmoCounter # WWDP
   # - type: GunRequiresWield #remove when inaccuracy on spreads is fixed # WWDP disabled
   - type: Gun
-    bonusAngleIncreaseMove: 40    # wwdp
-    bonusAngleIncreaseTurn: 0.25  # wwdp
-    bonusAngleDecay: 40           # wwdp
-    maxBonusAngle: 20             # wwdp
+    maxAngle: 75 # WWDP
+    angleIncrease: 15 # WWDP
+    angleDecay: 10 # WWDP
     fireRate: 2
     selectedMode: FullAuto
     availableModes:

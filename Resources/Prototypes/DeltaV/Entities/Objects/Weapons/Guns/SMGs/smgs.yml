@@ -1,6 +1,6 @@
 - type: entity
   name: Typewriter
-  parent: BaseWeaponSubMachineGun
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable] # WWDP
   id: WeaponSubMachineGunTypewriter
   description: A modern take on the classic design used by mobsters throughout space and time. Types .35 auto ammo.
   components:
@@ -14,10 +14,10 @@
   - type: Clothing
     sprite: DeltaV/Objects/Weapons/Guns/SMGs/typewriter.rsi
   - type: Gun
-    minAngle: 1
-    maxAngle: 15
-    angleIncrease: 5
-    angleDecay: 20
+    # minAngle: 1 # WWDP
+    # maxAngle: 15 # WWDP
+    # angleIncrease: 5
+    # angleDecay: 20 # WWDP
     fireRate: 8
     soundGunshot:
       path: /Audio/DeltaV/Weapons/Guns/Gunshots/typewriter.ogg

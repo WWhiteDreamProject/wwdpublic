@@ -20,10 +20,8 @@
   - type: Wieldable
   # - type: AmmoCounter # WWDP
   - type: Gun
-    bonusAngleIncreaseMove: 40    # wwdp
-    bonusAngleIncreaseTurn: 0.25  # wwdp
-    bonusAngleDecay: 40           # wwdp
-    maxBonusAngle: 20             # wwdp
+    angleIncrease: 6 # WWDP
+    angleDecay: 10 # WWDP
     fireRate: 5
     defaultDirection: 1, 0 # wwdp
     selectedMode: FullAuto
