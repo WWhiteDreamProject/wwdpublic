@@ -155,8 +155,8 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     private void OnEmbedThrowDoHit(EntityUid uid, EmbeddableProjectileComponent component, ThrowDoHitEvent args)
     {
         if (!component.EmbedOnThrow
-            || HasComp<ThrownItemImmuneComponent>(args.Target)
-            || _standing.IsDown(args.Target))
+            || HasComp<ThrownItemImmuneComponent>(args.Target))
+            // || _standing.IsDown(args.Target)) // WWDP edit; hit prone targets
             return;
 
         TryEmbed(uid, args.Target, null, component, args.TargetPart);
@@ -164,7 +164,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void OnEmbedProjectileHit(EntityUid uid, EmbeddableProjectileComponent component, ref ProjectileHitEvent args)
     {
-        if (!(args.Target is { }) || _standing.IsDown(args.Target)
+        if (!(args.Target is { }) // || _standing.IsDown(args.Target) // WWDP
             || !TryComp(uid, out ProjectileComponent? projectile)
             || !TryEmbed(uid, args.Target, args.Shooter, component))
             return;
