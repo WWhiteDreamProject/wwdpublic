@@ -116,11 +116,12 @@ public sealed partial class TTSSystem : EntitySystem
 
             var xform = xformQuery.GetComponent(session.AttachedEntity.Value);
             var distance = (sourcePos - _xforms.GetWorldPosition(xform, xformQuery)).Length();
-            if (distance > ChatSystem.VoiceRange * ChatSystem.VoiceRange)
+            if (distance > ChatSystem.WhisperMuffledRange)
                 continue;
 
             EntityManager.TryGetComponent(session.AttachedEntity.Value, out LanguageSpeakerComponent? lang);
-            if (_language.CanUnderstand(new(session.AttachedEntity.Value, lang), language.ID))
+            if (_language.CanUnderstand(new(session.AttachedEntity.Value, lang), language.ID)
+                && distance < ChatSystem.WhisperClearRange)
                 nilter.AddPlayer(session);
             else
                 lilter.AddPlayer(session);
