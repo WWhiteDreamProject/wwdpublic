@@ -3,18 +3,22 @@ using Content.Server.Procedural;
 using Content.Server.Salvage;
 using Content.Server.Salvage.Magnet;
 using Content.Server.Shuttles.Systems;
+using Content.Server.Station.Systems;
+using Content.Shared._White.CCVar;
 using Content.Shared.Salvage.Magnet;
 using Content.Shared.Shuttles.Components;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Robust.Shared.Configuration;
+using Robust.Shared.CPUJob.JobQueues;
+using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
+using System.Threading;
 using System.Threading.Tasks;
-using Content.Shared._White.CCVar;
 
 namespace Content.Server._White.Procedural.Systems;
 
@@ -33,7 +37,7 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<PostGameMapLoad>(OnPostGameMapLoad);
+        SubscribeLocalEvent<PostGameMapLoad>(OnPostGameMapLoad, after: [typeof(StationSystem)]);
     }
 
     private const float SpawningBoxSize = 1000f;
@@ -80,44 +84,60 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
     // todo: rewrite grid spawn logic instead of copypasting salvage magnet code?
     private async Task SpawnAsteroidField(MapId mapId, Vector2 worldPos, int asteroidAmount, int derelictAmount)
     {
+        List<MapId> asteroidMaps = new();
+        List<MapId> derelictMaps = new();
         List<MapId> maps = new();
-        List<Task> dungeonTasks = new();
-        var c = 1;
+        List<Task> loadTasks = new();
+
+        for(int i = 0; i < asteroidAmount; i++)
+            if (_map.CreateMap(out var asteroidMapId, false).Valid)
+                asteroidMaps.Add(mapId);
+
+        if (asteroidAmount != asteroidMaps.Count)
+        {
+            Log.Error($"Failed to create {asteroidAmount-asteroidMaps.Count} maps out of {asteroidAmount}. {asteroidMaps.Count} will instead be generated.");
+            asteroidAmount = asteroidMaps.Count;
+        }
+
+        for(int i = 0; i < derelictAmount; i++)
+            if (_map.CreateMap(out var derelictMapId, false).Valid)
+                derelictMaps.Add(mapId);
+
+        if(derelictAmount != derelictMaps.Count)
+        {
+            Log.Error($"Failed to create {derelictAmount - derelictMaps.Count} maps out of {derelictAmount}. {derelictMaps.Count} will instead be generated.");
+            derelictAmount = derelictMaps.Count;
+        }
+
         var total = asteroidAmount + derelictAmount;
 
-        Log.Debug($"Queuing generation of {asteroidAmount} asteroids.");
-        for (var i = 0; i < asteroidAmount; i++)
+        for(int i = 0; i < asteroidAmount; i++)
         {
-            if (!_map.CreateMap(out var salvageMap).IsValid())
-                continue;
-
+            var asteroidMap = asteroidMaps[i];
             var seed = _random.Next();
             seed -= seed % 2; // asteroid map
 
             var asteroid = (AsteroidOffering) _salvage.GetSalvageOffering(seed);
-            var grid = _mapManager.CreateGridEntity(salvageMap);
+            var grid = _mapManager.CreateGridEntity(asteroidMap);
 
             Log.Debug($"Queuing asteroid generation. ({i+1}/{asteroidAmount})");
 
             var task = _dungeon.GenerateDungeonAsync(asteroid.DungeonConfig, grid, grid, Vector2i.Zero, seed);
+            int c = 1;
             var finishTask = task.ContinueWith(_ =>
             {
                 Log.Info($"Finished generating asteroid {c}/{asteroidAmount}.");
                 c++;
             });
 
-            dungeonTasks.Add(finishTask);
-            maps.Add(salvageMap);
+            loadTasks.Add(finishTask);
+            maps.Add(asteroidMap);
         }
 
-        await Task.WhenAll(dungeonTasks);
-        Log.Info($"Asteroids generated. Now generating derelicts for asteroid field.");
 
-        for (var i = 0; i < derelictAmount; i++)
+        for(int i = 0; i < derelictAmount; i++)
         {
-            if (!_map.CreateMap(out var salvageMap).IsValid())
-                continue;
-
+            var derelictMap = derelictMaps[i];
             var seed = _random.Next();
             seed = seed - seed % 2 + 1; // derelict map
 
@@ -129,13 +149,13 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
 
             Log.Debug($"Generating derelict... ({i+1}/{derelictAmount})");
 
-            _mapLoader.TryLoad(salvageMap, salvage.SalvageMap.MapPath.ToString(), out _, opts);
+            _mapLoader.TryLoad(derelictMap, salvage.SalvageMap.MapPath.ToString(), out _, opts);
 
-            maps.Add(salvageMap);
+            maps.Add(derelictMap);
         }
 
-        Log.Info("Derelicts generated.");
-        Log.Debug($"Total asteroid field counts: {asteroidAmount} asteroids, {derelictAmount} derelicts, {total} total.");
+        await Task.WhenAll(loadTasks);
+        Log.Debug($"Asteroid field maps generated. Total asteroid field counts: {asteroidAmount} asteroids, {derelictAmount} derelicts, {total} total.");
 
         foreach (var map in maps.OrderBy(_ => _random.Next()))
         {
@@ -178,7 +198,7 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
 
             if (!_salvage.TryGetSalvagePlacementLocation(mapId, attachedBounds, bounds!.Value, worldAngle, out var spawnLocation, out var spawnAngle, 200, 0.10f))
             {
-                Log.Error("Failed to find place to put grid in the asteroid field.");
+                Log.Error($"Failed to find free space the asteroid field. Consider tweaking asteroid field size.");
                 _mapManager.DeleteMap(map);
                 continue;
             }
@@ -213,5 +233,6 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
 
             _mapManager.DeleteMap(map);
         }
+        Log.Info($"Finished generating asteroid field at {worldPos}.");
     }
 }
