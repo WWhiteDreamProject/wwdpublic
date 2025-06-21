@@ -37,7 +37,7 @@
           SecurityCadet: [ 2, 2 ]
           Detective: [ 1, 1 ]
           Lawyer: [ 1, 1 ]
-          Brigmedic: [ 1, 1 ]
+          # Brigmedic: [ 1, 1 ] # WWDP
           Prisoner: [ 1, 2 ]
           #Medical
           Chemist: [ 1, 1 ]
