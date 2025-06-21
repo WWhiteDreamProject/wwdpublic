@@ -166,7 +166,7 @@ namespace Content.Client.Construction.UI
 
                 if (!string.IsNullOrEmpty(search))
                 {
-                    if (!recipe.Name.ToLowerInvariant().Contains(search.Trim().ToLowerInvariant()))
+                    if (!GetLocalizedName(recipe).ToLowerInvariant().Contains(search.Trim().ToLowerInvariant())) // WWDP
                         continue;
                 }
 
@@ -179,7 +179,7 @@ namespace Content.Client.Construction.UI
                 recipes.Add(recipe);
             }
 
-            recipes.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.InvariantCulture));
+            recipes.Sort((a, b) => string.Compare(GetLocalizedName(a), GetLocalizedName(b), StringComparison.InvariantCulture)); // WWDP
 
             foreach (var recipe in recipes)
             {
@@ -218,7 +218,12 @@ namespace Content.Client.Construction.UI
             _constructionView.Categories = array;
         }
 
-        // WWDP edit start - TODO: Delete when porting the normal localization of the crafting menu
+        // WWDP edit start - TODO: Delete when porting the normal localization of the crafting menu // lol so never
+        private static string GetLocalizedName(ConstructionPrototype prototype)
+        {
+            return Loc.TryGetString($"ent-{prototype.ID}", out var name) ? name : prototype.Name;
+        }
+
         private static (string displayName, string displayDesc) GetLocalizedStrings(ConstructionPrototype prototype)
         {
             string displayName = Loc.TryGetString($"ent-{prototype.ID}", out var name) ? name : prototype.Name;
