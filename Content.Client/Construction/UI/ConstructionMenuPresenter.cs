@@ -218,7 +218,7 @@ namespace Content.Client.Construction.UI
             _constructionView.Categories = array;
         }
 
-        // WWDP edit start - TODO: Delete when porting the normal localization of the crafting menu
+        // WWDP edit start - TODO: Delete when porting the normal localization of the crafting menu // lol so never
         private static string GetLocalizedName(ConstructionPrototype prototype)
         {
             return Loc.TryGetString($"ent-{prototype.ID}", out var name) ? name : prototype.Name;
