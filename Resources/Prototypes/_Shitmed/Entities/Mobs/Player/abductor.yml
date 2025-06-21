@@ -30,7 +30,7 @@
       - DoorBumpOpener
   - type: SurgeryIgnoreClothing
   - type: SurgerySpeedModifier
-    speedModifier: 10 # WWDP
+    speedModifier: 5 # WWDP
 
 - type: entity
   name: lone abductor
@@ -53,7 +53,7 @@
   - type: SurgeryIgnoreClothing
   - type: Sanitized
   - type: SurgerySpeedModifier
-    speedModifier: 10 # WWDP
+    speedModifier: 5 # WWDP
   - type: Loadout
     prototypes:
       - LoneAbductorGear
@@ -76,7 +76,7 @@
   - type: SurgeryIgnoreClothing
   - type: Sanitized
   - type: SurgerySpeedModifier
-    speedModifier: 10 # WWDP
+    speedModifier: 5 # WWDP
   - type: Loadout
     prototypes:
       - AbductorScientistGear

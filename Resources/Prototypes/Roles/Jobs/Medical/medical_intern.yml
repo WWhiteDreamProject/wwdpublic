@@ -25,7 +25,7 @@
     components:
     - type: CPRTraining
     - type: SurgerySpeedModifier
-      speedModifier: 3 # WWDP
+      speedModifier: 2 # WWDP
 
 - type: startingGear
   id: MedicalInternGear

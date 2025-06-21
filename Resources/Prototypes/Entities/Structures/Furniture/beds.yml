@@ -20,6 +20,12 @@
         density: 190
         mask:
         - TableMask
+        layer:
+        - BulletImpassable # WWDP
+  - type: RequireProjectileTarget # WWDP
+  - type: SpeedModifierContacts # WWDP
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
   - type: Sprite
     sprite: Structures/Furniture/furniture.rsi
     state: bed

@@ -67,7 +67,7 @@
       - type: SurgeryIgnoreClothing
       - type: Sanitized
       - type: SurgerySpeedModifier
-        speedModifier: 10 # WWDP
+        speedModifier: 5 # WWDP
       mindRoles:
       - MindRoleLoneAbductor
 
@@ -133,7 +133,7 @@
       - type: SurgeryIgnoreClothing
       - type: Sanitized
       - type: SurgerySpeedModifier
-        speedModifier: 10 # WWDP
+        speedModifier: 5 # WWDP
       - type: ActionGrant
         actions:
           - ActionReturnToShip

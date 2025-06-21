@@ -12,6 +12,18 @@
     sprite: Structures/Furniture/Tables/optable.rsi
     state: operating_table
   - type: OperatingTable
+  - type: Fixtures # WWDP
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.05"
+        density: 190
+        mask:
+        - TableMask
+        layer:
+        - MidImpassable # can move through when climbing/prone
+        - BulletImpassable
   # Begin Shitmed Changes
   # - type: Construction
   #   graph: Machine

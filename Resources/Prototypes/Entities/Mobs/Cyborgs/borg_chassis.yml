@@ -370,7 +370,7 @@
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: SurgeryIgnoreClothing
   - type: SurgerySpeedModifier
-    speedModifier: 1.5
+    speedModifier: 3 # WWDP
 
 - type: entity
   id: BorgChassisServiceBare

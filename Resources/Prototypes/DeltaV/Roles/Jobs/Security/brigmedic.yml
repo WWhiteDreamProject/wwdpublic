@@ -48,7 +48,7 @@
     components:
     - type: CPRTraining
     - type: SurgerySpeedModifier
-      speedModifier: 3 # WD EDIT
+      speedModifier: 2 # WD EDIT
   afterLoadoutSpecial:
   - !type:ModifyEnvirosuitSpecial
     charges: 6
