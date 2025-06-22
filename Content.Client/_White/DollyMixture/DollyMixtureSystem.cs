@@ -170,7 +170,7 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
             }
             i++;
         }
-        comp.CurrentRSIPath = RsiPath;
+        comp.CurrentRSIPath = comp.RSIPath;
     }
 }
 
