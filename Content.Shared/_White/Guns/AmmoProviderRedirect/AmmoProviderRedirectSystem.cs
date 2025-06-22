@@ -25,6 +25,4 @@ public sealed class AmmoProviderRedirectSystem : EntitySystem
         if (_transform.GetParentUid(uid) is { Valid: true } parent)
             RaiseLocalEvent(parent, args);
     }
-
-
 }
