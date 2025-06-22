@@ -105,8 +105,6 @@
   - type: DeviceLinkSink
     ports:
     - RemoteControlSinkPort
-  - type: ModularTurret
-    slot: weapon_slot
   - type: Battery
     maxCharge: 2000
     startingCharge: 0
@@ -173,48 +171,4 @@
       Capacitor: 3
     materialRequirements:
       Cable: 5
-      Steel: 10
-
-
-- type: entity
-  parent: [ BaseWeaponTurretShip, InnateMassScanner150 ]
-  id: WeaponTurretShip
-  suffix: Naval, Remote Controlled
-  name: medium weapon mount
-  description: A remotely-operated weapon mount designed to accept ship weaponry.
-  components:
-  - type: Sprite
-    sprite: _White/Objects/Weapons/Guns/Turrets/mounts.rsi
-    state: light
-  - type: Battery
-    maxCharge: 10000
-    startingCharge: 0
-  - type: ApcPowerReceiverBattery
-    idleLoad: 50
-    batteryRechargeRate: 1000
-    batteryRechargeEfficiency: 2.45
-  - type: ApcPowerReceiver
-    powerLoad: 50
-  - type: Machine
-    board: WeaponTurretShipLightCircuitBoard
-  - type: UpgradeBattery
-    maxChargeMultiplier: 2
-    baseMaxCharge: 10000
-
-- type: entity
-  id: WeaponTurretShipLightCircuitBoard
-  parent: BaseMachineCircuitboard
-  name: modular turret machine board
-  description: Circuitboard for a light ship weapon mount.
-  components:
-  - type: Sprite
-    state: security
-  - type: MachineBoard
-    prototype: WeaponTurretShipLight
-    requirements:
-      MatterBin: 1
-      Manipulator: 2
-      Capacitor: 3
-    materialRequirements:
-      Cable: 5
-      Steel: 10
+      Steel: 10 

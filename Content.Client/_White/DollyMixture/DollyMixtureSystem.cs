@@ -11,6 +11,7 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
 {
     [Dependency] private readonly IResourceCache _res = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
