@@ -112,18 +112,22 @@
 
 # WWDP #
 
-- type: entity
-  id: AdminInstantEffectShrapnel
-  suffix: Shrapnel
-  parent: AdminInstantEffectBase
-  components:
-  - type: ClusterGrenade
-    fillPrototype: PelletClusterLethal
-    maxGrenadesCount: 30
-    grenadeType: enum.GrenadeType.Shoot
-  - type: ContainerContainer
-    containers:
-      cluster-payload: !type:Container
+# This kills the SpawnAndDirtyAllEntities test.
+# The test tries to get this entity's netuid to send the projectileComp's "Shooter" field to clients,
+# but does this not fast enough, so this entity is long since deleted by that point.
+# todo: kill that test
+#- type: entity
+#  id: AdminInstantEffectShrapnel
+#  suffix: Shrapnel
+#  parent: AdminInstantEffectBase
+#  components:
+#  - type: ClusterGrenade
+#    fillPrototype: PelletClusterLethal
+#    maxGrenadesCount: 30
+#    grenadeType: enum.GrenadeType.Shoot
+#  - type: ContainerContainer
+#    containers:
+#      cluster-payload: !type:Container
 
 - type: entity
   id: AdminInstantEffectExplosionSmall
