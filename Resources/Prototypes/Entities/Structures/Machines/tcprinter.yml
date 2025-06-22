@@ -13,7 +13,7 @@
   - type: ApcPowerReceiver
     powerLoad: 20000
   - type: TelecrystalMiner
-    announceAt: 15 # breakeven
+    announceAt: 15 # break even
     locationAt: 45 # + 30 TC
   - type: ItemMiner
     interval: 60
