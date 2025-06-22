@@ -83,7 +83,7 @@ public sealed class StationAlertLevelLockSystem : EntitySystem
 
     public void OnExamined(EntityUid uid, StationAlertLevelLockComponent component, ExaminedEvent args)
     {
-        if (!component.Enabled)
+        if (!component.Enabled || component.LockedAlertLevels.Count == 0)
             return;
 
         string levels = "";
