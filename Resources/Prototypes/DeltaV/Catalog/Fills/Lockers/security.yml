@@ -65,7 +65,6 @@
   parent: GunSafe
   id: GunSafeEnergyGunMini
   name: miniature energy gun safe
-  suffix: Alert Level Lock # WWDP
   components:
   - type: StorageFill
     contents:
