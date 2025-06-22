@@ -30,8 +30,8 @@ public sealed partial class RemoteControlSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
-    public static ProtoId<SinkPortPrototype> SinkPortId = "RemoteControlOutputPort";
-    public static ProtoId<SourcePortPrototype> SourcePortId = "RemoteControlInputPort";
+    public static ProtoId<SinkPortPrototype> SinkPortId = "RemoteControlSinkPort";
+    public static ProtoId<SourcePortPrototype> SourcePortId = "RemoteControlSourcePort";
 
     public override void Initialize()
     {

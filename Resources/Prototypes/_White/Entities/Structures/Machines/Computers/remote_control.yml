@@ -1,82 +1,28 @@
-
-- type: sourcePort
-  id: RemoteControlSourcePort
-  name: signal-port-name-remote-control-source
-  description: signal-port-description-remote-control-source
-  defaultLinks: [ RemoteControlInputPort ]
-
-- type: sinkPort
-  id: RemoteControlSinkPort
-  name: signal-port-name-remote-control-sink
-  description: signal-port-description-remote-control-sink
-
 - type: entity
-  id: InnateMassScanner
-  abstract: true
+  parent: BaseComputerAiAccess
+  id: ComputerRemoteControl
+  name: remote control console
+  description: A computer equipped with a joystick. Has a faint cheetos smell around it.
   components:
-  - type: IntrinsicUI
-    uis:
-      enum.RadarConsoleUiKey.Key:
-        toggleAction: ActionAGhostShowRadar
-  - type: UserInterface
-    interfaces:
-      enum.RadarConsoleUiKey.Key:
-        type: RadarConsoleBoundUserInterface
-  - type: RadarConsole
-    followEntity: true
-
-- type: entity
-  parent: InnateMassScanner
-  id: InnateMassScanner30
-  abstract: true
-  components:
-  - type: RadarConsole
-    fieldOfVision: 30
-
-- type: entity
-  parent: InnateMassScanner
-  id: InnateMassScanner60
-  abstract: true
-  components:
-  - type: RadarConsole
-    fieldOfVision: 60
-
-- type: entity
-  parent: InnateMassScanner
-  id: InnateMassScanner90
-  abstract: true
-  components:
-  - type: RadarConsole
-    fieldOfVision: 90
-
-- type: entity
-  parent: InnateMassScanner
-  id: InnateMassScanner120
-  abstract: true
-  components:
-  - type: RadarConsole
-    fieldOfVision: 120
-
-- type: entity
-  parent: InnateMassScanner
-  id: InnateMassScanner150
-  abstract: true
-  components:
-  - type: RadarConsole
-    fieldOfVision: 150
-
-- type: entity
-  parent: InnateMassScanner
-  id: InnateMassScanner180
-  abstract: true
-  components:
-  - type: RadarConsole
-    fieldOfVision: 180
-
-
-
-
-
-
-
-
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: solar_screen
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: Computer
+    board: RemoteControlConsoleCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#e6e227"
+  - type: RemoteControlConsole
+  - type: DeviceLinkSource
+    ports:
+    - RemoteControlInputPort
