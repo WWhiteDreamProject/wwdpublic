@@ -87,7 +87,7 @@
 
 #(Bartender) vest
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterVest
   name: vest
   description: A thick vest with a rubbery, water-resistant shell.
@@ -98,7 +98,7 @@
     sprite: Clothing/OuterClothing/Vests/vest.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterVestNt
   name: nanotrasen vest
   description: A thick vest with a rubbery, water-resistant shell coloured in blue.
@@ -109,7 +109,7 @@
     sprite: Clothing/OuterClothing/Vests/vest_nt.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterVestIdris
   name: idris incorporated vest
   description: A thick vest with a rubbery, water-resistant shell coloured in teal.
@@ -120,7 +120,7 @@
     sprite: Clothing/OuterClothing/Vests/vest_idris.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterVestOrion
   name: orion express vest
   description: A thick vest with a rubbery, water-resistant shell coloured in brown.
@@ -131,7 +131,7 @@
     sprite: Clothing/OuterClothing/Vests/vest_orion.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterVestColorable
   name: vest
   description: You have a vested interest in looking good, and this vest is the vest choice to achieve that!

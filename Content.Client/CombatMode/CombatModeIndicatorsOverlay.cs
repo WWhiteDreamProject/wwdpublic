@@ -44,7 +44,7 @@ public sealed class CombatModeIndicatorsOverlay : Overlay
         _eye = eye;
         _combat = combatSys;
         _hands = hands;
-        ZIndex = 100;
+        ZIndex = 100; // WD EDIT
 
         var spriteSys = _entMan.EntitySysManager.GetEntitySystem<SpriteSystem>();
         _gunSight = spriteSys.Frame0(new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/crosshair_pointers.rsi"),

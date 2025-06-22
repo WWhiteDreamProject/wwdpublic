@@ -59,7 +59,9 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.005
+    coefficient: 0.1 # WWDP
+  - type: FireProtection # WWDP
+    reduction: 1
 
 #Engineering Hardsuit
 - type: entity
@@ -108,6 +110,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.1
     lowPressureMultiplier: 1000
+  - type: FireProtection  # WWDP
+    reduction: 1
 
 #Spationaut Hardsuit
 - type: entity
@@ -178,6 +182,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
+  - type: FireProtection # WWDP
+    reduction: 1
   - type: Armor
     modifiers:
       coefficients:
@@ -568,7 +574,7 @@
     - Snout
     - Hair
   - type: TemperatureProtection
-    coefficient: 0.005
+    coefficient: 0.1 # WWDP
   - type: FireProtection
     reduction: 0.2
   - type: Armor
@@ -818,6 +824,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FireProtection # WWDP
+    reduction: 1
 
 #ERT Medical Hardsuit
 - type: entity
@@ -937,7 +945,7 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.005
+    coefficient: 0.1 # WWDP
   - type: Armor
     modifiers:
       coefficients:

@@ -4,11 +4,11 @@
   description: job-description-mantis
   playTimeTracker: JobForensicMantis
   requirements:
-    - !type:CharacterOverallTimeRequirement
-      min: 18000
-    - !type:CharacterDepartmentTimeRequirement
-      department: Epistemics # DeltaV - Epistemics Department replacing Science
-      min: 3600
+    # - !type:CharacterOverallTimeRequirement # WWDP
+    #   min: 18000
+    # - !type:CharacterDepartmentTimeRequirement
+    #   department: Epistemics # DeltaV - Epistemics Department replacing Science
+    #   min: 3600
     - !type:CharacterLogicOrRequirement
       requirements:
         - !type:CharacterSpeciesRequirement

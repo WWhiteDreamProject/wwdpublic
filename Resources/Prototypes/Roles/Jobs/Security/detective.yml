@@ -4,9 +4,9 @@
   description: job-description-detective
   playTimeTracker: JobDetective
   requirements:
-  - !type:CharacterDepartmentTimeRequirement
-    department: Security
-    min: 36000 # DeltaV - 10 hours
+  # - !type:CharacterDepartmentTimeRequirement # WWDP
+  #   department: Security
+  #   min: 36000 # DeltaV - 10 hours
   - !type:CharacterTraitRequirement
     inverted: true
     traits:

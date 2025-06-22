@@ -665,6 +665,3 @@ trait-description-IPCFragileCircuits =
     Your chassis is particularly bad at handling electric discharges.
     You immediately shut down any time you take [color=orange]Shock[/color] damage and must be rebooted.
 fragileCircuits-kill-popup = {$name}'s circuits shut down from short-circuiting!
-
-trait-name-StudioVisor = Studio Visor
-trait-description-StudioVisor = A studio-grade visor is installed in your vision sensors, which significantly reduces the intensity of CRT-like visual effects and glitches caused by damage or low health.

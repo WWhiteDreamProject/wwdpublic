@@ -28,6 +28,7 @@
   - SyndicatePlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitOperative
+    ears: ClothingHeadsetAltSyndicate # WWDP
     back: ClothingBackpackSyndicate
     shoes: ClothingShoesBootsCombatFilled
     gloves: ClothingHandsGlovesColorBlack
@@ -35,6 +36,8 @@
     back:
     - BoxSurvivalSyndicate
     - WeaponPistolViper
+    - MagazinePistol # WWDP
+    - MagazinePistol # WWDP
     - PinpointerSyndicateNuclear
     - DeathAcidifierImplanter
 
