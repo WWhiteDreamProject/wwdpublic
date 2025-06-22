@@ -86,7 +86,7 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
         sprite.NoRotation = true;
 
         if (comp.RSIPath is not null)
-            BuildLayers(uid, comp.RSIPath, comp, sprite);
+            BuildLayers(uid, comp, sprite);
     }
 
     public override void Apply3D(EntityUid uid, string RsiPath, string? statePrefix = null, Vector2? layerOffset = null, DollyMixtureComponent? comp = null)
@@ -117,7 +117,7 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
         comp.LayerMappings.Clear();
     }
 
-    private void BuildLayers(EntityUid uid, DollyMixtureComponent? comp = null, SpriteComponent? sprite = null)
+    private void BuildLayers(EntityUid uid, DollyMixtureComponent comp, SpriteComponent? sprite = null)
     {
         if (string.IsNullOrEmpty(comp.RSIPath))
         {
@@ -125,7 +125,7 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
             return;
         }
 
-        if (!Resolve(uid, ref comp) || !Resolve(uid, ref sprite, false))
+        if (!Resolve(uid, ref sprite, false))
             return;
 
         var xform = Transform(uid);
