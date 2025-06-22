@@ -20,6 +20,7 @@ public partial class RemoteControlSystem
         SubscribeLocalEvent<RemoteControlConsoleComponent, ActivateInWorldEvent>(OnActivateInWorld);
         SubscribeLocalEvent<RemoteControlConsoleComponent, UseInHandEvent>(OnUseInHand);
 
+        SubscribeLocalEvent<RemoteControlConsoleComponent, LinkAttemptEvent>(OnNewLinkAttempt);
         SubscribeLocalEvent<RemoteControlConsoleComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<RemoteControlConsoleComponent, PortDisconnectedEvent>(OnPortDisconnected);
 
@@ -52,16 +53,22 @@ public partial class RemoteControlSystem
     private void OnActivateInWorld(EntityUid uid, RemoteControlConsoleComponent component, ActivateInWorldEvent args) =>
         TryActivate(uid, component, args.User);
 
-    private void OnNewLink(EntityUid uid, RemoteControlConsoleComponent component, NewLinkEvent args)
+    private void OnNewLinkAttempt(EntityUid uid, RemoteControlConsoleComponent component, LinkAttemptEvent args)
     {
-        if (!_whitelist.CheckBoth(args.Sink, component.Blacklist, component.Whitelist)
-            || args.Source != uid
-            || args.SourcePort != SourcePortId
-            || args.SinkPort != SinkPortId
-            || !HasComp<RemoteControllableComponent>(args.Sink))
+        if (args.Source != uid || args.SourcePort != SourcePortId)
             return;
 
-        component.LinkedEntities.Add(args.Sink);
+        if (!HasComp<RemoteControllableComponent>(args.Sink) ||
+            _whitelist.CheckBoth(args.Sink, component.Blacklist, component.Whitelist) ||
+            args.Source != uid ||
+            args.SourcePort != SourcePortId ||
+            args.SinkPort != SinkPortId)
+            args.Cancel();
+    }
+    private void OnNewLink(EntityUid uid, RemoteControlConsoleComponent component, NewLinkEvent args)
+    {
+        if (args.Source == uid && args.SourcePort == SourcePortId)
+            component.LinkedEntities.Add(args.Sink);
     }
 
     private void OnPortDisconnected(EntityUid uid, RemoteControlConsoleComponent component, PortDisconnectedEvent args)

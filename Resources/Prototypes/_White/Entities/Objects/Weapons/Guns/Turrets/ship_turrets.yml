@@ -53,7 +53,7 @@
             collection: MetalGlassBreak
     - trigger:
         !type:DamageTrigger
-        damage: 150 
+        damage: 150
       behaviors:
         - !type:PlaySoundBehavior
           sound:
