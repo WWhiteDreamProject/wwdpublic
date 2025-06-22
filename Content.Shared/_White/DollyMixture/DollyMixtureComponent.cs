@@ -21,6 +21,10 @@ public sealed partial class DollyMixtureComponent : Component
     [DataField]
     public string StatePrefix = "dollymix";
 
+    // Crutch for customghosts, since i can't modify an existing spritecomponent through a ComponentRegistry. Or, at best, i don't know how.
+    [DataField]
+    public string? DefaultShader = null;
+
     [DataField]
     public Vector2 LayerOffset = new(0, 1);
 
@@ -28,13 +32,10 @@ public sealed partial class DollyMixtureComponent : Component
     public Vector2 Offset;
 
     [DataField]
-    public int RepeatLayers = 1;
+    public int RepeatLayers = 0;
 
     public Angle LastAngle;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public List<string> LayerMappings = new();
-
-    [DataField]
-    public bool Enabled = true;
 }

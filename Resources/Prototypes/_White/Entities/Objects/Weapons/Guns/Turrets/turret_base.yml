@@ -76,6 +76,7 @@
     forceShootForward: true
   - type: GunFireAngleRestriction
 
+# this is dumb
 - type: entity
   id: BaseTurret3D
   abstract: true
@@ -86,10 +87,7 @@
     layers:
     - state: syndie_base
   - type: DollyMixture
-    states:
-    - dm1
-    - dm2
-    - dm3
-    - dm4
-    - dm5
+    sprite: Textures/Objects/Weapons/Guns/Turrets/turrets.rsi
+    statePrefix: dm
+    repeatLayers: 3
     layerOffset: 0,0.75

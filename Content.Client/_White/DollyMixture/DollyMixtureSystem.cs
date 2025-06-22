@@ -151,6 +151,8 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
                 sprite.LayerSetState(layerIndex, state.StateId);
                 sprite.LayerSetOffset(layerIndex, layerOffset);
                 sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
+                if (comp.DefaultShader is string defaultshader)
+                    sprite.LayerSetShader(layerIndex, defaultshader); // crutch for customghosts
                 string layerMap = $"dmm-{comp.StatePrefix}{i}({repeat}/{comp.RepeatLayers})";
                 sprite.LayerMapSet(layerMap, layerIndex);
                 comp.LayerMappings.Add(layerMap);

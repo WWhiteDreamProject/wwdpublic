@@ -104,7 +104,7 @@
   - type: WiredNetworkConnection
   - type: DeviceLinkSink
     ports:
-    - RemoteControlOutputPort
+    - RemoteControlSinkPort
   - type: Battery
     maxCharge: 2000
     startingCharge: 0
