@@ -11,7 +11,6 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
 {
     [Dependency] private readonly IResourceCache _res = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
@@ -80,7 +79,6 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
             RemComp<DollyMixtureComponent>(uid);
             return;
         }
-
 
         var xform = Transform(uid);
         sprite.NoRotation = true;
