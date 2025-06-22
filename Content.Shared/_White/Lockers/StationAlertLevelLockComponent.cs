@@ -14,10 +14,10 @@ public sealed partial class StationAlertLevelLockComponent : Component
     public bool Locked = true;
 
     [DataField, AutoNetworkedField]
-    public List<string> LockedAlertLevels = [];
+    public HashSet<string> LockedAlertLevels = [];
 
     [DataField, AutoNetworkedField]
-    public EntityUid StationId;
+    public EntityUid? StationId;
 }
 
 public sealed class PreventLockAccessEvent : CancellableEntityEventArgs

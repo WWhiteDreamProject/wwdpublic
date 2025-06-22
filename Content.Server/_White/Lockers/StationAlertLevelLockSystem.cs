@@ -40,7 +40,7 @@ public sealed class StationAlertLevelLockSystem : EntitySystem
 
         foreach (var level in component.LockedAlertLevels)
         {
-            if (level == _level.GetLevel(component.StationId))
+            if (level == _level.GetLevel(component.StationId.Value))
             {
                 component.Locked = true;
                 break;
