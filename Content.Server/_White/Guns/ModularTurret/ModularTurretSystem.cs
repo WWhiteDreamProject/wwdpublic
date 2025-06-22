@@ -4,11 +4,6 @@ using Content.Shared._White.Guns.ModularTurret;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Content.Server._White.Guns.ModularTurret;
 

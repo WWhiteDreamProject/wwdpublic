@@ -12,14 +12,14 @@
     { "name": "dollymix3"},
     { "name": "dollymix3-unshaded", "delays": [[0.2, 0.2, 0.2, 0.2]]},
     { "name": "dollymix4"},
-	{ "name": "dollymix5"},
+    { "name": "dollymix5"},
     { "name": "dollymix5-unshaded", "delays": [[0.2, 0.2, 0.2, 0.2]]},
-	{ "name": "dollymix6"},
-	{ "name": "dollymix7"},
+    { "name": "dollymix6"},
+    { "name": "dollymix7"},
     { "name": "dollymix7-unshaded", "delays": [[0.2, 0.2, 0.2, 0.2]]},
-	{ "name": "dollymix8"},
-	{ "name": "dollymix9"},
+    { "name": "dollymix8"},
+    { "name": "dollymix9"},
     { "name": "dollymix9-unshaded", "delays": [[0.2, 0.2, 0.2, 0.2]]},
-	{ "name": "icon"}
+    { "name": "icon"}
   ]
 }

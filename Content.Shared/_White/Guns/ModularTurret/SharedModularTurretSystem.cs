@@ -1,17 +1,12 @@
 using Content.Shared._White.DollyMixture;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Containers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Content.Shared._White.Guns.ModularTurret;
 
 public abstract class SharedModularTurretSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDollyMixtureSystem _dolly = default!; 
+    [Dependency] private readonly SharedDollyMixtureSystem _dolly = default!;
 
     public override void Initialize()
     {
@@ -32,13 +27,13 @@ public abstract class SharedModularTurretSystem : EntitySystem
         if (args.Container.ID != comp.Slot)
             return;
 
-        if(!TryComp<ModularTurretWeaponComponent>(args.EntityUid, out var modweapon))
+        if (!TryComp<ModularTurretWeaponComponent>(args.EntityUid, out var modweapon))
         {
             args.Cancel();
             return;
         }
 
-        if(comp.MountClass is string turretClass &&
+        if (comp.MountClass is string turretClass &&
            !modweapon.WeaponClass.Contains(turretClass))
             args.Cancel();
     }
