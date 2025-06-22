@@ -44,6 +44,8 @@
       mining_slot: !type:ContainerSlot
         showEnts: False
         occludes: True
+      machine_board: !type:Container
+      machine_parts: !type:Container
   - type: Transform
     anchored: true
   - type: Physics
