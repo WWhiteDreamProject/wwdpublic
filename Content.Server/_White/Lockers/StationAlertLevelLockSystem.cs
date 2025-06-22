@@ -91,7 +91,8 @@ public sealed class StationAlertLevelLockSystem : EntitySystem
         var i = 1;
         foreach (var level in component.LockedAlertLevels)
         {
-            levels += " " + level;
+            var levelloc = "alert-level-" + level;
+            levels += " " + Loc.GetString(levelloc).ToLower();
 
             if (i < component.LockedAlertLevels.Count)
                 levels += ",";
