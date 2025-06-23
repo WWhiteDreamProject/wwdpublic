@@ -503,6 +503,9 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-kitchen
+  - type: Anchorable
+    flags:
+    - None
 
 - type: entity
   parent: DefaultStationBeaconService
