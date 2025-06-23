@@ -4,6 +4,6 @@ ent-HandHeldMassScanner = ручной сканер массы
 ent-HandHeldMassScannerEmpty = { ent-HandHeldMassScanner }
     .desc = { ent-HandHeldMassScanner.desc }
     .suffix = Пустой
-ent-HandHeldMassScannerEmpty = { ent-HandHeldMassScanner }
+ent-HandHeldMassScannerBorg = { ent-HandHeldMassScanner }
     .desc = { ent-HandHeldMassScanner.desc }
     .suffix = Борг

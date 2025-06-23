@@ -23,4 +23,4 @@ ent-PuddleWriting = пишущий
     .desc = Немного жидкости.
     .suffix = { "" }
 ent-Footstep = след
-    .desc = след жидкости
+    .desc = След жидкости.
