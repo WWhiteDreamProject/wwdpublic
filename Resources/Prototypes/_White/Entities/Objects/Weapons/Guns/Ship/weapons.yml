@@ -17,6 +17,7 @@
     onlyUsableByTurret: true
   - type: Gun
     fireOnDropChance: 0
+    shipWeapon: true
 
 - type: entity
   id: BaseWeaponShipLightEnergy
@@ -58,7 +59,7 @@
         volume: -5
   - type: ProjectileContainerBatteryAmmoProvider
     proto: BulletLaser
-    fireCost: 80
+    fireCost: 75
   - type: ModularTurretWeapon
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/IR_laser.rsi
 
@@ -67,7 +68,7 @@
   parent: BaseWeaponShipLightEnergy
   id: WeaponShipLightAnnihilator
   name: Annihilator Rocket Launcher
-  description: Fires a spread of unguided flash-printed microrockets that cover a wide arc. Despite the low damage output, it should not be underestimated, as it can still deal a devastating blow in hands of a skilled fighter pilot.  
+  description: Fires a spread of unguided flash-printed microrockets that cover a wide arc. Despite the low damage output, it can still deal a devastating blow in hands of a skilled fighter pilot.  
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Turrets/annihilator.rsi
@@ -90,7 +91,6 @@
     fireCost: 1000
   - type: ModularTurretWeapon
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/annihilator.rsi
-
 
 - type: entity
   parent: BaseWeaponShipLightEnergy
@@ -115,7 +115,7 @@
         volume: -10
   - type: HitscanContainerBatteryAmmoProvider
     proto: RedMiningLaser
-    fireCost: 350
+    fireCost: 500
   - type: ModularTurretWeapon
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/mining_laser.rsi
 
@@ -232,8 +232,8 @@
   - type: Gun
     fireRate: 20
     angleDecay: 12
-    angleIncrease: 6
-    maxAngle: 40
+    angleIncrease: 3
+    maxAngle: 20
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -243,7 +243,7 @@
         volume: -4
   - type: ProjectileContainerBatteryAmmoProvider
     proto: BulletHotspot
-    fireCost: 275
+    fireCost: 250
   - type: ModularTurretWeapon
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/hotspot.rsi
 
@@ -274,12 +274,12 @@
 
 - type: entity
   parent: BaseWeaponShipLightEnergy
-  id: WeaponShipLightL
-  name: Ship LMG
-  description: A staple of infantry support weaponry, this weapon is a well-rounded option for any type of job. 
+  id: WeaponShipLightHMG
+  name: Ship HMG
+  description: A jack of all trades, this weapon is a well-rounded option for any type of job. 
   components:
   - type: Sprite
-    sprite: _White/Objects/Weapons/Guns/Turrets/lmg.rsi
+    sprite: _White/Objects/Weapons/Guns/Turrets/hmg.rsi
     state: icon
   - type: Gun
     fireRate: 5
@@ -295,9 +295,9 @@
         volume: 0
   - type: ProjectileContainerBatteryAmmoProvider
     proto: BulletHighCaliberWeak
-    fireCost: 500
+    fireCost: 1000
   - type: ModularTurretWeapon
-    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/lmg.rsi
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/hmg.rsi
 
 
 
@@ -313,3 +313,57 @@
         Piercing: 25
         Structural: 25 # weaker compared to other .50 cal bullets
     
+
+
+
+- type: entity
+  parent: BaseWeaponShipLightEnergy
+  id: WeaponShipLightBlaster
+  name: Mining Blaster
+  description: Able to carve out chunks of stone and hull alike, this weapon's performance is severely hampered by it's low firerate and projectile speed. 
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/blaster.rsi
+    state: icon
+  - type: Gun
+    projectileSpeed: 10
+    fireRate: 0.333
+    angleDecay: 2.5
+    angleIncrease: 10
+    maxAngle: 25
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      params:
+        volume: 0
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BulletMiningBlast
+    fireCost: 4000
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/blaster.rsi
+
+
+- type: entity
+  id: BulletMiningBlast
+  name: unstable energy orb
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    color: "#FF00FFFF" #E7C60F?
+    layers:
+      - state: impact_laser_greyscale
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: DemolitionCharge
+    maxIntensity: 1
+    intensitySlope: 1
+    totalIntensity: 21
+    maxTileBreak: 0
+  - type: PointLight
+    radius: 1.5
+    color: red
+    energy: 0.25

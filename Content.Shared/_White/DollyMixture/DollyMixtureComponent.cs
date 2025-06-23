@@ -20,6 +20,10 @@ public sealed partial class DollyMixtureComponent : Component
     [DataField]
     public string? DefaultShader = null;
 
+    // 0 to disable
+    [DataField]
+    public int DirectionCount = 0;
+
     [DataField]
     public Vector2 LayerOffset = new(0, 1);
 

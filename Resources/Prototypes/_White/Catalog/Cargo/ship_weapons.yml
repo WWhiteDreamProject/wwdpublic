@@ -1,0 +1,119 @@
+- type: cargoProduct
+  id: WeaponShipLightIR
+  description: A single IR laser. Low damage and even lower power draw.
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/IR_laser.rsi
+    state: icon
+  product: CrateWeaponSecureWeaponShipLightIR
+  cost: 7500
+  category: cargoproduct-category-name-shuttle
+  group: market
+
+- type: entity
+  parent: CrateWeaponSecure
+  id: CrateWeaponSecureWeaponShipLightIR
+  name: IR laser crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponShipLightIR
+
+- type: cargoProduct
+  id: WeaponShipLightAnnihilator
+  description: A single annihilator MLRS. Fires a burst of low-damage rockets in a wide arc for suppression and area denial.
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/annihilator.rsi
+    state: icon
+  product: CrateWeaponSecureWeaponShipLightAnnihilator
+  cost: 27500
+  category: cargoproduct-category-name-shuttle
+  group: market
+
+- type: entity
+  parent: CrateWeaponSecure
+  id: CrateWeaponSecureWeaponShipLightAnnihilator
+  name: annihilator crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponShipLightAnnihilator
+
+- type: cargoProduct
+  id: WeaponShipLightHotspot
+  description: A single Hotspot CIWS. Inaccurate dual-minigun, capable of firing in short bursts, intended for point-defense against soft targets.
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/hotspot.rsi
+    state: icon
+  product: CrateWeaponSecureWeaponShipLightHotspot
+  cost: 16500
+  category: cargoproduct-category-name-shuttle
+  group: market
+
+- type: entity
+  parent: CrateWeaponSecure
+  id: CrateWeaponSecureWeaponShipLightHotspot
+  name: hotspot crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponShipLightHotspot
+
+- type: cargoProduct
+  id: WeaponShipLightHMG
+  description: A single heavy machine gun. Well suited for any task.
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/hmg.rsi
+    state: icon
+  product: CrateWeaponSecureWeaponShipLightHMG
+  cost: 23000
+  category: cargoproduct-category-name-shuttle
+  group: market
+
+- type: entity
+  parent: CrateWeaponSecure
+  id: CrateWeaponSecureWeaponShipLightHMG
+  name: ship HMG crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponShipLightHMG
+
+- type: cargoProduct
+  id: WeaponShipLightBlaster
+  description: A single mining blaster. Tears apart hull and rock alike, but near useless in actual combat due to slow projectiles.
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/blaster.rsi
+    state: icon
+  product: CrateWeaponSecureWeaponShipLightBlaster
+  cost: 18000
+  category: cargoproduct-category-name-shuttle
+  group: market
+
+- type: entity
+  parent: CrateWeaponSecure
+  id: CrateWeaponSecureWeaponShipLightBlaster
+  name: mining blaster crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponShipLightBlaster
+
+- type: cargoProduct
+  id: WeaponShipLightMiningLaser
+  description: A single mining laser. Effective at presicely cutting pieces of rock and hull, it is slower than a mining blaster. 
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/mining_laser.rsi
+    state: icon
+  product: CrateWeaponSecureWeaponShipLightMiningLaser
+  cost: 20500
+  category: cargoproduct-category-name-shuttle
+  group: market
+
+- type: entity
+  parent: CrateWeaponSecure
+  id: CrateWeaponSecureWeaponShipLightMiningLaser
+  name: mining laser crate
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponShipLightMiningLaser

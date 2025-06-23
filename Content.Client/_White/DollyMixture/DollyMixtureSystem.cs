@@ -28,6 +28,9 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
         while (query.MoveNext(out var uid, out var dollymix, out var sprite, out var xform))
         {
             Angle angle = _xform.GetWorldRotation(xform) + _eye.CurrentEye.Rotation;
+            if (dollymix.DirectionCount > 0)
+                angle = Math.Round(angle / Math.Tau * dollymix.DirectionCount) * Math.Tau / dollymix.DirectionCount;
+
             const float MinAngleDelta = MathF.PI / 180 * 0.01f;
             if (MathHelper.CloseTo(dollymix.LastAngle, angle, MinAngleDelta))
                 continue;

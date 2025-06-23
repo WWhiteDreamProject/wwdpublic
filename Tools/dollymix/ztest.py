@@ -8,7 +8,7 @@ size = int(input("size: "))
 offset = float(input("offset: "))
 repeat = int(input("repeat: "))
 
-base = Image.open(os.path.join(path,basefile+ext)))
+base = Image.open(os.path.join(path,basefile+ext))
 
 reverse = size > 0
 size = abs(size)
@@ -20,7 +20,7 @@ if not os.path.exists(testfolder):
     os.makedirs(testfolder)
 
 copies = 24
-scaleFactor = 4
+scaleFactor = 5
 for rot in range(copies):
     angle = rot*(360/copies)
     print(f"{angle:03}.png")

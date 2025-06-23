@@ -7,7 +7,7 @@ ext = ".png"
 size = int(input("size: "))
 offset = int(input("downward offset (in pixels): "))
 
-base = os.path.join(path,basefile+ext)
+base = Image.open(os.path.join(path,basefile+ext))
 
 reverse = size > 0
 size = abs(size)

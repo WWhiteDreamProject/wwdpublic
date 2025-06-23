@@ -26,6 +26,8 @@
     noRot: true
     state: syndie_base
   - type: DollyMixture
+    directionCount: 64
+    repeatLayers: 3
   - type: CombatMode
     isInCombatMode: true
     toggleMouseRotator: false
@@ -152,7 +154,7 @@
   - type: Machine
     board: WeaponTurretShipLightCircuitBoard
   - type: UpgradeBattery
-    maxChargeMultiplier: 2
+    maxChargeMultiplier: 3
     baseMaxCharge: 10000
 
 - type: entity

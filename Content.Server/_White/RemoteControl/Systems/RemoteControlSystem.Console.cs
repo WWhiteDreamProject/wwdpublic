@@ -59,7 +59,7 @@ public partial class RemoteControlSystem
             return;
 
         if (!HasComp<RemoteControllableComponent>(args.Sink) ||
-            _whitelist.CheckBoth(args.Sink, component.Blacklist, component.Whitelist) ||
+            !_whitelist.CheckBoth(args.Sink, component.Blacklist, component.Whitelist) ||
             args.Source != uid ||
             args.SourcePort != SourcePortId ||
             args.SinkPort != SinkPortId)
