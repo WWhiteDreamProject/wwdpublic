@@ -110,6 +110,7 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
         }
 
         var total = asteroidAmount + derelictAmount;
+        int c = 1;
 
         for(int i = 0; i < asteroidAmount; i++)
         {
@@ -123,7 +124,6 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
             Log.Debug($"Queuing asteroid generation. ({i+1}/{asteroidAmount})");
 
             var task = _dungeon.GenerateDungeonAsync(asteroid.DungeonConfig, grid, grid, Vector2i.Zero, seed);
-            int c = 1;
             var finishTask = task.ContinueWith(_ =>
             {
                 Log.Info($"Finished generating asteroid {c}/{asteroidAmount}.");
