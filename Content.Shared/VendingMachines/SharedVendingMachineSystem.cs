@@ -40,12 +40,6 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     // WWDP EDIT START
     public virtual void OnEmagged(EntityUid uid, VendingMachineComponent component, ref GotEmaggedEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
-        if (HasComp<EmaggedComponent>(uid))
-            return;
-
         if (component.EmaggedInventory.Count == 0)
         {
             Popup.PopupClient(

@@ -152,7 +152,7 @@ namespace Content.Server.VendingMachines
             // one chance
             if (Randomizer.Prob(0.33f))
             {
-                Popup.PopupEntity(Loc.GetString("emag-vendingmachine-broke"), uid, PopupType.MediumCaution);
+                Popup.PopupEntity(Loc.GetString("emag-vendingmachine-broke"), uid, args.UserUid, PopupType.MediumCaution);
                 Audio.PlayEntity(
                     new SoundPathSpecifier("/Audio/_White/Effects/beep_long.ogg"),
                     args.UserUid,
