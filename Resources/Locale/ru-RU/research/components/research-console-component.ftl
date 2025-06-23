@@ -23,3 +23,4 @@ research-console-menu-server-sync-button = Синхронизировать
 research-console-menu-server-unlock-button = Изучить
 research-console-tech-requirements-none = Нет требуемых технологий.
 research-console-tech-requirements-prototype-name = Требуется: { $prototypeName }
+research-console-unlock-technology-radio-broadcast = [bold]{$approver}[/bold] исследовал технологию [bold]{$technology}[/bold] за [bold]{$amount}[/bold].
