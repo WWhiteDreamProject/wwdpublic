@@ -1,0 +1,29 @@
+- type: entity
+  id: WeaponMeleeFelinidMace
+  parent: BaseWeaponMelee
+  name: Кошка на палке
+  description: Это… фелинид? Почему у него палка в жо.....
+  components:
+    - type: Sprite
+      sprite: Resources/Textures/Mobs/Species/Felinid/female.rsi
+      state: icon
+    - type: MeleeWeapon
+      attackRate: 1.2
+      damage:
+        types:
+          Blunt: 30
+          Slash: 15
+    - type: Item
+      size: 5
+    - type: Tag
+      tags:
+        - Weapon
+        - Improvised
+        - FelinidWeapon
+    - type: Appearance
+    - type: EmitSoundOnHit
+      sound:
+        path: /Audio/Weapons/blunt_hit.ogg
+    - type: Clothing
+      slots:
+        - Back
