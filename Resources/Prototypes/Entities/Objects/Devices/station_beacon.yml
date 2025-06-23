@@ -505,7 +505,7 @@
     defaultText: station-beacon-kitchen
   - type: Anchorable
     flags:
-    - None
+    - None # No CQC outside Kitchen
 
 - type: entity
   parent: DefaultStationBeaconService
