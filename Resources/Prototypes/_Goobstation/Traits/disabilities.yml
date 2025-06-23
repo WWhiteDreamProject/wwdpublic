@@ -19,7 +19,7 @@
       components:
         - type: BuckleOnMapInit
           prototype: VehicleWheelchair
-#        - type: LegsStartParalyzed # unnecessary if you just can't move at all
-        - type: TraitSpeedModifier # makes inability to walk unfixable
-          sprintModifier: 0.0
-          walkModifier: 0.0
+        - type: LegsParalyzed # WWDP - now works and is untreatable IC
+        # - type: TraitSpeedModifier # WWDP
+        #   sprintModifier: 0.1
+        #   walkModifier: 0.1

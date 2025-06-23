@@ -29,6 +29,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._White.Silicons.Borgs;
 using Content.Shared.Chat;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Containers;
@@ -62,9 +63,12 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     [Dependency] private readonly   SharedTransformSystem _xforms = default!;
     [Dependency] private readonly   SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly   StationAiVisionSystem _vision = default!;
-    [Dependency] private readonly   AnchorableSystem _anchorable = default!; // WD edit
-    [Dependency] private readonly   PullingSystem _pulling = default!; // WD edit
-    [Dependency] private readonly   SharedUserInterfaceSystem _ui = default!; // WD edit
+    // WD EDIT START
+    [Dependency] private readonly   AnchorableSystem _anchorable = default!;
+    [Dependency] private readonly   PullingSystem _pulling = default!;
+    [Dependency] private readonly   SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SharedAiRemoteControlSystem _remoteSystem = default!;
+    // WD EDIT END
 
     // StationAiHeld is added to anything inside of an AI core.
     // StationAiHolder indicates it can hold an AI positronic brain (e.g. holocard / core).
@@ -240,6 +244,13 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         // Try to insert our thing into them
         if (_slots.CanEject(ent.Owner, args.User, ent.Comp.Slot))
         {
+            // WD edit - AiRemoteControl-Start
+            if (ent.Comp.Slot.Item != null
+                && TryComp<StationAiHeldComponent>(ent.Comp.Slot.Item, out var stationAiHeldComp)
+                && stationAiHeldComp.CurrentConnectedEntity != null)
+                _remoteSystem.ReturnMindIntoAi(stationAiHeldComp.CurrentConnectedEntity.Value);
+            // WD edit - AiRemoteControl-End
+
             if (!_slots.TryInsert(args.Args.Target.Value, targetHolder.Slot, ent.Comp.Slot.Item!.Value, args.User, excludeUserAudio: true))
             {
                 return;
@@ -297,6 +308,11 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             intelliComp.NextWarningAllowed = _timing.CurTime + intelliComp.WarningDelay;
             AnnounceIntellicardUsage(held, intelliComp.WarningSound);
         }
+
+        // WD edit - AiRemoteControl-Start
+        if (TryComp<StationAiHeldComponent>(held, out var heldComp) && heldComp.CurrentConnectedEntity != null)
+            AnnounceIntellicardUsage(heldComp.CurrentConnectedEntity.Value, intelliComp.WarningSound);
+        // WD edit - AiRemoteControl-End
 
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, cardHasAi ? intelliComp.UploadTime : intelliComp.DownloadTime, new IntellicardDoAfterEvent(), args.Target, ent.Owner)
         {

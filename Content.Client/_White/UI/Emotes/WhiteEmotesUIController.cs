@@ -2,7 +2,7 @@ using System.Numerics;
 using Content.Client.Chat.UI;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
-using Content.Shared._White;
+using Content.Shared._White.CCVar;
 using Content.Shared._White.UI.Emotes;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
