@@ -1306,3 +1306,138 @@
   completetime: 1
   materials:
     Cloth: 100
+
+#Bedsheets
+
+- type: latheRecipe
+  id: BedsheetWhite
+  result: BedsheetWhite
+  completetime: 2
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: BedsheetRed
+  result: BedsheetRed
+  completetime: 2
+  materials:
+    Cloth: 200  
+
+- type: latheRecipe
+  id: BedsheetBlue
+  result: BedsheetBlue
+  completetime: 2
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: BedsheetGreen
+  result: BedsheetGreen
+  completetime: 2
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: BedsheetOrange
+  result: BedsheetOrange
+  completetime: 2
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: BedsheetYellow
+  result: BedsheetYellow
+  completetime: 2
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: BedsheetBlack
+  result: BedsheetBlack
+  completetime: 2
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: BedsheetPurple
+  result: BedsheetPurple
+  completetime: 2
+  materials:
+    Cloth: 200
+  
+- type: latheRecipe
+  id: BedsheetBrown
+  result: BedsheetBrown
+  completetime: 2
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: BedsheetRainbow
+  result: BedsheetRainbow
+  completetime: 2
+  materials:
+    Cloth: 200
+    
+- type: latheRecipe
+  id: BedsheetCosmos
+  result: BedsheetCosmos
+  completetime: 2
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: BedsheetMedical
+  result: BedsheetMedical
+  completetime: 2
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: BedsheetSyndie
+  result: BedsheetSyndie
+  completetime: 2
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: BedsheetNT
+  result: BedsheetNT
+  completetime: 2
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: BedsheetCentcom
+  result: BedsheetCentcom
+  completetime: 2
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: BedsheetWiz
+  result: BedsheetWiz
+  completetime: 2
+  materials:
+    Cloth: 200
+    
+- type: latheRecipe
+  id: BedsheetUSA
+  result: BedsheetUSA
+  completetime: 2
+  materials:
+    Cloth: 200
+    
+- type: latheRecipe
+  id: BedsheetIan
+  result: BedsheetIan
+  completetime: 2
+  materials:
+    Cloth: 200
+    
+- type: latheRecipe
+  id: BedsheetCult
+  result: BedsheetCult
+  completetime: 2
+  materials:
+    Cloth: 200
