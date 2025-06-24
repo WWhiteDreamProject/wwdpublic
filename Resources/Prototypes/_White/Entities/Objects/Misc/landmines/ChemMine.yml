@@ -19,6 +19,9 @@
         hard: false
         layer:
         - LowImpassable
+  - type: Construction
+    graph: ChemMineGraph
+    node: emptyCase
   - type: Sprite
     drawdepth: Items
     sprite: _White/Objects/Misc/vietcong_mine.rsi
@@ -51,7 +54,8 @@
     blockSlots: NONE
 
 - type: entity
-  name: vietcong mine [ADMIN]
+  name: vietcong mine
+  suffix: Admeme
   parent: VietcongMine
   id: AdmVietcongMine
   components:
