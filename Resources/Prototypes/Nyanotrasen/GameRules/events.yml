@@ -72,8 +72,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: StationEvent
-      weight: 40 # Guaranteed to happen every once in a while, but with intervals between incidents
-		 # wwdp 25 --> 40
+      weight: 40 #wwdp 25 --> 40
       reoccurrenceDelay: 30 #wwdp 15 --> 30
       earliestStart: 15 #wwdp edit
     - type: GlimmerEvent
