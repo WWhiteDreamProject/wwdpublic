@@ -72,8 +72,10 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: StationEvent
-      weight: 25 # Guaranteed to happen every once in a while, but with intervals between incidents
-      reoccurrenceDelay: 15
+      weight: 40 # Guaranteed to happen every once in a while, but with intervals between incidents
+		 # wwdp 25 --> 40
+      reoccurrenceDelay: 30 #wwdp 15 --> 30
+      earliestStart: 15 #wwdp edit
     - type: GlimmerEvent
     - type: NoosphericZapRule
 
@@ -179,7 +181,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: GlimmerEvent
-    minimumGlimmer: 700
+    minimumGlimmer: 600 #wwdp 700 --> 600
     maximumGlimmer: 900
     glimmerBurnLower: 50
     glimmerBurnUpper: 250
