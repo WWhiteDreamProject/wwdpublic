@@ -74,3 +74,368 @@
   sprite:
     sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
     state: blood_boil
+
+
+- type: decal
+  id: а
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: 
+    sprite: Effects/crayondecals.rsi
+    state: a
+
+- type: decal
+  id: б
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: б
+
+- type: decal
+  id: в
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: b
+
+- type: decal
+  id: г
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: г
+
+- type: decal
+  id: д
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: д
+
+- type: decal
+  id: е
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: e
+
+- type: decal
+  id: ё
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: ё
+
+- type: decal
+  id: ж
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: ж
+
+- type: decal
+  id: з
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: з
+
+- type: decal
+  id: и
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: и
+
+- type: decal
+  id: й
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: й
+
+- type: decal
+  id: к
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: k
+
+- type: decal
+  id: л
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: л
+
+- type: decal
+  id: м
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: m
+
+- type: decal
+  id: н
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: h
+
+- type: decal
+  id: о
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: o
+
+- type: decal
+  id: п
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: п
+
+- type: decal
+  id: р
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: p
+
+- type: decal
+  id: с
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: c
+
+- type: decal
+  id: т
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: t
+
+- type: decal
+  id: у
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: y
+
+- type: decal
+  id: ф
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: ф
+
+- type: decal
+  id: х
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: x
+
+- type: decal
+  id: ц
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: ц
+
+- type: decal
+  id: ч
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: ч
+
+- type: decal
+  id: ш
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: ш
+
+- type: decal
+  id: щ
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: щ
+
+- type: decal
+  id: ъ
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: ъ
+
+- type: decal
+  id: ы
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: ы
+
+- type: decal
+  id: ь
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: ь
+
+- type: decal
+  id: э
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: э
+
+- type: decal
+  id: ю
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: ю
+
+- type: decal
+  id: я
+  parent: Alphabet
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _White/Effects/crayonmoonrunes.rsi
+    state: я
+
