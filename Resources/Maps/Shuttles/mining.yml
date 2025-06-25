@@ -7,8 +7,8 @@ tilemap:
   89: FloorSteel
   4: FloorSteelBurnt
   2: FloorSteelDamaged
-  104: FloorTechMaint
-  3: FloorTechMaint2
+  104: FloorTechMaintSteel
+  3: FloorMaintWhite
   120: Lattice
   121: Plating
   1: PlatingDiagonalSE

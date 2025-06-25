@@ -35,7 +35,7 @@ tilemap:
   14: FloorGreenCircuit
   11: FloorKitchen
   37: FloorLino
-  15: FloorMetalDiamond
+  15: FloorMetalDiamondSteel
   61: FloorMetalWhite
   36: FloorMime
   22: FloorMono
@@ -51,8 +51,8 @@ tilemap:
   47: FloorSteelDiagonal
   9: FloorSteelDirty
   24: FloorSteelMini
-  30: FloorTechMaint
-  18: FloorTechMaint2
+  30: FloorTechMaintSteel
+  18: FloorMaintWhite
   50: FloorTechMaint3
   25: FloorWhite
   6: FloorWhiteHerringbone

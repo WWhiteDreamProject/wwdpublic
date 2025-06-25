@@ -1,0 +1,10 @@
+- type: entity
+  id: AtmosRoundStartFixer
+  name: RoundStart Atmos Fixer
+  description: Runs fixgridatmos for this grid on round start
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Markers/cross.rsi
+    state: green
+  - type: FixGridAtmosOnRoundStart

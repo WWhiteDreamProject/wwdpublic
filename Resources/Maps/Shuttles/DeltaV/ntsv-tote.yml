@@ -6,7 +6,7 @@ tilemap:
   55: FloorMono
   60: FloorRGlass
   61: FloorReinforced
-  81: FloorTechMaint
+  81: FloorTechMaintSteel
   96: Lattice
   97: Plating
 entities:

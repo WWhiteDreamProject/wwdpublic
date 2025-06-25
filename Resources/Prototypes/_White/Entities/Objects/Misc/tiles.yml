@@ -260,6 +260,51 @@
       - FloorShuttleSyndie
 
 - type: entity
+  name: shuttle dark blue floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemShuttleDarkBlue
+  components:
+  - type: Sprite
+    state: shuttledarkblue
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorShuttleDarkBlue
+
+- type: entity
+  name: shuttle green floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemShuttleGreen
+  components:
+  - type: Sprite
+    state: shuttlegreen
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorShuttleGreen
+
+- type: entity
+  name: shuttle yellow floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemShuttleYellow
+  components:
+  - type: Sprite
+    state: shuttleyellow
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorShuttleYellow
+
+- type: entity
   name: sterile floor
   parent: FloorTileItemSteel
   id: FloorTileItemSterile

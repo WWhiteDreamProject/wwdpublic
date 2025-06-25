@@ -12,7 +12,7 @@ tilemap:
   3: FloorSnow
   12: FloorSnowDug
   89: FloorSteel
-  8: FloorTechMaint2
+  8: FloorMaintWhite
   11: FloorTechMaint3
   10: FloorWood
   5: Plating

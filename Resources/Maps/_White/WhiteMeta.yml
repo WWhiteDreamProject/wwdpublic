@@ -22,7 +22,7 @@ tilemap:
   58: FloorHydro
   61: FloorLaundry
   62: FloorLino
-  64: FloorMetalDiamond
+  64: FloorMetalDiamondSteel
   65: FloorMime
   69: FloorMono
   75: FloorPlastic
@@ -43,8 +43,8 @@ tilemap:
   6: FloorSteelYellow
   5: FloorSterile
   4: FloorSterileDark
-  104: FloorTechMaint
-  105: FloorTechMaint2
+  104: FloorTechMaintSteel
+  105: FloorMaintWhite
   108: FloorWhite
   117: FloorWhitePlastic
   118: FloorWood
@@ -5583,41 +5583,41 @@ entities:
             148: 10,-14
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameCornerNe
+            id: WindowFrameSteelCornerNe
           decals:
             3545: 11,-36
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameEndE
+            id: WindowFrameSteelEndE
           decals:
             3521: 28,-43
             3541: 10,-46
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameEndS
+            id: WindowFrameSteelEndS
           decals:
             3544: 11,-39
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameEndW
+            id: WindowFrameSteelEndW
           decals:
             3522: 18,-43
             3542: 4,-46
             3543: 7,-36
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameInnerSw
+            id: WindowFrameSteelInnerSw
           decals:
             3546: 11,-36
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameLineE
+            id: WindowFrameSteelLineE
           decals:
             3552: 11,-38
             3553: 11,-37
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameLineN
+            id: WindowFrameSteelLineN
           decals:
             3532: 27,-43
             3533: 26,-43
@@ -5638,7 +5638,7 @@ entities:
             3561: 5,-46
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameLineS
+            id: WindowFrameSteelLineS
           decals:
             3523: 19,-43
             3524: 20,-43
@@ -5659,7 +5659,7 @@ entities:
             3566: 9,-46
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameLineW
+            id: WindowFrameSteelLineW
           decals:
             3547: 11,-38
             3548: 11,-37

@@ -15,7 +15,7 @@ tilemap:
   86: FloorShuttleRed
   89: FloorSnow
   91: FloorSteel
-  106: FloorTechMaint
+  106: FloorTechMaintSteel
   110: FloorWhite
   120: FloorWood
   123: Lattice

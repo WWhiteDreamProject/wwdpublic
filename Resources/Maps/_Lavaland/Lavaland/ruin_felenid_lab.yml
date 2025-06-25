@@ -7,7 +7,7 @@ tilemap:
   47: FloorFreezer
   64: FloorKitchen
   65: FloorLaundry
-  68: FloorMetalDiamond
+  68: FloorMetalDiamondSteel
   100: FloorSteelCheckerDark
   101: FloorSteelCheckerLight
   2: FloorSteelDirty

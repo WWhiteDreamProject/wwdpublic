@@ -6,7 +6,7 @@ tilemap:
   24: FloorDark
   71: FloorSteel
   77: FloorSteelMono
-  81: FloorTechMaint
+  81: FloorTechMaintSteel
   96: Lattice
   97: Plating
 entities:

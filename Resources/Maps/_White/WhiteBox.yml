@@ -28,7 +28,7 @@ tilemap:
   66: FloorLaundry
   67: FloorLino
   68: FloorLowDesert
-  69: FloorMetalDiamond
+  69: FloorMetalDiamondSteel
   70: FloorMime
   74: FloorMono
   79: FloorPlanetGrass
@@ -49,8 +49,8 @@ tilemap:
   26: FloorSteelRed
   14: FloorSterile
   11: FloorSterileDark
-  112: FloorTechMaint
-  113: FloorTechMaint2
+  112: FloorTechMaintSteel
+  113: FloorMaintWhite
   116: FloorWhite
   2: FloorWhiteMini
   12: FloorWhitePlastic
@@ -17125,54 +17125,54 @@ entities:
             2038: 92,-30
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameCornerNe
+            id: WindowFrameSteelCornerNe
           decals:
             13191: 32,-29
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameCornerNw
+            id: WindowFrameSteelCornerNw
           decals:
             13190: 30,-29
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameCornerSe
+            id: WindowFrameSteelCornerSe
           decals:
             13192: 32,-30
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameCornerSw
+            id: WindowFrameSteelCornerSw
           decals:
             13193: 30,-30
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameEndN
+            id: WindowFrameSteelEndN
           decals:
             11313: -43,-11
             11314: -39,-6
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameEndS
+            id: WindowFrameSteelEndS
           decals:
             11311: -43,-12
             11312: -39,-8
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameLineE
+            id: WindowFrameSteelLineE
           decals:
             11315: -39,-7
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameLineN
+            id: WindowFrameSteelLineN
           decals:
             13188: 31,-29
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameLineS
+            id: WindowFrameSteelLineS
           decals:
             13189: 31,-30
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameLineW
+            id: WindowFrameSteelLineW
           decals:
             11316: -39,-7
         - node:

@@ -5,7 +5,7 @@ tilemap:
   0: Space
   4: FloorArcadeBlue2
   17: FloorAstroGrass
-  27: FloorBlue
+  27: FloorSteelBlue
   29: FloorBoxing
   32: FloorBrokenWood
   1: FloorCarpetClown
@@ -22,7 +22,7 @@ tilemap:
   75: FloorHydro
   78: FloorKitchen
   79: FloorLaundry
-  137: FloorMetalDiamond
+  137: FloorMetalDiamondSteel
   160: FloorMiningDark
   161: FloorMiningLight
   164: FloorOldConcrete
@@ -35,8 +35,8 @@ tilemap:
   216: FloorSteelRed
   219: FloorSterile
   220: FloorSterileDark
-  221: FloorTechMaint
-  222: FloorTechMaint2
+  221: FloorTechMaintSteel
+  222: FloorMaintWhite
   223: FloorTechMaint3
   225: FloorWebTile
   235: FloorWhitePlastic
@@ -3548,13 +3548,13 @@ entities:
             1052: 27,263
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameEndN
+            id: WindowFrameSteelEndN
           decals:
             952: 12,236
             953: 14,235
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameEndS
+            id: WindowFrameSteelEndS
           decals:
             954: 14,234
             955: 12,235

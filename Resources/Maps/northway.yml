@@ -14,15 +14,15 @@ tilemap:
   40: FloorGlass
   46: FloorGreenCircuit
   48: FloorHydro
-  53: FloorMetalDiamond
+  53: FloorMetalDiamondSteel
   55: FloorMono
   60: FloorRGlass
   61: FloorReinforced
   62: FloorRockVault
   71: FloorSteel
   74: FloorSteelDirty
-  81: FloorTechMaint
-  82: FloorTechMaint2
+  81: FloorTechMaintSteel
+  82: FloorMaintWhite
   85: FloorWhiteDiagonal
   93: FloorWhitePlastic
   94: FloorWood

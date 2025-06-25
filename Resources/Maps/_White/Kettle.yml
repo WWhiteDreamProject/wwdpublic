@@ -11,7 +11,7 @@ tilemap:
   8: FloorAsteroidSandDug
   17: FloorAstroGrass
   12: FloorBar
-  14: FloorBlue
+  14: FloorSteelBlue
   15: FloorBlueCircuit
   13: FloorBoxing
   18: FloorCarpetClown
@@ -43,7 +43,7 @@ tilemap:
   16: FloorLinoDark
   28: FloorLinoGrey
   60: FloorLowDesert
-  61: FloorMetalDiamond
+  61: FloorMetalDiamondSteel
   62: FloorMime
   63: FloorMono
   70: FloorRGlass
@@ -64,8 +64,8 @@ tilemap:
   93: FloorSteelPavement
   23: FloorSterile
   21: FloorSterileDark
-  95: FloorTechMaint
-  4: FloorTechMaint2
+  95: FloorTechMaintSteel
+  4: FloorMaintWhite
   99: FloorWhite
   100: FloorWhiteDiagonal
   101: FloorWhiteDiagonalMini
@@ -9257,76 +9257,76 @@ entities:
         - node:
             angle: 6.283185307179586 rad
             color: '#CDCDCDFF'
-            id: WindowFrameCornerNe
+            id: WindowFrameSteelCornerNe
           decals:
             6022: -25,-8
         - node:
             color: '#E6DCF0FF'
-            id: WindowFrameCornerNe
+            id: WindowFrameSteelCornerNe
           decals:
             6725: 21,-102
             6762: 22,-89
             6785: 1,43
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameCornerNe
+            id: WindowFrameSteelCornerNe
           decals:
             6160: 46,36
             6207: -9,35
             6249: -50,-23
         - node:
             color: '#E6DCF0FF'
-            id: WindowFrameCornerNw
+            id: WindowFrameSteelCornerNw
           decals:
             6724: 19,-102
             6761: 18,-89
             6788: 0,43
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameCornerNw
+            id: WindowFrameSteelCornerNw
           decals:
             6205: 43,36
             6208: -10,35
             6251: -51,-23
         - node:
             color: '#E6DCF0FF'
-            id: WindowFrameCornerSe
+            id: WindowFrameSteelCornerSe
           decals:
             6786: 1,41
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameCornerSe
+            id: WindowFrameSteelCornerSe
           decals:
             6162: 46,33
             6209: -9,34
             6250: -50,-24
         - node:
             color: '#E6DCF0FF'
-            id: WindowFrameCornerSw
+            id: WindowFrameSteelCornerSw
           decals:
             6787: 0,41
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameCornerSw
+            id: WindowFrameSteelCornerSw
           decals:
             6161: 43,33
             6210: -10,34
             6252: -51,-24
         - node:
             color: '#E6DCF0FF'
-            id: WindowFrameEndE
+            id: WindowFrameSteelEndE
           decals:
             6713: 21,-98
             6748: 15,-94
         - node:
             angle: 6.283185307179586 rad
             color: '#CDCDCDFF'
-            id: WindowFrameEndN
+            id: WindowFrameSteelEndN
           decals:
             6010: -23,-8
         - node:
             color: '#E6DCF0FF'
-            id: WindowFrameEndN
+            id: WindowFrameSteelEndN
           decals:
             6742: 14,-93
             6743: 26,-93
@@ -9340,13 +9340,13 @@ entities:
         - node:
             angle: 6.283185307179586 rad
             color: '#CDCDCDFF'
-            id: WindowFrameEndS
+            id: WindowFrameSteelEndS
           decals:
             6007: -23,-11
             6008: -25,-17
         - node:
             color: '#E6DCF0FF'
-            id: WindowFrameEndS
+            id: WindowFrameSteelEndS
           decals:
             6723: 19,-103
             6726: 21,-103
@@ -9362,30 +9362,30 @@ entities:
         - node:
             angle: 6.283185307179586 rad
             color: '#CDCDCDFF'
-            id: WindowFrameEndW
+            id: WindowFrameSteelEndW
           decals:
             6009: -33,-8
         - node:
             color: '#E6DCF0FF'
-            id: WindowFrameEndW
+            id: WindowFrameSteelEndW
           decals:
             6716: 19,-98
             6749: 25,-94
         - node:
             color: '#E6DCF0FF'
-            id: WindowFrameInnerNe
+            id: WindowFrameSteelInnerNe
           decals:
             6752: 14,-94
             6766: 19,-89
         - node:
             color: '#E6DCF0FF'
-            id: WindowFrameInnerNw
+            id: WindowFrameSteelInnerNw
           decals:
             6750: 26,-94
             6765: 21,-89
         - node:
             color: '#E6DCF0FF'
-            id: WindowFrameInnerSe
+            id: WindowFrameSteelInnerSe
           decals:
             6728: 19,-102
             6753: 14,-94
@@ -9393,12 +9393,12 @@ entities:
         - node:
             angle: 6.283185307179586 rad
             color: '#CDCDCDFF'
-            id: WindowFrameInnerSw
+            id: WindowFrameSteelInnerSw
           decals:
             6011: -25,-8
         - node:
             color: '#E6DCF0FF'
-            id: WindowFrameInnerSw
+            id: WindowFrameSteelInnerSw
           decals:
             6727: 21,-102
             6751: 26,-94
@@ -9406,7 +9406,7 @@ entities:
         - node:
             angle: 6.283185307179586 rad
             color: '#CDCDCDFF'
-            id: WindowFrameLineE
+            id: WindowFrameSteelLineE
           decals:
             6019: -23,-10
             6020: -23,-9
@@ -9420,21 +9420,21 @@ entities:
             6029: -25,-16
         - node:
             color: '#E6DCF0FF'
-            id: WindowFrameLineE
+            id: WindowFrameSteelLineE
           decals:
             6746: 26,-94
             6783: 3,42
             6789: 1,42
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameLineE
+            id: WindowFrameSteelLineE
           decals:
             6165: 46,34
             6166: 46,35
         - node:
             angle: 6.283185307179586 rad
             color: '#CDCDCDFF'
-            id: WindowFrameLineN
+            id: WindowFrameSteelLineN
           decals:
             6040: -26,-8
             6041: -27,-8
@@ -9445,21 +9445,21 @@ entities:
             6046: -32,-8
         - node:
             color: '#E6DCF0FF'
-            id: WindowFrameLineN
+            id: WindowFrameSteelLineN
           decals:
             6717: 20,-98
             6730: 20,-102
             6767: 20,-89
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameLineN
+            id: WindowFrameSteelLineN
           decals:
             6167: 45,36
             6168: 44,36
         - node:
             angle: 6.283185307179586 rad
             color: '#CDCDCDFF'
-            id: WindowFrameLineS
+            id: WindowFrameSteelLineS
           decals:
             6012: -32,-8
             6013: -31,-8
@@ -9470,7 +9470,7 @@ entities:
             6018: -26,-8
         - node:
             color: '#E6DCF0FF'
-            id: WindowFrameLineS
+            id: WindowFrameSteelLineS
           decals:
             6718: 20,-98
             6729: 20,-102
@@ -9479,14 +9479,14 @@ entities:
             6770: 19,-89
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameLineS
+            id: WindowFrameSteelLineS
           decals:
             6163: 44,33
             6164: 45,33
         - node:
             angle: 6.283185307179586 rad
             color: '#CDCDCDFF'
-            id: WindowFrameLineW
+            id: WindowFrameSteelLineW
           decals:
             6030: -25,-16
             6031: -25,-15
@@ -9500,20 +9500,20 @@ entities:
             6039: -23,-10
         - node:
             color: '#E6DCF0FF'
-            id: WindowFrameLineW
+            id: WindowFrameSteelLineW
           decals:
             6747: 14,-94
             6784: 3,42
             6790: 0,42
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameLineW
+            id: WindowFrameSteelLineW
           decals:
             6169: 43,35
             6170: 43,34
         - node:
             color: '#E6DCF0FF'
-            id: WindowFramekBox
+            id: WindowFrameSteelBox
           decals:
             6714: 22,-99
             6715: 18,-99

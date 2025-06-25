@@ -7,7 +7,7 @@ tilemap:
   85: FloorAsteroidTile
   22: FloorAstroGrass
   7: FloorBar
-  92: FloorBlue
+  92: FloorSteelBlue
   46: FloorBlueCircuit
   4: FloorBrokenWood
   65: FloorCarpetOffice
@@ -58,7 +58,7 @@ tilemap:
   94: FloorMS13WoodFancyDamaged
   45: FloorMS13WoodWide
   69: FloorMS13WoodWideDamaged
-  16: FloorMetalDiamond
+  16: FloorMetalDiamondSteel
   74: FloorMetalFreezer
   49: FloorMetalGreyDark
   47: FloorMetalGreyDarkSolid
@@ -85,8 +85,8 @@ tilemap:
   100: FloorSteelMono
   96: FloorSteelOffset
   87: FloorSteelWorn
-  104: FloorTechMaint
-  6: FloorTechMaint2
+  104: FloorTechMaintSteel
+  6: FloorMaintWhite
   17: FloorTechMaint3
   26: FloorWebTile
   108: FloorWhite
