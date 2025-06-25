@@ -83,7 +83,7 @@
   defaultCleanable: true
   defaultCustomColor: true
   defaultSnap: false
-  sprite: 
+  sprite:
     sprite: Effects/crayondecals.rsi
     state: a
 

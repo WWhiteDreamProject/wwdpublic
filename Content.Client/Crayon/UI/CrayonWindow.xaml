@@ -7,7 +7,7 @@
         <BoxContainer Orientation="Horizontal"> <!-- wwdp edit start -->
             <LineEdit Name="Search" Access="Public" Margin="0 0 0 0" HorizontalExpand="True" VerticalAlignment="Center" PlaceHolder="{Loc 'crayon-window-placeholder'}" />
             <TextureButton Name="ClearButton" StyleClasses="windowCloseButton" VerticalAlignment="Center" />
-            <CheckBox Name="TextInputCheckBox" VerticalAlignment="Center" />
+            <CheckBox Name="TextInputCheckBox" VerticalAlignment="Center" ToolTip="{Loc 'crayon-text-input-mode-tooltip'}" />
         </BoxContainer> <!-- wwdp edit end -->
         <ScrollContainer VerticalExpand="True">
             <BoxContainer Name="Grids" Orientation="Vertical">
