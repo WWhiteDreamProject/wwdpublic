@@ -592,21 +592,6 @@ namespace Content.Client.Lobby.UI
 
             #endregion Left
 
-            #region Backpack
-
-            foreach (var value in Enum.GetValues<BackpackPreference>())
-                BackpackButton.AddItem(Loc.GetString($"humanoid-profile-editor-preference-{value.ToString().ToLower()}"), (int) value);
-
-            BackpackButton.OnItemSelected += args =>
-            {
-                BackpackButton.SelectId(args.Id);
-                Profile = Profile?.WithBackpackPreference((BackpackPreference) args.Id);
-                IsDirty = true;
-                ReloadClothes();
-            };
-
-            #endregion Backpack
-
             #region Uplink
 
             InitializeUplinkUI();
@@ -977,21 +962,7 @@ namespace Content.Client.Lobby.UI
             // Обновляем контрол аплинка только если профиль не null
             if (Profile != null)
             {
-                Logger.Debug($"SetProfile: Updating UplinkButton for profile with Uplink = {(int)Profile.Uplink} ({Profile.Uplink})");
-
-                // Disable event handler to avoid recursive calls
-                UplinkButton.OnItemSelected -= OnUplinkButtonItemSelected;
-
-                try
-                {
-                    // Set button value directly
-                    UplinkButton.SelectId((int)Profile.Uplink);
-                }
-                finally
-                {
-                    // Restore event handler
-                    UplinkButton.OnItemSelected += OnUplinkButtonItemSelected;
-                }
+                UpdateUplinkButton();
             }
 
             UpdateCharacterRequired();
