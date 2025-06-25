@@ -278,11 +278,11 @@
   spawn: FloorTileItemRockVault
   maxCount: 30
 
-- type: stack
-  id: FloorTileBlue
-  name: blue floor tile
-  spawn: FloorTileItemBlue
-  maxCount: 30
+#- type: stack
+#  id: FloorTileBlue
+#  name: blue floor tile
+#  spawn: FloorTileItemBlue
+#  maxCount: 30
 
 - type: stack
   id: FloorTileMining
