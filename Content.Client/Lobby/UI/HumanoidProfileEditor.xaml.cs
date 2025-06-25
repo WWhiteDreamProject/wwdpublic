@@ -956,7 +956,6 @@ namespace Content.Client.Lobby.UI
             UpdateHeightWidthSliders();
             UpdateWeight();
 
-            // Обновляем контрол аплинка только если профиль не null
             if (Profile != null)
             {
                 UpdateUplinkButton();
