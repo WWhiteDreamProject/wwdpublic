@@ -197,10 +197,12 @@ namespace Content.Server.Database
             if (Enum.TryParse<BackpackPreference>(profile.Backpack, true, out var backpackVal))
                 backpack = backpackVal;
 
+// WWDP edit start
             var uplink = UplinkPreference.Radio;
             if (Enum.TryParse<UplinkPreference>(profile.Uplink, true, out var uplinkVal))
                 uplink = uplinkVal;
 
+// WWDP edit end
             var spawnPriority = (SpawnPriorityPreference) profile.SpawnPriority;
 
             var gender = sex == Sex.Male ? Gender.Male : Gender.Female;
@@ -269,7 +271,7 @@ namespace Content.Server.Database
                     CustomName = l.CustomName, CustomDescription = l.CustomDescription,
                     CustomColorTint = l.CustomColorTint, CustomHeirloom = l.CustomHeirloom, Selected = true,
                 }).ToHashSet(),
-                uplink
+                uplink // WWDP edit
             );
         }
 
