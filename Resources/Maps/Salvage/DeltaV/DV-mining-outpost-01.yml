@@ -4,7 +4,7 @@ meta:
 tilemap:
   0: Space
   7: FloorAsteroidSand
-  70: FloorMono
+  70: FloorTrueMonoTileSteel
   78: FloorReinforced
   105: FloorTechMaintSteel
   107: FloorTechMaint3

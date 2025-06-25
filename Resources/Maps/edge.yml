@@ -32,7 +32,7 @@ tilemap:
   64: FloorLaundry
   67: FloorMetalDiamondSteel
   68: FloorMime
-  72: FloorMono
+  72: FloorTrueMonoTileSteel
   75: FloorOldConcreteSmooth
   77: FloorPlanetGrass
   79: FloorRGlass

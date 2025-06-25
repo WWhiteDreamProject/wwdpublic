@@ -15,7 +15,7 @@ tilemap:
   46: FloorGreenCircuit
   48: FloorHydro
   53: FloorMetalDiamondSteel
-  55: FloorMono
+  55: FloorTrueMonoTileSteel
   60: FloorRGlass
   61: FloorReinforced
   62: FloorRockVault

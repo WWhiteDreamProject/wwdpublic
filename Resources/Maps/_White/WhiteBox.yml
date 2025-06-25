@@ -30,7 +30,7 @@ tilemap:
   68: FloorLowDesert
   69: FloorMetalDiamondSteel
   70: FloorMime
-  74: FloorMono
+  74: FloorTrueMonoTileSteel
   79: FloorPlanetGrass
   81: FloorRGlass
   82: FloorReinforced

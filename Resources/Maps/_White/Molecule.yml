@@ -28,7 +28,7 @@ tilemap:
   42: FloorMS13WoodFancyDamaged
   12: FloorMetalDiamondSteel
   25: FloorMime
-  20: FloorMono
+  20: FloorTrueMonoTileSteel
   39: FloorMowedAstroGrass
   19: FloorPlanetDirt
   17: FloorRGlass

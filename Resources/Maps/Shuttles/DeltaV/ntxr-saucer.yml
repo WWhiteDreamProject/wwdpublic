@@ -10,7 +10,7 @@ tilemap:
   1: FloorMining
   3: FloorMiningDark
   2: FloorMiningLight
-  74: FloorMono
+  74: FloorTrueMonoTileSteel
   83: FloorReinforced
   97: FloorSteel
   102: FloorSteelDiagonal

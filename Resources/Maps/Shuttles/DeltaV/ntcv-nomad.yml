@@ -4,7 +4,7 @@ meta:
 tilemap:
   0: Space
   36: FloorEighties
-  55: FloorMono
+  55: FloorTrueMonoTileSteel
   60: FloorRGlass
   64: FloorShuttleBlue
   68: FloorShuttleWhite

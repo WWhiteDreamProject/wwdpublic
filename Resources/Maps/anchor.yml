@@ -65,7 +65,7 @@ tilemap:
   68: FloorMining
   20: FloorMiningDark
   15: FloorMiningLight
-  61: FloorMono
+  61: FloorTrueMonoTileSteel
   44: FloorMowedAstroGrass
   78: FloorOldConcrete
   5: FloorPlastic

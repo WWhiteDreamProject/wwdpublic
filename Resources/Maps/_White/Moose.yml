@@ -38,7 +38,7 @@ tilemap:
   15: FloorMetalDiamondSteel
   61: FloorMetalWhite
   36: FloorMime
-  22: FloorMono
+  22: FloorTrueMonoTileSteel
   38: FloorPlanetGrass
   26: FloorPlasticGreen
   33: FloorRGlass

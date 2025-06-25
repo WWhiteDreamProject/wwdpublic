@@ -24,7 +24,7 @@ tilemap:
   62: FloorLino
   64: FloorMetalDiamondSteel
   65: FloorMime
-  69: FloorMono
+  69: FloorTrueMonoTileWhite
   75: FloorPlastic
   76: FloorRGlass
   77: FloorReinforced

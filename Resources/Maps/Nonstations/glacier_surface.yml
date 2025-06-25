@@ -7,7 +7,7 @@ tilemap:
   6: FloorMining
   4: FloorMiningDark
   7: FloorMiningLight
-  2: FloorMono
+  2: FloorTrueMonoTileSteel
   9: FloorReinforced
   3: FloorSnow
   12: FloorSnowDug

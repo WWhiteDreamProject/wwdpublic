@@ -33,7 +33,7 @@ tilemap:
   65: FloorMime
   10: FloorMining
   9: FloorMiningDark
-  69: FloorMono
+  69: FloorTrueMonoTileSteel
   2: FloorPlastic
   76: FloorRGlass
   77: FloorReinforced
