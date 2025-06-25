@@ -152,7 +152,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         RefreshLobbyPreview();
         var (characterGui, profileEditor) = EnsureGui();
         characterGui.ReloadCharacterPickers();
-
+// WWDP edit start
         var profile = (HumanoidCharacterProfile?) _preferencesManager.Preferences?.SelectedCharacter;
         var index = _preferencesManager.Preferences?.SelectedCharacterIndex;
 
