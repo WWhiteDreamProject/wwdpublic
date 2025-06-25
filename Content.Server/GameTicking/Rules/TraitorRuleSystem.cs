@@ -21,7 +21,7 @@ using System.Linq;
 using System.Text;
 using Content.Shared.Mood;
 using Content.Server.Preferences.Managers;
-
+using Robust.Shared.Log;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -95,6 +95,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             var startingBalance = component.StartingBalance;
             if (_jobs.MindTryGetJob(mindId, out var prototype))
                 startingBalance = Math.Max(startingBalance - prototype.AntagAdvantage, 0);
+
+            // First get user preferences for uplink type
             if (mind.Session != null)
             {
                 var prefs = _prefs.GetPreferencesOrNull(mind.Session.UserId);
@@ -102,6 +104,25 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 {
                     uplinkPref = profile.Uplink;
                 }
+            }
+
+            // Then adjust TC balance based on uplink type
+            switch (uplinkPref)
+            {
+                case UplinkPreference.PDA:
+                    // Default balance, no change needed
+                    Logger.Debug($"Traitor uplink: Using PDA uplink with {startingBalance} TC");
+                    break;
+                case UplinkPreference.Implant:
+                    // Reduce TC for implant
+                    startingBalance = 18;
+                    Logger.Debug($"Traitor uplink: Using implant uplink with {startingBalance} TC");
+                    break;
+                case UplinkPreference.Radio:
+                    // Increase TC for radio
+                    startingBalance = 21;
+                    Logger.Debug($"Traitor uplink: Using radio uplink with {startingBalance} TC");
+                    break;
             }
 
             if (!_uplink.AddUplink(
@@ -185,6 +206,32 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         var pda = _uplink.FindUplinkTarget(traitor);
         Note[]? code = null;
         var uplinkPref = UplinkPreference.PDA; // Default to PDA
+
+        // Try to get user preferences for uplink type
+        if (_mindSystem.TryGetMind(traitor, out var mindId, out var mind) && mind.Session != null)
+        {
+            var prefs = _prefs.GetPreferencesOrNull(mind.Session.UserId);
+            if (prefs != null && prefs.SelectedCharacter is HumanoidCharacterProfile profile)
+            {
+                uplinkPref = profile.Uplink;
+            }
+        }
+
+        // Adjust TC balance based on uplink type
+        switch (uplinkPref)
+        {
+            case UplinkPreference.PDA:
+                // Default balance, no change needed
+                break;
+            case UplinkPreference.Implant:
+                // Reduce TC for implant
+                startingBalance = 18;
+                break;
+            case UplinkPreference.Radio:
+                // Increase TC for radio
+                startingBalance = 21;
+                break;
+        }
 
         var uplinked = _uplink.AddUplink(
             user: traitor,

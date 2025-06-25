@@ -146,7 +146,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         PreferenceUnavailableMode.SpawnAsOverflow;
 
     [DataField]
-    public UplinkPreference Uplink { get; set; } = UplinkPreference.Radio;
+    public UplinkPreference Uplink { get; set; } = UplinkPreference.PDA;
 
     public HumanoidCharacterProfile(
         string name,
@@ -178,7 +178,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         HashSet<string> antagPreferences,
         HashSet<string> traitPreferences,
         HashSet<LoadoutPreference> loadoutPreferences,
-        UplinkPreference uplink = UplinkPreference.Radio)
+        UplinkPreference uplink = UplinkPreference.PDA)
     {
         Name = name;
         FlavorText = flavortext;

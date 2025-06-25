@@ -209,8 +209,8 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         // Check that the profile contains a valid uplink preference
         if (profile.Uplink < UplinkPreference.None || profile.Uplink > UplinkPreference.Radio)
         {
-            Logger.Error($"SaveProfile: Invalid uplink preference {(int)profile.Uplink}, setting to default (Radio)");
-            profile = profile.WithUplinkPreference(UplinkPreference.Radio);
+            Logger.Error($"SaveProfile: Invalid uplink preference {(int)profile.Uplink}, setting to default (PDA)");
+            profile = profile.WithUplinkPreference(UplinkPreference.PDA);
             _profileEditor.SetProfile(profile, EditedSlot);
         }
 
