@@ -15,7 +15,7 @@ namespace Content.Server.Database.Migrations.Postgres
                 table: "profile",
                 type: "text",
                 nullable: false,
-                defaultValue: "Radio");
+                defaultValue: "PDA");
         }
 
         /// <inheritdoc />

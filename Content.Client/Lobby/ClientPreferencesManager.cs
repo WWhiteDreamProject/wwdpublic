@@ -69,11 +69,6 @@ namespace Content.Client.Lobby
             var collection = IoCManager.Instance!;
             profile.EnsureValid(_playerManager.LocalSession!, collection);
             
-            if (profile is HumanoidCharacterProfile humanoidProfile)
-            {
-                Robust.Shared.Log.Logger.Debug($"UpdateCharacter: Saving profile with Uplink = {(int)(humanoidProfile.Uplink)} ({humanoidProfile.Uplink})");
-            }
-            
             var characters = new Dictionary<int, ICharacterProfile>(Preferences.Characters) {[slot] = profile};
             Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor);
             var msg = new MsgUpdateCharacter

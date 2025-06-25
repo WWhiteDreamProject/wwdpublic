@@ -144,25 +144,27 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
     private FixedPoint2 GetStartingBalance(TraitorRuleComponent component, MindComponent mind, UplinkPreference uplinkPref)
     {
-        var startingBalance = component.StartingBalance;
-        if (_jobs.MindTryGetJob(mind.Owner, out var prototype))
-        {
-            var newBalance = startingBalance - prototype.AntagAdvantage;
-            if (newBalance < 0)
-                startingBalance = 0;
-            else
-                startingBalance = newBalance;
-        }
-
+        FixedPoint2 baseBalance;
         switch (uplinkPref)
         {
             case UplinkPreference.Implant:
-                return component.ImplantBalance;
+                baseBalance = component.ImplantBalance;
+                break;
             case UplinkPreference.Radio:
-                return component.RadioBalance;
+                baseBalance = component.RadioBalance;
+                break;
             default:
-                return startingBalance;
+                baseBalance = component.StartingBalance;
+                break;
         }
+
+        if (_jobs.MindTryGetJob(mind.Owner, out var prototype))
+        {
+            var newBalance = baseBalance - prototype.AntagAdvantage;
+            return newBalance < 0 ? FixedPoint2.Zero : newBalance;
+        }
+
+        return baseBalance;
     }
 
     private string GetUplinkBriefing(EntityUid traitor, UplinkPreference uplinkPref, out Note[]? code)
@@ -177,7 +179,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                     code = ringerComp.Code;
                     return Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#")));
                 }
-                Logger.Error($"Could not find PDA or RingerUplinkComponent for {ToPrettyString(traitor)} after adding PDA uplink.");
+                Logger.Error($"Could not find PDA or RingerUplinkComponent for {ToPrettyString(traitor)} after adding uplink.");
                 return string.Empty;
             case UplinkPreference.Implant:
                 return Loc.GetString("traitor-role-uplink-implant-short");

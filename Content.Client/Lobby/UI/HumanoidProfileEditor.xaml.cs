@@ -928,9 +928,6 @@ namespace Content.Client.Lobby.UI
         /// Sets the editor to the specified profile with the specified slot
         public void SetProfile(HumanoidCharacterProfile? profile, int? slot)
         {
-            // Ensure the UplinkButton is initialized before setting its value
-            InitializeUplinkUI();
-
             Profile = profile?.Clone();
             CharacterSlot = slot;
             IsDirty = false;

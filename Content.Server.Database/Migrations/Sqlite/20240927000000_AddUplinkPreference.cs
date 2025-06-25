@@ -15,7 +15,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 table: "profile",
                 type: "TEXT",
                 nullable: false,
-                defaultValue: "Radio");
+                defaultValue: "PDA");
         }
 
         /// <inheritdoc />
