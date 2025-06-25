@@ -32,9 +32,6 @@ using Robust.Shared.Log;
 using static Content.Shared.Humanoid.SharedHumanoidAppearanceSystem;
 using CharacterSetupGui = Content.Client.Lobby.UI.CharacterSetupGui;
 using HumanoidProfileEditor = Content.Client.Lobby.UI.HumanoidProfileEditor;
-using Content.Shared.Preferences;
-using Content.Shared.Humanoid.Markings;
-using Content.Client.Players.PlayTimeTracking;
 using Content.Client.UserInterface.Systems.Guidebook;
 
 namespace Content.Client.Lobby;
