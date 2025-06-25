@@ -6,7 +6,6 @@ namespace Content.Server.Database.Migrations.Sqlite
 {
     public partial class AddUplinkPreference : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
@@ -17,7 +16,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                 defaultValue: "PDA");
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(

@@ -35,7 +35,7 @@ public sealed class UplinkSystem : EntitySystem
     private const string RadioUplinkPrototype = "BaseUplinkRadio";
 
     /// <summary>
-    /// Adds an uplink to the target.
+    /// Adds an uplink to the target
     /// </summary>
     /// <param name="user">The entity receiving the uplink.</param>
     /// <param name="balance">The starting balance for the uplink.</param>
