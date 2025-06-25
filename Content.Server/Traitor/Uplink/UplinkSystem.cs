@@ -50,6 +50,8 @@ public sealed class UplinkSystem : EntitySystem
         UplinkPreference uplinkPref = UplinkPreference.PDA,
         bool giveDiscounts = false)
     {
+        // TODO add BUI. Currently can't be done outside of yaml -_-
+        // ^ What does this even mean?
         if (uplinkEntity != null)
         {
             SetupUplink(user, uplinkEntity.Value, balance, giveDiscounts);
