@@ -23,7 +23,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_box
 
 - type: decal
@@ -31,7 +31,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_corner_ne
 
 - type: decal
@@ -39,7 +39,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_corner_se
 
 - type: decal
@@ -47,7 +47,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_corner_nw
 
 - type: decal
@@ -55,7 +55,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_corner_sw
 
 - type: decal
@@ -63,7 +63,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_inner_ne
 
 - type: decal
@@ -71,7 +71,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_inner_se
 
 - type: decal
@@ -79,7 +79,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_inner_nw
 
 - type: decal
@@ -87,7 +87,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_inner_sw
 
 - type: decal
@@ -95,7 +95,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_end_n
 
 - type: decal
@@ -103,7 +103,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_end_e
 
 - type: decal
@@ -111,7 +111,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_end_s
 
 - type: decal
@@ -119,7 +119,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_end_w
 
 - type: decal
@@ -127,7 +127,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_line_n
 
 - type: decal
@@ -135,7 +135,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_line_e
 
 - type: decal
@@ -143,7 +143,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_line_s
 
 - type: decal
@@ -151,7 +151,7 @@
   parent: MonotileFrameDark
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: dark_line_w
 
 - type: decal
@@ -159,7 +159,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_box
 
 - type: decal
@@ -167,7 +167,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_corner_ne
 
 - type: decal
@@ -175,7 +175,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_corner_se
 
 - type: decal
@@ -183,7 +183,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_corner_nw
 
 - type: decal
@@ -191,7 +191,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_corner_sw
 
 - type: decal
@@ -199,7 +199,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_inner_ne
 
 - type: decal
@@ -207,7 +207,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_inner_se
 
 - type: decal
@@ -215,7 +215,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_inner_nw
 
 - type: decal
@@ -223,7 +223,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_inner_sw
 
 - type: decal
@@ -231,7 +231,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_end_n
 
 - type: decal
@@ -239,7 +239,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_end_e
 
 - type: decal
@@ -247,7 +247,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_end_s
 
 - type: decal
@@ -255,7 +255,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_end_w
 
 - type: decal
@@ -263,7 +263,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_line_n
 
 - type: decal
@@ -271,7 +271,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_line_e
 
 - type: decal
@@ -279,7 +279,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_line_s
 
 - type: decal
@@ -287,7 +287,7 @@
   parent: MonotileFrameSteel
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: steel_line_w
 
 - type: decal
@@ -295,7 +295,7 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_box
 
 - type: decal
@@ -303,7 +303,7 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_corner_ne
 
 - type: decal
@@ -311,7 +311,7 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_corner_se
 
 - type: decal
@@ -319,7 +319,7 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_corner_nw
 
 - type: decal
@@ -327,7 +327,7 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_corner_sw
 
 - type: decal
@@ -335,7 +335,7 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_inner_ne
 
 - type: decal
@@ -343,7 +343,7 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_inner_se
 
 - type: decal
@@ -351,7 +351,7 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_inner_nw
 
 - type: decal
@@ -359,7 +359,7 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_inner_sw
 
 - type: decal
@@ -367,7 +367,7 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_end_n
 
 - type: decal
@@ -375,7 +375,7 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_end_e
 
 - type: decal
@@ -383,7 +383,7 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_end_s
 
 - type: decal
@@ -391,7 +391,7 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_end_w
 
 - type: decal
@@ -399,7 +399,7 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_line_n
 
 - type: decal
@@ -407,7 +407,7 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_line_e
 
 - type: decal
@@ -415,7 +415,7 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_line_s
 
 - type: decal
@@ -423,5 +423,5 @@
   parent: MonotileFrameWhite
   tags: ["station", "markings"]
   sprite:
-    sprite: _White/Decals/Monotile_frame.rsi
+    sprite: _White/Decals/monotile_frame.rsi
     state: white_line_w
