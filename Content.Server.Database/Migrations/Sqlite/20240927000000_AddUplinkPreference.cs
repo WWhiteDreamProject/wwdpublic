@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Content.Server.Database.Migrations.Sqlite
 {
-    /// <inheritdoc />
     public partial class AddUplinkPreference : Migration
     {
         /// <inheritdoc />
