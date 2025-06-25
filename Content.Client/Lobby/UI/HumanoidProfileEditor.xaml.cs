@@ -2732,7 +2732,7 @@ namespace Content.Client.Lobby.UI
             UpdateTraits(TraitsShowUnusableButton.Pressed);
             UpdateLoadouts(LoadoutsShowUnusableButton.Pressed);
         }
-WWDP edit start
+// WWDP edit start
         private void InitializeUplinkUI()
         {
             // Initialize items in the dropdown
@@ -2779,6 +2779,6 @@ WWDP edit start
             UplinkButton.SelectId((int)pref);
             _isProgrammaticChange = false;
         }
-// WWDP edit end
+        // WWDP edit end
     }
 }
