@@ -78,7 +78,12 @@ public sealed class StoreTests
             mindSystem.TransferTo(mind, human, mind: mind);
 
             FixedPoint2 originalBalance = 20;
-            uplinkSystem.AddUplink(human, originalBalance, null, true);
+            uplinkSystem.AddUplink(
+                user: human,
+                balance: originalBalance,
+                uplinkEntity: null,
+                uplinkPref: Content.Shared.Preferences.UplinkPreference.PDA,
+                giveDiscounts: true);
 
             var storeComponent = entManager.GetComponent<StoreComponent>(pda);
             var discountComponent = entManager.GetComponent<StoreDiscountComponent>(pda);

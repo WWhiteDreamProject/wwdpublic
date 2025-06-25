@@ -95,7 +95,12 @@ namespace Content.Server.Traitor.Uplink.Commands
 
             // Finally add uplink
             var uplinkSys = _entManager.System<UplinkSystem>();
-            if (!uplinkSys.AddUplink(user, 20, uplinkEntity: uplinkEntity, giveDiscounts: isDiscounted))
+            if (!uplinkSys.AddUplink(
+                user: user,
+                balance: 20,
+                uplinkEntity: uplinkEntity,
+                uplinkPref: Content.Shared.Preferences.UplinkPreference.PDA,
+                giveDiscounts: isDiscounted))
             {
                 shell.WriteLine(Loc.GetString("add-uplink-command-error-2"));
             }

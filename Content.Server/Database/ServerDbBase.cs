@@ -197,6 +197,10 @@ namespace Content.Server.Database
             if (Enum.TryParse<BackpackPreference>(profile.Backpack, true, out var backpackVal))
                 backpack = backpackVal;
 
+            var uplink = UplinkPreference.Radio;
+            if (Enum.TryParse<UplinkPreference>(profile.Uplink, true, out var uplinkVal))
+                uplink = uplinkVal;
+
             var spawnPriority = (SpawnPriorityPreference) profile.SpawnPriority;
 
             var gender = sex == Sex.Male ? Gender.Male : Gender.Female;
@@ -264,7 +268,8 @@ namespace Content.Server.Database
                 {
                     CustomName = l.CustomName, CustomDescription = l.CustomDescription,
                     CustomColorTint = l.CustomColorTint, CustomHeirloom = l.CustomHeirloom, Selected = true,
-                }).ToHashSet()
+                }).ToHashSet(),
+                uplink
             );
         }
 
@@ -305,6 +310,7 @@ namespace Content.Server.Database
             profile.SkinColor = appearance.SkinColor.ToHex();
             profile.Clothing = humanoid.Clothing.ToString();
             profile.Backpack = humanoid.Backpack.ToString();
+            profile.Uplink = humanoid.Uplink.ToString();
             profile.SpawnPriority = (int) humanoid.SpawnPriority;
             profile.Markings = markings;
             profile.Slot = slot;

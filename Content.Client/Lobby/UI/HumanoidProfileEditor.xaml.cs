@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using System.Globalization;
 using Content.Client.Administration.UI;
 using Content.Client.Humanoid;
 using Content.Client.Message;
@@ -40,6 +41,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Robust.Shared.Log;
 using Direction = Robust.Shared.Maths.Direction;
 
 namespace Content.Client.Lobby.UI
@@ -68,6 +70,7 @@ namespace Content.Client.Lobby.UI
         public event Action? Save;
         private bool _exporting;
         private bool _isDirty;
+        private bool _isProgrammaticChange; // Flag to track programmatic changes
 
         /// The character slot for the current profile
         public int? CharacterSlot;
@@ -589,8 +592,33 @@ namespace Content.Client.Lobby.UI
 
             #endregion Left
 
+            #region Backpack
+
+            foreach (var value in Enum.GetValues<BackpackPreference>())
+                BackpackButton.AddItem(Loc.GetString($"humanoid-profile-editor-preference-{value.ToString().ToLower()}"), (int) value);
+
+            BackpackButton.OnItemSelected += args =>
+            {
+                BackpackButton.SelectId(args.Id);
+                Profile = Profile?.WithBackpackPreference((BackpackPreference) args.Id);
+                IsDirty = true;
+                ReloadClothes();
+            };
+
+            #endregion Backpack
+
+            #region Uplink
+
+            InitializeUplinkUI();
+
+            #endregion Uplink
+
+            #region Show clothing
+
             ShowClothes.OnToggled += _ => { SetProfile(Profile, CharacterSlot); };
             ShowLoadouts.OnToggled += _ => { SetProfile(Profile, CharacterSlot); };
+
+            #endregion Show clothing
 
             SpeciesInfoButton.OnPressed += OnSpeciesInfoButtonPressed;
             UpdateSpeciesGuidebookIcon();
@@ -915,6 +943,9 @@ namespace Content.Client.Lobby.UI
         /// Sets the editor to the specified profile with the specified slot
         public void SetProfile(HumanoidCharacterProfile? profile, int? slot)
         {
+            // Ensure the UplinkButton is initialized before setting its value
+            InitializeUplinkUI();
+
             Profile = profile?.Clone();
             CharacterSlot = slot;
             IsDirty = false;
@@ -942,6 +973,27 @@ namespace Content.Client.Lobby.UI
             UpdateCMarkingsFacialHair();
             UpdateHeightWidthSliders();
             UpdateWeight();
+
+            // Обновляем контрол аплинка только если профиль не null
+            if (Profile != null)
+            {
+                Logger.Debug($"SetProfile: Updating UplinkButton for profile with Uplink = {(int)Profile.Uplink} ({Profile.Uplink})");
+
+                // Disable event handler to avoid recursive calls
+                UplinkButton.OnItemSelected -= OnUplinkButtonItemSelected;
+
+                try
+                {
+                    // Set button value directly
+                    UplinkButton.SelectId((int)Profile.Uplink);
+                }
+                finally
+                {
+                    // Restore event handler
+                    UplinkButton.OnItemSelected += OnUplinkButtonItemSelected;
+                }
+            }
+
             UpdateCharacterRequired();
 
             RefreshAntags();
@@ -2712,6 +2764,75 @@ namespace Content.Client.Lobby.UI
             RefreshJobs();
             UpdateTraits(TraitsShowUnusableButton.Pressed);
             UpdateLoadouts(LoadoutsShowUnusableButton.Pressed);
+        }
+
+        private void InitializeUplinkUI()
+        {
+            Logger.Debug("InitializeUplinkUI: Initializing UplinkButton");
+
+            // Initialize items in the dropdown
+            UplinkButton.Clear();
+            UplinkButton.AddItem(Loc.GetString("humanoid-profile-editor-uplink-pda-text"), (int)UplinkPreference.PDA);
+            UplinkButton.AddItem(Loc.GetString("humanoid-profile-editor-uplink-implant-text"), (int)UplinkPreference.Implant);
+            UplinkButton.AddItem(Loc.GetString("humanoid-profile-editor-uplink-radio-text"), (int)UplinkPreference.Radio);
+
+            // Clear previous event handlers and add new one
+            UplinkButton.OnItemSelected -= OnUplinkButtonItemSelected;
+            UplinkButton.OnItemSelected += OnUplinkButtonItemSelected;
+
+            Logger.Debug("InitializeUplinkUI: Initialization complete");
+        }
+
+        private void OnUplinkButtonItemSelected(OptionButton.ItemSelectedEventArgs args)
+        {
+            // Ignore programmatic changes
+            if (_isProgrammaticChange)
+                return;
+
+            // Update profile with new value
+            var uplink = (UplinkPreference)args.Id;
+            Profile = Profile?.WithUplinkPreference(uplink);
+
+            // Apply changes to UI immediately - update button directly
+            if (Profile != null)
+            {
+                // Disable event handler to avoid recursive calls
+                UplinkButton.OnItemSelected -= OnUplinkButtonItemSelected;
+                UplinkButton.SelectId((int)Profile.Uplink);
+                UplinkButton.OnItemSelected += OnUplinkButtonItemSelected;
+            }
+
+            // Mark profile as changed
+            IsDirty = true;
+
+            // Update preview if necessary
+            ReloadProfilePreview();
+        }
+
+        private void UpdateUplinkButton()
+        {
+            // Get value from profile and output debug info
+            var pref = Profile?.Uplink ?? UplinkPreference.PDA;
+
+            // Check that value is in valid range
+            if (pref < UplinkPreference.None || pref > UplinkPreference.Radio)
+            {
+                pref = UplinkPreference.PDA;
+            }
+
+            // Disable event handler to avoid recursive calls
+            UplinkButton.OnItemSelected -= OnUplinkButtonItemSelected;
+
+            // Set programmatic change flag
+            _isProgrammaticChange = true;
+
+            UplinkButton.SelectId((int)pref);
+
+            // Reset programmatic change flag
+            _isProgrammaticChange = false;
+
+            // Restore event handler
+            UplinkButton.OnItemSelected += OnUplinkButtonItemSelected;
         }
     }
 }

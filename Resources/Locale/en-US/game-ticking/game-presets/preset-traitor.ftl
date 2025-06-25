@@ -28,6 +28,26 @@ traitor-role-greeting =
     Your objectives and codewords are listed in the character menu.
     Use your uplink to buy the tools you'll need for this mission.
     Death to Nanotrasen!
+
+# Specific greetings for each uplink type
+traitor-role-greeting-pda =
+    You are an agent sent by {$corporation} on behalf of The Syndicate.
+    Your objectives and codewords are listed in the character menu.
+    Use your PDA uplink to buy the tools you'll need for this mission.
+    Death to Nanotrasen!
+
+traitor-role-greeting-implant =
+    You are an agent sent by {$corporation} on behalf of The Syndicate.
+    Your objectives and codewords are listed in the character menu.
+    Use your implanted uplink to buy the tools you'll need for this mission.
+    Death to Nanotrasen!
+
+traitor-role-greeting-radio =
+    You are an agent sent by {$corporation} on behalf of The Syndicate.
+    Your objectives and codewords are listed in the character menu.
+    Use your radio uplink to buy the tools you'll need for this mission.
+    Death to Nanotrasen!
+
 traitor-role-codewords =
     The codewords are:
     {$codewords}.
@@ -39,10 +59,14 @@ traitor-role-uplink-code =
 traitor-role-uplink-implant =
     Your uplink implant has been activated, access it from your hotbar.
     The uplink is secure unless someone removes it from your body.
+traitor-role-uplink-radio =
+    Your old-fashioned radio uplink has been provided, keep it secure.
+    Access it directly from your hand or inventory.
 
 # don't need all the flavour text for character menu
 traitor-role-codewords-short =
     The codewords are:
     {$codewords}.
 traitor-role-uplink-code-short = Your uplink code is {$code}. Set it as your PDA ringtone to access uplink.
-traitor-role-uplink-implant-short = Your uplink was implanted. Access it from your hotbar.
+traitor-role-uplink-implant-short = Your uplink was implanted in your body. Access it from your hotbar.
+traitor-role-uplink-radio-short = You've been provided with an old-fashioned radio uplink. Access it from your inventory.

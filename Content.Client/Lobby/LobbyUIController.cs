@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client.Administration.UI;
 using Content.Client.Guidebook;
 using Content.Client.Humanoid;
 using Content.Client.Inventory;
@@ -9,11 +10,14 @@ using Content.Shared.CCVar;
 using Content.Shared.Clothing.Loadouts.Prototypes;
 using Content.Shared.Clothing.Loadouts.Systems;
 using Content.Shared.GameTicking;
+using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Inventory;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
+using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using Robust.Client.ResourceManagement;
 using Robust.Client.State;
@@ -24,9 +28,14 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Robust.Shared.Log;
 using static Content.Shared.Humanoid.SharedHumanoidAppearanceSystem;
 using CharacterSetupGui = Content.Client.Lobby.UI.CharacterSetupGui;
 using HumanoidProfileEditor = Content.Client.Lobby.UI.HumanoidProfileEditor;
+using Content.Shared.Preferences;
+using Content.Shared.Humanoid.Markings;
+using Content.Client.Players.PlayTimeTracking;
+using Content.Client.UserInterface.Systems.Guidebook;
 
 namespace Content.Client.Lobby;
 
@@ -143,9 +152,16 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         RefreshLobbyPreview();
         var (characterGui, profileEditor) = EnsureGui();
         characterGui.ReloadCharacterPickers();
-        profileEditor.SetProfile(
-            (HumanoidCharacterProfile?) _preferencesManager.Preferences?.SelectedCharacter,
-            _preferencesManager.Preferences?.SelectedCharacterIndex);
+
+        var profile = (HumanoidCharacterProfile?) _preferencesManager.Preferences?.SelectedCharacter;
+        var index = _preferencesManager.Preferences?.SelectedCharacterIndex;
+
+        if (profile != null)
+        {
+            Logger.Debug($"ReloadCharacterSetup: Loading profile with Uplink = {(int)(profile.Uplink)} ({profile.Uplink})");
+        }
+
+        profileEditor.SetProfile(profile, index);
     }
 
     /// Refreshes the character preview in the lobby chat
@@ -179,14 +195,27 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     {
         DebugTools.Assert(EditedProfile != null);
 
-        if (EditedProfile == null || EditedSlot == null)
+        if (_profileEditor == null || EditedProfile == null || EditedSlot == null)
             return;
 
         var selected = _preferencesManager.Preferences?.SelectedCharacterIndex;
         if (selected == null)
             return;
 
-        _preferencesManager.UpdateCharacter(EditedProfile, EditedSlot.Value);
+        var profile = _profileEditor.Profile;
+        if (profile == null)
+            return;
+
+        // Check that the profile contains a valid uplink preference
+        if (profile.Uplink < UplinkPreference.None || profile.Uplink > UplinkPreference.Radio)
+        {
+            Logger.Error($"SaveProfile: Invalid uplink preference {(int)profile.Uplink}, setting to default (Radio)");
+            profile = profile.WithUplinkPreference(UplinkPreference.Radio);
+            _profileEditor.SetProfile(profile, EditedSlot);
+        }
+
+        Logger.Debug($"SaveProfile: Saving profile with Uplink = {(int)(profile.Uplink)} ({profile.Uplink})");
+        _preferencesManager.UpdateCharacter(profile, EditedSlot.Value);
         ReloadCharacterSetup();
     }
 

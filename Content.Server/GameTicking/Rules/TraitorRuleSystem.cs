@@ -11,6 +11,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
+using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles.RoleCodeword;
@@ -19,6 +20,7 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Shared.Mood;
+using Content.Server.Preferences.Managers;
 
 
 namespace Content.Server.GameTicking.Rules;
@@ -36,6 +38,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!; // WD EDIT
+    [Dependency] private readonly IServerPreferencesManager _prefs = default!;
 
     public override void Initialize()
     {
@@ -85,29 +88,70 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers).Values);
 
         Note[]? code = null;
+        UplinkPreference uplinkPref = UplinkPreference.PDA; // Default to PDA
 
         if (component.GiveUplink)
         {
-            // Calculate the amount of currency on the uplink.
             var startingBalance = component.StartingBalance;
             if (_jobs.MindTryGetJob(mindId, out var prototype))
                 startingBalance = Math.Max(startingBalance - prototype.AntagAdvantage, 0);
+            if (mind.Session != null)
+            {
+                var prefs = _prefs.GetPreferencesOrNull(mind.Session.UserId);
+                if (prefs != null && prefs.SelectedCharacter is HumanoidCharacterProfile profile)
+                {
+                    uplinkPref = profile.Uplink;
+                }
+            }
 
-            // creadth: we need to create uplink for the antag.
-            // PDA should be in place already
-            var pda = _uplink.FindUplinkTarget(traitor);
-            if (pda == null || !_uplink.AddUplink(traitor, startingBalance, giveDiscounts: true))
+            if (!_uplink.AddUplink(
+                user: traitor,
+                balance: startingBalance,
+                uplinkEntity: null,
+                uplinkPref: uplinkPref,
+                giveDiscounts: true))
+            {
                 return false;
+            }
 
-            // Give traitors their codewords and uplink code to keep in their character info menu
-            code = EnsureComp<RingerUplinkComponent>(pda.Value).Code;
+            // Add appropriate briefing based on uplink type
+            switch (uplinkPref)
+            {
+                case UplinkPreference.PDA:
+                    var pda = _uplink.FindUplinkTarget(traitor);
+                    if (pda.HasValue && TryComp<RingerUplinkComponent>(pda, out var ringerComp))
+                    {
+                        code = ringerComp.Code;
+                        briefing = string.Format("{0}\n{1}", briefing,
+                            Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
+                    }
+                    else
+                    {
+                        // Fallback if PDA not found
+                        briefing = string.Format("{0}\n{1}", briefing,
+                            Loc.GetString("traitor-role-uplink-implant-short"));
+                    }
+                    break;
 
-            // If giveUplink is false the uplink code part is omitted
-            briefing = string.Format("{0}\n{1}", briefing,
-                Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
+                case UplinkPreference.Implant:
+                    briefing = string.Format("{0}\n{1}", briefing,
+                        Loc.GetString("traitor-role-uplink-implant-short"));
+                    break;
+
+                case UplinkPreference.Radio:
+                    briefing = string.Format("{0}\n{1}", briefing,
+                        Loc.GetString("traitor-role-uplink-radio-short"));
+                    break;
+
+                default:
+                    // Fallback for any other cases
+                    briefing = string.Format("{0}\n{1}", briefing,
+                        Loc.GetString("traitor-role-uplink-implant-short"));
+                    break;
+            }
         }
 
-        _antag.SendBriefing(traitor, GenerateBriefing(component.Codewords, code, issuer), null, component.GreetSoundNotification);
+        _antag.SendBriefing(traitor, GenerateBriefing(component.Codewords, code, issuer, uplinkPref), null, component.GreetSoundNotification);
 
         component.TraitorMinds.Add(mindId);
 
@@ -136,12 +180,18 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         return true;
     }
 
-    private (Note[]?, string) RequestUplink(EntityUid traitor, FixedPoint2 startingBalance, string briefing)
+    private (Note[]?, string, UplinkPreference) RequestUplink(EntityUid traitor, FixedPoint2 startingBalance, string briefing)
     {
         var pda = _uplink.FindUplinkTarget(traitor);
         Note[]? code = null;
+        var uplinkPref = UplinkPreference.PDA; // Default to PDA
 
-        var uplinked = _uplink.AddUplink(traitor, startingBalance, pda, true);
+        var uplinked = _uplink.AddUplink(
+            user: traitor,
+            balance: startingBalance,
+            uplinkEntity: pda,
+            uplinkPref: uplinkPref,
+            giveDiscounts: true);
 
         if (pda is not null && uplinked)
         {
@@ -152,14 +202,15 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             briefing = string.Format("{0}\n{1}",
                 briefing,
                 Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
-            return (code, briefing);
+            return (code, briefing, uplinkPref);
         }
         else if (pda is null && uplinked)
         {
             briefing += "\n" + Loc.GetString("traitor-role-uplink-implant-short");
+            uplinkPref = UplinkPreference.Implant; // Use implant if PDA failed
         }
 
-        return (null, briefing);
+        return (null, briefing, uplinkPref);
     }
 
     // TODO: AntagCodewordsComponent
@@ -169,17 +220,54 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     }
 
     // TODO: figure out how to handle this? add priority to briefing event?
-    private string GenerateBriefing(string[]? codewords, Note[]? uplinkCode, string? objectiveIssuer = null)
+    private string GenerateBriefing(string[]? codewords, Note[]? uplinkCode, string? objectiveIssuer = null, UplinkPreference uplinkPref = UplinkPreference.PDA)
     {
         var sb = new StringBuilder();
-        sb.AppendLine(Loc.GetString("traitor-role-greeting", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
+
+        // Use different greeting based on uplink type
+        switch (uplinkPref)
+        {
+            case UplinkPreference.PDA:
+                sb.AppendLine(Loc.GetString("traitor-role-greeting-pda", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
+                break;
+            case UplinkPreference.Implant:
+                sb.AppendLine(Loc.GetString("traitor-role-greeting-implant", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
+                break;
+            case UplinkPreference.Radio:
+                sb.AppendLine(Loc.GetString("traitor-role-greeting-radio", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
+                break;
+            default:
+                // Fallback to generic greeting
+                sb.AppendLine(Loc.GetString("traitor-role-greeting", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
+                break;
+        }
+
         if (codewords != null)
             sb.AppendLine(Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
-        if (uplinkCode != null)
-            sb.AppendLine(Loc.GetString("traitor-role-uplink-code", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
-        else
-            sb.AppendLine(Loc.GetString("traitor-role-uplink-implant"));
 
+        // Add appropriate message based on uplink type
+        switch (uplinkPref)
+        {
+            case UplinkPreference.PDA:
+                if (uplinkCode != null)
+                    sb.AppendLine(Loc.GetString("traitor-role-uplink-code", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
+                else
+                    sb.AppendLine(Loc.GetString("traitor-role-uplink-implant"));
+                break;
+
+            case UplinkPreference.Implant:
+                sb.AppendLine(Loc.GetString("traitor-role-uplink-implant"));
+                break;
+
+            case UplinkPreference.Radio:
+                sb.AppendLine(Loc.GetString("traitor-role-uplink-radio"));
+                break;
+
+            default:
+                // Fallback for any other cases
+                sb.AppendLine(Loc.GetString("traitor-role-uplink-implant"));
+                break;
+        }
 
         return sb.ToString();
     }

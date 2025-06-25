@@ -114,7 +114,19 @@
                                     <LineEdit Name="ClownNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
                                 </BoxContainer>
                                 <!-- WD EDIT END -->
-                                <!-- Show clothing -->
+                                <!-- Backpack -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-backpack-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="BackpackButton" HorizontalAlignment="Right" />
+                                </BoxContainer>
+                                <!-- Uplink -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-uplink-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="UplinkButton" HorizontalAlignment="Right" />
+                                </BoxContainer>
+                                <!-- Show clothes -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-clothing'}" />
                                     <Control HorizontalExpand="True"/>
