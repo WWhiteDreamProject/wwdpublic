@@ -78,12 +78,14 @@ public sealed class StoreTests
             mindSystem.TransferTo(mind, human, mind: mind);
 
             FixedPoint2 originalBalance = 20;
+// WWDP edit start           
             uplinkSystem.AddUplink(
                 user: human,
                 balance: originalBalance,
                 uplinkEntity: null,
                 uplinkPref: Content.Shared.Preferences.UplinkPreference.PDA,
                 giveDiscounts: true);
+// WWDP edit end
 
             var storeComponent = entManager.GetComponent<StoreComponent>(pda);
             var discountComponent = entManager.GetComponent<StoreDiscountComponent>(pda);

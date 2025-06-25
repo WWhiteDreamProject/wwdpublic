@@ -113,7 +113,6 @@
                                     <Control HorizontalExpand="True"/>
                                     <LineEdit Name="ClownNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
                                 </BoxContainer>
-                                <!-- WD EDIT END -->
                                 <!-- Show clothing -->
                                 <!-- Uplink -->
                                 <BoxContainer HorizontalExpand="True">

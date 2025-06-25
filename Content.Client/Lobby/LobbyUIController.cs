@@ -163,7 +163,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
 
         profileEditor.SetProfile(profile, index);
     }
-
+//WWDP edit end
     /// Refreshes the character preview in the lobby chat
     private void RefreshLobbyPreview()
     {
@@ -195,13 +195,14 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     {
         DebugTools.Assert(EditedProfile != null);
 
-        if (_profileEditor == null || EditedProfile == null || EditedSlot == null)
+        if (_profileEditor == null || EditedProfile == null || EditedSlot == null) // WWDP edit
             return;
 
         var selected = _preferencesManager.Preferences?.SelectedCharacterIndex;
         if (selected == null)
             return;
 
+// WWDP edit start
         var profile = _profileEditor.Profile;
         if (profile == null)
             return;
@@ -216,6 +217,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
 
         Logger.Debug($"SaveProfile: Saving profile with Uplink = {(int)(profile.Uplink)} ({profile.Uplink})");
         _preferencesManager.UpdateCharacter(profile, EditedSlot.Value);
+        // WWDP edit end
         ReloadCharacterSetup();
     }
 

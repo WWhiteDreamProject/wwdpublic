@@ -70,7 +70,7 @@ namespace Content.Client.Lobby.UI
         public event Action? Save;
         private bool _exporting;
         private bool _isDirty;
-        private bool _isProgrammaticChange; // Flag to track programmatic changes
+        private bool _isProgrammaticChange; // WWDP edit - Flag to track programmatic changes
 
         /// The character slot for the current profile
         public int? CharacterSlot;
@@ -955,7 +955,7 @@ namespace Content.Client.Lobby.UI
             UpdateCMarkingsFacialHair();
             UpdateHeightWidthSliders();
             UpdateWeight();
-
+// WWDP edit
             if (Profile != null)
             {
                 UpdateUplinkButton();
@@ -2732,7 +2732,7 @@ namespace Content.Client.Lobby.UI
             UpdateTraits(TraitsShowUnusableButton.Pressed);
             UpdateLoadouts(LoadoutsShowUnusableButton.Pressed);
         }
-
+WWDP edit start
         private void InitializeUplinkUI()
         {
             // Initialize items in the dropdown
@@ -2779,5 +2779,6 @@ namespace Content.Client.Lobby.UI
             UplinkButton.SelectId((int)pref);
             _isProgrammaticChange = false;
         }
+// WWDP edit end
     }
 }
