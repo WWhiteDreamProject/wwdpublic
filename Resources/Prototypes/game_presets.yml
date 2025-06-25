@@ -62,6 +62,7 @@
   - RampingStationEventScheduler
   - GameRuleMeteorScheduler
   - LavalandStormScheduler # Lavaland Change
+  - Shadowling
 
 - type: gamePreset
   id: Extended
