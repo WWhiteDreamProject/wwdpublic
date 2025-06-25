@@ -30,203 +30,165 @@ public sealed class UplinkSystem : EntitySystem
 
     [ValidatePrototypeId<CurrencyPrototype>]
     public const string TelecrystalCurrencyPrototype = "Telecrystal";
-    private const string FallbackUplinkImplant = "UplinkImplant";
-    // This catalog is commented out in uplink_catalog.yml, using another one
-    // private const string FallbackUplinkCatalog = "UplinkUplinkImplanter";
-    private const string FallbackUplinkCatalog = "UplinkMicrobomb"; // Using a prototype that definitely exists
-    private const string OldFashionedRadioUplink = "BaseUplinkRadio";
+
+    private const string UplinkImplantPrototype = "UplinkImplant";
+    private const string RadioUplinkPrototype = "BaseUplinkRadio";
 
     /// <summary>
-    /// Adds an uplink to the target
+    /// Adds an uplink to the target.
     /// </summary>
-    /// <param name="user">The person who is getting the uplink</param>
-    /// <param name="balance">The amount of currency on the uplink. If null, will just use the amount specified in the preset.</param>
-    /// <param name="uplinkEntity">The entity that will actually have the uplink functionality. If null, will use uplinkPref to create a new one.</param>
+    /// <param name="user">The entity receiving the uplink.</param>
+    /// <param name="balance">The starting balance for the uplink.</param>
+    /// <param name="uplinkEntity">An optional entity to use as the uplink. If null, one will be created based on preference.</param>
     /// <param name="uplinkPref">The preferred uplink type, used if uplinkEntity is null.</param>
-    /// <param name="giveDiscounts">Marker that enables discounts for uplink items.</param>
-    /// <returns>Whether or not the uplink was added successfully</returns>
+    /// <param name="giveDiscounts">Whether to apply discounts to the store.</param>
+    /// <returns>True if the uplink was added successfully, false otherwise.</returns>
     public bool AddUplink(
         EntityUid user,
         FixedPoint2 balance,
         EntityUid? uplinkEntity = null,
-        UplinkPreference uplinkPref = UplinkPreference.PDA, // Default to PDA as a safe bet
+        UplinkPreference uplinkPref = UplinkPreference.PDA,
         bool giveDiscounts = false)
     {
-        // If a specific entity is provided for the uplink, use it.
         if (uplinkEntity != null)
         {
-            Logger.Debug($"AddUplink: Using provided uplink entity {uplinkEntity}");
-            if (HasComp<PdaComponent>(uplinkEntity.Value) && !HasComp<RingerUplinkComponent>(uplinkEntity.Value))
-            {
-                var ringerUplink = EnsureComp<RingerUplinkComponent>(uplinkEntity.Value);
-                _ringerSystem.RandomizeUplinkCode(uplinkEntity.Value, ringerUplink, new());
-            }
-            EnsureComp<UplinkComponent>(uplinkEntity.Value);
-            SetUplink(user, uplinkEntity.Value, balance, giveDiscounts);
+            SetupUplink(user, uplinkEntity.Value, balance, giveDiscounts);
             return true;
         }
 
-        // Otherwise, create an uplink based on user preference.
-        Logger.Debug($"AddUplink: Processing uplink preference {uplinkPref}");
+        return TryCreateUplink(user, balance, uplinkPref, giveDiscounts);
+    }
+
+    private void SetupUplink(EntityUid user, EntityUid uplink, FixedPoint2 balance, bool giveDiscounts)
+    {
+        if (HasComp<PdaComponent>(uplink) && !HasComp<RingerUplinkComponent>(uplink))
+        {
+            var ringerUplink = EnsureComp<RingerUplinkComponent>(uplink);
+            _ringerSystem.RandomizeUplinkCode(uplink, ringerUplink, new());
+        }
+        EnsureComp<UplinkComponent>(uplink);
+
+        var store = EnsureComp<StoreComponent>(uplink);
+        store.AccountOwner = user;
+        store.Balance.Clear();
+        _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { TelecrystalCurrencyPrototype, balance } }, uplink, store);
+
+        var initializedEvent = new StoreInitializedEvent(user, uplink, giveDiscounts, _store.GetAvailableListings(user, uplink, store).ToArray());
+        RaiseLocalEvent(ref initializedEvent);
+    }
+
+    private bool TryCreateUplink(EntityUid user, FixedPoint2 balance, UplinkPreference uplinkPref, bool giveDiscounts)
+    {
+        bool success;
         switch (uplinkPref)
         {
             case UplinkPreference.PDA:
-                var pdaEntity = FindUplinkTarget(user);
-                if (pdaEntity != null)
-                {
-                    Logger.Debug($"AddUplink: Found PDA {pdaEntity} for user preference");
-                    if (HasComp<PdaComponent>(pdaEntity.Value) && !HasComp<RingerUplinkComponent>(pdaEntity.Value))
-                    {
-                        var ringerUplink = EnsureComp<RingerUplinkComponent>(pdaEntity.Value);
-                        _ringerSystem.RandomizeUplinkCode(pdaEntity.Value, ringerUplink, new());
-                    }
-                    EnsureComp<UplinkComponent>(pdaEntity.Value);
-                    SetUplink(user, pdaEntity.Value, balance, giveDiscounts);
-                    return true;
-                }
-                Logger.Debug($"AddUplink: No PDA found despite preference, falling back to implant.");
-                return ImplantUplink(user, balance, giveDiscounts);
-
+                success = TryCreatePdaUplink(user, balance, giveDiscounts);
+                break;
             case UplinkPreference.Implant:
-                Logger.Debug($"AddUplink: Creating implant uplink per user preference.");
-                return ImplantUplink(user, balance, giveDiscounts);
-
+                success = TryCreateImplantUplink(user, balance, giveDiscounts);
+                break;
             case UplinkPreference.Radio:
+                success = TryCreateRadioUplink(user, balance, giveDiscounts);
+                break;
             default:
-                Logger.Debug($"AddUplink: Creating radio uplink for user {user}.");
-                if (!_proto.HasIndex<EntityPrototype>(OldFashionedRadioUplink))
-                {
-                    Logger.Error($"AddUplink: Radio uplink prototype {OldFashionedRadioUplink} not found. Falling back to implant.");
-                    return ImplantUplink(user, balance, giveDiscounts);
-                }
-
-                var radioUplink = EntityManager.SpawnEntity(OldFashionedRadioUplink, Transform(user).Coordinates);
-                var handEnt = _handsSystem.GetActiveHand(user);
-                var freeHand = _handsSystem.EnumerateHands(user).FirstOrDefault(hand => hand.HeldEntity == null);
-
-                if (freeHand != null)
-                {
-                    _handsSystem.TryPickup(user, radioUplink, freeHand);
-                }
-                else if (handEnt != null && _handsSystem.TryDrop(user, handEnt, checkActionBlocker: false))
-                {
-                    _handsSystem.TryPickup(user, radioUplink);
-                }
-
-                EnsureComp<UplinkComponent>(radioUplink);
-                SetUplink(user, radioUplink, balance, giveDiscounts);
-                return true;
+                Logger.Error($"Unsupported uplink preference: {uplinkPref}. No uplink will be given.");
+                return false;
         }
-    }
 
-    /// <summary>
-    /// Configure TC for the uplink
-    /// </summary>
-    private void SetUplink(EntityUid user, EntityUid uplink, FixedPoint2 balance, bool giveDiscounts)
-    {
-        var store = EnsureComp<StoreComponent>(uplink);
-        store.AccountOwner = user;
-
-        store.Balance.Clear();
-        _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { TelecrystalCurrencyPrototype, balance } },
-            uplink,
-            store);
-
-        var uplinkInitializedEvent = new StoreInitializedEvent(
-            TargetUser: user,
-            Store: uplink,
-            UseDiscounts: giveDiscounts,
-            Listings: _store.GetAvailableListings(user, uplink, store)
-                .ToArray());
-        RaiseLocalEvent(ref uplinkInitializedEvent);
-    }
-
-    /// <summary>
-    /// Implant an uplink as a fallback measure if the traitor had no PDA
-    /// </summary>
-    private bool ImplantUplink(EntityUid user, FixedPoint2 balance, bool giveDiscounts)
-    {
-        Logger.Debug($"ImplantUplink: Creating implant uplink for user {user}");
-
-        // Create implant directly
-        var implantProto = new string(FallbackUplinkImplant);
-
-        // Check if implant prototype exists
-        if (!_proto.HasIndex<EntityPrototype>(implantProto))
+        if (!success)
         {
-            Logger.Error($"ImplantUplink: Implant prototype {implantProto} not found");
+            Logger.Info($"Could not create preferred uplink ({uplinkPref}) for {ToPrettyString(user)}. No uplink was given.");
+        }
+        
+        return success;
+    }
+
+    private bool TryCreatePdaUplink(EntityUid user, FixedPoint2 balance, bool giveDiscounts)
+    {
+        var pdaEntity = FindUplinkTarget(user);
+        if (pdaEntity != null)
+        {
+            SetupUplink(user, pdaEntity.Value, balance, giveDiscounts);
+            return true;
+        }
+        return false;
+    }
+
+    private bool TryCreateImplantUplink(EntityUid user, FixedPoint2 balance, bool giveDiscounts)
+    {
+        if (!_proto.HasIndex<EntityPrototype>(UplinkImplantPrototype))
+        {
+            Logger.Error($"Implant prototype {UplinkImplantPrototype} not found.");
             return false;
         }
 
-        // Create implant directly
-        var implant = _subdermalImplant.AddImplant(user, implantProto);
-
+        var implant = _subdermalImplant.AddImplant(user, UplinkImplantPrototype);
         if (implant == null)
         {
-            Logger.Error($"ImplantUplink: Failed to create implant for user {user}");
+            Logger.Error($"Failed to create implant uplink for user {user}.");
             return false;
         }
 
         if (!HasComp<StoreComponent>(implant))
         {
-            Logger.Error($"ImplantUplink: Implant {implant} does not have StoreComponent");
+            Logger.Error($"Implant {implant} does not have a StoreComponent.");
+            // We probably want to delete the implant here to not leave a useless implant.
+            QueueDel(implant.Value);
             return false;
         }
 
-        Logger.Debug($"ImplantUplink: Successfully created implant {implant} for user {user}");
-        SetUplink(user, implant.Value, balance, giveDiscounts);
+        SetupUplink(user, implant.Value, balance, giveDiscounts);
+        return true;
+    }
+
+    private bool TryCreateRadioUplink(EntityUid user, FixedPoint2 balance, bool giveDiscounts)
+    {
+        if (!_proto.HasIndex<EntityPrototype>(RadioUplinkPrototype))
+        {
+            Logger.Error($"Radio uplink prototype {RadioUplinkPrototype} not found.");
+            return false;
+        }
+
+        var radioUplink = EntityManager.SpawnEntity(RadioUplinkPrototype, Transform(user).Coordinates);
+        _handsSystem.TryPickupAnyHand(user, radioUplink, checkActionBlocker: false);
+
+        SetupUplink(user, radioUplink, balance, giveDiscounts);
         return true;
     }
 
     /// <summary>
-    /// Finds the entity that can hold an uplink for a user.
-    /// Usually this is a pda in their pda slot, but can also be in their hands. (but not pockets or inside bag, etc.)
+    /// Finds a suitable entity to host an uplink for a user.
+    /// Prefers a PDA in the user's PDA slot, then checks hands.
     /// </summary>
     public EntityUid? FindUplinkTarget(EntityUid user)
     {
-        Logger.Debug($"FindUplinkTarget: Looking for uplink target for user {user}");
-
-        // Try to find PDA in inventory
+        // Check inventory first, this is recursively checked so it will find PDAs in containers.
         if (_inventorySystem.TryGetContainerSlotEnumerator(user, out var containerSlotEnumerator))
         {
             while (containerSlotEnumerator.MoveNext(out var pdaUid))
             {
-                if (!pdaUid.ContainedEntity.HasValue)
-                    continue;
-
-                var entity = pdaUid.ContainedEntity.Value;
-
-                if (HasComp<PdaComponent>(entity))
+                if (pdaUid.ContainedEntity.HasValue && IsValidUplinkTarget(pdaUid.ContainedEntity))
                 {
-                    Logger.Debug($"FindUplinkTarget: Found PDA {entity} in inventory");
-                    return entity;
-                }
-
-                if (HasComp<StoreComponent>(entity))
-                {
-                    Logger.Debug($"FindUplinkTarget: Found store component {entity} in inventory");
-                    return entity;
+                    return pdaUid.ContainedEntity.Value;
                 }
             }
         }
 
-        // Also check hands
+        // Then check hands
         foreach (var item in _handsSystem.EnumerateHeld(user))
         {
-            if (HasComp<PdaComponent>(item))
+            if (IsValidUplinkTarget(item))
             {
-                Logger.Debug($"FindUplinkTarget: Found PDA {item} in hands");
-                return item;
-            }
-
-            if (HasComp<StoreComponent>(item))
-            {
-                Logger.Debug($"FindUplinkTarget: Found store component {item} in hands");
                 return item;
             }
         }
 
-        Logger.Debug($"FindUplinkTarget: No suitable uplink target found for user {user}");
         return null;
+    }
+
+    private bool IsValidUplinkTarget(EntityUid? entity)
+    {
+        return entity.HasValue && HasComp<PdaComponent>(entity.Value);
     }
 }

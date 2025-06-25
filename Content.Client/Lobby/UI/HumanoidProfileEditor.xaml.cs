@@ -2768,71 +2768,49 @@ namespace Content.Client.Lobby.UI
 
         private void InitializeUplinkUI()
         {
-            Logger.Debug("InitializeUplinkUI: Initializing UplinkButton");
-
             // Initialize items in the dropdown
             UplinkButton.Clear();
             UplinkButton.AddItem(Loc.GetString("humanoid-profile-editor-uplink-pda-text"), (int)UplinkPreference.PDA);
             UplinkButton.AddItem(Loc.GetString("humanoid-profile-editor-uplink-implant-text"), (int)UplinkPreference.Implant);
             UplinkButton.AddItem(Loc.GetString("humanoid-profile-editor-uplink-radio-text"), (int)UplinkPreference.Radio);
 
-            // Clear previous event handlers and add new one
             UplinkButton.OnItemSelected -= OnUplinkButtonItemSelected;
             UplinkButton.OnItemSelected += OnUplinkButtonItemSelected;
-
-            Logger.Debug("InitializeUplinkUI: Initialization complete");
         }
 
         private void OnUplinkButtonItemSelected(OptionButton.ItemSelectedEventArgs args)
         {
-            // Ignore programmatic changes
             if (_isProgrammaticChange)
                 return;
 
-            // Update profile with new value
             var uplink = (UplinkPreference)args.Id;
+            if (Profile?.Uplink == uplink)
+                return;
+
             Profile = Profile?.WithUplinkPreference(uplink);
-
-            // Apply changes to UI immediately - update button directly
-            if (Profile != null)
-            {
-                // Disable event handler to avoid recursive calls
-                UplinkButton.OnItemSelected -= OnUplinkButtonItemSelected;
-                UplinkButton.SelectId((int)Profile.Uplink);
-                UplinkButton.OnItemSelected += OnUplinkButtonItemSelected;
-            }
-
-            // Mark profile as changed
             IsDirty = true;
 
-            // Update preview if necessary
+            // Immediately update the button's visual selection to give feedback.
+            _isProgrammaticChange = true;
+            if (Profile != null)
+                UplinkButton.SelectId((int)Profile.Uplink);
+            _isProgrammaticChange = false;
+
             ReloadProfilePreview();
         }
 
         private void UpdateUplinkButton()
         {
-            // Get value from profile and output debug info
             var pref = Profile?.Uplink ?? UplinkPreference.PDA;
 
-            // Check that value is in valid range
-            if (pref < UplinkPreference.None || pref > UplinkPreference.Radio)
+            if (pref <= UplinkPreference.None || pref > UplinkPreference.Radio)
             {
                 pref = UplinkPreference.PDA;
             }
 
-            // Disable event handler to avoid recursive calls
-            UplinkButton.OnItemSelected -= OnUplinkButtonItemSelected;
-
-            // Set programmatic change flag
             _isProgrammaticChange = true;
-
             UplinkButton.SelectId((int)pref);
-
-            // Reset programmatic change flag
             _isProgrammaticChange = false;
-
-            // Restore event handler
-            UplinkButton.OnItemSelected += OnUplinkButtonItemSelected;
         }
     }
 }
