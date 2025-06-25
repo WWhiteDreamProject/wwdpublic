@@ -91,6 +91,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         if (component.GiveUplink)
         {
+// WWDP edit start
             var uplinkPref = GetUplinkPreference(mind);
             var startingBalance = GetStartingBalance(component, mind, uplinkPref);
 
@@ -189,6 +190,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 Logger.Error($"Unsupported uplink preference in GetUplinkBriefing: {uplinkPref}");
                 return string.Empty;
         }
+// WWDP edit end
     }
 
     private void OnObjectivesTextPrepend(EntityUid uid, TraitorRuleComponent comp, ref ObjectivesTextPrependEvent args)
@@ -196,6 +198,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         args.Text += "\n" + Loc.GetString("traitor-round-end-codewords", ("codewords", string.Join(", ", comp.Codewords)));
     }
 
+// WWDP edit start
     private string GenerateBriefing(string[]? codewords, Note[]? uplinkCode, string? objectiveIssuer = null, UplinkPreference uplinkPref = UplinkPreference.PDA)
     {
         var sb = new StringBuilder();
@@ -241,6 +244,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 // Fallback for any other cases, though this shouldn't be hit with the new logic.
                 break;
         }
+// WWDP edit end
 
         return sb.ToString();
     }

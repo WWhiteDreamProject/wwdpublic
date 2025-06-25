@@ -145,7 +145,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     public PreferenceUnavailableMode PreferenceUnavailable { get; private set; } =
         PreferenceUnavailableMode.SpawnAsOverflow;
 
-    [DataField]
+    [DataField] // WWDP add
     public UplinkPreference Uplink { get; set; } = UplinkPreference.PDA;
 
     public HumanoidCharacterProfile(
@@ -177,8 +177,8 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         PreferenceUnavailableMode preferenceUnavailable,
         HashSet<string> antagPreferences,
         HashSet<string> traitPreferences,
-        HashSet<LoadoutPreference> loadoutPreferences,
-        UplinkPreference uplink = UplinkPreference.PDA)
+        HashSet<LoadoutPreference> loadoutPreferences, // WWDP add
+        UplinkPreference uplink = UplinkPreference.PDA) // WWDP add
     {
         Name = name;
         FlavorText = flavortext;
@@ -209,7 +209,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         _antagPreferences = antagPreferences;
         _traitPreferences = traitPreferences;
         _loadoutPreferences = loadoutPreferences;
-        Uplink = uplink;
+        Uplink = uplink; // WWDP add
     }
 
     /// <summary>Copy constructor</summary>
@@ -243,7 +243,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             other.PreferenceUnavailable,
             new HashSet<string>(other.AntagPreferences),
             new HashSet<string>(other.TraitPreferences),
-            new HashSet<LoadoutPreference>(other.LoadoutPreferences),
+            new HashSet<LoadoutPreference>(other.LoadoutPreferences), // WWDP add
             other.Uplink)
     {
     }
@@ -444,7 +444,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         return new HumanoidCharacterProfile(this) { _loadoutPreferences = list };
     }
 
-    public HumanoidCharacterProfile WithUplinkPreference(UplinkPreference uplink) => new(this) { Uplink = uplink };
+    public HumanoidCharacterProfile WithUplinkPreference(UplinkPreference uplink) => new(this) { Uplink = uplink }; // WWDP add
 
     public string Summary =>
         Loc.GetString(
@@ -471,7 +471,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             // EE - Contractors Change End
             && PreferenceUnavailable == other.PreferenceUnavailable
             && SpawnPriority == other.SpawnPriority
-            && Uplink == other.Uplink
+            && Uplink == other.Uplink // WWDP add
             && _jobPriorities.SequenceEqual(other._jobPriorities)
             && _antagPreferences.SequenceEqual(other._antagPreferences)
             && _traitPreferences.SequenceEqual(other._traitPreferences)
@@ -693,7 +693,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         hashCode.Add(Appearance);
         hashCode.Add((int) SpawnPriority);
         hashCode.Add((int) PreferenceUnavailable);
-        hashCode.Add((int) Uplink);
+        hashCode.Add((int) Uplink); // WWDP add
         hashCode.Add(Customspeciename);
         return hashCode.ToHashCode();
     }

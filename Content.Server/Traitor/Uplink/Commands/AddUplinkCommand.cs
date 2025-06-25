@@ -95,12 +95,14 @@ namespace Content.Server.Traitor.Uplink.Commands
 
             // Finally add uplink
             var uplinkSys = _entManager.System<UplinkSystem>();
+// WWDP edit start
             if (!uplinkSys.AddUplink(
                 user: user,
                 balance: 20,
                 uplinkEntity: uplinkEntity,
                 uplinkPref: Content.Shared.Preferences.UplinkPreference.PDA,
                 giveDiscounts: isDiscounted))
+// WWDP edit end
             {
                 shell.WriteLine(Loc.GetString("add-uplink-command-error-2"));
             }

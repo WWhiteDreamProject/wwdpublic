@@ -24,15 +24,17 @@ public sealed class UplinkSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!;
+// WWDP edit start
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
     [Dependency] private readonly RingerSystem _ringerSystem = default!;
+// WWDP edit end
 
     [ValidatePrototypeId<CurrencyPrototype>]
     public const string TelecrystalCurrencyPrototype = "Telecrystal";
 
-    private const string UplinkImplantPrototype = "UplinkImplant";
-    private const string RadioUplinkPrototype = "BaseUplinkRadio";
+    private const string UplinkImplantPrototype = "UplinkImplant"; // WWDP edit
+    private const string RadioUplinkPrototype = "BaseUplinkRadio"; // WWDP edit
 
     /// <summary>
     /// Adds an uplink to the target
@@ -47,11 +49,12 @@ public sealed class UplinkSystem : EntitySystem
         EntityUid user,
         FixedPoint2 balance,
         EntityUid? uplinkEntity = null,
-        UplinkPreference uplinkPref = UplinkPreference.PDA,
+        UplinkPreference uplinkPref = UplinkPreference.PDA, // WWDP add
         bool giveDiscounts = false)
     {
         // TODO add BUI. Currently can't be done outside of yaml -_-
         // ^ What does this even mean?
+// WWDP edit start
         if (uplinkEntity != null)
         {
             SetupUplink(user, uplinkEntity.Value, balance, giveDiscounts);
@@ -193,4 +196,5 @@ public sealed class UplinkSystem : EntitySystem
     {
         return entity.HasValue && HasComp<PdaComponent>(entity.Value);
     }
+// WWDP edit end
 }
