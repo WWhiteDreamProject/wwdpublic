@@ -121,6 +121,7 @@
                                     <OptionButton Name="UplinkButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
                                 <!-- Show clothes -->
+                                <!-- WD EDIT END -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-clothing'}" />
                                     <Control HorizontalExpand="True"/>
