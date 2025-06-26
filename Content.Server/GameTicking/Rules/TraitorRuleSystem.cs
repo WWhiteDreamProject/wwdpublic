@@ -95,7 +95,12 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             var uplinkPref = GetUplinkPreference(mind);
             var startingBalance = GetStartingBalance(component, mind, uplinkPref);
 
-            if (_uplink.AddUplink(traitor, startingBalance, uplinkPref: uplinkPref, giveDiscounts: true))
+            if (uplinkPref == UplinkPreference.TeleCrystals)
+            {
+                _uplink.AddUplink(traitor, startingBalance, uplinkPref: uplinkPref, giveDiscounts: true);
+                briefing.AppendLine(Loc.GetString("traitor-role-uplink-telecrystals-short"));
+            }
+            else if (_uplink.AddUplink(traitor, startingBalance, uplinkPref: uplinkPref, giveDiscounts: true))
             {
                 briefing.AppendLine(GetUplinkBriefing(traitor, uplinkPref, out code));
             }
@@ -154,6 +159,9 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             case UplinkPreference.Radio:
                 baseBalance = component.RadioBalance;
                 break;
+            case UplinkPreference.TeleCrystals:
+                baseBalance = component.TeleCrystalsBalance;
+                break;
             default:
                 baseBalance = component.StartingBalance;
                 break;
@@ -186,6 +194,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 return Loc.GetString("traitor-role-uplink-implant-short");
             case UplinkPreference.Radio:
                 return Loc.GetString("traitor-role-uplink-radio-short");
+            case UplinkPreference.TeleCrystals:
+                return Loc.GetString("traitor-role-uplink-telecrystals-short");
             default:
                 Logger.Error($"Unsupported uplink preference in GetUplinkBriefing: {uplinkPref}");
                 return string.Empty;
@@ -216,6 +226,9 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             case UplinkPreference.Radio:
                 sb.AppendLine(Loc.GetString("traitor-role-greeting-radio", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
                 break;
+            case UplinkPreference.TeleCrystals:
+                sb.AppendLine(Loc.GetString("traitor-role-greeting-telecrystals", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
+                break;
             default:
                 // Fallback to generic greeting
                 sb.AppendLine(Loc.GetString("traitor-role-greeting", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
@@ -239,6 +252,10 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
             case UplinkPreference.Radio:
                 sb.AppendLine(Loc.GetString("traitor-role-uplink-radio"));
+                break;
+
+            case UplinkPreference.TeleCrystals:
+                sb.AppendLine(Loc.GetString("traitor-role-uplink-telecrystals"));
                 break;
 
             default:

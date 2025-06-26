@@ -30,6 +30,7 @@ humanoid-profile-editor-uplink-label = Аплинк:
 humanoid-profile-editor-uplink-pda-text = ПДА
 humanoid-profile-editor-uplink-implant-text = Имплант
 humanoid-profile-editor-uplink-radio-text = Радио
+humanoid-profile-editor-uplink-telecrystals-text = Телекристаллы
 humanoid-profile-editor-clothing-label = Одежда:
 humanoid-profile-editor-backpack-label = Сумка:
 humanoid-profile-editor-spawn-priority-label = Приоритет появления:

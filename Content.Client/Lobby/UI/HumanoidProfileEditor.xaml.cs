@@ -2740,6 +2740,7 @@ namespace Content.Client.Lobby.UI
             UplinkButton.AddItem(Loc.GetString("humanoid-profile-editor-uplink-pda-text"), (int)UplinkPreference.PDA);
             UplinkButton.AddItem(Loc.GetString("humanoid-profile-editor-uplink-implant-text"), (int)UplinkPreference.Implant);
             UplinkButton.AddItem(Loc.GetString("humanoid-profile-editor-uplink-radio-text"), (int)UplinkPreference.Radio);
+            UplinkButton.AddItem(Loc.GetString("humanoid-profile-editor-uplink-telecrystals-text"), (int)UplinkPreference.TeleCrystals);
 
             UplinkButton.OnItemSelected -= OnUplinkButtonItemSelected;
             UplinkButton.OnItemSelected += OnUplinkButtonItemSelected;
@@ -2770,7 +2771,7 @@ namespace Content.Client.Lobby.UI
         {
             var pref = Profile?.Uplink ?? UplinkPreference.PDA;
 
-            if (pref <= UplinkPreference.None || pref > UplinkPreference.Radio)
+            if (pref <= UplinkPreference.None || pref > UplinkPreference.TeleCrystals)
             {
                 pref = UplinkPreference.PDA;
             }

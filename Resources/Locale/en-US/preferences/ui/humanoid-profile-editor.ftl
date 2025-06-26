@@ -35,6 +35,7 @@ humanoid-profile-editor-uplink-label = Uplink:
 humanoid-profile-editor-uplink-pda-text = PDA
 humanoid-profile-editor-uplink-implant-text = Implant
 humanoid-profile-editor-uplink-radio-text = Radio
+humanoid-profile-editor-uplink-telecrystals-text = Telecrystals
 humanoid-profile-editor-spawn-priority-label = Spawn priority:
 humanoid-profile-editor-eyes-label = Eye color:
 humanoid-profile-editor-jobs-tab = Jobs

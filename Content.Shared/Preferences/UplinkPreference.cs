@@ -8,6 +8,7 @@ namespace Content.Shared.Preferences
         None = 0,
         PDA = 1,
         Implant = 2,
-        Radio = 3
+        Radio = 3,
+        TeleCrystals = 4
     }
 }

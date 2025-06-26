@@ -94,4 +94,7 @@ public sealed partial class TraitorRuleComponent : Component
 
     [DataField("radioBalance")]
     public FixedPoint2 RadioBalance = 21;
+
+    [DataField("teleCrystalsBalance")]
+    public FixedPoint2 TeleCrystalsBalance = 25;
 }

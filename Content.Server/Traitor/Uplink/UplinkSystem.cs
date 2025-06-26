@@ -14,6 +14,10 @@ using Content.Server.Mind;
 using Content.Shared.Mind;
 using Content.Server.Preferences.Managers;
 using Content.Server.PDA.Ringer;
+using Content.Shared.Inventory.Events;
+using Robust.Shared.Containers;
+using Content.Shared.Storage;
+using Content.Shared.Storage.EntitySystems;
 
 namespace Content.Server.Traitor.Uplink;
 
@@ -35,6 +39,7 @@ public sealed class UplinkSystem : EntitySystem
 
     private const string UplinkImplantPrototype = "UplinkImplant"; // WWDP edit
     private const string RadioUplinkPrototype = "BaseUplinkRadio"; // WWDP edit
+    private const string TeleCrystalsPrototype = "Telecrystal25"; // WWDP edit
 
     /// <summary>
     /// Adds an uplink to the target
@@ -96,6 +101,9 @@ public sealed class UplinkSystem : EntitySystem
             case UplinkPreference.Radio:
                 success = TryCreateRadioUplink(user, balance, giveDiscounts);
                 break;
+            case UplinkPreference.TeleCrystals:
+                success = TryCreateTeleCrystals(user);
+                break;
             default:
                 Logger.Error($"Unsupported uplink preference: {uplinkPref}. No uplink will be given.");
                 return false;
@@ -105,7 +113,7 @@ public sealed class UplinkSystem : EntitySystem
         {
             Logger.Info($"Could not create preferred uplink ({uplinkPref}) for {ToPrettyString(user)}. No uplink was given.");
         }
-        
+
         return success;
     }
 
@@ -156,9 +164,42 @@ public sealed class UplinkSystem : EntitySystem
         }
 
         var radioUplink = EntityManager.SpawnEntity(RadioUplinkPrototype, Transform(user).Coordinates);
-        _handsSystem.TryPickupAnyHand(user, radioUplink, checkActionBlocker: false);
+
+        if (!TryPutInBackpack(user, radioUplink))
+        {
+            _handsSystem.TryPickupAnyHand(user, radioUplink, checkActionBlocker: false);
+        }
 
         SetupUplink(user, radioUplink, balance, giveDiscounts);
+        return true;
+    }
+
+    private bool TryCreateTeleCrystals(EntityUid user)
+    {
+        if (!_proto.HasIndex<EntityPrototype>(TeleCrystalsPrototype))
+        {
+            Logger.Error($"TeleCrystals prototype {TeleCrystalsPrototype} not found.");
+            return false;
+        }
+
+        var teleCrystals = EntityManager.SpawnEntity(TeleCrystalsPrototype, Transform(user).Coordinates);
+        if (!TryPutInBackpack(user, teleCrystals))
+        {
+            _handsSystem.TryPickupAnyHand(user, teleCrystals, checkActionBlocker: false);
+        }
+
+        return true;
+    }
+
+    private bool TryPutInBackpack(EntityUid user, EntityUid item)
+    {
+        if (!_inventorySystem.TryGetSlotEntity(user, "back", out var backpack))
+            return false;
+
+        var storageSystem = EntityManager.System<SharedStorageSystem>();
+        if (!storageSystem.Insert(backpack.Value, item, out _, playSound: false, user: user))
+            return false;
+
         return true;
     }
 
