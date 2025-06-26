@@ -288,7 +288,7 @@ public sealed partial class LatheMenu : DefaultWindow
                 queueMaxBox.Orientation = BoxContainer.LayoutOrientation.Horizontal;
 
                 var queueMaxLabel = new Label();
-                queueMaxLabel.Text = Loc.GetString("lathe-queue-full", ("count", queue.Count - idx));
+                queueMaxLabel.Text = Loc.GetString("lathe-queue-full", ("count", queue.Count - idx + 1));
                 queueMaxBox.AddChild(queueMaxLabel);
                 QueueList.AddChild(queueMaxBox);
                 break;
