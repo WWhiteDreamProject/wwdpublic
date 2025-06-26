@@ -19,8 +19,3 @@ public sealed partial class StationAlertLevelLockComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? StationId;
 }
-
-public sealed class PreventLockAccessEvent : CancellableEntityEventArgs
-{
-    public EntityUid User;
-}

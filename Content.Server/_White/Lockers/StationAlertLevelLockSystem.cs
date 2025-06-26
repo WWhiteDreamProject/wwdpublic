@@ -1,4 +1,5 @@
-﻿using Content.Server.AlertLevel;
+﻿using System.Linq;
+using Content.Server.AlertLevel;
 using Content.Server.Station.Systems;
 using Content.Shared._White.Lockers;
 using Content.Shared.Emag.Systems;
@@ -86,19 +87,7 @@ public sealed class StationAlertLevelLockSystem : EntitySystem
         if (!component.Enabled || component.LockedAlertLevels.Count == 0)
             return;
 
-        string levels = "";
-
-        var i = 1;
-        foreach (var level in component.LockedAlertLevels)
-        {
-            var levelloc = "alert-level-" + level;
-            levels += " " + Loc.GetString(levelloc).ToLower();
-
-            if (i < component.LockedAlertLevels.Count)
-                levels += ",";
-
-            i++;
-        }
+        var levels = string.Join(", ", component.LockedAlertLevels.Select( s => Loc.GetString($"alert-level-{s}").ToLower()));
 
         args.PushMarkup(Loc.GetString("station-alert-level-lock-examined", ("levels", levels)));
     }

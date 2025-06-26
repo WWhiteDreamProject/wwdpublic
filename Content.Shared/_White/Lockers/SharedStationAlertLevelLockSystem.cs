@@ -1,5 +1,5 @@
-﻿using Content.Shared.Popups;
-
+﻿using Content.Shared.Lock;
+using Content.Shared.Popups;
 
 namespace Content.Shared._White.Lockers;
 
@@ -12,16 +12,20 @@ public sealed class SharedStationAlertLevelLockSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<StationAlertLevelLockComponent, PreventLockAccessEvent>(OnTryAccess);
+        SubscribeLocalEvent<StationAlertLevelLockComponent, LockToggleAttemptEvent>(OnTryAccess);
     }
 
-    public void OnTryAccess(EntityUid uid, StationAlertLevelLockComponent component, PreventLockAccessEvent args)
+    public void OnTryAccess(Entity<StationAlertLevelLockComponent> ent, ref LockToggleAttemptEvent args)
     {
-        if (!component.Enabled || !component.Locked)
+        if (!TryComp<LockComponent>(ent.Owner, out var l))
+            return;
+        var locking = !l.Locked; // Allow locking
+
+        if (!ent.Comp.Enabled || !ent.Comp.Locked || locking)
             return;
 
-        _popup.PopupClient(Loc.GetString("access-failed-wrong-station-alert-level"), uid, args.User);
+        _popup.PopupClient(Loc.GetString("access-failed-wrong-station-alert-level"), ent.Owner, args.User);
 
-        args.Cancel();
+        args.Cancelled = true;
     }
 }

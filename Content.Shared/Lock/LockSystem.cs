@@ -197,14 +197,6 @@ public sealed class LockSystem : EntitySystem
         if (!CanToggleLock(uid, user, quiet: false))
             return false;
 
-        // WWDP edit start
-        var e = new PreventLockAccessEvent{ User = user };
-        RaiseLocalEvent(uid, e);
-
-        if (e.Cancelled)
-            return false;
-        // WWDP edit end
-
         if (!HasUserAccess(uid, user, quiet: false))
             return false;
 
