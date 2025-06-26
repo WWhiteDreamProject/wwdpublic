@@ -18329,11 +18329,6 @@ entities:
       parent: 2
 - proto: AtmosRoundStartFixer
   entities:
-  - uid: 5694
-    components:
-    - type: Transform
-      pos: 64.5,-45.5
-      parent: 2
   - uid: 5701
     components:
     - type: Transform
