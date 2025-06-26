@@ -25,7 +25,7 @@ tilemap:
   105: FloorMaintWhite
   64: FloorMetalDiamondSteel
   65: FloorMime
-  69: FloorMono
+  69: FloorTrueMonoTileSteel
   75: FloorPlastic
   76: FloorRGlass
   77: FloorReinforced
