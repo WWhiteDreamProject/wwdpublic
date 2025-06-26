@@ -1,4 +1,5 @@
-﻿using Content.Shared.Emag.Systems;
+﻿using Content.Shared._White.Silicons.Borgs.Components;
+using Content.Shared.Emag.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Wires;
@@ -22,6 +23,11 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
 
     protected virtual void OnAttemptEmag(EntityUid uid, EmagSiliconLawComponent component, ref OnAttemptEmagEvent args)
     {
+        // WD edit - AiRemoteControl-Start
+        if (HasComp<AiRemoteControllerComponent>(uid))
+            return;
+        // WD edit - AiRemoteControl-End
+
         //prevent self emagging
         if (uid == args.UserUid)
         {

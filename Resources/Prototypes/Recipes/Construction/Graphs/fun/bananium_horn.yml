@@ -12,6 +12,7 @@
               sprite: Objects/Fun/bikehorn.rsi
               state: icon
             doAfter: 1
+    # WD EDIT START
           - material: Bananium
             amount: 1
             doAfter: 1
@@ -23,5 +24,6 @@
         - material: Bananium
           amount: 1
           doAfter: 1
+    # WD EDIT END
     - node: bananiumHorn
       entity: BananiumHorn

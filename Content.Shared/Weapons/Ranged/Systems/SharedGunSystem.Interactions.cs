@@ -45,7 +45,7 @@ public abstract partial class SharedGunSystem
                     Loc.GetString(
                         "gun-burst-fire-burst-count",
                         ("color", ModeExamineColor),
-                        ("burstcount", $"{component.ShotsPerBurst}")));
+                        ("burstcount", component.ShotsPerBurst)));
             }
             // WWDP edit end
         }
