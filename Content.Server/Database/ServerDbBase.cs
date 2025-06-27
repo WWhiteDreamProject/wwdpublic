@@ -198,9 +198,9 @@ namespace Content.Server.Database
                 backpack = backpackVal;
 
 // WWDP edit start
-            var uplink = UplinkPreference.Radio;
-            if (Enum.TryParse<UplinkPreference>(profile.Uplink, true, out var uplinkVal))
-                uplink = uplinkVal;
+            var uplink = UplinkPreference.PDA;
+            if (Enum.IsDefined(typeof(UplinkPreference), profile.Uplink))
+                uplink = (UplinkPreference)profile.Uplink;
 
 // WWDP edit end
             var spawnPriority = (SpawnPriorityPreference) profile.SpawnPriority;
@@ -312,7 +312,7 @@ namespace Content.Server.Database
             profile.SkinColor = appearance.SkinColor.ToHex();
             profile.Clothing = humanoid.Clothing.ToString();
             profile.Backpack = humanoid.Backpack.ToString();
-            profile.Uplink = humanoid.Uplink.ToString();
+            profile.Uplink = (int)humanoid.Uplink;
             profile.SpawnPriority = (int) humanoid.SpawnPriority;
             profile.Markings = markings;
             profile.Slot = slot;

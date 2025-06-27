@@ -415,7 +415,7 @@ namespace Content.Server.Database
         public string SkinColor { get; set; } = null!;
         public string Clothing { get; set; } = null!;
         public string Backpack { get; set; } = null!;
-        public string Uplink { get; set; } = null!; // WWDP edit
+        public int Uplink { get; set; } = 1; // 1 = PDA (UplinkPreference.PDA)
         public int SpawnPriority { get; set; } = 0;
         public List<Job> Jobs { get; } = new();
         public List<Antag> Antags { get; } = new();
