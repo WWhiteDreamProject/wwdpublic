@@ -809,11 +809,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("REAL")
                         .HasColumnName("width");
 
-                    b.Property<string>("Uplink")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("uplink");
-
                     b.HasKey("Id")
                         .HasName("PK_profile");
 

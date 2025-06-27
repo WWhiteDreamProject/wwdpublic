@@ -8,12 +8,12 @@ namespace Content.Server.Database.Migrations.Postgres
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
+            migrationBuilder.AddColumn<int>(
                 name: "uplink",
                 table: "profile",
-                type: "text",
+                type: "integer",
                 nullable: false,
-                defaultValue: "PDA");
+                defaultValue: 1); // 1 = PDA
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

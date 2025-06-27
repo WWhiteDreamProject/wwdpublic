@@ -8,12 +8,12 @@ namespace Content.Server.Database.Migrations.Sqlite
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
+            migrationBuilder.AddColumn<int>(
                 name: "uplink",
                 table: "profile",
-                type: "TEXT",
+                type: "INTEGER",
                 nullable: false,
-                defaultValue: "PDA");
+                defaultValue: 1); // 1 = PDA
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -964,6 +964,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("station_ai_name");
 
+                    b.Property<int>("Uplink")
+                        .HasColumnType("integer")
+                        .HasColumnName("uplink");
+
                     b.Property<string>("Voice")
                         .IsRequired()
                         .HasColumnType("text")

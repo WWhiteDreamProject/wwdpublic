@@ -913,6 +913,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("station_ai_name");
 
+                    b.Property<int>("Uplink")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("uplink");
+
                     b.Property<string>("Voice")
                         .IsRequired()
                         .HasColumnType("TEXT")
