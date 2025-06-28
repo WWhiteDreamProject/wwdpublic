@@ -3626,3 +3626,14 @@ Entries:
   id: 382
   time: '2025-06-28T08:30:19.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/644
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: >-
+        Немножко корабельного вооружения. На данный момент только в режиме
+        теста, так что - щитспавн-онли. Просите педалей выдать вам смешного.
+    - type: Fix
+      message: Мехи теперь не стреляют дважды.
+  id: 383
+  time: '2025-06-28T08:31:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/629
