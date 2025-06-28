@@ -14,8 +14,10 @@
   - !type:CharacterEmployerRequirement
     employers:
     - NanoTrasen
-  - !type:CharacterOverallTimeRequirement # WWDP
+  # WD EDIT START
+  - !type:CharacterOverallTimeRequirement
     min: 7200
+  # WD EDIT END
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
@@ -31,6 +33,8 @@
   - !type:AddComponentSpecial
     components:
     - type: CommandStaff
+    - type: Condemned # Goobstation - Nanotrasen owns your soul pal.
+      soulOwnedNotDevil: true
   afterLoadoutSpecial:
   - !type:ModifyEnvirosuitSpecial
     charges: 8

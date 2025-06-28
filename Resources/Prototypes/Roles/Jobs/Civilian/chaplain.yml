@@ -44,6 +44,7 @@
       powersToAdd:
       - HealingWordPower
       - SummonRemiliaPower
+    - type: Condemned
 
 - type: startingGear
   id: ChaplainGear
