@@ -35,7 +35,8 @@ public sealed class RoomFillSystem : EntitySystem
                     null,
                     xform.LocalRotation,
                     component.ClearExisting,
-                    component.Rotation);
+                    component.Rotation,
+                    uid);
                     // WD EDIT END
             }
             else

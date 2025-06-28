@@ -91,7 +91,8 @@ public sealed partial class DungeonSystem
         HashSet<Vector2i>? reservedTiles,
         Angle roomRotation = default, // WD EDIT
         bool clearExisting = false,
-        bool rotation = false)
+        bool rotation = false,
+        EntityUid? ignoreAnchore = null) // WD EDIT
     {
         var originTransform = Matrix3Helpers.CreateTranslation(origin.X, origin.Y);
 
@@ -103,7 +104,7 @@ public sealed partial class DungeonSystem
         var roomTransform = Matrix3Helpers.CreateTransform((Vector2) room.Size / 2f, roomRotation);
         var finalTransform = Matrix3x2.Multiply(roomTransform, originTransform);
 
-        SpawnRoom(gridUid, grid, finalTransform, room, reservedTiles, clearExisting);
+        SpawnRoom(gridUid, grid, finalTransform, room, reservedTiles, clearExisting, ignoreAnchore);
     }
 
     public Angle GetRoomRotation(DungeonRoomPrototype room, Random random)
@@ -129,7 +130,8 @@ public sealed partial class DungeonSystem
         Matrix3x2 roomTransform,
         DungeonRoomPrototype room,
         HashSet<Vector2i>? reservedTiles = null,
-        bool clearExisting = false)
+        bool clearExisting = false,
+        EntityUid? ignoreAnchore = null) // WD EDIT
     {
         // Ensure the underlying template exists.
         var roomMap = GetOrCreateTemplate(room);
@@ -232,7 +234,7 @@ public sealed partial class DungeonSystem
                 }
                 catch (Exception ex)
                 {
-                    Logger.Error($"Failed to copy component {comp.GetType()} from template entity {templateEnt} to {ent}: {ex}");
+                    Log.Error($"Failed to copy component {comp.GetType()} from template entity {templateEnt} to {ent}: {ex}");
                 }
             }
             // WD EDIT END
@@ -242,7 +244,7 @@ public sealed partial class DungeonSystem
             _transform.SetLocalRotation(ent, childRot, childXform);
 
             // If the templated entity was anchored then anchor us too.
-            if (anchored && !childXform.Anchored)
+            if (anchored && !childXform.Anchored && ignoreAnchore != templateEnt)
                 _transform.AnchorEntity((ent, childXform), (gridUid, grid));
             else if (!anchored && childXform.Anchored)
                 _transform.Unanchor(ent, childXform);
