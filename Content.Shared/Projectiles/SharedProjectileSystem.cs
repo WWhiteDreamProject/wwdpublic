@@ -178,7 +178,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     {
         // WD EDIT START
         if (!TryComp<PhysicsComponent>(uid, out var physics)
-            || TerminatingOrDeleted(target) // WWDP
+            || TerminatingOrDeleted(target)
             || physics.LinearVelocity.Length() < component.MinimumSpeed
             || _netManager.IsClient)
             return false;
