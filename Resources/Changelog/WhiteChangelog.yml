@@ -3566,3 +3566,14 @@ Entries:
   id: 378
   time: '2025-06-28T05:17:08.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/624
+- author: vanx
+  changes:
+    - type: Fix
+      message: Невербальные языки (например язык жестов) больше не озвучиваются ТТС.
+    - type: Fix
+      message: ТТС больше не слышен глухим персонажам.
+    - type: Fix
+      message: ТТС шёпота теперь слышен только с расстояния шёпота.
+  id: 379
+  time: '2025-06-28T05:20:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/625
