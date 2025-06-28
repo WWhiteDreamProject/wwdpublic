@@ -22,7 +22,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] protected readonly IRobustRandom Randomizer = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; // WD EDIT
 
     public override void Initialize()
     {

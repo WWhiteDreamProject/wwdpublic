@@ -35,7 +35,7 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly AccessReaderSystem _accessReader = default!;
         [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly SharedActionsSystem _action = default!;
-        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+        [Dependency] private readonly SharedAudioSystem _audioSystem = default!; //  WD EDIT
         [Dependency] private readonly PricingSystem _pricing = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
@@ -163,7 +163,6 @@ namespace Content.Server.VendingMachines
 
             component.JailBreak = true;
         }
-
         // WWDP EDIT END
 
         private void OnDamage(EntityUid uid, VendingMachineComponent component, DamageChangedEvent args)
