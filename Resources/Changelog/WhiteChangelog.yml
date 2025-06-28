@@ -3637,3 +3637,12 @@ Entries:
   id: 383
   time: '2025-06-28T08:31:08.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/629
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: Кириллица для мелков
+    - type: Tweak
+      message: Упрощён набор текста при рисовании мелками
+  id: 384
+  time: '2025-06-28T08:33:45.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/641
