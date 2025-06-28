@@ -40,6 +40,7 @@
     damageContainers:
     - Inorganic
     - Silicon
+    - SiliconUnshielded
 
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons]
@@ -319,3 +320,4 @@
     damageContainers:
     - Inorganic
     - Silicon
+    - SiliconUnshielded

@@ -58,6 +58,12 @@
   </Box>
 
   <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="N14MaterialCircuitry10" Caption="Схемотехника"/>
+    Схемотехника может использоваться для лечения [color=yellow]Ушибов[/color], [color=yellow]Ожогов[/color] и [color=yellow]Радиационного[/color] урона.
+  </Box>
+  <Box HorizontalAlignment="Stretch">
+    In the event an IPC dies, after being fully repaired, it should be restarted using the [color=yellow]"Restart"[/color] button (located by right-clicking).
+
     После полной починки мёртвого КПБ, его необходимо [color=yellow]перезапустить[/color], кликнув ПКМ и выбрав пункт "Restart".
 
     [color=red]НИКОГДА НЕ ЭЛЕКТРОШОКИРУЙТЕ мёртвого КПБ! Ни дефибриллятором, ни иным способом — батарея может выплеснуть мощный энергетический импульс![/color]
