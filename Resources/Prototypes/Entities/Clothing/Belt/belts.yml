@@ -291,8 +291,7 @@
   #       - PillCanister
   #       - Radio
   #       - DiscreteHealthAnalyzer
-  #       - SurgeryTool
-  #       - Dropper
+  #       - MedicalPatch # Goobstation
   #       - AutoinjectorCartridge #Goobstation - ParamedHypo
   #       - Tourniquet #Goobstation - ParamedHypo
   #     components:
