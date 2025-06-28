@@ -3598,3 +3598,10 @@ Entries:
   id: 380
   time: '2025-06-28T08:11:26.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/626
+- author: vanx
+  changes:
+    - type: Add
+      message: Стартовый набор законов ИИ станции теперь выбирается случайно.
+  id: 381
+  time: '2025-06-28T08:12:15.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/627
