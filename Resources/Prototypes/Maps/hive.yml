@@ -25,8 +25,8 @@
           Maid: [ 1, 1 ] # WD EDIT
           # BlueshieldOfficer: [ 1, 1] - WD EDIT
           # NanotrasenRepresentative: [ 1, 1 ] - WD EDIT
-          # Magistrate: [ 1, 1 ] - WD EDIT
-          # AdministrativeAssistant: [ 1, 1 ] - WD EDIT
+          # Magistrate: [ 1, 1 ] # EE: Disabled
+          # AdministrativeAssistant: [ 1, 1 ] # EE: Disabled
           #engineering
           AtmosphericTechnician: [ 1, 2 ]
           ChiefEngineer: [ 1, 1 ]
