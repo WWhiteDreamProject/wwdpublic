@@ -34,6 +34,7 @@ using Content.Shared.Speech;
 using Content.Shared.Standing;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -376,7 +377,7 @@ public sealed class PullingSystem : EntitySystem
             damage * component.GrabThrowDamageModifier); // Throwing the grabbed person
         _throwing.TryThrow(uid, -direction * throwerPhysics.InvMass); // Throws back the grabber
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), uid);
-        component.NextStageChange = _timing.CurTime.Add(TimeSpan.FromSeconds(4f)); // To avoid grab and throw spamming // WWDP fix
+        component.NextStageChange.Add(TimeSpan.FromSeconds(4f)); // To avoid grab and throw spamming
     }
 
     private void AddPullVerbs(EntityUid uid, PullableComponent component, GetVerbsEvent<Verb> args)
@@ -835,13 +836,20 @@ public sealed class PullingSystem : EntitySystem
         {
             if (_netManager.IsServer && user != null && user.Value == pullableUid)
             {
-                if (!AttemptGrabRelease(pullableUid)) // WWDP edit
+                var releaseAttempt = AttemptGrabRelease(pullableUid);
+                if (!releaseAttempt)
+                {
+                    _popup.PopupEntity(Loc.GetString("popup-grab-release-fail-self"),
+                        pullableUid,
+                        pullableUid,
+                        PopupType.SmallCaution);
                     return false;
+                }
 
                 _popup.PopupEntity(Loc.GetString("popup-grab-release-success-self"),
                     pullableUid,
                     pullableUid,
-                    PopupType.MediumCaution); // WWDP edit
+                    PopupType.SmallCaution);
                 _popup.PopupEntity(
                     Loc.GetString("popup-grab-release-success-puller",
                         ("target", Identity.Entity(pullableUid, EntityManager))),
@@ -865,26 +873,21 @@ public sealed class PullingSystem : EntitySystem
     /// <param name="ignoreCombatMode">If true, will ignore disabled combat mode</param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     /// <returns></returns>
-    public bool TryGrab(Entity<PullableComponent?> pullable, Entity<PullerComponent?> puller, bool ignoreCombatMode = false)
+    public bool TryGrab(Entity<PullableComponent?> pullable, Entity<PullerComponent?, MeleeWeaponComponent?> puller, bool ignoreCombatMode = false)
     {
-        if (!Resolve(pullable.Owner, ref pullable.Comp))
+        if (!Resolve(pullable.Owner, ref pullable.Comp)
+            || !Resolve(puller.Owner, ref puller.Comp1, ref puller.Comp2)
+            || TryComp(puller, out PullableComponent? pullerAsPullable) && pullerAsPullable.Puller != null)
             return false;
 
-        if (!Resolve(puller.Owner, ref puller.Comp))
+        // makes it so that you can't grab somebody if you can't attack. without this you can perform some combos near-instantly
+        if (puller.Comp2.NextAttack > _timing.CurTime)
+            puller.Comp1.NextStageChange = puller.Comp2.NextAttack;
+
+        if (HasComp<PacifiedComponent>(puller) || pullable.Comp.Puller != puller || puller.Comp1.Pulling != pullable)
             return false;
 
-        // prevent you from grabbing someone else while being grabbed
-        if (TryComp<PullableComponent>(puller, out var pullerAsPullable) && pullerAsPullable.Puller != null)
-            return false;
-
-        if (HasComp<PacifiedComponent>(puller))
-            return false;
-
-        if (pullable.Comp.Puller != puller ||
-            puller.Comp.Pulling != pullable)
-            return false;
-
-        if (puller.Comp.NextStageChange > _timing.CurTime)
+        if (puller.Comp1.NextStageChange > _timing.CurTime)
             return true;
 
         // You can't choke crates
@@ -892,8 +895,8 @@ public sealed class PullingSystem : EntitySystem
             return false;
 
         // Delay to avoid spamming
-        puller.Comp.NextStageChange = _timing.CurTime + puller.Comp.StageChangeCooldown;
-        Dirty(puller);
+        puller.Comp1.NextStageChange = _timing.CurTime + puller.Comp1.StageChangeCooldown;
+        Dirty(puller, puller.Comp1);
 
         // Don't grab without grab intent
         if (!ignoreCombatMode)
@@ -901,29 +904,32 @@ public sealed class PullingSystem : EntitySystem
                 return false;
 
         // It's blocking stage update, maybe better UX?
-        if (puller.Comp.GrabStage == GrabStage.Suffocate)
+        if (puller.Comp1.GrabStage == GrabStage.Suffocate)
         {
-            _stamina.TakeStaminaDamage(pullable, puller.Comp.SuffocateGrabStaminaDamage);
+            _stamina.TakeStaminaDamage(pullable, puller.Comp1.SuffocateGrabStaminaDamage);
 
             Dirty(pullable);
-            Dirty(puller);
+            Dirty(puller, puller.Comp1);
             return true;
         }
 
         // Update stage
         // TODO: Change grab stage direction
-        var nextStageAddition = puller.Comp.GrabStageDirection switch
+        var nextStageAddition = puller.Comp1.GrabStageDirection switch
         {
             GrabStageDirection.Increase => 1,
             GrabStageDirection.Decrease => -1,
             _ => throw new ArgumentOutOfRangeException(),
         };
 
-        if (puller.Comp.GrabStage <= GrabStage.Soft) // Set the cooldown unless it is currently hard or above.
+        // giving the cooldown before punching/pushing
+        puller.Comp2.NextAttack = _timing.CurTime + TimeSpan.FromSeconds(puller.Comp2.AttackRate);
+
+        if (puller.Comp1.GrabStage <= GrabStage.Soft) // Set the cooldown unless it is currently hard or above.
         {
-            puller.Comp.WhenCanThrow = _timing.CurTime + puller.Comp.ThrowDelayOnGrab;
+            puller.Comp1.WhenCanThrow = _timing.CurTime + puller.Comp1.ThrowDelayOnGrab;
         }
-        var newStage = puller.Comp.GrabStage + nextStageAddition;
+        var newStage = puller.Comp1.GrabStage + nextStageAddition;
 
         if (HasComp<MartialArtsKnowledgeComponent>(puller)
             && TryComp<RequireProjectileTargetComponent>(pullable, out var layingDown)
@@ -934,7 +940,7 @@ public sealed class PullingSystem : EntitySystem
             newStage = ev.Stage;
         }
 
-        if (!TrySetGrabStages((puller, puller.Comp), (pullable, pullable.Comp), newStage))
+        if (!TrySetGrabStages((puller, puller.Comp1), (pullable, pullable.Comp), newStage))
             return false;
 
         _color.RaiseEffect(Color.Yellow, new List<EntityUid> { pullable }, Filter.Pvs(pullable, entityManager: EntityManager));
@@ -1057,33 +1063,13 @@ public sealed class PullingSystem : EntitySystem
         if (!Resolve(pullable.Owner, ref pullable.Comp))
             return false;
 
-        // WWDP edit start
         if (_timing.CurTime < pullable.Comp.NextEscapeAttempt)  // No autoclickers! Mwa-ha-ha
-        {
-            if (!pullable.Comp.DisplayedCooldownPopup)
-            {
-                _popup.PopupEntity(
-                    Loc.GetString("popup-grab-release-fail-cooldown"),
-                    pullable.Owner,
-                    pullable.Owner,
-                    PopupType.Medium);
-                pullable.Comp.DisplayedCooldownPopup = true; // Only show the popup once per attempt
-            }
             return false;
-        }
-
-        pullable.Comp.DisplayedCooldownPopup = false;
-
-        _popup.PopupEntity(Loc.GetString("popup-grab-release-fail-self"),
-            pullable.Owner,
-            pullable.Owner,
-            PopupType.MediumCaution);
 
         if (_random.Prob(pullable.Comp.GrabEscapeChance))
             return true;
 
-        pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(pullable.Comp.EscapeAttemptCooldown));
-        // WWDP edit end
+        pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(3));
         Dirty(pullable.Owner, pullable.Comp);
         return false;
     }
