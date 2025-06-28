@@ -282,6 +282,7 @@
     - CartridgePuncturase # Goobstation
     - SecHypo # Goobstation
     - ParamedHypo # Goobstation - ParamedHypo
+    - CartridgePain # Morphine Tweaks
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -1038,6 +1039,7 @@
     - CartridgeAtropine # Goobstation
     - CartridgeSaline # Goobstation
     - SecHypo # Goobstation
+    - CartridgePain # Morphine Tweaks
     - BoxBeanbag
     - BoxShotgunBirdshot
     - BoxShotgun00Buckshot
@@ -1346,6 +1348,7 @@
     - CartridgeDermaline # Goobstation - ParamedHypo
     - CartridgeSaline # Goobstation - ParamedHypo
     - ParamedHypo # Goobstation - ParamedHypo
+    - CartridgePain # Morphine Tweaks
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

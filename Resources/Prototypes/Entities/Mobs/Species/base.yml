@@ -128,6 +128,7 @@
     - KnockedDown
     - SlowedDown
     - Stutter
+    - DisableAccent
     - SeeingRainbows
     - Electrocution
     - Drunk
@@ -246,6 +247,8 @@
     - AnomalyHost
   - type: Targeting
   - type: SurgeryTarget
+  - type: MovedByPressure
+    cutoffTime: 1.0
   - type: TTS # WD EDIT
   - type: ExaminableCharacter # WWDP
 
@@ -300,7 +303,7 @@
     sweatHeatRegulation: 2000
     shiveringHeatRegulation: 2000
     normalBodyTemperature: 310.15
-    thermalRegulationTemperatureThreshold: 0.4 # WWDP
+    thermalRegulationTemperatureThreshold: 0.4 # WD EDIT: 25 -> 0.4
   - type: Perishable
   - type: Butcherable
     butcheringType: Spike # TODO human.
@@ -323,8 +326,6 @@
   - type: MobState # WWDP
     allowMovementWhileCrit: true
     allowMovementWhileSoftCrit: true
-
-
 
 - type: entity
   save: false
