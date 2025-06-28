@@ -3522,3 +3522,12 @@ Entries:
   id: 375
   time: '2025-06-28T04:59:44.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/599
+- author: vanx
+  changes:
+    - type: Add
+      message: Больше ближнего оружия получило возможность казнить.
+    - type: Remove
+      message: Убрана возможность казнить огнестрелом.
+  id: 376
+  time: '2025-06-28T05:11:29.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/622
