@@ -3515,3 +3515,10 @@ Entries:
   id: 374
   time: '2025-06-19T17:47:12.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/612
+- author: islambrosgood
+  changes:
+    - type: Tweak
+      message: переводы
+  id: 375
+  time: '2025-06-28T04:59:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/599
