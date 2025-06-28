@@ -3531,3 +3531,18 @@ Entries:
   id: 376
   time: '2025-06-28T05:11:29.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/622
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Метательные (и просто летящие) предметы теперь не игнорируют лежачие
+        тела.
+    - type: Fix
+      message: Теперь можно стрелять по мёртвым телам при наведении курсора.
+    - type: Add
+      message: >-
+        Снаряды рентгеновской пушки (XRay) теперь проходят сквозь стены и
+        наносят 25 урона радиацией при попадании.
+  id: 377
+  time: '2025-06-28T05:14:11.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/623
