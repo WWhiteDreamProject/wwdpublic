@@ -1,0 +1,62 @@
+- type: entity
+  id: InnateMassScanner360
+  abstract: true
+  components:
+  - type: IntrinsicUI
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionAGhostShowRadar
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: RadarConsole
+    followEntity: true
+
+- type: entity
+  parent: InnateMassScanner360
+  id: InnateMassScanner30
+  abstract: true
+  components:
+  - type: RadarConsole
+    fieldOfVision: 30
+
+- type: entity
+  parent: InnateMassScanner360
+  id: InnateMassScanner60
+  abstract: true
+  components:
+  - type: RadarConsole
+    fieldOfVision: 60
+
+- type: entity
+  parent: InnateMassScanner360
+  id: InnateMassScanner90
+  abstract: true
+  components:
+  - type: RadarConsole
+    fieldOfVision: 90
+
+- type: entity
+  parent: InnateMassScanner360
+  id: InnateMassScanner120
+  abstract: true
+  components:
+  - type: RadarConsole
+    fieldOfVision: 120
+
+- type: entity
+  parent: InnateMassScanner360
+  id: InnateMassScanner150
+  abstract: true
+  components:
+  - type: RadarConsole
+    fieldOfVision: 150
+
+- type: entity
+  parent: InnateMassScanner360
+  id: InnateMassScanner180
+  abstract: true
+  components:
+  - type: RadarConsole
+    fieldOfVision: 180

@@ -35,7 +35,7 @@
     Slash: 10
     Piercing: 10
     Heat: 10
-    # Structural: 10 # WWDP its for structures bruh
+    Structural: 5
 
 - type: damageModifierSet
   id: Rock
@@ -51,17 +51,17 @@
 - type: damageModifierSet
   id: RockStrong
   coefficients:
-    Structural: 1 # WWDP
+    Structural: 2 # WWDP
     Blunt: 0.25
     Slash: 0.1
     Piercing: 0.25
     Heat: 0.5
   flatReductions:
-    Blunt: 10
-    Slash: 10
-    Piercing: 10
-    Heat: 10
-    # Structural: 10 # WWDP
+    Blunt: 15
+    Slash: 15
+    Piercing: 15
+    Heat: 15
+    # Structural: 5 # WWDP # no
 
 - type: damageModifierSet
   id: PerforatedMetallic

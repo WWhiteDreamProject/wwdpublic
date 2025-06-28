@@ -25,4 +25,4 @@
   - type: RemoteControlConsole
   - type: DeviceLinkSource
     ports:
-    - RemoteControlInputPort
+    - RemoteControlSourcePort
