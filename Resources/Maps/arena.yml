@@ -8,7 +8,7 @@ tilemap:
   10: FloorAstroGrass
   5: FloorAstroIce
   14: FloorBar
-  17: FloorBlue
+  17: FloorSteelBlue
   18: FloorBlueCircuit
   23: FloorCarpetClown
   24: FloorCarpetOffice
@@ -41,7 +41,7 @@ tilemap:
   8: FloorMS13MetalIndustrial
   9: FloorMS13MetalSolid
   11: FloorMS13MetalTile
-  67: FloorMetalDiamond
+  67: FloorMetalDiamondSteel
   1: FloorMetalGreen
   68: FloorMime
   70: FloorMiningDark
@@ -62,8 +62,8 @@ tilemap:
   105: FloorSteelMono
   107: FloorSteelPavement
   108: FloorSteelPavementVertical
-  109: FloorTechMaint
-  110: FloorTechMaint2
+  109: FloorTechMaintSteel
+  110: FloorMaintWhite
   111: FloorTechMaint3
   113: FloorWhite
   114: FloorWhiteDiagonal

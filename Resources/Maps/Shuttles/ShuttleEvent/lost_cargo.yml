@@ -6,7 +6,7 @@ tilemap:
   54: FloorGreenCircuit
   85: FloorShuttleWhite
   89: FloorSteel
-  104: FloorTechMaint
+  104: FloorTechMaintSteel
   121: Plating
 entities:
 - proto: ""

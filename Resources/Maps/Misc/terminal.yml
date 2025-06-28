@@ -22,8 +22,8 @@ tilemap:
   87: FloorSteelDiagonal
   91: FloorSteelMini
   92: FloorSteelMono
-  96: FloorTechMaint
-  97: FloorTechMaint2
+  96: FloorTechMaintSteel
+  97: FloorMaintWhite
   98: FloorTechMaint3
   110: FloorWood
   112: Lattice

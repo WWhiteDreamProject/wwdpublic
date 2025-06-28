@@ -5,8 +5,8 @@ tilemap:
   0: Space
   29: FloorDark
   84: FloorShuttleRed
-  104: FloorTechMaint
-  105: FloorTechMaint2
+  104: FloorTechMaintSteel
+  105: FloorMaintWhite
   118: FloorWood
   120: Lattice
   121: Plating

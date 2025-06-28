@@ -9,11 +9,11 @@ tilemap:
   35: FloorDarkMono
   46: FloorGlass
   55: FloorGreenCircuit
-  65: FloorMetalDiamond
+  65: FloorMetalDiamondSteel
   77: FloorRGlass
   78: FloorReinforced
   80: FloorRockVault
-  105: FloorTechMaint
+  105: FloorTechMaintSteel
   109: FloorWhite
   121: Lattice
   122: Plating

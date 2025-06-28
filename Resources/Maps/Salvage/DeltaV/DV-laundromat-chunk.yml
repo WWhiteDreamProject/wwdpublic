@@ -12,13 +12,13 @@ tilemap:
   61: FloorKitchen
   62: FloorLaundry
   63: FloorLino
-  65: FloorMetalDiamond
+  65: FloorMetalDiamondSteel
   73: FloorOldConcreteSmooth
   78: FloorReinforced
   81: FloorShowroom
   97: FloorSteelDirty
   101: FloorSteelMono
-  106: FloorTechMaint2
+  106: FloorMaintWhite
   107: FloorTechMaint3
   109: FloorWhite
   122: Plating

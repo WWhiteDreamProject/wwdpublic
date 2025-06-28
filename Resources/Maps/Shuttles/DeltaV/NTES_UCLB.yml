@@ -14,10 +14,10 @@ tilemap:
   55: FloorGreenCircuit
   56: FloorGym
   61: FloorKitchen
-  65: FloorMetalDiamond
+  65: FloorMetalDiamondSteel
   77: FloorRGlass
   78: FloorReinforced
-  105: FloorTechMaint
+  105: FloorTechMaintSteel
   110: FloorWhiteDiagonal
   118: FloorWhitePlastic
   119: FloorWood
