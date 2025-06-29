@@ -37,14 +37,13 @@ namespace Content.Server._White.Abilities.Psionics
             if (component.CloneUid != null)
                 return;
 
-            var Humanoid = MetaData(uid).EntityPrototype?.ID;
+            var humanoid = MetaData(uid).EntityPrototype?.ID;
             var clone = Spawn(Humanoid, Transform(uid).Coordinates);
             Transform(clone).AttachToGridOrMap();
             component.CloneUid = clone;
 
-            if (TryComp<MetaDataComponent>(uid, out var name)) {
+            if (TryComp<MetaDataComponent>(uid, out var name))
                 _metaData.SetEntityName(clone, name.EntityName);
-            }
 
             var cloneComp = AddComp<PsionicCloneComponent>(clone);
             cloneComp.OriginalUid = uid;

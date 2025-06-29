@@ -64,14 +64,14 @@ public sealed partial class RemovePsionicActions : PsionicPowerFunction
     {
         var actions = entityManager.System<SharedActionsSystem>();
         if (psionicComponent.Actions is null
-            || !psionicComponent.Actions.ContainsKey(proto.ID))
+            || !psionicComponent.Actions.Keys.Any(k => k.StartsWith($"{proto.ID}-")))
             return;
 
         var copy = serializationManager.CreateCopy(psionicComponent.Actions, notNullableOverride: true);
 
-        foreach (var (id, actionUid) in copy)
+        foreach (var (key, actionUid) in copy)
         {
-            if (id != proto.ID)
+            if (!key.StartsWith($"{proto.ID}-"))
                 continue;
 
             actions.RemoveAction(uid, actionUid);
