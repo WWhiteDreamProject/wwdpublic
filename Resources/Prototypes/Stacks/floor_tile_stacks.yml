@@ -94,11 +94,11 @@
   spawn: FloorTileItemHydro
   maxCount: 30
 
-- type: stack
-  id: FloorTileLime
-  name: lime tile
-  spawn: FloorTileItemLime
-  maxCount: 30
+#- type: stack
+#  id: FloorTileLime
+#  name: lime tile
+#  spawn: FloorTileItemLime
+#  maxCount: 30
 
 - type: stack
   id: FloorTileDirty
