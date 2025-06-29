@@ -31,6 +31,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Robust.Shared.Configuration;
 using Content.Shared.Implants.Components;
+using Content.Shared.Weapons.Ranged.Systems;
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -75,6 +76,7 @@ public abstract class SharedMechSystem : EntitySystem
         SubscribeLocalEvent<MechPilotComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<MechPilotComponent, EntGotRemovedFromContainerMessage>(OnEntGotRemovedFromContainer);
         SubscribeLocalEvent<MechEquipmentComponent, ShotAttemptedEvent>(OnShotAttempted); // Goobstation
+        SubscribeLocalEvent<MechEquipmentComponent, GunShotEvent>(OnGunShot); // WWDP EDIT
         Subs.CVar(_config, GoobCVars.MechGunOutsideMech, value => _canUseMechGunOutside = value, true); // Goobstation
     }
 
@@ -508,6 +510,14 @@ public abstract class SharedMechSystem : EntitySystem
         var ev = new HandleMechEquipmentBatteryEvent();
         RaiseLocalEvent(uid, ev);
     }
+
+    // WWDP EDIT START
+    private void OnGunShot(EntityUid uid, MechEquipmentComponent component, ref GunShotEvent args)
+    {
+        var ev = new HandleMechEquipmentBatteryEvent();
+        RaiseLocalEvent(uid, ev);
+    }
+    // WWDP EDIT END
 
     private void UpdateAppearance(EntityUid uid, MechComponent? component = null,
         AppearanceComponent? appearance = null)

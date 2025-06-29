@@ -26,8 +26,8 @@ tilemap:
   99: FloorSteelMini
   100: FloorSteelMono
   103: FloorSteelPavementVertical
-  104: FloorTechMaint
-  105: FloorTechMaint2
+  104: FloorTechMaintSteel
+  105: FloorMaintWhite
   106: FloorTechMaint3
   108: FloorWhite
   113: FloorWhiteMono

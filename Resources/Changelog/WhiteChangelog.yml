@@ -3515,3 +3515,134 @@ Entries:
   id: 374
   time: '2025-06-19T17:47:12.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/612
+- author: islambrosgood
+  changes:
+    - type: Tweak
+      message: переводы
+  id: 375
+  time: '2025-06-28T04:59:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/599
+- author: vanx
+  changes:
+    - type: Add
+      message: Больше ближнего оружия получило возможность казнить.
+    - type: Remove
+      message: Убрана возможность казнить огнестрелом.
+  id: 376
+  time: '2025-06-28T05:11:29.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/622
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Метательные (и просто летящие) предметы теперь не игнорируют лежачие
+        тела.
+    - type: Fix
+      message: Теперь можно стрелять по мёртвым телам при наведении курсора.
+    - type: Add
+      message: >-
+        Снаряды рентгеновской пушки (XRay) теперь проходят сквозь стены и
+        наносят 25 урона радиацией при попадании.
+  id: 377
+  time: '2025-06-28T05:14:11.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/623
+- author: vanx
+  changes:
+    - type: Add
+      message: Двумя маленькими энергоарбалетами теперь можно стрелять с двух рук.
+    - type: Fix
+      message: >-
+        Возвращено количество патронов в коробке для Христова в аплинке: (10 ->
+        30). В наборе с Христовым всё так же 10.
+    - type: Tweak
+      message: Нимфы дион теперь могут пролезать под шлюзами.
+    - type: Fix
+      message: >-
+        Развёртываемые барьеры СБ теперь всегда блокируют движение,
+        раскладывается за 0.5 секунд, складывается за 1.5 секунд. Через них
+        можно перелезть лёжа или взяв рукой когда они сложены.
+    - type: Fix
+      message: Барьерные гранаты теперь спавнят рабочий разложенный барьер.
+  id: 378
+  time: '2025-06-28T05:17:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/624
+- author: vanx
+  changes:
+    - type: Fix
+      message: Невербальные языки (например язык жестов) больше не озвучиваются ТТС.
+    - type: Fix
+      message: ТТС больше не слышен глухим персонажам.
+    - type: Fix
+      message: ТТС шёпота теперь слышен только с расстояния шёпота.
+  id: 379
+  time: '2025-06-28T05:20:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/625
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Базовая скорость всех хирургических операций увеличена в 2 раза (x10 ->
+        x5).
+    - type: Tweak
+      message: >-
+        Скорость операций хирургов (перк): х5, врачей, медборга и хирургической
+        подготовки: х3, интернов: х2.
+    - type: Add
+      message: >-
+        Медик ядерных оперативников получил ускорение операций х5 (как у
+        хирургов и абдукторов).
+    - type: Add
+      message: >-
+        Кровати теперь замедляют, операционный стол имеет коллизию. Теперь их
+        можно сломать выстрелами, если навести курсор.
+  id: 380
+  time: '2025-06-28T08:11:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/626
+- author: vanx
+  changes:
+    - type: Add
+      message: Стартовый набор законов ИИ станции теперь выбирается случайно.
+  id: 381
+  time: '2025-06-28T08:12:15.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/627
+- author: Gersoon
+  changes:
+    - type: Add
+      message: >-
+        Добавлены новые тайлы шаттлов, новые настоящие монотайлы (Декали в
+        комплекте), по 3 вида некоторых других тайлов (Возможно потом будут
+        сделаны способы добычи этих плиток)
+    - type: Tweak
+      message: >-
+        Первая часть великого респрайта. Изменена большая часть тайлов и декалей
+        станции (Пока без дерева). Основано на тайлах Пурки. Заходите и
+        смотрите!!!
+    - type: Tweak
+      message: Стандартный свет теперь холодный
+    - type: Fix
+      message: Чуток микро и чуток макро фиксы карт
+    - type: Remove
+      message: Удалены некоторые тайлы затычки(((
+  id: 382
+  time: '2025-06-28T08:30:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/644
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: >-
+        Немножко корабельного вооружения. На данный момент только в режиме
+        теста, так что - щитспавн-онли. Просите педалей выдать вам смешного.
+    - type: Fix
+      message: Мехи теперь не стреляют дважды.
+  id: 383
+  time: '2025-06-28T08:31:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/629
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: Кириллица для мелков
+    - type: Tweak
+      message: Упрощён набор текста при рисовании мелками
+  id: 384
+  time: '2025-06-28T08:33:45.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/641

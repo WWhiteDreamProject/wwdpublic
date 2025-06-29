@@ -1,5 +1,0 @@
-- type: sourcePort
-  id: RemoteControlInputPort
-  name: signal-port-name-remote-control-input
-  description: signal-port-description-remote-control-input
-  defaultLinks: [ RemoteControlOutputPort ]

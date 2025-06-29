@@ -15,7 +15,7 @@ tilemap:
   11: FloorShuttleBlue
   5: FloorSteel
   6: FloorSteelDirty
-  7: FloorTechMaint2
+  7: FloorMaintWhite
   131: Plating
 entities:
 - proto: ""

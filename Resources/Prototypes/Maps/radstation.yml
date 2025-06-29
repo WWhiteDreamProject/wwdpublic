@@ -46,14 +46,14 @@
           MedicalIntern: [ 2, 2 ]
           #science
           ResearchDirector: [ 1, 1 ]
-          Roboticist: [ 1, 2 ]
+          # Roboticist: [ 1, 2 ] # WWDP
           Scientist: [ 5, 5 ]
           ForensicMantis: [ 1, 1 ]
           ResearchAssistant: [ 2, 2 ]
           Chaplain: [ 1, 1 ]
           #security
           HeadOfSecurity: [ 1, 1 ]
-          Brigmedic: [ 1, 1 ]
+          # Brigmedic: [ 1, 1 ] # WWDP
           Warden: [ 1, 1 ]
           SecurityOfficer: [ 5, 5 ]
           Prisoner: [ 2, 3 ]

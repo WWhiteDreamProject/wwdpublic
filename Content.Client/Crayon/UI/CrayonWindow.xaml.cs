@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using Content.Client.Resources;
 using Content.Client.Stylesheets;
 using Content.Shared.Crayon;
 using Content.Shared.Decals;
@@ -12,11 +9,9 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.RichText;
 using Robust.Client.UserInterface.XAML;
-using Robust.Client.Utility;
-using Robust.Shared.Graphics;
-using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using System.Linq;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 
 namespace Content.Client.Crayon.UI
@@ -32,9 +27,28 @@ namespace Content.Client.Crayon.UI
         private Dictionary<string, List<(string Name, Texture Texture)>>? _decals;
         private List<string>? _allDecals;
         private string? _autoSelected;
+        private bool _firstLetterUsed;
         private string? _selected;
         private Color _color;
-
+        private bool _textInput;
+        private readonly Dictionary<char, string> _textInputShorthands = new() // todo make this a field in decal prototype
+        {
+            { '-', "minus"},
+            { '+', "plus"},
+            { '!', "emark"},
+            { '?', "qmark"},
+            { '=', "equals"},
+            { '/', "slash"},
+            { '$', "credit"},
+            { '^', "chevron"},
+            { '&', "ampersand"},
+            { '#', "pound"},
+            { '%', "percent"},
+            { '|', "thinline"},
+            { '.', "dot"},
+            { ',', "comma"},
+            { '*', "star"}
+        };
         public event Action<Color>? OnColorSelected;
         public event Action<string>? OnSelected;
 
@@ -45,6 +59,7 @@ namespace Content.Client.Crayon.UI
             _spriteSystem = _entitySystem.GetEntitySystem<SpriteSystem>();
 
             Search.OnTextChanged += SearchChanged;
+            TextInputCheckBox.OnToggled += TextInputChanged;
             ColorSelector.OnColorChanged += SelectColor;
             ClearButton.OnPressed += (_) => Search.SetText(String.Empty, true);
         }
@@ -57,37 +72,39 @@ namespace Content.Client.Crayon.UI
             RefreshList();
         }
 
+
         private void RefreshList()
         {
             // Clear
             Grids.DisposeAllChildren();
+            _firstLetterUsed = false;
 
             if (_decals == null || _allDecals == null)
                 return;
 
-            var filter = Search.Text;
             // WWDP EDIT START
-            var firstcomma = filter.IndexOf(',');
+            var filter = Search.Text.Trim();
+            var firstcomma = filter.IndexOf(' ');
             var first = (firstcomma == -1 ? filter : filter[..firstcomma]).Trim();
-            var comma = filter.LastIndexOf(',')+1;
+            if (_textInput && first.Length > 0)
+                first = first[0].ToString();
+            var comma = filter.LastIndexOf(' ') + 1;
             filter = filter.Substring(comma).Trim();
             // WWDP EDIT END
 
             var names = _decals.Keys.ToList();
             names.Sort((a, b) => a == "random" ? 1 : b == "random" ? -1 : a.CompareTo(b));
-
-            if (_autoSelected != null && first != _autoSelected && _allDecals.Contains(first))
-            {
-                _selected = first;
-                _autoSelected = _selected;
-                OnSelected?.Invoke(_selected);
-            }
-
+            // WWDP EDIT START
+            if (!TrySelectDecal(first) && first.Length > 0 && _textInputShorthands.TryGetValue(first[0], out var shorthand))
+                DebugTools.Assert(TrySelectDecal(shorthand, true), "Invalid decal shorthand");
+            // WWDP EDIT END
             var hsl = Color.ToHsl(_color);
             hsl.Z = MathF.Max(hsl.Z, 0.5f);
             Color labelcolor;
             labelcolor = Color.FromHsl(hsl);
 
+            if (_textInput)
+                filter = string.Empty; // disable search for text entry
             foreach (var categoryName in names)
             {
                 var locName = Loc.GetString("crayon-category-" + categoryName);
@@ -174,6 +191,31 @@ namespace Content.Client.Crayon.UI
             }
         }
 
+        private bool TrySelectDecal(string decalId, bool firstLetterFallback = false)
+        {
+            if (_autoSelected != null && _allDecals!.Contains(decalId))
+            {
+                _firstLetterUsed = firstLetterFallback;
+                if (decalId == _autoSelected)
+                    return true;
+
+                _selected = decalId;
+                _autoSelected = _selected;
+                OnSelected?.Invoke(_selected);
+                return true;
+            }
+            if (decalId.Length > 1)
+                return TrySelectDecal(decalId[0].ToString(), true);
+            return false;
+        }
+
+        private void TextInputChanged(ButtonEventArgs obj)
+        {
+            _autoSelected = "";
+            _textInput = TextInputCheckBox.Pressed;
+            RefreshList();
+        }
+
         private void SearchChanged(LineEdit.LineEditEventArgs obj)
         {
             _autoSelected = ""; // Placeholder to kick off the auto-select in refreshlist()
@@ -207,14 +249,21 @@ namespace Content.Client.Crayon.UI
         public void AdvanceState(string drawnDecal)
         {
             var filter = Search.Text;
-            if (!filter.Contains(',') || !filter.Contains(drawnDecal))
+            if (_textInput || _firstLetterUsed)
+            {
+                Search.Text = filter.Substring(1).Trim();
+                RefreshList();
+                return;
+            }
+
+            if (!filter.Contains(' ') || !filter.Contains(drawnDecal))
                 return;
 
-            var first = filter[..filter.IndexOf(',')].Trim();
+            var first = filter[..filter.IndexOf(' ')].Trim();
 
             if (first.Equals(drawnDecal, StringComparison.InvariantCultureIgnoreCase))
             {
-                Search.Text = filter[(filter.IndexOf(',') + 1)..].Trim();
+                Search.Text = filter[(filter.IndexOf(' ') + 1)..].Trim();
                 _autoSelected = first;
             }
 

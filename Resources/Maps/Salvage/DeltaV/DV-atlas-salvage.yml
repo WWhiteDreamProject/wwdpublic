@@ -5,7 +5,7 @@ tilemap:
   0: Space
   78: FloorReinforced
   90: FloorSteel
-  105: FloorTechMaint
+  105: FloorTechMaintSteel
   121: Lattice
   122: Plating
 entities:

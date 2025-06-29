@@ -9,7 +9,7 @@ tilemap:
   48: FloorDarkMini
   49: FloorDarkMono
   59: FloorElevatorShaft
-  138: FloorMetalDiamond
+  138: FloorMetalDiamondSteel
   173: FloorPlastic
   178: FloorRGlass
   179: FloorRedCircuit
@@ -19,8 +19,8 @@ tilemap:
   1: FloorShuttleOrange
   200: FloorSteel
   213: FloorSteelMono
-  222: FloorTechMaint
-  223: FloorTechMaint2
+  222: FloorTechMaintSteel
+  223: FloorMaintWhite
   232: FloorWhiteMono
   236: FloorWhitePlastic
   264: Lattice

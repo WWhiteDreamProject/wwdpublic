@@ -157,15 +157,8 @@ public sealed partial class GunSystem : SharedGunSystem
             if (a.Sprite is not SpriteSpecifier.Rsi rsi)
                 continue;
 
-            var coords = GetCoordinates(a.coordinates);
-
-            if (Deleted(coords.EntityId))
-                continue;
-
-            var ent = Spawn(HitscanProto, coords);
+            var ent = Spawn(HitscanProto, a.coordinates, rotation: a.angle); // WWDP EDIT
             var sprite = Comp<SpriteComponent>(ent);
-            var xform = Transform(ent);
-            xform.LocalRotation = a.angle;
             sprite[EffectLayers.Unshaded].AutoAnimated = false;
             sprite.LayerSetSprite(EffectLayers.Unshaded, rsi);
             sprite.LayerSetState(EffectLayers.Unshaded, rsi.RsiState);

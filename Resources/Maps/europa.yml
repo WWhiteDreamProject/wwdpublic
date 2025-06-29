@@ -30,8 +30,8 @@ tilemap:
   98: FloorSteelDirty
   99: FloorSteelHerringbone
   102: FloorSteelMono
-  106: FloorTechMaint
-  107: FloorTechMaint2
+  106: FloorTechMaintSteel
+  107: FloorMaintWhite
   108: FloorTechMaint3
   110: FloorWhite
   115: FloorWhiteMono

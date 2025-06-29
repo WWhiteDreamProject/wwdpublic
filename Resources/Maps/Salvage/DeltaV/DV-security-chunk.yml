@@ -8,7 +8,7 @@ tilemap:
   39: FloorDarkPlastic
   90: FloorSteel
   103: FloorSteelPavement
-  105: FloorTechMaint
+  105: FloorTechMaintSteel
   121: Lattice
   122: Plating
 entities:

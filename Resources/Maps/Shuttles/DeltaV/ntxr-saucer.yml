@@ -6,15 +6,15 @@ tilemap:
   34: FloorDarkDiagonal
   35: FloorDarkDiagonalMini
   38: FloorDarkMono
-  69: FloorMetalDiamond
+  69: FloorMetalDiamondSteel
   1: FloorMining
   3: FloorMiningDark
   2: FloorMiningLight
-  74: FloorMono
+  74: FloorTrueMonoTileSteel
   83: FloorReinforced
   97: FloorSteel
   102: FloorSteelDiagonal
-  113: FloorTechMaint2
+  113: FloorMaintWhite
   129: Lattice
   130: Plating
 entities:
