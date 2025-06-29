@@ -130396,7 +130396,7 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: BaseLeftLegBorg
+- proto: BaseBorgLegLeft
   entities:
   - uid: 1169
     components:
