@@ -68,7 +68,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.04
   - type: TemperatureProtection
-    coefficient: 0.005
+    coefficient: 0.1 # WWDP
   - type: FireProtection
     reduction: 0.65 # doesnt have a full seal so not as good
   - type: Armor
@@ -104,9 +104,9 @@
       highPressureMultiplier: 0.02
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coefficient: 0.001
+      coefficient: 0.1 # WWDP
     - type: FireProtection
-      reduction: 0.8 # atmos firesuit offers best protection, hardsuits are a little vulnerable
+      reduction: 0.85 # WWDP
     - type: Armor
       modifiers:
         coefficients:
@@ -173,7 +173,7 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.01
+    coefficient: 0.1 # WWDP
   - type: Armor
     modifiers:
       coefficients:
@@ -219,7 +219,7 @@
   - type: Unremoveable
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterSuitChicken
   name: chicken suit
   description: Bok bok bok!
@@ -236,7 +236,7 @@
       - FullBodyOuter
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterSuitShrineMaiden
   name: shrine maiden outfit
   description: Makes you want to go deal with some troublesome youkai.
@@ -248,7 +248,7 @@
     clothingType: suit # WD EDIT
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterSuitMonkey
   name: monkey suit
   description: A suit that looks like a primate.
@@ -319,12 +319,12 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.01
+    coefficient: 0.1 # WWDP
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCarp
 
 - type: entity # From Upstream
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase # WWDP
   id: ClothingOuterSuitWitchRobes
   name: witch robes
   description: Magic is all about the spell power, ZE!

@@ -4,9 +4,9 @@
   description: job-description-engineer
   playTimeTracker: JobStationEngineer
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Engineering
-      min: 14400 #4 hrs
+    # - !type:CharacterDepartmentTimeRequirement # WWDP
+    #   department: Engineering
+    #   min: 14400 #4 hrs
     - !type:CharacterEmployerRequirement
       employers:
       - HephaestusIndustries
@@ -34,8 +34,8 @@
     back: ClothingBackpackEngineeringFilled
     shoes: ClothingShoesBootsWork
     id: EngineerPDA
-    eyes: ClothingEyesGlassesMeson
-    belt: ClothingBeltUtilityEngineering
+    # eyes: ClothingEyesGlassesMeson # WWDP
+    # belt: ClothingBeltUtilityEngineering # WWDP
     ears: ClothingHeadsetEngineering
   innerClothingSkirt: ClothingUniformJumpskirtEngineering
   satchel: ClothingBackpackSatchelEngineeringFilled

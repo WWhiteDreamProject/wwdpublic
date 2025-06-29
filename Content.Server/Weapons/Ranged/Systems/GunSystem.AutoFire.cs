@@ -15,6 +15,21 @@ public sealed partial class GunSystem
          */
 
         // Automatic firing without stopping if the AutoShootGunComponent component is exist and enabled
+
+        // WWDP EDIT START
+        var autoShootGunQuery = EntityQueryEnumerator<AutoShootGunComponent>();
+        while (autoShootGunQuery.MoveNext(out var uid, out var autoShoot))
+        {
+            if (!autoShoot.Enabled
+                || !TryGetGun(uid, out var gunUid, out var gun)
+                || gun.NextFire > Timing.CurTime)
+                continue;
+
+            // uid will either be same as gunUid, or it will be something that is holding (and shooting) the gun.
+            AttemptShoot(uid, gunUid, gun);
+        }
+        // WWDP EDIT END
+
         var query = EntityQueryEnumerator<GunComponent>();
 
         while (query.MoveNext(out var uid, out var gun))
@@ -22,14 +37,12 @@ public sealed partial class GunSystem
             if (gun.NextFire > Timing.CurTime)
                 continue;
 
-            if (TryComp(uid, out AutoShootGunComponent? autoShoot))
-            {
-                if (!autoShoot.Enabled)
-                    continue;
+            // WWDP EDIT START
+            if (TryComp(uid, out AutoShootGunComponent? autoShoot) && autoShoot.Enabled)
+                continue;
+            // WWDP EDIT END
 
-                AttemptShoot(uid, gun);
-            }
-            else if (gun.BurstActivated)
+            if (gun.BurstActivated)
             {
                 var parent = _transform.GetParentUid(uid);
                 if (HasComp<DamageableComponent>(parent))

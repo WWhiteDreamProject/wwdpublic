@@ -55,59 +55,62 @@
   - ClothingBackpackDuffelSecurity
 
 # Belt
-- type: loadout
-  id: LoadoutSecurityBeltWebbing
-  category: JobsSecurityAUncategorized
-  cost: 0
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityBelt
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-  - !type:CharacterJobRequirement # WWDP
-    inverted: true
-    jobs:
-    - Prisoner
-  items:
-  - ClothingBeltSecurityWebbingFilled
 
-- type: loadout
-  id: LoadoutClothingBeltSecurity
-  category: JobsSecurityAUncategorized
-  cost: 0
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityBelt
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-  - !type:CharacterJobRequirement # WWDP
-    inverted: true
-    jobs:
-    - Prisoner
-  items:
-  - ClothingBeltSecurityFilled
-
-- type: loadout
-  id: LoadoutClothingBeltHolster
-  category: JobsSecurityAUncategorized
-  cost: 0
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityBelt
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-  - !type:CharacterJobRequirement # WWDP
-    inverted: true
-    jobs:
-    - Prisoner
-  items:
-  - ClothingBeltHolster
+# WWDP edit start - disabled
+# - type: loadout
+#   id: LoadoutSecurityBeltWebbing
+#   category: JobsSecurityAUncategorized
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityBelt
+#   - !type:CharacterDepartmentRequirement
+#     departments:
+#     - Security
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   items:
+#   - ClothingBeltSecurityWebbingFilled
+#
+# - type: loadout
+#   id: LoadoutClothingBeltSecurity
+#   category: JobsSecurityAUncategorized
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityBelt
+#   - !type:CharacterDepartmentRequirement
+#     departments:
+#     - Security
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   items:
+#   - ClothingBeltSecurityFilled
+#
+# - type: loadout
+#   id: LoadoutClothingBeltHolster
+#   category: JobsSecurityAUncategorized
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityBelt
+#   - !type:CharacterDepartmentRequirement
+#     departments:
+#     - Security
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   items:
+#   - ClothingBeltHolster
+# WWDP edit end
 
 # Ears
 
@@ -263,23 +266,25 @@
 
 # Gloves
 
-- type: loadout
-  id: LoadoutSecurityCombatGloves
-  category: JobsSecurityAUncategorized
-  cost: 0
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityGloves
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-  - !type:CharacterJobRequirement # WWDP
-    inverted: true
-    jobs:
-    - Prisoner
-  items:
-  - ClothingHandsGlovesCombat
+# WWDP edit start - disabled
+# - type: loadout
+#   id: LoadoutSecurityCombatGloves
+#   category: JobsSecurityAUncategorized
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityGloves
+#   - !type:CharacterDepartmentRequirement
+#     departments:
+#     - Security
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   items:
+#   - ClothingHandsGlovesCombat
+# WWDP edit end
 
 # Head
 - type: loadout
@@ -300,40 +305,42 @@
   items:
   - ClothingHeadHatBeretSecurity
 
-- type: loadout
-  id: LoadoutClothingHeadHelmetBasic
-  category: JobsSecurityAUncategorized
-  cost: 0
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityHead
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-  - !type:CharacterJobRequirement # WWDP
-    inverted: true
-    jobs:
-    - Prisoner
-  items:
-  - ClothingHeadHelmetBasic
-
-- type: loadout
-  id: LoadoutSecurityHeadHelmetInsulated
-  category: JobsSecurityAUncategorized
-  cost: 1
-  guideEntry: PsionicInsulation
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityHead
-  # WD EDIT START
-  - !type:CharacterJobRequirement
-    jobs:
-    - Warden
-    - HeadOfSecurity
-    # WD EDIT END
-  items:
-  - ClothingHeadHelmetInsulated
+# WWDP edit start - disabled
+# - type: loadout
+#   id: LoadoutClothingHeadHelmetBasic
+#   category: JobsSecurityAUncategorized
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityHead
+#   - !type:CharacterDepartmentRequirement
+#     departments:
+#     - Security
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   items:
+#   - ClothingHeadHelmetBasic
+#
+# - type: loadout
+#   id: LoadoutSecurityHeadHelmetInsulated
+#   category: JobsSecurityAUncategorized
+#   cost: 1
+#   guideEntry: PsionicInsulation
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityHead
+#   # WD EDIT START
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - Warden
+#     - HeadOfSecurity
+#     # WD EDIT END
+#   items:
+#   - ClothingHeadHelmetInsulated
+# WWDP edit end
 
 # WD EDIT START
 # - type: loadout
@@ -435,39 +442,41 @@
 # Neck
 
 # Mask
-- type: loadout
-  id: LoadoutSecurityMaskGasSwat
-  category: JobsSecurityAUncategorized
-  cost: 0
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityMask
-  - !type:CharacterJobRequirement
-    jobs:
-    - Warden
-    - HeadOfSecurity
-  items:
-  - ClothingMaskGasSwat
-
-
-- type: loadout
-  id: LoadoutSecurityMaskGasSwatPaid
-  category: JobsSecurityAUncategorized
-  cost: 4
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityMask
-  - !type:CharacterJobRequirement
-    jobs:
-    - SecurityOfficer
-    - Detective
-    - Brigmedic
-    - PrisonGuard
-    - SecurityCadet
-  items:
-  - ClothingMaskGasSwat
+# WWDP edit start - disabled
+# - type: loadout
+#   id: LoadoutSecurityMaskGasSwat
+#   category: JobsSecurityAUncategorized
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityMask
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - Warden
+#     - HeadOfSecurity
+#   items:
+#   - ClothingMaskGasSwat
+#
+#
+# - type: loadout
+#   id: LoadoutSecurityMaskGasSwatPaid
+#   category: JobsSecurityAUncategorized
+#   cost: 4
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityMask
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - SecurityOfficer
+#     - Detective
+#     - Brigmedic
+#     - PrisonGuard
+#     - SecurityCadet
+#   items:
+#   - ClothingMaskGasSwat
+# WWDP edit end
 
 # Outer
 - type: loadout
@@ -487,80 +496,79 @@
   items:
   - ClothingOuterWinterSec
 
+# WWDP edit start - disabled
+# - type: loadout
+#   id: LoadoutClothingOuterArmorPlateCarrier
+#   category: JobsSecurityAUncategorized
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityOuter
+#   - !type:CharacterDepartmentRequirement
+#     departments:
+#     - Security
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   items:
+#   - ClothingOuterArmorPlateCarrier
+#
+# - type: loadout
+#   id: LoadoutClothingOuterArmorDuraVest
+#   category: JobsSecurityAUncategorized
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityOuter
+#   - !type:CharacterDepartmentRequirement
+#     departments:
+#     - Security
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   items:
+#   - ClothingOuterArmorDuraVest
+#
+# - type: loadout
+#   id: LoadoutClothingOuterArmorBasic
+#   category: JobsSecurityAUncategorized
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityOuter
+#   - !type:CharacterDepartmentRequirement
+#     departments:
+#     - Security
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   items:
+#   - ClothingOuterArmorBasic
+#
+# - type: loadout
+#   id: LoadoutClothingOuterArmorSlim
+#   category: JobsSecurityAUncategorized
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityOuter
+#   - !type:CharacterDepartmentRequirement
+#     departments:
+#     - Security
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   items:
+#   - ClothingOuterArmorBasicSlim
 
-- type: loadout
-  id: LoadoutClothingOuterArmorPlateCarrier
-  category: JobsSecurityAUncategorized
-  cost: 0
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityOuter
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-  - !type:CharacterJobRequirement # WWDP
-    inverted: true
-    jobs:
-    - Prisoner
-  items:
-  - ClothingOuterArmorPlateCarrier
-
-- type: loadout
-  id: LoadoutClothingOuterArmorDuraVest
-  category: JobsSecurityAUncategorized
-  cost: 0
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityOuter
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-  - !type:CharacterJobRequirement # WWDP
-    inverted: true
-    jobs:
-    - Prisoner
-  items:
-  - ClothingOuterArmorDuraVest
-
-- type: loadout
-  id: LoadoutClothingOuterArmorBasic
-  category: JobsSecurityAUncategorized
-  cost: 0
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityOuter
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-  - !type:CharacterJobRequirement # WWDP
-    inverted: true
-    jobs:
-    - Prisoner
-  items:
-  - ClothingOuterArmorBasic
-
-- type: loadout
-  id: LoadoutClothingOuterArmorSlim
-  category: JobsSecurityAUncategorized
-  cost: 0
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityOuter
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-  - !type:CharacterJobRequirement # WWDP
-    inverted: true
-    jobs:
-    - Prisoner
-  items:
-  - ClothingOuterArmorBasicSlim
-
-# WD EDIT START
 # - type: loadout
 #   id: ClothingOuterArmorTCFLHeavy
 #   category: JobsSecurityAUncategorized
@@ -628,7 +636,7 @@
 #     - Prisoner
 #   items:
 #   - ClothingOuterArmorStandardHeavy
-# WD EDIT END
+# WWDP EDIT END
 
 - type: loadout
   id: LoadoutClothingOuterJacketZavSecurity
@@ -675,41 +683,43 @@
   - ClothingOuterJacketZavSecurityAlt
 
 # Shoes
-- type: loadout
-  id: LoadoutSecurityShoesJackboots
-  category: JobsSecurityAUncategorized
-  cost: 0
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityShoes
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-  - !type:CharacterJobRequirement # WWDP
-    inverted: true
-    jobs:
-    - Prisoner
-  items:
-  - ClothingShoesBootsJack
-
-- type: loadout
-  id: LoadoutClothingShoesBootsCombat
-  category: JobsSecurityAUncategorized
-  cost: 0
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityShoes
-  - !type:CharacterDepartmentRequirement
-    departments:
-    - Security
-  - !type:CharacterJobRequirement # WWDP
-    inverted: true
-    jobs:
-    - Prisoner
-  items:
-  - ClothingShoesBootsCombatFilled
+# WWDP edit start - disabled
+# - type: loadout
+#   id: LoadoutSecurityShoesJackboots
+#   category: JobsSecurityAUncategorized
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityShoes
+#   - !type:CharacterDepartmentRequirement
+#     departments:
+#     - Security
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   items:
+#   - ClothingShoesBootsJack
+#
+# - type: loadout
+#   id: LoadoutClothingShoesBootsCombat
+#   category: JobsSecurityAUncategorized
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityShoes
+#   - !type:CharacterDepartmentRequirement
+#     departments:
+#     - Security
+#   - !type:CharacterJobRequirement # WWDP
+#     inverted: true
+#     jobs:
+#     - Prisoner
+#   items:
+#   - ClothingShoesBootsCombatFilled
+# WWDP edit end
 
 # Uniforms
 - type: loadout

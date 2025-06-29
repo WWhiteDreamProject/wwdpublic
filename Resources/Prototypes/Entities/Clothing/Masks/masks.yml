@@ -10,6 +10,7 @@
     sprite: Clothing/Mask/gas.rsi
   - type: BreathMask
   - type: IngestionBlocker
+    blockSmokeIngestion: true # WWDP
   - type: IdentityBlocker
   - type: Tag
     tags:
@@ -39,8 +40,8 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
-  - type: IngestionBlocker # Goobstation
-    blockSmokeIngestion: true
+  # - type: IngestionBlocker # Goobstation # WWDP moved to parent
+  #   blockSmokeIngestion: true
 
 - type: entity
   parent: ClothingMaskGas
@@ -61,8 +62,8 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
-  - type: IngestionBlocker # Goobstation
-    blockSmokeIngestion: true
+  # - type: IngestionBlocker # Goobstation # WWDP moved to parent
+  #   blockSmokeIngestion: true
 
 - type: entity
   parent: ClothingMaskGas
@@ -232,6 +233,9 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: Construction # WWDP
+    graph: BananaClownMask
+    node: basemask
 
 - type: entity
   parent: ClothingMaskClown
@@ -406,8 +410,8 @@
     - Hair
     - Snout
     hideOnToggle: true
-  - type: IngestionBlocker # Goobstation
-    blockSmokeIngestion: true
+  # - type: IngestionBlocker # Goobstation # WWDP moved to parent
+  #   blockSmokeIngestion: true
 
 - type: entity
   parent: ClothingMaskGasERT
@@ -609,6 +613,9 @@
     sprite: Clothing/Mask/sexyclown.rsi
   - type: Clothing
     sprite: Clothing/Mask/sexyclown.rsi
+  - type: Construction # WWDP
+    graph: BananaClownMask
+    node: sexymask
 
 - type: entity
   parent: ClothingMaskMime

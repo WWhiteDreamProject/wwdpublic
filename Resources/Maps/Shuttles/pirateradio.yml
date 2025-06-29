@@ -9,12 +9,12 @@ tilemap:
   38: FloorDarkOffset
   41: FloorDarkPlastic
   65: FloorLino
-  67: FloorMetalDiamond
+  67: FloorMetalDiamondSteel
   80: FloorReinforced
   89: FloorShuttleRed
   90: FloorShuttleWhite
   96: FloorSteelCheckerDark
-  109: FloorTechMaint
+  109: FloorTechMaintSteel
   123: FloorWood
   126: Lattice
 entities:

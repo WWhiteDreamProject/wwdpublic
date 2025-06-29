@@ -18,4 +18,10 @@ public sealed partial class KnockedDownComponent : Component
 
     [ViewVariables, AutoNetworkedField]
     public float HelpTimer = 0f;
+
+    /// <summary>
+    /// WWDP - friction modifier for being unconscious, slipped etc.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float FrictionMultiplier = 1f;
 }

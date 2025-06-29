@@ -5,7 +5,7 @@ tilemap:
   0: Space
   7: FloorAsteroidSand
   34: FloorDarkMini
-  65: FloorMetalDiamond
+  65: FloorMetalDiamondSteel
   78: FloorReinforced
   122: Plating
 entities:

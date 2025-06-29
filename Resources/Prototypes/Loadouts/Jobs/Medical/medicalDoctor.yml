@@ -2,47 +2,50 @@
 # Backpacks
 
 # Belt
-- type: loadout
-  id: LoadoutMedicalDoctorBeltMedical
-  category: JobsMedicalMedicalDoctor
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMedicalDoctorBelt
-    - !type:CharacterJobRequirement
-      jobs:
-        - MedicalDoctor
-  items:
-    - ClothingBeltMedical
 
-- type: loadout
-  id: LoadoutMedicalDoctorBeltMedicalFilled
-  category: JobsMedicalMedicalDoctor
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMedicalDoctorBelt
-    - !type:CharacterJobRequirement
-      jobs:
-        - MedicalDoctor
-  items:
-    - ClothingBeltMedicalFilled
-
-- type: loadout
-  id: LoadoutMedicalDoctorBeltMedicalAdvancedFilled
-  category: JobsMedicalMedicalDoctor
-  cost: 2
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMedicalDoctorBelt
-    - !type:CharacterJobRequirement
-      jobs:
-        - MedicalDoctor
-  items:
-    - ClothingBeltMedicalAdvancedFilled
+# WWDP edit start - moved to lockers
+# - type: loadout
+#   id: LoadoutMedicalDoctorBeltMedical
+#   category: JobsMedicalMedicalDoctor
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMedicalDoctorBelt
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - MedicalDoctor
+#   items:
+#     - ClothingBeltMedical
+#
+# - type: loadout
+#   id: LoadoutMedicalDoctorBeltMedicalFilled
+#   category: JobsMedicalMedicalDoctor
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMedicalDoctorBelt
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - MedicalDoctor
+#   items:
+#     - ClothingBeltMedicalFilled
+#
+# - type: loadout
+#   id: LoadoutMedicalDoctorBeltMedicalAdvancedFilled
+#   category: JobsMedicalMedicalDoctor
+#   cost: 2
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMedicalDoctorBelt
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - MedicalDoctor
+#   items:
+#     - ClothingBeltMedicalAdvancedFilled
+# WWDP edit end
 
 # Ears
 

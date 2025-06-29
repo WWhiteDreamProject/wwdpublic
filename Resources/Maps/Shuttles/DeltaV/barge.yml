@@ -8,7 +8,7 @@ tilemap:
   29: FloorDarkMono
   71: FloorSteel
   77: FloorSteelMono
-  81: FloorTechMaint
+  81: FloorTechMaintSteel
   94: FloorWood
   96: Lattice
   97: Plating

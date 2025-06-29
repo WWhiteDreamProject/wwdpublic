@@ -7,14 +7,15 @@
     Bloodpack: 5
     EpinephrineChemistryBottle: 3
     Syringe: 5
-    Portafib: 1
+    Defibrillator: 1 # WWDP
+    EmergencyRollerBedSpawnFolded: 1 # WWDP
     # WD EDIT START
     #ClothingEyesGlasses: 5
     #ClothingEyesHudMedical: 2
     #ClothingEyesEyepatchHudMedical: 2
     # WD EDIT END
     VehicleWheelchairFolded: 3 # Goobstation - Vehicles
-    ClothingShoesBootsWinterAtmos: 2 #Delta V: Add departmental winter boots
+    # ClothingShoesBootsWinterAtmos: 2 #Delta V: Add departmental winter boots # WWDP removed - wtf?
   #WWDP edit start
   emaggedInventory:
     StimpackMini: 1

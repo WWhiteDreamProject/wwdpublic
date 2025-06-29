@@ -13,6 +13,7 @@
     ClothingNeckMantleCap: 1
     ClothingOuterWinterCap: 1
     ClothingOuterArmorCaptainCarapace: 1
+    ClothingOuterCoatCapTrench: 1 # WWDP moved from the locker
     ClothingOuterCoatCaptain: 1
     ClothingUniformJumpsuitCaptain: 1
     ClothingUniformJumpskirtCaptain: 1

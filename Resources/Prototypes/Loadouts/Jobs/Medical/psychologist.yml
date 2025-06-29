@@ -49,58 +49,61 @@
 # Equipment
 # The Psychologist chooses freely from drugs that change the mind.
 # If we ever get more mind-affecting drugs, add them here.
-- type: loadout
-  id: LoadoutPsychologistPillCanisterSpaceDrugs
-  category: JobsMedicalPsychologist
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutPsychologistEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - Psychologist
-  items:
-    - PillCanisterSpaceDrugs
 
-- type: loadout
-  id: LoadoutPsychologistPillCanisterPax
-  category: JobsMedicalPsychologist
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutPsychologistEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - Psychologist
-  items:
-    - PillCanisterPax
-
-- type: loadout
-  id: LoadoutPsychologistPillCanisterCryptobiolin
-  category: JobsMedicalPsychologist
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutPsychologistEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - Psychologist
-  items:
-    - PillCanisterCryptobiolin
-
-# Yes this one is a little dangerous. Keeps the job interesting. :)
-- type: loadout
-  id: LoadoutPsychologistPillCanisterChloralHydrate
-  category: JobsMedicalPsychologist
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutPsychologistEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - Psychologist
-  items:
-    - PillCanisterChloralHydrate
+# WWDP edit start - moved to ClothingBackpackPsychologistFilled
+# - type: loadout
+#   id: LoadoutPsychologistPillCanisterSpaceDrugs
+#   category: JobsMedicalPsychologist
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutPsychologistEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Psychologist
+#   items:
+#     - PillCanisterSpaceDrugs
+#
+# - type: loadout
+#   id: LoadoutPsychologistPillCanisterPax
+#   category: JobsMedicalPsychologist
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutPsychologistEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Psychologist
+#   items:
+#     - PillCanisterPax
+#
+# - type: loadout
+#   id: LoadoutPsychologistPillCanisterCryptobiolin
+#   category: JobsMedicalPsychologist
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutPsychologistEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Psychologist
+#   items:
+#     - PillCanisterCryptobiolin
+#
+# # Yes this one is a little dangerous. Keeps the job interesting. :)
+# - type: loadout
+#   id: LoadoutPsychologistPillCanisterChloralHydrate
+#   category: JobsMedicalPsychologist
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutPsychologistEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Psychologist
+#   items:
+#     - PillCanisterChloralHydrate
+# WWDP edit end
 
 # Eyes
 

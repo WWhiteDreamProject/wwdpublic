@@ -46,6 +46,9 @@
     tags:
     - ClownShoes
     - WhitelistChameleon
+  - type: Construction # WWDP
+    graph: BananaClownShoes
+    node: baseshoes
 
 - type: entity
   parent: ClothingShoesClown

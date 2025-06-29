@@ -19,6 +19,7 @@
     wieldedBonus: 0.3
   - type: Gun
     fireRate: 2
+    defaultDirection: 1, 0 # wwdp
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -306,7 +307,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
   - type: ProjectileBatteryAmmoProvider # WWDP
-    proto: BulletLaser # WWDP
+    proto: BulletEnergyGunLaser # WWDP
     fireCost: 25 # wwd
   - type: Battery
     maxCharge: 500
@@ -422,10 +423,13 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletPulse # WWDP
-    fireCost: 200
+    fireCost: 100 # WWDP
   - type: Battery
-    maxCharge: 2000
-    startingCharge: 2000
+    maxCharge: 3000 # WWDP
+    startingCharge: 3000 # WWDP
+  - type: GunOverheat # WWDP
+    temperatureLimit: 500
+    heatCost: 100
 
 - type: entity
   name: antique pulse pistol
@@ -679,16 +683,16 @@
       steps: 5
       zeroVisible: true
     - type: Appearance
-    - type: ExtendDescription
-      descriptionList:
-      - description: "civiliandisabler-extenddescription-security"
-        fontSize: 12
-        color: "#ff0000"
-        requireDetailRange: true
-        requirements:
-        - !type:CharacterDepartmentRequirement
-          departments:
-            - Security
+    # - type: ExtendDescription # WWDP
+    #   descriptionList:
+    #   - description: "civiliandisabler-extenddescription-security"
+    #     fontSize: 12
+    #     color: "#ff0000"
+    #     requireDetailRange: true
+    #     requirements:
+    #     - !type:CharacterDepartmentRequirement
+    #       departments:
+    #         - Security
     - type: MeleeWeapon
       damage:
         types:

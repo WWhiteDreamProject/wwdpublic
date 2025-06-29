@@ -3,7 +3,7 @@ meta:
   postmapinit: false
 tilemap:
   0: Space
-  17: FloorBlue
+  17: FloorSteelBlue
   48: FloorGrass
   51: FloorGrassLight
   78: FloorReinforced

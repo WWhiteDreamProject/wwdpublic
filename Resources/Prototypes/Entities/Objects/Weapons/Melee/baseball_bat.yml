@@ -31,7 +31,7 @@
     damage:
       types:
         Blunt: 3
-        Structural: 10
+        Structural: 5 # WWDP
   - type: DamageOtherOnHit
     staminaCost: 10
   - type: Item

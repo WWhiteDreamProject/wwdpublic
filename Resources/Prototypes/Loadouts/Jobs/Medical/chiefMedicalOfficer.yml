@@ -2,64 +2,70 @@
 # Backpacks
 
 # Belt
-- type: loadout
-  id: LoadoutChiefMedicalOfficerBeltMedical
-  category: JobsMedicalChiefMedicalOfficer
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChiefMedicalOfficerBelt
-    - !type:CharacterJobRequirement
-      jobs:
-        - ChiefMedicalOfficer
-  items:
-    - ClothingBeltMedical
 
-- type: loadout
-  id: LoadoutChiefMedicalOfficerBeltMedicalAdvancedFilled
-  category: JobsMedicalChiefMedicalOfficer
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChiefMedicalOfficerBelt
-    - !type:CharacterJobRequirement
-      jobs:
-        - ChiefMedicalOfficer
-  items:
-    - ClothingBeltMedicalAdvancedFilled
-
-- type: loadout
-  id: LoadoutChiefMedicalOfficerBeltMilitaryWebbingCMOFilled
-  category: JobsMedicalChiefMedicalOfficer
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChiefMedicalOfficerBelt
-    - !type:CharacterJobRequirement
-      jobs:
-        - ChiefMedicalOfficer
-  items:
-    - ClothingBeltMilitaryWebbingCMOFilled
+# WWDP edit start - moved to lockers
+# - type: loadout
+#   id: LoadoutChiefMedicalOfficerBeltMedical
+#   category: JobsMedicalChiefMedicalOfficer
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChiefMedicalOfficerBelt
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - ChiefMedicalOfficer
+#   items:
+#     - ClothingBeltMedical
+#
+# - type: loadout
+#   id: LoadoutChiefMedicalOfficerBeltMedicalAdvancedFilled
+#   category: JobsMedicalChiefMedicalOfficer
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChiefMedicalOfficerBelt
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - ChiefMedicalOfficer
+#   items:
+#     - ClothingBeltMedicalAdvancedFilled
+#
+# - type: loadout
+#   id: LoadoutChiefMedicalOfficerBeltMilitaryWebbingCMOFilled
+#   category: JobsMedicalChiefMedicalOfficer
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChiefMedicalOfficerBelt
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - ChiefMedicalOfficer
+#   items:
+#     - ClothingBeltMilitaryWebbingCMOFilled
+# WWDP edit end
 
 # Ears
 
 # Equipment
-- type: loadout
-  id: LoadoutChiefMedicalOfficerEquipmentOmnimedToolLite
-  category: JobsMedicalChiefMedicalOfficer
-  cost: 0
-  exclusive: true
-  requirements:
-  - !type:CharacterItemGroupRequirement
-      group: LoadoutChiefMedicalOfficerEquipment
-  - !type:CharacterJobRequirement
-    jobs:
-      - ChiefMedicalOfficer
-  items:
-    - OmnimedToolLite
+
+# WWDP moved to locker
+# - type: loadout
+#   id: LoadoutChiefMedicalOfficerEquipmentOmnimedToolLite
+#   category: JobsMedicalChiefMedicalOfficer
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#       group: LoadoutChiefMedicalOfficerEquipment
+#   - !type:CharacterJobRequirement
+#     jobs:
+#       - ChiefMedicalOfficer
+#   items:
+#     - OmnimedToolLite
+
 # Eyes
 
 # Gloves
@@ -201,7 +207,7 @@
 
 - type: loadout
   id: LoadoutChiefMedicalOfficerShoesLaceup
-  category: JobsCommandCaptain
+  category: JobsMedicalChiefMedicalOfficer
   cost: 0
   exclusive: true
   requirements:
@@ -215,7 +221,7 @@
 
 - type: loadout
   id: LoadoutChiefMedicalOfficerShoesLeather
-  category: JobsCommandCaptain
+  category: JobsMedicalChiefMedicalOfficer
   cost: 0
   exclusive: true
   requirements:

@@ -34,7 +34,7 @@
     intensitySlope: 1
     totalIntensity: 0.01
   - type: Construction # WWDP
-    graph: SnapPopGraph
+    graph: PaperGraph
     node: snappop
 
 - type: entity

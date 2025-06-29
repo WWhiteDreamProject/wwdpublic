@@ -44,7 +44,7 @@
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTLeader
-    suitstorage: AirTankFilled
+    suitstorage: OxygenTankFilled # WWDP
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
@@ -58,18 +58,18 @@
   - ERTPlasmamanGearNoTank
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTLeader
-    back: ClothingBackpackERTLeaderFilled
+    back: ClothingBackpackERTLeaderLecterFilled # WWDP
     shoes: ClothingShoesBootsMagAdv
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTLeader
-    suitstorage: WeaponRifleLecter
+    suitstorage: OxygenTankFilled # WWDP
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
-    pocket1: MagazineRifle
-    pocket2: MagazineRifle
+    belt: ClothingBeltMilitaryWebbingERTLecterFilled # WWDP
+    pocket1: WeaponPistolN1984 # WWDP
+    pocket2: FlashlightSeclite # WWDP
 
 # Chaplain
 - type: job
@@ -123,7 +123,7 @@
     neck: ClothingNeckStoleChaplain
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTChaplain
-    suitstorage: AirTankFilled
+    suitstorage: OxygenTankFilled # WWDP
     id: ERTChaplainPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltStorageWaistbag
@@ -176,7 +176,7 @@
     eyes: ClothingEyesGlassesMeson
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTEngineer
-    suitstorage: AirTankFilled
+    suitstorage: OxygenTankFilled # WWDP
     id: ERTEngineerPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltChiefEngineerFilled
@@ -229,7 +229,7 @@
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTSecurity
-    suitstorage: AirTankFilled
+    suitstorage: OxygenTankFilled # WWDP
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
@@ -243,18 +243,18 @@
   - ERTPlasmamanGearNoTank
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
-    back: ClothingBackpackERTSecurityFilled
+    back: ClothingBackpackERTSecurityLecterFilled # WWDP
     shoes: ClothingShoesBootsMagSec
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTSecurity
-    suitstorage: WeaponRifleLecter
+    suitstorage: OxygenTankFilled # WWDP
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
-    pocket1: MagazineRifle
-    pocket2: MagazineRifle
+    belt: ClothingBeltMilitaryWebbingERTLecterFilled # WWDP
+    pocket1: WeaponPistolMk58 # WWDP
+    pocket2: FlashlightSeclite # WWDP
 
 # Medical
 - type: job
@@ -301,7 +301,7 @@
     eyes: ClothingEyesHudMedical
     gloves: ClothingHandsGlovesNitrile
     outerClothing: ClothingOuterHardsuitERTMedical
-    suitstorage: AirTankFilled
+    suitstorage: OxygenTankFilled # WWDP
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMedicalFilled
@@ -350,7 +350,7 @@
     mask: ClothingMaskGasERT
     gloves: ClothingHandsGlovesColorPurple
     outerClothing: ClothingOuterHardsuitERTJanitor
-    suitstorage: AirTankFilled
+    suitstorage: OxygenTankFilled # WWDP
     id: ERTJanitorPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltJanitorFilled

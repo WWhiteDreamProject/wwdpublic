@@ -1,7 +1,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Content.Shared._White;
+using Content.Shared._White.CCVar;
 using Robust.Shared.Configuration;
 
 namespace Content.Shared.Localizations

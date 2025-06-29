@@ -16,8 +16,8 @@ tilemap:
   86: FloorShuttleWhite
   90: FloorSteel
   97: FloorSteelDirty
-  105: FloorTechMaint
-  106: FloorTechMaint2
+  105: FloorTechMaintSteel
+  106: FloorMaintWhite
   109: FloorWhite
   121: Lattice
   122: Plating

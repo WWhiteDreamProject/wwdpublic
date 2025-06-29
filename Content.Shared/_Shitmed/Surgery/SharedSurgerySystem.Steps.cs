@@ -754,9 +754,11 @@ public abstract partial class SharedSurgerySystem
         var ev = new SurgeryDoAfterEvent(surgeryId, stepId);
         var duration = GetSurgeryDuration(step, user, body, speed);
 
-        if (TryComp(user, out SurgerySpeedModifierComponent? surgerySpeedMod)
+        /* WWDP fix - SurgerySpeedModifier is already counted in GetSurgeryDuration
+         if (TryComp(user, out SurgerySpeedModifierComponent? surgerySpeedMod)
             && surgerySpeedMod is not null)
             duration = duration / surgerySpeedMod.SpeedModifier;
+            */
 
         var doAfter = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(duration), ev, body, part)
         {

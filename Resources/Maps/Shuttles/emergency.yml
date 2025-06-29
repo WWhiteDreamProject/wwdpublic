@@ -6,7 +6,7 @@ tilemap:
   31: FloorDark
   79: FloorReinforced
   93: FloorSteel
-  108: FloorTechMaint
+  108: FloorTechMaintSteel
   112: FloorWhite
   125: Lattice
   126: Plating

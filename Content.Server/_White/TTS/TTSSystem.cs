@@ -1,8 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using Content.Server._White.Hearing;
 using Content.Server.Chat.Systems;
 using Content.Server.Language;
-using Content.Shared._White;
+using Content.Shared._White.CCVar;
 using Content.Shared._White.TTS;
 using Content.Shared.GameTicking;
 using Content.Shared.Language;
@@ -42,6 +43,9 @@ public sealed partial class TTSSystem : EntitySystem
         if (!_isEnabled || args.Message.Length > MaxMessageChars)
             return;
 
+        if (!args.Language.SpeechOverride.RequireSpeech) // e.g. Sign language
+            return;
+
         var voiceId = component.VoicePrototypeId;
         var voiceEv = new TransformSpeakerVoiceEvent(uid, voiceId);
         RaiseLocalEvent(uid, voiceEv);
@@ -74,6 +78,9 @@ public sealed partial class TTSSystem : EntitySystem
         foreach (var session in Filter.Pvs(uid).Recipients)
         {
             if (!session.AttachedEntity.HasValue)
+                continue;
+
+            if (EntityManager.HasComponent<DeafComponent>(session.AttachedEntity.Value))
                 continue;
 
             EntityManager.TryGetComponent(session.AttachedEntity.Value, out LanguageSpeakerComponent? lang);
@@ -109,11 +116,12 @@ public sealed partial class TTSSystem : EntitySystem
 
             var xform = xformQuery.GetComponent(session.AttachedEntity.Value);
             var distance = (sourcePos - _xforms.GetWorldPosition(xform, xformQuery)).Length();
-            if (distance > ChatSystem.VoiceRange * ChatSystem.VoiceRange)
+            if (distance > ChatSystem.WhisperMuffledRange)
                 continue;
 
             EntityManager.TryGetComponent(session.AttachedEntity.Value, out LanguageSpeakerComponent? lang);
-            if (_language.CanUnderstand(new(session.AttachedEntity.Value, lang), language.ID))
+            if (_language.CanUnderstand(new(session.AttachedEntity.Value, lang), language.ID)
+                && distance <= ChatSystem.WhisperClearRange)
                 nilter.AddPlayer(session);
             else
                 lilter.AddPlayer(session);

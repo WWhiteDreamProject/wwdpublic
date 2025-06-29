@@ -101,7 +101,7 @@
           False: {visible: false}
   - type: Construction
     deconstructionTarget: cuffs
-    graph: StunprodGraph
+    graph: CuffsGraph
     node: stunprod
 
 - type: entity
@@ -120,6 +120,6 @@
     storedRotation: 44
   - type: Construction
     deconstructionTarget: cuffs
-    graph: StunprodGraph
+    graph: CuffsGraph
     node: unfinished
 # WD EDIT END

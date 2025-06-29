@@ -1,7 +1,7 @@
 - type: construction
   name: musket
   id: WeaponRifleMusket
-  graph: WeaponRifleMusketGraph
+  graph: WeaponFlintlocksGraph # WWDP
   startNode: start
   targetNode: musket
   category: construction-category-weapons
@@ -24,19 +24,19 @@
     sprite: DeltaV/Objects/Misc/modular_breech.rsi
     state: base
 
-- type: construction
-  name: modular trigger
-  id: ModularTrigger
-  graph: ModularTriggerGraph
-  startNode: start
-  targetNode: modulartrigger
-  category: construction-category-weapons
-  objectType: Item
-  description: Makes gun go pew when activated. Used in the creation of guns.
-  icon:
-    sprite: DeltaV/Objects/Misc/modular_trigger.rsi
-    state: base
-
+# - type: construction # WWDP disabled
+#   name: modular trigger
+#   id: ModularTrigger
+#   graph: ModularTriggerGraph
+#   startNode: start
+#   targetNode: modulartrigger
+#   category: construction-category-weapons
+#   objectType: Item
+#   description: Makes gun go pew when activated. Used in the creation of guns.
+#   icon:
+#     sprite: DeltaV/Objects/Misc/modular_trigger.rsi
+#     state: base
+#
 - type: construction
   name: bayonet
   id: Bayonet
@@ -49,12 +49,12 @@
   icon:
     sprite: DeltaV/Objects/Misc/bayonet.rsi
     state: base
-    
+
 - type: construction
   name: cartridge (musket)
   id: CartridgeMusket
-  graph: CartridgeMusketGraph
-  startNode: start
+  graph: PaperGraph # WWDP
+  startNode: startmusketcartridge # WWDP
   targetNode: musketcartridge
   category: construction-category-weapons
   objectType: Item
@@ -66,7 +66,7 @@
 - type: construction
   name: flintlock
   id: WeaponPistolFlintlockCrafted
-  graph: WeaponPistolFlintlockCraftedGraph
+  graph: WeaponFlintlocksGraph # WWDP
   startNode: start
   targetNode: flintlock
   category: construction-category-weapons

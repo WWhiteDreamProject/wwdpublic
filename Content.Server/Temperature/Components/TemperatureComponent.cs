@@ -63,7 +63,7 @@ public sealed partial class TemperatureComponent : Component
     /// Okay it genuinely reaches this basically immediately for a plasma fire.
     /// </remarks>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 DamageCap = FixedPoint2.New(8);
+    public FixedPoint2 DamageCap = FixedPoint2.New(1); // WWDP - its effectively just a damage multiplier
 
     /// <summary>
     /// Used to keep track of when damage starts/stops. Useful for logs.

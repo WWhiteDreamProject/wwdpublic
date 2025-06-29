@@ -59,6 +59,19 @@
         reagents:
         - ReagentId: Gold
           Quantity: 10
+  # WWDP quick crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: GoldDoor
+    - prototype: GoldWall
 
 - type: entity
   parent: IngotGold
@@ -104,6 +117,19 @@
         reagents:
         - ReagentId: Silver
           Quantity: 10
+  # WWDP quick crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: SilverDoor
+    - prototype: SilverWall
 
 - type: entity
   parent: IngotSilver

@@ -1,0 +1,176 @@
+- type: entity
+  parent: [BaseStructure, ConstructibleMachine]
+  id: BaseWeaponTurretShip
+  suffix: Naval, Remote Controlled
+  abstract: true
+  name: ship turret
+  description: A remotely-operated turret designed to accept anti-ship weapons.
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Actions
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+    drawdepth: Mobs
+    noRot: true
+    state: syndie_base
+  - type: DollyMixture
+    directionCount: 64
+    repeatLayers: 3
+  - type: CombatMode
+    isInCombatMode: true
+    toggleMouseRotator: false
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 450
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              WeaponTurretSyndicateBroken:
+                min: 1
+                max: 1
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalGlassBreak
+      - trigger:
+          !type:DamageTrigger
+          damage: 150
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalGlassBreak
+  - type: GunFireAngleRestriction
+  - type: MouseRotator
+    angleTolerance: 0.05
+    rotationSpeed: 90
+    simple4DirMode: false
+  - type: NoRotateOnInteract
+  - type: NoRotateOnMove
+  - type: Input
+    context: "human"
+  - type: ContainerContainer
+    containers:
+      weapon_slot: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: GunSlot
+    slot: weapon_slot
+  - type: ModularTurret
+    slot: weapon_slot
+  - type: ItemSlots
+    slots:
+      weapon_slot:
+        ejectOnInteract: false
+        ejectOnBreak: true
+        swap: false
+        name: Weapon slot
+        priority: 1
+        whitelist:
+          components:
+          - Gun
+          - ModularTurretWeapon
+  - type: RemoteControllable
+  - type: RemoteControlOverlay
+  - type: Lock
+    locked: false
+    lockTime: 5
+    unlockTime: 20
+  - type: ItemSlotsLock
+    slots:
+    - weapon_slot
+  - type: GunSignalControl
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WiredNetworkConnection
+  - type: DeviceLinkSink
+    ports:
+    - RemoteControlSinkPort
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 0
+  - type: ApcPowerReceiverBattery
+    idleLoad: 5
+    batteryRechargeRate: 200
+    batteryRechargeEfficiency: 1.225
+  - type: ApcPowerReceiver
+    powerLoad: 5
+  - type: ExtensionCableReceiver
+  - type: Alerts
+  - type: Telescope
+    lerpAmount: 0.25
+  - type: Silicon
+    entityType: enum.SiliconType.Player
+    batteryPowered: true
+    drainPerSecond: 2
+    speedModifierThresholds:
+      4: 1
+      3: 1
+      2: 1
+      1: 1
+      0: 1
+
+
+- type: entity
+  parent: [ BaseWeaponTurretShip, InnateMassScanner150 ]
+  id: WeaponTurretShipLight
+  suffix: Naval, Remote Controlled
+  name: small weapon mount
+  description: A remotely-operated weapon mount designed to accept light anti-ship and anti-infantry weaponry.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/mounts.rsi
+    state: light
+  - type: Battery
+    maxCharge: 10000
+    startingCharge: 0
+  - type: ApcPowerReceiverBattery
+    idleLoad: 50
+    batteryRechargeRate: 1000
+    batteryRechargeEfficiency: 2.45
+  - type: ApcPowerReceiver
+    powerLoad: 50
+  - type: Machine
+    board: WeaponTurretShipLightCircuitBoard
+  - type: UpgradeBattery
+    maxChargeMultiplier: 3
+    baseMaxCharge: 10000
+
+- type: entity
+  id: WeaponTurretShipLightCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: modular turret machine board
+  description: Circuitboard for a light ship weapon mount.
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: WeaponTurretShipLight
+    requirements:
+      MatterBin: 1
+      Manipulator: 2
+      Capacitor: 3
+    materialRequirements:
+      Cable: 5
+      Steel: 10 

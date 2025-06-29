@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Client.UserInterface.Systems.Chat;
-using Content.Shared._White;
+using Content.Shared._White.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;

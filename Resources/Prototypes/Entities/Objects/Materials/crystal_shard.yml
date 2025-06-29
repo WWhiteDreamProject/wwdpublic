@@ -56,6 +56,9 @@
     tags:
       - Trash
       - CrystalCyan
+  - type: Construction # WWDP
+    graph: CyanLight
+    node: crystalshard
 
 - type: entity
   parent: ShardCrystalBase
@@ -72,6 +75,9 @@
     tags:
       - Trash
       - CrystalBlue
+  - type: Construction # WWDP
+    graph: BlueLight
+    node: crystalshard
 
 - type: entity
   parent: ShardCrystalBase
@@ -88,6 +94,9 @@
     tags:
       - Trash
       - CrystalOrange
+  - type: Construction # WWDP
+    graph: OrangeLight
+    node: crystalshard
 
 - type: entity
   parent: ShardCrystalBase
@@ -104,6 +113,9 @@
     tags:
       - Trash
       - CrystalPink
+  - type: Construction # WWDP
+    graph: PinkLight
+    node: crystalshard
 
 - type: entity
   parent: ShardCrystalBase
@@ -120,6 +132,9 @@
     tags:
       - Trash
       - CrystalGreen
+  - type: Construction # WWDP
+    graph: GreenLight
+    node: crystalshard
 
 - type: entity
   parent: ShardCrystalBase
@@ -136,6 +151,9 @@
     tags:
       - Trash
       - CrystalRed
+  - type: Construction # WWDP
+    graph: RedLight
+    node: crystalshard
 
 - type: entity
   parent: ShardCrystalBase

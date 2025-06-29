@@ -33,7 +33,7 @@
     state: base
   - type: EtherealLight
   - type: PointLight
-    color: "#FFE4CE" # 5000K color temp
+    color: "#D2DCF2" # WWDP edit
     energy: 0.8
     radius: 10
     softness: 1
@@ -71,6 +71,23 @@
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
+  - type: Physics # WWDP
+    bodyType: Static
+  - type: Fixtures # WWDP
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,0.2,0.45,0.45"
+        density: 100
+        mask:
+        - TabletopMachineMask
+        layer:
+        - BulletImpassable
+  - type: Tag # WWDP
+    tags:
+      - RCDLight
+  - type: RequireProjectileTarget # WWDP
   placement:
     mode: SnapgridCenter
     snap:

@@ -131,8 +131,8 @@
             - material: Bananium
               amount: 2
               doAfter: 2
-            - tool: Welding
-              doAfter: 20
+            # - tool: Welding # WWDP edit
+            #   doAfter: 20
 
         - to: meatWall
           completed:
@@ -171,6 +171,19 @@
             - material: Steel
               amount: 2
               doAfter: 1
+
+        # WD edit start - new secret door recipe
+        - to: solidSecretDoor
+          completed:
+          - !type:SnapToGrid
+          conditions:
+          - !type:EntityAnchored
+            anchored: false
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 2
+        # WD edit end
 
     - node: wall
       entity: WallSolid
@@ -559,3 +572,20 @@
           steps:
             - tool: Welding
               doAfter: 5
+
+    # WD edit start - new secret door recipe
+    - node: solidSecretDoor
+      entity: SolidSecretDoor
+      actions:
+      - !type:SnapToGrid {}
+      - !type:SetAnchor {}
+      edges:
+      - to: girder
+        completed:
+        - !type:GivePrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Welding
+          doAfter: 10
+    # WD edit end

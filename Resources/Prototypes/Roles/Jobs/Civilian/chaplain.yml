@@ -4,9 +4,9 @@
   description: job-description-chaplain
   playTimeTracker: JobChaplain
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Epistemics # Chaplain is now one of the station's "Crew-Aligned Wizards"
-      min: 14400 # 4 hours
+    # - !type:CharacterDepartmentTimeRequirement # WWDP
+    #   department: Epistemics # Chaplain is now one of the station's "Crew-Aligned Wizards"
+    #   min: 14400 # 4 hours
     - !type:CharacterLogicOrRequirement
       requirements:
         - !type:CharacterSpeciesRequirement
@@ -49,7 +49,7 @@
   - ChaplainPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitChaplain
-    back: ClothingBackpack
+    back: ClothingBackpackChaplainFilled
     shoes: ClothingShoesColorBlack
     id: ChaplainPDA
     ears: ClothingHeadsetScience

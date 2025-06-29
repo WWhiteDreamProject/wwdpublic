@@ -3,13 +3,14 @@
   name: job-name-brigmedic
   description: job-description-brigmedic
   playTimeTracker: JobBrigmedic
+  setPreference: false # WWDP disabled role, not mapped
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Medical
-      min: 21600 # 6 hrs
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
-      min: 18000 # 4 hrs
+    # - !type:CharacterDepartmentTimeRequirement # WWDP
+    #   department: Medical
+    #   min: 21600 # 6 hrs
+    # - !type:CharacterDepartmentTimeRequirement
+    #   department: Security
+    #   min: 18000 # 4 hrs
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
@@ -47,7 +48,7 @@
     components:
     - type: CPRTraining
     - type: SurgerySpeedModifier
-      speedModifier: 2.0
+      speedModifier: 2 # WD EDIT
   afterLoadoutSpecial:
   - !type:ModifyEnvirosuitSpecial
     charges: 6
@@ -60,18 +61,18 @@
   - CorpsmanPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitBrigmedic
-    outerClothing: ClothingOuterArmorPlateCarrier
-    back: ClothingBackpackBrigmedicFilled
-    shoes: ClothingShoesBootsCombatFilled
-    gloves: ClothingHandsGlovesNitrile
-    eyes: ClothingEyesHudMedical
+    # outerClothing: ClothingOuterArmorPlateCarrier # WWDP
+    back: ClothingBackpackBrigmedic
+    shoes: ClothingShoesBootsJack # WWDP
+    # gloves: ClothingHandsGlovesNitrile # WWDP
+    # eyes: ClothingEyesHudMedical # WWDP
     head: ClothingHeadHatBeretCorpsman
     id: CorpsmanPDA
     ears: ClothingHeadsetBrigmedic
-    belt: ClothingBeltCorpsmanWebbingFilled
+    # belt: ClothingBeltCorpsmanWebbingFilled # WWDP
   innerClothingSkirt: ClothingUniformJumpskirtBrigmedic
-  satchel: ClothingBackpackSatchelBrigmedicFilled
-  duffelbag: ClothingBackpackDuffelBrigmedicFilled
+  satchel: ClothingBackpackSatchelBrigmedic
+  duffelbag: ClothingBackpackDuffelBrigmedic
 
 - type: startingGear
   id: CorpsmanPlasmamanGear

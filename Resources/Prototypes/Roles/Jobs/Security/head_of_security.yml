@@ -57,12 +57,11 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoS
     back: ClothingBackpackHOSFilled
-    shoes: ClothingShoesBootsCombatFilled
-    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesBootsCombatFilled # WWDP combat boots for protag energy
+    # eyes: ClothingEyesGlassesSunglasses # WWDP
     id: HoSPDA
-    gloves: ClothingHandsGlovesCombat
+    # gloves: ClothingHandsGlovesCombat # WWDP
     ears: ClothingHeadsetAltSecurity
-    belt: ClothingBeltSecurityFilled
   innerClothingSkirt: ClothingUniformJumpskirtHoS
   satchel: ClothingBackpackSatchelHOSFilled
   duffelbag: ClothingBackpackDuffelHOSFilled

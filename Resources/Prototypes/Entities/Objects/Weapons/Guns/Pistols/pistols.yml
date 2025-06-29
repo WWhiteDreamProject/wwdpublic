@@ -32,6 +32,7 @@
     bonusAngleDecay: 80           # wwdp
     maxBonusAngle: 10             # wwdp
     fireRate: 6
+    defaultDirection: 1, 0 # wwdp
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -70,7 +71,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
-  - type: Execution
+  # - type: Execution # WWDP
   # - type: AmmoCounter # WWDP
   - type: MeleeWeapon
     attackRate: 1.2

@@ -9,43 +9,24 @@ namespace Content.Client.Weapons.Ranged;
 public sealed class ShowSpreadCommand : IConsoleCommand
 {
     public string Command => "showgunspread";
-    public string Description => $"Shows gun spread overlay for debugging";
+    public string Description => $"Switches gun spread overlay between normal and debug."; // wwdp edit
     // WWDP EDIT START
-    // I REGRET DOING ENUMS HERE
-    public string Help => $"{Command} off/partial/full";
-
-    readonly Dictionary<string, GunSpreadOverlayEnum> dick = new() {
-        {"off", GunSpreadOverlayEnum.Off},
-        {"partial", GunSpreadOverlayEnum.Partial },
-        {"full", GunSpreadOverlayEnum.Full}
-    };
-
-    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
-    {
-        if (args.Length <= 1)
-            return CompletionResult.FromOptions(dick.Keys);
-        return CompletionResult.Empty;
-    }
+    public string Help => "Shows all the spread related values for currently held gun (or for the localEntity's gunComp, if no gun is held and the component is present.)"; // wwdp edit
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         var system = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<GunSystem>();
 
-        if (args.Length != 1 ||
-            !dick.TryGetValue(args[0].ToLower(), out var option))
+        system.SpreadOverlay = system.SpreadOverlay switch
         {
-            shell.WriteLine(Help);
-            return;
-        }
+            GunSpreadOverlayEnum.Off => GunSpreadOverlayEnum.Normal,
+            GunSpreadOverlayEnum.Normal => GunSpreadOverlayEnum.Debug,
+            GunSpreadOverlayEnum.Debug => GunSpreadOverlayEnum.Off,
+            _ => throw new ArgumentOutOfRangeException()
+        };
 
-        if (system.SpreadOverlay == option)
-        {
-            shell.WriteLine($"Spread overlay already set to \"{system.SpreadOverlay}\".");
-        }
-        else {
-            system.SpreadOverlay = option;
-            shell.WriteLine($"Set spread overlay to \"{system.SpreadOverlay}\".");
-        }
+        shell.WriteLine($"Set spread overlay to \"{system.SpreadOverlay}\".");
     }
 }
+
 // WWDP EDIT END
