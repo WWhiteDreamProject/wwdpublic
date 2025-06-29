@@ -17,7 +17,7 @@ tilemap:
   18: FloorSnow
   19: FloorSteel
   20: FloorSteelDirty
-  21: FloorTechMaint
+  21: FloorTechMaintSteel
   22: FloorWhite
   23: FloorWood
   24: Lattice
