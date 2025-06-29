@@ -38,7 +38,7 @@ namespace Content.Server._White.Abilities.Psionics
                 return;
 
             var humanoid = MetaData(uid).EntityPrototype?.ID;
-            var clone = Spawn(Humanoid, Transform(uid).Coordinates);
+            var clone = Spawn(humanoid, Transform(uid).Coordinates);
             Transform(clone).AttachToGridOrMap();
             component.CloneUid = clone;
 
