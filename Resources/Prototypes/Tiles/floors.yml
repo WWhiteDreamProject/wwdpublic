@@ -652,7 +652,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemMono
+  itemDrop: FloorTileItemSteel # WD EDIT
   heatCapacity: 10000
 
 - type: tile

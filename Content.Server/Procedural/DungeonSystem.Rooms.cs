@@ -232,7 +232,7 @@ public sealed partial class DungeonSystem
                 }
                 catch (Exception ex)
                 {
-                    Logger.Error($"Failed to copy component {comp.GetType()} from template entity {templateEnt} to {ent}: {ex}");
+                    Log.Error($"Failed to copy component {comp.GetType()} from template entity {templateEnt} to {ent}: {ex}");
                 }
             }
             // WD EDIT END
@@ -242,7 +242,7 @@ public sealed partial class DungeonSystem
             _transform.SetLocalRotation(ent, childRot, childXform);
 
             // If the templated entity was anchored then anchor us too.
-            if (anchored && !childXform.Anchored)
+            if (anchored && !childXform.Anchored && !HasComp<RoomFillComponent>(ent)) // WD EDIT
                 _transform.AnchorEntity((ent, childXform), (gridUid, grid));
             else if (!anchored && childXform.Anchored)
                 _transform.Unanchor(ent, childXform);
