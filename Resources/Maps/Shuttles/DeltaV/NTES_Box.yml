@@ -11,7 +11,7 @@ tilemap:
   92: FloorSteelCheckerDark
   93: FloorSteelCheckerLight
   95: FloorSteelDiagonal
-  99: FloorSteelLime
+  99: FloorSteelGreen
   104: FloorSteelPavementVertical
   109: FloorWhite
   114: FloorWhiteMono

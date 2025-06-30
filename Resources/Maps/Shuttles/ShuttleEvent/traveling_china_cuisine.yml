@@ -10,7 +10,7 @@ tilemap:
   76: FloorRGlass
   85: FloorShuttleWhite
   96: FloorSteelDirty
-  98: FloorSteelLime
+  98: FloorSteelGreen
   106: FloorTechMaint3
   112: FloorWhiteMini
   117: FloorWhitePlastic

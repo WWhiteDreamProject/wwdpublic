@@ -49,7 +49,7 @@ tilemap:
   92: FloorSteel
   97: FloorSteelDiagonal
   99: FloorSteelDirty
-  101: FloorSteelLime
+  101: FloorSteelGreen
   103: FloorSteelMono
   105: FloorSteelPavement
   107: FloorTechMaintSteel
