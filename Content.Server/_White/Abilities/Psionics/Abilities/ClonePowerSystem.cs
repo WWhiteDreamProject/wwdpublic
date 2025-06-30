@@ -8,6 +8,8 @@ using Content.Shared.Actions;
 using Content.Shared.Popups;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs.Components;
+using Robust.Server.GameObjects;
+using Robust.Server.Audio;
 
 namespace Content.Server._White.Abilities.Psionics
 {
@@ -17,6 +19,8 @@ namespace Content.Server._White.Abilities.Psionics
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly HumanoidAppearanceSystem _app = default!;
         [Dependency] private readonly SharedMindSystem _mind = default!;
+        [Dependency] private readonly IEntityManager _entManager = default!;
+        [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly MobStateSystem _state = default!;
@@ -36,6 +40,10 @@ namespace Content.Server._White.Abilities.Psionics
 
             if (component.CloneUid != null)
                 return;
+
+            var usercoords = Transform(uid).Coordinates;
+            _audio.PlayPvs(component.CloneSound, usercoords);
+            _entManager.SpawnEntity(component.CloneEffect, usercoords);
 
             var humanoid = MetaData(uid).EntityPrototype?.ID;
             var clone = Spawn(humanoid, Transform(uid).Coordinates);
