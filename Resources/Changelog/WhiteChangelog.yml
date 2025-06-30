@@ -3646,3 +3646,12 @@ Entries:
   id: 384
   time: '2025-06-28T08:33:45.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/641
+- author: vanx
+  changes:
+    - type: Add
+      message: >-
+        Меню крафта теперь поддерживает поиск по локализованным названиям и
+        сортирует рецепты по алфавиту.
+  id: 385
+  time: '2025-06-30T05:40:51.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/628
