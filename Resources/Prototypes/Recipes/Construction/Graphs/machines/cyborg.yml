@@ -44,158 +44,163 @@
       - tool: Screwing
         doAfter: 0.5
 
-    - to: engineer
-      steps:
-      - assemblyId: engineer
-        guideString: borg-construction-guide-string
+#    WD edit start
+#    - to: engineer
+#      steps:
+#      - assemblyId: engineer
+#        guideString: borg-construction-guide-string
+#
+#      - material: Cable
+#        amount: 1
+#        doAfter: 1
+#        store: part-container
+#
+#      - component: Flash
+#        name: flash
+#        store: part-container
+#        icon:
+#          sprite: Objects/Weapons/Melee/flash.rsi
+#          state: flash
+#
+#      - component: Flash
+#        name: second flash
+#        store: part-container
+#        icon:
+#          sprite: Objects/Weapons/Melee/flash.rsi
+#          state: flash
+#
+#      - tool: Screwing
+#        doAfter: 0.5
 
-      - material: Cable
-        amount: 1
-        doAfter: 1
-        store: part-container
+#    - to: janitor
+#      steps:
+#      - assemblyId: janitor
+#        guideString: borg-construction-guide-string
+#
+#      - material: Cable
+#        amount: 1
+#        doAfter: 1
+#        store: part-container
+#
+#      - component: Flash
+#        name: flash
+#        store: part-container
+#        icon:
+#          sprite: Objects/Weapons/Melee/flash.rsi
+#          state: flash
+#
+#      - component: Flash
+#        name: second flash
+#        store: part-container
+#        icon:
+#          sprite: Objects/Weapons/Melee/flash.rsi
+#          state: flash
+#
+#      - tool: Screwing
+#        doAfter: 0.5
 
-      - component: Flash
-        name: flash
-        store: part-container
-        icon:
-          sprite: Objects/Weapons/Melee/flash.rsi
-          state: flash
+#    - to: medical
+#      steps:
+#      - assemblyId: medical
+#        guideString: borg-construction-guide-string
+#
+#      - material: Cable
+#        amount: 1
+#        doAfter: 1
+#        store: part-container
+#
+#      - component: Flash
+#        name: flash
+#        store: part-container
+#        icon:
+#          sprite: Objects/Weapons/Melee/flash.rsi
+#          state: flash
+#
+#      - component: Flash
+#        name: second flash
+#        store: part-container
+#        icon:
+#          sprite: Objects/Weapons/Melee/flash.rsi
+#          state: flash
+#
+#      - tool: Screwing
+#        doAfter: 0.5
 
-      - component: Flash
-        name: second flash
-        store: part-container
-        icon:
-          sprite: Objects/Weapons/Melee/flash.rsi
-          state: flash
+#    - to: mining
+#      steps:
+#      - assemblyId: mining
+#        guideString: borg-construction-guide-string
+#
+#      - material: Cable
+#        amount: 1
+#        doAfter: 1
+#        store: part-container
+#
+#      - component: Flash
+#        name: flash
+#        store: part-container
+#        icon:
+#          sprite: Objects/Weapons/Melee/flash.rsi
+#          state: flash
+#
+#      - component: Flash
+#        name: second flash
+#        store: part-container
+#        icon:
+#          sprite: Objects/Weapons/Melee/flash.rsi
+#          state: flash
+#
+#      - tool: Screwing
+#        doAfter: 0.5
 
-      - tool: Screwing
-        doAfter: 0.5
+#    - to: service
+#      steps:
+#      - assemblyId: service
+#        guideString: borg-construction-guide-string
+#
+#      - material: Cable
+#        amount: 1
+#        doAfter: 1
+#        store: part-container
+#
+#      - component: Flash
+#        name: flash
+#        store: part-container
+#        icon:
+#          sprite: Objects/Weapons/Melee/flash.rsi
+#          state: flash
+#
+#      - component: Flash
+#        name: second flash
+#        store: part-container
+#        icon:
+#          sprite: Objects/Weapons/Melee/flash.rsi
+#          state: flash
+#
+#      - tool: Screwing
+#        doAfter: 0.5
 
-    - to: janitor
-      steps:
-      - assemblyId: janitor
-        guideString: borg-construction-guide-string
-
-      - material: Cable
-        amount: 1
-        doAfter: 1
-        store: part-container
-
-      - component: Flash
-        name: flash
-        store: part-container
-        icon:
-          sprite: Objects/Weapons/Melee/flash.rsi
-          state: flash
-
-      - component: Flash
-        name: second flash
-        store: part-container
-        icon:
-          sprite: Objects/Weapons/Melee/flash.rsi
-          state: flash
-
-      - tool: Screwing
-        doAfter: 0.5
-
-    - to: medical
-      steps:
-      - assemblyId: medical
-        guideString: borg-construction-guide-string
-
-      - material: Cable
-        amount: 1
-        doAfter: 1
-        store: part-container
-
-      - component: Flash
-        name: flash
-        store: part-container
-        icon:
-          sprite: Objects/Weapons/Melee/flash.rsi
-          state: flash
-
-      - component: Flash
-        name: second flash
-        store: part-container
-        icon:
-          sprite: Objects/Weapons/Melee/flash.rsi
-          state: flash
-
-      - tool: Screwing
-        doAfter: 0.5
-
-    - to: mining
-      steps:
-      - assemblyId: mining
-        guideString: borg-construction-guide-string
-
-      - material: Cable
-        amount: 1
-        doAfter: 1
-        store: part-container
-
-      - component: Flash
-        name: flash
-        store: part-container
-        icon:
-          sprite: Objects/Weapons/Melee/flash.rsi
-          state: flash
-
-      - component: Flash
-        name: second flash
-        store: part-container
-        icon:
-          sprite: Objects/Weapons/Melee/flash.rsi
-          state: flash
-
-      - tool: Screwing
-        doAfter: 0.5
-
-    - to: service
-      steps:
-      - assemblyId: service
-        guideString: borg-construction-guide-string
-
-      - material: Cable
-        amount: 1
-        doAfter: 1
-        store: part-container
-
-      - component: Flash
-        name: flash
-        store: part-container
-        icon:
-          sprite: Objects/Weapons/Melee/flash.rsi
-          state: flash
-
-      - component: Flash
-        name: second flash
-        store: part-container
-        icon:
-          sprite: Objects/Weapons/Melee/flash.rsi
-          state: flash
-
-      - tool: Screwing
-        doAfter: 0.5
+#     WD edit end
 
   - node: cyborg
-    entity: BorgChassisGenericBare
+    entity: BorgChassisSelectable # WD edit
 
-  - node: engineer
-    entity: BorgChassisEngineerBare
-
-  - node: janitor
-    entity: BorgChassisJanitorBare
-
-  - node: mining
-    entity: BorgChassisMiningBare
-
-  - node: medical
-    entity: BorgChassisMedicalBare
-
-  - node: service
-    entity: BorgChassisServiceBare
+#  WD edit start
+#  - node: engineer
+#    entity: BorgChassisEngineerBare
+#
+#  - node: janitor
+#    entity: BorgChassisJanitorBare
+#
+#  - node: mining
+#    entity: BorgChassisMiningBare
+#
+#  - node: medical
+#    entity: BorgChassisMedicalBare
+#
+#  - node: service
+#    entity: BorgChassisServiceBare
+#  WD edit end
 
   - node: syndicateassault
     entity: BorgChassisSyndicateAssault

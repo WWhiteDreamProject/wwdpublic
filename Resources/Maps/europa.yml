@@ -66318,7 +66318,7 @@ entities:
     - type: Transform
       pos: 26.351555,35.751293
       parent: 1
-- proto: LightHeadBorg
+- proto: BaseLightHeadBorg # WD edit
   entities:
   - uid: 13290
     components:
@@ -81973,7 +81973,7 @@ entities:
     - type: Transform
       pos: -30.387997,-39.18662
       parent: 1
-- proto: TorsoBorg
+- proto: BaseBorgTorso # WD edit
   entities:
   - uid: 4579
     components:
