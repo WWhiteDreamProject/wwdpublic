@@ -94,3 +94,8 @@
     guides:
     - Chemicals
     - Chemist
+  - type: PointLight  ##WD EDIT start
+    color: "#9d4b0e"
+    energy: 1.4
+    radius: 3.25
+  - type: LitOnPowered ##WD EDIT  END

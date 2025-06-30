@@ -6,9 +6,13 @@
   description: An industrial grade chemical dispenser.
   components:
   - type: Sprite
-    sprite: Structures/dispensers.rsi
-    state: industrial-working
+    sprite: Structures/dispensers.rsi  ##WD EDIT START
     snapCardinals: true
+    layers:
+    - state: industrial-off
+    - state: industrial-display
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"] ##WD EDIT END
   - type: ReagentDispenser
     storageWhitelist:
       tags:
@@ -40,6 +44,18 @@
     - Chemist
   - type: StealTarget
     stealGroup: ChemDispenser
+  - type: Appearance ##WD EDIT START
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: PointLight
+    color: "#c7a71a"
+    energy: 1
+    radius: 1.6
+  - type: LitOnPowered ##WD EDIT END
 
 - type: entity
   id: ChemDispenserEmpty
