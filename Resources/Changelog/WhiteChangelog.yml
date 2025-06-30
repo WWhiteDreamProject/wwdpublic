@@ -3655,3 +3655,15 @@ Entries:
   id: 385
   time: '2025-06-30T05:40:51.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/628
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Ребаланс разброса дальнобойного оружия, теперь оно должно чувствоваться
+        более управляемым, при длинных очередях большинство пушек теряет
+        точность.
+    - type: Add
+      message: Пистолеты-пулемёты теперь можно брать в две руки.
+  id: 386
+  time: '2025-06-30T05:46:54.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/630
