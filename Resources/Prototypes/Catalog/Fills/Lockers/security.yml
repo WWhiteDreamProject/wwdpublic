@@ -244,9 +244,10 @@
       amount: 8
 
 - type: entity
-  parent: GunSafe
+  parent: [GunSafe, AlertLevelLock] # WWDP
   id: GunSafeRifleLecter
   name: lecter safe
+  suffix: Alert Level Lock # WWDP
   components:
   - type: StorageFill
     contents:
@@ -256,9 +257,10 @@
       amount: 4
 
 - type: entity
-  parent: GunSafe
+  parent: [GunSafe, AlertLevelLock] # WWDP
   id: GunSafeSubMachineGunDrozd
   name: drozd safe
+  suffix: Alert Level Lock # WWDP
   components:
   - type: StorageFill
     contents:
@@ -268,9 +270,10 @@
       amount: 4
 
 - type: entity
-  parent: GunSafe
+  parent: [GunSafe, AlertLevelLock] # WWDP
   id: GunSafeShotgunEnforcer
   name: enforcer safe
+  suffix: Alert Level Lock # WWDP
   components:
   - type: StorageFill
     contents:
@@ -280,9 +283,10 @@
       amount: 4
 
 - type: entity
-  parent: GunSafe
+  parent: [GunSafe, AlertLevelLock] # WWDP
   id: GunSafeShotgunKammerer
   name: kammerer safe
+  suffix: Alert Level Lock # WWDP
   components:
   - type: StorageFill
     contents:
@@ -293,9 +297,9 @@
 
 - type: entity
   id: GunSafeSubMachineGunWt550
-  suffix: Wt550
-  parent: GunSafe
+  parent: [GunSafe, AlertLevelLock] # WWDP
   name: wt550 safe
+  suffix: Alert Level Lock # WWDP
   components:
   - type: StorageFill
     contents:
@@ -305,9 +309,10 @@
       amount: 4
 
 - type: entity
-  parent: GunSafe
+  parent: [GunSafe, AlertLevelLock] # WWDP
   id: GunSafeLaserCarbine
   name: laser safe
+  suffix: Alert Level Lock # WWDP
   components:
   - type: StorageFill
     contents:
@@ -316,8 +321,8 @@
 
 - type: entity
   id: GunSafeRifleBRDIR25
-  suffix: BRDI-R25
-  parent: GunSafe
+  suffix: Alert Level Lock # WWDP
+  parent: [GunSafe, AlertLevelLock] # WWDP
   name: BRDI-R25 safe
   components:
   - type: StorageFill
