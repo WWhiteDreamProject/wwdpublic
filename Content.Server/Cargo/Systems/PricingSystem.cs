@@ -16,6 +16,8 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Server._White.stocks;
+using Content.Server.DeltaV.Cargo.Components;
 using Content.Shared.Research.Prototypes;
 
 namespace Content.Server.Cargo.Systems;
@@ -31,6 +33,7 @@ public sealed class PricingSystem : EntitySystem
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -243,6 +246,9 @@ public sealed class PricingSystem : EntitySystem
             price += GetStaticPrice(uid);
         }
 
+        // WWDP stock price as a multiplier
+        price *= GetStocksPrice(uid);
+
         if (includeContents && TryComp<ContainerManagerComponent>(uid, out var containers))
         {
             foreach (var container in containers.Containers.Values)
@@ -348,6 +354,30 @@ public sealed class PricingSystem : EntitySystem
         }
 
         return price;
+    }
+
+    private double GetStocksPrice(EntityUid uid)
+    {
+        var price = 1f;
+
+        if (!TryComp<StocksPriceComponent>(uid, out var stockPriceComponent))
+            return price;
+
+        // Just in case there are multiple stations
+        var stationMarketQuery = _entityManager.AllEntities<StationStockMarketComponent>();
+
+        if (stationMarketQuery.Length > 0)
+        {
+            foreach (var stationMarket in stationMarketQuery)
+            {
+                foreach (var stock in stationMarket.Comp.Companies)
+                    if (stock.DisplayName == stockPriceComponent.Stock
+                        && stock.CurrentPrice > price)
+                        price = stock.CurrentPrice;
+            }
+        }
+
+        return price * stockPriceComponent.Multiplier;
     }
 
     private double GetStaticPrice(EntityUid uid)

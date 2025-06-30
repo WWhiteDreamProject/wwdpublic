@@ -1,0 +1,5 @@
+﻿- type: stack
+  id: NTCoin
+  name: NTCoin
+  icon: _White/Objects/Misc/coins.rsi
+  spawn: NTCoin

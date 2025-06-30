@@ -77,6 +77,7 @@
   - SolarControlComputerCircuitboard
   - SolarTrackerElectronics
   - EmitterCircuitboard
+  - NTCoinMinerCircuitboard # WWDP
 
 - type: technology
   id: AtmosphericTech
