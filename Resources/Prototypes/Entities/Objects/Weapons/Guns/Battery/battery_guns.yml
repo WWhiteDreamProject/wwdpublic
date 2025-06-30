@@ -186,10 +186,9 @@
     tags:
     - Sidearm
   - type: Gun
-    bonusAngleIncreaseMove: 20    # wwdp
-    bonusAngleIncreaseTurn: 0.4   # wwdp
-    bonusAngleDecay: 80           # wwdp
-    maxBonusAngle: 10             # wwdp
+    bonusAngleIncreaseTurn: 0.2   # wwdp
+    bonusAngleDecay: 50           # wwdp
+    maxBonusAngle: 15             # wwdp
   - type: Temperature # wwdp
     atmosTemperatureTransferEfficiency: 0.2 # default 0.1
   - type: Clothing
@@ -780,7 +779,7 @@
 
 - type: entity
   name: disabler SMG
-  parent: [BaseWeaponBattery, BaseWeaponOverheatLamp] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseWeaponOverheatLamp, BaseGunWieldable] # wwdp edit - overheat + wieldable
   id: WeaponDisablerSMG
   description: Advanced weapon that exhausts organic targets, weakening them until they collapse.
   components:
@@ -803,10 +802,13 @@
   - type: GunOverheat # wwdp
     heatCost: 20
   - type: Gun
-    bonusAngleIncreaseMove: 20    # wwdp
-    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleIncreaseTurn: 0.3   # wwdp
     bonusAngleDecay: 50           # wwdp
     maxBonusAngle: 10             # wwdp
+    minAngle: 13 # WWDP
+    maxAngle: 30 # WWDP
+    angleIncrease: 4 # WWDP
+    angleDecay: 6 # WWDP
     selectedMode: FullAuto
     fireRate: 4
     availableModes:
@@ -814,6 +816,9 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: GunWieldBonus # WWDP
+    minAngle: -10
+    maxAngle: -10
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
     fireCost: 33
