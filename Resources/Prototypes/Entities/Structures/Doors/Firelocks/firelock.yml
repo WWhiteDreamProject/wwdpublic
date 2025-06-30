@@ -5,6 +5,7 @@
   name: firelock
   description: Apply crowbar.
   components:
+    - type: PryUnpowered # WWDP edit
     - type: AtmosAlarmable
       syncWith:
         - FireAlarm
