@@ -5,7 +5,6 @@ tilemap:
   0: Space
   4: FloorArcadeBlue2
   17: FloorAstroGrass
-  27: FloorSteelBlue
   29: FloorBoxing
   32: FloorBrokenWood
   1: FloorCarpetClown
@@ -22,6 +21,7 @@ tilemap:
   75: FloorHydro
   78: FloorKitchen
   79: FloorLaundry
+  222: FloorMaintWhite
   137: FloorMetalDiamondSteel
   160: FloorMiningDark
   161: FloorMiningLight
@@ -31,13 +31,13 @@ tilemap:
   191: FloorShuttleOrange
   193: FloorShuttleRed
   199: FloorSteel
+  27: FloorSteelBlue
   208: FloorSteelGreen
   216: FloorSteelRed
   219: FloorSterile
   220: FloorSterileDark
-  221: FloorTechMaintSteel
-  222: FloorMaintWhite
   223: FloorTechMaint3
+  221: FloorTechMaintSteel
   225: FloorWebTile
   235: FloorWhitePlastic
   236: FloorWood
@@ -866,7 +866,7 @@ entities:
           version: 6
         0,15:
           ind: 0,15
-          tiles: HQEAAAAAJQEAAAAAAAAAAAAAAAAAAAAA9QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9QAAAAAAAAAAAAAAHAEAAAAAHAEAAAAAJQEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHQEAAAAAJQEAAAAAAAAAAAAA9QAAAAAA9QAAAAAA9QAAAAAA9QAAAAAA9QAAAAAA9QAAAAAA9QAAAAAAHAEAAAAAHAEAAAAAJQEAAAAAHAEAAAAA3AAAAAAA2wAAAAACHQEAAAAAJQEAAAAAAAAAAAAA9QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9QAAAAAAAAAAAAAAHAEAAAAA9QAAAAAAHAEAAAAAJQEAAAAAHAEAAAAA3AAAAAAD2wAAAAAAHQEAAAAAJQEAAAAA9QAAAAAAHAEAAAAAHAEAAAAAHAEAAAAA9QAAAAAA9QAAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAHAEAAAAA3AAAAAAB2wAAAAADHQEAAAAAJQEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAHAEAAAAAHAEAAAAA3AAAAAABHQEAAAAAJQEAAAAAvwAAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAvwAAAAAAHAEAAAAAHAEAAAAAHQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAHQEAAAAAJQEAAAAAvwAAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAvwAAAAAAHAEAAAAAHAEAAAAAHQEAAAAAJQEAAAAAvwAAAAAAHAEAAAAAHQEAAAAAHQEAAAAAHQEAAAAAHAEAAAAAHQEAAAAAHQEAAAAAHQEAAAAAHAEAAAAAJQEAAAAAvwAAAAAAHAEAAAAA3QAAAAAAHQEAAAAAJQEAAAAAvwAAAAAAHAEAAAAAHQEAAAAAHQEAAAAAHQEAAAAAHAEAAAAAHQEAAAAAHQEAAAAAHQEAAAAAHAEAAAAAJQEAAAAAvwAAAAAAHAEAAAAA3QAAAAAAHQEAAAAAJQEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHQEAAAAAJQEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAHAEAAAAA3QAAAAAAHAEAAAAAHQEAAAAAJQEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAHAEAAAAA3QAAAAAA3QAAAAAAHQEAAAAAJQEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAHAEAAAAA3QAAAAAA3QAAAAAAHQEAAAAAJQEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAIwEAAAAAHAEAAAAA3QAAAAAAHQEAAAAAJQEAAAAAvwAAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAvwAAAAAAJQEAAAAAvwAAAAAAHAEAAAAAHAEAAAAA
+          tiles: HQEAAAAAJQEAAAAA9QAAAAAAAAAAAAAA9QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9QAAAAAAAAAAAAAAHAEAAAAAHAEAAAAAJQEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHQEAAAAAJQEAAAAA9QAAAAAA9QAAAAAA9QAAAAAA9QAAAAAA9QAAAAAA9QAAAAAA9QAAAAAA9QAAAAAAHAEAAAAAHAEAAAAAJQEAAAAAHAEAAAAA3AAAAAAA2wAAAAACHQEAAAAAJQEAAAAAAAAAAAAA9QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9QAAAAAAAAAAAAAAHAEAAAAA9QAAAAAAHAEAAAAAJQEAAAAAHAEAAAAA3AAAAAAD2wAAAAAAHQEAAAAAJQEAAAAA9QAAAAAAHAEAAAAAHAEAAAAAHAEAAAAA9QAAAAAA9QAAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAHAEAAAAA3AAAAAAB2wAAAAADHQEAAAAAJQEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAHAEAAAAAHAEAAAAA3AAAAAABHQEAAAAAJQEAAAAAvwAAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAvwAAAAAAHAEAAAAAHAEAAAAAHQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAJQEAAAAAHQEAAAAAJQEAAAAAvwAAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAvwAAAAAAHAEAAAAAHAEAAAAAHQEAAAAAJQEAAAAAvwAAAAAAHAEAAAAAHQEAAAAAHQEAAAAAHQEAAAAAHAEAAAAAHQEAAAAAHQEAAAAAHQEAAAAAHAEAAAAAJQEAAAAAvwAAAAAAHAEAAAAA3QAAAAAAHQEAAAAAJQEAAAAAvwAAAAAAHAEAAAAAHQEAAAAAHQEAAAAAHQEAAAAAHAEAAAAAHQEAAAAAHQEAAAAAHQEAAAAAHAEAAAAAJQEAAAAAvwAAAAAAHAEAAAAA3QAAAAAAHQEAAAAAJQEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHQEAAAAAJQEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAHAEAAAAA3QAAAAAAHAEAAAAAHQEAAAAAJQEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAHAEAAAAA3QAAAAAA3QAAAAAAHQEAAAAAJQEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAHAEAAAAA3QAAAAAA3QAAAAAAHQEAAAAAJQEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAJQEAAAAAIwEAAAAAHAEAAAAA3QAAAAAAHQEAAAAAJQEAAAAAvwAAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAHAEAAAAAvwAAAAAAJQEAAAAAvwAAAAAAHAEAAAAAHAEAAAAA
           version: 6
         0,16:
           ind: 0,16
@@ -2648,12 +2648,7 @@ entities:
             797: 11,315
             798: 12,315
             799: 12,315
-            800: 12,313
-            801: 13,313
-            802: 12,313
             803: 11,312
-            804: 12,312
-            805: 12,314
             806: 20,311
             807: 19,311
             808: 18,310
@@ -3297,31 +3292,26 @@ entities:
             id: TrimSteelCornerNe
           decals:
             306: 34,199
-            918: 13,314
         - node:
             color: '#FFFFFFFF'
             id: TrimSteelCornerNw
           decals:
             305: 31,199
-            915: 12,314
         - node:
             color: '#FFFFFFFF'
             id: TrimSteelCornerSe
           decals:
             307: 34,197
-            916: 13,312
         - node:
             color: '#FFFFFFFF'
             id: TrimSteelCornerSw
           decals:
             308: 31,197
-            917: 12,312
         - node:
             color: '#FFFFFFFF'
             id: TrimSteelLineE
           decals:
             312: 34,198
-            919: 13,313
         - node:
             color: '#FFFFFFFF'
             id: TrimSteelLineN
@@ -3339,12 +3329,16 @@ entities:
             id: TrimSteelLineW
           decals:
             311: 31,198
-            920: 12,313
         - node:
             color: '#3AB3DAFF'
             id: TrimWhiteCornerNe
           decals:
             1076: 11,354
+        - node:
+            color: '#AFAFAFFF'
+            id: TrimWhiteCornerNe
+          decals:
+            1451: 13,314
         - node:
             color: '#D381C996'
             id: TrimWhiteCornerNe
@@ -3361,6 +3355,11 @@ entities:
           decals:
             1071: 9,354
         - node:
+            color: '#AFAFAFFF'
+            id: TrimWhiteCornerNw
+          decals:
+            1450: 12,314
+        - node:
             color: '#D381C996'
             id: TrimWhiteCornerNw
           decals:
@@ -3370,6 +3369,11 @@ entities:
             id: TrimWhiteCornerNw
           decals:
             1156: 25,369
+        - node:
+            color: '#AFAFAFFF'
+            id: TrimWhiteCornerSe
+          decals:
+            1452: 13,312
         - node:
             color: '#D381C996'
             id: TrimWhiteCornerSe
@@ -3385,6 +3389,11 @@ entities:
             id: TrimWhiteCornerSe
           decals:
             1157: 29,367
+        - node:
+            color: '#AFAFAFFF'
+            id: TrimWhiteCornerSw
+          decals:
+            1449: 12,312
         - node:
             color: '#B02E26FF'
             id: TrimWhiteCornerSw
@@ -3441,6 +3450,11 @@ entities:
           decals:
             1084: 10,352
         - node:
+            color: '#AFAFAFFF'
+            id: TrimWhiteLineE
+          decals:
+            1454: 13,313
+        - node:
             color: '#C74EBDFF'
             id: TrimWhiteLineE
           decals:
@@ -3474,6 +3488,11 @@ entities:
             1162: 28,367
             1163: 27,367
             1164: 26,367
+        - node:
+            color: '#AFAFAFFF'
+            id: TrimWhiteLineW
+          decals:
+            1453: 12,313
         - node:
             color: '#FED83DFF'
             id: TrimWhiteLineW
@@ -3558,6 +3577,18 @@ entities:
           decals:
             954: 14,234
             955: 12,235
+        - node:
+            color: '#B9B9B9FF'
+            id: WindowFrameWhiteEndN
+          decals:
+            1441: 14,235
+            1442: 12,236
+        - node:
+            color: '#B9B9B9FF'
+            id: WindowFrameWhiteEndS
+          decals:
+            1439: 12,235
+            1440: 14,234
         - node:
             color: '#EBEBEBFF'
             id: WoodTrimThinCornerNe
@@ -4507,12 +4538,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 25.5,91.5
       parent: 1
-  - uid: 868
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 11.5,100.5
-      parent: 1
   - uid: 902
     components:
     - type: Transform
@@ -4780,6 +4805,108 @@ entities:
     components:
     - type: Transform
       pos: 25.5,167.5
+      parent: 1
+- proto: AtmosFixBlockerMarker
+  entities:
+  - uid: 423
+    components:
+    - type: Transform
+      pos: 3.5,243.5
+      parent: 1
+  - uid: 588
+    components:
+    - type: Transform
+      pos: 4.5,243.5
+      parent: 1
+  - uid: 868
+    components:
+    - type: Transform
+      pos: 4.5,244.5
+      parent: 1
+  - uid: 8966
+    components:
+    - type: Transform
+      pos: 10.5,241.5
+      parent: 1
+  - uid: 8967
+    components:
+    - type: Transform
+      pos: 10.5,240.5
+      parent: 1
+  - uid: 8968
+    components:
+    - type: Transform
+      pos: 8.5,243.5
+      parent: 1
+  - uid: 8969
+    components:
+    - type: Transform
+      pos: 8.5,244.5
+      parent: 1
+  - uid: 8970
+    components:
+    - type: Transform
+      pos: 9.5,243.5
+      parent: 1
+  - uid: 8971
+    components:
+    - type: Transform
+      pos: 9.5,244.5
+      parent: 1
+  - uid: 8972
+    components:
+    - type: Transform
+      pos: 10.5,243.5
+      parent: 1
+  - uid: 8973
+    components:
+    - type: Transform
+      pos: 10.5,244.5
+      parent: 1
+  - uid: 8974
+    components:
+    - type: Transform
+      pos: 14.5,211.5
+      parent: 1
+  - uid: 8975
+    components:
+    - type: Transform
+      pos: 13.5,211.5
+      parent: 1
+  - uid: 8976
+    components:
+    - type: Transform
+      pos: 12.5,213.5
+      parent: 1
+  - uid: 8977
+    components:
+    - type: Transform
+      pos: 15.5,213.5
+      parent: 1
+  - uid: 8978
+    components:
+    - type: Transform
+      pos: 16.5,213.5
+      parent: 1
+  - uid: 8979
+    components:
+    - type: Transform
+      pos: 17.5,213.5
+      parent: 1
+  - uid: 8980
+    components:
+    - type: Transform
+      pos: 17.5,214.5
+      parent: 1
+  - uid: 8981
+    components:
+    - type: Transform
+      pos: 16.5,214.5
+      parent: 1
+  - uid: 8982
+    components:
+    - type: Transform
+      pos: 16.5,215.5
       parent: 1
 - proto: AtmosFixFreezerMarker
   entities:
@@ -22767,11 +22894,6 @@ entities:
       parent: 1
 - proto: ComputerBroken
   entities:
-  - uid: 588
-    components:
-    - type: Transform
-      pos: 3.5,244.5
-      parent: 1
   - uid: 639
     components:
     - type: Transform
@@ -48125,12 +48247,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 71.5,87.5
-      parent: 1
-  - uid: 423
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 75.5,92.5
       parent: 1
   - uid: 429
     components:
