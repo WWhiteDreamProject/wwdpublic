@@ -1,0 +1,12 @@
+﻿- type: construction
+  name: chemistry mine
+  id: ChemMineRecipe
+  graph: ChemMineGraph
+  startNode: start
+  targetNode: mine
+  category: construction-category-weapons
+  description: Construct a special landmine.
+  icon:
+    sprite: _White/Objects/Misc/vietcong_mine.rsi
+    state: landmine
+  objectType: Item
