@@ -3667,3 +3667,10 @@ Entries:
   id: 386
   time: '2025-06-30T05:46:54.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/630
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Руды теперь переплавляются в ресурсы в соотношении 1 к 1, а не 1 к 5.
+  id: 387
+  time: '2025-06-30T05:50:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/632
