@@ -16,4 +16,9 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     /// </summary>
     [DataField("sensorTimeout"), ViewVariables(VVAccess.ReadWrite)]
     public float SensorTimeout = 10f;
+
+    // WWDP EDIT START
+    [DataField("SoundNotification"), ViewVariables(VVAccess.ReadWrite)]
+    public bool SoundNotification = false;
+    // WWDP EDIT END
 }

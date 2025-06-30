@@ -2,10 +2,16 @@ using System.Linq;
 using Content.Server.DeviceNetwork;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.PowerCell;
+using Content.Shared.Item;
 using Content.Shared.Medical.CrewMonitoring;
 using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Pinpointer;
+using Content.Shared.Popups;
+using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 
 namespace Content.Server.Medical.CrewMonitoring;
 
@@ -13,6 +19,8 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 {
     [Dependency] private readonly PowerCellSystem _cell = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!; // WWDP EDIT
+    [Dependency] private readonly SharedPopupSystem _popup = default!; // WWDP EDIT
 
     public override void Initialize()
     {
@@ -20,6 +28,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, BoundUIOpenedEvent>(OnUIOpened);
+        SubscribeLocalEvent<CrewMonitoringConsoleComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs); // WWDP EDIT
     }
 
     private void OnRemove(EntityUid uid, CrewMonitoringConsoleComponent component, ComponentRemove args)
@@ -43,7 +52,62 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
         component.ConnectedSensors = sensorStatus;
         UpdateUserInterface(uid, component);
+        SendNotification(uid, component); // WWDP EDIT
     }
+
+    // WWDP EDIT START
+    private void SendNotification(EntityUid uid, CrewMonitoringConsoleComponent component)
+    {
+        foreach (var sensor in component.ConnectedSensors.Values)
+        {
+            if (!_cell.TryGetBatteryFromSlot(uid, out var battery))
+                return;
+
+            if (battery.CurrentCharge < 20.0f)
+                return;
+
+            var index = sensor.DamagePercentage;
+
+            if (index >= 0.8f && component.SoundNotification && sensor.IsAlive)
+            {
+                _audio.PlayEntity(
+                    "/Audio/Items/beep.ogg",
+                    Filter.Pvs(uid),
+                    uid,
+                    false,
+                    AudioParams.Default.WithMaxDistance(1));
+                break;
+            }
+        }
+
+    }
+
+    private void OnGetVerbs(EntityUid uid, CrewMonitoringConsoleComponent comp, GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract)
+            return;
+
+        if (!TryComp<ItemComponent>(uid, out var itemComponent))
+            return;
+
+        args.Verbs.Add(new ()
+        {
+            Text = Loc.GetString("crew-portable-monitoring-notification"),
+            Priority = -3,
+            Act = () =>
+            {
+                comp.SoundNotification = !comp.SoundNotification;
+
+                _popup.PopupEntity(
+                    comp.SoundNotification
+                        ? Loc.GetString("crew-portable-monitoring-notification-on")
+                        : Loc.GetString("crew-portable-monitoring-notification-off"),
+                    uid,
+                    args.User);
+            }
+        });
+    }
+    // WWDP EDIT END
 
     private void OnUIOpened(EntityUid uid, CrewMonitoringConsoleComponent component, BoundUIOpenedEvent args)
     {
