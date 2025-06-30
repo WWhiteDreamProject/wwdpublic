@@ -3646,3 +3646,31 @@ Entries:
   id: 384
   time: '2025-06-28T08:33:45.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/641
+- author: vanx
+  changes:
+    - type: Add
+      message: >-
+        Меню крафта теперь поддерживает поиск по локализованным названиям и
+        сортирует рецепты по алфавиту.
+  id: 385
+  time: '2025-06-30T05:40:51.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/628
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Ребаланс разброса дальнобойного оружия, теперь оно должно чувствоваться
+        более управляемым, при длинных очередях большинство пушек теряет
+        точность.
+    - type: Add
+      message: Пистолеты-пулемёты теперь можно брать в две руки.
+  id: 386
+  time: '2025-06-30T05:46:54.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/630
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Руды теперь переплавляются в ресурсы в соотношении 1 к 1, а не 1 к 5.
+  id: 387
+  time: '2025-06-30T05:50:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/632
