@@ -24,6 +24,7 @@
         enum.ToggleVisuals.Layer:
           True: {state: icon-on}
           False: {state: icon}
+  - type: Headphones
   - type: ItemToggle
     predictable: false
     soundActivate:

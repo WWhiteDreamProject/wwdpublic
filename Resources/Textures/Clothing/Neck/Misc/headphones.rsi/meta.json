@@ -6,7 +6,11 @@
     "x": 32,
     "y": 32
   },
-  "states": [
+    "states": [
+    {
+      "name": "off-equipped-NECK",
+      "directions": 4
+    },
     {
       "name": "on-equipped-NECK",
       "directions": 4,
@@ -50,15 +54,19 @@
       ]
     },
     {
-      "name": "off-equipped-NECK",
+      "name": "on-inhand-right",
       "directions": 4
     },
     {
-      "name": "inhand-right",
+      "name": "on-inhand-left",
       "directions": 4
     },
     {
-      "name": "inhand-left",
+      "name": "off-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "off-inhand-left",
       "directions": 4
     },
     {
