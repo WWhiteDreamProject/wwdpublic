@@ -53,10 +53,9 @@ public sealed class EmagSystem : EntitySystem
             return false;
 
         // WWDP EDIT START
-        // prevent emagging twice
         if (HasComp<EmaggedComponent>(target))
         {
-            _popup.PopupClient(Loc.GetString("emag-already-emagged"), user, user);
+            _popup.PopupClient(Loc.GetString("emag-already-emagged"), user, user); // YES
             return false;
         }
         // WWDP EDIT END
@@ -97,6 +96,10 @@ public sealed class EmagSystem : EntitySystem
     /// </summary>
     public bool DoEmagEffect(EntityUid user, EntityUid target)
     {
+        // prevent emagging twice
+        if (HasComp<EmaggedComponent>(target))
+            return false;
+
         var onAttemptEmagEvent = new OnAttemptEmagEvent(user);
         RaiseLocalEvent(target, ref onAttemptEmagEvent);
 
