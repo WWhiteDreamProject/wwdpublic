@@ -3674,3 +3674,10 @@ Entries:
   id: 387
   time: '2025-06-30T05:50:26.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/632
+- author: tripsov
+  changes:
+    - type: Fix
+      message: Исправлено имя исполнителя Space Oddity
+  id: 388
+  time: '2025-06-30T23:47:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/654
