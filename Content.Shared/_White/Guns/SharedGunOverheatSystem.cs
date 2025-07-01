@@ -1,14 +1,17 @@
-using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
+using MathNet.Numerics.Distributions;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Robust.Shared.Replays;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared._White.Guns;
 
@@ -18,11 +21,11 @@ namespace Content.Shared._White.Guns;
 /// </summary>
 public abstract class SharedGunOverheatSystem : EntitySystem
 {
-    [Dependency] protected readonly ItemSlotsSystem Slots = default!;
-    [Dependency] protected readonly IRobustRandom Rng = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected readonly ItemSlotsSystem _slots = default!;
+    [Dependency] protected readonly IRobustRandom _rng = default!;
+    [Dependency] protected readonly SharedAudioSystem _audio = default!;
+    [Dependency] protected readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] protected readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -35,70 +38,75 @@ public abstract class SharedGunOverheatSystem : EntitySystem
         SubscribeLocalEvent<RegulatorLampComponent, ExaminedEvent>(OnLampExamined);
     }
 
-    private void OnAttemptShoot(Entity<GunOverheatComponent> gun, ref AttemptShootEvent args)
+    private void OnAttemptShoot(EntityUid uid, GunOverheatComponent comp, ref AttemptShootEvent args)
     {
         if (args.Cancelled)
             return;
 
-        if (gun.Comp.CurrentTemperature >= gun.Comp.TemperatureLimit && gun.Comp.SafetyEnabled)
+        if (GetCurrentTemperature(comp) >= comp.TemperatureLimit && comp.SafetyEnabled)
         {
             args.Cancelled = true;
             args.Message = Loc.GetString("gun-regulator-temperature-limit-exceeded-popup");
             return;
         }
 
-        if (!gun.Comp.RequiresLamp)
+        if (!comp.RequiresLamp)
             return;
 
-        if (!GetLamp(gun, out var lamp))
+        if (!GetLamp(uid, comp, out var lamp))
         {
             args.Cancelled = true;
             args.Message = Loc.GetString("gun-regulator-lamp-missing-popup");
             return;
         }
 
-        if (!lamp.Value.Comp.Intact)
+        if (!lamp.Intact)
         {
             args.Cancelled = true;
             args.Message = Loc.GetString("gun-regulator-lamp-broken-popup");
         }
     }
 
-    protected virtual void OnGunShot(Entity<GunOverheatComponent> gun, ref GunShotEvent args)
+    protected virtual void OnGunShot(EntityUid uid, GunOverheatComponent comp, ref GunShotEvent args)
     {
-        if (Timing.IsFirstTimePredicted)
-            gun.Comp.CurrentTemperature += gun.Comp.HeatCost;
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        UpdateTemp(comp);
+        comp.VentingStage = 0;
+        comp.LastFire = _timing.CurTime;
+        comp.CurrentTemperature += comp.HeatCost;
     }
 
-    private void OnGunExamined(Entity<GunOverheatComponent> gun, ref ExaminedEvent args)
+    private void OnGunExamined(EntityUid uid, GunOverheatComponent comp, ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
             return;
 
         args.PushMarkup(
             Loc.GetString(
-                $"gun-regulator-examine-safety{(gun.Comp.CanChangeSafety ? "-toggleable" : "")}",
-                ("enabled", gun.Comp.SafetyEnabled), ("limit", MathF.Round(gun.Comp.TemperatureLimit - 273.15f))));
-        if (!gun.Comp.RequiresLamp)
+                $"gun-regulator-examine-safety{(comp.CanChangeSafety ? "-toggleable" : "")}",
+                ("enabled", comp.SafetyEnabled), ("limit", MathF.Round(comp.TemperatureLimit - 273.15f))));
+        if (!comp.RequiresLamp)
             return;
 
         var lampStatus = 0; // missing
-        if (GetLamp(gun, out var lamp))
-            lampStatus = lamp.Value.Comp.Intact ? 2 : 1; // present : broken
+        if (GetLamp(uid, comp, out var lamp))
+            lampStatus = lamp.Intact ? 2 : 1; // present : broken
         args.PushMarkup(Loc.GetString("gun-regulator-examine-lamp", ("lampstatus", lampStatus)));
     }
 
-    private void OnAltVerbs(Entity<GunOverheatComponent> gun, ref GetVerbsEvent<AlternativeVerb> args)
+    private void OnAltVerbs(EntityUid uid, GunOverheatComponent comp, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!args.CanInteract || !args.CanComplexInteract || !args.CanAccess || !gun.Comp.CanChangeSafety)
+        if (!args.CanInteract || !args.CanComplexInteract || !args.CanAccess || !comp.CanChangeSafety)
             return;
         var player = args.User;
 
-        AddVerb(-1, "fireselector-100up-verb", ref args, () => AdjustSafety(gun.Comp, 100, player));
-        AddVerb(-2, "fireselector-10up-verb", ref args, () => AdjustSafety(gun.Comp, 10, player));
-        AddVerb(-3, "fireselector-toggle-verb", ref args, () => ToggleSafety(gun.Comp, player));
-        AddVerb(-4, "fireselector-10down-verb", ref args, () => AdjustSafety(gun.Comp, -10, player));
-        AddVerb(-5, "fireselector-100down-verb", ref args, () => AdjustSafety(gun.Comp, -100, player));
+        AddVerb(-1, "fireselector-100up-verb", ref args, () => AdjustSafety(comp, 100, player));
+        AddVerb(-2, "fireselector-10up-verb", ref args, () => AdjustSafety(comp, 10, player));
+        AddVerb(-3, "fireselector-toggle-verb", ref args, () => ToggleSafety(comp, player));
+        AddVerb(-4, "fireselector-10down-verb", ref args, () => AdjustSafety(comp, -10, player));
+        AddVerb(-5, "fireselector-100down-verb", ref args, () => AdjustSafety(comp, -100, player));
         return;
 
         void AddVerb(int priority, string text, ref GetVerbsEvent<AlternativeVerb> args, Action act) =>
@@ -115,39 +123,39 @@ public abstract class SharedGunOverheatSystem : EntitySystem
 
         void AdjustSafety(GunOverheatComponent heat, float T, EntityUid user)
         {
-            if (!Timing.IsFirstTimePredicted)
+            if (!_timing.IsFirstTimePredicted)
                 return;
-            Audio.PlayPredicted(T >= 0 ? heat.clickUpSound : heat.clickDownSound, gun, user);
+            _audio.PlayPredicted(T >= 0 ? heat.clickUpSound : heat.clickDownSound, heat.Owner, user);
             AdjustTemperatureLimit(heat, T);
         }
 
         void ToggleSafety(GunOverheatComponent heat, EntityUid user)
         {
-            if (!Timing.IsFirstTimePredicted)
+            if (!_timing.IsFirstTimePredicted)
                 return;
-            Audio.PlayPredicted(heat.clickSound, gun, user);
+            _audio.PlayPredicted(heat.clickSound, heat.Owner, user);
             heat.SafetyEnabled = !heat.SafetyEnabled;
         }
     }
 
-    private void OnBreak(Entity<RegulatorLampComponent> lamp, ref BreakageEventArgs args)
+    private void OnBreak(EntityUid uid, RegulatorLampComponent comp, BreakageEventArgs args)
     {
-        Appearance.SetData(lamp, RegulatorLampGlass.Intact, false);
-        lamp.Comp.Intact = false;
-        Dirty(lamp);
+        _appearance.SetData(uid, RegulatorLampGlass.Intact, false);
+        comp.Intact = false;
+        Dirty(uid, comp);
     }
 
-    private void OnLampExamined(Entity<RegulatorLampComponent> lamp, ref ExaminedEvent args)
+    private void OnLampExamined(EntityUid uid, RegulatorLampComponent comp, ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
             return;
 
-        args.PushMarkup(Loc.GetString("gun-regulator-lamp-examine-intact", ("intact", lamp.Comp.Intact)));
+        args.PushMarkup(Loc.GetString("gun-regulator-lamp-examine-intact", ("intact", comp.Intact)));
         args.PushMarkup(
             Loc.GetString(
                 "gun-regulator-lamp-examine-temperature-range",
-                ("safetemp", MathF.Round(lamp.Comp.SafeTemperature - 273.15f)),
-                ("unsafetemp", MathF.Round(lamp.Comp.UnsafeTemperature - 273.15f))));
+                ("safetemp", MathF.Round(comp.SafeTemperature - 273.15f)),
+                ("unsafetemp", MathF.Round(comp.UnsafeTemperature - 273.15f))));
     }
 
     public void AdjustTemperatureLimit(GunOverheatComponent comp, float tempChange)
@@ -161,30 +169,46 @@ public abstract class SharedGunOverheatSystem : EntitySystem
     /// Returns false if called on something without GunTemperatureRegulatorComponent.
     /// Otherwise returns true.
     /// </summary>
-    public bool GetLamp(Entity<GunOverheatComponent> gun, [NotNullWhen(true)] out Entity<RegulatorLampComponent>? lamp)
+    public bool GetLamp(EntityUid uid, GunOverheatComponent comp, [NotNullWhen(true)] out RegulatorLampComponent? lamp)
     {
         lamp = null;
-        if (!TryComp<ItemSlotsComponent>(gun, out var slotComp) ||
-            !Slots.TryGetSlot(gun, gun.Comp.LampSlot, out var slot, slotComp) ||
-            !TryComp(slot.Item, out RegulatorLampComponent? comp))
+        if (!TryComp<ItemSlotsComponent>(uid, out var slotComp) ||
+            !_slots.TryGetSlot(uid, comp.LampSlot, out var slot, slotComp) ||
+            !TryComp(slot.Item, out lamp))
             return false;
 
-        lamp = (slot.Item.Value, comp);
         return true;
     }
 
-    protected void BurnoutLamp(Entity<RegulatorLampComponent> lamp, EntityUid? shooter = null)
+    protected void BurnoutLamp(RegulatorLampComponent lamp, EntityUid? shooter = null)
     {
-        Audio.PlayEntity(lamp.Comp.BreakSound, Filter.Pvs(lamp), lamp, true);
-        Appearance.SetData(lamp, RegulatorLampFilament.Intact, false);
-        lamp.Comp.Intact = false;
-        Dirty(lamp);
+        var uid = lamp.Owner;
+        _audio.PlayEntity(lamp.BreakSound, Filter.Pvs(uid), uid, true);
+        _appearance.SetData(uid, RegulatorLampFilament.Intact, false);
+        lamp.Intact = false;
+        Dirty(uid, lamp);
     }
 
     public float GetLampBreakChance(float temp, RegulatorLampComponent comp, float multiplier = 1)
     {
         return MathHelper.Clamp01(
             (temp - comp.SafeTemperature) / (comp.UnsafeTemperature - comp.SafeTemperature) * multiplier);
+    }
+
+    public float GetCurrentTemperature(GunOverheatComponent comp)
+    {
+        var time = (float)(_timing.CurTime - comp.LastTempUpdate).TotalSeconds;
+        var timeSinceShot = (float)(_timing.CurTime - comp.LastFire).TotalSeconds;
+        var ventTime = comp.TimeToStartVenting;
+        if (timeSinceShot < ventTime)
+            return MathF.Max(0, comp.CurrentTemperature - time * comp.CoolingSpeed);
+        return MathF.Max(0, comp.CurrentTemperature - ventTime * comp.CoolingSpeed - (time - ventTime) * comp.VentingSpeed);
+    }
+
+    protected void UpdateTemp(GunOverheatComponent comp)
+    {
+        comp.CurrentTemperature = GetCurrentTemperature(comp);
+        comp.LastTempUpdate = _timing.CurTime;
     }
 }
 

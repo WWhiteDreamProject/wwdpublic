@@ -13,14 +13,7 @@ public sealed class GunOverheatSystem : SharedGunOverheatSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<GunOverheatComponent, OnTemperatureChangeEvent>(OnTemperatureChange);
         SubscribeLocalEvent<RegulatorLampComponent, ComponentInit>(OnLampInit);
-    }
-
-    private void OnTemperatureChange(EntityUid uid, GunOverheatComponent comp, OnTemperatureChangeEvent args)
-    {
-        comp.CurrentTemperature = args.CurrentTemperature;
-        DirtyField<GunOverheatComponent>(uid, nameof(GunOverheatComponent.CurrentTemperature));
     }
 
     private void OnLampInit(EntityUid uid, RegulatorLampComponent comp, ComponentInit args)
@@ -33,28 +26,24 @@ public sealed class GunOverheatSystem : SharedGunOverheatSystem
             Dirty(uid, comp);
         }
 
-        if (comp.SafeTemperature != comp.UnsafeTemperature)
-            return;
-
-        Log.Error(
-            $"Entity {ToPrettyString(uid)} has equal SafeTemperature and UnsafeTemperature. (s={comp.SafeTemperature}, u={comp.UnsafeTemperature}) Resolving by increasing UnsafeTemperature by 0.01f.");
-        comp.UnsafeTemperature += 0.01f;
-        Dirty(uid, comp);
+        if (comp.SafeTemperature == comp.UnsafeTemperature)
+        {
+            Log.Error(
+                $"Entity {ToPrettyString(uid)} has equal SafeTemperature and UnsafeTemperature. (s={comp.SafeTemperature}, u={comp.UnsafeTemperature}) Resolving by increasing UnsafeTemperature by 0.01f.");
+            comp.UnsafeTemperature += 0.01f;
+            Dirty(uid, comp);
+        }
     }
 
-    protected override void OnGunShot(Entity<GunOverheatComponent> gun, ref GunShotEvent args)
-    {
-        CheckForBurnout(gun, args.User);
-        _temp.ForceChangeTemperature(gun, gun.Comp.CurrentTemperature + gun.Comp.HeatCost);
-    }
 
-    private void CheckForBurnout(Entity<GunOverheatComponent> gun, EntityUid shooter)
+    protected override void OnGunShot(EntityUid uid, GunOverheatComponent comp, ref GunShotEvent args)
     {
-        if (!GetLamp(gun, out var lamp))
+        base.OnGunShot(uid, comp, ref args);
+        if (!GetLamp(uid, comp, out var lamp))
             return;
 
-        var breakChance = GetLampBreakChance(gun.Comp.CurrentTemperature, lamp, gun.Comp.LampBreakChanceMultiplier);
-        if (Rng.Prob(breakChance))
-            BurnoutLamp(lamp.Value, shooter);
+        var breakChance = GetLampBreakChance(GetCurrentTemperature(comp), lamp, comp.LampBreakChanceMultiplier);
+        if (_rng.Prob(breakChance))
+            BurnoutLamp(lamp, args.User);
     }
 }

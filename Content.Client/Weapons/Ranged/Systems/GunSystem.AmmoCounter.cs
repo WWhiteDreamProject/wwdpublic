@@ -365,7 +365,7 @@ public sealed partial class GunSystem
         private readonly BarControl _ammoBar;
         private readonly Label _ammoLabel;
         private readonly Label _heatLabel;
-        private readonly Label _lampLabel;
+        //private readonly Label _lampLabel;
         private readonly BatteryAmmoProviderComponent _ammoProvider;
         private readonly GunOverheatComponent? _regulator;
         private readonly GunOverheatSystem _regSys;
@@ -373,8 +373,7 @@ public sealed partial class GunSystem
         private int _ammoCount;
         private bool _heatLimitEnabled = true;
         private float _heatLimit;
-        private float _heat; // caching temperature and ammo counts so that the labels don't end up having their measures invalidated every frame
-                                 // not sure if this makes any difference performance-wise, but it just seems like a good idea
+
         public EnergyGunBatteryStatusControl(EntityUid uid, BatteryAmmoProviderComponent comp)
         {
             var entMan = IoCManager.Resolve<IEntityManager>();
@@ -395,20 +394,20 @@ public sealed partial class GunSystem
                         Orientation = BoxContainer.LayoutOrientation.Horizontal,
                         Children =
                         {
-                            (_lampLabel = new()
-                            {
-                                StyleClasses = { StyleNano.StyleClassItemStatus },
-                                HorizontalAlignment = HAlignment.Left,
-                                VerticalAlignment = VAlignment.Bottom,
-                                Text = " \u25cf"
-                            }),
+                            //(_lampLabel = new()
+                            //{
+                            //    StyleClasses = { StyleNano.StyleClassItemStatus },
+                            //    HorizontalAlignment = HAlignment.Left,
+                            //    VerticalAlignment = VAlignment.Bottom,
+                            //    Text = " \u25cf"
+                            //}),
                             (_heatLabel = new()
                             {
                                 StyleClasses = { StyleNano.StyleClassItemStatus },
                                 HorizontalAlignment = HAlignment.Right,
                                 HorizontalExpand = true,
                                 VerticalAlignment = VAlignment.Bottom,
-                                Text = $"{_heat-273.15:0.00} °C "
+                                Text = $"{0:0} °FL"
                             }),
                         }
                     },
@@ -440,32 +439,30 @@ public sealed partial class GunSystem
             if (!entMan.TryGetComponent(_gun, out _regulator))
             {
                 _heatLabel.Visible = false;
-                _lampLabel.Visible = false;
+                //_lampLabel.Visible = false;
                 return;
             }
-            _lampLabel.Visible = _regulator.RequiresLamp;
+           //_lampLabel.Visible = _regulator.RequiresLamp;
         }
 
-        // still using kelvin because having temperature go from 0 to +inf is much nicer than from -273.15 to +inf
-        private void UpdateTemp(float K)
+        private void UpdateTemp(float temp)
         {
-            var celcius = K - 273.15f;
             // we assume _regulator is not null since we'll check for it before calling this method
-            var maxTemp = _regulator!.MaxDisplayTemperatureCelcius;
-            var currentTemp = celcius > maxTemp ? $"{maxTemp:0}+°C" : $"{celcius:0} °C";
-            _heatLabel.Text = _regulator.SafetyEnabled 
-                ? $"{currentTemp}/{_regulator.TemperatureLimit - 273.15f:0} °C " 
-                : currentTemp;
+            var maxTemp = _regulator!.MaxDisplayTemperature;
+            var currentTemp = MathF.Min(temp, maxTemp);
+            _heatLabel.Text = _regulator.SafetyEnabled ?
+                $"{currentTemp:0}/{_regulator.TemperatureLimit:0} °FL " :
+                $"{currentTemp:0} °FL ";
 
             float hue = 0; // full red
-            const float hueoffset = 0.07f; // raises the 0K color from dark blue to a brighter tone
+            const float hueoffset = 0.22f; // raises the 0FL color from dark blue to green
 
-            if (K < _regulator.TemperatureLimit)
-                hue = 0.66f - (K / _regulator.TemperatureLimit * 0.55f * (1f - hueoffset) + hueoffset);
+            if (temp < _regulator.TemperatureLimit)
+                hue = 0.66f - (temp / _regulator.TemperatureLimit * 0.55f * (1f - hueoffset) + hueoffset);
 
             var tempColor = Color.FromHsv(new(hue, 1, 1, 1));
             _heatLabel.FontColorOverride = tempColor;
-            _lampLabel.FontColorOverride = tempColor;
+            //_lampLabel.FontColorOverride = tempColor;
         }
 
         protected override void PreRenderChildren(ref ControlRenderArguments args)
@@ -484,16 +481,12 @@ public sealed partial class GunSystem
             if (_regulator is null)
                 return;
 
-            if (_regSys.GetLamp((_gun,_regulator), out var lamp))
-                _lampLabel.Text = !lamp.Value.Comp.Intact ? " ◌" : " ●";
+            //if (_regSys.GetLamp((_gun,_regulator), out var lamp))
+            //    _lampLabel.Text = !lamp.Value.Comp.Intact ? " ◌" : " ●";
 
-            if (_heat != _regulator.CurrentTemperature || _heatLimit != _regulator.TemperatureLimit || _heatLimitEnabled != _regulator.SafetyEnabled)
-            {
-                _heatLimit = _regulator.TemperatureLimit;
-                _heat = _regulator.CurrentTemperature;
-                _heatLimitEnabled = _regulator.SafetyEnabled;
-                UpdateTemp(_heat);
-            }
+            _heatLimit = _regulator.TemperatureLimit;
+            _heatLimitEnabled = _regulator.SafetyEnabled;
+            UpdateTemp(_regSys.GetCurrentTemperature(_regulator));
         }
     }
     // WWDP EDIT END
