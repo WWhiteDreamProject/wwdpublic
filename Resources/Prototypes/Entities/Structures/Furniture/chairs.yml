@@ -31,8 +31,8 @@
     buckleOffset: "0,-0.05"
   - type: Pullable
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic # WWDP EDIT
+    damageModifierSet: StructuralMetallic # WWDP EDIT
   - type: Destructible
     thresholds:
     - trigger:
