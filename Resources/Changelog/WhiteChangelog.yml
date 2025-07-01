@@ -3681,3 +3681,14 @@ Entries:
   id: 388
   time: '2025-06-30T23:47:53.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/654
+- author: kekoven1
+  changes:
+    - type: Tweak
+      message: Событие Ноосферный разряд стало происходить чаще
+    - type: Tweak
+      message: Шансы на получение улучшенной псионической способности стали лучше
+    - type: Tweak
+      message: Минимум мерцания для появления ноосферных клещей уменьшено. 700 --> 600
+  id: 389
+  time: '2025-07-01T00:22:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/639
