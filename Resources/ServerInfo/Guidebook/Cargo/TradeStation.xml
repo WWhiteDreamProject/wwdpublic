@@ -1,10 +1,34 @@
 <Document>
-  # Trade Station
-  The Trade Station is seperate from the station, usually floating around in space visible on the scanner and shuttle computer. It is self maintaining, and self powered with solar pannels, so cargo doesn't need to do anything for it to work.
- 
-  ## Selling
-  Using the [color=#a4885c]cargo shuttle[/color], you are able to transport items and bounties to sell at the trade station by flying the shuttle (explained in [textlink="cargo" link="Cargo"]) and docking it to the trade station. Then you bring the objects to sell over the cargo pallets, go to the computer inbetween the 2 sets of pallets and sell what can be sold. Dont worry, you can't sell yourself! Then [color=#118C4F]Spessos[/color] should come out of the computer, and can be inserted into the Quartermasters Digiboard or the Cargo Computer to be added to the Bank.  
-  
-  ## Collecting Orders
-  All cargo orders are sent to the [color=#a4885c]Trade Station[/color] to be [color=#a4885c]collected[/color], this includes items sent by centcom. To collect them you have to travel to the Trade station and they should be there on the cargo pallets in a crate, ready to be taken back to the station.
+# Торговая станция
+
+Торговая станция — это отдельный автономный узел в космосе, парящий где-то в глубинах вакуума. Её легко обнаружить через сканер или на экране грузового шаттла. Она самоподдерживаема, питается от солнечных панелей и не требует от грузчиков ни капли заботы. Работает сама. За это её и любят.
+
+
+
+## Продажа
+
+Благодаря [bold]грузовому шаттлу[/bold], ты можешь доставить на торговую станцию всё, что хочешь продать — от урановых слитков до коллекции фоток Иана. Подробности полёта — смотри в [textlink="cargo" link="Cargo"].
+
+После стыковки:
+
+- Перетащи товар на [italic]грузовые паллеты[/italic].
+- Подойди к консоли между рядами паллет.
+- Жми продать. (Нет, себя продать не получится. Проверяли.)
+
+И вот из компьютера, словно из банкомата, начинают выпадать сверкающие [color=#118C4F]спессо[/color]сы. Их можно запихнуть либо в дигиборд Квартирмейстера, либо прямо в грузовой компьютер, чтобы они пошли в общее хранилище банка.
+
+
+
+## Получение заказов
+
+Все заказы, оформленные логистами, приходят именно сюда — на [bold]Торговую станцию[/bold]. Даже щедрые подгоны от Центкома идут сюда. Забрать их просто:
+
+- Лети на станцию.
+- Найди ящики на паллетах.
+- Хватай — и назад, пока их не спёр кто-нибудь по дороге.
+
+
+
+[center][color=#d1b46c][italic]Торговая станция — тихий оплот капитализма в вакууме.[/italic]
+[bold]Зарабатывай, продавай, богатей.[/bold][/color][/center]
 </Document>

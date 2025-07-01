@@ -1,11 +1,12 @@
 <Document>
-  # Humans
+  # Люди
 
   <Box>
     <GuideEntityEmbed Entity="MobHumanDummy" Caption=""/>
   </Box>
 
-  Depending on who you ask, humans are either unremarkable or the universal standard to which everything else is compared.
-  They have no special mechanics or notable attributes.
+  В зависимости от точки зрения, люди — либо ничем не примечательные обитатели станции, либо эталон, по которому судят обо всех прочих.
 
+  У них нет уникальных способностей или особенностей.
+  Они просто... люди.
 </Document>

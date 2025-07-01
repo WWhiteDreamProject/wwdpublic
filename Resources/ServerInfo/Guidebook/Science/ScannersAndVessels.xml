@@ -1,24 +1,38 @@
 <Document>
-## Anomaly Scanner
+## Сканер Аномалий
 
-The Anomaly Scanner is used to gather various information on anomalies. They can be found inside of the lockers in the epistemics department.
+Сканер аномалий — это основной инструмент для сбора данных об аномальных объектах. Его можно найти в шкафчиках отдела эпистемики.
 
 <Box>
 <GuideEntityEmbed Entity="AnomalyScanner"/>
 </Box>
 
-Scanning an anomaly shows the severity, general stability, approximate point output, reactions with particle types, and time until the next pulse. The reaction types, specifically, can be used in conjunction with the A.P.E. to manipulate anomalies.
+Сканирование аномалии предоставляет следующие сведения:
 
-## Anomaly Vessel
+- [color=#a4885c]Уровень опасности[/color]
+- [color=#a4885c]Общая стабильность[/color]
+- [color=#a4885c]Приблизительная мощность генерации очков[/color]
+- [color=#a4885c]Реакции на типы частиц[/color]
+- [color=#a4885c]Время до следующего импульса[/color]
 
-The anomaly vessel is a machine that generates points from anomalies. Use the anomaly scanner on an empty vessel, and the anomaly that was last scanned will be synced with the vessel.
+Особенно важно наблюдать за реакциями на частицы — эти данные пригодятся при работе с М.А.К.А.К., чтобы направлять развитие аномалии в нужную сторону.
+
+## Аномальный Сосуд
+
+Аномальный сосуд — это машина, способная извлекать очки из аномалий. Чтобы синхронизировать сосуд с конкретной аномалией, просканируйте её сканером, а затем кликните этим сканером по пустому сосуду.
 
 <Box>
 <GuideEntityEmbed Entity="MachineAnomalyVessel"/>
 </Box>
 
-The amount of points a vessel generates per second is based on the severity, stability, and health of an anomaly. The higher each of these values, the higher the point output will be.
+Производительность сосуда зависит от:
 
-Be careful: if an anomaly goes [color=#a4885c]supercritical[/color], the vessel it is linked to will explode. This may damage the station and nearby equipment.
+- [color=#a4885c]Уровня опасности[/color]
+- [color=#a4885c]Стабильности[/color]
+- [color=#a4885c]Состояния (здоровья)[/color] аномалии
+
+Чем выше все эти параметры, тем больше очков будет поступать в секунду.
+
+Однако будьте осторожны: если аномалия станет [color=#a4885c]сверхкритической[/color], связанный с ней сосуд взорвётся. Это может повредить оборудование, стены и всё, что окажется поблизости.
 
 </Document>

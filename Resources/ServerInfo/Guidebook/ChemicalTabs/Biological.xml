@@ -1,9 +1,11 @@
 <Document>
 
-# Biological
+# Биологические реагенты
 
-These reagents include chemicals that you can get from certain materials and from living things. To get the other chemicals you have to use machines like the electrolyzer and the centrifuge.
+Эти вещества можно добыть из живых организмов или природных материалов — будь то кровь, слизь, грибы или нечто похуже. Некоторые из них извлекаются напрямую, но для большинства придётся воспользоваться техникой: [italic]электролизёром, центрифугой[/italic] и прочими полезными машинками.
 
 <GuideReagentGroupEmbed Group="Biological"/>
+
+[center][italic]Жизнь бурлит... и разлагается на полезные реагенты.[/italic][/center]
 
 </Document>

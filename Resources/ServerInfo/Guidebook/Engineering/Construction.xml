@@ -1,11 +1,41 @@
 <Document>
-  # Construction
 
-  By pressing [color=#a4885c][keybind="OpenCraftingMenu"][/color], one can open the construction menu, which allows you to craft and build a variety of objects.
+# Строительство
 
-  When placing objects that "snap" to the grid, you can hold [color=#a4885c]Shift[/color] to place an entire line at a time, and [color=#a4885c]Ctrl[/color] to place an entire grid at a time.
+Желание строить — основа любой цивилизации.
+А на станции это ещё и способ не умереть без кровати, пола или стены.
+Открой [italic]меню строительства[/italic], нажав [color=#a4885c][keybind="OpenCraftingMenu"][/color], — и погрузись в ремесло.
 
-  When crafting objects with a lot of ingredients, keep in mind you don't have to hold everything at once; you can simply place the ingredients on the floor, in your backpack or on a table near you, and they'll be used up during crafting like normal.
 
-  When placing a "building ghost" somewhere in the world, press [color=#a4885c][keybind="EditorRotateObject"][/color] to rotate the ghost clockwise. If you are building a mirrorable component (think: Gas Mixers/Filters), you can press [color=#a4885c][keybind="EditorFlipObject"][/color] to flip the ghost.
+
+## Как творить
+
+[bold]Ты можешь возводить и крафтить[/bold] множество объектов — от простых табуреток до инженерных чудес.
+Многие конструкции "прилипают" к сетке пола.
+Чтобы сразу проложить:
+
+- целую линию — держи [color=#a4885c]Shift[/color],
+- целый квадрат — зажми [color=#a4885c]Ctrl[/color].
+
+
+
+## Что брать в руки?
+
+Не нужно засовывать весь инвентарь в карманы.
+Материалы могут лежать рядом — на полу, на столе, в рюкзаке. Если они в досягаемости, они будут использованы автоматически.
+
+
+
+## Размещение объектов
+
+Когда ты размещаешь объект (его призрачный силуэт появится на полу), ты можешь:
+
+- Повернуть его по часовой — [color=#a4885c][keybind="EditorRotateObject"][/color],
+- Отразить зеркально (для газовых миксеров, фильтров и прочего) — [color=#a4885c][keybind="EditorFlipObject"][/color].
+
+
+
+[color=gray]Создавай, строй, перестраивай. В этом холодном металле станции найдётся место и твоему следу.[/color]
+
 </Document>
+
