@@ -35,12 +35,13 @@
     damageModifierSet: StructuralMetallic # WWDP EDIT
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 25
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+# WWDP EDIT START
+#    - trigger:
+#        !type:DamageTrigger
+#        damage: 25
+#      behaviors:
+#        - !type:DoActsBehavior
+#          acts: [ "Destruction" ] # WWDP - This is broke next trigger and sound
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -50,6 +51,8 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+          volume: -3
+# WWDP EDIT END
   - type: StaticPrice
     price: 25
   - type: RequireProjectileTarget
