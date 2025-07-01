@@ -19,6 +19,6 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
 
     // WWDP EDIT START
     [DataField("SoundNotification"), ViewVariables(VVAccess.ReadWrite)]
-    public bool SoundNotification = false;
+    public bool Notification = false;
     // WWDP EDIT END
 }

@@ -58,28 +58,24 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     // WWDP EDIT START
     private void SendNotification(EntityUid uid, CrewMonitoringConsoleComponent component)
     {
-        foreach (var sensor in component.ConnectedSensors.Values)
-        {
-            if (!_cell.TryGetBatteryFromSlot(uid, out var battery))
-                return;
+        if (!_cell.TryGetBatteryFromSlot(uid, out var battery) || battery.CurrentCharge < 20.0f || !component.Notification)
+            return;
 
-            if (battery.CurrentCharge < 20.0f)
-                return;
+        if (component.ConnectedSensors.Count == 0)
+            return;
 
-            var index = sensor.DamagePercentage;
+        var separation = component.ConnectedSensors.Values
+            .Where(sensor => sensor.DamagePercentage >= 0.8f && sensor.IsAlive)
+            .Select(sensor => sensor.Name.Trim())
+            .Select((name, index) => index > 0 && index % 3 == 0 ? "\n" + name : name)
+            .ToArray();
 
-            if (index >= 0.8f && component.SoundNotification && sensor.IsAlive)
-            {
-                _audio.PlayEntity(
-                    "/Audio/Items/beep.ogg",
-                    Filter.Pvs(uid),
-                    uid,
-                    false,
-                    AudioParams.Default.WithMaxDistance(1));
-                break;
-            }
-        }
+        var persons = string.Join(", ", separation);
 
+        if (persons.Length == 0)
+            return;
+        _popup.PopupEntity(Loc.GetString("crew-portable-monitoring-person", ("person", persons)), uid, Filter.Pvs(uid, 0.1f), false, PopupType.MediumCaution);
+        _audio.PlayEntity("/Audio/Items/beep.ogg", Filter.Pvs(uid), uid, false, AudioParams.Default.WithMaxDistance(1));
     }
 
     private void OnGetVerbs(EntityUid uid, CrewMonitoringConsoleComponent comp, GetVerbsEvent<AlternativeVerb> args)
@@ -96,10 +92,10 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             Priority = -3,
             Act = () =>
             {
-                comp.SoundNotification = !comp.SoundNotification;
+                comp.Notification = !comp.Notification;
 
                 _popup.PopupEntity(
-                    comp.SoundNotification
+                    comp.Notification
                         ? Loc.GetString("crew-portable-monitoring-notification-on")
                         : Loc.GetString("crew-portable-monitoring-notification-off"),
                     uid,
