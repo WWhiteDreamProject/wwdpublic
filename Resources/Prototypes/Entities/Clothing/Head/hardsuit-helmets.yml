@@ -59,7 +59,7 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.1 # WWDP
+    coefficient: 0.005
   - type: FireProtection # WWDP
     reduction: 1
 

@@ -48,7 +48,7 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.1 # WWDP
+    coefficient: 0.001
   - type: FireProtection
     reduction: 0.5 # WWDP, most protection is on the helmet
   - type: ExplosionResistance
