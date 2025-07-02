@@ -32,7 +32,7 @@
     components:
     - type: CPRTraining
     - type: SurgerySpeedModifier
-      speedModifier: 3
+      speedModifier: 2 # WWDP
 
 - type: startingGear
   id: ParamedicGear

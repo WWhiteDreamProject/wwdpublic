@@ -10,8 +10,8 @@ tilemap:
   76: FloorPlastic
   77: FloorRGlass
   78: FloorReinforced
-  105: FloorTechMaint
-  106: FloorTechMaint2
+  105: FloorTechMaintSteel
+  106: FloorMaintWhite
   107: FloorTechMaint3
   121: Lattice
   122: Plating

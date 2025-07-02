@@ -7,7 +7,7 @@ tilemap:
   12: FloorAstroGrass
   29: FloorDark
   34: FloorDarkMono
-  64: FloorMetalDiamond
+  64: FloorMetalDiamondSteel
   120: Lattice
   121: Plating
   123: PlatingBurnt

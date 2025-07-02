@@ -160,7 +160,7 @@ uplink-mosin-ammo-name = Ammunition box (.30 rifle)
 uplink-mosin-ammo-desc = A box of 50 cartridges for the surplus rifle.
 
 uplink-sniper-ammo-name = Ammunition box (.60 antimateriel)
-uplink-sniper-ammo-desc = A box of 10 cartridges for the Hristov sniper rifle.
+uplink-sniper-ammo-desc = A box of 30 cartridges for the Hristov sniper rifle.
 
 uplink-sniper-ammo-shrapnel-name = Ammunition box (.60 shrapnel)
 uplink-sniper-ammo-shrapnel-desc = A box of 10 cartridges for the Hristov sniper rifle. For those cases when the enemies is in the vicinity.

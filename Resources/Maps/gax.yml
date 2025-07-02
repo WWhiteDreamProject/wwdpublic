@@ -24,7 +24,7 @@ tilemap:
   58: FloorHydro
   60: FloorKitchen
   62: FloorLino
-  64: FloorMetalDiamond
+  64: FloorMetalDiamondSteel
   74: FloorPlanetGrass
   75: FloorPlastic
   7: FloorRGlass
@@ -34,8 +34,8 @@ tilemap:
   92: FloorSteelCheckerLight
   93: FloorSteelDamaged
   14: FloorSteelMono
-  104: FloorTechMaint
-  3: FloorTechMaint2
+  104: FloorTechMaintSteel
+  3: FloorMaintWhite
   12: FloorWhite
   13: FloorWhiteMono
   117: FloorWhitePlastic

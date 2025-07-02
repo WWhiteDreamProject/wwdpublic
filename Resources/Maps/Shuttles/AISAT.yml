@@ -9,7 +9,7 @@ tilemap:
   63: FloorGreenCircuit
   88: FloorMS13MetalGrate
   89: FloorMS13MetalIndustrial
-  126: FloorMetalDiamond
+  126: FloorMetalDiamondSteel
   160: FloorReinforced
   161: FloorReinforcedHardened
   215: Lattice

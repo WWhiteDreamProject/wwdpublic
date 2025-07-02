@@ -11,8 +11,8 @@ tilemap:
   71: FloorMining
   73: FloorMiningLight
   105: FloorSteelDirty
-  113: FloorTechMaint
-  114: FloorTechMaint2
+  113: FloorTechMaintSteel
+  114: FloorMaintWhite
   127: FloorWood
   129: FloorWoodTile
   131: Plating

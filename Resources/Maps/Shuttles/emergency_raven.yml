@@ -7,7 +7,7 @@ tilemap:
   47: FloorGrass
   77: FloorReinforced
   89: FloorSteel
-  104: FloorTechMaint
+  104: FloorTechMaintSteel
   108: FloorWhite
   118: FloorWood
   120: Lattice

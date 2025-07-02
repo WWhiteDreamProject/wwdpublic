@@ -27,10 +27,13 @@
     - suitStorage
     - Belt
   - type: Gun
-    bonusAngleIncreaseMove: 20    # wwdp
-    bonusAngleIncreaseTurn: 0.4   # wwdp
-    bonusAngleDecay: 80           # wwdp
+    bonusAngleIncreaseTurn: 0.2   # wwdp
+    bonusAngleDecay: 50           # wwdp
     maxBonusAngle: 10             # wwdp
+    minAngle: 2 # WWDP
+    maxAngle: 10 # WWDP
+    angleIncrease: 4 # WWDP
+    angleDecay: 10 # WWDP
     fireRate: 6
     defaultDirection: 1, 0 # wwdp
     selectedMode: SemiAuto
@@ -71,7 +74,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
-  - type: Execution
+  # - type: Execution # WWDP
   # - type: AmmoCounter # WWDP
   - type: MeleeWeapon
     attackRate: 1.2
