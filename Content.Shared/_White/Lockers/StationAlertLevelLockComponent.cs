@@ -1,6 +1,5 @@
 ﻿using Robust.Shared.GameStates;
 
-
 namespace Content.Shared._White.Lockers;
 
 

@@ -5,7 +5,6 @@ using Content.Shared._White.Lockers;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 
-
 namespace Content.Server._White.Lockers;
 
 
@@ -37,16 +36,8 @@ public sealed class StationAlertLevelLockSystem : EntitySystem
         }
 
         component.StationId = station.Value;
-        component.Locked = false;
 
-        foreach (var level in component.LockedAlertLevels)
-        {
-            if (level == _level.GetLevel(component.StationId.Value))
-            {
-                component.Locked = true;
-                break;
-            }
-        }
+        CheckAlertLevels(component, _level.GetLevel(component.StationId.Value));
         Dirty(uid, component);
     }
 
@@ -60,19 +51,21 @@ public sealed class StationAlertLevelLockSystem : EntitySystem
             if (station != component.StationId)
                 continue;
 
-            component.Locked = false;
-
-            foreach (var level in component.LockedAlertLevels)
-            {
-                if (level == args.AlertLevel)
-                {
-                    component.Locked = true;
-                    break;
-                }
-            }
-
+            CheckAlertLevels(component, args.AlertLevel);
             Dirty(uid, component);
         }
+    }
+
+    private void CheckAlertLevels(StationAlertLevelLockComponent component, string newAlertLevel)
+    {
+        component.Locked = false;
+
+        foreach (var level in component.LockedAlertLevels)
+            if (level == newAlertLevel)
+            {
+                component.Locked = true;
+                break;
+            }
     }
 
     private void OnEmagged(EntityUid uid, StationAlertLevelLockComponent component, ref GotEmaggedEvent args)

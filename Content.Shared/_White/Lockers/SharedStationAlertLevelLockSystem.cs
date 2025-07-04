@@ -3,7 +3,6 @@ using Content.Shared.Popups;
 
 namespace Content.Shared._White.Lockers;
 
-
 public sealed class SharedStationAlertLevelLockSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -15,11 +14,11 @@ public sealed class SharedStationAlertLevelLockSystem : EntitySystem
         SubscribeLocalEvent<StationAlertLevelLockComponent, LockToggleAttemptEvent>(OnTryAccess);
     }
 
-    public void OnTryAccess(Entity<StationAlertLevelLockComponent> ent, ref LockToggleAttemptEvent args)
+    private void OnTryAccess(Entity<StationAlertLevelLockComponent> ent, ref LockToggleAttemptEvent args)
     {
-        if (!TryComp<LockComponent>(ent.Owner, out var l))
+        if (!TryComp<LockComponent>(ent.Owner, out var lockComponent))
             return;
-        var locking = !l.Locked; // Allow locking
+        var locking = !lockComponent.Locked; // Allow locking
 
         if (!ent.Comp.Enabled || !ent.Comp.Locked || locking)
             return;
