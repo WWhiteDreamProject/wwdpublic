@@ -20,6 +20,7 @@ using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Console;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
@@ -52,7 +53,8 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
         [Dependency] private readonly IServerDbManager _db = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
-        [Dependency] private readonly MapLoaderSystem _map = default!;
+        [Dependency] private readonly MapLoaderSystem _loader = default!;
+        [Dependency] private readonly SharedMapSystem _map = default!;
         [Dependency] private readonly GhostSystem _ghost = default!;
         [Dependency] private readonly SharedMindSystem _mind = default!;
         [Dependency] private readonly PlayTimeTrackingSystem _playTimeTrackings = default!;

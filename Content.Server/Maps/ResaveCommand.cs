@@ -28,7 +28,6 @@ public sealed class ResaveCommand : LocalizedCommands
 
         var opts = MapLoadOptions.Default with
         {
-
             DeserializationOptions = DeserializationOptions.Default with
             {
                 StoreYamlUids = true,
