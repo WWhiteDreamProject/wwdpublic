@@ -48,8 +48,6 @@ namespace Content.IntegrationTests.Tests
         {
             "Dev",
             "TestTeg",
-            "CentCommMain",
-            "CentCommHarmony",
             "MeteorArena",
             "Core", // No current maintainer. In need of a rework...
             "Pebble", // Maintained by Plyushune
