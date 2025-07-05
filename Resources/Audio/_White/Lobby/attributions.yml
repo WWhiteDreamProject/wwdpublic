@@ -20,7 +20,7 @@
 
 - files: ["endless_space.ogg"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Endless Space Expanded by Solus"
+  copyright: "Endless Space Expanded by Solus. Converted to mono OGG."
   source: "https://www.newgrounds.com/audio/listen/74946"
 
 - files: ["every_light_is_blinking_at_once.ogg"]
@@ -30,12 +30,12 @@
 
 - files: ["level!.ogg"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Level! by DapperHusky"
+  copyright: "Level! by DapperHusky. Converted to mono OGG."
   source: "https://www.newgrounds.com/audio/listen/1215730"
 
 - files: ["marhaba.ogg"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Marhaba by Ian Alex Mac."
+  copyright: "Marhaba by Ian Alex Mac. Converted to mono OGG."
   source: "https://freemusicarchive.org/music/Ian_Alex_Mac/Cues/Marhaba"
 
 - files: ["mod.flip-flap.ogg"]
@@ -45,7 +45,7 @@
 
 - files: ["monument.ogg"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Monument by Six Umbrellas."
+  copyright: "Monument by Six Umbrellas. Converted to mono OGG."
   source: "https://sixumbrellas.bandcamp.com/album/the-psychedelic-and"
 
 - files: ["singuloose.ogg"]
@@ -60,7 +60,7 @@
 
 - files: ["spaced.ogg"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Spaced by pinkblossom6"
+  copyright: "Spaced by pinkblossom6. Converted to mono OGG."
   source: "https://youtu.be/rW86xYFmcVs?si=-UhlsL7qYvvV7Kjv"
 
 - files: ["space-oddity.ogg"]
@@ -75,5 +75,5 @@
 
 - files: ["title3.ogg"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Tintin on the Moon by Jeroen Tel"
+  copyright: "Tintin on the Moon by Jeroen Tel. Converted to mono OGG."
   source: "https://youtu.be/Hz6KO0gnrS8"
