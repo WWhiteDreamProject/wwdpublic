@@ -3766,3 +3766,10 @@ Entries:
   id: 397
   time: '2025-07-05T04:00:17.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/665
+- author: 89Eblan
+  changes:
+    - type: Add
+      message: Добавлен вьетнам
+  id: 398
+  time: '2025-07-05T08:41:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/642
