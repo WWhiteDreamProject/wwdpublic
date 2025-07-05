@@ -138,8 +138,8 @@ namespace Content.Server._White.Abilities.Psionics.Abilities;
 
         private void OnDispelled(EntityUid uid, PsionicCloneComponent component, DispelledEvent args)
         {
-            if (TryComp<ClonePowerComponent>(component.OriginalUid, out var OrigComp))
-                OrigComp.CloneUid = null;
+            if (TryComp<ClonePowerComponent>(component.OriginalUid, out var origComp))
+                origComp.CloneUid = null;
             QueueDel(uid);
             Spawn("Ectoplasm", Transform(uid).Coordinates);
             _popup.PopupCoordinates(Loc.GetString("psionic-burns-up", ("item", uid)), Transform(uid).Coordinates, Filter.Pvs(uid), true, Shared.Popups.PopupType.MediumCaution);
