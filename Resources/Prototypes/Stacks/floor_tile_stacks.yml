@@ -65,7 +65,7 @@
   maxCount: 30
 
 #- type: stack
-#  id: FloorTileMono
+#  id: FloorTileMono # WWDP edit
 #  name: mono tile
 #  spawn: FloorTileItemMono
 #  maxCount: 30
@@ -94,11 +94,11 @@
   spawn: FloorTileItemHydro
   maxCount: 30
 
-- type: stack
-  id: FloorTileLime
-  name: lime tile
-  spawn: FloorTileItemLime
-  maxCount: 30
+#- type: stack
+#  id: FloorTileLime # WWDP edit
+#  name: lime tile
+#  spawn: FloorTileItemLime
+#  maxCount: 30
 
 - type: stack
   id: FloorTileDirty
@@ -279,7 +279,7 @@
   maxCount: 30
 
 #- type: stack
-#  id: FloorTileBlue
+#  id: FloorTileBlue # WWDP edit
 #  name: blue floor tile
 #  spawn: FloorTileItemBlue
 #  maxCount: 30
