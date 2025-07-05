@@ -22,7 +22,6 @@ using Content.Shared.UserInterface;
 using Content.Shared.VendingMachines;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -35,7 +34,6 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly AccessReaderSystem _accessReader = default!;
         [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly SharedActionsSystem _action = default!;
-        [Dependency] private readonly SharedAudioSystem _audioSystem = default!; //  WD EDIT
         [Dependency] private readonly PricingSystem _pricing = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
@@ -49,6 +47,7 @@ namespace Content.Server.VendingMachines
             SubscribeLocalEvent<VendingMachineComponent, MapInitEvent>(OnComponentMapInit);
             SubscribeLocalEvent<VendingMachineComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<VendingMachineComponent, BreakageEventArgs>(OnBreak);
+            SubscribeLocalEvent<VendingMachineComponent, GotEmaggedEvent>(OnEmagged);
             SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamage);
             SubscribeLocalEvent<VendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
 
@@ -141,29 +140,11 @@ namespace Content.Server.VendingMachines
             TryUpdateVisualState(uid, vendComponent);
         }
 
-        // WWDP EDIT START
-        public override void OnEmagged(EntityUid uid, VendingMachineComponent component, ref GotEmaggedEvent args)
+        private void OnEmagged(EntityUid uid, VendingMachineComponent component, ref GotEmaggedEvent args)
         {
-            if (component.EmaggedInventory.Count == 0)
-                return;
-
-            args.Handled = true;
-
-            // one chance
-            if (Randomizer.Prob(0.33f))
-            {
-                Popup.PopupEntity(Loc.GetString("emag-vendingmachine-broke"), uid, args.UserUid, PopupType.MediumCaution);
-                Audio.PlayEntity(
-                    new SoundPathSpecifier("/Audio/_White/Effects/beep_long.ogg"),
-                    args.UserUid,
-                    uid,
-                    AudioParams.Default.WithVolume(10f));
-                return;
-            }
-
-            component.JailBreak = true;
+            // only emag if there are emag-only items
+            args.Handled = component.EmaggedInventory.Count > 0;
         }
-        // WWDP EDIT END
 
         private void OnDamage(EntityUid uid, VendingMachineComponent component, DamageChangedEvent args)
         {
@@ -423,7 +404,7 @@ namespace Content.Server.VendingMachines
             if (!Resolve(uid, ref component))
                 return null;
 
-            if (type == InventoryType.Emagged && component.JailBreak) // WWDP EDIT - Emagged to JailBreak bool
+            if (type == InventoryType.Emagged && HasComp<EmaggedComponent>(uid))
                 return component.EmaggedInventory.GetValueOrDefault(entryId);
 
             if (type == InventoryType.Contraband && component.Contraband)
