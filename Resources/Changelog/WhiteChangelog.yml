@@ -3759,3 +3759,10 @@ Entries:
   id: 396
   time: '2025-07-05T03:54:58.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/661
+- author: vanx
+  changes:
+    - type: Fix
+      message: Рентгеновская пушка теперь реально наносит урон сквозь стены
+  id: 397
+  time: '2025-07-05T04:00:17.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/665
