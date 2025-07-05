@@ -3705,3 +3705,12 @@ Entries:
   id: 390
   time: '2025-07-05T02:14:23.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/621
+- author: vanx
+  changes:
+    - type: Add
+      message: >-
+        Кейс с антикварным лазером капитана и оружейные сейфы теперь открываются
+        только при опасных кодах угрозы станции (красный и выше).
+  id: 391
+  time: '2025-07-05T02:22:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/635
