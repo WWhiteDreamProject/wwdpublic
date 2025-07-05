@@ -3692,3 +3692,16 @@ Entries:
   id: 389
   time: '2025-07-01T00:22:32.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/639
+- author: Warete
+  changes:
+    - type: Tweak
+      message: >-
+        При взломе Вендоматов Емагом есть 33%-ый шанс неудачного вскрытия
+        контрабанды и её дальнейшей блокировки.
+    - type: Fix
+      message: >-
+        Емаг теперь корректно выводит сообщение при взломе Вендоматов без
+        доступов.
+  id: 390
+  time: '2025-07-05T02:14:23.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/621
