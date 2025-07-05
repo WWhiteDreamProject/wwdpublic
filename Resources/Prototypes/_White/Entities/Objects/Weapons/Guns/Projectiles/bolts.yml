@@ -70,6 +70,7 @@
     - state: xray
       shader: unshaded
   - type: Projectile
+    penetrate: true
     deleteOnCollide: false
     impactEffect: null
     damage:
