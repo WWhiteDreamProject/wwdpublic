@@ -5,6 +5,7 @@ using Content.Shared.InteractionVerbs.Events;
 using Content.Shared.Item;
 using Content.Shared.Popups;
 using Robust.Shared.Serialization;
+using Content.Shared._White.Antag;
 
 namespace Content.Shared.Ghost
 {
@@ -70,6 +71,93 @@ namespace Content.Shared.Ghost
     {
     }
 
+     // WWDP-START
+     /// <summary>
+     /// An player body a ghost can warp to.
+     /// This is used as part of <see cref="GhostWarpsResponseEvent"/>
+     /// </summary>
+     [Serializable, NetSerializable]
+     public struct GhostWarpPlayer
+     {
+         public GhostWarpPlayer(NetEntity entity, string playerName, string playerJobName, string playerDepartmentID, PlayerState playerState)
+         {
+             Entity = entity;
+             Name = playerName;
+             JobName = playerJobName;
+             DepartmentID = playerDepartmentID;
+
+             PlayerState = playerState:
+         }
+
+         /// <summary>
+         /// The entity representing the warp point.
+         /// This is passed back to the server in <see cref="GhostWarpToTargetRequestEvent"/>
+         /// </summary>
+         public NetEntity Entity { get; }
+
+         /// <summary>
+         /// The display player name to be surfaced in the ghost warps menu
+         /// </summary>
+         public string Name { get; }
+
+         /// <summary>
+         /// The display player job to be surfaced in the ghost warps menu
+         /// </summary>
+
+         public string JobName { get; }
+
+         /// <summary>
+         /// The display player department to be surfaced in the ghost warps menu
+         /// </summary>
+         public string DepartmentID { get; set; }
+
+         /// <summary>
+         /// The current state of the player
+         /// </summary>
+         public PlayerState PlayerState { get; }
+     }
+
+     [Serializable, NetSerializable]
+     public struct GhostWarpGlobalAntagonist
+     {
+         public GhostWarpGlobalAntagonist(NetEntity entity, string playerName, string antagonistName, string antagonistDescription, string prototypeID)
+         {
+             Entity = entity;
+             Name = playerName;
+             AntagonistName = antagonistName;
+             AntagonistDescription = antagonistDescription;
+             PrototypeID = prototypeID;
+         }
+
+         /// <summary>
+         /// The entity representing the warp point.
+         /// This is passed back to the server in <see cref="GhostWarpToTargetRequestEvent"/>
+         /// </summary>
+         public NetEntity Entity { get; }
+
+         /// <summary>
+         /// The display player name to be surfaced in the ghost warps menu
+         /// </summary>
+         public string Name { get; }
+
+         /// <summary>
+         /// The display antagonist name to be surfaced in the ghost warps menu
+         /// </summary>
+         public string AntagonistName { get; }
+
+         /// <summary>
+         /// The display antagonist description to be surfaced in the ghost warps menu
+         /// </summary>
+         public string AntagonistDescription { get; }
+
+         /// <summary>
+         /// A antagonist prototype id
+         /// </summary>
+         public string PrototypeID { get; }
+
+     }
+    // WWDP-END
+
     /// <summary>
     /// Goobstation - A server to client request for them to spawn at the ghost bar
     /// </summary>
@@ -78,18 +166,19 @@ namespace Content.Shared.Ghost
     {
     }
 
+    // WWDP-EDIT-START
     /// <summary>
     /// An individual place a ghost can warp to.
     /// This is used as part of <see cref="GhostWarpsResponseEvent"/>
     /// </summary>
     [Serializable, NetSerializable]
-    public struct GhostWarp
+    public struct GhostWarpPlace // WWDP - rename GhostWarp to GhostWarpPlace
     {
-        public GhostWarp(NetEntity entity, string displayName, bool isWarpPoint)
+        public GhostWarpPlace(NetEntity entity, string name, string description)
         {
             Entity = entity;
-            DisplayName = displayName;
-            IsWarpPoint = isWarpPoint;
+            Name = name;
+            Description = description;
         }
 
         /// <summary>
@@ -101,13 +190,14 @@ namespace Content.Shared.Ghost
         /// <summary>
         /// The display name to be surfaced in the ghost warps menu
         /// </summary>
-        public string DisplayName { get; }
+        public string Name { get; }
 
         /// <summary>
-        /// Whether this warp represents a warp point or a player
+        /// The display name to be surfaced in the ghost warps menu
         /// </summary>
-        public bool IsWarpPoint { get;  }
+        public string Description { get; }
     }
+    // WWDP-EDIT-END
 
     /// <summary>
     /// A server to client response for a <see cref="GhostWarpsRequestEvent"/>.
@@ -116,15 +206,33 @@ namespace Content.Shared.Ghost
     [Serializable, NetSerializable]
     public sealed class GhostWarpsResponseEvent : EntityEventArgs
     {
-        public GhostWarpsResponseEvent(List<GhostWarp> warps)
+        // WWDP-EDIT-START
+        public GhostWarpsResponseEvent(List<GhostWarpPlayer> players, List<GhostWarpPlace> places, List<GhostWarpGlobalAntagonist> antagonists)
         {
-            Warps = warps;
+            Players = players;
+            Places = places;
+            Antagonists = antagonists;
         }
+        // WWDP-EDIT-END
+
+        // WWDP-START
+        /// <summary>
+        /// A list of players to teleport.
+        /// </summary>
+        public List<GhostWarpPlayer> Players { get; }
+        // WWDP-END
 
         /// <summary>
         /// A list of warp points.
         /// </summary>
-        public List<GhostWarp> Warps { get; }
+        public List<GhostWarpPlace> Places { get; }
+
+        // WWDP-START
+        /// <summary>
+        /// A list of antagonists to teleport.
+        /// </summary>
+        public List<GhostWarpGlobalAntagonist> Antagonists { get; }
+        // WWDP-END
     }
 
     /// <summary>
