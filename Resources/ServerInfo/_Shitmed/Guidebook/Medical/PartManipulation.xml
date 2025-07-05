@@ -1,51 +1,50 @@
 <Document>
-# Part Manipulation
-This is how you will turn felinids into humans, or vice versa if you're feeling particularly cruel.
+# Замена частей тела
 
-## Anatomy
-Normally a body has 10 main parts. Those being:
+Именно эта процедура позволит вам превратить ненавистных котов в людей. Или наоборот, если вы сегодня особенно жестоки и хотите порадовать СБ новым развлечением.
 
-<Box>
-<GuideEntityEmbed Entity="HeadHuman" Caption="head"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="RightHandHuman" Caption="right hand"/>
-<GuideEntityEmbed Entity="RightArmHuman" Caption="right arm"/>
-<GuideEntityEmbed Entity="TorsoHuman" Caption="torso"/>
-<GuideEntityEmbed Entity="LeftArmHuman" Caption="left arm"/>
-<GuideEntityEmbed Entity="LeftHandHuman" Caption="left hand"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="RightFootHuman" Caption="right foot"/>
-<GuideEntityEmbed Entity="RightLegHuman" Caption="right leg"/>
-<GuideEntityEmbed Entity="LeftLegHuman" Caption="left leg"/>
-<GuideEntityEmbed Entity="LeftFootHuman" Caption="left foot"/>
-</Box>
+## Анатомия и запасные детали
 
-Certain species might have more or less parts, such as tails, wings, or extra limbs, but this is the rough outline of what you'll see.
-To detach a limb, you'll need to apply the Remove Part surgery on it, which will then remove it without harming the patient.
-
-However if you want to reattach the limb, you'll need to apply the Attach Part surgery where you want it attached.
-Hands are attached to the arms, feet are attached to the legs. And everything else is attached to the torso.
-
-
-## Where do I get more parts?
-
-Normally when your patients come in needing new limbs, they'll need to get a new one, as their old ones will be either missing, or damaged beyond repair.
-For this you can use the Medical Biofabricator with some Biomass. Which can manufacture Biosynthetic limbs for all species.
+Обычно человеческое тело состоит из 10 основных частей, если только никто не успел оторвать лишнего. Вот они:
 
 <Box>
-<GuideEntityEmbed Entity="MedicalBiofabricator" Caption="medical biofabricator"/>
-<GuideEntityEmbed Entity="MedicalBiofabMachineBoard" Caption="biofabricator board"/>
-<GuideEntityEmbed Entity="MaterialBiomass" Caption="biomass"/>
+<GuideEntityEmbed Entity="HeadHuman" Caption="голова"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="RightHandHuman" Caption="правая кисть"/>
+<GuideEntityEmbed Entity="RightArmHuman" Caption="правая рука"/>
+<GuideEntityEmbed Entity="TorsoHuman" Caption="торс"/>
+<GuideEntityEmbed Entity="LeftArmHuman" Caption="левая рука"/>
+<GuideEntityEmbed Entity="LeftHandHuman" Caption="левая кисть"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="RightFootHuman" Caption="правая ступня"/>
+<GuideEntityEmbed Entity="RightLegHuman" Caption="правая нога"/>
+<GuideEntityEmbed Entity="LeftLegHuman" Caption="левая нога"/>
+<GuideEntityEmbed Entity="LeftFootHuman" Caption="левая ступня"/>
 </Box>
 
-By default, every Chief Medical Officer has access to a Medical Biofabricator board in their locker.
+Некоторые расы отличаются наличием хвостов, крыльев или лишних конечностей (а порой — отсутствием совести), но в целом картинка примерно такая.
 
-## I reattached my patient's limb, but
-## it's not working?
+Чтобы отцепить ненужную часть тела (неважно, по медицинским показаниям или просто по вашей прихоти), проведите операцию по её удалению. Процедура безопасна и не причинит пациенту дополнительного вреда, если, конечно, он не попытается сбежать посреди операции.
 
-Your patient has taken enough damage to the point that their limb's nerves were badly damaged, and they need to be healed properly before it can work again.
-For this you can try the Tend Wounds surgeries, or letting them use topicals on their wounds.
+Когда захотите вернуть пациенту конечность обратно, проведите процедуру её прикрепления к нужному месту. Кисти крепятся к рукам, ступни — к ногам, а всё остальное, включая голову (если она ещё в наличии), — к торсу.
 
+## «Откуда взять новую конечность?»
+
+Как правило, пациенты попадают к вам уже без нужных частей тела, или с конечностями, которые проще выкинуть, чем чинить. Для таких случаев у вас есть медицинский биофабрикатор, который позволяет создавать любые искусственные конечности из биомассы для всех существующих рас.
+
+<Box>
+<GuideEntityEmbed Entity="MedicalBiofabricator" Caption="медицинский биофабрикатор"/>
+<GuideEntityEmbed Entity="MedicalBiofabMachineBoard" Caption="плата биофабрикатора"/>
+<GuideEntityEmbed Entity="MaterialBiomass" Caption="биомасса"/>
+</Box>
+
+Каждый главный врач станции имеет плату биофабрикатора в своём шкафчике, так что не вздумайте её потерять или обменять на банку газировки.
+
+## «Я пришил пациенту ногу обратно,
+## почему он всё ещё валяется и ноет?»
+
+Если пациент продолжает ныть и жаловаться, значит, его нервы были повреждены настолько, что пришитая конечность оказалась бесполезной. Теперь придётся лечить нервы. Попробуйте провести операцию по обработке ран, либо отправьте бедолагу лечиться мазями.
 </Document>
+

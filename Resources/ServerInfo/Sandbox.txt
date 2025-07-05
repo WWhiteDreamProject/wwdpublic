@@ -1,16 +1,27 @@
+[color=#ffffff]Параметры панели спавна объектов[/color]
 
-[color=#ffffff]Entity spawn panel options[/color]
-[color=#a4885c]Default[/color] spawns small entities like mugs without aligning them to anything, while aligning block entities like walls to the grid.
-[color=#a4885c]PlaceFree[/color] spawns all entities without aligning them.
-[color=#a4885c]PlaceNearby[/color] limits the spawn radius to around 2 tiles.
-[color=#a4885c]SnapgridCenter[/color] aligns the entity to the middle of the tile.
-[color=#a4885c]SnapgridBorder[/color] aligns the entity to the border of the tile.
+[color=#a4885c]Default[/color] — стандартный режим: небольшие объекты (например, кружки) появляются там, куда ты кликаешь, без привязки, а крупные, вроде стен, автоматически выравниваются по сетке.
 
-[color=#ffffff]Grid aligned options[/color]
-[color=#a4885c]AlignSimilar[/color] snaps the entity to similar entities. Currently broken.
-[color=#a4885c]AlignTileAny[/color] aligns the entity to the grid.
-[color=#a4885c]AlignTileEmpty[/color] target tile must be empty
-[color=#a4885c]AlignTileNonDense[/color] no colliders allowed in the target tile.
-[color=#a4885c]AlignTileDense[/color] colliders must be in the target tile.
-[color=#a4885c]AlignWall[/color] snaps to vertical halftiles.
-[color=#a4885c]AlignWallProper[/color] snaps the entity to the middle of the tile edges
+[color=#a4885c]PlaceFree[/color] — полностью свободное размещение, без какой-либо привязки к сетке или позициям.
+
+[color=#a4885c]PlaceNearby[/color] — ограничивает радиус появления объектов примерно до 2 тайлов от курсора.
+
+[color=#a4885c]SnapgridCenter[/color] — выравнивает объект по [italic]центру[/italic] выбранного тайла.
+
+[color=#a4885c]SnapgridBorder[/color] — выравнивает объект по [italic]границе[/italic] тайла.
+
+[color=#ffffff]Параметры выравнивания по сетке[/color]
+
+[color=#a4885c]AlignSimilar[/color] — попытка привязаться к подобным объектам. [color=red]Сейчас не работает.[/color]
+
+[color=#a4885c]AlignTileAny[/color] — строгое выравнивание по центру любого тайла.
+
+[color=#a4885c]AlignTileEmpty[/color] — размещение только в [italic]пустых[/italic] тайлах.
+
+[color=#a4885c]AlignTileNonDense[/color] — целевой тайл не должен содержать плотных объектов (с коллизией).
+
+[color=#a4885c]AlignTileDense[/color] — наоборот, объект появится [italic]только[/italic] на тайле с плотным объектом.
+
+[color=#a4885c]AlignWall[/color] — привязка к [italic]вертикальным полутайлам[/italic] (обычно используется для стен).
+
+[color=#a4885c]AlignWallProper[/color] — выравнивает объект по [italic]центру краёв[/italic] тайла, идеален для ровного размещения стен и перегородок.

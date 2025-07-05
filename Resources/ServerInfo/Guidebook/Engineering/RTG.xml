@@ -1,20 +1,30 @@
 <Document>
-  # Radioisotope Thermoelectric Generator (RTG)
 
-  <Box>
-    <GuideEntityEmbed Entity="GeneratorRTG" Caption="RTG" />
-  </Box>
+# Радиоизотопный термоэлектрогенератор (РТГ)
 
-  Making power using a Radioisotope Thermoelectric Generator (RTG) is similar to making power using solars.
-  RTGs only provide [color=#a4885c]10kW[/color] of power, but they provide it for free and for the entire round.
-  Basically, if you connect an RTG to your power grid, it'll give you [color=#a4885c]free power[/color].
-  However, they're only accessible through salvage finding one on an expedition. Should they bring some in, make sure to thank them!
+<Box>
+  <GuideEntityEmbed Entity="GeneratorRTG" Caption="РТГ" />
+</Box>
 
-  <Box>
-    <GuideEntityEmbed Entity="GeneratorRTGDamaged" Caption="Damaged RTG" />
-  </Box>
-  Sometimes, RTGs appear damaged.
-  Damaged RTGs behave just like regular ones, but they're [color=yellow]radioactive[/color].
-  That means they're more dangerous, but on the bright side, you can put radiation collectors next to them to turn that radiation into more power.
-  This is usually more worthwhile, considering the power is still free, so long as you can find a safe spot to put the RTG(s) in.
+Радиоизотопный термоэлектрогенератор (или просто РТГ) — это такой маленький ядерный подарок от судьбы.
+Он вырабатывает стабильные [color=#a4885c]10кВт[/color] электроэнергии в течение всей смены, ничего не требует и работает без сбоев.
+Просто подключи его к сети — и получай [color=#a4885c]бесплатное электричество[/color].
+
+Правда, найти их можно только в [bold]экспедициях[/bold] или на свалке. Так что, если утилизаторы притащили такой — обязательно [italic]поцелуй им руки[/italic].
+
+
+
+<Box>
+  <GuideEntityEmbed Entity="GeneratorRTGDamaged" Caption="Повреждённый РТГ" />
+</Box>
+
+Иногда РТГ прибывает [color=yellow]взломанный жизнью[/color].
+Он всё ещё вырабатывает ту же энергию, но вдобавок [bold]фонит радиацией[/bold].
+
+Это опасно, но — с умом — полезно:
+Поставь рядом [italic]радиационные коллекторы[/italic], и ты начнёшь доить из него ещё больше мощности.
+
+Главное — найти место, где он никого не облучит.
+И не забудь предупредить остальных: "не целоваться с бочкой, она слегка светится".
+
 </Document>

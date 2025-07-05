@@ -1,7 +1,8 @@
 <Document>
-# Botanicals
 
-Botany and Chemistry can often work together to produce better medicine (or recreational cocktails). It may be worthwhile to give them the fertilizers they need, and request some medicinal plants in return.
+# Ботанические союзники
+
+Химия и ботаника — две науки, что при грамотном подходе способны творить настоящие чудеса. В тандеме они могут не только лечить, но и радовать: будь то эффективные лекарства или отменные рекреационные настойки. Так что не скупись на удобрения — и, быть может, в ответ ты получишь дары природы, способные исцелять лучше любого синтетического препарата.
 
 <Box>
 <GuideEntityEmbed Entity="FoodGalaxythistle"/>
@@ -11,11 +12,15 @@ Botany and Chemistry can often work together to produce better medicine (or recr
 <GuideEntityEmbed Entity="Nettle"/>
 </Box>
 
+Эти растения — не просто травы. За каждым листом скрывается целебная сила, рожденная в тепле гидропоники и питательной смеси. Поддержка химиков может превратить теплицу в настоящий фармацевтический сад.
+
 <GuideReagentEmbed Reagent="Ammonia"/>
 <GuideReagentEmbed Reagent="Diethylamine"/>
 <GuideReagentEmbed Reagent="EZNutrient"/>
 <GuideReagentEmbed Reagent="Left4Zed"/>
 <GuideReagentEmbed Reagent="RobustHarvest"/>
 <GuideReagentEmbed Reagent="UnstableMutagen"/>
+
+От простых удобрений до нестабильных мутагенов — каждый реагент может стать ключом к выведению уникального сорта, редкого компонента или смертоносного яда. Всё зависит от целей. И от аккуратности обращения.
 
 </Document>

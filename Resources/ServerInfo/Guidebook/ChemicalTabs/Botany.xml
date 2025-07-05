@@ -1,8 +1,8 @@
 <Document>
 
-# Botanical Chemicals
+# Ботанические реагенты
 
-These chemicals are used by botanists. Some of the chemicals change the properties of the plants.
+Добро пожаловать в алхимию природы. Эти реагенты — незаменимые помощники ботаника. Одни ускоряют рост, другие делают урожай более сочным… а третьи превращают безобидную редиску в нечто мутировавшее и потенциально смертельно опасное.
 
 <GuideReagentEmbed Reagent="Ammonia"/>
 <GuideReagentEmbed Reagent="Diethylamine"/>
@@ -10,5 +10,7 @@ These chemicals are used by botanists. Some of the chemicals change the properti
 <GuideReagentEmbed Reagent="Left4Zed"/>
 <GuideReagentEmbed Reagent="RobustHarvest"/>
 <GuideReagentEmbed Reagent="UnstableMutagen"/>
+
+[center][italic]Чем больше удобрений, тем добрее растения.[/italic][/center]
 
 </Document>

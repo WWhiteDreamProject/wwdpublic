@@ -1,57 +1,66 @@
 <Document>
-# Xenoarchaeology
-Xenoarchaeology is a epistemics subdepartment focused on researching and experimenting on alien artifacts.
+# Ксеноархеология
 
-At the start of each shift, the Science department will usually have access to at least two artifacts to experiment on. You can buy more by talking to the Cargo department.
+Ксеноархеология — это подотдел эпистемики, занимающийся изучением и экспериментами с инопланетными артефактами.
 
-By researching the unique things each artifact can do, you gain Research Points, increase the artifact's sale value, and potentially discover a useful ability or two that can help your department or the whole station!
+В начале каждой смены научный отдел обычно располагает как минимум двумя артефактами для исследования. Дополнительные можно заказать через отдел снабжения.
 
-## Artifact Nodes
+Изучая уникальные свойства артефактов, вы зарабатываете [italic]исследовательские очки[/italic], увеличиваете их стоимость для продажи и, возможно, открываете полезные эффекты, которые принесут пользу отделу или всей станции.
+
+## Узлы Артефактов
+
 <Box>
 <GuideEntityEmbed Entity="ComplexXenoArtifact" Caption=""/>
 <GuideEntityEmbed Entity="SimpleXenoArtifactItem" Caption=""/>
 </Box>
-Artifacts consist of a randomly-generated tree of nodes. These nodes have a "[color=#a4885c]depth[/color]", representing how dangerous the node is, and the number of other nodes connected to it, called "[color=#a4885c]edges[/color]",
 
-Artifacts always start at depth zero, the root of the tree. Travelling the tree to find as many nodes as possible is the main goal of the scientists working on them. Knowledge is extracted from nodes to gain Research Points and increase the artifact's sale value.
+Каждый артефакт состоит из случайно сгенерированного дерева узлов. Узлы обладают двумя ключевыми свойствами: [color=#a4885c]глубина[/color] (чем глубже — тем опаснее) и количество [color=#a4885c]связей[/color] с другими узлами.
 
-Each node has two components: its [color=#a4885c]stimulus[/color] and a [color=#a4885c]reaction[/color].
+Все артефакты начинаются с нулевой глубины — корня дерева. Главная задача исследователей — пройти через как можно больше узлов, извлекая знания, очки и повышая ценность объекта.
 
-A stimulus is the external behavior that triggers the reaction. There's a variety of these, and higher depth nodes have more difficult to accomplish stimuli. Some stimuli will need improvisation to trigger, and you may need to talk to other departments to get everything you need.
+У каждого узла есть [color=#a4885c]стимул[/color] и [color=#a4885c]реакция[/color].
 
-Some reactions are instantaneous effects while others are permanent changes. Once an artifact is triggered, the reaction causes the artifact to randomly move to another node it is linked to.
+Стимул — это внешнее воздействие, вызывающее реакцию. Чем глубже узел, тем сложнее стимул — иногда для его активации придётся импровизировать или обращаться за помощью в другие отделы.
 
-With some experimental science, you can begin to grasp how the different nodes of an artifact are connected, and how to move between them by repeatedly activating nodes.
+Реакции могут быть как мгновенными эффектами, так и постоянными изменениями. После срабатывания артефакт перемещается в один из связанных с узлом пунктов.
 
-All non-zero-depth nodes will have exactly one edge that leads up to its parent node. All other edges a node has lead down to the next depth.
+Если вы научитесь управлять переходами между узлами, вы сможете повторно активировать нужные, двигаясь по дереву.
 
-## Artifact Analyzer and Analysis Console
+Каждый ненулевой узел всегда имеет одну связь с родительским, а все остальные ведут к узлам большей глубины.
+
+## Анализатор Артефактов и Консоль Анализа
+
 <Box>
 <GuideEntityEmbed Entity="MachineArtifactAnalyzer"/>
 <GuideEntityEmbed Entity="ComputerAnalysisConsole"/>
 </Box>
-The main equipment that you'll be using for Xenoarchaeology is the [color=#a4885c]artifact analyzer[/color] and the [color=#a4885c]analysis console[/color]. You can use these to create reports that contain valuable information about an artifact.
 
-To set them up, simply link them with a network configurator and set an artifact on top of the analyzer. Every station has at least one of these machines already set up.
+Главные инструменты ксеноархеолога — это [color=#a4885c]анализатор артефактов[/color] и [color=#a4885c]консоль анализа[/color]. С их помощью можно сканировать артефакты и создавать подробные отчёты.
 
-Use the console's [color=#a4885c]scan[/color] button to discover what stimulus the artifact needs and what its reaction will do. Scanning takes thirty seconds.
+Для настройки достаточно связать устройства с помощью сетевого конфигуратора и положить артефакт на анализатор. На станции хотя бы один комплект всегда есть по умолчанию.
 
-Use the [color=#a4885c]print[/color] button to save the scan result, so you can refer to it later.
+Нажмите кнопку [color=#a4885c]scan[/color], чтобы просканировать артефакт. Скан покажет требуемый стимул и приблизительное описание реакции. Сканирование занимает 30 секунд.
 
-Once you've discovered a new node, you can extract points from the artifact using the [color=#a4885c]Extract[/color] button.
+Кнопка [color=#a4885c]print[/color] позволяет сохранить результат для дальнейшего использования.
 
-## Assembling Artifacts
-<GuideEntityEmbed Entity="ArtifactFragment" Caption="Artifact Fragment"/>
+Открыв новый узел, можно извлечь исследовательские очки с помощью кнопки [color=#a4885c]Extract[/color].
 
-It is possible to gather multiple artifact fragments and assemble them into a working artifact. You can ask for these from Salvage, who usually find these while mining asteroids or on Expeditions.
+## Сборка Артефактов
 
-## Traversal Bias
+<GuideEntityEmbed Entity="ArtifactFragment" Caption="Фрагмент артефакта"/>
+
+Можно собрать полноценный артефакт из нескольких фрагментов. Эти фрагменты обычно находят утилизаторы в экспедициях или астероидных шахтах.
+
+## Смещение Траверсала
+
 <Box>
   <GuideEntityEmbed Entity="MachineArtifactAnalyzer"/>
 </Box>
-Artifacts placed on top of a powered artifact analyzer are subjected to a bias which affects which node they will move to after being activated. The bias can be set in the artifact console.
 
-There are two types of biases:
-- [color=#a4885c]Up:[/color] favors nodes closer to the origin. Results in a decrease of depth.
-- [color=#a4885c]Down:[/color] favors nodes farther away from the origin. Results in an increase of depth.
+Размещённый на работающем анализаторе артефакт подвергается [italic]смещению траверсала[/italic], влияющему на выбор следующего узла после активации. Смещение настраивается в консоли артефакта.
+
+Доступны два режима:
+- [color=#a4885c]Вверх:[/color] отдаёт предпочтение узлам ближе к началу, снижает глубину.
+- [color=#a4885c]Вниз:[/color] выбирает узлы глубже, увеличивая глубину исследования.
+
 </Document>

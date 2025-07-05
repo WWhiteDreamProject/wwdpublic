@@ -1,35 +1,56 @@
 <Document>
-  # Zombies
+# Зомби
 
-  <Box>
-    <GuideEntityEmbed Entity="SignBiohazard" Caption=""/>
-  </Box>
+<Box>
+  <GuideEntityEmbed Entity="SignBiohazard" Caption=""/>
+</Box>
 
-  - Zombies are antagonist that infect all beings that they bite.
+На станции объявлена [bold][color=green]БИОЛОГИЧЕСКАЯ УГРОЗА[/color][/bold].
+Ты слышишь скрежет когтей по металлу? Глухие стоны за дверью? Поздравляем: веселье началось.
 
-  ## Infection
+Зомби — это не просто противник. Это [italic]эпидемия с ногами[/italic], и каждый укус приближает конец всего живого на станции.
 
-  - Three ways of getting infected are by starting out as the intial infected, being bitten by a zombified being, or being injected by [color=#a4885c]Romerol[/color].
 
-  <Box>
-    <GuideReagentEmbed Reagent="Romerol"></GuideReagentEmbed>
-  </Box>
 
-  ## Objectives
+## Инфекция
 
-  - The objective for zombies is to infect the entire station's crew.
+Существует три способа превратиться в ходячую гнилушку:
 
-  ## Cure
+- Быть [bold]нулевым заражённым[/bold], если тебе повезло родиться монстром.
+- Получить [bold]укус от уже заражённого[/bold].
+- Получить [bold]инъекцию с Ромеролом[/bold] — биологическим адом в жидкой форме.
 
-  - If you are already zombified, the only cure is death.
-  - If you are not zombified yet, using [color=#a4885c]Ambuzol[/color] will stop the infection from ensuing your timely demise but you may still get reinfected if not too careful. [color=#a4885c]Ambuzol Plus[/color] will prevent the infection continuously only while alive.
+<Box>
+  <GuideReagentEmbed Reagent="Romerol"/>
+</Box>
 
-  <Box>
-    <GuideReagentEmbed Reagent="Ambuzol"></GuideReagentEmbed>
-  </Box>
 
-  <Box>
-    <GuideReagentEmbed Reagent="AmbuzolPlus"></GuideReagentEmbed>
-  </Box>
 
+## Цель
+
+Цель у зомби проста, как инстинкт:
+[bold]ЗАРАЗИТЬ. КАЖДОГО. ЖИВОГО.[/bold]
+
+[italic]Без переговоров, без торга. Только мясо и зубы.[/italic]
+
+
+
+## Лечение (если тебе вообще повезёт)
+
+- Уже стал зомби? [bold]Сдохни.[/bold] Это единственный способ избавиться от проклятия.
+- Ещё не зомби? Тогда у тебя есть шанс. Используй [color=#a4885c]Ambuzol[/color], чтобы замедлить инфекцию. Это даст тебе время на побег или месть.
+- Хочешь уверенности? [color=#a4885c]Ambuzol Plus[/color] держит заразу под контролем... пока ты дышишь.
+
+<Box>
+  <GuideReagentEmbed Reagent="Ambuzol"/>
+</Box>
+
+<Box>
+  <GuideReagentEmbed Reagent="AmbuzolPlus"/>
+</Box>
+
+
+
+[italic]Станция обречена. Но ты можешь выбрать: быть жертвой — или стать куском адской мясной машины.[/italic]
+[color=green][bold]Вирус вечен. Мы — голодны.[/bold][/color]
 </Document>

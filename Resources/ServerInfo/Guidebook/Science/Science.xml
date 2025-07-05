@@ -1,39 +1,45 @@
 <Document>
-# Epistemics
+# Эпистемика
 
-Epistemics, often called Research and Development, is a job made up of both generating research points to unlock new technologies as well as using said technologies to produce new items at lathes to help out the station.
+Эпистемика — или попросту Исследования и Разработка — это отдел, занимающийся двумя ключевыми задачами: генерированием исследовательских очков для разблокировки новых технологий и использованием этих технологий для создания полезных вещей на фабрикаторах. Всё ради процветания станции.
 
-## Technologies
+## Технологии
 <Box>
 <GuideEntityEmbed Entity="ComputerResearchAndDevelopment"/>
 <GuideEntityEmbed Entity="ResearchAndDevelopmentServer"/>
 </Box>
-The most important thing inside your department is the R&D server, which stores unlocked technologies, and the R&D computer, which allows you to unlock technologies.
 
-Each technology costs [color=#a4885c]Research Points[/color] and unlocks recipes at lathes. Some technologies will also have prerequisites you have to unlock before you can research them.
+Сердце вашего отдела — это сервер Исследований и Разработок, где хранятся все изученные технологии, и R&D-компьютер, через который эти технологии и разблокируются.
 
-Information about the different technologies can be viewed [textlink="on the technology guidebook page" link="Technologies"].
+Каждая технология требует [color=#a4885c]исследовательских очков[/color] и открывает рецепты на лате. Некоторые из них потребуют предварительного изучения других технологий.
 
-## Disciplines
-Technologies are spread over 5 different Disciplines:
+Подробности о доступных технологиях можно посмотреть [textlink="в технологическом путеводителе" link="Technologies"].
+
+## Дисциплины
+
+Все технологии разделены на пять направлений:
+
 <Box>
-<GuideEntityEmbed Entity="Wrench" Caption="Industrial"/>
-<GuideEntityEmbed Entity="Syringe" Caption="Biochemical"/>
-<GuideEntityEmbed Entity="DeviceQuantumSpinInverter" Caption="Experimental"/>
-<GuideEntityEmbed Entity="ComputerTelevision" Caption="Civil Services"/>
-<GuideEntityEmbed Entity="WeaponXrayCannon" Caption="Arsenal"/>
+<GuideEntityEmbed Entity="Wrench" Caption="Промышленность"/>
+<GuideEntityEmbed Entity="Syringe" Caption="Биохимия"/>
+<GuideEntityEmbed Entity="DeviceQuantumSpinInverter" Caption="Экспериментальные"/>
+<GuideEntityEmbed Entity="ComputerTelevision" Caption="Гражданские службы"/>
+<GuideEntityEmbed Entity="WeaponXrayCannon" Caption="Арсенал"/>
 </Box>
 
-<GuideEntityEmbed Entity="ComputerResearchAndDevelopment"/> Use your nearest R&D console to take note of which kind of research is locked behind each Discipline tree.
+<GuideEntityEmbed Entity="ComputerResearchAndDevelopment"/>
+Открыв консоль R&D, вы увидите, к какому направлению относится каждая технология.
 
-## Tiers
-Each Discipline tree has up to 3 tiers of technologies. At the start the only tier that is open and available for you is tier 1.
+## Уровни технологий
 
-In order to progress further, you have to research up to [color=brown]75%[/color] of the current tier to move to the next one. So in order to unlock T2 researches you need to research 75% of T1.
+Каждое направление делится на три уровня (Tier). Изначально доступен только [italic]первый уровень[/italic].
 
-Now [color=green]Tier 3[/color] is where it gets interesting. If you research a T3 tech, you [color=brown]lock out[/color] T3 techs from other Discipline trees. That is, unless... you find some other way around it, probably should ask your [color=purple]Mystagogue[/color].
+Чтобы открыть доступ ко второму уровню, вам нужно исследовать [color=brown]75%[/color] технологий текущего. Это правило действует и при переходе с T2 на T3.
 
-## Lathes
+Однако с третьим уровнем всё не так просто. Изучив технологию T3 в одном направлении, вы [color=brown]заблокируете[/color] доступ к T3 в остальных. Так что выбирайте с умом... или попробуйте спросить у [color=purple]Мистагога[/color], есть ли обходной путь.
+
+## Фабрикаторы
+
 <Box>
 <GuideEntityEmbed Entity="Protolathe"/>
 <GuideEntityEmbed Entity="CircuitImprinter"/>
@@ -43,6 +49,7 @@ Now [color=green]Tier 3[/color] is where it gets interesting. If you research a 
 <GuideEntityEmbed Entity="MedicalTechFab"/>
 <GuideEntityEmbed Entity="SecurityTechFab"/>
 </Box>
-At a lathe, you can choose a server to allow it print whatever recipes you have unlocked. Recipes require various materials (steel, glass, plastic, gold, plasma) which can be acquired at Logistics or Salvage.
+
+Фабрикаторы позволяют создавать всё, что было разблокировано в исследованиях. Просто выберите нужный сервер и рецепт. Для создания понадобятся материалы: сталь, стекло, пластик, золото или плазма — всё это можно добыть в логистике или на обломках.
 
 </Document>

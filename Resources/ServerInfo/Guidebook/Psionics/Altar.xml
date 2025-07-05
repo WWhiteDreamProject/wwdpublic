@@ -1,15 +1,21 @@
 <Document>
-# Altars and Golemancy
-## Altars
-<GuideEntityEmbed Entity="AltarNanotrasen" />
-The chapel has a [color=#a4885c]sacrificial altar[/color]. To use it, a psionic humanoid must be placed on it, and someone with either psionics or clerical training must initiate the sacrifice.
-It appears in the context menu on the altar, which can be opened with the right mouse button by default.
+  # Алтари и Големантия
 
-<GuideEntityEmbed Entity="MaterialBluespace1" />
-<GuideEntityEmbed Entity="ClothingEyesTelegnosisSpectacles" />
-As a reward for sacrificing a psionic, glimmer will be lowered substantially and you will be given some loot.
-Usually this is a few bluespace crystals, but you can also get a powerful psionic item.
+  ## Алтари
 
-## Golemancy
-[color=red]Note: Golemancy is not implemented yet. Once you sacrifice a psionic you can borg them with an MMI.[/color]
+  <GuideEntityEmbed Entity="AltarNanotrasen" />
+
+  В часовне установлен [color=#a4885c]жертвенный алтарь[/color]. Чтобы воспользоваться им, на алтарь необходимо уложить псионического гуманоидa. Обряд жертвоприношения может совершить только тот, кто обладает пси-способностями или духовным посвящением.
+
+  Жертвоприношение инициируется через контекстное меню алтаря (по умолчанию — правая кнопка мыши).
+
+  <GuideEntityEmbed Entity="MaterialBluespace1" />
+  <GuideEntityEmbed Entity="ClothingEyesTelegnosisSpectacles" />
+
+  В награду за принесённую жертву снижается уровень мерцания, а сам жрец получает трофей. Чаще всего это несколько блюспейс-кристаллов, но иногда выпадают редкие псионические артефакты.
+
+  ## Големантия
+
+  [color=red]Внимание: Големантия пока не реализована. После жертвоприношения псионика вы сможете имплантировать его разум в корпус через ММИ.[/color]
+
 </Document>
