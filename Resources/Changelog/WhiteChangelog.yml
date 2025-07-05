@@ -3714,3 +3714,10 @@ Entries:
   id: 391
   time: '2025-07-05T02:22:19.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/635
+- author: Aposto2
+  changes:
+    - type: Fix
+      message: Теперь пожарный шлюзы не будут превращать обесточенный крио в ловушку
+  id: 392
+  time: '2025-07-05T02:27:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/640
