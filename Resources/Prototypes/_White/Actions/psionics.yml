@@ -8,7 +8,7 @@
       icon:
         sprite: _White/Interface/Actions/psionic_clone.rsi
         state: create
-      useDelay: 3
+      useDelay: 300
       event: !type:ClonePowerActionEvent
 
 - type: entity
