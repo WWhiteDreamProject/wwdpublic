@@ -393,6 +393,9 @@
     stateDoorClosed: shotguncase_door
   - type: AccessReader
     access: [["Armory"]]
+  - type: Damageable # WWDP
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
 
 # Detective
 - type: entity
