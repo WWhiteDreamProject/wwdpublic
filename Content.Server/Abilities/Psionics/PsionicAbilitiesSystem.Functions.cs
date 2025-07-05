@@ -39,7 +39,8 @@ public sealed partial class AddPsionicActions : PsionicPowerFunction
             if (actions.AddAction(uid, ref actionId, id))
             {
                 actions.StartUseDelay(actionId);
-                psionicComponent.Actions.Add(proto.ID, actionId);
+                var uniqueKey = $"{proto.ID}-{id}";
+                psionicComponent.Actions.Add(uniqueKey, actionId);
             }
         }
     }
@@ -65,6 +66,7 @@ public sealed partial class RemovePsionicActions : PsionicPowerFunction
         if (psionicComponent.Actions is null
             || !psionicComponent.Actions.ContainsKey(proto.ID))
             return;
+
 
         var copy = serializationManager.CreateCopy(psionicComponent.Actions, notNullableOverride: true);
 
