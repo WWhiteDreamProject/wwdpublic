@@ -277,7 +277,7 @@
     quickEquip: true
   - type: IngestionBlocker
   - type: TemperatureProtection
-    coefficient: 0.1 # WWDP
+    coefficient: 0.005
   - type: FireProtection
     reduction: 0.4 # WWDP
   - type: PressureProtection
