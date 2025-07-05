@@ -3721,3 +3721,14 @@ Entries:
   id: 392
   time: '2025-07-05T02:27:44.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/640
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: >-
+        Теперь хим мастер и диспенсер испускают слабый желто-оранжевый свет при
+        наличии электричества
+    - type: Tweak
+      message: Были слегка осветлены спрайты медицинской  машинерии
+  id: 393
+  time: '2025-07-05T02:56:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/651
