@@ -503,6 +503,9 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-kitchen
+  - type: Anchorable
+    flags:
+    - None # No CQC outside Kitchen
 
 - type: entity
   parent: DefaultStationBeaconService
