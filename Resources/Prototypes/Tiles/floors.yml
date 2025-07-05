@@ -1760,6 +1760,7 @@
 
 # WD EDIT START
 # TODO: Kill it
+# FIXED AGAIN HOW COME THIS SHIT IS SO ANNOYING
 - type: tile
   id: FloorTechMaint2
   name: tiles-techmaint2-floor
@@ -1774,31 +1775,31 @@
 
 - type: tile
   id: FloorMetalDiamond
-  name: tiles-techmaint2-floor
+  name: tiles-diamond-plate-floor
   sprite: /Textures/Tiles/deprecated.png
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepHull
-  itemDrop: FloorTileItemSteelMaint
+  itemDrop: FloorTileItemMetalDiamond
   heatCapacity: 10000
 
 - type: tile
   id: FloorMono
-  name: tiles-techmaint2-floor
+  name: tiles-mono-floor
   sprite: /Textures/Tiles/deprecated.png
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepHull
-  itemDrop: FloorTileItemSteelMaint
+  itemDrop: FloorTileItemMono
   heatCapacity: 10000
 
 - type: tile
   id: FloorTechMaint
-  name: tiles-techmaint2-floor
+  name: tiles-techmaint-floor
   sprite: /Textures/Tiles/deprecated.png
   baseTurf: Plating
   isSubfloor: false
