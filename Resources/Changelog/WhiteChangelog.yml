@@ -3750,3 +3750,12 @@ Entries:
   id: 395
   time: '2025-07-05T03:35:32.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/664
+- author: Warete
+  changes:
+    - type: Tweak
+      message: >-
+        Изменён(скорректирован) структурный урон по объектам для правильной
+        работы: пожарные шлюзы, раздвижные окна и прочие.
+  id: 396
+  time: '2025-07-05T03:54:58.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/661
