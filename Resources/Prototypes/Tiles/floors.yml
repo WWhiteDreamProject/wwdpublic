@@ -1758,6 +1758,19 @@
   friction: 0.05 #slippy
   heatCapacity: 10000
 
+# WD EDIT/ TODO: Kill it
+- type: tile
+  id: FloorTechMaint2
+  name: tiles-techmaint2-floor
+  sprite: /Textures/Tiles/deprecated.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemSteelMaint
+  heatCapacity: 10000
+
 - type: tile
   id: FloorTechMaint3
   name: tiles-techmaint3-floor
