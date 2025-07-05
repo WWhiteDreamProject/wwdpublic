@@ -2,14 +2,12 @@ using Content.Shared.Emag.Components;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Shared.DoAfter;
-using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Shared.VendingMachines;
 
@@ -21,38 +19,18 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] protected readonly IRobustRandom Randomizer = default!;
-    [Dependency] private readonly IGameTiming _timing = default!; // WD EDIT
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<VendingMachineComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<VendingMachineRestockComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<VendingMachineComponent, GotEmaggedEvent>(OnEmagged); // WWDP EDIT
     }
 
     protected virtual void OnComponentInit(EntityUid uid, VendingMachineComponent component, ComponentInit args)
     {
         RestockInventoryFromPrototype(uid, component, component.InitialStockQuality);
     }
-
-    // WWDP EDIT START
-    public virtual void OnEmagged(EntityUid uid, VendingMachineComponent component, ref GotEmaggedEvent args)
-    {
-        if (component.EmaggedInventory.Count == 0)
-        {
-            Popup.PopupClient(
-                Loc.GetString("emag-vendingmachine-contraband-empty"),
-                uid,
-                args.UserUid,
-                PopupType.MediumCaution);
-            return;
-        }
-
-        args.Handled = true;
-    }
-
-    // WWDP EDIT END
 
     public void RestockInventoryFromPrototype(EntityUid uid,
         VendingMachineComponent? component = null, float restockQuality = 1f)
@@ -85,7 +63,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
         var inventory = new List<VendingMachineInventoryEntry>(component.Inventory.Values);
 
-        if (component.JailBreak) //WWDP EDIT
+        if (HasComp<EmaggedComponent>(uid))
             inventory.AddRange(component.EmaggedInventory.Values);
 
         if (component.Contraband)
