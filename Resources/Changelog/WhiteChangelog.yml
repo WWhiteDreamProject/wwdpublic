@@ -3732,3 +3732,10 @@ Entries:
   id: 393
   time: '2025-07-05T02:56:25.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/651
+- author: nekosich
+  changes:
+    - type: Tweak
+      message: Перевод почти всех гайдбуков в руководстве.
+  id: 394
+  time: '2025-07-05T03:09:49.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/658
