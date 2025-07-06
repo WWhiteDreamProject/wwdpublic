@@ -160,3 +160,12 @@
     Gold: 250
     Silver: 100
     Plasma: 500
+
+# Security Sweater
+
+- type: latheRecipe
+  id: ClothingOuterStasecSweater
+  result: ClothingOuterStasecSweater
+  completetime: 4
+  materials:
+    Cloth: 500

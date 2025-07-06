@@ -1062,6 +1062,7 @@
       - BoxShotgun0000Buckshot
       - MagazineUniversalMagnumEmpty
       - MagazineUniversalMagnum
+      - ClothingOuterStasecSweater
       # - MagazineUniversalMagnumRubber # WD EDIT
     dynamicRecipes:
       # WD EDIT START - gun bloat moved to tier 1 Arsenal research
@@ -1559,7 +1560,7 @@
     - ClothingNeckMantleHOS
     - ClothingNeckMantleRD
     - ClothingNeckMantleQM
-    - ClothingOuterStasecSweater # DeltaV - added stasec sweater to uniform printer.
+    # - ClothingOuterStasecSweater # DeltaV - added stasec sweater to uniform printer.
     - ClothingOuterWinterMusician
     - ClothingOuterWinterClown
     - ClothingOuterWinterMime
