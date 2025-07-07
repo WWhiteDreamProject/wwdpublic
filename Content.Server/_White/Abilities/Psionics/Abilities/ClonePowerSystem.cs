@@ -12,6 +12,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Throwing;
 using Content.Shared.Hands.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Mobs;
 using Robust.Server.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Physics.Systems;
@@ -41,6 +42,7 @@ namespace Content.Server._White.Abilities.Psionics.Abilities;
             SubscribeLocalEvent<ClonePowerComponent, CloneSwitchPowerActionEvent>(CloneSwitch);
             SubscribeLocalEvent<PsionicCloneComponent, DispelledEvent>(OnDispelled);
             SubscribeLocalEvent<PsionicCloneComponent, OriginalSwitchPowerActionEvent>(OriginalSwitch);
+            SubscribeLocalEvent<PsionicCloneComponent, MobStateChangedEvent>(OnCloneDeath);
         }
 
         public void OnPowerUsed(EntityUid uid, ClonePowerComponent component, ClonePowerActionEvent args)
@@ -50,22 +52,7 @@ namespace Content.Server._White.Abilities.Psionics.Abilities;
                 return;
             
             if (component.CloneUid != null && TryComp<TransformComponent>(component.CloneUid.Value, out var cloneTransform)) {
-                if (_inventory.TryGetContainerSlotEnumerator(component.CloneUid.Value, out var enumerator))
-                {
-                    while (enumerator.NextItem(out var item, out var slot))
-                    {
-                        if (_inventory.TryUnequip(component.CloneUid.Value, component.CloneUid.Value, slot.Name, true, true))
-                            _physics.ApplyAngularImpulse(item, ThrowingSystem.ThrowAngularImpulse);
-                    }
-                }
-
-                if (TryComp<HandsComponent>(component.CloneUid, out var hands))
-                {
-                    foreach (var hand in _hands.EnumerateHands(component.CloneUid.Value, hands))
-                    {
-                        _hands.TryDrop(component.CloneUid.Value, hand, checkActionBlocker: false, doDropInteraction: false, handsComp: hands);
-                    }
-                }
+                StripCloneEquipment(component.CloneUid.Value);
 
                 var coord = Transform(uid).Coordinates;
                 cloneTransform.Coordinates = coord;
@@ -140,11 +127,52 @@ namespace Content.Server._White.Abilities.Psionics.Abilities;
         {
             if (TryComp<ClonePowerComponent>(component.OriginalUid, out var origComp))
                 origComp.CloneUid = null;
+            
+            StripCloneEquipment(uid);
+
             QueueDel(uid);
             Spawn("Ectoplasm", Transform(uid).Coordinates);
+
             _popup.PopupCoordinates(Loc.GetString("psionic-burns-up", ("item", uid)), Transform(uid).Coordinates, Filter.Pvs(uid), true, Shared.Popups.PopupType.MediumCaution);
             _audio.PlayEntity("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid, true);
+
             args.Handled = true;
         }
-    }
 
+        private void StripCloneEquipment(EntityUid cloneUid)
+        {
+            if (_inventory.TryGetContainerSlotEnumerator(cloneUid, out var enumerator))
+            {
+                while (enumerator.NextItem(out var item, out var slot))
+                {
+                    if (_inventory.TryUnequip(cloneUid, cloneUid, slot.Name, true, true))
+                        _physics.ApplyAngularImpulse(item, ThrowingSystem.ThrowAngularImpulse);
+                }
+            }
+
+            if (TryComp<HandsComponent>(cloneUid, out var hands))
+            {
+                foreach (var hand in _hands.EnumerateHands(cloneUid, hands))
+                {
+                    _hands.TryDrop(cloneUid, hand, checkActionBlocker: false, doDropInteraction: false, handsComp: hands);
+                }
+            }
+        }
+
+        private void OnCloneDeath(EntityUid uid, PsionicCloneComponent component, MobStateChangedEvent args)
+        {
+            if (args.NewMobState != MobState.Dead)
+                return;
+
+            if (TryComp<ClonePowerComponent>(component.OriginalUid, out var origComp))
+                origComp.CloneUid = null;
+
+            StripCloneEquipment(uid);
+
+            Spawn("Ectoplasm", Transform(uid).Coordinates);
+            QueueDel(uid);
+
+            _popup.PopupCoordinates(Loc.GetString("psionic-burns-up", ("item", uid)), Transform(uid).Coordinates, Filter.Pvs(uid), true, Shared.Popups.PopupType.MediumCaution);
+            _audio.PlayEntity("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid, true);
+        }
+    }
