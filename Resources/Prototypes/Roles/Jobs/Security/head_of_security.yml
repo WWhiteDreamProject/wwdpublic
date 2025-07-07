@@ -56,7 +56,7 @@
   - HoSPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoS
-    back: ClothingBackpackHOS
+    back: ClothingBackpackSecurity
     shoes: ClothingShoesBootsCombatFilled
     # eyes: ClothingEyesGlassesSecurity - WD EDIT
     id: HoSPDA
