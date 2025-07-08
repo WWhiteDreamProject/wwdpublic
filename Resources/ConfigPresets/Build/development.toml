@@ -33,7 +33,7 @@ preload_grids = false
 see_own_notes = true
 
 [lavaland] # Lavaland Change
-enabled = false # WWDP disbled in debug
+enabled = false
 
 # WD EDIT START
 [aspects]

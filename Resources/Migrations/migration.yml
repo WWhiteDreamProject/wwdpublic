@@ -397,23 +397,8 @@ TorsoBorgJanitor: TorsoBorg
 # 2024-11-17
 PresentRandomAsh: PresentRandomCoal
 
-# 2024-11-10 WD EDIT
-VendingMachinePride: RandomVending
-
-# 2024-30-10 WD EDIT
-HoloprojectorEmpty: Holoprojector
-HoloprojectorBorg: Holoprojector
-HolofanProjectorEmpty: HolofanProjector
-HoloprojectorFieldEmpty: HoloprojectorField
-HoloprojectorSecurityEmpty: HoloprojectorSecurity
-
-# 2024-09-11 WD EDIT
-DresserCaptainFilled: CaptainDrobe
-
-# 2024-12-11 WD EDIT
-NTFlag: FlagNanoTrasen
-SyndieFlag: FlagSyndicate
-LGBTQFlag: RandomPosterLegit
+# 2025-02-11
+WallShuttleInterior: WallShuttle
 
 # 2025-03-02
 WeaponSubMachineGunVector: null
