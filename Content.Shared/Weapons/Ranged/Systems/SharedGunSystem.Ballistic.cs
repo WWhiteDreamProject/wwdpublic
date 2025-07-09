@@ -243,7 +243,7 @@ public abstract partial class SharedGunSystem
             // Show top round
             if (component.Entities.Count > 0)
             {
-                var round = Name(component.Entities[-1]);
+                var round = Name(component.Entities[^1]);
 
                 args.PushMarkup(
                     Loc.GetString("ammo-top-round-examine", ("color", ModeExamineColor), ("round", round)));
