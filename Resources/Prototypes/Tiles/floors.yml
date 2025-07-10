@@ -1773,29 +1773,6 @@
   itemDrop: FloorTileItemSteelMaint
   heatCapacity: 10000
 
-- type: tile
-  id: FloorMetalDiamond
-  name: tiles-diamond-plate-floor
-  sprite: /Textures/Tiles/deprecated.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemMetalDiamond
-  heatCapacity: 10000
-
-- type: tile
-  id: FloorMono
-  name: tiles-mono-floor
-  sprite: /Textures/Tiles/deprecated.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemMono
-  heatCapacity: 10000
 
 - type: tile
   id: FloorTechMaint
