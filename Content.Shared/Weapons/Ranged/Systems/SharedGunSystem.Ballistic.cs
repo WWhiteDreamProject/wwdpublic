@@ -333,7 +333,7 @@ public abstract partial class SharedGunSystem
         UpdateAmmoCount(uid);
     }
 
-    protected abstract void Cycle(EntityUid uid, BallisticAmmoProviderComponent component, MapCoordinates coordinates, GunComponent? gunComponent = null);
+    protected abstract void Cycle(EntityUid uid, BallisticAmmoProviderComponent? component, MapCoordinates coordinates, GunComponent? gunComponent = null);
 
     private void OnBallisticInit(EntityUid uid, BallisticAmmoProviderComponent component, ComponentInit args)
     {

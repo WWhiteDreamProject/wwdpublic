@@ -20,7 +20,7 @@ public sealed partial class GunSystem
         }
     }
 
-    protected override void Cycle(EntityUid uid, BallisticAmmoProviderComponent component, MapCoordinates coordinates, GunComponent? gunComponent)
+    protected override void Cycle(EntityUid uid, BallisticAmmoProviderComponent? component, MapCoordinates coordinates, GunComponent? gunComponent)
     {
         if (!Timing.IsFirstTimePredicted)
             return;
@@ -28,7 +28,7 @@ public sealed partial class GunSystem
         EntityUid? ent = null;
 
         // TODO: Combine with TakeAmmo
-        if (component.Entities.Count > 0)
+        if (component != null && component.Entities.Count > 0) // WWDP
         {
             var existing = component.Entities[^1];
             component.Entities.RemoveAt(component.Entities.Count - 1);
@@ -36,7 +36,7 @@ public sealed partial class GunSystem
             Containers.Remove(existing, component.Container);
             EnsureShootable(existing);
         }
-        else if (component.UnspawnedCount > 0)
+        else if (component != null && component.UnspawnedCount > 0) // WWDP
         {
             component.UnspawnedCount--;
             ent = Spawn(component.Proto, coordinates);
