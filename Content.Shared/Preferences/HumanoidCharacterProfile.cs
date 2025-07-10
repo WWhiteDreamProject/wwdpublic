@@ -113,6 +113,9 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     // WD EDIT START
     [DataField]
     public string? ClownName { get; set; }
+
+    [DataField]
+    public string? MimeName { get; set; }
     // WD EDIT END
 
     /// <see cref="Appearance"/>
@@ -166,6 +169,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         string? stationAiName,
         string? cyborgName,
         string? clownName, // WD EDIT
+        string? mimeName, // WD EDIT
         HumanoidCharacterAppearance appearance,
         SpawnPriorityPreference spawnPriority,
         Dictionary<string, JobPriority> jobPriorities,
@@ -196,6 +200,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         StationAiName = stationAiName;
         CyborgName = cyborgName;
         ClownName = clownName; // WD EDIT
+        MimeName = mimeName; // WD EDIT
         Appearance = appearance;
         SpawnPriority = spawnPriority;
         _jobPriorities = jobPriorities;
@@ -230,6 +235,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             other.StationAiName,
             other.CyborgName,
             other.ClownName, // WD EDIT
+            other.MimeName, // WD EDIT
             other.Appearance.Clone(),
             other.SpawnPriority,
             new Dictionary<string, JobPriority>(other.JobPriorities),
@@ -366,6 +372,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     public HumanoidCharacterProfile WithStationAiName(string? stationAiName) => new(this) { StationAiName = stationAiName };
     public HumanoidCharacterProfile WithCyborgName(string? cyborgName) => new(this) { CyborgName = cyborgName };
     public HumanoidCharacterProfile WithClownName(string? clownName) => new(this) { ClownName = clownName }; // WD EDIT
+    public HumanoidCharacterProfile WithMimeName(string? mimeName) => new(this) { MimeName = mimeName }; // WD EDIT
     public HumanoidCharacterProfile WithSpecies(string species) => new(this) { Species = species };
     public HumanoidCharacterProfile WithCustomSpeciesName(string customspeciename) => new(this) { Customspeciename = customspeciename };
     public HumanoidCharacterProfile WithHeight(float height) => new(this) { Height = height };
