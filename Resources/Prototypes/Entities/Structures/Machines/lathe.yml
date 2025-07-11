@@ -258,23 +258,27 @@
     # .35 Caseless Pistol
     - MagazinePistolCaselessRiflePractice # EE
     - MagazinePistolCaselessRifle # EE
-    # - MagazinePistolCaselessRifleRubber # EE # WD EDIT
     # .35 Caseless (Civilian) Rifle
     - MagazineCaselessRifleShortPractice # EE
     - MagazineCaselessRifleShort # EE
-    # - MagazineCaselessRifleShortRubber # EE # WD EDIT
     # .35 Caseless (Military) Rifle
     - MagazineCaselessRiflePractice # EE
     - MagazineCaselessRifle # EE
-    # - MagazineCaselessRifleRubber # EE # WD EDIT
     # .35 Caseless (Box Mag) Rifle
     - MagazineBoxCaselessRiflePractice # EE
     - MagazineBoxCaselessRifle # EE
-    # - MagazineBoxCaselessRifleRubber # EE # WD EDIT
     - MagazineMagnumEmpty # Goobstation
     - MagazineMagnum # Goobstation
     - MagazineMagnumLeverRifleEmpty # Goobstation
     - MagazineMagnumLeverRifle # Goobstation
+    - CartridgeEpinephrine # Goobstation
+    - CartridgeBicaridine # Goobstation
+    - CartridgeDermaline # Goobstation
+    - CartridgeEphedrine # Goobstation
+    - CartridgeAtropine # Goobstation
+    - CartridgePuncturase # Goobstation
+    - SecHypo # Goobstation
+    - ParamedHypo # Goobstation - ParamedHypo
 
 - type: entity
   id: AutolatheHyperConvection
@@ -970,19 +974,15 @@
     # .35 Caseless Pistol
     # - MagazinePistolCaselessRiflePractice # EE
     # - MagazinePistolCaselessRifle # EE
-    # - MagazinePistolCaselessRifleRubber # EE
     # .35 Caseless (Civilian) Rifle
     # - MagazineCaselessRifleShortPractice # EE
     # - MagazineCaselessRifleShort # EE
-    # - MagazineCaselessRifleShortRubber # EE
     # .35 Caseless (Military) Rifle
     # - MagazineCaselessRiflePractice # EE
     # - MagazineCaselessRifle # EE
-    # - MagazineCaselessRifleRubber # EE
     # .35 Caseless (Box Mag) Rifle
     # - MagazineBoxCaselessRiflePractice # EE
     # - MagazineBoxCaselessRifle # EE
-    # - MagazineBoxCaselessRifleRubber # EE
     # WD EDIT END
     - MagazineMagnum
     - MagazineMagnumEmpty
@@ -1024,10 +1024,6 @@
     # - WeaponRifleGestio
     # - MagazineMagnumLeverRifle # Goobstation
     # - MagazineMagnumLeverRifleEmpty # Goobstation
-    # - MagazineNovaliteC1Empty
-    # - MagazineNovaliteC1
-    # - WeaponRifleNovaliteC1
-    # - WeaponRifleGestio
     # - ClothingEyesGlassesSecurity # WWDP no infinite sechuds
     - TelescopicShield
     - HoloprojectorSecurity
@@ -1042,58 +1038,14 @@
     - CartridgeSaline # Goobstation
     - SecHypo # Goobstation
     - BoxBeanbag
-    # WD EDIT START
-    # - CartridgePistolRubber
-    # - CartridgeMagnumRubber
-    # - CartridgeLightRifleRubber
-    # - CartridgeRifleRubber
-    # - MagazineRifleRubber
-    # - MagazinePistolRubber
-    # - MagazinePistolSubMachineGunRubber
-    # - MagazineMagnumRubber
-    # - MagazineLightRifleRubber
-    # - SpeedLoaderMagnumRubber
-    # - MagazineBoxPistolRubber
-    # - MagazineBoxMagnumRubber
-    # - MagazineBoxLightRifleRubber
-    # - MagazineBoxRifleRubber
-    # - CartridgeSpecialRubber
-    # - MagazineBoxSpecialRubber
-    # - MagazineBoxLightRifleRubber # Frontier
-    # - MagazineBoxMagnumRubber # Frontier
-    # - MagazineBoxPistolRubber # Frontier
-    # - MagazineBoxRifleRubber # Frontier
-    # - SpeedLoaderRifleHeavyRubber
-    # WD EDIT END
     - BoxShotgunBirdshot
     - BoxShotgun00Buckshot
     - BoxShotgun0000Buckshot
     - MagazineUniversalMagnumEmpty
     - MagazineUniversalMagnum
-    # - MagazineUniversalMagnumRubber # WD EDIT
     - MagazineLightRifleMarkOneEmpty
     - MagazineLightRifleMarkOne
     dynamicRecipes:
-    # WD EDIT START - gun bloat moved to tier 1 Arsenal research
-    - MagazineLightRifleLowCapacityEmpty
-    - MagazineLightRifleLowCapacity
-    - SpeedLoaderRifleHeavy
-    - SpeedLoaderRifleHeavyEmpty
-    - WeaponRifleNovaliteC1
-    - WeaponRifleGestio
-    - MagazineMagnumLeverRifle # Goobstation
-    - MagazineMagnumLeverRifleEmpty # Goobstation
-    - MagazineNovaliteC1Empty
-    - MagazineNovaliteC1
-    - WeaponRifleNovaliteC1
-    - WeaponRifleGestio
-    # WD EDIT END
-    - BasicRegulatorLamp # WWDP EDIT - energy weaponry overheating mechanic
-    - AdvancedRegulatorLamp
-    # WD EDIT START - caseless ammo moved to tier 3 Arsenal research
-    - MagazineCaselessRiflePractice # EE
-    - MagazineCaselessRifle # EE
-    # WD EDIT END
     - Truncheon
     - Terminus
     - BoxShotgunIncendiary
@@ -1298,19 +1250,17 @@
     # .35 Caseless Pistol
     # - MagazinePistolCaselessRiflePractice # EE
     # - MagazinePistolCaselessRifle # EE
-    # - MagazinePistolCaselessRifleRubber # EE
     # .35 Caseless (Civilian) Rifle
     # - MagazineCaselessRifleShortPractice # EE
     # - MagazineCaselessRifleShort # EE
-    # - MagazineCaselessRifleShortRubber # EE
     # .35 Caseless (Military) Rifle
     # - MagazineCaselessRiflePractice # EE
     # - MagazineCaselessRifle # EE
-    # - MagazineCaselessRifleRubber # EE
     # .35 Caseless (Box Mag) Rifle
     # - MagazineBoxCaselessRiflePractice # EE
     # - MagazineBoxCaselessRifle # EE
-    # - MagazineBoxCaselessRifleRubber # EE
+    - MagazineLightRifleMarkOneEmpty
+    - MagazineLightRifleMarkOne
   - type: MaterialStorage
     whitelist:
       tags:

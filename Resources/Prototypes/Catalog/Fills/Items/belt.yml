@@ -164,14 +164,22 @@
   name: grenadier chest rig
   suffix: Filled
   components:
-  - type: StorageFill # WWDP
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,7,1
+  - type: StorageFill
     contents:
       - id: ExGrenade
+        # WD EDIT START
         amount: 2
       - id: GrenadeShrapnel
         amount: 2
       - id: GrenadeIncendiary
         amount: 2
+      # WD EDIT END
       - id: SyndieMiniBomb
         amount: 2
       - id: EmpGrenade
@@ -211,7 +219,6 @@
   - type: StorageFill
     contents:
         - id: WeaponRevolverInspector
-        - id: SpeedLoaderMagnum
         - id: SpeedLoaderMagnum
 
 - type: entity
