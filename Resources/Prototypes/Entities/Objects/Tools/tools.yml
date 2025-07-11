@@ -124,9 +124,9 @@
       - state: screwdriver-screwybits
   - type: Item
     sprite: Objects/Tools/screwdriver.rsi
-    storedRotation: -90
+    storedRotation: -45 ##WWDP
   - type: MeleeWeapon
-    animationRotation: -45 # WWDP
+    animationRotation: -90 # WWDP
     wideAnimationRotation: -90
     attackRate: .8
     damage:
@@ -335,9 +335,7 @@
     state: red-icon
   - type: Item
     heldPrefix: red
-    storedSprite:
-      sprite: Objects/Tools/crowbar.rsi
-      state: red-storage
+    storedRotation: -90 ##WWDP EDIT
 
 - type: entity
   name: multitool
