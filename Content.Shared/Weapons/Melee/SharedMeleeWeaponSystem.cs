@@ -21,6 +21,8 @@ using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
