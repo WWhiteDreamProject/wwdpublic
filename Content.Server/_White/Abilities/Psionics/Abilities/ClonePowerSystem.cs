@@ -125,9 +125,15 @@ namespace Content.Server._White.Abilities.Psionics.Abilities;
 
         private void OnDispelled(EntityUid uid, PsionicCloneComponent component, DispelledEvent args)
         {
+            if (_mind.TryGetMind(uid, out var mindId, out var mind))
+            {
+                if (component.OriginalUid != null)
+                    _mind.TransferTo(mindId, component.OriginalUid.Value, mind: mind);
+            }
+
             if (TryComp<ClonePowerComponent>(component.OriginalUid, out var origComp))
                 origComp.CloneUid = null;
-            
+
             StripCloneEquipment(uid);
 
             QueueDel(uid);
