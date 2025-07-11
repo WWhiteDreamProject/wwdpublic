@@ -30,7 +30,7 @@
       map: [ "enum.DamageStateVisualLayers.Base" ]
     - state: cutters-cutty-thingy
   - type: MeleeWeapon
-    animationRotation: -90 # WWDP
+    animationRotation: -45 # WWDP
     wideAnimationRotation: -90
     attackRate: 1.1
     range: 1.6
@@ -126,7 +126,7 @@
     sprite: Objects/Tools/screwdriver.rsi
     storedRotation: -90
   - type: MeleeWeapon
-    animationRotation: -90 # WWDP
+    animationRotation: -45 # WWDP
     wideAnimationRotation: -90
     attackRate: .8
     damage:
@@ -211,9 +211,7 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/wrench.rsi
-    storedSprite:
-      sprite: Objects/Tools/wrench.rsi
-      state: storage
+    storedRotation: -135 ##WWDP
   - type: MeleeWeapon
     animationRotation: 225 # WWDP
     wideAnimationRotation: 135
@@ -281,9 +279,7 @@
   - type: Item
     sprite: Objects/Tools/crowbar.rsi
     size: Small
-    storedSprite:
-      sprite: Objects/Tools/crowbar.rsi
-      state: storage
+    storedRotation: -45 ##WWDP
   - type: MeleeWeapon
     animationRotation: -45 # WWDP
     wideAnimationRotation: -135
