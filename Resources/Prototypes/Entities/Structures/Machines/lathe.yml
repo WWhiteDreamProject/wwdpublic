@@ -224,6 +224,7 @@
     - VehicleWheelchairFolded # Goobstation
     - SnowballMaker # WWDP
     - Matchbox  # WWDP
+    - RadioHandheld
   - type: EmagLatheRecipes
     emagStaticRecipes:
     - BoxLethalshot
@@ -1603,6 +1604,26 @@
     - CarpetPurple
     - CarpetCyan
     - CarpetWhite
+    # Bedsheets
+    - BedsheetWhite
+    - BedsheetRed
+    - BedsheetBlue
+    - BedsheetGreen
+    - BedsheetBlack
+    - BedsheetYellow
+    - BedsheetOrange
+    - BedsheetBrown
+    - BedsheetPurple
+    - BedsheetRainbow
+    - BedsheetCosmos
+    - BedsheetCult
+    - BedsheetMedical
+    - BedsheetNT
+    - BedsheetSyndie
+    - BedsheetCentcom
+    - BedsheetIan
+    - BedsheetUSA
+
   - type: EmagLatheRecipes
     emagStaticRecipes:
     - ClothingHeadHatCentcomcap
