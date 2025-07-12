@@ -1,0 +1,38 @@
+- type: entity
+  id: ActionClone
+  name: action-name-clone
+  description: action-description-clone
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon:
+        sprite: _White/Interface/Actions/psionic_clone.rsi
+        state: create
+      useDelay: 300
+      event: !type:ClonePowerActionEvent
+
+- type: entity
+  id: ActionCloneSwitch
+  name: action-name-clone-switch
+  description: action-description-clone-switch
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon:
+        sprite: _White/Interface/Actions/psionic_clone.rsi
+        state: swap
+      useDelay: 1
+      event: !type:CloneSwitchPowerActionEvent
+
+- type: entity
+  id: ActionOriginalSwitch
+  name: action-name-original-switch
+  description: action-description-original-switch
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon:
+        sprite: _White/Interface/Actions/psionic_clone.rsi
+        state: swap
+      useDelay: 1
+      event: !type:OriginalSwitchPowerActionEvent

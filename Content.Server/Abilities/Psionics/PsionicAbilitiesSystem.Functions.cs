@@ -39,7 +39,10 @@ public sealed partial class AddPsionicActions : PsionicPowerFunction
             if (actions.AddAction(uid, ref actionId, id))
             {
                 actions.StartUseDelay(actionId);
-                psionicComponent.Actions.Add(proto.ID, actionId);
+                //WWDP EDIT START
+                var uniqueKey = $"{proto.ID}-{id}";
+                psionicComponent.Actions.Add(uniqueKey, actionId);
+                //WWDP EDOT END
             }
         }
     }
