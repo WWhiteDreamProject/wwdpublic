@@ -183,6 +183,10 @@
         - MobMask
         layer:
         - MobLayer
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 20 #WWDP
 
 - type: entity
   name: Drone
@@ -207,7 +211,7 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 6
+        Brute: 15 #WWDP
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: Fixtures
@@ -246,7 +250,7 @@
   - type: MeleeWeapon
     damage:
      groups:
-       Brute: 12
+       Brute: 35 #WWDP
   - type: Fixtures
     fixtures:
       fix1:
@@ -291,7 +295,7 @@
   - type: MeleeWeapon
     damage:
      groups:
-       Brute: 10
+       Brute: 20 #WWDP
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
@@ -324,7 +328,7 @@
   - type: MeleeWeapon
     damage:
      groups:
-       Brute: 10
+       Brute: 15 #WWDP
   - type: Fixtures
     fixtures:
       fix1:
@@ -352,6 +356,10 @@
     spawned:
     - id: FoodMeatRouny
       amount: 3
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 15 #WWDP
 
 - type: entity
   name: Spitter
@@ -378,7 +386,7 @@
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.75
   - type: BasicEntityAmmoProvider
-    proto: BulletAcid
+    proto: BulletAcidSpitter #WWDP
     capacity: 1
     count: 1
   - type: Gun
