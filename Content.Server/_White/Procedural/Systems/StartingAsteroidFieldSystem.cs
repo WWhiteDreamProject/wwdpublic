@@ -91,7 +91,7 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
 
         for(int i = 0; i < asteroidAmount; i++)
             if (_map.CreateMap(out var asteroidMapId, false).Valid)
-                asteroidMaps.Add(mapId);
+                asteroidMaps.Add(asteroidMapId);
 
         if (asteroidAmount != asteroidMaps.Count)
         {
@@ -101,7 +101,7 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
 
         for(int i = 0; i < derelictAmount; i++)
             if (_map.CreateMap(out var derelictMapId, false).Valid)
-                derelictMaps.Add(mapId);
+                derelictMaps.Add(derelictMapId);
 
         if(derelictAmount != derelictMaps.Count)
         {
@@ -157,9 +157,10 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
         await Task.WhenAll(loadTasks);
         Log.Debug($"Asteroid field maps generated. Total asteroid field counts: {asteroidAmount} asteroids, {derelictAmount} derelicts, {total} total.");
 
-        foreach (var map in maps.OrderBy(_ => _random.Next()))
+        _random.Shuffle(maps);
+        foreach (var map in maps)
         {
-            if (_map.TryGetMap(map, out var mapUid) || !mapUid.HasValue)
+            if (!_map.TryGetMap(map, out var mapUid) || !mapUid.HasValue)
                 continue;
 
             Box2? bounds = null;
@@ -210,7 +211,7 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
                 var childXform = Transform(mapChild);
                 var localPos = childXform.LocalPosition;
 
-                _transform.SetParent(mapChild, childXform, mapUid.Value);
+                _transform.SetParent(mapChild, childXform, _mapManager.GetMapEntityId(spawnLocation.MapId));
                 _transform.SetWorldPositionRotation(mapChild, spawnLocation.Position + localPos, spawnAngle, childXform);
 
                 if (HasComp<MapGridComponent>(mapChild))

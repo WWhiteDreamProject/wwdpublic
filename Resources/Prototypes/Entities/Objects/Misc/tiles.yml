@@ -223,7 +223,7 @@
 
 # TODO add a catwalk tile item once tile smoothing is supported
 
-#- type: entity
+#- type: entity # WWDP edit start
 #  name: mono tile
 #  parent: FloorTileItemBase
 #  id: FloorTileItemMono
@@ -237,7 +237,7 @@
 #      - Plating
 #      - FloorMono
 #  - type: Stack
-#    stackType: FloorTileMono
+#    stackType: FloorTileMono # WWDP edit end
 
 - type: entity
   name: linoleum floor
@@ -341,7 +341,7 @@
   - type: Stack
     stackType: FloorTileRockVault
 
-#- type: entity
+#- type: entity # WWDP edit start
 #  name: blue tile
 #  parent: FloorTileItemBase
 #  id: FloorTileItemBlue
@@ -357,21 +357,21 @@
 #  - type: Stack
 #    stackType: FloorTileBlue
 
-- type: entity
-  name: lime tile
-  parent: FloorTileItemBase
-  id: FloorTileItemLime
-  components:
-  - type: Sprite
-    state: lime
-  - type: Item
-    heldPrefix: steel
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorSteelLime
-  - type: Stack
-    stackType: FloorTileLime
+#- type: entity
+#  name: lime tile
+#  parent: FloorTileItemBase
+#  id: FloorTileItemLime
+#  components:
+#  - type: Sprite
+#    state: lime
+#  - type: Item
+#    heldPrefix: steel
+#  - type: FloorTile
+#    outputs:
+#      - Plating
+#      - FloorSteelLime
+#  - type: Stack
+#    stackType: FloorTileLime # WWDP edit end
 
 - type: entity
   name: mining tile

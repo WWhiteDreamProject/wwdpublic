@@ -188,7 +188,7 @@
 #just look at the ckey field you dumbass
 - type: customGhost
   id: redfoxiv-ghost
-  ckey: RedFoxIV@localhost
+  ckey: RedFoxIV
   sprite: _White/Ghosts/empty.rsi
   alpha: 1
   ghostName: яицевозка

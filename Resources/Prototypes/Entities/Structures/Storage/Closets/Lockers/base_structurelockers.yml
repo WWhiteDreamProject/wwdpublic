@@ -71,3 +71,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+        # WWDP EDIT START
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -3
+        # WWDP EDIT END

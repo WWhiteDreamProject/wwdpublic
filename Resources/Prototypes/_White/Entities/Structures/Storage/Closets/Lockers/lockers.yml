@@ -10,3 +10,14 @@
     stateDoorClosed: brigmedic_door
   - type: AccessReader
     access: [["Security"], ["Medical"]]
+
+- type: entity
+  abstract: true
+  id: AlertLevelLock
+  components:
+  - type: StationAlertLevelLock
+    lockedAlertLevels:
+    - green
+    - blue
+    - yellow
+    - violet

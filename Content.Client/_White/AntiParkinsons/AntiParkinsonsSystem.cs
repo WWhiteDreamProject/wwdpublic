@@ -108,10 +108,10 @@ public sealed class AntiParkinsonsSystem : EntitySystem
         // as that would result in ALL moveEvents being dropped on client.
         try
         {
-            const int roundFactor = EyeManager.PixelsPerMeter;
-            _modifiedLocalPos = RoundVec(_savedLocalPos);
+            const int roundFactor = EyeManager.PixelsPerMeter * 2;
+            _modifiedLocalPos = RoundVec(_savedLocalPos, roundFactor);
             xform.LocalPosition = _modifiedLocalPos;
-            _eye.CurrentEye.Offset = RoundVec(_eye.CurrentEye.Offset);
+            _eye.CurrentEye.Offset = RoundVec(_eye.CurrentEye.Offset, roundFactor);
         }
         catch (Exception e) { throw; }
         finally
@@ -144,7 +144,7 @@ public sealed class AntiParkinsonsSystem : EntitySystem
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private Vector2 RoundVec(Vector2 vec) => Vector2.Round((vec) * EyeManager.PixelsPerMeter) / EyeManager.PixelsPerMeter;
+    private Vector2 RoundVec(Vector2 vec, float roundFactor) => Vector2.Round(vec * roundFactor) / roundFactor;
 }
 
 public sealed class AntiParkinsonsRevertSystem : EntitySystem

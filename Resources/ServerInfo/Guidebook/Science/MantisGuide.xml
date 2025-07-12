@@ -1,43 +1,46 @@
 <Document>
-## Psionic Mantis
+## Мантис
 
-“Ah felt tha change in tha air, in tha noosphere, one ae ya be hiding something frae me” -Alice Maranna, former Psionic Mantis
+«Я почувствовала, как изменился воздух… в ноосфере… Кто-то из вас явно что-то скрывает» — Алиса Маранна, бывший Мантис
 
 <GuideEntityEmbed Entity="AntiPsychicKnife"/>
 
+Мантис — детектив псионики из культа Эпистемики. Это ключевая фигура, когда дело доходит до выявления, нейтрализации и — в крайних случаях — устранения псионических сущностей.
+Ты — живой детектор псионики, вооружённый знанием, интуицией и клинком. Твоя задача — находить псиоников среди экипажа с помощью [italic]Ассая[/italic] и [italic]Метапсионного Импульса[/italic], проникать сквозь завесу и заглядывать в душу. Эти способности дадут тебе загадочные намёки на псионические силы (и, возможно, скрытые качества) цели.
+Изучай полученные результаты, анализируй шёпоты и заноси информацию в реестр псиоников, чтобы отслеживать как потенциальных союзников, так и тех, кто может злоупотребить даром.
+[color=#ff0000]Ментальный излом — это крайняя мера.[/color] Используй [color=#a4885c]шлемы-изоляты[/color] и [color=#a4885c]Криптобиолин[/color] для временной нейтрализации опасных псиоников.
 
-The Psionic Mantis is the Psionic Detective of the Epistemic Cult, they serve the station as the primary method of dealing with processing and in some cases, destroying psionic entities, mentally, or by physical means. 
-This role is equipped to study and interact with the various psychic phenomena in our galaxy, you will be tasked with finding Psionic crew members with the assay and metapsionic pulse abilities, piercing the veil and seeing what lays under the soul, this ability will grant you esoteric information as to the psionic powers and perhaps other traits that the person may have. Study these results, and form an understanding of what each whisper means, log these powers in the psionic registry to allow for easy identification of psionics, and those who may abuse them. Remember, [color=#ff0000] mindbreaking is a last resort [/color], insulating headcages, temporary disabling of psionic abilities via Cryptobiolin are recommended for holding of psionics who have used their abilities irresponsibly or criminally. 
-
-## Loadout and Abilities
+## Снаряжение и способности
 
 <GuideEntityEmbed Entity="WeaponPistolPsiBreaker"/>
 
+В твоём распоряжении:
 
-In your loadout is a small selection of items to aid you in your task: 
--Your jacket, a lightly armoured jacket with some pockets for item storage.
--The Anti Psionic Knife: a specially attuned knife for specifically killing psionics and noospheric threats, be warned, you will be stunned and harmed if you attempt to use it on a non psychic entity.
--Psi-Breaker .38 Special handgun: a flashy, compact handgun that comes pre-loaded with mindbreaker bullets, use these wisely as you can only get more from security alongside their respective technology. THESE WILL CAUSE PERMANENT MINDBREAKING, DO NOT USE UNLESS ABSOLUTELY NECESSARY.
--Mindbreaker toxin: A substance devised by the Epistemic Cult to combat those maddened by the power of psionics, and in general, those who would use them for nefarious purposes. This substance damages receptors in the ingested person's brain that allow for psionic manipulation, in some cases, this will leave the person in a comatose state alongside removal of psionic abilities (check server maintainers to see if scary mindbreaking is enabled or not)
-Optional loadout options:
--LSD pill canister: a canister of space drug pills, these can help develop psionic abilities in any latent individual.
--Cryptobiolin pill canister: a canister of Crytobiolin, take a pill of these to insulate yourself from rogue psionics powers, or to prevent them from using their abilities. Does make you feel drunk and talk funny though.
+• Лёгкая бронежилетка с карманами.
+• [color=#a4885c]Антипсионический нож[/color] — оружие, настроенное на уничтожение псионических сущностей. Опасен для самого владельца, если ударить им обычного человека.
+• [color=#a4885c].38 Пси-брейкер[/color] — компактный револьвер, заряженный пулями разума. [bold]ВНИМАНИЕ: они вызывают необратимый ментальный излом.[/bold] Получить новые можно только через службу безопасности.
+• [color=#a4885c]Токсин Разума[/color] — препарат, разработанный Эпистемиками, разрушает псионические связи в мозгу цели. Иногда вызывает кому.
+• [italic]Дополнительно:[/italic]
+— [color=#a4885c]Канистра с ЛСД[/color] — развивает потенциал у латентных псиоников.
+— [color=#a4885c]Канистра с Криптобиолином[/color] — временно блокирует псионику и защищает от неё, но вызывает лёгкое опьянение.
 
-Furthermore, you will start trained in three abilities: 
--Metapsionic Pulse: an ability that allows you to detect whenever other active psionic abilities are used, does not pinpoint the exact location of a powers casting point. Active usage scans for nearby psionic beings.
--Assay: a scan of an individual will allow you to see through them and how their mind has begun to warp and manipulate the noosphere, the hints will be vague, but you should be able to estimate the powers an individual holds from a scan.
--Telepathy: you are naturally capable of telepathic communication in the localized telepathic network, useful for when comms go dark. Telepathy is completely annoymous, fool is the man who believes telepath wholeheartedly.
+Ты начинаешь с тремя псионическими способностями:
 
-## Misc. information
+• [color=#a4885c]Метапсионный импульс[/color] — ощущаешь факт использования псионики поблизости, даже если не знаешь точного места.
+• [color=#a4885c]Ассай[/color] — сканируешь разум цели и получаешь намёки на её способности.
+• [color=#a4885c]Телепатия[/color] — постоянный доступ к анонимной сети. Используется знаком "=". [italic]Доверять телепатам вслепую — удел глупцов.[/italic]
 
-Other things you can do while not chasing psionics and documenting them:
--Securing lotophagoi oil in a chem master in either your or the Mystagogue’s office. The substance is incredibly effective at unlocking psionic potential and as such, is highly valuable for those seeking to misuse it.
--Assist in research, you aren’t just the psychic police, you’re a researcher too.
--Discuss with the chaplain about how the oracle works.
--Argue with people that epistemology is a real science field and not pseudoscience. Cry as no one outside epistemics believes you.
--Lead, though not officially, due to your abilities and items afforded to you, you are often seen as the “warden of epistemics”, you are not officially the second in command of epistemics, but you are often the first choice to be a standing mystagogue if there is not one present, the original was removed of their position via: being irrecoverable, demotion or some other method. For this reason you should be willing to cooperate with other departments in a manner your boss would, primarily security.
+## Разное
 
-Other notes and general advice:
--Not every psionic is THE ENEMY, you can easily have someone be an informant if they also happen to have a metapsionic pulse, alerting you of areas of high psionic traffic. Get connections!
--You are NOT security (at least at this time), you are a specialist who deals in metaphysical threats and you will work with security to apprehend or neutralize such.
+Когда не охотишься за псиониками, ты можешь:
+
+• Обработать [color=#a4885c]лотофаговое масло[/color] — мощнейший псионный стимулятор.
+• Помогать в исследованиях. Да, ты не просто пси-полицейский.
+• Поговорить с капелланом об Оракуле.
+• Доказывать окружающим, что эпистемология — это наука, а не секта. Удачи...
+• Выполнять роль "надзирателя эпистемики" в отсутствие Мистагога. Официально ты не второй по рангу, но часто именно тебя просят заменить лидера, если он был устранён, уволен или испарился.
+
+[italic]Советы:[/italic]
+• Не каждый псионик — враг. Многие могут стать ценными информаторами.
+• Ты — не служба безопасности. Ты — специалист, который работает [italic]вместе[/italic] с СБ, но не входит в их состав.
 </Document>
