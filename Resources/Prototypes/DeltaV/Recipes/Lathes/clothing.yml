@@ -71,12 +71,3 @@
   completetime: 4
   materials:
     Cloth: 300
-
-# Security Sweater
-
-- type: latheRecipe
-  id: ClothingOuterStasecSweater
-  result: ClothingOuterStasecSweater
-  completetime: 4
-  materials:
-    Cloth: 500
