@@ -568,6 +568,8 @@
   packetPrototype: BloodTomatoSeeds
   productPrototypes:
     - FoodBloodTomato
+  mutationPrototypes:
+    - killertomato
   harvestRepeat: Repeat
   lifespan: 25
   maturation: 8
