@@ -8,7 +8,7 @@ tilemap:
   9: FloorFreezer
   11: FloorGreenCircuit
   16: FloorKitchen
-  17: FloorMetalDiamond
+  17: FloorMetalDiamondSteel
   4: FloorMowedAstroGrass
   13: FloorRGlass
   12: FloorReinforced
@@ -16,8 +16,8 @@ tilemap:
   19: FloorSteel
   8: FloorSteelCheckerDark
   10: FloorSteelCheckerLight
-  6: FloorTechMaint
-  1: FloorTechMaint2
+  6: FloorTechMaintSteel
+  1: FloorMaintWhite
   7: FloorWhite
   5: FloorWood
   3: Lattice

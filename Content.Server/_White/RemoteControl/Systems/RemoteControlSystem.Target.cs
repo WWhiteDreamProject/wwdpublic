@@ -11,19 +11,19 @@ public partial class RemoteControlSystem
 {
     private void InitializeTarget()
     {
-        SubscribeLocalEvent<RemoteControlTargetComponent, MapInitEvent>(OnTargetMapInit);
-        SubscribeLocalEvent<RemoteControlTargetComponent, ComponentShutdown>(OnTargetShutdown);
+        SubscribeLocalEvent<RemoteControllableComponent, MapInitEvent>(OnTargetMapInit);
+        SubscribeLocalEvent<RemoteControllableComponent, ComponentShutdown>(OnTargetShutdown);
 
-        SubscribeLocalEvent<RemoteControlTargetComponent, SpeechSourceOverrideEvent>(OnTargetSpeechSourceOverride);
+        SubscribeLocalEvent<RemoteControllableComponent, SpeechSourceOverrideEvent>(OnTargetSpeechSourceOverride);
 
-        SubscribeLocalEvent<RemoteControlTargetComponent, GetVerbsEvent<AlternativeVerb>>(GetAltVerb);
+        SubscribeLocalEvent<RemoteControllableComponent, GetVerbsEvent<AlternativeVerb>>(GetAltVerb);
 
-        SubscribeLocalEvent<RemoteControlTargetComponent, MobStateChangedEvent>(OnTargetMobStateChanged);
+        SubscribeLocalEvent<RemoteControllableComponent, MobStateChangedEvent>(OnTargetMobStateChanged);
 
-        SubscribeLocalEvent<RemoteControlTargetComponent, RemoteControlExitActionEvent>(OnExitAction);
+        SubscribeLocalEvent<RemoteControllableComponent, RemoteControlExitActionEvent>(OnExitAction);
     }
 
-    private void OnTargetMapInit(EntityUid uid, RemoteControlTargetComponent comp, MapInitEvent args)
+    private void OnTargetMapInit(EntityUid uid, RemoteControllableComponent comp, MapInitEvent args)
     {
         EntityUid? actionUid = null;
         _action.AddAction(uid, ref actionUid, comp.EndRemoteControlAction);
@@ -32,11 +32,11 @@ public partial class RemoteControlSystem
             comp.EndRemoteControlActionUid = actionUid.Value;
     }
 
-    private void OnTargetShutdown(EntityUid uid, RemoteControlTargetComponent comp, ComponentShutdown args)
+    private void OnTargetShutdown(EntityUid uid, RemoteControllableComponent comp, ComponentShutdown args)
     {
         _action.RemoveAction(uid, comp.EndRemoteControlActionUid);
 
-        if (!TryComp<RemoteControlUserComponent>(comp.User, out var userComponent))
+        if (!TryComp<RemoteControllingComponent>(comp.User, out var userComponent))
             return;
 
         if (TryComp<RemoteControlConsoleComponent>(userComponent.Console, out var consoleComponent))
@@ -45,15 +45,15 @@ public partial class RemoteControlSystem
         EndRemoteControl((comp.User.Value, userComponent), (uid, comp), true);
     }
 
-    private void OnTargetSpeechSourceOverride(EntityUid uid, RemoteControlTargetComponent comp, SpeechSourceOverrideEvent args)
+    private void OnTargetSpeechSourceOverride(EntityUid uid, RemoteControllableComponent comp, SpeechSourceOverrideEvent args)
     {
         if (comp.User is { } user)
             args.Override = user;
     }
 
-    private void GetAltVerb(EntityUid uid, RemoteControlTargetComponent component, GetVerbsEvent<AlternativeVerb> args)
+    private void GetAltVerb(EntityUid uid, RemoteControllableComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!component.CanManually || !args.CanAccess || !args.CanInteract || !args.CanComplexInteract)
+        if (!component.ManualControl || !args.CanAccess || !args.CanInteract || !args.CanComplexInteract)
             return;
 
         args.Verbs.Add(
@@ -82,13 +82,13 @@ public partial class RemoteControlSystem
     }
 
 
-    private void OnExitAction(EntityUid uid, RemoteControlTargetComponent component, RemoteControlExitActionEvent args)
+    private void OnExitAction(EntityUid uid, RemoteControllableComponent component, RemoteControlExitActionEvent args)
     {
         if(component.User is not null)
             EndRemoteControl(component.User.Value, (uid, component));
     }
 
-    private void OnTargetMobStateChanged(EntityUid uid, RemoteControlTargetComponent component, MobStateChangedEvent args)
+    private void OnTargetMobStateChanged(EntityUid uid, RemoteControllableComponent component, MobStateChangedEvent args)
     {
         if (args.NewMobState != MobState.Alive && component.User.HasValue)
             EndRemoteControl(component.User.Value, (uid, component), true);

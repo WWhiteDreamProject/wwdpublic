@@ -1,0 +1,76 @@
+- type: entity
+  parent: [BaseWeaponTurretNoHTR, ConstructibleMachine]
+  id: WeaponTurretUniversal
+  suffix: Remote Controlled
+  name: universal weapon mount
+  description: A remotely-operated turret designed to accept standard hand-held weapons. Being a simple gimbal mount, it is unable to do much besides aiming a gun and firing it.
+  components:
+  - type: Sprite
+    granularLayersRendering: true
+    sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+    drawdepth: Mobs
+    layers:
+    - state: syndie_base
+      renderingStrategy: NoRotation
+    - map: [ "weapon_layer" ]
+      renderingStrategy: Default
+      rotation: -90
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      weapon_slot: !type:ContainerSlot
+  - type: GunSlot
+    slot: weapon_slot
+  - type: ItemSlots
+    slots:
+      weapon_slot:
+        ejectOnInteract: false
+        ejectOnBreak: true
+        swap: false
+        name: Weapon slot
+        priority: 1
+        whitelist:
+          components:
+          - Gun
+  - type: ItemSlotRenderer
+    mapping:
+      weapon_slot: weapon_layer
+  - type: RemoteControllable
+    manualControl: true
+  - type: RemoteControlOverlay
+  - type: Machine
+    board: WeaponTurretUniversalCircuitboard
+  - type: Lock
+    locked: false
+    lockTime: 3
+    unlockTime: 10
+  - type: ItemSlotsLock
+    slots:
+    - weapon_slot
+  - type: GunSignalControl
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WiredNetworkConnection
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 0
+  - type: ApcPowerReceiverBattery
+    idleLoad: 5
+    batteryRechargeRate: 200
+    batteryRechargeEfficiency: 1.225
+  - type: ApcPowerReceiver
+    powerLoad: 5
+  - type: ExtensionCableReceiver
+  - type: Alerts
+  - type: Silicon
+    entityType: enum.SiliconType.Player
+    batteryPowered: true
+    drainPerSecond: 2
+    speedModifierThresholds:
+      4: 1
+      3: 1
+      2: 1
+      1: 1
+      0: 0

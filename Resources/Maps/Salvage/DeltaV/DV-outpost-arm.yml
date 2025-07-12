@@ -3,7 +3,7 @@ meta:
   postmapinit: false
 tilemap:
   0: Space
-  65: FloorMetalDiamond
+  65: FloorMetalDiamondSteel
   67: FloorMining
   71: FloorOldConcrete
   72: FloorOldConcreteMono

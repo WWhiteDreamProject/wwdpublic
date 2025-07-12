@@ -79,7 +79,7 @@
     grid:
     - 0,0,3,3
   - type: SurgerySpeedModifier
-    speedModifier: 5 # on par with a surgeon using normal tools # WWDP surgery times
+    speedModifier: 3 # on par with a surgeon using normal tools # WWDP surgery times
   - type: GuideHelp
     guides: [ Autodoc ]
 
@@ -92,7 +92,7 @@
   - type: Machine
     board: AutodocSyndieCircuitboard
   - type: SurgerySpeedModifier
-    speedModifier: 10 # as good as a surgeon using a multitool, nukies need it or something # WWDP surgery times
+    speedModifier: 5 # as good as a surgeon using a multitool, nukies need it or something # WWDP surgery times
 
 # Autodoc tools
 

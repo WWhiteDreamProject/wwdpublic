@@ -5,10 +5,10 @@ tilemap:
   0: Space
   2: FloorFreezer
   3: FloorHull
-  4: FloorMetalDiamond
+  4: FloorMetalDiamondSteel
   5: FloorSteelCheckerLight
   1: FloorSteelDirty
-  8: FloorTechMaint
+  8: FloorTechMaintSteel
   7: Lattice
   132: Plating
   133: PlatingAsteroid

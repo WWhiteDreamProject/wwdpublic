@@ -9,7 +9,7 @@ tilemap:
   6: FloorDarkMini
   3: FloorDarkPlastic
   12: FloorLino
-  14: FloorMetalDiamond
+  14: FloorMetalDiamondSteel
   9: FloorRedCircuit
   15: FloorReinforced
   16: FloorShowroom
@@ -18,8 +18,8 @@ tilemap:
   1: FloorShuttleWhite
   11: FloorSteel
   13: FloorSteelDirty
-  4: FloorTechMaint
-  17: FloorTechMaint2
+  4: FloorTechMaintSteel
+  17: FloorMaintWhite
   7: FloorWhite
   5: FloorWood
   130: Lattice

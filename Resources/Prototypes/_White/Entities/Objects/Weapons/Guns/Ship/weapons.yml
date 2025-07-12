@@ -1,0 +1,369 @@
+- type: entity
+  parent: BaseItem
+  id: BaseWeaponShip
+  abstract: True
+  components:
+  - type: Appearance
+  - type: StaticPrice
+    price: 1
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.5
+    sprintModifier: 0.5
+  - type: HeldSpeedModifier
+  - type: ModularTurretWeapon
+    onlyUsableByTurret: true
+  - type: Gun
+    fireOnDropChance: 0
+    shipWeapon: true
+
+- type: entity
+  id: BaseWeaponShipLightEnergy
+  parent: BaseWeaponShip
+  abstract: True
+  components:
+  - type: ModularTurretWeapon
+    weaponClass:
+    - LightEnergy
+
+- type: entity
+  id: BaseWeaponShipLightBallistic
+  parent: BaseWeaponShip
+  abstract: True
+  components:
+  - type: ModularTurretWeapon
+    weaponClass:
+    - LightBallistic
+
+
+
+- type: entity
+  parent: BaseWeaponShipLightEnergy
+  id: WeaponShipLightIR
+  name: IR Pulse Laser
+  description: A power-efficient, albeit weak infrared pulse laser. Being essentially a scaled-up version of a regular laser carbine, this cannon trades damage for extreme power efficiency.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/IR_laser.rsi
+    state: icon
+  - type: Gun
+    fireRate: 3.5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      params:
+        volume: -5
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BulletLaser
+    fireCost: 75
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/IR_laser.rsi
+
+
+- type: entity
+  parent: BaseWeaponShipLightEnergy
+  id: WeaponShipLightAnnihilator
+  name: Annihilator Rocket Launcher
+  description: Fires a spread of unguided flash-printed microrockets that cover a wide arc. Despite the low damage output, it can still deal a devastating blow in hands of a skilled fighter pilot.  
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/annihilator.rsi
+    state: icon
+  - type: Gun
+    selectedMode: Burst
+    availableModes:
+      - Burst
+    burstFireRate: 10
+    burstCooldown: 3
+    shotsPerBurst: 10
+    minAngle: 15
+    maxAngle: 15
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+      params:
+        volume: -5
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BulletWeakRocket
+    fireCost: 1000
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/annihilator.rsi
+
+- type: entity
+  parent: BaseWeaponShipLightEnergy
+  id: WeaponShipLightMiningLaser
+  name: Mining Laser
+  description: A cheap utility laser, excels at melting loose rock and cutting various salvage into pieces, but performs poorly against softer targets. Has a rather short focus range, making it ill-suited for combat use. 
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/mining_laser.rsi
+    state: icon
+  - type: Gun
+    fireRate: 5
+    angleDecay: -12
+    angleIncrease: -6
+    maxAngle: 40
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      params:
+        volume: -10
+  - type: HitscanContainerBatteryAmmoProvider
+    proto: RedMiningLaser
+    fireCost: 500
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/mining_laser.rsi
+
+# I'll put the mining beam prototype right after the mining laser itself to
+# make it obvious what it does.
+- type: hitscan
+  id: RedMiningLaser
+  maxLength: 30
+  damage:
+    types:
+      Heat: 3
+      Structural: 15
+  muzzleFlash:
+    sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_mining_laser
+  travelFlash:
+    sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: mining_laser
+  impactFlash:
+    sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_mining_laser
+
+- type: entity
+  parent: BaseWeaponShipLightEnergy
+  id: WeaponShipLightRiftLance
+  name: Rift lance
+  description: We commit this body to the holy vaccuum, dust to dust, stars to stars, that the Creator may renew our us in the cycle of eternal life. - Luddic funereal prayer, traditional.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/rift_lance.rsi
+    state: icon
+  - type: Gun
+    fireRate: 0.1
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: HitscanContainerBatteryAmmoProvider
+    proto: RiftLanceBeam
+    fireCost: 8000
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/rift_lance.rsi
+
+# I'll put the rift lance beam prototype right after the rift lance itself to
+# make it obvious why it should *not* be given to players.
+- type: hitscan
+  id: RiftLanceBeam
+  maxLength: 800 # fuck it we ballin'
+  damage:
+    types:
+      Blunt: 2000 # oh yeah
+  spawnAtImpact: OmegaBlastPierce # extra funny
+  muzzleFlash:
+    sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_fast
+  travelFlash:
+    sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: fast
+  impactFlash:
+    sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_fast
+
+- type: entity
+  id: OmegaBlastPierce
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: SpawnOnTrigger
+    proto: AdminInstantEffectExplosionSmall
+    offsets:
+    - 0,0
+    - 0,2
+    - 0,4
+    - 0,6
+    - 0,8
+    - 0,10    
+  - type: TimedDespawn
+    lifetime: 1
+
+
+#- type: entity
+#  parent: BaseWeaponShipLightEnergy
+#  id: WeaponShipLightAutopulse
+#  name: Autopulse Laser Cannon 
+#  description: 	Numerous built-in capacitors are at the core of this extremely inefficient, yet potent energy weapon.
+#  components:
+#  - type: Sprite
+#    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+#    layers:
+#    - map: [ "icon" ]
+#      state: mecha_pulse
+#  - type: Gun
+#    fireRate: 5
+#    selectedMode: FullAuto
+#    availableModes:
+#      - FullAuto
+#    soundGunshot:
+#      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+#  - type: ProjectileContainerBatteryAmmoProvider
+#    proto: BulletPulse
+#    fireCost: 150
+
+
+- type: entity
+  parent: BaseWeaponShipLightEnergy
+  id: WeaponShipLightHotspot
+  name: Hotspot PD
+  description: A rapid fire ballistic weapon effective against soft targets. A respectable close-in weapon system, it's effectiveness is severely limited by poor accuracy and low damage against any substantial armor. 
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/hotspot.rsi
+    state: icon
+  - type: Gun
+    fireRate: 20
+    angleDecay: 12
+    angleIncrease: 3
+    maxAngle: 20
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
+      params:
+        volume: -4
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BulletHotspot
+    fireCost: 250
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/hotspot.rsi
+
+- type: entity
+  id: BulletHotspot
+  name: bullet (.13 point-defense)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 4
+        Blunt: 2
+        Slash: 2
+
+
+- type: entity
+  id: BulletHotspotSpread
+  categories: [ HideSpawnMenu ]
+  parent: BulletHotspot
+  components:
+  - type: ProjectileSpread
+    proto: BulletHotspot
+    count: 3
+    spread: 4
+
+
+- type: entity
+  parent: BaseWeaponShipLightEnergy
+  id: WeaponShipLightHMG
+  name: Ship HMG
+  description: A jack of all trades, this weapon is a well-rounded option for any type of job. 
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/hmg.rsi
+    state: icon
+  - type: Gun
+    fireRate: 5
+    angleDecay: 10
+    angleIncrease: 5
+    maxAngle: 25
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
+      params:
+        volume: 0
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BulletHighCaliberWeak
+    fireCost: 1000
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/hmg.rsi
+
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletHighCaliberWeak
+  name: bullet (.50 flash-printed)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 25
+        Structural: 25 # weaker compared to other .50 cal bullets
+    
+
+
+
+- type: entity
+  parent: BaseWeaponShipLightEnergy
+  id: WeaponShipLightBlaster
+  name: Mining Blaster
+  description: Able to carve out chunks of stone and hull alike, this weapon's performance is severely hampered by it's low firerate and projectile speed. 
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/blaster.rsi
+    state: icon
+  - type: Gun
+    projectileSpeed: 10
+    fireRate: 0.333
+    angleDecay: 2.5
+    angleIncrease: 10
+    maxAngle: 25
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      params:
+        volume: 0
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BulletMiningBlast
+    fireCost: 4000
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/blaster.rsi
+
+
+- type: entity
+  id: BulletMiningBlast
+  name: unstable energy orb
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    color: "#FF00FFFF" #E7C60F?
+    layers:
+      - state: impact_laser_greyscale
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: DemolitionCharge
+    maxIntensity: 1
+    intensitySlope: 1
+    totalIntensity: 21
+    maxTileBreak: 0
+  - type: PointLight
+    radius: 1.5
+    color: red
+    energy: 0.25

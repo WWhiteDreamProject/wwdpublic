@@ -71,3 +71,6 @@ ModularTrigger: null
 LockerBrigmedic: LockerSecurityMedicine
 LockerBrigmedicFilled: LockerSecurityMedicineFilled
 LockerBrigmedicFilledHardsuit: LockerSecurityMedicineFilled
+
+# 28-06-2025
+FloorTileItemBlue: FloorTileItemSteelBlue

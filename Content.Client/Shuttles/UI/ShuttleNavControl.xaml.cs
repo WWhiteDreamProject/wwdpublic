@@ -1,6 +1,7 @@
 using System;
 using System.Numerics;
 using Content.Client.Station; // Frontier
+using Content.Client.Weapons.Ranged.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
@@ -29,6 +30,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     private readonly SharedShuttleSystem _shuttles;
     private readonly SharedTransformSystem _transform;
     private readonly EntityLookupSystem _lookup; // WD EDIT
+    private readonly GunSystem _gun; // WD EDIT
 
     /// <summary>
     /// Used to transform all of the radar objects. Typically is a shuttle console parented to a grid.
@@ -57,6 +59,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         _transform = EntManager.System<SharedTransformSystem>();
         _station = EntManager.System<StationSystem>(); // Frontier
         _lookup = EntManager.System<EntityLookupSystem>(); // WWDP EDIT
+        _gun = EntManager.System<GunSystem>(); // WWDP EDIT
     }
 
     public void SetMatrix(EntityCoordinates? coordinates, Angle? angle)
@@ -141,7 +144,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         var fixturesQuery = EntManager.GetEntityQuery<FixturesComponent>();
         var bodyQuery = EntManager.GetEntityQuery<PhysicsComponent>();
 
-        EntManager.TryGetComponent<GunComponent>(_coordinates.Value.EntityId, out var ourGunComp); // WD EDIT
+        _gun.TryGetGun(_coordinates.Value.EntityId, out _, out var ourGunComp); // WWDP EDIT
 
         if (!xformQuery.TryGetComponent(_coordinates.Value.EntityId, out var xform)
             || xform.MapID == MapId.Nullspace)

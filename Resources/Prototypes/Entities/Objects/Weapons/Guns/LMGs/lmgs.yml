@@ -24,9 +24,7 @@
     minAngle: -20
     maxAngle: -20
   - type: Gun
-    bonusAngleIncreaseMove: 50    # wwdp
     bonusAngleIncreaseTurn: 0.5   # wwdp
-    bonusAngleDecay: 30           # wwdp
     maxBonusAngle: 30             # wwdp
     minAngle: 24
     maxAngle: 45
@@ -71,7 +69,7 @@
     price: 500
   - type: UseDelay
     delay: 1
-  - type: Execution
+  # - type: Execution # WWDP
   - type: MeleeWeapon
     attackRate: 1.4
     damage:

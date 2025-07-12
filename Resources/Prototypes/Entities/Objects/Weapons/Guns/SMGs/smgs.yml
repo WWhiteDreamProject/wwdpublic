@@ -17,16 +17,15 @@
     - suitStorage
   # - type: AmmoCounter # WWDP
   - type: Gun # if changing also update WeaponDisablerSMG
-    bonusAngleIncreaseMove: 20    # wwdp
-    bonusAngleIncreaseTurn: 0.4   # wwdp
+    bonusAngleIncreaseTurn: 0.3   # wwdp
     bonusAngleDecay: 50           # wwdp
-    maxBonusAngle: 10             # wwdp
-    minAngle: 2
-    maxAngle: 16
+    maxBonusAngle: 15             # wwdp
+    minAngle: 13 # WWDP
+    maxAngle: 30 # WWDP
     fireRate: 8
     burstFireRate: 8
-    angleIncrease: 3
-    angleDecay: 16
+    angleIncrease: 4 # WWDP
+    angleDecay: 10 # WWDP
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -34,6 +33,9 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/smg.ogg
     defaultDirection: 1, 0
+  - type: GunWieldBonus # WWDP
+    minAngle: -10
+    maxAngle: -10
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
@@ -63,7 +65,7 @@
     price: 500
   - type: DisarmMalus # WWDP
     malus: 0.3
-  - type: Execution
+  # - type: Execution # WWDP
   - type: MeleeWeapon
     attackRate: 1.3333
     damage:
@@ -94,7 +96,7 @@
 
 - type: entity
   name: Atreides
-  parent: BaseWeaponSubMachineGun
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable] # WWDP
   id: WeaponSubMachineGunAtreides
   description: Pla-ket-ket-ket-ket! Uses .35 auto ammo.
   components:
@@ -121,7 +123,7 @@
 
 - type: entity
   name: C-20r sub machine gun
-  parent: [BaseWeaponSubMachineGun]
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable] # WWDP
   id: WeaponSubMachineGunC20r
   description: Manufactured by Cybersun-Armaments, the C-20r is one of the most popular personal small-arms in the Coalition of Colonies. Uses .35 auto ammo.
   components:
@@ -135,8 +137,8 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
   - type: Gun
-    minAngle: 2 # WD EDIT
-    maxAngle: 10 # WD EDIT
+    # minAngle: 2 # WD EDIT
+    # maxAngle: 10 # WD EDIT
     shotsPerBurst: 5
     availableModes:
     - SemiAuto
@@ -192,7 +194,7 @@
 
 - type: entity
   name: Drozd
-  parent: BaseWeaponSubMachineGun
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable] # WWDP
   id: WeaponSubMachineGunDrozd
   description: An excellent fully automatic Heavy SMG.
   components:
@@ -206,8 +208,8 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
   - type: Gun
-    minAngle: 2 # WD EDIT
-    maxAngle: 14 # WD EDIT
+    # minAngle: 2 # WWDP
+    # maxAngle: 14 # WWDP
     fireRate: 6
     selectedMode: FullAuto
     soundGunshot:
@@ -296,7 +298,7 @@
 
 - type: entity
   name: WT550
-  parent: BaseWeaponSubMachineGun
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable] # WWDP
   id: WeaponSubMachineGunWt550
   description: An excellent SMG, produced by NanoTrasen's Small Arms Division. Uses .35 auto ammo.
   components:
@@ -319,10 +321,10 @@
     boltClosed: null
   - type: Gun
     fireRate: 7
-    minAngle: 1
-    maxAngle: 6
-    angleIncrease: 1.5
-    angleDecay: 6
+    # minAngle: 1 # WWDP
+    # maxAngle: 6 # WWDP
+    # angleIncrease: 1.5 # WWDP
+    # angleDecay: 6 # WWDP
     selectedMode: FullAuto
     shotsPerBurst: 5
     burstCooldown: 0.2

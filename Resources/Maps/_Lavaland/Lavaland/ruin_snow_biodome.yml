@@ -9,7 +9,7 @@ tilemap:
   3: FloorMiningDark
   6: FloorMiningLight
   96: FloorSnow
-  2: FloorTechMaint
+  2: FloorTechMaintSteel
   127: FloorWood
   132: Plating
 entities:

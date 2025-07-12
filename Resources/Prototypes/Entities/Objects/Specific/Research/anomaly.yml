@@ -98,6 +98,7 @@
     maxBeepInterval: 0.5
   - type: ProximityDetector
     range: 40
+
 - type: entity
   id: AnomalyLocatorWide
   parent: [ AnomalyLocatorWideUnpowered, PowerCellSlotSmallItem ]

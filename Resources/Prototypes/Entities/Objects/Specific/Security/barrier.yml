@@ -18,7 +18,7 @@
   - type: InteractionOutline
   - type: Physics
     bodyType: Dynamic
-    canCollide: false
+    # canCollide: false # WWDP
   - type: Fixtures
     fixtures:
       base:
@@ -28,6 +28,9 @@
         density: 75
         mask:
         - MachineMask
+        layer:
+        - MidImpassable # WWDP
+        - BulletImpassable # WWDP
       barrier:
         shape:
           !type:PhysShapeCircle
@@ -41,8 +44,8 @@
   - type: Lock
     locked: false
     lockOnClick: true # toggle lock just by clicking on barrier
-    lockTime: 5
-    unlockTime: 5
+    lockTime: 0.5 # WWDP
+    unlockTime: 1.5 # WWDP
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic

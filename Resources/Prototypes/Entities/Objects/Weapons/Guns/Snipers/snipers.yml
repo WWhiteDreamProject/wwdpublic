@@ -1,6 +1,6 @@
 - type: entity
   name: BaseWeaponSniper
-  parent: BaseItem
+  parent: [BaseItem, BaseGunWieldable] # WWDP
   id: BaseWeaponSniper
   description: A rooty tooty point and shooty.
   abstract: true
@@ -25,10 +25,8 @@
     malus: 0.3
     wieldedBonus: 0.3
   - type: Gun
-    bonusAngleIncreaseMove: 30  # wwdp
-    bonusAngleIncreaseTurn: 0   # wwdp
-    bonusAngleDecay: 30         # wwdp
-    maxBonusAngle: 30           # wwdp
+    minAngle: 20 # WWDP
+    angleIncrease: 30 # WWDP
     fireRate: 0.75
     defaultDirection: 1, 0 # wwdp
     selectedMode: SemiAuto
@@ -51,7 +49,7 @@
         ents: []
   - type: StaticPrice
     price: 500
-  - type: Execution
+  # - type: Execution # WWDP
   - type: MeleeWeapon
     attackRate: 1.3333
     damage:
@@ -82,7 +80,7 @@
 
 - type: entity
   name: Kardashev-Mosin
-  parent: [BaseWeaponSniper, BaseGunWieldable]
+  parent: [BaseWeaponSniper] # WWDP
   id: WeaponSniperMosin
   description: A weapon for hunting, or endless trench warfare, with a bayonet attached at the barrel. Uses .30 rifle ammo.
   components:
@@ -145,7 +143,7 @@
 
 - type: entity
   name: Hristov
-  parent: [BaseWeaponSniper, BaseGunWieldable]
+  parent: [BaseWeaponSniper] # WWDP
   id: WeaponSniperHristov
   description: A portable anti-materiel rifle. Fires armor piercing 14.5mm shells. Uses .60 anti-materiel ammo.
   components:
@@ -174,6 +172,9 @@
     capacity: 5
     proto: CartridgeAntiMateriel
   - type: Gun
+    angleDecay: 1 # WWDP
+    bonusAngleDecay: 10 # WWDP
+    bonusAngleIncreaseTurn: 1  # wwdp
     fireRate: 0.6
   - type: Wieldable
   - type: Telescope
