@@ -18,15 +18,17 @@ chat-manager-no-radio-key = Не указан ключ канала!
 chat-manager-no-such-channel =  Нет канала с ключем '{$key}'!
 chat-manager-whisper-headset-on-message = Вы не можете шептать в радио!
 
+chat-manager-language-prefix = ({ $language }){" "}
+
 chat-manager-server-wrap-message = СЕРВЕР: { $message }
 chat-manager-sender-announcement-wrap-message = [font size=14][bold]Объявление {$sender}:[/font][font size=12]
                                                 {$message}[/bold][/font]
 
-chat-manager-entity-say-wrap-message = [bold][BubbleHeader][Name]{$entityName}[/Name][/BubbleHeader][/bold] [italic]{$verb}[/italic], [font="{$fontType}" size={$fontSize}]"[BubbleContent]{$message}[/BubbleContent]"[/font]
-chat-manager-entity-say-bold-wrap-message = [bold][BubbleHeader][Name]{$entityName}[/Name][/BubbleHeader][/bold] {$verb}, [font="{$fontType}" size={$fontSize}]"[bold][BubbleContent]{$message}[/BubbleContent][/bold]"[/font]
+chat-manager-entity-say-wrap-message = [bold][BubbleHeader][Name][font size=11][color={$color}][bold]{$language}[/bold][/color][/font]{$entityName}[/Name][/BubbleHeader][/bold] [italic]{$verb}[/italic], [font="{$fontType}" size={$fontSize}]"[BubbleContent]{$message}[/BubbleContent]"[/font]
+chat-manager-entity-say-bold-wrap-message = [bold][BubbleHeader][Name][font size=11][color={$color}][bold]{$language}[/bold][/color][/font]{$entityName}[/Name][/BubbleHeader][/bold] {$verb}, [font="{$fontType}" size={$fontSize}]"[bold][BubbleContent]{$message}[/BubbleContent][/bold]"[/font]
 
-chat-manager-entity-whisper-wrap-message = [font size=11][italic][BubbleHeader][Name]{$entityName}[/Name][/BubbleHeader] шепчет,"[BubbleContent]{$message}[/BubbleContent]"[/italic][/font]
-chat-manager-entity-whisper-unknown-wrap-message = [font size=11][italic][BubbleHeader]Некто[/BubbleHeader] шепчет, "[BubbleContent]{$message}[/BubbleContent]"[/italic][/font]
+chat-manager-entity-whisper-wrap-message = [font size=11][italic][BubbleHeader][Name][font size=10][color={$color}][bold]{$language}[/bold][/color][/font]{$entityName}[/Name][/BubbleHeader] шепчет,"[BubbleContent]{$message}[/BubbleContent]"[/italic][/font]
+chat-manager-entity-whisper-unknown-wrap-message = [font size=11][italic][BubbleHeader][font size=10][color={$color}][bold]{$language}[/bold][/color][/font]Некто[/BubbleHeader] шепчет, "[BubbleContent]{$message}[/BubbleContent]"[/italic][/font]
 
 chat-manager-entity-me-wrap-message = { $entityName } { $message }
 
