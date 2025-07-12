@@ -3773,3 +3773,12 @@ Entries:
   id: 398
   time: '2025-07-05T08:41:35.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/642
+- author: Warete
+  changes:
+    - type: Tweak
+      message: >-
+        Космонавтик после лечения больше  не будет автоматически вставать и
+        слазать с кроватей. 
+  id: 399
+  time: '2025-07-12T02:28:45.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/669
