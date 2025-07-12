@@ -113,6 +113,12 @@
                                     <Control HorizontalExpand="True"/>
                                     <LineEdit Name="ClownNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
                                 </BoxContainer>
+                                <!-- Mime name -->
+                                <BoxContainer Name="MimeNameContainer" HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-mime-name-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <LineEdit Name="MimeNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
+                                </BoxContainer>
                                 <!-- WD EDIT END -->
                                 <!-- Show clothing -->
                                 <BoxContainer HorizontalExpand="True">
