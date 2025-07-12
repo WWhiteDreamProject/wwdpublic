@@ -6,12 +6,12 @@
   components:
   - type: Eye
     visMask:
-      - TelegnosticProjection
-      - PsionicInvisibility
-      - Ghost
-      - Normal
-      - Ethereal
-      - AGhost # WD EDIT
+    - TelegnosticProjection
+    - PsionicInvisibility
+    - Ghost
+    - Normal
+    - Ethereal
+    - AGhost # WD EDIT
   - type: ContentEye
     maxZoom: 10, 10 # WD EDIT
   # WD EDIT START
@@ -65,7 +65,7 @@
       enum.CrewMonitoringUIKey.Key:
         type: CrewMonitoringBoundUserInterface
       enum.GeneralStationRecordConsoleKey.Key:
-      # who the fuck named this bruh
+        # who the fuck named this bruh
         type: GeneralStationRecordConsoleBoundUserInterface
   - type: IntrinsicUI
     uis:
@@ -196,7 +196,7 @@
 - type: entity
   id: ActionAGhostShowStationRecords
   name: Station Records Interface
-  description: View a station records Interface
+  description: View a station records Interface.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction

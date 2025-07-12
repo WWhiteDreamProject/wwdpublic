@@ -13,10 +13,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ShowHealthBars
-    damageContainers: # WWDP fix
+    damageContainers:
     - Biological
   - type: ShowHealthIcons
-    damageContainers: # WWDP fix
+    damageContainers:
     - Biological
 
 - type: entity
@@ -42,7 +42,7 @@
     - Silicon
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, ShowMedicalIcons]
   id: ClothingEyesHudMedical
   name: medical hud
   description: A heads-up display that scans the humanoids in view and provides accurate data about their health status.
@@ -51,12 +51,6 @@
     sprite: Clothing/Eyes/Hud/med.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/med.rsi
-  - type: ShowHealthBars
-    damageContainers:
-    - Biological
-  - type: ShowHealthIcons
-    damageContainers:
-    - Biological
   - type: Tag
     tags:
     - HudMedical
@@ -145,7 +139,7 @@
   - type: ShowThirstIcons
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, ShowMedicalIcons]
   id: ClothingEyesHudMedOnion
   name: medonion hud
   description: Filler
@@ -154,16 +148,10 @@
     sprite: Clothing/Eyes/Hud/medonion.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/medonion.rsi
-  - type: ShowHealthBars
-    damageContainers:
-    - Biological
-  - type: ShowHealthIcons
-    damageContainers:
-    - Biological
   - type: ShowHungerIcons
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, ShowMedicalIcons]
   id: ClothingEyesHudMedOnionBeer
   name: medthungerst hud
   description: Filler
@@ -172,17 +160,11 @@
     sprite: Clothing/Eyes/Hud/medonionbeer.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/medonionbeer.rsi
-  - type: ShowHealthBars
-    damageContainers:
-    - Biological
-  - type: ShowHealthIcons
-    damageContainers:
-    - Biological
   - type: ShowHungerIcons
   - type: ShowThirstIcons
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons]
+  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
   id: ClothingEyesHudMedSec
   name: medsec hud
   description: An eye display that looks like a mixture of medical and security huds.
@@ -194,18 +176,12 @@
   - type: Construction
     graph: HudMedSec
     node: medsecHud
-  - type: ShowHealthBars
-    damageContainers:
-    - Biological
-  - type: ShowHealthIcons
-    damageContainers:
-    - Biological
   - type: Tag
     tags:
     - HudMedicalSecurity
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons]
+  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
   id: ClothingEyesHudMultiversal
   name: multiversal hud
   description: Filler
@@ -218,13 +194,10 @@
     damageContainers:
     - Biological
     - Inorganic
-  - type: ShowHealthIcons
-    damageContainers:
-    - Biological
   - type: ShowSyndicateIcons
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons]
+  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
   id: ClothingEyesHudOmni
   name: omni hud
   description: Filler
@@ -237,9 +210,6 @@
     damageContainers:
     - Biological
     - Inorganic
-  - type: ShowHealthIcons
-    damageContainers:
-    - Biological
   - type: ShowHungerIcons
   - type: ShowThirstIcons
   - type: ShowSyndicateIcons
@@ -277,7 +247,7 @@
   suffix: Syndicate
 
 - type: entity
-  parent: ClothingEyesHudMedical
+  parent: [ClothingEyesHudMedical, FlippableEyesBase]
   id: ClothingEyesEyepatchHudMedical
   name: medical hud eyepatch
   description: A heads-up display that scans the humanoids in view and provides accurate data about their health status. For true patriots.
@@ -288,7 +258,7 @@
     sprite: Clothing/Eyes/Hud/medpatch.rsi
 
 - type: entity
-  parent: ClothingEyesHudSecurity
+  parent: [ClothingEyesHudSecurity, FlippableEyesBase]
   id: ClothingEyesEyepatchHudSecurity
   name: security hud eyepatch
   description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. For true patriots.
@@ -299,7 +269,21 @@
     sprite: Clothing/Eyes/Hud/secpatch.rsi
 
 - type: entity
-  parent: ClothingEyesHudBeer
+  parent: [ClothingEyesHudSecurity, FlippableEyesBase]
+  id: ClothingEyesEyepatchHudTintedSecurity
+  name: tinted security eyepatch
+  description: The cooler looking cousin of HUD sunglasses.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Hud/secpatchtint.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Hud/secpatchtint.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+
+- type: entity
+  parent: [ClothingEyesHudBeer, FlippableEyesBase]
   id: ClothingEyesEyepatchHudBeer
   name: beer hud eyepatch
   description: A pair of sunHud outfitted with apparatus to scan reagents, as well as providing an innate understanding of liquid viscosity while in motion. For true patriots.
@@ -310,7 +294,7 @@
     sprite: Clothing/Eyes/Hud/beerpatch.rsi
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, FlippableEyesBase]
   id: ClothingEyesEyepatchHudDiag
   name: diagnostic hud eyepatch
   description: A heads-up display capable of analyzing the integrity and status of robotics and exosuits. Made out of see-borg-ium.

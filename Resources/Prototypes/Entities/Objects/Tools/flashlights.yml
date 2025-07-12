@@ -74,8 +74,6 @@
     autoRot: true
     radius: 6
     netsync: false
-  - type: RotatePointLight # wwdp
-    angle: -90
   - type: Appearance
   - type: StaticPrice
     price: 40
@@ -87,6 +85,10 @@
     slots:
       - Belt
   - type: AttachmentFlashlight # Lavaland Change
+  # WD EDIT START
+  - type: RotatePointLight
+    angle: -90
+  # WD EDIT END
 
 - type: entity
   name: seclite
@@ -127,6 +129,7 @@
       types:
         Blunt: 8
     bluntStaminaDamageFactor: 2.5
+    heavyRangeModifier: 1.2
     maxTargets: 1
     angle: 20
     soundHit:

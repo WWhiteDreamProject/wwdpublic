@@ -71,6 +71,7 @@ public sealed class LockSystem : EntitySystem
         {
             if (!lockComp.UnlockOnClick)
                 return;
+
             TryUnlock(uid, args.User, lockComp);
             args.Handled = true;
         }
@@ -129,8 +130,8 @@ public sealed class LockSystem : EntitySystem
                 {
                     BreakOnDamage = true,
                     BreakOnMove = true,
-                    RequireCanInteract = true,
-                    NeedHand = true
+                    NeedHand = true,
+                    BreakOnDropItem = false,
                 });
         }
 
@@ -207,8 +208,8 @@ public sealed class LockSystem : EntitySystem
                 {
                     BreakOnDamage = true,
                     BreakOnMove = true,
-                    RequireCanInteract = true,
-                    NeedHand = true
+                    NeedHand = true,
+                    BreakOnDropItem = false,
                 });
         }
 
@@ -247,6 +248,7 @@ public sealed class LockSystem : EntitySystem
         return !userEv.Cancelled;
     }
 
+    // TODO: this should be a helper on AccessReaderSystem since so many systems copy paste it
     private bool HasUserAccess(EntityUid uid, EntityUid user, AccessReaderComponent? reader = null, bool quiet = true)
     {
         // Not having an AccessComponent means you get free access. woo!
@@ -376,7 +378,7 @@ public sealed class LockSystem : EntitySystem
         {
             args.Cancel();
             if (lockComp.Locked)
-                _sharedPopupSystem.PopupEntity(Loc.GetString("entity-storage-component-locked-message"), uid, args.User);
+                _sharedPopupSystem.PopupClient(Loc.GetString("entity-storage-component-locked-message"), uid, args.User);
         }
     }
 

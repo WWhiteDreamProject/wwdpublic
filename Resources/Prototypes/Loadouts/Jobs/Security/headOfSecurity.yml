@@ -152,6 +152,20 @@
 
 # Eyes
 
+- type: loadout
+  id: LoadoutCommandHoSEyesPatchTinted
+  category: JobsSecurityHeadOfSecurity
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutSecurityEyes
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Security
+  items:
+    - ClothingEyesEyepatchHudTintedSecurity
+
 # Gloves
 
 # Head

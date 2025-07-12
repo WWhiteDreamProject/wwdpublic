@@ -16,6 +16,9 @@ public sealed partial class KnockedDownComponent : Component
     [DataField]
     public DropHeldItemsBehavior DropHeldItemsBehavior = DropHeldItemsBehavior.AlwaysDrop;
 
+    [DataField]
+    public bool FollowUp = false;
+
     [ViewVariables, AutoNetworkedField]
     public float HelpTimer = 0f;
 

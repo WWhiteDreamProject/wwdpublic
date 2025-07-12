@@ -7,9 +7,9 @@
   components:
   - type: HumanoidAppearance
     species: Reptilian
-    hideLayersOnEquip: # WWDP
+    hideLayersOnEquip:
     - Snout
-    #    - HeadTop
+    # - HeadTop
     - HeadSide
   - type: Hunger
   - type: Puller
@@ -147,13 +147,13 @@
   components:
   - type: HumanoidAppearance
     species: Reptilian
-    hideLayersOnEquip: # WWDP
+  # WD EDIT START
+    hideLayersOnEquip:
     - Snout
-    #    - HeadTop
+    # - HeadTop
     - HeadSide
   - type: Inventory
     speciesId: reptilian
-    # WWDP-Edit-Start
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -206,6 +206,6 @@
           32:
             sprite: _White/Mobs/Species/Reptilian/displacement.rsi
             state: shoes
-    # WWDP-Edit-End
+    # WD EDIT END
 
 #Weh

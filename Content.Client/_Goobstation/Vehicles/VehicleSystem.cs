@@ -9,13 +9,12 @@ public sealed class VehicleSystem : SharedVehicleSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
-    [Dependency] private readonly SpriteSystem _sprites = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<VehicleComponent, AppearanceChangeEvent>(OnAppearanceChange);
-        SubscribeLocalEvent<VehicleComponent, MoveEventProxy>(OnMove);
+        SubscribeLocalEvent<VehicleComponent, MoveEventProxy>(OnMove); // WD EDIT
     }
 
     private void OnAppearanceChange(EntityUid uid, VehicleComponent comp, ref AppearanceChangeEvent args)
@@ -40,7 +39,7 @@ public sealed class VehicleSystem : SharedVehicleSystem
         if (!_appearance.TryGetData<bool>(uid, VehicleState.DrawOver, out bool depth))
             return;
 
-        spriteComp.DrawDepth = (int)Content.Shared.DrawDepth.DrawDepth.Objects;
+        spriteComp.DrawDepth = (int) Shared.DrawDepth.DrawDepth.Objects;
 
         if (comp.RenderOver == VehicleRenderOver.None)
             return;
@@ -48,15 +47,15 @@ public sealed class VehicleSystem : SharedVehicleSystem
         var eye = _eye.CurrentEye;
         Direction vehicleDir = (Transform(uid).LocalRotation + eye.Rotation).GetCardinalDir();
 
-        VehicleRenderOver renderOver = (VehicleRenderOver)(1 << (int)vehicleDir);
+        VehicleRenderOver renderOver = (VehicleRenderOver) (1 << (int) vehicleDir);
 
         if ((comp.RenderOver & renderOver) == renderOver)
         {
-            spriteComp.DrawDepth = (int)Content.Shared.DrawDepth.DrawDepth.OverMobs;
+            spriteComp.DrawDepth = (int) Shared.DrawDepth.DrawDepth.OverMobs;
         }
         else
         {
-            spriteComp.DrawDepth = (int)Content.Shared.DrawDepth.DrawDepth.Objects;
+            spriteComp.DrawDepth = (int) Shared.DrawDepth.DrawDepth.Objects;
         }
     }
 }

@@ -22,11 +22,12 @@
     size: Ginormous
   - type: MeleeWeapon
     attackRate: 1.1
-    range: 1.75
+    range: 1.5
     damage:
       types:
         Blunt: 9
     bluntStaminaDamageFactor: 2.0
+    heavyRangeModifier: 1.2
     angle: 110
     soundHit:
       path: "/Audio/Weapons/smash.ogg"

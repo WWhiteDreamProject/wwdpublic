@@ -1081,6 +1081,7 @@
   - type: GuideHelp
     guides:
     - Chef
+    - FoodRecipes
   - type: RandomBark
     barkType: cow
     barkMultiplier: 3

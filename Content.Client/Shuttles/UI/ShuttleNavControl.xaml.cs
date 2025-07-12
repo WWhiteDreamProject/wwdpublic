@@ -24,9 +24,6 @@ namespace Content.Client.Shuttles.UI;
 public sealed partial class ShuttleNavControl : BaseShuttleControl
 {
     [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IEyeManager _eye = default!; // WD EDIT
-    [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
-    private readonly StationSystem _station; // Frontier
     private readonly SharedShuttleSystem _shuttles;
     private readonly SharedTransformSystem _transform;
     private readonly EntityLookupSystem _lookup; // WD EDIT
@@ -57,7 +54,6 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         RobustXamlLoader.Load(this);
         _shuttles = EntManager.System<SharedShuttleSystem>();
         _transform = EntManager.System<SharedTransformSystem>();
-        _station = EntManager.System<StationSystem>(); // Frontier
         _lookup = EntManager.System<EntityLookupSystem>(); // WWDP EDIT
         _gun = EntManager.System<GunSystem>(); // WWDP EDIT
     }

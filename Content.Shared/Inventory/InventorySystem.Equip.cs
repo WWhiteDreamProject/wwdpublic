@@ -171,13 +171,9 @@ public abstract partial class InventorySystem
                 target,
                 itemUid)
             {
-                BlockDuplicate = true,
-                BreakOnHandChange = true,
                 BreakOnMove = true,
+                NeedHand = true,
                 BreakOnDamage = false, // White Dream: Do not break on recieving damage
-                CancelDuplicate = true,
-                RequireCanInteract = true,
-                NeedHand = true
             };
 
             _doAfter.TryStartDoAfter(args);
@@ -420,13 +416,9 @@ public abstract partial class InventorySystem
                 target,
                 removedItem.Value)
             {
-                BlockDuplicate = true,
-                BreakOnHandChange = true,
                 BreakOnMove = true,
+                NeedHand = true,
                 BreakOnDamage = false, // White Dream: Do not break on recieving damage
-                CancelDuplicate = true,
-                RequireCanInteract = true,
-                NeedHand = true
             };
 
             _doAfter.TryStartDoAfter(args);

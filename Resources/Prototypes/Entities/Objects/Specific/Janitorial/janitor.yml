@@ -13,6 +13,7 @@
       types:
         Blunt: 2
     bluntStaminaDamageFactor: 3
+    heavyRangeModifier: 1.3
     maxTargets: 7
     angle: 160
     soundHit:
@@ -46,11 +47,12 @@
       Plastic: 50
   - type: Tag
     tags:
-      - Mop
-      - MopBasic
+    - Mop
+    - MopBasic
   - type: GuideHelp
     guides:
     - Janitorial
+  - type: DnaSubstanceTrace
 
 - type: entity
   parent: BaseItem
@@ -58,59 +60,61 @@
   id: AdvMopItem
   description: Motorized mop that has a bigger reservoir and quickly replaces reagents inside with water. Automatic Clown Countermeasure not included.
   components:
-    - type: Sprite
-      sprite: Objects/Specific/Janitorial/advmop.rsi
-      state: advmop
-    - type: MeleeWeapon
-      range: 1.85
-      damage:
-        types:
-          Blunt: 2
-      bluntStaminaDamageFactor: 3
-      maxTargets: 7
-      angle: 160
-      soundHit:
-         collection: MetalThud
-    - type: DamageOtherOnHit
-      damage:
-        types:
-          Blunt: 6
-      staminaCost: 8
-    - type: Spillable
-      solution: absorbed
-    - type: Wieldable
-    - type: IncreaseDamageOnWield
-      damage:
-        types:
-          Blunt: 5
-    - type: Item
-      size: Large
-      sprite: Objects/Specific/Janitorial/advmop.rsi
-    - type: Absorbent
-      pickupAmount: 100
-      footprintCleaningRange: 0.75
-      maxCleanedFootprints: 25
-    - type: UseDelay
-      delay: 1.0
-    - type: SolutionRegeneration
-      solution: absorbed
-      generated:
-        reagents:
-        - ReagentId: Water
-          Quantity: 5
-    - type: SolutionPurge
-      solution: absorbed
-      preserve:
-      - Water
-      quantity: 10
-    - type: SolutionContainerManager
-      solutions:
-        absorbed:
-          maxVol: 100
-    - type: Tag
-      tags:
-        - Mop
-        - MopAdv
+  - type: Sprite
+    sprite: Objects/Specific/Janitorial/advmop.rsi
+    state: advmop
+  - type: MeleeWeapon
+    range: 1.85
+    damage:
+      types:
+        Blunt: 2
+    bluntStaminaDamageFactor: 3
+    heavyRangeModifier: 1.3
+    maxTargets: 7
+    angle: 160
+    soundHit:
+      collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 6
+    staminaCost: 8
+  - type: Spillable
+    solution: absorbed
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 5
+  - type: Item
+    size: Large
+    sprite: Objects/Specific/Janitorial/advmop.rsi
+  - type: Absorbent
+    pickupAmount: 100
+    footprintCleaningRange: 0.75
+    maxCleanedFootprints: 25
+  - type: UseDelay
+    delay: 1.0
+  - type: SolutionRegeneration
+    solution: absorbed
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 5
+  - type: SolutionPurge
+    solution: absorbed
+    preserve:
+    - Water
+    quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+      absorbed:
+        maxVol: 100
+  - type: Tag
+    tags:
+    - Mop
+    - MopAdv
+  - type: DnaSubstanceTrace
 
 - type: entity
   name: wet floor sign
@@ -133,8 +137,8 @@
       Plastic: 50
   - type: Tag
     tags:
-      - WetFloorSign
-      - WhitelistChameleon
+    - WetFloorSign
+    - WhitelistChameleon
 
 
 - type: entity
@@ -158,7 +162,7 @@
           bounds: "-0.2,-0.2,0.2,0.2"
         hard: false
         layer:
-          - LowImpassable
+        - LowImpassable
       fix1:
         shape:
           !type:PhysShapeAabb
@@ -188,7 +192,7 @@
     examinable: false
   - type: Tag
     tags: # ignore "WhitelistChameleon" tag
-      - WetFloorSign
+    - WetFloorSign
 
 - type: entity
   name: plunger
@@ -198,8 +202,8 @@
   components:
   - type: Tag
     tags:
-       - Plunger
-       - WhitelistChameleon
+    - Plunger
+    - WhitelistChameleon
   - type: Sprite
     sprite: Objects/Specific/Janitorial/plunger.rsi
     state: plunger
@@ -212,11 +216,11 @@
   - type: Clothing
     sprite: Objects/Specific/Janitorial/plunger.rsi
     slots:
-      - HEAD
+    - HEAD
     clothingVisuals:
       head:
-        - state: equipped-HELMET
-          offset: "0, 0.15625"
+      - state: equipped-HELMET
+        offset: "0, 0.15625"
   - type: Fixtures
     fixtures:
       fix1:
@@ -265,35 +269,36 @@
   id: RagItem
   description: For cleaning up messes, you suppose.
   components:
-    - type: Sprite
-      sprite: Objects/Specific/Janitorial/rag.rsi
-      state: rag
-    - type: Spillable
-      solution: absorbed
-    - type: MeleeWeapon
-      canBeBlocked: false # WD EDIT
-      soundNoDamage:
-        path: "/Audio/Effects/Fluids/splat.ogg"
-      damage:
-        types:
-          Blunt: 0
-    - type: Item
-      size: Small
-      sprite: Objects/Specific/Janitorial/rag.rsi
-    - type: Absorbent
-      pickupAmount: 15
-    - type: Construction
-      graph: Rag
-      node: rag
-    - type: SolutionContainerManager
-      solutions:
-        absorbed:
-          maxVol: 30
-    - type: UseDelay
-      delay: 1.5
-    - type: Tag
-      tags:
-        - Mop
-    - type: CleansForensics
-    - type: Fiber
-      fiberColor: fibers-white
+  - type: Sprite
+    sprite: Objects/Specific/Janitorial/rag.rsi
+    state: rag
+  - type: Spillable
+    solution: absorbed
+  - type: MeleeWeapon
+    canBeBlocked: false # WD EDIT
+    soundNoDamage:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+    damage:
+      types:
+        Blunt: 0
+  - type: Item
+    size: Small
+    sprite: Objects/Specific/Janitorial/rag.rsi
+  - type: Absorbent
+    pickupAmount: 15
+  - type: Construction
+    graph: Rag
+    node: rag
+  - type: SolutionContainerManager
+    solutions:
+      absorbed:
+        maxVol: 30
+  - type: UseDelay
+    delay: 1.5
+  - type: Tag
+    tags:
+    - Mop
+  - type: CleansForensics
+  - type: Fiber
+    fiberColor: fibers-white
+  - type: DnaSubstanceTrace

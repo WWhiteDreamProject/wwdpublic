@@ -1,4 +1,4 @@
-# vocal emotes
+﻿# vocal emotes
 - type: emote
   id: Scream
   name: chat-emote-name-scream
@@ -207,6 +207,14 @@
   - "chat-emote-trigger-salute-2"
   - "chat-emote-trigger-salute-3"
   # WD EDIT END
+
+- type: emote
+  id: Gasp
+  name: chat-emote-name-gasp
+  whitelist:
+    components:
+    - Respirator
+  chatMessages: ["chat-emote-msg-gasp"]
 
 - type: emote
   id: DefaultDeathgasp
