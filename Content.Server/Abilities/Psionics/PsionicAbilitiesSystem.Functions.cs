@@ -39,8 +39,10 @@ public sealed partial class AddPsionicActions : PsionicPowerFunction
             if (actions.AddAction(uid, ref actionId, id))
             {
                 actions.StartUseDelay(actionId);
+                //WWDP EDIT START
                 var uniqueKey = $"{proto.ID}-{id}";
                 psionicComponent.Actions.Add(uniqueKey, actionId);
+                //WWDP EDOT END
             }
         }
     }
@@ -66,7 +68,6 @@ public sealed partial class RemovePsionicActions : PsionicPowerFunction
         if (psionicComponent.Actions is null
             || !psionicComponent.Actions.ContainsKey(proto.ID))
             return;
-
 
         var copy = serializationManager.CreateCopy(psionicComponent.Actions, notNullableOverride: true);
 
