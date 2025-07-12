@@ -12,11 +12,13 @@ public sealed partial class GunSystem
     [Dependency] private readonly StackSystem _stack = default!; // WD EDIT
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!; // WWDP
 
-    protected override void Cycle(EntityUid uid, BallisticAmmoProviderComponent component, MapCoordinates coordinates, GunComponent? gunComponent)
+    protected override void Cycle(EntityUid uid, BallisticAmmoProviderComponent? component, MapCoordinates coordinates, GunComponent? gunComponent = null)
     {
         EntityUid? ent = null;
-        if (!Resolve(uid, ref gunComponent, false))
+        if (!Resolve(uid, ref component)) // WWDP
             return;
+
+        Resolve(uid, ref gunComponent, false); // WWDP
 
         // TODO: Combine with TakeAmmo
         if (component.Entities.Count > 0)

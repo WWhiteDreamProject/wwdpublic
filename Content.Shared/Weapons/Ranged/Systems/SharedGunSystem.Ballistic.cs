@@ -243,7 +243,7 @@ public abstract partial class SharedGunSystem
             // Show top round
             if (component.Entities.Count > 0)
             {
-                var round = Name(component.Entities[-1]);
+                var round = Name(component.Entities[^1]);
 
                 args.PushMarkup(
                     Loc.GetString("ammo-top-round-examine", ("color", ModeExamineColor), ("round", round)));
@@ -333,7 +333,7 @@ public abstract partial class SharedGunSystem
         UpdateAmmoCount(uid);
     }
 
-    protected abstract void Cycle(EntityUid uid, BallisticAmmoProviderComponent component, MapCoordinates coordinates, GunComponent? gunComponent = null);
+    protected abstract void Cycle(EntityUid uid, BallisticAmmoProviderComponent? component, MapCoordinates coordinates, GunComponent? gunComponent = null);
 
     private void OnBallisticInit(EntityUid uid, BallisticAmmoProviderComponent component, ComponentInit args)
     {
