@@ -52,14 +52,6 @@ public sealed class EmagSystem : EntitySystem
         if (_tag.HasTag(target, comp.EmagImmuneTag))
             return false;
 
-        // WWDP EDIT START
-        if (HasComp<EmaggedComponent>(target))
-        {
-            _popup.PopupClient(Loc.GetString("emag-already-emagged"), user, user); // YES
-            return false;
-        }
-        // WWDP EDIT END
-
         // DeltaV - Add a whitelist / blacklist to the Emag
         if (_whitelist.IsWhitelistFail(comp.Whitelist, target)
             || _whitelist.IsBlacklistPass(comp.Blacklist, target))
@@ -87,7 +79,6 @@ public sealed class EmagSystem : EntitySystem
 
         if (charges != null)
             _charges.UseCharge(uid, charges);
-
         return true;
     }
 
