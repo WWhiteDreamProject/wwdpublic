@@ -1,13 +1,17 @@
+using Content.Server._White.Hearing;
 using Content.Server.Stunnable;
 using Content.Shared._Goobstation.Flashbang;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Goobstation.Flashbang;
 
 public sealed class FlashbangSystem : EntitySystem
 {
     [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly HearingSystem _hearing = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -70,5 +74,14 @@ public sealed class FlashbangSystem : EntitySystem
         var stunTime = float.Lerp(comp.StunTime, 0f, ratio);
         if (stunTime > 0f)
             _stun.TryStun(args.Target, TimeSpan.FromSeconds(stunTime), true);
+
+        // WWDP deafness on flash // WWDP cleaning up after an idiot
+        if (TryComp<HearingComponent>(args.Target, out var hearing))
+        {
+            var timer = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.DeafenTime);
+            var source = new DeafnessSource("flashed", "deaf-chat-message-flashbanged", timer);
+            _hearing.AddDeafnessSource(args.Target, source, hearing);
+        }
+        // WWDP edit end
     }
 }

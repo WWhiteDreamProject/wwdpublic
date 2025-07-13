@@ -662,7 +662,7 @@ public sealed partial class ChangelingSystem
         DoScreech(uid, comp);
 
         var power = comp.ShriekPower;
-        _flash.FlashArea(uid, uid, power, power * 2f * 1000f);
+        _flash.FlashArea(uid, uid, power, power * 2f);
 
         var lookup = _lookup.GetEntitiesInRange(uid, power);
         var lights = GetEntityQuery<PoweredLightComponent>();

@@ -343,6 +343,10 @@ public sealed partial class GunSystem : SharedGunSystem
             }
             else
             {
+                RaiseLocalEvent(gunUid, new ProjectileShotEvent() // WWDP EDIT START
+                {
+                    FiredProjectile = ammoEnt
+                }); // WWDP EDIT END
                 ShootOrThrow(ammoEnt, mapDirection, gunVelocity, gun, gunUid, user);
                 shotProjectiles.Add(ammoEnt);
             }

@@ -33,3 +33,6 @@
 
 - type: Tag
   id: RCDLight
+
+- type: Tag
+  id: FluxCoreSmall

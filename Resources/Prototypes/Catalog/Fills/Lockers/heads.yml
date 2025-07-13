@@ -314,7 +314,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxBasicRegulatorLamp # wwdp edit
+      - id: BoxBasicFluxCore # wwdp edit
       - id: ClothingEyesGlassesSecurity # WWDP
     # - id: WeaponDisabler # WWDP
       - id: AssballBat # WWDP
@@ -350,7 +350,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxBasicRegulatorLamp # wwdp edit
+      - id: BoxBasicFluxCore # wwdp edit
       - id: ClothingEyesGlassesSecurity # WWDP
     # - id: WeaponDisabler # WWDP
       - id: AssballBat # WWDP

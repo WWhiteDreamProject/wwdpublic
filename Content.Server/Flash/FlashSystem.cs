@@ -152,19 +152,8 @@ namespace Content.Server.Flash
             flashDuration *= flashable.DurationMultiplier;
 
             flashable.LastFlash = _timing.CurTime;
-            flashable.Duration = flashDuration / 1000f; // TODO: Make this sane...
+            flashable.Duration = flashDuration;
             Dirty(target, flashable);
-
-            // WWDP deafness on flash
-            if (TryComp<HearingComponent>(target, out var hearing))
-            {
-                var timer = _timing.CurTime + TimeSpan.FromSeconds(flashDuration / 1000f);
-                var source = new DeafnessSource("flashed", "deaf-chat-message-flashbanged", false, timer);
-
-                hearing.DeafnessSources.Add(source);
-                _hearingSystem.UpdateDeafnessState(target, hearing);
-            }
-            // WWDP edit end
 
             if (TryComp<BlindableComponent>(target, out var blindable)
                 && !blindable.IsBlind
@@ -178,7 +167,7 @@ namespace Content.Server.Flash
             }
             else
             {
-                _stun.TrySlowdown(target, TimeSpan.FromSeconds(flashDuration/1000f), true,
+                _stun.TrySlowdown(target, TimeSpan.FromSeconds(flashDuration), true,
                 slowTo, slowTo);
             }
 
@@ -189,7 +178,7 @@ namespace Content.Server.Flash
             }
         }
 
-        public void FlashArea(Entity<FlashComponent?> source, EntityUid? user, float range, float duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null, float stunTime = 0f, float knockdownTime = 0f) // WD EDIT
+        public void FlashArea(EntityUid source, EntityUid? user, float range, float flashDuration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null, float stunTime = 0f, float knockdownTime = 0f) // WD EDIT
         {
             var transform = Transform(source);
             var mapPosition = _transform.GetMapCoordinates(transform);
@@ -204,11 +193,11 @@ namespace Content.Server.Flash
                     continue;
 
                 // Check for unobstructed entities while ignoring the mobs with flashable components.
-                if (!_interaction.InRangeUnobstructed(entity, mapPosition, range, flashable.CollisionGroup, predicate: (e) => flashableQuery.HasComponent(e) || e == source.Owner))
+                if (!_interaction.InRangeUnobstructed(entity, mapPosition, range, flashable.CollisionGroup, predicate: (e) => flashableQuery.HasComponent(e) || e == source))
                     continue;
 
                 // They shouldn't have flash removed in between right?
-                Flash(entity, user, source, duration, slowTo, displayPopup, flashableQuery.GetComponent(entity));
+                Flash(entity, user, source, flashDuration, slowTo, displayPopup, flashableQuery.GetComponent(entity));
 
 
                 var distance = (mapPosition.Position - _transform.GetMapCoordinates(entity).Position).Length(); // Goobstation

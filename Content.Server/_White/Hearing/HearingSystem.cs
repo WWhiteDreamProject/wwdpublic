@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Server.Chat.Managers;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Chat;
@@ -44,7 +44,7 @@ public sealed class HearingSystem : EntitySystem
 
     private void OnMobStateChanged(EntityUid uid, HearingComponent component, MobStateChangedEvent args)
     {
-        var source = new DeafnessSource("mobstate", "deaf-chat-message", true);
+        var source = new DeafnessSource("mobstate", "deaf-chat-message");
 
         if (args.NewMobState == MobState.Alive)
         {
@@ -59,7 +59,7 @@ public sealed class HearingSystem : EntitySystem
 
     private void OnSleepStateChanged(EntityUid uid, HearingComponent component, SleepStateChangedEvent args)
     {
-        var source = new DeafnessSource("sleeping", "deaf-chat-message", true);
+        var source = new DeafnessSource("sleeping", "deaf-chat-message");
 
         if (!args.FellAsleep)
         {
@@ -70,6 +70,15 @@ public sealed class HearingSystem : EntitySystem
 
         component.DeafnessSources.Add(source);
         UpdateDeafnessState(uid, component);
+    }
+
+    public void AddDeafnessSource(EntityUid uid, DeafnessSource source, HearingComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
+        comp.DeafnessSources.Add(source);
+        UpdateDeafnessState(uid, comp);
     }
 
     public void UpdateDeafnessState(EntityUid uid, HearingComponent component)
@@ -131,11 +140,19 @@ public sealed class DeafnessSource
     public bool Permanent;
     public TimeSpan DeafnessTimer;
 
-    public DeafnessSource(string id, string deafChatMessage, bool permanent, TimeSpan timer = default)
+    public DeafnessSource(string id, string deafChatMessage)
     {
         Id = id;
         DeafChatMessage = deafChatMessage;
-        Permanent = permanent;
+        Permanent = true;
+        DeafnessTimer = default;
+    }
+
+    public DeafnessSource(string id, string deafChatMessage, TimeSpan timer)
+    {
+        Id = id;
+        DeafChatMessage = deafChatMessage;
+        Permanent = false;
         DeafnessTimer = timer;
     }
 }

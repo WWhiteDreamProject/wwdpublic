@@ -8,4 +8,8 @@ public sealed partial class FlashbangComponent : Component
 
     [DataField]
     public float KnockdownTime = 10f;
+
+    // WWDP
+    [DataField]
+    public float DeafenTime = 10f;
 }

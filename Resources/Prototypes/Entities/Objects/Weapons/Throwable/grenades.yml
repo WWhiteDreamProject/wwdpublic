@@ -81,6 +81,7 @@
     range: 7
     stunTime: 2 # WD EDIT
     knockdownTime: 10 # WD EDIT
+    deafenTime: 15 # wwdp
   - type: SoundOnTrigger
     sound:
       path: "/Audio/Effects/flash_bang.ogg"
