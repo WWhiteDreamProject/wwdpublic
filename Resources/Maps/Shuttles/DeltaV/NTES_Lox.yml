@@ -13,7 +13,7 @@ tilemap:
   80: FloorRockVault
   85: FloorShuttleRed
   90: FloorSteel
-  105: FloorTechMaint
+  105: FloorTechMaintSteel
   109: FloorWhite
   119: FloorWood
   121: Lattice

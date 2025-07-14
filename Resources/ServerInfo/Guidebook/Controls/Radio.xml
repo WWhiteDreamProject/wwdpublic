@@ -1,28 +1,32 @@
 <Document>
-  # Radio
 
-  Your radio allows you to communicate across the entire station and to your specific [color=#a4885c]department[/color].
+# Рация
 
-  <Box>
-    <GuideEntityEmbed Entity="ClothingHeadsetGrey"/>
-  </Box>
+Рация — твой голос в вакууме. С её помощью ты можешь общаться со всей станцией или переговариваться со своим [color=#a4885c]отделом[/color], даже если вас разделяют километры коридоров, стены, шлюзы и парочка взрывов.
 
-  To send a station-wide message over the radio preface your text with [color=#a4885c]semi-colon (;)[/color].
+<Box>
+  <GuideEntityEmbed Entity="ClothingHeadsetGrey"/>
+</Box>
 
-  ## Departmental Radio
+Чтобы сказать что-то на [bold]общей частоте[/bold] — просто начни сообщение с [color=#a4885c]точки с запятой ( ; )[/color].
 
-  You are able to send messages over your departmental radio channels using [color=#a4885c]colon (:)[/color] followed by the
-  department letter as long as you're wearing a headset with your department's encryption key.
+## Отдел связи
 
-  Examine your headset to see the department channels available to you.
+У каждого отдела есть свой закрытый канал, на котором можно обсуждать важные (и не очень) дела без лишних ушей.
+Чтобы воспользоваться им — пиши [color=#a4885c]двоеточие ( : )[/color] и букву твоего отдела.
+Например: [color=#a4885c]:e[/color] — инженерия, [color=#a4885c]:s[/color] — служба безопасности, [color=#a4885c]:m[/color] — медики.
+
+Но чтобы это сработало, у тебя на голове должна быть рация с [italic]шифровальным ключом[/italic] нужного отдела.
+
+Хочешь узнать, какие каналы доступны? Просто осмотри свою гарнитуру.
 
 <Box>
   <GuideEntityEmbed Entity="ClothingHeadsetEngineering"/>
 </Box>
 
-  Examining a default engineering headset would show you the prefixes for the [color=#32cd32]Common[/color] and [color=#f37746]Engineering[/color]
-  channels.
-  
-  It is also possible to use [color=#a4885c]:h[/color]. This hotkey will automatically default to your department radio channel. For an example if you're Captain, then [color=#a4885c]:h[/color] will default to [color=#a4885c]:c[/color]
+Например, гарнитура инженера показывает доступ к каналам [color=#32cd32]Общему[/color] и [color=#f37746]Инженерному[/color].
+
+И если всё это слишком сложно, используй [color=#a4885c]:h[/color] — оно само выберет нужный канал в зависимости от твоей должности.
+Если ты капитан, то [color=#a4885c]:h[/color] будет работать как [color=#a4885c]:c[/color] (командный канал).
 
 </Document>

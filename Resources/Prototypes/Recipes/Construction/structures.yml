@@ -11,7 +11,7 @@
     state: wall_girder
   objectType: Structure
   placementMode: SnapgridCenter
-  canRotate: false
+#  canRotate: false WD edit - comment out, because new secret door recipe
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
@@ -1573,7 +1573,7 @@
     state: closed
 
 - type: construction
-  name: plastic flaps
+  name: plastic flaps (clear) # WWDP
   id: PlasticFlapsClear
   graph: PlasticFlapsGraph
   startNode: start
@@ -1661,7 +1661,7 @@
 - type: construction
   name: solid secret door
   id: SolidSecretDoor
-  graph: SecretDoor
+  graph: Girder # WD edit - new secret door recipe
   startNode: start
   targetNode: solidSecretDoor
   category: construction-category-structures

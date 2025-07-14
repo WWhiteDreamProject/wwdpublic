@@ -1,15 +1,36 @@
 <Document>
-  # Fires & Space
 
-  Fires and spacings are an inevitability due to the highly flammable plasma gas and the endless vacuum of space present in and around the station, so it's important to know how to manage them.
+# Пожары и разгерметизация
 
-  ## Spacing
-  Space is arguably the easier of the two to handle.
-  While it does render an area uninhabitable, it can be trivially solved by simply sealing the hole that resulted in the vacuum. After that, assuming distro vents and pipes have not been destroyed in some unfortunate accident, the room will slowly begin to repressurize.
-  Be aware; active spacings will slowly siphon the air out of the station's air reserves. If you find it impossible to fix structural damage due to some other hazard, make sure to limit the airflow to that room. (Currently only half-valid due to the Gas Miners infinitely replenishing most of the useful gases)
+Добро пожаловать в космос, где повсюду — огонь, вакуум и **плазма**, ждущая шанса поджечь твою задницу.
+Станция окружена смертью, и одна искра может превратить коридор в адский факел. А потому — будь готов.
 
-  ## Fires
-  Fires can be dealt with through a multitude of ways, but some of the most effective methods include:
-    - Spacing the enflamed area if possible. This will destroy all of the gasses in the room, which may be a problem if you're already straining life support.
-    - Dumping a Frezon canister into the enflamed area. This will ice over the flames and halt any ongoing reaction, provided you use enough Frezon. Additionally, this does not result in destruction of material, so you can simply scrub the room afterwards.
+
+
+## Разгерметизация
+
+Разгерметизация — пожалуй, [italic]наименее страшный[/italic] кошмар.
+Да, воздух уходит, люди задыхаются, трупы летают — но достаточно **залатать дыру**, и всё пойдёт на поправку.
+
+Если вентиляция не повреждена, воздух вернётся сам — потихоньку, но уверенно.
+Но помни: открытая брешь будет **высасывать воздух** со всей станции.
+Если тебе не удаётся быстро устранить утечку — **перекрой доступ воздуха** в пострадавшую зону, иначе выдохнется весь запас в баках.
+
+> [color=gray]Хотя, конечно, газовые добытчики делают это чуть менее смертельно, наполняя баки снова и снова...[/color]
+
+
+
+## Пожары
+
+Пламя любит плазму. Пламя [italic]ненавидит[/italic] тебя.
+Но ты можешь дать отпор:
+
+- **Разгерметизируй** горящий отсек — вакуум убьёт огонь вместе с воздухом. Но помни: потом придётся долго восстанавливать давление.
+- **Фрезон** — твой ледяной друг. Вываливаешь баллон с фрезоном в огонь — и [bold]всё замерзает к чёртовой матери[/bold].
+  Пожар умирает, вещи остаются целы, а ты просто вычищаешь комнату скрубберами.
+
+
+
+[color=gray]Станция не прощает ошибок. Зато она учит уважать кислород и бояться фрезона.[/color]
+
 </Document>

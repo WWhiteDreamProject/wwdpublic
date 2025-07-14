@@ -14,6 +14,8 @@
       employers:
       - NanoTrasen
       - IdrisIncorporated
+    - !type:CharacterOverallTimeRequirement # WWDP
+      min: 7200
   weight: 10 # DeltaV - Changed HoP weight from 20 to 10 due to them not being more important than other Heads
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
@@ -54,7 +56,7 @@
   - Mime # WD EDIT
   - Musician # WD EDIT
   - Reporter # WD EDIT
-  - Zookeeper 
+  - Zookeeper
   # WD EDIT  START
   - Quartermaster
   - Mail

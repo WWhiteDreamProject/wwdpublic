@@ -16,10 +16,13 @@
   - type: Tag
     tags:
     - PaperWrittenCommunist
+  - type: Construction
+    graph: RevolutionaryManifestoGraph
+    node: communistpaper
 
 - type: entity
   name: unglued cardboard
-  description: 3 pieces of white paper bent to be in the form of cardboard.
+  description: Pieces of white paper stacked together, ready to become cardboard. Just add some glue and another layer!
   id: UngluedCardboard
   parent: Paper
   components:
@@ -32,5 +35,5 @@
   - type: RefillableSolution
     solution: drink
   - type: Construction
-    graph: CardboardGraph
-    node: unglued
+    graph: PaperGraph
+    node: ungluedCardboard

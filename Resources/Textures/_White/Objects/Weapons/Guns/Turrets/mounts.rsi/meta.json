@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/42e0275d860551197687c571c689c270ff423288; edited by WWDP",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    { "name": "light" },
+	{ "name": "light_broken" }	
+  ]
+}

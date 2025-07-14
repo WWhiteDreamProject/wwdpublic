@@ -1,12 +1,19 @@
 gun-selected-mode-examine = Выбран режим огня [color={ $color }]{ $mode }[/color].
 gun-fire-rate-examine = Скорострельность [color={ $color }]{ $fireRate }[/color] выстрелов в минуту.
 gun-burst-fire-rate-examine = Скорострельность очередью составляет [color={$color}]{ $fireRate }[/color] выстрелов в минуту.
-gun-burst-fire-burst-count = Можно установить стрельбу очередями по [color={$color}]{ $burstcount }[/color] выстрелов.
+gun-burst-fire-burst-count =
+    { $burstcount ->
+        [2] Можно установить стрельбу очередями по [color={$color}]{ $burstcount }[/color] выстрела.
+        [3] Можно установить стрельбу очередями по [color={$color}]{ $burstcount }[/color] выстрела.
+        [4] Можно установить стрельбу очередями по [color={$color}]{ $burstcount }[/color] выстрела.
+        *[other] Можно установить стрельбу очередями по [color={$color}]{ $burstcount }[/color] выстрелов.
+    }
+gun-damage-modifier-examine = Выстрелы этим наносят [color={$color}]x{$damage}[/color] урона.
 gun-selector-verb = Изменить на { $mode }
 gun-selected-mode = Выбран { $mode }
 gun-disabled = Вы не можете использовать оружие!
 gun-clumsy = Оружие взрывается вам в лицо!
-gun-set-fire-mode = Выбрать {$mode}
+gun-set-fire-mode = Установлен режим {$mode}
 
 # SelectiveFire
 gun-SemiAuto = полуавто

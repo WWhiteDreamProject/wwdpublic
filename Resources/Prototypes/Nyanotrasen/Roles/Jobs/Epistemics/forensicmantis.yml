@@ -4,11 +4,11 @@
   description: job-description-mantis
   playTimeTracker: JobForensicMantis
   requirements:
-    - !type:CharacterOverallTimeRequirement
-      min: 18000
-    - !type:CharacterDepartmentTimeRequirement
-      department: Epistemics # DeltaV - Epistemics Department replacing Science
-      min: 3600
+    # - !type:CharacterOverallTimeRequirement # WWDP
+    #   min: 18000
+    # - !type:CharacterDepartmentTimeRequirement
+    #   department: Epistemics # DeltaV - Epistemics Department replacing Science
+    #   min: 3600
     - !type:CharacterLogicOrRequirement
       requirements:
         - !type:CharacterSpeciesRequirement
@@ -63,11 +63,11 @@
     shoes: ClothingShoesBootsMantis
     head: ClothingHeadHatFezMantis
     id: ForensicMantisPDA
-    eyes: ClothingEyesGlassesSunglasses
+    # eyes: ClothingEyesGlassesSunglasses # WWDP disable
     ears: ClothingHeadsetScience # DeltaV - Mantis is part of Epistemics
     gloves: ClothingHandsGlovesColorWhite
-    outerClothing: ClothingOuterCoatMantis
-    belt: ClothingBeltMantis
+    # outerClothing: ClothingOuterCoatMantis # WWDP moved to locker
+    # belt: ClothingBeltMantis # WWDP moved to locker
     pocket1: BookPsionicsGuidebook
   innerClothingSkirt: ClothingUniformSkirtMantis
   satchel: ClothingBackpackSatchelMantisFilled

@@ -1,63 +1,75 @@
+# WWDP combined PrescriptioMedHud & PrescriptionSecHud graphs
+
 - type: constructionGraph
-  id: PrescriptionMedHud
+  id: PrescriptionHud
   start: start
   graph:
     - node: start
+      entity: ClothingEyesGlasses
+      edges:
+      - to: prescmedhud
+        steps:
+        - tag: HudMedical
+          name: medical hud
+          icon:
+            sprite: Clothing/Eyes/Hud/med.rsi
+            state: icon
+          doAfter: 5
+        - material: Cable
+          amount: 5
+          doAfter: 5
+      - to: prescsechud
+        steps:
+        - tag: HudSecurity
+          name: security hud
+          icon:
+            sprite: Clothing/Eyes/Hud/med.rsi
+            state: icon
+          doAfter: 5
+        - material: Cable
+          amount: 5
+          doAfter: 5
+    - node: startmedhud
       edges:
         - to: prescmedhud
           steps:
+            - tag: GlassesNearsight
+              name: glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/glasses.rsi
+                state: icon
+              doAfter: 5
             - tag: HudMedical
               name: medical hud
               icon:
                 sprite: Clothing/Eyes/Hud/med.rsi
                 state: icon
               doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+    - node: prescmedhud
+      entity: ClothingEyesPrescriptionMedHud
+    - node: startsechud
+      edges:
+        - to: prescsechud
+          steps:
             - tag: GlassesNearsight
               name: glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/glasses.rsi
                 state: icon
               doAfter: 5
-            - material: Cable
-              amount: 5
-              doAfter: 5
-            - tag: DrinkSpaceGlue
-              name: space glue
-              icon:
-                sprite: Objects/Consumable/Drinks/glue-tube.rsi
-                state: icon
-              doAfter: 5
-    - node: prescmedhud
-      entity: ClothingEyesPrescriptionMedHud
-
-- type: constructionGraph
-  id: PrescriptionSecHud
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: prescsechud
-          steps:
             - tag: HudSecurity
               name: security hud
               icon:
                 sprite: Clothing/Eyes/Hud/med.rsi
                 state: icon
               doAfter: 5
-            - tag: GlassesNearsight
-              name: glasses
-              icon:
-                sprite: Clothing/Eyes/Glasses/glasses.rsi
-                state: icon
-              doAfter: 5
             - material: Cable
               amount: 5
               doAfter: 5
-            - tag: DrinkSpaceGlue
-              name: space glue
-              icon:
-                sprite: Objects/Consumable/Drinks/glue-tube.rsi
-                state: icon
-              doAfter: 5
     - node: prescsechud
       entity: ClothingEyesPrescriptionHudSecurity
+
+# WWDP edit end

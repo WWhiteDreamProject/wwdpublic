@@ -16,14 +16,13 @@ tilemap:
   11: FloorGreenCircuit
   12: FloorHydro
   13: FloorLino
-  14: FloorMono
   15: FloorReinforced
   16: FloorRockVault
   17: FloorShowroom
   18: FloorSnow
   19: FloorSteel
   20: FloorSteelDirty
-  21: FloorTechMaint
+  21: FloorTechMaintSteel
   22: FloorWhite
   23: FloorWood
   24: Lattice

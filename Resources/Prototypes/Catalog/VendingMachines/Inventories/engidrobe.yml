@@ -20,3 +20,7 @@
     ClothingOuterWinterEngi: 2
     ClothingNeckScarfStripedOrange: 3
     ClothingShoesBootsWinterEngi: 2
+  #WWDP edit start
+  emaggedInventory:
+    ClothingHandsGlovesConducting: 1
+  #WWDP edit end

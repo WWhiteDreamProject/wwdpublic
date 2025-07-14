@@ -1,37 +1,50 @@
 <Document>
-# Salvage
+# Утилизация
 
-Salvage is one of Logistics' key sources of income... until atmos comes along with a bajillion dollars worth of frezon. Until then though, your main job will be making them money, and totally not making a shuttle
+Пока атмосникам не привалило золотое дно из фрезона, [bold]именно вы[/bold] — добытчики, охотники за обломками и несметными богатствами станции. Утилизация — это не просто "таскай мусор", это [italic]кровь и сталь в космосе[/italic]. Это охота. Это добыча. Это деньги.
 
-## How to prepare for a salvage
 
-Firstly you need a few things before you can commence on your salvaging.
+
+## Снаряжение утилизатора
+
+Перед тем как нырнуть в чёрное безмолвие, тебе нужно быть готовым.
 
 <Box>
 <GuideEntityEmbed Entity="ClothingOuterHardsuitSpatio"/>
 <GuideEntityEmbed Entity="ClothingShoesBootsMag"/>
 </Box>
-Your Hardsuit is important, as it provides EVA protection. Meaning the lack of pressure and tempurature of space wont kill you. It will also provide minor defense against any space fauna you may encounter. The magboots will ensure you can move smoothly on a salvage and pull things in and out. They also make you slip proof!
+
+- [bold]Скафандр[/bold] — твоя вторая кожа. Он защитит тебя от вакуума, холода и когтей диких космозверей.
+- [bold]Магбутсы[/bold] — без них ты как обезьяна на мыле. Не скользишь, можешь тянуть хлам, и не улетаешь в невесомость.
 
 <Box>
 <GuideEntityEmbed Entity="JetpackBlue"/>
 <GuideEntityEmbed Entity="JetpackMini"/>
 </Box>
-Jetpacks will be needed to move thoughout space, since without floors and gravity, you will not be able to move. Its fueled by gases like oxygen, nitrogen, water vapor, or other gases that can be found in canisters.
+
+- [bold]Джетпак[/bold] — иначе ты просто будешь болтаться трупом в пустоте. Заправляется газом: кислород, азот или всё, что шипит из канистры.
 
 <Box>
 <GuideEntityEmbed Entity="ClothingMaskGasExplorer"/>
 <GuideEntityEmbed Entity="OxygenTankFilled"/>
 <GuideEntityEmbed Entity="NitrogenTankFilled"/>
 </Box>
-Internals will be important, given all species need to breathe, and space doesnt have any gases. Your mask is used to connect the gas tank to your mouth to breath, while the gas tanks hold consumable gases and can be refilled at gas canisters. All species breathe oxygen (blue + yellow tanks) except slimes, which need nitrogen (red tanks)
+
+- [bold]Маска и баллон[/bold] — потому что даже ты, великий герой утилизации, не можешь дышать вакуумом. Все дышат кислородом, кроме слизней — им подавай азот.
+
+
+
+## Оружие и инструменты
 
 <Box>
 <GuideEntityEmbed Entity="WeaponCrusher"/>
 <GuideEntityEmbed Entity="WeaponCrusherDagger"/>
 <GuideEntityEmbed Entity="WeaponProtoKineticAccelerator"/>
 </Box>
-The crusher devices are your first and last line of defense against space fauna and other things that want to bring harm to logistics personnel. While the dagger is just a standard knife, the crusher is has a special property that if you shoot something with it, then follow up with a melee attack, it deals 2x more damage. The protokinetic accelerator is like a recharging weapon that can provide thrust in the scenerio that your jetpack runs dry, or mine for you.
+
+- [bold]Крушитель[/bold] — если ты сначала стрельнешь, а потом ударишь, получишь удвоенный урон. Проверено на карпах.
+- [bold]Протокинетик[/bold] — копай, отстреливайся, или просто толкай себя, если закончилось топливо.
+- [bold]Ножик[/bold] — на крайняк, если совсем прижмёт.
 
 <Box>
 <GuideEntityEmbed Entity="Pickaxe"/>
@@ -39,19 +52,33 @@ The crusher devices are your first and last line of defense against space fauna 
 <GuideEntityEmbed Entity="OreBag"/>
 <GuideEntityEmbed Entity="ClothingBeltUtilityFilled"/>
 </Box>
-The pickaxe and mining drill are both useful for mining rocks or breaking structures quickly.
-The ore bag magnetises nearby ore and automatically picks it up if equipped to a belt slot.
-The utility belt can be useful for holding miscellaneous items when not occupied by your ore bag.
 
-## How to make money as a salvager
+- [bold]Кирка и бур[/bold] — ломай всё, что блестит.
+- [bold]Сумка для руды[/bold] — магнитит и собирает всё автоматически, если надета на пояс.
+- [bold]Пояс[/bold] — всё, что не помещается, уходит туда.
+
+
+
+## Как делать деньги
+
 <Box>
 <GuideEntityEmbed Entity="SalvageMagnet"/>
 </Box>
 <Box>
 <GuideEntityEmbed Entity="ComputerSalvageExpedition"/>
 </Box>
-There are 2 primary forms of income for salvage. The magnet and Expeditions.
-The salvage magnet, when activated, calls in one of many random salvages to be generated somewhere within space. Once you find the salvage, you will need to fight off any present space fauna as well as loot it as much possible. A salvage will only be present for 4 minutes, before dissapearing, taking everything unlooted with it. And in worse case scenerios, will take the bodies of other salvagers in critical condition or dead. Afterwards, the magnet needs some time to recharge before being usable again.
-Expeditions are like adventures that you can do with your salvage buddies. First you must pick a mission from the salvage console, each of which of varying difficulty and reward. Afterwards you must FTL to the location via a shuttle. Once you arrive, the chat will tell you in which direction the dungeon of the salvage is, and you must go and conquer the dangers and gain the loot!
 
+Есть два пути к обогащению: [bold]магнит[/bold] и [bold]экспедиции[/bold].
+
+- [bold]Магнит[/bold]: Притягивает обломки прямо к станции. Каждая зона — случайная. Иногда это будет куча хлама, иногда — логово монстров. Ты будешь сражаться, лутать и убегать за 4 минуты до того, как всё исчезнет. И не забудь — если ты останешься без сознания, то улетишь в космос [italic]вместе с обломками[/italic].
+
+- [bold]Экспедиции[/bold]: Это не прогулка. Сначала выбери задание на консоли — сложность и награды бывают разные. Затем FTL-двигатель выведет шаттл в нужный сектор. Там ты найдёшь целый "данж", полный ловушек, тварей и лута. Только иди не один. Или умирай с песней.
+
+
+
+[center][color=#d1b46c][italic]Ты не просто труп в скафандре.
+Ты — охотник за сокровищами среди звёзд.[/italic][/color]
+
+[bold]И космос платит тем, кто берёт своё.[/bold][/center]
 </Document>
+

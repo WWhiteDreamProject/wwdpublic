@@ -185,6 +185,27 @@
   ghostDescription: Премудрый царь, право имеющий, в подвале мапперов держащий, лороведов не спрашивающий, спрайтеров принижающий, кокерами повелевающий, космонавтиков травящий глава Викиводов.
   size: 0.8, 0.8
 
+#just look at the ckey field you dumbass
+- type: customGhost
+  id: redfoxiv-ghost
+  ckey: RedFoxIV
+  sprite: _White/Ghosts/empty.rsi
+  alpha: 1
+  ghostName: яицевозка
+  ghostDescription: ДЕРЖИСЬ,    ЛЕТАЮЩАЯ    КРЕПОСТЬ!                                     МОЁ    СОЗДАНИЕ,    ЯИЦЕНОСЕЦ.
+  size: 0.5, 0.5
+  components:
+  - type: MouseRotator
+    angleTolerance: 1
+    simple4DirMode: false
+  - type: DollyMixture
+    sprite: _White/Ghosts/redfoxiv-3Dghost.rsi
+    statePrefix: hqyaitca
+    offset: 0,-16
+    layerOffset: 0,0.675
+    defaultShader: unshaded
+
+
 ##xivi
 #- type: customGhost
 #  id: xivi-ghost

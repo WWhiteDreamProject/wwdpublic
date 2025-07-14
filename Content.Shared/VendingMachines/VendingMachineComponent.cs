@@ -1,4 +1,6 @@
+using System.Numerics;
 using Content.Shared.Actions;
+using MathNet.Numerics.LinearAlgebra.Double;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -50,6 +52,10 @@ namespace Content.Shared.VendingMachines
         public string? NextItemToEject;
 
         public bool Broken;
+
+        [DataField]
+        [AutoNetworkedField]
+        public bool JailBreak = false; //WWDP EDIT
 
         /// <summary>
         /// When true, will forcefully throw any object it dispenses
@@ -134,6 +140,12 @@ namespace Content.Shared.VendingMachines
         /// </summary>
         [DataField("nextEmpEject", customTypeSerializer: typeof(TimeOffsetSerializer))]
         public TimeSpan NextEmpEject = TimeSpan.Zero;
+
+        /// <summary>
+        ///     WWDP - Where to place dispenced items
+        /// </summary>
+        [DataField]
+        public Vector2 DispenseOffset;
 
         #region Client Visuals
         /// <summary>

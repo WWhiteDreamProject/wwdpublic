@@ -8,7 +8,7 @@ tilemap:
   11: FloorAsteroidTile
   44: FloorFreezer
   45: FloorGlass
-  104: FloorTechMaint
+  104: FloorTechMaintSteel
   106: FloorTechMaint3
   118: FloorWood
   120: Lattice

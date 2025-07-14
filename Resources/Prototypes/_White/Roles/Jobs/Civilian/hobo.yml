@@ -4,9 +4,9 @@
   description: job-description-hobo
   playTimeTracker: JobHobo
   requirements:
-  - !type:CharacterDepartmentTimeRequirement
-    department: Civilian
-    min: 72000 # 20 ch
+  # - !type:CharacterDepartmentTimeRequirement
+  #   department: Civilian
+  #   min: 72000 # 20 ch
   - !type:CharacterSpeciesRequirement
     species:
     - Human

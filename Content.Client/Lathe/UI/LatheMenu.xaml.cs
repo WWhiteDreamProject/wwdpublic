@@ -44,6 +44,8 @@ public sealed partial class LatheMenu : DefaultWindow
 
     private uint? _lastMiningPoints; // DeltaV: used to avoid Loc.GetString every frame
 
+    public int QueueMaxDisplayCount = 10; // WWDP, too much in queue freezes the client
+
     public LatheMenu()
     {
         RobustXamlLoader.Load(this);
@@ -278,6 +280,20 @@ public sealed partial class LatheMenu : DefaultWindow
             queuedRecipeBox.AddChild(queuedRecipeLabel);
             QueueList.AddChild(queuedRecipeBox);
             idx++;
+
+            // WWDP edit max display
+            if (idx >= QueueMaxDisplayCount)
+            {
+                var queueMaxBox = new BoxContainer();
+                queueMaxBox.Orientation = BoxContainer.LayoutOrientation.Horizontal;
+
+                var queueMaxLabel = new Label();
+                queueMaxLabel.Text = Loc.GetString("lathe-queue-full", ("count", queue.Count - idx + 1));
+                queueMaxBox.AddChild(queueMaxLabel);
+                QueueList.AddChild(queueMaxBox);
+                break;
+            }
+            // WWDP edit end
         }
     }
 

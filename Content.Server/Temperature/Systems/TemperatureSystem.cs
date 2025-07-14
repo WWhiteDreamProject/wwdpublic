@@ -45,6 +45,8 @@ public sealed class TemperatureSystem : EntitySystem
         SubscribeLocalEvent<AlertsComponent, OnTemperatureChangeEvent>(ServerAlert);
         SubscribeLocalEvent<TemperatureProtectionComponent, InventoryRelayedEvent<ModifyChangedTemperatureEvent>>(
             OnTemperatureChangeAttempt);
+        SubscribeLocalEvent<TemperatureProtectionComponent, ModifyChangedTemperatureEvent>(
+            OnSelfTemperatureChangeAttempt); // WWDP
 
         SubscribeLocalEvent<InternalTemperatureComponent, MapInitEvent>(OnInit);
 
@@ -312,8 +314,7 @@ public sealed class TemperatureSystem : EntitySystem
             }
 
             var diff = Math.Abs(temperature.CurrentTemperature - coldDamageThreshold);
-            var tempDamage =
-                Math.Sqrt(diff * (Math.Pow(temperature.DamageCap.Double(), 2) / coldDamageThreshold));
+            var tempDamage = c / (1 + a * Math.Pow(Math.E, -heatK * diff)) - y; // WWDP
             _damageable.TryChangeDamage(uid, temperature.ColdDamage * tempDamage, ignoreResistances: true, interruptsDoAfters: false);
         }
         else if (temperature.TakingDamage)
@@ -331,6 +332,17 @@ public sealed class TemperatureSystem : EntitySystem
 
         args.Args.TemperatureDelta *= ev.Coefficient;
     }
+
+    // WWDP edit
+    private void OnSelfTemperatureChangeAttempt(EntityUid uid, TemperatureProtectionComponent component,
+        ModifyChangedTemperatureEvent args)
+    {
+        var ev = new GetTemperatureProtectionEvent(component.Coefficient);
+        RaiseLocalEvent(uid, ref ev);
+
+        args.TemperatureDelta *= ev.Coefficient;
+    }
+    // WWDP edit end
 
     private void OnParentChange(EntityUid uid, TemperatureComponent component,
         ref EntParentChangedMessage args)

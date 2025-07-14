@@ -4,7 +4,10 @@ changeling-chemicals-deficit = Not enough chemicals!
 changeling-action-fail-lesserform = Can't use it while in lesser form!
 changeling-action-fail-absorbed = Need to absorb {$number} more organics to use it!
 
-changeling-absorb-start = {CAPITALIZE(THE($user))} starts absorbing {CAPITALIZE(THE($target))}'s DNA!
+changeling-absorb-compatible = This creature is compatible. We must hold still...
+changeling-absorb-first = {CAPITALIZE(THE($user))} extends a proboscis!
+changeling-absorb-second = {CAPITALIZE(THE($user))} stabs {CAPITALIZE(THE($target))} with the proboscis!
+changeling-absorb-third = {CAPITALIZE(THE($user))} sucks the fluids from {CAPITALIZE(THE($target))}!
 changeling-absorb-fail-incapacitated = You can't absorb it until it's not incapacitated.
 changeling-absorb-fail-absorbed = You've already absorbed it.
 changeling-absorb-fail-unabsorbable = The target is not absorbable.

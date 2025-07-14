@@ -15,6 +15,16 @@
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
         name: glass shard
+        doAfter: 2
+  - node: plastic # WWDP quick crafts
+    edges:
+    - to: shell
+      steps:
+      - material: Gunpowder
+        amount: 1
+        doAfter: 1
+      - tag: GlassShard
+        name: glass shard
         doAfter: 1
   - node: shell
     entity: ShellShotgunImprovised

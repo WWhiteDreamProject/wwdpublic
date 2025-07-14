@@ -1,9 +1,9 @@
 <Document>
-## Recipe list
-Note: Only solid foods are listed here! To learn recipes for liquid ingredients, check the chemistry guidebook.
+## Список рецептов
 
-This list is auto-generated and contains all known foods.
+[color=gray]Примечание:[/color] здесь указаны [color=yellow]только твёрдые блюда[/color]! Чтобы узнать рецепты жидкостей и напитков, загляни в [italic]гайд по химии[/italic].
+
+Этот список генерируется автоматически и содержит все известные рецепты еды на станции.
 
 <GuideFoodGroupEmbed/>
-
 </Document>

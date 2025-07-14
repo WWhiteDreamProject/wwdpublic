@@ -1,52 +1,55 @@
 <Document>
-# Surgery
-Your usual weekly activity. By performing surgical operations on your patients, you can heal wounds, remove or add body parts, organs, and more.
+# Хирургия
 
-## The Basics
-To start surgery your patient needs to be laying down, and ideally sedated.
+Ваша обычная рутина — еженедельная резня с благими намерениями. Проводя хирургические операции, вы можете залечивать раны, удалять ненужные или прикреплять новые части тела, менять органы и творить прочие медицинские чудеса.
 
-If they are not sedated, they will be in a lot of pain, which decreases their mood, and will make surgical wounds worse.
+## Основы работы хирурга
 
-<Box>
-<GuideEntityEmbed Entity="NitrousOxideTank" Caption="nitrous oxide"/>
-<GuideEntityEmbed Entity="ClothingMaskBreathMedical" Caption="any breathing tool"/>
-</Box>
+Для начала убедитесь, что пациент лежит на операционном столе и желательно находится в состоянии анестезии.
 
-You also need to wear protective gear such as a mask and gloves to prevent harming the patient due to contamination.
+Если не использовать анестезию, пациенту будет очень больно, что испортит ему настроение, а также может усугубить хирургические повреждения. Не стоит делать пациенту хуже, чем он уже успел сделать себе сам.
 
 <Box>
-<GuideEntityEmbed Entity="ClothingMaskSterile" Caption="any mask"/>
-<GuideEntityEmbed Entity="ClothingHandsGlovesNitrile" Caption="any gloves"/>
+<GuideEntityEmbed Entity="NitrousOxideTank" Caption="закись азота"/>
+<GuideEntityEmbed Entity="ClothingMaskBreathMedical" Caption="любая дыхательная маска"/>
 </Box>
 
-## Getting Started
-
-To engage in surgery, you'll need a set of surgical tools.
+Кроме того, вы обязаны носить защитную экипировку, такую как маска и медицинские перчатки, чтобы случайно не заразить пациента чем-нибудь неприятным (или самим не заразиться, что куда хуже).
 
 <Box>
-<GuideEntityEmbed Entity="Scalpel" Caption="scalpel"/>
-<GuideEntityEmbed Entity="Retractor" Caption="retractor"/>
-<GuideEntityEmbed Entity="Hemostat" Caption="hemostat"/>
-<GuideEntityEmbed Entity="Drill" Caption="drill"/>
+<GuideEntityEmbed Entity="ClothingMaskSterile" Caption="любая хирургическая маска"/>
+<GuideEntityEmbed Entity="ClothingHandsGlovesNitrile" Caption="любые медицинские перчатки"/>
+</Box>
+
+## Приступаем к операции
+
+Для проведения операции вам необходим стандартный набор хирургических инструментов:
+
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Caption="скальпель"/>
+<GuideEntityEmbed Entity="Retractor" Caption="ретрактор"/>
+<GuideEntityEmbed Entity="Hemostat" Caption="зажим"/>
+<GuideEntityEmbed Entity="Drill" Caption="дрель"/>
 </Box>
 <Box>
-<GuideEntityEmbed Entity="Saw" Caption="saw"/>
-<GuideEntityEmbed Entity="Cautery" Caption="cautery"/>
-<GuideEntityEmbed Entity="BoneGel" Caption="bone gel"/>
+<GuideEntityEmbed Entity="Saw" Caption="костная пила"/>
+<GuideEntityEmbed Entity="Cautery" Caption="прижигатель"/>
+<GuideEntityEmbed Entity="BoneGel" Caption="костный гель"/>
 </Box>
 
-Once you've got tools in hand, interact with your patient to begin surgery. You'll be able to choose which part you want to operate on.
+Когда инструменты у вас под рукой, просто взаимодействуйте с пациентом, чтобы начать процедуру. Вы сможете выбрать ту часть тела, над которой будете издеваться... то есть, работать.
 
-## Ghetto Surgery
+## «Подручная» хирургия (она же гетто-хирургия)
 
-Certain non-surgical tools can be used in a pinch, use the scalpel examine icon to see how good or bad something is.
+Если настоящих хирургических инструментов под рукой нет (кто-то снова их украл, или вы просто не хотите идти за ними в медбей), можете воспользоваться подручными средствами. Используйте кнопку «осмотреть» на скальпеле, чтобы понять, насколько хороша или плоха замена.
+
 <Box>
-<GuideEntityEmbed Entity="Welder" Caption="welder"/>
-<GuideEntityEmbed Entity="Wirecutter" Caption="wirecutter"/>
-<GuideEntityEmbed Entity="KitchenKnife" Caption="knife"/>
-<GuideEntityEmbed Entity="Crowbar" Caption="crowbar"/>
+<GuideEntityEmbed Entity="Welder" Caption="сварочный аппарат"/>
+<GuideEntityEmbed Entity="Wirecutter" Caption="кусачки"/>
+<GuideEntityEmbed Entity="KitchenKnife" Caption="кухонный нож"/>
+<GuideEntityEmbed Entity="Crowbar" Caption="лом"/>
 </Box>
 
-They aren't ideal compared to real surgical equipment, but they'll do in a pinch!
-
+Эти предметы не заменят полноценные медицинские инструменты, но когда выбора нет, сгодятся и они. Главное — убедитесь, что пациент не увидит заранее, чем вы собираетесь его резать.
 </Document>
+

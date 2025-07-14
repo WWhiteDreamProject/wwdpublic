@@ -5,12 +5,14 @@
   description: job-description-maid
   playTimeTracker: JobMaid
   requirements:
-  - !type:CharacterDepartmentTimeRequirement
-    department: Medical
-    min: 72000 # 20 ch
-  - !type:CharacterDepartmentTimeRequirement
-    department: Command
-    min: 72000 # 20 ch
+  #- !type:CharacterDepartmentTimeRequirement
+  #  department: Medical
+  #  min: 72000 # 20 ch
+  #- !type:CharacterDepartmentTimeRequirement
+  #  department: Command
+  #  min: 72000 # 20 ch
+  - !type:CharacterOverallTimeRequirement
+    min: 7200
   - !type:CharacterSpeciesRequirement
     species:
     - Human
@@ -31,6 +33,7 @@
   - Command
   - Janitor
   - Kitchen # woman
+  - Service
   - Maintenance
   - BlueshieldOfficer
   - CentralCommand # Station NTR office

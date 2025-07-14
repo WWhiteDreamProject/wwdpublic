@@ -63,19 +63,21 @@
     - ClothingEyesGlassesMeson
 
 # Gloves
-- type: loadout
-  id: LoadoutEngineeringGlovesInsulated
-  category: JobsEngineeringAAUncategorized
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutEngineeringGloves
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Engineering
-  items:
-    - ClothingHandsGlovesColorYellow
+
+# WWDP disabled
+# - type: loadout
+#   id: LoadoutEngineeringGlovesInsulated
+#   category: JobsEngineeringAAUncategorized
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutEngineeringGloves
+#     - !type:CharacterDepartmentRequirement
+#       departments:
+#         - Engineering
+#   items:
+#     - ClothingHandsGlovesColorYellow
 
 # Head
 - type: loadout

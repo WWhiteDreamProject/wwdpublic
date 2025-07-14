@@ -1,8 +1,25 @@
-﻿- type: constructionGraph
+﻿# WWDP edit start - diegetic crafting
+- type: constructionGraph
   id: BladedFlatcapGrey
   start: start
   graph:
   - node: start
+    edges:
+    - to: icon
+      steps:
+      - tag: BrimFlatcapGrey
+        name: a grey flatcap
+        icon:
+          sprite: Clothing/Head/Hats/greyflatcap.rsi
+          state: icon
+      - tag: GlassShard
+        name: a glass shard
+        icon:
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 1
+  - node: basecap
+    entity: ClothingHeadHatGreyFlatcap
     edges:
     - to: icon
       steps:
@@ -12,11 +29,6 @@
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
         doAfter: 1
-      - tag: BrimFlatcapGrey
-        name: a grey flatcap
-        icon:
-          sprite: Clothing/Head/Hats/greyflatcap.rsi
-          state: icon
   - node: icon
     entity: BladedFlatcapGrey
 
@@ -28,16 +40,28 @@
     edges:
     - to: icon
       steps:
+      - tag: BrimFlatcapBrown
+        name: a brown flatcap
+        icon:
+          sprite: Clothing/Head/Hats/brownflatcap.rsi
+          state: icon
       - tag: GlassShard
         name: a glass shard
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
         doAfter: 1
-      - tag: BrimFlatcapBrown
-        name: a brown flatcap
+  - node: basecap
+    entity: ClothingHeadHatBrownFlatcap
+    edges:
+    - to: icon
+      steps:
+      - tag: GlassShard
+        name: a glass shard
         icon:
-          sprite: Clothing/Head/Hats/brownflatcap.rsi
-          state: icon
+          sprite: Objects/Materials/Shards/shard.rsi
+          state: shard1
+        doAfter: 1
   - node: icon
     entity: BladedFlatcapBrown
+# WWDP edit end

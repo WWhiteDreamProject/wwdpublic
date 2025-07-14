@@ -60,6 +60,6 @@
 
 - type: jukebox
   id: SpaceOddity
-  name: David Bowie - Space Oddity
+  name: Chris Hadfield - Space Oddity
   path:
     path: /Audio/_White/Lobby/space-oddity.ogg

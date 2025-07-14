@@ -1,28 +1,34 @@
 <Document>
-  
-  # Specialized Brute Chemicals
 
-  Nanotrasen's greatest scientists have synthesized three more specific brute chemicals! Each one heals a specific damage subtype.
+# Специализированные препараты от повреждений
 
-  <GuideReagentEmbed Reagent="Bruizine"/>
-  <GuideReagentEmbed Reagent="Puncturase"/>
-  <GuideReagentEmbed Reagent="Lacerinol"/>
+Лучшие умы NanoTrasen разработали целую троицу уникальных медицинских препаратов, каждый из которых избирательно лечит один из подтипов механических повреждений:
 
-  # Razorium
+<GuideReagentEmbed Reagent="Bruizine"/>
+<GuideReagentEmbed Reagent="Puncturase"/>
+<GuideReagentEmbed Reagent="Lacerinol"/>
 
-  [color=red]USE CAUTION[/color] when using the aforementioned specialized brute chemicals. Should one mix together with a different type of brute chemical, the resulting mixture will create a dangerous chemical known as Razorium!
-  <GuideReagentEmbed Reagent="Razorium"/>
-  To avoid this, make sure the patient is done metabolizing one brute medication before giving them another. Keep an eye on the rate their health is changing.
+Их точечное применение может спасти жизнь, когда счёт идёт на секунды. Но…
 
-  [bold]Some examples of mixtures that create Razorium are as follows:[/bold]
+# Razorium
 
-  Bicaridine and Puncturase
+[color=red]БУДЬ ОСТОРОЖЕН[/color]
 
-  Puncturase and Lacerinol
+Если эти препараты будут введены одновременно или перекроются во времени, произойдёт **катастрофическая реакция**. Смесь превратится в **Бритвиум** — крайне опасное вещество, наносящее чудовищный урон организму!
 
-  Bruizine and Bicaridine
+<GuideReagentEmbed Reagent="Razorium"/>
 
-  Lacerinol and Bruizine
+Чтобы избежать этого:
+[bold]не вводи пациенту новый препарат, пока организм не усвоил предыдущий.[/bold] Следи за показателями здоровья, наблюдай за скоростью восстановления — и только тогда решайся на следующую дозу.
 
-  Please note that [bold]any[/bold] combination of these 4 chemicals will likely mix and create Razorium! Be careful when creating these chemicals, as they contain Bicaridine. Any leftover Bicaridine will likely mix to create Razorium!
+Примеры смертельных сочетаний:
+- Бикаридин + Пунктураз
+- Пунктураз + Лацеринол
+- Бруизин + Бикаридин
+- Лацеринол + Бруизин
+
+На деле: [bold]любая[/bold] пара из этих четырёх реагентов может привести к созданию бритвиума.
+
+Особенно внимательно относись к созданию препаратов: многие из них содержат остаточный бикаридин. Даже пара капель — и ты получишь не лекарство, а оружие массового поражения.
+
 </Document>

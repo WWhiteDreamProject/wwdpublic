@@ -193,6 +193,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         LanguagePrototype? languageOverride = null
         )
     {
+        // WWDP EDIT START
+        var overrideEvent = new SpeechSourceOverrideEvent();
+        RaiseLocalEvent(source, overrideEvent);
+        if (overrideEvent.Override is EntityUid newSource)
+            source = newSource;
+        // WWDP EDIT END
+
         if (HasComp<GhostComponent>(source))
         {
             // Ghosts can only send dead chat messages, so we'll forward it to InGame OOC.
@@ -203,8 +210,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (player != null && _chatManager.HandleRateLimit(player) != RateLimitStatus.Allowed)
             return;
 
-        // Sus
-        if (player?.AttachedEntity is { Valid: true } entity && source != entity)
+        // Sus // go sus yourself
+        if (player?.AttachedEntity is { Valid: true } entity && source != entity && source != overrideEvent.Override) // WWDP EDIT
         {
             return;
         }
@@ -791,6 +798,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     private string SanitizeInGameICMessage(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false, bool capitalizeTheWordI = true)
     {
         var newMessage = SanitizeMessageReplaceWords(message.Trim());
+        newMessage = FormattedMessage.EscapeText(newMessage);  // WWDP fix
         newMessage = newMessage.Replace("/", ""); // WWDP edit
 
         GetRadioKeycodePrefix(source, newMessage, out newMessage, out var prefix);
@@ -1068,3 +1076,11 @@ public sealed class EntitySpokeEvent : EntityEventArgs
         Language = language;
     }
 }
+
+// WWDP EDIT START
+public sealed class SpeechSourceOverrideEvent : EntityEventArgs
+{
+    public EntityUid? Override;
+    public bool SourceOverriden => Override is not null;
+}
+// WWDP EDIT END

@@ -149,7 +149,7 @@
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic # WWDP
     damageModifierSet: StrongMetallic
   - type: Destructible
     thresholds:

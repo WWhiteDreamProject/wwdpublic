@@ -42,7 +42,8 @@ using Robust.Server.Player;
 using Robust.Shared.Physics.Components;
 using static Content.Shared.Configurable.ConfigurationComponent;
 using Content.Shared._Impstation.Thaven.Components; // DeltaV
-using Content.Server._Impstation.Thaven; // DeltaV
+using Content.Server._Impstation.Thaven;
+using Content.Shared.Mobs; // DeltaV
 
 namespace Content.Server.Administration.Systems
 {
@@ -240,7 +241,7 @@ namespace Content.Server.Administration.Systems
                             var mobUid = _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid);
                             var targetMind = _mindSystem.GetMind(args.Target);
 
-                            if (targetMind != null)
+                            if (targetMind != null) // AGHOSTS DON'T HAVE A FUCKING MINDDDDD
                             {
                                 _mindSystem.TransferTo(targetMind.Value, mobUid);
                             }
@@ -367,7 +368,7 @@ namespace Content.Server.Administration.Systems
                 }
 
                 // Begin DeltaV Additions - thaven moods
-                if (TryComp<ThavenMoodsComponent>(args.Target, out var moods)) 
+                if (TryComp<ThavenMoodsComponent>(args.Target, out var moods))
                 {
                     args.Verbs.Add(new Verb()
                     {
@@ -382,7 +383,7 @@ namespace Content.Server.Administration.Systems
                             _euiManager.OpenEui(ui, session);
                             ui.UpdateMoods(moods, args.Target);
                         },
-                        Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"), 
+                        Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"),
                     });
                 }
             }
@@ -419,7 +420,12 @@ namespace Content.Server.Administration.Systems
                     Text = Loc.GetString("rejuvenate-verb-get-data-text"),
                     Category = VerbCategory.Debug,
                     Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png")),
-                    Act = () => _rejuvenate.PerformRejuvenate(args.Target),
+                    Act = () =>
+                    {
+                        _rejuvenate.PerformRejuvenate(args.Target);
+                        _standing.Stand(args.Target); // WWDP
+                        _appearance.SetData(args.Target, MobStateVisuals.State, MobState.Alive); // WWDP
+                    },
                     Impact = LogImpact.Medium
                 };
                 args.Verbs.Add(verb);

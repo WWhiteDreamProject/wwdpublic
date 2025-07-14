@@ -1,36 +1,38 @@
 <Document>
-  # Thaven
+  # Тавены
 
   <Box>
     <GuideEntityEmbed Entity="MobThaven" Caption=""/>
   </Box>
 
-  [color=#ffa500]Caution! This species has a severely limiting game mechanic and is not recommended for new players.[/color]
-  [color=#ffa500]This mechanic makes it very difficult to form a consistent character or personality, as it can severely affect the way a Thaven speaks and interacts with others.[/color]
+  [color=#ffa500]Внимание! У этой расы крайне сложная игровая механика, и она не рекомендуется новичкам![/color]
+  [color=#ffa500]Играть стабильного персонажа с единой личностью очень трудно, поскольку механика напрямую влияет на поведение тавена и его манеру общения.[/color]
 
-## Moods
+## Настроения
   <Box>
     <GuideEntityEmbed Entity="PositronicBrain" Caption=""/>
   </Box>
 
-  The Thaven have a unique brain structure, similar to a positronic brain, and thus have "Moods" which affect them similarly to a borg's Laws. [color=#ffa500]These Moods must be followed to the best of your ability![/color] [color=red]Breaking your moods is very distressing! Avoid it whenever possible![/color] [color=#ffa500]If a Thaven violates them, they will experience distress or discomfort. The specifics of that are up to you, but if a Mood is violated, you must seek to correct your mistake immediately if possible.[/color]
+  Мозг тавенов устроен необычно: он похож на позитронный и подчиняется особым «Настроениям», аналогичным законам боргов.
+  [color=#ffa500]Эти настроения вы обязаны выполнять любой ценой![/color] [color=red]Нарушение вызывает сильнейший стресс и дискомфорт, поэтому избегайте его всеми силами![/color] [color=#ffa500]Если настроение нарушено, тавен испытывает эмоциональное или физическое страдание, детали которого остаются на ваше усмотрение. Нарушив настроение, немедленно попытайтесь исправить ситуацию, если это вообще возможно.[/color]
 
-## Mood Swings
-  Thaven brains are susceptible to fluctuations in nöospheric fields. As a result, their ability to synchronize and regulate their Moods tends to degrade with extended exposure to the glimmer that builds up in NT research stations. [color=#ffa500]It also renders them vulnerable to glimmer discharges,[/color] which can sometimes give them additional, often severely debilitating moods.
+## Перепады настроений
+  Тавены крайне чувствительны к изменениям ноосферных полей. Из-за длительного пребывания на станциях NanoTrasen, где скапливается мерцание, они постепенно теряют способность контролировать и стабилизировать свои настроения.
+  [color=#ffa500]Кроме того, мерцание может вызывать у них спонтанные перепады,[/color] которые проявляются новыми настроениями, зачастую крайне тяжёлыми и изнурительными.
 
-## Thaven Nerve Pinch
-  Thaven hand-to-hand martial arts have a focus on inflicting non-permanent damage. As a result, [color=#ffa500]their unarmed attacks are slow, and deal no damage,[/color] but [color=#1e90ff]cause a fair amount of stun buildup.[/color]
+## Нервный захват тавенов
+  Боевые искусства тавенов нацелены на минимальный ущерб противнику, поскольку любая форма насилия противоречит их природе. Поэтому [color=#ffa500]безоружные удары тавенов медленные и не наносят прямого урона,[/color] однако [color=#1e90ff]вызывают сильное оглушение.[/color]
 
-## Damage
-  Due to their relatively fragile bone structure and unique nervous system, they take [color=#ffa500]10% more damage from blunt, slash, pierce, and genetic, and 20% more damage from radiation,[/color] but their aquatic ancestry allows them to take [color=#1e90ff]10% less damage from heat, cold, and poison.[/color]
+## Уязвимость и сопротивления
+  Тело тавенов чрезвычайно хрупкое из-за тонких костей и уникальной нервной системы. В результате они получают [color=#ffa500]на 10% больше урона от ударов, порезов, колотых ран и генетических повреждений, и на 20% больше от радиации.[/color] В то же время их водное происхождение обеспечивает [color=#1e90ff]снижение получаемого урона от жары, холода и ядов на 10%.[/color]
 
-## Thaven Naming Conventions
-  Thaven typically name themselves after a single virtue they hold dear. Sometimes these names can be long and unwieldy.
+## Имена тавенов
+  Тавены выбирают себе имена, выражающие одно конкретное достоинство или ценность, которую они считают главной в жизни. Иногда их имена могут быть очень длинными и неудобными в произношении.
 
-  For example:
-  - Honesty
-  - Have Mercy
-  - Give Thanks To Thy Ancestors
-  - Obedience
-  - Search The Scriptures
+  Например:
+  - Честность
+  - Будь Милосерден
+  - Благодари Предков Своих
+  - Покорность
+  - Познай Писания
 </Document>

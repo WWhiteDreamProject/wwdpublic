@@ -100,7 +100,7 @@
   - type: WiresPanel
   - type: WiresVisuals
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic # WWDP
     damageModifierSet: StrongMetallic
   - type: Destructible
     thresholds:

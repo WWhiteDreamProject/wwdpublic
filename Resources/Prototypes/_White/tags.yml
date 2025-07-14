@@ -27,3 +27,9 @@
 
 - type: Tag
   id: AiCoreBoard
+
+- type: Tag
+  id: LightBulb
+
+- type: Tag
+  id: RCDLight

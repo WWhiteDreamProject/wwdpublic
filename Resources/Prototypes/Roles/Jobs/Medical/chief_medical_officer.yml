@@ -17,6 +17,8 @@
       - ZengHuPharmaceuticals
       - Interdyne
       - NanoTrasen
+    - !type:CharacterOverallTimeRequirement # WWDP
+      min: 7200
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
@@ -43,7 +45,7 @@
     components:
     - type: CPRTraining
     - type: SurgerySpeedModifier
-      speedModifier: 2.5
+      speedModifier: 3 # WWDP
   afterLoadoutSpecial:
   - !type:ModifyEnvirosuitSpecial
     charges: 8

@@ -1,0 +1,102 @@
+﻿- type: constructionGraph
+  id: PaperGraph
+  start: start
+  graph:
+  - node: start
+    entity: Paper
+    edges:
+    - to: ungluedCardboard
+      steps:
+      - tag: Paper
+        name: paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 1
+    - to: musketcartridge
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - material: Gunpowder
+        amount: 1
+        doAfter: 1
+    - to: snappop
+      steps:
+      - material: Gunpowder
+        amount: 1
+        doAfter: 1
+  - node: ungluedCardboard
+    entity: UngluedCardboard
+    edges:
+    - to: cardboard
+      conditions:
+      - !type:MinSolution
+        solution: drink
+        reagent:
+          ReagentId: SpaceGlue
+        quantity: 3
+      steps:
+      - tag: Paper
+        name: paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 1
+    - to: start
+      steps:
+      - tool: Slicing
+        doAfter: 1
+      completed:
+      - !type:SpawnPrototype
+        prototype: Paper
+
+  - node: startcardboard
+    edges:
+    - to: ungluedCardboard
+      steps:
+      - tag: Paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        name: paper
+      - tag: Paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        name: paper
+        doAfter: 2
+  - node: cardboard
+    entity: MaterialCardboard1
+
+  - node: startmusketcartridge
+    edges:
+    - to: musketcartridge
+      steps:
+      - tag: Paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        name: paper
+      - material: Steel
+        amount: 1
+      - material: Gunpowder
+        amount: 1
+        doAfter: 2
+  - node: musketcartridge
+    entity: CartridgeMusket
+
+  - node: startsnappop
+    edges:
+    - to: snappop
+      steps:
+      - tag: Paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        name: paper
+      - material: Gunpowder
+        amount: 1
+        doAfter: 1
+  - node: snappop
+    entity: SnapPop

@@ -17,6 +17,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 using Content.Shared.Movement.Components;
+using Content.Shared.Traits.Assorted.Components;
+
 
 namespace Content.Shared.Standing;
 
@@ -159,6 +161,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
             || !TryComp<BodyComponent>(uid, out var body)
             || body.LegEntities.Count < body.RequiredLegs
             || HasComp<DebrainedComponent>(uid)
+            || HasComp<LegsParalyzedComponent>(uid) // WWDP
             || TryComp<MovementSpeedModifierComponent>(uid, out var movement) && movement.CurrentWalkSpeed == 0)
             return false;
 

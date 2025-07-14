@@ -60,6 +60,9 @@
     - RollingPaper
     - Trash
   - type: SpaceGarbage
+  - type: Construction # WWDP
+    graph: smokeable
+    node: paperRolling
 
 - type: entity
   id: PaperRolling1

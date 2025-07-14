@@ -117,7 +117,7 @@
   name: improvised shotgun
   id: improvisedshotgun
   graph: ImprovisedShotgunGraph
-  startNode: start
+  startNode: shotgunstart # WWDP
   targetNode: shotgun
   category: construction-category-weapons
   objectType: Item

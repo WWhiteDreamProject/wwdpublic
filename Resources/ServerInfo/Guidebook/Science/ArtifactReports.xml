@@ -1,24 +1,27 @@
 <Document>
-  # Artifact Reports
-  A large portion of Xenoarchaeology gameplay revolves around the interpretation of artifact reports, which are created at the [color=#a4885c]analysis console[/color] after an artifact is scanned. Reports contain the following information:
+  # Отчёты об Артефактах
 
-  - [color=#a4885c]Node ID:[/color] a unique numeric ID corresponding to this artifact's node. Useful in conjunction with a [color=#a4885c]node scanner[/color] for quickly identifying recurring nodes.
+  Значительная часть работы в Ксеноархеологии вращается вокруг расшифровки отчётов об артефактах. Эти отчёты создаются на [color=#a4885c]консоли анализа[/color] после сканирования артефакта и содержат следующую информацию:
 
-  - [color=#a4885c]Depth:[/color] a distance from the starting node (depth 0). This is a good shorthand for the value and danger of a node.
+  • [color=#a4885c]Идентификатор узла:[/color] уникальный числовой код, соответствующий конкретному узлу артефакта. Особенно полезен при работе с [color=#a4885c]сканером узлов[/color] для быстрого распознавания повторяющихся структур.
 
-  - [color=#a4885c]Activation status:[/color] whether or not a node has been activated in the past.
+  • [color=#a4885c]Глубина:[/color] расстояние от стартового узла (глубина 0). Простая и наглядная метрика, отражающая потенциальную ценность и опасность узла.
 
-  - [color=#a4885c]Stimulus:[/color] the stimulus for that particular node.
+  • [color=#a4885c]Статус активации:[/color] был ли узел активирован ранее.
 
-  - [color=#a4885c]Reaction:[/color] the reaction the stimulus induces. This is often vague, so caution is advised.
+  • [color=#a4885c]Стимул:[/color] воздействие, применённое к узлу.
 
-  - [color=#a4885c]Edges:[/color] the amount of nodes that are connected to the current node. Using this, you can calculate the total number of nodes as well as organize a map of their connections.
+  • [color=#a4885c]Реакция:[/color] результат воздействия стимула. Часто описан туманно или метафорично, требует осторожности при интерпретации.
 
-  - [color=#a4885c]Current value:[/color] the amount of research points an artifact is currently worth. Extracting will set this to zero and traversing new nodes will increase it.
+  • [color=#a4885c]Связи:[/color] количество других узлов, соединённых с этим. С помощью этих данных можно построить карту узлов и оценить масштаб артефакта.
 
-  Reports are a helpful tool in manipulating an artifact, especially in the later stages where you are traversing nodes that have already been activated.
+  • [color=#a4885c]Текущая ценность:[/color] число исследовательских очков, которые можно извлечь из артефакта. Добыча обнуляет значение, а активация новых узлов повышает его.
+
   <Box>
-  <GuideEntityEmbed Entity="PaperArtifactAnalyzer"/>
+    <GuideEntityEmbed Entity="PaperArtifactAnalyzer"/>
   </Box>
-  To help with this process, consider printing out reports, writing down details uncovered during activation, or storing them in a folder nearby.
+
+  Отчёты становятся особенно важными на поздних этапах исследования, когда приходится работать с уже активированными узлами. Чтобы не потеряться в записях, рекомендуется распечатывать отчёты, вести заметки по реакции узлов, или складывать всю документацию в папку рядом с оборудованием.
+
+  [italic]Порой разгадка тайн древних цивилизаций — не в артефакте, а в умении читать между строк его отчёта.[/italic]
 </Document>

@@ -20,43 +20,44 @@
 # Ears
 
 # Equipment
-- type: loadout
-  id: LoadoutSecurityDisablerSMG
-  category: JobsSecuritySeniorOfficer
-  cost: 2
-  canBeHeirloom: true
-  guideEntry: SecurityWeapons
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityWeapons
-  - !type:CharacterJobRequirement
-    jobs:
-      - SeniorOfficer
-      - HeadOfSecurity
-      - BlueshieldOfficer
-  items:
-  - WeaponDisablerSMG
 
-- type: loadout
-  id: LoadoutSecurityPistolUniversal
-  category: JobsSecuritySeniorOfficer
-  cost: 6
-  canBeHeirloom: true
-  guideEntry: SecurityWeapons
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityWeapons
-  - !type:CharacterJobRequirement
-    jobs:
-    - SeniorOfficer
-    - HeadOfSecurity
-    - BlueshieldOfficer
-  - !type:CharacterAgeRequirement
-    min: 21
-  items:
-  - WeaponPistolUniversalSecurity
+# WWDP edit start - disabled
+# - type: loadout
+#   id: LoadoutSecurityDisablerSMG
+#   category: JobsSecuritySeniorOfficer
+#   cost: 2
+#   canBeHeirloom: true
+#   guideEntry: SecurityWeapons
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityWeapons
+#   - !type:CharacterJobRequirement
+#     jobs:
+#       - SeniorOfficer
+#       - HeadOfSecurity
+#       - BlueshieldOfficer
+#   items:
+#   - WeaponDisablerSMG
+#
+# - type: loadout
+#   id: LoadoutSecurityPistolUniversal
+#   category: JobsSecuritySeniorOfficer
+#   cost: 6
+#   canBeHeirloom: true
+#   guideEntry: SecurityWeapons
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityWeapons
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - SeniorOfficer
+#     - HeadOfSecurity
+#     - BlueshieldOfficer
+#   - !type:CharacterAgeRequirement
+#     min: 21
+#   items:
+#   - WeaponPistolUniversalSecurity
 
-# WD EDIT START
 # - type: loadout
 #   id: LoadoutSecurityPistolUniversalNonLethal
 #   category: JobsSecuritySeniorOfficer
@@ -75,47 +76,45 @@
 #     min: 21
 #   items:
 #   - WeaponPistolUniversalSecurityNonLethal
-# WD EDIT END
 
-- type: loadout
-  id: LoadoutMagazineUniversalMagnum
-  category: JobsSecuritySeniorOfficer
-  cost: 4
-  canBeHeirloom: true
-  guideEntry: SecurityWeapons
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityEquipment
-  - !type:CharacterJobRequirement
-    jobs:
-    - SeniorOfficer
-    - HeadOfSecurity
-    - BlueshieldOfficer
-  - !type:CharacterAgeRequirement
-    min: 21
-  items:
-  - MagazineUniversalMagnum
+# - type: loadout
+#   id: LoadoutMagazineUniversalMagnum
+#   category: JobsSecuritySeniorOfficer
+#   cost: 4
+#   canBeHeirloom: true
+#   guideEntry: SecurityWeapons
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityEquipment
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - SeniorOfficer
+#     - HeadOfSecurity
+#     - BlueshieldOfficer
+#   - !type:CharacterAgeRequirement
+#     min: 21
+#   items:
+#   - MagazineUniversalMagnum
+#
+# - type: loadout
+#   id: LoadoutMagazineUniversalMagnumSpare
+#   category: JobsSecuritySeniorOfficer
+#   cost: 4
+#   canBeHeirloom: true
+#   guideEntry: SecurityWeapons
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutSecurityEquipment
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - SeniorOfficer
+#     - HeadOfSecurity
+#     - BlueshieldOfficer
+#   - !type:CharacterAgeRequirement
+#     min: 21
+#   items:
+#   - MagazineUniversalMagnum
 
-- type: loadout
-  id: LoadoutMagazineUniversalMagnumSpare
-  category: JobsSecuritySeniorOfficer
-  cost: 4
-  canBeHeirloom: true
-  guideEntry: SecurityWeapons
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: LoadoutSecurityEquipment
-  - !type:CharacterJobRequirement
-    jobs:
-    - SeniorOfficer
-    - HeadOfSecurity
-    - BlueshieldOfficer
-  - !type:CharacterAgeRequirement
-    min: 21
-  items:
-  - MagazineUniversalMagnum
-
-# WD EDIT START
 # - type: loadout
 #   id: LoadoutMagazineUniversalMagnumRubber
 #   category: JobsSecuritySeniorOfficer
@@ -153,7 +152,7 @@
 #     min: 21
 #   items:
 #   - MagazineUniversalMagnumRubber
-# WD EDIT END
+# WWDP EDIT END
 
 # Eyes
 

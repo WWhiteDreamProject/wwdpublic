@@ -7,9 +7,9 @@
     # - !type:RoleTimeRequirement # DeltaV - No Medical Doctor time requirement
     #   role: JobMedicalDoctor
     #   time: 14400 #4 hrs
-    - !type:CharacterDepartmentTimeRequirement # DeltaV - Medical dept time requirement
-      department: Medical
-      min: 28800 # DeltaV - 8 hours
+    # - !type:CharacterDepartmentTimeRequirement # DeltaV - Medical dept time requirement # WWDP
+    #   department: Medical
+    #   min: 28800 # DeltaV - 8 hours
     - !type:CharacterEmployerRequirement
       employers:
       - Interdyne
@@ -32,7 +32,7 @@
     components:
     - type: CPRTraining
     - type: SurgerySpeedModifier
-      speedModifier: 1.75
+      speedModifier: 2 # WWDP
 
 - type: startingGear
   id: ParamedicGear
@@ -44,9 +44,9 @@
     shoes: ClothingShoesColorBlue
     id: ParamedicPDA
     ears: ClothingHeadsetMedical
-    belt: ClothingBeltMedicalEMTFilled
-    pocket1: HandheldGPSBasic
-    pocket2: HandheldCrewMonitor
+    # belt: ClothingBeltMedicalEMTFilled # WWDP moved to locker
+    # pocket1: HandheldGPSBasic # WWDP moved to locker
+    # pocket2: HandheldCrewMonitor # WWDP moved to locker
   innerClothingSkirt: ClothingUniformJumpskirtParamedic
   satchel: ClothingBackpackSatchelParamedicFilledDV
   duffelbag: ClothingBackpackDuffelParamedicFilledDV

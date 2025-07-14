@@ -223,6 +223,7 @@
     - N14MaterialCircuitry
     - VehicleWheelchairFolded # Goobstation
     - SnowballMaker # WWDP
+    - Matchbox  # WWDP
   - type: EmagLatheRecipes
     emagStaticRecipes:
     - BoxLethalshot
@@ -828,6 +829,7 @@
     - ModsuitPlatingExternal
     - PowerCageHigh # Goobstation - Powercell to exosuit fab
     - ReverseMMI # IPCMMI
+    - AiRemoteBrain # WD EDIT
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - WeaponMechCombatImmolationGun

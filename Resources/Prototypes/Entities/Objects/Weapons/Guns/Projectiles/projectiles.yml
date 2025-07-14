@@ -444,6 +444,7 @@
       types:
         Blunt: 40 # Lavaland Change - TOTAL PKA VICTORY
         Structural: 30 # Lavaland/Eris change: Yes easy break ins
+  - type: GatheringProjectile # WWDP
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.170 # Lavaland Change
@@ -1090,7 +1091,7 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 28
+        Heat: 30 # WWDP
 
 - type: entity
   name : disabler bolt
@@ -1189,7 +1190,7 @@
     impactEffect: BulletImpactEffectLaserRed # WWDP
     damage:
       types:
-        Heat: 12 # WWDP less powerful laser
+        Heat: 20 # WWDP
     soundHit:
       collection: MeatLaserImpact
   - type: PointLight # WWDP
@@ -1234,7 +1235,7 @@
     impactEffect: BulletImpactEffectLaserRed # WD EDIT
     damage:
       types:
-        Heat: 17 # WWDP
+        Heat: 25 # WWDP
     soundHit:
       collection: MeatLaserImpact # WWDP
     forceSound: true
@@ -1281,7 +1282,7 @@
   - type: Projectile
     damage:
       types:
-        Heat: 28 # WD EDIT
+        Heat: 30 # WD EDIT
   # WD EDIT START
   - type: PointLight
     radius: 3.0

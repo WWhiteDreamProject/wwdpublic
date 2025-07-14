@@ -1,3 +1,4 @@
+using Content.Shared._White.Lockers;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Construction.Components;
@@ -202,7 +203,7 @@ public sealed class LockSystem : EntitySystem
         if (!skipDoAfter && lockComp.UnlockTime != TimeSpan.Zero)
         {
             return _doAfter.TryStartDoAfter(
-                new DoAfterArgs(EntityManager, user, lockComp.LockTime, new UnlockDoAfter(), uid, uid)
+                new DoAfterArgs(EntityManager, user, lockComp.UnlockTime, new UnlockDoAfter(), uid, uid) // wwdp edit
                 {
                     BreakOnDamage = true,
                     BreakOnMove = true,

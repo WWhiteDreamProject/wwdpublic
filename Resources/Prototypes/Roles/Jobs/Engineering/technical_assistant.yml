@@ -28,7 +28,7 @@
     back: ClothingBackpackEngineeringFilled
     shoes: ClothingShoesBootsWork
     id: TechnicalAssistantPDA
-    belt: ClothingBeltUtilityEngineering
+    # belt: ClothingBeltUtilityEngineering # WWDP
     ears: ClothingHeadsetEngineering
     pocket1: BookEngineersHandbook
   innerClothingSkirt: ClothingUniformJumpskirtColorYellow

@@ -1,0 +1,13 @@
+- type: entity
+  id: RoomMarker5X5
+  parent: BaseRoomMarker
+  suffix: 5 x 5
+  components:
+  - type: RoomFill
+    minSize: 5,5
+    maxSize: 5,5
+  - type: Sprite
+    granularLayersRendering: true
+    layers:
+    - state: red
+

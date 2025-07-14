@@ -5,6 +5,7 @@ chat-language-Nekomimetic-name = Мурчащий
 chat-language-Draconic-name = Синта'Унати
 chat-language-Azaziba-name = Синта'Азазиба
 chat-language-SolCommon-name = Общесолнечный
+chat-language-NovuNederic-name = Нову-Недерик
 chat-language-TauCetiBasic-name = Базовый
 chat-language-Tradeband-name = Торговый
 chat-language-Freespeak-name = Свободный

@@ -21,11 +21,10 @@
     - suitStorage
   # - type: AmmoCounter # WWDP
   - type: Gun # change WeaponShotgunBulldog too if updating this
-    bonusAngleIncreaseMove: 40    # wwdp
-    bonusAngleIncreaseTurn: 0.25  # wwdp
-    bonusAngleDecay: 40           # wwdp
-    maxBonusAngle: 20             # wwdp
+    angleIncrease: 15 # WWDP
+    maxAngle: 75 # WWDP
     fireRate: 1 # WWDP lower fire rate
+    defaultDirection: 1, 0 # wwdp
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -50,7 +49,7 @@
         ents: []
   - type: StaticPrice
     price: 500
-  - type: Execution
+  # - type: Execution # WWDP
   - type: MeleeWeapon
     attackRate: 1.4
     damage:
@@ -94,7 +93,6 @@
     bonusAngleDecay: 80           # wwdp
     maxBonusAngle: 10             # wwdp
     fireRate: 2
-  - type: DualWield # WWDP
 
 
 - type: entity
@@ -125,10 +123,9 @@
   # - type: AmmoCounter # WWDP
   # - type: GunRequiresWield #remove when inaccuracy on spreads is fixed # WWDP disabled
   - type: Gun
-    bonusAngleIncreaseMove: 40    # wwdp
-    bonusAngleIncreaseTurn: 0.25  # wwdp
-    bonusAngleDecay: 40           # wwdp
-    maxBonusAngle: 20             # wwdp
+    maxAngle: 75 # WWDP
+    angleIncrease: 15 # WWDP
+    angleDecay: 10 # WWDP
     fireRate: 2
     selectedMode: FullAuto
     availableModes:
@@ -171,7 +168,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
-  - type: Execution
+  # - type: Execution # WWDP
   - type: MeleeWeapon
     attackRate: 1.4
     damage:
@@ -284,6 +281,7 @@
     - 0,0,7,0
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: BallisticAmmoProvider
+    autoCycle: true # WWDP semi-auto
     capacity: 7
   - type: Wieldable
   - type: MeleeWeapon
@@ -325,14 +323,14 @@
     tags:
     - WeaponShotgunKammerer
   - type: Wieldable
-  - type: Gun
-    shotgunSpreadMultiplier: 0.5
-  - type: ExtendDescription
-    descriptionList:
-    - description: "gun-modifier-choke"
-      fontSize: 12
-      color: "#ff4f00"
-      requireDetailRange: false
+  # - type: Gun # WWDP stop it
+  #   shotgunSpreadMultiplier: 0.5
+  # - type: ExtendDescription
+  #   descriptionList:
+  #   - description: "gun-modifier-choke"
+  #     fontSize: 12
+  #     color: "#ff4f00"
+  #     requireDetailRange: false
 
 - type: entity
   name: sawn-off shotgun
@@ -423,19 +421,6 @@
   - type: DamageOtherOnHit
     staminaCost: 5
 
-- type: entity # WWDP
-  name: improvised pistol # WWDP
-  parent: WeaponShotgunHandmade
-  id: WeaponShotgunHandmadeEmpty
-  suffix: Empty
-  components:
-  - type: BallisticAmmoProvider
-    proto: null
-  - type: Construction
-    graph: ImprovisedShotgunSawnGraph
-    node: shotgunsawn
-    deconstructionTarget: null
-
 - type: entity
   name: blunderbuss
   parent: [BaseWeaponShotgun, BaseGunWieldable]
@@ -481,7 +466,7 @@
     proto: null
   - type: Construction
     graph: ImprovisedShotgunGraph
-    node: shotgun
+    node: shotgunstart
   - type: StaticPrice
     price: 20
 

@@ -4,9 +4,9 @@
   description: job-description-salvagespec
   playTimeTracker: JobSalvageSpecialist
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Logistics # DeltaV - Logistics Department replacing Cargo
-      min: 21600 #DeltaV 6 hrs
+    # - !type:CharacterDepartmentTimeRequirement # WWDP
+    #   department: Logistics # DeltaV - Logistics Department replacing Cargo
+    #   min: 21600 #DeltaV 6 hrs
     - !type:CharacterEmployerRequirement
       employers:
       - OrionExpress
@@ -30,10 +30,10 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
     back: ClothingBackpackSalvageFilled
-    shoes: ClothingShoesBootsSalvage
+    shoes: ClothingShoesBootsSalvageFilled # WWDP
     id: SalvagePDA
     ears: ClothingHeadsetCargo
-    pocket1: MiningVoucher
+    # pocket1: MiningVoucher # WWDP
   satchel: ClothingBackpackSatchelSalvageFilled
   duffelbag: ClothingBackpackDuffelSalvageFilled
 

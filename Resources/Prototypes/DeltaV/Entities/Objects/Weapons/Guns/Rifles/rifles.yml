@@ -191,7 +191,7 @@
     minAngle: -20
     maxAngle: -40
   - type: Construction
-    graph: WeaponRifleMusketGraph
+    graph: WeaponFlintlocksGraph # WWDP
     node: musket
   - type: UseDelay
     delay: 0 #Straight up doesn't work for guns

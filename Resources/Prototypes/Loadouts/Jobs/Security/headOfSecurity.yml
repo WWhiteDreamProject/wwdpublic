@@ -40,37 +40,37 @@
 #   items:
 #     - WeaponPulsePistolHoS
 
-- type: loadout
-  id: LoadoutCommandHoSWt550
-  category: JobsSecurityHeadOfSecurity
-  cost: 0
-  canBeHeirloom: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutHeadOfSecurityWeapon
-    - !type:CharacterJobRequirement
-      jobs:
-        - HeadOfSecurity
-    - !type:CharacterAgeRequirement
-      min: 21
-  items:
-    - WeaponSubMachineGunWt550HoS
+# WWDP edit start - removed
+# - type: loadout
+#   id: LoadoutCommandHoSWt550
+#   category: JobsSecurityHeadOfSecurity
+#   cost: 0
+#   canBeHeirloom: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutHeadOfSecurityWeapon
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - HeadOfSecurity
+#     - !type:CharacterAgeRequirement
+#       min: 21
+#   items:
+#     - WeaponSubMachineGunWt550HoS
+#
+# - type: loadout
+#   id: LoadoutCommandHoSKatanaSheath
+#   category: JobsSecurityHeadOfSecurity
+#   cost: 0
+#   canBeHeirloom: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutHeadOfSecurityWeapon
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - HeadOfSecurity
+#   items:
+#     - ClothingBeltKatanaSheathFilledHoS
 
-- type: loadout
-  id: LoadoutCommandHoSKatanaSheath
-  category: JobsSecurityHeadOfSecurity
-  cost: 0
-  canBeHeirloom: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutHeadOfSecurityWeapon
-    - !type:CharacterJobRequirement
-      jobs:
-        - HeadOfSecurity
-  items:
-    - ClothingBeltKatanaSheathFilledHoS
-
-# WWDP no extra SEC guns
 # - type: loadout
 #   id: LoadoutCommandHoSC20r
 #   category: JobsSecurityHeadOfSecurity
@@ -117,23 +117,22 @@
 #   items:
 #     - EnergySwordHoS
 
-- type: loadout
-  id: LoadoutCommandHoSEnergyGun
-  category: JobsSecurityHeadOfSecurity
-  cost: 0
-  canBeHeirloom: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutHeadOfSecurityWeapon
-    - !type:CharacterJobRequirement
-      jobs:
-        - HeadOfSecurity
-    - !type:CharacterAgeRequirement
-      min: 21
-  items:
-    - WeaponEnergyGunMultiphase
+# - type: loadout
+#   id: LoadoutCommandHoSEnergyGun
+#   category: JobsSecurityHeadOfSecurity
+#   cost: 0
+#   canBeHeirloom: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutHeadOfSecurityWeapon
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - HeadOfSecurity
+#     - !type:CharacterAgeRequirement
+#       min: 21
+#   items:
+#     - WeaponEnergyGunMultiphase
 
-# WWDP no extra SEC guns
 # - type: loadout
 #   id: LoadoutCommandHoSBRDIR25
 #   category: JobsSecurityHeadOfSecurity
@@ -149,6 +148,7 @@
 #       min: 21
 #   items:
 #     - WeaponSubMachineGunBRDIR25HoS
+# WWDP edit end
 
 # Eyes
 
@@ -181,36 +181,39 @@
   items:
     - ClothingHeadHatHoshat
 
-- type: loadout
-  id: LoadoutCommandHOSHelmet
-  category: JobsSecurityHeadOfSecurity
-  cost: 2
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutHeadOfSecurityHead
-    - !type:CharacterJobRequirement
-      jobs:
-        - HeadOfSecurity
-  items:
-    - ClothingHeadHelmetHeavyHoS
-
+# WWDP edit start - disabled
+# - type: loadout
+#   id: LoadoutCommandHOSHelmet
+#   category: JobsSecurityHeadOfSecurity
+#   cost: 2
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutHeadOfSecurityHead
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - HeadOfSecurity
+#   items:
+#     - ClothingHeadHelmetHeavyHoS
+#
 # Id
-- type: loadout
-  id: LoadoutHeadOfSecurityNTPDA
-  category: JobsSecurityHeadOfSecurity
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobHeadOfSecurity
-      min: 36000 # 10 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutHeadOfSecurityId
-    - !type:CharacterJobRequirement
-      jobs:
-        - HeadOfSecurity
-  items:
-    - HoSNTPDA
+#
+# - type: loadout
+#   id: LoadoutHeadOfSecurityNTPDA
+#   category: JobsSecurityHeadOfSecurity
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterPlaytimeRequirement
+#       tracker: JobHeadOfSecurity
+#       min: 36000 # 10 hours
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutHeadOfSecurityId
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - HeadOfSecurity
+#   items:
+#     - HoSNTPDA
+# WWDP EDIT END
 
 # Neck
 - type: loadout
@@ -271,44 +274,46 @@
   items:
   - ClothingOuterWinterHoSUnarmored
 
-- type: loadout
-  id: LoadoutCommandHOSOuterWinter
-  category: JobsSecurityHeadOfSecurity
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutHeadOfSecurityOuter
-    - !type:CharacterJobRequirement
-      jobs:
-        - HeadOfSecurity
-  items:
-    - ClothingOuterWinterHoS
-
-- type: loadout
-  id: LoadoutCommandHOSOuterTrench
-  category: JobsSecurityHeadOfSecurity
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutHeadOfSecurityOuter
-    - !type:CharacterJobRequirement
-      jobs:
-        - HeadOfSecurity
-  items:
-    - ClothingOuterCoatHoSTrench
-
-- type: loadout
-  id: LoadoutCommandHOSOuterHeavyArmor
-  category: JobsSecurityHeadOfSecurity
-  cost: 2
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutHeadOfSecurityOuter
-    - !type:CharacterJobRequirement
-      jobs:
-        - HeadOfSecurity
-  items:
-    - ClothingOuterArmorHoSHeavy
+# WWDP edit start - removed armor
+# - type: loadout
+#   id: LoadoutCommandHOSOuterWinter
+#   category: JobsSecurityHeadOfSecurity
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutHeadOfSecurityOuter
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - HeadOfSecurity
+#   items:
+#     - ClothingOuterWinterHoS
+#
+# - type: loadout
+#   id: LoadoutCommandHOSOuterTrench
+#   category: JobsSecurityHeadOfSecurity
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutHeadOfSecurityOuter
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - HeadOfSecurity
+#   items:
+#     - ClothingOuterCoatHoSTrench
+#
+# - type: loadout
+#   id: LoadoutCommandHOSOuterHeavyArmor
+#   category: JobsSecurityHeadOfSecurity
+#   cost: 2
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutHeadOfSecurityOuter
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - HeadOfSecurity
+#   items:
+#     - ClothingOuterArmorHoSHeavy
+# WWDP edit end
 
 # Shoes
 - type: loadout

@@ -38,6 +38,7 @@
         - TableMask
         layer:
         - TableLayer
+        - BulletImpassable # WWDP
   - type: Sprite
     netsync: false
   - type: Climbable
@@ -46,6 +47,7 @@
       types:
         Blunt: 4
   - type: Clickable
+  - type: RequireProjectileTarget # WWDP
 
 # 32x32 tables
 - type: entity
@@ -465,7 +467,7 @@
     sprite: _Nuclear14/Structures/Furniture/Tables/metalgrate.rsi
   - type: Construction
     graph: N14TableMetalGrateRecipes
-    node: start
+    node: TableMetalGrate # WD EDIT
 
 - type: entity
   id: N14TableWoodSettler
@@ -479,7 +481,7 @@
     sprite: _Nuclear14/Structures/Furniture/Tables/table_settler.rsi
   - type: Construction
     graph: N14TableRecipes
-    node: start
+    node: TableWoodSettler # WD EDIT
 
 # - type: entity
   # id: N14TableWoodenBuilt
@@ -504,4 +506,4 @@
     sprite: _Nuclear14/Structures/Furniture/Tables/barcounter.rsi
   - type: Construction
     graph: N14TableCounterBarRecipes
-    node: start
+    node: TableCounterBar # WD EDIT

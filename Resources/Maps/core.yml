@@ -33,7 +33,7 @@ tilemap:
   3: FloorJungleAstroGrass
   64: FloorLino
   13: FloorMetalBlue
-  66: FloorMetalDiamond
+  66: FloorMetalDiamondSteel
   8: FloorMetalRed
   12: FloorMetalYellow
   67: FloorMime
@@ -55,8 +55,8 @@ tilemap:
   104: FloorSteelMono
   105: FloorSteelOffset
   16: FloorSteelWorn
-  108: FloorTechMaint
-  109: FloorTechMaint2
+  108: FloorTechMaintSteel
+  109: FloorMaintWhite
   110: FloorTechMaint3
   112: FloorWhite
   116: FloorWhiteMini

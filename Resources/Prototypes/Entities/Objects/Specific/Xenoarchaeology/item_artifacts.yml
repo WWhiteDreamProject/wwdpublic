@@ -166,6 +166,18 @@
   - type: GuideHelp
     guides:
     - Xenoarchaeology
+  # WWDP short crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: Artifact
 
 - type: entity
   parent: ArtifactFragment

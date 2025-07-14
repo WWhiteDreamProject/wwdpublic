@@ -23,7 +23,7 @@
     JugSugar: 3
     JugSulfur: 1
   emaggedInventory:
-    ToxinChemistryBottle: 1
+    VestineChemistryVial: 1 #WWDP edit
 
 - type: vendingMachineInventory
   id: ChemVendInventorySyndicate
@@ -54,5 +54,4 @@
     PaxChemistryBottle: 3
     MuteToxinChemistryBottle: 3
     LeadChemistryBottle: 2
-    ToxinChemistryBottle: 1
-    
+    VestineChemistryVial: 1 #WWDP edit

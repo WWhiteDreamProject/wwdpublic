@@ -4,9 +4,9 @@
   description: job-description-bartender
   playTimeTracker: JobBartender
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Civilian
-      min: 3600 #DeltaV
+    # - !type:CharacterDepartmentTimeRequirement # WWDP
+    #   department: Civilian
+    #   min: 3600 #DeltaV
     - !type:CharacterEmployerRequirement
       employers:
       - IdrisIncorporated

@@ -7,7 +7,7 @@ tilemap:
   42: FloorElevatorShaft
   77: FloorReinforced
   96: FloorSteelDirty
-  105: FloorTechMaint2
+  105: FloorMaintWhite
   120: Lattice
   121: Plating
 entities:

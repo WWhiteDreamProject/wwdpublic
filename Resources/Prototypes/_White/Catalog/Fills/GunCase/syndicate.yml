@@ -12,9 +12,12 @@
     - 3,0,3,0
     - 0,1,0,1
     - 2,1,3,1
+    - 5,0,6,1
   - type: StorageFill
     contents:
     - id: WeaponPistolDualetta
+      amount: 2
+    - id: MagazinePistolHighCapacity
       amount: 2
 
 - type: entity
@@ -148,3 +151,42 @@
     - id: WeaponLightMachineGunL6
     - id: MagazineLightRifleBox
       amount: 2
+
+- type: entity
+  parent: GunCasePistolSyndicate
+  id: GunCaseSyndicateFilledViper
+  suffix: Syndicate, Viper
+  components:
+  - type: Item
+    shape:
+    - 0,0,2,1
+  - type: Storage
+    grid:
+    - 0,0,3,0
+    - 0,1,0,1
+    - 2,1,3,1
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolViper
+    - id: MagazinePistol
+      amount: 2
+
+- type: entity
+  parent: GunCasePistolSyndicate
+  id: GunCaseSyndicateFilledCobra
+  suffix: Syndicate, Cobra
+  components:
+  - type: Item
+    shape:
+    - 0,0,2,1
+  - type: Storage
+    grid:
+    - 0,0,3,0
+    - 0,1,0,1
+    - 2,1,3,1
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolCobra
+    - id: MagazinePistolCaselessRifle
+      amount: 2
+

@@ -8,7 +8,7 @@ tilemap:
   62: FloorLaundry
   78: FloorReinforced
   90: FloorSteel
-  105: FloorTechMaint
+  105: FloorTechMaintSteel
   119: FloorWood
   121: Lattice
   122: Plating

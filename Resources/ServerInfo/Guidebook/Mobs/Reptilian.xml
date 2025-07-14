@@ -1,131 +1,96 @@
 <Document>
-  # Unathi
-All Information included in this document is licensed under CC BY-SA 4.0, and is taken from https://wiki.aurorastation.org/index.php?title=Unathi with some modifications by VMSolidus(Github).
+  # Унати — Дети Пустынных Земель
+
   <Box>
     <GuideEntityEmbed Entity="MobReptilian" Caption=""/>
   </Box>
 
-  The Unathi (direct plural: Unathi – You-NAWH-thee both singular and multiple) (adjective: Unathite - You-NAWH-thit) are a race of tall humanoid reptiles standing from six to seven feet tall on average, with females slightly smaller in stature. They possess a mixture of snake-like and crocodile-like features, resulting in hard and plate-like scales.
-  Unathi live in their home system of Uueoa-Esa with their homeworld being Moghes. The planet's history can be summarized as being divided up between various Hegemonies, names they give the most powerful Clans on Moghes throughout time.
-  The Clan system is deeply entrenched in Unathi society with everything else revolving around it. It forms a major part of their code of honor, which stresses the importance of martial abilities and loyalty to the Clan.
+  Унати — величественные гуманоидные рептилии ростом от шести до семи футов, с мощной мускулатурой и панцирными чешуйчатыми спинами, сочетающими в себе черты змей и крокодилов. Женщины чуть ниже ростом, но столь же грозны. Их родной мир — Могес, жемчужина системы Ууэоа-Эса, ныне разделённый между древними кланами и бесплодными выжженными пустошами.
 
-  Religion and spirituality play a major role in a Unathi society, and religious differences are the main dividing factor.
-  Conflict between the Sk'akh Church and the various Th'akh faiths of Moghes, as well as the various communes and cults, have caused conflict and wars between the Izweski Hegemony and the kingdoms that eventually comprised the Traditionalist Coalition.
-  This conflict hit a peak when they entered the intergalactic stage, which is now known as the Contact War. After this conflict, some Unathi fled the planet through Hephaestus or NanoTrasen shuttle ports.
-  Unathi fleeing to megacorporations like NanoTrasen find themselves working in security and engineering roles, but recently many have been proving themselves as competent surgeons and brilliant scientists, earning opportunities that Moghes would deny them because of its strict feudal hierarchy.
-  However, others are slipping through the cracks and becoming slavers, raiders, or pirates. As the ability for spaceship construction increases in the Unathi home system, so too does space piracy and smuggling.
+  Общество Унати — строгое, закованное в традиции, где всё вращается вокруг Клана. Клан — это не просто семья, это честь, долг, смысл бытия. Кодекс чести требует преданности клану, доблести в бою и твёрдой руки в трудный час.
 
-  Moghes has two different biomes after the Contact War. The fertile Untouched Lands with its great jungles, vast swamps, and lush forests; all of which are protected by massive terraforming equipment kept secure by the Hegemony's wealth and power.
-  Contrast to that are the bombarded Wasteland kingdoms in the ashes of plains and forests, burnt into a massive planet-spanning desert rampant with punished kingdoms raiding to survive and part scavengers living in cities on treads.
+  ## Религия и кровь
 
-  ## Megacorporate Relations
+  Вера пронизывает всё. Религиозные разногласия стали причиной многовековых конфликтов между Церковью Ск'ах и разнообразными течениями Та'ах. Эти войны раскололи планету, породив два лагеря: Гегемонию Извески и Коалицию Традиционалистов. Апогеем противостояния стала Контактная Война — трагедия, ознаменовавшая первое столкновение унати с межзвёздной цивилизацией. После неё одни покинули Могес на шаттлах корпораций, другие остались среди руин, став пиратами, работорговцами и наёмниками.
 
-  Prior to 2465, Moghean Unathi that were not members of trade guilds were almost exclusively employed with Hephaestus Industries.
-  Unathi with guild memberships would primarily take contracts with NanoTrasen or Orion Express, depending on their career choice. Unathi living in Dominia, like most of their countrymen, seek employment with Zavodskoi Interstellar.
+  Унати, нашедшие убежище у мега-корпораций, особенно в структурах NanoTrasen, часто служат в инженерных и охранных подразделениях. Однако многие начали пробиваться и в другие сферы — от хирургии до научных исследований. Там, где Могес их бы заклеймил, звёзды дали им шанс.
 
-  After the Merchant's Guild declared bankruptcy, Hephaestus Industries bailed out all Hegemonic guilds and reorganised them under the banner of the company.
-  Since then, nearly all residents of Moghes are employed by Hephaestus in some way.
+  ## Два лица Могеса
 
-  # Biology
+  После войны планета раскололась не только духовно, но и физически. Оазисы, названные Неприкосновенными Землями, сохранили древние джунгли, болота и леса, защищённые куполами терраформирующих систем под контролем Гегемонии. Всё остальное — пепелище. Королевства Пустошей выживают среди пыльных равнин и песчаных бурь, живя в гигантских ползущих городах и нападая на соседей ради капли воды.
 
-  Their average life expectancy is around sixty years for most Unathi. However, they tend to live for well past sixty years when given advanced medical care available to the other space-faring species.
-  As a cold-blooded species, they suffer fatigue and even short comas when exposed to extremely low temperatures.
+  ## Корпорации и Кланы
 
-  Humans and Unathi share a lot of similar internal biology with some notable exceptions.
-  Since they are a carnivorous species, their diet mostly consists of meat and animal products, though they do have a tolerance to some plants and fruits.
-  While Unathi do receive minor benefits for eating certain fruits, they do not get any nutrition from plants.
-  Due to their carnivorous nature, they also have an increased stomach capacity to help eat larger meals at a time.
-  The typical Unathi usually only eats one meal a day, and for the poorer sinta, perhaps once every two days.
-  They tend towards lethargic and sluggish movements more often than not because of their evolutionary history, so they move slower than most organic species.
-  However, the cyclical period of work for Unathi compared to other species is much faster. Unathi are polyphasic sleepers: creatures that sleep in shorter naps rather than at one time during the night.
-  While they tend towards sluggishness, sinta are often capable of incredible bursts of energy and speed, and their ability to work in three or four hour periods of time compensates for their more sporadic schedules.
+  До 2465 года большинство унати, не входивших в торговые гильдии, служили корпорации Hephaestus. Гильдейские унати заключали контракты с NanoTrasen и Orion Express. Те же, кто обосновался в Доминии, искали работу через Zavodskoi Interstellar.
 
-  The reproductive system of a Sinta'Unathi is very similar to that of Earth reptiles. Females lay eggs, with the average clutch being somewhere between one and three.
-  They have a six-month gestation period, after which they are laid in a humid, warm area. After two months, the fetus is fully developed and hatches from the egg.
-  Unathi are born with their claws and the ability to walk within hours of hatching. A Sinta'Unathi is considered an adult when they are 16 years old.
+  После краха Гильдии Торговцев Hephaestus скупила все гильдии Гегемонии, превратив их в часть своей корпоративной машины. С тех пор практически каждый унати на Могесе прямо или косвенно работает на Хефест.
 
-  # Physical Appearance
+  ## Биология: Холодная кровь и горячее сердце
 
-  The Unathi as a species show a great deal of variation within body types as well as clusters of smaller physical traits passed down through clans.
-  Facial and body features range in size and shape with some having raptor-like aesthetics, serpentine looks, or a more draconic body.
-  Tail length is often genetic; conversely, tail girth is defined by a Unathi's diet as it stores most of the body's fat— nobles grow some of the largest tails.
+  Средняя продолжительность жизни унати — около 60 лет, но с доступом к межзвёздной медицине они живут дольше. Будучи холоднокровными, они чувствительны к низким температурам — замерзают, впадают в оцепенение, а порой и в кому.
 
-  Unathi scales are somewhat tougher than human skin, though they shed off sporadically rather than all at once.
-  More vulnerable and hidden spots, such as the stomach and waist, the backs of joints, and inner thighs are all leathery skin and aren't covered in scales.
+  Внутренне унати близки к людям, за исключением желудка: как плотоядные, они питаются в основном мясом, с трудом переваривая растения. Их пищеварение требует больших порций, но редко — один раз в сутки, бедняки и вовсе едят через день. Движения унати вялые, размеренные, но в критические моменты они способны на стремительные всплески силы и ярости. Спят унати по 3–4 часа за раз, циклично.
 
-  The typical healthy adult male Unathi weighs roughly 280 pounds. Female sinta differ from males as they generally have a shorter and more rounded snout.
-  The typical healthy Unathi female weighs roughly 250 pounds. Female Unathi grow to about 5'9" to 6'8, while male Unathi grow to about 6'0" to 7'0".
-  Unusual heights tend to be smaller in scale, as the taller a Unathi is, the more likely it will be marred with health problems and not live as long as others.
+  ## Рождение в панцире
 
-  Both sexes stand on digitigrade legs, with three toes on each foot and a hooked dewclaw, and have clawed feet and hands.
-  They also have very long tongues, typically black or extremely dark red in color, which may stretch up to a foot and a half long and are forked just like a serpent's.
-  In much the same manner as snakes, Unathi can sample the air around them using their tongue. They blink and have tear ducts similar to humans.
+  Самки унати откладывают от одного до трёх яиц после шести месяцев вынашивания. Яйца помещаются в тёплые, влажные инкубаторы. Спустя два месяца вылупляются уже полностью сформированные детёныши — с когтями, способные ходить через несколько часов. Взрослая жизнь по традиции начинается с 16 лет — с этого возраста унати считается зрелым.
+  # Внешность и телосложение
 
-  Unathi horns do not naturally regrow, and serious damage tends to remain permanent.
-  Ancient recipes using native herbs known as "horn paste" are commonly made and sold by herbalists and can counter cosmetic scratches or minor chipping.
-  More modern synthetic Horn Gel (based on Bone Gel), developed largely by Zeng-Hu Pharmaceuticals, can regenerate an entire lost horn, but it tends to be stratified to the upper classes and noblemen due to cost.
+  Унати — одна из самых разнообразных рас Гребня по части физического облика. Их внешний вид варьируется не только между отдельными представителями, но и между целыми кланами: одни носят черты хищных ящеров, другие ближе к змеиному или даже драконьему облику. Длина хвоста обычно зависит от наследственности, а вот его толщина — показатель благополучия: именно в хвосте унати запасают жир. Чем знатнее особь, тем внушительнее её хвост.
 
-  ## Coloration
+  Чешуя унати плотнее человеческой кожи, но не меняется разом — она сходит отдельными участками. Уязвимые зоны, такие как живот, спина коленей и внутренняя сторона бёдер, покрыты не чешуёй, а грубой кожей.
 
-  Unathi are also often born into one of four major scale colour categories: red, black, orange-brown and "sand-colored", and green.
-  Alternative colours are rare, with dark blue and even albino Unathi being reported in very small numbers. Albinos are sometimes slightly tinted in colour while remaining predominantly white. Traditionally these off-coloured Unathi are met with prejudice, though some clans outside the Izweski may feel different.
+  Средний взрослый самец весит около 280 фунтов, самка — около 250. Женщины ниже ростом и имеют более округлую морду. Рост колеблется от 5 футов 9 дюймов у женщин до 7 футов у мужчин. Однако чем выше унати, тем выше риск проблем со здоровьем.
 
-  It has been noticed that scale colourations were more represented in some areas than other, and thus, many shades of these colours were, in Unathi culture, named after the places they tend to be seen in more often, in many cases.
+  Оба пола ходят на загнутых, похожих на птичьи ногах с тремя пальцами и крюкообразным рудиментарным когтем. Руки и ноги вооружены острыми когтями. Язык длинный, раздвоенный, как у змеи, достигает полутора футов и позволяет "пробовать" воздух. Глаза моргают как у людей и имеют слёзные протоки.
 
-  Modern red-coloured Unathi are thought to originate from a large nomadic clan that settled South of the Moghresian Sea around modern Skalamar. Nowadays, red-scaled Sinta tend to be seen on the entire Southern coast of the Moghresian Sea and the mountain ranges near it.
-  Today’s green-coloured Unathi hail from the Southern side of the Moghresian sea, and they are seen more often throughout this side of the coast and down to the colder lands even further South. Surprisingly, there is also a large batch of green-coloured Unathi located around Sahl lake, indicating that an old nomadic clan of mostly green Sinta settled there centuries ago.
-  Orange-brown and sand-yellow Unathi comprises a wide range of colours. They are a more common colour to be seen in a large area, and it is believed that their origins come from displacement in ancient conflicts that forced them to migrate and find new homelands. More precisely, Unathi harbouring such colours tend to be more represented in a large area defined between Darakath, Bahard, Mudki, and Yu’kal.
-  Black or “dark-scaled’ Unathi do not seem to originate from any precise area, and instead, tend to be more often seen around colder areas of Moghes, both North and South. A popular theory is that black scales are actually a consequence of exposure to the cold for generations— something that has yet to be proven.
-  All colours, barring albino, do not mix; if a brown Unathi and a light red Unathi have a child, the red scales the child has might be a little darker, but the colours do not blend to make something new.
+  Рога унати не отрастают вновь. Ушиб или потеря — это навсегда. Однако целители используют древнюю "роговую пасту" для маскировки мелких повреждений, а корпорации вроде Zeng-Hu производят синтетический "роговой гель", способный отрастить рог с нуля. Правда, доступен он лишь избранным — цена запредельна.
 
-  ## Genetic Variety
+  ## Окрас
 
-  Besides scale colouration, many other physical aspects of Unathi bodies can vary widely.
-  From horns and frills, to even extra scale crests and different structures in a Unathi’s very skeleton (namely, the skull).
-  While anatomical differences within a species are natural, Unathi are noteworthy for how wide these differences can get and how fast they come to be.
-  The exact science behind this has been lost after the Contact War, and most of the research behind such a phenomena is idly handled by Nanotrasen and Zeng-Hu specialists.
-  However it is assumed that Sinta simply evolve and adapt to their surroundings much faster than most of the other sentient species of the Spur, leading to such large physical discrepancies between Unathi alone.
-  From this, it is also assumed that, with Unathi populations moving between planets, and Moghes on its way to changing considerably (may the consequences of the of the Contact War be the of the Sinta homeworld, or may terraforming efforts save it), said biological differences between different groups will only get larger and more exotic in the next few centuries.
+  В большинстве случаев чешуя унати относится к одному из четырёх цветов: красному, чёрному, коричнево-оранжевому и песочному, либо зелёному. Редкие варианты включают тёмно-синий и альбинизм. Альбиносы традиционно подвергались стигме, хотя вне Извески кланы относятся к ним терпимее.
 
-  # History
+  Окрас исторически связан с регионом происхождения:
 
-  The history of the Unathi is predominately a history of each Hegemony that has existed throughout their history. There have only been three clans that have managed to create an empire worthy of the title 'Hegemon.'
+  • [bold]Красные[/bold] — от южных берегов Могрезийского моря и гор Скаламара.
+  • [bold]Зелёные[/bold] — от юга Могреса и озера Саль; часто встречаются даже в холодных регионах.
+  • [bold]Песочные и коричнево-оранжевые[/bold] — мигрировавшие народы между Даракатом, Бахардом, Мудки и Ю'калем.
+  • [bold]Чёрные[/bold] — разбросаны по холодным районам севера и юга, возможно, как адаптация к холоду.
 
-  The Kres’ha’nor Hegemony lasted from roughly 920 CE - 1500 CE. It is most famous for being the first empire to dominate Moghes and creating what was then a modern feudal state.
-  Their empire saw rise of walled cities, steel weapons, centralized taxation, and other innovations. It ended in a brutal succession war, with Moghes once again being shattered into hundreds of individual Kingdoms with no true global power.
+  Цвета не смешиваются: ребёнок красного и коричневого унати может иметь чуть более тёмные чешуйки, но никогда не родится "пурпурным".
 
-  In the 16th century the power of Guilds began to grow, forming an early form of mercantilism. Guilds formed for bakers, butchers, grocers, millers, smiths, carpenters, weavers, mason, shoemakers, in fact, nearly every trade had its own guild.
-  Standards such as just weights and measures evolved from the guilds, and guild inspectors would inspect shops to ensure rules were being followed.
-  Guilds would help members that were sick, or in trouble, and would sometimes take care of families after the member died.
-  This time also saw Guilds building the first major universities. While incredibly exclusive, these universities began to create a new era of specialized labor and intellectuals.
+  ## Генетическая изменчивость
 
-  The 19th century saw rise of the Second Hegemony, ruled by the Sarakus Clan.
-  Their clan ruled harshly, and forced technological advances into the cities and towns.
-  In the 1930's they ruthlessly modernized their empire in The Great Endeavor, spreading electricity, radio, paved roads, modern plumbing, and other modern innovations.
+  Унати поражают широтой генетического разнообразия. От формы рогов и гребней до различий в строении черепа и скелета — эта раса словно постоянно эволюционирует. Причины такого феномена неизвестны: исследования были утеряны в огне Контактной Войны. Сейчас ими занимаются только учёные NanoTrasen и Zeng-Hu.
 
-  In 1994 the Izweski Clan violently deposed the Sarakus and slaughtered the entire surviving dynasty, declaring the Third Hegemony.
-  After they won an incredibly destructive global war to defend their claim, the Izweski have ruled Moghes until modern times.
+  Считается, что унати быстрее адаптируются к окружающей среде, чем любая другая форма жизни в Гребне. А поскольку миграция между планетами продолжается, а Могес на грани радикального преобразования, физические отличия между кланами только усиливаются.
 
-  In 2403, a human exploration team discovered Moghes. Shortly after, first contact with the Izweski Hegemony was made.
-  Sol Alliance merchants and scientists flocked to Moghes, living under very careful observation and guard in Izweski cities.
-  Skalamar, the second largest city in Izweski, became the first Unathite city to have a shuttle port constructed. Owned by NanoTrasen, it served to transport people to and from the planet’s surface.
+  # История
 
-  The Contact War, which has more information here, was a cataclysmic global war that lasted from 2438 to 2449.
-  The fighting was between two global powers, the Izweski Hegemony, and the Traditionalist Coalition.
-  The war was fought over the very future of the Unathi and their relationship with the rest of the galaxy.
-  The Izweski demanded Moghes submit to a one-world government ran by themselves and embrace the influence of humanity.
-  The Traditionalist Coalition rejected this. The war went nuclear on September 5th, 2439, causing immense suffering across Moghes and directly leading to the creation of The Wasteland, which is set to engulf Moghes within a hundred years.
+  История унати — это череда Гегемоний. Лишь три клана в истории смогли заявить о себе как о настоящих владыках Могеса:
 
-  # Species Traits
+  • [bold]Гегемония Крэс’ха’нор[/bold] (920–1500 гг. н.э.) — первая объединённая держава. Именно при них появились укреплённые города, стальные клинки, централизованные налоги и зачатки современной феодальной системы. Пала в кровавой войне за престол.
 
-  - [color=#1e90ff]Reptilian Diet[/color]: Unathi can ONLY eat fruits and meat, but can eat raw meat and drink blood without any ill effects.
+  • [bold]Гегемония Саракус[/bold] — возвысилась в XIX веке, прославившись насильственной модернизацией. Великая Инициатива 1930-х принесла электричество, радио и асфальт на улицы, но ценою тирании.
 
-  - [color=#1e90ff]High Temperature Tolerance[/color]: Unathi prefer a somewhat higher temperature range than humans.
+  • [bold]Гегемония Извески[/bold] — восстала в 1994 году, истребив клан Саракус. После глобальной войны Извески удержали власть и правят по сей день.
 
-  - [color=#1e90ff]Grasping Tail[/color]: Unathi can drag objects with their tail, keeping both their hands free.
+  В 2403 году Могес был открыт земной экспедицией. Контакт с Извески установили в кратчайшие сроки. Учёные и торговцы с Земли стекались в их города под пристальным наблюдением. Скаламар стал первым городом с космопортом NanoTrasen.
 
-  - [color=#1e90ff]Claws[/color]: Unath unarmed claw attacks deal Slash damage instead of Blunt.
+  ## Контактная Война
 
-  - [color=#ffa500]Cold Intolerance[/color]: Unathi take [color=#ffa500]30% more Cold damage.[/color]
+  С 2438 по 2449 год унати сражались за свою судьбу. Извески требовали единого правительства и дружбы с человечеством. Коалиция Традиционалистов отвергла это. 5 сентября 2439 года конфликт стал ядерным. Так родилась Пустошь — мёртвое сердце Могеса, которое растёт с каждым годом.
+
+  # Расовые особенности
+
+  - [color=#1e90ff]Плотоядные[/color]: унати могут есть только мясо и фрукты. Сырое мясо и кровь — без вреда.
+
+  - [color=#1e90ff]Теплолюбивость[/color]: предпочитают более тёплую среду, чем люди.
+
+  - [color=#1e90ff]Хватательный хвост[/color]: хвост позволяет тянуть предметы, освобождая руки.
+
+  - [color=#1e90ff]Когти[/color]: их удары наносят рубящий, а не тупой урон.
+
+  - [color=#ffa500]Непереносимость холода[/color]: получают на [color=#ffa500]30% больше урона от холода[/color].
 
 </Document>

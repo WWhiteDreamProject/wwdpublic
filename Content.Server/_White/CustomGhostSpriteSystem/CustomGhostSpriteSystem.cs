@@ -55,6 +55,9 @@ public sealed class CustomGhostSpriteSystem : EntitySystem
                 _metaData.SetEntityDescription(ghostUid, customGhostPrototype.GhostDescription);
             }
 
+            EntityManager.AddComponents(ghostUid, customGhostPrototype.Components);
+            _appearanceSystem.SetData(ghostUid, CustomGhostAppearance.YAMLKOSTIL, customGhostPrototype.ID);
+
             return;
         }
     }

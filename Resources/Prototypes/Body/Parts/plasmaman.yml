@@ -35,7 +35,7 @@
 - type: entity
   id: HeadPlasmaman
   name: plasmaman head
-  parent: [PartPlasmaman, BaseHead]
+  parent: [BaseHead, PartPlasmaman] # WWDP
   components:
   - type: Sprite
     state: head_m

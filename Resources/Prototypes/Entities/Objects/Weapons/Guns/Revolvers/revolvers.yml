@@ -24,12 +24,16 @@
     - Belt
   - type: AmmoCounter
   - type: Gun
-    bonusAngleIncreaseMove: 20    # wwdp
-    bonusAngleIncreaseTurn: 0.4   # wwdp
-    bonusAngleDecay: 45           # wwdp
+    bonusAngleIncreaseTurn: 0.2   # wwdp
+    bonusAngleDecay: 50           # wwdp
     maxBonusAngle: 10             # wwdp
+    minAngle: 2 # WWDP
+    maxAngle: 10 # WWDP
+    angleIncrease: 8 # WWDP
+    angleDecay: 10 # WWDP
     selectedMode: SemiAuto
     fireRate: 1.5
+    defaultDirection: 1, 0 # wwdp
     availableModes:
     - SemiAuto
     soundGunshot:
@@ -79,7 +83,6 @@
   - type: EmitSoundOnLand # WWDP sounds
     sound:
       collection: RevolversDrop
-  - type: DualWield # WWDP
 
 - type: entity
   name: Deckard
