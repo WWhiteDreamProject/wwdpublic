@@ -25,14 +25,16 @@
     range: 1.75
     damage:
       types:
-        Blunt: 9
-    bluntStaminaDamageFactor: 2.0
+        Blunt: 12
+        Slash: 8
+        Posion: 5
+    bluntStaminaDamageFactor: 15.0
     angle: 110
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
   - type: DamageOtherOnHit
     meleeDamageMultiplier: 1.5
-    staminaCost: 10
+    staminaCost: 25
   - type: Tag
     tags:
     - Toolbox
