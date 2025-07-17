@@ -24,6 +24,8 @@ public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWan
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly SharedCriminalRecordsConsoleSystem _sharedCriminalRecords = default!;
+
+    private const string SecurityAccessTag = "Security";
     
     public override void Initialize()
     {
@@ -70,15 +72,11 @@ public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWan
 
         var targetName = Identity.Name(target, EntityManager);
 
-        var station = _stationSystem.GetOwningStation(target);
+        var station = FindTargetStation(target);
         if (station == null)
         {
-            station = _stationSystem.GetStationInMap(Transform(target).MapID);
-            if (station == null)
-            {
-                _popup.PopupEntity(Loc.GetString("security-glasses-wanted-status-no-record"), user, user);
-                return;
-            }
+            _popup.PopupEntity(Loc.GetString("security-glasses-wanted-status-no-record"), user, user);
+            return;
         }
 
         var recordId = _stationRecords.GetRecordByName(station.Value, targetName);
@@ -96,7 +94,7 @@ public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWan
         {
             _popup.PopupEntity(Loc.GetString("security-glasses-wanted-status-changed-success", ("target", target), ("status", status)), user, user);
 
-            UpdateCriminalIdentity(targetName, status);
+            _sharedCriminalRecords.UpdateCriminalIdentity(targetName, status);
         }
         else
         {
@@ -104,14 +102,18 @@ public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWan
         }
     }
 
-    private void UpdateCriminalIdentity(string name, SecurityStatus status)
+    private EntityUid? FindTargetStation(EntityUid target)
     {
-        _sharedCriminalRecords.UpdateCriminalIdentity(name, status);
+        var station = _stationSystem.GetOwningStation(target);
+        if (station != null)
+            return station;
+
+        return _stationSystem.GetStationInMap(Transform(target).MapID);
     }
-    
+
     public override bool CheckSecurityAccess(EntityUid user)
     {
         var accessTags = _accessReader.FindAccessTags(user);
-        return accessTags.Contains("Security");
+        return accessTags.Contains(SecurityAccessTag);
     }
 } 

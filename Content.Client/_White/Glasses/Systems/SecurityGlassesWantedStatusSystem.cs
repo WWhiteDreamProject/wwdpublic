@@ -42,14 +42,21 @@ public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWan
             return;
         
         var menu = new SecurityGlassesRadialMenu();
-        menu.OnStatusSelected += (status, reason) =>
+        
+        Action<SecurityStatus, string?>? handler = null;
+        handler = (status, reason) =>
         {
             var targetNet = _entityManager.GetNetEntity(targetEntity.Value);
             var userNet = _entityManager.GetNetEntity(userEntity.Value);
-            
+
             RaiseNetworkEvent(new SecurityGlassesChangeStatusEvent(targetNet, userNet, (int)status, reason));
+            
+            if (handler != null)
+                menu.OnStatusSelected -= handler;
+            
             menu.Close();
         };
+        menu.OnStatusSelected += handler;
 
         if (_entityManager.TryGetComponent<TransformComponent>(targetEntity.Value, out var transform))
         {
@@ -57,12 +64,11 @@ public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWan
             var screenPos = _eyeManager.WorldToScreen(worldPos);
 
             menu.Open(screenPos);
-            menu.MoveToFront();
         }
         else
         {
             menu.OpenCentered();
-            menu.MoveToFront();
         }
+        menu.MoveToFront();
     }
 } 

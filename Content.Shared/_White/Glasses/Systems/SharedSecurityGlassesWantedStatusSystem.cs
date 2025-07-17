@@ -15,6 +15,9 @@ public abstract class SharedSecurityGlassesWantedStatusSystem : EntitySystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
     
+    private const string VerbIconPath = "/Textures/Interface/VerbIcons/refresh.svg.192dpi.png";
+    private const int VerbPriority = 10;
+    
     public override void Initialize()
     {
         base.Initialize();
@@ -32,7 +35,6 @@ public abstract class SharedSecurityGlassesWantedStatusSystem : EntitySystem
             
         if (!HasComp<SecurityGlassesWantedStatusComponent>(glassesUid))
             return;
-
         
         if (!HasComp<ActorComponent>(args.User))
             return;
@@ -40,9 +42,9 @@ public abstract class SharedSecurityGlassesWantedStatusSystem : EntitySystem
         var verb = new AlternativeVerb
         {
             Text = Loc.GetString("security-glasses-verb-text"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/refresh.svg.192dpi.png")),
+            Icon = new SpriteSpecifier.Texture(new(VerbIconPath)),
             Act = () => TryOpenUi(args.User, args.Target),
-            Priority = 10
+            Priority = VerbPriority
         };
         
         args.Verbs.Add(verb);
@@ -61,8 +63,8 @@ public abstract class SharedSecurityGlassesWantedStatusSystem : EntitySystem
 [Serializable, NetSerializable]
 public sealed class SecurityGlassesWantedStatusOpenEvent : EntityEventArgs
 {
-    public NetEntity Target { get; }
-    public NetEntity User { get; }
+    public NetEntity Target { get; init; }
+    public NetEntity User { get; init; }
     
     public SecurityGlassesWantedStatusOpenEvent(NetEntity target, NetEntity user)
     {
@@ -74,10 +76,10 @@ public sealed class SecurityGlassesWantedStatusOpenEvent : EntityEventArgs
 [Serializable, NetSerializable]
 public sealed class SecurityGlassesChangeStatusEvent : EntityEventArgs
 {
-    public NetEntity Target { get; }
-    public NetEntity User { get; }
-    public int Status { get; }
-    public string? Reason { get; }
+    public NetEntity Target { get; init; }
+    public NetEntity User { get; init; }
+    public int Status { get; init; }
+    public string? Reason { get; init; }
     
     public SecurityGlassesChangeStatusEvent(NetEntity target, NetEntity user, int status, string? reason)
     {

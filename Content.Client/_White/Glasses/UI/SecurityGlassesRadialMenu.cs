@@ -13,6 +13,11 @@ namespace Content.Client._White.Glasses.UI;
 
 public sealed class SecurityGlassesRadialMenu : RadialMenu
 {
+    private const float MenuSize = 256f;
+    private const float ContainerRadius = 60f;
+    private const float ButtonSize = 64f;
+    private const float TextureScale = 2f;
+
     public event Action<SecurityStatus, string?>? OnStatusSelected;
 
     private readonly RSIResource _rsi;
@@ -23,7 +28,7 @@ public sealed class SecurityGlassesRadialMenu : RadialMenu
     {
         BackButtonStyleClass = "RadialMenuBackButton";
         CloseButtonStyleClass = "RadialMenuCloseButton";
-        MinSize = new Vector2(256, 256);
+        MinSize = new Vector2(MenuSize, MenuSize);
         MaxSize = MinSize;
 
         var cache = IoCManager.Resolve<IResourceCache>();
@@ -32,7 +37,7 @@ public sealed class SecurityGlassesRadialMenu : RadialMenu
         var container = new RadialContainer
         {
             Name = "StatusContainer",
-            Radius = 60f
+            Radius = ContainerRadius
         };
         
         AddChild(container);
@@ -59,7 +64,7 @@ public sealed class SecurityGlassesRadialMenu : RadialMenu
         var button = new RadialMenuTextureButton
         {
             StyleClasses = { "RadialMenuButton" },
-            SetSize = new Vector2(64, 64),
+            SetSize = new Vector2(ButtonSize, ButtonSize),
             ToolTip = Loc.GetString($"criminal-records-status-{status.ToString().ToLower()}")
         };
 
@@ -68,7 +73,7 @@ public sealed class SecurityGlassesRadialMenu : RadialMenu
             VerticalAlignment = VAlignment.Center,
             HorizontalAlignment = HAlignment.Center,
             Texture = GetStatusTexture(status),
-            TextureScale = new Vector2(2, 2)
+            TextureScale = new Vector2(TextureScale, TextureScale)
         };
 
         button.OnPressed += _ => OnStatusSelected?.Invoke(status, null);
