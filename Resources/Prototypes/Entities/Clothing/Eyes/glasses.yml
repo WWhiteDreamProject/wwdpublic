@@ -231,6 +231,7 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
+  - type: SecurityGlassesWantedStatus # WWDP
   - type: Tag
     tags:
     - HamsterWearable

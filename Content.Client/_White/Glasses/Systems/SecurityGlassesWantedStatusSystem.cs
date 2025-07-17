@@ -1,0 +1,68 @@
+using Content.Client._White.Glasses.UI;
+using Content.Shared._White.Glasses.Systems;
+using Robust.Client.Player;
+using Robust.Shared.GameObjects;
+using Robust.Client.UserInterface;
+using Robust.Client.Input;
+using Robust.Shared.Input;
+using Robust.Shared.Network;
+using System.Numerics;
+using Robust.Client.Graphics;
+using Robust.Shared.Map;
+using Robust.Shared.Timing;
+
+namespace Content.Client._White.Glasses.Systems;
+
+public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWantedStatusSystem
+{
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private readonly IEyeManager _eyeManager = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    
+    public override void Initialize()
+    {
+        base.Initialize();
+        
+        SubscribeNetworkEvent<SecurityGlassesWantedStatusOpenEvent>(OnOpenRadialMenu);
+    }
+    
+    private void OnOpenRadialMenu(SecurityGlassesWantedStatusOpenEvent ev)
+    {
+        var localPlayer = _playerManager.LocalSession?.AttachedEntity;
+        if (localPlayer == null)
+            return;
+        
+        if (!_entityManager.TryGetEntity(ev.User, out var userEntity) || userEntity != localPlayer)
+            return;
+
+        if (!_entityManager.TryGetEntity(ev.Target, out var targetEntity))
+            return;
+        
+        var menu = new SecurityGlassesRadialMenu();
+        menu.OnStatusSelected += (status, reason) =>
+        {
+            var targetNet = _entityManager.GetNetEntity(targetEntity.Value);
+            var userNet = _entityManager.GetNetEntity(userEntity.Value);
+            
+            RaiseNetworkEvent(new SecurityGlassesChangeStatusEvent(targetNet, userNet, (int)status, reason));
+            menu.Close();
+        };
+
+        if (_entityManager.TryGetComponent<TransformComponent>(targetEntity.Value, out var transform))
+        {
+            var worldPos = transform.WorldPosition;
+            var screenPos = _eyeManager.WorldToScreen(worldPos);
+
+            menu.Open(screenPos);
+            menu.MoveToFront();
+        }
+        else
+        {
+            menu.OpenCentered();
+            menu.MoveToFront();
+        }
+    }
+} 
