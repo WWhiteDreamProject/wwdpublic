@@ -95,11 +95,6 @@ public sealed class SecurityGlassesRadialMenu : RadialMenu
             return state.Frame0;
         }
 
-        foreach (var availableState in _rsi.RSI)
-        {
-            return availableState.Frame0;
-        }
-
         return Texture.Transparent;
     }
 
