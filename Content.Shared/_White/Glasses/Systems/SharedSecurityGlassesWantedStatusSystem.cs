@@ -35,7 +35,7 @@ public abstract class SharedSecurityGlassesWantedStatusSystem : EntitySystem
             
         if (!HasComp<SecurityGlassesWantedStatusComponent>(glassesUid))
             return;
-        
+            
         if (!HasComp<ActorComponent>(args.User))
             return;
 

@@ -103,26 +103,25 @@ public sealed class SecurityGlassesRadialMenu : RadialMenu
         return Texture.Transparent;
     }
 
-    public void Open(Vector2 screenPos)
+    private void EnsureSingletonOpen()
     {
         if (_currentOpenMenu != null && _currentOpenMenu != this)
         {
             _currentOpenMenu.Close();
         }
-        
-        base.Open(screenPos);
         _currentOpenMenu = this;
+    }
+
+    public void Open(Vector2 screenPos)
+    {
+        EnsureSingletonOpen();
+        base.Open(screenPos);
     }
     
     public new void OpenCentered()
     {
-        if (_currentOpenMenu != null && _currentOpenMenu != this)
-        {
-            _currentOpenMenu.Close();
-        }
-        
+        EnsureSingletonOpen();
         base.OpenCentered();
-        _currentOpenMenu = this;
     }
 
     public override void Close()
