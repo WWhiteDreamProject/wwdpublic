@@ -931,7 +931,7 @@
       muzzleFlash: null
       
 - type: entity #WWDP,increasing damage of spitter xeno
-  id: BulletAcid
+  id: BulletAcidSpitter
   name: acid spit
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
