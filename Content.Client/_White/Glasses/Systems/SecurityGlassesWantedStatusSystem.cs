@@ -1,5 +1,6 @@
 using Content.Client._White.Glasses.UI;
 using Content.Shared._White.Glasses.Systems;
+using Content.Shared.Security;
 using Robust.Client.Player;
 using Robust.Shared.GameObjects;
 using Robust.Client.UserInterface;
