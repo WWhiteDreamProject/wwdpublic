@@ -167,9 +167,9 @@ public partial class MobStateSystem
         switch (state)
         {
             case MobState.Alive:
-                _standing.Stand(target);
-                _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
-                break;
+            //     _standing.Stand(target); // WWDP EDIT
+            //     _appearance.SetData(target, MobStateVisuals.State, MobState.Alive); // WWDP EDIT
+                 break;
             case MobState.Critical:
                 if (component.DownWhenCrit)
                     _layingDown.TryLieDown(target, behavior:DropHeldItemsBehavior.AlwaysDrop); // WD EDIT
