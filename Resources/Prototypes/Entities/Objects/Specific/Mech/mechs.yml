@@ -42,7 +42,7 @@
       enum.MechUiKey.Key:
         type: MechBoundUserInterface
   - type: MeleeWeapon
-    canWideSwing: false
+    canHeavyAttack: true # WD EDIT: canWideSwing -> canHeavyAttack
     hidden: true
     attackRate: 1.3333
     damage:

@@ -158,18 +158,18 @@
             amount: 2
             doAfter: 2
 
-  # WD edit start - new secret door recipe
-    - to: solidSecretDoor
-      completed:
-      - !type:SnapToGrid
-      conditions:
-      - !type:EntityAnchored
-      anchored: false
-      steps:
-      - material: Steel
-        amount: 2
-        doAfter: 2
-  # WD edit end
+        # WD edit start - new secret door recipe
+        - to: solidSecretDoor
+          completed:
+          - !type:SnapToGrid
+          conditions:
+          - !type:EntityAnchored
+          anchored: false
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 2
+        # WD edit end
 
     - node: wall
       entity: WallSolid
@@ -519,7 +519,7 @@
         - tool: Welding
           doAfter: 5
 
-  # WD edit start - new secret door recipe
+    # WD edit start - new secret door recipe
     - node: solidSecretDoor
       entity: SolidSecretDoor
       actions:
@@ -534,4 +534,4 @@
         steps:
         - tool: Welding
           doAfter: 10
-  # WD edit end
+    # WD edit end

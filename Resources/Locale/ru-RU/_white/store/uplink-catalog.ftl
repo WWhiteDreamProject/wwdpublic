@@ -130,6 +130,3 @@ uplink-greytide-desc = Старый добрый синий тулбокс. Вн
 
 uplink-plasmaflood-lawboard-name = Набор законов ИИ (Плазмафлуд)
 uplink-plasmaflood-lawboard-desc = Опасный набор законов, настраивающий ИИ станции на замену всей атмосферы на плазму.
-
-uplink-antimov-lawboard-name = Набор законов ИИ (Antimov)
-uplink-antimov-lawboard-desc = Опасный набор законов, настраивающий ИИ станции на нанесение вреда всему экипажу.

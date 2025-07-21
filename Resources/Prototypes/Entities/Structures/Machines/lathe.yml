@@ -414,7 +414,7 @@
     - BluespaceBeaker
     - SyringeBluespace
     #  - WeaponForceGun
-    - WeaponLaserSvalinn      WeaponLaserSvalinn
+    - WeaponLaserSvalinn
     # - WeaponCivilianDisabler # WWDP disabled (xd)
     - WeaponProtoKineticAccelerator
     #  - WeaponTetherGun

@@ -350,7 +350,11 @@ public sealed class TemperatureSystem : EntitySystem
     private void OnSelfTemperatureChangeAttempt(EntityUid uid, TemperatureProtectionComponent component,
         ModifyChangedTemperatureEvent args)
     {
-        var ev = new GetTemperatureProtectionEvent(component.Coefficient);
+        var coefficient = args.TemperatureDelta < 0
+            ? component.CoolingCoefficient
+            : component.HeatingCoefficient;
+
+        var ev = new GetTemperatureProtectionEvent(coefficient);
         RaiseLocalEvent(uid, ref ev);
 
         args.TemperatureDelta *= ev.Coefficient;

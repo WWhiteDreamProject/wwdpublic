@@ -278,7 +278,7 @@
 
 #Paramedic Voidsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseIntegratedMagboot] # WD EDIT: No BaseIntegratedManeuveringThrusters
+  parent: ClothingOuterHardsuitBase # WD EDIT: No BaseIntegratedManeuveringThrusters and BaseIntegratedMagboot
   id: ClothingOuterHardsuitVoidParamed
   name: paramedic hardsuit
   description: A hardsuit made for paramedics.
@@ -1151,7 +1151,6 @@
 
 #Deathsquad
 - type: entity
-  parent: ClothingOuterHardsuitBaseHeavy
   parent: [BaseCentcommContraband, ClothingOuterHardsuitBaseHeavy] # WD EDIT: No BaseIntegratedMagboot and BaseIntegratedManeuveringThrusters
   id: ClothingOuterHardsuitDeathsquad
   name: death squad hardsuit

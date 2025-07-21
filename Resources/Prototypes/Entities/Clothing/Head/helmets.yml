@@ -339,7 +339,7 @@
 
 #ERT HELMETS
 #ERT Leader Helmet
-- type:
+- type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHelmetBase ]
   id: ClothingHeadHelmetERTLeader
   name: ERT leader helmet

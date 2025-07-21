@@ -3,14 +3,20 @@
   name: species-name-shadowling
   roundStart: false
   prototype: MobShadowling
-  sprites: MobShadowlingSprites
+  # WD EDIT START
+  bodyTypes:
+  - ShadowlingNormal
+  # WD EDIT END
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobShadowlingDummy
   skinColoration: HumanToned
   defaultSkinTone: "#000000"
 
-- type: speciesBaseSprites
-  id: MobShadowlingSprites
+# WD EDIT START
+- type: bodyType
+  id: ShadowlingNormal
+  name: body-normal
+# WD EDIT END
   sprites:
     Head: MobShadowlingHead
     Face: MobHumanoidAnyMarking

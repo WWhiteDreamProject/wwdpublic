@@ -618,7 +618,6 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
-  - type: Strippable
   - type: SurgeryTarget
   - type: Strippable
   - type: UserInterface

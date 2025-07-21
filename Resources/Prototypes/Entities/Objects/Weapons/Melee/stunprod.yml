@@ -98,9 +98,6 @@
   - type: StaticPrice
     price: 100
   - type: Construction
-    graph: makeshiftstunprod
-    node: msstunprod
-  - type: Construction
     deconstructionTarget: cuffs
     graph: CuffsGraph
     node: stunprod

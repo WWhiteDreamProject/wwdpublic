@@ -945,12 +945,6 @@
   - type: Transform
     noRot: true
   - type: SoundOnGather
-  # WD EDIT START
-  - type: Gatherable
-    toolWhitelist:
-      tags:
-      - Pickaxe
-  # WD EDIT END
   - type: Gatherable
     toolWhitelist:
       tags:

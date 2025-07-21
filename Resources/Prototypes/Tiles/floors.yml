@@ -637,7 +637,7 @@
 #   footstepSounds:
 #     collection: FootstepHull
 #   itemDrop: FloorTileItemTechmaint
-  heatCapacity: 10000
+#   heatCapacity: 10000
 # WD EDIT END
 
 - type: tile
@@ -719,6 +719,14 @@
   id: FloorRockVault
   name: tiles-rock-floor
   sprite: /Textures/Tiles/rock_vault.png
+  # WD EDIT START
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  # WD EDIT END
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]

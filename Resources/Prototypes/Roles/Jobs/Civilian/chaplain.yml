@@ -57,10 +57,10 @@
     id: ChaplainPDA
     ears: ClothingHeadsetScience
     pocket1: BookPsionicsGuidebook
-    storage:
-      back:
-      - Bible
-      - RubberStampChaplain
+  storage:
+    back:
+    - Bible
+    - RubberStampChaplain
 
 - type: startingGear
   id: ChaplainPlasmamanGear

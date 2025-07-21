@@ -129,6 +129,3 @@ uplink-greytide-desc = A classic blue toolbox. Inside are some basic tools, insu
 
 uplink-plasmaflood-lawboard-name = law board (Plasma Flood)
 uplink-plasmaflood-lawboard-desc = A dangerous set of laws, that makes the station AI replace the station atmosphere with plasma.
-
-uplink-antimov-lawboard-name = law board (Antimov)
-uplink-antimov-lawboard-desc = A dangerous set of laws, that makes the station AI harm the crew.

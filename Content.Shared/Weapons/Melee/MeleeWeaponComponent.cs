@@ -253,9 +253,11 @@ public sealed partial class MeleeWeaponComponent : Component
     [DataField, AutoNetworkedField]
     public bool MustBeEquippedToUse = false;
 
+    // WD EDIT START - just use CanHeavyAttack
     // Goobstation
-    [DataField, AutoNetworkedField]
-    public bool CanWideSwing = true;
+    // [DataField, AutoNetworkedField]
+    // public bool CanWideSwing = true;
+    // WD EDIT END
 }
 
 /// <summary>

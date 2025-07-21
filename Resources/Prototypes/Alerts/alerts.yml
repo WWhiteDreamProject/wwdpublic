@@ -30,7 +30,7 @@
   - alertType: Pacified
   - alertType: Offer
   - alertType: Deflecting
-    - alertType: RecentlyBlocked # WD EDIT
+  - alertType: RecentlyBlocked # WD EDIT
 
 - type: entity
   id: AlertSpriteView

@@ -253,11 +253,6 @@
     tags:
     - SecureWindoor
     # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
-  # WD EDIT START
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: RGlass
-  # WD EDIT END
 
 #Plasma Windoors
 - type: entity

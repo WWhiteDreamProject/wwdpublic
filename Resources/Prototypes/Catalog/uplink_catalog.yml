@@ -1315,11 +1315,11 @@
   name: uplink-antimov-law-name
   description: uplink-antimov-law-desc
   productEntity: AntimovCircuitBoard
-  discountCategory: usualDiscounts
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 50
+    Telecrystal: 4 # WD EDIT
   cost:
-    Telecrystal: 70
+    Telecrystal: 16 # WD EDIT
   categories:
   - UplinkDisruption
   conditions:
@@ -1335,9 +1335,9 @@
   productEntity: AntimovCircuitBoard
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 100
+    Telecrystal: 5 # WD EDIT
   cost:
-    Telecrystal: 120
+    Telecrystal: 22 # WD EDIT
   categories:
   - UplinkDisruption
   conditions:
@@ -1383,8 +1383,13 @@
   name: uplink-cameraBug-name
   description: uplink-cameraBug-desc
   productEntity: CameraBug
+  # WD EDIT START
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
   cost:
-    Telecrystal: 20
+    Telecrystal: 4
+  # WD EDIT END
   categories:
   - UplinkDisruption
 

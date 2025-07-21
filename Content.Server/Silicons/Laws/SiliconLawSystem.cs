@@ -42,6 +42,8 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!; // WD edit - AiRemoteControl
+    [Dependency] private readonly IRobustRandom _random = default!; // WWDP - random roundstart lawset
 
     /// <inheritdoc/>
     public override void Initialize()
