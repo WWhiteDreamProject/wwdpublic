@@ -114,9 +114,6 @@ alerts-revenant-essence-desc = Сила душ. Поддерживает вас 
 alerts-revenant-corporeal-name = Материальность
 alerts-revenant-corporeal-desc = Вы физически воплотились. Окружающие могут видеть и наносить вам вред.
 
-alerts-changeling-chemicals-name = Химикаты
-alerts-changeling-chemicals-desc = Наши химикаты.
-
 alerts-cult-buff-name = Усиление
 alerts-cult-buff-desc = Подготовка заклинаний крови занимает гораздо меньше времени, и вы не теряете столько крови при этом. Также вы неуязвимы к низкому давлению.
 
