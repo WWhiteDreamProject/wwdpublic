@@ -387,7 +387,7 @@
     - SemiAuto
   # WD EDIT START: Projectile > Hitscan
   - type: ProjectileBatteryAmmoProvider
-    proto: RedLaserPractice
+    proto: BulletLaserPractice
     fireCost: 62.5
   # WD EDIT END
   - type: StaticPrice
@@ -415,7 +415,7 @@
     price: 420
   # WD EDIT START
   - type: ProjectileBatteryAmmoProvider # Projectile > Hitscan
-    proto: RedLaserPractice
+    proto: BulletLaser
     fireCost: 12.5
   - type: GunOverheat
     heatCost: 35

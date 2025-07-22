@@ -200,6 +200,10 @@ namespace Content.Server.Database
             var voice = profile.Voice;
             if (voice == string.Empty)
                 voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
+
+            var bodyType = profile.BodyType;
+            if (bodyType == string.Empty)
+                bodyType = profile.Species + "Normal";
             // WD EDIT END
 
             // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
@@ -231,7 +235,7 @@ namespace Content.Server.Database
                 profile.Age,
                 sex,
                 voice, // WD EDIT
-                profile.BodyType, // WD EDIT
+                bodyType, // WD EDIT
                 gender,
                 profile.DisplayPronouns,
                 profile.StationAiName,

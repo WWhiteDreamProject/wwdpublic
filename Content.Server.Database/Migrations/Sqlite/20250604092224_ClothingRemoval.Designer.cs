@@ -786,10 +786,19 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("INTEGER")
                         .HasColumnName("age");
 
+                    b.Property<string>("BodyType")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("body_type");
+
                     b.Property<string>("CharacterName")
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
+
+                    b.Property<string>("ClownName")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("clown_name");
 
                     b.Property<string>("CustomSpecieName")
                         .IsRequired()
@@ -896,6 +905,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<string>("StationAiName")
                         .HasColumnType("TEXT")
                         .HasColumnName("station_ai_name");
+
+                    b.Property<string>("Voice")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("voice");
 
                     b.Property<float>("Width")
                         .HasColumnType("REAL")
