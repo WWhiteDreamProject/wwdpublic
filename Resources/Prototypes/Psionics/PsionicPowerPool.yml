@@ -15,6 +15,7 @@
     TelekineticPulsePower: 0.35
     PyrokineticFlare: 0.6 # Leads to summon imp and pyrokenisis
     NoosphericZapPower: 0.35
+    ClonePower: 0.25 #wwdp ability
 
 - type: weightedRandom
   id: PsychoHistorianPowerPool # Significantly trimmed down pool, MUCH faster power generation. Free Telepathy.
