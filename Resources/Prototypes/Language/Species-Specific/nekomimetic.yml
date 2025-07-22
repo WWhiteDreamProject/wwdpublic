@@ -5,7 +5,7 @@
   isVisibleLanguage: true
   speech:
     color: "#df57aaee"
-    fontId: Manga
+    fontId: Marauders Map
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
