@@ -28,9 +28,11 @@ using Content.Shared.Doors.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mind;
+using Content.Shared.Mobs;
 using Content.Shared.PDA;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Stacks;
+using Content.Shared.Standing;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Server.Physics;
@@ -60,6 +62,8 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly GunSystem _gun = default!;
     [Dependency] private readonly SharedPassportSystem _passportSystem = default!;
     [Dependency] private readonly SharedJobSystem _jobSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!; // WWDP
+    [Dependency] private readonly StandingStateSystem _standing = default!; // WWDP
 
     private void AddTricksVerbs(GetVerbsEvent<Verb> args)
     {
@@ -125,6 +129,8 @@ public sealed partial class AdminVerbSystem
                     Act = () =>
                     {
                         _rejuvenate.PerformRejuvenate(args.Target);
+                        _standing.Stand(args.Target); // WWDP
+                        _appearance.SetData(args.Target, MobStateVisuals.State, MobState.Alive); // WWDP
                     },
                     Impact = LogImpact.Extreme,
                     Message = Loc.GetString("admin-trick-rejuvenate-description"),

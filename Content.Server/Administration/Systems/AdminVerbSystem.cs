@@ -41,6 +41,7 @@ using Robust.Shared.Physics.Components;
 using static Content.Shared.Configurable.ConfigurationComponent;
 using Content.Shared._Impstation.Thaven.Components;
 using Content.Server._Impstation.Thaven;
+using Content.Shared.Mobs;
 
 namespace Content.Server.Administration.Systems
 {
@@ -421,7 +422,12 @@ namespace Content.Server.Administration.Systems
                     Text = Loc.GetString("rejuvenate-verb-get-data-text"),
                     Category = VerbCategory.Debug,
                     Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png")),
-                    Act = () => _rejuvenate.PerformRejuvenate(args.Target),
+                    Act = () =>
+                    {
+                        _rejuvenate.PerformRejuvenate(args.Target);
+                        _standing.Stand(args.Target); // WWDP
+                        _appearance.SetData(args.Target, MobStateVisuals.State, MobState.Alive); // WWDP
+                    },
                     Impact = LogImpact.Medium
                 };
                 args.Verbs.Add(verb);
