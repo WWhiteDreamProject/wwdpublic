@@ -4,19 +4,17 @@
   description: job-description-hop
   playTimeTracker: JobHeadOfPersonnel
   requirements:
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-        - Foreigner
-        - ForeignerLight
-        - Muted
-    - !type:CharacterEmployerRequirement
-      employers:
-      - NanoTrasen
-      - IdrisIncorporated
-    - !type:CharacterOverallTimeRequirement # WWDP
-      min: 7200
-  weight: 10 # DeltaV - Changed HoP weight from 20 to 10 due to them not being more important than other Heads
+  - !type:CharacterTraitRequirement
+    inverted: true
+    traits:
+    - Foreigner
+    - ForeignerLight
+    - Muted
+  - !type:CharacterEmployerRequirement
+    employers:
+    - NanoTrasen
+    - IdrisIncorporated
+  weight: 10
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
   requireAdminNotify: true
@@ -31,33 +29,29 @@
   - Janitor
   - Theatre
   - Kitchen
-  - Chapel # WD EDIT
   - Hydroponics
   - External
   - Cryogenics
-  # I mean they'll give themselves the rest of the access levels *anyways*.
-  # As of 15/03/23 they can't do that so here's MOST of the rest of the access levels.
-  # Head level access that isn't their own was deliberately left out, get AA from the captain instead.
-  # Delta V - fuck all of this HoP is a service role
+  - Lawyer
+  - Cargo
+  - Boxer
+  - Clown
+  - Library
+  - Mime
+  - Musician
+  - Reporter
+  - Zookeeper
+  # WD EDIT START
+  - Atmospherics
+  - Medical
   - Chemistry
+  - Chapel
   - Engineering
   - Research
   - Detective
   - Salvage
-  - Security # NoooOoOo!! My HoPcurity!1
+  - Security
   - Brig
-  - Lawyer
-  - Cargo
-  - Atmospherics
-  - Medical
-  - Boxer # WD EDIT
-  - Clown # WD EDIT
-  - Library # WD EDIT
-  - Mime # WD EDIT
-  - Musician # WD EDIT
-  - Reporter # WD EDIT
-  - Zookeeper
-  # WD EDIT  START
   - Quartermaster
   - Mail
   - Paramedic
@@ -69,7 +63,7 @@
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
-      - type: CommandStaff
+    - type: CommandStaff
   afterLoadoutSpecial:
   - !type:ModifyEnvirosuitSpecial
     charges: 8
@@ -82,17 +76,17 @@
   - HoPPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoP
-    back: ClothingBackpackHOPFilled
-    shoes: ClothingShoesLeather # DeltaV - HoP needs something better than plebe shoes.
+    back: ClothingBackpack
+    shoes: ClothingShoesLeather
     id: HoPPDA
-    ears: ClothingHeadsetHoP # DeltaV - HoP is now a service role, replaces their all channels headset.
-  innerClothingSkirt: ClothingUniformJumpskirtHoP
-  satchel: ClothingBackpackSatchelHOPFilled
-  duffelbag: ClothingBackpackDuffelHOPFilled
+    ears: ClothingHeadsetHoP
+  storage:
+    back:
+    - Flash
 
 - type: startingGear
   id: HoPPlasmamanGear
-  parent: BasePlasmamanGear
+  parent: BasePlasmamanMaskGear
   equipment:
     jumpsuit: ClothingUniformEnvirosuitHoP
     head: ClothingHeadEnvirohelmHoP

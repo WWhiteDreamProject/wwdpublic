@@ -4,19 +4,21 @@
     HandheldHealthAnalyzer: 3
     Brutepack: 5
     Ointment: 5
+    MedicalPatchPrefilledBicaridine: 3  #Goobstation - MedicalPatches
+    MedicalPatchPrefilledDermaline: 3   #Goobstation - MedicalPatches
     Bloodpack: 5
     EpinephrineChemistryBottle: 3
     Syringe: 5
-    Defibrillator: 1 # WWDP
-    EmergencyRollerBedSpawnFolded: 1 # WWDP
+    Defibrillator: 1 # WD EDIT: Portafib -> Defibrillator
     # WD EDIT START
     #ClothingEyesGlasses: 5
     #ClothingEyesHudMedical: 2
     #ClothingEyesEyepatchHudMedical: 2
     # WD EDIT END
+    ParamedHypo: 2 #Goobstation - ParamedHypo
+    EmergencyRollerBedSpawnFolded: 1 # WD EDIT
     VehicleWheelchairFolded: 3 # Goobstation - Vehicles
-    # ClothingShoesBootsWinterAtmos: 2 #Delta V: Add departmental winter boots # WWDP removed - wtf?
-  #WWDP edit start
+  # WD EDIT START
   emaggedInventory:
     StimpackMini: 1
-  #WWDP edit end
+  # WD EDIT END

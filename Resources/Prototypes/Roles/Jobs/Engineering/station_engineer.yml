@@ -4,17 +4,21 @@
   description: job-description-engineer
   playTimeTracker: JobStationEngineer
   requirements:
-    # - !type:CharacterDepartmentTimeRequirement # WWDP
-    #   department: Engineering
-    #   min: 14400 #4 hrs
-    - !type:CharacterEmployerRequirement
-      employers:
-      - HephaestusIndustries
-      - ZavodskoiInterstellar
-      - EinsteinEngines
-      - NanoTrasen
-    - !type:CharacterOverallTimeRequirement # WWDP
-      min: 3600
+  # WD EDIT START
+  # - !type:CharacterDepartmentTimeRequirement
+  #   department: Engineering
+  #   min: 14400 #4 hrs
+  # WD EDIT END
+  - !type:CharacterEmployerRequirement
+    employers:
+    - HephaestusIndustries
+    - ZavodskoiInterstellar
+    - EinsteinEngines
+    - NanoTrasen
+  # WD EDIT START
+  - !type:CharacterOverallTimeRequirement
+    min: 3600
+  # WD EDIT END
   startingGear: StationEngineerGear
   icon: "JobIconStationEngineer"
   supervisors: job-supervisors-ce
@@ -31,19 +35,16 @@
   - StationEngineerPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineering
-    back: ClothingBackpackEngineeringFilled
+    back: ClothingBackpackEngineering
     shoes: ClothingShoesBootsWork
     id: EngineerPDA
-    # eyes: ClothingEyesGlassesMeson # WWDP
-    # belt: ClothingBeltUtilityEngineering # WWDP
+    # eyes: ClothingEyesGlassesMeson - WD EDIT
+    # belt: ClothingBeltUtilityEngineering - WD EDIT
     ears: ClothingHeadsetEngineering
-  innerClothingSkirt: ClothingUniformJumpskirtEngineering
-  satchel: ClothingBackpackSatchelEngineeringFilled
-  duffelbag: ClothingBackpackDuffelEngineeringFilled
 
 - type: startingGear
   id: StationEngineerPlasmamanGear
-  parent: BasePlasmamanGear
+  parent: BasePlasmamanMaskGear
   equipment:
     jumpsuit: ClothingUniformEnvirosuitEngineering
     head: ClothingHeadEnvirohelmEngineering

@@ -27,7 +27,6 @@
   <Box Orientation="Vertical">
     <GuideEntityEmbed Entity="ProtolatheMachineCircuitboard"/>
     <GuideEntityEmbed Entity="CloningPodMachineCircuitboard"/>
-    <GuideEntityEmbed Entity="TraversalDistorterMachineCircuitboard"/>
     <GuideEntityEmbed Entity="ThermomachineFreezerMachineCircuitBoard"/>
   </Box>
 

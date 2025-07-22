@@ -1,7 +1,6 @@
 - type: entity
   parent: BaseGameRule
   id: WormholesSpawn
-  categories: [ HideSpawnMenu ]
   components:
   - type: StationEvent
     startAnnouncement: true
@@ -18,7 +17,6 @@
 - type: entity
   parent: BaseGameRule
   id: StraySupplyPod
-  categories: [ HideSpawnMenu ]
   components:
     - type: StationEvent
       startAnnouncement: true
@@ -33,7 +31,6 @@
 - type: entity
   parent: BaseGameRule
   id: StraySupplyPodSyndicate
-  categories: [ HideSpawnMenu ]
   components:
     - type: StationEvent
       startAnnouncement: true
@@ -48,7 +45,6 @@
 - type: entity
   parent: BaseGameRule
   id: HeadcrabInvasion
-  categories: [ HideSpawnMenu ]
   components:
     - type: StationEvent
       startAnnouncement: true

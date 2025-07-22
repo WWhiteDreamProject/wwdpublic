@@ -340,7 +340,7 @@
       - state: equipped-OUTERCLOTHING-lines
         color: "#000000"
   - type: TemperatureProtection
-    coefficient: 0.7 # WWDP
+    coolingCoefficient: 0.7 # WD EDIT: 0.3 -> 0.7
 
 - type: entity
   parent: ClothingOuterBaseButcherable # WWDP
@@ -376,7 +376,7 @@
       - state: equipped-OUTERCLOTHING-lines
         color: "#000000"
   - type: TemperatureProtection
-    coefficient: 0.7 # WWDP
+    coolingCoefficient: 0.7 # WD EDIT: 0.3 -> 0.7
 
 - type: entity
   parent: ClothingOuterBaseButcherable # WWDP
@@ -412,7 +412,7 @@
       - state: equipped-OUTERCLOTHING-lines
         color: "#000000"
   - type: TemperatureProtection
-    coefficient: 0.7 # WWDP
+    coolingCoefficient: 0.7 # WD EDIT: 0.3 -> 0.7
 
 - type: entity
   parent: ClothingOuterBaseButcherable # WWDP

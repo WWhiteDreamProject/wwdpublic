@@ -16,19 +16,7 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 153
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: PhysicsMap
-    - type: GridTree
-    - type: MovedGrids
-    - type: Broadphase
-    - type: OccluderTree
-  - uid: 181
+  - uid: 180
     components:
     - type: MetaData
       name: NT-Reclaimer
@@ -702,25 +690,25 @@ entities:
     - type: Transform
       pos: -5.5,-1.5
       parent: 181
-  - uid: 183
+  - uid: 182
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -6.5,1.5
       parent: 181
-  - uid: 184
+  - uid: 183
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -6.5,2.5
       parent: 181
-  - uid: 185
+  - uid: 184
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 1.5,2.5
       parent: 181
-  - uid: 186
+  - uid: 185
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -728,34 +716,34 @@ entities:
       parent: 181
 - proto: BarricadeBlock
   entities:
-  - uid: 191
+  - uid: 190
     components:
     - type: Transform
       pos: -2.5,0.5
       parent: 181
-  - uid: 192
+  - uid: 191
     components:
     - type: Transform
       pos: -0.5,1.5
       parent: 181
-  - uid: 193
+  - uid: 192
     components:
     - type: Transform
       pos: -4.5,2.5
       parent: 181
 - proto: BarricadeDirectional
   entities:
-  - uid: 194
+  - uid: 193
     components:
     - type: Transform
       pos: -3.5,-4.5
       parent: 181
-  - uid: 195
+  - uid: 194
     components:
     - type: Transform
       pos: -2.5,-4.5
       parent: 181
-  - uid: 196
+  - uid: 195
     components:
     - type: Transform
       pos: -1.5,-4.5
@@ -944,12 +932,12 @@ entities:
     - type: Transform
       pos: -5.5,1.5
       parent: 181
-  - uid: 165
+  - uid: 164
     components:
     - type: Transform
       pos: -0.5,-2.5
       parent: 181
-  - uid: 168
+  - uid: 167
     components:
     - type: Transform
       pos: -3.5,-4.5
@@ -1119,7 +1107,7 @@ entities:
       parent: 181
 - proto: ChairFoldingSpawnFolded
   entities:
-  - uid: 157
+  - uid: 156
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -1127,19 +1115,19 @@ entities:
       parent: 181
 - proto: ClothingHeadHatCone
   entities:
-  - uid: 155
+  - uid: 154
     components:
     - type: Transform
       pos: -4.338378,-2.6911721
       parent: 181
-  - uid: 158
+  - uid: 157
     components:
     - type: Transform
       pos: -1.1917529,-3.6497679
       parent: 181
 - proto: ComputerSalvageExpedition
   entities:
-  - uid: 197
+  - uid: 196
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -1147,33 +1135,33 @@ entities:
       parent: 181
 - proto: ComputerShuttle
   entities:
-  - uid: 156
+  - uid: 155
     components:
     - type: Transform
       pos: -2.5,6.5
       parent: 181
 - proto: CrateEmptySpawner
   entities:
-  - uid: 164
+  - uid: 163
     components:
     - type: Transform
       pos: -2.5,-3.5
       parent: 181
-  - uid: 166
+  - uid: 165
     components:
     - type: Transform
       pos: -2.5,-1.5
       parent: 181
 - proto: CrateFilledSpawner
   entities:
-  - uid: 163
+  - uid: 162
     components:
     - type: Transform
       pos: -2.5,-2.5
       parent: 181
 - proto: CrowbarRed
   entities:
-  - uid: 180
+  - uid: 179
     components:
     - type: Transform
       rot: -0.4363323129985824 rad
@@ -1195,14 +1183,14 @@ entities:
       parent: 181
 - proto: FoodTinPeachesMaintTrash
   entities:
-  - uid: 190
+  - uid: 189
     components:
     - type: Transform
       pos: -0.36779046,-4.3873677
       parent: 181
 - proto: GasCanisterBrokenBase
   entities:
-  - uid: 182
+  - uid: 181
     components:
     - type: Transform
       pos: -4.5191708,-4.3920426
@@ -1290,18 +1278,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: -2.5,-4.5
       parent: 181
-  - uid: 175
+  - uid: 174
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -3.5,-7.5
       parent: 181
-  - uid: 176
+  - uid: 175
     components:
     - type: Transform
       pos: -4.5,5.5
       parent: 181
-  - uid: 177
+  - uid: 176
     components:
     - type: Transform
       pos: -1.5,7.5
@@ -1326,14 +1314,14 @@ entities:
       parent: 181
 - proto: Gyroscope
   entities:
-  - uid: 169
+  - uid: 168
     components:
     - type: Transform
       pos: -0.5,-0.5
       parent: 181
 - proto: PersonalAI
   entities:
-  - uid: 179
+  - uid: 178
     components:
     - type: Transform
       pos: -3.4643893,4.507683
@@ -1345,7 +1333,7 @@ entities:
     - type: Transform
       pos: -3.5,-0.5
       parent: 181
-  - uid: 187
+  - uid: 186
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -1358,14 +1346,14 @@ entities:
     - type: Transform
       pos: -0.5,-4.5
       parent: 181
-  - uid: 178
+  - uid: 177
     components:
     - type: Transform
       pos: -3.5,4.5
       parent: 181
 - proto: RagItem
   entities:
-  - uid: 174
+  - uid: 173
     components:
     - type: Transform
       pos: -2.3447971,1.7624338
@@ -1382,7 +1370,7 @@ entities:
     - type: Transform
       pos: -4.5,-6.5
       parent: 181
-  - uid: 189
+  - uid: 188
     components:
     - type: Transform
       pos: -5.5,-4.5
@@ -1396,22 +1384,22 @@ entities:
       parent: 181
 - proto: RandomSpawner
   entities:
-  - uid: 159
+  - uid: 158
     components:
     - type: Transform
       pos: -3.5,-4.5
       parent: 181
-  - uid: 160
+  - uid: 159
     components:
     - type: Transform
       pos: -1.5,-0.5
       parent: 181
-  - uid: 161
+  - uid: 160
     components:
     - type: Transform
       pos: -3.5,4.5
       parent: 181
-  - uid: 162
+  - uid: 161
     components:
     - type: Transform
       pos: 0.5,2.5
@@ -1446,7 +1434,7 @@ entities:
         - Pressed: Toggle
 - proto: SignSalvage
   entities:
-  - uid: 188
+  - uid: 187
     components:
     - type: Transform
       pos: -3.5,0.5
@@ -1460,26 +1448,26 @@ entities:
       parent: 181
 - proto: SpaceTickSpawner
   entities:
-  - uid: 167
+  - uid: 166
     components:
     - type: Transform
       pos: -2.5,-5.5
       parent: 181
 - proto: SpawnMobCockroach
   entities:
-  - uid: 171
+  - uid: 170
     components:
     - type: Transform
       pos: -0.5,-1.5
       parent: 181
-  - uid: 172
+  - uid: 171
     components:
     - type: Transform
       pos: -2.5,5.5
       parent: 181
 - proto: SpawnMobMouse
   entities:
-  - uid: 170
+  - uid: 169
     components:
     - type: Transform
       pos: -4.5,-0.5
@@ -1504,7 +1492,7 @@ entities:
     - type: Transform
       pos: -4.5,-0.5
       parent: 181
-  - uid: 154
+  - uid: 153
     components:
     - type: Transform
       pos: -1.5,5.5
@@ -1682,7 +1670,7 @@ entities:
       parent: 181
 - proto: WetFloorSign
   entities:
-  - uid: 173
+  - uid: 172
     components:
     - type: Transform
       pos: -1.7235736,1.9419026

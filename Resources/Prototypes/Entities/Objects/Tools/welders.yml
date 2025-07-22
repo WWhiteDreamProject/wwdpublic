@@ -122,6 +122,7 @@
   - type: WeldingHealing # Same as Brutepack - Estacao Pirata IPCs
     damageContainers:
       - Silicon
+      - SiliconUnshielded
     damage:
       types:
         Blunt: -15

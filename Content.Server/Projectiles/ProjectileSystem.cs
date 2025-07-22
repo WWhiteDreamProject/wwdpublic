@@ -83,7 +83,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             component.DamagedEntity = true;
         // Goobstation end
 
-        if (component.DeleteOnCollide)
+        if (component.DeleteOnCollide || (component.NoPenetrateMask & args.OtherFixture.CollisionLayer) != 0) // Goobstation - Make x-ray arrows not penetrate blob
             QueueDel(uid);
 
         if (component.StopFlyingOnImpact && TryComp<PhysicsComponent>(uid, out var physics)) // WWDP

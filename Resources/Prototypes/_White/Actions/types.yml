@@ -2,7 +2,6 @@
   id: ActivateHardlightSpearImplant
   name: Create hardlight spear
   description: Creates hardlight spear in your hands.
-  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     useDelay: 1.5
@@ -17,7 +16,6 @@
   id: ActivateSmokeImplant
   name: Release a cloud of smoke
   description: Releases a cloud of smoke around you.
-  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     useDelay: 20
@@ -32,7 +30,6 @@
   id: ActionHeadcrabJump
   name: Jump
   description: Do super jump.
-  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     icon:

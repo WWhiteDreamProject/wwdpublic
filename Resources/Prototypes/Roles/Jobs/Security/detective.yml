@@ -4,32 +4,35 @@
   description: job-description-detective
   playTimeTracker: JobDetective
   requirements:
-  # - !type:CharacterDepartmentTimeRequirement # WWDP
+  # WD EDIT START
+  # - !type:CharacterDepartmentTimeRequirement
   #   department: Security
-  #   min: 36000 # DeltaV - 10 hours
+  #   min: 36000
+  # WD EDIT END
   - !type:CharacterTraitRequirement
     inverted: true
     traits:
-      - Foreigner
-      - ForeignerLight
-      - Muted
-      - Blindness
-      - Pacifist
-      - BrittleBoneDisease
+    - Foreigner
+    - ForeignerLight
+    - Muted
+    - Blindness
+    - Pacifist
+    - BrittleBoneDisease
   - !type:CharacterEmployerRequirement
-      employers:
-      - ZavodskoiInterstellar
-      - PMCG
-      - NanoTrasen
-  - !type:CharacterOverallTimeRequirement # WWDP
+    employers:
+    - ZavodskoiInterstellar
+    - PMCG
+    - NanoTrasen
+  # WD EDIT START
+  - !type:CharacterOverallTimeRequirement
     min: 3600
+  # WD EDIT END
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
   - Security
-  #- Brig # Delta V: Removed
   - Maintenance
   - Service
   - Detective
@@ -48,20 +51,16 @@
   id: DetectiveGear
   subGear:
   - DetectivePlasmamanGear
-
   equipment:
     jumpsuit: ClothingUniformJumpsuitDetective
     back: ClothingBackpackSecurity
-    shoes: ClothingShoesBootsJack # WWDP
-    # eyes: ClothingEyesGlassesSunglasses # WWDP
+    shoes: ClothingShoesBootsJack # WD EDIT: ClothingShoesBootsCombatFilled -> ClothingShoesBootsJack
+    # eyes: ClothingEyesGlassesSecurity - WD EDIT
     head: ClothingHeadHatFedoraBrown
-    # outerClothing: ClothingOuterVestDetective # WWDP
+    # outerClothing: ClothingOuterVestDetective - WD EDIT
     id: DetectivePDA
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
+    ears: ClothingHeadsetAltSecurityRegular
     belt: ClothingBeltHolsterFilled
-  innerClothingSkirt: ClothingUniformJumpskirtDetective
-  satchel: ClothingBackpackSatchelSecurity
-  duffelbag: ClothingBackpackDuffelSecurity
 
 - type: startingGear
   id: DetectivePlasmamanGear

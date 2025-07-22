@@ -4,16 +4,20 @@
   description: job-description-atmostech
   playTimeTracker: JobAtmosphericTechnician
   requirements:
-    # - !type:CharacterDepartmentTimeRequirement # WWDP
-    #   department: Engineering
-    #   min: 36000 # DeltaV - 10 hours
-    - !type:CharacterEmployerRequirement
-      employers:
-      - HephaestusIndustries
-      - EinsteinEngines
-      - NanoTrasen
-    - !type:CharacterOverallTimeRequirement # WWDP
-      min: 3600
+  # WD EDIT START
+  # - !type:CharacterDepartmentTimeRequirement
+  #   department: Engineering
+  #   min: 36000
+  # WD EDIT END
+  - !type:CharacterEmployerRequirement
+    employers:
+    - HephaestusIndustries
+    - EinsteinEngines
+    - NanoTrasen
+  # WD EDIT START
+  - !type:CharacterOverallTimeRequirement
+    min: 3600
+  # WD EDIT END
   startingGear: AtmosphericTechnicianGear
   icon: "JobIconAtmosphericTechnician"
   supervisors: job-supervisors-ce
@@ -27,20 +31,16 @@
   id: AtmosphericTechnicianGear
   subGear:
   - AtmosphericTechnicianPlasmamanGear
-
   equipment:
     jumpsuit: ClothingUniformJumpsuitAtmos
     back: ClothingBackpackAtmospherics
     shoes: ClothingShoesColorWhite
     id: AtmosPDA
     ears: ClothingHeadsetEngineering
-  innerClothingSkirt: ClothingUniformJumpskirtAtmos
-  satchel: ClothingBackpackSatchelEngineeringFilled
-  duffelbag: ClothingBackpackDuffelEngineeringFilled
 
 - type: startingGear
   id: AtmosphericTechnicianPlasmamanGear
-  parent: BasePlasmamanGear
+  parent: BasePlasmamanMaskGear
   equipment:
     jumpsuit: ClothingUniformEnvirosuitAtmos
     head: ClothingHeadEnvirohelmAtmos

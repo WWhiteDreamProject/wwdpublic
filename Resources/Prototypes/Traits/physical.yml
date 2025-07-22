@@ -357,7 +357,8 @@
     - !type:TraitReplaceComponent
       components:
         - type: TemperatureProtection
-          coefficient: 0.1 # Enough resistance to walk into the chef's freezer, or tolerate daytime temperatures on Glacier without a jacket.
+          heatingCoefficient: 0.1 # Enough resistance to walk into the chef's freezer, or tolerate daytime temperatures on Glacier without a jacket.
+          coolingCoefficient: 0.1
 
 # These traits largely exist to demonstrate more of the "Component Removals" functionality. This way contributors
 # can get used to seeing that they can "Remove and Replace" a pre-existing component.
@@ -616,7 +617,8 @@
 - type: trait
   id: CyberEyes
   category: Physical
-  points: -3
+  points: -1
+  slots: 0
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -638,9 +640,9 @@
         - description: examine-cybereyes-message
           fontSize: 12
           requireDetailRange: true
-    - !type:TraitReplaceComponent
+    - !type:TraitRemoveComponent
       components:
-        - type: Flashable # Effectively, removes any flash-vulnerability species traits.
+        - type: EyeDamageOnFlashing
 
 
 # - type: trait
@@ -742,6 +744,7 @@
           damageContainers:
           - Inorganic
           - Silicon
+          - SiliconUnshielded
 
 - type: trait
   id: CyberEyesOmni
@@ -783,6 +786,7 @@
           - Biological
           - Inorganic
           - Silicon
+          - SiliconUnshielded
 
 - type: trait
   id: RestrictedGear
@@ -894,7 +898,7 @@
 - type: trait
   id: NaniteAutoRepairBots
   category: Physical
-  points: -10
+  points: -5
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -909,9 +913,8 @@
         - type: PassiveDamage
           allowedStates:
           - Alive
-          - Critical
           - Dead
-          damageCap: 250
+          damageCap: 125
           damage:
             groups:
               Brute: -0.5
@@ -944,6 +947,29 @@
 #       protoId: SpeedRightLeg
 #       slotId: "right leg"
 
+- type: trait
+  id: CyberneticLeftLeg
+  category: Physical
+  points: 0
+  slots: 0
+  functions:
+    - !type:TraitCyberneticLimbReplacement
+      removeBodyPart: Leg
+      partSymmetry: Left
+      protoId: LeftLegCybernetic
+      slotId: "left leg"
+
+- type: trait
+  id: CyberneticRightLeg
+  category: Physical
+  points: 0
+  slots: 0
+  functions:
+    - !type:TraitCyberneticLimbReplacement
+      removeBodyPart: Leg
+      partSymmetry: Right
+      protoId: RightLegCybernetic
+      slotId: "right leg"
 
 # - type: trait
 #  id: FlareShieldingModule
@@ -1060,6 +1086,7 @@
           damageContainers:
           - Inorganic
           - Silicon
+          - SiliconUnshielded
 
 - type: trait
   id: OmniEyesModule
@@ -1104,6 +1131,7 @@
           - Biological
           - Inorganic
           - Silicon
+          - SiliconUnshielded
 
 - type: trait
   id: LightAmplificationModule
@@ -1257,3 +1285,129 @@
         - description: examine-bionic-pryarm-message
           fontSize: 12
           requireDetailRange: true
+
+- type: trait
+  id: SuperiorRadiationShielding
+  category: Physical
+  points: -4
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - IPC
+  functions:
+    - !type:TraitAddArmor
+      damageModifierSets:
+        - SuperiorRadiationShielding
+
+- type: trait
+  id: G2Chassis
+  category: Physical
+  points: -5
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - IPC
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: Reflect
+          spread: 270
+          reflectProb: 0.07
+          innate: true
+          reflects:
+            - Energy
+            - NonEnergy
+
+- type: trait
+  id: HardenedCircuits
+  category: Physical
+  points: -3
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - IPC
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - IPCFaultyWaterproofing
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: ExplosionResistance
+          damageCoefficient: 0.8
+    - !type:TraitAddArmor
+      damageModifierSets:
+        - HardenedCircuits
+
+- type: trait
+  id: Dwarf
+  category: Physical
+  points: -4
+  requirements:
+    - !type:CharacterHeightRequirement
+      max: 150
+    - !type:CharacterWidthRequirement
+      max: 32
+  functions:
+    - !type:TraitReplaceComponent
+      components:
+        - type: LiquorLifeline
+        - type: LightweightDrunk
+          boozeStrengthMultiplier: 0.5
+    - !type:TraitAddComponent
+      components:
+        - type: ScottishAccent
+    - !type:TraitAddArmor
+      damageModifierSets:
+        - ExtremePoisonResistance
+
+- type: trait
+  id: Kobold
+  category: Physical
+  points: -4
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Reptilian
+    - !type:CharacterHeightRequirement
+      max: 150
+    - !type:CharacterWidthRequirement
+      max: 32
+  functions:
+    - !type:TraitReplaceComponent
+      components:
+        - type: LiquorLifeline
+        - type: LightweightDrunk
+          boozeStrengthMultiplier: 0.5
+    - !type:TraitAddComponent
+      components:
+        - type: ScottishAccent
+    - !type:TraitAddArmor
+      damageModifierSets:
+        - ExtremePoisonResistance
+
+- type: trait
+  id: ForkedTongue
+  category: Physical
+  points: -2
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Reptilian
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: ScentTracker
+
+- type: trait
+  id: StuntedSnout
+  category: Physical
+  points: 1
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Vulpkanin
+  functions:
+    - !type:TraitRemoveComponent
+      components:
+        - type: ScentTracker

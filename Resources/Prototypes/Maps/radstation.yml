@@ -7,76 +7,79 @@
     RadStation:
       stationProto: StandardNanotrasenStationCargoOnly
       components:
-      - type: StationEmergencyShuttle
-        emergencyShuttlePath: /Maps/Shuttles/emergency_neol.yml
-      - type: StationNameSetup
-        mapNameTemplate: '{0} RadStation {1}'
-        nameGenerator:
-          !type:NanotrasenNameGenerator
-          prefixCreator: '14'
-      - type: StationJobs
-        overflowJobs:
-        - Passenger
-        availableJobs:
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_neol.yml
+        - type: StationNameSetup
+          mapNameTemplate: '{0} RadStation {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
           #command
-          Captain: [ 1, 1 ]
-          # BlueshieldOfficer: [ 1, 1] # WD EDIT
-          # NanotrasenRepresentative: [ 1, 1 ] # WD EDIT
-          # Magistrate: [ 1, 1 ] # EE: Disabled
-          # AdministrativeAssistant: [ 1, 1 ] # EE: Disabled
+            Captain: [ 1, 1 ]
+            # BlueshieldOfficer: [ 1, 1] - WD EDIT
+            # NanotrasenRepresentative: [ 1, 1 ] - WD EDIT
+            # Magistrate: [ 1, 1 ] # EE: Disabled
+            # AdministrativeAssistant: [ 1, 1 ] # EE: Disabled
           #service
-          HeadOfPersonnel: [ 1, 1 ]
-          Bartender: [ 1, 1 ]
-          Botanist: [ 3, 3 ]
-          Chef: [ 2, 2 ]
-          Janitor: [ 2, 2 ]
-          Librarian: [ 1, 1 ]
-          ServiceWorker: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            Bartender: [ 1, 1 ]
+            Botanist: [ 3, 3 ]
+            Chef: [ 2, 2 ]
+            Janitor: [ 2, 2 ]
+            Librarian: [ 1, 1 ]
+            ServiceWorker: [ 1, 1 ]
           #engineering
-          ChiefEngineer: [ 1, 1 ]
-          AtmosphericTechnician: [ 4, 4 ]
-          StationEngineer: [ 3, 3 ]
-          TechnicalAssistant: [ 2, 2 ]
+            ChiefEngineer: [ 1, 1 ]
+            AtmosphericTechnician: [ 4, 4 ]
+            StationEngineer: [ 3, 3 ]
+            TechnicalAssistant: [ 2, 2 ]
           #medical
-          ChiefMedicalOfficer: [ 1, 1 ]
-          Chemist: [ 2, 2 ]
-          MedicalBorg: [ 2, 2 ]
-          MedicalDoctor: [ 3, 3 ]
-          Paramedic: [ 1, 1 ]
-          MedicalIntern: [ 2, 2 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            Chemist: [ 2, 2 ]
+            MedicalDoctor: [ 3, 3 ]
+            Paramedic: [ 1, 1 ]
+            MedicalIntern: [ 2, 2 ]
           #science
-          ResearchDirector: [ 1, 1 ]
-          # Roboticist: [ 1, 2 ] # WWDP
-          Scientist: [ 5, 5 ]
-          ForensicMantis: [ 1, 1 ]
-          ResearchAssistant: [ 2, 2 ]
-          Chaplain: [ 1, 1 ]
+            ResearchDirector: [ 1, 1 ]
+            # Roboticist: [ 1, 2 ] - WD EDIT
+            Scientist: [ 5, 5 ]
+            ForensicMantis: [ 1, 1 ]
+            ResearchAssistant: [ 2, 2 ]
+            Chaplain: [ 1, 1 ]
           #security
-          HeadOfSecurity: [ 1, 1 ]
-          # Brigmedic: [ 1, 1 ] # WWDP
-          Warden: [ 1, 1 ]
-          SecurityOfficer: [ 5, 5 ]
-          Prisoner: [ 2, 3 ]
-          # PrisonGuard: [ 2, 3 ] # EE: Disabled
-          Detective: [ 1, 1 ]
-          SecurityCadet: [ 2, 2 ]
+            HeadOfSecurity: [ 1, 1 ]
+            # Brigmedic: [ 1, 1 ] - WD EDIT
+            Warden: [ 1, 1 ]
+            SecurityOfficer: [ 5, 5 ]
+            Prisoner: [ 2, 3 ]
+            # PrisonGuard: [ 2, 3 ] # EE: Disabled
+            Detective: [ 1, 1 ]
+            SecurityCadet: [ 2, 2 ]
           #supply
-          Quartermaster: [ 1, 1 ]
-          MailCarrier: [ 1, 2 ]
-          SalvageSpecialist: [ 3, 3 ]
-          CargoTechnician: [ 5, 5 ]
+            Quartermaster: [ 1, 1 ]
+            MailCarrier: [ 1, 2 ]
+            SalvageSpecialist: [ 3, 3 ]
+            CargoTechnician: [ 5, 5 ]
           #civilian
-          Passenger: [ -1, -1 ]
-          Clown: [ 1, 1 ]
-          Mime: [ 1, 1 ]
-          Musician: [ 1, 1 ]
-          Reporter: [ 2, 2 ]
-          Psychologist: [ 1, 1 ]
+            Passenger: [ -1, -1 ]
+            Clown: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            Reporter: [ 2, 2 ]
+            Psychologist: [ 1, 1 ]
           #justice
-          #ChiefJustice: [ 1, 1 ] # EE: Disabled
-          #Clerk: [ 1, 1 ] # EE: Disabled
-          Lawyer: [ 1, 1 ]
-          #Prosecutor: [ 1, 1] # EE: Disabled
+            #ChiefJustice: [ 1, 1 ] # EE: Disabled
+            #Clerk: [ 1, 1 ] # EE: Disabled
+            Lawyer: [ 1, 1 ]
+            #Prosecutor: [ 1, 1] # EE: Disabled
           #silicon
-          StationAi: [ 1, 1 ]
-          Borg: [ 3, 3 ]
+            StationAi: [ 1, 1 ]
+            Borg: [ 3, 3 ]
+      # blob-config-start MEDIUM
+        - type: StationBlobConfig
+          stageBegin: 30
+          stageCritical: 375
+          stageTheEnd: 750
+      # blob-config-end

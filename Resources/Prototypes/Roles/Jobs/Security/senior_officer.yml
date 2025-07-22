@@ -5,7 +5,8 @@
   playTimeTracker: JobSeniorOfficer
   setPreference: false # WWDP disabled role, not mapped
   requirements:
-    # - !type:CharacterPlaytimeRequirement # WWDP
+    # WD EDIT START
+    # - !type:CharacterPlaytimeRequirement
     #   tracker: JobWarden
     #   min: 21600 #6 hrs
     # - !type:CharacterPlaytimeRequirement
@@ -17,6 +18,7 @@
     # - !type:CharacterDepartmentTimeRequirement
     #   department: Security
     #   min: 216000 # 60 hrs
+    # WD EDIT END
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
@@ -32,15 +34,16 @@
       - PMCG
       - NanoTrasen
       - EastOrionCompany
-    - !type:CharacterOverallTimeRequirement # WWDP
+    # WD EDIT START
+    - !type:CharacterOverallTimeRequirement
       min: 3600
+    # WD EDIT END
   startingGear: SeniorOfficerGear
   icon: "JobIconSeniorOfficer"
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
   - Security
-  #- Brig # Delta V: Removed
   - Maintenance
   - Service
   - External
@@ -59,13 +62,14 @@
   - SecurityOfficerPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorOfficer
-    back: ClothingBackpackSecurityFilled # WWDP
-    shoes: ClothingShoesBootsJack # WWDP
-    # eyes: ClothingEyesGlassesSecurity # WWDP
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsJack # WD EDIT: ClothingShoesBootsJackFilled -> ClothingShoesBootsJack
+    # eyes: ClothingEyesGlassesSecurity - WD EDIT
     head: ClothingHeadHatBeretSecurity
-    # outerClothing: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier # WWDP
+    # outerClothing: ClothingOuterArmorPlateCarrier - WD EDIT
     id: SeniorOfficerPDA
     ears: ClothingHeadsetSecurity
-  innerClothingSkirt: ClothingUniformJumpskirtSeniorOfficer
-  satchel: ClothingBackpackSatchelSecurity
-  duffelbag: ClothingBackpackDuffelSecurity
+    # belt: ClothingBeltSecurityFilled - WD EDIT
+  storage:
+    back:
+    - WeaponEnergyGunPistolSecurity # WD EDIT
