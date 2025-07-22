@@ -2,7 +2,7 @@
   id: Calcic
   isVisibleLanguage: true
   speech:
-    fontId: ComicSansMS
+    fontId: ComicSansMS # WWDP
     color: "#e3dac9"
   obfuscation:
     !type:SyllableObfuscation
