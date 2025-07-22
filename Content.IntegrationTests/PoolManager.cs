@@ -167,6 +167,7 @@ public static partial class PoolManager
                     // do not register extra systems or components here -- they will get cleared when the client is
                     // disconnected. just use reflection.
                     IoCManager.Register<IParallaxManager, DummyParallaxManager>(true);
+                    IoCManager.Register<IStylesheetManager, DummyStylesheetManager>(true); //WWDP EDIT
                     IoCManager.Resolve<ILogManager>().GetSawmill("loc").Level = LogLevel.Error;
                     IoCManager.Resolve<IConfigurationManager>()
                         .OnValueChanged(RTCVars.FailureLogLevel, value => logHandler.FailureLevel = value, true);

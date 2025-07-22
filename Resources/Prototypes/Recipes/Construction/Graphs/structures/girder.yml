@@ -164,7 +164,7 @@
           - !type:SnapToGrid
           conditions:
           - !type:EntityAnchored
-          anchored: false
+            anchored: false
           steps:
           - material: Steel
             amount: 2
