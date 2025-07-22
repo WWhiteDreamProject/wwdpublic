@@ -15,8 +15,6 @@
 #        - type: StationEmergencyShuttle
 #          emergencyShuttlePath: /Maps/_White/Shuttles/emergency_turtle.yml
 #        - type: StationJobs
-#          overflowJobs:
-#            - Passenger
 #          availableJobs:
 #            #Silicons
 #            Borg: [ 2, 2 ]

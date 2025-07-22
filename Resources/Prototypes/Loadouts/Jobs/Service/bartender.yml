@@ -6,136 +6,135 @@
 # Ears
 
 # Equipment
-
-# WWDP edit start - removed loadouts, back to closet
+# WD EDIT START
 # - type: loadout
 #   id: LoadoutServiceBartenderBoxBeanbags
 #   category: JobsServiceBartender
 #   cost: 0
 #   exclusive: true
 #   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: LoadoutBartenderAmmo
-#     - !type:CharacterJobRequirement
-#       jobs:
-#         - Bartender
-#     - !type:CharacterAgeRequirement
-#       min: 21
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutBartenderAmmo
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - Bartender
+#   - !type:CharacterAgeRequirement
+#     min: 21
 #   items:
-#     - BoxBeanbag
-#
+#   - BoxBeanbag
+
 # - type: loadout
 #   id: LoadoutServiceBartenderBoxLightRifle
 #   category: JobsServiceBartender
 #   cost: 0
 #   exclusive: true
 #   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: LoadoutBartenderAmmo
-#     - !type:CharacterJobRequirement
-#       jobs:
-#         - Bartender
-#     - !type:CharacterAgeRequirement
-#       min: 21
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutBartenderAmmo
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - Bartender
+#   - !type:CharacterAgeRequirement
+#     min: 21
 #   items:
-#     - MagazineBoxLightRifle
-#
+#   - MagazineBoxLightRifle
+
 # - type: loadout
 #   id: LoadoutServiceBartenderBoxRifle
 #   category: JobsServiceBartender
 #   cost: 0
 #   exclusive: true
 #   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: LoadoutBartenderAmmo
-#     - !type:CharacterJobRequirement
-#       jobs:
-#         - Bartender
-#     - !type:CharacterAgeRequirement
-#       min: 21
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutBartenderAmmo
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - Bartender
+#   - !type:CharacterAgeRequirement
+#     min: 21
 #   items:
-#     - MagazineBoxRifle
-#
+#   - MagazineBoxRifle
+
 # - type: loadout
-#   id: LoadoutServiceBartenderShotgunDoubleBarreled
+#   id: LoadoutServiceBartenderShotgunDoubleBarreledRubber
 #   category: JobsServiceBartender
 #   cost: 0
 #   canBeHeirloom: true
 #   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: LoadoutBartenderWeapon
-#     - !type:CharacterJobRequirement
-#       jobs:
-#         - Bartender
-#     - !type:CharacterAgeRequirement
-#       min: 21
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutBartenderWeapon
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - Bartender
+#   - !type:CharacterAgeRequirement
+#     min: 21
 #   items:
-#     - WeaponShotgunDoubleBarreledRubber # WWDP
-#
+#   - WeaponShotgunDoubleBarreledRubber
+
 # - type: loadout
 #   id: LoadoutServiceBartenderMosin
 #   category: JobsServiceBartender
 #   cost: 0
 #   canBeHeirloom: true
 #   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: LoadoutBartenderWeapon
-#     - !type:CharacterJobRequirement
-#       jobs:
-#         - Bartender
-#     - !type:CharacterAgeRequirement
-#       min: 21
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutBartenderWeapon
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - Bartender
+#   - !type:CharacterAgeRequirement
+#     min: 21
 #   items:
-#     - WeaponSniperMosin
-#
+#   - WeaponSniperMosin
+
 # - type: loadout
 #   id: LoadoutServiceBartenderBoxMagnum
 #   category: JobsServiceBartender
 #   cost: 0
 #   exclusive: true
 #   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: LoadoutBartenderAmmo
-#     - !type:CharacterJobRequirement
-#       jobs:
-#         - Bartender
-#     - !type:CharacterAgeRequirement
-#       min: 21
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutBartenderAmmo
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - Bartender
+#   - !type:CharacterAgeRequirement
+#     min: 21
 #   items:
-#     - MagazineBoxMagnum
-#
+#   - MagazineBoxMagnum
+
 # - type: loadout
 #   id: LoadoutServiceBartenderArgenti
 #   category: JobsServiceBartender
 #   cost: 0
 #   exclusive: true
 #   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: LoadoutBartenderWeapon
-#     - !type:CharacterJobRequirement
-#       jobs:
-#         - Bartender
-#     - !type:CharacterAgeRequirement
-#       min: 21
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutBartenderWeapon
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - Bartender
+#   - !type:CharacterAgeRequirement
+#     min: 21
 #   items:
-#     - WeaponRevolverArgenti
-#
+#   - WeaponRevolverArgenti
+
 # - type: loadout
 #   id: LoadoutServiceBartenderRepeater
 #   category: JobsServiceBartender
 #   cost: 0
 #   exclusive: true
 #   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: LoadoutBartenderWeapon
-#     - !type:CharacterJobRequirement
-#       jobs:
-#         - Bartender
-#     - !type:CharacterAgeRequirement
-#       min: 21
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutBartenderWeapon
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - Bartender
+#   - !type:CharacterAgeRequirement
+#     min: 21
 #   items:
-#     - WeaponSniperRepeater
-# WWDP edit end
+#   - WeaponSniperRepeater
+# WD EDIT END
 
 # Eyes
 
@@ -148,13 +147,13 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutBartenderHead
-    - !type:CharacterJobRequirement
-      jobs:
-        - Bartender
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutBartenderHead
+  - !type:CharacterJobRequirement
+    jobs:
+    - Bartender
   items:
-    - ClothingHeadHatFlatcapBartenderNanotrasen
+  - ClothingHeadHatFlatcapBartenderNanotrasen
 
 - type: loadout
   id: LoadoutServiceHeadBartenderIdris
@@ -162,13 +161,13 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutBartenderHead
-    - !type:CharacterJobRequirement
-      jobs:
-        - Bartender
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutBartenderHead
+  - !type:CharacterJobRequirement
+    jobs:
+    - Bartender
   items:
-    - ClothingHeadHatFlatcapBartenderIdris
+  - ClothingHeadHatFlatcapBartenderIdris
 
 - type: loadout
   id: LoadoutServiceHeadBartenderOrion
@@ -176,13 +175,13 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutBartenderHead
-    - !type:CharacterJobRequirement
-      jobs:
-        - Bartender
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutBartenderHead
+  - !type:CharacterJobRequirement
+    jobs:
+    - Bartender
   items:
-    - ClothingHeadHatFlatcapBartenderOrion
+  - ClothingHeadHatFlatcapBartenderOrion
 
 # Id
 
@@ -204,20 +203,21 @@
   items:
   - ClothingOuterWinterBar
 
-# WWDP removed armor
+# WD EDIT START
 # - type: loadout
 #   id: LoadoutServiceBartenderArmorDuraVest
 #   category: JobsServiceBartender
 #   cost: 0
 #   exclusive: true
 #   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: LoadoutBartenderOuter
-#     - !type:CharacterJobRequirement
-#       jobs:
-#         - Bartender
+#   - !type:CharacterItemGroupRequirement
+#     group: LoadoutBartenderOuter
+#   - !type:CharacterJobRequirement
+#     jobs:
+#     - Bartender
 #   items:
-#     - ClothingOuterArmorDuraVest
+#   - ClothingOuterArmorDuraVest
+# WD EDIT END
 
 - type: loadout
   id: LoadoutServiceOuterBartenderNt
@@ -225,13 +225,13 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutBartenderOuter
-    - !type:CharacterJobRequirement
-      jobs:
-        - Bartender
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutBartenderOuter
+  - !type:CharacterJobRequirement
+    jobs:
+    - Bartender
   items:
-    - ClothingOuterVestNt
+  - ClothingOuterVestNt
 
 - type: loadout
   id: LoadoutServiceOuterBartenderIdris
@@ -239,13 +239,13 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutBartenderOuter
-    - !type:CharacterJobRequirement
-      jobs:
-        - Bartender
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutBartenderOuter
+  - !type:CharacterJobRequirement
+    jobs:
+    - Bartender
   items:
-    - ClothingOuterVestIdris
+  - ClothingOuterVestIdris
 
 - type: loadout
   id: LoadoutServiceOuterBartenderOrion
@@ -253,13 +253,13 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutBartenderOuter
-    - !type:CharacterJobRequirement
-      jobs:
-        - Bartender
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutBartenderOuter
+  - !type:CharacterJobRequirement
+    jobs:
+    - Bartender
   items:
-    - ClothingOuterVestOrion
+  - ClothingOuterVestOrion
 
 # Shoes
 
@@ -270,13 +270,13 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutBartenderUniforms
-    - !type:CharacterJobRequirement
-      jobs:
-        - Bartender
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutBartenderUniforms
+  - !type:CharacterJobRequirement
+    jobs:
+    - Bartender
   items:
-    - ClothingUniformJumpsuitBartenderPurple
+  - ClothingUniformJumpsuitBartenderPurple
 
 - type: loadout
   id: LoadoutServiceJumpsuitBartenderNt
@@ -284,13 +284,13 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutBartenderUniforms
-    - !type:CharacterJobRequirement
-      jobs:
-        - Bartender
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutBartenderUniforms
+  - !type:CharacterJobRequirement
+    jobs:
+    - Bartender
   items:
-    - ClothingUniformJumpsuitBartenderNt
+  - ClothingUniformJumpsuitBartenderNt
 
 - type: loadout
   id: LoadoutServiceJumpsuitBartenderIdris
@@ -298,13 +298,13 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutBartenderUniforms
-    - !type:CharacterJobRequirement
-      jobs:
-        - Bartender
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutBartenderUniforms
+  - !type:CharacterJobRequirement
+    jobs:
+    - Bartender
   items:
-    - ClothingUniformJumpsuitBartenderIdris
+  - ClothingUniformJumpsuitBartenderIdris
 
 - type: loadout
   id: LoadoutServiceJumpsuitBartenderOrion
@@ -312,10 +312,10 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutBartenderUniforms
-    - !type:CharacterJobRequirement
-      jobs:
-        - Bartender
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutBartenderUniforms
+  - !type:CharacterJobRequirement
+    jobs:
+    - Bartender
   items:
-    - ClothingUniformJumpsuitBartenderOrion
+  - ClothingUniformJumpsuitBartenderOrion
