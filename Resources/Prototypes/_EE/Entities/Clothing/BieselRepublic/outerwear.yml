@@ -31,22 +31,22 @@
     - type: Armor
       modifiers:
         coefficients:
-          Blunt: 0.35
-          Slash: 0.35
-          Piercing: 0.35
-          Heat: 0.35
+          Blunt: 0.5
+          Slash: 0.5
+          Piercing: 0.5
+          Heat: 0.5
           Caustic: 0.5
     - type: ExplosionResistance
       damageCoefficient: 0.35
-# WD EDIT START
-#     - type: Reflect
-#       reflectProb: 0.05
-#       spread: 270
-#       innate: true
-#       reflects:
-#         - Energy
-#         - NonEnergy
-# WD EDIT END
+    # WD EDIT START
+    # - type: Reflect
+    #   reflectProb: 0.05
+    #   spread: 270
+    #   innate: true
+    #   reflects:
+    #     - Energy
+    #     - NonEnergy
+    # WD EDIT END
     - type: ClothingSpeedModifier
       walkModifier: 0.7
       sprintModifier: 0.7
@@ -74,15 +74,15 @@
       sprintModifier: 0.90
     - type: ExplosionResistance # More protective against explosives than you think. Helps in preventing all those vital organs from jiggling around o.o
       damageCoefficient: 0.70
-# WD EDIT START
-#     - type: Reflect
-#       reflectProb: 0.05
-#       spread: 270
-#       innate: true
-#       reflects:
-#         - Energy
-#         - NonEnergy
-# WD EDIT END
+    # WD EDIT START
+    # - type: Reflect
+    #   reflectProb: 0.05
+    #   spread: 270
+    #  innate: true
+    #   reflects:
+    #     - Energy
+    #    - NonEnergy
+    # WD EDIT END
 
 - type: entity
   parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, TCFLInfo]
@@ -103,4 +103,5 @@
           Piercing: 0.95
           Heat: 0.85
     - type: TemperatureProtection
-      coefficient: 0.5 # WWDP
+      heatingCoefficient: 0.5 # WD EDIT: 0.1 -> 0.5
+      coolingCoefficient: 0.5

@@ -29,7 +29,8 @@
   id: AiCoreBoard
 
 - type: Tag
-  id: LightBulb
+  id: RCDLight
 
 - type: Tag
-  id: RCDLight
+  id: SyringeGunAmmo
+

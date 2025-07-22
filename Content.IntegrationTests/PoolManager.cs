@@ -41,6 +41,8 @@ public static partial class PoolManager
     private static bool _dead;
     private static Exception? _poolFailureReason;
 
+    private static HashSet<Assembly> _contentAssemblies = default!;
+
     public static async Task<(RobustIntegrationTest.ServerIntegrationInstance, PoolTestLogHandler)> GenerateServer(
         PoolSettings poolSettings,
         TextWriter testOut)
@@ -53,15 +55,7 @@ public static partial class PoolManager
                 LoadConfigAndUserData = false,
                 LoadContentResources = !poolSettings.NoLoadContent,
             },
-            ContentAssemblies = new[]
-            {
-                typeof(Shared.Entry.EntryPoint).Assembly,
-                typeof(Server.Entry.EntryPoint).Assembly,
-                typeof(PoolManager).Assembly,
-
-                typeof(Content.StyleSheetify.Server.EntryPoint).Assembly, //WWDP EDIT
-                typeof(Content.StyleSheetify.Shared.StylePrototypeIgnorance).Assembly //WWDP EDIT
-            }
+            ContentAssemblies = _contentAssemblies.ToArray()
         };
 
         var logHandler = new PoolTestLogHandler("SERVER");
@@ -145,7 +139,7 @@ public static partial class PoolManager
                 typeof(PoolManager).Assembly,
 
                 typeof(Content.StyleSheetify.Client.EntryPoint).Assembly, //WWDP EDIT
-                typeof(Content.StyleSheetify.Shared.StylePrototypeIgnorance).Assembly //WWDP EDIT
+                typeof(Content.StyleSheetify.Shared.StylePrototypeIgnorance).Assembly, //WWDP EDIT
             }
         };
 
@@ -432,13 +426,29 @@ we are just going to end this here to save a lot of time. This is the exception 
     /// <summary>
     /// Initialize the pool manager.
     /// </summary>
-    /// <param name="assembly">Assembly to search for to discover extra test prototypes.</param>
-    public static void Startup(Assembly? assembly)
+    /// <param name="extraAssemblies">Assemblies to search for to discover extra prototypes and systems.</param>
+    public static void Startup(params Assembly[] extraAssemblies)
     {
         if (_initialized)
             throw new InvalidOperationException("Already initialized");
 
         _initialized = true;
-        DiscoverTestPrototypes(assembly);
+        _contentAssemblies =
+        [
+            typeof(Shared.Entry.EntryPoint).Assembly,
+            typeof(Server.Entry.EntryPoint).Assembly,
+            typeof(PoolManager).Assembly,
+
+            typeof(Content.StyleSheetify.Server.EntryPoint).Assembly, //WWDP EDIT
+            typeof(Content.StyleSheetify.Shared.StylePrototypeIgnorance).Assembly, //WWDP EDIT
+        ];
+        _contentAssemblies.UnionWith(extraAssemblies);
+
+        _testPrototypes.Clear();
+        DiscoverTestPrototypes(typeof(PoolManager).Assembly);
+        foreach (var assembly in extraAssemblies)
+        {
+            DiscoverTestPrototypes(assembly);
+        }
     }
 }

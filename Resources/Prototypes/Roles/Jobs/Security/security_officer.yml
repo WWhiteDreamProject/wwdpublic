@@ -4,33 +4,36 @@
   description: job-description-security
   playTimeTracker: JobSecurityOfficer
   requirements:
-    # - !type:CharacterDepartmentTimeRequirement # WWDP
-    #   department: Security
-    #   min: 36000 # 10 hours
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-        - Foreigner
-        - ForeignerLight
-        - Muted
-        - Blindness
-        - Pacifist
-        - BrittleBoneDisease
-    - !type:CharacterEmployerRequirement
-      employers:
-      - ZavodskoiInterstellar
-      - PMCG
-      - NanoTrasen
-      - EastOrionCompany
-    - !type:CharacterOverallTimeRequirement # WWDP
-      min: 3600
+  # WD EDIT START
+  # - !type:CharacterDepartmentTimeRequirement
+  #   department: Security
+  #   min: 36000 # 10 hours
+  # WD EDIT END
+  - !type:CharacterTraitRequirement
+    inverted: true
+    traits:
+    - Foreigner
+    - ForeignerLight
+    - Muted
+    - Blindness
+    - Pacifist
+    - BrittleBoneDisease
+  - !type:CharacterEmployerRequirement
+    employers:
+    - ZavodskoiInterstellar
+    - PMCG
+    - NanoTrasen
+    - EastOrionCompany
+  # WD EDIT START
+  - !type:CharacterOverallTimeRequirement
+    min: 3600
+  # WD EDIT END
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
   - Security
-  #- Brig # Delta V: Removed
   - Maintenance
   - Service
   - External
@@ -50,16 +53,17 @@
   - SecurityOfficerPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSec
-    back: ClothingBackpackSecurityFilled # WWDP
-    shoes: ClothingShoesBootsJack # WWDP
-    # eyes: ClothingEyesGlassesSunglasses # WWDP moved everything to lockers
-    # head: ClothingHeadHelmetBasic # WWDP
-    # outerClothing: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier # WWDP
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsJack # WD EDIT: ClothingShoesBootsCombatFilled -> ClothingShoesBootsJack
+    # eyes: ClothingEyesGlassesSecurity - WD EDIT
+    # head: ClothingHeadHelmetBasic - WD EDIT
+    # outerClothing: ClothingOuterArmorPlateCarrier - WD EDIT
     id: SecurityPDA
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
-  innerClothingSkirt: ClothingUniformJumpskirtSec
-  satchel: ClothingBackpackSatchelSecurity
-  duffelbag: ClothingBackpackDuffelSecurity
+    ears: ClothingHeadsetAltSecurityRegular
+    # belt: ClothingBeltSecurityFilled - WD EDIT
+  storage:
+    back:
+    - WeaponEnergyGunPistolSecurity # WD EDIT
 
 - type: startingGear
   id: SecurityOfficerPlasmamanGear

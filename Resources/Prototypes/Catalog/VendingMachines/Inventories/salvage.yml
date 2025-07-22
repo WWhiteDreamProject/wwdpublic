@@ -3,22 +3,17 @@
   startingInventory:
     Crowbar: 2
     Pickaxe: 4
-    OreBag: 4
+    OreBag: 2
     Flare: 4
     FlashlightLantern: 2
-    Floodlight: 2
     HandheldGPSBasic: 2
     RadioHandheld: 2
-#    WeaponGrapplingGun: 4
+    # WeaponGrapplingGun: 2
     WeaponProtoKineticAccelerator: 4
-    SeismicCharge: 2
-    FultonBeacon: 1
-    Fulton: 2
-  # Night operations
+  # WD EDIT START
   contrabandInventory:
-    ClothingEyesNightVisionGoggles : 1 # WWDP
-  #WWDP edit start
+    ClothingEyesNightVisionGoggles : 1
   emaggedInventory:
     AntiPoisonMedipen: 1
     CombatMedipen: 1
-  #WWDP edit end
+  # WD EDIT END

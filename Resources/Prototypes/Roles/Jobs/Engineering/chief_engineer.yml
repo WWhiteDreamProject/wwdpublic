@@ -4,18 +4,20 @@
   description: job-description-ce
   playTimeTracker: JobChiefEngineer
   requirements:
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-        - Foreigner
-        - ForeignerLight
-    - !type:CharacterEmployerRequirement
-      employers:
-      - NanoTrasen
-      - ZavodskoiInterstellar
-      - HephaestusIndustries
-    - !type:CharacterOverallTimeRequirement # WWDP
-      min: 7200
+  - !type:CharacterTraitRequirement
+    inverted: true
+    traits:
+    - Foreigner
+    - ForeignerLight
+  - !type:CharacterEmployerRequirement
+    employers:
+    - NanoTrasen
+    - ZavodskoiInterstellar
+    - HephaestusIndustries
+  # WD EDIT START
+  - !type:CharacterOverallTimeRequirement
+    min: 7200
+  # WD EDIT END
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
@@ -35,7 +37,7 @@
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
-      - type: CommandStaff
+    - type: CommandStaff
   afterLoadoutSpecial:
   - !type:ModifyEnvirosuitSpecial
     charges: 8
@@ -48,17 +50,18 @@
   - ChiefEngineerPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitChiefEngineer
-    back: ClothingBackpackChiefEngineerFilled
+    back: ClothingBackpackEngineering
     shoes: ClothingShoesColorBrown
     id: CEPDA
-    ears: ClothingHeadsetAltEngineering # Goobstation
-  innerClothingSkirt: ClothingUniformJumpskirtChiefEngineer
-  satchel: ClothingBackpackSatchelChiefEngineerFilled
-  duffelbag: ClothingBackpackDuffelChiefEngineerFilled
+    ears: ClothingHeadsetAltEngineering
+  storage:
+    back:
+    # - Flash - WD EDIT
+    - TelescopicBaton
 
 - type: startingGear
   id: ChiefEngineerPlasmamanGear
-  parent: BasePlasmamanGear
+  parent: BasePlasmamanMaskGear
   equipment:
     jumpsuit: ClothingUniformEnvirosuitChiefEngineer
     head: ClothingHeadEnvirohelmChiefEngineer

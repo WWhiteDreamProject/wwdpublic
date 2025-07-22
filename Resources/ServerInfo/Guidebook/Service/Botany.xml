@@ -81,10 +81,12 @@
 
 Некоторые реагенты влияют на растения.
 
+[textlink="Click here to see all botanical chemicals." link="Botanical"]
+
 <GuideReagentEmbed Reagent="Dylovene"/>
 <GuideReagentEmbed Reagent="Cryoxadone"/>
 <GuideReagentEmbed Reagent="Necrosol"/>
 <GuideReagentEmbed Reagent="Phalanximine"/>
 <GuideReagentGroupEmbed Group="Botanical"/>
-
+  
 </Document>

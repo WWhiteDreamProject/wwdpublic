@@ -4,13 +4,15 @@
   description: job-description-scientist
   playTimeTracker: JobScientist
   requirements:
-    # - !type:CharacterDepartmentTimeRequirement # WWDP
-    #   department: Epistemics # DeltaV - Epistemics Department replacing Science
-    #   min: 14400 #4 hrs
-    - !type:CharacterEmployerRequirement
-      employers:
-      - NanoTrasen
-      - ZengHuPharmaceuticals
+  # WD EDIT START
+  # - !type:CharacterDepartmentTimeRequirement
+  #   department: Epistemics
+  #   min: 14400 #4 hrs
+  # WD EDIT END
+  - !type:CharacterEmployerRequirement
+    employers:
+    - NanoTrasen
+    - ZengHuPharmaceuticals
   startingGear: ScientistGear
   icon: "JobIconScientist"
   supervisors: job-supervisors-rd
@@ -24,19 +26,16 @@
   - ScientistPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitScientist
-    back: ClothingBackpackScienceFilled
+    back: ClothingBackpackScience
     shoes: ClothingShoesColorWhite
-    # outerClothing: ClothingOuterCoatRnd # WWDP disabled
+    # outerClothing: ClothingOuterCoatRnd - WD EDIT
     id: SciencePDA
     ears: ClothingHeadsetScience
     pocket1: BookPsionicsGuidebook
-  innerClothingSkirt: ClothingUniformJumpskirtScientist
-  satchel: ClothingBackpackSatchelScienceFilled
-  duffelbag: ClothingBackpackDuffelScienceFilled
 
 - type: startingGear
   id: ScientistPlasmamanGear
-  parent: BasePlasmamanGear
+  parent: BasePlasmamanMaskGear
   equipment:
     jumpsuit: ClothingUniformEnvirosuitScientist
     head: ClothingHeadEnvirohelmScientist

@@ -93,8 +93,8 @@
       Male: MaleResomi
       Female: FemaleResomi
       Unsexed: MaleResomi
-  - type: FlashModifier
-    modifier: 2
+  - type: EyeDamageOnFlashing
+    flashDurationMultiplier: 2
   - type: Hands
     handDisplacement:
       sizeMaps:

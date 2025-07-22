@@ -1,41 +1,39 @@
+using System.Linq;
+using System.Numerics;
 using Content.Server.Chat.Systems;
 using Content.Server.CombatMode.Disarm;
 using Content.Server.Movement.Systems;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._White.CCVar;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Components;
+using Content.Shared.Chat;
 using Content.Shared.CombatMode;
 using Content.Shared.Contests;
+using Content.Shared.Coordinates;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Effects;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Item;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Popups;
 using Content.Shared.Speech.Components;
 using Content.Shared.StatusEffect;
+using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using System.Linq;
-using System.Numerics;
-using Content.Shared._White.CCVar;
-using Content.Shared.Chat;
-using Content.Shared.Coordinates;
-using Content.Shared.Damage.Components;
-using Content.Shared.Item;
-using Content.Shared.Throwing;
-using Robust.Shared.Configuration;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
-
 
 namespace Content.Server.Weapons.Melee;
 
@@ -46,12 +44,14 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
     [Dependency] private readonly LagCompensationSystem _lag = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly ContestsSystem _contests = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!; // WWDP
-    [Dependency] private readonly INetConfigurationManager _config = default!; // WWDP
-    [Dependency] private readonly MobStateSystem _mobState = default!; // WWDP
-    [Dependency] private readonly StaminaSystem _stamina = default!; // WWDP
+    // WD EDIT START
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly INetConfigurationManager _config = default!;
+    [Dependency] private readonly StaminaSystem _stamina = default!;
+    // WD EDIT END
 
     public override void Initialize()
     {
@@ -70,22 +70,22 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
 
         if (!component.DisableClick)
-            _damageExamine.AddDamageExamine(args.Message, damageSpec, Loc.GetString("damage-melee")); // WWDP
+            _damageExamine.AddDamageExamine(args.Message, damageSpec, Loc.GetString("damage-melee"));
 
-        if (!component.DisableHeavy)
-        {
-            if (damageSpec.GetTotal() * component.HeavyDamageBaseModifier != damageSpec.GetTotal()) // WWDP
-                _damageExamine.AddDamageExamine(args.Message, damageSpec * component.HeavyDamageBaseModifier, Loc.GetString("damage-melee-heavy")); // WWDP
+        if (component.DisableHeavy)
+            return;
 
-            if (component.HeavyStaminaCost != 0)
-            {
-                var staminaCostMarkup = FormattedMessage.FromMarkupOrThrow(
-                    Loc.GetString("damage-stamina-cost",
-                    ("type", Loc.GetString("damage-melee-heavy")), ("cost", Math.Round(component.HeavyStaminaCost, 2).ToString("0.##"))));
-                args.Message.PushNewline();
-                args.Message.AddMessage(staminaCostMarkup);
-            }
-        }
+        if (damageSpec * component.HeavyDamageBaseModifier != damageSpec)
+            _damageExamine.AddDamageExamine(args.Message, damageSpec * component.HeavyDamageBaseModifier, Loc.GetString("damage-melee-heavy"));
+
+        if (component.HeavyStaminaCost == 0)
+            return;
+
+        var staminaCostMarkup = FormattedMessage.FromMarkupOrThrow(
+            Loc.GetString("damage-stamina-cost",
+                ("type", Loc.GetString("damage-melee-heavy")), ("cost", Math.Round(component.HeavyStaminaCost, 2).ToString("0.##"))));
+        args.Message.PushNewline();
+        args.Message.AddMessage(staminaCostMarkup);
     }
 
     protected override bool ArcRaySuccessful(EntityUid targetUid, Vector2 position, Angle angle, Angle arcWidth, float range, MapId mapId,
@@ -113,53 +113,40 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
     protected override bool DoDisarm(EntityUid user, DisarmAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
     {
-        if (!base.DoDisarm(user, ev, meleeUid, component, session))
+        if (!base.DoDisarm(user, ev, meleeUid, component, session)
+            || !TryComp<CombatModeComponent>(user, out var combatMode))
             return false;
 
         var target = GetEntity(ev.Target!.Value);
 
-        EntityUid? inTargetHand = null;
-
-        if (!TryComp<CombatModeComponent>(user, out var combatMode))
-            return false;
-
-        PhysicalShove(user, target); // WWDP physical shoving, including inanimate objects
-        Interaction.DoContactInteraction(user, target); // WWDP moved
+        // WD EDIT START
+        PhysicalShove(user, target);
+        Interaction.DoContactInteraction(user, target);
 
         if (_mobState.IsIncapacitated(target))
-            return true; // WWDP
+            return true;
 
         if (!TryComp<HandsComponent>(target, out var targetHandsComponent))
         {
             if (!TryComp<StatusEffectsComponent>(target, out var status) ||
                 !status.AllowedEffects.Contains("KnockedDown"))
             {
-                // WWDP edit; shoving items costs their throw stamina cost
-                if (TryComp<PhysicsComponent>(target, out var physComp) &&
-                    physComp.BodyType != BodyType.Static &&
-                    TryComp<DamageOtherOnHitComponent>(target, out var throwComp) &&
-                    throwComp.StaminaCost > 0)
-                {
+                if (TryComp<PhysicsComponent>(target, out var physComp)
+                    && physComp.BodyType != BodyType.Static
+                    && TryComp<DamageOtherOnHitComponent>(target, out var throwComp)
+                    && throwComp.StaminaCost > 0)
                     _stamina.TakeStaminaDamage(user, throwComp.StaminaCost);
-                }
                 return true;
-                // WWDP edit end
             }
         }
+        // WD EDIT END
 
-        if (targetHandsComponent?.ActiveHand is { IsEmpty: false })
-        {
-            inTargetHand = targetHandsComponent.ActiveHand.HeldEntity!.Value;
-        }
+        EntityUid? inTargetHand = targetHandsComponent?.ActiveHand is { IsEmpty: false }
+            ? targetHandsComponent.ActiveHand.HeldEntity!.Value
+            : null;
 
         var attemptEvent = new DisarmAttemptEvent(target, user, inTargetHand);
-
-        if (inTargetHand != null)
-        {
-            RaiseLocalEvent(inTargetHand.Value, attemptEvent);
-        }
-
-        RaiseLocalEvent(target, attemptEvent);
+        RaiseLocalEvent(inTargetHand != null ? inTargetHand.Value : target, attemptEvent);
 
         if (attemptEvent.Cancelled)
             return true; // WWDP
@@ -245,20 +232,15 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         EntityCoordinates targetCoordinates;
         Angle targetLocalAngle;
 
-        if (session is { } pSession)
-        {
-            (targetCoordinates, targetLocalAngle) = _lag.GetCoordinatesAngle(target, pSession);
-            return Interaction.InRangeUnobstructed(user, target, targetCoordinates, targetLocalAngle, range);
-        }
+        if (session is not { } pSession)
+            return Interaction.InRangeUnobstructed(user, target, range);
 
-        return Interaction.InRangeUnobstructed(user, target, range);
+        (targetCoordinates, targetLocalAngle) = _lag.GetCoordinatesAngle(target, pSession);
+        return Interaction.InRangeUnobstructed(user, target, targetCoordinates, targetLocalAngle, range);
     }
 
-    protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform)
-    {
-        var filter = Filter.Pvs(targetXform.Coordinates, entityMan: EntityManager).RemoveWhereAttachedEntity(o => o == user);
-        _color.RaiseEffect(Color.Red, targets, filter);
-    }
+    protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform) =>
+        _color.RaiseEffect(Color.Red, targets, Filter.Pvs(targetXform.Coordinates, entityMan: EntityManager).RemoveWhereAttachedEntity(o => o == user));
 
     private float CalculateDisarmChance(EntityUid disarmer, EntityUid disarmed, EntityUid? inTargetHand, CombatModeComponent disarmerComp)
     {
@@ -268,9 +250,9 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (HasComp<DisarmProneComponent>(disarmed))
             return 0.0f;
 
+        // WD EDIT START
         var chance = 1 - disarmerComp.BaseDisarmFailChance;
 
-        // WWDP edit, disarm based on health & stamina
         chance *= Math.Clamp(
             _contests.StaminaContest(disarmer, disarmed)
             * _contests.HealthContest(disarmer, disarmed),
@@ -278,52 +260,40 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             1f);
 
         if (inTargetHand != null && TryComp<DisarmMalusComponent>(inTargetHand, out var malus))
-            chance *= 1 - malus.CurrentMalus; // WWDP edit
+            chance *= 1 - malus.CurrentMalus;
 
         if (TryComp<ShovingComponent>(disarmer, out var shoving))
-            chance *= 1 + shoving.DisarmBonus; // WWDP edit
+            chance *= 1 + shoving.DisarmBonus;
 
         return chance;
-        // WWDP edit end
+        // WD EDIT END
     }
 
-    // WWDP shove stamina damage based on mass
+    // WD EDIT START
     private float CalculateShoveStaminaDamage(EntityUid disarmer, EntityUid disarmed)
     {
-        float shovemass = _config.GetCVar(WhiteCVars.ShoveMassFactor);
+        var shovemass = _config.GetCVar(WhiteCVars.ShoveMassFactor);
         var baseStaminaDamage = TryComp<ShovingComponent>(disarmer, out var shoving) ? shoving.StaminaDamage : ShovingComponent.DefaultStaminaDamage;
 
         return baseStaminaDamage * _contests.MassContest(disarmer, disarmed, false, shovemass);
     }
+    // WD EDIT END
 
-    public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation, bool predicted = true)
-    {
-        Filter filter;
-
-        if (predicted)
-        {
-            filter = Filter.PvsExcept(user, entityManager: EntityManager);
-        }
-        else
-        {
-            filter = Filter.Pvs(user, entityManager: EntityManager);
-        }
-
-        RaiseNetworkEvent(new MeleeLungeEvent(GetNetEntity(user), GetNetEntity(weapon), angle, localPos, animation, spriteRotation), filter);
-    }
+    public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation, bool predicted = true) => // WD EDIT
+        RaiseNetworkEvent(new MeleeLungeEvent(
+                GetNetEntity(user),
+                GetNetEntity(weapon),
+                angle,
+                localPos,
+                animation,
+                spriteRotation), // WD EDIT
+            predicted ? Filter.PvsExcept(user, entityManager: EntityManager) : Filter.Pvs(user, entityManager: EntityManager));
 
     private void OnSpeechHit(EntityUid owner, MeleeSpeechComponent comp, MeleeHitEvent args)
     {
-        if (!args.IsHit ||
-        !args.HitEntities.Any())
-        {
+        if (!args.IsHit || !args.HitEntities.Any() || comp.Battlecry is null)
             return;
-        }
 
-        if (comp.Battlecry != null)//If the battlecry is set to empty, doesn't speak
-        {
-            _chat.TrySendInGameICMessage(args.User, comp.Battlecry, InGameICChatType.Speak, true, true, checkRadioPrefix: false);  //Speech that isn't sent to chat or adminlogs
-        }
-
+        _chat.TrySendInGameICMessage(args.User, comp.Battlecry, InGameICChatType.Speak, true, true, checkRadioPrefix: false);  //Speech that isn't sent to chat or adminlogs
     }
 }

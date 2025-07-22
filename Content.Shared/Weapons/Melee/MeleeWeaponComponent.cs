@@ -133,6 +133,18 @@ public sealed partial class MeleeWeaponComponent : Component
     public float Range = 1.5f;
 
     /// <summary>
+    ///     Bonus range for disarm attacks, not currently used for melee weapons, and is instead only on innate melee.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float DisarmRangeModifier = 1f;
+
+    /// <summary>
+    ///     Bonus attack range for light (direct click) attacks.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float LightRangeModifier = 1f;
+
+    /// <summary>
     ///     Attack range for heavy swings
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -241,9 +253,11 @@ public sealed partial class MeleeWeaponComponent : Component
     [DataField, AutoNetworkedField]
     public bool MustBeEquippedToUse = false;
 
+    // WD EDIT START - just use CanHeavyAttack
     // Goobstation
-    [DataField, AutoNetworkedField]
-    public bool CanWideSwing = true;
+    // [DataField, AutoNetworkedField]
+    // public bool CanWideSwing = true;
+    // WD EDIT END
 }
 
 /// <summary>
