@@ -3782,3 +3782,10 @@ Entries:
   id: 399
   time: '2025-07-12T02:28:45.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/669
+- author: Spatison
+  changes:
+    - type: Add
+      message: Апстрим 17.05-12.07 :D
+  id: 400
+  time: '2025-07-22T11:47:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/681
