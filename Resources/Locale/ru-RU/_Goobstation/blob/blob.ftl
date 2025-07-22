@@ -21,7 +21,6 @@ ent-StrongBlobTile = Прочная плитка блоба
     .desc = Укреплённая версия обычной плитки. Не пропускает воздух и защищает от механических повреждений.
 ent-ReflectiveBlobTile = Отражающая плитка блоба
     .desc = Отражает лазеры, но не так хорошо защищает от механических повреждений.
-    .desc = { "" }
 objective-issuer-blob = Блоб
 
 
@@ -59,7 +58,7 @@ blob-mob-zombify-third-start = { $pod } начинает превращать { 
 blob-mob-zombify-second-end = { $pod } превращает вас в зомби.
 blob-mob-zombify-third-end = { $pod } превращает { $target } в зомби.
 
-blobberaut-factory-destroy = фабрика уничтожена
+blobbernaut-factory-destroy = фабрика уничтожена
 blob-target-already-connected = уже соединено
 
 
