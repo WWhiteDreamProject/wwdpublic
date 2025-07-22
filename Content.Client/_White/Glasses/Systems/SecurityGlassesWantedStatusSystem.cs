@@ -1,5 +1,8 @@
 using Content.Client._White.Glasses.UI;
 using Content.Shared._White.Glasses.Systems;
+using Content.Shared._White.Glasses.Components;
+using Content.Shared.Inventory;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Security;
 using Robust.Client.Player;
 using Robust.Shared.GameObjects;
@@ -28,6 +31,7 @@ public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWan
         base.Initialize();
         
         SubscribeNetworkEvent<SecurityGlassesWantedStatusOpenEvent>(OnOpenRadialMenu);
+        SubscribeLocalEvent<SecurityGlassesWantedStatusComponent, GotUnequippedEvent>(OnGlassesUnequipped);
     }
     
     private void OnOpenRadialMenu(SecurityGlassesWantedStatusOpenEvent ev)
@@ -71,5 +75,21 @@ public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWan
             menu.OpenCentered();
         }
         menu.MoveToFront();
+    }
+    
+    /// <summary>
+    /// Обрабатывает событие снятия очков безопасности
+    /// </summary>
+    private void OnGlassesUnequipped(EntityUid uid, SecurityGlassesWantedStatusComponent component, GotUnequippedEvent args)
+    {
+        // Проверяем, что снятый предмет - это очки безопасности
+        // и что слот - это слот для глаз
+        if (args.SlotFlags.HasFlag(SlotFlags.EYES))
+        {
+            // Закрываем текущее открытое меню, если оно есть
+            // Меню само отслеживает текущий экземпляр через статическую переменную
+            var currentMenu = SecurityGlassesRadialMenu.GetCurrentMenu();
+            currentMenu?.Close();
+        }
     }
 } 

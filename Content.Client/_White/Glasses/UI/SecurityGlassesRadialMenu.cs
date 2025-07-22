@@ -24,6 +24,15 @@ public sealed class SecurityGlassesRadialMenu : RadialMenu
 
     private static SecurityGlassesRadialMenu? _currentOpenMenu;
     
+    /// <summary>
+    /// Возвращает текущее открытое меню, если оно есть
+    /// </summary>
+    /// <returns>Текущее открытое меню или null, если меню не открыто</returns>
+    public static SecurityGlassesRadialMenu? GetCurrentMenu()
+    {
+        return _currentOpenMenu;
+    }
+    
     public SecurityGlassesRadialMenu()
     {
         BackButtonStyleClass = "RadialMenuBackButton";

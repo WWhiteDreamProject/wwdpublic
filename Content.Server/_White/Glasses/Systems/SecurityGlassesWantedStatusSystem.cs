@@ -23,7 +23,7 @@ public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWan
     [Dependency] private readonly CriminalRecordsSystem _criminalRecords = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly SharedCriminalRecordsConsoleSystem _sharedCriminalRecords = default!;
+    [Dependency] private readonly SharedCriminalRecordsSystem _sharedCriminalRecords = default!;
 
     private const string SecurityAccessTag = "Security";
     
