@@ -93,8 +93,12 @@
     visuals:
       enum.ToggleVisuals.Toggled:
         enum.ToggleVisuals.Layer:
-          True: {state: stunprod_on}
-          False: {state: stunprod_off}
+          True: {visible: true}
+          False: {visible: false}
+      enum.PowerCellSlotVisuals.Enabled:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: {visible: true}
+          False: {visible: false}
   - type: StaticPrice
     price: 100
   - type: Construction
