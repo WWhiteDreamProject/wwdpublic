@@ -5,7 +5,7 @@
   isVisibleLanguage: true
   speech:
     color: "#df57aaee"
-    fontId: Marauders Map # WWDP
+    fontId: MaraudersMap # WWDP
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
