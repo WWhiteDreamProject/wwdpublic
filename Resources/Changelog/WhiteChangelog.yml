@@ -3789,3 +3789,10 @@ Entries:
   id: 400
   time: '2025-07-22T11:47:01.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/681
+- author: kekoven1
+  changes:
+    - type: Add
+      message: Псионическая способность на создание своего двойника
+  id: 401
+  time: '2025-07-22T13:02:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/652
