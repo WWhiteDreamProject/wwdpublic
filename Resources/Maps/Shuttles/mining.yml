@@ -16,18 +16,6 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 153
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: PhysicsMap
-    - type: GridTree
-    - type: MovedGrids
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 181
     components:
     - type: MetaData

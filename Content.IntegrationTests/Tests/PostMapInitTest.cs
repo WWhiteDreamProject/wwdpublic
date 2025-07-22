@@ -49,6 +49,8 @@ namespace Content.IntegrationTests.Tests
         {
             "Dev",
             "TestTeg",
+            "CentCommMain",
+            "CentCommHarmony",
             "MeteorArena",
             "Core", // No current maintainer. In need of a rework...
             "Pebble", // Maintained by Plyushune
@@ -67,7 +69,7 @@ namespace Content.IntegrationTests.Tests
             "Lavatest", // Lavaland Change
             "Rad", // Maintained by Ichai
             // "Europa", // De-rotated, has significant issues.
-            //"Meta", // Maintained by Ichai
+            "Meta", // Maintained by Ichai
             "Cyberiad", // Maintained by Ichai
             "Lambda", // Maintained by Ichai
             "Bagel", // Maintained by Ichai

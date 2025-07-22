@@ -45,8 +45,6 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
   - type: Tag
     tags:
-    - Gun
-    - Weapon
     - SyringeGunAmmo
 
 - type: entity

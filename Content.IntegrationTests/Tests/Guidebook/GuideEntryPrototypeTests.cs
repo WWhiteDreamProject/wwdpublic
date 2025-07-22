@@ -23,9 +23,11 @@ public sealed class GuideEntryPrototypeTests
         var resMan = client.ResolveDependency<IResourceManager>();
         var parser = client.ResolveDependency<DocumentParsingManager>();
         var prototypes = protoMan.EnumeratePrototypes<GuideEntryPrototype>().ToList();
+        var testOut = TestContext.Out;
 
         foreach (var proto in prototypes)
         {
+            await testOut.WriteLineAsync($"{proto.Id}");
             await client.WaitAssertion(() =>
             {
                 using var reader = resMan.ContentFileReadText(proto.Text);
