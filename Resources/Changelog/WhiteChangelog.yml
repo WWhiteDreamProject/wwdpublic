@@ -3865,3 +3865,10 @@ Entries:
   id: 410
   time: '2025-07-23T06:38:12.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/686
+- author: Spatison
+  changes:
+    - type: Fix
+      message: 'Все шаттлы теперь появляются корректно '
+  id: 411
+  time: '2025-07-23T12:28:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/694
