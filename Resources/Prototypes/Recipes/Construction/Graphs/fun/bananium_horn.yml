@@ -6,21 +6,33 @@
       edges:
         - to: bananiumHorn
           steps:
-          - tag: BikeHorn
-            name: Bike Horn
-            icon:
-              sprite: Objects/Fun/bikehorn.rsi
-              state: icon
-            doAfter: 1
+            - tag: Pipe
+              name: pipe
+              icon:
+                sprite: Structures/Piping/Atmospherics/pipe.rsi
+                state: pipeStraight
+              doAfter: 2
+            - material: Bananium
+              amount: 1 # WD EDIT
+              doAfter: 1
+            - tag: BikeHorn
+              name: bike horn
+              icon:
+                sprite: Objects/Fun/bikehorn.rsi
+                state: icon
+              doAfter: 1
     # WD EDIT START
-          - material: Bananium
-            amount: 1
-            doAfter: 1
     - node: basehorn
       entity: BikeHorn
       edges:
       - to: bananiumHorn
         steps:
+        - tag: Pipe
+          name: pipe
+          icon:
+            sprite: Structures/Piping/Atmospherics/pipe.rsi
+            state: pipeStraight
+          doAfter: 2
         - material: Bananium
           amount: 1
           doAfter: 1

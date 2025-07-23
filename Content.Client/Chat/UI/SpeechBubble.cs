@@ -208,12 +208,12 @@ namespace Content.Client.Chat.UI
                 msg.PushColor(fontColor.Value);
             if (fontId != null) // WWDP EDIT START
             {
-                msg.AddMarkup($"[font=\"{fontId}\"]");
-                msg.AddMarkup(message);
-                msg.AddMarkup($"[/font]");
+                msg.AddMarkupOrThrow($"[font=\"{fontId}\"]");
+                msg.AddMarkupOrThrow(message);
+                msg.AddMarkupOrThrow($"[/font]");
             }
             else
-                msg.AddMarkup(message); // WWDP EDIT END
+                msg.AddMarkupOrThrow(message); // WWDP EDIT END
             return msg;
         }
 

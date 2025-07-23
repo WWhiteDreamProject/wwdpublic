@@ -156,21 +156,3 @@
   - type: UpgradeBattery
     maxChargeMultiplier: 3
     baseMaxCharge: 10000
-
-- type: entity
-  id: WeaponTurretShipLightCircuitBoard
-  parent: BaseMachineCircuitboard
-  name: modular turret machine board
-  description: Circuitboard for a light ship weapon mount.
-  components:
-  - type: Sprite
-    state: security
-  - type: MachineBoard
-    prototype: WeaponTurretShipLight
-    requirements:
-      MatterBin: 1
-      Manipulator: 2
-      Capacitor: 3
-    materialRequirements:
-      Cable: 5
-      Steel: 10 

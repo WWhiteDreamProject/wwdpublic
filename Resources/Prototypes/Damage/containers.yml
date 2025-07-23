@@ -1,19 +1,21 @@
 - type: damageContainer
   id: Biological
   supportedGroups:
-    - Brute
-    - Burn
-    - Toxin
-    - Airloss
-    - Genetic
+  - Brute
+  - Burn
+  - Toxin
+  - Airloss
+  - Genetic
+  supportedTypes: # Goobstation
+  - Holy
 
 - type: damageContainer
   id: Inorganic
   supportedGroups:
-    - Brute
+  - Brute
   supportedTypes:
-    - Heat
-    - Shock
+  - Heat
+  - Shock
 
 - type: damageContainer
   id: StructuralInorganic
@@ -27,39 +29,57 @@
 - type: damageContainer
   id: Silicon
   supportedGroups:
-    - Brute
+  - Brute
   supportedTypes:
-    - Heat
-    - Shock
+  - Heat
+  - Shock
+
+- type: damageContainer
+  id: SiliconUnshielded
+  supportedGroups:
+  - Brute
+  supportedTypes:
+  - Heat
+  - Shock
+  - Radiation
 
 - type: damageContainer
   id: Shield
   supportedGroups:
-    - Brute
+  - Brute
   supportedTypes:
-    - Heat
+  - Heat
 
 - type: damageContainer
   id: Box
   supportedGroups:
-    - Brute
-    - Burn
-    - Toxin
+  - Brute
+  - Burn
+  - Toxin
   supportedTypes:
-    - Shock
+  - Shock
 
 - type: damageContainer
   id: ShadowHaze
   supportedTypes:
-    - Heat
+  - Heat
 
 - type: damageContainer
-  id: HalfSpirit
+  id: ManifestedSpirit
   supportedGroups:
-    - Burn
-    - Brute
-    - Airloss
-    - Immaterial
+  - Metaphysical
+  - Brute
   supportedTypes:
-    - Poison
+  - Heat
+  - Shock
+  - Caustic
 
+- type: damageContainer
+  id: BiologicalMetaphysical
+  supportedGroups:
+  - Brute
+  - Burn
+  - Toxin
+  - Airloss
+  - Genetic
+  - Metaphysical

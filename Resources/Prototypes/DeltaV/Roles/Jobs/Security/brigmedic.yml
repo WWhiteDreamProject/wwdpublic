@@ -5,12 +5,14 @@
   playTimeTracker: JobBrigmedic
   setPreference: false # WWDP disabled role, not mapped
   requirements:
-    # - !type:CharacterDepartmentTimeRequirement # WWDP
+    # WD EDIT START
+    # - !type:CharacterDepartmentTimeRequirement
     #   department: Medical
     #   min: 21600 # 6 hrs
     # - !type:CharacterDepartmentTimeRequirement
     #   department: Security
     #   min: 18000 # 4 hrs
+    # WD EDIT END
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
@@ -26,8 +28,10 @@
       - Interdyne
       - PMCG
       - NanoTrasen
-    - !type:CharacterOverallTimeRequirement # WWDP
+    # WD EDIT START
+    - !type:CharacterOverallTimeRequirement
       min: 3600
+    # WD EDIT END
   startingGear: CorpsmanGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
@@ -48,7 +52,7 @@
     components:
     - type: CPRTraining
     - type: SurgerySpeedModifier
-      speedModifier: 2 # WD EDIT
+      speedModifier: 2.0
   afterLoadoutSpecial:
   - !type:ModifyEnvirosuitSpecial
     charges: 6
@@ -61,18 +65,25 @@
   - CorpsmanPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitBrigmedic
-    # outerClothing: ClothingOuterArmorPlateCarrier # WWDP
+    # outerClothing: ClothingOuterArmorPlateCarrier - WD EDIT
     back: ClothingBackpackBrigmedic
-    shoes: ClothingShoesBootsJack # WWDP
-    # gloves: ClothingHandsGlovesNitrile # WWDP
-    # eyes: ClothingEyesHudMedical # WWDP
+    shoes: ClothingShoesBootsJack # WD EDIT: ClothingShoesBootsCombatFilled -> ClothingShoesBootsJack
+    # gloves: ClothingHandsGlovesNitrile - WD EDIT
+    # eyes: ClothingEyesHudMedical - WD EDIT
     head: ClothingHeadHatBeretCorpsman
     id: CorpsmanPDA
     ears: ClothingHeadsetBrigmedic
-    # belt: ClothingBeltCorpsmanWebbingFilled # WWDP
-  innerClothingSkirt: ClothingUniformJumpskirtBrigmedic
-  satchel: ClothingBackpackSatchelBrigmedic
-  duffelbag: ClothingBackpackDuffelBrigmedic
+    # belt: ClothingBeltCorpsmanWebbingFilled - WD EDIT
+  storage:
+    back:
+    - EmergencyRollerBedSpawnFolded
+    - BodyBagFolded
+    - Portafib
+    - BruteAutoInjector
+    - BruteAutoInjector
+    - BurnAutoInjector
+    - BurnAutoInjector
+    - MagazinePistol
 
 - type: startingGear
   id: CorpsmanPlasmamanGear

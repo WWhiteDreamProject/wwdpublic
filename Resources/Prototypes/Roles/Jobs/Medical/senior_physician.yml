@@ -5,7 +5,8 @@
   playTimeTracker: JobSeniorPhysician
   setPreference: false # WWDP disabled role, not mapped
   requirements:
-    # - !type:CharacterPlaytimeRequirement # WWDP
+    # WD EDIT START
+    # - !type:CharacterPlaytimeRequirement
     #   tracker: JobChemist
     #   min: 21600 #6 hrs
     # - !type:CharacterPlaytimeRequirement
@@ -14,6 +15,7 @@
     # - !type:CharacterDepartmentTimeRequirement
     #   department: Medical
     #   min: 216000 # 60 hrs
+    # WD EDIT END
     - !type:CharacterEmployerRequirement
       employers:
       - ZengHuPharmaceuticals
@@ -40,12 +42,9 @@
   equipment:
     head: ClothingHeadHatBeretSeniorPhysician
     jumpsuit: ClothingUniformJumpsuitSeniorPhysician
-    back: ClothingBackpackMedicalFilled
+    back: ClothingBackpackMedical
     shoes: ClothingShoesColorBlack
     outerClothing: ClothingOuterCoatLabSeniorPhysician
     id: SeniorPhysicianPDA
     ears: ClothingHeadsetMedical
-    # belt: ClothingBeltMedicalFilled # WWDP moved to lockers
-  innerClothingSkirt: ClothingUniformJumpskirtSeniorPhysician
-  satchel: ClothingBackpackSatchelMedicalFilled
-  duffelbag: ClothingBackpackDuffelMedicalFilled
+    # belt: ClothingBeltMedicalFilled - WD EDIT

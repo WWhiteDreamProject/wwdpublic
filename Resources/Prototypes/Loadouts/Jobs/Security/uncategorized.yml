@@ -74,7 +74,7 @@
 #     - Prisoner
 #   items:
 #   - ClothingBeltSecurityWebbingFilled
-#
+
 # - type: loadout
 #   id: LoadoutClothingBeltSecurity
 #   category: JobsSecurityAUncategorized
@@ -92,7 +92,7 @@
 #     - Prisoner
 #   items:
 #   - ClothingBeltSecurityFilled
-#
+
 # - type: loadout
 #   id: LoadoutClothingBeltHolster
 #   category: JobsSecurityAUncategorized
@@ -305,7 +305,27 @@
   items:
   - ClothingHeadHatBeretSecurity
 
-# WWDP edit start - disabled
+- type: loadout
+  id: LoadoutSecurityHeadHatSecurityTrooper
+  category: JobsSecurityAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityHead
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  # WD EDIT START
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - Prisoner
+  # WD EDIT END
+  items:
+  - ClothingHeadHatSecurityTrooper
+
+# WD EDIT START - disabled
 # - type: loadout
 #   id: LoadoutClothingHeadHelmetBasic
 #   category: JobsSecurityAUncategorized
@@ -317,13 +337,13 @@
 #   - !type:CharacterDepartmentRequirement
 #     departments:
 #     - Security
-#   - !type:CharacterJobRequirement # WWDP
+#   # WD EDIT START
+#   - !type:CharacterJobRequirement
 #     inverted: true
 #     jobs:
 #     - Prisoner
-#   items:
-#   - ClothingHeadHelmetBasic
-#
+#   # WD EDIT END
+
 # - type: loadout
 #   id: LoadoutSecurityHeadHelmetInsulated
 #   category: JobsSecurityAUncategorized
@@ -337,12 +357,10 @@
 #     jobs:
 #     - Warden
 #     - HeadOfSecurity
-#     # WD EDIT END
+#   # WD EDIT END
 #   items:
 #   - ClothingHeadHelmetInsulated
-# WWDP edit end
 
-# WD EDIT START
 # - type: loadout
 #   id: LoadoutClothingHeadHelmetHeavyStandard
 #   category: JobsSecurityAUncategorized
@@ -457,8 +475,7 @@
 #     - HeadOfSecurity
 #   items:
 #   - ClothingMaskGasSwat
-#
-#
+
 # - type: loadout
 #   id: LoadoutSecurityMaskGasSwatPaid
 #   category: JobsSecurityAUncategorized
@@ -514,7 +531,7 @@
 #     - Prisoner
 #   items:
 #   - ClothingOuterArmorPlateCarrier
-#
+
 # - type: loadout
 #   id: LoadoutClothingOuterArmorDuraVest
 #   category: JobsSecurityAUncategorized
@@ -532,7 +549,7 @@
 #     - Prisoner
 #   items:
 #   - ClothingOuterArmorDuraVest
-#
+
 # - type: loadout
 #   id: LoadoutClothingOuterArmorBasic
 #   category: JobsSecurityAUncategorized
@@ -550,7 +567,7 @@
 #     - Prisoner
 #   items:
 #   - ClothingOuterArmorBasic
-#
+
 # - type: loadout
 #   id: LoadoutClothingOuterArmorSlim
 #   category: JobsSecurityAUncategorized
@@ -700,8 +717,8 @@
 #     jobs:
 #     - Prisoner
 #   items:
-#   - ClothingShoesBootsJack
-#
+#   - ClothingShoesBootsJackFilled
+
 # - type: loadout
 #   id: LoadoutClothingShoesBootsCombat
 #   category: JobsSecurityAUncategorized
@@ -757,6 +774,26 @@
     - Prisoner
   items:
   - ClothingUniformJumpsuitSecGrey
+
+- type: loadout
+  id: LoadoutSecurityUniformSecurityTrooper
+  category: JobsSecurityAUncategorized
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: LoadoutSecurityUniforms
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Security
+  # WD EDIT START
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - Prisoner
+  # WD EDIT END
+  items:
+  - ClothingUniformSecurityTrooper
 
 - type: loadout
   id: LoadoutSecurityUniformJumpskirtGrey

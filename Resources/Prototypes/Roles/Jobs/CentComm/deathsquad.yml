@@ -12,3 +12,35 @@
   - AllAccess
   access:
   - CentralCommand
+
+- type: startingGear
+  id: DeathSquadGear
+  subGear:
+  - BoxSurvivalEngineering
+  - ERTPlasmamanGear # TODO: death squad envirosuit
+  - GasTankSuitStorage
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDeathSquad
+    back: ClothingBackpackDeathSquad
+    mask: ClothingMaskGasDeathSquad
+    eyes: ClothingEyesGlassesMedSec # WD EDIT: ClothingEyesHudSecurity -> ClothingEyesGlassesMedSec
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitDeathsquad
+    shoes: ClothingShoesBootsMagSecAdv # WD EDI: ClothingShoesBootsMagAdv -> ClothingShoesBootsMagSecAdv
+    id: DeathsquadPDA
+    pocket1: EnergySword
+    pocket2: EnergyShield
+    belt: ClothingBeltMilitaryWebbingDeathsquadFilled # WD EDIT: ClothingBeltMilitaryWebbingMedFilled -> ClothingBeltMilitaryWebbingDeathsquadFilled
+  storage:
+    back:
+    # - WeaponPulsePistol - WD EDIT
+    - WeaponRevolverMateba
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    # - BoxFlashbang - WD EDIT
+    - ToolDebug # spanish army knife
+    - WelderExperimental
+    - Hypospray
+    - BluespaceLifelineImplanter # WD EDIT: DeathAcidifierImplanter -> BluespaceLifelineImplanter
+    - FreedomImplanter

@@ -1,41 +1,50 @@
-﻿<Document>
-# Служба Безопасности
+<Document>
+  # Служба Безопасности
 
-Обеспечение порядка на станции и защита экипажа — главная задача СБ. От агентов Синдиката до ядерных оперативников, от нашествий тварей до пьяных учёных — именно СБ стоит между станцией и хаосом.
+  Обеспечение порядка на станции и защита экипажа — главная задача [color=#cb0000]Службы Безопасности[/color]. От агентов Синдиката до ядерных оперативников, от нашествий тварей до пьяных учёных — именно [color=#cb0000]Служба Безопасности[/color] стоит между станцией и хаосом.
 
-## Снаряжение
+  ## Персонал
+  [color=#cb0000]Служба Безопасности[/color] состоит из Кадетов Службы Безопасности, Офицеров Службы Безопасности и Детектива. Отделом заведуют: Смотритель и Глава Службы Безопасности.
 
-Первым делом — нелетал. Когда уговоры не работают, в ход идёт парализующая дубинка и дизейблер, способные остановить нарушителя. А как только тот лежит — надеваем [color=yellow]наручники[/color] и изолируем руки.
-<Box>
-  <GuideEntityEmbed Entity="Stunbaton"/>
-  <GuideEntityEmbed Entity="Handcuffs"/>
-  <GuideEntityEmbed Entity="WeaponDisabler"/>
-</Box>
+  <Box>
+    <GuideEntityEmbed Entity="ToyFigurineSecurity" Caption="Офицер СБ"/>
+    <GuideEntityEmbed Entity="ToyFigurineDetective" Caption="Детектив"/>
+    <GuideEntityEmbed Entity="ToyFigurineWarden" Caption="Смотритель"/>
+    <GuideEntityEmbed Entity="ToyFigurineHeadOfSecurity" Caption="ГСБ"/>
+  </Box>
 
-## Вспышки
+  ## Снаряжение
 
-Флешки — отличный способ разогнать толпу или выцепить юркого подрывника. Вспышка ослепляет всех, у кого нет защиты для глаз, и может использоваться как:
-- [color=yellow]Массовая вспышка[/color] (горячая клавиша [color=yellow]Z[/color])
-- [color=red]Одиночная атака[/color] во включённом режиме урона.
+  Первым делом — нелетал. Когда уговоры не работают, в ход идёт парализующая дубинка и дизейблер, способные остановить нарушителя. А как только тот лежит — надеваем [color=yellow]наручники[/color] и изолируем руки.
+  <Box>
+    <GuideEntityEmbed Entity="Stunbaton"/>
+    <GuideEntityEmbed Entity="Handcuffs"/>
+    <GuideEntityEmbed Entity="WeaponDisabler"/>
+  </Box>
 
-Имей в виду: одиночное ослепление действует в 2.5 раза дольше. Офицеры и некоторые члены экипажа имеют защиту глаз по умолчанию.
+  ## Вспышки
 
-<Box>
-  <GuideEntityEmbed Entity="Flash"/>
-  <GuideEntityEmbed Entity="ClothingEyesGlassesSecurity"/>
-  <GuideEntityEmbed Entity="GrenadeFlashBang"/>
-</Box>
+  Флешки — отличный способ разогнать толпу или выцепить юркого подрывника. Вспышка ослепляет всех, у кого нет защиты для глаз, и может использоваться как:
+  - [color=yellow]Массовая вспышка[/color] (горячая клавиша [color=yellow]Z[/color])
+  - [color=red]Одиночная атака[/color] во включённом режиме урона.
 
-## Летал
+  Имей в виду: одиночное ослепление действует в 2.5 раза дольше. Офицеры и некоторые члены экипажа имеют защиту глаз по умолчанию.
 
-Если дело пахнет керосином — в ход идут пушки. Лазерные винтовки, дробовики, пистолеты и штурмовые винтовки СБ позволяют устраивать настоящую охоту на тех, кто встал на путь войны со станцией.
+  <Box>
+    <GuideEntityEmbed Entity="Flash"/>
+    <GuideEntityEmbed Entity="ClothingEyesGlassesSecurity"/>
+    <GuideEntityEmbed Entity="GrenadeFlashBang"/>
+  </Box>
 
-<Box>
-  <GuideEntityEmbed Entity="WeaponLaserCarbine"/>
-  <GuideEntityEmbed Entity="WeaponShotgunKammerer"/>
-  <GuideEntityEmbed Entity="WeaponPistolMk58"/>
-  <GuideEntityEmbed Entity="WeaponRifleLecter"/>
-</Box>
+  ## Летал
+
+  Если дело пахнет керосином — в ход идут пушки. Лазерные винтовки, дробовики, пистолеты и штурмовые винтовки СБ позволяют устраивать настоящую охоту на тех, кто встал на путь войны со станцией.
+
+  <Box>
+    <GuideEntityEmbed Entity="WeaponLaserCarbine"/>
+    <GuideEntityEmbed Entity="WeaponShotgunKammerer"/>
+    <GuideEntityEmbed Entity="WeaponPistolMk58"/>
+    <GuideEntityEmbed Entity="WeaponRifleLecter"/>
+  </Box>
 
 </Document>
-
