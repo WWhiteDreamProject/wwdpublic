@@ -112,6 +112,7 @@ namespace Content.Client.Lobby.UI
         private bool _customizeStationAiName;
         private bool _customizeBorgName;
         private bool _customizeClownName; // WD EDIT
+        private bool _customizeMimeName; // WD EDIT
 
         private List<(string, RequirementsSelector)> _jobPriorities = new();
 
@@ -139,6 +140,9 @@ namespace Content.Client.Lobby.UI
         // WD EDIT START
         [ValidatePrototypeId<LocalizedDatasetPrototype>]
         private const string ClownNames = "ClownNames";
+
+        [ValidatePrototypeId<LocalizedDatasetPrototype>]
+        private const string MimeNames = "MimeNames";
         // WD EDIT END
 
         public HumanoidProfileEditor(
@@ -283,14 +287,17 @@ namespace Content.Client.Lobby.UI
             _customizeStationAiName = _cfgManager.GetCVar(CCVars.AllowCustomStationAiName);
             _customizeBorgName = _cfgManager.GetCVar(CCVars.AllowCustomCyborgName);
             _customizeClownName = _cfgManager.GetCVar(WhiteCVars.AllowCustomClownName); // WD EDIT
+            _customizeMimeName = _cfgManager.GetCVar(WhiteCVars.AllowCustomMimeName); // WD EDIT
 
             _cfgManager.OnValueChanged(CCVars.AllowCustomStationAiName, OnChangedStationAiNameCustomizationValue);
             _cfgManager.OnValueChanged(CCVars.AllowCustomCyborgName, OnChangedCyborgNameCustomizationValue);
             _cfgManager.OnValueChanged(WhiteCVars.AllowCustomClownName, OnChangedClownNameCustomizationValue); // WD EDIT
+            _cfgManager.OnValueChanged(WhiteCVars.AllowCustomMimeName, OnChangedMimeNameCustomizationValue); // WD EDIT
 
             StationAINameEdit.OnTextChanged += args => { SetStationAiName(args.Text); };
             CyborgNameEdit.OnTextChanged += args => { SetCyborgName(args.Text); };
             ClownNameEdit.OnTextChanged += args => { SetClownName(args.Text); }; // WD EDIT
+            MimeNameEdit.OnTextChanged += args => { SetMimeName(args.Text); }; // WD EDIT
 
             if (StationAiNameContainer.Visible != _customizeStationAiName)
                 StationAiNameContainer.Visible = _customizeStationAiName;
@@ -301,6 +308,9 @@ namespace Content.Client.Lobby.UI
             // WD EDIT START
             if (ClownNameContainer.Visible != _customizeClownName)
                 ClownNameContainer.Visible = _customizeClownName;
+
+            if (MimeNameContainer.Visible != _customizeMimeName)
+                MimeNameContainer.Visible = _customizeMimeName;
             // WD EDIT END
 
             #endregion
@@ -685,6 +695,12 @@ namespace Content.Client.Lobby.UI
             _customizeClownName = newValue;
             UpdateClownControls();
         }
+
+        private void OnChangedMimeNameCustomizationValue(bool newValue)
+        {
+            _customizeMimeName = newValue;
+            UpdateMimeControls();
+        }
         // WD EDIT END
 
         /// <summary>
@@ -977,6 +993,7 @@ namespace Content.Client.Lobby.UI
             UpdateStationAiControls();
             UpdateCyborgControls();
             UpdateClownControls(); // WD EDIT
+            UpdateMimeControls(); // WD EDIT
             UpdateSkinColor();
             UpdateSpawnPriorityControls();
             UpdateFlavorTextEdit();
@@ -1395,6 +1412,12 @@ namespace Content.Client.Lobby.UI
             ReloadPreview();
             IsDirty = true;
         }
+
+        private void SetMimeName(string? mimeName)
+        {
+            Profile = Profile?.WithMimeName(mimeName);
+            IsDirty = true;
+        }
         // WD EDIT END
 
         private string GetFormattedPronounsFromGender()
@@ -1751,6 +1774,21 @@ namespace Content.Client.Lobby.UI
             var clownNames = _prototypeManager.Index<LocalizedDatasetPrototype>(ClownNames);
             var randomName = _random.Pick(clownNames.Values);
             ClownNameEdit.PlaceHolder = Loc.GetString(randomName);
+        }
+
+        private void UpdateMimeControls()
+        {
+            if (Profile == null)
+                return;
+
+            MimeNameEdit.Text = Profile.MimeName ?? string.Empty;
+
+            if (MimeNameEdit.Text != string.Empty)
+                return;
+
+            var mimeNames = _prototypeManager.Index<LocalizedDatasetPrototype>(MimeNames);
+            var randomName = _random.Pick(mimeNames.Values);
+            MimeNameEdit.PlaceHolder = Loc.GetString(randomName);
         }
         // WD EDIT END
 

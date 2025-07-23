@@ -914,6 +914,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
 
+                    b.Property<string>("MimeName")
+                        .HasColumnType("text")
+                        .HasColumnName("mime_name");
+
                     b.Property<string>("Nationality")
                         .IsRequired()
                         .HasColumnType("text")

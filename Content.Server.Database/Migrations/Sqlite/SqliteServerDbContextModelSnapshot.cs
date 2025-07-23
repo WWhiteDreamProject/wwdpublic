@@ -863,6 +863,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
 
+                    b.Property<string>("MimeName")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("mime_name");
+
                     b.Property<string>("Nationality")
                         .IsRequired()
                         .HasColumnType("TEXT")

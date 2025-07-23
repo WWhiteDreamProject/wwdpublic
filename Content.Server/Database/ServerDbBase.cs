@@ -241,6 +241,7 @@ namespace Content.Server.Database
                 profile.StationAiName,
                 profile.CyborgName,
                 profile.ClownName, // WD EDIT
+                profile.MimeName, // WD EDIT
                 new HumanoidCharacterAppearance(
                     profile.HairName,
                     Color.FromHex(profile.HairColor),
@@ -290,6 +291,7 @@ namespace Content.Server.Database
             profile.StationAiName = humanoid.StationAiName;
             profile.CyborgName = humanoid.CyborgName;
             profile.ClownName = humanoid.ClownName; // WD EDIT
+            profile.MimeName = humanoid.MimeName; // WD EDIT
             profile.Height = humanoid.Height;
             profile.Width = humanoid.Width;
             profile.HairName = appearance.HairStyleId;
