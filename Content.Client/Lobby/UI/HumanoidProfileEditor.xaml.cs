@@ -1712,6 +1712,7 @@ namespace Content.Client.Lobby.UI
             var randomName = _random.Pick(clownNames.Values);
             ClownNameEdit.PlaceHolder = Loc.GetString(randomName);
         }
+
         private void UpdateMimeControls()
         {
             if (Profile == null)
