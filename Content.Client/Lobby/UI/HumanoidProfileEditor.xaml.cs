@@ -1353,6 +1353,7 @@ namespace Content.Client.Lobby.UI
             Profile = Profile?.WithClownName(clownName);
             IsDirty = true;
         }
+
         private void SetMimeName(string? mimeName)
         {
             Profile = Profile?.WithMimeName(mimeName);
