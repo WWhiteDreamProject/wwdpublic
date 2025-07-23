@@ -3837,3 +3837,10 @@ Entries:
   id: 406
   time: '2025-07-23T00:34:59.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/675
+- author: Kutos
+  changes:
+    - type: Add
+      message: Клички для мимов (неужели)
+  id: 407
+  time: '2025-07-23T00:38:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/676
