@@ -4,22 +4,24 @@
   description: job-description-hos
   playTimeTracker: JobHeadOfSecurity
   requirements:
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-        - Foreigner
-        - ForeignerLight
-        - Muted
-        - Blindness
-        - Pacifist
-        - BrittleBoneDisease
-    - !type:CharacterEmployerRequirement
-      employers:
-      - ZavodskoiInterstellar
-      - PMCG
-      - NanoTrasen
-    - !type:CharacterOverallTimeRequirement # WWDP
-      min: 7200
+  - !type:CharacterTraitRequirement
+    inverted: true
+    traits:
+    - Foreigner
+    - ForeignerLight
+    - Muted
+    - Blindness
+    - Pacifist
+    - BrittleBoneDisease
+  - !type:CharacterEmployerRequirement
+    employers:
+    - ZavodskoiInterstellar
+    - PMCG
+    - NanoTrasen
+  # WD EDIT START
+  - !type:CharacterOverallTimeRequirement
+    min: 7200
+  # WD EDIT END
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
@@ -29,21 +31,19 @@
   access:
   - HeadOfSecurity
   - Command
-  #- Brig  # Delta V: Removed
   - Security
   - Armory
   - Maintenance
   - Service
   - External
   - Detective
-  - Corpsman # DeltaV - added Corpsman access
   - Cryogenics
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
-      - type: CommandStaff
+    - type: CommandStaff
   afterLoadoutSpecial:
   - !type:ModifyEnvirosuitSpecial
     charges: 8
@@ -56,15 +56,21 @@
   - HoSPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoS
-    back: ClothingBackpackHOSFilled
-    shoes: ClothingShoesBootsCombatFilled # WWDP combat boots for protag energy
-    # eyes: ClothingEyesGlassesSunglasses # WWDP
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    # eyes: ClothingEyesGlassesSecurity - WD EDIT
     id: HoSPDA
-    # gloves: ClothingHandsGlovesCombat # WWDP
+    # gloves: ClothingHandsGlovesCombat - WD EDIT
     ears: ClothingHeadsetAltSecurity
-  innerClothingSkirt: ClothingUniformJumpskirtHoS
-  satchel: ClothingBackpackSatchelHOSFilled
-  duffelbag: ClothingBackpackDuffelHOSFilled
+    # belt: ClothingBeltSecurityFilled - WD EDIT
+  storage:
+    back:
+    # WD EDIT START
+    # - Flash
+    # - MagazinePistol
+    - TelescopicBaton
+    - WeaponEnergyGunMultiphase
+    # WD EDIT END
 
 - type: startingGear
   id: HoSPlasmamanGear

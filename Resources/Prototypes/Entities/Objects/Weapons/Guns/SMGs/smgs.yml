@@ -9,23 +9,27 @@
   - type: Item
     size: Large
   - type: Clothing
-    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
-  # - type: AmmoCounter # WWDP
-  - type: Gun # if changing also update WeaponDisablerSMG
-    bonusAngleIncreaseTurn: 0.3   # wwdp
-    bonusAngleDecay: 50           # wwdp
-    maxBonusAngle: 15             # wwdp
-    minAngle: 13 # WWDP
-    maxAngle: 30 # WWDP
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WD EDIT
+  # - type: AmmoCounter - WD EDIT
+  - type: Gun
+    # WD EDIT START
+    bonusAngleIncreaseTurn: 0.3
+    bonusAngleDecay: 50
+    maxBonusAngle: 15
+    minAngle: 13
+    maxAngle: 30
+    # WD EDIT END
     fireRate: 8
     burstFireRate: 8
-    angleIncrease: 4 # WWDP
-    angleDecay: 10 # WWDP
+    # WD EDIT START
+    angleIncrease: 4
+    angleDecay: 10
+    # WD EDIT END
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -33,9 +37,6 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/smg.ogg
     defaultDirection: 1, 0
-  - type: GunWieldBonus # WWDP
-    minAngle: -10
-    maxAngle: -10
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
@@ -50,6 +51,7 @@
         whitelist:
           tags:
           - MagazinePistolSubMachineGun
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistol
@@ -63,9 +65,7 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
-  - type: DisarmMalus # WWDP
-    malus: 0.3
-  # - type: Execution # WWDP
+  # - type: Execution - WD EDIT
   - type: MeleeWeapon
     attackRate: 1.3333
     damage:
@@ -84,19 +84,26 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 8
-  - type: EmitSoundOnPickup # WWDP sounds
+  # WD EDIT START
+  - type: EmitSoundOnPickup
     sound:
       collection: RiflesPickUp
-  - type: EmitSoundOnDrop # WWDP sounds
+  - type: EmitSoundOnDrop
     sound:
       collection: RiflesDrop
-  - type: EmitSoundOnLand # WWDP sounds
+  - type: EmitSoundOnLand
     sound:
       collection: RiflesDrop
+  - type: GunWieldBonus
+    minAngle: -10
+    maxAngle: -10
+  - type: DisarmMalus
+    malus: 0.3
+  # WD EDIT END
 
 - type: entity
   name: Atreides
-  parent: [BaseWeaponSubMachineGun, BaseGunWieldable] # WWDP
+  parent: [BaseWeaponSubMachineGun, BaseMajorContraband, BaseGunWieldable] # WD EDIT: BaseGunWieldable
   id: WeaponSubMachineGunAtreides
   description: Pla-ket-ket-ket-ket! Uses .35 auto ammo.
   components:
@@ -117,13 +124,15 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: Item # WWDP guns resize
+  # WD EDIT START: Guns resize
+  - type: Item
     shape:
     - 0,0,3,1
+  # WD EDIT END
 
 - type: entity
-  name: C-20r sub machine gun
-  parent: [BaseWeaponSubMachineGun, BaseGunWieldable] # WWDP
+  name: C-20r submachine gun
+  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
   id: WeaponSubMachineGunC20r
   description: Manufactured by Cybersun-Armaments, the C-20r is one of the most popular personal small-arms in the Coalition of Colonies. Uses .35 auto ammo.
   components:
@@ -136,9 +145,18 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+  # WD EDIT START
+  # - type: Wieldable
+  # - type: GunWieldBonus
+  #   minAngle: -19
+  #   maxAngle: -16
+  # WD EDIT END
   - type: Gun
-    # minAngle: 2 # WD EDIT
-    # maxAngle: 10 # WD EDIT
+    # WD EDIT START
+    # minAngle: 21
+    # maxAngle: 32
+    # WD EDIT END
+    fireRate: 10
     shotsPerBurst: 5
     availableModes:
     - SemiAuto
@@ -154,9 +172,11 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
-  - type: Item # WWDP guns resize
+  # WD DIT START: Guns resize
+  - type: Item
     shape:
     - 0,0,5,1
+  # WD EDIT END
 
 - type: entity
   name: C-20r sub machine gun
@@ -174,14 +194,15 @@
         priority: 2
         whitelist:
           tags:
-            - MagazinePistolSubMachineGun
+          - MagazinePistolSubMachineGun
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: null
         priority: 1
         whitelist:
           tags:
-            - CartridgePistol
+          - CartridgePistol
 
 - type: entity
   name: antique C-20r submachine gun
@@ -194,7 +215,7 @@
 
 - type: entity
   name: Drozd
-  parent: [BaseWeaponSubMachineGun, BaseGunWieldable] # WWDP
+  parent: [BaseWeaponSubMachineGun, BaseRestrictedContraband, BaseGunWieldable] # WD EDIT: BaseGunWieldable
   id: WeaponSubMachineGunDrozd
   description: An excellent fully automatic Heavy SMG.
   components:
@@ -207,16 +228,23 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
+  # WD EDIT START
+  # - type: Wieldable
+  #   unwieldOnUse: false
+  # - type: GunWieldBonus
+  #   minAngle: -19
+  #   maxAngle: -16
+  # WD EDIT END
   - type: Gun
-    # minAngle: 2 # WWDP
-    # maxAngle: 14 # WWDP
-    fireRate: 6
+    # minAngle: 21 - WD EDIT
+    # maxAngle: 32 - WD EDIT
+    fireRate: 12
+    burstFireRate: 12
     selectedMode: FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
     availableModes:
     - FullAuto
-    fireOnDropChance: 0.2
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -228,6 +256,7 @@
         whitelist:
           tags:
           - MagazinePistolSubMachineGun
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistol
@@ -240,65 +269,70 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: Item # WWDP guns resize
+  # WD EDIT START: Guns resize
+  - type: Item
     shape:
     - 0,0,5,1
+  # WD EDIT END
 
-  #Commented out the Vector, as it is deprecated.
-  # - type: entity
-  #  name: Vector
-  #  parent: BaseWeaponSubMachineGun
-  #  id: WeaponSubMachineGunVector
-  #  suffix: Deprecated use Drozd
-  #  description: An excellent fully automatic Heavy SMG. Uses .45 magnum ammo.
-  #  components:
-  #  - type: Sprite
-  #    sprite: Objects/Weapons/Guns/SMGs/vector.rsi
-  #    layers:
-  #      - state: base
-  #        map: ["enum.GunVisualLayers.Base"]
-  #      - state: mag-0
-  #        map: ["enum.GunVisualLayers.Mag"]
-  #  - type: Clothing
-  #    sprite: Objects/Weapons/Guns/SMGs/vector.rsi
-  #  - type: Gun
-  #    fireRate: 6
-  #    selectedMode: FullAuto
-  #    soundGunshot:
-  #      path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
-  #    availableModes:
-  #    - FullAuto
-  #    fireOnDropChance: 0.1
-  #  - type: ItemSlots
-  #    slots:
-  #      gun_magazine:
-  #        name: Magazine
-  #        startingItem: MagazineMagnumSubMachineGun
-  #        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
-  #        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-  #        priority: 2
-  #       whitelist:
-  #          tags:
-  #            - MagazineMagnumSubMachineGun
-  #      gun_chamber:
-  #        name: Chamber
-  #        startingItem: CartridgeMagnum
-  #        priority: 1
-  #        whitelist:
-  #          tags:
-  #            - CartridgeMagnum
-  #  - type: MagazineVisuals
-  #    magState: mag
-  ##    steps: 1
-  #    zeroVisible: true
-  #  - type: Appearance
-  #  - type: Item # WWDP guns resize
-  #    shape:
-  #    - 0,0,5,1
+#Commented out the Vector, as it is deprecated.
+# - type: entity
+#  name: Vector
+#  parent: BaseWeaponSubMachineGun
+#  id: WeaponSubMachineGunVector
+#  suffix: Deprecated use Drozd
+#  description: An excellent fully automatic Heavy SMG. Uses .45 magnum ammo.
+#  components:
+#  - type: Sprite
+#    sprite: Objects/Weapons/Guns/SMGs/vector.rsi
+#    layers:
+#      - state: base
+#        map: ["enum.GunVisualLayers.Base"]
+#      - state: mag-0
+#        map: ["enum.GunVisualLayers.Mag"]
+#  - type: Clothing
+#    sprite: Objects/Weapons/Guns/SMGs/vector.rsi
+#  - type: Gun
+#    fireRate: 6
+#    selectedMode: FullAuto
+#    soundGunshot:
+#      path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+#    availableModes:
+#    - FullAuto
+#    fireOnDropChance: 0.1
+#  - type: ItemSlots
+#    slots:
+#      gun_magazine:
+#        name: Magazine
+#        startingItem: MagazineMagnumSubMachineGun
+#        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+#        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+#        priority: 2
+#       whitelist:
+#          tags:
+#            - MagazineMagnumSubMachineGun
+#      gun_chamber:
+#        name: Chamber
+#        startingItem: CartridgeMagnum
+#        priority: 1
+#        whitelist:
+#          tags:
+#            - CartridgeMagnum
+#        whitelistFailPopup: gun-magazine-whitelist-fail
+#  - type: MagazineVisuals
+#    magState: mag
+#    steps: 1
+#    zeroVisible: true
+#  - type: Appearance
+#  # WD EDIT START: Guns resize
+#  - type: Item
+#    shape:
+#    - 0,0,5,1
+#  # WD EDIT END
 
 - type: entity
   name: WT550
-  parent: [BaseWeaponSubMachineGun, BaseGunWieldable] # WWDP
+  parent: [BaseWeaponSubMachineGun, BaseRestrictedContraband, BaseGunWieldable] # WD EDIT: BaseGunWieldable
   id: WeaponSubMachineGunWt550
   description: An excellent SMG, produced by NanoTrasen's Small Arms Division. Uses .35 auto ammo.
   components:
@@ -321,10 +355,12 @@
     boltClosed: null
   - type: Gun
     fireRate: 7
-    # minAngle: 1 # WWDP
-    # maxAngle: 6 # WWDP
-    # angleIncrease: 1.5 # WWDP
-    # angleDecay: 6 # WWDP
+    # WD EDIT START
+    # minAngle: 1
+    # maxAngle: 6
+    # angleIncrease: 1.5
+    # angleDecay: 6
+    # WD EDIT END
     selectedMode: FullAuto
     shotsPerBurst: 5
     burstCooldown: 0.2
@@ -345,6 +381,7 @@
         whitelist:
           tags:
           - MagazinePistolSubMachineGunTopMounted
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistol
@@ -357,9 +394,11 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
-  - type: Item # WWDP guns resize
+  # WD EDIT START: Guns resize
+  - type: Item
     shape:
     - 0,0,5,1
+  # WD EDIT END
 
 - type: entity
   name: antique Wt550

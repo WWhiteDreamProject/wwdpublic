@@ -37,7 +37,7 @@
   - type: HeldSpeedModifier
   - type: Tag
     tags:
-      - WhitelistChameleon
+    - WhitelistChameleon
   - type: Fixtures
     fixtures:
       fix1:
@@ -120,7 +120,6 @@
   abstract: true
   parent: [ClothingOuterStorageFoldableBase, ClothingOuterFoldableBaseOpened]
   id: ClothingOuterStorageFoldableBaseOpened
-  suffix: opened
 
 - type: entity
   abstract: true
@@ -146,9 +145,8 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.2 # WWDP
-  - type: FireProtection
-    reduction: 0.5 # WWDP
+    heatingCoefficient: 0.01
+    coolingCoefficient: 0.01
   - type: IgniteFromGasImmunity
     parts:
     - Torso
@@ -185,7 +183,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-    - HidesHarpyWings #DeltaV: Used by harpies to help render their hardsuit sprites
+    - HidesHarpyWings
     - AllowLamiaHardsuit
     - FullBodyOuter
     - PlasmamanSafe
@@ -198,8 +196,13 @@
     localSoundOnly: true
   - type: StaminaDamageResistance
     coefficient: 0.75 # 25%
-  - type: ClothingRequiredStepTriggerImmune
+  - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # the average lightbulb only does around four damage!
+    slots: OUTERCLOTHING
   - type: DamageOtherOnHit
     damage:
       types:
@@ -336,7 +339,8 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.2 # WWDP
+    heatingCoefficient: 0.2 # WD EDIT: 0.01 -> 0.2
+    coolingCoefficient: 0.2 # WD EDIT: 0.01 -> 0.2
   - type: IgniteFromGasImmunity
     parts:
     - Torso
@@ -364,8 +368,13 @@
     equipDelay: 1.25 # Softsuits are easier to put on and off
     unequipDelay: 1
     clothingType: hardsuit # WD EDIT
-  - type: ClothingRequiredStepTriggerImmune
+  - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # the average lightbulb only does around four damage!
+    slots: OUTERCLOTHING
   - type: Fixtures
     fixtures:
       fix1:

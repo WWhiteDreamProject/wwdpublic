@@ -1,4 +1,22 @@
-# 02-03-2025
+# 2024-11-10
+VendingMachinePride: RandomVending
+
+# 2024-30-10
+HoloprojectorEmpty: Holoprojector
+HoloprojectorBorg: Holoprojector
+HolofanProjectorEmpty: HolofanProjector
+HoloprojectorFieldEmpty: HoloprojectorField
+HoloprojectorSecurityEmpty: HoloprojectorSecurity
+
+# 2024-09-11
+DresserCaptainFilled: CaptainDrobe
+
+# 2024-12-11
+NTFlag: FlagNanoTrasen
+SyndieFlag: FlagSyndicate
+LGBTQFlag: RandomPosterLegit
+
+# 2025-02-03
 BaseBulletRubber: null
 BulletPistolRubber: BulletPistol
 BulletMagnumRubber: BulletMagnum
@@ -45,11 +63,10 @@ WeaponSniperMosinRubber: WeaponSniperMosin
 WeaponRifleGestioRubber: WeaponRifleGestio
 WeaponRifleNovaliteC1Rubber: WeaponRifleNovaliteC1
 
-# 10-03-2025
+# 2025-10-03
 SpawnPointAdminAssistant: SpawnPointMaid
 
-# 11-03-2025
-
+# 2025-11-03
 WeaponEnergyShotgun: null
 WeaponLauncherRocket: null
 CartridgeRocket: null
@@ -57,20 +74,20 @@ LockerNanorepFilled: null
 LockerMagistrateFilled: null
 LockerBlueshieldOfficerFilled: null
 
-# 08-06-2025
+# 2025-08-06
 UniqueLockerNanorepFilled: null
 UniqueLockerBlueshieldOfficerFilled: null
 UniqueLockerMagistrateFilled: null
 ClothingOuterHardsuitBlueshield: null
 AntimovCircuitBoard: null
 
-# 14-06-2024
+# 2025-14-06
 ModularTrigger: null
 
-# 18-06-2025
+# 2025-18-06
 LockerBrigmedic: LockerSecurityMedicine
 LockerBrigmedicFilled: LockerSecurityMedicineFilled
 LockerBrigmedicFilledHardsuit: LockerSecurityMedicineFilled
 
-# 28-06-2025
+# 2025-28-06
 FloorTileItemBlue: FloorTileItemSteelBlue

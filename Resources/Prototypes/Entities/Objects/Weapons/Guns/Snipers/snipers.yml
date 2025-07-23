@@ -1,6 +1,6 @@
 - type: entity
   name: BaseWeaponSniper
-  parent: [BaseItem, BaseGunWieldable] # WWDP
+  parent: [BaseItem, BaseGunWieldable] # WD EDIT: BaseGunWieldable
   id: BaseWeaponSniper
   description: A rooty tooty point and shooty.
   abstract: true
@@ -12,44 +12,45 @@
   - type: Item
     size: Huge
   - type: Clothing
-    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WD EDIT
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
-  # - type: AmmoCounter # WWDP
+  # - type: AmmoCounter # WD EDIT
   - type: Wieldable
   - type: GunRequiresWield
-  - type: DisarmMalus # WWDP
-    malus: 0.3
-    wieldedBonus: 0.3
   - type: Gun
-    minAngle: 20 # WWDP
-    angleIncrease: 30 # WWDP
     fireRate: 0.75
-    defaultDirection: 1, 0 # wwdp
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+    # WD EDIT START
+    minAngle: 20
+    angleIncrease: 30
+    defaultDirection: 1, 0
+    # WD EDIT END
   - type: BallisticAmmoProvider
-    soundRack: # WWDP
-      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
     capacity: 10
     proto: CartridgeLightRifle
     whitelist:
       tags:
       - CartridgeLightRifle
-    autoCycle: false # WD EDIT
+    # WD EDIT START
+    autoCycle: false
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+    # WD EDIT END
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
         ents: []
   - type: StaticPrice
     price: 500
-  # - type: Execution # WWDP
+  # - type: Execution # WD EDIT
   - type: MeleeWeapon
     attackRate: 1.3333
     damage:
@@ -68,19 +69,25 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 7.5
-  - type: EmitSoundOnPickup # WWDP sounds
+  # WD EDIT START
+  - type: DisarmMalus
+    malus: 0.3
+    wieldedBonus: 0.3
+  # Sounds
+  - type: EmitSoundOnPickup
     sound:
       collection: SnipersPickUp
-  - type: EmitSoundOnDrop # WWDP sounds
+  - type: EmitSoundOnDrop
     sound:
       collection: SnipersDrop
-  - type: EmitSoundOnLand # WWDP sounds
+  - type: EmitSoundOnLand
     sound:
       collection: SnipersDrop
+  # WD EDIT END
 
 - type: entity
   name: Kardashev-Mosin
-  parent: [BaseWeaponSniper] # WWDP
+  parent: [BaseWeaponSniper, BaseSyndicateContraband] # WD EDIT: No BaseGunWieldable
   id: WeaponSniperMosin
   description: A weapon for hunting, or endless trench warfare, with a bayonet attached at the barrel. Uses .30 rifle ammo.
   components:
@@ -88,7 +95,7 @@
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
   - type: Gun
     fireRate: 0.75
-    damageModifier: 3 # WWDP, 19x3=57
+    damageModifier: 3 # WD EDIT: 19x3=57
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -99,12 +106,12 @@
     range: 1.75
     damage:
       types:
-        Piercing: 10 # WWDP
-        Slash: 5 # WWDP
-    animationRotation: -135 # WWDP
+        Piercing: 7 # WD EDIT: 7 -> 10
+        Slash: 3.5 # WD EDIT: 3.5 -> 5
     wideAnimationRotation: -135
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+    animationRotation: -135 # WD EDIT
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -120,10 +127,12 @@
   - type: EmbedPassiveDamage
   - type: ThrowingAngle
     angle: 225
-  - type: Item # WWDP guns resize
+  # WD EDIT START: Guns resize
+  - type: Item
     storedRotation: 45
     shape:
     - 0,0,7,0
+  # WD EDIT END
 
 - type: entity
   name: Kardashev-Mosin
@@ -134,16 +143,18 @@
   components:
   - type: BallisticAmmoProvider
     proto: null
-  # - type: ExtendDescription # WWDP
+  # WD EDIT START
+  # - type: ExtendDescription
   #   descriptionList:
-  #   - description: "gun-legality-salvage"
-  #     fontSize: 12
-  #     color: "#ff4f00"
-  #     requireDetailRange: false
+  #     - description: "gun-legality-salvage"
+  #       fontSize: 12
+  #       color: "#ff4f00"
+  #       requireDetailRange: false
+  # WD EDIT END
 
 - type: entity
   name: Hristov
-  parent: [BaseWeaponSniper] # WWDP
+  parent: [BaseWeaponSniper, BaseSyndicateContraband] # WD EDIT: BaseGunWieldable
   id: WeaponSniperHristov
   description: A portable anti-materiel rifle. Fires armor piercing 14.5mm shells. Uses .60 anti-materiel ammo.
   components:
@@ -187,16 +198,18 @@
 
 - type: entity
   name: musket
-  parent: BaseWeaponSniper
+  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMinorContraband ]
   id: Musket
   description: This should've been in a museum long before you were born. Uses musket catridges. # Delta V - swapping to our crafted musket ammo
   components:
   - type: Sharp
   - type: Item
     size: Large
-    storedRotation: 45 # WWDP
-    shape: # WWDP
+    # WD EDIT START
+    storedRotation: 45
+    shape:
     - 0,0,7,0
+    # WD EDIT END
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/musket.rsi
     state: base
@@ -211,22 +224,22 @@
   - type: UseDelay
     delay: 8 #it's a musket
   - type: BallisticAmmoProvider
-    autoCycle: true # WWDP
     whitelist:
       tags:
       - CartridgeMusket # DeltaV - musket instead of anti materiel ammo
     capacity: 1
     proto: CartridgeMusket # DeltaV
+    autoCycle: true # WD EDIT
   - type: MeleeWeapon
     range: 1.75
     damage:
       types:
         Piercing: 5
         Slash: 3.5
-    animationRotation: -135 # WWDP
     wideAnimationRotation: -135
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+    animationRotation: -135 # WD EDIT
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -245,39 +258,46 @@
 
 - type: entity
   name: flintlock pistol
-  parent: BaseWeaponShotgunSmall # WWDP
+  parent: [BaseWeaponShotgunSmall, BaseMinorContraband] # WD EDIT: BaseWeaponSniper -> BaseWeaponShotgunSmall
   id: WeaponPistolFlintlock
   description: A pirate's companion. Yarrr! Uses musket cartridges. # Delta V - Ditto the above
   components:
   - type: Gun
-    bonusAngleIncreaseMove: 30  # wwdp
-    bonusAngleIncreaseTurn: 0.4 # wwdp
-    bonusAngleDecay: 30         # wwdp
-    maxBonusAngle: 30           # wwdp
     minAngle: 0
     maxAngle: 30 #miss him entirely because the barrel is smoothbore
     fireOnDropChance: 1
+    # WD EDIT START
+    bonusAngleIncreaseMove: 30
+    bonusAngleIncreaseTurn: 0.4
+    bonusAngleDecay: 30
+    maxBonusAngle: 30
+    # WD EDIT END
   - type: Item
     size: Small
-    shape: # WWDP guns resize
+    storedRotation: 90
+    # WD EDIT START
+    shape:
     - 0,0,3,0
+    # WD EDIT END
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
-    layers: # WWDP
+    # WD EDIT START
+    layers:
     - state: base
       map: [ "enum.GunVisualLayers.Base" ]
+    # WD EDIT END
   - type: Clothing
     sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 8 #it's a flintlock
   - type: BallisticAmmoProvider
-    autoCycle: true # WWDP
     whitelist:
       tags:
       - CartridgeMusket # DeltaV - musket instead of anti materiel ammo
     capacity: 1
     proto: CartridgeMusket # DeltaV
+    autoCycle: true # WD EDIT
   - type: StaticPrice
     price: 0
   - type: MeleeWeapon

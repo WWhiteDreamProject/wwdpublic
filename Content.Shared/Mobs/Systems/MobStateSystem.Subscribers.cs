@@ -1,4 +1,3 @@
-using Content.Shared.ActionBlocker;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CCVar;
@@ -45,15 +44,16 @@ public partial class MobStateSystem
         SubscribeLocalEvent<MobStateComponent, DropAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, PickupAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, StartPullAttemptEvent>(CheckAct);
-        SubscribeLocalEvent<MobStateComponent, PullStartedMessage>(OnPull);
-        SubscribeLocalEvent<MobStateComponent, PullStoppedMessage>(OnPull);
         SubscribeLocalEvent<MobStateComponent, UpdateCanMoveEvent>(OnMoveAttempt);
         SubscribeLocalEvent<MobStateComponent, StandAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, PointAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, TryingToSleepEvent>(OnSleepAttempt);
         SubscribeLocalEvent<MobStateComponent, CombatModeShouldHandInteractEvent>(OnCombatModeShouldHandInteract);
         SubscribeLocalEvent<MobStateComponent, AttemptPacifiedAttackEvent>(OnAttemptPacifiedAttack);
+
         SubscribeLocalEvent<MobStateComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
+
+        SubscribeLocalEvent<MobStateComponent, PullStoppedMessage>(OnPull); // WD EDIT
     }
 
     private void OnDirectionAttempt(Entity<MobStateComponent> ent, ref ChangeDirectionAttemptEvent args)
@@ -147,11 +147,6 @@ public partial class MobStateSystem
                 RemComp<CollisionWakeComponent>(target);
                 if (component.CurrentState is MobState.Alive)
                     _standing.Stand(target);
-
-                // WWDP do not disable collisions
-                // if (!_standing.IsDown(target) && TryComp<PhysicsComponent>(target, out var physics))
-                //     _physics.SetCanCollide(target, true, body: physics);
-
                 break;
             case MobState.Invalid:
                 //unused
@@ -172,9 +167,9 @@ public partial class MobStateSystem
         switch (state)
         {
             case MobState.Alive:
-                _standing.Stand(target);
-                _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
-                break;
+            //     _standing.Stand(target); // WWDP EDIT
+            //     _appearance.SetData(target, MobStateVisuals.State, MobState.Alive); // WWDP EDIT
+                 break;
             case MobState.Critical:
                 if (component.DownWhenCrit)
                     _layingDown.TryLieDown(target, behavior:DropHeldItemsBehavior.AlwaysDrop); // WD EDIT
@@ -189,11 +184,6 @@ public partial class MobStateSystem
                 EnsureComp<CollisionWakeComponent>(target);
                 if (component.DownWhenDead)
                     _layingDown.TryLieDown(target, behavior:DropHeldItemsBehavior.AlwaysDrop); // WD EDIT
-
-                // WWDP do not disable collisions
-                // if (_standing.IsDown(target) && TryComp<PhysicsComponent>(target, out var physics))
-                //    _physics.SetCanCollide(target, false, body: physics);
-
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Dead);
                 break;
             case MobState.Invalid:

@@ -60,11 +60,17 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<EmbeddableProjectileComponent>();
+        var query = EntityQueryEnumerator<ActiveEmbeddableProjectileComponent>();
         var curTime = _timing.CurTime;
 
-        while (query.MoveNext(out var uid, out var comp))
+        while (query.MoveNext(out var uid, out var _))
         {
+            if (!TryComp(uid, out EmbeddableProjectileComponent? comp))
+            {
+                RemCompDeferred<ActiveEmbeddableProjectileComponent>(uid);
+                continue;
+            }
+
             if (comp.AutoRemoveTime == null || comp.AutoRemoveTime > curTime)
                 continue;
 
@@ -112,6 +118,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         component.AutoRemoveTime = null;
         component.Target = null;
         component.TargetBodyPart = null;
+        RemCompDeferred<ActiveEmbeddableProjectileComponent>(uid);
 
         var ev = new RemoveEmbedEvent(remover);
         RaiseLocalEvent(uid, ref ev);
@@ -166,6 +173,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     {
         if (!(args.Target is { }) // || _standing.IsDown(args.Target) // WWDP
             || !TryComp(uid, out ProjectileComponent? projectile)
+            || projectile.Weapon is null
             || !TryEmbed(uid, args.Target, args.Shooter, component))
             return;
 
@@ -193,6 +201,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             || (penetratedProjectile.PenetratedUid != target
                 && !HasComp<PenetratedComponent>(target)))
         {
+            EnsureComp<ActiveEmbeddableProjectileComponent>(uid);
             _physics.SetLinearVelocity(uid, Vector2.Zero, body: physics);
             _physics.SetBodyType(uid, BodyType.Static, body: physics);
             _transform.SetParent(uid, xform, target);
@@ -201,7 +210,10 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
         if (component.Offset != Vector2.Zero)
         {
-            _transform.SetLocalPosition(uid, xform.LocalPosition + xform.LocalRotation.RotateVec(component.Offset),
+            var rotation = xform.LocalRotation;
+            if (TryComp<ThrowingAngleComponent>(uid, out var throwingAngleComp))
+                rotation += throwingAngleComp.Angle;
+            _transform.SetLocalPosition(uid, xform.LocalPosition + rotation.RotateVec(component.Offset),
                 xform);
         }
 

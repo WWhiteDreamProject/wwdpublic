@@ -6,7 +6,7 @@
   cost: 0
   exclusive: true
   items:
-    - ClothingBackpackBrigmedic # WWDP no filled lmao
+    - ClothingBackpackBrigmedic
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutCorpsmanBackpacks
@@ -20,7 +20,7 @@
   cost: 0
   exclusive: true
   items:
-    - ClothingBackpackSatchelBrigmedic # WWDP no filled lmao
+    - ClothingBackpackSatchelBrigmedic
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutCorpsmanBackpacks
@@ -34,7 +34,7 @@
   cost: 0
   exclusive: true
   items:
-    - ClothingBackpackDuffelBrigmedic # WWDP no filled lmao
+    - ClothingBackpackDuffelBrigmedic
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutCorpsmanBackpacks
@@ -43,7 +43,7 @@
         - Brigmedic
 
 # Belt
-# WWDP edit start - moved to locker
+# WD EDIT START: Moved to locker
 # - type: loadout
 #   id: LoadoutClothingBeltCorpsmanWebbing
 #   category: JobsSecurityCorpsman
@@ -61,7 +61,6 @@
 # Ears
 
 # Equipment
-
 # - type: loadout
 #   id: LoadoutCrewMonitor
 #   category: JobsSecurityCorpsman
@@ -74,7 +73,6 @@
 #     - HandheldCrewMonitor
 
 # Eyes
-
 # - type: loadout
 #   id: LoadoutClothingEyesGlassesCorpsman
 #   category: JobsSecurityAUncategorized
@@ -88,8 +86,7 @@
 #         - Brigmedic
 #   items:
 #     - ClothingEyesGlassesCorpsman
-#
-# WWDP edit end
+# WD EDIT END
 
 # Gloves
 - type: loadout

@@ -95,12 +95,12 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         {
             foreach (var slot in slotDefinitions)
             {
-                var equipmentStr = startingGear.GetGear(slot.Name, null);
+                var equipmentStr = startingGear.GetGear(slot.Name);
                 if (string.IsNullOrEmpty(equipmentStr))
                     continue;
 
                 var equipmentEntity = EntityManager.SpawnEntity(equipmentStr, xform.Coordinates);
-                InventorySystem.TryEquip(entity, equipmentEntity, slot.Name, true, force:true);
+                InventorySystem.TryEquip(entity, equipmentEntity, slot.Name, true, force: true);
             }
         }
 
@@ -132,15 +132,15 @@ public abstract class SharedStationSpawningSystem : EntitySystem
 
                 var ents = new ValueList<EntityUid>(); // WWDP
 
-                foreach (var ent in entProtos)
-                {
-                    ents.Add(Spawn(ent, coords));
-                }
-
                 if (inventoryComp != null &&
                     InventorySystem.TryGetSlotEntity(entity, slot, out var slotEnt, inventoryComponent: inventoryComp) &&
                     _storageQuery.TryComp(slotEnt, out var storage))
                 {
+                    foreach (var ent in entProtos)
+                    {
+                        ents.Add(Spawn(ent, coords));
+                    }
+
                     foreach (var ent in ents)
                     {
                         _storage.Insert(slotEnt.Value, ent, out _, storageComp: storage, playSound: false);
@@ -209,9 +209,6 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                 newStartingGear = new StartingGearPrototype()
                 {
                     Equipment = startingGear.Equipment.ToDictionary(static entry => entry.Key, static entry => entry.Value),
-                    InnerClothingSkirt = startingGear.InnerClothingSkirt,
-                    Satchel = startingGear.Satchel,
-                    Duffelbag = startingGear.Duffelbag,
                     Inhand = new List<EntProtoId>(startingGear.Inhand),
                     Storage = startingGear.Storage.ToDictionary(
                         static entry => entry.Key,
@@ -219,16 +216,6 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                     ),
                 };
             }
-
-            // Apply the sub-gear's equipment to this starting gear
-            if (subGearProto.InnerClothingSkirt != null)
-                newStartingGear.InnerClothingSkirt = subGearProto.InnerClothingSkirt;
-
-            if (subGearProto.Satchel != null)
-                newStartingGear.Satchel = subGearProto.Satchel;
-
-            if (subGearProto.Duffelbag != null)
-                newStartingGear.Duffelbag = subGearProto.Duffelbag;
 
             foreach (var (slot, entProtoId) in subGearProto.Equipment)
             {
@@ -238,7 +225,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                 {
                     var pocketProtoId = slot == "pocket1" ? pocket1 : pocket2;
 
-                    if (string.IsNullOrEmpty(newStartingGear.GetGear("back", null)))
+                    if (string.IsNullOrEmpty(newStartingGear.GetGear("back")))
                         newStartingGear.Inhand.Add(pocketProtoId);
                     else
                     {
@@ -254,7 +241,10 @@ public abstract class SharedStationSpawningSystem : EntitySystem
             newStartingGear.Inhand.AddRange(subGearProto.Inhand);
 
             foreach (var (slot, entProtoIds) in subGearProto.Storage)
-                newStartingGear.Storage[slot].AddRange(entProtoIds);
+            {
+                if (!newStartingGear.Storage.TryAdd(slot, entProtoIds))
+                    newStartingGear.Storage[slot].AddRange(entProtoIds);
+            }
         }
 
         return newStartingGear;

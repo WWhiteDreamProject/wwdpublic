@@ -4,37 +4,39 @@
   description: job-description-warden
   playTimeTracker: JobWarden
   requirements:
-    # WWDP disabled trackers
-    # - !type:CharacterPlaytimeRequirement # DeltaV - JobSecurityOfficer time requirement. Make them experienced in proper officer work.
-    #   tracker: JobSecurityOfficer
-    #   min: 43200 # DeltaV - 12 hrs
-    # - !type:CharacterPlaytimeRequirement # DeltaV - JobDetective time requirement. Give them an understanding of basic forensics.
-    #   tracker: JobDetective
-    #   min: 14400 # DeltaV - 4 hours
-    - !type:CharacterWhitelistRequirement
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-        - Foreigner
-        - ForeignerLight
-        - Muted
-        - Blindness
-        - Pacifist
-        - BrittleBoneDisease
-    - !type:CharacterEmployerRequirement
-      employers:
-      - ZavodskoiInterstellar
-      - PMCG
-      - NanoTrasen
-    - !type:CharacterOverallTimeRequirement # WWDP
-      min: 3600
+  # WD EDIT START
+  # - !type:CharacterPlaytimeRequirement
+  #   tracker: JobSecurityOfficer
+  #   min: 43200 # DeltaV - 12 hrs
+  # - !type:CharacterPlaytimeRequirement
+  #   tracker: JobDetective
+  #   min: 14400 # DeltaV - 4 hours
+  # WD EDIT END
+  - !type:CharacterWhitelistRequirement
+  - !type:CharacterTraitRequirement
+    inverted: true
+    traits:
+    - Foreigner
+    - ForeignerLight
+    - Muted
+    - Blindness
+    - Pacifist
+    - BrittleBoneDisease
+  - !type:CharacterEmployerRequirement
+    employers:
+    - ZavodskoiInterstellar
+    - PMCG
+    - NanoTrasen
+  # WD EDIT START
+  - !type:CharacterOverallTimeRequirement
+    min: 3600
+  # WD EDIT END
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
   canBeAntag: false
   access:
   - Security
-  #- Brig # Delta V: Removed
   - Armory
   - Maintenance
   - Service
@@ -57,15 +59,16 @@
   equipment:
     head: ClothingHeadHatWarden
     jumpsuit: ClothingUniformJumpsuitWarden
-    back: ClothingBackpackSecurityFilled # WWDP
-    shoes: ClothingShoesBootsJack # WWDP
-    # eyes: ClothingEyesGlassesSunglasses # WWDP
-    # outerClothing: ClothingOuterCoatWarden # WWDP
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsJack # WD EDIT: ClothingShoesBootsCombatFilled -> ClothingShoesBootsJack
+    # eyes: ClothingEyesGlassesSecurity - WD EDIT
+    # outerClothing: ClothingOuterCoatWarden - WD EDIT
     id: WardenPDA
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
-  innerClothingSkirt: ClothingUniformJumpskirtWarden
-  satchel: ClothingBackpackSatchelSecurity
-  duffelbag: ClothingBackpackDuffelSecurity
+    ears: ClothingHeadsetAltSecurityRegular
+    # belt: ClothingBeltSecurityFilled - WD EDIT
+  storage:
+    back:
+    - WeaponEnergyGunPistolSecurity # WD EDIT
 
 - type: startingGear
   id: WardenPlasmamanGear

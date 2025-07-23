@@ -28,8 +28,10 @@
       - ZavodskoiInterstellar
       - PMCG
       - NanoTrasen
-    - !type:CharacterOverallTimeRequirement # WWDP
+    # WD EDIT START
+    - !type:CharacterOverallTimeRequirement
       min: 3600
+    # WD EDIT END
 
 - type: startingGear
   id: PrisonGuardGear
@@ -37,15 +39,16 @@
   - PrisonGuardPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitPrisonGuard
-    back: ClothingBackpackSecurityFilled # WWDP
-    shoes: ClothingShoesBootsJack # WWDP
-    # eyes: ClothingEyesGlassesSecurity # WWDP
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsJack # WD EDIT: ClothingShoesBootsCombatFilled -> ClothingShoesBootsJack
+    # eyes: ClothingEyesGlassesSecurity - WD EDIT
     head: ClothingHeadPrisonGuard
     id: PrisonGuardPDA
     ears: ClothingHeadsetPrisonGuard #DeltaV
-  innerClothingSkirt: ClothingUniformJumpsuitPrisonGuard
-  satchel: ClothingBackpackSatchelSecurity # WWDP
-  duffelbag: ClothingBackpackDuffelSecurity # WWDP
+    # belt: ClothingBeltSecurityFilled - WD EDIT
+  storage:
+    back:
+    - WeaponEnergyGunPistolSecurity
 
 - type: startingGear
   id: PrisonGuardPlasmamanGear
