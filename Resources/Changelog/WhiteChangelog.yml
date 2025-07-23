@@ -3872,3 +3872,16 @@ Entries:
   id: 411
   time: '2025-07-23T12:28:46.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/694
+- author: Spatison
+  changes:
+    - type: Add
+      message: апстрим 12.07-23.07
+    - type: Fix
+      message: Объявление о прибытия шаттла эвакуации теперь корректное
+    - type: Fix
+      message: Шаттл шахтеров теперь может прилететь на станцию
+    - type: Fix
+      message: Переключение света у призраков снова работает
+  id: 412
+  time: '2025-07-23T12:29:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/695
