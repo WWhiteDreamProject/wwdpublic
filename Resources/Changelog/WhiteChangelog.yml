@@ -3851,3 +3851,10 @@ Entries:
   id: 408
   time: '2025-07-23T00:44:01.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/685
+- author: Kutos
+  changes:
+    - type: Tweak
+      message: Теперь при столкновении предметов урон не может превышать 50 единиц.
+  id: 409
+  time: '2025-07-23T00:52:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/688
