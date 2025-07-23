@@ -5,6 +5,7 @@ using System.Text.Json;
 using Content.Server.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using NpgsqlTypes;
@@ -14,9 +15,11 @@ using NpgsqlTypes;
 namespace Content.Server.Database.Migrations.Postgres
 {
     [DbContext(typeof(PostgresServerDbContext))]
-    partial class PostgresServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250710001741_AddMimeName")]
+    partial class AddMimeName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -834,6 +837,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("integer")
                         .HasColumnName("age");
 
+                    b.Property<string>("Backpack")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("backpack");
+
                     b.Property<string>("BodyType")
                         .IsRequired()
                         .HasColumnType("text")
@@ -843,6 +851,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("char_name");
+
+                    b.Property<string>("Clothing")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("clothing");
 
                     b.Property<string>("ClownName")
                         .HasColumnType("text")
