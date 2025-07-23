@@ -3844,3 +3844,10 @@ Entries:
   id: 407
   time: '2025-07-23T00:38:47.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/676
+- author: nekosich
+  changes:
+    - type: Tweak
+      message: Перевод генокрадов~
+  id: 408
+  time: '2025-07-23T00:44:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/685
