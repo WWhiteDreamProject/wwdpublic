@@ -3885,3 +3885,16 @@ Entries:
   id: 412
   time: '2025-07-23T12:29:59.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/695
+- author: Kutos
+  changes:
+    - type: Add
+      message: Локализация для блоба
+    - type: Fix
+      message: Заменены шрифты без поддержки кириллицы
+    - type: Fix
+      message: >-
+        Исправлена локализация строчки для имен киборов/ии станции в редакторе
+        персонажа
+  id: 413
+  time: '2025-07-23T14:24:00.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/693
