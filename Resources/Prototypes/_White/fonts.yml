@@ -35,7 +35,7 @@
   path: /Fonts/_White/Comic Sans MS/Comic Sans MS.ttf
 
 - type: font
-  id: cinzel_regular
+  id: CinzelRegular
   path: /Fonts/_White/Cinzel(RUS BY LYAJKA)/cinzel_regular.ttf
 
 - type: font
