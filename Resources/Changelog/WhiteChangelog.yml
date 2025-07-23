@@ -3858,3 +3858,10 @@ Entries:
   id: 409
   time: '2025-07-23T00:52:20.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/688
+- author: nekosich
+  changes:
+    - type: Tweak
+      message: Перевод советов~
+  id: 410
+  time: '2025-07-23T06:38:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/686
