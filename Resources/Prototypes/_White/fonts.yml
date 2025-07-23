@@ -33,3 +33,15 @@
 - type: font
   id: ComicSansMS
   path: /Fonts/_White/Comic Sans MS/Comic Sans MS.ttf
+
+- type: font
+  id: CinzelRegular
+  path: /Fonts/_White/Cinzel(RUS BY LYAJKA)/cinzel_regular.ttf
+
+- type: font
+  id: MaraudersMap
+  path: /Fonts/_White/Marauders Map/Marauders Map.ttf
+
+- type: font
+  id: HombreRegular
+  path: /Fonts/_White/Hombre/Hombre Regular.otf
