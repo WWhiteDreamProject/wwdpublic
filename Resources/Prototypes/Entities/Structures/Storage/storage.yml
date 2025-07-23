@@ -30,8 +30,9 @@
         - TableMask
         layer:
         - TableLayer
+        - BulletImpassable # WWDP edit
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -58,5 +59,6 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Climbable
+  - type: RequireProjectileTarget # WWDP edit
   - type: StaticPrice
-    price: 22
+    price: 30

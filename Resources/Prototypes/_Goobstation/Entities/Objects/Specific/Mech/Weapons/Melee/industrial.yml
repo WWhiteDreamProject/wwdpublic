@@ -12,7 +12,7 @@
     - Pickaxe
     - IndustrialMech
   - type: MeleeWeapon
-    canWideSwing: true
+    canHeavyAttack: true # WD EDIT: canWideSwing -> canHeavyAttack
     autoAttack: true
     angle: 0
     wideAnimationRotation: -90
@@ -39,7 +39,7 @@
     - Pickaxe
     - IndustrialMech
   - type: MeleeWeapon
-    canWideSwing: true
+    canHeavyAttack: true # WD EDIT: canWideSwing -> canHeavyAttack
     autoAttack: true
     angle: 0
     wideAnimationRotation: -90

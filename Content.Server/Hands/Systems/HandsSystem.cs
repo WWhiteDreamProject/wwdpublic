@@ -104,9 +104,28 @@ namespace Content.Server.Hands.Systems
                 _pullingSystem.TryStopPull(puller.Pulling.Value, pullable, ignoreGrab: true); // Goobstation edit added check for grab
 
             var offsetRandomCoordinates = _transformSystem.GetMoverCoordinates(args.Target).Offset(_random.NextVector2(1f, 1.5f));
+
+            // WWDP edit start
+            if (TryGetActiveItem(args.Target, out var item))
+            {
+                args.DisarmObject = item.Value;
+
+                if (args.PickupToHands)
+                {
+                    if (!TryDrop(args.Target, item.Value))
+                        return;
+
+                    if (TryPickupAnyHand(args.Source, item.Value, checkActionBlocker: false)
+                        && TryGetEmptyHand(args.Source, out var userEmptyHand))
+                        SetActiveHand(args.Source, userEmptyHand);
+                }
+                args.Handled = true;
+                return;
+            }
+            // WWDP edit end
+
             if (!ThrowHeldItem(args.Target, offsetRandomCoordinates))
                 return;
-
 
             args.Handled = true; // Successful disarm.
         }
@@ -205,7 +224,7 @@ namespace Content.Server.Hands.Systems
 
         private bool HandleThrowItem(ICommonSession? playerSession, EntityCoordinates coordinates, EntityUid entity)
         {
-            if (playerSession?.AttachedEntity is not { Valid: true } player || !Exists(player))
+            if (playerSession?.AttachedEntity is not { Valid: true } player || !Exists(player) || !coordinates.IsValid(EntityManager))
                 return false;
 
             // Goobstation start
@@ -273,11 +292,6 @@ namespace Content.Server.Hands.Systems
             direction *= distance / length;
 
             var throwSpeed = hands.BaseThrowspeed;
-
-            // WD EDIT START
-            if (TryComp<ThrowingItemModifierComponent>(throwEnt, out var throwingItemModifier))
-                throwSpeed *= throwingItemModifier.ThrowingMultiplier;
-            // WD EDIT END
 
             // Let other systems change the thrown entity (useful for virtual items)
             // or the throw strength.

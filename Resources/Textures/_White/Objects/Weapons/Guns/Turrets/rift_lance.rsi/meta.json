@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "WWDP",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    { "name": "dollymix1"},
+    { "name": "dollymix2"},
+    { "name": "dollymix3"},
+    { "name": "dollymix4"},
+    { "name": "dollymix5"},
+    { "name": "dollymix1-unshaded"},
+    { "name": "dollymix2-unshaded"},
+    { "name": "dollymix3-unshaded"},
+    { "name": "dollymix4-unshaded"},
+    { "name": "dollymix5-unshaded"},
+    { "name": "icon"}
+  ]
+}

@@ -42,61 +42,21 @@
       jobs:
         - Captain
 
-- type: loadout
-  id: LoadoutBackpackCaptainFilled
-  category: JobsCommandCaptain
-  cost: 0
-  exclusive: true
-  items:
-    - ClothingBackpackCaptainFilled
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutCaptainBackpacks
-    - !type:CharacterJobRequirement
-      jobs:
-        - Captain
-
-- type: loadout
-  id: LoadoutBackpackSatchelCaptainFilled
-  category: JobsCommandCaptain
-  cost: 0
-  exclusive: true
-  items:
-    - ClothingBackpackSatchelCaptainFilled
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutCaptainBackpacks
-    - !type:CharacterJobRequirement
-      jobs:
-        - Captain
-
-- type: loadout
-  id: LoadoutBackpackDuffelCaptainFilled
-  category: JobsCommandCaptain
-  cost: 0
-  exclusive: true
-  items:
-    - ClothingBackpackDuffelCaptainFilled
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutCaptainBackpacks
-    - !type:CharacterJobRequirement
-      jobs:
-        - Captain
-
 # Belt
-- type: loadout
-  id: LoadoutCaptainSwordSheath
-  category: JobsCommandCaptain
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutCaptainBelt
-    - !type:CharacterJobRequirement
-      jobs:
-        - Captain
-  items:
-    - ClothingBeltSheathFilled
+
+# WWDP moved to locker
+# - type: loadout
+#   id: LoadoutCaptainSwordSheath
+#   category: JobsCommandCaptain
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutCaptainBelt
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Captain
+#   items:
+#     - ClothingBeltSheathFilled
 
 # Ears
 
@@ -309,22 +269,24 @@
     - ClothingHeadHatBeretCap
 
 # Id
-- type: loadout
-  id: LoadoutCaptainNTPDA
-  category: JobsCommandCaptain
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobCaptain
-      min: 36000 # 10 hours
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutCaptainId
-    - !type:CharacterJobRequirement
-      jobs:
-        - Captain
-  items:
-    - CaptainNTPDA
+# WWDP EDIT START - disabled
+# - type: loadout
+#   id: LoadoutCaptainNTPDA
+#   category: JobsCommandCaptain
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterPlaytimeRequirement
+#       tracker: JobCaptain
+#       min: 36000 # 10 hours
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutCaptainId
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Captain
+#   items:
+#     - CaptainNTPDA
+# WWDP EDIT END
 
 # Neck
 - type: loadout
@@ -397,18 +359,19 @@
   items:
     - ClothingMaskGasCaptain
 
-- type: loadout
-  id: LoadoutCommandCapMaskGasCombat
-  category: JobsCommandCaptain
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutCaptainMask
-    - !type:CharacterJobRequirement
-      jobs:
-        - Captain
-  items:
-    - ClothingMaskGasCaptainCombat
+# WWDP disabled
+# - type: loadout
+#   id: LoadoutCommandCapMaskGasCombat
+#   category: JobsCommandCaptain
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutCaptainMask
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Captain
+#   items:
+#     - ClothingMaskGasCaptainCombat
 
 # Outer
 - type: loadout
@@ -424,46 +387,48 @@
   items:
     - ClothingOuterWinterCap
 
-- type: loadout
-  id: LoadoutCaptainOuterCarapace
-  category: JobsCommandCaptain
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutCaptainOuter
-    - !type:CharacterJobRequirement
-      jobs:
-        - Captain
-  items:
-    - ClothingOuterArmorCaptainCarapace
-
-- type: loadout
-  id: LoadoutCaptainOuterDogi
-  category: JobsCommandCaptain
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutCaptainOuter
-    - !type:CharacterJobRequirement
-      jobs:
-        - Captain
-  items:
-    - ClothingOuterArmorCaptainDogi
-
-- type: loadout
-  id: LoadoutCaptainOuterTrench
-  category: JobsCommandCaptain
-  cost: 0
-  exclusive: true
-  canBeHeirloom: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutCaptainOuter
-    - !type:CharacterJobRequirement
-      jobs:
-        - Captain
-  items:
-    - ClothingOuterCoatCapTrench
+# WWDP EDIT START, disabled
+# - type: loadout
+#   id: LoadoutCaptainOuterCarapace
+#   category: JobsCommandCaptain
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutCaptainOuter
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Captain
+#   items:
+#     - ClothingOuterArmorCaptainCarapace
+#
+# - type: loadout
+#   id: LoadoutCaptainOuterDogi
+#   category: JobsCommandCaptain
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutCaptainOuter
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Captain
+#   items:
+#     - ClothingOuterArmorCaptainDogi
+#
+# - type: loadout
+#   id: LoadoutCaptainOuterTrench
+#   category: JobsCommandCaptain
+#   cost: 0
+#   exclusive: true
+#   canBeHeirloom: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutCaptainOuter
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Captain
+#   items:
+#     - ClothingOuterCoatCapTrench
+# WWDP EDIT END
 
 # Shoes
 - type: loadout
@@ -508,19 +473,20 @@
   items:
     - ClothingShoesBootsWinterCap
 
-- type: loadout
-  id: LoadoutCaptainShoesCombat
-  category: JobsCommandCaptain
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutCaptainShoes
-    - !type:CharacterJobRequirement
-      jobs:
-        - Captain
-  items:
-    - ClothingShoesBootsCombatFilled
+# WWDP disabled
+# - type: loadout
+#   id: LoadoutCaptainShoesCombat
+#   category: JobsCommandCaptain
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutCaptainShoes
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Captain
+#   items:
+#     - ClothingShoesBootsCombatFilled
 
 # Uniforms
 - type: loadout

@@ -1,3 +1,4 @@
+using Content.Shared._White.Move;
 using Content.Shared.Buckle;
 using Content.Shared.Rotation;
 using Content.Shared.Standing;
@@ -20,7 +21,7 @@ public sealed class LayingDownSystem : SharedLayingDownSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<LayingDownComponent, MoveEvent>(OnMovementInput);
+        SubscribeLocalEvent<LayingDownComponent, MoveEventProxy>(OnMovementInput); // WD EDIT
         SubscribeNetworkEvent<CheckAutoGetUpEvent>(OnCheckAutoGetUp);
     }
 
@@ -42,7 +43,7 @@ public sealed class LayingDownSystem : SharedLayingDownSystem
         query.Dispose();
     }
 
-    private void OnMovementInput(EntityUid uid, LayingDownComponent component, MoveEvent args)
+    private void OnMovementInput(EntityUid uid, LayingDownComponent component, MoveEventProxy args) // WD EDIT
     {
         if (!_timing.IsFirstTimePredicted
             || !_standing.IsDown(uid)

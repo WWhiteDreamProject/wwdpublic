@@ -1,22 +1,20 @@
 - type: vendingMachineInventory
   id: AmmoVendInventory
   startingInventory:
-    MagazineBoxCaselessRifle: 5
+    MagazineBoxCaselessRifle: 6
     MagazineBoxCaselessRiflePractice: 3
 
-    MagazineBoxLightRifleBig: 5
+    MagazineBoxLightRifleBig: 6
     MagazineBoxLightRiflePractice: 3
 
-    MagazineBoxMagnum: 5
+    MagazineBoxMagnum: 6
     MagazineBoxMagnumPractice: 3
 
-    # DeltaV - .38 special ammo - Add various .38 special ammo to ammovend
-    MagazineBoxSpecial: 5
+    MagazineBoxSpecial: 6
     MagazineBoxSpecialPractice: 3
-    # End of modified code
 
-    MagazineBoxPistol: 5
+    MagazineBoxPistol: 6
     MagazineBoxPistolPractice: 3
 
-    MagazineBoxRifle: 5
+    MagazineBoxRifle: 6
     MagazineBoxRiflePractice: 3

@@ -1,76 +1,86 @@
 <Document>
-  # Traitors
+  # Предатели
 
-  - A Traitor is an antagonist employed by the Syndicate. They have access to various Syndicate tools and weapons through their [color=#a4885c]Uplink[/color].
-  - Traitors can use codewords to identify themselves to one another in order to cooperate.
-  - In a Traitor round, any player can be a Traitor aside from department heads, the captain, or any security officers.
-  - Traitors should focus primarily on completing their objectives successfully by the end of the round.
+  ВИСКИ. ЭХО. ВИСКИ. ЛИМА. АЛЬФА. ДЕЛЬТА.
 
-  ## Uplink
+  Предатель — это не просто злодей. Это спящий агент [color=#ff0000]Синдиката[/color], вживлённый прямо в коллектив станции, с конкретной целью: украсть, убить, подорвать — словом, превратить смену в ад под прикрытием обычного рабочего дня.
+
+  - Предатели получают доступ к арсеналу Синдиката через [color=#a4885c]Аплинк[/color] — их личный чёрный рынок в кармане.
+  - Они могут узнавать друг друга по особым [bold]кодовым словам[/bold] и устраивать кооперативный балаган с летальным исходом.
+  - Предателем может быть любой, кроме главы отдела, капитана и охраны.
+  - Но что бы вы ни задумали — главное [italic]успешно выполнить свои задачи к концу раунда[/italic].
+
+  ## Аплинк
+
   <Box>
-    <GuideEntityEmbed Entity="BaseUplinkRadio40TC" Caption="Uplink"/>
+    <GuideEntityEmbed Entity="BaseUplinkRadio40TC" Caption="Аплинк"/>
   </Box>
-  - The [color=#a4885c]Uplink[/color] is the most important tool as a Traitor, as it can purchase tools and weapons with [color=#a4885c]telecrystals[/color](TC).
+
+  [color=cyan]Аплинк[/color] — это твой швейцарский нож. Через него ты обмениваешь свои 20 [color=red]телекристаллов[/color] (TC) на всё, что угодно: от взрывчатки до лазерных зубочисток. Он позволяет с лёгкостью решать вопросы, особенно если вопросы — это люди.
+
   <Box>
-    <GuideEntityEmbed Entity="Telecrystal" Caption="Telecrystals"/>
+    <GuideEntityEmbed Entity="Telecrystal" Caption="Телекристаллы"/>
   </Box>
-  Traitors are antagonists employed by the [color=#ff0000]Syndicate.[/color] You are a sleeper agent who has access to various tools and weapons through your [bold]uplink[/bold].
-  You also receive [bold]codewords[/bold] to identify other agents, and a coordinated team of traitors can have [italic]brutal results.[/italic]
 
-  Anyone besides [textlink="department heads" link="Command"] or members of [textlink="Security" link="Security"] can be a traitor.
+  Чтобы открыть Аплинк, нажми [color=yellow][bold][keybind="OpenCharacterMenu"][/bold][/color] и посмотри свой личный код. Установи этот код как мелодию вызова на своём [bold]PDA[/bold] — и вуаля, портал в ад открыт.
 
-  ## Uplink & Activation
-  The [color=cyan]uplink[/color] is your most important tool as a traitor. You can exchange the 20 [color=red]telecrystals[/color] (TC) you start with for items that will help you with your objectives.
+  В том же меню ты найдёшь цели и кодовые слова. Всё удобно, компактно и анонимно.
 
-  By pressing [color=yellow][bold][keybind="OpenCharacterMenu"][/bold][/color], you'll see your personal uplink code. [bold]Setting your PDA's ringtone as this code will open the uplink.[/bold]
-  Pressing [color=yellow][bold][keybind="OpenCharacterMenu"][/bold][/color] also lets you view your objectives and the codewords.
+  Если у тебя нет PDA в момент активации, тебе выдадут [color=cyan]вживлённый аплинк[/color] — прямо в тело. За полную стоимость. Да, Синдикат не из добрых бабушек.
 
-  If you do not have a PDA when you are activated, an [color=cyan]uplink implant[/color] is provided [bold]for the full [color=red]TC[/color] price of the implant.[/bold]
-  It can be accessed from your hotbar.
   <Box>
     <GuideEntityEmbed Entity="PassengerPDA" Caption="PDA"/>
-    <GuideEntityEmbed Entity="Telecrystal" Caption="Telecrystals"/>
-    <GuideEntityEmbed Entity="BaseUplinkRadio" Caption="Uplink Implant"/>
+    <GuideEntityEmbed Entity="Telecrystal" Caption="Телекристаллы"/>
+    <GuideEntityEmbed Entity="BaseUplinkRadio" Caption="Имплантированный Аплинк"/>
   </Box>
 
-  [bold]Make sure to close your PDA uplink to prevent anyone else from seeing it.[/bold] You don't want [color=#cb0000]Security[/color] to get their hands on this premium selection of contraband!
+  [bold]Никогда не забывай закрывать Аплинк после использования.[/bold] Если его увидит [color=#cb0000]Служба Безопасности[/color] — твоё новое имя станет “Куски на полу”.
 
-  Implanted uplinks are not normally accessible to other people, so they do not have any security measures. They can, however, be removed from you with an empty implanter.
+  Имплант безопаснее: никто не откроет его, если только тебя не проколют пустым имплантером. Так что... не попадись.
 
+  ## Цели: укради всё, что не приколочено (и то, что приколочено — тоже)
+
+  Задачи бывают разными. Иногда это убийство. Иногда — воровство. Иногда — красиво и то, и другое.
+
+  - Украсть [color=#a4885c]экзокостюм Мистагога[/color].
   <Box>
-    <GuideEntityEmbed Entity="Hypospray" Caption="CMO's Hypospray"/>
+    <GuideEntityEmbed Entity="ClothingOuterHardsuitRd" Caption="Экзокостюм Мистагога"/>
   </Box>
-  - Steal the Mystagogue's [color=#a4885c]Hardsuit[/color].
+
+  - Забрать у него [color=#a4885c]Ручной Телепорт[/color].
   <Box>
-    <GuideEntityEmbed Entity="ClothingOuterHardsuitRd" Caption="MG's Hardsuit"/>
+    <GuideEntityEmbed Entity="HandTeleporter" Caption="Ручной Телепорт"/>
   </Box>
-  - Steal the Mystagogue's [color=#a4885c]Hand Teleporter[/color].
+
+  - Стащить у [color=#cb0000]Начальника охраны[/color] его [bold]Мультифазную Энергопушку X-01[/bold].
   <Box>
-    <GuideEntityEmbed Entity="HandTeleporter" Caption="Hand Teleporter"/>
+    <GuideEntityEmbed Entity="WeaponEnergyGunMultiphase" Caption="Личная пушка ХоСа"/>
   </Box>
-  - Steal the Head of Security's [color=#a4885c]X-01 MultiPhase Energy Gun[/color].
+
+  - Умыкнуть у Инженерного Главы [color=#a4885c]Улучшенные Магоботы[/color].
   <Box>
-    <GuideEntityEmbed Entity="WeaponEnergyGunMultiphase" Caption="Head of Security's personal Energy Gun"/>
+    <GuideEntityEmbed Entity="ClothingShoesBootsMagAdv" Caption="Улучшенные Магоботы"/>
   </Box>
-  - Steal the Chief Engineer's [color=#a4885c]Advanced Magboots[/color].
-  <Box>
-    <GuideEntityEmbed Entity="ClothingShoesBootsMagAdv" Caption="Advanced Magboots"/>
-  </Box>
-  - Stealing the [color=#cb0000]Head of Security[/color]'s [bold]energy shotgun[/bold].
+
+  - И конечно, [color=#cb0000]энергетическое ружьё ХоСа[/color] — жирный трофей.
   <Box>
     <GuideEntityEmbed Entity="WeaponEnergyShotgun" Caption=""/>
   </Box>
-  - Steal the [color=#a4885c]Nuke Disk[/color].
+
+  - А как тебе [color=#a4885c]Ядерный Диск[/color]? Да, тот самый.
   <Box>
-    <GuideEntityEmbed Entity="NukeDisk" Caption="Nuke Disk"/>
-  </Box>
-  - Steal the Logistics Officer's [color=#a4885c]lucky bill[/color].
-  <Box>
-    <GuideEntityEmbed Entity="SpaceCashLuckyBill" Caption="Logistics Officer's Lucky Bill"/>
-  </Box>
-  - Steal the Head of Personnel's [color=#a4885c]Ian Photobook[/color].
-  <Box>
-    <GuideEntityEmbed Entity="BookIanDossier" Caption="Head of Personnel's Photobook"/>
+    <GuideEntityEmbed Entity="NukeDisk" Caption="Ядерный диск"/>
   </Box>
 
+  - Или... [color=#a4885c]счастливая купюра Квартирмейстера[/color]. Символ наживы и удачи.
+  <Box>
+    <GuideEntityEmbed Entity="SpaceCashLuckyBill" Caption="Купюра Логиста"/>
+  </Box>
+
+  - А вот и жемчужина безумия — [color=#a4885c]фотоальбом Иана[/color] из личных вещей Главы Персонала. Зачем? Потому, что ты можешь!
+  <Box>
+    <GuideEntityEmbed Entity="BookIanDossier" Caption="Фотоальбом Иана"/>
+  </Box>
+
+  Ты агент. Ты тень. Ты нож в кармане Синдиката. И твоя смена только начинается.
 </Document>

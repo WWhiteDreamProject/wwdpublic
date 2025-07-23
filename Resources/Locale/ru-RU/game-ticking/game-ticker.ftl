@@ -8,19 +8,19 @@ game-ticker-pause-start = Начало раунда было приостано�
 game-ticker-pause-start-resumed = Отсчет начала раунда возобновлен.
 game-ticker-player-join-game-message = Добро пожаловать на Космическую Станцию 14! Если вы играете впервые, обязательно нажмите ESC на клавиатуре и прочитайте правила игры, а также не бойтесь просить помощи в "Админ помощь".
 game-ticker-get-info-text =
-    Текущий раунд: [color=white]#{ $roundId }[/color]
-    Текущее количество игроков: [color=white]{ $playerCount }[/color]
-    Текущая карта: [color=white]{ $mapName }[/color]
-    Текущий режим игры: [color=white]{ $gmTitle }[/color]
+    Текущий раунд: [color=blue]#{ $roundId }[/color]
+    Текущее количество игроков: [color=blue]{ $playerCount }[/color]
+    Текущая карта: [color=blue]{ $mapName }[/color]
+    Текущий режим игры: [color=blue]{ $gmTitle }[/color]
 
 game-ticker-get-info-preround-text =
-    Текущий раунд: [color=white]#{ $roundId }[/color]
-    Текущее количество игроков: [color=white]{ $playerCount }[/color] ([color=white]{ $readyCount }[/color] { $readyCount ->
+    Текущий раунд: [color=blue]#{ $roundId }[/color]
+    Текущее количество игроков: [color=blue]{ $playerCount }[/color] ([color=blue]{ $readyCount }[/color] { $readyCount ->
         [one] готов
        *[other] готовы
     })
-    Текущая карта: [color=white]{ $mapName }[/color]
-    Текущий режим игры: [color=white]{ $gmTitle }[/color]
+    Текущая карта: [color=blue]{ $mapName }[/color]
+    Текущий режим игры: [color=blue]{ $gmTitle }[/color]
 
 game-ticker-no-map-selected = [color=red]Карта ещё не выбрана![/color]
 game-ticker-player-no-jobs-available-when-joining = При попытке присоединиться к игре ни одной роли не было доступно.

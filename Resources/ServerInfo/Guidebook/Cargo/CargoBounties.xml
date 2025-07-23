@@ -1,29 +1,48 @@
 <Document>
-  # Cargo Bounties
-  [textlink="Logistics" link="Cargo"] can always make money selling items whenever they feel like it. However, there are ways to make even more money by being more selective about what and when you're selling. One of these ways is [color=#a4885c]bounties[/color].
+# Карго-Контракты
 
-  <Box>
-    <GuideEntityEmbed Entity="ComputerCargoBounty"/>
-  </Box>
-  Every station has a fixed amount of bounties that are globally available. These can be checked at the [color=#a4885c]cargo bounty computer[/color], which shows the following information about them:
-  - What items are needed to fulfill the bounty
-  - How much money do you get for completing the bounty
-  - How much time is left before the bounty expires
+Да, ты всегда можешь продать всё, что плохо лежит, и получить за это немного спесо. Но если ты [italic]по-настоящему[/italic] хочешь разбогатеть и заработать себе имя в отделе Логистики — добро пожаловать в мир [bold][color=#a4885c]контрактов[/color][/bold].
 
-  Assuming that you are able to aquire all of the items for it in a time efficient and low-cost manner, you will be able to complete the bounty and get a significantly higher payout than you would be selling the items conventionally.
+Контракты — это целевые заказы на конкретные товары с приличными наградами. Галактические корпорации жаждут скальпелей, лимонов, мыла и прочей странной дребедени — а тебе остаётся только доставить это в срок.
 
-  ## Completing Bounties
-  <Box>
-    <GuideEntityEmbed Entity="PaperCargoBountyManifest"/>
-    <GuideEntityEmbed Entity="CrateGenericSteel"/>
-    <GuideEntityEmbed Entity="CargoPallet"/>
-  </Box>
-  Once you have collected the items you need for a bounty, completing it is a simple process:
-  - Place all of the items inside of the crate and [bold]close it![/bold]
-  - Get the bounties manifest label by clicking the [color=#a4885c]print label[/color] button on corresponding entry on the cargo bounty computer.
-  - Place the label on the crate containing the items.
-  - Move the crate onto the cargo shuttle.
-  - Sell it.
 
-  And there you go! After you follow these steps, the bounty should disappear from the computer and a new one will take its place.
+
+## Компьютер контрактов
+
+<Box>
+  <GuideEntityEmbed Entity="ComputerCargoBounty"/>
+</Box>
+
+На каждой станции есть особый [bold]терминал контрактов[/bold]. Через него можно:
+
+- Узнать, [italic]что конкретно нужно[/italic]
+- Сколько спесо ты получишь
+- Сколько времени осталось до истечения срока
+
+Контракты [bold]общие[/bold] — все логисты на станции видят одни и те же. Так что не зевай — кто первый успел, тот и получил куш.
+
+
+
+## Как выполнить контракт
+
+<Box>
+  <GuideEntityEmbed Entity="PaperCargoBountyManifest"/>
+  <GuideEntityEmbed Entity="CrateGenericSteel"/>
+  <GuideEntityEmbed Entity="CargoPallet"/>
+</Box>
+
+Собрал всё нужное? Дальше просто:
+
+1. Сложи товары в [bold]ящик[/bold] и [italic]закрой его[/italic]. Открытый ящик = отказ.
+2. Распечатай [bold]этикетку контракта[/bold] на терминале — кнопка "Print Label".
+3. Наклей её на ящик с товаром.
+4. Погрузи ящик на шаттл и продай его на Торговой станции.
+
+Контракт тут же исчезнет из списка — а тебе на счёт упадёт приятный денежный звон.
+
+
+
+[center][italic][color=#d1b46c]Хочешь быть просто грузчиком? Или хочешь стать легендой логистики, кормящей станцию и накапливающей состояние из воздуха и обломков?[/color][/italic]
+
+[bold]Контракты ждут. Действуй.[/bold][/center]
 </Document>

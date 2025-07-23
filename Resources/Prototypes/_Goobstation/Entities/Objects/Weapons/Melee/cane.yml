@@ -6,6 +6,7 @@
   description: A sharp blade with a cane shaped hilt, a Nanotrasen logo is engraved on the blade.
   components:
   - type: Sharp
+  - type: Execution # WWDP
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane_blade.rsi
     state: icon
@@ -16,7 +17,7 @@
       types:
         Slash: 10
     heavyRateModifier: 2
-    heavyRangeModifier: 1.75
+    heavyRangeModifier: 1.2
     heavyDamageBaseModifier: 1.5
     maxTargets: 1
     angle: 10

@@ -9,8 +9,12 @@
       - id: ClothingHeadsetScience
       - id: ClothingMaskSterile
       - id: ClothingOuterCoatRnd
+      - id: ClothingOuterCoatLabOpened # WWDP
+      - id: ClothingBeltUtilityFilled # WWDP
+      - id: ClothingMaskGas # WWDP
       - id: AnomalyScanner
       - id: NodeScanner
+      - id: ClothingEyesHudEpistemics # WWDP
       - id: NetworkConfigurator
         prob: 0.5
       - id: LunchboxEpistemicsFilledRandom # Delta-V Lunchboxes!

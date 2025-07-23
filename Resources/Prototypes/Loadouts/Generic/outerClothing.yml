@@ -386,15 +386,17 @@
     - !type:CharacterItemGroupRequirement
       group: LoadoutOuter
 
-- type: loadout
-  id: LoadoutOuterCoatInspector
-  category: Outer
-  cost: 0
-  items:
-    - ClothingOuterCoatInspector
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutOuter
+# WD EDIT START
+# - type: loadout
+#   id: ClothingOuterCoatDetectiveLoadout
+#   category: Outer
+#   cost: 0
+#   items:
+#     - ClothingOuterCoatDetectiveLoadout
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutOuter
+# WD EDIT END
 
 - type: loadout
   id: LoadoutOuterCoatOvercoat

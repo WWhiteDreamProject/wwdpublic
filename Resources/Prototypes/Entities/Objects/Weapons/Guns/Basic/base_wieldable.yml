@@ -9,9 +9,14 @@
   - type: GunWieldBonus
     minAngle: -20
     maxAngle: -30
+    angleDecay: 7 # WWDP
   - type: Gun
+    bonusAngleIncreaseMove: 15    # wwdp
+    bonusAngleIncreaseTurn: 0.4  # wwdp
+    bonusAngleDecay: 40           # wwdp
+    maxBonusAngle: 20             # wwdp
     minAngle: 21
-    maxAngle: 32
+    maxAngle: 45 # WWDP
   - type: DisarmMalus # WWDP
     malus: 0.3
     wieldedBonus: 0.3

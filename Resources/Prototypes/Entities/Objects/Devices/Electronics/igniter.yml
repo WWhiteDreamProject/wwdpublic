@@ -23,3 +23,7 @@
   - type: Tag
     tags:
     - Igniter
+  # WWDP quick crafts
+  - type: Construction
+    graph: FireBomb
+    node: igniter

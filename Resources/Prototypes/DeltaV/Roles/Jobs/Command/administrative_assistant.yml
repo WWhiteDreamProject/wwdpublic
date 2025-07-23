@@ -23,6 +23,8 @@
     - !type:CharacterDepartmentTimeRequirement
       department: Epistemics
       min: 10800 # 3 hours
+    - !type:CharacterOverallTimeRequirement # WWDP
+      min: 7200
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
@@ -55,11 +57,10 @@
     id: AdminAssistantPDA
     ears: ClothingHeadsetAdminAssist
     shoes: ClothingShoesLeather
-  innerClothingSkirt: ClothingUniformJumpskirtAdminAssistant
 
 - type: startingGear
   id: AdminAssistantPlasmamanGear
-  parent: BasePlasmamanGear
+  parent: BasePlasmamanMaskGear
   equipment:
     jumpsuit: ClothingUniformEnvirosuitAdminAssistant
     head: ClothingHeadEnvirohelmAdminAssistant

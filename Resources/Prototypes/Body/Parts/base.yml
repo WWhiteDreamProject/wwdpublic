@@ -40,7 +40,7 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Heat
-        damage: 200
+        damage: 400 # WWDP
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawnInContainer: true
@@ -85,7 +85,7 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Heat
-        damage: 400
+        damage: 1500 # WWDP same as MobDamageable
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawnInContainer: true
@@ -124,6 +124,37 @@
       types:
         Blunt: 5
     staminaCost: 5
+  # WWDP edit start
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 150
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Slash
+        damage: 250
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 1500
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior { }
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
+  # WWDP edit end
 
 - type: entity
   id: BaseLeftArm

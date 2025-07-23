@@ -1,11 +1,21 @@
+using System.Linq;
 using System.Numerics;
+using Content.Server.Storage.Components;
+using Content.Shared.Actions;
+using Content.Shared.Cabinet;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
 using Content.Shared.Procedural;
 using Content.Shared.Random.Helpers;
+using Content.Shared.Storage;
 using Content.Shared.Whitelist;
+using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Procedural;
@@ -184,15 +194,55 @@ public sealed partial class DungeonSystem
             var childRot = templateXform.LocalRotation + finalRoomRotation;
             var protoId = _metaQuery.GetComponent(templateEnt).EntityPrototype?.ID;
 
-            // TODO: Copy the templated entity as is with serv
             var ent = Spawn(protoId, new EntityCoordinates(gridUid, childPos));
+
+            // WD EDIT START - kill me pls + BIG KOSTYL
+            var entComponents = EntityManager.GetComponents(ent).ToList();
+            var templateEntComponents = EntityManager.GetComponents(templateEnt).ToList();
+
+            var entMetaData = MetaData(ent);
+            var templateMetaData = MetaData(templateEnt);
+
+            _metaData.SetEntityName(ent, templateMetaData.EntityName, entMetaData);
+            _metaData.SetEntityDescription(ent, templateMetaData.EntityDescription, entMetaData);
+
+            foreach (var comp in entComponents)
+            {
+                if (comp is MetaDataComponent or TransformComponent or ContainerManagerComponent)
+                    continue;
+
+                if (templateEntComponents.All(p => comp.GetType() != p.GetType()))
+                {
+                    RemComp(ent, comp);
+                }
+            }
+
+            foreach (var comp in templateEntComponents)
+            {
+                if (comp is MetaDataComponent or TransformComponent or ContainerManagerComponent)
+                    continue;
+                if (entComponents.Any(p => p.GetType() == comp.GetType()))
+                    continue;
+
+                try
+                {
+                    var copy = _serializationManager.CreateCopy(comp, notNullableOverride: true);
+                    copy.Owner = ent;
+                    AddComp(ent, copy);
+                }
+                catch (Exception ex)
+                {
+                    Log.Error($"Failed to copy component {comp.GetType()} from template entity {templateEnt} to {ent}: {ex}");
+                }
+            }
+            // WD EDIT END
 
             var childXform = _xformQuery.GetComponent(ent);
             var anchored = templateXform.Anchored;
             _transform.SetLocalRotation(ent, childRot, childXform);
 
             // If the templated entity was anchored then anchor us too.
-            if (anchored && !childXform.Anchored)
+            if (anchored && !childXform.Anchored && !HasComp<RoomFillComponent>(ent)) // WD EDIT
                 _transform.AnchorEntity((ent, childXform), (gridUid, grid));
             else if (!anchored && childXform.Anchored)
                 _transform.Unanchor(ent, childXform);

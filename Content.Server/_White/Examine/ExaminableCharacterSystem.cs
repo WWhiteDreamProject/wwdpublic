@@ -1,14 +1,11 @@
 ﻿using Content.Server.Chat.Managers;
 using Content.Server.IdentityManagement;
-using Content.Shared._White;
-using Content.Shared.CCVar;
+using Content.Shared._White.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Examine;
-using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Inventory;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
-
 
 namespace Content.Server._White.Examine
 {

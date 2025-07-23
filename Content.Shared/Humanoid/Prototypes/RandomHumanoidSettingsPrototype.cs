@@ -15,6 +15,7 @@ public sealed partial class RandomHumanoidSettingsPrototype : IPrototype, IInher
     public string[]? Parents { get; }
 
     [AbstractDataField]
+    [NeverPushInheritance]
     public bool Abstract { get; }
 
     /// <summary>
@@ -30,8 +31,15 @@ public sealed partial class RandomHumanoidSettingsPrototype : IPrototype, IInher
     public HashSet<string> SpeciesBlacklist { get; private set; } = new();
 
     /// <summary>
+    ///    WWDP - Species that the randomizer will choose from. Overrides speciesBlacklist.
+    /// </summary>
+    [DataField("speciesWhitelist")]
+    public HashSet<string> SpeciesWhitelist { get; private set; } = new();
+
+    /// <summary>
     ///     Extra components to add to this entity.
     /// </summary>
-    [DataField("components")]
+    [DataField]
+    [AlwaysPushInheritance]
     public ComponentRegistry? Components { get; private set; }
 }

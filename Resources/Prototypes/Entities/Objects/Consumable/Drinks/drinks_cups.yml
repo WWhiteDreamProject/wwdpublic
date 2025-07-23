@@ -45,6 +45,10 @@
     sound: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
   - type: EmitSoundOnLand
     sound: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
+  - type: DnaSubstanceTrace
+  - type: Tag
+    tags:
+    - DrinkCup
 
 - type: entity
   parent: DrinkBaseCup
@@ -54,6 +58,8 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/golden_cup.rsi
+  - type: StaticPrice
+    price: 125
 
 - type: entity
   parent: DrinkBaseCup
@@ -65,10 +71,10 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mug.rsi
     layers:
-      - state: icon-0
-      - map: ["enum.SolutionContainerLayers.Fill"]
-        state: icon-3
-        visible: false
+    - state: icon-0
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      state: icon-3
+      visible: false
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 3
@@ -198,9 +204,9 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/hot_coco.rsi
     layers:
-      - state: icon-0
-      - map: ["enum.SolutionContainerLayers.Fill"]
-        state: icon-4
+    - state: icon-0
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      state: icon-4
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 4
@@ -226,9 +232,9 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/hot_coffee.rsi
     layers:
-      - state: icon-0
-      - map: ["enum.SolutionContainerLayers.Fill"]
-        state: icon-4
+    - state: icon-0
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      state: icon-4
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 4
@@ -251,9 +257,9 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/cafe_latte.rsi
     layers:
-      - state: icon_empty
-      - state: fill-1
-        map: ["enum.SolutionContainerLayers.Fill"]
+    - state: icon_empty
+    - state: fill-1
+      map: ["enum.SolutionContainerLayers.Fill"]
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 1
@@ -280,9 +286,9 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/teacup.rsi
     layers:
-      - state: icon-0
-      - map: ["enum.SolutionContainerLayers.Fill"]
-        state: icon-4
+    - state: icon-0
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      state: icon-4
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 4
@@ -308,9 +314,9 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/teacup.rsi
     layers:
-      - state: icon-0
-      - map: ["enum.SolutionContainerLayers.Fill"]
-        state: icon-4
+    - state: icon-0
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      state: icon-4
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 4
@@ -321,14 +327,14 @@
 - type: entity
   parent: DrinkBaseCup
   id: DrinkLean
-  name: Lean # Delta V : Re-adds Lean
-  description: Often paired with doja sweet, drinking this concoction is the staple of a trill O.G. # Delta V : Re-Re-adds Lean
+  name: lean
+  description: Often paired with doja sweet, drinking this concoction is the staple of a trill O.G.
   components:
   - type: SolutionContainerManager
     solutions:
       drink:
         reagents:
-        - ReagentId: Lean # Delta V : Re-adds Lean
+        - ReagentId: Lean
           Quantity: 20
   - type: Sprite
     sprite: Objects/Consumable/Drinks/lean.rsi
@@ -348,9 +354,9 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/water_cup.rsi
     layers:
-      - state: icon-0
-      - map: ["enum.SolutionContainerLayers.Fill"]
-        state: icon-1
+    - state: icon-0
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      state: icon-1
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 1

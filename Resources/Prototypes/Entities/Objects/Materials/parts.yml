@@ -57,7 +57,7 @@
   - type: StaticPrice
     price: 0
   - type: StackPrice
-    price: 5
+    price: 7.5
   - type: Extractable
     grindableSolutionName: rod
   - type: SolutionContainerManager
@@ -80,6 +80,32 @@
     entries:
     - prototype: Grille
     - prototype: GrilleDiagonal
+    # WWDP edit start
+    - prototype: Catwalk
+    - prototype: ClockGrille
+    - prototype: ClockworkGrilleDiagonal
+    - prototype: TableFrame
+    - category:
+        name: Fences
+        icon:
+          sprite: Structures/Walls/fence.rsi
+          state: door_closed
+        entries:
+        - prototype: FenceMetalStraight
+        - prototype: FenceMetalEnd
+        - prototype: FenceMetalCorner
+        - prototype: FenceMetalGate
+    - category:
+        name: Spears
+        icon:
+          sprite: Objects/Weapons/Melee/spear.rsi
+          state: spear
+        entries:
+        - prototype: Spear
+        - prototype: SpearReinforced
+        - prototype: SpearPlasma
+        - prototype: SpearUranium
+    # WWDP edit end
     - category:
         name: Railings
         icon:
@@ -97,10 +123,15 @@
           state: rglass_3
         entries:
         - prototype: SheetRPGlass
+          closeUiOnSelect: false
         - prototype: SheetRPGlass0
+          closeUiOnSelect: false
         - prototype: SheetRUGlass
+          closeUiOnSelect: false
         - prototype: SheetRUGlass0
+          closeUiOnSelect: false
         - prototype: SheetRGlass
+          closeUiOnSelect: false
   # WD EDIT START
   - type: Tag
     tags:

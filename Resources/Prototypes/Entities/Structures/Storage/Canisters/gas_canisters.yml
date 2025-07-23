@@ -62,8 +62,8 @@
               acts: [ "Destruction" ]
             - !type:DumpCanisterBehavior
     - type: Damageable
-      damageContainer: Inorganic
-      damageModifierSet: Metallic
+      damageContainer: StructuralInorganic # WWDP EDIT
+      damageModifierSet: StructuralMetallic # WWDP EDIT
     - type: Physics
       bodyType: Dynamic
     - type: Fixtures
@@ -693,7 +693,7 @@
       materialComposition:
         Steel: 500
     - type: StaticPrice
-      price: 60
+      price: 125
 
 - type: entity
   parent: GasCanisterBrokenBase

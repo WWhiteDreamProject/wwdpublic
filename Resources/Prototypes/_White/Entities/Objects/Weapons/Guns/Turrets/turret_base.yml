@@ -1,0 +1,94 @@
+- type: entity
+  parent: BaseStructure
+  id: BaseWeaponTurretNoHTR
+  name: turret
+  abstract: true
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Actions
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+    drawdepth: Mobs
+    layers:
+    - state: syndie_lethal
+  - type: InteractionPopup
+    interactDelay: 0.2
+    successChance: 0.8
+    interactSuccessString: petting-success-generic
+    interactFailureString: petting-failure-generic
+    interactSuccessSound:
+      path: /Audio/Effects/double_beep.ogg
+  - type: CombatMode
+    isInCombatMode: true
+    toggleMouseRotator: false
+  - type: Damageable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200 # Was 600, most players were under the impression these were indestructible. It having an Inorganic damage container did not help.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          WeaponTurretSyndicateBroken: # Make a broken turret when destroyed.
+            min: 1
+            max: 1
+    - trigger:
+        !type:DamageTrigger
+        damage: 90 # Rather than fully smash the turret at half health, make an indication that its taking damage.
+      # TODO: Construction graph
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 50 # Helps indicate that the turrets arent indestructible.
+      # TODO: Construction graph
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+  - type: MouseRotator
+    angleTolerance: 5
+    rotationSpeed: 90
+    simple4DirMode: false
+  - type: NoRotateOnInteract
+  - type: NoRotateOnMove
+  - type: Input
+    context: "human"
+  - type: Gun
+    forceShootForward: true
+  - type: GunFireAngleRestriction
+
+# this is dumb
+- type: entity
+  id: BaseTurret3D
+  abstract: true
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+    drawdepth: Mobs
+    layers:
+    - state: syndie_base
+  - type: DollyMixture
+    sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+    statePrefix: dm
+    repeatLayers: 3
+    layerOffset: 0,0.75

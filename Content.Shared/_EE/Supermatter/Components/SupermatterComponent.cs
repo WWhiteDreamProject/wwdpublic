@@ -2,7 +2,6 @@ using Content.Shared._EE.Supermatter.Monitor;
 using Content.Shared.Atmos;
 using Content.Shared.DoAfter;
 using Content.Shared.Radio;
-using Content.Shared.Speech;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -19,7 +18,7 @@ public sealed partial class SupermatterComponent : Component
     ///     The SM will only cycle if activated.
     /// </summary>
     [DataField]
-    public bool Activated = false;
+    public bool Activated;
 
     /// <summary>
     ///     The current status of the singularity, used for alert sounds and the monitoring console
@@ -395,6 +394,19 @@ public sealed partial class SupermatterComponent : Component
         { Gas.Frezon,        0f },
         { Gas.Ammonia,       0f },
         { Gas.NitrousOxide,  0f },
+        // WD EDIT START
+        { Gas.BZ,            0f },
+        { Gas.Pluoxium,      0f },
+        { Gas.Hydrogen,      0f },
+        { Gas.Nitrium,       0f },
+        { Gas.Healium,       0f },
+        { Gas.HyperNoblium,  0f },
+        { Gas.ProtoNitrate,  0f },
+        { Gas.Zauker,        0f },
+        { Gas.Halon,         0f },
+        { Gas.Helium,        0f },
+        { Gas.AntiNoblium,   0f },
+        // WD EDIT END
     };
 
     /// <summary>
@@ -412,6 +424,19 @@ public sealed partial class SupermatterComponent : Component
         { Gas.Frezon,        (3f,   -10f,  -1f) },
         { Gas.Ammonia,       (0f,   .5f,   1f)  },
         { Gas.NitrousOxide,  (0f,   -5f,   -1f) },
+        // WD EDIT START
+        { Gas.BZ,            (0f,    5f,    1f) },
+        { Gas.Pluoxium,      (0f,   -3f, -1.5f) },
+        { Gas.Hydrogen,      (15f,   5f,    1f) },
+        { Gas.Nitrium,       (1.5f,  1f,    1f) },
+        { Gas.Healium,       (2f,    3f,    1f) },
+        { Gas.HyperNoblium,  (0f,    2f,    1f) },
+        { Gas.ProtoNitrate,  (0f,  0.1f,    2f) },
+        { Gas.Zauker,        (2f,    2f,    1f) },
+        { Gas.Halon,         (0f,    0f,    0f) },
+        { Gas.Helium,        (0f,    0f,    0f) },
+        { Gas.AntiNoblium,   (.1f, .01f,    1f) },
+        // WD EDIT END
     };
 
     #endregion
@@ -453,7 +478,4 @@ public sealed partial class GasFact
 }
 
 [Serializable, NetSerializable]
-public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent
-{
-
-}
+public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent { }

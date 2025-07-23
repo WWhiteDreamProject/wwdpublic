@@ -34,12 +34,12 @@
             AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 4, 4 ]
             TechnicalAssistant: [ 4, 4 ]
-            SeniorEngineer: [ 1, 1 ]
+            # SeniorEngineer: [ 1, 1 ] # WWDP
           #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 3, 3 ]
-            SeniorPhysician: [ 1, 1 ]
+            # SeniorPhysician: [ 1, 1 ] # WWDP
             Paramedic: [ 1, 1 ]
             MedicalIntern: [ 4, 4 ]
           #science
@@ -49,18 +49,18 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ForensicMantis: [ 1, 1 ]
-            SeniorResearcher: [ 1, 1 ]
+            # SeniorResearcher: [ 1, 1 ] # WWDP
           #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
-            Brigmedic: [ 1, 1 ]
+            # Brigmedic: [ 1, 1 ] # WWDP
             Prisoner: [ 1, 2 ]
             # PrisonGuard: [ 1, 2 ] # EE: Disabled
             SecurityOfficer: [ 4, 4 ]
             Detective: [ 1, 1 ]
             SecurityCadet: [ 4, 4 ]
             Lawyer: [ 2, 2 ]
-            SeniorOfficer: [ 1, 1 ]
+            # SeniorOfficer: [ 1, 1 ] # WWDP
           #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
@@ -76,3 +76,9 @@
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
             MedicalBorg: [ 2, 2 ]
+        # blob-config-start SMALL
+        - type: StationBlobConfig
+          stageBegin: 20
+          stageCritical: 300
+          stageTheEnd: 600
+        # blob-config-end

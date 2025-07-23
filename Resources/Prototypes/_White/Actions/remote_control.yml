@@ -1,0 +1,23 @@
+- type: entity
+  id: ActionEndRemoteControl
+  name: End remote control
+  description: Ends remote control
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_eject
+    event: !type:RemoteControlExitActionEvent
+
+- type: entity
+  id: RemoteControlConsoleSwitchToNextAction
+  name: Switch to next target
+  description: Switches to next target
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_cycle_equip_off
+    event: !type:RemoteControlConsoleSwitchNextActionEvent

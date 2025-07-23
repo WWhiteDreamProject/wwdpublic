@@ -59,6 +59,21 @@ public abstract partial class SharedShuttleSystem
         UpdateIFFInterfaces(gridUid, component);
     }
 
+    // WWDP EDIT START
+    [PublicAPI]
+    public void SetIFFFlag(EntityUid gridUid, IFFFlags flags, IFFComponent? component = null)
+    {
+        component ??= EnsureComp<IFFComponent>(gridUid);
+
+        if (component.Flags == flags)
+            return;
+
+        component.Flags = flags;
+        Dirty(gridUid, component);
+        UpdateIFFInterfaces(gridUid, component);
+    }
+    // WWDP EDIT END
+
     [PublicAPI]
     public void AddIFFFlag(EntityUid gridUid, IFFFlags flags, IFFComponent? component = null)
     {
@@ -71,6 +86,7 @@ public abstract partial class SharedShuttleSystem
         Dirty(gridUid, component);
         UpdateIFFInterfaces(gridUid, component);
     }
+
 
     [PublicAPI]
     public void RemoveIFFFlag(EntityUid gridUid, IFFFlags flags, IFFComponent? component = null)

@@ -30,7 +30,7 @@
 
 - type: entity
   name: cane blade
-  parent: BaseItem
+  parent: [BaseItem, BaseSyndicateContraband]
   id: CaneBlade
   description: A sharp blade with a cane shaped hilt.
   components:
@@ -54,6 +54,7 @@
     tags:
       - CaneBlade
   - type: DisarmMalus
+  - type: Execution # WWDP
 
 - type: entity
   parent: Cane

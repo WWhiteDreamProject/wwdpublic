@@ -1,9 +1,9 @@
 <Document>
-# Janitorial
+# Уборщик
 
-You keep things clean, it's a rough job sometimes, but someone's gotta do it. This will walk you through the tools of the trade, and how they're used.
+Ты следишь за чистотой. Работёнка не из лёгких, но кто-то должен её делать. Здесь тебе расскажут о твоих инструментах и как с ними обращаться.
 
-## Basic Equipment
+## Базовое снаряжение
 <Box>
 <GuideEntityEmbed Entity="MopItem"/>
 <GuideEntityEmbed Entity="JanitorialTrolley"/>
@@ -18,40 +18,41 @@ You keep things clean, it's a rough job sometimes, but someone's gotta do it. Th
 <GuideEntityEmbed Entity="Mousetrap"/>
 </Box>
 
-## Additional Equipment
+## Дополнительное снаряжение
 <Box>
 <GuideEntityEmbed Entity="WetFloorSign"/>
-<GuideEntityEmbed Entity="Holoprojector" Caption="holosign projector"/>
+<GuideEntityEmbed Entity="Holoprojector" Caption="голографический знак"/>
 <GuideEntityEmbed Entity="LightReplacer"/>
 </Box>
 <Box>
-<GuideEntityEmbed Entity="AdvMopItem" Caption="Advanced mop, ask in R&D"/>
+<GuideEntityEmbed Entity="AdvMopItem" Caption="Продвинутый швабра — закажи в РнД"/>
 </Box>
 
-## Fluid Acquisition and Disposal
+## Как добыть или избавиться от жидкости
 <Box>
 <GuideEntityEmbed Entity="WaterTankFull"/>
 <GuideEntityEmbed Entity="Sink"/>
 <GuideEntityEmbed Entity="FloorDrain"/>
 </Box>
 
-## Tidying up.
-Now, onto the (figurative) meat and potatoes. We're here to clean, right? Lets keep it simple. The main tools you'll be putting to use are the trusty mop, a trash bag, space cleaner, and one of the three different buckets.
+## Наводим порядок
 
-Mopping: Fill your cart up with water, then, find some puddles! Wet your mop, and wipe them up, the resulting water puddle will dry after a short time. Don't forget the wet floor signs!
-- To drain your cart, drag it (with your cursor) onto a floor drain. This will dump all the fluids inside! Floor drains can usually be found somewhere in medical, the kitchen freezer, and of course, the janitor closet.
+А теперь к самому вкусному. Ты тут, чтобы наводить чистоту, верно? Всё просто. Твои главные друзья — швабра, мешок для мусора, космический очиститель и одно из трёх ведёр.
 
-Trash: Place it in the bag directly, or hold it in your hand. Click -near- trash to scoop -all- nearby junk up, or click on each piece individually. Using the bag on a disposal will empty it.
-- Logistics might want some of your trash, it might be worthwhile to check in from time to time!
+[b]Мытьё:[/b] наполни тележку водой, найди лужи, намочи швабру и вымой. После этого останется мокрая лужа, которая вскоре высохнет. Не забудь поставить знак «[italic]мокрый пол[/italic]»!
+- Чтобы слить воду из тележки, просто перетащи её на водосток. Обычно они есть в медбее, морозильной камере кухни и в шкафчике уборщика.
 
-Space Cleaner: This miracle spray can do two things, clean graffiti, and in a pinch, clean up puddles!
-- You might be able to get more of this from chemistry.
+[b]Мусор:[/b] Можешь убирать мусор прямо в мешок, или взять мешок в руки и кликнуть рядом с хламом — всё вокруг соберётся. Или можешь кликать по каждому предмету по одному. Пустить мешок в утилизацию можно, кликнув им по мусоропроводу.
+- Логисты могут захотеть часть твоего мусора — загляни к ним!
 
-## Extra Duties
-A good janitor is always on the lookout for a bit more to do, and there are plenty of tools at your disposal. Keep an eye out for broken lights, help the chef take care of mice in the kitchen, and if you're feeling -really- generous, try to restock the vending machines and emergency closets around the station!
+[b]Космический очиститель:[/b] Это чудо-средство справляется с граффити, а при нехватке швабры — и с лужами!
+- Больше можно попросить у химиков.
 
-##Additional Information:
+## Дополнительные обязанности
+
+Хороший уборщик всегда готов заняться чем-то ещё. У тебя куча полезных инструментов. Следи за перегоревшими лампами, помогай повару бороться с мышами на кухне, а если у тебя доброе сердечко — пополняй запасы торговых автоматов и аварийных шкафов по всей станции!
+
+## Доп. информация:
 <GuideReagentEmbed Reagent="SpaceCleaner"/>
 <GuideReagentEmbed Reagent="Ammonia"/>
-
 </Document>

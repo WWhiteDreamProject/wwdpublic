@@ -1,12 +1,18 @@
 <Document>
-## Psionic Insulation
-<Box>
-<GuideEntityEmbed Entity="ClothingHeadTinfoil"/>
-<GuideEntityEmbed Entity="ClothingHeadHelmetInsulated"/>
-<GuideEntityEmbed Entity="PillCryptobiolin" />
-<GuideEntityEmbed Entity="ClothingHeadCage" />
-</Box>
-Psionic Insulation is a catch-all term for any source of protection from mind-affecting psionic powers, as well as some noöspheric discharges. It is most commonly obtained from wearing special
-protective headgear, or from drugs such as Cryptobiolin that render one temporarily protected. Some entities can be innately insulated, such as nearly all forms of synthetic life, though
-exceptions may exist. Rarer still, some humanoids may be born with an innate psionic insulation.
+  ## Псионическая Изоляция
+
+  <Box>
+    <GuideEntityEmbed Entity="ClothingHeadTinfoil"/>
+    <GuideEntityEmbed Entity="ClothingHeadHelmetInsulated"/>
+    <GuideEntityEmbed Entity="PillCryptobiolin" />
+    <GuideEntityEmbed Entity="ClothingHeadCage" />
+  </Box>
+
+  Псионическая изоляция — обобщающий термин для любых способов защиты от ментального воздействия псионических сил и некоторых выбросов ноосферы. Чаще всего достигается ношением
+  особых головных уборов или приёмом препаратов, таких как [bold]Криптобиолин[/bold], временно подавляющих чувствительность к псионике.
+
+  Некоторые сущности обладают врождённой псионической изоляцией — почти все формы синтетической жизни, хотя встречаются и исключения. Редко, но бывают и гуманоиды, рождённые с
+  естественной защитой от ноосферных вторжений.
+
+  Если вы подозреваете псионическое вмешательство — наденьте шапочку из фольги. Звучит глупо, но это может спасти вам мозги.
 </Document>

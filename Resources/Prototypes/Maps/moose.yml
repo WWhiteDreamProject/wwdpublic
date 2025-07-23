@@ -2,7 +2,7 @@
   id: Moose
   mapName: 'Moose Station'
   mapPath: /Maps/_White/Moose.yml
-  minPlayers: 10
+  minPlayers: 0
   maxPlayers: 50
   stations:
     MooseStation:
@@ -16,8 +16,6 @@
       - type: StationEmergencyShuttle
         emergencyShuttlePath: /Maps/_White/Shuttles/emergency_turtle.yml
       - type: StationJobs
-        overflowJobs:
-        - Passenger
         availableJobs:
           #Silicons
           Borg: [ 2, 2 ]
@@ -39,7 +37,6 @@
           Detective: [ 1, 1 ]
           Lawyer: [ 1, 1 ]
           Prisoner: [ 1, 2 ]
-          PrisonGuard: [ 1, 1 ]
           #Medical
           Chemist: [ 2, 2 ]
           Paramedic: [ 1, 1 ]
@@ -57,6 +54,7 @@
           #Science
           Scientist: [ 3, 3 ]
           ResearchAssistant: [ 1, 1 ]
+          ForensicMantis: [ 1, 1 ]
           #Other
           Bartender: [ 1, 1 ]
           Chef: [ 1, 1 ]
@@ -69,7 +67,6 @@
           Clown: [ 1, 1 ]
           Musician: [ 1, 1 ]
           Reporter: [ 1, 1 ]
-          # Boxer: [ 1, 1 ]
           Passenger: [ -1, -1 ]
           Hobo: [ 1, 1 ]
 

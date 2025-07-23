@@ -5,7 +5,7 @@ tilemap:
   0: Space
   3: FloorAstroGrass
   13: FloorBasalt
-  23: FloorBlue
+  23: FloorSteelBlue
   15: FloorBlueCircuit
   17: FloorBrokenWood
   19: FloorConcrete
@@ -39,8 +39,8 @@ tilemap:
   92: FloorSteelMono
   16: FloorSteelOffset
   12: FloorSteelWorn
-  96: FloorTechMaint
-  97: FloorTechMaint2
+  96: FloorTechMaintSteel
+  97: FloorMaintWhite
   100: FloorWhite
   109: FloorWhitePlastic
   110: FloorWood
@@ -109683,8 +109683,6 @@ entities:
     - type: Transform
       pos: -13.507916,40.626015
       parent: 2
-- proto: MagazineRifleRubber
-  entities:
   - uid: 15950
     components:
     - type: Transform

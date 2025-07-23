@@ -59,6 +59,60 @@
   heatCapacity: 10000
 
 - type: tile
+  id: FloorTrueMonoTileWhite
+  name: tiles-true-mono-white-floor
+  sprite: /Textures/_White/Tiles/truemonotile_white.png
+  baseTurf: Plating
+  variants: 4
+  placementVariants:
+  - 1.00
+  - 1.00
+  - 1.00
+  - 1.00
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemWhite
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorTrueMonoTileSteel
+  name: tiles-true-mono-grey-floor
+  sprite: /Textures/_White/Tiles/truemonotile_steel.png
+  baseTurf: Plating
+  variants: 4
+  placementVariants:
+  - 1.00
+  - 1.00
+  - 1.00
+  - 1.00
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorTrueMonoTileDark
+  name: tiles-true-mono-dark-floor
+  sprite: /Textures/_White/Tiles/truemonotile_dark.png
+  baseTurf: Plating
+  variants: 4
+  placementVariants:
+  - 1.00
+  - 1.00
+  - 1.00
+  - 1.00
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDark
+  heatCapacity: 10000
+
+- type: tile
   id: FloorSteelYellow
   name: tiles-steel-yellow-floor
   sprite: /Textures/_White/Tiles/steel_yellow.png
@@ -318,6 +372,66 @@
   id: FloorShuttleSyndie
   name: tiles-syndie-shuttle-floor
   sprite: /Textures/_White/Tiles/shuttlesyndie.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 0.25
+  - 0.25
+  - 0.25
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemShuttleSyndie
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorShuttleYellow
+  name: tiles-yellow-shuttle-floor
+  sprite: /Textures/_White/Tiles/shuttleyellow.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 0.25
+  - 0.25
+  - 0.25
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemShuttleSyndie
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorShuttleDarkBlue
+  name: tiles-darkblue-shuttle-floor
+  sprite: /Textures/_White/Tiles/shuttledarkblue.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 0.25
+  - 0.25
+  - 0.25
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemShuttleSyndie
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorShuttleGreen
+  name: tiles-green-shuttle-floor
+  sprite: /Textures/_White/Tiles/shuttlegreen.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 0.25
+  - 0.25
+  - 0.25
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -388,4 +502,263 @@
   heatCapacity: 10000
   weather: true
 
+# Maint
+- type: tile
+  id: FloorTechMaintDark
+  name: tiles-techmaint-dark-floor
+  sprite: /Textures/_White/Tiles/tech_maint_dark.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemTechmaint
+  heatCapacity: 10000
 
+- type: tile
+  id: FloorTechMaintSteel
+  name: tiles-techmaint-steel-floor
+  sprite: /Textures/_White/Tiles/tech_maint_steel.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemTechmaint
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorTechMaintWhite
+  name: tiles-techmaint-white-floor
+  sprite: /Textures/_White/Tiles/tech_maint_white.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemTechmaint
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorMaintDark
+  name: tiles-maint-dark-floor
+  sprite: /Textures/_White/Tiles/maint_dark.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemSteelMaint
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorMaintSteel
+  name: tiles-maint-steel-floor
+  sprite: /Textures/_White/Tiles/maint_steel.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemSteelMaint
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorMaintWhite
+  name: tiles-maint-white-floor
+  sprite: /Textures/_White/Tiles/maint_white.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemSteelMaint
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorMetalDiamondDark
+  name: tiles-diamond-plate-dark_floor
+  sprite: /Textures/_White/Tiles/metaldiamond_dark.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemMetalDiamond
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorMetalDiamondSteel
+  name: tiles-diamond-plate-steel_floor
+  sprite: /Textures/_White/Tiles/metaldiamond_steel.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemMetalDiamond
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorMetalDiamondWhite
+  name: tiles-diamond-plate-white_floor
+  sprite: /Textures/_White/Tiles/metaldiamond_white.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemMetalDiamond
+  heatCapacity: 10000
+
+# Grass
+
+- type: tile
+  id: FloorAstroGrassAutumnRed
+  name: tiles-astro-grass-autumn-red-floor
+  sprite: /Textures/_White/Tiles/Planet/AutumnGrass/red.png
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/_White/Tiles/Planet/AutumnGrass/red_single_edge.png
+    NorthEast: /Textures/_White/Tiles/Planet/AutumnGrass/red_single_edge.png
+    NorthWest: /Textures/_White/Tiles/Planet/AutumnGrass/red_single_edge.png
+    SouthWest: /Textures/_White/Tiles/Planet/AutumnGrass/red_single_edge.png
+    South: /Textures/_White/Tiles/Planet/AutumnGrass/red_double_edge.png
+    East: /Textures/_White/Tiles/Planet/AutumnGrass/red_double_edge.png
+    North: /Textures/_White/Tiles/Planet/AutumnGrass/red_double_edge.png
+    West: /Textures/_White/Tiles/Planet/AutumnGrass/red_double_edge.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Cutting ]
+  footstepSounds:
+    collection: FootstepGrass
+  itemDrop: FloorTileItemAstroGrass
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorAstroGrassAutumnOrange
+  name: tiles-astro-grass-autumn-orange-floor
+  sprite: /Textures/_White/Tiles/Planet/AutumnGrass/orange.png
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/_White/Tiles/Planet/AutumnGrass/orange_single_edge.png
+    NorthEast: /Textures/_White/Tiles/Planet/AutumnGrass/orange_single_edge.png
+    NorthWest: /Textures/_White/Tiles/Planet/AutumnGrass/orange_single_edge.png
+    SouthWest: /Textures/_White/Tiles/Planet/AutumnGrass/orange_single_edge.png
+    South: /Textures/_White/Tiles/Planet/AutumnGrass/orange_double_edge.png
+    East: /Textures/_White/Tiles/Planet/AutumnGrass/orange_double_edge.png
+    North: /Textures/_White/Tiles/Planet/AutumnGrass/orange_double_edge.png
+    West: /Textures/_White/Tiles/Planet/AutumnGrass/orange_double_edge.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Cutting ]
+  footstepSounds:
+    collection: FootstepGrass
+  itemDrop: FloorTileItemAstroGrass
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorAstroGrassAutumnYellow
+  name: tiles-astro-grass-autumn-yellow-floor
+  sprite: /Textures/_White/Tiles/Planet/AutumnGrass/yellow.png
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_single_edge.png
+    NorthEast: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_single_edge.png
+    NorthWest: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_single_edge.png
+    SouthWest: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_single_edge.png
+    South: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_double_edge.png
+    East: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_double_edge.png
+    North: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_double_edge.png
+    West: /Textures/_White/Tiles/Planet/AutumnGrass/yellow_double_edge.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Cutting ]
+  footstepSounds:
+    collection: FootstepGrass
+  itemDrop: FloorTileItemAstroGrass
+  heatCapacity: 10000

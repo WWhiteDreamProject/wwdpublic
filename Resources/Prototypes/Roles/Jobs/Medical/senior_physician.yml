@@ -3,16 +3,19 @@
   name: job-name-senior-physician
   description: job-description-senior-physician
   playTimeTracker: JobSeniorPhysician
+  setPreference: false # WWDP disabled role, not mapped
   requirements:
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobChemist
-      min: 21600 #6 hrs
-    - !type:CharacterPlaytimeRequirement
-      tracker: JobMedicalDoctor
-      min: 21600 #6 hrs
-    - !type:CharacterDepartmentTimeRequirement
-      department: Medical
-      min: 216000 # 60 hrs
+    # WD EDIT START
+    # - !type:CharacterPlaytimeRequirement
+    #   tracker: JobChemist
+    #   min: 21600 #6 hrs
+    # - !type:CharacterPlaytimeRequirement
+    #   tracker: JobMedicalDoctor
+    #   min: 21600 #6 hrs
+    # - !type:CharacterDepartmentTimeRequirement
+    #   department: Medical
+    #   min: 216000 # 60 hrs
+    # WD EDIT END
     - !type:CharacterEmployerRequirement
       employers:
       - ZengHuPharmaceuticals
@@ -30,7 +33,7 @@
     components:
     - type: CPRTraining
     - type: SurgerySpeedModifier
-      speedModifier: 2.0
+      speedModifier: 3 # WWDP
 
 - type: startingGear
   id: SeniorPhysicianGear
@@ -39,12 +42,9 @@
   equipment:
     head: ClothingHeadHatBeretSeniorPhysician
     jumpsuit: ClothingUniformJumpsuitSeniorPhysician
-    back: ClothingBackpackMedicalFilled
+    back: ClothingBackpackMedical
     shoes: ClothingShoesColorBlack
     outerClothing: ClothingOuterCoatLabSeniorPhysician
     id: SeniorPhysicianPDA
     ears: ClothingHeadsetMedical
-    belt: ClothingBeltMedicalFilled
-  innerClothingSkirt: ClothingUniformJumpskirtSeniorPhysician
-  satchel: ClothingBackpackSatchelMedicalFilled
-  duffelbag: ClothingBackpackDuffelMedicalFilled
+    # belt: ClothingBeltMedicalFilled - WD EDIT

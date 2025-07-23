@@ -29,6 +29,7 @@
     - Flashed
     - RadiationProtection
     - Drowsiness
+    - Adrenaline
   - type: Buckle
   - type: StandingState
   - type: Tag
@@ -66,6 +67,9 @@
   - type: MobPrice
     price: 1000 # Living critters are valuable in space.
   - type: Perishable
+  - type: TemperatureProtection # WWDP
+    heatingCoefficient: 1
+    coolingCoefficient: 0.001
 
 - type: entity
   parent:
@@ -106,6 +110,7 @@
     - Flashed
     - RadiationProtection
     - Drowsiness
+    - Adrenaline
   - type: Bloodstream
     bloodMaxVolume: 150
   - type: MobPrice

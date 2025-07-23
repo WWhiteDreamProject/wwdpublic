@@ -43,7 +43,7 @@ public sealed partial class ClimbSystem : VirtualController
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
 
     private const string ClimbingFixtureName = "climb";
-    private const int ClimbingCollisionGroup = (int) (CollisionGroup.TableLayer | CollisionGroup.LowImpassable);
+    private const int ClimbingCollisionGroup = (int) CollisionGroup.MidImpassable; // WWDP same as lying down in StandingStateSystem
 
     private EntityQuery<FixturesComponent> _fixturesQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -192,7 +192,8 @@ public sealed partial class ClimbSystem : VirtualController
         EntityUid climbable,
         out DoAfterId? id,
         ClimbableComponent? comp = null,
-        ClimbingComponent? climbing = null)
+        ClimbingComponent? climbing = null,
+        bool skipDoAfter = false)
     {
         id = null;
 
@@ -219,6 +220,8 @@ public sealed partial class ClimbSystem : VirtualController
             return false;
 
         var climbDelay = comp.ClimbDelay;
+        if (skipDoAfter)
+            climbDelay = 0f;
         if (user == entityToMove && TryComp<ClimbDelayModifierComponent>(user, out var delayModifier))
             climbDelay *= delayModifier.ClimbDelayMultiplier;
 

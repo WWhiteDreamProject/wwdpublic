@@ -1,45 +1,49 @@
 <Document>
-  # Revolutionaries
+  # Революционеры
 
-  - Revolutionaries are antagonists that are sponsored by the Syndicate to take over the station.
+  - Революционеры — это те самые парни (и девчонки), что были тайно поддержаны Синдикатом, чтобы устроить [italic]маленький, но очень весёлый переворот[/italic].
 
-  ## Head Revolutionaries
-
-<Box>
-  <GuideEntityEmbed Entity="RevolutionaryManifesto" Caption="Revolutionary Manifesto"/>
-</Box>
-
-  [color=#5e9cff]Head Revolutionaries[/color] are chosen at the start of the shift and are tasked with taking over the station by killing, exiling or cuffing all of the Command staff. Head Revolutionaries will be given a [color=#a4885c]Revolutionary Manifesto[/color] to aid them.
-
-  ## Conversion
+  ## Главари Революции
 
   <Box>
-  <GuideEntityEmbed Entity="RevolutionaryManifesto" Caption="Revolutionary Manifesto"/>
-</Box>
+    <GuideEntityEmbed Entity="RevolutionaryManifesto" Caption="Манифест Революции"/>
+  </Box>
 
-  You can convert crew members by using a [color=#a4885c]Revolutionary Manifesto[/color] clicking someone with it.
+  [color=#5e9cff]Главари Революции[/color] выбираются в самом начале смены. Их цель проста и прямолинейна — свергнуть действующую власть и взять станцию под свой контроль. Для этого надо устранить (в любом удобном смысле) всё командование: убить, сослать в космос или просто запаковать в наручники, как посылку на Центком.
 
-<Box>
-  <GuideEntityEmbed Entity="MindShieldImplanter" Caption="MindShield Implanter"/>
-</Box>
+  В помощь каждому Главарю выдаётся [color=#a4885c]Революционный Манифест[/color] — священное писание революционного дела и удобная штука для вербовки.
 
-  Beware! A [color=#a4885c]MindShield Implant[/color] will prevent the implanted person from being converted into a revolutionary. Assume all of [color=#a4885c]Security[/color] and [color=#a4885c]Command[/color] are implanted already.
+  ## Как вербовать?
 
-  ## Revolutionary
+  <Box>
+    <GuideEntityEmbed Entity="RevolutionaryManifesto" Caption="Манифест Революции"/>
+  </Box>
 
-  A [color=#ff0000]Revolutionary[/color] is the result of being converted by a [color=#5e9cff]Head Revolutionary[/color]. Revolutionaries are underlings of the Head Revolutionaries and should follow orders given by them and prioritize their well-being over anything else, because if they die, you will lose.
-  Keep in mind that you can't convert others as a regular revolutionary, only your boss can do that.
+  Хочешь пополнить ряды борцов за свободу? Возьми [color=#a4885c]Манифест Революции[/color], подойди к гражданину и ткни им, как будто продаёшь подписку на космо-нетфликс. Если всё пройдёт гладко, у тебя будет новый товарищ по делу.
 
-  ## Objectives
+  <Box>
+    <GuideEntityEmbed Entity="MindShieldImplanter" Caption="Имплант Защиты Разума"/>
+  </Box>
 
-  You must eliminate, exile or arrest all of the following Command staff on station in no particular order.
-  - Captain
-  - Head of Personnel
-  - Chief Engineer
-  - Mystagogue
-  - Logistics Officer
-  - Head of Security
-  - Chief Medical Officer
+  НО! Если у цели в голове уже есть [color=#a4885c]имплант защиты разума[/color], манифест пойдёт лесом. Таких не завербуешь ни словом, ни делом. Запомни: [color=#a4885c]вся охрана и начальство[/color] скорее всего уже с промытыми мозгами.
 
-  Remember, your objective is to take over the station and not to destroy it so try to minimize damage where possible. Viva la revolución!
+  ## Революционер
+
+  [color=#ff0000]Революционеры[/color] — это завербованные сотрудники станции, теперь служащие делу революции. Они подчиняются [color=#5e9cff]Главарям[/color] и обязаны защищать их, как родную мамку, ведь если главари лягут — революция тоже ляжет. А сдохшая революция никому не нужна.
+
+  Обычные революционеры не могут завербовывать других. Ты — пехота, не забывай.
+
+  ## Цели
+
+  Твоя задача — устранить, сослать или арестовать всё командование. Вот их список:
+  - Капитан
+  - Глава Персонала
+  - Главный Инженер
+  - Мистагог
+  - Квартирмейстер
+  - Глава Службы Безопасности
+  - Главврач
+
+  Режь, бей, запихивай в шкафчики, связывай, выбрасывай в мусор — главное, чтобы они больше не руководили. Но помни: цель революции — [italic]захватить станцию[/italic], а не устроить из неё решето. Минимум разрушений, максимум смены власти. Viva la revolución!
+
 </Document>

@@ -4,14 +4,14 @@ meta:
 tilemap:
   0: Space
   14: FloorBar
-  17: FloorBlue
+  17: FloorSteelBlue
   32: FloorDark
   64: FloorLaundry
-  67: FloorMetalDiamond
+  67: FloorMetalDiamondSteel
   80: FloorReinforced
   88: FloorShuttlePurple
   94: FloorSteel
-  109: FloorTechMaint
+  109: FloorTechMaintSteel
   126: Lattice
   127: Plating
 entities:

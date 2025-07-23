@@ -4,7 +4,7 @@ meta:
 tilemap:
   0: Space
   89: FloorSteel
-  104: FloorTechMaint
+  104: FloorTechMaintSteel
   108: FloorWhite
   120: Lattice
   121: Plating
@@ -5130,7 +5130,7 @@ entities:
     - type: Transform
       pos: 3.5,7.5
       parent: 179
-- proto: SpawnMobMouse
+- proto: SpawnMobCorgiMouse
   entities:
   - uid: 1050
     components:

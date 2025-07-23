@@ -9,6 +9,9 @@ using Content.Shared.DeltaV.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared.Weapons.Ranged.Systems;
+using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._White.Guns;
 
 namespace Content.Server.DeltaV.Weapons.Ranged.Systems;
 
@@ -18,11 +21,13 @@ public sealed class EnergyGunSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedItemSystem _item = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly GunSystem _gun = default!; // WWDP EDIT
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<EnergyGunComponent, ComponentInit>(OnComponentInit); // WWDP EDIT
         SubscribeLocalEvent<EnergyGunComponent, ActivateInWorldEvent>(OnInteractHandEvent);
         SubscribeLocalEvent<EnergyGunComponent, GetVerbsEvent<Verb>>(OnGetVerb);
         SubscribeLocalEvent<EnergyGunComponent, ExaminedEvent>(OnExamined);
@@ -44,7 +49,22 @@ public sealed class EnergyGunSystem : EntitySystem
         if (!_prototypeManager.TryIndex<EntityPrototype>(component.CurrentFireMode.Prototype, out var proto))
             return;
 
-        args.PushMarkup(Loc.GetString("energygun-examine-fire-mode", ("mode", component.CurrentFireMode.Name != string.Empty ? component.CurrentFireMode.Name : proto.Name)));
+        // WWDP edit start - locale
+        var firemode = "battery-fire-mode-" + component.CurrentFireMode.Name;
+        var mode = Loc.GetString(firemode);
+
+        if (component.CurrentFireMode.Name == string.Empty)
+            mode = proto.Name;
+
+        var color = "crimson";
+        if (component.CurrentFireMode.Name == "disable")
+            color = "lightblue";
+
+        if (component.CurrentFireMode.Name == "ion")
+            color = "blue";
+
+        args.PushMarkup(Loc.GetString("energygun-examine-fire-mode", ("mode", mode), ("color", color)));
+        // WWDP edit end
     }
 
     private void OnGetVerb(EntityUid uid, EnergyGunComponent component, GetVerbsEvent<Verb> args)
@@ -81,6 +101,14 @@ public sealed class EnergyGunSystem : EntitySystem
             args.Verbs.Add(v);
         }
     }
+
+    // WWDP EDIT START
+    private void OnComponentInit(EntityUid uid, EnergyGunComponent component, ComponentInit args)
+    {
+        if(component.FireModes.Count > 0)
+            SetFireMode(uid, component, component.FireModes[0]);
+    }
+    // WWDP EDIT END
 
     private void OnInteractHandEvent(EntityUid uid, EnergyGunComponent component, ActivateInWorldEvent args)
     {
@@ -124,11 +152,25 @@ public sealed class EnergyGunSystem : EntitySystem
 
             projectileBatteryAmmoProvider.Prototype = fireMode.Prototype;
             projectileBatteryAmmoProvider.FireCost = fireMode.FireCost;
+            // WWDP EDIT START
+            if (TryComp<GunOverheatComponent>(uid, out var overheat))
+            {
+                overheat.HeatCost = fireMode.HeatCost;
+                Dirty(uid, overheat);
+            }
+            _gun.UpdateShots(uid, projectileBatteryAmmoProvider);
 
             if (user != null)
             {
-                _popupSystem.PopupEntity(Loc.GetString("gun-set-fire-mode", ("mode", component.CurrentFireMode.Name != string.Empty ? component.CurrentFireMode.Name : prototype.Name)), uid, user.Value);
+                var firemode = "battery-fire-mode-" + fireMode.Name;
+                var mode = Loc.GetString(firemode);
+
+                if (fireMode.Name == string.Empty)
+                    mode = prototype.Name;
+
+                _popupSystem.PopupEntity(Loc.GetString("gun-set-fire-mode", ("mode", mode)), uid, user.Value);
             }
+            // WWDP EDIT END
 
             if (component.CurrentFireMode.State == string.Empty)
                 return;

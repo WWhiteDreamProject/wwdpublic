@@ -23,6 +23,8 @@
     damage:
       types:
         Slash: 3.5
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg # WWDP fix
   - type: Item
     sprite: Objects/Materials/Shards/shard.rsi
     size: Tiny
@@ -71,7 +73,7 @@
       types:
       - Shard
     intersectRatio: 0.2
-  - type: ClothingRequiredStepTrigger
+  - type: PreventableStepTrigger
   - type: Slippery
     slipSound:
       path: /Audio/Effects/glass_step.ogg

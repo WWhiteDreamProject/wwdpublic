@@ -1,0 +1,71 @@
+<Document>
+  # КПБ (Интегральное Позитронное Конструкт)
+
+  <GuideEntityEmbed Entity="MobIPCDummy" Caption="КПБ"/>
+
+  КПБ — это разумный робот, считающийся [color=yellow]независимой личностью[/color].
+  [color=red]Они не подчиняются законам робототехники[/color] и не поддаются взлому через emag — в их системах просто нет предустановленных директив.
+  [color=red]КПБ — это кремниевая форма жизни, и обычные врачи не обладают навыками по их восстановлению.[/color]
+
+  <Box>
+    <GuideEntityEmbed Entity="PositronicBrain" Caption="Позитронный мозг"/>
+  </Box>
+
+  Как и борги, КПБ используют позитронный мозг в качестве вычислительного центра.
+  Однако, в отличие от них, КПБ невозможно собрать вручную:
+  *"Создать оболочку, которая тебе подчиняется, куда дешевле, чем ту, что ослушается тебя. Подмиг!"*
+
+  ## Подзарядка
+
+  <Box>
+    <GuideEntityEmbed Entity="APCBasic" Caption="Терминал АРС"/>
+    <GuideEntityEmbed Entity="BorgCharger" Caption="Зарядная станция"/>
+    <GuideEntityEmbed Entity="PowerCellMedium" Caption="Элемент питания"/>
+  </Box>
+
+  КПБ можно зарядить тремя способами:
+
+  ◦ [bold]АРС[/bold] — нажмите [color=yellow]Alt + ЛКМ[/color] по терминалу АРС несколько раз, пока батарея не будет полностью заряжена.
+  ◦ [bold]Зарядная станция боргов[/bold] — подходит для КПБ, но желательно использовать те, что за пределами научного отдела.
+  ◦ [bold]Замена аккумулятора[/bold] — в теле КПБ находится элемент питания. Откройте люк, извлеките старый и вставьте новый вручную.
+
+  ## Встроенная рация
+
+  <Box>
+    <GuideEntityEmbed Entity="EncryptionKeyScience" Caption="Шифровальный ключ"/>
+  </Box>
+
+  КПБ не используют внешние рации — у них встроенный радиомодуль.
+  Для подключения к нужным каналам нужен лишь [color=yellow]шифровальный ключ[/color], который можно вставить, как в обычный ПДА.
+  Чтобы извлечь ключ — кликните по КПБ [color=yellow]кусачками[/color].
+  Чтобы извлечь ключ из рации — используйте [color=yellow]отвёртку[/color].
+
+  ## Починка
+
+  <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="WelderIndustrialAdvanced" Caption="Сварка"/>
+    Сварка используется для восстановления [color=yellow]тупого урона[/color].
+  </Box>
+
+  <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="CableApcStack" Caption="Провода (любые)"/>
+    Провода нужны для починки [color=yellow]ожогов[/color].
+  </Box>
+
+  <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="SheetGlass" Caption="Стекло (любое)"/>
+    Листами стекла можно устранить [color=yellow]слепоту[/color].
+  </Box>
+
+  <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="N14MaterialCircuitry10" Caption="Схемотехника"/>
+    Схемотехника может использоваться для лечения [color=yellow]Ушибов[/color], [color=yellow]Ожогов[/color] и [color=yellow]Радиационного[/color] урона.
+  </Box>
+  <Box HorizontalAlignment="Stretch">
+    In the event an IPC dies, after being fully repaired, it should be restarted using the [color=yellow]"Restart"[/color] button (located by right-clicking).
+
+    После полной починки мёртвого КПБ, его необходимо [color=yellow]перезапустить[/color], кликнув ПКМ и выбрав пункт "Restart".
+
+    [color=red]НИКОГДА НЕ ЭЛЕКТРОШОКИРУЙТЕ мёртвого КПБ! Ни дефибриллятором, ни иным способом — батарея может выплеснуть мощный энергетический импульс![/color]
+  </Box>
+</Document>

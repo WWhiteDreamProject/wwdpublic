@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterRobeBrown
   name: brown robe
   description: This doesn't look creepy at all.
@@ -9,10 +9,11 @@
   - type: Clothing
     sprite: Nyanotrasen/Clothing/OuterClothing/Robes/brown.rsi
   - type: TemperatureProtection
-    coefficient: 0.2
+    heatingCoefficient: 0.5 # WD EDIT: 0.2 -> 0.5
+    coolingCoefficient: 0.5 # WD EDIT: 0.2 -> 0.5
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase # WWDP
   id: ClothingOuterRobeTechPriest
   name: automaturge robe
   description: Robots are basically bulls when you think about it, so best to wear red.
@@ -22,4 +23,5 @@
   - type: Clothing
     sprite: Nyanotrasen/Clothing/OuterClothing/Robes/techpriest.rsi
   - type: TemperatureProtection
-    coefficient: 0.2
+    heatingCoefficient: 0.5 # WD EDIT: 0.2 -> 0.5
+    coolingCoefficient: 0.5 # WD EDIT: 0.2 -> 0.5

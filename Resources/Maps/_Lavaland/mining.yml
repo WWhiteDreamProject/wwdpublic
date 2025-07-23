@@ -3,7 +3,7 @@ meta:
   postmapinit: false
 tilemap:
   0: Space
-  74: FloorMono
+  74: FloorTrueMonoTileSteel
   84: FloorReinforced
   89: FloorShuttleBlue
   98: FloorSteel

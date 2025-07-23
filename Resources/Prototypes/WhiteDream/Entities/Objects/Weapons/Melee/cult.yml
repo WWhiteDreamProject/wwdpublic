@@ -26,7 +26,7 @@
     slots:
     - back
   - type: DisarmMalus
-    malus: 0.5 # WWDP
+    malus: 0.5
   - type: CultItem
   - type: RuneDrawer
   - type: ActivatableUI
@@ -47,6 +47,7 @@
   description: A sword humming with unholy energy. It glows with a dim red light.
   components:
   - type: Sharp
+  - type: Execution #  WWDP
   - type: Sprite
     sprite: WhiteDream/BloodCult/Entities/Items/Weapons/cult_blade.rsi
     state: icon
@@ -75,7 +76,7 @@
     slots:
     - back
   - type: DisarmMalus
-    malus: 0.8 # WWDP
+    malus: 0.8
   - type: CultItem
   - type: PointLight
     color: Red
@@ -85,7 +86,7 @@
 - type: entity
   parent: BaseItem
   id: BloodSpear
-  name: blood halberd
+  name: blood spear
   description: A sickening spear composed entirely of crystallized blood.
   components:
   - type: Sprite
@@ -122,6 +123,7 @@
       path: /Audio/Weapons/bladeslice.ogg
     range: 2
     attackRate: 1.42
+  - type: ThrowingItemModifier
   - type: DamageOtherOnHit
     damage:
       types:
@@ -144,8 +146,8 @@
         Piercing: 10
   - type: UseDelay
   - type: DisarmMalus
-    malus: 0.4 # WWDP
-    wieldedBonus: 0.4 # WWDP
+    malus: 0.4
+    wieldedBonus: 0.4
   - type: CultItem
     knockdownDuration: 3
   - type: BloodSpear

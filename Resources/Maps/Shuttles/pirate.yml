@@ -7,12 +7,12 @@ tilemap:
   29: FloorDark
   34: FloorDarkMono
   57: FloorHullReinforced
-  64: FloorMetalDiamond
+  64: FloorMetalDiamondSteel
   77: FloorReinforced
   80: FloorShowroom
   89: FloorSteel
   96: FloorSteelDirty
-  104: FloorTechMaint
+  104: FloorTechMaintSteel
   118: FloorWood
   120: Lattice
   121: Plating

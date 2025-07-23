@@ -77,6 +77,16 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
         if (_selected is {} selected && !_cyborgs.ContainsKey(selected))
             _selected = null;
 
+        // WD edit - AiRemoteControl-Start
+        var isAiControllable = false;
+
+        if (_selected != null)
+        {
+            _cyborgs.TryGetValue(_selected, out var data);
+            isAiControllable = data.IsAiControllable;
+        }
+        // WD edit - AiRemoteControl-End
+
         var hasCyborgs = _cyborgs.Count > 0;
         NoCyborgs.Visible = !hasCyborgs;
         CyborgsContainer.Visible = hasCyborgs;
@@ -128,12 +138,12 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
         };
 
         var text = new FormattedMessage();
-        text.PushMarkup(Loc.GetString("robotics-console-model", ("name", model)));
-        text.AddMarkup(Loc.GetString("robotics-console-designation"));
+        text.AddMarkupOrThrow($"{Loc.GetString("robotics-console-model", ("name", model))}\n");
+        text.AddMarkupOrThrow(Loc.GetString("robotics-console-designation"));
         text.AddText($" {data.Name}\n"); // prevent players trolling by naming borg [color=red]satan[/color]
-        text.PushMarkup(Loc.GetString("robotics-console-battery", ("charge", (int) (data.Charge * 100f)), ("color", batteryColor)));
-        text.PushMarkup(Loc.GetString("robotics-console-brain", ("brain", data.HasBrain)));
-        text.AddMarkup(Loc.GetString("robotics-console-modules", ("count", data.ModuleCount)));
+        text.AddMarkupOrThrow($"{Loc.GetString("robotics-console-battery", ("charge", (int)(data.Charge * 100f)), ("color", batteryColor))}\n");
+        text.AddMarkupOrThrow($"{Loc.GetString("robotics-console-brain", ("brain", data.HasBrain))}\n");
+        text.AddMarkupOrThrow(Loc.GetString("robotics-console-modules", ("count", data.ModuleCount)));
         BorgInfo.SetMessage(text);
 
         // how the turntables

@@ -15,7 +15,7 @@ namespace Content.Client.Info
         public DevInfoBanner() {
             var buttons = new BoxContainer
             {
-                Orientation = LayoutOrientation.Horizontal
+                Orientation = LayoutOrientation.Horizontal,
             };
             AddChild(buttons);
 
@@ -25,12 +25,12 @@ namespace Content.Client.Info
             var bugReport = cfg.GetCVar(CCVars.InfoLinksBugReport);
             if (bugReport != "")
             {
-                var reportButton = new Button {Text = Loc.GetString("server-info-report-button")};
+                var reportButton = new Button {Text = Loc.GetString("server-info-report-button"), StyleClasses = { "NovaButton", }}; // WWDP EDIT
                 reportButton.OnPressed += args => uriOpener.OpenUri(bugReport);
                 buttons.AddChild(reportButton);
             }
 
-            var creditsButton = new Button {Text = Loc.GetString("server-info-credits-button")};
+            var creditsButton = new Button {Text = Loc.GetString("server-info-credits-button"), StyleClasses = { "NovaButton", }}; // WWDP EDIT
             creditsButton.OnPressed += args => new CreditsWindow().Open();
             buttons.AddChild(creditsButton);
         }

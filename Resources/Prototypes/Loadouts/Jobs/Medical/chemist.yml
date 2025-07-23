@@ -71,167 +71,174 @@
   items:
     - HandLabeler
 
-- type: loadout
-  id: LoadoutChemistPillCanisterKelotane
-  category: JobsMedicalChemist
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChemistEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - Chemist
-  items:
-    - PillCanisterKelotane
-
-- type: loadout
-  id: LoadoutChemistPillCanisterTricordrazine
-  category: JobsMedicalChemist
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChemistEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - Chemist
-  items:
-    - PillCanisterTricordrazine
-
-- type: loadout
-  id: LoadoutChemistPillCanisterHyronalin
-  category: JobsMedicalChemist
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChemistEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - Chemist
-  items:
-    - PillCanisterHyronalin
-
-- type: loadout
-  id: LoadoutChemistPillCanisterBicaridine
-  category: JobsMedicalChemist
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChemistEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - Chemist
-  items:
-    - PillCanisterBicaridine
-
-- type: loadout
-  id: LoadoutChemistPillCanisterDermaline
-  category: JobsMedicalChemist
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChemistEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - Chemist
-  items:
-    - PillCanisterDermaline
-
-- type: loadout
-  id: LoadoutChemistPillCanisterDylovene
-  category: JobsMedicalChemist
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChemistEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - Chemist
-  items:
-    - PillCanisterDylovene
-
-- type: loadout
-  id: LoadoutChemistPillCanisterDexalin
-  category: JobsMedicalChemist
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChemistEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - Chemist
-  items:
-    - PillCanisterDexalin
-
-- type: loadout
-  id: LoadoutChemistPillCanisterSpaceDrugs
-  category: JobsMedicalChemist
-  cost: 2
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChemistEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - Chemist
-  items:
-    - PillCanisterSpaceDrugs
+# WWDP EDIT START - make your own pills!
+#
+# - type: loadout
+#   id: LoadoutChemistPillCanisterKelotane
+#   category: JobsMedicalChemist
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChemistEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Chemist
+#   items:
+#     - PillCanisterKelotane
+#
+# - type: loadout
+#   id: LoadoutChemistPillCanisterTricordrazine
+#   category: JobsMedicalChemist
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChemistEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Chemist
+#   items:
+#     - PillCanisterTricordrazine
+#
+# - type: loadout
+#   id: LoadoutChemistPillCanisterHyronalin
+#   category: JobsMedicalChemist
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChemistEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Chemist
+#   items:
+#     - PillCanisterHyronalin
+#
+# - type: loadout
+#   id: LoadoutChemistPillCanisterBicaridine
+#   category: JobsMedicalChemist
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChemistEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Chemist
+#   items:
+#     - PillCanisterBicaridine
+#
+# - type: loadout
+#   id: LoadoutChemistPillCanisterDermaline
+#   category: JobsMedicalChemist
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChemistEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Chemist
+#   items:
+#     - PillCanisterDermaline
+#
+# - type: loadout
+#   id: LoadoutChemistPillCanisterDylovene
+#   category: JobsMedicalChemist
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChemistEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Chemist
+#   items:
+#     - PillCanisterDylovene
+#
+# - type: loadout
+#   id: LoadoutChemistPillCanisterDexalin
+#   category: JobsMedicalChemist
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChemistEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Chemist
+#   items:
+#     - PillCanisterDexalin
+#
+# - type: loadout
+#   id: LoadoutChemistPillCanisterSpaceDrugs
+#   category: JobsMedicalChemist
+#   cost: 2
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChemistEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Chemist
+#   items:
+#     - PillCanisterSpaceDrugs
+# WWDP edit end
 
 # Eyes
-- type: loadout
-  id: LoadoutMedicalEyesGlassesChemicalBudget
-  category: JobsMedicalChemist
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChemistEyes
-    - !type:CharacterJobRequirement
-      jobs:
-         - Chemist
-  items:
-    - ClothingEyesGlassesChemicalBudget
-
-- type: loadout
-  id: LoadoutMedicalEyesGlassesChemical
-  category: JobsMedicalChemist
-  cost: 2
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChemistEyes
-    - !type:CharacterJobRequirement
-      jobs:
-         - Chemist
-  items:
-    - ClothingEyesGlassesChemical
-
-- type: loadout
-  id: LoadoutMedicalEyesGlassesChemist
-  category: JobsMedicalChemist
-  cost: 1 # These provide caustic armor, oddly enough.
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChemistEyes
-    - !type:CharacterJobRequirement
-       jobs:
-         - Chemist
-  items:
-    - ClothingEyesGlassesChemist
+# WWDP edit start - moved to locker
+# - type: loadout
+#   id: LoadoutMedicalEyesGlassesChemicalBudget
+#   category: JobsMedicalChemist
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChemistEyes
+#     - !type:CharacterJobRequirement
+#       jobs:
+#          - Chemist
+#   items:
+#     - ClothingEyesGlassesChemicalBudget
+#
+# - type: loadout
+#   id: LoadoutMedicalEyesGlassesChemical
+#   category: JobsMedicalChemist
+#   cost: 2
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChemistEyes
+#     - !type:CharacterJobRequirement
+#       jobs:
+#          - Chemist
+#   items:
+#     - ClothingEyesGlassesChemical
+#
+# - type: loadout
+#   id: LoadoutMedicalEyesGlassesChemist
+#   category: JobsMedicalChemist
+#   cost: 1 # These provide caustic armor, oddly enough.
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChemistEyes
+#     - !type:CharacterJobRequirement
+#        jobs:
+#          - Chemist
+#   items:
+#     - ClothingEyesGlassesChemist
+# WWDP edit end
 
 # Gloves
-- type: loadout
-  id: LoadoutMedicalHandsGlovesChemist
-  category: JobsMedicalChemist
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutChemistGloves
-    - !type:CharacterJobRequirement
-       jobs:
-         - Chemist
-  items:
-    - ClothingHandsGlovesChemist
+
+# WWDP moved to locker
+# - type: loadout
+#   id: LoadoutMedicalHandsGlovesChemist
+#   category: JobsMedicalChemist
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutChemistGloves
+#     - !type:CharacterJobRequirement
+#        jobs:
+#          - Chemist
+#   items:
+#     - ClothingHandsGlovesChemist
 
 # Head
 

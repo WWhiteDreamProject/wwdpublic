@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._White.Move;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs.Components;
@@ -36,13 +37,14 @@ public abstract partial class SharedBuckleSystem
     private void InitializeBuckle()
     {
         SubscribeLocalEvent<BuckleComponent, ComponentShutdown>(OnBuckleComponentShutdown);
-        SubscribeLocalEvent<BuckleComponent, MoveEvent>(OnBuckleMove);
+        SubscribeLocalEvent<BuckleComponent, MoveEventProxy>(OnBuckleMove); // WD EDIT
         SubscribeLocalEvent<BuckleComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<BuckleComponent, EntGotInsertedIntoContainerMessage>(OnInserted);
 
         SubscribeLocalEvent<BuckleComponent, StartPullAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<BuckleComponent, BeingPulledAttemptEvent>(OnBeingPulledAttempt);
         SubscribeLocalEvent<BuckleComponent, PullStartedMessage>(OnPullStarted);
+        SubscribeLocalEvent<BuckleComponent, UnbuckleAlertEvent>(OnUnbuckleAlert);
 
         SubscribeLocalEvent<BuckleComponent, InsertIntoEntityStorageAttemptEvent>(OnBuckleInsertIntoEntityStorageAttempt);
 
@@ -79,6 +81,13 @@ public abstract partial class SharedBuckleSystem
         Unbuckle(ent!, args.PullerUid);
     }
 
+    private void OnUnbuckleAlert(Entity<BuckleComponent> ent, ref UnbuckleAlertEvent args)
+    {
+        if (args.Handled)
+            return;
+        args.Handled = TryUnbuckle(ent, ent, ent);
+    }
+
     #endregion
 
     #region Transform
@@ -93,7 +102,7 @@ public abstract partial class SharedBuckleSystem
         BuckleTransformCheck(ent, Transform(ent));
     }
 
-    private void OnBuckleMove(Entity<BuckleComponent> ent, ref MoveEvent ev)
+    private void OnBuckleMove(Entity<BuckleComponent> ent, ref MoveEventProxy ev) // WD EDIT
     {
         BuckleTransformCheck(ent, ev.Component);
     }
@@ -361,6 +370,7 @@ public abstract partial class SharedBuckleSystem
         SetBuckledTo(buckle, strap!);
         Appearance.SetData(strap, StrapVisuals.State, true);
         Appearance.SetData(buckle, BuckleVisuals.Buckled, true);
+
         _rotationVisuals.SetHorizontalAngle(buckle.Owner, strap.Comp.Rotation);
 
         var xform = Transform(buckle);

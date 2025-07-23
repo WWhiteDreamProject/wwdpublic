@@ -2,6 +2,12 @@
   id: Plating
   name: tiles-plating
   sprite: /Textures/Tiles/plating.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 0.05
+  - 0.05
+  - 0.05
   baseTurf: Lattice
   isSubfloor: true
   deconstructTools: [ AdvancedPrying ] #WWDP edit
@@ -83,6 +89,13 @@
   id: Lattice
   name: tiles-lattice
   sprite: /Textures/Tiles/lattice.png
+  variants: 5
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   baseTurf: Space
   isSubfloor: true
   deconstructTools: [ Cutting ]
@@ -98,6 +111,12 @@
   id: TrainLattice
   name: tiles-lattice-train
   sprite: /Textures/Tiles/latticeTrain.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   baseTurf: Space
   isSubfloor: true
   deconstructTools: [ Cutting ]

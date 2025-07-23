@@ -11,7 +11,7 @@ tilemap:
   34: FloorDarkMono
   36: FloorDarkPavement
   37: FloorDarkPavementVertical
-  64: FloorMetalDiamond
+  64: FloorMetalDiamondSteel
   89: FloorSteel
   121: Plating
 entities:

@@ -1,7 +1,7 @@
+using Content.Shared._White.Move;
 using Content.Shared.Buckle;
 using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
-using Content.Shared.Movement.Events;
 using Content.Shared.Standing;
 using Robust.Shared.Timing;
 
@@ -18,10 +18,10 @@ public abstract class SharedWaddleAnimationSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<WaddleAnimationComponent, MoveEvent>(OnMovementInput);
+        SubscribeLocalEvent<WaddleAnimationComponent, MoveEventProxy>(OnMovementInput);
     }
 
-    private void OnMovementInput(EntityUid uid, WaddleAnimationComponent component, MoveEvent args)
+    private void OnMovementInput(EntityUid uid, WaddleAnimationComponent component, MoveEventProxy args)
     {
         if (_standingState.IsDown(uid)
             || _gravity.IsWeightless(uid)

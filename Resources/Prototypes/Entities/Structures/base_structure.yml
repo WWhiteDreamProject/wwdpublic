@@ -29,7 +29,7 @@
     damage:
       types:
         Blunt: 8
-    staminaCost: 50
+    staminaCost: 20 # WWDP shoving cost
     soundHit:
       collection: MetalThud
   - type: Structure # WD EDIT. TODO: Kill me pls

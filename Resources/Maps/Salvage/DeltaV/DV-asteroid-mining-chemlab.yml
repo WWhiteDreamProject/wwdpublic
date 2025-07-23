@@ -12,7 +12,7 @@ tilemap:
   92: FloorSteelCheckerDark
   97: FloorSteelDirty
   101: FloorSteelMono
-  105: FloorTechMaint
+  105: FloorTechMaintSteel
   119: FloorWood
   122: Plating
 entities:

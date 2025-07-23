@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Made by Gersoon (discord gersoon458)",
+  "size": {
+    "x": 272,
+    "y": 304
+  },
+  "states": [
+    {
+      "name": "solar_wonder_1"
+    },
+    {
+      "name": "solar_wonder_2"
+    }
+  ]
+}

@@ -563,43 +563,45 @@
   id: Opporozidone
   minTemp: 400 #Maybe if a method of reducing reagent temp exists one day, this could be -50
   reactants:
-    Acetone:
-      amount: 1
-    Plasma:
+  #WWDP edit start
+    Necrosol:
       amount: 2
     Doxarubixadone:
-      amount: 1
+      amount: 2
   products:
-    Opporozidone: 3
+    Opporozidone: 2
+  #WWDP edit end
 
 - type: reaction
   id: Necrosol
   impact: Medium
   minTemp: 370
   reactants:
-    Blood:
-      amount: 3
-    Ammonia:
-      amount: 10
-    Doxarubixadone:
+  #WWDP edit start
+    Bicaridine:
       amount: 2
+    Iron:
+      amount: 1
     Cryoxadone:
-      amount: 2
+      amount: 1
   products:
-    Necrosol: 2
+    Necrosol: 4
+  #WWDP edit end
 
 - type: reaction
   id: Aloxadone
   impact: Medium
   reactants:
+    #WWDP edit start
     Cryoxadone:
       amount: 1
-    Aloe:
+    Dermaline:
       amount: 2
-    Sigynate:
-      amount: 2
+    Hydrogen:
+      amount: 1
   products:
-      Aloxadone: 4
+    Aloxadone: 4
+  #WWDP edit end
 
 - type: reaction
   id: Psicodine

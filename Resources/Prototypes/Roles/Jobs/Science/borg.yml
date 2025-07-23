@@ -9,9 +9,24 @@
   supervisors: job-supervisors-rd
   jobEntity: PositronicBrain # WD EDIT
   nameDataset: NamesAI
-  spawnLoadout: false
   applyTraits: false
+  spawnLoadout: false
   canHavePassport: false
+  requirements:
+  - !type:CharacterOverallTimeRequirement # WWDP
+    min: 7200
+  special: # WWDP random lawset
+  - !type:AddComponentSpecial
+    components:
+    - type: RandomizeStartingLawset
+      lawsets:
+      - Asimov
+      - Augustine
+      - Crewsimov
+      - Corporate
+      - NTDefault
+      - NTAgressive
+      - EfficiencyLawset
 
 - type: job
   id: Borg
@@ -22,4 +37,8 @@
   icon: JobIconBorg
   supervisors: job-supervisors-rd
   jobEntity: PlayerBorgBattery
+  applyTraits: false
   canHavePassport: false
+  requirements:
+  - !type:CharacterOverallTimeRequirement # WWDP
+    min: 3600

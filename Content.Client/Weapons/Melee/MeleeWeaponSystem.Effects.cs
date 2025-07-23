@@ -220,12 +220,12 @@ public sealed partial class MeleeWeaponSystem
     private void UpdateEffects()
     {
         var query = EntityQueryEnumerator<TrackUserComponent, TransformComponent>();
-        while (query.MoveNext(out var arcComponent, out var xform))
+        while (query.MoveNext(out var uid, out var arcComponent, out var xform))
         {
-            if (arcComponent.User == null)
+            if (arcComponent.User is not EntityUid user || TerminatingOrDeleted(user)) // wwdp edit
                 continue;
 
-            Vector2 targetPos = TransformSystem.GetWorldPosition(arcComponent.User.Value);
+            Vector2 targetPos = TransformSystem.GetWorldPosition(user); // WD EDIT
 
             if (arcComponent.Offset != Vector2.Zero)
             {
@@ -233,7 +233,7 @@ public sealed partial class MeleeWeaponSystem
                 targetPos += entRotation.RotateVec(arcComponent.Offset);
             }
 
-            TransformSystem.SetWorldPosition(xform, targetPos);
+            TransformSystem.SetWorldPosition(uid, targetPos);
         }
     }
 }

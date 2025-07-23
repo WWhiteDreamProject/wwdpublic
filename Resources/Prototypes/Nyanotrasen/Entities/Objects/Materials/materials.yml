@@ -10,3 +10,6 @@
   - type: Tag
     tags:
       - MothroachHide
+  - type: Construction # WWDP
+    graph: MothPlushie
+    node: mothroachhide

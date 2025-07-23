@@ -48,7 +48,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     protected override void Added(EntityUid uid, TraitorRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
-        MakeCodewords(component);
+        SetCodewords(component);
     }
 
     private void AfterEntitySelected(Entity<TraitorRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
@@ -56,17 +56,23 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         MakeTraitor(args.EntityUid, ent);
     }
 
-    private void MakeCodewords(TraitorRuleComponent component)
+    private void SetCodewords(TraitorRuleComponent component)
+    {
+        component.Codewords = GenerateTraitorCodewords(component);
+    }
+
+    public string[] GenerateTraitorCodewords(TraitorRuleComponent component)
     {
         var adjectives = _prototypeManager.Index(component.CodewordAdjectives).Values;
         var verbs = _prototypeManager.Index(component.CodewordVerbs).Values;
         var codewordPool = adjectives.Concat(verbs).ToList();
         var finalCodewordCount = Math.Min(component.CodewordCount, codewordPool.Count);
-        component.Codewords = new string[finalCodewordCount];
+        string[] codewords = new string[finalCodewordCount];
         for (var i = 0; i < finalCodewordCount; i++)
         {
-            component.Codewords[i] = _random.PickAndTake(codewordPool);
+            codewords[i] = _random.PickAndTake(codewordPool);
         }
+        return codewords;
     }
 
     public bool MakeTraitor(EntityUid traitor, TraitorRuleComponent component)
@@ -216,42 +222,14 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     }
 
     // WD EDIT START
-    public List<(EntityUid Id, MindComponent Mind)> GetAllLivingConnectedTraitors()
+    public List<Entity<MindComponent>> GetAllLivingConnectedTraitors()
     {
-        var traitors = new List<(EntityUid Id, MindComponent Mind)>();
+        var traitors = new List<Entity<MindComponent>>();
 
-        var traitorRules = EntityQuery<TraitorRuleComponent>();
-
-        foreach (var traitorRule in traitorRules)
+        var query = EntityQueryEnumerator<TraitorRuleComponent>();
+        while (query.MoveNext(out var uid, out _))
         {
-            traitors.AddRange(GetLivingConnectedTraitors(traitorRule));
-        }
-
-        return traitors;
-    }
-
-    private List<(EntityUid Id, MindComponent Mind)> GetLivingConnectedTraitors(TraitorRuleComponent traitorRule)
-    {
-        var traitors = new List<(EntityUid Id, MindComponent Mind)>();
-
-        foreach (var traitor in traitorRule.TraitorMinds)
-        {
-            if (!TryComp(traitor, out MindComponent? mind))
-                continue;
-
-            if (mind.OwnedEntity == null)
-                continue;
-
-            if (mind.Session == null)
-                continue;
-
-            if (!_mobStateSystem.IsAlive(mind.OwnedEntity.Value))
-                continue;
-
-            if (mind.CurrentEntity != mind.OwnedEntity)
-                continue;
-
-            traitors.Add((traitor, mind));
+            traitors.AddRange(_antag.GetAntagMinds(uid));
         }
 
         return traitors;

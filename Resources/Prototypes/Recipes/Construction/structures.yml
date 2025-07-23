@@ -11,7 +11,7 @@
     state: wall_girder
   objectType: Structure
   placementMode: SnapgridCenter
-  canRotate: false
+#  canRotate: false WD edit - comment out, because new secret door recipe
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
@@ -210,6 +210,42 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: false
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: shuttle wall
+  id: ShuttleWall
+  graph: Girder
+  startNode: start
+  targetNode: shuttleWall
+  category: construction-category-structures
+  description: Keeps the air in and the greytide out.
+  icon:
+    sprite: Structures/Walls/shuttle.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: diagonal shuttle wall
+  id: DiagonalShuttleWall
+  graph: Girder
+  startNode: start
+  targetNode: diagonalshuttleWall
+  category: construction-category-structures
+  description: Keeps the air in and the greytide out.
+  icon:
+    sprite: Structures/Walls/shuttle_diagonal.rsi
+    state: state0
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
@@ -489,6 +525,25 @@
   canRotate: false
 
 - type: construction
+  name: shuttle window
+  id: ShuttleWindow
+  graph: Window
+  startNode: start
+  targetNode: shuttleWindow
+  category: construction-category-structures
+  canBuildInImpassable: true
+  description: Extra sturdy to resist the pressure of FTL or sustain damage from munitions.
+  conditions:
+    - !type:EmptyOrWindowValidInTile
+    - !type:NoWindowsInTile
+  icon:
+    sprite: Structures/Windows/shuttle_window.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+
+- type: construction
   name: diagonal plasma window
   id: PlasmaWindowDiagonal
   graph: WindowDiagonal
@@ -737,6 +792,7 @@
     state: closed
   objectType: Structure
   placementMode: SnapgridCenter
+  canRotate: false
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
@@ -754,12 +810,13 @@
     state: closed
   objectType: Structure
   placementMode: SnapgridCenter
+  canRotate: false
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
 
 - type: construction
-  name: Thin firelock
+  name: thin firelock
   id: FirelockEdge
   graph: Firelock
   startNode: start
@@ -1573,7 +1630,7 @@
     state: closed
 
 - type: construction
-  name: plastic flaps
+  name: plastic flaps (clear) # WWDP
   id: PlasticFlapsClear
   graph: PlasticFlapsGraph
   startNode: start
@@ -1661,7 +1718,7 @@
 - type: construction
   name: solid secret door
   id: SolidSecretDoor
-  graph: SecretDoor
+  graph: Girder # WD edit - new secret door recipe
   startNode: start
   targetNode: solidSecretDoor
   category: construction-category-structures

@@ -403,6 +403,7 @@ namespace Content.Server.Database
         public string? StationAiName { get; set; }
         public string? CyborgName { get; set; }
         public string? ClownName { get; set; } // WD EDIT
+        public string? MimeName { get; set; } // WD EDIT
         public string Species { get; set; } = null!;
         public float Height { get; set; } = 1f;
         public float Width { get; set; } = 1f;
@@ -413,8 +414,6 @@ namespace Content.Server.Database
         public string FacialHairColor { get; set; } = null!;
         public string EyeColor { get; set; } = null!;
         public string SkinColor { get; set; } = null!;
-        public string Clothing { get; set; } = null!;
-        public string Backpack { get; set; } = null!;
         public int SpawnPriority { get; set; } = 0;
         public List<Job> Jobs { get; } = new();
         public List<Antag> Antags { get; } = new();

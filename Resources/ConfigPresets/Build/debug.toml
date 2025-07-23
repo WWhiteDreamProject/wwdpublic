@@ -5,5 +5,17 @@ enabled = false
 [shuttle]
 auto_call_time = 0
 
+[vote]
+map_autovote_enabled = false
+preset_autovote_enabled = false
+
 [lavaland]
 enabled = false
+
+# WD EDIT START
+[aspects]
+enabled = false
+
+[asteroid_field]
+enabled = false
+# WD EDIT END

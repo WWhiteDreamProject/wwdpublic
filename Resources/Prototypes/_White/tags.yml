@@ -33,3 +33,10 @@
 
 - type: Tag
   id: AiCoreBoard
+
+- type: Tag
+  id: RCDLight
+
+- type: Tag
+  id: SyringeGunAmmo
+

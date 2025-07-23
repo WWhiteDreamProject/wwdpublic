@@ -60,6 +60,9 @@
     tags:
     - Trash
     - FoodBowlBig
+  - type: Construction # WWDP
+    graph: OusianaDustBowl
+    node: bowl
 
 - type: entity
   name: broken bowl

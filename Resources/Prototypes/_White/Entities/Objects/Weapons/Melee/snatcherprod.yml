@@ -29,5 +29,5 @@
   - type: SnatchOnMeleeHit
   - type: Construction
     deconstructionTarget: cuffs
-    graph: StunprodGraph
+    graph: CuffsGraph
     node: snatcherprod

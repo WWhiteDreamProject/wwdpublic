@@ -1,3 +1,4 @@
+using Content.Shared._White.Guns;
 using Content.Shared.Examine;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -25,6 +26,21 @@ public abstract partial class SharedGunSystem
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, TakeAmmoEvent>(OnBatteryTakeAmmo);
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, GetAmmoCountEvent>(OnBatteryAmmoCount);
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, ExaminedEvent>(OnBatteryExamine);
+
+        // WWDP EDIT START
+        // Container, Projectile
+        SubscribeLocalEvent<ProjectileContainerBatteryAmmoProviderComponent, ComponentGetState>(OnBatteryGetState);
+        SubscribeLocalEvent<ProjectileContainerBatteryAmmoProviderComponent, ComponentHandleState>(OnBatteryHandleState);
+        SubscribeLocalEvent<ProjectileContainerBatteryAmmoProviderComponent, TakeAmmoEvent>(OnBatteryTakeAmmo);
+        SubscribeLocalEvent<ProjectileContainerBatteryAmmoProviderComponent, GetAmmoCountEvent>(OnBatteryAmmoCount);
+        //SubscribeLocalEvent<ProjectileContainerBatteryAmmoProviderComponent, ExaminedEvent>(OnBatteryExamine); // you'll have trouble examining something inside a container
+
+        // Container, Hitscan
+        SubscribeLocalEvent<HitscanContainerBatteryAmmoProviderComponent, ComponentGetState>(OnBatteryGetState);
+        SubscribeLocalEvent<HitscanContainerBatteryAmmoProviderComponent, ComponentHandleState>(OnBatteryHandleState);
+        SubscribeLocalEvent<HitscanContainerBatteryAmmoProviderComponent, TakeAmmoEvent>(OnBatteryTakeAmmo);
+        SubscribeLocalEvent<HitscanContainerBatteryAmmoProviderComponent, GetAmmoCountEvent>(OnBatteryAmmoCount);
+        // WWDP EDIT END
     }
 
     private void OnBatteryHandleState(EntityUid uid, BatteryAmmoProviderComponent component, ref ComponentHandleState args)
@@ -50,7 +66,7 @@ public abstract partial class SharedGunSystem
         };
 
         if (TryComp<HitscanBatteryAmmoProviderComponent>(uid, out var hitscan)) // Shitmed Change
-           state.Prototype = hitscan.Prototype;
+            state.Prototype = hitscan.Prototype;
 
         args.State = state; // Shitmed Change
     }
@@ -88,7 +104,7 @@ public abstract partial class SharedGunSystem
     /// <summary>
     /// Update the battery (server-only) whenever fired.
     /// </summary>
-    protected virtual void TakeCharge(EntityUid uid, BatteryAmmoProviderComponent component) {}
+    protected virtual void TakeCharge(EntityUid uid, BatteryAmmoProviderComponent component) { }
 
     protected void UpdateBatteryAppearance(EntityUid uid, BatteryAmmoProviderComponent component)
     {
@@ -108,6 +124,11 @@ public abstract partial class SharedGunSystem
                 var ent = Spawn(proj.Prototype, coordinates);
                 return (ent, EnsureShootable(ent));
             case HitscanBatteryAmmoProviderComponent hitscan:
+                return (null, ProtoManager.Index<HitscanPrototype>(hitscan.Prototype));
+            case ProjectileContainerBatteryAmmoProviderComponent proj:
+                var entc = Spawn(proj.Prototype, coordinates);
+                return (entc, EnsureShootable(entc));
+            case HitscanContainerBatteryAmmoProviderComponent hitscan:
                 return (null, ProtoManager.Index<HitscanPrototype>(hitscan.Prototype));
             default:
                 throw new ArgumentOutOfRangeException();

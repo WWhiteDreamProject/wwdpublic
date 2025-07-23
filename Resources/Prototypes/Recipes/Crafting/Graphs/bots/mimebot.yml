@@ -6,6 +6,11 @@
     edges:
     - to: bot
       steps:
+      - tag: ProximitySensor # WWDP moved sensor up
+        icon:
+          sprite: Objects/Misc/proximity_sensor.rsi
+          state: icon
+        name: proximity sensor
       - tag: MimeHappyHonk
         icon:
           sprite: Objects/Storage/Happyhonk/mime.rsi
@@ -13,15 +18,10 @@
         name: mime edition happy honk meal
       - tag: MimeBelt
         icon:
-            sprite: Clothing/Belt/suspenders.rsi
+            sprite: Clothing/Belt/suspenders_red.rsi
             state: icon
         name: suspenders
         doAfter: 2
-      - tag: ProximitySensor
-        icon:
-          sprite: Objects/Misc/proximity_sensor.rsi
-          state: icon
-        name: proximity sensor
       - tag: BorgHead
         icon:
           sprite: Objects/Specific/Robotics/cyborg_parts.rsi

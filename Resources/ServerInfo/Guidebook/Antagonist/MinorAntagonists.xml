@@ -1,60 +1,62 @@
 <Document>
-  # Minor Antagonists
+  # Младшие Антагонисты
 
-  Most if not all Minor Antagonists are ghost-controlled roles that gives dead people new ways to cause chaos around the station. They are spawned by random events.
+  Большинство младших антагонистов — это роли, управляемые призраками, которые позволяют мёртвым игрокам вернуться в игру и устроить на станции свежую порцию хаоса. Обычно они появляются благодаря случайным игровым событиям.
 
-  # Revenant
+  # Ревенант
 
   <Box>
     <GuideEntityEmbed Entity="MobRevenant" Caption=""/>
     <GuideEntityEmbed Entity="Ectoplasm" Caption=""/>
   </Box>
 
-  A Revenant is given powers to haunt the crew and steal life essence from them.
+  Ревенант — это призрачное существо, обладающее способностью вселять ужас в сердца экипажа и похищать их жизненную сущность.
 
-  ## Essence
+  ## Сущность
 
-  - Your [color=#a4885c]essence[/color] is your very own life force and a way to use abilities for a cost, don't let it drop to 0.
-  - To gain [color=#a4885c]essence[/color] you first inspect various souls for their worth. More worthy souls grant more essence.
-  However merely checking their worth isn't enough for collecting [color=#a4885c]essence[/color]. You must siphon it either when the victim is critical, dead, or sleeping.
-  - A good start is to go to medical or dorms but be wary, you are vulnerable to attacks when you siphon a soul. Taking damage reduces your [color=#a4885c]essence[/color]! So plan your attacks wisely.
+  - [color=#a4885c]Сущность[/color] — это твоя собственная жизненная сила, расходуемая на применение способностей. Если её запасы опустятся до нуля — ты исчезнешь.
+  - Чтобы пополнить [color=#a4885c]сущность[/color], ты должен сначала изучить души обитателей станции. Чем выше их "ценность", тем больше ты получишь.
+  Однако одной оценки недостаточно — [color=#a4885c]сущность[/color] можно высосать только из спящего, мёртвого или находящегося при смерти тела.
+  - Лучшее место для начала — медотсек или общежития. Но будь осторожен: во время высасывания ты уязвим. Любой удар отнимает часть твоей [color=#a4885c]сущности[/color]! Планируй свои действия с умом.
 
-  ## Shop And Powers
+  ## Магазин и Силы
 
-  - Using [color=#a4885c]stolen essence[/color] gotten from siphoning souls, you can gain skills for mischief such as environmental destruction, electrical disruption, and electrocution through the shop.
-  - Using powers leave you vulnerable to attacks for some time, plan ahead and prepare before attacking.
+  - За [color=#a4885c]украденную сущность[/color] ты можешь покупать жуткие способности: разрушать окружение, вызывать скачки напряжения и даже бить током.
+  - Использование сил делает тебя временно уязвимым. Всегда готовь почву заранее и не атакуй без подготовки.
 
-  # Rat King
-
-  <Box>
-    <GuideEntityEmbed Entity="MobRatKing" Scale="2.4" Caption="Normal Rat King"/>
-    <GuideEntityEmbed Entity="MobRatKingBuff" Caption="Buff Rat King"/>
-  </Box>
-
-  A Rat King is a giant rat capable of setting a nest and creating rats to do their bidding (usually to get food).
-
-  ## Abilities
-
-  Abilities come at a cost to the Rat King's hunger. Simply eating replenishes it.
+  # Крысиный Король
 
   <Box>
-   <GuideEntityEmbed Entity="MobMouse" Caption="Normal Mouse"/>
-   <GuideEntityEmbed Entity="MobRatServant" Caption="Rat Servant"/>
+    <GuideEntityEmbed Entity="MobRatKing" Scale="2.4" Caption="Крысиный Король"/>
   </Box>
-  - Raise an Army of [color=#a4885c]Rat Servants[/color].
-  - Conjure a cloud of ammonia.
 
-  # Space Dragon
+  Крысиный король - гигантская крыса, способная съедать огромное количество пищи, прятаться под дверями и столами, и порождать армию крыс, чтобы защищать себя .
+
+  ## Способности
+
+  Способности расходуют запас голода Короля. Чтобы восполнить его — просто ешь.
+
+  <Box>
+    <GuideEntityEmbed Entity="MobMouse" Caption="Обычная мышь"/>
+    <GuideEntityEmbed Entity="MobRatServant" Caption="Крысиный слуга"/>
+  </Box>
+
+  - Призывай армию [color=#a4885c]крысиных слуг[/color]. Ты можете приказать [color=#a4885c]крысиным слугам[/color] оставаться на месте, следовать за вами, атаковать цель по вашему выбору или атаковать без разбора.
+  - Испускай облако [color=#77b58e]аммиака[/color]. Обрати внимание, что [color=#77b58e]аммиак[/color] слегка ядовит для других, но лечит крыс.
+
+  # Космический Дракон
 
   <Box>
     <GuideEntityEmbed Entity="MobDragon" Caption=""/>
   </Box>
 
-  A Space Dragon is a giant dragon that creates space carp rifts and eats the crew.
+  Космический дракон - гигантский внепространственный дракон, порождающий разломы в пространстве, и пожирающий членов экипажа.
 
-  ## Abilities
+  ## Способности
 
-  - Devour critical or dead victims.
+  - Поглощает критически раненных или мёртвых жертв, чтобы немного подлечиться, или пожирайте объекты инфраструктуры, такие как двери, окна и стены.
+
+  - Выдыхайте мощную пылающую сферу, которая будет периодически взрываться по прямой траектории полета и взрываться при попадании во что-либо, поджигая предметы на своем пути. Будьте осторожны, ваши карпы не застрахованы от дыхания дракона!
 
   <Box>
     <GuideEntityEmbed Entity="MobCarp" Caption=""/>
@@ -62,6 +64,15 @@
     <GuideEntityEmbed Entity="MobCarp" Caption=""/>
   </Box>
 
-  - Summon a Carp Rift that periodically spawns [color=#a4885c]Space Carp[/color].
+  - Призывает разлом, из которого периодически появляются [color=#a4885c]Космические карпы[/color].
+
+  ## Карповые Разломы
+
+  - Космические Драконы могут иметь до трех активных Карповых Разломов одновременно.
+  - Карповые Разломы порождают [color=#a4885c]Космического Карпа[/color] каждые тридцать секунд, пока активны.
+  - Разломы накапливают внепространственную энергию в течение пяти минут и уязвимы в это время. Защищайте их! Космический дракон испытает временный изнуряющий эффект обратной связи в случае, если его разломы будут уничтожены до завершения накопления энергии.
+  - Вы можете заряжать только один разлом одновременно.
+  - После завершения накопления энергии разломы становятся неуязвимыми и будут продолжать порождать [color=#a4885c]Космического Карпа[/color] до тех пор, пока жив Дракон.
+  - Если прошло пять минут с момента появления Космического Дракона или последнего раза, когда заряжался Карповый Разлом, и если Космический Дракон еще не контролирует максимум в три Карповых Разлома, Космический Дракон исчезнет.
 
 </Document>

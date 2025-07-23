@@ -83,6 +83,17 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Breakage"]
+    # WWDP EDIT START
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    # WWDP EDIT END
   - type: Explosive
     explosionType: Default
     maxIntensity: 10
@@ -105,6 +116,7 @@
   - type: GuideHelp
     guides:
     - Chef
+    - FoodRecipes
 
 - type: entity
   id: SyndicateMicrowave

@@ -16,6 +16,15 @@ public sealed partial class KnockedDownComponent : Component
     [DataField]
     public DropHeldItemsBehavior DropHeldItemsBehavior = DropHeldItemsBehavior.AlwaysDrop;
 
+    [DataField]
+    public bool FollowUp = false;
+
     [ViewVariables, AutoNetworkedField]
     public float HelpTimer = 0f;
+
+    /// <summary>
+    /// WWDP - friction modifier for being unconscious, slipped etc.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float FrictionMultiplier = 1f;
 }

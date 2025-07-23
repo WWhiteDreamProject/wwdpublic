@@ -1,7 +1,5 @@
 using System.Numerics;
-using Content.Client.Chat.Managers;
-using Content.Client.UserInterface.Systems.Chat;
-using Content.Shared._White;
+using Content.Shared._White.CCVar;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Speech;
@@ -155,13 +153,13 @@ namespace Content.Client.Chat.UI
             }
 
             var baseOffset = 0f;
-			
+
 			// WWDP EDIT START
             var spriteOffset = Vector2.Zero;
             if (_entityManager.TryGetComponent<SpriteComponent>(_senderEntity, out var spriteComponent))
                 spriteOffset = spriteComponent.Offset;
 			// WWDP EDIT END
-			
+
             if (_entityManager.TryGetComponent<SpeechComponent>(_senderEntity, out var speech))
                 baseOffset = speech.SpeechBubbleOffset;
 
@@ -210,12 +208,12 @@ namespace Content.Client.Chat.UI
                 msg.PushColor(fontColor.Value);
             if (fontId != null) // WWDP EDIT START
             {
-                msg.AddMarkup($"[font=\"{fontId}\"]");
-                msg.AddMarkup(message);
-                msg.AddMarkup($"[/font]");
+                msg.AddMarkupOrThrow($"[font=\"{fontId}\"]");
+                msg.AddMarkupOrThrow(message);
+                msg.AddMarkupOrThrow($"[/font]");
             }
             else
-                msg.AddMarkup(message); // WWDP EDIT END
+                msg.AddMarkupOrThrow(message); // WWDP EDIT END
             return msg;
         }
 
@@ -292,7 +290,7 @@ namespace Content.Client.Chat.UI
                 Margin = new Thickness(2, 6, 2, 2),
                 StyleClasses = { "bubbleContent" }
             };
-            
+
             //We'll be honest. *Yes* this is hacky. Doing this in a cleaner way would require a bottom-up refactor of how saycode handles sending chat messages. -Myr
             bubbleHeader.SetMessage(FormatSpeech(SharedChatSystem.GetStringInsideTag(message, "BubbleHeader"), fontColor, "Bedstead")); // WWDP EDIT // LESS USELESS ONE LINER FUNCS PLS
             bubbleContent.SetMessage(FormatSpeech(SharedChatSystem.GetStringInsideTag(message, "BubbleContent"), fontColor, "Bedstead")); // WWDP EDIT

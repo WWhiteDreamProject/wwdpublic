@@ -1,28 +1,28 @@
 <Document>
-# Bartender
-The bartender has a pretty simple job: serve drinks. People will come up to you and request drinks, and your job is just to hand it to them.
+  # Бармен
 
-<Box>
-The materials for these drinks can be found in various places:
-</Box>
-<Box>
-<GuideEntityEmbed Entity="BoozeDispenser"/>
-<GuideEntityEmbed Entity="SodaDispenser"/>
-<GuideEntityEmbed Entity="VendingMachineBooze"/>
-</Box>
+  У бармена задача простая: наливай и радуй. К тебе будут подходить всякие — от уставших инженеров до пьяных капитанов — и просить выпить. Твоя работа? Налить. Красиво, точно и с настроением.
 
-<Box>
-Don't forget containers to serve them in!
-</Box>
-<Box>
-<GuideEntityEmbed Entity="DrinkGlass" Caption="Glass"/>
-<GuideEntityEmbed Entity="DrinkGlassCoupeShaped"/>
-<GuideEntityEmbed Entity="DrinkShaker"/>
-<GuideEntityEmbed Entity="DrinkJigger"/>
-</Box>
+  [textlink="Нажмите сюда, чтобы увидеть полный список напитков." link="Drinks"]
 
-## Drinks
-Knowing how to make a requested drink is important. Here are the different drinks in the game, including their recipes:
+  <Box>
+    Ингредиенты для коктейлей можно найти тут:
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="BoozeDispenser"/>
+    <GuideEntityEmbed Entity="SodaDispenser"/>
+    <GuideEntityEmbed Entity="VendingMachineBooze"/>
+  </Box>
 
-<GuideReagentGroupEmbed Group="Drinks"/>
+  <Box>
+    Не забудь про посуду — пить из рук не комильфо.
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="DrinkGlass" Caption="Бокал"/>
+    <GuideEntityEmbed Entity="DrinkGlassCoupeShaped" Caption="Коктейльная рюмка"/>
+    <GuideEntityEmbed Entity="DrinkShaker" Caption="Шейкер"/>
+    <GuideEntityEmbed Entity="DrinkJigger" Caption="Джиггер"/>
+  </Box>
+
+  Вы можете найти список всех напитков, которые можно заказать, в разделе "Справочные Таблицы".
 </Document>
