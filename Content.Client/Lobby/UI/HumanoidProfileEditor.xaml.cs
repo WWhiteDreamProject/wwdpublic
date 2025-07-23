@@ -1353,9 +1353,6 @@ namespace Content.Client.Lobby.UI
             Profile = Profile?.WithClownName(clownName);
             IsDirty = true;
         }
-        // WD EDIT END
-
-        // WD EDIT START
         private void SetMimeName(string? mimeName)
         {
             Profile = Profile?.WithMimeName(mimeName);
@@ -1715,9 +1712,6 @@ namespace Content.Client.Lobby.UI
             var randomName = _random.Pick(clownNames.Values);
             ClownNameEdit.PlaceHolder = Loc.GetString(randomName);
         }
-        // WD EDIT END
-
-        // WD EDIT START
         private void UpdateMimeControls()
         {
             if (Profile == null)
