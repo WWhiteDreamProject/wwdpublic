@@ -7,6 +7,7 @@ using Content.Shared.Weapons.Ranged.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Random;
 
 namespace Content.Server.NPC.Systems;
 
@@ -203,7 +204,8 @@ public sealed partial class NPCCombatSystem
                 return;
             }
 
-            _gun.SetTarget(gun, comp.Target); // WWDP set target to hit prone enemies
+            gun.Target = comp.AlwaysDirectTargets || _random.Prob(comp.DirectTargetChance) ? comp.Target : null;
+
             _gun.AttemptShoot(uid, gunUid, gun, targetCordinates);
         }
     }

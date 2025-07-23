@@ -34,15 +34,14 @@ using Robust.Shared.Timing;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
 using System.Linq;
-using System.Numerics;
 using Content.Server.Silicons.Laws;
-using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
 using Robust.Server.Player;
 using Robust.Shared.Physics.Components;
 using static Content.Shared.Configurable.ConfigurationComponent;
-using Content.Shared._Impstation.Thaven.Components; // DeltaV
-using Content.Server._Impstation.Thaven; // DeltaV
+using Content.Shared._Impstation.Thaven.Components;
+using Content.Server._Impstation.Thaven;
+using Content.Shared.Mobs;
 
 namespace Content.Server.Administration.Systems
 {
@@ -65,7 +64,6 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly ArtifactSystem _artifactSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly PrayerSystem _prayerSystem = default!;
-        [Dependency] private readonly EuiManager _eui = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
         [Dependency] private readonly ToolshedManager _toolshed = default!;
         [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
@@ -76,7 +74,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly AdminFrozenSystem _freeze = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly SiliconLawSystem _siliconLawSystem = default!;
-	    [Dependency] private readonly ThavenMoodsSystem _moods = default!; // DeltaV
+        [Dependency] private readonly ThavenMoodsSystem _moods = default!; // DeltaV
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
 
@@ -140,87 +138,6 @@ namespace Content.Server.Administration.Systems
                     prayerVerb.Impact = LogImpact.Low;
                     args.Verbs.Add(prayerVerb);
 
-                    // Freeze
-                    var frozen = TryComp<AdminFrozenComponent>(args.Target, out var frozenComp);
-                    var frozenAndMuted = frozenComp?.Muted ?? false;
-
-                    if (!frozen)
-                    {
-                        args.Verbs.Add(new Verb
-                        {
-                            Priority = -1, // This is just so it doesn't change position in the menu between freeze/unfreeze.
-                            Text = Loc.GetString("admin-verbs-freeze"),
-                            Category = VerbCategory.Admin,
-                            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/snow.svg.192dpi.png")),
-                            Act = () =>
-                            {
-                                EnsureComp<AdminFrozenComponent>(args.Target);
-                            },
-                            Impact = LogImpact.Medium,
-                        });
-                    }
-
-                    if (!frozenAndMuted)
-                    {
-                        // allow you to additionally mute someone when they are already frozen
-                        args.Verbs.Add(new Verb
-                        {
-                            Priority = -1, // This is just so it doesn't change position in the menu between freeze/unfreeze.
-                            Text = Loc.GetString("admin-verbs-freeze-and-mute"),
-                            Category = VerbCategory.Admin,
-                            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/snow.svg.192dpi.png")),
-                            Act = () =>
-                            {
-                                _freeze.FreezeAndMute(args.Target);
-                            },
-                            Impact = LogImpact.Medium,
-                        });
-                    }
-
-                    if (frozen)
-                    {
-                        args.Verbs.Add(new Verb
-                        {
-                            Priority = -1, // This is just so it doesn't change position in the menu between freeze/unfreeze.
-                            Text = Loc.GetString("admin-verbs-unfreeze"),
-                            Category = VerbCategory.Admin,
-                            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/snow.svg.192dpi.png")),
-                            Act = () =>
-                            {
-                                RemComp<AdminFrozenComponent>(args.Target);
-                            },
-                            Impact = LogImpact.Medium,
-                        });
-                    }
-
-                    // Erase
-                    args.Verbs.Add(new Verb
-                    {
-                        Text = Loc.GetString("admin-verbs-erase"),
-                        Message = Loc.GetString("admin-verbs-erase-description"),
-                        Category = VerbCategory.Admin,
-                        Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/delete_transparent.svg.192dpi.png")),
-                        Act = () =>
-                        {
-                            _adminSystem.Erase(targetActor.PlayerSession);
-                        },
-                        Impact = LogImpact.Extreme,
-                        ConfirmationPopup = true
-                    });
-
-                // Respawn
-                    args.Verbs.Add(new Verb()
-                    {
-                        Text = Loc.GetString("admin-player-actions-respawn"),
-                        Category = VerbCategory.Admin,
-                        Act = () =>
-                        {
-                            _console.ExecuteCommand(player, $"respawn {targetActor.PlayerSession.Name}");
-                        },
-                        ConfirmationPopup = true,
-                        // No logimpact as the command does it internally.
-                    });
-
                     // Spawn - Like respawn but on the spot.
                     args.Verbs.Add(new Verb()
                     {
@@ -242,7 +159,7 @@ namespace Content.Server.Administration.Systems
 
                             if (targetMind != null) // AGHOSTS DON'T HAVE A FUCKING MINDDDDD
                             {
-                                _mindSystem.TransferTo(targetMind.Value, mobUid);
+                                _mindSystem.TransferTo(targetMind.Value, mobUid, true);
                             }
                         },
                         ConfirmationPopup = true,
@@ -281,6 +198,92 @@ namespace Content.Server.Administration.Systems
                     });
                 }
 
+                if (_mindSystem.TryGetMind(args.Target, out _, out var mind) && mind.UserId != null)
+                {
+                    // Erase
+                    args.Verbs.Add(new Verb
+                    {
+                        Text = Loc.GetString("admin-verbs-erase"),
+                        Message = Loc.GetString("admin-verbs-erase-description"),
+                        Category = VerbCategory.Admin,
+                        Icon = new SpriteSpecifier.Texture(
+                            new("/Textures/Interface/VerbIcons/delete_transparent.svg.192dpi.png")),
+                        Act = () =>
+                        {
+                            _adminSystem.Erase(mind.UserId.Value);
+                        },
+                        Impact = LogImpact.Extreme,
+                        ConfirmationPopup = true
+                    });
+
+                    // Respawn
+                    args.Verbs.Add(new Verb
+                    {
+                        Text = Loc.GetString("admin-player-actions-respawn"),
+                        Category = VerbCategory.Admin,
+                        Act = () =>
+                        {
+                            _console.ExecuteCommand(player, $"respawn \"{mind.UserId}\"");
+                        },
+                        ConfirmationPopup = true,
+                        // No logimpact as the command does it internally.
+                    });
+                }
+
+                // Freeze
+                var frozen = TryComp<AdminFrozenComponent>(args.Target, out var frozenComp);
+                var frozenAndMuted = frozenComp?.Muted ?? false;
+
+                if (!frozen)
+                {
+                    args.Verbs.Add(new Verb
+                    {
+                        Priority = -1, // This is just so it doesn't change position in the menu between freeze/unfreeze.
+                        Text = Loc.GetString("admin-verbs-freeze"),
+                        Category = VerbCategory.Admin,
+                        Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/snow.svg.192dpi.png")),
+                        Act = () =>
+                        {
+                            EnsureComp<AdminFrozenComponent>(args.Target);
+                        },
+                        Impact = LogImpact.Medium,
+                    });
+                }
+
+                if (!frozenAndMuted)
+                {
+                    // allow you to additionally mute someone when they are already frozen
+                    args.Verbs.Add(new Verb
+                    {
+                        Priority = -1, // This is just so it doesn't change position in the menu between freeze/unfreeze.
+                        Text = Loc.GetString("admin-verbs-freeze-and-mute"),
+                        Category = VerbCategory.Admin,
+                        Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/snow.svg.192dpi.png")),
+                        Act = () =>
+                        {
+                            _freeze.FreezeAndMute(args.Target);
+                        },
+                        Impact = LogImpact.Medium,
+                    });
+                }
+
+                if (frozen)
+                {
+                    args.Verbs.Add(new Verb
+                    {
+                        Priority = -1, // This is just so it doesn't change position in the menu between freeze/unfreeze.
+                        Text = Loc.GetString("admin-verbs-unfreeze"),
+                        Category = VerbCategory.Admin,
+                        Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/snow.svg.192dpi.png")),
+                        Act = () =>
+                        {
+                            RemComp<AdminFrozenComponent>(args.Target);
+                        },
+                        Impact = LogImpact.Medium,
+                    });
+                }
+
+
                 // Admin Logs
                 if (_adminManager.HasAdminFlag(player, AdminFlags.Logs))
                 {
@@ -292,7 +295,7 @@ namespace Content.Server.Administration.Systems
                         Act = () =>
                         {
                             var ui = new AdminLogsEui();
-                            _eui.OpenEui(ui, player);
+                            _euiManager.OpenEui(ui, player);
                             ui.SetLogFilter(search:args.Target.Id.ToString());
                         },
                         Impact = LogImpact.Low
@@ -367,7 +370,7 @@ namespace Content.Server.Administration.Systems
                 }
 
                 // Begin DeltaV Additions - thaven moods
-                if (TryComp<ThavenMoodsComponent>(args.Target, out var moods)) 
+                if (TryComp<ThavenMoodsComponent>(args.Target, out var moods))
                 {
                     args.Verbs.Add(new Verb()
                     {
@@ -382,7 +385,7 @@ namespace Content.Server.Administration.Systems
                             _euiManager.OpenEui(ui, session);
                             ui.UpdateMoods(moods, args.Target);
                         },
-                        Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"), 
+                        Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"),
                     });
                 }
             }
@@ -419,7 +422,12 @@ namespace Content.Server.Administration.Systems
                     Text = Loc.GetString("rejuvenate-verb-get-data-text"),
                     Category = VerbCategory.Debug,
                     Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png")),
-                    Act = () => _rejuvenate.PerformRejuvenate(args.Target),
+                    Act = () =>
+                    {
+                        _rejuvenate.PerformRejuvenate(args.Target);
+                        _standing.Stand(args.Target); // WWDP
+                        _appearance.SetData(args.Target, MobStateVisuals.State, MobState.Alive); // WWDP
+                    },
                     Impact = LogImpact.Medium
                 };
                 args.Verbs.Add(verb);

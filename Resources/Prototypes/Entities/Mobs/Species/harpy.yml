@@ -106,29 +106,6 @@
     baseSprintSpeed: 5.5
     weightlessAcceleration: 2.5
     weightlessModifier: 1.12
-  - type: Inventory
-    speciesId: harpy
-    templateId: digitigrade
-    displacements:
-      jumpsuit:
-    # WD EDIT START
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Harpy/displacement.rsi
-            state: jumpsuit
-            copyToShaderParameters:
-              # Value required, provide a dummy. Gets overridden when applied.
-              layerKey: dummy
-              parameterTexture: displacementMap
-              parameterUV: displacementUV
-    femaleDisplacements:
-      jumpsuit-body-slim:
-        sizeMaps:
-          32:
-            sprite: _White/Mobs/Species/Harpy/displacement.rsi
-            state: jumpsuit-slim
-    # WD EDIT END
-
   - type: HarpyVisuals
   - type: UltraVision
   - type: Tag
@@ -144,7 +121,7 @@
     understands:
     - TauCetiBasic
     - ValyrianStandard
-  - type: StepTriggerImmune
+  - type: ProtectedFromStepTriggers
     whitelist:
       types:
       - Shard
@@ -154,6 +131,28 @@
     leftBarePrint: "footprint-left-bare-lizard"
     rightBarePrint: "footprint-right-bare-lizard" # I was about to complain about this, then I remembered birbs have dinosaur feet. So this is valid.
   - type: CanMoveInAir
+  - type: Inventory
+    speciesId: harpy
+    templateId: digitigrade
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+            copyToShaderParameters:
+              # Value required, provide a dummy. Gets overridden when applied.
+              layerKey: dummy
+              parameterTexture: displacementMap
+              parameterUV: displacementUV
+    # WD EDIT START
+    femaleDisplacements:
+      jumpsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit-slim
+    # WD EDIT END
 
 - type: entity
   save: false
@@ -165,28 +164,6 @@
   components:
   - type: HumanoidAppearance
     species: Harpy
-  - type: Inventory
-    speciesId: harpy
-    templateId: digitigrade
-    displacements:
-      jumpsuit:
-    # WD EDIT START
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Harpy/displacement.rsi
-            state: jumpsuit
-            copyToShaderParameters:
-              # Value required, provide a dummy. Gets overridden when applied.
-              layerKey: dummy
-              parameterTexture: displacementMap
-              parameterUV: displacementUV
-    femaleDisplacements:
-      jumpsuit-body-slim:
-        sizeMaps:
-          32:
-            sprite: _White/Mobs/Species/Harpy/displacement.rsi
-            state: jumpsuit-slim
-  # WD EDIT END
   - type: Sprite
     scale: 0.9, 0.9
     layers:
@@ -234,6 +211,28 @@
       - map: [ "singingLayer" ]
         sprite: Effects/harpysinger.rsi
         state: singing_music_notes
+  - type: Inventory
+    speciesId: harpy
+    templateId: digitigrade
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+            copyToShaderParameters:
+              # Value required, provide a dummy. Gets overridden when applied.
+              layerKey: dummy
+              parameterTexture: displacementMap
+              parameterUV: displacementUV
+    # WD EDIT START
+    femaleDisplacements:
+      jumpsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit-slim
+    # WD EDIT END
 
 - type: entity
   id: ActionHarpyPlayMidi

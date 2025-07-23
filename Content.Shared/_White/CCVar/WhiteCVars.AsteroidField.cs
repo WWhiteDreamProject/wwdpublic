@@ -1,4 +1,6 @@
 using Robust.Shared.Configuration;
+using Robust.Shared.Utility;
+
 
 namespace Content.Shared._White.CCVar;
 
@@ -13,8 +15,8 @@ public sealed partial class WhiteCVars
     public static readonly CVarDef<bool> AsteroidFieldSpawnBeacon =
         CVarDef.Create("asteroid_field.beacon_enabled", true, CVar.SERVER | CVar.ARCHIVE);
 
-    public static readonly CVarDef<string> AsteroidFieldBeaconGridPath =
-        CVarDef.Create("asteroid_field.beacon_grid_path", "/Maps/_White/Shuttles/asteroid_beacon.yml", CVar.SERVER | CVar.ARCHIVE);
+    public static readonly CVarDef<ResPath> AsteroidFieldBeaconGridPath =
+        CVarDef.Create("asteroid_field.beacon_grid_path", new ResPath("/Maps/_White/Shuttles/asteroid_beacon.yml"), CVar.SERVER | CVar.ARCHIVE);
 
     public static readonly CVarDef<string> AsteroidFieldBeaconName =
         CVarDef.Create("asteroid_field.beacon_name", "asteroid-beacon-name", CVar.SERVER | CVar.ARCHIVE);

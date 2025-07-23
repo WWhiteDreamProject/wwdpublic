@@ -4,9 +4,13 @@
       "x":32,
       "y":32
    },
-   "license": "CC-BY-SA-4.0",
-   "copyright": "Made by WWDP Team",
+   "license":"CC-BY-SA-3.0",
+   "copyright":"Taken from https://github.com/BeeStation/BeeStation-Hornet at commit 4ccd79de285e79e504308bcd6fa5908d6b7685f7",
    "states":[
+      {
+         "name":"vent_passive",
+         "directions" : 4
+      },
       {
          "name":"vent_off",
          "directions" : 4
@@ -24,6 +28,10 @@
          "name":"vent_in",
          "directions" : 4,
          "delays":[ [ 0.08, 0.08, 0.08, 0.08 ], [ 0.08, 0.08, 0.08, 0.08 ], [ 0.08, 0.08, 0.08, 0.08 ], [ 0.08, 0.08, 0.08, 0.08 ] ]
+      },
+      {
+         "name":"vent_lockout",
+         "directions" : 4
       }
    ]
 }

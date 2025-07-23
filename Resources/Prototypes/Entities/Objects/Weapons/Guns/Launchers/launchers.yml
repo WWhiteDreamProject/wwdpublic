@@ -19,8 +19,6 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
-  - type: Gun
-    defaultDirection: 1, 0 # wwdp
   - type: MeleeWeapon
     attackRate: 1.5
     damage:
@@ -35,58 +33,64 @@
       collection: MetalThud
   - type: DamageOtherOnHit
     staminaCost: 14
-  # - type: Execution # WWDP
+  # WD EDIT START
+  # - type: Execution
+  - type: Gun
+    defaultDirection: 1, 0
+  # WD EDIT END
 
 - type: entity
   name: china lake
-  parent: [BaseWeaponLauncher, BaseGunWieldable]
+  parent: [BaseWeaponLauncher, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponLauncherChinaLake
-  description: PLOOP
+  description: PLOOP.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
     layers:
-      - state: icon
-        map: ["enum.GunVisualLayers.Base"]
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
     slots:
     - Back
     - suitStorage
-  # - type: AmmoCounter # WWDP
+  # - type: AmmoCounter - WD EDIT
   - type: Gun
     fireRate: 1
     selectedMode: SemiAuto
     availableModes:
-      - SemiAuto
+    - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - Grenade
+      - Grenade
     capacity: 3
     autoCycle: false
     proto: GrenadeFrag
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-  - type: Item # WWDP guns resize
+  # WD EDIT START: Guns resize
+  - type: Item
     shape:
     - 0,0,5,1
+  # WD EDIT END
 
 - type: entity
   name: RPG-7
-  parent: BaseWeaponLauncher
+  parent: [ BaseWeaponLauncher, BaseMajorContraband ]
   id: WeaponLauncherRocket
   description: A modified ancient rocket-propelled grenade launcher.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
     layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-0
-        map: ["enum.GunVisualLayers.Mag"]
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     equipSound: /Audio/_White/Equip/clothingrustle4.ogg # WWDP
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
@@ -97,29 +101,33 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - CartridgeRocket
+      - CartridgeRocket
     proto: CartridgeRocket
     capacity: 1
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-    autoCycle: true # WD EDIT # WWDP edit
+    autoCycle: true # WD EDIT
   - type: MagazineVisuals
     magState: mag
     steps: 2
     zeroVisible: false
   - type: Appearance
-  - type: EmitSoundOnPickup # WWDP sounds
+  # WD EDIT START
+  # Sounds
+  - type: EmitSoundOnPickup
     sound:
       collection: RiflesPickUp
-  - type: EmitSoundOnDrop # WWDP sounds
+  - type: EmitSoundOnDrop
     sound:
       collection: RiflesDrop
-  - type: EmitSoundOnLand # WWDP sounds
+  - type: EmitSoundOnLand
     sound:
       collection: RiflesDrop
-  - type: Item # WWDP guns resize
+  # Guns resize
+  - type: Item
     shape:
     - 0,0,7,1
+  # WD EDIT END
 
 - type: entity
   name: multiple rocket launcher
@@ -130,23 +138,23 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
     layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-0
-        map: ["enum.GunVisualLayers.Mag"]
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
   - type: Gun
     fireRate: 6
     selectedMode: FullAuto
     availableModes:
-      - FullAuto
+    - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - CartridgeRocket
+      - CartridgeRocket
     proto: CartridgeRocketSlow
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
@@ -165,34 +173,34 @@
   id: WeaponLauncherPirateCannon
   description: Kaboom!
   components:
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
-      layers:
-        - state: icon
-          map: ["enum.GunVisualLayers.Base"]
-    - containers:
-        balistic-ammo: !type:Container
-          ents: []
-        ballistic-ammo: !type:Container
-          ents: []
-      type: ContainerContainer
-    - type: Clothing
-      sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
-    - type: Gun
-      fireRate: 1
-      soundGunshot:
-        path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
-    - type: BallisticAmmoProvider
-      whitelist:
-        tags:
-          - CannonBall
-      capacity: 1
-      proto: CannonBall
-      soundInsert:
-        path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
-    - type: Item # WWDP guns resize
-      shape:
-      - 0,0,5,1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+  - containers:
+      balistic-ammo: !type:Container
+        ents: []
+      ballistic-ammo: !type:Container
+        ents: []
+    type: ContainerContainer
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
+  - type: Gun
+    fireRate: 1
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CannonBall
+    capacity: 1
+    proto: CannonBall
+    soundInsert:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: Item # WWDP guns resize
+    shape:
+    - 0,0,5,1
 
 # - type: entity
 #   name: tether gun
@@ -203,6 +211,7 @@
 #   description: Manipulates gravity around objects to fling them at high velocities.
 #   components:
 #     - type: Item
+#       storedRotation: -90
 #       size: Large # WWDP Guns resize
 #       shape:
 #       - 0,0,5,1
@@ -247,6 +256,7 @@
 #   description: Manipulates gravity around objects to fling them at high velocities.
 #   components:
 #     - type: Item
+#       storedRotation: -90
 #       size: Large # WWDP Guns resize
 #       shape:
 #       - 0,0,5,1
@@ -298,6 +308,7 @@
 #     - type: Gun
 #       soundGunshot: /Audio/Weapons/Guns/Gunshots/harpoon.ogg
 #       fireRate: 0.5
+#       clumsyProof: true
 #     - type: BasicEntityAmmoProvider
 #       proto: GrapplingHook
 #       capacity: 1
@@ -307,7 +318,6 @@
 #         - state: base
 #         - state: base-unshaded
 #           map: [ "unshaded" ]
-#           shader: unshaded
 #           visible: true
 #     - type: UseDelay
 #       delay: 1.5
@@ -409,7 +419,7 @@
 #         enum.TetherVisualsStatus.Key:
 #           unshaded:
 #             True: { visible: true }
-#             False: { visible: false }
+#            False: { visible: false }
 #     - type: GiftIgnore # WD EDIT
 #     - type: Item # WWDP guns resize
 #       size: Large
@@ -421,13 +431,13 @@
   parent: WeaponLauncherMultipleRocket
   id: WeaponLauncherAdmemeMeteorLarge
   suffix: Admeme
-  description: It fires large meteors
+  description: It fires large meteors.
   components:
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - CartridgeRocket
-    proto: MeteorLarge
+      - CartridgeRocket
+    proto: MeteorMedium
   - type: GiftIgnore # WD EDIT
 
 - type: entity
@@ -440,7 +450,7 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - CartridgeRocket
+      - CartridgeRocket
     proto: ImmovableRodSlow
   - type: GiftIgnore # WD EDIT
 

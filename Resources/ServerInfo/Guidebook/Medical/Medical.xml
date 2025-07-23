@@ -1,32 +1,42 @@
 <Document>
 
-# Медицина
+  # Медицина
 
-Это тот самый отдел, куда приползает половина станции, когда у них всё болит, течёт или отваливается. Именно здесь решается, будет ли пациент снова бегать по коридорам — или останется холодной тушкой в морге. Всё в руках медицинского персонала.
+  Это тот самый отдел, куда приползает половина станции, когда у них всё болит, течёт или отваливается. Именно здесь решается, будет ли пациент снова бегать по коридорам — или останется холодной тушкой в морге. Всё в руках медицинского персонала.
 
-В настоящий момент медблок разделён на два ключевых направления помощи:
+  В настоящий момент медблок разделён на два ключевых направления помощи:
 
-## Медицинское лечение
+  ## Персонал
+  [color=#5b97bc]Медицинский Отдел[/color] состоит из Интернов, Врачей, Парамедиков и Химиков. Заведует отделом Главный Врач.
 
-<Box>
-<GuideEntityEmbed Entity="Brutepack"/>
-<GuideEntityEmbed Entity="Bloodpack"/>
-<GuideEntityEmbed Entity="Ointment"/>
-<GuideEntityEmbed Entity="Gauze"/>
-<GuideEntityEmbed Entity="HandheldHealthAnalyzer"/>
-</Box>
+  <Box>
+    <GuideEntityEmbed Entity="ToyFigurineMedicalDoctor" Caption="Врач"/>
+    <GuideEntityEmbed Entity="ToyFigurineParamedic" Caption="Парамедик"/>
+    <GuideEntityEmbed Entity="ToyFigurineChemist" Caption="Химик"/>
+    <GuideEntityEmbed Entity="ToyFigurineChiefMedicalOfficer" Caption="ГВ"/>
+  </Box>
 
-Первая помощь — это бинты, мази, пластыри и, конечно же, быстрый анализ состояния пациента. Чем быстрее диагностируешь проблему, тем выше шанс, что не придётся звать священника.
+  ## Медицинское лечение
 
-## Производство медикаментов
+  <Box>
+    <GuideEntityEmbed Entity="Brutepack"/>
+    <GuideEntityEmbed Entity="Bloodpack"/>
+    <GuideEntityEmbed Entity="Ointment"/>
+    <GuideEntityEmbed Entity="Gauze"/>
+    <GuideEntityEmbed Entity="HandheldHealthAnalyzer"/>
+  </Box>
 
-<Box>
-<GuideEntityEmbed Entity="ChemDispenser"/>
-<GuideEntityEmbed Entity="LargeBeaker"/>
-<GuideEntityEmbed Entity="PillCanister"/>
-<GuideEntityEmbed Entity="ChemMaster"/>
-</Box>
+  Первая помощь — это бинты, мази, пластыри и, конечно же, быстрый анализ состояния пациента. Чем быстрее диагностируешь проблему, тем выше шанс, что не придётся звать священника.
 
-Химический отсек — сердце фармацевтики. Именно здесь создаются таблетки, растворы и прочие зелья жизни. Оттуда берётся всё, что спасает от кислоты, огня, пуль и дураков. Главное — не перепутать мензурку со своей кружкой.
+  ## Производство медикаментов
+
+  <Box>
+    <GuideEntityEmbed Entity="ChemDispenser"/>
+    <GuideEntityEmbed Entity="LargeBeaker"/>
+    <GuideEntityEmbed Entity="PillCanister"/>
+    <GuideEntityEmbed Entity="ChemMaster"/>
+  </Box>
+
+  Химический отсек — сердце фармацевтики. Именно здесь создаются таблетки, растворы и прочие зелья жизни. Оттуда берётся всё, что спасает от кислоты, огня, пуль и дураков. Главное — не перепутать мензурку со своей кружкой.
 
 </Document>

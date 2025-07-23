@@ -14,35 +14,39 @@ emergency-shuttle-command-dock-desc = Вызывает спасательный 
 ## Launch emergency shuttle
 
 emergency-shuttle-command-launch-desc = Досрочно запускает эвакуационный шаттл, если это возможно.
+
 # Emergency shuttle
 emergency-shuttle-left = Эвакуационный шаттл покинул станцию. Расчетное время прибытия шаттла на станцию ЦентКома - { $transitTime } секунд.
 emergency-shuttle-launch-time = Эвакуационный шаттл будет запущен через { $consoleAccumulator } секунд.
 emergency-shuttle-docked =
-    Эвакуационный шаттл пристыковался к станции, сторона:{ $direction ->
-        [north] север
-        [northeast] северо-восток
-        [east] восток
-        [southeast] юго-восток
-        [south] юг
-        [southwest] юго-запад
-        [west] запад
-        [northwest] северо-запад
-       *[other] _
-    }. Он улетит через { $time } секунд.
+    Эвакуационный шаттл пристыковался на { $direction ->
+        [north] севере
+        [northeast] северо-востоке
+        [east] востоке
+        [southeast] юго-востоке
+        [south] юге
+        [southwest] юго-западе
+        [west] западе
+        [northwest] северо-западе
+        *[other] _
+    } от станции, {$location}. Он покинет станцию через {$time} секунд.{$extended}
 emergency-shuttle-good-luck = Эвакуационный шаттл не может найти станцию. Удачи.
-emergency-shuttle-nearby = Эвакуационный шаттл не может найти подходящий стыковочный шлюз. Он дрейфует { $direction }.
-emergency_shuttle_meteor_available = Установлена связь с эвакуационным шаттлом. Он может быть вызван.
-emergency_shuttle-announce-toggle =
-    "Внимание! { $admin } { $value ->
-        [True] включил
-        [False] выключил
-       *[other] _
-    } вызов шаттла!"
-emergency_shuttle-call-enable = Включить вызов шаттла
-emergency_shuttle-call-disable = Выключить вызов шаттла
+emergency-shuttle-nearby =
+    Эвакуационный шаттл не может найти подходящий стыковочный шлюз. Он дрейфует на { $direction ->
+        [north] севере
+        [northeast] северо-востоке
+        [east] востоке
+        [southeast] юго-востоке
+        [south] юге
+        [southwest] юго-западе
+        [west] западе
+        [northwest] северо-западе
+        *[other] _
+    } от станции, {$location}. Он покинет станцию через {$time} секунд.{$extended}
+emergency-shuttle-extended = {" "}Время запуска было увеличено из-за неблагоприятных обстоятельств.
+
 # Emergency shuttle console popup / announcement
 emergency-shuttle-console-no-early-launches = Досрочный запуск отключён
-# Emergency shuttle console popup / announcement
 emergency-shuttle-console-auth-left =
     { $remaining } { $remaining ->
         [one] авторизация осталась
@@ -56,9 +60,9 @@ emergency-shuttle-console-auth-revoked =
        *[other] авторизации необходимы
     }.
 emergency-shuttle-console-denied = Доступ запрещён
+
 # UI
 emergency-shuttle-console-window-title = Консоль эвакуационного шаттла
-# UI
 emergency-shuttle-ui-engines = ДВИГАТЕЛИ:
 emergency-shuttle-ui-idle = Простой
 emergency-shuttle-ui-repeal-all = Повторить всё

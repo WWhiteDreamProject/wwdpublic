@@ -1,0 +1,26 @@
+- type: psionicPower
+  id: ClonePower
+  name: Psionic Clone
+  powerCategories:
+    - Mentalic
+    - Dangerous
+  initializeFunctions:
+    - !type:AddPsionicActions
+      actions:
+      - ActionClone
+      - ActionCloneSwitch
+    - !type:AddPsionicPowerComponents
+      components:
+        - type: ClonePower
+    - !type:PsionicFeedbackPopup
+    - !type:PsionicFeedbackSelfChat
+      feedbackMessage: clone-power-initialization-feedback
+    - !type:AddPsionicStatSources
+      amplificationModifier: 0.5
+      dampeningModifier: 0.5
+  removalFunctions:
+    - !type:RemovePsionicActions
+    - !type:RemovePsionicPowerComponents
+      components:
+        - type: ClonePower
+    - !type:RemovePsionicStatSources

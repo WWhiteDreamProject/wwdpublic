@@ -14,7 +14,7 @@
   - type: Transform
     anchored: true
   - type: Damageable
-    damageContainer: StructuralInorganic # WWDP
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:

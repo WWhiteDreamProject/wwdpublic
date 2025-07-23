@@ -69,6 +69,20 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+  - type: UserInterface
+    interfaces:
+      enum.ThavenMoodsUiKey.Key: # impstation edit
+        type: ThavenMoodsBoundUserInterface
+        requireInputValidation: false
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      # Shitmed
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Inventory
     templateId: thaven
     displacements:
@@ -144,21 +158,6 @@
               layerKey: dummy
               parameterTexture: displacementMap
               parameterUV: displacementUV
-  - type: UserInterface
-    interfaces:
-      enum.ThavenMoodsUiKey.Key: # impstation edit
-        type: ThavenMoodsBoundUserInterface
-        requireInputValidation: false
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-      enum.HumanoidMarkingModifierKey.Key:
-        type: HumanoidMarkingModifierBoundUserInterface
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
-      # Shitmed
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
-
 
 - type: entity
   parent: BaseSpeciesDummy

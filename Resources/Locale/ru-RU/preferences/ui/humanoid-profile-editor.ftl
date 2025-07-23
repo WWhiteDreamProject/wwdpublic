@@ -1,5 +1,9 @@
 humanoid-profile-editor-randomize-everything-button = Сгенерировать случайного
 humanoid-profile-editor-name-label = Имя:
+humanoid-profile-editor-station-ai-name-label = Имя ИИ станции:
+humanoid-profile-editor-cyborg-name-label = Имя киборга:
+humanoid-profile-editor-clown-name-label = Кличка клоуна:
+humanoid-profile-editor-mime-name-label = Кличка мима:
 humanoid-profile-editor-name-random-button = Случайно
 humanoid-profile-editor-appearance-tab = Внешность
 humanoid-profile-editor-background-tab = Предыстория
@@ -89,5 +93,3 @@ humanoid-profile-editor-loadouts-no-loadouts = Снаряжение не най�
 
 humanoid-profile-editor-markings-tab = Черты внешности
 humanoid-profile-editor-flavortext-tab = Описание
-
-humanoid-profile-editor-clown-name-label = Кличка клоуна:

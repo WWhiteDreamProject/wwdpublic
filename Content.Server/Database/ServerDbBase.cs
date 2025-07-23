@@ -19,6 +19,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Utility;
 using Content.Shared.Roles;
+using Content.Shared.Traits;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Database
@@ -180,22 +181,14 @@ namespace Content.Server.Database
 
         private static HumanoidCharacterProfile ConvertProfiles(Profile profile)
         {
-            var jobs = profile.Jobs.ToDictionary(j => j.JobName, j => (JobPriority) j.Priority);
-            var antags = profile.Antags.Select(a => a.AntagName);
-            var traits = profile.Traits.Select(t => t.TraitName);
+            var jobs = profile.Jobs.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
+            var antags = profile.Antags.Select(a => new ProtoId<AntagPrototype>(a.AntagName));
+            var traits = profile.Traits.Select(t => new ProtoId<TraitPrototype>(t.TraitName));
             var loadouts = profile.Loadouts.Select(Shared.Clothing.Loadouts.Systems.Loadout (l) => l);
 
             var sex = Sex.Male;
             if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
                 sex = sexVal;
-
-            var clothing = ClothingPreference.Jumpsuit;
-            if (Enum.TryParse<ClothingPreference>(profile.Clothing, true, out var clothingVal))
-                clothing = clothingVal;
-
-            var backpack = BackpackPreference.Backpack;
-            if (Enum.TryParse<BackpackPreference>(profile.Backpack, true, out var backpackVal))
-                backpack = backpackVal;
 
             var spawnPriority = (SpawnPriorityPreference) profile.SpawnPriority;
 
@@ -207,6 +200,10 @@ namespace Content.Server.Database
             var voice = profile.Voice;
             if (voice == string.Empty)
                 voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
+
+            var bodyType = profile.BodyType;
+            if (bodyType == string.Empty)
+                bodyType = profile.Species + "Normal";
             // WD EDIT END
 
             // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
@@ -238,12 +235,13 @@ namespace Content.Server.Database
                 profile.Age,
                 sex,
                 voice, // WD EDIT
-                profile.BodyType, // WD EDIT
+                bodyType, // WD EDIT
                 gender,
                 profile.DisplayPronouns,
                 profile.StationAiName,
                 profile.CyborgName,
                 profile.ClownName, // WD EDIT
+                profile.MimeName, // WD EDIT
                 new HumanoidCharacterAppearance(
                     profile.HairName,
                     Color.FromHex(profile.HairColor),
@@ -255,8 +253,6 @@ namespace Content.Server.Database
                 ),
                 spawnPriority,
                 jobs,
-                clothing,
-                backpack,
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
@@ -295,6 +291,7 @@ namespace Content.Server.Database
             profile.StationAiName = humanoid.StationAiName;
             profile.CyborgName = humanoid.CyborgName;
             profile.ClownName = humanoid.ClownName; // WD EDIT
+            profile.MimeName = humanoid.MimeName; // WD EDIT
             profile.Height = humanoid.Height;
             profile.Width = humanoid.Width;
             profile.HairName = appearance.HairStyleId;
@@ -303,8 +300,6 @@ namespace Content.Server.Database
             profile.FacialHairColor = appearance.FacialHairColor.ToHex();
             profile.EyeColor = appearance.EyeColor.ToHex();
             profile.SkinColor = appearance.SkinColor.ToHex();
-            profile.Clothing = humanoid.Clothing.ToString();
-            profile.Backpack = humanoid.Backpack.ToString();
             profile.SpawnPriority = (int) humanoid.SpawnPriority;
             profile.Markings = markings;
             profile.Slot = slot;

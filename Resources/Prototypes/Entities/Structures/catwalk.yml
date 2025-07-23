@@ -30,7 +30,7 @@
     graph: Catwalk
     node: Catwalk
   - type: Damageable
-    damageContainer: StructuralInorganic # WWDP
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
