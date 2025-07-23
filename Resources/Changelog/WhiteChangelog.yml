@@ -3812,3 +3812,14 @@ Entries:
   id: 403
   time: '2025-07-23T00:19:15.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/671
+- author: Warete
+  changes:
+    - type: Fix
+      message: >-
+        Из коробок/магазинов и ещё где это возможно, на клавишу Z вновь
+        достаются предметы.
+    - type: Fix
+      message: Исправлен осмотр коробок(последнего вложенного "поверх" объекта).
+  id: 404
+  time: '2025-07-23T00:28:36.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/673
