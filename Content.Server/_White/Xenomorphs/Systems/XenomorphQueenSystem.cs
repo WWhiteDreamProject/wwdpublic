@@ -97,7 +97,7 @@ public sealed class XenomorphQueenSystem : EntitySystem
 
         if (!HasComp<XenomorphComponent>(args.Target) ||
             !HasComp<HandsComponent>(args.Target) ||
-            HasComp<QueenEvolutionComponent>(args.Target) ||
+            // HasComp<QueenEvolutionComponent>(args.Target) ||
             HasComp<XenomorphQueenComponent>(args.Target))
         {
             _popup.PopupEntity(Loc.GetString("alien-promotion-fail"), uid, uid);

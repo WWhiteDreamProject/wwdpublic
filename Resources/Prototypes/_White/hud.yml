@@ -9,3 +9,9 @@
   name: ui-options-hud-theme-halloween
   path: /Textures/_White/Interface/Halloween/
   order: 8
+
+- type: hudTheme
+  id: SS14AlienTheme
+  name: ui-options-hud-theme-alien
+  path: /Textures/_White/Interface/Alien/
+  order: 9

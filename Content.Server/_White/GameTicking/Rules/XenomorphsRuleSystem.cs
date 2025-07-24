@@ -245,10 +245,9 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
                 var ruleId = _announcer.GetAnnouncementId(id);
                 _announcer.SendAnnouncement(
                     ruleId,
-                    Filter.Broadcast(),
                     component.Announcement,
                     component.Sender,
-                    component.AnnouncementColor
+                    colorOverride: component.AnnouncementColor
                 );
             }
         }
@@ -272,10 +271,9 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
                 var ruleId = _announcer.GetAnnouncementId(id);
                 _announcer.SendAnnouncement(
                     ruleId,
-                    Filter.Broadcast(),
                     component.NoMoreThreatAnnouncement,
                     component.Sender,
-                    component.NoMoreThreatAnnouncementColor
+                    colorOverride: component.NoMoreThreatAnnouncementColor
                 );
             }
 

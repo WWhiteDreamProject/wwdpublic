@@ -28,7 +28,7 @@
     baseSprintSpeed: 4.5
   - type: NpcFactionMember
     factions:
-      - Xeno
+    - Xeno
   - type: Deathgasp
     prototype: XenomorphDeathgasp
   - type: DamageStateVisuals
