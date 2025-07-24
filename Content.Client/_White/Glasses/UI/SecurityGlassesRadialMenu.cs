@@ -7,7 +7,6 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Client.ResourceManagement;
-using Robust.Shared.Map;
 
 namespace Content.Client._White.Glasses.UI;
 
@@ -24,10 +23,7 @@ public sealed class SecurityGlassesRadialMenu : RadialMenu
 
     private static SecurityGlassesRadialMenu? _currentOpenMenu;
     
-    public static SecurityGlassesRadialMenu? GetCurrentMenu()
-    {
-        return _currentOpenMenu;
-    }
+    public static SecurityGlassesRadialMenu? GetCurrentMenu() => _currentOpenMenu;
     
     public SecurityGlassesRadialMenu()
     {
@@ -39,6 +35,11 @@ public sealed class SecurityGlassesRadialMenu : RadialMenu
         var cache = IoCManager.Resolve<IResourceCache>();
         _rsi = cache.GetResource<RSIResource>(new ResPath("/Textures/Interface/Misc/security_icons.rsi"));
 
+        InitializeStatusButtons();
+    }
+
+    private void InitializeStatusButtons()
+    {
         var container = new RadialContainer
         {
             Name = "StatusContainer",
@@ -100,13 +101,11 @@ public sealed class SecurityGlassesRadialMenu : RadialMenu
             _ => "none"
         };
 
-        if (_rsi.RSI.TryGetState(stateName, out var state))
-        {
-            return state.Frame0;
-        }
-
-        return Texture.Transparent;
+        return _rsi.RSI.TryGetState(stateName, out var state) 
+            ? state.Frame0 
+            : Texture.Transparent;
     }
+
 
     private void EnsureSingletonOpen()
     {

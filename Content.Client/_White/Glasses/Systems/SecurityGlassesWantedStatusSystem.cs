@@ -7,10 +7,6 @@ using Content.Shared.Security;
 using Robust.Client.Player;
 using Robust.Shared.GameObjects;
 using Robust.Client.UserInterface;
-using Robust.Client.Input;
-using Robust.Shared.Input;
-using Robust.Shared.Network;
-using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
@@ -22,10 +18,9 @@ public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWan
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
     [Dependency] private readonly IEyeManager _eyeManager = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    
+
     public override void Initialize()
     {
         base.Initialize();
@@ -37,10 +32,7 @@ public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWan
     private void OnOpenRadialMenu(SecurityGlassesWantedStatusOpenEvent ev)
     {
         var localPlayer = _playerManager.LocalSession?.AttachedEntity;
-        if (localPlayer == null)
-            return;
-        
-        if (!_entityManager.TryGetEntity(ev.User, out var userEntity) || userEntity != localPlayer)
+        if (localPlayer == null || !_entityManager.TryGetEntity(ev.User, out var userEntity) || userEntity != localPlayer)
             return;
 
         if (!_entityManager.TryGetEntity(ev.Target, out var targetEntity))
@@ -67,7 +59,6 @@ public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWan
         {
             var worldPos = transform.WorldPosition;
             var screenPos = _eyeManager.WorldToScreen(worldPos);
-
             menu.Open(screenPos);
         }
         else
@@ -81,8 +72,7 @@ public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWan
     {
         if (args.SlotFlags.HasFlag(SlotFlags.EYES))
         {
-            var currentMenu = SecurityGlassesRadialMenu.GetCurrentMenu();
-            currentMenu?.Close();
+            SecurityGlassesRadialMenu.GetCurrentMenu()?.Close();
         }
     }
 } 

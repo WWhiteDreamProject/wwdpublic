@@ -7,10 +7,8 @@ using Content.Shared.Security;
 using Content.Shared.StationRecords;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Player;
-using Robust.Shared.Network;
 using Content.Server.Station.Systems;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Security.Components;
 using Content.Shared.CriminalRecords.Systems;
 
 namespace Content.Server._White.Glasses.Systems;
@@ -52,10 +50,9 @@ public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWan
 
     private void OnChangeStatus(SecurityGlassesChangeStatusEvent ev, EntitySessionEventArgs args)
     {
-        if (!_entityManager.TryGetEntity(ev.User, out var userEntity))
-            return;
-        
-        if (args.SenderSession.AttachedEntity == null || args.SenderSession.AttachedEntity.Value != userEntity)
+        if (!_entityManager.TryGetEntity(ev.User, out var userEntity) ||
+            args.SenderSession.AttachedEntity == null || 
+            args.SenderSession.AttachedEntity.Value != userEntity)
             return;
 
         if (!_entityManager.TryGetEntity(ev.Target, out var targetEntity))
@@ -92,7 +89,8 @@ public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWan
         var reason = Loc.GetString("security-glasses-wanted-status-reason", ("user", user));
         if (_criminalRecords.TryChangeStatus(recordKey, status, reason))
         {
-            _popup.PopupEntity(Loc.GetString("security-glasses-wanted-status-changed-success", ("target", target), ("status", status)), user, user);
+            _popup.PopupEntity(Loc.GetString("security-glasses-wanted-status-changed-success", 
+                ("target", target), ("status", status)), user, user);
 
             _sharedCriminalRecords.UpdateCriminalIdentity(targetName, status);
         }
