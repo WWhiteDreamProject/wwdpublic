@@ -77,17 +77,10 @@ public sealed class SecurityGlassesWantedStatusSystem : SharedSecurityGlassesWan
         menu.MoveToFront();
     }
     
-    /// <summary>
-    /// Обрабатывает событие снятия очков безопасности
-    /// </summary>
     private void OnGlassesUnequipped(EntityUid uid, SecurityGlassesWantedStatusComponent component, GotUnequippedEvent args)
     {
-        // Проверяем, что снятый предмет - это очки безопасности
-        // и что слот - это слот для глаз
         if (args.SlotFlags.HasFlag(SlotFlags.EYES))
         {
-            // Закрываем текущее открытое меню, если оно есть
-            // Меню само отслеживает текущий экземпляр через статическую переменную
             var currentMenu = SecurityGlassesRadialMenu.GetCurrentMenu();
             currentMenu?.Close();
         }
