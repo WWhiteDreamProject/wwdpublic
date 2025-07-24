@@ -1,7 +1,8 @@
-goobstation-medicalpatch-bounty-desc = There is a medical emergency going on. Send some patches to help us out over here
-goobstation-medicalpatch-bounty-name = Medical Patches
+goobstation-medicalpatch-bounty-desc = У нас срочная медицинская ситуация! Пришлите пластыри как можно скорее — здесь не до шуток!
+goobstation-medicalpatch-bounty-name = Медицинские пластыри
 
-goobstation-medicalpatch-sticy-trystick = Started placing patch
-goobstation-medicalpatch-sticy-trystick-success = Patch placed
-goobstation-medicalpatch-sticy-tryremove = Started removing patch
-goobstation-medicalpatch-sticy-tryremove-success = Patch removed
+goobstation-medicalpatch-sticy-trystick = Начинаю наложение пластыря...
+goobstation-medicalpatch-sticy-trystick-success = Пластырь наложен.
+goobstation-medicalpatch-sticy-tryremove = Приступаю к снятию пластыря...
+goobstation-medicalpatch-sticy-tryremove-success = Пластырь снят.
+

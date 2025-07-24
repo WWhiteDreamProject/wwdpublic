@@ -1,3 +1,3 @@
-spawn-items-verb = Use item
-disable-wheel-locks = Disable wheel locks
-activate-wheel-locks = Activate wheel locks
+spawn-items-verb = Использовать предмет
+disable-wheel-locks = Снять блокировку колёс
+activate-wheel-locks = Заблокировать колёса

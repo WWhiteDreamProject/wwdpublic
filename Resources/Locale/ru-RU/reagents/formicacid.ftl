@@ -1,1 +1,2 @@
-formic-co2-created = A haze of carbon dioxide rises from the solution.
+formic-co2-created = Из раствора поднимается лёгкая дымка углекислого газа.
+

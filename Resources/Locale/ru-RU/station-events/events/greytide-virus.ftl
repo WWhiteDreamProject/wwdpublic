@@ -1,1 +1,1 @@
-station-event-greytide-virus-start-announcement = Gr3y.T1d3 virus detected in the station's secure locking encryption subroutines. Severity level of { $severity }. Recommend station AI involvement.
+station-event-greytide-virus-start-announcement = Вирус Gr3y.T1d3 обнаружен в зашифрованных подпрограммах системы охранных замков станции. Уровень угрозы: { $severity }. Рекомендуется немедленное вмешательство ИИ станции.

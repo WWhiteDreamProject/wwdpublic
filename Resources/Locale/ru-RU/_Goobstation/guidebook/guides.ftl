@@ -1,1 +1,1 @@
-guide-entry-medpatches = Medical Patches
+guide-entry-medpatches = Медицинские Пластыри

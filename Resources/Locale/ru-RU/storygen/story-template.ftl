@@ -1,4 +1,4 @@
 story-template-generic =
- This is { INDEFINITE($bookGenre) } {$bookGenre} about { INDEFINITE($char1Adj) } {$char1Adj} {$char1Type} and { INDEFINITE($char2Adj) } {$char2Adj} {$char2Type}. Due to {$event}, they {$actionTrait} {$action} { INDEFINITE($char3Type) } {$char3Type} {$location}.
+ Это { INDEFINITE($bookGenre, "f") } {$bookGenre} о { INDEFINITE($char1Adj, "m") } {$char1Adj} {$char1Type} и { INDEFINITE($char2Adj, "m") } {$char2Adj} {$char2Type}. Из-за {$event} они, обладая чертой {$actionTrait}, решаются на {$action}, связанный с { INDEFINITE($char3Type, "m") } {$char3Type} в {$location}.
 
- The {$element} is {$elementTrait}.
+ Главный элемент повествования — {$element}, он отличается тем, что {$elementTrait}.

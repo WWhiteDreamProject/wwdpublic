@@ -1,1 +1,1 @@
-objective-issuer-shadowling = Shadowling
+objective-issuer-shadowling = Тенелинг

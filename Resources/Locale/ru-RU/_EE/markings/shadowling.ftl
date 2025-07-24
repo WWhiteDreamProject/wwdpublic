@@ -1,3 +1,3 @@
-marking-LesserShadowlingEyes = Lesser Shadowling Eyes
-marking-AbominationHorns = Abomination Horns
-marking-AbominationTorso = Abomination Torso
+marking-LesserShadowlingEyes = Глаза Малого Тенелинга
+marking-AbominationHorns = Рога Отродья
+marking-AbominationTorso = Тело Отродья

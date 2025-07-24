@@ -1,16 +1,17 @@
-possession-fail-changeling = There's no soul to tamper with!
-possession-fail-heretic = The power of the mansus prevents you from possessing them!
-possession-fail-ghoul = There's no mind for you to possess!
-possession-fail-devil = You cannot possess another devil!
-possession-fail-ghost = There's no mind for you to possess!
-possession-fail-temporary = There's no mind for you to possess!
-possession-fail-target-dead = There's no mind for you to possess!
-possession-fail-target-shielded = A pesky shield prevents you from prying at their mind!
-possession-fail-target-already-possessed = Someone else has already taken over this mind...
-possession-fail-target-chaplain = A holy force prevents you from possessing this target!
+possession-fail-changeling = Здесь нет души, к которой можно прикоснуться…
+possession-fail-heretic = Сила Магнуса воздвигает преграду — ты не в силах войти.
+possession-fail-ghoul = Этот сосуд — пуст. Разума в нём нет.
+possession-fail-devil = Ты не можешь овладеть другим дьяволом — правила старше вас обоих.
+possession-fail-ghost = Здесь нет разума, который можно захватить...
+possession-fail-temporary = Этот разум — эфемерен. Ты не успеешь закрепиться.
+possession-fail-target-dead = Разум покинул тело. Здесь — лишь мёртвое молчание.
+possession-fail-target-shielded = Назойливый ментальный щит не пускает тебя внутрь.
+possession-fail-target-already-possessed = Кто-то другой уже в этом разуме... тебе здесь не место.
+possession-fail-target-chaplain = Святая сила охраняет этого смертного. Тебе туда не войти.
 
-possession-popup-others = {$target}'s limbs contort in a strange way, {POSS-ADJ($target)} eyes rolling back in {POSS-ADJ($target)} head.
-possession-popup-self = Your soul is forced out of your body!
-possession-end-popup = {$target} seizes up and falls limp to the ground.
+possession-popup-others = Тело {$target} дёргается, словно в припадке, конечности искривляются, а глаза закатываются в череп.
+possession-popup-self = Твою душу вырывают из тела, и ты летишь в чужую плоть!
+possession-end-popup = {$target} судорожно дёргается... и с глухим стуком падает, обмякнув.
 
-possessed-component-examined = You have {$timeremaining} seconds left in this body.
+possessed-component-examined = Осталось {$timeremaining} секунд до того, как тело отторгнет тебя.
+

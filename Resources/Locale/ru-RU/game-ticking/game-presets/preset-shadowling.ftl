@@ -1,21 +1,23 @@
-shadowling-round-end-name = shadowling
+shadowling-round-end-name = тенелинг
 
 shadowling-role-greeting =
-    Something stirs deep in your mind. A red light floods your vision, and slowly you remember. Though your human disguise has served you
-    well, the time is nigh to cast it off and enter your true form. You have disguised yourself amongst the humans, but you are not one of them.
-    You are a shadowling, and you are to ascend at all costs.
-    Check the guidebook for more information.
+    Что-то пробуждается в глубине твоего разума. Взор заливает красный свет, и воспоминания возвращаются.
+    Человеческий облик долго служил прикрытием, но час настал — сбрось маску и яви свою истинную суть.
+    Ты скрывался среди смертных, но ты — не один из них.
+    Ты — тенелинг. Твоя цель — вознесение. Любыми средствами.
+    Ознакомься с руководством, чтобы узнать больше.
 
 shadowling-role-greeting-short =
-    You are a shadowling who has awakened in the body of {$name}.
+    Ты — тенелинг, пробудившийся в теле {$name}.
 
 thrall-role-greeting =
-    You are a thrall.
-    Help your Shadowling ascend by any means necessary.
+    Ты — порабощённый.
+    Помоги своему Тенелингу достичь Вознесения. Любой ценой.
 
 shadowling-briefing =
-    Shed from this lesser form and start your path to ascension.
+    Сбрось эту слабую оболочку — и начни путь к своему Вознесению.
 
 thrall-briefing =
-    You are no longer bound to your old beliefs.
-    Help your shadowling ascend at all costs.
+    Прошлое больше не имеет власти над тобой.
+    Твой путь — служить Тенелингу. До последнего вздоха.
+

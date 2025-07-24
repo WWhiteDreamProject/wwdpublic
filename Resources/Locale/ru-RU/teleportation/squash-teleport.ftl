@@ -1,1 +1,1 @@
-squash-teleport-teleported-target = You've been teleported!
+squash-teleport-teleported-target = Ты был телепортирован!
