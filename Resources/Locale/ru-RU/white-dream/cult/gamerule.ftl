@@ -27,6 +27,4 @@ blood-cult-condition-failure = Экипажу удалось предотвра�
 blood-cultists-list-start = Приспешниками Геометра Крови были:
 blood-cultists-list-name = [color=White]{ $name }[/color] ([color=gray]{ $user }[/color])
 
-blood-cult-the-geometer-of-blood = Геометр Крови
-
 blood-cult-wall = стена культа
