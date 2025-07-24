@@ -47,8 +47,8 @@ tilemap:
   74: FloorSteelDirty
   75: FloorSteelHerringbone
   6: FloorSteelMini
-  81: FloorTechMaint
-  82: FloorTechMaint2
+  81: FloorTechMaintSteel
+  82: FloorMaintWhite
   83: FloorTechMaint3
   84: FloorWhite
   85: FloorWhiteDiagonal

@@ -6,8 +6,8 @@ tilemap:
   47: FloorFreezer
   64: FloorKitchen
   1: FloorMetalDiamond
-  111: FloorTechMaint
-  112: FloorTechMaint2
+  111: FloorTechMaintSteel
+  112: FloorMaintWhite
   125: FloorWood
   127: FloorWoodTile
   128: Lattice
