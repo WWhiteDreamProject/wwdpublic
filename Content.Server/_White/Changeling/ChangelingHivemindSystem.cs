@@ -72,8 +72,7 @@ public sealed class ChangelingHivemindSystem : EntitySystem
         if (string.IsNullOrEmpty(nameComp.HivemindName))
         {
             EnsureChangelingHivemindName(uid);
-
-            if (!TryComp<ChangelingHivemindNameComponent>(uid, out nameComp) || string.IsNullOrEmpty(nameComp.HivemindName))
+            if (string.IsNullOrEmpty(nameComp.HivemindName))
             {
                 _sawmill.Error($"Failed to assign hivemind name to changeling {ToPrettyString(uid)}");
                 return;
