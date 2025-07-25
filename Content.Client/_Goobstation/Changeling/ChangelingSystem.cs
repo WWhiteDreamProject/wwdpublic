@@ -40,11 +40,12 @@ public sealed class ChangelingSystem : SharedChangelingSystem
         sprite.LayerSetState(AlertVisualLayers.Base, $"{stateNormalized}");
     }
 
-    [Dependency] private readonly IClientAdminManager _adminManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IClientAdminManager _adminManager = default!; // WWDP
+    [Dependency] private readonly IPlayerManager _playerManager = default!; // WWDP
     
     private void GetChanglingIcon(Entity<ChangelingComponent> ent, ref GetStatusIconsEvent args)
     {
+        // WWDP edit start
         // Check if the local player is an admin
         var isAdmin = _adminManager.GetAdminData() != null;
         
@@ -53,6 +54,7 @@ public sealed class ChangelingSystem : SharedChangelingSystem
 
         // Show icon only to admins/admin ghosts, but not to other changelings
         if (!isChangeling && (isAdmin && HasComp<HivemindComponent>(ent)) && _prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+        // WWDP edit end
             args.StatusIcons.Add(iconPrototype);
     }
 }
