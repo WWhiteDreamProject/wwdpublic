@@ -8,7 +8,7 @@ namespace Content.Shared.Chat;
 ///     This event should be sent everytime an entity talks (Radio, local chat, etc...).
 ///     The event is sent to both the entity itself, and all clothing (For stuff like voice masks).
 /// </summary>
-public class TransformSpeakerNameEvent : EntityEventArgs, IInventoryRelayEvent
+public class TransformSpeakerNameEvent : EntityEventArgs, IInventoryRelayEvent // WWDP add sealed
 {
     public SlotFlags TargetSlots { get; } = SlotFlags.WITHOUT_POCKET;
     public EntityUid Sender;
@@ -25,7 +25,7 @@ public class TransformSpeakerNameEvent : EntityEventArgs, IInventoryRelayEvent
 
 /// <summary>
 /// A version of <see cref="TransformSpeakerNameEvent"/> that includes radio channel information.
-/// Raised when speaking over a radio channel.
+/// WWDP add
 /// </summary>
 [ByRefEvent]
 public sealed class TransformRadioSpeakerNameEvent : TransformSpeakerNameEvent
