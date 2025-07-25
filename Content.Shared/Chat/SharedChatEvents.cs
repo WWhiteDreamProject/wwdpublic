@@ -24,7 +24,6 @@ public class TransformSpeakerNameEvent : EntityEventArgs, IInventoryRelayEvent /
 }
 
 /// <summary>
-/// A version of <see cref="TransformSpeakerNameEvent"/> that includes radio channel information.
 /// WWDP add
 /// </summary>
 [ByRefEvent]
