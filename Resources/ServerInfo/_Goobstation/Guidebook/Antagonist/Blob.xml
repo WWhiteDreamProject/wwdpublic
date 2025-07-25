@@ -1,133 +1,134 @@
 <Document>
-# Blob
+  # Блоб
 
-[color=#ff0000]Confirmed level 5 biohazard aboard the station. All personnel must contain the outbreak.[/color]
+  [color=#ff0000]На борту станции подтверждена биоугроза 5-го уровня. Весь персонал должен сдержать вспышку.[/color]
 
-A blob is a fast-growing dangerous organism whose main goal is to take over the station.
+  Блоб — это быстрорастущий опасный организм, главная цель которого — захватить станцию.
   <Box>
-    <GuideEntityEmbed Entity="CoreBlobTile" Caption="Blob"/>
-	<GuideEntityEmbed Entity="MobMouse" Caption="Carrier of the blob"/>
+    <GuideEntityEmbed Entity="CoreBlobTile" Caption="Блоб"/>
+    <GuideEntityEmbed Entity="MobMouse" Caption="Переносчик блоба"/>
   </Box>
 
-You can become a blob carrier both at the beginning of the round and in the middle if you take on the role of a ghost. The carrier of the blob is a crewmate, or a mouse.
+  Вы можете стать переносчиком блоба как в начале раунда, так и в середине, если возьмете роль призрака. Переносчиком блоба может быть член экипажа или мышь.
 
-## Core
+  ## Ядро
 
-The most important blob tile is the [color=#a4885c]Core[/color]. By destroying the Core, the blob will be defeated, and all its other tiles will die, turning white.
+  Самая важная клетка блоба — это [color=#a4885c]Ядро[/color]. Уничтожив Ядро, вы победите блоба, и все его остальные клетки умрут, став белыми.
 
-You can always see the core health on the right side of the screen as a percentage. Watch your core and don't let it be destroyed!
+  Вы всегда можете видеть здоровье ядра в правой части экрана в процентах. Следите за своим ядром и не дайте его уничтожить!
 
-There are 2 steps you can do with the Core: [color=#a4885c]transfer[/color] and [color=#a4885c]split[/color].
-- When a core is transferred, the selected node and kernel are swapped. This is useful in case the kernel location is not very secure.
-- When the core is split, the selected node becomes [color=#a4885c]new and independent core[/color]. Although this action requires a lot of points, in the long run, a new core can help you capture the station.
+  С Ядром можно совершить 2 действия: [color=#a4885c]переместить[/color] и [color=#a4885c]разделить[/color].
+  - При перемещении ядра выбранный узел и ядро меняются местами. Это полезно, если местоположение ядра не очень безопасное.
+  - При разделении ядра выбранный узел становится [color=#a4885c]новым и независимым ядром[/color]. Хотя это действие требует много очков, в долгосрочной перспективе новое ядро может помочь вам захватить станцию.
 
-## Tile Types
+  ## Типы клеток
 
-Normal tiles are extremely vulnerable to burns or even mechanical damage until they're upgraded.
-They can also be upgraded to strong versions, and then reflective versions, or turned into special blob tiles.
-[bold]You cannot upgrade strong/reflective tiles to special tiles![/bold]
+  Обычные клетки чрезвычайно уязвимы к ожогам или даже механическим повреждениям, пока они не будут улучшены.
+  Их также можно улучшить до прочных версий, а затем до отражающих версий, или превратить в особые клетки блоба.
+  [bold]Вы не можете улучшать прочные/отражающие клетки до особых![/bold]
 
-## Special tiles
+  ## Особые клетки
 
   <Box>
-    <GuideEntityEmbed Entity="ResourceBlobTile" Caption="Resource Tile"/>
-	<GuideEntityEmbed Entity="FactoryBlobTile" Caption="Factory Tile"/>
-	<GuideEntityEmbed Entity="NodeBlobTile" Caption="Node Tile"/>
+    <GuideEntityEmbed Entity="ResourceBlobTile" Caption="Ресурсная клетка"/>
+    <GuideEntityEmbed Entity="FactoryBlobTile" Caption="Клетка-фабрика"/>
+    <GuideEntityEmbed Entity="NodeBlobTile" Caption="Клетка-узел"/>
 
   </Box>
 
-- [color=#a4885c]Resource Tiles[/color] are constantly gaining points for all the actions the blob performs. These are your second most important tiles, before the Core.
-- [color=#a4885c]Factory Tiles[/color] creates Blob Pods and Blobbernauts to help fight against the station.
-- [color=#a4885c]Node Tiles[/color] allow you to place other blob tiles around it within a certain radius. They will also heal Zombies and Blobbernauts when close.
+  - [color=#a4885c]Ресурсные клетки[/color] постоянно приносят очки для всех действий, которые выполняет блоб. Это ваши вторые по важности клетки после Ядра.
+  - [color=#a4885c]Клетки-фабрики[/color] создают споры блоба и блоббернавтов, чтобы помочь в борьбе со станцией.
+  - [color=#a4885c]Клетки-узлы[/color] позволяют размещать другие клетки блоба вокруг себя в определенном радиусе. Они также лечат зомби и блоббернавтов, находящихся поблизости.
 
-## Minions
+  ## Миньоны
 
   <Box>
-    <GuideEntityEmbed Entity="MobBlobBlobbernaut" Caption="Blobbernaut"/>
-	<GuideEntityEmbed Entity="MobBlobPod" Caption="Blob Spore"/>
+    <GuideEntityEmbed Entity="MobBlobBlobbernaut" Caption="Блоббернавт"/>
+    <GuideEntityEmbed Entity="MobBlobPod" Caption="Спора блоба"/>
   </Box>
 
-Blob factories can produce Blob Spores and Blobbernauts, these are your bread and butter.
-Blob Spores have the ability to turn dead humanoids into zombie blobs, which will force them to fight on your side against the rest of the crew. They will also release a cloud of smoke on death, the effect depending on your chemical.
-- Blobbernauts deal a lot of damage, and are tanky, which will come in handy for attacking. They will also carry over any effects the Blob has, such as exploding whatever they punch!
+  Фабрики блоба могут производить споры блоба и блоббернавтов, это ваша основная сила.
+  Споры блоба могут превращать мертвых гуманоидов в зомби-блобов, заставляя их сражаться на вашей стороне против остального экипажа. При смерти они также выпускают облако дыма, эффект которого зависит от вашего химиката.
+  - Блоббернавты наносят много урона и очень живучи, что пригодится в атаке. Они также перенимают любые эффекты блоба, например, взрывают всё, по чему бьют!
 
-## Management
+  ## Управление
 
-- To place a blob tile, click on an empty space. If a tile is occupied, or someone or something is standing on it, clicking on it will attack and deal damage.
-- Note that [color=#a4885c]you cannot place regular blob tiles far from blob nodes. Place blob nodes to be able to grow further.[/color]
-- By pressing Alt+LMB, you can upgrade normal tiles to strong tiles and strong tiles to reflective.
+  - Чтобы разместить клетку блоба, нажмите на пустое место. Если клетка занята, или на ней кто-то или что-то стоит, нажатие на нее приведет к атаке и нанесению урона.
+  - Обратите внимание, что [color=#a4885c]вы не можете размещать обычные клетки блоба далеко от клеток-узлов. Размещайте клетки-узлы, чтобы расти дальше.[/color]
+  - Нажав Alt+ЛКМ, вы можете улучшить обычные клетки до прочных, а прочные — до отражающих.
 
   <Box>
-    <GuideEntityEmbed Entity="StrongBlobTile" Caption="Strong tiles"/>
-	<GuideEntityEmbed Entity="ReflectiveBlobTile" Caption="Reflective tiles"/>
+    <GuideEntityEmbed Entity="StrongBlobTile" Caption="Прочные клетки"/>
+    <GuideEntityEmbed Entity="ReflectiveBlobTile" Caption="Отражающие клетки"/>
   </Box>
 
-## Special Abilities
+  ## Особые способности
 
-In the action bar, you can use special abilities that will allow you to perform important actions, such as placing special cells, or special actions with the core and chemicals.
+  На панели действий вы можете использовать особые способности, которые позволят вам выполнять важные действия, такие как размещение особых клеток или специальные действия с ядром и химикатами.
 
-- [color=#a4885c]Changing chemicals[/color] allows you to change your chemical. Each has its own characteristics suitable for different situations.
-- [color=#a4885c]Demote Blob[/color] gives you the option to downgrade any blob cell back to normal for free. It is useful in order to correct the wrong placement, or placing a special tile.
+  - [color=#a4885c]Смена химиката[/color] позволяет вам изменить ваш химикат. У каждого есть свои особенности, подходящие для разных ситуаций.
+  - [color=#a4885c]Понижение клетки блоба[/color] дает вам возможность бесплатно откатить любую клетку блоба до обычной. Это полезно, чтобы исправить неверное размещение или поставить особую клетку.
 
-## Chemicals
+  ## Химикаты
 
-No, not the chemistry kind of chemicals, instead, you can change what your tiles, and blob drops do! There's several types of Chemicals-
+  Нет, не те химикаты, что в химии, а те, что меняют свойства ваших клеток и спор блоба! Существует несколько типов химикатов:
 
-- Reactive Spines - Your default chemical. You'll deal 25 brute damage, and your Blob Drops will release a puff of smoke when killed.
+  - Реактивные шипы - Ваш стандартный химикат. Вы наносите 25 физического урона, а ваши споры блоба при смерти выпускают облачко дыма.
 
-- Blazing Oil - You deal 15 burn damage and light targets on fire. Your blob drops will release a cloud of smoke that sets anyone in it on fire.
+  - Пылающее масло - Вы наносите 15 урона от огня и поджигаете цели. Ваши споры блоба при смерти выпускают облако дыма, которое поджигает всех, кто в нем окажется.
 
-- Regenerative Materia - You deal 6 brute damage, and 15 toxin damage. Your core will also regenerate 10 times faster then it normally would, along with generating a extra resource. Your blob drops will also release a cloud of toxic smoke on death.
+  - Регенеративная материя - Вы наносите 6 физического урона и 15 урона токсинами. Ваше ядро также будет регенерировать в 10 раз быстрее обычного и приносить дополнительный ресурс. Ваши споры блоба при смерти также выпустят облако токсичного дыма.
 
-- Explosive Lattice - You deal 5 burn damage, BUT, you explode your target, dealing 10 brute damage. You also well, explode things in general. Your drops will also explode on death. You will however, take even more burn damage and electrical damage.
+  - Взрывная решётка - Вы наносите 5 урона от огня, НО, вы взрываете вашу цель, нанося 10 физического урона. Вы также, в общем-то, взрываете вещи. Ваши споры также взрываются при смерти. Однако вы будете получать больше урона от огня и электричества.
 
-- Electomagnetic Web - You will deal 20 burn damage, and have a 20% chance to cause a EMP when attacking. Your tiles will also cause a EMP pulse when destroyed, you will however, take more brute and electrical damage. You're effectively a IPC's worst nightmare.
+  - Электромагнитная паутина - Вы будете наносить 20 урона от огня и иметь 20% шанс вызвать ЭМИ при атаке. Ваши клетки также будут вызывать ЭМИ-импульс при уничтожении, однако вы будете получать больше физического урона и урона электричеством. Вы, по сути, худший кошмар для ИИЧ.
 
-## Course of the round
+  ## Ход раунда
 
-As the blob grows, the station will pass through several stages.
+  По мере роста блоба станция будет проходить через несколько этапов.
 
-- 1. [color=#a4885c]Silent stage[/color] - The blob is still undetected, and you can (probably) grow and prepare while the crew still has no idea about your existence.
-- 2. [color=#a4885c]Biohazard detection[/color] - As soon as the blob grows a little, the station is automatically set to red, and complete isolation of the station is declared. The evacuation shuttle cannot be called at this point. If it was called, it will automatically be recalled.
-- 3. [color=#a4885c]Delta Alert[/color] - If the blob captures a significant part of the station, Delta Alert is triggered. The main goal of the station now is to detonate the nuke, and the nuke codes will be sent to a fax machine. Defeating a blob at this point is most likely impossible.
-- 4. [color=#a4885c]Critical Mass[/color] - If the blob captures a majority of the station, it reaches critical mass, causing the round to end with the blob winning.
+  - 1. [color=#a4885c]Тихая стадия[/color] - Блоб ещё не обнаружен, и вы можете (вероятно) расти и готовиться, пока экипаж не подозревает о вашем существовании.
+  - 2. [color=#a4885c]Обнаружение биоугрозы[/color] - Как только блоб немного разрастается, на станции автоматически объявляется красный уровень тревоги и полная изоляция. Эвакуационный шаттл в этот момент вызвать нельзя. Если он был вызван, он будет автоматически отозван.
+  - 3. [color=#a4885c]Тревога "Дельта"[/color] - Если блоб захватывает значительную часть станции, объявляется тревога "Дельта". Главной целью станции становится подрыв ядерной бомбы, а коды для неё отправляются на факс. Победить блоба на этом этапе, скорее всего, невозможно.
+  - 4. [color=#a4885c]Критическая масса[/color] - Если блоб захватывает большую часть станции, он достигает критической массы, что приводит к завершению раунда победой блоба.
 
-Starting from the second stage, the captain has a priority goal in the form of protecting the nuclear authentication disk. If you lose it, the blob cannot be destroyed in Delta, which gives an near guaranteed victory to the blob! If you are the captain, do NOT charge head first into the blob!!
+  Начиная со второй стадии у капитана появляется приоритетная цель — защитить диск ядерной аутентификации. Если вы его потеряете, блоба нельзя будет уничтожить на стадии "Дельта", что даёт блобу почти гарантированную победу! Если вы капитан, НЕ лезьте напролом в блоб!!
 
   <Box>
-    <GuideEntityEmbed Entity="NukeDisk" Caption="Nuclear Authentication Disk"/>
+    <GuideEntityEmbed Entity="NukeDisk" Caption="Диск ядерной аутентификации"/>
   </Box>
 
-## Some dude just turned the game into a RTS, what do?
+  ## Какой-то чувак превратил игру в RTS, что делать?
 
-"Man, I love going to wor- wait, what do you mean there's a level 5 biohazard? AND WHY DO I HEAR BOSS MUSIC?!" is probably your first thought the first time you encounter a blob. Well, get ready to kick ass and chew bubblegum. But before you're so eager to go and either get turned into a blob zombie, or be in the frontline and be honored a hero, ask yourself the following questions;
+  "Обожаю ходить на рабо... стоп, в смысле биоугроза 5-го уровня? И ПОЧЕМУ Я СЛЫШУ МУЗЫКУ БОССА?!" — вероятно, ваша первая мысль при встрече с блобом. Что ж, готовьтесь надирать задницы. Но прежде чем рваться в бой, чтобы либо превратиться в зомби-блоба, либо стать героем на передовой, задайте себе следующие вопросы:
 
-- 1. "Do I have the nuclear disk?" If your answer is yes, great, don't go into the blob and hug the nuke like it's your best friend.
+  - 1. "У меня есть ядерный диск?" Если ответ "да", отлично, не лезьте в блоб и обнимайте ядерную бомбу, как лучшего друга.
 
-- 2. "Do I have a ranged weapon?" If your answer is no, go grab one, most preferably a Laser Rifle, and then ask yourself these questions again. Otherwise you'll be a nice zombie.
+  - 2. "У меня есть дальнобойное оружие?" Если ответ "нет", раздобудьте его, желательно лазерную винтовку, а затем снова задайте себе эти вопросы. Иначе вы станете славным зомби.
 
-- 3. "Is the blob core exposed to space?" If your answer yes, go out into space and shoot as the Blob cries in the lack of things it can do against- wait, what do you mean the Blob moved its core?
+  - 3. "Ядро блоба открыто для космоса?" Если ответ "да", выходите в космос и стреляйте, пока блоб плачет от бессилия... стоп, в смысле блоб переместил своё ядро?
 
-## A drop just turned me into a zombie, what do?
+  ## Спора превратила меня в зомби, что делать?
 
-Congrats, you died miserably and turned into a zombie. This isn’t your usual normal zombie, that’d be LAME! Instead, you can actually use your hands and be useful for once. And unlike a Blobbernaut, you can actually go outside of your blob's boundaries. Unfortunately, you cannot use guns, but melee weapons are free game. There are some responsibilites to being a zombie, for example;
+  Поздравляю, вы жалко умерли и превратились в зомби. Но это не обычный зомби, это было бы СКУЧНО! Вместо этого вы можете использовать руки и наконец-то принести пользу. И в отличие от блоббернавта, вы можете выходить за пределы территории вашего блоба. К сожалению, вы не можете использовать огнестрельное оружие, но оружие ближнего боя — к вашим услугам. У вас как у зомби есть некоторые обязанности, например:
 
-- Lynching whoever is trying to go near the nuke, unless it's already activated. If it is, there is nothing you can do.
+  - Линчевать любого, кто пытается подобраться к ядерной бомбе, если она ещё не активирована. Если активирована, вы уже ничего не сможете сделать.
 
-- Dragging the person you just lynched with your zombie friends into the blob, for a fresh new friend!
+  - Утаскивать человека, которого вы только что залинчевали вместе с вашими друзьями-зомби, в блоб, чтобы завести нового друга!
 
-- Using the tools you found, or had, to build up some defenses. Or at least until the blob rampages through them.
+  - Использовать найденные или имевшиеся у вас инструменты для постройки укреплений. По крайней мере, до тех пор, пока блоб их не снесёт.
 
-Just remember blob drops take your head slot, and that once you fall into a critical condition, a crewmember can take the drop off, killing it instantly.
+  Просто помните, что спора блоба занимает ваш слот для головы, и как только вы окажетесь в критическом состоянии, член экипажа сможет снять спору, мгновенно убив её.
 
-## Methods of control
+  ## Методы борьбы
 
-As said before, the Blob is very weak to burn damage. As such, the following items are very good for fighting against it:
+  Как уже говорилось, блоб очень уязвим к урону от огня. Поэтому следующие предметы очень хороши для борьбы с ним:
 
   <Box>
-    <GuideEntityEmbed Entity="MagazineBoxPistolIncendiary" Caption="Incendiary Rounds"/>
-	<GuideEntityEmbed Entity="WeaponLaserCarbine" Caption="Laser Rifle"/>
-	<GuideEntityEmbed Entity="Welder" Caption="Welder "/>
+    <GuideEntityEmbed Entity="MagazineBoxPistolIncendiary" Caption="Зажигательные патроны"/>
+    <GuideEntityEmbed Entity="WeaponLaserCarbine" Caption="Лазерная винтовка"/>
+    <GuideEntityEmbed Entity="Welder" Caption="Сварочный аппарат"/>
   </Box>
 
 </Document>
+
