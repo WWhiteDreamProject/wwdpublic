@@ -3898,3 +3898,10 @@ Entries:
   id: 413
   time: '2025-07-23T14:24:00.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/693
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Станция центрального командования и прибытия теперь точно спавнятся
+  id: 414
+  time: '2025-07-26T02:58:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/703
