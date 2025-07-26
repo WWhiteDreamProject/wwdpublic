@@ -9,8 +9,8 @@ tilemap:
   83: FloorReinforcedHardened
   96: FloorSteel
   107: FloorSteelMono
-  111: FloorTechMaint
-  112: FloorTechMaint2
+  111: FloorTechMaintSteel
+  112: FloorMaintWhite
   113: FloorTechMaint3
   115: FloorWhite
   119: FloorWhiteMini

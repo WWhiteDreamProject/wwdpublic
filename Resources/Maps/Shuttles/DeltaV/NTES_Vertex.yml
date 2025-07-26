@@ -8,8 +8,8 @@ tilemap:
   3: FloorReinforced
   96: FloorSteel
   99: FloorSteelCheckerLight
-  1: FloorTechMaint
-  2: FloorTechMaint2
+  1: FloorTechMaintSteel
+  2: FloorMaintWhite
   115: FloorWhite
   128: Lattice
   129: Plating

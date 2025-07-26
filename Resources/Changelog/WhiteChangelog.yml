@@ -3898,3 +3898,24 @@ Entries:
   id: 413
   time: '2025-07-23T14:24:00.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/693
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Станция центрального командования и прибытия теперь точно спавнятся
+  id: 414
+  time: '2025-07-26T02:58:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/703
+- author: Kutosss
+  changes:
+    - type: Fix
+      message: Настройка вкл/выкл эффектов от эмоций теперь дает себя сохранить
+  id: 415
+  time: '2025-07-26T03:01:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/710
+- author: Kutos
+  changes:
+    - type: Add
+      message: 'Очки охраны теперь могут менять статус розыска '
+  id: 416
+  time: '2025-07-26T03:14:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/690

@@ -7,7 +7,7 @@ tilemap:
   64: FloorKitchen
   1: FloorMetalDiamond
   69: FloorMime
-  111: FloorTechMaint
+  111: FloorTechMaintSteel
   113: FloorTechMaint3
   125: FloorWood
   126: FloorWoodLarge

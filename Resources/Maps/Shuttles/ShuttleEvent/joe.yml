@@ -6,7 +6,7 @@ tilemap:
   1: FloorMetalDiamond
   98: FloorSteelCheckerDark
   102: FloorSteelDiagonalMini
-  111: FloorTechMaint
+  111: FloorTechMaintSteel
   125: FloorWood
   128: Lattice
   129: Plating
