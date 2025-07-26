@@ -1,0 +1,32 @@
+- type: soundCollection
+  id: XenomorphQueenDeathgasp
+  files:
+  - /Audio/_White/Effects/Xenomorph/xenomorph_queen_death.ogg
+
+- type: soundCollection
+  id: XenomorphQueenCommand
+  files:
+  - /Audio/_White/Effects/Xenomorph/xenomorph_queen_command_1.ogg
+  - /Audio/_White/Effects/Xenomorph/xenomorph_queen_command_2.ogg
+  - /Audio/_White/Effects/Xenomorph/xenomorph_queen_command_3.ogg
+
+- type: soundCollection
+  id: XenomorphDeathgasp
+  files:
+  - /Audio/_White/Effects/Xenomorph/xenomorph_death_1.ogg
+  - /Audio/_White/Effects/Xenomorph/xenomorph_death_2.ogg
+
+- type: soundCollection
+  id: XenomorphDeathgaspAlt
+  files:
+  - /Audio/_White/Effects/Xenomorph/xenomorph_old_death.ogg
+
+- type: soundCollection
+  id: LarvaDeathgasp
+  files:
+  - /Audio/_White/Effects/Xenomorph/larva_death.ogg
+
+- type: soundCollection
+  id: LarvaBurst
+  files:
+  - /Audio/_White/Effects/Xenomorph/larva_burst.ogg

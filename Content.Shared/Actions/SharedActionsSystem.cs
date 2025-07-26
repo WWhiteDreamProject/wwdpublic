@@ -436,13 +436,6 @@ public abstract class SharedActionsSystem : EntitySystem
         if (!action.Enabled)
             return;
 
-        // check for action use prevention
-        // TODO: make code below use this event with a dedicated component
-        var attemptEv = new ActionAttemptEvent(user);
-        RaiseLocalEvent(actionEnt, ref attemptEv);
-        if (attemptEv.Cancelled)
-            return;
-
         var curTime = GameTiming.CurTime;
         if (IsCooldownActive(action, curTime))
             return;
@@ -450,6 +443,15 @@ public abstract class SharedActionsSystem : EntitySystem
         // TODO: Replace with individual charge recovery when we have the visuals to aid it
         if (action is { Charges: < 1, RenewCharges: true })
             ResetCharges(actionEnt, true, true);
+
+        // WD EDIT START - moved it below
+        // check for action use prevention
+        // TODO: make code below use this event with a dedicated component
+        var attemptEv = new ActionAttemptEvent(user);
+        RaiseLocalEvent(actionEnt, ref attemptEv);
+        if (attemptEv.Cancelled)
+            return;
+        // WD EDIT END
 
         BaseActionEvent? performEvent = null;
 

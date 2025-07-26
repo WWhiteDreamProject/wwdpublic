@@ -26,6 +26,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed.TypeParsers;
 using System.Linq;
+using Content.Shared._White.Xenomorphs.Components;
 using Content.Shared.Inventory.VirtualItem;
 
 
@@ -41,7 +42,7 @@ public abstract partial class SharedSurgerySystem
         SubscribeLocalEvent<SurgeryStepComponent, SurgeryStepCompleteCheckEvent>(OnToolCheck);
         SubscribeLocalEvent<SurgeryStepComponent, SurgeryCanPerformStepEvent>(OnToolCanPerform);
 
-        //SubSurgery<SurgeryCutLarvaRootsStepComponent>(OnCutLarvaRootsStep, OnCutLarvaRootsCheck);
+        // SubSurgery<SurgeryCutLarvaRootsStepComponent>(OnCutLarvaRootsStep, OnCutLarvaRootsCheck);
 
         /*  Abandon all hope ye who enter here. Now I am become shitcoder, the bloater of files.
             On a serious note, I really hate how much bloat this pattern of subscribing to a StepEvent and a CheckEvent
@@ -380,10 +381,9 @@ public abstract partial class SharedSurgerySystem
             args.Cancelled = true;
     }
 
-    /*private void OnCutLarvaRootsStep(Entity<SurgeryCutLarvaRootsStepComponent> ent, ref SurgeryStepEvent args)
+    private void OnCutLarvaRootsStep(Entity<SurgeryCutLarvaRootsStepComponent> ent, ref SurgeryStepEvent args)
     {
-        if (TryComp(args.Body, out VictimInfectedComponent? infected) &&
-            infected.BurstAt > _timing.CurTime &&
+        if (TryComp(args.Body, out XenomorphInfectedComponent? infected) &&
             infected.SpawnedLarva == null)
         {
             infected.RootsCut = true;
@@ -392,14 +392,14 @@ public abstract partial class SharedSurgerySystem
 
     private void OnCutLarvaRootsCheck(Entity<SurgeryCutLarvaRootsStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
     {
-        if (!TryComp(args.Body, out VictimInfectedComponent? infected) || !infected.RootsCut)
+        if (!TryComp(args.Body, out XenomorphInfectedComponent? infected))
             args.Cancelled = true;
 
         // The larva has fully developed and surgery is now impossible
         // TODO: Surgery should still be possible, but the fully developed larva should escape while also saving the hosts life
         if (infected != null && infected.SpawnedLarva != null)
             args.Cancelled = true;
-    }*/
+    }
 
     private void OnCavityStep(Entity<SurgeryStepCavityEffectComponent> ent, ref SurgeryStepEvent args)
     {

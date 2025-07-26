@@ -318,6 +318,8 @@ public abstract partial class SharedMoverController : VirtualController
     private void WalkingAlert(Entity<InputMoverComponent> entity)
     {
         _alerts.ShowAlert(entity, entity.Comp.WalkingAlert, entity.Comp.Sprinting ? (short) 1 : (short) 0);
+
+        RaiseLocalEvent(entity, new SprintingInputEvent(entity)); // WD EDIT
     }
 
     public void LerpRotation(EntityUid uid, InputMoverComponent mover, float frameTime)
