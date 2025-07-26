@@ -1,0 +1,3 @@
+no-flight-while-restrained = Ты не можешь взлететь — тебя сковывают путы.
+no-flight-while-zombified = В этом состоянии крылья тебе больше не помогут...
+no-flight-while-lying = Лёжа не полетаешь.
