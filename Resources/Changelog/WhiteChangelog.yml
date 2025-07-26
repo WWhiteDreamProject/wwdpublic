@@ -3905,3 +3905,10 @@ Entries:
   id: 414
   time: '2025-07-26T02:58:08.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/703
+- author: Kutosss
+  changes:
+    - type: Fix
+      message: Настройка вкл/выкл эффектов от эмоций теперь дает себя сохранить
+  id: 415
+  time: '2025-07-26T03:01:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/710
