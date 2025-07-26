@@ -372,3 +372,17 @@
         - NanoTrasen
   items:
     - ClothingUniformJumpsuitNTMiner
+
+- type: loadout
+  id: LoadoutExplorerSpecialistUniformSuit
+  category: JobsLogisticsSalvageSpecialist
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutSalvageSpecialistUniforms
+    - !type:CharacterJobRequirement
+      jobs:
+        - SalvageSpecialist
+  items:
+    - ClothingUniformJumpsuitExplorerOld
