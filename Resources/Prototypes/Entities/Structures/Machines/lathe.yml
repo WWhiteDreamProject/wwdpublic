@@ -1013,6 +1013,7 @@
     - MagazineUniversalMagnum
     - MagazineLightRifleMarkOneEmpty
     - MagazineLightRifleMarkOne
+    - ClothingOuterStasecSweater # WD EDIT: Move to secfab
     dynamicRecipes:
     - Truncheon
     - Terminus
@@ -1495,7 +1496,7 @@
     - ClothingOuterWinterWardenUnarmored
     - ClothingOuterWinterQM
     - ClothingOuterWinterRD
-    - ClothingOuterStasecSweater # DeltaV - added stasec sweater to uniform printer.
+    # - ClothingOuterStasecSweater - WD EDIT: Move to secfab
     - ClothingOuterWinterMusician
     - ClothingOuterWinterClown
     - ClothingOuterWinterMime
