@@ -43,9 +43,9 @@
       125: Critical
       135: Dead
     stateAlertDict:
-      Alive: AlienHealth
-      Critical: AlienCrit
-      Dead: AlienDead
+      Alive: XenomorphHealth
+      Critical: XenomorphCrit
+      Dead: XenomorphDead
   - type: SlowOnDamage
     speedModifierThresholds:
       70: 0.9
