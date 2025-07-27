@@ -142,7 +142,7 @@
       sprite: _White/Clothing/Uniforms/Jumpsuit/med_para_uniform.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitExplorerDeltaV
   name: explorer's uniform
   description: A rugged set of overalls for trekking across the stars.
