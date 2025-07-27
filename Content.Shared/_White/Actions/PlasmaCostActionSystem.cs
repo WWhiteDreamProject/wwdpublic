@@ -23,6 +23,6 @@ public sealed class PlasmaCostActionSystem : EntitySystem
 
     private void OnActionPerformed(EntityUid uid, PlasmaCostActionComponent component, ActionPerformedEvent args)
     {
-        _plasma.ChangePlasmaAmount(args.Performer, component.PlasmaCost);
+        _plasma.ChangePlasmaAmount(args.Performer, -component.PlasmaCost);
     }
 }

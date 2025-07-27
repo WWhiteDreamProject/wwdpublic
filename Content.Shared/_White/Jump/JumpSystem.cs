@@ -11,12 +11,12 @@ namespace Content.Shared._White.Jump;
 
 public sealed class JumpSystem : EntitySystem
 {
+    [Dependency] private readonly ThrownItemSystem _throwingItem = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
 
     public override void Initialize()
@@ -53,10 +53,10 @@ public sealed class JumpSystem : EntitySystem
 
     private void OnThrowDoHit(EntityUid uid, JumpComponent component, ThrowDoHitEvent args)
     {
-        if (args.Handled || !TryComp<PhysicsComponent>(uid, out var physics))
+        if (args.Handled)
             return;
 
-        _physics.SetBodyStatus(uid, physics, BodyStatus.OnGround);
+        _throwingItem.StopThrow(uid, args.Component);
 
         if (Transform(args.Target).Anchored)
         {

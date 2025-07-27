@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server._White.GameTicking.Rules.Components;
 using Content.Server.Announcements.Systems;
 using Content.Server.Antag;
@@ -32,7 +33,6 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
     [Dependency] private readonly IRobustRandom _random = default!;
 
     [Dependency] private readonly AnnouncerSystem _announcer = default!;
-    [Dependency] private readonly AntagSelectionSystem _antagSelection = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NukeCodePaperSystem _nukeCodePaper = default!;
@@ -79,8 +79,8 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
         while (query.MoveNext(out _, out _, out var xenomorphsRule, out _))
         {
             if (!xenomorphsRule.Xenomorphs.Contains(uid)
-                || GetXenomorphs(xenomorphsRule.Xenomorphs, args.Caste).Count >= cast.MaxCount
-                || cast.NeedCasteDeath != null && GetXenomorphs(xenomorphsRule.Xenomorphs, cast.NeedCasteDeath).Count > 0)
+                || GetXenomorphs(xenomorphsRule, args.Caste).Count >= cast.MaxCount
+                || cast.NeedCasteDeath != null && GetXenomorphs(xenomorphsRule, cast.NeedCasteDeath).Count > 0)
                 continue;
 
             return;
@@ -96,10 +96,8 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
         AfterXenomorphEvolutionEvent args
     )
     {
-        var entityName = Name(args.EvolvedInto);
-
         var query = QueryActiveRules();
-        while (query.MoveNext(out var ruleUid, out _, out var xenomorphsRule, out _))
+        while (query.MoveNext(out _, out _, out var xenomorphsRule, out _))
         {
             if (xenomorphsRule.Xenomorphs.Remove(uid))
                 xenomorphsRule.Xenomorphs.Add(args.EvolvedInto);
@@ -153,10 +151,10 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
         var centcomms = _emergencyShuttle.GetCentcommMaps();
         var station = GetStationGrids();
 
-        var reproduceXenomorphs = GetReproducingXenomorphs();
-        foreach (var reproduceXenomorph in reproduceXenomorphs)
+        var xenomorphs = GetXenomorphs(component);
+        foreach (var xenomorph in xenomorphs)
         {
-            var xform = Transform(reproduceXenomorph);
+            var xform = Transform(xenomorph);
             if (xform.MapUid == null || !centcomms.Contains(xform.MapUid.Value))
                 continue;
 
@@ -192,14 +190,6 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
             var text = Loc.GetString($"xenomorphs-cond-{cond.ToString().ToLower()}");
             args.AddLine(text);
         }
-
-        args.AddLine(Loc.GetString("xenomorphs-list-start"));
-
-        var sessionData = _antagSelection.GetAntagIdentifiers(uid);
-        foreach (var (_, data, name) in sessionData)
-        {
-            args.AddLine(Loc.GetString("xenomorphs-list-name-user", ("name", name), ("user", data.UserName)));
-        }
     }
 
     protected override void Started(
@@ -223,7 +213,7 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
 
-        if (component.NextCheck > _timing.CurTime)
+        if (!component.AnnouncementTime.HasValue || component.NextCheck > _timing.CurTime)
             return;
 
         component.NextCheck = _timing.CurTime + component.CheckDelay;
@@ -252,9 +242,9 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
         var stationGrids = GetStationGrids();
 
         var humans = GetHumans(stationGrids);
-        var xenomorphs = GetXenomorphs(component.Xenomorphs);
+        var xenomorphs = GetXenomorphs(component);
 
-        if (GetReproducingXenomorphs().Count == 0)
+        if (xenomorphs.Count == 0)
         {
             if (component.Announced
                 && !string.IsNullOrEmpty(component.NoMoreThreatAnnouncement)
@@ -323,35 +313,25 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
         return humans;
     }
 
-    private List<EntityUid> GetXenomorphs(List<EntityUid> ruleXenomorphs, ProtoId<XenomorphCastePrototype>? cast = null)
+    private List<EntityUid> GetXenomorphs(XenomorphsRuleComponent xenomorphsRule, ProtoId<XenomorphCastePrototype>? cast = null)
     {
         var xenomorphs = new List<EntityUid>();
 
-        foreach(var xenomorph in ruleXenomorphs)
+        foreach(var xenomorph in xenomorphsRule.Xenomorphs.ToList())
         {
-            if (!TryComp<XenomorphComponent>(xenomorph, out var xenomorphComponent)
-                || _mobState.IsDead(xenomorph)
-                || cast.HasValue && xenomorphComponent.Caste != cast)
+            if (!Exists(xenomorph) || !TryComp<XenomorphComponent>(xenomorph, out var xenomorphComponent))
+            {
+                xenomorphsRule.Xenomorphs.Remove(xenomorph);
+                continue;
+            }
+
+            if (_mobState.IsDead(xenomorph) || cast.HasValue && xenomorphComponent.Caste != cast)
                 continue;
 
             xenomorphs.Add(xenomorph);
         }
 
         return xenomorphs;
-    }
-
-    private List<EntityUid> GetReproducingXenomorphs()
-    {
-        var reproduceXenomorphs = new List<EntityUid>();
-
-        var xenomorphQuery = AllEntityQuery<XenomorphComponent>();
-        while (xenomorphQuery.MoveNext(out var uid, out _))
-        {
-            if (!TryComp<MobStateComponent>(uid, out var mobState) || _mobState.IsAlive(uid, mobState))
-                reproduceXenomorphs.Add(uid);
-        }
-
-        return reproduceXenomorphs;
     }
 
     private HashSet<EntityUid> GetStationGrids()

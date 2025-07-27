@@ -111,9 +111,9 @@
   id: MobHeadcrab
   components:
   - type: Sprite
-    sprite: _White/Mobs/Animals/headcrab.rsi
+    sprite: _White/Mobs/Aliens/headcrab.rsi
   - type: Clothing
-    sprite: _White/Mobs/Animals/headcrab.rsi
+    sprite: _White/Mobs/Aliens/headcrab.rsi
   - type: GuideHelp
     guides:
     - Headcrab
@@ -124,9 +124,9 @@
   name: fast headcrab
   components:
   - type: Sprite
-    sprite: _White/Mobs/Animals/headcrab_fast.rsi
+    sprite: _White/Mobs/Aliens/headcrab_fast.rsi
   - type: Clothing
-    sprite: _White/Mobs/Animals/headcrab_fast.rsi
+    sprite: _White/Mobs/Aliens/headcrab_fast.rsi
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.2
     baseSprintSpeed: 4.2
@@ -140,9 +140,9 @@
   name: poison headcrab
   components:
   - type: Sprite
-    sprite: _White/Mobs/Animals/headcrab_poison.rsi
+    sprite: _White/Mobs/Aliens/headcrab_poison.rsi
   - type: Clothing
-    sprite: _White/Mobs/Animals/headcrab_poison.rsi
+    sprite: _White/Mobs/Aliens/headcrab_poison.rsi
   - type: Headcrab
     damage:
       types:

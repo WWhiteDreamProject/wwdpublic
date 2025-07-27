@@ -9,8 +9,8 @@ namespace Content.Shared._White.Xenomorphs.Xenomorph;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class XenomorphComponent : Component
 {
-    [DataField]
-    public ProtoId<XenomorphCastePrototype> Caste = "Drone";
+    [DataField(required: true)]
+    public ProtoId<XenomorphCastePrototype> Caste;
 
     /// <summary>
     /// Healing provided by the weed.

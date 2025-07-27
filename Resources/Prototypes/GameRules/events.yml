@@ -25,6 +25,11 @@
     - id: SpiderClownSpawn
     - id: SpiderSpawn
     - id: VentClog
+    # WD EDIT START
+    - id: WormholesSpawn
+    - id: StraySupplyPod
+    - id: StraySupplyPodSyndicate
+    # WD EDIT END
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -39,6 +44,10 @@
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
+    # WD EDIT START
+    - id: XenomorphsInfestation
+    - id: HeadcrabInvasion
+    # WD EDIT END
 
 - type: entity
   id: BaseStationEvent
