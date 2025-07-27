@@ -3,7 +3,7 @@
   name: ointment
   icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: ointment }
   spawn: Ointment
-  maxCount: 10
+  maxCount: 15 # WD EDIT: 10 -> 15 - Changed to 15 due to shitmed changes
 
 - type: stack
   id: AloeCream

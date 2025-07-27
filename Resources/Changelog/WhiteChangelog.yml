@@ -3812,3 +3812,110 @@ Entries:
   id: 403
   time: '2025-07-23T00:19:15.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/671
+- author: Warete
+  changes:
+    - type: Fix
+      message: >-
+        Из коробок/магазинов и ещё где это возможно, на клавишу Z вновь
+        достаются предметы.
+    - type: Fix
+      message: Исправлен осмотр коробок(последнего вложенного "поверх" объекта).
+  id: 404
+  time: '2025-07-23T00:28:36.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/673
+- author: Kutos
+  changes:
+    - type: Tweak
+      message: Отражение лазеров отражающему жилету 33->65
+  id: 405
+  time: '2025-07-23T00:34:07.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/674
+- author: Kutos
+  changes:
+    - type: Fix
+      message: Приписка языка теперь отображается и в IC чате
+  id: 406
+  time: '2025-07-23T00:34:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/675
+- author: Kutos
+  changes:
+    - type: Add
+      message: Клички для мимов (неужели)
+  id: 407
+  time: '2025-07-23T00:38:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/676
+- author: nekosich
+  changes:
+    - type: Tweak
+      message: Перевод генокрадов~
+  id: 408
+  time: '2025-07-23T00:44:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/685
+- author: Kutos
+  changes:
+    - type: Tweak
+      message: Теперь при столкновении предметов урон не может превышать 50 единиц.
+  id: 409
+  time: '2025-07-23T00:52:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/688
+- author: nekosich
+  changes:
+    - type: Tweak
+      message: Перевод советов~
+  id: 410
+  time: '2025-07-23T06:38:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/686
+- author: Spatison
+  changes:
+    - type: Fix
+      message: 'Все шаттлы теперь появляются корректно '
+  id: 411
+  time: '2025-07-23T12:28:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/694
+- author: Spatison
+  changes:
+    - type: Add
+      message: апстрим 12.07-23.07
+    - type: Fix
+      message: Объявление о прибытия шаттла эвакуации теперь корректное
+    - type: Fix
+      message: Шаттл шахтеров теперь может прилететь на станцию
+    - type: Fix
+      message: Переключение света у призраков снова работает
+  id: 412
+  time: '2025-07-23T12:29:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/695
+- author: Kutos
+  changes:
+    - type: Add
+      message: Локализация для блоба
+    - type: Fix
+      message: Заменены шрифты без поддержки кириллицы
+    - type: Fix
+      message: >-
+        Исправлена локализация строчки для имен киборов/ии станции в редакторе
+        персонажа
+  id: 413
+  time: '2025-07-23T14:24:00.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/693
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Станция центрального командования и прибытия теперь точно спавнятся
+  id: 414
+  time: '2025-07-26T02:58:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/703
+- author: Kutosss
+  changes:
+    - type: Fix
+      message: Настройка вкл/выкл эффектов от эмоций теперь дает себя сохранить
+  id: 415
+  time: '2025-07-26T03:01:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/710
+- author: Kutos
+  changes:
+    - type: Add
+      message: 'Очки охраны теперь могут менять статус розыска '
+  id: 416
+  time: '2025-07-26T03:14:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/690

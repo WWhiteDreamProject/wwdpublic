@@ -184,6 +184,7 @@ namespace Content.Client.Options.UI.Tabs
             var isVPResSame = ViewportLowResCheckBox.Pressed == !_cfg.GetCVar(CCVars.ViewportScaleRender);
             var isPLQSame = ParallaxLowQualityCheckBox.Pressed == _cfg.GetCVar(CCVars.ParallaxLowQuality);
             var isFpsCounterVisibleSame = FpsCounterCheckBox.Pressed == _cfg.GetCVar(CCVars.HudFpsCounterVisible);
+            var isMoodVisualEffectsSame = MoodVisualEffectsCheckBox.Pressed == _cfg.GetCVar(CCVars.MoodVisualEffects); // WWDP EDIT
             var isWidthSame = (int) ViewportWidthSlider.Value == _cfg.GetCVar(CCVars.ViewportWidth);
             var isFilmGrainSame = FilmGrainCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.FilmGrain); // WD EDIT
             var isFilmGrainStrengthSame = (float) FilmGrainSlider.Value == _cfg.GetCVar(WhiteCVars.FilmGrainStrength); // WD EDIT
@@ -200,6 +201,7 @@ namespace Content.Client.Options.UI.Tabs
                                    isVPResSame &&
                                    isPLQSame &&
                                    isFpsCounterVisibleSame &&
+                                   isMoodVisualEffectsSame && // WWDP EDIT
                                    isWidthSame &&
                                    isFilmGrainSame &&       // WD EDIT
                                    isFilmGrainStrengthSame; // WD EDIT

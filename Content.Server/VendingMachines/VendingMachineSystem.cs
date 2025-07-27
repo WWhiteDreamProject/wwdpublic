@@ -23,7 +23,6 @@ using Content.Shared.VendingMachines;
 using Content.Shared.Wall;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -48,6 +47,7 @@ namespace Content.Server.VendingMachines
 
             SubscribeLocalEvent<VendingMachineComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<VendingMachineComponent, BreakageEventArgs>(OnBreak);
+            SubscribeLocalEvent<VendingMachineComponent, GotEmaggedEvent>(OnEmagged);
             SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<VendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
 
@@ -121,29 +121,11 @@ namespace Content.Server.VendingMachines
             TryUpdateVisualState(uid, vendComponent);
         }
 
-        // WWDP EDIT START
-        public override void OnEmagged(EntityUid uid, VendingMachineComponent component, ref GotEmaggedEvent args)
+        private void OnEmagged(EntityUid uid, VendingMachineComponent component, ref GotEmaggedEvent args)
         {
-            if (component.EmaggedInventory.Count == 0)
-                return;
-
-            args.Handled = true;
-
-            // one chance
-            if (Randomizer.Prob(0.33f))
-            {
-                Popup.PopupEntity(Loc.GetString("emag-vendingmachine-broke"), uid, args.UserUid, PopupType.MediumCaution);
-                Audio.PlayEntity(
-                    new SoundPathSpecifier("/Audio/_White/Effects/beep_long.ogg"),
-                    args.UserUid,
-                    uid,
-                    AudioParams.Default.WithVolume(10f));
-                return;
-            }
-
-            component.JailBreak = true;
+            // only emag if there are emag-only items
+            args.Handled = component.EmaggedInventory.Count > 0;
         }
-        // WWDP EDIT END
 
         private void OnDamageChanged(EntityUid uid, VendingMachineComponent component, DamageChangedEvent args)
         {
@@ -420,7 +402,7 @@ namespace Content.Server.VendingMachines
             if (!Resolve(uid, ref component))
                 return null;
 
-            if (type == InventoryType.Emagged && component.JailBreak) // WWDP EDIT - Emagged to JailBreak bool
+            if (type == InventoryType.Emagged && HasComp<EmaggedComponent>(uid))
                 return component.EmaggedInventory.GetValueOrDefault(entryId);
 
             if (type == InventoryType.Contraband && component.Contraband)
