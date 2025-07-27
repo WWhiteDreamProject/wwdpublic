@@ -23,8 +23,6 @@
   - type: ActionGrant
     actions:
     - ActionTransferPlasma
-  - type: Inventory
-    templateId: larva
   - type: Body
     prototype: XenomorphLarva
   - type: Fixtures

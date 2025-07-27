@@ -1,3 +1,5 @@
+xenomorph-round-end-agent-name = [color=#8c3986]Xenomorph[/color]
+
 objective-issuer-xenomorph-hive = [color=#8c3986]The Xenomorph Hive[/color]
 
 xenomorph-role-greeting =
