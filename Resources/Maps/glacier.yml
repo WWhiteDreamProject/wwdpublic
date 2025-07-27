@@ -33,9 +33,9 @@ tilemap:
   49: FloorKitchen
   50: FloorLaundry
   2: FloorLino
-  53: FloorMetalDiamond
+  53: FloorMetalDiamondSteel
   54: FloorMime
-  55: FloorMono
+  55: FloorTrueMonoTileSteel
   59: FloorPlastic
   60: FloorRGlass
   61: FloorReinforced
