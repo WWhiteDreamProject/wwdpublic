@@ -158,5 +158,11 @@ public sealed partial class AirlockComponent : Component
     [DataField]
     public float BoltedPryModifier = 3f;
 
+    /// <summary>
+    /// WWDP FIX
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool OpenedMechanically = false; 
+
     #endregion Graphics
 }

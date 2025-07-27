@@ -26,6 +26,7 @@ public abstract class SharedAirlockSystem : EntitySystem
         SubscribeLocalEvent<AirlockComponent, BeforeDoorDeniedEvent>(OnBeforeDoorDenied);
         SubscribeLocalEvent<AirlockComponent, GetPryTimeModifierEvent>(OnGetPryMod);
         SubscribeLocalEvent<AirlockComponent, BeforePryEvent>(OnBeforePry);
+        SubscribeLocalEvent<AirlockComponent, PriedEvent>(OnAfterPry); // WWDP ADD
     }
 
     private void OnBeforeDoorClosed(EntityUid uid, AirlockComponent airlock, BeforeDoorClosedEvent args)
@@ -42,7 +43,8 @@ public abstract class SharedAirlockSystem : EntitySystem
 
         if (TryComp(uid, out DoorComponent? door)
             && !door.Partial
-            && !CanChangeState(uid, airlock))
+            && !CanChangeState(uid, airlock)
+            && !airlock.OpenedMechanically) // WWDP EDIT
         {
             args.Cancel();
         }
@@ -66,6 +68,7 @@ public abstract class SharedAirlockSystem : EntitySystem
         if (args.State == DoorState.Closed)
         {
             component.AutoClose = true;
+            component.OpenedMechanically = false; // WWDP EDIT
             Dirty(uid, component);
         }
     }
@@ -81,6 +84,14 @@ public abstract class SharedAirlockSystem : EntitySystem
     {
         if (!CanChangeState(uid, component))
             args.Cancel();
+            // WWDP EDIT START
+        else
+        {
+            // Reset mechanical flag when opened normally
+            component.OpenedMechanically = false;
+            Dirty(uid, component);
+            // WWDP EDIT END
+        }
     }
 
     private void OnBeforeDoorDenied(EntityUid uid, AirlockComponent component, BeforeDoorDeniedEvent args)
@@ -135,6 +146,15 @@ public abstract class SharedAirlockSystem : EntitySystem
 
         args.Cancelled = true;
     }
+
+    // WWDP EDIT START
+    private void OnAfterPry(EntityUid uid, AirlockComponent component, ref PriedEvent args)
+    {
+        // Mark as mechanically opened when pried
+        component.OpenedMechanically = true;
+        Dirty(uid, component);
+    }
+    // WWDP EDIT END
 
     public void UpdateEmergencyLightStatus(EntityUid uid, AirlockComponent component)
     {
