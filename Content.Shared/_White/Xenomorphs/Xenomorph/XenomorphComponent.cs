@@ -18,6 +18,9 @@ public sealed partial class XenomorphComponent : Component
     [DataField]
     public DamageSpecifier? WeedHeal;
 
+    [DataField]
+    public TimeSpan WeedHealRate = TimeSpan.FromSeconds(1);
+
     /// <summary>
     /// Language on which xenomorph need to speak to send hivemind message.
     /// </summary>
@@ -26,4 +29,7 @@ public sealed partial class XenomorphComponent : Component
 
     [ViewVariables]
     public bool OnWeed;
+
+    [ViewVariables]
+    public TimeSpan NextPointsAt;
 }

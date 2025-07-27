@@ -5,9 +5,11 @@ using Content.Server.Chat.Systems;
 using Content.Server.Language;
 using Content.Shared._White.Xenomorphs.Xenomorph;
 using Content.Shared.Chat;
+using Content.Shared.Damage;
 using Content.Shared.Language;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Server._White.Xenomorphs.Xenomorph;
@@ -16,7 +18,9 @@ public sealed class XenomorphSystem : SharedXenomorphSystem
 {
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
 
     public override void Initialize()
@@ -26,10 +30,22 @@ public sealed class XenomorphSystem : SharedXenomorphSystem
         SubscribeLocalEvent<XenomorphComponent, EntitySpokeEvent>(OnEntitySpoke);
     }
 
-    private bool CanHearXenoHivemind(EntityUid entity, string languageId)
+    public override void Update(float frameTime)
     {
-        var understood = _language.GetUnderstoodLanguages(entity);
-        return understood.Any(language => language.Id == languageId);
+        base.Update(frameTime);
+
+        var time = _timing.CurTime;
+
+        var query = EntityQueryEnumerator<XenomorphComponent>();
+        while (query.MoveNext(out var uid, out var xenomorph))
+        {
+            if (xenomorph.WeedHeal == null || xenomorph.OnWeed || time < xenomorph.NextPointsAt)
+                continue;
+
+            xenomorph.NextPointsAt = time + xenomorph.WeedHealRate;
+
+            _damageable.TryChangeDamage(uid, xenomorph.WeedHeal);
+        }
     }
 
     private void OnEntitySpoke(EntityUid uid, XenomorphComponent component, EntitySpokeEvent args)
@@ -38,6 +54,12 @@ public sealed class XenomorphSystem : SharedXenomorphSystem
             return;
 
         SendMessage(args.Source, args.Message, false, args.Language);
+    }
+
+    private bool CanHearXenoHivemind(EntityUid entity, string languageId)
+    {
+        var understood = _language.GetUnderstoodLanguages(entity);
+        return understood.Any(language => language.Id == languageId);
     }
 
     private void SendMessage(EntityUid source, string message, bool hideChat, LanguagePrototype language)
