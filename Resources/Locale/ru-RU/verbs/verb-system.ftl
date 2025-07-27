@@ -26,7 +26,7 @@ verb-categories-lever = Рычаг
 verb-categories-select-type = Выбрать режим
 verb-categories-fax = Задать место назначения
 verb-categories-interaction = Взаимодействовать
-verb-categories-blood-cult = Культ Крови
+
 verb-common-toggle-light = Переключить свет
 verb-common-close = Закрыть
 verb-common-open = Открыть
