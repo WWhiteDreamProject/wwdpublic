@@ -32,6 +32,7 @@
   category: JobsLogisticsSalvageSpecialist
   cost: 0
   exclusive: true
+  customColorTint: true
   requirements:
     - !type:CharacterItemGroupRequirement
       group: LoadoutSalvageSpecialistOuter
