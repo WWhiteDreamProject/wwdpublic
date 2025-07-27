@@ -17,7 +17,7 @@ public sealed partial class JumpComponent : Component
     public TimeSpan StunTime = TimeSpan.FromSeconds(4);
 
     [DataField]
-    public EntProtoId JumpAction = "ActionJumpAlien";
+    public EntProtoId JumpAction = "ActionJumpHeadcrab";
 
     [ViewVariables]
     public EntityUid? JumpActionEntity;
