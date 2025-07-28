@@ -1,0 +1,39 @@
+- type: tile
+  id: FloorTechMaint
+  name: tiles-techmaint-floor
+  sprite: /Textures/Tiles/deprecated.png
+  baseTurf: Plating
+  isSubfloor: false
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorMono
+  name: tiles-mono-floor
+  sprite: /Textures/Tiles/deprecated.png
+  baseTurf: Plating
+  isSubfloor: false
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorBlue
+  name: tiles-blue-tile
+  sprite: /Textures/Tiles/deprecated.png
+  baseTurf: Plating
+  isSubfloor: false
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorSteelLime
+  name: tiles-lime-floor
+  sprite: /Textures/Tiles/deprecated.png
+  baseTurf: Plating
+  isSubfloor: false
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorTechMaint2
+  name: tiles-techmaint2-floor
+  sprite: /Textures/Tiles/deprecated.png
+  baseTurf: Plating
+  isSubfloor: false
+  heatCapacity: 10000
