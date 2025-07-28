@@ -31,8 +31,10 @@
         damage: 150
       behaviors:
       - !type:GibPartBehavior { }
-  - type: StaticPrice
-    price: 100
+  # WD EDIT START
+  # - type: StaticPrice
+  #   price: 100
+  # WD EDIT END
 
 - type: entity
   id: TorsoIPC
