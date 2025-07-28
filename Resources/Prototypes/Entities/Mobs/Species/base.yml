@@ -210,7 +210,7 @@
         type: InstrumentBoundUserInterface
         requireInputValidation: false
       enum.RadialSelectorUiKey.Key:
-        type: RadialSelectorMenuBUI
+        type: TrackedRadialSelectorMenuBUI # WD EDIT: RadialSelectorMenuBUI -> TrackedRadialSelectorMenuBUI
       enum.ListViewSelectorUiKey.Key:
         type: ListViewSelectorBUI
       enum.SurgeryUIKey.Key:
