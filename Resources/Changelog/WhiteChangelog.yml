@@ -3962,3 +3962,10 @@ Entries:
   id: 421
   time: '2025-07-28T09:07:44.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/717
+- author: nekosich
+  changes:
+    - type: Tweak
+      message: Перевод Шайтана и Тенелингов
+  id: 422
+  time: '2025-07-28T09:08:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/723
