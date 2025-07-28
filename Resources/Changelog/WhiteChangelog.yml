@@ -3955,3 +3955,10 @@ Entries:
   id: 420
   time: '2025-07-28T09:06:55.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/719
+- author: AllCatsArebeautiful
+  changes:
+    - type: Add
+      message: Одежда утилизаторов
+  id: 421
+  time: '2025-07-28T09:07:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/717
