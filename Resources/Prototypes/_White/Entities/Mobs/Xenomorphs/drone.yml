@@ -62,8 +62,6 @@
         requireInputValidation: false
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
-      enum.RadialSelectorUiKey.Key:
-        type: TrackedRadialSelectorMenuBUI
 
 - type: entity
   parent: [BaseMobXenomorphDungeon, BaseMobXenomorphDrone]

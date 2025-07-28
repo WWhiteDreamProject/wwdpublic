@@ -1,5 +1,6 @@
 ﻿using Content.Server.Hands.Systems;
 using Content.Server.Popups;
+using Content.Shared._White.RadialSelector;
 using Content.Shared.RadialSelector;
 using Content.Shared.UserInterface;
 using Content.Shared.WhiteDream.BloodCult;
@@ -46,7 +47,7 @@ public sealed class TimedFactorySystem : EntitySystem
         if (_ui.IsUiOpen(factory.Owner, RadialSelectorUiKey.Key))
             return;
 
-        _ui.SetUiState(factory.Owner, RadialSelectorUiKey.Key, new RadialSelectorState(factory.Comp.Entries));
+        _ui.SetUiState(factory.Owner, RadialSelectorUiKey.Key, new TrackedRadialSelectorState(factory.Comp.Entries));
     }
 
     private void OnPrototypeSelected(Entity<TimedFactoryComponent> factory, ref RadialSelectorSelectedMessage args)
