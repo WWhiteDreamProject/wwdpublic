@@ -660,6 +660,18 @@
     - SMESAdvancedMachineCircuitboard
     - BaseComputerModularCircuitBoard # Arcadis - Modular Computer System
     - DiskBurnerMachineCircuitboard # Arcadis - Modular Computer System
+    # WD EDIT START
+    - StationAICoreCircuitboard
+    - StationAiUploadCircuitboard
+    - AsimovCircuitBoard
+    - CorporateCircuitBoard
+    - NTDefaultCircuitBoard
+    - MotherDroneCircuitBoard
+    - NutimovCircuitBoard
+    - PaladinCircuitBoard
+    - RobocopCircuitBoard
+    - QuarantineCircuitBoard
+    # WD EDIT END
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - ShuttleGunDusterCircuitboard
@@ -1141,6 +1153,18 @@
     - WeaponPistolUniversal
     - ClothingBackpackElectropack
     # WD EDIT START
+    - MagazineLightRifleLowCapacityEmpty
+    - MagazineLightRifleLowCapacity
+    - SpeedLoaderRifleHeavy
+    - SpeedLoaderRifleHeavyEmpty
+    - WeaponRifleNovaliteC1
+    - WeaponRifleGestio
+    - MagazineMagnumLeverRifle
+    - MagazineMagnumLeverRifleEmpty
+    - MagazineNovaliteC1Empty
+    - MagazineNovaliteC1
+    - WeaponRifleNovaliteC1
+    - WeaponRifleGestio
     - MagazineShotgunLaser
     - BoxLaser
     - ShellShotgunLaser
@@ -1151,6 +1175,8 @@
     - BoxBreach
     - ShellShotgunBreach
     - WeaponSecurityRiotLauncher
+    - BasicRegulatorLamp
+    - AdvancedRegulatorLamp
     # WD EDIT END
   - type: MaterialStorage
     whitelist:

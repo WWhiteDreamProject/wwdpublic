@@ -20,7 +20,6 @@
           availableJobs:
             #service
             Captain: [ 1, 1 ]
-            Maid: [ 1, 1 ] # WWDP Combat Maid instead of CC roles
             # NanotrasenRepresentative: [ 1, 1 ] - WD EDIT
             # BlueshieldOfficer: [ 1, 1 ] - WD EDIT
             # Magistrate: [ 1, 1 ] # EE: Disabled
