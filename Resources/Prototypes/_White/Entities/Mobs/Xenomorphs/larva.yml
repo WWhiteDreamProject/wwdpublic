@@ -33,7 +33,7 @@
           radius: 0.2
         density: 100
         mask:
-        - FlyingMobMask
+        - SmallMobMask
         layer:
         - SmallMobLayer
   - type: Deathgasp

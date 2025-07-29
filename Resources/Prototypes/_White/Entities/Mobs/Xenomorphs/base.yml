@@ -40,17 +40,17 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      125: Critical
-      135: Dead
+      185: Critical
+      200: Dead
     stateAlertDict:
       Alive: XenomorphHealth
       Critical: XenomorphCrit
       Dead: XenomorphDead
   - type: SlowOnDamage
     speedModifierThresholds:
-      70: 0.9
-      85: 0.7
-      100: 0.6
+      105: 0.9
+      125: 0.7
+      150: 0.6
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Xenomorph
@@ -88,7 +88,7 @@
     animation: WeaponArcBite
     damage:
       groups:
-        Brute: 20
+        Brute: 25
   - type: TypingIndicator
     proto: alien
   - type: Temperature

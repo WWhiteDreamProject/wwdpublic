@@ -92,7 +92,7 @@
     - type: XenomorphAcid
       damagePerSecond:
         types:
-          Caustic: 5
+          Caustic: 20
 
 - type: entity
   parent: BaseXenomorphOrgan
@@ -108,7 +108,7 @@
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 0.75
     - type: BasicEntityAmmoProvider
-      proto: BulletAcid
+      proto: BulletAcidLarge
       capacity: 1
       count: 1
     - type: Gun
