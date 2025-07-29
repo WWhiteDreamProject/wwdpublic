@@ -3976,3 +3976,10 @@ Entries:
   id: 423
   time: '2025-07-28T15:59:45.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/724
+- author: Gersoon458
+  changes:
+    - type: Fix
+      message: Великофикс ЦК
+  id: 424
+  time: '2025-07-29T03:04:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/731
