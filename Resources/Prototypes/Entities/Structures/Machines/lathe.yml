@@ -228,8 +228,10 @@
     - VehicleWheelchairFolded # Goobstation
     - CassetteTape
     - TapeRecorder
-    - SnowballMaker # WWDP
-    - Matchbox  # WWDP
+    - SnowballMaker #WWDP edit start
+    - Matchbox
+    - Fulton 
+    - FultonBeacon #WWDP edit end
   - type: EmagLatheRecipes
     emagStaticRecipes:
     - BoxLethalshot
@@ -1343,6 +1345,10 @@
     - CartridgeSaline # Goobstation - ParamedHypo
     - ParamedHypo # Goobstation - ParamedHypo
     - CartridgePain # Morphine Tweaks
+    # WD EDIT START
+    - MiniSyringe
+    - SyringeGun
+    # WD EDIT END
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker
@@ -1360,8 +1366,6 @@
     - OmnimedTool
     - MedicalCyberneticEyes
     # WD EDIT START
-    - MiniSyringe
-    - SyringeGun
     - BluespaceBodyBag
     - NTBodyBag
     - PrisonerBodyBag
