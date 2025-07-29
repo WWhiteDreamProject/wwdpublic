@@ -53,7 +53,7 @@ namespace Content.Server.Construction.Conditions
 
             foreach (var (machinePartId, required) in machineFrame.MachinePartRequirements)
             {
-                var amount = required - machineFrame.MachinePartRequirements[machinePartId];
+                var amount = required - machineFrame.MachinePartProgress[machinePartId]; // WWDP FIX Requirements -> Progres
 
                 if(amount == 0)
                     continue;
