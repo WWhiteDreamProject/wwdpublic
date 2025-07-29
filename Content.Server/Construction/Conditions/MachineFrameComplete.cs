@@ -62,7 +62,7 @@ namespace Content.Server.Construction.Conditions
 
                 args.PushMarkup(Loc.GetString("construction-condition-machine-frame-required-element-entry",
                     ("amount", amount),
-                    ("elementName", Loc.GetString(machinePart.Name))));
+                    ("elementName", Loc.GetString(machinePart.Name)))); // WWDP fix - Loc.GetString
             }
 
             foreach (var (material, required) in machineFrame.MaterialRequirements)
