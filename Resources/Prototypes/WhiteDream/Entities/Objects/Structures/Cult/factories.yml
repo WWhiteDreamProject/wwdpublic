@@ -43,7 +43,7 @@
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
-        type: RadialSelectorMenuBUI
+        type: TrackedRadialSelectorMenuBUI
   - type: ActivatableUI
     key: enum.RadialSelectorUiKey.Key
     userWhitelist:

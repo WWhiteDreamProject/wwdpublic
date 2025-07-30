@@ -1,4 +1,5 @@
 using Content.Server.Hands.Systems;
+using Content.Shared._White.RadialSelector;
 using Content.Shared.Hands.Components;
 using Content.Shared.RadialSelector;
 using Content.Shared.UserInterface;
@@ -23,7 +24,7 @@ public sealed class RadialEntityMorphSystem : EntitySystem
         if (!_ui.HasUi(entity.Owner, RadialSelectorUiKey.Key))
             return;
 
-        _ui.SetUiState(entity.Owner, RadialSelectorUiKey.Key, new RadialSelectorState(entity.Comp.Entries));
+        _ui.SetUiState(entity.Owner, RadialSelectorUiKey.Key, new TrackedRadialSelectorState(entity.Comp.Entries));
     }
 
     private void OnPrototypeSelected(EntityUid uid, RadialEntityMorphComponent component, RadialSelectorSelectedMessage args)

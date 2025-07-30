@@ -3941,3 +3941,45 @@ Entries:
   id: 418
   time: '2025-07-27T15:11:03.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/716
+- author: nekosich
+  changes:
+    - type: Fix
+      message: 'Исправлено чтение датасетов. Бай-бай vending-machine-thanks-0! '
+  id: 419
+  time: '2025-07-28T09:06:15.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/721
+- author: Purka581
+  changes:
+    - type: Tweak
+      message: Мидишки звучат лучше!
+  id: 420
+  time: '2025-07-28T09:06:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/719
+- author: AllCatsArebeautiful
+  changes:
+    - type: Add
+      message: Одежда утилизаторов
+  id: 421
+  time: '2025-07-28T09:07:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/717
+- author: nekosich
+  changes:
+    - type: Tweak
+      message: Перевод Шайтана и Тенелингов
+  id: 422
+  time: '2025-07-28T09:08:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/723
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Радиальные меню снова работают
+  id: 423
+  time: '2025-07-28T15:59:45.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/724
+- author: Gersoon458
+  changes:
+    - type: Fix
+      message: Великофикс ЦК
+  id: 424
+  time: '2025-07-29T03:04:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/731
