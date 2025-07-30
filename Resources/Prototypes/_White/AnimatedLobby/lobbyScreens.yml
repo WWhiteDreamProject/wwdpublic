@@ -49,3 +49,9 @@
   path: /Textures/_White/LobbyScreens/brig.rsi
   name: Brig
   artist: Waggier
+  
+- type: animatedLobbyScreen
+  id: Sects07LobbyScreen
+  path: /Textures/_White/LobbyScreens/sects-07.rsi
+  name: WELCOME TO WHITE DREAM
+  artist: kukutos clan
