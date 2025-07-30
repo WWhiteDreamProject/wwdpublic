@@ -6,6 +6,7 @@ cheat-death-component-remaining-revives = { $amount ->
 *[other] Судьба позволяет тебе ещё {$amount} раз обмануть смерть... но какой ценой?
 }
 
+
 cheat-death-component-remaining-revives-unlimited = У тебя — бесконечные возрождения. Играй с вечностью, пока она позволяет.
 
 action-cheat-death-fail-no-lives = На этот раз — никакого бегства. Могила ждёт.

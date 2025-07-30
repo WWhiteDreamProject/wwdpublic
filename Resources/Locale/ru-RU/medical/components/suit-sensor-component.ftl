@@ -1,4 +1,4 @@
-## Modes
+﻿## Modes
 
 suit-sensor-mode-off = Выкл.
 suit-sensor-mode-binary = Бинарный
@@ -7,12 +7,17 @@ suit-sensor-mode-cords = Координаты
 
 ## Popups
 
+## Popups
 suit-sensor-mode-state = Датчики костюма: { $mode }
+
+## Components
 
 ## Components
 
 suit-sensor-component-unknown-name = Н/Д
 suit-sensor-component-unknown-job = Н/Д
+
+## Examine
 
 ## Examine
 

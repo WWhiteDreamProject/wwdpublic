@@ -1,32 +1,37 @@
-marking-TattooHiveChest-hivechest = Татуировка, спина (Улей)
+marking-TattooHiveChest-tattoo_hive_chest = Back Tattoo (Hive)
 marking-TattooHiveChest = Татуировка, спина (Улей)
 
-marking-TattooNightlingChest-nightlingchest = Татуировка, грудь (Найтлинг)
+marking-TattooNightlingChest-tattoo_nightling = Chest Tattoo (nightling)
 marking-TattooNightlingChest = Татуировка, грудь (Найтлинг)
 
 marking-TattooNanotrasenChest-tattoo_nanotrasen_chest = Татуировка, грудь (Нанотрейзен)
 marking-TattooNanotrasenChest = Татуировка, грудь (Нанотрейзен)
 
-marking-TattooSilverburghLeftLeg-silverburghleftleg = Татуировка, левая нога (Силвербург)
+marking-TattooSilverburghLeftLeg-tattoo_silverburgh_l_leg = Left Leg Tattoo (Silverburg)
 marking-TattooSilverburghLeftLeg = Татуировка, левая нога (Силвербург)
 
-marking-TattooSilverburghRightLeg-silverburghRightleg = Татуировка, правая нога (Силвербург)
+marking-TattooSilverburghRightLeg-tattoo_silverburgh_r_leg = Right Leg Tattoo (Silverburg)
 marking-TattooSilverburghRightLeg = Татуировка, правая нога (Силвербург)
 
-marking-TattooCampbellLeftArm-campbelleleftArm = Татуировка, левая рука (Кэмпбелль)
+marking-TattooCampbellLeftArm-tattoo_campbell_l_arm = Left Arm Tattoo (Campbelle)
 marking-TattooCampbellLeftArm = Татуировка, левая рука (Кэмпбелль)
 
-marking-TattooCampbellRightArm-campbellrightarm = Татуировка, правая рука (Кэмпбелль)
+marking-TattooCampbellRightArm-tattoo_campbell_r_arm = Right Arm Tattoo (Campbelle)
 marking-TattooCampbellRightArm = Татуировка, правая рука (Кэмпбелль)
 
-marking-TattooCampbellLeftLeg-campbellleftleg = Татуировка, левая нога (Кэмпбелль)
+marking-TattooCampbellLeftLeg-tattoo_campbell_l_leg = Left Leg Tattoo (Campbelle)
 marking-TattooCampbellLeftLeg = Татуировка, левая нога (Кэмпбелль)
 
-marking-TattooCampbellRightLeg-campbellrightleg = Татуировка, правая нога (Кэмпбелль)
+marking-TattooCampbellRightLeg-tattoo_campbell_r_leg = Right Leg Tattoo (Campbelle)
 marking-TattooCampbellRightLeg = Татуировка, правая нога (Кэмпбелль)
 
-marking-TattooEyeRight-eyeright = Правый глаз
+marking-TattooEyeRight-tattoo_eye_r = Right Eye
 marking-TattooEyeRight = Правый глаз
 
-marking-TattooEyeLeft-eyeleft = Левый глаз
+marking-TattooEyeLeft-tattoo_eye_l = Left Eye
 marking-TattooEyeLeft = Левый глаз
+marking-TattooEyeArachneRight-tattoo_eye_arachne_r = Right Arachne Eye
+marking-TattooEyeArachneRight = Right Arachne Eye
+
+marking-TattooEyeArachneLeft-tattoo_eye_arachne_l = Left Arachne Eye
+marking-TattooEyeArachneLeft = Left Arachne Eye

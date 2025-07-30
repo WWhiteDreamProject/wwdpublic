@@ -8,3 +8,4 @@ ninja-research-steal-success = Вы украли { $count } { $count ->
         [few] новые технологии
         *[other] новых технологий
     } из { $server }.
+ninja-criminal-records-hack-announcement = ERROR: Criminal records has detected a [REDACTED] error #*;"

@@ -5,6 +5,7 @@ materials-plasma-glass = плазменное стекло
 materials-reinforced-plasma-glass = плазменное бронестекло
 
 # Metals
+# Metals
 materials-steel = сталь
 materials-gold = золото
 materials-silver = серебро
@@ -14,6 +15,7 @@ materials-copper = медь
 materials-tungsten = карбид вольфрама
 materials-lead = свинец
 
+# Other
 # Other
 materials-biomass = биомасса
 materials-cardboard = картон
@@ -35,6 +37,7 @@ materials-bluespace = блюспейс
 materials-normality = нормальность
 
 # Ores
+# Ores
 materials-raw-iron = необработанное железо
 materials-raw-quartz = необработанный кварц
 materials-raw-gold = необработанное золото
@@ -52,5 +55,6 @@ materials-raw-sulfur = необработанная сера
 materials-raw-copper = необработанная медь
 materials-raw-tungsten = необработанный вольфрам
 
+# Material Reclaimer
 # Material Reclaimer
 material-reclaimer-upgrade-process-rate = скорость обработки
