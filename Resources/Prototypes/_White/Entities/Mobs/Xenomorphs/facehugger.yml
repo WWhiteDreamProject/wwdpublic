@@ -1,0 +1,70 @@
+- type: entity
+  parent: [BaseMob, ClothingMaskBase, MobDamageable]
+  id: MobXenomorphFaceHugger
+  name: xenomorph facehugger
+  description: A writhing nightmare. The Facehugger clings to its victim's face, forcibly inserting a Xenomorph fetus
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: facehugger
+  - type: Clothing
+    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Xenomorph
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      10: Dead
+    stateAlertDict:
+      Alive: XenomorphHealth
+      Critical: XenomorphCrit
+      Dead: XenomorphDead
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: facehugger
+      Dead:
+        Base: facehugger_dead
+  - type: MeleeWeapon
+    hidden: true
+    canHeavyAttack: false
+    angle: 0
+    damage:
+      types:
+        Blunt: 0
+  - type: Temperature
+    heatDamageThreshold: 360
+    coldDamageThreshold: -150
+    currentTemperature: 310.15
+  - type: FaceHugger
+    effects:
+    - !type:RemoveOrgan
+      slotId: stomach
+      delete: true
+    - !type:AddOrgan
+      slotId: stomach
+      prototype: XenomorphInfection
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: NpcFactionMember
+    factions:
+    - Xeno
+  - type: Tag
+    tags:
+    - XenomorphItem
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
