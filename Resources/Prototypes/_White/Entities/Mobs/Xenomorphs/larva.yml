@@ -20,7 +20,7 @@
         state: xenomorph
   - type: Xenomorph
     caste: Larva
-  - type: Larva
+  - type: XenomorphLarva
   - type: ActionGrant
     actions:
     - ActionTransferPlasma
@@ -56,9 +56,6 @@
     bloodMaxVolume: 50
   - type: MobPrice
     price: 250
-  - type: Organ
-    slotId: stomach
-  - type: Stomach
   # - type: GuideHelp
   #   guides:
   #   - XenomorphLarva

@@ -29,9 +29,21 @@
     thresholds:
       0: Alive
       50: Dead
+  - type: EquipOnThrownHit
+    slot: mask
+    blockingSlot: head
+    blacklist:
+      components:
+      - Ghost
+  - type: EquipOnMeleeHit
+    slot: mask
+    blockingSlot: head
+    equipProb: 0.33
+    blacklist:
+      components:
+      - Ghost
   - type: Headcrab
     paralyzeTime: 3
-    chancePounce: 33
     damage:
       types:
         Piercing: 2

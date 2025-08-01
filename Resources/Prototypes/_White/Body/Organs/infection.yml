@@ -1,23 +1,13 @@
 - type: entity
   parent: BaseItem
-  id: BaseInfection
-  abstract: true
-  components:
-  - type: Organ
-    slotId: stomach
-  - type: Stomach
-  - type: Tag
-    tags:
-    - Meat
-
-- type: entity
-  parent: BaseInfection
   id: XenomorphInfection
   components:
   - type: Sprite
     sprite: _White/Mobs/Species/Xenomorph/organs.rsi
     state: embryon
-  - type: InfectiousOrgan
+  - type: Organ
+    slotId: xenomorph_larva
+  - type: XenomorphInfection
     maxGrowthStage: 6
     growTime: 3
     effects:
@@ -27,9 +17,3 @@
         visualType: Medium
       - !type:Jittering
         duration: 8
-      - !type:RemoveOrgan
-        slotId: stomach
-        delete: true
-      - !type:AddOrgan
-        slotId: stomach
-        prototype: MobXenomorphLarva

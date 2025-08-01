@@ -41,14 +41,39 @@
     heatDamageThreshold: 360
     coldDamageThreshold: -150
     currentTemperature: 310.15
-  - type: FaceHugger
+  - type: EquipOnCollide
+    slot: mask
+    blockingSlot: head
+    blacklist:
+      components:
+      - XenomorphInfected
+      - XenomorphLarvaVictim
+      - Ghost
+  - type: EquipOnPickUp
+    slot: mask
+    blockingSlot: head
+    blacklist:
+      components:
+      - XenomorphInfected
+      - XenomorphLarvaVictim
+      - Ghost
+  - type: EquipOnMeleeHit
+    slot: mask
+    blockingSlot: head
+    blacklist:
+      components:
+      - XenomorphInfected
+      - XenomorphLarvaVictim
+      - Ghost
+  - type: EffectsOnEquip
+    slot: mask
+    blacklist:
+      components:
+      - XenomorphInfected
+      - XenomorphLarvaVictim
+      - Ghost
     effects:
-    - !type:RemoveOrgan
-      slotId: stomach
-      delete: true
-    - !type:AddOrgan
-      slotId: stomach
-      prototype: XenomorphInfection
+    - !type:XenomorphInfection
   - type: NameIdentifier
     group: GenericNumber
   - type: NpcFactionMember

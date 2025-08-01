@@ -9,9 +9,6 @@ public sealed partial class HeadcrabComponent : Component
     [DataField]
     public float ParalyzeTime = 3f;
 
-    [DataField]
-    public int ChancePounce = 33;
-
     [DataField(required: true)]
     public DamageSpecifier Damage = default!;
 

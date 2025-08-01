@@ -1,4 +1,4 @@
-using Content.Shared.Inventory;
+using Content.Shared.Whitelist;
 
 namespace Content.Shared._White.Inventory.Components;
 
@@ -6,12 +6,18 @@ namespace Content.Shared._White.Inventory.Components;
 public abstract partial class BaseEquipOnComponent : Component
 {
     [DataField(required: true)]
-    public SlotFlags Slots = SlotFlags.NONE;
+    public string Slot = "mask";
+
+    [DataField]
+    public string BlockingSlot = "head";
 
     [DataField]
     public float EquipProb = 1f;
 
     [DataField]
-    public bool Force;
+    public EntityWhitelist? Blacklist;
+
+    [DataField]
+    public bool Force = true;
 
 }

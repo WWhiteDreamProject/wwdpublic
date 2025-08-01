@@ -2,22 +2,22 @@ using Content.Shared._White.StatusIcon;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._White.Body;
+namespace Content.Server._White.Xenomorphs.Infection.Components;
 
 [RegisterComponent]
-public sealed partial class InfectiousOrganComponent : Component
+public sealed partial class XenomorphInfectionComponent : Component
 {
-    /// <summary>
-    /// Current stage of infection development.
-    /// </summary>
     [DataField]
     public int MaxGrowthStage = 1;
+
+    [DataField]
+    public EntProtoId LarvaPrototype = "MobXenomorphLarva";
 
     /// <summary>
     /// A set of prototype IDs for status icons representing different growth stages of the infection.
     /// </summary>
     [DataField]
-    public HashSet<ProtoId<InfectionIconPrototype>> InfectedIcons = new();
+    public Dictionary<int, ProtoId<InfectionIconPrototype>> InfectedIcons = new();
 
     /// <summary>
     /// The probability of infection growth per GrowTime.
@@ -47,5 +47,6 @@ public sealed partial class InfectiousOrganComponent : Component
     public bool Growing;
 
     [ViewVariables]
-    public EntityUid? Body;
+    public EntityUid? Infected;
+
 }
