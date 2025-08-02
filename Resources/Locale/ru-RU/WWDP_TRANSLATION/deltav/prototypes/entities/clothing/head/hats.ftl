@@ -1,0 +1,71 @@
+ent-ClothingHeadHatFedoraBlack = чёрная федора
+    .desc = Чёрная федора. Выглядит классически.
+    .suffix = { "" }
+
+ent-ClothingHeadHatFedoraChoc = коричневая федора
+    .desc = Коричневая федора. Выглядит шикарно.
+    .suffix = { "" }
+
+ent-ClothingHeadHatFedoraWhite = белая федора
+    .desc = Белая федора. Выглядит шикарно.
+    .suffix = { "" }
+
+ent-ClothingHeadHatFlatBlack = чёрная плоская кепка
+    .desc = Черная плоская кепка, предназначенная для вождения такси и доставки газет.
+    .suffix = { "" }
+
+ent-ClothingHeadHatFlatBrown = коричневая плоская кепка
+    .desc = Коричневая плоская кепка, предназначенная для вождения такси и доставки газет.
+    .suffix = { "" }
+
+ent-ClothingHeadHatFlatSyndie = { ent-ClothingHeadHatFlatBlack }
+    .desc = Чёрная плоская кепка, предназначенная для доставки сообщения.
+    .suffix = Оружие
+
+ent-ClothingHeadHatSurgcapBlack = хирургическая шапочка
+    .desc = Хирурги надевают черную шапочку во время операций, чтобы их волосы не щекотали ваши внутренние органы.
+    .suffix = { "" }
+
+ent-ClothingHeadHatSurgcapCyan = { ent-ClothingHeadHatSurgcapBlack }
+    .desc = Хирурги надевают бирюзовую шапочку во время операций, чтобы их волосы не щекотали ваши внутренние органы.
+    .suffix = { "" }
+
+ent-ClothingHeadHatSurgcapCybersun = { ent-ClothingHeadHatSurgcapBlack }
+    .desc = Хирургическая шапочка, которую носят сотрудники биотехнологического подразделения Киберсан.
+    .suffix = { "" }
+
+ent-ClothingHeadHatSurgcapPink = { ent-ClothingHeadHatSurgcapBlack }
+    .desc = Хирурги надевают розовую шапочку во время операций, чтобы их волосы не щекотали ваши внутренние органы.
+    .suffix = { "" }
+
+ent-ClothingHeadHatSurgcapRainbow = { ent-ClothingHeadHatSurgcapBlack }
+    .desc = Хирурги надевают радужную шапочку во время операций, чтобы их волосы не щекотали ваши внутренние органы.
+    .suffix = { "" }
+
+ent-ClothingHeadHatSurgcapWhite = { ent-ClothingHeadHatSurgcapBlack }
+    .desc = Хирурги надевают белую шапочку во время операций, чтобы их волосы не щекотали ваши внутренние органы.
+    .suffix = { "" }
+
+ent-ClothingHeadCourier = кепка курьера
+    .desc = Специльная доставка.
+    .suffix = { "" }
+
+ent-ClothingHeadCourierFlipped = { ent-ClothingHeadCourier }
+    .desc = { ent-ClothingHeadCourier.desc }
+    .suffix = { "" }
+
+ent-ClothingHeadHatDirCap = кепка директора
+    .desc = Зеленая фуражка с эмблемой директорского ранга, принадлежащая высокопоставленному сотруднику Центрального командования. Как бы то ни было, они настроены серьезно.
+    .suffix = { "" }
+
+ent-ClothingHeadHatBeretLogi = берет логистики
+    .desc = Для интеллектуального и прилежного бухгалтера. Определенно, это не революционный символ.
+    .suffix = { "" }
+
+ent-ClothingHeadHatBeretCorpsman = берет бригмедика
+    .desc = Как для тех, кто следит за стилем боевых действий, так и для медицинских специалистов.
+    .suffix = { "" }
+
+ent-ClothingHeadHatCJToque = колпак главного судьи
+    .desc = Стандартная судейская шляпа. Парики в любом случае старомодны.
+    .suffix = { "" }

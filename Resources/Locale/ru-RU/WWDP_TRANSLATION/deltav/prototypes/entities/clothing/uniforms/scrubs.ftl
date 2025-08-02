@@ -1,0 +1,17 @@
+ent-UniformScrubsColorBlack = чёрная роба
+    .desc = Сочетание комфорта и практичности, призванное сделать процесс извлечения всех органов человека и их продажи космическим роботам более официальным.
+
+ent-UniformScrubsColorCyan = бирюзовая роба
+    .desc = { ent-UniformScrubsColorBlack.desc }
+
+ent-UniformScrubsColorPink = розовая роба
+    .desc = { ent-UniformScrubsColorBlack.desc }
+
+ent-UniformScrubsColorRainbow = радужная роба
+    .desc = { ent-UniformScrubsColorBlack.desc }
+
+ent-UniformScrubsColorWhite = белая роба
+    .desc = { ent-UniformScrubsColorBlack.desc }
+
+ent-UniformScrubsColorCybersun = роба киберсан
+    .desc = Официальная униформа биотехнологического подразделения Киберсан

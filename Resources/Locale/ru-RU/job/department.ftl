@@ -1,10 +1,11 @@
-department-Cargo = Отдел снабжения
+department-Logistics = Logistics
 department-Civilian = Сервисный отдел
 department-Command = Командование
+department-CentralCommand = Central Command
 department-Engineering = Инженерный отдел
 department-Medical = Медицинский отдел
 department-Security = Служба безопасности
-department-Science = Научный отдел
+department-Epistemics = Epistemics
 department-Silicon = Синтетики
 department-Specific = На определённых станциях
 department-Dignitary = Высокопоставленные

@@ -3,6 +3,7 @@ limited-charges-charges-remaining =
         [one] Оно имеет [color=fuchsia]{ $charges }[/color] оставшийся заряд.
        *[other] Оно имеет [color=fuchsia]{ $charges }[/color] оставшихся зарядов.
     }
+
 limited-charges-max-charges = Оно на [color=green]максимуме[/color] зарядов.
 limited-charges-recharging =
     { $seconds ->

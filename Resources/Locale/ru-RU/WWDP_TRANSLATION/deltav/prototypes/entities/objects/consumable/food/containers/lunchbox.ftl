@@ -1,0 +1,79 @@
+ent-LunchboxGeneric = коробка для завтрака
+    .desc = Для переноски еды в дороге.
+    .suffix = { "" }
+
+ent-LunchboxGenericFilledRandom = предупакованная коробка для завтрака
+    .desc = Упаковано с любовью.
+    .suffix = Заполненный, Случайный
+
+ent-LunchboxGenericFilledHealthy = { ent-LunchboxGenericFilledRandom }
+    .desc = { ent-LunchboxGenericFilledRandom.desc }
+    .suffix = Заполненный, Полезный
+
+ent-LunchboxGenericFilledUnhealthy = { ent-LunchboxGenericFilledRandom }
+    .desc = { ent-LunchboxGenericFilledRandom.desc }
+    .suffix = Заполненный, Вредный
+
+ent-LunchboxCommand = { ent-LunchboxGeneric }
+    .desc = { ent-LunchboxGeneric.desc }
+    .suffix = Командный
+
+ent-LunchboxCommandFilledRandom = { ent-LunchboxGenericFilledRandom }
+    .desc = { ent-LunchboxGenericFilledRandom.desc }
+    .suffix = Командный, Заполненный, Случайный
+
+ent-LunchboxSecurity = { ent-LunchboxGeneric }
+    .desc = { ent-LunchboxGeneric.desc }
+    .suffix = Охранный
+
+ent-LunchboxSecurityFilledRandom = { ent-LunchboxGenericFilledRandom }
+    .desc = { ent-LunchboxGenericFilledRandom.desc }
+    .suffix = Охранный, Заполненный, Случайный
+
+ent-LunchboxMedical = { ent-LunchboxGeneric }
+    .desc = { ent-LunchboxGeneric.desc }
+    .suffix = Медицинский
+
+ent-LunchboxMedicalFilledRandom = { ent-LunchboxGenericFilledRandom }
+    .desc = { ent-LunchboxGenericFilledRandom.desc }
+    .suffix = Медицинский, Заполненный, Случайный
+
+ent-LunchboxLogistics = { ent-LunchboxGeneric }
+    .desc = { ent-LunchboxGeneric.desc }
+    .suffix = Карго
+
+ent-LunchboxLogisticsFilledRandom = { ent-LunchboxGenericFilledRandom }
+    .desc = { ent-LunchboxGenericFilledRandom.desc }
+    .suffix = Карго, Заполненный, Случайный
+
+ent-LunchboxEngineering = { ent-LunchboxGeneric }
+    .desc = { ent-LunchboxGeneric.desc }
+    .suffix = Инженерный
+
+ent-LunchboxEngineeringFilledRandom = { ent-LunchboxGenericFilledRandom }
+    .desc = { ent-LunchboxGenericFilledRandom.desc }
+    .suffix = Инженерный, Заполненный, Случайный
+
+ent-LunchboxEpistemics = { ent-LunchboxGeneric }
+    .desc = { ent-LunchboxGeneric.desc }
+    .suffix = Научный
+
+ent-LunchboxEpistemicsFilledRandom = { ent-LunchboxGenericFilledRandom }
+    .desc = { ent-LunchboxGenericFilledRandom.desc }
+    .suffix = Научный, Заполненный, Случайный
+
+ent-LunchboxService = { ent-LunchboxGeneric }
+    .desc = { ent-LunchboxGeneric.desc }
+    .suffix = Сервисный
+
+ent-LunchboxServiceFilledRandom = { ent-LunchboxGenericFilledRandom }
+    .desc = { ent-LunchboxGenericFilledRandom.desc }
+    .suffix = Сервисный, Заполненный, Случайный
+
+ent-LunchboxSyndicate = { ent-LunchboxGeneric }
+    .desc = { ent-LunchboxGeneric.desc }
+    .suffix = Синдикат
+
+ent-LunchboxSyndicateFilledRandom = { ent-LunchboxGenericFilledRandom }
+    .desc = { ent-LunchboxGenericFilledRandom.desc }
+    .suffix = Синдикат, Заполненный, Случайный

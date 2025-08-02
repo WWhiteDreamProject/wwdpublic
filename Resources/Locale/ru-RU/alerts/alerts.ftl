@@ -33,6 +33,9 @@ alerts-weightless-desc =
     Гравитация перестала воздействовать на вас, и вы свободно парите. Найдите за что можно ухватиться, или метните или выстрелите чем-нибудь в противоположном направлении.
     Магнитные ботинки и джетпак помогут вам передвигаться с большей эффективностью.
 
+alerts-walking-name = Walking
+alerts-walking-desc = Indicates how fast you're moving.
+
 alerts-stunned-name = [color=yellow]Оглушены[/color]
 alerts-stunned-desc = Вы [color=yellow]оглушены[/color]! Что-то мешает вам двигаться или взаимодействовать с объектами.
 
@@ -97,10 +100,13 @@ alerts-pulling-name = Вы тянете
 alerts-pulling-desc = Вы что-то тянете. Щелкните по иконке, чтобы перестать.
 
 alerts-bleed-name = [color=red]Кровотечение[/color]
-alerts-bleeding-desc = У вас [color=#C10000]кровотечение[/color], вколите [color=#3D9CBF]экстренный медипен[/color] или перебинтуйтесь.
+alerts-bleed-desc = You're [color=red]bleeding[/color].
 
 alerts-pacified-name = [color=green]Пацифизм[/color]
 alerts-pacified-desc = Вы чувствуете себя умиротворенно и не можете вредить живым существам.
+
+alerts-adrenaline-name = [color=red]Adrenaline[/color]
+alerts-adrenaline-desc = You're full of adrenaline: pain won't slow you down.
 
 alerts-suit-power-name = Заряд костюма
 alerts-suit-power-desc = Запас энергии вашего костюма космического ниндзя.
@@ -113,9 +119,6 @@ alerts-revenant-essence-desc = Сила душ. Поддерживает вас 
 
 alerts-revenant-corporeal-name = Материальность
 alerts-revenant-corporeal-desc = Вы физически воплотились. Окружающие могут видеть и наносить вам вред.
-
-alerts-cult-buff-name = Усиление
-alerts-cult-buff-desc = Подготовка заклинаний крови занимает гораздо меньше времени, и вы не теряете столько крови при этом. Также вы неуязвимы к низкому давлению.
 
 alerts-offer-name = Предложение
 alerts-offer-desc = Кто-то предлагает вам предмет.

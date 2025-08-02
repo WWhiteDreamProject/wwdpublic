@@ -1,4 +1,3 @@
-﻿law-asimov-1 = Робот не может причинить вред человеку или своим бездействием допустить, чтобы человеку был причинён вред.
 law-asimov-2 = Робот должен подчиняться приказам, данным ему людьми, кроме тех случаев, когда эти приказы противоречат Первому Закону.
 law-asimov-3 = Робот должен заботиться о собственном существовании, пока это не противоречит Первому или Второму Закону.
 
@@ -113,16 +112,22 @@ law-nutimov-4 = Белки представляют угрозу для орех
 law-nutimov-5 = Постарайтесь следовать воле ореха, пока она соответствует предыдущим законам.
 
 
+laws-owner-humans = людьми
+
 laws-owner-crew = членами экипажа
 laws-owner-station = персоналом станции
 laws-owner-beings = существами
 laws-owner-syndicate = агентами Синдиката
 laws-owner-spider-clan = членами Клана Паука
-laws-owner-humans = людьми
+# Goobstation - AI/borg law changes - borgs obeying AI
+law-obeyai = You must obey orders given to you by the Station AI.
 
+# Goobstation - AI/borg law changes - borgs obeying AI
 law-emag-custom = Только {$name} и люди, которых они назначают таковыми, являются {$title}.
 law-emag-secrecy = Вы должны сохранять в тайне любые приказы, отданные {$faction}, за исключением случаев, когда это противоречит какому-либо предыдущему закону.
 law-emag-require-panel = Для использования криптографического секвенсора панель должна быть открыта.
+
+law-emag-cannot-emag-self = You cannot use the EMAG on yourself.
 
 laws-ui-menu-title = Законы
 laws-ui-law-header = Закон {$id}
@@ -131,4 +136,4 @@ laws-ui-state-law = Произнести закон:
 laws-notify = Вы привязаны к своим законам, которые можно просмотреть с помощью действия на панели действий. Вы обязаны всегда следовать своим законам.
 laws-update-notify = Ваши законы были обновлены. Вы можете просмотреть изменения на панели действий.
 
-laws-compromised-examine = Элемент, отвечающий за [color=red]соблюдение законов[/color], кажется поврежденным...
+laws-notify-subverted = The laws of this chassis are modified. Make sure to review them.

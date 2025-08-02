@@ -6,6 +6,11 @@ execution-verb-message = Казнить кого-либо при помощи в
 # victim (the person being executed)
 # weapon (the weapon used for the execution)
 
+# All the below localisation strings have access to the following variables
+# attacker (the person committing the execution)
+# victim (the person being executed)
+# weapon (the weapon used for the execution)
+
 execution-popup-melee-initial-internal = Вы заносите {$weapon} над горлом {$victim}.
 execution-popup-melee-initial-external = {$attacker} заносит {POSS-ADJ($attacker)} {$weapon} над горлом {$victim}.
 execution-popup-melee-complete-internal = Вы перерезаете горло  {$victim}!

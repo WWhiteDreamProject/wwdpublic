@@ -16,6 +16,12 @@ interaction-Pet-success-self-popup = Вы погладили {$target} по {POS
 interaction-Pet-success-target-popup = {$user} погладил вас по {POSS-ADJ($target)} голове.
 interaction-Pet-success-others-popup = {$user} поглаживает {$target}.
 
+interaction-PetAnimal-name = {interaction-Pet-name}
+interaction-PetAnimal-description = Pet an animal.
+interaction-PetAnimal-success-self-popup = {interaction-Pet-success-self-popup}
+interaction-PetAnimal-success-target-popup = {interaction-Pet-success-target-popup}
+interaction-PetAnimal-success-others-popup = {interaction-Pet-success-others-popup}
+
 interaction-KnockOn-name = Постучать
 interaction-KnockOn-description = Постучите по цели, чтобы привлечь внимание.
 interaction-KnockOn-success-self-popup = Вы стучите по {$target}.
@@ -27,6 +33,7 @@ interaction-Rattle-success-self-popup = Вы гремите {$target}.
 interaction-Rattle-success-target-popup = {$user} гремит вами.
 interaction-Rattle-success-others-popup = {$user} гремит {$target}.
 
+# The below includes conditionals for if the user is holding an item
 # The below includes conditionals for if the user is holding an item
 interaction-WaveAt-name = Помахать рукой
 interaction-WaveAt-description = Помахать рукой в сторону цели. Если вы держите в руках предмет, вы помашете им.

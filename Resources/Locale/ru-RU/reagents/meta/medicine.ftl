@@ -127,6 +127,9 @@ reagent-desc-pyrazine = Эффективно лечит ожоги, получе
 reagent-name-insuzine = инсузин
 reagent-desc-insuzine = Быстро восстанавливает ткани, омертвевшие в результате поражения электрическим током, но при этом слегка охлаждает. Полностью замораживает пациента при передозировке.
 
+reagent-name-opporozidone = opporozidone
+reagent-desc-opporozidone= A difficult to synthesize cryogenic drug used to regenerate rotting tissue and brain matter.
+
 reagent-name-necrosol = некрозол
 reagent-desc-necrosol = Некротическое вещество, которое, похоже, способно излечивать обмороженные трупы. В небольших дозах он способен лечить и оживлять растения.
 
@@ -144,3 +147,8 @@ reagent-desc-potassium-iodide = Снижает поражающее действ
 
 reagent-name-haloperidol = галоперидол 
 reagent-desc-haloperidol = Выводит из организма большую часть стимулирующих или галлюцигенных химикатов. Вызывает сонливость.
+reagent-name-artiplates = artiplates
+reagent-desc-artiplates = A highly advanced form of artificial blood that expands rapidly when introduced to the bloodstream. Due to its expansive properties, it can cause severe internal hemorrhaging in large doses.
+
+reagent-name-enunciase = enunciase
+reagent-desc-enunciase = An enzyme that helps stimulate the language centers of the brain, relieving stuttering due to other drugs and temporarily forcing 'perfect' speech. Causes nausea in high doses.

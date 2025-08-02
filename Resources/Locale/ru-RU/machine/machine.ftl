@@ -13,6 +13,11 @@ machine-part-name-manipulator = Манипулятор
 machine-part-name-matter-bin = Емкость материи
 machine-part-name-power-cell = Батарейка
 
+upgrade-power-draw = power draw
+upgrade-max-charge = max charge
+upgrade-power-supply = power supply
+upgrade-power-supply-ramping = power ramp rate
+
 two-way-lever-left = сдвинуть влево
 two-way-lever-right = сдвинуть вправо
 two-way-lever-cant = вы не можете толкать рычаг в эту сторону!

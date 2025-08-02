@@ -1,4 +1,5 @@
 ### Connecting dialog when you start up the game
+
 connecting-title = Space Station 14
 connecting-exit = Выйти
 connecting-retry = Повторить

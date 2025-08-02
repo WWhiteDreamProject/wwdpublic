@@ -15,4 +15,12 @@ store-category-pointless = Безделушки
 store-discounted-items = Скидки
 
 # Revenant
+# Revenant
 store-category-abilities = Способности
+# Wizard
+store-caregory-spellbook-offensive = Offensive Spells
+store-caregory-spellbook-defensive = Defensive Spells
+store-caregory-spellbook-utility = Utility Spells
+store-caregory-spellbook-equipment = Wizard Equipment
+store-caregory-spellbook-events = Event Spells
+

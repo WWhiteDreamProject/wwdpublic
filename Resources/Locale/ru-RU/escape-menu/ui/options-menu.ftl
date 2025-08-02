@@ -13,6 +13,8 @@ ui-options-default = По-умолчанию
 
 # Misc/General menu
 
+# Misc/General menu
+
 ui-options-discordrich = Включить Discord Rich Presence
 ui-options-general-ui-style = Стиль интерфейса
 ui-options-general-discord = Discord
@@ -29,21 +31,26 @@ ui-options-chatstack-triple = Три последних сообщения
 
 ## Audio menu
 
+## Audio menu
+
 ui-options-master-volume = Основная громкость:
 ui-options-midi-volume = MIDI (Инструменты) громкость:
 ui-options-ambient-music-volume = Громкость эмбиента:
-ui-options-announcer-volume = Громкость объявлений:
 ui-options-ambience-volume = Громкость окружения:
 ui-options-lobby-volume = Громкость лобби и окончания раунда:
 ui-options-interface-volume = Громкость интерфейса:
 ui-options-ambience-max-sounds = Кол-во одновременных звуков окружения:
+ui-options-announcer-volume = Громкость объявлений:
 ui-options-lobby-music = Музыка в лобби
 ui-options-restart-sounds = Звуки перезапуска раунда
 ui-options-event-music = Музыка событий
 ui-options-announcer-disable-multiple-sounds = Наложенные объявления
+ui-options-announcer-disable-multiple-sounds-tooltip = Some announcements will not sound right, this setting isn't recommended
 ui-options-admin-sounds = Музыка админов
 ui-options-volume-label = Громкость
 ui-options-volume-percent = { TOSTRING($volume, "P0") }
+
+## Graphics menu
 
 ## Graphics menu
 
@@ -51,13 +58,16 @@ ui-options-show-held-item = Показать удерживаемый элеме
 ui-options-show-combat-mode-indicators = Показать индикатор боевого режима рядом с курсором
 ui-options-show-offer-mode-indicators = Показывать индикаторы передачи предмета рядом с курсором
 ui-options-opaque-storage-window = Непрозрачность окна хранилища
+ui-options-show-ooc-patron-color = Show OOC Patreon color
 ui-options-show-looc-on-head = Показывать LOOC-чат над головами персонажей
 ui-options-fancy-speech = Показывать имена в облачках с текстом
 ui-options-fancy-name-background = Добавить фон облачкам с текстом
 ui-options-enable-color-name = Окрашивать имена в чате
 ui-options-colorblind-friendly = Режим для дальтоников
+ui-options-no-filters = Disable species vision filters
 ui-options-reduced-motion = Снижение интенсивности визуальных эффектов
 ui-options-chat-window-opacity = Полупрозрачность окна чата
+ui-options-chat-window-opacity-percent = { TOSTRING($opacity, "P0") }
 ui-options-screen-shake-intensity = Интенсивность дрожания экрана
 ui-options-screen-shake-percent = { TOSTRING($intensity, "P0") }
 ui-options-vsync = Вертикальная синхронизация
@@ -80,10 +90,9 @@ ui-options-hud-theme-default = По умолчанию
 ui-options-hud-theme-plasmafire = Плазма
 ui-options-hud-theme-slimecore = Слаймоядро
 ui-options-hud-theme-clockwork = Механизм
-ui-options-hud-theme-ashen = Пепел
 ui-options-hud-theme-retro = Ретро
 ui-options-hud-theme-minimalist = Минимализм
-ui-options-hud-theme-eris = Эрис
+ui-options-hud-theme-ashen = Пепел
 ui-options-vp-stretch = Растянуть изображение для соответствия окну игры
 ui-options-vp-scale = Фиксированный масштаб окна игры: x{ $scale }
 ui-options-vp-integer-scaling = Предпочитать целочисленное масштабирование (может привести к появлению черных полос / отсечению)
@@ -104,8 +113,11 @@ ui-options-hud-layout = Тип HUD:
 
 ## Controls menu
 
+## Controls menu
+
 ui-options-binds-reset-all = Сбросить ВСЕ привязки
 ui-options-binds-explanation = ЛКМ — изменить кнопку, ПКМ — убрать кнопку
+ui-options-binds-search = Search
 ui-options-unbound = Пусто
 ui-options-bind-reset = Сбросить
 ui-options-key-prompt = Нажмите кнопку...
@@ -174,14 +186,9 @@ ui-options-function-point = Указать на что-либо
 ui-options-function-target-head = Нацелиться на голову
 ui-options-function-target-torso = Нацелиться на туловище
 ui-options-function-target-left-arm = Нацелиться на левую руку
-ui-options-function-target-left-hand = Нацелиться на левую кисть
 ui-options-function-target-right-arm = Нацелиться на правую руку
-ui-options-function-target-right-hand = Нацелиться на правую кисть
 ui-options-function-target-left-leg = Нацелиться на левую ногу
-ui-options-function-target-left-foot = Нацелиться на левую ступню
 ui-options-function-target-right-leg = Нацелиться на правую ногу
-ui-options-function-target-right-foot = Нацелиться на првую ступню
-
 ui-options-function-focus-chat-input-window = Писать в чат
 ui-options-function-focus-local-chat-window = Писать в чат (IC)
 ui-options-function-focus-emote = Писать в чат (Эмоции)
@@ -195,7 +202,6 @@ ui-options-function-focus-console-chat-window = Писать в чат (Конс
 ui-options-function-cycle-chat-channel-forward = Переключение каналов чата (Вперёд)
 ui-options-function-cycle-chat-channel-backward = Переключение каналов чата (Назад)
 ui-options-function-open-character-menu = Открыть меню персонажа
-ui-options-function-open-emotes-menu = Открыть меню эмоций
 ui-options-function-open-context-menu = Открыть контекстное меню
 ui-options-function-open-crafting-menu = Открыть меню строительства
 ui-options-function-open-inventory-menu = Открыть снаряжение
@@ -264,6 +270,8 @@ ui-options-function-shuttle-brake = Торможение
 
 ## Network menu
 
+## Network menu
+
 ui-options-net-predict = Предугадывание на стороне клиента
 
 ui-options-net-interp-ratio = Сетевое сглаживание
@@ -300,9 +308,11 @@ ui-options-net-pvs-leave-tooltip =
     привести к неправильным предугадываниям и другим проблемам.
 
 ## Toggle window console command
+## Toggle window console command
 cmd-options-desc = Открывает меню опций, опционально с конкретно выбранной вкладкой.
 cmd-options-help = Использование: options [tab]
 
+## Combat Options
 ## Combat Options
 ui-options-function-look-up = Присмотреться/Прицелиться
 ui-options-function-auto-get-up = Автоматически вставать при падении

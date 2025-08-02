@@ -7,6 +7,9 @@ signal-port-description-on-transmitter = Этот порт задействуе�
 signal-port-name-off-transmitter = Выкл
 signal-port-description-off-transmitter = Этот порт задействуется всякий раз, когда передатчик выключен.
 
+signal-port-name-status-transmitter = Status
+signal-port-description-status-transmitter = This port is invoked with HIGH or LOW depending on the transmitter status.
+
 signal-port-name-left = Налево
 signal-port-description-left = Этот порт задействуется всякий раз, когда рычаг перемещается в крайнее левое положение.
 
@@ -15,6 +18,9 @@ signal-port-description-right = Этот порт задействуется в�
 
 signal-port-name-doorstatus = Статус двери
 signal-port-description-doorstatus = Этот порт вызывается всякий раз, когда меняется статус двери.
+
+signal-port-name-dockstatus = Dock status
+signal-port-description-dockstatus = This port is invoked with HIGH when docked and LOW when undocked.
 
 signal-port-name-middle = Середина
 signal-port-description-middle = Этот порт задействуется всякий раз, когда рычаг перемещается в нейтральное положение.
@@ -66,3 +72,5 @@ signal-port-description-power-discharging = Этот порт устанавли
 
 signal-port-name-material-silo = Хранилище материалов
 signal-port-description-material-silo = Блюспейс Хранилище для материалов станции
+signal-port-name-fillitems = Fillbot Items
+signal-port-description-fillitems = Items picked up by the Fillbot.

@@ -20,7 +20,10 @@ shoes-examine = - [bold]{$item}[/bold] на {POSS-ADJ($ent)} ногах.
 
 # Selfaware version
 
-examine-name-selfaware = Это вы, [bold]{$name}[/bold]!
+id-card-examine-full = - {CAPITALIZE(POSS-ADJ($wearer))} ID: [bold]{$nameAndJob}[/bold].
+
+# Selfaware version
+
 examine-can-see-selfaware = Осмотрев себя, вы можете увидеть:
 examine-can-see-nothing-selfaware = На вас вообще ничего нет!
 
@@ -38,14 +41,14 @@ gloves-examine-selfaware = - [bold]{$item}[/bold] на ваших руках.
 belt-examine-selfaware = - [bold]{$item}[/bold] на вашем поясе.
 shoes-examine-selfaware = - [bold]{$item}[/bold] на ваших ногах.
 
-id-card-examine-full-selfaware = - Ваш ID: [bold]{$nameAndJob}[/bold].
-
 # Selfaware examine
 
 comp-hands-examine-empty-selfaware = Вы ничего не держите.
 comp-hands-examine-selfaware = Вы держите { $items }.
 
 humanoid-appearance-component-examine-selfaware = Вы - { $species } { $age }.
+
+# Description examine wrapper
 
 # Description examine wrapper
 

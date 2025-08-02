@@ -3,6 +3,8 @@ chat-sign-tajaran-language-whisper-wrap = [italic][BubbleHeader][Name]{$entityNa
 
 # Я когда-нибудь рассказывал вам определение безумия?
 # В основном, нам нужно обойти форматировщик сообщений, и если мы не решим создать совершенно новую систему только для этого языка, мы ничего не сможем сделать.
+# Did I ever tell you the definition of insanity?
+# Basically we have to get around the message formatter, and unless we decide to make an entire new system just for this language, we can't do anything else.
 chat-speech-verb-sign-nalrasan-1 = двигает хвостом
 chat-speech-verb-sign-nalrasan-2 = коротко двигает хвостом
 chat-speech-verb-sign-nalrasan-3 = несколько раз быстро двигает хвостом
@@ -26,6 +28,8 @@ chat-speech-verb-sign-nalrasan-16 = некоторое время шевелит
 chat-speech-verb-sign-nalrasan-17 = несколько раз быстро шевелит ушами и хвостом
 
 # Должен быть лучший способ
+
+# There has to be a better way
 
 chat-speech-verb-sign-siiktajr-1 = двигает хвостом и мурлычет
 chat-speech-verb-sign-siiktajr-2 = двигает хвостом и мяукает

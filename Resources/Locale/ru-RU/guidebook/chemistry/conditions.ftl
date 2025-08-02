@@ -7,6 +7,15 @@ reagent-effect-condition-guidebook-total-damage =
                *[other] оно имеет между { NATURALFIXED($min, 2) } и { NATURALFIXED($max, 2) } общего урона
             }
     }
+reagent-effect-condition-guidebook-total-hunger =
+    { $max ->
+        [2147483648] the target has at least {NATURALFIXED($min, 2)} total hunger
+        *[other] { $min ->
+                    [0] the target has at most {NATURALFIXED($max, 2)} total hunger
+                    *[other] the target has between {NATURALFIXED($min, 2)} and {NATURALFIXED($max, 2)} total hunger
+                 }
+    }
+
 reagent-effect-condition-guidebook-reagent-threshold =
     { $max ->
         [2147483648] у него есть по крайней мере { NATURALFIXED($min, 2) }ед. { $reagent }
@@ -46,3 +55,13 @@ reagent-effect-condition-guidebook-has-tag =
         [true] не имеет
        *[false] имеет
     } тэг { $tag }
+reagent-effect-condition-guidebook-blood-reagent-threshold =
+    { $max ->
+        [2147483648] there's at least {NATURALFIXED($min, 2)}u of {$reagent}
+        *[other] { $min ->
+                    [0] there's at most {NATURALFIXED($max, 2)}u of {$reagent}
+                    *[other] there's between {NATURALFIXED($min, 2)}u and {NATURALFIXED($max, 2)}u of {$reagent}
+                 }
+    }
+
+reagent-effect-condition-guidebook-this-reagent = this reagent

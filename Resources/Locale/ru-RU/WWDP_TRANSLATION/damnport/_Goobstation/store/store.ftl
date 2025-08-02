@@ -1,0 +1,1 @@
+store-currency-display-blob-points = Очки блоба

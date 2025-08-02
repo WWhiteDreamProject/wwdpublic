@@ -1,5 +1,8 @@
 reagent-name-cola = кола
 reagent-desc-cola = Сладкий газированный безалкогольный напиток. Не содержит кофеина.
+reagent-name-shirley-temple = shirley temple
+reagent-desc-shirley-temple = A favorite amongst younger members of the crew.
+
 reagent-name-changeling-sting = жало генокрада
 reagent-desc-changeling-sting = Вы делаете маленький глоток и чувствуете жжение...
 reagent-name-dr-gibb = доктор Гибб
@@ -12,12 +15,21 @@ reagent-name-ice-cream = мороженое
 reagent-desc-ice-cream = Ешьте скорее, пока не превратилось в суп-мороженое!
 reagent-name-lemon-lime = лимон-лайм
 reagent-desc-lemon-lime = Терпкая газировка из лимона и лайма
+reagent-name-lemon-lime-cranberry = lemon-lime-cranberry
+reagent-desc-lemon-lime-cranberry = Tart cranberry, Christmas, and a hint of lemon and lime.
+
 reagent-name-pwr-game = Pwr Game
 reagent-desc-pwr-game = Единственный напиток, обладающий СИЛОЙ, которую жаждут настоящие геймеры.
 reagent-name-root-beer = рутбир
 reagent-desc-root-beer = Очень сладкий, газированный напиток, напоминающий сарспариллу. Хорошо сочетается с мороженым.
 reagent-name-root-beer-float = рутбир с мороженым
 reagent-desc-root-beer-float = Рутбир, но теперь с мороженым сверху! Это действительно магнум опус канадских летних напитков.
+reagent-name-sol-dry = sol dry
+reagent-desc-sol-dry = Sweet ginger soda from outer space!
+
+reagent-name-roy-rogers = roy rogers
+reagent-desc-roy-rogers = Solid proof that there IS something known as too sweet.
+
 reagent-name-space-mountain-wind = космический маунтин винд
 reagent-desc-space-mountain-wind = Проходит сквозь, словно космический ветер.
 reagent-name-space-up = спейс-ап

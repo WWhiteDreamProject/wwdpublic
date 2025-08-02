@@ -1,4 +1,3 @@
-comp-containment-turned-on = Генератор сдерживающего поля включается.
 comp-containment-turned-off = Генератор сдерживающего поля выключается.
 comp-containment-on = Переключатель в положении [color=green]вкл[/color], готов к установке барьера.
 comp-containment-off = Переключатель в положении [color=red]выкл[/color].

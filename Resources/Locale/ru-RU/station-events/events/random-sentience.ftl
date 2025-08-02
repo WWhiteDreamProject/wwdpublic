@@ -1,5 +1,4 @@
-## Phrases used for where central command got this information.
-
+﻿## Phrases used for where central command got this information.
 random-sentience-event-data-1 = сканирование сенсорами дальнего действия
 random-sentience-event-data-2 = наши сложные статистические модели вероятности
 random-sentience-event-data-3 = наше всемогущество
@@ -9,6 +8,7 @@ random-sentience-event-data-6 = [УДАЛЕНО]
 
 ## Phrases used to describe the level of intelligence, though it doesn't actually affect anything.
 
+## Phrases used to describe the level of intelligence, though it doesn't actually affect anything.
 random-sentience-event-strength-1 = человека
 random-sentience-event-strength-2 = обезьяны
 random-sentience-event-strength-3 = среднего
@@ -20,6 +20,8 @@ random-sentience-event-strength-8 = ИИ
 
 ## Announcement text
 
+## Announcement text
+
 station-event-random-sentience-announcement =
     Опираясь на { $data }, стало известно что некоторые { $amount ->
         [1] { $kind1 }
@@ -28,9 +30,11 @@ station-event-random-sentience-announcement =
        *[other] { $kind1 }, { $kind2 }, { $kind3 }, и т.д.
     } обрели интеллект уровня { $strength }, а также способность к общению.
 
+
 ## Ghost role description
 
 station-event-random-sentience-role-description = Вы разумный { $name }, оживший благодаря космической магии.
+# Flavors
 # Flavors
 station-event-random-sentience-flavor-mechanical = механизмы
 station-event-random-sentience-flavor-organic = органики

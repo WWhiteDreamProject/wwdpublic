@@ -1,4 +1,4 @@
-# Названия
+# Names
 chat-emote-name-scream = Крик
 chat-emote-name-laugh = Смех
 chat-emote-name-honk = Хонк
@@ -8,33 +8,42 @@ chat-emote-name-crying = Плач
 chat-emote-name-squish = Хлюпанье
 chat-emote-name-chitter = Стрекотание
 chat-emote-name-squeak = Писк
+chat-emote-name-thump = Thump Tail
 chat-emote-name-click = Щелчок
 chat-emote-name-clap = Хлопок
 chat-emote-name-snap = Щелчок
 chat-emote-name-salute = Отдать честь
+chat-emote-name-gasp = Gasp
 chat-emote-name-deathgasp = Предсмертный хрип
-chat-emote-name-buzz = Жужжание
 chat-emote-name-weh = Вех
-chat-emote-name-chirp = Чириканье
-chat-emote-name-beep = Бип
-chat-emote-name-boop = Буп
-chat-emote-name-chime = Звон
-chat-emote-name-buzztwo = Двойное жужжание
-chat-emote-name-ping = Пинг
-chat-emote-name-whirr = Жужжание (механическое)
-chat-emote-name-mars = Марс
-chat-emote-name-wurble = Воркотание
+chat-emote-name-hew = Hew
 chat-emote-name-sneeze = Чихание
 chat-emote-name-cough = Кашель
 chat-emote-name-monkeyscreeches = Визг обезьяны
 chat-emote-name-yawn = Зевок
 chat-emote-name-snore = Храп
+# Silicon
+chat-emote-name-boop = Буп
+chat-emote-name-whirr = Жужжание (механическое)
+chat-emote-name-buzz = Жужжание
+chat-emote-name-chirp = Чириканье
+chat-emote-name-beep = Бип
+chat-emote-name-chime = Звон
+chat-emote-name-buzztwo = Двойное жужжание
+chat-emote-name-ping = Пинг
+chat-emote-name-robotbeep = Robot
+# Shadowkin
+chat-emote-name-mars = Марс
+chat-emote-name-wurble = Воркотание
+# Vulp
 chat-emote-name-tailwag = Вилять хвостом
-chat-emote-name-flip = Сделать сальто
-chat-emote-name-spin = Крутиться
-chat-emote-name-jump = Прыгнуть
-
-# Сообщения
+# Felinid / Tajaran
+chat-emote-name-meow = Мяукать
+chat-emote-name-mew = Мявкать
+chat-emote-name-purr = Мурлыкать
+chat-emote-name-hisses = Шипеть
+chat-emote-name-growl = Рычать
+# Message
 chat-emote-msg-scream = кричит!
 chat-emote-msg-laugh = смеётся.
 chat-emote-msg-honk = хонкает.
@@ -44,6 +53,7 @@ chat-emote-msg-crying = плачет.
 chat-emote-msg-squish = хлюпает.
 chat-emote-msg-chitter = стрекочет.
 chat-emote-msg-squeak = пищит.
+chat-emote-msg-thump = thumps {POSS-ADJ($entity)} tail.
 chat-emote-msg-click = щёлкает.
 chat-emote-msg-clap = хлопает!
 chat-emote-msg-snap = щёлкает {POSS-ADJ($entity)} пальцами.
@@ -53,6 +63,7 @@ chat-emote-msg-deathgasp-monkey = издаёт последний визг, по
 chat-emote-msg-deathgasp-silicon = отключается и бессильно падает, {POSS-ADJ($entity)} огни растворяются в темноте...
 chat-emote-msg-buzz = жужжит!
 chat-emote-msg-weh = вех!
+chat-emote-msg-hew = hews!
 chat-emote-msg-chirp = чирикает!
 chat-emote-msg-beep = издает бип.
 chat-emote-msg-boop-1 = издает буп.
@@ -64,30 +75,26 @@ chat-emote-msg-mars = марсирует.
 chat-emote-msg-wurble = воркует.
 chat-emote-msg-sneeze = чихает.
 chat-emote-msg-cough = кашляет.
+chat-emote-msg-catmeow = meows.
+chat-emote-msg-cathisses = hisses!
 chat-emote-msg-monkeyscreeches = визжит!
 chat-emote-msg-yawn = зевает.
 chat-emote-msg-snore = храпит.
-chat-emote-name-meow = Мяукать
-chat-emote-name-mew = Мявкать
-chat-emote-name-purr = Мурлыкать
-chat-emote-name-hisses = Шипеть
-chat-emote-name-growl = Рычать
 chat-emote-msg-tailwag = виляет хвостом.
 chat-emote-msg-flip = делает сальто!
 chat-emote-msg-spin = крутится!
 chat-emote-msg-jump = прыгает!
 
 # Триггеры
+# Triggers
 chat-emote-trigger-scream-1 = кричит
 chat-emote-trigger-scream-2 = орет
 chat-emote-trigger-scream-3 = визжит
 chat-emote-trigger-scream-4 = вопит
-chat-emote-trigger-scream-5 = орёт
 chat-emote-trigger-laugh-1 = смеется
 chat-emote-trigger-laugh-2 = хихикает
 chat-emote-trigger-laugh-3 = гогочет
 chat-emote-trigger-laugh-4 = хохочет
-chat-emote-trigger-laugh-5 = смеётся
 chat-emote-trigger-honk-1 = хонкает
 chat-emote-trigger-sigh-1 = вздыхает
 chat-emote-trigger-whistle-1 = свистит
@@ -106,8 +113,6 @@ chat-emote-trigger-snap-5 = щёлкнула пальцами
 chat-emote-trigger-snap-6 = щeлкнула пальцами
 chat-emote-trigger-snap-7 = щёлкнуло пальцами
 chat-emote-trigger-salute-1 = салютует
-chat-emote-trigger-salute-2 = отдает честь
-chat-emote-trigger-salute-3 = отдаёт честь
 chat-emote-trigger-deathgasp-1 = умирает
 chat-emote-trigger-deathgasp-silicon-1 = отключается
 chat-emote-trigger-buzz-1 = бззз
@@ -134,4 +139,3 @@ chat-emote-trigger-tailwag-6 = виляет своим хвостищем
 chat-emote-trigger-flip-1 = делает сальто
 chat-emote-trigger-spin-1 = крутится
 chat-emote-trigger-jump-1 = прыгает
-chat-emote-trigger-jump-2 = подпрыгивает

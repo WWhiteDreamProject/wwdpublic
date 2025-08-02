@@ -17,10 +17,7 @@ plant-analyzer-component-kudzu = [color=red]КУДЗУ[color]
 plant-analyzer-soil = Есть {$count ->
     [one]некоторый
     *[other]некоторые
-} [color=white]{$chemicals}[/color] в этом {$holder} {$count ->
-    [one]который ещё не впитался
-    *[other]которые ещё не впитались
-}
+} not been absorbed.
 plant-analyzer-soil-empty = Этот {$holder} не имеет невпитанных веществ.
 
 plant-analyzer-component-environemt = Этот [color=green]{$seedName}[/color] нуждается в атмосфере с давлением [color=lightblue]{$kpa}kPa ± {$kpaTolerance}kPa[/color], температурой [color=lightsalmon]{$temp}°k ± {$tempTolerance}°k[/color] и уровнем света [color=white]{$lightLevel} ± {$lightTolerance}[/color].
@@ -53,6 +50,7 @@ plant-analyzer-output = {$yield ->
         *[other]{" "}Имеются следы [color=white]{$chemicals}[/color] в корне.
     }
 }
+
 
 plant-analyzer-potency-tiny = крошечная
 plant-analyzer-potency-small = маленькая

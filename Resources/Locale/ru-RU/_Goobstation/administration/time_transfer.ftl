@@ -20,4 +20,5 @@ admin-player-actions-window-time-transfer = Перенос времени
 time-transfer-panel-no-player-database-message = Игрок не найден в базе данных
 
 # Пожалуйста, измените это, только если вам действительно-действительно нужно это сделать
+# Please change it if you really-really need to do it
 time-transfer-panel-author = Создано BombasterDS для Goobstation

@@ -11,7 +11,7 @@ nav-beacon-button-apply = Применить
 nav-beacon-examine-text = Маяк  [color={$enabled ->
     [true] forestgreen]включён
     *[false] crimson]выключен
-}[/color], а на дисплее написано [color={$color}]"{$label}"[/color]
+}[/color] and the display reads [color={$color}]"{$label}"[/color]
 
 nav-beacon-pos-no-beacons = неизвестно где
 nav-beacon-pos-format = [color={$color}]около {$marker}[/color]

@@ -1,3 +1,6 @@
+reagent-name-sake = sake
+reagent-desc-sake = Alcoholic beverage made by fermenting rice that has been polished.
+
 reagent-name-soju = соджу
 reagent-desc-soju =  Алкогольный напиток, изготовленный путем дистилляции шлифованного риса.
 

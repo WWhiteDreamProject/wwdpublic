@@ -5,4 +5,6 @@ entity-storage-component-cannot-open-no-space = Не хватает места, 
 
 ## OpenToggleVerb
 
+## OpenToggleVerb
+
 open-toggle-verb-welded-shut-message = { $verb } (заварено наглухо)

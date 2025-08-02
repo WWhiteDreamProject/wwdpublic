@@ -6,12 +6,14 @@ nuke-component-announcement-send-codes = Внимание! Запрошенны�
 nuke-component-doafter-warning = Вы начинаете перебирать провода и кнопки, в попытке обезвредить ядерную бомбу... Это может занять некоторое время.
 
 # Nuke UI
+# Nuke UI
 nuke-user-interface-title = Ядерная боеголовка
 nuke-user-interface-arm-button = ВЗВЕСТИ
 nuke-user-interface-disarm-button = ОБЕЗВРЕДИТЬ
 nuke-user-interface-anchor-button = ЗАКРЕПИТЬ
 nuke-user-interface-eject-button = ИЗВЛЕЧЬ
 
+## Upper status
 ## Upper status
 nuke-user-interface-first-status-device-locked = УСТРОЙСТВО ЗАБЛОКИРОВАНО
 nuke-user-interface-first-status-input-code = ВВЕДИТЕ КОД
@@ -22,22 +24,31 @@ nuke-user-interface-first-status-device-cooldown = ДЕАКТИВИРОВАНО
 nuke-user-interface-status-error = ОШИБКА
 
 ## Lower status
+## Lower status
 nuke-user-interface-second-status-await-disk = ОЖИДАНИЕ ДИСКА
 nuke-user-interface-second-status-time = ВРЕМЯ: {$time}
 nuke-user-interface-second-status-current-code = КОД: {$code}
 nuke-user-interface-second-status-cooldown-time = ОЖИДАНИЕ: {$time}
 
 ## Nuke labels
+## Nuke labels
 nuke-label-nanotrasen = NT-{$serial}
 
 # do you even need this one? It's more funnier to say that
 # the Syndicate stole a NT nuke
+# do you even need this one? It's more funnier to say that
+# the Syndicate stole a NT nuke
 nuke-label-syndicate = SYN-{$serial}
 
+# Codes
 # Codes
 nuke-codes-message = [color=red]СОВЕРШЕННО СЕКРЕТНО![/color]
 nuke-codes-list = Коды от {$name}: {$code}
 nuke-codes-fax-paper-name = коды ядерной аутентификации
 
 # Nuke disk slot
+# Nuke disk slot
 nuke-slot-component-slot-name-disk = Диск
+## Examine
+nuke-examine-armed = Hey uh, why's that [color=red]red light[/color] blinking?
+nuke-examine-exploding = Yeah... I think it's too late buddy.

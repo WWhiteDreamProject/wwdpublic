@@ -67,6 +67,8 @@ evolutionmenu-combat-strainedmuscles-desc =
 
 # sting
 
+# sting
+
 evolutionmenu-sting-blind-name = Жало Слепоты
 evolutionmenu-sting-blind-desc =
     Бесшумно жалит органическую цель, полностью ослепляя её на короткое время.
@@ -104,6 +106,7 @@ evolutionmenu-sting-armblade-desc =
     Стоимость: 50 химикатов.
 
 
+# utility
 # utility
 evolutionmenu-utility-panacea-name = Анатомическая Панацея
 evolutionmenu-utility-panacea-desc =

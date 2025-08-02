@@ -12,6 +12,7 @@ character-item-group-LoadoutShoes = Civilian Shoes
 character-item-group-LoadoutUniformsCivilian = Civilian Uniforms
 
 # Generic - Items
+# Generic - Items
 character-item-group-LoadoutAirTank = Emergency Air Tanks
 character-item-group-LoadoutLighters = Lighters
 character-item-group-LoadoutInstrumentsAny = Musical Instruments (Non-Musician)
@@ -19,6 +20,10 @@ character-item-group-LoadoutSmokes = Smokeables
 character-item-group-LoadoutBoxKits = Survival Kits
 character-item-group-LoadoutWritables = Writing Tools
 character-item-group-LoadoutPets = Pets
+
+# Job Specific Template
+character-item-group-LoadoutCards = Playing Cards
+character-item-group-LoadoutPlushie = Plushies
 
 # Job Specific Template
 character-item-group-LoadoutJOBBackpacks = JOB Backpacks
@@ -36,6 +41,7 @@ character-item-group-LoadoutJOBShoes = JOB Shoes
 character-item-group-LoadoutJOBUniforms = JOB Uniforms
 
 # Command
+# Command
 character-item-group-LoadoutCommandBackpacks = Command Backpacks
 character-item-group-LoadoutCommandBelt = Command Belt
 character-item-group-LoadoutCommandEars = Command Ears
@@ -50,6 +56,7 @@ character-item-group-LoadoutCommandOuter = Command Outerwear
 character-item-group-LoadoutCommandShoes = Command Shoes
 character-item-group-LoadoutCommandUniforms = Command Uniforms
 
+# Command - Captain
 # Command - Captain
 character-item-group-LoadoutCaptainBackpacks = Captain Backpacks
 character-item-group-LoadoutCaptainBelt = Captain's Belt
@@ -68,6 +75,7 @@ character-item-group-LoadoutCaptainShoes = Captain's Shoes
 character-item-group-LoadoutCaptainUniforms = Captain's Uniforms
 
 # Command - Head Of Personnel
+# Command - Head Of Personnel
 character-item-group-LoadoutHeadOfPersonnelBackpacks = Head of Personnel Backpacks
 character-item-group-LoadoutHeadOfPersonnelBelt = Head of Personnel Belt
 character-item-group-LoadoutHeadOfPersonnelEars = Head of Personnel Ears
@@ -81,6 +89,24 @@ character-item-group-LoadoutHeadOfPersonnelNeck = Head of Personnel Neckwear
 character-item-group-LoadoutHeadOfPersonnelOuter = Head of Personnel Outerwear
 character-item-group-LoadoutHeadOfPersonnelShoes = Head of Personnel Shoes
 character-item-group-LoadoutHeadOfPersonnelUniforms = Head of Personnel Uniforms
+
+# Engineering
+# Dignitary - BlueshieldOfficer
+character-item-group-LoadoutBlueshieldOfficerBackpacks = Blueshield Officer Backpacks
+character-item-group-LoadoutBlueshieldOfficerVests = Blueshield Officer Vests
+character-item-group-LoadoutBlueshieldOfficerUniforms = Blueshield Officer Uniforms
+character-item-group-LoadoutBlueshieldOfficerPrimary = Blueshield Officer Primary Weapon
+
+# Dignitary - Magistrate
+character-item-group-LoadoutMagistrateHead = Magistrate Headgear
+character-item-group-LoadoutMagistrateNeck = Magistrate Neckwear
+character-item-group-LoadoutMagistrateOuter = Magistrate Outerwear
+character-item-group-LoadoutMagistrateUniforms = Magistrate Uniforms
+
+# Dignitary - Corporate Liaison
+character-item-group-LoadoutNanorepBackpacks = Corporate Liaison Backpacks
+character-item-group-LoadoutNanorepUniforms = Corporate Liaison Uniforms
+character-item-group-LoadoutNanotrasenRepresentativeWeapon = Corporate Liaison Weapons
 
 # Engineering
 character-item-group-LoadoutEngineeringBackpacks = Engineering Backpacks
@@ -98,6 +124,7 @@ character-item-group-LoadoutEngineeringShoes = Engineering Shoes
 character-item-group-LoadoutEngineeringUniforms = Engineering Uniforms
 
 # Engineering - Atmospheric Technician
+# Engineering - Atmospheric Technician
 character-item-group-LoadoutAtmosphericTechnicianBackpacks = Atmospheric Technician Backpacks
 character-item-group-LoadoutAtmosphericTechnicianBelt = Atmospheric Technician Belt
 character-item-group-LoadoutAtmosphericTechnicianEars = Atmospheric Technician Ears
@@ -112,6 +139,7 @@ character-item-group-LoadoutAtmosphericTechnicianOuter = Atmospheric Technician 
 character-item-group-LoadoutAtmosphericTechnicianShoes = Atmospheric Technician Shoes
 character-item-group-LoadoutAtmosphericTechnicianUniforms = Atmospheric Technician Uniforms
 
+# Engineering - Chief Engineer
 # Engineering - Chief Engineer
 character-item-group-LoadoutChiefEngineerBackpacks = Chief Engineer Backpacks
 character-item-group-LoadoutChiefEngineerBelt = Chief Engineer Belt
@@ -128,6 +156,7 @@ character-item-group-LoadoutChiefEngineerShoes = Chief Engineer Shoes
 character-item-group-LoadoutChiefEngineerUniforms = Chief Engineer Uniforms
 
 # Engineering - Senior Engineer
+# Engineering - Senior Engineer
 character-item-group-LoadoutSeniorEngineerBackpacks = Senior Engineer Backpacks
 character-item-group-LoadoutSeniorEngineerBelt = Senior Engineer Belt
 character-item-group-LoadoutSeniorEngineerEars = Senior Engineer Ears
@@ -142,6 +171,7 @@ character-item-group-LoadoutSeniorEngineerOuter = Senior Engineer Outerwear
 character-item-group-LoadoutSeniorEngineerShoes = Senior Engineer Shoes
 character-item-group-LoadoutSeniorEngineerUniforms = Senior Engineer Uniforms
 
+# Engineering - Station Engineer
 # Engineering - Station Engineer
 character-item-group-LoadoutStationEngineerBackpacks = Station Engineer Backpacks
 character-item-group-LoadoutStationEngineerBelt = Station Engineer Belt
@@ -158,6 +188,7 @@ character-item-group-LoadoutStationEngineerShoes = Station Engineer Shoes
 character-item-group-LoadoutStationEngineerUniforms = Station Engineer Uniforms
 
 # Engineering - Technical Assistant
+# Engineering - Technical Assistant
 character-item-group-LoadoutTechnicalAssistantBackpacks = Technical Assistant Backpacks
 character-item-group-LoadoutTechnicalAssistantBelt = Technical Assistant Belt
 character-item-group-LoadoutTechnicalAssistantEars = Technical Assistant Ears
@@ -172,6 +203,7 @@ character-item-group-LoadoutTechnicalAssistantOuter = Technical Assistant Outerw
 character-item-group-LoadoutTechnicalAssistantShoes = Technical Assistant Shoes
 character-item-group-LoadoutTechnicalAssistantUniforms = Technical Assistant Uniforms
 
+# Epistemics
 # Epistemics
 character-item-group-LoadoutEpistemicsBackpacks = Epistemics Backpacks
 character-item-group-LoadoutEpistemicsBelt = Epistemics Belt
@@ -188,6 +220,7 @@ character-item-group-LoadoutEpistemicsShoes = Epistemics Shoes
 character-item-group-LoadoutEpistemicsUniforms = Epistemics Uniforms
 
 # Epistemics - Acolyte
+# Epistemics - Acolyte
 character-item-group-LoadoutAcolyteBackpacks = Acolyte Backpacks
 character-item-group-LoadoutAcolyteBelt = Acolyte Belt
 character-item-group-LoadoutAcolyteEars = Acolyte Ears
@@ -202,6 +235,7 @@ character-item-group-LoadoutAcolyteOuter = Acolyte Outerwear
 character-item-group-LoadoutAcolyteShoes = Acolyte Shoes
 character-item-group-LoadoutAcolyteUniforms = Acolyte Uniforms
 
+# Epistemics - Cataloger
 # Epistemics - Cataloger
 character-item-group-LoadoutCatalogerBackpacks = Cataloger Backpacks
 character-item-group-LoadoutCatalogerBelt = Cataloger Belt
@@ -218,6 +252,7 @@ character-item-group-LoadoutCatalogerShoes = Cataloger Shoes
 character-item-group-LoadoutCatalogerUniforms = Cataloger Uniforms
 
 # Epistemics - Chaplain
+# Epistemics - Chaplain
 character-item-group-LoadoutChaplainBackpacks = Chaplain Backpacks
 character-item-group-LoadoutChaplainBelt = Chaplain Belt
 character-item-group-LoadoutChaplainEars = Chaplain Ears
@@ -232,6 +267,7 @@ character-item-group-LoadoutChaplainOuter = Chaplain Outerwear
 character-item-group-LoadoutChaplainShoes = Chaplain Shoes
 character-item-group-LoadoutChaplainUniforms = Chaplain Uniforms
 
+# Epistemics - Golemancer
 # Epistemics - Golemancer
 character-item-group-LoadoutGolemancerBackpacks = Golemancer Backpacks
 character-item-group-LoadoutGolemancerBelt = Golemancer Belt
@@ -248,6 +284,7 @@ character-item-group-LoadoutGolemancerShoes = Golemancer Shoes
 character-item-group-LoadoutGolemancerUniforms = Golemancer Uniforms
 
 # Epistemics - Mystagogue
+# Epistemics - Mystagogue
 character-item-group-LoadoutMystagogueBackpacks = Mystagogue Backpacks
 character-item-group-LoadoutMystagogueBelt = Mystagogue Belt
 character-item-group-LoadoutMystagogueEars = Mystagogue Ears
@@ -262,6 +299,7 @@ character-item-group-LoadoutMystagogueOuter = Mystagogue Outerwear
 character-item-group-LoadoutMystagogueShoes = Mystagogue Shoes
 character-item-group-LoadoutMystagogueUniforms = Mystagogue Uniforms
 
+# Epistemics - Mystic
 # Epistemics - Mystic
 character-item-group-LoadoutMysticBackpacks = Mystic Backpacks
 character-item-group-LoadoutMysticBelt = Mystic Belt
@@ -278,6 +316,7 @@ character-item-group-LoadoutMysticShoes = Mystic Shoes
 character-item-group-LoadoutMysticUniforms = Mystic Uniforms
 
 # Epistemics - Noviciate
+# Epistemics - Noviciate
 character-item-group-LoadoutNoviciateBackpacks = Noviciate Backpacks
 character-item-group-LoadoutNoviciateBelt = Noviciate Belt
 character-item-group-LoadoutNoviciateEars = Noviciate Ears
@@ -292,6 +331,7 @@ character-item-group-LoadoutNoviciateOuter = Noviciate Outerwear
 character-item-group-LoadoutNoviciateShoes = Noviciate Shoes
 character-item-group-LoadoutNoviciateUniforms = Noviciate Uniforms
 
+# Epistemics - Psionic Mantis
 # Epistemics - Psionic Mantis
 character-item-group-LoadoutPsionicMantisBackpacks = Psionic Mantis Backpacks
 character-item-group-LoadoutPsionicMantisBelt = Psionic Mantis Belt
@@ -308,6 +348,7 @@ character-item-group-LoadoutPsionicMantisShoes = Psionic Mantis Shoes
 character-item-group-LoadoutPsionicMantisUniforms = Psionic Mantis Uniforms
 
 # Logistics
+# Logistics
 character-item-group-LoadoutLogisticsBackpacks = Logistics Backpacks
 character-item-group-LoadoutLogisticsBelt = Logistics Belt
 character-item-group-LoadoutLogisticsEars = Logistics Ears
@@ -322,6 +363,7 @@ character-item-group-LoadoutLogisticsOuter = Logistics Outerwear
 character-item-group-LoadoutLogisticsShoes = Logistics Shoes
 character-item-group-LoadoutLogisticsUniforms = Logistics Uniforms
 
+# Logistics - Cargo Technician
 # Logistics - Cargo Technician
 character-item-group-LoadoutCargoTechnicianBackpacks = Cargo Technician Backpacks
 character-item-group-LoadoutCargoTechnicianBelt = Cargo Technician Belt
@@ -338,6 +380,7 @@ character-item-group-LoadoutCargoTechnicianShoes = Cargo Technician Shoes
 character-item-group-LoadoutCargoTechnicianUniforms = Cargo Technician Uniforms
 
 # Logistics - Courier
+# Logistics - Courier
 character-item-group-LoadoutCourierBackpacks = Courier Backpacks
 character-item-group-LoadoutCourierBelt = Courier Belt
 character-item-group-LoadoutCourierEars = Courier Ears
@@ -353,6 +396,7 @@ character-item-group-LoadoutCourierShoes = Courier Shoes
 character-item-group-LoadoutCourierUniforms = Courier Uniforms
 
 # Logistics - Logistics Officer
+# Logistics - Logistics Officer
 character-item-group-LoadoutLogisticsOfficerBackpacks = Logistics Officer Backpacks
 character-item-group-LoadoutLogisticsOfficerBelt = Logistics Officer Belt
 character-item-group-LoadoutLogisticsOfficerEars = Logistics Officer Ears
@@ -367,6 +411,7 @@ character-item-group-LoadoutLogisticsOfficerOuter = Logistics Officer Outerwear
 character-item-group-LoadoutLogisticsOfficerShoes = Logistics Officer Shoes
 character-item-group-LoadoutLogisticsOfficerUniforms = Logistics Officer Uniforms
 
+# Logistics - Salvage Specialist
 # Logistics - Salvage Specialist
 character-item-group-LoadoutSalvageSpecialistBackpacks = Salvage Specialist Backpacks
 character-item-group-LoadoutSalvageSpecialistBelt = Salvage Specialist Belt
@@ -384,6 +429,7 @@ character-item-group-LoadoutSalvageSpecialistUniforms = Salvage Specialist Unifo
 character-item-group-LoadoutSalvageSpecialistWeapons = Salvage Specialist Weapons
 
 # Medical
+# Medical
 character-item-group-LoadoutMedicalBackpacks = Medical Backpacks
 character-item-group-LoadoutMedicalBelt = Medical Belt
 character-item-group-LoadoutMedicalEars = Medical Ears
@@ -398,6 +444,7 @@ character-item-group-LoadoutMedicalOuter = Medical Outerwear
 character-item-group-LoadoutMedicalShoes = Medical Shoes
 character-item-group-LoadoutMedicalUniforms = Medical Uniforms
 
+# Medical - Chemist
 # Medical - Chemist
 character-item-group-LoadoutChemistBackpacks = Chemist Backpacks
 character-item-group-LoadoutChemistBelt = Chemist Belt
@@ -414,6 +461,7 @@ character-item-group-LoadoutChemistShoes = Chemist Shoes
 character-item-group-LoadoutChemistUniforms = Chemist Uniforms
 
 # Medical - Chief Medical Officer
+# Medical - Chief Medical Officer
 character-item-group-LoadoutChiefMedicalOfficerBackpacks = Chief Medical Officer Backpacks
 character-item-group-LoadoutChiefMedicalOfficerBelt = Chief Medical Officer Belt
 character-item-group-LoadoutChiefMedicalOfficerEars = Chief Medical Officer Ears
@@ -428,6 +476,7 @@ character-item-group-LoadoutChiefMedicalOfficerOuter = Chief Medical Officer Out
 character-item-group-LoadoutChiefMedicalOfficerShoes = Chief Medical Officer Shoes
 character-item-group-LoadoutChiefMedicalOfficerUniforms = Chief Medical Officer Uniforms
 
+# Medical - Medical Doctor
 # Medical - Medical Doctor
 character-item-group-LoadoutMedicalDoctorBackpacks = Medical Doctor Backpacks
 character-item-group-LoadoutMedicalDoctorBelt = Medical Doctor Belt
@@ -444,6 +493,7 @@ character-item-group-LoadoutMedicalDoctorShoes = Medical Doctor Shoes
 character-item-group-LoadoutMedicalDoctorUniforms = Medical Doctor Uniforms
 
 # Medical - Medical Intern
+# Medical - Medical Intern
 character-item-group-LoadoutMedicalInternBackpacks = Medical Intern Backpacks
 character-item-group-LoadoutMedicalInternBelt = Medical Intern Belt
 character-item-group-LoadoutMedicalInternEars = Medical Intern Ears
@@ -458,6 +508,7 @@ character-item-group-LoadoutMedicalInternOuter = Medical Intern Outerwear
 character-item-group-LoadoutMedicalInternShoes = Medical Intern Shoes
 character-item-group-LoadoutMedicalInternUniforms = Medical Intern Uniforms
 
+# Medical - Paramedic
 # Medical - Paramedic
 character-item-group-LoadoutParamedicBackpacks = Paramedic Backpacks
 character-item-group-LoadoutParamedicBelt = Paramedic Belt
@@ -474,6 +525,7 @@ character-item-group-LoadoutParamedicShoes = Paramedic Shoes
 character-item-group-LoadoutParamedicUniforms = Paramedic Uniforms
 
 # Medical - Psychologist
+# Medical - Psychologist
 character-item-group-LoadoutPsychologistBackpacks = Psychologist Backpacks
 character-item-group-LoadoutPsychologistBelt = Psychologist Belt
 character-item-group-LoadoutPsychologistEars = Psychologist Ears
@@ -489,6 +541,7 @@ character-item-group-LoadoutPsychologistShoes = Psychologist Shoes
 character-item-group-LoadoutPsychologistUniforms = Psychologist Uniforms
 
 # Medical - Senior Physician
+# Medical - Senior Physician
 character-item-group-LoadoutSeniorPhysicianBackpacks = Senior Physician Backpacks
 character-item-group-LoadoutSeniorPhysicianBelt = Senior Physician Belt
 character-item-group-LoadoutSeniorPhysicianEars = Senior Physician Ears
@@ -503,6 +556,7 @@ character-item-group-LoadoutSeniorPhysicianOuter = Senior Physician Outerwear
 character-item-group-LoadoutSeniorPhysicianShoes = Senior Physician Shoes
 character-item-group-LoadoutSeniorPhysicianUniforms = Senior Physician Uniforms
 
+# Security
 # Security
 character-item-group-LoadoutSecurityBackpacks = Security Backpacks
 character-item-group-LoadoutSecurityBelt = Security Belt
@@ -520,6 +574,7 @@ character-item-group-LoadoutSecurityShoes = Security Shoes
 character-item-group-LoadoutSecurityUniforms = Security Uniforms
 
 # Security - Cadet
+# Security - Cadet
 character-item-group-LoadoutCadetBackpacks = Cadet Backpacks
 character-item-group-LoadoutCadetBelt = Cadet Belt
 character-item-group-LoadoutCadetEars = Cadet Ears
@@ -534,6 +589,7 @@ character-item-group-LoadoutCadetOuter = Cadet Outerwear
 character-item-group-LoadoutCadetShoes = Cadet Shoes
 character-item-group-LoadoutCadetUniforms = Cadet Uniforms
 
+# Security - Corpsman
 # Security - Corpsman
 character-item-group-LoadoutCorpsmanBackpacks = Corpsman Backpacks
 character-item-group-LoadoutCorpsmanBelt = Corpsman Belt
@@ -550,6 +606,7 @@ character-item-group-LoadoutCorpsmanShoes = Corpsman Shoes
 character-item-group-LoadoutCorpsmanUniforms = Corpsman Uniforms
 
 # Security - Detective
+# Security - Detective
 character-item-group-LoadoutDetectiveBackpacks = Detective Backpacks
 character-item-group-LoadoutDetectiveBelt = Detective Belt
 character-item-group-LoadoutDetectiveEars = Detective Ears
@@ -564,6 +621,7 @@ character-item-group-LoadoutDetectiveOuter = Detective Outerwear
 character-item-group-LoadoutDetectiveShoes = Detective Shoes
 character-item-group-LoadoutDetectiveUniforms = Detective Uniforms
 
+# Security - Head Of Security
 # Security - Head Of Security
 character-item-group-LoadoutHeadOfSecurityBackpacks = Head Of Security Backpacks
 character-item-group-LoadoutHeadOfSecurityBelt = Head Of Security Belt
@@ -581,6 +639,9 @@ character-item-group-LoadoutHeadOfSecurityShoes = Head Of Security Shoes
 character-item-group-LoadoutHeadOfSecurityUniforms = Head Of Security Uniforms
 
 # Security - Security Officer
+character-item-group-LoadoutHeadOfSecurityTrinkets = Head Of Security Trinkets
+
+# Security - Security Officer
 character-item-group-LoadoutSecurityOfficerBackpacks = Security Officer Backpacks
 character-item-group-LoadoutSecurityOfficerBelt = Security Officer Belt
 character-item-group-LoadoutSecurityOfficerEars = Security Officer Ears
@@ -595,6 +656,7 @@ character-item-group-LoadoutSecurityOfficerOuter = Security Officer Outerwear
 character-item-group-LoadoutSecurityOfficerShoes = Security Officer Shoes
 character-item-group-LoadoutSecurityOfficerUniforms = Security Officer Uniforms
 
+# Security - Senior Officer
 # Security - Senior Officer
 character-item-group-LoadoutSeniorOfficerBackpacks = Senior Officer Backpacks
 character-item-group-LoadoutSeniorOfficerBelt = Senior Officer Belt
@@ -611,6 +673,7 @@ character-item-group-LoadoutSeniorOfficerShoes = Senior Officer Shoes
 character-item-group-LoadoutSeniorOfficerUniforms = Senior Officer Uniforms
 
 # Security - Warden
+# Security - Warden
 character-item-group-LoadoutWardenBackpacks = Warden Backpacks
 character-item-group-LoadoutWardenBelt = Warden Belt
 character-item-group-LoadoutWardenEars = Warden Ears
@@ -626,6 +689,7 @@ character-item-group-LoadoutWardenShoes = Warden Shoes
 character-item-group-LoadoutWardenUniforms = Warden Uniforms
 
 # Service
+# Service
 character-item-group-LoadoutServiceBackpacks = Service Backpacks
 character-item-group-LoadoutServiceBelt = Service Belt
 character-item-group-LoadoutServiceEars = Service Ears
@@ -640,6 +704,7 @@ character-item-group-LoadoutServiceOuter = Service Outerwear
 character-item-group-LoadoutServiceShoes = Service Shoes
 character-item-group-LoadoutServiceUniforms = Service Uniforms
 
+# Service - Bartender
 # Service - Bartender
 character-item-group-LoadoutBartenderBackpacks = Bartender Backpacks
 character-item-group-LoadoutBartenderBelt = Bartender Belt
@@ -658,6 +723,7 @@ character-item-group-LoadoutBartenderShoes = Bartender Shoes
 character-item-group-LoadoutBartenderUniforms = Bartender Uniforms
 
 # Service - Botanist
+# Service - Botanist
 character-item-group-LoadoutBotanistBackpacks = Botanist Backpacks
 character-item-group-LoadoutBotanistBelt = Botanist Belt
 character-item-group-LoadoutBotanistEars = Botanist Ears
@@ -672,6 +738,7 @@ character-item-group-LoadoutBotanistOuter = Botanist Outerwear
 character-item-group-LoadoutBotanistShoes = Botanist Shoes
 character-item-group-LoadoutBotanistUniforms = Botanist Uniforms
 
+# Service - Chef
 # Service - Chef
 character-item-group-LoadoutChefBackpacks = Chef Backpacks
 character-item-group-LoadoutChefBelt = Chef Belt
@@ -688,6 +755,7 @@ character-item-group-LoadoutChefShoes = Chef Shoes
 character-item-group-LoadoutChefUniforms = Chef Uniforms
 
 # Service - Clown
+# Service - Clown
 character-item-group-LoadoutClownBackpacks = Clown Backpacks
 character-item-group-LoadoutClownBelt = Clown Belt
 character-item-group-LoadoutClownEars = Clown Ears
@@ -702,6 +770,7 @@ character-item-group-LoadoutClownOuter = Clown Outerwear
 character-item-group-LoadoutClownShoes = Clown Shoes
 character-item-group-LoadoutClownUniforms = Clown Uniforms
 
+# Service - Janitor
 # Service - Janitor
 character-item-group-LoadoutJanitorBackpacks = Janitor Backpacks
 character-item-group-LoadoutJanitorBelt = Janitor Belt
@@ -718,6 +787,7 @@ character-item-group-LoadoutJanitorShoes = Janitor Shoes
 character-item-group-LoadoutJanitorUniforms = Janitor Uniforms
 
 # Service - Lawyer
+# Service - Lawyer
 character-item-group-LoadoutLawyerBackpacks = Lawyer Backpacks
 character-item-group-LoadoutLawyerBelt = Lawyer Belt
 character-item-group-LoadoutLawyerEars = Lawyer Ears
@@ -732,6 +802,7 @@ character-item-group-LoadoutLawyerOuter = Lawyer Outerwear
 character-item-group-LoadoutLawyerShoes = Lawyer Shoes
 character-item-group-LoadoutLawyerUniforms = Lawyer Uniforms
 
+# Service - Mime
 # Service - Mime
 character-item-group-LoadoutMimeBackpacks = Mime Backpacks
 character-item-group-LoadoutMimeBelt = Mime Belt
@@ -748,6 +819,7 @@ character-item-group-LoadoutMimeShoes = Mime Shoes
 character-item-group-LoadoutMimeUniforms = Mime Uniforms
 
 # Service - Musician
+# Service - Musician
 character-item-group-LoadoutMusicianBackpacks = Musician Backpacks
 character-item-group-LoadoutMusicianBelt = Musician Belt
 character-item-group-LoadoutMusicianEars = Musician Ears
@@ -763,6 +835,7 @@ character-item-group-LoadoutMusicianShoes = Musician Shoes
 character-item-group-LoadoutMusicianUniforms = Musician Uniforms
 
 # Service - Reporter
+# Service - Reporter
 character-item-group-LoadoutReporterBackpacks = Reporter Backpacks
 character-item-group-LoadoutReporterBelt = Reporter Belt
 character-item-group-LoadoutReporterEars = Reporter Ears
@@ -776,6 +849,22 @@ character-item-group-LoadoutReporterMask = Reporter Masks
 character-item-group-LoadoutReporterOuter = Reporter Outerwear
 character-item-group-LoadoutReporterShoes = Reporter Shoes
 character-item-group-LoadoutReporterUniforms = Reporter Uniforms
+
+# Traits - Languages
+# Misc - Prisoner
+character-item-group-LoadoutPrisonerBackpacks = Prisoner Backpacks
+character-item-group-LoadoutPrisonerBelt = Prisoner Belt
+character-item-group-LoadoutPrisonerEars = Prisoner Ears
+character-item-group-LoadoutPrisonerEquipment = Prisoner Equipment
+character-item-group-LoadoutPrisonerEyes = Prisoner Eyewear
+character-item-group-LoadoutPrisonerloves = Prisoner Gloves
+character-item-group-LoadoutPrisonerHead = Prisoner Headgear
+character-item-group-LoadoutPrisonerId = Prisoner Id
+character-item-group-LoadoutPrisonerNeck = Prisoner Neckwear
+character-item-group-LoadoutPrisonerMask = Prisoner Masks
+character-item-group-LoadoutPrisonerOuter = Prisoner Outerwear
+character-item-group-LoadoutPrisonerShoes = Prisoner Shoes
+character-item-group-LoadoutPrisonerUniforms = Prisoner Uniforms
 
 # Traits - Languages
 character-item-group-TraitsLanguagesBasic = Basic Languages

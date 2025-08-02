@@ -1,8 +1,11 @@
 ghost-gui-return-to-body-button = Вернуться в тело
 ghost-gui-ghost-warp-button = Телепорт призрака
 ghost-gui-ghost-roles-button = Призрачные роли ({$count})
-ghost-gui-toggle-ghost-visibility-popup = Переключена видимость других призраков.
-ghost-gui-toggle-lighting-manager-popup = Переключено освещение.
+ghost-gui-toggle-ghost-visibility-popup-on = Enabled visibility of ghosts.
+ghost-gui-toggle-ghost-visibility-popup-off = Disabled visibility of ghosts.
+ghost-gui-toggle-lighting-manager-popup-normal = Lighting normal.
+ghost-gui-toggle-lighting-manager-popup-personal-light = Enabled personal light.
+ghost-gui-toggle-lighting-manager-popup-fullbright = Fullbright mode.
 ghost-gui-toggle-fov-popup = Переключена зона видимости.
 
 ghost-gui-toggle-hearing-popup-on = Теперь вы слышите все сообщения.
@@ -13,6 +16,7 @@ ghost-target-window-current-button = Телепорт: {$name}
 ghost-target-window-warp-to-most-followed = Следить за самым следуемым
 
 ghost-roles-window-title = Роли призрака
+ghost-roles-window-available-button = Available ({$rolesCount})
 ghost-roles-window-join-raffle-button = Вступить в лотерею
 ghost-roles-window-raffle-in-progress-button =
     Вступить в лотерею ({$time} left, { $players ->

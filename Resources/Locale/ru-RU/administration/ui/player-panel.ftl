@@ -20,3 +20,4 @@ player-panel-ban = Забанить
 player-panel-logs = Логи
 player-panel-delete = Удалить
 player-panel-rejuvenate = Вылечить
+player-panel-false = False

@@ -4,11 +4,12 @@ holiday-greet = Счастливого { $holidayName }!
 
 ## Holiday Names
 
+## Holiday Names
+
 holiday-name-new-year = Нового года
 holiday-name-mister-lizard = дня рождения Мистера Ящерки
 holiday-name-chinese-new-year = Китайского Нового года
 holiday-name-groundhog-day = Дня сурка
-holiday-name-travis-scott-day = День Дня
 holiday-name-valentines-day = Дня святого Валентина
 holiday-name-birthday13 = День Дня
 holiday-name-random-kindness = Дня спонтанного проявления доброты
@@ -70,6 +71,8 @@ holiday-name-festive-season = наступающего Нового года
 holiday-name-boxing-day = Дня подарков
 holiday-name-friday-thirteenth = Дня неприятностей
 holiday-name-national-coming-out-day = День Дня
+
+## Custom congrats
 
 ## Custom congrats
 

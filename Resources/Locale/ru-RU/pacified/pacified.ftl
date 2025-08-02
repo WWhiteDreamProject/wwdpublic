@@ -4,9 +4,12 @@
 # With projectiles:
 pacified-cannot-throw = Я не могу заставить себя бросить { $projectile }, это может кого-то покалечить!
 # With embedding projectiles:
+# With embedding projectiles:
 pacified-cannot-throw-embed = Я не могу бросить { $projectile }, это может застрять в ком-то!
 # With liquid-spilling projectiles:
+# With liquid-spilling projectiles:
 pacified-cannot-throw-spill = Я не могу бросить { $projectile }, это может пролить какую-нибудь гадость на другого!
+# With bolas and snares:
 # With bolas and snares:
 pacified-cannot-throw-snare = Я не могу бросить { $projectile }, что если кто-то споткнется?!
 

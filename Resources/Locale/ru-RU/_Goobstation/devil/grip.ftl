@@ -1,1 +1,1 @@
-devil-speech-grip = Izh acha Ozh!!
+devil-speech-grip = Абракадабра!!

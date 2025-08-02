@@ -6,6 +6,8 @@ criminal-records-console-no-record-found = Не найдены записи дл
 
 ## Status
 
+## Status
+
 criminal-records-console-status = Статус
 criminal-records-status-none = Нет
 criminal-records-status-wanted = В розыске
@@ -21,6 +23,8 @@ criminal-records-console-reason-placeholder = Например: {$placeholder}
 
 ## Crime History
 
+## Crime History
+
 criminal-records-console-crime-history = История преступлений
 criminal-records-history-placeholder = Напишите преступления здесь
 criminal-records-no-history = История преступлений чиста.
@@ -28,6 +32,8 @@ criminal-records-add-history = Добавить
 criminal-records-delete-history = Удалить
 
 criminal-records-permission-denied = Доступ воспрещен
+
+## Security channel notifications
 
 ## Security channel notifications
 
@@ -44,11 +50,14 @@ criminal-records-console-unknown-officer = <неизвестный офицер>
 
 ## Filters
 
+## Filters
+
 criminal-records-filter-placeholder = Введите текст и нажмите "Enter"
 criminal-records-name-filter = Имя
 criminal-records-prints-filter = Отпечатки
 criminal-records-dna-filter = ДНК
 
+## Arrest auto history lines
 ## Arrest auto history lines
 criminal-records-console-auto-history = АРЕСТОВАН: {$reason}
 criminal-records-console-unspecified-reason = <причина не указана>

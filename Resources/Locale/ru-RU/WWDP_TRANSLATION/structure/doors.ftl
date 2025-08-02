@@ -1,0 +1,19 @@
+ent-WindoorAssembly = заготовка раздвижного окна
+    .desc = Оно открывается, закрывается и вы можете видеть сквозь него!
+    .suffix = { "" }
+
+ent-WindoorAssemblySecure = заготовка усиленного раздвижного окна
+    .desc = Оно открывается, закрывается и вы можете видеть сквозь него! Выглядит прочным.
+    .suffix = { "" }
+
+ent-AirlockExternal = { ent-Airlock }
+    .desc = Он открывается, закрывается и может вас раздавить. По ту сторону скорее всего холодный космос. Должен быть активирован вручную.
+    .suffix = Внешний
+
+ent-AirlockExternalGlass = { ent-AirlockExternal }
+    .suffix = Стеклянный, Внешний
+    .desc = { ent-AirlockExternal.desc }
+
+ent-Airlock = шлюз
+    .desc = Он открывается, закрывается и может вас раздавить.
+    .suffix = { "" }

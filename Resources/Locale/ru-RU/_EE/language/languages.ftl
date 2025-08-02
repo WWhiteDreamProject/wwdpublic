@@ -18,6 +18,9 @@ language-Delvahii-name = Делвахий
 language-Delvahii-description =
     Язык жан-хазан, связанный с поклонением Ма’таке, до сих пор используемый в религиозных обрядах и предпочтительный фермерами, сопротивляющимися контролю правительства.
 
+language-Shadowmind-name = Shadowmind
+language-Shadowmind-description =
+    A language spoken by the shadowlings. Not much is known about it, except that Thralls can understand it.
 language-Qiilour-name = Квилур
 language-Qiilour-description =
     Квилур - родной и основной язык Кселтии, на котором в той или иной степени говорят почти все представители их вида. Это изысканное слияние нескольких древних языков, таких как Теленарий, Воскарн и Старый Кселтек, каждый из которых теперь утерян для истории.

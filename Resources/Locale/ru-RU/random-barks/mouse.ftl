@@ -1,0 +1,29 @@
+# Mice get a lot because they are a lot  more common than e.g. cows or chickens, are understood by certain species and player-controlled mice, etc...
+bark-mouse-1  = пи пи пи
+bark-mouse-2  = пи пи пи пи
+bark-mouse-3  = Сыр!
+bark-mouse-4  = Еда!
+bark-mouse-5  = Я проголодался!
+bark-mouse-6  = Нужен сыр. Срочно.
+bark-mouse-7  = Обожаю гриль-сыр. До безумия.
+bark-mouse-8  = Повсюду ловушки!
+bark-mouse-9  = Надо найти еду...
+bark-mouse-10 = Где тут кухня?
+bark-mouse-11 = Я умираю от голода!
+bark-mouse-12 = Писк
+bark-mouse-13 = Сыр. Сейчас. Пожалуйста.
+bark-mouse-14 = Хочу кушать...
+bark-mouse-15 = пи пи пи пи пи!
+bark-mouse-16 = А где сыр?
+bark-mouse-17 = Время перекуса! Ну пожаалуйста!
+bark-mouse-18 = Еда! Срочно нужна еда!
+bark-mouse-19 = Кушать?.. Кто-нибудь?
+bark-mouse-20 = Сыр — это жизнь.
+bark-mouse-21 = Писк-писк! Больше сыра!
+bark-mouse-22 = Я всё ещё голоден...
+bark-mouse-23 = Пи?.. Это что?!
+bark-mouse-24 = Пахнет кухней… ммм…
+bark-mouse-25 = Кто-то украл сыр!
+bark-mouse-26 = Я создам своё королевство и свергну командование станции!
+bark-mouse-count = 26
+

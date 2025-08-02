@@ -1,5 +1,8 @@
+voice-mask-default-name-override = Unknown
+
 voice-mask-name-change-window = Изменение имени голосовой маски
 voice-mask-name-change-info = Введите имя, которое вы хотите сымитировать.
+voice-mask-name-change-speech-style = Speech style
 voice-mask-name-change-set = Изменить имя
 voice-mask-name-change-set-description = Измените имя, которое все слышат, на другое.
 

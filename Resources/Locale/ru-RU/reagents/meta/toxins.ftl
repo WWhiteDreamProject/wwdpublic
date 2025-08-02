@@ -78,3 +78,20 @@ reagent-desc-tazinide = Очень опасная металлическая с�
 
 reagent-name-lipolicide = липолицид
 reagent-desc-lipolicide = Мощный токсин, который разрушает жировые клетки, значительно снижая массу тела за короткое время. Смертельно для тех, у кого нет питательных веществ в организме.
+reagent-name-mechanotoxin = mechanotoxin
+reagent-desc-mechanotoxin = A neurotoxin used as venom by some species of spider. Degrades movement when built up.
+
+reagent-name-soulbreaker-toxin = soulbreaker toxin
+reagent-desc-soulbreaker-toxin = An anti-psionic about 4 times as powerful as mindbreaker toxin.
+
+reagent-name-lotophagoi-oil = lotophagoi oil
+reagent-desc-lotophagoi-oil = A super potent drug that is much better at inducing psionics than normal hallucinogens, but with worse side effects.
+
+reagent-name-ectoplasm = ectoplasm
+reagent-desc-ectoplasm = The physical component of semi-corporeal spirits.
+
+reagent-name-ousiana-dust = ousiana dust
+reagent-desc-ousiana-dust = A silent scream echos from this powder, it is a sledgehammer to the mind capable of violently breaking through any psionic blocks, at a cost.
+
+reagent-name-formic-acid = formic acid
+reagent-desc-formic-acid = A corrosive chemical used in the production of enzymes.

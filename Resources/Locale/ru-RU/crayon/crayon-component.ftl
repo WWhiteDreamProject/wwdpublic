@@ -1,3 +1,4 @@
+
 ## Entity
 
 crayon-drawing-label = Остаток: [color={ $color }]{ $state }[/color] ({ $charges }/{ $capacity })
@@ -7,6 +8,7 @@ crayon-interact-invalid-location = Туда не дотянуться!
 
 ## UI
 
+## UI
 crayon-window-title = Мелок
 crayon-window-placeholder = Поиск, или создание очереди рисования из списка имён, разделенных запятыми
 crayon-category-1-brushes = Кисти

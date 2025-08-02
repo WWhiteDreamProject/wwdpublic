@@ -1,4 +1,5 @@
-﻿alerts-mood-insane-name = Безумие
+alerts-mood-dead-name = Мёртв
+alerts-mood-dead-desc = Вечная пустота окутала меня, и мир больше не имеет власти над моей душой.
 alerts-mood-insane-desc = В моей душе тлеют мрак и безнадежность, мир обречен на абсолютное зло.
 alerts-mood-horrible-name = Печально
 alerts-mood-horrible-desc = Я борюсь с болями и страхами, моя судьба - череда мучений и страданий.
@@ -18,5 +19,3 @@ alerts-mood-exceptional-name = Очень хорошо
 alerts-mood-exceptional-desc = Я ощущаю в себе силы и надежду на лучшие дни, несмотря на угрозы, что таятся вокруг.
 alerts-mood-perfect-name = Великолепно
 alerts-mood-perfect-desc = Моя душа полна света и силы, и я готов сразиться с тьмой в этом жестоком мире.
-alerts-mood-dead-name = Мёртв
-alerts-mood-dead-desc = Вечная пустота окутала меня, и мир больше не имеет власти над моей душой.

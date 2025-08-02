@@ -1,4 +1,4 @@
-# Loading Screen
+﻿# Loading Screen
 
 replay-loading = Loading ({ $cur }/{ $total })
 replay-loading-reading = Reading Files
@@ -10,11 +10,15 @@ replay-loading-failed =
     Failed to load replay:
     { $reason }
 # Main Menu
+replay-loading-retry = Try load with more exception tolerance - MAY CAUSE BUGS!
+
+# Main Menu
 replay-menu-subtext = Replay Client
 replay-menu-load = Load Selected Replay
 replay-menu-select = Select a Replay
 replay-menu-open = Open Replay Folder
 replay-menu-none = No replays found.
+# Main Menu Info Box
 # Main Menu Info Box
 replay-info-title = Replay Information
 replay-info-none-selected = No replay selected
@@ -30,9 +34,12 @@ replay-info-info =
     { "[" }color=gray]Type Hash:[/color]   { $hash }
     { "[" }color=gray]Comp Hash:[/color]   { $compHash }
 # Replay selection window
+# Replay selection window
 replay-menu-select-title = Select Replay
 # Replay related verbs
+# Replay related verbs
 replay-verb-spectate = Spectate
+# command
 # command
 cmd-replay-spectate-help = replay_spectate [optional entity]
 cmd-replay-spectate-desc = Attaches or detaches the local player to a given entity uid.

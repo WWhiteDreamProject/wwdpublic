@@ -9,9 +9,11 @@ loadout-category-Head = Head
 loadout-category-Items = Items
 
 # Jobs
+# Jobs
 loadout-category-Jobs = Jobs
 loadout-category-JobsAUncategorized = Uncategorized
 
+# Command
 # Command
 loadout-category-JobsCommand = Command
 loadout-category-JobsCommandAUncategorized = All Command
@@ -22,6 +24,9 @@ loadout-category-JobsCommandBlueshieldOfficer = Blueshield Officer
 loadout-category-JobsCommandNanorep = Nanotrasen Representative
 
 # Engineering
+loadout-category-JobsCommandMagistrate = Magistrate
+
+# Engineering
 loadout-category-JobsEngineering = Engineering
 loadout-category-JobsEngineeringAAUncategorized = All Engineers
 loadout-category-JobsEngineeringAtmosphericTechnician = Atmospheric Technician
@@ -30,6 +35,7 @@ loadout-category-JobsEngineeringSeniorEngineer = Senior Engineer
 loadout-category-JobsEngineeringStationEngineer = Station Engineer
 loadout-category-JobsEngineeringTechnicalAssistant = Technical Assistant
 
+# Epistemics
 # Epistemics
 loadout-category-JobsEpistemics = Epistemics
 loadout-category-JobsEpistemicsAAUncategorized = All Epistemiologists
@@ -43,6 +49,7 @@ loadout-category-JobsEpistemicsNoviciate = Noviciate
 loadout-category-JobsEpistemicsPsionicMantis = Psionic Mantis
 
 # Logistics
+# Logistics
 loadout-category-JobsLogistics = Logistics
 loadout-category-JobsLogisticsAUncategorized = All Logistics
 loadout-category-JobsLogisticsCargoTechnician = Cargo Technician
@@ -50,6 +57,7 @@ loadout-category-JobsLogisticsCourier = Courier
 loadout-category-JobsLogisticsLogisticsOfficer = Logistics Officer
 loadout-category-JobsLogisticsSalvageSpecialist = Salvage Specialist
 
+# Medical
 # Medical
 loadout-category-JobsMedical = Medical
 loadout-category-JobsMedicalAUncategorized = All Medical
@@ -62,7 +70,9 @@ loadout-category-JobsMedicalPsychologist = Psychologist
 loadout-category-JobsMedicalSeniorPhysician = Senior Physician
 
 # Security
+# Security
 loadout-category-JobsSecurity = Security
+loadout-category-JobsSecurityWeapons = Duty Weapon
 loadout-category-JobsSecurityAUncategorized = All Security
 loadout-category-JobsSecurityCadet = Cadet
 loadout-category-JobsSecurityCorpsman = Corpsman
@@ -72,6 +82,7 @@ loadout-category-JobsSecuritySecurityOfficer = Security Officer
 loadout-category-JobsSecuritySeniorOfficer = Senior Officer
 loadout-category-JobsSecurityWarden = Warden
 
+# Service
 # Service
 loadout-category-JobsService = Service
 loadout-category-JobsServiceAUncategorized = All Service
@@ -84,6 +95,11 @@ loadout-category-JobsServiceLawyer = Lawyer
 loadout-category-JobsServiceMime = Mime
 loadout-category-JobsServiceMusician = Musician
 loadout-category-JobsServiceReporter = Reporter
+
+# Misc
+loadout-category-JobsZMisc = Misc
+loadout-category-JobsZMiscAUncategorized = All Misc
+loadout-category-JobsZMiscPrisoner = Prisoner
 
 loadout-category-Mask = Mask
 loadout-category-Neck = Neck

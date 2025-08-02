@@ -1,5 +1,4 @@
 ## UI
-
 cloning-console-window-title = Консоль клонирования
 cloning-console-window-clone-button-text = Клонировать
 cloning-console-window-scanner-id = ИД: [color=white]{ $scannerOccupantName }[/color]

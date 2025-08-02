@@ -1,4 +1,4 @@
-﻿# User interface
+# User interface
 comms-console-menu-title = Консоль связи
 comms-console-menu-announcement-placeholder = Объявление
 comms-console-menu-announcement-button = Сделать объявление
@@ -8,13 +8,16 @@ comms-console-menu-recall-shuttle = Отозвать эвакуационный 
 comms-console-menu-time-remaining = Оставшееся время: { $time }
 
 # Popup
+# Popup
 comms-console-permission-denied = В доступе отказано
-comms-console-meteor-connection = Нет связи с шаттлом, попробуйте позже
+comms-console-shuttle-unavailable = Shuttle is currently unavailable
+comms-console-message-too-long = Message is too long
 
 # Placeholder values
 comms-console-announcement-sent-by = Отправитель
 comms-console-announcement-unknown-sender = Неизвестный
 
+# Comms console variant titles
 # Comms console variant titles
 comms-console-announcement-title-station = Консоль связи
 comms-console-announcement-title-centcom = Центральное командование

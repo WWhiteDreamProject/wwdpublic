@@ -7,6 +7,7 @@ signal-linker-component-max-connections-transmitter = Достигнут мак�
 signal-linker-component-type-mismatch = Тип порта не совпадает с типом сохранённого порта!
 signal-linker-component-out-of-range = Превышена дальность соединения!
 # Verbs
+# Verbs
 signal-linking-verb-text-link-default = Связать стандартные порты
 signal-linking-verb-success = Успешно подключены все стандартные соединения { $machine }.
 signal-linking-verb-fail = Не удалось подключить все стандартные соединения { $machine }.

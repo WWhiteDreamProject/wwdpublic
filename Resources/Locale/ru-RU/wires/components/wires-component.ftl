@@ -8,6 +8,8 @@ wires-component-ui-on-receive-message-cannot-mend-uncut-wire = Вы не мож�
 
 ## UI
 
+## UI
+
 wires-menu-name-label = Провода
 wires-menu-dead-beef-text = DEAD-BEEF
 wires-menu-help-popup =

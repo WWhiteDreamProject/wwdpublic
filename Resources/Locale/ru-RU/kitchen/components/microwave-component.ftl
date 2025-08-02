@@ -9,13 +9,18 @@ microwave-component-suicide-multi-head-others-message = {$victim} пытаетс
 microwave-component-suicide-others-message = {$victim} пытается зажарить свою голову!
 microwave-component-suicide-multi-head-message = Вы зажариваете свои головы!
 microwave-component-suicide-message = Вы зажариваете свою голову!
+microwave-component-upgrade-cook-time = cook time
 microwave-component-interact-full = Она заполнена.
 microwave-component-interact-item-too-big = {CAPITALIZE($item)} не может поместиться в микроволновой печи из-за размера!
 
 ## Bound UI
 
+## Bound UI
+
 microwave-bound-user-interface-instant-button = МГНОВЕННО
 microwave-bound-user-interface-cook-time-label = ВРЕМЯ: {$time}
+
+## UI
 
 ## UI
 

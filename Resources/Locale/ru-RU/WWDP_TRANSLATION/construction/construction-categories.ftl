@@ -1,0 +1,1 @@
+construction-category-all = Всё

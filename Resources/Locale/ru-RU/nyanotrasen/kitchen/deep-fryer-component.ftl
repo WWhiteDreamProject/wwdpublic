@@ -19,6 +19,8 @@ deep-fryer-entity-escape = {CAPITALIZE(THE($victim))} выпрыгивает и�
 
 ## DeepFryer UI
 
+## DeepFryer UI
+
 deep-fryer-window-title = Фритюрница
 deep-fryer-label-baskets = Корзины
 deep-fryer-label-oil-level = Уровень Масла
@@ -31,6 +33,8 @@ deep-fryer-button-clear-slag = Убрать Шлак
 deep-fryer-button-clear-slag-tooltip = Вытряхнуть немного отходов из чана с маслом. Для этого вам понадобится емкость.
 deep-fryer-button-remove-all-items = Убрать Все Предметы
 deep-fryer-button-remove-all-items-tooltip = Убрать все предметы из корзин фритюрницы за один раз.
+
+## DeepFriedComponent
 
 ## DeepFriedComponent
 

@@ -6,9 +6,14 @@ device-frequency-prototype-name-lights = Умное освещение
 device-frequency-prototype-name-mailing-units = Почтовый блок
 device-frequency-prototype-name-pdas = ПДА
 # prefixes for randomly generated device addresses
-device-address-prefix-vent = Вент-
+device-frequency-prototype-name-fax = Fax
 device-frequency-prototype-name-basic-device = Простые устройства
-device-address-prefix-scrubber = Скр-
+device-frequency-prototype-name-cyborg-control = Cyborg Control
+device-frequency-prototype-name-robotics-console = Robotics Console
+device-frequency-prototype-name-turret = Sentry Turret
+device-frequency-prototype-name-turret-control = Sentry Turret Control
+
+## camera frequencies
 device-frequency-prototype-name-surveillance-camera-test = Тест подсети
 device-frequency-prototype-name-surveillance-camera-engineering = Камеры (Инж)
 device-frequency-prototype-name-surveillance-camera-security = Камеры (СБ)
@@ -19,14 +24,28 @@ device-frequency-prototype-name-surveillance-camera-service = Камеры (Се
 device-frequency-prototype-name-surveillance-camera-medical = Камеры (Мед)
 device-frequency-prototype-name-surveillance-camera-general = Камеры (Общие)
 device-frequency-prototype-name-surveillance-camera-entertainment = Камеры (Развлечения)
-device-frequency-prototype-name-fax = Fax
+# prefixes for randomly generated device addresses
+device-address-prefix-vent = Вент-
+device-address-prefix-scrubber = Скр-
 device-address-prefix-sensor = Сенс-
-device-address-prefix-fire-alarm = Пож-
-#PDAs and terminals
+# Damn bet you couldn't see this one coming.
+device-address-prefix-teg = TEG-
+device-address-prefix-heater = HTR-
+device-address-prefix-freezer = FZR-
+device-address-prefix-volume-pump = VPP-
+device-address-prefix-smes = SMS-
+device-address-prefix-turret = TRT-
+
+# PDAs and terminals
 device-address-prefix-console = Конс-
+device-address-prefix-fire-alarm = Пож-
+# PDAs and terminals
 device-address-prefix-air-alarm = Возд-
+device-address-prefix-sensor-monitor = MON-
+
 device-address-examine-message = Адрес устройства: { $address }.
-#Device net ID names
+# Device net ID names
+# Device net ID names
 device-net-id-private = Частные
 device-net-id-wired = Проводные
 device-net-id-wireless = Беспроводные

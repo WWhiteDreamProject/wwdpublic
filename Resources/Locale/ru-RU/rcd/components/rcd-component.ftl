@@ -1,6 +1,5 @@
-# WD EDIT ALL
 
-# UI
+### UI
 
 rcd-component-examine-mode-details = Текущий режим: '{$mode}'.
 rcd-component-examine-build-details = Текущий режим строительства: {$name}.
@@ -9,19 +8,25 @@ rcd-component-examine-build-details = Текущий режим строител
 ## Interaction Messages
 
 # Mode change
+### Interaction Messages
+
+# Mode change
 rcd-component-change-mode = РЦД переключён в режим '{$mode}'.
 rcd-component-change-build-mode = РЦД переключён в режим строительства {$name}.
 
 # Ammo count
+# Ammo count
 rcd-component-no-ammo-message = В РЦД закончились заряды!
 rcd-component-insufficient-ammo-message = В РЦД недостаточно зарядов!
 
+# Deconstruction
 # Deconstruction
 rcd-component-tile-indestructible-message = Эта плитка неразрушима!
 rcd-component-deconstruct-target-not-on-whitelist-message = Вы не можете это демонтировать!
 rcd-component-nothing-to-deconstruct-message = Здесь нечего демонтировать!
 rcd-component-tile-obstructed-message = Вы не можете демонтировать плитку, если на ней что-то есть!
 
+# Construction
 # Construction
 rcd-component-no-valid-grid = Вы слишком далеко в открытом космосе, чтобы строить здесь!
 rcd-component-must-build-on-empty-tile-message = Здесь уже есть фундамент!
@@ -35,17 +40,18 @@ rcd-component-cannot-build-identical-tile = Эта плитка уже суще�
 ### Category names
 
 # RCD
-rcd-category-WallsAndFlooring = Стены и пол
-rcd-category-WindowsAndGrilles = Окна и решётки
-rcd-category-Airlocks = Шлюзы
-rcd-category-Electrical = Электрика
-rcd-category-Lighting = Освещение
+### Category names
 
-# RPD
-rcd-category-Pipes = Трубы
-rcd-category-GasDevices = Атмосферные приборы
-rcd-category-DisposalPipes = Мусорные трубы
-rcd-category-DisposalUnits = Мусорные приборы
+rcd-component-walls-and-flooring = Walls and flooring
+rcd-component-windows-and-grilles = Windows and grilles
+rcd-component-airlocks = Airlocks
+rcd-component-electrical = Electrical
+rcd-component-lighting = Lighting
+rcd-component-piping = Piping
+rcd-component-atmosphericutility = Atmospheric Utility
+rcd-component-pumps = Pumps & Valves
+rcd-component-vents = Vents
+
 
 ### Prototype names (note: constructable items will be puralized)
 

@@ -13,6 +13,10 @@ alert-level-red-instructions = Членам экипажа следует най
 alert-level-violet = Фиолетовый
 alert-level-violet-announcement = На станции присутствует угроза вируса. Медицинскому персоналу рекомендуется изолировать членов экипажа с любыми симптомами. Членам экипажа рекомендуется дистанцироваться друг от друга и соблюдать меры безопасности по предотвращению дальнейшего распространения вируса.
 alert-level-violet-instructions = Членам экипажа рекомендуется держаться на расстоянии от других людей и принимать меры безопасности для предотвращения дальнейшего распространения.
+alert-level-white = White
+alert-level-white-announcement = The station is suffering dangerously high levels of glimmer, there are several active psionic threats, or there is another significant epistemic emergency. Turn off all glimmer probers. Seek psionic insulation. Psychics should report for mindbreaking.
+alert-level-white-instructions = Crewmembers are advised to seek psionic insulation. Psychics should report for mindbreaking or golemization.
+
 alert-level-yellow = Жёлтый
 alert-level-yellow-announcement = На станции присутствует структурная или атмосферная угроза. Инженерно-техническому персоналу рекомендуется немедленно реагировать и предпринимать меры по обеспечению безопасности. Членам экипажа рекомендуется удалиться от угрозы и при необходимости оставаться на своих рабочих местах.
 alert-level-yellow-instructions = Членам экипажа рекомендуется держаться подальше от угрозы и при необходимости оставаться на своих рабочих местах.

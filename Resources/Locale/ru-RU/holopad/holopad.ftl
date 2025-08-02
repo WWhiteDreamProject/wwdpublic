@@ -4,6 +4,7 @@ holopad-window-subtitle = [color=white][bold]Система голографич
 holopad-window-options = [color=darkgray][font size=10][italic]Пожалуйста, выберите вариант из списка ниже[/italic][/font][/color]
 
 # Call status
+# Call status
 holopad-window-no-calls-in-progress = Никакие голо-звонки не ведутся
 holopad-window-incoming-call = Входящий голо-звонок от:
 holopad-window-relay-label = Отправлено с:
@@ -17,6 +18,7 @@ holopad-window-controls-locked-out = Управление этим устрой�
 holopad-window-controls-unlock-countdown = Оно автоматически разблокируется через: { $countdown }
 
 # Buttons
+# Buttons
 holopad-window-answer-call = Ответить на звонок
 holopad-window-end-call = Завершить звонок
 holopad-window-request-station-ai = Запросить станционный ИИ
@@ -26,23 +28,29 @@ holopad-window-emergency-broadcast-with-countdown = Экстренная тра�
 holopad-window-access-denied = В доступе отказано
 
 # Contact list
+# Contact list
 holopad-window-select-contact-from-list = Выберите контакт для начала голо-звонка
 holopad-window-fetching-contacts-list = Нет голопадов, с которыми можно связаться
 holopad-window-contact-label = { CAPITALIZE($label) }
 holopad-window-filter-line-placeholder = Найти контакт
 
 # Flavor
+# Flavor
 holopad-window-flavor-left = ⚠ Не входите пока проектор активен
 holopad-window-flavor-right = v3.0.9
 
 # Holograms
+# Holograms
 holopad-hologram-name = голограмма { $name }
 
+# Holopad actions
 # Holopad actions
 holopad-activate-projector-verb = Активировать голопроектор
 holopad-ai-is-unable-to-reach-holopad = Вы не можете связаться с источником вызова, он находится слишком далеко от вашего ядра.
 # Mapping prototypes
 
+# General
+# Mapping prototypes
 # General
 holopad-general-tools = Общий - Инструменты
 holopad-general-cryosleep = Общий - Криосон
@@ -54,6 +62,7 @@ holopad-general-arcade = Общий - Аркады
 holopad-general-evac = Общий - Эвак
 holopad-general-arrivals = Общий - Прибытие
 
+# Command
 # Command
 holopad-command-bridge = Командование - Мостик
 holopad-command-vault = Командование - Хранилище
@@ -69,6 +78,7 @@ holopad-command-rd = Командование - НР
 holopad-command-hos = Командование - ГСБ
 
 # Science
+# Science
 holopad-science-anomaly = Научный - Аномалистика
 holopad-science-artifact = Научный - Ксеноархеология
 holopad-science-robotics = Научный - Робототехника
@@ -76,6 +86,7 @@ holopad-science-rnd = Научный - НИО
 holopad-science-front = Научный - Приёмная
 holopad-science-breakroom = Научный - Комната отдыха
 
+# Medical
 # Medical
 holopad-medical-medbay = Медицинский - Медбей
 holopad-medical-chemistry = Медицинский - Химия
@@ -88,6 +99,7 @@ holopad-medical-front = Медицинский - Приёмная
 holopad-medical-breakroom = Медицинский - Комната отдыха
 
 # Cargo
+# Cargo
 holopad-cargo-front = Снабжение - Приёмная
 holopad-cargo-bay = Снабжение - Грузовой отсек
 holopad-cargo-salvage-bay = Снабжение - Утилизаторский отсек
@@ -95,6 +107,7 @@ holopad-cargo-breakroom = Снабжение - Комната отдыха
 holopad-cargo-ats = Снабжение - АТС
 holopad-cargo-shuttle = Снабжение - Шаттл
 
+# Engineering
 # Engineering
 holopad-engineering-atmos-front = Атмос - Приёмная
 holopad-engineering-atmos-main = Атмос - Главный
@@ -107,6 +120,7 @@ holopad-engineering-tech-vault = Инженерный - Техническое �
 holopad-engineering-ame = Инженерный - ДАМ
 holopad-engineering-power = Инженерный - Питание
 
+# Security
 # Security
 holopad-security-front = СБ - Приёмная
 holopad-security-brig = СБ - Бриг
@@ -121,6 +135,7 @@ holopad-security-armory = СБ - Оружейная
 holopad-security-locker-room = СБ - Раздевалка
 holopad-security-brig-med = СБ - Бригмед
 
+# Service
 # Service
 holopad-service-janitor = Сервис - Уборщик
 holopad-service-bar = Сервис - Бар
@@ -138,6 +153,7 @@ holopad-service-clown-mime = Сервис - Клоун/Мим
 holopad-service-gameroom = Сервис - Игровая комната
 
 # AI
+# AI
 holopad-ai-core = ИИ - Ядро
 holopad-ai-main = ИИ - Главный
 holopad-ai-upload = ИИ - Загрузка
@@ -146,8 +162,10 @@ holopad-ai-entrance = ИИ - Вход
 holopad-ai-chute = ИИ - Транспортный блок
 
 # Long Range
+# Long Range
 holopad-station-bridge = Станция - Бриг
 holopad-station-cargo-bay = Станция - Грузовой отсек
 
+# CentComm
 # CentComm
 holopad-centcomm-evac = Центком - Эвакуационный шаттл

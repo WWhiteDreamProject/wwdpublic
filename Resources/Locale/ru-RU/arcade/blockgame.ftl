@@ -1,9 +1,12 @@
+
 ### UI
 
 # Current game score
 blockgame-menu-label-points = Очки: { $points }
 # Current game level
+# Current game level
 blockgame-menu-label-level = Уровень: { $level }
+# Game over information of your round
 # Game over information of your round
 blockgame-menu-gameover-info =
     Глобальный счет: { $global }

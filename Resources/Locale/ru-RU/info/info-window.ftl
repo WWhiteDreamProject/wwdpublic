@@ -1,14 +1,13 @@
 ### Info Window
 
-
 ## General stuff
-
 ui-info-title = Информация
 ui-info-tab-rules = Правила сервера
 ui-info-tab-tutorial = Руководство
 
 ## Tutorial tab
 
+## Tutorial tab
 ui-info-text-controls = Вы можете переопределять кнопки управления в
 ui-info-header-intro = Введение
 ui-info-header-controls = Управление

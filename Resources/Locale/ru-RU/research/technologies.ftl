@@ -16,6 +16,7 @@ research-technology-shuttlecraft = Шаттлстроение
 research-technology-ripley-aplu = Рипли АВП
 research-technology-advanced-atmospherics = Продвинутые атмосферные технологии
 research-technology-advanced-tools = Продвинутые инструменты
+research-technology-mechanized-salvaging = Mechanized Salvaging
 research-technology-super-powercells = Сверхмощные батареи
 research-technology-bluespace-storage = Блюспейс хранилища
 research-technology-portable-fission = Портативный распад
@@ -26,11 +27,15 @@ research-technology-basic-weapons = Базовое вооружиение
 research-technology-draconic-munitions = Драконьи боеприпасы
 research-technology-uranium-munitions = Урановые боеприпасы
 research-technology-explosive-technology = Взрывные технологии
+research-technology-special-means = Special Means
 research-technology-practice-ammunition = Учебные боеприпасы
+research-technology-shrapnel-munitions = Shrapnel Munitions
 research-technology-advanced-weapons = Продвинутое вооружиение
 research-technology-prototype-weapons = Прототипы вооружиения
 research-technology-advanced-tacsuits = Усовершенствованные тактические костюмы
 research-technology-prototype-tacsuits = Прототипы тактических костюмов
+
+research-technology-laser-sentry-turrets = Laser Sentry Turret Technology
 
 research-technology-basic-robotics = Основы робототехники
 research-technology-basic-anomalous-research = Основы исследования аномалий
@@ -38,6 +43,7 @@ research-technology-basic-xenoarcheology = Основы ксеноархеоло
 research-technology-alternative-research = Альтернативные исследования
 research-technology-magnets-tech = Локализованный магнетизм
 research-technology-advanced-parts = Продвинутые компоненты
+research-technology-advanced-bluespace = Advanced Bluespace Research
 research-technology-anomaly-harnessing = Применение ядер аномалий
 research-technology-abnormal-artifact-manipulation = Нестандартные манипуляции с артефактами
 research-technology-gravity-manipulation = Управление гравитацией
@@ -55,3 +61,4 @@ research-technology-basic-life-improvements = Базовые улучшения 
 research-technology-honk-mech = Мех Х.О.Н.К.
 research-technology-advanced-life-improvements = Улучшенные средства жизнеобеспечения
 
+research-technology-positronic-interfacing = Positronic Interfacing

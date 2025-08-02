@@ -46,6 +46,11 @@ wires-board-name-barsign = Барная вывеска
 
 # names that get displayed in the wire hacking hud & admin logs.
 
+wires-board-name-weapon-energy-turret = Sentry turret
+wires-board-name-turret-controls = Sentry turret control panel
+
+# names that get displayed in the wire hacking hud & admin logs.
+
 wire-name-access = ДСТП
 wire-name-arcade-overflow = ЛИМТ
 wire-name-air-alarm-panic = ПНИК

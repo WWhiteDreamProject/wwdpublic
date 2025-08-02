@@ -7,6 +7,7 @@ implanter-draw-failed = Вы пытаетесь удалить имплант, �
 implanter-component-implant-already = {$target} уже имеет в себе {$implant}!
 
 ## UI
+## UI
 implanter-draw-text = Извлечение
 implanter-inject-text = Установка
 
@@ -19,9 +20,13 @@ implanter-contained-implant-text = [color=green]{ $desc }[/color]
 
 ## Implant Popups
 
+## Implant Popups
+
 scramble-implant-activated-popup = Ваша внешность меняется!
 
 ## Implanter Actions
+
+## Implant Messages
 
 deathrattle-implant-dead-message = { $user } умер в { $position }.
 deathrattle-implant-critical-message = Датчики состояния { $user } критические, требуется немедленная помощь в { $position }.

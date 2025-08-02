@@ -6,6 +6,7 @@ cmd-changestocksprice-invalid-station = Фондовый рынок для ук�
 cmd-changestocksprice-no-stations = Станции с фондовыми рынками не найдены.
 
 # addstockscompany command
+# addstockscompany command
 cmd-addstockscompany-desc = Добавляет новую компанию на фондовый рынок.
 cmd-addstockscompany-help = addstockscompany <Отображаемое имя> <Базовая цена> [UID станции]
 cmd-addstockscompany-failure = Не удалось добавить компанию на фондовый рынок.

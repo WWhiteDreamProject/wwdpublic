@@ -7,11 +7,16 @@ objective-issuer-syndicate = [color=crimson]Синдикат[/color]
 
 # Shown at the end of a round of Traitor
 
+objective-issuer-unknown = Unknown
+
+# Shown at the end of a round of Traitor
+
 traitor-title = Предатель
 traitor-description = Среди нас есть предатели...
 traitor-not-enough-ready-players = Недостаточно игроков готовы к игре! Из { $minimumPlayers } необходимых игроков готовы { $readyPlayersCount }. Невозможно начать режим Предатель
 traitor-no-one-ready = Нет готовых игроков! Не удалось начать режим Предателя.
 
+## TraitorDeathMatch
 ## TraitorDeathMatch
 traitor-death-match-title = Бой насмерть предателей
 traitor-death-match-description = Все — предатели. Все хотят смерти друг друга.
@@ -19,6 +24,9 @@ traitor-death-match-station-is-too-unsafe-announcement = На станции с�
 traitor-death-match-end-round-description-first-line = ПДА были восстановлены...
 traitor-death-match-end-round-description-entry = ПДА { $originalName }, с { $tcBalance } ТК
 
+## TraitorRole
+
+# TraitorRole
 ## TraitorRole
 
 # TraitorRole
@@ -42,6 +50,7 @@ traitor-role-uplink-implant =
     Ваш имплант аплинк активирован, воспользуйтесь им из хотбара.
     Аплинк надежно защищён, пока кто-нибудь не извлечёт его из вашего тела.
 
+# don't need all the flavour text for character menu
 # don't need all the flavour text for character menu
 traitor-role-codewords-short =
     Кодовые слова::

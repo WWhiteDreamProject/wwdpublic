@@ -2,6 +2,7 @@ forensic-scanner-interface-title = Криминалистический скан
 forensic-scanner-interface-fingerprints = Отпечатки
 forensic-scanner-interface-fibers = Волокна
 forensic-scanner-interface-dnas = ДНК
+forensic-scanner-interface-residues = Residues
 forensic-scanner-interface-no-data = Нет данных для сканирования
 forensic-scanner-interface-print = Распечатать
 forensic-scanner-interface-clear = Очистить
@@ -21,3 +22,10 @@ forensic-scanner-verb-text = Сканировать
 forensic-scanner-verb-message = Выполняется криминалистическое сканирование
 forensic-pad-fingerprint-name = владелец отпечатков: { $entity }
 forensic-pad-gloves-name = источник волокон: { $entity }
+forensics-dna-unknown = unknown DNA
+
+forensics-verb-text = Remove evidence
+forensics-verb-message = Remove fingerprints and DNA residues from the object!
+forensics-cleaning = You begin cleaning the evidence off of {THE($target)}...
+
+forensics-cleaning-cannot-clean = There is nothing cleanable on {THE($target)}!

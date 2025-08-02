@@ -52,3 +52,4 @@ surgery-popup-step-SurgeryStepInsertStomach = {$user} вставляет жел�
 surgery-popup-step-SurgeryStepSealOrganWound = {$user} запечатывает раны на {$part} {$target}.
 surgery-popup-step-SurgeryStepLobotomize = {$user} проводит лоботомию {$target}!
 surgery-popup-step-SurgeryStepMendBrainTissue = {$user} заживляет мозговую ткань на {$part} {$target}.
+surgery-popup-step-SurgeryStepTreatTumor = {$user} is treating the tumor on {$target}'s {$part}.

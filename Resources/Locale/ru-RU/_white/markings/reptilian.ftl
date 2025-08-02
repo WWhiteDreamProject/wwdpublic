@@ -1,10 +1,10 @@
-# ГОЛОВА
+# HEAD
 marking-LizardHeadGuilmon= Ящер, гилмон
 marking-LizardHeadGuilmon-guilmon = Основная часть
 
 marking-LizardShoutEasternDragon= Ящер, восточный дракон
-marking-LizardShoutEasternDragon-cobra_hood_with_ears = Внешняя часть
-marking-LizardShoutEasternDragon-cobra_hood_with_ears_overlay = Внутренняя часть
+marking-LizardShoutEasternDragon-eastern_dragon = Outer
+marking-LizardShoutEasternDragon-eastern_dragon_overlay = Inner
 
 marking-LizardShoutEasternDragonUsiki= Ящер, восточный дракон (Усики)
 marking-LizardShoutEasternDragonUsiki-eastern_dragon = Внешняя часть
@@ -43,15 +43,12 @@ marking-LizardHornsBighorn-horns_bighorn_l = Левый рог
 marking-LizardHornsBighorn-horns_bighorn_r = Правый рог
 
 # ХВОСТЫ
+# TAILS
 marking-SnakeLargeTail = Ящер, большой змеиный хвост
-marking-SnakeLargeTail-snakelarge = Верняя часть
-marking-SnakeLargeTail-snakelarge_overlay = Нижняя часть
+marking-SnakeLargeTail-tail_snakelarge = Inner
+marking-SnakeLargeTail-tail_snakelarge_overlay = Outer
 
-marking-SnakeLargeTailAnimated = Ящер, большой виляющий змеиный хвост
-marking-SnakeLargeTailAnimated-snake_large_wagging = Верняя часть
-marking-SnakeLargeTailAnimated-snake_large_wagging_overlay = Нижняя часть
-
-# ШИПЫ
+# SPINES
 marking-LizardChestSpinesAquatic = Ящер, грудь, шипы на спине (Водный)
 marking-LizardChestSpinesAquatic-spines_aquatic = Шипы
 marking-LizardChestSpinesAquaticWithoutTail = Ящер, грудь, шипы на спине (Водный, без хвоста)
