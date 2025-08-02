@@ -366,7 +366,7 @@
     - id: PrinterDocFlatpack
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
-    - id: WeaponEnergyShotgun
+    #- id: WeaponEnergyShotgun - WWDP edit
     # - id: WeaponDisabler - WD EDIT
     - id: WantedListCartridge
     # WD EDIT START
