@@ -3992,3 +3992,18 @@ Entries:
   id: 425
   time: '2025-08-02T06:36:31.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/733
+- author: Gersoon458
+  changes:
+    - type: Tweak
+      message: Комбатсьюты обратно заменены на обычные риги
+    - type: Fix
+      message: Исправлен свет на Мете у эвака
+    - type: Remove
+      message: Удалена ротация ЦК + Удален красный свет у шкафов на Мусе
+    - type: Remove
+      message: >-
+        Удалены дубликаты предметов из шкафов + Удалены магбутсы у сб (Просьба
+        Скитузера)
+  id: 426
+  time: '2025-08-02T06:37:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/738
