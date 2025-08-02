@@ -53,7 +53,7 @@ namespace Content.Server.Construction.Conditions
 
             foreach (var (machinePartId, required) in machineFrame.MachinePartRequirements)
             {
-                var amount = required - machineFrame.MachinePartRequirements[machinePartId];
+                var amount = required - machineFrame.MachinePartProgress[machinePartId]; // WWDP FIX Requirements -> Progres
 
                 if(amount == 0)
                     continue;
@@ -62,7 +62,7 @@ namespace Content.Server.Construction.Conditions
 
                 args.PushMarkup(Loc.GetString("construction-condition-machine-frame-required-element-entry",
                     ("amount", amount),
-                    ("elementName", machinePart.Name)));
+                    ("elementName", Loc.GetString(machinePart.Name)))); // WWDP fix - Loc.GetString
             }
 
             foreach (var (material, required) in machineFrame.MaterialRequirements)
