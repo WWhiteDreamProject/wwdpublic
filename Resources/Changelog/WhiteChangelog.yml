@@ -4007,3 +4007,10 @@ Entries:
   id: 426
   time: '2025-08-02T06:37:37.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/738
+- author: islambrosgood
+  changes:
+    - type: Fix
+      message: Зернистость сама отключается при включённом режиме совместимости
+  id: 427
+  time: '2025-08-02T06:38:45.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/739
