@@ -1,5 +1,6 @@
 using Content.Client._White.ItemSlotRenderer;
 using Content.Client._White.Overlays;
+using Content.Shared._White.CCVar;
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
@@ -167,6 +168,7 @@ namespace Content.Client.Entry
             _overlayManager.AddOverlay(new SingularityOverlay());
             _overlayManager.AddOverlay(new RadiationPulseOverlay());
             _overlayManager.AddOverlay(new GrainOverlay()); // WD EDIT
+            if (_configManager.GetCVar(CVars.DisplayCompat)) _configManager.SetCVar(WhiteCVars.FilmGrain, false); // WD EDIT
             _overlayManager.AddOverlay(new SpriteToLayerBullshitOverlay()); // WD EDIT
             _chatManager.Initialize();
             _clientPreferencesManager.Initialize();
