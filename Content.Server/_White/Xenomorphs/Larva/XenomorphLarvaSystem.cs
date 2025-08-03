@@ -1,10 +1,10 @@
-using Content.Server._White.Xenomorphs.Larva.Components;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Jittering;
 using Content.Server.Popups;
 using Content.Shared._White.Xenomorphs;
+using Content.Shared._White.Xenomorphs.Larva;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
@@ -61,11 +61,8 @@ public sealed class XenomorphLarvaSystem : EntitySystem
         if (!_doAfter.TryStartDoAfter(doAfterEventArgs))
             return;
 
-        var victimIdentity = Identity.Entity(victim, EntityManager);
-        var other = Filter.PvsExcept(victim).RemoveWhereAttachedEntity(e => e == uid);
         _popup.PopupEntity(Loc.GetString("xenomorphs-burst-victim"), victim, victim, PopupType.MediumCaution);
-        _popup.PopupEntity(Loc.GetString("xenomorphs-burst-other", ("victim", victimIdentity)), victim, other, true, PopupType.LargeCaution);
-        _popup.PopupEntity(Loc.GetString("xenomorphs-burst-larva", ("victim", victimIdentity)), victim, uid, PopupType.MediumCaution);
+        _popup.PopupEntity(Loc.GetString("xenomorphs-burst-other", ("victim", Identity.Entity(victim, EntityManager))), victim, Filter.PvsExcept(victim), true, PopupType.LargeCaution);
 
         _jitter.DoJitter(victim, component.BurstDelay, true);
     }

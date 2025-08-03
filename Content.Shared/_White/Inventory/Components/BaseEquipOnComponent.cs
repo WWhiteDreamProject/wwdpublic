@@ -2,7 +2,6 @@ using Content.Shared.Whitelist;
 
 namespace Content.Shared._White.Inventory.Components;
 
-[RegisterComponent]
 public abstract partial class BaseEquipOnComponent : Component
 {
     [DataField(required: true)]

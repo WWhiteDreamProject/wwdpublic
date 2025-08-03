@@ -28,6 +28,7 @@
     - ActionSpawnResinMembrane
     - ActionSpawnResinNest
     - ActionSpawnResinWeedNode
+    - ActionSpawnXenomorphEgg
   - type: Body
     prototype: XenomorphQueen
   - type: TypingIndicator

@@ -56,7 +56,7 @@ public abstract partial class SharedWhiteInventorySystem
         args.Handled = true;
     }
 
-    private void TryEquip(EntityUid uid, EntityUid target, BaseEquipOnComponent component)
+    public bool TryEquip(EntityUid uid, EntityUid target, BaseEquipOnComponent component)
     {
         if (_mobState.IsDead(uid)
             || !_random.Prob(component.EquipProb)
@@ -64,10 +64,12 @@ public abstract partial class SharedWhiteInventorySystem
             || _inventory.TryGetSlotEntity(target, component.BlockingSlot, out var headItem)
                 && TryComp<IngestionBlockerComponent>(headItem, out var ingestionBlocker)
                 && ingestionBlocker.Enabled)
-            return;
+            return false;
 
         if (component.Force)
             _inventory.TryUnequip(target, component.Slot, true);
         _inventory.TryEquip(target, uid, component.Slot, true, true);
+
+        return true;
     }
 }

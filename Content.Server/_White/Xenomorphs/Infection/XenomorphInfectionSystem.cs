@@ -1,5 +1,5 @@
-using Content.Server._White.Xenomorphs.Infection.Components;
-using Content.Server._White.Xenomorphs.Larva.Components;
+using Content.Shared._White.Xenomorphs.Infection;
+using Content.Shared._White.Xenomorphs.Larva;
 using Content.Shared.Body.Events;
 using Content.Shared.EntityEffects;
 using Robust.Server.Containers;
@@ -32,7 +32,11 @@ public sealed class XenomorphInfectionSystem : EntitySystem
 
     private void OnOrganAddedToBody(EntityUid uid, XenomorphInfectionComponent component, OrganAddedToBodyEvent args)
     {
-        AddComp(args.Body, new XenomorphInfectedComponent { Infection = uid, });
+        var xenomorphInfected = EnsureComp<XenomorphInfectedComponent>(args.Body);
+        xenomorphInfected.Infection = uid;
+        xenomorphInfected.InfectedIcons = component.InfectedIcons;
+        Dirty(args.Body, xenomorphInfected);
+
         component.Infected = args.Body;
     }
 
@@ -60,6 +64,11 @@ public sealed class XenomorphInfectionSystem : EntitySystem
                 continue;
 
             infection.GrowthStage++;
+            if (TryComp<XenomorphInfectedComponent>(infection.Infected.Value, out var xenomorphInfected))
+            {
+                xenomorphInfected.GrowthStage = infection.GrowthStage;
+                DirtyField(infection.Infected.Value, xenomorphInfected, nameof(XenomorphInfectedComponent.GrowthStage));
+            }
 
             if (infection.Effects.TryGetValue(infection.GrowthStage, out var effects))
             {
@@ -84,7 +93,10 @@ public sealed class XenomorphInfectionSystem : EntitySystem
 
             var larvaVictim = EnsureComp<XenomorphLarvaVictimComponent>(infection.Infected.Value);
             if (infection.InfectedIcons.TryGetValue(infection.GrowthStage, out var infectedIcon))
+            {
                 larvaVictim.InfectedIcon = infectedIcon;
+                Dirty(infection.Infected.Value, larvaVictim);
+            }
 
             _container.Remove(uid, container);
             _container.Insert(larva, container);
