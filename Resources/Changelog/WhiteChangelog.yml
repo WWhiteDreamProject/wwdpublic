@@ -4014,3 +4014,22 @@ Entries:
   id: 427
   time: '2025-08-02T06:38:45.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/739
+- author: Spatison
+  changes:
+    - type: Add
+      message: Добавлены лицехваты
+    - type: Add
+      message: Добавлено заражение ксеноморфов
+    - type: Add
+      message: Королева ксеноморфов научилась откладывать яйца с лицехватами
+    - type: Tweak
+      message: Здоровье всех ксеноморфов увеличено на 50%
+    - type: Tweak
+      message: 'Множитель урона ксеноморфам от теплового урона: 2 -> 1.2'
+    - type: Tweak
+      message: 'Урон плевка ксеноморфа: 15 -> 35'
+    - type: Tweak
+      message: 'Личинки ксеноморфов научились пролазить под дверьми '
+  id: 428
+  time: '2025-08-03T16:31:17.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/744
