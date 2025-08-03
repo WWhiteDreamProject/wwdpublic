@@ -4033,3 +4033,10 @@ Entries:
   id: 428
   time: '2025-08-03T16:31:17.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/744
+- author: Gersoon458
+  changes:
+    - type: Fix
+      message: ЦК теперь 100% есть
+  id: 429
+  time: '2025-08-03T16:31:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/743
