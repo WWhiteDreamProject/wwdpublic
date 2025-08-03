@@ -5,7 +5,6 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-
 namespace Content.Shared._White.Xenomorphs;
 
 [Serializable, NetSerializable]
@@ -25,6 +24,9 @@ public sealed partial class XenomorphEvolutionDoAfterEvent : DoAfterEvent
 
     public override DoAfterEvent Clone() => this;
 }
+
+[Serializable, NetSerializable]
+public sealed partial class LarvaBurstDoAfterEvent : SimpleDoAfterEvent;
 
 public sealed partial class TransferPlasmaActionEvent : EntityTargetActionEvent
 {

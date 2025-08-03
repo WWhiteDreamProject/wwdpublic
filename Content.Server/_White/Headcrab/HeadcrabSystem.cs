@@ -1,7 +1,5 @@
-using System.Linq;
 using Content.Server.NPC.Components;
 using Content.Server.Popups;
-using Content.Shared._White.Jump;
 using Content.Shared.Zombies;
 using Content.Shared.CombatMode;
 using Content.Shared.Ghost;
@@ -9,18 +7,13 @@ using Content.Shared.Damage;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Humanoid;
-using Content.Shared.Nutrition.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
-using Content.Shared.Throwing;
-using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Player;
-using Robust.Shared.Random;
 
 namespace Content.Server._White.Headcrab;
 
@@ -34,26 +27,13 @@ public sealed partial class HeadcrabSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<HeadcrabComponent, MeleeHitEvent>(OnMeleeHit);
-        SubscribeLocalEvent<HeadcrabComponent, ThrowDoHitEvent>(OnThrowDoHit, before: new[] {typeof(JumpSystem)});
         SubscribeLocalEvent<HeadcrabComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<HeadcrabComponent, GotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<HeadcrabComponent, GotEquippedHandEvent>(OnGotEquippedHand);
         SubscribeLocalEvent<HeadcrabComponent, BeingUnequippedAttemptEvent>(OnUnequipAttempt);
-    }
-
-    private void OnThrowDoHit(EntityUid uid, HeadcrabComponent component, ThrowDoHitEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        TryEquipHeadcrab(uid, args.Target, component);
-
-        args.Handled = true;
     }
 
     private void OnGotEquipped(EntityUid uid, HeadcrabComponent component, GotEquippedEvent args)
@@ -119,15 +99,6 @@ public sealed partial class HeadcrabSystem : EntitySystem
         _npcFaction.RemoveFaction(args.Equipee, "Zombie");
     }
 
-    private void OnMeleeHit(EntityUid uid, HeadcrabComponent component, MeleeHitEvent args)
-    {
-        if (!args.HitEntities.Any()
-            || _random.Next(1, 101) <= component.ChancePounce)
-            return;
-
-        TryEquipHeadcrab(uid, args.HitEntities.First(), component);
-    }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -160,18 +131,5 @@ public sealed partial class HeadcrabSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("headcrab-eat-other-entity-face",
                 ("entity", targetId)), targetId, Filter.PvsExcept(targetId), true);
         }
-    }
-
-    private bool TryEquipHeadcrab(EntityUid uid, EntityUid target, HeadcrabComponent component)
-    {
-        if (_mobState.IsDead(uid)
-            || !_mobState.IsAlive(target)
-            || !HasComp<HumanoidAppearanceComponent>(target)
-            || HasComp<ZombieComponent>(target))
-            return false;
-
-        _inventory.TryGetSlotEntity(target, "head", out var headItem);
-        return !HasComp<IngestionBlockerComponent>(headItem)
-            && !_inventory.TryEquip(target, uid, "mask", true, true);
     }
 }

@@ -140,12 +140,10 @@
     contents:
         - id: OxygenTankFilled
           amount: 2 #DeltaV - Double the tanks
-        - id: ClothingOuterHardsuitCombatOfficer # DeltaV - ClothingOuterHardsuitSecurity replaced in favour of security combat hardsuit.
+        - id: ClothingOuterHardsuitSecurity # WWDP edit: ClothingOuterHardsuitCombatOfficer -> ClothingOuterHardsuitSecurity
           amount: 2 #DeltaV - Double the suits
         - id: ClothingMaskBreath
           amount: 2 #Delta-V Double the masks
-        - id: ClothingShoesBootsMagSec
-          amount: 2
   - type: AccessReader
     access: [["Security"]]
 
@@ -213,7 +211,6 @@
         - id: OxygenTankFilled
         - id: ClothingOuterHardsuitWarden # WD EDIT: ClothingOuterHardsuitCombatWarden -> ClothingOuterHardsuitWarden
         - id: ClothingMaskBreath
-        - id: ClothingShoesBootsMagSec
   - type: AccessReader
     access: [["Armory"]]
 

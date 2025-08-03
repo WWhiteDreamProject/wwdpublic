@@ -20,6 +20,7 @@
         state: xenomorph
   - type: Xenomorph
     caste: Larva
+  - type: XenomorphLarva
   - type: ActionGrant
     actions:
     - ActionTransferPlasma
@@ -33,7 +34,7 @@
           radius: 0.2
         density: 100
         mask:
-        - FlyingMobMask
+        - SmallMobMask
         layer:
         - SmallMobLayer
   - type: Deathgasp
@@ -55,6 +56,8 @@
     bloodMaxVolume: 50
   - type: MobPrice
     price: 250
+  - type: Organ
+    slotId: xenomorph_larva
   # - type: GuideHelp
   #   guides:
   #   - XenomorphLarva
