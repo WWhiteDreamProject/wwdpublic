@@ -5,7 +5,7 @@ using Content.Shared.StatusIcon.Components;
 using Robust.Client.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._White.Overlays.MindSlave;
+namespace Content.Client._White.Overlays;
 
 public sealed class MindSlaveIconsSystem : EntitySystem
 {
@@ -31,18 +31,18 @@ public sealed class MindSlaveIconsSystem : EntitySystem
         if (TryComp(_player.LocalEntity, out MindSlaveComponent? ownerMindSlave))
         {
             var netUid = GetNetEntity(uid);
-            if (ownerMindSlave.Master == netUid && _prototype.TryIndex<FactionIconPrototype>(ownerMindSlave.MasterStatusIcon, out var masterIcon))
+            if (ownerMindSlave.Master == netUid && _prototype.TryIndex(ownerMindSlave.MasterStatusIcon, out var masterIcon))
                 result.Add(masterIcon);
 
-            if (ownerMindSlave.Slaves.Contains(netUid) && _prototype.TryIndex<FactionIconPrototype>(ownerMindSlave.SlaveStatusIcon, out var slaveIcon))
+            if (ownerMindSlave.Slaves.Contains(netUid) && _prototype.TryIndex(ownerMindSlave.SlaveStatusIcon, out var slaveIcon))
                 result.Add(slaveIcon);
         }
         else
         {
-            if (mindSlave.Slaves.Any() && _prototype.TryIndex<FactionIconPrototype>(mindSlave.MasterStatusIcon, out var masterIcon))
+            if (mindSlave.Slaves.Any() && _prototype.TryIndex(mindSlave.MasterStatusIcon, out var masterIcon))
                 result.Add(masterIcon);
 
-            if (mindSlave.Master.HasValue && _prototype.TryIndex<FactionIconPrototype>(mindSlave.SlaveStatusIcon, out var slaveIcon))
+            if (mindSlave.Master.HasValue && _prototype.TryIndex(mindSlave.SlaveStatusIcon, out var slaveIcon))
                 result.Add(slaveIcon);
         }
 
