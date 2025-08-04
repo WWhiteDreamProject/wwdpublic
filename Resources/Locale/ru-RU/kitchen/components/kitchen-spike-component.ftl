@@ -11,4 +11,3 @@ comp-kitchen-spike-knife-needed = Вам нужен нож для этого.
 comp-kitchen-spike-remove-meat = Вы срезаете немного мяса с { $victim }.
 comp-kitchen-spike-remove-meat-last = Вы срезаете последний кусок мяса с { $victim }!
 comp-kitchen-spike-meat-name = мясо { $victim }
-comp-kitchen-spike-examine = На { CAPITALIZE($this) } висит туша { CAPITALIZE($victim) }.

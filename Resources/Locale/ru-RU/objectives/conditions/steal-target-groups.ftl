@@ -14,6 +14,7 @@ steal-target-groups-nuke-disk = диск ядерной авторизации
 steal-target-groups-weapon-head-of-security-weapon = личное оружие главы службы безопасности
 
 # Thief Collection
+# Thief Collection
 steal-target-groups-figurines = фигурки (любые)
 steal-target-groups-heads-cloaks = плащи глав станции (любые)
 steal-target-groups-heads-bedsheets = одеяла глав станции (любые)
@@ -24,6 +25,7 @@ steal-target-groups-technology-disks = технологические диски
 steal-target-groups-id-cards = ID карты (любые)
 steal-target-groups-lamps = ЛАМПЫ
 
+# Thief single item
 # Thief single item
 steal-target-groups-forensic-scanner = криминалистический сканер
 steal-target-groups-flippo-engraved-lighter = зажигалка детектива с гравировкой "Флиппо"
@@ -43,6 +45,9 @@ steal-target-groups-clothing-neck-goldmedal = золотая медаль мас
 steal-target-groups-clothing-neck-clownmedal = медаль клоуна
 
 # Thief structures
+steal-target-groups-wanted-list-cartridge = wanted list cartridge
+
+# Thief structures
 steal-target-groups-teg = часть ТЭГа
 steal-target-groups-freezer-heater = охладитель или нагреватель
 steal-target-groups-altar-nanotrasen = алтарь нанотразен (любой)
@@ -55,6 +60,7 @@ steal-target-groups-booze-dispenser =  раздатчик алкоголя
 steal-target-groups-plant-rd = комнатное растение мистагога
 steal-target-groups-toilet-golden-dirty-water = золотой туалет
 
+# Thief Animal
 # Thief Animal
 steal-target-groups-animal-named-cat = кот главного врача
 

@@ -33,3 +33,5 @@ roles-antag-space-ninja-objective = Используйте свою скрытн
 
 roles-antag-thief-name = Вор
 roles-antag-thief-objective = Пополните свою личную коллекцию имуществом Nanotrasen, не прибегая к насилию.
+roles-antag-dragon-name = Space Dragon
+roles-antag-dragon-objective = Create a carp army to take over this quadrant.

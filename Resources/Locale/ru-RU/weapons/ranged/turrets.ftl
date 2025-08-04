@@ -1,0 +1,13 @@
+# Deployable turret component
+deployable-turret-component-activating = Развёртывание...
+deployable-turret-component-deactivating = Сворачивание...
+deployable-turret-component-activate = Активировать
+deployable-turret-component-deactivate = Деактивировать
+deployable-turret-component-access-denied = Доступ запрещён
+deployable-turret-component-no-ammo = Боезапас исчерпан
+deployable-turret-component-is-broken = Турель серьёзно повреждена и требует ремонта
+deployable-turret-component-cant-access-wires = Вы не можете добраться до панели обслуживания, пока турель активна
+
+# Уведомление турели для ИИ станции
+# Turret notification for station AI
+station-ai-turret-is-attacking-warning = {CAPITALIZE($source)} вступила в бой с враждебной целью.

@@ -10,11 +10,20 @@ strippable-component-alert-owner = { $user } снимает с вас { $item }!
 strippable-component-alert-owner-hidden = Вы чувствуете, как кто-то копается в вашем { $slot }!
 strippable-component-alert-owner-insert = { $user } надевает на вас { $item }!
 # generic warning for when a user interacts with your equipped items.
+strippable-component-alert-owner-insert-hand = {$user} is putting {$item} in your hand!
+
+# generic warning for when a user interacts with your equipped items.
 strippable-component-alert-owner-interact = { $user } возится с вашим { $item }!
+# StripVerb
 # StripVerb
 strip-verb-get-data-text = Обыскать
 
 ## UI
 
+## UI
+
 strippable-bound-user-interface-stripping-menu-title = Инвентарь { $ownerName }
 strippable-bound-user-interface-stripping-menu-ensnare-button = Ограничители ног
+# Stealth
+thieving-component-user = Someone
+thieving-component-item = something

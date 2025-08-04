@@ -5,7 +5,10 @@ chem-master-component-cannot-put-entity-message = Вы не можете пом�
 
 ## Bound UI
 
+## Bound UI
 chem-master-bound-user-interface-title = ХимМастер 4000
+
+## UI
 
 ## UI
 
@@ -24,6 +27,8 @@ chem-master-window-pill-buffer-text = Буфер таблеток
 chem-master-window-pill-buffer-label = буфер таблеток:
 chem-master-window-pill-buffer-empty-text = Буфер таблеток пуст.
 chem-master-window-pill-buffer-low-text = Недостаточно раствора в буфере таблеток
+chem-master-window-save-as-frequent-label = Save as Frequent
+chem-master-window-set-amount-label = Set Amount
 chem-master-window-transfer-button = Перенести
 chem-master-window-sort-method-tooltip = Выберите метод сортировки буфера.
 chem-master-window-sort-method-Time-text = Последние добавленные

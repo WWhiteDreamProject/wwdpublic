@@ -24,6 +24,9 @@ autodoc-error-patient-unsedated = ПАЦИЕНТУ НЕОБХОДИМО СЕДА
 # These intentionally have russian alongside them for ostranauts-like aesthetic.
 # If you are a russian fork, these don't need translating :)
 # Если вы являетесь русскоязычным форком, то они не нуждаются в переводе :)
+# These intentionally have russian alongside them for ostranauts-like aesthetic.
+# If you are a russian fork, these don't need translating :)
+# Если вы являетесь русскоязычным форком, то они не нуждаются в переводе :)
 autodoc-title = АВТОДОК MK.XIV
 autodoc-create-program = НОВОЕ ПРОГРАММА
 autodoc-program-title = НАЗВАНИЕ ПРОГРАММЫ
