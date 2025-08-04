@@ -4049,3 +4049,10 @@ Entries:
   id: 430
   time: '2025-08-04T01:56:35.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/740
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Из граба теперь можно вырваться
+  id: 431
+  time: '2025-08-04T17:26:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/746
