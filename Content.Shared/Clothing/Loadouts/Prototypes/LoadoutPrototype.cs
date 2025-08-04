@@ -42,6 +42,9 @@ public sealed partial class LoadoutPrototype : IPrototype
     public bool CustomDescription = true;
 
     [DataField]
+    public bool CustomContent = false;
+
+    [DataField]
     public bool CustomColorTint = false;
 
     [DataField]

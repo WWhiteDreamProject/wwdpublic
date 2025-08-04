@@ -86,6 +86,15 @@ humanoid-profile-editor-loadouts-show-unusable-button-tooltip =
 humanoid-profile-editor-loadouts-remove-unusable-button = Убрать неприменимое снаряжение({$count})
 humanoid-profile-editor-loadouts-remove-unusable-button-tooltip = При нажатии всё неприменимое снаряжение будет убрано.
 humanoid-profile-editor-loadouts-no-loadouts = Снаряжение не найдено.
+humanoid-profile-editor-loadouts-customize = Кастомизация
+humanoid-profile-editor-loadouts-customize-name = Название
+humanoid-profile-editor-loadouts-customize-description = Описание
+humanoid-profile-editor-loadouts-customize-book-text = Содержимое
+humanoid-profile-editor-loadouts-customize-color = Цвет
+humanoid-profile-editor-loadouts-customize-save = Сохранить
+humanoid-profile-editor-loadouts-guidebook-button-tooltip = Нажмите для большей информации
+humanoid-profile-editor-loadouts-heirloom = Реликвия
+humanoid-profile-editor-loadouts-heirloom-tooltip = При спавне, если было выбрано больше одной Реликвии, она выберется случайным образом.
 
 humanoid-profile-editor-markings-tab = Черты внешности
 humanoid-profile-editor-flavortext-tab = Описание

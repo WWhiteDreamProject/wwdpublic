@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>dotnet-ef</id>
+    <version>9.0.7</version>
+    <authors>Microsoft</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>Icon.png</icon>
+    <readme>docs\PACKAGE.md</readme>
+    <projectUrl>https://docs.microsoft.com/ef/core/</projectUrl>
+    <description>Entity Framework Core Tools for the .NET Command-Line Interface.
+
+Enables these commonly used dotnet-ef commands:
+dotnet ef migrations add
+dotnet ef migrations list
+dotnet ef migrations script
+dotnet ef dbcontext info
+dotnet ef dbcontext scaffold
+dotnet ef database drop
+dotnet ef database update</description>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <tags>Entity Framework Core entity-framework-core EF Data O/RM EntityFramework EntityFrameworkCore EFCore</tags>
+    <serviceable>true</serviceable>
+    <packageTypes>
+      <packageType name="DotnetTool" />
+    </packageTypes>
+    <repository type="git" url="https://github.com/dotnet/efcore" commit="67d253c17619e6ba325e5390905ea2a13cc7f532" />
+  </metadata>
+</package>

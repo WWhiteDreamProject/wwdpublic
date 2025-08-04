@@ -262,8 +262,12 @@ namespace Content.Server.Database
                 traits.ToHashSet(),
                 loadouts.Select(l => new LoadoutPreference(l.LoadoutName)
                 {
-                    CustomName = l.CustomName, CustomDescription = l.CustomDescription,
-                    CustomColorTint = l.CustomColorTint, CustomHeirloom = l.CustomHeirloom, Selected = true,
+                    CustomName = l.CustomName,
+                    CustomDescription = l.CustomDescription,
+                    CustomContent = l.CustomContent,
+                    CustomColorTint = l.CustomColorTint,
+                    CustomHeirloom = l.CustomHeirloom,
+                    Selected = true,
                 }).ToHashSet()
             );
         }
@@ -331,7 +335,7 @@ namespace Content.Server.Database
 
             profile.Loadouts.Clear();
             profile.Loadouts.AddRange(humanoid.LoadoutPreferences
-                .Select(l => new Loadout(l.LoadoutName, l.CustomName, l.CustomDescription, l.CustomColorTint, l.CustomHeirloom)));
+                .Select(l => new Loadout(l.LoadoutName, l.CustomName, l.CustomDescription, l.CustomContent, l.CustomColorTint, l.CustomHeirloom)));
 
             return profile;
         }

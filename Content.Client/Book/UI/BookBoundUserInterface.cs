@@ -1,0 +1,75 @@
+using Content.Shared.Book.Components;
+using Content.Shared.Book;
+using Content.Client.Book.UI;
+using JetBrains.Annotations;
+using Robust.Client.UserInterface;
+using Robust.Shared.ViewVariables;
+
+namespace Content.Client.Book.UI;
+
+[UsedImplicitly]
+public sealed class BookBoundUserInterface : BoundUserInterface
+{
+    [ViewVariables]
+    private BookWindow? _window;
+
+    public BookBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+    {
+        // Сука это говно тут нужно
+        // Говнодвижок блядь
+        // Параша ёбанная
+    }
+
+    protected override void Open()
+    {
+        base.Open();
+
+        _window = this.CreateWindow<BookWindow>();
+        _window.OnPageChanged += OnPageChanged;
+        _window.OnTextSaved += OnTextSaved;
+        _window.OnAddPage += OnAddPage;
+        _window.OnEditModeChanged += OnEditModeChanged;
+        _window.OnBookmarkAdded += OnBookmarkAdded;
+        _window.OnBookmarkRemoved += OnBookmarkRemoved;
+    }
+
+    protected override void UpdateState(BoundUserInterfaceState state)
+    {
+        base.UpdateState(state);
+
+        if (state is BookBoundUserInterfaceState bookState)
+        {
+            _window?.ShowBook(bookState, bookState.IsEditing);
+        }
+    }
+
+    private void OnEditModeChanged(bool isEditing)
+    {
+
+    }
+
+    private void OnAddPage()
+    {
+        SendMessage(new BookAddTextMessage(""));
+    }
+
+    private void OnPageChanged(int newPage)
+    {
+        SendMessage(new BookPageChangedMessage(newPage));
+    }
+
+    private void OnTextSaved(string text)
+    {
+        SendMessage(new BookAddTextMessage(text));
+    }
+
+    private void OnBookmarkAdded(int pageIndex, string bookmarkName)
+    {
+        SendMessage(new BookAddBookmarkMessage(pageIndex, bookmarkName));
+    }
+
+    private void OnBookmarkRemoved(int pageIndex)
+    {
+        SendMessage(new BookRemoveBookmarkMessage(pageIndex));
+    }
+}

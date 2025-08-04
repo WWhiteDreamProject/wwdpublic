@@ -1,0 +1,28 @@
+{
+  "version": 3,
+  "targets": {
+    "net9.0/win-x64": {
+      "dotnet-ef/9.0.7": {
+        "type": "package",
+        "tools": {
+          "tools/net8.0/any/DotnetToolSettings.xml": {},
+          "tools/net8.0/any/dotnet-ef.deps.json": {},
+          "tools/net8.0/any/dotnet-ef.dll": {},
+          "tools/net8.0/any/dotnet-ef.exe": {},
+          "tools/net8.0/any/dotnet-ef.runtimeconfig.json": {},
+          "tools/net8.0/any/ef.runtimeconfig.json": {},
+          "tools/net8.0/any/shims/win-arm64/dotnet-ef.exe": {},
+          "tools/net8.0/any/shims/win-x64/dotnet-ef.exe": {},
+          "tools/net8.0/any/shims/win-x86/dotnet-ef.exe": {},
+          "tools/net8.0/any/tools/net472/any/ef.exe": {},
+          "tools/net8.0/any/tools/net472/win-arm64/ef.exe": {},
+          "tools/net8.0/any/tools/net472/win-x86/ef.exe": {},
+          "tools/net8.0/any/tools/netcoreapp2.0/any/ef.dll": {},
+          "tools/net8.0/any/tools/netcoreapp2.0/any/ef.runtimeconfig.json": {}
+        }
+      }
+    }
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {}
+}

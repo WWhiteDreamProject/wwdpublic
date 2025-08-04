@@ -426,6 +426,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         bool pref,
         string? customName = null,
         string? customDescription = null,
+        string? customContent = null,
         string? customColor = null,
         bool? customHeirloom = null)
     {
@@ -433,7 +434,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
         list.RemoveWhere(l => l.LoadoutName == loadoutId);
         if (pref)
-            list.Add(new(loadoutId, customName, customDescription, customColor, customHeirloom) { Selected = pref });
+            list.Add(new(loadoutId, customName, customDescription, customContent, customColor, customHeirloom) { Selected = pref });
 
         return new HumanoidCharacterProfile(this) { _loadoutPreferences = list };
     }

@@ -17,8 +17,10 @@
       - state: icon_pentagramm
         color: "#911129"
       - state: detail_bookmark
-        color: red 
-    - type: Paper
+        color: red
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-narsielegend
 
 - type: entity
@@ -40,7 +42,9 @@
       - state: icon_question
       - state: detail_bookmark
         color: "#cf792d"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-truth
 
 - type: entity
@@ -59,7 +63,9 @@
       - state: icon_text
       - state: detail_bookmark
         color: "#2dab24"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-world
 
 - type: entity
@@ -79,7 +85,9 @@
       - state: icon_ian
       - state: detail_bookmark
         color: "#ab5e24"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-ian-antarctica
 
 - type: entity
@@ -101,7 +109,9 @@
       - state: icon_banana
       - state: detail_bookmark
         color: "#f7cc2f"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-sloth-clown-sss
 
 - type: entity
@@ -123,7 +133,9 @@
       - state: icon_banana
       - state: detail_bookmark
         color: "#ab22ba"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-sloth-clown-pz
 
 - type: entity
@@ -145,7 +157,9 @@
       - state: icon_scmmd
       - state: detail_bookmark
         color: "#ab22ba"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-sloth-clown-mmd
 
 - type: entity
@@ -170,7 +184,9 @@
         color: "#f7bb2f"
       - state: detail_bookmark
         color: "#f7bb2f"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-struck
 
 - type: entity
@@ -194,7 +210,9 @@
         color: "#f7bb2f"
       - state: detail_rivets
         color: "#f7bb2f"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-sun
 
 - type: entity
@@ -213,7 +231,9 @@
       - state: detail_bookmark
         color: "#2b593d"
       - state: overlay_blood
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-possum
 
 - type: entity
@@ -231,7 +251,9 @@
       - state: icon_possum
       - state: detail_bookmark
         color: "#2b593d"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-cafe
 
 - type: entity
@@ -252,7 +274,9 @@
       - state: icon_magic
       - state: detail_bookmark
         color: "#7396f5"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-feather
 
 - type: entity
@@ -272,7 +296,9 @@
       - state: icon_ian
       - state: detail_bookmark
         color: "#ab5e24"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-ian-wolfpup
 
 - type: entity
@@ -292,7 +318,9 @@
       - state: icon_ian
       - state: detail_bookmark
         color: "#ab5e24"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-ian-ranch
 
 - type: entity
@@ -312,7 +340,9 @@
       - state: icon_ian
       - state: detail_bookmark
         color: "#ab5e24"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-ian-ocean
 
 - type: entity
@@ -331,7 +361,9 @@
       - state: icon_ian
       - state: detail_bookmark
         color: "#ab5e24"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-ian-mountain
 
 - type: entity
@@ -351,7 +383,9 @@
       - state: icon_ian
       - state: detail_bookmark
         color: "#ab5e24"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-ian-city
 
 - type: entity
@@ -371,7 +405,9 @@
       - state: icon_ian
       - state: detail_bookmark
         color: "#ab5e24"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-ian-arctic
 
 - type: entity
@@ -391,7 +427,9 @@
       - state: icon_ian
       - state: detail_bookmark
         color: "#ab5e24"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-ian-desert
 
 - type: entity
@@ -410,7 +448,9 @@
       - state: icon_letter_N
       - state: detail_bookmark
       - state: overlay_dirt
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-names
 
 - type: entity
@@ -433,7 +473,9 @@
       - state: icon_text3
       - state: detail_bookmark
         color: "#2c5491"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-earth
 
 - type: entity
@@ -449,16 +491,18 @@
       - state: cover_base
         color: "#0f204f"
       - state: decor_vertical_middle
-        color: "#3c6ab0" 
+        color: "#3c6ab0"
       - state: decor_spine
-        color: "#3c6ab0" 
+        color: "#3c6ab0"
       - state: icon_stars2
       - state: icon_aurora
       - state: detail_bookmark
         color: "#2c5491"
       - state: detail_rivets
         color: "#799dd4"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-aurora
 
 - type: entity
@@ -480,7 +524,9 @@
       - state: icon_temple
       - state: detail_bookmark
         color: "#bfbfbf"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-temple
 
 - type: entity
@@ -502,7 +548,9 @@
       - state: icon_eye
       - state: detail_bookmark
         color: "#bfbfbf"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-watched
 
 - type: entity
@@ -523,7 +571,9 @@
         color: "#55b0d4"
       - state: detail_bookmark
         color: "#55b0d4"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-medical-officer
 
 - type: entity
@@ -543,7 +593,9 @@
       - state: overlay_dirt
       - state: detail_bookmark
         color: "#61363d"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-morgue
 
 - type: entity
@@ -568,7 +620,9 @@
         color: "#61363d"
       - state: detail_rivets
         color: "#ffde7d"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-rufus
 
 - type: entity
@@ -591,7 +645,9 @@
         color: "#61363d"
       - state: detail_rivets
         color: "#ffde7d"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-map
 
 - type: entity
@@ -612,7 +668,9 @@
         color: "#61363d"
       - state: detail_rivets
         color: "#ffde7d"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-journ-mount
 
 - type: entity
@@ -634,14 +692,16 @@
       - state: icon_tree
       - state: detail_bookmark
         color: "#61363d"
-    - type: Paper
+    - type: Book
+      maxCharactersPerPage: 3000
+      maxPages: 100
       content: book-text-inspiration
 
 - type: entity
   parent: BookBase
   id: BookJanitorTale
   name: the tales of a tired janitor
-  description: A clean looking book, smelling vaguely of soap and bleach. 
+  description: A clean looking book, smelling vaguely of soap and bleach.
   components:
   - type: Sprite
     sprite: Objects/Misc/books.rsi

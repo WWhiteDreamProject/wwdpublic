@@ -18,14 +18,18 @@
       map: [ "icon" ]
     - state: overlay_null
       map: [ "overlay" ]
-  - type: Paper
-    contentSize: 12000
+  - type: Book
+    maxCharactersPerPage: 3000
+    maxPages: 100
+    pages:
+      - ""
   - type: ActivatableUI
-    key: enum.PaperUiKey.Key
+    key: enum.BookUiKey.Key
   - type: UserInterface
     interfaces:
-      enum.PaperUiKey.Key:
-        type: PaperBoundUserInterface
+      enum.BookUiKey.Key:
+        type: BookBoundUserInterface
+    interactionRange: 2.0
   - type: Tag
     tags:
       - Book
@@ -431,29 +435,29 @@
   - type: PaperRandomStory
     storySegments:
     - "This is a "
-    - book_genre
+    - "story-gen-book-genre"
     - " about a "
-    - book_character_trait
+    - "story-gen-book-character-trait"
     - " "
-    - book_character
+    - "story-gen-book-character"
     - " and "
-    - book_character_trait
+    - "story-gen-book-character-trait"
     - " "
-    - book_character
+    - "story-gen-book-character"
     - ". Due to "
-    - book_event
+    - "story-gen-book-event"
     - ", they "
-    - book_action_trait
+    - "story-gen-book-action-trait"
     - " "
-    - book_action
+    - "story-gen-book-action"
     - " "
-    - book_character
+    - "story-gen-book-character"
     - " "
-    - book_location
-    - ". \n\n"
-    - book_story_element
+    - "story-gen-book-location"
+    - ". \\n\\n"
+    - "story-gen-book-element"
     - " is "
-    - book_story_element_trait
+    - "story-gen-book-element-trait"
     - "."
     storySeparator: ""
 
@@ -474,8 +478,10 @@
     - state: icon_atmos
     - state: icon_corner
       color: gold
-  - type: Paper
+  - type: Book
     content: book-text-atmos-distro
+    maxCharactersPerPage: 1500
+    maxPages: 100
 
 - type: entity
   parent: BookBase
@@ -494,8 +500,10 @@
     - state: icon_atmos
     - state: icon_corner
       color: gold
-  - type: Paper
+  - type: Book
     content: book-text-atmos-waste
+    maxCharactersPerPage: 1500
+    maxPages: 100
 
 - type: entity
   parent: BookBase
@@ -514,8 +522,10 @@
     - state: icon_atmos
     - state: icon_corner
       color: gold
-  - type: Paper
+  - type: Book
     content: book-text-atmos-alarms
+    maxCharactersPerPage: 1500
+    maxPages: 100
 
 - type: entity
   parent: BookBase
@@ -534,8 +544,10 @@
     - state: icon_atmos
     - state: icon_corner
       color: gold
-  - type: Paper
+  - type: Book
     content: book-text-atmos-vents
+    maxCharactersPerPage: 1500
+    maxPages: 100
 
 - type: entity
   id: BookPsionicsGuidebook

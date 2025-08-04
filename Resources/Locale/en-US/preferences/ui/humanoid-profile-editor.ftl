@@ -102,6 +102,7 @@ humanoid-profile-editor-loadouts-no-loadouts = No loadouts found.
 humanoid-profile-editor-loadouts-customize = Customize
 humanoid-profile-editor-loadouts-customize-name = Name
 humanoid-profile-editor-loadouts-customize-description = Description
+humanoid-profile-editor-loadouts-customize-book-text = Book content
 humanoid-profile-editor-loadouts-customize-color = Color tint
 humanoid-profile-editor-loadouts-customize-save = Save
 humanoid-profile-editor-loadouts-guidebook-button-tooltip = Click for more info
