@@ -4040,3 +4040,12 @@ Entries:
   id: 429
   time: '2025-08-03T16:31:43.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/743
+- author: nekosich
+  changes:
+    - type: Add
+      message: Перевод и ftl-ключи
+    - type: Tweak
+      message: Рефактор папки ru-RU
+  id: 430
+  time: '2025-08-04T01:56:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/740
