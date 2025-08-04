@@ -52,7 +52,7 @@ public sealed partial class PullableComponent : Component
 
     // WWDP edit start
     [AutoNetworkedField, DataField]
-    public float EscapeAttemptCooldown = 1; // In seconds
+    public TimeSpan EscapeAttemptCooldown = TimeSpan.FromSeconds(3); // In seconds
 
     [AutoNetworkedField]
     public bool DisplayedCooldownPopup = true;
