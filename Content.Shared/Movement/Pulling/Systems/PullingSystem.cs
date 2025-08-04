@@ -1081,7 +1081,7 @@ public sealed class PullingSystem : EntitySystem
         if (_random.Prob(pullable.Comp.GrabEscapeChance))
             return true;
 
-        pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(pullable.Comp.EscapeAttemptCooldown));
+        pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(pullable.Comp.EscapeAttemptCooldown);
         // WWDP edit end
         Dirty(pullable.Owner, pullable.Comp);
         return false;
