@@ -10049,9 +10049,6 @@ ent-ClockworkGrille = шестерёнчатая решётка
 ent-ClockworkGrilleBroken = шестерёнчатая решётка
     .desc = Хрупкая решётка в стиле Ратвара. Видала лучшие времена.
 
-
-ent-GrilleDiagonal = диагональная решётка
-
 ent-ClockworkGrilleDiagonal = диагональная шестерёнчатая решётка
 
 
