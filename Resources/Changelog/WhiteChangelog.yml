@@ -4056,3 +4056,10 @@ Entries:
   id: 431
   time: '2025-08-04T17:26:42.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/746
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Гарпии больше не восприимчивы к стеклу
+  id: 432
+  time: '2025-08-05T11:29:21.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/750
