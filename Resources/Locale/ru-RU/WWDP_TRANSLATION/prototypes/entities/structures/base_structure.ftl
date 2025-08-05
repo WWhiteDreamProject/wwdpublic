@@ -4,4 +4,4 @@ ent-BaseStructure = { "" }
 
 ent-BaseStructureDynamic = { ent-BaseStructure }
     .desc = { ent-BaseStructure.desc }
-    .suffix = { "" }
+    .suffix = { ent-BaseStructure.suffix }
