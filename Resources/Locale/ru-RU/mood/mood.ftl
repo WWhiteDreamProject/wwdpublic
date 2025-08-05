@@ -1,5 +1,3 @@
-﻿mood-show-effects-start = [font size=12]Настроение:[/font]
-
 mood-effect-HungerOverfed = Я так много съел, что чувствую, будто вот-вот лопну!
 mood-effect-HungerOkay = Я сыт.
 mood-effect-HungerPeckish = Сейчас бы перекусить.
@@ -59,6 +57,7 @@ mood-effect-HeirloomSecure = Моя реликвия в безопасности
 mood-effect-HeirloomLost = Я не могу найти свою реликвию, как же теперь прошлое будет в безопасности?
 
 # Зависимости
+# Addictions
 mood-effect-LotoTranscendence =
     Я ВИЖУ ВСЁ, ЧТО ЕСТЬ, ВСЁ, ЧТО БУДЕТ, И ВСЁ, ЧТО БЫЛО. ВСЁ ТВОРЕНИЕ ОТКРЫЛОСЬ МОЕМУ УМУ!
     Я ДОЛЖЕН ВСЁ ИМЕТЬ. Я ДОЛЖЕН ВСЁ ЗНАТЬ. ВСЁ. НАВСЕГДА!
@@ -72,16 +71,89 @@ mood-effect-NicotineWithdrawal =
     Прямо сейчас я бы с удовольствием покурил.
 
 # Хирургия
+mood-effect-MorphineBenefit =
+    The morphine helps me forget my worries.
+mood-effect-MorphineWithdrawal =
+    Everything is too loud, too bright. I need something to take the edge off...
+
+# Surgery
 mood-effect-SurgeryPain = Надрез болит.
 # Наркотики
+# Drugs
 mood-effect-EthanolBenefit =
     Я так расслабился от выпивки.
 mood-effect-SpaceDrugsBenefit =
     Ух ты, такие красивые цвета, чувак. Кажется, я слышу цвета и ощущаю на вкус звуки, чувак.
 
 # Плазмочеловек
+# Plasmaman
 mood-effect-PlasmamanIngestPlasma =
     Моё тело омолодилось от свежей плазмы, текущей по моему телу.
 
 mood-effect-PlasmamanIngestMilk =
     Я чувствую, как кальций из молока восстанавливает мои кости. Это просто восхитительно!
+# Floor Juice
+mood-effect-DrankBlood =
+    I've just drank salty, lukewarm blood. That's disgusting!
+mood-effect-DrankBloodVampiric =
+    Oh what sweet nectar is this, like a fine vintage.
+mood-effect-DrankInsectBlood =
+    I've just drank slimy insect goop. That's disgusting!
+mood-effect-DrankVomit =
+    Why did I just drink that vomit? It tastes like vomit!
+mood-effect-DrankZombieBlood =
+    THAT TASTED VILE, LIKE DEATH IN LIQUID FORM!
+
+# Medicines
+mood-effect-EpinephrineEffect =
+    My blood feels like it has been set on fire!
+mood-effect-PsicodineEffect =
+    I feel completely at peace.
+mood-effect-StrongStimulant =
+    LET'S FUCKING GO!!!
+mood-effect-MildPaincauser =
+    My body feels sore.
+mood-effect-StrongPaincauser =
+    Agony gnaws at my soul.
+mood-effect-MildPainkiller =
+    My aches and pains are just a little better.
+mood-effect-StrongPainkiller =
+    I can barely feel anything, all of my pains are washed out and faded.
+
+# Poisons
+mood-effect-LacerinolEffect =
+    BILLIONS OF TINY KNIVES ARE INSIDE ME, GET THEM OUT!
+mood-effect-PuncturaseEffect =
+    MY BODY IS FULL OF NEEDLES, GET THEM OUT!
+mood-effect-BruizineEffect =
+    I FEEL LIKE I'M BEING CRUSHED BY A THOUSAND TON SPACE SHIP!
+mood-effect-TearGasEffect =
+    MY EYES ARE BURNING, IT HURTS SO MUCH!
+mood-effect-BuzzochloricBeesEffect =
+    OH NO NOT THE BEES! NOT THE BEES! NOT THE BEES AGHHHHHHHHHHHH! THEY'RE IN MY EYES!
+mood-effect-RomerolEffect =
+    I THINK I AM GOING TO DIE. I AM BUT A CORPSE AWAITING ITS GRAVE.
+mood-effect-PaxEffect =
+    Woah...
+
+# Food
+mood-effect-SweetenerEffect =
+    That tasted really sweet.
+mood-effect-SpicyEffect =
+    That tasted spicy, hot in a good way.
+mood-effect-OilyEffect =
+    I ate something cooked with sweet oil.
+mood-effect-SaltyEffect =
+    I ate something salty, it tasted great!
+mood-effect-MintyEffect =
+    I ate something minty, it was cool and refreshing.
+mood-effect-PepperEffect =
+    I ate something peppery, it tasted great!
+mood-effect-ChocolateEffect =
+    I ate something with chocolate, it was so good!
+mood-effect-ButterEffect =
+    I ate a buttery treat, I could eat this all day.
+mood-effect-DeepFriedEffect =
+    I ate something deep fried! It was the tastiest thing I've ever had in my life!
+mood-effect-TastyEffect =
+    That was really tasty!

@@ -1,3 +1,5 @@
+loadout-description-LoadoutItemBlackDeck = A black box containing the standard 53 playing cards. Please gamble responsibly.
+loadout-description-LoadoutItemNTDeck = A Nanotrasen-branded box containing the standard 53 playing cards. Please gamble responsibly.
 loadout-description-LoadoutItemCig = Cool guys always have one.
 loadout-description-LoadoutItemCigsGreen = A pack a day keeps the doctor well-paid!
 loadout-description-LoadoutItemCigsRed = A pack a day keeps the doctor well-paid!
@@ -43,7 +45,11 @@ loadout-name-LoadoutItemDrinkShinyFlask = shiny flask (colorable)
 loadout-name-LoadoutItemDrinkLithiumFlask = lithium flask (colorable)
 loadout-name-LoadoutItemDrinkVacuumFlask = vacuum flask (colorable)
 
+loadout-name-LoadoutItemShadowkinPlush = shadowkin plushie
+
 loadout-name-LoadoutItemPetMouse = pet mouse (colorable)
 loadout-name-LoadoutItemPetHamster = pet hamster (colorable)
 loadout-name-LoadoutItemPetMothroach = pet mothroach (colorable)
+loadout-name-LoadoutItemPetSquackroach = pet squackroach (colorable)
 loadout-name-LoadoutItemPetCockroach = pet cockroach (colorable)
+loadout-name-LoadoutItemPetGoldfish = pet space goldfish (colorable)

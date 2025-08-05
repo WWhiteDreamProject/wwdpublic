@@ -25,6 +25,9 @@ artifact-effect-hint-visual = Визуальные искажения
 # the triggers should be more obvious than the effects
 # gives people an idea of what to do: don't be too specific (i.e. no "welders")
 
+# the triggers should be more obvious than the effects
+# gives people an idea of what to do: don't be too specific (i.e. no "welders")
+
 artifact-trigger-hint-electricity = Электричество
 artifact-trigger-hint-heat = Высокая температура
 artifact-trigger-hint-physical = Физические повреждения
@@ -41,5 +44,6 @@ artifact-trigger-hint-plasma = Газовая плазма
 artifact-trigger-hint-land = Активное замедление
 artifact-trigger-hint-examine = Проверка
 
+# Psionic Effects
 # Psionic Effects
 artifact-effect-hint-psionic = Нарушение Ионосферы

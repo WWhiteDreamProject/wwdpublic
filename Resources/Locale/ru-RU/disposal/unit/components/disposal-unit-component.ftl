@@ -10,6 +10,7 @@ ui-disposal-unit-button-power = Питание
 
 ## FlushVerb
 
+## Verbs
 disposal-flush-verb-get-data-text = Смыть
 
 ## SelfInsertVerb
@@ -18,14 +19,18 @@ disposal-self-insert-verb-get-data-text = Залезть внутрь
 
 ## No hands
 
-disposal-unit-no-hands = У вас нет рук!
-
-# state
-disposal-unit-state-Ready = Готов
-# Yes I want it to always say Pressurizing
-disposal-unit-state-Flushed = Герметизация
-disposal-unit-state-Pressurizing = Нагнетание
 disposal-eject-verb-get-data-text = Извлечь всё
 
 ## missed
-disposal-unit-thrown-missed = промазал!
+## No hands
+disposal-unit-no-hands = У вас нет рук!
+
+# state
+# state
+disposal-unit-state-Ready = Готов
+# Yes I want it to always say Pressurizing
+# Yes I want it to always say Pressurizing
+disposal-unit-state-Flushed = Герметизация
+disposal-unit-state-Pressurizing = Нагнетание
+# putting people in
+disposal-unit-being-inserted = {CAPITALIZE($user)} is trying to force you into a disposal chute!

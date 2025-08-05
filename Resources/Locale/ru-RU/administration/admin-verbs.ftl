@@ -14,3 +14,4 @@ admin-verbs-erase-description = Удаляет игрока из раунда и
     Игрокам будет показано всплывающее окно с указанием на то, что они должны играть так, как будто его никогда не существовало.
 toolshed-verb-mark = Отметить
 toolshed-verb-mark-description = Помещает этот объект в переменную $marked, список объектов, заменяя её предыдущее значение.
+export-entity-verb-get-data-text = Export sprite

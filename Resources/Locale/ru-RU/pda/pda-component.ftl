@@ -1,3 +1,4 @@
+
 ### UI
 
 # For the PDA screen
@@ -12,19 +13,21 @@ pda-bound-user-interface-show-uplink-title = Открыть аплинк
 pda-bound-user-interface-show-uplink-description = Получить доступ к аплинку
 pda-bound-user-interface-lock-uplink-title = Заблокировать аплинк
 pda-bound-user-interface-lock-uplink-description = Запретите кому-либо получать доступ к вашему аплинку без кода
-pda-bound-user-interface-uplink-tab-description = Получите доступ к аплинку
-pda-bound-user-interface-uplink-tab-title = Аплинк
+comp-pda-ui-menu-title = ПДА
+comp-pda-ui-footer = Personal Digital Assistant
+
+comp-pda-ui-station = Станция: [color=white]{ $station }[/color]
 comp-pda-ui-station-alert-level = Уровень тревоги: [color={ $color }]{ $level }[/color]
 comp-pda-ui-station-alert-level-instructions = Инструкции: [color=white]{ $instructions }[/color]
 comp-pda-ui-station-time = Длительность смены: [color=white]{ $time }[/color]
-comp-pda-ui-menu-title = ПДА
-comp-pda-ui-station = Станция: [color=white]{ $station }[/color]
 comp-pda-ui-eject-id-button = Извлечь ID
 comp-pda-ui-eject-pen-button = Извлечь ручку
-comp-pda-ui-ringtone-button-description = Измените рингтон вашего ПДА
 comp-pda-ui-ringtone-button = Рингтон
+comp-pda-ui-ringtone-button-description = Измените рингтон вашего ПДА
 comp-pda-ui-toggle-flashlight-button = Переключить фонарик
-pda-bound-user-interface-music-button-description = Слушайте музыку на своём ПДА
 pda-bound-user-interface-music-button = Музыкальный инструмент
+pda-bound-user-interface-music-button-description = Слушайте музыку на своём ПДА
 comp-pda-ui-unknown = Неизвестно
 comp-pda-ui-unassigned = Не назначено
+pda-notification-message = [font size=12][bold]PDA[/bold] { $header }: [/font]
+    "{ $message }"

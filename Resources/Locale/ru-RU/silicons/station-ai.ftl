@@ -5,6 +5,7 @@ wire-name-ai-act-light = ИИС
 station-ai-takeover = Взять под контроль
 
 # Radial actions
+# Radial actions
 ai-open = Открыть действия
 ai-close = Закрыть действия
 

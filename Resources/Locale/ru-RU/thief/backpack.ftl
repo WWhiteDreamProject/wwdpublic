@@ -13,6 +13,8 @@ thief-backpack-button-deselect = Выбрать [X]
 
 # Наборы
 
+# Sets
+
 thief-backpack-category-chameleon-name = набор хамелеона
 thief-backpack-category-chameleon-description =
     Включает в себя айди карту агента, а также полный комплект одежды-хамелеона,
@@ -59,14 +61,3 @@ thief-backpack-category-smuggler-description =
     но вы можете быстро спрятать или унести ценную добычу.
     К этому набору также прилагается крутой плащ пустоты.
 
-thief-backpack-category-slavery-name = набор рабовладельца
-thief-backpack-category-slavery-description =
-    Набор, состоящий из трёх имплантеров подчинения
-    и стильной одежды рабовладельца.
-    Собери собственную армию послушных рабов!
-
-thief-backpack-category-hitech-name = высокотехнологичный набор
-thief-backpack-category-hitech-description =
-    Набор для любителей технологий.
-    Включает в себя устройство для взлома шлюзов и шкафов,
-    временной маяк, глушитель радио и хамелеон проектор.
