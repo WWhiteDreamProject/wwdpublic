@@ -148,12 +148,15 @@ public sealed class LoadoutSystem : EntitySystem
         if (heirlooms.Any())
         {
             var heirloom = _random.Pick(heirlooms);
-            EnsureComp<HeirloomHaverComponent>(uid, out var haver);
-            EnsureComp<HeirloomComponent>(heirloom.Item1, out var comp);
-            haver.Heirloom = heirloom.Item1;
-            comp.HOwner = uid;
-            Dirty(uid, haver);
-            Dirty(heirloom.Item1, comp);
+            if (Exists(heirloom.Item1)) // WD EDIT
+            {
+                EnsureComp<HeirloomHaverComponent>(uid, out var haver);
+                EnsureComp<HeirloomComponent>(heirloom.Item1, out var comp);
+                haver.Heirloom = heirloom.Item1;
+                comp.HOwner = uid;
+                Dirty(uid, haver);
+                Dirty(heirloom.Item1, comp);
+            }
         }
 
         if (jobProto != null ||
