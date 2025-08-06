@@ -130,12 +130,12 @@
             sprite: _White/Mobs/Species/Human/displacement.rsi
             state: suit
     displacements:
-      jumpsuit-body-digitigrade:
+      jumpsuit:
         sizeMaps:
           32:
             sprite: _White/Mobs/Species/Reptilian/displacement.rsi
             state: jumpsuit
-      shoes-body-digitigrade:
+      shoes:
         sizeMaps:
           32:
             sprite: _White/Mobs/Species/Reptilian/displacement.rsi
@@ -199,12 +199,12 @@
             sprite: _White/Mobs/Species/Human/displacement.rsi
             state: suit
     displacements:
-      jumpsuit-body-digitigrade:
+      jumpsuit:
         sizeMaps:
           32:
             sprite: _White/Mobs/Species/Reptilian/displacement.rsi
             state: jumpsuit
-      shoes-body-digitigrade:
+      shoes:
         sizeMaps:
           32:
             sprite: _White/Mobs/Species/Reptilian/displacement.rsi
