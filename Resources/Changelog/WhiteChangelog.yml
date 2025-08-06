@@ -4072,3 +4072,22 @@ Entries:
   id: 433
   time: '2025-08-06T06:40:33.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/753
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Лицехват теперь может заразить только одну жертву, после чего умирает
+    - type: Tweak
+      message: Заражённый личинкой ксеноморфа больше не видит иконку о заражении
+    - type: Fix
+      message: Смоляная трава теперь лечит ксеноморфов
+    - type: Fix
+      message: Ксеноморфы больше не могут размещать свои постройки в космосе
+    - type: Fix
+      message: КПБ теперь не подвержены заражению личинкой ксеноморфа
+    - type: Fix
+      message: Эволюция в проеторианца теперь работает при присутствии королевы
+    - type: Fix
+      message: 'Личинка приостанавливает своё развитие в мёртвом теле. '
+  id: 434
+  time: '2025-08-06T11:28:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/759
