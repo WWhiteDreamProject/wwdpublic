@@ -4063,3 +4063,12 @@ Entries:
   id: 432
   time: '2025-08-05T11:29:21.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/750
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        Шаттл на лаваленд больше не может полететь на станцию центрального
+        командования
+  id: 433
+  time: '2025-08-06T06:40:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/753
