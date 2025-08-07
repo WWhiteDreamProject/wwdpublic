@@ -4091,3 +4091,10 @@ Entries:
   id: 434
   time: '2025-08-06T11:28:50.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/759
+- author: Spatison
+  changes:
+    - type: Fix
+      message: 'Ящеры теперь носят свои штаны нормально '
+  id: 435
+  time: '2025-08-07T14:56:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/763
