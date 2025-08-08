@@ -113,9 +113,15 @@ public sealed class LoadoutSystem : EntitySystem
                 _meta.SetEntityDescription(loadout.Item1, loadout.Item2.CustomDescription);
             if (!string.IsNullOrEmpty(loadout.Item2.CustomContent) && TryComp<BookComponent>(loadout.Item1, out var bookComponent))
             {
-                var bookSystem = EntityManager.System<BookSystem>();
-                bookSystem.SplitContentIntoPages(bookComponent, loadout.Item2.CustomContent);
-                Dirty(loadout.Item1, bookComponent);
+                try
+                {
+                    _bookSystem.SplitContentIntoPages(bookComponent, loadout.Item2.CustomContent);
+                    Dirty(loadout.Item1, bookComponent);
+                }
+                catch (Exception ex)
+                {
+                    _sawmill.Error($"Failed to apply custom book content to loadout {loadout.Item2.LoadoutName}: {ex.Message}");
+                }
             }
             if (loadoutProto.CustomColorTint && !string.IsNullOrEmpty(loadout.Item2.CustomColorTint))
                 _paint.Paint(null, null, loadout.Item1, Color.FromHex(loadout.Item2.CustomColorTint));
