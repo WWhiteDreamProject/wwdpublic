@@ -11,7 +11,7 @@ damage-examine-type = Наносит следующие повреждения (
 damage-value =
     - [color=red]{ $amount }[/color] единиц [color=yellow]{ $type ->
         [Asphyxiation] удушающего
-        [Bloodloss] обескравливающего
+        [Bloodloss] обескровливающего
         [Blunt] тупого
         [Cellular] клеточного
         [Slash] режущего
