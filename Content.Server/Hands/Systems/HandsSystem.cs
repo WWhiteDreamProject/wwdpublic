@@ -106,7 +106,7 @@ namespace Content.Server.Hands.Systems
             var offsetRandomCoordinates = _transformSystem.GetMoverCoordinates(args.Target).Offset(_random.NextVector2(1f, 1.5f));
 
             // WWDP edit start
-            if (TryGetActiveItem(args.Target, out var item))
+            if (TryGetActiveItem((args.Target, component), out var item))
             {
                 args.DisarmObject = item.Value;
 
