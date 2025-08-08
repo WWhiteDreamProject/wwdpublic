@@ -73,49 +73,6 @@
       collection: LasersDrop
   # WD EDIT END
 
-# WWDP prototype
-- type: entity
-  id: BaseWeaponOverheat
-  abstract: True
-  components:
-  - type: Temperature
-  - type: AtmosExposed
-  - type: GunOverheat # wwdp
-    temperatureLimit: 150
-
-# WWDP prototype
-- type: entity
-  id: BaseWeaponOverheatLamp
-  parent: [BaseWeaponOverheat, BaseWeaponOverheatLampSlot]
-  abstract: True
-  components:
-  - type: GunOverheat # wwdp
-    requiresLamp: true
-    canChangeSafety: true
-    temperatureLimit: 240
-
-# WWDP prototype
-- type: entity
-  id: BaseWeaponOverheatLampSlot
-  parent: BaseWeaponOverheat
-  abstract: True
-  components:
-  - type: ContainerContainer
-    containers:
-      gun-regulator-lamp-slot: !type:ContainerSlot
-  - type: ItemSlots
-    slots:
-      gun-regulator-lamp-slot:
-        name: Regulator Lamp
-        swap: false
-        priority: 20
-        startingItem: BasicRegulatorLamp
-        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
-        whitelist:
-          components:
-          - RegulatorLamp
-
 - type: entity
   id: BaseWeaponPowerCell
   parent: BaseItem
@@ -177,7 +134,7 @@
 
 - type: entity
   id: BaseWeaponBatterySmall
-  parent: [BaseWeaponBattery, BaseWeaponOverheat] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseWeaponFluxSmall] # wwdp edit - overheat
   abstract: true
   components:
   - type: Item
@@ -267,7 +224,7 @@
 
 - type: entity
   name: retro laser blaster
-  parent: [ BaseWeaponBatterySmall, BaseMajorContraband ]
+  parent: [BaseWeaponBatterySmall, BaseWeaponFluxSmall, BaseMajorContraband] # wwdp edit - overheat
   id: WeaponLaserGun
   description: A weapon using light amplified by the stimulated emission of radiation. Bad design choices have lead to this model having subpar cooling capabilities. # WD EDIT
   components:
@@ -280,9 +237,9 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   # WD EDIT START: Projectile > Hitscan
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletLaser
-    fireCost: 15
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
+    fireCost: 15 # wwdp
   # WD EDIT END
   - type: MagazineVisuals
     magState: mag
@@ -298,7 +255,7 @@
 
 - type: entity
   name: makeshift laser pistol
-  parent: BaseWeaponBatterySmall
+  parent: [BaseWeaponBatterySmall, BaseWeaponFluxSmall] # wwdp edit - overheat
   id: WeaponMakeshiftLaser
   description: Better pray it won't burn your hands off.
   components:
@@ -332,7 +289,7 @@
 
 - type: entity
   name: tesla gun
-  parent: [BaseWeaponBattery, BaseWeaponOverheat] # WD EDIT: Overheat
+  parent: [BaseWeaponBattery, BaseWeaponFlux] # wwdp
   id: WeaponTeslaGun
   description: The power of the primordial element of lightning in your hands.
   components:
@@ -367,9 +324,9 @@
 
 - type: entity
   name: practice laser rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponOverheatLamp] # WD EDIT: Overheat
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponFlux] # wwdp edit - overheat
   id: WeaponLaserCarbinePractice
-  description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
+  description: This modified laser rifle fires (nearly) harmless beams in the 40-watt range, for target practice.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
@@ -385,10 +342,15 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: GunFlux # wwdp
+    heatCost: 0.1
   # WD EDIT START: Projectile > Hitscan
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletLaserPractice
-    fireCost: 62.5
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaserPractice # WWDP
+    fireCost: 6.25 # wwdp edit
   # WD EDIT END
   - type: StaticPrice
     price: 300
@@ -396,10 +358,7 @@
     damage:
       types:
         Blunt: 4
-  # WD EDIT START
-  - type: GunOverheat
-    heatCost: 2.5
-  - type: Item # Guns resize
+  - type: Item # WWDP guns resize
     size: Huge
     shape:
     - 0,0,7,1
@@ -411,6 +370,11 @@
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:
+  - type: GunFlux # wwdp
+    heatCost: 1
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
+    fireCost: 26 # wwdp
   - type: StaticPrice
     price: 420
   # WD EDIT START
@@ -423,7 +387,7 @@
 
 - type: entity
   name: pulse pistol
-  parent: BaseWeaponBatterySmall
+  parent: [BaseWeaponBatterySmall, BaseWeaponFluxSmall]
   id: WeaponPulsePistol
   description: A state of the art energy pistol favoured as a sidearm by the NT operatives.
   components:
@@ -449,13 +413,8 @@
     fireCost: 100
   # WD EDIT END
   - type: Battery
-    # WD EDIT START
-    maxCharge: 3000
-    startingCharge: 3000
-  - type: GunOverheat # WWDP
-    temperatureLimit: 500
-    heatCost: 100
-  # WD EDIT END
+    maxCharge: 3000 # WWDP
+    startingCharge: 3000 # WWDP
 
 - type: entity
   name: antique pulse pistol
@@ -477,7 +436,7 @@
 
 - type: entity
   name: pulse carbine
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband, BaseWeaponOverheat] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband, BaseWeaponFlux] # wwdp edit - overheat
   id: WeaponPulseCarbine
   description: A high tech energy carbine favoured by the NT-ERT operatives.
   components:
@@ -505,13 +464,9 @@
     fireCost: 100
   # WD EDIT END
   - type: Battery
-    maxCharge: 5000
-    startingCharge: 5000
-  # WD EDIT START
-  - type: GunOverheat # wwdp
-    temperatureLimit: 1000
-    heatCost: 100
-  - type: Item # Guns resize
+    maxCharge: 6000 # wwdp
+    startingCharge: 6000 # wwdp
+  - type: Item # WWDP guns resize
     size: Huge
     shape:
     - 0,0,5,1
@@ -519,7 +474,7 @@
 
 - type: entity
   name: pulse rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponOverheat] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponFlux] # wwdp edit - overheat
   id: WeaponPulseRifle
   description: A weapon that is almost as infamous as its users.
   components:
@@ -538,9 +493,9 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   # WD EDIT START: Projectile > Hitscan
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletPulse
-    fireCost: 75
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletPulse # WWDP
+    fireCost: 75 # wwdp edit
   # WD EDIT END
   - type: Battery
     maxCharge: 40000
@@ -648,7 +603,7 @@
 
 - type: entity
   name: x-ray cannon
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponOverheatLamp] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponFlux] # wwdp edit - overheat
   id: WeaponXrayCannon
   description: An experimental weapon that uses concentrated x-ray energy against its target.
   components:
@@ -665,9 +620,12 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
   # WD EDIT START: Projectile > Hitscan
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletXRay
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletXRay # WWDP
     fireCost: 25
   # WD EDIT END
   - type: MagazineVisuals
@@ -862,7 +820,7 @@
 
 - type: entity
   name: disabler SMG
-  parent: [ BaseWeaponBattery, BaseRestrictedContraband, BaseWeaponOverheatLamp, BaseGunWieldable ] # wwdp edit - overheat + wieldable
+  parent: [BaseWeaponBattery, BaseRestrictedContraband, BaseWeaponFlux, BaseGunWieldable] # wwdp edit - overheat + wieldable
   id: WeaponDisablerSMG
   description: Advanced weapon that exhausts organic targets, weakening them until they collapse.
   components:
@@ -900,9 +858,15 @@
     - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: GunWieldBonus # WWDP
+    minAngle: -10
+    maxAngle: -10
+  - type: Battery
+    maxCharge: 2500
+    startingCharge: 2500
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
-    fireCost: 33
+    fireCost: 66
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -915,13 +879,6 @@
         Blunt: 6.5
     bluntStaminaDamageFactor: 2.5
     wideAnimationRotation: 180
-  # WD EDIT START
-  - type: GunOverheat
-    heatCost: 20
-  - type: GunWieldBonus
-    minAngle: -10
-    maxAngle: -10
-  # WD EDIT END
 
 - type: entity
   name: taser
@@ -961,7 +918,7 @@
 
 - type: entity
   name: antique laser pistol
-  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband, BaseWeaponOverheatLamp] # wwdp edit - overheat
+  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband BaseWeaponFlux] # wwdp edit - overheat
   id: WeaponAntiqueLaser
   description: This is an antique laser pistol. All craftsmanship is of the highest quality. It is decorated with assistant leather and chrome. The object menaces with spikes of energy.
   components:
@@ -1019,7 +976,7 @@
 
 - type: entity
   name: advanced laser pistol
-  parent: [BaseWeaponBatterySmall, BaseRestrictedContraband, BaseWeaponOverheatLamp] # wwdp edit - overheat
+  parent: [BaseWeaponBatterySmall, BaseRestrictedContraband, BaseWeaponFlux] # wwdp edit - overheat
   id: WeaponAdvancedLaser
   description: An experimental high-energy laser pistol with a self-charging nuclear battery.
   components:
@@ -1158,7 +1115,7 @@
 
 - type: entity
   name: energy shotgun
-  parent: [BaseWeaponBattery, BaseWeaponOverheatLamp, BaseGunWieldable] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseWeaponFlux, BaseGunWieldable] # wwdp edit - overheat
   id: WeaponEnergyShotgun
   description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
   components:
