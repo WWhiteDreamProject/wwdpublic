@@ -8,5 +8,6 @@ damage-force-say-4 = УАГХ!
 damage-force-say-5 = АУ!
 damage-force-say-6 = УГХА!
 damage-force-say-7 = АВПХ!
+damage-force-say-8 = ТЫСЯЧА ЧЕРТЕЙ!
 
 damage-force-say-sleep = zzz...

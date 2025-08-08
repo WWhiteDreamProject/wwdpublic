@@ -6862,7 +6862,7 @@ ent-PlushieHolocarp = плюшевая голографкарпа
 
 
 ent-PlushiePenguin = плюшевый пингвин
-    .desc = Кстати, я использую Arch.
+    .desc = I use arch btw!
 
 
 ent-PlushieHuman = плюшевый человек
