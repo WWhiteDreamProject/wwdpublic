@@ -17,13 +17,13 @@ public sealed class BookBoundUserInterfaceState : BoundUserInterfaceState
         int maxCharactersPerPage, int maxPages, Dictionary<int, string> bookmarks,
         int maxBookmarks, bool isEditing)
     {
-        Pages = pages;
-        CurrentPage = currentPage;
-        MaxCharactersPerPage = maxCharactersPerPage;
-        MaxPages = maxPages;
+        Pages = pages ?? new List<string>();
+        CurrentPage = Math.Max(0, currentPage);
+        MaxCharactersPerPage = Math.Max(0, maxCharactersPerPage);
+        MaxPages = Math.Max(0, maxPages);
         IsEditing = isEditing;
-        Bookmarks = bookmarks;
-        MaxBookmarks = maxBookmarks;
+        Bookmarks = bookmarks ?? new Dictionary<int, string>();
+        MaxBookmarks = Math.Max(0, maxBookmarks);
     }
 }
 
@@ -34,7 +34,7 @@ public sealed class BookPageChangedMessage : BoundUserInterfaceMessage
 
     public BookPageChangedMessage(int newPage)
     {
-        NewPage = newPage;
+        NewPage = Math.Max(0, newPage);
     }
 }
 
@@ -45,7 +45,7 @@ public sealed class BookAddTextMessage : BoundUserInterfaceMessage
 
     public BookAddTextMessage(string text)
     {
-        Text = text;
+        Text = text ?? string.Empty;
     }
 }
 
@@ -57,8 +57,8 @@ public sealed class BookAddBookmarkMessage : BoundUserInterfaceMessage
 
     public BookAddBookmarkMessage(int pageIndex, string bookmarkName)
     {
-        PageIndex = pageIndex;
-        BookmarkName = bookmarkName;
+        PageIndex = Math.Max(0, pageIndex);
+        BookmarkName = bookmarkName ?? string.Empty;
     }
 }
 
@@ -69,7 +69,7 @@ public sealed class BookRemoveBookmarkMessage : BoundUserInterfaceMessage
 
     public BookRemoveBookmarkMessage(int pageIndex)
     {
-        PageIndex = pageIndex;
+        PageIndex = Math.Max(0, pageIndex);
     }
 }
 
