@@ -16,6 +16,7 @@ using Robust.Shared.Random;
 using System.Numerics;
 using System.Threading.Tasks;
 using Robust.Shared.EntitySerialization.Systems;
+using Content.Shared.Salvage;
 
 namespace Content.Server._White.Procedural.Systems;
 
@@ -109,14 +110,14 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
         {
             var asteroidMap = asteroidMaps[i];
             var seed = _random.Next();
-            seed -= seed % 2; // asteroid map
 
-            var asteroid = (AsteroidOffering) _salvage.GetSalvageOffering(seed);
+            var asteroid = (AsteroidOffering) _salvage.GetSalvageOffering(seed, SharedSalvageSystem.SalvageMagnetOfferingTypeEnum.Asteroid);
             var grid = _mapManager.CreateGridEntity(asteroidMap);
 
             Log.Debug($"Queuing asteroid generation. ({i+1}/{asteroidAmount})");
 
             var task = _dungeon.GenerateDungeonAsync(asteroid.DungeonConfig, grid, grid, Vector2i.Zero, seed);
+
             var finishTask = task.ContinueWith(_ =>
             {
                 Log.Info($"Finished generating asteroid {c}/{asteroidAmount}.");
@@ -132,9 +133,8 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
         {
             var derelictMap = derelictMaps[i];
             var seed = _random.Next();
-            seed = seed - seed % 2 + 1; // derelict map
 
-            var salvage = (SalvageOffering) _salvage.GetSalvageOffering(seed);
+            var salvage = (SalvageOffering) _salvage.GetSalvageOffering(seed, SharedSalvageSystem.SalvageMagnetOfferingTypeEnum.Salvage);
 
             Log.Debug($"Generating derelict... ({i+1}/{derelictAmount})");
 

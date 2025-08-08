@@ -36,13 +36,13 @@ namespace Content.Server.EntityEffects.Effects
             if (args is EntityEffectReagentArgs reagentArgs)
             {
                 quantity = reagentArgs.Quantity.Float();
-                reagentArgs.EntityManager.System<FlammableSystem>().AdjustFireStacks(args.TargetEntity, quantity * multiplier, flammable, false); // WD EDIT
+                reagentArgs.EntityManager.System<FlammableSystem>().AdjustFireStacks(args.TargetEntity, quantity * multiplier, flammable); // WD EDIT
                 if (reagentArgs.Reagent != null)
                     reagentArgs.Source?.RemoveReagent(reagentArgs.Reagent.ID, reagentArgs.Quantity);
             }
             else
             {
-                args.EntityManager.System<FlammableSystem>().AdjustFireStacks(args.TargetEntity, multiplier, flammable, false); // WD EDIT
+                args.EntityManager.System<FlammableSystem>().AdjustFireStacks(args.TargetEntity, multiplier, flammable); // WD EDIT
             }
         }
     }

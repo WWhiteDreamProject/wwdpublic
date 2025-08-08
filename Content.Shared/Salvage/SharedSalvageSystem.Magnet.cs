@@ -14,12 +14,21 @@ public abstract partial class SharedSalvageSystem
 {
     private readonly List<SalvageMapPrototype> _salvageMaps = new();
 
-    private readonly Dictionary<ISalvageMagnetOffering, float> _offeringWeights = new()
+    // WWDP EDIT START
+    public enum SalvageMagnetOfferingTypeEnum
     {
-        { new AsteroidOffering(), 4.5f },
-        { new DebrisOffering(), 3.5f },
-        { new SalvageOffering(), 2.0f },
+        Asteroid,
+        Debris,
+        Salvage
     };
+
+    private readonly Dictionary<SalvageMagnetOfferingTypeEnum, float> _offeringWeights = new() 
+    {
+        { SalvageMagnetOfferingTypeEnum.Asteroid, 4.5f },
+        { SalvageMagnetOfferingTypeEnum.Debris, 3.5f },
+        { SalvageMagnetOfferingTypeEnum.Salvage, 2.0f },
+    };
+    // WWDP EDIT END
 
     private readonly List<ProtoId<DungeonConfigPrototype>> _asteroidConfigs = new()
     {
@@ -38,14 +47,14 @@ public abstract partial class SharedSalvageSystem
         "ChunkDebris"
     };
 
-    public ISalvageMagnetOffering GetSalvageOffering(int seed)
+    public ISalvageMagnetOffering GetSalvageOffering(int seed, SalvageMagnetOfferingTypeEnum? typeOverride = null) // WWDP EDIT
     {
         var rand = new System.Random(seed);
 
-        var type = SharedRandomExtensions.Pick(_offeringWeights, rand);
+        var type = typeOverride ?? SharedRandomExtensions.Pick(_offeringWeights, rand);
         switch (type)
         {
-            case AsteroidOffering:
+            case SalvageMagnetOfferingTypeEnum.Asteroid:
                 var configId = _asteroidConfigs[rand.Next(_asteroidConfigs.Count)];
                 var configProto =_proto.Index(configId);
                 var layers = new Dictionary<string, int>();
@@ -82,13 +91,15 @@ public abstract partial class SharedSalvageSystem
                     DungeonConfig = config,
                     MarkerLayers = layers,
                 };
-            case DebrisOffering:
+
+            case SalvageMagnetOfferingTypeEnum.Debris:
                 var id = rand.Pick(_debrisConfigs);
                 return new DebrisOffering
                 {
                     Id = id
                 };
-            case SalvageOffering:
+
+            case SalvageMagnetOfferingTypeEnum.Salvage:
                 // Salvage map seed
                 _salvageMaps.Clear();
                 _salvageMaps.AddRange(_proto.EnumeratePrototypes<SalvageMapPrototype>());
