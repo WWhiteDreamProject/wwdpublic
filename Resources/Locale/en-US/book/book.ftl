@@ -1,0 +1,24 @@
+book-ui-save-button = Save ({$keybind})
+book-bookmarks-count = {$count} of {$max} bookmarks
+book-no-bookmarks = No bookmarks
+book-select-bookmark = Select bookmark
+book-bookmark-title-prompt = Enter bookmark title:
+book-bookmark-title-dialog = Create Bookmark
+book-bookmarks-hide = Hide Bookmarks
+book-bookmarks-show = Show Bookmarks
+book-bookmark-default-title = Page {$page}
+book-page-info = of {$total}
+book-page-info-empty = Page 0 of 0
+book-ui-bookmarks-label = Bookmarks:
+book-ui-page-label = Page
+
+book-story-template-this-is = This is a
+book-story-template-about =  about a
+book-story-template-and =  and
+book-story-template-due-to = . Due to
+book-story-template-they = , they
+book-story-template-is =  is
+book-story-template-period = .
+book-story-template-comma = ,
+book-story-template-space = {" "}
+book-story-template-newline = {"\\n\\n"}

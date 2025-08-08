@@ -16,6 +16,7 @@ using Robust.Client.UserInterface;
 using Robust.Shared.IoC;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
+using Content.Shared.Administration;
 
 namespace Content.Client.Book.UI;
 
@@ -27,6 +28,7 @@ public sealed partial class BookWindow : FancyWindow
     private int _currentPageIndex = 0;
     private Dictionary<int, string> _bookmarks = new();
     private int _maxBookmarks;
+    private DialogWindow? _bookmarkDialog;
 
     public event Action<int>? OnPageChanged;
     public event Action<string>? OnTextSaved;
@@ -175,7 +177,7 @@ public sealed partial class BookWindow : FancyWindow
             blankPageLabel.SetMessage(Loc.GetString("paper-ui-blank-page-message"), null, Color.Gray);
             PageContainer.AddChild(blankPageLabel);
 
-            PageInfo.Text = "Страница 0 из 0";
+            PageInfo.Text = Loc.GetString("book-page-info-empty");
             return;
         }
 
@@ -203,9 +205,7 @@ public sealed partial class BookWindow : FancyWindow
             }
         }
 
-        PageInfo.Text = $"Страница";
-        UpdatePageNumberDisplay();
-        PageInfo.Text = $"из {Math.Max(1, _pages.Count)}";
+        PageInfo.Text = Loc.GetString("book-page-info", ("total", Math.Max(1, _pages.Count)));
     }
 
     private void UpdatePageNumberDisplay()
@@ -235,14 +235,13 @@ public sealed partial class BookWindow : FancyWindow
     private void ToggleBookmarksVisibility()
     {
         BookmarksPanel.Visible = !BookmarksPanel.Visible;
-        BookmarksToggleButton.Text = BookmarksPanel.Visible ? "Скрыть закладки" : "Показать закладки";
+        BookmarksToggleButton.Text = BookmarksPanel.Visible ? Loc.GetString("book-bookmarks-hide") : Loc.GetString("book-bookmarks-show");
     }
 
     private void ToggleBookmarkForCurrentPage()
     {
         if (_pages == null || _currentPageIndex < 0 || _currentPageIndex >= _pages.Count)
             return;
-
         if (_bookmarks.ContainsKey(_currentPageIndex))
         {
             _bookmarks.Remove(_currentPageIndex);
@@ -250,14 +249,9 @@ public sealed partial class BookWindow : FancyWindow
         }
         else if (_bookmarks.Count < _maxBookmarks)
         {
-            var title = PromptForBookmarkTitle($"Страница {_currentPageIndex + 1}");
-            if (!string.IsNullOrEmpty(title))
-            {
-                _bookmarks[_currentPageIndex] = title;
-                OnBookmarkAdded?.Invoke(_currentPageIndex, title);
-            }
+            var defaultTitle = Loc.GetString("book-bookmark-default-title", ("page", _currentPageIndex + 1));
+            ShowBookmarkDialog(defaultTitle);
         }
-
         UpdateBookmarksDisplay();
     }
 
@@ -272,6 +266,7 @@ public sealed partial class BookWindow : FancyWindow
 
         PrevPageButton.Disabled = _currentPageIndex <= 0;
         NextPageButton.Disabled = _currentPageIndex >= _pages.Count - 1;
+        UpdatePageNumberDisplay();
     }
 
     private void OnPageNumberEntered(LineEdit.LineEditEventArgs args)
@@ -293,9 +288,33 @@ public sealed partial class BookWindow : FancyWindow
         BookmarksToggleButton.OnPressed += _ => ToggleBookmarksVisibility();
     }
 
-    private string PromptForBookmarkTitle(string defaultTitle)
+    private void ShowBookmarkDialog(string defaultTitle)
     {
-        return defaultTitle;
+        if (_bookmarkDialog != null)
+        {
+            _bookmarkDialog.MoveToFront();
+            return;
+        }
+        var field = "title";
+        var prompt = Loc.GetString("book-bookmark-title-prompt");
+        var entry = new QuickDialogEntry(field, QuickDialogEntryType.ShortText, prompt, defaultTitle);
+        var entries = new List<QuickDialogEntry> { entry };
+        _bookmarkDialog = new DialogWindow(Loc.GetString("book-bookmark-title-dialog"), entries);
+        _bookmarkDialog.OnConfirmed += responses =>
+        {
+            var title = responses[field].Trim();
+            if (string.IsNullOrEmpty(title))
+                title = defaultTitle;
+
+            const int maxLength = 50;
+            if (title.Length > maxLength)
+                title = title[..maxLength];
+
+            _bookmarks[_currentPageIndex] = title;
+            OnBookmarkAdded?.Invoke(_currentPageIndex, title);
+            UpdateBookmarksDisplay();
+        };
+        _bookmarkDialog.OnClose += () => _bookmarkDialog = null;
     }
 
     private void OnBookmarkSelected(OptionButton.ItemSelectedEventArgs args)
@@ -321,7 +340,7 @@ public sealed partial class BookWindow : FancyWindow
         else
         {
             BookmarkDropdown.Disabled = false;
-            BookmarkDropdown.AddItem("Выбрать закладку", -1);
+            BookmarkDropdown.AddItem(Loc.GetString("book-select-bookmark"), -1);
 
             var sortedBookmarks = _bookmarks.OrderBy(kvp => kvp.Key);
             foreach (var bookmark in sortedBookmarks)

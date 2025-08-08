@@ -41,14 +41,21 @@ public sealed class BookSystem : EntitySystem
 
     private void OnBookUiRangeCheck(EntityUid uid, BookComponent component, ref BoundUserInterfaceCheckRangeEvent args)
     {
-        if (_interaction.InRangeUnobstructed((args.Actor, (TransformComponent?)null), (uid, (TransformComponent?)null), 2.0f))
-        {
-            args.Result = BoundUserInterfaceRangeResult.Pass;
-        }
-        else
-        {
-            args.Result = BoundUserInterfaceRangeResult.Fail;
-        }
+        args.Result = _interaction.InRangeUnobstructed((args.Actor, null), (uid, null), 2.0f)
+            ? BoundUserInterfaceRangeResult.Pass
+            : BoundUserInterfaceRangeResult.Fail;
+    }
+
+    private BookBoundUserInterfaceState CreateBookUIState(BookComponent component, bool isEditing = false)
+    {
+        return new BookBoundUserInterfaceState(
+            component.Pages,
+            component.CurrentPage,
+            component.MaxCharactersPerPage,
+            component.MaxPages,
+            component.Bookmarks,
+            component.MaxBookmarks,
+            isEditing);
     }
 
     private void OnActivateInWorld(EntityUid uid, BookComponent component, ActivateInWorldEvent args)
@@ -58,37 +65,20 @@ public sealed class BookSystem : EntitySystem
 
         if (_uiSystem.IsUiOpen(uid, BookUiKey.Key, args.User))
         {
-            var state = new BookBoundUserInterfaceState(
-                component.Pages,
-                component.CurrentPage,
-                component.MaxCharactersPerPage,
-                component.MaxPages,
-                component.Bookmarks,
-                component.MaxBookmarks,
-                false);
-
+            var state = CreateBookUIState(component, false);
             _uiSystem.SetUiState(uid, BookUiKey.Key, state);
             _uiSystem.OpenUi(uid, BookUiKey.Key, actorComponent.PlayerSession);
         }
         else
         {
-            var state = new BookBoundUserInterfaceState(
-                component.Pages,
-                component.CurrentPage,
-                component.MaxCharactersPerPage,
-                component.MaxPages,
-                component.Bookmarks,
-                component.MaxBookmarks,
-                false);
-
+            var state = CreateBookUIState(component, false);
             _uiSystem.SetUiState(uid, BookUiKey.Key, state);
         }
     }
 
     private void OnPageChanged(EntityUid uid, BookComponent component, BookPageChangedMessage args)
     {
-        var newPage = Math.Clamp(args.NewPage, 0, Math.Max(0, component.Pages.Count - 1));
-        component.CurrentPage = Math.Clamp(args.NewPage, 0, component.Pages.Count - 1);
+        component.CurrentPage = Math.Clamp(args.NewPage, 0, Math.Max(0, component.Pages.Count - 1));
         Dirty(uid, component);
     }
 
@@ -110,14 +100,7 @@ public sealed class BookSystem : EntitySystem
                 pageIndex++;
                 currentPage = word;
 
-                var state = new BookBoundUserInterfaceState(
-                    component.Pages,
-                    component.CurrentPage,
-                    component.MaxCharactersPerPage,
-                    component.MaxPages,
-                    component.Bookmarks,
-                    component.MaxBookmarks,
-                    true);
+                var state = CreateBookUIState(component, true);
                 _uiSystem.SetUiState(uid, BookUiKey.Key, state);
             }
             else
@@ -203,14 +186,7 @@ public sealed class BookSystem : EntitySystem
 
         Dirty(uid, component);
 
-        var state = new BookBoundUserInterfaceState(
-            component.Pages,
-            component.CurrentPage,
-            component.MaxCharactersPerPage,
-            component.MaxPages,
-            component.Bookmarks,
-            component.MaxBookmarks,
-            false);
+        var state = CreateBookUIState(component, false);
         _uiSystem.SetUiState(uid, BookUiKey.Key, state);
     }
 
@@ -220,15 +196,7 @@ public sealed class BookSystem : EntitySystem
         {
             if (TryComp<ActorComponent>(args.User, out var actor))
             {
-                var state = new BookBoundUserInterfaceState(
-                    component.Pages,
-                    component.CurrentPage,
-                    component.MaxCharactersPerPage,
-                    component.MaxPages,
-                    component.Bookmarks,
-                    component.MaxBookmarks,
-                    true);
-
+                var state = CreateBookUIState(component, true);
                 _uiSystem.SetUiState(uid, BookUiKey.Key, state);
                 _uiSystem.OpenUi(uid, BookUiKey.Key, actor.PlayerSession);
             }
@@ -242,15 +210,7 @@ public sealed class BookSystem : EntitySystem
 
         if (_uiSystem.IsUiOpen(uid, BookUiKey.Key, args.User))
         {
-            var state = new BookBoundUserInterfaceState(
-                component.Pages,
-                component.CurrentPage,
-                component.MaxCharactersPerPage,
-                component.MaxPages,
-                component.Bookmarks,
-                component.MaxBookmarks,
-                false);
-
+            var state = CreateBookUIState(component, false);
             _uiSystem.SetUiState(uid, BookUiKey.Key, state);
             _uiSystem.OpenUi(uid, BookUiKey.Key, actorComponent.PlayerSession);
         }
@@ -266,30 +226,14 @@ public sealed class BookSystem : EntitySystem
     {
         if (args.Key?.Equals(BookUiKey.Key) == true)
         {
-            var state = new BookBoundUserInterfaceState(
-                component.Pages,
-                component.CurrentPage,
-                component.MaxCharactersPerPage,
-                component.MaxPages,
-                component.Bookmarks,
-                component.MaxBookmarks,
-                false);
-
+            var state = CreateBookUIState(component, false);
             _uiSystem.SetUiState(uid, BookUiKey.Key, state);
         }
     }
 
     private void BeforeUIOpen(Entity<BookComponent> entity, ref BeforeActivatableUIOpenEvent args)
     {
-        var state = new BookBoundUserInterfaceState(
-            entity.Comp.Pages,
-            entity.Comp.CurrentPage,
-            entity.Comp.MaxCharactersPerPage,
-            entity.Comp.MaxPages,
-            entity.Comp.Bookmarks,
-            entity.Comp.MaxBookmarks,
-            false);
-
+        var state = CreateBookUIState(entity.Comp, false);
         _uiSystem.SetUiState(entity.Owner, BookUiKey.Key, state);
     }
 
@@ -321,14 +265,7 @@ public sealed class BookSystem : EntitySystem
 
     private void UpdateBookUI(EntityUid uid, BookComponent component)
     {
-        var state = new BookBoundUserInterfaceState(
-            component.Pages,
-            component.CurrentPage,
-            component.MaxCharactersPerPage,
-            component.MaxPages,
-            component.Bookmarks,
-            component.MaxBookmarks,
-            false);
+        var state = CreateBookUIState(component, false);
         _uiSystem.SetUiState(uid, BookUiKey.Key, state);
     }
 
@@ -338,31 +275,33 @@ public sealed class BookSystem : EntitySystem
         {
             var storySegments = new[]
             {
-            "This is a ",
+            Loc.GetString("book-story-template-this-is"),
             GetRandomLocString("story-gen-book-genre"),
-            " about a ",
+            Loc.GetString("book-story-template-about"),
             GetRandomLocString("story-gen-book-character-trait"),
-            " ",
+            Loc.GetString("book-story-template-space"),
             GetRandomLocString("story-gen-book-character"),
-            " and ",
+            Loc.GetString("book-story-template-and"),
             GetRandomLocString("story-gen-book-character-trait"),
-            " ",
+            Loc.GetString("book-story-template-space"),
             GetRandomLocString("story-gen-book-character"),
-            ". Due to ",
+            Loc.GetString("book-story-template-due-to"),
             GetRandomLocString("story-gen-book-event"),
-            ", they ",
+            Loc.GetString("book-story-template-comma"),
+            Loc.GetString("book-story-template-they"),
             GetRandomLocString("story-gen-book-action-trait"),
-            " ",
+            Loc.GetString("book-story-template-space"),
             GetRandomLocString("story-gen-book-action"),
-            " ",
+            Loc.GetString("book-story-template-space"),
             GetRandomLocString("story-gen-book-character"),
-            " ",
+            Loc.GetString("book-story-template-space"),
             GetRandomLocString("story-gen-book-location"),
-            ". \\n\\n",
+            Loc.GetString("book-story-template-period"),
+            Loc.GetString("book-story-template-newline"),
             GetRandomLocString("story-gen-book-element"),
-            " is ",
+            Loc.GetString("book-story-template-is"),
             GetRandomLocString("story-gen-book-element-trait"),
-            "."
+            Loc.GetString("book-story-template-period")
         };
 
             var story = string.Join("", storySegments);

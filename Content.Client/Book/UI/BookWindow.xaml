@@ -26,7 +26,7 @@
 
         <!-- Bookmarks -->
         <BoxContainer Orientation="Horizontal" Margin="5" Name="BookmarksPanel" Visible="False">
-            <Label Text="Закладки:" VerticalAlignment="Center" Margin="0 0 5 0"/>
+            <Label Text="{Loc 'book-ui-bookmarks-label'}" VerticalAlignment="Center" Margin="0 0 5 0"/>
             <Button Name="ToggleBookmarkButton" Text="+" Margin="0 0 5 0" MinSize="30 30"/>
             <OptionButton Name="BookmarkDropdown" HorizontalExpand="True" Margin="0 0 5 0"/>
             <Label Name="BookmarkCountLabel" Text="" StyleClasses="LabelSubText"/>
@@ -35,12 +35,12 @@
         <!-- Navigation -->
         <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="6">
             <Button Name="PrevPageButton" Text="◀" Margin="5"/>
-            <Label Text="Стр." Margin="5 0"/>
+            <Label Text="{Loc 'book-ui-page-label'}" Margin="5 0"/>
             <LineEdit Name="PageNumberInput" MinSize="50 0" Margin="5" Access="Public"/>
-            <Label Name="PageInfo" Text="из 1" Margin="5 0"/>
+            <Label Name="PageInfo" Text="{Loc 'book-page-info'}" Margin="5 0"/>
             <Button Name="NextPageButton" Text="▶" Margin="5"/>
             <Button Name="AddPageButton" Text="+" Margin="5"/>
-            <Button Name="BookmarksToggleButton" Text="Показать закладки" MinSize="30 30" Margin="5" Access="Public"/>
+            <Button Name="BookmarksToggleButton" Text="{Loc 'book-bookmarks-show'}" MinSize="30 30" Margin="5" Access="Public"/>
         </BoxContainer>
 
         <!-- Save button -->
