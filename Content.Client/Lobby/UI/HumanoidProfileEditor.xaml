@@ -9,14 +9,16 @@
     <BoxContainer Orientation="Vertical" Margin="10 10 10 10" HorizontalExpand="True">
         <!-- Top -->
         <PanelContainer StyleClasses="PanelBackground"> <!-- WD EDIT -->
-            <BoxContainer Orientation="Horizontal">
-                <prefUi:HighlightedContainer>
-                    <BoxContainer Orientation="Horizontal" SeparationOverride="5">
-                        <Button Name="ImportButton" Text="{Loc 'humanoid-profile-editor-import-button'}" StyleClasses="OpenRight" />
-                        <Button Name="ExportButton" Text="{Loc 'humanoid-profile-editor-export-button'}" StyleClasses="OpenLeft" />
-                        <Control MinWidth="5" />
+            <BoxContainer Orientation="Horizontal" MinSize="60 0" HorizontalExpand="True" HorizontalAlignment="Right">
+                <prefUi:HighlightedContainer Name="ProfileHighlight">
+                    <BoxContainer Orientation="Horizontal">
                         <Button Name="SaveButton" Text="{Loc 'humanoid-profile-editor-save-button'}" StyleClasses="OpenRight" />
                         <Button Name="ResetButton" Disabled="True" Text="{Loc 'humanoid-profile-editor-reset-button'}" StyleClasses="OpenBoth" />
+                        <Control MinWidth="5" />
+                        <Button Name="ImportButton" Text="{Loc 'humanoid-profile-editor-import-button'}" StyleClasses="OpenRight" />
+                        <Button Name="ExportButton" Text="{Loc 'humanoid-profile-editor-export-button'}" StyleClasses="OpenLeft" />
+                        <Button Name="ExportImageButton" Text="{Loc 'humanoid-profile-editor-export-image-button'}"/>
+                        <Button Name="OpenImagesButton" Text="{Loc 'humanoid-profile-editor-open-image-button'}"/>
                         <Button Name="RandomizeEverything" Text="{Loc 'humanoid-profile-editor-randomize-everything-button'}" StyleClasses="OpenLeft" />
                     </BoxContainer>
                 </prefUi:HighlightedContainer>
@@ -112,6 +114,12 @@
                                     <Label Text="{Loc 'humanoid-profile-editor-clown-name-label'}" />
                                     <Control HorizontalExpand="True"/>
                                     <LineEdit Name="ClownNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
+                                </BoxContainer>
+                                <!-- Mime name -->
+                                <BoxContainer Name="MimeNameContainer" HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-mime-name-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <LineEdit Name="MimeNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
                                 </BoxContainer>
                                 <!-- WD EDIT END -->
                                 <!-- Show clothing -->

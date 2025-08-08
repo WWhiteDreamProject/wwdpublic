@@ -22,6 +22,7 @@ cargo-console-menu-cargo-order-row-approve-button = Одобрить
 cargo-console-menu-cargo-order-row-cancel-button = Отменить
 
 # Orders
+# Orders
 cargo-console-order-not-allowed = Доступ запрещён
 cargo-console-station-not-found = Нет доступной станции
 cargo-console-invalid-product = Неверный ID продукта
@@ -40,6 +41,7 @@ cargo-console-paper-print-text =
     Причина: { $reason }
     Одобрил: { $approver }
 
+# Cargo shuttle console
 # Cargo shuttle console
 cargo-shuttle-console-menu-title = Консоль вызова грузового шаттла
 cargo-shuttle-console-station-unknown = Неизвестно

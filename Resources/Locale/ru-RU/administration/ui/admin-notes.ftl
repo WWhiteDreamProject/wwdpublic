@@ -1,4 +1,4 @@
-# UI
+﻿# UI
 admin-notes-title = Заметки о { $player }
 admin-notes-new-note = Новая заметка
 admin-notes-show-more = Показать больше
@@ -40,6 +40,7 @@ admin-notes-hours = { $hours } часов
 admin-notes-minutes = { $minutes } минут
 
 # Note editor UI
+# Note editor UI
 admin-note-editor-title-new = Новая заметка для { $player }
 admin-note-editor-title-existing = Изменение заметки { $id } для { $player } от { $author }
 admin-note-editor-pop-out = Отделить
@@ -65,17 +66,21 @@ admin-note-editor-submit = Подтвердить
 admin-note-editor-submit-confirm = Вы уверены?
 
 # Verb
+# Verb
 admin-notes-verb-text = Открыть админ заметки
 
+# Watchlist and message login
 # Watchlist and message login
 admin-notes-watchlist = Наблюдение над { $player }: { $message }
 admin-notes-new-message = Вы получили админ сообщение от { $admin }: { $message }
 admin-notes-fallback-admin-name = [Система]
 
 # Admin remarks
+# Admin remarks
 admin-remarks-command-description = Открыть страницу админ замечаний
 admin-remarks-command-error = Админ замечания были отключены
 admin-remarks-title = Админ замечания
 
+# Misc
 # Misc
 system-user = [Система]

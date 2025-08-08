@@ -2,13 +2,14 @@
 
 ## General
 
-shell-server-cannot = Сервер не может выполнить это.
 shell-command-success = Команда выполнена.
 shell-invalid-command = Неверная команда.
 shell-invalid-command-specific = Неверная команда { $commandName }.
 shell-cannot-run-command-from-server = Вы не можете выполнить эту команду с сервера.
 shell-only-players-can-run-this-command = Только игроки могут выполнять эту команду.
 shell-must-be-attached-to-entity = Для выполнения этой команды вы должны быть прикреплены к сущности.
+
+## Arguments
 
 ## Arguments
 
@@ -28,7 +29,12 @@ shell-argument-must-be-boolean = Аргумент должен быть boolean.
 shell-wrong-arguments-number = Неправильное количество аргументов.
 shell-need-between-arguments = Нужно от { $lower } до { $upper } аргументов!
 
+shell-need-minimum-arguments = Need at least {$minimum} arguments!
+shell-need-minimum-one-argument = Need at least one argument!
+
 shell-argument-uid = EntityUid
+
+## Guards
 
 ## Guards
 
@@ -52,6 +58,7 @@ shell-argument-station-id-invalid = Аргумент { $index } должен б�
 shell-argument-map-id-invalid = Аргумент { $index } должен быть валидным map id!
 shell-argument-number-invalid = Аргумент { $index } должен быть валидным числом!
 
+# Hints
 # Hints
 shell-argument-username-hint = <username>
 shell-argument-username-optional-hint = [username]

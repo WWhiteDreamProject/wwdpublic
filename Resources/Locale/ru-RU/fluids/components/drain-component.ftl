@@ -1,4 +1,3 @@
-drain-component-empty-verb-using-is-empty-message = { CAPITALIZE($object) } пусто!
 drain-component-empty-verb-target-is-full-message = { CAPITALIZE($object) } полный!
 drain-component-empty-verb-inhand = Пустой { $object }
 drain-component-examine-hint-full = [color="blue"]Он наполнен до краев. Может вантуз поможет?[/color]

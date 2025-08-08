@@ -1,30 +1,28 @@
 <Document>
-# Бармен
+  # Бармен
 
-У бармена задача простая: наливай и радуй. К тебе будут подходить всякие — от уставших инженеров до пьяных капитанов — и просить выпить. Твоя работа? Налить. Красиво, точно и с настроением.
+  У бармена задача простая: наливай и радуй. К тебе будут подходить всякие — от уставших инженеров до пьяных капитанов — и просить выпить. Твоя работа? Налить. Красиво, точно и с настроением.
 
-<Box>
-Ингредиенты для коктейлей можно найти тут:
-</Box>
-<Box>
-<GuideEntityEmbed Entity="BoozeDispenser"/>
-<GuideEntityEmbed Entity="SodaDispenser"/>
-<GuideEntityEmbed Entity="VendingMachineBooze"/>
-</Box>
+  [textlink="Нажмите сюда, чтобы увидеть полный список напитков." link="Drinks"]
 
-<Box>
-Не забудь про посуду — пить из рук не комильфо.
-</Box>
-<Box>
-<GuideEntityEmbed Entity="DrinkGlass" Caption="Бокал"/>
-<GuideEntityEmbed Entity="DrinkGlassCoupeShaped" Caption="Коктейльная рюмка"/>
-<GuideEntityEmbed Entity="DrinkShaker" Caption="Шейкер"/>
-<GuideEntityEmbed Entity="DrinkJigger" Caption="Джиггер"/>
-</Box>
+  <Box>
+    Ингредиенты для коктейлей можно найти тут:
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="BoozeDispenser"/>
+    <GuideEntityEmbed Entity="SodaDispenser"/>
+    <GuideEntityEmbed Entity="VendingMachineBooze"/>
+  </Box>
 
-## Напитки
+  <Box>
+    Не забудь про посуду — пить из рук не комильфо.
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="DrinkGlass" Caption="Бокал"/>
+    <GuideEntityEmbed Entity="DrinkGlassCoupeShaped" Caption="Коктейльная рюмка"/>
+    <GuideEntityEmbed Entity="DrinkShaker" Caption="Шейкер"/>
+    <GuideEntityEmbed Entity="DrinkJigger" Caption="Джиггер"/>
+  </Box>
 
-Знать рецепты — святое. Никто не любит бармена, который спрашивает, как делается текила санрайз. В этой вкладке ты найдёшь все напитки, что можно смешать, и их рецепты:
-
-<GuideReagentGroupEmbed Group="Drinks"/>
+  Вы можете найти список всех напитков, которые можно заказать, в разделе "Справочные Таблицы".
 </Document>

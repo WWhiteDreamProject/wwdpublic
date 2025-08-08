@@ -1,10 +1,9 @@
 - type: entity
-  categories: [ HideSpawnMenu ]
   parent: BaseNukeopsRule
   id: MidRoundNukeops
   components:
   - type: LoadMapRule
-    gameMap: NukieOutpost
+    mapPath: /Maps/Nonstations/nukieplanet.yml
   - type: AntagSelection
     definitions:
     - spawnerPrototype: SpawnPointNukeopsCommander

@@ -1,6 +1,7 @@
 ﻿using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.WhiteDream.BloodCult.Constructs.SoulShard;
+using Content.Shared._White.RadialSelector;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Mind.Components;
 using Content.Shared.RadialSelector;
@@ -42,7 +43,7 @@ public sealed class ConstructShellSystem : EntitySystem
         {
             action = () =>
             {
-                _ui.SetUiState(shellUid, RadialSelectorUiKey.Key, new RadialSelectorState(shell.Comp.Constructs, true));
+                _ui.SetUiState(shellUid, RadialSelectorUiKey.Key, new TrackedRadialSelectorState(shell.Comp.Constructs));
                 _ui.TryToggleUi(shellUid, RadialSelectorUiKey.Key, shell);
             };
         }
@@ -53,8 +54,7 @@ public sealed class ConstructShellSystem : EntitySystem
             {
                 _ui.SetUiState(shellUid,
                     RadialSelectorUiKey.Key,
-                    new RadialSelectorState(soulShard.IsBlessed ? shell.Comp.PurifiedConstructs : shell.Comp.Constructs,
-                        true));
+                    new TrackedRadialSelectorState(soulShard.IsBlessed ? shell.Comp.PurifiedConstructs : shell.Comp.Constructs));
                 _ui.TryToggleUi(shellUid, RadialSelectorUiKey.Key, shard);
             };
         }
@@ -93,7 +93,7 @@ public sealed class ConstructShellSystem : EntitySystem
         _slots.SetLock(shell, shell.Comp.ShardSlotId, true);
         _ui.SetUiState(shellUid,
             RadialSelectorUiKey.Key,
-            new RadialSelectorState(soulShard.IsBlessed ? shell.Comp.PurifiedConstructs : shell.Comp.Constructs, true));
+            new TrackedRadialSelectorState(soulShard.IsBlessed ? shell.Comp.PurifiedConstructs : shell.Comp.Constructs));
 
         _ui.TryToggleUi(shellUid, RadialSelectorUiKey.Key, args.EntityUid);
     }

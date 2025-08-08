@@ -49,7 +49,7 @@
   id: MaidGear
   equipment:
     jumpsuit: ClothingUniformJumpskirtMaid
-    back: ClothingBackpackSatchelFilled
+    back: ClothingBackpackSatchel
     shoes: ClothingShoesMaid
     ears: ClothingHeadsetCommand
     id: MaidPDA

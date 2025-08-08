@@ -1,4 +1,4 @@
-# Названия
+# Names
 chat-emote-name-harpyring = Звон
 chat-emote-name-harpypew = Пиу
 chat-emote-name-harpybang = Бах
@@ -12,6 +12,7 @@ chat-emote-name-vulphowl = Вой
 delta-chat-emote-name-awoo = Аууу
 
 # Сообщения
+# Message
 chat-emote-msg-ring = звенит.
 chat-emote-msg-pew = пиу!
 chat-emote-msg-bang = бах!
@@ -25,15 +26,16 @@ chat-emote-msg-howl = воет!
 chat-emote-msg-awoo = аукает!
 
 # Триггеры
-chat-emote-trigger-rings-1 = звенит
-chat-emote-trigger-pews-1 = пиукает
-chat-emote-trigger-pews-2 = пиу-пиукает
-chat-emote-trigger-bangs-1 = бахает
-chat-emote-trigger-revs-1 = ревёт
-chat-emote-trigger-caws-1 = каркает
+# Triggers
+chat-emote-trigger-ring-1 = rings
+chat-emote-trigger-pew-1 = pews
+chat-emote-trigger-pew-2 = pewpews
+chat-emote-trigger-bang-1 = bangs
+chat-emote-trigger-rev-1 = revs
+chat-emote-trigger-caw-1 = caws
 chat-emote-trigger-hoot-1 = ухает
-chat-emote-trigger-barks-1 = лает
-chat-emote-trigger-snarls-1 = рычит
-chat-emote-trigger-whines-1 = скулит
-chat-emote-trigger-howls-1 = воет
+chat-emote-trigger-bark-1 = barks
+chat-emote-trigger-snarl-1 = snarls
+chat-emote-trigger-whine-1 = whines
+chat-emote-trigger-howl-1 = howls
 chat-emote-trigger-awoo-1 = аукает

@@ -31,7 +31,7 @@
     containers:
       - clonepod-bodyContainer
   - type: Damageable
-    damageContainer: StructuralInorganic # WWDP
+    damageContainer: StructuralInorganic
     damageModifierSet: StrongMetallic
   - type: Destructible
     thresholds:
@@ -86,3 +86,4 @@
         layer:
         - MidImpassable # can move through when climbing/prone
         - BulletImpassable
+

@@ -35,11 +35,11 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingShoesBootsMagBase]
+  parent: [ClothingShoesBootsMagBase, BaseEngineeringContraband]
   id: ClothingShoesBootsMag
 
 - type: entity
-  parent: ClothingShoesBootsMag
+  parent: [ClothingShoesBootsMag, BaseGrandTheftContraband]
   id: ClothingShoesBootsMagAdv
   name: advanced magboots
   description: State-of-the-art magnetic boots that do not slow down their wearer.
@@ -79,10 +79,10 @@
     price: 3000
 
 - type: entity
-  parent: [ClothingShoesBootsMagBase, BaseJetpack]
+  parent: [ClothingShoesBootsMagBase, BaseJetpack, BaseSyndicateContraband]
   id: ClothingShoesBootsMagSyndie
   name: blood-red magboots
-  description: Reverse-engineered magnetic boots that have a heavy magnetic pull and integrated thrusters.
+  description: Reverse-engineered magnetic boots that have a heavy magnetic pull and integrated thrusters. It can hold 0.75 L of gas.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
@@ -99,29 +99,8 @@
       volume: 0.75
       temperature: 293.15
       moles:
-        - 0.153853429 # oxygen
-        - 0.153853429 # nitrogen
-  - type: ActivatableUI
-    key: enum.SharedGasTankUiKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.SharedGasTankUiKey.Key:
-        type: GasTankBoundUserInterface
-  - type: Explosive
-    explosionType: Default
-    maxIntensity: 20
-  - type: Jetpack
-    moleUsage: 0.00085
-  - type: CanMoveInAir
-  - type: InputMover
-    toParent: true
-  - type: MovementSpeedModifier
-    weightlessAcceleration: 1
-    weightlessFriction: 0.3
-    weightlessModifier: 1.2
-  - type: Tag
-    tags:
-      - WhitelistChameleon
+      - 0.153853429 # oxygen
+      - 0.153853429 # nitrogen
   - type: Item
     sprite: null
     size: Normal
@@ -152,7 +131,7 @@
     staminaCost: 15
 
 - type: entity
-  parent: [ClothingShoesBootsMag, ClothingSlotBase] # WD EDIT - ClothingSlotBase
+  parent: [ClothingShoesBootsMag, ClothingShoesMilitaryBase]
   id: ClothingShoesBootsMagSec
   name: combat magboots
   description: Heavy-duty magboots with added protection and a convenient sidearm strap.
@@ -177,19 +156,10 @@
     staminaCost: 15
   - type: ClothingSlowOnDamageModifier
     modifier: 0.8
-# WD EDIT START
-#  - type: ClothingModifyStunTime # Goobstation
-#    modifier: 0.8
-# WD EDIT END
-  - type: Matchbox
-  - type: ItemSlots
-    slots:
-      item:
-        name: clothing-boots-sidearm
-        whitelist:
-          tags:
-          - Knife
-          - Sidearm
+  # WD EDIT START
+  #  - type: ClothingModifyStunTime # Goobstation
+  #    modifier: 0.8
+  # WD EDIT END
   - type: Armor
     modifiers:
       coefficients:
@@ -202,7 +172,6 @@
   id: ActionToggleMagboots
   name: Toggle Magboots
   description: Toggles the magboots on and off.
-  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     itemIconStyle: BigItem

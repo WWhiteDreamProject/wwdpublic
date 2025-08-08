@@ -24,8 +24,7 @@ reagent-name-poison-wine = ядовитое вино
 reagent-desc-poison-wine = Это вообще вино? Ядовитое! Галлюциногенное! Вероятно, ваше руководство потребляет его в огромных количествах!
 reagent-name-rum = ром
 reagent-desc-rum = Дистиллированный алкогольный напиток, изготовленный из субпродуктов сахарного тростника.
-reagent-name-sake = саке
-reagent-desc-sake = Алкогольный напиток, изготовленный путем брожения шлифованного риса.
+
 reagent-name-tequila = текила
 reagent-desc-tequila = Крепкий и слабо ароматизированный спирт производства Мексики.
 reagent-name-vermouth = вермут
@@ -54,6 +53,9 @@ reagent-name-atomic-bomb = атомная бомба
 reagent-desc-atomic-bomb = Распространение ядерного оружия никогда не было таким вкусным.
 reagent-name-b52 = B-52
 reagent-desc-b52 = Кофе, айриш крим и коньяк. Просто бомба.
+reagent-name-blue-hawaiian = blue hawaiian
+reagent-desc-blue-hawaiian = Aloha! Does that mean hello or goodbye?
+
 reagent-name-bahama-mama = багама-мама
 reagent-desc-bahama-mama = Тропический коктейль.
 reagent-name-banana-honk = банана-хонк
@@ -62,8 +64,6 @@ reagent-name-barefoot = домохозяйка
 reagent-desc-barefoot = Дети, кухня, церковь.
 reagent-name-beepsky-smash = удар бипски
 reagent-desc-beepsky-smash = Откажись выпить - и приготовься к ЗАКОНУ.
-reagent-name-bilk = миво
-reagent-desc-bilk = Это пиво, смешанное с молоком. Отвратительно.
 reagent-name-black-russian = чёрный русский
 reagent-desc-black-russian = Для людей с непереносимостью лактозы. Так же прекрасен, как и белый русский.
 reagent-name-bloody-mary = кровавая Мэри
@@ -72,6 +72,12 @@ reagent-name-booger = козявка
 reagent-desc-booger = Фууу...
 reagent-name-brave-bull = храбрый бык
 reagent-desc-brave-bull = Так же эффективен, как и голландский кураж!
+reagent-name-coconut-rum = coconut rum
+reagent-desc-coconut-rum = Rum with coconut for that tropical feel.
+
+reagent-name-cosmopolitan = cosmopolitan
+reagent-desc-cosmopolitan = Even in the worst situations, nothing beats a fresh cosmopolitan.
+
 reagent-name-cuba-libre = куба-либре
 reagent-desc-cuba-libre = Ром, смешанный с колой. Да здравствует революция.
 reagent-name-demons-blood = кровь демона
@@ -90,8 +96,9 @@ reagent-name-gin-fizz = шипучий джин
 reagent-desc-gin-fizz = Освежающе лимонный, восхитительно сухой.
 reagent-name-gin-tonic = джин-тоник
 reagent-desc-gin-tonic = Классический мягкий коктейль всех времен и народов.
-reagent-name-goldschlager = гольдшлягер
-reagent-desc-goldschlager = 50-градусный коричный шнапс, созданный для девочек-подростков на весенних каникулах.
+reagent-name-gildlager = gildlager
+reagent-desc-gildlager = 100 proof cinnamon schnapps, made for alcoholic teen girls on spring break.
+
 reagent-name-grog = грог
 reagent-desc-grog = Ром, разбавленный водой, одобрено пиратами!
 reagent-name-hippies-delight = радость хиппи
@@ -128,8 +135,14 @@ reagent-name-moonshine = самогон
 reagent-desc-moonshine = Самодельный напиток, изготавливаемый в домашних условиях. Что может пойти не так?
 reagent-name-neurotoxin = нейротоксин
 reagent-desc-neurotoxin = Сильный нейротоксин, который вводит субъекта в состояние, напоминающее смерть.
+reagent-name-painkiller = painkiller
+reagent-desc-painkiller = A cure for what ails you.
+
 reagent-name-patron = покровитель
 reagent-desc-patron = Текила с серебром в своем составе, фаворит женщин-алкоголичек из клубной тусовки.
+reagent-name-pina-colada = piña colada
+reagent-desc-pina-colada = For getting lost in the rain.
+
 reagent-name-red-mead = красная медовуха
 reagent-desc-red-mead = Настоящий напиток викингов! Несмотря на то, что он имеет странный красный цвет.
 reagent-name-rewriter = переписчик
@@ -166,3 +179,23 @@ reagent-name-whiskey-soda = виски с содовой
 reagent-desc-whiskey-soda = Невероятно освежающе!
 reagent-name-white-russian = белый русский
 reagent-desc-white-russian = Но это только твоё мнение, чувак.
+reagent-name-vodka-red-bool = vodka red bool
+reagent-desc-vodka-red-bool = Because heart failure and liver failure go hand in hand.
+
+reagent-name-xeno-basher = xeno basher
+reagent-desc-xeno-basher = The perfect drink before an expedition.
+
+reagent-name-irish-bool = irish bool
+reagent-desc-irish-bool = Like a bool in a Ireland shop.
+
+reagent-name-budget-insuls = budget insuls
+reagent-desc-budget-insuls = A tider's preferred drink.
+
+reagent-name-watermelon-wakeup = watermelon wakeup
+reagent-desc-watermelon-wakeup = If you want to be awake, this will do it... Also sweet.
+
+reagent-name-rubberneck = rubberneck
+reagent-desc-rubberneck = A popular drink amongst those adhering to an all synthetic diet.
+
+reagent-name-zombiecocktail = zombie
+reagent-desc-zombiecocktail = It gets in your head. Your he-eyeh-ead.

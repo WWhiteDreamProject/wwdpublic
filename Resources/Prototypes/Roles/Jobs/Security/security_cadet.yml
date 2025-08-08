@@ -4,28 +4,27 @@
   description: job-description-cadet
   playTimeTracker: JobSecurityCadet
   requirements:
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-        - Foreigner
-        - ForeignerLight
-        - Muted
-        - Blindness
-        - Pacifist
-        - BrittleBoneDisease
-    - !type:CharacterEmployerRequirement
-      employers:
-      - ZavodskoiInterstellar
-      - PMCG
-      - NanoTrasen
-      - EastOrionCompany
+  - !type:CharacterTraitRequirement
+    inverted: true
+    traits:
+    - Foreigner
+    - ForeignerLight
+    - Muted
+    - Blindness
+    - Pacifist
+    - BrittleBoneDisease
+  - !type:CharacterEmployerRequirement
+    employers:
+    - ZavodskoiInterstellar
+    - PMCG
+    - NanoTrasen
+    - EastOrionCompany
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
   canBeAntag: false
   access:
   - Security
-  #- Brig # Delta V: Removed
   - Maintenance
   - Service
   - External
@@ -45,12 +44,13 @@
   - SecurityOfficerPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorRed
-    back: ClothingBackpackSecurityFilled # WWDP
-    shoes: ClothingShoesBootsJack # WWDP
-    # outerClothing: ClothingOuterArmorDuraVest # DeltaV - ClothingOuterArmorBasic replaced in favour of stab vest. Sucks to suck, cadets  # WWDP
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsCombatFilled # WD EDIT: ClothingShoesBootsCombatFilled -> ClothingShoesBootsJack
+    # outerClothing: ClothingOuterArmorDuraVest - WD EDIT
     id: SecurityCadetPDA
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    pocket1: BookSecurity
-  innerClothingSkirt: ClothingUniformJumpskirtColorRed
-  satchel: ClothingBackpackSatchelSecurity
-  duffelbag: ClothingBackpackDuffelSecurity
+    ears: ClothingHeadsetAltSecurityRegular
+    # belt: ClothingBeltSecurityFilled - WD EDIT
+    pocket2: BookSecurity
+  storage:
+    back:
+    - WeaponEnergyGunPistolSecurity # WD EDIT

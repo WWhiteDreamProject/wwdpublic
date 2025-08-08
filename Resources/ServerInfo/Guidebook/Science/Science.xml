@@ -1,55 +1,62 @@
 <Document>
-# Эпистемика
+  # Эпистемика
+  Эпистемика — или попросту Исследования и Разработка — это отдел, занимающийся двумя ключевыми задачами: генерированием исследовательских очков для разблокировки новых технологий и использованием этих технологий для создания полезных вещей на фабрикаторах. Всё ради процветания станции.
 
-Эпистемика — или попросту Исследования и Разработка — это отдел, занимающийся двумя ключевыми задачами: генерированием исследовательских очков для разблокировки новых технологий и использованием этих технологий для создания полезных вещей на фабрикаторах. Всё ради процветания станции.
+  ## Персонал
+  [color=#c96dbf]Отдел Эпистемики[/color] состоит из Научных Ассистентов и Ученых. Отделом заведует Мистагог.
 
-## Технологии
-<Box>
-<GuideEntityEmbed Entity="ComputerResearchAndDevelopment"/>
-<GuideEntityEmbed Entity="ResearchAndDevelopmentServer"/>
-</Box>
+  <Box>
+    <GuideEntityEmbed Entity="ToyFigurineScientist" Caption="Ученый"/>
+    <GuideEntityEmbed Entity="ToyFigurineResearchDirector" Caption="Мистагог"/>
+  </Box>
 
-Сердце вашего отдела — это сервер Исследований и Разработок, где хранятся все изученные технологии, и R&D-компьютер, через который эти технологии и разблокируются.
+  ## Технологии
+  <Box>
+    <GuideEntityEmbed Entity="ComputerResearchAndDevelopment"/>
+    <GuideEntityEmbed Entity="ResearchAndDevelopmentServer"/>
+  </Box>
 
-Каждая технология требует [color=#a4885c]исследовательских очков[/color] и открывает рецепты на лате. Некоторые из них потребуют предварительного изучения других технологий.
+  Сердце вашего отдела — это сервер Исследований и Разработок, где хранятся все изученные технологии, и R&D-компьютер, через который эти технологии и разблокируются.
 
-Подробности о доступных технологиях можно посмотреть [textlink="в технологическом путеводителе" link="Technologies"].
+  Каждая технология требует [color=#a4885c]исследовательских очков[/color] и открывает рецепты на лате. Некоторые из них потребуют предварительного изучения других технологий.
 
-## Дисциплины
+  Подробности о доступных технологиях можно посмотреть [textlink="в технологическом путеводителе" link="Technologies"].
 
-Все технологии разделены на пять направлений:
+  ## Дисциплины
 
-<Box>
-<GuideEntityEmbed Entity="Wrench" Caption="Промышленность"/>
-<GuideEntityEmbed Entity="Syringe" Caption="Биохимия"/>
-<GuideEntityEmbed Entity="DeviceQuantumSpinInverter" Caption="Экспериментальные"/>
-<GuideEntityEmbed Entity="ComputerTelevision" Caption="Гражданские службы"/>
-<GuideEntityEmbed Entity="WeaponXrayCannon" Caption="Арсенал"/>
-</Box>
+  Все технологии разделены на пять направлений:
 
-<GuideEntityEmbed Entity="ComputerResearchAndDevelopment"/>
-Открыв консоль R&D, вы увидите, к какому направлению относится каждая технология.
+  <Box>
+    <GuideEntityEmbed Entity="Wrench" Caption="Промышленность"/>
+    <GuideEntityEmbed Entity="Syringe" Caption="Биохимия"/>
+    <GuideEntityEmbed Entity="DeviceQuantumSpinInverter" Caption="Экспериментальные"/>
+    <GuideEntityEmbed Entity="ComputerTelevision" Caption="Гражданские службы"/>
+    <GuideEntityEmbed Entity="WeaponXrayCannon" Caption="Арсенал"/>
+  </Box>
 
-## Уровни технологий
+  <GuideEntityEmbed Entity="ComputerResearchAndDevelopment"/>
+  Открыв консоль R&D, вы увидите, к какому направлению относится каждая технология.
 
-Каждое направление делится на три уровня (Tier). Изначально доступен только [italic]первый уровень[/italic].
+  ## Уровни технологий
 
-Чтобы открыть доступ ко второму уровню, вам нужно исследовать [color=brown]75%[/color] технологий текущего. Это правило действует и при переходе с T2 на T3.
+  Каждое направление делится на три уровня (Tier). Изначально доступен только [italic]первый уровень[/italic].
 
-Однако с третьим уровнем всё не так просто. Изучив технологию T3 в одном направлении, вы [color=brown]заблокируете[/color] доступ к T3 в остальных. Так что выбирайте с умом... или попробуйте спросить у [color=purple]Мистагога[/color], есть ли обходной путь.
+  Чтобы открыть доступ ко второму уровню, вам нужно исследовать [color=brown]75%[/color] технологий текущего. Это правило действует и при переходе с T2 на T3.
 
-## Фабрикаторы
+  Однако с третьим уровнем всё не так просто. Изучив технологию T3 в одном направлении, вы [color=brown]заблокируете[/color] доступ к T3 в остальных. Так что выбирайте с умом... или попробуйте спросить у [color=purple]Мистагога[/color], есть ли обходной путь.
 
-<Box>
-<GuideEntityEmbed Entity="Protolathe"/>
-<GuideEntityEmbed Entity="CircuitImprinter"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="ExosuitFabricator"/>
-<GuideEntityEmbed Entity="MedicalTechFab"/>
-<GuideEntityEmbed Entity="SecurityTechFab"/>
-</Box>
+  ## Фабрикаторы
 
-Фабрикаторы позволяют создавать всё, что было разблокировано в исследованиях. Просто выберите нужный сервер и рецепт. Для создания понадобятся материалы: сталь, стекло, пластик, золото или плазма — всё это можно добыть в логистике или на обломках.
+  <Box>
+    <GuideEntityEmbed Entity="Protolathe"/>
+    <GuideEntityEmbed Entity="CircuitImprinter"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="ExosuitFabricator"/>
+    <GuideEntityEmbed Entity="MedicalTechFab"/>
+    <GuideEntityEmbed Entity="SecurityTechFab"/>
+  </Box>
+
+  Фабрикаторы позволяют создавать всё, что было разблокировано в исследованиях. Просто выберите нужный сервер и рецепт. Для создания понадобятся материалы: сталь, стекло, пластик, золото или плазма — всё это можно добыть в логистике или на обломках.
 
 </Document>

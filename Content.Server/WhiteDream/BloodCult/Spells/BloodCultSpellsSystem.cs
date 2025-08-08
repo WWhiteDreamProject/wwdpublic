@@ -3,6 +3,7 @@ using Content.Server.DoAfter;
 using Content.Server.Emp;
 using Content.Server.Hands.Systems;
 using Content.Server.Popups;
+using Content.Shared._White.RadialSelector;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
@@ -232,7 +233,7 @@ public sealed class BloodCultSpellsSystem : EntitySystem
             radialList.Add(entry);
         }
 
-        var state = new RadialSelectorState(radialList, true);
+        var state = new TrackedRadialSelectorState(radialList);
 
         _ui.SetUiState(cultist.Owner, RadialSelectorUiKey.Key, state);
         _ui.TryToggleUi(cultist.Owner, RadialSelectorUiKey.Key, cultist.Owner);
@@ -260,7 +261,7 @@ public sealed class BloodCultSpellsSystem : EntitySystem
             radialList.Add(entry);
         }
 
-        var state = new RadialSelectorState(radialList, true);
+        var state = new TrackedRadialSelectorState(radialList);
 
         _ui.SetUiState(cultist.Owner, RadialSelectorUiKey.Key, state);
         _ui.TryToggleUi(cultist.Owner, RadialSelectorUiKey.Key, cultist.Owner);
