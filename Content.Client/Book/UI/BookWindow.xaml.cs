@@ -55,14 +55,14 @@ public sealed partial class BookWindow : FancyWindow
         {
             Texture = paperSheetTexture,
             Mode = StyleBoxTexture.StretchMode.Stretch,
-            Modulate = Color.FromHex("#f8f8f8") // Цвет бумаги
+            Modulate = Color.FromHex("#f8f8f8") // Paper color
         };
 
         paperBackground.SetPatchMargin(StyleBox.Margin.All, 24.0f);
         paperSheetBackground.SetPatchMargin(StyleBox.Margin.All, 20.0f);
 
         WindowsPanelBackground.PanelOverride = paperBackground;
-        WindowsPanelBackground.ModulateSelfOverride = Color.FromHex("#636363ff");
+        WindowsPanelBackground.ModulateSelfOverride = Color.FromHex("#636363ff"); // Book color
 
         PaperBackground.Margin = new Thickness(0, 8, 5, 0);
         PaperBackground.MinSize = new Vector2(400, 500);

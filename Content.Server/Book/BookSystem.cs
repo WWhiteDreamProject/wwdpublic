@@ -336,7 +336,6 @@ public sealed class BookSystem : EntitySystem
     {
         if (component.Pages.Count == 1 && string.IsNullOrEmpty(component.Pages[0]))
         {
-            // Генерируем случайную историю используя сегменты из локализации
             var storySegments = new[]
             {
             "This is a ",
@@ -374,7 +373,6 @@ public sealed class BookSystem : EntitySystem
 
     private string GetRandomLocString(string prefix)
     {
-        // Генерируем случайный номер от 1 до максимального количества вариантов
         var maxVariants = GetMaxVariantsForPrefix(prefix);
         var randomIndex = _random.Next(1, maxVariants + 1);
         return Loc.GetString($"{prefix}{randomIndex}");

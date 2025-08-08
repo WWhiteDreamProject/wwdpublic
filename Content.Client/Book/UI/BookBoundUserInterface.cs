@@ -15,9 +15,7 @@ public sealed class BookBoundUserInterface : BoundUserInterface
 
     public BookBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
-        // Сука это говно тут нужно
-        // Говнодвижок блядь
-        // Параша ёбанная
+        // IDK how it works, but it is.
     }
 
     protected override void Open()
@@ -45,7 +43,7 @@ public sealed class BookBoundUserInterface : BoundUserInterface
 
     private void OnEditModeChanged(bool isEditing)
     {
-
+        // All in BookSystem.cs
     }
 
     private void OnAddPage()
