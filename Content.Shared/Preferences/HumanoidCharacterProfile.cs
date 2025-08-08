@@ -29,6 +29,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
     public const int MaxNameLength = 64;
     public const int MaxDescLength = 1024;
+    public const int MaxCustomContentLength = 524288;
 
     /// Job preferences for initial spawn
     [DataField]
@@ -430,6 +431,9 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         string? customColor = null,
         bool? customHeirloom = null)
     {
+        if (customContent != null && customContent.Length > MaxCustomContentLength)
+            customContent = customContent[..MaxCustomContentLength];
+
         var list = new HashSet<LoadoutPreference>(_loadoutPreferences);
 
         list.RemoveWhere(l => l.LoadoutName == loadoutId);
@@ -634,6 +638,26 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
         if (voice is null || !CanHaveVoice(voice, Sex))
             Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
+        // WD EDIT END
+        // WD EDIT START
+        foreach (var loadout in loadouts)
+        {
+            if (loadout.CustomContent != null && loadout.CustomContent.Length > MaxCustomContentLength)
+            {
+                // Создать новый LoadoutPreference с обрезанным контентом
+                var truncatedLoadout = new LoadoutPreference(
+                    loadout.LoadoutName,
+                    loadout.CustomName,
+                    loadout.CustomDescription,
+                    loadout.CustomContent[..MaxCustomContentLength],
+                    loadout.CustomColorTint,
+                    loadout.CustomHeirloom)
+                { Selected = loadout.Selected };
+
+                // Заменить в списке
+                loadouts[loadouts.IndexOf(loadout)] = truncatedLoadout;
+            }
+        }
         // WD EDIT END
     }
 
