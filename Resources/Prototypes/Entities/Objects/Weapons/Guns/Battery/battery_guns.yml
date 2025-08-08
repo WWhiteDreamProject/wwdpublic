@@ -247,7 +247,7 @@
     zeroVisible: true
   - type: Appearance
   # WD EDIT END
-  - type: GunOverheat
+  - type: GunFlux #eee
     temperatureLimit: 150
   - type: Temperature
     atmosTemperatureTransferEfficiency: 0.05
@@ -278,7 +278,7 @@
     maxCharge: 500
     startingCharge: 500
   # WD EDIT START
-  - type: GunOverheat
+  - type: GunFlux #eee
     requiresLamp: false
     canChangeSafety: false
     temperatureLimit: 125
@@ -370,19 +370,14 @@
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:
-  - type: GunFlux # wwdp
-    heatCost: 1
-  - type: ProjectileBatteryAmmoProvider # WWDP
-    proto: BulletLaser # WWDP
-    fireCost: 26 # wwdp
   - type: StaticPrice
     price: 420
   # WD EDIT START
   - type: ProjectileBatteryAmmoProvider # Projectile > Hitscan
     proto: BulletLaser
     fireCost: 12.5
-  - type: GunOverheat
-    heatCost: 35
+  - type: GunFlux #eee
+    heatCost: 1
   # WD EDIT END
 
 - type: entity
@@ -501,7 +496,7 @@
     maxCharge: 40000
     startingCharge: 40000
   # WD EDIT START
-  - type: GunOverheat
+  - type: GunFlux #eee
     temperatureLimit: 4500
     heatCost: 100
   - type: Item # Guns resize
@@ -634,7 +629,7 @@
     zeroVisible: true
   - type: Appearance
   # WD EDIT START
-  - type: GunOverheat
+  - type: GunFlux #eee
     temperatureLimit: 650
     heatCost: 100
   - type: Item # Guns resize
@@ -726,7 +721,7 @@
     - Security
     - Antagonists
   # WD EDIT START
-  - type: GunOverheat
+  - type: GunFlux #eee
     heatCost: 20
   # WD EDIT END
 
@@ -918,7 +913,7 @@
 
 - type: entity
   name: antique laser pistol
-  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband BaseWeaponFlux] # wwdp edit - overheat
+  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband, BaseWeaponFlux] # wwdp edit - overheat
   id: WeaponAntiqueLaser
   description: This is an antique laser pistol. All craftsmanship is of the highest quality. It is decorated with assistant leather and chrome. The object menaces with spikes of energy.
   components:
@@ -970,7 +965,7 @@
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
-  - type: GunOverheat # wwdp
+  - type: GunFlux #eee # wwdp
     temperatureLimit: 200
     heatCost: 35
 

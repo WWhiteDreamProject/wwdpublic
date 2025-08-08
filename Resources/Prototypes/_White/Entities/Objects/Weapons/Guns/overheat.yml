@@ -8,7 +8,7 @@
       flash: 2
       firefailure: 6
       eject: 2.5
-      explosion: 1111
+      explosion: 1
   - type: FluxCore
     capacity: 5
     decayRate: 0.5
