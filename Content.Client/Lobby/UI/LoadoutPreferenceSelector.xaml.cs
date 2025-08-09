@@ -48,6 +48,7 @@ public sealed partial class LoadoutPreferenceSelector : Control
             _preference = value;
             NameEdit.Text = value.CustomName ?? "";
             DescriptionEdit.TextRope = new Rope.Leaf(value.CustomDescription ?? "");
+            BookTextEdit.TextRope = new Rope.Leaf(value.CustomContent ?? "");
             ColorEdit.Color = Color.FromHex(value.CustomColorTint, Color.White);
             if (value.CustomColorTint != null)
                 UpdatePaint(new(DummyEntityUid, _entityManager.GetComponent<PaintedComponent>(DummyEntityUid)), _entityManager);
@@ -98,9 +99,10 @@ public sealed partial class LoadoutPreferenceSelector : Control
 
         // Show/hide the special menu and items depending on what's allowed
         HeirloomButton.Visible = loadout.CanBeHeirloom;
-        SpecialMenu.Visible = Loadout.CustomName || Loadout.CustomDescription || Loadout.CustomColorTint;
+        SpecialMenu.Visible = Loadout.CustomName || Loadout.CustomDescription || Loadout.CustomContent || Loadout.CustomColorTint;
         SpecialName.Visible = Loadout.CustomName;
         SpecialDescription.Visible = Loadout.CustomDescription;
+        SpecialBookText.Visible = Loadout.CustomContent;
         SpecialColorTintToggle.Visible = Loadout.CustomColorTint;
 
 
@@ -233,6 +235,8 @@ public sealed partial class LoadoutPreferenceSelector : Control
             _preference.CustomName = string.IsNullOrEmpty(NameEdit.Text) ? null : NameEdit.Text;
         DescriptionEdit.OnTextChanged += _ =>
             _preference.CustomDescription = string.IsNullOrEmpty(Rope.Collapse(DescriptionEdit.TextRope)) ? null : Rope.Collapse(DescriptionEdit.TextRope);
+        BookTextEdit.OnTextChanged += _ =>
+            _preference.CustomContent = string.IsNullOrEmpty(Rope.Collapse(BookTextEdit.TextRope)) ? null : Rope.Collapse(BookTextEdit.TextRope);
         SpecialColorTintToggle.OnToggled += args =>
             ColorEdit.Visible = args.Pressed;
         ColorEdit.OnColorChanged += _ =>

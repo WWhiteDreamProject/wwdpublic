@@ -18,6 +18,8 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
+using Content.Shared.Book.Components;
+using Content.Server.Book;
 
 namespace Content.Server.Clothing.Systems;
 
@@ -35,6 +37,7 @@ public sealed class LoadoutSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly ILogManager _log = default!;
+    [Dependency] private readonly BookSystem _bookSystem = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -127,6 +130,18 @@ public sealed class LoadoutSystem : EntitySystem
                 _meta.SetEntityName(loadout.Item1, loadout.Item2.CustomName);
             if (loadoutProto.CustomDescription && loadout.Item2.CustomDescription != null)
                 _meta.SetEntityDescription(loadout.Item1, loadout.Item2.CustomDescription);
+            if (!string.IsNullOrEmpty(loadout.Item2.CustomContent) && TryComp<BookComponent>(loadout.Item1, out var bookComponent))
+            {
+                try
+                {
+                    _bookSystem.SplitContentIntoPages(bookComponent, loadout.Item2.CustomContent);
+                    Dirty(loadout.Item1, bookComponent);
+                }
+                catch (Exception ex)
+                {
+                    _sawmill.Error($"Failed to apply custom book content to loadout {loadout.Item2.LoadoutName}: {ex.Message}");
+                }
+            }
             if (loadoutProto.CustomColorTint && !string.IsNullOrEmpty(loadout.Item2.CustomColorTint))
                 _paint.Paint(null, null, loadout.Item1, Color.FromHex(loadout.Item2.CustomColorTint));
 

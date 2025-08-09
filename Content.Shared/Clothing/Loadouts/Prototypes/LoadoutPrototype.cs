@@ -41,6 +41,12 @@ public sealed partial class LoadoutPrototype : IPrototype
     [DataField]
     public bool CustomDescription = true;
 
+    /// <summary>
+    ///     Determines whether players can set custom content for this loadout item.
+    /// </summary>
+    [DataField]
+    public bool CustomContent = false;
+
     [DataField]
     public bool CustomColorTint = false;
 
