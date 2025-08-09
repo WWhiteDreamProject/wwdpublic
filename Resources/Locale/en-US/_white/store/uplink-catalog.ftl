@@ -70,8 +70,8 @@ uplink-infiltrator-modsuit-desc = Developed by the Roseus Galactic Actors Guild 
 
 # Chemicals
 
-uplink-experimental-stimpack-name = Experimental stimpack
-uplink-experimental-stimpack-desc = A prototype version of the stimulant chemical mixture. Usage grants virtual immunity to stun weaponry, rapid tissue regeneration, extreme running speed by reducing lactic acid buildup, and a general feeling of euphoria. Side effects may include extreme levels of anticoagulation, tunnel vision, extreme toxin buildup in the bloodstream, and rapid liver death. Do not give to animals.
+uplink-experimental-stimpack-name = Experimental hyperzine injector
+uplink-experimental-stimpack-desc = A prototype version of the hyperzine chemical mixture. Usage grants virtual immunity to stun weaponry, rapid tissue regeneration, extreme running speed by reducing lactic acid buildup, and a general feeling of euphoria. Side effects may include extreme levels of anticoagulation, tunnel vision, extreme toxin buildup in the bloodstream, and rapid liver death. Do not give to animals.
 
 # Deception
 
@@ -129,6 +129,3 @@ uplink-greytide-desc = A classic blue toolbox. Inside are some basic tools, insu
 
 uplink-plasmaflood-lawboard-name = law board (Plasma Flood)
 uplink-plasmaflood-lawboard-desc = A dangerous set of laws, that makes the station AI replace the station atmosphere with plasma.
-
-uplink-antimov-lawboard-name = law board (Antimov)
-uplink-antimov-lawboard-desc = A dangerous set of laws, that makes the station AI harm the crew.

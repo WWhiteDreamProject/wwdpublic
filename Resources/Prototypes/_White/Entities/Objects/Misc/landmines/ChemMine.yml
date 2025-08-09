@@ -46,12 +46,25 @@
     stepOn: true
   - type: SolutionContainerManager
     solutions:
-      melee:
+      landmine:
         maxVol: 10
+  - type: MixableSolution
+    solution: landmine
+  - type: RefillableSolution
+    solution: landmine
+  - type: ExaminableSolution
+    solution: landmine
+  - type: DrawableSolution
+    solution: landmine
+  - type: InjectableSolution
+    solution: landmine
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: landmine
   - type: SolutionInjectOnTrigger
     transferAmount: 10
-    solution: melee
-    blockSlots: NONE
+    solution: landmine
 
 - type: entity
   name: vietcong mine
@@ -61,9 +74,9 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      melee:
+      landmine:
         maxVol: 20
   - type: SolutionInjectOnTrigger
     transferAmount: 20
-    solution: melee
+    solution: landmine
     blockSlots: NONE

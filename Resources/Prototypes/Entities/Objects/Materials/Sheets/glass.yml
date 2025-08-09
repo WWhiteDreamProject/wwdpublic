@@ -53,6 +53,7 @@
   - type: BlindHealing
     damageContainers:
       - Silicon
+      - SiliconUnshielded
   - type: StackPrice
     price: 2
 
@@ -95,7 +96,7 @@
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
-        type: RadialSelectorMenuBUI
+        type: AttachedRadialSelectorMenuBUI # WD EDIT: RadialSelectorMenuBUI -> AttachedRadialSelectorMenuBUI
   - type: ActivatableUI
     key: enum.RadialSelectorUiKey.Key
     inHandsOnly: true
@@ -220,7 +221,7 @@
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
-        type: RadialSelectorMenuBUI
+        type: AttachedRadialSelectorMenuBUI # WD EDIT: RadialSelectorMenuBUI -> AttachedRadialSelectorMenuBUI
   - type: ActivatableUI
     key: enum.RadialSelectorUiKey.Key
     inHandsOnly: true
@@ -328,7 +329,7 @@
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
-        type: RadialSelectorMenuBUI
+        type: AttachedRadialSelectorMenuBUI # WD EDIT: RadialSelectorMenuBUI -> AttachedRadialSelectorMenuBUI
   - type: ActivatableUI
     key: enum.RadialSelectorUiKey.Key
     inHandsOnly: true
@@ -423,7 +424,7 @@
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
-        type: RadialSelectorMenuBUI
+        type: AttachedRadialSelectorMenuBUI # WD EDIT: RadialSelectorMenuBUI -> AttachedRadialSelectorMenuBUI
   - type: ActivatableUI
     key: enum.RadialSelectorUiKey.Key
     inHandsOnly: true
@@ -523,7 +524,7 @@
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
-        type: RadialSelectorMenuBUI
+        type: AttachedRadialSelectorMenuBUI # WD EDIT: RadialSelectorMenuBUI -> AttachedRadialSelectorMenuBUI
   - type: ActivatableUI
     key: enum.RadialSelectorUiKey.Key
     inHandsOnly: true
@@ -604,7 +605,7 @@
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
-        type: RadialSelectorMenuBUI
+        type: AttachedRadialSelectorMenuBUI # WD EDIT: RadialSelectorMenuBUI -> AttachedRadialSelectorMenuBUI
   - type: ActivatableUI
     key: enum.RadialSelectorUiKey.Key
     inHandsOnly: true
@@ -707,7 +708,7 @@
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
-        type: RadialSelectorMenuBUI
+        type: AttachedRadialSelectorMenuBUI
   - type: ActivatableUI
     key: enum.RadialSelectorUiKey.Key
     inHandsOnly: true

@@ -1,7 +1,6 @@
 - type: entity
   parent: BaseGameRule
   id: WormholesSpawn
-  categories: [ HideSpawnMenu ]
   components:
   - type: StationEvent
     startAnnouncement: true
@@ -18,7 +17,6 @@
 - type: entity
   parent: BaseGameRule
   id: StraySupplyPod
-  categories: [ HideSpawnMenu ]
   components:
     - type: StationEvent
       startAnnouncement: true
@@ -33,7 +31,6 @@
 - type: entity
   parent: BaseGameRule
   id: StraySupplyPodSyndicate
-  categories: [ HideSpawnMenu ]
   components:
     - type: StationEvent
       startAnnouncement: true
@@ -47,8 +44,35 @@
 
 - type: entity
   parent: BaseGameRule
+  id: XenomorphsInfestation
+  components:
+  - type: StationEvent
+    weight: 5
+    duration: null
+    minimumPlayers: 20
+    earliestStart: 35
+    reoccurrenceDelay: 50
+  - type: VentSpawnRule
+  - type: XenomorphsRule
+  - type: AntagObjectives
+    objectives:
+    - XenomorphSurviveObjective
+  - type: AntagSelection
+    agentName: xenomorph-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostXenomorph
+      min: 2
+      max: 4
+      pickPlayer: false
+      briefing:
+        text: xenomorph-role-greeting
+        color: "#8c3986"
+      mindRoles:
+      - MindRoleXenomorph
+
+- type: entity
+  parent: BaseGameRule
   id: HeadcrabInvasion
-  categories: [ HideSpawnMenu ]
   components:
     - type: StationEvent
       startAnnouncement: true

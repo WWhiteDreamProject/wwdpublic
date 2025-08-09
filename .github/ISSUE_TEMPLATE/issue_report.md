@@ -1,6 +1,6 @@
 ---
-name: Report an issue
-about: "Any issues found in gameplay or the codebase"
+name: Сообщить о проблеме
+about: "Любые багрепорты, проблемы баланса или иные неудобства"
 title: ''
 labels: 'Type: Bug'
 assignees: ''
@@ -8,48 +8,46 @@ assignees: ''
 ---
 
 <!--
-This is a loose format, write this however you need to
-Remove these comments before submitting
+УБЕРИТЕ КОММЕНТАРИИ ПЕРЕД ТЕМ КАК ЧТО-ТО ПОСТИТЬ, УДАЛИТЕ СТРЕЛОЧКИ
 -->
 
-# Description
+# Описание
 <!--
-Explain your issue in detail
-Issues without proper explanation are liable to be closed by maintainers
+Опишите свою проблему, как можно детальнее.
+Проблемы без внятного описания будут проигнорированы, а через некоторое время - закрыты. 
 -->
 
-Description
+Описание
 
-# Reproduction
+# Репродукция
 <!--
-Include the steps to reproduce if applicable
-Try to be as descriptive as possible
+Опишите пошагово, что нужно сделать чтобы повторить проблему, если это возможно.
+Старайтесь описать как можно более информативно.
 -->
 
-1. Open game
-2. Game doesn't open
+1. Открыть игру.
+2. Закрыть игру.
 
-# Expected behavior
+# Почему это проблема?
 <!--
-What should happen?
-Why might this not be happening? / Possible solutions  (if you know)
+Почему это является, по вашему мнению, проблемой?
+Если это багрепорт - напишите, что это баг. Если это проблема баланса/геймдизайна - распишите, почему это проблемно.
 -->
 
-1. Open game
-2. Game opens
+1. Игра не должна являться говном.
+2. BOTTOM TEXT LMAO
 
-# Media
+# Медиа
 <!--
-If applicable, add screenshots to help explain your problem
-A video of the reproduction would also be useful
+Если у вас есть скриншоты или видео проблемы, это будет полезно. 
 -->
 
-![Example Screenshot](https://example.com/thisimageisntreal.png)
+![Пример](https://example.com/thisimageisntreal.png)
 
-# Additional context
+# Дополнительная информация
 <!--
-Add any other context about the problem here
-Anything you think is related to the issue
+Напишите сюда то, что вы считаете нужным знать/полезным и так далее, что относится к этой проблеме.
+Не срать. 
 -->
 
-There's a ghost in my computer
+сс41

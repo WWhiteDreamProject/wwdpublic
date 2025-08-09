@@ -42,20 +42,6 @@
 
 - type: entity
   abstract: true
-  parent: Clothing
-  id: HatBase
-  components:
-  - type: Clothing
-    slots:
-    - HEAD
-  - type: Sprite
-    state: icon
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-
-- type: entity
-  abstract: true
   parent: ClothingHeadBase
   id: ClothingHeadLightBase
   name: base helmet with light
@@ -119,13 +105,15 @@
   id: ClothingHeadEVAHelmetBase
   name: base space helmet
   components:
+  - type: BreathMask
   - type: Item
     size: Normal
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.2
+    heatingCoefficient: 0.2
+    coolingCoefficient: 0.2
   - type: IgniteFromGasImmunity
     parts:
     - Head
@@ -134,6 +122,8 @@
     #Copies ClothingHeadHardsuitBase behavior
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 2
+    unequipDelay: 2
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -144,6 +134,8 @@
     slots:
     - Hair
     - Snout
+    - HeadTop
+    - HeadSide
 
 - type: entity
   abstract: true
@@ -157,7 +149,8 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.2
+    heatingCoefficient: 0.2
+    coolingCoefficient: 0.2
   - type: IgniteFromGasImmunity
     parts:
     - Head
@@ -175,6 +168,8 @@
     slots:
     - Hair
     - Snout
+    - HeadTop
+    - HeadSide
 
 - type: entity
   abstract: true
@@ -183,6 +178,7 @@
   name: base hardsuit helmet
   categories: [ HideSpawnMenu ]
   components:
+  - type: BreathMask
   - type: Sprite
     state: icon # default state used by most inheritors
   - type: Clickable
@@ -197,9 +193,8 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.2 # WWDP
-  - type: FireProtection
-    reduction: 0.2
+    heatingCoefficient: 0.2 # WD EDIT: 0.1 -> 0.2
+    coolingCoefficient: 0.2 # WD EDIT: 0.1 -> 0.2
   - type: IgniteFromGasImmunity
     parts:
     - Head
@@ -222,6 +217,8 @@
     slots:
     - Hair
     - Snout
+    - HeadTop
+    - HeadSide
   # WD EDIT START
   #- type: Reflect
   #  spread: 270
@@ -230,9 +227,9 @@
   #  reflects:
   #  - Energy
   #  - NonEnergy
-  # WD EDIT END
-  - type: TinfoilHat # WWDP
+  - type: TinfoilHat
     destroyOnFry: false
+  # WD EDIT END
 
 - type: entity
   abstract: true
@@ -271,7 +268,8 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.2
+    heatingCoefficient: 0.2
+    coolingCoefficient: 0.2
   - type: IngestionBlocker
   - type: Tag
     tags:
@@ -398,8 +396,9 @@
 
 - type: entity
   abstract: true
-  parent: ClothingHeadHardsuitBase
-  id: ClothingHeadHardsuitWithLightBase
+  # No parent since it isn't an item
+  # must parent both this and the desired helmet base when using 
+  id: ClothingHeadSuitWithLightBase
   name: base hardsuit helmet with light
   categories: [ HideSpawnMenu ]
   components:
@@ -466,8 +465,11 @@
     quickEquip: false
     slots: [ HEAD ]
   - type: TemperatureProtection
-    coefficient: 0.7
+    heatingCoefficient: 1.05
+    coolingCoefficient: 0.7
   - type: GroupExamine
   - type: HideLayerClothing
     slots:
     - Hair
+    - HeadTop
+    - HeadSide

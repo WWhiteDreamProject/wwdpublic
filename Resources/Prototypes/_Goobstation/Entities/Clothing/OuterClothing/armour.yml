@@ -65,7 +65,8 @@
         Piercing: 0.65
         Heat: 0.70
   - type: TemperatureProtection
-    coefficient: 0.5 # WWDP
+    heatingCoefficient: 0.5 # WD EDIT: 0.1 -> 0.5
+    coolingCoefficient: 0.5 # WD EDIT: 0.1 -> 0.5
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingBlueshieldArmoredCoat]

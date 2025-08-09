@@ -48,9 +48,14 @@
     - Nekomimetic
   - type: PotentiaModifier
     potentiaMultiplier: 0.5
-  # WD EDIT START
   - type: Inventory
     femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+      # WD EDIT START
       jumpsuit-body-slim:
         sizeMaps:
           32:
@@ -81,7 +86,7 @@
           32:
             sprite: _White/Mobs/Species/Human/displacement.rsi
             state: suit
-  # WD EDIT END
+      # WD EDIT END
 
 - type: entity
   save: false
@@ -91,9 +96,14 @@
   categories: [ HideSpawnMenu ]
   description: A dummy oni meant to be used in character setup.
   components:
-  # WD EDIT START
   - type: Inventory
     femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+      # WD EDIT START
       jumpsuit-body-slim:
         sizeMaps:
           32:
@@ -124,4 +134,4 @@
           32:
             sprite: _White/Mobs/Species/Human/displacement.rsi
             state: suit
-  # WD EDIT END
+      # WD EDIT END

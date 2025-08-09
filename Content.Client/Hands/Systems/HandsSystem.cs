@@ -150,7 +150,7 @@ namespace Content.Client.Hands.Systems
             }
         }
         #endregion
-		
+
 		// WWDP EDIT START
         private void HoldingDropComponentInit(EntityUid uid, HoldingDropComponent comp, ComponentInit args)
         {
@@ -180,7 +180,7 @@ namespace Content.Client.Hands.Systems
         //public override void DoDrop(EntityUid uid, Hand hand, bool doDropInteraction = true, HandsComponent? hands = null)
         //{
         //    base.DoDrop(uid, hand, doDropInteraction, hands);
-		//	
+		//
 		//    // WHAT DOES HELDENTITY EQUAL TO AFTER CALLING DODROP, OH I WONDER
         //    if (TryComp(hand.HeldEntity, out SpriteComponent? sprite))
         //        sprite.RenderOrder = EntityManager.CurrentTick.Value;

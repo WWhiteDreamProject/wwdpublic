@@ -3782,3 +3782,319 @@ Entries:
   id: 399
   time: '2025-07-12T02:28:45.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/669
+- author: Spatison
+  changes:
+    - type: Add
+      message: Апстрим 17.05-12.07 :D
+  id: 400
+  time: '2025-07-22T11:47:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/681
+- author: kekoven1
+  changes:
+    - type: Add
+      message: Псионическая способность на создание своего двойника
+  id: 401
+  time: '2025-07-22T13:02:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/652
+- author: Ligrof
+  changes:
+    - type: Tweak
+      message: Когнизин работает на гуманоидах
+  id: 402
+  time: '2025-07-22T13:06:29.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/691
+- author: nekosich
+  changes:
+    - type: Tweak
+      message: Перевод предысторий и гражданства~
+    - type: Fix
+      message: Исправлены 3 файла в гайдбуках!
+  id: 403
+  time: '2025-07-23T00:19:15.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/671
+- author: Warete
+  changes:
+    - type: Fix
+      message: >-
+        Из коробок/магазинов и ещё где это возможно, на клавишу Z вновь
+        достаются предметы.
+    - type: Fix
+      message: Исправлен осмотр коробок(последнего вложенного "поверх" объекта).
+  id: 404
+  time: '2025-07-23T00:28:36.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/673
+- author: Kutos
+  changes:
+    - type: Tweak
+      message: Отражение лазеров отражающему жилету 33->65
+  id: 405
+  time: '2025-07-23T00:34:07.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/674
+- author: Kutos
+  changes:
+    - type: Fix
+      message: Приписка языка теперь отображается и в IC чате
+  id: 406
+  time: '2025-07-23T00:34:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/675
+- author: Kutos
+  changes:
+    - type: Add
+      message: Клички для мимов (неужели)
+  id: 407
+  time: '2025-07-23T00:38:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/676
+- author: nekosich
+  changes:
+    - type: Tweak
+      message: Перевод генокрадов~
+  id: 408
+  time: '2025-07-23T00:44:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/685
+- author: Kutos
+  changes:
+    - type: Tweak
+      message: Теперь при столкновении предметов урон не может превышать 50 единиц.
+  id: 409
+  time: '2025-07-23T00:52:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/688
+- author: nekosich
+  changes:
+    - type: Tweak
+      message: Перевод советов~
+  id: 410
+  time: '2025-07-23T06:38:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/686
+- author: Spatison
+  changes:
+    - type: Fix
+      message: 'Все шаттлы теперь появляются корректно '
+  id: 411
+  time: '2025-07-23T12:28:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/694
+- author: Spatison
+  changes:
+    - type: Add
+      message: апстрим 12.07-23.07
+    - type: Fix
+      message: Объявление о прибытия шаттла эвакуации теперь корректное
+    - type: Fix
+      message: Шаттл шахтеров теперь может прилететь на станцию
+    - type: Fix
+      message: Переключение света у призраков снова работает
+  id: 412
+  time: '2025-07-23T12:29:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/695
+- author: Kutos
+  changes:
+    - type: Add
+      message: Локализация для блоба
+    - type: Fix
+      message: Заменены шрифты без поддержки кириллицы
+    - type: Fix
+      message: >-
+        Исправлена локализация строчки для имен киборов/ии станции в редакторе
+        персонажа
+  id: 413
+  time: '2025-07-23T14:24:00.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/693
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Станция центрального командования и прибытия теперь точно спавнятся
+  id: 414
+  time: '2025-07-26T02:58:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/703
+- author: Kutosss
+  changes:
+    - type: Fix
+      message: Настройка вкл/выкл эффектов от эмоций теперь дает себя сохранить
+  id: 415
+  time: '2025-07-26T03:01:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/710
+- author: Kutos
+  changes:
+    - type: Add
+      message: 'Очки охраны теперь могут менять статус розыска '
+  id: 416
+  time: '2025-07-26T03:14:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/690
+- author: nekosich
+  changes:
+    - type: Tweak
+      message: 'Много перевода. '
+    - type: Fix
+      message: >-
+        Исправление бага, из-за которого LocalizedDataset неверно читал
+        ftl-ключи.
+  id: 417
+  time: '2025-07-27T14:04:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/704
+- author: Spatison
+  changes:
+    - type: Add
+      message: 'Добавлен новый ивент: "Заражения Ксеноморфами"'
+    - type: Add
+      message: Добавлены новые ксеноморфы
+    - type: Add
+      message: Добавлена новая тема оформления ксеноморфа
+  id: 418
+  time: '2025-07-27T15:11:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/716
+- author: nekosich
+  changes:
+    - type: Fix
+      message: 'Исправлено чтение датасетов. Бай-бай vending-machine-thanks-0! '
+  id: 419
+  time: '2025-07-28T09:06:15.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/721
+- author: Purka581
+  changes:
+    - type: Tweak
+      message: Мидишки звучат лучше!
+  id: 420
+  time: '2025-07-28T09:06:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/719
+- author: AllCatsArebeautiful
+  changes:
+    - type: Add
+      message: Одежда утилизаторов
+  id: 421
+  time: '2025-07-28T09:07:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/717
+- author: nekosich
+  changes:
+    - type: Tweak
+      message: Перевод Шайтана и Тенелингов
+  id: 422
+  time: '2025-07-28T09:08:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/723
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Радиальные меню снова работают
+  id: 423
+  time: '2025-07-28T15:59:45.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/724
+- author: Gersoon458
+  changes:
+    - type: Fix
+      message: Великофикс ЦК
+  id: 424
+  time: '2025-07-29T03:04:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/731
+- author: Kutos
+  changes:
+    - type: Fix
+      message: >-
+        Пофикшена невозможность собрать машину  + корректно получает
+        локализацию 
+  id: 425
+  time: '2025-08-02T06:36:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/733
+- author: Gersoon458
+  changes:
+    - type: Tweak
+      message: Комбатсьюты обратно заменены на обычные риги
+    - type: Fix
+      message: Исправлен свет на Мете у эвака
+    - type: Remove
+      message: Удалена ротация ЦК + Удален красный свет у шкафов на Мусе
+    - type: Remove
+      message: >-
+        Удалены дубликаты предметов из шкафов + Удалены магбутсы у сб (Просьба
+        Скитузера)
+  id: 426
+  time: '2025-08-02T06:37:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/738
+- author: islambrosgood
+  changes:
+    - type: Fix
+      message: Зернистость сама отключается при включённом режиме совместимости
+  id: 427
+  time: '2025-08-02T06:38:45.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/739
+- author: Spatison
+  changes:
+    - type: Add
+      message: Добавлены лицехваты
+    - type: Add
+      message: Добавлено заражение ксеноморфов
+    - type: Add
+      message: Королева ксеноморфов научилась откладывать яйца с лицехватами
+    - type: Tweak
+      message: Здоровье всех ксеноморфов увеличено на 50%
+    - type: Tweak
+      message: 'Множитель урона ксеноморфам от теплового урона: 2 -> 1.2'
+    - type: Tweak
+      message: 'Урон плевка ксеноморфа: 15 -> 35'
+    - type: Tweak
+      message: 'Личинки ксеноморфов научились пролазить под дверьми '
+  id: 428
+  time: '2025-08-03T16:31:17.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/744
+- author: Gersoon458
+  changes:
+    - type: Fix
+      message: ЦК теперь 100% есть
+  id: 429
+  time: '2025-08-03T16:31:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/743
+- author: nekosich
+  changes:
+    - type: Add
+      message: Перевод и ftl-ключи
+    - type: Tweak
+      message: Рефактор папки ru-RU
+  id: 430
+  time: '2025-08-04T01:56:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/740
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Из граба теперь можно вырваться
+  id: 431
+  time: '2025-08-04T17:26:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/746
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Гарпии больше не восприимчивы к стеклу
+  id: 432
+  time: '2025-08-05T11:29:21.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/750
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        Шаттл на лаваленд больше не может полететь на станцию центрального
+        командования
+  id: 433
+  time: '2025-08-06T06:40:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/753
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Лицехват теперь может заразить только одну жертву, после чего умирает
+    - type: Tweak
+      message: Заражённый личинкой ксеноморфа больше не видит иконку о заражении
+    - type: Fix
+      message: Смоляная трава теперь лечит ксеноморфов
+    - type: Fix
+      message: Ксеноморфы больше не могут размещать свои постройки в космосе
+    - type: Fix
+      message: КПБ теперь не подвержены заражению личинкой ксеноморфа
+    - type: Fix
+      message: Эволюция в проеторианца теперь работает при присутствии королевы
+    - type: Fix
+      message: 'Личинка приостанавливает своё развитие в мёртвом теле. '
+  id: 434
+  time: '2025-08-06T11:28:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/759
+- author: Spatison
+  changes:
+    - type: Fix
+      message: 'Ящеры теперь носят свои штаны нормально '
+  id: 435
+  time: '2025-08-07T14:56:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/763

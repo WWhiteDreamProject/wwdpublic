@@ -1,13 +1,13 @@
 ﻿- type: stealTargetGroup
   id: SpaceCashLuckyBill
-  name: steal-target-lucky-bill
+  name: steal-target-logistics-officer-lucky-bill
   sprite:
     sprite: DeltaV/Objects/Misc/first_bill.rsi
     state: icon
 
 - type: stealTargetGroup
   id: BookIanDossier
-  name: steal-target-photobook
+  name: steal-target-head-of-personnel-photobook
   sprite:
     sprite: DeltaV/Objects/Misc/bureaucracy.rsi
     state: folder-hop-ian
@@ -18,5 +18,3 @@
   sprite:
     sprite: DeltaV/Objects/Misc/stamps.rsi
     state: stamp-notary
-
-

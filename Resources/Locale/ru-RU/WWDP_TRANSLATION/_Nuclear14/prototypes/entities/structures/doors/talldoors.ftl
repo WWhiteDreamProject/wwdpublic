@@ -1,0 +1,48 @@
+ent-N14DoorMetalBlueAltTall = { ent-N14DoorMetalBlueTall }
+    .desc = { ent-N14DoorMetalBlueTall.desc }
+    .suffix = { ent-N14DoorMetalBlueTall.suffix }
+
+
+ent-N14DoorMetalGrateTall = { ent-N14DoorMetalBlueWindowTall }
+    .desc = Металлическая решетчатая дверь.
+    .suffix = Высокая, Решетчатая
+
+
+ent-N14DoorMetalBarTall = { ent-N14DoorMetalBlueWindowTall }
+    .desc = Металлическая прутчатая дверь.
+    .suffix = Высокая, Прутчатая
+
+
+ent-N14DoorMetalFenceTall = { ent-N14DoorMetalBlueWindowTall }
+    .desc = Металлическая калитка.
+    .suffix = Высокая, Калитка
+
+
+ent-N14DoorMetalFenceBarbedTall = { ent-N14DoorMetalBlueWindowTall }
+    .desc = Металлическая прутчатая калитка.
+    .suffix = Высокая, Прутчатая калитка
+
+
+ent-N14DoorWoodBlueTall = { ent-N14DoorWoodTall }
+    .desc = { ent-N14DoorWoodTall.desc }
+    .suffix = { ent-N14DoorWoodTall.suffix }
+
+
+ent-N14DoorWoodGreenTall = { ent-N14DoorWoodTall }
+    .desc = { ent-N14DoorWoodTall.desc }
+    .suffix = { ent-N14DoorWoodTall.suffix }
+
+
+ent-N14DoorWoodRedTall = { ent-N14DoorWoodTall }
+    .desc = { ent-N14DoorWoodTall.desc }
+    .suffix = { ent-N14DoorWoodTall.suffix }
+
+
+ent-N14DoorWoodWhiteTall = { ent-N14DoorWoodTall }
+    .desc = { ent-N14DoorWoodTall.desc }
+    .suffix = { ent-N14DoorWoodTall.suffix }
+
+
+ent-N14DoorCellRust = { ent-N14DoorCell }
+    .desc = { ent-N14DoorCell.desc }
+    .suffix = { ent-N14DoorCell.suffix }

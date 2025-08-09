@@ -1,4 +1,3 @@
-
 accent-pirate-prefix-1 = Арргх
 accent-pirate-prefix-2 = Гарр
 accent-pirate-prefix-3 = Йарр
@@ -12,12 +11,12 @@ accent-pirate-replacement-3 = ahoy
 accent-pirate-replaced-4 = yes
 accent-pirate-replacement-4 = aye
 accent-pirate-replaced-5 = yea
-accent-pirate-replaced-6 = hi
-accent-pirate-replaced-7 = is
 accent-pirate-replacement-5 = be
-accent-pirate-replaced-8 = there
+accent-pirate-replaced-6 = hi
 accent-pirate-replacement-6 = thar
+accent-pirate-replaced-7 = is
 accent-pirate-replacement-7 = heartie
+accent-pirate-replaced-8 = there
 accent-pirate-replacement-8 = matey
 accent-pirate-replaced-9 = buddy
 accent-pirate-replacement-9 = heartie

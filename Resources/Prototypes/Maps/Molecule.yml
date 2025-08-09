@@ -16,8 +16,6 @@
       - type: StationEmergencyShuttle
         emergencyShuttlePath: /Maps/_White/Shuttles/emergency_turtle.yml
       - type: StationJobs
-        overflowJobs:
-        - Passenger
         availableJobs:
           #Silicons
           StationAi: [ 1, 1 ]

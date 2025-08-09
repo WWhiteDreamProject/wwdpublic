@@ -5,10 +5,13 @@ fold-verb = Сложить
 unfold-verb = Разложить
 
 # Hat
+# Hat
 fold-flip-verb = Перевернуть
+# Coat
 # Coat
 fold-zip-verb = Застегнуть
 fold-unzip-verb = Расстегнуть
+# Jumpsuits
 # Jumpsuits
 fold-rollsleeves-verb = Закатать рукава
 fold-unrollsleeves-verb = Опустить рукава

@@ -23,6 +23,10 @@
   - type: Crayon
     capacity: 60 # wwdp edit 25 -> 60
   - type: Food
+  - type: FlavorProfile
+    flavors:
+    - chewy
+    - bitter
   - type: SolutionContainerManager
     solutions:
       food:

@@ -19,7 +19,7 @@ public sealed partial class StationCentcommComponent : Component
     public List<ResPath> Maps = new()
     {
         new("/Maps/CentralCommand/main.yml"),
-        new("/Maps/CentralCommand/harmony.yml")
+        /// new("/Maps/CentralCommand/harmony.yml") WWDP edit, no more CentCom rotation
     };
 
     /// <summary>

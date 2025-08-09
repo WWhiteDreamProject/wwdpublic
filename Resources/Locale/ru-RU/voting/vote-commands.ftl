@@ -1,6 +1,5 @@
 ### Voting system related console commands
 
-
 ## 'createvote' command
 
 cmd-createvote-desc = Создает голосование
@@ -11,15 +10,14 @@ cmd-createvote-arg-vote-type = <vote type>
 
 ## 'customvote' command
 
+## 'customvote' command
+
 cmd-customvote-desc = Создаёт настраиваемое голосование
 cmd-customvote-help = Использование: customvote <title> <option1> <option2> [option3...]
 cmd-customvote-on-finished-tie = Ничья между { $ties }!
 cmd-customvote-on-finished-win = { $winner } побеждает!
 cmd-customvote-arg-title = <title>
 cmd-customvote-arg-option-n = <option{ $n }>
-cmd-customvote-on-finished-votes = Количество голосов за варианты в голосовании "{ $title }":
-cmd-customvote-option-votes = { $option } - { $votes }
-
 ## 'vote' command
 
 cmd-vote-desc = Голосует в активном голосовании
@@ -33,8 +31,12 @@ cmd-vote-on-execute-error-invalid-option = Неверный параметр
 
 ## 'listvotes' command
 
+## 'listvotes' command
+
 cmd-listvotes-desc = Перечисляет активные голосования
 cmd-listvotes-help = Использование: listvotes
+
+## 'cancelvote' command
 
 ## 'cancelvote' command
 

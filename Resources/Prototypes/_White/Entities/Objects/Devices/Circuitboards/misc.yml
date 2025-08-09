@@ -23,9 +23,27 @@
     state: engineering
   - type: MachineBoard
     prototype: WeaponTurretUniversal
-    requirements:
+    machinePartRequirements:
       Manipulator: 1
       Capacitor: 1
-    materialRequirements:
+    stackRequirements:
       Cable: 5
       Steel: 5
+
+- type: entity
+  id: WeaponTurretShipLightCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: modular turret machine board
+  description: Circuitboard for a light ship weapon mount.
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: WeaponTurretShipLight
+    machinePartRequirements:
+      MatterBin: 1
+      Manipulator: 2
+      Capacitor: 3
+    stackRequirements:
+      Cable: 5
+      Steel: 10

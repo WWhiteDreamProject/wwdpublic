@@ -1,4 +1,4 @@
-station-event-ion-storm-start-announcement = Вблизи станции обнаружен ионный шторм. Пожалуйста, проверьте все оборудование, управляемое ИИ, на наличие ошибок.
+station-event-ion-storm-announcement = Ion storm detected near the station. Please check all AI-controlled equipment for errors.
 
 ion-storm-law-scrambled-number = [font="Monospace"][scramble rate=250 length={$length} chars="@@###$$&%!01"/][/font]
 
@@ -10,9 +10,14 @@ ion-storm-clowns = КЛОУНЫ
 ion-storm-heads = ГЛАВЫ
 ion-storm-crew = ЭКИПАЖ
 
+ion-storm-people = PEOPLE
+
 ion-storm-adjective-things = {$adjective} ОБЪЕКТЫ
 ion-storm-x-and-y = {$x} И {$y}
 
+# joined is short for {$number} {$adjective}
+# subjects can generally be threats or jobs or objects
+# thing is specified above it
 # joined is short for {$number} {$adjective}
 # subjects can generally be threats or jobs or objects
 # thing is specified above it
@@ -23,13 +28,17 @@ ion-storm-law-crew-are = ВСЕ { $who } ТЕПЕРЬ { $joined } { $subjects }
 ion-storm-law-subjects-harmful = {$adjective} {$subjects} ПРИЧИНЯЮТ ВРЕД ЗДОРОВЬЮ ЭКИПАЖА
 ion-storm-law-must-harmful = ВСЕ КТО { $must } ПРИЧИНЯЮТ ВРЕД ЗДОРОВЬЮ ЭКИПАЖА
 # thing is a concept or action
+# thing is a concept or action
 ion-storm-law-thing-harmful = { $thing } ПРИЧИНЯЮТ ВРЕД ЗДОРОВЬЮ ЭКИПАЖА
 ion-storm-law-job-harmful = { $adjective } { $job } ПРИЧИНЯЮТ ВРЕД ЗДОРОВЬЮ ЭКИПАЖА
+# thing is objects or concept, adjective applies in both cases
+# this means you can get a law like "NOT HAVING CHRISTMAS-STEALING COMMUNISM IS HARMFUL TO THE CREW" :)
 # thing is objects or concept, adjective applies in both cases
 # this means you can get a law like "NOT HAVING CHRISTMAS-STEALING COMMUNISM IS HARMFUL TO THE CREW" :)
 ion-storm-law-having-harmful = НАЛИЧИЕ { $adjective } { $thing } ПРИЧИНЯЕТ ВРЕД ЗДОРОВЬЮ ЭКИПАЖА
 ion-storm-law-not-having-harmful = ОТСУТСТВИЕ { $adjective } { $thing } ПРИЧИНЯЕТ ВРЕД ЗДОРОВЬЮ ЭКИПАЖА
 
+# thing is a concept or require
 # thing is a concept or require
 ion-storm-law-requires = {$who} {$plural ->
     [true] ТРЕБУЮТ
@@ -40,6 +49,7 @@ ion-storm-law-requires-subjects = {$who} {$plural ->
     *[false] ТРЕБУЕТ
 } {$joined} {$subjects}
 
+
 ion-storm-law-allergic = {$who} {$plural ->
     [true] ИМЕЮТ
     *[false] ИМЕЕТ
@@ -48,6 +58,7 @@ ion-storm-law-allergic-subjects = {$who} {$plural ->
     [true] ИМЕЮТ
     *[false] ИМЕЕТ
 } {$severity} АЛЛЕРГИЮ НА {$adjective} {$subjects}
+
 
 ion-storm-law-feeling = {$who} {$feeling} {$concept}
 ion-storm-law-feeling-subjects = {$who} {$feeling} {$joined} {$subjects}
@@ -86,6 +97,9 @@ ion-storm-law-protect = ВЫ НЕ ДОЛЖНЫ ПРИЧИНЯТЬ ВРЕД {$who
 
 # implementing other variants is annoying so just have this one
 # COMMUNISM IS KILLING CLOWNS
+# implementing other variants is annoying so just have this one
+# COMMUNISM IS KILLING CLOWNS
 ion-storm-law-concept-verb = {$concept} ЭТО {$verb} {$subjects}
 
+# leaving out renaming since its annoying for players to keep track of
 # leaving out renaming since its annoying for players to keep track of

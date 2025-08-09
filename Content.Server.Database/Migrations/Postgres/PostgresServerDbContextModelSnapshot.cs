@@ -838,11 +838,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("integer")
                         .HasColumnName("age");
 
-                    b.Property<string>("Backpack")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("backpack");
-
                     b.Property<string>("BodyType")
                         .IsRequired()
                         .HasColumnType("text")
@@ -852,11 +847,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("char_name");
-
-                    b.Property<string>("Clothing")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("clothing");
 
                     b.Property<string>("ClownName")
                         .HasColumnType("text")
@@ -927,6 +917,10 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Property<JsonDocument>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
+
+                    b.Property<string>("MimeName")
+                        .HasColumnType("text")
+                        .HasColumnName("mime_name");
 
                     b.Property<string>("Nationality")
                         .IsRequired()
