@@ -88,8 +88,8 @@ public abstract class SharedGunFluxSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        DebugTools.Assert(GetFluxCore(comp, out var core));
-        var overflow = AddFlux(core, comp.HeatCost);
+        DebugTools.Assert(GetFluxCore(comp, out var core)); // i think pinuks compiler (null-checker specifically) gets confused by this line,
+        var overflow = AddFlux(core!, comp.HeatCost);      // which necessitates the "!" here
         TryMalfunction(args.User, uid, comp, core);
         if (overflow != 0)
         {
