@@ -139,7 +139,7 @@
     whitelist:
       tags:
       - FluxCore
-      - SmallFluxCore
+      - FluxCoreSmall
 
 - type: entity
   name: big flux core box
@@ -159,4 +159,4 @@
     whitelist:
       tags:
       - FluxCore
-      - SmallFluxCore
+      - FluxCoreSmall
