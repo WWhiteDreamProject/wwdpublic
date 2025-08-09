@@ -362,25 +362,20 @@ public sealed partial class GunSystem
     // here be shitcode
     public sealed class EnergyGunBatteryStatusControl : Control
     {
-        private readonly EntityUid _gun;
         private readonly FluxBarControl _fluxBar;
         private readonly BarControl _ammoBar;
         private readonly Label _ammoLabel;
-        private readonly Label _safetyLabel;
         private readonly BatteryAmmoProviderComponent _ammoProvider;
         private readonly GunFluxComponent? _overheatComp;
         private readonly GunOverheatSystem _overheatSystem;
 
         private int _ammoCount;
-        private bool _heatLimitEnabled = true;
-        private float _heatLimit;
 
         public EnergyGunBatteryStatusControl(EntityUid uid, BatteryAmmoProviderComponent comp)
         {
             var entMan = IoCManager.Resolve<IEntityManager>();
             _overheatSystem = entMan.System<GunOverheatSystem>();
             entMan.TryGetComponent(uid, out _overheatComp);
-            _gun = uid;
             _ammoProvider = comp;
             _ammoCount = comp.Shots;
             MinHeight = 15;
@@ -388,76 +383,36 @@ public sealed partial class GunSystem
             VerticalAlignment = VAlignment.Center;
             AddChild(new BoxContainer // outer box
             {
-                Orientation = BoxContainer.LayoutOrientation.Vertical,
+                Orientation = BoxContainer.LayoutOrientation.Horizontal,
                 Children =
                 {
-                    new BoxContainer // inner upper box, lamp indicator and temp gauge
-                    {
-                        Orientation = BoxContainer.LayoutOrientation.Horizontal,
-                        Children =
-                        {
-                            //(_lampLabel = new()
-                            //{
-                            //    StyleClasses = { StyleNano.StyleClassItemStatus },
-                            //    HorizontalAlignment = HAlignment.Left,
-                            //    VerticalAlignment = VAlignment.Bottom,
-                            //    Text = " \u25cf"
-                            //}),
-                            (_safetyLabel = new()
-                            {
-                                StyleClasses = { StyleNano.StyleClassItemStatus },
-                                HorizontalAlignment = HAlignment.Right,
-                                HorizontalExpand = true,
-                                VerticalAlignment = VAlignment.Bottom,
-                                Text = $"[S]"
-                            }),
-                        }
-                    },
                     new BoxContainer
                     {
-                        Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                        Orientation = BoxContainer.LayoutOrientation.Vertical,
+                        MaxWidth = 72,
+                        SetHeight = 15,
+                        VerticalAlignment = VAlignment.Top,
+                        SeparationOverride = 1,
                         Children =
                         {
-                            new BoxContainer
+                            (_fluxBar = new()
                             {
-                                Orientation = BoxContainer.LayoutOrientation.Vertical,
-                                MaxWidth = 72,
-                                SetHeight = 15,
-                                VerticalAlignment = VAlignment.Top,
-                                SeparationOverride = 1,
-                                Children =
-                                {
-                                    (_fluxBar = new()
-                                    {
-                                    }),
-                                    (_ammoBar = new()
-                                    {
-                                    })
-                                }
-                            },
-                            (_ammoLabel = new()
-                            {
-                                StyleClasses = { StyleNano.StyleClassItemStatus },
-                                HorizontalExpand = true,
-                                HorizontalAlignment = HAlignment.Right,
-                                VerticalAlignment = VAlignment.Top,
-                                Text = $"x{_ammoCount:00}"
                             }),
+                            (_ammoBar = new()
+                            {
+                            })
                         }
-                    }
+                    },
+                    (_ammoLabel = new()
+                    {
+                        StyleClasses = { StyleNano.StyleClassItemStatus },
+                        HorizontalExpand = true,
+                        HorizontalAlignment = HAlignment.Right,
+                        VerticalAlignment = VAlignment.Top,
+                        Text = $"x{_ammoCount:00}"
+                    }),
                 }
             });
-        }
-
-        private void UpdateSafetyLabel(float fraction)
-        {
-            const float zeroFluxHue = 0.22f;
-            const float maxFluxHue = 0.66f;
-
-            float hue = zeroFluxHue + (maxFluxHue - zeroFluxHue) * fraction;
-            string safetyString = _overheatComp!.SafetyEnabled ? "[S] " : string.Empty;
-            _safetyLabel.Text = $"{safetyString}";
-            _safetyLabel.FontColorOverride = Color.FromHsv(new(hue, 1, 1, 1));
         }
 
         protected override void PreRenderChildren(ref ControlRenderArguments args)
@@ -469,18 +424,15 @@ public sealed partial class GunSystem
             if (_overheatComp is null || !_overheatSystem.GetFluxCore(_overheatComp, out var core))
             {
                 _fluxBar.Visible = false;
-                _safetyLabel.Visible = false;
             }
             else
             {
                 _fluxBar.Visible = true;
-                _safetyLabel.Visible = true;
                 var currentFlux = _overheatSystem.GetCurrentFlux(core);
                 _fluxBar.Fill = currentFlux / core.Capacity;
                 _fluxBar.Mark = MathHelper.Clamp(_overheatComp.HeatCost / core.Capacity, -1, 1);
                 _fluxBar.SafeLimit = core.SafeFlux > 0 ? core.SafeFlux / core.Capacity : null;
                 _fluxBar.SafeLimitColor = _overheatComp.SafetyEnabled ? Color.LightGreen : Color.Yellow;
-                UpdateSafetyLabel(currentFlux / core.Capacity);
             }
 
             _ammoLabel.Text = $"x{_ammoProvider.Shots:00}";

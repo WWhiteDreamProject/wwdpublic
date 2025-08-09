@@ -134,7 +134,7 @@
 
 - type: entity
   id: BaseWeaponBatterySmall
-  parent: [BaseWeaponBattery, BaseWeaponFluxSmall] # wwdp edit - overheat
+  parent: BaseWeaponBattery
   abstract: true
   components:
   - type: Item
@@ -165,8 +165,6 @@
     bonusAngleIncreaseTurn: 0.2
     bonusAngleDecay: 50
     maxBonusAngle: 15
-  - type: Temperature
-    atmosTemperatureTransferEfficiency: 0.2 # default 0.1
   # WD EDIT END
 
 - type: entity
@@ -224,9 +222,9 @@
 
 - type: entity
   name: retro laser blaster
-  parent: [BaseWeaponBatterySmall, BaseWeaponFluxSmall, BaseMajorContraband] # wwdp edit - overheat
+  parent: [BaseWeaponBatterySmall, BaseMajorContraband] # wwdp edit - overheat
   id: WeaponLaserGun
-  description: A weapon using light amplified by the stimulated emission of radiation. Bad design choices have lead to this model having subpar cooling capabilities. # WD EDIT
+  description: A weapon using light amplified by the stimulated emission of radiation. Widely used before the paradigm shift to higher capacity but less reliable power sources, it relies on the user's mastery over the art of shooting.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
@@ -239,19 +237,15 @@
   # WD EDIT START: Projectile > Hitscan
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletLaser # WWDP
-    fireCost: 15 # wwdp
+    fireCost: 100 # wwdp
   # WD EDIT END
   - type: MagazineVisuals
     magState: mag
     steps: 5
     zeroVisible: true
   - type: Appearance
-  # WD EDIT END
-  - type: GunFlux #eee
-    temperatureLimit: 150
-  - type: Temperature
-    atmosTemperatureTransferEfficiency: 0.05
-  # WD EDIT END
+  # no gunflux component since this is a "ye olde" gun
+
 
 - type: entity
   name: makeshift laser pistol
@@ -640,7 +634,7 @@
 
 - type: entity
   name: practice disabler
-  parent: BaseWeaponBatterySmall
+  parent: [BaseWeaponBatterySmall, BaseWeaponFluxSmall]
   id: WeaponDisablerPractice
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for cadets making it mostly harmless.
   components:
@@ -671,7 +665,9 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
-    fireCost: 100
+    fireCost: 12.5 # wwdp edit
+  - type: GunFlux
+    heatCost: 0.2
   - type: MeleeWeapon
     damage:
       types:
@@ -721,8 +717,8 @@
     - Security
     - Antagonists
   # WD EDIT START
-  - type: GunFlux #eee
-    heatCost: 20
+  - type: GunFlux
+    heatCost: 0.5
   # WD EDIT END
 
 - type: entity

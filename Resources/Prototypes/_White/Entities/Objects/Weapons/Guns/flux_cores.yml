@@ -22,7 +22,8 @@
         Blunt: 4
   - type: Appearance
   - type: Tag
-    
+    tags:
+    - FluxCore
 
 
 #regular sized
@@ -30,7 +31,7 @@
   parent: BaseFluxCore
   id: BasicFluxCore
   name: standard-issue flux core
-  description: A 90s looking lamp. You're not sure what it's really for, but without it most energy weapons will not work.
+  description: A weapon-grade flux core. Used as a buffer to contain and dissipate flux generated when firing. Without this, firing an energy weapon can end badly.
   components:
   - type: FluxCore
     capacity: 12
@@ -50,7 +51,7 @@
   parent: BaseFluxCore
   id: AdvancedFluxCore
   name: advanced flux core
-  description: A 00s looking lamp. Better flux tolerance at the cost of worse overload tolerance.
+  description: A weapon-grade advanced flux core with better capacity. Used as a buffer to contain and dissipate flux generated when firing. Without this, firing an energy weapon can end badly.
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Flux/standardfluxcore.rsi
@@ -74,7 +75,7 @@
   parent: BaseFluxCore
   id: SmallBasicFluxCore
   name: small flux core
-  description: A 90s looking lamp. You're not sure what it's really for, but without it most energy weapons will not work.
+  description: A weapon-grade flux core, downsized for small sidearms. Used as a buffer to contain and dissipate flux generated when firing. Without this, firing an energy weapon can end badly.
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Flux/smallfluxcore.rsi
@@ -94,13 +95,14 @@
     effectSteps: 3
   - type: Tag
     tags:
+    - FluxCore
     - FluxCoreSmall
 
 - type: entity
   parent: SmallBasicFluxCore
   id: SmallAdvancedFluxCore
   name: small advanced flux core
-  description: A 00s looking lamp. Better flux tolerance at the cost of worse overload tolerance.
+  description: A weapon-grade advanced flux core, downsized for small sidearms. Used as a buffer to contain and dissipate flux generated when firing. Without this, firing an energy weapon can end badly.
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Flux/smallfluxcore.rsi
@@ -123,7 +125,7 @@
   name: flux core box
   parent: BoxCardboard
   id: BoxBasicFluxCore
-  description: The saviour of incompetent security officers sector-wide. Holds 4 spare flux cores.
+  description: The saviour of incompetent security officers sector-wide. Holds 8 spare flux cores.
   components:
   - type: StorageFill
     contents:
@@ -135,24 +137,26 @@
     grid:
     - 0,0,3,3
     whitelist:
-      components:
+      tags:
       - FluxCore
+      - SmallFluxCore
 
 - type: entity
   name: big flux core box
   parent: BoxCardboard
   id: BoxBasicFluxCoreBig
-  description: The saviour of incompetent security officers sector-wide. Holds 8 spare flux cores.
+  description: The saviour of incompetent security officers sector-wide. Holds 12 spare flux cores.
   components:
   - type: StorageFill
     contents:
       - id: BasicFluxCore
-        amount: 8
+        amount: 6
       - id: SmallBasicFluxCore
-        amount: 8
+        amount: 6
   - type: Storage
     grid:
-    - 0,0,7,3
+    - 0,0,5,3
     whitelist:
-      components:
+      tags:
       - FluxCore
+      - SmallFluxCore
