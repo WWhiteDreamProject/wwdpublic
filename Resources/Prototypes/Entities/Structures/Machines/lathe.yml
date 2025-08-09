@@ -1177,8 +1177,8 @@
     - BoxBreach
     - ShellShotgunBreach
     - WeaponSecurityRiotLauncher
-    - BasicRegulatorLamp
-    - AdvancedRegulatorLamp
+    - BasicFluxCore
+    - AdvancedFluxCore
     # WD EDIT END
   - type: MaterialStorage
     whitelist:

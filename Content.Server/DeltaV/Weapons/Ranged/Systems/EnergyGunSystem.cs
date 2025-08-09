@@ -153,7 +153,7 @@ public sealed class EnergyGunSystem : EntitySystem
             projectileBatteryAmmoProvider.Prototype = fireMode.Prototype;
             projectileBatteryAmmoProvider.FireCost = fireMode.FireCost;
             // WWDP EDIT START
-            if (TryComp<GunOverheatComponent>(uid, out var overheat))
+            if (TryComp<GunFluxComponent>(uid, out var overheat))
             {
                 overheat.HeatCost = fireMode.HeatCost;
                 Dirty(uid, overheat);

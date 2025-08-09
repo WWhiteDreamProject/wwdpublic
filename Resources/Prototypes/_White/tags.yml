@@ -36,3 +36,9 @@
 
 - type: Tag
   id: XenomorphItem
+
+- type: Tag
+  id: FluxCore
+
+- type: Tag
+  id: FluxCoreSmall

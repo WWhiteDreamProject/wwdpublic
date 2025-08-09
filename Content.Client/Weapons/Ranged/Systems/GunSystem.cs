@@ -256,6 +256,7 @@ public sealed partial class GunSystem : SharedGunSystem
         // This also means any ammo specific stuff can be grabbed as necessary.
         var direction = TransformSystem.ToMapCoordinates(fromCoordinates).Position - TransformSystem.ToMapCoordinates(toCoordinates).Position;
         var worldAngle = direction.ToAngle().Opposite();
+        gun.LastFire = Timing.CurTime; // WWDP EDIT
 
         foreach (var (ent, shootable) in ammo)
         {

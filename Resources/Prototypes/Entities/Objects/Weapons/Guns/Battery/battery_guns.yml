@@ -73,49 +73,6 @@
       collection: LasersDrop
   # WD EDIT END
 
-# WWDP prototype
-- type: entity
-  id: BaseWeaponOverheat
-  abstract: True
-  components:
-  - type: Temperature
-  - type: AtmosExposed
-  - type: GunOverheat # wwdp
-    temperatureLimit: 150
-
-# WWDP prototype
-- type: entity
-  id: BaseWeaponOverheatLamp
-  parent: [BaseWeaponOverheat, BaseWeaponOverheatLampSlot]
-  abstract: True
-  components:
-  - type: GunOverheat # wwdp
-    requiresLamp: true
-    canChangeSafety: true
-    temperatureLimit: 240
-
-# WWDP prototype
-- type: entity
-  id: BaseWeaponOverheatLampSlot
-  parent: BaseWeaponOverheat
-  abstract: True
-  components:
-  - type: ContainerContainer
-    containers:
-      gun-regulator-lamp-slot: !type:ContainerSlot
-  - type: ItemSlots
-    slots:
-      gun-regulator-lamp-slot:
-        name: Regulator Lamp
-        swap: false
-        priority: 20
-        startingItem: BasicRegulatorLamp
-        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
-        whitelist:
-          components:
-          - RegulatorLamp
-
 - type: entity
   id: BaseWeaponPowerCell
   parent: BaseItem
@@ -177,7 +134,7 @@
 
 - type: entity
   id: BaseWeaponBatterySmall
-  parent: [BaseWeaponBattery, BaseWeaponOverheat] # wwdp edit - overheat
+  parent: BaseWeaponBattery
   abstract: true
   components:
   - type: Item
@@ -208,8 +165,6 @@
     bonusAngleIncreaseTurn: 0.2
     bonusAngleDecay: 50
     maxBonusAngle: 15
-  - type: Temperature
-    atmosTemperatureTransferEfficiency: 0.2 # default 0.1
   # WD EDIT END
 
 - type: entity
@@ -267,9 +222,9 @@
 
 - type: entity
   name: retro laser blaster
-  parent: [ BaseWeaponBatterySmall, BaseMajorContraband ]
+  parent: [BaseWeaponBatterySmall, BaseMajorContraband] # wwdp edit - overheat
   id: WeaponLaserGun
-  description: A weapon using light amplified by the stimulated emission of radiation. Bad design choices have lead to this model having subpar cooling capabilities. # WD EDIT
+  description: A weapon using light amplified by the stimulated emission of radiation. Widely used before the paradigm shift to higher capacity but less reliable power sources, it relies on the user's mastery over the art of shooting.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
@@ -280,25 +235,21 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   # WD EDIT START: Projectile > Hitscan
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletLaser
-    fireCost: 15
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaser # WWDP
+    fireCost: 100 # wwdp
   # WD EDIT END
   - type: MagazineVisuals
     magState: mag
     steps: 5
     zeroVisible: true
   - type: Appearance
-  # WD EDIT END
-  - type: GunOverheat
-    temperatureLimit: 150
-  - type: Temperature
-    atmosTemperatureTransferEfficiency: 0.05
-  # WD EDIT END
+  # no gunflux component since this is a "ye olde" gun
+
 
 - type: entity
   name: makeshift laser pistol
-  parent: BaseWeaponBatterySmall
+  parent: [BaseWeaponBatterySmall, BaseWeaponFluxSmall] # wwdp edit - overheat
   id: WeaponMakeshiftLaser
   description: Better pray it won't burn your hands off.
   components:
@@ -321,7 +272,7 @@
     maxCharge: 500
     startingCharge: 500
   # WD EDIT START
-  - type: GunOverheat
+  - type: GunFlux #eee
     requiresLamp: false
     canChangeSafety: false
     temperatureLimit: 125
@@ -332,7 +283,7 @@
 
 - type: entity
   name: tesla gun
-  parent: [BaseWeaponBattery, BaseWeaponOverheat] # WD EDIT: Overheat
+  parent: [BaseWeaponBattery, BaseWeaponFlux] # wwdp
   id: WeaponTeslaGun
   description: The power of the primordial element of lightning in your hands.
   components:
@@ -367,9 +318,9 @@
 
 - type: entity
   name: practice laser rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponOverheatLamp] # WD EDIT: Overheat
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponFlux] # wwdp edit - overheat
   id: WeaponLaserCarbinePractice
-  description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
+  description: This modified laser rifle fires (nearly) harmless beams in the 40-watt range, for target practice.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
@@ -385,10 +336,15 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: GunFlux # wwdp
+    heatCost: 0.1
   # WD EDIT START: Projectile > Hitscan
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletLaserPractice
-    fireCost: 62.5
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletLaserPractice # WWDP
+    fireCost: 6.25 # wwdp edit
   # WD EDIT END
   - type: StaticPrice
     price: 300
@@ -396,10 +352,7 @@
     damage:
       types:
         Blunt: 4
-  # WD EDIT START
-  - type: GunOverheat
-    heatCost: 2.5
-  - type: Item # Guns resize
+  - type: Item # WWDP guns resize
     size: Huge
     shape:
     - 0,0,7,1
@@ -417,13 +370,13 @@
   - type: ProjectileBatteryAmmoProvider # Projectile > Hitscan
     proto: BulletLaser
     fireCost: 12.5
-  - type: GunOverheat
-    heatCost: 35
+  - type: GunFlux #eee
+    heatCost: 1
   # WD EDIT END
 
 - type: entity
   name: pulse pistol
-  parent: BaseWeaponBatterySmall
+  parent: [BaseWeaponBatterySmall, BaseWeaponFluxSmall]
   id: WeaponPulsePistol
   description: A state of the art energy pistol favoured as a sidearm by the NT operatives.
   components:
@@ -449,13 +402,8 @@
     fireCost: 100
   # WD EDIT END
   - type: Battery
-    # WD EDIT START
-    maxCharge: 3000
-    startingCharge: 3000
-  - type: GunOverheat # WWDP
-    temperatureLimit: 500
-    heatCost: 100
-  # WD EDIT END
+    maxCharge: 3000 # WWDP
+    startingCharge: 3000 # WWDP
 
 - type: entity
   name: antique pulse pistol
@@ -477,7 +425,7 @@
 
 - type: entity
   name: pulse carbine
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband, BaseWeaponOverheat] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband, BaseWeaponFlux] # wwdp edit - overheat
   id: WeaponPulseCarbine
   description: A high tech energy carbine favoured by the NT-ERT operatives.
   components:
@@ -505,13 +453,9 @@
     fireCost: 100
   # WD EDIT END
   - type: Battery
-    maxCharge: 5000
-    startingCharge: 5000
-  # WD EDIT START
-  - type: GunOverheat # wwdp
-    temperatureLimit: 1000
-    heatCost: 100
-  - type: Item # Guns resize
+    maxCharge: 6000 # wwdp
+    startingCharge: 6000 # wwdp
+  - type: Item # WWDP guns resize
     size: Huge
     shape:
     - 0,0,5,1
@@ -519,7 +463,7 @@
 
 - type: entity
   name: pulse rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponOverheat] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponFlux] # wwdp edit - overheat
   id: WeaponPulseRifle
   description: A weapon that is almost as infamous as its users.
   components:
@@ -538,15 +482,15 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   # WD EDIT START: Projectile > Hitscan
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletPulse
-    fireCost: 75
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletPulse # WWDP
+    fireCost: 75 # wwdp edit
   # WD EDIT END
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
   # WD EDIT START
-  - type: GunOverheat
+  - type: GunFlux #eee
     temperatureLimit: 4500
     heatCost: 100
   - type: Item # Guns resize
@@ -648,7 +592,7 @@
 
 - type: entity
   name: x-ray cannon
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponOverheatLamp] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseWeaponFlux] # wwdp edit - overheat
   id: WeaponXrayCannon
   description: An experimental weapon that uses concentrated x-ray energy against its target.
   components:
@@ -665,9 +609,12 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
   # WD EDIT START: Projectile > Hitscan
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletXRay
+  - type: ProjectileBatteryAmmoProvider # WWDP
+    proto: BulletXRay # WWDP
     fireCost: 25
   # WD EDIT END
   - type: MagazineVisuals
@@ -676,7 +623,7 @@
     zeroVisible: true
   - type: Appearance
   # WD EDIT START
-  - type: GunOverheat
+  - type: GunFlux #eee
     temperatureLimit: 650
     heatCost: 100
   - type: Item # Guns resize
@@ -687,7 +634,7 @@
 
 - type: entity
   name: practice disabler
-  parent: BaseWeaponBatterySmall
+  parent: [BaseWeaponBatterySmall, BaseWeaponFluxSmall]
   id: WeaponDisablerPractice
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for cadets making it mostly harmless.
   components:
@@ -718,7 +665,9 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
-    fireCost: 100
+    fireCost: 12.5 # wwdp edit
+  - type: GunFlux
+    heatCost: 0.2
   - type: MeleeWeapon
     damage:
       types:
@@ -768,8 +717,8 @@
     - Security
     - Antagonists
   # WD EDIT START
-  - type: GunOverheat
-    heatCost: 20
+  - type: GunFlux
+    heatCost: 0.5
   # WD EDIT END
 
 - type: entity
@@ -862,7 +811,7 @@
 
 - type: entity
   name: disabler SMG
-  parent: [ BaseWeaponBattery, BaseRestrictedContraband, BaseWeaponOverheatLamp, BaseGunWieldable ] # wwdp edit - overheat + wieldable
+  parent: [BaseWeaponBattery, BaseRestrictedContraband, BaseWeaponFlux, BaseGunWieldable] # wwdp edit - overheat + wieldable
   id: WeaponDisablerSMG
   description: Advanced weapon that exhausts organic targets, weakening them until they collapse.
   components:
@@ -900,9 +849,15 @@
     - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: GunWieldBonus # WWDP
+    minAngle: -10
+    maxAngle: -10
+  - type: Battery
+    maxCharge: 2500
+    startingCharge: 2500
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
-    fireCost: 33
+    fireCost: 66
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -915,13 +870,6 @@
         Blunt: 6.5
     bluntStaminaDamageFactor: 2.5
     wideAnimationRotation: 180
-  # WD EDIT START
-  - type: GunOverheat
-    heatCost: 20
-  - type: GunWieldBonus
-    minAngle: -10
-    maxAngle: -10
-  # WD EDIT END
 
 - type: entity
   name: taser
@@ -961,7 +909,7 @@
 
 - type: entity
   name: antique laser pistol
-  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband, BaseWeaponOverheatLamp] # wwdp edit - overheat
+  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband, BaseWeaponFlux] # wwdp edit - overheat
   id: WeaponAntiqueLaser
   description: This is an antique laser pistol. All craftsmanship is of the highest quality. It is decorated with assistant leather and chrome. The object menaces with spikes of energy.
   components:
@@ -1013,13 +961,13 @@
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
-  - type: GunOverheat # wwdp
+  - type: GunFlux #eee # wwdp
     temperatureLimit: 200
     heatCost: 35
 
 - type: entity
   name: advanced laser pistol
-  parent: [BaseWeaponBatterySmall, BaseRestrictedContraband, BaseWeaponOverheatLamp] # wwdp edit - overheat
+  parent: [BaseWeaponBatterySmall, BaseRestrictedContraband, BaseWeaponFlux] # wwdp edit - overheat
   id: WeaponAdvancedLaser
   description: An experimental high-energy laser pistol with a self-charging nuclear battery.
   components:
@@ -1158,7 +1106,7 @@
 
 - type: entity
   name: energy shotgun
-  parent: [BaseWeaponBattery, BaseWeaponOverheatLamp, BaseGunWieldable] # wwdp edit - overheat
+  parent: [BaseWeaponBattery, BaseWeaponFlux, BaseGunWieldable] # wwdp edit - overheat
   id: WeaponEnergyShotgun
   description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
   components:

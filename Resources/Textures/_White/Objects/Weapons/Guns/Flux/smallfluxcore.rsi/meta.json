@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "WWDP @not_a_femb0y",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {"name": "base"},
+	{"name": "flux-0"},
+	{"name": "flux-1"},
+	{"name": "flux-2"},
+	{"name": "flux-3"}
+  ]
+}

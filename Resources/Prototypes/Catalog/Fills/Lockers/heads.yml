@@ -370,7 +370,7 @@
     # - id: WeaponDisabler - WD EDIT
     - id: WantedListCartridge
     # WD EDIT START
-    - id: BoxBasicRegulatorLamp
+    - id: BoxBasicFluxCore
     - id: AssballBat
     - id: ClothingHandsGlovesCombat
     # WD EDIT END

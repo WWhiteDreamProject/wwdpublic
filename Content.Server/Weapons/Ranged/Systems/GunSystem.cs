@@ -110,6 +110,7 @@ public sealed partial class GunSystem : SharedGunSystem
         // I must be high because this was getting tripped even when true.
         // DebugTools.Assert(direction != Vector2.Zero);
         var shotProjectiles = new List<EntityUid>(ammo.Count);
+        gun.LastFire = Timing.CurTime; // WWDP EDIT
 
         foreach (var (ent, shootable) in ammo)
         {
@@ -342,6 +343,10 @@ public sealed partial class GunSystem : SharedGunSystem
             }
             else
             {
+                RaiseLocalEvent(gunUid, new ProjectileShotEvent() // WWDP EDIT START
+                {
+                    FiredProjectile = ammoEnt
+                }); // WWDP EDIT END
                 ShootOrThrow(ammoEnt, mapDirection, gunVelocity, gun, gunUid, user);
                 shotProjectiles.Add(ammoEnt);
             }

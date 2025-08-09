@@ -32,7 +32,7 @@
     - id: LunchboxSecurityFilledRandom
       prob: 0.3
     # WD EDIT START
-    - id: BoxBasicRegulatorLampBig
+    - id: BoxBasicFluxCoreBig
     - id: BoxBodyBagPrisoner
     - id: ClothingMaskGasSecurity
     # WD EDIT END
@@ -70,7 +70,7 @@
     - id: LunchboxSecurityFilledRandom
       prob: 0.3
     # WD EDIT START
-    - id: BoxBasicRegulatorLampBig
+    - id: BoxBasicFluxCoreBig
     - id: BoxBodyBagPrisoner
     - id: ClothingMaskGasSecurity
     # WD EDIT END

@@ -64,6 +64,10 @@ public sealed partial class GunComponent : Component
     [AutoNetworkedField]
     public TimeSpan CurrentAngleLastUpdate = TimeSpan.Zero;
 
+    [DataField]
+    [AutoNetworkedField]
+    public TimeSpan LastFire = TimeSpan.Zero;
+
     /// <summary>
     /// What the current spread is for shooting. This gets changed every time the gun fires.
     /// </summary>

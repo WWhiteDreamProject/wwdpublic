@@ -208,21 +208,18 @@ public sealed class PartialGunSpreadOverlay : GunSpreadOverlay
 
         Angle negRot = -_eye.CurrentEye.Rotation;
 
-        handle.SetTransform(from, 0);
-
         Angle ang1 = dir1.ToAngle();
         Angle ang2 = dir2.ToAngle();
-        handle.DrawTextureCentered(_textureL, dir1 * 0.76f, ang1, color);
-        handle.DrawTextureCentered(_textureL, dir2 * 0.76f, ang2, color);
-        handle.DrawTextureCentered(_textureS, dir1 * 0.88f, ang1, color);
-        handle.DrawTextureCentered(_textureS, dir2 * 0.88f, ang2, color);
-        handle.DrawTextureCentered(_textureL, dir1 * 1f,    ang1, color);
-        handle.DrawTextureCentered(_textureL, dir2 * 1f,    ang2, color);
-        handle.DrawTextureCentered(_textureS, dir1 * 1.12f, ang1, color);
-        handle.DrawTextureCentered(_textureS, dir2 * 1.12f, ang2, color);
-        handle.DrawTextureCentered(_textureL, dir1 * 1.24f, ang1, color);
-        handle.DrawTextureCentered(_textureL, dir2 * 1.24f, ang2, color);
-
+        handle.DrawTextureCentered(_textureL, from + dir1 * 0.76f, ang1, color);
+        handle.DrawTextureCentered(_textureL, from + dir2 * 0.76f, ang2, color);
+        handle.DrawTextureCentered(_textureS, from + dir1 * 0.88f, ang1, color);
+        handle.DrawTextureCentered(_textureS, from + dir2 * 0.88f, ang2, color);
+        handle.DrawTextureCentered(_textureL, from + dir1 * 1f,    ang1, color);
+        handle.DrawTextureCentered(_textureL, from + dir2 * 1f,    ang2, color);
+        handle.DrawTextureCentered(_textureS, from + dir1 * 1.12f, ang1, color);
+        handle.DrawTextureCentered(_textureS, from + dir2 * 1.12f, ang2, color);
+        handle.DrawTextureCentered(_textureL, from + dir1 * 1.24f, ang1, color);
+        handle.DrawTextureCentered(_textureL, from + dir2 * 1.24f, ang2, color);
     }
 }
 
