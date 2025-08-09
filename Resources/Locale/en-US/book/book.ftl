@@ -21,4 +21,3 @@ book-story-template-is =  is
 book-story-template-period = .
 book-story-template-comma = ,
 book-story-template-space = {" "}
-book-story-template-newline = {"\\n\\n"}

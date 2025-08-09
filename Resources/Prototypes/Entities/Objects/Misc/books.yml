@@ -118,7 +118,6 @@
     openOnActivation: true
     guides:
     - Bartender
-    - Drinks
 
 - type: entity
   id: BookHowToCookForFortySpaceman
@@ -141,7 +140,6 @@
     openOnActivation: true
     guides:
     - Chef
-    - FoodRecipes
 
 - type: entity
   id: BookLeafLoversSecret
@@ -167,7 +165,6 @@
     openOnActivation: true
     guides:
     - Botany
-    - Chemicals
 
 - type: entity
   id: BookEngineersHandbook
@@ -244,7 +241,6 @@
     openOnActivation: true
     guides:
     - Security
-    - Antagonists
 
 - type: entity
   id: BookHowToKeepStationClean
@@ -366,35 +362,6 @@
     openOnActivation: true
     guides:
     - Chemicals
-    - Chemist
-
-- type: entity
-  id: BookSpaceLaw
-  parent: BaseItem
-  name: space law
-  description: A set of Nanotrasen guidelines for keeping law and order on their space stations.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/books.rsi
-    layers:
-    - state: paper
-    - state: cover_strong
-      color: "#87011c"
-    - state: icon_law
-      color: "#f7d61a"
-  - type: Tag
-    tags:
-    - Book
-  - type: GuideHelp
-    openOnActivation: true
-    guides:
-    - SpaceLaw
-  - type: MeleeWeapon # so you can beat stupid cadets
-    soundHit:
-      collection: Punch
-    damage:
-      types:
-        Blunt: 1
 
 - type: entity
   parent: BookBase
@@ -404,8 +371,8 @@
   components:
   - type: RandomMetadata
     nameSegments:
-    - BookHintAppearances
-    - BookTypes
+    - book_hint_appearance
+    - book_type
   - type: RandomSprite
     available:
       - cover:
@@ -464,35 +431,6 @@
   parent: BookRandom
   id: BookRandomStory
   suffix: random visual, random story
-  components:
-  - type: PaperRandomStory
-    storySegments:
-    - "This is a "
-    - "story-gen-book-genre"
-    - " about a "
-    - "story-gen-book-character-trait"
-    - " "
-    - "story-gen-book-character"
-    - " and "
-    - "story-gen-book-character-trait"
-    - " "
-    - "story-gen-book-character"
-    - ". Due to "
-    - "story-gen-book-event"
-    - ", they "
-    - "story-gen-book-action-trait"
-    - " "
-    - "story-gen-book-action"
-    - " "
-    - "story-gen-book-character"
-    - " "
-    - "story-gen-book-location"
-    - ".                                                                                                                  "
-    - "story-gen-book-element"
-    - " is "
-    - "story-gen-book-element-trait"
-    - "."
-    storySeparator: ""
 
 
 - type: entity

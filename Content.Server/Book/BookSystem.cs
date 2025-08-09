@@ -12,7 +12,7 @@ using Content.Shared.UserInterface;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Random;
 using System.Text;
-using Content.Server.Paper;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Book;
 
@@ -273,39 +273,38 @@ public sealed class BookSystem : EntitySystem
     {
         if (component.Pages.Count == 1 && string.IsNullOrEmpty(component.Pages[0]))
         {
-            var storySegments = new[]
-            {
-            Loc.GetString("book-story-template-this-is"),
-            GetRandomLocString("story-gen-book-genre"),
-            Loc.GetString("book-story-template-about"),
-            GetRandomLocString("story-gen-book-character-trait"),
-            Loc.GetString("book-story-template-space"),
-            GetRandomLocString("story-gen-book-character"),
-            Loc.GetString("book-story-template-and"),
-            GetRandomLocString("story-gen-book-character-trait"),
-            Loc.GetString("book-story-template-space"),
-            GetRandomLocString("story-gen-book-character"),
-            Loc.GetString("book-story-template-due-to"),
-            GetRandomLocString("story-gen-book-event"),
-            Loc.GetString("book-story-template-comma"),
-            Loc.GetString("book-story-template-they"),
-            GetRandomLocString("story-gen-book-action-trait"),
-            Loc.GetString("book-story-template-space"),
-            GetRandomLocString("story-gen-book-action"),
-            Loc.GetString("book-story-template-space"),
-            GetRandomLocString("story-gen-book-character"),
-            Loc.GetString("book-story-template-space"),
-            GetRandomLocString("story-gen-book-location"),
-            Loc.GetString("book-story-template-period"),
-            Loc.GetString("book-story-template-newline"),
-            GetRandomLocString("story-gen-book-element"),
-            Loc.GetString("book-story-template-is"),
-            GetRandomLocString("story-gen-book-element-trait"),
-            Loc.GetString("book-story-template-period")
-        };
+            var story = new FormattedMessage();
 
-            var story = string.Join("", storySegments);
-            component.Pages[0] = story;
+            story.AddText(Loc.GetString("book-story-template-this-is"));
+            story.AddText(GetRandomLocString("story-gen-book-genre"));
+            story.AddText(Loc.GetString("book-story-template-about"));
+            story.AddText(GetRandomLocString("story-gen-book-character-trait"));
+            story.AddText(Loc.GetString("book-story-template-space"));
+            story.AddText(GetRandomLocString("story-gen-book-character"));
+            story.AddText(Loc.GetString("book-story-template-and"));
+            story.AddText(GetRandomLocString("story-gen-book-character-trait"));
+            story.AddText(Loc.GetString("book-story-template-space"));
+            story.AddText(GetRandomLocString("story-gen-book-character"));
+            story.AddText(Loc.GetString("book-story-template-due-to"));
+            story.AddText(GetRandomLocString("story-gen-book-event"));
+            story.AddText(Loc.GetString("book-story-template-comma"));
+            story.AddText(Loc.GetString("book-story-template-they"));
+            story.AddText(GetRandomLocString("story-gen-book-action-trait"));
+            story.AddText(Loc.GetString("book-story-template-space"));
+            story.AddText(GetRandomLocString("story-gen-book-action"));
+            story.AddText(Loc.GetString("book-story-template-space"));
+            story.AddText(GetRandomLocString("story-gen-book-character-story"));
+            story.AddText(Loc.GetString("book-story-template-space"));
+            story.AddText(GetRandomLocString("story-gen-book-location"));
+            story.AddText(Loc.GetString("book-story-template-period"));
+            story.PushNewline();
+            story.PushNewline();
+            story.AddText(GetRandomLocString("story-gen-book-element"));
+            story.AddText(Loc.GetString("book-story-template-is"));
+            story.AddText(GetRandomLocString("story-gen-book-element-trait"));
+            story.AddText(Loc.GetString("book-story-template-period"));
+
+            component.Pages[0] = story.ToMarkup();
             Dirty(uid, component);
         }
     }
@@ -323,6 +322,7 @@ public sealed class BookSystem : EntitySystem
         {
             "story-gen-book-genre" => 14,
             "story-gen-book-character" => 40,
+            "story-gen-book-character-story" => 40,
             "story-gen-book-character-trait" => 24,
             "story-gen-book-event" => 24,
             "story-gen-book-action" => 12,
@@ -336,9 +336,9 @@ public sealed class BookSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, BookComponent component, MapInitEvent args)
     {
-        if (TryComp<PaperRandomStoryComponent>(uid, out var randomStory))
+        if (MetaData(uid).EntityPrototype?.ID == "BookRandomStory")
         {
-            GenerateRandomStoryContent(uid, component, randomStory);
+            GenerateRandomContent(uid, component);
         }
 
         if (!string.IsNullOrEmpty(component.Content))
@@ -379,35 +379,5 @@ public sealed class BookSystem : EntitySystem
 
         if (component.Pages.Count == 0)
             component.Pages.Add("");
-    }
-
-    private void GenerateRandomStoryContent(EntityUid uid, BookComponent component, PaperRandomStoryComponent randomStory)
-    {
-        if (component.Pages.Count == 1 && string.IsNullOrEmpty(component.Pages[0]))
-        {
-            if (randomStory.StorySegments != null)
-            {
-                var story = GenerateStoryFromSegments(randomStory.StorySegments);
-                component.Pages[0] = story;
-                Dirty(uid, component);
-            }
-        }
-    }
-
-    private string GenerateStoryFromSegments(List<string> segments)
-    {
-        var result = new StringBuilder();
-        foreach (var segment in segments)
-        {
-            if (segment.StartsWith("story-gen-"))
-            {
-                result.Append(GetRandomLocString(segment));
-            }
-            else
-            {
-                result.Append(segment);
-            }
-        }
-        return result.ToString();
     }
 }

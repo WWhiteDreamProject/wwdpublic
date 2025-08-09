@@ -95,15 +95,6 @@ humanoid-profile-editor-loadouts-guidebook-button-tooltip = Нажмите дл�
 humanoid-profile-editor-loadouts-heirloom = Реликвия
 humanoid-profile-editor-loadouts-heirloom-tooltip = При спавне, если было выбрано больше одной Реликвии, она выберется случайным образом.
 
-humanoid-profile-editor-loadouts-customize = Customize
-humanoid-profile-editor-loadouts-customize-name = Name
-humanoid-profile-editor-loadouts-customize-description = Description
-humanoid-profile-editor-loadouts-customize-color = Color tint
-humanoid-profile-editor-loadouts-customize-save = Save
-humanoid-profile-editor-loadouts-guidebook-button-tooltip = Click for more info
-humanoid-profile-editor-loadouts-heirloom = Heirloom
-humanoid-profile-editor-loadouts-heirloom-tooltip = Whichever loadouts you choose to be your potential heirloom will be randomly picked from on spawn.
-
 humanoid-profile-editor-markings-tab = Черты внешности
 humanoid-profile-editor-flavortext-tab = Описание
 humanoid-profile-editor-clown-name-label = Кличка клоуна:
