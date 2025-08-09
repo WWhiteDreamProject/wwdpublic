@@ -193,13 +193,13 @@ story-gen-book-action1 = поцеловали
 story-gen-book-action2 = задушили насмерть
 story-gen-book-action3 = взорвали к чертям
 story-gen-book-action4 = выиграли партию в шахматы у
-story-gen-book-action5 = проиграли шахматную битву у
+story-gen-book-action5 = проиграли партию в шахматы у
 story-gen-book-action6 = раскрыли тайны
 story-gen-book-action7 = манипулировали другом
 story-gen-book-action8 = принесли в жертву на алтаре
 story-gen-book-action9 = побывали на свадьбе
 story-gen-book-action10 = объединились, чтобы победить
-story-gen-book-action11 = были вынужденными работать у
+story-gen-book-action11 = были вынуждены работать у
 story-gen-book-action12 = преподнесли ценный дар для
 
 story-gen-book-action-trait1 = ужасно
