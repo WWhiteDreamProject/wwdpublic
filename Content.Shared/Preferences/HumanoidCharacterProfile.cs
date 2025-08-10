@@ -697,23 +697,27 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         if (voice is null || !CanHaveVoice(voice, Sex))
             Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
         // WD EDIT END
+
         // WD EDIT START
-        foreach (var loadout in loadouts)
+        for (int i = 0; i < loadouts.Count; i++)
         {
+            var loadout = loadouts[i];
             if (loadout.CustomContent != null && loadout.CustomContent.Length > MaxCustomContentLength)
             {
-                // Создать новый LoadoutPreference с обрезанным контентом
+                var truncated = loadout.CustomContent.AsSpan(0, MaxCustomContentLength);
+                while (truncated.Length > 0 && char.IsLowSurrogate(truncated[truncated.Length - 1]))
+                    truncated = truncated[..^1];
+
                 var truncatedLoadout = new LoadoutPreference(
                     loadout.LoadoutName,
                     loadout.CustomName,
                     loadout.CustomDescription,
-                    loadout.CustomContent[..MaxCustomContentLength],
+                    truncated.ToString(),
                     loadout.CustomColorTint,
                     loadout.CustomHeirloom)
                 { Selected = loadout.Selected };
 
-                // Заменить в списке
-                loadouts[loadouts.IndexOf(loadout)] = truncatedLoadout;
+                loadouts[i] = truncatedLoadout;
             }
         }
         // WD EDIT END
