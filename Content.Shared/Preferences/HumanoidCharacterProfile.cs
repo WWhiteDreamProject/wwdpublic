@@ -474,7 +474,12 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         bool? customHeirloom = null)
     {
         if (customContent != null && customContent.Length > MaxCustomContentLength)
-            customContent = customContent[..MaxCustomContentLength];
+        {
+            var truncated = customContent.AsSpan(0, MaxCustomContentLength);
+            while (truncated.Length > 0 && char.IsLowSurrogate(truncated[truncated.Length - 1]))
+                truncated = truncated[..^1];
+            customContent = truncated.ToString();
+        }
 
         var list = new HashSet<LoadoutPreference>(_loadoutPreferences);
 
