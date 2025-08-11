@@ -5,7 +5,6 @@ using Content.Server.Ghost.Components;
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
-using Content.Shared.Ninja.Components;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
@@ -343,10 +342,6 @@ namespace Content.Server.Ghost
 
             while (allQuery.MoveNext(out var uid, out var warp))
             {
-                // WWDP: Skip warp points that are bombing targets for ninja
-                if (HasComp<BombingTargetComponent>(uid))
-                    continue;
-
                 yield return new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), true);
             }
         }
