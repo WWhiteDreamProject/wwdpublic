@@ -1,8 +1,10 @@
 using Content.Client.Alerts;
+using Content.Client.Administration.Managers;
 using Content.Client.UserInterface.Systems.Alerts.Controls;
 using Content.Shared.Changeling;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
+using Robust.Client.Player;
 
 namespace Content.Client.Changeling;
 
@@ -38,9 +40,21 @@ public sealed class ChangelingSystem : SharedChangelingSystem
         sprite.LayerSetState(AlertVisualLayers.Base, $"{stateNormalized}");
     }
 
+    [Dependency] private readonly IClientAdminManager _adminManager = default!; // WWDP
+    [Dependency] private readonly IPlayerManager _playerManager = default!; // WWDP
+    
     private void GetChanglingIcon(Entity<ChangelingComponent> ent, ref GetStatusIconsEvent args)
     {
-        if (HasComp<HivemindComponent>(ent) && _prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+        // WWDP edit start
+        // Check if the local player is an admin
+        var isAdmin = _adminManager.GetAdminData() != null;
+        
+        // Check if the local player is a changeling
+        var isChangeling = _playerManager.LocalEntity.HasValue && HasComp<ChangelingComponent>(_playerManager.LocalEntity.Value);
+
+        // Show icon only to admins/admin ghosts, but not to other changelings
+        if (!isChangeling && (isAdmin && HasComp<HivemindComponent>(ent)) && _prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+        // WWDP edit end
             args.StatusIcons.Add(iconPrototype);
     }
 }

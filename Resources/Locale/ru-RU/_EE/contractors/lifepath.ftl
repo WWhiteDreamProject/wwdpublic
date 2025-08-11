@@ -5,6 +5,7 @@ character-lifepath-requirement = Вы{$inverted ->
     *[other]{" "}должны
 } иметь один из следующих жизненных путей: {$lifepaths}
 
+
 lifepath_name_spacer = Косморожденный
 lifepath_description_spacer = Вы родились на космической станции и прожили всю жизнь в открытом космосе. Планету вы видели лишь однажды в иллюминатор шаттла.
 

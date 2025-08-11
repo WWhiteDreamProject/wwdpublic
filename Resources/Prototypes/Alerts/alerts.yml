@@ -31,6 +31,7 @@
   - alertType: Offer
   - alertType: Deflecting
   - alertType: RecentlyBlocked # WD EDIT
+  - category: Counter # WD EDIT
 
 - type: entity
   id: AlertSpriteView
@@ -662,13 +663,3 @@
     state: deflecting0
   name: alerts-deflecting-name
   description: alerts-deflecting-desc
-
-# WD EDIT START
-- type: alert
-  id: RecentlyBlocked
-  icons:
-  - sprite: /Textures/Objects/Weapons/Melee/shields.rsi
-    state: buckler-icon
-  name: alerts-blocked-name
-  description: alerts-blocked-desc
-# WD EDIT END

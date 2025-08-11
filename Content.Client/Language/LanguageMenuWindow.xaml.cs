@@ -88,7 +88,7 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
             HorizontalExpand = true
         };
 
-        var button = new Button { Text = "Choose" };
+        var button = new Button { Text = "Choose", MinWidth = 80, }; // WD EDIT
         button.OnPressed += _ => OnLanguageChosen(language);
         state.Button = button;
 

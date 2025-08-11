@@ -1,5 +1,6 @@
 construction-condition-machine-container-empty = Уберите части из рамы, используя [color=cyan]Лом[/color].
 # MachineFrameComplete
+# MachineFrameComplete
 construction-condition-machine-frame-requirement-label = Требования:
 construction-condition-machine-frame-insert-circuit-board-message = Вставьте [color=cyan]любую плату для машины[/color].
 construction-condition-machine-frame-required-element-entry = [color=yellow]{ $amount }ед[/color] [color=green]{ $elementName }[/color]

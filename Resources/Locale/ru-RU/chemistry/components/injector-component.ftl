@@ -12,8 +12,11 @@ onetime-injector-simple-volume-label = Объем: [color=white]{ $currentVolume
 
 ## Entity
 
+## Entity
+
 injector-component-drawing-text = Содержимое набирается
 injector-component-injecting-text = Содержимое вводится
+injector-component-injecting-locked-text = Locked to inject
 injector-component-cannot-transfer-message = Вы не можете ничего переместить в { $target }!
 injector-component-cannot-draw-message = Вы не можете ничего набрать из { $target }!
 injector-component-cannot-inject-message = Вы не можете ничего ввести в { $target }!
@@ -24,6 +27,8 @@ injector-component-target-already-full-message = { $target } полон!
 injector-component-target-is-empty-message = { $target } пуст!
 injector-component-cannot-toggle-draw-message = Слишком полон, чтобы забрать!
 injector-component-cannot-toggle-inject-message = Нет ничего для введения!
+
+## mob-inject doafter messages
 
 ## mob-inject doafter messages
 

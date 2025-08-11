@@ -1,6 +1,5 @@
 # UI
 
-
 ## Window
 
 air-alarm-ui-access-denied = Недостаточный уровень доступа!
@@ -34,9 +33,17 @@ air-alarm-ui-mode-none = Нет
 
 ### General
 
+## Widgets
+
+### General
+
 air-alarm-ui-widget-enable = Включено
+air-alarm-ui-widget-copy = Copy settings to similar devices
+air-alarm-ui-widget-copy-tooltip = Copies the settings of this device to all devices in this air alarm tab.
 air-alarm-ui-widget-ignore = Игнорировать
 air-alarm-ui-atmos-net-device-label = Адрес: { $address }
+
+### Vent pumps
 
 ### Vent pumps
 
@@ -47,9 +54,13 @@ air-alarm-ui-vent-internal-bound-label = Внутренняя граница
 
 ### Scrubbers
 
+### Scrubbers
+
 air-alarm-ui-scrubber-pump-direction-label = Направление
 air-alarm-ui-scrubber-volume-rate-label = Объём (Л)
 air-alarm-ui-scrubber-wide-net-label = ШирокаяСеть
+
+### Thresholds
 
 ### Thresholds
 

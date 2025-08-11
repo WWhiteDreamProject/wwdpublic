@@ -41,7 +41,7 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] Grids =
         {
             "/Maps/CentralCommand/main.yml",
-            "/Maps/CentralCommand/harmony.yml", // Harmony CC version
+            /// "/Maps/CentralCommand/harmony.yml", // Harmony CC version, WWDP edit, no more CentCom rotation
             AdminTestArenaSystem.ArenaMapPath,
         };
 

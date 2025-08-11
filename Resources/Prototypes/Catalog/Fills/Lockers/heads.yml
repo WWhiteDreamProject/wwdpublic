@@ -45,8 +45,8 @@
       prob: 0.25
     - id: ClothingBeltSheathFilled
     - id: ClothingEyesGlassesCommand
-    - id: ClothingHeadsetAltCommand
-    - id: ClothingOuterArmorCaptainCarapace
+    #- id: ClothingHeadsetAltCommand WWDP edit, cuz CaptainDrobe™
+    #- id: ClothingOuterArmorCaptainCarapace WWDP edit, cuz CaptainDrobe™
     - id: CommsComputerCircuitboard
     - id: DoorRemoteCommand
     - id: LunchboxCommandFilledRandom
@@ -59,7 +59,6 @@
     - id: PrinterDocFlatpack
     - id: RubberStampCaptain
     - id: SpaceCash1000
-    - id: ClothingBeltSheathFilled # WD EDIT
 
 # No laser table + Laser table
 - type: entityTable
@@ -114,7 +113,7 @@
       entity_storage: !type:AllSelector
         children:
         - !type:NestedSelector
-          tableId: LockerFillCaptainLaser
+          tableId: LockerFillCaptainNoLaser
         - !type:NestedSelector
           tableId: FillCaptainHardsuit
 
@@ -174,7 +173,6 @@
     - id: RCDAmmo
     - id: RPD
     - id: RubberStampCE
-    - id: ClothingBeltChiefEngineerFilled # WD EDIT
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -368,15 +366,13 @@
     - id: PrinterDocFlatpack
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
-    - id: WeaponEnergyShotgun
+    #- id: WeaponEnergyShotgun - WWDP edit
     # - id: WeaponDisabler - WD EDIT
     - id: WantedListCartridge
     # WD EDIT START
     - id: BoxBasicRegulatorLamp
     - id: AssballBat
     - id: ClothingHandsGlovesCombat
-    - id: ClothingMaskGasSwat
-    - id: OxygenTankFilled
     # WD EDIT END
 
 # Hardsuit table, used for suit storage as well
@@ -386,7 +382,6 @@
     children:
     - id: ClothingMaskGasSwat
     - id: ClothingOuterHardsuitSecurityRed # WD EDIT: ClothingOuterHardsuitCombatHoS -> ClothingOuterHardsuitSecurityRed
-    - id: ClothingShoesBootsMagSec
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
 

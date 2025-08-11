@@ -184,6 +184,7 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
+  - type: SecurityGlassesWantedStatus # WWDP
   - type: Construction
     # WD EDIT START
     graph: GlassesMedSecHUD

@@ -228,8 +228,10 @@
     - VehicleWheelchairFolded # Goobstation
     - CassetteTape
     - TapeRecorder
-    - SnowballMaker # WWDP
-    - Matchbox  # WWDP
+    - SnowballMaker #WWDP edit start
+    - Matchbox
+    - Fulton
+    - FultonBeacon #WWDP edit end
   - type: EmagLatheRecipes
     emagStaticRecipes:
     - BoxLethalshot
@@ -660,6 +662,18 @@
     - SMESAdvancedMachineCircuitboard
     - BaseComputerModularCircuitBoard # Arcadis - Modular Computer System
     - DiskBurnerMachineCircuitboard # Arcadis - Modular Computer System
+    # WD EDIT START
+    - StationAICoreCircuitboard
+    - StationAiUploadCircuitboard
+    - AsimovCircuitBoard
+    - CorporateCircuitBoard
+    - NTDefaultCircuitBoard
+    - MotherDroneCircuitBoard
+    - NutimovCircuitBoard
+    - PaladinCircuitBoard
+    - RobocopCircuitBoard
+    - QuarantineCircuitBoard
+    # WD EDIT END
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - ShuttleGunDusterCircuitboard
@@ -1141,6 +1155,18 @@
     - WeaponPistolUniversal
     - ClothingBackpackElectropack
     # WD EDIT START
+    - MagazineLightRifleLowCapacityEmpty
+    - MagazineLightRifleLowCapacity
+    - SpeedLoaderRifleHeavy
+    - SpeedLoaderRifleHeavyEmpty
+    - WeaponRifleNovaliteC1
+    - WeaponRifleGestio
+    - MagazineMagnumLeverRifle
+    - MagazineMagnumLeverRifleEmpty
+    - MagazineNovaliteC1Empty
+    - MagazineNovaliteC1
+    - WeaponRifleNovaliteC1
+    - WeaponRifleGestio
     - MagazineShotgunLaser
     - BoxLaser
     - ShellShotgunLaser
@@ -1151,6 +1177,8 @@
     - BoxBreach
     - ShellShotgunBreach
     - WeaponSecurityRiotLauncher
+    - BasicRegulatorLamp
+    - AdvancedRegulatorLamp
     # WD EDIT END
   - type: MaterialStorage
     whitelist:
@@ -1317,6 +1345,10 @@
     - CartridgeSaline # Goobstation - ParamedHypo
     - ParamedHypo # Goobstation - ParamedHypo
     - CartridgePain # Morphine Tweaks
+    # WD EDIT START
+    - MiniSyringe
+    - SyringeGun
+    # WD EDIT END
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker
@@ -1334,8 +1366,6 @@
     - OmnimedTool
     - MedicalCyberneticEyes
     # WD EDIT START
-    - MiniSyringe
-    - SyringeGun
     - BluespaceBodyBag
     - NTBodyBag
     - PrisonerBodyBag

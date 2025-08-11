@@ -21,8 +21,6 @@
       prob: 0.3
       rolls: !type:ConstantNumberSelector
         value: 3
-    - id: SurvivalKnife
-    - id: HandheldGPSBasic
     # - id: ClothingShoesBootsWinterMiner - WD EDIT
     - id: JetpackMiniFilled
     - id: ClothingNeckSalvager
@@ -34,7 +32,6 @@
     - id: Pickaxe
     # - id: LavalandEquipmentExplorerSuit - WD EDIT
     - id: ShelterCapsule
-    - id: ClothingMaskGasExplorer
     - id: FlashlightSeclite
     - id: ClothingEyesGlassesGarMeson
     - id: FlashlightLantern # WWDP

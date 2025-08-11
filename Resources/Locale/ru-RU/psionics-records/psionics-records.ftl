@@ -6,6 +6,8 @@ psionics-records-console-no-record-found = Запись для выбранно�
 
 ## Статус
 
+## Status
+
 psionics-records-console-status = Статус
 psionics-records-status-none = Отсутствует
 psionics-records-status-registered = Зарегистрированный псионик
@@ -21,6 +23,8 @@ psionics-records-permission-denied = Доступ запрещен
 
 ## Уведомления канала безопасности
 
+## Security channel notifications
+
 psionics-records-console-registered = {$name} зарегистрирован как псионик {$officer}: {$reason}.
 psionics-records-console-suspected = {$officer} отметил {$name} как возможного псионика из-за: {$reason}.
 psionics-records-console-not-suspected = {$name} больше не подозревается в псионических способностях.
@@ -30,6 +34,8 @@ psionics-records-console-not-abusing = {$name} больше не отмечае�
 psionics-records-console-unknown-officer = <неизвестный офицер>
 
 ## Фильтры
+
+## Filters
 
 psionics-records-filter-placeholder = Введите текст и нажмите "Enter"
 psionics-records-name-filter = Имя

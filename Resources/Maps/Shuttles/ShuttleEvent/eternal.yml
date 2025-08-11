@@ -6,8 +6,8 @@ tilemap:
   32: FloorDark
   37: FloorDarkMono
   1: FloorMetalDiamond
-  111: FloorTechMaint
-  112: FloorTechMaint2
+  111: FloorTechMaintSteel
+  112: FloorMaintWhite
   128: Lattice
   129: Plating
 entities:
