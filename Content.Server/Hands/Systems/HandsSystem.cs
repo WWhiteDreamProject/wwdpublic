@@ -119,6 +119,11 @@ namespace Content.Server.Hands.Systems
                         && TryGetEmptyHand(args.Source, out var userEmptyHand))
                         SetActiveHand(args.Source, userEmptyHand);
                 }
+                else
+                {
+                    if (!ThrowHeldItem(args.Target, offsetRandomCoordinates))
+                        return;
+                }
                 args.Handled = true;
                 return;
             }
