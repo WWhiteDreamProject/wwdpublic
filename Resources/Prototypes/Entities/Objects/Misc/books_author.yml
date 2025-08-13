@@ -700,8 +700,8 @@
 - type: entity
   parent: BookBase
   id: BookJanitorTale
-  name: the tales of a tired janitor
-  description: A clean looking book, smelling vaguely of soap and bleach.
+  name: истории уставшего уборщика
+  description: Чистая на вид книга, от которой слабо пахнет мылом и отбеливателем.
   components:
   - type: Sprite
     sprite: Objects/Misc/books.rsi
