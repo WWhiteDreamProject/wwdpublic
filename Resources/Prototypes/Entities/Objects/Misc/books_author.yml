@@ -714,6 +714,8 @@
     - state: detail_bookmark
       color: "#61363d"
     - state: overlay_dirt
-  - type: Paper
+  - type: Book
+    maxCharactersPerPage: 3000
+    maxPages: 100
     content: book-text-janitor
 
