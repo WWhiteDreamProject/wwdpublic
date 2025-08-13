@@ -164,7 +164,6 @@
     - id: ClothingEyesGlassesMeson
     - id: ClothingHandsGlovesColorYellow
     - id: ClothingHeadsetAltEngineering
-    - id: ClothingOuterJacketInsulated
     - id: DoorRemoteEngineering
     - id: LunchboxCommandFilledRandom
       prob: 0.3
