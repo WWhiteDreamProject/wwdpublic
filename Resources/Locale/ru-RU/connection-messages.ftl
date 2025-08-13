@@ -1,4 +1,3 @@
-cmd-whitelistadd-desc = Добавить игрока с указанным юзернеймом в вайтлист.
 cmd-whitelistadd-help = Использование: whitelistadd <username или User ID>
 cmd-whitelistadd-existing = { $username } уже в вайтлисте!
 cmd-whitelistadd-added = { $username } добавлен в вайтлист
@@ -12,8 +11,8 @@ cmd-whitelistremove-removed = Пользователь { $username } удалё�
 cmd-whitelistremove-not-found = Пользователь '{ $username }' не найден
 cmd-whitelistremove-arg-player = [player]
 
-command-kicknonwhitelisted-description = Кикнуть с сервера всех пользователей не из вайтлиста.
-command-kicknonwhitelisted-help = Использование: kicknonwhitelisted
+cmd-kicknonwhitelisted-desc = Kicks all non-whitelisted players from the server.
+cmd-kicknonwhitelisted-help = Usage: kicknonwhitelisted
 
 ban-banned-permanent = Этот бан можно только обжаловать.
 ban-banned-permanent-appeal = Этот бан можно только обжаловать. Для этого посетите наш форум: { $link }

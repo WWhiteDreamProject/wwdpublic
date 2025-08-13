@@ -11,6 +11,7 @@ roles-antag-sol-alliance-navy-deserter-objective = Заполните свой �
 id-card-access-level-sol-alliance-navy = АСФ
 role-type-SAN-antagonist-name = Дезертир
 
+# Shadowling
 roles-antag-shadowling-name = Тенелинг
 roles-antag-shadowling-description = Порабощай разум экипажа, взойди над смертными и стань подобен Богу.
 roles-antag-shadowling-objective = Соверши Вознесение.

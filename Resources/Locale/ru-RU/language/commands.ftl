@@ -17,6 +17,8 @@ command-language-invalid-language = The language {$id} does not exist or you can
 
 # toolshed
 
+# toolshed
+
 command-description-language-add = Добавляет новый язык к указанному объекту. Два последних аргумента указывают, должен ли он быть разговорным/понятным. Пример: 'self language:add "Canilunzt" true true'
 command-description-language-rm = Удаляет язык у указанного объекта. Работает аналогично language:add. Пример: 'self language:rm "TauCetiBasic" true true'.
 command-description-language-lsspoken = Выводит список всех языков, на которых может говорить объект. Пример: 'self language:lsspoken'

@@ -26,11 +26,23 @@ reagent-effect-guidebook-explosion-reaction-effect =
         [1] вызывает
        *[other] Вызывает
     } взрыв
+reagent-effect-guidebook-emp-reaction-effect =
+    { $chance ->
+        [1] Causes
+        *[other] cause
+    } an electromagnetic pulse
+
 reagent-effect-guidebook-foam-area-reaction-effect =
     { $chance ->
         [1] создаёт
        *[other] Создаёт
     } большое количество дыма
+reagent-effect-guidebook-smoke-area-reaction-effect =
+    { $chance ->
+        [1] Creates
+        *[other] create
+    } large quantities of smoke
+
 reagent-effect-guidebook-satiate-thirst =
     { $chance ->
         [1] насыщает
@@ -235,6 +247,12 @@ reagent-effect-guidebook-make-sentient =
         [1] Makes
        *[other] make
     } the metabolizer sentient
+reagent-effect-guidebook-make-polymorph =
+    { $chance ->
+        [1] Polymorphs
+        *[other] polymorph
+    } the metabolizer into a { $entityname }
+
 reagent-effect-guidebook-modify-bleed-amount =
     { $chance ->
         [1]
@@ -266,21 +284,6 @@ reagent-effect-guidebook-paralyze =
         [1] Paralyzes
        *[other] paralyze
     } the metabolizer for at least { NATURALFIXED($time, 3) } { $time }
-reagent-effect-guidebook-cure-zombie-infection =
-    { $chance ->
-        [1] Cures
-       *[other] cure
-    } an ongoing zombie infection
-reagent-effect-guidebook-cause-zombie-infection =
-    { $chance ->
-        [1] Gives
-       *[other] give
-    } an individual the zombie infection
-reagent-effect-guidebook-innoculate-zombie-infection =
-    { $chance ->
-        [1] Cures
-       *[other] cure
-    } an ongoing zombie infection, and provides immunity to future infections
 reagent-effect-guidebook-movespeed-modifier =
     { $chance ->
         [1] Modifies
@@ -296,11 +299,39 @@ reagent-effect-guidebook-wash-cream-pie-reaction =
         [1] Washes
        *[other] wash
     } off cream pie from one's face
-reagent-effect-guidebook-missing =
+reagent-effect-guidebook-cure-zombie-infection =
     { $chance ->
-        [1] Causes
-       *[other] cause
-    } an unknown effect as nobody has written this effect yet
+        [1] Cures
+       *[other] cure
+    } an ongoing zombie infection
+reagent-effect-guidebook-cause-zombie-infection =
+    { $chance ->
+        [1] Gives
+       *[other] give
+    } an individual the zombie infection
+reagent-effect-guidebook-innoculate-zombie-infection =
+    { $chance ->
+        [1] Cures
+       *[other] cure
+    } an ongoing zombie infection, and provides immunity to future infections
+
+reagent-effect-guidebook-plant-attribute =
+    { $chance ->
+        [1] Adjusts
+        *[other] adjust
+    } {$attribute} by [color={$colorName}]{$amount}[/color]
+
+reagent-effect-guidebook-plant-cryoxadone =
+    { $chance ->
+        [1] Ages back
+        *[other] age back
+    } the plant, depending on the plant's age and time to grow
+
+reagent-effect-guidebook-plant-phalanximine =
+    { $chance ->
+        [1] Makes
+        *[other] make
+    } a plant not viable due to mutation viable again
 
 reagent-effect-guidebook-plant-diethylamine =
     { $chance ->
@@ -326,3 +357,89 @@ reagent-effect-guidebook-plant-seeds-remove =
         *[other] удаляют
     } семена растения.
 
+reagent-effect-guidebook-missing =
+    { $chance ->
+        [1] Causes
+       *[other] cause
+    } an unknown effect as nobody has written this effect yet
+
+reagent-effect-guidebook-change-glimmer-reaction-effect =
+    { $chance ->
+        [1] Modifies
+        *[other] modify
+    } the glimmer count by {$count} points
+
+reagent-effect-guidebook-chem-remove-psionic =
+    { $chance ->
+        [1] Removes
+        *[other] remove
+    } psionic powers
+
+reagent-effect-guidebook-chem-reroll-psionic =
+    { $chance ->
+        [1] Allows
+        *[other] allow
+    } a chance to get a different psionic power
+
+reagent-effect-guidebook-chem-restorereroll-psionic =
+    { $chance ->
+        [1] Restores
+        *[other] restore
+    } one's ability to gain benefit from mind opening reagents
+
+reagent-effect-guidebook-add-moodlet =
+    Modifies mood by {$amount}
+    { $timeout ->
+        [0] indefinitely
+        *[other] for {$timeout} seconds
+    }
+
+reagent-effect-guidebook-remove-moodlet =
+    Removes the {$name} moodlet.
+
+reagent-effect-guidebook-purge-moodlets =
+    Removes all active non-permanent moodlets.
+
+reagent-effect-guidebook-purify-evil = Purifies evil powers
+
+reagent-effect-guidebook-stamina-change =
+    { $chance ->
+        [1] { $deltasign ->
+                [-1] Restores
+                *[1] Deals
+            }
+        *[other] { $deltasign ->
+                    [-1] restore
+                    *[1] deal
+                 }
+    } {$amount} stamina
+
+# Shadowling
+
+reagent-effect-guidebook-blind-non-sling =
+    { $chance ->
+        [1] Blinds any
+        *[other] blind any
+    } non-shadowling
+
+reagent-effect-guidebook-heal-sling =
+    { $chance ->
+        [1] Heals any
+        *[other] heal any
+    } shadowling and thrall
+
+reagent-effect-guidebook-add-to-chemicals =
+    { $chance ->
+        [1] { $deltasign ->
+                [1] Adds
+                *[-1] Removes
+            }
+        *[other]
+            { $deltasign ->
+                [1] add
+                *[-1] remove
+            }
+    } {NATURALFIXED($amount, 2)}u of {$reagent} { $deltasign ->
+        [1] to
+        *[-1] from
+    } the solution

@@ -124,7 +124,7 @@
   - type: ProtectedFromStepTriggers
     whitelist:
       types:
-      - Shard
+      # - Shard - WD EDIT
       - Landmine
       - Mousetrap
   - type: FootPrints

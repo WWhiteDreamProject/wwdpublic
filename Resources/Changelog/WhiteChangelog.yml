@@ -3983,3 +3983,118 @@ Entries:
   id: 424
   time: '2025-07-29T03:04:46.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/731
+- author: Kutos
+  changes:
+    - type: Fix
+      message: >-
+        Пофикшена невозможность собрать машину  + корректно получает
+        локализацию 
+  id: 425
+  time: '2025-08-02T06:36:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/733
+- author: Gersoon458
+  changes:
+    - type: Tweak
+      message: Комбатсьюты обратно заменены на обычные риги
+    - type: Fix
+      message: Исправлен свет на Мете у эвака
+    - type: Remove
+      message: Удалена ротация ЦК + Удален красный свет у шкафов на Мусе
+    - type: Remove
+      message: >-
+        Удалены дубликаты предметов из шкафов + Удалены магбутсы у сб (Просьба
+        Скитузера)
+  id: 426
+  time: '2025-08-02T06:37:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/738
+- author: islambrosgood
+  changes:
+    - type: Fix
+      message: Зернистость сама отключается при включённом режиме совместимости
+  id: 427
+  time: '2025-08-02T06:38:45.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/739
+- author: Spatison
+  changes:
+    - type: Add
+      message: Добавлены лицехваты
+    - type: Add
+      message: Добавлено заражение ксеноморфов
+    - type: Add
+      message: Королева ксеноморфов научилась откладывать яйца с лицехватами
+    - type: Tweak
+      message: Здоровье всех ксеноморфов увеличено на 50%
+    - type: Tweak
+      message: 'Множитель урона ксеноморфам от теплового урона: 2 -> 1.2'
+    - type: Tweak
+      message: 'Урон плевка ксеноморфа: 15 -> 35'
+    - type: Tweak
+      message: 'Личинки ксеноморфов научились пролазить под дверьми '
+  id: 428
+  time: '2025-08-03T16:31:17.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/744
+- author: Gersoon458
+  changes:
+    - type: Fix
+      message: ЦК теперь 100% есть
+  id: 429
+  time: '2025-08-03T16:31:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/743
+- author: nekosich
+  changes:
+    - type: Add
+      message: Перевод и ftl-ключи
+    - type: Tweak
+      message: Рефактор папки ru-RU
+  id: 430
+  time: '2025-08-04T01:56:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/740
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Из граба теперь можно вырваться
+  id: 431
+  time: '2025-08-04T17:26:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/746
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Гарпии больше не восприимчивы к стеклу
+  id: 432
+  time: '2025-08-05T11:29:21.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/750
+- author: Spatison
+  changes:
+    - type: Fix
+      message: >-
+        Шаттл на лаваленд больше не может полететь на станцию центрального
+        командования
+  id: 433
+  time: '2025-08-06T06:40:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/753
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Лицехват теперь может заразить только одну жертву, после чего умирает
+    - type: Tweak
+      message: Заражённый личинкой ксеноморфа больше не видит иконку о заражении
+    - type: Fix
+      message: Смоляная трава теперь лечит ксеноморфов
+    - type: Fix
+      message: Ксеноморфы больше не могут размещать свои постройки в космосе
+    - type: Fix
+      message: КПБ теперь не подвержены заражению личинкой ксеноморфа
+    - type: Fix
+      message: Эволюция в проеторианца теперь работает при присутствии королевы
+    - type: Fix
+      message: 'Личинка приостанавливает своё развитие в мёртвом теле. '
+  id: 434
+  time: '2025-08-06T11:28:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/759
+- author: Spatison
+  changes:
+    - type: Fix
+      message: 'Ящеры теперь носят свои штаны нормально '
+  id: 435
+  time: '2025-08-07T14:56:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/763
