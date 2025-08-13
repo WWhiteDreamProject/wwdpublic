@@ -37,9 +37,10 @@ public sealed partial class BookWindow : FancyWindow
     public event Action<int, string>? OnBookmarkAdded;
     public event Action<int>? OnBookmarkRemoved;
 
-    // TODO: Сделать видимость, когда превышен лимит текста на страницу
-    // TODO: Создавать новые страницы для переноса текста, а не заменять старые
-    // TODO: Сделать возможность удалять лишние страницы
+    // Translate with translator:
+    // TODO: Make it visible when the text limit per page is exceeded
+    // TODO: Create new pages to transfer text, not replace old ones
+    // TODO: Make it possible to delete unnecessary pages
     // LINK: https://github.com/WWhiteDreamProject/wwdpublic/pull/772#issuecomment-3186145496
 
     public BookWindow()
