@@ -719,3 +719,27 @@
     maxPages: 100
     content: book-text-janitor
 
+- type: entity
+  parent: BookBase
+  id: BookBotany
+  name: Ботаника — всё, что нужно знать новичку!
+  description: Свиду обычная книга, по дате изготовления внутри книги она довольно новая. Рассказывает о ботанике и её основных аспектах. Всё, что нужно знать новичку-ботанику.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/books.rsi
+      layers:
+      - state: paper
+      - state: cover_base
+        color: "#1d662c"
+      - state: decor_spine
+        color: "#2a8c58"
+      - state: icon_glow
+        color: "#b9edc4"
+      - state: icon_tree
+      - state: detail_bookmark
+        color: "#61363d"
+    - type: Book
+      maxCharactersPerPage: 1500
+      maxPages: 100
+      content: book-text-botany
+
