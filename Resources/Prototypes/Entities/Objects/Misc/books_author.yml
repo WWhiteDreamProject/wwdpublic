@@ -19,7 +19,7 @@
       - state: detail_bookmark
         color: red
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-narsielegend
 
@@ -43,7 +43,7 @@
       - state: detail_bookmark
         color: "#cf792d"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-truth
 
@@ -64,7 +64,7 @@
       - state: detail_bookmark
         color: "#2dab24"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-world
 
@@ -86,7 +86,7 @@
       - state: detail_bookmark
         color: "#ab5e24"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-ian-antarctica
 
@@ -110,7 +110,7 @@
       - state: detail_bookmark
         color: "#f7cc2f"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-sloth-clown-sss
 
@@ -134,7 +134,7 @@
       - state: detail_bookmark
         color: "#ab22ba"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-sloth-clown-pz
 
@@ -158,7 +158,7 @@
       - state: detail_bookmark
         color: "#ab22ba"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-sloth-clown-mmd
 
@@ -185,7 +185,7 @@
       - state: detail_bookmark
         color: "#f7bb2f"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-struck
 
@@ -211,7 +211,7 @@
       - state: detail_rivets
         color: "#f7bb2f"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-sun
 
@@ -232,7 +232,7 @@
         color: "#2b593d"
       - state: overlay_blood
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-possum
 
@@ -252,7 +252,7 @@
       - state: detail_bookmark
         color: "#2b593d"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-cafe
 
@@ -275,7 +275,7 @@
       - state: detail_bookmark
         color: "#7396f5"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-feather
 
@@ -297,7 +297,7 @@
       - state: detail_bookmark
         color: "#ab5e24"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-ian-wolfpup
 
@@ -319,7 +319,7 @@
       - state: detail_bookmark
         color: "#ab5e24"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-ian-ranch
 
@@ -341,7 +341,7 @@
       - state: detail_bookmark
         color: "#ab5e24"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-ian-ocean
 
@@ -362,7 +362,7 @@
       - state: detail_bookmark
         color: "#ab5e24"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-ian-mountain
 
@@ -384,7 +384,7 @@
       - state: detail_bookmark
         color: "#ab5e24"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-ian-city
 
@@ -406,7 +406,7 @@
       - state: detail_bookmark
         color: "#ab5e24"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-ian-arctic
 
@@ -428,7 +428,7 @@
       - state: detail_bookmark
         color: "#ab5e24"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-ian-desert
 
@@ -449,7 +449,7 @@
       - state: detail_bookmark
       - state: overlay_dirt
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-names
 
@@ -474,7 +474,7 @@
       - state: detail_bookmark
         color: "#2c5491"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-earth
 
@@ -501,7 +501,7 @@
       - state: detail_rivets
         color: "#799dd4"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-aurora
 
@@ -525,7 +525,7 @@
       - state: detail_bookmark
         color: "#bfbfbf"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-temple
 
@@ -549,7 +549,7 @@
       - state: detail_bookmark
         color: "#bfbfbf"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-watched
 
@@ -572,7 +572,7 @@
       - state: detail_bookmark
         color: "#55b0d4"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-medical-officer
 
@@ -594,7 +594,7 @@
       - state: detail_bookmark
         color: "#61363d"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-morgue
 
@@ -621,7 +621,7 @@
       - state: detail_rivets
         color: "#ffde7d"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-rufus
 
@@ -646,7 +646,7 @@
       - state: detail_rivets
         color: "#ffde7d"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-map
 
@@ -669,7 +669,7 @@
       - state: detail_rivets
         color: "#ffde7d"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-journ-mount
 
@@ -693,7 +693,7 @@
       - state: detail_bookmark
         color: "#61363d"
     - type: Book
-      maxCharactersPerPage: 3000
+      maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-inspiration
 
@@ -715,7 +715,7 @@
       color: "#61363d"
     - state: overlay_dirt
   - type: Book
-    maxCharactersPerPage: 3000
+    maxCharactersPerPage: 1500
     maxPages: 100
     content: book-text-janitor
 
