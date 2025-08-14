@@ -297,8 +297,12 @@ public sealed partial class BookWindow : FancyWindow
     {
         if (_bookmarkDialog != null)
         {
-            _bookmarkDialog.MoveToFront();
-            return;
+            if (_bookmarkDialog.IsOpen)
+            {
+                _bookmarkDialog.MoveToFront();
+                return;
+            }
+            _bookmarkDialog = null;
         }
         var field = "title";
         var prompt = Loc.GetString("book-bookmark-title-prompt");
