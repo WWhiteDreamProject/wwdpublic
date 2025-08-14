@@ -137,9 +137,14 @@
   description: A yellow turtleneck designed specifically for work in conditions of the engineering department.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/ce_turtle.rsi
+    sprite: _White/Clothing/Uniforms/Jumpsuit/chief_engineer.rsi # WWDP edit (spaceman)
+    layers:
+    - state: turtleneck-icon
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/ce_turtle.rsi
+    sprite: _White/Clothing/Uniforms/Jumpsuit/chief_engineer.rsi # WWDP edit (spaceman)
+    clothingVisuals:
+      jumpsuit:
+      - state: turtleneck-equipped-INNERCLOTHING
 
 - type: entity
   parent: [ClothingUniformBase,ClothingUniformFoldableBase]
@@ -409,6 +414,7 @@
     sprite: _White/Clothing/Uniforms/Jumpsuit/hazard_technician.rsi # WWDP edit (spaceman)
     clothingVisuals:
       jumpsuit:
+      - state: equipped-INNERCLOTHING
       - state: equipped-INNERCLOTHING-unshaded
         shader: unshaded
 

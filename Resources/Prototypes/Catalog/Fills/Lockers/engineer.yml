@@ -94,6 +94,7 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
+      - id: ClothingHandsGlovesAtmospherics # WWDP edit (spaceman)
       - id: RCD
       - id: RCDAmmo
       - id: RPD
@@ -116,6 +117,7 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
+      - id: ClothingHandsGlovesAtmospherics # WWDP edit (spaceman)
       - id: RCD
       - id: RCDAmmo
       - id: RPD

@@ -51,7 +51,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitChiefEngineer
     back: ClothingBackpackEngineering
-    shoes: ClothingShoesColorBrown
+    shoes: ClothingShoesBootsWorkCE # WWDP edit (spaceman)
     id: CEPDA
     ears: ClothingHeadsetAltEngineering
   storage:
