@@ -1,3 +1,4 @@
+using Content.Shared.EntityTable.Conditions;
 using Content.Shared.EntityTable.ValueSelector;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
