@@ -209,7 +209,14 @@ public sealed partial class BookWindow : FancyWindow
                 var label = new RichTextLabel();
                 var formattedMessage = new FormattedMessage();
                 formattedMessage.PushColor(Color.Black);
-                formattedMessage.AddMarkup(pageText);
+                try
+                {
+                    formattedMessage.AddMarkup(pageText);
+                }
+                catch
+                {
+                    formattedMessage.AddText(pageText);
+                }
                 formattedMessage.Pop();
                 label.SetMessage(formattedMessage);
                 PageContainer.AddChild(label);
