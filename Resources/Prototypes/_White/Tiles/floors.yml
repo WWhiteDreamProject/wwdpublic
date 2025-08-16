@@ -14,7 +14,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepHull
-  itemDrop: FloorTileItemSmooth
+  itemDrop: FloorTileItemSmoothDark
   heatCapacity: 10000
 
 - type: tile
@@ -32,7 +32,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepHull
-  itemDrop: FloorTileItemSmooth
+  itemDrop: FloorTileItemSmoothSteel
   heatCapacity: 10000
 
 - type: tile
@@ -50,7 +50,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepHull
-  itemDrop: FloorTileItemSmooth
+  itemDrop: FloorTileItemSmoothWhite
   heatCapacity: 10000
 
 - type: tile

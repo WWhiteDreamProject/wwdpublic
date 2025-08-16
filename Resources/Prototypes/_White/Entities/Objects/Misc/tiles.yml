@@ -320,8 +320,38 @@
       - FloorSterile
 
 - type: entity
+  name: white sterile floor
+  parent: FloorTileItemSterile
+  id: FloorTileItemSterileWhite
+  components:
+  - type: Sprite
+    state: sterile-white
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorSterileWhite
+
+- type: entity
+  name: steel sterile floor
+  parent: FloorTileItemSterile
+  id: FloorTileItemSterileSteel
+  components:
+  - type: Sprite
+    state: sterile-steel
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorSterileSteel
+
+- type: entity
   name: dark sterile floor
-  parent: FloorTileItemSteel
+  parent: FloorTileItemSterile
   id: FloorTileItemSterileDark
   components:
   - type: Sprite
@@ -461,3 +491,63 @@
     outputs:
     - Plating
     - FloorGlassFrameWhite
+
+- type: entity
+  name: white smooth floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemSmoothWhite
+  components:
+  - type: Sprite
+    state: smooth-white
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorSmoothWhite
+
+- type: entity
+  name: steel smooth floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemSmoothSteel
+  components:
+  - type: Sprite
+    state: smooth-steel
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorSmoothSteel
+
+- type: entity
+  name: dark smooth floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemSmoothDark
+  components:
+  - type: Sprite
+    state: smooth-dark
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorSmoothDark
+
+- type: entity
+  name: checker floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemChecker
+  components:
+  - type: Sprite
+    state: checker
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorChecker
