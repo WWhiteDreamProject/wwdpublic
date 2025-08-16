@@ -161,9 +161,8 @@
       prob: 0.15
     - id: ClothingBeltChiefEngineerFilled
     - id: ClothingEyesGlassesMeson
-    - id: ClothingHandsGlovesColorYellow
+    - id: ClothingHandsGlovesCE # WWDP edit (spaceman)
     - id: ClothingHeadsetAltEngineering
-    - id: ClothingOuterJacketInsulated
     - id: DoorRemoteEngineering
     - id: LunchboxCommandFilledRandom
       prob: 0.3
@@ -370,7 +369,7 @@
     # - id: WeaponDisabler - WD EDIT
     - id: WantedListCartridge
     # WD EDIT START
-    - id: BoxBasicRegulatorLamp
+    - id: BoxBasicFluxCore
     - id: AssballBat
     - id: ClothingHandsGlovesCombat
     # WD EDIT END

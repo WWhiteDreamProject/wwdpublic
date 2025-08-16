@@ -19,6 +19,7 @@ public sealed class PocketDimensionSystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly LinkedEntitySystem _link = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!; // WWDP fix
 
     private ISawmill _sawmill = default!;
 
@@ -65,6 +66,16 @@ public sealed class PocketDimensionSystem : EntitySystem
             }
 
             comp.PocketDimensionMap = map;
+
+        // WWDP edit start
+            // Ensure the pocket dimension map is properly initialized to prevent infinite state bug
+            var mapId = Comp<MapComponent>(map.Value).MapId;
+            if (!_mapSystem.IsInitialized(mapId))
+            {
+                _mapSystem.InitializeMap(mapId);
+                _sawmill.Info($"Initialized pocket dimension map {mapId}");
+            }
+        // WWDP edit end
 
             // find the pocket dimension's first grid and put the portal there
             bool foundGrid = false;

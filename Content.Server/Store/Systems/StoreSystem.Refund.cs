@@ -24,7 +24,7 @@ public sealed partial class StoreSystem
 
     private void OnEntityInserted(EntityUid uid, StoreRefundComponent component, EntInsertedIntoContainerMessage args)
     {
-        if (component.StoreEntity == null || _actions.TryGetActionData(uid, out _) || !TryComp<StoreComponent>(component.StoreEntity.Value, out var storeComp))
+        if (component.StoreEntity == null || _actions.TryGetActionData(uid, out _, false) || !TryComp<StoreComponent>(component.StoreEntity.Value, out var storeComp)) // WWDP fix, add "false"
             return;
 
         DisableRefund(component.StoreEntity.Value, storeComp);

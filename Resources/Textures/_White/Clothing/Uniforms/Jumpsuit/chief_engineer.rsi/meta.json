@@ -1,0 +1,44 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-4.0",
+    "copyright": "Made by @sentryprimies ",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "equipped-INNERCLOTHING",
+            "directions": 4
+        },
+        {
+            "name": "turtleneck-icon"
+        },
+        {
+            "name": "turtleneck-equipped-INNERCLOTHING",
+            "directions": 4
+        },
+        {
+            "name": "uniform-icon"
+        },
+        {
+            "name": "uniform-equipped-INNERCLOTHING",
+            "directions": 4
+        },
+        {
+            "name": "folded-equipped-INNERCLOTHING",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        }
+    ]
+}

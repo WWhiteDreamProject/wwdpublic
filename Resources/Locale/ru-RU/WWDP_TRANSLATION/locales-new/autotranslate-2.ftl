@@ -25,11 +25,17 @@ ent-ClothingHeadHelmetEVALarge = шлема ЕВА
 ent-ClothingHeadHelmetAncient = Пустотный шлем NTSRA
    .desc = Древний космический шлем, разработанный отделением CentCom NTSRA.
 
-ent-ClothingHeadHatHardhatYellowDark = темно-желтая каска
-   .desc = Каска, окрашенная в темно-желтый цвет, используется в опасных условиях труда для защиты головы. Поставляется со встроенным фонариком.
-
 ent-ClothingHeadHatHardhatArmored = бронированная каска
    .desc = Бронированная каска. Обеспечивает лучшее из обоих миров как в защите, так и в полезности - идеально подходит для инженера на передовой.
+
+ent-ClothingHeadHelmetHardsuitPirateEVA = шлем ЕВА для открытого космоса
+   .desc = шлем ЕВА для открытого космоса, очень тяжелый, но обеспечивает хорошую защиту.
+
+ent-ClothingHeadHelmetHardsuitPirateCap = каска капитана пиратов
+   .desc = Специальный шлем для жесткого костюма, сделанный для капитана пиратского корабля.
+
+ent-ClothingHeadHelmetHardsuitClown = шлем для скафандра клоуна
+   .desc = Шлем для костюма клоуна.
 
 ent-ClothingHeadHatCasa = Шляпа
    .desc = Шляпа конусообразной формы

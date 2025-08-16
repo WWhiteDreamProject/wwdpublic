@@ -1,0 +1,162 @@
+- type: entity
+  parent: BaseItem
+  abstract: true
+  id: BaseFluxCore
+  name: regulator lamp
+  description: A flux core for energy weaponry.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Flux/standardfluxcore.rsi
+    layers:
+    - state: base
+    - state: flux-0
+      map: [ "enum.FluxCoreVisualLayers.Effect" ]
+      shader: unshaded
+  - type: FluxCore
+    effectSteps: 5
+    overflowDamageMultiplier: 0.1
+    underflowDamageMultiplier: 0.1
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 4
+  - type: Appearance
+  - type: Tag
+    tags:
+    - FluxCore
+
+
+#regular sized
+- type: entity
+  parent: BaseFluxCore
+  id: BasicFluxCore
+  name: standard-issue flux core
+  description: A weapon-grade flux core. Used as a buffer to contain and dissipate flux generated when firing. Without this, firing an energy weapon can end badly.
+  components:
+  - type: FluxCore
+    capacity: 12
+    decayRate: 1.25
+    safeFlux: 4.5
+    baseMalfunctionChance: 0
+    maxMalfunctionChance: 0.20
+    baseMalfunctionChanceFlux: 8
+    maxMalfunctionChanceFlux: 11
+    baseDamageMultiplier: 1
+    maxDamageMultiplier: 1.5
+    baseDamageMultiplierFlux: 8
+    maxDamageMultiplierFlux: 11
+    decayTimeToStart: 3
+
+- type: entity
+  parent: BaseFluxCore
+  id: AdvancedFluxCore
+  name: advanced flux core
+  description: A weapon-grade advanced flux core with better capacity. Used as a buffer to contain and dissipate flux generated when firing. Without this, firing an energy weapon can end badly.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Flux/standardfluxcore.rsi
+  - type: FluxCore
+    capacity: 18
+    decayRate: 1.25
+    safeFlux: 6.5
+    baseMalfunctionChance: 0
+    maxMalfunctionChance: 0.20
+    baseMalfunctionChanceFlux: 12
+    maxMalfunctionChanceFlux: 15
+    baseDamageMultiplier: 1
+    maxDamageMultiplier: 1.5
+    baseDamageMultiplierFlux: 12
+    maxDamageMultiplierFlux: 15
+    decayTimeToStart: 2
+
+
+#small sized
+- type: entity
+  parent: BaseFluxCore
+  id: SmallBasicFluxCore
+  name: small flux core
+  description: A weapon-grade flux core, downsized for small sidearms. Used as a buffer to contain and dissipate flux generated when firing. Without this, firing an energy weapon can end badly.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Flux/smallfluxcore.rsi
+  - type: FluxCore
+    capacity: 8
+    decayRate: 1
+    safeFlux: 2
+    baseMalfunctionChance: 0
+    maxMalfunctionChance: 0.20
+    baseMalfunctionChanceFlux: 3
+    maxMalfunctionChanceFlux: 6
+    baseDamageMultiplier: 1
+    maxDamageMultiplier: 1.5
+    baseDamageMultiplierFlux: 3
+    maxDamageMultiplierFlux: 6
+    decayTimeToStart: 0.5
+    effectSteps: 3
+  - type: Tag
+    tags:
+    - FluxCore
+    - FluxCoreSmall
+
+- type: entity
+  parent: SmallBasicFluxCore
+  id: SmallAdvancedFluxCore
+  name: small advanced flux core
+  description: A weapon-grade advanced flux core, downsized for small sidearms. Used as a buffer to contain and dissipate flux generated when firing. Without this, firing an energy weapon can end badly.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Flux/smallfluxcore.rsi
+  - type: FluxCore
+    capacity: 10
+    decayRate: 1
+    safeFlux: 3
+    baseMalfunctionChance: 0
+    maxMalfunctionChance: 0.20
+    baseMalfunctionChanceFlux: 5
+    maxMalfunctionChanceFlux: 8
+    baseDamageMultiplier: 1
+    maxDamageMultiplier: 1.5
+    baseDamageMultiplierFlux: 5
+    maxDamageMultiplierFlux: 8
+    decayTimeToStart: 0.25
+
+#boxes
+- type: entity
+  name: flux core box
+  parent: BoxCardboard
+  id: BoxBasicFluxCore
+  description: The saviour of incompetent security officers sector-wide. Holds 8 spare flux cores.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BasicFluxCore
+        amount: 4
+      - id: SmallBasicFluxCore
+        amount: 4
+  - type: Storage
+    grid:
+    - 0,0,3,3
+    whitelist:
+      tags:
+      - FluxCore
+      - FluxCoreSmall
+
+- type: entity
+  name: big flux core box
+  parent: BoxCardboard
+  id: BoxBasicFluxCoreBig
+  description: The saviour of incompetent security officers sector-wide. Holds 12 spare flux cores.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BasicFluxCore
+        amount: 6
+      - id: SmallBasicFluxCore
+        amount: 6
+  - type: Storage
+    grid:
+    - 0,0,5,3
+    whitelist:
+      tags:
+      - FluxCore
+      - FluxCoreSmall
