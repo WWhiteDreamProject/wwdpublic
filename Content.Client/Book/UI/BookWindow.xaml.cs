@@ -29,6 +29,8 @@ public sealed partial class BookWindow : FancyWindow
     private Dictionary<int, string> _bookmarks = new();
     private int _maxBookmarks;
     private DialogWindow? _bookmarkDialog;
+    private int _maxCharactersPerPage;
+    private int _maxPages;
 
     public event Action<int>? OnPageChanged;
     public event Action<string>? OnTextSaved;
@@ -39,7 +41,6 @@ public sealed partial class BookWindow : FancyWindow
 
     // Translate with translator:
     // TODO: Make it visible when the text limit per page is exceeded
-    // TODO: Create new pages to transfer text, not replace old ones
     // TODO: Make it possible to delete unnecessary pages
     // LINK: https://github.com/WWhiteDreamProject/wwdpublic/pull/772#issuecomment-3186145496
 
@@ -143,6 +144,8 @@ public sealed partial class BookWindow : FancyWindow
 
         _bookmarks = state.Bookmarks;
         _maxBookmarks = state.MaxBookmarks;
+        _maxCharactersPerPage = state.MaxCharactersPerPage;
+        _maxPages = state.MaxPages;
         UpdateBookmarksDisplay();
     }
 

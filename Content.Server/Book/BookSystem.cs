@@ -121,10 +121,7 @@ public sealed class BookSystem : EntitySystem
         if (string.IsNullOrEmpty(args.Text))
         {
             if (component.Pages.Count >= component.MaxPages)
-            {
                 return;
-            }
-
             component.Pages.Add("");
             component.CurrentPage = component.Pages.Count - 1;
         }
@@ -133,59 +130,64 @@ public sealed class BookSystem : EntitySystem
             if (component.CurrentPage < 0 || component.CurrentPage >= component.Pages.Count)
             {
                 component.CurrentPage = Math.Max(0, Math.Min(component.CurrentPage, component.Pages.Count - 1));
-
                 if (component.Pages.Count == 0)
                 {
                     component.Pages.Add("");
                     component.CurrentPage = 0;
                 }
             }
-
             var remainingText = args.Text;
-            var currentPageIndex = component.CurrentPage;
-
-            while (!string.IsNullOrEmpty(remainingText))
+            var currentPageIndex = component.CurrentPage; 
+            if (remainingText.Length <= component.MaxCharactersPerPage)
             {
-                if (remainingText.Length <= component.MaxCharactersPerPage)
+                component.Pages[currentPageIndex] = remainingText;
+            }
+            else
+            {
+                var pageText = remainingText.Substring(0, component.MaxCharactersPerPage);
+                var lastSpaceIndex = pageText.LastIndexOf(' ');
+                if (lastSpaceIndex > 0 && lastSpaceIndex > component.MaxCharactersPerPage * 0.8)
                 {
-                    component.Pages[currentPageIndex] = remainingText;
-                    break;
+                    pageText = pageText.Substring(0, lastSpaceIndex);
+                    remainingText = remainingText.Substring(lastSpaceIndex + 1);
                 }
                 else
                 {
-                    var pageText = remainingText.Substring(0, component.MaxCharactersPerPage);
-
-                    var lastSpaceIndex = pageText.LastIndexOf(' ');
-                    if (lastSpaceIndex > 0 && lastSpaceIndex > component.MaxCharactersPerPage * 0.8)
+                    remainingText = remainingText.Substring(component.MaxCharactersPerPage);
+                }
+                component.Pages[currentPageIndex] = pageText;
+                currentPageIndex++;
+                while (!string.IsNullOrEmpty(remainingText))
+                {
+                    if (component.Pages.Count >= component.MaxPages)
+                        break;
+                    if (remainingText.Length <= component.MaxCharactersPerPage)
                     {
-                        pageText = pageText.Substring(0, lastSpaceIndex);
-                        remainingText = remainingText.Substring(lastSpaceIndex + 1);
+                        component.Pages.Insert(currentPageIndex, remainingText);
+                        break;
                     }
                     else
                     {
-                        remainingText = remainingText.Substring(component.MaxCharactersPerPage);
-                    }
-
-                    component.Pages[currentPageIndex] = pageText;
-                    currentPageIndex++;
-
-                    if (currentPageIndex >= component.Pages.Count)
-                    {
-                        if (component.Pages.Count >= component.MaxPages)
+                        var nextPageText = remainingText.Substring(0, component.MaxCharactersPerPage);
+                        var lastSpace = nextPageText.LastIndexOf(' ');
+                        if (lastSpace > 0 && lastSpace > component.MaxCharactersPerPage * 0.8)
                         {
-                            break;
+                            nextPageText = nextPageText.Substring(0, lastSpace);
+                            remainingText = remainingText.Substring(lastSpace + 1);
                         }
-                        component.Pages.Add("");
+                        else
+                        {
+                            remainingText = remainingText.Substring(component.MaxCharactersPerPage);
+                        }
+                        component.Pages.Insert(currentPageIndex, nextPageText);
+                        currentPageIndex++;
                     }
                 }
             }
-
             component.CurrentPage = Math.Min(currentPageIndex, component.Pages.Count - 1);
             _audioSystem.PlayPvs(component.SaveSound, uid);
         }
-
         Dirty(uid, component);
-
         var state = CreateBookUIState(component, false);
         _uiSystem.SetUiState(uid, BookUiKey.Key, state);
     }
