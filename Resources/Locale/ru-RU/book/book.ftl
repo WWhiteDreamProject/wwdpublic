@@ -11,6 +11,7 @@ book-page-info = из {$total}
 book-page-info-empty = Страница 0 из 0
 book-ui-bookmarks-label = Закладки:
 book-ui-page-label = Страница
+book-character-count = {$current}/{$max} символов
 
 book-story-template-this-is = {"Это "}
 book-story-template-about = {" о "}

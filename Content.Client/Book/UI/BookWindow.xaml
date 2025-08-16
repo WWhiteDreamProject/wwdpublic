@@ -17,7 +17,10 @@
                         </BoxContainer>
                         <PanelContainer Name="InputContainer" StyleClasses="TransparentBorderedWindowPanel" MinHeight="100"
                                 VerticalAlignment="Stretch" VerticalExpand="True" HorizontalExpand="True">
-                            <TextEdit Name="Input" StyleClasses="PaperLineEdit" Access="Public"/>
+                            <BoxContainer Orientation="Vertical">
+                                <TextEdit Name="Input" StyleClasses="PaperLineEdit" Access="Public" VerticalExpand="True"/>
+                                <Label Name="CharacterCountLabel" Text="" StyleClasses="LabelSubText" HorizontalAlignment="Right" Margin="5"/>
+                            </BoxContainer>
                         </PanelContainer>
                     </BoxContainer>
                 </PanelContainer>

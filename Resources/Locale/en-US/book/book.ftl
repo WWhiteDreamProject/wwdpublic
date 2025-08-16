@@ -11,6 +11,7 @@ book-page-info = of {$total}
 book-page-info-empty = Page 0 of 0
 book-ui-bookmarks-label = Bookmarks:
 book-ui-page-label = Page
+book-character-count = {$current}/{$max} characters
 
 book-story-template-this-is = This is a
 book-story-template-about =  about a

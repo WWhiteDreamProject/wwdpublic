@@ -31,6 +31,7 @@ public sealed partial class BookWindow : FancyWindow
     private DialogWindow? _bookmarkDialog;
     private int _maxCharactersPerPage;
     private int _maxPages;
+    private Label? _characterCountLabel;
 
     public event Action<int>? OnPageChanged;
     public event Action<string>? OnTextSaved;
@@ -40,7 +41,6 @@ public sealed partial class BookWindow : FancyWindow
     public event Action<int>? OnBookmarkRemoved;
 
     // Translate with translator:
-    // TODO: Make it visible when the text limit per page is exceeded
     // TODO: Make it possible to delete unnecessary pages
     // LINK: https://github.com/WWhiteDreamProject/wwdpublic/pull/772#issuecomment-3186145496
 
@@ -130,6 +130,8 @@ public sealed partial class BookWindow : FancyWindow
         PageNumberInput.OnTextEntered += OnPageNumberEntered;
         PageNumberInput.OnFocusExit += OnPageNumberEntered;
         InitializeBookmarks();
+
+        Input.OnTextChanged += _ => UpdateCharacterCount();
     }
 
     public void ShowBook(BookBoundUserInterfaceState state, bool isEditing)
@@ -167,6 +169,8 @@ public sealed partial class BookWindow : FancyWindow
                 Input.TextRope = new Rope.Leaf("");
                 Input.CursorPosition = new TextEdit.CursorPos(0, TextEdit.LineBreakBias.Top);
             }
+
+            UpdateCharacterCount();
         }
     }
 
@@ -232,7 +236,7 @@ public sealed partial class BookWindow : FancyWindow
             UpdatePageDisplay();
             UpdateNavigationButtons();
             UpdateBookmarksDisplay();
-            if (InputContainer.Visible) {SetEditMode(true);}
+            if (InputContainer.Visible) { SetEditMode(true); }
         }
         else
         {
@@ -382,6 +386,27 @@ public sealed partial class BookWindow : FancyWindow
         {
             ToggleBookmarkButton.Text = "+";
             ToggleBookmarkButton.Disabled = false;
+        }
+    }
+
+    private void UpdateCharacterCount()
+    {
+        if (CharacterCountLabel == null || !InputContainer.Visible)
+            return;
+        var currentLength = Rope.Collapse(Input.TextRope).Length;
+        var isOverLimit = currentLength > _maxCharactersPerPage;
+        CharacterCountLabel.Text = Loc.GetString("book-character-count",
+            ("current", currentLength),
+            ("max", _maxCharactersPerPage));
+        if (isOverLimit)
+        {
+            CharacterCountLabel.StyleClasses.Clear();
+            CharacterCountLabel.StyleClasses.Add("LabelDanger");
+        }
+        else
+        {
+            CharacterCountLabel.StyleClasses.Clear();
+            CharacterCountLabel.StyleClasses.Add("LabelSubText");
         }
     }
 }
