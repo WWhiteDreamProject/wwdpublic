@@ -5,7 +5,7 @@ tilemap:
   0: Space
   33: FloorDarkMini
   34: FloorDarkMono
-  2: FloorMetalDiamond
+  2: FloorMetalDiamondSteel
   85: FloorShuttleWhite
   89: FloorSteel
   104: FloorTechMaintSteel
