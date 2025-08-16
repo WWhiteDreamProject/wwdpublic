@@ -60,8 +60,8 @@ public sealed class TipsSystem : EntitySystem
         {
             1 => CompletionResult.FromHintOptions(CompletionHelper.SessionNames(), Loc.GetString("cmd-tippy-auto-1")),
             2 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-2")),
-            3 => CompletionResult.FromHintOptions(CompletionHelper.PrototypeIDs<EntityPrototype>(), Loc.GetString("cmd-tippy-auto-3")),
-            4 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-4")),
+            3 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-4")),
+            4 => CompletionResult.FromHintOptions(CompletionHelper.PrototypeIDs<EntityPrototype>(), Loc.GetString("cmd-tippy-auto-3")),
             5 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-5")),
             6 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-6")),
             _ => CompletionResult.Empty
@@ -116,17 +116,17 @@ public sealed class TipsSystem : EntitySystem
         var ev = new TippyEvent(args[1]);
 
         if (args.Length > 2)
+            ev.SpeakTime = float.Parse(args[2]);
+
+        if (args.Length > 3)
         {
-            ev.Proto = args[2];
-            if (!_prototype.HasIndex<EntityPrototype>(args[2]))
+            ev.Proto = args[3];
+            if (!_prototype.HasIndex<EntityPrototype>(args[3]))
             {
-                shell.WriteError(Loc.GetString("cmd-tippy-error-no-prototype", ("proto", args[2])));
+                shell.WriteError(Loc.GetString("cmd-tippy-error-no-prototype", ("proto", args[3])));
                 return;
             }
         }
-
-        if (args.Length > 3)
-            ev.SpeakTime = float.Parse(args[3]);
 
         if (args.Length > 4)
             ev.SlideTime = float.Parse(args[4]);
