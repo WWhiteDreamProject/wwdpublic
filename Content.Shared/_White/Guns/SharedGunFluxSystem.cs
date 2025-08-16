@@ -90,6 +90,11 @@ public abstract class SharedGunFluxSystem : EntitySystem
 
         GetFluxCore(comp, out var core);
         DebugTools.Assert(core is not null);
+        if(core is null) // cs compiler on linux may be fucking up the null checks
+        {
+            Log.Error("GunShotEvent raised on gun with GunFluxComponent but without a corresponding FluxCoreComponent. This should NEVER happen.");
+            return;
+        }
         var overflow = AddFlux(core, comp.HeatCost);
         TryMalfunction(args.User, uid, comp, core);
         if (overflow != 0)
