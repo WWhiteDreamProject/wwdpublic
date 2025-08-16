@@ -65,7 +65,7 @@
         sound:
           collection: MetalGlassBreak
   - type: MouseRotator
-    angleTolerance: 5
+    angleTolerance: 0.1
     rotationSpeed: 90
     simple4DirMode: false
   - type: NoRotateOnInteract
