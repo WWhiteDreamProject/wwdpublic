@@ -161,9 +161,8 @@
       prob: 0.15
     - id: ClothingBeltChiefEngineerFilled
     - id: ClothingEyesGlassesMeson
-    - id: ClothingHandsGlovesColorYellow
+    - id: ClothingHandsGlovesCE # WWDP edit (spaceman)
     - id: ClothingHeadsetAltEngineering
-    - id: ClothingOuterJacketInsulated
     - id: DoorRemoteEngineering
     - id: LunchboxCommandFilledRandom
       prob: 0.3

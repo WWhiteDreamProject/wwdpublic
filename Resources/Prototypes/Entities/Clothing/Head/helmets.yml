@@ -256,9 +256,9 @@
   description: An atmos tech's best friend. Provides some heat resistance and looks cool.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Helmets/firehelmet.rsi
+    sprite: _White/Clothing/Head/Helmets/firehelmet.rsi # WWDP edit (spaceman)
   - type: Clothing
-    sprite: Clothing/Head/Helmets/firehelmet.rsi
+    sprite: _White/Clothing/Head/Helmets/firehelmet.rsi # WWDP edit (spaceman)
     quickEquip: true
   - type: IngestionBlocker
   - type: TemperatureProtection
@@ -288,9 +288,9 @@
   description: An atmos fire helmet, able to keep the user cool in any situation.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Helmets/atmos_firehelmet.rsi
+    sprite: _White/Clothing/Head/Helmets/atmos_firehelmet.rsi # WWDP edit (spaceman)
   - type: Clothing
-    sprite: Clothing/Head/Helmets/atmos_firehelmet.rsi
+    sprite: _White/Clothing/Head/Helmets/atmos_firehelmet.rsi # WWDP edit (spaceman)
     quickEquip: true
   - type: IngestionBlocker
   - type: TemperatureProtection

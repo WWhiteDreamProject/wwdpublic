@@ -43,3 +43,9 @@ ent-ClothingHandsGlovesFingerlessInsulated = беспалые изолирова
 ent-ClothingHandsGlovesConducting = { ent-ClothingHandsGlovesColorYellow }
     .suffix = Проводящий
     .desc = { ent-ClothingHandsGlovesColorYellow.desc }
+
+ent-ClothingHandsGlovesAtmospherics = изолированные перчатки атмосферного техника
+    .desc = Эти перчатки защищают пользователя от поражения электрическим током.
+
+ent-ClothingHandsGlovesCE = изолированные перчатки старшего инженера
+    .desc = Эти перчатки защищают пользователя от поражения электрическим током.

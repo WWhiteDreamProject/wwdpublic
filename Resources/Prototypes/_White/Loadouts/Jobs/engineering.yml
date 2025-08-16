@@ -25,7 +25,7 @@
         - StationEngineer
   items:
     - ClothingUniformJumpsuitOldEngineerCasual
-    
+
 - type: loadout
   id: LoadoutClothingUniformJumpsuitOldEngineerWorker
   category: JobsEngineeringAAUncategorized
