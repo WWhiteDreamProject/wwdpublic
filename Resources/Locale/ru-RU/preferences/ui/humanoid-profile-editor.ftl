@@ -89,6 +89,7 @@ humanoid-profile-editor-loadouts-customize = Кастомизация
 humanoid-profile-editor-loadouts-customize-name = Название
 humanoid-profile-editor-loadouts-customize-description = Описание
 humanoid-profile-editor-loadouts-customize-book-text = Содержимое
+humanoid-profile-editor-loadouts-customize-book-text-placeholder = Используйте символ "[/p]" для предварительного создания следующей страницы.
 humanoid-profile-editor-loadouts-customize-color = Цвет
 humanoid-profile-editor-loadouts-customize-save = Сохранить
 humanoid-profile-editor-loadouts-guidebook-button-tooltip = Нажмите для большей информации

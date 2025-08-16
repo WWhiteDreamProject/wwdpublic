@@ -248,6 +248,7 @@ public sealed partial class LoadoutPreferenceSelector : Control
         var desc = Loc.GetString(loadoutDesc);
         NameEdit.PlaceHolder = loadoutName;
         DescriptionEdit.Placeholder = new Rope.Leaf(desc);
+        BookTextEdit.Placeholder = new Rope.Leaf(Loc.GetString("humanoid-profile-editor-loadouts-customize-book-text-placeholder"));
 
 
         var tooltip = new Tooltip();

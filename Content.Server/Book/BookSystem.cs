@@ -357,29 +357,53 @@ public sealed class BookSystem : EntitySystem
     public void SplitContentIntoPages(BookComponent component, string content)
     {
         component.Pages.Clear();
-        var remainingText = content;
-        while (!string.IsNullOrEmpty(remainingText))
+        var manualPages = content.Split(new[] { "[/p]" }, StringSplitOptions.None);
+
+        foreach (var manualPage in manualPages)
         {
             if (component.Pages.Count >= component.MaxPages)
                 break;
-            if (remainingText.Length <= component.MaxCharactersPerPage)
+
+            var pageContent = manualPage.Trim();
+
+            if (string.IsNullOrEmpty(pageContent))
             {
-                component.Pages.Add(remainingText);
-                break;
+                component.Pages.Add("");
+                continue;
             }
-            var pageText = remainingText.Substring(0, component.MaxCharactersPerPage);
-            var lastSpaceIndex = pageText.LastIndexOf(' ');
-            if (lastSpaceIndex > 0 && lastSpaceIndex > component.MaxCharactersPerPage * 0.8)
+
+            if (pageContent.Length <= component.MaxCharactersPerPage)
             {
-                pageText = pageText.Substring(0, lastSpaceIndex);
-                remainingText = remainingText.Substring(lastSpaceIndex + 1);
+                component.Pages.Add(pageContent);
+                continue;
             }
-            else
+
+            var remainingText = pageContent;
+            while (!string.IsNullOrEmpty(remainingText) && component.Pages.Count < component.MaxPages)
             {
-                remainingText = remainingText.Substring(component.MaxCharactersPerPage);
+                if (remainingText.Length <= component.MaxCharactersPerPage)
+                {
+                    component.Pages.Add(remainingText);
+                    break;
+                }
+
+                var pageText = remainingText.Substring(0, component.MaxCharactersPerPage);
+                var lastSpaceIndex = pageText.LastIndexOf(' ');
+
+                if (lastSpaceIndex > 0 && lastSpaceIndex > component.MaxCharactersPerPage * 0.8)
+                {
+                    pageText = pageText.Substring(0, lastSpaceIndex);
+                    remainingText = remainingText.Substring(lastSpaceIndex + 1);
+                }
+                else
+                {
+                    remainingText = remainingText.Substring(component.MaxCharactersPerPage);
+                }
+
+                component.Pages.Add(pageText);
             }
-            component.Pages.Add(pageText);
         }
+
         if (component.Pages.Count == 0)
             component.Pages.Add("");
     }
