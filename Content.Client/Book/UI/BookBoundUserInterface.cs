@@ -29,6 +29,7 @@ public sealed class BookBoundUserInterface : BoundUserInterface
         _window.OnEditModeChanged += OnEditModeChanged;
         _window.OnBookmarkAdded += OnBookmarkAdded;
         _window.OnBookmarkRemoved += OnBookmarkRemoved;
+        _window.OnPageDeleted += OnPageDeleted;
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -69,5 +70,10 @@ public sealed class BookBoundUserInterface : BoundUserInterface
     private void OnBookmarkRemoved(int pageIndex)
     {
         SendMessage(new BookRemoveBookmarkMessage(pageIndex));
+    }
+
+    private void OnPageDeleted(int pageIndex)
+    {
+        SendMessage(new BookDeletePageMessage(pageIndex));
     }
 }

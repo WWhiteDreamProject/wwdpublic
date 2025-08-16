@@ -37,6 +37,7 @@ public sealed class BookSystem : EntitySystem
         SubscribeLocalEvent<BookComponent, BookAddBookmarkMessage>(OnAddBookmark);
         SubscribeLocalEvent<BookComponent, BookRemoveBookmarkMessage>(OnRemoveBookmark);
         SubscribeLocalEvent<BookComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<BookComponent, BookDeletePageMessage>(OnDeletePage);
     }
 
     private void OnBookUiRangeCheck(EntityUid uid, BookComponent component, ref BoundUserInterfaceCheckRangeEvent args)
@@ -137,7 +138,7 @@ public sealed class BookSystem : EntitySystem
                 }
             }
             var remainingText = args.Text;
-            var currentPageIndex = component.CurrentPage; 
+            var currentPageIndex = component.CurrentPage;
             if (remainingText.Length <= component.MaxCharactersPerPage)
             {
                 component.Pages[currentPageIndex] = remainingText;
@@ -381,5 +382,30 @@ public sealed class BookSystem : EntitySystem
 
         if (component.Pages.Count == 0)
             component.Pages.Add("");
+    }
+
+    private void OnDeletePage(EntityUid uid, BookComponent component, BookDeletePageMessage args)
+    {
+        if (component.Pages.Count <= 1)
+            return;
+        if (args.PageIndex < 0 || args.PageIndex >= component.Pages.Count)
+            return;
+        component.Pages.RemoveAt(args.PageIndex);
+        var updatedBookmarks = new Dictionary<int, string>();
+        foreach (var bookmark in component.Bookmarks)
+        {
+            if (bookmark.Key < args.PageIndex)
+                updatedBookmarks[bookmark.Key] = bookmark.Value;
+            else if (bookmark.Key > args.PageIndex)
+                updatedBookmarks[bookmark.Key - 1] = bookmark.Value;
+        }
+        component.Bookmarks = updatedBookmarks;
+        if (component.CurrentPage >= component.Pages.Count)
+            component.CurrentPage = Math.Max(0, component.Pages.Count - 1);
+        else if (component.CurrentPage > args.PageIndex)
+            component.CurrentPage--;
+        Dirty(uid, component);
+        var state = CreateBookUIState(component, false);
+        _uiSystem.SetUiState(uid, BookUiKey.Key, state);
     }
 }

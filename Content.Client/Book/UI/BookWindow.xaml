@@ -43,6 +43,7 @@
             <Label Name="PageInfo" Text="{Loc 'book-page-info'}" Margin="5 0"/>
             <Button Name="NextPageButton" Text="▶" Margin="5"/>
             <Button Name="AddPageButton" Text="+" Margin="5"/>
+            <Button Name="DeletePageButton" Text="-" Margin="5" Access="Public"/>
             <Button Name="BookmarksToggleButton" Text="{Loc 'book-bookmarks-show'}" MinSize="30 30" Margin="5" Access="Public"/>
         </BoxContainer>
 

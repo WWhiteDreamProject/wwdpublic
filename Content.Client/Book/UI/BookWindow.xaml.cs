@@ -39,10 +39,7 @@ public sealed partial class BookWindow : FancyWindow
     public event Action<bool>? OnEditModeChanged;
     public event Action<int, string>? OnBookmarkAdded;
     public event Action<int>? OnBookmarkRemoved;
-
-    // Translate with translator:
-    // TODO: Make it possible to delete unnecessary pages
-    // LINK: https://github.com/WWhiteDreamProject/wwdpublic/pull/772#issuecomment-3186145496
+    public event Action<int>? OnPageDeleted;
 
     public BookWindow()
     {
@@ -132,6 +129,8 @@ public sealed partial class BookWindow : FancyWindow
         InitializeBookmarks();
 
         Input.OnTextChanged += _ => UpdateCharacterCount();
+
+        DeletePageButton.OnPressed += _ => DeleteCurrentPage();
     }
 
     public void ShowBook(BookBoundUserInterfaceState state, bool isEditing)
@@ -273,11 +272,12 @@ public sealed partial class BookWindow : FancyWindow
         {
             PrevPageButton.Disabled = true;
             NextPageButton.Disabled = true;
+            DeletePageButton.Disabled = true;
             return;
         }
-
         PrevPageButton.Disabled = _currentPageIndex <= 0;
         NextPageButton.Disabled = _currentPageIndex >= _pages.Count - 1;
+        DeletePageButton.Disabled = _pages.Count <= 1;
         UpdatePageNumberDisplay();
     }
 
@@ -408,5 +408,12 @@ public sealed partial class BookWindow : FancyWindow
             CharacterCountLabel.StyleClasses.Clear();
             CharacterCountLabel.StyleClasses.Add("LabelSubText");
         }
+    }
+
+    private void DeleteCurrentPage()
+    {
+        if (_pages == null || _pages.Count <= 1 || _currentPageIndex < 0 || _currentPageIndex >= _pages.Count)
+            return;
+        OnPageDeleted?.Invoke(_currentPageIndex);
     }
 }
