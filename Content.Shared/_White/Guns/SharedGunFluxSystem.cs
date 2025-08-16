@@ -95,6 +95,7 @@ public abstract class SharedGunFluxSystem : EntitySystem
             Log.Error("GunShotEvent raised on gun with GunFluxComponent but without a corresponding FluxCoreComponent. This should NEVER happen.");
             return;
         }
+        
         var overflow = AddFlux(core, comp.HeatCost);
         TryMalfunction(args.User, uid, comp, core);
         if (overflow != 0)
