@@ -4121,3 +4121,10 @@ Entries:
   id: 436
   time: '2025-08-16T21:08:40.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/789
+- author: Kutos
+  changes:
+    - type: Fix
+      message: Reboot вновь работает
+  id: 437
+  time: '2025-08-16T21:09:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/794
