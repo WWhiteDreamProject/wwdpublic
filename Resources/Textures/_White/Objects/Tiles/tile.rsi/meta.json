@@ -102,6 +102,15 @@
     },
     {
       "name": "checker"
-    }
+    },
+    {
+      "name": "sterile-dark"
+    },
+    {
+      "name": "sterile-steel"
+    },
+    {
+      "name": "smooth-white"
+    },
   ]
 }
