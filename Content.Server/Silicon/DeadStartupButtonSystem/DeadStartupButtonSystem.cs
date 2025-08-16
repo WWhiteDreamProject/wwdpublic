@@ -42,10 +42,10 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
             || !_mobState.IsDead(uid, mobStateComponent)
             || !TryComp<MobThresholdsComponent>(uid, out var mobThresholdsComponent)
             || !TryComp<DamageableComponent>(uid, out var damageable)
-            || !_mobThreshold.TryGetThresholdForState(uid, MobState.Critical, out var criticalThreshold, mobThresholdsComponent))
+            || !_mobThreshold.TryGetThresholdForState(uid, MobState.Dead, out var deadThreshold, mobThresholdsComponent))
             return;
 
-        if (damageable.TotalDamage < criticalThreshold)
+        if (damageable.TotalDamage < deadThreshold)
             _mobState.ChangeMobState(uid, MobState.Alive, mobStateComponent);
         else
         {
