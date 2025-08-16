@@ -4135,3 +4135,10 @@ Entries:
   id: 438
   time: '2025-08-16T21:21:08.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/786
+- author: Gersoon458
+  changes:
+    - type: Tweak
+      message: Респрайт шипганов
+  id: 439
+  time: '2025-08-16T21:21:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/779
