@@ -93,6 +93,15 @@
     },
     {
       "name": "sterile-dark"
+    },
+    {
+      "name": "sterile-steel"
+    },
+    {
+      "name": "sterile-white"
+    },
+    {
+      "name": "checker"
     }
   ]
 }
