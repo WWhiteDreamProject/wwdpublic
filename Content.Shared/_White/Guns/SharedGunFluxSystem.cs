@@ -88,8 +88,8 @@ public abstract class SharedGunFluxSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        FluxCoreComponent? core = null; // can't put a "out var core" at the line below because pinuks null-checker does not seem to understand that this is an assert statement
-        DebugTools.Assert(GetFluxCore(comp, out core));
+        GetFluxCore(comp, out var core);
+        DebugTools.Assert(core is not null);
         var overflow = AddFlux(core, comp.HeatCost);
         TryMalfunction(args.User, uid, comp, core);
         if (overflow != 0)
