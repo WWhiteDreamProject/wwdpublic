@@ -358,15 +358,15 @@ public sealed class BookSystem : EntitySystem
         var remainingText = content;
         while (!string.IsNullOrEmpty(remainingText))
         {
+            if (component.Pages.Count >= component.MaxPages)
+                break;
             if (remainingText.Length <= component.MaxCharactersPerPage)
             {
                 component.Pages.Add(remainingText);
                 break;
             }
-
             var pageText = remainingText.Substring(0, component.MaxCharactersPerPage);
             var lastSpaceIndex = pageText.LastIndexOf(' ');
-
             if (lastSpaceIndex > 0 && lastSpaceIndex > component.MaxCharactersPerPage * 0.8)
             {
                 pageText = pageText.Substring(0, lastSpaceIndex);
@@ -376,10 +376,8 @@ public sealed class BookSystem : EntitySystem
             {
                 remainingText = remainingText.Substring(component.MaxCharactersPerPage);
             }
-
             component.Pages.Add(pageText);
         }
-
         if (component.Pages.Count == 0)
             component.Pages.Add("");
     }
