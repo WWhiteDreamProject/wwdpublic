@@ -13,10 +13,10 @@ public sealed partial class BookComponent : Component
     public int CurrentPage { get; set; } = 0;
 
     [DataField("maxCharactersPerPage")]
-    public int MaxCharactersPerPage { get; set; } = 3000;
+    public int MaxCharactersPerPage { get; set; } = 2000;
 
     [DataField("maxPages")]
-    public int MaxPages { get; set; } = 100;
+    public int MaxPages { get; set; } = 150;
 
     [DataField("saveSound")]
     public SoundSpecifier SaveSound = new SoundCollectionSpecifier("PaperScribble");
