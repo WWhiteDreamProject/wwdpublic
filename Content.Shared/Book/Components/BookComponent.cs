@@ -29,4 +29,10 @@ public sealed partial class BookComponent : Component
 
     [DataField("content")]
     public string? Content { get; set; }
+
+    [DataField("pageFlipSound")]
+    public SoundSpecifier PageFlipSound = new SoundPathSpecifier("/Audio/Items/book_flip.ogg");
+
+    [DataField("pageTearSound")]
+    public SoundSpecifier PageTearSound = new SoundPathSpecifier("/Audio/Items/book_tear.ogg");
 }

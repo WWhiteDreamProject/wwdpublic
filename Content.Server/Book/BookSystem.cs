@@ -80,6 +80,7 @@ public sealed class BookSystem : EntitySystem
     private void OnPageChanged(EntityUid uid, BookComponent component, BookPageChangedMessage args)
     {
         component.CurrentPage = Math.Clamp(args.NewPage, 0, Math.Max(0, component.Pages.Count - 1));
+        _audioSystem.PlayPvs(component.PageFlipSound, uid);
         Dirty(uid, component);
     }
 
@@ -125,6 +126,7 @@ public sealed class BookSystem : EntitySystem
                 return;
             component.Pages.Add("");
             component.CurrentPage = component.Pages.Count - 1;
+            _audioSystem.PlayPvs(component.PageFlipSound, uid);
         }
         else
         {
@@ -386,10 +388,14 @@ public sealed class BookSystem : EntitySystem
     {
         if (component.Pages.Count <= 1)
             return;
+
         if (args.PageIndex < 0 || args.PageIndex >= component.Pages.Count)
             return;
+
+        _audioSystem.PlayPvs(component.PageTearSound, uid);
         component.Pages.RemoveAt(args.PageIndex);
         var updatedBookmarks = new Dictionary<int, string>();
+
         foreach (var bookmark in component.Bookmarks)
         {
             if (bookmark.Key < args.PageIndex)
@@ -397,11 +403,14 @@ public sealed class BookSystem : EntitySystem
             else if (bookmark.Key > args.PageIndex)
                 updatedBookmarks[bookmark.Key - 1] = bookmark.Value;
         }
+
         component.Bookmarks = updatedBookmarks;
+
         if (component.CurrentPage >= component.Pages.Count)
             component.CurrentPage = Math.Max(0, component.Pages.Count - 1);
         else if (component.CurrentPage > args.PageIndex)
             component.CurrentPage--;
+
         Dirty(uid, component);
         var state = CreateBookUIState(component, false);
         _uiSystem.SetUiState(uid, BookUiKey.Key, state);
