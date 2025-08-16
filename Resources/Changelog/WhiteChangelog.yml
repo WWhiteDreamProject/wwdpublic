@@ -4142,3 +4142,10 @@ Entries:
   id: 439
   time: '2025-08-16T21:21:30.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/779
+- author: RedFoxIV
+  changes:
+    - type: Tweak
+      message: Упрощена система нагрева энергетического оружия.
+  id: 440
+  time: '2025-08-16T21:22:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/776
