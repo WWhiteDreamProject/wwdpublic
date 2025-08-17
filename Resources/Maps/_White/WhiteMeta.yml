@@ -52,8 +52,8 @@ tilemap:
   100: FloorSteelMono
   102: FloorSteelPavement
   6: FloorSteelYellow
-  5: FloorSterile
-  4: FloorSterileDark
+  5: FloorTileItemSterileWhite
+  4: FloorSterile
   104: FloorTechMaintSteel
   69: FloorTrueMonoTileSteel
   108: FloorWhite

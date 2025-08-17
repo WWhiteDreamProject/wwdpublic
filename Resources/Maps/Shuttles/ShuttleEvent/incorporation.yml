@@ -4,7 +4,7 @@ meta:
 tilemap:
   0: Space
   32: FloorDark
-  1: FloorMetalDiamond
+  1: FloorMetalDiamondSteel
   82: FloorReinforced
   83: FloorReinforcedHardened
   96: FloorSteel

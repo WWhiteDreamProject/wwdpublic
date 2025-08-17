@@ -34,8 +34,8 @@ tilemap:
   27: FloorSteelBlue
   208: FloorSteelGreen
   216: FloorSteelRed
-  219: FloorSterile
-  220: FloorSterileDark
+  219: FloorTileItemSterileWhite
+  220: FloorSterile
   223: FloorTechMaint3
   221: FloorTechMaintSteel
   225: FloorWebTile

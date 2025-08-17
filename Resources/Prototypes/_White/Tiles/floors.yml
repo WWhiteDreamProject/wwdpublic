@@ -1,3 +1,58 @@
+# Generic
+- type: tile
+  id: FloorSmoothDark
+  name: tiles-smooth-dark-floor
+  sprite: /Textures/_White/Tiles/smooth_dark.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemSmoothDark
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorSmoothSteel
+  name: tiles-smooth-steel-floor
+  sprite: /Textures/_White/Tiles/smooth_steel.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemSmoothSteel
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorSmoothWhite
+  name: tiles-smooth-white-floor
+  sprite: /Textures/_White/Tiles/smooth_white.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemSmoothWhite
+  heatCapacity: 10000
+
 - type: tile
   id: FloorLinoWhite
   name: tiles-linoleum-white-floor
@@ -293,9 +348,9 @@
   heatCapacity: 10000
 
 - type: tile
-  id: FloorReinforcedGlassFrame
-  name: tiles-reinforced-glass-frame-floor
-  sprite: /Textures/_White/Tiles/rglass_frame.png
+  id: FloorGlassFrameDark
+  name: tiles-glass-frame-dark-floor
+  sprite: /Textures/_White/Tiles/glass_frame_dark.png
   variants: 4
   placementVariants:
   - 1.0
@@ -307,13 +362,13 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
-  itemDrop: FloorTileItemReinforcedGlassFrame
+  itemDrop: FloorTileItemGlassFrameDark
   heatCapacity: 10000
 
 - type: tile
-  id: FloorGlassFrame
-  name: tiles-glass-frame-floor
-  sprite: /Textures/_White/Tiles/glass_frame.png
+  id: FloorGlassFrameSteel
+  name: tiles-glass-frame-steel-floor
+  sprite: /Textures/_White/Tiles/glass_frame_steel.png
   variants: 4
   placementVariants:
   - 1.0
@@ -325,10 +380,100 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
-  itemDrop: FloorTileItemGlassFrame
+  itemDrop: FloorTileItemGlassFrameSteel
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGlassFrameWhite
+  name: tiles-glass-frame-white-floor
+  sprite: /Textures/_White/Tiles/glass_frame_white.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemGlassFrameWhite
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorReinforcedGlassFrameDark
+  name: tiles-reinforced-glass-frame-dark-floor
+  sprite: /Textures/_White/Tiles/rglass_frame_dark.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemReinforcedGlassFrameDark
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorReinforcedGlassFrameSteel
+  name: tiles-reinforced-glass-frame-steel-floor
+  sprite: /Textures/_White/Tiles/rglass_frame_steel.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemReinforcedGlassFrameSteel
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorReinforcedGlassFrameWhite
+  name: tiles-reinforced-glass-frame-white-floor
+  sprite: /Textures/_White/Tiles/rglass_frame_white.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemReinforcedGlassFrameWhite
   heatCapacity: 10000
 
 # Departamental
+
+- type: tile
+  id: FloorChecker
+  name: tiles-checker-floor
+  sprite: /Textures/_White/Tiles/checker.png
+  baseTurf: Plating
+  variants: 4
+  placementVariants:
+  - 1.00
+  - 1.00
+  - 1.00
+  - 1.00
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemChecker
+  heatCapacity: 10000
 
 - type: tile
   id: FloorSterile
@@ -364,6 +509,42 @@
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemSterileDark
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorSterileSteel
+  name: tiles-sterile-steel
+  sprite: /Textures/_White/Tiles/sterile_steel.png
+  baseTurf: Plating
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemSterileSteel
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorSterileWhite
+  name: tiles-sterile-white
+  sprite: /Textures/_White/Tiles/sterile_white.png
+  baseTurf: Plating
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemSterileWhite
   heatCapacity: 10000
 
 # Shuttle

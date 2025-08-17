@@ -626,20 +626,6 @@
   itemDrop: FloorTileItemPlasticDark # WD EDIT: FloorTileItemDark -> FloorTileItemPlasticDark
   heatCapacity: 10000
 
-# WD EDIT START
-# - type: tile
-#   id: FloorTechMaint
-#   name: tiles-techmaint-floor
-#   sprite: /Textures/Tiles/tech_maint.png
-#   baseTurf: Plating
-#   isSubfloor: false
-#   deconstructTools: [ Prying ]
-#   footstepSounds:
-#     collection: FootstepHull
-#   itemDrop: FloorTileItemTechmaint
-#   heatCapacity: 10000
-# WD EDIT END
-
 - type: tile
   id: FloorReinforced
   name: tiles-reinforced-floor
@@ -701,18 +687,6 @@
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemElevatorShaft
-  heatCapacity: 10000
-
-- type: tile
-  id: FloorMetalDiamond
-  name: tiles-diamond-plate-floor
-  sprite: /Textures/Tiles/metaldiamond.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemMetalDiamond
   heatCapacity: 10000
 
 - type: tile

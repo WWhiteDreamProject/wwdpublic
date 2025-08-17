@@ -320,8 +320,38 @@
       - FloorSterile
 
 - type: entity
+  name: white sterile floor
+  parent: FloorTileItemSterile
+  id: FloorTileItemSterileWhite
+  components:
+  - type: Sprite
+    state: sterile-white
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorSterileWhite
+
+- type: entity
+  name: steel sterile floor
+  parent: FloorTileItemSterile
+  id: FloorTileItemSterileSteel
+  components:
+  - type: Sprite
+    state: sterile-steel
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorSterileSteel
+
+- type: entity
   name: dark sterile floor
-  parent: FloorTileItemSteel
+  parent: FloorTileItemSterile
   id: FloorTileItemSterileDark
   components:
   - type: Sprite
@@ -335,19 +365,19 @@
       - FloorSterileDark
 
 - type: entity
-  name: reinforced glass frame floor
+  name: reinforced glass frame steel floor
   parent: FloorTileItemSteel
-  id: FloorTileItemReinforcedGlassFrame
+  id: FloorTileItemReinforcedGlassFrameSteel
   components:
   - type: Sprite
-    state: rglass-frame
+    state: rglass-frame-steel
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
     sprite: _White/Objects/Tiles/tile.rsi
   - type: FloorTile
     outputs:
       - Plating
-      - FloorReinforcedGlassFrame
+      - FloorReinforcedGlassFrameSteel
   - type: Destructible
     thresholds:
     - trigger:
@@ -369,19 +399,49 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  name: glass frame floor
-  parent: FloorTileItemSteel
-  id: FloorTileItemGlassFrame
+  name: reinforced glass frame dark floor
+  parent: FloorTileItemReinforcedGlassFrameSteel
+  id: FloorTileItemReinforcedGlassFrameDark
   components:
   - type: Sprite
-    state: glass-frame
+    state: rglass-frame-dark
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorReinforcedGlassFrameDark
+
+- type: entity
+  name: reinforced glass frame white floor
+  parent: FloorTileItemReinforcedGlassFrameSteel
+  id: FloorTileItemReinforcedGlassFrameWhite
+  components:
+  - type: Sprite
+    state: rglass-frame-white
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorReinforcedGlassFrameWhite
+
+- type: entity
+  name: glass frame steel floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemGlassFrameSteel
+  components:
+  - type: Sprite
+    state: glass-frame-steel
     sprite: _White/Objects/Tiles/tile.rsi
   - type: Item
     sprite: _White/Objects/Tiles/tile.rsi
   - type: FloorTile
     outputs:
       - Plating
-      - FloorGlassFrame
+      - FloorGlassFrameSteel
   - type: Destructible
     thresholds:
     - trigger:
@@ -401,3 +461,93 @@
             volume: -5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
+- type: entity
+  name: glass frame dark floor
+  parent: FloorTileItemGlassFrameSteel
+  id: FloorTileItemGlassFrameDark
+  components:
+  - type: Sprite
+    state: glass-frame-dark
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorGlassFrameDark
+
+- type: entity
+  name: glass frame white floor
+  parent: FloorTileItemGlassFrameSteel
+  id: FloorTileItemGlassFrameWhite
+  components:
+  - type: Sprite
+    state: glass-frame-white
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorGlassFrameWhite
+
+- type: entity
+  name: white smooth floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemSmoothWhite
+  components:
+  - type: Sprite
+    state: smooth-white
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorSmoothWhite
+
+- type: entity
+  name: steel smooth floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemSmoothSteel
+  components:
+  - type: Sprite
+    state: smooth-steel
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorSmoothSteel
+
+- type: entity
+  name: dark smooth floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemSmoothDark
+  components:
+  - type: Sprite
+    state: smooth-dark
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorSmoothDark
+
+- type: entity
+  name: checker floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemChecker
+  components:
+  - type: Sprite
+    state: checker
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: Item
+    sprite: _White/Objects/Tiles/tile.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorChecker

@@ -47,8 +47,8 @@ tilemap:
   3: FloorSteelMini
   106: FloorSteelMono
   26: FloorSteelRed
-  14: FloorSterile
-  11: FloorSterileDark
+  14: FloorTileItemSterileWhite
+  11: FloorSterile
   112: FloorTechMaintSteel
   113: FloorMaintWhite
   116: FloorWhite

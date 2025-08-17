@@ -3,7 +3,7 @@ meta:
   postmapinit: false
 tilemap:
   0: Space
-  1: FloorMetalDiamond
+  1: FloorMetalDiamondSteel
   77: FloorShuttleOrange
   80: FloorShuttleWhite
   112: Lattice
