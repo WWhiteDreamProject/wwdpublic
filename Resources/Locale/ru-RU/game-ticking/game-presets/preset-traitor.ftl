@@ -65,6 +65,12 @@ traitor-role-uplink-implant =
     Ваш имплант аплинк активирован, воспользуйтесь им из хотбара.
     Аплинк надежно защищён, пока кто-нибудь не извлечёт его из вашего тела.
 
+traitor-role-uplink-radio =
+    Вам был выдан старомодный радио-аплинк Воспользуйтесь им для покупки снаряжения.
+
+traitor-role-uplink-telecrystals =
+    Вам выданы телекристаллы для покупки снаряжения через другие средства.
+
 # don't need all the flavour text for character menu
 # don't need all the flavour text for character menu
 traitor-role-codewords-short =
@@ -73,3 +79,5 @@ traitor-role-codewords-short =
 
 traitor-role-uplink-code-short = Код от вашего аплинка - {$code}. Установите его в качестве рингтона ПДА для доступа к аплинку.
 traitor-role-uplink-implant-short = Ваш аплинк был имплантирован. Воспользуйтесь им из хотбара.
+traitor-role-uplink-radio-short = Ваше радио оборудовано аплинком. Воспользуйтесь им для покупки снаряжения.
+traitor-role-uplink-telecrystals-short = Вам выданы телекристаллы для покупки снаряжения.

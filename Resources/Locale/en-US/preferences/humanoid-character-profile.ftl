@@ -16,6 +16,3 @@ humanoid-profile-editor-uplink-implant = Implant
 humanoid-profile-editor-uplink-radio = Radio
 humanoid-profile-editor-uplink-telecrystals = Telecrystals
 
-# Traitor role uplink messages
-traitor-role-uplink-radio = Your uplink is a radio device. Use it to purchase equipment.
-traitor-role-uplink-telecrystals = You have been given telecrystals directly. Use them to purchase equipment from any uplink.
