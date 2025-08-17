@@ -69,13 +69,13 @@
   description: A high-visibility vest used in work zones.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Vests/hazard.rsi
+    sprite: _White/Clothing/OuterClothing/Vests/hazard_vest.rsi # WWDP edit (spaceman)
     layers:
     - state: icon
     - state: icon-unshaded
       shader: unshaded
   - type: Clothing
-    sprite: Clothing/OuterClothing/Vests/hazard.rsi
+    sprite: _White/Clothing/OuterClothing/Vests/hazard_vest.rsi # WWDP edit (spaceman)
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING

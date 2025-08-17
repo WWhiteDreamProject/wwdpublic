@@ -20,7 +20,8 @@
   - WeaponEnergyGun
   - WeaponEnergyGunMini
   - WeaponLaserSvalinn
-  - BasicRegulatorLamp # WWDP EDIT
+  - BasicFluxCore # WWDP EDIT
+  - SmallBasicFluxCore # WWDP EDIT
   - WeaponEnergyGunPistol
   - WeaponDisablerSMG
   - Truncheon
@@ -208,7 +209,8 @@
   # - WeaponPistolCobra # WWDP no syndicate guns
   - Terminus
   - WeaponPistolUniversal
-  - AdvancedRegulatorLamp #WWDP edit
+  - AdvancedFluxCore #WWDP edit
+  - SmallAdvancedFluxCore #WWDP edit
   technologyPrerequisites:
   - BasicWeapons
 

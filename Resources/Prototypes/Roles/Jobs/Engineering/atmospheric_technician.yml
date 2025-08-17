@@ -34,7 +34,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitAtmos
     back: ClothingBackpackAtmospherics
-    shoes: ClothingShoesColorWhite
+    shoes: ClothingShoesBootsWorkAtmos # WWDP edit (spaceman)
     id: AtmosPDA
     ears: ClothingHeadsetEngineering
 

@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadHatHardhatBase
+  id: ClothingHeadHatHardhatGreen
+  name: green hard hat
+  description: A hard hat, painted in green, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Head/Hardhats/green.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Head/Hardhats/green.rsi
