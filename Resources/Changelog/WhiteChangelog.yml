@@ -4149,3 +4149,22 @@ Entries:
   id: 440
   time: '2025-08-16T21:22:20.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/776
+- author: Gersoon
+  changes:
+    - type: Add
+      message: Гладкие тайлы и декали (Purka)
+    - type: Tweak
+      message: >-
+        Изменена палитра большинства тайлов и декалей. Теперь она темнее и менее
+        контрастная (Purka)
+    - type: Tweak
+      message: >-
+        Новые спрайты дерева + респрайты некоторых тайлов + некоторые
+        микродобавления (Purka)
+    - type: Fix
+      message: Фиксы прошлых ошибок
+    - type: Fix
+      message: Фикс ставней. Теперь ставни могут закрываться на столах
+  id: 441
+  time: '2025-08-17T13:21:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/796
