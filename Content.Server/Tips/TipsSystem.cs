@@ -60,8 +60,8 @@ public sealed class TipsSystem : EntitySystem
         {
             1 => CompletionResult.FromHintOptions(CompletionHelper.SessionNames(), Loc.GetString("cmd-tippy-auto-1")),
             2 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-2")),
-            3 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-4")),
-            4 => CompletionResult.FromHintOptions(CompletionHelper.PrototypeIDs<EntityPrototype>(), Loc.GetString("cmd-tippy-auto-3")),
+            3 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-3")),
+            4 => CompletionResult.FromHintOptions(CompletionHelper.PrototypeIDs<EntityPrototype>(), Loc.GetString("cmd-tippy-auto-4")),
             5 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-5")),
             6 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-6")),
             _ => CompletionResult.Empty
