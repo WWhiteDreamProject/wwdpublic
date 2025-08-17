@@ -11,7 +11,13 @@
       "name": "freezer"
     },
     {
-      "name": "glass-frame"
+      "name": "glass-frame-dark"
+    },
+    {
+      "name": "glass-frame-steel"
+    },
+    {
+      "name": "glass-frame-white"
     },
     {
       "name": "lino-dark"
@@ -44,7 +50,13 @@
       "name": "plastic-white"
     },
     {
-      "name": "rglass-frame"
+      "name": "rglass-frame-dark"
+    },
+    {
+      "name": "rglass-frame-steel"
+    },
+    {
+      "name": "rglass-frame-white"
     },
     {
       "name": "shielding"
@@ -81,6 +93,24 @@
     },
     {
       "name": "sterile-dark"
+    },
+    {
+      "name": "sterile-steel"
+    },
+    {
+      "name": "sterile-white"
+    },
+    {
+      "name": "checker"
+    },
+    {
+      "name": "smooth-dark"
+    },
+    {
+      "name": "smooth-steel"
+    },
+    {
+      "name": "smooth-white"
     }
   ]
 }

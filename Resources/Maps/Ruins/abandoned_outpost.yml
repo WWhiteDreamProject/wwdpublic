@@ -6,7 +6,7 @@ tilemap:
   18: FloorBlueCircuit
   32: FloorDark
   37: FloorDarkMono
-  68: FloorMetalDiamond
+  68: FloorMetalDiamondSteel
   83: FloorReinforced
   97: FloorSteel
   1: FloorSteelBurnt

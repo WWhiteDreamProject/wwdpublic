@@ -5,7 +5,7 @@ tilemap:
   0: Space
   47: FloorFreezer
   64: FloorKitchen
-  1: FloorMetalDiamond
+  1: FloorMetalDiamondSteel
   111: FloorTechMaintSteel
   112: FloorMaintWhite
   125: FloorWood

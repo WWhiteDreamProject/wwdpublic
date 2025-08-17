@@ -59,8 +59,8 @@ tilemap:
   107: FloorSteelOffset
   108: FloorSteelPavement
   110: FloorSteelPavementVertical
-  7: FloorSterile
-  8: FloorSterileDark
+  7: FloorTileItemSterileWhite
+  8: FloorSterile
   114: FloorTechMaint3
   21: FloorTechMaintDark
   112: FloorTechMaintSteel
