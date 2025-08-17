@@ -153,9 +153,9 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             var uplinkInfo = uplinkPreference switch
             {
                 UplinkPreference.PDA when code != null => Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))),
-                UplinkPreference.Implant => Loc.GetString("traitor-role-uplink-implant"),
-                UplinkPreference.Radio => Loc.GetString("traitor-role-uplink-radio"),
-                UplinkPreference.Telecrystals => Loc.GetString("traitor-role-uplink-telecrystals"),
+                UplinkPreference.Implant => Loc.GetString("traitor-role-uplink-implant-short"),
+                UplinkPreference.Radio => Loc.GetString("traitor-role-uplink-radio-short"),
+                UplinkPreference.Telecrystals => Loc.GetString("traitor-role-uplink-telecrystals-short"),
                 _ => ""
             };
             
