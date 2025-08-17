@@ -230,11 +230,23 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     private string GenerateBriefing(string[]? codewords, Note[]? uplinkCode, string? objectiveIssuer = null, UplinkPreference uplinkPreference = UplinkPreference.PDA) // WWDP edit
     {
         var sb = new StringBuilder();
-        sb.AppendLine(Loc.GetString("traitor-role-greeting", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
+        
+        // Add greeting with uplink-specific instructions
+        var greetingKey = uplinkPreference switch
+        {
+            UplinkPreference.PDA => "traitor-role-greeting-pda",
+            UplinkPreference.Implant => "traitor-role-greeting-implant", 
+            UplinkPreference.Radio => "traitor-role-greeting-radio",
+            UplinkPreference.Telecrystals => "traitor-role-greeting-telecrystals",
+            _ => "traitor-role-greeting"
+        };
+        
+        sb.AppendLine(Loc.GetString(greetingKey, ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
+        
         if (codewords != null)
             sb.AppendLine(Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
         
-        // WWDP edit start
+        // WWDP edit start - Add specific uplink instructions
         switch (uplinkPreference)
         {
             case UplinkPreference.PDA:
