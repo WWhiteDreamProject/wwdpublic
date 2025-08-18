@@ -4168,3 +4168,13 @@ Entries:
   id: 441
   time: '2025-08-17T13:21:22.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/796
+- author: RedFoxIV
+  changes:
+    - type: Tweak
+      message: >-
+        Еганы снова спавнятся с ядрами: теперь вам не придётся судорожно их
+        искать, когда ассистенты стоят на пороге вашей каюты. Кроме еганов,
+        напечатанных на техфабе.
+  id: 442
+  time: '2025-08-18T18:26:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/802
