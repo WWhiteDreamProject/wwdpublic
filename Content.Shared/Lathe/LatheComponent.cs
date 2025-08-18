@@ -27,6 +27,11 @@ namespace Content.Shared.Lathe
         [DataField]
         public List<LatheRecipePrototype> Queue = new();
 
+        // WWDP EDIT START
+        [DataField]
+        public ComponentRegistry? AdditionalComponents = null;
+        // WWDP EDIT END
+        
         /// <summary>
         /// The sound that plays when the lathe is producing an item, if any
         /// </summary>

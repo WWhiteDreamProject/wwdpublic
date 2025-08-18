@@ -107,7 +107,7 @@ public abstract class SharedGunFluxSystem : EntitySystem
             if(overflow > 0)
             {
                 var damage = overflow * comp.OverflowDamage * core.OverflowDamageMultiplier;
-                damage = MathF.Max(damage, comp.MaxOverflowDamage);
+                damage = MathF.Min(damage, comp.MaxOverflowDamage);
 
                 _popup.PopupClient(Loc.GetString(comp.OverflowDamageMessage, ("gun", Name(uid))), args.User, PopupType.SmallCaution);
                 _audio.PlayLocal(comp.OverflowDamageSound, args.User, args.User);
@@ -116,7 +116,8 @@ public abstract class SharedGunFluxSystem : EntitySystem
             else
             {
                 var damage = -overflow * comp.UnderflowDamage * core.UnderflowDamageMultiplier;
-                damage = MathF.Max(damage, comp.MaxUnderflowDamage);
+                damage = MathF.Min(damage, comp.MaxUnderflowDamage);
+                DebugTools.Assert(damage > 0);
 
                 _popup.PopupClient(Loc.GetString(comp.UnderflowDamageMessage, ("gun", Name(uid))), args.User, PopupType.SmallCaution);
                 _audio.PlayLocal(comp.UnderflowDamageSound, args.User, args.User);

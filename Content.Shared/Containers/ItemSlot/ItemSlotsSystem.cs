@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._White.Lathe;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -65,10 +66,14 @@ namespace Content.Shared.Containers.ItemSlots
         /// </summary>
         private void OnMapInit(EntityUid uid, ItemSlotsComponent itemSlots, MapInitEvent args)
         {
+            var crafted = HasComp<CraftedOrPrintedComponent>(uid); // WWDP EDIT
             foreach (var slot in itemSlots.Slots.Values)
             {
                 if (slot.HasItem || string.IsNullOrEmpty(slot.StartingItem))
                     continue;
+
+                if (crafted && !slot.SpawnStartingItemIfCrafted) // WWDP EDIT // todo: figure out a better way to handle differences between
+                    continue;                                   // WWDP EDIT //       spawned items and crafted/printed items.
 
                 var item = EntityManager.SpawnEntity(slot.StartingItem, EntityManager.GetComponent<TransformComponent>(uid).Coordinates);
                 if (slot.ContainerSlot != null)
