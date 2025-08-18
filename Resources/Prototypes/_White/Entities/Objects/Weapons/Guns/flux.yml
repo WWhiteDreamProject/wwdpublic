@@ -63,6 +63,7 @@
         swap: false
         priority: 20
         startingItem: BasicFluxCore
+        spawnStartingItemIfCrafted: false
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
@@ -81,6 +82,7 @@
         swap: false
         priority: 20
         startingItem: SmallBasicFluxCore
+        spawnStartingItemIfCrafted: false
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
