@@ -4178,3 +4178,18 @@ Entries:
   id: 442
   time: '2025-08-18T18:26:26.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/802
+- author: Kutos
+  changes:
+    - type: Add
+      message: >-
+        Добавлена возможность выбрать тип аплинка в меню кастомизации персонажа:
+        ПДА, Имплант, Радио, Телекристаллы.
+    - type: Remove
+      message: Имплант аплинка убран из каталога аплинка.
+    - type: Tweak
+      message: >-
+        Порядок аргументов Tippy изменен. Прототип; Время речи ->Время речи;
+        Прототип
+  id: 443
+  time: '2025-08-19T07:24:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/800
