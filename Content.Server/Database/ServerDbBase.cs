@@ -260,7 +260,8 @@ namespace Content.Server.Database
                 {
                     CustomName = l.CustomName, CustomDescription = l.CustomDescription,
                     CustomColorTint = l.CustomColorTint, CustomHeirloom = l.CustomHeirloom, Selected = true,
-                }).ToHashSet()
+                }).ToHashSet(),
+                (UplinkPreference) profile.UplinkPreference // WD EDIT
             );
         }
 
@@ -301,6 +302,7 @@ namespace Content.Server.Database
             profile.EyeColor = appearance.EyeColor.ToHex();
             profile.SkinColor = appearance.SkinColor.ToHex();
             profile.SpawnPriority = (int) humanoid.SpawnPriority;
+            profile.UplinkPreference = (int) humanoid.UplinkPreference; // WD EDIT
             profile.Markings = markings;
             profile.Slot = slot;
             profile.PreferenceUnavailable = (DbPreferenceUnavailableMode) humanoid.PreferenceUnavailable;
