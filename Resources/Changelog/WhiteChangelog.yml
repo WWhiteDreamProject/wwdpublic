@@ -4193,3 +4193,18 @@ Entries:
   id: 443
   time: '2025-08-19T07:24:26.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/800
+- author: nekosich
+  changes:
+    - type: Fix
+      message: Исправлен неработающий дизарм.
+    - type: Fix
+      message: 'Исправлены отсутствующие описания у стульев. '
+    - type: Fix
+      message: Исправлено отображение типа урона при осмотре.
+    - type: Tweak
+      message: Немного перевода датасетов.
+    - type: Tweak
+      message: Немного изменён перевод на основе отзывов.
+  id: 444
+  time: '2025-08-19T07:27:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/773
