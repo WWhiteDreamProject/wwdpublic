@@ -524,6 +524,23 @@ namespace Content.Client.Lobby.UI
 
             #endregion SpawnPriority
 
+            // WWDP edit start
+            #region UplinkPreference
+
+            foreach (var value in Enum.GetValues<UplinkPreference>())
+                UplinkPrefButton.AddItem(
+                    Loc.GetString($"humanoid-profile-editor-uplink-{value.ToString().ToLowerInvariant()}"),
+                    (int) value);
+
+            UplinkPrefButton.OnItemSelected += args =>
+            {
+                UplinkPrefButton.SelectId(args.Id);
+                SetUplinkPreference((UplinkPreference) args.Id);
+            };
+
+            #endregion UplinkPreference
+            // WWDP edit end
+
             #region Eyes
 
             EyeColorPicker.OnEyeColorPicked += newColor =>
@@ -996,6 +1013,7 @@ namespace Content.Client.Lobby.UI
             UpdateMimeControls(); // WD EDIT
             UpdateSkinColor();
             UpdateSpawnPriorityControls();
+            UpdateUplinkPreferenceControls(); // WWDP edit
             UpdateFlavorTextEdit();
             UpdateCustomSpecieNameEdit();
             UpdateAgeEdit();
@@ -1496,6 +1514,14 @@ namespace Content.Client.Lobby.UI
             IsDirty = true;
         }
 
+        // WWDP edit start
+        private void SetUplinkPreference(UplinkPreference newUplinkPreference)
+        {
+            Profile = Profile?.WithUplinkPreference(newUplinkPreference);
+            IsDirty = true;
+        }
+        // WWDP edit end
+
         private void SetProfileHeight(float height)
         {
             Profile = Profile?.WithHeight(height);
@@ -1799,6 +1825,16 @@ namespace Content.Client.Lobby.UI
 
             SpawnPriorityButton.SelectId((int) Profile.SpawnPriority);
         }
+
+        // WWDP edit start
+        private void UpdateUplinkPreferenceControls()
+        {
+            if (Profile == null)
+                return;
+
+            UplinkPrefButton.SelectId((int) Profile.UplinkPreference);
+        }
+        // WWDP edit end
 
                 private void UpdateHeightWidthSliders()
         {

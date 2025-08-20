@@ -4168,3 +4168,43 @@ Entries:
   id: 441
   time: '2025-08-17T13:21:22.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/796
+- author: RedFoxIV
+  changes:
+    - type: Tweak
+      message: >-
+        Еганы снова спавнятся с ядрами: теперь вам не придётся судорожно их
+        искать, когда ассистенты стоят на пороге вашей каюты. Кроме еганов,
+        напечатанных на техфабе.
+  id: 442
+  time: '2025-08-18T18:26:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/802
+- author: Kutos
+  changes:
+    - type: Add
+      message: >-
+        Добавлена возможность выбрать тип аплинка в меню кастомизации персонажа:
+        ПДА, Имплант, Радио, Телекристаллы.
+    - type: Remove
+      message: Имплант аплинка убран из каталога аплинка.
+    - type: Tweak
+      message: >-
+        Порядок аргументов Tippy изменен. Прототип; Время речи ->Время речи;
+        Прототип
+  id: 443
+  time: '2025-08-19T07:24:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/800
+- author: nekosich
+  changes:
+    - type: Fix
+      message: Исправлен неработающий дизарм.
+    - type: Fix
+      message: 'Исправлены отсутствующие описания у стульев. '
+    - type: Fix
+      message: Исправлено отображение типа урона при осмотре.
+    - type: Tweak
+      message: Немного перевода датасетов.
+    - type: Tweak
+      message: Немного изменён перевод на основе отзывов.
+  id: 444
+  time: '2025-08-19T07:27:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/773

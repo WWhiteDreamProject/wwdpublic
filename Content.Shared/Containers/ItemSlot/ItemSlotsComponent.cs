@@ -111,6 +111,12 @@ namespace Content.Shared.Containers.ItemSlots
         [NonSerialized]
         public string? StartingItem;
 
+
+        // WWDP EDIT START
+        [DataField]
+        public bool SpawnStartingItemIfCrafted = true;
+        // WWDP EDIT END
+
         /// <summary>
         ///     Whether or not an item can currently be ejected or inserted from this slot.
         /// </summary>
