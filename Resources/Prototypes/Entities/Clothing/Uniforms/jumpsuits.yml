@@ -1983,3 +1983,14 @@
     sprite: Clothing/Uniforms/Jumpsuit/black_flannel_khakis.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/black_flannel_khakis.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMicroBikini
+  name: microbikini
+  description: A very revealing bikini outfit.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Bikini/micro_bikini.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Bikini/micro_bikini.rsi
