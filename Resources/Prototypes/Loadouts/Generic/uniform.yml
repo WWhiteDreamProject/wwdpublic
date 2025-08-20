@@ -2693,3 +2693,19 @@
     - !type:CharacterLifepathRequirement
       lifepaths:
         - WarVet
+
+- type: loadout
+  id: ClothingUniformJumpsuitMicroBikini
+  category: Uniform
+  cost: 0
+  canBeHeirloom: true
+  exclusive: true
+  items:
+    - ClothingUniformJumpsuitMicroBikini
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Command
