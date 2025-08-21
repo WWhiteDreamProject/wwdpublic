@@ -10,7 +10,7 @@
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
-    gridPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/abductor_shuttle.yml
+    mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/abductor_shuttle.yml
   - type: AntagObjectives
     objectives:
     - AbductObjective
@@ -104,7 +104,7 @@
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
-    gridPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/duo_abductor_shuttle.yml
+    mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/duo_abductor_shuttle.yml
   - type: AntagObjectives
     objectives:
     - AbductObjective
