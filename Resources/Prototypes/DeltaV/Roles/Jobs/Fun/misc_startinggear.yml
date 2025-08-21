@@ -81,7 +81,7 @@
     belt: ClothingBeltHolster
   storage:
     back:
-    - DrinkWhiskeyBottleFull # WD EDIT: BoxSurvival -> DrinkWhiskeyBottleFull
+    - DrinkWhiskeyBottleFullMobster # WD EDIT: BoxSurvival -> DrinkWhiskeyBottleFullMobster
     - WeaponSubMachineGunTypewriter
     - WeaponPistolViperWood
     - MagazinePistol
@@ -101,7 +101,7 @@
     pocket1: CombatKnife
   storage:
     back:
-    - DrinkWhiskeyBottleFull # WD EDIT: BoxSurvival -> DrinkWhiskeyBottleFull
+    - DrinkWhiskeyBottleFullMobster # WD EDIT: BoxSurvival -> DrinkWhiskeyBottleFullMobster
     - WeaponSubMachineGunTypewriter
     - WeaponPistolViperWood
     - MagazinePistol

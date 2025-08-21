@@ -134,12 +134,12 @@
         sizeMaps:
           32:
             sprite: _White/Mobs/Species/Reptilian/displacement.rsi
-            state: jumpsuit
+            state: jumpsuit-digi
       shoes:
         sizeMaps:
           32:
             sprite: _White/Mobs/Species/Reptilian/displacement.rsi
-            state: shoes
+            state: shoes-digi
     # WD EDIT END
 
 - type: entity
@@ -203,12 +203,12 @@
         sizeMaps:
           32:
             sprite: _White/Mobs/Species/Reptilian/displacement.rsi
-            state: jumpsuit
+            state: jumpsuit-digi
       shoes:
         sizeMaps:
           32:
             sprite: _White/Mobs/Species/Reptilian/displacement.rsi
-            state: shoes
+            state: shoes-digi
     # WD EDIT END
 
 #Weh

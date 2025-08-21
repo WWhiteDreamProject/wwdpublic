@@ -52,6 +52,7 @@
   - type: ProximityBeeper
   - type: ProximityDetector
     range: 20
+    requireAll: true
     criteria:
       components:
       - Anomaly

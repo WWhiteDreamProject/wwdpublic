@@ -24,6 +24,7 @@
   - type: ProximityBeeper
   - type: ProximityDetector
     range: 12
+    requireAll: true
     criteria:
       components:
       - Spectral # reacts to AI eye, intentional
