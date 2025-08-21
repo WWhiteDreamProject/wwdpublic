@@ -2695,7 +2695,7 @@
         - WarVet
 
 - type: loadout
-  id: ClothingUniformJumpsuitMicroBikini
+  id: LoadoutUniformJumpsuitMicroBikini
   category: Uniform
   cost: 0
   canBeHeirloom: true
