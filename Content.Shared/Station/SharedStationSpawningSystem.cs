@@ -231,6 +231,8 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                             newStartingGear.Storage["back"] = new();
                         newStartingGear.Storage["back"].Add(pocket);
                     }
+
+                    continue;
                 }
 
                 newStartingGear.Equipment[slot] = entProtoId;
