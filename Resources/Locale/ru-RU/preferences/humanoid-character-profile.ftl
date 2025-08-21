@@ -13,11 +13,3 @@ humanoid-character-profile-summary =
         [few] года
        *[other] лет
     }.
-
-# Uplink preferences
-humanoid-profile-editor-uplink-label = Аплинк:
-humanoid-profile-editor-uplink-pda = ПДА
-humanoid-profile-editor-uplink-implant = Имплант
-humanoid-profile-editor-uplink-radio = Радио
-humanoid-profile-editor-uplink-telecrystals = Телекристаллы
-
