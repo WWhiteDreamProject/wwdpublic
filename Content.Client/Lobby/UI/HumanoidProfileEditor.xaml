@@ -140,14 +140,6 @@
                                     <Control HorizontalExpand="True"/>
                                     <OptionButton Name="SpawnPriorityButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
-                                <!-- WWDP edit start -->
-                                <!-- Uplink Preference -->
-                                <BoxContainer HorizontalExpand="True">
-                                    <Label Text="{Loc 'humanoid-profile-editor-uplink-label'}" />
-                                    <Control HorizontalExpand="True"/>
-                                    <OptionButton Name="UplinkPrefButton" HorizontalAlignment="Right" />
-                                </BoxContainer>
-                                <!-- WWDP edit end -->
 						        <!-- Height -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Name="HeightLabel" MinWidth="110" />

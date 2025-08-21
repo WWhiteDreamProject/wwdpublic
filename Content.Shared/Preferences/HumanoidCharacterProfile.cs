@@ -55,10 +55,6 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     [DataField]
     private HashSet<LoadoutPreference> _loadoutPreferences = new();
 
-    /// WWDP add - Preferred uplink type for traitor role
-    [DataField]
-    public UplinkPreference UplinkPreference { get; set; } = UplinkPreference.PDA;
-
     [DataField]
     public string Name { get; set; } = "John Doe";
 
@@ -177,8 +173,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         PreferenceUnavailableMode preferenceUnavailable,
         HashSet<ProtoId<AntagPrototype>> antagPreferences,
         HashSet<ProtoId<TraitPrototype>> traitPreferences,
-        HashSet<LoadoutPreference> loadoutPreferences,
-        UplinkPreference uplinkPreference = UplinkPreference.PDA) // WD edit
+        HashSet<LoadoutPreference> loadoutPreferences)
     {
         Name = name;
         FlavorText = flavortext;
@@ -208,7 +203,6 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         _antagPreferences = antagPreferences;
         _traitPreferences = traitPreferences;
         _loadoutPreferences = loadoutPreferences;
-        UplinkPreference = uplinkPreference; // WD edit
 
         var hasHighPrority = false;
         foreach (var (key, value) in _jobPriorities)
@@ -255,8 +249,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             other.PreferenceUnavailable,
             new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
             new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
-            new HashSet<LoadoutPreference>(other.LoadoutPreferences),
-            other.UplinkPreference) // WD edit
+            new HashSet<LoadoutPreference>(other.LoadoutPreferences))
     {
     }
 
@@ -487,9 +480,6 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         return new HumanoidCharacterProfile(this) { _loadoutPreferences = list };
     }
 
-    public HumanoidCharacterProfile WithUplinkPreference(UplinkPreference uplinkPreference) =>
-        new(this) { UplinkPreference = uplinkPreference }; // WD edit
-
     public string Summary =>
         Loc.GetString(
             "humanoid-character-profile-summary",
@@ -520,8 +510,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             && _traitPreferences.SequenceEqual(other._traitPreferences)
             && LoadoutPreferences.SequenceEqual(other.LoadoutPreferences)
             && Appearance.MemberwiseEquals(other.Appearance)
-            && FlavorText == other.FlavorText // // WD edit
-            && UplinkPreference == other.UplinkPreference; // WD edit
+            && FlavorText == other.FlavorText;
     }
 
     public void EnsureValid(ICommonSession session, IDependencyCollection collection)
@@ -748,7 +737,6 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         hashCode.Add(Appearance);
         hashCode.Add((int) SpawnPriority);
         hashCode.Add((int) PreferenceUnavailable);
-        hashCode.Add((int) UplinkPreference); // WD edit
         hashCode.Add(Customspeciename);
         return hashCode.ToHashCode();
     }

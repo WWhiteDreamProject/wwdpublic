@@ -19,8 +19,6 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Shared.Mood;
-using Content.Shared.Preferences; // WWDP edit
-using Content.Server.Preferences.Managers; // WWDP edit
 
 
 namespace Content.Server.GameTicking.Rules;
@@ -38,15 +36,6 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!; // WD EDIT
-    // WWDP edit start
-    [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
-
-    // Uplink preference balance modifiers
-    private const int PdaBalanceModifier = 0;
-    private const int ImplantBalanceModifier = -2;
-    private const int RadioBalanceModifier = 1;
-    private const int TelecrystalsBalanceModifier = 5;
-    // WWDP edit end
 
     public override void Initialize()
     {
@@ -94,10 +83,14 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         component.SelectionStatus = TraitorRuleComponent.SelectionState.Started; // WD EDIT
 
+        var briefing = "";
+
+        if (component.GiveCodewords)
+            briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", component.Codewords)));
+
         var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers).Values);
 
         Note[]? code = null;
-        UplinkPreference uplinkPreference = UplinkPreference.PDA; // WWDP edit
 
         if (component.GiveUplink)
         {
@@ -106,66 +99,21 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             if (_jobs.MindTryGetJob(mindId, out var prototype))
                 startingBalance = Math.Max(startingBalance - prototype.AntagAdvantage, 0);
 
-            // WWDP edit start
-            // Get uplink preference from player profile
-            if (mind.Session != null)
-            {
-                var prefs = _prefsManager.GetPreferences(mind.Session.UserId);
-                if (prefs.SelectedCharacter is HumanoidCharacterProfile humanoidProfile)
-                {
-                    uplinkPreference = humanoidProfile.UplinkPreference;
-                }
-            }
-
-            // Adjust balance based on uplink preference
-            var balanceModifier = uplinkPreference switch
-            {
-                UplinkPreference.PDA => PdaBalanceModifier,
-                UplinkPreference.Implant => ImplantBalanceModifier,
-                UplinkPreference.Radio => RadioBalanceModifier,
-                UplinkPreference.Telecrystals => TelecrystalsBalanceModifier,
-                _ => 0
-            };
-            var adjustedBalance = startingBalance + balanceModifier;
-
             // creadth: we need to create uplink for the antag.
-            if (!_uplink.AddUplink(traitor, adjustedBalance, giveDiscounts: true, uplinkPreference: uplinkPreference))
+            // PDA should be in place already
+            var pda = _uplink.FindUplinkTarget(traitor);
+            if (pda == null || !_uplink.AddUplink(traitor, startingBalance, giveDiscounts: true))
                 return false;
 
-            // Get uplink code for PDA type
-            if (uplinkPreference == UplinkPreference.PDA)
-            {
-                var pda = _uplink.FindUplinkTarget(traitor);
-                if (pda != null)
-                    code = EnsureComp<RingerUplinkComponent>(pda.Value).Code;
-            }
-            // WWDP edit end
+            // Give traitors their codewords and uplink code to keep in their character info menu
+            code = EnsureComp<RingerUplinkComponent>(pda.Value).Code;
+
+            // If giveUplink is false the uplink code part is omitted
+            briefing = string.Format("{0}\n{1}", briefing,
+                Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
         }
 
-        // WWDP edit start
-        var shortBriefing = "";
-        if (component.GiveCodewords)
-            shortBriefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", component.Codewords)));
-        
-        // Add uplink info to short briefing
-        if (component.GiveUplink)
-        {
-            var uplinkInfo = uplinkPreference switch
-            {
-                UplinkPreference.PDA when code != null => Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))),
-                UplinkPreference.Implant => Loc.GetString("traitor-role-uplink-implant-short"),
-                UplinkPreference.Radio => Loc.GetString("traitor-role-uplink-radio-short"),
-                UplinkPreference.Telecrystals => Loc.GetString("traitor-role-uplink-telecrystals-short"),
-                _ => ""
-            };
-            
-            if (!string.IsNullOrEmpty(uplinkInfo))
-                shortBriefing = string.IsNullOrEmpty(shortBriefing) ? uplinkInfo : $"{shortBriefing}\n{uplinkInfo}";
-                // WWDP edit end
-        }
-
-        var briefing = GenerateBriefing(component.GiveCodewords ? component.Codewords : null, code, issuer, uplinkPreference); // WWDP edit
-        _antag.SendBriefing(traitor, briefing, null, component.GreetSoundNotification);
+        _antag.SendBriefing(traitor, GenerateBriefing(component.Codewords, code, issuer), null, component.GreetSoundNotification);
 
         component.TraitorMinds.Add(mindId);
 
@@ -177,7 +125,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         if (traitorRole is not null)
         {
             AddComp<RoleBriefingComponent>(traitorRole.Value.Owner);
-            Comp<RoleBriefingComponent>(traitorRole.Value.Owner).Briefing = shortBriefing;
+            Comp<RoleBriefingComponent>(traitorRole.Value.Owner).Briefing = briefing;
         }
 
         // Send codewords to only the traitor client
@@ -227,43 +175,17 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     }
 
     // TODO: figure out how to handle this? add priority to briefing event?
-    private string GenerateBriefing(string[]? codewords, Note[]? uplinkCode, string? objectiveIssuer = null, UplinkPreference uplinkPreference = UplinkPreference.PDA) // WWDP edit
+    private string GenerateBriefing(string[]? codewords, Note[]? uplinkCode, string? objectiveIssuer = null)
     {
         var sb = new StringBuilder();
-        
-        // Add greeting with uplink-specific instructions
-        var greetingKey = uplinkPreference switch
-        {
-            UplinkPreference.PDA => "traitor-role-greeting-pda",
-            UplinkPreference.Implant => "traitor-role-greeting-implant", 
-            UplinkPreference.Radio => "traitor-role-greeting-radio",
-            UplinkPreference.Telecrystals => "traitor-role-greeting-telecrystals",
-            _ => "traitor-role-greeting"
-        };
-        
-        sb.AppendLine(Loc.GetString(greetingKey, ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
-        
+        sb.AppendLine(Loc.GetString("traitor-role-greeting", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
         if (codewords != null)
             sb.AppendLine(Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
-        
-        // WWDP edit start - Add specific uplink instructions
-        switch (uplinkPreference)
-        {
-            case UplinkPreference.PDA:
-                if (uplinkCode != null)
-                    sb.AppendLine(Loc.GetString("traitor-role-uplink-code", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
-                break;
-            case UplinkPreference.Implant:
-                sb.AppendLine(Loc.GetString("traitor-role-uplink-implant"));
-                break;
-            case UplinkPreference.Radio:
-                sb.AppendLine(Loc.GetString("traitor-role-uplink-radio"));
-                break;
-            case UplinkPreference.Telecrystals:
-                sb.AppendLine(Loc.GetString("traitor-role-uplink-telecrystals"));
-                break;
-        }
-        // WWDP edit end
+        if (uplinkCode != null)
+            sb.AppendLine(Loc.GetString("traitor-role-uplink-code", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
+        else
+            sb.AppendLine(Loc.GetString("traitor-role-uplink-implant"));
+
 
         return sb.ToString();
     }

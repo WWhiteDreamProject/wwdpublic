@@ -404,7 +404,6 @@ namespace Content.Server.Database
         public string? CyborgName { get; set; }
         public string? ClownName { get; set; } // WD EDIT
         public string? MimeName { get; set; } // WD EDIT
-        public int UplinkPreference { get; set; } = 0; // WD EDIT
         public string Species { get; set; } = null!;
         public float Height { get; set; } = 1f;
         public float Width { get; set; } = 1f;

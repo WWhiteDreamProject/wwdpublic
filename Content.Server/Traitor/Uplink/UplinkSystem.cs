@@ -1,18 +1,14 @@
 using System.Linq;
 using Content.Server.Store.Systems;
 using Content.Server.StoreDiscount.Systems;
-using Content.Server.Stack;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Implants;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
-using Content.Shared.Preferences;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
-using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Log;
 
 namespace Content.Server.Traitor.Uplink;
 
@@ -23,19 +19,6 @@ public sealed class UplinkSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!;
-    // WWDP edit start
-    [Dependency] private readonly StackSystem _stackSystem = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly SharedStorageSystem _storageSystem = default!;
-
-    private ISawmill _sawmill = default!;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-        _sawmill = _logManager.GetSawmill("uplink");
-    }
-    // WWDP edit end
 
     [ValidatePrototypeId<CurrencyPrototype>]
     public const string TelecrystalCurrencyPrototype = "Telecrystal";
@@ -54,48 +37,10 @@ public sealed class UplinkSystem : EntitySystem
         EntityUid user,
         FixedPoint2 balance,
         EntityUid? uplinkEntity = null,
-// WWDP edit start
-        bool giveDiscounts = false,
-        UplinkPreference uplinkPreference = UplinkPreference.PDA) // WWDP edit
+        bool giveDiscounts = false)
     {
-        if (uplinkPreference == UplinkPreference.Telecrystals)
-        {
-            var stackCount = balance.Int();
-            var tcEntity = Spawn(TelecrystalCurrencyPrototype, Transform(user).Coordinates);
-            _stackSystem.SetCount(tcEntity, stackCount);
-
-            if (!TryPutInBackpack(user, tcEntity) && !_handsSystem.TryPickupAnyHand(user, tcEntity))
-                _sawmill.Warning($"Telecrystals dropped on ground for {ToPrettyString(user)}");
-            
-            return true;
-        }
-
-        if (uplinkPreference == UplinkPreference.Radio)
-        {
-            if (!_proto.HasIndex<EntityPrototype>("BaseUplinkRadio"))
-            {
-                _sawmill.Error("BaseUplinkRadio prototype not found");
-                return false;
-            }
-
-            var radio = Spawn("BaseUplinkRadio", Transform(user).Coordinates);
-
-            SetUplink(user, radio, balance, giveDiscounts);
-
-            if (TryPutInBackpack(user, radio) || _handsSystem.TryPickupAnyHand(user, radio))
-                return true;
-
-            _sawmill.Warning($"Radio uplink dropped on ground for {ToPrettyString(user)}");
-            return true;
-        }
-
-        if (uplinkPreference == UplinkPreference.Implant)
-        {
-            return ImplantUplinkDirect(user, balance, giveDiscounts);
-        }
-// WWDP edit end
-
         // Try to find target item if none passed
+
         uplinkEntity ??= FindUplinkTarget(user);
 
         if (uplinkEntity == null)
@@ -104,7 +49,7 @@ public sealed class UplinkSystem : EntitySystem
         EnsureComp<UplinkComponent>(uplinkEntity.Value);
 
         SetUplink(user, uplinkEntity.Value, balance, giveDiscounts);
-        
+
         // TODO add BUI. Currently can't be done outside of yaml -_-
         // ^ What does this even mean?
 
@@ -131,23 +76,6 @@ public sealed class UplinkSystem : EntitySystem
             Listings: _store.GetAvailableListings(user, uplink, store)
                 .ToArray());
         RaiseLocalEvent(ref uplinkInitializedEvent);
-    }
-
-    /// <summary>
-    /// Implant an uplink directly with full balance (for preference selection)
-    /// </summary>
-    private bool ImplantUplinkDirect(EntityUid user, FixedPoint2 balance, bool giveDiscounts)
-    {
-        var implant = _subdermalImplant.AddImplant(user, FallbackUplinkImplant);
-
-        if (implant == null || !HasComp<StoreComponent>(implant))
-        {
-            _sawmill.Warning($"Failed to create uplink implant for player {ToPrettyString(user)}");
-            return false;
-        }
-
-        SetUplink(user, implant.Value, balance, giveDiscounts);
-        return true;
     }
 
     /// <summary>
@@ -202,21 +130,5 @@ public sealed class UplinkSystem : EntitySystem
                 return item;
 
         return null;
-    }
-
-    /// <summary>
-    /// WWDP add - Tries to put an item in the user's backpack
-    /// </summary>
-    private bool TryPutInBackpack(EntityUid user, EntityUid item)
-    {
-        if (_inventorySystem.TryGetSlotEntity(user, "back", out var backEntity))
-        {
-            if (_storageSystem.Insert(backEntity.Value, item, out _))
-            {
-                return true;
-            }
-        }
-
-        return false;
     }
 }
