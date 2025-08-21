@@ -1991,6 +1991,6 @@
   description: A very revealing bikini outfit.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Bikini/micro_bikini.rsi
+    sprite: _White/Clothing/Uniforms/Bikini/micro_bikini.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Bikini/micro_bikini.rsi
+    sprite: _White/Clothing/Uniforms/Bikini/micro_bikini.rsi
