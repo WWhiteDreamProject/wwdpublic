@@ -966,8 +966,8 @@
     # - MagazineCaselessRifleShortPractice # EE
     # - MagazineCaselessRifleShort # EE
     # .35 Caseless (Military) Rifle
-    # - MagazineCaselessRiflePractice # EE
-    # - MagazineCaselessRifle # EE
+     - MagazineCaselessRiflePractice # EE
+     - MagazineCaselessRifle # EE
     # .35 Caseless (Box Mag) Rifle
     # - MagazineBoxCaselessRiflePractice # EE
     # - MagazineBoxCaselessRifle # EE
@@ -1181,7 +1181,9 @@
     - BoxBreach
     - ShellShotgunBreach
     - WeaponSecurityRiotLauncher
+    - SmallBasicFluxCore
     - BasicFluxCore
+    - SmallAdvancedFluxCore
     - AdvancedFluxCore
     # WD EDIT END
   - type: MaterialStorage
@@ -1253,8 +1255,8 @@
     # - MagazineCaselessRifleShortPractice # EE
     # - MagazineCaselessRifleShort # EE
     # .35 Caseless (Military) Rifle
-    # - MagazineCaselessRiflePractice # EE
-    # - MagazineCaselessRifle # EE
+     - MagazineCaselessRiflePractice # EE
+     - MagazineCaselessRifle # EE
     # .35 Caseless (Box Mag) Rifle
     # - MagazineBoxCaselessRiflePractice # EE
     # - MagazineBoxCaselessRifle # EE
