@@ -1,3 +1,4 @@
+using Content.Shared._White.Bark.Systems;
 using Content.Shared._White.CCVar;
 using Content.Shared.Chat;
 using Content.Shared._White.TTS;
@@ -35,12 +36,15 @@ public sealed class TTSSystem : EntitySystem
     private ulong _fileIdx = 0;
     private static ulong _shareIdx = 0;
 
+    private bool _clientSideEnabled;
+
     public override void Initialize()
     {
         _prefix = ResPath.Root / $"TTS{_shareIdx++}";
         _sawmill = Logger.GetSawmill("tts");
         _res.AddRoot(_prefix, _contentRoot);
         _cfg.OnValueChanged(WhiteCVars.TTSVolume, OnTtsVolumeChanged, true);
+        _cfg.OnValueChanged(WhiteCVars.VoiceType, OnVoiceTypeChanged, true);
         SubscribeNetworkEvent<PlayTTSEvent>(OnPlayTTS);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
     }
@@ -67,8 +71,16 @@ public sealed class TTSSystem : EntitySystem
         _volume = volume;
     }
 
+    private void OnVoiceTypeChanged(CharacterVoiceType voiceType)
+    {
+        _clientSideEnabled = voiceType == CharacterVoiceType.TTS;
+    }
+
     private void OnPlayTTS(PlayTTSEvent ev)
     {
+        if(!_clientSideEnabled)
+            return;
+
         _sawmill.Verbose($"Play TTS audio {ev.Data.Length} bytes from {ev.SourceUid} entity");
 
         var filePath = new ResPath($"{_fileIdx++}.ogg");

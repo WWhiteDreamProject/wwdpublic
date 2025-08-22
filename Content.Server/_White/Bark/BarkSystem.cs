@@ -26,7 +26,7 @@ public sealed class BarkSystem : SharedBarkSystem
 
     private void OnEntitySpoke(Entity<BarkComponent> ent, ref EntitySpokeEvent args)
     {
-        Bark(ent, args.Message);
+        Bark(ent, args.Message, args.IsWhisper);
     }
 
     public override void Bark(Entity<BarkComponent> entity, List<BarkData> barks)

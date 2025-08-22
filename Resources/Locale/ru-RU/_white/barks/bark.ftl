@@ -1,0 +1,5 @@
+ui-options-bark-volume = Громкость лая
+char-voice-none = Ничего
+char-voice-bark = Лай
+char-voice-tts = TTS
+ui-voice-option = Тип голоса персонажей

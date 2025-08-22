@@ -1,9 +1,12 @@
 using Content.Shared._White.Bark;
 using Content.Shared._White.Bark.Components;
 using Content.Shared._White.Bark.Systems;
+using Content.Shared._White.CCVar;
+using Content.Shared.Chat;
 using Robust.Client.Audio;
 using Robust.Shared.Audio;
-using Robust.Shared.Network;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
@@ -11,19 +14,42 @@ namespace Content.Client._White.Bark;
 
 public sealed class BarkSystem : SharedBarkSystem
 {
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly AudioSystem _sharedAudio = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
+
+    /// <summary>
+    /// Reducing the volume of the TTS when whispering. Will be converted to logarithm.
+    /// </summary>
+    private const float WhisperFade = 4f;
+
+    private float _volume = 0.0f;
+    private bool _clientSideEnabled;
 
     public override void Initialize()
     {
         base.Initialize();
         UpdatesOutsidePrediction = true;
+        _cfg.OnValueChanged(WhiteCVars.BarkVolume, OnBarkVolumeChanged, true);
+        _cfg.OnValueChanged(WhiteCVars.VoiceType, OnVoiceTypeChanged, true);
         SubscribeNetworkEvent<EntityBarkEvent>(OnEntityBark);
+    }
+
+    private void OnVoiceTypeChanged(CharacterVoiceType voice)
+    {
+        _clientSideEnabled = voice == CharacterVoiceType.Bark;
+    }
+
+    private void OnBarkVolumeChanged(float volume)
+    {
+        _volume = volume;
     }
 
     private void OnEntityBark(EntityBarkEvent ev)
     {
+        if(!_clientSideEnabled)
+            return;
+
         var ent = GetEntity(ev.Entity);
         if(!TryComp<BarkComponent>(ent, out var comp))
             return;
