@@ -411,9 +411,9 @@
           type: Animal # Applying damage to the mobs with lower metabolism capabilities
         damage:
           types:
-            Poison: 0.4
+            Poison: 0.2
       - !type:ChemVomit
-        probability: 0.04 #Scaled for time, not metabolismrate.
+        probability: 0.02 #Scaled for time, not metabolismrate.
         conditions:
         - !type:OrganType
           type: Animal
