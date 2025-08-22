@@ -141,7 +141,7 @@
         - ReagentId: Nutriment
           Quantity: 10
         - ReagentId: Theobromine
-          Quantity: 5
+          Quantity: 5 #WD edit
         - ReagentId: CocoaPowder
           Quantity: 1
 

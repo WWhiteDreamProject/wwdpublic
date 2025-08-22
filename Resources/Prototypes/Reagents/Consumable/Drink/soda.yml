@@ -77,6 +77,11 @@
       effects:
       - !type:SatiateThirst
         factor: 2
+        #WD edit start
+      #- !type:AdjustReagent
+        #reagent: Theobromine
+        #amount: 0.1
+        #WD edit end
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 2.0
@@ -251,7 +256,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Theobromine
-        amount: 0.16
+        amount: 0.16 #WD edit
     Poison:
       effects:
       - !type:HealthChange

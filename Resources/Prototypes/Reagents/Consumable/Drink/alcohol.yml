@@ -1351,8 +1351,8 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.133
-      - !type:AdjustReagent
         # WD edit start
+      - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.02
         # WD edit end
@@ -2095,6 +2095,11 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.10
+        #WD edit start
+      #- !type:AdjustReagent
+        #reagent: Theobromine
+        #amount: 0.05
+        #WD edit end
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
@@ -2123,6 +2128,11 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+        #WD edit start
+      #- !type:AdjustReagent
+        #reagent: Theobromine
+        #amount: 0.05
+        #WD edit end
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
@@ -2151,6 +2161,11 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.10
+        #WD edit start
+      #- !type:AdjustReagent
+        #reagent: Theobromine
+        #amount: 0.05
+        #WD edit end
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
@@ -2179,6 +2194,11 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+        #WD edit start
+      #- !type:AdjustReagent
+        #reagent: Theobromine
+        #amount: 0.05
+        #WD edit end
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
@@ -2209,7 +2229,7 @@
         amount: 0.07
       - !type:AdjustReagent
         reagent: Theobromine
-        amount: 0.05
+        amount: 0.02 #WD edit
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
@@ -2238,6 +2258,11 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+        #WD edit start
+      #- !type:AdjustReagent
+        #reagent: Theobromine
+        #amount: 0.05
+        #WD edit end
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
