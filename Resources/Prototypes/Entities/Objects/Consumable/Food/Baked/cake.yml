@@ -365,7 +365,7 @@
         - ReagentId: Nutriment
           Quantity: 20
         - ReagentId: Theobromine
-          Quantity: 8
+          Quantity: 8 #WD edit
         - ReagentId: Vitamin
           Quantity: 5
 
@@ -384,7 +384,7 @@
         - ReagentId: Nutriment
           Quantity: 4
         - ReagentId: Theobromine
-          Quantity: 1.6
+          Quantity: 1.6 #WD edit
         - ReagentId: Vitamin
           Quantity: 1
 # Tastes like sweetness, cake, chocolate.

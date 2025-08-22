@@ -308,9 +308,11 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.20
+        # WD edit start
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.02
+        # WD edit end
 
 - type: reagent
   id: MelonLiquor
@@ -347,6 +349,12 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.17
 
 - type: reagent
   id: PoisonWine
@@ -840,9 +848,11 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.33
+        # WD edit start
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.02
+        # WD edit end
 
 - type: reagent
   id: BloodyMary
@@ -1342,8 +1352,10 @@
         reagent: Ethanol
         amount: 0.133
       - !type:AdjustReagent
+        # WD edit start
         reagent: Theobromine
         amount: 0.02
+        # WD edit end
 
 - type: reagent
   id: LongIslandIcedTea
