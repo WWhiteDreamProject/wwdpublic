@@ -125,3 +125,23 @@
   - type: Sprite
     sprite: _White/Structures/Wallmounts/flags.rsi
     state: vulp
+
+- type: entity
+  parent: BaseFlag
+  id: FlagBlueGalaxy
+  name: blue galaxy flag
+  description: The flag on which you contemplate all the beauty of our vast Universe.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/animatedflags.rsi
+    state: bluegalaxyflag
+
+- type: entity
+  parent: BaseFlag
+  id: FlagRedGalaxy
+  name: red galaxy flag
+  description: The flag on which you contemplate all the beauty of our vast Universe.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/animatedflags.rsi
+    state: redgalaxyflag

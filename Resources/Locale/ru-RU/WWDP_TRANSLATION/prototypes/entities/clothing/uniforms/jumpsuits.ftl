@@ -349,3 +349,11 @@ ent-ClothingUniformJumpsuitWhiteInspector = свободная форма инс
 ent-ClothingUniformJumpsuitWhiteInspectorFormal = cтрогая форма инспектора
     .desc = Рубашка, жилетка, штаны со стрелками и яркий красный галстук. Это комплект строгой официальной формы возможно самого ужасающего человека на станции - инспектора.
     .suffix = { "" }
+
+ent-ClothingUniformJumpsuitSportBlueGalaxySuit = спортивный синий галактический костюм
+    .desc = Спортивный костюм, в котором играла футбольная команда "Постельные Клопы".
+    .suffix = { "" }
+
+ent-ClothingUniformJumpsuitSportRedGalaxySuit = спортивный красный галактический костюм
+    .desc = Спортивный костюм, в котором играла футбольная команда "Постельные Клопы".
+    .suffix = { "" }

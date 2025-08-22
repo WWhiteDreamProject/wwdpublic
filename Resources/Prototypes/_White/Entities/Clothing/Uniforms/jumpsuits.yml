@@ -108,7 +108,7 @@
     - type: Clothing
       sprite: _White/Clothing/Uniforms/Jumpsuit/med_uniform.rsi
 
-- type: entity 
+- type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMedicalGreen
   name: green medical uniform
@@ -129,14 +129,14 @@
       sprite: _White/Clothing/Uniforms/Jumpsuit/med_chem_uniform.rsi
     - type: Clothing
       sprite: _White/Clothing/Uniforms/Jumpsuit/med_chem_uniform.rsi
-    
-- type: entity 
+
+- type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitParamedicUniform
-  name: paramedic uniform 
+  name: paramedic uniform
   description: The uniform features numerous pockets of various sizes and is also equipped with white stripes for enhanced visibility. A medical cross is visible on the chest, and NanoTrasen logos are displayed on the shoulders.
   components:
-    - type: Sprite 
+    - type: Sprite
       sprite: _White/Clothing/Uniforms/Jumpsuit/med_para_uniform.rsi
     - type: Clothing
       sprite: _White/Clothing/Uniforms/Jumpsuit/med_para_uniform.rsi
@@ -151,3 +151,25 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/explorer.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/explorer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSportBlueGalaxySuit
+  name: sport blue galaxy suit
+  description: Sports blue galaxy suit worn by the Bed Bugs football team.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Uniforms/Jumpsuit/sportgalaxyblue.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Uniforms/Jumpsuit/sportgalaxyblue.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSportRedGalaxySuit
+  name: sport red galaxy suit
+  description: Sports red galaxy suit worn by the Bed Bugs football team.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Uniforms/Jumpsuit/sportgalaxyred.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Uniforms/Jumpsuit/sportgalaxyred.rsi

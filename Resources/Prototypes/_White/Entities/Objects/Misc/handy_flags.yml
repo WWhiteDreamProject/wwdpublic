@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseItem
+  id: BlueGalaxyHandyFlag
+  name: blue galaxy handheld flag
+  description: Show it to everyone.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Misc/HandyFlags/bluegalaxy_handy_flag.rsi
+    state: icon
+  - type: Item
+    sprite: _White/Objects/Misc/HandyFlags/bluegalaxy_handy_flag.rsi
+
+- type: entity
+  parent: BaseItem
+  id: RedGalaxyHandyFlag
+  name: red galaxy handheld flag
+  description: Show it to everyone.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Misc/HandyFlags/redgalaxy_handy_flag.rsi
+    state: icon
+  - type: Item
+    sprite: _White/Objects/Misc/HandyFlags/redgalaxy_handy_flag.rsi
