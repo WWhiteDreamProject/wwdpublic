@@ -621,6 +621,8 @@
   metabolisms:
     Drink:
       effects:
+      - !type:SatiateThirst 
+        factor: 2
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.01
