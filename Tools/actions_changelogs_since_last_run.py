@@ -106,7 +106,7 @@ def diff_changelog(old: dict[str, Any], cur: dict[str, Any]) -> Iterable[Changel
     return (e for e in cur["Entries"] if e["id"] not in old_entry_ids)
 
 
-def get_discord_body(content: str, allowed_mentions):
+def get_discord_body(content: str):
     return {
         "content": content,
         # Allow roles from github variables.
