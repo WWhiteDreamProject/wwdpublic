@@ -308,7 +308,9 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.20
-
+        - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.01
 
 - type: reagent
   id: MelonLiquor
