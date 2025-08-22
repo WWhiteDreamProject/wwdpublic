@@ -254,7 +254,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Theobromine
-        amount: 0.1
+        amount: 0.08
     Poison:
       effects:
       - !type:HealthChange

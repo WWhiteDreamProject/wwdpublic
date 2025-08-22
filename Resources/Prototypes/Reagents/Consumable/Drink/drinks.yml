@@ -18,7 +18,7 @@
         type: Remove
       - !type:AdjustReagent
         reagent: Theobromine
-        amount: 0.01
+        amount: 0.02
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coffeeglass.rsi
     state: icon_empty
@@ -124,6 +124,12 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.02
 
 - type: reagent
   id: Grenadine
@@ -167,6 +173,9 @@
         key: Drowsiness
         time: 2.0
         type: Remove
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.01
 
 - type: reagent
   id: IcedGreenTea
@@ -408,6 +417,9 @@
         key: Drowsiness
         time: 2.0
         type: Remove
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.01
 
 - type: reagent
   id: Tea
@@ -425,7 +437,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Theobromine
-        amount: 0.05
+        amount: 0.02
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/teaglass.rsi
     state: icon_empty
@@ -590,6 +602,12 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   fizziness: 0.3
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.01
 
 - type: reagent
   id: Mopwata
