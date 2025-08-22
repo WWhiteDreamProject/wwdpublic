@@ -130,7 +130,7 @@ def send_to_discord(entries: Iterable[ChangelogEntry]) -> None:
         print(f"No discord webhook URL found, skipping discord send")
         return
 
-    roles_msg = ', '.join(map(lambda id: f'<@&{id}>', ROLES_TO_PING.split(',')))
+    roles_msg = ', '.join(map(lambda id: f'<@&{id}>', ROLES_TO_PING.replace(" ","").split(',')))
     send_discord(roles_msg)
     
     message_content = io.StringIO()
