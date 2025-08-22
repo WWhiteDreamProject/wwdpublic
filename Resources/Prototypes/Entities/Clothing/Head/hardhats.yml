@@ -74,9 +74,9 @@
   description: A hard hat, painted in blue, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardhats/blue.rsi
+    sprite: _White/Clothing/Head/Hardhats/blue.rsi # WWDP edit (spaceman)
   - type: Clothing
-    sprite: Clothing/Head/Hardhats/blue.rsi
+    sprite: _White/Clothing/Head/Hardhats/blue.rsi # WWDP edit (spaceman)
 
 - type: entity
   parent: ClothingHeadHatHardhatBase
@@ -85,9 +85,9 @@
   description: A hard hat, painted in orange, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardhats/orange.rsi
+    sprite: _White/Clothing/Head/Hardhats/orange.rsi # WWDP edit (spaceman)
   - type: Clothing
-    sprite: Clothing/Head/Hardhats/orange.rsi
+    sprite: _White/Clothing/Head/Hardhats/orange.rsi # WWDP edit (spaceman)
 
 - type: entity
   parent: ClothingHeadHatHardhatBase
@@ -96,9 +96,9 @@
   description: A hard hat, painted in red, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardhats/red.rsi
+    sprite: _White/Clothing/Head/Hardhats/red.rsi # WWDP edit (spaceman)
   - type: Clothing
-    sprite: Clothing/Head/Hardhats/red.rsi
+    sprite: _White/Clothing/Head/Hardhats/red.rsi # WWDP edit (spaceman)
 
 - type: entity
   parent: ClothingHeadHatHardhatBase
@@ -107,9 +107,9 @@
   description: A hard hat, painted in white, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardhats/white.rsi
+    sprite: _White/Clothing/Head/Hardhats/white.rsi # WWDP edit (spaceman)
   - type: Clothing
-    sprite: Clothing/Head/Hardhats/white.rsi
+    sprite: _White/Clothing/Head/Hardhats/white.rsi # WWDP edit (spaceman)
 
 - type: entity
   parent: ClothingHeadHatHardhatBase
@@ -118,20 +118,9 @@
   description: A hard hat, painted in yellow, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardhats/yellow.rsi
+    sprite: _White/Clothing/Head/Hardhats/yellow.rsi # WWDP edit (spaceman)
   - type: Clothing
-    sprite: Clothing/Head/Hardhats/yellow.rsi
-
-- type: entity
-  parent: ClothingHeadHatHardhatBase
-  id: ClothingHeadHatHardhatYellowDark
-  name: dark yellow hard hat
-  description: A hard hat, painted in dark yellow, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Hardhats/dark_yellow.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Hardhats/dark_yellow.rsi
+    sprite: _White/Clothing/Head/Hardhats/yellow.rsi # WWDP edit (spaceman)
 
 - type: entity
   parent: ClothingHeadHatHardhatBase
@@ -140,9 +129,9 @@
   description: An armored hard hat. Provides the best of both worlds in both protection & utility - perfect for the engineer on the frontlines.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardhats/armored.rsi
+    sprite: _White/Clothing/Head/Hardhats/armored.rsi # WWDP edit (spaceman)
   - type: Clothing
-    sprite: Clothing/Head/Hardhats/armored.rsi
+    sprite: _White/Clothing/Head/Hardhats/armored.rsi # WWDP edit (spaceman)
   - type: Armor #Copied from the sec helmet, as it's hard to give these sane values without locational damage existing.
     modifiers:
       coefficients:

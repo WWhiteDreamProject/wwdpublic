@@ -56,20 +56,21 @@
   name: atmospherics winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/atmos.rsi # WWDP edit (spaceman)
     layers:
-    - state: ATMOS-icon
+    - state: icon
   - type: Item
+    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     inhandVisuals:
       left:
       - state: ATMOS-inhand-left
       right:
       - state: ATMOS-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: Clothing/OuterClothing/Coats/atmos.rsi # WWDP edit (spaceman)
     clothingVisuals:
       outerClothing:
-      - state: ATMOS-equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterEngineer
 
@@ -155,20 +156,21 @@
   name: chief engineer's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/ce.rsi # WWDP edit (spaceman)
     layers:
-    - state: CE-icon
+    - state: icon
   - type: Item
+    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi # WWDP edit (spaceman)
     inhandVisuals:
       left:
       - state: CE-inhand-left
       right:
       - state: CE-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/ce.rsi # WWDP edit (spaceman)
     clothingVisuals:
       outerClothing:
-      - state: CE-equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCE
 
@@ -293,20 +295,21 @@
   name: engineering winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _White/Clothing/OuterClothing/Coats/engineer.rsi # WWDP edit (spaceman)
     layers:
-    - state: ENGI-icon
+    - state: icon
   - type: Item
+    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     inhandVisuals:
       left:
       - state: ENGI-inhand-left
       right:
       - state: ENGI-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: Clothing/OuterClothing/Coats/engineer.rsi # WWDP edit (spaceman)
     clothingVisuals:
       outerClothing:
-      - state: ENGI-equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterEngineer
 

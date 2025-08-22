@@ -4091,3 +4091,120 @@ Entries:
   id: 434
   time: '2025-08-06T11:28:50.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/759
+- author: Spatison
+  changes:
+    - type: Fix
+      message: 'Ящеры теперь носят свои штаны нормально '
+  id: 435
+  time: '2025-08-07T14:56:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/763
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Были добавлены новые спрайты Инженерного отдела.
+    - type: Add
+      message: >-
+        Были добавлены косметические изолированные перчатки атмосферного техника
+        и старшего инженера
+    - type: Add
+      message: >-
+        Были добавлены характерные ботинки для старшего инженера и атмосферного
+        техника
+    - type: Add
+      message: >-
+        Теперь Джампсьюты инженеров и иже с ними способны на отражение некой
+        доли света
+    - type: Tweak
+      message: Были изменены описания некоторых инженерных предметов
+    - type: Remove
+      message: Убрана Душа из Спрайтов Инженерного Отдела. Rip sovl
+  id: 436
+  time: '2025-08-16T21:08:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/789
+- author: Kutos
+  changes:
+    - type: Fix
+      message: Reboot вновь работает
+  id: 437
+  time: '2025-08-16T21:09:35.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/794
+- author: Kutos
+  changes:
+    - type: Fix
+      message: Кустовое пространство теперь инитнуто
+  id: 438
+  time: '2025-08-16T21:21:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/786
+- author: Gersoon458
+  changes:
+    - type: Tweak
+      message: Респрайт шипганов
+  id: 439
+  time: '2025-08-16T21:21:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/779
+- author: RedFoxIV
+  changes:
+    - type: Tweak
+      message: Упрощена система нагрева энергетического оружия.
+  id: 440
+  time: '2025-08-16T21:22:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/776
+- author: Gersoon
+  changes:
+    - type: Add
+      message: Гладкие тайлы и декали (Purka)
+    - type: Tweak
+      message: >-
+        Изменена палитра большинства тайлов и декалей. Теперь она темнее и менее
+        контрастная (Purka)
+    - type: Tweak
+      message: >-
+        Новые спрайты дерева + респрайты некоторых тайлов + некоторые
+        микродобавления (Purka)
+    - type: Fix
+      message: Фиксы прошлых ошибок
+    - type: Fix
+      message: Фикс ставней. Теперь ставни могут закрываться на столах
+  id: 441
+  time: '2025-08-17T13:21:22.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/796
+- author: RedFoxIV
+  changes:
+    - type: Tweak
+      message: >-
+        Еганы снова спавнятся с ядрами: теперь вам не придётся судорожно их
+        искать, когда ассистенты стоят на пороге вашей каюты. Кроме еганов,
+        напечатанных на техфабе.
+  id: 442
+  time: '2025-08-18T18:26:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/802
+- author: Kutos
+  changes:
+    - type: Add
+      message: >-
+        Добавлена возможность выбрать тип аплинка в меню кастомизации персонажа:
+        ПДА, Имплант, Радио, Телекристаллы.
+    - type: Remove
+      message: Имплант аплинка убран из каталога аплинка.
+    - type: Tweak
+      message: >-
+        Порядок аргументов Tippy изменен. Прототип; Время речи ->Время речи;
+        Прототип
+  id: 443
+  time: '2025-08-19T07:24:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/800
+- author: nekosich
+  changes:
+    - type: Fix
+      message: Исправлен неработающий дизарм.
+    - type: Fix
+      message: 'Исправлены отсутствующие описания у стульев. '
+    - type: Fix
+      message: Исправлено отображение типа урона при осмотре.
+    - type: Tweak
+      message: Немного перевода датасетов.
+    - type: Tweak
+      message: Немного изменён перевод на основе отзывов.
+  id: 444
+  time: '2025-08-19T07:27:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/773

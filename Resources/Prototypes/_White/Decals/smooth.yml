@@ -1,0 +1,427 @@
+﻿- type: decal
+  id: Smooth
+  parent: A_StationDecal
+  abstract: true
+
+- type: decal
+  id: SmoothDark
+  parent: Smooth
+  abstract: true
+
+- type: decal
+  id: SmoothSteel
+  parent: Smooth
+  abstract: true
+
+- type: decal
+  id: SmoothWhite
+  parent: Smooth
+  abstract: true
+
+- type: decal
+  id: SmoothDarkBox
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_box
+
+- type: decal
+  id: SmoothDarkCornerNe
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_corner_ne
+
+- type: decal
+  id: SmoothDarkCornerSe
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_corner_se
+
+- type: decal
+  id: SmoothDarkCornerNw
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_corner_nw
+
+- type: decal
+  id: SmoothDarkCornerSw
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_corner_sw
+
+- type: decal
+  id: SmoothDarkInnerNe
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_inner_ne
+
+- type: decal
+  id: SmoothDarkInnerSe
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_inner_se
+
+- type: decal
+  id: SmoothDarkInnerNw
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_inner_nw
+
+- type: decal
+  id: SmoothDarkInnerSw
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_inner_sw
+
+- type: decal
+  id: SmoothDarkEndN
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_end_n
+
+- type: decal
+  id: SmoothDarkEndE
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_end_e
+
+- type: decal
+  id: SmoothDarkEndS
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_end_s
+
+- type: decal
+  id: SmoothDarkEndW
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_end_w
+
+- type: decal
+  id: SmoothDarkLineN
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_line_n
+
+- type: decal
+  id: SmoothDarkLineE
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_line_e
+
+- type: decal
+  id: SmoothDarkLineS
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_line_s
+
+- type: decal
+  id: SmoothDarkLineW
+  parent: SmoothDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: dark_line_w
+
+- type: decal
+  id: SmoothSteelBox
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_box
+
+- type: decal
+  id: SmoothSteelCornerNe
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_corner_ne
+
+- type: decal
+  id: SmoothSteelCornerSe
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_corner_se
+
+- type: decal
+  id: SmoothSteelCornerNw
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_corner_nw
+
+- type: decal
+  id: SmoothSteelCornerSw
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_corner_sw
+
+- type: decal
+  id: SmoothSteelInnerNe
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_inner_ne
+
+- type: decal
+  id: SmoothSteelInnerSe
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_inner_se
+
+- type: decal
+  id: SmoothSteelInnerNw
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_inner_nw
+
+- type: decal
+  id: SmoothSteelInnerSw
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_inner_sw
+
+- type: decal
+  id: SmoothSteelEndN
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_end_n
+
+- type: decal
+  id: SmoothSteelEndE
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_end_e
+
+- type: decal
+  id: SmoothSteelEndS
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_end_s
+
+- type: decal
+  id: SmoothSteelEndW
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_end_w
+
+- type: decal
+  id: SmoothSteelLineN
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_line_n
+
+- type: decal
+  id: SmoothSteelLineE
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_line_e
+
+- type: decal
+  id: SmoothSteelLineS
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_line_s
+
+- type: decal
+  id: SmoothSteelLineW
+  parent: SmoothSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: steel_line_w
+
+- type: decal
+  id: SmoothWhiteBox
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_box
+
+- type: decal
+  id: SmoothWhiteCornerNe
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_corner_ne
+
+- type: decal
+  id: SmoothWhiteCornerSe
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_corner_se
+
+- type: decal
+  id: SmoothWhiteCornerNw
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_corner_nw
+
+- type: decal
+  id: SmoothWhiteCornerSw
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_corner_sw
+
+- type: decal
+  id: SmoothWhiteInnerNe
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_inner_ne
+
+- type: decal
+  id: SmoothWhiteInnerSe
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_inner_se
+
+- type: decal
+  id: SmoothWhiteInnerNw
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_inner_nw
+
+- type: decal
+  id: SmoothWhiteInnerSw
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_inner_sw
+
+- type: decal
+  id: SmoothWhiteEndN
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_end_n
+
+- type: decal
+  id: SmoothWhiteEndE
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_end_e
+
+- type: decal
+  id: SmoothWhiteEndS
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_end_s
+
+- type: decal
+  id: SmoothWhiteEndW
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_end_w
+
+- type: decal
+  id: SmoothWhiteLineN
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_line_n
+
+- type: decal
+  id: SmoothWhiteLineE
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_line_e
+
+- type: decal
+  id: SmoothWhiteLineS
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_line_s
+
+- type: decal
+  id: SmoothWhiteLineW
+  parent: SmoothWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/smooth.rsi
+    state: white_line_w

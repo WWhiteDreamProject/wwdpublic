@@ -8,3 +8,25 @@
     sprite: _White/Clothing/Shoes/Boots/medical.rsi
   - type: Clothing
     sprite: _White/Clothing/Shoes/Boots/medical.rsi
+
+- type: entity
+  parent: ClothingShoesBootsWork
+  id: ClothingShoesBootsWorkAtmos
+  name: atmos workboots
+  description: Armospherics lace-up work boots for the especially blue-collar.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Shoes/Boots/atmos_working_boots.rsi # WWDP edit (spaceman)
+  - type: Clothing
+    sprite: _White/Clothing/Shoes/Boots/atmos_working_boots.rsi # WWDP edit (spaceman)
+
+- type: entity
+  parent: ClothingShoesBootsWork
+  id: ClothingShoesBootsWorkCE
+  name: ce workboots
+  description: CE lace-up work boots for the especially blue-collar.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Shoes/Boots/chief_engineer_working_boots.rsi # WWDP edit (spaceman)
+  - type: Clothing
+    sprite: _White/Clothing/Shoes/Boots/chief_engineer_working_boots.rsi # WWDP edit (spaceman)

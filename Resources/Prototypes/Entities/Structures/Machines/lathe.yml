@@ -18,6 +18,8 @@
         layer:
         - MachineLayer
   - type: Lathe
+    additionalComponents: # wwdp edit
+    - type: CraftedOrPrinted
   - type: MaterialStorage
   - type: Destructible
     thresholds:
@@ -79,6 +81,8 @@
   id: BaseHyperlathe
   components:
   - type: Lathe
+    additionalComponents: # wwdp edit
+    - type: CraftedOrPrinted
     materialUseMultiplier: 0.5
     timeMultiplier: 1.5
   - type: LatheHeatProducing
@@ -1177,8 +1181,8 @@
     - BoxBreach
     - ShellShotgunBreach
     - WeaponSecurityRiotLauncher
-    - BasicRegulatorLamp
-    - AdvancedRegulatorLamp
+    - BasicFluxCore
+    - AdvancedFluxCore
     # WD EDIT END
   - type: MaterialStorage
     whitelist:

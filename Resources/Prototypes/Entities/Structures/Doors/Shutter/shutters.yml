@@ -35,6 +35,8 @@
       board: !type:Container
   - type: NavMapDoor
   - type: Door
+    performCollisionCheck: false
+    canCrush: false
     openDrawDepth: BlastDoors
     closedDrawDepth: BlastDoors
     bumpOpen: false
