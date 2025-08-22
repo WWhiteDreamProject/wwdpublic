@@ -81,9 +81,6 @@
         key: Drowsiness
         time: 2.0
         type: Remove
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.1
   fizziness: 0.4
 
 - type: reagent
@@ -254,7 +251,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Theobromine
-        amount: 0.08
+        amount: 0.16
     Poison:
       effects:
       - !type:HealthChange

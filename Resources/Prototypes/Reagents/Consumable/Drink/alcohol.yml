@@ -2083,9 +2083,6 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.10
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
@@ -2114,9 +2111,6 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
@@ -2145,9 +2139,6 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.10
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
@@ -2176,9 +2167,6 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
@@ -2238,9 +2226,6 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0

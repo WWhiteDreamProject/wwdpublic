@@ -42,7 +42,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Theobromine
-        amount: 0.05
+        amount: 0.2
 
 - type: reagent
   id: Cream
@@ -109,6 +109,9 @@
         key: Drowsiness
         time: 2.0
         type: Remove
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.01
 
 - type: reagent
   id: GreenTea
@@ -213,7 +216,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Theobromine
-        amount: 0.05
+        amount: 0.01
 
 - type: reagent
   id: JuiceBerryPoison
@@ -543,9 +546,6 @@
       effects:
       - !type:SatiateThirst
         factor: 4
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
 
 - type: reagent
   id: Pilk
