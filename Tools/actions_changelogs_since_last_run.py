@@ -106,12 +106,12 @@ def diff_changelog(old: dict[str, Any], cur: dict[str, Any]) -> Iterable[Changel
     return (e for e in cur["Entries"] if e["id"] not in old_entry_ids)
 
 
-def get_discord_body(content: str):
+def get_discord_body(content: str, allowed_mentions):
     return {
         "content": content,
-        # Do not allow any mentions.
+        # Allow roles from github variables.
         "allowed_mentions": {
-            "parse": []
+            "roles": ROLES_TO_PING.replace(" ","").split(',')
         },
         # SUPPRESS_EMBEDS
         "flags": 1 << 2
