@@ -133,7 +133,7 @@
   metabolisms:
     Drink:
       effects:
-      - !SatiateThirst
+      - !Type:SatiateThirst
         factor: 2
       - !type:AdjustReagent
         reagent: Theobromine
