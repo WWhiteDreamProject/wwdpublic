@@ -243,6 +243,9 @@
           reagent: Nutriment
           min: 0.1
         factor: 1
+      - !type:AdjustReagent
+         reagent: Theobromine
+         amount: 0.02
       - !type:ChemAddMoodlet
         moodPrototype: ChocolateEffect
   plantMetabolism:
