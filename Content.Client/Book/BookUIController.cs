@@ -1,21 +1,20 @@
-using Content.Shared.Book.Components;
-using Content.Shared.Book;
 using Content.Client.Book.UI;
-using Robust.Client.UserInterface.Controllers;
+using Content.Shared.Book;
 using JetBrains.Annotations;
+using Robust.Client.UserInterface.Controllers;
 
 namespace Content.Client.Book;
 
 [UsedImplicitly]
 public sealed class BookUIController : UIController
 {
-    private Dictionary<EntityUid, BookWindow> _openBooks = new();
+    private readonly Dictionary<EntityUid, BookWindow> _openBooks = new();
 
     public void OpenBook(EntityUid bookEntity, BookBoundUserInterfaceState bookState)
     {
-        if (_openBooks.ContainsKey(bookEntity))
+        if (_openBooks.TryGetValue(bookEntity, out var book))
         {
-            _openBooks[bookEntity].MoveToFront();
+            book.MoveToFront();
             return;
         }
 

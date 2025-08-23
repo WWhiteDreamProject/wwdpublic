@@ -18,9 +18,11 @@
         color: "#911129"
       - state: detail_bookmark
         color: red
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
+      # WD EDIT END
       content: book-text-narsielegend
 
 - type: entity
@@ -700,8 +702,8 @@
 - type: entity
   parent: BookBase
   id: BookJanitorTale
-  name: истории уставшего уборщика
-  description: Чистая на вид книга, от которой слабо пахнет мылом и отбеливателем.
+  name: the tales of a tired janitor
+  description: A clean looking book, smelling vaguely of soap and bleach. 
   components:
   - type: Sprite
     sprite: Objects/Misc/books.rsi

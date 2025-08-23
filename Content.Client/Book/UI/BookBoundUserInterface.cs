@@ -1,22 +1,14 @@
-using Content.Shared.Book.Components;
 using Content.Shared.Book;
-using Content.Client.Book.UI;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
-using Robust.Shared.ViewVariables;
 
 namespace Content.Client.Book.UI;
 
 [UsedImplicitly]
-public sealed class BookBoundUserInterface : BoundUserInterface
+public sealed class BookBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     [ViewVariables]
     private BookWindow? _window;
-
-    public BookBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
-    {
-        // IDK how it works, but it is.
-    }
 
     protected override void Open()
     {
@@ -26,7 +18,6 @@ public sealed class BookBoundUserInterface : BoundUserInterface
         _window.OnPageChanged += OnPageChanged;
         _window.OnTextSaved += OnTextSaved;
         _window.OnAddPage += OnAddPage;
-        _window.OnEditModeChanged += OnEditModeChanged;
         _window.OnBookmarkAdded += OnBookmarkAdded;
         _window.OnBookmarkRemoved += OnBookmarkRemoved;
         _window.OnPageDeleted += OnPageDeleted;
@@ -37,19 +28,12 @@ public sealed class BookBoundUserInterface : BoundUserInterface
         base.UpdateState(state);
 
         if (state is BookBoundUserInterfaceState bookState)
-        {
             _window?.ShowBook(bookState, bookState.IsEditing);
-        }
-    }
-
-    private void OnEditModeChanged(bool isEditing)
-    {
-        // All in BookSystem.cs
     }
 
     private void OnAddPage()
     {
-        SendMessage(new BookAddTextMessage(""));
+        SendMessage(new BookAddPageMessage());
     }
 
     private void OnPageChanged(int newPage)

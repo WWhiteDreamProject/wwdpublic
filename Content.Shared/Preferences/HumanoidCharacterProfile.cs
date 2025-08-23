@@ -31,7 +31,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
     public const int MaxNameLength = 64;
     public const int MaxDescLength = 1024;
-    public const int MaxCustomContentLength = 524288;
+    public const int MaxCustomContentLength = 524288; // WD EDIT
 
     /// Job preferences for initial spawn
     [DataField]
@@ -469,23 +469,25 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         bool pref,
         string? customName = null,
         string? customDescription = null,
-        string? customContent = null,
+        string? customContent = null, // WD EDIT
         string? customColor = null,
         bool? customHeirloom = null)
     {
-        if (customContent != null && customContent.Length > MaxCustomContentLength)
+        // WD EDIT START
+        if (customContent is { Length: > MaxCustomContentLength, })
         {
             var truncated = customContent.AsSpan(0, MaxCustomContentLength);
-            while (truncated.Length > 0 && char.IsLowSurrogate(truncated[truncated.Length - 1]))
+            while (truncated.Length > 0 && char.IsLowSurrogate(truncated[^1]))
                 truncated = truncated[..^1];
             customContent = truncated.ToString();
         }
+        // WD EDIT END
 
         var list = new HashSet<LoadoutPreference>(_loadoutPreferences);
 
         list.RemoveWhere(l => l.LoadoutName == loadoutId);
         if (pref)
-            list.Add(new(loadoutId, customName, customDescription, customContent, customColor, customHeirloom) { Selected = pref });
+            list.Add(new(loadoutId, customName, customDescription, customContent, customColor, customHeirloom) { Selected = pref }); // WD EDIT
 
         return new HumanoidCharacterProfile(this) { _loadoutPreferences = list };
     }
@@ -696,29 +698,26 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
         if (voice is null || !CanHaveVoice(voice, Sex))
             Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
-        // WD EDIT END
 
-        // WD EDIT START
-        for (int i = 0; i < loadouts.Count; i++)
+        for (var i = 0; i < loadouts.Count; i++)
         {
             var loadout = loadouts[i];
-            if (loadout.CustomContent != null && loadout.CustomContent.Length > MaxCustomContentLength)
-            {
-                var truncated = loadout.CustomContent.AsSpan(0, MaxCustomContentLength);
-                while (truncated.Length > 0 && char.IsLowSurrogate(truncated[truncated.Length - 1]))
-                    truncated = truncated[..^1];
+            if (loadout.CustomContent is not { Length: > MaxCustomContentLength, })
+                continue;
+            var truncated = loadout.CustomContent.AsSpan(0, MaxCustomContentLength);
+            while (truncated.Length > 0 && char.IsLowSurrogate(truncated[^1]))
+                truncated = truncated[..^1];
 
-                var truncatedLoadout = new LoadoutPreference(
+            var truncatedLoadout = new LoadoutPreference(
                     loadout.LoadoutName,
                     loadout.CustomName,
                     loadout.CustomDescription,
                     truncated.ToString(),
                     loadout.CustomColorTint,
                     loadout.CustomHeirloom)
-                { Selected = loadout.Selected };
+                { Selected = loadout.Selected, };
 
-                loadouts[i] = truncatedLoadout;
-            }
+            loadouts[i] = truncatedLoadout;
         }
         // WD EDIT END
     }

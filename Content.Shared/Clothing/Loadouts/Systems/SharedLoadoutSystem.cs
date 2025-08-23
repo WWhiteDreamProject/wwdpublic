@@ -197,7 +197,7 @@ public abstract partial class Loadout
     [DataField] public string LoadoutName { get; set; }
     [DataField] public string? CustomName { get; set; }
     [DataField] public string? CustomDescription { get; set; }
-    [DataField] public string? CustomContent { get; set; }
+    [DataField] public string? CustomContent { get; set; } // WD EDIT
     [DataField] public string? CustomColorTint { get; set; }
     [DataField] public bool? CustomHeirloom { get; set; }
 
@@ -205,7 +205,7 @@ public abstract partial class Loadout
         string loadoutName,
         string? customName = null,
         string? customDescription = null,
-        string? customContent = null,
+        string? customContent = null, // WD EDIT
         string? customColorTint = null,
         bool? customHeirloom = null
     )
@@ -213,7 +213,7 @@ public abstract partial class Loadout
         LoadoutName = loadoutName;
         CustomName = customName;
         CustomDescription = customDescription;
-        CustomContent = customContent;
+        CustomContent = customContent; // WD EDIT
         CustomColorTint = customColorTint;
         CustomHeirloom = customHeirloom;
     }
@@ -228,10 +228,10 @@ public sealed partial class LoadoutPreference : Loadout
         string loadoutName,
         string? customName = null,
         string? customDescription = null,
-        string? customContent = null,
+        string? customContent = null, // WD EDIT
         string? customColorTint = null,
         bool? customHeirloom = null
-    ) : base(loadoutName, customName, customDescription, customContent, customColorTint, customHeirloom) { }
+    ) : base(loadoutName, customName, customDescription, customContent, customColorTint, customHeirloom) { } // WD EDIT
 }
 
 /// <summary>

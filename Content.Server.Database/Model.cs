@@ -477,7 +477,7 @@ namespace Content.Server.Database
             string? customContent = null,
             string? customColorTint = null,
             bool? customHeirloom = null
-        ) : base(loadoutName, customName, customDescription, customContent, customColorTint, customHeirloom) { }
+        ) : base(loadoutName, customName, customDescription, customContent, customColorTint, customHeirloom) { } // WD EDIT
     }
 
     public enum DbPreferenceUnavailableMode

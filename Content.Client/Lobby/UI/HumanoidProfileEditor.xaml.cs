@@ -2443,7 +2443,7 @@ namespace Content.Client.Lobby.UI
                     loadoutPreference.LoadoutName,
                     loadoutPreference.CustomName,
                     loadoutPreference.CustomDescription,
-                    loadoutPreference.CustomContent,
+                    loadoutPreference.CustomContent, // WD EDIT
                     loadoutPreference.CustomColorTint,
                     loadoutPreference.CustomHeirloom)
                     { Selected = loadoutPreference.Selected };
@@ -2585,7 +2585,7 @@ namespace Content.Client.Lobby.UI
                 {
                     var first = _loadoutPreferences.First(lps => lps.Loadout.ID == loadout.ID);
                     var prof = Profile?.LoadoutPreferences.FirstOrDefault(lp => lp.LoadoutName == loadout.ID);
-                    first.Preference = new(loadout.ID, prof?.CustomName, prof?.CustomDescription, prof?.CustomContent, prof?.CustomColorTint, prof?.CustomHeirloom);
+                    first.Preference = new(loadout.ID, prof?.CustomName, prof?.CustomDescription, prof?.CustomContent, prof?.CustomColorTint, prof?.CustomHeirloom); // WD EDIT
                     UpdateSelector(first, usable);
                     continue;
                 }
@@ -2716,7 +2716,7 @@ namespace Content.Client.Lobby.UI
                         selected,
                         preference.CustomName,
                         preference.CustomDescription,
-                        preference.CustomContent,
+                        preference.CustomContent, // WD EDIT
                         preference.CustomColorTint,
                         preference.CustomHeirloom);
                     IsDirty = true;
