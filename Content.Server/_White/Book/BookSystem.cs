@@ -29,6 +29,7 @@ public sealed class BookSystem : EntitySystem
         SubscribeLocalEvent<BookComponent, ActivateInWorldEvent>(OnActivateInWorld);
         SubscribeLocalEvent<BookComponent, BookPageChangedMessage>(OnPageChanged);
         SubscribeLocalEvent<BookComponent, BookAddTextMessage>(OnAddText);
+        SubscribeLocalEvent<BookComponent, BookAddPageMessage>(OnAddPage);
         SubscribeLocalEvent<BookComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<BookComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<BookComponent, IntrinsicUIOpenAttemptEvent>(OnIntrinsicUIOpenAttempt);
@@ -206,6 +207,20 @@ public sealed class BookSystem : EntitySystem
                 _uiSystem.OpenUi(uid, BookUiKey.Key, actor.PlayerSession);
             }
         }
+    }
+
+    private void OnAddPage(EntityUid uid, BookComponent component, BookAddPageMessage args)
+    {
+        if (component.Pages.Count >= component.MaxPages)
+            return;
+
+        component.Pages.Add("");
+        component.CurrentPage = component.Pages.Count - 1;
+        _audioSystem.PlayPvs(component.PageFlipSound, uid);
+
+        Dirty(uid, component);
+        var state = CreateBookUIState(component, false);
+        _uiSystem.SetUiState(uid, BookUiKey.Key, state);
     }
 
     private void OnUseInHand(EntityUid uid, BookComponent component, UseInHandEvent args)
