@@ -273,9 +273,7 @@
     startingCharge: 500
   # WD EDIT START
   - type: GunFlux #eee
-    requiresLamp: false
     canChangeSafety: false
-    temperatureLimit: 125
   - type: Construction
     graph: MakeshiftLaserGraph
     node: laser
@@ -491,7 +489,6 @@
     startingCharge: 40000
   # WD EDIT START
   - type: GunFlux #eee
-    temperatureLimit: 4500
     heatCost: 100
   - type: Item # Guns resize
     size: Huge
@@ -624,7 +621,6 @@
   - type: Appearance
   # WD EDIT START
   - type: GunFlux #eee
-    temperatureLimit: 650
     heatCost: 100
   - type: Item # Guns resize
     size: Huge
@@ -962,7 +958,6 @@
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
   - type: GunFlux #eee # wwdp
-    temperatureLimit: 200
     heatCost: 35
 
 - type: entity

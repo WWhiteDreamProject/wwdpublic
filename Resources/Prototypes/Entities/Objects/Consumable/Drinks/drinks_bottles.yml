@@ -506,6 +506,15 @@
   - type: Sealable
 
 - type: entity
+  parent: DrinkWhiskeyBottleFull
+  id: DrinkWhiskeyBottleFullMobster
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+
+- type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]
   id: DrinkWineBottleFull
   name: doublebearded bearded special wine bottle
