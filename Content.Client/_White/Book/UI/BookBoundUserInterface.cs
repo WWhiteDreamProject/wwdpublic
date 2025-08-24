@@ -1,8 +1,8 @@
-using Content.Shared.Book;
+using Content.Shared._White.Book;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
-namespace Content.Client.Book.UI;
+namespace Content.Client._White.Book.UI;
 
 [UsedImplicitly]
 public sealed class BookBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)

@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Audio;
 
-namespace Content.Shared.Book.Components;
+namespace Content.Shared._White.Book.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class BookComponent : Component
@@ -19,10 +19,10 @@ public sealed partial class BookComponent : Component
     public int MaxPages { get; set; } = 150;
 
     [DataField]
-    public SoundSpecifier PageFlipSound = new SoundPathSpecifier("/Audio/Items/book_flip.ogg");
+    public SoundSpecifier PageFlipSound = new SoundPathSpecifier("/Audio/_White/Items/book_flip.ogg");
 
     [DataField]
-    public SoundSpecifier PageTearSound = new SoundPathSpecifier("/Audio/Items/book_tear.ogg");
+    public SoundSpecifier PageTearSound = new SoundPathSpecifier("/Audio/_White/Items/book_tear.ogg");
 
     [DataField]
     public SoundSpecifier SaveSound = new SoundCollectionSpecifier("PaperScribble");

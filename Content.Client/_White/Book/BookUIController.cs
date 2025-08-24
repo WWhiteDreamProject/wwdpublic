@@ -1,9 +1,9 @@
-using Content.Client.Book.UI;
-using Content.Shared.Book;
+using Content.Client._White.Book.UI;
+using Content.Shared._White.Book;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface.Controllers;
 
-namespace Content.Client.Book;
+namespace Content.Client._White.Book;
 
 [UsedImplicitly]
 public sealed class BookUIController : UIController

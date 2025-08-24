@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Book;
+namespace Content.Shared._White.Book;
 
 [Serializable, NetSerializable]
 public sealed class BookBoundUserInterfaceState(

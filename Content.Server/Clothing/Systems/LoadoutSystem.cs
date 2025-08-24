@@ -1,6 +1,8 @@
 using System.Linq;
+using Content.Server._White.Book;
 using Content.Server.Paint;
 using Content.Server.Players.PlayTimeTracking;
+using Content.Shared._White.Book.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Loadouts.Prototypes;
 using Content.Shared.Clothing.Loadouts.Systems;
@@ -18,8 +20,6 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
-using Content.Shared.Book.Components;
-using Content.Server.Book;
 
 namespace Content.Server.Clothing.Systems;
 

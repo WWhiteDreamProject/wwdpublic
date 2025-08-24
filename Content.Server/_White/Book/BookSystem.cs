@@ -1,5 +1,5 @@
-using Content.Shared.Book.Components;
-using Content.Shared.Book;
+using Content.Shared._White.Book.Components;
+using Content.Shared._White.Book;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Robust.Shared.GameObjects;
@@ -14,7 +14,7 @@ using Robust.Shared.Random;
 using System.Text;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Book;
+namespace Content.Server._White.Book;
 
 public sealed class BookSystem : EntitySystem
 {
