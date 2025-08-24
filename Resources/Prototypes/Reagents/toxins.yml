@@ -403,7 +403,7 @@
   boilingPoint: 554 # I'm not a chemist, but it boils at 295, lower than melting point, idk how it works so I gave it higher value
   metabolisms:
     Poison:
-      metabolismRate: 0.05
+      metabolismRate: 0.1 # WD EDIT: 0.05 -> 0.1 - Made bigger to be able to get lower amount of toxins per food/drink
       effects:
       - !type:HealthChange
         conditions:
@@ -411,9 +411,9 @@
           type: Animal # Applying damage to the mobs with lower metabolism capabilities
         damage:
           types:
-            Poison: 0.4
+            Poison: 0.2 # WD EDIT: 0.4 -> 0.2 - Made smaller to be able to get lower amount of toxins per food/drink
       - !type:ChemVomit
-        probability: 0.04 #Scaled for time, not metabolismrate.
+        probability: 0.02 # WD EDIT: 0.04 -> 0.02 - Scaled for time, not metabolismrate.
         conditions:
         - !type:OrganType
           type: Animal
