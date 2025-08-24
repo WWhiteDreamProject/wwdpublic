@@ -3,7 +3,6 @@ using Content.Shared._White.Book;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Robust.Shared.GameObjects;
-using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using System.Linq;
@@ -14,7 +13,7 @@ using Robust.Shared.Random;
 using System.Text;
 using Robust.Shared.Utility;
 
-namespace Content.Server._White.Book;
+namespace Content.Shared._White.Book;
 
 public sealed class BookSystem : EntitySystem
 {
