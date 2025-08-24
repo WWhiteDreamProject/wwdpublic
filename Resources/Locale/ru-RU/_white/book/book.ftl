@@ -1,0 +1,24 @@
+book-ui-save-button = Сохранить ({$keybind})
+book-bookmarks-count = {$count} из {$max} закладок
+book-no-bookmarks = Нет закладок
+book-select-bookmark = Выбрать закладку
+book-bookmark-title-prompt = Введите название закладки:
+book-bookmark-title-dialog = Создать закладку
+book-bookmarks-hide = ▼ Закладки
+book-bookmarks-show = ▲ Закладки
+book-bookmark-default-title = Страница
+book-page-info = из {$total}
+book-page-info-empty = Страница 0 из 0
+book-ui-bookmarks-label = Закладки:
+book-ui-page-label = Страница
+book-character-count = {$current}/{$max} символов
+
+book-story-template-this-is = {"Это "}
+book-story-template-about = {" о "}
+book-story-template-and = {" и "}
+book-story-template-due-to = {". Из-за "}
+book-story-template-they = {"они "}
+book-story-template-is = {" "}
+book-story-template-period = {". "}
+book-story-template-comma = {", "}
+book-story-template-space = {" "}

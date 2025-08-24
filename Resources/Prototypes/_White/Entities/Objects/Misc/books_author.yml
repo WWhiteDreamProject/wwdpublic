@@ -1,0 +1,23 @@
+- type: entity
+  parent: BookBase
+  id: BookBotany
+  name: A book about Botany - everything a beginner needs to know!
+  description: It looks like a regular book, but it's quite new based on the date of publication. It covers botany and its main aspects. Everything a beginner botanist needs to know.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/books.rsi
+      layers:
+      - state: paper
+      - state: cover_base
+        color: "#1d662c"
+      - state: decor_spine
+        color: "#2a8c58"
+      - state: icon_glow
+        color: "#b9edc4"
+      - state: icon_tree
+      - state: detail_bookmark
+        color: "#61363d"
+    - type: Book
+      maxCharactersPerPage: 1500
+      maxPages: 100
+      content: book-text-botany

@@ -3,6 +3,7 @@ using System;
 using Content.Server.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    partial class SqliteServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250804101439_AddCustomContentToLoadouts")]
+    partial class AddCustomContentToLoadouts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
@@ -787,6 +790,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("INTEGER")
                         .HasColumnName("age");
 
+                    b.Property<string>("Backpack")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("backpack");
+
                     b.Property<string>("BodyType")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -796,6 +804,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
+
+                    b.Property<string>("Clothing")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("clothing");
 
                     b.Property<string>("ClownName")
                         .HasColumnType("TEXT")
@@ -866,10 +879,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<byte[]>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
-
-                    b.Property<string>("MimeName")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("mime_name");
 
                     b.Property<string>("Nationality")
                         .IsRequired()
