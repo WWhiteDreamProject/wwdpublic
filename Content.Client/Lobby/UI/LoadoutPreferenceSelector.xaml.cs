@@ -236,8 +236,10 @@ public sealed partial class LoadoutPreferenceSelector : Control
         DescriptionEdit.OnTextChanged += _ =>
             _preference.CustomDescription = string.IsNullOrEmpty(Rope.Collapse(DescriptionEdit.TextRope)) ? null : Rope.Collapse(DescriptionEdit.TextRope);
         // WD EDIT START
+        // WD EDIT START
         BookTextEdit.OnTextChanged += _ =>
             _preference.CustomContent = string.IsNullOrEmpty(Rope.Collapse(BookTextEdit.TextRope)) ? null : Rope.Collapse(BookTextEdit.TextRope);
+            // WD EDIT END
             // WD EDIT END
         SpecialColorTintToggle.OnToggled += args =>
             ColorEdit.Visible = args.Pressed;

@@ -66,6 +66,7 @@
                         </BoxContainer>
 
                         <!--WD EDIT START-->
+                        <!--WD EDIT START-->
                         <BoxContainer Name="SpecialBookText" Orientation="Vertical" HorizontalExpand="True">
                             <Label Text="{Loc 'humanoid-profile-editor-loadouts-customize-book-text'}" />
                             <PanelContainer HorizontalExpand="True">
@@ -81,6 +82,7 @@
                                 </controls:ResizableControl>
                             </PanelContainer>
                         </BoxContainer>
+                        <!--WD EDIT END-->
                         <!--WD EDIT END-->
 
                         <Button Name="SpecialColorTintToggle" Text="{Loc 'humanoid-profile-editor-loadouts-customize-color'}" ToggleMode="True" Margin="0 3 0 0" StyleClasses="OpenBoth" />

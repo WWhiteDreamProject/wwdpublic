@@ -19,9 +19,11 @@
       - state: detail_bookmark
         color: red
     # WD EDIT START: Paper -> Book
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
+      # WD EDIT END
       # WD EDIT END
       content: book-text-narsielegend
 
