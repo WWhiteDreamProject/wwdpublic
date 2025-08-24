@@ -52,9 +52,3 @@ public enum BookUiKey : byte
 {
     Key
 }
-
-[Serializable, NetSerializable]
-public sealed class BookRemoveBookmarkMessage(int pageIndex) : BoundUserInterfaceMessage
-{
-    public readonly int PageIndex = Math.Max(0, pageIndex);
-}
