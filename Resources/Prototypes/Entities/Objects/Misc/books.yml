@@ -19,7 +19,6 @@
     - state: overlay_null
       map: [ "overlay" ]
   # WD EDIT START: Paper -> Book
-  # WD EDIT START: Paper -> Book
   - type: Book
     maxCharactersPerPage: 3000
     maxPages: 100
@@ -488,12 +487,10 @@
     - state: icon_corner
       color: gold
   # WD EDIT START: Paper -> Book
-  # WD EDIT START: Paper -> Book
   - type: Book
     content: book-text-atmos-distro
     maxCharactersPerPage: 1500
     maxPages: 100
-    # WD EDIT END
     # WD EDIT END
 
 - type: entity
@@ -514,12 +511,10 @@
     - state: icon_corner
       color: gold
   # WD EDIT START: Paper -> Book
-  # WD EDIT START: Paper -> Book
   - type: Book
     content: book-text-atmos-waste
     maxCharactersPerPage: 1500
     maxPages: 100
-    # WD EDIT END
     # WD EDIT END
 
 - type: entity
@@ -540,12 +535,10 @@
     - state: icon_corner
       color: gold
   # WD EDIT START: Paper -> Book
-  # WD EDIT START: Paper -> Book
   - type: Book
     content: book-text-atmos-alarms
     maxCharactersPerPage: 1500
     maxPages: 100
-    # WD EDIT END
     # WD EDIT END
 
 - type: entity
@@ -566,12 +559,10 @@
     - state: icon_corner
       color: gold
   # WD EDIT START: Paper -> Book
-  # WD EDIT START: Paper -> Book
   - type: Book
     content: book-text-atmos-vents
     maxCharactersPerPage: 1500
     maxPages: 100
-    # WD EDIT END
     # WD EDIT END
 
 - type: entity

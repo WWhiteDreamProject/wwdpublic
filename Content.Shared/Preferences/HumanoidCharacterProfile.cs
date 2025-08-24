@@ -482,7 +482,6 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             customContent = truncated.ToString();
         }
         // WD EDIT END
-        // WD EDIT END
 
         var list = new HashSet<LoadoutPreference>(_loadoutPreferences);
 
