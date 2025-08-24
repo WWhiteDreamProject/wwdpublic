@@ -52,3 +52,16 @@ public enum BookUiKey : byte
 {
     Key
 }
+
+[Serializable, NetSerializable]
+public sealed class BookDeletePageMessage(int pageIndex) : BoundUserInterfaceMessage
+{
+    public readonly int PageIndex = Math.Max(0, pageIndex);
+}
+
+[Serializable, NetSerializable]
+
+public sealed class BookAddPageMessage() : BoundUserInterfaceMessage
+{
+    //TODO: any else, but except DELETING THAT METHOD
+}
