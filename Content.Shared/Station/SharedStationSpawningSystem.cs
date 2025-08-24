@@ -220,10 +220,10 @@ public abstract class SharedStationSpawningSystem : EntitySystem
             foreach (var (slot, entProtoId) in subGearProto.Equipment)
             {
                 // Don't remove items in pockets, instead put them in the backpack or hands
-                if (slot == "pocket1" && newStartingGear.Equipment.TryGetValue("pocket1", out var pocket1) ||
-                    slot == "pocket2" && newStartingGear.Equipment.TryGetValue("pocket2", out var pocket2))
+                if ((slot == "pocket1" || slot == "pocket2") &&
+                    newStartingGear.Equipment.TryGetValue(slot, out var pocketValue))
                 {
-                    var pocketProtoId = slot == "pocket1" ? pocket1 : pocket2;
+                    var pocketProtoId = pocketValue;
 
                     if (string.IsNullOrEmpty(newStartingGear.GetGear("back")))
                         newStartingGear.Inhand.Add(pocketProtoId);

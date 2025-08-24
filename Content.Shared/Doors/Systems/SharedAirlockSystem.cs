@@ -13,6 +13,7 @@ public abstract class SharedAirlockSystem : EntitySystem
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] protected readonly SharedDoorSystem DoorSystem = default!;
+    [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] private   readonly SharedWiresSystem _wiresSystem = default!;
 
     public override void Initialize()
@@ -41,7 +42,7 @@ public abstract class SharedAirlockSystem : EntitySystem
         // the initial power-check.
 
         if (TryComp(uid, out DoorComponent? door)
-            && !door.Partial
+            && !args.Partial
             && !CanChangeState(uid, airlock))
         {
             args.Cancel();
