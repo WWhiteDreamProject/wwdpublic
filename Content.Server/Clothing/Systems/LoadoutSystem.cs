@@ -131,6 +131,7 @@ public sealed class LoadoutSystem : EntitySystem
             if (loadoutProto.CustomDescription && loadout.Item2.CustomDescription != null)
                 _meta.SetEntityDescription(loadout.Item1, loadout.Item2.CustomDescription);
             // WD EDIT START
+            // WD EDIT START
             if (!string.IsNullOrEmpty(loadout.Item2.CustomContent) && TryComp<BookComponent>(loadout.Item1, out var bookComponent))
             {
                 try
@@ -143,6 +144,7 @@ public sealed class LoadoutSystem : EntitySystem
                     _sawmill.Error($"Failed to apply custom book content to loadout {loadout.Item2.LoadoutName}: {ex.Message}");
                 }
             }
+            // WD EDIT END
             // WD EDIT END
             if (loadoutProto.CustomColorTint && !string.IsNullOrEmpty(loadout.Item2.CustomColorTint))
                 _paint.Paint(null, null, loadout.Item1, Color.FromHex(loadout.Item2.CustomColorTint));

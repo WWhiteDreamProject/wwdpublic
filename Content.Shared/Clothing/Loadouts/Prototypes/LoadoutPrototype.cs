@@ -42,11 +42,13 @@ public sealed partial class LoadoutPrototype : IPrototype
     public bool CustomDescription = true;
 
     // WD EDIT START
+    // WD EDIT START
     /// <summary>
     ///     Determines whether players can set custom content for this loadout item.
     /// </summary>
     [DataField]
     public bool CustomContent = false;
+    // WD EDIT END
     // WD EDIT END
 
     [DataField]
