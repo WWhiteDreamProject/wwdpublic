@@ -18,7 +18,7 @@
         type: Remove
       - !type:AdjustReagent
         reagent: Theobromine
-        amount: 0.02 #WD edit
+        amount: 0.02 # WD EDIT: 0.05 -> 0.02
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coffeeglass.rsi
     state: icon_empty
@@ -42,7 +42,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Theobromine
-        amount: 0.2 #WD edit
+        amount: 0.2 # WD EDIT: 0.05 -> 0.2
 
 - type: reagent
   id: Cream
@@ -224,7 +224,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Theobromine
-        amount: 0.01 #WD edit
+        amount: 0.01 # WD EDIT: 0.05 -> 0.01
 
 - type: reagent
   id: JuiceBerryPoison
@@ -450,7 +450,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Theobromine
-        amount: 0.02 #WD edit
+        amount: 0.02 # WD EDIT: 0.05 -> 0.02
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/teaglass.rsi
     state: icon_empty
