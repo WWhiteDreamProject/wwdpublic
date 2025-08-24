@@ -203,8 +203,8 @@ namespace Content.Server.Atmos.EntitySystems
             if (!TryComp(otherUid, out FlammableComponent? otherFlammable) || !otherFlammable.FireSpread)
                 return;
 
-            if (!flammable.OnFire && !otherFlammable.OnFire)
-                return; // Neither are on fire
+            if ((!flammable.OnFire || !flammable.FireSpread) && (!otherFlammable.OnFire || !otherFlammable.FireSpread)) // WWDP EDIT
+                return; // Neither are on fire or capable of spreading fire
 
             // Both are on fire -> equalize fire stacks.
             // Weight each thing's firestacks by its mass
@@ -220,16 +220,23 @@ namespace Content.Server.Atmos.EntitySystems
             // - the thing on fire loses a small number of firestacks
             // - the other thing gains a large number of firestacks
             // so a person on fire engulfs a mouse, but an engulfed mouse barely does anything to a person
-            var total = mass1 + mass2;
-            var avg = (flammable.FireStacks + otherFlammable.FireStacks) / total;
 
-            // swap the entity losing stacks depending on whichever has the most firestack kilos
-            var (src, dest) = flammable.FireStacks * mass1 > otherFlammable.FireStacks * mass2
-                ? (-1f, 1f)
-                : (1f, -1f);
-            // bring each entity to the same firestack mass, firestacks being scaled by the other's mass
-            AdjustFireStacks(uid, src * avg * mass2, flammable, ignite: true);
-            AdjustFireStacks(otherUid, dest * avg * mass1, otherFlammable, ignite: true);
+            // WWDP EDIT START - firestack transfer logic that makes sense
+            // How much firestacks the other entity will receive from transfering a single firestack from our entity
+            var transferCost = mass1 / mass2;
+            // how much firestacks will our entity lose (and, if multiplied by transferCost, how much the other will gain)
+            // works in both ways (when we're losing firestacks to other and gaining from other)
+
+            // firestacks - x = firestacksOther + x * p; where p = mass1/mass2
+            var diff = (flammable.FireStacks - otherFlammable.FireStacks) / (1 + transferCost);
+
+            // bring each entity to the same firestack value
+            AdjustFireStacks(uid, -diff, flammable);
+            AdjustFireStacks(otherUid, diff * transferCost, otherFlammable);
+
+            Ignite(uid, otherUid, flammable, otherUid);
+            Ignite(otherUid, uid, otherFlammable, uid);
+            // WWDP EDIT END
         }
 
         private void OnIsHot(EntityUid uid, FlammableComponent flammable, IsHotEvent args)
@@ -276,15 +283,15 @@ namespace Content.Server.Atmos.EntitySystems
             _appearance.SetData(uid, ToggleableLightVisuals.Enabled, flammable.OnFire, appearance);
         }
 
-        public void AdjustFireStacks(EntityUid uid, float relativeFireStacks, FlammableComponent? flammable = null, bool ignite = true)
+        public void AdjustFireStacks(EntityUid uid, float relativeFireStacks, FlammableComponent? flammable = null)
         {
             if (!Resolve(uid, ref flammable))
                 return;
 
-            SetFireStacks(uid, flammable.FireStacks + relativeFireStacks, flammable, ignite);
+            SetFireStacks(uid, flammable.FireStacks + relativeFireStacks, flammable);
         }
 
-        public void SetFireStacks(EntityUid uid, float stacks, FlammableComponent? flammable = null, bool ignite = true)
+        public void SetFireStacks(EntityUid uid, float stacks, FlammableComponent? flammable = null)
         {
             if (!Resolve(uid, ref flammable))
                 return;
@@ -295,7 +302,6 @@ namespace Content.Server.Atmos.EntitySystems
                 Extinguish(uid, flammable);
             else
             {
-                flammable.OnFire = flammable.OnFire ? flammable.OnFire : ignite; // WD EDIT
                 UpdateAppearance(uid, flammable);
             }
         }
@@ -477,7 +483,7 @@ namespace Content.Server.Atmos.EntitySystems
 
                     _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * multiplier, interruptsDoAfters: false);
 
-                    AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 10f : 1f), flammable, flammable.OnFire);
+                    AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 10f : 1f), flammable);
                 }
                 else
                 {
