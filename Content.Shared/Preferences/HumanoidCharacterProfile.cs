@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared._White.Bark;
 using Content.Shared._White.TTS;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Loadouts.Prototypes;
@@ -98,6 +99,12 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
     [DataField]
     public string Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice;
+
+    [DataField]
+    public string BarkVoice { get; set; } = SharedHumanoidAppearanceSystem.DefaultBarkVoice;
+
+    [DataField]
+    public BarkPercentageApplyData BarkSettings { get; set; } = BarkPercentageApplyData.Default;
     // WD EDIT END
 
     [DataField]
@@ -160,6 +167,8 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         int age,
         Sex sex,
         string voice, // WD EDIT
+        string barkVoice, // WD EDIT
+        BarkPercentageApplyData barkSettings, // WD EDIT
         string bodyType, // WD EDIT
         Gender gender,
         string? displayPronouns,
@@ -236,6 +245,8 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             other.Age,
             other.Sex,
             other.Voice, // WD EDIT
+            other.BarkVoice, // WD EDIT
+            other.BarkSettings, // WD EDIT
             other.BodyType, // WD EDIT
             other.Gender,
             other.DisplayPronouns,

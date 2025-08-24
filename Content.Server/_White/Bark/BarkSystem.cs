@@ -1,11 +1,8 @@
-using System.Linq;
-using Content.Server.Chat.Systems;
 using Content.Shared._White.Bark;
 using Content.Shared._White.Bark.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Console;
-using Robust.Shared.Network;
 using Robust.Shared.Player;
 using BarkComponent = Content.Shared._White.Bark.Components.BarkComponent;
 
@@ -15,19 +12,6 @@ namespace Content.Server._White.Bark;
 public sealed class BarkSystem : SharedBarkSystem
 {
     [Dependency] private readonly TransformSystem _transformSystem = default!;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-        UpdatesOutsidePrediction = true;
-
-        SubscribeLocalEvent<BarkComponent, EntitySpokeEvent>(OnEntitySpoke);
-    }
-
-    private void OnEntitySpoke(Entity<BarkComponent> ent, ref EntitySpokeEvent args)
-    {
-        Bark(ent, args.Message, args.IsWhisper);
-    }
 
     public override void Bark(Entity<BarkComponent> entity, List<BarkData> barks)
     {
@@ -62,8 +46,6 @@ public sealed class AddBarkCommand : IConsoleCommand
             return;
         }
 
-        var comp = entMan.AddComponent<BarkComponent>(attachedEnt.Value);
-        comp.BarkSound = new SoundCollectionSpecifier("BarkMeow");
-        entMan.Dirty(attachedEnt.Value, comp);
+        entMan.System<BarkSystem>().ApplyBark(attachedEnt.Value, "Meow");
     }
 }

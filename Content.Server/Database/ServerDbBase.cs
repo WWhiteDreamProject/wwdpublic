@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Shared._White.Bark;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Clothing.Loadouts.Systems;
 using Content.Shared.Database;
@@ -235,6 +236,16 @@ namespace Content.Server.Database
                 profile.Age,
                 sex,
                 voice, // WD EDIT
+                profile.BarkVoice, // WD EDIT
+                // WD EDIT START
+                new BarkPercentageApplyData()
+                {
+                    Pause = profile.BarkPause,
+                    Pitch = profile.BarkPitch,
+                    PitchVariance = profile.BarkPitchVariance,
+                    Volume = profile.BarkVolume,
+                },
+                // WD EDIT END
                 bodyType, // WD EDIT
                 gender,
                 profile.DisplayPronouns,
