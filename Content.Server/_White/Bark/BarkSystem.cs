@@ -34,11 +34,17 @@ public sealed class AddBarkCommand : IConsoleCommand
 {
     public string Command => "addbark";
     public string Description => "add bark to self";
-    public string Help => Command;
+    public string Help => Command + " uid prototype";
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         var entMan = IoCManager.Resolve<IEntityManager>();
+
+        if (args.Length < 2)
+        {
+            shell.WriteError("Small args count");
+            return;
+        }
 
         if (!entMan.TryParseNetEntity(args[0], out var attachedEnt))
         {
@@ -46,6 +52,18 @@ public sealed class AddBarkCommand : IConsoleCommand
             return;
         }
 
-        entMan.System<BarkSystem>().ApplyBark(attachedEnt.Value, "Meow");
+
+
+        entMan.System<BarkSystem>().ApplyBark(attachedEnt.Value, args[1]);
+    }
+
+    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        if(args.Length == 1)
+            return CompletionResult.FromHint("Uid");
+        if(args.Length == 2)
+            return CompletionResult.FromHintOptions(CompletionHelper.PrototypeIDs<BarkVoicePrototype>(), "bark prototype");
+
+        return CompletionResult.Empty;
     }
 }

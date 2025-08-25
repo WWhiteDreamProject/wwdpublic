@@ -23,5 +23,4 @@ public sealed class BarkListPrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     public Dictionary<ProtoId<BarkVoicePrototype>, List<CharacterRequirement>> VoiceList { get; set; } = [];
-
 }

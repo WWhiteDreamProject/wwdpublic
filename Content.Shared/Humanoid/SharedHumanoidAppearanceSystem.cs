@@ -62,7 +62,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     public const string DefaultBodyType = "HumanNormal";
 
     public const string DefaultVoice = "Aidar";
-    public const string DefaultBarkVoice = "Meow";
+    public const string DefaultBarkVoice = "Txt1";
 
     public static readonly Dictionary<Sex, string> DefaultSexVoice = new()
     {

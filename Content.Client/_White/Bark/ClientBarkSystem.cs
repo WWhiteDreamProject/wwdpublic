@@ -80,10 +80,10 @@ public sealed class BarkSystem : SharedBarkSystem
 
         sourceComponent = AddComp<BarkSourceComponent>(entity);
         sourceComponent.Barks = new(barks);
-        sourceComponent.ResolvedSound = _sharedAudio.ResolveSound(entity.Comp.VoiceData.BarkSound);
+        sourceComponent.ResolvedSound = entity.Comp.VoiceData.BarkSound;
     }
 
-    private void Bark(EntityUid entity, ResolvedSoundSpecifier soundSpecifier, BarkData currentBark)
+    private void Bark(EntityUid entity, SoundSpecifier soundSpecifier, BarkData currentBark)
     {
         if (!currentBark.Enabled)
             return;

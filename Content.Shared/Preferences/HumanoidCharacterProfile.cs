@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Shared._White.Bark;
+using Content.Shared._White.Bark.Systems;
 using Content.Shared._White.TTS;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Loadouts.Prototypes;
@@ -351,12 +352,10 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             .EnumeratePrototypes<TTSVoicePrototype>()
             .Where(o => CanHaveVoice(o, sex)).ToArray()
         ).ID;
-        // WD EDIT END
-
 
         var name = GetName(species, gender);
 
-        return new HumanoidCharacterProfile()
+        var profile = new HumanoidCharacterProfile()
         {
             Name = name,
             Sex = sex,
@@ -370,6 +369,20 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             Employer = SharedHumanoidAppearanceSystem.DefaultEmployer,
             Lifepath = SharedHumanoidAppearanceSystem.DefaultLifepath,
         };
+
+        var barkSystem = IoCManager.Resolve<IEntityManager>().System<SharedBarkSystem>();
+        var barkVoiceList = barkSystem.GetVoiceList(profile);
+
+        var barkVoice = SharedHumanoidAppearanceSystem.DefaultBarkVoice;
+        if (barkVoiceList.Any())
+        {
+            barkVoice = random.Pick(barkVoiceList).ID;
+        }
+
+        profile.BarkVoice = barkVoice;
+
+        return profile;
+        // WD EDIT END
     }
 
     public HumanoidCharacterProfile WithName(string name) => new(this) { Name = name };
@@ -506,6 +519,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             && Age == other.Age
             && Sex == other.Sex
             && Voice == other.Voice // WD EDIT
+            && BarkVoice == other.BarkVoice // WD EDIT
             && BodyType == other.BodyType // WD EDIT
             && Gender == other.Gender
             && Species == other.Species
@@ -697,6 +711,10 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
         if (voice is null || !CanHaveVoice(voice, Sex))
             Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
+
+        if(!CanHaveBark(prototypeManager))
+            BarkVoice = SharedHumanoidAppearanceSystem.DefaultBarkVoice;
+
         // WD EDIT END
     }
 
@@ -704,6 +722,41 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     public static bool CanHaveVoice(TTSVoicePrototype voice, Sex sex)
     {
         return voice.RoundStart && sex == Sex.Unsexed || voice.Sex == sex || voice.Sex == Sex.Unsexed;
+    }
+
+    public bool CanHaveBark(
+        IPrototypeManager prototypeManager,
+        ProtoId<BarkListPrototype>? id = null
+    )
+    {
+        var voice = BarkVoice;
+        if(
+            !prototypeManager.TryIndex<BarkListPrototype>(id, out var barkList) ||
+            !barkList.VoiceList.TryGetValue(voice, out var voiceRequirements) ||
+            !prototypeManager.TryIndex<BarkVoicePrototype>(voice, out var voicePrototype))
+            return false;
+
+        var isValid = true;
+
+        foreach (var requirement in voiceRequirements)
+        {
+            if (requirement.IsValid(
+                    default!,
+                    this,
+                    [],
+                    false,
+                    voicePrototype,
+                    IoCManager.Resolve<IEntityManager>(),
+                    prototypeManager,
+                    IoCManager.Resolve<IConfigurationManager>(),
+                    out var reason) && !requirement.Inverted)
+                continue;
+
+            isValid = false;
+            break;
+        }
+
+        return isValid;
     }
     // WD EDIT END
 
@@ -745,6 +798,8 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         hashCode.Add((int) Gender);
         hashCode.Add(Voice); // WD EDIT
         hashCode.Add(BodyType); // WD EDIT
+        hashCode.Add(BarkVoice); // WD EDIT
+        hashCode.Add(BarkSettings); // WD EDIT
         hashCode.Add(Appearance);
         hashCode.Add((int) SpawnPriority);
         hashCode.Add((int) PreferenceUnavailable);

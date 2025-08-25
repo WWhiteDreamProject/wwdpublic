@@ -1,7 +1,10 @@
+using Robust.Shared.Serialization;
+
+
 namespace Content.Shared._White.Bark;
 
 
-[DataDefinition]
+[DataDefinition, Serializable, NetSerializable]
 public sealed partial class BarkPercentageApplyData
 {
     public static BarkPercentageApplyData Default => new();
