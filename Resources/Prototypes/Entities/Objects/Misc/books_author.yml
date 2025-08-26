@@ -22,8 +22,8 @@
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
-      # WD EDIT END
       content: book-text-narsielegend
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -44,10 +44,12 @@
       - state: icon_question
       - state: detail_bookmark
         color: "#cf792d"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-truth
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -65,10 +67,12 @@
       - state: icon_text
       - state: detail_bookmark
         color: "#2dab24"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-world
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -87,10 +91,12 @@
       - state: icon_ian
       - state: detail_bookmark
         color: "#ab5e24"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-ian-antarctica
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -111,10 +117,12 @@
       - state: icon_banana
       - state: detail_bookmark
         color: "#f7cc2f"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-sloth-clown-sss
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -135,10 +143,12 @@
       - state: icon_banana
       - state: detail_bookmark
         color: "#ab22ba"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-sloth-clown-pz
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -159,10 +169,12 @@
       - state: icon_scmmd
       - state: detail_bookmark
         color: "#ab22ba"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-sloth-clown-mmd
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -186,10 +198,12 @@
         color: "#f7bb2f"
       - state: detail_bookmark
         color: "#f7bb2f"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-struck
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -212,10 +226,12 @@
         color: "#f7bb2f"
       - state: detail_rivets
         color: "#f7bb2f"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-sun
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -233,10 +249,12 @@
       - state: detail_bookmark
         color: "#2b593d"
       - state: overlay_blood
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-possum
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -253,10 +271,12 @@
       - state: icon_possum
       - state: detail_bookmark
         color: "#2b593d"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-cafe
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -276,10 +296,12 @@
       - state: icon_magic
       - state: detail_bookmark
         color: "#7396f5"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-feather
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -298,10 +320,12 @@
       - state: icon_ian
       - state: detail_bookmark
         color: "#ab5e24"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-ian-wolfpup
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -320,10 +344,12 @@
       - state: icon_ian
       - state: detail_bookmark
         color: "#ab5e24"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-ian-ranch
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -342,10 +368,12 @@
       - state: icon_ian
       - state: detail_bookmark
         color: "#ab5e24"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-ian-ocean
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -363,10 +391,12 @@
       - state: icon_ian
       - state: detail_bookmark
         color: "#ab5e24"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-ian-mountain
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -385,10 +415,12 @@
       - state: icon_ian
       - state: detail_bookmark
         color: "#ab5e24"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-ian-city
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -407,10 +439,12 @@
       - state: icon_ian
       - state: detail_bookmark
         color: "#ab5e24"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-ian-arctic
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -429,10 +463,12 @@
       - state: icon_ian
       - state: detail_bookmark
         color: "#ab5e24"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-ian-desert
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -450,10 +486,12 @@
       - state: icon_letter_N
       - state: detail_bookmark
       - state: overlay_dirt
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-names
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -475,10 +513,12 @@
       - state: icon_text3
       - state: detail_bookmark
         color: "#2c5491"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-earth
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -502,10 +542,12 @@
         color: "#2c5491"
       - state: detail_rivets
         color: "#799dd4"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-aurora
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -526,10 +568,12 @@
       - state: icon_temple
       - state: detail_bookmark
         color: "#bfbfbf"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-temple
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -550,10 +594,12 @@
       - state: icon_eye
       - state: detail_bookmark
         color: "#bfbfbf"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-watched
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -573,10 +619,12 @@
         color: "#55b0d4"
       - state: detail_bookmark
         color: "#55b0d4"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-medical-officer
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -595,10 +643,12 @@
       - state: overlay_dirt
       - state: detail_bookmark
         color: "#61363d"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-morgue
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -622,10 +672,12 @@
         color: "#61363d"
       - state: detail_rivets
         color: "#ffde7d"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-rufus
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -647,10 +699,12 @@
         color: "#61363d"
       - state: detail_rivets
         color: "#ffde7d"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-map
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -670,10 +724,12 @@
         color: "#61363d"
       - state: detail_rivets
         color: "#ffde7d"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-journ-mount
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -694,10 +750,12 @@
       - state: icon_tree
       - state: detail_bookmark
         color: "#61363d"
+    # WD EDIT START: Paper -> Book
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-inspiration
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -716,7 +774,9 @@
     - state: detail_bookmark
       color: "#61363d"
     - state: overlay_dirt
+    # WD EDIT START: Paper -> Book
   - type: Book
     maxCharactersPerPage: 1500
     maxPages: 100
     content: book-text-janitor
+  # WD EDIT END
