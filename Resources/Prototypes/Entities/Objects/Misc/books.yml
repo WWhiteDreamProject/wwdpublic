@@ -466,7 +466,7 @@
   id: BookRandomStory
   suffix: random visual, random story
   components:
-  - type: PaperRandomStory
+  - type: BookRandomStory
     template: GenericStory
 
 - type: entity

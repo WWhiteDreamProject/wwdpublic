@@ -11,13 +11,3 @@ book-page-info = of {$total}
 book-ui-bookmarks-label = Bookmarks:
 book-ui-page-label = Page
 book-character-count = {$current}/{$max} characters
-
-book-story-template-this-is = This is a
-book-story-template-about =  about a
-book-story-template-and =  and
-book-story-template-due-to = . Due to
-book-story-template-they = , they
-book-story-template-is =  is
-book-story-template-period = .
-book-story-template-comma = ,
-book-story-template-space = {" "}

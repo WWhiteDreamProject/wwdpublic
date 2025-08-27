@@ -276,14 +276,12 @@ story-gen-book-element-trait11 = слабоватый
 story-gen-book-element-trait12 = печальный
 story-gen-book-element-trait13 = довольно депрессивный
 
-
-
-
-
-
-
-
-
-
-
-
+book-story-template-this-is = {"Это "}
+book-story-template-about = {" о "}
+book-story-template-and = {" и "}
+book-story-template-due-to = {". Из-за "}
+book-story-template-they = {"они "}
+book-story-template-is = {" "}
+book-story-template-period = {". "}
+book-story-template-comma = {", "}
+book-story-template-space = {" "}
