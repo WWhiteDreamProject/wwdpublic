@@ -1,43 +1,32 @@
-using Content.Shared._White.Book.Components;
 using Content.Shared._White.Book;
+using Content.Shared._White.Book.Components;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
-using System.Linq;
 using Content.Shared.Tag;
 using Content.Shared.UserInterface;
-using Content.Shared.Random.Helpers;
-using Robust.Shared.Random;
-using System.Text;
-using Robust.Shared.Utility;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared._White.Book;
 
 public sealed class BookSystem : EntitySystem
 {
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<BookComponent, ActivateInWorldEvent>(OnActivateInWorld);
-        SubscribeLocalEvent<BookComponent, BookPageChangedMessage>(OnPageChanged);
-        SubscribeLocalEvent<BookComponent, BookAddTextMessage>(OnAddText);
-        SubscribeLocalEvent<BookComponent, BookAddPageMessage>(OnAddPage);
-        SubscribeLocalEvent<BookComponent, InteractUsingEvent>(OnInteractUsing);
-        SubscribeLocalEvent<BookComponent, UseInHandEvent>(OnUseInHand);
-        SubscribeLocalEvent<BookComponent, IntrinsicUIOpenAttemptEvent>(OnIntrinsicUIOpenAttempt);
+        base.Initialize();
+
         SubscribeLocalEvent<BookComponent, BeforeActivatableUIOpenEvent>(BeforeUIOpen);
-        SubscribeLocalEvent<BookComponent, BoundUserInterfaceCheckRangeEvent>(OnBookUiRangeCheck);
-        SubscribeLocalEvent<BookComponent, BookAddBookmarkMessage>(OnAddBookmark);
-        SubscribeLocalEvent<BookComponent, BookRemoveBookmarkMessage>(OnRemoveBookmark);
+        SubscribeLocalEvent<BookComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<BookComponent, MapInitEvent>(OnMapInit);
+
+        SubscribeLocalEvent<BookComponent, BookAddBookmarkMessage>(OnAddBookmark);
+        SubscribeLocalEvent<BookComponent, BookAddPageMessage>(OnAddPage);
+        SubscribeLocalEvent<BookComponent, BookAddTextMessage>(OnAddText);
         SubscribeLocalEvent<BookComponent, BookDeletePageMessage>(OnDeletePage);
+        SubscribeLocalEvent<BookComponent, BookPageChangedMessage>(OnPageChanged);
+        SubscribeLocalEvent<BookComponent, BookRemoveBookmarkMessage>(OnRemoveBookmark);
     }
 
     private void OnBookUiRangeCheck(EntityUid uid, BookComponent component, ref BoundUserInterfaceCheckRangeEvent args)
