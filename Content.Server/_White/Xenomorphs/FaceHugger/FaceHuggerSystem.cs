@@ -78,15 +78,10 @@ public sealed class FaceHuggerSystem : EntitySystem
 
         _stun.TryKnockdown(args.Equipee, component.KnockdownTime, true);
 
-        var time = _timing.CurTime;
-
-        component.RestIn = time + _random.Next(component.MinRestTime, component.MaxRestTime);
-        component.Active = false;
-
         if (!component.InfectionPrototype.HasValue)
             return;
 
-        component.InfectIn = time + _random.Next(component.MinInfectTime, component.MaxInfectTime);
+        component.InfectIn = _timing.CurTime + _random.Next(component.MinInfectTime, component.MaxInfectTime);
     }
 
     private void OnBeingUnequippedAttempt(EntityUid uid, FaceHuggerComponent component, BeingUnequippedAttemptEvent args)
@@ -140,6 +135,9 @@ public sealed class FaceHuggerSystem : EntitySystem
     {
         if (!component.Active || _mobState.IsDead(uid) || _entityWhitelist.IsBlacklistPass(component.Blacklist, target))
             return false;
+
+        component.RestIn = _timing.CurTime + _random.Next(component.MinRestTime, component.MaxRestTime);
+        component.Active = false;
 
         EntityUid? blocker = null;
 
