@@ -100,7 +100,6 @@
     useDelay: 1
     range: 2
     itemIconStyle: BigAction
-    checkCanAccess: false
     icon: { sprite: _White/Structures/Walls/resin.rsi, state: full }
     event: !type:PlaceTileEntityEvent
       entity: WallResin
@@ -121,7 +120,6 @@
     useDelay: 1
     range: 2
     itemIconStyle: BigAction
-    checkCanAccess: false
     icon: { sprite : _White/Structures/Windows/resin_membrane.rsi, state: full }
     event: !type:PlaceTileEntityEvent
       entity: ResinMembrane
@@ -142,7 +140,6 @@
     useDelay: 1
     range: 2
     itemIconStyle: BigAction
-    checkCanAccess: false
     icon: { sprite : _White/Structures/Windows/resin_membrane.rsi, state: full }
     event: !type:PlaceTileEntityEvent
       entity: ResinNest
@@ -164,7 +161,6 @@
     useDelay: 11
     range: 10
     itemIconStyle: BigAction
-    checkCanAccess: false
     icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: tail_attack }
     event: !type:TailLashActionEvent
 
