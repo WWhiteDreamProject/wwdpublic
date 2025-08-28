@@ -1,211 +1,63 @@
-using System.Linq;
-using System.Text;
-using Content.Shared._White.Book;
 using Content.Shared._White.Book.Components;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Random.Helpers;
 using Content.Shared.Tag;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Player;
-using Robust.Shared.Random;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._White.Book;
 
 public sealed class BookSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<BookComponent, ActivateInWorldEvent>(OnActivateInWorld);
+        base.Initialize();
+
         SubscribeLocalEvent<BookComponent, BeforeActivatableUIOpenEvent>(BeforeUIOpen);
+        SubscribeLocalEvent<BookComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<BookComponent, MapInitEvent>(OnMapInit);
+
         SubscribeLocalEvent<BookComponent, BookAddBookmarkMessage>(OnAddBookmark);
         SubscribeLocalEvent<BookComponent, BookAddPageMessage>(OnAddPage);
         SubscribeLocalEvent<BookComponent, BookAddTextMessage>(OnAddText);
         SubscribeLocalEvent<BookComponent, BookDeletePageMessage>(OnDeletePage);
         SubscribeLocalEvent<BookComponent, BookPageChangedMessage>(OnPageChanged);
         SubscribeLocalEvent<BookComponent, BookRemoveBookmarkMessage>(OnRemoveBookmark);
-        SubscribeLocalEvent<BookComponent, BoundUserInterfaceCheckRangeEvent>(OnBookUiRangeCheck);
-        SubscribeLocalEvent<BookComponent, InteractUsingEvent>(OnInteractUsing);
-        SubscribeLocalEvent<BookComponent, IntrinsicUIOpenAttemptEvent>(OnIntrinsicUIOpenAttempt);
-        SubscribeLocalEvent<BookComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<BookComponent, UseInHandEvent>(OnUseInHand);
     }
 
-    private void OnBookUiRangeCheck(EntityUid uid, BookComponent component, ref BoundUserInterfaceCheckRangeEvent args)
+    private void BeforeUIOpen(EntityUid uid, BookComponent component, BeforeActivatableUIOpenEvent args)
     {
-        args.Result = _interaction.InRangeUnobstructed((args.Actor, null), (uid, null), 2.0f)
-            ? BoundUserInterfaceRangeResult.Pass
-            : BoundUserInterfaceRangeResult.Fail;
-    }
-
-    private BookBoundUserInterfaceState CreateBookUIState(BookComponent component, bool isEditing = false)
-    {
-        return new BookBoundUserInterfaceState(
-            component.Pages,
-            component.CurrentPage,
-            component.MaxCharactersPerPage,
-            component.MaxPages,
-            component.Bookmarks,
-            component.MaxBookmarks,
-            isEditing);
-    }
-
-    private void OnActivateInWorld(EntityUid uid, BookComponent component, ActivateInWorldEvent args)
-    {
-        if (!TryComp<ActorComponent>(args.User, out var actorComponent))
-            return;
-
-        if (_uiSystem.IsUiOpen(uid, BookUiKey.Key, args.User))
-        {
-            var state = CreateBookUIState(component, false);
-            _uiSystem.SetUiState(uid, BookUiKey.Key, state);
-            _uiSystem.OpenUi(uid, BookUiKey.Key, actorComponent.PlayerSession);
-        }
-        else
-        {
-            var state = CreateBookUIState(component, false);
-            _uiSystem.SetUiState(uid, BookUiKey.Key, state);
-        }
-    }
-
-    private void OnPageChanged(EntityUid uid, BookComponent component, BookPageChangedMessage args)
-    {
-        component.CurrentPage = Math.Clamp(args.NewPage, 0, Math.Max(0, component.Pages.Count - 1));
-        _audioSystem.PlayPvs(component.PageFlipSound, uid);
-        Dirty(uid, component);
-    }
-
-    public void AddTextToBook(EntityUid uid, BookComponent component, string text)
-    {
-        var words = text.Split(' ');
-        var currentPage = component.Pages.LastOrDefault() ?? "";
-        var pageIndex = Math.Max(0, component.Pages.Count - 1);
-
-        foreach (var word in words)
-        {
-            if (currentPage.Length + word.Length + 1 > component.MaxCharactersPerPage)
-            {
-                if (pageIndex >= component.Pages.Count)
-                    component.Pages.Add("");
-                else
-                    component.Pages[pageIndex] = currentPage;
-
-                pageIndex++;
-                currentPage = word;
-
-                var state = CreateBookUIState(component, true);
-                _uiSystem.SetUiState(uid, BookUiKey.Key, state);
-            }
-            else
-            {
-                currentPage += (currentPage.Length > 0 ? " " : "") + word;
-            }
-        }
-
-        if (pageIndex >= component.Pages.Count)
-            component.Pages.Add(currentPage);
-        else
-            component.Pages[pageIndex] = currentPage;
-        Dirty(uid, component);
-    }
-
-    private void OnAddText(EntityUid uid, BookComponent component, BookAddTextMessage args)
-    {
-        if (string.IsNullOrEmpty(args.Text))
-        {
-            if (component.Pages.Count >= component.MaxPages)
-                return;
-            component.Pages.Add("");
-            component.CurrentPage = component.Pages.Count - 1;
-            _audioSystem.PlayPvs(component.PageFlipSound, uid);
-        }
-        else
-        {
-            if (component.CurrentPage < 0 || component.CurrentPage >= component.Pages.Count)
-            {
-                component.CurrentPage = Math.Max(0, Math.Min(component.CurrentPage, component.Pages.Count - 1));
-                if (component.Pages.Count == 0)
-                {
-                    component.Pages.Add("");
-                    component.CurrentPage = 0;
-                }
-            }
-            var remainingText = args.Text;
-            var currentPageIndex = component.CurrentPage;
-            if (remainingText.Length <= component.MaxCharactersPerPage)
-            {
-                component.Pages[currentPageIndex] = remainingText;
-            }
-            else
-            {
-                var pageText = remainingText.Substring(0, component.MaxCharactersPerPage);
-                var lastSpaceIndex = pageText.LastIndexOf(' ');
-                if (lastSpaceIndex > 0 && lastSpaceIndex > component.MaxCharactersPerPage * 0.8)
-                {
-                    pageText = pageText.Substring(0, lastSpaceIndex);
-                    remainingText = remainingText.Substring(lastSpaceIndex + 1);
-                }
-                else
-                {
-                    remainingText = remainingText.Substring(component.MaxCharactersPerPage);
-                }
-                component.Pages[currentPageIndex] = pageText;
-                currentPageIndex++;
-                while (!string.IsNullOrEmpty(remainingText))
-                {
-                    if (component.Pages.Count >= component.MaxPages)
-                        break;
-                    if (remainingText.Length <= component.MaxCharactersPerPage)
-                    {
-                        component.Pages.Insert(currentPageIndex, remainingText);
-                        break;
-                    }
-                    else
-                    {
-                        var nextPageText = remainingText.Substring(0, component.MaxCharactersPerPage);
-                        var lastSpace = nextPageText.LastIndexOf(' ');
-                        if (lastSpace > 0 && lastSpace > component.MaxCharactersPerPage * 0.8)
-                        {
-                            nextPageText = nextPageText.Substring(0, lastSpace);
-                            remainingText = remainingText.Substring(lastSpace + 1);
-                        }
-                        else
-                        {
-                            remainingText = remainingText.Substring(component.MaxCharactersPerPage);
-                        }
-                        component.Pages.Insert(currentPageIndex, nextPageText);
-                        currentPageIndex++;
-                    }
-                }
-            }
-            component.CurrentPage = Math.Min(currentPageIndex, component.Pages.Count - 1);
-            _audioSystem.PlayPvs(component.SaveSound, uid);
-        }
-        Dirty(uid, component);
-        var state = CreateBookUIState(component, false);
-        _uiSystem.SetUiState(uid, BookUiKey.Key, state);
+        UpdateUserInterface(uid, component);
     }
 
     private void OnInteractUsing(EntityUid uid, BookComponent component, InteractUsingEvent args)
     {
-        if (_tagSystem.HasTag(args.Used, "Write"))
-        {
-            if (TryComp<ActorComponent>(args.User, out var actor))
-            {
-                var state = CreateBookUIState(component, true);
-                _uiSystem.SetUiState(uid, BookUiKey.Key, state);
-                _uiSystem.OpenUi(uid, BookUiKey.Key, actor.PlayerSession);
-            }
-        }
+        if (!_tagSystem.HasTag(args.Used, "Write"))
+            return;
+
+        UpdateUserInterface(uid, component, true);
+        _uiSystem.OpenUi(uid, BookUiKey.Key, args.User);
+    }
+
+    private void OnMapInit(EntityUid uid, BookComponent component, MapInitEvent args)
+    {
+        if (string.IsNullOrEmpty(component.Content))
+            return;
+
+        SplitContentIntoPages(component, Loc.GetString(component.Content));
+        UpdateUserInterface(uid, component);
+    }
+
+    private void OnAddBookmark(EntityUid uid, BookComponent component, BookAddBookmarkMessage args)
+    {
+        if (component.Bookmarks.Count >= component.MaxBookmarks || component.Bookmarks.ContainsKey(args.PageIndex))
+            return;
+
+        component.Bookmarks[args.PageIndex] = args.BookmarkName;
+        UpdateUserInterface(uid, component);
     }
 
     private void OnAddPage(EntityUid uid, BookComponent component, BookAddPageMessage args)
@@ -216,113 +68,119 @@ public sealed class BookSystem : EntitySystem
         component.Pages.Add("");
         component.CurrentPage = component.Pages.Count - 1;
         _audioSystem.PlayPvs(component.PageFlipSound, uid);
-
-        Dirty(uid, component);
-        var state = CreateBookUIState(component, false);
-        _uiSystem.SetUiState(uid, BookUiKey.Key, state);
+        UpdateUserInterface(uid, component);
     }
 
-    private void OnUseInHand(EntityUid uid, BookComponent component, UseInHandEvent args)
+    private void OnAddText(EntityUid uid, BookComponent component, BookAddTextMessage args)
     {
-        if (!TryComp<ActorComponent>(args.User, out var actorComponent))
-            return;
-
-        if (_uiSystem.IsUiOpen(uid, BookUiKey.Key, args.User))
+        if (component.CurrentPage < 0 || component.CurrentPage >= component.Pages.Count)
         {
-            var state = CreateBookUIState(component, false);
-            _uiSystem.SetUiState(uid, BookUiKey.Key, state);
-            _uiSystem.OpenUi(uid, BookUiKey.Key, actorComponent.PlayerSession);
+            component.CurrentPage = Math.Max(0, Math.Min(component.CurrentPage, component.Pages.Count - 1));
+            if (component.Pages.Count == 0)
+            {
+                component.Pages.Add("");
+                component.CurrentPage = 0;
+            }
+        }
+
+        var remainingText = args.Text;
+        var currentPageIndex = component.CurrentPage;
+        if (remainingText.Length <= component.MaxCharactersPerPage)
+        {
+            component.Pages[currentPageIndex] = remainingText;
         }
         else
         {
-            _uiSystem.CloseUi(uid, BookUiKey.Key, args.User);
+            while (!string.IsNullOrEmpty(remainingText) && component.Pages.Count < component.MaxPages)
+            {
+                if (remainingText.Length <= component.MaxCharactersPerPage)
+                {
+                    component.Pages.Insert(currentPageIndex, remainingText);
+                    break;
+                }
+
+                var pageText = remainingText[..component.MaxCharactersPerPage];
+                var lastSpaceIndex = pageText.LastIndexOf(' ');
+                if (lastSpaceIndex > component.MaxCharactersPerPage * 0.8)
+                {
+                    pageText = pageText[..lastSpaceIndex];
+                    remainingText = remainingText[(lastSpaceIndex + 1)..];
+                }
+                else
+                {
+                    remainingText = remainingText[component.MaxCharactersPerPage..];
+                }
+
+                component.Pages.Insert(currentPageIndex, pageText);
+                currentPageIndex++;
+            }
         }
 
-        args.Handled = true;
+        component.CurrentPage = Math.Min(currentPageIndex, component.Pages.Count - 1);
+        _audioSystem.PlayPvs(component.SaveSound, uid);
+        UpdateUserInterface(uid, component);
     }
 
-    private void OnIntrinsicUIOpenAttempt(EntityUid uid, BookComponent component, IntrinsicUIOpenAttemptEvent args)
+    private void OnDeletePage(EntityUid uid, BookComponent component, BookDeletePageMessage args)
     {
-        if (args.Key?.Equals(BookUiKey.Key) == true)
-        {
-            var state = CreateBookUIState(component, false);
-            _uiSystem.SetUiState(uid, BookUiKey.Key, state);
-        }
-    }
-
-    private void BeforeUIOpen(Entity<BookComponent> entity, ref BeforeActivatableUIOpenEvent args)
-    {
-        var state = CreateBookUIState(entity.Comp, false);
-        _uiSystem.SetUiState(entity.Owner, BookUiKey.Key, state);
-    }
-
-    private void OnAddBookmark(EntityUid uid, BookComponent component, BookAddBookmarkMessage args)
-    {
-        if (component.Bookmarks.Count >= component.MaxBookmarks)
-        {
+        if (component.Pages.Count <= 1 || args.PageIndex < 0 || args.PageIndex >= component.Pages.Count)
             return;
-        }
 
-        if (component.Bookmarks.ContainsKey(args.PageIndex))
-        {
-            return;
-        }
+        component.Pages.RemoveAt(args.PageIndex);
+        component.Bookmarks.Remove(args.PageIndex);
+        component.CurrentPage = Math.Min(component.CurrentPage, component.Pages.Count - 1);
 
-        component.Bookmarks[args.PageIndex] = args.BookmarkName;
-        Dirty(uid, component);
-        UpdateBookUI(uid, component);
+        _audioSystem.PlayPvs(component.PageTearSound, uid);
+
+        UpdateUserInterface(uid, component);
+    }
+
+    private void OnPageChanged(EntityUid uid, BookComponent component, BookPageChangedMessage args)
+    {
+        component.CurrentPage = Math.Clamp(args.NewPage, 0, Math.Max(0, component.Pages.Count - 1));
+        _audioSystem.PlayPvs(component.PageFlipSound, uid);
     }
 
     private void OnRemoveBookmark(EntityUid uid, BookComponent component, BookRemoveBookmarkMessage args)
     {
-        if (component.Bookmarks.Remove(args.PageIndex))
-        {
-            Dirty(uid, component);
-            UpdateBookUI(uid, component);
-        }
+        if (!component.Bookmarks.Remove(args.PageIndex))
+            return;
+
+        UpdateUserInterface(uid, component);
     }
 
-    private void UpdateBookUI(EntityUid uid, BookComponent component)
+    private void UpdateUserInterface(EntityUid uid, BookComponent component, bool isEditing = false)
     {
-        var state = CreateBookUIState(component, false);
-        _uiSystem.SetUiState(uid, BookUiKey.Key, state);
-    }
-
-    private void OnMapInit(EntityUid uid, BookComponent component, MapInitEvent args)
-    {
-        if (!string.IsNullOrEmpty(component.Content))
-        {
-            var localizedContent = Loc.GetString(component.Content);
-            SplitContentIntoPages(component, localizedContent);
-            Dirty(uid, component);
-        }
+        _uiSystem.SetUiState(
+            uid,
+            BookUiKey.Key,
+            new BookBoundUserInterfaceState(
+                component.Pages,
+                component.CurrentPage,
+                component.MaxCharactersPerPage,
+                component.MaxPages,
+                component.Bookmarks,
+                component.MaxBookmarks,
+                isEditing));
     }
 
     public void SplitContentIntoPages(BookComponent component, string content)
     {
         component.Pages.Clear();
-        var manualPages = content.Split(new[] { "[/p]" }, StringSplitOptions.None);
 
+        var manualPages = content.Split(new[] { "[/p]", }, StringSplitOptions.None);
         foreach (var manualPage in manualPages)
         {
             if (component.Pages.Count >= component.MaxPages)
                 break;
 
-            var pageContent = manualPage.Trim();
-
-            if (string.IsNullOrEmpty(pageContent))
+            var remainingText = manualPage.Trim();
+            if (string.IsNullOrEmpty(remainingText))
             {
                 component.Pages.Add("");
                 continue;
             }
 
-            if (pageContent.Length <= component.MaxCharactersPerPage)
-            {
-                component.Pages.Add(pageContent);
-                continue;
-            }
-
-            var remainingText = pageContent;
             while (!string.IsNullOrEmpty(remainingText) && component.Pages.Count < component.MaxPages)
             {
                 if (remainingText.Length <= component.MaxCharactersPerPage)
@@ -331,10 +189,9 @@ public sealed class BookSystem : EntitySystem
                     break;
                 }
 
-                var pageText = remainingText.Substring(0, component.MaxCharactersPerPage);
+                var pageText = remainingText[..component.MaxCharactersPerPage];
                 var lastSpaceIndex = pageText.LastIndexOf(' ');
-
-                if (lastSpaceIndex > 0 && lastSpaceIndex > component.MaxCharactersPerPage * 0.8)
+                if (lastSpaceIndex > component.MaxCharactersPerPage * 0.8)
                 {
                     pageText = pageText.Substring(0, lastSpaceIndex);
                     remainingText = remainingText.Substring(lastSpaceIndex + 1);
@@ -350,37 +207,5 @@ public sealed class BookSystem : EntitySystem
 
         if (component.Pages.Count == 0)
             component.Pages.Add("");
-    }
-
-    private void OnDeletePage(EntityUid uid, BookComponent component, BookDeletePageMessage args)
-    {
-        if (component.Pages.Count <= 1)
-            return;
-
-        if (args.PageIndex < 0 || args.PageIndex >= component.Pages.Count)
-            return;
-
-        _audioSystem.PlayPvs(component.PageTearSound, uid);
-        component.Pages.RemoveAt(args.PageIndex);
-        var updatedBookmarks = new Dictionary<int, string>();
-
-        foreach (var bookmark in component.Bookmarks)
-        {
-            if (bookmark.Key < args.PageIndex)
-                updatedBookmarks[bookmark.Key] = bookmark.Value;
-            else if (bookmark.Key > args.PageIndex)
-                updatedBookmarks[bookmark.Key - 1] = bookmark.Value;
-        }
-
-        component.Bookmarks = updatedBookmarks;
-
-        if (component.CurrentPage >= component.Pages.Count)
-            component.CurrentPage = Math.Max(0, component.Pages.Count - 1);
-        else if (component.CurrentPage > args.PageIndex)
-            component.CurrentPage--;
-
-        Dirty(uid, component);
-        var state = CreateBookUIState(component, false);
-        _uiSystem.SetUiState(uid, BookUiKey.Key, state);
     }
 }
