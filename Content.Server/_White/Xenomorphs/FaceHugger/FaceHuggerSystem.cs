@@ -153,8 +153,8 @@ public sealed class FaceHuggerSystem : EntitySystem
         {
             if (TryComp<IngestionBlockerComponent>(maskUid, out var maskBlocker) && maskBlocker.Enabled)
                 blocker = maskUid;
-
-            _inventory.TryUnequip(target, component.Slot, true);
+            else:
+                _inventory.TryUnequip(target, component.Slot, true);
         }
 
         if (!blocker.HasValue)
