@@ -82,3 +82,8 @@
   id: TxtUnd
   barkSound:
     path: /Audio/_White/Voice/Barks/other/snd_txtund.wav
+
+- type: barkVoice
+  id: Gav
+  barkSound:
+    path: /Audio/_White/Voice/Barks/other/gav.wav

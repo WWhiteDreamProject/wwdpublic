@@ -199,7 +199,9 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         Age = age;
         Sex = sex;
         Voice = voice; // WD EDIT
+        BarkVoice = barkVoice; // WD EDIT
         BodyType = bodyType; // WD EDIT
+        BarkSettings = barkSettings.Clone(); // WD EDIT
         Gender = gender;
         DisplayPronouns = displayPronouns;
         StationAiName = stationAiName;
@@ -247,7 +249,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             other.Sex,
             other.Voice, // WD EDIT
             other.BarkVoice, // WD EDIT
-            other.BarkSettings, // WD EDIT
+            other.BarkSettings.Clone(), // WD EDIT
             other.BodyType, // WD EDIT
             other.Gender,
             other.DisplayPronouns,
@@ -389,6 +391,9 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     public HumanoidCharacterProfile WithFlavorText(string flavorText) => new(this) { FlavorText = flavorText };
     public HumanoidCharacterProfile WithVoice(string voice) => new(this) { Voice = voice }; // WD EDIT
     public HumanoidCharacterProfile WithBodyType(string bodyType) => new(this) { BodyType = bodyType }; // WD EDIT
+    public HumanoidCharacterProfile WithBarkVoice(string barkVoice, BarkPercentageApplyData setting) =>
+        new(this) { BarkVoice = barkVoice, BarkSettings = setting}; // WD EDIT
+
     public HumanoidCharacterProfile WithAge(int age) => new(this) { Age = age };
     // EE - Contractors Change Start
     public HumanoidCharacterProfile WithNationality(string nationality) => new(this) { Nationality = nationality };
@@ -712,7 +717,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         if (voice is null || !CanHaveVoice(voice, Sex))
             Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
 
-        if(!CanHaveBark(prototypeManager))
+        if(!CanHaveBark(prototypeManager, collection))
             BarkVoice = SharedHumanoidAppearanceSystem.DefaultBarkVoice;
 
         // WD EDIT END
@@ -725,18 +730,21 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     }
 
     public bool CanHaveBark(
-        IPrototypeManager prototypeManager,
+        IPrototypeManager prototypeManager,IDependencyCollection collection,
         ProtoId<BarkListPrototype>? id = null
     )
     {
         var voice = BarkVoice;
         if(
-            !prototypeManager.TryIndex<BarkListPrototype>(id, out var barkList) ||
+            !prototypeManager.TryIndex<BarkListPrototype>(id ?? "default", out var barkList) ||
             !barkList.VoiceList.TryGetValue(voice, out var voiceRequirements) ||
             !prototypeManager.TryIndex<BarkVoicePrototype>(voice, out var voicePrototype))
+        {
             return false;
+        }
 
         var isValid = true;
+        var reason = "";
 
         foreach (var requirement in voiceRequirements)
         {
@@ -746,10 +754,10 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
                     [],
                     false,
                     voicePrototype,
-                    IoCManager.Resolve<IEntityManager>(),
+                    collection.Resolve<IEntityManager>(),
                     prototypeManager,
-                    IoCManager.Resolve<IConfigurationManager>(),
-                    out var reason) && !requirement.Inverted)
+                    collection.Resolve<IConfigurationManager>(),
+                    out reason) && !requirement.Inverted)
                 continue;
 
             isValid = false;

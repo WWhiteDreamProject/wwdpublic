@@ -13,4 +13,15 @@ public sealed partial class BarkPercentageApplyData
     [DataField] public byte Volume { get; set; } = byte.MaxValue / 2;
     [DataField] public byte Pitch { get; set; } = byte.MaxValue / 2;
     [DataField] public byte PitchVariance { get; set; } = byte.MaxValue / 2;
+
+    public BarkPercentageApplyData Clone()
+    {
+        return new BarkPercentageApplyData()
+        {
+            Pause = Pause,
+            Volume = Volume,
+            Pitch = Pitch,
+            PitchVariance = PitchVariance,
+        };
+    }
 }

@@ -81,6 +81,28 @@
                                     <OptionButton Name="VoiceButton" HorizontalAlignment="Right" />
                                     <Button Name="VoicePlayButton" Text="▶" MaxWidth="80" />
                                 </BoxContainer>
+                                <BoxContainer HorizontalExpand="True" Orientation="Vertical">
+
+                                    <BoxContainer HorizontalExpand="True">
+                                        <Label Text="{Loc 'humanoid-profile-editor-bark-pitch-label'}" />
+                                        <Slider Name="BarkPitchSlider" MinValue="0" MaxValue="255" HorizontalExpand="True" Margin="5 0 5 0" />
+                                    </BoxContainer>
+                                    <BoxContainer HorizontalExpand="True">
+                                        <Label Text="{Loc 'humanoid-profile-editor-bark-pitch-variance-label'}" />
+                                        <Slider Name="BarkPitchVarianceSlider" MinValue="0" MaxValue="255" HorizontalExpand="True" Margin="5 0 5 0" />
+                                    </BoxContainer>
+                                    <BoxContainer HorizontalExpand="True">
+                                        <Label Text="{Loc 'humanoid-profile-editor-bark-pause-label'}" />
+                                        <Slider Name="BarkPauseSlider" MinValue="0" MaxValue="255" HorizontalExpand="True" Margin="5 0 5 0" />
+                                    </BoxContainer>
+
+                                    <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
+                                        <Label Text="{Loc 'humanoid-profile-editor-bark-voice-label'}" />
+                                        <Control HorizontalExpand="True"/>
+                                        <OptionButton Name="VoiceBarkButton" HorizontalAlignment="Right" />
+                                        <Button Name="VoiceBarkPlayButton" Text="▶" MaxWidth="80" />
+                                    </BoxContainer>
+                                </BoxContainer>
                                 <!--WD EDIT END-->
                                 <!-- Customizable, cosmetic pronouns -->
                                 <BoxContainer Name="CosmeticPronousContainer" HorizontalExpand="True">

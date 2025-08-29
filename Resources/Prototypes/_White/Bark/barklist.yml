@@ -2,7 +2,9 @@
   id: default
   voiceList:
     Meow: []
-    Mtt: []
+    Mtt:
+    - !type:CharacterGenderRequirement
+      gender: Male
     Tem: []
     Tenna:
     - !type:CharacterGenderRequirement
@@ -27,7 +29,9 @@
     TxtNoe:
     - !type:CharacterGenderRequirement
       gender: Female
-    TxtPap: []
+    TxtPap:
+    - !type:CharacterGenderRequirement
+      gender: Male
     TxtQueen:
     - !type:CharacterGenderRequirement
       gender: Female
@@ -42,3 +46,4 @@
     - !type:CharacterGenderRequirement
       gender: Female
     TxtUnd: []
+    Gav: []

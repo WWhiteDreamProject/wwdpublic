@@ -3,6 +3,7 @@ using Content.Shared._White.Bark.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
@@ -25,7 +26,6 @@ public abstract class SharedBarkSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<LoadProfileExtensionsEvent>(OnProfileLoad);
         SubscribeLocalEvent<ApplyBarkProtoComponent, ComponentInit>(OnApplyBarkInit);
     }
 
@@ -34,8 +34,6 @@ public abstract class SharedBarkSystem : EntitySystem
         ApplyBark(ent.Owner, ent.Comp.VoiceProto, ent.Comp.PercentageApplyData);
         RemComp(ent.Owner, ent.Comp);
     }
-
-    private void OnProfileLoad(LoadProfileExtensionsEvent ev) { }
 
     public List<BarkVoicePrototype> GetVoiceList(
         HumanoidCharacterProfile profile,
@@ -63,7 +61,7 @@ public abstract class SharedBarkSystem : EntitySystem
                     EntityManager,
                     _prototypeManager,
                     _cfg,
-                    out var reason) && !requirement.Inverted)
+                    out var reason) == !requirement.Inverted)
                     continue;
 
                 isValid = false;
@@ -84,14 +82,14 @@ public abstract class SharedBarkSystem : EntitySystem
         if (!_prototypeManager.TryIndex(protoId, out var prototype))
             return;
 
-        ApplyBark(uid, prototype, data);
+        ApplyBark(uid, prototype.BarkSound, prototype.ClampData, data);
     }
 
-    public void ApplyBark(EntityUid uid, BarkVoicePrototype prototype, BarkPercentageApplyData? data = null)
+    public void ApplyBark(EntityUid uid, SoundSpecifier barkSound, BarkClampData clampData, BarkPercentageApplyData? data = null)
     {
         var voiceData = BarkVoiceData.WithClampingValue(
-            prototype.BarkSound,
-            prototype.ClampData,
+            barkSound,
+            clampData,
             data ?? BarkPercentageApplyData.Default);
 
         var wasBarkComp = HasComp<BarkComponent>(uid);

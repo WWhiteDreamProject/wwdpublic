@@ -107,8 +107,6 @@ public sealed class BarkSystem : SharedBarkSystem
         var query = EntityQueryEnumerator<BarkSourceComponent>();
         while (query.MoveNext(out var uid, out var barkSource))
         {
-            barkSource.BarkTime += frameTime;
-
             if (barkSource.CurrentBark is null)
             {
                 if (!barkSource.Barks.TryDequeue(out var barkData))
@@ -125,6 +123,10 @@ public sealed class BarkSystem : SharedBarkSystem
                 barkSource.BarkTime = 0;
                 Bark(uid, barkSource.ResolvedSound, barkSource.CurrentBark.Value);
                 barkSource.CurrentBark = null;
+            }
+            else
+            {
+                barkSource.BarkTime += frameTime;
             }
         }
     }

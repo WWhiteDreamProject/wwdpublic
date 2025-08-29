@@ -1,9 +1,6 @@
-using Content.Shared._White.Bark.Systems;
 using Robust.Shared.GameStates;
 
-
 namespace Content.Shared._White.Bark.Components;
-
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, ]
 public sealed partial class BarkComponent : Component
