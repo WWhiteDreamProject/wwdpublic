@@ -15,6 +15,8 @@ public sealed class BookRandomStorySystem : EntitySystem
 
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<BookRandomStoryComponent, MapInitEvent>(OnMapInit);
     }
 
@@ -27,30 +29,5 @@ public sealed class BookRandomStorySystem : EntitySystem
             return;
 
         _book.SplitContentIntoPages(book, story);
-    }
-
-    private string GetRandomLocString(string prefix)
-    {
-        var maxVariants = GetMaxVariantsForPrefix(prefix);
-        var randomIndex = _random.Next(1, maxVariants + 1);
-        return Loc.GetString($"{prefix}{randomIndex}");
-    }
-
-    private int GetMaxVariantsForPrefix(string prefix)
-    {
-        return prefix switch
-        {
-            "story-gen-book-genre" => 14,
-            "story-gen-book-character" => 40,
-            "story-gen-book-character-story" => 40,
-            "story-gen-book-character-trait" => 24,
-            "story-gen-book-event" => 24,
-            "story-gen-book-action" => 12,
-            "story-gen-book-action-trait" => 13,
-            "story-gen-book-location" => 34,
-            "story-gen-book-element" => 9,
-            "story-gen-book-element-trait" => 13,
-            _ => 1
-        };
     }
 }
