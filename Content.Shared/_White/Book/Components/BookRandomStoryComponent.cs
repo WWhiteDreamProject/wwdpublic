@@ -1,10 +1,11 @@
+using Content.Shared.StoryGen;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._White.Book.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class BookRandomStoryComponent : Component
 {
-    [DataField("template")]
-    public string Template { get; set; } = "GenericStory";
+    [DataField]
+    public ProtoId<StoryTemplatePrototype> Template = "GenericStory";
 }
