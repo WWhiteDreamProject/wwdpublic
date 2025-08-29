@@ -503,7 +503,7 @@
       psychognomicDescriptor: tenebrous
     - !type:PsionicAddAvailablePowers
       powerPrototype: DarkSwapPower
-      weight: 1.5 #wwdp 1 --> 1.5
+      weight: 1
   removalFunctions:
     - !type:RemovePsionicActions
     - !type:RemovePsionicStatSources
