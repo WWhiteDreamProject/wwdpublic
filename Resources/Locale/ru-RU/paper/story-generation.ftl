@@ -276,6 +276,6 @@ story-gen-book-element-trait11 = слабоватый
 story-gen-book-element-trait12 = печальный
 story-gen-book-element-trait13 = довольно депрессивный
 
-story-template-generic-story = Это {$genre} о {$character_trait1} {$character1} и {$character_trait2} {$character2}. Из-за {$event} они, {$action_trait} {$action} {$character_story} в {$location}.
+story-template-generic-story = Это {$genre} о {$character_trait1} {$character1} и {$character_trait2} {$character2}. Из-за {$event} они, {$action_trait} {$action} {$character_story} {$location}.
 
     {$element} {$element_trait}.

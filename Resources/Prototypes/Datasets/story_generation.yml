@@ -108,6 +108,50 @@
   - story-gen-book-character40
 
 - type: dataset
+  id: BookCharacterStory
+  values:
+  - story-gen-book-character-story1
+  - story-gen-book-character-story2
+  - story-gen-book-character-story3
+  - story-gen-book-character-story4
+  - story-gen-book-character-story5
+  - story-gen-book-character-story6
+  - story-gen-book-character-story7
+  - story-gen-book-character-story8
+  - story-gen-book-character-story9
+  - story-gen-book-character-story10
+  - story-gen-book-character-story11
+  - story-gen-book-character-story12
+  - story-gen-book-character-story13
+  - story-gen-book-character-story14
+  - story-gen-book-character-story15
+  - story-gen-book-character-story16
+  - story-gen-book-character-story17
+  - story-gen-book-character-story18
+  - story-gen-book-character-story19
+  - story-gen-book-character-story20
+  - story-gen-book-character-story21
+  - story-gen-book-character-story22
+  - story-gen-book-character-story23
+  - story-gen-book-character-story24
+  - story-gen-book-character-story25
+  - story-gen-book-character-story26
+  - story-gen-book-character-story27
+  - story-gen-book-character-story28
+  - story-gen-book-character-story29
+  - story-gen-book-character-story30
+  - story-gen-book-character-story31
+  - story-gen-book-character-story32
+  - story-gen-book-character-story33
+  - story-gen-book-character-story34
+  - story-gen-book-character-story35
+  - story-gen-book-character-story36
+  - story-gen-book-character-story37
+  - story-gen-book-character-story38
+  - story-gen-book-character-story39
+  - story-gen-book-character-story40
+
+- type: dataset
   id: BookCharacterTraits
   values:
   - story-gen-book-character-trait1

@@ -1,0 +1,16 @@
+- type: storyTemplate
+  id: GenericStory
+  locId: story-template-generic-story
+  variables:
+    genre: BookGenres
+    character_trait1: BookCharacterTraits
+    character1: BookCharacters
+    character_trait2: BookCharacterTraits
+    character2: BookCharacters
+    event: BookEvents
+    action_trait: BookActionTraits
+    action: BookActions
+    character_story: BookCharacterStory
+    location: BookLocations
+    element: BookStoryElements
+    element_trait: BookStoryElementTraits
