@@ -276,12 +276,6 @@ story-gen-book-element-trait11 = слабоватый
 story-gen-book-element-trait12 = печальный
 story-gen-book-element-trait13 = довольно депрессивный
 
-book-story-template-this-is = {"Это "}
-book-story-template-about = {" о "}
-book-story-template-and = {" и "}
-book-story-template-due-to = {". Из-за "}
-book-story-template-they = {"они "}
-book-story-template-is = {" "}
-book-story-template-period = {". "}
-book-story-template-comma = {", "}
-book-story-template-space = {" "}
+story-template-generic-story = Это {$genre} о {$character_trait1} {$character1} и {$character_trait2} {$character2}. Из-за {$event} они, {$action_trait} {$action} {$character_story} в {$location}.
+
+    {$element} {$element_trait}.
