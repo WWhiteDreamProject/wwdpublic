@@ -53,6 +53,8 @@
     earliestStart: 35
     reoccurrenceDelay: 50
   - type: VentSpawnRule
+  - type: AntagSpawner
+    prototype: MobXenomorphLarva
   - type: XenomorphsRule
   - type: AntagObjectives
     objectives:

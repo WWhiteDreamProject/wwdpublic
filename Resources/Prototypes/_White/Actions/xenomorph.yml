@@ -93,7 +93,7 @@
 # TODO: delete it
 - type: entity
   id: ActionSpawnWallResin
-  name: Secrete resin (50)
+  name: Build a resin wall (50)
   description: Secrete tough malleable resin.
   components:
   - type: WorldTargetAction
@@ -113,7 +113,7 @@
 # TODO: delete it
 - type: entity
   id: ActionSpawnResinMembrane
-  name: Secrete resin (50)
+  name: Build a resin membrane (50)
   description: Secrete tough malleable resin.
   components:
   - type: WorldTargetAction
@@ -133,7 +133,7 @@
 # TODO: delete it
 - type: entity
   id: ActionSpawnResinNest
-  name: Secrete resin (50)
+  name: Build a resin nest (50)
   description: Secrete tough malleable resin.
   components:
   - type: WorldTargetAction
