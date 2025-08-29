@@ -128,6 +128,20 @@ public sealed class BookSystem : EntitySystem
 
         component.Pages.RemoveAt(args.PageIndex);
         component.Bookmarks.Remove(args.PageIndex);
+        if (component.Bookmarks.Count > 0)
+        {
+            var keys = new List<int>(component.Bookmarks.Keys);
+            foreach (var key in keys)
+            {
+                if (key > args.PageIndex)
+                {
+                    var name = component.Bookmarks[key];
+                    component.Bookmarks.Remove(key);
+                    if (!component.Bookmarks.ContainsKey(key - 1))
+                        component.Bookmarks[key - 1] = name;
+                }
+            }
+        }
         component.CurrentPage = Math.Min(component.CurrentPage, component.Pages.Count - 1);
 
         _audioSystem.PlayPvs(component.PageTearSound, uid);
