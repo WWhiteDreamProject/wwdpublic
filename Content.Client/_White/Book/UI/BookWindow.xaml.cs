@@ -280,11 +280,13 @@ public sealed partial class BookWindow : FancyWindow
             PrevPageButton.Disabled = true;
             NextPageButton.Disabled = true;
             DeletePageButton.Disabled = true;
+            AddPageButton.Disabled = true;
             return;
         }
         PrevPageButton.Disabled = _currentPageIndex <= 0;
         NextPageButton.Disabled = _currentPageIndex >= _pages.Count - 1;
         DeletePageButton.Disabled = _pages.Count <= 1;
+        AddPageButton.Disabled = _pages.Count >= _maxPages;
         UpdatePageNumberDisplay();
     }
 
