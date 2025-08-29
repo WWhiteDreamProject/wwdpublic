@@ -197,7 +197,7 @@ story-gen-book-action5 = проиграли партию в шахматы у
 story-gen-book-action6 = раскрыли тайны
 story-gen-book-action7 = манипулировали другом
 story-gen-book-action8 = принесли в жертву на алтаре
-story-gen-book-action9 = побывали на свадьбе
+story-gen-book-action9 = побывали на свадьбе у
 story-gen-book-action10 = объединились, чтобы победить
 story-gen-book-action11 = были вынуждены работать у
 story-gen-book-action12 = преподнесли ценный дар для
@@ -276,6 +276,6 @@ story-gen-book-element-trait11 = слабоватый
 story-gen-book-element-trait12 = печальный
 story-gen-book-element-trait13 = довольно депрессивный
 
-story-template-generic-story = Это {$genre} о {$character_trait1} {$character1} и {$character_trait2} {$character2}. Из-за {$event} они, {$action_trait} {$action} {$character_story} {$location}.
+story-template-generic-story = Это {$genre} о {$character_trait1} {$character1} и {$character_trait2} {$character2}. Из-за {$event}, они {$action_trait} {$action} {$character_story} {$location}.
 
     {$element} {$element_trait}.

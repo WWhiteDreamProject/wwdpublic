@@ -272,6 +272,6 @@ story-gen-book-element-trait11 = inadequate
 story-gen-book-element-trait12 = sad
 story-gen-book-element-trait13 = rather depressing
 
-story-template-generic-story = This is a {$genre} about a {$character_trait1} {$character1} and {$character_trait2} {$character2}. Due to {$event}  they, possessing the trait {$action_trait}, decide on {$action}, related to {$character_story} in {$location}.
+story-template-generic-story = This is a {$genre} about a {$character_trait1} {$character1} and a {$character_trait2} {$character2}. Due to {$event}, they {$action_trait} {$action} {$character_story} {$location}.
 
-    The main element of the narrative is {$element}, it differs in that {$element_trait}.
+    The main narrative element is {$element}; it is {$element_trait}.
