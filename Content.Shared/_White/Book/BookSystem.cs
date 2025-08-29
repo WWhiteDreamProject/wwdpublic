@@ -40,6 +40,7 @@ public sealed class BookSystem : EntitySystem
 
         UpdateUserInterface(uid, component, true);
         _uiSystem.OpenUi(uid, BookUiKey.Key, args.User);
+        args.Handled = true;
     }
 
     private void OnMapInit(EntityUid uid, BookComponent component, MapInitEvent args)
