@@ -169,11 +169,11 @@ public sealed class BookSystem : EntitySystem
             uid,
             BookUiKey.Key,
             new BookBoundUserInterfaceState(
-                component.Pages,
+                new List<string>(component.Pages),
                 component.CurrentPage,
                 component.MaxCharactersPerPage,
                 component.MaxPages,
-                component.Bookmarks,
+                new Dictionary<int, string>(component.Bookmarks),
                 component.MaxBookmarks,
                 isEditing));
     }
