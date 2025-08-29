@@ -18,6 +18,7 @@ namespace Content.Client._White.Book.UI;
 public sealed partial class BookWindow : FancyWindow
 {
     [Dependency] private readonly IInputManager _inputManager = default!;
+
     private List<string> _pages = new();
     private int _currentPageIndex = 0;
     private Dictionary<int, string> _bookmarks = new();
@@ -121,22 +122,21 @@ public sealed partial class BookWindow : FancyWindow
         DeletePageButton.OnPressed += _ => DeleteCurrentPage();
     }
 
-    public void ShowBook(BookBoundUserInterfaceState state, bool isEditing)
-    {
-        _pages = state.Pages;
+public void ShowBook(BookBoundUserInterfaceState state, bool isEditing)
+{
+    _pages = state.Pages;
+    _bookmarks = state.Bookmarks;
+    _maxBookmarks = state.MaxBookmarks;
+    _maxCharactersPerPage = state.MaxCharactersPerPage;
+    _maxPages = state.MaxPages;
 
-        _currentPageIndex = Math.Max(0, Math.Min(state.CurrentPage, _pages.Count - 1));
+    _currentPageIndex = Math.Max(0, Math.Min(state.CurrentPage, _pages.Count - 1));
 
-        UpdatePageDisplay();
-        UpdateNavigationButtons();
-        SetEditMode(isEditing);
-
-        _bookmarks = state.Bookmarks;
-        _maxBookmarks = state.MaxBookmarks;
-        _maxCharactersPerPage = state.MaxCharactersPerPage;
-        _maxPages = state.MaxPages;
-        UpdateBookmarksDisplay();
-    }
+    UpdatePageDisplay();
+    UpdateNavigationButtons();
+    SetEditMode(isEditing);
+    UpdateBookmarksDisplay();
+}
 
     private void SetEditMode(bool isEditing)
     {
