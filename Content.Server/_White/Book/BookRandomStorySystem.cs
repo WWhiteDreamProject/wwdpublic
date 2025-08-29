@@ -1,13 +1,17 @@
+using Content.Shared._White.Book;
 using Content.Shared._White.Book.Components;
+using Content.Shared.StoryGen;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._White.Book;
+namespace Content.Server._White.Book;
 
 public sealed class BookRandomStorySystem : EntitySystem
 {
     [Dependency] private readonly BookSystem _book = default!;
     [Dependency] private readonly StoryGeneratorSystem _storyGen = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -19,11 +23,10 @@ public sealed class BookRandomStorySystem : EntitySystem
         if (!TryComp<BookComponent>(uid, out var book))
             return;
 
-        if (!_storyGen.TryGenerateStoryFromTemplate(paperStory.Comp.Template, out var story))
+        if (!_storyGen.TryGenerateStoryFromTemplate(component.Template, out var story))
             return;
 
         _book.SplitContentIntoPages(book, story);
-        }
     }
 
     private string GetRandomLocString(string prefix)
