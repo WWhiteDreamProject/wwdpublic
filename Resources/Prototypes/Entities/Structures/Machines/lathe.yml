@@ -1911,6 +1911,7 @@
     - ToySword
     - BwoinkHammer
     - ThronglerToy
+    - FaceHuggerToys # WD EDIT
   - type: MaterialStorage
     whitelist:
       tags:

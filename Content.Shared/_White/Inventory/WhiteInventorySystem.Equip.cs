@@ -13,13 +13,14 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._White.Inventory;
 
-public abstract partial class SharedWhiteInventorySystem
+public sealed partial class WhiteInventorySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
 
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+
 
     private void InitializeEquip()
     {

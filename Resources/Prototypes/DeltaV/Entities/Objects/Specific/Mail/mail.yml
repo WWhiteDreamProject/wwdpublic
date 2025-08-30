@@ -771,8 +771,6 @@
       orGroup: Plushie
     - id: PlushieMothRandom
       orGroup: Plushie
-    - id: PlushieSanabi # WWDP edit
-      orGroup: Plushie
     - id: PlushieMoth
       prob: 0.5
       orGroup: Plushie
@@ -785,6 +783,12 @@
     - id: PlushieShadowkin
       prob: 0.5
       orGroup: Plushie
+    # WD EDIT START
+    - id: PlushieSanabi
+      orGroup: Plushie
+    - id: FaceHuggerToys
+      orGroup: Plushie
+    # WD EDIT END
 
 # Random snacks, replaces MailChocolate (lousy animal organs)
 - type: entity

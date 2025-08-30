@@ -84,8 +84,6 @@
         orGroup: GiftPool
       - id: PlushieRatvar
         orGroup: GiftPool
-      - id: PlushieSanabi #WWDP edit
-        orGroup: GiftPool
       - id: PlushieSpaceLizard
         orGroup: GiftPool
       - id: PlushieSharkBlue
@@ -386,6 +384,12 @@
         orGroup: GiftPool
       - id: ToySiobhan # DeltaV Toy, see Resources/Prototypes/DeltaV/Entities/Objects/Fun/toys.yml
         orGroup: GiftPool
+      # WD EDIT START
+      - id: PlushieSanabi
+        orGroup: GiftPool
+      - id: FaceHuggerToys
+        orGroup: GiftPool
+      # WD EDIT END
     sound:
       path: /Audio/Effects/unwrap.ogg
 

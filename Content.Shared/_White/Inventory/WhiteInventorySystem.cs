@@ -1,6 +1,6 @@
 namespace Content.Shared._White.Inventory;
 
-public abstract partial class SharedWhiteInventorySystem : EntitySystem
+public sealed partial class WhiteInventorySystem : EntitySystem
 {
     public override void Initialize()
     {
