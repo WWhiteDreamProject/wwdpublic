@@ -359,7 +359,10 @@ public sealed partial class BookWindow : FancyWindow
             }
 
             BookmarkCountLabel.Text = Loc.GetString("book-bookmarks-count", ("count", _bookmarks.Count), ("max", _maxBookmarks));
-            BookmarkDropdown.SelectId(-1);
+            if (_bookmarks.ContainsKey(_currentPageIndex))
+                BookmarkDropdown.SelectId(_currentPageIndex);
+            else
+                BookmarkDropdown.SelectId(-1);
         }
 
         if (_bookmarks.ContainsKey(_currentPageIndex))
