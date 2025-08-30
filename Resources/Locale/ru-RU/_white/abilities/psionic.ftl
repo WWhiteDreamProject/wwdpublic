@@ -9,3 +9,8 @@ clone-no-clone = У вас нет копии себя!
 clone-crit-clone = Связь с двойником крайне слаба!
 clone-no-original = У вас нет оригинального тела!
 clone-crit-original = Связь с оригинальным телом крайне слаба!
+
+action-name-telepathy = Направленная телепатия
+action-description-telepathy = Вонзает твою мысль прямо в разум цели, заставляя её услышать тебя.
+telepathy-title = Направленная телепатия
+telepathy-message = Сообщение

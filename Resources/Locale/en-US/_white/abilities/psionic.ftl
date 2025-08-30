@@ -9,3 +9,8 @@ clone-no-clone = You don't have a clone!
 clone-crit-clone = The connection with your clone is extremely weak!
 clone-no-original = You don't have an original body!
 clone-crit-original = The connection with your original body is extremely weak!
+
+action-name-telepathy = Directed Telepathy
+action-description-telepathy = Thrusts your thought directly into the target's mind, forcing them to hear you.
+telepathy-title = Directed Telepathy
+telepathy-message = Message
