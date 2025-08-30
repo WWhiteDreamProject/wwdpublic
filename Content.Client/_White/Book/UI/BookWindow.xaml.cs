@@ -127,7 +127,6 @@ public sealed partial class BookWindow : FancyWindow
                 : "book-ui-save-button",
             ("keybind", key)
         );
-        SaveButton.Text = Loc.GetString("book-ui-save-button", ("keybind", key));
 
         PageNumberInput.OnTextChanged += args =>
         {
