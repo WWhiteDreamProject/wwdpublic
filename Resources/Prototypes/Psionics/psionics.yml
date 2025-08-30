@@ -346,7 +346,7 @@
       powerPrototype: PsychognomyPower
       weight: 1 #wwdp 0.1 --> 1
   removalFunctions:
-    - !type:RemovePsionicActions
+    - !type:RemovePsionicActions #WD EDIT
     - !type:RemovePsionicPowerComponents
       components:
         - type: Telepathy

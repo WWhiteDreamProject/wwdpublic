@@ -18,13 +18,11 @@ public sealed class DirectionalTelepathyPowerSystem : EntitySystem
 
         SubscribeLocalEvent<TelepathyComponent, TelepathyPowerActionEvent>(OnPowerUsed);
     }
-    private void OnPowerUsed(EntityUid uid, TelepathyComponent component, TelepathyPowerActionEvent args)
+
+    private void OnPowerUsed(EntityUid uid, TelepathyComponent component, 
+TelepathyPowerActionEvent args)
     {
         if (!TryComp(uid, out ActorComponent? actor))
-            return;
-
-        var target = args.Target;
-        if (!target.IsValid())
             return;
 
         _quickDialog.OpenDialog(actor.PlayerSession, Loc.GetString("telepathy-title"),
@@ -32,11 +30,7 @@ public sealed class DirectionalTelepathyPowerSystem : EntitySystem
             {
                 _popup.PopupEntity(message, uid, uid, PopupType.Medium);
 
-                if (EntityManager.TryGetComponent(target, out ActorComponent? _))
-                {
-                    _popup.PopupEntity(message, target, target,
-                        PopupType.Medium);
-                }
+                _popup.PopupEntity(message, args.Target, args.Target, PopupType.Medium);
             });
 
         args.Handled = true;
