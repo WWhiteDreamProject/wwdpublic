@@ -308,7 +308,9 @@ public sealed partial class BookWindow : FancyWindow
         _bookmarkDialog = new DialogWindow(Loc.GetString("book-bookmark-title-dialog"), entries);
         _bookmarkDialog.OnConfirmed += responses =>
         {
-            var title = responses[field].Trim();
+            if (!responses.TryGetValue(field, out var title))
+                title = defaultTitle;
+            title = title.Trim();
             if (string.IsNullOrEmpty(title))
                 title = defaultTitle;
 
