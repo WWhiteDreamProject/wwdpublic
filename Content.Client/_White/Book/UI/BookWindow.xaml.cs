@@ -370,7 +370,7 @@ public sealed partial class BookWindow : FancyWindow
             var sortedBookmarks = _bookmarks.OrderBy(kvp => kvp.Key);
             foreach (var bookmark in sortedBookmarks)
             {
-                var displayText = $"{bookmark.Value}";
+                var displayText = bookmark.Value;
                 BookmarkDropdown.AddItem(displayText, bookmark.Key);
             }
 
