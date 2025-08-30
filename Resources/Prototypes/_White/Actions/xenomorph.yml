@@ -62,7 +62,12 @@
     icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: plant_seed }
     event: !type:SpawnTileEntityActionEvent
       entity: ResinWeedNode
-      blockedCollision: SlipLayer
+      blockedCollisionMask:
+      - SlipLayer
+      blockedCollisionLayer:
+      - Impassable
+      - MidImpassable
+      - LowImpassable
   - type: PlasmaCostAction
 
 - type: entity
@@ -77,62 +82,73 @@
     icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: egg }
     event: !type:SpawnTileEntityActionEvent
       entity: XenomorphEgg
-      blockedCollision: TableMask
+      blockedCollisionMask:
+      - TableMask
+      blockedCollisionLayer:
+      - TableLayer
+      - BulletImpassable
   - type: PlasmaCostAction
     plasmaCost: 75
 
 # TODO: delete it
 - type: entity
   id: ActionSpawnWallResin
-  name: Secrete resin (50)
+  name: Build a resin wall (50)
   description: Secrete tough malleable resin.
   components:
   - type: WorldTargetAction
     useDelay: 1
     range: 2
     itemIconStyle: BigAction
-    checkCanAccess: false
     icon: { sprite: _White/Structures/Walls/resin.rsi, state: full }
     event: !type:PlaceTileEntityEvent
       entity: WallResin
       length: 0.5
-      blockedCollision: FullTileMask
+      blockedCollisionMask:
+      - FullTileMask
+      blockedCollisionLayer:
+      - WallLayer
   - type: PlasmaCostAction
 
 # TODO: delete it
 - type: entity
   id: ActionSpawnResinMembrane
-  name: Secrete resin (50)
+  name: Build a resin membrane (50)
   description: Secrete tough malleable resin.
   components:
   - type: WorldTargetAction
     useDelay: 1
     range: 2
     itemIconStyle: BigAction
-    checkCanAccess: false
     icon: { sprite : _White/Structures/Windows/resin_membrane.rsi, state: full }
     event: !type:PlaceTileEntityEvent
       entity: ResinMembrane
       length: 0.5
-      blockedCollision: GlassLayer
+      blockedCollisionMask:
+      - FullTileMask
+      blockedCollisionLayer:
+      - GlassLayer
   - type: PlasmaCostAction
 
 # TODO: delete it
 - type: entity
   id: ActionSpawnResinNest
-  name: Secrete resin (50)
+  name: Build a resin nest (50)
   description: Secrete tough malleable resin.
   components:
   - type: WorldTargetAction
     useDelay: 1
     range: 2
     itemIconStyle: BigAction
-    checkCanAccess: false
     icon: { sprite : _White/Structures/Windows/resin_membrane.rsi, state: full }
     event: !type:PlaceTileEntityEvent
       entity: ResinNest
       length: 0.5
-      blockedCollision: TableMask
+      blockedCollisionMask:
+      - TableMask
+      blockedCollisionLayer:
+      - TableLayer
+      - BulletImpassable
   - type: PlasmaCostAction
 
 # Tail lash action
@@ -145,7 +161,6 @@
     useDelay: 11
     range: 10
     itemIconStyle: BigAction
-    checkCanAccess: false
     icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: tail_attack }
     event: !type:TailLashActionEvent
 
@@ -188,3 +203,18 @@
     icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: plasma_transfer_off }
     iconOn: { sprite : _White/Interface/Actions/xenomorph.rsi, state: plasma_transfer_on }
     event: !type:TransferPlasmaActionEvent
+
+# Promotion action
+- type: entity
+  id: ActionXenomorphPromotion
+  name: Create royal parasite (500)
+  description: Produce a royal parasite to grant one of your children the honor of being your Praetorian.
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    useDelay: 0
+    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: promote }
+    event: !type:PromotionActionEvent
+  - type: PlasmaCostAction
+    plasmaCost: 500

@@ -66,7 +66,7 @@ public abstract class SharedPinpointerSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, PinpointerComponent component, ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange || component.TargetName == null)
+        if (!component.CanExamine || !args.IsInDetailsRange || component.TargetName == null) // WD EDIT
             return;
 
         args.PushMarkup(Loc.GetString("examine-pinpointer-linked", ("target", component.TargetName)));
@@ -137,6 +137,11 @@ public abstract class SharedPinpointerSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, PinpointerComponent component, ref GotEmaggedEvent args)
     {
+        // WD EDIT START
+        if (!component.CanEmag)
+            return;
+        // WD EDIT END
+
         args.Handled = true;
         component.CanRetarget = true;
     }

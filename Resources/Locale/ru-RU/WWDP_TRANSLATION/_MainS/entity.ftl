@@ -16631,10 +16631,6 @@ ent-SmallExplosionInstant = мгновенный взрыв (малый)
 ent-MediumExplosionInstant = мгновенный взрыв (средний)
 
 
-ent-PlushieSanabi = плюшевая игрушка бригадира
-    .desc = Маленькая мягкая копия сурового бригадного генерала. Ужасно милая.
-
-
 ent-ItemSnowballMaker = снежколеп
     .desc = Лепит снежки. Весело и опасно.
 
