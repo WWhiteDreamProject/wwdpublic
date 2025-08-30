@@ -2,6 +2,7 @@ using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Shared.Input;
+using Robust.Shared.Timing;
 using Range = Robust.Client.UserInterface.Controls.Range;
 
 
@@ -10,6 +11,8 @@ namespace Content.Client._White.UI.Controls;
 //TODO: Add some style thinks
 public sealed class Knob : Range
 {
+    private readonly IGameTiming _gameTiming;
+
     public event Action<Knob>? OnGrabbed;
     public event Action<Knob>? OnReleased;
 
@@ -27,6 +30,7 @@ public sealed class Knob : Range
 
     public Knob()
     {
+        _gameTiming = IoCManager.Resolve<IGameTiming>();
         MouseFilter = MouseFilterMode.Stop;
         MinSize = new Vector2(64, 64);
     }
@@ -104,6 +108,8 @@ public sealed class Knob : Range
 
     protected override void MouseMove(GUIMouseMoveEventArgs args)
     {
+        base.MouseMove(args);
+
         if (!_grabbed)
         {
             return;
@@ -111,5 +117,31 @@ public sealed class Knob : Range
 
         var ratio = (args.Relative.X - args.Relative.Y) * 0.01f;
         SetAsRatio(GetAsRatio() + ratio);
+    }
+
+    private TimeSpan? _lastMouseWheelTime;
+
+    protected override void MouseWheel(GUIMouseWheelEventArgs args)
+    {
+        base.MouseWheel(args);
+
+        _lastMouseWheelTime = _gameTiming.CurTime;
+
+        var ratio = args.Delta.Y * 0.05f;
+        SetAsRatio(GetAsRatio() + ratio);
+
+        args.Handle();
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+
+        if(!_lastMouseWheelTime.HasValue || _lastMouseWheelTime.Value + TimeSpan.FromMilliseconds(100) > _gameTiming.CurTime)
+            return;
+
+        OnReleased?.Invoke(this);
+
+        _lastMouseWheelTime = null;
     }
 }
