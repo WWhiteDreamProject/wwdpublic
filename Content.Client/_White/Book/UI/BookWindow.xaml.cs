@@ -18,6 +18,7 @@ namespace Content.Client._White.Book.UI;
 public sealed partial class BookWindow : FancyWindow
 {
     [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private readonly ILogManager _logManager = default!;
 
     private List<string> _pages = new();
     private int _currentPageIndex = 0;
@@ -27,6 +28,7 @@ public sealed partial class BookWindow : FancyWindow
     private int _maxCharactersPerPage;
     private int _maxPages;
     private Label? _characterCountLabel;
+    private ISawmill _sawmill = default!;
 
     public event Action<int>? OnPageChanged;
     public event Action<string>? OnTextSaved;
@@ -40,32 +42,42 @@ public sealed partial class BookWindow : FancyWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
+        _sawmill = _logManager.GetSawmill("book.ui");
+
         var resCache = IoCManager.Resolve<IResourceCache>();
 
-        var customTexture = resCache.GetResource<TextureResource>("/Textures/_White/Interface/Book/rounded_book_background.png");
-        var paperSheetTexture = resCache.GetResource<TextureResource>("/Textures/_White/Interface/Book/paper_sheet_curled_edges.png");
-
-        var paperBackground = new StyleBoxTexture
+        try
         {
-            Texture = customTexture,
-            Mode = StyleBoxTexture.StretchMode.Stretch
-        };
-        var paperSheetBackground = new StyleBoxTexture
+            var customTexture = resCache.GetResource<TextureResource>("/Textures/_White/Interface/Book/rounded_book_background.png");
+            var paperSheetTexture = resCache.GetResource<TextureResource>("/Textures/_White/Interface/Book/paper_sheet_curled_edges.png");
+
+            var paperBackground = new StyleBoxTexture
+            {
+                Texture = customTexture,
+                Mode = StyleBoxTexture.StretchMode.Stretch
+            };
+            var paperSheetBackground = new StyleBoxTexture
+            {
+                Texture = paperSheetTexture,
+                Mode = StyleBoxTexture.StretchMode.Stretch,
+                Modulate = Color.FromHex("#f8f8f8") // Paper color
+            };
+
+            paperBackground.SetPatchMargin(StyleBox.Margin.All, 24.0f);
+            paperSheetBackground.SetPatchMargin(StyleBox.Margin.All, 20.0f);
+
+            WindowsPanelBackground.PanelOverride = paperBackground;
+            WindowsPanelBackground.ModulateSelfOverride = Color.FromHex("#636363ff"); // Book color
+
+            PaperBackground.Margin = new Thickness(0, 8, 5, 0);
+            PaperBackground.MinSize = new Vector2(400, 500);
+            PaperBackground.PanelOverride = paperSheetBackground;
+        }
+        catch (Exception ex)
         {
-            Texture = paperSheetTexture,
-            Mode = StyleBoxTexture.StretchMode.Stretch,
-            Modulate = Color.FromHex("#f8f8f8") // Paper color
-        };
-
-        paperBackground.SetPatchMargin(StyleBox.Margin.All, 24.0f);
-        paperSheetBackground.SetPatchMargin(StyleBox.Margin.All, 20.0f);
-
-        WindowsPanelBackground.PanelOverride = paperBackground;
-        WindowsPanelBackground.ModulateSelfOverride = Color.FromHex("#636363ff"); // Book color
-
-        PaperBackground.Margin = new Thickness(0, 8, 5, 0);
-        PaperBackground.MinSize = new Vector2(400, 500);
-        PaperBackground.PanelOverride = paperSheetBackground;
+            // Fallback to default styling if texture loading fails
+            _sawmill.Error($"Failed to load book textures: {ex}");
+        }
 
         WindowsHeadingBackground.Visible = false;
 
@@ -84,7 +96,6 @@ public sealed partial class BookWindow : FancyWindow
         floatingCloseButton.AddChild(CloseButton);
 
         AddChild(floatingCloseButton);
-
 
         PrevPageButton.OnPressed += _ => NavigateToPage(_currentPageIndex - 1);
         NextPageButton.OnPressed += _ => NavigateToPage(_currentPageIndex + 1);
