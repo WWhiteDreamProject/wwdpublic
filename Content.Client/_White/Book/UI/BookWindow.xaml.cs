@@ -111,7 +111,14 @@ public sealed partial class BookWindow : FancyWindow
         };
 
         SaveButton.OnPressed += _ => SaveCurrentPage();
-        SaveButton.Text = Loc.GetString("book-ui-save-button", ("keybind", _inputManager.GetKeyFunctionButtonString(EngineKeyFunctions.MultilineTextSubmit)));
+        var key = _inputManager.GetKeyFunctionButtonString(EngineKeyFunctions.MultilineTextSubmit);
+        SaveButton.Text = Loc.GetString(
+            string.IsNullOrEmpty(key)
+                ? "book-ui-save-button-no-keybind"
+                : "book-ui-save-button",
+            ("keybind", key)
+        );
+        SaveButton.Text = Loc.GetString("book-ui-save-button", ("keybind", key));
 
         PageNumberInput.OnTextChanged += args =>
         {

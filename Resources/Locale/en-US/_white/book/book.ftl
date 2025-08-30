@@ -1,4 +1,5 @@
 book-ui-save-button = Save ({$keybind})
+book-ui-save-button-no-keybind = Save
 book-bookmarks-count = {$count} of {$max} bookmarks
 book-no-bookmarks = No bookmarks
 book-select-bookmark = Select bookmark
