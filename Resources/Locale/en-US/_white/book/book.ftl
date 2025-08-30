@@ -8,6 +8,7 @@ book-bookmarks-hide = ▼ Bookmarks
 book-bookmarks-show = ▲ Bookmarks
 book-bookmark-default-title = Page
 book-page-info = of {$total}
+book-page-info-empty = Page 0 of 0
 book-ui-bookmarks-label = Bookmarks:
 book-ui-page-label = Page
 book-character-count = {$current}/{$max} characters
