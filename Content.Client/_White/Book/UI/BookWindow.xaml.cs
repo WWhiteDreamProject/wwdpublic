@@ -405,4 +405,30 @@ public sealed partial class BookWindow : FancyWindow
 
         OnPageDeleted?.Invoke(_currentPageIndex);
     }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        if (!disposing)
+            return;
+
+        PrevPageButton.OnPressed -= _ => NavigateToPage(_currentPageIndex - 1);
+        NextPageButton.OnPressed -= _ => NavigateToPage(_currentPageIndex + 1);
+        AddPageButton.OnPressed -= _ => OnAddPage?.Invoke();
+        SaveButton.OnPressed -= _ => SaveCurrentPage();
+        DeletePageButton.OnPressed -= _ => DeleteCurrentPage();
+
+        PageNumberInput.OnTextEntered -= OnPageNumberEntered;
+        PageNumberInput.OnFocusExit -= OnPageNumberEntered;
+
+        ToggleBookmarkButton.OnPressed -= _ => ToggleBookmarkForCurrentPage();
+        BookmarkDropdown.OnItemSelected -= OnBookmarkSelected;
+        BookmarksToggleButton.OnPressed -= _ => ToggleBookmarksVisibility();
+
+        if (_bookmarkDialog != null)
+        {
+            _bookmarkDialog.OnClose -= () => _bookmarkDialog = null;
+            _bookmarkDialog = null;
+        }
+    }
 }
