@@ -205,16 +205,12 @@ public sealed partial class BookWindow : FancyWindow
                 PageContainer.AddChild(label);
             }
         }
-        PageInfo.Text = _pages.Count == 0
-            ? Loc.GetString("book-page-info-empty")
-            : Loc.GetString("book-page-info", ("current", _currentPageIndex + 1), ("total", _pages.Count));
+        PageInfo.Text = Loc.GetString("book-page-info", ("total", _pages.Count));
     }
 
     private void UpdatePageNumberDisplay()
     {
-        PageNumberInput.Text = _pages.Count == 0
-            ? string.Empty
-            : Math.Min(_pages.Count, _currentPageIndex + 1).ToString();
+        PageNumberInput.Text = Math.Min(_pages.Count, _currentPageIndex + 1).ToString();
     }
 
     private void NavigateToPage(int pageIndex)
