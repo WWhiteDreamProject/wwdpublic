@@ -29,6 +29,15 @@ public sealed partial class BookWindow : FancyWindow
     private int _maxPages;
     private Label? _characterCountLabel;
     private ISawmill _sawmill = default!;
+    private Action? _bookmarkDialogOnClose;
+
+    private void OnPrevPressed(BaseButton.ButtonEventArgs _) => NavigateToPage(_currentPageIndex - 1);
+    private void OnNextPressed(BaseButton.ButtonEventArgs _) => NavigateToPage(_currentPageIndex + 1);
+    private void OnAddPagePressed(BaseButton.ButtonEventArgs _) => OnAddPage?.Invoke();
+    private void OnSavePressed(BaseButton.ButtonEventArgs _) => SaveCurrentPage();
+    private void OnDeletePressed(BaseButton.ButtonEventArgs _) => DeleteCurrentPage();
+    private void OnToggleBookmarkPressed(BaseButton.ButtonEventArgs _) => ToggleBookmarkForCurrentPage();
+    private void OnBookmarksTogglePressed(BaseButton.ButtonEventArgs _) => ToggleBookmarksVisibility();
 
     public event Action<int>? OnPageChanged;
     public event Action<string>? OnTextSaved;
@@ -97,9 +106,9 @@ public sealed partial class BookWindow : FancyWindow
 
         AddChild(floatingCloseButton);
 
-        PrevPageButton.OnPressed += _ => NavigateToPage(_currentPageIndex - 1);
-        NextPageButton.OnPressed += _ => NavigateToPage(_currentPageIndex + 1);
-        AddPageButton.OnPressed += _ => OnAddPage?.Invoke();
+        PrevPageButton.OnPressed += OnPrevPressed;
+        NextPageButton.OnPressed += OnNextPressed;
+        AddPageButton.OnPressed += OnAddPagePressed;
 
         Input.OnKeyBindDown += args =>
         {
@@ -110,7 +119,7 @@ public sealed partial class BookWindow : FancyWindow
             }
         };
 
-        SaveButton.OnPressed += _ => SaveCurrentPage();
+        SaveButton.OnPressed += OnSavePressed;
         var key = _inputManager.GetKeyFunctionButtonString(EngineKeyFunctions.MultilineTextSubmit);
         SaveButton.Text = Loc.GetString(
             string.IsNullOrEmpty(key)
@@ -137,7 +146,7 @@ public sealed partial class BookWindow : FancyWindow
 
         Input.OnTextChanged += _ => UpdateCharacterCount();
 
-        DeletePageButton.OnPressed += _ => DeleteCurrentPage();
+        DeletePageButton.OnPressed += OnDeletePressed;
     }
 
     public void ShowBook(BookBoundUserInterfaceState state, bool isEditing)
@@ -292,9 +301,9 @@ public sealed partial class BookWindow : FancyWindow
 
     private void InitializeBookmarks()
     {
-        ToggleBookmarkButton.OnPressed += _ => ToggleBookmarkForCurrentPage();
+        ToggleBookmarkButton.OnPressed += OnToggleBookmarkPressed;
         BookmarkDropdown.OnItemSelected += OnBookmarkSelected;
-        BookmarksToggleButton.OnPressed += _ => ToggleBookmarksVisibility();
+        BookmarksToggleButton.OnPressed += OnBookmarksTogglePressed;
     }
 
     private void ShowBookmarkDialog(string defaultTitle)
@@ -329,7 +338,8 @@ public sealed partial class BookWindow : FancyWindow
             OnBookmarkAdded?.Invoke(_currentPageIndex, title);
             UpdateBookmarksDisplay();
         };
-        _bookmarkDialog.OnClose += () => _bookmarkDialog = null;
+        _bookmarkDialogOnClose ??= () => _bookmarkDialog = null;
+        _bookmarkDialog.OnClose += _bookmarkDialogOnClose;
     }
 
     private void OnBookmarkSelected(OptionButton.ItemSelectedEventArgs args)
@@ -424,23 +434,25 @@ public sealed partial class BookWindow : FancyWindow
         if (!disposing)
             return;
 
-        PrevPageButton.OnPressed -= _ => NavigateToPage(_currentPageIndex - 1);
-        NextPageButton.OnPressed -= _ => NavigateToPage(_currentPageIndex + 1);
-        AddPageButton.OnPressed -= _ => OnAddPage?.Invoke();
-        SaveButton.OnPressed -= _ => SaveCurrentPage();
-        DeletePageButton.OnPressed -= _ => DeleteCurrentPage();
+        PrevPageButton.OnPressed -= OnPrevPressed;
+        NextPageButton.OnPressed -= OnNextPressed;
+        AddPageButton.OnPressed -= OnAddPagePressed;
+        SaveButton.OnPressed -= OnSavePressed;
+        DeletePageButton.OnPressed -= OnDeletePressed;
 
         PageNumberInput.OnTextEntered -= OnPageNumberEntered;
         PageNumberInput.OnFocusExit -= OnPageNumberEntered;
 
-        ToggleBookmarkButton.OnPressed -= _ => ToggleBookmarkForCurrentPage();
+        ToggleBookmarkButton.OnPressed -= OnToggleBookmarkPressed;
         BookmarkDropdown.OnItemSelected -= OnBookmarkSelected;
-        BookmarksToggleButton.OnPressed -= _ => ToggleBookmarksVisibility();
+        BookmarksToggleButton.OnPressed -= OnBookmarksTogglePressed;
 
         if (_bookmarkDialog != null)
         {
-            _bookmarkDialog.OnClose -= () => _bookmarkDialog = null;
+            if (_bookmarkDialogOnClose != null)
+                _bookmarkDialog.OnClose -= _bookmarkDialogOnClose;
             _bookmarkDialog = null;
+            _bookmarkDialogOnClose = null;
         }
     }
 }
