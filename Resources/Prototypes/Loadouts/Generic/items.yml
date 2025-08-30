@@ -429,6 +429,7 @@
   id: LoadoutBookRandom
   category: Items
   cost: 1
+  customContent: true # WD EDIT
   items:
     - BookRandom
   requirements:

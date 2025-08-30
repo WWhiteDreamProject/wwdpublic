@@ -677,6 +677,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("custom_color_tint");
 
+                    b.Property<string>("CustomContent")
+                        .HasColumnType("text")
+                        .HasColumnName("custom_content");
+
                     b.Property<string>("CustomDescription")
                         .HasColumnType("text")
                         .HasColumnName("custom_description");

@@ -18,14 +18,19 @@
       map: [ "icon" ]
     - state: overlay_null
       map: [ "overlay" ]
-  - type: Paper
-    contentSize: 12000
+  # WD EDIT START: Paper -> Book
+  - type: Book
+    maxCharactersPerPage: 3000
+    maxPages: 100
+    # WD EDIT END
   - type: ActivatableUI
-    key: enum.PaperUiKey.Key
+    key: enum.BookUiKey.Key # WD EDIT: PaperUiKey -> BookUiKey
   - type: UserInterface
     interfaces:
-      enum.PaperUiKey.Key:
-        type: PaperBoundUserInterface
+      # WD EDIT START
+      enum.BookUiKey.Key:
+        type: BookBoundUserInterface
+      # WD EDIT END
   - type: Tag
     tags:
       - Book
@@ -461,7 +466,7 @@
   id: BookRandomStory
   suffix: random visual, random story
   components:
-  - type: PaperRandomStory
+  - type: BookRandomStory
     template: GenericStory
 
 - type: entity
@@ -481,8 +486,12 @@
     - state: icon_atmos
     - state: icon_corner
       color: gold
-  - type: Paper
+  # WD EDIT START: Paper -> Book
+  - type: Book
     content: book-text-atmos-distro
+    maxCharactersPerPage: 1500
+    maxPages: 100
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -501,8 +510,12 @@
     - state: icon_atmos
     - state: icon_corner
       color: gold
-  - type: Paper
+  # WD EDIT START: Paper -> Book
+  - type: Book
     content: book-text-atmos-waste
+    maxCharactersPerPage: 1500
+    maxPages: 100
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -521,8 +534,12 @@
     - state: icon_atmos
     - state: icon_corner
       color: gold
-  - type: Paper
+  # WD EDIT START: Paper -> Book
+  - type: Book
     content: book-text-atmos-alarms
+    maxCharactersPerPage: 1500
+    maxPages: 100
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -541,8 +558,12 @@
     - state: icon_atmos
     - state: icon_corner
       color: gold
-  - type: Paper
+  # WD EDIT START: Paper -> Book
+  - type: Book
     content: book-text-atmos-vents
+    maxCharactersPerPage: 1500
+    maxPages: 100
+    # WD EDIT END
 
 - type: entity
   id: BookPsionicsGuidebook
