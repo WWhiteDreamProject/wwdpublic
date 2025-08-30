@@ -17,22 +17,12 @@ public partial class HumanoidProfileEditor
 
     public void InitializeBark()
     {
-        BarkPitchSlider.OnValueChanged += BarkPitchSliderValueChanged;
-        BarkPitchVarianceSlider.OnValueChanged += BarkPitchVarianceSliderValueChanged;
-        BarkPauseSlider.OnValueChanged += BarkPauseSliderValueChanged;
+        BarkPitchSlider.OnReleased += BarkPitchSliderValueChanged;
+        BarkPitchVarianceSlider.OnReleased += BarkPitchVarianceSliderValueChanged;
+        BarkPauseSlider.OnReleased += BarkPauseSliderValueChanged;
 
         VoiceBarkButton.OnItemSelected += VoiceBarkButtonItemSelected;
         VoiceBarkPlayButton.OnPressed += VoiceBarkPlayButtonPressed;
-    }
-
-    public void ShutdownBark()
-    {
-        BarkPitchSlider.OnValueChanged -= BarkPitchSliderValueChanged;
-        BarkPitchVarianceSlider.OnValueChanged -= BarkPitchVarianceSliderValueChanged;
-        BarkPauseSlider.OnValueChanged -= BarkPauseSliderValueChanged;
-
-        VoiceBarkButton.OnItemSelected -= VoiceBarkButtonItemSelected;
-        VoiceBarkPlayButton.OnPressed -= VoiceBarkPlayButtonPressed;
     }
 
     public void UpdateBarksControl()
@@ -73,13 +63,14 @@ public partial class HumanoidProfileEditor
     private void SetBark(string proto, BarkPercentageApplyData settings){
         Profile = Profile?.WithBarkVoice(proto, settings);
         IsDirty = true;
+        VoiceBarkPlayButtonPressed(default!);
     }
 
     private void VoiceBarkPlayButtonPressed(BaseButton.ButtonEventArgs obj)
     {
         if(Profile is null)
             return;
-        _entManager.System<BarkPreviewSystem>().PlayGlobal(Profile.BarkVoice, "Hello world!", Profile.BarkSettings);
+        _entManager.System<BarkPreviewSystem>().PlayGlobal(Profile.BarkVoice, "Привет мир!", Profile.BarkSettings);
     }
 
     private void VoiceBarkButtonItemSelected(OptionButton.ItemSelectedEventArgs selected)
