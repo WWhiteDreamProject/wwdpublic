@@ -5,8 +5,8 @@
   - type: GameRule
     minPlayers: 5 # <5 is greenshift hours, buddy.
   - type: DynamicRule
-    startingBudgetMin: 200
-    startingBudgetMax: 350
+    startingBudgetMin: 0 # WD edit
+    startingBudgetMax: 100 # WD edit
     table: !type:AllSelector
       children:
       # Roundstart Major Rules
@@ -16,47 +16,77 @@
           max: 1
         children:
         - id: Traitor
-          weight: 60
+          weight: 34
           conditions:
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition
         - id: Nukeops
-          weight: 25
+          weight: 10
           conditions:
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 20
         - id: Revolutionary
-          weight: 5
+          weight: 7
           conditions:
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition
         - id: Zombie
-          weight: 5
+          weight: 4
           conditions:
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 20
-        - id: Wizard
+        # WD edit start
+        - id: Changeling
+          weight: 20
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 15
+        - id: Shadowling
+          weight: 10
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 30
+        - id: BloodCult
+          weight: 10
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 30
+        - id: Blob
           weight: 5
           conditions:
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
-            min: 10
+            min: 15
+        # WD edit end
       # Roundstart Minor Rules
       - !type:GroupSelector
         conditions:
         - !type:RoundDurationCondition
           max: 1
         children:
-        - id: Thief
+#        - id: Thief
+#          prob: 0.5
+#          conditions:
+#          - !type:HasBudgetCondition
+#          - !type:MaxRuleOccurenceCondition
+        - id: Devil
           prob: 0.5
           conditions:
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 15
       # Midround rules
       - !type:GroupSelector
         conditions:
@@ -84,7 +114,7 @@
           - !type:MaxRuleOccurenceCondition
           - !type:RoundDurationCondition
             min: 900 # 15 minutes
-        - id: ParadoxCloneSpawn
+        - id: ParadoxAnomaly
           weight: 25
           conditions:
           - !type:HasBudgetCondition
@@ -110,3 +140,37 @@
             min: 20
           - !type:RoundDurationCondition
             min: 2100 # 35 minutes
+        # WD edit start
+        - id: LoneAbductorSpawn
+          weight: 7.5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:PlayerCountCondition
+            min: 10
+          - !type:RoundDurationCondition
+            min: 900 # 15 minutes
+        - id: DuoAbductorSpawn
+          weight: 7.5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:PlayerCountCondition
+            min: 20
+          - !type:RoundDurationCondition
+            min: 900 # 15 minutes
+        - id: XenomorphsInfestation
+          weight: 5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:PlayerCountCondition
+            min: 20
+          - !type:RoundDurationCondition
+            min: 2100 # 35 minutes
+        - id: BlobSpawn
+          weight: 15
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:PlayerCountCondition
+            min: 20
+          - !type:RoundDurationCondition
+            min: 3000 # 50 minutes
+        # WD edit end

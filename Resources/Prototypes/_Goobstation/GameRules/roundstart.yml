@@ -42,6 +42,8 @@
       mindRoles:
       - DevilMindRole
       startingGear: DevilStartingGear
+  - type: DynamicRuleCost
+    cost: 200
 #  - type: Tag
 #    tags:
 #    - RoundstartAntag

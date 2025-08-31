@@ -38,7 +38,6 @@
     - id: ClosetSkeleton
     - id: KingRatMigration
     - id: RevenantSpawn
-    - id: DerelictCyborgSpawn
 
 - type: entityTable
   id: ModerateAntagEventsTable
@@ -51,6 +50,7 @@
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
+    - id: ParadoxAnomaly
     # WD EDIT START
     - id: XenomorphsInfestation
     - id: HeadcrabInvasion
