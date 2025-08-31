@@ -120,6 +120,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         var target = GetEntity(ev.Target!.Value);
 
         // WD EDIT START
+        PhysicalShove(user, target);
         Interaction.DoContactInteraction(user, target);
 
         if (_mobState.IsIncapacitated(target))
