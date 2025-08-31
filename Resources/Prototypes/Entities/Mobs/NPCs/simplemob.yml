@@ -68,7 +68,8 @@
     price: 1000 # Living critters are valuable in space.
   - type: Perishable
   - type: TemperatureProtection # WWDP
-    coefficient: 0.001 # Same as hardsuits
+    heatingCoefficient: 1
+    coolingCoefficient: 0.001
 
 - type: entity
   parent:

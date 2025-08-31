@@ -1,6 +1,6 @@
+using System.Globalization;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
-using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Server.Hands.Systems;
 using Content.Server.Inventory;
@@ -27,7 +27,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using System.Globalization;
 
 namespace Content.Server.Bed.Cryostorage;
 
@@ -240,6 +239,7 @@ public sealed class CryostorageSystem : SharedCryostorageSystem
             Loc.GetString(
                 "earlyleave-cryo-announcement",
                 ("character", name),
+                ("entity", ent.Owner), // gender things for supporting downstreams with other languages
                 ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(jobName))
             ), Loc.GetString("earlyleave-cryo-sender"),
             playDefaultSound: false

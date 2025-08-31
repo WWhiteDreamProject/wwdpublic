@@ -22,6 +22,7 @@
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
+  requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:
@@ -30,6 +31,7 @@
   - Mail
   - Quartermaster
   - Maintenance
+  - External
   - Command
   - Orders
   - External
@@ -51,7 +53,7 @@
   equipment:
     head: ClothingHeadHatBeretLogi
     jumpsuit: ClothingUniformJumpsuitQM
-    back: ClothingBackpackQuartermaster
+    back: ClothingBackpackCargo
     shoes: ClothingShoesColorBrown
     id: QuartermasterPDA
     ears: ClothingHeadsetAltCargo

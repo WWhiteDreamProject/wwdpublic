@@ -13,7 +13,7 @@ cmd-babyjail_max_account_age-help = Использование: babyjail_max_acc
 babyjail-command-max-account-age-is = Максимальный возраст учетной записи для детсада составляет {$hours} часов.
 babyjail-command-max-account-age-set = Установлен максимальный возраст учетной записи для детсада на {$hours} часов.
 
-cmd-babyjail_max_overall_hours-desc = Получает или устанавливает максимальное общее игровое время в минутах, которое может иметь учетная запись, чтобы разрешить подключение с включенным детским режимом.
-cmd-babyjail_max_overall_hours-help = Использование: babyjail_max_overall_hours <часы>
-babyjail-command-max-overall-hours-is = Максимальное общее игровое время для детсада составляет {$hours} часов.
-babyjail-command-max-overall-hours-set = Установлено максимальное общее игровое время для детсада на {$hours} часов.
+cmd-babyjail_max_overall_minutes-desc = Gets or sets the maximum overall playtime in minutes that an account can have to be allowed to connect with the baby jail enabled.
+cmd-babyjail_max_overall_minutes-help = Usage: babyjail_max_overall_minutes <minutes>
+babyjail-command-max-overall-minutes-is = The maximum overall playtime for the baby jail is {$minutes} minutes.
+babyjail-command-max-overall-minutes-set = Set the maximum overall playtime for the baby jail to {$minutes} minutes.

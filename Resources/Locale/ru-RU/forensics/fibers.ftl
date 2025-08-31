@@ -8,6 +8,9 @@ fibers-latex = латексные
 fibers-nitrile = нитриловые
 fibers-nanomachines = изолирующие наномашинные
 fibers-chameleon = голографические хамелеонные
+fibers-rubber = rubber
+fibers-kinetic = kinetic
+
 fibers-purple = фиолетовые
 fibers-red = красные
 fibers-black = чёрные
@@ -20,6 +23,7 @@ fibers-white = белые
 fibers-yellow = жёлтые
 fibers-regal-blue = королевские синие
 fibers-olive = оливковыe
+fibers-dyed = dyed fibers
 fibers-silver = серебряные
 fibers-gold = золотые
 fibers-maroon = бордовые

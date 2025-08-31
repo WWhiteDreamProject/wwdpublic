@@ -3,8 +3,8 @@ meta:
   postmapinit: false
 tilemap:
   0: Space
-  1: FloorMetalDiamond
-  111: FloorTechMaint
+  1: FloorMetalDiamondSteel
+  111: FloorTechMaintSteel
   113: FloorTechMaint3
   117: FloorWhiteDiagonalMini
   119: FloorWhiteMini

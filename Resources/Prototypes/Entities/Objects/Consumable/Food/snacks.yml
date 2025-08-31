@@ -41,7 +41,7 @@
     state: boritos
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketBoritosTrash
 
 - type: entity
@@ -57,7 +57,7 @@
     state: cnds
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketCnDsTrash
 
 - type: entity
@@ -74,7 +74,7 @@
     state: cheesiehonkers
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketCheesieTrash
 
 - type: entity
@@ -92,7 +92,7 @@
     state: chips
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketChipsTrash
 
 - type: entity
@@ -129,6 +129,10 @@
   - type: Sprite
     state: chocolatebar-open
   - type: Item
+  - type: Tag
+    tags:
+      - FoodSnack
+      - ReptilianFood
   - type: SolutionContainerManager
     solutions:
       food:
@@ -137,7 +141,7 @@
         - ReagentId: Nutriment
           Quantity: 10
         - ReagentId: Theobromine
-          Quantity: 3
+          Quantity: 5 # WD EDIT: 3 -> 5
         - ReagentId: CocoaPowder
           Quantity: 1
 
@@ -187,7 +191,7 @@
     state: pistachio
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketPistachioTrash
   - type: Tag
     tags:
@@ -209,7 +213,7 @@
   - type: Item
     heldPrefix: popcorn
   - type: Food
-    trash: 
+    trash:
     - FoodPacketPopcornTrash
 
 - type: entity
@@ -225,7 +229,7 @@
     state: raisins
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketRaisinsTrash
   - type: Tag
     tags:
@@ -244,7 +248,7 @@
     state: semki
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketSemkiTrash
 
 - type: entity
@@ -260,7 +264,7 @@
     state: susjerky
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketSusTrash
   - type: Tag
     tags:
@@ -279,7 +283,7 @@
     state: syndicakes
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketSyndiTrash
 
 - type: entity
@@ -304,7 +308,7 @@
   - type: Sprite
     state: ramen
   - type: Food
-    trash: 
+    trash:
     - FoodPacketCupRamenTrash
 
 - type: entity
@@ -347,7 +351,7 @@
         - ReagentId: Soysauce
           Quantity: 2
   - type: Food
-    trash: 
+    trash:
     - FoodPacketChowMeinTrash
 
 - type: entity
@@ -376,7 +380,7 @@
         - ReagentId: Soysauce
           Quantity: 2
   - type: Food
-    trash: 
+    trash:
     - FoodPacketDanDanTrash
 
 - type: entity
@@ -402,7 +406,7 @@
     heldPrefix: packet
     size: Tiny
   - type: Food
-    trash: 
+    trash:
     - FoodCookieFortune
 
 - type: entity
@@ -679,7 +683,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30
+        maxVol: 45
         reagents:
         - ReagentId: Fiber
           Quantity: 40
@@ -931,7 +935,7 @@
     state: venus
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketVenusTrash
 
 - type: entity
@@ -949,7 +953,7 @@
     state: oort
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketOortrocksTrash
 
 # Weeb Vend
@@ -967,7 +971,7 @@
     state: weebonuts
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketRedalertnutsTrash
 
 - type: entity

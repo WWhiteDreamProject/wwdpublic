@@ -75,7 +75,7 @@
       vgroid: !type:DungeonSpawnGroup
         minimumDistance: 300
         maximumDistance: 350
-        nameDataset: names_borer
+        nameDataset: NamesBorer
         stationGrid: false
         addComponents:
         - type: Gravity
@@ -144,6 +144,7 @@
         maxCount: 2
         stationGrid: false
         paths:
+        - /Maps/Ruins/abandoned_outpost.yml
         - /Maps/Ruins/DeltaV/biodome_satellite.yml #Delta V - Move to DV folder
         - /Maps/Ruins/DeltaV/djstation.yml #Delta V - Move to DV folder
         - /Maps/Ruins/DeltaV/old_ai_sat.yml #Delta V - Move to DV folder

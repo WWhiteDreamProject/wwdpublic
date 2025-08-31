@@ -1,16 +1,16 @@
 - type: storyTemplate
   id: GenericStory
-  locId: story-template-generic
+  locId: story-template-generic-story
   variables:
-    bookGenre: BookGenres
-    char1Type: BookCharacters
-    char1Adj: BookCharacterTraits
-    char2Type: BookCharacters
-    char2Adj: BookCharacterTraits
+    genre: BookGenres
+    character_trait1: BookCharacterTraits
+    character1: BookCharacters
+    character_trait2: BookCharacterTraits
+    character2: BookCharacters
     event: BookEvents
+    action_trait: BookActionTraits
     action: BookActions
-    actionTrait: BookActionTraits
-    char3Type: BookCharacters
+    character_story: BookCharacterStory
     location: BookLocations
     element: BookStoryElements
-    elementTrait: BookStoryElementTraits
+    element_trait: BookStoryElementTraits

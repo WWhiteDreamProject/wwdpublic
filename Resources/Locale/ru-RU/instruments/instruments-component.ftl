@@ -21,4 +21,5 @@ instrument-component-channel-name = MIDI-канал { $number }
 instruments-component-channels-all-button = Все
 instruments-component-channels-clear-button = Очистить
 # SwappableInstrumentComponent
+# SwappableInstrumentComponent
 swappable-instrument-component-style-set = Установить стиль на "{ $style }"

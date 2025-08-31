@@ -200,6 +200,32 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         // WWDP edit end
     }
 
+    // WWDP Push shove physics yeee
+    private void PhysicalShove(EntityUid user, EntityUid target)
+    {
+        float shoverange = _config.GetCVar(WhiteCVars.ShoveRange);
+        float shovespeed = _config.GetCVar(WhiteCVars.ShoveSpeed);
+        float shovemass = _config.GetCVar(WhiteCVars.ShoveMassFactor);
+
+        var animated = false;
+        var throwInAir = false;
+
+        if (HasComp<ItemComponent>(target)) // Throw items instead of shoving
+        {
+            animated = true;
+            throwInAir = true;
+            shoverange = 1.2f; // Constant range, approximately the same as the regular throw
+        }
+
+        var force = shoverange * _contests.MassContest(user, target, rangeFactor: shovemass);
+
+        var userPos = user.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
+        var targetPos = target.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
+        var pushVector = (targetPos - userPos).Normalized() * force;
+
+        _throwing.TryThrow(target, pushVector, force * shovespeed, user, animated: animated, throwInAir: throwInAir);
+    }
+
     protected override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session)
     {
         EntityCoordinates targetCoordinates;

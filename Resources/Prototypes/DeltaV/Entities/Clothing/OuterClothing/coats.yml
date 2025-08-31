@@ -107,7 +107,8 @@
   - type: Clothing
     sprite: DeltaV/Clothing/OuterClothing/Coats/cybersunwindbreaker.rsi
   - type: TemperatureProtection
-    coefficient: 0.5 # WD EDIT: 0.1 -> 0.5
+    heatingCoefficient: 0.5 # WD EDIT: 0.1 -> 0.5
+    coolingCoefficient: 0.5 # WD EDIT: 0.1 -> 0.5
   - type: Armor
     modifiers:
       coefficients:

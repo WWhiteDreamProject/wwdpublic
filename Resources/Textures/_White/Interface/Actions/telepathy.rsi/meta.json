@@ -1,0 +1,11 @@
+{
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Sprited by kekoven1 (Github)",
+  "version": 1,
+  "size": { "y": 32, "x": 32 },
+  "states": [
+    {
+      "name": "icon"
+    }
+  ]
+}

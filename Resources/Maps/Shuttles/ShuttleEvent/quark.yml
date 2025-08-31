@@ -5,10 +5,10 @@ tilemap:
   0: Space
   33: FloorDarkMini
   34: FloorDarkMono
-  2: FloorMetalDiamond
+  2: FloorMetalDiamondSteel
   85: FloorShuttleWhite
   89: FloorSteel
-  104: FloorTechMaint
+  104: FloorTechMaintSteel
   118: FloorWood
   1: FloorWoodTile
   120: Lattice
@@ -1479,8 +1479,8 @@ entities:
 
                                            [bold]Crew of the NT-Quark[/bold]
 
-             [bold]Nuclear containment breach detected on long range 
-                 halcyon scanners. Seek immediate shelter. Avoid 
+             [bold]Nuclear containment breach detected on long range
+                 halcyon scanners. Seek immediate shelter. Avoid
                          contaminated materials. Do not panic.[/bold]
 
                               [color=red][bold]Alpha decay rates indicate estimated

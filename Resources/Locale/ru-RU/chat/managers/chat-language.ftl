@@ -1,4 +1,5 @@
 chat-language-Universal-name = Универсальный
+chat-language-Psychomantic-name = Psychomantic
 chat-language-Bubblish-name = Пузырчатый
 chat-language-RootSpeak-name = Песнь корней
 chat-language-Nekomimetic-name = Мурчащий
@@ -21,6 +22,10 @@ chat-language-Chittin-name = Хитинидский
 
 # Animal Languages
 
+chat-language-Xeeplian-name = Xeeplian
+
+# Animal Languages
+
 chat-language-Cat-name = Кошачий
 chat-language-Chicken-name = Куриный
 chat-language-Cow-name = Коровьий
@@ -38,3 +43,4 @@ chat-language-Penguin-name = Пингвиний
 chat-language-Pig-name = Свиной
 chat-language-Sheep-name = Овечий
 chat-language-Xeno-name = Ксеноязык
+chat-language-DroneTalk-name = Drone

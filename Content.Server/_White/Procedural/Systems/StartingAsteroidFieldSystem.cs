@@ -15,9 +15,8 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using System.Numerics;
 using System.Threading.Tasks;
+using Robust.Shared.EntitySerialization.Systems;
 using Content.Shared.Salvage;
-using Robust.Server.Maps;
-
 
 namespace Content.Server._White.Procedural.Systems;
 
@@ -62,16 +61,12 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
         {
             var path = _config.GetCVar(WhiteCVars.AsteroidFieldBeaconGridPath);
 
-            var mapParams = new MapLoadOptions();
-            mapParams.TransformMatrix = Matrix3Helpers.CreateTranslation(worldPos);
-            mapParams.TransformMatrix = Matrix3x2.Multiply(Matrix3Helpers.CreateRotation(_random.NextAngle()), mapParams.TransformMatrix);
-
-            if (!_mapLoader.TryLoad(ev.Map, path, out var grids, mapParams))
+            if (!_mapLoader.TryLoadGrid(ev.Map, path, out var grid, offset:worldPos, rot:_random.NextAngle()))
                 Log.Info($"Failed to load asteroid beacon ({path}).");
             else
             {
                 var beaconName = Loc.GetString(_config.GetCVar(WhiteCVars.AsteroidFieldBeaconName));
-                _metaData.SetEntityName(grids[0], beaconName);
+                _metaData.SetEntityName(grid.Value, beaconName);
                 Log.Info($"Successfully loaded asteroid beacon and named it \"{beaconName}\".");
             }
         }
@@ -116,7 +111,7 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
             var asteroidMap = asteroidMaps[i];
             var seed = _random.Next();
 
-            var asteroid = (AsteroidOffering) _salvage.GetSalvageOffering(seed);
+            var asteroid = (AsteroidOffering) _salvage.GetSalvageOffering(seed, SharedSalvageSystem.SalvageMagnetOfferingTypeEnum.Asteroid);
             var grid = _mapManager.CreateGridEntity(asteroidMap);
 
             Log.Debug($"Queuing asteroid generation. ({i+1}/{asteroidAmount})");
@@ -139,15 +134,11 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
             var derelictMap = derelictMaps[i];
             var seed = _random.Next();
 
-            var salvage = (SalvageOffering) _salvage.GetSalvageOffering(seed);
-            var opts = new MapLoadOptions
-            {
-                Offset = new Vector2(0, 0)
-            };
+            var salvage = (SalvageOffering) _salvage.GetSalvageOffering(seed, SharedSalvageSystem.SalvageMagnetOfferingTypeEnum.Salvage);
 
             Log.Debug($"Generating derelict... ({i+1}/{derelictAmount})");
 
-            _mapLoader.TryLoad(derelictMap, salvage.SalvageMap.MapPath.ToString(), out _, opts);
+            _mapLoader.TryLoadGrid(derelictMap, salvage.SalvageMap.MapPath, out _, offset: new (0, 0));
 
             maps.Add(derelictMap);
         }
@@ -198,7 +189,7 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
             if (!TryGetPlacementLocation(mapId, attachedBounds, bounds!.Value, worldAngle, out var spawnLocation, out var spawnAngle))
             {
                 Log.Error($"Failed to find free space the asteroid field. Consider tweaking asteroid field size.");
-                _mapManager.DeleteMap(map);
+                _map.DeleteMap(map);
                 continue;
             }
 
@@ -230,7 +221,7 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
                 }
             }
 
-            _mapManager.DeleteMap(map);
+            _map.DeleteMap(map);
         }
         Log.Info($"Finished generating asteroid field at {worldPos}.");
     }

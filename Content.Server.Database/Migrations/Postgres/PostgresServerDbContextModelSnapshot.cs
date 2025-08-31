@@ -677,6 +677,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("custom_color_tint");
 
+                    b.Property<string>("CustomContent")
+                        .HasColumnType("text")
+                        .HasColumnName("custom_content");
+
                     b.Property<string>("CustomDescription")
                         .HasColumnType("text")
                         .HasColumnName("custom_description");
@@ -913,6 +917,10 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Property<JsonDocument>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
+
+                    b.Property<string>("MimeName")
+                        .HasColumnType("text")
+                        .HasColumnName("mime_name");
 
                     b.Property<string>("Nationality")
                         .IsRequired()

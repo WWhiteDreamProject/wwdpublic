@@ -35,14 +35,13 @@ using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Server.Silicons.Laws;
-using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
 using Robust.Server.Player;
-using Content.Shared.Mind;
 using Robust.Shared.Physics.Components;
 using static Content.Shared.Configurable.ConfigurationComponent;
 using Content.Shared._Impstation.Thaven.Components;
 using Content.Server._Impstation.Thaven;
+using Content.Shared.Mobs;
 
 namespace Content.Server.Administration.Systems
 {
@@ -65,7 +64,6 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly ArtifactSystem _artifactSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly PrayerSystem _prayerSystem = default!;
-        [Dependency] private readonly EuiManager _eui = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
         [Dependency] private readonly ToolshedManager _toolshed = default!;
         [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
@@ -297,7 +295,7 @@ namespace Content.Server.Administration.Systems
                         Act = () =>
                         {
                             var ui = new AdminLogsEui();
-                            _eui.OpenEui(ui, player);
+                            _euiManager.OpenEui(ui, player);
                             ui.SetLogFilter(search:args.Target.Id.ToString());
                         },
                         Impact = LogImpact.Low
@@ -424,7 +422,12 @@ namespace Content.Server.Administration.Systems
                     Text = Loc.GetString("rejuvenate-verb-get-data-text"),
                     Category = VerbCategory.Debug,
                     Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png")),
-                    Act = () => _rejuvenate.PerformRejuvenate(args.Target),
+                    Act = () =>
+                    {
+                        _rejuvenate.PerformRejuvenate(args.Target);
+                        _standing.Stand(args.Target); // WWDP
+                        _appearance.SetData(args.Target, MobStateVisuals.State, MobState.Alive); // WWDP
+                    },
                     Impact = LogImpact.Medium
                 };
                 args.Verbs.Add(verb);

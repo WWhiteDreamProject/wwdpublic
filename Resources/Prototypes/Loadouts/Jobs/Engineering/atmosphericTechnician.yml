@@ -344,20 +344,6 @@
   items:
     - ClothingShoesColorWhite
 
-- type: loadout
-  id: LoadoutAtmosphericTechnicianShoesWork
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianShoes
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - ClothingShoesBootsWork
-
 # Uniforms
 - type: loadout
   id: LoadingEngineeringAtmosUniformSuit

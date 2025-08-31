@@ -31,6 +31,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
     public const int MaxNameLength = 64;
     public const int MaxDescLength = 1024;
+    public const int MaxCustomContentLength = 524288; // WD EDIT
 
     /// Job preferences for initial spawn
     [DataField]
@@ -115,6 +116,9 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     // WD EDIT START
     [DataField]
     public string? ClownName { get; set; }
+
+    [DataField]
+    public string? MimeName { get; set; }
     // WD EDIT END
 
     /// <see cref="Appearance"/>
@@ -163,6 +167,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         string? stationAiName,
         string? cyborgName,
         string? clownName, // WD EDIT
+        string? mimeName, // WD EDIT
         HumanoidCharacterAppearance appearance,
         SpawnPriorityPreference spawnPriority,
         Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
@@ -191,6 +196,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         StationAiName = stationAiName;
         CyborgName = cyborgName;
         ClownName = clownName; // WD EDIT
+        MimeName = mimeName; // WD EDIT
         Appearance = appearance;
         SpawnPriority = spawnPriority;
         _jobPriorities = jobPriorities;
@@ -237,6 +243,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             other.StationAiName,
             other.CyborgName,
             other.ClownName, // WD EDIT
+            other.MimeName, // WD EDIT
             other.Appearance.Clone(),
             other.SpawnPriority,
             new Dictionary<ProtoId<JobPrototype>, JobPriority>(other.JobPriorities),
@@ -371,6 +378,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     public HumanoidCharacterProfile WithStationAiName(string? stationAiName) => new(this) { StationAiName = stationAiName };
     public HumanoidCharacterProfile WithCyborgName(string? cyborgName) => new(this) { CyborgName = cyborgName };
     public HumanoidCharacterProfile WithClownName(string? clownName) => new(this) { ClownName = clownName }; // WD EDIT
+    public HumanoidCharacterProfile WithMimeName(string? mimeName) => new(this) { MimeName = mimeName }; // WD EDIT
     public HumanoidCharacterProfile WithSpecies(string species) => new(this) { Species = species };
     public HumanoidCharacterProfile WithCustomSpeciesName(string customspeciename) => new(this) { Customspeciename = customspeciename };
     public HumanoidCharacterProfile WithHeight(float height) => new(this) { Height = height };
@@ -461,14 +469,25 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         bool pref,
         string? customName = null,
         string? customDescription = null,
+        string? customContent = null, // WD EDIT
         string? customColor = null,
         bool? customHeirloom = null)
     {
+        // WD EDIT START
+        if (customContent is { Length: > MaxCustomContentLength, })
+        {
+            var truncated = customContent.AsSpan(0, MaxCustomContentLength);
+            while (truncated.Length > 0 && char.IsLowSurrogate(truncated[^1]))
+                truncated = truncated[..^1];
+            customContent = truncated.ToString();
+        }
+        // WD EDIT END
+
         var list = new HashSet<LoadoutPreference>(_loadoutPreferences);
 
         list.RemoveWhere(l => l.LoadoutName == loadoutId);
         if (pref)
-            list.Add(new(loadoutId, customName, customDescription, customColor, customHeirloom) { Selected = pref });
+            list.Add(new(loadoutId, customName, customDescription, customContent, customColor, customHeirloom) { Selected = pref }); // WD EDIT
 
         return new HumanoidCharacterProfile(this) { _loadoutPreferences = list };
     }
@@ -679,6 +698,27 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
         if (voice is null || !CanHaveVoice(voice, Sex))
             Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
+
+        for (var i = 0; i < loadouts.Count; i++)
+        {
+            var loadout = loadouts[i];
+            if (loadout.CustomContent is not { Length: > MaxCustomContentLength, })
+                continue;
+            var truncated = loadout.CustomContent.AsSpan(0, MaxCustomContentLength);
+            while (truncated.Length > 0 && char.IsLowSurrogate(truncated[^1]))
+                truncated = truncated[..^1];
+
+            var truncatedLoadout = new LoadoutPreference(
+                    loadout.LoadoutName,
+                    loadout.CustomName,
+                    loadout.CustomDescription,
+                    truncated.ToString(),
+                    loadout.CustomColorTint,
+                    loadout.CustomHeirloom)
+                { Selected = loadout.Selected, };
+
+            loadouts[i] = truncatedLoadout;
+        }
         // WD EDIT END
     }
 

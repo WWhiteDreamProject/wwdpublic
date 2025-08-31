@@ -100,8 +100,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         // Heavy attack.
         if (!weapon.DisableHeavy &&
-            (!weapon.SwapKeys ? altDown : useDown)
-            && weapon.CanHeavyAttack) // WD EDIT
+            (!weapon.SwapKeys ? altDown : useDown))
         {
             // If it's an unarmed attack then do a disarm
             if (weapon.AltDisarm && weaponUid == entity)

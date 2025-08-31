@@ -18,6 +18,8 @@
         layer:
         - MachineLayer
   - type: Lathe
+    additionalComponents: # wwdp edit
+    - type: CraftedOrPrinted
   - type: MaterialStorage
   - type: Destructible
     thresholds:
@@ -79,6 +81,8 @@
   id: BaseHyperlathe
   components:
   - type: Lathe
+    additionalComponents: # wwdp edit
+    - type: CraftedOrPrinted
     materialUseMultiplier: 0.5
     timeMultiplier: 1.5
   - type: LatheHeatProducing
@@ -171,6 +175,7 @@
     - FoodPlateSmallPlastic
     - FoodBowlBig
     - FoodPlateTin
+    - FoodPlateMuffinTin
     - FoodKebabSkewer
     - SprayBottle
     - MopItem
@@ -207,6 +212,7 @@
     - ClothingHeadHatWelding
     - WetFloorSign
     - ClothingHeadHatCone
+    - FreezerElectronics
     - ProgramDiskUnburnt # Arcadis - Modular Computer System
     - FauxTileAstroGrass
     - FauxTileMowedAstroGrass
@@ -226,13 +232,14 @@
     - VehicleWheelchairFolded # Goobstation
     - CassetteTape
     - TapeRecorder
-    - SnowballMaker # WWDP
-    - Matchbox  # WWDP
+    - SnowballMaker #WWDP edit start
+    - Matchbox
+    - Fulton
+    - FultonBeacon #WWDP edit end
   - type: EmagLatheRecipes
     emagStaticRecipes:
     - BoxLethalshot
     - BoxShotgunLumen
-    - BoxShotgunFlare
     - BoxShotgunSlug
     - CombatKnife
     - MagazineBoxLightRifle
@@ -399,6 +406,8 @@
     - PowerCellHigh
     - WeaponPistolCHIMP
     - ClothingMaskWeldingGas
+    - MineralScannerEmpty
+    - AdvancedMineralScannerEmpty
     - WeaponGauntletGorilla
     - SynthesizerInstrument
     - RPED
@@ -411,7 +420,7 @@
     - BluespaceBeaker
     - SyringeBluespace
     #  - WeaponForceGun
-    - WeaponLaserSvalinn      WeaponLaserSvalinn
+    - WeaponLaserSvalinn
     # - WeaponCivilianDisabler # WWDP disabled (xd)
     - WeaponProtoKineticAccelerator
     #  - WeaponTetherGun
@@ -538,6 +547,7 @@
     - AutolatheMachineCircuitboard
     - BookPressMachineCircuitboard
     - CircuitImprinterMachineCircuitboard
+    - BiogeneratorMachineCircuitboard
     - OreProcessorMachineCircuitboard
     - ElectrolysisUnitMachineCircuitboard
     - CentrifugeMachineCircuitboard
@@ -549,6 +559,7 @@
     - UniformPrinterMachineCircuitboard
     - FloorGreenCircuit
     - FloorBlueCircuit
+    - FloorRedCircuit
     - MicrowaveMachineCircuitboard
     - ReagentGrinderMachineCircuitboard
     - ElectricGrillMachineCircuitboard
@@ -558,6 +569,7 @@
     - SpaceHeaterMachineCircuitBoard
     - CutterMachineCircuitboard
     - StationAnchorCircuitboard
+    - SalvageMagnetMachineCircuitboard
     - SeedExtractorMachineCircuitboard
     - ReagentGrinderIndustrialMachineCircuitboard
     - StasisBedMachineCircuitboard
@@ -654,6 +666,18 @@
     - SMESAdvancedMachineCircuitboard
     - BaseComputerModularCircuitBoard # Arcadis - Modular Computer System
     - DiskBurnerMachineCircuitboard # Arcadis - Modular Computer System
+    # WD EDIT START
+    - StationAICoreCircuitboard
+    - StationAiUploadCircuitboard
+    - AsimovCircuitBoard
+    - CorporateCircuitBoard
+    - NTDefaultCircuitBoard
+    - MotherDroneCircuitBoard
+    - NutimovCircuitBoard
+    - PaladinCircuitBoard
+    - RobocopCircuitBoard
+    - QuarantineCircuitBoard
+    # WD EDIT END
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - ShuttleGunDusterCircuitboard
@@ -711,12 +735,7 @@
     - BorgModuleFireExtinguisher
     - BorgModuleRadiationDetection
     - BorgModuleTool
-    - BorgModuleAppraisal
-    - BorgModuleConstruction
-    - BorgModuleService
-    - BorgModuleTreatment
     - BorgModuleSurgery
-    - BorgModuleCleaning
     - CyborgEndoskeleton
     - LeftArmBorg
     - RightArmBorg
@@ -724,56 +743,21 @@
     - RightLegBorg
     - LightHeadBorg
     - TorsoBorg
-    - LeftArmBorgEngineer
-    - RightArmBorgEngineer
-    - LeftLegBorgEngineer
-    - RightLegBorgEngineer
-    - HeadBorgEngineer
-    - TorsoBorgEngineer
-    - LeftLegBorgJanitor
-    - RightLegBorgJanitor
-    - HeadBorgJanitor
-    - TorsoBorgJanitor
-    - LeftArmBorgMedical
-    - RightArmBorgMedical
-    - LeftLegBorgMedical
-    - RightLegBorgMedical
-    - HeadBorgMedical
-    - TorsoBorgMedical
-    - LeftArmBorgMining
-    - RightArmBorgMining
-    - LeftLegBorgMining
-    - RightLegBorgMining
-    - HeadBorgMining
-    - TorsoBorgMining
-    - LeftArmBorgService
-    - RightArmBorgService
-    - LeftLegBorgService
-    - RightLegBorgService
-    - HeadBorgService
-    - TorsoBorgService
     - MechAirTank # Goobstation
     - MechThruster # Goobstation
     - PowerCageMedium # Goobstation - Powercell to exosuit fab
     - PowerCageSmall # Goobstation - Powercell to exosuit fab
     dynamicRecipes:
     - ProximitySensor
-    - BorgModuleLightReplacer
     - BorgModuleAdvancedCleaning
-    - BorgModuleMining
-    #  - BorgModuleGrapplingGun
     - BorgModuleAdvancedTool
     - BorgModuleGPS
-    - BorgModuleRCD
     - BorgModuleJetpack
     - BorgModulePka
     - BorgModuleArtifact
     - BorgModuleAnomaly
     - BorgModuleGardening
     - BorgModuleHarvesting
-    - BorgModuleMusique
-    - BorgModuleClowning
-    - BorgModuleDiagnosis
     - BorgModuleDefibrillator
     - BorgModuleAdvancedTreatment
     - BorgModuleAdvancedSurgery
@@ -945,7 +929,6 @@
     staticRecipes:
     - BoxLethalshot
     - BoxShotgunLumen
-    - BoxShotgunFlare
     - BoxShotgunPractice
     - BoxShotgunSlug
     - ClothingEyesHudSecurity
@@ -982,9 +965,6 @@
     # .35 Caseless (Civilian) Rifle
     # - MagazineCaselessRifleShortPractice # EE
     # - MagazineCaselessRifleShort # EE
-    # .35 Caseless (Military) Rifle
-    # - MagazineCaselessRiflePractice # EE
-    # - MagazineCaselessRifle # EE
     # .35 Caseless (Box Mag) Rifle
     # - MagazineBoxCaselessRiflePractice # EE
     # - MagazineBoxCaselessRifle # EE
@@ -1049,6 +1029,8 @@
     - MagazineLightRifleMarkOneEmpty
     - MagazineLightRifleMarkOne
     dynamicRecipes:
+    - MagazineCaselessRiflePractice
+    - MagazineCaselessRifle
     - Truncheon
     - Terminus
     - BoxShotgunIncendiary
@@ -1176,6 +1158,18 @@
     - WeaponPistolUniversal
     - ClothingBackpackElectropack
     # WD EDIT START
+    - MagazineLightRifleLowCapacityEmpty
+    - MagazineLightRifleLowCapacity
+    - SpeedLoaderRifleHeavy
+    - SpeedLoaderRifleHeavyEmpty
+    - WeaponRifleNovaliteC1
+    - WeaponRifleGestio
+    - MagazineMagnumLeverRifle
+    - MagazineMagnumLeverRifleEmpty
+    - MagazineNovaliteC1Empty
+    - MagazineNovaliteC1
+    - WeaponRifleNovaliteC1
+    - WeaponRifleGestio
     - MagazineShotgunLaser
     - BoxLaser
     - ShellShotgunLaser
@@ -1186,6 +1180,10 @@
     - BoxBreach
     - ShellShotgunBreach
     - WeaponSecurityRiotLauncher
+    - SmallBasicFluxCore
+    - BasicFluxCore
+    - SmallAdvancedFluxCore
+    - AdvancedFluxCore
     # WD EDIT END
   - type: MaterialStorage
     whitelist:
@@ -1225,7 +1223,6 @@
     staticRecipes:
     - BoxLethalshot
     - BoxShotgunLumen
-    - BoxShotgunFlare
     - BoxShotgunSlug
     - MagazineBoxLightRifle
     - MagazineBoxMagnum
@@ -1256,15 +1253,16 @@
     # .35 Caseless (Civilian) Rifle
     # - MagazineCaselessRifleShortPractice # EE
     # - MagazineCaselessRifleShort # EE
-    # .35 Caseless (Military) Rifle
-    # - MagazineCaselessRiflePractice # EE
-    # - MagazineCaselessRifle # EE
     # .35 Caseless (Box Mag) Rifle
     # - MagazineBoxCaselessRiflePractice # EE
     # - MagazineBoxCaselessRifle # EE
     # WD EDIT END
     - MagazineLightRifleMarkOneEmpty
     - MagazineLightRifleMarkOne
+    dynamicRecipes:
+    # .35 Caseless (Military) Rifle
+    - MagazineCaselessRiflePractice # EE
+    - MagazineCaselessRifle # EE
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1353,6 +1351,10 @@
     - CartridgeSaline # Goobstation - ParamedHypo
     - ParamedHypo # Goobstation - ParamedHypo
     - CartridgePain # Morphine Tweaks
+    # WD EDIT START
+    - MiniSyringe
+    - SyringeGun
+    # WD EDIT END
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker
@@ -1370,8 +1372,6 @@
     - OmnimedTool
     - MedicalCyberneticEyes
     # WD EDIT START
-    - MiniSyringe
-    - SyringeGun
     - BluespaceBodyBag
     - NTBodyBag
     - PrisonerBodyBag
@@ -1609,6 +1609,68 @@
       - ClothMade
       - Gauze
       - Metal
+
+- type: entity
+  id: Biogenerator
+  parent: BaseLathe
+  name: biogenerator
+  description: Converts plants into biomass, which can be used to construct useful items.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/biofabricator.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: BiogeneratorMachineCircuitboard
+  - type: MaterialStorage
+  - type: ProduceMaterialExtractor
+  - type: ItemSlots
+    slots:
+      beaker_slot:
+        name: lathe-component-output-slot-beaker-name
+        whitelist:
+          components:
+          - FitsInDispenser
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      beaker_slot: !type:ContainerSlot
+  - type: Lathe
+    reagentOutputSlotId: beaker_slot
+    idleState: icon
+    runningState: building
+    staticRecipes:
+    - BioGenMilk
+    - BioGenMilkSoy
+    - BioGenEthanol
+    - BioGenCream
+    - BioGenBlackpepper
+    - BioGenEnzyme
+    - BioGenFlour
+    - BioGenSugar
+    - BioGenMonkeyCube
+    - BioGenKoboldCube
+    - BioGenMaterialCloth1
+    - BioGenMaterialCardboard1
+    - BioGenPaper
+    - BioGenPaperRolling1
+    - BioGenCandle
+    - BioGenPlantBGone
+    - BioGenWeedKiller
+    - BioGenPestKiller
+    - BioGenLeft4Zed
+    - BioGenEZNutrient
+    - BioGenRobustHarvest
 
 - type: entity
   parent: [BaseLathe, BaseMaterialSiloUtilizer]
@@ -1849,6 +1911,7 @@
     - ToySword
     - BwoinkHammer
     - ThronglerToy
+    - FaceHuggerToys # WD EDIT
   - type: MaterialStorage
     whitelist:
       tags:

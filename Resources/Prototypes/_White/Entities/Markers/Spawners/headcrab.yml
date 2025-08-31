@@ -20,7 +20,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _White/Mobs/Animals/headcrab.rsi
+      - sprite: _White/Mobs/Aliens/headcrab.rsi
         state: alive
   - type: ConditionalSpawner
     prototypes:
@@ -34,7 +34,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _White/Mobs/Animals/headcrab_fast.rsi
+      - sprite: _White/Mobs/Aliens/headcrab_fast.rsi
         state: alive
   - type: ConditionalSpawner
     prototypes:
@@ -48,7 +48,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _White/Mobs/Animals/headcrab_poison.rsi
+      - sprite: _White/Mobs/Aliens/headcrab_poison.rsi
         state: alive
   - type: ConditionalSpawner
     prototypes:

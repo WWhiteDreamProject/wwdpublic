@@ -53,6 +53,7 @@
   - type: ProximityDetector
     range: 20
     criteria:
+      requireAll: true
       components:
       - Anomaly
   - type: Beeper

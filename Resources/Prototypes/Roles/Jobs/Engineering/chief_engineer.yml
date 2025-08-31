@@ -50,8 +50,8 @@
   - ChiefEngineerPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitChiefEngineer
-    back: ClothingBackpackChiefEngineer
-    shoes: ClothingShoesColorBrown
+    back: ClothingBackpackEngineering
+    shoes: ClothingShoesBootsWorkCE # WWDP edit (spaceman)
     id: CEPDA
     ears: ClothingHeadsetAltEngineering
   storage:

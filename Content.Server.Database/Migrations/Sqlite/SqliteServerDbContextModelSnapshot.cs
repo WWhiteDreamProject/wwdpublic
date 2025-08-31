@@ -637,6 +637,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("custom_color_tint");
 
+                    b.Property<string>("CustomContent")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("custom_content");
+
                     b.Property<string>("CustomDescription")
                         .HasColumnType("TEXT")
                         .HasColumnName("custom_description");
@@ -862,6 +866,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<byte[]>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
+
+                    b.Property<string>("MimeName")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("mime_name");
 
                     b.Property<string>("Nationality")
                         .IsRequired()

@@ -17,6 +17,8 @@
   - type: AntagLoadProfileRule
     speciesOverride: Abductor
     alwaysUseSpeciesOverride: true
+    allowProfileExtensions: false
+    allowAntagLoadouts: false
   - type: AntagSelection
     definitions:
     - spawnerPrototype: LoneAbductorSpawner
@@ -32,7 +34,7 @@
       - type: Abductor
       - type: ActionGrant
         actions:
-          - ActionReturnToShip
+        - ActionReturnToShip
       - type: GhostRole
         name: abductor-lone-ghost-role-name
         description: abductor-lone-ghost-role-desc
@@ -51,23 +53,23 @@
       - type: GhostTakeoverAvailable
       - type: NpcFactionMember
         factions:
-          - SimpleHostile
+        - SimpleHostile
       - type: RandomMetadata
         nameSegments:
-          - AbductorScientistPrefix
-          - AbductorNames
+        - AbductorScientistPrefix
+        - AbductorNames
       - type: Tag
         tags:
-          - Abductor
-          - AbductorScientist
-          - CanPilot
-          - FootstepSound
-          - DoorBumpOpener
+        - Abductor
+        - AbductorScientist
+        - CanPilot
+        - FootstepSound
+        - DoorBumpOpener
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
       - type: Sanitized
       - type: SurgerySpeedModifier
-        speedModifier: 5 # WWDP
+        speedModifier: 5 # WD EDIT: 1.5 -> 5
       mindRoles:
       - MindRoleLoneAbductor
 
@@ -109,6 +111,8 @@
   - type: AntagLoadProfileRule
     speciesOverride: Abductor
     alwaysUseSpeciesOverride: true
+    allowProfileExtensions: false
+    allowAntagLoadouts: false
   - type: AntagSelection
     definitions:
     - spawnerPrototype: AbductorScientistSpawner
@@ -127,15 +131,15 @@
         roller: false
       - type: InnatePsionicPowers
         powersToAdd:
-          - TelepathyPower
+        - TelepathyPower
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
       - type: Sanitized
       - type: SurgerySpeedModifier
-        speedModifier: 5 # WWDP
+        speedModifier: 5 # WD EDIT: 1.5 -> 5
       - type: ActionGrant
         actions:
-          - ActionReturnToShip
+        - ActionReturnToShip
       - type: GhostRole
         name: abductor-scientist-ghost-role-name
         description: abductor-scientist-ghost-role-desc
@@ -151,18 +155,18 @@
       - type: GhostTakeoverAvailable
       - type: NpcFactionMember
         factions:
-          - SimpleHostile
+        - SimpleHostile
       - type: RandomMetadata
         nameSegments:
-          - AbductorScientistPrefix
-          - AbductorNames
+        - AbductorScientistPrefix
+        - AbductorNames
       - type: Tag
         tags:
-          - Abductor
-          - AbductorScientist
-          - CanPilot
-          - FootstepSound
-          - DoorBumpOpener
+        - Abductor
+        - AbductorScientist
+        - CanPilot
+        - FootstepSound
+        - DoorBumpOpener
       mindRoles:
       - MindRoleLoneAbductor
     - spawnerPrototype: AbductorAgentSpawner
@@ -184,7 +188,7 @@
         - TelepathyPower
       - type: ActionGrant
         actions:
-          - ActionReturnToShip
+        - ActionReturnToShip
       - type: GhostRole
         name: abductor-agent-ghost-role-name
         description: abductor-agent-ghost-role-desc
@@ -200,17 +204,17 @@
       - type: GhostTakeoverAvailable
       - type: NpcFactionMember
         factions:
-          - SimpleHostile
+        - SimpleHostile
       - type: RandomMetadata
         nameSegments:
-          - AbductorAgentPrefix
-          - AbductorNames
+        - AbductorAgentPrefix
+        - AbductorNames
       - type: Tag
         tags:
-          - Abductor
-          - CanPilot
-          - FootstepSound
-          - DoorBumpOpener
+        - Abductor
+        - CanPilot
+        - FootstepSound
+        - DoorBumpOpener
       - type: AbductorScientist # Should be removed when we have proper teleportation system
       mindRoles:
       - MindRoleLoneAbductor

@@ -52,14 +52,14 @@ signal-port-description-med-scanner-sender = Передатчик сигнала
 signal-port-name-med-scanner-receiver = Медицинский сканер
 signal-port-description-med-scanner-receiver = Приёмник сигнала медицинского сканера.
 
+signal-port-name-hold-open = Держать открытой.
+signal-port-description-hold-open = Выключает авто закрытие.
+
 signal-port-name-artifact-analyzer-sender = Консоль
 signal-port-description-artifact-analyzer-sender = Передатчик сигнала аналитической консоли.
 
 signal-port-name-artifact-analyzer-receiver = Платформа
 signal-port-description-artifact-analyzer-receiver = Приёмник сигнала анализатора артефактов.
-
-signal-port-name-hold-open = Держать открытой.
-signal-port-description-hold-open = Выключает авто закрытие.
 
 signal-port-name-set-particle-delta = Установить тип частицы: дельта
 signal-port-description-set-particle-delta = Устанавливает тип частицы, испускаемой этим устройством, на дельта.
@@ -69,6 +69,9 @@ signal-port-description-set-particle-epsilon = Устанавливает тип
 
 signal-port-name-set-particle-zeta = Установить тип частицы: зета
 signal-port-description-set-particle-zeta = Устанавливает тип частицы, испускаемой этим устройством, на зета.
+
+signal-port-name-set-particle-sigma = Set particle type: sigma
+signal-port-description-set-particle-sigma = Sets the type of particle this device emits to sigma.
 
 signal-port-name-logic-input-a = Вход А
 signal-port-description-logic-input-a = Первый вход логического элемента.
@@ -81,3 +84,5 @@ signal-port-description-logic-input = Вход в край детектора, �
 
 signal-port-name-material-silo-utilizer = Потребитель хранилища
 signal-port-description-material-silo-utilizer = Потребитель для хранилища материалов станции
+signal-port-name-fill-any-item = Fillbot Target
+signal-port-description-fill-any-item = Target port for Fillbot insertion.

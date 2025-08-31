@@ -230,8 +230,8 @@
     sprite: Clothing/Belt/janitor.rsi
   - type: Clothing
     sprite: Clothing/Belt/janitor.rsi
+  - type: Storage
     # WD EDIT START
-    # - type: Storage
     #   whitelist:
     #     tags:
     #       - Wrench

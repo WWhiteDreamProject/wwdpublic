@@ -1,5 +1,5 @@
 using Content.Server._White.GameTicking.Aspects.Components;
-using Content.Server._White.Other;
+using Content.Shared._White.Other;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Weapons.Reflect;
 
@@ -11,7 +11,7 @@ public sealed class ReflectAspect : AspectSystem<ReflectAspectComponent>
     {
         base.Started(uid, component, gameRule, args);
 
-        var query = EntityQueryEnumerator<ReflectAspectMarkComponent>();
+        var query = EntityQueryEnumerator<StructureComponent>();
         while (query.MoveNext(out var ent, out _))
         {
             var reflect = EnsureComp<ReflectComponent>(ent);

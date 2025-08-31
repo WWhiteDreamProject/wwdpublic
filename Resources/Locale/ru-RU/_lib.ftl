@@ -21,7 +21,10 @@ zzzz-fmt-power-watts = { TOSTRING($divided, "F1") } { $places ->
 }
 
 # Used internally by the POWERJOULES() function.
+
+# Used internally by the POWERJOULES() function.
 # Reminder: 1 joule = 1 watt for 1 second (multiply watts by seconds to get joules).
+# Therefore 1 kilowatt-hour is equal to 3,600,000 joules (3.6MJ)
 # Therefore 1 kilowatt-hour is equal to 3,600,000 joules (3.6MJ)
 zzzz-fmt-power-joules = { TOSTRING($divided, "F1") } { $places ->
     [0] Дж

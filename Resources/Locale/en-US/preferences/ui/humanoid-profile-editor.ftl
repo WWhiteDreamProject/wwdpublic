@@ -108,3 +108,5 @@ humanoid-profile-editor-markings-tab = Markings
 humanoid-profile-editor-flavortext-tab = Description
 
 humanoid-profile-editor-clown-name-label = Clown Nickname:
+
+humanoid-profile-editor-mime-name-label = Mime Nickname:

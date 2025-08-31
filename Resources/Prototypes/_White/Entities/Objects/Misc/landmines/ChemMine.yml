@@ -1,0 +1,82 @@
+﻿- type: entity
+  name: vietcong mine
+  id: VietcongMine
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Pullable
+  - type: MovedByPressure
+  - type: Physics
+    bodyType: Static
+    fixedRotation: true
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        layer:
+        - LowImpassable
+  - type: Construction
+    graph: ChemMineGraph
+    node: emptyCase
+  - type: Sprite
+    drawdepth: Items
+    sprite: _White/Objects/Misc/vietcong_mine.rsi
+    state: landmine
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:TriggerBehavior
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: LandMine
+  - type: StepTrigger
+    triggerGroups:
+      types:
+      - Landmine
+    requiredTriggeredSpeed: 0
+    stepOn: true
+  - type: SolutionContainerManager
+    solutions:
+      landmine:
+        maxVol: 10
+  - type: MixableSolution
+    solution: landmine
+  - type: RefillableSolution
+    solution: landmine
+  - type: ExaminableSolution
+    solution: landmine
+  - type: DrawableSolution
+    solution: landmine
+  - type: InjectableSolution
+    solution: landmine
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: landmine
+  - type: SolutionInjectOnTrigger
+    transferAmount: 10
+    solution: landmine
+
+- type: entity
+  name: vietcong mine
+  suffix: Admeme
+  parent: VietcongMine
+  id: AdmVietcongMine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      landmine:
+        maxVol: 20
+  - type: SolutionInjectOnTrigger
+    transferAmount: 20
+    solution: landmine
+    blockSlots: NONE

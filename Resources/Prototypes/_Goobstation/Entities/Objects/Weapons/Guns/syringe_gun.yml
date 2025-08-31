@@ -31,10 +31,6 @@
       storagebase: !type:Container
         ents: []
   - type: SyringeGun
-  - type: Tag
-    tags:
-    - Gun
-    - Weapon
 
 - type: entity
   parent: [ BaseSyringeGun, BaseGrandTheftContraband ]
@@ -49,8 +45,6 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
   - type: Tag
     tags:
-    - Gun
-    - Weapon
     - SyringeGunAmmo
 
 - type: entity
@@ -102,8 +96,6 @@
     pierceArmor: true
   - type: Tag
     tags:
-    - Gun
-    - Weapon
     - SyringeGunAmmo
 
-# TODO: Add the proper dart gun that regenerates every 25s, and draws from a 100u reservoir 
+# TODO: Add the proper dart gun that regenerates every 25s, and draws from a 100u reservoir

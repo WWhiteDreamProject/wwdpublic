@@ -836,20 +836,13 @@ public sealed class PullingSystem : EntitySystem
         {
             if (_netManager.IsServer && user != null && user.Value == pullableUid)
             {
-                var releaseAttempt = AttemptGrabRelease(pullableUid);
-                if (!releaseAttempt)
-                {
-                    _popup.PopupEntity(Loc.GetString("popup-grab-release-fail-self"),
-                        pullableUid,
-                        pullableUid,
-                        PopupType.SmallCaution);
+                if (!AttemptGrabRelease(pullableUid)) // WWDP edit
                     return false;
-                }
 
                 _popup.PopupEntity(Loc.GetString("popup-grab-release-success-self"),
                     pullableUid,
                     pullableUid,
-                    PopupType.SmallCaution);
+                    PopupType.MediumCaution); // WWDP edit
                 _popup.PopupEntity(
                     Loc.GetString("popup-grab-release-success-puller",
                         ("target", Identity.Entity(pullableUid, EntityManager))),
@@ -1063,13 +1056,33 @@ public sealed class PullingSystem : EntitySystem
         if (!Resolve(pullable.Owner, ref pullable.Comp))
             return false;
 
+        // WWDP edit start
         if (_timing.CurTime < pullable.Comp.NextEscapeAttempt)  // No autoclickers! Mwa-ha-ha
+        {
+            if (!pullable.Comp.DisplayedCooldownPopup)
+            {
+                _popup.PopupEntity(
+                    Loc.GetString("popup-grab-release-fail-cooldown"),
+                    pullable.Owner,
+                    pullable.Owner,
+                    PopupType.Medium);
+                pullable.Comp.DisplayedCooldownPopup = true; // Only show the popup once per attempt
+            }
             return false;
+        }
+
+        pullable.Comp.DisplayedCooldownPopup = false;
+
+        _popup.PopupEntity(Loc.GetString("popup-grab-release-fail-self"),
+            pullable.Owner,
+            pullable.Owner,
+            PopupType.MediumCaution);
 
         if (_random.Prob(pullable.Comp.GrabEscapeChance))
             return true;
 
-        pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(3));
+        pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(pullable.Comp.EscapeAttemptCooldown);
+        // WWDP edit end
         Dirty(pullable.Owner, pullable.Comp);
         return false;
     }

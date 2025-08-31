@@ -220,12 +220,15 @@ public sealed class PsionicsSystem : EntitySystem
 
         if (component.Potentia < component.NextPowerCost)
             return false;
-
+        
+        const float maxPowerCost = 800f; //wwdp edit
+        
         while (component.Potentia >= component.NextPowerCost)
         {
             component.Potentia -= component.NextPowerCost;
             _psionicAbilitiesSystem.AddPsionics(uid);
-            component.NextPowerCost = Math.Abs(component.BaselinePowerCost * MathF.Pow(2, component.PowerSlotsTaken));
+            float calculatedCost = Math.Abs(component.BaselinePowerCost * MathF.Pow(2, component.PowerSlotsTaken)); //wwdp edit
+            component.NextPowerCost = Math.Min(calculatedCost, maxPowerCost);
         }
 
         return true;

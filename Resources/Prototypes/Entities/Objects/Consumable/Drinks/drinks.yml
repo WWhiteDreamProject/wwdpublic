@@ -2459,3 +2459,8 @@
       effects:
       - !type:SatiateThirst
         factor: 4
+        # WD edit start
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.1
+        # WD edit end

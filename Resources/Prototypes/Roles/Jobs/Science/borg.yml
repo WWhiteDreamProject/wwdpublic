@@ -9,8 +9,8 @@
   supervisors: job-supervisors-rd
   jobEntity: PositronicBrain # WD EDIT
   nameDataset: NamesAI
-  spawnLoadout: false
   applyTraits: false
+  spawnLoadout: false
   canHavePassport: false
   requirements:
   - !type:CharacterOverallTimeRequirement # WWDP
@@ -37,6 +37,7 @@
   icon: JobIconBorg
   supervisors: job-supervisors-rd
   jobEntity: PlayerBorgBattery
+  applyTraits: false
   canHavePassport: false
   requirements:
   - !type:CharacterOverallTimeRequirement # WWDP

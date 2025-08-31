@@ -8,11 +8,10 @@ using Content.Shared.Item;
 using Content.Shared.DeltaV.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Prototypes;
-using System.Linq;
-using Content.Shared.Weapons.Ranged.Systems;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._White.Guns;
 
+// Basically everything in the file was touched by me so no point in WWDP Edit ig
 namespace Content.Server.DeltaV.Weapons.Ranged.Systems;
 
 public sealed class EnergyGunSystem : EntitySystem
@@ -21,66 +20,48 @@ public sealed class EnergyGunSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedItemSystem _item = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly GunSystem _gun = default!; // WWDP EDIT
+    [Dependency] private readonly GunSystem _gun = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EnergyGunComponent, ComponentInit>(OnComponentInit); // WWDP EDIT
+        SubscribeLocalEvent<EnergyGunComponent, ComponentStartup>(OnComponentStartup);
         SubscribeLocalEvent<EnergyGunComponent, ActivateInWorldEvent>(OnInteractHandEvent);
         SubscribeLocalEvent<EnergyGunComponent, GetVerbsEvent<Verb>>(OnGetVerb);
         SubscribeLocalEvent<EnergyGunComponent, ExaminedEvent>(OnExamined);
     }
 
-    private void OnExamined(EntityUid uid, EnergyGunComponent component, ExaminedEvent args)
+    private void OnExamined(Entity<EnergyGunComponent> entity, ref ExaminedEvent args)
     {
-        if (component.FireModes == null || component.FireModes.Count < 2)
+        if (entity.Comp.FireModes.Count < 2 ||
+            entity.Comp.CurrentFireMode?.Prototype == null ||
+            !_prototypeManager.TryIndex<EntityPrototype>(entity.Comp.CurrentFireMode.Prototype, out var proto))
             return;
 
-        if (component.CurrentFireMode == null)
-        {
-            SetFireMode(uid, component, component.FireModes.First());
-        }
+        var fireMode = "battery-fire-mode-" + entity.Comp.CurrentFireMode.Name;
+        var mode = Loc.GetString(fireMode);
 
-        if (component.CurrentFireMode?.Prototype == null)
-            return;
-
-        if (!_prototypeManager.TryIndex<EntityPrototype>(component.CurrentFireMode.Prototype, out var proto))
-            return;
-
-        // WWDP edit start - locale
-        var firemode = "battery-fire-mode-" + component.CurrentFireMode.Name;
-        var mode = Loc.GetString(firemode);
-
-        if (component.CurrentFireMode.Name == string.Empty)
+        if (entity.Comp.CurrentFireMode.Name == string.Empty)
             mode = proto.Name;
 
-        var color = "crimson";
-        if (component.CurrentFireMode.Name == "disable")
-            color = "lightblue";
-
-        if (component.CurrentFireMode.Name == "ion")
-            color = "blue";
+        var color = entity.Comp.CurrentFireMode.Name switch
+        {
+            "disable" => "lightblue",
+            "ion" => "blue",
+            _ => "crimson"
+        };
 
         args.PushMarkup(Loc.GetString("energygun-examine-fire-mode", ("mode", mode), ("color", color)));
-        // WWDP edit end
     }
 
-    private void OnGetVerb(EntityUid uid, EnergyGunComponent component, GetVerbsEvent<Verb> args)
+    private void OnGetVerb(Entity<EnergyGunComponent> entity, ref GetVerbsEvent<Verb> args)
     {
-        if (!args.CanAccess || !args.CanInteract || args.Hands == null)
+        if (!args.CanAccess || !args.CanInteract || args.Hands == null || entity.Comp.FireModes.Count < 2)
             return;
 
-        if (component.FireModes == null || component.FireModes.Count < 2)
-            return;
-
-        if (component.CurrentFireMode == null)
-        {
-            SetFireMode(uid, component, component.FireModes.First());
-        }
-
-        foreach (var fireMode in component.FireModes)
+        var user = args.User;
+        foreach (var fireMode in entity.Comp.FireModes)
         {
             var entProto = _prototypeManager.Index<EntityPrototype>(fireMode.Prototype);
 
@@ -89,12 +70,12 @@ public sealed class EnergyGunSystem : EntitySystem
                 Priority = 1,
                 Category = VerbCategory.SelectType,
                 Text = entProto.Name,
-                Disabled = fireMode == component.CurrentFireMode,
+                Disabled = fireMode == entity.Comp.CurrentFireMode,
                 Impact = LogImpact.Low,
                 DoContactInteraction = true,
                 Act = () =>
                 {
-                    SetFireMode(uid, component, fireMode, args.User);
+                    SetFireMode(entity, fireMode, user);
                 }
             };
 
@@ -102,100 +83,82 @@ public sealed class EnergyGunSystem : EntitySystem
         }
     }
 
-    // WWDP EDIT START
-    private void OnComponentInit(EntityUid uid, EnergyGunComponent component, ComponentInit args)
+    private void OnComponentStartup(Entity<EnergyGunComponent> entity, ref ComponentStartup args)
     {
-        if(component.FireModes.Count > 0)
-            SetFireMode(uid, component, component.FireModes[0]);
-    }
-    // WWDP EDIT END
-
-    private void OnInteractHandEvent(EntityUid uid, EnergyGunComponent component, ActivateInWorldEvent args)
-    {
-        if (component.FireModes == null || component.FireModes.Count < 2)
-            return;
-
-        CycleFireMode(uid, component, args.User);
-    }
-
-    private void CycleFireMode(EntityUid uid, EnergyGunComponent component, EntityUid user)
-    {
-        int index = (component.CurrentFireMode != null) ?
-            Math.Max(component.FireModes.IndexOf(component.CurrentFireMode), 0) + 1 : 1;
-
-        EnergyWeaponFireMode? fireMode;
-
-        if (index >= component.FireModes.Count)
-        {
-            fireMode = component.FireModes.FirstOrDefault();
-        }
-
+        if (entity.Comp.FireModes.Count == 0)
+            Del(entity); // we can't have energy gun with 0 fire mods
         else
-        {
-            fireMode = component.FireModes[index];
-        }
-
-        SetFireMode(uid, component, fireMode, user);
+            SetFireMode(entity, entity.Comp.FireModes[0]);
     }
 
-    private void SetFireMode(EntityUid uid, EnergyGunComponent component, EnergyWeaponFireMode? fireMode, EntityUid? user = null)
+    private void OnInteractHandEvent(Entity<EnergyGunComponent> entity, ref ActivateInWorldEvent args)
+    {
+        if (entity.Comp.FireModes.Count >= 2)
+            CycleFireMode(entity, args.User);
+    }
+
+    private void CycleFireMode(Entity<EnergyGunComponent> entity, EntityUid user)
+    {
+        var index = entity.Comp.CurrentFireMode != null
+            ? Math.Max(entity.Comp.FireModes.IndexOf(entity.Comp.CurrentFireMode), 0) + 1
+            : 1;
+
+        var fireMode = index >= entity.Comp.FireModes.Count
+            ? entity.Comp.FireModes[0]
+            : entity.Comp.FireModes[index];
+
+        SetFireMode(entity, fireMode, user);
+    }
+
+    private void SetFireMode(Entity<EnergyGunComponent> entity, EnergyWeaponFireMode? fireMode, EntityUid? user = null)
     {
         if (fireMode?.Prototype == null)
             return;
 
-        component.CurrentFireMode = fireMode;
+        entity.Comp.CurrentFireMode = fireMode;
 
-        if (TryComp(uid, out ProjectileBatteryAmmoProviderComponent? projectileBatteryAmmoProvider))
+        if (!TryComp(entity, out ProjectileBatteryAmmoProviderComponent? projectileBatteryAmmoProvider) ||
+            !_prototypeManager.TryIndex<EntityPrototype>(fireMode.Prototype, out var prototype))
+            return;
+
+        projectileBatteryAmmoProvider.Prototype = fireMode.Prototype;
+        projectileBatteryAmmoProvider.FireCost = fireMode.FireCost;
+        if (TryComp<GunFluxComponent>(entity, out var overheat))
         {
-            if (!_prototypeManager.TryIndex<EntityPrototype>(fireMode.Prototype, out var prototype))
-                return;
-
-            projectileBatteryAmmoProvider.Prototype = fireMode.Prototype;
-            projectileBatteryAmmoProvider.FireCost = fireMode.FireCost;
-            // WWDP EDIT START
-            if (TryComp<GunOverheatComponent>(uid, out var overheat))
-            {
-                overheat.HeatCost = fireMode.HeatCost;
-                Dirty(uid, overheat);
-            }
-            _gun.UpdateShots(uid, projectileBatteryAmmoProvider);
-
-            if (user != null)
-            {
-                var firemode = "battery-fire-mode-" + fireMode.Name;
-                var mode = Loc.GetString(firemode);
-
-                if (fireMode.Name == string.Empty)
-                    mode = prototype.Name;
-
-                _popupSystem.PopupEntity(Loc.GetString("gun-set-fire-mode", ("mode", mode)), uid, user.Value);
-            }
-            // WWDP EDIT END
-
-            if (component.CurrentFireMode.State == string.Empty)
-                return;
-
-            if (TryComp<AppearanceComponent>(uid, out var _) && TryComp<ItemComponent>(uid, out var item))
-            {
-                _item.SetHeldPrefix(uid, component.CurrentFireMode.State, false, item);
-                switch (component.CurrentFireMode.State)
-                {
-                    case "disabler":
-                        UpdateAppearance(uid, EnergyGunFireModeState.Disabler);
-                        break;
-                    case "lethal":
-                        UpdateAppearance(uid, EnergyGunFireModeState.Lethal);
-                        break;
-                    case "special":
-                        UpdateAppearance(uid, EnergyGunFireModeState.Special);
-                        break;
-                }
-            }
+            overheat.HeatCost = fireMode.HeatCost;
+            Dirty(entity, overheat);
         }
-    }
 
-    private void UpdateAppearance(EntityUid uid, EnergyGunFireModeState state)
-    {
-        _appearance.SetData(uid, EnergyGunFireModeVisuals.State, state);
+        _gun.UpdateShots(entity, projectileBatteryAmmoProvider);
+
+        if (user != null)
+        {
+            var fireModeName = "battery-fire-mode-" + fireMode.Name;
+            var mode = Loc.GetString(fireModeName);
+
+            if (fireMode.Name == string.Empty)
+                mode = prototype.Name;
+
+            _popupSystem.PopupEntity(Loc.GetString("gun-set-fire-mode", ("mode", mode)), entity, user.Value);
+        }
+
+        if (entity.Comp.CurrentFireMode.State == string.Empty ||
+            !HasComp<AppearanceComponent>(entity) ||
+            !TryComp<ItemComponent>(entity, out var item))
+            return;
+
+        _item.SetHeldPrefix(entity, entity.Comp.CurrentFireMode.State, false, item);
+        switch (entity.Comp.CurrentFireMode.State)
+        {
+            case "disabler":
+                _appearance.SetData(entity, EnergyGunFireModeVisuals.State, EnergyGunFireModeState.Disabler);
+                break;
+            case "lethal":
+                _appearance.SetData(entity, EnergyGunFireModeVisuals.State, EnergyGunFireModeState.Lethal);
+                break;
+            case "special":
+                _appearance.SetData(entity, EnergyGunFireModeVisuals.State, EnergyGunFireModeState.Special);
+                break;
+        }
     }
 }

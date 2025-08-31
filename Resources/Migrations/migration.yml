@@ -187,9 +187,11 @@ AirlockShuttleEasyPryLocked: AirlockExternalShuttleLocked
 # 2024-03-10
 FoodChili: FoodChiliPepper
 FoodChilly: FoodChillyPepper
-# ClothingBackpackFilledDetective: ClothingBackpackSecurityFilledDetective
-# ClothingBackpackDuffelFilledDetective: ClothingBackpackDuffelSecurityFilledDetective
-# ClothingBackpackSatchelFilledDetective: ClothingBackpackSatchelSecurityFilledDetective
+
+# 2024-03-11
+ImprovisedExplosive: FireBomb
+ImprovisedExplosiveEmpty: FireBombEmpty
+ImprovisedExplosiveFuel: FireBombFuel
 
 # 2024-03-16
 ClothingHeadHatHairflower: FoodPoppy
@@ -337,6 +339,26 @@ FoodMeatFiestaKebab: FoodKebabSkewer
 #2024-08-14
 ClothingBeltSuspenders: ClothingBeltSuspendersRed
 
+# 2024-08-19
+ClothingNeckShockCollar: ClothingBackpackElectropack
+
+# 2024-08-22
+ComputerShuttleSalvage: null
+SalvageShuttleConsoleCircuitboard: null
+SalvageShuttleCircuitboardStealObjective: null
+
+# 2024-08-28
+ClothingBackpackDuffelSyndicateCostumeCentcom: null
+ClothingHeadsetAltCentComFake: null
+CentcomPDAFake: null
+CentcomIDCardSyndie: null
+
+# 2024-09-08
+HatBase: null
+
+# 2024-09-19
+BlueprintFlare: null
+
 # 2024-10-09
 # Removal of separate borg chassis parts, replace them with generic borg parts.
 LeftArmBorgEngineer: LeftArmBorg
@@ -372,28 +394,11 @@ RightLegBorgJanitor: RightLegBorg
 HeadBorgJanitor: LightHeadBorg
 TorsoBorgJanitor: TorsoBorg
 
-# 2024-03-11
-ImprovisedExplosive: FireBomb
-ImprovisedExplosiveEmpty: FireBombEmpty
-ImprovisedExplosiveFuel: FireBombFuel
+# 2024-11-17
+PresentRandomAsh: PresentRandomCoal
 
-# 2024-11-10 WD EDIT
-VendingMachinePride: RandomVending
-
-# 2024-30-10 WD EDIT
-HoloprojectorEmpty: Holoprojector
-HoloprojectorBorg: Holoprojector
-HolofanProjectorEmpty: HolofanProjector
-HoloprojectorFieldEmpty: HoloprojectorField
-HoloprojectorSecurityEmpty: HoloprojectorSecurity
-
-# 2024-09-11 WD EDIT
-DresserCaptainFilled: CaptainDrobe
-
-# 2024-12-11 WD EDIT
-NTFlag: FlagNanoTrasen
-SyndieFlag: FlagSyndicate
-LGBTQFlag: RandomPosterLegit
+# 2025-02-11
+WallShuttleInterior: WallShuttle
 
 # 2025-03-02
 WeaponSubMachineGunVector: null
@@ -411,20 +416,6 @@ WeaponGrapplingGun: null
 BorgModuleGrapplingGun: null
 WeaponForceGunAdmin: null
 WeaponTetherGunAdmin: null
-
-# 2024-08-19
-ClothingNeckShockCollar: ClothingBackpackElectropack
-
-# 2024-08-22
-ComputerShuttleSalvage: null
-SalvageShuttleConsoleCircuitboard: null
-SalvageShuttleCircuitboardStealObjective: null
-
-# 2024-08-28
-ClothingBackpackDuffelSyndicateCostumeCentcom: null
-ClothingHeadsetAltCentComFake: null
-CentcomPDAFake: null
-CentcomIDCardSyndie: null
 
 # Lavaland EE stuff
 TreasureDatadiskEncrypted: null

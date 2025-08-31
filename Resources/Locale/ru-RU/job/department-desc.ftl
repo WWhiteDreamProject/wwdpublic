@@ -1,6 +1,7 @@
 ﻿department-Cargo-description = Выполняйте запросы, зарабатывайте кредиты и заказывайте полезные вещички для экипажа.
 department-Civilian-description = Выполняйте мелкие полезные задачки для поддержки станции в хорошем состоянии.
 department-Command-description = Управляйте персоналом станции и помогайте им работать эффективно.
+department-CentralCommand-description = Manage the crew and keep them working efficiently.
 department-Engineering-description = Поддерживайте электроэнергию и станцию в рабочем состоянии.
 department-Medical-description = Поддерживайте здоровье персонала.
 department-Security-description = Охраняйте порядок на станции.

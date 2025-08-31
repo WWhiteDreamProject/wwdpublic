@@ -837,10 +837,19 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("integer")
                         .HasColumnName("age");
 
+                    b.Property<string>("BodyType")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("body_type");
+
                     b.Property<string>("CharacterName")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("char_name");
+
+                    b.Property<string>("ClownName")
+                        .HasColumnType("text")
+                        .HasColumnName("clown_name");
 
                     b.Property<string>("CustomSpecieName")
                         .IsRequired()
@@ -947,6 +956,11 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Property<string>("StationAiName")
                         .HasColumnType("text")
                         .HasColumnName("station_ai_name");
+
+                    b.Property<string>("Voice")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("voice");
 
                     b.Property<float>("Width")
                         .HasColumnType("real")

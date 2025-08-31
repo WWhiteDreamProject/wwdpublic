@@ -24,3 +24,7 @@
     ReagentContainerSalt: 1 # DeltaV adds big containers
     ReagentContainerPepper: 1 # DeltaV adds big containers
     ReagentContainerChocolate: 1 # DeltaV adds big containers
+  #wwdp edit start
+  emaggedInventory:
+    Whetstone: 2
+  #wwdp edit end

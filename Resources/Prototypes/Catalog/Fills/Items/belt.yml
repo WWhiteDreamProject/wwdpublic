@@ -180,21 +180,23 @@
   name: grenadier chest rig
   suffix: Filled
   components:
-  - type: Item
-    size: Ginormous
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-    - 0,0,7,1
+  # WD EDIT START
+  # - type: Item
+  #   size: Ginormous
+  # - type: Storage
+  #   maxItemSize: Normal
+  #  grid:
+  #   - 0,0,7,1
+  # WD EDIT END
   - type: StorageFill
     contents:
       - id: ExGrenade
-        # WD EDIT START
+      # WD EDIT START
         amount: 2
       - id: GrenadeShrapnel
-        amount: 2
+        amount: 1
       - id: GrenadeIncendiary
-        amount: 2
+        amount: 1
       # WD EDIT END
       - id: SyndieMiniBomb
         amount: 2

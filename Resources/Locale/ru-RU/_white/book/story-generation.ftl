@@ -1,0 +1,44 @@
+story-gen-book-character-story1 = клоуна
+story-gen-book-character-story2 = мима
+story-gen-book-character-story3 = репортёра
+story-gen-book-character-story4 = мясника
+story-gen-book-character-story5 = бармена
+story-gen-book-character-story6 = уборщика
+story-gen-book-character-story7 = инженера
+story-gen-book-character-story8 = учёного
+story-gen-book-character-story9 = офицера
+story-gen-book-character-story10 = доктора
+story-gen-book-character-story11 = химика
+story-gen-book-character-story12 = заключённого
+story-gen-book-character-story13 = исследователя
+story-gen-book-character-story14 = торговца
+story-gen-book-character-story15 = капитана
+story-gen-book-character-story16 = ящера
+story-gen-book-character-story17 = ниану
+story-gen-book-character-story18 = диону
+story-gen-book-character-story19 = фелинида
+story-gen-book-character-story20 = кота
+story-gen-book-character-story21 = корги
+story-gen-book-character-story22 = пёсика
+story-gen-book-character-story23 = ксеноморфа
+story-gen-book-character-story24 = абдуктора
+story-gen-book-character-story25 = агента Синдиката
+story-gen-book-character-story26 = ревенанта
+story-gen-book-character-story27 = крысокороля
+story-gen-book-character-story28 = ниндзя
+story-gen-book-character-story29 = космического дракона
+story-gen-book-character-story30 = революционера
+story-gen-book-character-story31 = ядерного оперативника
+story-gen-book-character-story32 = культиста Нар'Си
+story-gen-book-character-story33 = вульпканина
+story-gen-book-character-story34 = грейтайдера
+story-gen-book-character-story35 = арахнида
+story-gen-book-character-story36 = кадета
+story-gen-book-character-story37 = дворфа
+story-gen-book-character-story38 = вора
+story-gen-book-character-story39 = волшебника
+story-gen-book-character-story40 = слайма
+
+story-template-generic-story = Это {$genre} о {$character_trait1} {$character1} и {$character_trait2} {$character2}. Из-за {$event}, они {$action_trait} {$action} {$character_story} {$location}.
+
+    {$element} {$element_trait}.

@@ -1,10 +1,13 @@
 using System.Linq;
 using Content.Server.Paint;
 using Content.Server.Players.PlayTimeTracking;
+using Content.Shared._White.Book;
+using Content.Shared._White.Book.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Loadouts.Prototypes;
 using Content.Shared.Clothing.Loadouts.Systems;
 using Content.Shared.GameTicking;
+using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Players;
@@ -34,6 +37,7 @@ public sealed class LoadoutSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly ILogManager _log = default!;
+    [Dependency] private readonly BookSystem _bookSystem = default!; // WD EDIT
 
     private ISawmill _sawmill = default!;
 
@@ -43,6 +47,7 @@ public sealed class LoadoutSystem : EntitySystem
         _sawmill = _log.GetSawmill("loadouts");
 
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
+        SubscribeLocalEvent<LoadProfileExtensionsEvent>(OnProfileLoad);
     }
 
 
@@ -63,6 +68,23 @@ public sealed class LoadoutSystem : EntitySystem
             jobProto: job);
 
         RaiseLocalEvent(ev.Mob, new PlayerLoadoutAppliedEvent(ev.Mob, ev.Player, ev.JobId, ev.LateJoin, ev.Silent, ev.JoinOrder, ev.Station, ev.Profile), broadcast: true);
+    }
+
+    private void OnProfileLoad(LoadProfileExtensionsEvent ev)
+    {
+        if (ev.JobId == null || Deleted(ev.Mob) || !Exists(ev.Mob)
+            || !HasComp<MetaDataComponent>(ev.Mob) // TODO: FIND THE STUPID RACE CONDITION THAT IS MAKING ME CHECK FOR THIS.
+            || !_protoMan.TryIndex<JobPrototype>(ev.JobId, out var job)
+            || !_configurationManager.GetCVar(CCVars.GameLoadoutsEnabled))
+            return;
+
+        ApplyCharacterLoadout(
+            ev.Mob,
+            ev.JobId,
+            ev.Profile,
+            _playTimeTracking.GetTrackerTimes(ev.Player),
+            ev.Player.ContentData()?.Whitelisted ?? false,
+            jobProto: job);
     }
 
 
@@ -108,6 +130,20 @@ public sealed class LoadoutSystem : EntitySystem
                 _meta.SetEntityName(loadout.Item1, loadout.Item2.CustomName);
             if (loadoutProto.CustomDescription && loadout.Item2.CustomDescription != null)
                 _meta.SetEntityDescription(loadout.Item1, loadout.Item2.CustomDescription);
+            // WD EDIT START
+            if (!string.IsNullOrEmpty(loadout.Item2.CustomContent) && TryComp<BookComponent>(loadout.Item1, out var bookComponent))
+            {
+                try
+                {
+                    _bookSystem.SplitContentIntoPages(bookComponent, loadout.Item2.CustomContent);
+                    Dirty(loadout.Item1, bookComponent);
+                }
+                catch (Exception ex)
+                {
+                    _sawmill.Error($"Failed to apply custom book content to loadout {loadout.Item2.LoadoutName}: {ex.Message}");
+                }
+            }
+            // WD EDIT END
             if (loadoutProto.CustomColorTint && !string.IsNullOrEmpty(loadout.Item2.CustomColorTint))
                 _paint.Paint(null, null, loadout.Item1, Color.FromHex(loadout.Item2.CustomColorTint));
 
@@ -129,12 +165,15 @@ public sealed class LoadoutSystem : EntitySystem
         if (heirlooms.Any())
         {
             var heirloom = _random.Pick(heirlooms);
-            EnsureComp<HeirloomHaverComponent>(uid, out var haver);
-            EnsureComp<HeirloomComponent>(heirloom.Item1, out var comp);
-            haver.Heirloom = heirloom.Item1;
-            comp.HOwner = uid;
-            Dirty(uid, haver);
-            Dirty(heirloom.Item1, comp);
+            if (Exists(heirloom.Item1)) // WD EDIT
+            {
+                EnsureComp<HeirloomHaverComponent>(uid, out var haver);
+                EnsureComp<HeirloomComponent>(heirloom.Item1, out var comp);
+                haver.Heirloom = heirloom.Item1;
+                comp.HOwner = uid;
+                Dirty(uid, haver);
+                Dirty(heirloom.Item1, comp);
+            }
         }
 
         if (jobProto != null ||

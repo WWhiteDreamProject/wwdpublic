@@ -403,6 +403,7 @@ namespace Content.Server.Database
         public string? StationAiName { get; set; }
         public string? CyborgName { get; set; }
         public string? ClownName { get; set; } // WD EDIT
+        public string? MimeName { get; set; } // WD EDIT
         public string Species { get; set; } = null!;
         public float Height { get; set; } = 1f;
         public float Width { get; set; } = 1f;
@@ -473,9 +474,10 @@ namespace Content.Server.Database
             string loadoutName,
             string? customName = null,
             string? customDescription = null,
+            string? customContent = null, // WD EDIT
             string? customColorTint = null,
             bool? customHeirloom = null
-        ) : base(loadoutName, customName, customDescription, customColorTint, customHeirloom) { }
+        ) : base(loadoutName, customName, customDescription, customContent, customColorTint, customHeirloom) { } // WD EDIT
     }
 
     public enum DbPreferenceUnavailableMode

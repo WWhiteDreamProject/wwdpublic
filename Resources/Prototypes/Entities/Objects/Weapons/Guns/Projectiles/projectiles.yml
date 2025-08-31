@@ -1221,7 +1221,7 @@
     impactEffect: BulletImpactEffectLaserRed # WD EDIT
     damage:
       types:
-        Heat: 25 # WWDP
+        Heat: 25 # WD EDIT: 13 -> 25
     soundHit:
       collection: MeatLaserImpact # WWDP
     forceSound: true
@@ -1241,13 +1241,13 @@
   components:
   - type: ProjectileSpread
     proto: BulletLaser
-    count: 6 # 60 heat damage if you hit all your shots, but wide spread
-    spread: 25
+    count: 5 #65 heat damage if you hit all your shots, but wide spread
+    spread: 30
 
 - type: entity
   name: laser slug
   id: BulletLaserSpreadSlug
-  parent: BulletLaserHeavy
+  parent: BulletLaser
   categories: [ HideSpawnMenu ]
   components:
   - type: ProjectileSpread
@@ -1255,6 +1255,7 @@
     count: 4 #60 heat damage, 20 blunt damage, and a high energy cost per shot.
     spread: 0
 
+  # WD EDIT START
 - type: entity
   name : heavy laser bolt
   id: BulletLaserHeavy
@@ -1264,8 +1265,7 @@
   - type: Projectile
     damage:
       types:
-        Heat: 30 # WD EDIT
-  # WD EDIT START
+        Heat: 30
   - type: Sprite
     layers:
     - state: heavylaser
@@ -1275,16 +1275,15 @@
     energy: 1.0
   # WD EDIT END
 
-
 - type: entity
   name: narrow laser barrage
-  id: BulletLaserHeavySpread
-  parent: BulletLaser
+  id: BulletLaserSpreadNarrow
   categories: [ HideSpawnMenu ]
+  parent: BulletLaser
   components:
   - type: ProjectileSpread
     proto: BulletLaser
-    count: 3 # 45 heat damage if you hit all your shots, but narrower spread
+    count: 4 #52 heat damage if you hit all your shots, but narrower spread
     spread: 10
 
 - type: entity

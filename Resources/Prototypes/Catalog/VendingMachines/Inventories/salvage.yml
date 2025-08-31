@@ -8,7 +8,7 @@
     FlashlightLantern: 2
     HandheldGPSBasic: 2
     RadioHandheld: 2
-#    WeaponGrapplingGun: 4
+    # WeaponGrapplingGun: 2
     WeaponProtoKineticAccelerator: 4
   # WD EDIT START
   contrabandInventory:

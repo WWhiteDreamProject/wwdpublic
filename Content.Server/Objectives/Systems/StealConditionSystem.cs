@@ -1,5 +1,6 @@
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Components.Targets;
+using Content.Shared.CartridgeLoader;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Objectives.Systems;
@@ -76,15 +77,15 @@ public sealed class StealConditionSystem : EntitySystem
     private void OnAfterAssign(Entity<StealConditionComponent> condition, ref ObjectiveAfterAssignEvent args)
     {
         var group = _proto.Index(condition.Comp.StealGroup);
-        var name = Loc.GetString(group.Name);
+        string localizedName = Loc.GetString(group.Name);
 
         var title =condition.Comp.OwnerText == null
-            ? Loc.GetString(condition.Comp.ObjectiveNoOwnerText, ("itemName", name))
-            : Loc.GetString(condition.Comp.ObjectiveText, ("owner", Loc.GetString(condition.Comp.OwnerText)), ("itemName", name));
+            ? Loc.GetString(condition.Comp.ObjectiveNoOwnerText, ("itemName", localizedName))
+            : Loc.GetString(condition.Comp.ObjectiveText, ("owner", Loc.GetString(condition.Comp.OwnerText)), ("itemName", localizedName));
 
         var description = condition.Comp.CollectionSize > 1
-            ? Loc.GetString(condition.Comp.DescriptionMultiplyText, ("itemName", name), ("count", condition.Comp.CollectionSize))
-            : Loc.GetString(condition.Comp.DescriptionText, ("itemName", name));
+            ? Loc.GetString(condition.Comp.DescriptionMultiplyText, ("itemName", localizedName), ("count", condition.Comp.CollectionSize))
+            : Loc.GetString(condition.Comp.DescriptionText, ("itemName", localizedName));
 
         _metaData.SetEntityName(condition.Owner, title, args.Meta);
         _metaData.SetEntityDescription(condition.Owner, description, args.Meta);
@@ -179,6 +180,11 @@ public sealed class StealConditionSystem : EntitySystem
             return 0;
 
         if (target.StealGroup != condition.StealGroup)
+            return 0;
+
+        // check if cartridge is installed
+        if (TryComp<CartridgeComponent>(entity, out var cartridge) &&
+            cartridge.InstallationStatus is not InstallationStatus.Cartridge)
             return 0;
 
         // check if needed target alive

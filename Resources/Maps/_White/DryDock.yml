@@ -48,7 +48,7 @@ tilemap:
   62: FloorPlastic
   9: FloorRGlass
   19: FloorReinforced
-  38: FloorReinforcedGlassFrame
+  38: FloorReinforcedGlassFrameDark
   27: FloorShuttleBlack
   25: FloorShuttleBlue
   45: FloorShuttleGrey

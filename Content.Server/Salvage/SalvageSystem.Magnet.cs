@@ -9,7 +9,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Procedural;
 using Content.Shared.Radio;
 using Content.Shared.Salvage.Magnet;
-using Robust.Server.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
@@ -301,15 +300,10 @@ public sealed partial class SalvageSystem
             case SalvageOffering wreck:
                 var salvageProto = wreck.SalvageMap;
 
-                var opts = new MapLoadOptions
-                {
-                    Offset = new Vector2(0, 0)
-                };
-
-                if (!_map.TryLoad(salvMapXform.MapID, salvageProto.MapPath.ToString(), out _, opts))
+                if (!_loader.TryLoadGrid(salvMapXform.MapID, salvageProto.MapPath, out _))
                 {
                     Report(magnet, MagnetChannel, "salvage-system-announcement-spawn-debris-disintegrated");
-                    _mapManager.DeleteMap(salvMapXform.MapID);
+                    _mapSystem.DeleteMap(salvMapXform.MapID);
                     return;
                 }
 
@@ -419,15 +413,15 @@ public sealed partial class SalvageSystem
         RaiseLocalEvent(ref active);
     }
 
-    public bool TryGetSalvagePlacementLocation(Entity<SalvageMagnetComponent> magnet, MapId mapId, Box2Rotated attachedBounds, Box2 bounds, Angle worldAngle, out MapCoordinates coords, out Angle angle, int iter = 20, float step = 0.50f) // WD EDIT
+    private bool TryGetSalvagePlacementLocation(Entity<SalvageMagnetComponent> magnet, MapId mapId, Box2Rotated attachedBounds, Box2 bounds, Angle worldAngle, out MapCoordinates coords, out Angle angle)
     {
         var attachedAABB = attachedBounds.CalcBoundingBox();
         var magnetPos = _transform.GetWorldPosition(magnet) + worldAngle.ToVec() * bounds.MaxDimension;
         var origin = attachedAABB.ClosestPoint(magnetPos);
-        var fraction = step;
+        var fraction = 0.50f;
 
         // Thanks 20kdc
-        for (var i = 0; i < iter; i++) // WWDP EDIT
+        for (var i = 0; i < 20; i++)
         {
             var randomPos = origin +
                 worldAngle.ToVec() * (magnet.Comp.MagnetSpawnDistance * fraction) +
@@ -443,7 +437,7 @@ public sealed partial class SalvageSystem
             if (_mapManager.FindGridsIntersecting(finalCoords.MapId, box2Rot).Any())
             {
                 // Bump it further and further just in case.
-                fraction += step; // WWDP EDIT
+                fraction += 0.1f;
                 continue;
             }
 

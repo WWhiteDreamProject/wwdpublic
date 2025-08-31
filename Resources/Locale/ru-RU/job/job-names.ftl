@@ -24,11 +24,15 @@ job-name-engineer = Инженер
 job-name-atmostech = Атмосферный Техник
 job-name-hop = Глава Персонала
 job-name-captain = Капитан
+job-name-ntrep = Corporate Liaison
 job-name-serviceworker = Сервисный Работник
 job-name-centcomoff = Представитель Центрального Коммандования
+job-name-cburn = Агент РХБЗЗ
+job-name-deathsquad = Агент Эскадрона Смерти
 job-name-reporter = Репортёр
 job-name-musician = Музыкант
 job-name-librarian = Библиотекарь
+# DeltaV - Changed Lawyer to Attorney
 # DeltaV - Changed Lawyer to Attorney
 # job-name-lawyer = Юрист
 job-name-mime = Мим
@@ -44,8 +48,6 @@ job-name-qm = Квартирмейстер
 job-name-cargotech = Грузчик
 job-name-chef = Шеф-повар
 job-name-clown = Клоун
-job-name-cburn = Агент РХБЗЗ
-job-name-deathsquad = Агент Эскадрона Смерти
 job-name-ertleader = Лидер ОБР
 job-name-ertchaplain = Священник ОБР
 job-name-ertengineer = Инженер ОБР
@@ -59,25 +61,30 @@ job-name-visitor = Посетитель
 # unused jobs
 # these are required for the agent ID job icon tooltips
 # I am keeping them for roleplaying opportunities
+# unused jobs
+# these are required for the agent ID job icon tooltips
+# I am keeping them for roleplaying opportunities
 job-name-geneticist = Генетик
 job-name-no-id = Нет ID
+job-name-prisoner = Prisoner
 job-name-syndicate = Синдикат
 job-name-unknown = Неизвестно
 job-name-virologist = Вирусолог
 job-name-zombie = Зомби
 
 # Job titles
+# Job titles
 job-title-visitor = Посетитель
 job-title-cluwne = Клувн
 job-title-universal = Универсальный
 
+# Role timers - Make these alphabetical or I cut you
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = Атмосферный Техник
 JobBartender = Бармен
 JobBorg = Борг
 JobBotanist = Ботаник
 JobBoxer = Боксер
-JobBrigmedic = Бригмедик
 JobCaptain = Капитан
 JobCargoTechnician = Грузчик
 JobCentralCommandOfficial = Представитель Центрального Коммандования
@@ -88,6 +95,7 @@ JobChiefEngineer = Старший Инженер
 JobChiefMedicalOfficer = Главный Врач
 JobClown = Клоун
 JobDetective = Детектив
+JobBrigmedic = Бригмедик
 JobERTChaplain = Священник ОБР
 JobERTEngineer = Инженер ОБР
 JobERTJanitor = Уборщик ОБР

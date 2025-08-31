@@ -2,7 +2,7 @@
   id: Core
   mapName: 'Core'
   mapPath: /Maps/core.yml
-  minPlayers: 35
+  minPlayers: 0 # TempChange 0 (35)
   maxPlayers: 70
   stations:
     Core:
@@ -23,7 +23,6 @@
             Chef: [ 1, 3 ]
             Janitor: [ 2, 4 ]
             Captain: [ 1, 1 ]
-            Maid: [ 1, 1 ] # WWDP Combat Maid instead of CC roles
             # BlueshieldOfficer: [ 1, 1] - WD EDIT
             # NanotrasenRepresentative: [ 1, 1 ] - WD EDIT
             # Magistrate: [ 1, 1 ] # EE: Disabled

@@ -2,7 +2,7 @@
   id: Anchor
   mapName: 'Anchor'
   mapPath: /Maps/anchor.yml
-  minPlayers: 35
+  minPlayers: 0 # TempChange 0 (35)
   maxPlayers: 120
   fallback: true
   stations:

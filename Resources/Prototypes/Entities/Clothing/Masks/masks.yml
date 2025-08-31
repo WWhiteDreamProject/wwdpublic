@@ -49,6 +49,8 @@
   name: syndicate gas mask
   description: A close-fitting tactical mask that can be connected to an air supply.
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Clothing/Mask/gassyndicate.rsi
   - type: Clothing
@@ -383,7 +385,7 @@
     accent: StutteringAccent
 
 - type: entity
-  parent: ClothingMaskGasExplorer
+  parent: [ ClothingMaskGas, BaseRestrictedContraband ]
   id: ClothingMaskGasSwat
   name: swat gas mask
   description: A elite issue Security gas mask.
@@ -400,9 +402,16 @@
     - Hair
     - Snout
     hideOnToggle: true
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.95
 
 - type: entity
-  parent: ClothingMaskGasExplorer
+  parent: [ ClothingMaskGas, BaseRestrictedContraband ]
   id: ClothingMaskGasMerc
   name: mercenary gas mask
   description: Slightly outdated, but reliable military-style gas mask.
@@ -411,9 +420,16 @@
     sprite: Clothing/Mask/merc.rsi
   - type: Clothing
     sprite: Clothing/Mask/merc.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.95
 
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingMaskGasSyndicate ]
+  parent: [ ClothingMaskGas, BaseCentcommContraband ]
   id: ClothingMaskGasERT
   name: ert gas mask
   description: The gas mask of the elite squad of the ERT.
@@ -430,6 +446,15 @@
     - Hair
     - Snout
     hideOnToggle: true
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
   # - type: IngestionBlocker # WWDP moved to parent
   #   blockSmokeIngestion: true
 

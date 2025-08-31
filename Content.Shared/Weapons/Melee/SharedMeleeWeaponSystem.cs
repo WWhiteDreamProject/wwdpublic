@@ -51,7 +51,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly ContestsSystem _contests = default!;
 
-    private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
+    public const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque); // WD EDIT: private -> public
 
     public override void Initialize()
     {
@@ -163,7 +163,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (args.SenderSession.AttachedEntity is not { } user
             || !TryGetWeapon(user, out var weaponUid, out var weapon)
             || weaponUid != GetEntity(msg.Weapon)
-            || !weapon.CanHeavyAttack)
+            || !weapon.CanHeavyAttack) // WD EDIT
             return;
 
         AttemptAttack(user, weaponUid, weapon, msg, args.SenderSession);
