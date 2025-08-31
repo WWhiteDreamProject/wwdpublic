@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.GameTicking;
 using Content.Server.Procedural;
 using Content.Server.Salvage;
@@ -8,17 +9,15 @@ using Content.Shared._White.CCVar;
 using Content.Shared.Salvage.Magnet;
 using Content.Shared.Shuttles.Components;
 using Robust.Server.GameObjects;
-using Robust.Server.Maps;
 using Robust.Shared.Configuration;
-using Robust.Shared.CPUJob.JobQueues;
-using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
-using System.Linq;
 using System.Numerics;
-using System.Threading;
 using System.Threading.Tasks;
+using Content.Shared.Salvage;
+using Robust.Server.Maps;
+
 
 namespace Content.Server._White.Procedural.Systems;
 
@@ -37,7 +36,7 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<PostGameMapLoad>(OnPostGameMapLoad, after: [typeof(StationSystem)]);
+        SubscribeLocalEvent<PostGameMapLoad>(OnPostGameMapLoad, after: [typeof(StationSystem),]);
     }
 
     private const float SpawningBoxSize = 1000f;
@@ -78,7 +77,7 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
         }
 
         Log.Info($"Starting asteroid field generation at position {worldPos}...");
-        SpawnAsteroidField(ev.Map, worldPos, asteroids, derelicts);
+        _ = SpawnAsteroidField(ev.Map, worldPos, asteroids, derelicts);
     }
 
     // todo: rewrite grid spawn logic instead of copypasting salvage magnet code?
@@ -89,7 +88,7 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
         List<MapId> maps = new();
         List<Task> loadTasks = new();
 
-        for(int i = 0; i < asteroidAmount; i++)
+        for (int i = 0; i < asteroidAmount; i++)
             if (_map.CreateMap(out var asteroidMapId, false).Valid)
                 asteroidMaps.Add(asteroidMapId);
 
@@ -99,11 +98,11 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
             asteroidAmount = asteroidMaps.Count;
         }
 
-        for(int i = 0; i < derelictAmount; i++)
+        for (int i = 0; i < derelictAmount; i++)
             if (_map.CreateMap(out var derelictMapId, false).Valid)
                 derelictMaps.Add(derelictMapId);
 
-        if(derelictAmount != derelictMaps.Count)
+        if (derelictAmount != derelictMaps.Count)
         {
             Log.Error($"Failed to create {derelictAmount - derelictMaps.Count} maps out of {derelictAmount}. {derelictMaps.Count} will instead be generated.");
             derelictAmount = derelictMaps.Count;
@@ -112,11 +111,10 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
         var total = asteroidAmount + derelictAmount;
         int c = 1;
 
-        for(int i = 0; i < asteroidAmount; i++)
+        for (int i = 0; i < asteroidAmount; i++)
         {
             var asteroidMap = asteroidMaps[i];
             var seed = _random.Next();
-            seed -= seed % 2; // asteroid map
 
             var asteroid = (AsteroidOffering) _salvage.GetSalvageOffering(seed);
             var grid = _mapManager.CreateGridEntity(asteroidMap);
@@ -124,6 +122,7 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
             Log.Debug($"Queuing asteroid generation. ({i+1}/{asteroidAmount})");
 
             var task = _dungeon.GenerateDungeonAsync(asteroid.DungeonConfig, grid, grid, Vector2i.Zero, seed);
+
             var finishTask = task.ContinueWith(_ =>
             {
                 Log.Info($"Finished generating asteroid {c}/{asteroidAmount}.");
@@ -135,11 +134,10 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
         }
 
 
-        for(int i = 0; i < derelictAmount; i++)
+        for (int i = 0; i < derelictAmount; i++)
         {
             var derelictMap = derelictMaps[i];
             var seed = _random.Next();
-            seed = seed - seed % 2 + 1; // derelict map
 
             var salvage = (SalvageOffering) _salvage.GetSalvageOffering(seed);
             var opts = new MapLoadOptions
@@ -160,7 +158,7 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
         _random.Shuffle(maps);
         foreach (var map in maps)
         {
-            if (!_map.TryGetMap(map, out var mapUid) || !mapUid.HasValue)
+            if (!_map.TryGetMap(map, out var mapUid))
                 continue;
 
             Box2? bounds = null;
@@ -197,7 +195,7 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
             var attachedBounds = new Box2Rotated(Box2.CenteredAround(worldPos, new(SpawningBoxSize)));
             var worldAngle = _random.NextAngle();
 
-            if (!_salvage.TryGetSalvagePlacementLocation(mapId, attachedBounds, bounds!.Value, worldAngle, out var spawnLocation, out var spawnAngle, 200, 0.10f))
+            if (!TryGetPlacementLocation(mapId, attachedBounds, bounds!.Value, worldAngle, out var spawnLocation, out var spawnAngle))
             {
                 Log.Error($"Failed to find free space the asteroid field. Consider tweaking asteroid field size.");
                 _mapManager.DeleteMap(map);
@@ -211,7 +209,7 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
                 var childXform = Transform(mapChild);
                 var localPos = childXform.LocalPosition;
 
-                _transform.SetParent(mapChild, childXform, _mapManager.GetMapEntityId(spawnLocation.MapId));
+                _transform.SetParent(mapChild, childXform, _map.GetMap(spawnLocation.MapId));
                 _transform.SetWorldPositionRotation(mapChild, spawnLocation.Position + localPos, spawnAngle, childXform);
 
                 if (HasComp<MapGridComponent>(mapChild))
@@ -235,5 +233,42 @@ public sealed class StartingAsteroidFieldSystem : EntitySystem
             _mapManager.DeleteMap(map);
         }
         Log.Info($"Finished generating asteroid field at {worldPos}.");
+    }
+
+    private bool TryGetPlacementLocation(MapId mapId, Box2Rotated attachedBounds, Box2 bounds, Angle worldAngle, out MapCoordinates coords, out Angle angle, int iter = 200, float step = 0.10f)
+    {
+        var attachedAABB = attachedBounds.CalcBoundingBox();
+        var minDistance = (attachedAABB.Height < attachedAABB.Width ? attachedAABB.Width : attachedAABB.Height) / 2f;
+        var minActualDistance = bounds.Height < bounds.Width ? minDistance + bounds.Width / 2f : minDistance + bounds.Height / 2f;
+
+        var attachedCenter = attachedAABB.Center;
+        var fraction = step;
+
+        for (var i = 0; i < iter; i++)
+        {
+            var randomPos = attachedCenter +
+                worldAngle.ToVec() * (minActualDistance * fraction);
+            var finalCoords = new MapCoordinates(randomPos, mapId);
+
+            angle = _random.NextAngle();
+            var box2 = Box2.CenteredAround(finalCoords.Position, bounds.Size);
+            var box2Rot = new Box2Rotated(box2, angle, finalCoords.Position);
+
+            // This doesn't stop it from spawning on top of random things in space
+            // Might be better like this, ghosts could stop it before
+            if (_mapManager.FindGridsIntersecting(finalCoords.MapId, box2Rot).Any())
+            {
+                // Bump it further and further just in case.
+                fraction += step;
+                continue;
+            }
+
+            coords = finalCoords;
+            return true;
+        }
+
+        angle = Angle.Zero;
+        coords = MapCoordinates.Nullspace;
+        return false;
     }
 }
