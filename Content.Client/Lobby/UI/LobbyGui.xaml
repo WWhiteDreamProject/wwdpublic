@@ -11,8 +11,7 @@
     xmlns:animatedBackground="clr-namespace:Content.Client._White.UI.AnimatedBackground"
     xmlns:buttons="clr-namespace:Content.Client._White.UI.Buttons">
     <!-- Background -->
-    <animatedBackground:AnimatedBackgroundControl Access="Public" Name="Background" VerticalExpand="True" HorizontalExpand="True"
-                                                  Stretch="KeepAspectCovered" />
+    <animatedBackground:AnimatedBackgroundControl Access="Public" Name="Background" VerticalExpand="True" HorizontalExpand="True"/>
     <BoxContainer Name="MainContainer" VerticalExpand="True" HorizontalExpand="True" Orientation="Horizontal"
                   Margin="10 10 10 10" SeparationOverride="2">
         <SplitContainer State="Auto" ResizeMode="NotResizable" HorizontalExpand="True">
