@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 07/30/2025 11:53:28
-  entityCount: 27606
+  time: 08/31/2025 12:02:17
+  entityCount: 27605
 maps:
 - 1
 grids:
@@ -52,8 +52,8 @@ tilemap:
   100: FloorSteelMono
   102: FloorSteelPavement
   6: FloorSteelYellow
-  5: FloorSterileWhite
   4: FloorSterile
+  5: FloorSterileWhite
   104: FloorTechMaintSteel
   69: FloorTrueMonoTileSteel
   108: FloorWhite
@@ -10617,7 +10617,7 @@ entities:
       pos: -53.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -25253.654
+      secondsUntilStateChange: -25308.865
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -72683,11 +72683,6 @@ entities:
     - type: Transform
       pos: -57.5,-26.5
       parent: 2
-  - uid: 11444
-    components:
-    - type: Transform
-      pos: 19.5,-37.5
-      parent: 2
   - uid: 19667
     components:
     - type: Transform
@@ -76025,7 +76020,7 @@ entities:
       pos: -3.5,-52.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -53279.19
+      secondsUntilStateChange: -53334.402
       state: Closing
   - uid: 11944
     components:
@@ -111428,6 +111423,13 @@ entities:
     - type: Transform
       pos: -0.5,-55.5
       parent: 2
+- proto: GlassBoxLamarrFilled
+  entities:
+  - uid: 9612
+    components:
+    - type: Transform
+      pos: 19.5,-37.5
+      parent: 2
 - proto: GlassBoxLaserFilled
   entities:
   - uid: 16616
@@ -142647,13 +142649,6 @@ entities:
     components:
     - type: Transform
       pos: 30.5,-12.5
-      parent: 2
-- proto: SpawnMobBandito
-  entities:
-  - uid: 21612
-    components:
-    - type: Transform
-      pos: 19.5,-37.5
       parent: 2
 - proto: SpawnMobButterfly
   entities:
