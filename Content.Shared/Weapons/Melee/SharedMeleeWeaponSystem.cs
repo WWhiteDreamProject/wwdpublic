@@ -163,7 +163,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (args.SenderSession.AttachedEntity is not { } user
             || !TryGetWeapon(user, out var weaponUid, out var weapon)
             || weaponUid != GetEntity(msg.Weapon)
-            || !weapon.CanWideSwing)
+            || !weapon.CanHeavyAttack)
             return;
 
         AttemptAttack(user, weaponUid, weapon, msg, args.SenderSession);
