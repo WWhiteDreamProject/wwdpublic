@@ -45,12 +45,12 @@
     children:
     - id: DragonSpawn
     - id: NinjaSpawn
-    - id: ParadoxCloneSpawn
+    - id: ParadoxAnomaly # WD edit
     - id: SleeperAgents
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
-    - id: ParadoxAnomaly
+    - id: ParadoxAnomaly # WD edit
     # WD EDIT START
     - id: XenomorphsInfestation
     - id: HeadcrabInvasion

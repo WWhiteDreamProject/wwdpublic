@@ -295,9 +295,9 @@
     minPlayers: 5
   - type: AntagSelection
     selectionTime: PrePlayerSpawn # WD edit
-    removeUponFailedSpawn: false
+#    removeUponFailedSpawn: false
     definitions:
-    - prefRoles: [ InitialInfected, Traitor, Thief, HeadRev ]
+    - prefRoles: [ InitialInfected, Traitor, Thief, HeadRev, Shadowling, Blob, BloodCultist, Devil ] # WD edit
       max: 2
       playerRatio: 30
 
