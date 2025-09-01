@@ -72,6 +72,8 @@
         speedModifier: 5 # WD EDIT: 1.5 -> 5
       mindRoles:
       - MindRoleLoneAbductor
+  - type: DynamicRuleCost # WD edit
+    cost: 8
 
 - type: entity
   parent: BaseGameRule
@@ -218,3 +220,5 @@
       - type: AbductorScientist # Should be removed when we have proper teleportation system
       mindRoles:
       - MindRoleLoneAbductor
+  - type: DynamicRuleCost # WD edit
+    cost: 8

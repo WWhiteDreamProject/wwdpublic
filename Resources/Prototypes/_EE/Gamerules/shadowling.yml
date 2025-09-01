@@ -15,3 +15,5 @@
   - type: AntagObjectives
     objectives:
       - ShadowlingAscendObjective
+  - type: DynamicRuleCost # WD edit
+    cost: 16

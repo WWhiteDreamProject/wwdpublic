@@ -61,7 +61,7 @@
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 30
-        - id: Blob
+        - id: BlobGameMode
           weight: 5
           conditions:
           - !type:HasBudgetCondition

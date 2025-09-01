@@ -160,7 +160,7 @@
       mindRoles:
       - MindRoleNukeops
   - type: DynamicRuleCost
-    cost: 200
+    cost: 20 # WD edit: 200 -> 20
 
 - type: entity
   abstract: true
@@ -177,7 +177,7 @@
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
   - type: DynamicRuleCost
-    cost: 100
+    cost: 14 # WD edit: 100 -> 14
 
 - type: entity
   parent: BaseTraitorRule
@@ -238,7 +238,7 @@
       mindRoles:
       - MindRoleHeadRevolutionary
   - type: DynamicRuleCost
-    cost: 200
+    cost: 20 # WD edit: 200 -> 20
 
 - type: entity
   id: Sandbox
@@ -283,7 +283,7 @@
       mindRoles:
       - MindRoleInitialInfected
   - type: DynamicRuleCost
-    cost: 200
+    cost: 20 # WD edit: 200 -> 20
 
 # This rule makes the chosen players unable to get other antag rules, as a way to prevent metagaming job rolls.
 # Put this before antags assigned to station jobs, but after non-job antags (NukeOps/Wiz).
