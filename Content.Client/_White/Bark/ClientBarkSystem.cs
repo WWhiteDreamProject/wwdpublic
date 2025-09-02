@@ -44,6 +44,7 @@ public sealed class BarkSystem : SharedBarkSystem
         _uiManager.GetUIController<ChatUIController>().MessageAdded -= OnMessageAdded;
         _cfg.UnsubValueChanged(WhiteCVars.BarkVolume, OnBarkVolumeChanged);
         _cfg.UnsubValueChanged(WhiteCVars.VoiceType, OnVoiceTypeChanged);
+        _cfg.UnsubValueChanged(WhiteCVars.BarkLimit, OnBarkLimitChanged);
     }
 
     private void OnMessageAdded(ChatMessage message)
@@ -102,7 +103,7 @@ public sealed class BarkSystem : SharedBarkSystem
                 true,
                 new AudioParams()
                     .WithPitchScale(currentBark.Pitch)
-                    .WithVolume(currentBark.Volume));
+                    .WithVolume(currentBark.Volume * _volume));
     }
 
     public override void Update(float frameTime)

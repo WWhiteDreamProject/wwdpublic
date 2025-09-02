@@ -65,6 +65,13 @@ public sealed class BarkPreviewSystem : EntitySystem
         if (_currentBark.Value.Item1.Pause <= _barkTime)
         {
             _barkTime = 0;
+
+            if (!_currentBark.Value.Item1.Enabled)
+            {
+                _currentBark = null;
+                return;
+            }
+
             _sharedAudio
                 .PlayGlobal(
                     _currentBark.Value.Item2,

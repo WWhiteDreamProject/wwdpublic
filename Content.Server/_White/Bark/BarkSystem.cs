@@ -1,7 +1,6 @@
 using Content.Shared._White.Bark;
 using Content.Shared._White.Bark.Systems;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using BarkComponent = Content.Shared._White.Bark.Components.BarkComponent;
@@ -15,17 +14,9 @@ public sealed class BarkSystem : SharedBarkSystem
 
     public override void Bark(Entity<BarkComponent> entity, List<BarkData> barks)
     {
-        var grid = _transformSystem.GetGrid(entity.Owner);
         var mapPos = _transformSystem.GetMapCoordinates(entity.Owner);
-        if(grid is null)
-            return;
-
-        RaiseNetworkEvent(
-            new EntityBarkEvent(GetNetEntity(entity), barks),
-            Filter
-                .BroadcastGrid(grid.Value)
-                .AddInRange(mapPos,16));
-
+        var filter = Filter.Empty().AddInRange(mapPos, 16f);
+        RaiseNetworkEvent(new EntityBarkEvent(GetNetEntity(entity), barks), filter);
     }
 }
 

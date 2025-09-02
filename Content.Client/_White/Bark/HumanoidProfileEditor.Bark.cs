@@ -13,7 +13,11 @@ public partial class HumanoidProfileEditor
 {
     private List<BarkVoicePrototype> _barkList = [];
 
-    private BarkVoicePrototype SelectedVoice => _barkList[VoiceBarkButton.SelectedId];
+    private BarkVoicePrototype? SelectedVoice =>
+        VoiceBarkButton.SelectedId >= 0 &&
+        VoiceBarkButton.SelectedId < _barkList.Count
+            ? _barkList[VoiceBarkButton.SelectedId]
+            : null;
 
     public void InitializeBark()
     {
@@ -75,7 +79,7 @@ public partial class HumanoidProfileEditor
 
     private void VoiceBarkButtonItemSelected(OptionButton.ItemSelectedEventArgs selected)
     {
-        if(Profile is null)
+        if(Profile is null || SelectedVoice is null)
             return;
         VoiceBarkButton.SelectId(selected.Id);
         SetBark(SelectedVoice.ID, Profile.BarkSettings);

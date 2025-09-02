@@ -221,7 +221,7 @@ namespace Content.Client.Options.UI.Tabs
                 Math.Abs(TtsVolumeSlider.Value - _cfg.GetCVar(WhiteCVars.TTSVolume) * 100f / ContentAudioSystem.TTSMultiplier) < 0.01f; // WD EDIT
             var isBarkVolumeSame =
                 Math.Abs(BarkVolumeSlider.Value - _cfg.GetCVar(WhiteCVars.BarkVolume) * 100f) < 0.01f; // WD EDIT
-            var isBarkLimitSame = (int) TtsVolumeSlider.Value == _cfg.GetCVar(WhiteCVars.BarkLimit); // WD EDIT
+            var isBarkLimitSame = (int) BarkLimitSlider.Value == _cfg.GetCVar(WhiteCVars.BarkLimit); // WD EDIT
 
             var isAmbientSoundsSame = (int)AmbienceSoundsSlider.Value == _cfg.GetCVar(CCVars.MaxAmbientSources);
             var isLobbySame = LobbyMusicCheckBox.Pressed == _cfg.GetCVar(CCVars.LobbyMusicEnabled);

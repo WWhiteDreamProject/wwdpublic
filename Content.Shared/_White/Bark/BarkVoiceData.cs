@@ -6,7 +6,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._White.Bark;
 
 
-[DataDefinition, Serializable, NetSerializable,]
+[DataDefinition, Serializable, NetSerializable]
 public sealed partial class BarkVoiceData
 {
     [DataField] public SoundSpecifier BarkSound { get; set; }

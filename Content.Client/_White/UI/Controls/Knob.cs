@@ -110,6 +110,9 @@ public sealed class Knob : Range
     {
         base.MouseMove(args);
 
+        if (Disabled)
+            return;
+
         if (!_grabbed)
         {
             return;
@@ -124,6 +127,12 @@ public sealed class Knob : Range
     protected override void MouseWheel(GUIMouseWheelEventArgs args)
     {
         base.MouseWheel(args);
+
+        if (Disabled)
+        {
+            args.Handle();
+            return;
+        }
 
         _lastMouseWheelTime = _gameTiming.CurTime;
 

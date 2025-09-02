@@ -393,7 +393,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     public HumanoidCharacterProfile WithVoice(string voice) => new(this) { Voice = voice }; // WD EDIT
     public HumanoidCharacterProfile WithBodyType(string bodyType) => new(this) { BodyType = bodyType }; // WD EDIT
     public HumanoidCharacterProfile WithBarkVoice(string barkVoice, BarkPercentageApplyData setting) =>
-        new(this) { BarkVoice = barkVoice, BarkSettings = setting}; // WD EDIT
+        new(this) { BarkVoice = barkVoice, BarkSettings = setting.Clone() }; // WD EDIT
 
     public HumanoidCharacterProfile WithAge(int age) => new(this) { Age = age };
     // EE - Contractors Change Start
@@ -728,7 +728,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
         if (voice is null || !CanHaveVoice(voice, Sex))
             Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
-            
+
         if(!CanHaveBark(prototypeManager, collection))
             BarkVoice = SharedHumanoidAppearanceSystem.DefaultBarkVoice;
 
@@ -751,7 +751,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
               { Selected = loadout.Selected, };
 
           loadouts[i] = truncatedLoadout;
-       }
+        }
         // WD EDIT END
     }
 
@@ -780,16 +780,18 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
         foreach (var requirement in voiceRequirements)
         {
-            if (requirement.IsValid(
-                    default!,
-                    this,
-                    [],
-                    false,
-                    voicePrototype,
-                    collection.Resolve<IEntityManager>(),
-                    prototypeManager,
-                    collection.Resolve<IConfigurationManager>(),
-                    out reason) && !requirement.Inverted)
+            var passes = requirement.IsValid(
+                default!,
+                this,
+                [],
+                false,
+                voicePrototype,
+                collection.Resolve<IEntityManager>(),
+                prototypeManager,
+                collection.Resolve<IConfigurationManager>(),
+                out reason);
+
+            if (passes == !requirement.Inverted)
                 continue;
 
             isValid = false;
