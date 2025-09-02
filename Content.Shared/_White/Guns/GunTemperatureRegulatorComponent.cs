@@ -1,6 +1,3 @@
-using Content.Shared.Atmos;
-using Content.Shared.Traits.Assorted.Components;
-using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -9,15 +6,9 @@ namespace Content.Shared._White.Guns;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class GunFluxComponent : Component
 {
-    /// <summary>
-    /// If enabled, prevents the gun from shooting if its hotter than <see cref="TemperatureLimit"/>
-    /// </summary>
     [DataField, AutoNetworkedField]
     public bool SafetyEnabled = true;
 
-    /// <summary>
-    /// If enabled, allows the user to change <see cref="TemperatureLimit"/> and <see cref="SafetyEnabled"/> via altverbs.
-    /// </summary>
     [DataField, AutoNetworkedField]
     public bool CanChangeSafety = true;
 

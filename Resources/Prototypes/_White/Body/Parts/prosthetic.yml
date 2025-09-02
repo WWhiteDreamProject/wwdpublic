@@ -12,7 +12,7 @@
     node: makeshiftrightleg
   - type: PhysicalComposition
     materialComposition:
-      Steel: 400
+      Steel: 300
       Cloth: 300
       Wood: 300
       Copper: 300
@@ -20,7 +20,7 @@
       Iron: 36
       Carbon: 4
       Copper: 30
-      Fiber: 60
+      Fiber: 40
 
 - type: entity
   parent: LeftLegCybernetic
@@ -36,7 +36,7 @@
     node: makeshiftleftleg
   - type: PhysicalComposition
     materialComposition:
-      Steel: 400
+      Steel: 300
       Cloth: 300
       Wood: 300
       Copper: 300
@@ -44,7 +44,7 @@
       Iron: 36
       Carbon: 4
       Copper: 30
-      Fiber: 60
+      Fiber: 40
 
 - type: entity
   parent: RightArmCybernetic
@@ -57,9 +57,9 @@
     node: makeshiftrightarm
   - type: PhysicalComposition
     materialComposition:
-      Steel: 600
-      Cloth: 500
-      Copper: 450
+      Steel: 400
+      Cloth: 400
+      Copper: 250
     chemicalComposition:
       Iron: 54
       Carbon: 6
@@ -77,9 +77,9 @@
     node: makeshiftleftarm
   - type: PhysicalComposition
     materialComposition:
-      Steel: 600
-      Cloth: 500
-      Copper: 450
+      Steel: 400
+      Cloth: 300
+      Copper: 250
     chemicalComposition:
       Iron: 54
       Carbon: 6

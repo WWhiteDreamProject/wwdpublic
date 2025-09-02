@@ -5,3 +5,11 @@
   completetime: 0.1
   materials:
     PrizeTicket: 50
+
+- type: latheRecipe
+  id: FaceHuggerToys
+  result: FaceHuggerToys
+  applyMaterialDiscount: false
+  completetime: 0.1
+  materials:
+    PrizeTicket: 100

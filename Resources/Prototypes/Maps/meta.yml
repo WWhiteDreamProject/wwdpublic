@@ -49,7 +49,6 @@
           Scientist: [ 5, 7 ]
           ResearchAssistant: [ 3, 6 ]
           Chaplain: [ 1, 1 ]
-          Roboticist: [ 1, 2 ]
           ForensicMantis: [ 1, 1 ]
           # SeniorResearcher: [ 1, 1 ] - WD EDIT
           #security
@@ -62,7 +61,7 @@
           # Brigmedic: [ 1, 1 ] - WD EDIT
           Prisoner: [ 1, 2 ]
           # PrisonGuard: [ 1, 1 ] # EE: Disabled
-          SeniorOfficer: [ 1, 1 ]
+          # SeniorOfficer: [ 1, 1 ]  - WD EDIT
           #supply
           Quartermaster: [ 1, 1 ]
           SalvageSpecialist: [ 3, 3 ]

@@ -2,7 +2,7 @@
   id: Gax
   mapName: 'NVS Gax'
   mapPath: /Maps/gax.yml
-  minPlayers: 10
+  minPlayers: 0 # TempChange 0 (10)
   maxPlayers: 45
   fallback: true
   stations:
@@ -44,7 +44,6 @@
             ResearchDirector: [ 1, 1 ]
             ForensicMantis: [ 1, 1 ]
             Scientist: [ 4, 4 ]
-            Roboticist: [ 1, 2 ]
             Librarian: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
             ResearchAssistant: [ 2, 2 ]

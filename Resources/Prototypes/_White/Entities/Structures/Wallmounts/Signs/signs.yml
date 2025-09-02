@@ -20,6 +20,16 @@
 
 - type: entity
   parent: BaseSign
+  id: SignAnchor
+  name: station anhcor sign
+  description: A sign indicating the station anchor.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
+    state: arrivals
+
+- type: entity
+  parent: BaseSign
   id: SignBoxing
   name: boxing sign
   description: A sign indicating the boxing.

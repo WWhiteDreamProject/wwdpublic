@@ -79,13 +79,14 @@
     outerClothing: ClothingOuterArmorBasicSlim
     id: PassengerPDA
     belt: ClothingBeltHolster
+  inhand:
+    - BaseBallBat
   storage:
     back:
-    - DrinkWhiskeyBottleFull # WD EDIT: BoxSurvival -> DrinkWhiskeyBottleFull
+    - DrinkWhiskeyBottleFullMobster # WD EDIT: BoxSurvival -> DrinkWhiskeyBottleFullMobster
     - WeaponSubMachineGunTypewriter
     - WeaponPistolViperWood
     - MagazinePistol
-    - BaseBallBat
 
 - type: startingGear
   id: MobsterGearAlt
@@ -99,10 +100,11 @@
     id: PassengerPDA
     belt: ClothingBeltSuspendersBlack
     pocket1: CombatKnife
+  inhand:
+  - BaseBallBat
   storage:
     back:
-    - DrinkWhiskeyBottleFull # WD EDIT: BoxSurvival -> DrinkWhiskeyBottleFull
+    - DrinkWhiskeyBottleFullMobster # WD EDIT: BoxSurvival -> DrinkWhiskeyBottleFullMobster
     - WeaponSubMachineGunTypewriter
     - WeaponPistolViperWood
     - MagazinePistol
-    - BaseBallBat

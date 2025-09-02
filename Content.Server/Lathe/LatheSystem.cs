@@ -231,7 +231,7 @@ namespace Content.Server.Lathe
             {
                 if (comp.CurrentRecipe.Result is { } resultProto)
                 {
-                    var result = Spawn(resultProto, Transform(uid).Coordinates);
+                    var result = EntityManager.SpawnEntity(resultProto, Transform(uid).Coordinates, comp.AdditionalComponents); // WWDP EDIT
                     _stack.TryMergeToContacts(result);
                 }
 

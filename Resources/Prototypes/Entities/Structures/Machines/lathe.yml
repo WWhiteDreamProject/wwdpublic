@@ -18,6 +18,8 @@
         layer:
         - MachineLayer
   - type: Lathe
+    additionalComponents: # wwdp edit
+    - type: CraftedOrPrinted
   - type: MaterialStorage
   - type: Destructible
     thresholds:
@@ -79,6 +81,8 @@
   id: BaseHyperlathe
   components:
   - type: Lathe
+    additionalComponents: # wwdp edit
+    - type: CraftedOrPrinted
     materialUseMultiplier: 0.5
     timeMultiplier: 1.5
   - type: LatheHeatProducing
@@ -961,9 +965,6 @@
     # .35 Caseless (Civilian) Rifle
     # - MagazineCaselessRifleShortPractice # EE
     # - MagazineCaselessRifleShort # EE
-    # .35 Caseless (Military) Rifle
-    # - MagazineCaselessRiflePractice # EE
-    # - MagazineCaselessRifle # EE
     # .35 Caseless (Box Mag) Rifle
     # - MagazineBoxCaselessRiflePractice # EE
     # - MagazineBoxCaselessRifle # EE
@@ -1028,6 +1029,8 @@
     - MagazineLightRifleMarkOneEmpty
     - MagazineLightRifleMarkOne
     dynamicRecipes:
+    - MagazineCaselessRiflePractice
+    - MagazineCaselessRifle
     - Truncheon
     - Terminus
     - BoxShotgunIncendiary
@@ -1177,7 +1180,9 @@
     - BoxBreach
     - ShellShotgunBreach
     - WeaponSecurityRiotLauncher
+    - SmallBasicFluxCore
     - BasicFluxCore
+    - SmallAdvancedFluxCore
     - AdvancedFluxCore
     # WD EDIT END
   - type: MaterialStorage
@@ -1248,15 +1253,16 @@
     # .35 Caseless (Civilian) Rifle
     # - MagazineCaselessRifleShortPractice # EE
     # - MagazineCaselessRifleShort # EE
-    # .35 Caseless (Military) Rifle
-    # - MagazineCaselessRiflePractice # EE
-    # - MagazineCaselessRifle # EE
     # .35 Caseless (Box Mag) Rifle
     # - MagazineBoxCaselessRiflePractice # EE
     # - MagazineBoxCaselessRifle # EE
     # WD EDIT END
     - MagazineLightRifleMarkOneEmpty
     - MagazineLightRifleMarkOne
+    dynamicRecipes:
+    # .35 Caseless (Military) Rifle
+    - MagazineCaselessRiflePractice # EE
+    - MagazineCaselessRifle # EE
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1905,6 +1911,7 @@
     - ToySword
     - BwoinkHammer
     - ThronglerToy
+    - FaceHuggerToys # WD EDIT
   - type: MaterialStorage
     whitelist:
       tags:

@@ -2,7 +2,7 @@
   id: Kettle
   mapName: 'Kettle Station'
   mapPath: /Maps/_White/Kettle.yml
-  minPlayers: 10
+  minPlayers: 0 # TempChange 0 (10)
   maxPlayers: 60
   stations:
     Kettle:

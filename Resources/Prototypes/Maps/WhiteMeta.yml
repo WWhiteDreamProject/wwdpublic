@@ -2,7 +2,7 @@
   id: WhiteMeta
   mapName: 'WhiteMeta Station'
   mapPath: /Maps/_White/WhiteMeta.yml
-  minPlayers: 10
+  minPlayers: 0 # TempChange 0 (10)
   maxPlayers: 85
   stations:
     WhiteMeta:

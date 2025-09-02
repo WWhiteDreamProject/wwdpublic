@@ -36,3 +36,24 @@
         state: swap
       useDelay: 1
       event: !type:OriginalSwitchPowerActionEvent
+
+- type: entity
+  id: ActionTelepathy
+  name: action-name-telepathy
+  description: action-description-telepathy
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: EntityTargetAction
+      icon:
+        sprite: _White/Interface/Actions/telepathy.rsi
+        state: icon
+      useDelay: 5
+      range: 20
+      itemIconStyle: BigAction
+      canTargetSelf: true
+      blacklist:
+        components:
+          - PsionicInsulation
+          - Mindbroken
+      event: !type:TelepathyPowerActionEvent
+

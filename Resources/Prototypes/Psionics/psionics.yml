@@ -328,6 +328,9 @@
   powerCategories:
     - Mentalic
   initializeFunctions:
+    - !type:AddPsionicActions ##wwdp edit
+      actions:
+        - ActionTelepathy
     - !type:AddPsionicPowerComponents
       components:
         - type: Telepathy
@@ -343,6 +346,7 @@
       powerPrototype: PsychognomyPower
       weight: 1 #wwdp 0.1 --> 1
   removalFunctions:
+    - !type:RemovePsionicActions #WD EDIT
     - !type:RemovePsionicPowerComponents
       components:
         - type: Telepathy
@@ -503,7 +507,7 @@
       psychognomicDescriptor: tenebrous
     - !type:PsionicAddAvailablePowers
       powerPrototype: DarkSwapPower
-      weight: 1.5 #wwdp 1 --> 1.5
+      weight: 1
   removalFunctions:
     - !type:RemovePsionicActions
     - !type:RemovePsionicStatSources
