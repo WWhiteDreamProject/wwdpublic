@@ -5,8 +5,11 @@
   - type: GameRule
     minPlayers: 5 # <5 is greenshift hours, buddy.
   - type: DynamicRule
-    startingBudgetMin: 0 # WD edit
-    startingBudgetMax: 100 # WD edit
+    # WD edit start
+    startingBudgetMin: 0
+    startingBudgetMax: 100
+    budgetPerSecond: 0.02
+    # WD edit end
     table: !type:AllSelector
       children:
       # Roundstart Major Rules
