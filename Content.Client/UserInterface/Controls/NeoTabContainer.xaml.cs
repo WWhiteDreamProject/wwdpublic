@@ -333,6 +333,6 @@ public record struct TabId(int Id):
     public static implicit operator TabId(int id) => new TabId(id);
     public static implicit operator int(TabId id) => id.Id;
     public bool Equals(int other) => Id == other;
-    public int CompareTo(TabId other) => Id = other.Id;
+    public int CompareTo(TabId other) => Id.CompareTo(other.Id);
     public int AsType() => Id;
 };
