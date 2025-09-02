@@ -115,7 +115,7 @@ public abstract class SharedBarkSystem : EntitySystem
 
         if (LongPauseChars.Contains(currChar))
         {
-            currBark.Pause += 0.5f;
+            currBark.Pause *= 1.2f;
             currBark.Enabled = false;
         }
 

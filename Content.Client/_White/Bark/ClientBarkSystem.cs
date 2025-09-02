@@ -24,6 +24,7 @@ public sealed class BarkSystem : SharedBarkSystem
 
     private bool _clientSideEnabled;
     private float _volume;
+    private int _maxBarkCount;
 
     public override void Initialize()
     {
@@ -34,6 +35,7 @@ public sealed class BarkSystem : SharedBarkSystem
 
         _cfg.OnValueChanged(WhiteCVars.BarkVolume, OnBarkVolumeChanged, true);
         _cfg.OnValueChanged(WhiteCVars.VoiceType, OnVoiceTypeChanged, true);
+        _cfg.OnValueChanged(WhiteCVars.BarkLimit, OnBarkLimitChanged, true);
         SubscribeNetworkEvent<EntityBarkEvent>(OnEntityBark);
     }
 
@@ -57,8 +59,9 @@ public sealed class BarkSystem : SharedBarkSystem
     }
 
     private void OnVoiceTypeChanged(CharacterVoiceType voice) => _clientSideEnabled = voice == CharacterVoiceType.Bark;
-
     private void OnBarkVolumeChanged(float volume) => _volume = volume;
+    private void OnBarkLimitChanged(int count) => _maxBarkCount = count;
+
 
     private void OnEntityBark(EntityBarkEvent ev)
     {
@@ -77,6 +80,9 @@ public sealed class BarkSystem : SharedBarkSystem
 
         if (TryComp<BarkSourceComponent>(entity, out var sourceComponent))
             RemComp(entity, sourceComponent);
+
+        if (_maxBarkCount > 0 && barks.Count > _maxBarkCount)
+            barks.RemoveRange(_maxBarkCount, barks.Count - _maxBarkCount);
 
         sourceComponent = AddComp<BarkSourceComponent>(entity);
         sourceComponent.Barks = new(barks);

@@ -1,4 +1,5 @@
 ui-options-bark-volume = Громкость лая
+ui-options-bark-limit = Лимит лая
 char-voice-none = Ничего
 char-voice-bark = Лай
 char-voice-tts = TTS

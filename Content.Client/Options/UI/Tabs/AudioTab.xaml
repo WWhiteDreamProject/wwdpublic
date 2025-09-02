@@ -58,6 +58,19 @@
                     <Label Name="BarkVolumeLabel" MinSize="48 0" Align="Right" />
                     <Control MinSize="4 0" />
                 </BoxContainer>
+                <BoxContainer Orientation="Horizontal" Margin="5 0 0 0">
+                    <Label Text="{Loc 'ui-options-bark-limit'}" HorizontalExpand="True" />
+                    <Control MinSize="8 0" />
+                    <Slider Name="BarkLimitSlider"
+                            MinValue="0"
+                            MaxValue="128"
+                            HorizontalExpand="True"
+                            MinSize="80 0"
+                            Rounded="True" />
+                    <Control MinSize="8 0" />
+                    <Label Name="BarkLimitLabel" MinSize="48 0" Align="Right" />
+                    <Control MinSize="4 0" />
+                </BoxContainer>
                 <!--WD EDIT END-->
                 <BoxContainer Orientation="Horizontal" Margin="5 0 0 0">
                     <Label Text="{Loc 'ui-options-ambience-volume'}" HorizontalExpand="True" />
