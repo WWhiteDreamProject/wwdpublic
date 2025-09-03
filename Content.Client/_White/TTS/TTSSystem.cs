@@ -45,13 +45,6 @@ public sealed class TTSSystem : EntitySystem
         _sawmill = Logger.GetSawmill("tts");
         _res.AddRoot(_prefix, _contentRoot);
         _cfg.OnValueChanged(WhiteCVars.TTSVolume, OnTtsVolumeChanged, true);
- public override void Shutdown()
- {
-     base.Shutdown();
-     _cfg.UnsubValueChanged(WhiteCVars.TTSVolume, OnTtsVolumeChanged);
-     _cfg.UnsubValueChanged(WhiteCVars.VoiceType, OnVoiceTypeChanged);
-     _contentRoot.Dispose();
- }
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
     }
 
@@ -64,6 +57,7 @@ public sealed class TTSSystem : EntitySystem
     {
         base.Shutdown();
         _cfg.UnsubValueChanged(WhiteCVars.TTSVolume, OnTtsVolumeChanged);
+        _cfg.UnsubValueChanged(WhiteCVars.VoiceType, OnVoiceTypeChanged);
         _contentRoot.Dispose();
     }
 
