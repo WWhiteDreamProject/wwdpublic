@@ -50,7 +50,7 @@
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
     # WD EDIT START
-    - id: ParadoxAnomaly
+    - id: ParadoxAnomalySpawn
     - id: XenomorphsInfestation
     - id: HeadcrabInvasion
     # WD EDIT END

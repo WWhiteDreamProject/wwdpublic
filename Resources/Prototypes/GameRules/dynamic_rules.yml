@@ -117,7 +117,7 @@
           - !type:MaxRuleOccurenceCondition
           - !type:RoundDurationCondition
             min: 900 # 15 minutes
-        - id: ParadoxAnomaly # WD edit
+        - id: ParadoxAnomalySpawn # WD edit
           weight: 25
           conditions:
           - !type:HasBudgetCondition
