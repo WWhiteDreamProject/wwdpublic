@@ -118,10 +118,12 @@
                 <CheckBox Name="EventMusicCheckBox" Text="{Loc 'ui-options-event-music'}" />
                 <CheckBox Name="AnnouncerDisableMultipleSoundsCheckBox" Text="{Loc 'ui-options-announcer-disable-multiple-sounds'}" ToolTip="{Loc 'ui-options-announcer-disable-multiple-sounds-tooltip'}" />
                 <CheckBox Name="AdminSoundsCheckBox" Text="{Loc 'ui-options-admin-sounds'}" />
+                <!--WD EDIT START-->
                 <BoxContainer Orientation="Horizontal" SeparationOverride="5">
                     <Label Text="{Loc 'ui-voice-option'}"/>
                     <OptionButton Name="CharVoiceType"/>
                 </BoxContainer>
+                <!--WD EDIT END-->
             </BoxContainer>
         </BoxContainer>
         <controls:StripeBack HasBottomEdge="False" HasMargins="False">

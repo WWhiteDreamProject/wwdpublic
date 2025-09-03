@@ -11,9 +11,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
-
 namespace Content.Client._White.Bark;
-
 
 public sealed class BarkSystem : SharedBarkSystem
 {
@@ -63,7 +61,6 @@ public sealed class BarkSystem : SharedBarkSystem
     private void OnBarkVolumeChanged(float volume) => _volume = volume;
     private void OnBarkLimitChanged(int count) => _maxBarkCount = count;
 
-
     private void OnEntityBark(EntityBarkEvent ev)
     {
         var ent = GetEntity(ev.Entity);
@@ -72,7 +69,6 @@ public sealed class BarkSystem : SharedBarkSystem
 
         Bark(new(ent, comp), ev.Barks);
     }
-
 
     public override void Bark(Entity<BarkComponent> entity, List<BarkData> barks)
     {

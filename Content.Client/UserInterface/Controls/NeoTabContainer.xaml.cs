@@ -17,6 +17,7 @@ namespace Content.Client.UserInterface.Controls;
 ///     <br />
 ///     Yeah, it could be better if you don't shit with linkq
 /// </summary>
+/// WD EDIT
 [GenerateTypedNameReferences]
 public sealed partial class NeoTabContainer : BoxContainer
 {

@@ -74,13 +74,16 @@ public partial class HumanoidProfileEditor
     {
         if(Profile is null)
             return;
-        _entManager.System<BarkPreviewSystem>().PlayGlobal(Profile.BarkVoice, "Привет мир!", Profile.BarkSettings);
+
+        _entManager.System<BarkPreviewSystem>()
+            .PlayGlobal(Profile.BarkVoice, "Привет мир!", Profile.BarkSettings);
     }
 
     private void VoiceBarkButtonItemSelected(OptionButton.ItemSelectedEventArgs selected)
     {
         if(Profile is null || SelectedVoice is null)
             return;
+
         VoiceBarkButton.SelectId(selected.Id);
         SetBark(SelectedVoice.ID, Profile.BarkSettings);
     }
@@ -89,6 +92,7 @@ public partial class HumanoidProfileEditor
     {
         if(Profile is null)
             return;
+
         BarkPauseSlider.Value = Profile.BarkSettings.Pause;
         BarkPitchSlider.Value = Profile.BarkSettings.Pitch;
         BarkPitchVarianceSlider.Value = Profile.BarkSettings.PitchVariance;

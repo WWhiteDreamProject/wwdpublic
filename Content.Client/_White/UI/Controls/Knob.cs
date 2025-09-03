@@ -5,7 +5,6 @@ using Robust.Shared.Input;
 using Robust.Shared.Timing;
 using Range = Robust.Client.UserInterface.Controls.Range;
 
-
 namespace Content.Client._White.UI.Controls;
 
 //TODO: Add some style thinks
@@ -88,9 +87,7 @@ public sealed class Knob : Range
         base.KeyBindDown(args);
 
         if (args.Function != EngineKeyFunctions.UIClick || Disabled)
-        {
             return;
-        }
 
         _grabbed = true;
         OnGrabbed?.Invoke(this);
@@ -100,7 +97,8 @@ public sealed class Knob : Range
     {
         base.KeyBindUp(args);
 
-        if (args.Function != EngineKeyFunctions.UIClick || !_grabbed) return;
+        if (args.Function != EngineKeyFunctions.UIClick || !_grabbed)
+            return;
 
         _grabbed = false;
         OnReleased?.Invoke(this);
@@ -114,9 +112,7 @@ public sealed class Knob : Range
             return;
 
         if (!_grabbed)
-        {
             return;
-        }
 
         var ratio = (args.Relative.X - args.Relative.Y) * 0.01f;
         SetAsRatio(GetAsRatio() + ratio);

@@ -5,7 +5,6 @@ using Robust.Shared.Console;
 using Robust.Shared.Player;
 using BarkComponent = Content.Shared._White.Bark.Components.BarkComponent;
 
-
 namespace Content.Server._White.Bark;
 
 public sealed class BarkSystem : SharedBarkSystem
@@ -42,8 +41,6 @@ public sealed class AddBarkCommand : IConsoleCommand
             shell.WriteError($"Could not find attached entity " + args[0]);
             return;
         }
-
-
 
         entMan.System<BarkSystem>().ApplyBark(attachedEnt.Value, args[1]);
     }

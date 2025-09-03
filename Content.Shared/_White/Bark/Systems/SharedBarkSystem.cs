@@ -9,7 +9,6 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-
 namespace Content.Shared._White.Bark.Systems;
 
 
@@ -68,7 +67,7 @@ public abstract class SharedBarkSystem : EntitySystem
                 break;
             }
 
-            if(!isValid)
+            if (!isValid)
                 continue;
 
             list.Add(prototype);

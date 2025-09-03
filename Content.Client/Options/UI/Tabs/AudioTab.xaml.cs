@@ -138,11 +138,13 @@ namespace Content.Client.Options.UI.Tabs
             }
         }
 
+        // WD EDIT START
         private void UpdateChangesOptionButton(OptionButton.ItemSelectedEventArgs args)
         {
             CharVoiceType.SelectId(args.Id);
             UpdateChanges();
         }
+        // WD EDIT END
 
         private void OnApplyButtonPressed(BaseButton.ButtonEventArgs args)
         {
