@@ -20,6 +20,8 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
+  - type: DynamicRuleCost # WD edit
+    cost: 14
 
 - type: entity
   parent: BaseGameRule
@@ -42,6 +44,8 @@
       mindRoles:
       - DevilMindRole
       startingGear: DevilStartingGear
+  - type: DynamicRuleCost
+    cost: 4
 #  - type: Tag
 #    tags:
 #    - RoundstartAntag
@@ -81,6 +85,8 @@
         sound: /Audio/Announcements/bloblarm.ogg
       mindRoles:
       - MindRoleBlob
+  - type: DynamicRuleCost # WD edit
+    cost: 20
 
 - type: entity
   id: BlobSpawn
@@ -98,3 +104,5 @@
     - SpawnPointGhostBlobRat
     playersPerCarrierBlob: 30
     maxCarrierBlob: 1
+  - type: DynamicRuleCost # WD edit
+    cost: 20
