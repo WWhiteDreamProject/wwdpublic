@@ -48,8 +48,9 @@ public sealed class AddBarkCommand : IConsoleCommand
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
         if(args.Length == 1)
-            return CompletionResult.FromHint("Uid");
-        if(args.Length == 2)
+            return
+ CompletionResult.FromHint("Uid");
+        if (args.Length == 2)
             return CompletionResult.FromHintOptions(CompletionHelper.PrototypeIDs<BarkVoicePrototype>(), "bark prototype");
 
         return CompletionResult.Empty;
