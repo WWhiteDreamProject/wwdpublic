@@ -398,6 +398,13 @@ namespace Content.Server.Database
         public string Sex { get; set; } = null!;
         public string BodyType { get; set; } = null!; // WD EDIT
         public string Voice { get; set; } = null!; // WD EDIT
+        public string BarkVoice { get; set; } = null!; // WD EDIT
+
+        public byte BarkPause { get; set; } = byte.MaxValue / 2; // WD EDIT
+        public byte BarkVolume { get; set; } = byte.MaxValue / 2; // WD EDIT
+        public byte BarkPitch { get; set; } = byte.MaxValue / 2; // WD EDIT
+        public byte BarkPitchVariance { get; set; } = byte.MaxValue / 2; // WD EDIT
+
         public string Gender { get; set; } = null!;
         public string? DisplayPronouns { get; set; }
         public string? StationAiName { get; set; }

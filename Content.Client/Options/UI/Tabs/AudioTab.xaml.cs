@@ -1,4 +1,6 @@
 using Content.Client.Audio;
+using Content.Shared._White.Bark;
+using Content.Shared._White.Bark.Systems;
 using Content.Shared._White.CCVar;
 using Content.Shared.CCVar;
 using Robust.Client.Audio;
@@ -23,6 +25,10 @@ namespace Content.Client.Options.UI.Tabs
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
 
+            CharVoiceType.AddItem(Loc.GetString("char-voice-none"), (int) CharacterVoiceType.None); // WD EDIT
+            CharVoiceType.AddItem(Loc.GetString("char-voice-bark"), (int) CharacterVoiceType.Bark); // WD EDIT
+            CharVoiceType.AddItem(Loc.GetString("char-voice-tts"), (int) CharacterVoiceType.TTS); // WD EDIT
+
             _audio = IoCManager.Resolve<IAudioManager>();
             LobbyMusicCheckBox.Pressed = _cfg.GetCVar(CCVars.LobbyMusicEnabled);
             RestartSoundsCheckBox.Pressed = _cfg.GetCVar(CCVars.RestartSoundsEnabled);
@@ -42,6 +48,9 @@ namespace Content.Client.Options.UI.Tabs
                 InterfaceVolumeSlider,
                 AnnouncerVolumeSlider,
                 TtsVolumeSlider, // WD EDIT
+                BarkVolumeSlider, // WD EDIT
+                CharVoiceType, //WD EDIT
+                BarkLimitSlider, //WD EDIT
 
                 LobbyMusicCheckBox,
                 RestartSoundsCheckBox,
@@ -68,6 +77,11 @@ namespace Content.Client.Options.UI.Tabs
                         case CheckBox checkBox:
                             checkBox.OnToggled += _ => UpdateChanges();
                             break;
+                        // WWDP EDIT START
+                        case OptionButton optionButton:
+                            optionButton.OnItemSelected += UpdateChangesOptionButton;
+                            break;
+                        // WWDP EDIT END
                     }
                 }
             }
@@ -88,6 +102,9 @@ namespace Content.Client.Options.UI.Tabs
                 InterfaceVolumeSlider,
                 AnnouncerVolumeSlider,
                 TtsVolumeSlider, // WD EDIT
+                BarkVolumeSlider, // WD EDIT
+                CharVoiceType, //WD EDIT
+                BarkLimitSlider, //WD EDIT
 
                 LobbyMusicCheckBox,
                 RestartSoundsCheckBox,
@@ -111,11 +128,23 @@ namespace Content.Client.Options.UI.Tabs
                         case CheckBox checkBox:
                             checkBox.OnToggled -= _ => UpdateChanges();
                             break;
+                        // WWDP EDIT START
+                        case OptionButton optionButton:
+                            optionButton.OnItemSelected -= UpdateChangesOptionButton;
+                            break;
+                        // WWDP EDIT END
                     }
                 }
             }
         }
 
+        // WD EDIT START
+        private void UpdateChangesOptionButton(OptionButton.ItemSelectedEventArgs args)
+        {
+            CharVoiceType.SelectId(args.Id);
+            UpdateChanges();
+        }
+        // WD EDIT END
 
         private void OnApplyButtonPressed(BaseButton.ButtonEventArgs args)
         {
@@ -129,6 +158,8 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.InterfaceVolume, InterfaceVolumeSlider.Value / 100f * ContentAudioSystem.InterfaceMultiplier);
             _cfg.SetCVar(CCVars.AnnouncerVolume, AnnouncerVolumeSlider.Value / 100f * ContentAudioSystem.AnnouncerMultiplier);
             _cfg.SetCVar(WhiteCVars.TTSVolume, TtsVolumeSlider.Value  / 100f * ContentAudioSystem.TTSMultiplier); // WD EDIT
+            _cfg.SetCVar(WhiteCVars.BarkVolume, BarkVolumeSlider.Value / 100f ); // WD EDIT
+            _cfg.SetCVar(WhiteCVars.BarkLimit, (int)BarkLimitSlider.Value); // WD EDIT
 
             _cfg.SetCVar(CCVars.MaxAmbientSources, (int)AmbienceSoundsSlider.Value);
 
@@ -137,6 +168,7 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.EventMusicEnabled, EventMusicCheckBox.Pressed);
             _cfg.SetCVar(CCVars.AnnouncerDisableMultipleSounds, AnnouncerDisableMultipleSoundsCheckBox.Pressed);
             _cfg.SetCVar(CCVars.AdminSoundsEnabled, AdminSoundsCheckBox.Pressed);
+            _cfg.SetCVar(WhiteCVars.VoiceType, (CharacterVoiceType) CharVoiceType.SelectedId); // WD EDIT
             _cfg.SaveToFile();
             UpdateChanges();
         }
@@ -156,6 +188,8 @@ namespace Content.Client.Options.UI.Tabs
             InterfaceVolumeSlider.Value = _cfg.GetCVar(CCVars.InterfaceVolume) * 100f / ContentAudioSystem.InterfaceMultiplier;
             AnnouncerVolumeSlider.Value = _cfg.GetCVar(CCVars.AnnouncerVolume) * 100f / ContentAudioSystem.AnnouncerMultiplier;
             TtsVolumeSlider.Value = _cfg.GetCVar(WhiteCVars.TTSVolume) * 100f / ContentAudioSystem.TTSMultiplier; // WD EDIT
+            BarkVolumeSlider.Value = _cfg.GetCVar(WhiteCVars.BarkVolume) * 100; // WD EDIT
+            BarkLimitSlider.Value = _cfg.GetCVar(WhiteCVars.BarkLimit);  // WD EDIT
 
             AmbienceSoundsSlider.Value = _cfg.GetCVar(CCVars.MaxAmbientSources);
 
@@ -164,6 +198,7 @@ namespace Content.Client.Options.UI.Tabs
             EventMusicCheckBox.Pressed = _cfg.GetCVar(CCVars.EventMusicEnabled);
             AnnouncerDisableMultipleSoundsCheckBox.Pressed = _cfg.GetCVar(CCVars.AnnouncerDisableMultipleSounds);
             AdminSoundsCheckBox.Pressed = _cfg.GetCVar(CCVars.AdminSoundsEnabled);
+            CharVoiceType.SelectId((int)_cfg.GetCVar(WhiteCVars.VoiceType)); // WD EDIT
             UpdateChanges();
         }
 
@@ -186,7 +221,9 @@ namespace Content.Client.Options.UI.Tabs
                 Math.Abs(AnnouncerVolumeSlider.Value - _cfg.GetCVar(CCVars.AnnouncerVolume) * 100f / ContentAudioSystem.AnnouncerMultiplier) < 0.01f;
             var isTtsVolumeSame =
                 Math.Abs(TtsVolumeSlider.Value - _cfg.GetCVar(WhiteCVars.TTSVolume) * 100f / ContentAudioSystem.TTSMultiplier) < 0.01f; // WD EDIT
-
+            var isBarkVolumeSame =
+                Math.Abs(BarkVolumeSlider.Value - _cfg.GetCVar(WhiteCVars.BarkVolume) * 100f) < 0.01f; // WD EDIT
+            var isBarkLimitSame = (int) BarkLimitSlider.Value == _cfg.GetCVar(WhiteCVars.BarkLimit); // WD EDIT
 
             var isAmbientSoundsSame = (int)AmbienceSoundsSlider.Value == _cfg.GetCVar(CCVars.MaxAmbientSources);
             var isLobbySame = LobbyMusicCheckBox.Pressed == _cfg.GetCVar(CCVars.LobbyMusicEnabled);
@@ -194,10 +231,12 @@ namespace Content.Client.Options.UI.Tabs
             var isEventSame = EventMusicCheckBox.Pressed == _cfg.GetCVar(CCVars.EventMusicEnabled);
             var isAnnouncerDisableMultipleSoundsSame = AnnouncerDisableMultipleSoundsCheckBox.Pressed == _cfg.GetCVar(CCVars.AnnouncerDisableMultipleSounds);
             var isAdminSoundsSame = AdminSoundsCheckBox.Pressed == _cfg.GetCVar(CCVars.AdminSoundsEnabled);
+            var isVoiceTypeSame = CharVoiceType.SelectedId == (int) _cfg.GetCVar(WhiteCVars.VoiceType); // WD EDIT
             var isEverythingSame = isMasterVolumeSame && isMidiVolumeSame && isAmbientVolumeSame
                 && isAmbientMusicVolumeSame && isAmbientSoundsSame && isLobbySame && isRestartSoundsSame && isEventSame
                 && isAnnouncerDisableMultipleSoundsSame && isAdminSoundsSame && isLobbyVolumeSame
-                && isInterfaceVolumeSame && isAnnouncerVolumeSame && isTtsVolumeSame; // WD EDIT
+                && isInterfaceVolumeSame && isAnnouncerVolumeSame && isTtsVolumeSame && isBarkVolumeSame
+                && isVoiceTypeSame && isBarkLimitSame; // WD EDIT
             ApplyButton.Disabled = isEverythingSame;
             ResetButton.Disabled = isEverythingSame;
             MasterVolumeLabel.Text =
@@ -216,6 +255,9 @@ namespace Content.Client.Options.UI.Tabs
                 Loc.GetString("ui-options-volume-percent", ("volume", AnnouncerVolumeSlider.Value / 100));
             TtsVolumeLabel.Text =
                 Loc.GetString("ui-options-volume-percent", ("volume", TtsVolumeSlider.Value / 100)); // WD EDIT
+            BarkVolumeLabel.Text =
+                Loc.GetString("ui-options-volume-percent", ("volume", BarkVolumeSlider.Value / 100)); // WD EDIT
+            BarkLimitLabel.Text = ((int) BarkLimitSlider.Value).ToString(); // WD EDIT
             AmbienceSoundsLabel.Text = ((int)AmbienceSoundsSlider.Value).ToString();
         }
     }

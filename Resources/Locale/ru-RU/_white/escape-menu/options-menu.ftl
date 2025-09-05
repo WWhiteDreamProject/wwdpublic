@@ -12,3 +12,10 @@ ui-options-hud-theme-xenomorph = Ксеноморф
 
 ui-options-film-grain = Зернистость
 ui-options-film-grain-strength = Интенсивность зернистости: { $strength }
+
+ui-options-bark-volume = Громкость лая
+ui-options-bark-limit = Лимит лая
+char-voice-none = Ничего
+char-voice-bark = Лай
+char-voice-tts = TTS
+ui-voice-option = Тип голоса персонажей

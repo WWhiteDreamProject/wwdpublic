@@ -12,3 +12,10 @@ ui-options-hud-theme-xenomorph = Xenomorph
 
 ui-options-film-grain = Grain
 ui-options-film-grain-strength = Grain intensity: { $strength }
+
+ui-options-bark-volume = Bark volume
+ui-options-bark-limit = Bark limit
+char-voice-none = None
+char-voice-bark = Bark
+char-voice-tts = TTS
+ui-voice-option = Character voice type
