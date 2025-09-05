@@ -1,7 +1,5 @@
 using Robust.Shared.Serialization;
-
 namespace Content.Shared._White.Bark;
-
 
 [Serializable, NetSerializable]
 public sealed class EntityBarkEvent(NetEntity entity, List<BarkData> barks) : EntityEventArgs

@@ -355,10 +355,11 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             .EnumeratePrototypes<TTSVoicePrototype>()
             .Where(o => CanHaveVoice(o, sex)).ToArray()
         ).ID;
+         // WD EDIT END
 
         var name = GetName(species, gender);
 
-        var profile = new HumanoidCharacterProfile()
+        var profile = new HumanoidCharacterProfile() // WD EDIT
         {
             Name = name,
             Sex = sex,
@@ -373,6 +374,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             Lifepath = SharedHumanoidAppearanceSystem.DefaultLifepath,
         };
 
+        // WD EDIT START
         var barkSystem = IoCManager.Resolve<IEntityManager>().System<SharedBarkSystem>();
         var barkVoiceList = barkSystem.GetVoiceList(profile);
 

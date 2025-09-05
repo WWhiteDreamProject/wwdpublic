@@ -24,9 +24,8 @@ using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 using Content.Shared._EE.GenderChange;
 using Content.Shared._White.Bark.Systems;
-
-
-namespace Content.Shared.Humanoid;
+ 
+ namespace Content.Shared.Humanoid;
 
 /// <summary>
 ///     HumanoidSystem. Primarily deals with the appearance and visual data
