@@ -158,7 +158,7 @@
   description: dynamic-description
   rules:
   - DynamicRule
-  - DummyNonAntag
+  # - DummyNonAntag
   - DynamicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
