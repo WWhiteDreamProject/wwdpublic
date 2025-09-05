@@ -1,103 +1,57 @@
 using System.Linq;
 using Content.Shared._White.GameTicking.Prototypes;
 using Robust.Client.Graphics;
-using Robust.Client.ResourceManagement;
+using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
-using Robust.Shared.Graphics.RSI;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Client._White.UI.AnimatedBackground;
 
-public sealed class AnimatedBackgroundControl : TextureRect
+public sealed class AnimatedBackgroundControl : Control
 {
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
-    [Dependency] private readonly IClyde _clyde = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-    private string _rsiPath = "/Textures/_White/LobbyScreens/native.rsi";
-    public RSI? _RSI;
-    private const int States = 1;
+    private static readonly ResPath RSIFallback = new("/Textures/_White/LobbyScreens/native.rsi");
+    private static readonly string DefaultState = "1";
 
-    private IRenderTexture? _buffer;
+    private ResPath? _rsiPath;
+    private AnimatedTextureRect _animatedTextureRect = new AnimatedTextureRect();
 
-    private readonly float[] _timer = new float[States];
-    private readonly float[][] _frameDelays = new float[States][];
-    private readonly int[] _frameCounter = new int[States];
-    private readonly Texture[][] _frames = new Texture[States][];
+    public ResPath RsiPath => _rsiPath ?? RSIFallback;
 
     public AnimatedBackgroundControl()
     {
         IoCManager.InjectDependencies(this);
+        LayoutContainer.SetAnchorPreset(_animatedTextureRect, LayoutContainer.LayoutPreset.Wide);
+        _animatedTextureRect.DisplayRect.Stretch = TextureRect.StretchMode.KeepAspectCovered;
+        AddChild(_animatedTextureRect);
 
         InitializeStates();
     }
 
     private void InitializeStates()
     {
-        _RSI ??= _resourceCache.GetResource<RSIResource>(_rsiPath).RSI;
-
-        for (var i = 0; i < States; i++)
-        {
-            if (!_RSI.TryGetState((i + 1).ToString(), out var state))
-                continue;
-
-            _frames[i] = state.GetFrames(RsiDirection.South);
-            _frameDelays[i] = state.GetDelays();
-            _frameCounter[i] = 0;
-        }
+        var specifier = new SpriteSpecifier.Rsi(RsiPath, DefaultState);
+        _animatedTextureRect.SetFromSpriteSpecifier(specifier);
     }
 
     public void SetRSI(RSI? rsi)
     {
-        _RSI = rsi;
-        InitializeStates();
-    }
-
-    protected override void FrameUpdate(FrameEventArgs args)
-    {
-        base.FrameUpdate(args);
-
-        for (var i = 0; i < _frames.Length; i++)
+        if(rsi is null)
         {
-            var delays = _frameDelays[i];
-            if (delays.Length == 0)
-                continue;
-
-            _timer[i] += args.DeltaSeconds;
-
-            var currentFrameIndex = _frameCounter[i];
-
-            if (!(_timer[i] >= delays[currentFrameIndex]))
-                continue;
-
-            _timer[i] -= delays[currentFrameIndex];
-            _frameCounter[i] = (currentFrameIndex + 1) % _frames[i].Length;
-            Texture = _frames[i][_frameCounter[i]];
-        }
-    }
-
-    protected override void Draw(DrawingHandleScreen handle)
-    {
-        base.Draw(handle);
-
-        if (_buffer is null)
+            _rsiPath = null;
             return;
+        }
 
-        handle.DrawTextureRect(_buffer.Texture, PixelSizeBox);
+        _rsiPath = rsi.Path;
+        InitializeStates();
     }
 
     protected override void Resized()
     {
         base.Resized();
-        _buffer?.Dispose();
-        _buffer = _clyde.CreateRenderTarget(PixelSize, RenderTargetColorFormat.Rgba8Srgb);
-    }
-
-    protected override void Dispose(bool disposing)
-    {
-        base.Dispose(disposing);
-        _buffer?.Dispose();
+        _animatedTextureRect.SetSize = Size;
     }
 
     public void RandomizeBackground()
@@ -105,7 +59,7 @@ public sealed class AnimatedBackgroundControl : TextureRect
         var backgroundsProto = _prototypeManager.EnumeratePrototypes<AnimatedLobbyScreenPrototype>().ToList();
         var random = new Random();
         var index = random.Next(backgroundsProto.Count);
-        _rsiPath = $"/Textures/{backgroundsProto[index].Path}";
+        _rsiPath = new ResPath($"/Textures/{backgroundsProto[index].Path}");
         InitializeStates();
     }
 }

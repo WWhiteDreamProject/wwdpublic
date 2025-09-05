@@ -2,8 +2,6 @@ using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface.Controls;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
 using Color = Robust.Shared.Maths.Color;
 
 namespace Content.Client._White.UI.Buttons;
@@ -27,20 +25,6 @@ public class WhiteLobbyTextButton : TextureButton
         IoCManager.InjectDependencies(this);
 
         _font = new VectorFont(_resourceCache.GetResource<FontResource>("/Fonts/_White/Bedstead/Bedstead.otf"), 15);
-    }
-
-    private void RebuildTexture()
-    {
-        if (_buttonText == null)
-            return;
-
-        var fontMeasure = MeasureText(_font, _buttonText);
-
-        var blank = new Image<Rgba32>((int)fontMeasure.X, (int)fontMeasure.Y);
-        blank[0, 0] = new Rgba32(0, 0, 0, 0);
-
-        var texture = Texture.LoadFromImage(blank);
-        TextureNormal = texture;
     }
 
     protected override void Draw(DrawingHandleScreen handle)
@@ -110,14 +94,20 @@ public class WhiteLobbyTextButton : TextureButton
         if (string.IsNullOrEmpty(_buttonText))
             return;
 
-        RebuildTexture();
-
         handle.DrawString(
             _font,
             Vector2.Zero,
             _buttonText!,
             color
         );
+    }
+
+    protected override Vector2 MeasureOverride(Vector2 availableSize)
+    {
+        if(_buttonText == null)
+            return MeasureText(_font, " ");
+
+        return MeasureText(_font, _buttonText);
     }
 
     private Vector2 MeasureText(Font font, string text)
