@@ -29,6 +29,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Threading;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using ChunkIndicesEnumerator = Robust.Shared.Map.Enumerators.ChunkIndicesEnumerator;
 
@@ -38,6 +39,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
 {
     [Dependency] private readonly IConfigurationManager _configManager = default!;
     [Dependency] private readonly IConsoleHost _console = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; // WD EDIT
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IParallelManager _parallel = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -116,6 +118,11 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
 
     private void OnBiomeMapInit(EntityUid uid, BiomeComponent component, MapInitEvent args)
     {
+        // WD EDIT START
+        if (_timing.ApplyingState)
+            return;
+        // WD EDIT END
+
         if (component.Seed == -1)
         {
             SetSeed(uid, component, _random.Next());

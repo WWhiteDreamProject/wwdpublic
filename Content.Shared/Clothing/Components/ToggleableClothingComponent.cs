@@ -22,7 +22,7 @@ public sealed partial class ToggleableClothingComponent : Component
     [DataField, AutoNetworkedField]
     public EntProtoId Action = "ActionToggleSuitPiece";
 
-    [DataField, AutoNetworkedField]
+    [DataField] // WD EDIT: remove AutoNetworkedField
     public EntityUid? ActionEntity;
 
     // Goobstation - ClothingPrototype and Slot Fields saved for compatibility with old prototype

@@ -26,15 +26,6 @@
       prob: 0.3
 
 - type: entity
-  parent: BaseGameRule
-  id: DummyNonAntagChance
-  components:
-  - type: SubGamemodes
-    rules:
-    - id: DummyNonAntag
-      prob: 0.3
-
-- type: entity
   id: DeathMatch31
   parent: BaseGameRule
   components:
@@ -284,22 +275,6 @@
       - MindRoleInitialInfected
   - type: DynamicRuleCost
     cost: 20 # WD edit: 200 -> 20
-
-# This rule makes the chosen players unable to get other antag rules, as a way to prevent metagaming job rolls.
-# Put this before antags assigned to station jobs, but after non-job antags (NukeOps/Wiz).
-- type: entity
-  id: DummyNonAntag
-  parent: BaseGameRule
-  components:
-  - type: GameRule
-    minPlayers: 5
-  - type: AntagSelection
-    selectionTime: PrePlayerSpawn # WD edit
-#    removeUponFailedSpawn: false
-    definitions:
-    - prefRoles: [ InitialInfected, Traitor, Thief, HeadRev, Shadowling, Blob, BloodCultist, Devil ] # WD edit
-      max: 2
-      playerRatio: 30
 
 # event schedulers
 
