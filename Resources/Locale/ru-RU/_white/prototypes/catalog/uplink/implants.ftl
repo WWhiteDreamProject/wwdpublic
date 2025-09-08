@@ -1,7 +1,7 @@
 uplink-implanter-name = Имплантер
 uplink-implanter-desc = Продвинутый имплантер, позволяющий быстро вкалывать и вытаскивать импланты.
 
-uplink-neuro-stabilization-implanter-name = Имплант нейро стабилизации
+uplink-neuro-stabilization-implanter-name = Имплант нейростабилизации
 uplink-neuro-stabilization-implanter-desc = Блокирует весь входящий урон по выносливости, компенсируя его шоковым зарядом, наносящим урон, пропорциональный заблокированному.
 
 uplink-smoke-implanter-name = Имплант дыма
