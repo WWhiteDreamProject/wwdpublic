@@ -1,0 +1,235 @@
+- type: listing
+  id: UplinkGunCaseViper
+  name: uplink-gun-case-viper-name
+  description: uplink-gun-case-viper-desc
+  productEntity: GunCaseSyndicateFilledViper
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Pistols/viper.rsi, state: icon }
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWeaponry
+
+# Inbuilt suppressor so it's sneaky + more expensive.
+- type: listing
+  id: UplinkGunCaseCobra
+  name: uplink-gun-case-cobra-name
+  description: uplink-gun-case-cobra-desc
+  productEntity: GunCaseSyndicateFilledCobra
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Pistols/cobra.rsi, state: icon }
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkGunCaseDualetta
+  name: uplink-gun-case-dualetta-name
+  description: uplink-gun-case-dualetta-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledDualetta
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkBloodDagger
+  name: uplink-blood-dagger-name
+  description: uplink-blood-dagger-desc
+  productEntity: BloodDagger
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkSyndieHolsterPython
+  name: uplink-syndie-holster-python-name
+  description: uplink-syndie-holster-python-desc
+  productEntity: ClothingBeltSyndieHolsterFilledPython
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Revolvers/python.rsi, state: icon }
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkBetrayalDagger
+  name: uplink-betrayal-dagger-name
+  description: uplink-betrayal-dagger-desc
+  productEntity: BetrayalDagger
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkFireAxeFlaming
+  name: uplink-fire-axe-name
+  description: uplink-fire-axe-desc
+  productEntity: FireAxeFlaming
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkGunCaseFPA90
+  name: uplink-gun-case-fpa-90-name
+  description: uplink-gun-case-fpa-90-desc
+  icon: { sprite: /Textures/_EE/Objects/Weapons/Guns/SMGs/FPA90.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledFPA90
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkGunCaseM90
+  name: uplink-gun-case-m90-name
+  description: uplink-gun-case-m90-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledM90
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkMiniEnergyCrossbow
+  name: uplink-energy-crossbow-name
+  description: uplink-energy-crossbow-desc
+  productEntity: EnergyCrossbowMini
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkC20RBundle
+  name: uplink-gun-case-c20r-name
+  description: uplink-gun-case-c20r-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledC20r
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 13
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkGunCaseAK220
+  name: uplink-gun-case-ak220-name
+  description: uplink-gun-case-ak220-desc
+  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/Rifles/AK220.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledAK220
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 16
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkGunCaseWSPR
+  name: uplink-gun-case-wspr-name
+  description: uplink-gun-case-wspr-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledWSPR
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 17
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkGunCaseBulldog
+  name: uplink-gun-case-bulldog-name
+  description: uplink-gun-case-bulldog-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledBulldog
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkGunCaseChinaLake
+  name: uplink-gun-case-china-lake-name
+  description: uplink-gun-case-china-lake-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledChinaLake
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 5
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkGunCaseL6Saw
+  name: uplink-gun-case-l6-saw-name
+  description: uplink-gun-case-l6-saw-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledL6Saw
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkWeaponry

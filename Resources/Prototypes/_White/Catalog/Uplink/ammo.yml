@@ -1,0 +1,40 @@
+- type: listing
+  id: UplinkMagazineLightRifleAK220
+  name: uplink-magazine-light-rifle-ak220-name
+  description: uplink-magazine-light-rifle-ak220-desc
+  productEntity: MagazineLightRifleAK220
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkBoxLethalshot
+  name: uplink-shotgun-shells-name
+  description: uplink-shotgun-shells-desc
+  icon: { sprite: /Textures/Objects/Storage/boxes.rsi, state: shelllethal}
+  productEntity: BoxLethalshot
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+
+# Disabled dumb bloat
+# - type: listing
+#   id: UplinkMagazineShotgunMeteor
+#   name: uplink-magazine-shotgun-meteor-name
+#   description: uplink-magazine-shotgun-meteor-desc
+#   productEntity: MagazineShotgunMeteor
+#   discountCategory: usualDiscounts
+#   discountDownTo:
+#     Telecrystal: 1
+#   cost:
+#     Telecrystal: 5
+#   categories:
+#   - UplinkAmmo
