@@ -2,7 +2,7 @@
   id: UplinkBaseUplinkRadio
   name: uplink-radio-name
   description: uplink-radio-desc
-  productEntity: BaseUplinkRadio
+  productEntity: BaseUplinkRadioNoDiscount
   cost:
     Telecrystal: 1
   categories:
