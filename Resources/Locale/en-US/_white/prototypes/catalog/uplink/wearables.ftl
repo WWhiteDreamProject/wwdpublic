@@ -1,5 +1,5 @@
 uplink-holster-name = Shoulder holster
-uplink-holster-desc = A deep shoulder holster capable of holding many types of ballistics.
+uplink-holster-desc = A deep shoulder holster capable of holding many types of ballistic firearms.
 
 uplink-syndicate-swat-helmet-name = Suspicious SWAT helmet
 uplink-syndicate-swat-helmet-desc = An extremely durable helmet commonly used by paramilitary forces. It is decorated with an ominous design.
