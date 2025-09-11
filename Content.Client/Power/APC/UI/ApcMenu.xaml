@@ -42,7 +42,7 @@
                 <Control HorizontalAlignment="Left">
                     <PanelContainer StyleClasses="APCControlPanel"/>
                     <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
-                        <Button StyleClasses="APCControlButton" SetSize="65 30" Name="BreakerButton" Margin="15 0 5 0"/>
+                        <Button StyleClasses="APCControlButton" SetSize="65 30" Name="BreakerButton" Margin="15 0 5 0" ToggleMode="True"/>
                         <TextureRect TexturePath="/Textures/_White/NovaUI/APC/nt-logo.png" TextureScale="4 4" Margin="25 5 15 0"/>
                     </BoxContainer>
                 </Control>
