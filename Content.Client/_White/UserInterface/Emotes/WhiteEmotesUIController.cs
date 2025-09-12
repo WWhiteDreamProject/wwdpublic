@@ -2,8 +2,9 @@ using System.Numerics;
 using Content.Client.Chat.UI;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
+using Content.Client.UserInterface.Systems.MenuBar.Widgets;
 using Content.Shared._White.CCVar;
-using Content.Shared._White.UI.Emotes;
+using Content.Shared._White.UserInterface.Emotes;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Input;
@@ -15,7 +16,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._White.UI.Emotes;
+namespace Content.Client._White.UserInterface.Emotes;
 
 public sealed class WhiteEmotesUIController : UIController, IOnStateChanged<GameplayState>
 {
@@ -25,7 +26,7 @@ public sealed class WhiteEmotesUIController : UIController, IOnStateChanged<Game
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
 
     private IBaseEmoteMenu? _window;
-    private MenuButton? EmotesButton => UIManager.GetActiveUIWidgetOrNull<UserInterface.Systems.MenuBar.Widgets.GameTopMenuBar>()?.EmotesButton;
+    private MenuButton? EmotesButton => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>()?.EmotesButton;
 
     private DateTime _lastEmotionTimeUse = DateTime.Now;
     private const float EmoteCooldown = 1.5f;

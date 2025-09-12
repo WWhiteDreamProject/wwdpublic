@@ -1,5 +1,5 @@
 using Content.Client._White.Guns;
-using Content.Client._White.UI;
+using Content.Client._White.UserInterface.Controls;
 using Content.Client.Cooldown;
 using Content.Client.IoC;
 using Content.Client.Items;
@@ -14,7 +14,6 @@ using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using System.Numerics;
-
 namespace Content.Client.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem

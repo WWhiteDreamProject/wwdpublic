@@ -1,6 +1,6 @@
 using Robust.Client.UserInterface.CustomControls;
 
-namespace Content.Client._White.UI.Buttons;
+namespace Content.Client._White.UserInterface.Buttons;
 
 public sealed class WhiteUICommandButton : WhiteCommandButton
 {

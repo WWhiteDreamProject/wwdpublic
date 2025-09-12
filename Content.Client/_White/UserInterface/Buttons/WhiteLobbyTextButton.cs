@@ -4,7 +4,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface.Controls;
 using Color = Robust.Shared.Maths.Color;
 
-namespace Content.Client._White.UI.Buttons;
+namespace Content.Client._White.UserInterface.Buttons;
 
 [Virtual]
 public class WhiteLobbyTextButton : TextureButton

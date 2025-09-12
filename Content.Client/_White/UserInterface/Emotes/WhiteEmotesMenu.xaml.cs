@@ -9,7 +9,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._White.UI.Emotes;
+namespace Content.Client._White.UserInterface.Emotes;
 
 [GenerateTypedNameReferences]
 public sealed partial class WhiteEmotesMenu : DefaultWindow, IBaseEmoteMenu

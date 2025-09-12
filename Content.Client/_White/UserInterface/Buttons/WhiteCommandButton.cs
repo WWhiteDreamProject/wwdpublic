@@ -1,6 +1,6 @@
 using Robust.Client.Console;
 
-namespace Content.Client._White.UI.Buttons;
+namespace Content.Client._White.UserInterface.Buttons;
 
 [Virtual]
 public class WhiteCommandButton : WhiteLobbyTextButton

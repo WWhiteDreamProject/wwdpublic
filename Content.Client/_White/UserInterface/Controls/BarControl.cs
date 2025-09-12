@@ -1,19 +1,10 @@
-using Content.Client.Hands;
-using Content.Client.Weapons.Ranged.ItemStatus;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
-using Robust.Shared.Graphics;
 using Robust.Shared.Utility;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Linq;
 using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Content.Client._White.UI;
+namespace Content.Client._White.UserInterface.Controls;
 
 public sealed class BarControl : Control
 {
@@ -58,7 +49,7 @@ public sealed class BarControl : Control
             fillLeft -= 1;
             Vector2 topLeft = new Vector2(0, rowHeight * row);
             Vector2 bottomRight = topLeft + new Vector2(Size.X, Size.Y / Rows);
-            
+
             handle.DrawRect(new UIBox2(topLeft, bottomRight), empty);
             if(rowFill > 0)
                 handle.DrawRect(new UIBox2(topLeft + new Vector2(Size.X * (1 - rowFill), 0), bottomRight), fill);
@@ -140,7 +131,7 @@ public sealed class FluxBarControl : Control
         handle.DrawTextureRectRegion(_emptyTex, emptyBox);
         handle.DrawTextureRectRegion(_fillTex, fillBox, fillBox);
         handle.DrawTextureRectRegion(_markTex, markBox, markBox);
-        if (_safeLimit is float safe)
+        if (_safeLimit is { } safe)
             handle.DrawLine(new(safe * Width, 0), new Vector2(safe * Width, Height), SafeLimitColor);
 
 

@@ -5,7 +5,7 @@ using Robust.Shared.Input;
 using Robust.Shared.Timing;
 using Range = Robust.Client.UserInterface.Controls.Range;
 
-namespace Content.Client._White.UI.Controls;
+namespace Content.Client._White.UserInterface.Controls;
 
 //TODO: Add some style thinks
 public sealed class Knob : Range

@@ -109,7 +109,7 @@ public sealed class PacificationSystem : EntitySystem
         if (component.DisallowAllCombat)
         {
             _combatSystem.SetInCombatMode(uid, false, combatMode);
-            _actionsSystem.SetEnabled(combatMode.CombatToggleActionEntity, false);
+            _combatSystem.SetEnable(combatMode, false); // WD EDIT
         }
 
         _alertsSystem.ShowAlert(uid, component.PacifiedAlert);
@@ -123,7 +123,7 @@ public sealed class PacificationSystem : EntitySystem
         if (combatMode.CanDisarm != null)
             _combatSystem.SetCanDisarm(uid, true, combatMode);
 
-        _actionsSystem.SetEnabled(combatMode.CombatToggleActionEntity, true);
+        _combatSystem.SetEnable(combatMode, true); // WD EDIT
         _alertsSystem.ClearAlert(uid, component.PacifiedAlert);
     }
 

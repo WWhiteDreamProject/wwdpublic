@@ -174,13 +174,15 @@ binds:
 - function: SaveItemLocation
   type: State
   key: MouseMiddle
+- function: Drop
+  type: State
+  key: Q
+# WD EDIT START
 - function: PreciseDrop
   type: State
   key: Q
   mod1: Shift
-- function: PreciseDrop
-  type: State
-  key: Q
+# WD EDIT END
 - function: ActivateItemInHand
   type: State
   key: Z
@@ -190,7 +192,7 @@ binds:
   mod1: Alt
 - function: OpenCharacterMenu
   type: State
-  key: C
+  key: J # WD EDIT: C -> J
 - function: OpenEmotesMenu
   type: State
   key: Y
@@ -275,6 +277,11 @@ binds:
   type: State
   mod1: Shift
   key: R
+# WD EDIT START
+- function: ToggleCombatMode
+  type: State
+  key: C
+# WD EDIT END
 - function: ShowDebugConsole
   type: State
   key: Tilde

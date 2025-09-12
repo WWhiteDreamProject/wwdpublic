@@ -1,6 +1,6 @@
 <windows:WhiteEmotesMenu
     xmlns="https://spacestation14.io"
-    xmlns:windows="clr-namespace:Content.Client._White.UI.Emotes"
+    xmlns:windows="clr-namespace:Content.Client._White.UserInterface.Emotes"
     Title="{Loc 'emotions-menu-title'}"
     VerticalExpand="True"
     HorizontalExpand="True"

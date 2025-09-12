@@ -6,7 +6,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Client._White.UI.AnimatedBackground;
+namespace Content.Client._White.UserInterface.AnimatedBackground;
 
 public sealed class AnimatedBackgroundControl : Control
 {

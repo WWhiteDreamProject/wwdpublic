@@ -1,4 +1,4 @@
-namespace Content.Shared._White.UI.Emotes;
+namespace Content.Shared._White.UserInterface.Emotes;
 
 
 public enum EmotesMenuType
