@@ -12,6 +12,7 @@
     xmlns:inventory="clr-namespace:Content.Client.UserInterface.Systems.Inventory.Widgets"
     xmlns:targeting="clr-namespace:Content.Client._Shitmed.UserInterface.Systems.Targeting.Widgets"
     xmlns:combatMode="clr-namespace:Content.Client._White.UserInterface.Systems.CombatMode.Widgets"
+    xmlns:movement="clr-namespace:Content.Client._White.UserInterface.Systems.Movement.Widgets"
     Name="SeparatedChatHud"
     VerticalExpand="False"
     VerticalAlignment="Bottom"
@@ -25,6 +26,7 @@
             <!-- WD EDIT START -->
             <BoxContainer Name="BottomRight" Align="End" SeparationOverride="3" Access="Protected">
                 <combatMode:CombatModeGui Name="CombatMode" Access="Protected"/>
+                <movement:MovementGui Name="Movement" Access="Protected"/>
                 <targeting:TargetingControl Name="Targeting" Access="Protected"/>
             </BoxContainer>
             <!-- WD EDIT END -->

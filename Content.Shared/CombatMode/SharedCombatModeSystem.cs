@@ -87,7 +87,7 @@ public abstract class SharedCombatModeSystem : EntitySystem
             || !TryComp<CombatModeComponent>(attached, out var combatMode))
             return;
 
-        SetInCombatMode(attached, !combatMode.IsInCombatMode, combatMode);
+        SetInCombatMode(attached, !combatMode.IsInCombatMode, combatMode, false);
     }
     // WD EDIT END
 

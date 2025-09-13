@@ -2,31 +2,28 @@ using Content.Client._White.UserInterface.Systems.CombatMode.Widgets;
 using Content.Client.CombatMode;
 using Content.Client.Gameplay;
 using Content.Shared.CombatMode;
-using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 
 namespace Content.Client._White.UserInterface.Systems.CombatMode;
 
 public sealed class CombatModeUIController : UIController, IOnStateEntered<GameplayState>, IOnSystemChanged<CombatModeSystem>
 {
-    [UISystemDependency] private readonly CombatModeSystem _combatMode = default!;
-
     private CombatModeComponent? _combatModeComponent;
 
     private CombatModeGui? CombatModGui => UIManager.GetActiveUIWidgetOrNull<CombatModeGui>();
 
     public void OnSystemLoaded(CombatModeSystem system)
     {
-        _combatMode.LocalPlayerCombatModeUpdated += OnCombatModeUpdated;
-        _combatMode.LocalPlayerCombatModeAdded += OnCombatModeAdded;
-        _combatMode.LocalPlayerCombatModeRemoved += OnCombatModeRemoved;
+        system.LocalPlayerCombatModeUpdated += OnCombatModeUpdated;
+        system.LocalPlayerCombatModeAdded += OnCombatModeAdded;
+        system.LocalPlayerCombatModeRemoved += OnCombatModeRemoved;
     }
 
     public void OnSystemUnloaded(CombatModeSystem system)
     {
-        _combatMode.LocalPlayerCombatModeUpdated -= OnCombatModeUpdated;
-        _combatMode.LocalPlayerCombatModeAdded -= OnCombatModeAdded;
-        _combatMode.LocalPlayerCombatModeRemoved -= OnCombatModeRemoved;
+        system.LocalPlayerCombatModeUpdated -= OnCombatModeUpdated;
+        system.LocalPlayerCombatModeAdded -= OnCombatModeAdded;
+        system.LocalPlayerCombatModeRemoved -= OnCombatModeRemoved;
     }
 
     public void OnStateEntered(GameplayState state)

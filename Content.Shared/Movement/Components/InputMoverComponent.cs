@@ -32,7 +32,6 @@ namespace Content.Shared.Movement.Components
         // We change which vector we write into based on whether we were sprinting after the previous input.
         //   (well maybe we do but the code is designed such that MoverSystem applies movement speed)
         //   (and I'm not changing that)
-            
         /// <summary>
         /// Should our velocity be applied to our parent?
         /// </summary>
@@ -74,17 +73,16 @@ namespace Content.Shared.Movement.Components
 
         public const float LerpTime = 1.0f;
 
+        [ViewVariables(VVAccess.ReadWrite)]
         public bool Sprinting => DefaultSprinting
             ? (HeldMoveButtons & MoveButtons.Walk) != 0x0
             : (HeldMoveButtons & MoveButtons.Walk) == 0x0;
 
+        [ViewVariables(VVAccess.ReadWrite)]
         public bool DefaultSprinting = true;
 
         [ViewVariables(VVAccess.ReadWrite)]
         public bool CanMove = true;
-
-        [DataField]
-        public ProtoId<AlertPrototype> WalkingAlert = "Walking";
     }
 
     [Serializable, NetSerializable]
