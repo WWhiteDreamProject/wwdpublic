@@ -19,7 +19,7 @@
           max: 1
         children:
         - id: Traitor
-          weight: 14
+          weight: 34
           conditions:
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition
@@ -44,7 +44,7 @@
             min: 20
         # WD edit start
         - id: Changeling
-          weight: 14
+          weight: 20
           conditions:
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition
@@ -111,7 +111,7 @@
           - !type:RoundDurationCondition
             min: 900 # 15 minutes
           - !type:PlayerCountCondition # WD edit
-            min: 20
+            min:
         - id: NinjaSpawn
           weight: 20
           conditions:
