@@ -22,7 +22,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     {
         base.Added(uid, component, gameRule, args);
 
-        component.Budget = _random.Next(component.StartingBudgetMin, component.StartingBudgetMax);;
+        component.Budget = _random.Next(component.StartingBudgetMin, component.StartingBudgetMax);
         component.NextRuleTime = Timing.CurTime + _random.Next(component.MinRuleInterval, component.MaxRuleInterval);
     }
 
