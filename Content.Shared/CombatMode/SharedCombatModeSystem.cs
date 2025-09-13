@@ -71,6 +71,9 @@ public abstract class SharedCombatModeSystem : EntitySystem
 
     private void OnToggleCombatModeRequest(ToggleCombatModeRequestEvent msg, EntitySessionEventArgs args)
     {
+        if (Timing is { InPrediction: true, IsFirstTimePredicted: false, })
+            return;
+
         if (args.SenderSession.AttachedEntity is not {Valid: true, } attached
             || !TryComp<CombatModeComponent>(attached, out var combatMode))
         {
@@ -113,7 +116,7 @@ public abstract class SharedCombatModeSystem : EntitySystem
             return;
 
         // WD EDIT START
-        if (!component.Enable)
+        if (!component.Enable && value)
             return;
         // WD EDIT END
 

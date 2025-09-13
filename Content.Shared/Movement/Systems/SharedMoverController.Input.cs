@@ -327,6 +327,8 @@ namespace Content.Shared.Movement.Systems
             }
 
             inputMover.DefaultSprinting = !inputMover.DefaultSprinting;
+            Dirty(attached, inputMover);
+
             SprintingMovementUpdate((attached, inputMover));
         }
         // WD EDIT END

@@ -102,11 +102,15 @@ public sealed class MoverController : SharedMoverController
     protected override void OnStartup(Entity<InputMoverComponent> entity, ref ComponentStartup args)
     {
         base.OnStartup(entity, ref args);
-        LocalPlayerInputMoverAdded?.Invoke(entity.Comp);
+        if (_playerManager.LocalEntity == entity)
+            LocalPlayerInputMoverAdded?.Invoke(entity.Comp);
     }
 
-    private void OnShutdown(Entity<InputMoverComponent> entity, ref ComponentShutdown args) =>
-        LocalPlayerInputMoverRemoved?.Invoke();
+    private void OnShutdown(Entity<InputMoverComponent> entity, ref ComponentShutdown args)
+    {
+        if (_playerManager.LocalEntity == entity)
+            LocalPlayerInputMoverRemoved?.Invoke();
+    }
     // WD EDIT END
 
     public override void UpdateBeforeSolve(bool prediction, float frameTime)
@@ -171,7 +175,9 @@ public sealed class MoverController : SharedMoverController
             return;
 
         base.SprintingMovementUpdate(entity);
-        LocalPlayerInputMoverUpdated?.Invoke(entity.Comp.Sprinting);
+
+        if (_playerManager.LocalEntity == entity)
+            LocalPlayerInputMoverUpdated?.Invoke(entity.Comp.Sprinting);
     }
     // WD EDIT END
 }
