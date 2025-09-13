@@ -60,7 +60,7 @@ namespace Content.Shared.Movement.Systems
 
             SubscribeLocalEvent<FollowedComponent, EntParentChangedMessage>(OnFollowedParentChange);
 
-            SubscribeAllEvent<ToggleInputMoverRequestEvent>(OnToggleInputMoverRequest);
+            SubscribeAllEvent<ToggleInputMoverRequestEvent>(OnToggleInputMoverRequest); // WD EDIT
 
             Subs.CVar(_configManager, CCVars.CameraRotationLocked, obj => CameraRotationLocked = obj, true);
             Subs.CVar(_configManager, CCVars.GameDiagonalMovement, value => DiagonalMovementEnabled = value, true);

@@ -73,12 +73,10 @@ namespace Content.Shared.Movement.Components
 
         public const float LerpTime = 1.0f;
 
-        [ViewVariables(VVAccess.ReadWrite)]
         public bool Sprinting => DefaultSprinting
             ? (HeldMoveButtons & MoveButtons.Walk) != 0x0
             : (HeldMoveButtons & MoveButtons.Walk) == 0x0;
 
-        [ViewVariables(VVAccess.ReadWrite)]
         public bool DefaultSprinting = true;
 
         [ViewVariables(VVAccess.ReadWrite)]

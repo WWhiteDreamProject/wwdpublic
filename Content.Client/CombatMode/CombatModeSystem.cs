@@ -97,9 +97,9 @@ public sealed class CombatModeSystem : SharedCombatModeSystem
         return IsInCombatMode(entity.Value);
     }
 
-    public override void SetInCombatMode(EntityUid entity, bool value, CombatModeComponent? component = null, bool silent = true)
+    public override void SetInCombatMode(EntityUid entity, bool value, CombatModeComponent? component = null, bool silent = true) // WD EDIT
     {
-        base.SetInCombatMode(entity, value, component, silent);
+        base.SetInCombatMode(entity, value, component, silent); // WD EDIT
         UpdateHud(entity);
 
         // WD EDIT START

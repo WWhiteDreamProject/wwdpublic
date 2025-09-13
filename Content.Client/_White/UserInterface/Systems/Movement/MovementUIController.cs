@@ -55,5 +55,5 @@ public sealed class MovementUIController : UIController, IOnStateEntered<Gamepla
         _inputMoverComponent = null;
     }
 
-    public void ToggleInputMover() => EntityManager.RaisePredictiveEvent(new ToggleInputMoverRequestEvent(!_inputMoverComponent?.DefaultSprinting ?? false));
+    public void ToggleInputMover() => EntityManager.RaisePredictiveEvent(new ToggleInputMoverRequestEvent());
 }

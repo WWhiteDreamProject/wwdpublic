@@ -38,8 +38,5 @@ public readonly struct SprintingInputEvent(Entity<InputMoverComponent> entity)
 }
 
 [Serializable, NetSerializable]
-public sealed class ToggleInputMoverRequestEvent(bool defaultSprinting) : EntityEventArgs
-{
-    public bool DefaultSprinting = defaultSprinting;
-}
+public sealed class ToggleInputMoverRequestEvent : EntityEventArgs;
 // WD EDIT END
