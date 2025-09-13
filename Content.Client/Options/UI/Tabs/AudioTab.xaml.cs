@@ -34,6 +34,7 @@ namespace Content.Client.Options.UI.Tabs
             RestartSoundsCheckBox.Pressed = _cfg.GetCVar(CCVars.RestartSoundsEnabled);
             EventMusicCheckBox.Pressed = _cfg.GetCVar(CCVars.EventMusicEnabled);
             AdminSoundsCheckBox.Pressed = _cfg.GetCVar(CCVars.AdminSoundsEnabled);
+            ToggleCombatModeCheckBox.Pressed = _cfg.GetCVar(WhiteCVars.ToggleCombatModeSound); // WD EDIT
 
             ApplyButton.OnPressed += OnApplyButtonPressed;
             ResetButton.OnPressed += OnResetButtonPressed;
@@ -47,16 +48,22 @@ namespace Content.Client.Options.UI.Tabs
                 LobbyVolumeSlider,
                 InterfaceVolumeSlider,
                 AnnouncerVolumeSlider,
-                TtsVolumeSlider, // WD EDIT
-                BarkVolumeSlider, // WD EDIT
-                CharVoiceType, //WD EDIT
-                BarkLimitSlider, //WD EDIT
+                // WD EDIT START
+                TtsVolumeSlider,
+                BarkVolumeSlider,
+                BarkLimitSlider,
+                // WD EDIT END
 
                 LobbyMusicCheckBox,
                 RestartSoundsCheckBox,
                 EventMusicCheckBox,
                 AnnouncerDisableMultipleSoundsCheckBox,
-                AdminSoundsCheckBox
+                AdminSoundsCheckBox,
+                // WD EDIT START
+                ToggleCombatModeCheckBox,
+
+                CharVoiceType
+                // WD EDIT END
             );
 
             AmbienceSoundsSlider.MinValue = _cfg.GetCVar(CCVars.MinMaxAmbientSourcesConfigured);
@@ -101,16 +108,22 @@ namespace Content.Client.Options.UI.Tabs
                 LobbyVolumeSlider,
                 InterfaceVolumeSlider,
                 AnnouncerVolumeSlider,
-                TtsVolumeSlider, // WD EDIT
-                BarkVolumeSlider, // WD EDIT
-                CharVoiceType, //WD EDIT
-                BarkLimitSlider, //WD EDIT
+                // WD EDIT START
+                TtsVolumeSlider,
+                BarkVolumeSlider,
+                BarkLimitSlider,
+                // WD EDIT END
 
                 LobbyMusicCheckBox,
                 RestartSoundsCheckBox,
                 EventMusicCheckBox,
                 AnnouncerDisableMultipleSoundsCheckBox,
-                AdminSoundsCheckBox
+                AdminSoundsCheckBox,
+                // WD EDIT START
+                ToggleCombatModeCheckBox,
+
+                CharVoiceType
+                // WD EDIT END
             );
 
             base.Dispose(disposing);
@@ -157,9 +170,11 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.LobbyMusicVolume, LobbyVolumeSlider.Value / 100f * ContentAudioSystem.LobbyMultiplier);
             _cfg.SetCVar(CCVars.InterfaceVolume, InterfaceVolumeSlider.Value / 100f * ContentAudioSystem.InterfaceMultiplier);
             _cfg.SetCVar(CCVars.AnnouncerVolume, AnnouncerVolumeSlider.Value / 100f * ContentAudioSystem.AnnouncerMultiplier);
-            _cfg.SetCVar(WhiteCVars.TTSVolume, TtsVolumeSlider.Value  / 100f * ContentAudioSystem.TTSMultiplier); // WD EDIT
-            _cfg.SetCVar(WhiteCVars.BarkVolume, BarkVolumeSlider.Value / 100f ); // WD EDIT
-            _cfg.SetCVar(WhiteCVars.BarkLimit, (int)BarkLimitSlider.Value); // WD EDIT
+            // WD EDIT START
+            _cfg.SetCVar(WhiteCVars.TTSVolume, TtsVolumeSlider.Value  / 100f * ContentAudioSystem.TTSMultiplier);
+            _cfg.SetCVar(WhiteCVars.BarkVolume, BarkVolumeSlider.Value / 100f );
+            _cfg.SetCVar(WhiteCVars.BarkLimit, (int)BarkLimitSlider.Value);
+            // WD EDIT END
 
             _cfg.SetCVar(CCVars.MaxAmbientSources, (int)AmbienceSoundsSlider.Value);
 
@@ -168,7 +183,12 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.EventMusicEnabled, EventMusicCheckBox.Pressed);
             _cfg.SetCVar(CCVars.AnnouncerDisableMultipleSounds, AnnouncerDisableMultipleSoundsCheckBox.Pressed);
             _cfg.SetCVar(CCVars.AdminSoundsEnabled, AdminSoundsCheckBox.Pressed);
-            _cfg.SetCVar(WhiteCVars.VoiceType, (CharacterVoiceType) CharVoiceType.SelectedId); // WD EDIT
+            // WD EDIT START
+            _cfg.SetCVar(WhiteCVars.ToggleCombatModeSound, ToggleCombatModeCheckBox.Pressed);
+
+            _cfg.SetCVar(WhiteCVars.VoiceType, (CharacterVoiceType) CharVoiceType.SelectedId);
+            // WD EDIT END
+
             _cfg.SaveToFile();
             UpdateChanges();
         }
@@ -187,9 +207,11 @@ namespace Content.Client.Options.UI.Tabs
             LobbyVolumeSlider.Value = _cfg.GetCVar(CCVars.LobbyMusicVolume) * 100f / ContentAudioSystem.LobbyMultiplier;
             InterfaceVolumeSlider.Value = _cfg.GetCVar(CCVars.InterfaceVolume) * 100f / ContentAudioSystem.InterfaceMultiplier;
             AnnouncerVolumeSlider.Value = _cfg.GetCVar(CCVars.AnnouncerVolume) * 100f / ContentAudioSystem.AnnouncerMultiplier;
-            TtsVolumeSlider.Value = _cfg.GetCVar(WhiteCVars.TTSVolume) * 100f / ContentAudioSystem.TTSMultiplier; // WD EDIT
-            BarkVolumeSlider.Value = _cfg.GetCVar(WhiteCVars.BarkVolume) * 100; // WD EDIT
-            BarkLimitSlider.Value = _cfg.GetCVar(WhiteCVars.BarkLimit);  // WD EDIT
+            // WD EDIT START
+            TtsVolumeSlider.Value = _cfg.GetCVar(WhiteCVars.TTSVolume) * 100f / ContentAudioSystem.TTSMultiplier;
+            BarkVolumeSlider.Value = _cfg.GetCVar(WhiteCVars.BarkVolume) * 100;
+            BarkLimitSlider.Value = _cfg.GetCVar(WhiteCVars.BarkLimit);
+            // WD EDIT END
 
             AmbienceSoundsSlider.Value = _cfg.GetCVar(CCVars.MaxAmbientSources);
 
@@ -198,7 +220,12 @@ namespace Content.Client.Options.UI.Tabs
             EventMusicCheckBox.Pressed = _cfg.GetCVar(CCVars.EventMusicEnabled);
             AnnouncerDisableMultipleSoundsCheckBox.Pressed = _cfg.GetCVar(CCVars.AnnouncerDisableMultipleSounds);
             AdminSoundsCheckBox.Pressed = _cfg.GetCVar(CCVars.AdminSoundsEnabled);
-            CharVoiceType.SelectId((int)_cfg.GetCVar(WhiteCVars.VoiceType)); // WD EDIT
+            // WD EDIT START
+            ToggleCombatModeCheckBox.Pressed = _cfg.GetCVar(WhiteCVars.ToggleCombatModeSound);
+
+            CharVoiceType.SelectId((int)_cfg.GetCVar(WhiteCVars.VoiceType));
+            // WD EDIT END
+
             UpdateChanges();
         }
 
@@ -219,24 +246,31 @@ namespace Content.Client.Options.UI.Tabs
                 Math.Abs(InterfaceVolumeSlider.Value - _cfg.GetCVar(CCVars.InterfaceVolume) * 100f / ContentAudioSystem.InterfaceMultiplier) < 0.01f;
             var isAnnouncerVolumeSame =
                 Math.Abs(AnnouncerVolumeSlider.Value - _cfg.GetCVar(CCVars.AnnouncerVolume) * 100f / ContentAudioSystem.AnnouncerMultiplier) < 0.01f;
+            // WD EDIT START
             var isTtsVolumeSame =
-                Math.Abs(TtsVolumeSlider.Value - _cfg.GetCVar(WhiteCVars.TTSVolume) * 100f / ContentAudioSystem.TTSMultiplier) < 0.01f; // WD EDIT
+                Math.Abs(TtsVolumeSlider.Value - _cfg.GetCVar(WhiteCVars.TTSVolume) * 100f / ContentAudioSystem.TTSMultiplier) < 0.01f;
             var isBarkVolumeSame =
-                Math.Abs(BarkVolumeSlider.Value - _cfg.GetCVar(WhiteCVars.BarkVolume) * 100f) < 0.01f; // WD EDIT
-            var isBarkLimitSame = (int) BarkLimitSlider.Value == _cfg.GetCVar(WhiteCVars.BarkLimit); // WD EDIT
+                Math.Abs(BarkVolumeSlider.Value - _cfg.GetCVar(WhiteCVars.BarkVolume) * 100f) < 0.01f;
+            var isBarkLimitSame = (int) BarkLimitSlider.Value == _cfg.GetCVar(WhiteCVars.BarkLimit);
+            // WD EDIT END
 
             var isAmbientSoundsSame = (int)AmbienceSoundsSlider.Value == _cfg.GetCVar(CCVars.MaxAmbientSources);
             var isLobbySame = LobbyMusicCheckBox.Pressed == _cfg.GetCVar(CCVars.LobbyMusicEnabled);
             var isRestartSoundsSame = RestartSoundsCheckBox.Pressed == _cfg.GetCVar(CCVars.RestartSoundsEnabled);
             var isEventSame = EventMusicCheckBox.Pressed == _cfg.GetCVar(CCVars.EventMusicEnabled);
             var isAnnouncerDisableMultipleSoundsSame = AnnouncerDisableMultipleSoundsCheckBox.Pressed == _cfg.GetCVar(CCVars.AnnouncerDisableMultipleSounds);
-            var isAdminSoundsSame = AdminSoundsCheckBox.Pressed == _cfg.GetCVar(CCVars.AdminSoundsEnabled);
-            var isVoiceTypeSame = CharVoiceType.SelectedId == (int) _cfg.GetCVar(WhiteCVars.VoiceType); // WD EDIT
+            var isToggleCombatModeSoundsSame = AdminSoundsCheckBox.Pressed == _cfg.GetCVar(CCVars.AdminSoundsEnabled);
+            // WD EDIT START
+            var isAdminSoundsSame = ToggleCombatModeCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.ToggleCombatModeSound);
+
+            var isVoiceTypeSame = CharVoiceType.SelectedId == (int) _cfg.GetCVar(WhiteCVars.VoiceType);
+            // WD EDIT END
+
             var isEverythingSame = isMasterVolumeSame && isMidiVolumeSame && isAmbientVolumeSame
                 && isAmbientMusicVolumeSame && isAmbientSoundsSame && isLobbySame && isRestartSoundsSame && isEventSame
                 && isAnnouncerDisableMultipleSoundsSame && isAdminSoundsSame && isLobbyVolumeSame
                 && isInterfaceVolumeSame && isAnnouncerVolumeSame && isTtsVolumeSame && isBarkVolumeSame
-                && isVoiceTypeSame && isBarkLimitSame; // WD EDIT
+                && isVoiceTypeSame && isBarkLimitSame && isToggleCombatModeSoundsSame; // WD EDIT
             ApplyButton.Disabled = isEverythingSame;
             ResetButton.Disabled = isEverythingSame;
             MasterVolumeLabel.Text =

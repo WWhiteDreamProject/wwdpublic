@@ -80,6 +80,7 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.OfferItem);
             human.AddFunction(ContentKeyFunctions.ToggleStanding);
             human.AddFunction(ContentKeyFunctions.ToggleCrawlingUnder);
+            human.AddFunction(ContentKeyFunctions.ToggleCombatMode); // WD EDIT
             human.AddFunction(ContentKeyFunctions.MouseMiddle);
             human.AddFunction(ContentKeyFunctions.ArcadeUp);
             human.AddFunction(ContentKeyFunctions.ArcadeDown);

@@ -1,8 +1,9 @@
-using Content.Shared.Actions;
+using Content.Shared.Input;
 using Content.Shared.MouseRotator;
 using Content.Shared.Movement.Components;
-using Content.Shared.Popups;
-using Robust.Shared.Network;
+using Robust.Shared.Input.Binding;
+using Robust.Shared.Player;
+using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.CombatMode;
@@ -10,33 +11,47 @@ namespace Content.Shared.CombatMode;
 public abstract class SharedCombatModeSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private   readonly INetManager _netMan = default!;
+    // WD EDIT START
+    /*[Dependency] private   readonly INetManager _netMan = default!;
     [Dependency] private   readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private   readonly SharedPopupSystem _popup = default!;
+    [Dependency] private   readonly SharedPopupSystem _popup = default!;*/
+    // WD EDIT END
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CombatModeComponent, MapInitEvent>(OnMapInit);
+        /*SubscribeLocalEvent<CombatModeComponent, MapInitEvent>(OnMapInit);*/ // WD EDIT
         SubscribeLocalEvent<CombatModeComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<CombatModeComponent, ToggleCombatActionEvent>(OnActionPerform);
+        /*SubscribeLocalEvent<CombatModeComponent, ToggleCombatActionEvent>(OnActionPerform);*/ // WD EDIT
+
+        // WD EDIT START
+        SubscribeAllEvent<ToggleCombatModeRequestEvent>(OnToggleCombatModeRequest);
+
+        CommandBinds.Builder
+            .Bind(ContentKeyFunctions.ToggleCombatMode, InputCmdHandler.FromDelegate(ToggleCombatMode, handle: false, outsidePrediction: false))
+            .Register<SharedCombatModeSystem>();
+        // WD EDIT END
     }
 
-    private void OnMapInit(EntityUid uid, CombatModeComponent component, MapInitEvent args)
+    // WD EDIT END
+    // WD EDIT START
+    /*private void OnMapInit(EntityUid uid, CombatModeComponent component, MapInitEvent args)
     {
         _actionsSystem.AddAction(uid, ref component.CombatToggleActionEntity, component.CombatToggleAction);
         Dirty(uid, component);
-    }
+    }*/
+    // WD EDIT END
 
-    private void OnShutdown(EntityUid uid, CombatModeComponent component, ComponentShutdown args)
+    protected virtual void OnShutdown(EntityUid uid, CombatModeComponent component, ComponentShutdown args) // WD EDIT
     {
-        _actionsSystem.RemoveAction(uid, component.CombatToggleActionEntity);
+        /*_actionsSystem.RemoveAction(uid, component.CombatToggleActionEntity);*/ // WD EDIT
 
         SetMouseRotatorComponents(uid, false);
     }
 
-    private void OnActionPerform(EntityUid uid, CombatModeComponent component, ToggleCombatActionEvent args)
+    // WD EDIT START
+    /*private void OnActionPerform(EntityUid uid, CombatModeComponent component, ToggleCombatActionEvent args)
     {
         if (args.Handled)
             return;
@@ -50,10 +65,31 @@ public abstract class SharedCombatModeSystem : EntitySystem
         if (!_netMan.IsClient || !Timing.IsFirstTimePredicted)
             return;
 
-        // WWDP disabled popup
-        //var msg = component.IsInCombatMode ? "action-popup-combat-enabled" : "action-popup-combat-disabled";
-        //_popup.PopupEntity(Loc.GetString(msg), args.Performer, args.Performer);
+        var msg = component.IsInCombatMode ? "action-popup-combat-enabled" : "action-popup-combat-disabled";
+        _popup.PopupEntity(Loc.GetString(msg), args.Performer, args.Performer);
+    }*/
+
+    private void OnToggleCombatModeRequest(ToggleCombatModeRequestEvent msg, EntitySessionEventArgs args)
+    {
+        if (args.SenderSession.AttachedEntity is not {Valid: true, } attached
+            || !TryComp<CombatModeComponent>(attached, out var combatMode))
+        {
+            Log.Warning($"User {args.SenderSession.Name} sent an invalid {nameof(ToggleCombatModeRequestEvent)}");
+            return;
+        }
+
+        SetInCombatMode(attached, !combatMode.IsInCombatMode, combatMode, false);
     }
+
+    private void ToggleCombatMode(ICommonSession? session)
+    {
+        if (session?.AttachedEntity is not {Valid: true, } attached
+            || !TryComp<CombatModeComponent>(attached, out var combatMode))
+            return;
+
+        SetInCombatMode(attached, !combatMode.IsInCombatMode, combatMode, false);
+    }
+    // WD EDIT END
 
     public void SetCanDisarm(EntityUid entity, bool canDisarm, CombatModeComponent? component = null)
     {
@@ -68,7 +104,7 @@ public abstract class SharedCombatModeSystem : EntitySystem
         return entity != null && Resolve(entity.Value, ref component, false) && component.IsInCombatMode;
     }
 
-    public virtual void SetInCombatMode(EntityUid entity, bool value, CombatModeComponent? component = null)
+    public virtual void SetInCombatMode(EntityUid entity, bool value, CombatModeComponent? component = null, bool silent = true) // WD EDIT
     {
         if (!Resolve(entity, ref component))
             return;
@@ -76,11 +112,20 @@ public abstract class SharedCombatModeSystem : EntitySystem
         if (component.IsInCombatMode == value)
             return;
 
+        // WD EDIT START
+        if (!component.Enable && value)
+            return;
+        // WD EDIT END
+
         component.IsInCombatMode = value;
         Dirty(entity, component);
 
-        if (component.CombatToggleActionEntity != null)
-            _actionsSystem.SetToggled(component.CombatToggleActionEntity, component.IsInCombatMode);
+        // WD EDIT START
+        RaiseLocalEvent(entity, new CombatModeToggledEvent(value));
+
+        /*if (component.CombatToggleActionEntity != null)
+            _actionsSystem.SetToggled(component.CombatToggleActionEntity, component.IsInCombatMode);*/
+        // WD EDIT END
 
         // Change mouse rotator comps if flag is set
         if (!component.ToggleMouseRotator || IsNpc(entity))
@@ -88,6 +133,14 @@ public abstract class SharedCombatModeSystem : EntitySystem
 
         SetMouseRotatorComponents(entity, value);
     }
+
+    // WD EDIT START
+    public void SetEnable(EntityUid entity, CombatModeComponent component, bool enable)
+    {
+        component.Enable = enable;
+        Dirty(entity, component);
+    }
+    // WD EDIT END
 
     private void SetMouseRotatorComponents(EntityUid uid, bool value)
     {
@@ -114,7 +167,12 @@ public abstract class SharedCombatModeSystem : EntitySystem
     protected abstract bool IsNpc(EntityUid uid);
 }
 
-public sealed partial class ToggleCombatActionEvent : InstantActionEvent
+// WD EDIT START
+public sealed class CombatModeToggledEvent(bool combatMode) : EntityEventArgs
 {
-
+    public bool CombatMode = combatMode;
 }
+
+[Serializable, NetSerializable]
+public sealed class ToggleCombatModeRequestEvent : EntityEventArgs;
+// WD EDIT END

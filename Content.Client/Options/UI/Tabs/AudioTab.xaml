@@ -119,6 +119,7 @@
                 <CheckBox Name="AnnouncerDisableMultipleSoundsCheckBox" Text="{Loc 'ui-options-announcer-disable-multiple-sounds'}" ToolTip="{Loc 'ui-options-announcer-disable-multiple-sounds-tooltip'}" />
                 <CheckBox Name="AdminSoundsCheckBox" Text="{Loc 'ui-options-admin-sounds'}" />
                 <!--WD EDIT START-->
+                <CheckBox Name="ToggleCombatModeCheckBox" Text="{Loc 'ui-options-toggle-combat-mode-sounds'}" />
                 <BoxContainer Orientation="Horizontal" SeparationOverride="5">
                     <Label Text="{Loc 'ui-voice-option'}"/>
                     <OptionButton Name="CharVoiceType"/>
