@@ -1,7 +1,7 @@
 psionic-overload-blurry = Моё зрение ухудшается под давлением покрова!
 psionic-overload-scramble = Мысли путаются...
 psionic-overload-teleport = Я мгновенно телепортируюсь!
-psionic-overload-zap = Эхо серебрянного мира вырывается из моего тела!
+psionic-overload-zap = Эхо серебряного мира вырывается из моего тела!
 psionic-overload-mite = Буэээ...
 psionic-overload-hostile = Я начинаю излучать зловещую ауру
 
