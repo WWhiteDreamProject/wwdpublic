@@ -21,4 +21,5 @@ jobs:
         CHANGELOG_DIR: ${{ vars.CHANGELOG_DIR }}
         CHANGELOG_WEBHOOK: ${{ secrets.CHANGELOG_WEBHOOK }}
         GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+        ROLES_TO_PING: ${{ vars.ROLES_TO_PING }}
     continue-on-error: true
