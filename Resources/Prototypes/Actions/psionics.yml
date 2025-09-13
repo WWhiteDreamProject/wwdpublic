@@ -6,7 +6,7 @@
   components:
     - type: EntityTargetAction
       icon: Interface/VerbIcons/dispel.png
-      useDelay: 45
+      useDelay: 1 #wwdp
       checkCanAccess: false
       range: 6
       itemIconStyle: BigAction
@@ -16,6 +16,8 @@
           - PsionicInsulation
           - Mindbroken
       event: !type:DispelPowerActionEvent
+    - type: NoospherePressure #wwdp edit
+      pressure: 50
 
 - type: entity
   id: ActionMassSleep
@@ -25,11 +27,13 @@
   components:
     - type: WorldTargetAction
       icon: Interface/VerbIcons/mass_sleep.png
-      useDelay: 60
+      useDelay: 3 #wwdp
       checkCanAccess: false
       range: 8
       itemIconStyle: BigAction
       event: !type:MassSleepPowerActionEvent
+    - type: NoospherePressure #wwdp edit
+      pressure: 40
 
 - type: entity
   id: ActionMindSwap
@@ -39,7 +43,7 @@
   components:
     - type: EntityTargetAction
       icon: Interface/VerbIcons/mind_swap.png
-      useDelay: 240
+      useDelay: 5 #wwdp
       checkCanAccess: false
       range: 8
       itemIconStyle: BigAction
@@ -48,6 +52,8 @@
           - PsionicInsulation
           - Mindbroken
       event: !type:MindSwapPowerActionEvent
+    - type: NoospherePressure #wwdp edit
+      pressure: 50
 
 - type: entity
   id: ActionMindSwapReturn
@@ -69,7 +75,7 @@
   components:
     - type: EntityTargetAction
       icon: Interface/VerbIcons/noospheric_zap.png
-      useDelay: 50
+      useDelay: 1 #wwdp
       range: 5
       itemIconStyle: BigAction
       blacklist:
@@ -77,6 +83,8 @@
           - PsionicInsulation
           - Mindbroken
       event: !type:NoosphericZapPowerActionEvent
+    - type: NoospherePressure #wwdp edit
+      pressure: 30
 
 - type: entity
   id: ActionPyrokinesis
@@ -86,11 +94,13 @@
   components:
     - type: EntityTargetAction
       icon: Interface/VerbIcons/pyrokinesis.png
-      useDelay: 50
+      useDelay: 5 #wwdp
       range: 6
       checkCanAccess: false
       itemIconStyle: BigAction
       event: !type:PyrokinesisPowerActionEvent
+    - type: NoospherePressure #wwdp edit
+      pressure: 40
 
 - type: entity
   id: ActionMetapsionic
@@ -100,8 +110,10 @@
   components:
     - type: InstantAction
       icon: Interface/VerbIcons/metapsionic.png
-      useDelay: 45
+      useDelay: 1 #wwdp
       event: !type:MetapsionicPowerActionEvent
+    - type: NoospherePressure #wwdp edit
+      pressure: 5
 
 - type: entity
   id: ActionPsionicRegeneration
@@ -111,8 +123,10 @@
   components:
     - type: InstantAction
       icon: Interface/VerbIcons/psionic_regeneration.png
-      useDelay: 120
+      useDelay: 10 #wwdp
       event: !type:PsionicRegenerationPowerActionEvent
+    - type: NoospherePressure #wwdp edit
+      pressure: 30
 
 - type: entity
   id: ActionTelegnosis
@@ -122,8 +136,10 @@
   components:
     - type: InstantAction
       icon: Interface/VerbIcons/telegnosis.png
-      useDelay: 150
+      useDelay: 10 #wwdp
       event: !type:TelegnosisPowerActionEvent
+    - type: NoospherePressure #wwdp edit
+      pressure: 20
 
 - type: entity
   id: ActionPsionicInvisibility
@@ -133,8 +149,10 @@
   components:
     - type: InstantAction
       icon: Interface/VerbIcons/psionic_invisibility.png
-      useDelay: 120
+      useDelay: 5 #wwdp
       event: !type:PsionicInvisibilityPowerActionEvent
+    - type: NoospherePressure #wwdp edit
+      pressure: 30
 
 - type: entity
   id: ActionPsionicInvisibilityUsed
@@ -154,7 +172,7 @@
   components:
     - type: EntityTargetAction
       icon: { sprite: Interface/Actions/psionics.rsi, state: healing_word }
-      useDelay: 10
+      useDelay: 5 #wwdp
       checkCanAccess: false
       range: 6
       itemIconStyle: BigAction
@@ -182,6 +200,8 @@
         glimmerSoundThreshold: 100
         glimmerPopupThreshold: 200
         glimmerDoAfterVisibilityThreshold: 70
+    - type: NoospherePressure #wwdp edit
+      pressure: 7
 
 - type: entity
   id: ActionRevivify
@@ -191,7 +211,7 @@
   components:
     - type: EntityTargetAction
       icon: { sprite: Interface/Actions/psionics.rsi, state: revivify }
-      useDelay: 120
+      useDelay: 10 #wwdp
       checkCanAccess: false
       range: 2
       itemIconStyle: BigAction
@@ -221,6 +241,8 @@
         glimmerSoundThreshold: 50
         glimmerPopupThreshold: 100
         glimmerDoAfterVisibilityThreshold: 35
+    - type: NoospherePressure #wwdp edit
+      pressure: 70
 
 - type: entity
   id: ActionShadeskip
@@ -230,7 +252,7 @@
   components:
   - type: InstantAction
     icon: { sprite : Interface/Actions/psionics.rsi, state: shadeskip }
-    useDelay: 45
+    useDelay: 1 #wwdp
     checkCanInteract: false
     event: !type:AnomalyPowerActionEvent
             settings:
@@ -257,6 +279,8 @@
                   maxRange: 2
                 spawns:
                 - EffectFlashShadeskip
+  - type: NoospherePressure #wwdp edit
+    pressure: 20
 
 - type: entity
   id: ActionTelekineticPulse
@@ -266,7 +290,7 @@
   components:
     - type: InstantAction
       icon: { sprite: Interface/Actions/psionics.rsi, state: telekinetic_pulse }
-      useDelay: 45
+      useDelay: 5 #wwdp
       checkCanInteract: false
       event: !type:AnomalyPowerActionEvent
         settings:
@@ -292,6 +316,8 @@
           maxThrowRange: 3
           maxThrowStrength: 5
           spaceRange: 3
+    - type: NoospherePressure #wwdp edit
+      pressure: 35
 
 - type: entity
   id: ActionDarkSwap
@@ -301,9 +327,11 @@
   components:
     - type: InstantAction
       icon: { sprite: Interface/Actions/shadowkin_icons.rsi, state: darkswap }
-      useDelay: 10
+      useDelay: 1 #wwdp
       checkCanInteract: false
       event: !type:DarkSwapActionEvent
+    - type: NoospherePressure #wwdp edit
+      pressure: 10
 
 - type: entity
   id: ActionPyrokineticFlare
@@ -313,7 +341,7 @@
   components:
     - type: InstantAction
       icon: { sprite: Interface/Actions/psionics.rsi, state: pyrokinetic_flare }
-      useDelay: 25
+      useDelay: 5 #wwdp
       checkCanInteract: false
       event: !type:AnomalyPowerActionEvent
         settings:
@@ -331,6 +359,8 @@
               maxRange: 1
             spawns:
               - EffectPyrokineticFlare
+    - type: NoospherePressure #wwdp edit
+      pressure: 20
 
 - type: entity
   id: ActionSummonImp
@@ -340,7 +370,7 @@
   components:
     - type: InstantAction
       icon: { sprite: Interface/Actions/psionics.rsi, state: summon_imp }
-      useDelay: 120
+      useDelay: 10 #wwdp
       checkCanInteract: false
       event: !type:SummonPsionicFamiliarActionEvent
         familiarProto: MobPsionicFamiliarImp
@@ -350,6 +380,8 @@
         followMaster: true
         minGlimmer: 10
         maxGlimmer: 20
+    - type: NoospherePressure #wwdp edit
+      pressure: 40
 
 - type: entity
   id: ActionSummonRemilia
@@ -359,7 +391,7 @@
   components:
     - type: InstantAction
       icon: { sprite: Interface/Actions/psionics.rsi, state: summon_remilia }
-      useDelay: 120
+      useDelay: 10 #wwdp
       checkCanInteract: false
       event: !type:SummonPsionicFamiliarActionEvent
         familiarProto: MobBatRemilia
@@ -369,6 +401,8 @@
         followMaster: true
         minGlimmer: 5
         maxGlimmer: 10
+    - type: NoospherePressure #wwdp edit
+      pressure: 40
 
 - type: entity
   id: ActionAssay
@@ -378,7 +412,7 @@
   components:
     - type: EntityTargetAction
       icon: { sprite: Interface/Actions/psionics.rsi, state: assay }
-      useDelay: 45
+      useDelay: 1 #wwdp
       checkCanAccess: false
       range: 2
       itemIconStyle: BigAction
@@ -388,6 +422,8 @@
           - PsionicInsulation
           - Mindbroken
       event: !type:AssayPowerActionEvent
+    - type: NoospherePressure #wwdp edit
+      pressure: 5
 
 - type: entity
   id: ActionAnoigo
@@ -397,6 +433,8 @@
   components:
   - type: EntityTargetAction
     icon: { sprite: Interface/Actions/psionics.rsi, state: anoigo }
-    useDelay: 40
+    useDelay: 1 #wwdp
     itemIconStyle: BigAction
     event: !type:AnoigoPowerActionEvent
+  - type: NoospherePressure #wwdp edit
+    pressure: 40

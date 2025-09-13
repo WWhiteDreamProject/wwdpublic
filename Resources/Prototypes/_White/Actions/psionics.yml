@@ -8,8 +8,10 @@
       icon:
         sprite: _White/Interface/Actions/psionic_clone.rsi
         state: create
-      useDelay: 300
+      useDelay: 10
       event: !type:ClonePowerActionEvent
+    - type: NoospherePressure
+      pressure: 70
 
 - type: entity
   id: ActionCloneSwitch
@@ -47,7 +49,7 @@
       icon:
         sprite: _White/Interface/Actions/telepathy.rsi
         state: icon
-      useDelay: 5
+      useDelay: 1
       range: 20
       itemIconStyle: BigAction
       canTargetSelf: true
@@ -56,4 +58,6 @@
           - PsionicInsulation
           - Mindbroken
       event: !type:TelepathyPowerActionEvent
+    - type: NoospherePressure
+      pressure: 5
 

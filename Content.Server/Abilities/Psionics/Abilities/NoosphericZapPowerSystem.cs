@@ -25,9 +25,14 @@ namespace Content.Server.Abilities.Psionics
             if (!_psionics.OnAttemptPowerUse(args.Performer, args.Target, "noospheric zap", true))
                 return;
 
+            if (!TryComp<PsionicComponent>(args.Performer, out var psionic)) //wwdp start
+                return;
+            
+            var stunTime = 1f + psionic.CurrentAmplification * 1.2f; //wwdp end
+
             _beam.TryCreateBeam(args.Performer, args.Target, "LightningNoospheric");
 
-            _stunSystem.TryParalyze(args.Target, TimeSpan.FromSeconds(5), false);
+            _stunSystem.TryParalyze(args.Target, TimeSpan.FromSeconds(stunTime), false); //wwdp edit: amplification is useful
             _statusEffectsSystem.TryAddStatusEffect(args.Target, "Stutter", TimeSpan.FromSeconds(10), false, "StutteringAccent");
 
             _psionics.LogPowerUsed(args.Performer, "noospheric zap");

@@ -1,0 +1,13 @@
+- type: entity
+  id: PsionicHealParticles
+  name: lights
+  description: purr
+  components:
+  - type: TimedDespawn
+    lifetime: 1.6
+  - type: AnimationPlayer
+  - type: Sprite
+    drawdepth: Effects
+    sprite: _White/Effects/psionics.rsi
+    state: heal_particles
+    noRot: true
