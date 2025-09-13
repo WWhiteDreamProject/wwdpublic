@@ -1,0 +1,36 @@
+- type: listing
+  id: UplinkSyndieHolster
+  name: uplink-holster-name
+  description: uplink-holster-desc
+  productEntity: ClothingBeltSyndieHolster
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkMagazineSyndicateSwatHelmet
+  name: uplink-syndicate-swat-helmet-name
+  description: uplink-syndicate-swat-helmet-desc
+  productEntity: ClothingHeadHelmetSwatSyndicate
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkModsuitInfiltrator
+  name: uplink-infiltrator-modsuit-name
+  description: uplink-infiltrator-modsuit-desc
+  icon: { sprite: /Textures/_White/Clothing/Belt/Modsuits/Infiltrator.rsi, state: control-sealed }
+  productEntity: ClothingModsuitInfiltrator
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkWearables
