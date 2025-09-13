@@ -73,7 +73,7 @@
       mindRoles:
       - MindRoleLoneAbductor
   - type: DynamicRuleCost # WD edit
-    cost: 8
+    cost: 15
 
 - type: entity
   parent: BaseGameRule
@@ -221,4 +221,4 @@
       mindRoles:
       - MindRoleLoneAbductor
   - type: DynamicRuleCost # WD edit
-    cost: 8
+    cost: 16

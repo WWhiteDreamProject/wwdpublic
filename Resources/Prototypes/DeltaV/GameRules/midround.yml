@@ -10,4 +10,4 @@
     - ParadoxAnomalyFriendObjective
     - ParadoxAnomalyEscapeObjective
   - type: DynamicRuleCost # WD edit
-    cost: 4
+    cost: 8

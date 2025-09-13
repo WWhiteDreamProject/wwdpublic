@@ -16,7 +16,7 @@
       - !type:GroupSelector
         conditions:
         - !type:RoundDurationCondition
-          max: 1
+          max: 120 # WD edit 1 -> 120, because of lags rounds don't start immediately.
         children:
         - id: Traitor
           weight: 34
@@ -76,7 +76,7 @@
       - !type:GroupSelector
         conditions:
         - !type:RoundDurationCondition
-          max: 1
+          max: 120 # WD edit 1 -> 120, because of lags rounds don't start immediately.
         children:
 #        - id: Thief
 #          prob: 0.5
@@ -110,6 +110,8 @@
           - !type:MaxRuleOccurenceCondition
           - !type:RoundDurationCondition
             min: 900 # 15 minutes
+          - !type:PlayerCountCondition # WD edit
+            min: 29
         - id: NinjaSpawn
           weight: 20
           conditions:
@@ -117,6 +119,8 @@
           - !type:MaxRuleOccurenceCondition
           - !type:RoundDurationCondition
             min: 900 # 15 minutes
+          - !type:PlayerCountCondition # WD edit
+            min: 30
         - id: ParadoxAnomalySpawn # WD edit
           weight: 25
           conditions:
