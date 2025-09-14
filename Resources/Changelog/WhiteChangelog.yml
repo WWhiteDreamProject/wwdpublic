@@ -4349,3 +4349,10 @@ Entries:
   id: 456
   time: '2025-09-13T14:33:37.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/836
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Старое радио в аплинки синдиката больше не содержит скидок
+  id: 457
+  time: '2025-09-13T14:38:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/833
