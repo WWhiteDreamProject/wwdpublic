@@ -4222,3 +4222,14 @@ Entries:
   id: 446
   time: '2025-08-30T14:17:03.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/814
+- author: Kecxco
+  changes:
+    - type: Add
+      message: Добавлен теобромин там где надо
+    - type: Tweak
+      message: Изменено кол-во теобромина в разных напитках и еде
+    - type: Remove
+      message: Удалён теобромин там где его быть не может
+  id: 447
+  time: '2025-08-26T19:46:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/811
