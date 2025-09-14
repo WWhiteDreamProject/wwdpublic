@@ -4215,3 +4215,10 @@ Entries:
   id: 445
   time: '2025-08-26T19:44:33.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/765
+- author: kekoven1
+  changes:
+    - type: Add
+      message: телепатия получила активную способность "Направленная телепатия"
+  id: 446
+  time: '2025-08-30T14:17:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/814
