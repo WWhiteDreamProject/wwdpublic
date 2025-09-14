@@ -4314,3 +4314,13 @@ Entries:
   id: 452
   time: '2025-09-01T06:00:28.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/823
+- author: Kai518
+  changes:
+    - type: Add
+      message: >-
+        Портирован динамический режим! В нем сразу несколько антагонистов смогут
+        одновременно появиться в раунде. Просите педаль поставить его, по
+        умолчанию он отключен в рамках недельного теста.
+  id: 453
+  time: '2025-09-03T05:49:15.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/825
