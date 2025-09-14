@@ -18,7 +18,7 @@ GITHUB_RUN        = os.environ["GITHUB_RUN_ID"]
 GITHUB_TOKEN      = os.environ["GITHUB_TOKEN"]
 CHANGELOG_DIR     = os.environ["CHANGELOG_DIR"]
 CHANGELOG_WEBHOOK = os.environ["CHANGELOG_WEBHOOK"]
-ROLES_TO_PING = os.environ["ROLES_TO_PING"]
+ROLES_TO_PING     = os.environ["ROLES_TO_PING"]
 
 # https://discord.com/developers/docs/resources/webhook
 DISCORD_SPLIT_LIMIT = 2000
@@ -129,9 +129,6 @@ def send_to_discord(entries: Iterable[ChangelogEntry]) -> None:
     if not CHANGELOG_WEBHOOK:
         print(f"No discord webhook URL found, skipping discord send")
         return
-
-    roles_msg = ', '.join(map(lambda id: f'<@&{id}>', ROLES_TO_PING.replace(" ","").split(',')))
-    send_discord(roles_msg)
     
     message_content = io.StringIO()
     # We need to manually split messages to avoid discord's character limit
@@ -173,6 +170,8 @@ def send_to_discord(entries: Iterable[ChangelogEntry]) -> None:
     message_text = message_content.getvalue()
     if len(message_text) > 0:
         print("Sending final changelog to discord")
+        roles_msg = ', '.join(map(lambda id: f'<@&{id}>', ROLES_TO_PING.replace(" ","").split(',')))
+        send_discord(roles_msg)
         send_discord(message_text)
 
 
