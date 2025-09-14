@@ -49,8 +49,6 @@ def main():
         cur_changelog = yaml.safe_load(f)
 
     diff = diff_changelog(last_changelog, cur_changelog)
-    if (len(diff) == 0):
-        return
     send_to_discord(diff)
 
 
@@ -131,9 +129,6 @@ def send_to_discord(entries: Iterable[ChangelogEntry]) -> None:
     if not CHANGELOG_WEBHOOK:
         print(f"No discord webhook URL found, skipping discord send")
         return
-
-    roles_msg = ', '.join(map(lambda id: f'<@&{id}>', ROLES_TO_PING.replace(" ","").split(',')))
-    send_discord(roles_msg)
     
     message_content = io.StringIO()
     # We need to manually split messages to avoid discord's character limit
@@ -175,6 +170,8 @@ def send_to_discord(entries: Iterable[ChangelogEntry]) -> None:
     message_text = message_content.getvalue()
     if len(message_text) > 0:
         print("Sending final changelog to discord")
+        roles_msg = ', '.join(map(lambda id: f'<@&{id}>', ROLES_TO_PING.replace(" ","").split(',')))
+        send_discord(roles_msg)
         send_discord(message_text)
 
 
