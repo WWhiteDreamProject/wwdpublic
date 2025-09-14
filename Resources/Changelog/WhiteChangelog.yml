@@ -4335,3 +4335,10 @@ Entries:
   id: 454
   time: '2025-09-05T14:29:27.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/829
+- author: Cinkafox
+  changes:
+    - type: Add
+      message: Добавлены барки
+  id: 455
+  time: '2025-09-05T17:37:39.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/827
