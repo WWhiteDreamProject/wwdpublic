@@ -4242,3 +4242,18 @@ Entries:
   id: 448
   time: '2025-08-29T21:22:25.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/813
+- author: Lachklen
+  changes:
+    - type: Add
+      message: Добавлен новый интерфейс и система книг
+    - type: Add
+      message: Небольшой перевод лоадаутов и книжек
+    - type: Add
+      message: Добавлена авторская книга для Ботаники
+    - type: Fix
+      message: >-
+        Теперь система рандомизации историй в книгах переведена на русский
+        корректно
+  id: 449
+  time: '2025-08-30T14:35:36.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/772
