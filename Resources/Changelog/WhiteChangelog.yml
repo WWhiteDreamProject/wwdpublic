@@ -4296,3 +4296,14 @@ Entries:
   id: 450
   time: '2025-08-30T19:40:47.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/815
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: В пул на время добавлено 8 ЕЕ карт и минималка всем картам понижена до 0
+    - type: Add
+      message: Добавлен новый питомец РД на наши карты
+    - type: Add
+      message: Знак якоря и временный респрайт зеркала
+  id: 451
+  time: '2025-08-31T14:38:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/820
