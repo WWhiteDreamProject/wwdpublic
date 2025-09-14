@@ -4307,3 +4307,10 @@ Entries:
   id: 451
   time: '2025-08-31T14:38:41.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/820
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Ксеноморфы теперь могут достать лицехвата из кармана
+  id: 452
+  time: '2025-09-01T06:00:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/823
