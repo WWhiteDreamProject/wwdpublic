@@ -18,7 +18,7 @@ GITHUB_RUN        = os.environ["GITHUB_RUN_ID"]
 GITHUB_TOKEN      = os.environ["GITHUB_TOKEN"]
 CHANGELOG_DIR     = os.environ["CHANGELOG_DIR"]
 CHANGELOG_WEBHOOK = os.environ["CHANGELOG_WEBHOOK"]
-ROLES_TO_PING = os.environ["ROLES_TO_PING"]
+ROLES_TO_PING     = os.environ["ROLES_TO_PING"]
 
 # https://discord.com/developers/docs/resources/webhook
 DISCORD_SPLIT_LIMIT = 2000
