@@ -4208,3 +4208,10 @@ Entries:
   id: 444
   time: '2025-08-19T07:27:56.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/773
+- author: RedFoxIV
+  changes:
+    - type: Fix
+      message: Бесконечное горение людей при передаче стаков огня касанием.
+  id: 445
+  time: '2025-08-26T19:44:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/765
