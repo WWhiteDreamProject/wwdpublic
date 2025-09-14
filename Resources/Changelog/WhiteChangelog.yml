@@ -4342,3 +4342,10 @@ Entries:
   id: 455
   time: '2025-09-05T17:37:39.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/827
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Дискорд Ченжлогер исправлен (наверное)
+  id: 456
+  time: '2025-09-13T14:33:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/836
