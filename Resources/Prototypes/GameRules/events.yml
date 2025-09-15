@@ -194,7 +194,7 @@
       mindRoles:
       - MindRoleDragon
   - type: DynamicRuleCost
-    cost: 4 # WD edit: 75 -> 4
+    cost: 10 # WD edit: 75 -> 10
 
 - type: entity
   parent: BaseGameRule
@@ -244,7 +244,7 @@
       mindRoles:
       - MindRoleNinja
   - type: DynamicRuleCost
-    cost: 8 # WD edit: 75 -> 8
+    cost: 15 # WD edit: 75 -> 15
 
 - type: entity
   parent: BaseGameRule
