@@ -4385,3 +4385,16 @@ Entries:
   id: 458
   time: '2025-09-13T14:38:25.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/834
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: >-
+        Повышены цены некоторых антагов в динамике. Их все также можно
+        отслеживать в документе, ссылка на который приложена в PR.
+    - type: Tweak
+      message: Добавлен минимальный порог игроков для спавна ниндзи и дракона.
+    - type: Fix
+      message: 'Исправлен раундстартовый спавн антагов в динамике. '
+  id: 459
+  time: '2025-09-15T10:52:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/839
