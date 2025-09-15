@@ -31,6 +31,7 @@ public sealed class RevivifyPowerSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly GlimmerSystem _glimmer = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -91,6 +92,8 @@ public sealed class RevivifyPowerSystem : EntitySystem
             BreakOnMove = args.BreakOnMove,
             Hidden = _glimmer.GlimmerOutput > args.GlimmerDoAfterVisibilityThreshold * args.ModifiedDampening,
         };
+
+        Spawn("PsionicHealParticles", _transform.GetMapCoordinates(args.Target)); //wwdp edit
 
         if (!_doAfterSystem.TryStartDoAfter(doAfterArgs, out var doAfterId))
             return;
