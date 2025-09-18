@@ -4,41 +4,6 @@
 
 
 
-#- type: customGhost
-#  id: shrek
-#  proto: MobObserverTestShrek
-#
-#- type: entity
-#  parent: MobObserver
-#  id: MobObserverTestShrek
-#  components:
-#  - type: Sprite
-#    sprite: _White/Ghosts/headwiki-ghost.rsi
-#
-#
-#
-#- type: customGhost
-#  id: shrimp
-#  proto: MobObserverTestShrimp
-#
-#- type: entity
-#  parent: MobObserver
-#  id: MobObserverTestShrimp
-#  components:
-#  - type: Sprite
-#    sprite: _White/Ghosts/purka-ghost.rsi
-#
-#
-#- type: entity
-#  abstract: true
-#  parent: MobObserver
-#  id: MobObserverCustomSimple
-#  components:
-#  - type: Sprite
-#    sprite: _White/Ghosts/purka-ghost.rsi
-
-
-
 - type: entity
   abstract: true
   parent: MobObserver
@@ -46,6 +11,7 @@
   components:
   - type: Sprite
     sprite: _White/Ghosts/simple.rsi
+
 
 
 - type: customGhost
@@ -64,6 +30,7 @@
       shader: unshaded
 
 
+
 - type: customGhost
   id: green
   proto: MobObserverGreen
@@ -80,21 +47,6 @@
       shader: unshaded
 
 
-
-- type: customGhost
-  id: blue
-  proto: MobObserverBlue
-
-- type: entity
-  parent: MobObserver
-  id: MobObserverBlue
-  components:
-  - type: Sprite
-    sprite: Mobs/Ghosts/ghost_human.rsi
-    color: "#22f8"
-    layers:
-    - state: animated
-      shader: unshaded
 
 - type: customGhost
   id: blue
@@ -145,6 +97,8 @@
     - state: animated
       shader: unshaded
 
+
+
 - type: customGhost
   id: camo
   proto: MobObserverCamo
@@ -158,6 +112,7 @@
     layers:
     - state: camo
       shader: unshaded
+
 
 
 - type: customGhost
@@ -175,6 +130,7 @@
       shader: unshaded
 
 
+
 - type: customGhost
   id: blazeit
   proto: MobObserverBlazeit
@@ -188,6 +144,7 @@
     layers:
     - state: blazeit
       shader: unshaded
+
 
 
 - type: customGhost
@@ -205,6 +162,7 @@
       shader: unshaded
 
 
+
 - type: customGhost
   id: kitty
   proto: MobObserverKitty
@@ -218,6 +176,7 @@
     layers:
     - state: kitty
       shader: unshaded
+
 
 
 - type: customGhost
@@ -235,6 +194,7 @@
       shader: unshaded
 
 
+
 - type: customGhost
   id: fire
   proto: MobObserverFire
@@ -248,6 +208,7 @@
     layers:
     - state: fire
       shader: unshaded
+
 
 
 - type: customGhost
@@ -266,6 +227,51 @@
 
 
 
+- type: customGhost
+  id: frog
+  proto: MobObserverFrog
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverFrog
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: frog
+      shader: unshaded
+
+
+
+- type: customGhost
+  id: rooster
+  proto: MobObserverRooster
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverRooster
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: rooster
+      shader: unshaded
+
+
+
+- type: customGhost
+  id: mouse
+  proto: MobObserverMouse
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverMouse
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: mouse
+      shader: unshaded
 
 
 ##Persikvin

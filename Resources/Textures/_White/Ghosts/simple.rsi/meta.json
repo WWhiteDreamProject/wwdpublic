@@ -15,5 +15,7 @@
 	{ "name": "lich", "directions": 4 },
 	{ "name": "rainbow", "directions": 4 },
 	{ "name": "skeleton", "directions": 4 },
+	{ "name": "mouse", "directions": 4 },
+	{ "name": "frog", "directions": 4 }
   ]
 }

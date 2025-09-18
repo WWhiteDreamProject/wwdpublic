@@ -18,22 +18,22 @@ namespace Content.Server._White.Commands;
 
 
 [AnyCommand]
-public sealed class SetGhostCommand : IConsoleCommand
+public sealed class SetCustomGhostCommand : IConsoleCommand
 {
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IServerPreferencesManager _prefMan = default!;
     [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
 
-    public string Command => "setghost";
-    public string Description => Loc.GetString("setghost-command-description");
-    public string Help => Loc.GetString("setghost-command-help-text");
+    public string Command => "setcustomghost";
+    public string Description => Loc.GetString("setcustomghost-command-description");
+    public string Help => Loc.GetString("setcustomghost-command-help-text");
 
     public async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (shell.Player is not ICommonSession player)
         {
-            shell.WriteLine(Loc.GetString("setghost-command-no-session"));
+            shell.WriteLine(Loc.GetString("setcustomghost-command-no-session"));
             return;
         }
 
@@ -47,13 +47,13 @@ public sealed class SetGhostCommand : IConsoleCommand
 
         if (!_proto.TryIndex<CustomGhostPrototype>(selectedProto, out var proto))
         {
-            shell.WriteLine(Loc.GetString("setghost-command-invalid-ghost-id"));
+            shell.WriteLine(Loc.GetString("setcustomghost-command-invalid-ghost-id"));
             return;
         }
 
         if (proto.Ckey is string ckey && player.Name.ToLower() != ckey.ToLower())
         {
-            shell.WriteLine(Loc.GetString("setghost-command-exclusive-ghost"));
+            shell.WriteLine(Loc.GetString("setcustomghost-command-exclusive-ghost"));
             return;
         }
 
@@ -68,8 +68,8 @@ public sealed class SetGhostCommand : IConsoleCommand
                 float hoursPlayed = (float)_playTimeTracking.GetPlayTimeForTracker(player, tracker).TotalHours;
                 float hoursRequired = proto.PlaytimeHours[tracker];
 
-                if (hoursPlayed < hoursRequired)                                                          // does not respect admin authority
-                    rejects.AppendLine(Loc.GetString("setghost-command-insufficient-playtime-partial",   // drip or drown, jannie man
+                if (hoursPlayed < hoursRequired)                                                                // does not respect admin authority
+                    rejects.AppendLine(Loc.GetString("setcustomghost-command-insufficient-playtime-partial",   // drip or drown, jannie man
                         ("tracker", tracker),
                         ("required", hoursRequired),
                         ("playtime", hoursPlayed))
@@ -78,7 +78,7 @@ public sealed class SetGhostCommand : IConsoleCommand
 
             if(rejects.Length != 0) // dumb and ugly but it works
             {
-                shell.WriteLine(Loc.GetString("setghost-command-insufficient-playtime"));
+                shell.WriteLine(Loc.GetString("setcustomghost-command-insufficient-playtime"));
                 shell.WriteLine(rejects.ToString());
                 return;
             }
@@ -87,6 +87,6 @@ public sealed class SetGhostCommand : IConsoleCommand
         await _db.SaveGhostTypeAsync(player.UserId, selectedProto);
         var prefs = _prefMan.GetPreferences(player.UserId);
         prefs.CustomGhost = selectedProto;
-        shell.WriteLine(Loc.GetString("setghost-command-saved"));
+        shell.WriteLine(Loc.GetString("setcustomghost-command-saved"));
     }
 }
