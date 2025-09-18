@@ -3,8 +3,10 @@ using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
 using Content.Server.Mind;
+using Content.Server.Preferences.Managers;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
+using Content.Shared._White.CustomGhostSystem;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
@@ -27,11 +29,13 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using System.Collections.Frozen;
 using System.Linq;
 using System.Numerics;
 
@@ -60,9 +64,11 @@ namespace Content.Server.Ghost
         [Dependency] private readonly SharedMindSystem _mind = default!;
         [Dependency] private readonly GameTicker _gameTicker = default!;
         [Dependency] private readonly DamageableSystem _damageable = default!;
+        [Dependency] private readonly IServerPreferencesManager _prefs = default!;
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
+
 
         public override void Initialize()
         {
@@ -457,16 +463,26 @@ namespace Content.Server.Ghost
                 return null;
             }
 
-            var ghost = SpawnAtPosition(GameTicker.ObserverPrototypeName, spawnPosition.Value);
+            // WWDP EDIT START
+            CustomGhostPrototype? customGhost = null;
+            if (mind.Comp.UserId is NetUserId userId)
+                customGhost = _prototypeManager.Index<CustomGhostPrototype>(_prefs.GetPreferences(userId).CustomGhost);
+
+            var ghost = SpawnAtPosition(customGhost?.GhostEntityPrototype ?? GameTicker.ObserverPrototypeName, spawnPosition.Value);
+            // WWDP EDIT END
+
             var ghostComponent = Comp<GhostComponent>(ghost);
 
             // Try setting the ghost entity name to either the character name or the player name.
             // If all else fails, it'll default to the default entity prototype name, "observer".
             // However, that should rarely happen.
-            if (!string.IsNullOrWhiteSpace(mind.Comp.CharacterName))
-                _metaData.SetEntityName(ghost, mind.Comp.CharacterName);
-            else if (!string.IsNullOrWhiteSpace(mind.Comp.Session?.Name))
-                _metaData.SetEntityName(ghost, mind.Comp.Session.Name);
+            // WWDP EDIT START
+            if (FirstNonNullNonEmpty(customGhost?.Name, mind.Comp.CharacterName, mind.Comp.Session?.Name) is string ghostName)
+                _metaData.SetEntityName(ghost, ghostName);
+
+            if (customGhost?.Description is string desc)
+                _metaData.SetEntityDescription(ghost, desc);
+            // WWDP EDIT END
 
             if (mind.Comp.TimeOfDeath.HasValue)
             {
@@ -481,6 +497,14 @@ namespace Content.Server.Ghost
                 _minds.TransferTo(mind.Owner, ghost, mind: mind.Comp);
             Log.Debug($"Spawned ghost \"{ToPrettyString(ghost)}\" for {mind.Comp.CharacterName}.");
             return ghost;
+
+            static string? FirstNonNullNonEmpty(params string?[] strings)
+            {
+                foreach (var str in strings)
+                    if (!string.IsNullOrWhiteSpace(str))
+                        return str;
+                return null;
+            }
         }
 
         public bool OnGhostAttempt(EntityUid mindId, bool canReturnGlobal, bool viaCommand = false, MindComponent? mind = null)

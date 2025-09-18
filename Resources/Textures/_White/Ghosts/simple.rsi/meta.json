@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "tgstation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+	{ "name": "blazeit", "directions": 4 },
+	{ "name": "camo", "directions": 4 },
+	{ "name": "fire", "directions": 4 },
+	{ "name": "ian", "directions": 4 },
+	{ "name": "kitty", "directions": 4 },
+	{ "name": "lich", "directions": 4 },
+	{ "name": "rainbow", "directions": 4 },
+	{ "name": "skeleton", "directions": 4 },
+  ]
+}

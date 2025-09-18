@@ -21,6 +21,7 @@ using LogLevel = Robust.Shared.Log.LogLevel;
 using MSLogLevel = Microsoft.Extensions.Logging.LogLevel;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
+using Content.Shared.Ghost;
 
 namespace Content.Server.Database
 {
@@ -41,6 +42,8 @@ namespace Content.Server.Database
         Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot);
 
         Task SaveAdminOOCColorAsync(NetUserId userId, Color color);
+
+        Task SaveGhostTypeAsync(NetUserId userId, EntProtoId<GhostComponent> ghostProto); // WWDP EDIT
 
         // Single method for two operations for transaction.
         Task DeleteSlotAndSetSelectedIndex(NetUserId userId, int deleteSlot, int newSlot);
@@ -459,6 +462,14 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.SaveAdminOOCColorAsync(userId, color));
         }
+
+        // WWDP EDIT START
+        public Task SaveGhostTypeAsync(NetUserId userId, EntProtoId<GhostComponent> ghostProto)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SaveGhostTypeAsync(userId, ghostProto));
+        }
+        // WWDP EDIT END
 
         public Task<PlayerPreferences?> GetPlayerPreferencesAsync(NetUserId userId, CancellationToken cancel)
         {
