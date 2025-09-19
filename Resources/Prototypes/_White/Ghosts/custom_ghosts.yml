@@ -7,10 +7,7 @@
 - type: entity
   abstract: true
   parent: MobObserver
-  id: MobObserverSimple
-  components:
-  - type: Sprite
-    sprite: _White/Ghosts/simple.rsi
+  id: MobObserverCustom
 
 
 

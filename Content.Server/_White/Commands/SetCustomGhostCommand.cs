@@ -23,7 +23,6 @@ public sealed class SetCustomGhostCommand : IConsoleCommand
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IServerPreferencesManager _prefMan = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
 
     public string Command => "setcustomghost";
     public string Description => Loc.GetString("setcustomghost-command-description");
@@ -57,31 +56,20 @@ public sealed class SetCustomGhostCommand : IConsoleCommand
             return;
         }
 
-        if (proto.PlaytimeHours is not null)
+        if (!proto.PlaytimeCheck(player, out var failed))
         {
-            var trackers = proto.PlaytimeHours.Keys;
-            var playtimes = await _db.GetPlayTimes(player.UserId);
-            StringBuilder rejects = new();
+            StringBuilder rejectlist = new();
 
-            foreach(var tracker in trackers)
-            {
-                float hoursPlayed = (float)_playTimeTracking.GetPlayTimeForTracker(player, tracker).TotalHours;
-                float hoursRequired = proto.PlaytimeHours[tracker];
-
-                if (hoursPlayed < hoursRequired)                                                                // does not respect admin authority
-                    rejects.AppendLine(Loc.GetString("setcustomghost-command-insufficient-playtime-partial",   // drip or drown, jannie man
-                        ("tracker", tracker),
-                        ("required", hoursRequired),
-                        ("playtime", hoursPlayed))
+            foreach(var fail in failed)
+                rejectlist.AppendLine(Loc.GetString("setcustomghost-command-insufficient-playtime-partial",
+                        ("tracker", fail.tracker),
+                        ("required", fail.hoursRequired.ToString("0.00")),
+                        ("playtime", fail.hoursPlayed.ToString("0.00")))
                     );
-            }
 
-            if(rejects.Length != 0) // dumb and ugly but it works
-            {
-                shell.WriteLine(Loc.GetString("setcustomghost-command-insufficient-playtime"));
-                shell.WriteLine(rejects.ToString());
-                return;
-            }
+            shell.WriteLine(Loc.GetString("setcustomghost-command-insufficient-playtime"));
+            shell.WriteLine(rejectlist.ToString());
+            return;
         }
 
         await _db.SaveGhostTypeAsync(player.UserId, selectedProto);

@@ -4,6 +4,7 @@ using Content.Server.Preferences.Managers;
 using Content.Shared._White.CustomGhostSystem;
 using Content.Shared.Administration;
 using Content.Shared.Mind;
+using Content.Shared.Psionics;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -43,38 +44,25 @@ public sealed class ListCustomGhostsCommand : IConsoleCommand
             return;
         }
 
-        if (args.Length > 0)
+        if (args.Length > 2 || args.Length == 1 && args[0] != "all")
         {
             shell.WriteLine(Help);
             return;
         }
 
-        sb.AppendLine(Loc.GetString("listcustomghosts-available-ghosts"));
-        var playtimes = await _db.GetPlayTimes(player.UserId);
+        bool all = args.Length == 1;
+
+        sb.AppendLine(Loc.GetString($"listcustomghosts-{(all ? "all" : "available")}-ghosts"));
+
         foreach(var proto in protos)
         {
             if (proto.Ckey is string ckey && ckey != player.Name)
                 continue;
 
-            sb.Append(proto.ID);
-
-            if (proto.PlaytimeHours is not null)
-            {
-                var trackers = proto.PlaytimeHours.Keys;
-
-                foreach (var tracker in trackers)
-                {
-                    float hoursPlayed = (float) _playTimeTracking.GetPlayTimeForTracker(player, tracker).TotalHours;
-                    float hoursRequired = proto.PlaytimeHours[tracker];
-
-                    if (hoursPlayed < hoursRequired)
-                    {
-                        sb.Append(" [x]");
-                        break;
-                    }
-                }
-            }
-            sb.Append("\n");
+            if (proto.PlaytimeCheck(player, out _))
+                sb.AppendLine($"- {proto.ID}");
+            else if (all)
+                sb.AppendLine($"- {proto.ID} ({Loc.GetString("listcustomghosts-locked")})");
 
         }
 

@@ -16,6 +16,7 @@
 	{ "name": "rainbow", "directions": 4 },
 	{ "name": "skeleton", "directions": 4 },
 	{ "name": "mouse", "directions": 4 },
+	{ "name": "rooster", "directions": 4 },
 	{ "name": "frog", "directions": 4 }
   ]
 }
