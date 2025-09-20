@@ -477,11 +477,8 @@ namespace Content.Server.Ghost
             // If all else fails, it'll default to the default entity prototype name, "observer".
             // However, that should rarely happen.
             // WWDP EDIT START
-            if (FirstNonNullNonEmpty(customGhost?.Name, mind.Comp.CharacterName, mind.Comp.Session?.Name) is string ghostName)
+            if (FirstNonNullNonEmpty(mind.Comp.CharacterName, mind.Comp.Session?.Name) is string ghostName)
                 _metaData.SetEntityName(ghost, ghostName);
-
-            if (customGhost?.Description is string desc)
-                _metaData.SetEntityDescription(ghost, desc);
             // WWDP EDIT END
 
             if (mind.Comp.TimeOfDeath.HasValue)

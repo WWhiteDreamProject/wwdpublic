@@ -1,19 +1,38 @@
 - type: customGhost
   id: default
+  category: Color
   proto: MobObserver
+  name: White ghost
+  desc: No frills, no thrills. For the purists.
 
-
-
-- type: entity
-  abstract: true
-  parent: MobObserver
-  id: MobObserverCustom
-
+#
+#- type: entity
+#  abstract: true
+#  parent: MobObserver
+#  id: MobObserverCustom
+#
+#- type: customGhost
+#  id: CamoCool
+#  proto: MobObserverCamo
+#  category: Color
+#  name: Cool Camo
+#  desc: 2cool4u
+#  restrictions:
+#  - !type:PlaytimeRestriction
+#    jobs: 
+#    - JobCaptain
+#    - JobHeadOfPersonnel
+#    hoursPlaytime: 8
+#    title: Command
+#
 
 
 - type: customGhost
   id: red
   proto: MobObserverRed
+  category: Color
+  name: Red ghost
+  desc: The color of love, of rage, of passion or spilt blood. Depends on one's tastes.
 
 - type: entity
   parent: MobObserver
@@ -30,7 +49,10 @@
 
 - type: customGhost
   id: green
+  category: Color
   proto: MobObserverGreen
+  name: Green ghost
+  desc: A reminder to eat your greens.
 
 - type: entity
   parent: MobObserver
@@ -47,7 +69,10 @@
 
 - type: customGhost
   id: blue
+  category: Color
   proto: MobObserverBlue
+  name: Blue ghost
+  desc: A calming blue, much needed after being unfairly spaced. 
 
 - type: entity
   parent: MobObserver
@@ -64,7 +89,10 @@
 
 - type: customGhost
   id: violet
+  category: Color
   proto: MobObserverViolet
+  name: Violet ghost
+  desc: A royal color for royal ghosts.
 
 - type: entity
   parent: MobObserver
@@ -80,8 +108,30 @@
 
 
 - type: customGhost
+  id: pink
+  category: Color
+  proto: MobObserverPink
+  name: Pink ghost
+  desc: Increases catfishing efficiency by 30%.
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverPink
+  components:
+  - type: Sprite
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    color: "#f8f8"
+    layers:
+    - state: animated
+      shader: unshaded
+
+
+- type: customGhost
   id: yellow
+  category: Color
   proto: MobObserverYellow
+  name: Yellow ghost
+  desc: A joyous and energetic color, unbefitting of a dead being.
 
 - type: entity
   parent: MobObserver
@@ -98,7 +148,10 @@
 
 - type: customGhost
   id: camo
+  category: Color
   proto: MobObserverCamo
+  name: Camouflaged ghost
+  desc: I think it's a bit late for that...
 
 - type: entity
   parent: MobObserver
@@ -110,11 +163,60 @@
     - state: camo
       shader: unshaded
 
+- type: customGhost
+  id: ashcloud
+  category: Fancy
+  proto: MobObserverAshCloud
+  name: Ashen cloud
+  desc: "Dancing on the ashes of the world,\n
+         I behold the stars.\n
+         Heavy gale is blowing to my face,\n
+         Rising up the dust.\n
+         Barren lands are desperate to blossom,\n
+         Dark stars strive to shine,\n
+         Still remember the blue ocean,\n
+         In this dying world."
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverAshCloud
+  description: Really makes you feel under the weather.
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/cloud.rsi
+    layers:
+    - state: ash
+      shader: unshaded
+    - state: cloud
+      shader: unshaded
+    
+- type: customGhost
+  id: heart
+  category: Fancy
+  proto: MobObserverHeart
+  name: Heart shaped ghost
+  desc: Number 1 rated ghost shape since 1997.
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverHeart
+  description: Care to share?
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: heart
+      shader: unshaded
+    color: "#ffffffcc"
+    
 
 
 - type: customGhost
   id: lich
+  category: Fancy
   proto: MobObserverLich
+  name: King ghost
+  desc: So what if I swagger?
 
 - type: entity
   parent: MobObserver
@@ -130,7 +232,10 @@
 
 - type: customGhost
   id: blazeit
+  category: Color
   proto: MobObserverBlazeit
+  name: Weed ghost
+  desc: (Insert an MLG joke of your choice here)
 
 - type: entity
   parent: MobObserver
@@ -146,7 +251,10 @@
 
 - type: customGhost
   id: rainbow
+  category: Color
   proto: MobObserverRainbow
+  name: Rainbow ghost
+  desc: All the colors at once, for those who can't decide.
 
 - type: entity
   parent: MobObserver
@@ -162,7 +270,10 @@
 
 - type: customGhost
   id: kitty
+  category: Fancy
   proto: MobObserverKitty
+  name: Cat ghost
+  desc: kitty!!!
 
 - type: entity
   parent: MobObserver
@@ -178,7 +289,10 @@
 
 - type: customGhost
   id: ian
+  category: Fancy
   proto: MobObserverIan
+  name: Dog ghost
+  desc: Only true Ian fans will get this one.
 
 - type: entity
   parent: MobObserver
@@ -194,7 +308,10 @@
 
 - type: customGhost
   id: fire
+  category: Color
   proto: MobObserverFire
+  name: Fire ghost
+  desc: Looks lit.
 
 - type: entity
   parent: MobObserver
@@ -210,7 +327,10 @@
 
 - type: customGhost
   id: skeleton
+  category: Fancy
   proto: MobObserverSkeleton
+  name: Spooky ghost
+  desc: He remembers you're maxcaps.
 
 - type: entity
   parent: MobObserver
@@ -226,7 +346,10 @@
 
 - type: customGhost
   id: frog
+  category: Fancy
   proto: MobObserverFrog
+  name: Frog ghost
+  desc: ">be me >frog"
 
 - type: entity
   parent: MobObserver
@@ -242,7 +365,10 @@
 
 - type: customGhost
   id: rooster
+  category: Fancy
   proto: MobObserverRooster
+  name: Rooster ghost
+  desc: Not as good as an alarm clock when it's dead.
 
 - type: entity
   parent: MobObserver
@@ -258,7 +384,10 @@
 
 - type: customGhost
   id: mouse
+  category: Fancy
   proto: MobObserverMouse
+  name: Mouse ghost
+  desc: is that a deadmau5 reference???
 
 - type: entity
   parent: MobObserver
@@ -271,214 +400,458 @@
       shader: unshaded
 
 
-##Persikvin
+- type: customGhost
+  id: parrot
+  category: Fancy
+  proto: MobObserverParrot
+  name: Parrot ghost
+  desc: CAWK!
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverParrot
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: parrot
+      shader: unshaded
+
+- type: customGhost
+  abstract: true
+  id: CkeyExclusive
+  category: Exclusive
+  name: Эксклюзивный призрак
+  desc: Доступен только ограниченному числу людей.
+
+
+- type: entity
+  abstract: true
+  parent: MobObserver
+  id: MobObserverCkey
+  components:
+  - type: Sprite
+    color: "#ffffffcc" # 0.8 alpha
+
+
+
+
+- type: customGhost
+  id: customPlaceholder
+  category: Exclusive
+  proto: MobObserverCkeyPlaceholder
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [persikvin, reider207, nairsark, mapperian, PZAKusik, dageff]
+  name: А где?
+  desc: Кастумный призрак, которым вы пользовались ранее, был сочтён чрезмерно большим или вырвиглазным, и был удалён. Вы всё ещё можете получить нового кастумного призрака - для этого обратитесь к кодербасу, либо сами откройте PR на репозитории проекта.
+
+- type: entity
+  parent: MobObserverCkey
+  id: MobObserverCkeyPlaceholder
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/placeholder.rsi
+
+
+
+
+
+
+
+# culled, too big
 #- type: customGhost
-#  id: persikvin-ghost
-#  ckey: Persikvin
-#  sprite: _White/Ghosts/ckey/persikvin-ghost.rsi
-#  alpha: 0.9
-#  ghostName: Gawr
-#  ghostDescription: Из океана...
+#  parent: CkeyExclusive
+#  id: PersikvinExclusive
+#  restrictions:
+#  - !type:CkeyRestriction
+#    ckey: [persikvin]
+#  proto: MobObserverPersikvin
 #
-##krokozyabra
-#- type: customGhost
-#  id: krokozyabra-ghost
-#  ckey: Krokozyabra
-#  sprite: _White/Ghosts/ckey/krokozyabra-ghost.rsi
-#  alpha: 0.9
-#  ghostName: Зябр
-#  ghostDescription: От него веет верностью
-#
-##dageff
-#- type: customGhost
-#  id: dageff-ghost
-#  ckey: Dageff
-#  sprite: _White/Ghosts/ckey/dageff-ghost.rsi
-#  alpha: 0.9
-#  ghostName: Maiden
-#  ghostDescription: Наблюдает за вашим поведением в кафе.
-#  size: 0.9, 0.9
-#
-##scituzer2
-#- type: customGhost
-#  id: scituzer2-ghost
-#  ckey: scituzer2
-#  sprite: _White/Ghosts/ckey/scituzer2-ghost.rsi
-#  ghostName: Black Harpy
-#  ghostDescription: A race of harpies that have charming onyx wings. Although they are a clever race, particularly having the highest intelligence of all harpies, on the other hand, they are exceedingly belligerent and ferocious. This one specifically used to be project lead of this project - but all she saw is world on fire.
-#
-##warete
-#- type: customGhost
-#  id: warete-ghost
-#  ckey: warete
-#  sprite: _White/Ghosts/ckey/warete-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Fiammetta
-#  ghostDescription: Горничная под своим кодовым именем. Следит за порядком в кафе Мастера.
-#  size: 0.7, 0.7
-#
-##pointpng
-#- type: customGhost
-#  id: cheeseCheese-ghost
-#  ckey: cheese_cheese
-#  sprite: _White/Ghosts/ckey/cheese_cheese-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Фырчало
-#  ghostDescription: Инженерный борг
-#
-##nairsark
-#- type: customGhost
-#  id: nairsark-ghost
-#  ckey: nairsark
-#  sprite: _White/Ghosts/ckey/frostnova-ghost.rsi
-#  alpha: 0.7
-#  ghostName: Winter's Scar
-#  ghostDescription: ...
-#
-##reider207
-#- type: customGhost
-#  id: reider207-ghost
-#  ckey: reider207
-#  sprite: _White/Ghosts/ckey/reider207-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Tighnari
-#  ghostDescription: But what are they going to do, lock me up?
-#  size: 0.8, 0.8
-#
-##mapperian
-#- type: customGhost
-#  id: mapperian-ghost
-#  ckey: mapperian
-#  sprite: _White/Ghosts/ckey/mapperian-ghost.rsi
-#  alpha: 0.9
-#  ghostName: Alice Liddell
-#  ghostDescription: found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you
-#  size: 0.7, 0.7
-#
-##s_k_r_i_m_e_x
-#- type: customGhost
-#  id: s_k_r_i_m_e_x-ghost
-#  ckey: s_k_r_i_m_e_x
-#  sprite: _White/Ghosts/ckey/s_k_r_i_m_e_x-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Ху Тао
-#  ghostDescription: Мяу!
-#  size: 0.8, 0.8
-#
-##cyou
-#- type: customGhost
-#  id: cyou-ghost
-#  ckey: cyou
-#  sprite: _White/Ghosts/ckey/cyou-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Marina
-#  ghostDescription: Я, наверное, открою небольшой оккультный магазин где-нибудь. Где-нибудь далеко от Прехевиля... Может, в Рондоне. Хочу жить в оживлённом месте, среди множества людей. Людей, которые не будут осуждать меня или кого-то ещё вокруг…
-#
-##nonta228
-#- type: customGhost
-#  id: nonta228-ghost
-#  ckey: nonta228
-#  sprite: _White/Ghosts/ckey/nonta228-ghost.rsi
-#  alpha: 0.8
-#  ghostName: nonta
-#  ghostDescription: Я устрою конец света
-#
-##puroslavking
-#- type: customGhost
-#  id: puroslavking-ghost
-#  ckey: PuroSlavKing
-#  sprite: _White/Ghosts/ckey/puroslavking-ghost.rsi
-#  alpha: 0.8
-#  ghostName: PuroSlavKing
-#  ghostDescription: Что за гомосексуалист на моём рабочем месте?
-#
-##kilath
-#- type: customGhost
-#  id: kilath-ghost
-#  ckey: Kilath
-#  sprite: _White/Ghosts/ckey/kilath-ghost.rsi
-#  alpha: 0.8
-#  ghostName: LeaSzish
-#  ghostDescription: Руками перья не смотреть!
-#
-##gavrik
-#- type: customGhost
-#  id: gavrik-ghost
-#  ckey: Gavrik
-#  sprite: _White/Ghosts/ckey/gavrik-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Gavrik
-#  ghostDescription: Лучший в категории Поп
-#
-##purka
-#- type: customGhost
-#  id: purka-ghost
-#  ckey: PurplePi
-#  sprite: _White/Ghosts/ckey/purka-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Purka
-#  ghostDescription: Следи за осанкой!
-#
-##pzakusik
-#- type: customGhost
-#  id: pzakusik-ghost
-#  ckey: PZAKusik
-#  sprite: _White/Ghosts/ckey/pzakusik-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Kutos
-#  ghostDescription: ...
-#
-##felix163
-#- type: customGhost
-#  id: felix163-ghost
-#  ckey: felix163
-#  sprite: _White/Ghosts/ckey/felix163-ghost.rsi
-#  alpha: 1
-#  ghostName: Кошмар
-#  ghostDescription: ползёт, ползёт...
-#  size: 0.8, 0.8
-#
-##tokijumper
-#- type: customGhost
-#  id: tokijumper-ghost
-#  ckey: TokiJumper
-#  sprite: _White/Ghosts/ckey/headwiki-ghost.rsi
-#  alpha: 1
-#  ghostName: Toki
-#  ghostDescription: Премудрый раб, прав не имеющий, в подвале мапперов содержащийся, лороведов упрашивающий, спрайтеров любящий, кокеров преследующий, космонавтиков боящийся глава Лороведов.
-#  size: 0.8, 0.8
-#
-##izeribak
-#- type: customGhost
-#  id: izeribak-ghost
-#  ckey: IzeRibak
-#  sprite: _White/Ghosts/ckey/headwiki-ghost.rsi
-#  alpha: 1
-#  ghostName: IzeRibak
-#  ghostDescription: Премудрый царь, право имеющий, в подвале мапперов держащий, лороведов не спрашивающий, спрайтеров принижающий, кокерами повелевающий, космонавтиков травящий глава Викиводов.
-#  size: 0.8, 0.8
-#
-##just look at the ckey field you dumbass
-#- type: customGhost
-#  id: redfoxiv-ghost
-#  ckey: RedFoxIV
-#  sprite: _White/Ghosts/empty.rsi
-#  alpha: 1
-#  ghostName: яицевозка
-#  ghostDescription: ДЕРЖИСЬ,    ЛЕТАЮЩАЯ    КРЕПОСТЬ!                                     МОЁ    СОЗДАНИЕ,    ЯИЦЕНОСЕЦ.
-#  size: 0.5, 0.5
+#- type: entity
+#  parent: MobObserverCkey
+#  id: MobObserverPersikvin
+#  description: Из океана... # original ghost's name "Gawr"
 #  components:
-#  - type: MouseRotator
-#    angleTolerance: 1
-#    simple4DirMode: false
-#  - type: DollyMixture
-#    sprite: _White/Ghosts/redfoxiv-3Dghost.rsi
-#    statePrefix: hqyaitca
-#    offset: 0,-16
-#    layerOffset: 0,0.675
-#    defaultShader: unshaded
+#  - type: Sprite
+#    sprite: _White/Ghosts/ckey/persikvin-ghost.rsi
 #
 #
+- type: customGhost
+  parent: CkeyExclusive
+  id: KrokozyabraExclusive
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [ krokozyabra ]
+  proto: MobObserverKrokozyabra
+
+- type: entity
+  parent: MobObserverCkey
+  id: MobObserverKrokozyabra
+  description: От него веет верностью. # Зябр
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/krokozyabra-ghost.rsi
+
+
+# culled, too big
+#- type: customGhost
+#  parent: CkeyExclusive
+#  id: DageffExclusive
+#  restrictions:
+#  - !type:CkeyRestriction
+#    ckey: [dageff]
+#  proto: MobObserverDageff
+#
+#- type: entity
+#  parent: MobObserverCkey
+#  id: MobObserverDageff
+#  description: Наблюдает за вашим поведением в кафе. # Maiden
+#  components:
+#  - type: Sprite
+#    sprite: _White/Ghosts/ckey/dageff-ghost.rsi
+#    scale: 0.9, 0.9
+#    color: "#ffffffe6" # 0.9 alpha
+
+
+- type: customGhost
+  parent: CkeyExclusive
+  id: Scituzer2Exclusive
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [Scituzer2]
+  proto: MobObserverScituzer2
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverScituzer2
+  description: A race of harpies that have charming onyx wings. Although they are a clever race, particularly notable for having the highest intelligence of all harpies, they are exceedingly belligerent and ferocious. This one specifically used to occupy a leader position for this project - but all she saw was a world on fire. # Black Harpy
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/scituzer2-ghost.rsi
+    color: "#ffffffe6" # 0.9 alpha
+
+# custom ghost priviledges revoked :sob::sob::sob:
+#- type: customGhost
+#  parent: CkeyExclusive
+#  id: Exclusive
+#  restrictions:
+#  - !type:CkeyRestriction
+#    ckey: [Warete]
+#  proto: MobObserverWarete
+#
+#- type: entity
+#  parent: MobObserver
+#  id: MobObserverWarete
+#  description: Горничная под своим кодовым именем. Следит за порядком в кафе Мастера. #Fiammetta
+#  components:
+#  - type: Sprite
+#    sprite: _White/Ghosts/ckey/warete-ghost.rsi
+#    color: "#ffffffe6" # 0.9 alpha
+
+
+- type: customGhost
+  parent: CkeyExclusive
+  id: CheeseCheeseExclusive
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [cheese_cheese]
+  proto: MobObserverCheeseCheese
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverCheeseCheese
+  description:
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/cheese_cheese-ghost.rsi
+
+# culled, too big
+#- type: customGhost
+#  parent: CkeyExclusive
+#  id: NairsarkExclusive
+#  restrictions:
+#  - !type:CkeyRestriction
+#    ckey: [nairsark]
+#  proto: MobObserverNairsark
+#
+#- type: entity
+#  parent: MobObserver
+#  id: MobObserverNairsark
+#  description: "..." #Winter's Scar
+#  components:
+#  - type: Sprite
+#    sprite: _White/Ghosts/ckey/frostnova-ghost.rsi
+#    color: "#ffffffb3" # 0.7 alpha
+
+
+# culled
+#- type: customGhost
+#  parent: CkeyExclusive
+#  id: Reider207Exclusive
+#  restrictions:
+#  - !type:CkeyRestriction
+#    ckey: [reider207]
+#  proto: MobObserverReider207
+#
+#- type: entity
+#  parent: MobObserver
+#  id: MobObserverReider207
+#  description: But what are they going to do, lock me up? # Tighnari
+#  components:
+#  - type: Sprite
+#    sprite: _White/Ghosts/ckey/reider207-ghost.rsi
+#    scale: 0.8, 0.8
+
+
+# culled, too big
+#- type: customGhost
+#  parent: CkeyExclusive
+#  id: MapperianExclusive
+#  restrictions:
+#  - !type:CkeyRestriction
+#    ckey: [mapperian]
+#  proto: MobObserverMapperian
+#
+#- type: entity
+#  parent: MobObserver
+#  id: MobObserverMapperian # Alice Liddell # fuck that long ass description
+#  description: found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you
+#  components:
+#  - type: Sprite
+#    sprite: _White/Ghosts/ckey/mapperian-ghost.rsi
+#    scale: 0.7, 0.7
+#    color: "#ffffffe6" # 0.9 alpha
+
+# culled, one direction anime slop
+#- type: customGhost
+#  parent: CkeyExclusive
+#  id: SkrimexExclusive
+#  restrictions:
+#  - !type:CkeyRestriction
+#    ckey: [s_k_r_i_m_e_x]
+#  proto: MobObserverSkrimex
+#
+#- type: entity
+#  parent: MobObserver
+#  id: MobObserverSkrimex
+#  description: Мяу! # Ху Тао
+#  components:
+#  - type: Sprite
+#    sprite: _White/Ghosts/ckey/s_k_r_i_m_e_x-ghost.rsi
+#    scale: 0.8, 0.8
+
+
+
+# based fnh enjoyer
+- type: customGhost
+  parent: CkeyExclusive
+  id: CyouExclusive
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [cyou]
+  proto: MobObservercyou
+
+- type: entity
+  parent: MobObserver
+  id: MobObservercyou # Marina
+  description: Я, наверное, открою небольшой оккультный магазин где-нибудь. Где-нибудь далеко от Прехевиля... Может, в Рондоне. Хочу жить в оживлённом месте, среди множества людей. Людей, которые не будут осуждать меня или кого-то ещё вокруг…
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/cyou-ghost.rsi
+
+
+
+- type: customGhost
+  parent: CkeyExclusive
+  id: Nonta228Exclusive
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [nonta228]
+  proto: MobObserverNonta228
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverNonta228
+  description: Я устрою конец света. # nonta
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/nonta228-ghost.rsi
+
+
+
+- type: customGhost
+  parent: CkeyExclusive
+  id: PuroSlavKingExclusive
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [PuroSlavKing]
+  proto: MobObserverPuroSlavKing
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverPuroSlavKing
+  description: Что за гомосексуалист на моём рабочем месте? # PuroSlavKing
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/puroslavking-ghost.rsi
+
+
+
+
+- type: customGhost
+  parent: CkeyExclusive
+  id: KilathExclusive
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [kilath]
+  proto: MobObserverKilath
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverKilath
+  description: Руками перья не смотреть! # LeaSzish
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/kilath-ghost.rsi
+
+
+
+
+- type: customGhost
+  parent: CkeyExclusive
+  id: GavrikExclusive
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [Gavrik]
+  proto: MobObserverGavrik
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverGavrik
+  description: Лучший в категории Поп # Gavrik
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/gavrik-ghost.rsi
+
+
+
+
+- type: customGhost
+  parent: CkeyExclusive
+  id: PurplePiExclusive
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [PurplePi]
+  proto: MobObserverPurplePi
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverPurplePi
+  description: Следи за осанкой! # иди нахуй # Purka
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/purka-ghost.rsi
+
+
+
+# culled, too big
+#- type: customGhost
+#  parent: CkeyExclusive
+#  id: PZAKusikExclusive
+#  restrictions:
+#  - !type:CkeyRestriction
+#    ckey: [PZAKusik]
+#  proto: MobObserverPZAKusik
+#
+#- type: entity
+#  parent: MobObserver
+#  id: MobObserverPZAKusik
+#  description: "..." # Kutos
+#  components:
+#  - type: Sprite
+#    sprite: _White/Ghosts/ckey/pzakusik-ghost.rsi
+
+
+
+- type: customGhost
+  parent: CkeyExclusive
+  id: Felix163Exclusive
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [felix163]
+  proto: MobObserverFelix163
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverFelix163
+  description: ползёт, ползёт... # Кошмар
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/felix163-ghost.rsi
+    color: "#ffff" # 1.0 alpha
+
+
+
+
+- type: customGhost
+  parent: CkeyExclusive
+  id: TokiJumperExclusive
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [TokiJumper]
+  proto: MobObserverTokiJumper
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverTokiJumper # Toki
+  description: Премудрый раб, прав не имеющий, в подвале мапперов содержащийся, лороведов упрашивающий, спрайтеров любящий, кокеров преследующий, космонавтиков боящийся глава Лороведов.
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/headwiki-ghost.rsi
+    scale: 0.8, 0.8
+    color: "#ffff" # 1.0 alpha
+
+
+
+- type: customGhost
+  parent: CkeyExclusive
+  id: IzeRibakExclusive
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [IzeRibak]
+  proto: MobObserverIzeRibak
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverIzeRibak # IzeRibak
+  description: Премудрый царь, право имеющий, в подвале мапперов держащий, лороведов не спрашивающий, спрайтеров принижающий, кокерами повелевающий, космонавтиков травящий глава Викиводов.
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/headwiki-ghost.rsi
+    scale: 0.8, 0.8
+    color: "#ffff" # 1.0 alpha
+
+
+# Yeah, no, i'm not porting that over. It was funny for the first five minutes, and then immediately got old. 
+#- type: customGhost
+#  parent: CkeyExclusive
+#  restrictions:
+#  - !type:CkeyRestriction
+#    ckey: [RedFoxIV]
+#  proto: MobObserverRedFoxIV
+#
+#- type: entity
+#  parent: MobObserver
+#  id: MobObserverRedFoxIV
+#  description: ДЕРЖИСЬ,    ЛЕТАЮЩАЯ    КРЕПОСТЬ!                                     МОЁ    СОЗДАНИЕ,    ЯИЦЕНОСЕЦ. # яицевозка
+#  components:
+#  - type: Sprite
+#    sprite: 
+#
+
+
+
 ###xivi
 ##- type: customGhost
 ##  id: xivi-ghost

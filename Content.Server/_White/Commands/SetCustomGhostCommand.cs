@@ -50,25 +50,20 @@ public sealed class SetCustomGhostCommand : IConsoleCommand
             return;
         }
 
-        if (proto.Ckey is string ckey && player.Name.ToLower() != ckey.ToLower())
+        string fullFailReason = string.Empty;
+        bool available = true;
+        if(proto.Restrictions is not null)
+            foreach(var restriction in proto.Restrictions)
+            {
+                if (restriction.CanUse(player, out var failReason))
+                    continue;
+                fullFailReason += $"\n{failReason}";
+                available = false;
+            }
+
+        if (!available)
         {
-            shell.WriteLine(Loc.GetString("setcustomghost-command-exclusive-ghost"));
-            return;
-        }
-
-        if (!proto.PlaytimeCheck(player, out var failed))
-        {
-            StringBuilder rejectlist = new();
-
-            foreach(var fail in failed)
-                rejectlist.AppendLine(Loc.GetString("setcustomghost-command-insufficient-playtime-partial",
-                        ("tracker", fail.tracker),
-                        ("required", fail.hoursRequired.ToString("0.00")),
-                        ("playtime", fail.hoursPlayed.ToString("0.00")))
-                    );
-
-            shell.WriteLine(Loc.GetString("setcustomghost-command-insufficient-playtime"));
-            shell.WriteLine(rejectlist.ToString());
+            shell.WriteLine(fullFailReason);
             return;
         }
 

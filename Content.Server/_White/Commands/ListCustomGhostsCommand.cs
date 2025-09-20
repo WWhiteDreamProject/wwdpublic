@@ -54,16 +54,27 @@ public sealed class ListCustomGhostsCommand : IConsoleCommand
 
         sb.AppendLine(Loc.GetString($"listcustomghosts-{(all ? "all" : "available")}-ghosts"));
 
+
+
         foreach(var proto in protos)
         {
-            if (proto.Ckey is string ckey && ckey != player.Name)
-                continue;
+            bool available = true;
+            if(proto.Restrictions is not null)
+                foreach(var restriction in proto.Restrictions)
+                {
+                    if (restriction.CanUse(player, out _))
+                        continue;
+                    if (restriction.HideOnFail)
+                        goto skipPrototype; // wojaks_pointing.png
+                    available = false;
+                    break;
+                }
 
-            if (proto.PlaytimeCheck(player, out _))
+            if (available)
                 sb.AppendLine($"- {proto.ID}");
             else if (all)
-                sb.AppendLine($"- {proto.ID} ({Loc.GetString("listcustomghosts-locked")})");
-
+                sb.AppendLine($"- {proto.ID} {Loc.GetString("listcustomghosts-locked")}");
+            skipPrototype:;
         }
 
         shell.WriteLine(sb.ToString());
