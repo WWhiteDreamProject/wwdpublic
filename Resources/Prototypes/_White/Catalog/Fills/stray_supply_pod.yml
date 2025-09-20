@@ -65,12 +65,6 @@
         - !type:EntSelector
           id: CrateCargoLuxuryHardsuit
           weight: 1
-        # Cargo - Circuitboards
-      - !type:GroupSelector
-        children:
-        - !type:EntSelector
-          id: CrateCrewMonitoringBoards
-          weight: 1
         # Cargo - Emergency
       - !type:GroupSelector
         children:
