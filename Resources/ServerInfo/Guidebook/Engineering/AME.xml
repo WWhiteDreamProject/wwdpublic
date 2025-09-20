@@ -1,55 +1,75 @@
 <Document>
+  # Антиматериальный Двигатель (AME)
+  Антиматериальный двигатель — это краткосрочный вспомогательный генератор для станции, обеспечивающий значительное количество энергии в течение ограниченного времени.
 
-# Двигатель Антиматерии (ДАМ)
+  Он в основном используется для помощи инженерам в запуске более крупных двигателей, таких как [textlink="Двигатель Сингулярности" link="SingularityEngine"] или [textlink="Двигатель Тесла" link="TeslaEngine"], дополняя [textlink="батареи" link="PowerStorage"] станции частичной энергией для продления их работы.
 
-ДАМ — один из самых простых, но [italic]не самых безопасных[/italic] способов снабдить станцию энергией.
-Собрал конструкцию, вставил топливо — и понеслась. Но не расслабляйся: если переборщишь с подачей, он тебя [color=red]удивит взрывом[/color].
+  ## Строительство
+  <Box>Требуемые детали:</Box>
+  <Box>
+    <GuideEntityEmbed Entity="AmeController"/>
+    <GuideEntityEmbed Entity="AmePartFlatpack"/>
+    <GuideEntityEmbed Entity="AmeJar"/>
+  </Box>
 
+  Контроллер AME — это часть AME, которая выводит энергию в сеть станции через [textlink="ВВ-соединение" link="VoltageNetworks"].
+  По этой причине вы захотите начать строительство AME с контроллера поверх [color=orange]ВВ-провода[/color].
 
+  Большинство станций имеют открытые [color=orange]ВВ-провода[/color] или специально отведенные места для установки контроллера AME, чтобы он подключался к сети.
 
-## Сборка
+  Экранирование AME — это физическая структура, которая образует антиматериальный двигатель. Она создается путем преобразования плоских упаковок AME в экранирование с помощью мультитула.
 
-<Box>Понадобится:</Box>
+  Для постройки AME начните выкладывать квадрат 3x3 или больше из плоских упаковок AME в подготовку к строительству, убедившись, чтобы максимизировать количество "центральных" частей, окруженных со всех восьми сторон.
+  Чем больше центральных частей, тем больше ядер будет у вашего AME, и тем больше энергии он сможет безопасно выдавать.
 
-<Box>
-  <GuideEntityEmbed Entity="AmeController"/>
-  <GuideEntityEmbed Entity="AmePartFlatpack"/>
-  <GuideEntityEmbed Entity="AmeJar"/>
-</Box>
+  <Box>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+  </Box>
 
-1. Поставь [bold]контроллер[/bold] на конец высоковольтного провода, прикрутив его гаечным ключом. Обычно на станции есть катвоки (решётки), где это удобно делать.
-2. Выложи квадратную сетку из [bold]блоков ДАМ[/bold], минимум 3×3, но можно и больше. В идеале — с максимальным числом центральных ячеек, окружённых со всех сторон.
-3. Пройдись по каждому блоку [italic]мультитулом[/italic], чтобы превратить его в "щит". Должна получиться готовая конструкция.
+  После того, как это будет сделано, вы можете использовать мультитул для преобразования каждой плоской упаковки AME в экранирование, что сформирует готовую конфигурацию AME.
 
-Затем:
+  <GuideEntityEmbed Entity="AmeController" Caption=""/>
+  <Box>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+  </Box>
+  <Box>
+    [color=#999999][italic]Пример одноядерной установки[/italic][/color]
+  </Box>
 
-- Вставь топливную капсулу.
-- Установи подачу топлива максимум [color=#a4885c]в два раза больше числа ядер[/color].
-- Включи инжекцию.
+  ## Эксплуатация
+  Чтобы запустить AME, вставьте топливный сосуд в контроллер AME и установите безопасную скорость впрыска.
 
-[color=red]Если подача будет больше нормы — двигатель перегреется, а потом и взорвётся. Пиши завещание заранее.[/color]
+  Безопасная скорость впрыска — это точка, в которой AME может безопасно работать без перегрева, при этом максимизируя выходную мощность.
 
+  Эта скорость всегда вдвое превышает количество ядер.
 
+  Например, у AME с одним ядром безопасная скорость впрыска будет 2. С двумя ядрами, безопасная скорость впрыска составит 4, и так далее.
 
-## Топливная Экономия
+  Любое превышение этого соотношения в конечном итоге приведет к [color=#ff0000]перегреву[/color] двигателя и, вскоре после этого, к его [color=#ff0000]взрыву[/color].
 
-Оптимальная формула: **2 топливо на 1 ядро**.
-Если нарушишь баланс — эффективность упадёт.
-
-[bullet] ◦ [color=#76db91]3 ядра, 6 топлива → 240 кВт[/color]
-[bullet] ◦ [color=#f0684d]8 ядер, 8 топлива → 160 кВт[/color]
-
-Второй вариант жрёт топливо, как чёрная дыра, а даёт меньше энергии. Умей считать.
-
-
-
-## Прокачка ДАМ
-
-Хочешь больше энергии? Просто добавь ядер.
-Заказывай дополнительные [italic]блоки ДАМ[/italic] через [color=#a4885c]Логистику[/color] и достраивай конструкцию.
-
-
-
-[color=gray]Запомни главное: чем красивее горит, тем скорее ты пойдёшь по кусочкам.[/color]
-
+  Контроллер AME будет [textlink="отчитываться" link="InspectingPower"] как об объеме мощности, которую он подает в сеть, так и о теоретически максимальной мощности, которую он мог бы обеспечить по запросу.
 </Document>

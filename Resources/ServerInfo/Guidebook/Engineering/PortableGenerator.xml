@@ -1,53 +1,47 @@
 <Document>
+  # Портативные Генераторы
 
-# Портативные генераторы
+  Линейка портативных генераторов "P.A.C.M.A.N." используется для обеспечения экстренного или дополнительного питания ключевых комнат, зон или даже целых отделов.
+  Они просты в установке и обслуживании, и могут использоваться для питания критически важных систем и зон в случае сбоя электропитания.
 
-Нет электричества? Реактор молчит?
-Линия генераторов **P.A.C.M.A.N.™** спасёт твою задницу — от подвала до мостика.
+  <Box>
+    <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption="J.R.P.A.C.M.A.N." />
+    <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="P.A.C.M.A.N." />
+    <GuideEntityEmbed Entity="PortableGeneratorSuperPacman" Caption="S.U.P.E.R.P.A.C.M.A.N." />
+  </Box>
 
-<Box>
-  <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption="J.R.P.A.C.M.A.N." />
-  <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="P.A.C.M.A.N." />
-  <GuideEntityEmbed Entity="PortableGeneratorSuperPacman" Caption="S.U.P.E.R.P.A.C.M.A.N." />
-</Box>
+  # Младший
 
+  <Box>
+    <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption="J.R.P.A.C.M.A.N." />
+    <GuideEntityEmbed Entity="WeldingFuelTank" />
+  </Box>
 
+  J.R.P.A.C.M.A.N. можно найти по всей станции в технических шахтах, и он идеально подходит для самостоятельной установки экипажем при возникновении проблем с питанием.
+  Его выходная мощность до [color=orange][protodata="PortableGeneratorJrPacman" comp="FuelGenerator" member="MaxTargetPower" format="N0"/] Вт[/color] достаточна для питания одной-двух комнат, что может оказаться бесценным в месте вроде Медблока или Химии в Отделе Медицины.
 
-# Младший брат
+  Установка невероятно проста: закрепите его над [color=green]НН[/color] кабелем питания, заправьте топливом для сварки и запустите.
 
-<Box>
-  <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption="J.R.P.A.C.M.A.N." />
-  <GuideEntityEmbed Entity="WeldingFuelTank" />
-</Box>
+  Топливо для сварки — единственный источник топлива, который может использовать J.R.P.A.C.M.A.N., и его можно найти в баллонах с топливом для сварки по всей станции, обычно в технических зонах.
 
-Самый маленький из семейства — [bold]J.R.P.A.C.M.A.N.[/bold] — встречается повсюду в техтоннелях.
-Завести его под силу даже уборщику: ставишь над [color=green]низковольтным кабелем[/color], заливаешь сварочную смесь — и вперёд.
+  # Большие
 
-Сварочную смесь легко найти по станции. В крайнем случае можно перелить её из большого баллона в банку из-под колы.
-Только не забудь вылить колу. Этот малыш явно не фанат сладкого топлива.
+  <Box>
+    <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="P.A.C.M.A.N." />
+    <GuideEntityEmbed Entity="SheetPlasma" />
+  </Box>
 
+  <Box>
+    <GuideEntityEmbed Entity="PortableGeneratorSuperPacman" Caption="S.U.P.E.R.P.A.C.M.A.N." />
+    <GuideEntityEmbed Entity="SheetUranium" />
+  </Box>
 
+  P.A.C.M.A.N. и S.U.P.E.R.P.A.C.M.A.N. предназначены для использования инженерами при более серьезных сбоях питания и для дополнения мощности при дефиците.
+  Запуск более крупных [textlink="двигателей" link="SingularityTeslaEngine"], питание отделов и так далее.
 
-# Старшие братья
+  S.U.P.E.R.P.A.C.M.A.N. может похвастаться большей выходной мощностью (до [color=orange][protodata="PortableGeneratorSuperPacman" comp="FuelGenerator" member="MaxTargetPower" format="N0"/] Вт[/color]) и более длительным временем работы при максимальной мощности, но менее эффективно масштабируется до более низких значений.
 
-<Box>
-  <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="P.A.C.M.A.N." />
-  <GuideEntityEmbed Entity="SheetPlasma" />
-</Box>
+  Они подключаются напрямую к [color=yellow]СН[/color] или [color=orange]ВН[/color] [textlink="силовым кабелям" link="VoltageNetworks"] и могут переключаться между ними для гибкости.
 
-<Box>
-  <GuideEntityEmbed Entity="PortableGeneratorSuperPacman" Caption="S.U.P.E.R.P.A.C.M.A.N." />
-  <GuideEntityEmbed Entity="SheetUranium" />
-</Box>
-
-Эти красавцы предназначены для настоящих инженеров.
-
-[bold]P.A.C.M.A.N.[/bold] и [bold]S.U.P.E.R.P.A.C.M.A.N.[/bold] способны питать целые отделы, разгонять реакторы и спасать станции.
-Они подключаются напрямую к [color=yellow]среднему[/color] или [color=orange]высоковольтному[/color] кабелю, и умеют переключаться между ними при необходимости.
-
-- P.A.C.M.A.N. работает на [color=red]плазменных листах[/color].
-- S.U.P.E.R.P.A.C.M.A.N. требует [color=lime]уран[/color] и даёт повышенную мощность и время работы, но хуже справляется на малой нагрузке.
-
-> [italic]Помни: даже в аду из обломков — ты всё ещё можешь зажечь свет.[/italic]
-
+  S.U.P.E.R.P.A.C.M.A.N. и P.A.C.M.A.N. требуют в качестве топлива листы урана и листы плазмы соответственно.
 </Document>

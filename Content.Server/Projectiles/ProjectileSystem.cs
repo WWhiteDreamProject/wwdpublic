@@ -1,10 +1,13 @@
 using Content.Server.Administration.Logs;
+using Content.Server.Damage.Systems;
+using Content.Server.Destructible;
 using Content.Server.Effects;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Database;
+using Content.Shared.FixedPoint;
 using Content.Shared.Projectiles;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
@@ -19,6 +22,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ColorFlashEffectSystem _color = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
     [Dependency] private readonly GunSystem _guns = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
@@ -27,7 +31,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     {
         base.Initialize();
         SubscribeLocalEvent<ProjectileComponent, StartCollideEvent>(OnStartCollide);
-        SubscribeLocalEvent<EmbeddableProjectileComponent, DamageExamineEvent>(OnDamageExamine);
+        SubscribeLocalEvent<EmbeddableProjectileComponent, DamageExamineEvent>(OnDamageExamine, after: [typeof(DamageOtherOnHitSystem)]);
         // WD EDIT START
         SubscribeLocalEvent<EmbeddableProjectileComponent, EmbedEvent>(OnEmbed);
         // WD EDIT END
@@ -37,7 +41,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     {
         // This is so entities that shouldn't get a collision are ignored.
         if (args.OurFixtureId != ProjectileFixture || !args.OtherFixture.Hard
-            || component.DamagedEntity || component is { Weapon: null, OnlyCollideWhenShot: true, })
+            || component.ProjectileSpent || component is { Weapon: null, OnlyCollideWhenShot: true, })
             return;
 
         var target = args.OtherEntity;
@@ -54,7 +58,13 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         RaiseLocalEvent(uid, ref ev);
 
         var otherName = ToPrettyString(target);
-        var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, origin: component.Shooter);
+        var damageRequired = _destructibleSystem.DestroyedAt(target);
+        if (TryComp<DamageableComponent>(target, out var damageableComponent))
+        {
+            damageRequired -= damageableComponent.TotalDamage;
+            damageRequired = FixedPoint2.Max(damageRequired, FixedPoint2.Zero);
+        }
+        var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, damageable: damageableComponent, origin: component.Shooter);
         var deleted = Deleted(target);
 
         if (modifiedDamage is not null && EntityManager.EntityExists(component.Shooter))
@@ -68,6 +78,51 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 $"Projectile {ToPrettyString(uid):projectile} shot by {ToPrettyString(component.Shooter!.Value):user} hit {otherName:target} and dealt {modifiedDamage.GetTotal():damage} damage");
         }
 
+        // If penetration is to be considered, we need to do some checks to see if the projectile should stop.
+        if (modifiedDamage is not null && component.PenetrationThreshold != 0)
+        {
+            // If a damage type is required, stop the bullet if the hit entity doesn't have that type.
+            if (component.PenetrationDamageTypeRequirement != null)
+            {
+                var stopPenetration = false;
+                foreach (var requiredDamageType in component.PenetrationDamageTypeRequirement)
+                {
+                    if (!modifiedDamage.DamageDict.Keys.Contains(requiredDamageType))
+                    {
+                        stopPenetration = true;
+                        break;
+                    }
+                }
+                if (stopPenetration)
+                    component.ProjectileSpent = true;
+            }
+
+            // If the object won't be destroyed, it "tanks" the penetration hit.
+            if (modifiedDamage.GetTotal() < damageRequired)
+            {
+                component.ProjectileSpent = true;
+            }
+
+            if (!component.ProjectileSpent)
+            {
+                component.PenetrationAmount += damageRequired;
+                // The projectile has dealt enough damage to be spent.
+                if (component.PenetrationAmount >= component.PenetrationThreshold)
+                {
+                    component.ProjectileSpent = true;
+                }
+            }
+        }
+        else
+        {
+            // Goobstation start
+            if (component.Penetrate)
+                component.IgnoredEntities.Add(target);
+            else
+                component.ProjectileSpent = true;
+            // Goobstation end
+        }
+
         if (!deleted)
         {
             _guns.PlayImpactSound(target, modifiedDamage, component.SoundHit, component.ForceSound);
@@ -76,18 +131,13 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 _sharedCameraRecoil.KickCamera(target, args.OurBody.LinearVelocity.Normalized());
         }
 
-        // Goobstation start
-        if (component.Penetrate)
-            component.IgnoredEntities.Add(target);
-        else
-            component.DamagedEntity = true;
-        // Goobstation end
-
-        if (component.DeleteOnCollide || (component.NoPenetrateMask & args.OtherFixture.CollisionLayer) != 0) // Goobstation - Make x-ray arrows not penetrate blob
+        if (component.DeleteOnCollide && component.ProjectileSpent || (component.NoPenetrateMask & args.OtherFixture.CollisionLayer) != 0) // Goobstation - Make x-ray arrows not penetrate blob
             QueueDel(uid);
 
-        if (component.StopFlyingOnImpact && TryComp<PhysicsComponent>(uid, out var physics)) // WWDP
+        // WD EDIT START
+        if (component.StopFlyingOnImpact && TryComp<PhysicsComponent>(uid, out var physics))
             _physics.SetBodyStatus(uid, physics, BodyStatus.OnGround);
+        // WD EDIT END
 
         if (component.ImpactEffect != null && TryComp(uid, out TransformComponent? xform))
             RaiseNetworkEvent(new ImpactEffectEvent(component.ImpactEffect, GetNetCoordinates(xform.Coordinates)), Filter.Pvs(xform.Coordinates, entityMan: EntityManager));

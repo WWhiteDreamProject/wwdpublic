@@ -32,9 +32,6 @@
   id: RCDLight
 
 - type: Tag
-  id: SyringeGunAmmo
-
-- type: Tag
   id: XenomorphItem
 
 - type: Tag

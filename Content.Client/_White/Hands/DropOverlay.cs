@@ -57,7 +57,7 @@ public sealed class DropOverlay : Overlay
 
         var mouseMapPos = _eye.ScreenToMap(mouseScreenPos);
         // Why do i have to do so much to simply convert Vector2 from screenspace to worldspace and back?
-        var finalMapPos = _hands.GetFinalDropCoordinates(player, _transform.GetMapCoordinates(player), mouseMapPos);
+        var finalMapPos = _hands.GetFinalDropCoordinates(player, _transform.GetMapCoordinates(player), mouseMapPos, held);
         var finalScreenPos = _eye.MapToScreen(new MapCoordinates(finalMapPos, mouseMapPos.MapId)).Position;
 
         var adjustedAngle = dropcomp.Angle;

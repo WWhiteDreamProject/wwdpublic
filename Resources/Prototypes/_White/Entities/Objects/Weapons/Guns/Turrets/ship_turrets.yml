@@ -118,8 +118,7 @@
     powerLoad: 5
   - type: ExtensionCableReceiver
   - type: Alerts
-  - type: Telescope
-    lerpAmount: 0.25
+  - type: EyeCursorOffset
   - type: Silicon
     entityType: enum.SiliconType.Player
     batteryPowered: true

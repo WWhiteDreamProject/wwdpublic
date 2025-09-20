@@ -13,10 +13,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Server.Interaction;
 using Content.Server.Body.Components;
-using Robust.Shared.GameStates;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Server.Audio;
@@ -31,7 +28,6 @@ public sealed class HypospraySystem : SharedHypospraySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly InteractionSystem _interaction = default!;
 
     public override void Initialize()
     {

@@ -1,21 +1,21 @@
 using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
-using Content.Server.Popups;
 using Content.Server.Salvage.Magnet;
 using Content.Shared._White.CCVar;
-using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Procedural;
 using Content.Shared.Radio;
 using Content.Shared.Salvage.Magnet;
+using Robust.Shared.Exceptions;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 
 namespace Content.Server.Salvage;
 
 public sealed partial class SalvageSystem
 {
+    [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
+
     [ValidatePrototypeId<RadioChannelPrototype>]
     private const string MagnetChannel = "Supply";
 
@@ -67,7 +67,19 @@ public sealed partial class SalvageSystem
         }
         // WD EDIT END
 
-        TakeMagnetOffer((station.Value, dataComp), args.Index, (uid, component));
+        var index = args.Index;
+        async void TryTakeMagnetOffer()
+        {
+            try
+            {
+                await TakeMagnetOffer((station.Value, dataComp), index, (uid, component));
+            }
+            catch (Exception e)
+            {
+                _runtimeLog.LogException(e, $"{nameof(SalvageSystem)}.{nameof(TakeMagnetOffer)}");
+            }
+        }
+        TryTakeMagnetOffer();
     }
 
     private void OnMagnetStartup(EntityUid uid, SalvageMagnetComponent component, ComponentStartup args)
@@ -424,8 +436,8 @@ public sealed partial class SalvageSystem
         for (var i = 0; i < 20; i++)
         {
             var randomPos = origin +
-                worldAngle.ToVec() * (magnet.Comp.MagnetSpawnDistance * fraction) +
-                (worldAngle + Math.PI / 2).ToVec() * _random.NextFloat(-magnet.Comp.LateralOffset, magnet.Comp.LateralOffset);
+                            worldAngle.ToVec() * (magnet.Comp.MagnetSpawnDistance * fraction) +
+                            (worldAngle + Math.PI / 2).ToVec() * _random.NextFloat(-magnet.Comp.LateralOffset, magnet.Comp.LateralOffset);
             var finalCoords = new MapCoordinates(randomPos, mapId);
 
             angle = _random.NextAngle();

@@ -8,6 +8,7 @@ using Content.Server.DeviceNetwork;
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.Components;
+using Content.Shared.Emag.Systems;
 using Robust.Shared.Utility;
 using Content.Server._Imp.Drone;//Goobstation drone
 using Content.Shared._White.Silicons.Borgs.Components;
@@ -18,6 +19,8 @@ namespace Content.Server.Silicons.Borgs;
 /// <inheritdoc/>
 public sealed partial class BorgSystem
 {
+    [Dependency] private readonly EmagSystem _emag = default!;
+
     private void InitializeTransponder()
     {
         SubscribeLocalEvent<BorgTransponderComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
@@ -158,7 +161,7 @@ public sealed partial class BorgSystem
 
     private bool CheckEmagged(EntityUid uid, string name)
     {
-        if (HasComp<EmaggedComponent>(uid))
+        if (_emag.CheckFlag(uid, EmagType.Interaction))
         {
             Popup.PopupEntity(Loc.GetString($"borg-transponder-emagged-{name}-popup"), uid, uid, PopupType.LargeCaution);
             return true;

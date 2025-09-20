@@ -109,7 +109,7 @@ public sealed partial class TraitPreferenceSelector : Control
                 if (requirement is CharacterLogicRequirement logicRequirement)
                 {
                     requirement.IsValid(
-                        highJob, profile, new(), jobRequirementsManager.IsWhitelisted(), trait,
+                        highJob, profile, new Dictionary<string, TimeSpan>(), jobRequirementsManager.IsWhitelisted(), trait,
                         entityManager, prototypeManager, configManager, out var reason);
 
                     // WD EDIT START
@@ -135,7 +135,7 @@ public sealed partial class TraitPreferenceSelector : Control
                 else
                 {
                     requirement.IsValid(
-                        highJob, profile, new(), jobRequirementsManager.IsWhitelisted(), trait,
+                        highJob, profile, new Dictionary<string, TimeSpan>(), jobRequirementsManager.IsWhitelisted(), trait,
                         entityManager, prototypeManager, configManager, out var reason);
 
                     // WD EDIT START

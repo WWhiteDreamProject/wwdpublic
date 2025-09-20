@@ -1,4 +1,5 @@
 using Content.Shared._White.Light.Components;
+using Content.Shared.Clothing.Components;
 using Content.Shared.Database;
 using Content.Shared.Hands.Components;
 using Content.Shared.Item;
@@ -181,6 +182,17 @@ public abstract partial class SharedHandsSystem : EntitySystem
         if (checkActionBlocker && !_actionBlocker.CanPickup(uid, entity))
             return false;
 
+        if (ContainerSystem.TryGetContainingContainer((entity, null, null), out var container))
+        {
+            if (!ContainerSystem.CanRemove(entity, container))
+                return false;
+
+            if (_inventory.TryGetSlotEntity(uid, container.ID, out var slotEnt) &&
+                slotEnt == entity &&
+                !_inventory.CanUnequip(uid, entity, container.ID, out _))
+                return false;
+        }
+
         // check can insert (including raising attempt events).
         return ContainerSystem.CanInsert(entity, handContainer);
     }
@@ -211,7 +223,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
     /// <summary>
     ///     Puts an entity into the player's hand, assumes that the insertion is allowed. In general, you should not be calling this function directly.
     /// </summary>
-    public virtual void DoPickup(EntityUid uid, Hand hand, EntityUid entity, HandsComponent? hands = null)
+    public virtual void DoPickup(EntityUid uid, Hand hand, EntityUid entity, HandsComponent? hands = null, bool log = true)
     {
         if (!Resolve(uid, ref hands))
             return;
@@ -226,7 +238,8 @@ public abstract partial class SharedHandsSystem : EntitySystem
             return;
         }
 
-        _adminLogger.Add(LogType.Pickup, LogImpact.Low, $"{ToPrettyString(uid):user} picked up {ToPrettyString(entity):entity}");
+        if (log)
+            _adminLogger.Add(LogType.Pickup, LogImpact.Low, $"{ToPrettyString(uid):user} picked up {ToPrettyString(entity):entity}");
 
         Dirty(uid, hands);
 

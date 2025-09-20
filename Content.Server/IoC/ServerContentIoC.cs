@@ -6,18 +6,21 @@ using Content.Server.Administration.Notes;
 using Content.Server.Afk;
 using Content.Server.Chat.Managers;
 using Content.Server.Connection;
-using Content.Server.JoinQueue;
 using Content.Server.Database;
 using Content.Server.Discord;
+using Content.Server.Discord.WebhookMessages;
 using Content.Server.DiscordAuth;
 using Content.Server.EUI;
 using Content.Server.GhostKick;
 using Content.Server.Info;
+using Content.Server.JoinQueue;
 using Content.Server.Mapping;
 using Content.Server.Maps;
-using Content.Server.Players.JobWhitelist;
 using Content.Server.MoMMI;
 using Content.Server.NodeContainer.NodeGroups;
+using Content.Server.Objectives;
+using Content.Server.Players;
+using Content.Server.Players.JobWhitelist;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Preferences.Managers;
@@ -67,6 +70,7 @@ namespace Content.Server.IoC
             IoCManager.Register<ServerInfoManager>();
             IoCManager.Register<PoissonDiskSampler>();
             IoCManager.Register<DiscordWebhook>();
+            IoCManager.Register<VoteWebhooks>();
             IoCManager.Register<ServerDbEntryManager>();
             IoCManager.Register<JoinQueueManager>();
             IoCManager.Register<DiscordAuthManager>();
@@ -76,6 +80,7 @@ namespace Content.Server.IoC
             IoCManager.Register<PlayerRateLimitManager>();
             IoCManager.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             IoCManager.Register<MappingManager>();
+            IoCManager.Register<ConnectionManager>();
             IoCManager.Register<TTSManager>(); // WD EDIT
         }
     }

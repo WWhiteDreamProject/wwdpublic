@@ -54,7 +54,7 @@ public abstract class SharedBarkSystem : EntitySystem
                 if (requirement.IsValid(
                     job ?? default!,
                     profile,
-                    [],
+                    new Dictionary<string, TimeSpan>(),
                     false,
                     prototype,
                     EntityManager,

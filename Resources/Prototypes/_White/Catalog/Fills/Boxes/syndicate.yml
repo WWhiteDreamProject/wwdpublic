@@ -136,7 +136,7 @@
     - id: NeuroStabilizationImplanter
     - id: Stimpack
       amount: 3
-    - id: Doorjack
+    - id: AccessBreaker
     - id: ClothingEyesThermalVisionGogglesSyndie
     - id: ClothingOuterVestWeb
 

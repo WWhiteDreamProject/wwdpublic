@@ -7,7 +7,7 @@ namespace Content.Shared.Wieldable.Components;
 /// <summary>
 ///     Used for objects that can be wielded in two or more hands,
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(WieldableSystem)), AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedWieldableSystem)), AutoGenerateComponentState]
 public sealed partial class WieldableComponent : Component
 {
     [DataField("wieldSound")]
@@ -28,7 +28,7 @@ public sealed partial class WieldableComponent : Component
 
     /// <summary>
     ///     Whether using the item inhand while wielding causes the item to unwield.
-    ///     Unwielding can conflict with other inhand actions. 
+    ///     Unwielding can conflict with other inhand actions.
     /// </summary>
     [DataField]
     public bool UnwieldOnUse = true;
@@ -43,8 +43,6 @@ public sealed partial class WieldableComponent : Component
     /// </summary>
     [DataField]
     public bool AltUseInHand = false;
-
-    public EntityUid? User = null;
 
     /// <summary>
     /// Automatically attempts to wield the item upon being picked or switched to (while held)

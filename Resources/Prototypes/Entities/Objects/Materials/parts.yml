@@ -45,7 +45,7 @@
       map: ["base"]
   - type: Item
     size: Normal
-#    heldPrefix: rods
+    heldPrefix: rods
   - type: Construction
     graph: MetalRod
     node: MetalRod
@@ -123,15 +123,10 @@
           state: rglass_3
         entries:
         - prototype: SheetRPGlass
-          closeUiOnSelect: false
         - prototype: SheetRPGlass0
-          closeUiOnSelect: false
         - prototype: SheetRUGlass
-          closeUiOnSelect: false
         - prototype: SheetRUGlass0
-          closeUiOnSelect: false
         - prototype: SheetRGlass
-          closeUiOnSelect: false
   # WD EDIT START
   - type: Tag
     tags:
@@ -147,6 +142,9 @@
       types:
         Piercing: 15
   # WD EDIT END
+  - type: GuideHelp
+    guides:
+    - ExpandingRepairingStation
 
 - type: entity
   parent: PartRodMetal

@@ -1,34 +1,24 @@
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+
+
 namespace Content.Server.Chemistry.Components;
 
 /// <summary>
-/// Used for embeddable entities that should try to inject their
-/// contained solution into the entity they are embedded in over time.
+/// Used for embeddable entities that should try to inject a
+/// contained solution into a target over time while they are embbeded into.
 /// </summary>
-[RegisterComponent]
-public sealed partial class SolutionInjectWhileEmbeddedComponent : BaseSolutionInjectOnEventComponent
-{
-    /// <summary>
-    /// The interval between injection attempts, in seconds.
-    /// </summary>
-    [DataField]
-    public float UpdateInterval = 3.0f;
+[RegisterComponent, AutoGenerateComponentPause]
+public sealed partial class SolutionInjectWhileEmbeddedComponent : BaseSolutionInjectOnEventComponent {
+        ///<summary>
+        ///The time at which the injection will happen.
+        ///</summary>
+        [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+        public TimeSpan NextUpdate;
 
-    /// <summary>
-    /// Maximum number of injections that can be performed before the component removes itself.
-    /// Null means unlimited.
-    /// </summary>
-    [DataField]
-    public int? Injections = 5;
+        ///<summary>
+        ///The delay between each injection in seconds.
+        ///</summary>
+        [DataField]
+        public TimeSpan UpdateInterval = TimeSpan.FromSeconds(3);
+}
 
-    /// <summary>
-    /// Used to override the PierceArmor setting when fired from a SyringeGun.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool? PierceArmorOverride;
-
-    /// <summary>
-    /// Used to speed up injections when fired from a SyringeGun.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float SpeedMultiplier = 1f;
-} 
