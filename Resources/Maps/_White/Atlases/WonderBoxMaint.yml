@@ -3567,13 +3567,13 @@ entities:
             1052: 27,263
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameEndN
+            id: WindowFrameWhiteEndN
           decals:
             952: 12,236
             953: 14,235
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameEndS
+            id: WindowFrameWhiteEndS
           decals:
             954: 14,234
             955: 12,235
