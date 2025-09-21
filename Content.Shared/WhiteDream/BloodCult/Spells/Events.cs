@@ -96,9 +96,6 @@ public sealed partial class TeleportActionDoAfterEvent : SimpleDoAfterEvent
     public SoundPathSpecifier TeleportOutSound = new("/Audio/WhiteDream/BloodCult/veilout.ogg");
 }
 
-[Serializable, NetSerializable]
-public sealed partial class BloodRitesExtractDoAfterEvent : SimpleDoAfterEvent;
-
 public sealed partial class SpeakOnAuraUseEvent(EntityUid user) : EntityEventArgs
 {
     public EntityUid User = user;

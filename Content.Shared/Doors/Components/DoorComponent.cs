@@ -1,6 +1,7 @@
 using Content.Shared.Damage;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Tools;
+using Content.Shared.Whitelist;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -296,6 +297,11 @@ public sealed partial class DoorComponent : Component
 
     [DataField(customTypeSerializer: typeof(ConstantSerializer<DrawDepthTag>))]
     public int ClosedDrawDepth = (int) DrawDepth.DrawDepth.Doors;
+
+    // WD EDIT START
+    [DataField]
+    public EntityWhitelist? Whitelist;
+    // WD EDIT END
 }
 
 [Serializable, NetSerializable]

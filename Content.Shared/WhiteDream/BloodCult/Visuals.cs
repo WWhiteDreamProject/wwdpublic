@@ -12,14 +12,6 @@ public enum SoulShardVisualState : byte
 }
 
 [Serializable, NetSerializable]
-public enum ConstructVisualsState : byte
-{
-    Transforming,
-    Sprite,
-    Glow
-}
-
-[Serializable, NetSerializable]
 public enum GenericCultVisuals : byte
 {
     State, // True or False

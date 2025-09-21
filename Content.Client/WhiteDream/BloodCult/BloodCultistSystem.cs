@@ -26,7 +26,7 @@ public sealed class BloodCultistSystem : EntitySystem
 
         SubscribeLocalEvent<ConstructComponent, GetStatusIconsEvent>(OnCanShowConstructIcon);
         SubscribeLocalEvent<BloodCultistComponent, GetStatusIconsEvent>(OnCanShowCultMemberIcon);
-        SubscribeLocalEvent<BloodCultLeaderComponent, GetStatusIconsEvent>(OnCanShowCultLeaderIcon);
+        SubscribeLocalEvent<BloodCultistLeaderComponent, GetStatusIconsEvent>(OnCanShowCultLeaderIcon);
     }
 
     private void OnPentagramAdded(EntityUid uid, PentagramComponent component, ComponentStartup args)
@@ -79,7 +79,7 @@ public sealed class BloodCultistSystem : EntitySystem
     /// <summary>
     /// Determine whether a client should display the cult leader icon.
     /// </summary>
-    private void OnCanShowCultLeaderIcon(Entity<BloodCultLeaderComponent> ent, ref GetStatusIconsEvent args)
+    private void OnCanShowCultLeaderIcon(Entity<BloodCultistLeaderComponent> ent, ref GetStatusIconsEvent args)
     {
         if (CanDisplayIcon(ent.Owner, ent.Comp.IconVisibleToGhost))
         {
@@ -93,7 +93,7 @@ public sealed class BloodCultistSystem : EntitySystem
     /// </summary>
     private bool CanDisplayIcon(EntityUid? uid, bool visibleToGhost)
     {
-        if (HasComp<BloodCultistComponent>(uid) || HasComp<BloodCultLeaderComponent>(uid) ||
+        if (HasComp<BloodCultistComponent>(uid) || HasComp<BloodCultistLeaderComponent>(uid) ||
             HasComp<ConstructComponent>(uid))
             return true;
 

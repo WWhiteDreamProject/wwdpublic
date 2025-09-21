@@ -21,7 +21,7 @@ shuttle-curse-shuttle-arrived = The shuttle has already arived! You can't delay 
 shuttle-curse-shuttle-not-called = The shuttle has not yet been called.
 
 shuttle-curse-system-failure = SYSTEM FAILURE
-shuttle-curse-success-global = The shuttle will be delayed by {$time} minutes.
+shuttle-curse-success-global = {$message} The shuttle will be delayed by {$time} minutes.
 
 veil-shifter-description = It has {$charges} charges left.
 veil-shifter-cant-teleport = Couldn't find a place to teleport you. Try again!
