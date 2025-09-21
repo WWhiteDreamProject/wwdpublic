@@ -106,6 +106,8 @@ namespace Content.Client.Credits
         private IEnumerable<PatronEntry> LoadPatrons()
         {
             var yamlStream = _resourceManager.ContentFileReadYaml(new ("/Credits/Patrons.yml"));
+            if (yamlStream.Documents.Count == 0)         // WWDP EDIT
+                return Enumerable.Empty<PatronEntry>(); // WWDP EDIT
             var sequence = (YamlSequenceNode) yamlStream.Documents[0].RootNode;
 
             return sequence
