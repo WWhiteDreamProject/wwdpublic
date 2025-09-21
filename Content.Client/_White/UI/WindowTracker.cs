@@ -110,7 +110,5 @@ public sealed class WindowTracker<T> where T : BaseWindow, new()
         Window.OpenToRight();
         return true;
     }
-
-
 }
 
