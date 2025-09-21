@@ -5,11 +5,4 @@ namespace Content.Server.Chemistry.Components;
 /// contained solution into a target when they become embedded in it.
 /// </summary>
 [RegisterComponent]
-public sealed partial class SolutionInjectOnEmbedComponent : BaseSolutionInjectOnEventComponent
-{
-    /// <summary>
-    /// Used to override the PierceArmor setting when fired from a SyringeGun.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool? PierceArmorOverride;
-}
+public sealed partial class SolutionInjectOnEmbedComponent : BaseSolutionInjectOnEventComponent { }

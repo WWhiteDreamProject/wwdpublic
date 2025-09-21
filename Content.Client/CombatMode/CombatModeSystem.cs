@@ -103,7 +103,7 @@ public sealed class CombatModeSystem : SharedCombatModeSystem
         UpdateHud(entity);
 
         // WD EDIT START
-        if (silent || !_cfg.GetCVar(WhiteCVars.ToggleCombatModeSound))
+        if (silent || !_cfg.GetCVar(WhiteCVars.CombatModeSoundEnabled))
             return;
 
         var soundToPlay = value

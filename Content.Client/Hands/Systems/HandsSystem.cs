@@ -1,13 +1,13 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Client._White.Hands;
-using Content.Shared._White.Hands.Components;
 using Content.Client.DisplacementMap;
 using Content.Client.Examine;
-using Content.Client.Hands.Systems;
 using Content.Client.Strip;
 using Content.Client.Verbs.UI;
-using Content.Shared._Shitmed.Body.Events; // Shitmed Change
+using Content.Shared._Shitmed.Body.Events;
+using Content.Shared._White.Hands;
+using Content.Shared._White.Hands.Components; // Shitmed Change
 using Content.Shared.Body.Part; // Shitmed Change
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -15,20 +15,14 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using JetBrains.Annotations;
-using MathNet.Numerics.Distributions;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
-using Robust.Client.Input;
 using Robust.Client.Player;
-using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
-using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
-using Robust.Shared.Graphics;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Content.Shared._White.Hands;
 
 namespace Content.Client.Hands.Systems
 {
@@ -85,6 +79,7 @@ namespace Content.Client.Hands.Systems
             RaiseLocalEvent(GetEntity(ev.Target), new HandDeselectedEvent(GetEntity(ev.User))); // i think i'm starting to get desensitized to this kind of stuff.
         }
         // WWDP EDIT END
+
 
         #region StateHandling
         private void HandleComponentState(EntityUid uid, HandsComponent component, ref ComponentHandleState args)
@@ -151,7 +146,7 @@ namespace Content.Client.Hands.Systems
         }
         #endregion
 
-		// WWDP EDIT START
+        // WWDP EDIT START
         private void HoldingDropComponentInit(EntityUid uid, HoldingDropComponent comp, ComponentInit args)
         {
             if (_playerManager.LocalEntity == uid)
@@ -163,7 +158,7 @@ namespace Content.Client.Hands.Systems
             if (_playerManager.LocalEntity == uid)
                 _overlay.RemoveOverlay<DropOverlay>();
         }
-		// WWDP EDIT END
+        // WWDP EDIT END
 
         public void ReloadHandButtons()
         {
@@ -175,13 +170,13 @@ namespace Content.Client.Hands.Systems
             OnPlayerHandsAdded?.Invoke(hands);
         }
 
-		// WWDP: let it be immmortalized
-		// whoever wrote this is a dum-dum
-        //public override void DoDrop(EntityUid uid, Hand hand, bool doDropInteraction = true, HandsComponent? hands = null)
+        // WWDP: let it be immmortalized
+        // whoever wrote this is a dum-dum
+        //public override void DoDrop(EntityUid uid, Hand hand, bool doDropInteraction = true, HandsComponent? hands = null, bool log = true)
         //{
-        //    base.DoDrop(uid, hand, doDropInteraction, hands);
-		//
-		//    // WHAT DOES HELDENTITY EQUAL TO AFTER CALLING DODROP, OH I WONDER
+        //    base.DoDrop(uid, hand, doDropInteraction, hands, log);
+        //
+        //    // WHAT DOES HELDENTITY EQUAL TO AFTER CALLING DODROP, OH I WONDER
         //    if (TryComp(hand.HeldEntity, out SpriteComponent? sprite))
         //        sprite.RenderOrder = EntityManager.CurrentTick.Value;
         //}
@@ -520,5 +515,3 @@ namespace Content.Client.Hands.Systems
         }
     }
 }
-
-
