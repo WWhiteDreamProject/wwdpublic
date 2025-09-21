@@ -1,5 +1,7 @@
 using Content.Shared.Ghost;
 using Content.Shared.Players.PlayTimeTracking;
+using Content.Shared.Roles;
+using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
@@ -97,79 +99,4 @@ public abstract class CustomGhostRestriction
     public virtual bool HideOnFail => false;
 
     public abstract bool CanUse(ICommonSession player, [NotNullWhen(false)] out string? failReason);
-}
-
-// omitting CustomGhost prefix for convenience when prototyping
-[DataDefinition]
-public sealed partial class CkeyRestriction : CustomGhostRestriction
-{
-    [DataField(required: true)]
-    public List<string> Ckey = new();
-
-    public override bool HideOnFail => true;
-
-    public override bool CanUse(ICommonSession player, [NotNullWhen(false)] out string? failReason)
-    {
-        failReason = null;
-        return true;
-        var name = player.Name;
-        if (player.Name.StartsWith("localhost@"))
-            name = name.Substring(9); // what's the proper way of doing this?
-
-        if (Ckey.Contains(name, StringComparer.OrdinalIgnoreCase)) // todo current, invariant or ordinal?
-            return true;
-
-        failReason = Loc.GetString("custom-ghost-fail-exclusive-ghost");
-
-        return false;
-    }
-}
-
-[DataDefinition]
-public sealed partial class PlaytimeRestriction : CustomGhostRestriction
-{
-    private static ISharedPlaytimeManager? _playtime = null;
-
-    [DataField(required: true)]
-    public List<string> Jobs = new();
-
-    [DataField(required: true)]
-    public float HoursPlaytime;
-
-    [DataField(required: true)]
-    public string Title = string.Empty;
-
-    public override bool CanUse(ICommonSession player, [NotNullWhen(false)] out string? failReason)
-    {
-        _playtime ??= IoCManager.Resolve<ISharedPlaytimeManager>();
-        failReason = null;
-        if(!_playtime.TryGetTrackerTimes(player, out var playtimes))
-        {
-            failReason = "Failed to get playtimes. Ask an admin for help if this error persists.";
-            return false;
-        }
-
-        double total = 0;
-        foreach(var job in Jobs)
-        {
-            if (playtimes.TryGetValue(job, out var time))
-                total += time.TotalHours;
-        }
-
-        if(total < HoursPlaytime)
-        {
-            string jobList = $"\"{string.Join("\", \"", Jobs)}\"";
-            failReason = Loc.GetString("custom-ghost-fail-insufficient-playtime",
-                    ("department", Title),
-                    ("jobList", jobList),
-                    ("requiredHours", MathF.Round(HoursPlaytime)),
-                    ("requiredMinutes", MathF.Round(HoursPlaytime % 1 * 60)),
-                    ("playtimeHours", Math.Round(total)),
-                    ("playtimeMinutes", Math.Round(total % 1 * 60))
-            );
-            return false;
-        }
-
-        return true;
-    }
 }

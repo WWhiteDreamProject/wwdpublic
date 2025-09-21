@@ -123,7 +123,7 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
         button.Modulate = Color.Red;
         button.Visible = false;
         button.ActualButton.Disabled = true;
-        button.ActualButton.ToolTip += fullFailReason;
+        button.ActualButton.ToolTip += $"\n{Loc.GetString("custom-ghost-window-tooltip-to-unlock")}{fullFailReason}";
         _hidden.Add(button);
         return button;
     }

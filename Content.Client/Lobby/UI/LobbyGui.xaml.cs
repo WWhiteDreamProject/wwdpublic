@@ -43,7 +43,7 @@ namespace Content.Client.Lobby.UI
                     LabelName.Visible = true;
                     LobbySong.Visible = true;
                     LobbyBackground.Visible = true;
-                    DevInfoBanner.Visible = true;
+                    BottomLeftPanel.Visible = true;
                     VoteContainer.Visible = true;
                     // WD EDIT END
                     break;
@@ -55,7 +55,7 @@ namespace Content.Client.Lobby.UI
                     LabelName.Visible = false;
                     LobbySong.Visible = false;
                     LobbyBackground.Visible = false;
-                    DevInfoBanner.Visible = false;
+                    BottomLeftPanel.Visible = false;
                     VoteContainer.Visible = false;
                     // WD EDIT END
 

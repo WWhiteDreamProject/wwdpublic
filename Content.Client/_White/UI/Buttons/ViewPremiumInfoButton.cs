@@ -7,7 +7,7 @@ namespace Content.Client._White.UI.Buttons;
 
 public sealed class ViewPremiumInfoButton : Button
 {
-    PremiumPassWindow? _window = null;
+    WindowTracker<PremiumPassWindow> _premWindow = new();
     public ViewPremiumInfoButton() : base()
     {
         OnPressed += Pressed;
@@ -36,16 +36,7 @@ public sealed class ViewPremiumInfoButton : Button
 
     private void Pressed(ButtonEventArgs args)
     {
-        if (_window is not null)
-        {
-            _window.Close();
-            _window = null;
-            return;
-        }
-
-        _window = new();
-        _window.OnClose += () => _window = null;
-        _window.OpenCentered();
+        _premWindow.TryOpenCentered();
     }
 }
 

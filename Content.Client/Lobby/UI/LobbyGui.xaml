@@ -30,7 +30,7 @@
                     <RichTextLabel Name="LabelName" Access="Public" HorizontalAlignment="Left"
                                    VerticalAlignment="Center" Margin="20 0 0 420" />
                     <!-- Left Bot Panel -->
-                    <PanelContainer HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                    <PanelContainer Name="BottomLeftPanel" HorizontalAlignment="Left" VerticalAlignment="Bottom">
                         <BoxContainer Orientation="Vertical" SeparationOverride="4" Margin="2">  <!-- wwdp edit start -->
                             <BoxContainer Orientation="Horizontal" SeparationOverride="4" Margin="6,8,6,8">
                                 <wdcontrols:CvarToggleableBoxContainer CVar="white.funny_features_enabled" Flip="True">

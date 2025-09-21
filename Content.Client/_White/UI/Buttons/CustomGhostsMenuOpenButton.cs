@@ -5,7 +5,7 @@ namespace Content.Client._White.UI.Buttons;
 
 public sealed class CustomGhostsMenuOpenButton : Button
 {
-    CustomGhostsWindow? _window = null;
+    WindowTracker<CustomGhostsWindow> _customGhostWindow = new();
     public CustomGhostsMenuOpenButton() : base()
     {
         OnPressed += Pressed;
@@ -13,16 +13,7 @@ public sealed class CustomGhostsMenuOpenButton : Button
 
     private void Pressed(ButtonEventArgs args)
     {
-        if (_window is not null)
-        {
-            _window.Close();
-            _window = null;
-            return;
-        }
-
-        _window = new();
-        _window.OnClose += () => _window = null;
-        _window.OpenCenteredLeft();
+        _customGhostWindow.TryOpenCenteredLeft();
     }
 }
 

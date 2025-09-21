@@ -33,6 +33,9 @@
   category: Color
   name: Red ghost
   desc: The color of love, of rage, of passion or spilt blood. Depends on one's tastes.
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 1
 
 - type: entity
   parent: MobObserver
@@ -53,6 +56,9 @@
   proto: MobObserverGreen
   name: Green ghost
   desc: A reminder to eat your greens.
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 1
 
 - type: entity
   parent: MobObserver
@@ -73,6 +79,9 @@
   proto: MobObserverBlue
   name: Blue ghost
   desc: A calming blue, much needed after being unfairly spaced. 
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 1
 
 - type: entity
   parent: MobObserver
@@ -93,6 +102,9 @@
   proto: MobObserverViolet
   name: Violet ghost
   desc: A royal color for royal ghosts.
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 1
 
 - type: entity
   parent: MobObserver
@@ -113,6 +125,9 @@
   proto: MobObserverPink
   name: Pink ghost
   desc: Increases catfishing efficiency by 30%.
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 1
 
 - type: entity
   parent: MobObserver
@@ -132,6 +147,9 @@
   proto: MobObserverYellow
   name: Yellow ghost
   desc: A joyous and energetic color, unbefitting of a dead being.
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 1
 
 - type: entity
   parent: MobObserver
@@ -145,50 +163,51 @@
       shader: unshaded
 
 
-
-- type: customGhost
-  id: camo
-  category: Color
-  proto: MobObserverCamo
-  name: Camouflaged ghost
-  desc: I think it's a bit late for that...
-
-- type: entity
-  parent: MobObserver
-  id: MobObserverCamo
-  components:
-  - type: Sprite
-    sprite: _White/Ghosts/simple.rsi
-    layers:
-    - state: camo
-      shader: unshaded
-
-- type: customGhost
-  id: ashcloud
-  category: Fancy
-  proto: MobObserverAshCloud
-  name: Ashen cloud
-  desc: "Dancing on the ashes of the world,\n
-         I behold the stars.\n
-         Heavy gale is blowing to my face,\n
-         Rising up the dust.\n
-         Barren lands are desperate to blossom,\n
-         Dark stars strive to shine,\n
-         Still remember the blue ocean,\n
-         In this dying world."
-
-- type: entity
-  parent: MobObserver
-  id: MobObserverAshCloud
-  description: Really makes you feel under the weather.
-  components:
-  - type: Sprite
-    sprite: _White/Ghosts/cloud.rsi
-    layers:
-    - state: ash
-      shader: unshaded
-    - state: cloud
-      shader: unshaded
+# also looks like ass
+#- type: customGhost
+#  id: camo
+#  category: Color
+#  proto: MobObserverCamo
+#  name: Camouflaged ghost
+#  desc: I think it's a bit late for that...
+#
+#- type: entity
+#  parent: MobObserver
+#  id: MobObserverCamo
+#  components:
+#  - type: Sprite
+#    sprite: _White/Ghosts/simple.rsi
+#    layers:
+#    - state: camo
+#      shader: unshaded
+#
+# scrapped due to it looking like ass
+#- type: customGhost
+#  id: ashcloud
+#  category: Fancy
+#  proto: MobObserverAshCloud
+#  name: Ashen cloud
+#  desc: "Dancing on the ashes of the world,\n
+#         I behold the stars.\n
+#         Heavy gale is blowing to my face,\n
+#         Rising up the dust.\n
+#         Barren lands are desperate to blossom,\n
+#         Dark stars strive to shine,\n
+#         Still remember the blue ocean,\n
+#         In this dying world."
+#
+#- type: entity
+#  parent: MobObserver
+#  id: MobObserverAshCloud
+#  description: Really makes you feel under the weather.
+#  components:
+#  - type: Sprite
+#    sprite: _White/Ghosts/cloud.rsi
+#    layers:
+#    - state: ash
+#      shader: unshaded
+#    - state: cloud
+#      shader: unshaded
     
 - type: customGhost
   id: heart
@@ -196,6 +215,10 @@
   proto: MobObserverHeart
   name: Heart shaped ghost
   desc: Number 1 rated ghost shape since 1997.
+  restrictions:
+  - !type:PlaytimeDepartmentRestriction
+    department: Civilian
+    hoursPlaytime: 6
 
 - type: entity
   parent: MobObserver
@@ -217,6 +240,22 @@
   proto: MobObserverLich
   name: King ghost
   desc: So what if I swagger?
+  restrictions:
+  - !type:PlaytimeDepartmentRestriction
+    department: Epistemics
+    hoursPlaytime: 8
+  - !type:PlaytimeDepartmentRestriction
+    department: Security
+    hoursPlaytime: 8
+  - !type:PlaytimeDepartmentRestriction
+    department: Medical
+    hoursPlaytime: 8
+  - !type:PlaytimeDepartmentRestriction
+    department: Command
+    hoursPlaytime: 8
+  - !type:PlaytimeDepartmentRestriction
+    department: Logistics
+    hoursPlaytime: 8
 
 - type: entity
   parent: MobObserver
@@ -236,6 +275,10 @@
   proto: MobObserverBlazeit
   name: Weed ghost
   desc: (Insert an MLG joke of your choice here)
+  restrictions:
+  - !type:PlaytimeJobRestriction
+    job: Botanist
+    hoursPlaytime: 4
 
 - type: entity
   parent: MobObserver
@@ -255,6 +298,9 @@
   proto: MobObserverRainbow
   name: Rainbow ghost
   desc: All the colors at once, for those who can't decide.
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 2
 
 - type: entity
   parent: MobObserver
@@ -274,6 +320,9 @@
   proto: MobObserverKitty
   name: Cat ghost
   desc: kitty!!!
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 4
 
 - type: entity
   parent: MobObserver
@@ -293,6 +342,9 @@
   proto: MobObserverIan
   name: Dog ghost
   desc: Only true Ian fans will get this one.
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 4
 
 - type: entity
   parent: MobObserver
@@ -312,6 +364,10 @@
   proto: MobObserverFire
   name: Fire ghost
   desc: Looks lit.
+  restrictions:
+  - !type:PlaytimeJobRestriction
+    job: AtmosphericTechnician
+    hoursPlaytime: 4
 
 - type: entity
   parent: MobObserver
@@ -331,6 +387,9 @@
   proto: MobObserverSkeleton
   name: Spooky ghost
   desc: He remembers you're maxcaps.
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 4
 
 - type: entity
   parent: MobObserver
@@ -350,6 +409,9 @@
   proto: MobObserverFrog
   name: Frog ghost
   desc: ">be me >frog"
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 4
 
 - type: entity
   parent: MobObserver
@@ -368,7 +430,10 @@
   category: Fancy
   proto: MobObserverRooster
   name: Rooster ghost
-  desc: Not as good as an alarm clock when it's dead.
+  desc: Not that great of an alarm clock when it's dead.
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 4
 
 - type: entity
   parent: MobObserver
@@ -388,6 +453,9 @@
   proto: MobObserverMouse
   name: Mouse ghost
   desc: is that a deadmau5 reference???
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 4
 
 - type: entity
   parent: MobObserver
@@ -406,6 +474,9 @@
   proto: MobObserverParrot
   name: Parrot ghost
   desc: CAWK!
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 5
 
 - type: entity
   parent: MobObserver
@@ -422,7 +493,7 @@
   id: CkeyExclusive
   category: Exclusive
   name: Эксклюзивный призрак
-  desc: Доступен только ограниченному числу людей.
+  desc: Доступен только вам.
 
 
 - type: entity
@@ -442,9 +513,10 @@
   proto: MobObserverCkeyPlaceholder
   restrictions:
   - !type:CkeyRestriction
-    ckey: [persikvin, reider207, nairsark, mapperian, PZAKusik, dageff]
+    ckey: [persikvin, reider207, nairsark, mapperian, PZAKusik, dageff, RedFoxIV]
   name: А где?
-  desc: Кастумный призрак, которым вы пользовались ранее, был сочтён чрезмерно большим или вырвиглазным, и был удалён. Вы всё ещё можете получить нового кастумного призрака - для этого обратитесь к кодербасу, либо сами откройте PR на репозитории проекта.
+  desc: "Кастумный призрак, которым вы пользовались ранее, был сочтён чрезмерно большим или вырвиглазным, и был удалён. \n
+         Вы всё ещё можете получить нового кастумного призрака - для этого обратитесь к кодербасу, либо сами откройте PR в репозитории проекта."
 
 - type: entity
   parent: MobObserverCkey
