@@ -135,7 +135,7 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
             StyleClasses = { "FancyWindowTitle" }
         };
 
-        label.Text = $"-- {text} --";
+        label.Text = $"-- {Loc.GetString($"custom-ghost-category-{text}")} --";
         ScrollBox.AddChild(label);
         return label;
     }
