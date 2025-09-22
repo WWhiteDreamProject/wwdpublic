@@ -42,9 +42,9 @@ public sealed class SetCustomGhostCommand : IConsoleCommand
             return;
         }
 
-        var selectedProto = args[0];
+        var protoId = args[0];
 
-        if (!_proto.TryIndex<CustomGhostPrototype>(selectedProto, out var proto))
+        if (!_proto.TryIndex<CustomGhostPrototype>(protoId, out var proto))
         {
             shell.WriteLine(Loc.GetString("setcustomghost-command-invalid-ghost-id"));
             return;
@@ -67,9 +67,9 @@ public sealed class SetCustomGhostCommand : IConsoleCommand
             return;
         }
 
-        await _db.SaveGhostTypeAsync(player.UserId, selectedProto);
+        await _db.SaveGhostTypeAsync(player.UserId, protoId);
         var prefs = _prefMan.GetPreferences(player.UserId);
-        prefs.CustomGhost = selectedProto;
+        prefs.CustomGhost = protoId;
         shell.WriteLine(Loc.GetString("setcustomghost-command-saved"));
     }
 }

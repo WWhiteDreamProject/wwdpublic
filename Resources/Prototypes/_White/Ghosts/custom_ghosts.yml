@@ -2,37 +2,11 @@
   id: default
   category: Color
   proto: MobObserver
-  name: White ghost
-  desc: No frills, no thrills. For the purists.
-
-#
-#- type: entity
-#  abstract: true
-#  parent: MobObserver
-#  id: MobObserverCustom
-#
-#- type: customGhost
-#  id: CamoCool
-#  proto: MobObserverCamo
-#  category: Color
-#  name: Cool Camo
-#  desc: 2cool4u
-#  restrictions:
-#  - !type:PlaytimeRestriction
-#    jobs: 
-#    - JobCaptain
-#    - JobHeadOfPersonnel
-#    hoursPlaytime: 8
-#    title: Command
-#
-
 
 - type: customGhost
   id: red
   proto: MobObserverRed
   category: Color
-  name: Red ghost
-  desc: The color of love, of rage, of passion or spilt blood. Depends on one's tastes.
   restrictions:
   - !type:PlaytimeServerRestriction
     hoursPlaytime: 1
@@ -54,8 +28,6 @@
   id: green
   category: Color
   proto: MobObserverGreen
-  name: Green ghost
-  desc: A reminder to eat your greens.
   restrictions:
   - !type:PlaytimeServerRestriction
     hoursPlaytime: 1
@@ -77,8 +49,6 @@
   id: blue
   category: Color
   proto: MobObserverBlue
-  name: Blue ghost
-  desc: A calming blue, much needed after being unfairly spaced. 
   restrictions:
   - !type:PlaytimeServerRestriction
     hoursPlaytime: 1
@@ -100,8 +70,6 @@
   id: violet
   category: Color
   proto: MobObserverViolet
-  name: Violet ghost
-  desc: A royal color for royal ghosts.
   restrictions:
   - !type:PlaytimeServerRestriction
     hoursPlaytime: 1
@@ -123,8 +91,6 @@
   id: pink
   category: Color
   proto: MobObserverPink
-  name: Pink ghost
-  desc: Increases catfishing efficiency by 30%.
   restrictions:
   - !type:PlaytimeServerRestriction
     hoursPlaytime: 1
@@ -145,8 +111,6 @@
   id: yellow
   category: Color
   proto: MobObserverYellow
-  name: Yellow ghost
-  desc: A joyous and energetic color, unbefitting of a dead being.
   restrictions:
   - !type:PlaytimeServerRestriction
     hoursPlaytime: 1
@@ -168,8 +132,6 @@
 #  id: camo
 #  category: Color
 #  proto: MobObserverCamo
-#  name: Camouflaged ghost
-#  desc: I think it's a bit late for that...
 #
 #- type: entity
 #  parent: MobObserver
@@ -213,8 +175,6 @@
   id: heart
   category: Fancy
   proto: MobObserverHeart
-  name: Heart shaped ghost
-  desc: Number 1 rated ghost shape since 1997.
   restrictions:
   - !type:PlaytimeDepartmentRestriction
     department: Civilian
@@ -235,11 +195,9 @@
 
 
 - type: customGhost
-  id: lich
+  id: king
   category: Fancy
-  proto: MobObserverLich
-  name: King ghost
-  desc: So what if I swagger?
+  proto: MobObserverKing
   restrictions:
   - !type:PlaytimeDepartmentRestriction
     department: Epistemics
@@ -259,7 +217,7 @@
 
 - type: entity
   parent: MobObserver
-  id: MobObserverLich
+  id: MobObserverKing
   components:
   - type: Sprite
     sprite: _White/Ghosts/simple.rsi
@@ -273,8 +231,6 @@
   id: blazeit
   category: Color
   proto: MobObserverBlazeit
-  name: Weed ghost
-  desc: (Insert an MLG joke of your choice here)
   restrictions:
   - !type:PlaytimeJobRestriction
     job: Botanist
@@ -296,11 +252,9 @@
   id: rainbow
   category: Color
   proto: MobObserverRainbow
-  name: Rainbow ghost
-  desc: All the colors at once, for those who can't decide.
   restrictions:
   - !type:PlaytimeServerRestriction
-    hoursPlaytime: 2
+    hoursPlaytime: 4
 
 - type: entity
   parent: MobObserver
@@ -318,8 +272,6 @@
   id: kitty
   category: Fancy
   proto: MobObserverKitty
-  name: Cat ghost
-  desc: kitty!!!
   restrictions:
   - !type:PlaytimeServerRestriction
     hoursPlaytime: 4
@@ -340,8 +292,6 @@
   id: ian
   category: Fancy
   proto: MobObserverIan
-  name: Dog ghost
-  desc: Only true Ian fans will get this one.
   restrictions:
   - !type:PlaytimeServerRestriction
     hoursPlaytime: 4
@@ -362,8 +312,6 @@
   id: fire
   category: Color
   proto: MobObserverFire
-  name: Fire ghost
-  desc: Looks lit.
   restrictions:
   - !type:PlaytimeJobRestriction
     job: AtmosphericTechnician
@@ -385,8 +333,6 @@
   id: skeleton
   category: Fancy
   proto: MobObserverSkeleton
-  name: Spooky ghost
-  desc: He remembers you're maxcaps.
   restrictions:
   - !type:PlaytimeServerRestriction
     hoursPlaytime: 4
@@ -407,8 +353,6 @@
   id: frog
   category: Fancy
   proto: MobObserverFrog
-  name: Frog ghost
-  desc: ">be me >frog"
   restrictions:
   - !type:PlaytimeServerRestriction
     hoursPlaytime: 4
@@ -429,8 +373,6 @@
   id: rooster
   category: Fancy
   proto: MobObserverRooster
-  name: Rooster ghost
-  desc: Not that great of an alarm clock when it's dead.
   restrictions:
   - !type:PlaytimeServerRestriction
     hoursPlaytime: 4
@@ -451,8 +393,6 @@
   id: mouse
   category: Fancy
   proto: MobObserverMouse
-  name: Mouse ghost
-  desc: is that a deadmau5 reference???
   restrictions:
   - !type:PlaytimeServerRestriction
     hoursPlaytime: 4
@@ -472,8 +412,6 @@
   id: parrot
   category: Fancy
   proto: MobObserverParrot
-  name: Parrot ghost
-  desc: CAWK!
   restrictions:
   - !type:PlaytimeServerRestriction
     hoursPlaytime: 5
@@ -490,10 +428,10 @@
 
 - type: customGhost
   abstract: true
-  id: CkeyExclusive
-  category: Exclusive
-  name: Эксклюзивный призрак
-  desc: Доступен только вам.
+  id: CkeyPersonal
+  category: Personal
+  name: custom-ghost-personal-name
+  desc: custom-ghost-personal-desc
 
 
 - type: entity
@@ -509,7 +447,7 @@
 
 - type: customGhost
   id: customPlaceholder
-  category: Exclusive
+  category: Personal
   proto: MobObserverCkeyPlaceholder
   restrictions:
   - !type:CkeyRestriction
@@ -533,8 +471,8 @@
 
 # culled, too big
 #- type: customGhost
-#  parent: CkeyExclusive
-#  id: PersikvinExclusive
+#  parent: CkeyPersonal
+#  id: PersikvinPersonal
 #  restrictions:
 #  - !type:CkeyRestriction
 #    ckey: [persikvin]
@@ -550,8 +488,8 @@
 #
 #
 - type: customGhost
-  parent: CkeyExclusive
-  id: KrokozyabraExclusive
+  parent: CkeyPersonal
+  id: KrokozyabraPersonal
   restrictions:
   - !type:CkeyRestriction
     ckey: [ krokozyabra ]
@@ -568,8 +506,8 @@
 
 # culled, too big
 #- type: customGhost
-#  parent: CkeyExclusive
-#  id: DageffExclusive
+#  parent: CkeyPersonal
+#  id: DageffPersonal
 #  restrictions:
 #  - !type:CkeyRestriction
 #    ckey: [dageff]
@@ -587,8 +525,8 @@
 
 
 - type: customGhost
-  parent: CkeyExclusive
-  id: Scituzer2Exclusive
+  parent: CkeyPersonal
+  id: Scituzer2Personal
   restrictions:
   - !type:CkeyRestriction
     ckey: [Scituzer2]
@@ -605,8 +543,8 @@
 
 # custom ghost priviledges revoked :sob::sob::sob:
 #- type: customGhost
-#  parent: CkeyExclusive
-#  id: Exclusive
+#  parent: CkeyPersonal
+#  id: Personal
 #  restrictions:
 #  - !type:CkeyRestriction
 #    ckey: [Warete]
@@ -623,8 +561,8 @@
 
 
 - type: customGhost
-  parent: CkeyExclusive
-  id: CheeseCheeseExclusive
+  parent: CkeyPersonal
+  id: CheeseCheesePersonal
   restrictions:
   - !type:CkeyRestriction
     ckey: [cheese_cheese]
@@ -640,8 +578,8 @@
 
 # culled, too big
 #- type: customGhost
-#  parent: CkeyExclusive
-#  id: NairsarkExclusive
+#  parent: CkeyPersonal
+#  id: NairsarkPersonal
 #  restrictions:
 #  - !type:CkeyRestriction
 #    ckey: [nairsark]
@@ -659,8 +597,8 @@
 
 # culled
 #- type: customGhost
-#  parent: CkeyExclusive
-#  id: Reider207Exclusive
+#  parent: CkeyPersonal
+#  id: Reider207Personal
 #  restrictions:
 #  - !type:CkeyRestriction
 #    ckey: [reider207]
@@ -678,8 +616,8 @@
 
 # culled, too big
 #- type: customGhost
-#  parent: CkeyExclusive
-#  id: MapperianExclusive
+#  parent: CkeyPersonal
+#  id: MapperianPersonal
 #  restrictions:
 #  - !type:CkeyRestriction
 #    ckey: [mapperian]
@@ -697,8 +635,8 @@
 
 # culled, one direction anime slop
 #- type: customGhost
-#  parent: CkeyExclusive
-#  id: SkrimexExclusive
+#  parent: CkeyPersonal
+#  id: SkrimexPersonal
 #  restrictions:
 #  - !type:CkeyRestriction
 #    ckey: [s_k_r_i_m_e_x]
@@ -717,8 +655,8 @@
 
 # based fnh enjoyer
 - type: customGhost
-  parent: CkeyExclusive
-  id: CyouExclusive
+  parent: CkeyPersonal
+  id: CyouPersonal
   restrictions:
   - !type:CkeyRestriction
     ckey: [cyou]
@@ -735,8 +673,8 @@
 
 
 - type: customGhost
-  parent: CkeyExclusive
-  id: Nonta228Exclusive
+  parent: CkeyPersonal
+  id: Nonta228Personal
   restrictions:
   - !type:CkeyRestriction
     ckey: [nonta228]
@@ -753,8 +691,8 @@
 
 
 - type: customGhost
-  parent: CkeyExclusive
-  id: PuroSlavKingExclusive
+  parent: CkeyPersonal
+  id: PuroSlavKingPersonal
   restrictions:
   - !type:CkeyRestriction
     ckey: [PuroSlavKing]
@@ -772,8 +710,8 @@
 
 
 - type: customGhost
-  parent: CkeyExclusive
-  id: KilathExclusive
+  parent: CkeyPersonal
+  id: KilathPersonal
   restrictions:
   - !type:CkeyRestriction
     ckey: [kilath]
@@ -791,8 +729,8 @@
 
 
 - type: customGhost
-  parent: CkeyExclusive
-  id: GavrikExclusive
+  parent: CkeyPersonal
+  id: GavrikPersonal
   restrictions:
   - !type:CkeyRestriction
     ckey: [Gavrik]
@@ -810,8 +748,8 @@
 
 
 - type: customGhost
-  parent: CkeyExclusive
-  id: PurplePiExclusive
+  parent: CkeyPersonal
+  id: PurplePiPersonal
   restrictions:
   - !type:CkeyRestriction
     ckey: [PurplePi]
@@ -829,8 +767,8 @@
 
 # culled, too big
 #- type: customGhost
-#  parent: CkeyExclusive
-#  id: PZAKusikExclusive
+#  parent: CkeyPersonal
+#  id: PZAKusikPersonal
 #  restrictions:
 #  - !type:CkeyRestriction
 #    ckey: [PZAKusik]
@@ -847,8 +785,8 @@
 
 
 - type: customGhost
-  parent: CkeyExclusive
-  id: Felix163Exclusive
+  parent: CkeyPersonal
+  id: Felix163Personal
   restrictions:
   - !type:CkeyRestriction
     ckey: [felix163]
@@ -867,8 +805,8 @@
 
 
 - type: customGhost
-  parent: CkeyExclusive
-  id: TokiJumperExclusive
+  parent: CkeyPersonal
+  id: TokiJumperPersonal
   restrictions:
   - !type:CkeyRestriction
     ckey: [TokiJumper]
@@ -887,8 +825,8 @@
 
 
 - type: customGhost
-  parent: CkeyExclusive
-  id: IzeRibakExclusive
+  parent: CkeyPersonal
+  id: IzeRibakPersonal
   restrictions:
   - !type:CkeyRestriction
     ckey: [IzeRibak]
@@ -907,7 +845,7 @@
 
 # Yeah, no, i'm not porting that over. It was funny for the first five minutes, and then immediately got old. 
 #- type: customGhost
-#  parent: CkeyExclusive
+#  parent: CkeyPersonal
 #  restrictions:
 #  - !type:CkeyRestriction
 #    ckey: [RedFoxIV]

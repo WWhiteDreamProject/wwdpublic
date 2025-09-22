@@ -1,33 +1,61 @@
-listcustomghosts-command-description = Перечисляет виды призраков, которыми вы можете пользоваться.
-listcustomghosts-command-help-text = listcustomghosts [all]
-listcustomghosts-available-ghosts = Доступные призраки:
-listcustomghosts-all-ghosts = Все призраки:
-listcustomghosts-locked = (закрыт)
-
-setcustomghost-command-description = Устанавливает вид призрака, которым вы будете пользоваться. Если вы уже призрак, изменения будут применены, когда вы снова покинете своё тело.
-setcustomghost-command-help-text = setcustomghost ghost_id
-setcustomghost-command-invalid-ghost-id = Неправильно указан id призрака.
-setcustomghost-command-saved = Призрак сохранён. Если вы уже призрак, изменения будут применены при следующем выходе из тела.
 
 
-custom-ghost-fail-exclusive-ghost = Этот призрак доступен только определённому человеку.
-custom-ghost-fail-server-insufficient-playtime = Отыграть {$requiredHours} {$requiredHours ->
-  *[one] час
-  [few] часа
-  [many] часов
-} на сервере. У вас наиграно {$playtimeHours} ч. {$playtimeMinutes} мин.
-custom-ghost-fail-job-insufficient-playtime = Отыграть {$requiredHours} {$requiredHours ->
-  *[one] час
-  [few] часа
-  [many] часов
-} на должности "{$job}". У вас наиграно {$playtimeHours} ч. {$playtimeMinutes} мин.
-custom-ghost-fail-department-insufficient-playtime = Отыграть {$requiredHours} {$requiredHours ->
-  *[one] час
-  [few] часа
-  [many] часов
-} в отделе "{$department}". У вас наиграно {$playtimeHours} ч. {$playtimeMinutes} мин.
+custom-ghost-default-name = Белый призрак
+custom-ghost-default-desc = Без всяких свистелок и перделок. Красота в простоте.
 
-custom-ghosts-window-title = Выбор призрака
-custom-ghosts-window-show-all-checkbox = Показать всех
-custom-ghosts-window-show-all-checkbox-tooltip = Переключает отображение неразблокированных призраков. Условия разблокировки отображаются при наведении мыши.
-custom-ghost-window-tooltip-to-unlock = Чтобы получить возможность пользоваться этим призраком, вам надо:
+custom-ghost-red-name = Красный призрак
+custom-ghost-red-desc = Цвет любви, ярости, страсти или разлитой на полу крови. Зависит от ваших предпочтений.
+
+custom-ghost-green-name = Зелёный призрак
+custom-ghost-green-desc = Да, знаю, надо было поменять спрайт на слона. Но у нас в игре нету слонов, а если буду рисовать с нуля - получится хрень.
+
+custom-ghost-blue-name = Синий призрак
+custom-ghost-blue-desc = Цвет спокойствия, моря и умиротворения. Самое то, когда вас космировали за просто так. 
+
+custom-ghost-violet-name = Фиолетовый призрак
+custom-ghost-violet-desc = Не хватает только пластыря на носу.
+
+custom-ghost-pink-name = Розовый призрак
+custom-ghost-pink-desc = Чулки в комплект не входят.
+
+custom-ghost-yellow-name = Жёлтый призрак
+custom-ghost-yellow-desc = Цвет счастья, солнца, жизнерадости, энергичности и ещё 20 неприменимых к вам синонимов.
+
+custom-ghost-heart-name = Сердечко
+custom-ghost-heart-desc = Спойлеры к седьмой главе.
+
+custom-ghost-king-name = Королевский призрак
+custom-ghost-king-desc = НННЫЫАААААА!
+
+custom-ghost-blazeit-name = Укуренный призрак
+custom-ghost-blazeit-desc = Минздрав НТ предупреждает: курение вредит вашей производительности.
+
+custom-ghost-rainbow-name = Радужный призрак
+custom-ghost-rainbow-desc = Все цвета радуги вместе, для тех, кто не может определиться.
+
+custom-ghost-kitty-name = Кот
+custom-ghost-kitty-desc = Помните тот эпизод из Тома и Джерри, где он попадает в рай? А я помню.
+
+custom-ghost-ian-name = Собака
+custom-ghost-ian-desc = Умирака.
+
+custom-ghost-fire-name = Огненный призрак
+custom-ghost-fire-desc = Выглядит сногсшибательно. По меркам 2004 года.
+
+custom-ghost-skeleton-name = Скелет
+custom-ghost-skeleton-desc = Maybe it's the way you're dressed?
+
+custom-ghost-frog-name = Лягушка
+custom-ghost-frog-desc = "Сап космач, есть одна вульпа..."
+
+custom-ghost-rooster-name = Петух
+custom-ghost-rooster-desc = Знак отличия.
+
+custom-ghost-mouse-name = Мышь
+custom-ghost-mouse-desc = Уже не крадётся.
+
+custom-ghost-parrot-name = Попугай
+custom-ghost-parrot-desc = Умом и сообразительностью не отличается.
+
+custom-ghost-ckey-personal-name = Эксклюзивный призрак
+custom-ghost-ckey-personal-desc = Доступен только вам.

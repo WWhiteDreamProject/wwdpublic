@@ -49,7 +49,7 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
     private void BuildList()
     {
         var allghostprotos = _proto.EnumeratePrototypes<CustomGhostPrototype>();
-        allghostprotos = allghostprotos.OrderBy(item => item.Name);
+        allghostprotos = allghostprotos.OrderBy(item => Loc.GetString(item.Name ?? $"custom-ghost-{item.ID}-name"));
 
         foreach(var ghostProto in allghostprotos)
             _allGhosts.GetOrNew(ghostProto.Category).Add(ghostProto);
@@ -101,12 +101,12 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
             }
 
         var button = new CustomGhostButton();
-
         button.GhostProtoId = ghostProto.GhostEntityPrototype;
         button.ActualButton.Name = ghostProto.ID;
-        button.ActualButton.ToolTip = ghostProto.Description;
-        button.EntityLabel.Text = ghostProto.Name;
         button.EntityTextureRects.SetPrototype(ghostProto.GhostEntityPrototype);
+
+        button.EntityLabel.Text = Loc.GetString(ghostProto.Name ??            $"custom-ghost-{ghostProto.ID}-name");
+        button.ActualButton.ToolTip = Loc.GetString(ghostProto.Description ?? $"custom-ghost-{ghostProto.ID}-desc");
 
         if (_currentGhostProtoId == ghostProto.ID)
         {
@@ -142,7 +142,8 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
 
     private void OnPressed(Button.ButtonEventArgs args)
     {
-        if (args.Button.Name! == _currentGhostProtoId)
+        var protoId = args.Button.Name!;
+        if (protoId == _currentGhostProtoId)
         {
             args.Button.Pressed = true; // i don't want to figure out how to properly cancel this event, yet
             return;
@@ -151,9 +152,10 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
         if (_currentActive is not null) // can probably end up as a null if the last used customghost was removed?
             _currentActive.Pressed = false;
 
-        _currentGhostProtoId = args.Button.Name!;
+        _currentGhostProtoId = protoId;
         _currentActive = (Button)args.Button;
-        _conhost.ExecuteCommand($"setcustomghost {CommandParsing.Escape(args.Button.Name!)}"); // I implemented the commands first as a test, so i'll be using them now. It's dumb, but it works okay.
+        _pref.SetCustomGhost(protoId);
+        _conhost.ExecuteCommand($"setcustomghost {CommandParsing.Escape(protoId)}"); // I implemented the commands first as a test, so i'll be using them now. It's dumb, but it works okay.
     }
 
     private void ToggleVisibility(Button.ButtonToggledEventArgs args)

@@ -1,5 +1,7 @@
 using System;
+using Content.Shared.Ghost;
 using Content.Shared.Preferences;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client.Lobby
 {
@@ -18,5 +20,6 @@ namespace Content.Client.Lobby
         void CreateCharacter(ICharacterProfile profile);
         void DeleteCharacter(ICharacterProfile profile);
         void DeleteCharacter(int slot);
+        void SetCustomGhost(EntProtoId<GhostComponent> ghostProto); // WWDP EDIT
     }
 }

@@ -25,74 +25,28 @@ public sealed class CustomGhostPrototype : IPrototype, IInheritingPrototype
     [ParentDataFieldAttribute(typeof(AbstractPrototypeIdArraySerializer<CustomGhostPrototype>))]
     public string[]? Parents { get; }
 
-    [DataField, AlwaysPushInheritance]
+    [DataField]
     public string Category { get; private set; } = "Misc";
 
-    [DataField, AlwaysPushInheritance]
+    [DataField]
     public List<CustomGhostRestriction>? Restrictions { get; private set; }
 
-    [DataField("proto", required: true), AlwaysPushInheritance]
+    [DataField("proto", required: true)]
     public EntProtoId<GhostComponent> GhostEntityPrototype { get; private set; } = default!;
 
-    [DataField("name"), AlwaysPushInheritance]
+    /// <summary>
+    /// If null, the default of "custom-ghost-[id]-name" will be used.
+    /// </summary>
+    [DataField("name")]
     public string? Name { get; private set; }
 
-    [DataField("desc"), AlwaysPushInheritance]
+    /// <summary>
+    /// If null, the default of "custom-ghost-[id]-desc" will be used.
+    /// </summary>
+    [DataField("desc")]
     public string? Description { get; private set; }
 }
 
-
-//public static class CustomGhostAvailabilityCheck
-//{
-//    private static ISharedPlaytimeManager? _playtimeMan;
-//
-//    /// <summary>
-//    /// Returns true if prototype has no playtime checks or if the client passes them. Return false otherwise.
-//    /// For convenience's sake, the failed list will contain all playtime trackers that did not pass the check, hours played and hours required by the check.
-//    /// </summary>
-//    /// <param name="proto"></param>
-//    /// <param name="session"></param>
-//    /// <param name="failed"></param>
-//    /// <returns></returns>
-//    public static bool PlaytimeCheck(this CustomGhostPrototype proto, ICommonSession session, out List<(string tracker, float hoursPlayed, float hoursRequired)> failed)
-//    {
-//        _playtimeMan ??= IoCManager.Resolve<ISharedPlaytimeManager>();
-//
-//        failed = new();
-//
-//        if (proto.PlaytimeHours is null)
-//            return true;
-//
-//        var trackers = proto.PlaytimeHours.Keys;
-//
-//        if (!_playtimeMan.TryGetTrackerTimes(session, out var playtimes))
-//        {
-//            foreach (var tracker in trackers)
-//                failed.Append((tracker, 0, proto.PlaytimeHours[tracker]));
-//            return false;
-//        }
-//
-//        foreach (var tracker in trackers)
-//        {
-//            float hoursRequired = proto.PlaytimeHours[tracker];
-//
-//            if (playtimes.TryGetValue(tracker, out var playtime))
-//            {
-//                failed.Add((tracker, 0, hoursRequired));
-//                continue;
-//            }
-//
-//            float hoursPlayed = (float) playtime.TotalHours;
-//
-//            if (hoursPlayed < hoursRequired)
-//            {
-//                failed.Add((tracker, 0, hoursRequired));
-//                continue;
-//            }
-//        }
-//        return failed.Count == 0;
-//    }
-//}
 
 public abstract class CustomGhostRestriction
 {
