@@ -1,10 +1,11 @@
-using Content.Shared.Examine;
-using Content.Shared.Interaction;
-using Content.Shared.Inventory;
+using Content.Server.Labels;
 using Content.Server.Popups;
 using Content.Shared.DoAfter;
+using Content.Shared.Examine;
 using Content.Shared.Forensics;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction;
+using Content.Shared.Inventory;
 
 namespace Content.Server.Forensics
 {
@@ -16,7 +17,7 @@ namespace Content.Server.Forensics
         [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly MetaDataSystem _metaData = default!;
+        [Dependency] private readonly LabelSystem _label = default!;
 
         public override void Initialize()
         {
@@ -117,11 +118,11 @@ namespace Content.Server.Forensics
                     return;
                 }
 
-                name = "forensic-pad-fingerprint-name";
                 sample = args.Sample;
             }
 
-            _metaData.SetEntityName(uid, Loc.GetString(name, ("entity", args.Args.Target)));
+            string label = Identity.Name(args.Args.Target.Value, EntityManager);
+            _label.Label(uid, label);
 
             padComponent.Sample = sample;
             // WWDP EDIT END

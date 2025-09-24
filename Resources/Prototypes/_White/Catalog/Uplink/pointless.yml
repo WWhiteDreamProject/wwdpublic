@@ -1,0 +1,19 @@
+- type: listing
+  id: UplinkBaseUplinkRadio
+  name: uplink-radio-name
+  description: uplink-radio-desc
+  productEntity: BaseUplinkRadioNoDiscount
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkPointless
+
+- type: listing
+  id: UplinkCrateSyndicateFilledSymbolics
+  name: uplink-symbolics-crate-name
+  description: uplink-symbolics-crate-desc
+  productEntity: CrateSyndicateFilledSymbolics
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkPointless

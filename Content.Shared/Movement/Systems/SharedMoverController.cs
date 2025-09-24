@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.CCVar;
@@ -41,6 +42,7 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private   readonly IMapManager _mapManager = default!;
     [Dependency] private   readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private   readonly AlertsSystem _alerts = default!;
+    [Dependency] private   readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private   readonly EntityLookupSystem _lookup = default!;
     [Dependency] private   readonly InventorySystem _inventory = default!;
     [Dependency] private   readonly MobStateSystem _mobState = default!;
@@ -315,13 +317,6 @@ public abstract partial class SharedMoverController : VirtualController
         PhysicsSystem.SetAngularVelocity(physicsUid, 0, body: physicsComponent);
     }
 
-    private void WalkingAlert(Entity<InputMoverComponent> entity)
-    {
-        _alerts.ShowAlert(entity, entity.Comp.WalkingAlert, entity.Comp.Sprinting ? (short) 1 : (short) 0);
-
-        RaiseLocalEvent(entity, new SprintingInputEvent(entity)); // WD EDIT
-    }
-
     public void LerpRotation(EntityUid uid, InputMoverComponent mover, float frameTime)
     {
         var angleDiff = Angle.ShortestDistance(mover.RelativeRotation, mover.TargetRelativeRotation);
@@ -427,6 +422,11 @@ public abstract partial class SharedMoverController : VirtualController
     }
 
     protected abstract bool CanSound();
+
+    // WD EDIT START
+    protected virtual void SprintingMovementUpdate(Entity<InputMoverComponent> entity) =>
+        RaiseLocalEvent(entity, new SprintingInputEvent(entity));
+    // WD EDIT END
 
     private bool TryGetSound(
         bool weightless,

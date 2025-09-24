@@ -143,6 +143,8 @@ namespace Content.Client.Lobby.UI
 
         [ValidatePrototypeId<LocalizedDatasetPrototype>]
         private const string MimeNames = "MimeNames";
+
+        private const string Uncategorized = "Uncategorized";
         // WD EDIT END
 
         public HumanoidProfileEditor(
@@ -226,6 +228,7 @@ namespace Content.Client.Lobby.UI
             #region Voice
 
             InitializeVoice();
+            InitializeBark();
 
             #endregion
 
@@ -940,7 +943,7 @@ namespace Content.Client.Lobby.UI
             if (Profile == null || !_prototypeManager.HasIndex(Profile.Species))
                 return;
 
-            PreviewDummy = _controller.LoadProfileEntity(Profile, ShowClothes.Pressed, ShowLoadouts.Pressed);
+            PreviewDummy = _controller.LoadProfileEntity(Profile, null, ShowClothes.Pressed, ShowLoadouts.Pressed);
             SpriteViewS.SetEntity(PreviewDummy);
             SpriteViewN.SetEntity(PreviewDummy);
             SpriteViewE.SetEntity(PreviewDummy);
@@ -987,6 +990,7 @@ namespace Content.Client.Lobby.UI
             UpdateFlavorTextEdit();
             UpdateSexControls();
             UpdateTTSVoicesControls(); // WD EDIT
+            UpdateBarksControl(); // WD EDIT
             UpdateBodyTypes(); // WD EDIT
             UpdateGenderControls();
             UpdateDisplayPronounsControls();
@@ -1355,6 +1359,7 @@ namespace Content.Client.Lobby.UI
             Markings.SetSex(newSex);
             UpdateTTSVoicesControls(); // WD EDIT
             UpdateBodyTypes(); // WD EDIT
+            UpdateBarksControl(); // WD EDIT
             ReloadProfilePreview();
             SetDirty();
         }
@@ -2150,7 +2155,7 @@ namespace Content.Client.Lobby.UI
             // Reset the whole UI and delete caches
             if (reload)
             {
-                foreach (var tab in TraitsTabs.Tabs)
+                foreach (var tab in TraitsTabs.TakenIds)
                     TraitsTabs.RemoveTab(tab);
                 _loadoutPreferences.Clear();
             }
@@ -2192,13 +2197,11 @@ namespace Content.Client.Lobby.UI
                 return;
             }
 
-
-            var uncategorized = TraitsTabs.Contents.FirstOrDefault(c => c.Name == "Uncategorized");
-            if (uncategorized == null)
+            if (!TraitsTabs.TryFindTabByAlias(Uncategorized, out var id))
             {
-                uncategorized = new BoxContainer
+                var uncategorizedA = new BoxContainer
                 {
-                    Name = "Uncategorized",
+                    Name = Uncategorized,
                     Orientation = LayoutOrientation.Vertical,
                     HorizontalExpand = true,
                     VerticalExpand = true,
@@ -2223,8 +2226,11 @@ namespace Content.Client.Lobby.UI
                     },
                 };
 
-                TraitsTabs.AddTab(uncategorized, Loc.GetString("trait-category-Uncategorized"));
+                id = TraitsTabs.AddTab(uncategorizedA, Loc.GetString("trait-category-Uncategorized"));
+                TraitsTabs.SetTabAlias(id, Uncategorized);
             }
+
+            var uncategorized = TraitsTabs.GetControl<BoxContainer>(id)!;
 
             // Create a Dictionary/tree of categories and subcategories
             var cats = CreateTree(_prototypeManager.EnumeratePrototypes<TraitCategoryPrototype>()
@@ -2278,7 +2284,7 @@ namespace Content.Client.Lobby.UI
                 foreach (var (key, value) in tree)
                 {
                     // If the category's container exists already, ignore it
-                    if (parent.Contents.Any(c => c.Name == key))
+                    if (parent.TryFindTabByAlias(key, out var _))
                         continue;
 
                     // If the value is a list of TraitPrototypes, create a final tab for them
@@ -2310,7 +2316,8 @@ namespace Content.Client.Lobby.UI
                             },
                         };
 
-                        parent.AddTab(category, Loc.GetString($"trait-category-{key}"));
+                        var catId = parent.AddTab(category, Loc.GetString($"trait-category-{key}"));
+                        parent.SetTabAlias(catId, key);
                     }
                     // If the value is a dictionary, create a new tab for it and recursively call this function to fill it
                     else
@@ -2323,7 +2330,8 @@ namespace Content.Client.Lobby.UI
                             SeparatorMargin = new Thickness(0),
                         };
 
-                        parent.AddTab(category, Loc.GetString($"trait-category-{key}"));
+                        var catId =parent.AddTab(category, Loc.GetString($"trait-category-{key}"));
+                        parent.SetTabAlias(catId, key);
                         CreateCategoryUI((Dictionary<string, object>) value, category);
                     }
                 }
@@ -2394,19 +2402,7 @@ namespace Content.Client.Lobby.UI
 
         private void HideEmptyTabs(List<TraitCategoryPrototype> cats)
         {
-            foreach (var tab in cats.Select(category => FindCategory(category.ID, TraitsTabs)))
-            {
-                // If it's empty, hide it
-                if (tab != null)
-                    ((NeoTabContainer) tab.Parent!.Parent!.Parent!.Parent!).SetTabVisible(tab, tab.Children.First().Children.First().Children.Any());
-
-                // If it has a parent tab container, hide it if it's empty
-                if (tab?.Parent?.Parent is NeoTabContainer parent)
-                {
-                    var parentCats = parent.Contents.Select(c => _prototypeManager.Index<TraitCategoryPrototype>(c.Name!)).ToList();
-                    HideEmptyTabs(parentCats);
-                }
-            }
+            // TODO: HIDE LOGIC LATER
         }
 
         private void TryRemoveUnusableTraits()
@@ -2486,7 +2482,7 @@ namespace Content.Client.Lobby.UI
             // Reset the whole UI and delete caches
             if (reload)
             {
-                foreach (var tab in LoadoutsTabs.Tabs)
+                foreach (var tab in LoadoutsTabs.TakenIds)
                     LoadoutsTabs.RemoveTab(tab);
                 foreach (var uid in _dummyLoadouts)
                     _entManager.QueueDeleteEntity(uid.Value);
@@ -2529,13 +2525,11 @@ namespace Content.Client.Lobby.UI
                 return;
             }
 
-
-            var uncategorized = LoadoutsTabs.Contents.FirstOrDefault(c => c.Name == "Uncategorized");
-            if (uncategorized == null)
+            if (!LoadoutsTabs.TryFindTabByAlias(Uncategorized, out var id))
             {
-                uncategorized = new BoxContainer
+                var uncategorizedB = new BoxContainer
                 {
-                    Name = "Uncategorized",
+                    Name = Uncategorized,
                     Orientation = LayoutOrientation.Vertical,
                     HorizontalExpand = true,
                     VerticalExpand = true,
@@ -2560,8 +2554,11 @@ namespace Content.Client.Lobby.UI
                     },
                 };
 
-                LoadoutsTabs.AddTab(uncategorized, Loc.GetString("loadout-category-Uncategorized"));
+                id = LoadoutsTabs.AddTab(uncategorizedB, Loc.GetString("loadout-category-Uncategorized"));
+                LoadoutsTabs.SetTabAlias(id, Uncategorized);
             }
+
+            var uncategorized = LoadoutsTabs.GetControl<BoxContainer>(id)!;
 
             // Create a Dictionary/tree of categories and subcategories
             var cats = CreateTree(_prototypeManager.EnumeratePrototypes<LoadoutCategoryPrototype>()
@@ -2648,7 +2645,7 @@ namespace Content.Client.Lobby.UI
                 foreach (var (key, value) in tree)
                 {
                     // If the category's container exists already, ignore it
-                    if (parent.Contents.Any(c => c.Name == key))
+                    if (parent.TryFindTabByAlias(key, out _))
                         continue;
 
                     // If the value is a list of LoadoutPrototypes, create a final tab for them
@@ -2680,7 +2677,8 @@ namespace Content.Client.Lobby.UI
                             },
                         };
 
-                        parent.AddTab(category, Loc.GetString($"loadout-category-{key}"));
+                        var catId = parent.AddTab(category, Loc.GetString($"loadout-category-{key}"));
+                        parent.SetTabAlias(catId, key);
                     }
                     // If the value is a dictionary, create a new tab for it and recursively call this function to fill it
                     else
@@ -2693,7 +2691,8 @@ namespace Content.Client.Lobby.UI
                             SeparatorMargin = new Thickness(0),
                         };
 
-                        parent.AddTab(category, Loc.GetString($"loadout-category-{key}"));
+                        var catId = parent.AddTab(category, Loc.GetString($"loadout-category-{key}"));
+                        parent.SetTabAlias(catId, key);
                         CreateCategoryUI((Dictionary<string, object>) value, category);
                     }
                 }
@@ -2765,19 +2764,15 @@ namespace Content.Client.Lobby.UI
         private BoxContainer? FindCategory(string id, NeoTabContainer parent)
         {
             BoxContainer? match = null;
-            foreach (var child in parent.Contents)
-            {
-                if (string.IsNullOrEmpty(child.Name))
-                    continue;
 
-                if (child.Name == id)
-                    match = (BoxContainer?) child;
-            }
+            if(parent.TryFindTabByAlias(id, out var tabId))
+                match = parent.GetControl<BoxContainer>(tabId);
+
 
             if (match != null)
                 return match;
 
-            foreach (var subcategory in parent.Contents.Where(c => c is NeoTabContainer).Cast<NeoTabContainer>())
+            foreach (var subcategory in parent.GetControls<NeoTabContainer>())
                 match ??= FindCategory(id, subcategory);
 
             return match;
@@ -2785,19 +2780,7 @@ namespace Content.Client.Lobby.UI
 
         private void HideEmptyTabs(List<LoadoutCategoryPrototype> cats)
         {
-            foreach (var tab in cats.Select(category => FindCategory(category.ID, LoadoutsTabs)))
-            {
-                // If it's empty, hide it
-                if (tab != null)
-                    ((NeoTabContainer) tab.Parent!.Parent!.Parent!.Parent!).SetTabVisible(tab, tab.Children.First().Children.First().Children.Any());
-
-                // If it has a parent tab container, hide it if it's empty
-                if (tab?.Parent?.Parent is NeoTabContainer parent)
-                {
-                    var parentCats = parent.Contents.Select(c => _prototypeManager.Index<LoadoutCategoryPrototype>(c.Name!)).ToList();
-                    HideEmptyTabs(parentCats);
-                }
-            }
+            // TODO: HIDE LOGIC LATER
         }
 
         private void TryRemoveUnusableLoadouts()
@@ -2829,3 +2812,5 @@ namespace Content.Client.Lobby.UI
         }
     }
 }
+
+// TODO: Rewrite this shitty code! This shit is repeat and repeat!

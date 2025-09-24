@@ -4,16 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:maths="clr-namespace:Robust.Shared.Maths;assembly=Robust.Shared.Maths"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-    xmlns:style="clr-namespace:Content.Client.Stylesheets"
     xmlns:lobbyUi="clr-namespace:Content.Client.Lobby.UI"
     xmlns:info="clr-namespace:Content.Client.Info"
     xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Chat.Widgets"
-    xmlns:animatedBackground="clr-namespace:Content.Client._White.UI.AnimatedBackground"
-    xmlns:buttons="clr-namespace:Content.Client._White.UI.Buttons"
-    xmlns:wdcontrols="clr-namespace:Content.Client._White.UI.Controls">
+    xmlns:wdcontrols="clr-namespace:Content.Client._White.UI.Controls"
+    xmlns:animatedBackground="clr-namespace:Content.Client._White.UserInterface.AnimatedBackground"
+    xmlns:buttons="clr-namespace:Content.Client._White.UserInterface.Buttons">
     <!-- Background -->
-    <animatedBackground:AnimatedBackgroundControl Access="Public" Name="Background" VerticalExpand="True" HorizontalExpand="True"
-                                                  Stretch="KeepAspectCovered" />
+    <animatedBackground:AnimatedBackgroundControl Access="Public" Name="Background" VerticalExpand="True" HorizontalExpand="True"/>
     <BoxContainer Name="MainContainer" VerticalExpand="True" HorizontalExpand="True" Orientation="Horizontal"
                   Margin="10 10 10 10" SeparationOverride="2">
         <SplitContainer State="Auto" ResizeMode="NotResizable" HorizontalExpand="True">

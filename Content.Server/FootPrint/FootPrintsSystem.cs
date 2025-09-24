@@ -19,6 +19,7 @@ public sealed class FootPrintsSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly IMapManager _map = default!; // WD EDIT
 
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
@@ -56,7 +57,7 @@ public sealed class FootPrintsSystem : EntitySystem
         if (TerminatingOrDeleted(uid)
             || component.ContainedSolution.Volume <= 0
             || TryComp<PhysicsComponent>(uid, out var physics) && physics.BodyStatus != BodyStatus.OnGround
-            || args.Entity.Comp1.GridUid is not {} gridUid)
+            || !_map.TryFindGridAt(_transform.GetMapCoordinates((uid, args.Component)), out var gridUid, out _)) // WD EDIT
             return;
 
         var newPos = _transform.ToMapCoordinates(args.NewPosition).Position;

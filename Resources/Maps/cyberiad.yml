@@ -94790,7 +94790,7 @@ entities:
     - type: Transform
       pos: 3.4771464,-12.015032
       parent: 2
-- proto: DungeonMasterCircuitBoard
+- proto: GameMasterCircuitBoard
   entities:
   - uid: 14995
     components:

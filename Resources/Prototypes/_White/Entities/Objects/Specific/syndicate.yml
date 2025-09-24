@@ -1,0 +1,9 @@
+# Uplinks
+
+- type: entity
+  parent: BaseUplinkRadio
+  id: BaseUplinkRadioNoDiscount
+  suffix: Empty, No Discount
+  components:
+  - type: StoreDiscount
+    onSpawn: false

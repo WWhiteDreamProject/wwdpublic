@@ -458,8 +458,6 @@
     - AdvancedRetractor
     - VehicleWheelchairFolded # Goobstation
     # WD EDIT START
-    - MiniSyringe
-    - SyringeGun
     - Intellicard
     # WD EDIT END
   - type: EmagLatheRecipes
@@ -1351,10 +1349,6 @@
     - CartridgeSaline # Goobstation - ParamedHypo
     - ParamedHypo # Goobstation - ParamedHypo
     - CartridgePain # Morphine Tweaks
-    # WD EDIT START
-    - MiniSyringe
-    - SyringeGun
-    # WD EDIT END
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

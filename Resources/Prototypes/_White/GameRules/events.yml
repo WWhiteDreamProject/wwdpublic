@@ -71,6 +71,8 @@
         color: "#8c3986"
       mindRoles:
       - MindRoleXenomorph
+  - type: DynamicRuleCost # WD edit
+    cost: 24
 
 - type: entity
   parent: BaseGameRule

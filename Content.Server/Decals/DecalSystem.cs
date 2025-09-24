@@ -296,7 +296,10 @@ namespace Content.Server.Decals
             decalId = 0;
 
             if (!PrototypeManager.HasIndex<DecalPrototype>(decal.Id))
+            {
+                Log.Error($"Decal with id: {decal.Id} does not exist!"); // WD EDIT
                 return false;
+            }
 
             var gridId = coordinates.GetGridUid(EntityManager);
             if (!TryComp(gridId, out MapGridComponent? grid))

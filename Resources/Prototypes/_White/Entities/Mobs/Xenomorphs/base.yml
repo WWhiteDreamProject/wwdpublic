@@ -33,7 +33,6 @@
   - type: NameIdentifier
     group: GenericNumber
   - type: CombatMode
-    combatToggleAction: ActionCombatModeToggleXenomorph
     canDisarm: true
   - type: MovementSpeedModifier
     baseWalkSpeed: 3

@@ -45,14 +45,6 @@
     Steel: 25
 
 - type: latheRecipe
-  id: MiniSyringe
-  result: MiniSyringe
-  completetime: 2
-  materials:
-    Plastic: 75
-    Steel: 20
-
-- type: latheRecipe
   id: DisposableSyringe
   result: DisposableSyringe
   completetime: 0.1

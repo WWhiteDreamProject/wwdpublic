@@ -4208,3 +4208,200 @@ Entries:
   id: 444
   time: '2025-08-19T07:27:56.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/773
+- author: RedFoxIV
+  changes:
+    - type: Fix
+      message: Бесконечное горение людей при передаче стаков огня касанием.
+  id: 445
+  time: '2025-08-26T19:44:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/765
+- author: kekoven1
+  changes:
+    - type: Add
+      message: телепатия получила активную способность "Направленная телепатия"
+  id: 446
+  time: '2025-08-30T14:17:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/814
+- author: Kecxco
+  changes:
+    - type: Add
+      message: Добавлен теобромин там где надо
+    - type: Tweak
+      message: Изменено кол-во теобромина в разных напитках и еде
+    - type: Remove
+      message: Удалён теобромин там где его быть не может
+  id: 447
+  time: '2025-08-26T19:46:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/811
+- author: kekoven1
+  changes:
+    - type: Tweak
+      message: вес псионических сил равен
+    - type: Tweak
+      message: максимум стоимость новой способности 800 потенции
+  id: 448
+  time: '2025-08-29T21:22:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/813
+- author: Lachklen
+  changes:
+    - type: Add
+      message: Добавлен новый интерфейс и система книг
+    - type: Add
+      message: Небольшой перевод лоадаутов и книжек
+    - type: Add
+      message: Добавлена авторская книга для Ботаники
+    - type: Fix
+      message: >-
+        Теперь система рандомизации историй в книгах переведена на русский
+        корректно
+  id: 449
+  time: '2025-08-30T14:35:36.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/772
+- author: Spatison
+  changes:
+    - type: Add
+      message: Добавлен новый питомец научного руководителя - лицехват по имени Ламмар
+    - type: Add
+      message: Во взломанной емагом призовой стойкой добавлен игрушечный лицехват
+    - type: Add
+      message: >-
+        Каждый ксеноморф теперь чувствует в какой стороне находится ближайшая
+        королева ксеномофов
+    - type: Add
+      message: >-
+        Королева ксеноморфов теперь может сама выбирать какая из дочерей
+        достойна стать проеторианцем
+    - type: Add
+      message: >-
+        Из смоляного гнезда теперь невозможно выбраться моментально
+        самостоятельно
+    - type: Tweak
+      message: Лицехват ксеноморфов теперь не мгновенно вводит паразита в жертву
+    - type: Tweak
+      message: >-
+        Если лецехват ксеноморфов пытается запрыгнуть на жертву которая защищена
+        одеждой, то он разбивается
+    - type: Tweak
+      message: Королева ксеноморфов теперь передвигается значительно медленнее
+    - type: Tweak
+      message: >-
+        Нейротоксин ксеноморфов теперь не наносит урона, в замен этого он
+        наносит 65 урона по стамине
+    - type: Tweak
+      message: 'Скорость стрельбы ксеноморфов: 0.25 -> 0.75'
+    - type: Tweak
+      message: Стрельба за ксеноморфа теперь тратит 55 плазмы за выстрел
+    - type: Fix
+      message: Структуры ксеноморфов теперь нельзя ставить на один тайл несколько раз
+  id: 450
+  time: '2025-08-30T19:40:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/815
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: В пул на время добавлено 8 ЕЕ карт и минималка всем картам понижена до 0
+    - type: Add
+      message: Добавлен новый питомец РД на наши карты
+    - type: Add
+      message: Знак якоря и временный респрайт зеркала
+  id: 451
+  time: '2025-08-31T14:38:41.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/820
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Ксеноморфы теперь могут достать лицехвата из кармана
+  id: 452
+  time: '2025-09-01T06:00:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/823
+- author: Kai518
+  changes:
+    - type: Add
+      message: >-
+        Портирован динамический режим! В нем сразу несколько антагонистов смогут
+        одновременно появиться в раунде. Просите педаль поставить его, по
+        умолчанию он отключен в рамках недельного теста.
+  id: 453
+  time: '2025-09-03T05:49:15.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/825
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: >-
+        Немного изменён раундстартовый спавн антагов в динмаике. Это должно
+        лучше на него повлиять.
+    - type: Fix
+      message: Исправлен спавн Клона и Одиночного Абдуктора
+  id: 454
+  time: '2025-09-05T14:29:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/829
+- author: Cinkafox
+  changes:
+    - type: Add
+      message: Добавлены барки
+  id: 455
+  time: '2025-09-05T17:37:39.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/827
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Дискорд Ченжлогер исправлен (наверное)
+  id: 456
+  time: '2025-09-13T14:33:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/836
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Старое радио в аплинки синдиката больше не содержит скидок
+  id: 457
+  time: '2025-09-13T14:38:32.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/833
+- author: Spatison
+  changes:
+    - type: Add
+      message: >-
+        Переключение боевого режима теперь издает звук, если вы поставили такую
+        возможность в настройках звука.
+    - type: Tweak
+      message: Кукла выбора части тела уменьшена в полтора раза.
+    - type: Tweak
+      message: >-
+        Боевой режим теперь переключается на отдельную кнопку, а не действием в
+        правом верхнем углу экрана.
+    - type: Tweak
+      message: >-
+        По умолчанию для открытия меню персонажа теперь нужно нажать кнопку J, а
+        не C.
+    - type: Tweak
+      message: По умолчанию переключение боевого режима теперь происходит на кнопку C.
+    - type: Tweak
+      message: >-
+        Список предупреждений(Как по русcки еще перевести alerts?) перенесен из
+        правого верхнего угла обратно в центр правого ребра экрана.
+    - type: Tweak
+      message: >-
+        Предупреждение/Алерт скорости заменен на кнопку в правом нижнем углу
+        экрана.
+  id: 458
+  time: '2025-09-13T14:38:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/834
+- author: Kai518
+  changes:
+    - type: Tweak
+      message: >-
+        Повышены цены некоторых антагов в динамике. Их все также можно
+        отслеживать в документе, ссылка на который приложена в PR.
+    - type: Tweak
+      message: Добавлен минимальный порог игроков для спавна ниндзи и дракона.
+    - type: Fix
+      message: 'Исправлен раундстартовый спавн антагов в динамике. '
+  id: 459
+  time: '2025-09-15T10:52:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/839
+- author: Spatison
+  changes:
+    - type: Add
+      message: В игру перенесено небольшое количество контента с виздена
+  id: 460
+  time: '2025-09-21T16:55:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/844
