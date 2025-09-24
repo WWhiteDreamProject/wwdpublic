@@ -19,7 +19,7 @@
 	{ "name": "frog", "directions": 4 },
 	{ "name": "disappointment" },
 	{ "name": "heart" },
-	{ "name": "discocat", "delays": [[0.5, 0.5, 0.5, 0.5]] },
+	{ "name": "discocat", "delays": [[0.2, 0.2, 0.2, 0.2]] },
 	{ "name": "parrot", "directions": 4, "delays" :
 	[
 		[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],

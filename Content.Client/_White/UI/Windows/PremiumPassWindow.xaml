@@ -40,5 +40,7 @@
         </BoxContainer>
         <Button Name="PurchaseButton" Text="Посмотреть планы" HorizontalExpand="False" />
         <Button Name="PurchasedButton" Text="Спасибо за покупку!" ToolTip="А ты поверил что ли?" HorizontalExpand="False" Visible="False" Disabled="True" />
+        <Label Text="Да куда ты тянешь, блять"/>
+        <Label Text="Верни, как было"/>
     </BoxContainer>
 </DefaultWindow>

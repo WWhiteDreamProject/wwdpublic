@@ -212,6 +212,7 @@
   proto: MobObserverDisappointment
   restrictions:
   - !type:PlaytimeJobRestriction
+    job: Clown
     hoursPlaytime: 32
 
 - type: entity
@@ -222,7 +223,7 @@
   - type: Sprite
     sprite: _White/Ghosts/simple.rsi
     layers:
-    - state: discocat
+    - state: disappointment
       shader: unshaded
 
 

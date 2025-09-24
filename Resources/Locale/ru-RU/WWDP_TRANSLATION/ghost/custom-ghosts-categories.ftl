@@ -1,3 +1,3 @@
-custom-ghosts-category-color = Цвет
-custom-ghosts-category-misc = Разное 
-custom-ghosts-category-personal = Личный 
+custom-ghost-category-color = Цвет
+custom-ghost-category-misc = Разное 
+custom-ghost-category-personal = Личный 
