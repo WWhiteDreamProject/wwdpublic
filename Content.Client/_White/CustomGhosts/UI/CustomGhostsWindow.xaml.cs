@@ -132,7 +132,7 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
         return label;
     }
 
-    private void OnPressed(Button.ButtonEventArgs args)
+    private void OnPressed(BaseButton.ButtonEventArgs args)
     {
         var protoId = args.Button.Name!;
         if (protoId == _currentGhostProtoId)
@@ -141,8 +141,7 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
             return;
         }
 
-        if (_currentActive is not null) // can probably end up as a null if the last used customghost was removed?
-            _currentActive.Pressed = false;
+        _currentActive.Pressed = false;
 
         _currentGhostProtoId = protoId;
         _currentActive = (Button) args.Button;
@@ -150,7 +149,7 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
         _conhost.ExecuteCommand($"setcustomghost {CommandParsing.Escape(protoId)}"); // I implemented the commands first as a test, so i'll be using them now. It's dumb, but it works okay.
     }
 
-    private void ToggleVisibility(Button.ButtonToggledEventArgs args)
+    private void ToggleVisibility(BaseButton.ButtonToggledEventArgs args)
     {
         foreach (var button in _hidden)
         {

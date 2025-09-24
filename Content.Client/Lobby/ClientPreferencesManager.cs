@@ -56,7 +56,7 @@ namespace Content.Client.Lobby
 
         public void SelectCharacter(int slot)
         {
-            Preferences = Preferences.WithSlot(slot);
+            Preferences = Preferences.WithSlot(slot); // WWDP EDIT
             var msg = new MsgSelectCharacter
             {
                 SelectedCharacterIndex = slot
@@ -69,7 +69,7 @@ namespace Content.Client.Lobby
             var collection = IoCManager.Instance!;
             profile.EnsureValid(_playerManager.LocalSession!, collection);
             var characters = new Dictionary<int, ICharacterProfile>(Preferences.Characters) {[slot] = profile};
-            Preferences = Preferences.WithCharacters(characters);
+            Preferences = Preferences.WithCharacters(characters); // WWDP EDIT
             var msg = new MsgUpdateCharacter
             {
                 Profile = profile,
@@ -92,7 +92,7 @@ namespace Content.Client.Lobby
 
             var l = lowest.Value;
             characters.Add(l, profile);
-            Preferences = Preferences.WithCharacters(characters);
+            Preferences = Preferences.WithCharacters(characters); // WWDP EDIT
 
             UpdateCharacter(profile, l);
         }
@@ -105,7 +105,7 @@ namespace Content.Client.Lobby
         public void DeleteCharacter(int slot)
         {
             var characters = Preferences.Characters.Where(p => p.Key != slot);
-            Preferences = Preferences.WithCharacters(characters);
+            Preferences = Preferences.WithCharacters(characters); // WWDP EDIT
             var msg = new MsgDeleteCharacter
             {
                 Slot = slot

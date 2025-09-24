@@ -32,7 +32,6 @@ public sealed class ListCustomGhostsCommand : IConsoleCommand
 
     public async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-
         var protos = _proto.EnumeratePrototypes<CustomGhostPrototype>();
         var sb = new StringBuilder();
         if (shell.Player is not ICommonSession player)

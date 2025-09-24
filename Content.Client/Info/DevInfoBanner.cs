@@ -13,7 +13,7 @@ namespace Content.Client.Info
 {
     public sealed class DevInfoBanner : BoxContainer
     {
-        private WindowTracker<CreditsWindow> _creditsWindow = new();
+        private WindowTracker<CreditsWindow> _creditsWindow = new(); // WWDP EDIT
         public DevInfoBanner() {
             var buttons = new BoxContainer
             {

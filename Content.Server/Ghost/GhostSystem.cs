@@ -67,7 +67,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly SharedMindSystem _mind = default!;
         [Dependency] private readonly GameTicker _gameTicker = default!;
         [Dependency] private readonly DamageableSystem _damageable = default!;
-        [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+        [Dependency] private readonly IServerPreferencesManager _prefs = default!; // WWDP EDIT
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tag = default!;
@@ -511,6 +511,7 @@ namespace Content.Server.Ghost
             Log.Debug($"Spawned ghost \"{ToPrettyString(ghost)}\" for {mind.Comp.CharacterName}.");
             return ghost;
 
+            // WWDP EDIT START
             static string? FirstNonNullNonEmpty(params string?[] strings)
             {
                 foreach (var str in strings)
@@ -518,6 +519,7 @@ namespace Content.Server.Ghost
                         return str;
                 return null;
             }
+            // WWDP EDIT END
         }
 
         public bool OnGhostAttempt(EntityUid mindId, bool canReturnGlobal, bool viaCommand = false, MindComponent? mind = null)

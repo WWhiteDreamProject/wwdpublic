@@ -15,8 +15,6 @@ using System.Threading.Tasks;
 
 namespace Content.Server._White.Commands;
 
-
-
 [AnyCommand]
 public sealed class SetCustomGhostCommand : IConsoleCommand
 {
@@ -49,10 +47,6 @@ public sealed class SetCustomGhostCommand : IConsoleCommand
             shell.WriteLine(Loc.GetString("setcustomghost-command-invalid-ghost-id"));
             return;
         }
-
-        string fullFailReason = string.Empty;
-        bool available = true;
-        
 
         if (!proto.CanUse(player, out var failReason))
         {

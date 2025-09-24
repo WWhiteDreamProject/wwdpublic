@@ -72,7 +72,7 @@ namespace Content.Server.Preferences.Managers
                 return;
             }
 
-            prefsData.Prefs = curPrefs.WithSlot(index);
+            prefsData.Prefs = curPrefs.WithSlot(index); // WWDP EDIT
 
             if (ShouldStorePrefs(message.MsgChannel.AuthType))
             {
@@ -183,7 +183,7 @@ namespace Content.Server.Preferences.Managers
                     PrefsLoaded = true,
                     Prefs = new PlayerPreferences(
                         new[] { new KeyValuePair<int, ICharacterProfile>(0, HumanoidCharacterProfile.Random()) },
-                        0, Color.Transparent, "default")
+                        0, Color.Transparent, "default") // WWDP EDIT
                 };
 
                 _cachedPlayerPrefs[session.UserId] = prefsData;
