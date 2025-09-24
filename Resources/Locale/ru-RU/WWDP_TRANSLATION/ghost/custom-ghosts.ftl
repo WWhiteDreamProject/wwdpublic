@@ -1,4 +1,5 @@
-
+custom-ghost-ckey-personal-name = Эксклюзивный призрак
+custom-ghost-ckey-personal-desc = Доступен только вам.
 
 custom-ghost-default-name = Белый призрак
 custom-ghost-default-desc = Без всяких свистелок и перделок. Красота в простоте.
@@ -57,5 +58,8 @@ custom-ghost-mouse-desc = Уже не крадётся.
 custom-ghost-parrot-name = Попугай
 custom-ghost-parrot-desc = Умом и сообразительностью не отличается.
 
-custom-ghost-ckey-personal-name = Эксклюзивный призрак
-custom-ghost-ckey-personal-desc = Доступен только вам.
+custom-ghost-discocat-name = Диско-кот
+custom-ghost-discocat-desc = Лучшая картинка с котом по мнению пользователей Одноклассников.
+
+custom-ghost-disappointment-name = ...
+custom-ghost-disappointment-desc = А можно не надо?

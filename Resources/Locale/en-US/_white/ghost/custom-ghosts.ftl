@@ -1,4 +1,5 @@
-
+custom-ghost-personal-name = Ckey-locked ghost
+custom-ghost-personal-desc = Your custom ghost, custom tailored to your liking.
 
 custom-ghost-default-name = White ghost
 custom-ghost-default-desc = No frills, no thrills. For the purists.
@@ -57,5 +58,8 @@ custom-ghost-mouse-desc = is that a deadmau5 reference???
 custom-ghost-parrot-name = Parrot ghost
 custom-ghost-parrot-desc = CAWK!
 
-custom-ghost-personal-name = Ckey-locked ghost
-custom-ghost-personal-desc = Your custom ghost, custom tailored to your liking.
+custom-ghost-discocat-name = Disco cat
+custom-ghost-discocat-desc = The best kind of cat.
+
+custom-ghost-disappointment-name = ...
+custom-ghost-disappointment-desc = Please don't.

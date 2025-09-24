@@ -40,6 +40,9 @@ public sealed class CustomGhostPrototype : IPrototype, IInheritingPrototype
     [DataField("name")]
     public string? Name { get; private set; }
 
+    public string DisplayName => Loc.GetString(Name ?? $"custom-ghost-{ID.ToLower()}-name");
+    public string DisplayDesc => Loc.GetString(Description ?? $"custom-ghost-{ID.ToLower()}-desc");
+
     /// <summary>
     /// If null, the default of "custom-ghost-[id]-desc" will be used.
     /// </summary>

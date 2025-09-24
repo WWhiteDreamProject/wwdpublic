@@ -54,7 +54,7 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
     private void BuildList()
     {
         var allghostprotos = _proto.EnumeratePrototypes<CustomGhostPrototype>();
-        allghostprotos = allghostprotos.OrderBy(item => Loc.GetString(item.Name ?? $"custom-ghost-{item.ID}-name"));
+        allghostprotos = allghostprotos.OrderBy(item => item.DisplayName);
 
         foreach(var ghostProto in allghostprotos)
             _allGhosts.GetOrNew(ghostProto.Category).Add(ghostProto);
@@ -118,8 +118,8 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
         _sprite.SetVisible(ghostEnt, true); // counters ghost invisibility bullshit
         button.EntityTextureRects.SetEntity(ghostEnt);
 
-        button.EntityLabel.Text = Loc.GetString(ghostProto.Name ??            $"custom-ghost-{ghostProto.ID}-name");
-        button.ActualButton.ToolTip = Loc.GetString(ghostProto.Description ?? $"custom-ghost-{ghostProto.ID}-desc");
+        button.EntityLabel.Text = ghostProto.DisplayName;
+        button.ActualButton.ToolTip = ghostProto.DisplayDesc;
 
         if (_currentGhostProtoId == ghostProto.ID)
         {
@@ -128,14 +128,13 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
         }
         button.ActualButton.OnPressed += OnPressed;
 
-
         if (available)
             return button;
 
         button.Modulate = Color.Red;
         button.Visible = false;
         button.ActualButton.Disabled = true;
-        button.ActualButton.ToolTip += $"\n{Loc.GetString("custom-ghost-window-tooltip-to-unlock")}{fullFailReason}";
+        button.ActualButton.ToolTip += $"\n\n{Loc.GetString("custom-ghost-window-tooltip-to-unlock")}{fullFailReason}";
         _hidden.Add(button);
         return button;
     }
