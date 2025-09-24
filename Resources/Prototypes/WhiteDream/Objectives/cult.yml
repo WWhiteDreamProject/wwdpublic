@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: BaseObjective
+  parent: BaseKillObjective
   id: KillTargetCultObjective
   description: This fool person should be sacrificed in the glory of our Goddess.
   categories: [ HideSpawnMenu ]
@@ -15,5 +15,4 @@
     roles:
       mindRoles:
       - BloodCultistRole
-  - type: KillTargetCult
-    title: objective-condition-kill-person-title
+  - type: PickBloodCultTarget

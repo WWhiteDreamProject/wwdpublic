@@ -3,7 +3,6 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.RadialSelector;
 using Content.Shared.UserInterface;
-using Content.Shared.WhiteDream.BloodCult;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._White.BloodCult.TimedFactory;
@@ -25,11 +24,25 @@ public sealed class TimedFactorySystem : EntitySystem
         SubscribeLocalEvent<TimedFactoryComponent, RadialSelectorSelectedMessage>(OnPrototypeSelected);
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var factoryQuery = EntityQueryEnumerator<TimedFactoryComponent>();
+        while (factoryQuery.MoveNext(out var uid, out var factory))
+        {
+            if (factory.CooldownIn > _gameTiming.CurTime)
+                return;
+
+            _appearance.SetData(uid, GenericCultVisuals.State, true);
+        }
+    }
+
     private void OnTryOpenMenu(Entity<TimedFactoryComponent> factory, ref ActivatableUIOpenAttemptEvent args)
     {
         if (factory.Comp.CooldownIn > _gameTiming.CurTime)
         {
-            _popup.PopupEntity(Loc.GetString("timed-factory-cooldown", ("cooldown", factory.Comp.CooldownIn.TotalSeconds)), factory, args.User);
+            _popup.PopupClient(Loc.GetString("timed-factory-cooldown", ("cooldown", factory.Comp.CooldownIn.TotalSeconds)), factory, args.User);
             args.Cancel();
             return;
         }
@@ -49,6 +62,6 @@ public sealed class TimedFactorySystem : EntitySystem
 
         _appearance.SetData(factory, GenericCultVisuals.State, false);
 
-        _ui.CloseUi(args.Actor, RadialSelectorUiKey.Key);
+        _ui.CloseUi(factory.Owner, RadialSelectorUiKey.Key);
     }
 }

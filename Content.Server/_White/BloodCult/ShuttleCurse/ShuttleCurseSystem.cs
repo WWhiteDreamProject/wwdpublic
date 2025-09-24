@@ -1,4 +1,5 @@
-﻿using Content.Server.Chat.Systems;
+﻿using Content.Server._White.GameTicking.Rules;
+using Content.Server.Chat.Systems;
 using Content.Server.Popups;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
@@ -16,13 +17,11 @@ public sealed class ShuttleCurseSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
 
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-
-    private const int MaxUses = 3;
-    private int _currentUses;
 
     public override void Initialize()
     {
@@ -36,7 +35,8 @@ public sealed class ShuttleCurseSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (_currentUses >= MaxUses)
+        var charges = _bloodCultRule.GetShuttleCurseCharges();
+        if (charges <= 0)
         {
             _popup.PopupEntity(Loc.GetString("shuttle-curse-max-charges"), orb, args.User);
             return;
@@ -66,7 +66,7 @@ public sealed class ShuttleCurseSystem : EntitySystem
             colorOverride: Color.Gold);
 
         _popup.PopupEntity(Loc.GetString("shuttle-curse-success"), args.User, args.User);
-        _currentUses++;
+        _bloodCultRule.SetShuttleCurseCharges(charges - 1);
 
         _audio.PlayEntity(orb.Comp.ScatterSound, Filter.Pvs(orb), orb, true);
         Del(orb);

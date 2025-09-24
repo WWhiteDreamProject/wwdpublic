@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server._White.BloodCult.Items.BloodSpear;
 using Content.Server._White.BloodCult.Runes;
 using Content.Server._White.GameTicking.Rules.Components;
 using Content.Server._White.Objectives.Components;
@@ -16,8 +17,8 @@ using Content.Server.Mind;
 using Content.Server.Pinpointer;
 using Content.Server.Roles;
 using Content.Server.RoundEnd;
-using Content.Server.WhiteDream.BloodCult.Items.BloodSpear;
 using Content.Shared._White.BloodCult.BloodCultist;
+using Content.Shared._White.BloodCult.Components;
 using Content.Shared._White.BloodCult.CultItem;
 using Content.Shared._White.BloodCult.Spells;
 using Content.Shared.Cloning;
@@ -32,7 +33,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Mood;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.NPC.Systems;
-using Content.Shared.WhiteDream.BloodCult.Components;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
@@ -67,76 +67,20 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
         SubscribeLocalEvent<BloodCultRuleComponent, AfterAntagEntitySelectedEvent>(AfterEntitySelected);
 
-        SubscribeLocalEvent<BloodCultNarsieSummoned>(OnNarsieSummon);
+        SubscribeLocalEvent<BloodCultistRoleComponent, GetBriefingEvent>(OnGetBriefing);
 
         SubscribeLocalEvent<BloodCultistComponent, ComponentInit>(OnCultistComponentInit);
         SubscribeLocalEvent<BloodCultistComponent, ComponentRemove>(OnCultistComponentRemoved);
         SubscribeLocalEvent<BloodCultistComponent, MobStateChangedEvent>(OnCultistsStateChanged);
         SubscribeLocalEvent<BloodCultistComponent, CloningEvent>(OnClone);
 
-        SubscribeLocalEvent<BloodCultistRoleComponent, GetBriefingEvent>(OnGetBriefing);
-    }
-
-    protected override void Started(
-        EntityUid uid,
-        BloodCultRuleComponent component,
-        GameRuleComponent gameRule,
-        GameRuleStartedEvent args
-    )
-    {
-        base.Started(uid, component, gameRule, args);
-
-        GetRandomRunePlacements(component);
-    }
-
-    protected override void AppendRoundEndText(
-        EntityUid uid,
-        BloodCultRuleComponent component,
-        GameRuleComponent gameRule,
-        ref RoundEndTextAppendEvent args
-    )
-    {
-        base.AppendRoundEndText(uid, component, gameRule, ref args);
-        var winText = Loc.GetString($"blood-cult-condition-{component.WinCondition.ToString().ToLower()}");
-        args.AddLine(winText);
-
-        args.AddLine(Loc.GetString("blood-cultists-list-start"));
-
-        var sessionData = _antagSelection.GetAntagIdentifiers(uid);
-        foreach (var (_, data, name) in sessionData)
-        {
-            var lising = Loc.GetString("blood-cultists-list-name", ("name", name), ("user", data.UserName));
-            args.AddLine(lising);
-        }
+        SubscribeLocalEvent<BloodCultNarsieSummoned>(OnNarsieSummon);
     }
 
     #region EventHandlers
 
     private void AfterEntitySelected(Entity<BloodCultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args) =>
         MakeCultist(args.EntityUid, ent);
-
-    private void OnNarsieSummon(BloodCultNarsieSummoned ev)
-    {
-        var rulesQuery = QueryActiveRules();
-        while (rulesQuery.MoveNext(out _, out var cult, out _))
-        {
-            cult.WinCondition = CultWinCondition.Win;
-            _roundEnd.EndRound();
-
-            foreach (var ent in cult.Cultists)
-            {
-                if (Deleted(ent.Owner) || !TryComp(ent.Owner, out MindContainerComponent? mindContainer) ||
-                    !mindContainer.Mind.HasValue)
-                    continue;
-
-                var harvester = Spawn(cult.HarvesterPrototype, Transform(ent.Owner).Coordinates);
-                _mind.TransferTo(mindContainer.Mind.Value, harvester);
-                _body.GibBody(ent);
-            }
-
-            return;
-        }
-    }
 
     private void OnCultistComponentInit(Entity<BloodCultistComponent> cultist, ref ComponentInit args)
     {
@@ -214,7 +158,63 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         }
     }
 
+    private void OnNarsieSummon(BloodCultNarsieSummoned ev)
+    {
+        var rulesQuery = QueryActiveRules();
+        while (rulesQuery.MoveNext(out _, out var cult, out _))
+        {
+            cult.WinCondition = CultWinCondition.Win;
+            _roundEnd.EndRound();
+
+            foreach (var ent in cult.Cultists)
+            {
+                if (Deleted(ent.Owner) || !TryComp(ent.Owner, out MindContainerComponent? mindContainer) ||
+                    !mindContainer.Mind.HasValue)
+                    continue;
+
+                var harvester = Spawn(cult.HarvesterPrototype, Transform(ent.Owner).Coordinates);
+                _mind.TransferTo(mindContainer.Mind.Value, harvester);
+                _body.GibBody(ent);
+            }
+
+            return;
+        }
+    }
+
     #endregion
+
+    protected override void Started(
+        EntityUid uid,
+        BloodCultRuleComponent component,
+        GameRuleComponent gameRule,
+        GameRuleStartedEvent args
+    )
+    {
+        base.Started(uid, component, gameRule, args);
+
+        GetRandomRunePlacements(component);
+    }
+
+    protected override void AppendRoundEndText(
+        EntityUid uid,
+        BloodCultRuleComponent component,
+        GameRuleComponent gameRule,
+        ref RoundEndTextAppendEvent args
+    )
+    {
+        base.AppendRoundEndText(uid, component, gameRule, ref args);
+        var winText = Loc.GetString($"blood-cult-condition-{component.WinCondition.ToString().ToLower()}");
+        args.AddLine(winText);
+
+        args.AddLine(Loc.GetString("blood-cultists-list-start"));
+
+        var sessionData = _antagSelection.GetAntagIdentifiers(uid);
+        foreach (var (_, data, name) in sessionData)
+        {
+            var lising = Loc.GetString("blood-cultists-list-name", ("name", name), ("user", data.UserName));
+            args.AddLine(lising);
+        }
+    }
 
     public void Convert(EntityUid target)
     {
@@ -369,6 +369,44 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         return null;
     }
 
+    public int GetRevivalCharges()
+    {
+        var query = QueryActiveRules();
+        while (query.MoveNext(out _, out var rule, out _))
+            return rule.ReviveCharges;
+
+        return 0;
+    }
+
+    public void SetRevivalCharges(int reviveCharges)
+    {
+        var query = QueryActiveRules();
+        while (query.MoveNext(out _, out var rule, out _))
+        {
+            rule.ReviveCharges = reviveCharges;
+            return;
+        }
+    }
+
+    public int GetShuttleCurseCharges()
+    {
+        var query = QueryActiveRules();
+        while (query.MoveNext(out _, out var rule, out _))
+            return rule.ShuttleCurseCharges;
+
+        return 0;
+    }
+
+    public void SetShuttleCurseCharges(int shuttleCurseCharges)
+    {
+        var query = QueryActiveRules();
+        while (query.MoveNext(out _, out var rule, out _))
+        {
+            rule.ShuttleCurseCharges = shuttleCurseCharges;
+            return;
+        }
+    }
+
     private void CheckWinCondition()
     {
         var query = QueryActiveRules();
@@ -440,8 +478,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
                 _container.Remove(container.ContainedEntity.Value, container, true, true);
 
         foreach (var item in _hands.EnumerateHeld(cultist))
-            if (TryComp(item, out CultItemComponent? cultItem) && !cultItem.AllowUseToEveryone &&
-                !_hands.TryDrop(cultist, item, null, false, false))
+            if (TryComp(item, out CultItemComponent? cultItem) && !_hands.TryDrop(cultist, item, null, false, false))
                 QueueDel(item);
     }
 

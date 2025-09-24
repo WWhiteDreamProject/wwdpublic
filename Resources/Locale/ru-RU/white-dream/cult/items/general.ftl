@@ -21,7 +21,7 @@ shuttle-curse-shuttle-arrived = Шаттл уже прибыл. Его нель�
 shuttle-curse-shuttle-not-called = Шаттл ещё не вызывали.
 
 shuttle-curse-system-failure = СБОЙ СИСТЕМЫ
-shuttle-curse-success-global = Призыв шаттла задержан на {$time} минут.
+shuttle-curse-success-global = {$message} Призыв шаттла задержан на {$time} минут.
 
 veil-shifter-description = Осталось зарядов: {$charges}.
 veil-shifter-cant-teleport = Не удалось найти путь сквозь завесу. Попробуй снова!

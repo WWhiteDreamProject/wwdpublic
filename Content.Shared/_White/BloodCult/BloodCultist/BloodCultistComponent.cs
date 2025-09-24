@@ -18,6 +18,9 @@ public sealed partial class BloodCultistComponent : Component
     [DataField]
     public ProtoId<LanguagePrototype> CultLanguageId { get; set; } = "Eldritch";
 
+    [ViewVariables]
+    public EntityUid? BloodSpear;
+
     [ViewVariables, NonSerialized]
     public Entity<MindComponent>? OriginalMind;
 

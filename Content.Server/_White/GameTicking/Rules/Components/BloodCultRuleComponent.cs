@@ -20,6 +20,12 @@ public sealed partial class BloodCultRuleComponent : Component
     public Color EyeColor = Color.FromHex("#f80000");
 
     [DataField]
+    public int ReviveCharges = 3;
+
+    [DataField]
+    public int ShuttleCurseCharges = 3;
+
+    [DataField]
     public int ReadEyeThreshold = 5;
 
     [DataField]

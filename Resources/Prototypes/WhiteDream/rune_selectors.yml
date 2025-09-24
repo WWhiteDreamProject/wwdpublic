@@ -1,32 +1,32 @@
-﻿- type: runeSelector
+﻿- type: bloodCultRune
   id: CultRuneOffering
   prototype: CultRuneOffering
 
-- type: runeSelector
+- type: bloodCultRune
   id: CultRuneEmpower
   prototype: CultRuneEmpower
 
-- type: runeSelector
+- type: bloodCultRune
   id: CultRuneTeleport
   prototype: CultRuneTeleport
 
-- type: runeSelector
+- type: bloodCultRune
   id: CultRuneRevive
   prototype: CultRuneRevive
 
-- type: runeSelector
+- type: bloodCultRune
   id: CultRuneBarrier
   prototype: CultRuneBarrier
 
-- type: runeSelector
+- type: bloodCultRune
   id: CultRuneSummoning
   prototype: CultRuneSummoning
 
-- type: runeSelector
+- type: bloodCultRune
   id: CultRuneBloodBoil
   prototype: CultRuneBloodBoil
 
-- type: runeSelector
+- type: bloodCultRune
   id: CultRuneApocalypse
   prototype: CultRuneApocalypse
   requireTargetDead: true
@@ -36,7 +36,7 @@
     types:
       Slash: 20
 
-- type: runeSelector
+- type: bloodCultRune
   id: CultRuneDimensionalRending
   prototype: CultRuneDimensionalRending
   requireTargetDead: true

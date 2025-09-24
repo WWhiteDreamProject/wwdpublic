@@ -6,7 +6,6 @@ using Content.Server.Chat.Systems;
 using Content.Server.Chemistry.Components;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.Components;
-using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Shared._Goobstation.Bible;
 using Content.Shared._White.BloodCult.BloodCultist;
@@ -17,10 +16,7 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
-using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.UserInterface;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
@@ -39,10 +35,7 @@ public sealed class BloodCultRuneSystem : SharedBloodCultRuneSystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-    [Dependency] private readonly InteractionSystem _interaction = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
@@ -57,7 +50,6 @@ public sealed class BloodCultRuneSystem : SharedBloodCultRuneSystem
         SubscribeLocalEvent<RuneDrawerComponent, RuneDrawerSelectedMessage>(OnRuneSelected);
 
         SubscribeLocalEvent<BloodCultRuneComponent, ActivateInWorldEvent>(OnRuneActivate);
-        SubscribeLocalEvent<BloodCultRuneComponent, InRangeOverrideEvent>(CheckInRange);
         SubscribeLocalEvent<BloodCultRuneComponent, InteractUsingEvent>(OnRuneInteractUsing);
         SubscribeLocalEvent<BloodCultRuneComponent, RuneEraseDoAfterEvent>(OnRuneErase);
         SubscribeLocalEvent<BloodCultRuneComponent, StartCollideEvent>(OnRuneCollide);
@@ -135,10 +127,7 @@ public sealed class BloodCultRuneSystem : SharedBloodCultRuneSystem
 
         var cultists = GatherCultists(rune, rune.Comp.RuneActivationRange);
         if (cultists.Count < rune.Comp.RequiredInvokers)
-        {
-            _popup.PopupEntity(Loc.GetString("cult-rune-not-enough-cultists"), rune, args.User);
             return;
-        }
 
         var tryInvokeEv = new TryInvokeCultRuneEvent(args.User, cultists);
         RaiseLocalEvent(rune, tryInvokeEv);
@@ -159,15 +148,6 @@ public sealed class BloodCultRuneSystem : SharedBloodCultRuneSystem
                     checkRadioPrefix: false);
             }
         }
-    }
-
-    private void CheckInRange(Entity<BloodCultRuneComponent> rune, ref InRangeOverrideEvent args)
-    {
-        if (!TryComp(args.Target, out TransformComponent? transform))
-            return;
-
-        args.InRange = _interaction.InRangeUnobstructed(args.User, args.Target, transform.Coordinates, transform.LocalRotation, rune.Comp.RuneActivationRange);
-        args.Handled = true;
     }
 
     private void OnRuneInteractUsing(Entity<BloodCultRuneComponent> rune, ref InteractUsingEvent args)
@@ -247,49 +227,5 @@ public sealed class BloodCultRuneSystem : SharedBloodCultRuneSystem
         _transform.SetLocalPosition(runeEntity, snappedLocalPosition);
 
         return runeEntity;
-    }
-
-    /// <summary>
-    ///     Gets all cultists near rune.
-    /// </summary>
-    private HashSet<EntityUid> GatherCultists(EntityUid rune, float range)
-    {
-        var runeTransform = Transform(rune);
-        var entities = _entityLookup.GetEntitiesInRange(runeTransform.Coordinates, range);
-        entities.RemoveWhere(entity => !HasComp<BloodCultistComponent>(entity));
-        return entities;
-    }
-
-    /// <summary>
-    ///     Gets all the humanoids near rune.
-    /// </summary>
-    /// <param name="rune">The rune itself.</param>
-    /// <param name="range">Radius for a lookup.</param>
-    /// <param name="exlude">Filter to exlude from return.</param>
-    public HashSet<Entity<HumanoidAppearanceComponent>> GetTargetsNearRune(
-        EntityUid rune,
-        float range,
-        Predicate<Entity<HumanoidAppearanceComponent>>? exlude = null
-    )
-    {
-        var runeTransform = Transform(rune);
-        var possibleTargets = _entityLookup.GetEntitiesInRange<HumanoidAppearanceComponent>(runeTransform.Coordinates, range);
-        if (exlude != null)
-            possibleTargets.RemoveWhere(exlude);
-
-        return possibleTargets;
-    }
-
-    /// <summary>
-    ///     Is used to stop target from pulling/being pulled before teleporting them.
-    /// </summary>
-    public void StopPulling(EntityUid target)
-    {
-        if (TryComp(target, out PullableComponent? pullable) && pullable.BeingPulled)
-            _pulling.TryStopPull(target, pullable);
-
-        // I wish there was a better way to do it
-        if (_pulling.TryGetPulledEntity(target, out var pulling))
-            _pulling.TryStopPull(pulling.Value);
     }
 }

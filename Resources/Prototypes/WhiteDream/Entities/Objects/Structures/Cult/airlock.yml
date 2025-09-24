@@ -20,6 +20,9 @@
   - type: Door
     bumpOpen: true
     occludes: false
+    whitelist:
+      components:
+      - BloodCultist
     crushDamage:
       types:
         Blunt: 15
@@ -44,10 +47,12 @@
     resistance: 2
   - type: RCDDeconstructable
     deconstructable: false
-  - type: RunedDoor
   - type: Repulse
     forceMultiplier: 300 # This datafield has an awful name, it's actually the amount of force in Newtons.
   - type: RepulseOnTouch
+    targetBlacklist:
+      components:
+      - BloodCultist
   - type: PlacementReplacement
     key: walls
   - type: Construction

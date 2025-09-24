@@ -40,5 +40,5 @@ public sealed partial class BloodCultEmpoweredComponent : Component
     public ProtoId<AlertPrototype> EmpoweredAlert = "CultEmpowered";
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public TimeSpan TimeRemaining = TimeSpan.Zero;
+    public TimeSpan TimeRemaining = TimeSpan.FromSeconds(20);
 }

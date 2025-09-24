@@ -33,7 +33,7 @@ public sealed class CultItemSystem : EntitySystem
 
     private void OnActivate(Entity<CultItemComponent> ent, ref ActivateInWorldEvent args)
     {
-        if (_entityWhitelist.IsWhitelistFail(ent.Comp.Whitelist, args.User))
+        if (_entityWhitelist.IsWhitelistPass(ent.Comp.Whitelist, args.User))
             return;
 
         args.Handled = true;
@@ -42,7 +42,7 @@ public sealed class CultItemSystem : EntitySystem
 
     private void OnUseInHand(Entity<CultItemComponent> ent, ref UseInHandEvent args)
     {
-        if (_entityWhitelist.IsWhitelistFail(ent.Comp.Whitelist, args.User) ||
+        if (_entityWhitelist.IsWhitelistPass(ent.Comp.Whitelist, args.User) ||
             // Allow non-cultists to remove embedded cultist weapons and getting knocked down afterwards on pickup
             TryComp<EmbeddableProjectileComponent>(ent.Owner, out var embeddable) && embeddable.Target != null)
             return;
@@ -53,7 +53,7 @@ public sealed class CultItemSystem : EntitySystem
 
     private void OnBeforeGettingThrown(Entity<CultItemComponent> ent, ref BeforeGettingThrownEvent args)
     {
-        if (_entityWhitelist.IsWhitelistFail(ent.Comp.Whitelist, args.PlayerUid))
+        if (_entityWhitelist.IsWhitelistPass(ent.Comp.Whitelist, args.PlayerUid))
             return;
 
         args.Cancelled = true;
@@ -62,7 +62,7 @@ public sealed class CultItemSystem : EntitySystem
 
     private void OnEquipAttempt(Entity<CultItemComponent> ent, ref BeingEquippedAttemptEvent args)
     {
-        if (_entityWhitelist.IsWhitelistFail(ent.Comp.Whitelist, args.Equipee))
+        if (_entityWhitelist.IsWhitelistPass(ent.Comp.Whitelist, args.Equipee))
             return;
 
         args.Cancel();
@@ -71,7 +71,7 @@ public sealed class CultItemSystem : EntitySystem
 
     private void OnMeleeAttempt(Entity<CultItemComponent> ent, ref AttemptMeleeEvent args)
     {
-        if (_entityWhitelist.IsWhitelistFail(ent.Comp.Whitelist, args.PlayerUid))
+        if (_entityWhitelist.IsWhitelistPass(ent.Comp.Whitelist, args.PlayerUid))
             return;
 
         args.Cancelled = true;
@@ -80,7 +80,7 @@ public sealed class CultItemSystem : EntitySystem
 
     private void OnBeforeBlocking(Entity<CultItemComponent> ent, ref BeforeBlockingEvent args)
     {
-        if (_entityWhitelist.IsWhitelistFail(ent.Comp.Whitelist, args.User))
+        if (_entityWhitelist.IsWhitelistPass(ent.Comp.Whitelist, args.User))
             return;
 
         args.Cancel();

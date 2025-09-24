@@ -3,6 +3,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._White.BloodCult.Runes;
 
+[Prototype]
 public sealed class BloodCultRunePrototype : IPrototype
 {
     [IdDataField]

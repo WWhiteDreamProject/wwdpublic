@@ -22,7 +22,7 @@
     sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
     state: "offering"
     color: "#FF0000FF"
-  - type: CultRuneBase
+  - type: BloodCultRune
   - type: Appearance
 
 - type: entity
@@ -33,7 +33,7 @@
   components:
   - type: Sprite
     state: "offering"
-  - type: CultRuneBase
+  - type: BloodCultRune
     invokePhrase: "Mah'weyh pleggh at e'ntrath!"
   - type: CultRuneOffering
 
@@ -45,7 +45,7 @@
   components:
   - type: Sprite
     state: strength
-  - type: CultRuneBase
+  - type: BloodCultRune
     invokePhrase: "Qu'laris ver'don, thal'sorin mik'thar!"
   - type: CultRuneEmpower
 
@@ -57,7 +57,7 @@
   components:
   - type: Sprite
     state: teleport
-  - type: CultRuneBase
+  - type: BloodCultRune
     invokePhrase: "Sas'so c'arta forbici!"
   - type: CultRuneTeleport
   - type: UserInterface
@@ -75,7 +75,7 @@
   components:
   - type: Sprite
     state: revive
-  - type: CultRuneBase
+  - type: BloodCultRune
     invokePhrase: "Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth remium il'tarat!"
   - type: CultRuneRevive
 
@@ -87,7 +87,7 @@
   components:
   - type: Sprite
     state: barrier
-  - type: CultRuneBase
+  - type: BloodCultRune
     invokePhrase: "Khari'd! Eske'te tannin!"
     runeActivationRange: 1.5
     activationDamage:
@@ -103,7 +103,7 @@
   components:
   - type: Sprite
     state: summon
-  - type: CultRuneBase
+  - type: BloodCultRune
     requiredInvokers: 3
     invokePhrase: "N'ath reth sh'yro eth d'rekkathnor!"
   - type: CultRuneSummon
@@ -120,7 +120,7 @@
   components:
   - type: Sprite
     state: blood_boil
-  - type: CultRuneBase
+  - type: BloodCultRune
     invokePhrase: "N'Dedo ol'btoh!"
     requiredInvokers: 3
     activationDamage:
@@ -139,7 +139,7 @@
     layers:
       - state: icon
         map: [ "enum.ApocalypseRuneVisuals.Layer" ]
-  - type: CultRuneBase
+  - type: BloodCultRune
     requiredInvokers: 3
     invokePhrase: "Ta'gh fara'qha fel d'amar det!"
     triggerRendingMarkers: true
@@ -165,7 +165,7 @@
     layers:
     - state: rune
       map: [ "enum.RendingRuneVisuals.Layer" ]
-  - type: CultRuneBase
+  - type: BloodCultRune
     requiredInvokers: 10
     invokeChatType: Speak
     invokePhrase: "TOK-LYR RQA-NAP G'OLT-ULOFT!!!"
