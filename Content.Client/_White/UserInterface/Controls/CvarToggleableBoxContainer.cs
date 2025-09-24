@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Content.Client._White.UI.Controls;
+namespace Content.Client._White.UserInterface.Controls;
 
 public sealed class CvarToggleableBoxContainer : BoxContainer
 {
-    private string? _cvar = string.Empty;
+    private string? _cvar;
     [ViewVariables]
-    public string? SubscribedCVar { get => _cvar; set => Subscribe(value); }
+    public string? CVar { get => _cvar; set => Subscribe(value); }
 
     private bool _flip = false;
     [ViewVariables]
@@ -23,23 +23,23 @@ public sealed class CvarToggleableBoxContainer : BoxContainer
 
     private void Subscribe(string? newCVar)
     {
-        if(SubscribedCVar is not null)
-            IoCManager.Resolve<IConfigurationManager>().UnsubValueChanged<bool>(SubscribedCVar, UpdateVisibility);
+        if(_cvar is not null)
+            IoCManager.Resolve<IConfigurationManager>().UnsubValueChanged<bool>(_cvar, UpdateVisibility);
         if(newCVar is not null)
             IoCManager.Resolve<IConfigurationManager>().OnValueChanged<bool>(newCVar, UpdateVisibility, true);
-        SubscribedCVar = newCVar;
+        _cvar = newCVar;
     }
 
     private void Refresh()
     {
-        if (SubscribedCVar is not null)
-            UpdateVisibility(IoCManager.Resolve<IConfigurationManager>().GetCVar<bool>(SubscribedCVar));
+        if (CVar is not null)
+            UpdateVisibility(IoCManager.Resolve<IConfigurationManager>().GetCVar<bool>(CVar));
     }
 
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);
-        if(SubscribedCVar is not null)
-            IoCManager.Resolve<IConfigurationManager>().UnsubValueChanged<bool>(SubscribedCVar, UpdateVisibility);
+        if(CVar is not null)
+            IoCManager.Resolve<IConfigurationManager>().UnsubValueChanged<bool>(CVar, UpdateVisibility);
     }
 }

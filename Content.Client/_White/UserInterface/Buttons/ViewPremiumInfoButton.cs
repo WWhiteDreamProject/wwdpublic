@@ -1,9 +1,8 @@
-using Content.Client._White.UI.Windows;
+using Content.Client._White.UserInterface.Windows;
 using Robust.Client.Animations;
 using Robust.Client.UserInterface.Controls;
-using Robust.Shared.Timing;
 
-namespace Content.Client._White.UI.Buttons;
+namespace Content.Client._White.UserInterface.Buttons;
 
 public sealed class ViewPremiumInfoButton : Button
 {
@@ -23,8 +22,8 @@ public sealed class ViewPremiumInfoButton : Button
                     InterpolationMode = Robust.Shared.Animations.AnimationInterpolationMode.Linear,
                     KeyFrames =
                     {
-                        new AnimationTrackControlProperty.KeyFrame(Color.Yellow, 0f),
-                        new AnimationTrackControlProperty.KeyFrame(Color.White, 1f)
+                        new AnimationTrackProperty.KeyFrame(Color.Yellow, 0f),
+                        new AnimationTrackProperty.KeyFrame(Color.White, 1f)
                     }
                 }
             }

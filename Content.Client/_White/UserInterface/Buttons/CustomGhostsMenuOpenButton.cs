@@ -1,7 +1,8 @@
 using Content.Client._White.CustomGhosts.UI;
+using Content.Client._White.UserInterface;
 using Robust.Client.UserInterface.Controls;
 
-namespace Content.Client._White.UI.Buttons;
+namespace Content.Client._White.UserInterface.Buttons;
 
 public sealed class CustomGhostsMenuOpenButton : Button
 {

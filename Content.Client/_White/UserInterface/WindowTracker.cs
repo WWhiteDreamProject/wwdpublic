@@ -1,15 +1,9 @@
-using Microsoft.Extensions.DependencyInjection;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Sandboxing;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Content.Client._White.UI;
+namespace Content.Client._White.UserInterface;
 
 
 /// <summary>
@@ -28,7 +22,7 @@ public sealed class WindowTracker<T> where T : BaseWindow, new()
     private bool Toggle()
     {
         _sandbox ??= IoCManager.Resolve<ISandboxHelper>();
-        if(Window is not null)
+        if (Window is not null)
         {
             Window.Close();
             return false;
