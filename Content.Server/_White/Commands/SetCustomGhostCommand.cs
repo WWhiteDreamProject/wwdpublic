@@ -52,18 +52,11 @@ public sealed class SetCustomGhostCommand : IConsoleCommand
 
         string fullFailReason = string.Empty;
         bool available = true;
-        if(proto.Restrictions is not null)
-            foreach(var restriction in proto.Restrictions)
-            {
-                if (restriction.CanUse(player, out var failReason))
-                    continue;
-                fullFailReason += $"\n{failReason}";
-                available = false;
-            }
+        
 
-        if (!available)
+        if (!proto.CanUse(player, out var failReason))
         {
-            shell.WriteLine(fullFailReason);
+            shell.WriteLine(failReason);
             return;
         }
 

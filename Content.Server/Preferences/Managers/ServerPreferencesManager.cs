@@ -312,7 +312,7 @@ namespace Content.Server.Preferences.Managers
             // WWDP EDIT START
             return new PlayerPreferences(prefs.Characters.Select(p => new KeyValuePair<int, ICharacterProfile>(p.Key,
                     p.Value.Validated(session, collection))), prefs.SelectedCharacterIndex, prefs.AdminOOCColor,
-                    _protos.HasIndex<CustomGhostPrototype>(prefs.CustomGhost) ? prefs.CustomGhost : "default");
+                    _protos.TryIndex<CustomGhostPrototype>(prefs.CustomGhost, out var ghostProto) && ghostProto.CanUse(session) ? prefs.CustomGhost : "default");
             // WWDP EDIT END
         }
 

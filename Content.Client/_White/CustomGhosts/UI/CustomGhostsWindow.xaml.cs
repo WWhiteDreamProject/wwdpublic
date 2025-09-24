@@ -87,23 +87,10 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
 
     private CustomGhostButton? AddButton(CustomGhostPrototype ghostProto) // is not guaranteed to actually add a button, lol
     {
-        bool available = true;
+        bool available = ghostProto.CanUse(_player.LocalSession!, out string fullFailReason, out bool canSee);
+        if (!canSee) // skip button creation altogether
+            return null;
 
-        string fullFailReason = string.Empty;
-
-        if(ghostProto.Restrictions is not null)
-            foreach(var restriction in ghostProto.Restrictions)
-            {
-                if (restriction.CanUse(_player.LocalSession!, out var failReason))
-                    continue;
-
-                if (restriction.HideOnFail)
-                    return null; // skip button creation
-
-                fullFailReason += $"\n{failReason}";
-
-                available = false;
-            }
 
         var button = new CustomGhostButton();
         ScrollBox.AddChild(button);

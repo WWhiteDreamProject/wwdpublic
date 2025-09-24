@@ -31,6 +31,29 @@ public sealed class CustomGhostPrototype : IPrototype, IInheritingPrototype
     [DataField]
     public List<CustomGhostRestriction>? Restrictions { get; private set; }
 
+
+    public bool CanUse(ICommonSession session) => CanUse(session, out _, out _);
+    public bool CanUse(ICommonSession session, out string fullFailReason) => CanUse(session, out fullFailReason, out _);
+    public bool CanUse(ICommonSession session, out string fullFailReason, out bool canSee)
+    {
+        canSee = true;
+        fullFailReason = string.Empty;
+        if (Restrictions is null)
+            return true;
+
+        bool result = true;
+        foreach(var restriction in Restrictions)
+        {
+            if(!restriction.CanUse(session, out var failReason))
+            {
+                result = false;
+                fullFailReason += $"\n{failReason}";
+                canSee &= !restriction.HideOnFail;
+            }
+        }
+        return result;
+    }
+
     [DataField("proto", required: true)]
     public EntProtoId<GhostComponent> GhostEntityPrototype { get; private set; } = default!;
 
