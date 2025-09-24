@@ -1,5 +1,5 @@
-custom-ghost-ckey-personal-name = Эксклюзивный призрак
-custom-ghost-ckey-personal-desc = Доступен только вам.
+custom-ghost-personal-name = Эксклюзивный призрак
+custom-ghost-personal-desc = Доступен только вам.
 
 custom-ghost-default-name = Белый призрак
 custom-ghost-default-desc = Без всяких свистелок и перделок. Красота в простоте.

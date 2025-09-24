@@ -6,7 +6,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 
-namespace Content.Client._White.UI.Windows;
+namespace Content.Client._White.UserInterface.Windows;
 
 [GenerateTypedNameReferences]
 public sealed partial class PremiumPassWindow : DefaultWindow

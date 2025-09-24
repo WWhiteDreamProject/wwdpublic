@@ -7,7 +7,7 @@ namespace Content.Client._White.UI.Buttons;
 
 public sealed class ViewPremiumInfoButton : Button
 {
-    WindowTracker<PremiumPassWindow> _premWindow = new();
+    private WindowTracker<PremiumPassWindow> _premWindow = new();
     public ViewPremiumInfoButton() : base()
     {
         OnPressed += Pressed;

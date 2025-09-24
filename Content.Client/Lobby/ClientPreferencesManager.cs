@@ -1,6 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Content.Shared._White.CustomGhostSystem;
 using Content.Shared.Ghost;
 using Content.Shared.Preferences;
 using Robust.Client;
@@ -10,6 +8,9 @@ using Robust.Shared.IoC;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Content.Client.Lobby
 {
@@ -113,7 +114,7 @@ namespace Content.Client.Lobby
         }
 
         // WWDP EDIT START
-        public void SetCustomGhost(EntProtoId<GhostComponent> ghostProto) =>
+        public void SetCustomGhost(ProtoId<CustomGhostPrototype> ghostProto) =>
             Preferences = Preferences.WithCustomGhost(ghostProto);
         // WWDP EDIT END
 

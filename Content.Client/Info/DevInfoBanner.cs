@@ -1,4 +1,4 @@
-using Content.Client._White.UI;
+using Content.Client._White.UserInterface;
 using Content.Client.Changelog;
 using Content.Client.Credits;
 using Content.Shared.CCVar;

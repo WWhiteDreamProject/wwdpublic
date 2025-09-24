@@ -482,7 +482,7 @@ namespace Content.Server.Ghost
             // WWDP EDIT START
             CustomGhostPrototype? customGhost = null;
             if (mind.Comp.UserId is NetUserId userId)
-                customGhost = _prototypeManager.Index<CustomGhostPrototype>(_prefs.GetPreferences(userId).CustomGhost);
+                customGhost = _prototypeManager.Index(_prefs.GetPreferences(userId).CustomGhost);
 
             var ghost = SpawnAtPosition(customGhost?.GhostEntityPrototype ?? GameTicker.ObserverPrototypeName, spawnPosition.Value);
             // WWDP EDIT END

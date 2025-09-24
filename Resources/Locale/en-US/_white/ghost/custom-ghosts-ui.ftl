@@ -1,17 +1,17 @@
 custom-ghost-fail-exclusive-ghost = This ghost is ckey-locked.
 custom-ghost-fail-server-insufficient-playtime = Play on the server for {$requiredHours} {$requiredHours ->
-  [one] hour
-  *[many] hours
+  *[one] hour
+  [other] hours
 }. { -playtime(pH: $playtimeHours, pM: $playtimeMinutes) }
 
 custom-ghost-fail-job-insufficient-playtime = Play as a {$job} {$requiredHours} {$requiredHours ->
-  [one] hour
-  *[many] hours
+  *[one] hour
+  [other] hours
 }. { -playtime(pH: $playtimeHours, pM: $playtimeMinutes) }
 
 custom-ghost-fail-department-insufficient-playtime = Play as a member of {$department} for {$requiredHours} {$requiredHours ->
-  [one] hour
-  *[many] hours
+  *[one] hour
+  [other] hours
 }. { -playtime(pH: $playtimeHours, pM: $playtimeMinutes) }
 
 custom-ghosts-window-title = Custom ghost menu
@@ -20,9 +20,9 @@ custom-ghosts-window-show-all-checkbox-tooltip = Shows ghosts that are now unloc
 custom-ghost-window-tooltip-to-unlock = To unlock this ghost you need:
 
 -playtime = Your current playtime is {$pH} {$pH ->
-  [one] hour
-  *[many] hours
+  *[one] hour
+  [other] hours
 } {$pM} {$pM ->
-  [one] minute
-  *[many] minutes
+  *[one] minute
+  [other] minutes
 }

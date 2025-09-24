@@ -33,12 +33,12 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
     [Dependency] private readonly IEntitySystemManager _entSys = default!;
     private readonly SpriteSystem _sprite = default!;
 
-    List<Control> _hidden = new();
-    Button _currentActive = default!;
+    private List<EntityUid> _previewEntities = new();
+    private List<Control> _hidden = new();
+    private Button _currentActive = default!;
+    private Dictionary<string, List<CustomGhostPrototype>> _allGhosts = new(); // won't include ghosts that are ckey-locked
+    private ProtoId<CustomGhostPrototype> _currentGhostProtoId;
 
-    Dictionary<string, List<CustomGhostPrototype>> _allGhosts = new(); // won't include ghosts that are ckey-locked
-
-    EntProtoId<GhostComponent> _currentGhostProtoId;
     public CustomGhostsWindow()
     {
         RobustXamlLoader.Load(this);
@@ -48,6 +48,7 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
         _currentGhostProtoId = _pref.Preferences?.CustomGhost.Id ?? "default";
         ShowAllCheckBox.OnToggled += ToggleVisibility;
 
+        OnClose += () => { foreach (var ent in _previewEntities) { _entMan.TryQueueDeleteEntity(ent); } };
         BuildList();
     }
 
@@ -101,6 +102,7 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
         // therefore there is no reason to use it over SpriteView
 
         var ghostEnt = _entMan.Spawn(ghostProto.GhostEntityPrototype);
+        _previewEntities.Add(ghostEnt);
         _sprite.ForceUpdate(ghostEnt);
         _sprite.SetVisible(ghostEnt, true); // counters ghost invisibility bullshit
         button.EntityTextureRects.SetEntity(ghostEnt);
@@ -167,7 +169,7 @@ public sealed partial class CustomGhostsWindow : DefaultWindow
     // shamelessly stolen from EntitySpawnButton
     public sealed class CustomGhostButton : Control
     {
-        public EntProtoId<GhostComponent> GhostProtoId { get; set; } = default!;
+        public ProtoId<CustomGhostPrototype> { get; set; } = default!;
         public Button ActualButton { get; private set; }
         public Label EntityLabel { get; private set; }
         public SpriteView EntityTextureRects { get; private set; }

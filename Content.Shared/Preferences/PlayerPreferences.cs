@@ -1,3 +1,4 @@
+using Content.Shared._White.CustomGhostSystem;
 using Content.Shared.Ghost;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -15,7 +16,7 @@ namespace Content.Shared.Preferences
     {
         private Dictionary<int, ICharacterProfile> _characters;
 
-        public PlayerPreferences(IEnumerable<KeyValuePair<int, ICharacterProfile>> characters, int selectedCharacterIndex, Color adminOOCColor, EntProtoId<GhostComponent> ghostPrototype)
+        public PlayerPreferences(IEnumerable<KeyValuePair<int, ICharacterProfile>> characters, int selectedCharacterIndex, Color adminOOCColor, ProtoId<CustomGhostPrototype> ghostPrototype)
         {
             _characters = new Dictionary<int, ICharacterProfile>(characters);
             SelectedCharacterIndex = selectedCharacterIndex;
@@ -33,7 +34,7 @@ namespace Content.Shared.Preferences
         public PlayerPreferences WithAdminOOCColor(Color adminColor) =>
                     new(_characters, SelectedCharacterIndex, adminColor, CustomGhost);
 
-        public PlayerPreferences WithCustomGhost(EntProtoId<GhostComponent> customGhost) =>
+        public PlayerPreferences WithCustomGhost(ProtoId<CustomGhostPrototype> customGhost) =>
                     new(_characters, SelectedCharacterIndex, AdminOOCColor, customGhost);
         // WWDP EDIT END
 
@@ -58,7 +59,7 @@ namespace Content.Shared.Preferences
         public ICharacterProfile SelectedCharacter => Characters[SelectedCharacterIndex];
 
         public Color AdminOOCColor { get; set; }
-        public EntProtoId<GhostComponent> CustomGhost { get; set; }
+        public ProtoId<CustomGhostPrototype> CustomGhost { get; set; }
 
         public int IndexOfCharacter(ICharacterProfile profile)
         {

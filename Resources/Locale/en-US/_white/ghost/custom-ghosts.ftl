@@ -28,17 +28,17 @@ custom-ghost-heart-desc = Number 1 rated ghost shape since 1997.
 custom-ghost-king-name = King ghost
 custom-ghost-king-desc = So what if I swagger?
 
-custom-ghost-weed-name = Weed ghost
-custom-ghost-weed-desc = {"("}Insert an MLG joke of your choice here{")"}
+custom-ghost-blazeit-name = Weed ghost
+custom-ghost-blazeit-desc = {"("}Insert an MLG joke of your choice here{")"}
 
 custom-ghost-rainbow-name = Rainbow ghost
 custom-ghost-rainbow-desc = All the colors at once, for those who can't decide.
 
-custom-ghost-cat-name = Cat ghost
-custom-ghost-cat-desc = kitty!!!
+custom-ghost-kitty-name = Cat ghost
+custom-ghost-kitty-desc = kitty!!!
 
-custom-ghost-dog-name = Dog ghost
-custom-ghost-dog-desc = Only true Ian fans will get this one.
+custom-ghost-ian-name = Dog ghost
+custom-ghost-ian-desc = Only true Ian fans will get this one.
 
 custom-ghost-fire-name = Fire ghost
 custom-ghost-fire-desc = Looks lit. By the standards of 2004.

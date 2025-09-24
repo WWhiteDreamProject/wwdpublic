@@ -77,7 +77,7 @@ public sealed class OrbitVisualsSystem : EntitySystem
             var angle = new Angle(Math.PI * 2 * orbit.Orbit);
             var vec = angle.RotateVec(new Vector2(orbit.OrbitDistance, 0));
 
-            sprite.Rotation = orbit.KeepUpright ? 0 : angle; // WWDP EDIT
+            sprite.Rotation = orbit.KeepUpright ? Angle.Zero : angle; // WWDP EDIT
             sprite.Offset = vec;
         }
     }

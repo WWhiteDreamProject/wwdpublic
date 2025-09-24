@@ -25,6 +25,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
 using Robust.Shared.Utility;
+using Content.Shared._White.CustomGhostSystem;
 
 namespace Content.Server.Database
 {
@@ -179,7 +180,7 @@ namespace Content.Server.Database
         }
 
         // WWDP EDIT START
-        public async Task SaveGhostTypeAsync(NetUserId userId, EntProtoId<GhostComponent> proto)
+        public async Task SaveGhostTypeAsync(NetUserId userId, ProtoId<CustomGhostPrototype> proto)
         {
             await using var db = await GetDb();
             var prefs = await db.DbContext

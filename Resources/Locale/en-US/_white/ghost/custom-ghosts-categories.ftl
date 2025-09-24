@@ -1,3 +1,3 @@
-custom-ghosts-category-color = Colorful
-custom-ghosts-category-misc = Misc
-custom-ghosts-category-personal = Personal
+custom-ghost-category-color = Colorful
+custom-ghost-category-misc = Misc
+custom-ghost-category-personal = Personal

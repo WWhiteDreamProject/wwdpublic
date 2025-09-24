@@ -22,6 +22,7 @@ using MSLogLevel = Microsoft.Extensions.Logging.LogLevel;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 using Content.Shared.Ghost;
+using Content.Shared._White.CustomGhostSystem;
 
 namespace Content.Server.Database
 {
@@ -43,7 +44,7 @@ namespace Content.Server.Database
 
         Task SaveAdminOOCColorAsync(NetUserId userId, Color color);
 
-        Task SaveGhostTypeAsync(NetUserId userId, EntProtoId<GhostComponent> ghostProto); // WWDP EDIT
+        Task SaveGhostTypeAsync(NetUserId userId, ProtoId<CustomGhostPrototype> ghostProto); // WWDP EDIT
 
         // Single method for two operations for transaction.
         Task DeleteSlotAndSetSelectedIndex(NetUserId userId, int deleteSlot, int newSlot);
@@ -482,7 +483,7 @@ namespace Content.Server.Database
         }
 
         // WWDP EDIT START
-        public Task SaveGhostTypeAsync(NetUserId userId, EntProtoId<GhostComponent> ghostProto)
+        public Task SaveGhostTypeAsync(NetUserId userId, ProtoId<CustomGhostPrototype> ghostProto)
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.SaveGhostTypeAsync(userId, ghostProto));

@@ -10,7 +10,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.IntegrationTests.Tests.DeviceNetwork
+namespace Content.IntegrationTests.Tests._White
 {
     [TestFixture]
     public sealed class CustomGhostDefaultTest
