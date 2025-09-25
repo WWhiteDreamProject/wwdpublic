@@ -42,7 +42,7 @@ public sealed class CvarToggleableBoxContainer : BoxContainer
     private void Refresh()
     {
         if (_cvar is not null)
-            UpdateVisibility(IoCManager.Resolve<IConfigurationManager>().GetCVar<bool>(_cvar));
+            UpdateVisibility(_сап.GetCVar<bool>(_cvar));
     }
 
     protected override void Dispose(bool disposing)
