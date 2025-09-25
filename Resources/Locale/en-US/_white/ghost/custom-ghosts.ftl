@@ -1,6 +1,9 @@
 custom-ghost-personal-name = Ckey-locked ghost
 custom-ghost-personal-desc = Your custom ghost, custom tailored to your liking.
 
+custom-ghost-personal-placeholder-name = huh?
+custom-ghost-personal-placeholder-desc = Your previous personal ghost has been culled. You can keep this one, or ask for another one.
+
 custom-ghost-default-name = White ghost
 custom-ghost-default-desc = No frills, no thrills. For the purists.
 

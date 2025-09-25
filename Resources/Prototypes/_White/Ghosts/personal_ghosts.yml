@@ -7,9 +7,8 @@
   restrictions:
   - !type:CkeyRestriction
     ckey: [persikvin, reider207, nairsark, mapperian, PZAKusik, dageff, RedFoxIV]
-  name: А где?
-  desc: "Кастумный призрак, которым вы пользовались ранее, был сочтён чрезмерно большим или вырвиглазным, и был удалён. \n
-         Вы всё ещё можете получить нового кастумного призрака - для этого обратитесь к кодербасу, либо сами откройте PR в репозитории проекта."
+  name: custom-ghost-personal-placeholder-name
+  desc: custom-ghost-personal-placeholder-desc
 
 - type: entity
   parent: MobObserverCkey
@@ -25,7 +24,7 @@
   category: personal
   name: custom-ghost-personal-name
   desc: custom-ghost-personal-desc
-  
+
 #abstract entproto to force transparency on all custom ghosts
 - type: entity
   abstract: true

@@ -1,6 +1,10 @@
 custom-ghost-personal-name = Эксклюзивный призрак
 custom-ghost-personal-desc = Доступен только вам.
 
+custom-ghost-personal-placeholder-name = А где?
+custom-ghost-personal-placeholder-desc = Кастумный призрак, которым вы пользовались ранее, был сочтён чрезмерно большим или вырвиглазным, и был удалён.
+        Вы всё ещё можете получить нового кастумного призрака - для этого обратитесь к кодербасу, либо сами откройте PR в репозитории проекта.
+
 custom-ghost-default-name = Белый призрак
 custom-ghost-default-desc = Без всяких свистелок и перделок. Красота в простоте.
 

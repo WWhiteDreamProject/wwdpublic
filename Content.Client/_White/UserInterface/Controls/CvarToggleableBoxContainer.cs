@@ -5,6 +5,8 @@ namespace Content.Client._White.UserInterface.Controls;
 
 public sealed class CvarToggleableBoxContainer : BoxContainer
 {
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+
     private string? _cvar;
     [ViewVariables]
     public string? CVar { get => _cvar; set => Subscribe(value); }
@@ -21,14 +23,19 @@ public sealed class CvarToggleableBoxContainer : BoxContainer
         }
     }
 
+    public CvarToggleableBoxContainer() : base()
+    {
+        IoCManager.InjectDependencies(this);
+    }
+
     private void UpdateVisibility(bool value) => Visible = value ^ _flip;
 
     private void Subscribe(string? newCVar)
     {
         if (_cvar is not null)
-            IoCManager.Resolve<IConfigurationManager>().UnsubValueChanged<bool>(_cvar, UpdateVisibility);
+            _cfg.UnsubValueChanged<bool>(_cvar, UpdateVisibility);
         if (newCVar is not null)
-            IoCManager.Resolve<IConfigurationManager>().OnValueChanged<bool>(newCVar, UpdateVisibility, true);
+            _cfg.OnValueChanged<bool>(newCVar, UpdateVisibility, true);
         _cvar = newCVar;
     }
 
@@ -42,6 +49,6 @@ public sealed class CvarToggleableBoxContainer : BoxContainer
     {
         base.Dispose(disposing);
         if (_cvar is not null)
-            IoCManager.Resolve<IConfigurationManager>().UnsubValueChanged<bool>(_cvar, UpdateVisibility);
+            _cfg.UnsubValueChanged<bool>(_cvar, UpdateVisibility);
     }
 }
