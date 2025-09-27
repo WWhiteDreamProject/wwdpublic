@@ -58475,15 +58475,13 @@ entities:
     - type: Transform
       pos: -46.31176,-39.66077
       parent: 2
-- proto: FloraTree01
+- proto: FloraTree
   entities:
   - uid: 8800
     components:
     - type: Transform
       pos: 26.47342,-1.9966583
       parent: 2
-- proto: FloraTree02
-  entities:
   - uid: 8801
     components:
     - type: Transform
@@ -58504,8 +58502,6 @@ entities:
     - type: Transform
       pos: 4.491239,-0.60972
       parent: 2
-- proto: FloraTree04
-  entities:
   - uid: 8805
     components:
     - type: Transform
@@ -58516,8 +58512,6 @@ entities:
     - type: Transform
       pos: -18.008703,15.983163
       parent: 2
-- proto: FloraTree06
-  entities:
   - uid: 8807
     components:
     - type: Transform

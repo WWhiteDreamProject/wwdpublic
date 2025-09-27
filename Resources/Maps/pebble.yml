@@ -35644,22 +35644,18 @@ entities:
     - type: Transform
       pos: 26.5,-11.5
       parent: 2
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 4453
     components:
     - type: Transform
       pos: -15.499581,42.479954
       parent: 2
-- proto: FloraRockSolid02
-  entities:
   - uid: 4454
     components:
     - type: Transform
       pos: -12.461387,40.570232
       parent: 2
-- proto: FloraRockSolid03
-  entities:
   - uid: 4455
     components:
     - type: MetaData
@@ -35674,7 +35670,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 26.041445,41.487988
       parent: 2
-- proto: FloraTree05
+- proto: FloraTree
   entities:
   - uid: 4457
     components:

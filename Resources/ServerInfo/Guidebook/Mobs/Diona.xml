@@ -15,7 +15,7 @@
   ## Пускай корни
 
   <Box>
-    <GuideEntityEmbed Entity="FloraTree06" Caption=""/>
+    <GuideEntityEmbed Entity="FloraTree" Caption=""/>
   </Box>
 
   Слишком частое применение удобрения "Robust Harvest" приведёт к тому, что диона потеряет контроль над ростом. Она буквально превратится в дерево — перестав двигаться, сбросив одежду и снаряжение.

@@ -70,7 +70,7 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 9.5
-# WD EDIT START
+  # WD EDIT START
   # Sounds
   - type: EmitSoundOnPickup
     sound:
@@ -170,7 +170,7 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
-  # WD EDIT START: MagazineAmmoProvider -> ChamberMagazineAmmoProvider
+      # WD EDIT START: MagazineAmmoProvider -> ChamberMagazineAmmoProvider
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
@@ -241,8 +241,8 @@
     stealGroup: HoSAntiqueWeapon
 
 - type: entity
-  name: double-barreled shotgunshotgun
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseMinorContraband]
+  name: double-barreled shotgun
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityBartenderContraband]
   id: WeaponShotgunDoubleBarreled
   description: An immortal classic. Uses .50 shotgun shells.
   components:
@@ -364,7 +364,7 @@
 
 - type: entity
   name: sawn-off shotgun
-  parent: BaseWeaponShotgunSmall # WD EDIT: BaseWeaponShotgun -> BaseWeaponShotgunSmall
+  parent: [ BaseWeaponShotgunSmall, BaseSecurityBartenderContraband ] # WD EDIT: BaseWeaponShotgun -> BaseWeaponShotgunSmall
   id: WeaponShotgunSawn
   description: Groovy! Uses .50 shotgun shells.
   components:
@@ -444,7 +444,7 @@
     fireOnDropChance: 1
   - type: BallisticAmmoProvider
     capacity: 1
-  # WD EDIT START
+    # WD EDIT START
     autoCycle: true
   # - type: Construction
   #   graph: ShotgunSawn

@@ -2543,15 +2543,13 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 4.5,1.5
       parent: 2
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 366
     components:
     - type: Transform
       pos: 3.5,11.5
       parent: 2
-- proto: FloraRockSolid02
-  entities:
   - uid: 367
     components:
     - type: Transform

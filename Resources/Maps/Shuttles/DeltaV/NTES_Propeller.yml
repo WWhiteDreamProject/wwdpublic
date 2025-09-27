@@ -6024,7 +6024,7 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-- proto: FloraTree02
+- proto: FloraTree
   entities:
   - uid: 1923
     components:
@@ -6038,15 +6038,13 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -7.6932545,7.499033
       parent: 1
-- proto: FloraTree04
-  entities:
   - uid: 1926
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 14.759519,-6.5801034
       parent: 1
-- proto: FloraTreeLarge04
+- proto: FloraTreeLarge
   entities:
   - uid: 1927
     components:
@@ -12272,7 +12270,7 @@ entities:
     - type: Transform
       pos: 6.5,-20.5
       parent: 1
-- proto: ShadowTree01
+- proto: ShadowTree
   entities:
   - uid: 1918
     components:
@@ -12285,8 +12283,6 @@ entities:
     - type: Transform
       pos: -6.6538024,7.966305
       parent: 1
-- proto: ShadowTree03
-  entities:
   - uid: 1914
     components:
     - type: Transform
@@ -12299,16 +12295,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -8.080735,-6.4842486
       parent: 1
-- proto: ShadowTree04
-  entities:
   - uid: 1915
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 14.303209,7.7148037
       parent: 1
-- proto: ShadowTree05
-  entities:
   - uid: 422
     components:
     - type: Transform
@@ -12332,8 +12324,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -7.7875977,-14.561567
       parent: 1
-- proto: ShadowTree06
-  entities:
   - uid: 1922
     components:
     - type: Transform

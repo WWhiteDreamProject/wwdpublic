@@ -83078,29 +83078,25 @@ entities:
       angularDamping: 0
       linearDamping: 0
     - type: RenderOrder
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 9902
     components:
     - type: Transform
       pos: -13.337513,-37.241585
       parent: 82
-- proto: FloraRockSolid02
-  entities:
   - uid: 14431
     components:
     - type: Transform
       pos: -10.040214,-39.77984
       parent: 82
-- proto: FloraTree03
+- proto: FloraTree
   entities:
   - uid: 1521
     components:
     - type: Transform
       pos: -15.796881,-39.667435
       parent: 82
-- proto: FloraTree06
-  entities:
   - uid: 9354
     components:
     - type: Transform
@@ -83113,15 +83109,13 @@ entities:
     - type: Transform
       pos: -50.60177,-9.379113
       parent: 82
-- proto: FloraTreeLarge04
+- proto: FloraTreeLarge
   entities:
   - uid: 9355
     components:
     - type: Transform
       pos: -8.017567,-22.832335
       parent: 82
-- proto: FloraTreeLarge06
-  entities:
   - uid: 14428
     components:
     - type: Transform

@@ -67193,7 +67193,7 @@ entities:
     - type: Transform
       pos: 29.5,38.5
       parent: 2
-- proto: FloraTree02
+- proto: FloraTree
   entities:
   - uid: 9961
     components:
@@ -67201,7 +67201,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -34.5,72.5
       parent: 2
-- proto: FloraTreeLarge02
+- proto: FloraTreeLarge
   entities:
   - uid: 9962
     components:

@@ -1787,15 +1787,13 @@ entities:
     - type: Transform
       pos: 5.641914,-20.5338
       parent: 1
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 90
     components:
     - type: Transform
       pos: -8.575238,-11.492075
       parent: 1
-- proto: FloraRockSolid02
-  entities:
   - uid: 278
     components:
     - type: Transform

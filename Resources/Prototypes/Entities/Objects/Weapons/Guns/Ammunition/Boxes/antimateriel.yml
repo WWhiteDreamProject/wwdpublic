@@ -10,7 +10,7 @@
       tags:
         - CartridgeAntiMateriel
     proto: CartridgeAntiMateriel
-    capacity: 10
+    capacity: 30 # WD EDIT: 10 -> 30
   - type: Item
     size: Small
   - type: ContainerContainer
@@ -20,31 +20,11 @@
     sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi
   - type: MagazineVisuals
     magState: mag
-    steps: 4 # WWDP
+    steps: 4
     zeroVisible: false
   - type: Appearance
 
 # Boxes
-- type: entity
-  parent: BaseMagazineBoxAntiMateriel
-  id: MagazineBoxAntiMaterielBig
-  name: ammunition box (.60 anti-materiel)
-  components:
-  - type: BallisticAmmoProvider
-    capacity: 30
-    proto: CartridgeAntiMateriel
-  - type: Sprite # WWDP
-    layers:
-     - state: base
-       map: [ "enum.GunVisualLayers.Base" ]
-     - state: mag-1
-       map: [ "enum.GunVisualLayers.Mag" ]
-  # - type: MagazineVisuals
-  #   magState: magb
-  #   steps: 4 # WWDP
-  #   zeroVisible: false
-  # - type: Appearance
-
 - type: entity
   parent: BaseMagazineBoxAntiMateriel
   id: MagazineBoxAntiMateriel
@@ -53,16 +33,11 @@
   - type: BallisticAmmoProvider
     proto: CartridgeAntiMateriel
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Boxes/caseless_rifle.rsi
     layers:
-    - state: base-10x24
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag10-1
+    - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: mag10
-    steps: 2
-    zeroVisible: false
 
 - type: entity
   parent: MagazineBoxAntiMateriel

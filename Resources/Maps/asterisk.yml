@@ -32497,14 +32497,14 @@ entities:
     - type: Transform
       pos: -44.469,-28.408783
       parent: 2
-- proto: FloraTree01
+- proto: FloraTree
   entities:
   - uid: 5217
     components:
     - type: Transform
       pos: -30.035734,-10.704402
       parent: 2
-- proto: FloraTreeSnow02
+- proto: FloraTreeSnow
   entities:
   - uid: 5218
     components:

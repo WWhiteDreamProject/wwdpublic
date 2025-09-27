@@ -35,24 +35,6 @@
   heatCapacity: 10000
 
 - type: tile
-  id: PlatingBurnt
-  name: tiles-plating
-  sprite: /Textures/Tiles/plating_burnt.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Lattice
-  isSubfloor: true
-  deconstructTools: [ AdvancedPrying ] #WWDP edit
-  footstepSounds:
-    collection: FootstepPlating
-  friction: 0.3
-  heatCapacity: 10000
-
-- type: tile
   id: PlatingAsteroid
   name: tiles-asteroid-plating
   sprite: /Textures/Tiles/Asteroid/asteroid_plating.png

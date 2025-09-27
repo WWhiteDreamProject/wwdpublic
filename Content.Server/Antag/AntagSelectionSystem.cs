@@ -57,6 +57,8 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     {
         base.Initialize();
 
+        Log.Level = LogLevel.Debug;
+
         SubscribeLocalEvent<GhostRoleAntagSpawnerComponent, TakeGhostRoleEvent>(OnTakeGhostRole, after: new[] {typeof(GhostRoleSystem)}); // WD EDIT
 
         SubscribeLocalEvent<AntagSelectionComponent, ObjectivesTextGetInfoEvent>(OnObjectivesTextGetInfo);
@@ -360,6 +362,8 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                 $"{ToPrettyString(player)} became an antagonist{ToPrettyString(ent)}");
             _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-became-antag-message", ("player", ToPrettyString(player)), ("antag", ToPrettyString(ent))));
             // WWDP antag logging end
+
+            Log.Debug($"Selected {ToPrettyString(curMind)} as antagonist: {ToPrettyString(ent)}");
         }
 
         var afterEv = new AfterAntagEntitySelectedEvent(session, player, ent, def);

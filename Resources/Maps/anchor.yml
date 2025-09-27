@@ -93852,7 +93852,7 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: FloraTree01
+- proto: FloraTree
   entities:
   - uid: 14561
     components:
@@ -93860,44 +93860,34 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -41.71425,-40.28953
       parent: 2
-- proto: FloraTree02
-  entities:
   - uid: 14562
     components:
     - type: Transform
       pos: -1.3123586,-71.36199
       parent: 2
-- proto: FloraTree04
-  entities:
   - uid: 14563
     components:
     - type: Transform
       pos: 43.6858,-6.5251713
       parent: 2
-- proto: FloraTree05
-  entities:
   - uid: 14564
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -39.86131,-39.693787
       parent: 2
-- proto: FloraTree06
-  entities:
   - uid: 14565
     components:
     - type: Transform
       pos: 3.5470164,-73.56512
       parent: 2
-- proto: FloraTreeLarge01
+- proto: FloraTreeLarge
   entities:
   - uid: 14566
     components:
     - type: Transform
       pos: 2.477793,-69.46558
       parent: 2
-- proto: FloraTreeLarge04
-  entities:
   - uid: 14567
     components:
     - type: Transform
