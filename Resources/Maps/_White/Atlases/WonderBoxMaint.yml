@@ -24401,7 +24401,7 @@ entities:
       angularDamping: 0
       linearDamping: 0
     - type: RenderOrder
-- proto: FloraRockSolid03
+- proto: FloraRockSolid
   entities:
   - uid: 2696
     components:

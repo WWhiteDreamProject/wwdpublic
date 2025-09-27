@@ -129,15 +129,13 @@ entities:
     - type: Transform
       pos: -1.5,0.5
       parent: 192
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 12
     components:
     - type: Transform
       pos: 1.5,1.5
       parent: 192
-- proto: FloraRockSolid02
-  entities:
   - uid: 2
     components:
     - type: Transform
@@ -148,8 +146,6 @@ entities:
     - type: Transform
       pos: -2.5,-1.5
       parent: 192
-- proto: FloraRockSolid03
-  entities:
   - uid: 9
     components:
     - type: Transform

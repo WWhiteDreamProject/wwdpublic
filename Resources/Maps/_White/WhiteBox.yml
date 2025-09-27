@@ -98334,7 +98334,7 @@ entities:
     - type: Transform
       pos: 60.499405,18.485723
       parent: 2
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 13933
     components:

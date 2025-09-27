@@ -11,6 +11,7 @@ using Content.Server.GameTicking;
 using Content.Server.Language;
 using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
+using Content.Server.Speech.Prototypes;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.ActionBlocker;
@@ -839,7 +840,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         newMessage = newMessage.Replace("/", ""); // WWDP edit
 
         GetRadioKeycodePrefix(source, newMessage, out newMessage, out var prefix);
-        _sanitizer.TrySanitizeOutSmilies(newMessage, source, out newMessage, out emoteStr);
+
+        // Sanitize it first as it might change the word order
+        _sanitizer.TrySanitizeEmoteShorthands(newMessage, source, out newMessage, out emoteStr);
 
         if (capitalize)
             newMessage = SanitizeMessageCapital(newMessage);
