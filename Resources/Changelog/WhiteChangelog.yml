@@ -4414,3 +4414,10 @@ Entries:
   id: 461
   time: '2025-09-27T05:38:24.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/849
+- author: Spatison
+  changes:
+    - type: Add
+      message: Портирован еще один пак контента с виздена
+  id: 462
+  time: '2025-09-27T20:15:00.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/850
