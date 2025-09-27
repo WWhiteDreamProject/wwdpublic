@@ -1,514 +1,463 @@
-#Persikvin
 - type: customGhost
-  id: persikvin-ghost
-  ckey: Persikvin
-  sprite: _White/Ghosts/persikvin-ghost.rsi
-  alpha: 0.9
-  ghostName: Gawr
-  ghostDescription: Из океана...
+  id: default
+  category: color
+  proto: MobObserver
 
-#krokozyabra
 - type: customGhost
-  id: krokozyabra-ghost
-  ckey: Krokozyabra
-  sprite: _White/Ghosts/krokozyabra-ghost.rsi
-  alpha: 0.9
-  ghostName: Зябр
-  ghostDescription: От него веет верностью
+  id: red
+  proto: MobObserverRed
+  category: color
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 1
 
-#dageff
-- type: customGhost
-  id: dageff-ghost
-  ckey: Dageff
-  sprite: _White/Ghosts/dageff-ghost.rsi
-  alpha: 0.9
-  ghostName: Maiden
-  ghostDescription: Наблюдает за вашим поведением в кафе.
-  size: 0.9, 0.9
 
-#scituzer2
-- type: customGhost
-  id: scituzer2-ghost
-  ckey: scituzer2
-  sprite: _White/Ghosts/scituzer2-ghost.rsi
-  ghostName: Black Harpy
-  ghostDescription: A race of harpies that have charming onyx wings. Although they are a clever race, particularly having the highest intelligence of all harpies, on the other hand, they are exceedingly belligerent and ferocious. This one specifically used to be project lead of this project - but all she saw is world on fire.
 
-#warete
-- type: customGhost
-  id: warete-ghost
-  ckey: warete
-  sprite: _White/Ghosts/warete-ghost.rsi
-  alpha: 0.8
-  ghostName: Fiammetta
-  ghostDescription: Горничная под своим кодовым именем. Следит за порядком в кафе Мастера.
-  size: 0.7, 0.7
-
-#pointpng
-- type: customGhost
-  id: cheeseCheese-ghost
-  ckey: cheese_cheese
-  sprite: _White/Ghosts/cheese_cheese-ghost.rsi
-  alpha: 0.8
-  ghostName: Фырчало
-  ghostDescription: Инженерный борг
-
-#nairsark
-- type: customGhost
-  id: nairsark-ghost
-  ckey: nairsark
-  sprite: _White/Ghosts/frostnova-ghost.rsi
-  alpha: 0.7
-  ghostName: Winter's Scar
-  ghostDescription: ...
-
-#reider207
-- type: customGhost
-  id: reider207-ghost
-  ckey: reider207
-  sprite: _White/Ghosts/reider207-ghost.rsi
-  alpha: 0.8
-  ghostName: Tighnari
-  ghostDescription: But what are they going to do, lock me up?
-  size: 0.8, 0.8
-
-#mapperian
-- type: customGhost
-  id: mapperian-ghost
-  ckey: mapperian
-  sprite: _White/Ghosts/mapperian-ghost.rsi
-  alpha: 0.9
-  ghostName: Alice Liddell
-  ghostDescription: found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you found you
-  size: 0.7, 0.7
-
-#s_k_r_i_m_e_x
-- type: customGhost
-  id: s_k_r_i_m_e_x-ghost
-  ckey: s_k_r_i_m_e_x
-  sprite: _White/Ghosts/s_k_r_i_m_e_x-ghost.rsi
-  alpha: 0.8
-  ghostName: Ху Тао
-  ghostDescription: Мяу!
-  size: 0.8, 0.8
-
-#cyou
-- type: customGhost
-  id: cyou-ghost
-  ckey: cyou
-  sprite: _White/Ghosts/cyou-ghost.rsi
-  alpha: 0.8
-  ghostName: Marina
-  ghostDescription: Я, наверное, открою небольшой оккультный магазин где-нибудь. Где-нибудь далеко от Прехевиля... Может, в Рондоне. Хочу жить в оживлённом месте, среди множества людей. Людей, которые не будут осуждать меня или кого-то ещё вокруг…
-
-#nonta228
-- type: customGhost
-  id: nonta228-ghost
-  ckey: nonta228
-  sprite: _White/Ghosts/nonta228-ghost.rsi
-  alpha: 0.8
-  ghostName: nonta
-  ghostDescription: Я устрою конец света
-
-#puroslavking
-- type: customGhost
-  id: puroslavking-ghost
-  ckey: PuroSlavKing
-  sprite: _White/Ghosts/puroslavking-ghost.rsi
-  alpha: 0.8
-  ghostName: PuroSlavKing
-  ghostDescription: Что за гомосексуалист на моём рабочем месте?
-
-#kilath
-- type: customGhost
-  id: kilath-ghost
-  ckey: Kilath
-  sprite: _White/Ghosts/kilath-ghost.rsi
-  alpha: 0.8
-  ghostName: LeaSzish
-  ghostDescription: Руками перья не смотреть!
-
-#gavrik
-- type: customGhost
-  id: gavrik-ghost
-  ckey: Gavrik
-  sprite: _White/Ghosts/gavrik-ghost.rsi
-  alpha: 0.8
-  ghostName: Gavrik
-  ghostDescription: Лучший в категории Поп
-
-#purka
-- type: customGhost
-  id: purka-ghost
-  ckey: PurplePi
-  sprite: _White/Ghosts/purka-ghost.rsi
-  alpha: 0.8
-  ghostName: Purka
-  ghostDescription: Следи за осанкой!
-
-#pzakusik
-- type: customGhost
-  id: pzakusik-ghost
-  ckey: PZAKusik
-  sprite: _White/Ghosts/pzakusik-ghost.rsi
-  alpha: 0.8
-  ghostName: Kutos
-  ghostDescription: ...
-
-#felix163
-- type: customGhost
-  id: felix163-ghost
-  ckey: felix163
-  sprite: _White/Ghosts/felix163-ghost.rsi
-  alpha: 1
-  ghostName: Кошмар
-  ghostDescription: ползёт, ползёт...
-  size: 0.8, 0.8
-
-#tokijumper
-- type: customGhost
-  id: tokijumper-ghost
-  ckey: TokiJumper
-  sprite: _White/Ghosts/headwiki-ghost.rsi
-  alpha: 1
-  ghostName: Toki
-  ghostDescription: Премудрый раб, прав не имеющий, в подвале мапперов содержащийся, лороведов упрашивающий, спрайтеров любящий, кокеров преследующий, космонавтиков боящийся глава Лороведов.
-  size: 0.8, 0.8
-
-#izeribak
-- type: customGhost
-  id: izeribak-ghost
-  ckey: IzeRibak
-  sprite: _White/Ghosts/headwiki-ghost.rsi
-  alpha: 1
-  ghostName: IzeRibak
-  ghostDescription: Премудрый царь, право имеющий, в подвале мапперов держащий, лороведов не спрашивающий, спрайтеров принижающий, кокерами повелевающий, космонавтиков травящий глава Викиводов.
-  size: 0.8, 0.8
-
-#just look at the ckey field you dumbass
-- type: customGhost
-  id: redfoxiv-ghost
-  ckey: RedFoxIV
-  sprite: _White/Ghosts/empty.rsi
-  alpha: 1
-  ghostName: яицевозка
-  ghostDescription: ДЕРЖИСЬ,    ЛЕТАЮЩАЯ    КРЕПОСТЬ!                                     МОЁ    СОЗДАНИЕ,    ЯИЦЕНОСЕЦ.
-  size: 0.5, 0.5
+- type: entity
+  parent: MobObserver
+  id: MobObserverRed
   components:
-  - type: MouseRotator
-    angleTolerance: 1
-    simple4DirMode: false
-  - type: DollyMixture
-    sprite: _White/Ghosts/redfoxiv-3Dghost.rsi
-    statePrefix: hqyaitca
-    offset: 0,-16
-    layerOffset: 0,0.675
-    defaultShader: unshaded
+  - type: Sprite
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    color: "#f228"
+    layers:
+    - state: animated
+      shader: unshaded
 
 
-##xivi
-#- type: customGhost
-#  id: xivi-ghost
-#  ckey: xivi
-#  sprite: _White/Ghosts/xivi-ghost.rsi
-#  alpha: 0.9
-#  ghostName: Project Bunny
-#  ghostDescription: Ride on!
-#  size: 0.6, 0.6
+
+- type: customGhost
+  id: green
+  category: color
+  proto: MobObserverGreen
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 1
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverGreen
+  components:
+  - type: Sprite
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    color: "#2f28"
+    layers:
+    - state: animated
+      shader: unshaded
 
 
-## Unused
-##merkkaa
+
+- type: customGhost
+  id: blue
+  category: color
+  proto: MobObserverBlue
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 1
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverBlue
+  components:
+  - type: Sprite
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    color: "#22f8"
+    layers:
+    - state: animated
+      shader: unshaded
+
+
+
+- type: customGhost
+  id: violet
+  category: color
+  proto: MobObserverViolet
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 1
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverViolet
+  components:
+  - type: Sprite
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    color: "#f4f8"
+    layers:
+    - state: animated
+      shader: unshaded
+
+
+
+- type: customGhost
+  id: pink
+  category: color
+  proto: MobObserverPink
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 1
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverPink
+  components:
+  - type: Sprite
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    color: "#f8f8"
+    layers:
+    - state: animated
+      shader: unshaded
+
+
+
+- type: customGhost
+  id: yellow
+  category: color
+  proto: MobObserverYellow
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 1
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverYellow
+  components:
+  - type: Sprite
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    color: "#ff48"
+    layers:
+    - state: animated
+      shader: unshaded
+
+
+
+# scrapped due to it looking like ass
 #- type: customGhost
-#  id: merkkaa-ghost
-#  ckey: merkkaa
-#  sprite: _White/Ghosts/merkkaa-ghost.rsi
-#  alpha: 0.9
-#  ghostName: Мурка
-#  ghostDescription: Ня...
+#  id: ashcloud
+#  category: misc
+#  proto: MobObserverAshCloud
+#  name: Ashen cloud
+#  desc: "Dancing on the ashes of the world,\n
+#         I behold the stars.\n
+#         Heavy gale is blowing to my face,\n
+#         Rising up the dust.\n
+#         Barren lands are desperate to blossom,\n
+#         Dark stars strive to shine,\n
+#         Still remember the blue ocean,\n
+#         In this dying world."
 #
-##shelupon
-#- type: customGhost
-#  id: shelupon-ghost
-#  ckey: shelupon
-#  sprite: _White/Ghosts/shelupon-ghost.rsi
-#  alpha: 1
-#  ghostName: Величайший
-#  ghostDescription: Восстал из небытия.
-#
-##hskveez
-#- type: customGhost
-#  id: hskveez-ghost
-#  ckey: hskveez
-#  sprite: _White/Ghosts/hskveez-ghost.rsi
-#  alpha: 0.9
-#  ghostName: Огонек
-#  ghostDescription: А где тут огнетушитель?
-#
-##mikvisan
-#- type: customGhost
-#  id: mikvisan-ghost
-#  ckey: mikvisan
-#  sprite: _White/Ghosts/mikvisan-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Мона
-#  ghostDescription: Годротянка с хорошей задницей
-#  size: 0.8, 0.8
-#
-##doommax
-#- type: customGhost
-#  id: doommax-ghost
-#  ckey: doommax
-#  sprite: _White/Ghosts/doommax-ghost.rsi
-#  alpha: 0.95
-#  ghostName: Наблюдатель
-#  ghostDescription: Явился из другого мира с целью наблюдать за другими разумными существами
-#  size: 1, 1
-#
-##serbwo
-#- type: customGhost
-#  id: serbwo-ghost
-#  ckey: serbwo
-#  sprite: _White/Ghosts/serbo-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Karseba
-#  ghostDescription: Дракон который делает Ням-Ням
-#  size: 1, 1
-#
-##centurion
-#- type: customGhost
-#  id: centurion-ghost
-#  ckey: centurion
-#  sprite: _White/Ghosts/vkuser_ghost.rsi
-#  alpha: 0.8
-#  ghostName: Central Hampter
-#  ghostDescription: Мур!
-#  size: 0.8, 0.8
-#
-##zmes2
-#- type: customGhost
-#  id: zmes2-ghost
-#  ckey: zmes2
-#  sprite: _White/Ghosts/zmes2-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Спящий
-#  ghostDescription: Выглядит умиротвореным...
-#  size: 0.8, 0.8
-#
-##quazvr
-#- type: customGhost
-#  id: quazvr-ghost
-#  ckey: quazvr
-#  sprite: _White/Ghosts/quazvr-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Neco
-#  ghostDescription: Buranyaaa...
-#  size: 0.6, 0.6
-#
-##nexmachina
-#- type: customGhost
-#  id: nexmachina-ghost
-#  ckey: nexmachina
-#  sprite: _White/Ghosts/nexmachina-ghost.rsi
-#  alpha: 0.7
-#  ghostName: CoreOverHeaven
-#  ghostDescription: Плоф
-#  size: 1.0, 1.0
-#
-##17shu
-#- type: customGhost
-#  id: 17shu-ghost
-#  ckey: 17shu
-#  sprite: _White/Ghosts/17shu-ghost.rsi
-#  alpha: 0.9
-#  ghostName: Квакалка
-#  ghostDescription: Квакающий покемон..
-#  size: 0.7, 0.7
-#
-##ren0san
-#- type: customGhost
-#  id: renosan-ghost
-#  ckey: ren0san
-#  sprite: _White/Ghosts/renosan-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Энхиридион
-#  ghostDescription: Древняя книга с кодексом чести, руководством и иной полезной информацией для героев.
-#  size: 0.8, 0.8
-#
-##deadisko
-#- type: customGhost
-#  id: deadisko-ghost
-#  ckey: deadisko
-#  sprite: _White/Ghosts/deadisko-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Летающий макаронный монстр
-#  ghostDescription: Сложноуглеводное всеведующее создание, покровитель пиратов с большими митболами.
-#  size: 0.8, 0.8
-#
-##zilendorie
-#- type: customGhost
-#  id: zilendorie-ghost
-#  ckey: zilendorie
-#  sprite: _White/Ghosts/zilendorie-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Эзра-Арк
-#  ghostDescription: Призрак фембоя. Стал слишком глупеньким и отделился от тела.
-#  size: 0.3, 0.3
-#
-##4abere1
-#- type: customGhost
-#  id: 4abere1-ghost
-#  ckey: 4abere1
-#  sprite: _White/Ghosts/4abere1-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Хамптер
-#  ghostDescription: Любит чебуреки и мапить.
-#  size: 1.3, 1.3
-#
-##rendzidead
-#- type: customGhost
-#  id: rendzidead-ghost
-#  ckey: rendzidead
-#  sprite: _White/Ghosts/rendzidead-ghost.rsi
-#  alpha: 0.6
-#  ghostName: Смит Сайковски
-#  ghostDescription: Олицетворение бюрократии, но почему-то от него ощущается сильная боль и чувство утраты. Кто знает, что пережила данная душа.
-#  size: 0.6, 0.6
-#
-##nosireapo
-#- type: customGhost
-#  id: nosireapo-ghost
-#  ckey: nosireapo
-#  sprite: _White/Ghosts/nosireapo-ghost.rsi
-#  alpha: 0.7
-#  ghostName: Жабуля
-#  ghostDescription: Неудачный(или слишком удачный) эксперимент по ксенобиологии создал данное существо. Любит квакоть.
-#  size: 1.0, 1.0
-#
-##svinka
-#- type: customGhost
-#  id: svinka-ghost
-#  ckey: svinka
-#  sprite: _White/Ghosts/afanasy-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Свинка
-#  ghostDescription: хрю-хрю
-#
-##hayras
-#- type: customGhost
-#  id: hayras-ghost
-#  ckey: hayras
-#  sprite: _White/Ghosts/hayras-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Витя
-#  ghostDescription: Хню...
-#
-##trora
-#- type: customGhost
-#  id: trora-ghost
-#  ckey: trora
-#  sprite: _White/Ghosts/nairsark-ghost.rsi
-#  alpha: 1
-#  ghostName: Maid
-#  ghostDescription: Not a fucking fumo.
-#
-##mrregari
-#- type: customGhost
-#  id: mrregari-ghost
-#  ckey: mr_regari
-#  sprite: _White/Ghosts/mr_regari.rsi
-#  alpha: 0.9
-#  ghostName: Обсидиановое сердце
-#  ghostDescription: Сердце древнего бога, дабы не дать ему возродиться было заперто в бедрокиуме.
-#
-##thefrendlypsychopath
-#- type: customGhost
-#  id: thefrendlypsychopath-ghost
-#  ckey: thefrendlypsychopath
-#  sprite: _White/Ghosts/psychopath-ghost.rsi
-#  ghostName: ЕРП Кицуне
-#  ghostDescription: Тут тебе не рады.
-#
-##ssao
-#- type: customGhost
-#  id: ssao-ghost
-#  ckey: ssao
-#  sprite: _White/Ghosts/ssao-ghost.rsi
-#  alpha: 0.9
-#  ghostName: Мяукалка
-#  ghostDescription: Мяу!
-#  size: 0.6, 0.6
-#
-##raindrop
-#- type: customGhost
-#  id: raindrop-ghost
-#  ckey: raindrop
-#  sprite: _White/Ghosts/raindrop-ghost.rsi
-#  alpha: 0.7
-#  ghostName: Акулёнок
-#  ghostDescription: Что-то замышляет.
-#  size: 0.9, 0.9
-#
-##veryfish
-#- type: customGhost
-#  id: veryfish-ghost
-#  ckey: veryfish
-#  sprite: _White/Ghosts/veryfish-ghost.rsi
-#  alpha: 0.8
-#  ghostName: Mask of the Red Death
-#  ghostDescription: A blasphemous mockery.
-#  size: 0.5, 0.5
-#
-##aeons_torn
-#- type: customGhost
-#  id: aeons_torn-ghost
-#  ckey: aeons_torn
-#  sprite: _White/Ghosts/aeons_torn-ghost.rsi
-#  ghostName: Monolith
-#  ghostDescription: Blast from the past
-#
-##joulerk
-#- type: customGhost
-#  id: joulerk-ghost
-#  ckey: Joulerk
-#  sprite: _White/Ghosts/joulerk-ghost.rsi
-#  ghostName: ЛЕРК
-#  ghostDescription: Летающее бирюзовое существо, напоминающее кота, с пушистым телом, грациозными движениями и глазами, сверкающими с загадочным блеском.
-#
-##waggier
-#- type: customGhost
-#  id: waggier-ghost
-#  ckey: waggier
-#  sprite: _White/Ghosts/waggier-ghost.rsi
-#  alpha: 0.9
-#  ghostName: Ветеранка СБ
-#  ghostDescription: Вы нарушили правила действующего закона.... "перечисление статей"
-#  size: 0.6, 0.6
-#
-##FjorLofgren
-#- type: customGhost
-#  id: fjorlofgren-ghost
-#  ckey: FjorLofgren
-#  sprite: _White/Ghosts/fjor-ghost.rsi
-#  alpha: 0.9
-#  ghostName: Bun Witch
-#  ghostDescription: Не бойся, маленький кролик
-#  size: 0.9, 0.9
-#
-##kreses
-#- type: customGhost
-#  id: kreses-ghost
-#  ckey: kreses
-#  sprite: _White/Ghosts/kreses-ghost.rsi
-#  alpha: 0.9
-#  ghostName: Дракон сингулярности
-#  ghostDescription: Владыка сингулярности
-#
-##runamius
-#- type: customGhost
-#  id: runamius-ghost
-#  ckey: runamius
-#  sprite: _White/Ghosts/runamius-ghost.rsi
-#  alpha: 0.9
-#  ghostName: Никотиноед
-#  ghostDescription: Поедает никотин в любом виде
+#- type: entity
+#  parent: MobObserver
+#  id: MobObserverAshCloud
+#  description: Really makes you feel under the weather.
+#  components:
+#  - type: Sprite
+#    sprite: _White/Ghosts/cloud.rsi
+#    layers:
+#    - state: ash
+#      shader: unshaded
+#    - state: cloud
+#      shader: unshaded
+
+
+
+- type: customGhost
+  id: heart
+  category: misc
+  proto: MobObserverHeart
+  restrictions:
+  - !type:PlaytimeDepartmentRestriction
+    department: Civilian
+    hoursPlaytime: 4
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverHeart
+  description: Care to share?
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: heart
+      shader: unshaded
+    color: "#ffffffcc"
+
+
+
+- type: customGhost
+  id: discoCat
+  category: misc
+  proto: MobObserverDiscoCat
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 6
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverDiscoCat
+  description: And i dance-dance-dance, and i dance-dance-dance...
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: discocat
+      shader: unshaded
+
+
+
+
+- type: customGhost
+  id: disappointment
+  category: misc
+  proto: MobObserverDisappointment
+  restrictions:
+  - !type:PlaytimeJobRestriction
+    job: Clown
+    hoursPlaytime: 32
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverDisappointment
+  description: I am disappointed.
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: disappointment
+      shader: unshaded
+
+
+
+- type: customGhost
+  id: king
+  category: misc
+  proto: MobObserverKing
+  restrictions:
+  - !type:PlaytimeDepartmentRestriction
+    department: Epistemics
+    hoursPlaytime: 8
+  - !type:PlaytimeDepartmentRestriction
+    department: Security
+    hoursPlaytime: 8
+  - !type:PlaytimeDepartmentRestriction
+    department: Medical
+    hoursPlaytime: 8
+  - !type:PlaytimeDepartmentRestriction
+    department: Command
+    hoursPlaytime: 8
+  - !type:PlaytimeDepartmentRestriction
+    department: Logistics
+    hoursPlaytime: 8
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverKing
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: king
+      shader: unshaded
+
+
+
+- type: customGhost
+  id: blazeit
+  category: color
+  proto: MobObserverBlazeit
+  restrictions:
+  - !type:PlaytimeJobRestriction
+    job: Botanist
+    hoursPlaytime: 4
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverBlazeit
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: blazeit
+      shader: unshaded
+
+
+
+- type: customGhost
+  id: rainbow
+  category: color
+  proto: MobObserverRainbow
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 4
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverRainbow
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: rainbow
+      shader: unshaded
+
+
+
+- type: customGhost
+  id: kitty
+  category: misc
+  proto: MobObserverKitty
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 4
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverKitty
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: kitty
+      shader: unshaded
+
+
+
+- type: customGhost
+  id: ian
+  category: misc
+  proto: MobObserverIan
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 4
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverIan
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: ian
+      shader: unshaded
+
+
+
+- type: customGhost
+  id: fire
+  category: color
+  proto: MobObserverFire
+  restrictions:
+  - !type:PlaytimeJobRestriction
+    job: AtmosphericTechnician
+    hoursPlaytime: 4
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverFire
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: fire
+      shader: unshaded
+
+
+
+- type: customGhost
+  id: skeleton
+  category: misc
+  proto: MobObserverSkeleton
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 4
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverSkeleton
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: skeleton
+      shader: unshaded
+
+
+
+- type: customGhost
+  id: frog
+  category: misc
+  proto: MobObserverFrog
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 4
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverFrog
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: frog
+      shader: unshaded
+
+
+
+- type: customGhost
+  id: rooster
+  category: misc
+  proto: MobObserverRooster
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 4
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverRooster
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: rooster
+      shader: unshaded
+
+
+
+- type: customGhost
+  id: mouse
+  category: misc
+  proto: MobObserverMouse
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 4
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverMouse
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: mouse
+      shader: unshaded
+
+
+
+- type: customGhost
+  id: parrot
+  category: misc
+  proto: MobObserverParrot
+  restrictions:
+  - !type:PlaytimeServerRestriction
+    hoursPlaytime: 6
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverParrot
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/simple.rsi
+    layers:
+    - state: parrot
+      shader: unshaded
+

@@ -844,6 +844,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("admin_ooc_color");
 
+                    b.Property<string>("GhostId")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("ghost_id");
+
                     b.Property<int>("SelectedCharacterSlot")
                         .HasColumnType("integer")
                         .HasColumnName("selected_character_slot");

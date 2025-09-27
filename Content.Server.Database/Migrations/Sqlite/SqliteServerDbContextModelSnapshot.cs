@@ -796,6 +796,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("admin_ooc_color");
 
+                    b.Property<string>("GhostId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ghost_id");
+
                     b.Property<int>("SelectedCharacterSlot")
                         .HasColumnType("INTEGER")
                         .HasColumnName("selected_character_slot");

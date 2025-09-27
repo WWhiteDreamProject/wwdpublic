@@ -7,6 +7,7 @@
     xmlns:lobbyUi="clr-namespace:Content.Client.Lobby.UI"
     xmlns:info="clr-namespace:Content.Client.Info"
     xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Chat.Widgets"
+    xmlns:wdcontrols="clr-namespace:Content.Client._White.UserInterface.Controls"
     xmlns:animatedBackground="clr-namespace:Content.Client._White.UserInterface.AnimatedBackground"
     xmlns:buttons="clr-namespace:Content.Client._White.UserInterface.Buttons">
     <!-- Background -->
@@ -27,16 +28,30 @@
                     <RichTextLabel Name="LabelName" Access="Public" HorizontalAlignment="Left"
                                    VerticalAlignment="Center" Margin="20 0 0 420" />
                     <!-- Left Bot Panel -->
-                    <PanelContainer HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                        <BoxContainer Orientation="Horizontal" SeparationOverride="4" Margin="2">
-                            <info:DevInfoBanner Name="DevInfoBanner" VerticalExpand="false" Margin="6,8,6,8" />
-                            <PanelContainer StyleClasses="ChatPanel">
-                                <BoxContainer Orientation="Vertical">
-                                    <RichTextLabel Name="LobbySong" Access="Public" HorizontalAlignment="Center" />
-                                    <RichTextLabel Name="LobbyBackground" Access="Public" HorizontalAlignment="Center" />
-                                </BoxContainer>
-                            </PanelContainer>
-                        </BoxContainer>
+                    <PanelContainer Name="BottomLeftPanel" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                        <BoxContainer Orientation="Vertical" SeparationOverride="4" Margin="2">  <!-- wwdp edit start -->
+                            <BoxContainer Orientation="Horizontal" SeparationOverride="4" Margin="6,8,6,8">
+                                <wdcontrols:CvarToggleableBoxContainer CVar="white.funny_features_enabled" Flip="True">
+                                    <buttons:ViewPremiumInfoButton StyleClasses="NovaButton" SetSize="154 64">
+                                        <TextureRect TextureScale="1 1" TexturePath="/Textures/_White/sneed.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </buttons:ViewPremiumInfoButton>
+                                </wdcontrols:CvarToggleableBoxContainer>
+                                <wdcontrols:CvarToggleableBoxContainer CVar="white.funny_features_enabled">
+                                    <buttons:CustomGhostsMenuOpenButton StyleClasses="NovaButton" SetSize="77 66">
+                                        <TextureRect TextureScale="2 2" TexturePath="/Textures/_White/Ghosts/buttonicon.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </buttons:CustomGhostsMenuOpenButton>
+                                </wdcontrols:CvarToggleableBoxContainer>
+                            </BoxContainer> 
+                            <BoxContainer Orientation="Horizontal" SeparationOverride="4" Margin="2">
+                                <info:DevInfoBanner Name="DevInfoBanner" VerticalExpand="false" Margin="6,8,6,8" />
+                                <PanelContainer StyleClasses="ChatPanel">
+                                    <BoxContainer Orientation="Vertical">
+                                        <RichTextLabel Name="LobbySong" Access="Public" HorizontalAlignment="Center" />
+                                        <RichTextLabel Name="LobbyBackground" Access="Public" HorizontalAlignment="Center" />
+                                    </BoxContainer>
+                                </PanelContainer>
+                            </BoxContainer>
+                        </BoxContainer>   <!-- wwdp edit end -->
                     </PanelContainer>
                     <!-- Left Panel -->
                     <PanelContainer HorizontalAlignment="Left" Name="Center" VerticalAlignment="Center">

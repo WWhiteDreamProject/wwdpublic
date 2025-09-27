@@ -71,7 +71,6 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
         RemoveLayers(uid, comp);
     }
 
-    // more than half of this method is handling missing shit. gg.
     private void OnInit(EntityUid uid, DollyMixtureComponent comp, ComponentInit args)
     {
         if (!_timing.IsFirstTimePredicted)

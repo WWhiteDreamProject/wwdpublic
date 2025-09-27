@@ -1,3 +1,20 @@
+using Content.Server.Administration.Logs;
+using Content.Server.Administration.Managers;
+using Content.Shared._White.Bark;
+using Content.Shared._White.CustomGhostSystem;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Clothing.Loadouts.Systems;
+using Content.Shared.Database;
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
+using Content.Shared.Preferences;
+using Content.Shared.Roles;
+using Content.Shared.Traits;
+using Microsoft.EntityFrameworkCore;
+using Robust.Shared.Enums;
+using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -6,23 +23,6 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Server.Administration.Logs;
-using Content.Server.Administration.Managers;
-using Content.Shared._White.Bark;
-using Content.Shared.Administration.Logs;
-using Content.Shared.Clothing.Loadouts.Systems;
-using Content.Shared.Database;
-using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings;
-using Content.Shared.Preferences;
-using Content.Shared.Preferences.Loadouts;
-using Content.Shared.Roles;
-using Content.Shared.Traits;
-using Microsoft.EntityFrameworkCore;
-using Robust.Shared.Enums;
-using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Server.Database
 {
@@ -64,7 +64,7 @@ namespace Content.Server.Database
                 profiles[profile.Slot] = ConvertProfiles(profile);
             }
 
-            return new PlayerPreferences(profiles, prefs.SelectedCharacterSlot, Color.FromHex(prefs.AdminOOCColor));
+            return new PlayerPreferences(profiles, prefs.SelectedCharacterSlot, Color.FromHex(prefs.AdminOOCColor), prefs.GhostId); // WWDP EDIT
         }
 
         public async Task SaveSelectedCharacterIndexAsync(NetUserId userId, int index)
@@ -140,7 +140,8 @@ namespace Content.Server.Database
             {
                 UserId = userId.UserId,
                 SelectedCharacterSlot = 0,
-                AdminOOCColor = Color.Red.ToHex()
+                AdminOOCColor = Color.Red.ToHex(),
+                GhostId = "default" // WWDP EDIT
             };
 
             prefs.Profiles.Add(profile);
@@ -149,7 +150,7 @@ namespace Content.Server.Database
 
             await db.DbContext.SaveChangesAsync();
 
-            return new PlayerPreferences(new[] { new KeyValuePair<int, ICharacterProfile>(0, defaultProfile) }, 0, Color.FromHex(prefs.AdminOOCColor));
+            return new PlayerPreferences(new[] { new KeyValuePair<int, ICharacterProfile>(0, defaultProfile) }, 0, Color.FromHex(prefs.AdminOOCColor), "default");
         }
 
         public async Task DeleteSlotAndSetSelectedIndex(NetUserId userId, int deleteSlot, int newSlot)
@@ -174,6 +175,20 @@ namespace Content.Server.Database
             await db.DbContext.SaveChangesAsync();
 
         }
+
+        // WWDP EDIT START
+        public async Task SaveGhostTypeAsync(NetUserId userId, ProtoId<CustomGhostPrototype> proto)
+        {
+            await using var db = await GetDb();
+            var prefs = await db.DbContext
+                .Preference
+                .Include(p => p.Profiles)
+                .SingleAsync(p => p.UserId == userId.UserId);
+            prefs.GhostId = proto.Id;
+
+            await db.DbContext.SaveChangesAsync();
+        }
+        // WWDP EDIT END
 
         private static async Task SetSelectedCharacterSlotAsync(NetUserId userId, int newSlot, ServerDbContext db)
         {
@@ -238,7 +253,7 @@ namespace Content.Server.Database
                 sex,
                 voice, // WD EDIT
                 profile.BarkVoice, // WD EDIT
-                // WD EDIT START
+                                   // WD EDIT START
                 new BarkPercentageApplyData()
                 {
                     Pause = profile.BarkPause,
@@ -541,7 +556,7 @@ namespace Content.Server.Database
                 .ExecuteUpdateAsync(setters => setters
                     .SetProperty(b => b.Severity, severity)
                     .SetProperty(b => b.Reason, reason)
-                    .SetProperty(b => b.ExpirationTime, expiration.HasValue ? expiration.Value.UtcDateTime : (DateTime?)null)
+                    .SetProperty(b => b.ExpirationTime, expiration.HasValue ? expiration.Value.UtcDateTime : (DateTime?) null)
                     .SetProperty(b => b.LastEditedById, editedBy)
                     .SetProperty(b => b.LastEditedAt, editedAt.UtcDateTime)
                 );
@@ -1344,7 +1359,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 ban.LastEditedAt,
                 ban.ExpirationTime,
                 ban.Hidden,
-                new [] { ban.RoleId.Replace(BanManager.JobPrefix, null) },
+                new[] { ban.RoleId.Replace(BanManager.JobPrefix, null) },
                 MakePlayerRecord(unbanningAdmin),
                 ban.Unban?.UnbanTime);
         }
@@ -1508,10 +1523,10 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         protected async Task<List<AdminWatchlistRecord>> GetActiveWatchlistsImpl(DbGuard db, Guid player)
         {
             var entities = await (from watchlist in db.DbContext.AdminWatchlists
-                          where watchlist.PlayerUserId == player &&
-                                !watchlist.Deleted &&
-                                (watchlist.ExpirationTime == null || DateTime.UtcNow < watchlist.ExpirationTime)
-                          select watchlist)
+                                  where watchlist.PlayerUserId == player &&
+                                        !watchlist.Deleted &&
+                                        (watchlist.ExpirationTime == null || DateTime.UtcNow < watchlist.ExpirationTime)
+                                  select watchlist)
                 .Include(note => note.Round)
                 .ThenInclude(r => r!.Server)
                 .Include(note => note.CreatedBy)
@@ -1536,9 +1551,9 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         protected async Task<List<AdminMessageRecord>> GetMessagesImpl(DbGuard db, Guid player)
         {
             var entities = await (from message in db.DbContext.AdminMessages
-                        where message.PlayerUserId == player && !message.Deleted &&
-                              (message.ExpirationTime == null || DateTime.UtcNow < message.ExpirationTime)
-                        select message).Include(note => note.Round)
+                                  where message.PlayerUserId == player && !message.Deleted &&
+                                        (message.ExpirationTime == null || DateTime.UtcNow < message.ExpirationTime)
+                                  select message).Include(note => note.Round)
                     .ThenInclude(r => r!.Server)
                     .Include(note => note.CreatedBy)
                     .Include(note => note.LastEditedBy)

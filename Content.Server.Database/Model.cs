@@ -382,6 +382,7 @@ namespace Content.Server.Database
         public Guid UserId { get; set; }
         public int SelectedCharacterSlot { get; set; }
         public string AdminOOCColor { get; set; } = null!;
+        public string GhostId { get; set; } = null!; // WWDP EDIT
         public List<Profile> Profiles { get; } = new();
     }
 
