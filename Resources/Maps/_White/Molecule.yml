@@ -36652,7 +36652,7 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 5327
     components:

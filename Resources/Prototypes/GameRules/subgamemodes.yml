@@ -24,8 +24,10 @@
       allowNonHumans: true
       multiAntagSetting: NotExclusive
       startingGear: ThiefGear
-      components:
-      - type: Pacified
+      # WD EDIT START
+      # components:
+      # - type: Pacified
+      # WD EDIT END
       mindRoles:
       - MindRoleThief
       briefing:

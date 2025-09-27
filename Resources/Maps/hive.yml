@@ -77470,22 +77470,18 @@ entities:
     - type: Transform
       pos: -38.46746,-16.715517
       parent: 2
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 11611
     components:
     - type: Transform
       pos: 25.381252,3.582109
       parent: 2
-- proto: FloraRockSolid02
-  entities:
   - uid: 11612
     components:
     - type: Transform
       pos: 18.540522,9.513626
       parent: 2
-- proto: FloraRockSolid03
-  entities:
   - uid: 11613
     components:
     - type: Transform

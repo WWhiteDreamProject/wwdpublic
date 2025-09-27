@@ -733,7 +733,7 @@
   id: UplinkHristovAmmo
   name: uplink-sniper-ammo-name
   description: uplink-sniper-ammo-desc
-  productEntity: MagazineBoxAntiMaterielBig # WWDP big box
+  productEntity: MagazineBoxAntiMateriel
   # WD EDIT START
   discountCategory: usualDiscounts
   discountDownTo:

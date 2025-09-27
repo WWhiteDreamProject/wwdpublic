@@ -77038,7 +77038,7 @@ entities:
     - type: Transform
       pos: 41.5,34.5
       parent: 2
-- proto: FloraTreeLarge02
+- proto: FloraTreeLarge
   entities:
   - uid: 12084
     components:

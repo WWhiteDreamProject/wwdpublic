@@ -209,6 +209,14 @@
   - BoxBreach
   - BoxFrag
   - BoxLaser
+  - MagazineLightRifleLowCapacity
+  - MagazineLightRifleLowCapacityEmpty
+  - SpeedLoaderRifleHeavy
+  - SpeedLoaderRifleHeavyEmpty
+  - MagazineMagnumLeverRifle
+  - MagazineMagnumLeverRifleEmpty
+  - MagazineNovaliteC1
+  - MagazineNovaliteC1Empty
   - MagazineShotgunBreach
   - MagazineShotgunFrag
   - MagazineShotgunLaser
@@ -230,9 +238,9 @@
   - WeaponEnergyGunMini
   - WeaponEnergyGunPistol
   - WeaponGunLaserCarbineAutomatic
-  - EnergySword
-  - EnergySwordDouble
-  - EnergyCutlass
+  # - EnergySword - WD EDIT
+  # - EnergySwordDouble - WD EDIT
+  # - EnergyCutlass - WD EDIT
   # - WeaponSubMachineGunFPA90 - WD EDIT
   - WeaponSubMachineGunBRDIR25
   - WeaponPistolMk58
@@ -243,4 +251,6 @@
   # EE EDIT END
   # WD EDIT START
   - WeaponSecurityRiotLauncher
+  - WeaponRifleNovaliteC1
+  - WeaponRifleGestio
   # WD EDIT END

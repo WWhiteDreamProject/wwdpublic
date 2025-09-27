@@ -10,7 +10,7 @@
       tags:
         - CartridgeAntiMateriel
     proto: CartridgeAntiMateriel
-    capacity: 10
+    capacity: 30 # WD EDIT: 10 -> 30
   - type: Item
     size: Small
   - type: ContainerContainer
@@ -33,16 +33,11 @@
   - type: BallisticAmmoProvider
     proto: CartridgeAntiMateriel
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Boxes/caseless_rifle.rsi
     layers:
-    - state: base-10x24
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag10-1
+    - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: mag10
-    steps: 2
-    zeroVisible: false
 
 - type: entity
   parent: MagazineBoxAntiMateriel
