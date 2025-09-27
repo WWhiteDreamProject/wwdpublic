@@ -109,6 +109,7 @@
     - Eldritch
   - type: LanguageSpeaker
   - type: StatusIcon
+  - type: BloodCultist
 
 - type: entity
   id: ConstructJuggernaut
