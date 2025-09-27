@@ -1,10 +1,10 @@
-﻿- type: construction
-  id: CultPylon
+- type: construction
+  id: BloodCultPylon
   name: cult pylon
   description: A floating crystal that slowly heals those faithful to Nar'Sie.
   category: construction-category-structures
   hide: true
-  graph: CultPylon
+  graph: BloodCultPylon
   startNode: start
   targetNode: pylon
   icon:
@@ -17,12 +17,12 @@
   - !type:TileNotBlocked
 
 - type: construction
-  id: CultFactoryAltar
+  id: BloodCultFactoryAltar
   name: altar
   description: A bloodstained altar dedicated to Nar'Sie.
   category: construction-category-structures
   hide: true
-  graph: CultFactoryAltar
+  graph: BloodCultFactoryAltar
   startNode: start
   targetNode: altar
   icon:
@@ -35,12 +35,12 @@
   - !type:TileNotBlocked
 
 - type: construction
-  id: CultFactoryForge
+  id: BloodCultFactoryForge
   name: daemon forge
   description: A forge used in crafting the unholy weapons used by the armies of Nar'Sie.
   category: construction-category-structures
   hide: true
-  graph: CultFactoryForge
+  graph: BloodCultFactoryForge
   startNode: start
   targetNode: forge
   icon:
@@ -53,12 +53,12 @@
   - !type:TileNotBlocked
 
 - type: construction
-  id: CultFactoryArchives
+  id: BloodCultFactoryArchives
   name: archives
   description: A desk covered in arcane manuscripts and tomes in unknown languages. Looking at the text makes your skin crawl.
   category: construction-category-structures
   hide: true
-  graph: CultFactoryArchives
+  graph: BloodCultFactoryArchives
   startNode: start
   targetNode: archives
   icon:
@@ -71,12 +71,12 @@
   - !type:TileNotBlocked
 
 - type: construction
-  id: CultDoor
+  id: BloodCultDoor
   name: runed door
   description: It opens, it closes, and maybe crushes you. This one has a strange glowing rune on it.
   category: construction-category-structures
   hide: true
-  graph: CultDoor
+  graph: BloodCultDoor
   startNode: start
   targetNode: door
   icon:
@@ -89,12 +89,12 @@
   - !type:TileNotBlocked
 
 - type: construction
-  id: CultGirder
+  id: BloodCultGirder
   name: runed girder
   description: Framework made of a strange and shockingly cold metal. It doesn't seem to have any bolts
   category: construction-category-structures
   hide: true
-  graph: CultGirder
+  graph: BloodCultGirder
   startNode: start
   targetNode: girder
   icon:
