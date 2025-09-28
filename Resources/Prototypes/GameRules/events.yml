@@ -294,6 +294,8 @@
         - names_wizard_last
       mindRoles:
       - MindRoleWizard
+  - type: DynamicRuleCost # WD edit
+    cost: 30
 
 
 # disabled until event is rewritten to be more interesting
