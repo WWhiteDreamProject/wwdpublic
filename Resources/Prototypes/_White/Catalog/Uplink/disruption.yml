@@ -1,0 +1,44 @@
+- type: listing
+  id: UplinkFulton
+  name: uplink-fulton-name
+  description: uplink-fulton-desc
+  icon: { sprite: /Textures/Objects/Tools/fulton.rsi, state: extraction_point }
+  productEntity: BigBoxFilledFulton
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkDisruption
+
+- type: listing
+  id: UplinkExperimentalSyndicateTeleporter
+  name: uplink-experimental-syndicate-teleporter-name
+  description: uplink-experimental-syndicate-teleporter-desc
+  productEntity: ExperimentalSyndicateTeleporter
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkDisruption
+
+- type: listing
+  id: UplinkRandomSyndicateKit
+  name: random-syndicate-kit-name
+  description: random-syndicate-kit-desc
+  icon: { sprite: /Textures/Objects/Storage/boxes.rsi, state: box_of_doom }
+  productEntity: RandomSyndicateKitSpawner
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  - !type:ListingLimitedStockCondition
+    stock: 1

@@ -7,10 +7,13 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 120 #WD edit
-        Structural: 150 #WD edit
+        Piercing: 120 # WD EDIT: 75 -> 120
+        Structural: 150 # WD EDIT: 226 -> 150
+    penetrationThreshold: 360
+    penetrationDamageTypeRequirement:
+    - Structural
   - type: StaminaDamageOnCollide
-    damage: 35 # WD EDIT
+    damage: 60
 
 - type: entity
   id: BulletAntiMaterielShrapnel

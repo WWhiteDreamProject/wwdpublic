@@ -485,7 +485,7 @@
     - ChefPilot
     - Meat
   - type: CombatMode
-    combatToggleAction: ActionCombatModeToggleOff
+    # combatToggleAction: ActionCombatModeToggleOff - WD EDIT
   - type: Bloodstream
     bloodMaxVolume: 30
     bloodReagent: Cryoxadone
@@ -524,7 +524,7 @@
   - type: MobStateActions
     actions:
       Alive:
-      - ActionSmite
+      - ActionSmiteNoReq
       Critical:
       - ActionCritSuccumb
       - ActionCritFakeDeath

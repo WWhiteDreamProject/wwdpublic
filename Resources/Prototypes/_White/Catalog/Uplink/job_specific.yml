@@ -1,0 +1,30 @@
+- type: listing
+  id: UplinkGreytideKit
+  name: uplink-greytide-name
+  description: uplink-greytide-desc
+  productEntity: ToolboxMechanicalFilledGreytide
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Passenger
+
+- type: listing
+  id: UplinkPlasmaFloodCircuitBoard
+  name: uplink-plasma-flood-law-board-name
+  description: uplink-plasma-flood-law-board-desc
+  productEntity: PlasmaFloodCircuitBoard
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 16
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Epistemics

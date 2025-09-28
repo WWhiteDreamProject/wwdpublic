@@ -1,86 +1,108 @@
 <Document>
   # Предатели
 
-  ВИСКИ. ЭХО. ВИСКИ. ЛИМА. АЛЬФА. ДЕЛЬТА.
-
-  Предатель — это не просто злодей. Это спящий агент [color=#ff0000]Синдиката[/color], вживлённый прямо в коллектив станции, с конкретной целью: украсть, убить, подорвать — словом, превратить смену в ад под прикрытием обычного рабочего дня.
-
-  - Предатели получают доступ к арсеналу Синдиката через [color=#a4885c]Аплинк[/color] — их личный чёрный рынок в кармане.
-  - Они могут узнавать друг друга по особым [bold]кодовым словам[/bold] и устраивать кооперативный балаган с летальным исходом.
-  - Предателем может быть любой, кроме главы отдела, капитана и охраны.
-  - Но что бы вы ни задумали — главное [italic]успешно выполнить свои задачи к концу раунда[/italic].
-
-  ## Аплинк
-
   <Box>
-    <GuideEntityEmbed Entity="BaseUplinkRadio40TC" Caption="Аплинк"/>
+    [color=#999999][italic]"ВИСКИ. ЭХО. ВИСКИ. ЛИМА. АЛЬФА. ДЕЛЬТА. АГЕНТ, ВЫ АКТИВИРОВАНЫ."[/italic][/color]
   </Box>
+  <Box>
+    <GuideEntityEmbed Entity="PosterContrabandSyndicateRecruitment" Caption=""/>
+  </Box>
+  Предатели — это антагонисты, нанятые [color=#ff0000]Синдикатом[/color]. Вы — спящий агент, имеющий доступ к различным инструментам и оружию через свой [bold]апплинк[/bold].
+  Вы также получаете [bold]кодовые слова[/bold] для идентификации других агентов, и скоординированная команда предателей может иметь [italic]брутальные результаты[/italic].
 
-  [color=cyan]Аплинк[/color] — это твой швейцарский нож. Через него ты обмениваешь свои 20 [color=red]телекристаллов[/color] (TC) на всё, что угодно: от взрывчатки до лазерных зубочисток. Он позволяет с лёгкостью решать вопросы, особенно если вопросы — это люди.
+  Предателем может стать любой, кроме [textlink="глав отделов" link="Command"] или членов [textlink="Службы Безопасности" link="Security"].
+
+  ## Апплинк и Активация
+  [color=cyan]Апплинк[/color] — ваш самый важный инструмент как предателя. Вы можете обменять 20 [color=red]телекристаллов[/color] (TC), с которых вы начинаете, на предметы, которые помогут вам в достижении ваших целей.
+
+  Нажав [color=yellow][bold][keybind="OpenCharacterMenu"][/bold][/color], вы увидите свой личный код апплинк. [bold]Установка мелодии звонка вашего КПК в качестве этого кода откроет апплинк.[/bold]
+  Нажатие [color=yellow][bold][keybind="OpenCharacterMenu"][/bold][/color] также позволяет просматривать ваши цели и кодовые слова.
 
   <Box>
+    <GuideEntityEmbed Entity="PassengerPDA" Caption="КПК"/>
     <GuideEntityEmbed Entity="Telecrystal" Caption="Телекристаллы"/>
   </Box>
 
-  Чтобы открыть Аплинк, нажми [color=yellow][bold][keybind="OpenCharacterMenu"][/bold][/color] и посмотри свой личный код. Установи этот код как мелодию вызова на своём [bold]PDA[/bold] — и вуаля, портал в ад открыт.
-
-  В том же меню ты найдёшь цели и кодовые слова. Всё удобно, компактно и анонимно.
-
-  Если у тебя нет PDA в момент активации, тебе выдадут [color=cyan]вживлённый аплинк[/color] — прямо в тело. За полную стоимость. Да, Синдикат не из добрых бабушек.
+  [bold]Не забудьте закрыть апплинк, чтобы никто другой не смог его увидеть.[/bold] Вам же не хочется, чтобы [color=#cb0000]Служба Безопасности[/color] заполучила этот премиальный выбор контрабанды!
 
   <Box>
-    <GuideEntityEmbed Entity="PassengerPDA" Caption="PDA"/>
-    <GuideEntityEmbed Entity="Telecrystal" Caption="Телекристаллы"/>
-    <GuideEntityEmbed Entity="BaseUplinkRadio" Caption="Имплантированный Аплинк"/>
+    <GuideEntityEmbed Entity="WeaponPistolCobra" Caption="Вооружение"/>
+    <GuideEntityEmbed Entity="MagazineBoxLightRifle" State="icon" Caption="Патроны"/>
+    <GuideEntityEmbed Entity="C4" Caption="Взрывчатка"/>
+    <GuideEntityEmbed Entity="ClothingOuterHardsuitSyndie" Caption="Снаряжение"/>
+    <GuideEntityEmbed Entity="Stimpack" Caption="Химикаты"/>
   </Box>
-
-  [bold]Никогда не забывай закрывать Аплинк после использования.[/bold] Если его увидит [color=#cb0000]Служба Безопасности[/color] — твоё новое имя станет “Куски на полу”.
-
-  Имплант безопаснее: никто не откроет его, если только тебя не проколют пустым имплантером. Так что... не попадись.
-
-  ## Цели: укради всё, что не приколочено (и то, что приколочено — тоже)
-
-  Задачи бывают разными. Иногда это убийство. Иногда — воровство. Иногда — красиво и то, и другое.
-
-  - Украсть [color=#a4885c]экзокостюм Мистагога[/color].
   <Box>
-    <GuideEntityEmbed Entity="ClothingOuterHardsuitRd" Caption="Экзокостюм Мистагога"/>
+    <GuideEntityEmbed Entity="ChameleonProjector" Caption="Обман"/>
+    <GuideEntityEmbed Entity="Emag" Caption="Подавление"/>
+    <GuideEntityEmbed Entity="StorageImplanter" Caption="Импланты"/>
+    <GuideEntityEmbed Entity="MobMonkeySyndicateAgentNukeops" Caption="Союзники"/>
+    <GuideEntityEmbed Entity="ClothingEyesGlassesOutlawGlasses" Caption="Бесполезное"/>
   </Box>
 
-  - Забрать у него [color=#a4885c]Ручной Телепорт[/color].
+  Покупки, которые вы совершаете, должны помогать вам в достижении ваших целей. Некоторые предметы снаряжения могут быть вам бесполезны, и вам придется выбирать между скрытностью или открытым нападением.
+
+  ## Координация
+  Кодовые слова — это слова или фразы, которые знает каждый предатель. Они предоставляют дискретный способ идентифицировать или установить контакт с другим предателем, что может быть полезно, если ваши цели включают [italic][color=cyan]поддержание их жизни[/color][/italic] или [italic][color=cyan]помощь им в достижении их целей[/color][/italic].
+
+  Когда вы найдете друзей, [bold]вы можете снять [color=red]телекристаллы[/color] из своего апплинк, чтобы отдать им.[/bold] Они могут положить их в свой собственный апплинк, чтобы потратить на себя.
+
+  Некоторые предложения, доступные в вашем апплинк, стоят больше 20 TC, поэтому, если вы хотите их, вам придется поделиться.
+
+  Конечно, вот перевод, оформленный как отдельный файл. Скопируйте текст ниже и вставьте его в текстовый редактор, затем сохраните с расширением .txt.
+
+  ## Убийство
+  Одна из ваших задач может быть [italic][color=cyan]убить или оставить члена экипажа на необитаемой планете[/color][/italic].
+
+  Вы можете [color=cyan]оставить на необитаемой планете[/color] свою цель, [bold]предотвратив её попадание в CentComm[/bold] на спасательном шаттле или спасательной капсуле.
+
+  Если вы не можете оставить свою цель на необитаемой планете или она слишком важна, чтобы оставить её в живых, вам придется испачкать руки и [color=cyan]убить[/color] её. Убедитесь, что ваша цель не будет жива, когда [bold]спасательный шаттл прибудет в CentComm[/bold], и не дайте её реанимировать.
+
+  Помните, Синдикат хочет только мертвых целей. [color=red]Постарайтесь избегать массовых убийств или нанесения серьёзного ущерба станции[/color], так как чем больше невинных жизней вы заберете, тем более опасным вы становитесь.
+
+  ## Побег и Самоуничтожение
+  Ваши задачи могут требовать от вас [italic][color=cyan]добраться до CentComm, не будучи убитым или захваченным.[/color][/italic] Не позволяйте [color=#cb0000]Службе Безопасности[/color] остановить вас, выполните другие задачи и [bold]вернитесь живым[/bold].
+
+  В качестве альтернативы, ваши задачи могут требовать от вас [italic][color=cyan]умереть славной смертью.[/color][/italic] [bold]Убедитесь, что вы не вернетесь с того света[/bold], иначе можете проснуться в наручниках.
+
+  ## Присвоение
+  Чаще всего вам придется [italic][color=cyan]украсть предмет у главы отдела.[/color][/italic]
+
+  Цель может находиться в его офисе или при себе. Может потребоваться убить того, кто несет его, если вы не можете украсть у него незаметно.
+
+  Вам может быть поручено:
+  - Украсть у [color=yellow]Капитана[/color] [bold]карту ID[/bold], [bold]антикварный лазерный пистолет[/bold], [bold]реактивный ранец[/bold] или [bold]диск ядерной аутентификации[/bold].
   <Box>
-    <GuideEntityEmbed Entity="HandTeleporter" Caption="Ручной Телепорт"/>
+    <GuideEntityEmbed Entity="CaptainIDCard" Caption=""/>
+    <GuideEntityEmbed Entity="WeaponAntiqueLaser" Caption=""/>
+    <GuideEntityEmbed Entity="JetpackCaptainFilled" Caption=""/>
+    <GuideEntityEmbed Entity="NukeDisk" Caption=""/>
   </Box>
-
-  - Стащить у [color=#cb0000]Начальника охраны[/color] его [bold]Мультифазную Энергопушку X-01[/bold].
+  - Украсть у [color=#5b97bc]Главного Медицинского Офицера[/color] [bold]гипоспрей[/bold] или [bold]портативный монитор экипажа[/bold].
   <Box>
-    <GuideEntityEmbed Entity="WeaponEnergyGunMultiphase" Caption="Личная пушка ХоСа"/>
+    <GuideEntityEmbed Entity="Hypospray" Caption=""/>
+    <GuideEntityEmbed Entity="HandheldCrewMonitorEmpty" Caption=""/>
   </Box>
-
-  - Умыкнуть у Инженерного Главы [color=#a4885c]Улучшенные Магоботы[/color].
+  - Украсть у [color=#c96dbf]Мистагога[/color] [bold]экспериментальный скафандр[/bold] или [bold]портативный телепортер[/bold].
   <Box>
-    <GuideEntityEmbed Entity="ClothingShoesBootsMagAdv" Caption="Улучшенные Магоботы"/>
+    <GuideEntityEmbed Entity="ClothingOuterHardsuitRd" Caption=""/>
+    <GuideEntityEmbed Entity="HandTeleporter" Caption=""/>
   </Box>
-
-  - И конечно, [color=#cb0000]энергетическое ружьё ХоСа[/color] — жирный трофей.
+  - Украсть у [color=#cb0000]Главы Службы Безопасности[/color] [bold]энергетический дробовик[/bold].
   <Box>
     <GuideEntityEmbed Entity="WeaponEnergyShotgun" Caption=""/>
   </Box>
-
-  - А как тебе [color=#a4885c]Ядерный Диск[/color]? Да, тот самый.
+  - Украсть у [color=#f39f27]Главного Инженера[/color] [bold]продвинутые маг-ботинки[/bold].
   <Box>
-    <GuideEntityEmbed Entity="NukeDisk" Caption="Ядерный диск"/>
+    <GuideEntityEmbed Entity="ClothingShoesBootsMagAdv" Caption=""/>
   </Box>
-
-  - Или... [color=#a4885c]счастливая купюра Квартирмейстера[/color]. Символ наживы и удачи.
+  - Украсть у [color=#b18644]Офицера по Логистике[/color] [bold]цифровой планшет снабжения[/bold].
   <Box>
-    <GuideEntityEmbed Entity="SpaceCashLuckyBill" Caption="Купюра Логиста"/>
+    <GuideEntityEmbed Entity="BoxFolderQmClipboard" Caption=""/>
   </Box>
-
-  - А вот и жемчужина безумия — [color=#a4885c]фотоальбом Иана[/color] из личных вещей Главы Персонала. Зачем? Потому, что ты можешь!
+  - Разделать Яна, собаку [color=#9fed58]Главы Отдела Персонала[/color], и добыть [bold]мясо корги[/bold].
   <Box>
-    <GuideEntityEmbed Entity="BookIanDossier" Caption="Фотоальбом Иана"/>
+    <GuideEntityEmbed Entity="MobCorgiIan" Caption=""/>
+    <GuideEntityEmbed Entity="FoodMeatCorgi" Caption=""/>
   </Box>
-
-  Ты агент. Ты тень. Ты нож в кармане Синдиката. И твоя смена только начинается.
 </Document>

@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Animations;
+using Robust.Shared.Animations;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Follower.Components;
@@ -27,4 +27,11 @@ public sealed partial class OrbitVisualsComponent : Component
     /// </summary>
     [Animatable]
     public float Orbit { get; set; } = 0.0f;
+
+    // WWDP EDIT START
+    /// <summary>
+    /// Whether the orbiting entity's sprite will rotate along the orbit, or stay vertical.
+    /// </summary>
+    public bool KeepUpright = false;
+    // WWDP EDIT END
 }

@@ -36,7 +36,7 @@
       pressure: 40
 
 - type: entity
-  id: ActionMindSwap
+  id: ActionPsionicMindSwap
   name: action-name-mind-swap
   description: action-description-mind-swap
   categories: [ HideSpawnMenu ]
@@ -56,7 +56,7 @@
       pressure: 50
 
 - type: entity
-  id: ActionMindSwapReturn
+  id: ActionPsionicMindSwapReturn
   name: action-name-mind-swap-return
   description: action-description-mind-swap-return
   categories: [ HideSpawnMenu ]

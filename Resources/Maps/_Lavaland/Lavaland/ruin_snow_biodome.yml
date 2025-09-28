@@ -1545,7 +1545,7 @@ entities:
     - type: Transform
       pos: 7.5,-9.5
       parent: 1
-- proto: FloraTreeConifer01
+- proto: FloraTreeConifer
   entities:
   - uid: 333
     components:
@@ -1559,8 +1559,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 6.5,5.5
       parent: 1
-- proto: FloraTreeConifer02
-  entities:
   - uid: 332
     components:
     - type: Transform
@@ -1573,8 +1571,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -8.5,2.5
       parent: 1
-- proto: FloraTreeConifer03
-  entities:
   - uid: 234
     components:
     - type: Transform
@@ -1592,7 +1588,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -8.5,-4.5
       parent: 1
-- proto: FloraTreeSnow01
+- proto: FloraTreeSnow
   entities:
   - uid: 338
     components:
@@ -1606,40 +1602,30 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -5.5,-10.5
       parent: 1
-- proto: FloraTreeSnow02
-  entities:
   - uid: 331
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 7.5,2.5
       parent: 1
-- proto: FloraTreeSnow03
-  entities:
   - uid: 344
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,-2.5
       parent: 1
-- proto: FloraTreeSnow04
-  entities:
   - uid: 343
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -7.5,-1.5
       parent: 1
-- proto: FloraTreeSnow05
-  entities:
   - uid: 330
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 4.5,0.5
       parent: 1
-- proto: FloraTreeSnow06
-  entities:
   - uid: 334
     components:
     - type: Transform

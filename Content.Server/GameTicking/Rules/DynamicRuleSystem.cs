@@ -22,7 +22,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     {
         base.Added(uid, component, gameRule, args);
 
-        component.Budget = _random.Next(component.StartingBudgetMin, component.StartingBudgetMax);;
+        component.Budget = _random.Next(component.StartingBudgetMin, component.StartingBudgetMax);
         component.NextRuleTime = Timing.CurTime + _random.Next(component.MinRuleInterval, component.MaxRuleInterval);
     }
 
@@ -33,7 +33,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         // Since we don't know how long until this rule is activated, we need to
         // set the last budget update to now so it doesn't immediately give the component a bunch of points.
         component.LastBudgetUpdate = Timing.CurTime;
-        Execute((uid, component));
+        StartSelection((uid, component));
     }
 
     protected override void Ended(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
@@ -121,6 +121,20 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         entity.Comp.Rules.AddRange(executedRules);
         return executedRules;
     }
+
+    // WD edit start
+    private void StartSelection(Entity<DynamicRuleComponent> entity)
+    {
+        entity.Comp.Budget /= 2;
+        var roundstartBudget = entity.Comp.Budget;
+
+        var executedRules = Execute(entity);
+        while (executedRules.Count != 0)
+            executedRules = Execute(entity);
+
+        entity.Comp.Budget += roundstartBudget;
+    }
+    // WD edit end
 
     #region Command Methods
 

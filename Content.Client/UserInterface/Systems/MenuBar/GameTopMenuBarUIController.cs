@@ -1,4 +1,4 @@
-using Content.Client._White.UI.Emotes;
+using Content.Client._White.UserInterface.Emotes;
 using Content.Client.UserInterface.Systems.Actions;
 using Content.Client.UserInterface.Systems.Admin;
 using Content.Client.UserInterface.Systems.Bwoink;

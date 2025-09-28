@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Numerics;
-using Content.Client._White.UI.Emotes;
+using Content.Client._White.UserInterface.Emotes;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;

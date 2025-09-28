@@ -14,14 +14,14 @@ public sealed class BingleSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<BingleComponent, ToggleCombatActionEvent>(OnCombatToggle);
+        SubscribeLocalEvent<BingleComponent, CombatModeToggledEvent>(OnCombatToggle); // WD EDIT
         SubscribeLocalEvent<BingleComponent, AppearanceChangeEvent>(OnAppearanceChange);
     }
 
     /// <summary>
     /// Makes the eyes glow red when combat mode is engaged.
     /// </summary>
-    private void OnCombatToggle(EntityUid uid, BingleComponent component, ToggleCombatActionEvent args)
+    private void OnCombatToggle(EntityUid uid, BingleComponent component, CombatModeToggledEvent args) // WD EDIT
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
