@@ -16,6 +16,7 @@
     PyrokineticFlare: 1 # Leads to summon imp and pyrokenisis
     NoosphericZapPower: 1
     ClonePower: 1 #wwdp ability
+    PolymorphPower: 1 #wwdp ability
 
 - type: weightedRandom # WWDP Edit All weights set to 1
   id: PsychoHistorianPowerPool # Significantly trimmed down pool, MUCH faster power generation. Free Telepathy.
@@ -37,3 +38,5 @@
     TelekineticPulsePower: 1
     PyrokineticFlare: 1
     NoosphericZapPower: 1
+    ClonePower: 1 #wwdp ability
+    PolymorphPower: 1 #wwdp ability
