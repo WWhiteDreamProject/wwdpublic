@@ -24,3 +24,29 @@
       components:
         - type: ClonePower
     - !type:RemovePsionicStatSources
+
+- type: psionicPower
+  id: PolymorphPower
+  name: Polymorph
+  powerCategories:
+    - Mentalic
+  initializeFunctions:
+    - !type:AddPsionicActions
+      actions:
+      - ActionPsionicPolymorph
+      - ActionRevertPsionicPolymorph
+    - !type:AddPsionicPowerComponents
+      components:
+        - type: PolymorphPower
+    - !type:PsionicFeedbackPopup
+    - !type:PsionicFeedbackSelfChat
+      feedbackMessage: polymorph-power-initialization-feedback
+    - !type:AddPsionicStatSources
+      amplificationModifier: 1
+      dampeningModifier: 1
+  removalFunctions:
+    - !type:RemovePsionicActions
+    - !type:RemovePsionicPowerComponents
+      components:
+        - type: PolymorphPower
+    - !type:RemovePsionicStatSources
