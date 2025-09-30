@@ -87,6 +87,8 @@ namespace Content.Server._White.Abilities.Psionics.Abilities
             _meta.SetEntityName(uid, comp.OriginalName);
             _meta.SetEntityDescription(uid, comp.OriginalDescription);
             _appearance.LoadProfile(uid, humanoid.LastProfileLoaded);
+
+            args.Handled = true;
         }
 
         public void ComponentStart(EntityUid uid, PolymorphPowerComponent component, ComponentStartup args)
