@@ -1,17 +1,7 @@
-using Content.Server.EntityEffects.Effects;
-using Content.Server.Polymorph.Systems;
 using Content.Shared._White.Actions.Events;
 using Content.Shared._White.Psionics.Abilities;
 using Content.Shared.Abilities.Psionics;
-using Content.Shared.Actions;
 using Content.Shared.Humanoid;
-using Content.Shared.Traits.Assorted.Components;
-using Robust.Server.GameObjects;
-using Robust.Shared.GameObjects;
-using Robust.Shared.GameObjects.Components.Localization;
-using Robust.Shared.Player;
-using Robust.Shared.Timing;
-using System.Numerics;
 
 namespace Content.Server._White.Abilities.Psionics.Abilities
 {
@@ -61,11 +51,6 @@ namespace Content.Server._White.Abilities.Psionics.Abilities
                 userHumanoid.Voice = targetHumanoid.Voice;
                 userHumanoid.BodyType = targetHumanoid.BodyType;
 
-                if (TryComp<GrammarComponent>(target, out var grammar))
-                {
-                    grammar.Gender = targetHumanoid.Gender;
-                }
-
                 Dirty(user, userHumanoid);
             }
 
@@ -76,9 +61,6 @@ namespace Content.Server._White.Abilities.Psionics.Abilities
         public void OnUsed(EntityUid uid, PolymorphPowerComponent comp, PolymorphPowerRevertActionEvent args)
         {
             if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
-                return;
-
-            if (!TryComp<TransformComponent>(uid, out var transform))
                 return;
 
             var effect = Spawn("PsionicPolymorphEffect", _transform.GetMapCoordinates(uid));
