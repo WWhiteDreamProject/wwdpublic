@@ -4398,3 +4398,26 @@ Entries:
   id: 459
   time: '2025-09-15T10:52:53.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/839
+- author: Spatison
+  changes:
+    - type: Add
+      message: В игру перенесено небольшое количество контента с виздена
+  id: 460
+  time: '2025-09-21T16:55:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/844
+- author: RedFoxIV
+  changes:
+    - type: Add
+      message: >-
+        Большее разнообразие призраков, всего лишь надо нажать на новую кнопочку
+        снизу слева в лобби.
+  id: 461
+  time: '2025-09-27T05:38:24.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/849
+- author: Spatison
+  changes:
+    - type: Add
+      message: Портирован еще один пак контента с виздена
+  id: 462
+  time: '2025-09-27T20:15:00.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/850

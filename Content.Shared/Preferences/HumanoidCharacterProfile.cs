@@ -785,7 +785,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             var passes = requirement.IsValid(
                 default!,
                 this,
-                [],
+                new Dictionary<string, TimeSpan>(),
                 false,
                 voicePrototype,
                 collection.Resolve<IEntityManager>(),

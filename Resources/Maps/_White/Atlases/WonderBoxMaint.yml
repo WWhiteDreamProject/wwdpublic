@@ -3567,13 +3567,13 @@ entities:
             1052: 27,263
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameEndN
+            id: WindowFrameWhiteEndN
           decals:
             952: 12,236
             953: 14,235
         - node:
             color: '#FFFFFFFF'
-            id: WindowFrameEndS
+            id: WindowFrameWhiteEndS
           decals:
             954: 14,234
             955: 12,235
@@ -24401,7 +24401,7 @@ entities:
       angularDamping: 0
       linearDamping: 0
     - type: RenderOrder
-- proto: FloraRockSolid03
+- proto: FloraRockSolid
   entities:
   - uid: 2696
     components:

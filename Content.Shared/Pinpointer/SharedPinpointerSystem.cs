@@ -10,6 +10,7 @@ namespace Content.Shared.Pinpointer;
 public abstract class SharedPinpointerSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
 
     public override void Initialize()
     {
@@ -141,6 +142,15 @@ public abstract class SharedPinpointerSystem : EntitySystem
         if (!component.CanEmag)
             return;
         // WD EDIT END
+
+        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+            return;
+
+        if (_emag.CheckFlag(uid, EmagType.Interaction))
+            return;
+
+        if (component.CanRetarget)
+            return;
 
         args.Handled = true;
         component.CanRetarget = true;

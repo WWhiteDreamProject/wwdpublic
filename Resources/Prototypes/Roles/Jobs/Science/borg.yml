@@ -7,7 +7,8 @@
   canBeAntag: false
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
-  jobEntity: PositronicBrain # WD EDIT
+  jobEntity: PositronicBrain # WD EDIT: StationAiBrain -> PositronicBrain
+  jobPreviewEntity: PlayerStationAiPreview
   nameDataset: NamesAI
   applyTraits: false
   spawnLoadout: false
@@ -39,6 +40,3 @@
   jobEntity: PlayerBorgBattery
   applyTraits: false
   canHavePassport: false
-  requirements:
-  - !type:CharacterOverallTimeRequirement # WWDP
-    min: 3600

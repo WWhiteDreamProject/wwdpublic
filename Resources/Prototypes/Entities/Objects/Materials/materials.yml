@@ -58,7 +58,9 @@
         reagents:
         - ReagentId: Cellulose
           Quantity: 6
-  # WWDP edit - quick crafting
+  - type: Item
+    heldPrefix: cardboard
+  # WD EDIT START - Quick crafting
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
@@ -71,6 +73,7 @@
     entries:
     - prototype: BoxCardboard
     - prototype: BigBox
+  # WD EDIT END
 
 - type: entity
   parent: MaterialCardboard
@@ -156,7 +159,9 @@
   - type: Construction
     graph: WebObjects # not sure if I should either keep this here or just make another prototype. Will keep it here just in case.
     node: cloth
-  # WWDP short crafting
+  - type: Item
+    heldPrefix: cloth
+  # WD EDIT START - Short crafting
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
@@ -210,6 +215,7 @@
         - prototype: CurtainsPurple
         - prototype: CurtainsRed
         - prototype: CurtainsWhite
+  # WD EDIT END
 
 - type: entity
   parent: MaterialCloth
@@ -327,7 +333,7 @@
         reagents:
         - ReagentId: Cellulose
           Quantity: 10
-  # WWDP short crafting
+  # WD EDIT START - Short crafting
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
@@ -431,6 +437,7 @@
         - prototype: N14TableCounterBar
         - prototype: TableWood
         - prototype: TableWoodReinforced
+  # WD EDIT END
 
 - type: entity
   parent: MaterialWoodPlank
@@ -515,8 +522,7 @@
     sprite: Objects/Materials/materials.rsi
     state: corgihide
   - type: Item
-    sprite: Clothing/Head/Misc/hides.rsi
-    heldPrefix: corgi
+    heldPrefix: corgihide
   - type: Clothing
     sprite: Clothing/Head/Misc/hides.rsi
     equippedPrefix: corgi2
@@ -614,19 +620,6 @@
       - RawMaterial
   - type: Item
     heldPrefix: cotton
-  # WWDP edit - quick crafting
-  - type: UserInterface
-    interfaces:
-      enum.RadialSelectorUiKey.Key:
-        type: AttachedRadialSelectorMenuBUI
-  - type: ActivatableUI
-    key: enum.RadialSelectorUiKey.Key
-    inHandsOnly: true
-    requireActiveHand: false
-  - type: ShortConstruction
-    entries:
-    - prototype: CottonWovenCloth
-      closeUiOnSelect: false
 
 - type: entity
   parent: MaterialCotton
@@ -740,7 +733,9 @@
       - ReagentId: Honk
         Quantity: 5
   - type: Appearance
-  # WWDP short crafting
+  - type: Item
+    heldPrefix: bananium
+  # WD EDIT START - Short crafting
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
@@ -761,6 +756,7 @@
     - prototype: BananaClownMask
     - prototype: BananaClownJumpsuit
     - prototype: BananaClownShoes
+  # WD EDIT END
 
 - type: entity
   parent: MaterialBananium
@@ -934,7 +930,9 @@
         reagents:
         - ReagentId: Vitamin
           Quantity: 3
-  # WWDP short crafting
+  - type: Item
+    heldPrefix: bones
+  # WD EDIT START - Short crafting
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
@@ -948,6 +946,7 @@
     - prototype: BoneHelmet
     - prototype: BoneArmor
     - prototype: SpearBone
+  # WD EDIT END
 
 - type: entity
   parent: MaterialBones
@@ -1005,6 +1004,8 @@
     - goliath_hide_3
   - type: Item
     size: Large
+    heldPrefix: goliathhide
+    sprite: Objects/Materials/hide.rsi
     shape:
     - 0,0,2,2
 

@@ -1,0 +1,258 @@
+
+
+- type: customGhost
+  id: customPlaceholder
+  category: personal
+  proto: MobObserverCkeyPlaceholder
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [persikvin, reider207, nairsark, mapperian, PZAKusik, dageff, RedFoxIV]
+  name: custom-ghost-personal-placeholder-name
+  desc: custom-ghost-personal-placeholder-desc
+
+- type: entity
+  parent: MobObserverCkey
+  id: MobObserverCkeyPlaceholder
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/placeholder.rsi
+
+
+- type: customGhost
+  abstract: true
+  id: CkeyPersonal
+  category: personal
+  name: custom-ghost-personal-name
+  desc: custom-ghost-personal-desc
+
+#abstract entproto to force transparency on all custom ghosts
+- type: entity
+  abstract: true
+  parent: MobObserver
+  id: MobObserverCkey
+  components:
+  - type: Sprite
+    color: "#ffffffcc" # 0.8 alpha
+
+
+- type: customGhost
+  parent: CkeyPersonal
+  id: KrokozyabraPersonal
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [ krokozyabra ]
+  proto: MobObserverKrokozyabra
+
+- type: entity
+  parent: MobObserverCkey
+  id: MobObserverKrokozyabra
+  description: От него веет верностью. # Зябр
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/krokozyabra-ghost.rsi
+
+
+
+- type: customGhost
+  parent: CkeyPersonal
+  id: Scituzer2Personal
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [Scituzer2]
+  proto: MobObserverScituzer2
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverScituzer2
+  description: A race of harpies that have charming onyx wings. Although they are a clever race, particularly notable for having the highest intelligence of all harpies, they are exceedingly belligerent and ferocious. This one specifically used to occupy a leader position for this project - but all she saw was a world on fire. # Black Harpy
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/scituzer2-ghost.rsi
+    color: "#ffffffe6" # 0.9 alpha
+
+
+
+- type: customGhost
+  parent: CkeyPersonal
+  id: CheeseCheesePersonal
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [cheese_cheese]
+  proto: MobObserverCheeseCheese
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverCheeseCheese
+  description:
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/cheese_cheese-ghost.rsi
+
+
+
+# based fnh enjoyer
+- type: customGhost
+  parent: CkeyPersonal
+  id: CyouPersonal
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [cyou]
+  proto: MobObservercyou
+
+- type: entity
+  parent: MobObserver
+  id: MobObservercyou # Marina
+  description: Я, наверное, открою небольшой оккультный магазин где-нибудь. Где-нибудь далеко от Прехевиля... Может, в Рондоне. Хочу жить в оживлённом месте, среди множества людей. Людей, которые не будут осуждать меня или кого-то ещё вокруг…
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/cyou-ghost.rsi
+
+
+
+- type: customGhost
+  parent: CkeyPersonal
+  id: Nonta228Personal
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [nonta228]
+  proto: MobObserverNonta228
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverNonta228
+  description: Я устрою конец света. # nonta
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/nonta228-ghost.rsi
+
+
+
+- type: customGhost
+  parent: CkeyPersonal
+  id: PuroSlavKingPersonal
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [PuroSlavKing]
+  proto: MobObserverPuroSlavKing
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverPuroSlavKing
+  description: Что за гомосексуалист на моём рабочем месте? # PuroSlavKing
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/puroslavking-ghost.rsi
+
+
+
+
+- type: customGhost
+  parent: CkeyPersonal
+  id: KilathPersonal
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [kilath]
+  proto: MobObserverKilath
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverKilath
+  description: Руками перья не смотреть! # LeaSzish
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/kilath-ghost.rsi
+
+
+
+- type: customGhost
+  parent: CkeyPersonal
+  id: GavrikPersonal
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [Gavrik]
+  proto: MobObserverGavrik
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverGavrik
+  description: Лучший в категории Поп # Gavrik
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/gavrik-ghost.rsi
+
+
+
+- type: customGhost
+  parent: CkeyPersonal
+  id: PurplePiPersonal
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [PurplePi]
+  proto: MobObserverPurplePi
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverPurplePi
+  description: Следи за осанкой! # иди нахуй # Purka
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/purka-ghost.rsi
+
+
+
+- type: customGhost
+  parent: CkeyPersonal
+  id: Felix163Personal
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [felix163]
+  proto: MobObserverFelix163
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverFelix163
+  description: ползёт, ползёт... # Кошмар
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/felix163-ghost.rsi
+    color: "#ffff" # 1.0 alpha
+
+
+
+- type: customGhost
+  parent: CkeyPersonal
+  id: TokiJumperPersonal
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [TokiJumper]
+  proto: MobObserverTokiJumper
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverTokiJumper # Toki
+  description: Премудрый раб, прав не имеющий, в подвале мапперов содержащийся, лороведов упрашивающий, спрайтеров любящий, кокеров преследующий, космонавтиков боящийся глава Лороведов.
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/headwiki-ghost.rsi
+    scale: 0.8, 0.8
+    color: "#ffff" # 1.0 alpha
+
+
+
+- type: customGhost
+  parent: CkeyPersonal
+  id: IzeRibakPersonal
+  restrictions:
+  - !type:CkeyRestriction
+    ckey: [IzeRibak]
+  proto: MobObserverIzeRibak
+
+- type: entity
+  parent: MobObserver
+  id: MobObserverIzeRibak # IzeRibak
+  description: Премудрый царь, право имеющий, в подвале мапперов держащий, лороведов не спрашивающий, спрайтеров принижающий, кокерами повелевающий, космонавтиков травящий глава Викиводов.
+  components:
+  - type: Sprite
+    sprite: _White/Ghosts/ckey/headwiki-ghost.rsi
+    scale: 0.8, 0.8
+    color: "#ffff" # 1.0 alpha

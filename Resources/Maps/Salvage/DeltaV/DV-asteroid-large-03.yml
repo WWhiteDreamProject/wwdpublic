@@ -1620,7 +1620,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -5.5,-5.5
       parent: 778
-- proto: FloraRockSolid03
+- proto: FloraRockSolid
   entities:
   - uid: 705
     components:

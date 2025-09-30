@@ -168,6 +168,16 @@
       map: [ "enum.GunVisualLayers.Mag" ]
   - type: Clothing
     sprite: _White/Objects/Weapons/Guns/Snipers/hristov-inhands.rsi
+  - type: Gun
+    angleDecay: 1
+    bonusAngleDecay: 10
+    bonusAngleIncreaseTurn: 1
+    fireRate: 0.4
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: Item
     size: Huge
     shape:
@@ -182,13 +192,14 @@
       - CartridgeAntiMateriel
     capacity: 5
     proto: CartridgeAntiMateriel
-  - type: Gun
-    angleDecay: 1 # WWDP
-    bonusAngleDecay: 10 # WWDP
-    bonusAngleIncreaseTurn: 1  # wwdp
-    fireRate: 0.6
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.25
+    sprintModifier: 0.25
   - type: Wieldable
-  - type: Telescope
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 0.3
   - type: MagazineVisuals
     magState: mag
     steps: 1

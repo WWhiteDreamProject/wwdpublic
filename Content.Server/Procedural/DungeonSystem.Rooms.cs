@@ -258,10 +258,8 @@ public sealed partial class DungeonSystem
                 // Offset by 0.5 because decals are offset from bot-left corner
                 // So we convert it to center of tile then convert it back again after transform.
                 // Do these shenanigans because 32x32 decals assume as they are centered on bottom-left of tiles.
-                // WD EDIT START
-                var position = Vector2.Transform(decal.Coordinates + Vector2Helpers.Half - roomCenter, roomTransform);
-                position -= Vector2Helpers.Half;
-                // WD EDIT END
+                var position = Vector2.Transform(decal.Coordinates + grid.TileSizeHalfVector - roomCenter, roomTransform);
+                position -= grid.TileSizeHalfVector;
 
                 if (!clearExisting && reservedTiles?.Contains(position.Floored()) == true)
                     continue;

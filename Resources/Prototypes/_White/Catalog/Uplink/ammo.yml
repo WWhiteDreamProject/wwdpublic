@@ -15,7 +15,6 @@
   id: UplinkBoxLethalshot
   name: uplink-shotgun-shells-name
   description: uplink-shotgun-shells-desc
-  icon: { sprite: /Textures/Objects/Storage/boxes.rsi, state: shelllethal}
   productEntity: BoxLethalshot
   discountCategory: usualDiscounts
   discountDownTo:

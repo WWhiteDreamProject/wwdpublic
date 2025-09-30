@@ -4,7 +4,7 @@ using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.MenuBar.Widgets;
 using Content.Shared._White.CCVar;
-using Content.Shared._White.UserInterface.Emotes;
+using Content.Shared._White.UserInterface;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Input;
@@ -87,11 +87,8 @@ public sealed class WhiteEmotesUIController : UIController, IOnStateChanged<Game
     {
         if (_window == null)
         {
-            if (!Enum.TryParse(_configurationManager.GetCVar(WhiteCVars.EmotesMenuStyle), out EmotesMenuType emotesMenuStyle))
-                emotesMenuStyle = EmotesMenuType.Window;
-
             // setup window
-            switch (emotesMenuStyle)
+            switch (_configurationManager.GetCVar(WhiteCVars.EmotesMenuStyle))
             {
                 case EmotesMenuType.Window:
                     _window = UIManager.CreateWindow<WhiteEmotesMenu>();

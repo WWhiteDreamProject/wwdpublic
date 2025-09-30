@@ -1,26 +1,20 @@
 <Document>
+  # Ботаника
 
-# Ботанические союзники
+  Ботаника и химия часто могут работать вместе, создавая более эффективные лекарства (или рекреационные коктейли). Возможно, стоит предоставить им необходимые удобрения и попросить взамен лекарственные растения.
 
-Химия и ботаника — две науки, что при грамотном подходе способны творить настоящие чудеса. В тандеме они могут не только лечить, но и радовать: будь то эффективные лекарства или отменные рекреационные настойки. Так что не скупись на удобрения — и, быть может, в ответ ты получишь дары природы, способные исцелять лучше любого синтетического препарата.
+  <Box>
+    <GuideEntityEmbed Entity="FoodGalaxythistle"/>
+    <GuideEntityEmbed Entity="FoodLingzhi"/>
+    <GuideEntityEmbed Entity="FoodAmbrosiaVulgaris"/>
+    <GuideEntityEmbed Entity="FoodAloe"/>
+    <GuideEntityEmbed Entity="Nettle"/>
+  </Box>
 
-<Box>
-<GuideEntityEmbed Entity="FoodGalaxythistle"/>
-<GuideEntityEmbed Entity="FoodLingzhi"/>
-<GuideEntityEmbed Entity="FoodAmbrosiaVulgaris"/>
-<GuideEntityEmbed Entity="FoodAloe"/>
-<GuideEntityEmbed Entity="Nettle"/>
-</Box>
-
-Эти растения — не просто травы. За каждым листом скрывается целебная сила, рожденная в тепле гидропоники и питательной смеси. Поддержка химиков может превратить теплицу в настоящий фармацевтический сад.
-
-<GuideReagentEmbed Reagent="Ammonia"/>
-<GuideReagentEmbed Reagent="Diethylamine"/>
-<GuideReagentEmbed Reagent="EZNutrient"/>
-<GuideReagentEmbed Reagent="Left4Zed"/>
-<GuideReagentEmbed Reagent="RobustHarvest"/>
-<GuideReagentEmbed Reagent="UnstableMutagen"/>
-
-От простых удобрений до нестабильных мутагенов — каждый реагент может стать ключом к выведению уникального сорта, редкого компонента или смертоносного яда. Всё зависит от целей. И от аккуратности обращения.
+  <GuideReagentGroupEmbed Group="Botanical"/>
+  <GuideReagentEmbed Reagent="UnstableMutagen"/>
+  <GuideReagentEmbed Reagent="Cryoxadone"/>
+  <GuideReagentEmbed Reagent="Dylovene"/>
+  <GuideReagentEmbed Reagent="Phalanximine"/>
 
 </Document>
