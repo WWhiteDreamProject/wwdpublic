@@ -17,6 +17,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
+using Content.Shared.Station.Components;
 using Content.Shared.UserInterface;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
@@ -50,6 +51,7 @@ public sealed class BloodCultRuneSystem : SharedBloodCultRuneSystem
         SubscribeLocalEvent<RuneDrawerComponent, RuneDrawerSelectedMessage>(OnRuneSelected);
 
         SubscribeLocalEvent<BloodCultRuneComponent, ActivateInWorldEvent>(OnRuneActivate);
+        SubscribeLocalEvent<BloodCultRuneComponent, AfterActivateInWorldEvent>(AfterRuneActivate);
         SubscribeLocalEvent<BloodCultRuneComponent, InteractUsingEvent>(OnRuneInteractUsing);
         SubscribeLocalEvent<BloodCultRuneComponent, RuneEraseDoAfterEvent>(OnRuneErase);
         SubscribeLocalEvent<BloodCultRuneComponent, StartCollideEvent>(OnRuneCollide);
@@ -95,9 +97,15 @@ public sealed class BloodCultRuneSystem : SharedBloodCultRuneSystem
         if (!_protoManager.TryIndex(args.SelectedRune, out var runeSelector) || EntityWhitelist.IsWhitelistFail(ent.Comp.Whitelist, args.Actor))
             return;
 
+        if (!HasComp<StationMemberComponent>(Transform(ent).GridUid))
+        {
+            _popup.PopupEntity(Loc.GetString("blood-cult-rune-cant-draw"), args.Actor, args.Actor);
+            return;
+        }
+
         if (runeSelector.RequireTargetDead && !_bloodCultRule.CanDrawRendingRune(args.Actor))
         {
-            _popup.PopupEntity(Loc.GetString("cult-rune-cant-draw-rending"), args.Actor, args.Actor);
+            _popup.PopupEntity(Loc.GetString("blood-cult-rune-cant-draw-rending"), args.Actor, args.Actor);
             return;
         }
 
@@ -123,15 +131,16 @@ public sealed class BloodCultRuneSystem : SharedBloodCultRuneSystem
 
     private void OnRuneActivate(Entity<BloodCultRuneComponent> rune, ref ActivateInWorldEvent args)
     {
-        args.Handled = true;
+        if (!HasComp<BloodCultistComponent>(args.User))
+            return;
 
         var cultists = GatherCultists(rune, rune.Comp.RuneActivationRange);
         if (cultists.Count < rune.Comp.RequiredInvokers)
             return;
 
-        var tryInvokeEv = new TryInvokeCultRuneEvent(args.User, cultists);
-        RaiseLocalEvent(rune, tryInvokeEv);
-        if (tryInvokeEv.Cancelled)
+        var invokeRuneEvent = new InvokeRuneEvent(args.User, cultists);
+        RaiseLocalEvent(rune, invokeRuneEvent);
+        if (invokeRuneEvent.Cancelled)
             return;
 
         foreach (var cultist in cultists)
@@ -148,6 +157,14 @@ public sealed class BloodCultRuneSystem : SharedBloodCultRuneSystem
                     checkRadioPrefix: false);
             }
         }
+
+        args.Handled = true;
+    }
+
+    private void AfterRuneActivate(Entity<BloodCultRuneComponent> rune, ref AfterActivateInWorldEvent args)
+    {
+        var afterInvokeRuneEvent = new AfterInvokeRuneEvent(args.User);
+        RaiseLocalEvent(rune, afterInvokeRuneEvent);
     }
 
     private void OnRuneInteractUsing(Entity<BloodCultRuneComponent> rune, ref InteractUsingEvent args)
@@ -158,7 +175,7 @@ public sealed class BloodCultRuneSystem : SharedBloodCultRuneSystem
         // Logic for bible erasing
         if (TryComp<BibleComponent>(args.Used, out var bible) && HasComp<BibleUserComponent>(args.User))
         {
-            _popup.PopupEntity(Loc.GetString("cult-rune-erased"), rune, args.User);
+            _popup.PopupEntity(Loc.GetString("blood-cult-rune-erased"), rune, args.User);
             _audio.PlayPvs(bible.HealSoundPath, args.User);
             EntityManager.DeleteEntity(args.Target);
             return;
@@ -176,7 +193,7 @@ public sealed class BloodCultRuneSystem : SharedBloodCultRuneSystem
             };
 
         if (_doAfter.TryStartDoAfter(argsDoAfterEvent))
-            _popup.PopupEntity(Loc.GetString("cult-rune-started-erasing"), rune, args.User);
+            _popup.PopupEntity(Loc.GetString("blood-cult-rune-started-erasing"), rune, args.User);
     }
 
     private void OnRuneErase(Entity<BloodCultRuneComponent> ent, ref RuneEraseDoAfterEvent args)
@@ -184,7 +201,7 @@ public sealed class BloodCultRuneSystem : SharedBloodCultRuneSystem
         if (args.Cancelled)
             return;
 
-        _popup.PopupEntity(Loc.GetString("cult-rune-erased"), ent, args.User);
+        _popup.PopupEntity(Loc.GetString("blood-cult-rune-erased"), ent, args.User);
         QueueDel(ent);
     }
 

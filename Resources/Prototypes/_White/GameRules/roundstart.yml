@@ -15,7 +15,7 @@
       briefing:
         text: blood-cult-role-greeting
         color: Red
-        sound: "/Audio/WhiteDream/BloodCult/blood_cult_greeting.ogg"
+        sound: "/Audio/_White/Ambience/Antag/blood_cultist_start.ogg"
       startingGear: BloodCultistGear
       components:
       - type: BloodCultist

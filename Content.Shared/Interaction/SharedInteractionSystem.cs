@@ -1131,6 +1131,11 @@ namespace Content.Shared.Interaction
 
             if (!activateMsg.WasLogged)
                 _adminLogger.Add(LogType.InteractActivate, LogImpact.Low, $"{ToPrettyString(user):user} activated {ToPrettyString(used):used}");
+
+            // WD EDIT START
+            RaiseLocalEvent(used, new AfterActivateInWorldEvent(user, used));
+            RaiseLocalEvent(user, new AfterUserActivateInWorldEvent(user, used));
+            // WD EDIT END
             return true;
         }
         #endregion

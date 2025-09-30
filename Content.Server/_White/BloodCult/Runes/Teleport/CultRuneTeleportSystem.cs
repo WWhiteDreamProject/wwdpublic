@@ -21,7 +21,7 @@ public sealed class CultRuneTeleportSystem : EntitySystem
 
         SubscribeLocalEvent<CultRuneTeleportComponent, AfterRunePlaced>(OnAfterRunePlaced);
         SubscribeLocalEvent<CultRuneTeleportComponent, NameSelectedMessage>(OnNameSelected);
-        SubscribeLocalEvent<CultRuneTeleportComponent, TryInvokeCultRuneEvent>(OnTeleportRuneInvoked);
+        SubscribeLocalEvent<CultRuneTeleportComponent, InvokeRuneEvent>(OnTeleportRuneInvoked);
         SubscribeLocalEvent<CultRuneTeleportComponent, ListViewItemSelectedMessage>(OnTeleportRuneSelected);
     }
 
@@ -35,7 +35,7 @@ public sealed class CultRuneTeleportSystem : EntitySystem
         rune.Comp.Name = args.Name;
     }
 
-    private void OnTeleportRuneInvoked(Entity<CultRuneTeleportComponent> rune, ref TryInvokeCultRuneEvent args)
+    private void OnTeleportRuneInvoked(Entity<CultRuneTeleportComponent> rune, ref InvokeRuneEvent args)
     {
         var runeUid = rune.Owner;
         if (_ui.IsUiOpen(runeUid, ListViewSelectorUiKey.Key))
@@ -88,7 +88,7 @@ public sealed class CultRuneTeleportSystem : EntitySystem
         if (runes.Count != 0)
             return true;
 
-        _popup.PopupEntity(Loc.GetString("cult-teleport-not-found"), user, user);
+        _popup.PopupEntity(Loc.GetString("blood-cult-rune-teleport-not-found"), user, user);
         return false;
     }
 }

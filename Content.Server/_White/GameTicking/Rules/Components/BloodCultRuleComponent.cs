@@ -14,7 +14,7 @@ public sealed partial class BloodCultRuleComponent : Component
     public ProtoId<NpcFactionPrototype> BloodCultFaction = "GeometerOfBlood";
 
     [DataField]
-    public EntProtoId HarvesterPrototype = "ConstructHarvester";
+    public EntProtoId HarvesterPrototype = "MobConstructHarvester";
 
     [DataField]
     public Color EyeColor = Color.FromHex("#f80000");

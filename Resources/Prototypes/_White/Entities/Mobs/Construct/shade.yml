@@ -1,0 +1,40 @@
+- type: entity
+  id: BaseMobShade
+  parent: BaseMobConstruct # It's not technically a construct but it code wise? it is.
+  abstract: true
+  name: shade
+  description: A bound spirit.
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Construct/shade.rsi
+    layers:
+    - state: shade_cult
+  - type: MeleeWeapon
+    hidden: true
+    angle: 30
+    animation: WeaponArcSmash
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 10
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5.5
+    baseSprintSpeed: 5.5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      40: Dead
+
+- type: entity
+  id: MobBloodCultShade
+  parent: BaseMobShade
+  components:
+  - type: BloodCultist
+
+- type: entity
+  id: MobHolyShade
+  parent: BaseMobShade
+  components:
+  - type: Sprite
+    layers:
+    - state: shade_holy

@@ -9,3 +9,6 @@ alerts-plasma-desc = Количество [color=#ff2da4]плазмы[/color] к
 
 alerts-queen-finder-name = Чувство королевы
 alerts-queen-finder-desc = Позволяет вам чувствовать общее направление движения вашей королевы.
+
+alerts-blood-cult-empowered-name = Усиленный
+alerts-blood-cult-empowered-desc = Магия крови и начертание рун требуют гораздо меньше времени, так же вы теряете меньше крови.

@@ -6,20 +6,6 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._White.BloodCult.Runes;
 
 [Serializable, NetSerializable]
-public enum ApocalypseRuneVisuals
-{
-    Used,
-    Layer
-}
-
-[Serializable, NetSerializable]
-public enum RendingRuneVisuals
-{
-    Active,
-    Layer
-}
-
-[Serializable, NetSerializable]
 public enum RuneDrawerBuiKey
 {
     Key

@@ -22,11 +22,11 @@ public sealed class CultRuneSummonSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CultRuneSummonComponent, TryInvokeCultRuneEvent>(OnSummonRuneInvoked);
+        SubscribeLocalEvent<CultRuneSummonComponent, InvokeRuneEvent>(OnSummonRuneInvoked);
         SubscribeLocalEvent<CultRuneSummonComponent, ListViewItemSelectedMessage>(OnCultistSelected);
     }
 
-    private void OnSummonRuneInvoked(Entity<CultRuneSummonComponent> rune, ref TryInvokeCultRuneEvent args)
+    private void OnSummonRuneInvoked(Entity<CultRuneSummonComponent> rune, ref InvokeRuneEvent args)
     {
         var runeUid = rune.Owner;
         if (_ui.IsUiOpen(runeUid, ListViewSelectorUiKey.Key))

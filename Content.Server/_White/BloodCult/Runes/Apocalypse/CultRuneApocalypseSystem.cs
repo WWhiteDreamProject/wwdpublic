@@ -27,11 +27,11 @@ public sealed class CultRuneApocalypseSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CultRuneApocalypseComponent, TryInvokeCultRuneEvent>(OnApocalypseRuneInvoked);
+        SubscribeLocalEvent<CultRuneApocalypseComponent, InvokeRuneEvent>(OnApocalypseRuneInvoked);
         SubscribeLocalEvent<CultRuneApocalypseComponent, ApocalypseRuneDoAfter>(OnDoAfter);
     }
 
-    private void OnApocalypseRuneInvoked(Entity<CultRuneApocalypseComponent> ent, ref TryInvokeCultRuneEvent args)
+    private void OnApocalypseRuneInvoked(Entity<CultRuneApocalypseComponent> ent, ref InvokeRuneEvent args)
     {
         if (ent.Comp.Used)
         {
@@ -53,7 +53,7 @@ public sealed class CultRuneApocalypseSystem : EntitySystem
             return;
 
         ent.Comp.Used = true;
-        _appearance.SetData(ent, ApocalypseRuneVisuals.Used, true);
+        _appearance.SetData(ent, BloodRuneVisuals.Active, true);
 
         _emp.EmpPulse(
             _transform.GetMapCoordinates(ent),

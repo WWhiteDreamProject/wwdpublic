@@ -1,4 +1,5 @@
 using Content.Client.Popups;
+using Content.Shared._White.BloodCult.BloodCultist;
 using Content.Shared._White.BloodCult.Runes;
 using Content.Shared._White.BloodCult.Runes.Components;
 using Content.Shared.Interaction;
@@ -18,16 +19,19 @@ public sealed class BloodCultRuneSystem : SharedBloodCultRuneSystem
 
     private void OnRuneActivate(Entity<BloodCultRuneComponent> rune, ref ActivateInWorldEvent args)
     {
-        args.Handled = true;
+        if (!HasComp<BloodCultistComponent>(args.User))
+            return;
 
         var cultists = GatherCultists(rune, rune.Comp.RuneActivationRange);
         if (cultists.Count < rune.Comp.RequiredInvokers)
         {
-            _popup.PopupClient(Loc.GetString("cult-rune-not-enough-cultists"), rune, args.User);
+            _popup.PopupClient(Loc.GetString("blood-cult-rune-not-enough-cultists"), rune, args.User);
             return;
         }
 
-        var tryInvokeEv = new TryInvokeCultRuneEvent(args.User, cultists);
+        var tryInvokeEv = new InvokeRuneEvent(args.User, cultists);
         RaiseLocalEvent(rune, tryInvokeEv);
+
+        args.Handled = true;
     }
 }

@@ -64,3 +64,31 @@ public sealed class UserActivateInWorldEvent : HandledEntityEventArgs, ITargeted
         Complex = complex;
     }
 }
+
+// WD EDIT START
+public sealed class AfterActivateInWorldEvent(EntityUid user, EntityUid target) : EntityEventArgs
+{
+    /// <summary>
+    ///     Entity that activated the target world entity.
+    /// </summary>
+    public EntityUid User = user;
+
+    /// <summary>
+    ///     Entity that was activated in the world.
+    /// </summary>
+    public EntityUid Target = target;
+}
+
+public sealed class AfterUserActivateInWorldEvent(EntityUid user, EntityUid target) : EntityEventArgs
+{
+    /// <summary>
+    ///     Entity that activated the target world entity.
+    /// </summary>
+    public EntityUid User = user;
+
+    /// <summary>
+    ///     Entity that was activated in the world.
+    /// </summary>
+    public EntityUid Target = target;
+}
+// WD EDIT END

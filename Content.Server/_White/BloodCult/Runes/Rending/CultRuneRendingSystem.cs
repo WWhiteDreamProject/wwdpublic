@@ -29,8 +29,9 @@ public sealed class CultRuneRendingSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<CultRuneRendingComponent, AfterRunePlaced>(OnRendingRunePlaced);
-        SubscribeLocalEvent<CultRuneRendingComponent, TryInvokeCultRuneEvent>(OnRendingRuneInvoked);
+        SubscribeLocalEvent<CultRuneRendingComponent, InvokeRuneEvent>(OnRendingRuneInvoked);
         SubscribeLocalEvent<CultRuneRendingComponent, RendingRuneDoAfter>(SpawnNarSie);
     }
 
@@ -38,7 +39,7 @@ public sealed class CultRuneRendingSystem : EntitySystem
     {
         var position = _transform.GetMapCoordinates(rune);
         var message = Loc.GetString(
-            "cult-rending-drawing-finished",
+            "blood-cult-rune-rending-drawing-finished",
             ("location", FormattedMessage.RemoveMarkupPermissive(_navMap.GetNearestBeaconString(position))));
 
         _chat.DispatchGlobalAnnouncement(
@@ -49,18 +50,18 @@ public sealed class CultRuneRendingSystem : EntitySystem
             Color.DarkRed);
     }
 
-    private void OnRendingRuneInvoked(Entity<CultRuneRendingComponent> rune, ref TryInvokeCultRuneEvent args)
+    private void OnRendingRuneInvoked(Entity<CultRuneRendingComponent> rune, ref InvokeRuneEvent args)
     {
         if (!_cultRule.IsObjectiveFinished())
         {
-            _popup.PopupEntity(Loc.GetString("cult-rending-target-alive"), rune, args.User);
+            _popup.PopupEntity(Loc.GetString("blood-cult-rune-rending-target-alive"), rune, args.User);
             args.Cancel();
             return;
         }
 
         if (rune.Comp.CurrentDoAfter.HasValue)
         {
-            _popup.PopupEntity(Loc.GetString("cult-rending-already-summoning"), rune, args.User);
+            _popup.PopupEntity(Loc.GetString("blood-cult-rune-rending-already-summoning"), rune, args.User);
             args.Cancel();
             return;
         }
@@ -78,7 +79,7 @@ public sealed class CultRuneRendingSystem : EntitySystem
         }
 
         var message = Loc.GetString(
-            "cult-rending-started",
+            "blood-cult-rune-rending-started",
             ("location", FormattedMessage.RemoveMarkupPermissive(_navMap.GetNearestBeaconString(rune.Owner))));
         _chat.DispatchGlobalAnnouncement(
             message,
@@ -86,7 +87,7 @@ public sealed class CultRuneRendingSystem : EntitySystem
             false,
             colorOverride: Color.DarkRed);
 
-        _appearance.SetData(rune, RendingRuneVisuals.Active, true);
+        _appearance.SetData(rune, BloodRuneVisuals.Active, true);
         rune.Comp.AudioEntity =
             _audio.PlayGlobal(rune.Comp.SummonAudio, Filter.Broadcast(), false, AudioParams.Default.WithLoop(true));
     }
@@ -95,11 +96,11 @@ public sealed class CultRuneRendingSystem : EntitySystem
     {
         rune.Comp.CurrentDoAfter = null;
         _audio.Stop(rune.Comp.AudioEntity);
-        _appearance.SetData(rune, RendingRuneVisuals.Active, false);
+        _appearance.SetData(rune, BloodRuneVisuals.Active, false);
         if (args.Cancelled)
         {
             _chat.DispatchGlobalAnnouncement(
-                Loc.GetString("cult-rending-prevented"),
+                Loc.GetString("blood-cult-rune-rending-prevented"),
                 Loc.GetString("blood-cult-title"),
                 false,
                 colorOverride: Color.DarkRed);

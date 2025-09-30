@@ -31,6 +31,7 @@ public sealed class XenomorphEggSystem : EntitySystem
 
         SubscribeLocalEvent<XenomorphEggComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<XenomorphEggComponent, ActivateInWorldEvent>(OnActivateInWorld);
+        SubscribeLocalEvent<XenomorphEggComponent, AfterActivateInWorldEvent>(AfterActivateInWorld);
         SubscribeLocalEvent<XenomorphEggComponent, AttackedEvent>(OnAttacked);
     }
 
@@ -49,11 +50,18 @@ public sealed class XenomorphEggSystem : EntitySystem
         {
             case XenomorphEggStatus.Grown:
                 SetBursting(uid, component);
+                args.Handled = true;
                 return;
             case XenomorphEggStatus.Burst:
-                CleanBurstingEgg(uid, args.User, component);
+                args.Handled = true;
                 return;
         }
+    }
+
+    private void AfterActivateInWorld(EntityUid uid, XenomorphEggComponent component, AfterActivateInWorldEvent args)
+    {
+        if (component.Status is XenomorphEggStatus.Burst)
+            CleanBurstingEgg(uid, args.User, component);
     }
 
     private void OnAttacked(EntityUid uid, XenomorphEggComponent component, AttackedEvent args)

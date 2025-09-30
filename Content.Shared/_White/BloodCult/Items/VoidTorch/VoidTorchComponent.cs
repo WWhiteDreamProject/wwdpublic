@@ -9,7 +9,7 @@ public sealed partial class VoidTorchComponent : Component
     public int Charges = 5;
 
     [DataField]
-    public SoundPathSpecifier TeleportSound = new("/Audio/WhiteDream/BloodCult/veilin.ogg");
+    public SoundPathSpecifier TeleportSound = new("/Audio/_White/Magic/BloodCult/veilin.ogg");
 
     [DataField]
     public string TurnOnLightBehaviour = "turn_on";

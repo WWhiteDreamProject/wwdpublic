@@ -6,7 +6,7 @@
   defaultCustomColor: true
   defaultSnap: false
   sprite:
-    sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
+    sprite: _White/Objects/Specific/BloodCult/Runes/regular.rsi
     state: offering
 
 - type: decal
@@ -17,7 +17,7 @@
   defaultCustomColor: true
   defaultSnap: false
   sprite:
-    sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
+    sprite: _White/Objects/Specific/BloodCult/Runes/regular.rsi
     state: empower
 
 - type: decal
@@ -28,7 +28,7 @@
   defaultCustomColor: true
   defaultSnap: false
   sprite:
-    sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
+    sprite: _White/Objects/Specific/BloodCult/Runes/regular.rsi
     state: teleport
 
 - type: decal
@@ -39,7 +39,7 @@
   defaultCustomColor: true
   defaultSnap: false
   sprite:
-    sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
+    sprite: _White/Objects/Specific/BloodCult/Runes/regular.rsi
     state: revive
 
 - type: decal
@@ -50,7 +50,7 @@
   defaultCustomColor: true
   defaultSnap: false
   sprite:
-    sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
+    sprite: _White/Objects/Specific/BloodCult/Runes/regular.rsi
     state: barrier
 
 - type: decal
@@ -61,7 +61,7 @@
   defaultCustomColor: true
   defaultSnap: false
   sprite:
-    sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
+    sprite: _White/Objects/Specific/BloodCult/Runes/regular.rsi
     state: summon
 
 - type: decal
@@ -72,7 +72,7 @@
   defaultCustomColor: true
   defaultSnap: false
   sprite:
-    sprite: WhiteDream/BloodCult/Entities/Runes/regular.rsi
+    sprite: _White/Objects/Specific/BloodCult/Runes/regular.rsi
     state: blood_boil
 
 

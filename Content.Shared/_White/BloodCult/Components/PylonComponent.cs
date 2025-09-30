@@ -33,22 +33,16 @@ public sealed partial class PylonComponent : Component
     public float HealingCooldown = 20;
 
     [DataField]
-    public string CultTile = "CultFloor";
+    public string CultTile = "BloodCultFloor";
 
     [DataField]
-    public EntProtoId TileCorruptEffect = "CultTileSpawnEffect";
+    public EntProtoId TileCorruptEffect = "BloodCultTileSpawnEffect";
 
     [DataField]
-    public SoundSpecifier BurnHandSound = new SoundPathSpecifier("/Audio/Effects/lightburn.ogg");
-
-    [DataField]
-    public SoundSpecifier CorruptTileSound = new SoundPathSpecifier("/Audio/WhiteDream/BloodCult/curse.ogg");
+    public SoundSpecifier CorruptTileSound = new SoundPathSpecifier("/Audio/_White/Magic/BloodCult/curse.ogg");
 
     [DataField]
     public DamageSpecifier Healing = new();
-
-    [DataField]
-    public DamageSpecifier DamageOnInteract = new();
 
     [ViewVariables(VVAccess.ReadOnly)]
     public float CorruptionAccumulator = 0;

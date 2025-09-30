@@ -1,0 +1,27 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyeBloodCultBlindfold
+  name: zealot's blindfold
+  description: May Nar'Sie guide you through the darkness and shield you from the light
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Misc/blindfold.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Eyes/Misc/blindfold.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: NightVision
+    isActive: true
+    isEquipment: true
+    toggleAction: null
+    activateSound: null
+    deactivateSound: null
+    color: White
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological

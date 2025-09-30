@@ -45,7 +45,7 @@ public sealed class TimedFactorySystem : EntitySystem
     {
         if (!factory.Comp.Active)
         {
-            _popup.PopupClient(Loc.GetString("timed-factory-cooldown", ("cooldown", (_gameTiming.CurTime - factory.Comp.CooldownIn).Seconds)), factory, args.User);
+            _popup.PopupClient(Loc.GetString("timed-factory-cooldown", ("cooldown", (int) (factory.Comp.CooldownIn - _gameTiming.CurTime).TotalSeconds)), factory, args.User);
             args.Cancel();
             return;
         }
@@ -58,6 +58,7 @@ public sealed class TimedFactorySystem : EntitySystem
         if (!factory.Comp.Active)
             return;
 
+        factory.Comp.Active = false;
         factory.Comp.CooldownIn = _gameTiming.CurTime + factory.Comp.Cooldown;
         _appearance.SetData(factory, GenericCultVisuals.State, false);
         _ui.CloseUi(factory.Owner, RadialSelectorUiKey.Key);

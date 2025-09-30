@@ -38,7 +38,7 @@ public sealed class RepulseSystem : EntitySystem
 
     public void Repulse(Entity<RepulseComponent> repulsor, EntityUid user)
     {
-        if (_entityWhitelist.IsBlacklistFail(repulsor.Comp.TargetBlacklist, user))
+        if (_entityWhitelist.IsBlacklistPass(repulsor.Comp.TargetBlacklist, user))
             return;
 
         var ev = new BeforeRepulseEvent(user);

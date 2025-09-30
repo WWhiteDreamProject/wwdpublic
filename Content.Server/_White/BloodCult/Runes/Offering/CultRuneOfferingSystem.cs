@@ -31,10 +31,10 @@ public sealed class CultRuneOfferingSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CultRuneOfferingComponent, TryInvokeCultRuneEvent>(OnOfferingRuneInvoked);
+        SubscribeLocalEvent<CultRuneOfferingComponent, InvokeRuneEvent>(OnOfferingRuneInvoked);
     }
 
-    private void OnOfferingRuneInvoked(Entity<CultRuneOfferingComponent> rune, ref TryInvokeCultRuneEvent args)
+    private void OnOfferingRuneInvoked(Entity<CultRuneOfferingComponent> rune, ref InvokeRuneEvent args)
     {
         var possibleTargets = _bloodCultRune.GetTargetsNearRune(
             rune,

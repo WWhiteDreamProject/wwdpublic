@@ -455,6 +455,19 @@
   itemDrop: FloorTileItemReinforcedGlassFrameWhite
   heatCapacity: 10000
 
+- type: tile
+  id: BloodCultFloor
+  name: tiles-blood-cult-floor
+  sprite: /Textures/_White/Tiles/blood_cult.png
+  variants: 1
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000
+
 # Departamental
 
 - type: tile

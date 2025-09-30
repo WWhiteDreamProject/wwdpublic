@@ -6,6 +6,8 @@ using Content.Shared._White.BloodCult.BloodCultist;
 using Content.Shared._White.BloodCult.Components;
 using Content.Shared._White.BloodCult.Construct;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
 using Content.Shared.Mobs.Components;
@@ -28,6 +30,7 @@ public sealed class PylonSystem : EntitySystem
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly DamageOnInteractSystem _damageOnInteract = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -73,24 +76,22 @@ public sealed class PylonSystem : EntitySystem
     private void OnInteract(Entity<PylonComponent> pylon, ref InteractHandEvent args)
     {
         if (!HasComp<BloodCultistComponent>(args.User))
-        {
-            _audio.PlayEntity(pylon.Comp.BurnHandSound, Filter.Pvs(pylon), pylon, true);
-            _popup.PopupEntity(Loc.GetString("powered-light-component-burn-hand"), pylon, args.User);
-            _damageable.TryChangeDamage(args.User, pylon.Comp.DamageOnInteract, true);
             return;
-        }
 
-        ToggleActive(pylon);
+        ToggleActive(pylon, !pylon.Comp.IsActive);
         var toggleMsg = Loc.GetString(pylon.Comp.IsActive ? "pylon-toggle-on" : "pylon-toggle-off");
         _popup.PopupEntity(toggleMsg, pylon);
     }
 
-    private void ToggleActive(Entity<PylonComponent> pylon)
+    private void ToggleActive(Entity<PylonComponent> pylon, bool state)
     {
-        var state = !pylon.Comp.IsActive;
         pylon.Comp.IsActive = state;
+
         _appearance.SetData(pylon, PylonVisuals.Activated, state);
         _pointLight.SetEnabled(pylon, state);
+
+        if (TryComp<DamageOnInteractComponent>(pylon, out var damageOnInteractComp))
+            _damageOnInteract.SetIsDamageActiveTo((pylon, damageOnInteractComp), state);
     }
 
     private void CorruptTilesInRange(Entity<PylonComponent> pylon)
@@ -130,7 +131,7 @@ public sealed class PylonSystem : EntitySystem
 
         foreach (var target in targets)
         {
-            if ((HasComp<BloodCultistComponent>(target) || HasComp<ConstructComponent>(target)) && !_mobState.IsDead(target))
+            if (HasComp<BloodCultistComponent>(target) && !_mobState.IsDead(target))
                 _damageable.TryChangeDamage(target, pylon.Comp.Healing, true);
         }
     }

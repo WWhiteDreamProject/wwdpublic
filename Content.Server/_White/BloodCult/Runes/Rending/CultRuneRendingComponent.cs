@@ -13,10 +13,10 @@ public sealed partial class CultRuneRendingComponent : Component
 
     [DataField]
     public SoundSpecifier FinishedDrawingAudio =
-        new SoundPathSpecifier("/Audio/WhiteDream/BloodCult/rending_draw_finished.ogg");
+        new SoundPathSpecifier("/Audio/_White/Announcements/rending_draw_finished.ogg");
 
     [DataField]
-    public SoundSpecifier SummonAudio = new SoundPathSpecifier("/Audio/WhiteDream/BloodCult/rending_ritual.ogg");
+    public SoundSpecifier SummonAudio = new SoundPathSpecifier("/Audio/_White/Announcements/rending_ritual.ogg");
 
     [DataField]
     public EntProtoId NarsiePrototype = "MobNarsieSpawn";

@@ -260,9 +260,11 @@
     - TauCetiBasic
     - RobotTalk
   - type: PsionicInsulation
+  # WD EDIT START
   - type: TwistedConstructionTarget
     replacementProto: ConstructShell
-  - type: CRTVisionOverlay # WD EDIT
+  - type: CRTVisionOverlay
+  # WD EDIT END
 
 - type: entity
   abstract: true

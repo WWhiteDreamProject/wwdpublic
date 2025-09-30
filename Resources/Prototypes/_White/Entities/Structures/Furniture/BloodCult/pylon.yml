@@ -1,0 +1,77 @@
+﻿- type: entity
+  id: BloodCultPylon
+  parent: BaseStructure
+  name: pylon
+  description: A floating crystal that slowly heals those faithful to Nar'Sie.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _White/Structures/Furniture/BloodCult/pylon.rsi
+    layers:
+    - state: icon
+      map: [ "enum.PylonVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PylonVisuals.Activated:
+        enum.PylonVisuals.Layer:
+          True: { state: "icon" }
+          False: { state: "icon_off" }
+  - type: InteractionOutline
+  - type: PointLight
+    color: "#FF0000"
+    radius: 2
+    energy: 2
+    enabled: true
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Glass
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 2
+  - type: Pylon
+    healing:
+      groups:
+        Brute: -20
+        Burn: -20
+        Toxin: -10
+        Genetic: -5
+        Airloss: -20
+  - type: DamageOnInteract
+    ignoreResistances: true
+    popupText : powered-light-component-burn-hand
+    damage:
+      groups:
+        Burn: 5
+    blacklist:
+      components:
+      - BloodCultist
+  - type: Construction
+    graph: BloodCultPylon
+    node: pylon
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      pylonFix:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.3,0.1,0.3"
+        density: 190
+        mask:
+        - TabletopMachineMask
+        layer:
+        - TabletopMachineLayer

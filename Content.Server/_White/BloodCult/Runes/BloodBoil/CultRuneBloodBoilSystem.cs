@@ -33,12 +33,12 @@ public sealed class CultRuneBloodBoilSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CultRuneBloodBoilComponent, TryInvokeCultRuneEvent>(OnBloodBoilRuneInvoked);
+        SubscribeLocalEvent<CultRuneBloodBoilComponent, InvokeRuneEvent>(OnBloodBoilRuneInvoked);
 
         SubscribeLocalEvent<BloodBoilProjectileComponent, PreventCollideEvent>(CheckCollision);
     }
 
-    private void OnBloodBoilRuneInvoked(Entity<CultRuneBloodBoilComponent> ent, ref TryInvokeCultRuneEvent args)
+    private void OnBloodBoilRuneInvoked(Entity<CultRuneBloodBoilComponent> ent, ref InvokeRuneEvent args)
     {
         var targets = _bloodCultRune.GetTargetsNearRune(ent,
                 ent.Comp.TargetsLookupRange,

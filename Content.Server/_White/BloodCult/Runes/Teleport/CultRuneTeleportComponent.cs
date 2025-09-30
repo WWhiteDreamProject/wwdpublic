@@ -12,8 +12,8 @@ public sealed partial class CultRuneTeleportComponent : Component
     public string Name = "";
 
     [DataField]
-    public SoundPathSpecifier TeleportInSound = new("/Audio/WhiteDream/BloodCult/veilin.ogg");
+    public SoundPathSpecifier TeleportInSound = new("/Audio/_White/Magic/BloodCult/veilin.ogg");
 
     [DataField]
-    public SoundPathSpecifier TeleportOutSound = new("/Audio/WhiteDream/BloodCult/veilout.ogg");
+    public SoundPathSpecifier TeleportOutSound = new("/Audio/_White/Magic/BloodCult/veilout.ogg");
 }

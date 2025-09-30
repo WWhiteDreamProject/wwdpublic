@@ -8,7 +8,7 @@
   startNode: start
   targetNode: pylon
   icon:
-    sprite: WhiteDream/BloodCult/Entities/Structures/pylon.rsi
+    sprite: _White/Structures/Furniture/BloodCult/pylon.rsi
     state: icon_off
   objectType: Structure
   placementMode: AlignPylonConstruction
@@ -26,7 +26,7 @@
   startNode: start
   targetNode: altar
   icon:
-    sprite: WhiteDream/BloodCult/Entities/Structures/altar.rsi
+    sprite: _White/Structures/Furniture/BloodCult/altar.rsi
     state: icon_off
   objectType: Structure
   placementMode: SnapgridCenter
@@ -44,7 +44,7 @@
   startNode: start
   targetNode: forge
   icon:
-    sprite: WhiteDream/BloodCult/Entities/Structures/forge.rsi
+    sprite: _White/Structures/Furniture/BloodCult/forge.rsi
     state: icon_off
   objectType: Structure
   placementMode: SnapgridCenter
@@ -62,7 +62,7 @@
   startNode: start
   targetNode: archives
   icon:
-    sprite: WhiteDream/BloodCult/Entities/Structures/archives.rsi
+    sprite: _White/Structures/Furniture/BloodCult/archives.rsi
     state: icon_off
   objectType: Structure
   placementMode: SnapgridCenter
@@ -80,7 +80,7 @@
   startNode: start
   targetNode: door
   icon:
-    sprite: WhiteDream/BloodCult/Entities/Structures/cult_airlock.rsi
+    sprite: _White/Structures/Doors/MaterialDoors/blood_cult_door.rsi
     state: closed
   objectType: Structure
   placementMode: SnapgridCenter
@@ -98,7 +98,7 @@
   startNode: start
   targetNode: girder
   icon:
-    sprite: WhiteDream/BloodCult/Entities/Structures/cult_girder.rsi
+    sprite: _White/Structures/Walls/blood_cult_girder.rsi
     state: icon
   objectType: Structure
   placementMode: SnapgridCenter

@@ -1,0 +1,25 @@
+- type: entity
+  parent: BaseItem
+  id: ConstructShell
+  name: construct shell
+  description: empty construct shell
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Specific/BloodCult/construct_shell.rsi
+    state: icon
+  - type: ItemSlots
+  - type: ConstructShell
+    shardSlot:
+      ejectOnBreak: true
+      whitelist:
+        components:
+        - SoulShard
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+        interactionRange: 0
+  - type: ContainerContainer
+    containers:
+      Shard: !type:ContainerSlot
+  - type: CultItem

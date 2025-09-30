@@ -1,0 +1,39 @@
+- type: entity
+  id: EldritchLongsword
+  parent: BaseSword
+  name: eldritch longsword
+  description: A sword humming with unholy energy. It glows with a dim red light.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Melee/Sword/blood_cult_sword.rsi
+    state: icon
+  - type: PointLight
+    color: Red
+    radius: 2
+    softness: 1
+  - type: Item
+    size: Normal
+  - type: Clothing
+    slots:
+    - back
+  - type: MeleeWeapon
+    attackRate: 1.3333
+    range: 1.65
+    damage:
+      types:
+        Slash: 24
+    heavyDamageBaseModifier: 1.2
+    heavyStaminaCost: 10
+    maxTargets: 3
+    angle: 90
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: DamageOtherOnHit
+    staminaCost: 8
+  - type: EmbeddableProjectile
+  - type: EmbedPassiveDamage
+  - type: ThrowingAngle
+    angle: 225
+  - type: DisarmMalus
+    malus: 0.8
+  - type: CultItem

@@ -1,0 +1,45 @@
+- type: entity
+  id: ProjectileBloodBoil
+  parent: BaseBullet
+  name: Concentrated Blood
+  description: Oh no.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: blood_boil
+      shader: unshaded
+  - type: Projectile
+    damage:
+      groups:
+        Burn: 10
+        Brute: 10
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.0
+    energy: 7.0
+  - type: BloodBoilProjectile
+
+- type: entity
+  parent: BaseBulletTrigger
+  id: ProjectileGauntlet
+  name: gauntlet
+  description: Oh no.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: gauntlet_echo
+      shader: unshaded
+  - type: Projectile
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 50
+  - type: PointLight
+    color: "#FF0000"
+    radius: 2.0
+    energy: 5.0

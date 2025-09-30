@@ -174,9 +174,11 @@
   - type: InteractionVerbs
     allowedVerbs:
     - KnockOn
+  # WD EDIT START
   - type: TwistedConstructionTarget
-    replacementProto: CultDoor
+    replacementProto: BloodCultDoor
     doAfterDelay: 10
+  # WD EDIT END
   placement:
     mode: SnapgridCenter
 

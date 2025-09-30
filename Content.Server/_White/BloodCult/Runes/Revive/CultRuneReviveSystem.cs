@@ -29,15 +29,15 @@ public sealed class CultRuneReviveSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CultRuneReviveComponent, TryInvokeCultRuneEvent>(OnReviveRuneInvoked);
+        SubscribeLocalEvent<CultRuneReviveComponent, InvokeRuneEvent>(OnReviveRuneInvoked);
     }
 
-    private void OnReviveRuneInvoked(Entity<CultRuneReviveComponent> ent, ref TryInvokeCultRuneEvent args)
+    private void OnReviveRuneInvoked(Entity<CultRuneReviveComponent> ent, ref InvokeRuneEvent args)
     {
         var charges = _bloodCultRule.GetRevivalCharges();
         if (charges <= 0)
         {
-            _popup.PopupEntity(Loc.GetString("cult-revive-rune-no-charges"), args.User, args.User);
+            _popup.PopupEntity(Loc.GetString("blood-cult-rune-revive-no-charges"), args.User, args.User);
             args.Cancel();
             return;
         }
@@ -54,7 +54,7 @@ public sealed class CultRuneReviveSystem : EntitySystem
 
         if (possibleTargets.Count == 0)
         {
-            _popup.PopupEntity(Loc.GetString("cult-rune-no-targets"), args.User, args.User);
+            _popup.PopupEntity(Loc.GetString("blood-cult-rune-no-targets"), args.User, args.User);
             args.Cancel();
             return;
         }

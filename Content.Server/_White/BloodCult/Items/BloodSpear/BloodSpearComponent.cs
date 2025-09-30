@@ -14,12 +14,12 @@ public sealed partial class BloodSpearComponent : Component
     public TimeSpan ParalyzeTime = TimeSpan.FromSeconds(4);
 
     [DataField]
-    public EntProtoId RecallActionId = "ActionBloodSpearRecall";
+    public EntProtoId RecallActionId = "ActionBloodCultBloodSpearRecall";
 
     public EntityUid? RecallAction;
 
     [DataField]
     public SoundSpecifier RecallAudio = new SoundPathSpecifier(
-        new ResPath("/Audio/WhiteDream/BloodCult/rites.ogg"),
+        new ResPath("/Audio/_White/Magic/BloodCult/rites.ogg"),
         AudioParams.Default.WithVolume(-3));
 }

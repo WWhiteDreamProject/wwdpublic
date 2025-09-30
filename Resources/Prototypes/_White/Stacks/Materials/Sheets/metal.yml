@@ -1,0 +1,6 @@
+- type: stack
+  id: RunedMetal
+  name: runed-metal
+  icon: { sprite: /Textures/_White/Objects/Materials/Sheets/runic_metal.rsi, state: runic}
+  spawn: RunedMetal1
+  maxCount: 30

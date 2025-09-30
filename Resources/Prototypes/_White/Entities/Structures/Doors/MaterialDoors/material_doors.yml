@@ -1,0 +1,47 @@
+- type: entity
+  id: BloodCultDoor
+  parent: BaseMaterialDoor
+  name: runed door
+  description: It opens, it closes, and maybe crushes you. This one has a strange glowing rune on it.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Doors/MaterialDoors/blood_cult_door.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Door
+    bumpOpen: true
+    occludes: false
+    crushDamage:
+      types:
+        Blunt: 15
+    whitelist:
+      components:
+      - BloodCultist
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: GlassSmash
+  - type: Airtight
+    fixVacuum: true
+    noAirWhenFullyAirBlocked: false
+  - type: Occluder
+    enabled: false
+  - type: RadiationBlocker
+    resistance: 2
+  - type: RCDDeconstructable
+    deconstructable: false
+  - type: Repulse
+    forceMultiplier: 300 # This datafield has an awful name, it's actually the amount of force in Newtons.
+    targetBlacklist:
+      components:
+      - BloodCultist
+  - type: RepulseOnTouch
+  - type: PlacementReplacement
+    key: walls
+  - type: Construction
+    graph: BloodCultDoor
+    node: door
+

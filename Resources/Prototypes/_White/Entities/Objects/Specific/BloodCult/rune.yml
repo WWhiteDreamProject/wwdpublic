@@ -1,0 +1,197 @@
+- type: entity
+  id: BloodCultRuneBase
+  name: base blood rune
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Specific/BloodCult/Runes/regular.rsi
+    color: "#FF0000FF"
+    layers:
+    - state: offering
+      map: [ "enum.BloodRuneVisuals.Layer" ]
+  - type: Appearance
+  - type: Clickable
+  - type: BloodCultRune
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      rune:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        hard: false
+        mask:
+        - ItemMask
+        layer:
+        - SlipLayer
+
+- type: entity
+  parent: BloodCultRuneBase
+  id: BloodCultRuneOffering
+  name: rune of offering
+  description: Offers a noncultist above it to Nar'Sie, either converting them or sacrificing them. One cultists required for dead sacrifice, two for conversion and three for living sacrifices and sacrifice targets.
+  components:
+  - type: Sprite
+    layers:
+    - state: offering
+      map: [ "enum.BloodRuneVisuals.Layer" ]
+  - type: BloodCultRune
+    invokePhrase: "Mah'weyh pleggh at e'ntrath!"
+  - type: CultRuneOffering
+
+- type: entity
+  parent: BloodCultRuneBase
+  id: BloodCultRuneEmpower
+  name: rune of empower
+  description: Allows cultists to prepare greater amounts of blood magic at far less of a cost.
+  components:
+  - type: Sprite
+    layers:
+    - state: strength
+      map: [ "enum.BloodRuneVisuals.Layer" ]
+  - type: BloodCultRune
+    invokePhrase: "Qu'laris ver'don, thal'sorin mik'thar!"
+  - type: CultRuneEmpower
+
+- type: entity
+  parent: BloodCultRuneBase
+  id: BloodCultRuneTeleport
+  name: rune of teleportation
+  description: Warps everything above it to another chosen teleport rune
+  components:
+  - type: Sprite
+    layers:
+    - state: teleport
+      map: [ "enum.BloodRuneVisuals.Layer" ]
+  - type: BloodCultRune
+    invokePhrase: "Sas'so c'arta forbici!"
+  - type: CultRuneTeleport
+  - type: UserInterface
+    interfaces:
+      enum.ListViewSelectorUiKey.Key:
+        type: ListViewSelectorBUI
+      enum.NameSelectorUiKey.Key:
+        type: NameSelectorBUI
+
+- type: entity
+  parent: BloodCultRuneBase
+  id: BloodCultRuneRevive
+  name: rune of rejuvenation
+  description: Requires a dead, mindless, or inactive cultist placed upon the rune. Provided there have been sufficient sacrifices, they will be given a new life.
+  components:
+  - type: Sprite
+    layers:
+    - state: revive
+      map: [ "enum.BloodRuneVisuals.Layer" ]
+  - type: BloodCultRune
+    invokePhrase: "Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth remium il'tarat!"
+  - type: CultRuneRevive
+
+- type: entity
+  parent: BloodCultRuneBase
+  id: BloodCultRuneBarrier
+  name: rune of barrier
+  description: When invoked, makes a temporary invisible wall to block passage.
+  components:
+  - type: Sprite
+    layers:
+    - state: barrier
+      map: [ "enum.BloodRuneVisuals.Layer" ]
+  - type: BloodCultRune
+    invokePhrase: "Khari'd! Eske'te tannin!"
+    runeActivationRange: 1.5
+    activationDamage:
+      types:
+        Slash: 5
+  - type: CultRuneBarrier
+
+- type: entity
+  parent: BloodCultRuneBase
+  id: BloodCultRuneSummoning
+  name: rune of summoning
+  description: Summons a single cultist to the rune. Requires 2 invokers.
+  components:
+  - type: Sprite
+    layers:
+    - state: summon
+      map: [ "enum.BloodRuneVisuals.Layer" ]
+  - type: BloodCultRune
+    invokePhrase: "N'ath reth sh'yro eth d'rekkathnor!"
+    requiredInvokers: 3
+  - type: CultRuneSummon
+  - type: UserInterface
+    interfaces:
+      enum.ListViewSelectorUiKey.Key:
+        type: ListViewSelectorBUI
+
+- type: entity
+  parent: BloodCultRuneBase
+  id: BloodCultRuneBloodBoil
+  name: rune of boiling blood
+  description: Boils the blood of non-believers who can see the rune, rapidly dealing extreme amounts of damage. Requires 3 invokers.
+  components:
+  - type: Sprite
+    layers:
+    - state: blood_boil
+      map: [ "enum.BloodRuneVisuals.Layer" ]
+  - type: BloodCultRune
+    invokePhrase: "N'Dedo ol'btoh!"
+    requiredInvokers: 3
+    activationDamage:
+      types:
+        Slash: 35
+  - type: CultRuneBloodBoil
+
+- type: entity
+  parent: BloodCultRuneBase
+  id: BloodCultRuneApocalypse
+  name: rune of apocalypse
+  description: Harbinger of the end times. Grows in strength with the cult's desperation - but at the risk of... side effects. Requires 3 invokers.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Specific/BloodCult/Runes/apocalypse.rsi
+    layers:
+    - state: icon
+      map: [ "enum.BloodRuneVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.BloodRuneVisuals.Active:
+        enum.BloodRuneVisuals.Layer:
+          True: { color: "#696969" }
+  - type: BloodCultRune
+    invokePhrase: "Ta'gh fara'qha fel d'amar det!"
+    invokeChatType: Speak
+    requiredInvokers: 3
+    triggerRendingMarkers: true
+    canBeErased: false
+    activationDamage:
+      types:
+        Slash: 35
+  - type: CultRuneApocalypse
+
+- type: entity
+  parent: BloodCultRuneBase
+  id: BloodCultRuneDimensionalRending
+  name: rune of dimensional rending
+  description: Tears apart dimensional barriers, calling forth the Geometer. Requires 10 invokers
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Specific/BloodCult/Runes/dimensional_rending.rsi
+    layers:
+    - state: rune
+      map: [ "enum.BloodRuneVisuals.Layer" ]
+  - type: BloodCultRune
+    invokePhrase: "TOK-LYR RQA-NAP G'OLT-ULOFT!!!"
+    invokeChatType: Speak
+    requiredInvokers: 10
+    triggerRendingMarkers: true
+    canBeErased: false
+  - type: CultRuneRending
+  - type: GenericVisualizer
+    visuals:
+      enum.BloodRuneVisuals.Active:
+        enum.BloodRuneVisuals.Layer:
+          True: { state: "rune_animated" }
+          False: { state: "rune"}

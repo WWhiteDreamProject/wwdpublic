@@ -92,8 +92,8 @@ public sealed partial class CreateSpeellDoAfterEvent : SimpleDoAfterEvent
 public sealed partial class TeleportActionDoAfterEvent : SimpleDoAfterEvent
 {
     public NetEntity Rune;
-    public SoundPathSpecifier TeleportInSound = new("/Audio/WhiteDream/BloodCult/veilin.ogg");
-    public SoundPathSpecifier TeleportOutSound = new("/Audio/WhiteDream/BloodCult/veilout.ogg");
+    public SoundPathSpecifier TeleportInSound = new("/Audio/_White/Magic/BloodCult/veilin.ogg");
+    public SoundPathSpecifier TeleportOutSound = new("/Audio/_White/Magic/BloodCult/veilout.ogg");
 }
 
 public sealed partial class SpeakOnAuraUseEvent(EntityUid user) : EntityEventArgs

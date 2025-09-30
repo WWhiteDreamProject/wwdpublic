@@ -26,6 +26,7 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
+using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -312,14 +313,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
     public bool SetRandomCultTarget(BloodCultRuleComponent rule)
     {
-        var querry = EntityManager
-            .EntityQueryEnumerator<MindContainerComponent, HumanoidAppearanceComponent, ActorComponent>();
-
-        var potentialTargets = new List<EntityUid>();
-
-        // Cultists not being excluded from target selection is fully intended.
-        while (querry.MoveNext(out var uid, out _, out _, out _))
-            potentialTargets.Add(uid);
+        var potentialTargets = new HashSet<Entity<MindComponent>>();
+        foreach (var target in _mind.GetAliveHumans())
+        {
+            if (TryComp<MindComponent>(target, out var mind) && !HasComp<BloodCultistComponent>(mind.OwnedEntity))
+                potentialTargets.Add(target);
+        }
 
         rule.OfferingTarget = potentialTargets.Count > 0 ? _random.Pick(potentialTargets) : null;
         return rule.OfferingTarget.HasValue;

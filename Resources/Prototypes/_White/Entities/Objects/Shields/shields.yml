@@ -1,0 +1,63 @@
+- type: entity
+  parent: BaseShield
+  id: MirrorShieldBloodCult
+  name: mirror shield
+  description: An infamous shield used by Nar'Sien sects to confuse and disorient their enemies. Its edges are weighted for use as a throwing weapon - capable of disabling multiple foes with preternatural accuracy.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Shields/mirror_shield.rsi
+    state: icon
+  - type: Item
+    sprite: _White/Objects/Shields/mirror_shield.rsi
+    heldPrefix: null
+  - type: CultItem
+  - type: ReturnItemOnThrow
+    throwerWhitelist:
+      components:
+      - BloodCultist
+    targetWhitelist:
+      components:
+      - MobState
+    targetBlacklist:
+      components:
+      - BloodCultist
+  - type: StunOnCollide
+    blacklist:
+      components:
+      - BloodCultist
+  - type: Reflect
+    reflectProb: 0.75
+    innate: true
+    reflects:
+    - Energy
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+    activeBlockModifier:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+      flatReductions:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
+    blockSound: !type:SoundPathSpecifier
+      path: /Audio/Effects/glass_step.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak

@@ -1,0 +1,32 @@
+- type: entity
+  parent: BaseItem
+  id: ShuttleCurse
+  name: cursed orb
+  description: You peer within this smokey orb and glimpse terrible fates befalling the emergency escape shuttle.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Specific/BloodCult/Misc/shuttle_curse.rsi
+    state: icon
+  - type: CultItem
+  - type: ShuttleCurse
+
+- type: entity
+  parent: BaseItem
+  id: VeilShifter
+  name: veil shifter
+  description: This relic instantly teleports you, and anything you're pulling, forward by a moderate distance.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Specific/BloodCult/Misc/veil_shifter.rsi
+    layers:
+    - state: icon
+      map: [ "enum.GenericCultVisuals.Layer" ]
+  - type: CultItem
+  - type: VeilShifter
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.GenericCultVisuals.State:
+        enum.GenericCultVisuals.Layer:
+          True: { state: icon }
+          False: { state: icon_off }

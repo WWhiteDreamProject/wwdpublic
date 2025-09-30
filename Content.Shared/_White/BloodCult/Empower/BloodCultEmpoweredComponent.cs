@@ -34,10 +34,10 @@ public sealed partial class BloodCultEmpoweredComponent : Component
     public float NearbyCultTileRadius = 1f;
 
     [DataField]
-    public string CultTile = "CultFloor";
+    public string CultTile = "BloodCultFloor";
 
     [DataField]
-    public ProtoId<AlertPrototype> EmpoweredAlert = "CultEmpowered";
+    public ProtoId<AlertPrototype> EmpoweredAlert = "BloodCultEmpowered";
 
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan TimeRemaining = TimeSpan.FromSeconds(20);

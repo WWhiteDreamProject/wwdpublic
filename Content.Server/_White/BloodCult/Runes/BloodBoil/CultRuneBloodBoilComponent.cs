@@ -22,5 +22,5 @@ public sealed partial class CultRuneBloodBoilComponent : Component
     public float FireStacksPerProjectile = 1;
 
     [DataField]
-    public SoundSpecifier ActivationSound = new SoundPathSpecifier("/Audio/WhiteDream/BloodCult/magic.ogg");
+    public SoundSpecifier ActivationSound = new SoundPathSpecifier("/Audio/_White/Magic/BloodCult/magic.ogg");
 }

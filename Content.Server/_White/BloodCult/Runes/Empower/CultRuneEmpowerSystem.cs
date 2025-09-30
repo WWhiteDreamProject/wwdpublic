@@ -12,14 +12,14 @@ public sealed class CultRuneEmpowerSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CultRuneEmpowerComponent, TryInvokeCultRuneEvent>(OnStrengthRuneInvoked);
+        SubscribeLocalEvent<CultRuneEmpowerComponent, InvokeRuneEvent>(OnStrengthRuneInvoked);
     }
 
-    private void OnStrengthRuneInvoked(Entity<CultRuneEmpowerComponent> ent, ref TryInvokeCultRuneEvent args)
+    private void OnStrengthRuneInvoked(Entity<CultRuneEmpowerComponent> ent, ref InvokeRuneEvent args)
     {
         if (HasComp<BloodCultEmpoweredComponent>(args.User))
         {
-            _popup.PopupEntity(Loc.GetString("cult-buff-already-buffed"), args.User, args.User);
+            _popup.PopupEntity(Loc.GetString("blood-cult-rune-empower-already-buffed"), args.User, args.User);
             args.Cancel();
             return;
         }

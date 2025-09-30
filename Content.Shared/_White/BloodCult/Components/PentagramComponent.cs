@@ -6,7 +6,7 @@ namespace Content.Shared._White.BloodCult.Components;
 [NetworkedComponent, RegisterComponent]
 public sealed partial class PentagramComponent : Component
 {
-    public ResPath RsiPath = new("/Textures/WhiteDream/BloodCult/Effects/pentagram.rsi");
+    public ResPath RsiPath = new("/Textures/_White/Effects/pentagram.rsi");
 
     public readonly string[] States =
     [

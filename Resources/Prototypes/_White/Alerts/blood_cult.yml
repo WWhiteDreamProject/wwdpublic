@@ -1,0 +1,7 @@
+- type: alert
+  id: BloodCultEmpowered
+  icons:
+  - sprite: /Textures/_White/Interface/Alerts/blood_cult_empowered.rsi
+    state: empowered
+  name: alerts-blood-cult-empowered-name
+  description: alerts-blood-cult-empowered-desc

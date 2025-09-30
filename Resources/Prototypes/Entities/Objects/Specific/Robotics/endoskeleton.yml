@@ -79,6 +79,8 @@
     guides:
     - Cyborgs
     - Robotics
+  # WD EDIT START
   - type: TwistedConstructionTarget
     replacementProto: ConstructShell
     doAfterDelay: 5
+  # WD EDIT END

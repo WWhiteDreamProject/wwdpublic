@@ -1,6 +1,14 @@
 ghost-role-information-gondola-name = Гондола
 ghost-role-information-gondola-description = Ты Гондола
 
+ghost-role-information-soul-shard-name = Осколок Души
+ghost-role-information-soul-shard-description = Стань слугой Культа Крови.
+ghost-role-information-soul-shard-rules = Прими форму одного из порождений и помоги своим Повелителям вернуть в мир их Древнюю Богиню!
+
+ghost-role-information-soul-shard-holy-name = Благословенный Осколок Души
+ghost-role-information-soul-shard-holy-description = Стань защитником экипажа и сразись с культом.
+ghost-role-information-soul-shard-holy-rules = Прими облик одного из обращённых конструкций и помоги экипажу остановить Геометра Крови, пока он не пробудил Древнюю Богиню!
+
 ghost-role-information-xenomorph-drone-name = ксеноморф дрон
 ghost-role-information-xenomorph-drone-description = Вы ксеноморф-дрон. Развивайте свой улей.
 
