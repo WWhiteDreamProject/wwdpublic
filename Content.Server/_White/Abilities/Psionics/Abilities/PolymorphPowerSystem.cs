@@ -25,14 +25,13 @@ namespace Content.Server._White.Abilities.Psionics.Abilities
         {
             if (!_psionics.OnAttemptPowerUse(args.Performer, args.Target, "polymorph", true))
                 return;
-            if (!TryComp<HumanoidAppearanceComponent>(args.Target, out var humanoid))
+            if (!TryComp<HumanoidAppearanceComponent>(args.Target, out var targetHumanoid))
                 return;
 
             var target = args.Target;
             var user = args.Performer;
 
-            if (TryComp<HumanoidAppearanceComponent>(target, out var targetHumanoid) &&
-                TryComp<HumanoidAppearanceComponent>(user, out var userHumanoid))
+            if (TryComp<HumanoidAppearanceComponent>(user, out var userHumanoid))
             {
 
                 var meta = MetaData(target);
