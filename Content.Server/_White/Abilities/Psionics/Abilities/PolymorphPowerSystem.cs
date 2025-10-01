@@ -30,6 +30,9 @@ public sealed class PolymorphPowerSystem : EntitySystem
         if (!_psionics.OnAttemptPowerUse(args.Performer, args.Target, "polymorph", true))
             return;
 
+        if (!TryComp<HumanoidAppearanceComponent>(args.Target, out var targetHumanoid))
+            return;
+
         var target = args.Target;
         var user = args.Performer;
 
