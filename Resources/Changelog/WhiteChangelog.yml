@@ -4421,3 +4421,10 @@ Entries:
   id: 462
   time: '2025-09-27T20:15:00.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/850
+- author: Kai518
+  changes:
+    - type: Add
+      message: Маг добавлен в динамический режим (Раундстарт цена - 25, Мидраунд - 30)
+  id: 463
+  time: '2025-10-01T12:40:29.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/851
