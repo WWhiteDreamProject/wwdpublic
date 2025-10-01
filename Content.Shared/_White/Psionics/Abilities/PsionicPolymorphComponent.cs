@@ -6,7 +6,7 @@ namespace Content.Shared._White.Psionics.Abilities;
 [RegisterComponent]
 public sealed partial class PolymorphPowerComponent : Component
 {
-    [DataField, ViewVariables]]
+    [DataField, ViewVariables]
     public string OriginalName = "Jonh Doe";
 
     [DataField, ViewVariables]
