@@ -88,8 +88,4 @@
         sprite: _White/Interface/Actions/polymorph.rsi
         state: revert
       useDelay: 5
-      blacklist:
-        components:
-          - PsionicInsulation
-          - Mindbroken
       event: !type:PolymorphPowerRevertActionEvent
