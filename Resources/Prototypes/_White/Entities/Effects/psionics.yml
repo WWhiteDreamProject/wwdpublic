@@ -12,7 +12,7 @@
     state: effect
     noRot: true
   - type: TimedDespawn
-    lifetime: 3.2
+    lifetime: 0.8
   - type: Tag
     tags:
       - HideContextMenu
