@@ -44,7 +44,7 @@
             min: 20
         # WD edit start
         - id: Changeling
-          weight: 20
+          weight: 15
           conditions:
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition
@@ -71,6 +71,13 @@
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 15
+        - id: Wizard
+          weight: 5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 10
         # WD edit end
       # Roundstart Minor Rules
       - !type:GroupSelector
@@ -180,4 +187,12 @@
             min: 20
           - !type:RoundDurationCondition
             min: 3000 # 50 minutes
+        - id: WizardSpawn
+          weight: 5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:PlayerCountCondition
+            min: 10
+          - !type:RoundDurationCondition
+            min: 1800 # 30 minutes
         # WD edit end

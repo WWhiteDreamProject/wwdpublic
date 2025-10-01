@@ -271,6 +271,8 @@
   - type: AntagSelection
   - type: AntagLoadProfileRule
     speciesOverride: Human
+  - type: DynamicRuleCost # WD edit
+    cost: 25
 
 - type: entity
   parent: BaseWizardRule
@@ -303,6 +305,7 @@
         - names_wizard_last
       mindRoles:
       - MindRoleWizard
+
 
 - type: entity
   id: Zombie
