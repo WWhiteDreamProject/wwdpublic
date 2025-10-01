@@ -1,82 +1,83 @@
+using Content.Server.Abilities.Psionics;
+using Content.Server.Humanoid;
 using Content.Shared._White.Actions.Events;
 using Content.Shared._White.Psionics.Abilities;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Humanoid;
+using Robust.Server.GameObjects;
 
-namespace Content.Server._White.Abilities.Psionics.Abilities
+namespace Content.Server._White.Abilities.Psionics.Abilities;
+public sealed class PolymorphPowerSystem : EntitySystem
 {
-    public sealed class PolymorphPowerSystem : EntitySystem
+    [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _appearance = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
+
+
+    public override void Initialize()
     {
-        [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
-        [Dependency] private readonly MetaDataSystem _meta = default!;
-        [Dependency] private readonly SharedHumanoidAppearanceSystem _appearance = default!;
-        [Dependency] private readonly SharedTransformSystem _transform = default!;
+        base.Initialize();
 
+        SubscribeLocalEvent<PolymorphPowerActionEvent>(OnPowerUsed);
+        SubscribeLocalEvent<PolymorphPowerComponent, PolymorphPowerRevertActionEvent>(OnUsed);
+        SubscribeLocalEvent<PolymorphPowerComponent, ComponentStartup>(ComponentStart);
+        SubscribeLocalEvent<PolymorphPowerComponent, DispelledEvent>(OnDispelled);
+    }
 
-        public override void Initialize()
+    public void OnPowerUsed(PolymorphPowerActionEvent args)
+    {
+        if (!_psionics.OnAttemptPowerUse(args.Performer, args.Target, "polymorph", true))
+            return;
+
+        var target = args.Target;
+        var user = args.Performer;
+
+        if (TryComp<HumanoidAppearanceComponent>(user, out var humanoid))
         {
-            base.Initialize();
-            SubscribeLocalEvent<PolymorphPowerActionEvent>(OnPowerUsed);
-            SubscribeLocalEvent<PolymorphPowerComponent, PolymorphPowerRevertActionEvent>(OnUsed);
-            SubscribeLocalEvent<PolymorphPowerComponent, ComponentStartup>(ComponentStart);
+            _appearance.CloneAppearance(target, user);
         }
 
-        public void OnPowerUsed(PolymorphPowerActionEvent args)
-        {
-            if (!_psionics.OnAttemptPowerUse(args.Performer, args.Target, "polymorph", true))
-                return;
-            if (!TryComp<HumanoidAppearanceComponent>(args.Target, out var targetHumanoid))
-                return;
+        _psionics.LogPowerUsed(args.Performer, "polymorph");
+        args.Handled = true;
+    }
 
-            var target = args.Target;
-            var user = args.Performer;
+    public void OnUsed(EntityUid uid, PolymorphPowerComponent comp, PolymorphPowerRevertActionEvent args)
+    {
+        ReturnAppearance(uid, comp);
 
-            if (TryComp<HumanoidAppearanceComponent>(user, out var userHumanoid))
-            {
+        args.Handled = true;
+    }
 
-                var meta = MetaData(target);
-                _meta.SetEntityName(user, meta.EntityName);
-                _meta.SetEntityDescription(user, meta.EntityDescription);
+    private void OnDispelled(EntityUid uid, PolymorphPowerComponent component, DispelledEvent args)
+    {
+        ReturnAppearance(uid, component);
 
-                userHumanoid.Species = targetHumanoid.Species;
-                userHumanoid.Sex = targetHumanoid.Sex;
-                userHumanoid.Age = targetHumanoid.Age;
-                userHumanoid.SkinColor = targetHumanoid.SkinColor;
-                userHumanoid.CustomBaseLayers = targetHumanoid.CustomBaseLayers;
-                userHumanoid.Gender = targetHumanoid.Gender;
-                userHumanoid.Width = targetHumanoid.Width;
-                userHumanoid.Height = targetHumanoid.Height;
-                userHumanoid.MarkingSet = targetHumanoid.MarkingSet;
-                userHumanoid.Voice = targetHumanoid.Voice;
-                userHumanoid.BodyType = targetHumanoid.BodyType;
+        args.Handled = true;
+    }
 
-                Dirty(user, userHumanoid);
-            }
+    public void ReturnAppearance(EntityUid uid, PolymorphPowerComponent comp)
+    {
+        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+            return;
 
-            _psionics.LogPowerUsed(args.Performer, "polymorph");
-            args.Handled = true;
-        }
+        var effect = Spawn("PsionicPolymorphEffect", _transform.GetMapCoordinates(uid));
+        _transform.SetParent(effect, uid);
 
-        public void OnUsed(EntityUid uid, PolymorphPowerComponent comp, PolymorphPowerRevertActionEvent args)
-        {
-            if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
-                return;
+        _meta.SetEntityName(uid, comp.OriginalName);
+        _meta.SetEntityDescription(uid, comp.OriginalDescription);
+        _appearance.LoadProfile(uid, comp.OriginalProfile);
+    }
 
-            var effect = Spawn("PsionicPolymorphEffect", _transform.GetMapCoordinates(uid));
-            _transform.SetParent(effect, uid);
+    public void ComponentStart(EntityUid uid, PolymorphPowerComponent component, ComponentStartup args)
+    {
+        var meta = MetaData(uid);
+        component.OriginalName = meta.EntityName;
+        component.OriginalDescription = meta.EntityDescription;
 
-            _meta.SetEntityName(uid, comp.OriginalName);
-            _meta.SetEntityDescription(uid, comp.OriginalDescription);
-            _appearance.LoadProfile(uid, humanoid.LastProfileLoaded);
+        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+            return;
 
-            args.Handled = true;
-        }
-
-        public void ComponentStart(EntityUid uid, PolymorphPowerComponent component, ComponentStartup args)
-        {
-            var meta = MetaData(uid);
-            component.OriginalName = meta.EntityName;
-            component.OriginalDescription = meta.EntityDescription;
-        }
+        component.OriginalProfile = humanoid.LastProfileLoaded;
     }
 }

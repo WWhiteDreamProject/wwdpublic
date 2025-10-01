@@ -1,4 +1,5 @@
 using Content.Shared.Humanoid;
+using Content.Shared.Preferences;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,4 +16,7 @@ public sealed partial class PolymorphPowerComponent : Component
 
     [ViewVariables]
     public string OriginalDescription = "Killer of the death";
+
+    [ViewVariables]
+    public HumanoidCharacterProfile? OriginalProfile = default!;
 }
