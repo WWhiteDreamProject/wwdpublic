@@ -1,11 +1,11 @@
 ﻿{
     "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by kekoven1",
     "size": {
         "x": 48,
         "y": 48
     },
-    "license": "CC-BY-4.0",
-    "copyright": "Made by kekoven1",
     "states": [
         {
             "name": "effect",
