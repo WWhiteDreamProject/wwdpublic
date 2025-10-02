@@ -16,4 +16,10 @@
     PaperCNCSheet: 6
     MysteryFigureBox: 2
     BooksBag: 3
-    CardBoxBlack: 3
+    CardBoxBlack: 3 # GoobStation
+    CarcBoxClassic: 1 # CorvaxGoob Spacessonne
+    BoxPlaysetEvacPod: 1 # Corvax-Goob-EvacPod
+  contrabandInventory:
+    Basketball: 1
+    FoodSnackBoritos: 3
+    DrinkSpaceMountainWindCan: 3
