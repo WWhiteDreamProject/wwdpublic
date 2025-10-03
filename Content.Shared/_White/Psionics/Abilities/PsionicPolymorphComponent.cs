@@ -7,10 +7,10 @@ namespace Content.Shared._White.Psionics.Abilities;
 public sealed partial class PolymorphPowerComponent : Component
 {
     [DataField, ViewVariables]
-    public string OriginalName = "Jonh Doe";
+    public string OriginalName = string.Empty;
 
     [DataField, ViewVariables]
-    public string OriginalDescription = "Killer of the death";
+    public string OriginalDescription = string.Empty;
 
     [DataField, ViewVariables]
     public HumanoidCharacterProfile? OriginalProfile;

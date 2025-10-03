@@ -7,6 +7,7 @@ using Content.Shared.Humanoid;
 using Robust.Server.GameObjects;
 
 namespace Content.Server._White.Abilities.Psionics.Abilities;
+
 public sealed class PolymorphPowerSystem : EntitySystem
 {
     [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
