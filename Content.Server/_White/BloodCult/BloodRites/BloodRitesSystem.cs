@@ -14,7 +14,6 @@ using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
 
@@ -40,17 +39,28 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
 
         SubscribeLocalEvent<BloodRitesComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<BloodRitesComponent, BloodRitesExtractDoAfterEvent>(OnDoAfter);
-
-        SubscribeLocalEvent<BloodRitesComponent, MeleeHitEvent>(OnCultistHit);
     }
 
     private void OnAfterInteract(Entity<BloodRitesComponent> rites, ref AfterInteractEvent args)
     {
         if (args.Handled
             || args.Target is not {} target
-            || target == args.User
             || !TryComp<BloodCultistComponent>(args.User, out var bloodCultist))
             return;
+
+        if (HasComp<BloodCultistComponent>(target))
+        {
+            if ((!TryComp(target, out BloodstreamComponent? bloodstream)
+                    || !RestoreBloodLevel(rites, (args.User, bloodCultist), (target, bloodstream)))
+                && (!TryComp(target, out DamageableComponent? damageable)
+                    || !Heal(rites, (args.User, bloodCultist), (target, damageable))))
+                return;
+
+            _audio.PlayPvs(rites.Comp.BloodRitesAudio, rites);
+            args.Handled = true;
+
+            return;
+        }
 
         if (HasComp<BloodstreamComponent>(target))
         {
@@ -95,27 +105,6 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
         bloodCultist.StoredBloodAmount += extracted;
         _audio.PlayPvs(rites.Comp.BloodRitesAudio, rites);
         args.Handled = true;
-    }
-
-    private void OnCultistHit(Entity<BloodRitesComponent> rites, ref MeleeHitEvent args)
-    {
-        if (args.HitEntities.Count == 0 || !TryComp<BloodCultistComponent>(args.User, out var bloodCultist))
-            return;
-
-        var playSound = false;
-
-        foreach (var target in args.HitEntities)
-        {
-            if (HasComp<BloodCultistComponent>(target)
-                || TryComp(target, out BloodstreamComponent? bloodstream)
-                    && RestoreBloodLevel(rites, (args.User, bloodCultist), (target, bloodstream))
-                || TryComp(target, out DamageableComponent? damageable)
-                    && Heal(rites, (args.User, bloodCultist), (target, damageable)))
-                playSound = true;
-        }
-
-        if (playSound)
-            _audio.PlayPvs(rites.Comp.BloodRitesAudio, rites);
     }
 
     private bool Heal(Entity<BloodRitesComponent> rites, Entity<BloodCultistComponent> user, Entity<DamageableComponent> target)
@@ -177,7 +166,7 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
         if (target.Comp.BloodSolution is null)
             return false;
 
-        _bloodstream.FlushChemicals(target, "", 10);
+        _bloodstream.FlushChemicals(target, string.Empty, 10);
         var missingBlood = target.Comp.BloodSolution.Value.Comp.Solution.AvailableVolume;
         if (missingBlood == 0)
             return false;
@@ -212,6 +201,7 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
         {
             if (!TryComp(puddle, out SolutionContainerManagerComponent? solutionContainer))
                 continue;
+
             ConsumeBloodFromSolution((puddle, solutionContainer), user);
         }
 

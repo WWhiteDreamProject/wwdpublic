@@ -44,7 +44,7 @@ public sealed class CultItemSystem : EntitySystem
     {
         if (_entityWhitelist.IsWhitelistPass(ent.Comp.Whitelist, args.User) ||
             // Allow non-cultists to remove embedded cultist weapons and getting knocked down afterwards on pickup
-            TryComp<EmbeddableProjectileComponent>(ent.Owner, out var embeddable) && embeddable.Target != null)
+            TryComp<EmbeddableProjectileComponent>(ent.Owner, out var embeddable) && embeddable.EmbeddedIntoUid != null)
             return;
 
         args.Handled = true;

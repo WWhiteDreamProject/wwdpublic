@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._White.BloodCult.BloodCultist;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BloodCultistComponent : Component
 {
     [DataField]
@@ -24,7 +24,7 @@ public sealed partial class BloodCultistComponent : Component
     [ViewVariables, NonSerialized]
     public Entity<MindComponent>? OriginalMind;
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public FixedPoint2 StoredBloodAmount = FixedPoint2.Zero;
 
     public Color OriginalEyeColor = Color.White;

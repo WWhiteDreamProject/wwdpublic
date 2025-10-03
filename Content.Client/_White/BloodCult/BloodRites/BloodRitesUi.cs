@@ -11,7 +11,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._White.BloodCult.UI;
+namespace Content.Client._White.BloodCult.BloodRites;
 
 [UsedImplicitly]
 public sealed class BloodRitesUi : BoundUserInterface
@@ -101,7 +101,7 @@ public sealed class BloodRitesUi : BoundUserInterface
         var button = new RadialMenuTextureButton
         {
             ToolTip = Loc.GetString(name),
-            StyleClasses = { "RadialMenuButton" },
+            StyleClasses = { "RadialMenuButton", },
             SetSize = _itemSize
         };
 

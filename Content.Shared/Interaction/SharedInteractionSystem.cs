@@ -1148,6 +1148,9 @@ namespace Content.Shared.Interaction
 
                 if (delayComponent != null)
                     _useDelay.TryResetDelay(used, component: delayComponent);
+                // WD EDIT START
+                RaiseLocalEvent(used, new AfterActivateInWorldEvent(user, used));
+                // WD EDIT END
                 return true;
             }
 
@@ -1164,7 +1167,6 @@ namespace Content.Shared.Interaction
 
             _adminLogger.Add(LogType.InteractActivate, LogImpact.Low, $"{ToPrettyString(user):user} activated {ToPrettyString(used):used}");
             // WD EDIT START
-            RaiseLocalEvent(used, new AfterActivateInWorldEvent(user, used));
             RaiseLocalEvent(user, new AfterUserActivateInWorldEvent(user, used));
             // WD EDIT END
             return true;
