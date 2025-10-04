@@ -65,6 +65,11 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/ShuttleEvent/instigator.yml",
             "/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml",
             "/Maps/_Lavaland/Lavaland/ruin_toyshop.yml",
+            "/Maps/_White/WhiteBox.yml", // WD EDIT
+            "/Maps/_White/DryDock.yml", // WD EDIT
+            "/Maps/_White/Molecule.yml", // WD EDIT
+            "/Maps/_White/Moose.yml", // WD EDIT
+            "/Maps/_White/WonderBox.yml", // WD EDIT
         };
 
         private static readonly string[] GameMaps =

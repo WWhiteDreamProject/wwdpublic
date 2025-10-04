@@ -1058,7 +1058,7 @@
         - !type:MappingTemplatePrototype
           id: VendingMachineCourierDrobe
         - !type:MappingTemplatePrototype
-          id: MailTeleporter
+          id: CargoMailTeleporter
         - !type:MappingTemplatePrototype
           id: DefaultStationBeaconMailroom
         - !type:MappingTemplatePrototype

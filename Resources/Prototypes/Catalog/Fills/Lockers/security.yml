@@ -332,7 +332,7 @@
 - type: entity
   id: GunSafeRifleBRDIR25
   suffix: Alert Level Lock # WWDP
-  parent: [GunSafe, AlertLevelLock] # WD EDIT: AlertLevelLock
+  parent: [GunSafeBaseSecure, AlertLevelLock] # WD EDIT: AlertLevelLock
   name: BRDI-R25 safe
   components:
   - type: StorageFill
