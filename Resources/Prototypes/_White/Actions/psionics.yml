@@ -57,3 +57,35 @@
           - Mindbroken
       event: !type:TelepathyPowerActionEvent
 
+- type: entity
+  id: ActionPsionicPolymorph
+  name: action-name-polymorph
+  description: action-description-polymorph
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: EntityTargetAction
+      icon: 
+        sprite: _White/Interface/Actions/polymorph.rsi
+        state: icon
+      useDelay: 5
+      range: 6
+      itemIconStyle: BigAction
+      canTargetSelf: false
+      blacklist:
+        components:
+          - PsionicInsulation
+          - Mindbroken
+      event: !type:PolymorphPowerActionEvent
+
+- type: entity
+  id: ActionRevertPsionicPolymorph
+  name: action-name-revert-polymorph
+  description: action-description-revert-polymorph
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: 
+        sprite: _White/Interface/Actions/polymorph.rsi
+        state: revert
+      useDelay: 5
+      event: !type:PolymorphPowerRevertActionEvent
