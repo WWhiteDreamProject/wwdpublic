@@ -4,6 +4,7 @@ using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.Piping;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
+using Robust.Shared.Utility;
 
 namespace Content.Client.Atmos.EntitySystems;
 
@@ -17,7 +18,7 @@ public sealed class AtmosPipeAppearanceSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<PipeAppearanceComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<PipeAppearanceComponent, AppearanceChangeEvent>(OnAppearanceChanged, after: [typeof(SubFloorHideSystem)]);
+        SubscribeLocalEvent<PipeAppearanceComponent, AppearanceChangeEvent>(OnAppearanceChanged, after: new[] { typeof(SubFloorHideSystem) });
     }
 
     private void OnInit(EntityUid uid, PipeAppearanceComponent component, ComponentInit args)
@@ -29,8 +30,7 @@ public sealed class AtmosPipeAppearanceSystem : EntitySystem
         {
             sprite.LayerMapReserveBlank(layerKey);
             var layer = sprite.LayerMapGet(layerKey);
-            sprite.LayerSetRSI(layer, component.Sprite.RsiPath);
-            sprite.LayerSetState(layer, component.Sprite.RsiState);
+            sprite.LayerSetSprite(layer, component.Sprite);
             sprite.LayerSetDirOffset(layer, ToOffset(layerKey));
         }
     }
@@ -49,15 +49,8 @@ public sealed class AtmosPipeAppearanceSystem : EntitySystem
 
     private void OnAppearanceChanged(EntityUid uid, PipeAppearanceComponent component, ref AppearanceChangeEvent args)
     {
-        if (args.Sprite == null)
+        if (args.Sprite == null || !args.Sprite.Visible)
             return;
-
-        if (!args.Sprite.Visible)
-        {
-            // This entity is probably below a floor and is not even visible to the user -> don't bother updating sprite data.
-            // Note that if the subfloor visuals change, then another AppearanceChangeEvent will get triggered.
-            return;
-        }
 
         if (!_appearance.TryGetData<PipeDirection>(uid, PipeVisuals.VisualState, out var worldConnectedDirections, args.Component))
         {
@@ -68,7 +61,9 @@ public sealed class AtmosPipeAppearanceSystem : EntitySystem
         if (!_appearance.TryGetData<Color>(uid, PipeColorVisuals.Color, out var color, args.Component))
             color = Color.White;
 
-        // transform connected directions to local-coordinates
+        if (!_appearance.TryGetData<Dictionary<PipeDirection, EntityUid>>(uid, PipeVisuals.ConnectedEntities, out var connectedEntities, args.Component))
+            connectedEntities = new();
+
         var connectedDirections = worldConnectedDirections.RotatePipeDirection(-Transform(uid).LocalRotation);
 
         foreach (PipeConnectionLayer layerKey in Enum.GetValues(typeof(PipeConnectionLayer)))
@@ -82,11 +77,33 @@ public sealed class AtmosPipeAppearanceSystem : EntitySystem
 
             layer.Visible &= visible;
 
-            if (!visible)
-                continue;
+            if (!visible) continue;
 
+            // Выбираем правильный спрайт коннектора
+            var spriteToUse = component.Sprite;
+            if (connectedEntities.TryGetValue(dir, out var neighborUid))
+            {
+                spriteToUse = GetConnectorSprite(uid, neighborUid, component);
+            }
+
+            args.Sprite.LayerSetSprite(key, spriteToUse);
             layer.Color = color;
         }
+    }
+
+    private SpriteSpecifier GetConnectorSprite(EntityUid uid, EntityUid neighbor, PipeAppearanceComponent component)
+    {
+        if (!TryComp<MetaDataComponent>(neighbor, out var neighborMeta))
+            return component.Sprite;
+
+        // Проверяем специфичные коннекторы
+        foreach (var (connectorName, connectorData) in component.Connectors)
+        {
+            if (connectorData.TargetTypes.Contains(neighborMeta.EntityPrototype?.ID ?? ""))
+                return connectorData.Sprite;
+        }
+
+        return component.Sprite;
     }
 
     private SpriteComponent.DirectionOffset ToOffset(PipeConnectionLayer layer)
