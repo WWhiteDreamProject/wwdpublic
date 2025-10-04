@@ -73,7 +73,7 @@
         acts: [ "Destruction" ]
   - type: Airtight
   - type: IconSmooth
-    key: window
+    key: walls
     base: window
   - type: Construction
     graph: Window

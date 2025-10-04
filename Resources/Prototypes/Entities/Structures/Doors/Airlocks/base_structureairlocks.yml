@@ -14,6 +14,7 @@
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/basic.rsi
     snapCardinals: true
+    noRot: true # WWDP edit
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
@@ -120,6 +121,7 @@
   - type: RadiationBlocker
     resistance: 3
   - type: Occluder
+    boundingBox: "-0.5,-0.125,0.5,0.15625"
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StrongMetallic
