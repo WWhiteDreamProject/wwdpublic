@@ -110131,7 +110131,7 @@ entities:
     - type: Transform
       pos: 47.323235,16.667715
       parent: 2
-- proto: MailTeleporter
+- proto: CargoMailTeleporter
   entities:
   - uid: 16703
     components:

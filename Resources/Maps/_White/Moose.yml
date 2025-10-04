@@ -74474,7 +74474,7 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: MailTeleporter
+- proto: CargoMailTeleporter
   entities:
   - uid: 5515
     components:

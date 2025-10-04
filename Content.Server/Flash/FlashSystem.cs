@@ -28,7 +28,6 @@ using Content.Shared.Traits.Assorted.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Robust.Shared.Timing;
 
-
 namespace Content.Server.Flash
 {
     internal sealed class FlashSystem : SharedFlashSystem
@@ -174,7 +173,7 @@ namespace Content.Server.Flash
             }
         }
 
-        public void FlashArea(Entity<FlashComponent?> source, EntityUid? user, float range, float duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null, float stunTime = 0f, float knockdownTime = 0f) // WD EDIT
+        public override void FlashArea(Entity<FlashComponent?> source, EntityUid? user, float range, float duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null, float stunTime = 0f, float knockdownTime = 0f) // WD EDIT
         {
             var transform = Transform(source);
             var mapPosition = _transform.GetMapCoordinates(transform);

@@ -49812,7 +49812,7 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: MailTeleporter
+- proto: CargoMailTeleporter
   entities:
   - uid: 7031
     components:

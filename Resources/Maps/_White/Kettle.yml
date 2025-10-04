@@ -120680,7 +120680,7 @@ entities:
         tag: Mail Room
     - type: Physics
       bodyType: Dynamic
-- proto: MailTeleporter
+- proto: CargoMailTeleporter
   entities:
   - uid: 18506
     components:

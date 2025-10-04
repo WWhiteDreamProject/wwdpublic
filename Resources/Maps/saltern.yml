@@ -57712,7 +57712,7 @@ entities:
     - type: Transform
       pos: -3.5,-43.5
       parent: 2
-- proto: MailTeleporter
+- proto: CargoMailTeleporter
   entities:
   - uid: 8843
     components:

@@ -123243,7 +123243,7 @@ entities:
       parent: 2
     - type: BallisticAmmoProvider
       unspawnedCount: 30
-- proto: MailTeleporter
+- proto: CargoMailTeleporter
   entities:
   - uid: 18605
     components:

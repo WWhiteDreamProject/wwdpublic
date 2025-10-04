@@ -9518,6 +9518,7 @@ ent-LockerBrigmedic = шкаф санитарного офицера
 
 
 ent-GunSafe = сейф с оружием
+    .desc = { "" }
 
 
 ent-LockerSyndicateAgentLocker = шкаф агента Синдиката

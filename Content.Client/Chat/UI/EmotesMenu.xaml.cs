@@ -52,7 +52,6 @@ public sealed partial class EmotesMenu : RadialMenu, IBaseEmoteMenu // WD EDIT
 
             var button = new EmoteMenuButton
             {
-                StyleClasses = { "RadialMenuButton" },
                 SetSize = new Vector2(64f, 64f),
                 ToolTip = Loc.GetString(emote.Name),
                 ProtoId = emote.ID,
@@ -88,7 +87,6 @@ public sealed partial class EmotesMenu : RadialMenu, IBaseEmoteMenu // WD EDIT
             if (child is not RadialContainer container)
                 continue;
             AddEmoteClickAction(container);
-            container.Radius = 64f + 32f * MathF.Log(container.Children.Count());
         }
     }
 
@@ -109,7 +107,7 @@ public sealed partial class EmotesMenu : RadialMenu, IBaseEmoteMenu // WD EDIT
 }
 
 
-public sealed class EmoteMenuButton : RadialMenuTextureButton
+public sealed class EmoteMenuButton : RadialMenuTextureButtonWithSector
 {
     public ProtoId<EmotePrototype> ProtoId { get; set; }
 }

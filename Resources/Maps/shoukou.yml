@@ -61871,7 +61871,7 @@ entities:
     - type: Transform
       pos: 44.5,-43.5
       parent: 2
-- proto: MailTeleporter
+- proto: CargoMailTeleporter
   entities:
   - uid: 9427
     components:
