@@ -4428,3 +4428,12 @@ Entries:
   id: 463
   time: '2025-10-01T12:40:29.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/851
+- author: kekoven1
+  changes:
+    - type: Add
+      message: >-
+        Псионическая способность "Полиморф". копируй внешность других игрунов,
+        будь псиоником. Развеивается: Нормальным развеиванием
+  id: 464
+  time: '2025-10-04T08:26:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/852
