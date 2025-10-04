@@ -66,20 +66,6 @@
       Steel: 100
   - type: StaticPrice
     price: 30
-  # Shitmed Change
-  - type: Retractor
-    speed: 0.35
-  - type: Hemostat
-    speed: 0.6
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/Items/wirecutter.ogg
-      params:
-        variation: 0.125
-    endSound:
-      path: /Audio/Items/wirecutter.ogg
-      params:
-        variation: 0.125
   - type: Fixtures
     fixtures:
       fix1:
@@ -160,16 +146,6 @@
       Steel: 100
   - type: StaticPrice
     price: 30
-  # Shitmed Change
-  - type: Retractor
-    speed: 0.45
-  - type: Tending
-    speed: 0.65
-  - type: SurgeryTool
-    startSound:
-      collection: Screwdriver
-    endSound:
-      path: /Audio/Medical/Surgery/retractor2.ogg
   - type: Fixtures
     fixtures:
       fix1:

@@ -34,7 +34,6 @@ using Content.Server.Stunnable;
 using Content.Server.Temperature.Components;
 using Content.Server.Zombies;
 using Content.Shared.Silicon.Components;
-using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
@@ -113,7 +112,6 @@ public sealed partial class DevilSystem : EntitySystem
 
         // Adjust stats
         EnsureComp<ZombieImmuneComponent>(devil);
-        EnsureComp<BreathingImmunityComponent>(devil);
         EnsureComp<PressureImmunityComponent>(devil);
         EnsureComp<ActiveListenerComponent>(devil);
         EnsureComp<WeakToHolyComponent>(devil).AlwaysTakeHoly = true;

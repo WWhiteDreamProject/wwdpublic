@@ -129,11 +129,6 @@
     understands:
     - TauCetiBasic
     - Mouse
-  - type: SurgeryTarget
-  - type: UserInterface
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: NightVision
     isActive: true
     toggleAction: null
@@ -219,11 +214,6 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded"]
       state: eyes
       shader: unshaded
-  - type: SurgeryTarget
-  - type: UserInterface
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: SpriteMovement
     movementLayers:
       movement:

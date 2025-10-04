@@ -1,4 +1,3 @@
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Atmos;
 
 namespace Content.Server.Atmos.Components;
@@ -34,11 +33,12 @@ public sealed partial class IgniteFromGasComponent : Component
     [DataField]
     public float BaseFireStacksPerUpdate = 0.13f;
 
-    /// <summary>
+    // TODO
+    /*/// <summary>
     ///   The body parts that are vulnerable to ignition when exposed, and their fire stack values.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public Dictionary<TargetBodyPart, float> IgnitableBodyParts = new();
+    public Dictionary<TargetBodyPart, float> IgnitableBodyParts = new();*/
 
     /// <summary>
     ///   How many moles of the gas is needed to trigger ignition.

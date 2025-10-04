@@ -519,46 +519,46 @@
       tags:
         - SpiderCraft
 
-- type: trait
-  id: BionicArm
-  category: Physical
-  points: -8
-  enable: false # WD EDIT
-  requirements:
-    - !type:CharacterLogicOrRequirement
-      requirements:
-      - !type:CharacterJobRequirement
-        jobs:
-         - Paramedic
-      - !type:CharacterDepartmentRequirement
-          departments:
-          - Security
-          - Command
-  #       - Dignitary - WD EDIT
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-        - BionicPryArm
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Xelthia # this would fall off
-  functions:
-    - !type:TraitCyberneticLimbReplacement
-      removeBodyPart: Arm
-      partSymmetry: Left
-      protoId: JawsOfLifeLeftArm
-      slotId: "left arm"
-    - !type:TraitCyberneticLimbReplacement
-      removeBodyPart: Arm
-      partSymmetry: Right
-      protoId: JawsOfLifeRightArm
-      slotId: "right arm"
-    - !type:TraitPushDescription
-      descriptionExtensions:
-        - description: examine-bionic-arm-message
-          fontSize: 12
-          requireDetailRange: true
+# - type: trait
+#   id: BionicArm
+#   category: Physical
+#   points: -8
+#   enable: false # WD EDIT
+#   requirements:
+#     - !type:CharacterLogicOrRequirement
+#       requirements:
+#       - !type:CharacterJobRequirement
+#         jobs:
+#          - Paramedic
+#       - !type:CharacterDepartmentRequirement
+#           departments:
+#           - Security
+#           - Command
+#   #       - Dignitary - WD EDIT
+#     - !type:CharacterTraitRequirement
+#       inverted: true
+#       traits:
+#         - BionicPryArm
+#     - !type:CharacterSpeciesRequirement
+#       inverted: true
+#       species:
+#         - Xelthia # this would fall off
+#   functions:
+#     - !type:TraitCyberneticLimbReplacement
+#       removeBodyPart: Arm
+#       partSymmetry: Left
+#       protoId: JawsOfLifeLeftArm
+#       slotId: "left arm"
+#     - !type:TraitCyberneticLimbReplacement
+#       removeBodyPart: Arm
+#       partSymmetry: Right
+#       protoId: JawsOfLifeRightArm
+#       slotId: "right arm"
+#     - !type:TraitPushDescription
+#       descriptionExtensions:
+#         - description: examine-bionic-arm-message
+#           fontSize: 12
+#           requireDetailRange: true
 
 - type: trait
   id: PlateletFactories
@@ -947,29 +947,29 @@
 #       protoId: SpeedRightLeg
 #       slotId: "right leg"
 
-- type: trait
-  id: CyberneticLeftLeg
-  category: Physical
-  points: 0
-  slots: 0
-  functions:
-    - !type:TraitCyberneticLimbReplacement
-      removeBodyPart: Leg
-      partSymmetry: Left
-      protoId: LeftLegCybernetic
-      slotId: "left leg"
+# - type: trait
+#   id: CyberneticLeftLeg
+#   category: Physical
+#   points: 0
+#  slots: 0
+#   functions:
+#     - !type:TraitCyberneticLimbReplacement
+#       removeBodyPart: Leg
+#       partSymmetry: Left
+#       protoId: LeftLegCybernetic
+#       slotId: "left leg"
 
-- type: trait
-  id: CyberneticRightLeg
-  category: Physical
-  points: 0
-  slots: 0
-  functions:
-    - !type:TraitCyberneticLimbReplacement
-      removeBodyPart: Leg
-      partSymmetry: Right
-      protoId: RightLegCybernetic
-      slotId: "right leg"
+# - type: trait
+#   id: CyberneticRightLeg
+#   category: Physical
+#   points: 0
+#   slots: 0
+#   functions:
+#     - !type:TraitCyberneticLimbReplacement
+#       removeBodyPart: Leg
+#       partSymmetry: Right
+#       protoId: RightLegCybernetic
+#       slotId: "right leg"
 
 # - type: trait
 #  id: FlareShieldingModule
@@ -1251,40 +1251,40 @@
           - Crayon
           - Paper
 
-- type: trait
-  id: BionicPryArm
-  category: Physical
-  points: -2
-  enable: false # WD EDIT
-  requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-        - BionicArm
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Xelthia # this would fall off
-  functions:
-    - !type:TraitCyberneticLimbReplacement
-      removeBodyPart: Arm
-      partSymmetry: Left
-      protoId: CrowbarLeftArm
-      slotId: "left arm"
-    - !type:TraitCyberneticLimbReplacement
-      removeBodyPart: Arm
-      partSymmetry: Right
-      protoId: CrowbarRightArm
-      slotId: "right arm"
-    - !type:TraitPushDescription
-      descriptionExtensions:
-        - description: examine-bionic-pryarm-message
-          fontSize: 12
-          requireDetailRange: true
+# - type: trait
+#   id: BionicPryArm
+#   category: Physical
+#   points: -2
+#   enable: false # WD EDIT
+#   requirements:
+#     - !type:CharacterJobRequirement
+#       inverted: true
+#      jobs:
+#         - Prisoner # Bionics should be "Confiscated" from long term prisoners.
+#     - !type:CharacterTraitRequirement
+#       inverted: true
+#       traits:
+#         - BionicArm
+#     - !type:CharacterSpeciesRequirement
+#       inverted: true
+#       species:
+#         - Xelthia # this would fall off
+#   functions:
+#     - !type:TraitCyberneticLimbReplacement
+#       removeBodyPart: Arm
+#       partSymmetry: Left
+#       protoId: CrowbarLeftArm
+#       slotId: "left arm"
+#     - !type:TraitCyberneticLimbReplacement
+#       removeBodyPart: Arm
+#       partSymmetry: Right
+#       protoId: CrowbarRightArm
+#       slotId: "right arm"
+#     - !type:TraitPushDescription
+#       descriptionExtensions:
+#         - description: examine-bionic-pryarm-message
+#           fontSize: 12
+#           requireDetailRange: true
 
 - type: trait
   id: SuperiorRadiationShielding

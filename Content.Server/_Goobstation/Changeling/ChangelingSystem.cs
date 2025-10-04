@@ -689,13 +689,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         radio.Channels = new() { "Hivemind" };
         transmitter.Channels = new() { "Hivemind" };
         //WD edit end
-
-        // Shitmed: Prevent changelings from getting their body parts severed
-        foreach (var (id, part) in _bodySystem.GetBodyChildren(uid))
-        {
-            part.CanSever = false;
-            Dirty(id, part);
-        }
     }
 
     private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)

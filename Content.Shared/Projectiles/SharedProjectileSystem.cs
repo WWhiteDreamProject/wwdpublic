@@ -7,7 +7,6 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.Penetrated;
 using Content.Shared._White.Projectile;
 using Content.Shared.Item.ItemToggle;
@@ -121,7 +120,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             // || _standing.IsDown(args.Target)) // WD EDIT
             return;
 
-        TryEmbed(uid, args.Target, null, component, args.TargetPart);
+        TryEmbed(uid, args.Target, null, component);
     }
 
     private void OnEmbedProjectileHit(EntityUid uid, EmbeddableProjectileComponent component, ref ProjectileHitEvent args)
@@ -137,7 +136,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
     }
 
-    public bool TryEmbed(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component, TargetBodyPart? targetPart = null, bool raiseEvent = true) // WD EDIT: raiseEvent
+    public bool TryEmbed(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component, bool raiseEvent = true) // WD EDIT: raiseEvent
     {
         // WD EDIT START
         if (!TryComp<PhysicsComponent>(uid, out var physics)
@@ -179,9 +178,8 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
         _audio.PlayPredicted(component.Sound, uid, null);
 
-        component.TargetBodyPart = targetPart;
         component.EmbeddedIntoUid = target;
-        var ev = new EmbedEvent(user, target, targetPart);
+        var ev = new EmbedEvent(user, target);
         RaiseLocalEvent(uid, ref ev);
 
         if (component.AutoRemoveDuration != 0)
@@ -195,7 +193,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     {
         component.AutoRemoveTime = null;
         component.EmbeddedIntoUid = null;
-        component.TargetBodyPart = null;
         RemCompDeferred<ActiveEmbeddableProjectileComponent>(uid);
 
         var ev = new RemoveEmbedEvent(remover);
@@ -259,17 +256,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
         var targetIdentity = Identity.Entity(target, EntityManager);
 
-        var loc = component.TargetBodyPart == null
-            ? Loc.GetString("throwing-examine-embedded",
-            ("embedded", uid),
-            ("target", targetIdentity))
-            : Loc.GetString("throwing-examine-embedded-part",
-            ("embedded", uid),
-            ("target", targetIdentity),
-            ("targetName", Name(targetIdentity)), // WWDP
-            ("targetPart", Loc.GetString($"body-part-{component.TargetBodyPart.ToString()}")));
-
-        args.PushMarkup(loc);
+        args.PushMarkup(Loc.GetString("throwing-examine-embedded", ("embedded", uid), ("target", targetIdentity)));
     }
 
     // WD EDIT START

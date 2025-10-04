@@ -30,36 +30,6 @@ public sealed class LayingDownSystem : SharedLayingDownSystem
         if (!TryComp(uid, out LayingDownComponent? layingDown))
             return;
 
-        // Goobstation start
-        bool fullyParalyzed = false;
-
-        if (_entMan.TryGetComponent<BodyComponent>(uid, out var body))
-        {
-            foreach (var legEntity in body.LegEntities)
-            {
-                if (_entMan.TryGetComponent<BodyPartComponent>(legEntity, out var partCmp))
-                {
-                    if (partCmp.Enabled != true)
-                    {
-                        fullyParalyzed = true;
-                        continue;
-                    } else if (partCmp.Enabled == true)
-                    {
-                        fullyParalyzed = false;
-                        break;
-                    }
-                }
-            }
-        }
-
-        if (fullyParalyzed)
-        {
-            layingDown.AutoGetUp = false;
-            Dirty(uid, layingDown);
-            return;
-        }
-        // Goobstation end
-
         layingDown.AutoGetUp = _cfg.GetClientCVar(args.SenderSession.Channel, CCVars.AutoGetUp);
         Dirty(uid, layingDown);
     }

@@ -26,14 +26,6 @@
     guides:
     - Cyborgs
     - Robotics
-  # Shitmed Change Start
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/organ2.ogg
-  - type: Gibbable
-  # Shitmed Change End
 
 - type: entity
   id: LeftArmBorg
@@ -41,17 +33,12 @@
   name: cyborg left arm
   components:
   - type: BodyPart
-    partType: Arm # Shitmed Change
+    partType: Hand
     symmetry: Left
   - type: Sprite
     state: borg_l_arm
   - type: Icon
     state: borg_l_arm
-    toolName: "a left arm" # Shitmed Change
-    children: # Shitmed Change
-      left hand:
-        id: "left hand"
-        type: Hand
   - type: Tag
     tags:
     - Trash
@@ -64,17 +51,12 @@
   name: cyborg right arm
   components:
   - type: BodyPart
-    partType: Arm # Shitmed Change
+    partType: Hand
     symmetry: Right
   - type: Sprite
     state: borg_r_arm
   - type: Icon
     state: borg_r_arm
-    toolName: "a right arm" # Shitmed Change
-    children: # Shitmed Change
-      right hand:
-        id: "right hand"
-        type: Hand
   - type: Tag
     tags:
     - Trash
@@ -93,17 +75,11 @@
     state: borg_l_leg
   - type: Icon
     state: borg_l_leg
-    toolName: "a left leg" # Shitmed Change
-    children: # Shitmed Change
-      left foot:
-        id: "left foot"
-        type: Foot
   - type: Tag
     tags:
     - Trash
     - BorgLeg
     - BorgLLeg
-  - type: MovementBodyPart
 
 - type: entity
   id: RightLegBorg
@@ -117,17 +93,11 @@
     state: borg_r_leg
   - type: Icon
     state: borg_r_leg
-    toolName: "a right leg" # Shitmed Change
-    children: # Shitmed Change
-      right foot:
-        id: "right foot"
-        type: Foot
   - type: Tag
     tags:
     - Trash
     - BorgLeg
     - BorgRLeg
-  - type: MovementBodyPart
 
 - type: entity
   id: LightHeadBorg
@@ -140,7 +110,6 @@
     state: borg_head
   - type: Icon
     state: borg_head
-    toolName: "a head" # Shitmed Change
   - type: Tag
     tags:
     - Trash
@@ -157,7 +126,6 @@
     state: borg_chest
   - type: Icon
     state: borg_chest
-    toolName: "a torso" # Shitmed Change
   - type: Tag
     tags:
     - Trash

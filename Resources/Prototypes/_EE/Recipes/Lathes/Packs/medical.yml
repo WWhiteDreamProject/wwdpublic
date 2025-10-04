@@ -21,15 +21,6 @@
 ## Dynamic
 
 - type: latheRecipePack
-  id: Surgery
-  recipes:
-  - EnergyScalpel
-  - EnergyCautery
-  - AdvancedRetractor
-  - OmnimedTool
-  - MedicalCyberneticEyes
-
-- type: latheRecipePack
   id: MedicalClothing
   recipes:
   - ClothingEyesNightVisionMedicalGoggles

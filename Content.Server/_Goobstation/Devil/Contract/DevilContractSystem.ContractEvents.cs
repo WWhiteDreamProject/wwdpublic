@@ -9,7 +9,6 @@
 using System.Linq;
 using Content.Shared._Goobstation.Devil;
 using Content.Server.Body.Components;
-using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Robust.Shared.Random;

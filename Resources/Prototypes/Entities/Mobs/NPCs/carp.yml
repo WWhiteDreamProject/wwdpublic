@@ -82,13 +82,6 @@
       accent: genericAggressive
     - type: Speech
       speechVerb: LargeMob
-    - type: Body # Shitmed - Adds carp organs.
-      prototype: Carp
-    - type: SurgeryTarget
-    - type: UserInterface
-      interfaces:
-        enum.SurgeryUIKey.Key:
-          type: SurgeryBui
     - type: NightVision
       isActive: true
       toggleAction: null
@@ -273,11 +266,6 @@
         types:
           Slash: 10
           Bloodloss: 5
-    - type: SurgeryTarget
-    - type: UserInterface
-      interfaces:
-        enum.SurgeryUIKey.Key:
-          type: SurgeryBui
 
 - type: entity
   id: MobSharkSalvage

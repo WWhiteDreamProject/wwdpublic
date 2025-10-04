@@ -1,5 +1,4 @@
 using Content.Shared._Goobstation.MartialArts.Components;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.Grab;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
@@ -203,7 +202,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             var pullerComponent = EnsureComp<PullerComponent>(user);
             if (!_proto.TryIndex<MartialArtPrototype>(comp.MartialArtsForm.ToString(), out var martialArtsPrototype))
                 return false;
-                
+
             martialArtsKnowledgeComponent.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
             LoadCombos(martialArtsPrototype.RoundstartCombos, canPerformComboComponent);
             martialArtsKnowledgeComponent.Blocked = false;
@@ -310,14 +309,11 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         EntityUid target,
         string damageType,
         int damageAmount,
-        out DamageSpecifier damage,
-        TargetBodyPart? targetBodyPart = null)
+        out DamageSpecifier damage)
     {
         damage = new DamageSpecifier();
-        if(!TryComp<TargetingComponent>(ent, out var targetingComponent))
-            return;
         damage.DamageDict.Add(damageType, damageAmount);
-        _damageable.TryChangeDamage(target, damage, origin: ent, targetPart: targetBodyPart ?? targetingComponent.Target);
+        _damageable.TryChangeDamage(target, damage, origin: ent);
     }
 
     #endregion

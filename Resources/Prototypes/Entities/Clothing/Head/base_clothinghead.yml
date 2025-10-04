@@ -115,8 +115,8 @@
     heatingCoefficient: 0.2
     coolingCoefficient: 0.2
   - type: IgniteFromGasImmunity
-    parts:
-    - Head
+    # parts:
+    # - Head
   - type: IngestionBlocker
   - type: Clothing
     #Copies ClothingHeadHardsuitBase behavior
@@ -152,8 +152,8 @@
     heatingCoefficient: 0.2
     coolingCoefficient: 0.2
   - type: IgniteFromGasImmunity
-    parts:
-    - Head
+    # parts:
+    # - Head
   - type: Clothing
     #Copies ClothingHeadHardsuitBase behavior
     equipSound: /Audio/Mecha/mechmove03.ogg
@@ -196,8 +196,8 @@
     heatingCoefficient: 0.2 # WD EDIT: 0.1 -> 0.2
     coolingCoefficient: 0.2 # WD EDIT: 0.1 -> 0.2
   - type: IgniteFromGasImmunity
-    parts:
-    - Head
+    # parts:
+    # - Head
   - type: Armor
     modifiers:
       coefficients:
@@ -256,8 +256,8 @@
       - state: equipped-HELMET
       - state: on-equipped-HELMET
   - type: IgniteFromGasImmunity
-    parts:
-    - Head
+    # parts:
+    # - Head
   - type: Armor
     modifiers:
       coefficients:
@@ -397,7 +397,7 @@
 - type: entity
   abstract: true
   # No parent since it isn't an item
-  # must parent both this and the desired helmet base when using 
+  # must parent both this and the desired helmet base when using
   id: ClothingHeadSuitWithLightBase
   name: base hardsuit helmet with light
   categories: [ HideSpawnMenu ]

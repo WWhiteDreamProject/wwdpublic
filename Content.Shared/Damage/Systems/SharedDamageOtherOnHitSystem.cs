@@ -106,7 +106,7 @@ namespace Content.Shared.Damage.Systems
             }
 
             var modifiedDamage = _damageable.TryChangeDamage(args.Target, GetDamage(uid, component, args.Component.Thrower),
-                component.IgnoreResistances, origin: args.Component.Thrower, targetPart: args.TargetPart);
+                component.IgnoreResistances, origin: args.Component.Thrower);
 
             // Log damage only for mobs. Useful for when people throw spears at each other, but also avoids log-spam when explosions send glass shards flying.
             if (modifiedDamage != null)

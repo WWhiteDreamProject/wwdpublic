@@ -14,7 +14,6 @@
       types:
         Slash: 25 # WD edit 15 -> 25
         Structural: 20
-    clickPartDamageMultiplier: 1.5 # WD edit 3 -> 1.5
     lightRangeModifier: 1.2
     maxTargets: 1
     angle: 10

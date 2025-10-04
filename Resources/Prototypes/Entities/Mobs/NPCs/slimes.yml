@@ -113,11 +113,6 @@
     speechSounds: Slime
   - type: TypingIndicator
     proto: slime
-  - type: SurgeryTarget
-  - type: UserInterface
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: Fauna # Lavaland Change
 
 - type: entity

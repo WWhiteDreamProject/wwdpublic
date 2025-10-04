@@ -141,7 +141,7 @@
     damage:
       types:
         Heat: 1
-    targetParts: [ RightHand, LeftHand ]
+    # targetParts: [ RightHand, LeftHand ]
   - type: Speech
     speechVerb: Skeleton
   - type: Vocal

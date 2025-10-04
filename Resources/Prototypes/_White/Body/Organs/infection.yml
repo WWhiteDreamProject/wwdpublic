@@ -8,7 +8,6 @@
     sprite: _White/Mobs/Species/Xenomorph/organs.rsi
     state: embryon
   - type: Organ
-    slotId: xenomorph_larva
   - type: StaticPrice
     price: 2000
   - type: XenomorphInfection

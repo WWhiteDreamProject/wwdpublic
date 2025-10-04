@@ -131,6 +131,6 @@
     - PlasmamanSafe
     - Envirohelm
   - type: IgniteFromGasImmunity
-    parts:
-    - Head
+    # parts:
+    # - Head
 

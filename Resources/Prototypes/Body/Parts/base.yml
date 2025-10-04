@@ -1,3 +1,5 @@
+# TODO: Add descriptions (many)
+# TODO BODY: Part damage
 - type: entity
   id: BasePart
   parent: BaseItem
@@ -5,7 +7,7 @@
   abstract: true
   components:
   - type: Damageable
-    damageContainer: OrganicPart # Shitmed Change
+    damageContainer: Biological
   - type: BodyPart
   - type: Gibbable
   - type: ContainerContainer
@@ -16,43 +18,7 @@
     price: 100
   - type: Tag
     tags:
-      - Trash
-  # Shitmed Change Start
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/organ2.ogg
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 110
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Slash
-        damage: 150
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Heat
-        damage: 400 # WWDP
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawnInContainer: true
-        spawn:
-          Ash:
-            min: 1
-            max: 1
-      - !type:BurnBodyBehavior { }
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MeatLaserImpact
-  # Shitmed Change End
+    - Trash
 
 - type: entity
   id: BaseTorso
@@ -62,47 +28,6 @@
   components:
   - type: BodyPart
     partType: Torso
-    # Shitmed Change Start
-    toolName: "a torso"
-    containerName: "torso_slot"
-  - type: ContainerContainer
-    containers:
-      torso_slot: !type:ContainerSlot {}
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 400
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Slash
-        damage: 400
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Heat
-        damage: 1500 # WWDP same as MobDamageable
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawnInContainer: true
-        spawn:
-          Ash:
-            min: 1
-            max: 1
-      - !type:BurnBodyBehavior { }
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MeatLaserImpact
-    # Shitmed Change End
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 11
-    staminaCost: 12
 
 - type: entity
   id: BaseHead
@@ -112,49 +37,12 @@
   components:
   - type: BodyPart
     partType: Head
-    toolName: "a head" # Shitmed Change
     vital: true
   - type: Input
     context: "ghost"
   - type: Tag
     tags:
-      - Head
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 5
-    staminaCost: 5
-  # WWDP edit start
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 150
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Slash
-        damage: 250
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Heat
-        damage: 1500
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawnInContainer: true
-        spawn:
-          Ash:
-            min: 1
-            max: 1
-      - !type:BurnBodyBehavior { }
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MeatLaserImpact
-  # WWDP edit end
+    - Head
 
 - type: entity
   id: BaseLeftArm
@@ -165,12 +53,6 @@
   - type: BodyPart
     partType: Arm
     symmetry: Left
-    toolName: "a left arm" # Shitmed Change
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 7
-    staminaCost: 7
 
 - type: entity
   id: BaseRightArm
@@ -181,12 +63,6 @@
   - type: BodyPart
     partType: Arm
     symmetry: Right
-    toolName: "a right arm" # Shitmed Change
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 7
-    staminaCost: 7
 
 - type: entity
   id: BaseLeftHand
@@ -197,11 +73,6 @@
   - type: BodyPart
     partType: Hand
     symmetry: Left
-    toolName: "a left hand" # Shitmed Change
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 3
 
 - type: entity
   id: BaseRightHand
@@ -212,11 +83,6 @@
   - type: BodyPart
     partType: Hand
     symmetry: Right
-    toolName: "a right hand" # Shitmed Change
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 3
 
 - type: entity
   id: BaseLeftLeg
@@ -227,13 +93,7 @@
   - type: BodyPart
     partType: Leg
     symmetry: Left
-    toolName: "a left leg" # Shitmed Change
   - type: MovementBodyPart
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 8
-    staminaCost: 9
 
 - type: entity
   id: BaseRightLeg
@@ -244,13 +104,7 @@
   - type: BodyPart
     partType: Leg
     symmetry: Right
-    toolName: "a right leg" # Shitmed Change
   - type: MovementBodyPart
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 8
-    staminaCost: 9
 
 - type: entity
   id: BaseLeftFoot
@@ -261,11 +115,6 @@
   - type: BodyPart
     partType: Foot
     symmetry: Left
-    toolName: "a left foot" # Shitmed Change
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 4
 
 - type: entity
   id: BaseRightFoot
@@ -276,8 +125,3 @@
   - type: BodyPart
     partType: Foot
     symmetry: Right
-    toolName: "a right foot" # Shitmed Change
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 4

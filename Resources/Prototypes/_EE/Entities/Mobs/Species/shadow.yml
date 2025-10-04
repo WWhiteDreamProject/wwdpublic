@@ -58,8 +58,6 @@
         Heat: -0.14
       groups:
         Brute: -0.14
-  - type: Targeting
-  - type: SurgeryTarget
   - type: Bloodstream
     bloodReagent: FluorosulfuricAcid
   - type: LanguageSpeaker

@@ -102,7 +102,7 @@ public sealed partial class WeldbotWeldOperator : HTNOperator
             else if (weldableIsStructure)
             {
                 //If a structure explicitly has a tag to allow a Weldbot to fix it, trust that we can just do so no matter what the damage actually is.
-                _damageableSystem.ChangeAllDamage(target, damage, -StructureRepairAmount);
+                _damageableSystem.ChangeAllDamage(target,  damage, -StructureRepairAmount);
             }
             else
             {

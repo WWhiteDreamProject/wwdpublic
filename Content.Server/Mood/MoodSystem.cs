@@ -1,6 +1,5 @@
 ﻿using Content.Server.Chat.Managers;
 using Content.Server.Popups;
-using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Alert;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
@@ -434,9 +433,6 @@ public sealed class MoodSystem : EntitySystem
                 protoId = threshold.Key;
                 value = threshold.Value;
             }
-
-        if (HasComp<NoScreamComponent>(uid)) // WWDP painkillers
-            protoId = "HealthNoDamage";
 
         var ev = new MoodEffectEvent(protoId);
         RaiseLocalEvent(uid, ev);
