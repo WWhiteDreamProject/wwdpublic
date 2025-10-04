@@ -5,6 +5,7 @@
   - type: InteractionOutline
   - type: Physics
     bodyType: Static
+    canCollide: false
   - type: AnimationPlayer
   - type: Sprite
     drawdepth: Effects
